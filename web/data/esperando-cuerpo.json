@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-18T20:32:00.180Z",
+ "generado": "2026-10-18T21:01:29.788Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,7 +15,7 @@
      "fecha": "2026-10-18T19:37:05.000Z"
     }
    ],
-   "intentos": 2,
+   "intentos": 3,
    "motivo": "sin material",
    "maximo": 3
   },
@@ -52,36 +52,9 @@
      "fecha": "2026-10-18T14:13:00.000Z"
     }
    ],
-   "intentos": 3,
-   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"suiza\" y la fuente no",
+   "intentos": 4,
+   "motivo": "título o bajada: 1 problema (numero): el copete dice 50 y la fuente no lo dice",
    "maximo": 4
-  },
-  {
-   "id": "zfh85l",
-   "titulo": "Alemania y Francia ofrecen financiar la venta de tres submarinos a la Argentina, que costarían más de 3.000 millones de euros",
-   "copete": "El jefe del Estado Mayor Conjunto de las Fuerzas Armadas, Marcelo Dalle Nogare, confirmó que tanto Alemania como Francia ofrecieron financiar la totalidad de la compra de unos tres submarinos para la Argentina.",
-   "seccion": "Argentina",
-   "fecha": "2026-10-17T20:53:19.000Z",
-   "fuentes": [
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/politica/alemania-francia-ofrecen-financiar-venta-submarinos-argentina-costarian-3000-millones-euros_0_nHRWYxJgg9.html",
-     "fecha": "2026-10-17T20:53:19.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/alemania-y-francia-ofrecen-financiamiento-total-para-la-compra-de-tres-submarinos-a-la-argentina-por-mas-de-3-000-millones-de-euros_a6ad3f97c061994223a4ff234",
-     "fecha": "2026-10-17T22:53:47.262Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-17-21-27-0-alemania-y-francia-ofrecen-financiamiento-total-para-la-compra-de-tres-submarinos-a-la-argentina-por-mas-de-3-000-millones-de-euros",
-     "fecha": "2026-10-18T00:29:38.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
   },
   {
    "id": "1esapfz",
@@ -96,14 +69,14 @@
      "fecha": "2026-10-18T15:00:00.000Z"
     },
     {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/economia/el-seguro-desempleo-crecio-casi-30-ya-son-mas-145-mil-los-trabajadores-que-empezaron-cobrarlo-2026-n251920",
-     "fecha": "2026-10-18T17:05:00.000Z"
-    },
-    {
      "medio": "Ámbito",
      "enlace": "https://www.ambito.com/economia/el-seguro-desempleo-crecio-casi-30-los-despidos-industria-comercio-y-construccion-n6335063",
      "fecha": "2026-10-18T17:23:00.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/economia/el-seguro-desempleo-crecio-casi-30-ya-son-mas-145-mil-los-trabajadores-que-empezaron-cobrarlo-2026-n251920",
+     "fecha": "2026-10-18T17:05:00.000Z"
     }
    ],
    "intentos": 3,
@@ -136,6 +109,33 @@
      "medio": "El Día",
      "enlace": "https://www.eldia.com/deportes/veron-cuestiono-la-sancion-de-la-afa-y-apunto-contra-la-conmebol-por-la-habilitacion-de-marcos-rojo-deportes_1792261680",
      "fecha": "2026-10-17T18:28:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "zfh85l",
+   "titulo": "Alemania y Francia ofrecen financiar la venta de tres submarinos a la Argentina, que costarían más de 3.000 millones de euros",
+   "copete": "El jefe del Estado Mayor Conjunto de las Fuerzas Armadas, Marcelo Dalle Nogare, confirmó que tanto Alemania como Francia ofrecieron financiar la totalidad de la compra de unos tres submarinos para la Argentina.",
+   "seccion": "Argentina",
+   "fecha": "2026-10-17T20:53:19.000Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/politica/alemania-francia-ofrecen-financiar-venta-submarinos-argentina-costarian-3000-millones-euros_0_nHRWYxJgg9.html",
+     "fecha": "2026-10-17T20:53:19.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/alemania-y-francia-ofrecen-financiamiento-total-para-la-compra-de-tres-submarinos-a-la-argentina-por-mas-de-3-000-millones-de-euros_a6ad3f97c061994223a4ff234",
+     "fecha": "2026-10-17T22:53:47.262Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-10-17-21-27-0-alemania-y-francia-ofrecen-financiamiento-total-para-la-compra-de-tres-submarinos-a-la-argentina-por-mas-de-3-000-millones-de-euros",
+     "fecha": "2026-10-18T00:29:38.000Z"
     }
    ],
    "intentos": 1,

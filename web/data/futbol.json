@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-18T20:01:45.814Z",
+ "consultado": "2026-10-18T21:01:27.338Z",
  "equipos": [
   "9739",
   "3",
@@ -1020,8 +1020,8 @@
     "id": "401841623",
     "competencia": "liga",
     "inicio": "2026-10-18T21:00:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "1'",
     "local": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
@@ -1043,8 +1043,8 @@
     "id": "401841624",
     "competencia": "liga",
     "inicio": "2026-10-18T21:00:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "1'",
     "local": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
@@ -1414,14 +1414,14 @@
       "posicion": 7,
       "id": "11",
       "equipo": "Independiente",
-      "pj": 12,
+      "pj": 13,
       "g": 5,
-      "e": 3,
+      "e": 4,
       "p": 4,
-      "gf": 11,
-      "gc": 12,
+      "gf": 12,
+      "gc": 13,
       "dif": -1,
-      "pts": 18
+      "pts": 19
      },
      {
       "posicion": 8,
@@ -1692,14 +1692,14 @@
       "posicion": 13,
       "id": "15",
       "equipo": "Racing Club",
-      "pj": 12,
+      "pj": 13,
       "g": 3,
-      "e": 2,
+      "e": 3,
       "p": 7,
-      "gf": 13,
-      "gc": 19,
+      "gf": 14,
+      "gc": 20,
       "dif": -6,
-      "pts": 11
+      "pts": 12
      },
      {
       "posicion": 14,
@@ -1731,7 +1731,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-18T19:02:13.878Z",
+ "tablaCuando": "2026-10-18T21:01:27.338Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
