@@ -20099,14 +20099,28 @@
   "huella": "4d29c1a78147cfe3"
  },
  "i61qlm": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Rosario Central derrota 3 a 2 a Atlético Tucumán",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T04:01:37.873Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/i61qlm.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central derrota 3 a 2 a Atlético Tucumán en el Torneo Clausura",
+  "enlace": "https://www.lacapital.com.ar/ovacion/y-central-va-triunfo-locos-tucuman-que-lo-mantiene-la-pelea-el-titulo-n10287285.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/aa5c17562fbe5cb54ad1e2b284c40377/adjuntos/203/imagenes/103/476/0103476563/gggg4.jpeg",
+  "razon": "La foto C muestra claramente el festejo de los jugadores de Rosario Central en el campo de juego, corresponde perfectamente a la nota, no tiene marcas de medios agregadas y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-18T11:32:34.595Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central celebrando un gol en el campo de juego."
+  },
+  "huella": "498e4d4b3725071b"
  },
  "19natkj": {
   "intentado": true,
@@ -20291,5 +20305,54 @@
    "descripcion": "Juana Viale posando de frente con un vestido negro con diseño artesanal en el estudio."
   },
   "huella": "39adac2e1a935b99"
+ },
+ "8xi33h": {
+  "archivo": "fotos-notas/8xi33h.jpg",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Analizan las chances electorales de los outsiders frente al escenario político actual",
+  "enlace": "https://www.infobrisas.com/noticias/2026/10/18/111803-y-los-outsiders",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/10/infobrisas/images/02/81/87/2818717_3ada5c6c074ba026ce93af9fd2d2c7438f4deeb91f0d96208ad28e5f23029896/lg.webp?_v=v3-129",
+  "razon": "Es la única foto que corresponde directamente al tratamiento del tema político actual con buena nitidez y sin marcas de agua ni menores.",
+  "cuando": "2026-10-18T11:32:34.595Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre con brazos cruzados frente a una biblioteca."
+  },
+  "huella": "68c8c8d4cccc942c"
+ },
+ "1i802uu": {
+  "archivo": "fotos-notas/1i802uu.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Repasan las madres más icónicas de la televisión y el cine",
+  "enlace": "https://www.minutouno.com/espectaculos/dia-la-madre-las-madres-mas-importantes-la-ficcion-n6334971",
+  "imagenOriginal": "https://media.minutouno.com/p/b65b28931fc802d08a4f90f98bd7bea3/adjuntos/150/imagenes/043/711/0043711177/1200x675/smart/madres-ficcion.jpg",
+  "razon": "Es la única opción que ilustra el tema de la nota (madres del cine y la TV) y no es un gráfico de otro medio.",
+  "cuando": "2026-10-18T11:32:34.595Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": true,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage de tres escenas de cine y televisión mostrando a actrices icónicas en roles de madres."
+  },
+  "huella": "2eefcd953f1e9c9c"
  }
 }
