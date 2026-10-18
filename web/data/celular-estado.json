@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T17:32:06.307Z",
- "portada": 50,
- "archivo": 1261,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-18T18:02:39.148Z",
+ "portada": 53,
+ "archivo": 1264,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-18T17:32:06.752Z",
+  "generado": "2026-10-18T18:02:39.573Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -104,9 +104,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 37,
+    "segundos": 52,
     "notas": [
      {
       "id": "1gjmiur",
@@ -114,14 +114,19 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1amjlr2",
-      "titulo": "Realizan una jornada de iniciación al kayak en la Laguna La Brava",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "1h0p2e2",
       "titulo": "El cementerio municipal actualiza sus horarios desde el 26 de octubre",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "kx9cur",
+      "titulo": "El Teatro Municipal realiza el show solidario Todos por Rufino",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1amjlr2",
+      "titulo": "Realizan una jornada de iniciación al kayak en la Laguna La Brava",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -147,18 +152,17 @@
      "id": "xnrqaj",
      "titulo": "Erling Haaland comparte una foto tomando mate y agradece a futbolistas argentinos",
      "cuando": "2026-10-18T15:45:26.987Z"
+    },
+    {
+     "id": "1gjmiur",
+     "titulo": "La muestra Arte Fusión 2026 continúa abierta en el Museo Histórico",
+     "cuando": "2026-10-18T17:35:29.428Z"
     }
    ],
    "cola": [
     {
-     "id": "1gjmiur",
-     "titulo": "La muestra Arte Fusión 2026 continúa abierta en el Museo Histórico",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1amjlr2",
-     "titulo": "Realizan una jornada de iniciación al kayak en la Laguna La Brava",
+     "id": "kx9cur",
+     "titulo": "El Teatro Municipal realiza el show solidario Todos por Rufino",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -167,10 +171,22 @@
      "titulo": "El cementerio municipal actualiza sus horarios desde el 26 de octubre",
      "seccion": "Balcarce",
      "marcada": false
+    },
+    {
+     "id": "142fseb",
+     "titulo": "Lionel Messi agota entradas en Oviedo en 13 minutos",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "18lljrf",
+     "titulo": "Dos de cada tres personas agotan sus ingresos antes del día 20",
+     "seccion": "Economía",
+     "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-18T17:15:26.987Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-18T19:05:29.428Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
