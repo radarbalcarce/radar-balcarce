@@ -19964,9 +19964,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Una avalancha en la cordillera chilena causa cuatro muertos y cuatro heridos",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T03:31:42.181Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T05:01:25.087Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -20033,14 +20033,29 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "122vxjh": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/122vxjh.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "UAI Urquiza empata con un gol en contra desde mitad de cancha",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T03:31:42.181Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/futbol-ascenso/primera-b/insolito-gol-mitad-cancha-uai-urquiza_0_6831wLJlAi.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/17/6E1Kx-ryl_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra la acción del partido (el gol y el arquero) y no contiene marcas de agua ni logos de medios superpuestos.",
+  "cuando": "2026-10-18T05:01:25.087Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage de dos tomas del partido: un jugador pateando desde lejos y el arquero volando para atajar."
+  },
+  "huella": "4d29c1a78147cfe3"
  },
  "i61qlm": {
   "intentado": true,
@@ -20060,5 +20075,49 @@
   "cuando": "2026-10-18T04:01:37.873Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "1venq3u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lanús derrota 1 a 0 a Platense por el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T05:01:25.087Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "14hm5l4": {
+  "archivo": "fotos-notas/14hm5l4.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca viaja a Brasil con Velasco y Paredes para definir la Sudamericana",
+  "enlace": "https://www.ole.com.ar/boca-juniors/vascoarruabarrena-miguelmerentiel-alanvelasco-bombonera-riodejaneiro-boca-vascodagama-sebastianvilla_0_uVtvkhYj01.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/15/26JsAWI5J_2000x1500__1.jpg",
+  "razon": "Es la única foto de calidad óptima que corresponde perfectamente a la nota, sin marcas de agua sobreimpresas, menores ni problemas técnicos.",
+  "cuando": "2026-10-18T05:01:25.087Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca entrenando en el predio con vallas de entrenamiento"
+  },
+  "huella": "0d4c645c7c1c0b11"
+ },
+ "11512oi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Verón y Di Carlo forman una mesa de trabajo conjunta",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-10-18T05:01:25.087Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
