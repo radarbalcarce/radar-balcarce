@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T21:31:12.185Z",
- "portada": 62,
- "archivo": 1273,
+ "generado": "2026-10-18T22:01:42.216Z",
+ "portada": 66,
+ "archivo": 1276,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-18T21:31:12.502Z",
+  "generado": "2026-10-18T22:01:42.648Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-18T18:36:09.832Z"
    },
    {
@@ -53,7 +53,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -104,7 +104,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-18T18:36:09.832Z",
     "segundos": null,
     "notas": [
@@ -168,6 +168,11 @@
      "id": "1pudola",
      "titulo": "Ariel Bilbao asume como juez de tiro en los Juegos Bonaerenses",
      "cuando": "2026-10-18T19:35:31.715Z"
+    },
+    {
+     "id": "ncrv15",
+     "titulo": "Las ventas minoristas por el Día de la Madre retroceden 1,4%",
+     "cuando": "2026-10-18T21:35:25.409Z"
     }
    ],
    "cola": [
@@ -178,14 +183,14 @@
      "marcada": false
     },
     {
-     "id": "ncrv15",
-     "titulo": "Las ventas minoristas por el Día de la Madre retroceden 1,4%",
-     "seccion": "Economía",
+     "id": "wl6575",
+     "titulo": "Estudiantes y San Lorenzo empatan 1 a 1 en el estadio UNO",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-18T21:05:31.715Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-18T23:05:25.409Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
