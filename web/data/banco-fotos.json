@@ -19840,9 +19840,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca viaja a Brasil para definir la semifinal ante Vasco da Gama",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T02:01:55.705Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T03:31:42.181Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -19964,8 +19964,8 @@
   "origen": "ninguna",
   "titulo": "Una avalancha en la cordillera chilena causa cuatro muertos y cuatro heridos",
   "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T02:01:55.705Z",
-  "intentos": 1,
+  "cuando": "2026-10-18T03:31:42.181Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -20018,6 +20018,27 @@
    "corresponde": "si",
    "descripcion": "Messi celebra un gol abrazado a sus compañeros de equipo en la cancha."
   },
-  "huella": "8d8595392921494d"
+  "huella": "8d8595392921494d",
+  "ausenteDesde": "2026-10-18T03:31:53.436Z"
+ },
+ "5aer7x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Analizan los desafíos de la maternidad y la baja natalidad",
+  "razon": "La foto A muestra a una menor reconocible y la foto B es una imagen de stock (banco de imágenes), por lo que ninguna cumple con los requisitos de publicación.",
+  "cuando": "2026-10-18T03:31:42.181Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "122vxjh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "UAI Urquiza empata con un gol en contra desde mitad de cancha",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T03:31:42.181Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
