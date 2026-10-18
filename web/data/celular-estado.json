@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T14:01:38.248Z",
- "portada": 44,
+ "generado": "2026-10-18T14:31:34.195Z",
+ "portada": 45,
  "archivo": 1253,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-18T14:01:38.681Z",
+  "generado": "2026-10-18T14:31:34.375Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-18T14:07:03.413Z"
    },
    {
     "nombre": "noticia2",
@@ -84,8 +84,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 32,
+    "salio": "2026-10-18T14:07:03.413Z",
+    "segundos": null,
     "notas": [
      {
       "id": "177ws3g",
@@ -121,17 +121,16 @@
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "177ws3g",
      "titulo": "La UNLP registra una caída en la construcción y el sector inmobiliario",
-     "seccion": "Economía",
-     "marcada": false
+     "cuando": "2026-10-18T14:05:27.217Z"
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-17T20:05:55.047Z",
+   "cola": [],
+   "cupo": 4,
+   "proximoDesde": "2026-10-18T15:35:27.217Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
