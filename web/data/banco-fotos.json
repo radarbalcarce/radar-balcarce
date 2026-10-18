@@ -21184,9 +21184,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Diego Cabrera advierte sobre la crisis alimentaria y la falta de pagos",
-  "razon": "sin fotos para comparar (se probó una foto libre de \"Diego Cabrera\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
-  "cuando": "2026-10-18T22:01:22.960Z",
-  "intentos": 1,
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-10-18T23:06:23.914Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "2qoyht": {
@@ -21248,5 +21248,101 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "97c549615b12a3a1"
+ },
+ "1fmeyaa": {
+  "archivo": "fotos-notas/1fmeyaa.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lionel Messi compra un catamarán de lujo para su empresa náutica",
+  "enlace": "https://www.minutouno.com/espectaculos/el-lujoso-yate-que-adquirio-lionel-messi-cuatro-camarotes-sauna-y-espacio-motos-acuaticas-n6335104",
+  "imagenOriginal": "https://media.minutouno.com/p/9cb40f5c44d7dc35daf487eb4c79e979/adjuntos/150/imagenes/043/712/0043712154/1200x675/smart/el-lujoso-yate-leonel-messi.jpg",
+  "razon": "Muestra claramente el catamarán de lujo sin elementos gráficos agregados ni recortes molestos.",
+  "cuando": "2026-10-18T23:06:23.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista trasera del catamarán de lujo en el mar mostrando la cubierta y popa."
+  },
+  "huella": "e71939356c360f64"
+ },
+ "hi8g69": {
+  "archivo": "fotos-notas/hi8g69.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en La Plata por el Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/estudiantes-san-lorenzo-vivo-torneo-clausura_0_U43ROvDZcs.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/18/XkRsZ3X7V_2000x1500__1.jpg",
+  "razon": "La foto A muestra el festejo de gol de San Lorenzo, corresponde perfectamente a la nota, tiene excelente nitidez y encuadre, y no cuenta con marcas de agua sobreimpresas ni otros impedimentos.",
+  "cuando": "2026-10-18T23:06:23.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de San Lorenzo festejando un gol en grupo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de San Lorenzo celebran un gol en el partido contra Estudiantes."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "931e96bd0e3a6b6f"
+ },
+ "jygk9m": {
+  "archivo": "fotos-notas/jygk9m.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes de Río Cuarto le gana 2 a 1 a Aldosivi",
+  "enlace": "https://www.elmarplatense.com/aldosivi-va-por-una-victoria-vital-ante-estudiantes-de-rio-cuarto-para-mantener-la-ilusion",
+  "imagenOriginal": "https://n2.cdnartic.ar/nX2f6qt2JPG6Sub5HaBENqkVN0M=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/aldosivi_2.webp",
+  "razon": "Es una fotografía limpia de acción de juego, sin marcas de agua añadidas, menores ni elementos gráficos.",
+  "cuando": "2026-10-18T23:06:23.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón en el césped durante un partido de fútbol",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol disputando el balón en una cancha con público en las gradas."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6e66262929491d35"
  }
 }

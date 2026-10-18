@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T22:31:13.781Z",
+ "generado": "2026-10-18T23:06:56.586Z",
  "portada": 65,
- "archivo": 1276,
- "esperandoCuerpo": 5,
+ "archivo": 1279,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-18T22:31:14.207Z",
+  "generado": "2026-10-18T23:06:57.006Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -63,7 +63,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -175,14 +175,7 @@
      "cuando": "2026-10-18T21:35:25.409Z"
     }
    ],
-   "cola": [
-    {
-     "id": "18lljrf",
-     "titulo": "Dos de cada tres personas agotan sus ingresos antes del día 20",
-     "seccion": "Economía",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 0,
    "proximoDesde": "2026-10-18T23:05:25.409Z",
    "porDia": 5,
