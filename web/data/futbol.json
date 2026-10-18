@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-18T18:02:36.191Z",
+ "consultado": "2026-10-18T18:32:29.365Z",
  "equipos": [
   "9739",
   "3",
@@ -985,11 +985,11 @@
     "competencia": "liga",
     "inicio": "2026-10-18T17:45:00.000Z",
     "estado": "en-juego",
-    "minuto": "18'",
+    "minuto": "45'+3'",
     "local": {
      "id": "15",
      "nombre": "Racing Club",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "11",
@@ -997,7 +997,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Matías Zaracho",
+      "minuto": "29'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Presidente Perón (Cilindro de Avellaneda)",
     "fase": null,
     "partidoDeLaSerie": null,
