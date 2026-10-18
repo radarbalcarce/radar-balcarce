@@ -20095,8 +20095,8 @@
   "origen": "ninguna",
   "titulo": "Lanús derrota 1 a 0 a Platense por el Torneo Clausura",
   "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T05:01:25.087Z",
-  "intentos": 1,
+  "cuando": "2026-10-18T06:01:43.945Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -20128,10 +20128,20 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Verón y Di Carlo forman una mesa de trabajo conjunta",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-10-18T05:01:25.087Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T06:01:43.945Z",
+  "intentos": 2,
   "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "xaer6r": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Axel Kicillof encabeza un acto del peronismo y pide reorganizar la oposición",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-10-18T06:01:43.945Z",
+  "intentos": 1,
+  "fuentes": 8,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
