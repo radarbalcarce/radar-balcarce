@@ -19834,5 +19834,45 @@
    "descripcion": "Tres submarinos navegando en el mar."
   },
   "huella": "149591b2769c2c2f"
+ },
+ "1yvh3b4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca viaja a Brasil para definir la semifinal ante Vasco da Gama",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T01:01:51.268Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ep33be": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lanús vence 1 a 0 a Platense en Vicente López y supera a River",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T01:01:51.268Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "d4w6b0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Inter Miami derrota a Atlanta United con goles de Messi y Berterame",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T01:01:51.268Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1684fj7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Los días de spa en Buenos Aires cuestan desde $80.000 por el Día de la Madre",
+  "razon": "Ambas fotos son imágenes de stock (banco de imágenes) y no muestran el hecho real cubierto por los medios.",
+  "cuando": "2026-10-18T01:01:51.268Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
