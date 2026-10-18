@@ -6909,6 +6909,92 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "facebook/historia/1093503346794150",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "clima-manana",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T10:07:08.568Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/reel/1839123717285746",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "clima-manana",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T10:07:31.648Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 3334,
+    "fb_reels_total_plays": 3887,
+    "post_video_avg_time_watched": 4907,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 12
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122112858867495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "dg5er4",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T11:05:51.200Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 4,
+    "post_total_media_view_unique": 4,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18205441081375493",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "dg5er4",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T11:06:04.521Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {
+    "reach": 2,
+    "views": 4,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "instagram/historia/18027282701698531",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "farmacia",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T22:06:54.750Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18117418277101954",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "clima-noche",
+   "dia": "2026-10-17",
+   "cuando": "2026-10-17T23:07:01.369Z",
+   "medida": "2026-10-18T12:00:29.641Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
   }
  ]
 }
