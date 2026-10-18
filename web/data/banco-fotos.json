@@ -19929,10 +19929,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Rosario Central vence 3 a 2 a Atlético Tucumán por el Torneo Clausura",
-  "razon": "La única imagen disponible es una captura de pantalla de un video de TyC Sports, no una fotografía del partido.",
-  "cuando": "2026-10-18T02:01:55.705Z",
-  "intentos": 1,
-  "fuentes": 3,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T04:01:37.873Z",
+  "intentos": 2,
+  "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1qs7g84": {
@@ -20040,5 +20040,24 @@
   "intentos": 1,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "i61qlm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rosario Central derrota 3 a 2 a Atlético Tucumán",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T04:01:37.873Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "19natkj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cartas de lectores debaten sobre el Día de la Madre y la educación",
+  "razon": "Ninguna foto sirve: la primera es solo una placa gráfica con el logo del medio y la segunda es una ilustración en blanco y negro.",
+  "cuando": "2026-10-18T04:01:37.873Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
