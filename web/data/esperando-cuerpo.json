@@ -1,7 +1,24 @@
 {
- "generado": "2026-10-18T19:32:24.868Z",
+ "generado": "2026-10-18T20:01:48.095Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1yt97fz",
+   "titulo": "Buscan a un joven de 27 años que está desaparecido desde el martes",
+   "copete": "Según una publicación difundida en redes sociales, no se tienen noticias de él desde el martes 13 de octubre. Solicitan colaboración para dar con su paradero.",
+   "seccion": "Policiales",
+   "fecha": "2026-10-18T19:37:05.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/buscan-a-un-joven-de-27-anos-que-esta-desaparecido-desde-el-martes",
+     "fecha": "2026-10-18T19:37:05.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "sin material",
+   "maximo": 3
+  },
   {
    "id": "apgyp2",
    "titulo": "Javier Milei, EN VIVO: \"Occidente está en peligro\", el Presidente recordó su duro discurso en Davos tras los incidentes en París",
@@ -22,7 +39,7 @@
     {
      "medio": "TN (Todo Noticias)",
      "enlace": "https://tn.com.ar/politica/2026/10/18/en-medio-de-los-disturbios-en-francia-javier-milei-recordo-su-discurso-en-davos-de-2024-occidente-esta-en-peligro/",
-     "fecha": "2026-10-18T19:24:09.000Z"
+     "fecha": "2026-10-18T19:44:25.000Z"
     },
     {
      "medio": "Radio Mitre",
@@ -35,8 +52,8 @@
      "fecha": "2026-10-18T14:13:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 50 y la fuente no lo dice",
+   "intentos": 2,
+   "motivo": "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 38 palabras",
    "maximo": 4
   },
   {
