@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-18T23:06:56.586Z",
+ "generado": "2026-10-18T23:32:28.350Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -17,23 +17,6 @@
    ],
    "intentos": 3,
    "motivo": "sin material",
-   "maximo": 3
-  },
-  {
-   "id": "1k3lvbc",
-   "titulo": "La Universidad FASTA ofrecerá una capacitación gratuita sobre finanzas personales y familiares",
-   "copete": "La propuesta se realizará el jueves 22 de octubre, a las 18, en el salón AM, ubicado en calle 22 entre 21 y 23. Estará a cargo del contador y magíster Ariel Ferrari y estará destinada al público en general, sin necesidad de contar con conocimientos previos. La actividad requiere…",
-   "seccion": "Educación",
-   "fecha": "2026-10-18T23:00:57.775Z",
-   "fuentes": [
-    {
-     "medio": "Diario La Vanguardia",
-     "enlace": "https://www.diariolavanguardia.com/noticias/45113-la-universidad-fasta-ofrecera-una-capacitacion-gratuita-sobre-finanzas-personales-y-familiares-en-balcarce/",
-     "fecha": null
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 76 palabras",
    "maximo": 3
   },
   {
@@ -64,8 +47,8 @@
      "fecha": "2026-10-18T22:41:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (forma): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones quedan 80 palabras",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 36 palabras",
    "maximo": 3
   },
   {
@@ -91,11 +74,6 @@
      "fecha": "2026-10-18T19:44:25.000Z"
     },
     {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/politica/javier-milei-davos-occidente-peligro-francia/",
-     "fecha": "2026-10-18T22:18:00.000Z"
-    },
-    {
      "medio": "Radio Mitre",
      "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-recordo-su-discurso-en-davos-en-medio-de-los-graves-disturbios-en-francia-reconoceran-que-otra-vez-acerte/",
      "fecha": "2026-10-18T18:54:40.000Z"
@@ -104,6 +82,11 @@
      "medio": "C5N",
      "enlace": "https://www.c5n.com/politica/javier-milei-las-manifestaciones-francia-reconoceran-que-otra-vez-acerte-n251912",
      "fecha": "2026-10-18T14:13:00.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/politica/javier-milei-davos-occidente-peligro-francia/",
+     "fecha": "2026-10-18T22:18:00.000Z"
     }
    ],
    "intentos": 4,

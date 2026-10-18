@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T23:06:56.586Z",
- "portada": 65,
- "archivo": 1279,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-18T23:32:28.350Z",
+ "portada": 64,
+ "archivo": 1280,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-18T23:06:57.006Z",
+  "generado": "2026-10-18T23:32:28.726Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-18T23:06:51.886Z"
    },
    {
     "nombre": "podcast",
@@ -132,7 +132,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 31,
+    "segundos": 40,
     "notas": [
      {
       "id": "1pudola",
@@ -143,6 +143,11 @@
       "id": "kx9cur",
       "titulo": "El Teatro Municipal realiza el show solidario Todos por Rufino",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1k3lvbc",
+      "titulo": "La Universidad FASTA dicta un taller gratuito de finanzas personales",
+      "seccion": "Educación"
      }
     ]
    }
@@ -175,7 +180,14 @@
      "cuando": "2026-10-18T21:35:25.409Z"
     }
    ],
-   "cola": [],
+   "cola": [
+    {
+     "id": "hi8g69",
+     "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en La Plata por el Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    }
+   ],
    "cupo": 0,
    "proximoDesde": "2026-10-18T23:05:25.409Z",
    "porDia": 5,
