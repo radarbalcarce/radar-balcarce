@@ -17054,7 +17054,8 @@
   "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/claudio-chiqui-tapia-titular-de-la-C4T5IE26PZBJJLBE4ENL3HAW6E.jpg?auth=0d3f08ccd09f9da5911195bc15626b2ba1fd622acb4e84937191fa392c60c0f3&width=1200&height=800&quality=70&smart=true",
   "razon": "Es la mejor foto en primer plano de Claudio Tapia con buena nitidez y sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-16T15:44:44.307Z",
-  "huella": "37333b3231650404"
+  "huella": "37333b3231650404",
+  "ausenteDesde": "2026-10-18T04:31:20.066Z"
  },
  "4p4uuv": {
   "archivo": "fotos-notas/4p4uuv.jpg",
@@ -19919,9 +19920,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Intensifican la búsqueda de dos peones en el río Paraná",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T03:01:40.598Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T04:31:16.212Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
