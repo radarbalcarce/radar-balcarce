@@ -19874,5 +19874,25 @@
   "intentos": 1,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1irxvjh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Otermín compara la situación judicial de Cristina con Perón",
+  "razon": "La única foto disponible corresponde a un acto del Partido Justicialista (Día de la Lealtad) y no muestra a Otermín ni el hecho específico de la nota, por lo que no es apta para ilustrar el artículo.",
+  "cuando": "2026-10-18T01:31:49.390Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "qqaxwm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Intensifican la búsqueda de dos peones en el río Paraná",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T01:31:49.390Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
