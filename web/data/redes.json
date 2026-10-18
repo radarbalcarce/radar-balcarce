@@ -6290,19 +6290,19 @@
     }
   },
   "problemas": {
-    "2026-10-14/podcast/instagram/historia-del-reel": {
-      "pieza": "podcast",
-      "red": "instagram",
-      "parte": "historia-del-reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-15T00:05:49.144Z"
-    },
     "2026-10-15/noticia1/instagram/historia-del-reel": {
       "pieza": "noticia1",
       "red": "instagram",
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-15T13:08:46.203Z"
+    },
+    "2026-10-18/noticia2/instagram/reel": {
+      "pieza": "noticia2",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-18T18:06:09.735Z"
     }
   },
   "facebookFoto": {
