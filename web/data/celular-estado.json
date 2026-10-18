@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T13:31:48.154Z",
- "portada": 45,
- "archivo": 1252,
- "esperandoCuerpo": 2,
+ "generado": "2026-10-18T14:01:38.248Z",
+ "portada": 44,
+ "archivo": 1253,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-18T13:31:48.542Z",
+  "generado": "2026-10-18T14:01:38.681Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-18T10:06:23.582Z"
    },
    {
@@ -85,8 +85,19 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 32,
+    "notas": [
+     {
+      "id": "177ws3g",
+      "titulo": "La UNLP registra una caída en la construcción y el sector inmobiliario",
+      "seccion": "Economía"
+     },
+     {
+      "id": "1o3t45b",
+      "titulo": "La concesionaria avanza con la demarcación sobre la Ruta 226",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
@@ -111,7 +122,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "177ws3g",
+     "titulo": "La UNLP registra una caída en la construcción y el sector inmobiliario",
+     "seccion": "Economía",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-17T20:05:55.047Z",
    "porDia": 5,
