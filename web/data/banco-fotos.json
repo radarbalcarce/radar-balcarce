@@ -19919,9 +19919,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Intensifican la búsqueda de dos peones en el río Paraná",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T01:31:49.390Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-18T03:01:40.598Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -19992,6 +19992,32 @@
    "corresponde": "si",
    "descripcion": "Messi abraza a Casemiro en el banco de suplentes de Inter Miami."
   },
-  "huella": "f0909ca44cad7170"
+  "huella": "f0909ca44cad7170",
+  "ausenteDesde": "2026-10-18T03:01:49.735Z"
+ },
+ "1h4dkdp": {
+  "archivo": "fotos-notas/1h4dkdp.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Inter Miami le gana 3 a 1 a Atlanta United con dos goles de Messi",
+  "enlace": "https://www.infobae.com/deportes/2026/10/17/el-inter-miami-de-lionel-messi-visitara-a-atlanta-united-por-la-mls-hora-tv-y-probables-formaciones/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/ZHV27XV6KBETHO3SBGHBZT72PU.jpg?auth=c2cfb8e1eaa444b6679430345b9022f572df03cb59b71e7851e8ea350e635892&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única opción disponible, muestra claramente a Messi celebrando un gol con sus compañeros, tiene buena nitidez y no presenta marcas de agua ni menores de edad.",
+  "cuando": "2026-10-18T03:01:40.598Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Messi celebra un gol abrazado a sus compañeros de equipo en la cancha."
+  },
+  "huella": "8d8595392921494d"
  }
 }

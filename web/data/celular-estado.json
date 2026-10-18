@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T02:31:33.170Z",
- "portada": 71,
+ "generado": "2026-10-18T03:01:49.751Z",
+ "portada": 68,
  "archivo": 1256,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-18T02:31:33.619Z",
+  "generado": "2026-10-18T03:01:50.208Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-17T10:06:48.991Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-17T12:07:11.409Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,8 +33,8 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-17T13:07:32.466Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -43,18 +43,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-17T18:07:30.250Z"
-   },
-   {
-    "nombre": "utiles",
-    "tipo": "reel",
-    "hora": "17:00",
-    "que": "Los teléfonos útiles",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-17T20:06:58.325Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +53,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-17T22:06:54.750Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +63,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-17T23:07:01.369Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +73,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-18T00:07:24.145Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,113 +83,34 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-17T13:07:32.466Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "19nga6r",
-      "titulo": "Santiago Gilligan busca sumar sus primeros minutos en la Serie A de Italia",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "rwxsr5",
-      "titulo": null,
-      "seccion": null
-     },
-     {
-      "id": "1w9aja0",
-      "titulo": "La organización designa los árbitros para la primera fecha del torneo",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1edq6ii",
-      "titulo": "Una vecina dona un riñón a su hija y transitan la recuperación",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-17T18:07:30.250Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1ae6llz",
-      "titulo": "Dibu Martínez sufre un fuerte golpe en la cabeza y sale en camilla",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "wrghr",
-      "titulo": "Detallan la ubicación de cada centro de salud y sala",
-      "seccion": "Salud"
-     },
-     {
-      "id": "1e6e9wy",
-      "titulo": "Docentes y estatales bonaerenses discuten una nueva oferta salarial",
-      "seccion": "Economía"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-18T00:07:24.145Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "mcgl08",
-      "titulo": "Ciudadanos italianos tienen plazo hasta noviembre para votar en el COMITES",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1kx30ao",
-      "titulo": "Peregrinación une la Parroquia Santa María con Los Pinos",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1kgatx3",
-      "titulo": "Virginia Aparicio presenta los resultados del proyecto SPRINT sobre plaguicidas",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "dg5er4",
-     "titulo": "La Plata concentra propuestas culturales y deportivas para el sábado",
-     "cuando": "2026-10-17T11:05:51.200Z"
-    },
-    {
-     "id": "daz0ef",
-     "titulo": "Revelan la verdadera falla del auto de Carlos Reutemann en 1981",
-     "cuando": "2026-10-17T12:45:48.541Z"
-    },
-    {
-     "id": "19nga6r",
-     "titulo": "Santiago Gilligan busca sumar sus primeros minutos en la Serie A de Italia",
-     "cuando": "2026-10-17T14:35:51.990Z"
-    },
-    {
-     "id": "1kgatx3",
-     "titulo": "Virginia Aparicio presenta los resultados del proyecto SPRINT sobre plaguicidas",
-     "cuando": "2026-10-17T16:35:59.059Z"
-    },
-    {
-     "id": "wrghr",
-     "titulo": "Detallan la ubicación de cada centro de salud y sala",
-     "cuando": "2026-10-17T18:35:55.047Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "1qs7g84",
@@ -208,7 +119,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-17T20:05:55.047Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
