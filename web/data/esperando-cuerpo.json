@@ -1,7 +1,61 @@
 {
- "generado": "2026-10-18T18:32:32.209Z",
+ "generado": "2026-10-18T19:02:17.403Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1m2ojdy",
+   "titulo": "El Gobierno demora la reforma política por falta de acuerdos en el Senado y revisa su estrategia para las elecciones de 2027",
+   "copete": "La reforma política ingresó en una etapa de revisión tras la decisión oficialista de postergar su tratamiento parlamentario . La Casa Rosada optó por frenar la reactivación de la Comisión de Asuntos Constitucionales en la Cámara alta al constatar que no reúne los votos…",
+   "seccion": "Política",
+   "fecha": "2026-10-18T14:26:41.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/politica/2026/10/18/el-gobierno-demora-la-reforma-politica-por-falta-de-acuerdos-en-el-senado-y-revisa-su-estrategia-para-las-elecciones-de-2027/",
+     "fecha": "2026-10-18T14:26:41.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/politica/el-gobierno-no-consigue-los-votos-para-la-reforma-politica-y-recalcula-su-estrategia-para-2027/",
+     "fecha": "2026-10-18T18:17:09.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/politica/2026/10/18/la-reforma-politica-se-demora-el-gobierno-no-consigue-los-votos-y-cambia-su-estrategia-para-2027/",
+     "fecha": "2026-10-18T17:07:53.000Z"
+    },
+    {
+     "medio": "0221",
+     "enlace": "https://www.0221.com.ar/nacional/el-gobierno-demora-la-reforma-politica-y-negocia-suspender-las-paso-y-modificar-la-boleta-unica-n135996",
+     "fecha": "2026-10-18T18:45:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 2 problemas (forma, numero): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "maximo": 3
+  },
+  {
+   "id": "129pubj",
+   "titulo": "Fiesta del Fiambre Casero: esperan más de 400 personas para la cena",
+   "copete": "Por Redacción Grupo La Verdad Agustín Roca se prepara para la 45º edición de la Fiesta Provincial del Fiambre Casero, que se celebra cada año en dicha localidad en el mes de noviembre, con entrada libre y gratuita. Para la cena de la tradicional celebración gastronómica se…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-18T10:51:13.000Z",
+   "fuentes": [
+    {
+     "medio": "La Verdad",
+     "enlace": "https://laverdadonline.com/fiesta-del-fiambre-casero-esperan-mas-de-400-personas-para-la-cena/",
+     "fecha": "2026-10-18T10:51:13.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/sociedad/fiesta-del-fiambre-casero-cuando-y-donde-es-el-evento-con-entrada-libre-y-gratuita/",
+     "fecha": "2026-10-18T18:40:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 63 palabras",
+   "maximo": 3
+  },
   {
    "id": "zfh85l",
    "titulo": "Alemania y Francia ofrecen financiar la venta de tres submarinos a la Argentina, que costarían más de 3.000 millones de euros",
@@ -52,8 +106,8 @@
      "fecha": "2026-10-18T17:05:00.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (promesa): el título dice 30 y el cuerpo no lo explica; sin esas oraciones quedan 115 palabras",
+   "intentos": 3,
+   "motivo": "cuerpo: 2 problemas (promesa): el título dice 30 y el cuerpo no lo explica; sin esas oraciones quedan 138 palabras",
    "maximo": 3
   },
   {
