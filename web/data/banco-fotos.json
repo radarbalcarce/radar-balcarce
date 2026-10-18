@@ -16493,7 +16493,8 @@
   "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-15-21-32-31Udocba.JPG",
   "razon": "Es la única foto disponible, tiene buena nitidez, muestra a una adulta sin marcas de agua ni menores.",
   "cuando": "2026-10-15T21:36:41.069Z",
-  "huella": "3268e06cc0d8a1b6"
+  "huella": "3268e06cc0d8a1b6",
+  "ausenteDesde": "2026-10-18T11:01:50.676Z"
  },
  "1j6q0tv": {
   "medio": "Radio Mitre",
@@ -19987,14 +19988,28 @@
   "huella": "a7f9251571397921"
  },
  "a7pz5a": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/a7pz5a.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Una avalancha en la cordillera chilena causa cuatro muertos y cuatro heridos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T05:01:25.087Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.losandes.com.ar/mundo/chile-una-avalancha-dejo-tres-muertos-y-varios-heridos-ellos-una-argentina-n6010693",
+  "imagenOriginal": "https://media.losandes.com.ar/p/0fb2befb2dc24773bd05e98321c117d4/adjuntos/368/imagenes/100/757/0100757911/1200x675/smart/avalancha-portillo.png",
+  "razon": "Muestra claramente el lugar de la avalancha y el helicóptero de rescate sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-18T11:01:36.643Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea nevada con un helicóptero y rescatistas en la zona de la avalancha."
+  },
+  "huella": "b11828a56ebba16b"
  },
  "1w09gtm": {
   "archivo": "fotos-notas/1w09gtm.jpg",
@@ -20228,5 +20243,53 @@
    "descripcion": "Músico tocando el teclado en una sala con posters de fondo."
   },
   "huella": "cae5e46361130469"
+ },
+ "j2sh1r": {
+  "archivo": "fotos-notas/j2sh1r.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Plata programa diversas propuestas culturales y deportivas para la jornada",
+  "enlace": "https://www.eldia.com/septimo-dia/la-agenda-de-espectaculos-para-disfrutar-con-todo-este-domingo-en-la-plata-septimo-dia_1792293451",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792294234434.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto que corresponde a la propuesta cultural de la nota y cumple con todos los requisitos sin marcas ni menores.",
+  "cuando": "2026-10-18T11:01:36.643Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuatro actores en una puesta en escena teatral en un espacio cerrado."
+  },
+  "huella": "3ebe6d6756a5e8c8"
+ },
+ "4ulhcx": {
+  "archivo": "fotos-notas/4ulhcx.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Juana Viale encabeza el ciclo televisivo con un diseño artesanal",
+  "enlace": "https://www.infobae.com/teleshow/2026/10/18/el-brillante-look-que-eligio-juana-viale-para-reemplazar-nuevamente-a-mirtha-legrand-lentejuelas-y-bordado-a-mano/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/42OIY7MRIZEZVHNIEALA536ADE.png?auth=1ea25602329c07723654113ca0b7f7572f99590771fc603daeb049c9d5d6610b&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única foto de la lista que cumple con todos los requisitos editoriales y de calidad, mostrando claramente a Juana Viale con su diseño artesanal y sin marcas ni menores.",
+  "cuando": "2026-10-18T11:01:36.643Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juana Viale posando de frente con un vestido negro con diseño artesanal en el estudio."
+  },
+  "huella": "39adac2e1a935b99"
  }
 }
