@@ -19349,7 +19349,8 @@
    "corresponde": "si",
    "descripcion": "Lanchas de la Prefectura y Policía de Corrientes en el río."
   },
-  "huella": "3bbee742a39b8ed8"
+  "huella": "3bbee742a39b8ed8",
+  "ausenteDesde": "2026-10-18T07:31:52.027Z"
  },
  "u6k0o2": {
   "archivo": "fotos-notas/u6k0o2.jpg",
@@ -20093,14 +20094,28 @@
   "fuentes": 2
  },
  "1venq3u": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1venq3u.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Lanús derrota 1 a 0 a Platense por el Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T06:01:43.945Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.diariopopular.com.ar/deportes/lanus-vencio-platense-y-desplazo-river-las-copas-internacionales-n925084",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/02ee6db2677a397c9fa2002e135521cd/adjuntos/143/imagenes/008/260/0008260895/1200x675/smart/granate.jpg",
+  "razon": "La foto C muestra nítidamente a los jugadores festejando en el partido, sin marcas agregadas, menores ni defectos de formato.",
+  "cuando": "2026-10-18T07:31:18.874Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Lanús celebrando un gol en la cancha"
+  },
+  "huella": "a7aba9551555552f"
  },
  "14hm5l4": {
   "archivo": "fotos-notas/14hm5l4.jpg",
@@ -20127,14 +20142,40 @@
   "huella": "0d4c645c7c1c0b11"
  },
  "11512oi": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/11512oi.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Verón y Di Carlo forman una mesa de trabajo conjunta",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-18T06:01:43.945Z",
-  "intentos": 2,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/futbol-primera/river-plate-estudiantes-juan-sebastian-veron_0_8gHhAMczpD.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/13/06Jz76FFx_2000x1500__1.jpg",
+  "razon": "Es la única foto que muestra a los dos protagonistas juntos en buena calidad, sin marcas agregadas, sin menores y sin elementos gráficos superpuestos.",
+  "cuando": "2026-10-18T07:31:18.874Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Di Carlo y Verón sentados juntos en una mesa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos hombres sentados en una mesa de trabajo, uno con traje y el otro con camisa negra y cardigan."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8286868e4e4e4f4e"
  },
  "xaer6r": {
   "intentado": true,
@@ -20145,5 +20186,14 @@
   "intentos": 1,
   "fuentes": 8,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "heuoyy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Capital Federal registra una temperatura de 8° y cielo despejado",
+  "razon": "Ninguna de las fotos cumple con los requisitos de la nota o presentan problemas de correspondencia o formato.",
+  "cuando": "2026-10-18T07:31:18.874Z",
+  "intentos": 1,
+  "fuentes": 35
  }
 }
