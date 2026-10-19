@@ -22098,5 +22098,38 @@
   "cuando": "2026-10-19T12:02:29.458Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "16tgrhv": {
+  "archivo": "fotos-notas/16tgrhv.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
+  "enlace": "https://eldiariobalcarce.com.ar/rodrigo-cunqueiro-ante-un-desafio-internacional-muy-contento-con-esta-oportunidad-me-estoy-preparando-661",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-19-12-1-40Rodrigo_Cunqueiro__3_.jpeg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no tiene marcas agregadas ni menores y corresponde a la nota.",
+  "cuando": "2026-10-19T12:31:32.564Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rodrigo Cunqueiro parado en la calle con el atardecer de fondo"
+  },
+  "huella": "909191818e8e8783"
+ },
+ "1w9sag8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de El Diario Balcarce (un menor): no se elige ninguna.",
+  "cuando": "2026-10-19T12:31:32.564Z",
+  "intentos": 1,
+  "fuentes": 1
  }
 }

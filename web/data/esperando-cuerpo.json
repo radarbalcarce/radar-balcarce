@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-19T12:03:49.260Z",
+ "generado": "2026-10-19T12:31:42.888Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,25 +15,77 @@
      "fecha": "2026-10-19T11:54:08.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 4 y la fuente no lo dice",
+   "intentos": 2,
+   "motivo": "título o bajada: 2 problemas (numero, fecha): el copete dice 4 y la fuente no lo dice",
    "maximo": 3
   },
   {
-   "id": "1w9sag8",
-   "titulo": "Ferroviarios se quedó con el clásico ante Amigos Unidos",
-   "copete": "Ferroviarios comenzó con el pie derecho el “Clausura”, le ganó a su clásico rival, Amigos Unidos, en cotejo jugado en la cancha del elenco de la \"Estación\", bajo la supervisión arbitral de Oscar Martínez. ETAPA INICIAL La primera jugada d",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-19T11:49:37.000Z",
+   "id": "cezsut",
+   "titulo": "En medio de la tensión por Malvinas, el Gobierno compró equipamiento militar bajo secreto",
+   "copete": "El Gobierno clasificó como secreto militar una nueva compra de equipamiento para las Fuerzas Armadas , según el Decreto 1205/2026 publicado este lunes en el Boletín Oficial . La norma, firmada por el presidente Javier Milei y el ministro de Defensa , teniente general Carlos…",
+   "seccion": "Política",
+   "fecha": "2026-10-19T08:56:00.000Z",
    "fuentes": [
     {
-     "medio": "El Diario Balcarce",
-     "enlace": "https://eldiariobalcarce.com.ar/ferroviarios-se-quedo-con-el-clasico-ante-amigos-unidos-307",
-     "fecha": "2026-10-19T11:49:37.000Z"
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1158638/politica/medio-tension-malvinas-gobierno-compro-equipamiento-militar-bajo-secreto.html",
+     "fecha": "2026-10-19T08:56:00.000Z"
+    },
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/politica/2026/10/19/el-gobierno-clasifico-como-secreto-militar-una-nueva-compra-de-equipamiento-para-las-fuerzas-armadas/",
+     "fecha": "2026-10-19T11:15:44.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/politica/2026/10/19/islas-malvinas-el-gobierno-impuso-el-secreto-militar-sobre-la-compra-de-equipamiento-para-las-fuerzas-armadas/",
+     "fecha": "2026-10-19T12:20:23.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/politica/2026/10/19/en-plena-tension-por-malvinas-el-gobierno-impuso-el-secreto-militar-sobre-la-compra-de-equipamiento-para-las-fuerzas-armadas/",
+     "fecha": "2026-10-19T12:12:16.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/fuerzas-armadas--el-gobierno-clasifica-como-secreto-militar-nueva-compra-de-equipamiento_a6ad5ffbefaec012154beb23a",
+     "fecha": "2026-10-19T11:34:03.235Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/las-fuerzas-armadas-compraran-nuevo-equipamiento-secreto-militar-mientras-crece-la-tension-malvinas-n6335156",
+     "fecha": "2026-10-19T11:20:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 1 y la fuente no lo dice",
+   "motivo": "con cuerpo",
+   "maximo": 4
+  },
+  {
+   "id": "1e8jbcu",
+   "titulo": "RIGI: el Gobierno aprobó un proyecto petrolero de Pluspetrol y GyP en Vaca Muerta por U$S 12.240 millones",
+   "copete": "La iniciativa se desarrollará en el área Bajo del Choique-La Invernada, en Neuquén, y contempla la perforación de 620 pozos y la construcción de cuatro plantas de tratamiento.",
+   "seccion": "Economía",
+   "fecha": "2026-10-19T09:21:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1158642/politica/rigi-gobierno-aprobo-proyecto-petrolero-pluspetrol-gyp-vaca-muerta-us-12240-millones.html",
+     "fecha": "2026-10-19T09:21:00.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/economia/aprueban-el-ingreso-al-rigi-de-un-megaproyecto-petrolero-de-us-12-240-millones-en-vaca-muerta_a6ad60294faec012154bf59aa",
+     "fecha": "2026-10-19T11:58:00.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/energia/rigi-aprueban-el-multimillonario-proyecto-petrolero-pluspetrol-y-gyp-vaca-muerta-us12000-millones-n6335157",
+     "fecha": "2026-10-19T11:36:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"gobierno\", \"neuquen\" y el cuerpo no los explica; sin esas oraciones quedan 96 palabras",
    "maximo": 3
   }
  ]

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T12:03:49.260Z",
+ "generado": "2026-10-19T12:31:42.888Z",
  "portada": 60,
- "archivo": 1301,
- "esperandoCuerpo": 2,
+ "archivo": 1304,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-19T12:03:49.636Z",
+  "generado": "2026-10-19T12:31:43.144Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-19T12:06:49.727Z"
    },
    {
     "nombre": "noticia1",
@@ -95,17 +95,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "16tgrhv",
+      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "17nia8a",
       "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
       "seccion": "Fútbol"
      },
      {
-      "id": "10jkdys",
-      "titulo": "La Fiesta Nacional del Postre fija su desarrollo para fin de mes",
-      "seccion": "Cultura y agenda"
+      "id": "1w9sag8",
+      "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
+      "seccion": "Fútbol"
      },
      {
       "id": "7naab",
@@ -139,6 +144,12 @@
    "hoy": [],
    "cola": [
     {
+     "id": "16tgrhv",
+     "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "17nia8a",
      "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
      "seccion": "Fútbol",
@@ -147,6 +158,12 @@
     {
      "id": "1h6s4i8",
      "titulo": "Atlético San Agustín y Racing FC empatan en el inicio del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1w9sag8",
+     "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
      "seccion": "Fútbol",
      "marcada": false
     },
