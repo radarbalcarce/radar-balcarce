@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-19T22:02:10.966Z",
+ "consultado": "2026-10-19T22:34:03.123Z",
  "equipos": [
   "9739",
   "3",
@@ -69,54 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841607",
-    "competencia": "liga",
-    "inicio": "2026-10-09T22:30:00.000Z",
-    "estado": "final",
-    "minuto": "90'+4'",
-    "local": {
-     "id": "2975",
-     "nombre": "Instituto (Córdoba)",
-     "goles": 2
-    },
-    "visitante": {
-     "id": "5",
-     "nombre": "Boca Juniors",
-     "goles": 2
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Fernando Alarcón",
-      "minuto": "14'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Enner Valencia",
-      "minuto": "23'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Jonathan Galván",
-      "minuto": "48'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Miguel Merentiel",
-      "minuto": "56'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Monumental Presidente Perón",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841613",
     "competencia": "liga",
@@ -1063,11 +1015,11 @@
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "1'",
+    "minuto": "33'",
     "local": {
      "id": "14",
      "nombre": "Newell's Old Boys",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "11989",
@@ -1075,7 +1027,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Jerónimo Mattar",
+      "minuto": "31'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Marcelo Bielsa",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1086,11 +1045,11 @@
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "2'",
+    "minuto": "34'",
     "local": {
      "id": "10158",
      "nombre": "Sarmiento (Junín)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "10060",
@@ -1098,7 +1057,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Jhon Rentería",
+      "minuto": "14'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Eva Perón",
     "fase": null,
     "partidoDeLaSerie": null,

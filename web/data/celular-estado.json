@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T22:02:15.150Z",
- "portada": 96,
- "archivo": 1350,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-19T22:34:07.942Z",
+ "portada": 99,
+ "archivo": 1358,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-19T22:02:15.603Z",
+  "generado": "2026-10-19T22:34:08.407Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-19T22:06:22.277Z"
    },
    {
     "nombre": "clima-noche",
@@ -157,8 +157,19 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 33,
+    "notas": [
+     {
+      "id": "c1ev9v",
+      "titulo": "El Municipio busca actividad mensual en el autódromo",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "izhwg1",
+      "titulo": "Esteban Reino defiende las intimaciones por deudas de agua",
+      "seccion": "Balcarce"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -191,21 +202,33 @@
    ],
    "cola": [
     {
+     "id": "c1ev9v",
+     "titulo": "El Municipio busca actividad mensual en el autódromo",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "beeajf",
      "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "n48pgu",
-     "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
-     "seccion": "Agro",
+     "id": "izhwg1",
+     "titulo": "Esteban Reino defiende las intimaciones por deudas de agua",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
      "id": "cx9y9d",
      "titulo": "Martín Demichelis revela detalles sobre la venta de Franco Mastantuono",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "n48pgu",
+     "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
+     "seccion": "Agro",
      "marcada": false
     },
     {
