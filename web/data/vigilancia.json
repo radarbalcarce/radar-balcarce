@@ -4,22 +4,31 @@
   },
   "importantes": {
     "avisadas": {
-      "aa5npj": {
-        "cuando": "2026-10-15T19:31:05.876Z",
-        "titulo": "El Ministerio de Transporte bonaerense actualiza las tarifas de la VTV",
+      "tuhpwo": {
+        "cuando": "2026-10-19T18:00:26.651Z",
+        "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
         "temas": []
+      },
+      "1t0vxaf": {
+        "cuando": "2026-10-19T18:00:26.651Z",
+        "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+        "temas": [
+          "hospital"
+        ]
       }
     }
   },
   "pendientes": {
     "avisados": [
-      "1dqhmet",
+      "13dfyth",
+      "1o18sk5",
+      "juo91t",
       "b1qb14"
     ],
-    "ultimo": "2026-10-19T12:30:23.058Z"
+    "ultimo": "2026-10-19T18:00:26.651Z"
   },
   "redes": {
-    "hasta": "2026-10-19T14:35:42.372Z"
+    "hasta": "2026-10-19T16:35:42.136Z"
   },
   "ultimaMedicion": "2026-10-19/9",
   "ultimoResumen": "2026-10-01",
@@ -28,8 +37,8 @@
   "abiertos": [
     {
       "clave": "falla-Pruebas con otra hora",
-      "nivel": "media",
-      "texto": "\"Pruebas con otra hora\" falló en su última corrida, en el paso \"Probar con cinco horas y fechas distintas\" (1 seguidas; 2 de las últimas 3).",
+      "nivel": "alta",
+      "texto": "\"Pruebas con otra hora\" falló en su última corrida, en el paso \"Probar con cinco horas y fechas distintas\" (2 seguidas; 3 de las últimas 4).",
       "desde": "2026-10-16T00:00:47.599Z"
     }
   ]
