@@ -21500,13 +21500,40 @@
   "huella": "0d954565b3da5a01"
  },
  "7naab": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/7naab.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-10-19T13:32:38.165Z",
-  "intentos": 2,
-  "fuentes": 2
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/clausura-el-futbol-femenino-arranco-con-goleadas",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/IMG_55422.jpg",
+  "razon": "La foto A muestra una jugada clara de fútbol femenino con excelente nitidez y encuadre, sin menores reconocibles ni marcas de medios. La segunda opinión (groq) descartó la de Acción 5 (Balcarce) (un menor): se usa Radio Gabal (FM 104.1).",
+  "cuando": "2026-10-19T14:33:16.835Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos jugadoras disputando la pelota en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos jugadoras de fútbol femenino disputan la pelota en un partido sobre césped."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "18762a9073315114"
  },
  "iubep7": {
   "archivo": "fotos-notas/iubep7.jpg",
@@ -22406,6 +22433,67 @@
    "corresponde": "si",
    "descripcion": "Empleados públicos trabajando en una oficina estatal"
   },
-  "huella": "91c994acacae2ebd"
+  "huella": "91c994acacae2ebd",
+  "ausenteDesde": "2026-10-19T14:34:46.337Z"
+ },
+ "1i2ypv1": {
+  "archivo": "fotos-notas/1i2ypv1.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Definen los horarios para los recitales de BTS en La Plata",
+  "enlace": "https://www.0221.com.ar/la-plata/anuncian-los-horarios-los-conciertos-bts-la-plata-apertura-puertas-telonera-e-inicio-del-show-n136030",
+  "imagenOriginal": "https://media.0221.com.ar/p/45460dae4f87894ccdef67ffc2368833/adjuntos/357/imagenes/100/300/0100300333/1200x630/smart/bts-chile-1.jpeg",
+  "razon": "Muestra al grupo musical requerido sin marcas de agua ni menores reconocibles, con buena calidad de imagen.",
+  "cuando": "2026-10-19T14:33:16.835Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Integrantes de BTS posando en un set con césped sintético",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Grupo de jóvenes posando en el césped sintético frente a un fondo rojo con el texto 'Parque Estadio Nacional'."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "3f3f266654bc1b53"
+ },
+ "hf7e95": {
+  "archivo": "fotos-notas/hf7e95.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estados Unidos pide terminar el mandato del Comité de Descolonización de la ONU",
+  "enlace": "https://www.lanacion.com.ar/politica/estados-unidos-propuso-disolver-el-comite-de-la-onu-en-el-que-la-argentina-sostiene-su-reclamo-por-nid19102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-canciller-pablo-quirno-en-la-reunion-del-6QQRGNO7JNANJGKXQJNDLT3UUY.jpeg?auth=487e4f9d15348e0e4f6bd5e7ff5a233871334647f7eb513ddab7876c65170f55&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto que corresponde directamente al tema de la ONU y el comité, con buena nitidez y sin menores ni marcas de agua.",
+  "cuando": "2026-10-19T14:33:16.835Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión o sesión con un cartel de Argentina"
+  },
+  "huella": "9e96b57696550747"
  }
 }
