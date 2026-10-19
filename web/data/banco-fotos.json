@@ -19592,7 +19592,8 @@
    "corresponde": "si",
    "descripcion": "Misa al aire libre frente a una estructura vidriada durante la peregrinación."
   },
-  "huella": "33f1f1738ba9fd59"
+  "huella": "33f1f1738ba9fd59",
+  "ausenteDesde": "2026-10-19T21:32:11.686Z"
  },
  "hhlpca": {
   "archivo": "fotos-notas/hhlpca.jpg",
@@ -21584,7 +21585,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de River festejando con el puño en alto"
   },
-  "huella": "b6a5ee7d1d0d5656"
+  "huella": "b6a5ee7d1d0d5656",
+  "ausenteDesde": "2026-10-19T21:32:11.686Z"
  },
  "1irbt94": {
   "archivo": "fotos-notas/1irbt94.jpg",
@@ -23349,7 +23351,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de contenedores en el puerto"
   },
-  "huella": "1388a9ad95cfcf48"
+  "huella": "1388a9ad95cfcf48",
+  "ausenteDesde": "2026-10-19T21:32:11.686Z"
  },
  "1jcoft1": {
   "archivo": "fotos-notas/1jcoft1.jpg",
@@ -23398,5 +23401,38 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1put3ro": {
+  "archivo": "fotos-notas/1put3ro.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Justicia ordena a FATE pagar 1.200 millones en sueldos",
+  "enlace": "https://www.eleco.com.ar/nacionales/la-justicia-ordeno-a-fate-pagar-1200-millones-en-salarios-adeudados-a-200-trabajadores",
+  "imagenOriginal": "https://cdnartic.ar/OHQoar9Q_lhGW3Xh1h16muChCDU=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/09/fate.webp",
+  "razon": "Es la única foto que corresponde a la nota, muestra claramente el lugar y el cartel de FATE, sin marcas de agua, sin menores y con buena calidad de imagen.",
+  "cuando": "2026-10-19T21:31:30.241Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de la planta de FATE con su cartel principal y los techos de la fábrica"
+  },
+  "huella": "cedc615f664e75cc"
+ },
+ "z9lw4j": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno oficializa feriados y fines de semana largos en noviembre",
+  "razon": "Ninguna de las fotos corresponde a la temática de feriados y fines de semana largos en noviembre; la A y la C muestran al Papa y la B es una imagen genérica de calculadora y papeles. (la IA nombró a \"León XIV\", pero el título no: sin foto de Wikimedia)",
+  "cuando": "2026-10-19T21:31:30.241Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }
