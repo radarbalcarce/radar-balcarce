@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T12:31:42.888Z",
- "portada": 60,
- "archivo": 1304,
+ "generado": "2026-10-19T13:04:18.412Z",
+ "portada": 61,
+ "archivo": 1308,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-19T12:31:43.144Z",
+  "generado": "2026-10-19T13:04:18.605Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,9 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
       "id": "16tgrhv",
@@ -113,9 +113,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "7naab",
-      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-      "seccion": "Fútbol"
+      "id": "lnmciw",
+      "titulo": "Pronostican una semana fresca y con lluvias",
+      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,8 +126,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 32,
+    "notas": [
+     {
+      "id": "7naab",
+      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "10jkdys",
+      "titulo": "La Fiesta Nacional del Postre fija su desarrollo para fin de mes",
+      "seccion": "Cultura y agenda"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -141,14 +152,14 @@
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "16tgrhv",
      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
+     "cuando": "2026-10-19T12:35:30.137Z"
+    }
+   ],
+   "cola": [
     {
      "id": "17nia8a",
      "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
@@ -168,14 +179,20 @@
      "marcada": false
     },
     {
+     "id": "lnmciw",
+     "titulo": "Pronostican una semana fresca y con lluvias",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "xb1ppr",
      "titulo": "Comienza la fase Clausura del Torneo Oficial de la Liga Balcarceña",
      "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-18T23:05:25.409Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-19T14:05:30.137Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

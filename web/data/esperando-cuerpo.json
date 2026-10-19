@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-19T12:31:42.888Z",
+ "generado": "2026-10-19T13:04:18.412Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,7 +15,7 @@
      "fecha": "2026-10-19T11:54:08.000Z"
     }
    ],
-   "intentos": 2,
+   "intentos": 3,
    "motivo": "título o bajada: 2 problemas (numero, fecha): el copete dice 4 y la fuente no lo dice",
    "maximo": 3
   },
@@ -42,6 +42,21 @@
      "fecha": "2026-10-19T12:20:23.000Z"
     },
     {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/economia-politica/en-medio-del-conflicto-por-malvinas-el-gobierno-blindo-bajo-secreto-militar-una-nueva-compra-de-equipamiento-para-las-ffaa/",
+     "fecha": "2026-10-19T12:48:11.227Z"
+    },
+    {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/politica/el-gobierno-declaro-secreto-militar-la-compra-equipamiento-las-fuerzas-armadas-n1607742",
+     "fecha": "2026-10-19T12:43:00.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/videos/el-gobierno-declaro-secreto-militar-una-compra-para-defensa-los-detalles-de-eduardo-feinmann/",
+     "fecha": "2026-10-19T10:56:04.000Z"
+    },
+    {
      "medio": "Canal 26",
      "enlace": "https://www.canal26.com/politica/2026/10/19/en-plena-tension-por-malvinas-el-gobierno-impuso-el-secreto-militar-sobre-la-compra-de-equipamiento-para-las-fuerzas-armadas/",
      "fecha": "2026-10-19T12:12:16.000Z"
@@ -55,11 +70,21 @@
      "medio": "Ámbito",
      "enlace": "https://www.ambito.com/las-fuerzas-armadas-compraran-nuevo-equipamiento-secreto-militar-mientras-crece-la-tension-malvinas-n6335156",
      "fecha": "2026-10-19T11:20:00.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/politica/el-gobierno-decreto-el-secreto-militar-la-compra-equipamentos-las-fuerzas-armadas-n251969",
+     "fecha": "2026-10-19T12:35:00.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/politica/javier-milei-invirtio-us-500-millones-equipamiento-las-ffaa-y-declaro-secreto-militar-n6335163",
+     "fecha": "2026-10-19T11:15:00.000Z"
     }
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
-   "maximo": 4
+   "maximo": 5
   },
   {
    "id": "1e8jbcu",
@@ -74,6 +99,16 @@
      "fecha": "2026-10-19T09:21:00.000Z"
     },
     {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/economia/gobierno-formalizo-aprobacion-rigi-vaca-muerta_0_5ntAZgHiyC.html",
+     "fecha": "2026-10-19T12:21:08.000Z"
+    },
+    {
+     "medio": "iProfesional",
+     "enlace": "https://www.iprofesional.com/negocios/466887-pluspetrol-invertira-us12240-millones-en-620-pozos-en-vaca-muerta",
+     "fecha": "2026-10-19T11:36:00.000Z"
+    },
+    {
      "medio": "Noticias Argentinas (NA)",
      "enlace": "https://noticiasargentinas.com/economia/aprueban-el-ingreso-al-rigi-de-un-megaproyecto-petrolero-de-us-12-240-millones-en-vaca-muerta_a6ad60294faec012154bf59aa",
      "fecha": "2026-10-19T11:58:00.000Z"
@@ -84,9 +119,9 @@
      "fecha": "2026-10-19T11:36:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"gobierno\", \"neuquen\" y el cuerpo no los explica; sin esas oraciones quedan 96 palabras",
-   "maximo": 3
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"gobierno\", \"vaca\", \"muerta\" y el cuerpo no los explica; sin esas oraciones quedan 150 palabras",
+   "maximo": 4
   }
  ]
 }
