@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T13:04:18.412Z",
- "portada": 61,
- "archivo": 1308,
+ "generado": "2026-10-19T13:33:40.067Z",
+ "portada": 65,
+ "archivo": 1314,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-19T13:04:18.605Z",
+  "generado": "2026-10-19T13:33:40.492Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-19T13:06:52.002Z"
    },
    {
     "nombre": "participa-noticias",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 49,
+    "salio": "2026-10-19T13:06:52.002Z",
+    "segundos": null,
     "notas": [
      {
       "id": "16tgrhv",
@@ -113,9 +113,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "lnmciw",
-      "titulo": "Pronostican una semana fresca y con lluvias",
-      "seccion": "Balcarce"
+      "id": "7naab",
+      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -126,12 +126,12 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 32,
+    "segundos": 23,
     "notas": [
      {
-      "id": "7naab",
-      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-      "seccion": "Fútbol"
+      "id": "lnmciw",
+      "titulo": "Pronostican una semana fresca y con lluvias",
+      "seccion": "Balcarce"
      },
      {
       "id": "10jkdys",
@@ -188,6 +188,18 @@
      "id": "xb1ppr",
      "titulo": "Comienza la fase Clausura del Torneo Oficial de la Liga Balcarceña",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1e8jbcu",
+     "titulo": "El Gobierno aprueba un proyecto petrolero en Vaca Muerta por USD 12.240 millones",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1jbant9",
+     "titulo": "El Gobierno prorroga el régimen de empleo formal para trabajadores rurales",
+     "seccion": "Agro",
      "marcada": false
     }
    ],

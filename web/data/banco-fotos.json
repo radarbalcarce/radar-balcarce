@@ -21503,10 +21503,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Acción 5 (Balcarce) (un menor): no se elige ninguna.",
-  "cuando": "2026-10-19T01:01:17.143Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "iubep7": {
   "archivo": "fotos-notas/iubep7.jpg",
@@ -22218,5 +22218,122 @@
   "cuando": "2026-10-19T13:02:51.442Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "wg5gbt": {
+  "archivo": "fotos-notas/wg5gbt.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Virginia Aparicio expone en el Concejo sobre la presencia de plaguicidas",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45103-plaguicidas-en-balcarce-virginia-aparicio-expuso-en-el-concejo-resultados-cientificos-y-advirtio-sobre-la-presencia-de-multiples-sustancias/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66070.png",
+  "razon": "Muestra claramente a Virginia Aparicio exponiendo en el Concejo, sin marcas ni menores.",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio hablando con un micrófono en la mano"
+  },
+  "huella": "79b9c97979a9b9f1"
+ },
+ "c6mopr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mattia Colnaghi cambia de escudería y correrá en Campos Racing",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Infobae (un menor); la de 0223 (Mar del Plata) (un menor): no se elige ninguna. (la foto libre de \"Mattia Colnaghi\" no sirve: no corresponde a la nota (Detalle del cockpit de un monoplaza con casco y el apellido M. Colnaghi visible.))",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1gj38rr": {
+  "archivo": "fotos-notas/1gj38rr.jpg",
+  "medio": "FayerWayer",
+  "credito": "Foto: FayerWayer",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Garena habilita una nueva ronda de códigos oficiales de Free Fire",
+  "enlace": "https://www.fayerwayer.com/entretenimiento/2026/10/19/lista-oficial-de-codigos-de-free-fire-para-hoy-19-de-octubre-diamantes-y-skins-gratis/",
+  "imagenOriginal": "https://www.fayerwayer.com/resizer/v2/H3EGIGUMYBAN5EARZJWQUIOLPY.jpg?smart=true&auth=7eb26c9099cf4ffceb4b1f4f0e9fb3912160298e06a6fadea73a52f812b3bfa1&width=1200&height=630",
+  "razon": "Muestra un celular reproduciendo el juego Free Fire de manera real sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo un teléfono celular que muestra el juego Free Fire."
+  },
+  "huella": "fadac68ccebc9cec"
+ },
+ "1e8jbcu": {
+  "archivo": "fotos-notas/1e8jbcu.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno aprueba un proyecto petrolero en Vaca Muerta por USD 12.240 millones",
+  "enlace": "https://www.infobae.com/economia/2026/10/19/el-gobierno-aprobo-un-proyecto-rigi-de-mas-de-usd-12200-millones-para-producir-petroleo-y-gas-en-vaca-muerta/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/DTMU3QROCNEILA2EX4QSGBQSOU.jpeg?auth=dedbce864defc1d7d47312fd20b2784072aeeb21ac6a3ecc8b4b73c9a3d9040e&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es una toma aérea clara de un yacimiento en Vaca Muerta, sin marcas de agua ni personas.",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de equipo de perforación en Vaca Muerta."
+  },
+  "huella": "2080040d02654614"
+ },
+ "1jbant9": {
+  "archivo": "fotos-notas/1jbant9.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno prorroga el régimen de empleo formal para trabajadores rurales",
+  "enlace": "https://www.cronica.com.ar/politica/el-gobierno-prorrogo-el-plan-de-empleo-registrado-para-trabajadores-rurales-temporarios/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1722/1722711/6ad5bb0ec9b65_600_315!.jpg?s=80fdcd2e0fde213f4ff923502f49e385&d=1792392205",
+  "razon": "Es la foto más representativa de trabajadores rurales en plena labor agrícola, cumple con todos los requisitos y no tiene marcas ni menores.",
+  "cuando": "2026-10-19T13:32:38.165Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Trabajadores rurales cosechando en un campo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Trabajadores rurales cosechando a mano en un campo con maquinaria de fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "dbc37acaaa2a9c4b"
  }
 }
