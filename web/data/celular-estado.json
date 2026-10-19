@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T11:31:57.617Z",
- "portada": 49,
- "archivo": 1296,
- "esperandoCuerpo": 0,
+ "generado": "2026-10-19T12:03:49.260Z",
+ "portada": 60,
+ "archivo": 1301,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-19T11:31:58.029Z",
+  "generado": "2026-10-19T12:03:49.636Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,8 +95,24 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 48,
+    "notas": [
+     {
+      "id": "17nia8a",
+      "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "10jkdys",
+      "titulo": "La Fiesta Nacional del Postre fija su desarrollo para fin de mes",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "7naab",
+      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
+      "seccion": "Fútbol"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
@@ -121,7 +137,26 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "17nia8a",
+     "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1h6s4i8",
+     "titulo": "Atlético San Agustín y Racing FC empatan en el inicio del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "xb1ppr",
+     "titulo": "Comienza la fase Clausura del Torneo Oficial de la Liga Balcarceña",
+     "seccion": "Fútbol",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-18T23:05:25.409Z",
    "porDia": 5,
