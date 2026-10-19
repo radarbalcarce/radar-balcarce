@@ -23316,5 +23316,87 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "7f9e9edcbf9d91c3"
+ },
+ "1cesuw3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Supermercados piden que tres distritos adhieran al Sircupa",
+  "razon": "La mejor foto era la de Infobae, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-19T21:04:58.681Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1faek9w": {
+  "archivo": "fotos-notas/1faek9w.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La balanza comercial registra un superávit de casi 3.000 millones de dólares",
+  "enlace": "https://www.ambito.com/economia/el-superavit-comercial-septiembre-rozo-los-us3000-millones-segundo-maximo-2026-n6335477",
+  "imagenOriginal": "https://media.ambito.com/p/d67aba4df54060e6f6a7464f14f603d9/adjuntos/239/imagenes/043/446/0043446813/comercio-exterior-importaciones-exportaciones-contenedores-containers.jpg",
+  "razon": "Es una foto clara del puerto y comercio exterior, sin marcas sobreimpresas, menores ni personas reconocibles.",
+  "cuando": "2026-10-19T21:04:58.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de contenedores en el puerto"
+  },
+  "huella": "1388a9ad95cfcf48"
+ },
+ "1jcoft1": {
+  "archivo": "fotos-notas/1jcoft1.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Ciudad de Buenos Aires organiza la cuarta edición del festival Mascotear",
+  "enlace": "https://www.perfil.com/noticias/ciudad-de-buenos-aires/mascotear-2026-la-ciudad-de-buenos-aires-tendra-un-festival-gratuito-para-disfrutar-con-las-mascotas.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/19/trim/1140/641/festival-mascotear-2351552.jpg",
+  "razon": "Es la única imagen que muestra la acción central del festival (la carrera de perros) con buena nitidez y encuadre, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-19T21:04:58.681Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de la carrera de perros en el festival Mascotear, con público asistiendo.",
+   "detalle": "Se observan logos de 'zweedog' en los delimitadores, pero son parte de la escena real (patrocinio del evento).",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Personas participando con sus perros en una competencia de agility en un parque."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "3321a5ed17555397"
+ },
+ "r7kz7s": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La agroindustria genera más de 4,3 millones de empleos en el país",
+  "razon": "La única imagen disponible es una infografía o gráfico con texto superpuesto, no una fotografía de una escena real, por lo que no cumple con los requisitos para ser elegida.",
+  "cuando": "2026-10-19T21:04:58.681Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

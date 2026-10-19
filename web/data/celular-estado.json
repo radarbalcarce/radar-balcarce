@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T20:31:36.235Z",
- "portada": 91,
- "archivo": 1347,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-19T21:08:00.320Z",
+ "portada": 92,
+ "archivo": 1350,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-19T20:31:36.690Z",
+  "generado": "2026-10-19T21:08:00.723Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -182,25 +182,18 @@
      "id": "1t0vxaf",
      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
      "cuando": "2026-10-19T18:35:33.689Z"
+    },
+    {
+     "id": "17ch9cn",
+     "titulo": "La Escuela República Argentina abre la preinscripción para 2027",
+     "cuando": "2026-10-19T20:35:26.871Z"
     }
    ],
    "cola": [
     {
-     "id": "17ch9cn",
-     "titulo": "La Escuela República Argentina abre la preinscripción para 2027",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "beeajf",
      "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "n48pgu",
-     "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
-     "seccion": "Agro",
      "marcada": false
     },
     {
@@ -210,14 +203,14 @@
      "marcada": false
     },
     {
-     "id": "2qx6g1",
-     "titulo": "El arzobispo de Luján confirma la visita del papa León XIV para noviembre",
-     "seccion": "Argentina",
+     "id": "n48pgu",
+     "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
+     "seccion": "Agro",
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-19T20:05:33.689Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-19T22:05:26.871Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
