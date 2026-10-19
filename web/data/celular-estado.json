@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T15:33:12.018Z",
- "portada": 67,
- "archivo": 1326,
- "esperandoCuerpo": 1,
+ "generado": "2026-10-19T16:08:56.428Z",
+ "portada": 76,
+ "archivo": 1329,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-19T15:33:12.448Z",
+  "generado": "2026-10-19T16:08:56.862Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T13:06:52.002Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T15:06:12.996Z"
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T13:06:52.002Z",
     "segundos": null,
     "notas": [
@@ -126,22 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 42,
+    "segundos": 49,
     "notas": [
-     {
-      "id": "1t0vxaf",
-      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
-      "seccion": "Salud"
-     },
      {
       "id": "tuhpwo",
       "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
       "seccion": "Balcarce"
      },
      {
+      "id": "1t0vxaf",
+      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+      "seccion": "Salud"
+     },
+     {
       "id": "10jkdys",
       "titulo": "La Fiesta Nacional del Postre fija su desarrollo para fin de mes",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1rq74kt",
+      "titulo": "Negocian la compra de locales de Toledo y analizan el futuro de la sucursal local",
+      "seccion": "Economía"
      }
     ]
    },
@@ -171,21 +176,27 @@
    ],
    "cola": [
     {
-     "id": "1t0vxaf",
-     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
      "id": "tuhpwo",
      "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "1lvtb0b",
-     "titulo": "El riesgo país llega a 660 puntos y los bonos operan en baja",
-     "seccion": "Economía",
+     "id": "1t0vxaf",
+     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "beeajf",
+     "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1w9sag8",
+     "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {

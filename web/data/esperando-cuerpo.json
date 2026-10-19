@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-19T15:33:12.018Z",
+ "generado": "2026-10-19T16:08:56.428Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -18,6 +18,11 @@
      "medio": "La Nación",
      "enlace": "https://www.lanacion.com.ar/politica/el-gobierno-compro-nuevo-equipamiento-para-las-fuerzas-armadas-bajo-secreto-militar-nid19102026/",
      "fecha": "2026-10-19T14:29:54.000Z"
+    },
+    {
+     "medio": "0223 (Mar del Plata)",
+     "enlace": "https://www.0223.com.ar/nota/2026-10-19-12-17-0-secreto-militar-la-inusual-figura-a-la-que-apela-milei-para-una-compra-de-equipamiento-en-medio-de-la-tension-por-malvinas",
+     "fecha": "2026-10-19T15:17:00.000Z"
     },
     {
      "medio": "Infobae",
@@ -65,11 +70,6 @@
      "fecha": "2026-10-19T13:41:00.000Z"
     },
     {
-     "medio": "La Brújula 24",
-     "enlace": "https://www.labrujula24.com/notas/2026/10/19/el-gobierno-comprara-equipamiento-para-las-fuerzas-armadas-bajo-secreto-militar-n526249/",
-     "fecha": "2026-10-19T14:08:26.000Z"
-    },
-    {
      "medio": "Ámbito",
      "enlace": "https://www.ambito.com/las-fuerzas-armadas-compraran-nuevo-equipamiento-secreto-militar-mientras-crece-la-tension-malvinas-n6335156",
      "fecha": "2026-10-19T11:20:00.000Z"
@@ -88,11 +88,33 @@
      "medio": "Radio Mitre",
      "enlace": "https://radiomitre.cienradios.com/videos/el-gobierno-declaro-secreto-militar-una-compra-para-defensa-los-detalles-de-eduardo-feinmann/",
      "fecha": "2026-10-19T10:56:04.000Z"
+    },
+    {
+     "medio": "La Brújula 24",
+     "enlace": "https://www.labrujula24.com/notas/2026/10/19/el-gobierno-comprara-equipamiento-para-las-fuerzas-armadas-bajo-secreto-militar-n526249/",
+     "fecha": "2026-10-19T14:08:26.000Z"
     }
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
+  },
+  {
+   "id": "bl4an7",
+   "titulo": "Boca venció a Los Pinos y FC Agrarias a San Lorenzo",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-19T12:01:10.365Z",
+   "fuentes": [
+    {
+     "medio": "El Diario Balcarce",
+     "enlace": "https://eldiariobalcarce.com.ar/boca-vencio-a-los-pinos-y-fc-agrarias-a-san-lorenzo-981",
+     "fecha": null
+    }
+   ],
+   "intentos": 3,
+   "motivo": "título o bajada: 2 problemas (numero, fecha): el copete dice 4 y la fuente no lo dice",
+   "maximo": 3
   }
  ]
 }

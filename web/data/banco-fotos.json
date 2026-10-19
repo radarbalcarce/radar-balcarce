@@ -22685,7 +22685,8 @@
    "corresponde": "si",
    "descripcion": "Funcionario argentino hablando en la ONU con documentos."
   },
-  "huella": "8745255858c98e98"
+  "huella": "8745255858c98e98",
+  "ausenteDesde": "2026-10-19T16:08:56.402Z"
  },
  "ktr4gj": {
   "archivo": "fotos-notas/ktr4gj.jpg",
@@ -22743,5 +22744,64 @@
   "cuando": "2026-10-19T15:32:20.111Z",
   "intentos": 1,
   "fuentes": 4
+ },
+ "1rq74kt": {
+  "archivo": "fotos-notas/1rq74kt.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Negocian la compra de locales de Toledo y analizan el futuro de la sucursal local",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45116-toledo-mueve-el-tablero-carrefour-capitales-chinos-y-la-anonima-detras-de-las-sucursales-que-podrian-incluir-a-balcarce/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66083.png",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos y muestra claramente el local de Toledo.",
+  "cuando": "2026-10-19T16:05:01.171Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada y cartel del supermercado Toledo en Balcarce con autos estacionados enfrente"
+  },
+  "huella": "0f0e9e9cd8cee73b"
+ },
+ "beeajf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-10-19T16:05:01.171Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "The operation was aborted due to timeout"
+ },
+ "cf054h": {
+  "archivo": "fotos-notas/cf054h.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Santiago Garrido destaca la respuesta vecinal en la recolección de residuos electrónicos",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/santiago-garrido-destaco-la-campana-de-residuos-electronicos-supero-las-expectativas",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Santiago%20Garrido%20RAEE.jpeg",
+  "razon": "Es la única imagen completa y nítida que muestra a los protagonistas del hecho (el funcionario y el promotor ambiental) en el lugar de la recolección.",
+  "cuando": "2026-10-19T16:05:01.171Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Santiago Garrido posando junto a un promotor ambiental con chaleco de 'Balcarce + Verde' frente a un camión municipal."
+  },
+  "huella": "9891a6ae69c9c4c4"
  }
 }
