@@ -1,7 +1,6 @@
 {
   "avisos": {
-    "falla-Pruebas con otra hora": "2026-10-19T00:00:22.193Z",
-    "falla-Redes": "2026-10-19T00:30:23.497Z"
+    "falla-Pruebas con otra hora": "2026-10-19T00:00:22.193Z"
   },
   "importantes": {
     "avisadas": {
@@ -20,19 +19,13 @@
     "ultimo": "2026-10-19T00:00:22.193Z"
   },
   "redes": {
-    "hasta": "2026-10-18T23:07:23.420Z"
+    "hasta": "2026-10-19T01:37:50.140Z"
   },
   "ultimaMedicion": "2026-10-18/21",
   "ultimoResumen": "2026-10-01",
-  "ultimoCierre": "2026-10-17",
+  "ultimoCierre": "2026-10-18",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
-    {
-      "clave": "falla-Redes",
-      "nivel": "media",
-      "texto": "\"Redes\" falló en su última corrida, en el paso \"Publicar en Instagram y en la página de Facebook\" (1 seguidas; 1 de las últimas 5).",
-      "desde": "2026-10-19T00:30:23.497Z"
-    },
     {
       "clave": "falla-Pruebas con otra hora",
       "nivel": "media",
