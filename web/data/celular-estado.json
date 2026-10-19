@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T21:32:11.703Z",
- "portada": 95,
- "archivo": 1348,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-19T22:02:15.150Z",
+ "portada": 96,
+ "archivo": 1350,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-19T21:32:11.904Z",
+  "generado": "2026-10-19T22:02:15.603Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T18:46:09.812Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T18:46:09.812Z",
     "segundos": null,
     "notas": [
@@ -206,6 +206,12 @@
      "id": "cx9y9d",
      "titulo": "Martín Demichelis revela detalles sobre la venta de Franco Mastantuono",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1cesuw3",
+     "titulo": "Supermercados piden que tres distritos adhieran al Sircupa",
+     "seccion": "Economía",
      "marcada": false
     },
     {
