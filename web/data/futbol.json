@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-19T23:01:56.952Z",
+ "consultado": "2026-10-19T23:32:25.537Z",
  "equipos": [
   "9739",
   "3",
@@ -1014,12 +1014,12 @@
     "id": "401841620",
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "71'",
     "local": {
      "id": "14",
      "nombre": "Newell's Old Boys",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "11989",
@@ -1033,6 +1033,12 @@
       "jugador": "Jerónimo Mattar",
       "minuto": "31'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Santiago Solari",
+      "minuto": "69'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Marcelo Bielsa",
@@ -1044,8 +1050,8 @@
     "id": "401841617",
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "72'",
     "local": {
      "id": "10158",
      "nombre": "Sarmiento (Junín)",
