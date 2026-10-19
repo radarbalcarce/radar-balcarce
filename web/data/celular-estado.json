@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T14:34:46.353Z",
- "portada": 69,
- "archivo": 1318,
- "esperandoCuerpo": 2,
+ "generado": "2026-10-19T15:10:09.324Z",
+ "portada": 70,
+ "archivo": 1322,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-19T14:34:46.606Z",
+  "generado": "2026-10-19T15:10:09.493Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-19T12:06:49.727Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -126,8 +126,18 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 23,
+    "segundos": 45,
     "notas": [
+     {
+      "id": "1t0vxaf",
+      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+      "seccion": "Salud"
+     },
+     {
+      "id": "tuhpwo",
+      "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
+      "seccion": "Balcarce"
+     },
      {
       "id": "lnmciw",
       "titulo": "Pronostican una semana fresca y con lluvias",
@@ -157,19 +167,30 @@
      "id": "16tgrhv",
      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
      "cuando": "2026-10-19T12:35:30.137Z"
+    },
+    {
+     "id": "17nia8a",
+     "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
+     "cuando": "2026-10-19T14:35:29.982Z"
     }
    ],
    "cola": [
     {
-     "id": "17nia8a",
-     "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
-     "seccion": "Fútbol",
+     "id": "1t0vxaf",
+     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+     "seccion": "Salud",
      "marcada": false
     },
     {
-     "id": "1h6s4i8",
-     "titulo": "Atlético San Agustín y Racing FC empatan en el inicio del Clausura",
-     "seccion": "Fútbol",
+     "id": "tuhpwo",
+     "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "lnmciw",
+     "titulo": "Pronostican una semana fresca y con lluvias",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -179,9 +200,9 @@
      "marcada": false
     },
     {
-     "id": "lnmciw",
-     "titulo": "Pronostican una semana fresca y con lluvias",
-     "seccion": "Balcarce",
+     "id": "c6mopr",
+     "titulo": "Mattia Colnaghi cambia de escudería y correrá en Campos Racing",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -197,20 +218,14 @@
      "marcada": false
     },
     {
-     "id": "19ojs9v",
-     "titulo": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1jbant9",
-     "titulo": "El Gobierno prorroga el régimen de empleo formal para trabajadores rurales",
-     "seccion": "Agro",
+     "id": "1lvtb0b",
+     "titulo": "El riesgo país llega a 660 puntos y los bonos operan en baja",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-19T14:05:30.137Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-19T16:05:29.982Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
