@@ -23321,14 +23321,28 @@
   "huella": "7f9e9edcbf9d91c3"
  },
  "1cesuw3": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Supermercados piden que tres distritos adhieran al Sircupa",
-  "razon": "La mejor foto era la de Infobae, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-19T21:04:58.681Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/bammjm.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Supermercados piden extender las retenciones a billeteras virtuales",
+  "enlace": "https://www.iprofesional.com/impuestos/466958-como-funciona-retencion-ingresos-brutos-mercado-pago",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/01/610420_landscape.jpg",
+  "razon": "Muestra claramente el uso de billeteras virtuales en un supermercado con buena calidad y sin problemas.",
+  "cuando": "2026-10-19T23:01:40.328Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona usando billetera virtual en pasillo de supermercado"
+  },
+  "huella": "ab9b5756770f9676"
  },
  "1faek9w": {
   "archivo": "fotos-notas/1faek9w.jpg",
@@ -23670,5 +23684,86 @@
   "cuando": "2026-10-19T22:32:51.302Z",
   "intentos": 1,
   "fuentes": 7
+ },
+ "1cyr47b": {
+  "archivo": "fotos-notas/1cyr47b.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
+  "enlace": "https://eldiariobalcarce.com.ar/gabriel-ferreyra-y-ezequiel-mendez-lograron-el-pase-a-cosquin-607",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-19-22-11-22Gabriel_y_Eze.JPG",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, corresponde a la nota y no presenta marcas de agua, menores ni problemas técnicos.",
+  "cuando": "2026-10-19T23:01:40.328Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres posando con certificados del Pre Cosquín frente a un telón institucional."
+  },
+  "huella": "cad4d6ba32b63432"
+ },
+ "bammjm": {
+  "archivo": "fotos-notas/bammjm.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Supermercados piden extender las retenciones a billeteras virtuales",
+  "enlace": "https://www.iprofesional.com/impuestos/466958-como-funciona-retencion-ingresos-brutos-mercado-pago",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/01/610420_landscape.jpg",
+  "razon": "Muestra claramente el uso de billeteras virtuales en un supermercado con buena calidad y sin problemas.",
+  "cuando": "2026-10-19T23:01:40.328Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona usando billetera virtual en pasillo de supermercado"
+  },
+  "huella": "ab9b5756770f9676"
+ },
+ "zd1iq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Recomiendan tres hábitos físicos para preservar la autonomía con los años",
+  "razon": "La mejor foto era la de Minuto Uno, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-19T23:01:40.328Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "ns7t1j": {
+  "archivo": "fotos-notas/ns7t1j.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Justicia rechaza la probatión de Matías Morla y confirma juicio",
+  "enlace": "https://mi8.com.ar/la-causa-por-las-marcas-de-maradona-ira-a-juicio-rechazaron-el-pedido-de-morla/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2026/10/image-51.jpg",
+  "razon": "Es la mejor foto que corresponde a la nota, muestra a Matías Morla junto a Diego Maradona y no tiene marcas de agua agregadas por el medio.",
+  "cuando": "2026-10-19T23:01:40.328Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Matías Morla junto a Diego Maradona"
+  },
+  "huella": "ce9636b5a7a7a6e6"
  }
 }

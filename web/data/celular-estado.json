@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T22:34:07.942Z",
- "portada": 99,
- "archivo": 1358,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-19T23:02:03.086Z",
+ "portada": 100,
+ "archivo": 1361,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-19T22:34:08.407Z",
+  "generado": "2026-10-19T23:02:03.538Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -157,12 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 33,
+    "segundos": 38,
     "notas": [
      {
       "id": "c1ev9v",
       "titulo": "El Municipio busca actividad mensual en el autódromo",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "1cyr47b",
+      "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "izhwg1",
@@ -208,6 +213,12 @@
      "marcada": false
     },
     {
+     "id": "1cyr47b",
+     "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "beeajf",
      "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
      "seccion": "Deportes",
@@ -229,12 +240,6 @@
      "id": "n48pgu",
      "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
      "seccion": "Agro",
-     "marcada": false
-    },
-    {
-     "id": "1cesuw3",
-     "titulo": "Supermercados piden que tres distritos adhieran al Sircupa",
-     "seccion": "Economía",
      "marcada": false
     },
     {
