@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T02:31:14.682Z",
- "portada": 72,
+ "generado": "2026-10-19T03:01:13.891Z",
+ "portada": 57,
  "archivo": 1293,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-19T02:31:14.952Z",
+  "generado": "2026-10-19T03:01:14.303Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-18T10:06:23.582Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-18T12:06:33.952Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,8 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-18T14:07:03.413Z"
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "participa-noticias",
+    "tipo": "reel",
+    "hora": "12:00",
+    "que": "Participá: mandanos noticias",
+    "voz": "locutora",
+    "ventana": 60,
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -43,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-18T18:36:09.832Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -53,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-18T22:06:37.671Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -63,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-18T23:06:51.886Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -73,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-19T01:36:02.378Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -83,124 +93,43 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-18T14:07:03.413Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "177ws3g",
-      "titulo": "La UNLP registra una caída en la construcción y el sector inmobiliario",
-      "seccion": "Economía"
-     },
-     {
-      "id": "1o3t45b",
-      "titulo": "La concesionaria avanza con la demarcación sobre la Ruta 226",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-18T18:36:09.832Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1gjmiur",
-      "titulo": "La muestra Arte Fusión 2026 continúa abierta en el Museo Histórico",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1amjlr2",
-      "titulo": "Realizan una jornada de iniciación al kayak en la Laguna La Brava",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1h0p2e2",
-      "titulo": "El cementerio municipal actualiza sus horarios desde el 26 de octubre",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-19T01:36:02.378Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1pudola",
-      "titulo": "Ariel Bilbao asume como juez de tiro en los Juegos Bonaerenses",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "kx9cur",
-      "titulo": "El Teatro Municipal realiza el show solidario Todos por Rufino",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1k3lvbc",
-      "titulo": "La Universidad FASTA dicta un taller gratuito de finanzas personales",
-      "seccion": "Educación"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "177ws3g",
-     "titulo": "La UNLP registra una caída en la construcción y el sector inmobiliario",
-     "cuando": "2026-10-18T14:05:27.217Z"
-    },
-    {
-     "id": "xnrqaj",
-     "titulo": "Erling Haaland comparte una foto tomando mate y agradece a futbolistas argentinos",
-     "cuando": "2026-10-18T15:45:26.987Z"
-    },
-    {
-     "id": "1gjmiur",
-     "titulo": "La muestra Arte Fusión 2026 continúa abierta en el Museo Histórico",
-     "cuando": "2026-10-18T17:35:29.428Z"
-    },
-    {
-     "id": "1pudola",
-     "titulo": "Ariel Bilbao asume como juez de tiro en los Juegos Bonaerenses",
-     "cuando": "2026-10-18T19:35:31.715Z"
-    },
-    {
-     "id": "ncrv15",
-     "titulo": "Las ventas minoristas por el Día de la Madre retroceden 1,4%",
-     "cuando": "2026-10-18T21:35:25.409Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
-    {
-     "id": "7naab",
-     "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
     {
      "id": "13qte13",
      "titulo": "Enzo Pérez sorprende a los hinchas de River en la popular",
      "seccion": "Fútbol",
      "marcada": false
-    },
-    {
-     "id": "elrm3n",
-     "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en el Torneo Clausura",
-     "seccion": "Fútbol",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-18T23:05:25.409Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
