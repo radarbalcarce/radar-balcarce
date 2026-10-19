@@ -18536,7 +18536,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica con rayos sobre la ciudad"
   },
-  "huella": "330bc3271d1d0413"
+  "huella": "330bc3271d1d0413",
+  "ausenteDesde": "2026-10-19T02:02:25.430Z"
  },
  "19nga6r": {
   "archivo": "fotos-notas/19nga6r.jpg",
@@ -21447,14 +21448,28 @@
   "fuentes": 1
  },
  "1837v8u": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1837v8u.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Balón de Oro abre una votación histórica entre Messi y Cristiano",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-19T00:31:53.578Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.infobae.com/deportes/2026/10/18/el-balon-de-oro-lanzo-una-votacion-para-elegir-al-mas-grande-de-la-historia-la-inesperada-distancia-en-la-puja-entre-messi-y-cristiano/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/QL2CRYDVBFBT5EPKSQZHBH742I.jpg?auth=39605622d6c353c4852a69acf9d003aebb7ce71279011fffa58efc78ab77467e&smart=true&width=1200&height=630&quality=85",
+  "razon": "La foto A muestra claramente a ambos protagonistas con el Balón de Oro, sin marcas agregadas ni problemas de formato.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Messi y Cristiano Ronaldo sosteniendo el Balón de Oro en un fotomontaje o imagen combinada"
+  },
+  "huella": "ab2b3bbb2bbb6b3b"
  },
  "1v7303j": {
   "archivo": "fotos-notas/1v7303j.jpg",
@@ -21571,5 +21586,149 @@
   "cuando": "2026-10-19T01:31:26.432Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "1izs5zv": {
+  "archivo": "fotos-notas/1izs5zv.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula cruza a Bolsonaro con Milei en el primer debate presidencial",
+  "enlace": "https://tn.com.ar/politica/2026/10/18/ya-pediste-prestada-la-motosierrra-de-milei-la-chicana-de-lula-da-silva-a-flavio-bolsonaro-durante-el-debate-en-brasil/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/lula-da-silva-le-pregunto-a-flavio-bolsonaro-si-adoptara-la-motosierra-de-javier-milei-foto-reutersjean-carniel-OH3HQH7FK5D3BPTYJNE3EGH5PA.wxeZQ?auth=8d12715a47f5a2413338d64c8de56a4f8d92fcc4517dd8aa5a180cae2f3424a5&width=1023",
+  "razon": "Muestra claramente el cruce entre Lula y Bolsonaro durante el debate con un plano abierto adecuado.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lula señalando a Bolsonaro en el debate"
+  },
+  "huella": "434969425e565813"
+ },
+ "hiemrm": {
+  "archivo": "fotos-notas/hiemrm.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Santilli afirma que Javier Milei gana las elecciones de 2027 con o sin PASO",
+  "enlace": "https://www.infobae.com/politica/2026/10/19/diego-santilli-javier-milei-va-a-ganar-las-elecciones-de-2027-con-o-sin-paso/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/RXJRVXYNIJH5THVVLGUCW426JU.jpg?auth=3b5122fe7676dcabb06d93a74e2af985191d1e9aef6d5c2d9e960646b56c726c&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única foto que corresponde a la nota, tiene excelente calidad, muestra claramente al político protagonista y no posee marcas de agua, elementos gráficos ni menores.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Diego Santilli sentado en un sillón conversando en una oficina.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Gustavo Santos (Santilli) sentado en un sillón en un despacho, gesticulando mientras habla."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "22a82c482869681a"
+ },
+ "elrm3n": {
+  "archivo": "fotos-notas/elrm3n.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en el Torneo Clausura",
+  "enlace": "https://www.diariopopular.com.ar/futbol/torneo-clausura-san-lorenzo-se-lo-dio-vuelta-estudiantes-y-suena-la-clasificacion-n925163",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/7356dba135997c2fbe252d7ca68790f1/adjuntos/143/imagenes/008/260/0008260950/1200x675/smart/san-lorenzo.JPG",
+  "razon": "Es la única foto que muestra un festejo de gol claro, sin marcas de agua sobreimpuestas y libre de menores.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de San Lorenzo festejando un gol abrazados.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de San Lorenzo celebran un gol en el partido contra Estudiantes."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b3bb0e363f2d2e2a"
+ },
+ "1grp8ey": {
+  "archivo": "fotos-notas/1grp8ey.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei viaja a España para una nueva gira y se reúne con Isabel Díaz Ayuso",
+  "enlace": "https://www.cronica.com.ar/politica/javier-milei-viaje-espana-diaz-ayuso/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1722/1722633/6ad54b7bb7563_600_315!.jpg?s=aea323928c39c34d849363911dc0c446&d=1792363869",
+  "razon": "Es la única foto que muestra claramente el encuentro entre Javier Milei e Isabel Díaz Ayuso en España, con excelente encuadre y sin problemas.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei junto a Isabel Díaz Ayuso frente a banderas."
+  },
+  "huella": "caaa8eaaaee6c727"
+ },
+ "ndi48b": {
+  "archivo": "fotos-notas/ndi48b.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ferro le gana a Racing de Córdoba y acaricia la final por el ascenso",
+  "enlace": "https://www.ole.com.ar/futbol-ascenso/ferro-racingdecordoba-primeranacional-brunoamiconi-ligaprofesional_0_ZJ87vGEupK.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/18/oENk5gUk7_2000x1500__1.jpg",
+  "razon": "Tiene excelente nitidez, encuadre profesional y captura un festejo clave del partido sin marcas ni menores.",
+  "cuando": "2026-10-19T02:01:43.599Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando un gol con euforia"
+  },
+  "huella": "2a6673b39391a10f"
  }
 }
