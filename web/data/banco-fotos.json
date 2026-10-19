@@ -22539,8 +22539,8 @@
   "origen": "ninguna",
   "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-19T16:33:18.871Z",
-  "intentos": 2,
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "tuhpwo": {
@@ -22773,11 +22773,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-10-19T16:05:01.171Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "razon": "La única foto disponible muestra menores de edad con las caras reconocibles, por lo que no puede ser publicada según la política del medio.",
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "intentos": 2,
+  "fuentes": 1
  },
  "cf054h": {
   "archivo": "fotos-notas/cf054h.jpg",
@@ -22806,14 +22805,40 @@
   "ausenteDesde": "2026-10-19T16:33:58.443Z"
  },
  "bdd09s": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/bdd09s.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El gobierno provincial defiende las PASO frente al plan de la Nación",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-19T16:33:18.871Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.infobae.com/politica/2026/10/19/el-gobierno-de-kicillof-exige-mantener-las-paso-quieren-evitar-que-la-oposicion-se-organice-para-que-milei-sea-reelecto/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/2DGKVLWFT5FBJFER27Q6O3ZJIQ.jpg?auth=65eadfda38c49efe816e9b33e1293d9f5e93c30d377b5cea26a91b132316da72&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la foto más completa que muestra a los funcionarios brindando la conferencia de prensa sobre el tema provincial.",
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos funcionarios en una conferencia de prensa de la provincia de Buenos Aires",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos funcionarios del gobierno de Buenos Aires en una conferencia de prensa."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0f0f47456c6a6a46"
  },
  "usi2pn": {
   "archivo": "fotos-notas/usi2pn.jpg",
@@ -22910,5 +22935,62 @@
    "descripcion": "Luis Enrique en conferencia de prensa saludando con la mano en alto"
   },
   "huella": "9b3f326b7b7a1b13"
+ },
+ "1l2bh67": {
+  "archivo": "fotos-notas/1l2bh67.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "FASTA dicta una charla gratuita sobre economía familiar",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45122-fasta-impulsa-una-capacitacion-gratuita-sobre-educacion-financiera-en-balcarce-es-aprender-para-decidir-mejor/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66089.png",
+  "razon": "Es la única foto disponible, tiene buena nitidez y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre con anteojos hablando frente a un micrófono."
+  },
+  "huella": "d3d3dbd3d3d3f9f8"
+ },
+ "2rqepx": {
+  "archivo": "fotos-notas/2rqepx.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Menonne no descarta un candidato de La Cámpora para 2027",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45121-menonne-no-descarto-un-candidato-propio-de-la-campora-en-balcarce-para-2027/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66088.png",
+  "razon": "Es la única opción disponible, cumple con los requisitos y corresponde a la nota.",
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de un hombre adulto con micrófono."
+  },
+  "huella": "b5b5b5b5b5b4f4e4"
+ },
+ "18qkpo0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mueren la actriz brasileña Lua Blanco y la estadounidense Betty McGuire",
+  "razon": "La mejor foto era la de C5N, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-19T17:33:27.371Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
