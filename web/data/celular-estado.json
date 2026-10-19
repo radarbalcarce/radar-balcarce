@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T16:33:58.461Z",
- "portada": 77,
- "archivo": 1330,
+ "generado": "2026-10-19T17:02:24.229Z",
+ "portada": 80,
+ "archivo": 1333,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-19T16:33:58.888Z",
+  "generado": "2026-10-19T17:02:24.575Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
       "id": "1t0vxaf",
@@ -137,11 +137,6 @@
       "id": "tuhpwo",
       "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "10jkdys",
-      "titulo": "La Fiesta Nacional del Postre fija su desarrollo para fin de mes",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "1rq74kt",
@@ -172,6 +167,11 @@
      "id": "17nia8a",
      "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
      "cuando": "2026-10-19T14:35:29.982Z"
+    },
+    {
+     "id": "tuhpwo",
+     "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
+     "cuando": "2026-10-19T16:35:30.716Z"
     }
    ],
    "cola": [
@@ -179,12 +179,6 @@
      "id": "1t0vxaf",
      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
      "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "tuhpwo",
-     "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
-     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -206,12 +200,6 @@
      "marcada": false
     },
     {
-     "id": "1e8jbcu",
-     "titulo": "El Gobierno aprueba un proyecto petrolero en Vaca Muerta por USD 12.240 millones",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "15mz4jn",
      "titulo": "Cámaras empresarias recortan el servicio de 104 líneas de colectivos",
      "seccion": "Argentina",
@@ -222,10 +210,16 @@
      "titulo": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo",
      "seccion": "Fútbol",
      "marcada": false
+    },
+    {
+     "id": "qomk2i",
+     "titulo": "La industria metalúrgica cae 3,3% interanual en septiembre",
+     "seccion": "Economía",
+     "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-19T16:05:29.982Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-19T18:05:30.716Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
