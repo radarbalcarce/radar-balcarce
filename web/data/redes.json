@@ -2691,6 +2691,19 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-18/podcast": {
+      "cuando": "2026-10-19T01:36:02.378Z",
+      "mediaId": "18111757541519389",
+      "nombre": "podcast",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [
+        "1pudola",
+        "kx9cur",
+        "1k3lvbc"
+      ],
+      "permalink": "https://www.instagram.com/reel/DeqF0pPjiuF/"
     }
   },
   "facebookVideos": {
@@ -4519,6 +4532,20 @@
       "notaId": null,
       "notaIds": [],
       "postId": "1788800232362468"
+    },
+    "2026-10-18/podcast": {
+      "cuando": "2026-10-19T01:37:18.370Z",
+      "mediaId": "1669619678027919",
+      "nombre": "podcast",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [
+        "1pudola",
+        "kx9cur",
+        "1k3lvbc"
+      ],
+      "postId": "122113401057495512",
+      "permalink": "https://www.facebook.com/reel/1669619678027919/"
     }
   },
   "instagramFeed": {
@@ -6393,6 +6420,21 @@
       "red": "facebook",
       "notaId": "1gjmiur",
       "postId": "1986179855671237"
+    },
+    "instagram/2026-10-18/podcast": {
+      "cuando": "2026-10-19T01:37:10.795Z",
+      "mediaId": "18101130560562254",
+      "nombre": "podcast",
+      "red": "instagram",
+      "notaId": null
+    },
+    "facebook/2026-10-18/podcast": {
+      "cuando": "2026-10-19T01:37:50.140Z",
+      "mediaId": "1399983122303760",
+      "nombre": "podcast",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "1856928082317042"
     }
   },
   "problemas": {
@@ -6402,13 +6444,6 @@
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-15T13:08:46.203Z"
-    },
-    "2026-10-18/podcast/instagram/reel": {
-      "pieza": "podcast",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-19T01:05:22.728Z"
     }
   },
   "facebookFoto": {
