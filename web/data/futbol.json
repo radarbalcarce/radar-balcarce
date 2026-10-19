@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-19T00:32:12.774Z",
+ "consultado": "2026-10-19T01:01:31.581Z",
  "equipos": [
   "9739",
   "3",
@@ -1105,7 +1105,7 @@
     "competencia": "liga",
     "inicio": "2026-10-18T23:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "51'",
+    "minuto": "80'",
     "local": {
      "id": "4",
      "nombre": "Belgrano (Córdoba)",
@@ -1114,7 +1114,7 @@
     "visitante": {
      "id": "16",
      "nombre": "River Plate",
-     "goles": 2
+     "goles": 3
     },
     "penales": null,
     "goles": [
@@ -1128,6 +1128,12 @@
       "equipo": "visitante",
       "jugador": "Ángel Correa",
       "minuto": "49'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Thiago Almada",
+      "minuto": "72'",
       "tipo": "gol"
      }
     ],
@@ -1782,7 +1788,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-18T23:06:53.801Z",
+ "tablaCuando": "2026-10-19T01:01:31.581Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

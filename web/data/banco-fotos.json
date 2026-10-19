@@ -21334,7 +21334,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "931e96bd0e3a6b6f"
+  "huella": "931e96bd0e3a6b6f",
+  "ausenteDesde": "2026-10-19T01:01:34.626Z"
  },
  "jygk9m": {
   "archivo": "fotos-notas/jygk9m.jpg",
@@ -21479,5 +21480,38 @@
    "descripcion": "Auto de carrera volcando contra el muro de contención con neumáticos volando en el aire."
   },
   "huella": "0d954565b3da5a01"
+ },
+ "7naab": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Acción 5 (Balcarce) (un menor): no se elige ninguna.",
+  "cuando": "2026-10-19T01:01:17.143Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "iubep7": {
+  "archivo": "fotos-notas/iubep7.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River supera a Belgrano por el Torneo Clausura",
+  "enlace": "https://www.minutouno.com/deportes/minuto-minuto-vivo-belgrano-vs-river-el-torneo-clausura-2026-goles-y-resultado-n6334665",
+  "imagenOriginal": "https://media.minutouno.com/p/0753a53832e225479f39ef36f0720d26/adjuntos/150/imagenes/043/712/0043712319/belgrano-river-1.jpg",
+  "razon": "Es una fotografía clara de acción del partido, sin marcas añadidas, menores ni problemas técnicos.",
+  "cuando": "2026-10-19T01:01:17.143Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de River Plate dominando el balón en pleno partido."
+  },
+  "huella": "a59a8b89b1161e1f"
  }
 }
