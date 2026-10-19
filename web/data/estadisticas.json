@@ -2005,6 +2005,49 @@
         "vistas": 21,
         "interacciones": 8
       }
+    },
+    {
+      "cuando": "2026-10-19T00:00:22.193Z",
+      "web": {
+        "u12": {
+          "visitas": 0,
+          "vistas": 0
+        },
+        "a12": {
+          "visitas": 0,
+          "vistas": 0
+        },
+        "u24": {
+          "visitas": 25,
+          "vistas": 49
+        },
+        "a24": {
+          "visitas": 35,
+          "vistas": 83
+        },
+        "top": [
+          {
+            "camino": "/nota/las-ventas-minoristas-por-el-dia-de-la-madre-retroceden-1-4-ncrv15",
+            "vistas": 20
+          },
+          {
+            "camino": "/nota/la-muestra-arte-fusion-2026-continua-abierta-en-el-museo-historico-1gjmiur",
+            "vistas": 10
+          }
+        ]
+      },
+      "facebook": {
+        "seguidores": 67,
+        "vistas": 7502,
+        "interacciones": 68
+      },
+      "instagram": {
+        "seguidores": 7,
+        "publicaciones": 201,
+        "alcance": 71,
+        "vistas": 134,
+        "interacciones": 19
+      }
     }
   ],
   "dias": {
@@ -3321,11 +3364,7 @@
         "mobile": 50
       },
       "paises": {
-        "AR": 67,
-        "US": 30,
-        "IE": 13,
-        "SE": 8,
-        "CN": 1
+        "AR": 200
       },
       "horas": [
         0,
@@ -3422,8 +3461,8 @@
         0,
         2,
         0,
-        0,
-        0,
+        1,
+        12,
         0
       ],
       "dispositivos": {
@@ -3438,36 +3477,70 @@
         "daz0ef": 3,
         "1p0s5l3": 2,
         "164o14u": 2,
-        "1jpywoz": 1,
-        "1xyp583": 1,
-        "1mfnr70": 1,
         "bgdvlg": 1,
-        "1ovxwze": 1,
-        "repaso20261016noche": 1,
+        "1xyp583": 1,
+        "1jpywoz": 1,
+        "ule632": 1,
+        "1mfnr70": 1,
         "1qtfiwu": 1,
-        "30azdn": 1
+        "1ovxwze": 1,
+        "30azdn": 1,
+        "repaso20261016noche": 1
       },
       "paginas": {
-        "/": 11,
+        "/": 16,
         "/clima": 6,
-        "/seccion/politica-4": 3,
+        "/seccion/futbol": 4,
         "/seccion/balcarce-12": 3,
         "/seccion/politica-5": 3,
-        "/seccion/balcarce-10": 2,
-        "/contacto": 2,
-        "/farmacias": 2,
-        "/seccion/balcarce-3": 2,
-        "/seccion/balcarce-8": 2,
-        "/seccion/balcarce-7": 2,
+        "/seccion/politica-4": 3,
         "/seccion/balcarce-2": 2,
-        "/seccion/economia": 1,
-        "/seccion/balcarce-6": 1,
-        "/seccion/economia-2": 1
+        "/seccion/balcarce-3": 2,
+        "/contacto": 2,
+        "/seccion/policiales": 2,
+        "/seccion/balcarce-7": 2,
+        "/seccion/balcarce-8": 2,
+        "/seccion/balcarce-10": 2,
+        "/farmacias": 2,
+        "/seccion/balcarce-6": 1
       },
       "referentes": {
         "facebook.com": 18,
         "directo": 12,
         "google.com": 4
+      }
+    },
+    "2026-10-18": {
+      "horas": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        5,
+        11,
+        1,
+        0,
+        9,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "referentes": {
+        "facebook.com": 12,
+        "directo": 5,
+        "google.com": 2
       }
     }
   }
