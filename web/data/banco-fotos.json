@@ -21181,13 +21181,40 @@
   "huella": "2d259d24271ca935"
  },
  "10fktw1": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/10fktw1.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Diego Cabrera advierte sobre la crisis alimentaria y la falta de pagos",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-18T23:06:23.914Z",
-  "intentos": 2,
-  "fuentes": 1
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/diego-cabrera-en-balcarce-vox-hay.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuZjfzDZmXF5mbZH0Z3jQ6M7XF6a__AvFtyfjN59tu0s4rs7uQ4PHXMo8wHDLtT5ej0B6DkglXJC0yAUT6Zq7HzOU89zAycBNKWGVeK_Pz5icB8CWn1b2yGDJYZqV6BlVuqftwBOIwN0KZjWpg8ZKeHnqppzJ8Qp-wjGrs7noq00OBLyLE_oSB5109MIM/w640-h462/Diego%20Cabrera%20-%20Somos%20Barrios%20de%20Pie.jpeg",
+  "razon": "Es la única opción disponible, cumple con los requisitos y no tiene marcas ni problemas.",
+  "cuando": "2026-10-19T00:31:53.578Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Diego Cabrera sosteniendo una bandera de Somos Barrios de Pie durante una protesta.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un hombre sonríe sosteniendo una bandera de 'Somos Barrios de Pie' durante una manifestación al aire libre."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "d1531b703c717574"
  },
  "2qoyht": {
   "archivo": "fotos-notas/2qoyht.jpg",
@@ -21399,5 +21426,58 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "bebfaf673eb6e69e"
+ },
+ "19ukd1p": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Atlético San Manuel, Boca, Ferroviarios, Los Patos y Agrarias lideran el Clausura",
+  "razon": "La imagen proporcionada es un logotipo gráfico del medio y no una fotografía del evento.",
+  "cuando": "2026-10-19T00:31:53.578Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "pmyg33": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Amigos Unidos vence a Ferroviarios y comienza con un triunfo el Clausura",
+  "razon": "La imagen provista es el logo del medio y no una fotografía del evento deportivo.",
+  "cuando": "2026-10-19T00:31:53.578Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1837v8u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Balón de Oro abre una votación histórica entre Messi y Cristiano",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-19T00:31:53.578Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1v7303j": {
+  "archivo": "fotos-notas/1v7303j.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Matías Cantarini choca en la final de la Clase 2 del Turismo Pista",
+  "enlace": "https://tn.com.ar/deportes/automovilismo/2026/10/18/video-asi-fue-el-choque-de-un-piloto-durante-la-final-del-turismo-pista-en-entre-rios/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-398-cfd4def373dc1792339064156-1792339856.jpg?auth=e6d6dfb72aea929d0eb26db699a532186be528bb4d0888179d2347184183a6c0&width=1023",
+  "razon": "Es la única opción disponible y muestra el momento del choque descrito en la nota, a pesar de la baja nitidez.",
+  "cuando": "2026-10-19T00:31:53.578Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carrera volcando contra el muro de contención con neumáticos volando en el aire."
+  },
+  "huella": "0d954565b3da5a01"
  }
 }

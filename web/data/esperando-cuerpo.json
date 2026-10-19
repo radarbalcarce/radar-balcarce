@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-19T00:02:17.051Z",
+ "generado": "2026-10-19T00:32:15.290Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,9 +15,83 @@
      "fecha": "2026-10-18T23:35:42.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"liga\" y la fuente no",
+   "intentos": 2,
+   "motivo": "cuerpo: 3 problemas (forma, numero): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones quedan 121 pa",
    "maximo": 3
+  },
+  {
+   "id": "1yt97fz",
+   "titulo": "Buscan a un joven de 27 años que está desaparecido desde el martes",
+   "copete": "Según una publicación difundida en redes sociales, no se tienen noticias de él desde el martes 13 de octubre. Solicitan colaboración para dar con su paradero.",
+   "seccion": "Policiales",
+   "fecha": "2026-10-18T19:37:05.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/buscan-a-un-joven-de-27-anos-que-esta-desaparecido-desde-el-martes",
+     "fecha": "2026-10-18T19:37:05.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "sin material",
+   "maximo": 3
+  },
+  {
+   "id": "1sfy7t2",
+   "titulo": "En vivo: River le gana 1-0 a Belgrano en Córdoba",
+   "copete": "River lo gana bien en Córdoba. Derrota 1 a 0 a Belgrano con el gol de Galván. El equipo de Ponzio fue superior al local, pero el arquero Cardozo le había tapado de manera impresionante dos remates a Correa. El 10 del millonario es el mejor jugador del partido hasta acá. Ninguno…",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-18T22:38:00.000Z",
+   "fuentes": [
+    {
+     "medio": "El Gráfico",
+     "enlace": "https://www.elgrafico.com.ar/articulo/1038/103415/en-vivo-river-le-gana-1-0-a-belgrano-en-cordoba",
+     "fecha": "2026-10-18T22:38:00.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/deportes/futbol/belgrano-vs-river-en-vivo-nid18102026/",
+     "fecha": "2026-10-19T00:26:31.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/deportes/futbol/2026/10/18/river-vs-belgrano-por-el-torneo-clausura-posibles-formaciones-a-que-hora-y-como-ver-el-partido-en-vivo-por-tv/",
+     "fecha": "2026-10-19T00:26:17.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/futbol-primera/galvan-puso-1-0-belgrano_3_kaDbHWzcsF.html",
+     "fecha": "2026-10-19T00:14:02.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/futbol-primera/belgrano-vs-river-torneo-clausura-vivo-hora-ver-tv-online-formaciones_0_8rsTaozzKf.html",
+     "fecha": "2026-10-19T00:08:00.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/videos/video-asi-relato-gabriel-anello-el-gol-de-tomas-galvan-para-el-1-a-0-de-river-ante-belgrano-por-el-torneo-clausura/",
+     "fecha": "2026-10-19T00:14:46.000Z"
+    },
+    {
+     "medio": "El Día",
+     "enlace": "https://www.eldia.com/deportes/obligado-a-ganar-river-visita-al-pirata-deportes_1792298217",
+     "fecha": "2026-10-18T23:19:00.000Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-10-17-8-34-0-hora-tv-y-formaciones-river-visita-a-belgrano-en-un-duelo-clave-por-la-clasificacion-a-los-playoffs",
+     "fecha": "2026-10-19T00:14:46.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/deportes/belgrano-river-torneo-clausura-resultado-goles-resumen-18-octubre-2026",
+     "fecha": "2026-10-18T23:16:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 54 palabras",
+   "maximo": 5
   },
   {
    "id": "apgyp2",
@@ -59,43 +133,6 @@
    ],
    "intentos": 4,
    "motivo": "título o bajada: 1 problema (numero): el copete dice 50 y la fuente no lo dice",
-   "maximo": 4
-  },
-  {
-   "id": "13a0lmz",
-   "titulo": "Belgrano ante River, por el Torneo Clausura",
-   "copete": "Belgrano y River se enfrentarán este domingo desde las 20.15, por la fecha 13 del Torneo Clausura . El partido se jugará en el estadio Mario Alberto Kempes , con hinchas de los dos equipos en las tribunas. El encuentro será televisado por ESPN Premium y tendrá a Pablo Dóvalo…",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-18T17:25:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Perfil",
-     "enlace": "https://442.perfil.com/noticias/futbol/belgrano-vs-river-por-el-torneo-clausura.phtml",
-     "fecha": "2026-10-18T17:25:00.000Z"
-    },
-    {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/deportes/torneo-clausura-2026-segui-en-vivo-belgrano-vs-river/",
-     "fecha": "2026-10-18T22:09:36.000Z"
-    },
-    {
-     "medio": "Canal 26",
-     "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/belgrano-vs-river-plate-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
-     "fecha": "2026-10-18T23:55:00.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-17-8-34-0-hora-tv-y-formaciones-river-visita-a-belgrano-en-un-duelo-clave-por-la-clasificacion-a-los-playoffs",
-     "fecha": "2026-10-18T23:38:57.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/deportes/minuto-minuto-vivo-belgrano-vs-river-el-torneo-clausura-2026-goles-y-resultado-n6334665",
-     "fecha": "2026-10-18T23:53:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el máximo es 90",
    "maximo": 4
   },
   {
