@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T18:32:20.068Z",
- "portada": 85,
- "archivo": 1340,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-19T19:01:25.546Z",
+ "portada": 79,
+ "archivo": 1342,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-19T18:32:20.247Z",
+  "generado": "2026-10-19T19:01:25.827Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-19T18:46:09.812Z"
    },
    {
     "nombre": "farmacia",
@@ -125,8 +125,8 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "salio": "2026-10-19T18:46:09.812Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1t0vxaf",
@@ -139,8 +139,8 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "17ch9cn",
-      "titulo": "La Escuela República Argentina abre la preinscripción para 2027",
+      "id": "1l2bh67",
+      "titulo": "FASTA dicta una charla gratuita sobre economía familiar",
       "seccion": "Educación"
      },
      {
@@ -177,31 +177,18 @@
      "id": "tuhpwo",
      "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
      "cuando": "2026-10-19T16:35:30.716Z"
+    },
+    {
+     "id": "1t0vxaf",
+     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
+     "cuando": "2026-10-19T18:35:33.689Z"
     }
    ],
    "cola": [
     {
-     "id": "1t0vxaf",
-     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
      "id": "beeajf",
      "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "17ch9cn",
-     "titulo": "La Escuela República Argentina abre la preinscripción para 2027",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
-     "id": "1w9sag8",
-     "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -217,20 +204,14 @@
      "marcada": false
     },
     {
-     "id": "mn0ko1",
-     "titulo": "Boca define los últimos detalles para enfrentar a Vasco da Gama en la Copa Sudamericana",
+     "id": "ssktw0",
+     "titulo": "Boca visita a Vasco da Gama por la semifinal de la Copa Sudamericana",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "qomk2i",
-     "titulo": "La industria metalúrgica cae 3,3% interanual en septiembre",
-     "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-19T18:05:30.716Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-19T20:05:33.689Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
