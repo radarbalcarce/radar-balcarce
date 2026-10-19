@@ -21354,5 +21354,50 @@
   "intentos": 1,
   "fuentes": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "13qte13": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Enzo Pérez sorprende a los hinchas de River en la popular",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Olé (un menor): no se elige ninguna. (se probó una foto libre de \"Enzo Pérez\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
+  "cuando": "2026-10-19T00:01:59.924Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "1pcrwpx": {
+  "archivo": "fotos-notas/1pcrwpx.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta roja en Chaco ante la crecida del río Paraná",
+  "enlace": "https://www.ambito.com/informacion-general/alerta-roja-chaco-la-crecida-del-rio-parana-advierten-que-podria-llegar-los-750-metros-n6335041",
+  "imagenOriginal": "https://media.ambito.com/p/f5251d181155b0b16289c6e293f08a05/adjuntos/239/imagenes/043/711/0043711701/alerta-roja-chaco.jpg",
+  "razon": "Es la foto más adecuada, sin marcas superpuestas, sin menores visibles y con buen encuadre de la crecida.",
+  "cuando": "2026-10-19T00:01:59.924Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Zona ribereña o costera inundada por la crecida del río",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista de una zona inundada con postes y farolas emergiendo del agua bajo un cielo nublado."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "bebfaf673eb6e69e"
  }
 }

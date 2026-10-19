@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-18T23:32:28.350Z",
- "portada": 64,
- "archivo": 1280,
+ "generado": "2026-10-19T00:02:17.051Z",
+ "portada": 66,
+ "archivo": 1282,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-18T23:32:28.726Z",
+  "generado": "2026-10-19T00:02:17.304Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -130,7 +130,7 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 40,
     "notas": [
@@ -181,6 +181,12 @@
     }
    ],
    "cola": [
+    {
+     "id": "13qte13",
+     "titulo": "Enzo Pérez sorprende a los hinchas de River en la popular",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
     {
      "id": "hi8g69",
      "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en La Plata por el Clausura",
