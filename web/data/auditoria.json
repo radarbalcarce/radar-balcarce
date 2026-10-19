@@ -1,6 +1,10 @@
 {
-  "fecha": "2026-10-12T20:44:46.738Z",
+  "fecha": "2026-10-19T18:09:57.200Z",
   "problemas": [
+    {
+      "clave": "seo",
+      "texto": "El auditor de SEO en vivo encontró páginas con problemas: corré `node web/scripts/auditar-seo-vivo.mjs` para ver cuáles."
+    },
     {
       "clave": "formatos-sin-confirmar",
       "texto": "Medidas sin confirmar en la fuente oficial: instagram.perfil, facebook.perfil (FORMATOS.md)."
