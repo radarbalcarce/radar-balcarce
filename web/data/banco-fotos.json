@@ -20870,7 +20870,8 @@
    "corresponde": "si",
    "descripcion": "Emiliano Martínez internado sonriendo y levantando el pulgar en una habitación de hospital"
   },
-  "huella": "52328a16d1c158d8"
+  "huella": "52328a16d1c158d8",
+  "ausenteDesde": "2026-10-19T20:31:36.217Z"
  },
  "1h8zd1p": {
   "archivo": "fotos-notas/1h8zd1p.jpg",
@@ -23255,5 +23256,65 @@
    "descripcion": "Fausto Vera tomándose la pierna con gesto de dolor en la cancha"
   },
   "huella": "34258d8d32311f1f"
+ },
+ "mb2bex": {
+  "archivo": "fotos-notas/mb2bex.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno atribuye a la incertidumbre global el alza del riesgo país",
+  "enlace": "https://www.lanacion.com.ar/politica/para-el-gobierno-la-suba-del-riesgo-pais-obedece-a-la-incertidumbre-global-nid19102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-vocero-presidencial-adrian-ravier-en-4JM5XHEHNREIFLO6Z5V23BYOCM.jpg?auth=7ab5131bf70cec6cc65116e63ea0413d7f213d9324da7727e566b3587b730a54&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra claramente al funcionario hablando en conferencia de prensa sin marcas de agua ni personas molestando en primer plano.",
+  "cuando": "2026-10-19T20:31:21.648Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Funcionario hablando en el atril de la Casa Rosada con la bandera argentina al lado."
+  },
+  "huella": "9927075973737171"
+ },
+ "ng6aux": {
+  "archivo": "fotos-notas/ng6aux.jpg",
+  "medio": "Universidad Nacional de La Plata",
+  "credito": "Foto: Universidad Nacional de La Plata",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Universidad Nacional de La Plata ingresa al top 15 de América Latina",
+  "enlace": "https://unlp.edu.ar/institucional/uniranks-2027-la-unlp-se-posiciona-en-el-top-15-de-america-latina-133330/",
+  "imagenOriginal": "https://unlp.edu.ar/wp-content/uploads/2024/06/Rectorado-fachada-perfil.jpg",
+  "razon": "Es la única foto con buen encuadre de la universidad que cumple con todos los requisitos sin marcas ni problemas.",
+  "cuando": "2026-10-19T20:31:21.648Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio principal de la UNLP desde el exterior con bandera argentina",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fachada del edificio histórico de la Universidad Nacional de La Plata con banderas y árboles."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "7f9e9edcbf9d91c3"
  }
 }
