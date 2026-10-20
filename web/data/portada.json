@@ -1,6 +1,67 @@
 {
-  "generado": "2026-10-20T10:01:32.554Z",
+  "generado": "2026-10-20T10:31:08.812Z",
   "notas": [
+    {
+      "id": "clima20261020",
+      "propia": "clima",
+      "titulo": "El clima de hoy en Balcarce: mínima de 5° y máxima de 16°",
+      "copete": "El pronóstico de este martes 20 de octubre para Balcarce marca una mínima de 5° y máxima de 16°, con nublado.",
+      "cuerpo": "En Balcarce, a las 07:31 hay 7° y el cielo está despejado; la sensación térmica es de 4°; el viento sopla del NE a 12 km/h; la humedad es del 91%. Son los datos de Open-Meteo de ese momento.\n\nPara todo el martes 20, el pronóstico marca una mínima de 5° y máxima de 16° y nublado. La probabilidad de lluvia es del 0%. El viento llegaría a 18 km/h.\n\nPara los días que siguen, el pronóstico dice: el miércoles 21, mínima de 8° y máxima de 18°, con 53% de probabilidad de lluvia; el jueves 22, mínima de 9° y máxima de 20°, con 49% de probabilidad de lluvia; el viernes 23, mínima de 11° y máxima de 17°, con 64% de probabilidad de lluvia.\n\nEl clima se actualiza a lo largo del día: los valores de ahora, hora por hora, están en la página del clima de Radar Balcarce. El clima de la mañana también salió como video en nuestra página de Facebook.",
+      "guion": null,
+      "seccion": "Balcarce",
+      "local": true,
+      "relevancia": 58,
+      "medios": [
+        "Open-Meteo"
+      ],
+      "enlace": "https://open-meteo.com",
+      "fuentesConsultadas": [
+        {
+          "medio": "Open-Meteo",
+          "enlace": "https://open-meteo.com"
+        }
+      ],
+      "teniaImagenLaFuente": false,
+      "foto": {
+        "archivo": "fotos-notas/clima-nublado-2.jpg",
+        "credito": "Ilustración generada con IA (Cloudflare Workers AI)"
+      },
+      "fecha": "2026-10-20T10:31:06.713Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T10:31:06.713Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-20T10:31:06.713Z",
+      "temas": [],
+      "etiquetas": [
+        "clima",
+        "pronóstico",
+        "Balcarce",
+        "tiempo"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de Open-Meteo a las 07:31.",
+      "enlacesEnTexto": [
+        {
+          "texto": "página del clima de Radar Balcarce",
+          "href": "/clima"
+        },
+        {
+          "texto": "nuestra página de Facebook",
+          "href": "https://www.facebook.com/reel/1381393323770453/"
+        }
+      ],
+      "destacados": [
+        {
+          "texto": "Ver el clima de ahora",
+          "href": "/clima"
+        },
+        {
+          "texto": "Mirá el clima de hoy en video, en Facebook",
+          "href": "https://www.facebook.com/reel/1381393323770453/"
+        }
+      ],
+      "slug": "el-clima-de-hoy-en-balcarce-minima-de-5-y-maxima-de-16"
+    },
     {
       "id": "1fbponq",
       "titulo": "El Gobierno prorroga hasta diciembre el inicio de los Fondos de Asistencia Laboral",
@@ -9,23 +70,19 @@
       "guion": "El Gobierno prorroga hasta diciembre el inicio de los Fondos de Asistencia Laboral.",
       "seccion": "Política",
       "medios": [
-        "La Nación",
         "Infobae",
+        "La Nación",
         "Perfil",
-        "Crónica"
+        "Crónica",
+        "Ámbito"
       ],
       "enlace": "https://www.lanacion.com.ar/sociedad/el-gobierno-postergo-hasta-diciembre-la-puesta-en-marcha-de-los-fondos-de-asistencia-laboral-nid20102026/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-20T04:45:23.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T07:31:06.617Z",
-      "relevancia": 49,
+      "relevancia": 52,
       "local": false,
-      "muyContada": {
-        "medios": 4,
-        "porque": "4 medios en sus primeras 3 horas, de noche",
-        "desde": "2026-10-20T07:31:06.617Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -93,7 +150,11 @@
         "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "el-gobierno-prorroga-hasta-diciembre-el-inicio-de-los-fondos-de"
+      "slug": "el-gobierno-prorroga-hasta-diciembre-el-inicio-de-los-fondos-de",
+      "foto": {
+        "archivo": "fotos-notas/1fbponq-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "futboltablaliga20261010",
@@ -560,8 +621,9 @@
       "seccion": "Argentina",
       "medios": [
         "Clarín",
-        "Perfil",
         "La Nación",
+        "TN (Todo Noticias)",
+        "Perfil",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.clarin.com/politica/malvinas-informe-tv-chilena-mostro-placas-argentinas-descartadas-junto-cementerio-darwin_0_nA0G6FKy4Y.html",
@@ -569,7 +631,7 @@
       "fecha": "2026-10-20T01:31:35.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T09:01:08.936Z",
-      "relevancia": 42,
+      "relevancia": 54,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -653,6 +715,7 @@
         "TN (Todo Noticias)",
         "El Cronista",
         "Perfil",
+        "Radio Mitre",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.cronista.com/economia-politica/caso-ypf-preska-dio-un-nuevo-paso-para-cerrar-el-juicio-contra-la-argentina-en-nueva-york/",
@@ -1790,6 +1853,7 @@
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Eco de Tandil",
         "Doble Amarilla"
       ],
       "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/sarmiento-vs-barracas-central-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
@@ -1797,10 +1861,10 @@
       "fecha": "2026-10-20T00:03:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T01:01:06.655Z",
-      "relevancia": 52,
+      "relevancia": 54,
       "local": false,
       "muyContada": {
-        "medios": 5,
+        "medios": 6,
         "porque": "5 medios en sus primeras 3 horas, de noche",
         "desde": "2026-10-20T01:01:06.655Z"
       },
@@ -2234,7 +2298,7 @@
       "fecha": "2026-10-19T22:19:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T23:30:57.922Z",
-      "relevancia": 41,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2304,7 +2368,7 @@
       "fecha": "2026-10-19T22:15:12.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 74,
+      "relevancia": 67,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2376,7 +2440,7 @@
       "fecha": "2026-10-19T22:11:22.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T23:01:08.229Z",
-      "relevancia": 78,
+      "relevancia": 71,
       "local": true,
       "deUnMedioDeAca": true,
       "publicadaPor": null,
@@ -2436,7 +2500,7 @@
       "fecha": "2026-10-19T22:10:02.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 82,
+      "relevancia": 75,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2519,7 +2583,7 @@
       "fecha": "2026-10-19T22:06:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T00:00:59.411Z",
-      "relevancia": 37,
+      "relevancia": 30,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2586,7 +2650,7 @@
       "fecha": "2026-10-19T22:05:27.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T01:30:59.202Z",
-      "relevancia": 74,
+      "relevancia": 67,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2666,7 +2730,7 @@
       "fecha": "2026-10-19T22:02:14.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 74,
+      "relevancia": 67,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2813,110 +2877,6 @@
       "foto": {
         "archivo": "fotos-notas/ffxrva.jpg",
         "credito": "Foto: La Tecla"
-      }
-    },
-    {
-      "id": "hpaqem",
-      "titulo": "Javier Milei celebra el superávit comercial en Neuquén",
-      "copete": "El presidente participó de la apertura de la Oil & Gas Expo. Defendió su modelo económico y destacó los números del sector hidrocarburífero.",
-      "cuerpo": "El presidente Javier Milei encabezó la apertura de la Expo Argentina Oil & Gas Patagonia 2026 en la ciudad de Neuquén. Durante su disertación, que comenzó a las 17:30 y duró una hora, celebró el superávit comercial de septiembre que alcanzó los USD 2.976 millones.\n\nAnte referentes del sector petrolero, el mandatario aseguró que las exportaciones superaron los 10.000 millones de dólares en el mes y defendió el RIGI.",
-      "guion": "Javier Milei celebra el superávit comercial en Neuquén.",
-      "seccion": "Economía",
-      "medios": [
-        "Infobae",
-        "TN (Todo Noticias)",
-        "Radio Mitre",
-        "La Nueva"
-      ],
-      "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-celebro-el-superavit-comercial-de-septiembre-y-sostuvo-el-rumbo-economico-del-gobierno-batimos-el-record-de-exportaciones/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-19T21:40:37.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-20T00:00:59.411Z",
-      "relevancia": 39,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Milei participó en la Oil & Gas Expo en Neuquén.",
-        "Celebró el superávit comercial de septiembre de USD 2.976 millones.",
-        "Destacó el crecimiento de la producción en Vaca Muerta."
-      ],
-      "seSabe": [
-        "El evento se realizó en el Espacio DUAM de Neuquén.",
-        "La disertación del presidente comenzó a las 17:30 y duró una hora.",
-        "La balanza comercial de septiembre registró un superávit de USD 2.976 millones."
-      ],
-      "textoRedes": "El presidente Javier Milei participó de la Oil & Gas Expo en Neuquén, donde celebró el superávit comercial de septiembre y defendió el modelo económico.",
-      "etiquetas": [
-        "Javier Milei",
-        "Neuquén",
-        "Oil & Gas Expo",
-        "superávit comercial",
-        "Vaca Muerta",
-        "RIGI"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-celebro-el-superavit-comercial-de-septiembre-y-sostuvo-el-rumbo-economico-del-gobierno-batimos-el-record-de-exportaciones/",
-          "fecha": "2026-10-19T21:40:37.000Z",
-          "oficial": false,
-          "aporte": "Indicó el horario de inicio y la duración del discurso presidencial."
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/politica/2026/10/19/milei-defendio-su-modelo-economico-y-celebro-las-exportaciones-record-en-otro-contexto-hubieramos-volado-por-los-aires/",
-          "fecha": "2026-10-19T21:48:34.000Z",
-          "oficial": false,
-          "aporte": "Informó el monto exacto del superávit comercial de septiembre y la producción de Vaca Muerta."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/19/javier-milei-habla-en-un-foro-petrolero-en-neuquen-antes-de-partir-rumbo-a-espana/",
-          "fecha": "2026-10-19T23:36:14.000Z",
-          "oficial": false,
-          "aporte": "Detalló cifras sobre el RIGI y obras energéticas."
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-19-19-3-0-milei-celebro-el-superavit-comercial-de-septiembre-en-otro-contexto-hubieramos-volado-por-el-aire",
-          "fecha": "2026-10-19T22:14:36.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1oqdysz",
-          "titulo": "Milei defiende su modelo económico y destaca el récord de exportaciones",
-          "fecha": "2026-10-19T20:40:00.000Z",
-          "ruta": "/nota/milei-defiende-su-modelo-economico-y-destaca-el-record-de-1oqdysz"
-        },
-        {
-          "id": "b04zc8",
-          "titulo": "Javier Milei defiende su plan económico ante inversores en Washington",
-          "fecha": "2026-10-15T14:24:51.000Z",
-          "ruta": "/nota/javier-milei-defiende-su-plan-economico-ante-inversores-en-washington-b04zc8"
-        },
-        {
-          "id": "n48pgu",
-          "titulo": "El intercambio comercial deja un superávit de US$ 2.976 millones",
-          "fecha": "2026-10-19T19:05:09.000Z",
-          "ruta": "/nota/el-intercambio-comercial-deja-un-superavit-de-us-2-976-millones-n48pgu"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "javier-milei-celebra-el-superavit-comercial-en-neuquen",
-      "foto": {
-        "archivo": "fotos-notas/hpaqem.jpg",
-        "credito": "Foto: Infobae"
       }
     },
     {
@@ -3112,6 +3072,110 @@
       "foto": {
         "archivo": "fotos-notas/1b2pye9.jpg",
         "credito": "Foto: A24"
+      }
+    },
+    {
+      "id": "1oqdysz",
+      "titulo": "Milei defiende su modelo económico y destaca el récord de exportaciones",
+      "copete": "El presidente cuestionó a la gestión anterior durante una exposición en Neuquén y aseguró que el país evitó una crisis profunda. El evento reunió a referentes del sector energético.",
+      "cuerpo": "El presidente Javier Milei defendió el lunes el rumbo de su gestión durante la apertura de la Expo Argentina Oil & Gas Patagonia 2026, llevada a cabo en el Espacio DUAM de la ciudad de Neuquén.\n\nAnte referentes del sector hidrocarburífero, el mandatario destacó que las exportaciones mensuales superaron los 10.000 millones de dólares y celebró el superávit comercial de septiembre, que alcanzó los 2.976 millones de dólares. Asimismo, sostuvo que con las políticas de la administración anterior la economía nacional habría colapsado en el actual escenario global.\n\nAdemás, valoró el impacto del Régimen de Incentivo para Grandes Inversiones, al señalar que acumula más de 210.000 millones de dólares en proyectos anunciados.",
+      "guion": "Milei defiende su modelo económico y destaca el récord de exportaciones.",
+      "seccion": "Economía",
+      "medios": [
+        "Infobae",
+        "TN (Todo Noticias)",
+        "iProfesional",
+        "Radio Mitre",
+        "La Nueva"
+      ],
+      "enlace": "https://www.iprofesional.com/politica/466952-milei-hablo-del-dolar-y-el-superavit-con-el-viejo-modelo-hubieramos-volado-por-el-aire",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T20:40:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-19T22:31:01.867Z",
+      "relevancia": 42,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Javier Milei disertó en la Expo Argentina Oil & Gas Patagonia 2026.",
+        "El mandatario destacó el superávit comercial y el récord de exportaciones.",
+        "Cuestionó el modelo económico previo y defendió los resultados del RIGI."
+      ],
+      "seSabe": [
+        "Javier Milei habló en la apertura de la Expo Argentina Oil & Gas Patagonia 2026 en Neuquén.",
+        "El evento se desarrolló este lunes desde las 17:30 y se extendió por una hora.",
+        "El superávit comercial de septiembre llegó a los USD 2.976 millones.",
+        "El Presidente defendió el impacto del Régimen de Incentivo para Grandes Inversiones."
+      ],
+      "noConfirmado": [
+        "Todavía no se precisaron los plazos exactos para la convergencia total del sistema tributario hacia los parámetros del RIGI."
+      ],
+      "textoRedes": "El presidente Javier Milei defendió su política económica durante un evento en Neuquén, destacó el superávit comercial y aseguró que el país evitó una crisis gracias a los cambios aplicados en las reglas del sector energético.",
+      "etiquetas": [
+        "Javier Milei",
+        "Oil & Gas Expo",
+        "Neuquén",
+        "Vaca Muerta",
+        "superávit comercial",
+        "RIGI"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/politica/466952-milei-hablo-del-dolar-y-el-superavit-con-el-viejo-modelo-hubieramos-volado-por-el-aire",
+          "fecha": "2026-10-19T20:40:00.000Z",
+          "oficial": false,
+          "aporte": "Indicó que el país afronta vencimientos de deuda por 25.000 millones de dólares."
+        },
+        {
+          "medio": "Infobae",
+          "enlace": "https://www.infobae.com/politica/2026/10/19/milei-defendio-su-modelo-economico-y-celebro-las-exportaciones-record-en-otro-contexto-hubieramos-volado-por-los-aires/",
+          "fecha": "2026-10-19T21:48:34.000Z",
+          "oficial": false,
+          "aporte": "Mencionó el monto exacto del superávit comercial de septiembre y datos de producción de Vaca Muerta en agosto."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/politica/2026/10/19/javier-milei-habla-en-un-foro-petrolero-en-neuquen-antes-de-partir-rumbo-a-espana/",
+          "fecha": "2026-10-19T22:17:20.000Z",
+          "oficial": false,
+          "aporte": "Detalló cifras sobre exportaciones y montos acumulados en proyectos anunciados por el RIGI."
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-celebro-el-superavit-comercial-de-septiembre-y-sostuvo-el-rumbo-economico-del-gobierno-batimos-el-record-de-exportaciones/",
+          "fecha": "2026-10-19T21:40:37.000Z",
+          "oficial": false,
+          "aporte": "Informó el horario de inicio y la duración de la exposición presidencial en Neuquén."
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-10-19-19-3-0-milei-celebro-el-superavit-comercial-de-septiembre-en-otro-contexto-hubieramos-volado-por-el-aire",
+          "fecha": "2026-10-19T22:14:36.000Z",
+          "oficial": false,
+          "aporte": "Agregó declaraciones del mandatario sobre las críticas al tipo de cambio y los pedidos de devaluación."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "17pc5cx",
+          "titulo": "Milei descarta una recesión y tilda de cobardes a quienes piden un dólar alto",
+          "fecha": "2026-09-27T23:57:00.000Z",
+          "ruta": "/nota/milei-descarta-una-recesion-y-tilda-de-cobardes-a-quienes-piden-un-17pc5cx"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "milei-defiende-su-modelo-economico-y-destaca-el-record-de",
+      "foto": {
+        "archivo": "fotos-notas/1oqdysz.jpg",
+        "credito": "Foto: iProfesional"
       }
     },
     {
@@ -3355,7 +3419,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "un-ministro-espanol-critica-la-visita-de-javier-milei-y-la-usa-en-la"
+      "slug": "un-ministro-espanol-critica-la-visita-de-javier-milei-y-la-usa-en-la",
+      "foto": {
+        "archivo": "fotos-notas/2vaq7r-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "v1ulfw",
@@ -4098,8 +4166,8 @@
         "Noticias Argentinas (NA)",
         "El Marplatense",
         "El Eco de Tandil",
-        "Los Andes (Mendoza)",
-        "Clarín"
+        "Clarín",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.clarin.com/economia/meses-cierre-justicia-ordeno-fate-pagar-1200-millones-sueldos-empleados-despedidos_0_sPiipyqXfH.html",
       "teniaImagenLaFuente": true,
@@ -4197,11 +4265,6 @@
       "visto": "2026-10-19T19:30:59.956Z",
       "relevancia": 49,
       "local": false,
-      "muyContada": {
-        "medios": 6,
-        "porque": "5 medios en sus primeras 3 horas",
-        "desde": "2026-10-19T21:01:15.367Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -4435,10 +4498,8 @@
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "El Día",
         "La Brújula 24",
         "El Eco de Tandil",
-        "Agroempresario",
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
@@ -4450,11 +4511,11 @@
       "fecha": "2026-10-19T17:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T19:30:59.956Z",
-      "relevancia": 65,
+      "relevancia": 63,
       "local": false,
       "muyContada": {
-        "medios": 17,
-        "porque": "17 medios",
+        "medios": 15,
+        "porque": "15 medios",
         "desde": "2026-10-19T20:01:00.665Z"
       },
       "publicadaPor": null,
@@ -4600,13 +4661,13 @@
       "guion": "Telefe emite el lunes la gala de eliminación de MasterChef Celebrity.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "La Nación",
         "TN (Todo Noticias)",
         "El Destape",
         "A24",
         "Crónica",
         "Radio Mitre",
         "Minuto Uno",
+        "La Nación",
         "Infobae"
       ],
       "enlace": "https://www.eldestapeweb.com/espectaculos/quien-va-hoy-masterchef-celebrity-2026-nuevo-participante-eliminado-telefe-lunes-19-octubre-20261019134723",
@@ -4614,7 +4675,7 @@
       "fecha": "2026-10-19T16:47:23.160Z",
       "sinFecha": false,
       "visto": "2026-10-20T00:31:02.995Z",
-      "relevancia": 56,
+      "relevancia": 48,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5856,7 +5917,10 @@
       "guion": "Virginia Aparicio expone en el Concejo sobre la presencia de plaguicidas.",
       "seccion": "Política",
       "medios": [
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Infórmese Primero (FM 104.9)",
+        "El Diario Balcarce",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://www.diariolavanguardia.com/noticias/45103-plaguicidas-en-balcarce-virginia-aparicio-expuso-en-el-concejo-resultados-cientificos-y-advirtio-sobre-la-presencia-de-multiples-sustancias/",
       "teniaImagenLaFuente": true,
@@ -5866,6 +5930,7 @@
       "relevancia": 63,
       "local": true,
       "deUnMedioDeAca": true,
+      "muyContadaDeAca": 4,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [
@@ -6030,8 +6095,8 @@
       "guion": "La Renga interpreta Panic Show en Cosquín y le dedica una frase a Milei.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Página/12",
-        "Crónica"
+        "Crónica",
+        "Página/12"
       ],
       "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/la-renga-toco-panic-show-en-cosquin-y-lanzo-una-frase-dirigida-a-javier-milei/",
       "teniaImagenLaFuente": true,
@@ -6368,21 +6433,22 @@
         "TyC Sports",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
+        "El Eco de Tandil",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
         "0223 (Mar del Plata)",
-        "Clarín"
+        "Clarín",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/19/el-argentino-mattia-colnaghi-correra-en-un-equipo-de-punta-en-la-formula-3-la-intervencion-clave-de-red-bull/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T12:25:53.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T13:30:59.047Z",
-      "relevancia": 59,
+      "relevancia": 61,
       "local": false,
       "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
+        "medios": 10,
+        "porque": "10 medios",
         "desde": "2026-10-19T15:00:58.224Z"
       },
       "publicadaPor": null,
@@ -7329,8 +7395,8 @@
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
-        "La Gaceta (Tucumán)"
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://noticiasargentinas.com/economia/la-industria-metalurgica-sin-piso--cayo-3-3--en-septiembre_a6ad60453faec012154bfba1b",
       "teniaImagenLaFuente": true,
@@ -7497,7 +7563,7 @@
       "fecha": "2026-10-19T10:25:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T14:01:10.224Z",
-      "relevancia": 45,
+      "relevancia": 37,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7574,92 +7640,6 @@
       "foto": {
         "archivo": "fotos-notas/4fm0rm.jpg",
         "credito": "Foto: Ámbito"
-      }
-    },
-    {
-      "id": "efyhc4",
-      "titulo": "MasterChef Celebrity define hoy al tercer eliminado de la temporada",
-      "copete": "El reality culinario postergo su gala de salida para el lunes debido a modificaciones en la grilla. Martita Fort evito la prueba de riesgo.",
-      "cuerpo": "El certamen gastronómico que conduce Wanda Nara postergó su salida habitual debido a la transmisión de un encuentro de la Copa Libertadores y emitió una noche de última chance. Tras una prueba que incluyó platos salados de boda y opciones dulces para un velorio, el jurado compuesto por Damián Betular, Germán Martitegui y Maru Botana evaluó a los concursantes.\n\nDurante la definición, los jueces entregaron delantales negros a Nazareno Casero, Mike Amigorena, Sebastián Presta, Lizy Tagliani y Morena Beltrán, mientras que Martita Fort obtuvo el beneficio de subir al balcón y asegurar su continuidad. La gala decisiva para conocer al tercer expulsado se lleva a cabo el lunes, con la intención de retomar el esquema habitual el próximo fin de semana.",
-      "guion": "MasterChef Celebrity define hoy al tercer eliminado de la temporada.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Diario Popular",
-        "Clarín"
-      ],
-      "enlace": "https://www.diariopopular.com.ar/espectaculos/masterchef-celebrity-delantales-negros-y-un-festejo-inesperado-n925249",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-19T10:07:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-19T15:00:58.224Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "MasterChef Celebrity postergó su gala de eliminación del domingo para este lunes.",
-        "Martita Fort ganó el desafío de salvación y subió al balcón.",
-        "Nazareno Casero, Mike Amigorena, Sebastián Presta, Lizy Tagliani y Morena Beltrán recibieron delantales negros.",
-        "El ciclo de Telefe lideró la audiencia del domingo con 11,8 puntos de promedio."
-      ],
-      "seSabe": [
-        "La gala de eliminación pasó del domingo al lunes por ajustes en la programación de Telefe.",
-        "Martita Fort subió al balcón tras ganar la prueba de salvación del domingo.",
-        "Nazareno Casero, Mike Amigorena, Sebastián Presta, Lizy Tagliani y Morena Beltrán quedaron con delantal negro.",
-        "El programa lideró el rating de la televisión abierta con 11,8 puntos."
-      ],
-      "noConfirmado": [
-        "El jurado admitió diferencias de criterio y desacuerdos internos durante la deliberación de los platos."
-      ],
-      "textoRedes": "MasterChef Celebrity postergó su gala de eliminación para este lunes tras una noche de salvación donde Martita Fort subió al balcón. El reality de Telefe lideró la audiencia del domingo.",
-      "etiquetas": [
-        "MasterChef Celebrity",
-        "Telefe",
-        "Wanda Nara",
-        "Martita Fort",
-        "television"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/espectaculos/masterchef-celebrity-delantales-negros-y-un-festejo-inesperado-n925249",
-          "fecha": "2026-10-19T10:07:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló el desarrollo de la prueba de última chance, la victoria de Martita Fort y la entrega de delantales negros."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/espectaculos/rating-domingo-dia-madre-encendido-tarde-gala-delantales-negros-masterchef-celebrity_0_Zor3U1uaXM.html",
-          "fecha": "2026-10-19T14:05:18.000Z",
-          "oficial": false,
-          "aporte": "Informó los datos de audiencia del domingo, el liderazgo de Masterchef Celebrity con 11,8 puntos y el cambio de día para la gala de eliminación."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "vpaw61",
-          "titulo": "MasterChef Celebrity cambia su formato y evita la expulsión",
-          "fecha": "2026-10-18T23:06:00.000Z",
-          "ruta": "/nota/masterchef-celebrity-cambia-su-formato-y-evita-la-expulsion-vpaw61"
-        },
-        {
-          "id": "g2ced0",
-          "titulo": "Paula Trapani deja MasterChef Celebrity tras una mala preparación",
-          "fecha": "2026-10-12T08:01:45.088Z",
-          "ruta": "/nota/paula-trapani-deja-masterchef-celebrity-tras-una-mala-preparacion-g2ced0"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "masterchef-celebrity-define-hoy-al-tercer-eliminado-de-la-temporada",
-      "foto": {
-        "archivo": "fotos-notas/efyhc4.jpg",
-        "credito": "Foto: Diario Popular"
       }
     },
     {
@@ -7986,14 +7966,14 @@
         "El Eco de Tandil",
         "El Economista",
         "Ámbito",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
         "Crónica",
         "El Cronista",
         "iProfesional",
         "Canal 26",
         "La Nueva",
+        "elDiarioAR",
         "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
         "Infórmese Primero (FM 104.9)",
         "La Nación",
         "Perfil",
@@ -8368,15 +8348,15 @@
         "El Economista",
         "Ámbito",
         "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
         "El Cronista",
         "iProfesional",
         "La Nueva",
         "La Gaceta (Tucumán)",
         "Clarín",
         "A24",
-        "Radio Mitre"
+        "Radio Mitre",
+        "elDiarioAR",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.eldestapeweb.com/economia/dispara-riesgo-pais-caen-bonos-inicio-mercado-financiero-2026101911220",
       "teniaImagenLaFuente": true,
@@ -8633,6 +8613,7 @@
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "El Día",
+        "El Eco de Tandil",
         "Doble Amarilla",
         "La Capital (Rosario)"
       ],
@@ -8641,7 +8622,7 @@
       "fecha": "2026-10-19T01:15:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T01:01:06.655Z",
-      "relevancia": 50,
+      "relevancia": 52,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8738,7 +8719,8 @@
       "guion": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate.",
       "seccion": "Fútbol",
       "medios": [
-        "Acción 5 (Balcarce)"
+        "Acción 5 (Balcarce)",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://accion5.com/fem-goleo-san-agustin-gano-los-patos-y-au-vencio-a-ferro/",
       "teniaImagenLaFuente": true,
@@ -9176,11 +9158,11 @@
     }
   ],
   "secciones": [
+    "Balcarce",
     "Política",
     "Fútbol",
     "Argentina",
     "Economía",
-    "Balcarce",
     "Deportes",
     "Educación",
     "Cultura y agenda",
@@ -9199,10 +9181,10 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 6,
-      "sensacion": 3,
-      "humedad": 95,
-      "viento": 13,
+      "temp": 7,
+      "sensacion": 4,
+      "humedad": 91,
+      "viento": 12,
       "rumbo": "NE",
       "cielo": "Despejado",
       "esDeDia": true
@@ -9544,16 +9526,16 @@
       "motivo": "necesita ojo humano: \"niños\""
     },
     {
+      "id": "1v8g1v5",
+      "titulo": null,
+      "seccion": "Policiales",
+      "motivo": "necesita ojo humano: \"hallado muerto\" (en otro medio que cuenta lo mismo)"
+    },
+    {
       "id": "8eposh",
       "titulo": null,
       "seccion": "Cultura y agenda",
       "motivo": "necesita ojo humano: \"adolescente\""
-    },
-    {
-      "id": "vztpdn",
-      "titulo": "Tristeza por la muerte de Federico Ferro, referente de la…",
-      "seccion": "Deportes",
-      "motivo": "necesita ojo humano: \"muerte\""
     },
     {
       "id": "1dqhmet",
@@ -9568,5 +9550,5 @@
       "motivo": "necesita ojo humano: \"murió\""
     }
   ],
-  "esperandoCuerpo": 7
+  "esperandoCuerpo": 5
 }
