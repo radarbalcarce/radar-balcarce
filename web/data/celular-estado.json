@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T12:31:11.721Z",
+ "generado": "2026-10-20T13:04:08.188Z",
  "portada": 91,
- "archivo": 1388,
+ "archivo": 1390,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-20T12:31:12.190Z",
+  "generado": "2026-10-20T13:04:08.386Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": null,
     "notas": []
@@ -120,17 +120,23 @@
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "1f8niph",
      "titulo": "El Gobierno autoriza una licitación para obras en la Base Naval de Ushuaia",
-     "seccion": "Argentina",
+     "cuando": "2026-10-20T12:35:30.186Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "15t1wen",
+     "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-19T22:05:26.871Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-20T14:05:30.186Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
