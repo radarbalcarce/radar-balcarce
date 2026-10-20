@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-20T01:31:44.897Z",
+ "generado": "2026-10-20T02:01:26.432Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -85,14 +85,14 @@
      "fecha": "2026-10-19T16:59:58.000Z"
     },
     {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/videos/el-gobierno-declaro-secreto-militar-una-compra-para-defensa-los-detalles-de-eduardo-feinmann/",
+     "fecha": "2026-10-19T10:56:04.000Z"
+    },
+    {
      "medio": "Ámbito",
      "enlace": "https://www.ambito.com/las-fuerzas-armadas-compraran-nuevo-equipamiento-secreto-militar-mientras-crece-la-tension-malvinas-n6335156",
      "fecha": "2026-10-19T11:20:00.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/politica/el-gobierno-decreto-el-secreto-militar-la-compra-equipamentos-las-fuerzas-armadas-n251969",
-     "fecha": "2026-10-19T12:35:00.000Z"
     },
     {
      "medio": "Minuto Uno",
@@ -100,14 +100,14 @@
      "fecha": "2026-10-19T11:15:00.000Z"
     },
     {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/videos/el-gobierno-declaro-secreto-militar-una-compra-para-defensa-los-detalles-de-eduardo-feinmann/",
-     "fecha": "2026-10-19T10:56:04.000Z"
-    },
-    {
      "medio": "El Cronista",
      "enlace": "https://www.cronista.com/economia-politica/en-medio-del-conflicto-por-malvinas-el-gobierno-blindo-bajo-secreto-militar-una-nueva-compra-de-equipamiento-para-las-ffaa/",
      "fecha": "2026-10-19T12:48:11.227Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/politica/el-gobierno-decreto-el-secreto-militar-la-compra-equipamentos-las-fuerzas-armadas-n251969",
+     "fecha": "2026-10-19T12:35:00.000Z"
     },
     {
      "medio": "La Brújula 24",
@@ -142,46 +142,9 @@
      "fecha": null
     }
    ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"open\", \"natacion\" y el cuerpo no los explica; sin esas oraciones quedan 119 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "1ab8abz",
-   "titulo": "Cristina y Máximo Kirchner pidieron no asistir al juicio por asociación ilícita y lavado de dinero",
-   "copete": "La defensa de Cristina Fernández de Kirchner y Máximo Kirchner le pidió al Tribunal Oral Federal 5 (TOF 5) que les permita participar por medios telemáticos en las audiencias del juicio oral por Los Sauces , que, de acuerdo con el cronograma vigente, comenzará esta semana. El…",
-   "seccion": "Política",
-   "fecha": "2026-10-19T22:13:05.000Z",
-   "fuentes": [
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/politica/cristina-maximo-kirchner-pidieron-asistir-juicio-asociacion-ilicita-lavado-dinero_0_7A7pWTZTDs.html",
-     "fecha": "2026-10-19T22:13:05.000Z"
-    },
-    {
-     "medio": "Infobae",
-     "enlace": "https://www.infobae.com/judiciales/2026/10/19/cristina-y-maximo-kirchner-pidieron-participar-de-manera-virtual-en-el-juicio-oral-por-los-sauces/",
-     "fecha": "2026-10-19T23:46:18.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/politica/2026/10/19/los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio-que-comienza-el-viernes/",
-     "fecha": "2026-10-19T23:56:25.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://www.perfil.com/noticias/politica/cristina-kirchner-y-maximo-pidieron-participar-por-zoom-en-el-juicio-por-los-sauces.phtml",
-     "fecha": "2026-10-20T00:02:40.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-19-20-55-0-causa-los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio",
-     "fecha": "2026-10-20T01:21:38.000Z"
-    }
-   ],
    "intentos": 3,
-   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-   "maximo": 4
+   "motivo": "título o bajada: 2 problemas (numero): el titulo dice 4 y la fuente no lo dice",
+   "maximo": 3
   },
   {
    "id": "cmfrc0",
@@ -194,6 +157,11 @@
      "medio": "Olé",
      "enlace": "https://www.ole.com.ar/river-plate/river-leonardoponzio-faustovera-marcosacuna-racing_0_9Mmj2usGFS.html",
      "fecha": "2026-10-19T12:31:19.000Z"
+    },
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/deportes/malas-noticias-river-fausto-vera-sufrio-desgarro-perdera-partidos-racing-boca_0_aitCXqr1G7.html",
+     "fecha": "2026-10-20T01:21:02.000Z"
     },
     {
      "medio": "Infobae",
@@ -237,28 +205,23 @@
     },
     {
      "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/river/river-hoy-que-necesita-para-ir-a-la-libertadores-2027-la-emocion-de-correa-y-el-record-de-galvan",
-     "fecha": "2026-10-19T14:34:22.000Z"
-    },
-    {
-     "medio": "Bolavip Argentina",
      "enlace": "https://bolavip.com/ar/river/se-revelo-la-lesion-de-fausto-vera-y-se-pierde-el-superclasico-entre-river-y-boca-que-tiene",
      "fecha": "2026-10-19T19:25:23.000Z"
     },
     {
      "medio": "El Gráfico",
      "enlace": "https://www.elgrafico.com.ar/articulo/1038/103428/fausto-vera-con-un-pie-afuera-del-superclasico-el-parte-medico-del-volante-de-river",
-     "fecha": "2026-10-19T18:00:00.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/deportes/alarma-river-fausto-vera-se-desgarro-y-se-perderia-el-superclasico-contra-boca-n252022",
-     "fecha": "2026-10-19T21:48:00.000Z"
+     "fecha": "2026-10-19T14:00:00.000Z"
     },
     {
      "medio": "La Gaceta (Tucumán)",
      "enlace": "https://www.lagaceta.com.ar/nota/1158727/deportes/sensible-baja-para-river-fausto-vera-sufrio-desgarro-se-perdera-superclasico-ante-boca.html",
      "fecha": "2026-10-19T18:35:00.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/deportes/alarma-river-fausto-vera-se-desgarro-y-se-perderia-el-superclasico-contra-boca-n252022",
+     "fecha": "2026-10-19T21:48:00.000Z"
     }
    ],
    "intentos": 1,
@@ -283,14 +246,14 @@
      "fecha": "2026-10-19T21:30:04.000Z"
     },
     {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/juicio-maradona-las-defensas-cosachov-y-diaz-presentan-sus-alegatos-n6335587",
-     "fecha": "2026-10-20T01:00:00.000Z"
-    },
-    {
      "medio": "Minuto Uno",
      "enlace": "https://www.minutouno.com/sociedad/juicio-la-muerte-diego-maradona-comienzan-los-alegatos-carlos-diaz-y-agustina-cosachov-n6335541",
      "fecha": "2026-10-19T23:13:00.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/juicio-maradona-las-defensas-cosachov-y-diaz-presentan-sus-alegatos-n6335587",
+     "fecha": "2026-10-20T01:00:00.000Z"
     }
    ],
    "intentos": 3,

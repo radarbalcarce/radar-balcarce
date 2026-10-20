@@ -24095,5 +24095,31 @@
   "intentos": 1,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ws4cc6": {
+  "archivo": "fotos-notas/ws4cc6.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Hallan sin vida a dos peones rurales durante la crecida de ríos en Corrientes",
+  "enlace": "https://tn.com.ar/campo/2026/10/19/dos-peones-rurales-murieron-en-corrientes-cuando-traslaban-ganado-en-medio-de-las-inundaciones/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/la-busqueda-de-los-cuerpos-conto-con-la-participacion-de-efectivos-de-prefectura-naval-argentina-la-policia-rural-de-bella-vista-integrantes-de-la-unidad-especial-de-seguridad-rural-y-ecologica-personal-de-la-comisaria-segunda-y-buzos-tacticos-foto-diario-el-litoral-de-corrientes-H7U5PAN4YRB7XM677HGHFBDDDM.jpg?auth=70ed2c72bfbcfceb9326d610057eb3d0f339e0f785971119e3511185b2dd61d1&width=1023",
+  "razon": "Es la única opción disponible y muestra la escena de la búsqueda en el río con las embarcaciones de la Policía de Corrientes, correspondiendo al hecho de la nota.",
+  "cuando": "2026-10-20T02:01:21.312Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Embarcaciones de la Policía de Corrientes y personal de rescate en el río durante una operación de búsqueda.",
+   "detalle": "Se leen las inscripciones 'POLICIA DE CORRIENTES' y 'MERCURY' en las lanchas, pero son parte de la escena real y no marcas de agua del medio."
+  },
+  "huella": "bee6e44b839b8a92"
  }
 }
