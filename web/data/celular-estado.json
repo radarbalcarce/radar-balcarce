@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T22:01:44.824Z",
- "portada": 125,
- "archivo": 1449,
- "esperandoCuerpo": 2,
+ "generado": "2026-10-20T22:34:00.081Z",
+ "portada": 131,
+ "archivo": 1452,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T22:01:45.155Z",
+  "generado": "2026-10-20T22:34:00.619Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-20T22:06:37.513Z"
    },
    {
     "nombre": "clima-noche",
@@ -137,7 +137,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 27,
+    "segundos": 39,
     "notas": [
      {
       "id": "1s4d8ch",
@@ -145,9 +145,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1cw45oe",
-      "titulo": "Franco Colapinto compite en el Gran Premio de Estados Unidos",
-      "seccion": "Automovilismo"
+      "id": "1vss7pv",
+      "titulo": "La Escuela Tecnica convoca a una jornada de reflexión por la violencia en la Estudiantina",
+      "seccion": "Educación"
+     },
+     {
+      "id": "gr781c",
+      "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1c9sm1f",
+      "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -188,6 +198,18 @@
      "marcada": false
     },
     {
+     "id": "1vss7pv",
+     "titulo": "La Escuela Tecnica convoca a una jornada de reflexión por la violencia en la Estudiantina",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "lj23p3",
+     "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "1xl3aai",
      "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
      "seccion": "Fútbol",
@@ -203,12 +225,6 @@
      "id": "12rbehh",
      "titulo": "Alexis Mac Allister marca un doblete y Liverpool le gana 4 a 3 a Villarreal",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "11wm7cc",
-     "titulo": "Susana Giménez integra el elenco de la segunda temporada de Menem",
-     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
