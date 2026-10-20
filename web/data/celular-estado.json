@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T17:07:22.766Z",
- "portada": 107,
- "archivo": 1414,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-20T17:46:59.171Z",
+ "portada": 113,
+ "archivo": 1418,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T17:07:22.960Z",
+  "generado": "2026-10-20T17:46:59.388Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,8 +116,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 30,
+    "notas": [
+     {
+      "id": "1bv0n51",
+      "titulo": "Balcarce inicia su participación en las finales de los Juegos Bonaerenses",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "phvgrd",
+      "titulo": "El Taller Protegido busca vender unas 1.600 bolsas tras un cambio de cliente",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -156,6 +167,12 @@
      "marcada": false
     },
     {
+     "id": "16gh7t",
+     "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
      "id": "11409o8",
      "titulo": "Muere a los 82 años el actor argentino Antonio Grimau",
      "seccion": "Cultura y agenda",
@@ -165,18 +182,6 @@
      "id": "i1nv2r",
      "titulo": "La FIFA sanciona al entrenador y a dos integrantes de Egipto",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "l1nkck",
-     "titulo": "La FEB rechaza la oferta salarial bonaerense y va a un paro de 48 horas",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
-     "id": "1yvma5i",
-     "titulo": "ARBA posterga al 12 de noviembre vencimientos de impuestos",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],

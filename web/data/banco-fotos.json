@@ -24863,8 +24863,8 @@
   "origen": "ninguna",
   "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-20T16:08:25.407Z",
-  "intentos": 2,
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "15ix0pp": {
@@ -25170,5 +25170,70 @@
    "descripcion": "Fachada diurna del Palacio de Justicia en plano contrapicado"
   },
   "huella": "a68cb5555554d4d6"
+ },
+ "phvgrd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Taller Protegido busca vender unas 1.600 bolsas tras un cambio de cliente",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "9kv3sb": {
+  "archivo": "fotos-notas/9kv3sb.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno aumenta los subsidios al transporte para evitar cortes",
+  "enlace": "https://www.cronica.com.ar/politica/el-gobierno-aumentara-los-subsidios-a-los-colectivos-para-evitar-cortes-en-el-servicio/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1722/1722277/6ad3cc1fabf92_600_315!.png?s=9cef9dea156f2f3b25f2f948d6620c05&d=1792206000",
+  "razon": "Es la única imagen que muestra una escena real de transporte público (colectivo y pasajeros), correspondiendo al tema de la nota, mientras que la opción B es una composición gráfica o collage.",
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pasajeros esperando en una parada de colectivo con un bus de la línea 100 llegando."
+  },
+  "huella": "c4f2130b8042dc8e"
+ },
+ "16gh7t": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "t6gt6o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Cámara Federal rechaza los planteos de la defensa de José Luis Espert",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "y8hra9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere el reconocido actor Antonio Grimau a los 82 años",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-20T17:44:53.223Z",
+  "intentos": 1,
+  "fuentes": 26,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
