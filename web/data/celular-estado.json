@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T18:03:06.739Z",
- "portada": 115,
- "archivo": 1420,
+ "generado": "2026-10-20T18:36:51.455Z",
+ "portada": 118,
+ "archivo": 1423,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T18:03:07.077Z",
+  "generado": "2026-10-20T18:36:51.789Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-20T18:06:38.867Z"
    },
    {
     "nombre": "farmacia",
@@ -115,8 +115,8 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 30,
+    "salio": "2026-10-20T18:06:38.867Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1bv0n51",
@@ -167,21 +167,27 @@
      "marcada": false
     },
     {
+     "id": "1mnymch",
+     "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "16gh7t",
      "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "11409o8",
-     "titulo": "Muere a los 82 años el actor argentino Antonio Grimau",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "i1nv2r",
      "titulo": "La FIFA sanciona al entrenador y a dos integrantes de Egipto",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "u4j3ou",
+     "titulo": "Más de diez cuadras de fila en Ezeiza por cuarenta puestos en un mayorista",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
