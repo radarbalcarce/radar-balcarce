@@ -24968,7 +24968,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Antonio Grimau con buzo gris apoyando la mano en la barbilla"
   },
-  "huella": "0f0e9f0d1d5d3c71"
+  "huella": "0f0e9f0d1d5d3c71",
+  "ausenteDesde": "2026-10-20T16:39:31.401Z"
  },
  "1lyji3g": {
   "intentado": true,
@@ -25001,6 +25002,102 @@
    "corresponde": "si",
    "descripcion": "Colectivos circulando y paradas de colectivos de noche"
   },
-  "huella": "68cb9b0dc6ac694e"
+  "huella": "68cb9b0dc6ac694e",
+  "ausenteDesde": "2026-10-20T16:39:31.401Z"
+ },
+ "1quk9eb": {
+  "archivo": "fotos-notas/1quk9eb.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Justicia revisa la medida cautelar sobre el financiamiento universitario",
+  "enlace": "https://www.infobae.com/politica/2026/10/20/fallo-clave-para-el-gobierno-la-justicia-puso-en-revision-la-cautelar-sobre-financiamiento-universitario/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/CCDXGVAT6VEBPDYY7BXFIPXCGA.jpg?auth=2dff7853a4ebd28e12b669dd01623b2ddd24195338144ad96c12f8ce4f0de927&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única opción disponible y muestra una manifestación universitaria que ilustra el contexto de la nota sobre el financiamiento universitario, sin marcas de agua ni menores identificables.",
+  "cuando": "2026-10-20T16:36:23.466Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de una multitudinaria marcha universitaria con banderas y pancartas de gremios docentes y estudiantes.",
+   "detalle": "Se observa una gran cantidad de personas jóvenes (estudiantes) en la multitud, pero ninguna cara es lo suficientemente nítida para identificar a un menor de edad.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Vista cenital de una masiva marcha y protesta estudiantil en una plaza con banderas de universidades."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "5633ac1dcbbbb93e"
+ },
+ "11wm7cc": {
+  "archivo": "fotos-notas/11wm7cc.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Susana Giménez integra el elenco de la segunda temporada de Menem",
+  "enlace": "https://www.infobae.com/teleshow/2026/10/20/susana-gimenez-participara-de-la-segunda-temporada-de-menem-la-serie-de-prime-video/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/VHD4MBNXX5HWVNCZYGDXN4AAH4.jpg?auth=54f8422c9d9c09b12602c19fe404f14fbf48e41c76b76058bd22c97526d14eef&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es una foto promocional nítida y clara de la serie que ilustra perfectamente el tema principal sin marcas ni menores.",
+  "cuando": "2026-10-20T16:36:23.466Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Susana Giménez y actor caracterizado para la serie de Menem"
+  },
+  "huella": "242c4c7c4c585a79"
+ },
+ "1gd2xcu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Seis millones de clientes de Movistar pasan a operar bajo la marca Tuenti",
+  "razon": "La mejor foto era la de El Cronista, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-20T16:36:23.466Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "i1nv2r": {
+  "archivo": "fotos-notas/i1nv2r.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La FIFA sanciona al entrenador y a dos integrantes de Egipto",
+  "enlace": "https://www.infobae.com/deportes/2026/10/20/la-fifa-sanciono-al-entrenador-y-a-una-figura-de-la-seleccion-de-egipto-por-sus-declaraciones-tras-perder-con-argentina-en-el-mundial/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/AX5KFJZLXBBHDHTHBHYJBFB6ME.JPG?auth=227aaf30fa0d32ff6cca0ce9306907abf03775506c29b735137b2421e51eaa86&smart=true&width=1200&height=630&quality=85",
+  "razon": "La foto B muestra al entrenador siendo amonestado por el árbitro, identificando claramente el hecho de la sanción sin personas innecesarias ni marcas agregadas.",
+  "cuando": "2026-10-20T16:36:23.466Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El entrenador de Egipto recibiendo una tarjeta amarilla del árbitro"
+  },
+  "huella": "c3565267636a6b89"
  }
 }
