@@ -24700,7 +24700,8 @@
    "corresponde": "si",
    "descripcion": "Un hombre suelta alevinos desde una bolsa de plástico en el agua de un lago o río."
   },
-  "huella": "070a454f4e8d0d55"
+  "huella": "070a454f4e8d0d55",
+  "ausenteDesde": "2026-10-20T20:33:35.977Z"
  },
  "u4j3ou": {
   "archivo": "fotos-notas/u4j3ou.jpg",
@@ -24889,8 +24890,7 @@
    "corresponde": "si",
    "descripcion": "Retrato de Jorge Macri con traje azul y corbata rayada frente a micrófonos"
   },
-  "huella": "16961a1a969e4acb",
-  "ausenteDesde": "2026-10-20T20:05:25.142Z"
+  "huella": "16961a1a969e4acb"
  },
  "iu7mol": {
   "archivo": "fotos-notas/iu7mol.jpg",
@@ -25769,7 +25769,8 @@
    "corresponde": "si",
    "descripcion": "Susana Giménez y Antonio Grimau sonriendo en el escenario de una obra de teatro"
   },
-  "huella": "d6d79bbaccf4b2b2"
+  "huella": "d6d79bbaccf4b2b2",
+  "ausenteDesde": "2026-10-20T20:33:35.977Z"
  },
  "1fmti97": {
   "intentado": true,
@@ -25779,5 +25780,101 @@
   "cuando": "2026-10-20T20:04:25.055Z",
   "intentos": 1,
   "fuentes": 6
+ },
+ "1tq3r4e": {
+  "archivo": "fotos-notas/1tq3r4e.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Justicia federal acepta revisar la cautelar de financiamiento universitario",
+  "enlace": "https://www.eleco.com.ar/nacionales/la-justicia-revisara-la-cautelar-sobre-el-financiamiento-universitario-tras-un-fallo-clave",
+  "imagenOriginal": "https://cdnartic.ar/V2jb5RjtFek6X7WOgH6p9oDcOC0=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/04/ley_de_financiamiento_universitario_1.jpg",
+  "razon": "Es la única foto válida que corresponde a la marcha universitaria, sin menores de edad reconocibles, marcas agregadas, gráficas ni aspecto de archivo o stock.",
+  "cuando": "2026-10-20T20:32:42.994Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Manifestantes sosteniendo un cartel largo que dice 'En defensa de la universidad pública'.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Multitudinaria marcha de docentes y estudiantes en defensa de la universidad pública."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "672fae8f8e470307"
+ },
+ "lap6cm": {
+  "archivo": "fotos-notas/lap6cm.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Club de Pesca recibe miles de alevinos y huevas para Laguna Brava",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/jornada-historica-para-el-club-de-pesca-llegaron-20-000-huevas-y-150-000-alevinos-para-laguna-brava",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Laguna%20Brava%20huevas.jpg",
+  "razon": "Muestra claramente la escena completa desde un plano superior con las personas liberando los alevinos en la laguna, sin marcas de agua ni menores.",
+  "cuando": "2026-10-20T20:32:42.994Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de un bote con personas liberando alevinos en Laguna Brava"
+  },
+  "huella": "0c082030516169f9"
+ },
+ "1cw45oe": {
+  "archivo": "fotos-notas/1cw45oe.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de Estados Unidos",
+  "enlace": "https://www.lagaceta.com.ar/nota/1158795/deportes/formula-1-colapinto-vuelve-austin-donde-ya-sumo-2024-alpine-busca-respuestas.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/20/de-regreso-franco-colapinto-vuelve-al-circuito-americas-donde-sumo-punto-williams-2024-1158795-094120.jpg",
+  "razon": "Es la única foto que muestra un buen encuadre del piloto en el evento sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-10-20T20:32:42.994Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con gorra azul y indumentaria del equipo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto con la indumentaria del equipo Alpine F1."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "c4983b5fd5e94a6a"
  }
 }

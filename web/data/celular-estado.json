@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T20:05:25.164Z",
- "portada": 125,
- "archivo": 1435,
+ "generado": "2026-10-20T20:33:35.997Z",
+ "portada": 126,
+ "archivo": 1437,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T20:05:25.502Z",
+  "generado": "2026-10-20T20:33:36.538Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -137,11 +137,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 25,
+    "segundos": 40,
     "notas": [
      {
       "id": "1s4d8ch",
       "titulo": "Virginia Aparicio se reúne con diputados provinciales",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "lap6cm",
+      "titulo": "El Club de Pesca recibe miles de alevinos y huevas para Laguna Brava",
       "seccion": "Balcarce"
      },
      {
@@ -194,6 +199,12 @@
      "marcada": false
     },
     {
+     "id": "lap6cm",
+     "titulo": "El Club de Pesca recibe miles de alevinos y huevas para Laguna Brava",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "gr781c",
      "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
      "seccion": "Deportes",
@@ -220,12 +231,6 @@
     {
      "id": "87sfj5",
      "titulo": "France Football lanza una votación para elegir al mejor jugador de la historia",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1xl3aai",
-     "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
      "seccion": "Fútbol",
      "marcada": false
     }
