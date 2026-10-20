@@ -24102,14 +24102,30 @@
   "huella": "929693ccdc5cde9f"
  },
  "ffxrva": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ffxrva.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Milei tilda de pelotudez la crisis y niega que la gente no llegue a fin de mes",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-20T01:31:32.794Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.latecla.info/170504-milei-nego-que-la-gente-no-llegue-a-fin-de-mes-cruzo-a-los-kukas-y-a-kicillof",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/216869_3.jpg",
+  "razon": "Es la única opción disponible y muestra a la persona protagonista de la nota en un contexto de discurso, aunque el evento específico (AOG Patagonia) sea de archivo.",
+  "cuando": "2026-10-20T03:01:13.006Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": true,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando en un atril con el logo de AOG Patagonia.",
+   "detalle": "El logo AOG es parte del escenario real, no una marca del medio."
+  },
+  "huella": "00162a6b4b0f171f"
  },
  "ws4cc6": {
   "archivo": "fotos-notas/ws4cc6.jpg",

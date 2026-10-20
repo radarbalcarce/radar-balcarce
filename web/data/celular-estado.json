@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T02:31:26.003Z",
- "portada": 106,
+ "generado": "2026-10-20T03:01:20.939Z",
+ "portada": 104,
  "archivo": 1383,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-20T02:31:26.480Z",
+  "generado": "2026-10-20T03:01:21.139Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-19T10:06:25.605Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-19T12:06:49.727Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-19T13:06:52.002Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-noticias",
+    "nombre": "participa-evento",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Participá: mandanos noticias",
-    "voz": "locutora",
+    "que": "Tu evento o emprendimiento",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-19T15:06:12.996Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-19T18:46:09.812Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-19T22:06:22.277Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-19T23:06:46.513Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-20T01:06:03.728Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,123 +93,34 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-19T13:06:52.002Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "16tgrhv",
-      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "17nia8a",
-      "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1w9sag8",
-      "titulo": "Ferroviarios supera a Amigos Unidos en el clásico",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "7naab",
-      "titulo": "Se reactiva el Torneo Oficial de fútbol femenino tras un parate",
-      "seccion": "Fútbol"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-19T18:46:09.812Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1t0vxaf",
-      "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
-      "seccion": "Salud"
-     },
-     {
-      "id": "tuhpwo",
-      "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1l2bh67",
-      "titulo": null,
-      "seccion": null
-     },
-     {
-      "id": "1rq74kt",
-      "titulo": "Negocian la compra de locales de Toledo y analizan el futuro de la sucursal local",
-      "seccion": "Economía"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-20T01:06:03.728Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "c1ev9v",
-      "titulo": "El Municipio busca actividad mensual en el autódromo",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1cyr47b",
-      "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "izhwg1",
-      "titulo": "Esteban Reino defiende las intimaciones por deudas de agua",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1eh71pl",
-      "titulo": "Karina Lupo gana los 15K de Ayacucho y rompe el récord del circuito",
-      "seccion": "Deportes"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "16tgrhv",
-     "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
-     "cuando": "2026-10-19T12:35:30.137Z"
-    },
-    {
-     "id": "17nia8a",
-     "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
-     "cuando": "2026-10-19T14:35:29.982Z"
-    },
-    {
-     "id": "tuhpwo",
-     "titulo": "La campaña de residuos electrónicos reúne televisores y pequeños aparatos",
-     "cuando": "2026-10-19T16:35:30.716Z"
-    },
-    {
-     "id": "1t0vxaf",
-     "titulo": "Avanzan los trabajos de refacción en el primer piso del Hospital Municipal",
-     "cuando": "2026-10-19T18:35:33.689Z"
-    },
-    {
-     "id": "17ch9cn",
-     "titulo": "La Escuela República Argentina abre la preinscripción para 2027",
-     "cuando": "2026-10-19T20:35:26.871Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "1eh71pl",
@@ -236,7 +147,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-19T22:05:26.871Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
