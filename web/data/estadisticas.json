@@ -2064,6 +2064,52 @@
         "vistas": 16,
         "interacciones": 0
       }
+    },
+    {
+      "cuando": "2026-10-20T00:00:23.191Z",
+      "web": {
+        "u12": {
+          "visitas": 26,
+          "vistas": 40
+        },
+        "a12": {
+          "visitas": 7,
+          "vistas": 7
+        },
+        "u24": {
+          "visitas": 33,
+          "vistas": 47
+        },
+        "a24": {
+          "visitas": 25,
+          "vistas": 49
+        },
+        "top": [
+          {
+            "camino": "/",
+            "vistas": 11
+          },
+          {
+            "camino": "/nota/rodrigo-cunqueiro-compite-en-un-certamen-sudamericano-en-chile-16tgrhv",
+            "vistas": 9
+          },
+          {
+            "camino": "/nota/avanzan-los-trabajos-de-refaccion-en-el-primer-piso-del-hospital-1t0vxaf",
+            "vistas": 6
+          }
+        ]
+      },
+      "facebook": {
+        "seguidores": 71,
+        "interacciones": 0
+      },
+      "instagram": {
+        "seguidores": 8,
+        "publicaciones": 211,
+        "alcance": 34,
+        "vistas": 105,
+        "interacciones": 12
+      }
     }
   ],
   "dias": {
@@ -3445,14 +3491,15 @@
       }
     },
     "2026-10-17": {
-      "visitas": 34,
-      "vistas": 82,
+      "visitas": 40,
+      "vistas": 95,
       "paises": {
-        "AR": 52,
-        "US": 17,
+        "AR": 61,
+        "US": 20,
         "IE": 9,
         "SE": 2,
         "ES": 1,
+        "PL": 1,
         "CA": 1
       },
       "horas": [
@@ -3482,8 +3529,8 @@
         0
       ],
       "dispositivos": {
-        "mobile": 65,
-        "desktop": 17
+        "mobile": 76,
+        "desktop": 19
       },
       "notas": {
         "1kgatx3": 8,
@@ -3521,8 +3568,8 @@
         "/seccion/balcarce-6": 1
       },
       "referentes": {
+        "directo": 18,
         "facebook.com": 18,
-        "directo": 12,
         "google.com": 4
       }
     },
@@ -3549,14 +3596,97 @@
         7,
         0,
         0,
+        1,
+        0,
+        1
+      ],
+      "referentes": {
+        "facebook.com": 12,
+        "directo": 7,
+        "google.com": 2
+      },
+      "dispositivos": {
+        "mobile": 24,
+        "desktop": 14
+      },
+      "paises": {
+        "US": 24,
+        "AR": 8,
+        "IE": 5,
+        "CN": 1
+      },
+      "visitas": 21,
+      "vistas": 38,
+      "notas": {
+        "177ws3g": 11,
+        "1gjmiur": 9,
+        "ncrv15": 7,
+        "1o3t45b": 1,
+        "5aer7x": 1
+      },
+      "paginas": {
+        "/": 9
+      }
+    },
+    "2026-10-19": {
+      "horas": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        2,
+        18,
+        0,
+        2,
+        0,
+        6,
+        0,
+        6,
+        3,
+        4,
+        0,
+        1,
+        0,
         0,
         0,
         0
       ],
       "referentes": {
-        "facebook.com": 12,
+        "facebook.com": 21,
         "directo": 5,
-        "google.com": 2
+        "google.com": 5
+      },
+      "dispositivos": {
+        "desktop": 33,
+        "mobile": 12
+      },
+      "paises": {
+        "US": 21,
+        "AR": 9,
+        "SE": 9,
+        "IE": 5,
+        "KR": 1
+      },
+      "visitas": 31,
+      "vistas": 45,
+      "notas": {
+        "16tgrhv": 9,
+        "tuhpwo": 6,
+        "1t0vxaf": 6,
+        "17ch9cn": 4,
+        "700xzm": 3,
+        "17nia8a": 2,
+        "18lljrf": 2,
+        "5aer7x": 1
+      },
+      "paginas": {
+        "/": 9,
+        "/quienes-somos": 2,
+        "/contacto": 1
       }
     }
   }
