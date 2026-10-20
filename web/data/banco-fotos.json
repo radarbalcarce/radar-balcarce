@@ -21895,7 +21895,8 @@
    "corresponde": "si",
    "descripcion": "Calle urbana mojada por la lluvia con autos y semáforos"
   },
-  "huella": "0f0e0f0706460627"
+  "huella": "0f0e0f0706460627",
+  "ausenteDesde": "2026-10-20T03:31:47.915Z"
  },
  "ewxkbe": {
   "archivo": "fotos-notas/ewxkbe.jpg",
@@ -24031,14 +24032,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1tqjmvm": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1tqjmvm.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-20T02:31:07.637Z",
-  "intentos": 2,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lacapital.com.ar/ovacion/con-un-solo-cambio-newells-tiene-el-once-recibir-central-cordoba-santiago-n10287535.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/32f2c66d33a30fe96417f17a362f64c3/adjuntos/203/imagenes/103/295/0103295982/1200x675/smart/image-8.png",
+  "razon": "Es la única foto que corresponde al partido, tiene excelente nitidez y encuadre, y no posee marcas de agua sobreimpresas, menores ni es gráfica o de archivo.",
+  "cuando": "2026-10-20T03:31:18.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Newell's conduciendo el balón en pleno partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Newell's controlando el balón durante un partido de fútbol con público en las tribunas."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2e2bc6d7c4540f0f"
  },
  "1kfwbd5": {
   "archivo": "fotos-notas/1kfwbd5.jpg",

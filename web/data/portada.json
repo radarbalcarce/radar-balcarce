@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-20T03:01:20.939Z",
+  "generado": "2026-10-20T03:31:47.934Z",
   "notas": [
     {
       "id": "futboltablaliga20261010",
@@ -1506,16 +1506,17 @@
       "guion": "Un ciclista resulta hospitalizado tras un choque con un auto.",
       "seccion": "Policiales",
       "medios": [
-        "Radio Gabal (FM 104.1)",
-        "Puntonueve (FM 100.9)"
+        "Puntonueve (FM 100.9)",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://puntonueve.com.ar/un-ciclista-fue-hospitalizado-tras-un-siniestro-vial-en-balcarce/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-20T00:38:55.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T02:00:57.460Z",
-      "relevancia": 94,
+      "relevancia": 98,
       "local": true,
+      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [
@@ -1606,7 +1607,7 @@
       "fecha": "2026-10-20T00:03:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T01:01:06.655Z",
-      "relevancia": 62,
+      "relevancia": 52,
       "local": false,
       "muyContada": {
         "medios": 5,
@@ -2733,7 +2734,11 @@
         "porque": "Lo contaron cinco medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "newell-s-vence-2-a-1-a-central-cordoba-en-rosario-por-el-torneo"
+      "slug": "newell-s-vence-2-a-1-a-central-cordoba-en-rosario-por-el-torneo",
+      "foto": {
+        "archivo": "fotos-notas/1tqjmvm.jpg",
+        "credito": "Foto: La Capital (Rosario)"
+      }
     },
     {
       "id": "1b2pye9",
@@ -2988,16 +2993,16 @@
       "medios": [
         "TN (Todo Noticias)",
         "Perfil",
-        "Radio Mitre",
         "Diario Popular",
-        "Minuto Uno"
+        "Minuto Uno",
+        "Radio Mitre"
       ],
       "enlace": "https://tn.com.ar/internacional/2026/10/19/un-ministro-de-pedro-sanchez-se-burlo-de-la-visita-de-milei-a-espana-sirve-de-ejemplo/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T19:53:25.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T00:00:59.411Z",
-      "relevancia": 49,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3465,8 +3470,8 @@
       "guion": "Casación confirma el archivo de la causa por el prestamo del FMI.",
       "seccion": "Política",
       "medios": [
-        "La Nación",
         "Clarín",
+        "La Nación",
         "Perfil",
         "A24",
         "Noticias Argentinas (NA)",
@@ -4123,15 +4128,17 @@
       "guion": "Telefe emite el lunes la gala de eliminación de MasterChef Celebrity.",
       "seccion": "Cultura y agenda",
       "medios": [
+        "TN (Todo Noticias)",
         "El Destape",
-        "Radio Mitre"
+        "Radio Mitre",
+        "Minuto Uno"
       ],
       "enlace": "https://www.eldestapeweb.com/espectaculos/quien-va-hoy-masterchef-celebrity-2026-nuevo-participante-eliminado-telefe-lunes-19-octubre-20261019134723",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T16:47:23.160Z",
       "sinFecha": false,
       "visto": "2026-10-20T00:31:02.995Z",
-      "relevancia": 41,
+      "relevancia": 46,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4632,9 +4639,9 @@
       "guion": "Las inferiores del básquet municipal avanzan en la Liga Marplatense.",
       "seccion": "Deportes",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
-        "Puntonueve (FM 100.9)",
         "Diario La Vanguardia"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/19/basquet-cadetes-e-infantiles-en-semis/",
@@ -4705,7 +4712,7 @@
       "fecha": "2026-10-19T15:21:03.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T18:30:55.343Z",
-      "relevancia": 48,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4774,7 +4781,7 @@
       "fecha": "2026-10-19T15:04:05.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T19:30:59.956Z",
-      "relevancia": 70,
+      "relevancia": 63,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4880,11 +4887,11 @@
       "seccion": "Salud",
       "medios": [
         "News Balcarce (FM 91.7)",
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
         "Diario La Vanguardia",
-        "Radio Gabal (FM 104.1)",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/19/avanza-la-obra-de-renovacion-del-primer-piso-del-hospital-municipal/",
       "teniaImagenLaFuente": true,
@@ -4975,11 +4982,11 @@
       "seccion": "Balcarce",
       "medios": [
         "News Balcarce (FM 91.7)",
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
         "Diario La Vanguardia",
-        "Radio Gabal (FM 104.1)",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/19/la-campana-raee-sigue-promoviendo-la-gestion-responsable-de-los-residuos-electronicos/",
       "teniaImagenLaFuente": true,
@@ -5801,7 +5808,6 @@
         "Infobae",
         "TN (Todo Noticias)",
         "El Destape",
-        "Perfil",
         "TyC Sports",
         "Olé",
         "C5N"
@@ -5811,7 +5817,7 @@
       "fecha": "2026-10-19T12:57:42.302Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 47,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6088,9 +6094,9 @@
         "Noticias Argentinas (NA)",
         "Ámbito",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
         "0223 (Mar del Plata)",
-        "Clarín"
+        "Clarín",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/19/el-argentino-mattia-colnaghi-correra-en-un-equipo-de-punta-en-la-formula-3-la-intervencion-clave-de-red-bull/",
       "teniaImagenLaFuente": true,
@@ -7048,8 +7054,8 @@
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
-        "La Gaceta (Tucumán)"
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://noticiasargentinas.com/economia/la-industria-metalurgica-sin-piso--cayo-3-3--en-septiembre_a6ad60453faec012154bfba1b",
       "teniaImagenLaFuente": true,
@@ -7488,99 +7494,6 @@
       }
     },
     {
-      "id": "19ojs9v",
-      "titulo": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo",
-      "copete": "El capitán de River se disculpó públicamente con el arquero juvenil luego de la discusión que protagonizaron en el partido contra Sarmiento. El defensor reconoció su reacción y destacó el nivel del guardameta.",
-      "cuerpo": "Nicolás Otamendi le pidió disculpas públicamente a Santiago Beltrán tras la discusión que protagonizaron durante el empate frente a Sarmiento. El capitán reconoció su reacción enérgica en aquel encuentro disputado en Junín y explicó que vive el fútbol con mucha exigencia.\n\nTras la victoria frente a Belgrano en Córdoba, el defensor destacó el nivel y la dedicación del arquero juvenil. Además, valoró la presencia de Enzo Pérez, quien alentó al equipo desde la tribuna del estadio Mario Alberto Kempes.",
-      "guion": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo.",
-      "seccion": "Fútbol",
-      "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "TyC Sports",
-        "Olé",
-        "Radio Mitre",
-        "Bolavip Argentina",
-        "El Gráfico",
-        "Crónica"
-      ],
-      "enlace": "https://www.elgrafico.com.ar/articulo/1038/103421/las-disculpas-de-otamendi-con-santiago-beltran-tras-el-reclamo-en-junin",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-19T09:30:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-19T13:01:01.411Z",
-      "relevancia": 47,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Nicolás Otamendi se disculpó públicamente con Santiago Beltrán.",
-        "El capitán reconoció su reclamo al arquero durante el partido ante Sarmiento.",
-        "El defensor elogió el desempeño y el profesionalismo del guardameta juvenil."
-      ],
-      "seSabe": [
-        "Nicolás Otamendi le pidió perdón a Santiago Beltrán en privado y de forma pública.",
-        "El capitán de River reconoció que se excedió en su reclamo al arquero en Junín.",
-        "Enzo Pérez alentó al plantel desde la tribuna en el estadio Mario Alberto Kempes."
-      ],
-      "textoRedes": "Nicolás Otamendi le pidió disculpas públicas a Santiago Beltrán tras el fuerte reclamo que le había hecho al arquero juvenil durante el partido frente a Sarmiento.",
-      "etiquetas": [
-        "Nicolás Otamendi",
-        "Santiago Beltrán",
-        "Fútbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Gráfico",
-          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103421/las-disculpas-de-otamendi-con-santiago-beltran-tras-el-reclamo-en-junin",
-          "fecha": "2026-10-19T09:30:00.000Z",
-          "oficial": false,
-          "aporte": "Informó que el capitán habló en Córdoba tras lo sucedido con el arquero."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/videos/deportes/futbol/2026/10/19/a-veces-se-me-sale-la-chaveta-otamendi-se-arrepintio-de-sus-criticas-a-santiago-beltran-video-2/",
-          "fecha": "2026-10-19T10:50:34.000Z",
-          "oficial": false,
-          "aporte": "Aportó cobertura sobre las declaraciones del capitán riverplatense."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/videos/deportes/futbol/2026/10/19/a-veces-se-me-sale-la-chaveta-otamendi-se-arrepintio-de-sus-criticas-a-santiago-beltran/",
-          "fecha": "2026-10-19T10:50:34.000Z",
-          "oficial": false,
-          "aporte": "Sumó elementos sobre la relación entre los futbolistas del plantel."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/river-plate/river-nicolas-otamendi-disculpas-santiago-beltran-sarmiento-junin-belgrano-cordoba-id767169.html",
-          "fecha": "2026-10-19T12:10:45.000Z",
-          "oficial": false,
-          "aporte": "Detalló las declaraciones de Nicolás Otamendi sobre sus disculpas a Santiago Beltrán y su paso por Córdoba."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1oj06u0",
-          "titulo": "Nicolás Otamendi recrimina a Santiago Beltrán en el empate de River",
-          "fecha": "2026-10-15T10:01:48.718Z",
-          "ruta": "/nota/nicolas-otamendi-recrimina-a-santiago-beltran-en-el-empate-de-river-1oj06u0"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "nicolas-otamendi-le-pide-perdon-a-santiago-beltran-tras-el-reclamo",
-      "foto": {
-        "archivo": "fotos-notas/19ojs9v.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
       "id": "11grheq",
       "titulo": "Luis Enrique descarta comparaciones entre Messi y Lamine Yamal",
       "copete": "El entrenador del París Saint-Germain se refirió al rendimiento de la joven figura del Barcelona en la previa del duelo por la Champions League. Además, analizó la estrategia para frenarlo y confirmó una baja en el equipo.",
@@ -7809,13 +7722,13 @@
         "El Eco de Tandil",
         "El Economista",
         "Ámbito",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
         "Crónica",
         "El Cronista",
         "iProfesional",
         "La Nueva",
+        "elDiarioAR",
         "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
         "Infórmese Primero (FM 104.9)",
         "La Nación",
         "Perfil",
@@ -8109,14 +8022,15 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "Canal 26",
-        "La Brújula 24"
+        "La Brújula 24",
+        "La Nación"
       ],
       "enlace": "https://www.canal26.com/tendencias/2026/10/19/poner-bicarbonato-en-el-fondo-del-tacho-de-basura-para-que-sirve-y-cada-cuanto-conviene-cambiarlo/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T05:05:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T10:31:01.646Z",
-      "relevancia": 34,
+      "relevancia": 39,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8178,10 +8092,9 @@
       "guion": "El riesgo país llega a 660 puntos y los bonos operan en baja.",
       "seccion": "Economía",
       "medios": [
-        "La Nación",
         "Agencia DIB",
+        "La Nación",
         "Infobae",
-        "Clarín",
         "Perfil",
         "TN (Todo Noticias)",
         "El Destape",
@@ -8198,14 +8111,15 @@
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
         "El Cronista",
         "iProfesional",
         "La Nueva",
         "La Gaceta (Tucumán)",
+        "Clarín",
         "A24",
-        "Radio Mitre"
+        "Radio Mitre",
+        "elDiarioAR",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.eldestapeweb.com/economia/dispara-riesgo-pais-caen-bonos-inicio-mercado-financiero-2026101911220",
       "teniaImagenLaFuente": true,
@@ -8291,6 +8205,100 @@
         "sugeridoPorIA": null
       },
       "slug": "el-riesgo-pais-llega-a-660-puntos-y-los-bonos-operan-en-baja"
+    },
+    {
+      "id": "19ojs9v",
+      "titulo": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo",
+      "copete": "El capitán de River se disculpó públicamente con el arquero juvenil luego de la discusión que protagonizaron en el partido contra Sarmiento. El defensor reconoció su reacción y destacó el nivel del guardameta.",
+      "cuerpo": "Nicolás Otamendi le pidió disculpas públicamente a Santiago Beltrán tras la discusión que protagonizaron durante el empate frente a Sarmiento. El capitán reconoció su reacción enérgica en aquel encuentro disputado en Junín y explicó que vive el fútbol con mucha exigencia.\n\nTras la victoria frente a Belgrano en Córdoba, el defensor destacó el nivel y la dedicación del arquero juvenil. Además, valoró la presencia de Enzo Pérez, quien alentó al equipo desde la tribuna del estadio Mario Alberto Kempes.",
+      "guion": "Nicolás Otamendi le pide perdón a Santiago Beltrán tras el reclamo.",
+      "seccion": "Fútbol",
+      "medios": [
+        "La Nación",
+        "TN (Todo Noticias)",
+        "TyC Sports",
+        "Olé",
+        "Radio Mitre",
+        "Doble Amarilla",
+        "Bolavip Argentina",
+        "El Gráfico",
+        "Crónica"
+      ],
+      "enlace": "https://www.elgrafico.com.ar/articulo/1038/103421/las-disculpas-de-otamendi-con-santiago-beltran-tras-el-reclamo-en-junin",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T02:25:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-19T13:01:01.411Z",
+      "relevancia": 48,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Nicolás Otamendi se disculpó públicamente con Santiago Beltrán.",
+        "El capitán reconoció su reclamo al arquero durante el partido ante Sarmiento.",
+        "El defensor elogió el desempeño y el profesionalismo del guardameta juvenil."
+      ],
+      "seSabe": [
+        "Nicolás Otamendi le pidió perdón a Santiago Beltrán en privado y de forma pública.",
+        "El capitán de River reconoció que se excedió en su reclamo al arquero en Junín.",
+        "Enzo Pérez alentó al plantel desde la tribuna en el estadio Mario Alberto Kempes."
+      ],
+      "textoRedes": "Nicolás Otamendi le pidió disculpas públicas a Santiago Beltrán tras el fuerte reclamo que le había hecho al arquero juvenil durante el partido frente a Sarmiento.",
+      "etiquetas": [
+        "Nicolás Otamendi",
+        "Santiago Beltrán",
+        "Fútbol"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Gráfico",
+          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103421/las-disculpas-de-otamendi-con-santiago-beltran-tras-el-reclamo-en-junin",
+          "fecha": "2026-10-19T09:30:00.000Z",
+          "oficial": false,
+          "aporte": "Informó que el capitán habló en Córdoba tras lo sucedido con el arquero."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/videos/deportes/futbol/2026/10/19/a-veces-se-me-sale-la-chaveta-otamendi-se-arrepintio-de-sus-criticas-a-santiago-beltran-video-2/",
+          "fecha": "2026-10-19T10:50:34.000Z",
+          "oficial": false,
+          "aporte": "Aportó cobertura sobre las declaraciones del capitán riverplatense."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/videos/deportes/futbol/2026/10/19/a-veces-se-me-sale-la-chaveta-otamendi-se-arrepintio-de-sus-criticas-a-santiago-beltran/",
+          "fecha": "2026-10-19T10:50:34.000Z",
+          "oficial": false,
+          "aporte": "Sumó elementos sobre la relación entre los futbolistas del plantel."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/river-plate/river-nicolas-otamendi-disculpas-santiago-beltran-sarmiento-junin-belgrano-cordoba-id767169.html",
+          "fecha": "2026-10-19T12:10:45.000Z",
+          "oficial": false,
+          "aporte": "Detalló las declaraciones de Nicolás Otamendi sobre sus disculpas a Santiago Beltrán y su paso por Córdoba."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1oj06u0",
+          "titulo": "Nicolás Otamendi recrimina a Santiago Beltrán en el empate de River",
+          "fecha": "2026-10-15T10:01:48.718Z",
+          "ruta": "/nota/nicolas-otamendi-recrimina-a-santiago-beltran-en-el-empate-de-river-1oj06u0"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "nicolas-otamendi-le-pide-perdon-a-santiago-beltran-tras-el-reclamo",
+      "foto": {
+        "archivo": "fotos-notas/19ojs9v.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
     },
     {
       "id": "repaso20261018noche",
@@ -8694,123 +8702,6 @@
       }
     },
     {
-      "id": "fa1cz",
-      "titulo": "Emiten alerta amarilla por lluvias, nevadas y vientos en diez provincias",
-      "copete": "El Servicio Meteorológico Nacional lanzó advertencias por fenómenos con capacidad de daño en distintas regiones del país. Rige desde el lunes por precipitaciones, acumulaciones níveas y ráfagas intensas.",
-      "cuerpo": "El Servicio Meteorológico Nacional emitió una alerta amarilla por lluvias, nevadas y vientos que abarca a diez provincias del país.\n\nLa advertencia por precipitaciones rige en Neuquén, Río Negro, el oeste de La Pampa y el sur de Mendoza, donde se prevén valores acumulados de entre 10 y 40 milímetros. En paralelo, el organismo dispuso el alerta por nevadas en el oeste de Mendoza, San Juan, La Rioja y Catamarca, con acumulaciones esperadas de entre 20 y 50 centímetros. Las advertencias por vientos alcanzan al oeste de Catamarca, el noroeste de Tucumán, el oeste de Salta y el oeste de Jujuy, con ráfagas que podrían superar los 90 kilómetros por hora.\n\nFrente a estas condiciones, el organismo oficial recomendó evitar salir, asegurar objetos que puedan ser arrastrados por el viento, circular con vehículos preparados para hielo y nieve, y mantener limpios los desagües.",
-      "guion": "Emiten alerta amarilla por lluvias, nevadas y vientos en diez provincias.",
-      "seccion": "Argentina",
-      "medios": [
-        "TN (Todo Noticias)",
-        "La Nación",
-        "Minuto Uno",
-        "Crónica"
-      ],
-      "enlace": "https://www.minutouno.com/sociedad/alerta-total-diluvio-este-lunes-lluvias-fuertes-y-tormentas-embebidas-las-zonas-mas-afectadas-n6335106",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-18T22:16:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-19T05:02:06.285Z",
-      "relevancia": 34,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Servicio Meteorológico Nacional lanzó alerta amarilla en diez provincias.",
-        "Rigen advertencias por lluvias, nevadas y vientos intensos con ráfagas.",
-        "Se esperan acumulados de hasta 40 milímetros en la zona de precipitaciones.",
-        "Las áreas cordilleranas registran previsiones de nieve de hasta 50 centímetros."
-      ],
-      "seSabe": [
-        "El Servicio Meteorológico Nacional emitió alerta amarilla para diez provincias.",
-        "Las advertencias abarcan precipitaciones, nevadas y vientos intensos.",
-        "El alerta por lluvias afecta a Neuquén, Río Negro, oeste de La Pampa y sur de Mendoza.",
-        "El aviso por nevadas alcanza al oeste de Mendoza, San Juan, La Rioja y Catamarca.",
-        "El alerta por vientos comprende al oeste de Catamarca, noroeste de Tucumán, oeste de Salta y oeste de Jujuy."
-      ],
-      "noConfirmado": [
-        "Las fuentes presentan diferencias en las estimaciones de milímetros acumulados para Mendoza y La Pampa, donde un reporte calcula entre 20 y 40 mm y otro general sitúa los valores entre 10 y 20 mm."
-      ],
-      "textoRedes": "El Servicio Meteorológico Nacional emitió una alerta amarilla por lluvias, nevadas y vientos que afecta a diez provincias. Rigen advertencias por acumulados de agua y nieve, además de ráfagas intensas en zonas cordilleranas.",
-      "etiquetas": [
-        "Servicio Meteorologico Nacional",
-        "alerta amarilla",
-        "clima",
-        "nevadas",
-        "vientos",
-        "pronostico"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/alerta-total-diluvio-este-lunes-lluvias-fuertes-y-tormentas-embebidas-las-zonas-mas-afectadas-n6335106",
-          "fecha": "2026-10-18T22:16:00.000Z",
-          "oficial": false,
-          "aporte": "Precisó acumulados específicos de 20 a 40 milímetros para Mendoza y La Pampa."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/hay-alerta-amarilla-por-lluvias-nevadas-y-vientos-para-este-lunes-19-de-octubre-las-provincias-nid19102026/",
-          "fecha": "2026-10-19T04:42:07.000Z",
-          "oficial": false,
-          "aporte": "Detalló las 10 provincias afectadas, los rangos de lluvia y nieve, y las recomendaciones generales de seguridad."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/clima/alertas/2026/10/19/hay-alerta-amarilla-por-lluvias-para-este-lunes-19-de-octubre-en-neuquen-las-zonas-afectadas/",
-          "fecha": "2026-10-19T03:01:15.000Z",
-          "oficial": false,
-          "aporte": "Informó los horarios de vigencia de la alerta en la provincia de Neuquén."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/clima/alertas/2026/10/19/hay-alerta-amarilla-por-lluvias-para-este-lunes-19-de-octubre-en-rio-negro-las-zonas-afectadas/",
-          "fecha": "2026-10-19T03:01:05.000Z",
-          "oficial": false,
-          "aporte": "Indicó el horario de inicio y finalización de la advertencia meteorológica en Río Negro."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/clima/alertas/2026/10/19/hay-alerta-amarilla-por-lluvias-para-este-lunes-19-de-octubre-en-mendoza-las-zonas-afectadas/",
-          "fecha": "2026-10-19T03:00:44.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1sj7dfp",
-          "titulo": "Emiten alerta amarilla por tormentas y lluvias en varias provincias",
-          "fecha": "2026-09-26T03:01:00.000Z",
-          "ruta": "/nota/emiten-alerta-amarilla-por-tormentas-y-lluvias-en-varias-provincias-1sj7dfp"
-        },
-        {
-          "id": "1gsplvm",
-          "titulo": "La Bolsa de Cereales anticipa lluvias y fuertes contrastes térmicos",
-          "fecha": "2026-10-08T12:31:33.000Z",
-          "ruta": "/nota/la-bolsa-de-cereales-anticipa-lluvias-y-fuertes-contrastes-termicos-1gsplvm"
-        },
-        {
-          "id": "1qudzsc",
-          "titulo": "El Servicio Meteorológico Nacional mantiene alerta amarilla por lluvias",
-          "fecha": "2026-09-29T10:29:49.000Z",
-          "ruta": "/nota/el-servicio-meteorologico-nacional-mantiene-alerta-amarilla-por-1qudzsc"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "emiten-alerta-amarilla-por-lluvias-nevadas-y-vientos-en-diez",
-      "foto": {
-        "archivo": "fotos-notas/fa1cz.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
       "id": "13qte13",
       "titulo": "Enzo Pérez sorprende a los hinchas de River en la popular",
       "copete": "El mediocampista se mezcló entre los simpatizantes en el estadio Mario Alberto Kempes de Córdoba para presenciar el partido frente a Belgrano. Aprovechó su día libre tras jugar en Deportivo Maipú.",
@@ -8972,109 +8863,6 @@
       }
     },
     {
-      "id": "145t5vy",
-      "titulo": "ANSES paga jubilaciones mínimas y asignaciones con DNI en 6",
-      "copete": "La Administración Nacional de la Seguridad Social avanza con el cronograma para haberes mínimos, AUH y asignaciones. Los pagos incluyen una actualización del 1,66% y un refuerzo de hasta $70.000.",
-      "cuerpo": "La Administración Nacional de la Seguridad Social (ANSES) continúa el cronograma con la liquidación de haberes para jubilados y pensionados que no superan la mínima con documento terminado en 6, al igual que los titulares de la Asignación Universal por Hijo y la Asignación Familiar por Hijo con la misma terminación. Las beneficiarias de la Asignación por Embarazo con documento finalizado en 5 perciben su prestación, mientras que el grupo de Prenatal abarca a las terminaciones 6 y 7. Los titulares del programa Progresar con DNI finalizado en 8 y 9 cobran el beneficio correspondiente a septiembre. Los haberes previsionales incorporan una actualización del 1,66% establecida por la Resolución 284/2026 y un bono extraordinario de hasta $70.000 dispuesto por el Decreto 1108/2026. Con estos incrementos, la jubilación mínima se ubica en $435.748,51 y alcanza un total de $505.748,51 al sumar el refuerzo.",
-      "guion": "ANSES paga jubilaciones mínimas y asignaciones con DNI en 6.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "Infobae",
-        "Perfil",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Ámbito",
-        "C5N",
-        "Crónica",
-        "A24"
-      ],
-      "enlace": "https://www.c5n.com/economia/cuando-cobro-anses-jubilaciones-y-pensiones-auh-aue-prenatal-maternidad-pago-unico-asignaciones-familiares-pnc-y-progresar-este-lunes-19-octubre-n251941",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-18T21:46:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-19T06:01:12.259Z",
-      "relevancia": 43,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La ANSES aplica un incremento del 1,66% y un bono extraordinario de hasta $70.000.",
-        "Cobran jubilaciones mínimas y AUH los documentos finalizados en 6.",
-        "La Asignación por Embarazo se paga a documentos terminados en 5.",
-        "Los beneficiarios de Progresar con DNI en 8 y 9 perciben el haber de septiembre."
-      ],
-      "seSabe": [
-        "La ANSES aplica una actualización del 1,66% según la Resolución 284/2026.",
-        "El Poder Ejecutivo estableció un refuerzo previsional de hasta $70.000 mediante el Decreto 1108/2026.",
-        "La jubilación mínima llega a $435.748,51 y asciende a $505.748,51 con el bono incluido.",
-        "Cobran los jubilados con haberes mínimos y titulares de AUH con DNI terminado en 6."
-      ],
-      "textoRedes": "La ANSES paga jubilaciones mínimas, asignaciones y becas Progresar según la terminación de documento. Los haberes incorporan un incremento del 1,66% y un bono extraordinario de hasta $70.000.",
-      "etiquetas": [
-        "ANSES",
-        "jubilaciones",
-        "AUH",
-        "Progresar",
-        "cronograma de pagos"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/cuando-cobro-anses-jubilaciones-y-pensiones-auh-aue-prenatal-maternidad-pago-unico-asignaciones-familiares-pnc-y-progresar-este-lunes-19-octubre-n251941",
-          "fecha": "2026-10-18T21:46:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó el listado de prestaciones que perciben sus haberes y los grupos habilitados."
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/economia/2026/10/19/anses-quienes-cobran-hoy-lunes-19-de-octubre-de-2026/",
-          "fecha": "2026-10-19T05:32:05.000Z",
-          "oficial": false,
-          "aporte": "Detalló los montos actualizados, las resoluciones oficiales y el cronograma completo por terminación de DNI."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/19/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-lunes-19-de-octubre/",
-          "fecha": "2026-10-19T03:16:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "f4oery",
-          "titulo": "Anses difunde el cronograma de cobro de la PUAM de octubre",
-          "fecha": "2026-10-14T14:31:29.582Z",
-          "ruta": "/nota/anses-difunde-el-cronograma-de-cobro-de-la-puam-de-octubre-f4oery"
-        },
-        {
-          "id": "xjn0zk",
-          "titulo": "ANSES aumenta un 1,9 por ciento las jubilaciones y asignaciones en noviembre",
-          "fecha": "2026-10-14T00:31:24.523Z",
-          "ruta": "/nota/anses-aumenta-un-1-9-por-ciento-las-jubilaciones-y-asignaciones-en-xjn0zk"
-        },
-        {
-          "id": "q299p0",
-          "titulo": "Anses paga a jubilados y asignaciones con terminación 5",
-          "fecha": "2026-10-15T07:05:24.042Z",
-          "ruta": "/nota/anses-paga-a-jubilados-y-asignaciones-con-terminacion-5-q299p0"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "anses-paga-jubilaciones-minimas-y-asignaciones-con-dni-en-6",
-      "foto": {
-        "archivo": "fotos-notas/145t5vy.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
       "id": "1837v8u",
       "titulo": "El Balón de Oro abre una votación histórica entre Messi y Cristiano",
       "copete": "La organización del galardón lanzó una encuesta para elegir a la mejor edición de la historia. El portugués encabeza las preferencias con su premio de 2008.",
@@ -9094,9 +8882,9 @@
         "La Verdad",
         "Ámbito",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
         "0223 (Mar del Plata)",
         "La Nueva",
+        "Los Andes (Mendoza)",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/18/el-balon-de-oro-lanzo-una-votacion-para-elegir-al-mas-grande-de-la-historia-la-inesperada-distancia-en-la-puja-entre-messi-y-cristiano/",
@@ -9359,37 +9147,24 @@
       "guion": "Mar del Plata inaugura la trigésima quinta edición de los Juegos Bonaerenses.",
       "seccion": "Deportes",
       "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "Municipalidad de Balcarce",
-        "Diario La Vanguardia",
         "0223 (Mar del Plata)",
         "LU9 Mar del Plata",
         "Agencia DIB",
         "Infobae",
         "El Destape",
-        "Olé",
-        "Noticias Argentinas (NA)",
-        "El Día",
-        "0221",
+        "Perfil",
         "La Tecla",
-        "QZ Noticias (Mar del Plata)",
-        "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
-        "Infobrisas (Radio Brisas)",
         "Punto Noticias",
-        "El Eco de Tandil",
-        "Ámbito",
-        "Puntonueve (FM 100.9)",
-        "El Diario de Tandil"
+        "El Eco de Tandil"
       ],
       "enlace": "https://www.0223.com.ar/nota/2026-10-19-8-35-25-se-inauguran-las-finales-de-los-juegos-bonaerenses-con-record-de-participantes",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-18T19:10:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 64,
+      "relevancia": 55,
       "local": false,
-      "oficial": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -9478,12 +9253,12 @@
       "medios": [
         "TN (Todo Noticias)",
         "El Destape",
-        "Perfil",
         "El Marplatense",
         "Ámbito",
         "Minuto Uno",
         "La Nación",
         "La Nueva",
+        "Perfil",
         "A24",
         "Crónica",
         "La Brújula 24",
@@ -9846,8 +9621,8 @@
         "Infobrisas (Radio Brisas)",
         "El Economista",
         "Ámbito",
-        "Los Andes (Mendoza)",
         "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
         "Radio Mitre",
         "Ahora Balcarce"
       ],
@@ -10327,7 +10102,7 @@
     "ahora": {
       "temp": 6,
       "sensacion": 3,
-      "humedad": 95,
+      "humedad": 96,
       "viento": 11,
       "rumbo": "NE",
       "cielo": "Nublado",
