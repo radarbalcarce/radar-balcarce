@@ -24889,7 +24889,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Jorge Macri con traje azul y corbata rayada frente a micrófonos"
   },
-  "huella": "16961a1a969e4acb"
+  "huella": "16961a1a969e4acb",
+  "ausenteDesde": "2026-10-20T20:05:25.142Z"
  },
  "iu7mol": {
   "archivo": "fotos-notas/iu7mol.jpg",
@@ -25245,14 +25246,28 @@
   "huella": "251d065a51b69e1a"
  },
  "t6gt6o": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "La Cámara Federal rechaza los planteos de la defensa de José Luis Espert",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-20T17:44:53.223Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/t6gt6o.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Cámara Federal rechaza anular la causa por lavado contra José Luis Espert",
+  "enlace": "https://www.infobae.com/judiciales/2026/10/20/nuevo-reves-judicial-para-jose-luis-espert-en-la-causa-por-presunto-lavado-de-activos/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/OXQXO4PVXNF5BHG6SMO44QXPRU.png?auth=d1dea6421e01cbad08c90d80fc0d5e0acff45f7eb808019206988b0ce21022dd&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única foto que corresponde a José Luis Espert, tiene excelente nitidez, no posee marcas de agua añadidas, menores ni es gráfica.",
+  "cuando": "2026-10-20T20:04:25.055Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "José Luis Espert sentado detrás de un escritorio con papeles"
+  },
+  "huella": "070f172b2b6b6b4f"
  },
  "y8hra9": {
   "intentado": true,
@@ -25707,5 +25722,62 @@
    "descripcion": "Exterior del Estadio Único de La Plata"
   },
   "huella": "000020057efe3f07"
+ },
+ "1s4d8ch": {
+  "archivo": "fotos-notas/1s4d8ch.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Virginia Aparicio se reúne con diputados provinciales",
+  "enlace": "https://puntonueve.com.ar/virginia-aparicio-fue-escuchada-en-la-legislatura-bonaerense/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-20-at-16.55.19.jpeg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos editoriales y no tiene marcas ni menores.",
+  "cuando": "2026-10-20T20:04:25.055Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio y un grupo de personas reunidas sosteniendo un documento."
+  },
+  "huella": "1a5a4a4a4d6d2d1c"
+ },
+ "g7d4sj": {
+  "archivo": "fotos-notas/g7d4sj.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Susana Giménez despide con un emotivo mensaje a Antonio Grimau",
+  "enlace": "https://www.c5n.com/ratingcero/susana-gimenez-despidio-antonio-grimau-un-emotivo-posteo-redes-jamas-un-problema-n252095",
+  "imagenOriginal": "https://media.c5n.com/p/04e0e5ff606cc138d681362ead658134/adjuntos/326/imagenes/000/404/0000404076/1200x675/smart/susana-gimenez-y-antonio-grimau.jpg",
+  "razon": "Muestra a Susana Giménez y Antonio Grimau juntos en una escena teatral, con excelente nitidez y sin marcas ni elementos extraños.",
+  "cuando": "2026-10-20T20:04:25.055Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Susana Giménez y Antonio Grimau sonriendo en el escenario de una obra de teatro"
+  },
+  "huella": "d6d79bbaccf4b2b2"
+ },
+ "1fmti97": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El ciclo lectivo 2026 finaliza el 22 de diciembre en la provincia de Buenos Aires",
+  "razon": "Todas las fotos muestran menores de edad reconocibles o no cumplen con los requisitos de selección.",
+  "cuando": "2026-10-20T20:04:25.055Z",
+  "intentos": 1,
+  "fuentes": 6
  }
 }
