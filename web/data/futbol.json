@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-20T01:02:26.638Z",
+ "consultado": "2026-10-20T01:31:40.587Z",
  "equipos": [
   "9739",
   "3",
@@ -1056,20 +1056,33 @@
     "id": "401841625",
     "competencia": "liga",
     "inicio": "2026-10-20T00:15:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+2'",
+    "estado": "en-juego",
+    "minuto": "59'",
     "local": {
      "id": "17702",
      "nombre": "Deportivo Riestra",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Juan Cruz Randazzo",
+      "minuto": "50'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Tobías Rubio",
+      "minuto": "57'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Guillermo Laza",
     "fase": null,
     "partidoDeLaSerie": null,

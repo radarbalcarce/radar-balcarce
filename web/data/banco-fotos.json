@@ -24060,5 +24060,40 @@
   "imagenOriginal": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Estadio_barracas_central_1922.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "titulo": "File:Estadio barracas central 1922.jpg",
   "cuando": "2026-10-20T01:02:29.403Z"
+ },
+ "jvgvwn": {
+  "archivo": "fotos-notas/jvgvwn.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Municipio evalúa alternativas tras quedar desierta la licitación del frigorífico",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45101-el-segundo-llamado-a-licitacion-del-frigorifico-municipal-volvio-a-quedar-desierto/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66068.png",
+  "razon": "La foto A muestra el interior del frigorífico con mayor nitidez y encuadre, ilustrando claramente el objeto de la licitación, mientras que la B es de baja calidad y está recortada.",
+  "cuando": "2026-10-20T01:31:32.794Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista del interior de un frigorífico con trabajadores en trajes blancos y cueros colgando en la línea de producción."
+  },
+  "huella": "929693ccdc5cde9f"
+ },
+ "ffxrva": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Milei tilda de pelotudez la crisis y niega que la gente no llegue a fin de mes",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-20T01:31:32.794Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

@@ -1,44 +1,7 @@
 {
- "generado": "2026-10-20T01:02:31.005Z",
+ "generado": "2026-10-20T01:31:44.897Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "1ab8abz",
-   "titulo": "Cristina y Máximo Kirchner pidieron no asistir al juicio por asociación ilícita y lavado de dinero",
-   "copete": "La defensa de Cristina Fernández de Kirchner y Máximo Kirchner le pidió al Tribunal Oral Federal 5 (TOF 5) que les permita participar por medios telemáticos en las audiencias del juicio oral por Los Sauces , que, de acuerdo con el cronograma vigente, comenzará esta semana. El…",
-   "seccion": "Política",
-   "fecha": "2026-10-19T22:13:05.000Z",
-   "fuentes": [
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/politica/cristina-maximo-kirchner-pidieron-asistir-juicio-asociacion-ilicita-lavado-dinero_0_7A7pWTZTDs.html",
-     "fecha": "2026-10-19T22:13:05.000Z"
-    },
-    {
-     "medio": "Infobae",
-     "enlace": "https://www.infobae.com/judiciales/2026/10/19/cristina-y-maximo-kirchner-pidieron-participar-de-manera-virtual-en-el-juicio-oral-por-los-sauces/",
-     "fecha": "2026-10-19T23:46:18.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/politica/2026/10/19/los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio-que-comienza-el-viernes/",
-     "fecha": "2026-10-19T23:56:25.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://www.perfil.com/noticias/politica/cristina-kirchner-y-maximo-pidieron-participar-por-zoom-en-el-juicio-por-los-sauces.phtml",
-     "fecha": "2026-10-20T00:02:40.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-19-20-55-0-causa-los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio",
-     "fecha": "2026-10-20T00:45:37.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-   "maximo": 4
-  },
   {
    "id": "cezsut",
    "titulo": "En medio de la tensión por Malvinas, el Gobierno compró equipamiento militar bajo secreto",
@@ -179,9 +142,46 @@
      "fecha": null
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (numero): el titulo dice 4 y la fuente no lo dice",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"open\", \"natacion\" y el cuerpo no los explica; sin esas oraciones quedan 119 palabras",
    "maximo": 3
+  },
+  {
+   "id": "1ab8abz",
+   "titulo": "Cristina y Máximo Kirchner pidieron no asistir al juicio por asociación ilícita y lavado de dinero",
+   "copete": "La defensa de Cristina Fernández de Kirchner y Máximo Kirchner le pidió al Tribunal Oral Federal 5 (TOF 5) que les permita participar por medios telemáticos en las audiencias del juicio oral por Los Sauces , que, de acuerdo con el cronograma vigente, comenzará esta semana. El…",
+   "seccion": "Política",
+   "fecha": "2026-10-19T22:13:05.000Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/politica/cristina-maximo-kirchner-pidieron-asistir-juicio-asociacion-ilicita-lavado-dinero_0_7A7pWTZTDs.html",
+     "fecha": "2026-10-19T22:13:05.000Z"
+    },
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/judiciales/2026/10/19/cristina-y-maximo-kirchner-pidieron-participar-de-manera-virtual-en-el-juicio-oral-por-los-sauces/",
+     "fecha": "2026-10-19T23:46:18.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/politica/2026/10/19/los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio-que-comienza-el-viernes/",
+     "fecha": "2026-10-19T23:56:25.000Z"
+    },
+    {
+     "medio": "Perfil",
+     "enlace": "https://www.perfil.com/noticias/politica/cristina-kirchner-y-maximo-pidieron-participar-por-zoom-en-el-juicio-por-los-sauces.phtml",
+     "fecha": "2026-10-20T00:02:40.000Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-10-19-20-55-0-causa-los-sauces-cristina-y-maximo-kirchner-pidieron-no-asistir-de-forma-presencial-al-juicio",
+     "fecha": "2026-10-20T01:21:38.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+   "maximo": 4
   },
   {
    "id": "cmfrc0",
@@ -248,7 +248,7 @@
     {
      "medio": "El Gráfico",
      "enlace": "https://www.elgrafico.com.ar/articulo/1038/103428/fausto-vera-con-un-pie-afuera-del-superclasico-el-parte-medico-del-volante-de-river",
-     "fecha": "2026-10-19T14:00:00.000Z"
+     "fecha": "2026-10-19T18:00:00.000Z"
     },
     {
      "medio": "C5N",
@@ -266,65 +266,6 @@
    "maximo": 5
   },
   {
-   "id": "1nvd9sx",
-   "titulo": "Causa del oro: pidieron allanar el BCRA e investigar posibles comisiones millonarias",
-   "copete": "El abogado Gregorio Dalbón amplió la presentación judicial en la causa que investiga las operaciones con derivados sobre oro concretadas por el Banco Central de la República Argentina durante el año pasado. El escrito formaliza cargos contra el ministro de Economía, Luis Caputo…",
-   "seccion": "Economía",
-   "fecha": "2026-10-19T13:13:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/politica/causa-del-oro-pidieron-allanar-el-bcra-e-investigar-posibles-comisiones-millonarias-n6335250",
-     "fecha": "2026-10-19T13:13:00.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/politica/causa-del-oro-solicitaron-un-allanamiento-al-banco-central-y-detectar-posibles-comisiones-millonarias/",
-     "fecha": "2026-10-19T17:45:00.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/politica/oro-del-banco-central-piden-allanar-el-bcra-e-investigar-si-se-pagaron-comisiones-millonarias-n251986",
-     "fecha": "2026-10-19T15:34:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/economia/oro-del-banco-central-piden-investigar-posibles-comisiones-millonarias-n6335312",
-     "fecha": "2026-10-19T14:49:00.000Z"
-    }
-   ],
-   "intentos": 3,
-   "motivo": "verificación baja: espera a una persona",
-   "maximo": 3
-  },
-  {
-   "id": "ffxrva",
-   "titulo": "Milei negó que la gente no llegue a fin de mes, cr",
-   "copete": "",
-   "seccion": "Política",
-   "fecha": "2026-10-19T21:56:00.000Z",
-   "fuentes": [
-    {
-     "medio": "La Tecla",
-     "enlace": "https://www.latecla.info/170504-milei-nego-que-la-gente-no-llegue-a-fin-de-mes-cruzo-a-los-kukas-y-a-kicillof",
-     "fecha": "2026-10-19T21:56:00.000Z"
-    },
-    {
-     "medio": "Página/12",
-     "enlace": "https://www.pagina12.com.ar/2026/10/20/milei-nego-que-la-gente-no-llegue-a-fin-de-mes-como-viven-10-dias-sin-comer-ni-beber/",
-     "fecha": "2026-10-20T00:41:50.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/politica/para-javier-milei-es-una-pelotudez-la-crisis-economica-si-no-llegan-fin-mes-como-viven-comer-n6335551",
-     "fecha": "2026-10-19T22:15:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (relleno, tildes): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
-   "maximo": 3
-  },
-  {
    "id": "1nyu82j",
    "titulo": "Juicio por la muerte de Maradona: las defensas de Cosachov y Díaz expondrán sus alegatos este martes",
    "copete": "",
@@ -340,6 +281,11 @@
      "medio": "El Marplatense",
      "enlace": "https://www.elmarplatense.com/juicio-por-la-muerte-de-maradona-las-defensas-de-cosachov-y-diaz-expondran-sus-alegatos-este-martes",
      "fecha": "2026-10-19T21:30:04.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/juicio-maradona-las-defensas-cosachov-y-diaz-presentan-sus-alegatos-n6335587",
+     "fecha": "2026-10-20T01:00:00.000Z"
     },
     {
      "medio": "Minuto Uno",
