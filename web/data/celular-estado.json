@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T13:04:08.188Z",
- "portada": 91,
- "archivo": 1390,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-20T13:37:18.523Z",
+ "portada": 96,
+ "archivo": 1396,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T13:04:08.386Z",
+  "generado": "2026-10-20T13:37:18.966Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,19 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 35,
+    "notas": [
+     {
+      "id": "p8h4md",
+      "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "15t1wen",
+      "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
+      "seccion": "Cultura y agenda"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
@@ -129,9 +140,33 @@
    ],
    "cola": [
     {
+     "id": "p8h4md",
+     "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "15t1wen",
      "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "11409o8",
+     "titulo": "Muere a los 82 años el actor argentino Antonio Grimau",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "7qcit6",
+     "titulo": "Boca sufre pirotecnia de hinchas de Vasco da Gama en la madrugada de Río de Janeiro",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1yvma5i",
+     "titulo": "ARBA posterga al 12 de noviembre vencimientos de impuestos",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
