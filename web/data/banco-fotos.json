@@ -25172,14 +25172,28 @@
   "huella": "a68cb5555554d4d6"
  },
  "phvgrd": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/phvgrd.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Taller Protegido busca vender unas 1.600 bolsas tras un cambio de cliente",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-20T17:44:53.223Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.diariolavanguardia.com/noticias/45128-virginia-guariste-el-taller-protegido-necesita-que-la-comunidad-siga-acompanando/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66098.png",
+  "razon": "Es la única foto disponible, tiene buen encuadre y corresponde a la nota.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de una mujer adulta con un micrófono en primer plano"
+  },
+  "huella": "32322228303a3a71"
  },
  "9kv3sb": {
   "archivo": "fotos-notas/9kv3sb.jpg",
@@ -25207,14 +25221,28 @@
   "huella": "c4f2130b8042dc8e"
  },
  "16gh7t": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/16gh7t.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-20T17:44:53.223Z",
-  "intentos": 1,
-  "fuentes": 10,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.a24.com/politica/el-tribunal-del-mar-fijo-la-fecha-escuchar-el-reclamo-argentino-contra-el-reino-unido-el-petroleo-malvinas-n1608253",
+  "imagenOriginal": "https://media.a24.com/p/fc5f9b2436381114eb03bddd113d5d69/adjuntos/296/imagenes/009/835/0009835403/1200x675/smart/tratado-del-mar.jpg",
+  "razon": "Muestra la sala de audiencias del Tribunal Internacional del Derecho del Mar con personas presentes y sin marcas añadidas.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Audiencia en la sala del Tribunal Internacional del Derecho del Mar"
+  },
+  "huella": "251d065a51b69e1a"
  },
  "t6gt6o": {
   "intentado": true,
@@ -25308,7 +25336,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Antonio Grimau apoyando la mano en la barbilla"
   },
-  "huella": "0f0e9f0d1d5d3c71"
+  "huella": "0f0e9f0d1d5d3c71",
+  "ausenteDesde": "2026-10-20T19:10:45.235Z"
  },
  "cumhf3": {
   "archivo": "fotos-notas/cumhf3.jpg",
@@ -25390,5 +25419,196 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "968e0c0899968d89"
+ },
+ "gr781c": {
+  "archivo": "fotos-notas/gr781c.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/matias-fernandez-daguerre-para-el-padel-de-balcarce-es-fundamental-tener-una-asociacion",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Matias%20Fernandez%20Daguerre.jpeg",
+  "razon": "Es la única foto disponible, corresponde a la nota y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Matías Fernández Daguerre junto a otra persona en el estudio de Radio Gabal",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos hombres sonriendo de pie frente a un muro de setos con un logo amarillo al fondo."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "0327714fe54aeaeb"
+ },
+ "1c9sm1f": {
+  "archivo": "fotos-notas/1c9sm1f.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/samuel-mansilla-tras-la-final-perdida-tenemos-que-recuperar-lo-que-se-nos-escapo-y-volver-a-enfrentar-a-ferro",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/EL%20SHOW%20DE%20LA%20LIGA/Samuel%20Mansilla%20estudio.jpeg",
+  "razon": "Es la única foto disponible, corresponde a la nota y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Samuel Mansilla sosteniendo una camiseta de Agrarias en el estudio de Radio Gabal."
+  },
+  "huella": "23262556274e2626"
+ },
+ "1pegz6k": {
+  "archivo": "fotos-notas/1pegz6k.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldana Manetti valora el presente de Deportivo Los Pinos en el Clausura",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/aldana-manetti-tras-el-triunfo-de-los-pinos-tenemos-un-lindo-equipo-y-queremos-estar-lo-mas-arriba-posible",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/EL%20SHOW%20DE%20LA%20LIGA/Aldana%20Manetti.jpeg",
+  "razon": "Es la única imagen completa que muestra a la protagonista de la nota, Aldana Manetti, sosteniendo la camiseta del club, con buena nitidez y encuadre.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Aldana Manetti sonriendo y sosteniendo una camiseta de Deportivo Los Pinos frente a un muro de plantas con el logo de Radio Gabal.",
+   "detalle": "El logo de Radio Gabal (FM 104.1) es parte de la escena real (fondo del estudio) y no una marca de agua agregada por el medio."
+  },
+  "huella": "17019796dc94ced4"
+ },
+ "sl6jjd": {
+  "archivo": "fotos-notas/sl6jjd.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Jorge Macri confunde el nombre de Jorge Luis Borges en Madrid",
+  "enlace": "https://www.lanacion.com.ar/cultura/jose-luis-borges-del-furcio-del-jefe-de-gobierno-que-rebautizo-al-escritor-en-madrid-a-una-larga-nid20102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/esta-manana-el-jefe-de-gobierno-jorge-macri-RALMZUKALJBWHJSORKYWAACOGM.jpg?auth=881bae108faa4403b924629e6cf21925a19dbe5e94f48792f3f8945fe054a98c&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra claramente a Jorge Macri sosteniendo el libro con el nombre de Borges en el evento, con excelente encuadre y sin marcas ni menores.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jorge Macri mostrando un libro de Jorge Luis Borges frente a casilleros en el Instituto Cervantes."
+  },
+  "huella": "ce8e3e5991e8a8ac"
+ },
+ "87yjas": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La decoración navideña de 2026 deja de lado a Papá Noel",
+  "razon": "Ninguna foto sirve porque ambas tienen una gran cruz roja superpuesta tachando la escena.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "87sfj5": {
+  "archivo": "fotos-notas/87sfj5.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "France Football lanza una votación para elegir al mejor jugador de la historia",
+  "enlace": "https://www.elmarplatense.com/messi-y-di-stefano-nominados-al-balon-de-oro-de-todos-los-tiempos",
+  "imagenOriginal": "https://n2.cdnartic.ar/XyOwV0OSgCMoNjk9Mes-u_eJcyY=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/balon.webp",
+  "razon": "Es la única foto sin marcas agregadas, de archivo o gráficas que muestra correctamente el tema de la nota sobre votación de futbolistas históricos.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gráfico de jugadores históricos candidatos al Balón de Oro"
+  },
+  "huella": "ffffbb9b77b59737"
+ },
+ "1ndxkov": {
+  "archivo": "fotos-notas/1ndxkov.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere el actor Antonio Grimau a los 82 años",
+  "enlace": "https://www.lanacion.com.ar/espectaculos/personajes/murio-antonio-grimau-el-dolor-de-moria-casan-lucia-galan-y-arturo-puig-al-despedir-al-actor-nid20102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/antonio-WBFZZZABXVBJXPCAGOEE7LZF7I.JPG?auth=b2534e60555dcf1be3b413e30a20686094b6169ff053e06c745093e383d70a4e&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una foto clara, con buen encuadre y nitidez, que retrata al actor sin marcas de agua ni otros inconvenientes.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Antonio Grimau con fondo oscuro"
+  },
+  "huella": "0d0d0d8d8dcde98d"
+ },
+ "1dipiao": {
+  "archivo": "fotos-notas/1dipiao.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Ciudad reanuda el servicio de subtes tras un paro total y la liberación de delegados",
+  "enlace": "https://www.iprofesional.com/actualidad/467026-paro-de-subtes-la-ciudad-exige-un-servicio-minimo-del-50",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/10/627959_landscape.jpg",
+  "razon": "Muestra claramente un cartel de 'Línea interrumpida' en los molinetes de una estación de subte, ilustrando perfectamente la situación del servicio sin marcas de medios ni menores.",
+  "cuando": "2026-10-20T19:05:27.935Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Molinetes de estación de subte con cartel de Línea interrumpida"
+  },
+  "huella": "559d8f979d8f8d15"
  }
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T18:36:51.455Z",
- "portada": 118,
- "archivo": 1423,
+ "generado": "2026-10-20T19:10:45.257Z",
+ "portada": 124,
+ "archivo": 1430,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T18:36:51.789Z",
+  "generado": "2026-10-20T19:10:45.736Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -137,8 +137,24 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 27,
+    "notas": [
+     {
+      "id": "gr781c",
+      "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1c9sm1f",
+      "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "16gh7t",
+      "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
+      "seccion": "Argentina"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -157,19 +173,36 @@
      "id": "15t1wen",
      "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
      "cuando": "2026-10-20T16:35:34.599Z"
+    },
+    {
+     "id": "1bv0n51",
+     "titulo": "Balcarce inicia su participación en las finales de los Juegos Bonaerenses",
+     "cuando": "2026-10-20T18:35:33.487Z"
     }
    ],
    "cola": [
     {
-     "id": "1bv0n51",
-     "titulo": "Balcarce inicia su participación en las finales de los Juegos Bonaerenses",
+     "id": "1mnymch",
+     "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "gr781c",
+     "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "1mnymch",
-     "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
-     "seccion": "Balcarce",
+     "id": "1c9sm1f",
+     "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1pegz6k",
+     "titulo": "Aldana Manetti valora el presente de Deportivo Los Pinos en el Clausura",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -179,9 +212,15 @@
      "marcada": false
     },
     {
-     "id": "i1nv2r",
-     "titulo": "La FIFA sanciona al entrenador y a dos integrantes de Egipto",
+     "id": "87sfj5",
+     "titulo": "France Football lanza una votación para elegir al mejor jugador de la historia",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1dipiao",
+     "titulo": "La Ciudad reanuda el servicio de subtes tras un paro total y la liberación de delegados",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -191,8 +230,8 @@
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-20T18:05:34.599Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-20T20:05:33.487Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
