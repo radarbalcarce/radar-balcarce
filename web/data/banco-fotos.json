@@ -24024,9 +24024,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Sarmiento empata 1 a 1 con Barracas Central en el Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-20T01:02:16.475Z",
-  "intentos": 1,
+  "razon": "La única imagen disponible es una gráfica o diseño de portada con logos superpuestos, por lo que no cumple con los requisitos para ser elegida.",
+  "cuando": "2026-10-20T02:31:07.637Z",
+  "intentos": 2,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -24035,20 +24035,35 @@
   "origen": "ninguna",
   "titulo": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-20T01:02:16.475Z",
-  "intentos": 1,
+  "cuando": "2026-10-20T02:31:07.637Z",
+  "intentos": 2,
   "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1kfwbd5": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1kfwbd5.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Selección Argentina sufre bajas clave por lesiones para la fecha FIFA",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-20T01:02:16.475Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/seleccion-argentina/la-ola-de-lesionados-que-complica-el-armado-de-la-lista-de-la-seleccion-argentina-para-la-fecha-fifa-id767215.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/19/997497/scaloni_1440x810.webp",
+  "razon": "Es la única opción disponible y muestra a los jugadores de la Selección Argentina en entrenamiento, correspondiendo al tema de la nota, sin marcas de agua del medio ni menores de edad.",
+  "cuando": "2026-10-20T02:31:07.637Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de la Selección Argentina (se distinguen a Lisandro Martínez y Lionel Scaloni) en una sesión de entrenamiento en el banco de suplentes."
+  },
+  "huella": "bc59494bcacbdac0"
  },
  "futbolresultadosliga20261010": {
   "archivo": "fotos-notas/libre-futbolresultadosliga20261010.jpg",
@@ -24121,5 +24136,16 @@
    "detalle": "Se leen las inscripciones 'POLICIA DE CORRIENTES' y 'MERCURY' en las lanchas, pero son parte de la escena real y no marcas de agua del medio."
   },
   "huella": "bee6e44b839b8a92"
+ },
+ "futboltablaliga20261010": {
+  "archivo": "fotos-notas/libre-futboltablaliga20261010.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Unknown author Unknown author / Wikimedia Commons (CC BY 4.0)",
+  "licencia": "CC BY 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Viaducto_belgrano_sur_proyecto.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Viaducto_belgrano_sur_proyecto.jpg/1280px-Viaducto_belgrano_sur_proyecto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Viaducto belgrano sur proyecto.jpg",
+  "cuando": "2026-10-20T02:31:24.359Z"
  }
 }

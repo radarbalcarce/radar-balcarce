@@ -1,6 +1,462 @@
 {
-  "generado": "2026-10-20T02:01:26.432Z",
+  "generado": "2026-10-20T02:31:26.003Z",
   "notas": [
+    {
+      "id": "futboltablaliga20261010",
+      "propia": "futbol",
+      "tipoFutbol": "tablas",
+      "competenciaFutbol": "liga",
+      "datosFutbol": {
+        "torneo": "Argentine Liga Profesional de Fútbol",
+        "zonas": [
+          {
+            "nombre": "Zona A",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "2975",
+                "equipo": "Instituto (Córdoba)",
+                "pj": 13,
+                "g": 9,
+                "e": 2,
+                "p": 2,
+                "gf": 20,
+                "gc": 10,
+                "dif": 10,
+                "pts": 29
+              },
+              {
+                "posicion": 2,
+                "id": "5",
+                "equipo": "Boca Juniors",
+                "pj": 13,
+                "g": 6,
+                "e": 6,
+                "p": 1,
+                "gf": 21,
+                "gc": 14,
+                "dif": 7,
+                "pts": 24
+              },
+              {
+                "posicion": 3,
+                "id": "8950",
+                "equipo": "Defensa y Justicia",
+                "pj": 13,
+                "g": 7,
+                "e": 3,
+                "p": 3,
+                "gf": 18,
+                "gc": 12,
+                "dif": 6,
+                "pts": 24
+              },
+              {
+                "posicion": 4,
+                "id": "21",
+                "equipo": "Vélez Sarsfield",
+                "pj": 13,
+                "g": 6,
+                "e": 6,
+                "p": 1,
+                "gf": 18,
+                "gc": 13,
+                "dif": 5,
+                "pts": 24
+              },
+              {
+                "posicion": 5,
+                "id": "12",
+                "equipo": "Lanús",
+                "pj": 13,
+                "g": 7,
+                "e": 2,
+                "p": 4,
+                "gf": 16,
+                "gc": 9,
+                "dif": 7,
+                "pts": 23
+              },
+              {
+                "posicion": 6,
+                "id": "14",
+                "equipo": "Newell's Old Boys",
+                "pj": 13,
+                "g": 5,
+                "e": 5,
+                "p": 3,
+                "gf": 13,
+                "gc": 10,
+                "dif": 3,
+                "pts": 20
+              },
+              {
+                "posicion": 7,
+                "id": "11972",
+                "equipo": "Gimnasia (Mendoza)",
+                "pj": 13,
+                "g": 6,
+                "e": 2,
+                "p": 5,
+                "gf": 15,
+                "gc": 13,
+                "dif": 2,
+                "pts": 20
+              },
+              {
+                "posicion": 8,
+                "id": "11",
+                "equipo": "Independiente",
+                "pj": 13,
+                "g": 5,
+                "e": 4,
+                "p": 4,
+                "gf": 12,
+                "gc": 13,
+                "dif": -1,
+                "pts": 19
+              },
+              {
+                "posicion": 9,
+                "id": "18",
+                "equipo": "San Lorenzo",
+                "pj": 13,
+                "g": 5,
+                "e": 2,
+                "p": 6,
+                "gf": 7,
+                "gc": 12,
+                "dif": -5,
+                "pts": 17
+              },
+              {
+                "posicion": 10,
+                "id": "8",
+                "equipo": "Estudiantes de La Plata",
+                "pj": 13,
+                "g": 4,
+                "e": 2,
+                "p": 7,
+                "gf": 16,
+                "gc": 15,
+                "dif": 1,
+                "pts": 14
+              },
+              {
+                "posicion": 11,
+                "id": "20",
+                "equipo": "Unión (Santa Fe)",
+                "pj": 13,
+                "g": 4,
+                "e": 2,
+                "p": 7,
+                "gf": 18,
+                "gc": 22,
+                "dif": -4,
+                "pts": 14
+              },
+              {
+                "posicion": 12,
+                "id": "17702",
+                "equipo": "Deportivo Riestra",
+                "pj": 13,
+                "g": 2,
+                "e": 6,
+                "p": 5,
+                "gf": 10,
+                "gc": 13,
+                "dif": -3,
+                "pts": 12
+              },
+              {
+                "posicion": 13,
+                "id": "7764",
+                "equipo": "Platense",
+                "pj": 13,
+                "g": 2,
+                "e": 5,
+                "p": 6,
+                "gf": 12,
+                "gc": 19,
+                "dif": -7,
+                "pts": 11
+              },
+              {
+                "posicion": 14,
+                "id": "11989",
+                "equipo": "Central Córdoba (Santiago del Estero)",
+                "pj": 13,
+                "g": 2,
+                "e": 4,
+                "p": 7,
+                "gf": 11,
+                "gc": 18,
+                "dif": -7,
+                "pts": 10
+              },
+              {
+                "posicion": 15,
+                "id": "19",
+                "equipo": "Talleres (Córdoba)",
+                "pj": 13,
+                "g": 2,
+                "e": 3,
+                "p": 8,
+                "gf": 12,
+                "gc": 20,
+                "dif": -8,
+                "pts": 9
+              }
+            ]
+          },
+          {
+            "nombre": "Zona B",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "17",
+                "equipo": "Rosario Central",
+                "pj": 13,
+                "g": 7,
+                "e": 4,
+                "p": 2,
+                "gf": 20,
+                "gc": 11,
+                "dif": 9,
+                "pts": 25
+              },
+              {
+                "posicion": 2,
+                "id": "3",
+                "equipo": "Argentinos Juniors",
+                "pj": 13,
+                "g": 7,
+                "e": 4,
+                "p": 2,
+                "gf": 17,
+                "gc": 11,
+                "dif": 6,
+                "pts": 25
+              },
+              {
+                "posicion": 3,
+                "id": "4",
+                "equipo": "Belgrano (Córdoba)",
+                "pj": 13,
+                "g": 6,
+                "e": 4,
+                "p": 3,
+                "gf": 14,
+                "gc": 10,
+                "dif": 4,
+                "pts": 22
+              },
+              {
+                "posicion": 4,
+                "id": "9",
+                "equipo": "Gimnasia La Plata",
+                "pj": 13,
+                "g": 6,
+                "e": 4,
+                "p": 3,
+                "gf": 19,
+                "gc": 18,
+                "dif": 1,
+                "pts": 22
+              },
+              {
+                "posicion": 5,
+                "id": "10158",
+                "equipo": "Sarmiento (Junín)",
+                "pj": 13,
+                "g": 6,
+                "e": 3,
+                "p": 4,
+                "gf": 22,
+                "gc": 19,
+                "dif": 3,
+                "pts": 21
+              },
+              {
+                "posicion": 6,
+                "id": "16",
+                "equipo": "River Plate",
+                "pj": 13,
+                "g": 6,
+                "e": 2,
+                "p": 5,
+                "gf": 18,
+                "gc": 13,
+                "dif": 5,
+                "pts": 20
+              },
+              {
+                "posicion": 7,
+                "id": "10060",
+                "equipo": "Barracas Central",
+                "pj": 13,
+                "g": 5,
+                "e": 4,
+                "p": 4,
+                "gf": 11,
+                "gc": 10,
+                "dif": 1,
+                "pts": 19
+              },
+              {
+                "posicion": 8,
+                "id": "10",
+                "equipo": "Huracán",
+                "pj": 13,
+                "g": 5,
+                "e": 4,
+                "p": 4,
+                "gf": 12,
+                "gc": 12,
+                "dif": 0,
+                "pts": 19
+              },
+              {
+                "posicion": 9,
+                "id": "9744",
+                "equipo": "Independiente Rivadavia",
+                "pj": 13,
+                "g": 5,
+                "e": 4,
+                "p": 4,
+                "gf": 17,
+                "gc": 21,
+                "dif": -4,
+                "pts": 19
+              },
+              {
+                "posicion": 10,
+                "id": "9785",
+                "equipo": "Atlético Tucumán",
+                "pj": 13,
+                "g": 3,
+                "e": 5,
+                "p": 5,
+                "gf": 12,
+                "gc": 13,
+                "dif": -1,
+                "pts": 14
+              },
+              {
+                "posicion": 11,
+                "id": "7767",
+                "equipo": "Tigre",
+                "pj": 13,
+                "g": 3,
+                "e": 4,
+                "p": 6,
+                "gf": 13,
+                "gc": 15,
+                "dif": -2,
+                "pts": 13
+              },
+              {
+                "posicion": 12,
+                "id": "235",
+                "equipo": "Banfield",
+                "pj": 13,
+                "g": 3,
+                "e": 4,
+                "p": 6,
+                "gf": 14,
+                "gc": 19,
+                "dif": -5,
+                "pts": 13
+              },
+              {
+                "posicion": 13,
+                "id": "15",
+                "equipo": "Racing Club",
+                "pj": 13,
+                "g": 3,
+                "e": 3,
+                "p": 7,
+                "gf": 14,
+                "gc": 20,
+                "dif": -6,
+                "pts": 12
+              },
+              {
+                "posicion": 14,
+                "id": "19685",
+                "equipo": "Estudiantes de Río Cuarto",
+                "pj": 13,
+                "g": 2,
+                "e": 3,
+                "p": 8,
+                "gf": 8,
+                "gc": 17,
+                "dif": -9,
+                "pts": 9
+              },
+              {
+                "posicion": 15,
+                "id": "9739",
+                "equipo": "Aldosivi",
+                "pj": 13,
+                "g": 2,
+                "e": 2,
+                "p": 9,
+                "gf": 14,
+                "gc": 22,
+                "dif": -8,
+                "pts": 8
+              }
+            ]
+          }
+        ]
+      },
+      "destacados": [
+        {
+          "texto": "Ver la tabla de posiciones",
+          "href": "/tablas/liga-profesional"
+        }
+      ],
+      "lugarFoto": "Estadio Claudio Chiqui Tapia",
+      "titulo": "Liga Profesional: así están las tablas después de la fecha del 10 al 19 de octubre",
+      "copete": "Posiciones de las dos zonas de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol), con puntos, partidos jugados y goles.",
+      "cuerpo": "Así quedaron las posiciones de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol) después de los partidos del 10 al 19 de octubre. Los equipos están ordenados como informa ESPN, con los mismos criterios de desempate del torneo:\n\nZona A:\n1º Instituto (Córdoba): 29 puntos, 13 jugados (9 ganados, 2 empatados, 2 perdidos), goles 20 a 10, diferencia +10.\n2º Boca Juniors: 24 puntos, 13 jugados (6 ganados, 6 empatados, 1 perdidos), goles 21 a 14, diferencia +7.\n3º Defensa y Justicia: 24 puntos, 13 jugados (7 ganados, 3 empatados, 3 perdidos), goles 18 a 12, diferencia +6.\n4º Vélez Sarsfield: 24 puntos, 13 jugados (6 ganados, 6 empatados, 1 perdidos), goles 18 a 13, diferencia +5.\n5º Lanús: 23 puntos, 13 jugados (7 ganados, 2 empatados, 4 perdidos), goles 16 a 9, diferencia +7.\n6º Newell's Old Boys: 20 puntos, 13 jugados (5 ganados, 5 empatados, 3 perdidos), goles 13 a 10, diferencia +3.\n7º Gimnasia (Mendoza): 20 puntos, 13 jugados (6 ganados, 2 empatados, 5 perdidos), goles 15 a 13, diferencia +2.\n8º Independiente: 19 puntos, 13 jugados (5 ganados, 4 empatados, 4 perdidos), goles 12 a 13, diferencia -1.\n9º San Lorenzo: 17 puntos, 13 jugados (5 ganados, 2 empatados, 6 perdidos), goles 7 a 12, diferencia -5.\n10º Estudiantes de La Plata: 14 puntos, 13 jugados (4 ganados, 2 empatados, 7 perdidos), goles 16 a 15, diferencia +1.\n11º Unión (Santa Fe): 14 puntos, 13 jugados (4 ganados, 2 empatados, 7 perdidos), goles 18 a 22, diferencia -4.\n12º Deportivo Riestra: 12 puntos, 13 jugados (2 ganados, 6 empatados, 5 perdidos), goles 10 a 13, diferencia -3.\n13º Platense: 11 puntos, 13 jugados (2 ganados, 5 empatados, 6 perdidos), goles 12 a 19, diferencia -7.\n14º Central Córdoba (Santiago del Estero): 10 puntos, 13 jugados (2 ganados, 4 empatados, 7 perdidos), goles 11 a 18, diferencia -7.\n15º Talleres (Córdoba): 9 puntos, 13 jugados (2 ganados, 3 empatados, 8 perdidos), goles 12 a 20, diferencia -8.\n\nZona B:\n1º Rosario Central: 25 puntos, 13 jugados (7 ganados, 4 empatados, 2 perdidos), goles 20 a 11, diferencia +9.\n2º Argentinos Juniors: 25 puntos, 13 jugados (7 ganados, 4 empatados, 2 perdidos), goles 17 a 11, diferencia +6.\n3º Belgrano (Córdoba): 22 puntos, 13 jugados (6 ganados, 4 empatados, 3 perdidos), goles 14 a 10, diferencia +4.\n4º Gimnasia La Plata: 22 puntos, 13 jugados (6 ganados, 4 empatados, 3 perdidos), goles 19 a 18, diferencia +1.\n5º Sarmiento (Junín): 21 puntos, 13 jugados (6 ganados, 3 empatados, 4 perdidos), goles 22 a 19, diferencia +3.\n6º River Plate: 20 puntos, 13 jugados (6 ganados, 2 empatados, 5 perdidos), goles 18 a 13, diferencia +5.\n7º Barracas Central: 19 puntos, 13 jugados (5 ganados, 4 empatados, 4 perdidos), goles 11 a 10, diferencia +1.\n8º Huracán: 19 puntos, 13 jugados (5 ganados, 4 empatados, 4 perdidos), goles 12 a 12, diferencia 0.\n9º Independiente Rivadavia: 19 puntos, 13 jugados (5 ganados, 4 empatados, 4 perdidos), goles 17 a 21, diferencia -4.\n10º Atlético Tucumán: 14 puntos, 13 jugados (3 ganados, 5 empatados, 5 perdidos), goles 12 a 13, diferencia -1.\n11º Tigre: 13 puntos, 13 jugados (3 ganados, 4 empatados, 6 perdidos), goles 13 a 15, diferencia -2.\n12º Banfield: 13 puntos, 13 jugados (3 ganados, 4 empatados, 6 perdidos), goles 14 a 19, diferencia -5.\n13º Racing Club: 12 puntos, 13 jugados (3 ganados, 3 empatados, 7 perdidos), goles 14 a 20, diferencia -6.\n14º Estudiantes de Río Cuarto: 9 puntos, 13 jugados (2 ganados, 3 empatados, 8 perdidos), goles 8 a 17, diferencia -9.\n15º Aldosivi: 8 puntos, 13 jugados (2 ganados, 2 empatados, 9 perdidos), goles 14 a 22, diferencia -8.\n\nLos datos son las posiciones oficiales según ESPN.",
+      "guion": null,
+      "seccion": "Fútbol",
+      "local": false,
+      "relevancia": 56,
+      "medios": [
+        "ESPN (datos abiertos)"
+      ],
+      "enlace": "https://www.espn.com.ar/futbol/",
+      "fuentesConsultadas": [
+        {
+          "medio": "ESPN (datos abiertos)",
+          "enlace": "https://www.espn.com.ar/futbol/"
+        }
+      ],
+      "teniaImagenLaFuente": false,
+      "fecha": "2026-10-20T02:31:23.634Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T02:31:23.634Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-20T02:31:23.634Z",
+      "temas": [],
+      "etiquetas": [
+        "fútbol",
+        "Liga Profesional",
+        "tabla de posiciones",
+        "posiciones",
+        "Argentine Liga Profesional de Fútbol"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
+      "slug": "liga-profesional-asi-estan-las-tablas-despues-de-la-fecha-del-10-al",
+      "foto": {
+        "archivo": "fotos-notas/libre-futboltablaliga20261010.jpg",
+        "credito": "Foto: Unknown author Unknown author / Wikimedia Commons (CC BY 4.0)"
+      }
+    },
     {
       "id": "repaso20261019noche",
       "propia": "repaso",
@@ -955,9 +1411,41 @@
                 "tipo": "de penal"
               }
             ]
+          },
+          {
+            "dia": "Lunes 19 de octubre",
+            "hora": "21:15",
+            "estado": "final",
+            "estadio": "Guillermo Laza",
+            "fase": null,
+            "local": {
+              "id": "17702",
+              "nombre": "Deportivo Riestra",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "20",
+              "nombre": "Unión (Santa Fe)",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Juan Cruz Randazzo",
+                "minuto": "50'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Tobías Rubio",
+                "minuto": "57'",
+                "tipo": "gol"
+              }
+            ]
           }
         ],
-        "faltan": 1,
+        "faltan": 0,
         "aparte": 0
       },
       "destacados": [
@@ -967,9 +1455,9 @@
         }
       ],
       "lugarFoto": "Estadio Claudio Chiqui Tapia",
-      "titulo": "Liga Profesional: así va la fecha del 10 al 19 de octubre, con los resultados",
-      "copete": "26 partidos terminados de Liga Profesional de Fútbol y otros por jugarse: marcadores y goleadores.",
-      "cuerpo": "Estos son los resultados de Liga Profesional de Fútbol de la fecha del 10 al 19 de octubre, en el orden en que se jugaron:\n\nSábado 10 de octubre, 15:45: Barracas Central 2, Huracán 0. Goles: Barracas Central: Norberto Briasco (9') y Norberto Briasco (62').\n\nSábado 10 de octubre, 17:00: Central Córdoba (Santiago del Estero) 2, Estudiantes de La Plata 2. Goles: Central Córdoba (Santiago del Estero): Leonardo Sequeira (37') y Michael Santos (38'). Estudiantes de La Plata: Miguel Monsalve (22') y Edwin Cetre (45'+5', de penal).\n\nSábado 10 de octubre, 19:15: Tigre 1, Banfield 2. Goles: Tigre: Jerónimo Domina (10'). Banfield: Adrián Balboa (6') y Tomás Adoryan (36').\n\nSábado 10 de octubre, 21:30: River Plate 1, Estudiantes de Río Cuarto 0. Goles: River Plate: Marcos Acuña (6').\n\nDomingo 11 de octubre, 14:45: San Lorenzo 1, Deportivo Riestra 0. Goles: San Lorenzo: Teo Rodríguez (67').\n\nDomingo 11 de octubre, 17:00: Platense 1, Argentinos Juniors 1. Goles: Platense: Franco Zapiola (70', de penal). Argentinos Juniors: Diego Porcel (11').\n\nDomingo 11 de octubre, 17:00: Rosario Central 5, Independiente Rivadavia 0. Goles: Rosario Central: Ángel Di María (11', de penal), Jáminton Campaz (51'), Ángel Di María (57'), Enzo Copetti (69') y Marco Ruben (74').\n\nDomingo 11 de octubre, 19:15: Racing Club 0, Belgrano (Córdoba) 2. Goles: Belgrano (Córdoba): Lucas Zelarayán (41') y Franco Vázquez (90'+5').\n\nDomingo 11 de octubre, 21:30: Talleres (Córdoba) 0, Independiente 0. Sin goles.\n\nLunes 12 de octubre, 16:00: Lanús 2, Vélez Sarsfield 0. Goles: Lanús: Sasha Marcich (59') y Tomás Marchiori (90'+5', en contra).\n\nLunes 12 de octubre, 18:30: Gimnasia (Mendoza) 1, Newell's Old Boys 0. Goles: Gimnasia (Mendoza): Agustín Módica (58').\n\nMiércoles 14 de octubre, 19:00: Sarmiento (Junín) 1, River Plate 1. Goles: Sarmiento (Junín): Julian Contrera (15'). River Plate: Gonzalo Montiel (71').\n\nJueves 15 de octubre, 20:00: Huracán 1, Gimnasia La Plata 2. Goles: Huracán: Jordy Caicedo (83', de penal). Gimnasia La Plata: Ignacio Fernández (18') y Germán Conti (90'+7').\n\nViernes 16 de octubre, 19:00: Defensa y Justicia 0, Instituto (Córdoba) 1. Goles: Instituto (Córdoba): Jeremías Lázaro (23').\n\nViernes 16 de octubre, 21:30: Boca Juniors 2, Talleres (Córdoba) 1. Goles: Boca Juniors: Miguel Merentiel (18') y Leonel Flores (49'). Talleres (Córdoba): Alejandro Galarza (11').\n\nSábado 17 de octubre, 15:00: Banfield 0, Argentinos Juniors 1. Goles: Argentinos Juniors: Matías Giménez (66').\n\nSábado 17 de octubre, 17:30: Independiente Rivadavia 2, Tigre 2. Goles: Independiente Rivadavia: Matías Fernández (20') y José Florentín (52'). Tigre: Alan Barrionuevo (26') y Manuel Fernández (90'+2').\n\nSábado 17 de octubre, 17:30: Platense 0, Lanús 1. Goles: Lanús: Allan Wlk (29').\n\nSábado 17 de octubre, 20:00: Atlético Tucumán 2, Rosario Central 3. Goles: Atlético Tucumán: Pedro Canelo (37') y Ramiro Ruiz Rodriguez (42'). Rosario Central: Gastón Ávila (3'), Gastón Ávila (6') y Julián Fernández (80').\n\nSábado 17 de octubre, 20:00: Vélez Sarsfield 1, Gimnasia (Mendoza) 0. Goles: Vélez Sarsfield: Thiago Silvero (85').\n\nDomingo 18 de octubre, 14:45: Racing Club 1, Independiente 1. Goles: Racing Club: Matías Zaracho (29'). Independiente: Maximiliano Meza (65', de penal).\n\nDomingo 18 de octubre, 18:00: Estudiantes de La Plata 1, San Lorenzo 2. Goles: Estudiantes de La Plata: Edwin Cetre (14', de penal). San Lorenzo: Guzmán Corujo (44') y Facundo Gulli (90'+5').\n\nDomingo 18 de octubre, 18:00: Estudiantes de Río Cuarto 2, Aldosivi 1. Goles: Estudiantes de Río Cuarto: Ibrahim Hesar (85') y Gabriel Alanís (87'). Aldosivi: Andrés Vombergar (68').\n\nDomingo 18 de octubre, 20:15: Belgrano (Córdoba) 0, River Plate 3. Goles: River Plate: Tomás Galván (45'+3'), Ángel Correa (49') y Thiago Almada (72').\n\nLunes 19 de octubre, 19:00: Newell's Old Boys 2, Central Córdoba (Santiago del Estero) 1. Goles: Newell's Old Boys: Jerónimo Mattar (31') y Santiago Solari (69'). Central Córdoba (Santiago del Estero): Leonardo Sequeira (80').\n\nLunes 19 de octubre, 19:00: Sarmiento (Junín) 1, Barracas Central 1. Goles: Sarmiento (Junín): Jhon Rentería (14'). Barracas Central: Rodrigo Insúa (78', de penal).\n\nTodavía faltan jugarse: Deportivo Riestra y Unión (Santa Fe) (Lunes 19 de octubre, 21:15). Esta nota se completa a medida que terminan los partidos.\n\nLos datos son los resultados oficiales según ESPN.",
+      "titulo": "Liga Profesional: así terminó la fecha del 10 al 19 de octubre, con los resultados",
+      "copete": "27 partidos terminados de Liga Profesional de Fútbol: marcadores y goleadores.",
+      "cuerpo": "Estos son los resultados de Liga Profesional de Fútbol de la fecha del 10 al 19 de octubre, en el orden en que se jugaron:\n\nSábado 10 de octubre, 15:45: Barracas Central 2, Huracán 0. Goles: Barracas Central: Norberto Briasco (9') y Norberto Briasco (62').\n\nSábado 10 de octubre, 17:00: Central Córdoba (Santiago del Estero) 2, Estudiantes de La Plata 2. Goles: Central Córdoba (Santiago del Estero): Leonardo Sequeira (37') y Michael Santos (38'). Estudiantes de La Plata: Miguel Monsalve (22') y Edwin Cetre (45'+5', de penal).\n\nSábado 10 de octubre, 19:15: Tigre 1, Banfield 2. Goles: Tigre: Jerónimo Domina (10'). Banfield: Adrián Balboa (6') y Tomás Adoryan (36').\n\nSábado 10 de octubre, 21:30: River Plate 1, Estudiantes de Río Cuarto 0. Goles: River Plate: Marcos Acuña (6').\n\nDomingo 11 de octubre, 14:45: San Lorenzo 1, Deportivo Riestra 0. Goles: San Lorenzo: Teo Rodríguez (67').\n\nDomingo 11 de octubre, 17:00: Platense 1, Argentinos Juniors 1. Goles: Platense: Franco Zapiola (70', de penal). Argentinos Juniors: Diego Porcel (11').\n\nDomingo 11 de octubre, 17:00: Rosario Central 5, Independiente Rivadavia 0. Goles: Rosario Central: Ángel Di María (11', de penal), Jáminton Campaz (51'), Ángel Di María (57'), Enzo Copetti (69') y Marco Ruben (74').\n\nDomingo 11 de octubre, 19:15: Racing Club 0, Belgrano (Córdoba) 2. Goles: Belgrano (Córdoba): Lucas Zelarayán (41') y Franco Vázquez (90'+5').\n\nDomingo 11 de octubre, 21:30: Talleres (Córdoba) 0, Independiente 0. Sin goles.\n\nLunes 12 de octubre, 16:00: Lanús 2, Vélez Sarsfield 0. Goles: Lanús: Sasha Marcich (59') y Tomás Marchiori (90'+5', en contra).\n\nLunes 12 de octubre, 18:30: Gimnasia (Mendoza) 1, Newell's Old Boys 0. Goles: Gimnasia (Mendoza): Agustín Módica (58').\n\nMiércoles 14 de octubre, 19:00: Sarmiento (Junín) 1, River Plate 1. Goles: Sarmiento (Junín): Julian Contrera (15'). River Plate: Gonzalo Montiel (71').\n\nJueves 15 de octubre, 20:00: Huracán 1, Gimnasia La Plata 2. Goles: Huracán: Jordy Caicedo (83', de penal). Gimnasia La Plata: Ignacio Fernández (18') y Germán Conti (90'+7').\n\nViernes 16 de octubre, 19:00: Defensa y Justicia 0, Instituto (Córdoba) 1. Goles: Instituto (Córdoba): Jeremías Lázaro (23').\n\nViernes 16 de octubre, 21:30: Boca Juniors 2, Talleres (Córdoba) 1. Goles: Boca Juniors: Miguel Merentiel (18') y Leonel Flores (49'). Talleres (Córdoba): Alejandro Galarza (11').\n\nSábado 17 de octubre, 15:00: Banfield 0, Argentinos Juniors 1. Goles: Argentinos Juniors: Matías Giménez (66').\n\nSábado 17 de octubre, 17:30: Independiente Rivadavia 2, Tigre 2. Goles: Independiente Rivadavia: Matías Fernández (20') y José Florentín (52'). Tigre: Alan Barrionuevo (26') y Manuel Fernández (90'+2').\n\nSábado 17 de octubre, 17:30: Platense 0, Lanús 1. Goles: Lanús: Allan Wlk (29').\n\nSábado 17 de octubre, 20:00: Atlético Tucumán 2, Rosario Central 3. Goles: Atlético Tucumán: Pedro Canelo (37') y Ramiro Ruiz Rodriguez (42'). Rosario Central: Gastón Ávila (3'), Gastón Ávila (6') y Julián Fernández (80').\n\nSábado 17 de octubre, 20:00: Vélez Sarsfield 1, Gimnasia (Mendoza) 0. Goles: Vélez Sarsfield: Thiago Silvero (85').\n\nDomingo 18 de octubre, 14:45: Racing Club 1, Independiente 1. Goles: Racing Club: Matías Zaracho (29'). Independiente: Maximiliano Meza (65', de penal).\n\nDomingo 18 de octubre, 18:00: Estudiantes de La Plata 1, San Lorenzo 2. Goles: Estudiantes de La Plata: Edwin Cetre (14', de penal). San Lorenzo: Guzmán Corujo (44') y Facundo Gulli (90'+5').\n\nDomingo 18 de octubre, 18:00: Estudiantes de Río Cuarto 2, Aldosivi 1. Goles: Estudiantes de Río Cuarto: Ibrahim Hesar (85') y Gabriel Alanís (87'). Aldosivi: Andrés Vombergar (68').\n\nDomingo 18 de octubre, 20:15: Belgrano (Córdoba) 0, River Plate 3. Goles: River Plate: Tomás Galván (45'+3'), Ángel Correa (49') y Thiago Almada (72').\n\nLunes 19 de octubre, 19:00: Newell's Old Boys 2, Central Córdoba (Santiago del Estero) 1. Goles: Newell's Old Boys: Jerónimo Mattar (31') y Santiago Solari (69'). Central Córdoba (Santiago del Estero): Leonardo Sequeira (80').\n\nLunes 19 de octubre, 19:00: Sarmiento (Junín) 1, Barracas Central 1. Goles: Sarmiento (Junín): Jhon Rentería (14'). Barracas Central: Rodrigo Insúa (78', de penal).\n\nLunes 19 de octubre, 21:15: Deportivo Riestra 1, Unión (Santa Fe) 1. Goles: Deportivo Riestra: Juan Cruz Randazzo (50'). Unión (Santa Fe): Tobías Rubio (57').\n\nLos datos son los resultados oficiales según ESPN.",
       "guion": null,
       "seccion": "Fútbol",
       "local": false,
@@ -1209,65 +1697,6 @@
         "sugeridoPorIA": null
       },
       "slug": "sarmiento-empata-1-a-1-con-barracas-central-en-el-torneo-clausura"
-    },
-    {
-      "id": "1cyr47b",
-      "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
-      "copete": "Los artistas locales Gabriel Ferreyra y Ezequiel Méndez se impusieron en la sede Mar Chiquita del certamen y consiguieron el pase para actuar en el escenario mayor de Cosquín.",
-      "cuerpo": "Los balcarceños Gabriel Ferreyra y Ezequiel Méndez ganaron en el rubro expresión oral folclórica del Pre Cosquín, en la instancia correspondiente a la sede Mar Chiquita.\n\nEl encuentro se llevó a cabo el sábado 17 y el domingo 18 de octubre en el Espacio Joven de la ciudad de Coronel Vidal, con la participación de más de 500 artistas entre cantantes y bailarines de la región.\n\nTras obtener el primer puesto, ambos representantes locales aseguraron su lugar en la próxima etapa del concurso, que se realizará en enero de 2027 en la plaza Próspero Molina de Cosquín.",
-      "guion": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/gabriel-ferreyra-y-ezequiel-mendez-lograron-el-pase-a-cosquin-607",
-      "teniaImagenLaFuente": false,
-      "fecha": "2026-10-19T23:01:08.229Z",
-      "sinFecha": true,
-      "visto": "2026-10-19T23:01:08.229Z",
-      "relevancia": 53,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Gabriel Ferreyra y Ezequiel Méndez ganaron el Pre Cosquín.",
-        "Se impusieron en el rubro expresión oral folclórica.",
-        "La clasificatoria se disputó en Coronel Vidal.",
-        "Participarán en el festival de enero de 2027."
-      ],
-      "noConfirmado": [
-        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
-      ],
-      "textoRedes": "Los artistas balcarceños Gabriel Ferreyra y Ezequiel Méndez ganaron el rubro expresión oral folclórica en el Pre Cosquín de Coronel Vidal y competirán en enero en el escenario mayor.",
-      "etiquetas": [
-        "Pre Cosquín",
-        "Gabriel Ferreyra",
-        "Ezequiel Méndez",
-        "folclore",
-        "Coronel Vidal",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/gabriel-ferreyra-y-ezequiel-mendez-lograron-el-pase-a-cosquin-607",
-          "fecha": "2026-10-19T22:11:22.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre el triunfo de Gabriel Ferreyra y Ezequiel Méndez en el Pre Cosquín, sede Mar Chiquita, y su clasificación a la siguiente etapa."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "ferreyra-y-mendez-ganan-el-pre-cosquin-y-llegan-al-festival",
-      "foto": {
-        "archivo": "fotos-notas/1cyr47b.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
     },
     {
       "id": "1eh71pl",
@@ -1547,6 +1976,66 @@
       "foto": {
         "archivo": "fotos-notas/izhwg1.jpg",
         "credito": "Foto: Radio Gabal (FM 104.1)"
+      }
+    },
+    {
+      "id": "1cyr47b",
+      "titulo": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival",
+      "copete": "Los artistas locales Gabriel Ferreyra y Ezequiel Méndez se impusieron en la sede Mar Chiquita del certamen y consiguieron el pase para actuar en el escenario mayor de Cosquín.",
+      "cuerpo": "Los balcarceños Gabriel Ferreyra y Ezequiel Méndez ganaron en el rubro expresión oral folclórica del Pre Cosquín, en la instancia correspondiente a la sede Mar Chiquita.\n\nEl encuentro se llevó a cabo el sábado 17 y el domingo 18 de octubre en el Espacio Joven de la ciudad de Coronel Vidal, con la participación de más de 500 artistas entre cantantes y bailarines de la región.\n\nTras obtener el primer puesto, ambos representantes locales aseguraron su lugar en la próxima etapa del concurso, que se realizará en enero de 2027 en la plaza Próspero Molina de Cosquín.",
+      "guion": "Ferreyra y Méndez ganan el Pre Cosquín y llegan al festival.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "El Diario Balcarce"
+      ],
+      "enlace": "https://eldiariobalcarce.com.ar/gabriel-ferreyra-y-ezequiel-mendez-lograron-el-pase-a-cosquin-607",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T22:11:22.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-19T23:01:08.229Z",
+      "relevancia": 78,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Gabriel Ferreyra y Ezequiel Méndez ganaron el Pre Cosquín.",
+        "Se impusieron en el rubro expresión oral folclórica.",
+        "La clasificatoria se disputó en Coronel Vidal.",
+        "Participarán en el festival de enero de 2027."
+      ],
+      "noConfirmado": [
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "Los artistas balcarceños Gabriel Ferreyra y Ezequiel Méndez ganaron el rubro expresión oral folclórica en el Pre Cosquín de Coronel Vidal y competirán en enero en el escenario mayor.",
+      "etiquetas": [
+        "Pre Cosquín",
+        "Gabriel Ferreyra",
+        "Ezequiel Méndez",
+        "folclore",
+        "Coronel Vidal",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/gabriel-ferreyra-y-ezequiel-mendez-lograron-el-pase-a-cosquin-607",
+          "fecha": "2026-10-19T22:11:22.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre el triunfo de Gabriel Ferreyra y Ezequiel Méndez en el Pre Cosquín, sede Mar Chiquita, y su clasificación a la siguiente etapa."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "ferreyra-y-mendez-ganan-el-pre-cosquin-y-llegan-al-festival",
+      "foto": {
+        "archivo": "fotos-notas/1cyr47b.jpg",
+        "credito": "Foto: El Diario Balcarce"
       }
     },
     {
@@ -2673,12 +3162,12 @@
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "La Nueva",
+        "La Brújula 24",
         "El Eco de Tandil",
-        "El Cronista",
         "Ámbito",
         "C5N",
-        "Los Andes (Mendoza)",
-        "La Capital (Rosario)"
+        "La Capital (Rosario)",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.clarin.com/economia/balanza-comercial-dejo-superavit-usd-2976-millones-septiembre_0_ul2CL0xXzb.html",
       "teniaImagenLaFuente": true,
@@ -2896,7 +3385,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "la-seleccion-argentina-sufre-bajas-clave-por-lesiones-para-la-fecha"
+      "slug": "la-seleccion-argentina-sufre-bajas-clave-por-lesiones-para-la-fecha",
+      "foto": {
+        "archivo": "fotos-notas/1kfwbd5.jpg",
+        "credito": "Foto: TyC Sports"
+      }
     },
     {
       "id": "repaso20261019tarde",
@@ -2974,8 +3467,8 @@
         "Perfil",
         "A24",
         "Noticias Argentinas (NA)",
-        "Infobae",
-        "Ámbito"
+        "Ámbito",
+        "Infobae"
       ],
       "enlace": "https://noticiasargentinas.com/politica/judiciales/prestamo-del-fmi--la-justicia-dejo-firme-el-archivo-de-la-causa-contra-macri--caputo-y-otros-ex-funcionarios_a6ad657015fa36d4507704b5f",
       "teniaImagenLaFuente": true,
@@ -3092,16 +3585,29 @@
       "guion": "El Gobierno atribuye a la incertidumbre global el alza del riesgo país.",
       "seccion": "Economía",
       "medios": [
-        "Letra P",
-        "C5N"
+        "Infobae",
+        "La Nación",
+        "Perfil",
+        "Página/12",
+        "Crónica",
+        "Noticias Argentinas (NA)",
+        "La Verdad",
+        "El Eco de Tandil",
+        "C5N",
+        "iProfesional"
       ],
       "enlace": "https://www.c5n.com/politica/adrian-ravier-conferencia-prensa-casa-rosada-gobierno-19-octubre-2026",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T18:22:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T20:31:01.001Z",
-      "relevancia": 37,
+      "relevancia": 60,
       "local": false,
+      "muyContada": {
+        "medios": 10,
+        "porque": "10 medios",
+        "desde": "2026-10-19T21:30:55.915Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -3464,16 +3970,18 @@
         "Diario La Vanguardia"
       ],
       "enlace": "https://www.diariolavanguardia.com/noticias/45121-menonne-no-descarto-un-candidato-propio-de-la-campora-en-balcarce-para-2027/",
-      "teniaImagenLaFuente": false,
+      "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T17:31:10.518Z",
       "sinFecha": true,
       "visto": "2026-10-19T17:31:10.518Z",
-      "relevancia": 53,
+      "relevancia": 63,
       "local": true,
       "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
-      "temas": [],
+      "temas": [
+        "concejo"
+      ],
       "como": "automatica",
       "claves": [
         "Menonne analizó la gestión municipal en una entrevista radial.",
@@ -4250,6 +4758,7 @@
       "guion": "Martín Demichelis revela detalles sobre la venta de Franco Mastantuono.",
       "seccion": "Fútbol",
       "medios": [
+        "TN (Todo Noticias)",
         "Perfil",
         "TyC Sports",
         "Olé",
@@ -4755,7 +5264,7 @@
       "fecha": "2026-10-19T14:28:08.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T21:01:15.367Z",
-      "relevancia": 41,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5043,8 +5552,8 @@
       "seccion": "Política",
       "medios": [
         "Noticias Argentinas (NA)",
-        "Clarín",
-        "Ámbito"
+        "Ámbito",
+        "Clarín"
       ],
       "enlace": "https://www.clarin.com/politica/respaldo-politica-nacional-listas-abogados-compiten-elecciones-consejo-magistratura_0_mtuI4nlXlL.html",
       "teniaImagenLaFuente": true,
@@ -5286,8 +5795,10 @@
       "guion": "Boca juega ante Vasco da Gama por la Copa Sudamericana.",
       "seccion": "Fútbol",
       "medios": [
+        "Infobae",
         "TN (Todo Noticias)",
         "El Destape",
+        "Perfil",
         "TyC Sports",
         "Olé",
         "C5N"
@@ -5297,7 +5808,7 @@
       "fecha": "2026-10-19T12:57:42.302Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 38,
+      "relevancia": 47,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5467,9 +5978,9 @@
         "Infobae",
         "El Destape",
         "Crónica",
-        "Radio Mitre",
+        "Ámbito",
         "C5N",
-        "Ámbito"
+        "Radio Mitre"
       ],
       "enlace": "https://radiomitre.cienradios.com/videos/el-arzobispo-de-lujan-hablo-de-la-organizacion-para-la-visita-de-papa-leon-xiv-y-su-gran-vocacion-tras-la-operacion-esta-enfocado-en-entregar-su-vida/",
       "teniaImagenLaFuente": true,
@@ -5558,68 +6069,6 @@
       }
     },
     {
-      "id": "16tgrhv",
-      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
-      "copete": "El artista radicado en Mar del Plata representará a la Argentina en un torneo de malabarismo. La competencia se desarrollará entre el viernes 23 y el domingo 25 de octubre.",
-      "cuerpo": "El artista Rodrigo Cunqueiro representará a la Argentina en una competencia sudamericana de malabarismo que se llevará a cabo en Chile. El certamen se disputará entre el viernes 23 y el domingo 25 de octubre. \"Estoy muy contento con esta oportunidad, estoy preparándome\", expresó el balcarceño.\n\nRadicado en Mar del Plata, Cunqueiro se hizo conocido por sus rutinas callejeras en la zona de Playa Grande, donde combina malabares con cinco pelotas de fútbol y destrezas con los pies y la cabeza. Su recorrido incluye una participación en un espectáculo en Arabia Saudita en diciembre de 2023, su presencia en la Fan Fest del Mundial en el barrio porteño de Palermo en junio de 2026 y una aparición en el programa televisivo La Noche es Nuestra.",
-      "guion": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/rodrigo-cunqueiro-ante-un-desafio-internacional-muy-contento-con-esta-oportunidad-me-estoy-preparando-661",
-      "teniaImagenLaFuente": false,
-      "fecha": "2026-10-19T12:30:55.759Z",
-      "sinFecha": true,
-      "visto": "2026-10-19T12:30:55.759Z",
-      "relevancia": 53,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Rodrigo Cunqueiro representa a la Argentina en un torneo sudamericano en Chile",
-        "El certamen se disputa del viernes 23 al domingo 25 de octubre",
-        "El artista combina malabares con cinco pelotas de fútbol y destrezas futbolísticas"
-      ],
-      "seSabe": [
-        "Rodrigo Cunqueiro representa a la Argentina en una competencia sudamericana de malabarismo en Chile",
-        "La competencia se disputará entre el viernes 23 y el domingo 25 de octubre",
-        "El artista es oriundo de Balcarce y está radicado en Mar del Plata"
-      ],
-      "noConfirmado": [
-        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
-      ],
-      "textoRedes": "El artista Rodrigo Cunqueiro, oriundo de Balcarce, representará a la Argentina en una competencia sudamericana de malabarismo en Chile que se disputará entre el viernes 23 y el domingo 25 de octubre.",
-      "etiquetas": [
-        "Rodrigo Cunqueiro",
-        "malabarismo",
-        "Chile",
-        "competencia sudamericana",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/rodrigo-cunqueiro-ante-un-desafio-internacional-muy-contento-con-esta-oportunidad-me-estoy-preparando-661",
-          "fecha": "2026-10-19T12:01:40.000Z",
-          "oficial": false,
-          "aporte": "Detalles sobre la trayectoria del artista y su participación en la competencia sudamericana en Chile."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "rodrigo-cunqueiro-compite-en-un-certamen-sudamericano-en-chile",
-      "foto": {
-        "archivo": "fotos-notas/16tgrhv.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
       "id": "c6mopr",
       "titulo": "Mattia Colnaghi cambia de escudería y correrá en Campos Racing",
       "copete": "El piloto argentino continuará su carrera en la Fórmula 3 la próxima temporada con el respaldo de Red Bull. Sus próximos ensayos serán en Jerez y Barcelona.",
@@ -5634,11 +6083,11 @@
         "TyC Sports",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
-        "0223 (Mar del Plata)",
-        "Clarín",
-        "Los Andes (Mendoza)",
+        "Ámbito",
         "Minuto Uno",
-        "Ámbito"
+        "Los Andes (Mendoza)",
+        "0223 (Mar del Plata)",
+        "Clarín"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/19/el-argentino-mattia-colnaghi-correra-en-un-equipo-de-punta-en-la-formula-3-la-intervencion-clave-de-red-bull/",
       "teniaImagenLaFuente": true,
@@ -5894,6 +6343,69 @@
       "enlacesEnTexto": [],
       "destacados": [],
       "slug": "un-dia-como-hoy-en-1928-aparece-patoruzu"
+    },
+    {
+      "id": "16tgrhv",
+      "titulo": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile",
+      "copete": "El artista radicado en Mar del Plata representará a la Argentina en un torneo de malabarismo. La competencia se desarrollará entre el viernes 23 y el domingo 25 de octubre.",
+      "cuerpo": "El artista Rodrigo Cunqueiro representará a la Argentina en una competencia sudamericana de malabarismo que se llevará a cabo en Chile. El certamen se disputará entre el viernes 23 y el domingo 25 de octubre. \"Estoy muy contento con esta oportunidad, estoy preparándome\", expresó el balcarceño.\n\nRadicado en Mar del Plata, Cunqueiro se hizo conocido por sus rutinas callejeras en la zona de Playa Grande, donde combina malabares con cinco pelotas de fútbol y destrezas con los pies y la cabeza. Su recorrido incluye una participación en un espectáculo en Arabia Saudita en diciembre de 2023, su presencia en la Fan Fest del Mundial en el barrio porteño de Palermo en junio de 2026 y una aparición en el programa televisivo La Noche es Nuestra.",
+      "guion": "Rodrigo Cunqueiro compite en un certamen sudamericano en Chile.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "El Diario Balcarce"
+      ],
+      "enlace": "https://eldiariobalcarce.com.ar/rodrigo-cunqueiro-ante-un-desafio-internacional-muy-contento-con-esta-oportunidad-me-estoy-preparando-661",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T12:01:40.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-19T12:30:55.759Z",
+      "relevancia": 71,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Rodrigo Cunqueiro representa a la Argentina en un torneo sudamericano en Chile",
+        "El certamen se disputa del viernes 23 al domingo 25 de octubre",
+        "El artista combina malabares con cinco pelotas de fútbol y destrezas futbolísticas"
+      ],
+      "seSabe": [
+        "Rodrigo Cunqueiro representa a la Argentina en una competencia sudamericana de malabarismo en Chile",
+        "La competencia se disputará entre el viernes 23 y el domingo 25 de octubre",
+        "El artista es oriundo de Balcarce y está radicado en Mar del Plata"
+      ],
+      "noConfirmado": [
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "El artista Rodrigo Cunqueiro, oriundo de Balcarce, representará a la Argentina en una competencia sudamericana de malabarismo en Chile que se disputará entre el viernes 23 y el domingo 25 de octubre.",
+      "etiquetas": [
+        "Rodrigo Cunqueiro",
+        "malabarismo",
+        "Chile",
+        "competencia sudamericana",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/rodrigo-cunqueiro-ante-un-desafio-internacional-muy-contento-con-esta-oportunidad-me-estoy-preparando-661",
+          "fecha": "2026-10-19T12:01:40.000Z",
+          "oficial": false,
+          "aporte": "Detalles sobre la trayectoria del artista y su participación en la competencia sudamericana en Chile."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "rodrigo-cunqueiro-compite-en-un-certamen-sudamericano-en-chile",
+      "foto": {
+        "archivo": "fotos-notas/16tgrhv.jpg",
+        "credito": "Foto: El Diario Balcarce"
+      }
     },
     {
       "id": "lop291",
@@ -6243,14 +6755,15 @@
       "guion": "Cámaras empresarias recortan el servicio de 104 líneas de colectivos.",
       "seccion": "Argentina",
       "medios": [
+        "Infobae",
         "La Nación",
         "El Destape",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "La Tecla",
-        "Minuto Uno",
         "Ámbito",
+        "Minuto Uno",
         "Diario Popular"
       ],
       "enlace": "https://www.latecla.info/170482-colectivos-en-el-amba-104-lineas-podrian-reducir-sus-frecuencias-por-el-conflicto-de-subsidios",
@@ -6258,11 +6771,11 @@
       "fecha": "2026-10-19T11:31:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T15:30:53.020Z",
-      "relevancia": 53,
+      "relevancia": 55,
       "local": false,
       "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
+        "medios": 10,
+        "porque": "10 medios",
         "desde": "2026-10-19T22:01:06.683Z"
       },
       "publicadaPor": null,
@@ -6530,9 +7043,9 @@
         "El Eco de Tandil",
         "Ámbito",
         "C5N",
+        "La Capital (Rosario)",
         "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)",
-        "La Capital (Rosario)"
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://noticiasargentinas.com/economia/la-industria-metalurgica-sin-piso--cayo-3-3--en-septiembre_a6ad60453faec012154bfba1b",
       "teniaImagenLaFuente": true,
@@ -7080,10 +7593,10 @@
         "Radio Mitre",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "Bolavip Argentina",
         "El Gráfico",
         "Minuto Uno",
-        "Clarín",
-        "Bolavip Argentina"
+        "Clarín"
       ],
       "enlace": "https://www.elgrafico.com.ar/articulo/1119/103424/luis-enrique-tajante-sobre-las-comparaciones-entre-messi-y-lamine-yamal",
       "teniaImagenLaFuente": true,
@@ -7290,15 +7803,15 @@
         "Mi8 (Canal 8 Mar del Plata)",
         "Infobrisas (Radio Brisas)",
         "El Eco de Tandil",
-        "Crónica",
-        "El Cronista",
         "El Economista",
         "Ámbito",
-        "iProfesional",
-        "La Nueva",
-        "elDiarioAR",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
+        "elDiarioAR",
+        "Crónica",
+        "El Cronista",
+        "iProfesional",
+        "La Nueva",
         "Infórmese Primero (FM 104.9)",
         "La Nación",
         "Perfil",
@@ -7307,10 +7820,10 @@
         "0221",
         "La Tecla",
         "El Marplatense",
-        "La Brújula 24",
-        "Agencia DIB",
         "C5N",
         "Minuto Uno",
+        "La Brújula 24",
+        "Agencia DIB",
         "Clarín",
         "0223 (Mar del Plata)"
       ],
@@ -7662,8 +8175,10 @@
       "seccion": "Economía",
       "medios": [
         "La Nación",
+        "Agencia DIB",
         "Infobae",
         "Clarín",
+        "Perfil",
         "TN (Todo Noticias)",
         "El Destape",
         "Página/12",
@@ -7675,29 +8190,29 @@
         "La Verdad",
         "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
+        "El Economista",
+        "Ámbito",
+        "C5N",
+        "La Capital (Rosario)",
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
+        "elDiarioAR",
         "El Cronista",
         "iProfesional",
         "La Nueva",
-        "El Economista",
-        "C5N",
-        "La Gaceta (Tucumán)",
         "A24",
-        "Radio Mitre",
-        "elDiarioAR",
-        "Los Andes (Mendoza)",
-        "Ámbito",
-        "La Capital (Rosario)"
+        "Radio Mitre"
       ],
       "enlace": "https://www.eldestapeweb.com/economia/dispara-riesgo-pais-caen-bonos-inicio-mercado-financiero-2026101911220",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T03:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T15:00:58.224Z",
-      "relevancia": 70,
+      "relevancia": 64,
       "local": false,
       "muyContada": {
-        "medios": 24,
-        "porque": "24 medios",
+        "medios": 26,
+        "porque": "26 medios",
         "desde": "2026-10-19T15:00:58.224Z"
       },
       "publicadaPor": null,
@@ -8305,6 +8820,7 @@
       "seccion": "Fútbol",
       "medios": [
         "Infobae",
+        "TN (Todo Noticias)",
         "TyC Sports",
         "Olé",
         "Diario Popular",
@@ -8469,10 +8985,9 @@
         "Perfil",
         "TN (Todo Noticias)",
         "El Destape",
-        "C5N",
         "Ámbito",
+        "C5N",
         "Crónica",
-        "El Cronista",
         "A24"
       ],
       "enlace": "https://www.c5n.com/economia/cuando-cobro-anses-jubilaciones-y-pensiones-auh-aue-prenatal-maternidad-pago-unico-asignaciones-familiares-pnc-y-progresar-este-lunes-19-octubre-n251941",
@@ -8480,7 +8995,7 @@
       "fecha": "2026-10-18T21:46:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T06:01:12.259Z",
-      "relevancia": 45,
+      "relevancia": 43,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8579,11 +9094,11 @@
         "Noticias Argentinas (NA)",
         "La Verdad",
         "Ámbito",
-        "0223 (Mar del Plata)",
-        "La Nueva",
-        "Los Andes (Mendoza)",
         "Minuto Uno",
-        "La Gaceta (Tucumán)"
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
+        "0223 (Mar del Plata)",
+        "La Nueva"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/18/el-balon-de-oro-lanzo-una-votacion-para-elegir-al-mas-grande-de-la-historia-la-inesperada-distancia-en-la-puja-entre-messi-y-cristiano/",
       "teniaImagenLaFuente": true,
@@ -8761,8 +9276,8 @@
       "medios": [
         "El Destape",
         "Diario Popular",
-        "Infobae",
         "C5N",
+        "Infobae",
         "A24",
         "Radio Mitre"
       ],
@@ -8966,10 +9481,10 @@
         "El Destape",
         "Perfil",
         "El Marplatense",
-        "La Nación",
-        "Minuto Uno",
-        "La Nueva",
         "Ámbito",
+        "Minuto Uno",
+        "La Nación",
+        "La Nueva",
         "A24",
         "Crónica",
         "La Brújula 24",
@@ -9158,8 +9673,8 @@
         "Infobae",
         "TN (Todo Noticias)",
         "0221",
-        "Minuto Uno",
-        "El Economista"
+        "El Economista",
+        "Minuto Uno"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/18/el-majestuoso-yate-que-compro-lionel-messi-cuatro-camarotes-sauna-y-garage-para-motos-acuaticas/",
       "teniaImagenLaFuente": true,
@@ -9329,9 +9844,9 @@
         "Crónica",
         "Noticias Argentinas (NA)",
         "Infobrisas (Radio Brisas)",
+        "El Economista",
         "Ámbito",
         "La Gaceta (Tucumán)",
-        "El Economista",
         "Los Andes (Mendoza)",
         "Radio Mitre",
         "Ahora Balcarce"
@@ -9869,14 +10384,14 @@
         "Infobrisas (Radio Brisas)",
         "Punto Noticias",
         "El Eco de Tandil",
-        "La Brújula 24",
+        "Ámbito",
         "C5N",
-        "Los Andes (Mendoza)",
         "Minuto Uno",
+        "La Capital (Rosario)",
+        "Los Andes (Mendoza)",
+        "La Brújula 24",
         "La Nueva",
         "La Verdad",
-        "Ámbito",
-        "La Capital (Rosario)",
         "El Día"
       ],
       "enlace": "https://www.infobae.com/economia/2026/10/18/morosidad-dos-de-cada-tres-personas-se-quedan-sin-dinero-el-20-de-cada-mes-pero-solo-el-75-pide-condonacion-de-deudas/",
@@ -9973,246 +10488,15 @@
         "archivo": "fotos-notas/18lljrf.jpg",
         "credito": "Foto: La Brújula 24"
       }
-    },
-    {
-      "id": "1or6wxw",
-      "titulo": "La Plata inicia la Semana Coreana con un espectáculo en el Coliseo Podestá",
-      "copete": "La Municipalidad y la Embajada de Corea organizan un show gratuito de música y danza tradicional el jueves a las 19. La propuesta marca el inicio del ciclo cultural vinculado a los recitales de BTS.",
-      "cuerpo": "El Teatro Coliseo Podestá recibe el jueves 22 a las 19 un espectáculo gratuito de música, danza, canto y acrobacia para abrir la Semana de la Cultura Coreana en La Plata. La propuesta artística está a cargo del grupo IN Pungnyu, enfocado en la difusión del gugak.\n\nEl ciclo cultural, denominado Hola Corea, continúa del 22 al 24 de octubre en el Pasaje Dardo Rocha de 14 a 20 con exposiciones, talleres de danza k-pop, proyecciones y gastronomía. Las actividades coinciden con las presentaciones de la banda surcoreana BTS en el Estadio Único, que reúnen a más de 150 mil seguidores durante los días 21, 23 y 24 de octubre.\n\nEl evento inaugural cuenta con la asistencia del intendente Julio Alak y del embajador de Corea en el país, Chong Hwa Lee. El ingreso es libre mediante un formulario web o por orden de llegada hasta completar la capacidad.",
-      "guion": "La Plata inicia la Semana Coreana con un espectáculo en el Coliseo Podestá.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "0221",
-        "El Día"
-      ],
-      "enlace": "https://www.0221.com.ar/que-hago/la-plata-palpita-la-llegada-bts-y-abre-la-semana-coreana-un-show-gratuito-el-teatro-coliseo-podesta-n135993",
-      "teniaImagenLaFuente": false,
-      "fecha": "2026-10-18T14:30:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-18T16:01:09.707Z",
-      "relevancia": 18,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El espectáculo gratuito se realiza el jueves 22 a las 19 en el Teatro Coliseo Podestá.",
-        "La Semana de la Cultura Coreana se lleva a cabo del 22 al 24 de octubre en el Pasaje Dardo Rocha.",
-        "Las actividades acompañan los conciertos de la banda BTS en el Estadio Único."
-      ],
-      "seSabe": [
-        "El evento inaugural en el Coliseo Podestá es gratuito y requiere reserva previa o ingreso por orden de llegada.",
-        "La agenda incluye talleres, muestras y proyecciones en el Pasaje Dardo Rocha entre las 14 y las 20.",
-        "Los recitales de BTS convocan a más de 150 mil fanáticos en el Estadio Único."
-      ],
-      "noConfirmado": [
-        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
-      ],
-      "textoRedes": "La Plata inaugura la Semana de la Cultura Coreana con un show gratuito en el Teatro Coliseo Podestá y actividades en el Pasaje Dardo Rocha, en coincidencia con los recitales de BTS.",
-      "etiquetas": [
-        "La Plata",
-        "Cultura Coreana",
-        "Teatro Coliseo Podestá",
-        "BTS",
-        "Pasaje Dardo Rocha"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/que-hago/la-plata-palpita-la-llegada-bts-y-abre-la-semana-coreana-un-show-gratuito-el-teatro-coliseo-podesta-n135993",
-          "fecha": "2026-10-18T14:30:00.000Z",
-          "oficial": false,
-          "aporte": "Informó el cronograma, las actividades y las autoridades presentes en la apertura cultural."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/la-plata-abrira-la-semana-de-la-cultura-coreana-con-un-espectaculo-gratuito-en-el-coliseo-podesta-la-ciudad_1792336560",
-          "fecha": "2026-10-18T15:18:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó el mismo texto base de la cobertura periodística."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-plata-inicia-la-semana-coreana-con-un-espectaculo-en-el-coliseo",
-      "foto": {
-        "archivo": "fotos-notas/1or6wxw.jpg",
-        "credito": "Foto: 0221"
-      }
-    },
-    {
-      "id": "1m2ojdy",
-      "titulo": "El Gobierno frena la reforma política en el Senado por falta de acuerdos",
-      "copete": "La Casa Rosada postergó el debate electoral en la Cámara alta ante la escasez de apoyos. Busca suspender las PASO y modificar la Boleta Única para 2027.",
-      "cuerpo": "El oficialismo frenó el avance de la reforma política en el Senado tras constatar que no cuenta con los respaldos necesarios para su aprobación. La administración nacional decidió no convocar nuevamente a la Comisión de Asuntos Constitucionales hasta asegurar las adhesiones requeridas.\n\nEl bloque de La Libertad Avanza posee 21 bancas y necesita alcanzar los 37 votos en la Cámara alta para modificar el régimen electoral, por lo que debe sumar 16 apoyos entre la UCR, el PRO, los bloques provinciales y sectores del peronismo disidente. Las tratativas con los gobernadores continúan, aunque los entendimientos políticos no garantizan el acompañamiento automático de los legisladores nacionales de cada distrito.\n\nLa iniciativa oficial apunta a suspender las Primarias Abiertas, Simultáneas y Obligatorias nacionales durante 2027 y a incorporar un casillero para votar lista completa en la Boleta Única de Papel. En paralelo, el Congreso evalúa prorrogar las sesiones ordinarias durante diciembre para tratar el Presupuesto 2027 y retomar las discusiones legislativas.",
-      "guion": "El Gobierno frena la reforma política en el Senado por falta de acuerdos.",
-      "seccion": "Política",
-      "medios": [
-        "TN (Todo Noticias)",
-        "0221",
-        "Canal 26",
-        "Radio Mitre"
-      ],
-      "enlace": "https://tn.com.ar/politica/2026/10/18/el-gobierno-demora-la-reforma-politica-por-falta-de-acuerdos-en-el-senado-y-revisa-su-estrategia-para-las-elecciones-de-2027/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-18T14:26:41.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-18T19:31:12.781Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El oficialismo congeló el debate de la reforma política en el Senado",
-        "La iniciativa requiere 37 votos y el bloque libertario cuenta con 21 bancas",
-        "El proyecto contempla suspender las PASO de 2027 y modificar la Boleta Única",
-        "El Ejecutivo analiza prorrogar las sesiones ordinarias en diciembre"
-      ],
-      "seSabe": [
-        "El Gobierno suspendió la convocatoria a la Comisión de Asuntos Constitucionales del Senado",
-        "La Libertad Avanza tiene 21 senadores y necesita 16 respaldos adicionales para llegar a los 37 votos",
-        "El proyecto busca suspender las PASO nacionales en 2027 e incorporar la opción de lista completa en la Boleta Única de Papel",
-        "La administración nacional evalúa extender las sesiones ordinarias en diciembre"
-      ],
-      "noConfirmado": [
-        "Todavía no se informó una nueva fecha para retomar el tratamiento parlamentario",
-        "Aún no se definieron las alianzas territoriales ni la distribución de candidaturas para las próximas elecciones"
-      ],
-      "textoRedes": "El Gobierno nacional frenó el debate de la reforma política en el Senado ante la falta de apoyos suficientes. La iniciativa oficialista busca suspender las PASO de 2027 y modificar la Boleta Única de Papel.",
-      "etiquetas": [
-        "reforma politica",
-        "Senado",
-        "Gobierno nacional",
-        "PASO",
-        "Boleta Unica de Papel",
-        "La Libertad Avanza"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/18/el-gobierno-demora-la-reforma-politica-por-falta-de-acuerdos-en-el-senado-y-revisa-su-estrategia-para-las-elecciones-de-2027/",
-          "fecha": "2026-10-18T14:26:41.000Z",
-          "oficial": false,
-          "aporte": "Detalló que la Casa Rosada dilata la convocatoria a la comisión y que el principal obstáculo radica en la falta de acuerdos en la Cámara alta."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/el-gobierno-no-consigue-los-votos-para-la-reforma-politica-y-recalcula-su-estrategia-para-2027/",
-          "fecha": "2026-10-18T18:17:09.000Z",
-          "oficial": false,
-          "aporte": "Indicó que el oficialismo cuenta con 21 bancas propias y requiere 16 adhesiones para alcanzar el quórum."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/10/18/la-reforma-politica-se-demora-el-gobierno-no-consigue-los-votos-y-cambia-su-estrategia-para-2027/",
-          "fecha": "2026-10-18T17:07:53.000Z",
-          "oficial": false,
-          "aporte": "Informó que el Ejecutivo evalúa prorrogar las sesiones ordinarias en diciembre debido a la acumulación de proyectos pendientes como el Presupuesto."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/nacional/el-gobierno-demora-la-reforma-politica-y-negocia-suspender-las-paso-y-modificar-la-boleta-unica-n135996",
-          "fecha": "2026-10-18T18:45:00.000Z",
-          "oficial": false,
-          "aporte": "Mencionó que la negociación incluye un mecanismo de adhesión entre fuerzas nacionales y provinciales para habilitar acuerdos electorales diferenciados."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "y1elhg",
-          "titulo": "El oficialismo busca dictaminar la reforma de salud mental en el Senado",
-          "fecha": "2026-10-14T18:30:20.000Z",
-          "ruta": "/nota/el-oficialismo-busca-dictaminar-la-reforma-de-salud-mental-en-el-y1elhg"
-        },
-        {
-          "id": "1juqupr",
-          "titulo": "El Senado aprueba la reforma de Zona Fría y Balcarce pierde el subsidio al gas",
-          "fecha": "2026-09-25T00:37:16.160Z",
-          "ruta": "/nota/el-senado-aprueba-la-reforma-de-zona-fria-en-balcarce-1juqupr"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-gobierno-frena-la-reforma-politica-en-el-senado-por-falta-de",
-      "foto": {
-        "archivo": "fotos-notas/1m2ojdy.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
-      "id": "repaso20261018manana",
-      "propia": "repaso",
-      "titulo": "El repaso de la mañana en Radar Balcarce: construcción y Ruta 226",
-      "copete": "Radar Balcarce publicó a las 11:07 de este domingo 18 de octubre el repaso de la mañana en Instagram y Facebook, un audio con 2 notas. Acá está en texto lo que se contó, con el enlace a cada nota.",
-      "cuerpo": "Estas son las 2 notas que se contaron en el repaso de la mañana del domingo 18, en el orden en que salieron en el audio.\n\nLa UNLP registra una caída en la construcción y el sector inmobiliario. Un informe universitario incluyó a Balcarce entre los distritos bonaerenses con retracción en la actividad durante el segundo trimestre.\n\nLa concesionaria avanza con la demarcación sobre la Ruta 226. La empresa a cargo del corredor vial ejecuta tareas de pintura y señalización en el tramo entre Balcarce y Mar del Plata para mejorar la seguridad en el tránsito.\n\nMirá y escuchá el repaso en Instagram y Facebook, con los botones de acá abajo. Todas las notas del día están en la portada de Radar Balcarce.",
-      "guion": null,
-      "seccion": "Balcarce",
-      "local": true,
-      "relevancia": 60,
-      "medios": [],
-      "enlace": null,
-      "teniaImagenLaFuente": false,
-      "fecha": "2026-10-18T14:07:03.413Z",
-      "sinFecha": false,
-      "visto": "2026-10-18T14:07:03.413Z",
-      "publicadaPor": null,
-      "publicadaCuando": "2026-10-18T14:07:03.413Z",
-      "temas": [],
-      "etiquetas": [
-        "construcción",
-        "Ruta 226"
-      ],
-      "como": "automatica",
-      "firma": "Nota de Radar Balcarce: el texto del repaso publicado en nuestras redes.",
-      "notasDelRepaso": [
-        "177ws3g",
-        "1o3t45b"
-      ],
-      "enlacesEnTexto": [
-        {
-          "texto": "La UNLP registra una caída en la construcción y el sector inmobiliario",
-          "href": "/nota/la-unlp-registra-una-caida-en-la-construccion-y-el-sector-inmobiliario-177ws3g"
-        },
-        {
-          "texto": "La concesionaria avanza con la demarcación sobre la Ruta 226",
-          "href": "/nota/la-concesionaria-avanza-con-la-demarcacion-sobre-la-ruta-226-1o3t45b"
-        }
-      ],
-      "destacados": [
-        {
-          "texto": "Mirá y escuchá el repaso en Instagram",
-          "href": "https://www.instagram.com/reel/Deo2-MPF_UW/",
-          "externo": true
-        },
-        {
-          "texto": "Mirá y escuchá el repaso en Facebook",
-          "href": "https://www.facebook.com/reel/2205219710376659/",
-          "externo": true
-        }
-      ],
-      "slug": "el-repaso-de-la-manana-en-radar-balcarce-construccion-y-ruta-226",
-      "foto": {
-        "archivo": "fotos-notas/collage-repaso20261018manana.jpg",
-        "credito": "Fotos: Radio Gabal (FM 104.1) y Diario La Vanguardia"
-      }
     }
   ],
   "secciones": [
-    "Balcarce",
     "Fútbol",
+    "Balcarce",
     "Policiales",
-    "Cultura y agenda",
     "Deportes",
     "Educación",
+    "Cultura y agenda",
     "Automovilismo",
     "Política",
     "Economía",
@@ -10228,6 +10512,11 @@
       "cuantas": 2
     },
     {
+      "nombre": "El Concejo Deliberante",
+      "ranura": "concejo",
+      "cuantas": 2
+    },
+    {
       "nombre": "El hospital",
       "ranura": "hospital",
       "cuantas": 2
@@ -10237,8 +10526,8 @@
     "ahora": {
       "temp": 6,
       "sensacion": 3,
-      "humedad": 94,
-      "viento": 12,
+      "humedad": 95,
+      "viento": 11,
       "rumbo": "NE",
       "cielo": "Nublado",
       "esDeDia": false
