@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-19T23:32:25.537Z",
+ "consultado": "2026-10-20T00:02:08.721Z",
  "equipos": [
   "9739",
   "3",
@@ -1014,8 +1014,8 @@
     "id": "401841620",
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "71'",
+    "estado": "final",
+    "minuto": "90'+5'",
     "local": {
      "id": "14",
      "nombre": "Newell's Old Boys",
@@ -1024,7 +1024,7 @@
     "visitante": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -1039,6 +1039,12 @@
       "jugador": "Santiago Solari",
       "minuto": "69'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Leonardo Sequeira",
+      "minuto": "80'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Marcelo Bielsa",
@@ -1051,7 +1057,7 @@
     "competencia": "liga",
     "inicio": "2026-10-19T22:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "72'",
+    "minuto": "90'+12'",
     "local": {
      "id": "10158",
      "nombre": "Sarmiento (Junín)",
@@ -1060,7 +1066,7 @@
     "visitante": {
      "id": "10060",
      "nombre": "Barracas Central",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -1069,6 +1075,12 @@
       "jugador": "Jhon Rentería",
       "minuto": "14'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Rodrigo Insúa",
+      "minuto": "78'",
+      "tipo": "de penal"
      }
     ],
     "estadio": "Eva Perón",

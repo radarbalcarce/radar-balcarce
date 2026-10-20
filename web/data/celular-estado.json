@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-19T23:32:27.614Z",
- "portada": 103,
- "archivo": 1366,
+ "generado": "2026-10-20T00:02:11.613Z",
+ "portada": 105,
+ "archivo": 1371,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-19T23:32:27.840Z",
+  "generado": "2026-10-20T00:02:12.229Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -155,7 +155,7 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 51,
     "notas": [
@@ -224,12 +224,6 @@
      "marcada": false
     },
     {
-     "id": "beeajf",
-     "titulo": "Las inferiores del básquet municipal avanzan en la Liga Marplatense",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "izhwg1",
      "titulo": "Esteban Reino defiende las intimaciones por deudas de agua",
      "seccion": "Balcarce",
@@ -250,6 +244,12 @@
     {
      "id": "mb2bex",
      "titulo": "El Gobierno atribuye a la incertidumbre global el alza del riesgo país",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1put3ro",
+     "titulo": "La Justicia ordena a FATE pagar 1.200 millones en sueldos",
      "seccion": "Economía",
      "marcada": false
     }
