@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T21:37:47.387Z",
- "portada": 136,
+ "generado": "2026-10-20T22:01:44.824Z",
+ "portada": 125,
  "archivo": 1449,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-20T21:37:47.929Z",
+  "generado": "2026-10-20T22:01:45.155Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-20T18:06:38.867Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -114,7 +114,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-20T18:06:38.867Z",
     "segundos": null,
     "notas": [
@@ -137,27 +137,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 27,
     "notas": [
-     {
-      "id": "1xl3aai",
-      "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
-      "seccion": "Fútbol"
-     },
      {
       "id": "1s4d8ch",
       "titulo": "Virginia Aparicio se reúne con diputados provinciales",
       "seccion": "Balcarce"
      },
      {
-      "id": "lap6cm",
-      "titulo": "El Club de Pesca recibe miles de alevinos y huevas para Laguna Brava",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "gr781c",
-      "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
-      "seccion": "Deportes"
+      "id": "1cw45oe",
+      "titulo": "Franco Colapinto compite en el Gran Premio de Estados Unidos",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -192,44 +182,26 @@
    ],
    "cola": [
     {
-     "id": "1xl3aai",
-     "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1s4d8ch",
      "titulo": "Virginia Aparicio se reúne con diputados provinciales",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "gr781c",
-     "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "1c9sm1f",
-     "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+     "id": "1xl3aai",
+     "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "1pegz6k",
-     "titulo": "Aldana Manetti valora el presente de Deportivo Los Pinos en el Clausura",
-     "seccion": "Fútbol",
+     "id": "16gh7t",
+     "titulo": "El Tribunal del Mar fija audiencias por el reclamo petrolero en Malvinas",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
      "id": "12rbehh",
      "titulo": "Alexis Mac Allister marca un doblete y Liverpool le gana 4 a 3 a Villarreal",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "87sfj5",
-     "titulo": "France Football lanza una votación para elegir al mejor jugador de la historia",
      "seccion": "Fútbol",
      "marcada": false
     },
