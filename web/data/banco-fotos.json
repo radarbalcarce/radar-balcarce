@@ -17728,7 +17728,8 @@
   "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66072.png",
   "razon": "Es la única imagen de la lista, muestra el operativo de control en la laguna con buena nitidez, sin marcas de agua del medio ni menores de edad visibles.",
   "cuando": "2026-10-17T01:01:58.190Z",
-  "huella": "67b0089b99d9d6d2"
+  "huella": "67b0089b99d9d6d2",
+  "ausenteDesde": "2026-10-20T14:35:03.770Z"
  },
  "1ifa1zl": {
   "archivo": "fotos-notas/1ifa1zl.jpg",
@@ -24457,8 +24458,8 @@
   "origen": "ninguna",
   "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-20T13:03:40.323Z",
-  "intentos": 1,
+  "cuando": "2026-10-20T14:33:48.482Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "10zwxut": {
@@ -24671,7 +24672,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de artistas posando con la bandera de Balcarce y diplomas del Pre Cosquín."
   },
-  "huella": "0f6d27191e560e36"
+  "huella": "0f6d27191e560e36",
+  "ausenteDesde": "2026-10-20T14:35:03.770Z"
  },
  "t5nq4s": {
   "archivo": "fotos-notas/t5nq4s.jpg",
@@ -24781,5 +24783,77 @@
    "descripcion": "Fachada de un centro interdisciplinario de salud mental"
   },
   "huella": "7b2f403f95357f69"
+ },
+ "besbja": {
+  "archivo": "fotos-notas/besbja.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "BTS llega a la Argentina y se prepara para tres shows en La Plata",
+  "enlace": "https://tn.com.ar/musica/noticias/2026/10/20/bts-ya-esta-en-la-argentina-y-revoluciono-a-los-fans/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-0e25320988d61792493546660-1792493746.jpg?auth=d31385440e6ea1cdb67d79c985297b980c24a8cd2bdd3a882da3e39ae1ac5c60&width=1023",
+  "razon": "La foto A muestra claramente a los integrantes de BTS con buena nitidez y encuadre, sin marcas agregadas, menores ni problemas de calidad.",
+  "cuando": "2026-10-20T14:33:48.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Los integrantes de BTS posando frente a un fondo con la inscripción BE.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Miembros de BTS posando en trajes formales frente a un fondo con el logo BE."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "9aa4ec9cb4b4f034"
+ },
+ "1hffzpn": {
+  "archivo": "fotos-notas/1hffzpn.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Línea H extiende su horario por los shows de Iron Maiden en Huracán",
+  "enlace": "https://tn.com.ar/sociedad/2026/10/20/la-linea-h-del-subte-extendera-su-horario-por-los-recitales-de-iron-maiden-en-huracan-hasta-que-hora-funcionara/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/la-linea-h-funcionara-con-horarios-especiales-por-los-shows-de-iron-maiden-foto-xbasubte-XNFFMCX6HNF5TDCL6QQEKH7GPU.jpg?auth=40fc3c06d2e15d1a7e337e986df53d7d19167318c4111017a4745e172d49e9ac&width=1023",
+  "razon": "Muestra claramente una formación del subte y una multitud esperando en el andén, ideal para ilustrar la extensión horaria por eventos masivos.",
+  "cuando": "2026-10-20T14:33:48.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Formación de subte en el andén con gran cantidad de pasajeros esperando.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Multitud de personas esperando en el andén para abordar un tren de la Línea H del Subte."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "cddbddde9dde9cad"
  }
 }
