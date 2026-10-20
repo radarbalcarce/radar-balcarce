@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T14:35:03.792Z",
- "portada": 98,
- "archivo": 1400,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-20T15:07:15.557Z",
+ "portada": 99,
+ "archivo": 1404,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-20T14:35:04.268Z",
+  "generado": "2026-10-20T15:07:15.855Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-20T12:06:57.440Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-20T14:46:12.118Z"
    },
    {
     "nombre": "participa-evento",
@@ -43,7 +43,7 @@
     "que": "Tu evento o emprendimiento",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 35,
+    "salio": "2026-10-20T14:46:12.118Z",
+    "segundos": null,
     "notas": [
      {
       "id": "p8h4md",
@@ -136,15 +136,14 @@
      "id": "1f8niph",
      "titulo": "El Gobierno autoriza una licitación para obras en la Base Naval de Ushuaia",
      "cuando": "2026-10-20T12:35:30.186Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "p8h4md",
      "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
+     "cuando": "2026-10-20T14:35:42.954Z"
+    }
+   ],
+   "cola": [
     {
      "id": "15t1wen",
      "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
@@ -158,20 +157,14 @@
      "marcada": false
     },
     {
-     "id": "7qcit6",
-     "titulo": "Boca sufre pirotecnia de hinchas de Vasco da Gama en la madrugada de Río de Janeiro",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1yvma5i",
      "titulo": "ARBA posterga al 12 de noviembre vencimientos de impuestos",
      "seccion": "Argentina",
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-20T14:05:30.186Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-20T16:05:42.954Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
