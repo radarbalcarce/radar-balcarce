@@ -24009,5 +24009,56 @@
   "cuando": "2026-10-20T00:31:53.097Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "wjl4hu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Escuela Municipal de Básquetbol clasifica dos categorías a semifinales",
+  "razon": "La única imagen disponible es un logo o marca de agua del medio, no una fotografía del hecho.",
+  "cuando": "2026-10-20T01:02:16.475Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1hnhixv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sarmiento empata 1 a 1 con Barracas Central en el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-20T01:02:16.475Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tqjmvm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-20T01:02:16.475Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1kfwbd5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Selección Argentina sufre bajas clave por lesiones para la fecha FIFA",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-20T01:02:16.475Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "futbolresultadosliga20261010": {
+  "archivo": "fotos-notas/libre-futbolresultadosliga20261010.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Unknown / Wikimedia Commons (Public domain)",
+  "licencia": "Public domain",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Estadio_barracas_central_1922.jpg",
+  "imagenOriginal": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Estadio_barracas_central_1922.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "titulo": "File:Estadio barracas central 1922.jpg",
+  "cuando": "2026-10-20T01:02:29.403Z"
  }
 }

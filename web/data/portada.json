@@ -1,6 +1,1129 @@
 {
-  "generado": "2026-10-20T00:32:06.793Z",
+  "generado": "2026-10-20T01:02:31.005Z",
   "notas": [
+    {
+      "id": "futbolresultadosliga20261010",
+      "propia": "futbol",
+      "tipoFutbol": "resultados",
+      "competenciaFutbol": "liga",
+      "datosFutbol": {
+        "partidos": [
+          {
+            "dia": "Sábado 10 de octubre",
+            "hora": "15:45",
+            "estado": "final",
+            "estadio": "Estadio Claudio Chiqui Tapia",
+            "fase": null,
+            "local": {
+              "id": "10060",
+              "nombre": "Barracas Central",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "10",
+              "nombre": "Huracán",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Norberto Briasco",
+                "minuto": "9'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Norberto Briasco",
+                "minuto": "62'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 10 de octubre",
+            "hora": "17:00",
+            "estado": "final",
+            "estadio": "Alfredo Terrera",
+            "fase": null,
+            "local": {
+              "id": "11989",
+              "nombre": "Central Córdoba (Santiago del Estero)",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "8",
+              "nombre": "Estudiantes de La Plata",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Miguel Monsalve",
+                "minuto": "22'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Leonardo Sequeira",
+                "minuto": "37'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Michael Santos",
+                "minuto": "38'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Edwin Cetre",
+                "minuto": "45'+5'",
+                "tipo": "de penal"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 10 de octubre",
+            "hora": "19:15",
+            "estado": "final",
+            "estadio": "Monumental de Victoria (José Dellagiovanna)",
+            "fase": null,
+            "local": {
+              "id": "7767",
+              "nombre": "Tigre",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "235",
+              "nombre": "Banfield",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Adrián Balboa",
+                "minuto": "6'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Jerónimo Domina",
+                "minuto": "10'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Tomás Adoryan",
+                "minuto": "36'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 10 de octubre",
+            "hora": "21:30",
+            "estado": "final",
+            "estadio": "Estadio Más Monumental",
+            "fase": null,
+            "local": {
+              "id": "16",
+              "nombre": "River Plate",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "19685",
+              "nombre": "Estudiantes de Río Cuarto",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Marcos Acuña",
+                "minuto": "6'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 11 de octubre",
+            "hora": "14:45",
+            "estado": "final",
+            "estadio": "Estadio Pedro Bidegain",
+            "fase": null,
+            "local": {
+              "id": "18",
+              "nombre": "San Lorenzo",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "17702",
+              "nombre": "Deportivo Riestra",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Teo Rodríguez",
+                "minuto": "67'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 11 de octubre",
+            "hora": "17:00",
+            "estado": "final",
+            "estadio": "Ciudad de Vicente López",
+            "fase": null,
+            "local": {
+              "id": "7764",
+              "nombre": "Platense",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "3",
+              "nombre": "Argentinos Juniors",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Diego Porcel",
+                "minuto": "11'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Franco Zapiola",
+                "minuto": "70'",
+                "tipo": "de penal"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 11 de octubre",
+            "hora": "17:00",
+            "estado": "final",
+            "estadio": "Gigante de Arroyito",
+            "fase": null,
+            "local": {
+              "id": "17",
+              "nombre": "Rosario Central",
+              "goles": 5
+            },
+            "visitante": {
+              "id": "9744",
+              "nombre": "Independiente Rivadavia",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Ángel Di María",
+                "minuto": "11'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Jáminton Campaz",
+                "minuto": "51'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Ángel Di María",
+                "minuto": "57'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Enzo Copetti",
+                "minuto": "69'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Marco Ruben",
+                "minuto": "74'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 11 de octubre",
+            "hora": "19:15",
+            "estado": "final",
+            "estadio": "Presidente Perón (Cilindro de Avellaneda)",
+            "fase": null,
+            "local": {
+              "id": "15",
+              "nombre": "Racing Club",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "4",
+              "nombre": "Belgrano (Córdoba)",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Lucas Zelarayán",
+                "minuto": "41'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Franco Vázquez",
+                "minuto": "90'+5'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 11 de octubre",
+            "hora": "21:30",
+            "estado": "final",
+            "estadio": "Mario Alberto Kempes",
+            "fase": null,
+            "local": {
+              "id": "19",
+              "nombre": "Talleres (Córdoba)",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "11",
+              "nombre": "Independiente",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": []
+          },
+          {
+            "dia": "Lunes 12 de octubre",
+            "hora": "16:00",
+            "estado": "final",
+            "estadio": "Ciudad de Lanús",
+            "fase": null,
+            "local": {
+              "id": "12",
+              "nombre": "Lanús",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "21",
+              "nombre": "Vélez Sarsfield",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Sasha Marcich",
+                "minuto": "59'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Tomás Marchiori",
+                "minuto": "90'+5'",
+                "tipo": "en contra"
+              }
+            ]
+          },
+          {
+            "dia": "Lunes 12 de octubre",
+            "hora": "18:30",
+            "estado": "final",
+            "estadio": "Estadio Víctor Antonio Legrotaglie",
+            "fase": null,
+            "local": {
+              "id": "11972",
+              "nombre": "Gimnasia (Mendoza)",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "14",
+              "nombre": "Newell's Old Boys",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Agustín Módica",
+                "minuto": "58'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Miércoles 14 de octubre",
+            "hora": "19:00",
+            "estado": "final",
+            "estadio": "Eva Perón",
+            "fase": null,
+            "local": {
+              "id": "10158",
+              "nombre": "Sarmiento (Junín)",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "16",
+              "nombre": "River Plate",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Julian Contrera",
+                "minuto": "15'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Gonzalo Montiel",
+                "minuto": "71'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Jueves 15 de octubre",
+            "hora": "20:00",
+            "estado": "final",
+            "estadio": "Estadio Tomás Adolfo Ducó",
+            "fase": null,
+            "local": {
+              "id": "10",
+              "nombre": "Huracán",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "9",
+              "nombre": "Gimnasia La Plata",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Ignacio Fernández",
+                "minuto": "18'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Jordy Caicedo",
+                "minuto": "83'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Germán Conti",
+                "minuto": "90'+7'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Viernes 16 de octubre",
+            "hora": "19:00",
+            "estado": "final",
+            "estadio": "Norberto Tomaghello",
+            "fase": null,
+            "local": {
+              "id": "8950",
+              "nombre": "Defensa y Justicia",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "2975",
+              "nombre": "Instituto (Córdoba)",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Jeremías Lázaro",
+                "minuto": "23'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Viernes 16 de octubre",
+            "hora": "21:30",
+            "estado": "final",
+            "estadio": "Alberto José Armando (La Bombonera)",
+            "fase": null,
+            "local": {
+              "id": "5",
+              "nombre": "Boca Juniors",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "19",
+              "nombre": "Talleres (Córdoba)",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Alejandro Galarza",
+                "minuto": "11'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Miguel Merentiel",
+                "minuto": "18'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Leonel Flores",
+                "minuto": "49'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 17 de octubre",
+            "hora": "15:00",
+            "estado": "final",
+            "estadio": "Florencio Solá",
+            "fase": null,
+            "local": {
+              "id": "235",
+              "nombre": "Banfield",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "3",
+              "nombre": "Argentinos Juniors",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Matías Giménez",
+                "minuto": "66'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 17 de octubre",
+            "hora": "17:30",
+            "estado": "final",
+            "estadio": "Bautista Gargantini",
+            "fase": null,
+            "local": {
+              "id": "9744",
+              "nombre": "Independiente Rivadavia",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "7767",
+              "nombre": "Tigre",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Matías Fernández",
+                "minuto": "20'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Alan Barrionuevo",
+                "minuto": "26'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "José Florentín",
+                "minuto": "52'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Manuel Fernández",
+                "minuto": "90'+2'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 17 de octubre",
+            "hora": "17:30",
+            "estado": "final",
+            "estadio": "Ciudad de Vicente López",
+            "fase": null,
+            "local": {
+              "id": "7764",
+              "nombre": "Platense",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "12",
+              "nombre": "Lanús",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Allan Wlk",
+                "minuto": "29'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 17 de octubre",
+            "hora": "20:00",
+            "estado": "final",
+            "estadio": "Monumental Presidente José Fierro",
+            "fase": null,
+            "local": {
+              "id": "9785",
+              "nombre": "Atlético Tucumán",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "17",
+              "nombre": "Rosario Central",
+              "goles": 3
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Gastón Ávila",
+                "minuto": "3'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Gastón Ávila",
+                "minuto": "6'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Pedro Canelo",
+                "minuto": "37'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Ramiro Ruiz Rodriguez",
+                "minuto": "42'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Julián Fernández",
+                "minuto": "80'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Sábado 17 de octubre",
+            "hora": "20:00",
+            "estado": "final",
+            "estadio": "José Amalfitani",
+            "fase": null,
+            "local": {
+              "id": "21",
+              "nombre": "Vélez Sarsfield",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "11972",
+              "nombre": "Gimnasia (Mendoza)",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Thiago Silvero",
+                "minuto": "85'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 18 de octubre",
+            "hora": "14:45",
+            "estado": "final",
+            "estadio": "Presidente Perón (Cilindro de Avellaneda)",
+            "fase": null,
+            "local": {
+              "id": "15",
+              "nombre": "Racing Club",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "11",
+              "nombre": "Independiente",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Matías Zaracho",
+                "minuto": "29'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Maximiliano Meza",
+                "minuto": "65'",
+                "tipo": "de penal"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 18 de octubre",
+            "hora": "18:00",
+            "estado": "final",
+            "estadio": "Estadio Jorge Luis Hirschi",
+            "fase": null,
+            "local": {
+              "id": "8",
+              "nombre": "Estudiantes de La Plata",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "18",
+              "nombre": "San Lorenzo",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Edwin Cetre",
+                "minuto": "14'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Guzmán Corujo",
+                "minuto": "44'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Facundo Gulli",
+                "minuto": "90'+5'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 18 de octubre",
+            "hora": "18:00",
+            "estado": "final",
+            "estadio": "Ciudad de Río Cuarto Antonio Candini",
+            "fase": null,
+            "local": {
+              "id": "19685",
+              "nombre": "Estudiantes de Río Cuarto",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "9739",
+              "nombre": "Aldosivi",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Andrés Vombergar",
+                "minuto": "68'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Ibrahim Hesar",
+                "minuto": "85'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Gabriel Alanís",
+                "minuto": "87'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Domingo 18 de octubre",
+            "hora": "20:15",
+            "estado": "final",
+            "estadio": "Mario Alberto Kempes",
+            "fase": null,
+            "local": {
+              "id": "4",
+              "nombre": "Belgrano (Córdoba)",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "16",
+              "nombre": "River Plate",
+              "goles": 3
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "visitante",
+                "jugador": "Tomás Galván",
+                "minuto": "45'+3'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Ángel Correa",
+                "minuto": "49'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Thiago Almada",
+                "minuto": "72'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Lunes 19 de octubre",
+            "hora": "19:00",
+            "estado": "final",
+            "estadio": "Marcelo Bielsa",
+            "fase": null,
+            "local": {
+              "id": "14",
+              "nombre": "Newell's Old Boys",
+              "goles": 2
+            },
+            "visitante": {
+              "id": "11989",
+              "nombre": "Central Córdoba (Santiago del Estero)",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Jerónimo Mattar",
+                "minuto": "31'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Santiago Solari",
+                "minuto": "69'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Leonardo Sequeira",
+                "minuto": "80'",
+                "tipo": "gol"
+              }
+            ]
+          },
+          {
+            "dia": "Lunes 19 de octubre",
+            "hora": "19:00",
+            "estado": "final",
+            "estadio": "Eva Perón",
+            "fase": null,
+            "local": {
+              "id": "10158",
+              "nombre": "Sarmiento (Junín)",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "10060",
+              "nombre": "Barracas Central",
+              "goles": 1
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Jhon Rentería",
+                "minuto": "14'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Rodrigo Insúa",
+                "minuto": "78'",
+                "tipo": "de penal"
+              }
+            ]
+          }
+        ],
+        "faltan": 1,
+        "aparte": 0
+      },
+      "destacados": [
+        {
+          "texto": "Ver la tabla de posiciones",
+          "href": "/tablas/liga-profesional"
+        }
+      ],
+      "lugarFoto": "Estadio Claudio Chiqui Tapia",
+      "titulo": "Liga Profesional: así va la fecha del 10 al 19 de octubre, con los resultados",
+      "copete": "26 partidos terminados de Liga Profesional de Fútbol y otros por jugarse: marcadores y goleadores.",
+      "cuerpo": "Estos son los resultados de Liga Profesional de Fútbol de la fecha del 10 al 19 de octubre, en el orden en que se jugaron:\n\nSábado 10 de octubre, 15:45: Barracas Central 2, Huracán 0. Goles: Barracas Central: Norberto Briasco (9') y Norberto Briasco (62').\n\nSábado 10 de octubre, 17:00: Central Córdoba (Santiago del Estero) 2, Estudiantes de La Plata 2. Goles: Central Córdoba (Santiago del Estero): Leonardo Sequeira (37') y Michael Santos (38'). Estudiantes de La Plata: Miguel Monsalve (22') y Edwin Cetre (45'+5', de penal).\n\nSábado 10 de octubre, 19:15: Tigre 1, Banfield 2. Goles: Tigre: Jerónimo Domina (10'). Banfield: Adrián Balboa (6') y Tomás Adoryan (36').\n\nSábado 10 de octubre, 21:30: River Plate 1, Estudiantes de Río Cuarto 0. Goles: River Plate: Marcos Acuña (6').\n\nDomingo 11 de octubre, 14:45: San Lorenzo 1, Deportivo Riestra 0. Goles: San Lorenzo: Teo Rodríguez (67').\n\nDomingo 11 de octubre, 17:00: Platense 1, Argentinos Juniors 1. Goles: Platense: Franco Zapiola (70', de penal). Argentinos Juniors: Diego Porcel (11').\n\nDomingo 11 de octubre, 17:00: Rosario Central 5, Independiente Rivadavia 0. Goles: Rosario Central: Ángel Di María (11', de penal), Jáminton Campaz (51'), Ángel Di María (57'), Enzo Copetti (69') y Marco Ruben (74').\n\nDomingo 11 de octubre, 19:15: Racing Club 0, Belgrano (Córdoba) 2. Goles: Belgrano (Córdoba): Lucas Zelarayán (41') y Franco Vázquez (90'+5').\n\nDomingo 11 de octubre, 21:30: Talleres (Córdoba) 0, Independiente 0. Sin goles.\n\nLunes 12 de octubre, 16:00: Lanús 2, Vélez Sarsfield 0. Goles: Lanús: Sasha Marcich (59') y Tomás Marchiori (90'+5', en contra).\n\nLunes 12 de octubre, 18:30: Gimnasia (Mendoza) 1, Newell's Old Boys 0. Goles: Gimnasia (Mendoza): Agustín Módica (58').\n\nMiércoles 14 de octubre, 19:00: Sarmiento (Junín) 1, River Plate 1. Goles: Sarmiento (Junín): Julian Contrera (15'). River Plate: Gonzalo Montiel (71').\n\nJueves 15 de octubre, 20:00: Huracán 1, Gimnasia La Plata 2. Goles: Huracán: Jordy Caicedo (83', de penal). Gimnasia La Plata: Ignacio Fernández (18') y Germán Conti (90'+7').\n\nViernes 16 de octubre, 19:00: Defensa y Justicia 0, Instituto (Córdoba) 1. Goles: Instituto (Córdoba): Jeremías Lázaro (23').\n\nViernes 16 de octubre, 21:30: Boca Juniors 2, Talleres (Córdoba) 1. Goles: Boca Juniors: Miguel Merentiel (18') y Leonel Flores (49'). Talleres (Córdoba): Alejandro Galarza (11').\n\nSábado 17 de octubre, 15:00: Banfield 0, Argentinos Juniors 1. Goles: Argentinos Juniors: Matías Giménez (66').\n\nSábado 17 de octubre, 17:30: Independiente Rivadavia 2, Tigre 2. Goles: Independiente Rivadavia: Matías Fernández (20') y José Florentín (52'). Tigre: Alan Barrionuevo (26') y Manuel Fernández (90'+2').\n\nSábado 17 de octubre, 17:30: Platense 0, Lanús 1. Goles: Lanús: Allan Wlk (29').\n\nSábado 17 de octubre, 20:00: Atlético Tucumán 2, Rosario Central 3. Goles: Atlético Tucumán: Pedro Canelo (37') y Ramiro Ruiz Rodriguez (42'). Rosario Central: Gastón Ávila (3'), Gastón Ávila (6') y Julián Fernández (80').\n\nSábado 17 de octubre, 20:00: Vélez Sarsfield 1, Gimnasia (Mendoza) 0. Goles: Vélez Sarsfield: Thiago Silvero (85').\n\nDomingo 18 de octubre, 14:45: Racing Club 1, Independiente 1. Goles: Racing Club: Matías Zaracho (29'). Independiente: Maximiliano Meza (65', de penal).\n\nDomingo 18 de octubre, 18:00: Estudiantes de La Plata 1, San Lorenzo 2. Goles: Estudiantes de La Plata: Edwin Cetre (14', de penal). San Lorenzo: Guzmán Corujo (44') y Facundo Gulli (90'+5').\n\nDomingo 18 de octubre, 18:00: Estudiantes de Río Cuarto 2, Aldosivi 1. Goles: Estudiantes de Río Cuarto: Ibrahim Hesar (85') y Gabriel Alanís (87'). Aldosivi: Andrés Vombergar (68').\n\nDomingo 18 de octubre, 20:15: Belgrano (Córdoba) 0, River Plate 3. Goles: River Plate: Tomás Galván (45'+3'), Ángel Correa (49') y Thiago Almada (72').\n\nLunes 19 de octubre, 19:00: Newell's Old Boys 2, Central Córdoba (Santiago del Estero) 1. Goles: Newell's Old Boys: Jerónimo Mattar (31') y Santiago Solari (69'). Central Córdoba (Santiago del Estero): Leonardo Sequeira (80').\n\nLunes 19 de octubre, 19:00: Sarmiento (Junín) 1, Barracas Central 1. Goles: Sarmiento (Junín): Jhon Rentería (14'). Barracas Central: Rodrigo Insúa (78', de penal).\n\nTodavía faltan jugarse: Deportivo Riestra y Unión (Santa Fe) (Lunes 19 de octubre, 21:15). Esta nota se completa a medida que terminan los partidos.\n\nLos datos son los resultados oficiales según ESPN.",
+      "guion": null,
+      "seccion": "Fútbol",
+      "local": false,
+      "relevancia": 56,
+      "medios": [
+        "ESPN (datos abiertos)"
+      ],
+      "enlace": "https://www.espn.com.ar/futbol/",
+      "fuentesConsultadas": [
+        {
+          "medio": "ESPN (datos abiertos)",
+          "enlace": "https://www.espn.com.ar/futbol/"
+        }
+      ],
+      "teniaImagenLaFuente": false,
+      "fecha": "2026-10-20T01:02:28.352Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T01:02:28.352Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-20T01:02:28.352Z",
+      "temas": [],
+      "etiquetas": [
+        "fútbol",
+        "Liga Profesional",
+        "resultados",
+        "Barracas Central",
+        "Huracán",
+        "Central Córdoba (Santiago del Estero)",
+        "Estudiantes de La Plata",
+        "Tigre",
+        "Banfield"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
+      "slug": "liga-profesional-asi-va-la-fecha-del-10-al-19-de-octubre-con-los",
+      "foto": {
+        "archivo": "fotos-notas/libre-futbolresultadosliga20261010.jpg",
+        "credito": "Foto: Unknown / Wikimedia Commons (Public domain)"
+      }
+    },
+    {
+      "id": "wjl4hu",
+      "titulo": "La Escuela Municipal de Básquetbol clasifica dos categorías a semifinales",
+      "copete": "Los cadetes y los infantiles aseguraron su lugar entre los cuatro mejores de la Liga Marplatense. Los juveniles definirán su serie el próximo fin de semana.",
+      "cuerpo": "Las categorías formativas de la Escuela Municipal de Básquetbol cumplieron una destacada actuación en la Liga Marplatense y consiguieron instalar a dos de sus planteles en las semifinales de la competencia.\n\nEn el resultado más relevante, los cadetes superaron a Círculo Deportivo de Comandante Nicanor Otamendi por 48 a 42 en el segundo encuentro de la serie y sellaron su pase a la siguiente instancia, donde se enfrentarán con Sudamérica de Miramar. En tanto, los infantiles también aseguraron su lugar entre los cuatro mejores y tendrán como próximo rival a Unión de Mar del Plata.\n\nPor su parte, el equipo juvenil derrotó a Unión de Mar del Plata por 66 a 55 e igualó la llave 1 a 1. La definición de esta serie se jugará el próximo fin de semana en territorio marplatense.\n\nEn el resto de la jornada, la categoría mini cayó frente a Kimberley de Mar del Plata por 51 a 27, mientras que los premini disputaron un encuentro recreativo contra el mismo club.",
+      "guion": "La Escuela Municipal de Básquetbol clasifica dos categorías a semifinales.",
+      "seccion": "Deportes",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/deportes/14348-dos-equipos-locales-en-las-semifinales/",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-20T01:01:06.655Z",
+      "sinFecha": true,
+      "visto": "2026-10-20T01:01:06.655Z",
+      "relevancia": 59,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Los cadetes e infantiles avanzaron a las semifinales de la Liga Marplatense.",
+        "Los cadetes vencieron a Círculo Deportivo por 48 a 42 y jugarán contra Sudamérica de Miramar.",
+        "Los juveniles igualaron la serie ante Unión de Mar del Plata tras ganar por 66 a 55."
+      ],
+      "seSabe": [
+        "Los cadetes de la Escuela Municipal derrotaron a Círculo Deportivo de Otamendi por 48 a 42.",
+        "Los infantiles aseguraron su lugar en semifinales y enfrentarán a Unión de Mar del Plata.",
+        "Los juveniles vencieron a Unión de Mar del Plata por 66 a 55 y definirán la serie como visitantes el próximo fin de semana.",
+        "Los mini perdieron 51 a 27 ante Kimberley de Mar del Plata."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó el día exacto ni el horario del partido de los juveniles en Mar del Plata.",
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "Las categorías cadetes e infantiles de la Escuela Municipal de Básquetbol avanzaron a las semifinales de la Liga Marplatense, mientras que los juveniles definirán su pase el próximo fin de semana como visitantes.",
+      "etiquetas": [
+        "Basquetbol",
+        "Escuela Municipal",
+        "Liga Marplatense",
+        "Deportes"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/deportes/14348-dos-equipos-locales-en-las-semifinales/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Informó los resultados y la clasificación a semifinales de las categorías formativas de la Escuela Municipal de Básquetbol en la Liga Marplatense."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1mfnr70",
+          "titulo": "Campo de Pato mete a sus dos equipos en semifinales de rugby",
+          "fecha": "2026-10-15T17:28:00.000Z",
+          "ruta": "/nota/campo-de-pato-mete-a-sus-dos-equipos-en-semifinales-de-rugby-1mfnr70"
+        },
+        {
+          "id": "1fi9fiz",
+          "titulo": "Campo de Pato clasifica a sus dos equipos a las semifinales",
+          "fecha": "2026-10-14T12:15:32.000Z",
+          "ruta": "/nota/campo-de-pato-clasifica-a-sus-dos-equipos-a-las-semifinales-1fi9fiz"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-escuela-municipal-de-basquetbol-clasifica-dos-categorias-a"
+    },
+    {
+      "id": "1hnhixv",
+      "titulo": "Sarmiento empata 1 a 1 con Barracas Central en el Torneo Clausura",
+      "copete": "El conjunto juninense igualó como local en la decimotercera fecha del certamen. Jhon Rentería abrió el marcador y Rodrigo Insúa empató de penal.",
+      "cuerpo": "Sarmiento e igualó 1 a 1 con Barracas Central en el estadio Eva Perón, por la decimotercera fecha del Torneo Clausura 2026. El delantero Jhon Rentería puso en ventaja al conjunto local a los 13 minutos de la primera etapa, mientras que Rodrigo Insúa decretó la igualdad de penal a los 33 minutos del complemento.\n\nEn el tramo final del encuentro, el árbitro Daniel Zamora anuló un tanto de Junior Marabel a instancias del VAR por posición adelantada. Además, el local sufrió la expulsión de Lucas Suárez por doble amonestación.\n\nCon este resultado, el equipo dirigido por Facundo Sava alcanzó el quinto puesto de la tabla con 21 puntos, en tanto que la visita se posicionó en el séptimo lugar con 19 unidades y regresó a la zona de clasificación.",
+      "guion": "Sarmiento empata 1 a 1 con Barracas Central en el Torneo Clausura.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TN (Todo Noticias)",
+        "Olé",
+        "Canal 26",
+        "Noticias Argentinas (NA)",
+        "Doble Amarilla"
+      ],
+      "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/sarmiento-vs-barracas-central-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-20T00:03:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T01:01:06.655Z",
+      "relevancia": 59,
+      "local": false,
+      "muyContada": {
+        "medios": 4,
+        "porque": "4 medios en sus primeras 3 horas, de noche",
+        "desde": "2026-10-20T01:01:06.655Z"
+      },
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "seSabe": [
+        "Sarmiento y Barracas Central igualaron 1 a 1 en el estadio Eva Perón.",
+        "Jhon Rentería anotó el tanto inicial para el equipo local a los 13 minutos del primer tiempo.",
+        "Rodrigo Insúa marcó el empate de penal a los 33 minutos del complemento.",
+        "El árbitro Daniel Zamora anuló un gol de Junior Marabel en el descuento por posición adelantada tras la revisión del VAR.",
+        "Lucas Suárez fue expulsado por doble tarjeta amarilla.",
+        "Sarmiento quedó en el quinto puesto con 21 unidades y Barracas Central se ubicó séptimo con 19."
+      ],
+      "textoRedes": "Sarmiento empató 1 a 1 con Barracas Central como local por la decimotercera fecha del Torneo Clausura 2026. Jhon Rentería marcó para el local y Rodrigo Insúa lo igualó de penal.",
+      "etiquetas": [
+        "Sarmiento",
+        "Barracas Central",
+        "Torneo Clausura",
+        "Futbol",
+        "Liga Profesional"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/sarmiento-vs-barracas-central-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
+          "fecha": "2026-10-20T00:03:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló las formaciones iniciales, las incidencias del juego, las amonestaciones y la expulsión de Lucas Suárez."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/19/sarmiento-vs-barracas-c-en-vivo-por-la-fase-de-grupos-de-la-liga-profesional-hora-donde-ver-y-formaciones/",
+          "fecha": "2026-10-20T00:34:45.000Z",
+          "oficial": false,
+          "aporte": "Aportó estadísticas del encuentro como la posesión de pelota, los remates al arco y los datos de los próximos partidos."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/sarmiento-junin/empate-sarmiento-barracas_3_J6qU8ThWkJ.html",
+          "fecha": "2026-10-20T00:28:05.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/sarmiento-empato-con-barracas-central-y-no-pudo-acercarse-a-la-punta-del-torneo-clausura_a6ad6af2b5fa36d4507807b97",
+          "fecha": "2026-10-20T00:08:00.000Z",
+          "oficial": false,
+          "aporte": "Informó los minutos de los goles, la jugada anulada por el VAR y la ubicación de ambos equipos en la tabla de posiciones."
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/liga-/sarmiento-empato-con-barracas-central-y-no-pudo-acercarse-a-la-punta-de-la-zona-b_a6ad6b681b46de33614e0c73e",
+          "fecha": "2026-10-20T00:52:17.724Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1rmrk3n",
+          "titulo": "Newell's recibe a Central Córdoba por el Torneo Clausura",
+          "fecha": "2026-10-18T11:44:00.000Z",
+          "ruta": "/nota/newell-s-recibe-a-central-cordoba-por-el-torneo-clausura-1rmrk3n"
+        },
+        {
+          "id": "i61qlm",
+          "titulo": "Rosario Central derrota 3 a 2 a Atlético Tucumán en el Torneo Clausura",
+          "fecha": "2026-10-18T00:51:00.000Z",
+          "ruta": "/nota/rosario-central-derrota-3-a-2-a-atletico-tucuman-en-el-torneo-clausura-i61qlm"
+        },
+        {
+          "id": "17nia8a",
+          "titulo": "Los Patos FC supera a River Balcarce en el arranque del Torneo Clausura",
+          "fecha": "2026-10-19T11:52:49.000Z",
+          "ruta": "/nota/los-patos-fc-supera-a-river-balcarce-en-el-arranque-del-torneo-17nia8a"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cinco medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "sarmiento-empata-1-a-1-con-barracas-central-en-el-torneo-clausura"
+    },
     {
       "id": "1eh71pl",
       "titulo": "Karina Lupo gana los 15K de Ayacucho y rompe el récord del circuito",
@@ -9,16 +1132,19 @@
       "guion": "Karina Lupo gana los 15K de Ayacucho y rompe el récord del circuito.",
       "seccion": "Deportes",
       "medios": [
-        "Radio Gabal (FM 104.1)"
+        "Infórmese Primero (FM 104.9)",
+        "Radio Gabal (FM 104.1)",
+        "Diario La Vanguardia"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/deportes/karina-lupo-gano-los-15k-de-ayacucho-y-batio-el-record-del-circuito",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T22:49:38.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T23:30:57.922Z",
-      "relevancia": 82,
+      "relevancia": 94,
       "local": true,
       "deUnMedioDeAca": true,
+      "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -570,7 +1696,7 @@
       "fecha": "2026-10-19T21:40:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-20T00:00:59.411Z",
-      "relevancia": 56,
+      "relevancia": 46,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -749,6 +1875,110 @@
         "archivo": "fotos-notas/z2zrep.jpg",
         "credito": "Foto: La Verdad"
       }
+    },
+    {
+      "id": "1tqjmvm",
+      "titulo": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura",
+      "copete": "El conjunto rosarino se impuso como local con goles de Jerónimo Gómez Mattar y Santiago Solari. Leonardo Sequeira descontó para la visita.",
+      "cuerpo": "Newell's le ganó por 2 a 1 a Central Córdoba en el estadio Marcelo Bielsa por la fecha 13 del Torneo Clausura y se metió en puestos de clasificación a los playoffs.\n\nEl único cambio en la formación inicial dispuesta por el director técnico Frank Kudelka fue el ingreso del juvenil Jerónimo Gómez Mattar en lugar del capitán Luca Regiardo, quien debió cumplir una fecha de suspensión por acumulación de tarjetas amarillas.\n\nEl mediocampista abrió el marcador a los 31 minutos del primer tiempo al capturar un rebote dentro del área. En el complemento, a los 24 minutos, Walter Mazzantti habilitó a Santiago Solari, quien empujó la pelota para marcar el segundo tanto de la Lepra. Sobre el cierre del encuentro, Leonardo Sequeira descontó de cabeza para el conjunto visitante.\n\nCon este resultado, el equipo rosarino alcanzó los 20 puntos y trepó a la sexta posición de la Zona A, mientras que Central Córdoba se mantiene anteúltimo en la tabla.",
+      "guion": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Olé",
+        "Canal 26",
+        "Diario Popular",
+        "Noticias Argentinas (NA)",
+        "La Capital (Rosario)"
+      ],
+      "enlace": "https://www.lacapital.com.ar/ovacion/con-un-solo-cambio-newells-tiene-el-once-recibir-central-cordoba-santiago-n10287535.html",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T21:06:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T01:01:06.655Z",
+      "relevancia": 54,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Newell's derrotó 2-1 a Central Córdoba en el estadio Marcelo Bielsa.",
+        "Jerónimo Gómez Mattar y Santiago Solari convirtieron los goles del equipo local.",
+        "Leonardo Sequeira descontó de cabeza para la visita sobre el final del partido.",
+        "El conjunto rosarino quedó en la sexta posición de la Zona A del Torneo Clausura."
+      ],
+      "textoRedes": "Newell's venció 2 a 1 a Central Córdoba en el estadio Marcelo Bielsa con goles de Jerónimo Gómez Mattar y Santiago Solari. Leonardo Sequeira descontó para la visita. Con este resultado, el conjunto rosarino se metió en la zona de clasificación a los playoffs del Torneo Clausura.",
+      "etiquetas": [
+        "Newell's",
+        "Central Córdoba",
+        "Torneo Clausura",
+        "Fútbol",
+        "Rosario"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "La Capital (Rosario)",
+          "enlace": "https://www.lacapital.com.ar/ovacion/con-un-solo-cambio-newells-tiene-el-once-recibir-central-cordoba-santiago-n10287535.html",
+          "fecha": "2026-10-19T21:06:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmación del cambio táctico por la suspensión de Regiardo y situación en la tabla."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/newells-old-boys/newells-vencio-2-1-central-cordoba_3_MLewGUIcmg.html",
+          "fecha": "2026-10-20T00:32:27.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-primera/central-cordoba-newells-old-boys-torneo-clausura-fecha-trece_0_cHxM7hrjCE.html",
+          "fecha": "2026-10-19T21:27:50.000Z",
+          "oficial": false,
+          "aporte": "Detalles del desarrollo del partido, el rendimiento del equipo y el gol de Gómez Mattar."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/newells-vs-central-cordoba-se-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
+          "fecha": "2026-10-19T23:54:00.000Z",
+          "oficial": false,
+          "aporte": "Formaciones iniciales, incidencias del juego y horario de inicio del encuentro."
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/futbol/newells-le-gano-central-cordoba-y-volvio-meterse-la-zona-playoffs-n925289",
+          "fecha": "2026-10-20T00:08:00.000Z",
+          "oficial": false,
+          "aporte": "Datos sobre los minutos de los goles, cantidad de remates y la posición final en la tabla."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/newell-s-le-gano-a-central-cordoba-y-se-posiciona-entre-los-clasificados-del-clausura_a6ad6ad775fa36d45078035f1",
+          "fecha": "2026-10-20T00:02:10.189Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1rmrk3n",
+          "titulo": "Newell's recibe a Central Córdoba por el Torneo Clausura",
+          "fecha": "2026-10-18T11:44:00.000Z",
+          "ruta": "/nota/newell-s-recibe-a-central-cordoba-por-el-torneo-clausura-1rmrk3n"
+        },
+        {
+          "id": "1cbil57",
+          "titulo": "Hinchas de Newell's y Rosario Central se enfrentan en Rosario",
+          "fecha": "2026-09-30T02:21:20.000Z",
+          "ruta": "/nota/hinchas-de-newell-s-y-rosario-central-se-enfrentan-en-rosario-1cbil57"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cinco medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "newell-s-vence-2-a-1-a-central-cordoba-en-rosario-por-el-torneo"
     },
     {
       "id": "1b2pye9",
@@ -1334,6 +2564,77 @@
       }
     },
     {
+      "id": "1kfwbd5",
+      "titulo": "La Selección Argentina sufre bajas clave por lesiones para la fecha FIFA",
+      "copete": "El seleccionado nacional afrontará los amistosos de noviembre frente a Uruguay y Costa Rica con bajas sensibles y futbolistas en recuperación. El entrenador Lionel Scaloni reconfigura la convocatoria.",
+      "cuerpo": "El seleccionado nacional afrontará los próximos compromisos internacionales con modificaciones obligadas en la convocatoria debido a una serie de lesiones físicas que afectaron a varios habituales titulares.\n\nLa primera baja confirmada es la de Lautaro Martínez, quien sufrió una distensión en los flexores del muslo izquierdo y demandará entre cuatro y seis semanas de recuperación. A su vez, el arquero Emiliano Martínez fue intervenido quirúrgicamente de urgencia por una fractura de mandíbula tras un impacto en la Premier League y permanecerá cerca de un mes y medio fuera de las canchas.\n\nPor otro lado, Cristian Romero padece una distensión leve en un aductor con un plazo estimativo de diez días fuera de las canchas, mientras que Lisandro Martínez sufrió únicamente un golpe. Ambos zagueros estarían disponibles para los encuentros preparatorios frente a Uruguay y Costa Rica, que marcarán el comienzo de una nueva etapa para el equipo nacional.",
+      "guion": "La Selección Argentina sufre bajas clave por lesiones para la fecha FIFA.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Diario La Vanguardia",
+        "TyC Sports",
+        "Los Andes (Mendoza)"
+      ],
+      "enlace": "https://www.tycsports.com/seleccion-argentina/la-ola-de-lesionados-que-complica-el-armado-de-la-lista-de-la-seleccion-argentina-para-la-fecha-fifa-id767215.html",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-19T18:49:07.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-20T01:01:06.655Z",
+      "relevancia": 58,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Bajas de Lautaro Martínez y Emiliano Martínez para los amistosos.",
+        "Cuti Romero y Lisandro Martínez evolucionan favorablemente de sus molestias.",
+        "La ventana internacional de noviembre incluirá partidos frente a Uruguay y Costa Rica."
+      ],
+      "seSabe": [
+        "Lautaro Martínez y Emiliano Martínez están descartados para los amistosos de noviembre.",
+        "Cristian Romero y Lisandro Martínez arrastran molestias físicas pero llegarían en condiciones.",
+        "Los encuentros amistosos serán ante Uruguay y Costa Rica."
+      ],
+      "textoRedes": "La Selección Argentina afrontará los amistosos de noviembre ante Uruguay y Costa Rica con bajas sensibles por lesión y futbolistas en recuperación.",
+      "etiquetas": [
+        "Seleccion Argentina",
+        "Fecha FIFA",
+        "Lionel Scaloni",
+        "Lesiones",
+        "Futbol"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/seleccion-argentina/la-ola-de-lesionados-que-complica-el-armado-de-la-lista-de-la-seleccion-argentina-para-la-fecha-fifa-id767215.html",
+          "fecha": "2026-10-19T18:49:07.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre los detalles de la lesión de Emiliano Martínez y los tiempos estimados de baja de Cristian Romero."
+        },
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/deportes/14351-una-ola-de-lesiones-complica-a-scaloni/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Detalló los plazos de recuperación de Lautaro Martínez y la situación médica general del plantel."
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/deportes/alarma-la-seleccion-argentina-la-ola-lesionados-que-complica-la-lista-scaloni-la-fecha-fifa-n6010899",
+          "fecha": "2026-10-19T20:32:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó las bajas de los futbolistas y el contexto de reestructuración del cuerpo técnico."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-seleccion-argentina-sufre-bajas-clave-por-lesiones-para-la-fecha"
+    },
+    {
       "id": "repaso20261019tarde",
       "propia": "repaso",
       "titulo": "El repaso de la tarde en Radar Balcarce: Hospital Municipal y residuos electrónicos",
@@ -1730,11 +3031,11 @@
       "guion": "La Justicia ordena a FATE pagar 1.200 millones en sueldos.",
       "seccion": "Economía",
       "medios": [
+        "Agencia DIB",
         "Clarín",
         "Noticias Argentinas (NA)",
         "El Marplatense",
         "El Eco de Tandil",
-        "Agencia DIB",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.clarin.com/economia/meses-cierre-justicia-ordeno-fate-pagar-1200-millones-sueldos-empleados-despedidos_0_sPiipyqXfH.html",
@@ -1819,11 +3120,11 @@
       "guion": "Intendentes bonaerenses debaten con industriales en Ezeiza.",
       "seccion": "Política",
       "medios": [
+        "Agencia DIB",
         "Página/12",
         "Crónica",
         "Canal 26",
         "La Tecla",
-        "Agencia DIB",
         "Letra P"
       ],
       "enlace": "https://www.latecla.info/170499-los-intendentes-del-pj-se-acercan-a-la-industria-para-hacerle-frente-a-la-crisis",
@@ -3029,10 +4330,10 @@
       "guion": "El gobierno provincial defiende las PASO frente al plan de la Nación.",
       "seccion": "Política",
       "medios": [
+        "Agencia DIB",
         "Infobae",
         "Noticias Argentinas (NA)",
-        "La Verdad",
-        "Agencia DIB"
+        "La Verdad"
       ],
       "enlace": "https://www.infobae.com/politica/2026/10/19/el-gobierno-de-kicillof-exige-mantener-las-paso-quieren-evitar-que-la-oposicion-se-organice-para-que-milei-sea-reelecto/",
       "teniaImagenLaFuente": true,
@@ -3667,7 +4968,7 @@
       "fecha": "2026-10-19T12:57:42.302Z",
       "sinFecha": false,
       "visto": "2026-10-19T22:31:01.867Z",
-      "relevancia": 45,
+      "relevancia": 38,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3768,7 +5069,7 @@
       "fecha": "2026-10-19T12:46:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T23:30:57.922Z",
-      "relevancia": 39,
+      "relevancia": 32,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3846,7 +5147,7 @@
       "fecha": "2026-10-19T12:37:06.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T15:30:53.020Z",
-      "relevancia": 54,
+      "relevancia": 47,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3935,7 +5236,6 @@
       "guion": "Mattia Colnaghi cambia de escudería y correrá en Campos Racing.",
       "seccion": "Automovilismo",
       "medios": [
-        "Campeones",
         "Infobae",
         "TN (Todo Noticias)",
         "Perfil",
@@ -3944,9 +5244,10 @@
         "Noticias Argentinas (NA)",
         "Ámbito",
         "Minuto Uno",
+        "Los Andes (Mendoza)",
+        "Campeones",
         "0223 (Mar del Plata)",
-        "Clarín",
-        "Los Andes (Mendoza)"
+        "Clarín"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/19/el-argentino-mattia-colnaghi-correra-en-un-equipo-de-punta-en-la-formula-3-la-intervencion-clave-de-red-bull/",
       "teniaImagenLaFuente": true,
@@ -4619,10 +5920,10 @@
         "Crónica",
         "Radio Mitre",
         "Canal 26",
-        "Diario Popular",
         "La Tecla",
         "Ámbito",
-        "Minuto Uno"
+        "Minuto Uno",
+        "Diario Popular"
       ],
       "enlace": "https://www.latecla.info/170482-colectivos-en-el-amba-104-lineas-podrian-reducir-sus-frecuencias-por-el-conflicto-de-subsidios",
       "teniaImagenLaFuente": true,
@@ -5663,13 +6964,13 @@
         "El Eco de Tandil",
         "El Economista",
         "Ámbito",
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
+        "elDiarioAR",
         "Crónica",
         "El Cronista",
         "iProfesional",
         "La Nueva",
-        "elDiarioAR",
-        "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)",
         "Infórmese Primero (FM 104.9)",
         "La Nación",
         "Perfil",
@@ -5690,7 +6991,7 @@
       "fecha": "2026-10-19T07:38:08.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T10:31:01.646Z",
-      "relevancia": 72,
+      "relevancia": 65,
       "local": false,
       "muyContada": {
         "medios": 31,
@@ -5963,15 +7264,14 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "Canal 26",
-        "La Brújula 24",
-        "La Nación"
+        "La Brújula 24"
       ],
       "enlace": "https://www.canal26.com/tendencias/2026/10/19/poner-bicarbonato-en-el-fondo-del-tacho-de-basura-para-que-sirve-y-cada-cuanto-conviene-cambiarlo/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-19T05:05:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-19T10:31:01.646Z",
-      "relevancia": 46,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6034,6 +7334,7 @@
       "seccion": "Economía",
       "medios": [
         "La Nación",
+        "Agencia DIB",
         "Infobae",
         "Clarín",
         "Perfil",
@@ -6052,15 +7353,14 @@
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
+        "elDiarioAR",
         "El Cronista",
         "iProfesional",
         "La Nueva",
-        "La Gaceta (Tucumán)",
         "A24",
-        "Radio Mitre",
-        "elDiarioAR",
-        "Los Andes (Mendoza)",
-        "Agencia DIB"
+        "Radio Mitre"
       ],
       "enlace": "https://www.eldestapeweb.com/economia/dispara-riesgo-pais-caen-bonos-inicio-mercado-financiero-2026101911220",
       "teniaImagenLaFuente": true,
@@ -6213,152 +7513,6 @@
       "foto": {
         "archivo": "fotos-notas/1pudola.jpg",
         "credito": "Foto: Ahora Balcarce"
-      }
-    },
-    {
-      "id": "19ukd1p",
-      "titulo": "Atlético San Manuel, Boca, Ferroviarios, Los Patos y Agrarias lideran el Clausura",
-      "copete": "Comenzó el torneo Clausura de la Liga Balcarceña tras varias suspensiones por mal tiempo y se marcaron 17 goles en la primera fecha de la fase regular.",
-      "cuerpo": "Atlético San Manuel, Boca Júniors, Ferroviarios, Los Patos Fútbol Club y Ciencias Agrarias quedaron como los cinco punteros del torneo Clausura de primera división. La jornada inaugural de la fase regular se puso en marcha tras diversas suspensiones por el mal clima. En la zona A, San Manuel goleó 3-0 a Sportivo Trabajo-Mitre con tantos de Gonzalo Fernández, Jeremías Indacoechea y Claudio Fuentes, mientras que Boca superó 2-0 a Deportivo Los Pinos mediante Maico Berenguer y José Cejas.\n\nEn la zona B, Ferroviarios derrotó 2-1 a Amigos Unidos con conversiones de Fernando Juárez y Fernando Telechea, descontando Valentín Blanco. Los Patos venció 3-0 a Ríver Balcarce con gritos de Nicolás Fleming, Lucas Stío y Agustín Baza, en un encuentro donde vio la roja Juan Pablo Charmelo. En la zona C, Ciencias Agrarias le ganó 4-2 a San Lorenzo gracias a Martiniano Suárez, Valentín Martino y un doblete de Lucas Sadobe; para el perdedor anotaron Matías Desimone y Bruno Alegre, y el arquero Marcio Fernández le contuvo un penal a Brian Lleuful. Por último, Atlético San Agustín y Racing Club empataron sin goles.",
-      "guion": "Atlético San Manuel, Boca, Ferroviarios, Los Patos y Agrarias lideran el Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14346-oficial-cinco-lideres-tiene-el-clausura/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-19T00:31:10.557Z",
-      "sinFecha": true,
-      "visto": "2026-10-19T00:31:10.557Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Cinco equipos lideran el inicio del torneo Clausura de la Liga Balcarceña.",
-        "La fecha inicial se disputó tras varias suspensiones por precipitaciones.",
-        "Se anotaron 17 goles en total durante los distintos encuentros."
-      ],
-      "seSabe": [
-        "Atlético San Manuel, Boca Júniors, Ferroviarios, Los Patos y Ciencias Agrarias lideran el Clausura.",
-        "Se disputó la primera fecha de la fase regular con un total de 17 goles.",
-        "Ferroviarios ya había ganado el torneo Apertura."
-      ],
-      "noConfirmado": [
-        "Todavía no se informaron las posiciones detalladas de la competición ni los cruces correspondientes a la segunda fecha.",
-        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
-      ],
-      "textoRedes": "Cinco equipos lideran el torneo Clausura de la Liga Balcarceña de fútbol tras disputarse la primera fecha de la fase regular luego de varias suspensiones por mal tiempo.",
-      "etiquetas": [
-        "Fútbol",
-        "Liga Balcarceña",
-        "Torneo Clausura",
-        "Deportes"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14346-oficial-cinco-lideres-tiene-el-clausura/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló los resultados, goleadores y desarrollo de los partidos de la primera fecha del Clausura."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1j94k5u",
-          "titulo": "La Liga Balcarceña de Fútbol posterga el inicio del Clausura",
-          "fecha": "2026-10-09T13:12:01.000Z",
-          "ruta": "/nota/la-liga-balcarcena-de-futbol-posterga-el-inicio-del-clausura-1j94k5u"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "atletico-san-manuel-boca-ferroviarios-los-patos-y-agrarias-lideran-el",
-      "foto": {
-        "archivo": "fotos-notas/19ukd1p-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "pmyg33",
-      "titulo": "Amigos Unidos vence a Ferroviarios y comienza con un triunfo el Clausura",
-      "copete": "El conjunto tricolor se impuso por 3-0 como visitante en el arranque del torneo de la Liga Balcarceña. La primera fecha registró un total de 31 tantos y victorias de San Agustín, San Manuel, Los Patos, Los Pinos y Ciencias Agrarias.",
-      "cuerpo": "Amigos Unidos superó por 3-0 a Ferroviarios en condición de visitante por la jornada inaugural del torneo Clausura del fútbol femenino de primera división que organiza la Liga Balcarceña. Todos los tantos del conjunto ganador se concretaron en el complemento a través de Carolina Herrera, Milagros Giménez y Brisa Villalba.\n\nEn otros encuentros de la fecha, el bicampeón Atlético San Agustín goleó por 11-0 a Racing Club en el estadio General Balcarce con cinco anotaciones de Marianela Pietrantuonno.",
-      "guion": "Amigos Unidos vence a Ferroviarios y comienza con un triunfo el Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14345-amigos-unidos-extendio-su-racha-ganadora/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-19T00:31:10.557Z",
-      "sinFecha": true,
-      "visto": "2026-10-19T00:31:10.557Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Amigos Unidos derrotó a Ferroviarios por 3-0 en el inicio del torneo Clausura femenino.",
-        "Atlético San Agustín se impuso por 11-0 ante Racing Club en el estadio General Balcarce.",
-        "La primera fecha del certamen organizado por la Liga Balcarceña registró un total de 31 goles."
-      ],
-      "noConfirmado": [
-        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
-      ],
-      "textoRedes": "Amigos Unidos venció 3-0 a Ferroviarios en el arranque del torneo Clausura del fútbol femenino de la Liga Balcarceña. La primera fecha dejó un total de 31 goles y victorias de San Agustín, San Manuel, Los Patos, Los Pinos y Ciencias Agrarias.",
-      "etiquetas": [
-        "fútbol femenino",
-        "Amigos Unidos",
-        "Liga Balcarceña",
-        "torneo Clausura"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14345-amigos-unidos-extendio-su-racha-ganadora/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Aportó los resultados, los autores de los goles y los detalles de la primera fecha del torneo Clausura de fútbol femenino."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1vwpejn",
-          "titulo": "El Concejo declara de interés el aniversario del Club Amigos Unidos",
-          "fecha": "2026-10-10T18:30:12.000Z",
-          "ruta": "/nota/el-concejo-declara-de-interes-el-aniversario-del-club-amigos-unidos-1vwpejn"
-        },
-        {
-          "id": "6sz9pj",
-          "titulo": "Amigos Unidos gana a Los Patos y se consagra campeón del Apertura",
-          "fecha": "2026-10-08T21:31:14.736Z",
-          "ruta": "/nota/amigos-unidos-gana-a-los-patos-y-se-consagra-campeon-del-apertura-6sz9pj"
-        },
-        {
-          "id": "1ckhubg",
-          "titulo": "El Club Amigos Unidos recibe un torneo zonal de gimnasia rítmica",
-          "fecha": "2026-10-01T11:46:17.000Z",
-          "ruta": "/nota/el-club-amigos-unidos-recibe-un-torneo-zonal-de-gimnasia-ritmica-1ckhubg"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "amigos-unidos-vence-a-ferroviarios-y-comienza-con-un-triunfo-el",
-      "foto": {
-        "archivo": "fotos-notas/pmyg33-ia.jpg",
-        "credito": "Ilustración generada con IA"
       }
     },
     {
@@ -7099,10 +8253,10 @@
         "La Verdad",
         "Ámbito",
         "Minuto Uno",
-        "0223 (Mar del Plata)",
-        "La Nueva",
+        "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
-        "La Gaceta (Tucumán)"
+        "0223 (Mar del Plata)",
+        "La Nueva"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/18/el-balon-de-oro-lanzo-una-votacion-para-elegir-al-mas-grande-de-la-historia-la-inesperada-distancia-en-la-puja-entre-messi-y-cristiano/",
       "teniaImagenLaFuente": true,
@@ -7371,6 +8525,7 @@
         "Infobae",
         "0223 (Mar del Plata)",
         "LU9 Mar del Plata",
+        "Agencia DIB",
         "El Destape",
         "Olé",
         "Noticias Argentinas (NA)",
@@ -7384,7 +8539,6 @@
         "Punto Noticias",
         "El Eco de Tandil",
         "Ámbito",
-        "Agencia DIB",
         "El Diario de Tandil"
       ],
       "enlace": "https://www.0223.com.ar/nota/2026-10-19-8-35-25-se-inauguran-las-finales-de-los-juegos-bonaerenses-con-record-de-participantes",
@@ -8392,8 +9546,8 @@
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
-        "La Brújula 24",
         "Los Andes (Mendoza)",
+        "La Brújula 24",
         "La Nueva",
         "La Verdad",
         "El Día"
@@ -8991,6 +10145,7 @@
     }
   ],
   "secciones": [
+    "Fútbol",
     "Deportes",
     "Educación",
     "Cultura y agenda",
@@ -9002,8 +10157,7 @@
     "Argentina",
     "Agro",
     "Tecnología",
-    "Policiales",
-    "Fútbol"
+    "Policiales"
   ],
   "temas": [
     {
@@ -9021,7 +10175,7 @@
     "ahora": {
       "temp": 6,
       "sensacion": 3,
-      "humedad": 87,
+      "humedad": 91,
       "viento": 13,
       "rumbo": "NE",
       "cielo": "Mayormente despejado",
@@ -9035,42 +10189,42 @@
         "min": 6,
         "lluvia": 2,
         "codigo": 3,
-        "viento": 17,
+        "viento": 16,
         "milimetros": 0,
         "cielo": "Nublado"
       },
       {
         "fecha": "2026-10-20",
         "dia": "mar",
-        "max": 16,
-        "min": 4,
+        "max": 17,
+        "min": 5,
         "lluvia": 0,
         "codigo": 3,
-        "viento": 20,
+        "viento": 19,
         "milimetros": 0,
         "cielo": "Nublado"
       },
       {
         "fecha": "2026-10-21",
         "dia": "mié",
-        "max": 16,
+        "max": 17,
         "min": 8,
         "lluvia": 52,
-        "codigo": 53,
+        "codigo": 55,
         "viento": 22,
-        "milimetros": 2,
-        "cielo": "Llovizna"
+        "milimetros": 1,
+        "cielo": "Llovizna intensa"
       },
       {
         "fecha": "2026-10-22",
         "dia": "jue",
         "max": 19,
-        "min": 9,
+        "min": 10,
         "lluvia": 37,
-        "codigo": 53,
-        "viento": 20,
+        "codigo": 55,
+        "viento": 19,
         "milimetros": 2,
-        "cielo": "Llovizna"
+        "cielo": "Llovizna intensa"
       }
     ],
     "fuente": "Open-Meteo"
@@ -9370,6 +10524,12 @@
       "motivo": "necesita ojo humano: \"adolescente\""
     },
     {
+      "id": "1v8g1v5",
+      "titulo": null,
+      "seccion": "Policiales",
+      "motivo": "necesita ojo humano: \"herido\", en lo que escribió la IA (título, bajada o texto para redes) (visto al reescribir)"
+    },
+    {
       "id": "jvgvwn",
       "titulo": "Matadero municipal: buscan reducir el alquiler y vuelve a…",
       "seccion": "Balcarce",
@@ -9386,12 +10546,6 @@
       "titulo": null,
       "seccion": "Deportes",
       "motivo": "necesita ojo humano: \"adolescente\""
-    },
-    {
-      "id": "b1qb14",
-      "titulo": "Una nueva marcha en Balcarce para pedir justicia por…",
-      "seccion": "Política",
-      "motivo": "necesita ojo humano: \"murió\""
     }
   ],
   "esperandoCuerpo": 8
