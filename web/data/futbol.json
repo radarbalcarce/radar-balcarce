@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-20T03:01:18.512Z",
+ "consultado": "2026-10-20T14:07:31.525Z",
  "equipos": [
   "9739",
   "3",
@@ -1089,6 +1089,29 @@
     "torneo": "torneo-clausura"
    },
    {
+    "id": "401841638",
+    "competencia": "liga",
+    "inicio": "2026-10-23T20:00:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "9",
+     "nombre": "Gimnasia La Plata",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "10158",
+     "nombre": "Sarmiento (Junín)",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Juan Carmelo Zerillo (El Bosque)",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
     "id": "401841637",
     "competencia": "liga",
     "inicio": "2026-10-23T21:30:00.000Z",
@@ -1107,29 +1130,6 @@
     "penales": null,
     "goles": [],
     "estadio": "Estadio Víctor Antonio Legrotaglie",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
-   {
-    "id": "401841638",
-    "competencia": "liga",
-    "inicio": "2026-10-23T22:00:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
-    "local": {
-     "id": "9",
-     "nombre": "Gimnasia La Plata",
-     "goles": 0
-    },
-    "visitante": {
-     "id": "10158",
-     "nombre": "Sarmiento (Junín)",
-     "goles": 0
-    },
-    "penales": null,
-    "goles": [],
-    "estadio": "Juan Carmelo Zerillo (El Bosque)",
     "fase": null,
     "partidoDeLaSerie": null,
     "torneo": "torneo-clausura"
@@ -1369,7 +1369,7 @@
    "2026-10-20": "2026-10-20T01:02:26.638Z",
    "2026-10-21": "2026-10-20T12:02:22.698Z",
    "2026-10-22": "2026-10-20T13:04:05.075Z",
-   "2026-10-23": "2026-10-20T11:01:36.981Z",
+   "2026-10-23": "2026-10-20T14:07:31.525Z",
    "2026-10-24": "2026-10-20T13:04:05.075Z"
   },
   "copaargentina": {
@@ -1385,7 +1385,7 @@
    "2026-10-20": "2026-10-20T01:02:26.638Z",
    "2026-10-21": "2026-10-20T12:02:22.698Z",
    "2026-10-22": "2026-10-20T13:04:05.075Z",
-   "2026-10-23": "2026-10-20T11:01:36.981Z",
+   "2026-10-23": "2026-10-20T14:07:31.525Z",
    "2026-10-24": "2026-10-20T13:04:05.075Z"
   },
   "libertadores": {
@@ -1401,7 +1401,7 @@
    "2026-10-20": "2026-10-20T01:02:26.638Z",
    "2026-10-21": "2026-10-20T12:02:22.698Z",
    "2026-10-22": "2026-10-20T13:04:05.075Z",
-   "2026-10-23": "2026-10-20T11:01:36.981Z",
+   "2026-10-23": "2026-10-20T14:07:31.525Z",
    "2026-10-24": "2026-10-20T13:04:05.075Z"
   },
   "sudamericana": {
@@ -1417,7 +1417,7 @@
    "2026-10-20": "2026-10-20T01:02:26.638Z",
    "2026-10-21": "2026-10-20T12:02:22.698Z",
    "2026-10-22": "2026-10-20T13:04:05.075Z",
-   "2026-10-23": "2026-10-20T11:01:36.981Z",
+   "2026-10-23": "2026-10-20T14:07:31.525Z",
    "2026-10-24": "2026-10-20T13:04:05.075Z"
   }
  },

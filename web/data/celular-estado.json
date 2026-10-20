@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T13:37:18.523Z",
- "portada": 96,
- "archivo": 1396,
+ "generado": "2026-10-20T14:07:35.770Z",
+ "portada": 98,
+ "archivo": 1399,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-20T13:37:18.966Z",
+  "generado": "2026-10-20T14:07:36.063Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-20T10:06:35.740Z"
    },
    {
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 35,
+    "segundos": 47,
     "notas": [
      {
       "id": "p8h4md",
       "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "t5nq4s",
+      "titulo": "El Club de Pesca Balcarce recibe alevinos para repoblar La Brava",
+      "seccion": "Balcarce"
      },
      {
       "id": "15t1wen",
@@ -143,6 +148,12 @@
      "id": "p8h4md",
      "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "t5nq4s",
+     "titulo": "El Club de Pesca Balcarce recibe alevinos para repoblar La Brava",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
