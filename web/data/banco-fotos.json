@@ -26730,14 +26730,29 @@
   "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "l5zelj": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/l5zelj.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Dragon Ball Super Beerus detalla su cronología y plataformas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T04:01:49.899Z",
-  "intentos": 2,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.infobae.com/tecno/2026/10/20/en-que-parte-de-la-cronologia-de-dragon-ball-se-ubica-dragon-ball-super-beerus/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/XBZD3RAG4FBPBORGWVWGN2XBTU.png?auth=08dcf51509952defd0fee474a1d2b60f6c2f44229ceda498077688865c6a7b76&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única imagen que muestra al personaje central de la nota (Beerus) y no es una captura de pantalla con interfaz de usuario.",
+  "cuando": "2026-10-21T05:02:07.123Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Escena de animación de Dragon Ball Super donde Beerus y Goku se enfrentan con sus ataques."
+  },
+  "huella": "d7978eaca9dee67c"
  },
  "128odtv": {
   "archivo": "fotos-notas/128odtv.jpg",
@@ -26858,7 +26873,8 @@
    "corresponde": "si",
    "descripcion": "Plantel de Boca Juniors posando con el cartel de la Conmebol Sudamericana en el estadio."
   },
-  "huella": "5a869e1e5917a168"
+  "huella": "5a869e1e5917a168",
+  "ausenteDesde": "2026-10-21T05:02:26.088Z"
  },
  "wwrypi": {
   "archivo": "fotos-notas/wwrypi.jpg",
@@ -26928,6 +26944,27 @@
    "corresponde": "si",
    "descripcion": "Jugador pateando la pelota en un partido"
   },
-  "huella": "2d324232d32d251b"
+  "huella": "2d324232d32d251b",
+  "ausenteDesde": "2026-10-21T05:02:26.088Z"
+ },
+ "1p4aau9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca vence 3 a 1 a Vasco da Gama y clasifica a la final de la Sudamericana",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T05:02:07.123Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1cvwp3j": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Sudamericana",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T05:02:07.123Z",
+  "intentos": 1,
+  "fuentes": 45,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
