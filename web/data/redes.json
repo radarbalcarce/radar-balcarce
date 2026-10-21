@@ -2968,6 +2968,14 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-21/efemeride": {
+      "cuando": "2026-10-21T12:36:05.638Z",
+      "mediaId": "17952937518320819",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": []
     }
   },
   "facebookVideos": {
@@ -4995,6 +5003,15 @@
       "notaId": null,
       "notaIds": [],
       "postId": "959573450106137"
+    },
+    "2026-10-21/efemeride": {
+      "cuando": "2026-10-21T12:37:13.705Z",
+      "mediaId": "1126354280326633",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [],
+      "postId": "122114207739495512"
     }
   },
   "instagramFeed": {
@@ -7094,17 +7111,24 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1578966113558001"
-    }
-  },
-  "problemas": {
-    "2026-10-21/efemeride/instagram/reel": {
-      "pieza": "efemeride",
+    },
+    "instagram/2026-10-21/efemeride": {
+      "cuando": "2026-10-21T12:36:39.749Z",
+      "mediaId": "18132435277793263",
+      "nombre": "efemeride",
       "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-21T12:06:35.668Z"
+      "notaId": null
+    },
+    "facebook/2026-10-21/efemeride": {
+      "cuando": "2026-10-21T12:37:46.585Z",
+      "mediaId": "1123457796798246",
+      "nombre": "efemeride",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "973961768608344"
     }
   },
+  "problemas": {},
   "facebookFoto": {
     "fa17ki": {
       "intentos": 2,
