@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T15:34:04.056Z",
- "portada": 77,
+ "generado": "2026-10-21T16:08:35.590Z",
+ "portada": 76,
  "archivo": 1471,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-10-21T15:34:04.371Z",
+  "generado": "2026-10-21T16:08:35.790Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T14:36:00.829Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu reclamo",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T15:06:06.810Z"
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T14:36:00.829Z",
     "segundos": null,
     "notas": [
@@ -168,25 +168,18 @@
      "id": "13ck73f",
      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
      "cuando": "2026-10-21T13:45:29.568Z"
+    },
+    {
+     "id": "xnuphz",
+     "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
+     "cuando": "2026-10-21T15:35:36.435Z"
     }
    ],
    "cola": [
     {
-     "id": "xnuphz",
-     "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "1ibqn5f",
      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
      "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "ao9ct0",
-     "titulo": "Diputados aprueba el uso libre de fondos provinciales para intendentes",
-     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -206,16 +199,10 @@
      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
      "seccion": "Deportes",
      "marcada": false
-    },
-    {
-     "id": "1tzpx4f",
-     "titulo": "Consultoras anticipan una mejora de la actividad económica en agosto",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-21T15:15:29.568Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-21T17:05:36.435Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
