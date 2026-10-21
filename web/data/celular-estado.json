@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T19:02:50.440Z",
- "portada": 94,
- "archivo": 1484,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-21T19:32:34.321Z",
+ "portada": 95,
+ "archivo": 1486,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-21T19:02:50.774Z",
+  "generado": "2026-10-21T19:32:34.859Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,12 +116,17 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
       "id": "xnuphz",
       "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1l9wacm",
+      "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
+      "seccion": "Fútbol"
      },
      {
       "id": "rp0wts",
@@ -132,11 +137,6 @@
       "id": "13ck73f",
       "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1ibqn5f",
-      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-      "seccion": "Automovilismo"
      }
     ]
    },
@@ -147,8 +147,19 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 36,
+    "notas": [
+     {
+      "id": "1ibqn5f",
+      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1iaym6b",
+      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
+      "seccion": "Deportes"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -183,15 +194,21 @@
      "marcada": false
     },
     {
-     "id": "1l9wacm",
-     "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1fl3kia",
      "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "vksulx",
+     "titulo": "El índice general de salarios sube 2,7% en agosto",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1izdtgy",
+     "titulo": "U2 agota la preventa en dos horas y vende localidades en Buenos Aires",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],

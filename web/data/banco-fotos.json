@@ -27515,14 +27515,28 @@
   "ausenteDesde": "2026-10-21T14:11:39.586Z"
  },
  "1tzpx4f": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1tzpx4f.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Consultoras anticipan una mejora de la actividad económica en agosto",
-  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
-  "cuando": "2026-10-21T13:34:52.703Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.infobae.com/economia/2026/10/21/la-actividad-economica-crecio-menos-de-lo-esperado-en-agosto-tras-la-fuerte-caida-de-julio/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/K22AU4FHF5F7VKCP2J3SJ7QRJ4.jpg?auth=61c47da3c5a7ba71a03994884d8cab03be60e56eeb28921a2b9226ca885a129f&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la foto más adecuada, limpia y sin marcas de agua para ilustrar la actividad económica industrial.",
+  "cuando": "2026-10-21T19:32:03.991Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Línea de montaje de automóviles en una fábrica"
+  },
+  "huella": "1811326a4a181303"
  },
  "qzd8f1": {
   "archivo": "fotos-notas/qzd8f1.jpg",
@@ -28421,7 +28435,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando y gesticulando con la mano en un evento"
   },
-  "huella": "08181416161424c4"
+  "huella": "08181416161424c4",
+  "ausenteDesde": "2026-10-21T19:32:34.300Z"
  },
  "1ob6e1p": {
   "archivo": "fotos-notas/1ob6e1p.jpg",
@@ -28521,5 +28536,101 @@
   "cuando": "2026-10-21T19:02:03.639Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "vksulx": {
+  "archivo": "fotos-notas/vksulx.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El índice general de salarios sube 2,7% en agosto",
+  "enlace": "https://www.infobae.com/economia/2026/10/21/los-salarios-registrados-subieron-26-en-agosto-y-le-ganaron-a-la-inflacion-por-tercer-mes-consecutivo/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/Z5MQIIPY3RGELG4KCSBUTZWUVI.JPG?auth=1f10a898865866a0e851b44f656331bdedef68caff9cd66eac5c7b74a812ea74&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la mejor foto disponible que ilustra el tema de salarios y dinero, sin marcas de agua ni problemas.",
+  "cuando": "2026-10-21T19:32:03.991Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona contando billetes de pesos argentinos en un comercio"
+  },
+  "huella": "7c3e7e0e27132367"
+ },
+ "xskrhw": {
+  "archivo": "fotos-notas/xskrhw.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La actividad económica cae 1,7 por ciento interanual en agosto",
+  "enlace": "https://www.c5n.com/economia/indec-actividad-economica-informe-21-octubre-2026",
+  "imagenOriginal": "https://media.c5n.com/p/f2950962b3bed9cfa0fa34da5d0f62d6/adjuntos/326/imagenes/000/365/0000365479/1200x675/smart/actividad-economica.jpg",
+  "razon": "Es la única foto válida que ilustra una planta industrial sin marcas de agua de medios.",
+  "cuando": "2026-10-21T19:32:03.991Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de una planta industrial o fábrica con maquinaria."
+  },
+  "huella": "f3505c1676a44e1e"
+ },
+ "rwp4sv": {
+  "archivo": "fotos-notas/rwp4sv.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Talleres sanciona económicamente al mediocampista Matías Galarza",
+  "enlace": "https://bolavip.com/ar/futbolargentino/talleres-sancionara-a-matias-galarza-por-sus-dichos-tras-la-derrota-con-boca",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/21151614/Talleres-Galarza-1200x740.webp",
+  "razon": "La foto C muestra al jugador en pleno partido sin marcas de medios ni elementos gráficos sobreimpresos.",
+  "cuando": "2026-10-21T19:32:03.991Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Matías Galarza corriendo en el campo de juego durante un partido"
+  },
+  "huella": "2c2e1d8e0e0a0b4c"
+ },
+ "1td5lgn": {
+  "archivo": "fotos-notas/1td5lgn.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lionel Scaloni extiende su contrato con la selección argentina",
+  "enlace": "https://www.lagaceta.com.ar/nota/1158999/deportes/lionel-scaloni-renovaria-seleccion-argentina-hasta-2030-cuando-se-anunciaria-acuerdo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/21/un-nuevo-ciclo-todo-indica-lionel-scaloni-continuara-al-mando-direccion-tecnica-seleccion-1158999-152456.jpg",
+  "razon": "Es la única foto limpia sin marcas de agua de medios superpuestas y muestra claramente al protagonista de la nota.",
+  "cuando": "2026-10-21T19:32:03.991Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Scaloni con campera de la selección argentina"
+  },
+  "huella": "d4cce4e373393531"
  }
 }

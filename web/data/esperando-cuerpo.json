@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-21T19:02:50.440Z",
+ "generado": "2026-10-21T19:32:34.321Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -28,11 +28,16 @@
      "medio": "Infórmese Primero (FM 104.9)",
      "enlace": "http://www.informeseprimero.com.ar/2026/10/75-familias-de-balcarce-dieron-un-paso.html",
      "fecha": "2026-10-21T14:37:57.216Z"
+    },
+    {
+     "medio": "QZ Noticias (Mar del Plata)",
+     "enlace": "https://www.qznoticias.com/la-region/balcarce-75-familias-firmaron-escrituras-para-avanzar-en-la-regularizacion-de-sus-viviendas",
+     "fecha": "2026-10-21T19:08:24.000Z"
     }
    ],
-   "intentos": 3,
-   "motivo": "título o bajada: 6 problemas (numero): el titulo dice 70 y la fuente no lo dice",
-   "maximo": 3
+   "intentos": 4,
+   "motivo": "título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice",
+   "maximo": 4
   },
   {
    "id": "1h7qdw1",
@@ -47,14 +52,14 @@
      "fecha": "2026-10-21T12:28:14.000Z"
     },
     {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-atribuyo-la-suba-del-riesgo-pais-a-la-volatilidad-internacional-y-apunto-contra-la-oposicion-vivimos-en-un-mundo-convulsionado/",
-     "fecha": "2026-10-21T14:02:24.000Z"
-    },
-    {
      "medio": "elDiarioAR",
      "enlace": "https://www.eldiarioar.com/politica/milei-culpo-suba-riesgo-pais-contexto-internacional-peste-peor-orcos_1_13603911.html",
      "fecha": "2026-10-21T13:59:07.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-atribuyo-la-suba-del-riesgo-pais-a-la-volatilidad-internacional-y-apunto-contra-la-oposicion-vivimos-en-un-mundo-convulsionado/",
+     "fecha": "2026-10-21T14:02:24.000Z"
     }
    ],
    "intentos": 1,
@@ -118,6 +123,28 @@
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1mh42nf",
+   "titulo": "La Especialización en Infancias y Juventudes de la UNICEN celebra sus 20 años",
+   "copete": "La actividad, que se desarrollará de 14 a 20 horas en el Aula Magna de la UNICEN, incluirá paneles, una reseña histórica de la carrera y un espacio de reflexión sobre las experiencias, los conocimientos y los desafíos que atraviesan este campo de estudio. Patricia Redondo…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-21T12:50:18.000Z",
+   "fuentes": [
+    {
+     "medio": "UNICEN",
+     "enlace": "https://unicen.edu.ar/noticias/la-especializacion-en-infancias-y-juventudes-de-la-unicen-celebra-sus-20-anos/",
+     "fecha": "2026-10-21T12:50:18.000Z"
+    },
+    {
+     "medio": "El Diario de Tandil",
+     "enlace": "https://www.eldiariodetandil.com/nota-jornada-academica-sobre-especializacion-en-infancias-y-juventudes-105161",
+     "fecha": "2026-10-21T16:10:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"unicen\", \"especializacion\", \"infancias\" y el cuerpo no los explica; sin esas oraciones quedan 122 palabras",
    "maximo": 3
   },
   {
