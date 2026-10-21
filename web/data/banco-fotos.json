@@ -23067,7 +23067,8 @@
    "corresponde": "si",
    "descripcion": "Entrada principal de la Estación Experimental Agropecuaria Balcarce del INTA"
   },
-  "huella": "cf390e4a1a1be0e3"
+  "huella": "cf390e4a1a1be0e3",
+  "ausenteDesde": "2026-10-21T07:01:46.017Z"
  },
  "dn35sg": {
   "archivo": "fotos-notas/dn35sg.jpg",
@@ -23293,7 +23294,8 @@
    "corresponde": "si",
    "descripcion": "Funcionario hablando en el atril de la Casa Rosada con la bandera argentina al lado."
   },
-  "huella": "9927075973737171"
+  "huella": "9927075973737171",
+  "ausenteDesde": "2026-10-21T07:01:46.017Z"
  },
  "ng6aux": {
   "archivo": "fotos-notas/ng6aux.jpg",
@@ -24766,7 +24768,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con un micrófono."
   },
-  "huella": "18353d3d246e675b"
+  "huella": "18353d3d246e675b",
+  "ausenteDesde": "2026-10-21T07:01:46.017Z"
  },
  "auvo5p": {
   "archivo": "fotos-notas/auvo5p.jpg",
@@ -25632,7 +25635,8 @@
    "corresponde": "si",
    "descripcion": "Molinetes de estación de subte con cartel de Línea interrumpida"
   },
-  "huella": "559d8f979d8f8d15"
+  "huella": "559d8f979d8f8d15",
+  "ausenteDesde": "2026-10-21T07:01:46.017Z"
  },
  "1xl3aai": {
   "archivo": "fotos-notas/1xl3aai.jpg",
@@ -26364,8 +26368,7 @@
    "corresponde": "generica",
    "descripcion": "Retrato de medio cuerpo de Fabián Gianola con saco gris y camisa blanca en una oficina."
   },
-  "huella": "0d0d4d4c5c962f0e",
-  "ausenteDesde": "2026-10-21T03:01:52.952Z"
+  "huella": "0d0d4d4c5c962f0e"
  },
  "lzubjc": {
   "archivo": "fotos-notas/lzubjc.jpg",
@@ -26913,14 +26916,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1skwrev": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1skwrev.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca vence a Vasco da Gama y pasa a la final de la Copa Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T05:31:33.792Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/20/hicimos-un-partido-perfecto-la-emocion-de-leandro-paredes-tras-la-clasificacion-de-boca-en-brasil/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-64468d2918aa1792550683097-1792552581.jpg?auth=043a3b14fdaf5c081d466ecc046a6dacd2785598437fcb044a1439dfdc20c701&width=1023",
+  "razon": "Es la única foto válida que corresponde al evento de la nota, tiene excelente nitidez y encuadre de un jugador sin marcas añadidas.",
+  "cuando": "2026-10-21T07:01:28.309Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de fútbol celebrando con camiseta blanca y azul en la cancha"
+  },
+  "huella": "544a1f85cec74fc5"
  },
  "14b2cpb": {
   "archivo": "fotos-notas/14b2cpb.jpg",
@@ -26994,13 +27011,27 @@
   "ausenteDesde": "2026-10-21T06:31:16.163Z"
  },
  "of27l3": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/of27l3.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Estados Unidos anuncia inversiones y financiamiento por USD 20.000 millones",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T05:31:33.792Z",
-  "intentos": 1,
-  "fuentes": 12,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://radiomitre.cienradios.com/economia/peter-lamelas-ratifico-su-apoyo-al-gobierno-y-anticipo-inversiones-de-us20000-millones/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/O4DAEEJ5EJEIDJBN4P2ZCX6O5U.jpg?smart=true&auth=31cd704d519248ee32ee37dba1c1e0cde0c7ebe79cc52ea057d8fb0027fd5eb0&width=1200&height=630",
+  "razon": "Tiene mejor encuadre y nitidez de primer plano sin marcas ni menores.",
+  "cuando": "2026-10-21T07:01:28.309Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un funcionario hablando en un atril"
+  },
+  "huella": "39282c307032bce4"
  }
 }
