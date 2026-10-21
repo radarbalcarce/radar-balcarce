@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T20:33:25.311Z",
- "portada": 101,
- "archivo": 1493,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-21T21:03:02.133Z",
+ "portada": 106,
+ "archivo": 1498,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-21T20:33:25.866Z",
+  "generado": "2026-10-21T21:03:02.366Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -147,8 +147,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 35,
+    "segundos": 47,
     "notas": [
+     {
+      "id": "78ya7o",
+      "titulo": "Pinilla pide debatir la vuelta de la Estudiantina tras la suspensión",
+      "seccion": "Balcarce"
+     },
      {
       "id": "vh0vf9",
       "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
@@ -158,6 +163,11 @@
       "id": "1iaym6b",
       "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "13b5zj",
+      "titulo": "La Liga Balcarceña programa la segunda fecha del torneo Clausura",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -187,6 +197,12 @@
    ],
    "cola": [
     {
+     "id": "78ya7o",
+     "titulo": "Pinilla pide debatir la vuelta de la Estudiantina tras la suspensión",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "vh0vf9",
      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
      "seccion": "Salud",
@@ -205,6 +221,12 @@
      "marcada": false
     },
     {
+     "id": "1td5lgn",
+     "titulo": "Lionel Scaloni extiende su contrato con la selección argentina",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "vksulx",
      "titulo": "El índice general de salarios sube 2,7% en agosto",
      "seccion": "Economía",
@@ -214,12 +236,6 @@
      "id": "1fl3kia",
      "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "7cmu7y",
-     "titulo": "La actividad económica crece 0,1% en agosto y acumula una baja interanual de 1,7%",
-     "seccion": "Economía",
      "marcada": false
     },
     {
