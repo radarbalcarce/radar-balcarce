@@ -28666,8 +28666,8 @@
   "origen": "ninguna",
   "titulo": "La UNICEN celebra 20 años de su posgrado en infancias y juventudes",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-21T20:04:08.514Z",
-  "intentos": 1,
+  "cuando": "2026-10-21T21:31:56.733Z",
+  "intentos": 2,
   "fuentes": 2
  },
  "qxugj": {
@@ -28826,7 +28826,8 @@
    "corresponde": "si",
    "descripcion": "Operario trabajando en una planta industrial"
   },
-  "huella": "2aa9d87818685c39"
+  "huella": "2aa9d87818685c39",
+  "ausenteDesde": "2026-10-21T21:32:35.236Z"
  },
  "l7gioe": {
   "archivo": "fotos-notas/l7gioe.jpg",
@@ -29025,7 +29026,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Vasco da Gama en primer plano"
   },
-  "huella": "08080c0c1e171707"
+  "huella": "08080c0c1e171707",
+  "ausenteDesde": "2026-10-21T21:32:35.236Z"
  },
  "d7r9de": {
   "archivo": "fotos-notas/d7r9de.jpg",
@@ -29099,5 +29101,77 @@
    "descripcion": "Leopoldo Luque en primer plano con traje y corbata"
   },
   "huella": "f0e9c8e4e4f6654f"
+ },
+ "2mceuj": {
+  "archivo": "fotos-notas/2mceuj.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Sergio Massa dialoga con rectores sobre la crisis del financiamiento universitario",
+  "enlace": "https://www.latecla.info/170570-massa-se-reunio-con-rectores-para-analizar-la-crisis-del-sistema-universitario",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/216975_3.jpg",
+  "razon": "Es la mejor foto que corresponde a la nota, muestra claramente a Sergio Massa reunido en una mesa de trabajo sin marcas superpuestas ni menores.",
+  "cuando": "2026-10-21T21:31:56.733Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Sergio Massa y otros referentes en la reunión sentados a la mesa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Sergio Massa y otros funcionarios sentados en una mesa de reuniones con banderas al fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0783935555743f53"
+ },
+ "c4g6so": {
+  "archivo": "fotos-notas/c4g6so.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cliente choca con un auto eléctrico y rompe la vidriera de una concesionaria porteña",
+  "enlace": "https://www.losandes.com.ar/sociedad/fue-probar-un-auto-electrico-una-concesionaria-perdio-el-control-y-termino-la-vereda-n6011141",
+  "imagenOriginal": "https://media.losandes.com.ar/p/ab7cbbee847d39ace800e4839fa7fe15/adjuntos/368/imagenes/100/759/0100759036/1200x675/smart/fue-probar-un-auto-electrico-una-concesionaria-perdio-el-control-y-termino-la-vereda.jpg",
+  "razon": "Es la única opción disponible y muestra el hecho descrito (auto blanco y vidriera rota), aunque la calidad es baja por ser una captura de cámara de seguridad.",
+  "cuando": "2026-10-21T21:31:56.733Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista de cámara de seguridad de un auto blanco estacionado frente a una vidriera rota con escombros en el piso.",
+   "detalle": "No se observan marcas de medios ni menores de edad."
+  },
+  "huella": "3b395b7b99a94dcd"
+ },
+ "1cn3042": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Diputados aprueba la Ley de Inviolabilidad de la Propiedad Privada",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T21:31:56.733Z",
+  "intentos": 1,
+  "fuentes": 22,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
