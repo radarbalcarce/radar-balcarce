@@ -26980,7 +26980,8 @@
    "corresponde": "si",
    "descripcion": "Jugador pateando la pelota en un partido"
   },
-  "huella": "2d324232d32d251b"
+  "huella": "2d324232d32d251b",
+  "ausenteDesde": "2026-10-21T09:31:28.520Z"
  },
  "1p4aau9": {
   "intentado": true,
@@ -26993,14 +26994,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1cvwp3j": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T05:02:07.123Z",
-  "intentos": 1,
-  "fuentes": 45,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/1cvwp3j.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca derrota a Vasco da Gama en Brasil y avanza a la final",
+  "enlace": "https://www.tycsports.com/boca-juniors/de-suplente-en-la-ida-a-goleador-en-la-vuelta-asi-fue-el-2-0-de-merentiel-para-boca-ante-vasco-da-gama-id767467.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/20/997920/el-festejo-de-miguel-merentiel-tras-el-2-0_1440x810.webp",
+  "razon": "Es la única foto de buena calidad que corresponde al hecho, sin marcas de agua añadidas, sin menores reconocibles y sin elementos gráficos o de estudio.",
+  "cuando": "2026-10-21T09:31:17.298Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca celebrando con la camiseta"
+  },
+  "huella": "290d2c4507574dc5"
  },
  "16n77p9": {
   "archivo": "fotos-notas/16n77p9.jpg",
