@@ -26916,9 +26916,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca vence a Vasco da Gama y pasa a la final de la Copa Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T04:31:16.270Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T05:31:33.792Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -26965,6 +26965,41 @@
   "cuando": "2026-10-21T05:02:07.123Z",
   "intentos": 1,
   "fuentes": 45,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "16n77p9": {
+  "archivo": "fotos-notas/16n77p9.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca vence 3 a 1 a Vasco da Gama y clasifica a la final de la Sudamericana",
+  "enlace": "https://www.ole.com.ar/futbol-internacional/sudamericana/boca-vasco-da-gama-videos-sudamericana_0_BkMorCwvBp.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/21/iHxDLZJNW_2000x1500__1.jpg",
+  "razon": "Es la única imagen completa y nítida que muestra la celebración del equipo, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-21T05:31:33.792Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca Juniors celebrando un gol en el estadio."
+  },
+  "huella": "ca9385e3d98a92d5"
+ },
+ "of27l3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estados Unidos anuncia inversiones y financiamiento por USD 20.000 millones",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T05:31:33.792Z",
+  "intentos": 1,
+  "fuentes": 12,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
