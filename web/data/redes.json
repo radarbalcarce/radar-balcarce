@@ -994,6 +994,17 @@
       "temas": [],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/1ibqn5f.jpg"
+    },
+    "rp0wts": {
+      "cuando": "2026-10-21T19:35:29.810Z",
+      "postId": "1254237411116171_122114347695495512",
+      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+      "enlace": "https://radarbalcarce.com/nota/ferroviarios-40-finaliza-octavo-en-la-liga-mar-y-sierras-de-basquetbol-rp0wts",
+      "temas": [
+        "ferroviarios"
+      ],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/qzd8f1.jpg"
     }
   },
   "instagram": {
@@ -3023,6 +3034,20 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-21/noticia2": {
+      "cuando": "2026-10-21T19:36:26.646Z",
+      "mediaId": "18630936799023218",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "xnuphz",
+      "notaIds": [
+        "xnuphz",
+        "rp0wts",
+        "13ck73f",
+        "1ibqn5f"
+      ],
+      "permalink": "https://www.instagram.com/reel/DexLDhNEk_h/"
     }
   },
   "facebookVideos": {
@@ -5081,6 +5106,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122114247207495512"
+    },
+    "2026-10-21/noticia2": {
+      "cuando": "2026-10-21T19:38:10.844Z",
+      "mediaId": "1462498609166185",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "xnuphz",
+      "notaIds": [
+        "xnuphz",
+        "rp0wts",
+        "13ck73f",
+        "1ibqn5f"
+      ],
+      "postId": "122114348481495512",
+      "permalink": "https://www.facebook.com/reel/1462498609166185/"
     }
   },
   "instagramFeed": {
@@ -5805,6 +5845,12 @@
       "mediaId": "18120635329987607",
       "titulo": "Destacada labor de pilotos locales en el Karting Regional",
       "enlace": "https://radarbalcarce.com/nota/destacada-labor-de-pilotos-locales-en-el-karting-regional-1ibqn5f"
+    },
+    "rp0wts": {
+      "cuando": "2026-10-21T19:35:41.278Z",
+      "mediaId": "18040118495836476",
+      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+      "enlace": "https://radarbalcarce.com/nota/ferroviarios-40-finaliza-octavo-en-la-liga-mar-y-sierras-de-basquetbol-rp0wts"
     }
   },
   "historiasDeReels": {
@@ -7243,17 +7289,24 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1473018108225635"
-    }
-  },
-  "problemas": {
-    "2026-10-21/noticia2/instagram/reel": {
-      "pieza": "noticia2",
+    },
+    "instagram/2026-10-21/noticia2": {
+      "cuando": "2026-10-21T19:37:37.928Z",
+      "mediaId": "18109874561207009",
+      "nombre": "noticia2",
       "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-21T19:05:28.500Z"
+      "notaId": "xnuphz"
+    },
+    "facebook/2026-10-21/noticia2": {
+      "cuando": "2026-10-21T19:38:41.767Z",
+      "mediaId": "2482690049163094",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "xnuphz",
+      "postId": "2680454519035849"
     }
   },
+  "problemas": {},
   "facebookFoto": {
     "fa17ki": {
       "intentos": 2,
