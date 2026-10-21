@@ -20414,7 +20414,8 @@
    "corresponde": "si",
    "descripcion": "José Luis Pérez sentado en una mesa con un micrófono frente a él"
   },
-  "huella": "c1c5c6eeeaef4573"
+  "huella": "c1c5c6eeeaef4573",
+  "ausenteDesde": "2026-10-21T18:03:58.736Z"
  },
  "grudo8": {
   "archivo": "fotos-notas/grudo8.jpg",
@@ -28183,13 +28184,40 @@
   "huella": "932b2b032b130f06"
  },
  "mfg1d9": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/mfg1d9.jpg",
+  "medio": "Canal 26",
+  "credito": "Foto: Canal 26",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Plata conserva el único ejemplar vivo del Árbol de Cristal",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
-  "cuando": "2026-10-21T17:02:40.101Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.canal26.com/planeta/2026/10/20/a-mediados-del-siglo-xix-leonardo-higinio-pereyra-iraola-trajo-12-arboles-de-cristal-mas-de-165-anos-despues-solo-sobrevive-un-ejemplar-en-una-reserva-natural-de-la-plata/",
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/AYSUF3BNDVFVXHYDXA5NBUGXCA.webp?auth=670fa2d147c47b794a9c73d9fe870aa37bcc16b974e5462b3e3ee970b1ba8077&height=630&width=1200&quality=70&smart=true",
+  "razon": "Ambas fotos son muy similares y correctas, pero se elige la A por tener una leve mejor calidad de imagen en la toma.",
+  "cuando": "2026-10-21T18:03:05.076Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista en contrapicado del tronco y copa del Árbol de Cristal en La Plata.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista desde abajo del tronco y las ramas de un gran árbol con follaje denso contra el cielo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ca94c6cc8ec6c78b"
  },
  "pyhtxb": {
   "archivo": "fotos-notas/pyhtxb.jpg",
@@ -28286,5 +28314,14 @@
    "descripcion": "Javier Milei rodeado de micrófonos y periodistas en Madrid."
   },
   "huella": "0bc34b5f57551d2d"
+ },
+ "199oqf8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Javier Milei conversa con Santiago Abascal en su visita a Madrid",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de C5N (no corresponde a la nota); la de Minuto Uno (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-10-21T18:03:05.076Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }

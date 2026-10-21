@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T17:32:06.262Z",
- "portada": 90,
+ "generado": "2026-10-21T18:03:58.758Z",
+ "portada": 89,
  "archivo": 1480,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-21T17:32:06.788Z",
+  "generado": "2026-10-21T18:03:59.316Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -114,7 +114,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 54,
     "notas": [
@@ -124,9 +124,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1ibqn5f",
-      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-      "seccion": "Automovilismo"
+      "id": "rp0wts",
+      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+      "seccion": "Deportes"
      },
      {
       "id": "13ck73f",
@@ -134,9 +134,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "m58zlj",
-      "titulo": "Diputados convierte en ley la regulación de celulares en las escuelas secundarias",
-      "seccion": "Educación"
+      "id": "1ibqn5f",
+      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -147,17 +147,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 37,
+    "segundos": 35,
     "notas": [
-     {
-      "id": "rp0wts",
-      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
-      "seccion": "Deportes"
-     },
      {
       "id": "1iaym6b",
       "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "m58zlj",
+      "titulo": "Diputados convierte en ley la regulación de celulares en las escuelas secundarias",
+      "seccion": "Educación"
      }
     ]
    }
@@ -173,13 +173,30 @@
      "id": "xnuphz",
      "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
      "cuando": "2026-10-21T15:35:36.435Z"
+    },
+    {
+     "id": "1ibqn5f",
+     "titulo": "Destacada labor de pilotos locales en el Karting Regional",
+     "cuando": "2026-10-21T17:35:31.969Z"
     }
    ],
    "cola": [
     {
-     "id": "1ibqn5f",
-     "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-     "seccion": "Automovilismo",
+     "id": "rp0wts",
+     "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1iaym6b",
+     "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1l9wacm",
+     "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -189,8 +206,8 @@
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-21T17:05:36.435Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-21T19:05:31.969Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
