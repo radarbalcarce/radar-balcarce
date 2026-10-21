@@ -27442,5 +27442,75 @@
   "cuando": "2026-10-21T13:02:55.493Z",
   "intentos": 1,
   "fuentes": 1
+ },
+ "13ck73f": {
+  "archivo": "fotos-notas/13ck73f.jpg",
+  "medio": "Municipalidad de Balcarce",
+  "credito": "Foto: Municipalidad de Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+  "enlace": "https://balcarce.gob.ar/2026/10/21/los-pinos-se-prepara-para-celebrar-su-126-aniversario/",
+  "imagenOriginal": "https://balcarce.gob.ar/wp-content/uploads/2026/10/images-5.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y muestra el lugar de la celebración sin personas ni marcas.",
+  "cuando": "2026-10-21T13:34:52.703Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Sendero arbolado en una plaza o parque de Los Pinos"
+  },
+  "huella": "02538b932babaca4"
+ },
+ "706e8c": {
+  "archivo": "fotos-notas/706e8c.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pedro Sánchez responde a Javier Milei con un tema de Lali Espósito",
+  "enlace": "https://tn.com.ar/internacional/2026/10/21/con-una-cancion-de-lali-pedro-sanchez-contesto-las-descalificaciones-de-javier-milei-es-un-temazo-argentino/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-presidente-de-gobierno-espanol-pedro-sanchez-en-el-palacio-de-la-moncloa-en-madrid-el-6-de-octubre-del-2026-foto-ap-bernat-armanguesanchezcastejon-LGAD3PW4NNGDBLPBA3E75EGYAA.jpg?auth=332539d2629bdc21b520fe55123afe98bc1a9358c41ff5bc5629807065cf9147&width=1023",
+  "razon": "Muestra claramente a Pedro Sánchez y el teléfono con el tema musical de Lali Espósito relacionado con la nota, sin marcas ni problemas.",
+  "cuando": "2026-10-21T13:34:52.703Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pedro Sánchez al lado de un celular reproduciendo un tema de Lali en Spotify",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage con Pedro Sánchez hablando y una mano sosteniendo un celular con la canción de Lali Espósito."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "99dbcb8ecaeaa8e3"
+ },
+ "1tzpx4f": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Consultoras anticipan una mejora de la actividad económica en agosto",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-10-21T13:34:52.703Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
