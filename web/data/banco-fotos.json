@@ -24836,7 +24836,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "9aa4ec9cb4b4f034"
+  "huella": "9aa4ec9cb4b4f034",
+  "ausenteDesde": "2026-10-21T17:03:42.424Z"
  },
  "1hffzpn": {
   "archivo": "fotos-notas/1hffzpn.jpg",
@@ -24963,7 +24964,8 @@
    "corresponde": "si",
    "descripcion": "Aula escolar vacía con bancos y sillas apiladas y pizarrón."
   },
-  "huella": "c2c299dcecebcfcd"
+  "huella": "c2c299dcecebcfcd",
+  "ausenteDesde": "2026-10-21T17:03:42.424Z"
  },
  "1bf56uk": {
   "archivo": "fotos-notas/1bf56uk.jpg",
@@ -28092,5 +28094,122 @@
    "descripcion": "Vista aérea cercana del reactor y las instalaciones de la planta nuclear."
   },
   "huella": "f998b2b27ada51b3"
+ },
+ "184lnn2": {
+  "archivo": "fotos-notas/184lnn2.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Soledad Silveyra recuerda a Luis Brandoni a medio año de su fallecimiento",
+  "enlace": "https://radiomitre.cienradios.com/espectaculos/el-homenaje-de-soledad-silveyra-a-luis-brandoni-a-6-meses-de-su-muerte-como-nos-divertimos/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/OHEP24VYFNAFFMR4LH3GZZNMBE.png?smart=true&auth=027ceefe790b0ea91026f02e793164c42bc0ed8df46c11ed788884355f531cc4&width=1200&height=630",
+  "razon": "Muestra claramente a Soledad Silveyra y Luis Brandoni juntos, con buena calidad y sin marcas de agua ni problemas.",
+  "cuando": "2026-10-21T17:02:40.101Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Soledad Silveyra y Luis Brandoni sonrientes juntos"
+  },
+  "huella": "32337333b3b32426"
+ },
+ "1izdtgy": {
+  "archivo": "fotos-notas/1izdtgy.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "U2 agota la preventa en dos horas y vende localidades en Buenos Aires",
+  "enlace": "https://www.infobae.com/teleshow/2026/10/21/furor-por-u2-agoto-la-preventa-para-sus-shows-en-river-en-solo-dos-horas-y-reunio-a-mas-de-un-millon-de-personas-en-la-fila-virtual/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/5HL3XLLCYFCLNNUEGQIOV3KXDE.jpg?auth=a2ce348cabd08ca81d1dfb6c72c310b5d7fddc6ba63d6d67925eb46c4ce3838f&smart=true&width=1200&height=630&quality=85",
+  "razon": "La foto A muestra claramente a los integrantes de la banda U2 con excelente nitidez y encuadre, sin marcas de agua ni menores.",
+  "cuando": "2026-10-21T17:02:40.101Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Los integrantes de la banda U2 posando juntos al aire libre."
+  },
+  "huella": "36d2c28c94e0eaca"
+ },
+ "wde29w": {
+  "archivo": "fotos-notas/wde29w.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tres clubes argentinos integran el top 5 mundial de formadores",
+  "enlace": "https://www.ole.com.ar/futbol-primera/river-boca-velez-mejores-clubesformadores-cies-observatorio-futbol_0_xeUQKO1P6J.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/21/uhZT9fuSk_2000x1500__1.jpg",
+  "razon": "Es la única foto válida que muestra a un jugador juvenil formado en un club argentino participando de un partido, sin marcas añadidas y con buena calidad. La segunda opinión (groq) descartó la de TyC Sports (un menor): se usa Olé.",
+  "cuando": "2026-10-21T17:02:40.101Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Montaje de tres futbolistas de distintos clubes argentinos",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Boca Juniors, Racing Club y River Plate en acción durante un partido de fútbol."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "932b2b032b130f06"
+ },
+ "mfg1d9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata conserva el único ejemplar vivo del Árbol de Cristal",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
+  "cuando": "2026-10-21T17:02:40.101Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "pyhtxb": {
+  "archivo": "fotos-notas/pyhtxb.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei atribuye al contexto internacional la suba del riesgo país",
+  "enlace": "https://www.losandes.com.ar/politica/milei-madrid-elogio-la-civilizacion-espanola-tildo-dictador-pedro-sanchez-y-justifico-la-suba-del-riesgo-pais-n6011092",
+  "imagenOriginal": "https://media.losandes.com.ar/p/f368ac0064ac040883a13fa424e2af2c/adjuntos/368/imagenes/100/758/0100758881/1200x675/smart/1.jpg",
+  "razon": "Es la mejor foto que corresponde a la nota, con buen encuadre de Javier Milei disertando y sin marcas superpuestas ni menores.",
+  "cuando": "2026-10-21T17:02:40.101Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei disertando con intérprete de lenguaje de señas en el margen inferior"
+  },
+  "huella": "13a98ba0580c0c1c"
  }
 }
