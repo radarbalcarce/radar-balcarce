@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-21T10:31:37.000Z",
+ "generado": "2026-10-21T11:02:02.146Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -25,30 +25,8 @@
      "fecha": "2026-10-21T03:04:09.037Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (nombre): el cuerpo nombra a \"gama\" y la fuente no; sin esas oraciones quedan 81 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "1sn9u9d",
-   "titulo": "El juico contra Aníbal Lotocki continúa este miércoles: declaran tres denunciantes en la causa por lesiones",
-   "copete": "",
-   "seccion": "Salud",
-   "fecha": "2026-10-21T00:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/informacion-general/el-juico-contra-anibal-lotocki-continua-este-miercoles-declaran-tres-denunciantes-la-causa-lesiones-n6336058",
-     "fecha": "2026-10-21T00:00:00.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/sociedad/continua-el-juicio-contra-lotocki--declaran-tres-denunciantes-en-la-causa-por-lesiones_a6ad7d8205072f5b4c47ca869",
-     "fecha": "2026-10-21T09:56:00.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (forma): el copete trae letras rotas (una tilde mal escrita \"êcute\"; letras que no son del castellano en \"miê",
+   "intentos": 3,
+   "motivo": "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (dias, despues, clasificacion): va con las tildes y la eñe donde co; sin esas oraciones quedan 93 ",
    "maximo": 3
   },
   {

@@ -26241,7 +26241,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "05a2a235cbcd9241"
+  "huella": "05a2a235cbcd9241",
+  "ausenteDesde": "2026-10-21T11:02:02.128Z"
  },
  "1vss7pv": {
   "archivo": "fotos-notas/1vss7pv.jpg",
@@ -26277,7 +26278,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "d0e84191b3911910"
+  "huella": "d0e84191b3911910",
+  "ausenteDesde": "2026-10-21T11:02:02.128Z"
  },
  "cg451f": {
   "archivo": "fotos-notas/cg451f.jpg",
@@ -26748,8 +26750,7 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Vasco da Gama celebran en el campo de juego mientras un jugador de Boca Juniors observa con frustración."
   },
-  "huella": "1412195545cb1c1a",
-  "ausenteDesde": "2026-10-21T03:01:52.952Z"
+  "huella": "1412195545cb1c1a"
  },
  "l5zelj": {
   "archivo": "fotos-notas/l5zelj.jpg",
@@ -27229,5 +27230,41 @@
   },
   "huella": "868e4ecede1e3e32",
   "ausenteDesde": "2026-10-21T10:31:36.979Z"
+ },
+ "ttv205": {
+  "archivo": "fotos-notas/ttv205.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La FEB rechaza la paritaria bonaerense y concreta un paro de 48 horas",
+  "enlace": "https://dib.com.ar/politica/paritaria-cerrada-aumento-garantizado-y-alumnos-clases-decision-la-feb-n56665",
+  "imagenOriginal": "https://media.dib.com.ar/p/147f212820f46637ecb299e1a071fed3/adjuntos/377/imagenes/100/059/0100059475/1200x675/smart/feb2015.jpg",
+  "razon": "Muestra un aula vacía con bancos y pizarrón, ilustrando perfectamente un paro docente sin mostrar menores ni marcas. La segunda opinión (groq) descartó la de La Tecla (parece una foto de stock): se usa Agencia DIB.",
+  "cuando": "2026-10-21T11:01:40.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Protesta callejera con banderas de la FEB",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Manifiesto de la FEB con banderas y docentes frente a un edificio oficial."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3e53735af9d03014"
  }
 }
