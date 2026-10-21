@@ -26364,7 +26364,8 @@
    "corresponde": "generica",
    "descripcion": "Retrato de medio cuerpo de Fabián Gianola con saco gris y camisa blanca en una oficina."
   },
-  "huella": "0d0d4d4c5c962f0e"
+  "huella": "0d0d4d4c5c962f0e",
+  "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "lzubjc": {
   "archivo": "fotos-notas/lzubjc.jpg",
@@ -26654,7 +26655,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Vasco da Gama celebran en el campo de juego mientras un jugador de Boca Juniors observa con frustración."
   },
-  "huella": "1412195545cb1c1a"
+  "huella": "1412195545cb1c1a",
+  "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "1lw3ufp": {
   "intentado": true,
@@ -26724,7 +26726,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Vasco da Gama celebran en el campo de juego mientras un jugador de Boca Juniors observa con frustración."
   },
-  "huella": "1412195545cb1c1a"
+  "huella": "1412195545cb1c1a",
+  "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "l5zelj": {
   "intentado": true,
@@ -26759,7 +26762,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Boca Juniors celebrando con el puño en alto durante un partido."
   },
-  "huella": "290d2c4507574dc5"
+  "huella": "290d2c4507574dc5",
+  "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "k8fgpo": {
   "intentado": true,
@@ -26769,6 +26773,51 @@
   "cuando": "2026-10-21T02:31:59.394Z",
   "intentos": 1,
   "fuentes": 11,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6tslh4": {
+  "archivo": "fotos-notas/6tslh4.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Fernando Espinoza cruza a Javier Milei por sus dichos sobre la economía",
+  "enlace": "https://www.pagina12.com.ar/2026/10/21/fernando-espinoza-cruzo-al-presidente-por-sus-dichos-se-burla-de-lo-que-ignora/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/ODH5VB3OCVD5JIMJ4XVVYMHD2A.jpeg?smart=true&auth=f60c38ccfb395244f783e99b91449dcfeb0e882068971fbd5735656d32f12242&width=1200&height=630",
+  "razon": "Es la única opción disponible y muestra a Javier Milei en un acto público, lo cual ilustra el contexto de la nota política.",
+  "cuando": "2026-10-21T03:01:36.170Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando con un micrófono en un panel de la Federación Argentina de Municipios."
+  },
+  "huella": "0b0f2d65a49695c5"
+ },
+ "1ujinbw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Unidad en Defensa de la Abogacía gana dos bancas en el Consejo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T03:01:36.170Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "2uhl1v": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Julián Álvarez marca un gol y el Atlético de Madrid empata",
+  "razon": "La única foto disponible es una gráfica (montaje con recuadro circular) y no una fotografía de escena real, por lo que no cumple con los requisitos para ser elegida.",
+  "cuando": "2026-10-21T03:01:36.170Z",
+  "intentos": 1,
+  "fuentes": 12,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

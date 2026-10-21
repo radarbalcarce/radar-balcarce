@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T02:33:28.371Z",
- "portada": 119,
- "archivo": 1464,
+ "generado": "2026-10-21T03:01:52.972Z",
+ "portada": 117,
+ "archivo": 1463,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-21T02:33:28.819Z",
+  "generado": "2026-10-21T03:01:53.496Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-20T10:06:35.740Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-20T12:06:57.440Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-20T14:46:12.118Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-evento",
+    "nombre": "participa-reclamos",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu evento o emprendimiento",
-    "voz": "locutor",
+    "que": "Tu reclamo",
+    "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-20T15:06:01.220Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-20T18:06:38.867Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-20T22:06:37.513Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-20T23:06:50.714Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-21T00:36:19.627Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,19 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-20T14:46:12.118Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
-      "id": "p8h4md",
-      "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
-      "seccion": "Automovilismo"
+      "id": "1mnymch",
+      "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
+      "seccion": "Balcarce"
      },
      {
-      "id": "15t1wen",
-      "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
-      "seccion": "Cultura y agenda"
+      "id": "1xl3aai",
+      "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "wkrtm8",
+      "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "lap6cm",
+      "titulo": "El Club de Pesca recibe miles de alevinos y huevas para Laguna Brava",
+      "seccion": "Balcarce"
      }
     ]
    },
@@ -114,82 +124,24 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-20T18:06:38.867Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1bv0n51",
-      "titulo": "Balcarce inicia su participación en las finales de los Juegos Bonaerenses",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "phvgrd",
-      "titulo": "El Taller Protegido busca vender unas 1.600 bolsas tras un cambio de cliente",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-21T00:36:19.627Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1s4d8ch",
-      "titulo": "Virginia Aparicio se reúne con diputados provinciales",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1vss7pv",
-      "titulo": "La Escuela Tecnica convoca a una jornada de reflexión por la violencia en la Estudiantina",
-      "seccion": "Educación"
-     },
-     {
-      "id": "gr781c",
-      "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1c9sm1f",
-      "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
-      "seccion": "Fútbol"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "1f8niph",
-     "titulo": "El Gobierno autoriza una licitación para obras en la Base Naval de Ushuaia",
-     "cuando": "2026-10-20T12:35:30.186Z"
-    },
-    {
-     "id": "p8h4md",
-     "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
-     "cuando": "2026-10-20T14:35:42.954Z"
-    },
-    {
-     "id": "15t1wen",
-     "titulo": "El Museo Histórico Municipal organiza una charla sobre paleontología",
-     "cuando": "2026-10-20T16:35:34.599Z"
-    },
-    {
-     "id": "1bv0n51",
-     "titulo": "Balcarce inicia su participación en las finales de los Juegos Bonaerenses",
-     "cuando": "2026-10-20T18:35:33.487Z"
-    },
-    {
-     "id": "1mnymch",
-     "titulo": "Instalan televisores en las habitaciones del Hospital Municipal",
-     "cuando": "2026-10-20T20:35:27.371Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "1s4d8ch",
@@ -202,21 +154,9 @@
      "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
      "seccion": "Balcarce",
      "marcada": false
-    },
-    {
-     "id": "1xl3aai",
-     "titulo": "Carlos Tevez fija fecha para su partido de despedida en la Bombonera",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1s9dj48",
-     "titulo": "Fabián Gianola sufre un accidente vial y será operado",
-     "seccion": "Cultura y agenda",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-20T22:05:27.371Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
