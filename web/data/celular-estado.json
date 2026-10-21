@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T09:31:28.540Z",
- "portada": 79,
- "archivo": 1458,
+ "generado": "2026-10-21T10:03:15.603Z",
+ "portada": 82,
+ "archivo": 1460,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-21T09:31:29.067Z",
+  "generado": "2026-10-21T10:03:16.111Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 37,
+    "segundos": 47,
     "notas": [
      {
       "id": "1mnymch",
@@ -106,6 +106,11 @@
       "id": "wkrtm8",
       "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "lj23p3",
+      "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -132,14 +137,7 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [
-    {
-     "id": "1skwrev",
-     "titulo": "Boca vence a Vasco da Gama y pasa a la final de la Copa Sudamericana",
-     "seccion": "Fútbol",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 5,
    "proximoDesde": "2026-10-20T22:05:27.371Z",
    "porDia": 5,

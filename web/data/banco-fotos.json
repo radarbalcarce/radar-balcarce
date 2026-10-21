@@ -26666,14 +26666,28 @@
   "ausenteDesde": "2026-10-21T03:01:52.952Z"
  },
  "1lw3ufp": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lw3ufp.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cardiólogo advierte que el aceite de oliva requiere consumo medido",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T04:01:49.899Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://radiomitre.cienradios.com/salud-y-bienestar/aurelio-rojas-cardiologo-que-el-aceite-de-oliva-sea-saludable-no-significa-que-haya-que-utilizarlo-sin-medida/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/G5HRBONYWZC2FN2FC3L2I2ZWWA.jpg?smart=true&auth=41266a822390de11969a086e58d2a4486aa748c0cf851e2d6d90c07c0f321d61&width=1200&height=630",
+  "razon": "La foto B muestra claramente el aceite de oliva cayendo en un bol, lo cual ilustra de manera directa el tema de la nota.",
+  "cuando": "2026-10-21T10:02:53.893Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Aceite de oliva siendo vertido en un bol de vidrio con la inserción de un médico"
+  },
+  "huella": "64f4c44c0e4c8d89"
  },
  "1li04tw": {
   "archivo": "fotos-notas/1li04tw.jpg",
@@ -27015,7 +27029,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Boca celebrando con la camiseta"
   },
-  "huella": "290d2c4507574dc5"
+  "huella": "290d2c4507574dc5",
+  "ausenteDesde": "2026-10-21T10:03:15.581Z"
  },
  "16n77p9": {
   "archivo": "fotos-notas/16n77p9.jpg",
@@ -27103,5 +27118,113 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "11292a7258cd8d8f"
+ },
+ "hkeq7j": {
+  "archivo": "fotos-notas/hkeq7j.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei inicia su gira en Madrid y califica a Pedro Sánchez de dictador",
+  "enlace": "https://tn.com.ar/politica/2026/10/21/javier-milei-expone-en-un-foro-economico-y-se-reunira-con-referentes-de-la-derecha-en-plena-campana-electoral-de-espana/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-presidente-javier-milei-en-su-presentacion-en-el-nueva-economia-forum-en-el-real-casino-gran-circulo-de-madrid-foto-reuters-alejandro-martinez-verez-WFIOK7OCQ5HC5FTIKJVCPIQDTM.jpg?auth=453fe331ba9ddc3244fb9f0d80731a71cf113a5f5911214da9ae32e9d7afe8db&width=1023",
+  "razon": "Es la única foto nítida, correspondiente al evento y completamente libre de marcas de agua o elementos descartables.",
+  "cuando": "2026-10-21T10:02:53.893Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando gesticulando en el Fórum Europa"
+  },
+  "huella": "132b0b29696d2c1d"
+ },
+ "1rg3cf2": {
+  "archivo": "fotos-notas/1rg3cf2.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Patricia Bullrich pide un acuerdo político para respaldar al Gobierno",
+  "enlace": "https://www.lanueva.com/nota/2026-10-21-6-43-0-el-pedido-de-patricia-bullrich-al-gobierno-acuerdo-politico-y-una-economia-mas-holgada-para-la-gente",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792575983030.jpg?&cw=600&ch=365",
+  "razon": "La foto C muestra claramente a Patricia Bullrich sin marcas de agua ni elementos indeseados.",
+  "cuando": "2026-10-21T10:02:53.893Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Patricia Bullrich sentada con saco rojo apoyando la mano en la cara"
+  },
+  "huella": "4d4567635359cdef"
+ },
+ "8eeslz": {
+  "archivo": "fotos-notas/8eeslz.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Liga Balcarceña difunde los partidos de la segunda fecha del torneo",
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/futbol-programacion-de-la-segunda-fecha.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxQ_JKwCoQaoFjs0WND-4fmBzWSXwbFYwxj7rNMJKYsXhY4RaqSnyGHMA0acNsihz3LBfkhU4bfExunlnaGD5qQT7FJSpT-4zNPlL7HCkn9LfY3bBzP0bQ9VBpLzdaO5GtSnBV0R2yOudSZM1CjsLsO2PkJtaN61UiFH_SMa17TWbKKkXazl3jkVu_ZTc/w640-h426/DSC_7143.jpg",
+  "razon": "Es la única foto disponible, corresponde a un partido de fútbol de la Liga Balcarceña y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-10-21T10:02:53.893Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos jugadores disputando un partido de fútbol en una cancha de césped.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol disputando el balón en una cancha de césped."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "319587251c33050f"
+ },
+ "1l27pp5": {
+  "archivo": "fotos-notas/1l27pp5.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES paga jubilaciones y asignaciones con DNI en 8",
+  "enlace": "https://www.infobae.com/economia/2026/10/21/anses-quienes-cobran-hoy-miercoles-21-de-octubre-de-2026/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/VUZSSQY7K5DFHIK67KMTTJWGEU.jpg?auth=19a732901d2338a3cee68c5b3109917ce72eb6b8b9661462257fe5eccbc92cc0&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es una foto real de una oficina de ANSES sin marcas añadidas, cumple con todos los requisitos y no es un gráfico.",
+  "cuando": "2026-10-21T10:02:53.893Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cartel institucional de ANSES en una fachada exterior con árboles"
+  },
+  "huella": "868e4ecede1e3e32"
  }
 }
