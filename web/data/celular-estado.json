@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T12:32:38.395Z",
+ "generado": "2026-10-21T13:03:41.305Z",
  "portada": 69,
- "archivo": 1459,
+ "archivo": 1456,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-21T12:32:38.884Z",
+  "generado": "2026-10-21T13:03:41.817Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-21T12:36:05.638Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,10 +93,21 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 35,
+    "notas": [
+     {
+      "id": "1bf0t54",
+      "titulo": "Impulsan un consejo participativo en el Hospital Municipal",
+      "seccion": "Salud"
+     },
+     {
+      "id": "wkrtm8",
+      "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
