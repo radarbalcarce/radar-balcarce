@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T20:04:22.879Z",
- "portada": 97,
- "archivo": 1489,
- "esperandoCuerpo": 7,
+ "generado": "2026-10-21T20:33:25.311Z",
+ "portada": 101,
+ "archivo": 1493,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-21T20:04:23.402Z",
+  "generado": "2026-10-21T20:33:25.866Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -147,8 +147,19 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 35,
+    "notas": [
+     {
+      "id": "vh0vf9",
+      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1iaym6b",
+      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
+      "seccion": "Deportes"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -176,15 +187,21 @@
    ],
    "cola": [
     {
+     "id": "vh0vf9",
+     "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
      "id": "1iaym6b",
      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "1fl3kia",
-     "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
-     "seccion": "Argentina",
+     "id": "162fnza",
+     "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -194,8 +211,14 @@
      "marcada": false
     },
     {
-     "id": "1ob6e1p",
-     "titulo": "Grupo México se aparta de la licitación del Belgrano Cargas",
+     "id": "1fl3kia",
+     "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "7cmu7y",
+     "titulo": "La actividad económica crece 0,1% en agosto y acumula una baja interanual de 1,7%",
      "seccion": "Economía",
      "marcada": false
     },
