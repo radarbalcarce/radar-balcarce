@@ -28139,7 +28139,8 @@
    "corresponde": "si",
    "descripcion": "Soledad Silveyra y Luis Brandoni sonrientes juntos"
   },
-  "huella": "32337333b3b32426"
+  "huella": "32337333b3b32426",
+  "ausenteDesde": "2026-10-21T22:02:29.568Z"
  },
  "1izdtgy": {
   "archivo": "fotos-notas/1izdtgy.jpg",
@@ -28413,8 +28414,7 @@
    "corresponde": "si",
    "descripcion": "Dos hombres en traje bajando escalinatas."
   },
-  "huella": "686aaa6a6a72d1d0",
-  "ausenteDesde": "2026-10-21T19:02:50.421Z"
+  "huella": "686aaa6a6a72d1d0"
  },
  "e2rqz6": {
   "archivo": "fotos-notas/e2rqz6.jpg",
@@ -28912,7 +28912,8 @@
    "corresponde": "si",
    "descripcion": "Legisladores en el recinto de la Cámara de Diputados"
   },
-  "huella": "a5a59dc716533722"
+  "huella": "a5a59dc716533722",
+  "ausenteDesde": "2026-10-21T22:02:29.568Z"
  },
  "yxroaa": {
   "archivo": "fotos-notas/yxroaa.jpg",
@@ -28948,7 +28949,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1430283830222223"
+  "huella": "1430283830222223",
+  "ausenteDesde": "2026-10-21T22:02:29.568Z"
  },
  "13b5zj": {
   "intentado": true,
@@ -29173,5 +29175,98 @@
   "intentos": 1,
   "fuentes": 22,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1xktpfx": {
+  "archivo": "fotos-notas/1xktpfx.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Julieta Confessore despide a su papá con una emotiva carta en redes",
+  "enlace": "https://tn.com.ar/show/famosos/2026/10/21/la-desgarradora-carta-de-la-hija-mayor-de-fernando-confessore-sigo-esperando-que-vuelvas/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/julieta-compartio-emotivas-fotos-junto-a-su-papa-fernando-confessore-foto-instagramjuliconfe-QYT675JJ2VGJ5PAKENDLMZSUMQ.jpg?auth=86b9f7d4df50b97aca8cc18f5a23d27779649ec9be02f358c9f661765b93cb37&width=1023",
+  "razon": "Muestra claramente a Julieta Confessore junto a su padre sosteniendo un trofeo, con excelente encuadre y sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-21T22:01:50.834Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Julieta Confessore y su papá sosteniendo una copa en una cancha de voley."
+  },
+  "huella": "8da9b717d5c58686"
+ },
+ "1j4jbq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Javier Milei aparece con un vendaje en el cuello durante su visita a Madrid",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:01:50.834Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tgcpwq": {
+  "archivo": "fotos-notas/1tgcpwq.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diputados aprueba la Ley de Inviolabilidad de la Propiedad Privada",
+  "enlace": "https://www.diariopopular.com.ar/politica/diputados-lla-restituyo-la-ley-tierras-que-impone-limites-los-extranjeros-n925578",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/f69840a46fea31fbb074d53a6e8d19a4/adjuntos/143/imagenes/008/260/0008260666/1200x675/smart/diputados.jpg",
+  "razon": "Es una fotografía clara y limpia del recinto de la Cámara de Diputados durante la sesión, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-21T22:01:50.834Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto de la Cámara de Diputados con legisladores en las bancas."
+  },
+  "huella": "53525246431557d4"
+ },
+ "mcnibs": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Servicio Meteorológico Nacional emite alertas por tormentas en distintas provincias",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:01:50.834Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "3qve9d": {
+  "archivo": "fotos-notas/3qve9d.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Selección Argentina define a sus cuatro debutantes para visitar a Japón",
+  "enlace": "https://www.lagaceta.com.ar/nota/1158948/deportes/billie-jean-king-cup-argentina-llevara-cuatro-debutantes-japon-suena-ascenso.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/21/la-capitana-paola-suarez-aposto-equipo-renovado-cuatro-debutantes-para-enfrentar-japon-playoffs-billie-jean-king-cup-1158948-103013.jpg",
+  "razon": "Es la única opción disponible y muestra a una jugadora de la selección argentina, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-21T22:01:50.834Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadora de la selección argentina de rugby posando con la indumentaria oficial del equipo."
+  },
+  "huella": "69a92a26240c8d87"
  }
 }

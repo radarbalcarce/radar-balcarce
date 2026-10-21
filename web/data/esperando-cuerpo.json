@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-21T21:32:35.255Z",
+ "generado": "2026-10-21T22:02:29.583Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -42,48 +42,6 @@
    ],
    "intentos": 4,
    "motivo": "título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice",
-   "maximo": 4
-  },
-  {
-   "id": "1j4jbq",
-   "titulo": "Qué le pasó a Javier Milei en el cuello: la explicación oficial",
-   "copete": "El presidente Javier Milei fue visto con una venda en su cuello durante su paso por Madrid, en su séptima visita a España, y despertó la curiosidad de los espectadores y los usuarios en redes sociales. Fue durante una conferencia de prensa con medios españoles que el mandatario…",
-   "seccion": "Política",
-   "fecha": "2026-10-21T19:29:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/politica/que-le-paso-javier-milei-el-cuello-la-explicacion-oficial-n6336452",
-     "fecha": "2026-10-21T19:29:00.000Z"
-    },
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/politica/la-explicacion-del-gobierno-sobre-por-que-milei-uso-una-venda-en-el-cuello-durante-su-viaje-a-espana-nid21102026/",
-     "fecha": "2026-10-21T21:28:38.000Z"
-    },
-    {
-     "medio": "Infobae",
-     "enlace": "https://www.infobae.com/politica/2026/10/21/el-gobierno-informo-la-razon-por-la-que-javier-milei-uso-una-venda-durante-su-viaje-a-espana/",
-     "fecha": "2026-10-21T19:31:55.000Z"
-    },
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/politica/salud-javier-milei-espana-aparecio-venda-cuello-gobierno-aducen-corto-afeitarse_0_CrRLsAAfCa.html",
-     "fecha": "2026-10-21T20:12:22.000Z"
-    },
-    {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/politica/se-conocio-el-motivo-por-el-que-javier-milei-uso-una-venda-en-el-cuello-durante-su-visita-a-espana/",
-     "fecha": "2026-10-21T20:35:01.000Z"
-    },
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/politica/por-que-milei-aparecio-espana-una-venda-el-cuello-n6336490",
-     "fecha": "2026-10-21T20:56:00.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 63 palabras",
    "maximo": 4
   },
   {
@@ -143,38 +101,6 @@
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
-   "id": "mcnibs",
-   "titulo": "Llegaron las lluvias al AMBA: chaparrones intensos en la mañana y alerta por tormentas con ocasional granizo",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-10-21T11:16:18.091Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/sociedad/el-tiempo-en-el-amba--se-anticipan-las-lluvias-y-habra-inestabilidad-durante-todo-el-fin-de-semana_a6ad89e8b632208d67fe4c4fd",
-     "fecha": "2026-10-21T11:16:18.091Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/clima/alertas/2026/10/21/hay-alerta-amarilla-por-tormentas-para-este-miercoles-21-de-octubre-en-la-pampa-las-zonas-afectadas/",
-     "fecha": "2026-10-21T12:30:42.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/clima/alertas/2026/10/21/hay-alerta-amarilla-por-tormentas-para-este-miercoles-21-de-octubre-en-rio-negro-las-zonas-afectadas/",
-     "fecha": "2026-10-21T21:00:37.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/informacion-gral/alerta-amarilla-por-tormentas-este-miercoles-21-de-octubre-se-esperan-lluvias-y-ocasional-caida-de-granizo-en-rio-negro-neuquen-y-la-pampa/",
-     "fecha": "2026-10-21T14:16:42.504Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (forma): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones quedan 53 palabras",
    "maximo": 3
   },
   {

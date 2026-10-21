@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T21:32:35.255Z",
- "portada": 105,
- "archivo": 1499,
- "esperandoCuerpo": 7,
+ "generado": "2026-10-21T22:02:29.583Z",
+ "portada": 104,
+ "archivo": 1501,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-21T21:32:35.591Z",
+  "generado": "2026-10-21T22:02:29.808Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T19:36:26.646Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -114,7 +114,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T19:36:26.646Z",
     "segundos": null,
     "notas": [
@@ -147,13 +147,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 54,
     "notas": [
-     {
-      "id": "78ya7o",
-      "titulo": "Pinilla pide debatir la vuelta de la Estudiantina tras la suspensión",
-      "seccion": "Balcarce"
-     },
      {
       "id": "vh0vf9",
       "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
@@ -163,6 +158,11 @@
       "id": "1iaym6b",
       "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1l9wacm",
+      "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
+      "seccion": "Fútbol"
      },
      {
       "id": "13b5zj",
@@ -193,15 +193,14 @@
      "id": "rp0wts",
      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
      "cuando": "2026-10-21T19:35:29.810Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "78ya7o",
      "titulo": "Pinilla pide debatir la vuelta de la Estudiantina tras la suspensión",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
+     "cuando": "2026-10-21T21:35:31.339Z"
+    }
+   ],
+   "cola": [
     {
      "id": "vh0vf9",
      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
@@ -221,12 +220,6 @@
      "marcada": false
     },
     {
-     "id": "162fnza",
-     "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "vksulx",
      "titulo": "El índice general de salarios sube 2,7% en agosto",
      "seccion": "Economía",
@@ -239,14 +232,26 @@
      "marcada": false
     },
     {
+     "id": "162fnza",
+     "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "c4g6so",
      "titulo": "Cliente choca con un auto eléctrico y rompe la vidriera de una concesionaria porteña",
      "seccion": "Argentina",
      "marcada": false
+    },
+    {
+     "id": "rwp4sv",
+     "titulo": "Talleres sanciona económicamente al mediocampista Matías Galarza",
+     "seccion": "Fútbol",
+     "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-21T21:05:29.810Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-21T23:05:31.339Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
