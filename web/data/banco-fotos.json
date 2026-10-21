@@ -26909,14 +26909,28 @@
   "ausenteDesde": "2026-10-21T04:31:26.419Z"
  },
  "1ynbotb": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Boca vence a Vasco da Gama y llega a la final de la Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T04:01:49.899Z",
-  "intentos": 1,
-  "fuentes": 14,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/1ynbotb.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Copa Sudamericana",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/20/hicimos-un-partido-perfecto-la-emocion-de-leandro-paredes-tras-la-clasificacion-de-boca-en-brasil/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-64468d2918aa1792550683097-1792552581.jpg?auth=043a3b14fdaf5c081d466ecc046a6dacd2785598437fcb044a1439dfdc20c701&width=1023",
+  "razon": "Es la única foto nítida de partido que corresponde al hecho, muestra al jugador principal claramente y cumple con todas las reglas editoriales sin marcas ni menores.",
+  "cuando": "2026-10-21T08:31:14.555Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador gesticulando en medio del partido con camiseta alternativa"
+  },
+  "huella": "544a1f85cec74fc5"
  },
  "1skwrev": {
   "archivo": "fotos-notas/1skwrev.jpg",
