@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T00:31:38.246Z",
- "portada": 123,
+ "generado": "2026-10-21T01:01:26.565Z",
+ "portada": 122,
  "archivo": 1461,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-21T00:31:38.610Z",
+  "generado": "2026-10-21T01:01:27.090Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -84,7 +84,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-21T00:36:19.627Z"
    }
   ],
   "repasos": [
@@ -136,8 +136,8 @@
     "hora": "21:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 45,
+    "salio": "2026-10-21T00:36:19.627Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1s4d8ch",
@@ -150,14 +150,14 @@
       "seccion": "Educación"
      },
      {
-      "id": "lj23p3",
-      "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
-      "seccion": "Fútbol"
-     },
-     {
       "id": "gr781c",
       "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1c9sm1f",
+      "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -198,12 +198,6 @@
      "marcada": false
     },
     {
-     "id": "wkrtm8",
-     "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "1vss7pv",
      "titulo": "La Escuela Tecnica convoca a una jornada de reflexión por la violencia en la Estudiantina",
      "seccion": "Educación",
@@ -213,6 +207,12 @@
      "id": "lj23p3",
      "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "wkrtm8",
+     "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -231,6 +231,12 @@
      "id": "lzubjc",
      "titulo": "La Justicia decreta el concurso preventivo de Teddy Karagozian",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1po3be2",
+     "titulo": "Comienzan las audiciones para Frozen, el musical en Buenos Aires",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],

@@ -25726,7 +25726,8 @@
    "corresponde": "si",
    "descripcion": "Exterior del Estadio Único de La Plata"
   },
-  "huella": "000020057efe3f07"
+  "huella": "000020057efe3f07",
+  "ausenteDesde": "2026-10-21T01:01:26.545Z"
  },
  "1s4d8ch": {
   "archivo": "fotos-notas/1s4d8ch.jpg",
@@ -26540,7 +26541,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de un hombre con barba hablando frente a un micrófono con el logo de Vasco da Gama, en un fondo de sponsors."
   },
-  "huella": "a20a8e1e0b1ccccc"
+  "huella": "a20a8e1e0b1ccccc",
+  "ausenteDesde": "2026-10-21T01:01:26.545Z"
  },
  "futbolresultadosliga20261011": {
   "archivo": "fotos-notas/libre-futbolresultadosliga20261011.jpg",
@@ -26563,5 +26565,42 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Estadio_Club_Atletico_San_Lorenzo.jpg/1280px-Estadio_Club_Atletico_San_Lorenzo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Estadio Club Atletico San Lorenzo.jpg",
   "cuando": "2026-10-21T00:31:35.827Z"
+ },
+ "1o5swxr": {
+  "archivo": "fotos-notas/1o5swxr.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alexander Medina anticipa el partido de Estudiantes ante Flamengo",
+  "enlace": "https://www.eldia.com/deportes/estudiantes-vs-flamengo-la-palabra-de-cacique-medina-en-la-previa-deportes_1792508880",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792509389609.jpeg?&cw=1200&ch=630",
+  "razon": "Es la única opción disponible, muestra al DT Alexander Medina en la conferencia de prensa con buen encuadre y nitidez, sin marcas de agua ni menores.",
+  "cuando": "2026-10-21T01:01:18.779Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Alexander Medina, DT de Estudiantes, hablando en conferencia de prensa frente a un fondo de sponsors.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Alexander Medina hablando ante un micrófono en una conferencia de prensa con sponsors de fondo"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "5372725260ecf0f4"
  }
 }
