@@ -1,8 +1,7 @@
 {
   "avisos": {
     "falla-Pruebas con otra hora": "2026-10-21T09:00:25.290Z",
-    "efemerides-por-acabarse": "2026-10-21T09:00:25.290Z",
-    "falla-Redes": "2026-10-21T12:30:30.934Z"
+    "efemerides-por-acabarse": "2026-10-21T09:00:25.290Z"
   },
   "importantes": {
     "avisadas": {
@@ -39,7 +38,7 @@
     "ultimo": "2026-10-21T12:00:25.298Z"
   },
   "redes": {
-    "hasta": "2026-10-21T10:07:03.539Z"
+    "hasta": "2026-10-21T14:37:50.115Z"
   },
   "ultimaMedicion": "2026-10-21/9",
   "ultimoResumen": "2026-10-01",
@@ -51,12 +50,6 @@
       "nivel": "media",
       "texto": "Ya es 21 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
-    },
-    {
-      "clave": "falla-Redes",
-      "nivel": "media",
-      "texto": "\"Redes\" falló en su última corrida, en el paso \"Publicar en Instagram y en la página de Facebook\" (1 seguidas; 1 de las últimas 5).",
-      "desde": "2026-10-21T12:30:30.934Z"
     },
     {
       "clave": "falla-Pruebas con otra hora",
