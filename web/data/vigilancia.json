@@ -1,7 +1,8 @@
 {
   "avisos": {
-    "falla-Pruebas con otra hora": "2026-10-20T18:00:34.736Z",
-    "efemerides-por-acabarse": "2026-10-20T18:00:34.736Z"
+    "falla-Pruebas con otra hora": "2026-10-21T00:30:24.327Z",
+    "efemerides-por-acabarse": "2026-10-21T00:30:24.327Z",
+    "falla-Redes": "2026-10-21T00:30:24.327Z"
   },
   "importantes": {
     "avisadas": {
@@ -16,6 +17,11 @@
         "temas": [
           "hospital"
         ]
+      },
+      "1jjgpwt": {
+        "cuando": "2026-10-21T00:30:24.327Z",
+        "titulo": "Policía allana una vivienda por una causa de amenazas y lesiones",
+        "temas": []
       }
     }
   },
@@ -43,6 +49,12 @@
       "nivel": "media",
       "texto": "Ya es 20 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
+    },
+    {
+      "clave": "falla-Redes",
+      "nivel": "media",
+      "texto": "\"Redes\" falló en su última corrida, en el paso \"Publicar en Instagram y en la página de Facebook\" (1 seguidas; 1 de las últimas 5).",
+      "desde": "2026-10-21T00:30:24.327Z"
     },
     {
       "clave": "falla-Pruebas con otra hora",
