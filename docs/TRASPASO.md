@@ -1,7 +1,7 @@
 # Traspaso: dónde estamos y qué sigue
 
 *Se actualiza cada vez que se cierra una tanda. Para retomar con otra sesión (por ejemplo con DeepSeek: `scripts\claude-con-openrouter.cmd`)
-leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actualización: 17/10/2026.*
+leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actualización: 21/10/2026.*
 
 ## Cómo se trabaja
 - Hablar siempre en castellano rioplatense, claro. Los dueños (Hernán y Andrés) no programan: **pedirles cada cosa una sola vez**, con el enlace y el paso.
@@ -16,6 +16,12 @@ leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actua
 - Revisión de todo el archivo por tandas desde el 22/10; OpenRouter como último respaldo de las IA (falta la clave en GitHub).
 - Mudanza a Cloudflare: el código está en `main` apagado (variable `NUBE` vacía); plan en `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.
 - Sitio: sitemap de noticias, `/hoy`, firma de IA adentro de "Fuentes", datos estructurados. Redes: hashtags fijos, lo que va a Facebook solo Balcarce o lo más contado.
+
+## EN CURSO AHORA (21/10, pedido de Hernán): hacer la mudanza a Cloudflare entera, ya
+- Hernán pidió: nada de ensayos largos ni dramatismo; la web recién arranca, se puede frenar uno o dos días; relanzamiento el mes que viene. Quiere el sitio como hoy pero en Cloudflare, con menos gasto, y el repo principal en privado al final (el de render queda público). Después se mejora módulo por módulo.
+- Estado real al 21/10 (mirado en GitHub): pasos 1 y 2 del plan hechos (código en `main`, repo `radar-balcarce-render` con su prueba verde). El paso 3 no empezó: faltan los secretos `RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` y la variable `R2_RENDER=radar-render`, y el token de Cloudflare necesita los permisos extra (R2, KV, Workers Scripts, Pages: Edit). Esas llaves las crea y pega una persona; nunca en el chat.
+- Cuando Hernán diga «listo» con las llaves: seguir `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md` desde el paso 3 hasta el 9 sin pausas largas (un ensayo corto de cada paso, el que el plan ya trae), después repo principal a privado (con tope de gasto de Actions en US$ 0) — Hernán ya pidió esto explícitamente.
+- Ojo cupo: el 21/10 el cupo semanal de Claude llegó al 100% (se renueva jueves 22/10 ~9:00). Se prendió DeepSeek (`scripts\usar-deepseek.cmd`) para las sesiones nuevas. Con DeepSeek no hay Remote Control del celular.
 
 ## En curso (si se corta, retomar de acá)
 1. **Animaciones del repaso, guiones con continuidad y voces nuevas: terminado y subido** (reglas 300 a 302; `docs/redes/GUION-DEL-DIA-EJEMPLO.md`, `docs/redes/VOCES-NUEVAS.md`). Falta oírlo y verlo: el ejemplo renderizado está en el scratchpad de la sesión; rehacerlo con `node reels/guion-del-dia.mjs` y los scripts de reels. Voces: guardar la referencia de las voces actuales ANTES de cambiar la clave de Gemini.
