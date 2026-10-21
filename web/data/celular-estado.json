@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-20T23:32:14.234Z",
- "portada": 125,
- "archivo": 1456,
- "esperandoCuerpo": 2,
+ "generado": "2026-10-21T00:01:47.375Z",
+ "portada": 126,
+ "archivo": 1458,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-20T23:32:14.769Z",
+  "generado": "2026-10-21T00:01:47.900Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -135,9 +135,9 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 39,
+    "segundos": 45,
     "notas": [
      {
       "id": "1s4d8ch",
@@ -150,14 +150,14 @@
       "seccion": "Educación"
      },
      {
+      "id": "lj23p3",
+      "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
+      "seccion": "Fútbol"
+     },
+     {
       "id": "gr781c",
       "titulo": "Matías Fernández Daguerre resalta la necesidad de una asociación de pádel",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1c9sm1f",
-      "titulo": "Samuel Mansilla analiza la final perdida por Agrarias",
-      "seccion": "Fútbol"
      }
     ]
    }
