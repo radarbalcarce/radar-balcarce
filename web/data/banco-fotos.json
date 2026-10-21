@@ -22422,7 +22422,8 @@
    "corresponde": "si",
    "descripcion": "Hombre con vestimenta papal saludando tras un atril con micrófono"
   },
-  "huella": "49231e2a2d0d0d0d"
+  "huella": "49231e2a2d0d0d0d",
+  "ausenteDesde": "2026-10-21T02:01:43.067Z"
  },
  "n4iy6h": {
   "archivo": "fotos-notas/n4iy6h.jpg",
@@ -26645,6 +26646,40 @@
   "titulo": "Cardiólogo advierte que el aceite de oliva requiere consumo medido",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-21T01:31:40.142Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1li04tw": {
+  "archivo": "fotos-notas/1li04tw.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Barcelona monitorea la situación contractual de Lisandro Martinez",
+  "enlace": "https://www.lagaceta.com.ar/nota/1158911/deportes/tras-sus-cruces-dirigencia-manchester-united-gigante-europa-sigue-lisandro-martinez.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/20/gigante-europa-sigue-lisandro-martinez-tras-sus-cruces-dirigencia-manchester-united-1158911-221500.jpg",
+  "razon": "La foto A muestra claramente a Lisandro Martínez de cuerpo medio con buena nitidez y sin distracciones, siendo adecuada para la nota.",
+  "cuando": "2026-10-21T02:01:31.524Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lisandro Martínez con la camiseta alternativa azul de su equipo en la cancha."
+  },
+  "huella": "13162e52dcbd59ad"
+ },
+ "1h6ga4e": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Spotify lanza Membresias de pago para creadores de podcasts",
+  "razon": "La mejor foto era la de Infobae, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-21T02:01:31.524Z",
   "intentos": 1,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
