@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T19:32:34.321Z",
- "portada": 95,
- "archivo": 1486,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-21T20:04:22.879Z",
+ "portada": 97,
+ "archivo": 1489,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-21T19:32:34.859Z",
+  "generado": "2026-10-21T20:04:23.402Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-21T19:36:26.646Z"
    },
    {
     "nombre": "farmacia",
@@ -115,18 +115,13 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 50,
+    "salio": "2026-10-21T19:36:26.646Z",
+    "segundos": null,
     "notas": [
      {
       "id": "xnuphz",
       "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1l9wacm",
-      "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
-      "seccion": "Fútbol"
      },
      {
       "id": "rp0wts",
@@ -137,6 +132,11 @@
       "id": "13ck73f",
       "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1ibqn5f",
+      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -147,19 +147,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 36,
-    "notas": [
-     {
-      "id": "1ibqn5f",
-      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1iaym6b",
-      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
-      "seccion": "Deportes"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    }
   ],
   "facebook": {
@@ -178,15 +167,14 @@
      "id": "1ibqn5f",
      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
      "cuando": "2026-10-21T17:35:31.969Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "rp0wts",
      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
-     "seccion": "Deportes",
-     "marcada": false
-    },
+     "cuando": "2026-10-21T19:35:29.810Z"
+    }
+   ],
+   "cola": [
     {
      "id": "1iaym6b",
      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
@@ -206,14 +194,20 @@
      "marcada": false
     },
     {
+     "id": "1ob6e1p",
+     "titulo": "Grupo México se aparta de la licitación del Belgrano Cargas",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
      "id": "1izdtgy",
      "titulo": "U2 agota la preventa en dos horas y vende localidades en Buenos Aires",
      "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-21T19:05:31.969Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-21T21:05:29.810Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
