@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T13:36:14.339Z",
- "portada": 71,
- "archivo": 1459,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-21T14:11:39.603Z",
+ "portada": 69,
+ "archivo": 1457,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-21T13:36:14.865Z",
+  "generado": "2026-10-21T14:11:39.841Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-21T10:06:36.783Z"
    },
    {
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 46,
+    "segundos": 54,
     "notas": [
      {
       "id": "13ck73f",
       "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "rp0wts",
+      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+      "seccion": "Deportes"
      },
      {
       "id": "1bf0t54",
@@ -136,12 +141,18 @@
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "13ck73f",
      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-     "seccion": "Cultura y agenda",
+     "cuando": "2026-10-21T13:45:29.568Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "rp0wts",
+     "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -151,8 +162,8 @@
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-20T22:05:27.371Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-21T15:15:29.568Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
