@@ -26883,7 +26883,8 @@
    "corresponde": "si",
    "descripcion": "Fotografía panorámica del plantel de Boca Juniors celebrando en el vestuario tras el partido."
   },
-  "huella": "4fe94a378d9d4b0d"
+  "huella": "4fe94a378d9d4b0d",
+  "ausenteDesde": "2026-10-21T04:31:26.419Z"
  },
  "1ynbotb": {
   "intentado": true,
@@ -26894,5 +26895,39 @@
   "intentos": 1,
   "fuentes": 14,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1skwrev": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca vence a Vasco da Gama y pasa a la final de la Copa Sudamericana",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T04:31:16.270Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "14b2cpb": {
+  "archivo": "fotos-notas/14b2cpb.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca le gana 3 a 1 a Vasco da Gama y se mete en la final de la Copa Sudamericana",
+  "enlace": "https://www.ole.com.ar/boca-juniors/leandroparedes-boca-copasudamericana-maracana_0_2KEZVnpkM2.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/21/e2RJ28XYG_2000x1500__1.jpg",
+  "razon": "Es la mejor foto que corresponde al partido, con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-10-21T04:31:16.270Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador pateando la pelota en un partido"
+  },
+  "huella": "2d324232d32d251b"
  }
 }
