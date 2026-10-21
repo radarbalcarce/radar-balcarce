@@ -26628,25 +26628,41 @@
    "corresponde": "si",
    "descripcion": "Jugador de Boca Juniors pateando el balón con el arquero de Vasco da Gama en el suelo y la hinchada de fondo."
   },
-  "huella": "a52d6d4ceb599e46"
+  "huella": "a52d6d4ceb599e46",
+  "ausenteDesde": "2026-10-21T02:33:28.352Z"
  },
  "1cu8vex": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Boca le gana a Vasco da Gama y empata la serie en la Copa Sudamericana",
-  "razon": "La única foto disponible tiene una marca de agua superpuesta (logo de 'ca') en la esquina inferior izquierda, lo que impide su selección según las reglas.",
-  "cuando": "2026-10-21T01:31:40.142Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/iku503.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Copa Sudamericana",
+  "enlace": "https://www.diariopopular.com.ar/futbol/cabezazo-di-lollo-y-boca-le-igualo-la-serie-vasco-los-cuatro-minutos-n925453",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/44692a171ec5fc119c5aba49b83132d6/adjuntos/143/imagenes/008/261/0008261321/1200x675/smart/image.png",
+  "razon": "Es la única opción disponible y muestra claramente la celebración de los jugadores de Vasco da Gama tras el partido, correspondiendo al contexto de la nota.",
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Vasco da Gama celebran en el campo de juego mientras un jugador de Boca Juniors observa con frustración."
+  },
+  "huella": "1412195545cb1c1a"
  },
  "1lw3ufp": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cardiólogo advierte que el aceite de oliva requiere consumo medido",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T01:31:40.142Z",
-  "intentos": 1,
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -26672,7 +26688,8 @@
    "corresponde": "si",
    "descripcion": "Lisandro Martínez con la camiseta alternativa azul de su equipo en la cancha."
   },
-  "huella": "13162e52dcbd59ad"
+  "huella": "13162e52dcbd59ad",
+  "ausenteDesde": "2026-10-21T02:33:28.352Z"
  },
  "1h6ga4e": {
   "intentado": true,
@@ -26682,6 +26699,76 @@
   "cuando": "2026-10-21T02:01:31.524Z",
   "intentos": 1,
   "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "iku503": {
+  "archivo": "fotos-notas/iku503.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Copa Sudamericana",
+  "enlace": "https://www.diariopopular.com.ar/futbol/cabezazo-di-lollo-y-boca-le-igualo-la-serie-vasco-los-cuatro-minutos-n925453",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/44692a171ec5fc119c5aba49b83132d6/adjuntos/143/imagenes/008/261/0008261321/1200x675/smart/image.png",
+  "razon": "Es la única opción disponible y muestra claramente la celebración de los jugadores de Vasco da Gama tras el partido, correspondiendo al contexto de la nota.",
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Vasco da Gama celebran en el campo de juego mientras un jugador de Boca Juniors observa con frustración."
+  },
+  "huella": "1412195545cb1c1a"
+ },
+ "l5zelj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Dragon Ball Super Beerus detalla su cronología y plataformas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "128odtv": {
+  "archivo": "fotos-notas/128odtv.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca supera a Vasco da Gama y avanza a la final de la Copa Sudamericana",
+  "enlace": "https://www.tycsports.com/boca-juniors/de-suplente-en-la-ida-a-goleador-en-la-vuelta-asi-fue-el-2-0-de-merentiel-para-boca-ante-vasco-da-gama-id767467.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/20/997920/el-festejo-de-miguel-merentiel-tras-el-2-0_1440x810.webp",
+  "razon": "Es la única opción disponible y muestra a un jugador de Boca en acción, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca Juniors celebrando con el puño en alto durante un partido."
+  },
+  "huella": "290d2c4507574dc5"
+ },
+ "k8fgpo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Alexis Mac Allister brilla en el triunfo de Liverpool y en campaña de moda",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T02:31:59.394Z",
+  "intentos": 1,
+  "fuentes": 11,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
