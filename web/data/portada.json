@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-21T23:02:33.761Z",
+  "generado": "2026-10-21T23:31:40.385Z",
   "notas": [
     {
       "id": "1lhg66w",
@@ -223,6 +223,7 @@
       "medios": [
         "Infobae",
         "TN (Todo Noticias)",
+        "El Destape",
         "A24",
         "Radio Mitre",
         "El Día"
@@ -232,8 +233,13 @@
       "fecha": "2026-10-21T20:49:15.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T22:01:02.447Z",
-      "relevancia": 59,
+      "relevancia": 62,
       "local": false,
+      "muyContada": {
+        "medios": 5,
+        "porque": "5 medios en sus primeras 3 horas",
+        "desde": "2026-10-21T23:31:07.968Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -310,6 +316,87 @@
       }
     },
     {
+      "id": "1jgv1bx",
+      "titulo": "Emiliano Dibu Martínez se entrena en el gimnasio a cuatro días de su operación",
+      "copete": "El arquero de la Selección Argentina realizó trabajos livianos tras ser operado de la mandíbula. Se perderá los amistosos de noviembre.",
+      "cuerpo": "A cuatro días de ser operado por una fractura en la mandíbula, Emiliano Martínez compartió un video en el que se lo ve realizando trabajos físicos en el gimnasio. El arquero sufrió la lesión tras un fuerte choque con Jarrad Branthwaite durante el encuentro entre Chelsea y Everton, situación que obligó a su retiro en camilla y posterior intervención quirúrgica.\n\nLos estudios descartaron afecciones en la cabeza, el cuello y la espalda, aunque la recuperación demandará varias semanas debido a la exposición propia del puesto a los impactos. Por este motivo, el guardameta quedó descartado para los amistosos que la Selección Argentina disputará en noviembre frente a Uruguay y Costa Rica. Si bien no existe un plazo oficial confirmado por su club, se estima que permanecerá entre 40 y 45 días fuera de las canchas.",
+      "guion": "Emiliano Dibu Martínez se entrena en el gimnasio a cuatro días de su operación.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TyC Sports",
+        "Olé",
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.ole.com.ar/seleccion/video-dibu-martinez-dias-operacion_3_eNYI8bSwas.html",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T20:29:45.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-21T23:31:07.968Z",
+      "relevancia": 58,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Emiliano Martínez realizó trabajos de gimnasio a cuatro días de su cirugía.",
+        "El arquero se recupera de una fractura mandibular sufrida ante el Everton.",
+        "No estará disponible para los próximos amistosos de la Selección Argentina en noviembre.",
+        "Se estima un plazo de inactividad de entre 40 y 45 días."
+      ],
+      "noConfirmado": [
+        "No existe una fecha oficial definitiva brindada por el club para su regreso a las canchas.",
+        "Se estiman de forma extraoficial entre 40 y 45 días de baja."
+      ],
+      "textoRedes": "A cuatro días de ser operado por una fractura en la mandíbula, Emiliano Dibu Martínez volvió a entrenarse en el gimnasio. El arquero se perderá los próximos amistosos de la Selección Argentina.",
+      "etiquetas": [
+        "Emiliano Dibu Martínez",
+        "Selección Argentina",
+        "Chelsea",
+        "Lesión"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/seleccion/video-dibu-martinez-dias-operacion_3_eNYI8bSwas.html",
+          "fecha": "2026-10-21T20:29:45.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/seleccion-argentina/como-evoluciona-dibu-martinez-tras-su-operacion-id767629.html",
+          "fecha": "2026-10-21T22:02:25.000Z",
+          "oficial": false,
+          "aporte": "Confirmó que el video fue publicado como historia de Instagram desde el gimnasio."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/seleccion/emilianomartinez-mandibula-chelsea-recuperacion-dibumartinez_0_mUs4mJc8q1.html",
+          "fecha": "2026-10-21T20:30:02.000Z",
+          "oficial": false,
+          "aporte": "Detalló los ejercicios de bicicleta fija y la dinámica de la recuperación en el gimnasio."
+        },
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/deportes/14344-dibu-martinez-en-unas-semanas-volvemos/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Aportó el tiempo estimado de baja de 40 a 45 días y los detalles sobre los próximos amistosos de la Selección."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "emiliano-dibu-martinez-se-entrena-en-el-gimnasio-a-cuatro-dias-de-su",
+      "foto": {
+        "archivo": "fotos-notas/1jgv1bx.jpg",
+        "credito": "Foto: Olé"
+      }
+    },
+    {
       "id": "vh0vf9",
       "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
       "copete": "El dirigente participó de la investigación y reclamó contención institucional para los voluntarios. Además, acompañó a la investigadora Virginia Aparicio a una reunión en la Cámara de Diputados bonaerense.",
@@ -325,7 +412,7 @@
       "fecha": "2026-10-21T20:28:36.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T20:31:00.831Z",
-      "relevancia": 84,
+      "relevancia": 74,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -398,7 +485,7 @@
       "fecha": "2026-10-21T20:26:29.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T20:31:00.831Z",
-      "relevancia": 84,
+      "relevancia": 74,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -468,7 +555,7 @@
       "fecha": "2026-10-21T20:15:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T21:31:14.440Z",
-      "relevancia": 67,
+      "relevancia": 57,
       "local": false,
       "muyContada": {
         "medios": 8,
@@ -562,7 +649,7 @@
       "fecha": "2026-10-21T20:02:44.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T21:01:00.823Z",
-      "relevancia": 62,
+      "relevancia": 52,
       "local": false,
       "muyContada": {
         "medios": 5,
@@ -986,10 +1073,10 @@
         "El Día",
         "La Nueva",
         "La Brújula 24",
+        "Infobae",
         "La Capital (Rosario)",
         "Clarín",
-        "Página/12",
-        "Infobae"
+        "Página/12"
       ],
       "enlace": "https://www.ambito.com/espectaculos/murio-saul-blanch-historico-cantante-rata-blanca-y-un-referente-del-heavy-metal-argentino-n6336430",
       "teniaImagenLaFuente": true,
@@ -1247,7 +1334,8 @@
         "TN (Todo Noticias)",
         "Noticias Argentinas (NA)",
         "La Nueva",
-        "QZ Noticias (Mar del Plata)"
+        "QZ Noticias (Mar del Plata)",
+        "El Eco de Tandil"
       ],
       "enlace": "https://noticiasargentinas.com/politica/el-massismo-impulso-en-comision-el-uso-de-taser-en-la-policia-bonaerense_a6ad8fb649e7b4b8990beacc1",
       "teniaImagenLaFuente": true,
@@ -1846,6 +1934,8 @@
       "seccion": "Fútbol",
       "medios": [
         "La Nación",
+        "El Destape",
+        "Perfil",
         "TyC Sports",
         "Olé",
         "Crónica",
@@ -1855,20 +1945,22 @@
         "El Marplatense",
         "Doble Amarilla",
         "Bolavip Argentina",
+        "Ámbito",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
-        "La Nueva"
+        "La Nueva",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1158999/deportes/lionel-scaloni-renovaria-seleccion-argentina-hasta-2030-cuando-se-anunciaria-acuerdo.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-21T15:25:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T19:31:12.645Z",
-      "relevancia": 80,
+      "relevancia": 83,
       "local": false,
       "muyContada": {
-        "medios": 12,
-        "porque": "12 medios",
+        "medios": 16,
+        "porque": "16 medios",
         "desde": "2026-10-21T21:31:14.440Z"
       },
       "publicadaPor": null,
@@ -1967,7 +2059,6 @@
         "TN (Todo Noticias)",
         "El Destape",
         "Página/12",
-        "A24",
         "iProfesional",
         "Crónica",
         "Radio Mitre",
@@ -1980,6 +2071,7 @@
         "C5N",
         "Minuto Uno",
         "Los Andes (Mendoza)",
+        "A24",
         "Perfil",
         "La Nueva"
       ],
@@ -2678,9 +2770,9 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "Ámbito",
+        "Infobae",
         "La Capital (Rosario)",
         "La Gaceta (Tucumán)",
-        "Infobae",
         "La Nación",
         "Perfil",
         "El Economista"
@@ -3164,7 +3256,6 @@
       "seccion": "Política",
       "medios": [
         "El Destape",
-        "Minuto Uno",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1158968/politica/revuelo-prensa-espanola-insultos-milei-periodistas-corta-intelectualmente-miserable-politica.html",
@@ -3172,7 +3263,7 @@
       "fecha": "2026-10-21T12:37:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T17:31:06.195Z",
-      "relevancia": 44,
+      "relevancia": 39,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3466,6 +3557,76 @@
       }
     },
     {
+      "id": "nzrtae",
+      "titulo": "Netflix estrena la serie argentina Gordon con Rodrigo de la Serna",
+      "copete": "La plataforma anuncia para noviembre la llegada de la producción inspirada en hechos reales sobre Aníbal Gordon. Cuenta con dirección de Pablo Trapero y Pablo Fendrik, y seis episodios.",
+      "cuerpo": "Netflix fija para el 18 de noviembre el lanzamiento de Gordon, una miniserie de seis capítulos que combina el thriller político y el drama criminal. La ficción reconstruye el recorrido de Aníbal Gordon, un delincuente vinculado a estructuras represivas durante la década de 1970 en el país, interpretado por Rodrigo de la Serna.\n\nEl proyecto cuenta con la dirección de Pablo Trapero y Pablo Fendrik, mientras que la producción general está a cargo de Adrián Suar y Diego Andrasnik a través de Preludio Producciones. El guion pertenece a Marcos Osorio Vidal y al propio Trapero, con la colaboración del historiador Marcelo Larraquy, autor de la obra de referencia. El elenco se completa con las actuaciones de Matías Recalt, Camila Peralta y la participación especial de Matías Mayer, tras un rodaje realizado en Buenos Aires y Río Negro.",
+      "guion": "Netflix estrena la serie argentina Gordon con Rodrigo de la Serna.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "El Destape",
+        "A24"
+      ],
+      "enlace": "https://www.a24.com/trends/rodrigo-la-serna-arrasa-netflix-una-nueva-serie-inspirada-hechos-reales-n1608548",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T11:57:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-21T23:31:07.968Z",
+      "relevancia": 37,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Netflix estrena la serie el 18 de noviembre de 2026.",
+        "Rodrigo de la Serna interpreta a Aníbal Gordon.",
+        "La dirección está a cargo de Pablo Trapero y Pablo Fendrik.",
+        "La miniserie consta de seis episodios."
+      ],
+      "seSabe": [
+        "Netflix estrena la serie el 18 de noviembre de 2026.",
+        "La producción consta de seis episodios.",
+        "Rodrigo de la Serna interpreta al personaje central.",
+        "La dirección recae en Pablo Trapero y Pablo Fendrik.",
+        "El guion cuenta con la colaboración de Marcelo Larraquy."
+      ],
+      "textoRedes": "Netflix anuncia el estreno para el 18 de noviembre de la miniserie argentina Gordon, protagonizada por Rodrigo de la Serna y dirigida por Pablo Trapero y Pablo Fendrik.",
+      "etiquetas": [
+        "Netflix",
+        "Rodrigo de la Serna",
+        "Pablo Trapero",
+        "Series",
+        "Aníbal Gordon"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/trends/rodrigo-la-serna-arrasa-netflix-una-nueva-serie-inspirada-hechos-reales-n1608548",
+          "fecha": "2026-10-21T11:57:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló los ejes temáticos, los productores, el número de episodios y la base histórica de la miniserie."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/cultura/netflix-anuncio-estreno-gordon-nueva-serie-argentina-rodrigo-serna-criminal-anos-70-20261021201154",
+          "fecha": "2026-10-21T23:11:54.270Z",
+          "oficial": false,
+          "aporte": "Precisó la fecha exacta de estreno, el elenco completo, los guionistas y las locaciones de filmación."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "netflix-estrena-la-serie-argentina-gordon-con-rodrigo-de-la-serna",
+      "foto": {
+        "archivo": "fotos-notas/nzrtae.jpg",
+        "credito": "Foto: A24"
+      }
+    },
+    {
       "id": "1dvngnn",
       "titulo": "Pablo gana 9.600.000 pesos en Ahora Caigo y emociona a su madre",
       "copete": "El participante se consagró en el ciclo de entretenimiento que conduce Darío Barassi en El Trece. Tras superar el desafío final, protagonizó un emotivo momento junto a su madre desde la tribuna.",
@@ -3474,8 +3635,8 @@
       "seccion": "Argentina",
       "medios": [
         "Minuto Uno",
-        "La Gaceta (Tucumán)",
-        "Infobae"
+        "Infobae",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.infobae.com/teleshow/2026/10/21/gano-el-premio-mayor-de-ahora-caigo-y-la-reaccion-de-su-mama-conmovio-al-estudio-alguien-que-contenga-a-mi-vieja/",
       "teniaImagenLaFuente": true,
@@ -3783,7 +3944,7 @@
       "fecha": "2026-10-21T11:20:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T19:01:11.799Z",
-      "relevancia": 31,
+      "relevancia": 24,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3854,7 +4015,7 @@
       "fecha": "2026-10-21T11:16:18.091Z",
       "sinFecha": false,
       "visto": "2026-10-21T22:01:02.447Z",
-      "relevancia": 42,
+      "relevancia": 35,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3959,7 +4120,7 @@
       "fecha": "2026-10-21T11:14:25.481Z",
       "sinFecha": false,
       "visto": "2026-10-21T11:31:12.251Z",
-      "relevancia": 40,
+      "relevancia": 33,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4023,35 +4184,35 @@
       "guion": "Pedro Sánchez responde a los ataques de Javier Milei con un tema de Lali Espósito.",
       "seccion": "Política",
       "medios": [
+        "Infobae",
         "La Nación",
         "TN (Todo Noticias)",
         "El Cronista",
         "Perfil",
         "Página/12",
         "iProfesional",
-        "Crónica",
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "QZ Noticias (Mar del Plata)",
         "Ámbito",
         "C5N",
-        "La Capital (Rosario)",
-        "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
-        "Infobae",
         "Radio Mitre",
         "La Nueva",
         "Clarín",
-        "A24"
+        "A24",
+        "Crónica",
+        "La Capital (Rosario)",
+        "La Gaceta (Tucumán)",
+        "Los Andes (Mendoza)",
+        "elDiarioAR"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1158953/politica/fanatico-pedro-sanchez-respondio-ataques-milei-cancion-lali-esposito.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-21T11:05:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T15:01:08.594Z",
-      "relevancia": 70,
+      "relevancia": 63,
       "local": false,
       "muyContada": {
         "medios": 20,
@@ -4653,10 +4814,10 @@
         "Noticias Argentinas (NA)",
         "Mi8 (Canal 8 Mar del Plata)",
         "C5N",
-        "Los Andes (Mendoza)",
         "Clarín",
         "La Nueva",
         "Crónica",
+        "Los Andes (Mendoza)",
         "Radio Mitre",
         "Infobae",
         "elDiarioAR"
@@ -5269,8 +5430,8 @@
         "Crónica",
         "Noticias Argentinas (NA)",
         "Ámbito",
-        "elDiarioAR",
-        "La Nueva"
+        "La Nueva",
+        "elDiarioAR"
       ],
       "enlace": "https://noticiasargentinas.com/politica/el-pedido-de-patricia-bullrich-al-gobierno---acuerdo-politico-y-una-economia-mas-holgada-para-la-gente-_a6ad825985072f5b4c48bb422",
       "teniaImagenLaFuente": true,
@@ -6290,7 +6451,6 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
-        "Agencia DIB",
         "El Cronista",
         "Perfil",
         "Diario Popular",
@@ -6301,7 +6461,8 @@
         "La Verdad",
         "Clarín",
         "Crónica",
-        "Infobae"
+        "Infobae",
+        "Agencia DIB"
       ],
       "enlace": "https://www.lanacion.com.ar/politica/consejo-de-la-magistratura-los-abogados-eligieron-a-sus-representantes-y-una-lista-con-referentes-nid20102026/",
       "teniaImagenLaFuente": true,
@@ -7008,8 +7169,8 @@
         "Infobae",
         "Diario Popular",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "Clarín"
+        "Clarín",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.clarin.com/politica/pleno-debate-presupuesto-diputado-k-increpo-libertario-insulto-van-manos_0_XqtzjLDHmm.html",
       "teniaImagenLaFuente": true,
@@ -7948,8 +8109,8 @@
         "Ámbito",
         "C5N",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
         "Infobae",
+        "Los Andes (Mendoza)",
         "El Día"
       ],
       "enlace": "https://www.ambito.com/politica/caso-jose-luis-espert-la-camara-federal-rechazo-el-pedido-anular-la-causa-lavado-activos-y-dejo-firme-la-investigacion-n6335768",
@@ -8800,284 +8961,6 @@
         "archivo": "fotos-notas/1mvszry.jpg",
         "credito": "Foto: El Día"
       }
-    },
-    {
-      "id": "bh3sgs",
-      "titulo": "River empata con Ferro en un amistoso y se enfoca en Racing",
-      "copete": "El conjunto dirigido por Leonardo Ponzio igualó 1 a 1 en el predio de Ezeiza con un tanto de Sebastián Driussi. El plantel se prepara para recibir a la Academia por el torneo local.",
-      "cuerpo": "River igualó 1 a 1 ante Ferro en un encuentro amistoso disputado en el predio River Camp de Ezeiza. Sebastián Driussi marcó el tanto para el conjunto de Núñez, mientras que Emanuel Dening convirtió para la visita. \n\nDurante el partido, el entrenador Leonardo Ponzio le dio minutos a Marcos Acuña, quien venía de arrastrar molestias físicas tras el compromiso frente a Belgrano. El equipo se entrenó con vistas al próximo compromiso oficial ante Racing, programado para el domingo a las 20.15 en el Estadio Monumental.\n\nPara ese encuentro, el director técnico no podrá contar con Lucas Martínez Quarta por acumulación de tarjetas amarillas ni con Fausto Vera, quien padece un desgarro en el isquiotibial derecho.",
-      "guion": "River empata con Ferro en un amistoso y se enfoca en Racing.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Olé",
-        "Bolavip Argentina",
-        "Minuto Uno",
-        "Crónica",
-        "TyC Sports",
-        "TN (Todo Noticias)",
-        "Noticias Argentinas (NA)"
-      ],
-      "enlace": "https://www.ole.com.ar/river-plate/river-plate-vivo-miercoles-21-octubre-ponzio-amistoso-ferro-noticias-novedades_0_a1DernrpKf.html",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-20T11:30:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-21T16:31:05.511Z",
-      "relevancia": 48,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "River igualó 1 a 1 frente a Ferro en un amistoso informal en Ezeiza.",
-        "Sebastián Driussi anotó el gol del conjunto local.",
-        "El equipo se prepara para recibir a Racing este domingo en el Monumental."
-      ],
-      "seSabe": [
-        "River y Ferro empataron 1 a 1 en el predio River Camp con goles de Sebastián Driussi y Emanuel Dening.",
-        "Marcos Acuña sumó minutos tras su molestia ante Belgrano.",
-        "Lucas Martínez Quarta y Fausto Vera no estarán disponibles para el próximo partido."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó la alineación titular definitiva que utilizará el cuerpo técnico frente a Racing."
-      ],
-      "textoRedes": "River igualó 1 a 1 ante Ferro en un amistoso disputado en Ezeiza con gol de Sebastián Driussi. El plantel se prepara para recibir a Racing este domingo en el Estadio Monumental por el torneo local.",
-      "etiquetas": [
-        "River Plate",
-        "Ferro",
-        "Fútbol",
-        "AFA",
-        "Racing"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/river-plate/river-plate-vivo-miercoles-21-octubre-ponzio-amistoso-ferro-noticias-novedades_0_a1DernrpKf.html",
-          "fecha": "2026-10-21T12:17:55.000Z",
-          "oficial": false,
-          "aporte": "Informó las bajas por lesión y suspensión en el plantel de River de cara al próximo partido."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/river-plate/river-ferro-amistoso-suplentes-empate-ezeiza-driussi-dening-goles-id767535.html",
-          "fecha": "2026-10-21T15:43:22.000Z",
-          "oficial": false,
-          "aporte": "Aportó las formaciones iniciales de ambos equipos en el predio de Ezeiza."
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/river/river-hoy-empate-ante-ferro-como-esta-acuna-y-el-xi-vs-racing",
-          "fecha": "2026-10-21T16:10:07.000Z",
-          "oficial": false,
-          "aporte": "Detalló el desarrollo del amistoso ante Ferro, los goleadores y la situación de Marcos Acuña."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/21/con-un-equipo-de-suplentes-river-empato-con-ferro-en-un-amistoso-a-puertas-cerradas/",
-          "fecha": "2026-10-21T18:36:55.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre la tabla de posiciones y el próximo partido de River ante Racing."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/deportes/river-empato-contra-ferro-en-un-nuevo-amistoso_a6ad8f5a79e7b4b8990bd2cbc",
-          "fecha": "2026-10-21T18:23:24.075Z",
-          "oficial": false,
-          "aporte": "Aportó la ubicación del predio y el nombre del director técnico de Ferro."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "bz5n1s",
-          "titulo": "River disputa un amistoso matutino frente a Atlético Escobar",
-          "fecha": "2026-10-02T20:42:46.000Z",
-          "ruta": "/nota/river-disputa-un-amistoso-matutino-frente-a-atletico-escobar-bz5n1s"
-        },
-        {
-          "id": "1o9tryb",
-          "titulo": "Marcos Acuña vota en las elecciones de Ferro Carril Oeste",
-          "fecha": "2026-09-27T21:48:37.000Z",
-          "ruta": "/nota/marcos-acuna-se-presento-en-las-elecciones-de-ferro-para-votar-1o9tryb"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "river-empata-con-ferro-en-un-amistoso-y-se-enfoca-en-racing",
-      "foto": {
-        "archivo": "fotos-notas/bh3sgs.jpg",
-        "credito": "Foto: Olé"
-      }
-    },
-    {
-      "id": "10zwxut",
-      "titulo": "Retienen la licencia a un camionero ebrio en la Panamericana",
-      "copete": "Un chofer que circulaba hacia Buenos Aires desde Corrientes dio 2,65 gramos de alcohol en sangre en un operativo de control vial. Le prohibieron seguir el viaje y afronta una multa millonaria.",
-      "cuerpo": "Un chofer de 40 años que manejaba desde la provincia de Corrientes hacia Buenos Aires fue demorado en la Autopista Panamericana tras dar 2,65 gramos de alcohol por litro de sangre en un test. Antes de conocer la medición, el propio conductor advirtió a los inspectores que el resultado no iba a dar cero.\n\nEl procedimiento estuvo a cargo de la Agencia Nacional de Seguridad Vial durante una fiscalización de transporte pesado que abarcó a 780 conductores. Tras el resultado positivo, las autoridades le prohibieron continuar el trayecto y enfrenta una multa superior a los dos millones de pesos, además de una suspensión de la licencia de conducir por un plazo de hasta 18 meses.\n\nEn el mismo operativo de control, los agentes labraron actas a otros 94 choferes profesionales por distintas irregularidades detectadas en la traza, como patentes adulteradas, uso de teléfonos celulares al volante, falta de cinturón de seguridad y circulación fuera del carril derecho correspondiente.",
-      "guion": "Retienen la licencia a un camionero ebrio en la Panamericana.",
-      "seccion": "Argentina",
-      "medios": [
-        "Infobae",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Ámbito",
-        "Minuto Uno",
-        "La Gaceta (Tucumán)",
-        "Perfil",
-        "Clarín"
-      ],
-      "enlace": "https://www.infobae.com/sociedad/2026/10/20/no-va-a-dar-cero-un-camionero-manejo-desde-corrientes-hasta-buenos-aires-con-265-gl-de-alcohol-en-sangre/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-20T11:24:20.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-20T13:01:02.241Z",
-      "relevancia": 40,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Un chofer de camión dio 2,65 g/l de alcohol en la Panamericana.",
-        "El operativo vial estuvo a cargo de la Agencia Nacional de Seguridad Vial.",
-        "El conductor demorado afronta una multa superior a los dos millones de pesos.",
-        "Las autoridades sancionaron a otros 94 choferes por diferentes infracciones."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó el monto exacto de la multa que aplicarán los jueces de faltas."
-      ],
-      "textoRedes": "Retuvieron la licencia a un camionero que manejaba por la Panamericana desde Corrientes con 2,65 gramos de alcohol en sangre durante un operativo de control vial.",
-      "etiquetas": [
-        "Agencia Nacional de Seguridad Vial",
-        "Autopista Panamericana",
-        "alcoholemia",
-        "transporte pesado",
-        "infracciones viales"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/sociedad/2026/10/20/no-va-a-dar-cero-un-camionero-manejo-desde-corrientes-hasta-buenos-aires-con-265-gl-de-alcohol-en-sangre/",
-          "fecha": "2026-10-20T11:24:20.000Z",
-          "oficial": false,
-          "aporte": "Detalló la edad del conductor, la frase anticipatoria, la cantidad de controlados, las sanciones posibles y los datos del operativo general."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/informacion-general/no-va-dar-cero-frenaron-un-camionero-265-alcohol-sangre-la-panamericana-n6335655",
-          "fecha": "2026-10-20T12:29:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó los datos centrales sobre el camionero demorado en la Panamericana y el resultado del test de alcoholemia."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/peligro-al-volante-un-camionero-manejo-corrientes-buenos-aires-265-gl-alcohol-sangre-n6335649",
-          "fecha": "2026-10-20T12:35:00.000Z",
-          "oficial": false,
-          "aporte": "Reprodujo el texto de la primera fuente sin aportar datos nuevos independientes."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "retienen-la-licencia-a-un-camionero-ebrio-en-la-panamericana",
-      "foto": {
-        "archivo": "fotos-notas/10zwxut-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "i1nv2r",
-      "titulo": "La FIFA sanciona al entrenador y a dos integrantes de Egipto",
-      "copete": "El Comité Disciplinario castigó al director técnico Hossam Hassan, a su hermano y a un delantero por las protestas contra el arbitraje tras el partido ante Argentina en el Mundial.",
-      "cuerpo": "La FIFA sancionó al director técnico de la selección de Egipto, Hossam Hassan, y al director deportivo Ibrahim Hassan con tres partidos de suspensión cada uno, mientras que el delantero Mostafa Zico recibió una pena de cinco fechas. Las medidas disciplinarias surgen a raíz de los reclamos y las críticas contra el árbitro francés François Letexier tras la derrota por 3 a 2 ante Argentina en los octavos de final del Mundial 2026, disputado el 7 de julio.\n\nAdemás de las suspensiones, el organismo internacional impuso una multa económica de 60.000 dólares a los involucrados. Por su parte, la Asociación Egipcia de Fútbol solicitó los fundamentos del fallo para evaluar una posible apelación ante las autoridades correspondientes.",
-      "guion": "La FIFA sanciona al entrenador y a dos integrantes de Egipto.",
-      "seccion": "Fútbol",
-      "medios": [
-        "La Nación",
-        "Infobae",
-        "TN (Todo Noticias)",
-        "TyC Sports",
-        "Olé",
-        "Noticias Argentinas (NA)",
-        "QZ Noticias (Mar del Plata)",
-        "Doble Amarilla",
-        "Bolavip Argentina",
-        "Ámbito",
-        "C5N",
-        "Minuto Uno",
-        "La Nueva",
-        "Canal 26"
-      ],
-      "enlace": "https://www.ole.com.ar/mundial/mundial-2026/argentina-egipto-entrenador-hossam-hassan-gestos-sancion-fifa_0_Zj6TQKRe07.html",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-20T11:04:04.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-20T16:31:14.939Z",
-      "relevancia": 64,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La FIFA sancionó al DT de Egipto con tres partidos de suspensión.",
-        "El delantero Mostafa Zico recibió cinco fechas de castigo.",
-        "El fallo incluye una multa de 60.000 dólares para los implicados."
-      ],
-      "seSabe": [
-        "La FIFA aplicó suspensiones a tres integrantes de la delegación de Egipto por protestas arbitrales.",
-        "El partido se jugó el 7 de julio durante los octavos de final del Mundial 2026.",
-        "La Asociación Egipcia de Fútbol analiza presentar una apelación."
-      ],
-      "noConfirmado": [
-        "Todavía no se precisó si prosperará la apelación anunciada por la federación egipcia."
-      ],
-      "textoRedes": "La FIFA suspendió al entrenador y a dos integrantes de la selección de Egipto por sus reclamos arbitrales tras el partido ante Argentina en el Mundial.",
-      "etiquetas": [
-        "FIFA",
-        "Egipto",
-        "Seleccion Argentina",
-        "Mundial 2026",
-        "Futbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/mundial/mundial-2026/argentina-egipto-entrenador-hossam-hassan-gestos-sancion-fifa_0_Zj6TQKRe07.html",
-          "fecha": "2026-10-20T12:57:14.000Z",
-          "oficial": false,
-          "aporte": "Aportó declaraciones adicionales de los protagonistas sobre las jugadas polémicas del encuentro."
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/deportes/2026/10/20/la-fifa-sanciono-al-entrenador-y-a-una-figura-de-la-seleccion-de-egipto-por-sus-declaraciones-tras-perder-con-argentina-en-el-mundial/",
-          "fecha": "2026-10-20T15:47:02.000Z",
-          "oficial": false,
-          "aporte": "Detalló las sanciones específicas para el entrenador, el director deportivo y el delantero, además de los antecedentes del partido."
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/futbol-internacional/se-confirmo-la-sancion-al-entrenador-de-egipto-tras-sus-gestos-ante-la-seleccion-argentina-en-el-mundial-2026",
-          "fecha": "2026-10-20T15:19:27.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la multa económica de 60.000 dólares impuesta por el ente regulador."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-fifa-sanciona-al-entrenador-y-a-dos-integrantes-de-egipto",
-      "foto": {
-        "archivo": "fotos-notas/i1nv2r.jpg",
-        "credito": "Foto: Infobae"
-      }
     }
   ],
   "secciones": [
@@ -9098,12 +8981,12 @@
   "temas": [],
   "clima": {
     "ahora": {
-      "temp": 12,
+      "temp": 11,
       "sensacion": 9,
-      "humedad": 83,
-      "viento": 18,
+      "humedad": 85,
+      "viento": 17,
       "rumbo": "NE",
-      "cielo": "Nublado",
+      "cielo": "Parcialmente nublado",
       "esDeDia": false
     },
     "dias": [
@@ -9115,7 +8998,7 @@
         "lluvia": 53,
         "codigo": 53,
         "viento": 21,
-        "milimetros": 1,
+        "milimetros": 2,
         "cielo": "Llovizna"
       },
       {
@@ -9137,14 +9020,14 @@
         "lluvia": 82,
         "codigo": 51,
         "viento": 15,
-        "milimetros": 3,
+        "milimetros": 2,
         "cielo": "Llovizna leve"
       },
       {
         "fecha": "2026-10-24",
         "dia": "sáb",
         "max": 15,
-        "min": 10,
+        "min": 9,
         "lluvia": 55,
         "codigo": 53,
         "viento": 20,
@@ -9442,10 +9325,16 @@
   },
   "pendientes": [
     {
-      "id": "78ya7o",
-      "titulo": "Pinilla sobre la Estudiantina: “No puede ser que no haya…",
+      "id": "10k46b4",
+      "titulo": "La Dirección de Juventud expresó su repudio y preocupación…",
       "seccion": "Balcarce",
       "motivo": "necesita ojo humano: \"herido\" (en otro medio que cuenta lo mismo)"
+    },
+    {
+      "id": "1aaxqln",
+      "titulo": null,
+      "seccion": "Policiales",
+      "motivo": "necesita ojo humano: \"murieron\""
     },
     {
       "id": "13dfyth",

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T23:02:33.761Z",
- "portada": 101,
- "archivo": 1506,
+ "generado": "2026-10-21T23:31:40.385Z",
+ "portada": 100,
+ "archivo": 1508,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-21T23:02:34.307Z",
+  "generado": "2026-10-21T23:31:40.943Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-21T23:06:45.423Z"
    },
    {
     "nombre": "podcast",
@@ -150,11 +150,6 @@
     "segundos": 50,
     "notas": [
      {
-      "id": "vh0vf9",
-      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
-      "seccion": "Salud"
-     },
-     {
       "id": "1iaym6b",
       "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
       "seccion": "Deportes"
@@ -163,6 +158,11 @@
       "id": "1l9wacm",
       "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "vh0vf9",
+      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
+      "seccion": "Salud"
      },
      {
       "id": "1lhg66w",
@@ -202,33 +202,15 @@
    ],
    "cola": [
     {
-     "id": "vh0vf9",
-     "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "1td5lgn",
-     "titulo": "Lionel Scaloni extiende su contrato con la selección argentina",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1fl3kia",
-     "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "162fnza",
      "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "1ubsuhm",
-     "titulo": "Enzo Pérez recuerda su salida de River y cuestiona a Demichelis",
-     "seccion": "Fútbol",
+     "id": "1xktpfx",
+     "titulo": "Julieta Confessore despide a su papá con una emotiva carta en redes",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -246,6 +228,12 @@
     {
      "id": "rwp4sv",
      "titulo": "Talleres sanciona económicamente al mediocampista Matías Galarza",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1ubsuhm",
+     "titulo": "Enzo Pérez recuerda su salida de River y cuestiona a Demichelis",
      "seccion": "Fútbol",
      "marcada": false
     }

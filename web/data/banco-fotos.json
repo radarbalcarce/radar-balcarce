@@ -29381,5 +29381,54 @@
   "intentos": 1,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1jgv1bx": {
+  "archivo": "fotos-notas/1jgv1bx.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiliano Dibu Martínez se entrena en el gimnasio a cuatro días de su operación",
+  "enlace": "https://www.ole.com.ar/seleccion/video-dibu-martinez-dias-operacion_3_eNYI8bSwas.html",
+  "imagenOriginal": "https://cdn.jwplayer.com/v2/media/bMMhc92Z/poster.jpg?width=1920",
+  "razon": "Es la foto más completa que combina al Dibu en la clínica y haciendo ejercicio, sin marcas de agua ni menores.",
+  "cuando": "2026-10-21T23:31:32.041Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Emiliano Dibu Martínez internado y haciendo bicicleta fija."
+  },
+  "huella": "31737bf29b1a3a38"
+ },
+ "nzrtae": {
+  "archivo": "fotos-notas/nzrtae.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Netflix estrena la serie argentina Gordon con Rodrigo de la Serna",
+  "enlace": "https://www.a24.com/trends/rodrigo-la-serna-arrasa-netflix-una-nueva-serie-inspirada-hechos-reales-n1608548",
+  "imagenOriginal": "https://media.a24.com/p/b693aa91796772b72ba88ad0afe18f8f/adjuntos/296/imagenes/009/835/0009835955/1200x675/smart/image.png",
+  "razon": "Es la imagen con mejor encuadre y nitidez, muestra claramente al protagonista de la serie en una escena reconocible, y no presenta marcas de agua ni problemas de menores.",
+  "cuando": "2026-10-21T23:31:32.041Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rodrigo de la Serna de pie en un bosque mirando a la cámara."
+  },
+  "huella": "4d0b0bc12b193131"
  }
 }
