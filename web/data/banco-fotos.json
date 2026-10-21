@@ -25396,7 +25396,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "132d2b294d0d879c"
+  "huella": "132d2b294d0d879c",
+  "ausenteDesde": "2026-10-21T07:31:32.130Z"
  },
  "1lkhj8n": {
   "intentado": true,
@@ -25888,7 +25889,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "c4983b5fd5e94a6a"
+  "huella": "c4983b5fd5e94a6a",
+  "ausenteDesde": "2026-10-21T07:31:32.130Z"
  },
  "98ywxr": {
   "archivo": "fotos-notas/98ywxr.jpg",
@@ -27032,6 +27034,43 @@
    "corresponde": "si",
    "descripcion": "Primer plano de un funcionario hablando en un atril"
   },
-  "huella": "39282c307032bce4"
+  "huella": "39282c307032bce4",
+  "ausenteDesde": "2026-10-21T07:31:32.130Z"
+ },
+ "sq9hhm": {
+  "archivo": "fotos-notas/sq9hhm.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Plata organiza el segundo congreso internacional sobre Diego Maradona",
+  "enlace": "https://www.0221.com.ar/la-plata/la-plata-sera-sede-del-ii-congreso-internacional-diego-maradona-la-facultad-periodismo-n136126",
+  "imagenOriginal": "https://media.0221.com.ar/p/ac8f3c300f53a6db140444cf0acd25fe/adjuntos/357/imagenes/100/300/0100300568/1200x630/smart/auditorio-diego-armando-maradona.jpg",
+  "razon": "La foto A muestra claramente el auditorio y a los asistentes al congreso, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-21T07:31:26.519Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas posando frente al Auditorio Diego Armando Maradona y un mosaico.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Grupo de personas posando frente al mural del Auditorio Diego Armando Maradona en La Plata."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "11292a7258cd8d8f"
  }
 }
