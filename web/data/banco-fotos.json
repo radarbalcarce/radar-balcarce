@@ -28414,7 +28414,8 @@
    "corresponde": "si",
    "descripcion": "Dos hombres en traje bajando escalinatas."
   },
-  "huella": "686aaa6a6a72d1d0"
+  "huella": "686aaa6a6a72d1d0",
+  "ausenteDesde": "2026-10-21T22:31:57.012Z"
  },
  "e2rqz6": {
   "archivo": "fotos-notas/e2rqz6.jpg",
@@ -29001,10 +29002,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Enzo Pérez recuerda su salida de River y cuestiona a Demichelis",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-21T21:02:16.497Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1oxezqa": {
   "archivo": "fotos-notas/1oxezqa.webp",
@@ -29232,7 +29234,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto de la Cámara de Diputados con legisladores en las bancas."
   },
-  "huella": "53525246431557d4"
+  "huella": "53525246431557d4",
+  "ausenteDesde": "2026-10-21T22:31:57.012Z"
  },
  "mcnibs": {
   "intentado": true,
@@ -29268,5 +29271,70 @@
    "descripcion": "Jugadora de la selección argentina de rugby posando con la indumentaria oficial del equipo."
   },
   "huella": "69a92a26240c8d87"
+ },
+ "8j66lp": {
+  "archivo": "fotos-notas/8j66lp.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Catherine Zeta-Jones aconseja a Lionel Messi en Nueva York",
+  "enlace": "https://www.infobae.com/deportes/2026/10/21/una-estrella-de-hollywood-sorprendio-al-hacerle-un-llamativo-consejo-a-lionel-messi-que-le-de-un-descanso/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/77EV7EQNZNGEHDLYB2W6LRK52A.jpg?auth=d290c642dfcbcec1a91ff89c6d36206539d8e1c192d39c2857ce99cccecd899b&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única opción que no es una composición gráfica (collage) y muestra a Messi de forma nítida y reconocible, aunque no muestre el encuentro con Zeta-Jones.",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Messi sonriendo con la camiseta de la selección argentina, con un recorte circular de Catherine Zeta-Jones en la esquina superior derecha."
+  },
+  "huella": "d99bb29e1c3fb72a"
+ },
+ "hmmoeg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Actualizan tasas de interés para billeteras virtuales y plazos fijos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1uxj8p4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "BTS se presenta en La Plata y genera alta demanda de viajes en Tandil",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "djuqer": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Diputados da media sanción a la ley de trazabilidad de medicamentos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1dvngnn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pablo gana 9.600.000 pesos en Ahora Caigo y emociona a su madre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-21T22:31:39.176Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

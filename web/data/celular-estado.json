@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-21T22:02:29.583Z",
- "portada": 104,
- "archivo": 1501,
+ "generado": "2026-10-21T22:31:57.036Z",
+ "portada": 99,
+ "archivo": 1505,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-21T22:02:29.808Z",
+  "generado": "2026-10-21T22:31:57.470Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-21T22:06:52.297Z"
    },
    {
     "nombre": "clima-noche",
@@ -147,13 +147,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 42,
     "notas": [
-     {
-      "id": "vh0vf9",
-      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
-      "seccion": "Salud"
-     },
      {
       "id": "1iaym6b",
       "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
@@ -202,27 +197,9 @@
    ],
    "cola": [
     {
-     "id": "vh0vf9",
-     "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "1iaym6b",
-     "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "1td5lgn",
      "titulo": "Lionel Scaloni extiende su contrato con la selección argentina",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "vksulx",
-     "titulo": "El índice general de salarios sube 2,7% en agosto",
-     "seccion": "Economía",
      "marcada": false
     },
     {
@@ -235,6 +212,12 @@
      "id": "162fnza",
      "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "vksulx",
+     "titulo": "El índice general de salarios sube 2,7% en agosto",
+     "seccion": "Economía",
      "marcada": false
     },
     {
