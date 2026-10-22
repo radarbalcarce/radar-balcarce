@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T17:35:12.948Z",
- "portada": 62,
- "archivo": 1474,
- "esperandoCuerpo": 8,
+ "generado": "2026-10-22T18:04:07.780Z",
+ "portada": 66,
+ "archivo": 1478,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-22T17:35:13.197Z",
+  "generado": "2026-10-22T18:04:08.290Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,19 +103,19 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 52,
     "notas": [
      {
-      "id": "sg5gtd",
-      "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "umqt3y",
       "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "sg5gtd",
+      "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
+      "seccion": "Balcarce"
      },
      {
       "id": "rdo3nh",
@@ -172,15 +172,14 @@
      "id": "juo82o",
      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
      "cuando": "2026-10-22T15:35:41.459Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "sg5gtd",
      "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
+     "cuando": "2026-10-22T17:35:45.092Z"
+    }
+   ],
+   "cola": [
     {
      "id": "umqt3y",
      "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
@@ -206,6 +205,12 @@
      "marcada": false
     },
     {
+     "id": "9c8d13",
+     "titulo": "Asignan instalaciones de Chapadmalal a la Universidad de Mar del Plata",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "23umjj",
      "titulo": "Ezeiza opera con restricciones desde el domingo por obras en sus pistas",
      "seccion": "Argentina",
@@ -218,8 +223,8 @@
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-22T17:05:41.459Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-22T19:05:45.092Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
