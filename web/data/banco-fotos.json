@@ -31485,13 +31485,28 @@
   "huella": "170f0d292c1d0f1f"
  },
  "g7h7b": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/g7h7b.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La confianza del consumidor sube un 0,81% en octubre",
-  "razon": "Ninguna foto cumple con todos los requisitos para ilustrar la nota de manera adecuada según las reglas de Radar Balcarce.",
-  "cuando": "2026-10-22T19:03:00.616Z",
-  "intentos": 1,
-  "fuentes": 4
+  "enlace": "https://mi8.com.ar/mejoro-la-confianza-del-consumidor-en-octubre-el-informe-completo/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2026/10/image-62.png",
+  "razon": "Es la única foto adecuada que cumple con todos los requisitos sin marcas superpuestas, menores ni contenido gráfico.",
+  "cuando": "2026-10-22T20:32:50.075Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Mujer caminando frente a vidriera con precios de calzado."
+  },
+  "huella": "ecececac2c2eaaa7"
  },
  "11jjrxq": {
   "archivo": "fotos-notas/11jjrxq.jpg",
@@ -31702,5 +31717,77 @@
   "cuando": "2026-10-22T20:02:57.806Z",
   "intentos": 1,
   "fuentes": 6
+ },
+ "1djsolj": {
+  "archivo": "fotos-notas/1djsolj.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Una encuesta ubica a Kicillof por encima de Milei en imagen",
+  "enlace": "https://eleconomista.com.ar/politica/nueva-encuesta-bonaerense-kicillof-supera-milei-pero-libertario-sorprende-rumbo-2027-n99125",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2026/07/6a4d7babcb049.jpeg",
+  "razon": "Se seleccionó la foto C porque ilustra claramente a ambos políticos mencionados en la nota mediante un montaje fotográfico periodístico adecuado y sin marcas de agua agregadas.",
+  "cuando": "2026-10-22T20:32:50.075Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof y Javier Milei con la Casa Rosada de fondo"
+  },
+  "huella": "756cea2237a52543"
+ },
+ "eka7lm": {
+  "archivo": "fotos-notas/eka7lm.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ricardo Montaner suma una segunda fecha en el Movistar Arena",
+  "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/ricardo-montaner-confirmo-una-segunda-fecha-en-el-movistar-arena-cuando-se-presentara-y-como-conseguir-entradas/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1723/1723885/6ad8f315f3cec_600_315!.jpg?s=0a0a56ee60a1feb359ca4dd216d86372&d=1792668206",
+  "razon": "La foto A muestra claramente a Ricardo Montaner con buen encuadre y sin marcas ni problemas, mientras que la B está cortada de manera extraña.",
+  "cuando": "2026-10-22T20:32:50.075Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ricardo Montaner sentado en un sillón blanco."
+  },
+  "huella": "6342e7e7c6b0b1a3"
+ },
+ "1w60w6s": {
+  "archivo": "fotos-notas/1w60w6s.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional emite una alerta amarilla por tormentas en Buenos Aires",
+  "enlace": "https://www.cronica.com.ar/sociedad/buenos-aires-en-alerta-por-fuertes-tormentas-a-que-hora-llegan-las-lluvias-y-cuales-seran-las-zonas-mas-afectadas/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1724/1724109/6ad9e79d36e91_600_315!.jpg?s=1cc2f4214272d758dee85380849d3ffd&d=1792666226",
+  "razon": "Es la única foto de tormenta que corresponde exactamente al tema, tiene buena nitidez, no muestra personas y está libre de marcas, gráficos o stock.",
+  "cuando": "2026-10-22T20:32:50.075Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tormenta eléctrica sobre una ciudad con rayos cayendo entre nubes oscuras."
+  },
+  "huella": "d898b3c387e35395"
  }
 }
