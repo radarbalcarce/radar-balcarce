@@ -399,10 +399,10 @@ test('regla 212: las repetidas se guardan como parejas que generar-datos une; el
   assert.deepEqual(JSON.parse(texto).repetidas, estado.repetidas);
   assert.ok(texto.split('\n').length > 10);
   assert.equal(estado.contadores.repetidas, 1);
-  // El archivo vacío de estado del repositorio se lee bien.
-  const vacio = JSON.parse(leer('web/data/revision-archivo.json'));
-  assert.equal(vacio.version, REVISION.version);
-  assert.deepEqual(idsRetiradosPorLaRevision(vacio), new Set());
+  // El archivo de estado del repositorio se lee bien (desde el 22/10 la revisión real lo va llenando: ya no está vacío).
+  const estadoReal = JSON.parse(leer('web/data/revision-archivo.json'));
+  assert.equal(estadoReal.version, REVISION.version);
+  assert.ok(idsRetiradosPorLaRevision(estadoReal) instanceof Set);
 });
 
 test('regla 212: la simulación sin IA sobre notas reales cuenta lo que haría, sin tocar nada', () => {

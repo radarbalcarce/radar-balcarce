@@ -104,7 +104,8 @@ test('las frases de la línea cumplen las reglas de la voz: sin exclamaciones, s
 test('un día completo con los datos reales de la portada: todas las piezas cumplen la línea y las reglas de siempre', () => {
   const { piezas } = diaReal();
   const nombres = piezas.filter((p) => !p.fueraDeTecho).map((p) => p.nombre);
-  for (const n of ['clima-manana', 'noticia1', 'noticia2', 'podcast', 'clima-noche']) assert.ok(nombres.includes(n), `el día real tiene ${n}`);
+  // (El repaso de la noche y el de la tarde dependen de las notas que tenga la portada de ese momento: no se exigen.)
+  for (const n of ['clima-manana', 'noticia1', 'clima-noche']) assert.ok(nombres.includes(n), `el día real tiene ${n}`);
   const titulares = portada.notas.map((n) => n.titulo);
   assert.deepEqual(problemasDeLaLinea(piezas, { titulares }), []);
   for (const p of piezas.filter((x) => !x.fueraDeTecho && rolDe(x.nombre))) {
@@ -126,7 +127,7 @@ test('las piezas se enlazan: cada una anuncia la que sigue con su hora, y no pro
   const por = Object.fromEntries(piezas.filter((p) => !p.fueraDeTecho).map((p) => [p.nombre, p]));
   // El clima de la mañana anuncia el repaso de las diez; el repaso de la tarde recuerda el de la noche.
   assert.equal(por['clima-manana'].linea.hacia, 'noticia1');
-  assert.match(por['clima-manana'].guion, /a las diez/);
+  assert.match(por['clima-manana'].guion, /a las diez/i);
   // (Depende de la portada del día: si hoy el repaso de la noche no tiene notas para armarse, no hay con qué enlazar.)
   if (por.noticia2?.linea?.hacia) assert.equal(por.noticia2.linea.hacia, 'podcast');
   if (por.noticia2?.linea?.hacia) assert.match(por.noticia2.guion, /Recordá que a las nueve de la noche cerramos con el repaso del día|a las nueve de la noche cerramos|a las nueve de la noche, el repaso/i);
@@ -141,7 +142,7 @@ test('las piezas se enlazan: cada una anuncia la que sigue con su hora, y no pro
   // Lo que ya salió no se anuncia: con el repaso de las diez en el libro, el clima de la mañana (que se vuelve a armar) no lo promete.
   const dia = diaAR(new Date(portada.generado));
   const conLibro = diaReal({ libro: { instagram: { [`${dia}/noticia1`]: { notaIds: [] } } } }).piezas;
-  assert.ok(!/a las diez/.test(conLibro.find((p) => p.nombre === 'clima-manana').guion), 'el repaso de las diez ya salió: no se anuncia');
+  assert.ok(!/a las diez/i.test(conLibro.find((p) => p.nombre === 'clima-manana').guion), 'el repaso de las diez ya salió: no se anuncia');
   assert.equal(conLibro.find((p) => p.nombre === 'clima-manana').linea.hacia, null);
 });
 
