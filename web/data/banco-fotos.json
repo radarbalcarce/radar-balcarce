@@ -29111,11 +29111,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Enzo Pérez recuerda su salida de River y cuestiona a Demichelis",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-22T06:31:24.847Z",
-  "intentos": 4,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-22T12:34:14.104Z",
+  "intentos": 5,
   "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1oxezqa": {
   "archivo": "fotos-notas/1oxezqa.webp",
@@ -30196,7 +30196,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto de la Cámara de Diputados durante una sesión"
   },
-  "huella": "135a5252468f1157"
+  "huella": "135a5252468f1157",
+  "ausenteDesde": "2026-10-22T12:34:29.658Z"
  },
  "futbolpartidosliga20261023": {
   "archivo": "fotos-notas/libre-futbolpartidosliga20261023.jpg",
@@ -30355,5 +30356,24 @@
   "razon": "Es la única opción disponible, tiene buen encuadre del edificio escolar y no presenta marcas de agua ni menores.",
   "cuando": "2026-10-07T16:03:07.244Z",
   "huella": "073f0d9d93171737"
+ },
+ "juo82o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-22T12:34:14.104Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "4c84q3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-22T12:34:14.104Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

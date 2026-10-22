@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T12:03:09.165Z",
- "portada": 39,
- "archivo": 1453,
- "esperandoCuerpo": 2,
+ "generado": "2026-10-22T12:34:29.680Z",
+ "portada": 41,
+ "archivo": 1455,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-22T12:03:09.376Z",
+  "generado": "2026-10-22T12:34:30.155Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-22T12:07:23.515Z"
    },
    {
     "nombre": "noticia1",
@@ -95,8 +95,24 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "4c84q3",
+      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "juo82o",
+      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "vxf5r",
+      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
@@ -120,17 +136,29 @@
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "vnum3w",
      "titulo": "El Gobierno adjudica el 90% de las acciones de AySA por US$ 340 millones",
-     "seccion": "Economía",
+     "cuando": "2026-10-22T12:05:38.940Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "4c84q3",
+     "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "juo82o",
+     "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+     "seccion": "Balcarce",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-21T23:05:31.339Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-22T13:35:38.940Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
