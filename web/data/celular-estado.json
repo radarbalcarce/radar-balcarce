@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T17:06:29.435Z",
- "portada": 51,
- "archivo": 1470,
- "esperandoCuerpo": 13,
+ "generado": "2026-10-22T17:35:12.948Z",
+ "portada": 62,
+ "archivo": 1474,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-22T17:06:29.740Z",
+  "generado": "2026-10-22T17:35:13.197Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -113,9 +113,35 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "umqt3y",
+      "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "rdo3nh",
+      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "juo82o",
       "titulo": "Desarrollo Social entrega mercadería desde el lunes",
       "seccion": "Balcarce"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "4c84q3",
+      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+      "seccion": "Automovilismo"
      },
      {
       "id": "1cmow7i",
@@ -128,16 +154,6 @@
       "seccion": "Balcarce"
      }
     ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": null,
-    "notas": []
    }
   ],
   "facebook": {
@@ -166,6 +182,24 @@
      "marcada": false
     },
     {
+     "id": "umqt3y",
+     "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "rdo3nh",
+     "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "4c84q3",
+     "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "bg0g55",
      "titulo": "Lanzan un concurso público para concesionar seis hoteles de Chapadmalal",
      "seccion": "Cultura y agenda",
@@ -174,6 +208,12 @@
     {
      "id": "23umjj",
      "titulo": "Ezeiza opera con restricciones desde el domingo por obras en sus pistas",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "19jkaky",
+     "titulo": "El juicio por la muerte de Maradona llega a los últimos alegatos",
      "seccion": "Argentina",
      "marcada": false
     }

@@ -30832,14 +30832,28 @@
   "huella": "5bb2533317cb670f"
  },
  "pi8okg": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/pi8okg.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La UNMDP fija el plazo de inscripción para diversas carreras de 2027",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-22T16:07:13.783Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://puntonueve.com.ar/la-unmdp-abrio-la-inscripcion-para-el-ciclo-lectivo-2027-que-carreras-no-tendran-preinscripcion-en-febrero/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/Universidad-frente-1024x768-1.webp",
+  "razon": "Es la foto más clara y representativa del Complejo Universitario de la UNMDP, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-22T17:33:57.058Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Entrada principal al Complejo Universitario Manuel Belgrano de la UNMDP"
+  },
+  "huella": "5f33a3db7bab171b"
  },
  "1qjmlzq": {
   "archivo": "fotos-notas/1qjmlzq.jpg",
@@ -30991,5 +31005,111 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "0018b636f2f7d78f"
+ },
+ "pf7w5a": {
+  "archivo": "fotos-notas/pf7w5a.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La UNLP extiende el plazo de inscripción a sus colegios",
+  "enlace": "https://www.eldia.com/la-ciudad/la-unlp-prorrogo-la-inscripcion-para-ingresar-a-los-colegios-preuniversitarios-la-ciudad_1792686600",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792688210571.jpg?&cw=1200&ch=630",
+  "razon": "La foto B muestra claramente el edificio de la universidad sin personas irreconocibles ni marcas, mientras que la foto A muestra siluetas de personas y una pantalla con datos.",
+  "cuando": "2026-10-22T17:33:57.058Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio de la Universidad Nacional.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fachada del edificio de la Universidad Nacional de La Plata con una estatua al frente."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "f0f8706424645a5a"
+ },
+ "2zv6de": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Estadio Único de La Plata suma su postulación para el Mundial 2030",
+  "razon": "La única foto disponible es una captura de pantalla con texto superpuesto, por lo que no cumple con los requisitos de calidad y limpieza para su publicación.",
+  "cuando": "2026-10-22T17:33:57.058Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "9lxmcr": {
+  "archivo": "fotos-notas/9lxmcr.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Roberto Bonano compara a Santiago Beltrán con Iker Casillas",
+  "enlace": "https://bolavip.com/ar/river/el-estilo-de-santiago-beltran-es-muy-del-real-madrid-me-hace-acordar-a-casillas",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/15142420/Beltran-River-Getty-1200x740.webp",
+  "razon": "Ilustra perfectamente al protagonista de la nota con excelente nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-22T17:33:57.058Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Santiago Beltrán con camiseta de arquero de River mirando serio",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Santiago Beltrán, arquero de River Plate, con su uniforme rojo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "934e4c8e4e8795b5"
+ },
+ "19jkaky": {
+  "archivo": "fotos-notas/19jkaky.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El juicio por la muerte de Maradona llega a los últimos alegatos",
+  "enlace": "https://www.perfil.com/noticias/policia/a41-juicio-por-la-muerte-de-maradona-este-jueves-terminan-los-alegatos-y-crece-la-expectativa-por-el-veredicto.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/22/trim/1140/641/gianinna-y-dalma-maradona-2353895.jpg",
+  "razon": "Es la única foto actual del juicio que no tiene marca de agua sobreimpresa de ningún medio.",
+  "cuando": "2026-10-22T17:33:57.058Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas en la sala durante el juicio por la muerte de Maradona."
+  },
+  "huella": "4f5d999a8c8d9cac"
  }
 }
