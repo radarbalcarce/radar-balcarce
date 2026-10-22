@@ -5276,7 +5276,8 @@
   "imagenOriginal": "https://www.clarin.com/img/2026/10/02/-GaQ0w7ZJ_2000x1500__1.jpg",
   "razon": "La foto A muestra con claridad un auto de competición en pista, sin marcas de agua de los medios ni menores, y con excelente composición e iluminación.",
   "cuando": "2026-10-02T11:01:45.037Z",
-  "huella": "fca747666c1900e0"
+  "huella": "fca747666c1900e0",
+  "ausenteDesde": "2026-10-22T09:31:49.708Z"
  },
  "1t295vx": {
   "medio": "Página/12",
@@ -5895,7 +5896,8 @@
   "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2FDdF3gjMc5Kg.jpg%3F212009?auth=9d516456659460b6765aee17d39e3ed012b799ceeebee85759d61675a703948b&width=1023",
   "razon": "Es la mejor foto institucional del evento, con excelente encuadre y nitidez de Luis Caputo hablando en el estrado del Coloquio de IDEA, sin marcas de agua ni menores.",
   "cuando": "2026-10-02T19:01:56.321Z",
-  "huella": "0f4f0f1f7f75356d"
+  "huella": "0f4f0f1f7f75356d",
+  "ausenteDesde": "2026-10-22T09:31:49.708Z"
  },
  "9599gy": {
   "medio": "Radio Gabal",
@@ -6908,7 +6910,8 @@
   "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8Rx1SXziEk77kaaRSvEi-nMLd9mrwAhKgppMRBdjw9nptxtps4eqZIgOmAFXezhlTrXbCzUtC7PzeKZoLzhFVg0sJdwRIiQ6wLI8Wu-zTiJOYQ5vbJtFuaA5ZhvoqOdy1OFZYLPAydqDnlvTgzS2GFLKZ4wAWLQCYUk2IUkidTMjl1i4Qoh6VC31yluk/w640-h426/DSC_7595.jpg",
   "razon": "Es la única imagen nítida y con buen encuadre que ilustra el estado de la cancha, sin marcas de agua ni personas.",
   "cuando": "2026-10-04T02:14:16.981Z",
-  "huella": "1202b23e363f2a65"
+  "huella": "1202b23e363f2a65",
+  "ausenteDesde": "2026-10-22T09:31:49.708Z"
  },
  "tvh0ae": {
   "archivo": "fotos-notas/tvh0ae.jpg",
@@ -7147,7 +7150,8 @@
   "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-65940.png",
   "razon": "La imagen tiene buen encuadre y nitidez, sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-04T10:31:28.356Z",
-  "huella": "c74dcfce96978f8d"
+  "huella": "c74dcfce96978f8d",
+  "ausenteDesde": "2026-10-22T09:31:49.708Z"
  },
  "5skk4j": {
   "medio": "Crónica",
@@ -29605,14 +29609,28 @@
   "huella": "252e4a6a6a616969"
  },
  "ohl9qy": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ohl9qy.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Argentina pide una prórroga de 30 días a la Corte de Estados Unidos por el litigio de YPF",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 3,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://tn.com.ar/economia/2026/10/21/juicio-por-ypf-argentina-le-pidio-a-la-corte-de-eeuu-extender-el-plazo-para-responder-al-pedido-de-revision-de-los-demandantes/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/juicio-por-ypf-argentina-le-pidio-a-la-corte-de-eeuu-extender-el-plazo-para-responder-al-pedido-de-revision-de-los-demandantes-foto-telam-SAK6QIBAI5ADDMSH2LFNAC6QRY.jpg?auth=72e3ee5632924808376256cae14b911ff590864a1fafe04e6c133be00d6e96ea&width=1023",
+  "razon": "Es la mejor foto que corresponde a la temática, con buen encuadre y sin marcas de agua agregadas por el medio.",
+  "cuando": "2026-10-22T09:31:31.190Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Banderas de Argentina y de YPF frente a un edificio vidriado"
+  },
+  "huella": "f6686a6c6a507068"
  },
  "1ek0b2x": {
   "archivo": "fotos-notas/1ek0b2x.jpg",
@@ -29713,24 +29731,64 @@
   "ausenteDesde": "2026-10-22T01:02:09.710Z"
  },
  "vxf5r": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/vxf5r.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per minu (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 3,
-  "fuentes": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://accion5.com/evento-expo-salud-deporte-y-tecnologia-el-proximo-sabado/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/2-3.jpg",
+  "razon": "Es la única opción disponible, cumple con los requisitos y no tiene marcas ni menores.",
+  "cuando": "2026-10-22T09:31:31.190Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas realizando actividades físicas frente a la Sociedad Española",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Personas realizando actividades deportivas como correr, fútbol y ejercicios en la calle frente a la Sociedad Española."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "405cc4e4c67540a0"
  },
  "1g2400x": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1g2400x.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Detectan fallas críticas en PHP y alertan por sitios caídos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://tn.com.ar/tecno/novedades/2026/10/21/alerta-mundial-por-una-falla-de-seguridad-en-internet-que-paso-y-por-que-dejaron-de-funcionar-cientos-de-sitios-web/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/alerta-mundial-por-una-falla-de-seguridad-en-internet-que-paso-y-por-que-dejaron-de-funcionar-cientos-de-sitios-web-imagen-adobestock-JSUNZIWMMJFDVMT2TTVMYTMBVE.png?auth=bce5f390a7abf295c0307a658cf3fe46c17ab9a0790dd39522b27062c8aaa7d7&width=1023",
+  "razon": "Ilustra adecuadamente el tema de servidores y fallas tecnológicas con buena nitidez y sin marcas ni personas.",
+  "cuando": "2026-10-22T09:31:31.190Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Servidor con cable de red conectado y un símbolo de advertencia holográfico."
+  },
+  "huella": "b7f7a7e7c7c7f5b5"
  },
  "a8cny3": {
   "archivo": "fotos-notas/a8cny3.jpg",

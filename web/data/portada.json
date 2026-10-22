@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-22T09:01:49.413Z",
+  "generado": "2026-10-22T09:31:49.732Z",
   "notas": [
     {
       "id": "futbolpartidosliga20261023",
@@ -670,7 +670,11 @@
         "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
         "sugeridoPorIA": null
       },
-      "slug": "realizan-la-primera-edicion-de-la-expo-salud-deporte-y-tecnologia"
+      "slug": "realizan-la-primera-edicion-de-la-expo-salud-deporte-y-tecnologia",
+      "foto": {
+        "archivo": "fotos-notas/vxf5r.jpg",
+        "credito": "Foto: Acción 5 (Balcarce)"
+      }
     },
     {
       "id": "repaso20261021noche",
@@ -957,8 +961,8 @@
       "guion": "Diputados aprueba el proyecto para endurecer las penas por vandalismo rural.",
       "seccion": "Política",
       "medios": [
-        "La Nación",
         "Clarín",
+        "La Nación",
         "Infocampo",
         "Noticias Argentinas (NA)",
         "La Brújula 24",
@@ -1151,7 +1155,7 @@
       "fecha": "2026-10-21T21:16:15.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T00:31:03.929Z",
-      "relevancia": 51,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1392,6 +1396,69 @@
       }
     },
     {
+      "id": "78ya7o",
+      "titulo": "Pinilla pide recuperar la Estudiantina tras la suspensión por hechos de violencia",
+      "copete": "El exconcejal respaldó la interrupción de las actividades por la agresión registrada este año, pero exigió trabajar en una alternativa superadora.",
+      "cuerpo": "El exconcejal Sebastián Pinilla respaldó la interrupción de las actividades de la Estudiantina a raíz de la agresión con un arma blanca registrada este año en Balcarce. Durante una entrevista brindada el miércoles 21 de octubre, consideró adecuada la medida ante la gravedad de los episodios, aunque advirtió que la respuesta no debe limitarse a una prohibición definitiva.\n\nEn ese sentido, reclamó que las autoridades, los directivos, los docentes, las familias y los estudiantes comiencen a debatir una propuesta superadora para recuperar el espacio de encuentro. Para fundamentar su postura, recordó un antecedente vinculado con los festejos del Último Primer Día años atrás, donde tras los disturbios iniciales se logró reorganizar la celebración mediante la intervención del fiscal Martínez Soto y el acompañamiento familiar.",
+      "guion": "Pinilla pide recuperar la Estudiantina tras la suspensión por hechos de violencia.",
+      "seccion": "Balcarce",
+      "medios": [
+        "Radio Gabal (FM 104.1)"
+      ],
+      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/pinilla-sobre-la-estudiantina-no-puede-ser-que-no-haya-mas",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T20:33:57.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-22T08:31:19.303Z",
+      "relevancia": 67,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El exconcejal Sebastián Pinilla se refirió a la suspensión de la Estudiantina.",
+        "Respaldó la interrupción de las actividades tras la agresión con arma blanca.",
+        "Pidió convocar a distintos sectores para debatir una alternativa superadora."
+      ],
+      "seSabe": [
+        "Sebastián Pinilla respaldó la suspensión de la Estudiantina tras una agresión con arma blanca.",
+        "El exconcejal pidió convocar a estudiantes, familias, docentes y autoridades para reorganizar el evento.",
+        "Mencionó como antecedente la reorganización de los festejos del Último Primer Día tras la intervención del fiscal Martínez Soto."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó si las autoridades locales planean convocar a una mesa de diálogo para retomar el evento en el futuro.",
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "El exconcejal Sebastián Pinilla respaldó la suspensión de la Estudiantina tras la agresión registrada este año y pidió debatir una alternativa para recuperar el encuentro.",
+      "etiquetas": [
+        "Estudiantina",
+        "Sebastián Pinilla",
+        "violencia",
+        "suspensión",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/pinilla-sobre-la-estudiantina-no-puede-ser-que-no-haya-mas",
+          "fecha": "2026-10-21T20:33:57.000Z",
+          "oficial": false,
+          "aporte": "Aportó las declaraciones del exconcejal Sebastián Pinilla sobre la suspensión de la Estudiantina y su propuesta de reorganización."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "pinilla-pide-debatir-la-vuelta-de-la-estudiantina-tras-la-suspension",
+      "foto": {
+        "archivo": "fotos-notas/78ya7o.jpg",
+        "credito": "Foto: Radio Gabal (FM 104.1)"
+      }
+    },
+    {
       "id": "1jgv1bx",
       "titulo": "Emiliano Dibu Martínez se entrena en el gimnasio a cuatro días de su operación",
       "copete": "El arquero de la Selección Argentina realizó trabajos livianos tras ser operado de la mandíbula. Se perderá los amistosos de noviembre.",
@@ -1471,6 +1538,143 @@
       "foto": {
         "archivo": "fotos-notas/1jgv1bx.jpg",
         "credito": "Foto: Olé"
+      }
+    },
+    {
+      "id": "vh0vf9",
+      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
+      "copete": "El dirigente participó de la investigación y reclamó contención institucional para los voluntarios. Además, acompañó a la investigadora Virginia Aparicio a una reunión en la Cámara de Diputados bonaerense.",
+      "cuerpo": "Ignacio Otegui reveló que un análisis enmarcado en el proyecto SPRINT detectó nueve agroquímicos en su sangre. El dirigente sostuvo que firmó el protocolo correspondiente con el INTA y el CONICET, tras ser convocado por su participación en temas ambientales.\n\nDurante una entrevista radial, reclamó que los organismos brinden contención y explicaciones a los voluntarios debido al impacto que generan los resultados. Asimismo, indicó que el martes acompañó a la investigadora Virginia Aparicio a un encuentro en la Cámara de Diputados provincial gestionado por el legislador Cote Rossi, donde analizaron controles sobre agroquímicos, almacenamiento de envases y pulverizadores.\n\nPor otra parte, evitó brindar detalles sobre el sumario que involucra a la científica y señaló que prevé consultar al abogado Mario Bolla sobre su situación particular.",
+      "guion": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT.",
+      "seccion": "Salud",
+      "seccionAntes": "Balcarce",
+      "medios": [
+        "Radio Gabal (FM 104.1)"
+      ],
+      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/tengo-nueve-agroquimicos-en-sangre-el-testimonio-de-otegui-como-participante-del-proyecto-sprint",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T20:28:36.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-21T20:31:00.831Z",
+      "relevancia": 67,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Otegui confirmó que hallaron nueve agroquímicos en su sangre.",
+        "Reclamó mayor acompañamiento institucional para los voluntarios del estudio.",
+        "Participó de un encuentro en la Cámara de Diputados bonaerense junto a Virginia Aparicio."
+      ],
+      "seSabe": [
+        "Ignacio Otegui participó del proyecto SPRINT y detectaron nueve agroquímicos en su sangre.",
+        "Firmó un protocolo con el INTA y el CONICET antes de sumarse al estudio.",
+        "Acompañó a Virginia Aparicio a una reunión con el diputado provincial Cote Rossi.",
+        "Prevé dialogar con el abogado Mario Bolla sobre los pasos a seguir."
+      ],
+      "noConfirmado": [
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "Ignacio Otegui confirmó que detectaron nueve agroquímicos en su sangre tras participar del proyecto SPRINT y reclamó mayor acompañamiento institucional para los voluntarios.",
+      "etiquetas": [
+        "agroquímicos",
+        "proyecto SPRINT",
+        "Ignacio Otegui",
+        "Virginia Aparicio",
+        "INTA",
+        "CONICET",
+        "salud"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/tengo-nueve-agroquimicos-en-sangre-el-testimonio-de-otegui-como-participante-del-proyecto-sprint",
+          "fecha": "2026-10-21T20:28:36.000Z",
+          "oficial": false,
+          "aporte": "Aportó el testimonio de Ignacio Otegui sobre la detección de agroquímicos en su sangre y sus reclamos al INTA y al CONICET."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1kgatx3",
+          "titulo": "Virginia Aparicio presenta los resultados del proyecto SPRINT sobre plaguicidas",
+          "fecha": "2026-10-17T15:01:29.733Z",
+          "ruta": "/nota/virginia-aparicio-presenta-los-resultados-del-proyecto-sprint-sobre-1kgatx3"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "ignacio-otegui-detecta-nueve-agroquimicos-en-su-sangre-por-el",
+      "foto": {
+        "archivo": "fotos-notas/vh0vf9.jpg",
+        "credito": "Foto: Radio Gabal (FM 104.1)"
+      }
+    },
+    {
+      "id": "eubj8d",
+      "titulo": "Ignacio Otegui marca distancia del peronismo local y descarta la unidad",
+      "copete": "El dirigente cuestionó la falta de diálogo con la conducción partidaria y reclamó discutir un proyecto de ciudad antes que las candidaturas.",
+      "cuerpo": "Ignacio Otegui marcó diferencias con sectores del peronismo local, aseguró que no existen condiciones para cerrar una unidad partidaria y afirmó que actualmente no hay diálogo con la conducción. Durante una entrevista periodística, el referente cuestionó que las discusiones se centren en los lugares de una lista y consideró prioritario debatir un modelo de distrito.\n\nEl dirigente rechazó la versión de que su espacio haya sido derrotado en una compulsa interna al señalar que no se le permitió participar. Asimismo, mencionó que mantiene conversaciones con Andrés Lombardi y con el Frente Popular, y valoró aspectos de la gestión del exintendente José Enrique Echeverría, especialmente la descentralización comunal.\n\nEntre los temas que propuso discutir figuran la presencia municipal en los barrios y localidades rurales, el estado de las calles y el financiamiento de los servicios públicos. Por último, indicó que mantiene su teléfono disponible para retomar el contacto, aunque remarcó que en determinados casos aguarda un pedido de disculpas.",
+      "guion": "Ignacio Otegui marca distancia del peronismo local y descarta la unidad.",
+      "seccion": "Política",
+      "medios": [
+        "Radio Gabal (FM 104.1)"
+      ],
+      "enlace": "https://www.radiogabal.com.ar/index.php/politica/otegui-marco-distancia-en-el-peronismo-local-hoy-por-hoy-no-hay-ningun-tipo-de-dialogo",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T20:26:29.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-21T20:31:00.831Z",
+      "relevancia": 67,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Otegui descartó un entendimiento con la conducción del peronismo local.",
+        "Cuestionó las negociaciones centradas en candidaturas.",
+        "Aclaró que mantiene diálogo con Andrés Lombardi y el Frente Popular.",
+        "Reclamó debatir sobre servicios públicos, calles y presencia municipal."
+      ],
+      "seSabe": [
+        "Ignacio Otegui aseguró que no hay diálogo con la conducción del peronismo local.",
+        "Rechazó que su sector haya perdido una interna porque no se le permitió participar.",
+        "Mencionó vínculos de trabajo con Andrés Lombardi y el Frente Popular.",
+        "Planteó la necesidad de discutir un proyecto de ciudad enfocado en servicios y gestión barrial."
+      ],
+      "noConfirmado": [
+        "No pudo ser contrastado de forma independiente con las fuentes consultadas."
+      ],
+      "textoRedes": "Ignacio Otegui marcó distancia del peronismo local, descartó la unidad actual y reclamó debatir un proyecto de ciudad antes que las candidaturas.",
+      "etiquetas": [
+        "Ignacio Otegui",
+        "peronismo",
+        "politica",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/politica/otegui-marco-distancia-en-el-peronismo-local-hoy-por-hoy-no-hay-ningun-tipo-de-dialogo",
+          "fecha": "2026-10-21T20:26:29.000Z",
+          "oficial": false,
+          "aporte": "Detalló las diferencias de Ignacio Otegui con la conducción del peronismo local y su postura sobre la unidad partidaria."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "ignacio-otegui-marca-distancia-del-peronismo-local-y-descarta-la",
+      "foto": {
+        "archivo": "fotos-notas/eubj8d.jpg",
+        "credito": "Foto: Radio Gabal (FM 104.1)"
       }
     },
     {
@@ -1875,7 +2079,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "detectan-fallas-criticas-en-php-y-alertan-por-sitios-caidos"
+      "slug": "detectan-fallas-criticas-en-php-y-alertan-por-sitios-caidos",
+      "foto": {
+        "archivo": "fotos-notas/1g2400x.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
     },
     {
       "id": "vksulx",
@@ -2026,12 +2234,12 @@
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "La Brújula 24",
         "Minuto Uno",
         "La Capital (Rosario)",
         "Los Andes (Mendoza)",
         "Clarín",
         "Página/12",
+        "La Brújula 24",
         "Infobae",
         "Radio Mitre",
         "La Nueva",
@@ -3313,8 +3521,8 @@
       "seccion": "Deportes",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Diario La Vanguardia",
-        "Radio Gabal (FM 104.1)"
+        "Radio Gabal (FM 104.1)",
+        "Diario La Vanguardia"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/deportes/taekwon-do-cerca-de-50-participantes-formaron-parte-de-una-master-class-en-amigos-unidos",
       "teniaImagenLaFuente": true,
@@ -3734,8 +3942,8 @@
       "seccion": "Deportes",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Municipalidad de Balcarce",
-        "Radio Gabal (FM 104.1)"
+        "Radio Gabal (FM 104.1)",
+        "Municipalidad de Balcarce"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/21/ferro-40-quedo-octavo/",
       "teniaImagenLaFuente": true,
@@ -4683,18 +4891,8 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "La Nación",
-        "Ámbito",
-        "TN (Todo Noticias)",
-        "Perfil",
-        "A24",
-        "Crónica",
-        "Radio Mitre",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "La Tecla",
-        "Minuto Uno",
-        "Los Andes (Mendoza)",
         "Clarín",
+        "La Brújula 24",
         "Página/12",
         "Infobae"
       ],
@@ -4703,13 +4901,8 @@
       "fecha": "2026-10-21T11:46:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T04:31:28.579Z",
-      "relevancia": 73,
+      "relevancia": 52,
       "local": false,
-      "muyContada": {
-        "medios": 13,
-        "porque": "13 medios",
-        "desde": "2026-10-22T05:31:11.456Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -4776,6 +4969,76 @@
       }
     },
     {
+      "id": "1ibqn5f",
+      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
+      "copete": "Matías Lencina, Ariel Grave y Enzo Bazán Marín consiguieron podios en la octava fecha disputada en Coronel Vidal. Por otra parte, jugadores de pádel locales participaron en el torneo nacional en Rosario.",
+      "cuerpo": "El Karting Regional concretó su octava fecha de la temporada en el circuito Jorge Aldo Ferrario de Coronel Vidal, con la participación de 72 karts. En la divisional Promocional Escuela, Enzo Bazán Marín finalizó en la tercera colocación. Matías Lencina se ubicó segundo en 150 c.c. Senior, posición que tambié ocupa en el Play Off. En tanto, Ariel Grave concluyó tercero en 150 c.c. Súper Master. En la misma jornada, Juan Cruz Tambascio cruzó la meta primero en 150 c.c. Junior, pero el comisario deportivo Ernesto Morales decretó su exclusión al entender que le arrojaron un objeto al vehículo antes del pesaje. El equipo apeló la sanción.\n\nEn otra disciplina, tres deportistas locales compitieron en el Torneo Argentino Federal de Pádel en Rosario. Matías Fernández Daguerre y Tomás Queopomel alcanzaron los octavos de final en la Tercera categoría, mientras que Ramiro Pinilla participó en la Segunda categoría junto a Matías Miranda Travacio.",
+      "guion": "Destacada labor de pilotos locales en el Karting Regional.",
+      "seccion": "Automovilismo",
+      "medios": [
+        "El Diario Balcarce"
+      ],
+      "enlace": "https://eldiariobalcarce.com.ar/podio-para-lencina-ariel-grave-y-bazan-marin-en-el-karting-regional-305",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T11:41:17.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-21T14:31:10.284Z",
+      "relevancia": 79,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Podios para Lencina, Grave y Bazán Marín en Coronel Vidal",
+        "Apelaron la exclusión de Juan Cruz Tambascio en 150 c.c. Junior",
+        "Participación de deportistas locales en el torneo nacional de pádel"
+      ],
+      "seSabe": [
+        "El Karting Regional disputó su octava fecha en Coronel Vidal con 72 karts.",
+        "Matías Lencina fue segundo en 150 c.c. Senior y Ariel Grave tercero en Súper Master.",
+        "Enzo Bazán Marín terminó tercero en Promocional Escuela.",
+        "Jugadores locales compitieron en el torneo federal de pádel en Rosario."
+      ],
+      "noConfirmado": [
+        "Todavía no se resolvió la apelación presentada por el equipo de Juan Cruz Tambascio."
+      ],
+      "textoRedes": "Pilotos locales lograron podios en la octava fecha del Karting Regional disputada en Coronel Vidal. Además, deportistas de la ciudad compitieron en el torneo nacional de pádel en Rosario.",
+      "etiquetas": [
+        "automovilismo",
+        "karting regional",
+        "coronel vidal",
+        "padel",
+        "rosario"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/podio-para-lencina-ariel-grave-y-bazan-marin-en-el-karting-regional-305",
+          "fecha": "2026-10-21T11:41:17.000Z",
+          "oficial": false,
+          "aporte": "Informó los resultados y polémicas de la octava fecha del Karting Regional en Coronel Vidal."
+        },
+        {
+          "medio": "Acción 5 (Balcarce)",
+          "enlace": "https://accion5.com/padel-meritoria-actuacion-de-balcarcenos-en-el-argentino/",
+          "fecha": "2026-10-14T13:35:23.000Z",
+          "oficial": false,
+          "aporte": "Detalló la actuación de los jugadores locales en el Torneo Argentino Federal de Pádel en Rosario."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "destacada-labor-de-pilotos-locales-en-el-karting-regional",
+      "foto": {
+        "archivo": "fotos-notas/1ibqn5f.jpg",
+        "credito": "Foto: El Diario Balcarce"
+      }
+    },
+    {
       "id": "1y7eswi",
       "titulo": "Diputados devuelve a comisión el proyecto sobre endeudamiento familiar",
       "copete": "Tras una extensa sesión en la Cámara baja, el oficialismo frenó la votación del dictamen. La iniciativa regresará a las comisiones sin una fecha definida.",
@@ -4785,6 +5048,7 @@
       "medios": [
         "Infobae",
         "TN (Todo Noticias)",
+        "El Destape",
         "Crónica",
         "Noticias Argentinas (NA)",
         "C5N",
@@ -4795,7 +5059,7 @@
       "fecha": "2026-10-21T11:37:47.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T08:31:19.303Z",
-      "relevancia": 52,
+      "relevancia": 54,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7164,164 +7428,6 @@
         "archivo": "fotos-notas/wkrtm8.jpg",
         "credito": "Foto: Infórmese Primero (FM 104.9)"
       }
-    },
-    {
-      "id": "ppwihh",
-      "titulo": "Cañuelas organiza la Fiesta del Dulce de Leche con Los Palmeras",
-      "copete": "La localidad bonaerense celebrará la Expo Cañuelas y el tradicional concurso del dulce de leche los días 13, 14 y 15 de noviembre. El encuentro reunirá espectáculos musicales, gastronomía y producción regional.",
-      "cuerpo": "Cañuelas llevará a cabo una nueva edición de la Expo Cañuelas y la Fiesta Provincial del Dulce de Leche los días viernes 13, sábado 14 y domingo 15 de noviembre de 2026. Las actividades se desarrollarán en el Predio Ferial ubicado sobre la Ruta Nacional 205, cerca del acceso a la Autopista Ezeiza-Cañuelas.\n\nLa programación musical incluye las presentaciones de Los Palmeras el viernes 13, Destino San Javier el sábado 14 y La Konga el domingo 15. Además, el encuentro contará con una exposición comercial, puestos gastronómicos, muestras de instituciones educativas y el tradicional concurso que premiará a los mejores productores de dulce de leche.\n\nEl distrito cuenta con 70.684 habitantes, según los datos del censo de 2022. La celebración busca revalorizar la actividad lechera de la región y su historia vinculada a la industria local.",
-      "guion": "Cañuelas organiza la Fiesta del Dulce de Leche con Los Palmeras.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Radio Mitre",
-        "Canal 26"
-      ],
-      "enlace": "https://www.canal26.com/turismo/2026/10/20/tiene-70684-habitantes-y-se-prepara-para-la-fiesta-del-dulce-de-leche-la-ciudad-bonaerense-que-reunira-a-los-palmeras-destino-san-javier-y-la-konga-en-un-gran-evento-regional/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-20T21:14:48.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-21T14:31:10.284Z",
-      "relevancia": 26,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La celebración se hará los días 13, 14 y 15 de noviembre en Cañuelas.",
-        "Los Palmeras, Destino San Javier y La Konga actuarán en los recitales principales.",
-        "El predio ferial está situado sobre la Ruta Nacional 205."
-      ],
-      "seSabe": [
-        "La Expo Cañuelas y la Fiesta Provincial del Dulce de Leche se realizarán los días 13, 14 y 15 de noviembre de 2026 en el Predio Ferial de Cañuelas.",
-        "Los recitales confirmados son de Los Palmeras el viernes 13, Destino San Javier el sábado 14 y La Konga el domingo 15.",
-        "El partido de Cañuelas tiene 70.684 habitantes según el censo de 2022.",
-        "El predio cuenta con diez hectáreas sobre la Ruta Nacional 205."
-      ],
-      "textoRedes": "Cañuelas se prepara para la Fiesta Provincial del Dulce de Leche del 13 al 15 de noviembre con shows de Los Palmeras, Destino San Javier y La Konga en el Predio Ferial.",
-      "etiquetas": [
-        "Cañuelas",
-        "Fiesta del Dulce de Leche",
-        "Los Palmeras",
-        "La Konga",
-        "Destino San Javier",
-        "cultura"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/turismo/2026/10/20/tiene-70684-habitantes-y-se-prepara-para-la-fiesta-del-dulce-de-leche-la-ciudad-bonaerense-que-reunira-a-los-palmeras-destino-san-javier-y-la-konga-en-un-gran-evento-regional/",
-          "fecha": "2026-10-21T09:31:24.000Z",
-          "oficial": false,
-          "aporte": "Detalló las fechas exactas del evento, el cronograma de recitales de cada jornada, la ubicación del predio, la población del distrito y los detalles históricos."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/ya-llega-la-fiesta-del-dulce-de-leche-con-shows-y-gastronomia-donde-y-cuando-sera/",
-          "fecha": "2026-10-21T14:12:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó las fechas de realización en noviembre, la sede en el Predio Ferial y la realización de la muestra comercial y gastronómica."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "129pubj",
-          "titulo": "Agustín Roca prepara la 45º Fiesta Provincial del Fiambre Casero",
-          "fecha": "2026-10-18T10:51:13.000Z",
-          "ruta": "/nota/agustin-roca-prepara-la-45-fiesta-provincial-del-fiambre-casero-129pubj"
-        },
-        {
-          "id": "h5197i",
-          "titulo": "Javier Milei regresa de Estados Unidos y prepara gira en Neuquén y España",
-          "fecha": "2026-10-16T10:19:51.649Z",
-          "ruta": "/nota/javier-milei-regresa-de-estados-unidos-y-prepara-gira-en-neuquen-y-h5197i"
-        },
-        {
-          "id": "15o4k9f",
-          "titulo": "Tecnopapa, el evento que reunirá a toda la cadena productiva del país, ya tiene fecha",
-          "fecha": "2026-09-28T12:32:25.000Z",
-          "ruta": "/nota/tecnopapa-el-evento-que-reunira-a-toda-la-cadena-productiva-del-pais-15o4k9f"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "canuelas-organiza-la-fiesta-del-dulce-de-leche-con-los-palmeras",
-      "foto": {
-        "archivo": "fotos-notas/ppwihh-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "mfg1d9",
-      "titulo": "La Plata conserva el único ejemplar vivo del Árbol de Cristal",
-      "copete": "Tras la importación de doce ejemplares exóticos en el siglo XIX, solo un árbol tropical sobrevive en territorio bonaerense. La especie cuenta con protección legal desde 1992.",
-      "cuerpo": "A mediados del siglo XIX, el estanciero Leonardo Higinio Pereyra Iraola introdujo al país una docena de ejemplares de la especie Agathis alba, conocida popularmente como Árbol de Cristal. Los ejemplares fueron plantados cerca de 1860, pero las condiciones climáticas permitieron que solo uno de ellos alcanzara la adultez y sobreviviera hasta la actualidad en Sudamérica.\n\nEl ejemplar único se encuentra radicado en el sector de la Estancia San Juan, dentro del predio de la Escuela Juan Vucetich en Berazategui, un espacio integrado al Parque Pereyra Iraola. La conífera destaca por su resina resinosa que emite reflejos luminosos similares a cristales. En 1992, la Legislatura provincial lo declaró Monumento Natural mediante la Ley 11.341.",
-      "guion": "La Plata conserva el único ejemplar vivo del Árbol de Cristal.",
-      "seccion": "Ciencia",
-      "seccionAntes": "Argentina",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Canal 26"
-      ],
-      "enlace": "https://www.canal26.com/planeta/2026/10/20/a-mediados-del-siglo-xix-leonardo-higinio-pereyra-iraola-trajo-12-arboles-de-cristal-mas-de-165-anos-despues-solo-sobrevive-un-ejemplar-en-una-reserva-natural-de-la-plata/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-20T21:05:10.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-21T17:01:12.385Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Sobrevive un único ejemplar de Árbol de Cristal en la provincia de Buenos Aires.",
-        "Fue traído desde el archipiélago Malayo alrededor de 1860 por Leonardo Higinio Pereyra Iraola.",
-        "El ejemplar está ubicado en el predio de la Escuela Juan Vucetich en Berazategui.",
-        "La especie cuenta con la categoría de Monumento Natural desde 1992."
-      ],
-      "seSabe": [
-        "Solo sobrevive un ejemplar de Árbol de Cristal en toda Sudamérica, ubicado en Berazategui.",
-        "La especie fue introducida alrededor de 1860 por Leonardo Higinio Pereyra Iraola.",
-        "El árbol fue declarado Monumento Natural en 1992 mediante la Ley 11.341."
-      ],
-      "textoRedes": "Un siglo y medio después de su importación, solo sobrevive un ejemplar de Árbol de Cristal en el Parque Pereyra Iraola.",
-      "etiquetas": [
-        "Árbol de Cristal",
-        "Parque Pereyra Iraola",
-        "Berazategui",
-        "Monumento Natural",
-        "especies exóticas"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/planeta/2026/10/20/a-mediados-del-siglo-xix-leonardo-higinio-pereyra-iraola-trajo-12-arboles-de-cristal-mas-de-165-anos-despues-solo-sobrevive-un-ejemplar-en-una-reserva-natural-de-la-plata/",
-          "fecha": "2026-10-21T10:54:48.000Z",
-          "oficial": false,
-          "aporte": "Detalló el contexto histórico de la introducción de los árboles y la normativa de protección ambiental vigente."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/sociedad/2026/10/21/pereyra-iraola-trajo-12-arboles-de-cristal-en-el-siglo-xix-165-anos-despues-solo-queda-uno-en-la-plata/",
-          "fecha": "2026-10-21T16:42:24.000Z",
-          "oficial": false,
-          "aporte": "Describió las características morfológicas principales de la especie Agathis alba."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-plata-conserva-el-unico-ejemplar-vivo-del-arbol-de-cristal",
-      "foto": {
-        "archivo": "fotos-notas/mfg1d9.jpg",
-        "credito": "Foto: Canal 26"
-      }
     }
   ],
   "secciones": [
@@ -7332,18 +7438,17 @@
     "Política",
     "Cultura y agenda",
     "Argentina",
-    "Economía",
-    "Deportes",
     "Salud",
-    "Ciencia"
+    "Economía",
+    "Deportes"
   ],
   "temas": [],
   "clima": {
     "ahora": {
       "temp": 10,
       "sensacion": 8,
-      "humedad": 95,
-      "viento": 15,
+      "humedad": 94,
+      "viento": 14,
       "rumbo": "NE",
       "cielo": "Nublado",
       "esDeDia": true
@@ -7700,6 +7805,12 @@
       "titulo": "La campaña raee sigue promoviendo la gestión responsable…",
       "seccion": "Balcarce",
       "motivo": "necesita ojo humano: \"hallado muerto\" (en otro medio que cuenta lo mismo)"
+    },
+    {
+      "id": "f3cclg",
+      "titulo": null,
+      "seccion": "Balcarce",
+      "motivo": "necesita ojo humano: \"niño\""
     },
     {
       "id": "1jx7e0o",
