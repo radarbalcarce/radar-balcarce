@@ -29373,14 +29373,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1uxj8p4": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1uxj8p4.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "BTS se presenta en La Plata y genera alta demanda de viajes en Tandil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.eldestapeweb.com/cultura/bts-significan-siglas-banda-surcoreana-20261021192344",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1792619611091.jpg?&cw=1600&ch=900",
+  "razon": "Es la mejor foto disponible que cumple con todos los requisitos y no tiene marcas de agua ni problemas.",
+  "cuando": "2026-10-22T08:01:35.332Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Integrantes de BTS posando juntos con indumentaria deportiva.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Grupo de jóvenes (BTS) posando con ropa deportiva y un balón de fútbol."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "30525b2b292b3333"
  },
  "djuqer": {
   "intentado": true,
@@ -29403,14 +29429,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1lhg66w": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lhg66w.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Manuel Pastorino instala la obra El lápiz de papá en el Colegio San José",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 3,
-  "fuentes": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.diariolavanguardia.com/noticias/45145-el-lapiz-de-papa-la-obra-de-manuel-pastorino-que-transforma-el-aprendizaje-en-un-camino-de-crecimiento/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66115.png",
+  "razon": "Es la única foto disponible, muestra claramente la obra instalada y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-22T08:01:35.332Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Instalación artística de la obra El lápiz de papá al aire libre",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Instalación artística al aire libre con esculturas de lápices gigantes y figuras metálicas."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "f2bac5dd4d4549a8"
  },
  "f0tngb": {
   "intentado": true,
