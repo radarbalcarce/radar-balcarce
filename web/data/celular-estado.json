@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T14:33:32.286Z",
- "portada": 49,
- "archivo": 1462,
+ "generado": "2026-10-22T15:06:15.377Z",
+ "portada": 48,
+ "archivo": 1463,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-22T14:33:32.812Z",
+  "generado": "2026-10-22T15:06:15.698Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-22T12:07:23.515Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,11 +95,16 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 47,
     "notas": [
      {
       "id": "juo82o",
       "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "sg5gtd",
+      "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
       "seccion": "Balcarce"
      },
      {
@@ -110,11 +115,6 @@
      {
       "id": "1cmow7i",
       "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
       "seccion": "Balcarce"
      }
     ]
@@ -157,6 +157,12 @@
     {
      "id": "juo82o",
      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "sg5gtd",
+     "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
      "seccion": "Balcarce",
      "marcada": false
     },
