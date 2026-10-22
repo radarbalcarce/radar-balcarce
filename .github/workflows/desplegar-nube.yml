@@ -88,7 +88,10 @@ jobs:
       - name: Subir el Worker de tareas
         if: env.QUE == 'todo' || env.QUE == 'tareas'
         working-directory: infra/tareas-cloudflare
-        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars --var "REDES_ACTIVAS:${REDES_EN_LA_NUBE}" --var "R2_ARCHIVO:${R2_ARCHIVO_NUBE}" --var "WORKFLOWS_EN_LA_NUBE:${NUBE}"
+        env:
+          REDES_EN_LA_NUBE: ${{ vars.REDES_ACTIVAS_NUBE || 'No' }}
+          R2_ARCHIVO_NUBE: ${{ vars.R2_ARCHIVO || 'radar-archivo' }}
 
       - name: Cargar los secretos de las tareas
         if: env.QUE == 'todo' || env.QUE == 'tareas'
