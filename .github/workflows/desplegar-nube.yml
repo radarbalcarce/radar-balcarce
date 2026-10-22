@@ -60,7 +60,7 @@ jobs:
         run: |
           case "$QUE" in todo|tareas|motor|vigilante|reloj) ;; *) echo "«que» no es válido"; exit 1;; esac
           # La lista de la nube va a un archivo de configuración: sólo letras minúsculas, puntos, guiones y comas.
-          printf '%s' "$NUBE" | grep -Eq '^[a-z0-9.,-]*$' || { echo "«nube» sólo puede llevar minúsculas, números, puntos, guiones y comas"; exit 1; }
+          [ -z "$NUBE" ] || printf '%s' "$NUBE" | grep -Eq '^[a-z0-9.,-]*$' || { echo "«nube» sólo puede llevar minúsculas, números, puntos, guiones y comas"; exit 1; }
           if [ "$CON_NUBE" != "true" ] && [ -n "$NUBE" ]; then echo "Ojo: pusiste «nube» pero «con_nube» está apagado: no se usa."; fi
 
       # Los depósitos de R2 de la mudanza (si ya existen, wrangler dice que existen y se sigue).
