@@ -42,5 +42,9 @@ const faltan = [];
 for (const k of SECRETOS) { if (process.env[k]) cuerpo[k] = { value: process.env[k], is_secret: true }; else faltan.push(k); }
 
 await api(`/builds/triggers/${disparador.trigger_uuid}/environment_variables`, { method: 'PATCH', body: JSON.stringify(cuerpo) });
+// El corte: sacar MOTOR_SIMULAR de verdad (el PATCH sólo suma o cambia, no borra).
+if (process.env.SIMULAR === 'No') {
+  await api(`/builds/triggers/${disparador.trigger_uuid}/environment_variables/MOTOR_SIMULAR`, { method: 'DELETE' }).catch((e) => console.log(`MOTOR_SIMULAR: ${e.message.slice(0, 160)}`));
+}
 console.log(`Cargadas ${Object.keys(cuerpo).length} variables (${Object.values(cuerpo).filter((x) => x.is_secret).length} secretas). MOTOR_SIMULAR: ${cuerpo.MOTOR_SIMULAR ? 'Si' : 'borrada'}.`);
 if (faltan.length) console.log(`Sin cargar por estar vacías en GitHub: ${faltan.join(', ')}.`);
