@@ -29347,8 +29347,8 @@
   "origen": "ninguna",
   "titulo": "Pablo gana 9.600.000 pesos en Ahora Caigo y emociona a su madre",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T22:31:39.176Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T00:31:25.543Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29485,5 +29485,64 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "osvbhw": {
+  "archivo": "fotos-notas/osvbhw.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diputados aprueba el proyecto para endurecer las penas por vandalismo rural",
+  "enlace": "https://www.clarin.com/rural/diputados-aprobo-amplia-apoyo-cambios-codigo-penal-endurecer-penas-vandalismo-rural_0_JtFfFPMhpx.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/21/-dlopHZrU_2000x1500__1.jpg",
+  "razon": "Es la única opción disponible y muestra el recinto de la Cámara de Diputados con el resultado de la votación en pantalla, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-22T00:31:25.543Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto de la Cámara de Diputados con el tablero de votación mostrando el resultado 'Afirmativo'."
+  },
+  "huella": "259c8ca4646b4269"
+ },
+ "19u8gb5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sergio Massa se reúne con rectores universitarios y vaticina un cambio político",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T00:31:25.543Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "13jpsnv": {
+  "archivo": "fotos-notas/13jpsnv.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Piden nuevas indagatorias por presunta corrupción en la Andis",
+  "enlace": "https://www.eleco.com.ar/nacionales/pidieron-ampliar-la-indagatoria-a-spagnuolo",
+  "imagenOriginal": "https://cdnartic.ar/r04SnMMXQzFIP7DlrWp6hDDBwTc=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/andis.webp",
+  "razon": "Es la única foto que corresponde directamente al protagonista de la noticia, es nítida, no tiene marcas agregadas ni menores de edad.",
+  "cuando": "2026-10-22T00:31:25.543Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre adulto hablando frente a un micrófono."
+  },
+  "huella": "1d3f1d3527276363"
  }
 }
