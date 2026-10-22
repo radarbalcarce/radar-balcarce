@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T21:32:53.846Z",
- "portada": 92,
- "archivo": 1504,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-22T22:02:32.686Z",
+ "portada": 96,
+ "archivo": 1508,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-22T21:32:54.197Z",
+  "generado": "2026-10-22T22:02:32.934Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-22T18:46:17.984Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-22T18:46:17.984Z",
     "segundos": null,
     "notas": [
@@ -136,8 +136,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 47,
     "notas": [
+     {
+      "id": "vxf5r",
+      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1cmow7i",
       "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
@@ -152,11 +157,6 @@
       "id": "4c84q3",
       "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-      "seccion": "Balcarce"
      }
     ]
    }
@@ -203,12 +203,6 @@
      "marcada": false
     },
     {
-     "id": "2zv6de",
-     "titulo": "El Estadio Único de La Plata suma su postulación para el Mundial 2030",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "agopcc",
      "titulo": "Lionel Messi recibe el Premio Princesa de Asturias de los Deportes",
      "seccion": "Fútbol",
@@ -221,21 +215,27 @@
      "marcada": false
     },
     {
-     "id": "11jjrxq",
-     "titulo": "La AFA aprueba el regreso de la Promoción al fútbol argentino desde 2027",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "i7863v",
      "titulo": "El consumo masivo baja 1,2% en septiembre y acumula una contracción de 2,7% en el año",
      "seccion": "Economía",
      "marcada": false
     },
     {
-     "id": "9c8d13",
-     "titulo": "Asignan instalaciones de Chapadmalal a la Universidad de Mar del Plata",
-     "seccion": "Educación",
+     "id": "lerkpc",
+     "titulo": "Javier Milei admite que la inflación baja más lento por menor crecimiento",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "11jjrxq",
+     "titulo": "La AFA aprueba el regreso de la Promoción al fútbol argentino desde 2027",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1wc47mg",
+     "titulo": "Soledad Pastorutti presenta su nuevo disco y habla de la salud de su papá",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
