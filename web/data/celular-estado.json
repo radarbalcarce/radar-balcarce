@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T09:31:49.732Z",
- "portada": 82,
- "archivo": 1520,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-22T10:01:58.264Z",
+ "portada": 40,
+ "archivo": 1466,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-22T09:31:50.237Z",
+  "generado": "2026-10-22T10:01:58.749Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,19 +95,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 42,
-    "notas": [
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "78ya7o",
-      "titulo": "Pinilla pide recuperar la Estudiantina tras la suspensión por hechos de violencia",
-      "seccion": "Balcarce"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "noticia2",
@@ -132,14 +121,7 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [
-    {
-     "id": "3lx6ld",
-     "titulo": "Palmeiras le gana por penales a Fluminense y avanza a la final de la Copa Libertadores",
-     "seccion": "Fútbol",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 5,
    "proximoDesde": "2026-10-21T23:05:31.339Z",
    "porDia": 5,
