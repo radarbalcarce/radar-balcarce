@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T15:35:24.815Z",
- "portada": 52,
- "archivo": 1463,
- "esperandoCuerpo": 7,
+ "generado": "2026-10-22T16:12:14.724Z",
+ "portada": 55,
+ "archivo": 1466,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-22T15:35:25.140Z",
+  "generado": "2026-10-22T16:12:15.221Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-22T15:07:09.606Z"
    },
    {
@@ -93,14 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 55,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
       "id": "sg5gtd",
       "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "umqt3y",
+      "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
+      "seccion": "Automovilismo"
      },
      {
       "id": "juo82o",
@@ -110,32 +125,6 @@
      {
       "id": "rdo3nh",
       "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
-      "seccion": "Educación"
-     },
-     {
-      "id": "4c84q3",
-      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
-      "seccion": "Automovilismo"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 37,
-    "notas": [
-     {
-      "id": "1cmow7i",
-      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
       "seccion": "Balcarce"
      }
     ]
@@ -147,8 +136,24 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "1cmow7i",
+      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "4c84q3",
+      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "vxf5r",
+      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
+      "seccion": "Balcarce"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -162,6 +167,11 @@
      "id": "d54qko",
      "titulo": "El papa León XIV anticipa su visita al país tras recibir el alta médica",
      "cuando": "2026-10-22T13:45:42.186Z"
+    },
+    {
+     "id": "juo82o",
+     "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+     "cuando": "2026-10-22T15:35:41.459Z"
     }
    ],
    "cola": [
@@ -172,15 +182,15 @@
      "marcada": false
     },
     {
-     "id": "juo82o",
-     "titulo": "Desarrollo Social entrega mercadería desde el lunes",
-     "seccion": "Balcarce",
+     "id": "umqt3y",
+     "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
      "id": "rdo3nh",
      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
-     "seccion": "Educación",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -202,8 +212,8 @@
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-22T15:15:42.186Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-22T17:05:41.459Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

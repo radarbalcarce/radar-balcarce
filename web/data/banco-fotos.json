@@ -30474,14 +30474,40 @@
   "huella": "4e4a33292b7d7179"
  },
  "bg0g55": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/bg0g55.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Lanzan un concurso público para concesionar seis hoteles de Chapadmalal",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-10-22T15:03:38.835Z",
-  "intentos": 2,
-  "fuentes": 6,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://mi8.com.ar/el-gobierno-lanzo-la-licitacion-para-concesionar-seis-hoteles-de-chapadmalal-por-30-anos/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2025/01/01_utc-fotos_text02.jpg",
+  "razon": "Es una fotografía aérea de gran calidad y nitidez de los hoteles de Chapadmalal, sin marcas de agua ni personas.",
+  "cuando": "2026-10-22T16:07:13.783Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea panorámica de los hoteles de Chapadmalal y la costa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista aérea de los edificios de los hoteles de Chapadmalal junto a la costa y una cancha de tenis."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2f1f59eaa266da53"
  },
  "iarztc": {
   "archivo": "fotos-notas/iarztc.jpg",
@@ -30613,24 +30639,65 @@
   "huella": "4eadcc8c8d6d646c"
  },
  "s0tjjb": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/s0tjjb.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "BTS debuta en La Plata ante miles de personas en su gira mundial",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de Crónica no se usa todavía.",
-  "cuando": "2026-10-22T15:03:38.835Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.lanacion.com.ar/espectaculos/video-asi-fue-el-comienzo-del-primer-show-de-bts-en-la-argentina-nid22102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/concierto-de-bts-en-el-estadio-de-la-L7Z7JU35ENFJDKGWX5HC2AVQAA.jpg?auth=9b808db3529f4829d6f9c32e3a12c10f43c9b78d23cf2ddc5167aa7bd1d33443&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto A muestra claramente a los integrantes de BTS con las camisetas de la selección argentina, lo que ilustra perfectamente el debut en La Plata, y no presenta marcas de agua ni menores de edad. La segunda opinión (gemini) descartó la de Crónica (no corresponde a la nota): se usa La Nación.",
+  "cuando": "2026-10-22T16:07:13.783Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista de la banda en el escenario con iluminación verde y la multitud con luces.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "la banda en un escenario con luces verdes y publico de fondo"
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "0f0f0f1f0f8e2ab3"
  },
  "sg5gtd": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/sg5gtd.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-22T15:03:38.835Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/balcarce-los-comercios-deberan-incluir-el-numero-148-en-facturas-y-tickets",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Factura%20de%20comercio.png",
+  "razon": "Es la foto más adecuada para ilustrar los tickets y comercios, sin marcas añadidas ni personas menores.",
+  "cuando": "2026-10-22T16:07:13.783Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo tickets de compra junto a una billetera"
+  },
+  "huella": "8a0b8d8dc575642c"
  },
  "rdo3nh": {
   "intentado": true,
@@ -30700,5 +30767,39 @@
    "descripcion": "Aula escolar vacía con bancos y pizarrón"
   },
   "huella": "22606278686c436a"
+ },
+ "umqt3y": {
+  "archivo": "fotos-notas/umqt3y.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
+  "enlace": "https://puntonueve.com.ar/el-automovilismo-zonal-vuelve-al-autodromo-de-balcarce-con-la-sexta-fecha-de-la-temporada/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-22-at-12.14.25.jpeg",
+  "razon": "Es la única foto disponible, corresponde a la competencia del Zonal del Atlántico en el autódromo, cuenta con buen encuadre y nitidez, y no presenta marcas de agua, menores, gráficos ni es de archivo.",
+  "cuando": "2026-10-22T16:07:13.783Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista cenital de autos de competición en una curva del autódromo"
+  },
+  "huella": "5bb2533317cb670f"
+ },
+ "pi8okg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La UNMDP fija el plazo de inscripción para diversas carreras de 2027",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-22T16:07:13.783Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
