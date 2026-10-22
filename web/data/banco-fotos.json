@@ -30805,7 +30805,8 @@
    "corresponde": "si",
    "descripcion": "Aula escolar vacía con bancos y pizarrón"
   },
-  "huella": "22606278686c436a"
+  "huella": "22606278686c436a",
+  "ausenteDesde": "2026-10-22T19:32:41.032Z"
  },
  "umqt3y": {
   "archivo": "fotos-notas/umqt3y.jpg",
@@ -31463,5 +31464,89 @@
   "cuando": "2026-10-22T19:03:00.616Z",
   "intentos": 1,
   "fuentes": 4
+ },
+ "11jjrxq": {
+  "archivo": "fotos-notas/11jjrxq.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La AFA aprueba el regreso de la Promoción al fútbol argentino desde 2027",
+  "enlace": "https://www.tycsports.com/primera-nacional/cambios-en-el-ascenso-vuelve-la-promocion-al-futbol-argentino-id767799.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/09/22/990014/claudio-tapia_862x485.webp",
+  "razon": "Es la única foto válida que muestra de frente a las autoridades del fútbol argentino en una conferencia de prensa, sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-10-22T19:31:57.374Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Claudio Tapia en conferencia de prensa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Un hombre de cabello cano en una mesa con micrófonos, posiblemente en una conferencia o reunión."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "37333b3b32316504"
+ },
+ "1qhwdw3": {
+  "archivo": "fotos-notas/1qhwdw3.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INDEC confirma la caída del consumo masivo y registra una baja de 3,7% en supermercados",
+  "enlace": "https://www.cronista.com/economia-politica/consumo-en-rojo-caen-las-ventas-en-mayoristas-y-supermercados/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/Q7CQ6IFQAJEP3J5GJPTNHLHFT4.jpg?auth=1c82a8e97c4a9a395ec0486294273822b888a7ca7fab636b286068ba1e908e05&height=630&width=1200&quality=70&smart=true",
+  "razon": "Muestra claramente el interior de un supermercado mayorista con cartelería de precios, acorde a la nota sobre consumo masivo, sin marcas superpuestas ni menores.",
+  "cuando": "2026-10-22T19:31:57.374Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Góndolas de un supermercado mayorista con clientes comprando."
+  },
+  "huella": "a58a8896ded2e093"
+ },
+ "1lukod9": {
+  "archivo": "fotos-notas/1lukod9.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Bullrich advierte sobre la ayuda financiera de Estados Unidos",
+  "enlace": "https://dib.com.ar/politica/bullrich-vuelve-tensar-milei-no-nos-puede-pasar-que-terminemos-atados-scott-bessent-n56721",
+  "imagenOriginal": "https://media.dib.com.ar/p/1939e42f71abc2c4864ee34c9e959eff/adjuntos/377/imagenes/100/058/0100058032/1200x675/547x300:567x320/santiago-bausili-presidente-del-banco-central-ht2dhedz3jdwppoxctz3q3gapi.avif",
+  "razon": "La foto B muestra claramente a Patricia Bullrich hablando en una conferencia o evento, cumple con los requisitos y no tiene marcas de agua ni menores.",
+  "cuando": "2026-10-22T19:31:57.374Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Patricia Bullrich hablando por un micrófono en un evento."
+  },
+  "huella": "1a2b2b0b2f273f2f"
  }
 }
