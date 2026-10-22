@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-22T14:05:12.317Z",
+ "generado": "2026-10-22T14:33:32.286Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,8 +15,8 @@
      "fecha": "2026-10-22T13:59:50.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 30 palabras",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"ministerio\" y la fuente no",
    "maximo": 3
   },
   {
@@ -47,18 +47,77 @@
      "fecha": "2026-10-21T13:13:00.000Z"
     },
     {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/la-produccion-petroleo-argentina-marco-un-record-historico-vaca-muerta-la-gran-responsable-n6011180",
-     "fecha": "2026-10-21T22:15:00.000Z"
-    },
-    {
      "medio": "Clarín",
      "enlace": "https://www.clarin.com/energia-y-mineria/vaca-muerta-cerca-hito-historico-produccion-petroleo-orilla-millon-barriles-dia_0_d5onrutpu8.html",
      "fecha": "2026-10-21T14:44:41.000Z"
+    },
+    {
+     "medio": "Los Andes (Mendoza)",
+     "enlace": "https://www.losandes.com.ar/la-produccion-petroleo-argentina-marco-un-record-historico-vaca-muerta-la-gran-responsable-n6011180",
+     "fecha": "2026-10-21T22:15:00.000Z"
     }
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
+   "maximo": 4
+  },
+  {
+   "id": "wmfa75",
+   "titulo": "MasterChef Celebrity: qué participantes subieron al balcón y quiénes recibieron el delantal gris este miércoles 21 de octubre",
+   "copete": "\"MasterChef Celebrity\" , reality culinario al frente de Wanda Nara en la pantalla de Telefe, se prepara para su cuarta gala de eliminación, que cambió su fecha por el levantamiento del programa de este jueves. Pero antes de que esto ocurra, se conocieron a los participantes que…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-22T03:01:01.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/espectaculos/masterchef-celebrity-que-participantes-subieron-al-balcon-y-quienes-recibieron-el-delantal-gris-este-miercoles-21-de-octubre/",
+     "fecha": "2026-10-22T03:01:01.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/diarioshow/farandula/masterchef-celebrity-que-participantes-se-llevaron-el-delantal-gris-y-quienes-subieron-al-balcon/",
+     "fecha": "2026-10-22T12:28:49.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1dnosur",
+   "titulo": "BTS enloqueció a sus fans en su primer show en La Plata: “Fuera de joda son el mejor público” - Video 1",
+   "copete": "",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-22T08:13:24.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/videos/musica/recitales/2026/10/22/bts-enloquecio-a-sus-fans-en-su-primer-show-en-la-plata-fuera-de-joda-son-el-mejor-publico-video-1/",
+     "fecha": "2026-10-22T08:13:24.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/videos/musica/recitales/2026/10/22/bts-hizo-vibrar-a-la-plata-en-su-primer-show-y-sorprendio-a-sus-fans-con-un-mensaje-en-castellano-son-el-mejor-publico/",
+     "fecha": "2026-10-22T11:18:53.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/videos/bts-lanzo-una-frase-en-castellano-en-pleno-show-y-enloquecio-a-sus-fans-argentinos/",
+     "fecha": "2026-10-22T11:32:27.000Z"
+    },
+    {
+     "medio": "0221",
+     "enlace": "https://www.0221.com.ar/que-hago/bts-debuto-la-plata-e-hizo-vibrar-miles-fanaticos-un-show-casi-tres-horas-n136213",
+     "fecha": "2026-10-22T12:45:00.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/musica/recitales/2026/10/22/bts-enloquecio-a-sus-fans-en-su-primer-show-en-la-plata-fuera-de-joda-son-el-mejor-publico/",
+     "fecha": "2026-10-22T08:26:52.000Z"
+    }
+   ],
+   "intentos": 4,
+   "motivo": "título o bajada: 1 problema (numero): el copete dice 8 y la fuente no lo dice",
    "maximo": 4
   },
   {
@@ -97,11 +156,6 @@
      "medio": "Infórmese Primero (FM 104.9)",
      "enlace": "http://www.informeseprimero.com.ar/2026/10/la-economia-cayo-un-17-interanual-en.html",
      "fecha": "2026-10-22T12:14:53.968Z"
-    },
-    {
-     "medio": "Agencia DIB",
-     "enlace": "https://dib.com.ar/economia/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
-     "fecha": "2026-10-21T19:33:00.000Z"
     },
     {
      "medio": "La Nación",
@@ -204,16 +258,6 @@
      "fecha": "2026-10-22T02:31:00.000Z"
     },
     {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/economia/la-actividad-economica-cayo-17-agosto-y-registro-su-peor-contraccion-interanual-2026-n6011188",
-     "fecha": "2026-10-21T19:51:00.000Z"
-    },
-    {
-     "medio": "elDiarioAR",
-     "enlace": "https://www.eldiarioar.com/economia/actividad-economica-cayo-1-7-interanual-agosto-mayor-contraccion-ano_1_13606305.html",
-     "fecha": "2026-10-22T11:18:34.000Z"
-    },
-    {
      "medio": "Agencia DIB",
      "enlace": "https://dib.com.ar/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
      "fecha": "2026-10-21T19:33:00.000Z"
@@ -222,6 +266,16 @@
      "medio": "Clarín",
      "enlace": "https://www.clarin.com/economia/actividad-economica-cayo-17-agosto-indec_0_xqx0gKxVjG.html",
      "fecha": "2026-10-21T19:02:56.000Z"
+    },
+    {
+     "medio": "Los Andes (Mendoza)",
+     "enlace": "https://www.losandes.com.ar/economia/la-actividad-economica-cayo-17-agosto-y-registro-su-peor-contraccion-interanual-2026-n6011188",
+     "fecha": "2026-10-21T19:51:00.000Z"
+    },
+    {
+     "medio": "Agencia DIB",
+     "enlace": "https://dib.com.ar/economia/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
+     "fecha": "2026-10-21T19:33:00.000Z"
     },
     {
      "medio": "Radio Mitre",
@@ -237,6 +291,11 @@
      "medio": "La Brújula 24",
      "enlace": "https://www.labrujula24.com/notas/2026/10/21/la-economia-se-estanco-en-agosto-y-quedo-a-las-puertas-de-la-recesion-n526645/",
      "fecha": "2026-10-21T23:00:30.000Z"
+    },
+    {
+     "medio": "elDiarioAR",
+     "enlace": "https://www.eldiarioar.com/economia/actividad-economica-cayo-1-7-interanual-agosto-mayor-contraccion-ano_1_13606305.html",
+     "fecha": "2026-10-22T11:18:34.000Z"
     }
    ],
    "intentos": 1,
