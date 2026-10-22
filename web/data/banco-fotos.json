@@ -25130,7 +25130,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "5633ac1dcbbbb93e"
+  "huella": "5633ac1dcbbbb93e",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "11wm7cc": {
   "archivo": "fotos-notas/11wm7cc.jpg",
@@ -26441,7 +26442,8 @@
    "corresponde": "si",
    "descripcion": "Camión recolector de residuos de la empresa Ashira en Balcarce"
   },
-  "huella": "9c4c0653e4cdc8c9"
+  "huella": "9c4c0653e4cdc8c9",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "1s9dj48": {
   "archivo": "fotos-notas/1s9dj48.jpg",
@@ -28345,7 +28347,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei disertando con intérprete de lenguaje de señas en el margen inferior"
   },
-  "huella": "13a98ba0580c0c1c"
+  "huella": "13a98ba0580c0c1c",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "1l9wacm": {
   "archivo": "fotos-notas/1l9wacm.jpg",
@@ -28476,7 +28479,8 @@
    "corresponde": "si",
    "descripcion": "Personas haciendo fila frente a una oficina de ANSES"
   },
-  "huella": "efe92929b98d8d8b"
+  "huella": "efe92929b98d8d8b",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "1eoo2xd": {
   "archivo": "fotos-notas/1eoo2xd.jpg",
@@ -28617,7 +28621,8 @@
    "corresponde": "generica",
    "descripcion": "Pasillo de hospital con personal médico silueteado"
   },
-  "huella": "0d5f1f3636161617"
+  "huella": "0d5f1f3636161617",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "7pylwj": {
   "intentado": true,
@@ -29194,7 +29199,8 @@
    "corresponde": "si",
    "descripcion": "Leopoldo Luque en primer plano con traje y corbata"
   },
-  "huella": "f0e9c8e4e4f6654f"
+  "huella": "f0e9c8e4e4f6654f",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "2mceuj": {
   "archivo": "fotos-notas/2mceuj.jpg",
@@ -29293,14 +29299,28 @@
   "huella": "8da9b717d5c58686"
  },
  "1j4jbq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1j4jbq.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Javier Milei aparece con un vendaje en el cuello durante su visita a Madrid",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T00:02:02.176Z",
-  "intentos": 3,
-  "fuentes": 8,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lanacion.com.ar/politica/la-explicacion-del-gobierno-sobre-por-que-milei-uso-una-venda-en-el-cuello-durante-su-viaje-a-espana-nid21102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-presidente-javier-milei-con-una-venda-en-su-CQISCDJ5VJG6RLTNFHS46BYGWU.jpg?auth=cdb0cb576f68d2f3b53c0758d0d67ce8dd9dfd2e8a7e35decc31e4c359b3a452&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto con mejor nitidez y encuadre que muestra claramente el vendaje en el cuello de Javier Milei sin marcas agregadas ni otros problemas.",
+  "cuando": "2026-10-22T10:31:34.169Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei sonriendo con un vendaje en el cuello rodeado de seguridad"
+  },
+  "huella": "20f1484c444f6223"
  },
  "1tgcpwq": {
   "archivo": "fotos-notas/1tgcpwq.jpg",
@@ -29636,7 +29656,8 @@
    "corresponde": "si",
    "descripcion": "Bryan Ruiz con ropa oscura en el campo de juego"
   },
-  "huella": "252e4a6a6a616969"
+  "huella": "252e4a6a6a616969",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "ohl9qy": {
   "archivo": "fotos-notas/ohl9qy.jpg",
@@ -29937,11 +29958,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Nico Paz reacciona a la foto de Ciro Messi con la camiseta del Como",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T02:02:27.733Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de La Gaceta (Tucumán) (un menor): no se elige ninguna. (la foto libre de \"Nico Paz\" no sirve: no corresponde a la nota (generica) (Primer plano de Nico Paz con la camiseta de la Selección Argentina.))",
+  "cuando": "2026-10-22T10:31:34.169Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "lrvyw3": {
   "intentado": true,
@@ -29987,7 +30007,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b0a4c6b39b772713"
+  "huella": "b0a4c6b39b772713",
+  "ausenteDesde": "2026-10-22T10:32:32.443Z"
  },
  "1rylju8": {
   "archivo": "fotos-notas/3lx6ld.jpg",
@@ -30160,5 +30181,89 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG/1280px-Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Museo Tripero - Estadio Juan Carmelo Zerillo. 14.JPG",
   "cuando": "2026-10-22T09:01:47.556Z"
+ },
+ "k3nnhe": {
+  "archivo": "fotos-notas/k3nnhe.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "María O'Donnell gana el Martín Fierro de Oro de la Radio 2026",
+  "enlace": "https://www.infobae.com/teleshow/2026/10/22/maria-odonnell-gano-el-martin-fierro-de-oro-de-la-radio-2026/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/IZCYU52HORASZGRJDOPGWRTPXI.jpg?auth=c113415816e5a14d0e8c70f17501e4bbbb2a8ec451e09f43db4beaf1cf281a92&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única foto sin marcas agregadas, con excelente encuadre y nitidez que muestra claramente a María O'Donnell con los premios.",
+  "cuando": "2026-10-22T10:31:34.169Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Maria O'Donnell posando sonriente con dos estatuillas del Martín Fierro"
+  },
+  "huella": "ebf6ebebcdb733b3"
+ },
+ "xh1glv": {
+  "archivo": "fotos-notas/xh1glv.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Robert De Niro envía una carta a la pareja de Luis Brandoni",
+  "enlace": "https://www.lanacion.com.ar/espectaculos/la-carta-que-robert-de-niro-le-escribio-a-la-viuda-de-luis-brandoni-a-seis-meses-de-su-muerte-nid21102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/la-carta-que-robert-de-niro-le-escribio-a-la-VBYZMK4FBJCATDXDGITSVU36DU.JPG?auth=eba745339c34e81a4046112119487b9446e6632746aefa4ab0417f6b356c77d9&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto disponible, tiene excelente nitidez y encuadre, y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-22T10:31:34.169Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Luis Brandoni y Robert De Niro en la calle gesticulando."
+  },
+  "huella": "399596ca8f91c9e9"
+ },
+ "7lfamh": {
+  "archivo": "fotos-notas/7lfamh.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Palmeiras vence a Fluminense por penales y pasa a la final de la Copa Libertadores",
+  "enlace": "https://bolavip.com/ar/copalibertadores/atento-estudiantes-palmeiras-vencio-a-fluminense-por-penales-y-jugara-la-final-de-la-copa-libertadores",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/21234023/palmeiras_fluminense-1200x740.webp",
+  "razon": "Es una fotografía clara de una jugada del partido entre Palmeiras y Fluminense, sin marcas añadidas, menores ni problemas de archivo o gráficas.",
+  "cuando": "2026-10-22T10:31:34.169Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en el partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Palmeiras y Fluminense disputando la posesión del balón durante el partido."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b0a4c6b39b772713"
  }
 }
