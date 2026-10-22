@@ -31235,9 +31235,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
-  "razon": "sin fotos para comparar (la foto libre de \"Lionel Scaloni\" no sirve: no corresponde a la nota (Lionel Scaloni con indumentaria de la selección argentina))",
-  "cuando": "2026-10-22T20:02:57.806Z",
-  "intentos": 2,
+  "razon": "La única foto disponible incluye a un menor de edad reconocible, por lo que no puede ser publicada. (la foto libre de \"Lionel Scaloni\" no sirve: no corresponde a la nota (Lionel Scaloni con indumentaria de la selección argentina.))",
+  "cuando": "2026-10-22T21:31:40.877Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "1wc47mg": {
@@ -31931,5 +31931,54 @@
    "descripcion": "Javier Milei junto a Isabel Díaz Ayuso sosteniendo un presente en Madrid."
   },
   "huella": "75756dcd6d4d4dcc"
+ },
+ "lerkpc": {
+  "archivo": "fotos-notas/lerkpc.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei admite que la inflación baja más lento por menor crecimiento",
+  "enlace": "https://www.infobae.com/politica/2026/10/22/milei-admitio-que-el-ritmo-al-que-baja-la-inflacion-es-mas-lento-y-ratifico-su-frase-sobre-la-gente-que-no-llega-a-fin-de-mes/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/Q23MT3EHYNH43LHO5C7YM4MKVE.jpg?auth=9a9ed2b195a1600f402459b526b975ae12f25c20acdcc213a31981ba63c5df37&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la foto más limpia, con buen encuadre y sin marcas agregadas por el medio.",
+  "cuando": "2026-10-22T21:31:40.877Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando en un atril con fondo azul"
+  },
+  "huella": "01081414766464c4"
+ },
+ "1rvrukc": {
+  "archivo": "fotos-notas/1rvrukc.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lanzan la red VEGA para sumar mujeres a debates estratégicos",
+  "enlace": "https://www.perfil.com/noticias/economia/de-vaca-muerta-a-la-justicia-quienes-son-las-31-mujeres-que-se-unieron-en-la-red-vega-para-impulsar-cambios-en-la-argentina-a40.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/22/trim/1140/641/red-vega-2354338.jpg",
+  "razon": "Es la única opción disponible y muestra claramente el evento de lanzamiento de la red VEGA con el logo en el fondo, sin marcas de agua del medio ni menores de edad.",
+  "cuando": "2026-10-22T21:31:40.877Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de mujeres posando en un escenario con un fondo azul que muestra el logo de VEGA y el texto 'MUCHAS GRACIAS'."
+  },
+  "huella": "07571b2f27b7951f"
  }
 }
