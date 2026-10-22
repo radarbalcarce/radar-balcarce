@@ -1,0 +1,39 @@
+name: Ensayo del motor en Cloudflare
+
+# A mano (PLAN-DE-CAMBIO.md, paso 8a). Despierta una vuelta del motor con el deploy hook y espera a que termine en Workers Builds, mostrando el final de su registro.
+# Nunca imprime el hook (es la credencial). Con MOTOR_SIMULAR=Si en Workers Builds la vuelta no guarda, no sube y no escribe en R2.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ensayo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Despertar la vuelta y esperar
+        env:
+          MOTOR_DEPLOY_HOOK: ${{ secrets.MOTOR_DEPLOY_HOOK }}
+          CF_BUILDS_TOKEN: ${{ secrets.CF_BUILDS_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          api() { curl -s -H "Authorization: Bearer $CF_BUILDS_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID$1"; }
+          TAG=$(api /workers/scripts | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const x=JSON.parse(s).result.find(w=>w.id==='radar-balcarce-motor');process.stdout.write(x.tag||'')})")
+          echo "Worker: ${TAG:0:6}…"
+          RESP=$(curl -s -m 60 -X POST "$MOTOR_DEPLOY_HOOK")
+          echo "Respuesta del hook: $(echo "$RESP" | head -c 300)"
+          BUILD=$(echo "$RESP" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const j=JSON.parse(s);process.stdout.write(j.result?.build_uuid||j.result?.id||'')}catch{}})")
+          echo "Compilación: ${BUILD:-no se pudo leer}"
+          [ -n "$BUILD" ] || exit 1
+          for i in $(seq 1 90); do
+            sleep 20
+            ESTADO=$(api /builds/builds/$BUILD | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const r=JSON.parse(s).result;process.stdout.write((r.status||'')+'|'+(r.build_outcome||''))}catch{process.stdout.write('?')}})")
+            echo "[$i] $ESTADO"
+            case "$ESTADO" in *success*|*fail*|*cancel*) break;; esac
+          done
+          echo "--- final del registro"
+          api /builds/builds/$BUILD/logs | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const l=JSON.parse(s).result;const t=(l.lines||l||[]).map(x=>Array.isArray(x)?x[1]:(x.message||JSON.stringify(x)));console.log(t.slice(-60).join('\n'))}catch(e){console.log('sin registro: '+s.slice(0,300))}})"
+          case "$ESTADO" in *success*) exit 0;; *) exit 1;; esac
