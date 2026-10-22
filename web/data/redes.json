@@ -3152,6 +3152,20 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-22/noticia2": {
+      "cuando": "2026-10-22T18:46:17.984Z",
+      "mediaId": "18123668813490867",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "sg5gtd",
+      "notaIds": [
+        "sg5gtd",
+        "umqt3y",
+        "rdo3nh",
+        "juo82o"
+      ],
+      "permalink": "https://www.instagram.com/reel/DezqHRIgJV9/"
     }
   },
   "facebookVideos": {
@@ -5285,6 +5299,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122114596215495512"
+    },
+    "2026-10-22/noticia2": {
+      "cuando": "2026-10-22T18:48:23.030Z",
+      "mediaId": "1482817326994967",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "sg5gtd",
+      "notaIds": [
+        "sg5gtd",
+        "umqt3y",
+        "rdo3nh",
+        "juo82o"
+      ],
+      "postId": "122114643735495512",
+      "permalink": "https://www.facebook.com/reel/1482817326994967/"
     }
   },
   "instagramFeed": {
@@ -7543,6 +7572,21 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1579796243920922"
+    },
+    "instagram/2026-10-22/noticia2": {
+      "cuando": "2026-10-22T18:48:12.565Z",
+      "mediaId": "17990475027113740",
+      "nombre": "noticia2",
+      "red": "instagram",
+      "notaId": "sg5gtd"
+    },
+    "facebook/2026-10-22/noticia2": {
+      "cuando": "2026-10-22T18:48:58.183Z",
+      "mediaId": "2273251849884884",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "sg5gtd",
+      "postId": "2197714057846466"
     }
   },
   "problemas": {
@@ -7552,13 +7596,6 @@
       "parte": "reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-22T15:45:36.431Z"
-    },
-    "2026-10-22/noticia2/instagram/reel": {
-      "pieza": "noticia2",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-22T18:35:40.798Z"
     }
   },
   "facebookFoto": {
