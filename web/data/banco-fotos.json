@@ -32047,5 +32047,59 @@
   "intentos": 1,
   "fuentes": 10,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "jskasn": {
+  "archivo": "fotos-notas/jskasn.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estados Unidos confirma su interés por los alcances de la Ley Malvinas",
+  "enlace": "https://www.iprofesional.com/politica/467272-estados-unidos-reconocio-que-hay-preocupacion-en-sus-empresas-por-la-ley-malvinas",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/10/628192_landscape.jpg",
+  "razon": "Muestra claramente a los protagonistas en un plano medio adecuado, con excelente nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-22T22:32:20.574Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Funcionario gesticulando en un atril junto a otro funcionario."
+  },
+  "huella": "ded6d6d69295c6ce"
+ },
+ "ji2440": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Reclaman medidas disciplinarias tras los hechos de violencia en la Estudiantina",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T22:32:20.574Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "qlki82": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Aerolíneas Argentinas registra pérdidas semestrales por el combustible",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T22:32:20.574Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1h3sch4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Tigre y Atlético Tucumán juegan por el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T22:32:20.574Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T22:02:32.686Z",
- "portada": 96,
- "archivo": 1508,
+ "generado": "2026-10-22T22:32:37.302Z",
+ "portada": 94,
+ "archivo": 1510,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-22T22:02:32.934Z",
+  "generado": "2026-10-22T22:32:37.856Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-22T22:07:03.107Z"
    },
    {
     "nombre": "clima-noche",
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 48,
     "notas": [
      {
       "id": "vxf5r",
@@ -144,13 +144,13 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1cmow7i",
-      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
+      "id": "ji2440",
+      "titulo": "Reclaman medidas disciplinarias tras los hechos de violencia en la Estudiantina",
       "seccion": "Balcarce"
      },
      {
-      "id": "1i9rlqx",
-      "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
+      "id": "1cmow7i",
+      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
       "seccion": "Balcarce"
      },
      {
@@ -191,6 +191,12 @@
    ],
    "cola": [
     {
+     "id": "ji2440",
+     "titulo": "Reclaman medidas disciplinarias tras los hechos de violencia en la Estudiantina",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "umqt3y",
      "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
      "seccion": "Automovilismo",
@@ -209,18 +215,6 @@
      "marcada": false
     },
     {
-     "id": "pi8okg",
-     "titulo": "La UNMDP fija el plazo de inscripción para diversas carreras de 2027",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
-     "id": "i7863v",
-     "titulo": "El consumo masivo baja 1,2% en septiembre y acumula una contracción de 2,7% en el año",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "lerkpc",
      "titulo": "Javier Milei admite que la inflación baja más lento por menor crecimiento",
      "seccion": "Economía",
@@ -233,9 +227,15 @@
      "marcada": false
     },
     {
-     "id": "1wc47mg",
-     "titulo": "Soledad Pastorutti presenta su nuevo disco y habla de la salud de su papá",
-     "seccion": "Cultura y agenda",
+     "id": "19kc8fu",
+     "titulo": "Chubut inaugura la quinta etapa del parque eólico más grande del país",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "i7863v",
+     "titulo": "El consumo masivo baja 1,2% en septiembre y acumula una contracción de 2,7% en el año",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
