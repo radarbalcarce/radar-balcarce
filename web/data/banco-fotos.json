@@ -25240,7 +25240,8 @@
    "corresponde": "si",
    "descripcion": "Fachada diurna del Palacio de Justicia en plano contrapicado"
   },
-  "huella": "a68cb5555554d4d6"
+  "huella": "a68cb5555554d4d6",
+  "ausenteDesde": "2026-10-22T08:31:56.548Z"
  },
  "phvgrd": {
   "archivo": "fotos-notas/phvgrd.jpg",
@@ -29046,8 +29047,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "00406cecd4d48c0f",
-  "ausenteDesde": "2026-10-21T23:02:33.739Z"
+  "huella": "00406cecd4d48c0f"
  },
  "1ubsuhm": {
   "intentado": true,
@@ -29419,14 +29419,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1dvngnn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1dvngnn.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Pablo gana 9.600.000 pesos en Ahora Caigo y emociona a su madre",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T02:31:04.833Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.infobae.com/teleshow/2026/10/21/gano-el-premio-mayor-de-ahora-caigo-y-la-reaccion-de-su-mama-conmovio-al-estudio-alguien-que-contenga-a-mi-vieja/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/WB3Q6WPPLJFN7BWSZCCLWLRLSQ.png?auth=5ccf8e908624a61d6d9bda5222ad26670c8d020379fd360b87a1ac67af198205&smart=true&width=1200&height=630&quality=85",
+  "razon": "Muestra claramente el abrazo entre el participante y su madre en el estudio con el conductor al lado, sin menores ni marcas añadidas.",
+  "cuando": "2026-10-22T08:31:40.951Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pablo abrazando a su madre en el programa con el conductor al lado"
+  },
+  "huella": "99dbe4cccdc3c3c4"
  },
  "1lhg66w": {
   "archivo": "fotos-notas/1lhg66w.jpg",
@@ -29928,5 +29942,29 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1y7eswi": {
+  "archivo": "fotos-notas/1y7eswi.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diputados devuelve a comisión el proyecto sobre endeudamiento familiar",
+  "enlace": "https://www.infobae.com/politica/2026/10/21/diputados-en-vivo-ultimas-noticias-del-debate-sobre-discapacidad-endeudamiento-familiar-y-propiedad-privada/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/KCCOIWLA7VHYPINOIVE445RWYE.jpg?auth=c3954db1854a3e5d6035a02d4b3b903471f24d983f3307c3506a5fae55c468c9&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única opción que corresponde a la nota, muestra claramente el recinto de la Cámara de Diputados sin marcas superpuestas de ningún medio y sin menores de edad.",
+  "cuando": "2026-10-22T08:31:40.951Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto de la Cámara de Diputados durante una sesión"
+  },
+  "huella": "135a5252468f1157"
  }
 }
