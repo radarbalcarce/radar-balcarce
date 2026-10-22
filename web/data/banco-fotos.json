@@ -29845,9 +29845,19 @@
   "origen": "ninguna",
   "titulo": "Nuevas guías respaldan la terapia hormonal para tratar la menopausia",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T05:01:34.049Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T06:01:56.165Z",
+  "intentos": 2,
   "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "4bb916": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Diputados aprueba el proyecto de ley de Discapacidad y pasa al Senado",
+  "razon": "La única foto disponible es una composición gráfica (magnificación) y no una fotografía real del hecho, por lo que no cumple con los requisitos de publicación.",
+  "cuando": "2026-10-22T06:01:56.165Z",
+  "intentos": 1,
+  "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
