@@ -1,7 +1,24 @@
 {
- "generado": "2026-10-22T15:06:15.377Z",
+ "generado": "2026-10-22T15:35:24.815Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "umqt3y",
+   "titulo": "El Automovilismo Zonal vuelve al autódromo de Balcarce con la sexta fecha de la temporada",
+   "copete": "El autódromo Juan Manuel Fangio será escenario este fin de semana de una nueva presentación de las categorías zonales, que disputarán la sexta fecha del campeonato con la participación del TSC, Promocional del Atlántico, Monomarca Fiat, TC 2000 del Atlántico y Monomarca del…",
+   "seccion": "Automovilismo",
+   "fecha": "2026-10-22T15:15:49.000Z",
+   "fuentes": [
+    {
+     "medio": "Puntonueve (FM 100.9)",
+     "enlace": "https://puntonueve.com.ar/el-automovilismo-zonal-vuelve-al-autodromo-de-balcarce-con-la-sexta-fecha-de-la-temporada/",
+     "fecha": "2026-10-22T15:15:49.000Z"
+    }
+   ],
+   "intentos": 0,
+   "motivo": "",
+   "maximo": 3
+  },
   {
    "id": "xz2i7j",
    "titulo": "Pedirán a Provincia la pavimentación de calle 55 entre avenida Centenario y avenida Suipacha",
@@ -17,6 +34,28 @@
    ],
    "intentos": 3,
    "motivo": "cuerpo corto (56 palabras)",
+   "maximo": 3
+  },
+  {
+   "id": "6aw080",
+   "titulo": "Anthropic presentó Claude Duet, un asistente de IA que sigue trabajando con el teléfono apagado",
+   "copete": "Anthropic presentó el miércoles Claude Duet , un agente de inteligencia artificial que vigila las aplicaciones conectadas de un usuario, envía un resumen cada mañana y completa tareas por su cuenta, incluso con el teléfono o la computadora apagados. La empresa lo lanzó como…",
+   "seccion": "Tecnología",
+   "fecha": "2026-10-22T11:25:46.000Z",
+   "fuentes": [
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/tecno/2026/10/22/anthropic-presento-claude-duet-un-asistente-de-ia-que-sigue-trabajando-con-el-telefono-apagado/",
+     "fecha": "2026-10-22T11:25:46.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/tecnologia/claude-duet-como-funciona-el-agente-de-ia-de-anthropic-quienes-pueden-probarlo-y-que-tareas-hace-sin-nid22102026/",
+     "fecha": "2026-10-22T15:03:51.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"claude\", \"duet\" y el cuerpo no los explica; sin esas oraciones quedan 113 palabras",
    "maximo": 3
   },
   {
@@ -143,6 +182,11 @@
      "fecha": "2026-10-21T11:20:39.000Z"
     },
     {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/economia/indec-actividad-economica-informe-21-octubre-2026",
+     "fecha": "2026-10-21T13:11:00.000Z"
+    },
+    {
      "medio": "El Cronista",
      "enlace": "https://www.cronista.com/economia-politica/actividad-economica-el-indec-publica-el-dato-clave-de-agosto-que-anticipan-las-consultoras/",
      "fecha": "2026-10-21T14:43:33.683Z"
@@ -193,11 +237,6 @@
      "fecha": "2026-10-22T03:01:00.000Z"
     },
     {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/economia/la-economia-crecio-apenas-01-agosto-y-cayo-17-la-comparacion-anual-n1608781",
-     "fecha": "2026-10-21T20:16:00.000Z"
-    },
-    {
      "medio": "Crónica",
      "enlace": "https://www.cronica.com.ar/politica/actividad-economica-cayo-agosto-indec/",
      "fecha": "2026-10-21T20:39:00.000Z"
@@ -243,16 +282,6 @@
      "fecha": "2026-10-21T21:59:43.000Z"
     },
     {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/economia/indec-actividad-economica-informe-21-octubre-2026",
-     "fecha": "2026-10-21T19:01:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/economia/la-actividad-economica-cayo-17-interanual-industria-y-comercio-desplomandose-n6336491",
-     "fecha": "2026-10-21T21:07:00.000Z"
-    },
-    {
      "medio": "Agencia DIB",
      "enlace": "https://dib.com.ar/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
      "fecha": "2026-10-21T19:33:00.000Z"
@@ -273,9 +302,19 @@
      "fecha": "2026-10-21T19:33:00.000Z"
     },
     {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/economia/la-economia-crecio-apenas-01-agosto-y-cayo-17-la-comparacion-anual-n1608781",
+     "fecha": "2026-10-21T20:16:00.000Z"
+    },
+    {
      "medio": "Radio Mitre",
      "enlace": "https://radiomitre.cienradios.com/economia/la-actividad-economica-tuvo-un-leve-rebote-en-agosto-tras-la-fuerte-caida-en-julio-se-recupero-01/",
      "fecha": "2026-10-21T21:04:14.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/economia/la-actividad-economica-cayo-17-interanual-industria-y-comercio-desplomandose-n6336491",
+     "fecha": "2026-10-21T21:07:00.000Z"
     },
     {
      "medio": "La Nueva",

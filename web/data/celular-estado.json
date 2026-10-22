@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T15:06:15.377Z",
- "portada": 48,
+ "generado": "2026-10-22T15:35:24.815Z",
+ "portada": 52,
  "archivo": 1463,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-22T15:06:15.698Z",
+  "generado": "2026-10-22T15:35:25.140Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -44,7 +44,7 @@
     "voz": "locutora",
     "ventana": 60,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-22T15:07:09.606Z"
    },
    {
     "nombre": "noticia2",
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 47,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "juo82o",
-      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
-      "seccion": "Balcarce"
-     },
      {
       "id": "sg5gtd",
       "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
       "seccion": "Balcarce"
      },
      {
+      "id": "juo82o",
+      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "rdo3nh",
+      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+      "seccion": "Educación"
+     },
+     {
       "id": "4c84q3",
       "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1cmow7i",
-      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,8 +126,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 37,
+    "notas": [
+     {
+      "id": "1cmow7i",
+      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "vxf5r",
+      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -155,14 +166,26 @@
    ],
    "cola": [
     {
+     "id": "sg5gtd",
+     "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "juo82o",
      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "sg5gtd",
-     "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
+     "id": "rdo3nh",
+     "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "1cmow7i",
+     "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -170,12 +193,6 @@
      "id": "4c84q3",
      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
      "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "1cmow7i",
-     "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-     "seccion": "Balcarce",
      "marcada": false
     },
     {

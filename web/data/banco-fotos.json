@@ -30536,8 +30536,8 @@
   "origen": "ninguna",
   "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-22T14:04:05.700Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T15:33:54.716Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "1e2ajtw": {
@@ -30631,5 +30631,74 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "rdo3nh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+  "razon": "La única foto disponible muestra menores reconocibles y jóvenes involucrados en una pelea callejera, por lo que no cumple con las políticas de publicación del medio. (se probó una foto libre de \"Maximiliano Blanco Río\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
+  "cuando": "2026-10-22T15:33:54.716Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "6n7nnb": {
+  "archivo": "fotos-notas/6n7nnb.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Patricia Bullrich analiza su futuro electoral y pide acelerar acuerdos",
+  "enlace": "https://www.a24.com/politica/patricia-bullrich-estoy-preparada-ser-presidente-pero-una-tiene-que-saber-esperar-su-momento-n1609053",
+  "imagenOriginal": "https://media.a24.com/p/417d6ac586622eec3024bca6673f476a/adjuntos/296/imagenes/009/818/0009818360/1200x675/smart/patricia-bullrich-video-lali-espositofoto-captura-pantalla.jfif",
+  "razon": "Muestra a Patricia Bullrich trabajando en su oficina de manera institucional, acorde al tema político.",
+  "cuando": "2026-10-22T15:33:54.716Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Patricia Bullrich en su despacho con una tablet y la bandera argentina de fondo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Patricia Bullrich sentada en un escritorio con una bandera argentina de fondo, mirando una tablet."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b0b0536a682e2122"
+ },
+ "1vtze3b": {
+  "archivo": "fotos-notas/1vtze3b.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La FEB realiza un paro docente de 48 horas tras rechazar el aumento salarial",
+  "enlace": "https://www.0221.com.ar/provincia/la-feb-inicia-un-paro-docente-este-jueves-y-las-escuelas-la-plata-sienten-el-impacto-del-conflicto-salarial-n136204",
+  "imagenOriginal": "https://media.0221.com.ar/p/d0024c3a05c0aa2cd41caba742d161a8/adjuntos/357/imagenes/100/200/0100200890/1200x630/2085x1583:2105x1603/paro-docente-aulas-vacias-8jpg.jpg",
+  "razon": "Muestra un aula vacía por el paro docente, sin marcas ni menores.",
+  "cuando": "2026-10-22T15:33:54.716Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Aula escolar vacía con bancos y pizarrón"
+  },
+  "huella": "22606278686c436a"
  }
 }
