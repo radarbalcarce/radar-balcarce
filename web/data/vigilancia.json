@@ -1,7 +1,8 @@
 {
   "avisos": {
-    "falla-Pruebas con otra hora": "2026-10-21T18:00:25.385Z",
-    "efemerides-por-acabarse": "2026-10-21T18:00:25.385Z"
+    "falla-Pruebas con otra hora": "2026-10-22T00:00:28.420Z",
+    "efemerides-por-acabarse": "2026-10-22T00:00:28.420Z",
+    "web-sin-fecha": "2026-10-22T00:00:28.420Z"
   },
   "importantes": {
     "avisadas": {
@@ -27,24 +28,28 @@
   "pendientes": {
     "avisados": [
       "10k46b4",
+      "1aaxqln",
       "13dfyth",
       "tuhpwo",
-      "cq5ztu",
-      "1ju67io",
-      "8eposh",
-      "1dqhmet",
+      "83pqou",
       "w55m5b"
     ],
-    "ultimo": "2026-10-21T12:00:25.298Z"
+    "ultimo": "2026-10-22T00:00:28.420Z"
   },
   "redes": {
-    "hasta": "2026-10-21T19:38:41.767Z"
+    "hasta": "2026-10-21T23:07:18.967Z"
   },
-  "ultimaMedicion": "2026-10-21/9",
+  "ultimaMedicion": "2026-10-21/21",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-20",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
+    {
+      "clave": "web-sin-fecha",
+      "nivel": "media",
+      "texto": "No pude leer cuándo se actualizó la web por última vez.",
+      "desde": "2026-10-22T00:00:28.420Z"
+    },
     {
       "clave": "efemerides-por-acabarse",
       "nivel": "media",
