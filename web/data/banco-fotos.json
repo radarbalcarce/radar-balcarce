@@ -29470,9 +29470,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Argentina pide una prórroga de 30 días a la Corte de Estados Unidos por el litigio de YPF",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T00:02:02.176Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29551,8 +29551,8 @@
   "origen": "ninguna",
   "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Acción 5 (Balcarce) no se usa todavía.",
-  "cuando": "2026-10-22T01:01:58.487Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 2,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29561,8 +29561,8 @@
   "origen": "ninguna",
   "titulo": "Detectan fallas críticas en PHP y alertan por sitios caídos",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:01:58.487Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29607,6 +29607,76 @@
   "titulo": "Ejecutivos financieros rechazan la existencia de una burbuja en la inteligencia artificial",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-22T01:31:33.170Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "fqfkdl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Avanza la participación balcarceña en las finales provinciales",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Puntonueve (FM 100.9) no se usa todavía.",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "12khech": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Atlético Mineiro enfrenta a Boca en la final de la Copa Sudamericana",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1nrv0ag": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Presentan en Puerto Madero el primer ferry 100% eléctrico del mundo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "umd08f": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Avanza en la Legislatura el uso de pistolas Taser para la Policía",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "190hfak": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnasia aprueba la memoria y el balance en la asamblea anual",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1s4fvet": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nico Paz reacciona a la foto de Ciro Messi con la camiseta del Como",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "lrvyw3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Hervir cáscaras de naranja con canela sirve para perfumar ambientes",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T02:02:27.733Z",
   "intentos": 1,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
