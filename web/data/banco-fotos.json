@@ -13552,7 +13552,8 @@
   "imagenOriginal": "https://www.infobae.com/resizer/v2/OGD2D5A3XFEBJCQFW2DJHJED4E.jfif?auth=03709c99efb47c2fd01b490a14e511bb69fdaec0fc242d57a4e9fdc2d7096771&smart=true&width=1200&height=630&quality=85",
   "razon": "Tiene excelente nitidez, encuadre limpio sin marcas superpuestas ni menores de edad, e ilustra perfectamente al personaje de la nota.",
   "cuando": "2026-10-12T14:32:05.838Z",
-  "huella": "36383858dcfc5cbc"
+  "huella": "36383858dcfc5cbc",
+  "ausenteDesde": "2026-10-22T13:42:32.431Z"
  },
  "xn5jch": {
   "archivo": "fotos-notas/xn5jch.jpg",
@@ -30362,19 +30363,33 @@
   "origen": "ninguna",
   "titulo": "Desarrollo Social entrega mercadería desde el lunes",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-22T12:34:14.104Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "4c84q3": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/4c84q3.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-22T12:34:14.104Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://eldiariobalcarce.com.ar/nahuel-di-cicco-y-otra-remontada-en-turismo-pista-del-puesto-47-al-17-441",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-22-12-6-8Di_Cicco_2026__bis.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y corresponde perfectamente a la nota.",
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de competición de Nahuel Di Cicco en plena pista"
+  },
+  "huella": "96203261e861e9e3"
  },
  "d54qko": {
   "archivo": "fotos-notas/d54qko.jpg",
@@ -30399,5 +30414,72 @@
    "descripcion": "Primer plano del Papa sonriendo y saludando con la mano en alto."
   },
   "huella": "53333337a7974f1f"
+ },
+ "1so3su7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Sociedad Española recibe la primera edición de la Expo Salud, Deporte y Tecnología",
+  "razon": "La segunda opinión (gemini, porque la nota habla de chicos o de categorías juveniles) descartó la de Infórmese Primero (FM 104.9) (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1ntclvn": {
+  "archivo": "fotos-notas/1ntclvn.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Glee prepara su regreso al streaming con un reboot y el elenco original",
+  "enlace": "https://www.lanueva.com/nota/2026-10-22-10-14-0-una-exitosa-serie-de-fox-planea-su-vuelta-al-streaming-con-un-reboot-y-el-elenco-original",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792674972246.jpg?&cw=600&ch=365",
+  "razon": "La foto B ilustra perfectamente al elenco original de Glee, corresponde a la nota, no tiene marcas de agua agregadas por el medio ni otros impedimentos.",
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elenco principal de Glee posando frente a fondo amarillo"
+  },
+  "huella": "9dae5594a4f47488"
+ },
+ "1otiit9": {
+  "archivo": "fotos-notas/1otiit9.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno aprueba inversión de Toyota en Zárate para fabricar una pick-up",
+  "enlace": "https://www.cronista.com/negocios/el-rigi-de-toyota-es-para-una-producir-pick-up-100-hibrida-y-la-japonesa-tambien-planea-un-suv-con-esa-tecnologia/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/5GXXKM4UZREPDJPMUTFLV3QSBA.jpg?auth=b2cadb4b30a0046beb33934e8d479a122c1163acf5f22f33ee82c4fcd562bdcc&height=630&width=1200&quality=70&smart=true",
+  "razon": "Muestra una pick-up Toyota Hilux en la línea de producción de la planta de Zárate con excelente calidad y sin marcas ni personas.",
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pick-up Toyota Hilux en la línea de montaje de la planta"
+  },
+  "huella": "4e4a33292b7d7179"
+ },
+ "bg0g55": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lanzan un concurso público para concesionar seis hoteles de Chapadmalal",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de Mi8 (Canal 8 Mar del Plata) no se usa todavía.",
+  "cuando": "2026-10-22T13:39:20.878Z",
+  "intentos": 1,
+  "fuentes": 6
  }
 }
