@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T11:32:13.150Z",
- "portada": 41,
+ "generado": "2026-10-22T12:03:09.165Z",
+ "portada": 39,
  "archivo": 1453,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-22T11:32:13.658Z",
+  "generado": "2026-10-22T12:03:09.376Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -121,7 +121,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "vnum3w",
+     "titulo": "El Gobierno adjudica el 90% de las acciones de AySA por US$ 340 millones",
+     "seccion": "Economía",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-21T23:05:31.339Z",
    "porDia": 5,
