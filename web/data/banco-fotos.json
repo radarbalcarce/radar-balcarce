@@ -25566,7 +25566,8 @@
    "corresponde": "si",
    "descripcion": "Jorge Macri mostrando un libro de Jorge Luis Borges frente a casilleros en el Instituto Cervantes."
   },
-  "huella": "ce8e3e5991e8a8ac"
+  "huella": "ce8e3e5991e8a8ac",
+  "ausenteDesde": "2026-10-22T05:01:39.421Z"
  },
  "87yjas": {
   "intentado": true,
@@ -29782,5 +29783,40 @@
    "descripcion": "María O'Donnell sonriendo y sosteniendo el premio Martín Fierro de Oro frente al fondo oficial del evento."
   },
   "huella": "ebf6ebebcdb733b3"
+ },
+ "arrjxr": {
+  "archivo": "fotos-notas/arrjxr.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diputados aprueba la nueva ley de Discapacidad por amplia mayoría",
+  "enlace": "https://www.perfil.com/noticias/politica/alerta-diputados-debate-la-prorroga-de-la-emergencia-en-discapacidad.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/21/trim/1140/641/diputados-21102026-2353723.jpg",
+  "razon": "Es la única opción disponible y muestra el recinto de la Cámara de Diputados, correspondiendo al contexto de la aprobación de la ley.",
+  "cuando": "2026-10-22T05:01:34.049Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto de la Cámara de Diputados de la Nación con legisladores presentes."
+  },
+  "huella": "1fa6dad89282929c"
+ },
+ "1a0r4za": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nuevas guías respaldan la terapia hormonal para tratar la menopausia",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T05:01:34.049Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
