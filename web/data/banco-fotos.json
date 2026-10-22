@@ -29928,11 +29928,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Presentan en Puerto Madero el primer ferry 100% eléctrico del mundo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T04:31:47.957Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "La foto A tiene marca de agua superpuesta del medio Noticias Argentinas y la foto B es una renderización gráfica digital por computadora y no una fotografía real.",
+  "cuando": "2026-10-22T11:01:40.975Z",
+  "intentos": 4,
+  "fuentes": 2
  },
  "umd08f": {
   "intentado": true,
@@ -29945,14 +29944,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "190hfak": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/190hfak.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Gimnasia aprueba la memoria y el balance en la asamblea anual",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T04:31:47.957Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.eldia.com/deportes/se-espera-un-gran-marco-de-socios-en-la-asamblea-anual-ordinaria-albiazul-deportes_1792566784",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792628019300.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto sin marcas de agua agregadas por el medio, mostrando claramente la asamblea.",
+  "cuando": "2026-10-22T11:01:40.975Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de la asamblea anual en el club"
+  },
+  "huella": "332b2b29cc6e5dcd"
  },
  "1s4fvet": {
   "intentado": true,
@@ -30204,7 +30217,8 @@
    "corresponde": "si",
    "descripcion": "Maria O'Donnell posando sonriente con dos estatuillas del Martín Fierro"
   },
-  "huella": "ebf6ebebcdb733b3"
+  "huella": "ebf6ebebcdb733b3",
+  "ausenteDesde": "2026-10-22T11:02:47.239Z"
  },
  "xh1glv": {
   "archivo": "fotos-notas/xh1glv.jpg",
@@ -30264,6 +30278,55 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b0a4c6b39b772713"
+  "huella": "b0a4c6b39b772713",
+  "ausenteDesde": "2026-10-22T11:02:47.239Z"
+ },
+ "vnum3w": {
+  "archivo": "fotos-notas/vnum3w.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno adjudica el 90% de las acciones de AySA por US$ 340 millones",
+  "enlace": "https://www.eldestapeweb.com/economia/gobierno-adjudico-venta-90-aysa-us-340-2-millones-202610227396",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/072025/1753375305282.jpg?&cw=1600&ch=900",
+  "razon": "Es la foto más clara y representativa de las instalaciones de la empresa AySA sin personas reconocibles ni marcas ajenas.",
+  "cuando": "2026-10-22T11:01:40.975Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de una planta de tratamiento y tanque de agua de AySA"
+  },
+  "huella": "0739393d655d352d"
+ },
+ "fbv6cd": {
+  "archivo": "fotos-notas/fbv6cd.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina alcanza el puesto 14 mundial en un sondeo sobre salud",
+  "enlace": "https://www.c5n.com/sociedad/un-ranking-midio-la-salud-32-paises-que-lugar-quedo-argentina-n252248",
+  "imagenOriginal": "https://media.c5n.com/p/2f122d5ef7242bebc054d35bbe4f5f9a/adjuntos/326/imagenes/000/379/0000379801/1200x675/smart/hospital-universitario-uba.png",
+  "razon": "La foto B ilustra adecuadamente el tema de salud al mostrar el Hospital de Clínicas, sin marcas agregadas ni menores, siendo una imagen clara del lugar.",
+  "cuando": "2026-10-22T11:01:40.975Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada y murales del Hospital de Clínicas"
+  },
+  "huella": "6cacd895b1b1b527"
  }
 }
