@@ -27657,7 +27657,8 @@
    "corresponde": "generica",
    "descripcion": "Línea de montaje de automóviles en una fábrica"
   },
-  "huella": "1811326a4a181303"
+  "huella": "1811326a4a181303",
+  "ausenteDesde": "2026-10-22T20:06:46.266Z"
  },
  "qzd8f1": {
   "archivo": "fotos-notas/qzd8f1.jpg",
@@ -31225,9 +31226,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
-  "razon": "sin fotos para comparar (la foto libre de \"Lionel Scaloni\" no sirve: no corresponde a la nota (generica) (Lionel Scaloni vistiendo indumentaria de la selección argentina con otra persona de fondo.))",
-  "cuando": "2026-10-22T18:34:16.834Z",
-  "intentos": 1,
+  "razon": "sin fotos para comparar (la foto libre de \"Lionel Scaloni\" no sirve: no corresponde a la nota (Lionel Scaloni con indumentaria de la selección argentina))",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "1wc47mg": {
@@ -31376,13 +31377,40 @@
   "huella": "676383637371a161"
  },
  "zrxgla": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/zrxgla.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Patricia Bullrich pide acuerdos políficos y José Luis Espert es procesado",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de Clarín no se usa todavía.",
-  "cuando": "2026-10-22T18:34:16.834Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.clarin.com/politica/javier-milei-medidas-vivo-gobierno-declaro-organizaciones-terroristas-cartel-sinaloa-grupos-narco-paramilitares_0_KpzSFarmsR.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/14/0Dy22Qm6V_2000x1500__1.jpg",
+  "razon": "Es la única foto limpia y sin marcas que ilustra directamente a la protagonista de la nota en un plano claro.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Patricia Bullrich en primer plano hablando.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Patricia Bullrich hablando en un acto o conferencia"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0f6763470b5d5497"
  },
  "i7863v": {
   "archivo": "fotos-notas/i7863v.jpg",
@@ -31548,5 +31576,131 @@
    "descripcion": "Patricia Bullrich hablando por un micrófono en un evento."
   },
   "huella": "1a2b2b0b2f273f2f"
+ },
+ "yyjele": {
+  "archivo": "fotos-notas/yyjele.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gremios universitarios convocan a paros nacionales de actividades",
+  "enlace": "https://www.labrujula24.com/notas/2026/10/22/docentes-universitarios-anunciaron-una-semana-de-paro-n526794/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2024/10/marchauniversitaria-1000x600.jpeg",
+  "razon": "La foto A muestra claramente el contexto universitario y un cartel alusivo sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Frente de la Universidad Nacional del Sur con un cartel sobre financiamiento universitario."
+  },
+  "huella": "1b25b22ca4b60ec4"
+ },
+ "19kc8fu": {
+  "archivo": "fotos-notas/19kc8fu.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Chubut inaugura la quinta etapa del parque eólico más grande del país",
+  "enlace": "https://www.cronista.com/protagonistas/chubut-tiene-desde-hoy-el-parque-eolico-mas-grande-de-la-argentina-tras-una-inversion-de-mas-de-usd-740-millones-de-aluar/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/GZKAW3JJA5D6PNYTK5T236N63Y.jpeg?auth=1ade90cc2c4b43df789ffb33e6435e153625c1e35ed1fa711acaf184eac423a9&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto A muestra claramente el evento y los asistentes sin marcas de agua agregadas por el medio ni menores.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas posando frente a un fondo con la marca aluar en el evento"
+  },
+  "huella": "0f1f5e0d0a0d2734"
+ },
+ "1lekxxt": {
+  "archivo": "fotos-notas/1lekxxt.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kicillof reclama unidad opositora para sostener las PASO y fustiga el modelo",
+  "enlace": "https://www.infobae.com/politica/2026/10/22/kicillof-pidio-unidad-opositora-para-sostener-las-paso-quieren-manipular-el-sistema-para-la-reeleccion-de-milei/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/BP2HCWUZFRFW3MTRLVF35S5ZJI.jpg?auth=16c28610694e8b00bf1ef531acf4ad92e87a7d966a21139ab1900a3d3677d160&smart=true&width=1200&height=630&quality=85",
+  "razon": "Ambas fotos muestran al político de la nota, pero la opción A tiene mejor nitidez y encuadre frontal, sin marcas ni menores.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof hablando ante un micrófono con los brazos levantados",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Axel Kicillof gesticula con los dedos en alto mientras habla en un micrófono frente a un fondo azul."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "010929498aaaa2d0"
+ },
+ "cnqhqm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata realiza el festival gratuito Hola Corea por la llegada de BTS",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de La Nación (un menor): no se elige ninguna.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "13ektl1": {
+  "archivo": "fotos-notas/13ektl1.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Crecen las tensiones internas en el oficialismo tras cruces por el islam",
+  "enlace": "https://www.lanacion.com.ar/politica/escala-la-interna-libertaria-por-el-islam-el-gordo-dan-ataco-a-benegas-lynch-el-procer-de-milei-y-a-nid21102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/alberto-benegas-lynch-martin-menem-y-daniel-TSZ3SBS6BVA35IVNE4XLTMQYLE.jpg?auth=6fe79a23df5d1173ebd7f59b821a10d98a2eefe312025fe5dfd9571f5fce1fce&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía clara y sin marcas añadidas que retrata a los protagonistas involucrados en la temática de la nota.",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres en diferentes planos representando a los actores de la noticia."
+  },
+  "huella": "5a585bd395f46450"
+ },
+ "blhzxd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Índice de Confianza del Consumidor sube 0,81 por ciento en octubre",
+  "razon": "Ninguna foto cumple con todos los requisitos para ilustrar la nota de economía: A tiene marca de agua, B no corresponde al tema (es un político), C es idéntica a A y tiene marca, D e F muestran personas de manera irrelevante o ambiente comercial genérico sin relación directa con el índice de consumo",
+  "cuando": "2026-10-22T20:02:57.806Z",
+  "intentos": 1,
+  "fuentes": 6
  }
 }

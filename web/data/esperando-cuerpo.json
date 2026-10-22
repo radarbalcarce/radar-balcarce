@@ -1,7 +1,54 @@
 {
- "generado": "2026-10-22T19:32:41.053Z",
+ "generado": "2026-10-22T20:06:46.289Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "16m3rtu",
+   "titulo": "Las ventas en supermercados y mayoristas no repuntan: cayeron más del 3% interanual en agosto",
+   "copete": "Las ventas de los supermercados que operan en Argentina cayeron 0,8% en agosto en comparación a julio, según informó el Indec. El mismo mes, los autoservicios mayoristas sufrieron una contracción de sus ventas del 1,2% en la variación mensual desestacionalizada. De esta manera…",
+   "seccion": "Economía",
+   "fecha": "2026-10-22T19:04:00.000Z",
+   "fuentes": [
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/economia/las-ventas-supermercados-y-mayoristas-no-repuntan-cayeron-mas-del-3-interanual-agosto-n252310",
+     "fecha": "2026-10-22T19:04:00.000Z"
+    },
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/economia/2026/10/22/consumo-en-baja-cayeron-las-ventas-de-supermercados-y-mayoristas-en-agosto-y-profundizaron-su-retroceso-en-el-ano/",
+     "fecha": "2026-10-22T19:55:21.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/economia/volvieron-a-caer-las-ventas-de-supermercados-en-agosto-nid22102026/",
+     "fecha": "2026-10-22T19:32:54.000Z"
+    },
+    {
+     "medio": "Perfil",
+     "enlace": "https://www.perfil.com/noticias/economia/las-ventas-en-mayoristas-y-supermercados-volvieron-a-caer-en-agosto-segun-el-indec-a40.phtml",
+     "fecha": "2026-10-22T19:26:49.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/economia/2026/10/22/las-ventas-en-supermercados-y-mayoristas-cayeron-en-agosto-pero-hubo-senales-de-mejora-en-los-shoppings/",
+     "fecha": "2026-10-22T19:38:51.000Z"
+    },
+    {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/economia-politica/consumo-en-rojo-caen-las-ventas-en-mayoristas-y-supermercados/",
+     "fecha": "2026-10-22T19:22:33.075Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/economia/el-consumo-supermercados-cayo-tercer-mes-consecutivo-n6336887",
+     "fecha": "2026-10-22T19:34:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+   "maximo": 4
+  },
   {
    "id": "6aw080",
    "titulo": "Anthropic presentó Claude Duet, un asistente de IA que sigue trabajando con el teléfono apagado",
@@ -22,33 +69,6 @@
    ],
    "intentos": 2,
    "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
-   "id": "blhzxd",
-   "titulo": "Mejoró la confianza del consumidor en octubre: el informe completo",
-   "copete": "",
-   "seccion": "Economía",
-   "fecha": "2026-10-22T14:57:08.065Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/economia/mejoro-la-confianza-del-consumidor-en-octubre--el-informe-completo-_a6ada1e4c31b758b725d78537",
-     "fecha": "2026-10-22T14:57:08.065Z"
-    },
-    {
-     "medio": "Mi8 (Canal 8 Mar del Plata)",
-     "enlace": "https://mi8.com.ar/mejoro-la-confianza-del-consumidor-en-octubre-el-informe-completo/",
-     "fecha": "2026-10-22T19:05:23.000Z"
-    },
-    {
-     "medio": "El Eco de Tandil",
-     "enlace": "https://www.eleco.com.ar/economia/la-confianza-del-consumidor-registro-una-leve-recuperacion-en-octubre",
-     "fecha": "2026-10-22T18:25:29.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"confianza\", \"consumidor\" y el cuerpo no los explica; sin esas oraciones quedan 136 palabras",
    "maximo": 3
   },
   {
@@ -178,178 +198,6 @@
    "intentos": 3,
    "motivo": "semáforo: necesita ojo humano: \"alumnos de entre 13 y 15 anos\", en lo que escribió la IA",
    "maximo": 3
-  },
-  {
-   "id": "1tzpx4f",
-   "titulo": "Actividad económica: se conoce el dato de agosto, el cual habría marcado una recuperación parcial",
-   "copete": "",
-   "seccion": "Economía",
-   "fecha": "2026-10-21T08:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/economia/actividad-economica--se-conoce-el-dato-de-agosto--el-cual-habria-marcado-una-recuperacion-parcial_a6ad7dc925072f5b4c47dade7",
-     "fecha": "2026-10-21T08:00:00.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-21-6-56-0-actividad-economica-se-conoce-el-dato-de-agosto-el-cual-habria-marcado-una-recuperacion-parcial",
-     "fecha": "2026-10-21T10:06:00.000Z"
-    },
-    {
-     "medio": "La Verdad",
-     "enlace": "https://laverdadonline.com/actividad-economica-se-conoce-el-dato-de-agosto/",
-     "fecha": "2026-10-21T11:20:39.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/economia-politica/actividad-economica-el-indec-publica-el-dato-clave-de-agosto-que-anticipan-las-consultoras/",
-     "fecha": "2026-10-21T14:43:33.683Z"
-    },
-    {
-     "medio": "La Gaceta (Tucumán)",
-     "enlace": "https://www.lagaceta.com.ar/nota/1159010/economia/economia-argentina-se-estanco-agosto-crecen-senales-recesion.html",
-     "fecha": "2026-10-21T17:14:00.000Z"
-    },
-    {
-     "medio": "Infórmese Primero (FM 104.9)",
-     "enlace": "http://www.informeseprimero.com.ar/2026/10/la-economia-cayo-un-17-interanual-en.html",
-     "fecha": "2026-10-22T12:14:53.968Z"
-    },
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/economia/economia-argentina-cuanto-deberia-crecer-la-actividad-para-no-caer-en-recesion-nid22102026/",
-     "fecha": "2026-10-22T16:42:53.000Z"
-    },
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/economia/la-economia-se-estanco-en-agosto-y-quedo-a-las-puertas-de-la-recesion-nid21102026/",
-     "fecha": "2026-10-22T14:35:52.000Z"
-    },
-    {
-     "medio": "Infobae",
-     "enlace": "https://www.infobae.com/economia/2026/10/22/cuanto-deberia-crecer-la-economia-argentina-en-septiembre-para-no-caer-en-recesion-tecnica/",
-     "fecha": "2026-10-22T05:51:07.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://www.perfil.com/noticias/economia/la-actividad-crecio-menos-de-lo-esperado-en-agosto-y-crecen-las-preocupaciones-sobre-una-profunda-recesion-en-los-proximos-meses-a40.phtml",
-     "fecha": "2026-10-21T21:00:00.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://www.perfil.com/noticias/economia/tras-la-fuerte-caida-en-julio-la-actividad-economica-tuvo-un-leve-rebote-del-01-en-agosto-segun-el-indec-a40.phtml",
-     "fecha": "2026-10-21T19:05:00.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/economia/2026/10/21/la-actividad-economica-se-estanco-en-agosto-y-cayo-17-en-la-comparacion-con-el-ano-pasado/",
-     "fecha": "2026-10-21T21:02:34.000Z"
-    },
-    {
-     "medio": "Canal 26",
-     "enlace": "https://www.canal26.com/economia/2026/10/21/la-actividad-economica-se-estanco-en-agosto-y-cayo-17-en-el-ultimo-ano-segun-en-indec/",
-     "fecha": "2026-10-21T20:02:27.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/economia/actividad-economica--cuales-son-los-rubros-que-mas-cayeron-en-agosto-y-empujan-a-una-recesion-tecnica_a6ad9edb631b758b725cd1cfb",
-     "fecha": "2026-10-22T10:56:00.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/economia/la-actividad-economica-cayo-1-7--interanual-en-agosto-y-anoto-la-mayor-contraccion-en-lo-que-va-del-ano_a6ad90a809e7b4b8990c37f56",
-     "fecha": "2026-10-21T19:46:00.000Z"
-    },
-    {
-     "medio": "El Marplatense",
-     "enlace": "https://www.elmarplatense.com/la-actividad-economica-registro-una-leve-suba-mensual-pero-persiste-la-caida-interanual",
-     "fecha": "2026-10-21T21:54:06.000Z"
-    },
-    {
-     "medio": "Punto Noticias",
-     "enlace": "https://puntonoticias.com/la-actividad-economica-cayo-17-interanual-en-agosto-y-anoto-la-mayor-contraccion-en-lo-que-va-del-ano/",
-     "fecha": "2026-10-21T21:17:40.000Z"
-    },
-    {
-     "medio": "El Eco de Tandil",
-     "enlace": "https://www.eleco.com.ar/economia/la-actividad-economica-cayo-17-interanual-en-agosto-y-crecen-las-dudas-sobre-una-posible-recesion",
-     "fecha": "2026-10-21T22:35:37.000Z"
-    },
-    {
-     "medio": "El Eco de Tandil",
-     "enlace": "https://www.eleco.com.ar/economia/la-actividad-economica-cayo-17-por-ciento-en-agosto-en-la-mayor-contraccion-del-ano",
-     "fecha": "2026-10-21T21:59:43.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/economia/indec-actividad-economica-informe-21-octubre-2026",
-     "fecha": "2026-10-21T19:01:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/economia/la-actividad-economica-cayo-17-interanual-industria-y-comercio-desplomandose-n6336491",
-     "fecha": "2026-10-21T21:07:00.000Z"
-    },
-    {
-     "medio": "La Capital (Rosario)",
-     "enlace": "https://www.lacapital.com.ar/economia/la-actividad-economica-cayo-17-agosto-y-la-recesion-tecnica-parece-inevitable-n10288002.html",
-     "fecha": "2026-10-22T02:31:00.000Z"
-    },
-    {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/economia/la-actividad-economica-cayo-17-agosto-y-registro-su-peor-contraccion-interanual-2026-n6011188",
-     "fecha": "2026-10-21T19:51:00.000Z"
-    },
-    {
-     "medio": "elDiarioAR",
-     "enlace": "https://www.eldiarioar.com/economia/actividad-economica-cayo-1-7-interanual-agosto-mayor-contraccion-ano_1_13606305.html",
-     "fecha": "2026-10-22T11:18:34.000Z"
-    },
-    {
-     "medio": "Agencia DIB",
-     "enlace": "https://dib.com.ar/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
-     "fecha": "2026-10-21T19:33:00.000Z"
-    },
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/economia/actividad-economica-cayo-17-agosto-indec_0_xqx0gKxVjG.html",
-     "fecha": "2026-10-21T19:02:56.000Z"
-    },
-    {
-     "medio": "Agencia DIB",
-     "enlace": "https://dib.com.ar/economia/la-actividad-economica-cayo-17-interanual-agosto-pleno-debate-la-entrada-recesion-n56685",
-     "fecha": "2026-10-21T19:33:00.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/economia/la-economia-crecio-apenas-01-agosto-y-cayo-17-la-comparacion-anual-n1608781",
-     "fecha": "2026-10-21T20:16:00.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/politica/actividad-economica-cayo-agosto-indec/",
-     "fecha": "2026-10-21T20:39:00.000Z"
-    },
-    {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/economia/la-actividad-economica-tuvo-un-leve-rebote-en-agosto-tras-la-fuerte-caida-en-julio-se-recupero-01/",
-     "fecha": "2026-10-21T21:04:14.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-21-19-24-0-la-actividad-economica-se-estanco-en-agosto-y-cayo-un-1-7-en-comparacion-con-el-ano-pasado",
-     "fecha": "2026-10-21T22:30:45.000Z"
-    },
-    {
-     "medio": "La Brújula 24",
-     "enlace": "https://www.labrujula24.com/notas/2026/10/21/la-economia-se-estanco-en-agosto-y-quedo-a-las-puertas-de-la-recesion-n526645/",
-     "fecha": "2026-10-21T23:00:30.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 5
   }
  ]
 }
