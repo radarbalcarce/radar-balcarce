@@ -7463,7 +7463,15 @@
       "postId": "1807053753953443"
     }
   },
-  "problemas": {},
+  "problemas": {
+    "2026-10-22/noticia1/instagram/reel": {
+      "pieza": "noticia1",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-22T13:06:50.231Z"
+    }
+  },
   "facebookFoto": {
     "fa17ki": {
       "intentos": 2,
