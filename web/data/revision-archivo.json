@@ -1,10 +1,10 @@
 {"version":1,
 "desde":"2026-10-22T03:00:00.000Z",
-"generado":"2026-10-22T15:13:59.011Z",
+"generado":"2026-10-22T17:13:55.945Z",
 "terminada":null,
-"contadores":{"total":1458,"revisadas":263,"faltan":1195,"retiradas":5,"repetidas":14,"fotosSacadas":7,"arreglos":22,"paraUnaPersona":14,"fallas":0},
-"uso":{"2026-10-22":{"groq":14,"vision":42,"gemini":15}},
-"ultimaTanda":{"cuando":"2026-10-22T15:12:31.249Z","notas":39,"retiradas":2,"repetidas":0,"fotosSacadas":0,"arreglos":3,"paraUnaPersona":2,"pendientes":4,"aplicadas":{"retiradas":2,"repetidas":0,"fotosSacadas":0,"arreglos":3,"paraUnaPersona":2,"saltadas":0}},
+"contadores":{"total":1457,"revisadas":271,"faltan":1186,"retiradas":5,"repetidas":14,"fotosSacadas":10,"arreglos":22,"paraUnaPersona":14,"fallas":1},
+"uso":{"2026-10-22":{"groq":16,"vision":48,"gemini":15}},
+"ultimaTanda":{"cuando":"2026-10-22T17:12:33.447Z","notas":10,"retiradas":0,"repetidas":0,"fotosSacadas":3,"arreglos":0,"paraUnaPersona":0,"pendientes":3,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":3,"arreglos":0,"paraUnaPersona":0,"saltadas":0}},
 "retiradas":{
 "i06m20":{"motivo":"no es nota: el pronóstico de otro medio (el sitio tiene su clima)","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
 "1m2za7b":{"motivo":"no es nota: el medio habla de sí mismo","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
@@ -32,7 +32,10 @@
 "1qk6uan":{"cuando":"2026-10-22T07:13:49.057Z"},
 "5mxbmz":{"cuando":"2026-10-22T07:13:49.057Z"},
 "1aa6w2s":{"cuando":"2026-10-22T09:13:58.798Z"},
-"pzak0w":{"cuando":"2026-10-22T11:14:00.277Z"}
+"pzak0w":{"cuando":"2026-10-22T11:14:00.277Z"},
+"1dlctqu":{"cuando":"2026-10-22T17:13:55.945Z"},
+"1jaqxc4":{"cuando":"2026-10-22T17:13:55.945Z"},
+"1dou3ni":{"cuando":"2026-10-22T17:13:55.945Z"}
 },
 "paraUnaPersona":{
 "qx770i":{"cuando":"2026-10-22T03:13:34.192Z","ruta":"/nota/rompieron-la-vidriera-y-se-llevaron-herramientas-de-nacho-hogar-qx770i","cuantos":1},
@@ -268,7 +271,7 @@
 "h30g4e":{"v":1,"c":"2026-10-22T13:14:12.221Z","r":"ok","f":"sin-foto","t":"ok","i":1},
 "1s8swk5":{"v":1,"c":"2026-10-22T13:14:12.221Z","r":"ok","f":"sin-foto","t":"ok","i":1},
 "121t71e":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"ok","t":"no-aplica","i":2},
-"c7em03":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"pendiente","t":"no-aplica","i":2},
+"c7em03":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"falla","t":"no-aplica","i":3},
 "repaso20261011manana":{"v":1,"c":"2026-10-22T13:14:12.221Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "f1resultado2026r17":{"v":1,"c":"2026-10-22T13:14:12.221Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "repaso20261011noche":{"v":1,"c":"2026-10-22T13:14:12.221Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
@@ -304,9 +307,9 @@
 "1sus6ai":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"sin-foto","t":"ok","i":1},
 "vsvyus":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"sin-foto","t":"ok","a":1,"i":1},
 "15zws1v":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"persona","f":"sin-foto","t":"avisos","i":1},
-"1spxjt5":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"pendiente","t":"no-aplica","i":1},
-"aabc5v":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"pendiente","t":"no-aplica","i":1},
-"1dou3ni":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"pendiente","t":"no-aplica","i":1},
+"1spxjt5":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"pendiente","t":"no-aplica","i":2},
+"aabc5v":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"pendiente","t":"no-aplica","i":2},
+"1dou3ni":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sacada","t":"no-aplica","i":2},
 "npazulcervantino":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "repaso20261016tarde":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "repaso20261016noche":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
@@ -333,5 +336,11 @@
 "clima20261021":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "efemeride20261021":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
 "repaso20261021tarde":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
-"repaso20261021noche":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1}
+"repaso20261021noche":{"v":1,"c":"2026-10-22T15:13:59.011Z","r":"ok","f":"no-aplica","t":"no-aplica","i":1},
+"1dlctqu":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sacada","t":"ok","i":1},
+"1jaqxc4":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sacada","t":"ok","i":1},
+"1uwv7rc":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sin-foto","t":"ok","i":1},
+"6zyz8n":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sin-foto","t":"ok","i":1},
+"t79sy5":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sin-foto","t":"ok","i":1},
+"1ft8o28":{"v":1,"c":"2026-10-22T17:13:55.945Z","r":"ok","f":"sin-foto","t":"ok","i":1}
 }}
