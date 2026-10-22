@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T02:31:12.902Z",
- "portada": 105,
- "archivo": 1526,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-22T03:01:32.265Z",
+ "portada": 101,
+ "archivo": 1529,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-22T02:31:13.132Z",
+  "generado": "2026-10-22T03:01:32.807Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-21T10:06:36.783Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-21T12:36:05.638Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-21T14:36:00.829Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-reclamos",
+    "nombre": "agenda",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu reclamo",
+    "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-21T15:06:06.810Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-21T19:36:26.646Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-21T22:06:52.297Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-21T23:06:45.423Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-22T00:07:12.104Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,124 +93,39 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-21T14:36:00.829Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1bf0t54",
-      "titulo": "Impulsan un consejo participativo en el Hospital Municipal",
-      "seccion": "Salud"
-     },
-     {
-      "id": "wkrtm8",
-      "titulo": "El Municipio aprueba suba del 6,55% en el contrato con Ashira",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-21T19:36:26.646Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "xnuphz",
-      "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "rp0wts",
-      "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "13ck73f",
-      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1ibqn5f",
-      "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-      "seccion": "Automovilismo"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-22T00:07:12.104Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1iaym6b",
-      "titulo": "Unos 50 alumnos participan de una clase magistral de taekwondo en Amigos Unidos",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1l9wacm",
-      "titulo": "Nico Paz anota un golazo para Como ante Manchester United por la Champions League",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "vh0vf9",
-      "titulo": "Ignacio Otegui detecta nueve agroquímicos en su sangre por el proyecto SPRINT",
-      "seccion": "Salud"
-     },
-     {
-      "id": "1lhg66w",
-      "titulo": "Manuel Pastorino instala la obra El lápiz de papá en el Colegio San José",
-      "seccion": "Cultura y agenda"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "13ck73f",
-     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-     "cuando": "2026-10-21T13:45:29.568Z"
-    },
-    {
-     "id": "xnuphz",
-     "titulo": "La Justicia levanta la cautelar y autoriza los aumentos en las boletas de luz",
-     "cuando": "2026-10-21T15:35:36.435Z"
-    },
-    {
-     "id": "1ibqn5f",
-     "titulo": "Destacada labor de pilotos locales en el Karting Regional",
-     "cuando": "2026-10-21T17:35:31.969Z"
-    },
-    {
-     "id": "rp0wts",
-     "titulo": "Ferroviarios +40 finaliza octavo en la Liga Mar y Sierras de Básquetbol",
-     "cuando": "2026-10-21T19:35:29.810Z"
-    },
-    {
-     "id": "78ya7o",
-     "titulo": "Pinilla pide debatir la vuelta de la Estudiantina tras la suspensión",
-     "cuando": "2026-10-21T21:35:31.339Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "vxf5r",
      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "162fnza",
-     "titulo": "Muere a los 75 años Saúl Blanch, la histórica voz de Rata Blanca",
-     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -232,7 +147,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-21T23:05:31.339Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

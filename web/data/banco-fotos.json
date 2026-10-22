@@ -29461,8 +29461,8 @@
   "origen": "ninguna",
   "titulo": "Bryan Ruiz asume como director técnico de Costa Rica",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 2,
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29481,8 +29481,8 @@
   "origen": "ninguna",
   "titulo": "Emiten alerta por tormentas y lluvias intensas para el jueves",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 2,
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29515,9 +29515,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Sergio Massa se reúne con rectores universitarios y vaticina un cambio político",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29596,8 +29596,8 @@
   "origen": "ninguna",
   "titulo": "RA Intertrading suspende personal y adelanta vacaciones por baja de ventas",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29606,8 +29606,8 @@
   "origen": "ninguna",
   "titulo": "Ejecutivos financieros rechazan la existencia de una burbuja en la inteligencia artificial",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T01:31:33.170Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29680,5 +29680,36 @@
   "intentos": 1,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "3lx6ld": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Palmeiras le gana por penales a Fluminense y avanza a la final de la Copa Libertadores",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1rylju8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes define ante Flamengo el pase a la final de la Copa Libertadores",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T03:01:14.560Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "f1horarios2026r18": {
+  "archivo": "fotos-notas/libre-f1horarios2026r18.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Larry D. Moore / Wikimedia Commons (CC BY 4.0)",
+  "licencia": "CC BY 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg/1280px-Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Cirque du Soleil at Circuit of the Americas 2015.jpg",
+  "cuando": "2026-10-22T03:01:30.204Z"
  }
 }
