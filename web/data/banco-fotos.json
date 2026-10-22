@@ -29615,9 +29615,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avanza la participación balcarceña en las finales provinciales",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T04:31:47.957Z",
+  "intentos": 3,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29625,9 +29625,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Atlético Mineiro enfrenta a Boca en la final de la Copa Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T04:31:47.957Z",
+  "intentos": 3,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29636,8 +29636,8 @@
   "origen": "ninguna",
   "titulo": "Presentan en Puerto Madero el primer ferry 100% eléctrico del mundo",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 2,
+  "cuando": "2026-10-22T04:31:47.957Z",
+  "intentos": 3,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29655,9 +29655,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gimnasia aprueba la memoria y el balance en la asamblea anual",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per minu (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T03:31:15.397Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T04:31:47.957Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29757,5 +29757,30 @@
   "intentos": 1,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1g1qjac": {
+  "archivo": "fotos-notas/1g1qjac.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "María O’Donnell gana el Martín Fierro de Oro de Radio",
+  "enlace": "https://www.infobae.com/teleshow/2026/10/22/maria-odonnell-gano-el-martin-fierro-de-oro-de-la-radio-2026/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/IZCYU52HORASZGRJDOPGWRTPXI.jpg?auth=c113415816e5a14d0e8c70f17501e4bbbb2a8ec451e09f43db4beaf1cf281a92&smart=true&width=1200&height=630&quality=85",
+  "razon": "Es la única imagen completa y nítida que muestra a la protagonista sosteniendo el premio, mientras que la opción A está recortada y no permite identificar el hecho.",
+  "cuando": "2026-10-22T04:31:47.957Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "María O'Donnell sonriendo y sosteniendo el premio Martín Fierro de Oro frente al fondo oficial del evento."
+  },
+  "huella": "ebf6ebebcdb733b3"
  }
 }
