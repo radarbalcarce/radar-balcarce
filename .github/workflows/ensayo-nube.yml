@@ -1,0 +1,38 @@
+name: Ensayo en seco de la nube
+
+# A mano. Le pide al Worker de tareas de Cloudflare que corra cada tarea en modo simulacro (no guarda, no publica, no avisa) y muestra qué contestó
+# (docs/etapa-10-operacion/PLAN-DE-CAMBIO.md, paso 4). La contraseña es el secreto VIGILANTE_TOKEN y va en un encabezado, nunca en la dirección.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tareas:
+        description: 'Tareas a ensayar, separadas por comas'
+        default: 'vigilancia,auditoria-ia,pistas,informe-diario,ilustrar-notas,redes'
+
+permissions:
+  contents: read
+
+jobs:
+  ensayo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Ensayar cada tarea
+        env:
+          VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
+          TAREAS: ${{ inputs.tareas }}
+        run: |
+          malas=0
+          for t in $(echo "$TAREAS" | tr ',' ' '); do
+            case "$t" in
+              informe-diario) cuerpo='{"tarea":"informe-diario","simular":true,"inputs":{"momento":"noche","enviar":"false"}}' ;;
+              *) cuerpo="{\"tarea\":\"$t\",\"simular\":true}" ;;
+            esac
+            echo "=== $t"
+            salida=$(curl -s -m 600 -X POST https://radar-balcarce-tareas.radarbalcarce.workers.dev/correr -H "x-token: $VIGILANTE_TOKEN" -H "content-type: application/json" -d "$cuerpo")
+            echo "$salida" | head -c 1500; echo
+            echo "$salida" | grep -q '"ok":true' || malas=$((malas+1))
+          done
+          echo "Tareas con problemas: $malas"
+          test "$malas" = "0"
