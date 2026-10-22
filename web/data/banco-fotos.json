@@ -30610,8 +30610,8 @@
   "origen": "ninguna",
   "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-22T16:38:21.498Z",
-  "intentos": 3,
+  "cuando": "2026-10-22T23:03:50.241Z",
+  "intentos": 4,
   "fuentes": 1
  },
  "1e2ajtw": {
@@ -32009,10 +32009,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El peronismo realiza una nueva cumbre para definir su estrategia electoral",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de Clarín no se usa todavía.",
-  "cuando": "2026-10-22T22:02:09.357Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:03:50.241Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "vgprx0": {
   "archivo": "fotos-notas/vgprx0.jpg",
@@ -32036,7 +32037,8 @@
    "corresponde": "si",
    "descripcion": "Personas caminando bajo la lluvia con paraguas en una calle céntrica"
   },
-  "huella": "6b676369686a6929"
+  "huella": "6b676369686a6929",
+  "ausenteDesde": "2026-10-22T23:04:08.763Z"
  },
  "drmjxg": {
   "intentado": true,
@@ -32100,6 +32102,51 @@
   "cuando": "2026-10-22T22:32:20.574Z",
   "intentos": 1,
   "fuentes": 10,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "13yazdt": {
+  "archivo": "fotos-notas/13yazdt.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto presenta un casco especial con diseño de Boca en la Fórmula 1",
+  "enlace": "https://www.lagaceta.com.ar/nota/1159198/deportes/de-bombonera-formula-1-guino-franco-colapinto-boca-nuevo-casco.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/22/diseno-especial-franco-colapinto-se-prepara-para-salir-pista-nuevo-casco-incluye-guino-boca-juniors-colores-bandera-argentina-1159198-194545.jpg",
+  "razon": "Es la única imagen completa y nítida que muestra al piloto con el casco especial, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-22T23:03:50.241Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto sentado en el monoplaza de Alpine con el casco de diseño especial."
+  },
+  "huella": "881c9b8d97be7432"
+ },
+ "1jr1ykk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Davoo Xeneize conoce a Neymar y le regala una camiseta de Boca",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:03:50.241Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "16fc2fy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River recibe a Racing por la fecha 14 del Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:03:50.241Z",
+  "intentos": 1,
+  "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
