@@ -31229,7 +31229,8 @@
    "corresponde": "si",
    "descripcion": "Christian Bragarnik en primer plano con saco azul"
   },
-  "huella": "a0a08c8c8c881808"
+  "huella": "a0a08c8c8c881808",
+  "ausenteDesde": "2026-10-22T23:34:51.810Z"
  },
  "1i9rlqx": {
   "intentado": true,
@@ -31798,7 +31799,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica sobre una ciudad con rayos cayendo entre nubes oscuras."
   },
-  "huella": "d898b3c387e35395"
+  "huella": "d898b3c387e35395",
+  "ausenteDesde": "2026-10-22T23:34:51.810Z"
  },
  "1kwf4sd": {
   "archivo": "fotos-notas/1kwf4sd.jpg",
@@ -31954,7 +31956,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con fondo azul"
   },
-  "huella": "01081414766464c4"
+  "huella": "01081414766464c4",
+  "ausenteDesde": "2026-10-22T23:34:51.810Z"
  },
  "1rvrukc": {
   "archivo": "fotos-notas/1rvrukc.jpg",
@@ -32147,6 +32150,121 @@
   "cuando": "2026-10-22T23:03:50.241Z",
   "intentos": 1,
   "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "144vsrf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere el actor estadounidense Tom Skerritt a los 93 años",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "348w4g": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La AFA aprueba el regreso de la promoción en el ascenso desde 2027",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "qcmigp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Estadio Único de La Plata busca ser sede del Mundial 2030",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "16rvreh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Procesan a José Luis Espert por presunto lavado de dinero",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 18,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1rvglqj": {
+  "archivo": "fotos-notas/1rvglqj.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lionel Messi recibe el Premio Princesa de Asturias de los Deportes en Oviedo",
+  "enlace": "https://www.cronica.com.ar/depo/actualidad/el-emotivo-recuerdo-de-messi-el-consejo-de-su-papa-jorge-que-lo-marco-para-siempre/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1724/1724279/6ada3277ec321_600_315!.png?s=e31bb561fff68f7924c964e919ef86b1&d=1792685109",
+  "razon": "Es la única fotografía real del evento que muestra a Messi firmando una camiseta, sin marcas de agua ni menores de edad visibles.",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Messi firmando una camiseta de la selección argentina rodeado de una multitud de fans."
+  },
+  "huella": "51593d371b3632b1"
+ },
+ "t0olao": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Zuban Córdoba mide la gestión bonaerense y el potencial electoral",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "t6n0hi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sportivo Ameliano anula un código de vestimenta restrictivo para la prensa",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ik37mg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River recibe a Racing con dudas en el equipo titular",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1iig27": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1uvjywh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ezeiza opera con restricciones desde el domingo por obras en pistas",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T23:33:34.820Z",
+  "intentos": 1,
+  "fuentes": 7,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
