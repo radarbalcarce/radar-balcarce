@@ -29337,8 +29337,8 @@
   "origen": "ninguna",
   "titulo": "Diputados da media sanción a la ley de trazabilidad de medicamentos",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-21T22:31:39.176Z",
-  "intentos": 1,
+  "cuando": "2026-10-22T01:01:58.487Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -29543,6 +29543,27 @@
    "corresponde": "si",
    "descripcion": "Hombre adulto hablando frente a un micrófono."
   },
-  "huella": "1d3f1d3527276363"
+  "huella": "1d3f1d3527276363",
+  "ausenteDesde": "2026-10-22T01:02:09.710Z"
+ },
+ "vxf5r": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Acción 5 (Balcarce) no se usa todavía.",
+  "cuando": "2026-10-22T01:01:58.487Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1g2400x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Detectan fallas críticas en PHP y alertan por sitios caídos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-22T01:01:58.487Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
