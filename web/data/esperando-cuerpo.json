@@ -1,34 +1,7 @@
 {
- "generado": "2026-10-22T18:36:54.426Z",
+ "generado": "2026-10-22T19:04:19.195Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "cpk8qy",
-   "titulo": "Milei admitió que la economía se desacelera y vinculó la suba del riesgo país con la incertidumbre electoral y el contexto global",
-   "copete": "Javier Milei reconoció que su Gobierno cometió errores y que algunas decisiones podrían haberse ejecutado mejor, aunque defendió los resultados de su programa económico y aseguró que cumplió con los compromisos asumidos durante la campaña electoral. “Seguro que hay cosas que las…",
-   "seccion": "Economía",
-   "fecha": "2026-10-22T16:10:40.000Z",
-   "fuentes": [
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/economia/2026/10/22/milei-admitio-que-la-economia-se-desacelera-y-vinculo-la-suba-del-riesgo-pais-con-la-incertidumbre-electoral-y-el-contexto-global/",
-     "fecha": "2026-10-22T16:10:40.000Z"
-    },
-    {
-     "medio": "Canal 26",
-     "enlace": "https://www.canal26.com/economia/2026/10/22/javier-milei-reconocio-la-desaceleracion-de-la-economia-y-vinculo-la-reciente-suba-del-riesgo-pais-con-la-incertidumbre-electoral/",
-     "fecha": "2026-10-22T18:00:30.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-22-13-52-0-milei-reconocio-que-la-economia-se-desacelera-y-vinculo-la-suba-del-riesgo-pais-con-la-incertidumbre-electoral-y-el-contexto-global",
-     "fecha": "2026-10-22T16:55:23.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el máximo es 90",
-   "maximo": 3
-  },
   {
    "id": "6aw080",
    "titulo": "Anthropic presentó Claude Duet, un asistente de IA que sigue trabajando con el teléfono apagado",
@@ -49,6 +22,28 @@
    ],
    "intentos": 2,
    "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1w1v7aj",
+   "titulo": "Alumnos crearon el Corredor René Favaloro y un juego de mesa sobre el vínculo del médico con Magdalena",
+   "copete": "",
+   "seccion": "Educación",
+   "fecha": "2026-10-22T16:09:00.000Z",
+   "fuentes": [
+    {
+     "medio": "0221",
+     "enlace": "https://www.0221.com.ar/la-plata/alumnos-crearon-el-corredor-rene-favaloro-y-un-juego-mesa-los-comienzos-del-creador-del-bypass-n136163",
+     "fecha": "2026-10-22T16:09:00.000Z"
+    },
+    {
+     "medio": "El Día",
+     "enlace": "https://www.eldia.com/la-ciudad/el-corredor-favaloro-la-iniciativa-escolar-que-une-los-pueblos-de-magdalena-y-rescata-la-historia-del-medico-para-impulsar-el-turismo-rural-la-ciudad_1792687800",
+     "fecha": "2026-10-22T16:54:00.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "semáforo: necesita ojo humano: \"alumnos de entre 13 y 15 anos\", en lo que escribió la IA",
    "maximo": 3
   },
   {
@@ -196,8 +191,23 @@
     },
     {
      "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/economia/economia-argentina-cuanto-deberia-crecer-la-actividad-para-no-caer-en-recesion-nid22102026/",
+     "fecha": "2026-10-22T16:42:53.000Z"
+    },
+    {
+     "medio": "La Nación",
      "enlace": "https://www.lanacion.com.ar/economia/la-economia-se-estanco-en-agosto-y-quedo-a-las-puertas-de-la-recesion-nid21102026/",
      "fecha": "2026-10-22T14:35:52.000Z"
+    },
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/economia/2026/10/22/cuanto-deberia-crecer-la-economia-argentina-en-septiembre-para-no-caer-en-recesion-tecnica/",
+     "fecha": "2026-10-22T05:51:07.000Z"
+    },
+    {
+     "medio": "Infobae",
+     "enlace": "https://www.infobae.com/economia/2026/10/21/la-actividad-economica-crecio-menos-de-lo-esperado-en-agosto-tras-la-fuerte-caida-de-julio/",
+     "fecha": "2026-10-21T21:24:11.000Z"
     },
     {
      "medio": "Perfil",
@@ -215,6 +225,11 @@
      "fecha": "2026-10-21T21:02:34.000Z"
     },
     {
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/10/21/a-un-paso-de-entrar-en-recesion/",
+     "fecha": "2026-10-22T03:01:00.000Z"
+    },
+    {
      "medio": "Canal 26",
      "enlace": "https://www.canal26.com/economia/2026/10/21/la-actividad-economica-se-estanco-en-agosto-y-cayo-17-en-el-ultimo-ano-segun-en-indec/",
      "fecha": "2026-10-21T20:02:27.000Z"
@@ -228,6 +243,11 @@
      "medio": "Noticias Argentinas (NA)",
      "enlace": "https://noticiasargentinas.com/economia/la-actividad-economica-cayo-1-7--interanual-en-agosto-y-anoto-la-mayor-contraccion-en-lo-que-va-del-ano_a6ad90a809e7b4b8990c37f56",
      "fecha": "2026-10-21T19:46:00.000Z"
+    },
+    {
+     "medio": "0221",
+     "enlace": "https://www.0221.com.ar/nacional/la-economia-crecio-apenas-01-agosto-y-quedo-cerca-entrar-recesion-n136201",
+     "fecha": "2026-10-21T23:23:00.000Z"
     },
     {
      "medio": "El Marplatense",

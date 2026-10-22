@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-22T18:36:54.426Z",
+ "generado": "2026-10-22T19:04:19.195Z",
  "portada": 73,
- "archivo": 1485,
+ "archivo": 1490,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-22T18:36:54.938Z",
+  "generado": "2026-10-22T19:04:19.781Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-22T18:46:17.984Z"
    },
    {
     "nombre": "farmacia",
@@ -104,14 +104,9 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 51,
+    "salio": "2026-10-22T18:46:17.984Z",
+    "segundos": null,
     "notas": [
-     {
-      "id": "1i9rlqx",
-      "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
-      "seccion": "Balcarce"
-     },
      {
       "id": "sg5gtd",
       "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
@@ -123,8 +118,13 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "1cmow7i",
-      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
+      "id": "rdo3nh",
+      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "juo82o",
+      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
       "seccion": "Balcarce"
      }
     ]
@@ -136,27 +136,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 53,
     "notas": [
      {
-      "id": "juo82o",
-      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
+      "id": "1i9rlqx",
+      "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1cmow7i",
+      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
       "seccion": "Balcarce"
      },
      {
       "id": "4c84q3",
       "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "rdo3nh",
-      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-      "seccion": "Balcarce"
      }
     ]
    }
@@ -192,12 +187,6 @@
      "marcada": false
     },
     {
-     "id": "umqt3y",
-     "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
      "id": "1cmow7i",
      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
      "seccion": "Balcarce",
@@ -210,18 +199,6 @@
      "marcada": false
     },
     {
-     "id": "23umjj",
-     "titulo": "Ezeiza opera con restricciones desde el domingo por obras en sus pistas",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "bg0g55",
-     "titulo": "Lanzan un concurso público para concesionar seis hoteles de Chapadmalal",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "9c8d13",
      "titulo": "Asignan instalaciones de Chapadmalal a la Universidad de Mar del Plata",
      "seccion": "Educación",
@@ -230,6 +207,12 @@
     {
      "id": "2zv6de",
      "titulo": "El Estadio Único de La Plata suma su postulación para el Mundial 2030",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "19jkaky",
+     "titulo": "El juicio por la muerte de Maradona llega a los últimos alegatos",
      "seccion": "Argentina",
      "marcada": false
     }
