@@ -1,11 +1,10 @@
 {
   "avisos": {
-    "falla-Pruebas con otra hora": "2026-10-22T21:00:39.621Z",
     "efemerides-por-acabarse": "2026-10-22T21:00:39.621Z",
-    "falta-facebook-reel:noticia1": "2026-10-22T18:00:38.270Z",
-    "falta-facebook-historia:noticia1": "2026-10-22T18:00:38.270Z",
-    "falta-instagram-reel:noticia1": "2026-10-22T18:00:38.270Z",
-    "falta-instagram-historia:noticia1": "2026-10-22T18:00:38.270Z"
+    "falta-facebook-reel:noticia1": "2026-10-23T00:00:45.783Z",
+    "falta-facebook-historia:noticia1": "2026-10-23T00:00:45.783Z",
+    "falta-instagram-reel:noticia1": "2026-10-23T00:00:45.783Z",
+    "falta-instagram-historia:noticia1": "2026-10-23T00:00:45.783Z"
   },
   "importantes": {
     "avisadas": {
@@ -48,9 +47,9 @@
     "ultimo": "2026-10-22T21:00:39.621Z"
   },
   "redes": {
-    "hasta": "2026-10-22T17:35:56.822Z"
+    "hasta": "2026-10-22T23:07:07.060Z"
   },
-  "ultimaMedicion": "2026-10-22/9",
+  "ultimaMedicion": "2026-10-22/21",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-21",
   "ultimoInforme": "2026-10-01",
@@ -60,12 +59,6 @@
       "nivel": "media",
       "texto": "Ya es 22 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
-    },
-    {
-      "clave": "falla-Pruebas con otra hora",
-      "nivel": "alta",
-      "texto": "\"Pruebas con otra hora\" falló en su última corrida, en el paso \"Probar con cinco horas y fechas distintas\" (2 seguidas; 3 de las últimas 4).",
-      "desde": "2026-10-16T00:00:47.599Z"
     },
     {
       "clave": "falta-facebook-reel:noticia1",
