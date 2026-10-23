@@ -670,12 +670,17 @@ export function armarInforme({ momento = 'noche', ahora = new Date(), datos, enV
   const asunto = asuntoDelInforme({ momento, dia, ahora, atencion, publicadas, visitas });
   const informe = { momento, dia, ahora, asunto, atencion, secciones };
   const texto = aTexto(informe);
-  return { ...informe, texto, html: aHtml(informe) };
+  const corto = { ...informe, corto: true };
+  return { ...informe, texto, html: aHtml(informe), textoCorto: aTexto(corto), htmlCorto: aHtml(corto) };
 }
 
 // ------------------------------------------------------------ los dos formatos
 
 const MARCA = { alta: '🔴', media: '🟡', info: 'ℹ️' };
+
+/** 22/10/2026 (Hernán: «se hace muy engorroso leerlo»): en el mail van sólo las líneas principales de cada parte (sin los renglones de detalle y hasta 4 por parte); el detalle está en el panel del celular. */
+export const LINEAS_POR_PARTE_EN_EL_MAIL = 4;
+export const lineasDelMail = (s, { corto = false } = {}) => (corto ? s.lineas.filter((l) => !l.sub).slice(0, LINEAS_POR_PARTE_EN_EL_MAIL) : s.lineas);
 
 function titularDelInforme({ momento, dia, ahora }) {
   return momento === 'noche'
@@ -692,13 +697,13 @@ export function aTexto(informe, maximo = LIMITES_DEL_INFORME.textoMaximo) {
   for (const a of informe.atencion) o.push(`  ${MARCA[a.nivel]} ${a.t}${a.url ? `\n     ${a.url}` : ''}`);
   for (const s of informe.secciones) {
     o.push('', s.titulo);
-    for (const l of s.lineas) {
+    for (const l of lineasDelMail(s, informe)) {
       const sangria = l.sub ? '    ' : '  ';
       o.push(`${sangria}${l.fuerte || l.sub ? '' : '• '}${l.t}${l.nota ? ` — ${l.nota}` : ''}`);
       if (l.url) o.push(`${sangria}  ${l.url}`);
     }
   }
-  o.push('', `Este informe lo arma GitHub (redes/informe-diario.mjs) y lo entrega el vigilante de Cloudflare. Sale a las 8:15 y a las 21:15.`);
+  o.push('', `Este informe lo arma GitHub (redes/informe-diario.mjs) y lo entrega el vigilante de Cloudflare. Sale a las 8:15 y a las 21:15. El detalle completo está en el panel del celular.`);
   let texto = o.join('\n');
   if (texto.length > maximo) {
     const corte = texto.slice(0, maximo - 80);
@@ -723,14 +728,14 @@ export function aHtml(informe) {
   const bloqueAtencion = informe.atencion.length
     ? informe.atencion.map((a) => `<div style="margin:6px 0;padding:8px 12px;border-left:4px solid ${COLORES[a.nivel]};background:#fbfbfd"><span style="color:${COLORES[a.nivel]};font-weight:bold">${a.nivel === 'alta' ? 'Urgente' : a.nivel === 'media' ? 'Para mirar' : 'Para saber'}</span> · ${esc(a.t)}${a.url ? ` <a href="${esc(a.url)}" style="color:${COLORES.info};text-decoration:underline">Abrir</a>` : ''}</div>`).join('')
     : `<div style="padding:10px 12px;border-left:4px solid #1e7d46;background:#f2faf5">Nada. Todo anda y no hay nada que decidir.</div>`;
-  const secciones = informe.secciones.map((s) => `<div style="margin-top:22px"><div style="font-size:12px;letter-spacing:1px;font-weight:bold;color:${COLORES.marca};border-bottom:1px solid ${COLORES.linea};padding-bottom:4px;margin-bottom:6px">${esc(s.titulo)}</div>${s.lineas.map(linea).join('')}</div>`).join('');
+  const secciones = informe.secciones.map((s) => `<div style="margin-top:22px"><div style="font-size:12px;letter-spacing:1px;font-weight:bold;color:${COLORES.marca};border-bottom:1px solid ${COLORES.linea};padding-bottom:4px;margin-bottom:6px">${esc(s.titulo)}</div>${lineasDelMail(s, informe).map(linea).join('')}</div>`).join('');
   return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${esc(informe.asunto)}</title></head>
 <body style="margin:0;padding:0;background:${COLORES.fondo};font-family:Arial,Helvetica,sans-serif;color:${COLORES.tinta};font-size:15px;line-height:1.45">
 <div style="max-width:640px;margin:0 auto;padding:12px">
 <div style="background:${COLORES.marca};color:#fff;padding:16px 18px;border-radius:10px 10px 0 0"><div style="font-size:12px;letter-spacing:1px;opacity:.85">RADAR BALCARCE</div><div style="font-size:22px;font-weight:bold">${esc(t.grande)}</div><div style="font-size:14px;opacity:.9">${esc(t.chico)}</div></div>
 <div style="background:${COLORES.tarjeta};padding:16px 18px 20px;border-radius:0 0 10px 10px;border:1px solid ${COLORES.linea};border-top:0">
 <div style="font-size:12px;letter-spacing:1px;font-weight:bold;color:${COLORES.marca};margin-bottom:6px">LO QUE REQUIERE TU ATENCIÓN</div>${bloqueAtencion}${secciones}
-<div style="margin-top:24px;font-size:12px;color:${COLORES.suave}">Este informe lo arma GitHub (redes/informe-diario.mjs) y lo entrega el vigilante de Cloudflare. Sale a las 8:15 y a las 21:15.</div>
+<div style="margin-top:24px;font-size:12px;color:${COLORES.suave}">Este informe lo arma GitHub (redes/informe-diario.mjs) y lo entrega el vigilante de Cloudflare. Sale a las 8:15 y a las 21:15. El detalle completo está en el panel del celular.</div>
 </div></div></body></html>`;
 }
 
@@ -841,7 +846,7 @@ export async function consultarEnVivo({ env = process.env, fetchFn = fetch, ahor
 /** Manda el informe por mail (sólo mail: nunca cae a WhatsApp, un informe largo no entra). Devuelve { ok, motivo?, repetido? }. */
 export async function enviarInforme(informe, { env = process.env, fetchFn = fetch } = {}) {
   return avisarPorMail({
-    asunto: informe.asunto, texto: informe.texto, html: informe.html, clave: claveDelInforme(informe.momento, informe.dia), nivel: 'info',
+    asunto: informe.asunto, texto: informe.textoCorto ?? informe.texto, html: informe.htmlCorto ?? informe.html, clave: claveDelInforme(informe.momento, informe.dia), nivel: 'info',
   }, { env, fetchFn });
 }
 

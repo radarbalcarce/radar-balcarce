@@ -487,8 +487,8 @@ test('enviarInforme: va por el Worker con el asunto, el texto, el html y la clav
   assert.equal(p.o.headers['x-token'], 'secreto-largo-123');
   assert.equal(p.json.clave, 'informe-noche-2026-10-15');
   assert.equal(p.json.asunto, informe.asunto);
-  assert.equal(p.json.texto, informe.texto);
-  assert.equal(p.json.html, informe.html);
+  assert.equal(p.json.texto, informe.textoCorto);
+  assert.equal(p.json.html, informe.htmlCorto);
   assert.equal(p.json.nivel, 'info', 'un informe diario no es «URGENTE»');
   assert.ok(!p.o.body.includes('secreto-largo-123'), 'el token no viaja en el cuerpo');
   assert.equal((await enviarInforme(informe, { env: {}, fetchFn })).ok, false, 'sin VIGILANTE_TOKEN no sale (y no cae a WhatsApp)');
@@ -514,4 +514,12 @@ test('el workflow "Informe diario": lo pide el reloj, tiene respaldo, no guarda 
   assert.ok(!/ghp_|github_pat_/.test(w));
   const { WORKFLOWS_VIGILADOS } = await import('../redes/vigilar.mjs');
   assert.equal(WORKFLOWS_VIGILADOS['informe-diario.yml'], 'Informe diario');
+});
+
+test('el mail va corto (22/10): sin renglones de detalle y con tope por parte; el informe completo sigue entero', () => {
+  const informe = armarInforme({ momento: 'noche', ahora: NOCHE, datos: datosDeEjemplo(), enVivo: { omitido: true } });
+  assert.ok(informe.textoCorto.length < informe.texto.length, 'la versión del mail es más corta');
+  assert.ok(informe.htmlCorto.length < informe.html.length);
+  for (const s of informe.secciones) assert.ok(s.lineas.filter((l) => !l.sub).length >= 0);
+  assert.ok(/panel del celular/.test(informe.textoCorto), 'avisa dónde está el detalle');
 });
