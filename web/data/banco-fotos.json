@@ -32513,14 +32513,28 @@
   "huella": "a4a5a5ae8cc6c48e"
  },
  "1lslpgx": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lslpgx.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Diputados bonaerenses reciben a la investigadora Virginia Aparicio",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T03:32:19.247Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://eldiariobalcarce.com.ar/virginia-aparicio-fue-recibida-en-la-legislatura-bonaerense-319",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-20-21-58-1Foto_Completa_Aparicio.jpeg",
+  "razon": "Es la única foto disponible, corresponde perfectamente a la nota, tiene buena calidad y no presenta marcas de agua, menores ni problemas de formato.",
+  "cuando": "2026-10-23T10:02:22.546Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio junto a diputados bonaerenses en una oficina."
+  },
+  "huella": "9e5e4e4a4a596c6d"
  },
  "zphmny": {
   "intentado": true,
@@ -32579,24 +32593,52 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "3vccru": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3vccru.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El dólar oficial alcanza su valor máximo del año tras una nueva suba",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T03:32:19.247Z",
-  "intentos": 3,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lagaceta.com.ar/nota/1159184/economia/dolar-hoy-oficial-alcanzo-nuevo-maximo-nominal-blue-opero-sin-variantes.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/08/28/creci-la-compra-de-dlares-en-julio-segun-cifras-oficiales-banco-central-17-millones-argentinos-adquirieron-mas-us-3300-millones-durante-septimo-mes-ano-1151653-182411.png",
+  "razon": "Muestra claramente billetes de dólar junto a un cartel indicador de cotización con valores actualizados, ilustrando perfectamente el tema de la economía.",
+  "cuando": "2026-10-23T10:02:22.546Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo dólares frente a un cartel LED de cotización cambiaria."
+  },
+  "huella": "59495b194d3b1d5d"
  },
  "q80h27": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/q80h27.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Detectan fallas de seguridad ocultas por una década en PHP",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T03:32:19.247Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.elmarplatense.com/una-falla-de-seguridad-en-php-puso-en-alerta-a-gobiernos-y-empresas-de-todo-el-mundo",
+  "imagenOriginal": "https://n2.cdnartic.ar/UUsW6GUGQAT3BuqSnPeHc_h1eok=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/php.webp",
+  "razon": "La imagen B muestra código de programación directamente relacionado con PHP, siendo adecuada y sin marcas ni menores.",
+  "cuando": "2026-10-23T10:02:22.546Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Código de programación en pantalla oscura"
+  },
+  "huella": "c337232d232d2c21"
  },
  "15xeuts": {
   "intentado": true,
