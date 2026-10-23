@@ -4,10 +4,7 @@
     "falta-facebook-reel:efemeride": "2026-10-23T15:05:08.575Z",
     "falta-facebook-historia:efemeride": "2026-10-23T15:05:08.575Z",
     "falta-instagram-reel:efemeride": "2026-10-23T15:05:08.575Z",
-    "falta-instagram-historia:efemeride": "2026-10-23T15:05:08.575Z",
-    "clave-GEMINI_API_KEY_REDACCION": "2026-10-23T18:00:13.790Z",
-    "clave-GEMINI_API_KEY_REDES": "2026-10-23T18:00:13.790Z",
-    "clave-GEMINI_API_KEY_CLASIFICACION": "2026-10-23T18:00:13.790Z"
+    "falta-instagram-historia:efemeride": "2026-10-23T15:05:08.575Z"
   },
   "importantes": {
     "avisadas": {
@@ -37,13 +34,12 @@
   },
   "pendientes": {
     "avisados": [
-      "w7qu88",
-      "12if1s5"
+      "1i9rlqx"
     ],
-    "ultimo": "2026-10-23T03:30:47.304Z"
+    "ultimo": "2026-10-23T21:00:11.894Z"
   },
   "redes": {
-    "hasta": "2026-10-23T14:36:15.389Z"
+    "hasta": "2026-10-23T19:49:05.037Z"
   },
   "ultimaMedicion": "2026-10-23/9",
   "ultimoResumen": "2026-10-01",
@@ -55,24 +51,6 @@
       "nivel": "media",
       "texto": "Ya es 23 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_REDACCION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
-      "desde": "2026-10-23T18:00:13.790Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_REDES",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDES (las voces de las redes) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDES (nunca en un chat).",
-      "desde": "2026-10-23T18:00:13.790Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_CLASIFICACION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_CLASIFICACION (la lectura con IA y las fotos) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions →…",
-      "desde": "2026-10-23T18:00:13.790Z"
     },
     {
       "clave": "falta-facebook-reel:efemeride",
