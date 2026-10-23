@@ -1,0 +1,301 @@
+<title>Radar Balcarce por dentro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;800&display=swap">
+<style>
+/* Concepto: informe de operaciones. Una columna angosta, tablas de datos reales, un solo azul de marca y colores de estado aparte. */
+:root {
+  --papel: #f7f8fa;
+  --tinta: #12161c;
+  --texto: #343b46;
+  --suave: #667080;
+  --linea: #dde1e8;
+  --panel: #ffffff;
+  --marca: #1e40af;
+  --marca-suave: #e4eafb;
+  --bien: #17714f;
+  --bien-suave: #e1f3ea;
+  --ojo: #9a5b00;
+  --ojo-suave: #fbeed5;
+  --mal: #b3261e;
+  --mal-suave: #fbe3e1;
+  --f-titulo: "Source Serif 4", Georgia, serif;
+  --f-texto: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-dato: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --papel: #0f1217; --tinta: #eef1f6; --texto: #c9d0db; --suave: #98a2b3; --linea: #2a313c; --panel: #171c24;
+  --marca: #8aa4f5; --marca-suave: #1c2744; --bien: #5fc79c; --bien-suave: #12301f; --ojo: #e6b45a; --ojo-suave: #382a0e; --mal: #f08b84; --mal-suave: #3a1714; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --papel: #0f1217; --tinta: #eef1f6; --texto: #c9d0db; --suave: #98a2b3; --linea: #2a313c; --panel: #171c24;
+  --marca: #8aa4f5; --marca-suave: #1c2744; --bien: #5fc79c; --bien-suave: #12301f; --ojo: #e6b45a; --ojo-suave: #382a0e; --mal: #f08b84; --mal-suave: #3a1714; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--papel); color: var(--texto); font: 16px/1.6 var(--f-texto); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px }
+main { max-width: 46rem; margin: 0 auto }
+header { padding-block: 36px 8px }
+.volanta { font: 600 .75rem/1 var(--f-dato); letter-spacing: .1em; text-transform: uppercase; color: var(--marca); margin: 0 0 .7rem }
+h1, h2, h3 { font-family: var(--f-titulo); color: var(--tinta); text-wrap: balance; line-height: 1.15; margin: 0 }
+h1 { font-size: clamp(2rem, 6vw, 2.9rem); font-weight: 800 }
+h2 { font-size: 1.55rem; font-weight: 800; margin-top: 44px; padding-top: 18px; border-top: 2px solid var(--tinta) }
+h3 { font-size: 1.1rem; font-weight: 600; margin-top: 24px }
+p { margin: .6rem 0 }
+.bajada { font: 400 1.1rem/1.55 var(--f-titulo); margin-top: .8rem }
+.fecha { color: var(--suave); font: 400 .8rem var(--f-dato); margin-top: .8rem }
+.caja { min-width: 0; overflow-x: auto; margin: 14px 0; background: var(--panel); border: 1px solid var(--linea) }
+table { border-collapse: collapse; width: 100%; font-size: .9rem }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--linea); vertical-align: top }
+th { font: 600 .72rem/1.2 var(--f-dato); letter-spacing: .05em; text-transform: uppercase; color: var(--suave); background: var(--papel); white-space: nowrap }
+tr:last-child td { border-bottom: 0 }
+td.n, th.n { text-align: right; font-family: var(--f-dato); font-variant-numeric: tabular-nums; white-space: nowrap }
+.etq { display: inline-block; font: 600 .7rem/1 var(--f-dato); padding: 4px 7px; white-space: nowrap }
+.bien { background: var(--bien-suave); color: var(--bien) }
+.ojo { background: var(--ojo-suave); color: var(--ojo) }
+.mal { background: var(--mal-suave); color: var(--mal) }
+.info { background: var(--marca-suave); color: var(--marca) }
+.paso { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 2px 12px; padding: 12px 0; border-bottom: 1px solid var(--linea) }
+.paso b { font: 600 .95rem var(--f-dato); color: var(--marca) }
+.paso h3 { margin: 0; font-size: 1rem; font-family: var(--f-texto); font-weight: 600 }
+.paso p { margin: .15rem 0 0; font-size: .92rem; color: var(--texto) }
+.aviso { margin: 14px 0; padding: 12px 14px; background: var(--ojo-suave); color: var(--tinta); font-size: .93rem; border: 1px solid var(--linea) }
+.aviso.ok { background: var(--bien-suave) }
+code { font: .85em var(--f-dato); background: var(--marca-suave); color: var(--tinta); padding: 1px 5px; word-break: break-word }
+.cifras { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 10px; margin: 14px 0 }
+.cifra { background: var(--panel); border: 1px solid var(--linea); padding: 12px 14px }
+.cifra b { display: block; font: 600 1.55rem/1.1 var(--f-dato); color: var(--tinta); font-variant-numeric: tabular-nums }
+.cifra span { font-size: .8rem; color: var(--suave) }
+svg { display: block; width: 100%; height: auto }
+svg text { font-family: var(--f-dato); fill: var(--suave); font-size: 11px }
+.leyenda { display: flex; gap: 16px; flex-wrap: wrap; font-size: .82rem; margin: 6px 0 0 }
+.leyenda i { display: inline-block; width: 10px; height: 10px; margin-right: 6px }
+ul { padding-left: 1.2rem; margin: .5rem 0 } li { margin: .3rem 0 }
+a { color: var(--marca) }
+:focus-visible { outline: 2px solid var(--marca); outline-offset: 2px }
+</style>
+<main>
+<header>
+  <p class="volanta">Radar Balcarce · informe de operaciones</p>
+  <h1>Cómo funciona todo, con los números reales</h1>
+  <p class="bajada">Qué hace el sistema, dónde corre hoy, qué rinde y qué se usa o no. Con esto se puede decidir qué mejorar primero.</p>
+  <p class="fecha">Datos al 22/10/2026, 21:00 (hora de Balcarce). Las cifras salen de los archivos reales del proyecto.</p>
+</header>
+
+<h2>En una pantalla</h2>
+<p>Radar Balcarce lee unos cien feeds de unos setenta medios cada media hora, junta las notas que cuentan lo mismo, decide cuáles publicar, las escribe con IA, las verifica contra la fuente y arma el sitio. Varias veces por día publica en Facebook e Instagram, con voz. Nadie tiene que estar despierto.</p>
+<div class="cifras">
+  <div class="cifra"><b>~120</b><span>notas publicadas por día (eran 46 antes del 17/10)</span></div>
+  <div class="cifra"><b>15–20</b><span>de esas son de Balcarce</span></div>
+  <div class="cifra"><b>7–8</b><span>piezas de video por día en Instagram y Facebook</span></div>
+  <div class="cifra"><b>US$ 5</b><span>por mes de costo fijo (Cloudflare Workers Paid)</span></div>
+</div>
+<div class="aviso ok"><b>Estado de la mudanza:</b> la web, las tareas chicas y las redes ya corren desde Cloudflare. GitHub quedó para guardar el código y los datos. Falta apagar los siete procesos viejos de GitHub y pasar el repositorio a privado.</div>
+
+<h2>El recorrido de una noticia</h2>
+<div>
+  <div class="paso"><b>1</b><div><h3>Leer las fuentes</h3><p>Cada 30 minutos se leen los feeds de medios de Balcarce, de la región y del país, más el municipio, el clima, la farmacia de turno y la agenda.</p></div></div>
+  <div class="paso"><b>2</b><div><h3>Juntar lo repetido</h3><p>El cruce agrupa las notas del mismo hecho. Cuántos medios lo cuentan decide si sale.</p></div></div>
+  <div class="paso"><b>3</b><div><h3>Sección, puntaje y semáforo</h3><p>Cada nota va a una de las 14 secciones. El semáforo frena lo sensible: menores, víctimas, sepelios. Política y Policiales esperan a una persona.</p></div></div>
+  <div class="paso"><b>4</b><div><h3>Qué entra</h3><p>De Balcarce entra todo. Lo nacional entra con 3 medios distintos, y 2 en las áreas chicas (Tecnología, Ciencia, Salud, Educación, Cultura). Sin cupos ni topes.</p></div></div>
+  <div class="paso"><b>5</b><div><h3>Lectura y escritura con IA</h3><p>Gemini lee y redacta. Si se acaba el cupo, entra Groq, y después OpenRouter con modelos gratis. Las reglas están en <code>CRITERIO-EDITORIAL.md</code>.</p></div></div>
+  <div class="paso"><b>6</b><div><h3>Verificación</h3><p>Todo lo que escribe la IA se compara con la fuente. Sin cuerpo de 70 palabras, la nota no sale. Cada nota dice quién la escribió.</p></div></div>
+  <div class="paso"><b>7</b><div><h3>Armar el sitio y subirlo</h3><p>Una sola compilación por vuelta y se sube a Cloudflare Pages (<code>radarbalcarce.com</code>).</p></div></div>
+  <div class="paso"><b>8</b><div><h3>Redes</h3><p>Se arman las piezas del día (clima, repasos, farmacia, efemérides). Un repositorio público de render las convierte en video con voz. Después se publican en Facebook e Instagram.</p></div></div>
+  <div class="paso"><b>9</b><div><h3>Vigilar</h3><p>El vigilante avisa por mail y WhatsApp si algo deja de salir. Dos informes por día: 8:15 y 21:15.</p></div></div>
+</div>
+
+<h2>Dónde corre cada cosa hoy</h2>
+<div class="caja"><table>
+<tr><th>Qué</th><th>Dónde</th><th>Estado</th></tr>
+<tr><td>Armar la web cada 30 minutos</td><td>Cloudflare (Workers Builds)</td><td><span class="etq bien">en la nube</span></td></tr>
+<tr><td>Vigilancia, informe, auditoría IA, pistas, ilustraciones</td><td>Cloudflare (Worker de tareas)</td><td><span class="etq bien">en la nube</span></td></tr>
+<tr><td>Publicar en Facebook e Instagram</td><td>Cloudflare (Worker de tareas)</td><td><span class="etq bien">en la nube</span></td></tr>
+<tr><td>Armar el video con voz</td><td>GitHub, repositorio público de render</td><td><span class="etq bien">sin costo</span></td></tr>
+<tr><td>Reloj que dispara todo</td><td>Cloudflare (Worker del reloj)</td><td><span class="etq bien">andando</span></td></tr>
+<tr><td>Código, datos y pruebas</td><td>GitHub (repositorio principal)</td><td><span class="etq ojo">público; pasa a privado</span></td></tr>
+<tr><td>Siete procesos viejos de GitHub</td><td>GitHub Actions</td><td><span class="etq ojo">sin uso: falta apagarlos</span></td></tr>
+</table></div>
+
+<h2>Cuántas notas salen por día</h2>
+<div class="caja" style="padding:12px 12px 6px">
+<svg viewBox="0 0 640 250" role="img" aria-label="Notas publicadas por día del 16 al 22 de octubre, separadas en de Balcarce y de afuera">
+  <g stroke="var(--linea)" stroke-width="1"><line x1="44" y1="20" x2="630" y2="20"/><line x1="44" y1="70" x2="630" y2="70"/><line x1="44" y1="120" x2="630" y2="120"/><line x1="44" y1="170" x2="630" y2="170"/><line x1="44" y1="220" x2="630" y2="220"/></g>
+  <text x="38" y="24" text-anchor="end">150</text><text x="38" y="74" text-anchor="end">100</text><text x="38" y="124" text-anchor="end">50</text><text x="38" y="174" text-anchor="end">0</text>
+  <g>
+    <!-- escala: 150 notas = 150 px (y 170 es 0, y 20 es 150) y una altura de 150px -->
+    <rect x="62"  y="113" width="52" height="57" fill="var(--marca)"/><rect x="62"  y="106" width="52" height="0" />
+    <text x="88"  y="188" text-anchor="middle">16/10</text>
+    <rect x="144" y="108" width="52" height="62" fill="var(--marca)"/>
+    <text x="170" y="188" text-anchor="middle">17/10</text>
+    <rect x="226" y="95" width="52" height="75" fill="var(--marca)"/>
+    <text x="252" y="188" text-anchor="middle">18/10</text>
+    <rect x="308" y="61" width="52" height="109" fill="var(--marca)"/>
+    <text x="334" y="188" text-anchor="middle">19/10</text>
+    <rect x="390" y="55" width="52" height="115" fill="var(--marca)"/>
+    <text x="416" y="188" text-anchor="middle">20/10</text>
+    <rect x="472" y="34" width="52" height="136" fill="var(--marca)"/>
+    <text x="498" y="188" text-anchor="middle">21/10</text>
+    <rect x="554" y="53" width="52" height="117" fill="var(--marca)" opacity=".55"/>
+    <text x="580" y="188" text-anchor="middle">22/10*</text>
+  </g>
+  <!-- parte de Balcarce encima de cada barra, en el color de estado verde -->
+  <g fill="var(--bien)">
+    <rect x="62" y="156" width="52" height="14"/><rect x="144" y="162" width="52" height="8"/><rect x="226" y="154" width="52" height="16"/><rect x="308" y="143" width="52" height="27"/><rect x="390" y="151" width="52" height="19"/><rect x="472" y="152" width="52" height="18"/><rect x="554" y="153" width="52" height="17" opacity=".7"/>
+  </g>
+  <g font-size="11"><text x="88" y="108" text-anchor="middle">57</text><text x="170" y="103" text-anchor="middle">62</text><text x="252" y="90" text-anchor="middle">75</text><text x="334" y="56" text-anchor="middle">109</text><text x="416" y="50" text-anchor="middle">115</text><text x="498" y="29" text-anchor="middle">136</text><text x="580" y="48" text-anchor="middle">117*</text></g>
+  <text x="44" y="215" font-size="0"> </text>
+</svg>
+<div class="leyenda" style="padding:0 4px 8px"><span><i style="background:var(--marca)"></i>De afuera</span><span><i style="background:var(--bien)"></i>De Balcarce (8 a 27 por día)</span><span>* 22/10 incompleto</span></div>
+</div>
+<p>Desde que se sacaron los cupos (17/10) la selección se duplicó. Lo de Balcarce se mantiene en 15 a 20 por día porque llegan pocas notas locales: casi todo lo que aparece ya entra.</p>
+
+<h3>Por sección (18 al 21/10, cuatro días)</h3>
+<div class="caja"><table>
+<tr><th>Sección</th><th class="n">Publicadas</th><th class="n">Llegaron</th><th>Lectura</th></tr>
+<tr><td>Fútbol</td><td class="n">101</td><td class="n">1.048</td><td><span class="etq bien">de sobra</span></td></tr>
+<tr><td>Política</td><td class="n">83</td><td class="n">532</td><td><span class="etq bien">de sobra</span></td></tr>
+<tr><td>Cultura y agenda</td><td class="n">67</td><td class="n">356</td><td><span class="etq bien">bien</span></td></tr>
+<tr><td>Economía</td><td class="n">48</td><td class="n">481</td><td><span class="etq bien">bien</span></td></tr>
+<tr><td>Argentina</td><td class="n">47</td><td class="n">1.695</td><td><span class="etq info">filtra mucho</span></td></tr>
+<tr><td>Balcarce</td><td class="n">20</td><td class="n">49</td><td><span class="etq ojo">pocas llegan</span></td></tr>
+<tr><td>Deportes, Salud, Tecnología, Educación</td><td class="n">11 a 15 c/u</td><td class="n">100 a 233</td><td><span class="etq bien">bien</span></td></tr>
+<tr><td>Automovilismo</td><td class="n">7</td><td class="n">154</td><td><span class="etq ojo">flojo</span></td></tr>
+<tr><td>Agro</td><td class="n">5</td><td class="n">265</td><td><span class="etq ojo">flojo</span></td></tr>
+<tr><td>Policiales (sólo de acá)</td><td class="n">5</td><td class="n">21</td><td><span class="etq bien">normal</span></td></tr>
+<tr><td>Ciencia</td><td class="n">1</td><td class="n">30</td><td><span class="etq mal">no cumple</span></td></tr>
+</table></div>
+<p>La regla dice que cada sección tiene que tener notas todos los días. Ciencia, Agro y Automovilismo no la cumplen: la mayoría muere por tener un solo medio que la cuenta.</p>
+
+<h2>Quién aporta las notas (últimos 7 días)</h2>
+<div class="caja"><table>
+<tr><th>Medio</th><th class="n">Publicadas</th><th class="n">Únicas</th><th>Lectura</th></tr>
+<tr><td>Radio Gabal (FM 104.1)</td><td class="n">29</td><td class="n">16</td><td><span class="etq bien">el que más aporta de acá</span></td></tr>
+<tr><td>Diario La Vanguardia</td><td class="n">25</td><td class="n">11</td><td><span class="etq bien">fuerte</span></td></tr>
+<tr><td>Infórmese Primero (FM 104.9)</td><td class="n">22</td><td class="n">4</td><td><span class="etq bien">fuerte</span></td></tr>
+<tr><td>El Diario Balcarce</td><td class="n">12</td><td class="n">7</td><td><span class="etq bien">aporta</span></td></tr>
+<tr><td>Municipalidad de Balcarce</td><td class="n">11</td><td class="n">1</td><td><span class="etq bien">oficial</span></td></tr>
+<tr><td>Ahora Balcarce, Acción 5, News Balcarce, Puntonueve</td><td class="n">3 a 8</td><td class="n">0 a 1</td><td><span class="etq ojo">poco</span></td></tr>
+<tr><td>Concejo Deliberante y Facultad de Agrarias</td><td class="n">0</td><td class="n">0</td><td><span class="etq mal">dormidas</span></td></tr>
+<tr><td>TN, Noticias Argentinas, Infobae, La Nación, Minuto Uno…</td><td class="n">60 a 116</td><td class="n">0 a 9</td><td><span class="etq info">sólo confirman</span></td></tr>
+</table></div>
+<p>De 315 notas de afuera, 271 llegaron al mínimo de medios. Los medios nacionales casi nunca traen algo único: sirven para confirmar. La información propia de Balcarce depende de cinco medios.</p>
+
+<h2>Cuánta gente lo ve</h2>
+<div class="cifras">
+  <div class="cifra"><b>~150</b><span>visitas por día en la web desde el 20/10</span></div>
+  <div class="cifra"><b>6 a 11</b><span>visitas por día desde Argentina (21 y 22/10)</span></div>
+  <div class="cifra"><b>77</b><span>seguidores en Facebook</span></div>
+  <div class="cifra"><b>10</b><span>seguidores en Instagram (240 publicaciones)</span></div>
+</div>
+<div class="aviso"><b>Lo más importante de este informe.</b> Casi todas las visitas desde el 19/10 figuran como de Francia (93 a 113 por día) y de Estados Unidos. Eso es casi seguro tráfico de robots, no lectores de Balcarce. Hasta el 17/10 la mayoría era de Argentina. El número de visitas que mira Cloudflare hoy no sirve para medir si el medio funciona. Hay que separar a los robots antes de sacar conclusiones.</div>
+<p>Facebook es la puerta principal de los lectores reales: 31 a 33 visitas diarias llegan de ahí. Google trae entre 1 y 5.</p>
+<p>La auditoría de Meta AI cuenta 600 cuentas alcanzadas en 28 días (un salto desde una base muy chica) y 3.047 vistas entre Instagram y Facebook.</p>
+
+<h2>Qué publica en redes por día</h2>
+<div class="caja"><table>
+<tr><th>Red</th><th class="n">Por día</th><th>Qué</th></tr>
+<tr><td>Instagram</td><td class="n">7 a 8</td><td>Reels y historias con voz: clima de la mañana y de la noche, repasos, farmacia, efeméride</td></tr>
+<tr><td>Facebook (videos)</td><td class="n">7 a 8</td><td>Las mismas piezas</td></tr>
+<tr><td>Facebook (notas)</td><td class="n">5</td><td>Notas de Balcarce y lo más contado del país</td></tr>
+</table></div>
+<p>Cupo de publicación de Instagram: se usan 14 de 100 por día. Hay lugar de sobra.</p>
+
+<h2>Qué se usa y qué no</h2>
+<h3>En uso</h3>
+<ul>
+<li>Los cuatro Workers de Cloudflare: reloj, tareas, motor y vigilante, más el de imágenes.</li>
+<li>El repositorio público de render, sin secretos.</li>
+<li>El panel del celular de <code>radarbalcarce.com/panel</code>.</li>
+<li>Gemini, Groq y Tavily. OpenRouter está preparado pero falta la clave.</li>
+</ul>
+<h3>Sin uso, para limpiar</h3>
+<ul>
+<li>Siete workflows viejos de GitHub (Actualizar la web, Redes, Vigilancia, Auditoría IA, Pistas, Informe diario, Ilustrar notas): ya no los llama nadie.</li>
+<li>cron-job.org (pausado) y Vercel (apagado).</li>
+<li>El Worker <code>radar-balcarce-sondeo-fuentes</code> y su secreto <code>SONDEO_TOKEN</code> (se borran a mano).</li>
+<li>Las dos fuentes dormidas: Concejo Deliberante y Facultad de Ciencias Agrarias.</li>
+<li>Los restos del panel de la PC (<code>panel\datos</code> y <code>respaldos</code>) y Tailscale.</li>
+</ul>
+<h3>Inventario de código: está limpio</h3>
+<p>Se revisaron unos 290 programas buscando cuáles no usa nadie. Casi todos los que parecían sueltos se usan desde otro programa, un proceso o un comando documentado. No hay código muerto que valga la pena borrar. El orden que ya hay es bueno.</p>
+<div class="caja"><table>
+<tr><th>Qué</th><th class="n">Peso</th><th>Qué hacer</th></tr>
+<tr><td><code>respaldos\</code> (copias del panel de la PC, retirado el 17/10)</td><td class="n">14 MB</td><td><span class="etq ojo">lo borrás vos</span> (tiene claves)</td></tr>
+<tr><td><code>panel\datos\</code> (datos del panel de la PC)</td><td class="n">4,6 MB</td><td><span class="etq ojo">lo borrás vos</span> (tiene claves)</td></tr>
+<tr><td><code>reels\salida\</code> (videos de prueba viejos)</td><td class="n">60 MB</td><td><span class="etq info">se regenera solo</span></td></tr>
+<tr><td><code>.cache\</code> (informes del 16 y 17/10)</td><td class="n">15 MB</td><td><span class="etq info">se regenera solo</span></td></tr>
+<tr><td><code>ingesta\salida\</code>, <code>comercial\salida\</code></td><td class="n">&lt; 1 MB</td><td><span class="etq info">se regenera solo</span></td></tr>
+</table></div>
+<p>Todo lo de la tabla está solo en la PC y no forma parte del código en GitHub. Borrarlo no afecta a la web ni a las redes. Hay tres herramientas manuales poco usadas (<code>secciones-por-dia</code>, <code>repetidas-2-0</code> y <code>secciones-nuevas-sombra</code>) que los documentos citan, así que se quedan. El repositorio de render tiene copias de algunos programas a propósito.</p>
+
+<h2>Qué conviene mirar y mejorar</h2>
+<div class="paso"><b>1</b><div><h3>Separar robots de lectores</h3><p>Sin esto no se sabe cuánta gente real hay. Es lo primero.</p></div></div>
+<div class="paso"><b>2</b><div><h3>Más información propia de Balcarce</h3><p>Es lo que ningún otro medio tiene. Hoy depende de cinco fuentes y de pocas notas propias.</p></div></div>
+<div class="paso"><b>3</b><div><h3>Ciencia, Agro y Automovilismo</h3><p>Dar prioridad a sus fuentes para que tengan notas todos los días.</p></div></div>
+<div class="paso"><b>4</b><div><h3>Fotos con IA</h3><p>Se ven mal. Contar cuántas salen por día y proponer cómo mejorarlas.</p></div></div>
+<div class="paso"><b>5</b><div><h3>Voces</h3><p>Pasar a una clave paga de Gemini. Antes hay que guardar la referencia de las voces actuales.</p></div></div>
+<div class="paso"><b>6</b><div><h3>Espacio del archivo</h3><p>Con 120 notas por día, el tope de 3.700 notas se llena en un mes. Hay que decidir cuánto tiempo se guardan.</p></div></div>
+
+<h2>Cómo se escribe una nota hoy</h2>
+<p>La IA recibe la noticia con las fuentes y un texto de 14 reglas fijas (<code>CRITERIO-EDITORIAL.md</code>, sección 12). Primero anota los datos que va a usar, y después escribe solo con eso. Las reglas más importantes, dichas simple:</p>
+<ul>
+<li><b>Nunca copiar:</b> ninguna frase de más de diez palabras iguales a una fuente.</li>
+<li><b>Título:</b> una frase completa en presente, de unos 70 caracteres, sin «en vivo» y sin terminar en «en Balcarce».</li>
+<li><b>Cuerpo:</b> de 70 a 180 palabras, y nunca más largo que los datos que hay. Si las fuentes dan poco, sale corto.</li>
+<li><b>Nada inventado:</b> cifras, nombres y citas salen solo de las fuentes. Lo que no se confirma va en «no confirmado».</li>
+<li><b>Acusaciones:</b> siempre atribuidas y en condicional. Nunca se identifica a menores ni a víctimas.</li>
+<li><b>Balcarce:</b> no afirma que algo afecta a Balcarce si las fuentes no lo dicen.</li>
+</ul>
+<p>Después un verificador compara todo con las fuentes, y la nota sale con su firma y la lista de fuentes.</p>
+<div class="cifras">
+  <div class="cifra"><b>132</b><span>palabras de mediana por nota (de 76 a 250)</span></div>
+  <div class="cifra"><b>180</b><span>tope de palabras del cuerpo hoy</span></div>
+  <div class="cifra"><b>2 a 3</b><span>fuentes que usa cada nota</span></div>
+</div>
+
+<h2>Cómo hacerlas más originales y más completas</h2>
+<p>Hoy las notas son correctas y seguras, pero cortas y parecidas a las de otros medios. La IA escribe solo con lo que dicen las fuentes, y eso evita errores, pero también evita aportar algo nuevo. Propuestas, de las que más rinden a las que menos:</p>
+<div class="paso"><b>1</b><div><h3>Una capa de contexto propio</h3><p>Hoy la IA recibe como antecedentes solo notas anteriores de Radar. Se puede sumar un archivo de datos verificados de Balcarce (instituciones, calles, cifras, historia corta). Así una nota de afuera puede traer un dato local verificado, sin inventar.</p></div></div>
+<div class="paso"><b>2</b><div><h3>Notas más largas cuando hay material</h3><p>Subir el cuerpo de 180 a 300 palabras cuando las fuentes lo permitan, con un bloque «Contexto» que enlace a notas anteriores. Más texto útil y más enlaces internos sirven para Google.</p></div></div>
+<div class="paso"><b>3</b><div><h3>Dos notas propias por semana</h3><p>Ya existe el panel del celular (Pistas). Ustedes pasan 3 o 4 datos reales, con foto del celular, y la IA arma el borrador. Es lo único que un agregador no puede copiar.</p></div></div>
+<div class="paso"><b>4</b><div><h3>Títulos con el lugar adelante</h3><p>Hoy una regla prohíbe terminar en «en Balcarce». Para lo local conviene abrir con el lugar o la institución, que es como busca la gente.</p></div></div>
+<div class="paso"><b>5</b><div><h3>Menos peso al cartel «Redacción con IA»</h3><p>Hoy cada nota lo dice arriba. Propongo sacarlo del encabezado y dejarlo adentro de «Fuentes» y en «Cómo trabajamos», con una frase más corta: «Redacción de Radar Balcarce, asistida con IA y revisada contra las fuentes». Se sigue diciendo, pero no es lo primero que lee Google ni el lector. Esto lo decidís vos.</p></div></div>
+<div class="paso"><b>6</b><div><h3>Repasos de audio como notas</h3><p>Las notas «El repaso de la noche…» repiten lo que ya está en otras notas. Para Google pueden contar como contenido duplicado. Conviene dejarlas fuera del buscador (sin que dejen de verse en el sitio).</p></div></div>
+
+<h2>Fuentes: qué mejorar</h2>
+<ul>
+<li>Revisar las dos dormidas (Concejo Deliberante y Facultad de Agrarias): arreglar su feed o buscar la página nueva.</li>
+<li>Sumar fuentes oficiales locales con información propia: Bomberos, Hospital, Policía, clubes, escuelas y el Boletín Oficial municipal.</li>
+<li>Dar más peso a Radio Gabal, La Vanguardia e Infórmese Primero, que aportan notas únicas.</li>
+<li>Para Ciencia, Agro y Automovilismo, sumar fuentes especializadas, así llegan a 2 medios.</li>
+</ul>
+
+<h2>Todo lo pendiente</h2>
+<h3>Hecho hoy</h3>
+<ul>
+<li>Todo el robot corre en Cloudflare: web, tareas, redes y video.</li>
+<li>Ilustraciones con IA con un modelo más nítido y 5 a 10 veces más rápido (FLUX). Gasta cerca del 6% de la cuota gratis diaria.</li>
+<li>El informe por mail ahora es corto: sólo lo principal. El detalle completo está en el panel del celular.</li>
+<li>El informe dice cuántas visitas son de Argentina.</li>
+<li>Dos pruebas que fallaban según la hora ahora son estables.</li>
+</ul>
+<h3>Lo hago yo, en orden</h3>
+<ul>
+<li>Arreglar el corte de frases en los repasos y poner límite a los reintentos de Instagram.</li>
+<li>Revisar el flujo de punta a punta y proponer mejoras de a una.</li>
+<li>Foto original, de stock o de la fuente: buscar un método gratis y fácil.</li>
+<li>Separar a los robots en las estadísticas del panel.</li>
+<li>Leer a ChatGPT, Gemini, Grok y Meta AI sobre SEO, Facebook y WhatsApp.</li>
+</ul>
+<h3>Lo hacés vos</h3>
+<ul>
+<li>Apagar los siete workflows viejos de GitHub (7 clics).</li>
+<li>Tope de gasto de Actions en US$ 0.</li>
+<li>Repositorio principal a privado (mañana, si todo sigue bien).</li>
+<li>Clave de OpenRouter, cuentas de Bluesky y Telegram, clave paga de Gemini para las voces.</li>
+<li>Borrar <code>panel\datos</code> y <code>respaldos</code> en la PC.</li>
+</ul>
+<h3>Para decidir juntos</h3>
+<ul>
+<li>El cartel «Redacción con IA» (propuesta 5).</li>
+<li>Cuánto tiempo se guardan las notas y cuántas por día.</li>
+<li>Qué fotos queremos: IA, originales, de stock o de la fuente.</li>
+</ul>
+</main>
