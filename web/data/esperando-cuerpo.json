@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-23T15:09:06.232Z",
+ "generado": "2026-10-23T15:20:50.605Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -27,6 +27,23 @@
    ],
    "intentos": 3,
    "motivo": "título o bajada: 1 problema (numero): el copete dice 396.000.000 y la fuente no lo dice",
+   "maximo": 3
+  },
+  {
+   "id": "18lgv8x",
+   "titulo": "Pato Negro y Pato Naranja se enfrentan en la semifinal de los playoffs",
+   "copete": "El encuentro se disputará este sábado desde las 12:00 en Balcarce. En paralelo, Camarones recibirá a Villa Gesell en Pinamar. Los ganadores se medirán el próximo 7 de noviembre, con la posibilidad de que la definición se juegue en nuestra ciudad.",
+   "seccion": "Deportes",
+   "fecha": "2026-10-23T11:41:02.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/deportes/rugby-pato-negro-y-pato-naranja-se-enfrentan-en-la-semifinal-de-los-playoffs",
+     "fecha": "2026-10-23T11:41:02.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
   {
@@ -70,50 +87,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 4
-  },
-  {
-   "id": "18lgv8x",
-   "titulo": "Pato Negro y Pato Naranja se enfrentan en la semifinal de los playoffs",
-   "copete": "El encuentro se disputará este sábado desde las 12:00 en Balcarce. En paralelo, Camarones recibirá a Villa Gesell en Pinamar. Los ganadores se medirán el próximo 7 de noviembre, con la posibilidad de que la definición se juegue en nuestra ciudad.",
-   "seccion": "Deportes",
-   "fecha": "2026-10-23T11:41:02.000Z",
-   "fuentes": [
-    {
-     "medio": "Radio Gabal (FM 104.1)",
-     "enlace": "https://www.radiogabal.com.ar/index.php/deportes/rugby-pato-negro-y-pato-naranja-se-enfrentan-en-la-semifinal-de-los-playoffs",
-     "fecha": "2026-10-23T11:41:02.000Z"
-    }
-   ],
-   "intentos": 3,
-   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy",
-   "maximo": 3
-  },
-  {
-   "id": "dhsie1",
-   "titulo": "Los judiciales bonaerenses también aceptaron la suba salarial del 6%",
-   "copete": "Tras arreglar con algunos docentes y con estatales, el Gobierno bonaerense cerró otro frente de conflicto con los trabajadores estatales del Poder Judicial.",
-   "seccion": "Política",
-   "fecha": "2026-10-23T13:30:07.000Z",
-   "fuentes": [
-    {
-     "medio": "Agencia DIB",
-     "enlace": "https://dib.com.ar/sociedad/los-judiciales-bonaerenses-tambien-aceptaron-la-suba-salarial-del-6-n56747",
-     "fecha": "2026-10-23T13:30:07.000Z"
-    },
-    {
-     "medio": "El Día",
-     "enlace": "https://www.eldia.com/politica-y-economia/paritaria-bonaerense-los-judiciales-tambien-aceptaron-el-aumento-salarial-del-6-politica-y-economia_1792764600",
-     "fecha": "2026-10-23T14:14:00.000Z"
-    },
-    {
-     "medio": "0221",
-     "enlace": "https://www.0221.com.ar/provincia/los-judiciales-aceptaron-paritarias-el-aumento-del-6-dos-cuotas-n136293",
-     "fecha": "2026-10-23T14:52:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 6 problemas (numero, relleno, copia, tildes): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 92 palabras",
-   "maximo": 3
   }
  ]
 }
