@@ -180,7 +180,9 @@ export async function manejar(request, env, ctx, { fetchFn = (r) => fetch(r), ca
   }
   // El estado de la última corrida del exportador (estado.json, chico y sin nada secreto): lo mira el vigilante. Nunca el manifiesto.
   if (!apagado && env?.ARCHIVO && (metodo === 'GET' || metodo === 'HEAD') && esPedidoDeEstado(request)) return estadoDelArchivo(env, metodo);
-  if (!ruta || !env?.ARCHIVO) return fetchFn(request); // tubo: no es del archivo (o no hay depósito conectado)
+  // Tubo: no es del archivo (o no hay depósito conectado). 23/10/2026: por alOrigen, no con el pedido original: en workers.dev el pedido original se volvía a
+  // llamar a sí mismo (error «Compute server error») y la comprobación del archivo daba 503 en la portada y en las notas de ids raros (F1, resultados).
+  if (!ruta || !env?.ARCHIVO) return alOrigen(request, env, fetchFn);
 
   // Una nota archivada ya vista hace poco: sin bajarla de nuevo de R2, pero preguntando si SIGUE ahí (16/10/2026): una nota retirada
   // (borrada de R2) deja de verse en el próximo pedido, no una hora después. Si R2 no contesta, se sirve lo guardado.
