@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T17:38:37.785Z",
- "portada": 99,
+ "generado": "2026-10-23T18:03:19.381Z",
+ "portada": 106,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-23T17:38:39.047Z",
+  "generado": "2026-10-23T18:03:19.884Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -114,9 +114,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 54,
     "notas": [
      {
       "id": "16af5xf",
@@ -124,14 +124,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "wnfa2u",
+      "titulo": "Registran precipitaciones dispares en el partido",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "idsz54",
       "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "131te0p",
-      "titulo": "Comienza la vigesimosegunda Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "1fc5z47",
@@ -147,7 +147,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 40,
+    "segundos": 51,
     "notas": [
      {
       "id": "12hiw48",
@@ -158,6 +158,16 @@
       "id": "1usw8vx",
       "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1gbhjbe",
+      "titulo": "Petruccelli pide una reunión urgente para recuperar la Estudiantina",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1njqxpr",
+      "titulo": "Sergio Sosa repasa su trayectoria en la aviación comercial y la acrobacia",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -190,6 +200,18 @@
      "id": "16af5xf",
      "titulo": "Licitan una nueva etapa de obras en el Microestadio del CEF 119",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "wnfa2u",
+     "titulo": "Registran precipitaciones dispares en el partido",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "7nqq08",
+     "titulo": "El Concejo Deliberante declara de interés las acciones de LALCEC",
+     "seccion": "Salud",
      "marcada": false
     },
     {
