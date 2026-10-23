@@ -32,6 +32,7 @@ jobs:
           GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           HORAS: ${{ inputs.horas }}
           CUANTAS: ${{ inputs.cuantas }}
         run: node scripts/medir/probar-ilustraciones.mjs salida "$HORAS" "$CUANTAS"

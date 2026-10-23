@@ -371,7 +371,13 @@ const dormir = (ms) => new Promise((ok) => { setTimeout(ok, ms); });
  * Un pedido a Gemini con las claves gratis (`claves`, en orden; o una sola, `clave`). Con cada clave, hasta 4 intentos (503 es común),
  * probando también el modelo flash; si una clave no sirve (rechazada o sin cupo), se prueba la siguiente. Nunca muestra una clave.
  */
-async function pedirAGemini(partes, { clave, claves, claveGroq = "", fetchFn = fetch, esperar = dormir, json = false }) {
+async function pedirAGemini(partes, { clave, claves, claveGroq = "", claveOpenRouter = "", fetchFn = fetch, esperar = dormir, json = false }) {
+  // 23/10/2026: el control de la imagen (mirarla) va primero a un modelo con visión GRATIS de OpenRouter, que tiene su propio cupo: así Gemini y Groq
+  // quedan para escribir las notas. Si no contesta, sigue Gemini y después Groq.
+  let ultimoOpenRouter = null;
+  if (claveOpenRouter && partes.some((p) => p.inlineData)) {
+    try { return await pedirAOpenRouter(partes, { claveOpenRouter, fetchFn, json }); } catch (e) { ultimoOpenRouter = String(e?.message ?? e).slice(0, 60); }
+  }
   const lista = [...new Set((Array.isArray(claves) ? claves : [clave]).map((k) => String(k ?? '').trim()).filter(Boolean))];
   if (!lista.length && !claveGroq) throw new Error('Gemini sin clave');
   let ultimo = 'sin respuesta';
@@ -396,7 +402,31 @@ async function pedirAGemini(partes, { clave, claves, claveGroq = "", fetchFn = f
   if (claveGroq) {
     try { return await pedirAGroq(partes, { claveGroq, fetchFn, json }); } catch (e) { ultimo = `${ultimo}; Groq: ${String(e?.message ?? e).slice(0, 60)}`; }
   }
-  throw new Error(`Gemini ${ultimo}`);
+  throw new Error(`Gemini ${ultimo}${ultimoOpenRouter ? `; OpenRouter: ${ultimoOpenRouter}` : ''}`);
+}
+
+/** Modelos GRATIS de OpenRouter con visión, en orden (nunca uno pago: terminan en :free). */
+export const MODELOS_DE_OPENROUTER_CON_VISION = ['google/gemma-4-31b-it:free', 'nvidia/nemotron-3.5-super-vl:free'];
+/** Lo mismo que pedirAGemini pero con OpenRouter (API de OpenAI): texto e imágenes (inlineData) como un solo mensaje. Prueba cada modelo gratis. */
+async function pedirAOpenRouter(partes, { claveOpenRouter, fetchFn = fetch, json = false }) {
+  const content = partes.map((p) => (p.inlineData ? { type: 'image_url', image_url: { url: `data:${p.inlineData.mimeType};base64,${p.inlineData.data}` } } : { type: 'text', text: p.text }));
+  let ultimo = 'sin respuesta';
+  for (const modelo of MODELOS_DE_OPENROUTER_CON_VISION) {
+    const res = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', authorization: `Bearer ${claveOpenRouter}`, 'HTTP-Referer': 'https://radarbalcarce.com', 'X-Title': 'Radar Balcarce' },
+      body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], temperature: 0, max_tokens: 600, reasoning: { exclude: true }, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
+      signal: AbortSignal.timeout(75_000),
+    }).catch((e) => ({ ok: false, status: 0, error: e }));
+    ultimo = `HTTP ${res.status}`;
+    if (res.ok) {
+      const j = await res.json().catch(() => null);
+      const t = String(j?.choices?.[0]?.message?.content ?? '').trim();
+      if (t) return t;
+    }
+    if ([401, 402, 403].includes(res.status)) break; // la clave no sirve: no se insiste
+  }
+  throw new Error(ultimo);
 }
 
 export const MODELO_GROQ = 'qwen/qwen3.8-27b';
@@ -518,7 +548,7 @@ ${filas || '<p>No hay candidatas.</p>'}
  *   automatico:         el cupo se reparte entre las corridas que faltan hoy (cupoAutomatico)
  */
 export async function revisar({
-  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', token,
+  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', claveOpenRouter = '', token,
   automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log,
 } = {}) {
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
@@ -555,7 +585,7 @@ export async function revisar({
     let reemplaza = null;
     if (tieneArchivo(anterior) && !ilustracionControlada(anterior)) {
       const ruta = path.join(rutas.carpeta, path.basename(anterior.archivo));
-      const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, claveGroq, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
+      const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
       registro(`  [${nota.id}] ilustración sin control (${esDeGeminiWeb(anterior) ? 'Gemini web' : 'sin control anotado'}): ${control.ok ? 'pasa' : control.motivo}`);
       if (control.ok) { revisadas.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, control }); continue; }
       reemplaza = anterior.archivo;
@@ -590,7 +620,7 @@ export async function revisar({
     if (guardar.bytes.length < PESO_MINIMO_DE_UNA_FOTO) { item.error = 'la imagen salió vacía (casi negra o lisa)'; hechas.push(item); continue; }
     item.archivo = `${nota.id}.jpg`;
     fs.writeFileSync(path.join(salida, item.archivo), guardar.bytes);
-    item.control = await mirarImagen(guardar.bytes, { claves: clavesDelControl, claveGroq, fetchFn, esperar });
+    item.control = await mirarImagen(guardar.bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar });
     hechas.push(item);
   }
   const listas = hechas.filter((c) => c.archivo && c.control?.ok).map((c) => c.id);
@@ -747,7 +777,7 @@ async function principal() {
     const claveClasificacion = (process.env.GEMINI_API_KEY_CLASIFICACION ?? '').trim();
     const token = (process.env.VIGILANTE_TOKEN ?? '').trim();
     if ((!clave && !claveClasificacion) || !token) { console.error('Faltan GEMINI_API_KEY_REDACCION (o GEMINI_API_KEY_CLASIFICACION) o VIGILANTE_TOKEN.'); process.exit(1); }
-    return { clave, claveClasificacion, claveGroq: (process.env.GROQ_API_KEY ?? '').trim(), token };
+    return { clave, claveClasificacion, claveGroq: (process.env.GROQ_API_KEY ?? '').trim(), claveOpenRouter: (process.env.OPENROUTER_API_KEY ?? '').trim(), token };
   };
   const comunes = () => ({
     horas: horasPedidas(process.env.HORAS), salida: opcion('salida') || 'salida-ilustraciones', cuenta: opcion('cuenta') || 'cuenta-ilustraciones',

@@ -18,6 +18,7 @@ const notaPorId = new Map([...(archivo.notas ?? []), ...(portada.notas ?? [])].m
 
 const claves = [process.env.GEMINI_API_KEY_REDACCION, process.env.GEMINI_API_KEY_CLASIFICACION].filter(Boolean);
 const claveGroq = (process.env.GROQ_API_KEY ?? '').trim();
+const claveOpenRouter = (process.env.OPENROUTER_API_KEY ?? '').trim();
 const token = process.env.TOKEN;
 
 const desde = Date.now() - horas * 3600e3;
@@ -47,7 +48,7 @@ for (const e of hechas) {
     if (!r.bytes) throw new Error(r.error ?? 'el Worker no devolvió imagen');
     item.despues = `despues-${e.id}.jpg`;
     fs.writeFileSync(path.join(salida, item.despues), r.bytes);
-    item.control = await mirarImagen(r.bytes, { claves, claveGroq });
+    item.control = await mirarImagen(r.bytes, { claves, claveGroq, claveOpenRouter });
     console.log(`${nota.seccion} · ${tono} · control ${item.control.ok ? 'pasa' : `NO pasa (${item.control.motivo})`} · ${prompt.slice(0, 120)}`);
   } catch (err) {
     item.error = String(err?.message ?? err).slice(0, 200);
