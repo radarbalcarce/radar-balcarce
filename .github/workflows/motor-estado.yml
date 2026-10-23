@@ -1,0 +1,20 @@
+name: Estado del motor
+
+# A mano. Muestra el estado de las últimas vueltas del motor en Cloudflare (duración, notas, minutos del mes) con la contraseña del vigilante en un encabezado.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Pedir /estado
+        env:
+          VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
+        run: |
+          curl -s -m 60 https://radar-balcarce-motor.radarbalcarce.workers.dev/estado -H "x-token: $VIGILANTE_TOKEN" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const j=JSON.parse(s);console.log(JSON.stringify(j,null,1).slice(0,6000))}catch{console.log(s.slice(0,800))}})"
