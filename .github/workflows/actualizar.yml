@@ -202,7 +202,7 @@ jobs:
           # redes, para el celular (redes/previa.mjs; es de lo ya publicado).
           # fusionadas.json: las notas repetidas con otra dirección y adónde
           # redirige cada una (29/09, web/lib/repetidas.js).
-          git add web/data/portada.json web/data/archivo.json web/data/agenda.json web/data/intentos-ia.json web/data/dolar-historia.json web/data/clima-historia.json web/data/f1.json web/data/futbol.json web/data/fichas.json web/data/notas-por-dia.json web/data/estadistica-seleccion.json web/data/uso-ia.json web/data/banco-fotos.json web/data/esperando-cuerpo.json web/data/vistas.json web/data/retiradas.json web/data/celular-pendientes.json web/data/celular-estado.json web/data/fusionadas.json web/data/historico/ web/public/fotos-notas/ web/public/escudos/
+          git add web/data/portada.json web/data/archivo.json web/data/agenda.json web/data/intentos-ia.json web/data/dolar-historia.json web/data/clima-historia.json web/data/f1.json web/data/futbol.json web/data/fichas.json web/data/notas-por-dia.json web/data/estadistica-seleccion.json web/data/muy-contadas.json web/data/uso-ia.json web/data/banco-fotos.json web/data/esperando-cuerpo.json web/data/vistas.json web/data/retiradas.json web/data/celular-pendientes.json web/data/celular-estado.json web/data/fusionadas.json web/data/historico/ web/public/fotos-notas/ web/public/escudos/
           # `compilado` es el commit cuyo contenido es exactamente lo que se acaba de compilar (los datos de esta vuelta sobre lo que había).
           # Después del pull, web/scripts/recompilar.mjs compara ese commit con lo que quedó en main para decidir si hay que recompilar.
           if git diff --cached --quiet; then

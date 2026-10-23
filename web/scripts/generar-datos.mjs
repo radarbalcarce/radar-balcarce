@@ -207,7 +207,7 @@ let ultima = await ingestar({
 });
 // Lo que llegó del cruce, antes de la lectura con IA: para la estadística de la selección (regla 260, ingesta/estadistica-seleccion.mjs).
 const delCruce = (ultima.notas ?? []).map((n) => ({
-  id: n.id, seccion: n.seccion, medios: contarMedios(n.medios), deAca: esDeAca(n) || esDeUnMedioDeAca(n) || n.alcance === 'local',
+  id: n.id, titulo: n.titulo, seccion: n.seccion, medios: contarMedios(n.medios), deAca: esDeAca(n) || esDeUnMedioDeAca(n) || n.alcance === 'local',
 }));
 const agenda = await agendaCompleta().catch(() => null);
 // Las decisiones de las personas son las del celular (las del panel de la PC, web/data/decisiones.json, vacías desde el 28/09,
@@ -323,6 +323,7 @@ const fechaReal = (n) => (n.cuando === 'sin fecha en la fuente'
 // destraba nada. Sin ficha (o si falla), queda lo de siempre. Va antes de la
 // reescritura para no gastar cuota en lo que no va a salir.
 let sacadasPorLaIA = new Set();
+let motivosDeLaIA = new Map();
 let repetidasFuera = new Set();
 // Las parejas de notas que la IA confirmó que cuentan el mismo hecho con otras palabras (1/10): [[idA, idB], …]. Se
 // preguntan más abajo, con los títulos ya escritos; acá van las que se confirmaron antes (fichas.json).
@@ -353,6 +354,7 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
       yaPublicadas: yaSalieron,
     });
     sacadasPorLaIA = new Set(cambios.sacadas.map((c) => c.id));
+    motivosDeLaIA = new Map(cambios.sacadas.map((c) => [c.id, c.motivo]));
 
     // Las repetidas: la misma noticia contada con otro título (27/09, McCain).
     // Se pide sólo si cambió lo que hay para publicar, con tope por día.
@@ -1304,6 +1306,24 @@ try {
     yaSalieron, motivos: { pocoContada: MOTIVO_POCO_CONTADA, esperaLectura: MOTIVO_ESPERA_LECTURA },
     vistaDe: (id) => vistas[id] ?? null, ahora,
   });
+  // 23/10/2026 (Hernán: «ver los títulos de los de 10 o más fuentes y qué pasó»): las historias muy contadas (8 medios o más) que NO salieron, con su
+  // título y el motivo, de los últimos 3 días: web/data/muy-contadas.json.
+  try {
+    const rutaMuy = path.join(AQUI, '..', 'data', 'muy-contadas.json');
+    const previo = fs.existsSync(rutaMuy) ? JSON.parse(fs.readFileSync(rutaMuy, 'utf8')) : {};
+    const dias = previo.dias ?? {};
+    const hoy = diaAR(ahora);
+    const titulos = new Map(delCruce.map((h) => [h.id, h.titulo]));
+    const motivoDeLasFinales = new Map(finales.map((n) => [n.id, n.motivo]));
+    dias[hoy] ??= {};
+    for (const o of observaciones) {
+      if (o.medios < 8 || o.resultado === 'publicada') continue;
+      dias[hoy][o.id] = [String(titulos.get(o.id) ?? '').slice(0, 140), o.seccion, o.medios, o.resultado, String(motivosDeLaIA.get(o.id) ?? motivoDeLasFinales.get(o.id) ?? '').slice(0, 90)];
+    }
+    const quedan = Object.keys(dias).sort().slice(-3);
+    const texto = JSON.stringify({ version: 1, dias: Object.fromEntries(quedan.map((d) => [d, dias[d]])) }, null, 1) + '\n';
+    if (!fs.existsSync(rutaMuy) || fs.readFileSync(rutaMuy, 'utf8') !== texto) fs.writeFileSync(rutaMuy, texto, 'utf8');
+  } catch (e) { console.log(`  muy contadas: no se pudo (${e.message})`); }
   // Lo de afuera con un solo medio (miles por vuelta) se cuenta por día de la nota y sección, no una por una.
   const solos = Array.isArray(ultima.deUnSoloMedio) ? contarUnSoloMedio(ultima.deUnSoloMedio, { ahora }) : null;
   const nuevo = anotarCorrida(leerEstadisticaDeLaSeleccion(fs.existsSync(ESTADISTICA_SELECCION) ? fs.readFileSync(ESTADISTICA_SELECCION, 'utf8') : ''), observaciones, { ahora, solos });

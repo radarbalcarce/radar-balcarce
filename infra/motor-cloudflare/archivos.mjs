@@ -18,7 +18,7 @@ import crypto from 'node:crypto';
 /** Los archivos y las carpetas (las que terminan en "/") que guarda "Actualizar la web". Idéntica a la línea `git add` de actualizar.yml. */
 export const ARCHIVOS_DEL_MOTOR = [
   'web/data/portada.json', 'web/data/archivo.json', 'web/data/agenda.json', 'web/data/intentos-ia.json', 'web/data/dolar-historia.json',
-  'web/data/clima-historia.json', 'web/data/f1.json', 'web/data/futbol.json', 'web/data/fichas.json', 'web/data/notas-por-dia.json', 'web/data/estadistica-seleccion.json',
+  'web/data/clima-historia.json', 'web/data/f1.json', 'web/data/futbol.json', 'web/data/fichas.json', 'web/data/notas-por-dia.json', 'web/data/estadistica-seleccion.json', 'web/data/muy-contadas.json',
   'web/data/uso-ia.json', 'web/data/banco-fotos.json', 'web/data/esperando-cuerpo.json', 'web/data/vistas.json', 'web/data/retiradas.json',
   'web/data/celular-pendientes.json', 'web/data/celular-estado.json', 'web/data/fusionadas.json',
   'web/data/historico/', 'web/public/fotos-notas/', 'web/public/escudos/',
