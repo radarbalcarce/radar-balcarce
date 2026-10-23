@@ -36,8 +36,10 @@ export function repasosDelDia(publicables = [], { libro = null, fecha = new Date
   const contadas = notasContadasEnPodcasts(libro, fecha);
   // Lo ya contado se excluye por la nota y por el tema: otra nota del mismo
   // partido tampoco vuelve a salir.
-  const yaContadas = publicables.filter((n) => contadas.has(n.id));
-  const libres = publicables.filter((n) => !contadas.has(n.id));
+  // 23/10/2026: lo que ya salió como posteo de Facebook (últimos 3 días) tampoco entra en un repaso: una nota, un solo formato.
+  const posteadas = new Set(Object.entries(libro?.facebook ?? {}).filter(([, p]) => (fecha.getTime() - new Date(p?.cuando ?? 0).getTime()) <= 3 * 86400e3).map(([id]) => id));
+  const yaContadas = publicables.filter((n) => contadas.has(n.id) || posteadas.has(n.id));
+  const libres = publicables.filter((n) => !contadas.has(n.id) && !posteadas.has(n.id));
   const salida = {};
   for (const ronda of PODCASTS) {
     if (hechas.has(ronda.nombre) || yaPasoSuHora(ronda, fecha)) continue;

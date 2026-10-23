@@ -78,6 +78,17 @@ export const REGLAS_FACEBOOK = {
   seccionesQueEsperanPersona: SECCIONES_QUE_ESPERAN_PERSONA,
 };
 
+/** Las notas que contaron los repasos (noticia1, noticia2 y podcast) en los últimos 3 días (incluido hoy), según el libro de Instagram. */
+export function notasContadasEnRepasos(libro, ahora = new Date(), dias = 3) {
+  const dentro = new Set(Array.from({ length: dias }, (_, i) => diaAR(new Date(ahora.getTime() - i * 86400e3))));
+  return new Set(
+    Object.entries(libro?.instagram ?? {})
+      .filter(([clave]) => { const [dia, nombre] = clave.split('/'); return dentro.has(dia) && ['noticia1', 'noticia2', 'podcast'].includes(nombre); })
+      .flatMap(([, v]) => [v?.notaId, ...(v?.notaIds ?? [])])
+      .filter(Boolean),
+  );
+}
+
 /** El libro vacío. */
 export const libroNuevo = () => ({ facebook: {}, instagram: {} });
 
@@ -182,8 +193,12 @@ export function elegirParaFacebook({ notas, libro = libroNuevo(), ahora = new Da
       return [{ titulo: p.titulo, temas: p.temas ?? hoyEnLaWeb?.temas ?? [] }, ...(hoyEnLaWeb ? [hoyEnLaWeb] : [])];
     });
 
+  // 23/10/2026 (Hernán: «que no se repitan: la misma nota como posteo y en los resúmenes aburre»): una nota sale en UN formato. Lo que ya contó un
+  // repaso de los últimos 3 días no va como posteo (y, al revés, redes/repasos.mjs no cuenta en un repaso lo que ya salió como posteo).
+  const yaContadasEnRepasos = notasContadasEnRepasos(libro, ahora);
   const candidatas = notas.filter((n) => {
     if (yaPublicada(libro, 'facebook', n.id)) return false;
+    if (yaContadasEnRepasos.has(n.id)) return false;
     if (!vaAFacebookPorLoQueEs(n, reglas)) return false;
     if (recientes.some((p) => temaParecido(n, p))) return false;
     const salio = cuandoSalio(n);
