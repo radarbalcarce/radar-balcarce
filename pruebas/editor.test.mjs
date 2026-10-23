@@ -84,7 +84,7 @@ test('la instrucción es la del editor digital y conserva sus 14 reglas fijas (a
   // consultadas" es relleno para el verificador y tiraba la lista entera.
   assert.match(INSTRUCCION_EDITORIAL, /el sistema lo agrega solo/);
   assert.match(INSTRUCCION_EDITORIAL, /NUNCA pasa de 90/);
-  assert.match(INSTRUCCION_EDITORIAL, /de 70 a 180 palabras/);
+  assert.match(INSTRUCCION_EDITORIAL, /de 70 a 300 palabras/);
   for (let i = 1; i <= 14; i += 1) assert.match(INSTRUCCION_EDITORIAL, new RegExp(`\\n${i}\\. `), `falta la regla ${i}`);
   assert.doesNotMatch(INSTRUCCION_EDITORIAL, /\n15\. /, 'son 14');
   assert.match(INSTRUCCION_EDITORIAL, /doctrina Campillay/);
@@ -486,4 +486,12 @@ test('el prompt pide usar el análisis para escribir el cuerpo, que es obligator
   assert.match(INSTRUCCION_EDITORIAL, /lo que confirman varias fuentes va dicho como hecho/);
   assert.match(INSTRUCCION_EDITORIAL, /con las dos versiones atribuidas/);
   assert.match(INSTRUCCION_EDITORIAL, /Nunca "en vivo", "EN VIVO", "minuto a minuto" ni "en directo"/);
+});
+
+test('la instrucción pide hasta 300 palabras, contexto sólo de las fuentes y el lugar en el título (regla 284)', () => {
+  assert.match(INSTRUCCION_EDITORIAL, /de 70 a 300 palabras/);
+  assert.match(INSTRUCCION_EDITORIAL, /párrafo de CONTEXTO/);
+  assert.match(INSTRUCCION_EDITORIAL, /SOLO con datos que estén en las fuentes o los antecedentes/);
+  assert.match(INSTRUCCION_EDITORIAL, /ese lugar va adentro de la frase/);
+  assert.match(INSTRUCCION_EDITORIAL, /NUNCA termina en "en Balcarce";/);
 });

@@ -17,7 +17,7 @@
 import { sinTildes } from './texto.js';
 
 /** Cuántas palabras tiene que tener el cuerpo, como mínimo. La instrucción a
- *  la IA pide de 70 a 180 (CUERPO.palabrasPedidasMinimo y
+ *  la IA pide de 70 a 300 (CUERPO.palabrasPedidasMinimo y
  *  palabrasPedidasMaximo, en ingesta/criterio.mjs). */
 export const PALABRAS_MINIMAS_CUERPO = 70;
 

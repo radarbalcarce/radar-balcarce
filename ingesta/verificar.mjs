@@ -355,7 +355,7 @@ export const LIMITES = {
   // La bajada: dos o tres frases (desde el 25/09; antes, dos líneas y 280).
   copete: BAJADA.maximo,
   guion: GUION.maximo,
-  // De 70 a 180 palabras en uno a tres párrafos (CUERPO.palabrasPedidasMinimo
+  // De 70 a 300 palabras en uno a cinco párrafos (CUERPO.palabrasPedidasMinimo
   // y palabrasPedidasMaximo): con esto sobra. Es la nota, no una crónica.
   cuerpo: CUERPO.maximo,
   // Las partes nuevas (25/09): cada punto de una lista, y el texto para redes.

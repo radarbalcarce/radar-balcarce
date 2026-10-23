@@ -271,6 +271,9 @@ Es lo único que lee la mayoría: tiene que decir la noticia entera, solo.
 - Apunta a unos **70 caracteres** y **nunca pasa de 90**: se tiene que entender
   solo en la pantalla del celular. Si no entra, se elige el dato central y se
   deja el resto para la bajada; nunca se corta.
+- **El lugar, adentro de la frase** (regla 284): si el hecho es de Balcarce o la
+  zona y la fuente lo dice, el título trae el lugar (barrio, calle, institución,
+  localidad) en el medio, nunca inventado.
 - **Nunca termina en "en Balcarce"** (27/09, Hernán): el medio es de Balcarce
   y se sobreentiende. Si igual aparece, el sistema lo saca
   (`sinBalcarceAlFinal`, `web/lib/titulos.js`). Si el hecho es de otra ciudad,
@@ -326,7 +329,7 @@ desarrollada, lo que se lee al abrirla.
 - Se escribe **sólo con información de las fuentes**: lo que dan todas las
   que contaron la noticia (los resúmenes y el texto completo), más los
   antecedentes como contexto, siempre con su fecha.
-- Se le piden **de 70 a 180 palabras**, según lo que den las fuentes: **nunca
+- Se le piden **de 70 a 300 palabras**, según lo que den las fuentes: **nunca
   más largo que los datos.** Cada oración aporta un dato nuevo; si las
   fuentes dan poco, la nota es corta. **Con menos de 70 no se publica**
   (28/09: antes se pedían 100 como mínimo, y eso empujaba a rellenar con
@@ -645,7 +648,7 @@ medio" pasaba sin que nadie lo mirara).
    cuadra. Si lo que queda pasa y tiene 70 palabras o más, se usa.
 3. **Si no alcanza, se le pide de nuevo una vez**, diciéndole qué falló ("usá
    únicamente lo que dicen las fuentes", "el título está en pasado", "el
-   cuerpo es obligatorio, de 70 a 180 palabras").
+   cuerpo es obligatorio, de 70 a 300 palabras").
 4. **Las partes para la redacción** (claves, qué se sabe…) se controlan **cada
    una por su lado**: la que falla se descarta sola y la nota sale igual. Las
    etiquetas se sacan de a una.
@@ -823,7 +826,7 @@ Todos los números del criterio. El código los toma de `ingesta/criterio.mjs`
 (la columna "Clave" dice cuál) y `pruebas/criterio.test.mjs` controla que esta
 tabla diga lo mismo, fila por fila: **si se cambia un número, se cambia en los
 dos lados**. Los de las secciones 4 a 10 que se repiten en el texto y en la
-instrucción de la IA (70, 90, 70 a 180…) también se controlan.
+instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 
 <!-- NUMEROS:INICIO -->
 | Qué | Número | Clave |
@@ -836,9 +839,9 @@ instrucción de la IA (70, 90, 70 a 180…) también se controlan.
 | Bajada: largo máximo (caracteres) | 360 | `BAJADA.maximo` |
 | Cuerpo: palabras mínimas para publicarse | 70 | `CUERPO.minimoParaPublicar` |
 | Cuerpo: palabras que se le piden, desde | 70 | `CUERPO.palabrasPedidasMinimo` |
-| Cuerpo: palabras que se le piden, hasta | 180 | `CUERPO.palabrasPedidasMaximo` |
-| Cuerpo: párrafos, como máximo | 3 | `CUERPO.parrafosMaximo` |
-| Cuerpo: largo máximo (caracteres) | 1800 | `CUERPO.maximo` |
+| Cuerpo: palabras que se le piden, hasta | 300 | `CUERPO.palabrasPedidasMaximo` |
+| Cuerpo: párrafos, como máximo | 5 | `CUERPO.parrafosMaximo` |
+| Cuerpo: largo máximo (caracteres) | 2600 | `CUERPO.maximo` |
 | Guion: largo máximo (caracteres) | 200 | `GUION.maximo` |
 | Guion: duración (segundos, más o menos) | 10 | `GUION.segundos` |
 | Claves: como mínimo | 3 | `PARTES.clavesMinimo` |
@@ -949,9 +952,9 @@ C. Los ANTECEDENTES, si vienen, son notas que Radar Balcarce publicó antes sobr
 Después la escribís, con estas reglas fijas:
 
 1. NUNCA copiás: nada de más de diez palabras seguidas iguales a las de una fuente, en ninguna parte (tampoco en el título, la bajada ni adentro de una cita). Reescribí con palabras propias, cruzando lo que cuenta cada fuente: cambiá el orden de la frase y el verbo, y partí en dos lo que la fuente dice en una oración larga. Una cita textual va entre comillas, atribuida y de diez palabras como mucho; si lo que dijo alguien es más largo, contalo ("explicó que…").
-2. El título apunta a unos 70 caracteres y NUNCA pasa de 90. Es UNA frase completa que dice qué pasó, con sujeto y verbo en PRESENTE aunque el hecho ya haya pasado ("El Concejo aprueba…", "Ferroviarios gana…"); el pasado va en el cuerpo. Con el nombre y el número cuando los hay ("Pato Naranja gana 24 a 10"). Sin etiqueta y dos puntos ("Rugby:"), sin quedar cortado (en coma, "y", "de", "que" o puntos suspensivos), sin signos de admiración ni pregunta, sin adjetivos de gancho ("impresionante"). Nunca "en vivo", "EN VIVO", "minuto a minuto" ni "en directo", aunque el original lo diga: Radar Balcarce no hace coberturas en vivo. NUNCA termina en "en Balcarce" (se sobreentiende). Si el hecho ocurre en otra ciudad, el título nombra esa ciudad y nunca a Balcarce, aunque participen vecinos (eso va en el cuerpo); jamás agregues Balcarce a una nota de otro lugar para que parezca local.
+2. El título apunta a unos 70 caracteres y NUNCA pasa de 90. Es UNA frase completa que dice qué pasó, con sujeto y verbo en PRESENTE aunque el hecho ya haya pasado ("El Concejo aprueba…", "Ferroviarios gana…"); el pasado va en el cuerpo. Con el nombre y el número cuando los hay ("Pato Naranja gana 24 a 10"). Sin etiqueta y dos puntos ("Rugby:"), sin quedar cortado (en coma, "y", "de", "que" o puntos suspensivos), sin signos de admiración ni pregunta, sin adjetivos de gancho ("impresionante"). Nunca "en vivo", "EN VIVO", "minuto a minuto" ni "en directo", aunque el original lo diga: Radar Balcarce no hace coberturas en vivo. NUNCA termina en "en Balcarce"; si la fuente dice dónde (barrio, calle, institución, localidad), ese lugar va adentro de la frase ("Cortan el agua en el barrio Norte"), nunca inventado. Si el hecho ocurre en otra ciudad, el título nombra esa ciudad y nunca a Balcarce, aunque participen vecinos (eso va en el cuerpo); jamás agregues Balcarce a una nota de otro lugar para que parezca local.
 3. La bajada (el campo "copete") son dos o tres frases cortas, unas 50 palabras como mucho: qué pasó y el dato más importante que el título no tenía (cuándo, cuánto, quién decidió), y cómo se relaciona con Balcarce sólo si la fuente lo dice (regla 12). Todo dato de la bajada se desarrolla en el cuerpo.
-4. El cuerpo es OBLIGATORIO: sin cuerpo la nota no se publica. Se escribe SÓLO con lo que dan TODAS las fuentes que recibiste (resúmenes y texto completo) más los antecedentes. Va de 70 a 180 palabras según lo que den las fuentes, NUNCA más largo que los datos que tenés: 70 bien escritas valen más que 180 con relleno. Cada oración aporta un dato nuevo (quién, qué, cuándo, dónde, cuánto, qué dijo alguien). Son uno a tres párrafos cortos separados por una línea en blanco: primero el hecho central con el dato que la bajada NO dio, sin repetirla ni remitir a ella ("Esta medida", "el mencionado": nombrá de qué se trata); después el contexto que importa; y, sólo si la fuente da para eso, qué sigue o qué significa para Balcarce. Explica TODO lo que prometen el título y la bajada (si el título nombra a tres sancionados, el cuerpo dice quiénes son y por qué; si nombra una sigla o un nombre, el cuerpo lo explica) y trae el dato central con su número: "aumenta la tasa" no alcanza, va cuánto, desde cuándo y a quién; si la fuente no lo da, decí que no se informó. El análisis de arriba es para escribir, no para contarlo aparte: lo que confirman varias fuentes va dicho como hecho; lo que dice una sola, atribuido a ella; lo que se cuenta distinto, con las dos versiones atribuidas; lo que no se pudo confirmar, dicho como tal ("todavía no se informó…").
+4. El cuerpo es OBLIGATORIO: sin cuerpo la nota no se publica. Se escribe SÓLO con lo que dan TODAS las fuentes que recibiste (resúmenes y texto completo) más los antecedentes. Va de 70 a 300 palabras según lo que den las fuentes (con fuentes ricas, unas 250), NUNCA más largo que los datos que tenés: 70 bien escritas valen más que 300 con relleno. Cada oración aporta un dato nuevo (quién, qué, cuándo, dónde, cuánto, qué dijo alguien). Son uno a cinco párrafos cortos separados por una línea en blanco: primero el hecho central con el dato que la bajada NO dio, sin repetirla ni remitir a ella ("Esta medida", "el mencionado": nombrá de qué se trata); después un párrafo de CONTEXTO (antecedentes, de qué se trata el tema) SOLO con datos que estén en las fuentes o los antecedentes, nunca de memoria; y, sólo si la fuente da para eso, qué sigue o qué significa para Balcarce. Explica TODO lo que prometen el título y la bajada (si el título nombra a tres sancionados, el cuerpo dice quiénes son y por qué; si nombra una sigla o un nombre, el cuerpo lo explica) y trae el dato central con su número: "aumenta la tasa" no alcanza, va cuánto, desde cuándo y a quién; si la fuente no lo da, decí que no se informó. El análisis de arriba es para escribir, no para contarlo aparte: lo que confirman varias fuentes va dicho como hecho; lo que dice una sola, atribuido a ella; lo que se cuenta distinto, con las dos versiones atribuidas; lo que no se pudo confirmar, dicho como tal ("todavía no se informó…").
 {{TONO}}
 6. Los números van como los da la fuente: podés redondear ("unos 3.500") pero nunca pasar a otra cifra. Los verbos de una decisión (aprueba, sanciona, confirma, habilita, prohíbe, inaugura) van sólo si la fuente dice que ya se decidió o se hizo; un proyecto, un pedido o una propuesta se dicen así: "pide", "propone", "analiza".
 7. Nunca inventás un dato, una cifra, un nombre, un día ni una cita que no esté en lo que recibiste, en ninguna parte de lo que devolvés; lo que no se pueda verificar va en lo que falta confirmar. Si dos fuentes se contradicen no elegís una al azar: mostrás las dos atribuidas (o usás la oficial) y la diferencia va en lo que falta confirmar. Si la fuente dice que algo no está confirmado ("podría", "según trascendió"), la nota lo dice, en el cuerpo y, si es el hecho central, en la bajada. Sin adjetivos que la fuente no usa. Con una sola fuente, una cifra, un récord o una evaluación van atribuidos a la fuente primaria ("según el club", "informó la Municipalidad") o a "un medio local", nunca a "fuentes consultadas".

@@ -273,7 +273,7 @@ test('un cuerpo demasiado largo se rechaza', () => {
   const r = verificar(FUENTE, {
     titulo: 'Kevin Gómez fue recibido en Balcarce',
     copete: 'Lo recibieron en el cruce de las rutas.',
-    cuerpo: 'Párrafo largo. '.repeat(130),
+    cuerpo: 'Párrafo largo. '.repeat(200),
   });
   assert.ok(tipos(r).includes('largo'), JSON.stringify(r.problemas));
 });
