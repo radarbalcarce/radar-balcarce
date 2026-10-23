@@ -42,7 +42,7 @@
 //   - Wikimedia: sólo si el título nombra a la persona, la foto no es de hace años para un hecho de hoy y la visión dice que corresponde.
 // Para que esto no necesite dependencias, lo que usa ffmpeg (achicar, la huella) se lo pasa quien llama.
 
-import { claveClasificacion, claveGroq, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { claveClasificacion, claveGroq, claveOpenRouter, MODELO_DE_TEXTO } from '../reels/claves.mjs';
 import {
   excepcionActiva, esFuenteOficialParaMenores, menorEnActividadOficial, REGLA_FOTOS_MENORES,
 } from './fotos-menores.mjs';
@@ -412,6 +412,30 @@ function interpretarRespuesta(respuesta, candidatas, excepcion = null) {
   return { elegida, razon, candidatas: resultado, aprobadas };
 }
 
+/** Modelos GRATIS de OpenRouter con visión (23/10/2026: el tercer respaldo, con su propio cupo; nunca uno pago). */
+const MODELOS_OPENROUTER_VISION = ['google/gemma-4-31b-it:free', 'nvidia/nemotron-3.5-super-vl:free'];
+
+/** El mismo pedido a OpenRouter (API de OpenAI): prueba cada modelo gratis con visión hasta que uno conteste. */
+async function visionOpenRouter(texto, imagenes, { clave, fetchFn = fetch }) {
+  const content = [{ type: 'text', text: texto }, ...imagenes.map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime};base64,${d.base64}` } }))];
+  let ultimo = null;
+  for (const modelo of MODELOS_OPENROUTER_VISION) {
+    try {
+      const res = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', authorization: `Bearer ${clave}`, 'HTTP-Referer': 'https://radarbalcarce.com', 'X-Title': 'Radar Balcarce' },
+        body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], response_format: { type: 'json_object' }, temperature: 0, max_tokens: 900, reasoning: { exclude: true } }),
+        signal: AbortSignal.timeout(75_000),
+      });
+      if (!res.ok) { ultimo = await errorDeRespuesta(res); if ([401, 402, 403].includes(res.status)) break; continue; }
+      const j = await res.json();
+      const texto2 = String(j.choices?.[0]?.message?.content ?? '').replace(/^```(?:json)?|```$/g, '').trim();
+      return JSON.parse(texto2);
+    } catch (e) { ultimo = e; }
+  }
+  throw ultimo ?? new Error('OpenRouter sin respuesta');
+}
+
 /** Un pedido a Gemini, con las fotos como `inlineData`. */
 /**
  * El error de una respuesta que no fue 200, con lo que dijo el servicio (17/10/2026: el banco guardaba sólo "HTTP 429" de Groq y el de Gemini
@@ -472,6 +496,14 @@ async function pedirAGemini(nota, candidatas, { clave, fetchFn = fetch, modelo =
 // tres candidatas, se comparan las tres primeras nada más. Es un respaldo:
 // el caso normal ya lo resolvió Gemini antes de llegar acá.
 const MAXIMO_FOTOS_GROQ = 3;
+
+/** El mismo pedido a OpenRouter (modelos gratis con visión), con hasta tres fotos. */
+async function pedirAOpenRouter(nota, candidatas, { clave, fetchFn = fetch, excepcion = null } = {}) {
+  const conFoto = paraComparar(candidatas).slice(0, MAXIMO_FOTOS_GROQ);
+  if (conFoto.length === 0) return null;
+  const obj = await visionOpenRouter(instruccion(nota, conFoto, excepcion), conFoto.map((c) => c.datos), { clave, fetchFn });
+  return interpretarRespuesta(obj, conFoto, excepcion);
+}
 
 /** El mismo pedido, pero con Groq (API de OpenAI: un solo mensaje con texto
  *  e imágenes como `image_url` en base64). Máximo 3 imágenes por pedido:
@@ -535,15 +567,15 @@ export function pasaUnaFoto(obj, { exigirQueCorresponda = false, permiteMenor = 
  * Devuelve `{ ok, motivo, vision }` o, si ninguno pudo contestar, `{ ok: false, falla: true, motivo }`.
  */
 export async function revisarUnaFoto(nota, datos, {
-  clave = claveClasificacion(), claveRespaldo = claveGroq(), fetchFn = fetch, proveedores = ['gemini', 'groq'], persona = null,
+  clave = claveClasificacion(), claveRespaldo = claveGroq(), fetchFn = fetch, proveedores = ['gemini', 'groq', 'openrouter'], persona = null,
   exigirQueCorresponda = false, permiteMenor = false,
 } = {}) {
   const errores = [];
   for (const p of proveedores) {
-    const k = p === 'gemini' ? clave : claveRespaldo;
+    const k = p === 'gemini' ? clave : p === 'groq' ? claveRespaldo : claveOpenRouter();
     if (!k) { errores.push(`${p}: sin clave`); continue; }
     try {
-      const pedir = p === 'gemini' ? visionGemini : visionGroq;
+      const pedir = p === 'gemini' ? visionGemini : p === 'groq' ? visionGroq : visionOpenRouter;
       const obj = await pedir(preguntaDeUnaFoto(nota, { persona }), [datos], { clave: k, fetchFn });
       const r = pasaUnaFoto(obj, { exigirQueCorresponda, permiteMenor });
       return { ...r, vision: { proveedor: p, ...r.vision } };
@@ -619,8 +651,19 @@ export async function elegirFoto(nota, candidatas, {
     } catch (e) {
       // El error de Gemini también queda (17/10/2026: se perdía y no se sabía si era cupo o qué).
       const deGemini = errorGemini ? ` (Gemini: ${errorGemini})` : '';
-      return { elegida: null, razon: `Groq también falló: ${e.message}${deGemini}`, candidatas, proveedor: null, ...(errorGemini ? { errorGemini } : {}) };
+      // 23/10/2026: el tercer respaldo, OpenRouter (modelos gratis con visión, cupo propio).
+      const claveOR = claveOpenRouter();
+      if (claveOR) {
+        try { r = { ...(await pedirAOpenRouter(nota, candidatas, { clave: claveOR, fetchFn, excepcion })), proveedor: 'openrouter' }; } catch (e2) {
+          return { elegida: null, razon: `Groq también falló: ${e.message}${deGemini}; OpenRouter: ${String(e2?.message ?? e2).slice(0, 100)}`, candidatas, proveedor: null, ...(errorGemini ? { errorGemini } : {}) };
+        }
+      } else {
+        return { elegida: null, razon: `Groq también falló: ${e.message}${deGemini}`, candidatas, proveedor: null, ...(errorGemini ? { errorGemini } : {}) };
+      }
     }
+  }
+  if (!r && claveOpenRouter()) {
+    try { r = { ...(await pedirAOpenRouter(nota, candidatas, { clave: claveOpenRouter(), fetchFn, excepcion })), proveedor: 'openrouter' }; } catch (e) { return { elegida: null, razon: `OpenRouter falló: ${String(e?.message ?? e).slice(0, 100)}`, candidatas, proveedor: null }; }
   }
   if (!r) return { elegida: null, razon: 'sin clave para comparar', candidatas, proveedor: null };
   if (errorGemini) r.errorGemini = errorGemini;
