@@ -2,7 +2,7 @@
 
 *Este documento lo escribe `node ingesta/listar-fuentes.mjs` a partir del código. No se edita a mano: una prueba controla que diga lo mismo que `ingesta/fuentes.mjs` y `ingesta/fuentes-cruce.mjs`. Para sumar, sacar o apagar una fuente se toca una de esas dos listas y se vuelve a correr el programa.*
 
-Hoy: **124 feeds activos de 76 medios** (287 configurados).
+Hoy: **125 feeds activos de 76 medios** (287 configurados).
 
 ## Cómo se usan
 
@@ -118,7 +118,7 @@ Cuentan como un medio más cuando cuentan lo mismo que los demás; solos, sólo 
 | Universidad Nacional de La Plata | Universidad Nacional de La Plata | La Plata | RSS | Educación | 12 |  | sí | https://unlp.edu.ar/feed/ |
 | Zona Norte Diario | Zona Norte Diario · general | San Isidro / zona norte | RSS | — | 10 |  | apagada | https://www.zonanortediario.com.ar/feed/ |
 
-## Nacionales (86 feeds activos de 42 medios)
+## Nacionales (87 feeds activos de 42 medios)
 
 | Medio | Feed | Ciudad | Cómo se lee | Sección fija | Peso | Oficial | Activa | Dirección |
 |---|---|---|---|---|---|---|---|---|
@@ -233,7 +233,7 @@ Cuentan como un medio más cuando cuentan lo mismo que los demás; solos, sólo 
 | La Nación | La Nación | nacional | RSS | — | 8 |  | sí | https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml |
 | La Nación | La Nación · automovilismo | CABA | RSS | Deportes | 8 |  | apagada | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/deportes/automovilismo/ |
 | La Nación | La Nación · campo | CABA | RSS | Agro | 8 |  | apagada | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/economia/campo/ |
-| La Nación | La Nación · ciencia | CABA | RSS | Tecnología | 8 |  | apagada | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/ |
+| La Nación | La Nación · ciencia | CABA | RSS | Ciencia | 8 |  | sí | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/ |
 | La Nación | La Nación · Cultura | nacional | RSS | Cultura y agenda | 13 |  | sí | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/cultura/ |
 | La Nación | La Nación · Deportes | nacional | RSS | — | 16 |  | sí | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/deportes/ |
 | La Nación | La Nación · Economía | nacional | RSS | Economía | 15 |  | sí | https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/economia/ |

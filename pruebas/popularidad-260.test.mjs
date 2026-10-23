@@ -159,6 +159,7 @@ test('sin cupos: treinta notas de una misma sección con tres medios salen todas
 // ------------------------------------------------------------------ lo que no cambia
 
 test('Policiales de afuera no sale solo ni con treinta medios; lo de acá y lo oficial no piden medios', () => {
+  process.env.POLICIAL_NACIONAL = 'no'; // 23/10: con la excepción apagada vale lo de siempre (futbol-y-policial-nacional.test.mjs prueba la prendida)
   assert.deepEqual(SECCIONES_SOLO_DE_ACA, ['Policiales']);
   assert.ok(esSeccionSoloDeAca('Policiales') && !esSeccionSoloDeAca('Política'));
   const policial = afuera('pol', 'Policiales', Array.from({ length: 30 }, (_, i) => `Medio ${i}`));
@@ -168,6 +169,7 @@ test('Policiales de afuera no sale solo ni con treinta medios; lo de acá y lo o
   const deAca = [afuera('b', 'Balcarce', ['Radio Gabal'], { local: true, alcance: 'local' }), afuera('o', 'Argentina', ['Gobierno'], { oficial: true })];
   exigirMedios(deAca);
   assert.deepEqual(deAca.map((n) => n.semaforo), ['verde', 'verde']);
+  delete process.env.POLICIAL_NACIONAL;
 });
 
 test('lo de afuera con un solo medio no pasa el cruce, ni de una fuente de ciencia; queda anotado con su sección para la estadística', () => {

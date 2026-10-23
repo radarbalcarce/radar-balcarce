@@ -24,6 +24,7 @@ import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
 import { SECCIONES_SUMADAS, TEXTO_PARA_LA_FICHA, esSumada } from './secciones-nuevas.mjs';
 import { mediosMinimos } from './popularidad.mjs';
+import { policialNacionalRelevante } from './policial-nacional.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 /** ¿El título nombra a Balcarce o a una localidad del partido? San Agustín y
@@ -531,7 +532,7 @@ export function aplicarFichas(notas, fichas = {}, {
     else if (f.impacto === 'nulo' && !deFierros && !conexionArgentina && !nacionalQueImporta
       && (!deFuenteLocal || !nombraBalcarceEnElTitulo(n))) motivo = 'no tiene relación con Balcarce';
     // Lo de la zona sí entra (28/09): ver esPolicialDeAfuera, ingesta/ingesta.mjs.
-    else if (f.seccion === 'Policiales' && !esLocal && !n.deLaZona) motivo = 'policial que no es de Balcarce';
+    else if (f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
     if (motivo) { cambios.sacadas.push({ ...caso, motivo }); continue; }
 
     // Tenía la llave de la fuente o del título pero la IA dice que el hecho no

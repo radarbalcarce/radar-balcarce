@@ -13,6 +13,8 @@ import {
 import { PORTADA, PUNTAJE } from './criterio.mjs';
 import { marcarMuyContadas } from './muy-contada.mjs';
 import { mediosMinimos, popularidadDe, esSeccionSoloDeAca } from './popularidad.mjs';
+import { policialNacionalRelevante } from './policial-nacional.mjs';
+import { motivoFutbolNoArgentino } from './futbol-argentino.mjs';
 import { seccionSumada, esSumada, encaje } from './secciones-nuevas.mjs';
 import { porQueNoEsNota } from './no-es-nota.mjs';
 import { diaDeTurno, fechaEnBalcarce, comoISO } from './utiles.mjs';
@@ -488,6 +490,11 @@ function motivoDeDescarte(nota, fuente = {}) {
   // (28/09: Canal 26 y El Día lo traían como "tendencias" e "información
   // general"). Esto mira el título aparte, con frases puntuales.
   if (TITULO_HOROSCOPO.test(normalizar(nota.titulo ?? ''))) return 'consejo genérico';
+  // Fútbol: sólo Primera División argentina y argentinos jugando afuera (23/10, dueño; ingesta/futbol-argentino.mjs).
+  if (clasificar({ categorias: [], cuerpo: '', ...nota }) === 'Fútbol') {
+    const noArgentino = motivoFutbolNoArgentino(nota);
+    if (noArgentino) return noArgentino;
+  }
   let tramos;
   try { tramos = new URL(nota.enlace).pathname.toLowerCase().split('/').filter(Boolean); } catch { return null; }
   // El último tramo es el nombre de la nota ("colectivos-de-mexico-y-…"): no cuenta.
@@ -509,13 +516,13 @@ function motivoDeDescarte(nota, fuente = {}) {
 
 /** ¿Es un policial que no es de Balcarce? No viene de un medio de acá ni dice
  *  Balcarce en el título. Esos no se traen (Hernán, 27/09). */
-function esPolicialDeAfuera(nota) {
+function esPolicialDeAfuera(nota, medios = 1) {
   // Lo de la zona (un choque en la 226 contado por un medio de Mar del Plata)
   // entra desde el 28/09 (Hernán, auditoría): el criterio dice que Policiales
   // es "de Balcarce y la zona". Con el mismo semáforo: un muerto, un herido o
   // un chico igual esperan a una persona.
   return nota.alcance !== 'local' && !esDeBalcarce(nota) && !nota.deLaZona && !tocaLaZona(nota)
-    && clasificar(nota) === 'Policiales';
+    && clasificar(nota) === 'Policiales' && !policialNacionalRelevante(nota, medios);
 }
 
 /** ¿Toca la zona sin nombrar a Balcarce? La ruta 226, la 55, la papa.
@@ -1511,7 +1518,7 @@ export function exigirMedios(portada, { publicadas = null } = {}) {
     }
     if (esDeAca(n) || esDeUnMedioDeAca(n)) continue;
     // Policiales es sólo de Balcarce y la zona (26/09): lo de afuera no sale solo, ni con 30 medios.
-    if (esSeccionSoloDeAca(n.seccion)) {
+    if (esSeccionSoloDeAca(n.seccion) && !policialNacionalRelevante(n, cuantosMedios(n))) {
       if (n.semaforo === 'verde') {
         n.motivoAntesDelCupo = n.motivo;
         n.semaforo = 'amarillo';
@@ -1796,7 +1803,7 @@ export function armarPortada(grupos) {
   // como policial y no viene de un medio de acá ni dice Balcarce en el título
   // no se trae. Antes quedaba esperando a una persona (cupo 0), y nadie lo
   // miraba: era ruido en el panel.
-  const sinPolicialesDeAfuera = grupos.filter((g) => !esPolicialDeAfuera(g.principal));
+  const sinPolicialesDeAfuera = grupos.filter((g) => !esPolicialDeAfuera(g.principal, contarMedios(g.medios)));
   const portada = sinPolicialesDeAfuera.map((g) => {
     const seccion = clasificar(g.principal);
     const rel = relevancia(g.principal, seccion, contarMedios(g.medios));

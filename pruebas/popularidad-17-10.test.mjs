@@ -169,10 +169,12 @@ test('regla 197: lo muy contado de afuera se escribe con IA antes que el resto d
 });
 
 test('regla 197: Policiales de afuera no sale por muy contada (la sección es de acá)', () => {
+  process.env.POLICIAL_NACIONAL = 'no'; // 23/10: la excepción de los muy relevantes se prueba aparte (futbol-y-policial-nacional.test.mjs)
   const policial = deAfuera('pol', { titulo: 'Detuvieron a una banda en Rosario', seccion: 'Policiales', medios: NACIONALES });
   aplicarPopularidad([policial], { ahora: AHORA });
   assert.equal(policial.semaforo, 'amarillo');
   assert.equal(policial.muyContada, undefined);
+  delete process.env.POLICIAL_NACIONAL;
 });
 
 test('regla 197: en la web, la muy contada va primera en su sección durante 6 horas (y después, por hora)', () => {
