@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T13:36:06.181Z",
- "portada": 84,
- "archivo": 1245,
- "esperandoCuerpo": 5,
+ "generado": "2026-10-23T14:00:32.255Z",
+ "portada": 86,
+ "archivo": 1145,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-23T13:36:06.596Z",
+  "generado": "2026-10-23T14:00:32.981Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-23T10:35:56.318Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-23T13:47:28.837Z"
    },
    {
     "nombre": "participa-nota",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 55,
+    "salio": "2026-10-23T13:47:28.837Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1kx53j2",
@@ -106,7 +106,18 @@
       "id": "1pd22ww",
       "titulo": "Cipriano Higuera gana medalla de bronce en los Juegos Bonaerenses",
       "seccion": "Deportes"
-     },
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 32,
+    "notas": [
      {
       "id": "131te0p",
       "titulo": "Comienza la vigesimosegunda Fiesta Nacional del Postre",
@@ -118,16 +129,6 @@
       "seccion": "Salud"
      }
     ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": null,
-    "notas": []
    },
    {
     "nombre": "podcast",
@@ -176,6 +177,12 @@
      "id": "1qr79y1",
      "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1f59ye",
+     "titulo": "ARBA otorga rebajas de hasta el 40 por ciento para cancelar deudas",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
