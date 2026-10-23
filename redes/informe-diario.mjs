@@ -443,6 +443,10 @@ export function seccionVisitas({ momento, dia, ahora, datos, sitio = SITIO }) {
     if (disp.length) lineas.push({ t: `Aparatos: ${disp.map(([k, n]) => `${NOMBRES_DE_DISPOSITIVOS[k] ?? k} ${num(n)}`).join(' · ')}.`, sub: true });
     const paises = Object.entries(d.paises ?? {}).sort((a, b) => b[1] - a[1]).slice(0, 3);
     if (paises.length) lineas.push({ t: `Países: ${paises.map(([k, n]) => `${NOMBRES_DE_PAISES[k] ?? k} ${num(n)}`).join(' · ')}.`, sub: true });
+    // 22/10/2026: desde el 19/10 casi todo el movimiento figuraba como de Francia y Estados Unidos (robots que abren páginas). Los lectores de Balcarce son los de Argentina.
+    const totalPaises = Object.values(d.paises ?? {}).reduce((a, n) => a + (Number(n) || 0), 0);
+    const deArgentina = Number(d.paises?.AR) || 0;
+    if (totalPaises >= 20 && deArgentina / totalPaises < 0.5) lineas.push({ t: `Desde Argentina: ${num(deArgentina)} de ${num(totalPaises)}. Con tan poco de acá, el resto son casi seguro robots, no lectores.`, sub: true });
     const notas = Object.entries(d.notas ?? {}).sort((a, b) => b[1] - a[1]).slice(0, 3);
     if (notas.length) {
       lineas.push({ t: 'Lo más leído:', fuerte: true });

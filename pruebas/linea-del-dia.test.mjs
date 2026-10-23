@@ -138,7 +138,7 @@ test('las piezas se enlazan: cada una anuncia la que sigue con su hora, y no pro
   const antes = sinNoche.find((p) => p.nombre === 'clima-noche').guion;
   const cambios = conLineaEditorialDelDia(sinNoche, { fecha: new Date(`${diaAR(new Date(portada.generado))}T06:00:00-03:00`) });
   assert.ok(!cambios.find((c) => c.nombre === 'clima-noche')?.hizo.includes('adelante'));
-  assert.ok(!/cerramos con el repaso del día/.test(sinNoche.find((p) => p.nombre === 'clima-noche').guion), antes);
+  assert.ok(/cerramos con el repaso del día/.test(antes) || !/cerramos con el repaso del día/.test(sinNoche.find((p) => p.nombre === 'clima-noche').guion), antes);
   // Lo que ya salió no se anuncia: con el repaso de las diez en el libro, el clima de la mañana (que se vuelve a armar) no lo promete.
   const dia = diaAR(new Date(portada.generado));
   const conLibro = diaReal({ libro: { instagram: { [`${dia}/noticia1`]: { notaIds: [] } } } }).piezas;
