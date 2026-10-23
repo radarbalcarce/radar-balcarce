@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-23T22:34:22.369Z",
+ "consultado": "2026-10-23T23:01:42.561Z",
  "equipos": [
   "9739",
   "3",
@@ -691,12 +691,12 @@
     "id": "401841638",
     "competencia": "liga",
     "inicio": "2026-10-23T21:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "73'",
+    "estado": "final",
+    "minuto": "90'+3'",
     "local": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "10158",
@@ -710,6 +710,12 @@
       "jugador": "Ignacio Fernández",
       "minuto": "13'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Franco Torres",
+      "minuto": "74'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Juan Carmelo Zerillo (El Bosque)",
@@ -721,8 +727,8 @@
     "id": "401841637",
     "competencia": "liga",
     "inicio": "2026-10-23T21:30:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "73'",
     "local": {
      "id": "11972",
      "nombre": "Gimnasia (Mendoza)",
@@ -1511,6 +1517,19 @@
      },
      {
       "posicion": 3,
+      "id": "9",
+      "equipo": "Gimnasia La Plata",
+      "pj": 14,
+      "g": 7,
+      "e": 4,
+      "p": 3,
+      "gf": 21,
+      "gc": 18,
+      "dif": 3,
+      "pts": 25
+     },
+     {
+      "posicion": 4,
       "id": "4",
       "equipo": "Belgrano (Córdoba)",
       "pj": 13,
@@ -1523,29 +1542,16 @@
       "pts": 22
      },
      {
-      "posicion": 4,
-      "id": "9",
-      "equipo": "Gimnasia La Plata",
-      "pj": 13,
-      "g": 6,
-      "e": 4,
-      "p": 3,
-      "gf": 19,
-      "gc": 18,
-      "dif": 1,
-      "pts": 22
-     },
-     {
       "posicion": 5,
       "id": "10158",
       "equipo": "Sarmiento (Junín)",
-      "pj": 13,
+      "pj": 14,
       "g": 6,
       "e": 3,
-      "p": 4,
+      "p": 5,
       "gf": 22,
-      "gc": 19,
-      "dif": 3,
+      "gc": 21,
+      "dif": 1,
       "pts": 21
      },
      {
@@ -1682,7 +1688,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-23T20:04:21.954Z",
+ "tablaCuando": "2026-10-23T23:01:42.561Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
@@ -1702,6 +1708,7 @@
   "futbolresultadossudamericana20261020": "2026-10-21T02:33:26.373Z",
   "futbolpartidoslibertadores20261022": "2026-10-21T12:32:32.675Z",
   "futbolpartidosliga20261023": "2026-10-22T09:01:45.989Z",
-  "futbolresultadoslibertadores20261022": "2026-10-23T03:03:30.453Z"
+  "futbolresultadoslibertadores20261022": "2026-10-23T03:03:30.453Z",
+  "futbolresultadosliga20261023": "2026-10-23T23:01:45.103Z"
  }
 }
