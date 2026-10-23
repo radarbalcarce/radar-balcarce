@@ -498,6 +498,9 @@ const direcciones = slugsConocidos({
 // 25/09, web/lib/cuerpo.js). Sólo las que irían a las listas: el vigilante
 // las cuenta en el resumen de las 21.
 const esperandoCuerpo = [];
+// Las que agotaron todos sus intentos (regla 299): ya no esperan, se descartan con el motivo del último intento. Se anotan aparte en
+// esperando-cuerpo.json (`descartadas`) para que se vea qué pasó; si más tarde la cuentan más medios y tiene más intentos, vuelve a esperar sola.
+const descartadasSinCuerpo = [];
 
 /** ¿El título o la bajada son de lo que no se publica nunca (REGLAS_SEMAFORO.nunca)? */
 const nuncaSePublica = (nota) => esDeLoQueNuncaSePublica(nota, REGLAS_SEMAFORO.nunca);
@@ -644,7 +647,14 @@ function notaPublicada(n) {
   // cuerpo" y no aparece en ninguna lista, ni en el feed, el sitemap o las
   // redes (todo sale de acá). Lo que publicó una persona se respeta.
   if (!humana && !tieneCuerpo(corregida)) {
-    if (vigenteEnPortada(corregida)) {
+    const hechos = intentos[n.id]?.intentos ?? 0;
+    const agotada = hechos > 0 && hechos >= intentosMaximosPara((n.origenes ?? []).length) && intentos[n.id]?.motivo !== 'con cuerpo';
+    if (vigenteEnPortada(corregida) && agotada) {
+      descartadasSinCuerpo.push({
+        id: n.id, titulo: corregida.titulo, seccion: corregida.seccion, fecha: corregida.fecha, intentos: hechos,
+        motivo: `agotó los ${hechos} intentos; ${String(intentos[n.id]?.motivo ?? 'sin motivo').slice(0, 140)}`,
+      });
+    } else if (vigenteEnPortada(corregida)) {
       esperandoCuerpo.push({
         id: n.id, titulo: corregida.titulo, copete: corregida.copete, seccion: corregida.seccion, fecha: corregida.fecha,
         fuentes: (n.origenes ?? []).map((o) => ({ medio: o.medio, enlace: o.enlace, fecha: o.fecha ?? null })),
@@ -1309,9 +1319,9 @@ try {
   const finales = ultima.notas ?? [];
   const observaciones = observarCorrida({
     delCruce,
-    finales: finales.map((n) => ({ id: n.id, seccion: n.seccion, semaforo: n.semaforo, motivo: n.motivo, medios: contarMedios(n.medios) })),
+    finales: finales.map((n) => ({ id: n.id, seccion: n.seccion, semaforo: n.semaforo, motivo: n.motivo, medios: contarMedios(n.medios), descartada: !!n.descartada })),
     publicadas: new Set(deLaIngesta.map((n) => n.id)),
-    sacadasPorLaIA, repetidas: repetidasFuera, sinCuerpo: new Set(esperandoCuerpo.map((e) => e.id)),
+    sacadasPorLaIA, repetidas: repetidasFuera, sinCuerpo: new Set([...esperandoCuerpo, ...descartadasSinCuerpo].map((e) => e.id)),
     // Lo que no es de la selección sino de lo que pasa después: una persona la retiró o se unió a otra / el hecho llegó pasado de horas.
     retiradas: new Set(finales.filter((n) => RETIRADAS_A_MANO.has(n.id) || UNIDAS_FIRMES.has(n.id)).map((n) => n.id)),
     tarde: new Set(finales.filter((n) => !yaSalieron.has(n.id) && llegaTarde(fechaReal(n), Date.now(), horasDeEstreno(n))).map((n) => n.id)),
@@ -1337,6 +1347,7 @@ try {
       const motivo = motivoDeUnaMuyContada(o, {
         motivo: motivosDeLaIA.get(o.id) ?? motivoDeLasFinales.get(o.id),
         escrita: !!reescritas[o.id],
+        descartadaSinCuerpo: descartadasSinCuerpo.find((d) => d.id === o.id)?.motivo ?? null,
         enLaPortada: !final || vigenteEnPortada({ fecha: fechaReal(final) }),
       });
       // Se vuelve a escribir en cada vuelta (con el estado de ahora) y, si estaba en otro día, se mueve al de hoy: una sola entrada por historia.
@@ -1393,9 +1404,10 @@ function cambioQueImporta(antes, ahora) {
 }
 
 {
-  const texto = `${JSON.stringify({ generado: salida.generado, intentosMaximos: MAXIMO_DE_INTENTOS, notas: esperandoCuerpo }, null, 1)}\n`;
+  const descartadas = descartadasSinCuerpo.slice(0, 40);
+  const texto = `${JSON.stringify({ generado: salida.generado, intentosMaximos: MAXIMO_DE_INTENTOS, notas: esperandoCuerpo, descartadas }, null, 1)}\n`;
   const antes = leerJson(ESPERANDO_CUERPO, null);
-  if (JSON.stringify(antes?.notas) !== JSON.stringify(esperandoCuerpo)) fs.writeFileSync(ESPERANDO_CUERPO, texto, 'utf8');
+  if (JSON.stringify(antes?.notas) !== JSON.stringify(esperandoCuerpo) || JSON.stringify(antes?.descartadas ?? []) !== JSON.stringify(descartadas)) fs.writeFileSync(ESPERANDO_CUERPO, texto, 'utf8');
 }
 
 // El panel del celular (29/09):

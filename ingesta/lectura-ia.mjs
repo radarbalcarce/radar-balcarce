@@ -19,7 +19,7 @@ import path from 'node:path';
 import { claveClasificacion, claveGroq, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
 import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
 import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
-import { conArgentino, cuantosMedios, contarMedios } from './ingesta.mjs';
+import { conArgentino, cuantosMedios, contarMedios, hayUnChicoEnApuros, esCotizacionDelDia } from './ingesta.mjs';
 import { esFutbolArgentino, futbolSoloArgentinoActivo } from './futbol-argentino.mjs';
 import { FUENTES_CRUCE } from './fuentes-cruce.mjs';
 import { diaAR, minutoDelDiaAR } from './zona.mjs';
@@ -371,7 +371,8 @@ export async function leerNotasNuevas(notas, {
   };
   if (!clave) return { archivo, cuenta };
 
-  const faltan = notas.filter((n) => n?.id && !archivo.fichas[n.id]);
+  // Lo descartado con motivo (regla 298) no gasta lectura con IA.
+  const faltan = notas.filter((n) => n?.id && !n.descartada && !archivo.fichas[n.id]);
   const grupos = [];
   for (let i = 0; i < faltan.length; i += LECTURA.notasPorPedido) grupos.push(faltan.slice(i, i + LECTURA.notasPorPedido));
 
@@ -494,7 +495,7 @@ export function aplicarFichas(notas, fichas = {}, {
       cambios.aEsperar.push({ id: original.id, titulo: original.titulo, porque: MOTIVO_ESPERA_LECTURA });
       continue;
     }
-    if (!f || original.semaforo === 'rojo') { salida.push(original); continue; }
+    if (!f || original.semaforo === 'rojo' || original.descartada) { salida.push(original); continue; }
     const n = { ...original };
     const deFuenteLocal = n.alcance === 'local';
     const llaveDeLaFuente = deFuenteLocal || !!n.nombraBalcarce;
@@ -648,8 +649,8 @@ export const ESQUEMA_REPETIDAS = {
  * Las rojas nunca se juntan con nada.
  */
 export function candidatasParaAgrupar(notas = []) {
-  return notas.filter((n) => n.semaforo === 'verde'
-    || (n.semaforo === 'amarillo' && !String(n.motivo ?? '').startsWith('de afuera y poco contada')));
+  return notas.filter((n) => !n.descartada && (n.semaforo === 'verde'
+    || (n.semaforo === 'amarillo' && !String(n.motivo ?? '').startsWith('de afuera y poco contada'))));
 }
 
 /** Un pedido: los grupos de ids que cuentan el mismo hecho. Lanza si falla. */
@@ -767,8 +768,14 @@ export function quitarRepetidas(notas, grupos = [], { publicadas = new Set() } =
     });
     const [queda, ...resto] = del;
     const medios = [...new Set(del.flatMap((n) => n.medios ?? []))];
+    // Juntas, las versiones pueden sumar MUY_CONTADA.medios medios o más aunque ninguna los tuviera sola (regla 297): lo muy contado no espera por una
+    // palabra sensible, ni la heredada de otra versión ni la que ya traía la que queda (salvo un chico junto a un delito, una denuncia o una muerte).
+    const muyContada = contarMedios(medios) >= MUY_CONTADA.medios && !todas.some((n) => hayUnChicoEnApuros(n));
+    const sensibleDeLaQueQueda = queda.semaforo === 'amarillo' && String(queda.motivo ?? '').startsWith('necesita ojo humano');
     const heredada = hayRoja ? { semaforo: 'rojo', motivo: 'la misma noticia, en otro medio, es un tema sensible' }
-      : (sensible && queda.semaforo === 'verde' && contarMedios(medios) < MUY_CONTADA.medios ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {});
+      : (muyContada && sensibleDeLaQueQueda && !esCotizacionDelDia(queda.titulo)
+        ? { semaforo: 'verde', motivo: `sección ${queda.seccion}`, liberadaPor: String(queda.motivo).replace(/^necesita ojo humano: /, '') }
+        : (sensible && queda.semaforo === 'verde' && !muyContada ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {}));
     reemplazo.set(queda.id, { ...queda, ...heredada, medios, ...fuentesSumadas(queda, resto) });
     for (const n of resto) fuera.set(n.id, { id: n.id, titulo: n.titulo, queda: queda.id });
   }

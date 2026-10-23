@@ -314,8 +314,10 @@ function entradaDe(nota) {
  *  criterio para publicar ni más del techo. Mucha fuente → nota larga; poca → corta, sin relleno. */
 export function largoSugerido(nota) {
   const material = String(fuenteParaVerificar(nota) ?? '').split(/\s+/).filter(Boolean).length;
-  const min = CUERPO.palabrasPedidasMinimo;
-  const techo = Math.min(CUERPO.palabrasPedidasMaximo, Math.max(min, Math.round((material * 0.5) / 10) * 10));
+  // Se apunta a 90 como mínimo (CUERPO.palabrasObjetivoMinimo, regla 299), no a las 70 con que apenas se publica: una IA que apunta a 70 queda en
+  // 56, 66 o 68 y la nota espera cuerpo. Con poco material, de 90 a 120.
+  const min = Math.max(CUERPO.palabrasPedidasMinimo, CUERPO.palabrasObjetivoMinimo ?? 0);
+  const techo = Math.min(CUERPO.palabrasPedidasMaximo, Math.max(min + 30, Math.round((material * 0.5) / 10) * 10));
   const piso = Math.min(techo, Math.max(min, techo - 70));
   return { material, piso, techo };
 }
@@ -444,7 +446,7 @@ export async function reescribir(nota, {
   const largo = largoSugerido(nota);
   entrada += `
 
-LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palabras de material, así que el cuerpo va de ${largo.piso} a ${largo.techo} palabras. Es un techo, no una meta: si con menos ya está todo dicho, cortá ahí; nunca rellenes.`;
+LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palabras de material, así que el cuerpo va de ${largo.piso} a ${largo.techo} palabras. Apuntá a que quede por encima de ${largo.piso}: con menos de ${CUERPO.minimoParaPublicar} la nota no se publica. Desarrollalo sólo con lo que dicen las fuentes; nunca rellenes ni inventes.`;
   // El pedido de una persona desde el panel del celular (29/09): "más corta",
   // "empezá por el horario"… Va después de la noticia y nunca por encima de
   // las reglas: lo que las reglas no permiten, no se hace.
@@ -671,7 +673,8 @@ export function semaforoDeLaReescritura(nota, escrito = null) {
     // 22/10/2026: lo de acá no espera a una persona por una palabra sensible; sólo el rojo frena (ver ingesta/ingesta.mjs, semaforo()).
     // 23/10/2026 (regla 292): lo que cuentan MUY_CONTADA.medios medios o más tampoco, con la misma condición que la ingesta. Cuantos más
     // medios, más textos y más chances de un «nene» en algún párrafo: la ingesta lo soltaba y esta segunda mirada lo frenaba (caso de 20 medios).
-    if (s.color === 'amarillo' && sueltaElAmarillo(nota ?? {}, cuantosMedios(nota ?? {}))) continue;
+    // Salvo un chico junto a un delito, una denuncia o una muerte (regla 297): eso sigue esperando aunque lo cuenten muchos.
+    if (s.color === 'amarillo' && sueltaElAmarillo(nota ?? {}, cuantosMedios(nota ?? {}), aLaVista)) continue;
     const conDonde = { color: s.color, motivo: `${s.motivo}, en ${donde}` };
     if (s.color === 'rojo') return conDonde;
     peor ??= conDonde;
@@ -1017,6 +1020,16 @@ export function previasDeLaPortada(notas) {
  *  tres intentos queda sin publicar: no vale gastar el cupo de las claves de
  *  respaldo (el de voz de redes es de 10 audios por día) en una nota que no da. */
 export const MAXIMO_DE_INTENTOS = REESCRITURA.intentosMaximos;
+
+/** Lo que se guarda de una falla del verificador para escribirlo en el pedido del intento siguiente (regla 299): hasta 4 detalles cortos, y
+ *  el aviso de que el cuerpo quedó corto. Va a web/data/intentos-ia.json (público): son detalles del verificador, no texto de la nota. */
+export function fallaParaElProximoIntento(evaluacion = {}) {
+  const falla = (evaluacion.problemas ?? []).map((p) => String(p?.detalle ?? '').replace(/\s+/g, ' ').trim().slice(0, 140)).filter(Boolean).slice(0, 4);
+  if (evaluacion.corto !== undefined) {
+    falla.push(`el cuerpo quedó corto (${evaluacion.corto} palabras): es obligatorio y tiene que pasar de ${CUERPO.minimoParaPublicar}; apuntá a ${CUERPO.palabrasObjetivoMinimo} o más, con lo que dicen las fuentes`);
+  }
+  return falla;
+}
 
 /** Cuántos intentos tiene una nota: los de siempre y, si la cuentan muchos medios, uno o dos más (1/10). */
 export const intentosMaximosPara = (fuentes = 0, base = MAXIMO_DE_INTENTOS) => base
@@ -1366,7 +1379,9 @@ export async function reescribirAutomaticas(notas, {
         : { ok: false, problemas: control.problemas, motivo: `cuerpo: ${motivoCorto(control.problemas)}; sin esas oraciones quedan ${palabras} palabras` };
     };
 
-    let r = await reescribirConRespaldo(conTexto, mecanicoPorDefecto, opciones);
+    // Si la corrida anterior falló por algo concreto del verificador, esa falla va escrita en el pedido de ahora (regla 299), no un pedido a ciegas.
+    const fallaDeAntes = intentos[nota.id]?.falla;
+    let r = await reescribirConRespaldo(conTexto, mecanicoPorDefecto, Array.isArray(fallaDeAntes) && fallaDeAntes.length ? { ...opciones, correccion: fallaDeAntes } : opciones);
     if (!r.deIA) {
       // Gemini falló. Si fue culpa del servicio (sin cupo, sin red), no se
       // gastó nada y no cuenta; si contestó algo que no sirve, sí.
@@ -1396,7 +1411,8 @@ export async function reescribirAutomaticas(notas, {
       // una tilde.
       if (evaluacion.motivo.startsWith('título')) cuenta.rechazadas += 1; else cuenta.sinCuerpo += 1;
       registro(`  IA rechazada · ${String(nota.titulo).slice(0, 50)} · ${evaluacion.motivo}`);
-      anotarIntento(nota, evaluacion.motivo);
+      const falla = fallaParaElProximoIntento(evaluacion);
+      anotarIntento(nota, evaluacion.motivo, falla.length ? { falla } : {});
       continue;
     }
     r = evaluacion.r;

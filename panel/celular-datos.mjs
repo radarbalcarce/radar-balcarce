@@ -30,7 +30,8 @@ const deAcaParaUnaPersona = (n) => esDeAca(n) || esDeUnMedioDeAca(n);
  */
 export function idsParaUnaPersona(notas = []) {
   const quedan = new Set();
-  for (const n of notas) if (n?.id && deAcaParaUnaPersona(n)) quedan.add(n.id);
+  // Lo descartado con motivo (el parte del dólar, la publicidad de afuera: regla 298) no espera a nadie.
+  for (const n of notas) if (n?.id && !n.descartada && deAcaParaUnaPersona(n)) quedan.add(n.id);
   return quedan;
 }
 

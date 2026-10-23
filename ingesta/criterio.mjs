@@ -35,6 +35,8 @@ export const BAJADA = {
 export const CUERPO = {
   minimoParaPublicar: 70,
   palabrasPedidasMinimo: 70,
+  // A lo que apunta el pedido de cada nota (regla 299): de 90 a 120 como mínimo, para no quedar justo en las 70 que piden publicarse.
+  palabrasObjetivoMinimo: 90,
   palabrasPedidasMaximo: 300,
   parrafosMaximo: 5,
   maximo: 2600,

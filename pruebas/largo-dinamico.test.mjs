@@ -8,14 +8,14 @@ const palabras = (n) => Array.from({ length: n }, (_, i) => `palabra${i}`).join(
 
 test('con poco material el cuerpo es corto: nunca menos del mínimo para publicar', () => {
   const l = largoSugerido({ seccion: 'Balcarce', titulo: 'x', resumenFuente: palabras(40) });
-  assert.equal(l.techo, CUERPO.palabrasPedidasMinimo);
-  assert.equal(l.piso, CUERPO.palabrasPedidasMinimo);
+  assert.equal(l.techo, CUERPO.palabrasObjetivoMinimo + 30);
+  assert.equal(l.piso, CUERPO.palabrasObjetivoMinimo);
 });
 
 test('con material medio, el techo ronda la mitad y el piso queda por debajo', () => {
   const l = largoSugerido({ seccion: 'Balcarce', titulo: 'x', resumenFuente: palabras(300) });
   assert.equal(l.techo, 150);
-  assert.ok(l.piso >= CUERPO.palabrasPedidasMinimo && l.piso < l.techo);
+  assert.ok(l.piso >= CUERPO.palabrasObjetivoMinimo && l.piso < l.techo);
 });
 
 test('con muchísimo material nunca pasa del techo del criterio', () => {

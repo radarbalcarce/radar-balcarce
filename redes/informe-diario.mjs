@@ -274,7 +274,11 @@ export function seccionEspera({ datos, ahora = new Date(), sitio = SITIO }) {
     atencion.push({ nivel: 'media', t: `${plural(pend.length, 'nota espera', 'notas esperan')} una decisión tuya o de Andrés en el panel del celular.`, url: PANEL });
   }
   // Las automáticas que se quedaron sin cuerpo (no salen).
-  const sinCuerpo = (esperandoCuerpo?.notas ?? []).filter((n) => !/^con cuerpo$/i.test(n.motivo ?? '') && (n.intentos ?? 0) >= (n.maximo ?? 3));
+  // Desde la regla 299 las que agotan los intentos se descartan con motivo y pasan a `descartadas` (antes quedaban esperando para siempre).
+  const sinCuerpo = [
+    ...(esperandoCuerpo?.descartadas ?? []),
+    ...(esperandoCuerpo?.notas ?? []).filter((n) => !/^con cuerpo$/i.test(n.motivo ?? '') && (n.intentos ?? 0) >= (n.maximo ?? 3)),
+  ];
   const total = Number.isFinite(portada?.esperandoCuerpo) ? portada.esperandoCuerpo : null;
   if (total) lineas.push({ t: `${plural(total, 'nota automática espera', 'notas automáticas esperan')} a tener un cuerpo de 70 palabras o más (no salen hasta entonces).` });
   if (sinCuerpo.length) {

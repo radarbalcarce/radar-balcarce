@@ -97,10 +97,44 @@ export function observarCorrida({
     // La hora en que salió: la de esta vuelta si es nueva; si ya estaba publicada antes, la de la primera vez que se vio.
     let hora = null;
     if (resultado === 'publicada') hora = yaSalieron.has(hst.id) && vistaDe(hst.id) ? horaAR(new Date(vistaDe(hst.id))) : horaAR(ahora);
+    // Qué palabra o regla la frenó (regla 298): sólo para lo que frenó el semáforo, en pocas letras.
+    const freno = resultado === 'semaforo' ? frenoCorto(f?.motivo, f?.descartada) : null;
     return {
       id: hst.id, seccion: f?.seccion ?? hst.seccion, deAca: !!hst.deAca, medios: Math.max(hst.medios ?? 1, f?.medios ?? 1), resultado, hora, vista: vistaDe(hst.id),
+      ...(freno ? { freno } : {}),
     };
   });
+}
+
+/** Cuántos caracteres como mucho tiene el freno que se guarda por historia (el archivo se reescribe en cada vuelta: se mantiene chico). */
+export const LARGO_DEL_FRENO = 28;
+/** Cuántos frenos distintos se guardan por día en `frenos` (los más frecuentes). */
+export const FRENOS_POR_DIA = 25;
+
+/**
+ * La palabra o la regla que frenó a una historia, corta (regla 298): «denunció» (una palabra sensible), «rojo: abuso sexual» (la lista roja),
+ * «descartada: dólar» / «descartada: internacional» / «descartada: promoción» (lo que no debería generarse, regla 298), «promoción: sorteo»,
+ * «dólar», «internacional»… Con «+» al final, si la heredó de otra versión del mismo hecho («en otro medio que cuenta lo mismo»).
+ */
+export function frenoCorto(motivo, descartada = false) {
+  let m = String(motivo ?? '').trim();
+  const heredada = / \(en otro medio que cuenta lo mismo\)$/.test(m);
+  m = m.replace(/ \(en otro medio que cuenta lo mismo\)$/, '').replace(/ \(visto al reescribir\)$/, '').replace(/, en (el texto|lo que|la bajada).*$/, '');
+  let r;
+  let corto;
+  if ((r = m.match(/^necesita ojo humano: "(.+?)"/))) corto = r[1];
+  else if ((r = m.match(/^tema sensible: "(.+?)"/))) corto = `rojo: ${r[1]}`;
+  else if (/^cotización del dólar/.test(m)) corto = 'dólar';
+  else if (/^internacional/.test(m)) corto = 'internacional';
+  else if ((r = m.match(/^parece promoción.*?"(.+?)"/))) corto = `promoción: ${r[1]}`;
+  else if (/^no es nota/.test(m)) corto = 'no es nota';
+  else if (/^efeméride de otro medio/.test(m)) corto = 'efeméride ajena';
+  else if (/^lista de sepelios/.test(m)) corto = 'sepelios';
+  else if (/^verificación baja/.test(m)) corto = 'verificación baja';
+  else corto = m;
+  if (descartada && !/^rojo/.test(corto)) corto = `descartada: ${corto.replace(/^promoción: .*/, 'promoción')}`;
+  corto = corto.slice(0, LARGO_DEL_FRENO - (heredada ? 1 : 0));
+  return `${corto}${heredada ? '+' : ''}`;
 }
 
 /**
@@ -111,11 +145,13 @@ export function observarCorrida({
  * @param {object} [datos] { motivo: lo que dijo el semáforo o la lectura con IA (puede ser vacío), escrita: ¿la IA ya le escribió el cuerpo?,
  *                           enLaPortada: ¿su hecho está dentro de las horas de la portada? }
  */
-export function motivoDeUnaMuyContada(o = {}, { motivo = '', escrita = false, enLaPortada = true } = {}) {
+export function motivoDeUnaMuyContada(o = {}, {
+  motivo = '', escrita = false, enLaPortada = true, descartadaSinCuerpo = null,
+} = {}) {
   const m = String(motivo ?? '').trim();
   switch (o.resultado) {
     case 'ia': return m || 'la lectura con IA la sacó o espera que la lea';
-    case 'sinCuerpo': return 'esperando cuerpo: la IA todavía no logró escribirla';
+    case 'sinCuerpo': return descartadaSinCuerpo ? `descartada sin cuerpo: ${descartadaSinCuerpo}` : 'esperando cuerpo: la IA todavía no logró escribirla';
     case 'tarde': return 'llegó tarde: el hecho ya tenía más horas de las que se estrena';
     case 'retirada': return 'retirada por una persona o unida a otra nota ya publicada';
     case 'repetida': return 'unida a otra historia (repetida)';
@@ -182,7 +218,9 @@ export function anotarCorrida(estado, observaciones, {
     const medios = Math.max(antes?.[2] ?? 0, o.medios ?? 1);
     const resultado = yaPublicada ? 'publicada' : o.resultado;
     const hora = yaPublicada ? antes[4] : (o.hora ?? null);
-    lista[o.id] = [o.seccion, o.deAca ? 1 : 0, medios, resultado, hora];
+    // El sexto lugar (opcional, regla 298): qué palabra o regla frenó a la historia; sólo si la frenó el semáforo.
+    const freno = resultado === 'semaforo' ? (o.freno ?? antes?.[5] ?? null) : null;
+    lista[o.id] = freno ? [o.seccion, o.deAca ? 1 : 0, medios, resultado, hora, freno] : [o.seccion, o.deAca ? 1 : 0, medios, resultado, hora];
     diaDe.set(o.id, dia);
   }
   // Se podan los días de historias viejos.
@@ -216,8 +254,10 @@ export function numerosDelDia(lista = {}, unSoloMedio = {}) {
   const seccion = (nombre) => (secciones[nombre] ??= {
     llegaron: 0, deAca: 0, deAcaPublicadas: 0, publicadas: 0, medios: Array(6).fill(0), publicadasMedios: Array(6).fill(0), habrian: Array(6).fill(0), quedaronAfuera: {},
   });
-  for (const [nombre, deAca, medios, resultado, hora] of Object.values(lista)) {
+  const frenos = {};
+  for (const [nombre, deAca, medios, resultado, hora, freno] of Object.values(lista)) {
     const s = seccion(nombre);
+    if (resultado === 'semaforo' && freno) frenos[freno] = (frenos[freno] ?? 0) + 1;
     const cubo = CUBOS.indexOf(cuboDeMedios(medios));
     s.llegaron += 1;
     total.llegaron += 1;
@@ -240,7 +280,9 @@ export function numerosDelDia(lista = {}, unSoloMedio = {}) {
     s.medios[0] += cuantas;
     s.quedaronAfuera.unMedio = (s.quedaronAfuera.unMedio ?? 0) + cuantas;
   }
-  return { ...total, porHora, secciones };
+  // Qué frenó a las del semáforo (regla 298): los FRENOS_POR_DIA más frecuentes, para que el archivo no crezca. Sólo si hay.
+  const masFrecuentes = Object.entries(frenos).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, FRENOS_POR_DIA);
+  return { ...total, porHora, secciones, ...(masFrecuentes.length ? { frenos: Object.fromEntries(masFrecuentes) } : {}) };
 }
 
 /** El texto del archivo: un día por renglón en `dias`, `solos` y `historias` (una historia por renglón), así cada vuelta cambia poco. */

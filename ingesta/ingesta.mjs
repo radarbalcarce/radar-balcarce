@@ -889,7 +889,30 @@ export const esMuerteDeFamosoEnPoliciales = (nota = {}, seccion = nota?.seccion)
 
 /** ¿Se le suelta el amarillo de las palabras sensibles a esta nota? Si es de acá (regla 291) o la cuentan MUY_CONTADA.medios medios o más
  *  (regla 288 y 292: lo mismo en la ingesta y en el semáforo de la redacción). El rojo (menores, víctimas) nunca se suelta. */
-export const sueltaElAmarillo = (nota = {}, medios = cuantosMedios(nota)) => esDeAca(nota) || medios >= MUY_CONTADA.medios;
+export const sueltaElAmarillo = (nota = {}, medios = cuantosMedios(nota), texto = null) => esDeAca(nota)
+  || (medios >= MUY_CONTADA.medios && !hayUnChicoEnApuros(nota, texto));
+
+/** Lo que, junto a un chico, lo vuelve víctima o protagonista de un hecho grave: un delito, una denuncia, una muerte (regla 297). */
+const APUROS_DE_UN_CHICO = [
+  ...REGLAS_SEMAFORO.amarilloMuerte.filter((p) => !['herido', 'herida', 'heridos', 'heridas', 'lesionado', 'lesionada', 'lesionados'].includes(p)),
+  'homicidio', 'asesinato', 'asesinado', 'asesinaron', 'cadáver', 'víctima', 'apuñalado', 'apuñalaron', 'baleado', 'balearon',
+  'abusado', 'abusada', 'abusador', 'la abusó', 'lo abusó', 'abusaba de', 'maltrato', 'secuestro', 'secuestrado', 'secuestrada',
+  'desaparecido', 'desaparecida', 'detenido', 'acusado', 'imputado', 'denuncia', 'denunció'];
+
+/**
+ * ¿La nota habla de un chico (niño, nene, adolescente, bebé, "un menor de…") junto a un delito, una denuncia o una muerte? Es el único caso en que
+ * lo muy contado (MUY_CONTADA.medios medios o más) sigue esperando por una palabra sensible (regla 297, 23/10/2026): la regla 288 suelta el
+ * amarillo de lo que cuentan muchos medios, pero un chico víctima o protagonista de un hecho grave no se suelta por ser famoso el hecho.
+ * Una escuela, un acto o un discurso con «niños» en el texto, sin nada de lo otro, sí se suelta. El rojo (menor de edad, abuso, grooming…)
+ * no pasa por acá: nunca se suelta. Se mira el título y los primeros 600 caracteres, más el `texto` que pase quien llama.
+ */
+export function hayUnChicoEnApuros(nota = {}, texto = null) {
+  const crudo = `${nota.titulo ?? ''} ${String(nota.cuerpo ?? nota.resumenFuente ?? '').slice(0, 600)} ${texto ?? ''}`;
+  const t = normalizar(crudo);
+  if (!t.trim()) return false;
+  const chico = [...AMARILLO_MENORES, ...AMARILLO_SOLO_EN_EL_PRINCIPIO].some((p) => contiene(t, p)) || !!menorPorEdad(t);
+  return chico && APUROS_DE_UN_CHICO.some((p) => contiene(t, p));
+}
 
 /** Una efeméride sacada de otro medio (Hernán, 14/10/2026: una nota de Radio Gabal "Efemérides 10 de octubre…"). Las efemérides son
  *  nuestras (`ingesta/efemerides.mjs`, el reel y su nota): de afuera no se toma ninguna, de ningún medio. Se reconoce por la dirección
@@ -960,14 +983,14 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // los 700 y el dólar oficial…» (16 medios) es economía y sale.
   const delTitulo = normalizar(String(nota.titulo ?? ''));
   if (esCotizacionDelDia(nota.titulo)) {
-    return { color: 'amarillo', motivo: MOTIVO_COTIZACION };
+    return { color: 'amarillo', motivo: MOTIVO_COTIZACION, descartada: true }; // regla 298: no se genera, no espera a nadie
   }
   // Lo internacional (Trump, Putin, la Casa Blanca en el título) de afuera no sale solo, salvo que lo cuenten MUY_CONTADA.medios medios o más
   // (regla 292, Hernán 23/10/2026). Sólo el título. Si la nota tiene un argentino (conArgentino: Milei, "Argentina", Messi…) no es
   // internacional a secas: sigue al control de los medios (regla 172).
   if (nota.alcance !== 'local' && !nota.nombraBalcarce && medios < MUY_CONTADA.medios && !conArgentino(nota)
     && (REGLAS_SEMAFORO.internacional ?? []).some((p) => contiene(delTitulo, p))) {
-    return { color: 'amarillo', motivo: MOTIVO_INTERNACIONAL };
+    return { color: 'amarillo', motivo: MOTIVO_INTERNACIONAL, descartada: true }; // regla 298
   }
   // Acá había una regla para el policial de otro lugar con violencia o
   // acusados (26/09, REGLAS_SEMAFORO.policialDeAfuera). Desde el 27/09 no se
@@ -975,7 +998,8 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // policial que no es de un medio de acá ni dice Balcarce en el título, que
   // es justo lo que esa regla miraba. Se sacó el 28/09.
   const promocion = pareceDePromocion(nota);
-  if (promocion) return { color: 'amarillo', motivo: `parece promoción, no noticia: "${promocion}"` };
+  // De afuera es publicidad y se descarta sin esperar a nadie (regla 298); de un medio de acá puede ser un sorteo de una institución: lo ve una persona.
+  if (promocion) return { color: 'amarillo', motivo: `parece promoción, no noticia: "${promocion}"`, ...(esDeAca(nota) || nota.alcance === 'local' ? {} : { descartada: true }) };
   if (nota.oficial) return conLiberada({ color: 'verde', motivo: 'comunicado oficial' });
 
   // Lo de afuera sale solo si lo cuentan bastantes medios (27/09, el cruce):
@@ -1866,6 +1890,9 @@ export function armarPortada(grupos) {
       semaforo: sem.color,
       motivo: sem.motivo,
       ...(sem.liberadaPor ? { liberadaPor: sem.liberadaPor } : {}),
+      // Lo que nunca debería generarse (el parte del dólar, lo internacional sin un argentino, la publicidad de afuera): no espera a nadie y no
+      // gasta IA; el motivo dice por qué (regla 298).
+      ...(sem.descartada ? { descartada: true } : {}),
       relevancia: rel,
       imagen: g.principal.imagen || null,
       resumenFuente: limpiarCopete(g.principal.cuerpo, g.principal.titulo, g.principal.medio),

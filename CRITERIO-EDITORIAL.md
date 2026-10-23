@@ -850,6 +850,7 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Bajada: largo máximo (caracteres) | 360 | `BAJADA.maximo` |
 | Cuerpo: palabras mínimas para publicarse | 70 | `CUERPO.minimoParaPublicar` |
 | Cuerpo: palabras que se le piden, desde | 70 | `CUERPO.palabrasPedidasMinimo` |
+| Cuerpo: palabras a las que apunta cada pedido, desde | 90 | `CUERPO.palabrasObjetivoMinimo` |
 | Cuerpo: palabras que se le piden, hasta | 300 | `CUERPO.palabrasPedidasMaximo` |
 | Cuerpo: párrafos, como máximo | 5 | `CUERPO.parrafosMaximo` |
 | Cuerpo: largo máximo (caracteres) | 2600 | `CUERPO.maximo` |
