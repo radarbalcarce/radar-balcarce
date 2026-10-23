@@ -309,6 +309,17 @@ function entradaDe(nota) {
   return partes.join('\n');
 }
 
+/** Cuántas palabras de cuerpo conviene para ESTA nota (23/10, pedido del dueño: el largo es dinámico, no fijo).
+ *  Se mide el material que dieron las fuentes: el cuerpo ronda la mitad de eso, nunca menos de lo que pide el
+ *  criterio para publicar ni más del techo. Mucha fuente → nota larga; poca → corta, sin relleno. */
+export function largoSugerido(nota) {
+  const material = String(fuenteParaVerificar(nota) ?? '').split(/\s+/).filter(Boolean).length;
+  const min = CUERPO.palabrasPedidasMinimo;
+  const techo = Math.min(CUERPO.palabrasPedidasMaximo, Math.max(min, Math.round((material * 0.5) / 10) * 10));
+  const piso = Math.min(techo, Math.max(min, techo - 70));
+  return { material, piso, techo };
+}
+
 /** Todo lo que la IA recibió de la fuente, junto: contra eso se verifica. Si se
  *  verificara sólo contra un resumen, un dato que venía en otro medio o en el
  *  texto completo pasaría por inventado. */
@@ -430,6 +441,10 @@ export async function reescribir(nota, {
 
   const prompt = instruccionPara(nota);
   let entrada = entradaDe(nota);
+  const largo = largoSugerido(nota);
+  entrada += `
+
+LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palabras de material, así que el cuerpo va de ${largo.piso} a ${largo.techo} palabras. Es un techo, no una meta: si con menos ya está todo dicho, cortá ahí; nunca rellenes.`;
   // El pedido de una persona desde el panel del celular (29/09): "más corta",
   // "empezá por el horario"… Va después de la noticia y nunca por encima de
   // las reglas: lo que las reglas no permiten, no se hace.
