@@ -56,3 +56,7 @@ Mirar la estadística de selección (cuántas notas llegan, con cuántos medios,
 - Pensar más reels (en Facebook rinde el video corto) y elegir con qué noticias empezar: lo de Balcarce y la zona, el resumen del día y lo nacional más contado. A definir con Hernán.
 - Revisar las animaciones mirando lo que está publicado hoy en Facebook e Instagram. Los videos de `reels/salida/` son viejos y no sirven de referencia (el de farmacia ya tiene otro diseño).
 - Armar bien todas las redes: bio, formato por red y continuidad de las voces.
+
+## Para correr a mano (lo frenó el permiso de Claude Code, 23/10)
+
+- **Compactar el historial**: el archivo ya está en 498 notas y hay respaldo del 23/10. En GitHub → Actions → «Compactar el historial» → Run workflow → escribir `COMPACTAR`. Después, en la PC: `git fetch origin && git reset --hard origin/main && git reflog expire --expire=now --all && git gc --prune=now --aggressive`.
