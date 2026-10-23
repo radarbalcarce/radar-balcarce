@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T02:31:57.416Z",
- "portada": 80,
- "archivo": 1530,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-23T03:03:34.419Z",
+ "portada": 85,
+ "archivo": 1533,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-23T02:31:57.804Z",
+  "generado": "2026-10-23T03:03:34.990Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-22T10:06:46.596Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-22T12:07:23.515Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
-    "nombre": "agenda",
+    "nombre": "participa-nota",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "La agenda del fin de semana",
-    "voz": "locutora",
+    "que": "Tu nota",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-22T15:07:09.606Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-22T18:46:17.984Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-22T22:07:03.107Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-22T23:06:39.281Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-23T00:46:40.652Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
     "segundos": null,
     "notas": []
@@ -103,113 +103,33 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-22T18:46:17.984Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "sg5gtd",
-      "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "umqt3y",
-      "titulo": "El Zonal del Atlántico disputa la sexta fecha en el autódromo",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "rdo3nh",
-      "titulo": "Maximiliano Blanco Río pide revisar protocolos escolares y sanciones",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "juo82o",
-      "titulo": "Desarrollo Social entrega mercadería desde el lunes",
-      "seccion": "Balcarce"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-23T00:46:40.652Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "vxf5r",
-      "titulo": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1cmow7i",
-      "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1i9rlqx",
-      "titulo": "Una familia de Balcarce conoce a Lionel Scaloni en España",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "4c84q3",
-      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
-      "seccion": "Automovilismo"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "vnum3w",
-     "titulo": "El Gobierno adjudica el 90% de las acciones de AySA por US$ 340 millones",
-     "cuando": "2026-10-22T12:05:38.940Z"
-    },
-    {
-     "id": "d54qko",
-     "titulo": "El papa León XIV anticipa su visita al país tras recibir el alta médica",
-     "cuando": "2026-10-22T13:45:42.186Z"
-    },
-    {
-     "id": "juo82o",
-     "titulo": "Desarrollo Social entrega mercadería desde el lunes",
-     "cuando": "2026-10-22T15:35:41.459Z"
-    },
-    {
-     "id": "sg5gtd",
-     "titulo": "Comercios bonaerenses deben incluir la línea 148 en tickets",
-     "cuando": "2026-10-22T17:35:45.092Z"
-    },
-    {
-     "id": "1cmow7i",
-     "titulo": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-     "cuando": "2026-10-22T19:35:39.498Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "13yazdt",
      "titulo": "Franco Colapinto presenta un casco especial con diseño de Boca en la Fórmula 1",
      "seccion": "Automovilismo",
      "marcada": false
-    },
-    {
-     "id": "1kwf4sd",
-     "titulo": "Milei reconoce una desaceleración económica y menor baja inflacionaria",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "15xeuts",
-     "titulo": "El Gobierno evalúa prorrogar el plazo para ofertar por el Belgrano Cargas",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-22T21:05:39.498Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

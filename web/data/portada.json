@@ -1,6 +1,111 @@
 {
-  "generado": "2026-10-23T02:31:57.416Z",
+  "generado": "2026-10-23T03:03:34.419Z",
   "notas": [
+    {
+      "id": "futbolresultadoslibertadores20261022",
+      "propia": "futbol",
+      "tipoFutbol": "resultados",
+      "competenciaFutbol": "libertadores",
+      "datosFutbol": {
+        "partidos": [
+          {
+            "dia": "Jueves 22 de octubre",
+            "hora": "21:30",
+            "estado": "final",
+            "estadio": "Estadio do Maracana",
+            "fase": "Semifinals, vuelta",
+            "local": {
+              "id": "819",
+              "nombre": "Flamengo",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "8",
+              "nombre": "Estudiantes de La Plata",
+              "goles": 0
+            },
+            "penales": {
+              "local": 2,
+              "visitante": 3
+            },
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Giorgian de Arrascaeta",
+                "minuto": "91'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "José Sosa",
+                "minuto": "92'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Eros Mancuso",
+                "minuto": "97'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "local",
+                "jugador": "Léo Pereira",
+                "minuto": "97'",
+                "tipo": "de penal"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Tiago Palacios",
+                "minuto": "98'",
+                "tipo": "de penal"
+              }
+            ]
+          }
+        ],
+        "faltan": 0,
+        "aparte": 0
+      },
+      "destacados": [],
+      "lugarFoto": "Estadio do Maracana",
+      "titulo": "Copa Libertadores: Flamengo 0, Estudiantes de La Plata 0 (2-3 en los penales)",
+      "copete": "1 partido terminado de Copa Libertadores: marcadores y goleadores.",
+      "cuerpo": "Estos son los resultados de Copa Libertadores del partido (sólo equipos argentinos), en el orden en que se jugaron:\n\nJueves 22 de octubre, 21:30: Flamengo 0, Estudiantes de La Plata 0 (2-3 en los penales). Goles: Flamengo: Giorgian de Arrascaeta (91', de penal) y Léo Pereira (97', de penal). Estudiantes de La Plata: José Sosa (92', de penal), Eros Mancuso (97', de penal) y Tiago Palacios (98', de penal).\n\nLos datos son los resultados oficiales según ESPN.",
+      "guion": null,
+      "seccion": "Fútbol",
+      "local": false,
+      "relevancia": 56,
+      "medios": [
+        "ESPN (datos abiertos)"
+      ],
+      "enlace": "https://www.espn.com.ar/futbol/",
+      "fuentesConsultadas": [
+        {
+          "medio": "ESPN (datos abiertos)",
+          "enlace": "https://www.espn.com.ar/futbol/"
+        }
+      ],
+      "teniaImagenLaFuente": false,
+      "fecha": "2026-10-23T03:03:30.453Z",
+      "sinFecha": false,
+      "visto": "2026-10-23T03:03:30.453Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-23T03:03:30.453Z",
+      "temas": [],
+      "etiquetas": [
+        "fútbol",
+        "Copa Libertadores",
+        "resultados",
+        "Flamengo",
+        "Estudiantes de La Plata"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
+      "slug": "copa-libertadores-flamengo-0-estudiantes-de-la-plata-0-2-3-en-los",
+      "foto": {
+        "archivo": "fotos-notas/libre-futbolresultadoslibertadores20261022.jpg",
+        "credito": "Foto: GilbertoSilvaFan / Wikimedia Commons (CC BY-SA 4.0)"
+      }
+    },
     {
       "id": "1d27b9k",
       "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
@@ -283,7 +388,7 @@
       "id": "iezyy9",
       "titulo": "Daniel González renuncia como secretario de Coordinación de Energía",
       "copete": "El funcionario dejó su puesto en el Ministerio de Economía tras casi dos años y medio de gestión. La salida fue anunciada durante una entrevista en un canal de streaming.",
-      "cuerpo": "Daniel González oficializó este jueves su salida del Gobierno nacional, donde se desempeñaba como secretario de Coordinación de Energía y Minería en la cartera económica liderada por Luis Caputo. El exfuncionario comunicó su dimisión durante una participación en el programa emitido por el canal de streaming Carajo, y detalló que su alejamiento responde a motivos estrictamente personales y a la finalización de un ciclo limitado en el tiempo.\n\nDesde el Palacio de Hacienda indicaron que el puesto vacante no tendrá un reemplazante, por lo que el equipo de trabajo continuará en funciones con la secretaria de Energía, María Tettamanti, y el secretario de Minería, Luis Lucero. Entre las tareas destacadas de su gestión se consigna el impulso al Régimen de Incentivo para Grandes Inversiones (RIGI), herramienta que acumula 26 proyectos aprobados con inversiones previstas por 69.779 millones de dólares.",
+      "cuerpo": "Daniel González oficializó el jueves su salida del Gobierno nacional, donde se desempeñaba como secretario de Coordinación de Energía y Minería en la cartera económica liderada por Luis Caputo. El exfuncionario comunicó su dimisión durante una participación en el programa emitido por el canal de streaming Carajo, y detalló que su alejamiento responde a motivos estrictamente personales y a la finalización de un ciclo limitado en el tiempo.\n\nDesde el Palacio de Hacienda indicaron que el puesto vacante no tendrá un reemplazante, por lo que el equipo de trabajo continuará en funciones con la secretaria de Energía, María Tettamanti, y el secretario de Minería, Luis Lucero. Entre las tareas destacadas de su gestión se consigna el impulso al Régimen de Incentivo para Grandes Inversiones (RIGI), herramienta que acumula 26 proyectos aprobados con inversiones previstas por 69.779 millones de dólares.",
       "guion": "Daniel González renuncia como secretario de Coordinación de Energía.",
       "seccion": "Política",
       "medios": [
@@ -291,11 +396,13 @@
         "Clarín",
         "TN (Todo Noticias)",
         "El Cronista",
+        "El Destape",
         "Perfil",
         "Página/12",
         "A24",
         "iProfesional",
         "Crónica",
+        "Radio Mitre",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "La Nueva",
@@ -309,11 +416,11 @@
       "fecha": "2026-10-22T23:27:16.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 69,
+      "relevancia": 70,
       "local": false,
       "muyContada": {
-        "medios": 15,
-        "porque": "15 medios",
+        "medios": 16,
+        "porque": "16 medios",
         "desde": "2026-10-23T00:01:53.168Z"
       },
       "publicadaPor": null,
@@ -554,7 +661,7 @@
       "copete": "El mediocampista Baltasar Rodríguez vio la tarjeta roja por doble amonestación en el inicio del complemento. El conjunto platense disputa la vuelta de las semifinales de la Copa Libertadores.",
       "cuerpo": "El mediocampista Baltasar Rodríguez recibió la segunda tarjeta amarilla a los 5 minutos del segundo tiempo por un agarrón y dejó al equipo con diez futbolistas. El árbitro uruguayo Gustavo Tejera sancionó la expulsión en el estadio Maracaná de Río de Janeiro durante la vuelta de las semifinales de la Copa Libertadores.\n\nEl jugador había visto la primera amonestación a los 35 minutos de la etapa inicial por una serie de infracciones. Tras la salida del volante, el conjunto brasileño exigió al arquero con un remate que obligó una intervención sobre el palo derecho, mientras el director técnico Alexander Medina ajustaba detalles defensivos.",
       "guion": "Estudiantes empata sin goles ante Flamengo con un jugador menos.",
-      "seccion": "Deportes",
+      "seccion": "Fútbol",
       "medios": [
         "El Día",
         "0221",
@@ -636,8 +743,8 @@
     {
       "id": "7twn49",
       "titulo": "Javier Milei cumple 56 años y descarta festejos",
-      "copete": "El presidente celebró este jueves sus 56 años con una jornada laboral en la residencia de Olivos. Tras regresar de España, recibió saludos de dirigentes oficialistas y afirmó que la gestión oficial demanda atención permanente.",
-      "cuerpo": "El presidente Javier Milei cumplió 56 años este jueves y descartó la realización de festejos por su aniversario. En declaraciones radiales, el mandatario detalló que al arribar al país tras un viaje a España fue recibido por el cuerpo de Granaderos y luego mantuvo un encuentro con su hermana y secretaria general de la Presidencia, Karina Milei.\n\nEl jefe de Estado indicó que cumple sus funciones desde la residencia de Olivos para optimizar los tiempos y evitar traslados.",
+      "copete": "El presidente celebró el jueves sus 56 años con una jornada laboral en la residencia de Olivos. Tras regresar de España, recibió saludos de dirigentes oficialistas y afirmó que la gestión oficial demanda atención permanente.",
+      "cuerpo": "El presidente Javier Milei cumplió 56 años el jueves y descartó la realización de festejos por su aniversario. En declaraciones radiales, el mandatario detalló que al arribar al país tras un viaje a España fue recibido por el cuerpo de Granaderos y luego mantuvo un encuentro con su hermana y secretaria general de la Presidencia, Karina Milei.\n\nEl jefe de Estado indicó que cumple sus funciones desde la residencia de Olivos para optimizar los tiempos y evitar traslados.",
       "guion": "Javier Milei cumple 56 años y descarta festejos.",
       "seccion": "Política",
       "medios": [
@@ -717,13 +824,14 @@
       "id": "jskasn",
       "titulo": "Estados Unidos confirma su interés por los alcances de la Ley Malvinas",
       "copete": "El vicesecretario de Estado norteamericano, Christopher Landau, reconoció que su país sigue de cerca la iniciativa oficialista. Lo hizo durante una conferencia en el Palacio San Martín junto al canciller Pablo Quirno.",
-      "cuerpo": "El vicesecretario de Estado de los Estados Unidos, Christopher Landau, admitió este jueves que su país sigue con atención el desarrollo de la Ley de Defensa de la Soberanía Nacional. El funcionario estadounidense señaló que Washington observa los intereses de sus empresas ante la iniciativa que prevé penalidades para compañías vinculadas con la explotación de recursos sin aval nacional.\n\nDurante una conferencia de prensa conjunta en el Palacio San Martín, el diplomático evitó realizar pedidos formales de modificación y remarcó el respeto por el proceso legislativo argentino. Por su parte, el canciller Pablo Quirno defendió la reforma al señalar que la normativa vigente no otorga las herramientas necesarias para la defensa de los intereses en el archipiélago.\n\nEn el mismo encuentro, Landau se refirió a la propuesta de disolver el Comité de Descolonización de la ONU y la enmarcó en una reforma general de los organismos multilaterales. La agenda de la delegación estadounidense incluyó además reuniones con miembros del gabinete nacional y preparativos para la futura visita del vicepresidente norteamericano, JD Vance.",
+      "cuerpo": "El vicesecretario de Estado de los Estados Unidos, Christopher Landau, admitió el jueves que su país sigue con atención el desarrollo de la Ley de Defensa de la Soberanía Nacional. El funcionario estadounidense señaló que Washington observa los intereses de sus empresas ante la iniciativa que prevé penalidades para compañías vinculadas con la explotación de recursos sin aval nacional.\n\nDurante una conferencia de prensa conjunta en el Palacio San Martín, el diplomático evitó realizar pedidos formales de modificación y remarcó el respeto por el proceso legislativo argentino. Por su parte, el canciller Pablo Quirno defendió la reforma al señalar que la normativa vigente no otorga las herramientas necesarias para la defensa de los intereses en el archipiélago.\n\nEn el mismo encuentro, Landau se refirió a la propuesta de disolver el Comité de Descolonización de la ONU y la enmarcó en una reforma general de los organismos multilaterales. La agenda de la delegación estadounidense incluyó además reuniones con miembros del gabinete nacional y preparativos para la futura visita del vicepresidente norteamericano, JD Vance.",
       "guion": "Estados Unidos confirma su interés por los alcances de la Ley Malvinas.",
       "seccion": "Política",
       "medios": [
         "Agencia DIB",
         "Clarín",
         "TN (Todo Noticias)",
+        "El Destape",
         "Perfil",
         "iProfesional",
         "Radio Mitre",
@@ -739,11 +847,11 @@
       "fecha": "2026-10-22T20:33:46.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T22:31:33.435Z",
-      "relevancia": 65,
+      "relevancia": 66,
       "local": false,
       "muyContada": {
-        "medios": 10,
-        "porque": "10 medios",
+        "medios": 11,
+        "porque": "11 medios",
         "desde": "2026-10-22T23:03:18.864Z"
       },
       "publicadaPor": null,
@@ -845,20 +953,21 @@
         "Perfil",
         "TyC Sports",
         "Diario Popular",
+        "Ámbito",
         "C5N",
-        "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1159198/deportes/de-bombonera-formula-1-guino-franco-colapinto-boca-nuevo-casco.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-22T19:45:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T23:03:18.864Z",
-      "relevancia": 77,
+      "relevancia": 79,
       "local": false,
       "muyContada": {
-        "medios": 7,
-        "porque": "5 medios en sus primeras 3 horas",
+        "medios": 8,
+        "porque": "8 medios",
         "desde": "2026-10-22T23:03:18.864Z"
       },
       "publicadaPor": null,
@@ -1305,7 +1414,7 @@
       "id": "zp2f4y",
       "titulo": "Estela de Carlotto cumple 96 años y recibe múltiples saludos",
       "copete": "La presidenta de Abuelas de Plaza de Mayo celebra un nuevo año de vida en coincidencia con el Día Nacional por la Identidad. Dirigentes políticos, organizaciones y familiares enviaron mensajes de reconocimiento.",
-      "cuerpo": "La presidenta de Abuelas de Plaza de Mayo, Estela de Carlotto, cumple este jueves 96 años en coincidencia con el Día Nacional por el Derecho a la Identidad. La referente de derechos humanos nació en la Ciudad de Buenos Aires en 1930 y reside en La Plata.\n\nEl gobernador bonaerense, Axel Kicillof, y la organización política La Cámpora enviaron mensajes de felicitación a través de las redes sociales. También la saludaron los nietos recuperados Ignacio Montoya Carlotto, Victoria Montenegro, Eduardo \"Wado\" de Pedro y Horacio Pietragalla Corti.\n\nLa fecha conmemora la creación de la asociación civil Abuelas de Plaza de Mayo, fundada el 22 de octubre de 1977 para localizar y restituir la identidad de niños desaparecidos durante la última dictadura militar. La conmemoración fue instituida en 2004 mediante la Ley 26.001.",
+      "cuerpo": "La presidenta de Abuelas de Plaza de Mayo, Estela de Carlotto, cumple el jueves 96 años en coincidencia con el Día Nacional por el Derecho a la Identidad. La referente de derechos humanos nació en la Ciudad de Buenos Aires en 1930 y reside en La Plata.\n\nEl gobernador bonaerense, Axel Kicillof, y la organización política La Cámpora enviaron mensajes de felicitación a través de las redes sociales. También la saludaron los nietos recuperados Ignacio Montoya Carlotto, Victoria Montenegro, Eduardo \"Wado\" de Pedro y Horacio Pietragalla Corti.\n\nLa fecha conmemora la creación de la asociación civil Abuelas de Plaza de Mayo, fundada el 22 de octubre de 1977 para localizar y restituir la identidad de niños desaparecidos durante la última dictadura militar. La conmemoración fue instituida en 2004 mediante la Ley 26.001.",
       "guion": "Estela de Carlotto cumple 96 años y recibe múltiples saludos.",
       "seccion": "Argentina",
       "medios": [
@@ -1502,11 +1611,12 @@
       "id": "1kwf4sd",
       "titulo": "Milei reconoce una desaceleración económica y menor baja inflacionaria",
       "copete": "El presidente admitió que los indicadores no evolucionan como esperaba el Gobierno. Atribuyó el escenario a factores internacionales y defendió los índices sociales.",
-      "cuerpo": "El presidente Javier Milei reconoció este jueves que la economía nacional atraviesa un período de menor crecimiento y que la inflación desciende a un ritmo más lento que el proyectado inicialmente por el Ejecutivo. Durante una entrevista radial, el mandatario sostuvo que la desaceleración responde a un menor incremento en la demanda de dinero.\n\nEl jefe de Estado vinculó la situación local con un contexto internacional adverso marcado por tensiones geopolíticas, entre las que mencionó el conflicto en Ucrania y la crisis en el estrecho de Ormuz. Según su análisis, estos factores externos generan un incremento en los costos energéticos e impactan en los precios mayoristas y minoristas.\n\nEn paralelo, el riesgo país superó los 700 puntos esta semana y la actividad económica registró un repunte mensual de 0,1 por ciento. Pese a las dificultades, el mandatario defendió las políticas aplicadas desde diciembre de 2023 y aseguró que los índices de indigencia y pobreza disminuyeron en comparación con el inicio de su gestión.",
+      "cuerpo": "El presidente Javier Milei reconoció el jueves que la economía nacional atraviesa un período de menor crecimiento y que la inflación desciende a un ritmo más lento que el proyectado inicialmente por el Ejecutivo. Durante una entrevista radial, el mandatario sostuvo que la desaceleración responde a un menor incremento en la demanda de dinero.\n\nEl jefe de Estado vinculó la situación local con un contexto internacional adverso marcado por tensiones geopolíticas, entre las que mencionó el conflicto en Ucrania y la crisis en el estrecho de Ormuz. Según su análisis, estos factores externos generan un incremento en los costos energéticos e impactan en los precios mayoristas y minoristas.\n\nEn paralelo, el riesgo país superó los 700 puntos esta semana y la actividad económica registró un repunte mensual de 0,1 por ciento. Pese a las dificultades, el mandatario defendió las políticas aplicadas desde diciembre de 2023 y aseguró que los índices de indigencia y pobreza disminuyeron en comparación con el inicio de su gestión.",
       "guion": "Milei reconoce una desaceleración económica y menor baja inflacionaria.",
       "seccion": "Economía",
       "medios": [
         "TN (Todo Noticias)",
+        "El Destape",
         "Página/12",
         "A24",
         "Radio Mitre",
@@ -1520,20 +1630,20 @@
         "Punto Noticias",
         "El Eco de Tandil",
         "Ámbito",
-        "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
-        "El Cronista"
+        "El Cronista",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.cronista.com/economia-politica/milei-admitio-dificultades-en-la-economia-y-aseguro-los-indicadores-no-estarian-evolucionando-tan-positivamente/",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-22T18:50:08.747Z",
       "sinFecha": false,
       "visto": "2026-10-22T21:01:38.365Z",
-      "relevancia": 64,
+      "relevancia": 65,
       "local": false,
       "muyContada": {
-        "medios": 15,
-        "porque": "15 medios",
+        "medios": 16,
+        "porque": "16 medios",
         "desde": "2026-10-23T00:31:36.874Z"
       },
       "publicadaPor": null,
@@ -2121,12 +2231,11 @@
     {
       "id": "1xzc8wz",
       "titulo": "El peronismo realiza una nueva cumbre para definir su estrategia electoral",
-      "copete": "Axel Kicillof, Máximo Kirchner y Sergio Massa encabezan este jueves un nuevo encuentro con gobernadores y legisladores. Analizan el escenario ante la posible suspensión de las primarias nacionales.",
-      "cuerpo": "Dirigentes nacionales del peronismo se reúnen este jueves por la noche con mandatarios provinciales y legisladores para coordinar su estrategia electoral ante el debate por la suspensión de las primarias. El encuentro, coordinado por el senador José Mayans, da continuidad a la cumbre realizada a mediados de agosto en un hotel porteño.\n\nLa cumbre se desarrolla mientras el oficialismo nacional avanza en negociaciones legislativas para eliminar las primarias bajo el argumento del costo económico. Sectores del peronismo consideran que esa herramienta resulta fundamental para ordenar internas y evitar rupturas partidarias.\n\nAnte la posibilidad de que el Congreso suspenda las primarias, referentes del espacio evalúan alternativas como organizar internas partidarias con reglas propias o impulsar desdoblamientos en los calendarios provinciales.",
+      "copete": "Axel Kicillof, Máximo Kirchner y Sergio Massa encabezan el jueves un nuevo encuentro con gobernadores y legisladores. Analizan el escenario ante la posible suspensión de las primarias nacionales.",
+      "cuerpo": "Dirigentes nacionales del peronismo se reúnen el jueves por la noche con mandatarios provinciales y legisladores para coordinar su estrategia electoral ante el debate por la suspensión de las primarias. El encuentro, coordinado por el senador José Mayans, da continuidad a la cumbre realizada a mediados de agosto en un hotel porteño.\n\nLa cumbre se desarrolla mientras el oficialismo nacional avanza en negociaciones legislativas para eliminar las primarias bajo el argumento del costo económico. Sectores del peronismo consideran que esa herramienta resulta fundamental para ordenar internas y evitar rupturas partidarias.\n\nAnte la posibilidad de que el Congreso suspenda las primarias, referentes del espacio evalúan alternativas como organizar internas partidarias con reglas propias o impulsar desdoblamientos en los calendarios provinciales.",
       "guion": "El peronismo realiza una nueva cumbre para definir su estrategia electoral.",
       "seccion": "Política",
       "medios": [
-        "Clarín",
         "La Nación",
         "TN (Todo Noticias)",
         "Perfil",
@@ -2232,6 +2341,7 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "La Nación",
+        "El Destape",
         "C5N",
         "Minuto Uno"
       ],
@@ -2240,7 +2350,7 @@
       "fecha": "2026-10-22T17:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 46,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2299,6 +2409,238 @@
         "sugeridoPorIA": null
       },
       "slug": "tini-stoessel-reanuda-su-gira-internacional-en-venezuela-y-reivindica"
+    },
+    {
+      "id": "11jjrxq",
+      "titulo": "La AFA aprueba el regreso de la Promoción al fútbol argentino desde 2027",
+      "copete": "La Asociación del Fútbol Argentino resolvió reimplantar los duelos de reválida después de 15 años. La medida abarcará desde la Primera Nacional hacia abajo, sin alcanzar a la Liga Profesional.",
+      "cuerpo": "La Asociación del Fútbol Argentino aprobó el regreso de los partidos de Promoción tras 15 años de su última utilización. La medida fue ratificada durante una reunión del Comité Ejecutivo encabezada por Claudio Tapia y comenzará a implementarse a partir de la temporada 2027, desde la Primera Nacional hacia las categorías inferiores, sin involucrar a los equipos de la Liga Profesional.\n\nEn la Primera Nacional, los dos últimos de cada zona perderán la categoría de forma directa. Por su parte, el antepenúltimo de los equipos directamente afiliados se medirá con un representante de la Primera B Metropolitana, mientras que el antepenúltimo de los indirectamente afiliados lo hará frente a un conjunto del Torneo Federal A. Asimismo, la Primera B y la Primera C incorporarán series de reválida tanto para definir ascensos como descensos.\n\nEl formato de Promoción se disputó en el país entre las temporadas 1999/2000 y 2011/2012 mediante series de ida y vuelta. Todavía no se informó el reglamento completo ni los criterios específicos de arbitraje y localía para las nuevas llaves.",
+      "guion": "La AFA aprueba el regreso de la Promoción al fútbol argentino desde 2027.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Diario La Vanguardia",
+        "La Nación",
+        "TN (Todo Noticias)",
+        "El Destape",
+        "Perfil",
+        "A24",
+        "TyC Sports",
+        "Olé",
+        "Crónica",
+        "Canal 26",
+        "Diario Popular",
+        "Noticias Argentinas (NA)",
+        "El Día",
+        "El Marplatense",
+        "El Eco de Tandil",
+        "Bolavip Argentina",
+        "Ámbito",
+        "C5N",
+        "Minuto Uno",
+        "Los Andes (Mendoza)",
+        "La Nueva",
+        "La Brújula 24",
+        "La Gaceta (Tucumán)"
+      ],
+      "enlace": "https://www.eldestapeweb.com/deportes/vuelve-promocion-futbol-argentino-cuando-aplicara-20261022154625",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-22T16:33:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-22T19:31:22.462Z",
+      "relevancia": 68,
+      "local": false,
+      "muyContada": {
+        "medios": 21,
+        "porque": "21 medios",
+        "desde": "2026-10-22T19:31:22.462Z"
+      },
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La medida comenzará a aplicarse a partir de la temporada 2027.",
+        "Abarcará desde la Primera Nacional hacia abajo, sin incluir a la Liga Profesional.",
+        "Habrá descensos directos para los dos últimos de cada zona en la segunda categoría.",
+        "Se implementarán duelos de reválida en la Primera Nacional, la Primera B y la Primera C."
+      ],
+      "noConfirmado": [
+        "Todavía resta conocer el reglamento completo y los criterios específicos de las nuevas series."
+      ],
+      "textoRedes": "La Asociación del Fútbol Argentino aprobó el regreso de la Promoción a partir de 2027. La medida se aplicará desde la Primera Nacional hacia abajo y no incluirá a los equipos de la Liga Profesional.",
+      "etiquetas": [
+        "AFA",
+        "Promocion",
+        "futbol argentino",
+        "Ascenso",
+        "Primera Nacional"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/vuelve-promocion-futbol-argentino-cuando-aplicara-20261022154625",
+          "fecha": "2026-10-22T18:46:00.000Z",
+          "oficial": false,
+          "aporte": "Informó los detalles de los cruces de Promoción para la Primera Nacional, la Primera B y la Primera C, además de los antecedentes históricos."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/22/la-afa-definio-el-regreso-de-las-promociones-en-el-ascenso-para-la-proxima-temporada/",
+          "fecha": "2026-10-22T19:05:18.000Z",
+          "oficial": false,
+          "aporte": "Señaló que la decisión se adoptó en una reunión encabezada por Claudio Tapia."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/primera-nacional/cambios-en-el-ascenso-vuelve-la-promocion-al-futbol-argentino-id767799.html",
+          "fecha": "2026-10-22T19:25:42.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Brújula 24",
+          "enlace": "https://www.labrujula24.com/notas/2026/10/22/cambios-en-el-ascenso-vuelve-la-promocion-y-habra-una-nueva-chance-para-los-equipos-del-federal-a-n526791/",
+          "fecha": "2026-10-22T18:48:19.000Z",
+          "oficial": false,
+          "aporte": "Precisó que el sistema regresará concretamente en el año 2027."
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/vuelven-las-promociones-al-futbol-argentino-los-cambios-que-aprobo-la-afa-n6336876",
+          "fecha": "2026-10-22T19:19:44.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la ratificación de la medida por parte del Comité Ejecutivo de la AFA para las divisiones del Ascenso."
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/deportes/vuelven-las-promociones-al-futbol-argentino-los-cambios-la-afa-el-ascenso-n6011344",
+          "fecha": "2026-10-22T19:10:32.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/deportes/futbol/la-afa-dispuso-el-regreso-de-la-promocion-en-el-ascenso-tras-15-anos-como-la-instrumentara-nid22102026/",
+          "fecha": "2026-10-22T22:34:53.000Z",
+          "oficial": false,
+          "aporte": "Informó los detalles del nuevo esquema de descensos y promociones para la B Nacional y el fútbol de ascenso."
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://442.perfil.com/noticias/futbol/afa-modifica-el-reglamento-de-descensos-y-volvera-a-jugar-promociones-en-el-futbol-argentino.phtml",
+          "fecha": "2026-10-22T21:25:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó precisiones sobre la distinción entre clubes directamente afiliados y aquellos del Consejo del Interior."
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/deportes/vuelve-la-promocion-al-futbol-argentino-despues-de-15-anos-desde-cuando-y-en-que-categorias/",
+          "fecha": "2026-10-22T21:16:02.000Z",
+          "oficial": false,
+          "aporte": "Confirmó que la reunión del Comité Ejecutivo se llevó a cabo en el predio de Ezeiza."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/deportes/2026/10/22/vuelve-la-historica-promocion-al-futbol-argentino-despues-de-15-anos-que-cambios-aprobo-la-afa/",
+          "fecha": "2026-10-22T21:33:09.000Z",
+          "oficial": false,
+          "aporte": "Indicó que la información difundida todavía no especifica las reglas de desempate ni la selección de los equipos."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/la-afa-oficializo-el-regreso-de-la-promocion-para-el-ascenso-en-2027_a6ada6f3f6f2f006625a89443",
+          "fecha": "2026-10-22T20:21:39.013Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/deportes/afa-confirmo-el-nuevo-formato-para-el-2027-y-anuncio-el-regreso-de-la-promocion-deportes_1792701360",
+          "fecha": "2026-10-22T21:39:13.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Marplatense",
+          "enlace": "https://www.elmarplatense.com/vuelve-las-promocion-al-futbol-argentino",
+          "fecha": "2026-10-22T21:54:10.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/deportes/la-asociacion-del-futbol-argentino-confirmo-el-regreso-de-las-promociones-en-el-ascenso",
+          "fecha": "2026-10-22T21:24:47.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1159172/deportes/vuelven-promociones-al-futbol-argentino-como-sera-nuevo-sistema-ascensos-descensos.html",
+          "fecha": "2026-10-22T16:33:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó que las series se jugarán en formato de ida y vuelta con ventaja deportiva para el equipo superior."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/primera-nacional/como-va-a-funcionar-la-promocion-en-su-vuelta-al-futbol-argentino-id767839.html",
+          "fecha": "2026-10-22T21:40:10.000Z",
+          "oficial": false,
+          "aporte": "Precisó que los equipos del puesto 16 de cada zona de la segunda división jugarán los cruces."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-ascenso/promocion-futbolargentino-afa-claudiotapia-comiteejecutivo-pablotoviggino_0_9iM8h85LT5.html",
+          "fecha": "2026-10-22T19:41:52.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/depo/actualidad/bombazo-vuelve-la-promocion-al-futbol-argentino/",
+          "fecha": "2026-10-22T20:25:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/futbol/bomba-la-afa-anuncio-que-vuelven-las-promociones-al-futbol-argentino-2027-n925766",
+          "fecha": "2026-10-22T22:33:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-10-22-16-57-0-la-afa-definio-el-regreso-de-las-promociones-en-el-ascenso-para-la-proxima-temporada",
+          "fecha": "2026-10-22T23:01:04.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbolargentino/vuelve-la-promocion-al-futbol-argentino-cuando-arranca-y-con-que-formato",
+          "fecha": "2026-10-22T23:40:09.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/deportes/cambio-rotundo-la-promocion-volvera-al-ascenso-del-futbol-argentino-n6336950",
+          "fecha": "2026-10-22T21:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron seis medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-afa-aprueba-el-regreso-de-la-promocion-al-futbol-argentino-desde",
+      "foto": {
+        "archivo": "fotos-notas/11jjrxq.jpg",
+        "credito": "Foto: TyC Sports"
+      }
     },
     {
       "id": "ji2440",
@@ -2538,6 +2880,72 @@
       }
     },
     {
+      "id": "yvuxkh",
+      "titulo": "Detienen a un hombre de 31 años vinculado a varios ilícitos",
+      "copete": "La Policía interceptó al sospechoso en la vía pública tras recibir una orden judicial. Fue trasladado a una unidad penal.",
+      "cuerpo": "Un hombre de 31 años fue detenido el miércoles por la tarde en la intersección de las calles 10 y 7 por personal de la Estación de Policía Comunal. El procedimiento se concretó tras una orden emitida por el Juzgado en lo Correccional Nº 5 del Departamento Judicial de Mar del Plata debido a un expediente por rebeldía.\n\nTras cumplir los recaudos legales, el sospechoso quedó alojado en la Unidad Penal Nº 44 de Batán a disposición de la Justicia.",
+      "guion": "Detienen a un hombre de 31 años vinculado a varios ilícitos.",
+      "seccion": "Policiales",
+      "medios": [
+        "Infórmese Primero (FM 104.9)",
+        "Puntonueve (FM 100.9)"
+      ],
+      "enlace": "http://www.informeseprimero.com.ar/2026/10/fue-adelanto-de-informese-primero.html",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-22T16:12:34.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-23T03:02:10.259Z",
+      "relevancia": 80,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Detuvieron a un hombre de 31 años en Balcarce",
+        "La medida la dispuso el Juzgado Correccional Nº 5",
+        "El sospechoso fue interceptado en la esquina de 10 y 7",
+        "Lo trasladaron a la Unidad Penal Nº 44 de Batán"
+      ],
+      "seSabe": [
+        "Un hombre de 31 años fue detenido el miércoles por la tarde",
+        "La Estación de Policía Comunal realizó la captura en la intersección de las calles 10 y 7",
+        "El Juzgado en lo Correccional Nº 5 emitió la orden de detención por una causa por rebeldía",
+        "El detenido fue alojado en la Unidad Penal Nº 44 de Batán"
+      ],
+      "textoRedes": "Detuvieron en Balcarce a un hombre de 31 años tras una orden judicial por rebeldía. Fue interceptado en la vía pública y trasladado a la Unidad Penal de Batán.",
+      "etiquetas": [
+        "policiales",
+        "detención",
+        "policía comunal",
+        "mar del plata",
+        "balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Infórmese Primero (FM 104.9)",
+          "enlace": "http://www.informeseprimero.com.ar/2026/10/fue-adelanto-de-informese-primero.html",
+          "fecha": "2026-10-22T16:31:16.645Z",
+          "oficial": false,
+          "aporte": "Aportó los detalles sobre la investigación policial, la ubicación exacta de la captura y el traslado a la unidad penal."
+        },
+        {
+          "medio": "Puntonueve (FM 100.9)",
+          "enlace": "https://puntonueve.com.ar/detuvieron-en-balcarce-a-un-hombre-de-31-anos-que-era-buscado-por-la-justicia/",
+          "fecha": "2026-10-22T16:12:34.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la orden emitida por el juzgado marplatense y el procedimiento realizado por la dependencia local."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "detienen-a-un-hombre-de-31-anos-vinculado-a-varios-ilicitos"
+    },
+    {
       "id": "pgc5jh",
       "titulo": "Copa Airlines incorpora internet satelital de Starlink a sus vuelos",
       "copete": "La compañía aérea implementó el sistema de conectividad a bordo con un costo promocional de 2,50 dólares por viaje. La medida alcanza a las rutas que conectan seis provincias argentinas con Panamá.",
@@ -2710,6 +3118,7 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "TN (Todo Noticias)",
+        "El Destape",
         "Noticias Argentinas (NA)",
         "La Tecla",
         "C5N",
@@ -2722,7 +3131,7 @@
       "fecha": "2026-10-22T15:48:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 52,
+      "relevancia": 53,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2814,19 +3223,24 @@
         "porque": "Lo contaron seis medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "sylvester-stallone-sorprende-a-nico-vazquez-con-una-videollamada"
+      "slug": "sylvester-stallone-sorprende-a-nico-vazquez-con-una-videollamada",
+      "foto": {
+        "archivo": "fotos-notas/12ntldq.jpg",
+        "credito": "Foto: C5N"
+      }
     },
     {
       "id": "vobost",
       "titulo": "Procesan a José Luis Espert por lavado de dinero",
       "copete": "La Justicia Federal embargó al ex diputado nacional por 1.000 millones de pesos y le prohibió salir del país. La causa investiga la recepción de 200.000 dólares vinculados al empresario Fred Machado.",
-      "cuerpo": "La Justicia Federal de San Isidro procesó este jueves al ex diputado nacional José Luis Espert por el delito de lavado de activos.\n\nLa medida judicial alcanza también al contador Mariano Alejandro Cosentino, procesado como partícipe necesario con un embargo de 700 millones de pesos, y a la firma Varianza SA, con un embargo de 500 millones. La investigación impulsada por el fiscal federal Fernando Domínguez se centra en una transferencia de 200.000 dólares recibida en 2020 y atribuida al empresario Federico 'Fred' Machado, condenado en Estados Unidos.\n\nDe acuerdo con la hipótesis fiscal, los fondos ingresaron mediante un contrato de asesoramiento simulado con la empresa guatemalteca Minas del Pueblo y habrían sido utilizados para la compra de vehículos de alta gama. Por su parte, la defensa rechazó las irregularidades y sostuvo que el pago respondió a un contrato legal de consultoría firmado en 2019.",
+      "cuerpo": "La Justicia Federal de San Isidro procesó el jueves al ex diputado nacional José Luis Espert por el delito de lavado de activos.\n\nLa medida judicial alcanza también al contador Mariano Alejandro Cosentino, procesado como partícipe necesario con un embargo de 700 millones de pesos, y a la firma Varianza SA, con un embargo de 500 millones. La investigación impulsada por el fiscal federal Fernando Domínguez se centra en una transferencia de 200.000 dólares recibida en 2020 y atribuida al empresario Federico 'Fred' Machado, condenado en Estados Unidos.\n\nDe acuerdo con la hipótesis fiscal, los fondos ingresaron mediante un contrato de asesoramiento simulado con la empresa guatemalteca Minas del Pueblo y habrían sido utilizados para la compra de vehículos de alta gama. Por su parte, la defensa rechazó las irregularidades y sostuvo que el pago respondió a un contrato legal de consultoría firmado en 2019.",
       "guion": "Procesan a José Luis Espert por lavado de dinero.",
       "seccion": "Política",
       "medios": [
         "Agencia DIB",
         "La Nación",
         "TN (Todo Noticias)",
+        "El Destape",
         "Perfil",
         "Página/12",
         "A24",
@@ -2856,11 +3270,11 @@
       "fecha": "2026-10-22T15:37:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T16:31:32.068Z",
-      "relevancia": 69,
+      "relevancia": 70,
       "local": false,
       "muyContada": {
-        "medios": 23,
-        "porque": "23 medios",
+        "medios": 24,
+        "porque": "24 medios",
         "desde": "2026-10-22T16:31:32.068Z"
       },
       "publicadaPor": null,
@@ -3313,6 +3727,98 @@
       }
     },
     {
+      "id": "13ektl1",
+      "titulo": "Crecen las tensiones internas en el oficialismo tras cruces por el islam",
+      "copete": "El tuitero Daniel Parisini cuestionó al presidente de la Cámara de Diputados, Martín Menem, y a Alberto Benegas Lynch por debates sobre religión.",
+      "cuerpo": "Una nueva disputa interna en La Libertad Avanza quedó expuesta tras los cruces públicos entre referentes del espacio en torno al islam y las discusiones religiosas.\n\nEl tuitero Daniel Parisini, conocido como el Gordo Dan, cuestionó con dureza al titular de la Cámara de Diputados, Martín Menem, y al economista Alberto Benegas Lynch. La discusión se originó cuando Benegas Lynch advirtió en redes sociales que utilizar temas religiosos para confrontar alimenta el fanatismo y sugirió que esas actitudes deben ser castigadas. Esa publicación fue compartida por Menem.\n\nEn respuesta, Parisini desestimó a los funcionarios y aseguró que la Argentina no se doblegará. Por su parte, Benegas Lynch retrucó las críticas al señalar que no hay nada más peligroso que un católico fanático.",
+      "guion": "Crecen las tensiones internas en el oficialismo tras cruces por el islam.",
+      "seccion": "Política",
+      "medios": [
+        "El Destape",
+        "El Cronista"
+      ],
+      "enlace": "https://www.cronista.com/informacion-gral/el-gordo-dan-apunto-contra-martin-menem-en-la-polemica-por-el-islam-la-argentina-no-se-doblegara-nunca/",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-22T15:27:35.087Z",
+      "sinFecha": false,
+      "visto": "2026-10-22T20:01:25.381Z",
+      "relevancia": 37,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Daniel Parisini criticó a Martín Menem y a Alberto Benegas Lynch.",
+        "El cruce se originó por publicaciones en redes sobre religión y el islam.",
+        "Benegas Lynch pidió penalizar los discursos religiosos confrontativos."
+      ],
+      "seSabe": [
+        "Daniel Parisini cuestionó a Martín Menem y a Alberto Benegas Lynch en redes sociales.",
+        "Alberto Benegas Lynch sostuvo que usar temas religiosos para confrontar debe ser castigado.",
+        "Martín Menem compartió la publicación del economista en su cuenta.",
+        "Benegas Lynch respondió posteriormente que no hay nada más peligroso que un católico fanático."
+      ],
+      "noConfirmado": [
+        "Todavía no se informaron medidas oficiales por parte del espacio político tras el entredicho."
+      ],
+      "textoRedes": "Escaló la interna libertaria tras un cruce en redes entre el tuitero Daniel Parisini, el diputado Martín Menem y el economista Alberto Benegas Lynch por debates sobre religión.",
+      "etiquetas": [
+        "La Libertad Avanza",
+        "Daniel Parisini",
+        "Martín Menem",
+        "Alberto Benegas Lynch",
+        "Islam"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/informacion-gral/el-gordo-dan-apunto-contra-martin-menem-en-la-polemica-por-el-islam-la-argentina-no-se-doblegara-nunca/",
+          "fecha": "2026-10-22T15:27:35.087Z",
+          "oficial": false,
+          "aporte": "Explicó que la tensión expone diferencias culturales y políticas en el oficialismo de cara al año electoral."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/politica/escala-la-interna-libertaria-por-el-islam-el-gordo-dan-ataco-a-benegas-lynch-el-procer-de-milei-y-a-nid21102026/",
+          "fecha": "2026-10-22T17:21:52.000Z",
+          "oficial": false,
+          "aporte": "Detalló los mensajes cruzados entre el Gordo Dan, Benegas Lynch y Martín Menem en la red social X."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/politica/exploto-interna-gobierno-gordo-dan-benegas-lynch-martin-menem-mensaje-islam-20261022164719",
+          "fecha": "2026-10-22T19:47:19.087Z",
+          "oficial": false,
+          "aporte": "Indicó las declaraciones del economista sobre las normas de respeto recíproco y el rol del islam en Europa."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "122dsf6",
+          "titulo": "Rosario Central genera polémica en los festejos contra Juan Sebastián Verón",
+          "fecha": "2026-09-30T07:31:17.990Z",
+          "ruta": "/nota/rosario-central-genera-polecutemica-en-los-festejos-contra-juan-122dsf6"
+        },
+        {
+          "id": "709xqq",
+          "titulo": "Procesan a un exsocio de Martín Menem y a dos exinterventores de OSPRERA",
+          "fecha": "2026-09-29T16:33:39.000Z",
+          "ruta": "/nota/procesan-a-un-exsocio-de-martin-menem-y-a-dos-exinterventores-de-709xqq"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "crecen-las-tensiones-internas-en-el-oficialismo-tras-cruces-por-el",
+      "foto": {
+        "archivo": "fotos-notas/13ektl1.jpg",
+        "credito": "Foto: La Nación"
+      }
+    },
+    {
       "id": "1anbbrs",
       "titulo": "France Football aclara que el Balón de Oro de todos los tiempos no entrega un trofeo",
       "copete": "La revista organizadora detalló el alcance de la votación digital abierta al público y diferenció la iniciativa del histórico galardón entregado en 1989.",
@@ -3375,6 +3881,105 @@
         "sugeridoPorIA": null
       },
       "slug": "france-football-aclara-que-el-balon-de-oro-de-todos-los-tiempos-no"
+    },
+    {
+      "id": "v2mfmz",
+      "titulo": "El Rotary Club dona sillitas de comer para las Unidades de Desarrollo Infantil",
+      "copete": "La entidad entregó equipamiento destinado a mejorar la comodidad de los niños que asisten a los establecimientos municipales. Las funcionarias de Desarrollo Social recibieron los elementos.",
+      "cuerpo": "Integrantes del Rotary Club Balcarce entregaron el miércoles por la mañana sillitas de comer destinadas a las Unidades de Desarrollo Infantil comunales, con el fin de optimizar la comodidad y la atención de los menores que concurren a diario a estos establecimientos.\n\nLa secretaria de Desarrollo Social, Paola Moreno, y la coordinadora de las UDIs, Claudia Etchepare, recibieron el equipamiento. La presidenta de la institución, Mariana Ridao, encabezó la actividad junto a las colaboradoras Marita Pardo, Susana Scioli y Ana Cabrera de McCargo.\n\nTras la recepción, Moreno agradeció el aporte solidario de la entidad y remarcó que la iniciativa fortalece los recursos disponibles para el cuidado de la primera infancia.",
+      "guion": "El Rotary Club dona sillitas de comer para las Unidades de Desarrollo Infantil.",
+      "seccion": "Balcarce",
+      "medios": [
+        "Puntonueve (FM 100.9)",
+        "Infórmese Primero (FM 104.9)",
+        "Radio Gabal (FM 104.1)",
+        "Municipalidad de Balcarce",
+        "El Diario Balcarce",
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://balcarce.gob.ar/2026/10/22/el-rotary-club-balcarce-dono-sillitas-de-comer-a-las-udis/",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-22T15:20:27.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-23T03:02:10.259Z",
+      "relevancia": 95,
+      "local": true,
+      "oficial": true,
+      "deUnMedioDeAca": true,
+      "muyContadaDeAca": 6,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El Rotary Club Balcarce donó sillitas de comer a las UDIs.",
+        "La entrega se concretó el miércoles por la mañana.",
+        "La secretaria de Desarrollo Social recibió los elementos."
+      ],
+      "seSabe": [
+        "El Rotary Club Balcarce entregó sillitas de comer a las Unidades de Desarrollo Infantil municipales.",
+        "La entrega se realizó el miércoles por la mañana.",
+        "La secretaria de Desarrollo Social, Paola Moreno, y la coordinadora de las UDIs, Claudia Etchepare, recibieron el equipamiento.",
+        "La presidenta de la entidad, Mariana Ridao, participó junto a Marita Pardo, Susana Scioli y Ana Cabrera de McCargo."
+      ],
+      "textoRedes": "El Rotary Club Balcarce donó sillitas de comer para las Unidades de Desarrollo Infantil municipales. La entrega se concretó el miércoles por la mañana con la presencia de autoridades del área de Desarrollo Social.",
+      "etiquetas": [
+        "Rotary Club Balcarce",
+        "Unidades de Desarrollo Infantil",
+        "Desarrollo Social",
+        "donación",
+        "primera infancia"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Municipalidad de Balcarce",
+          "enlace": "https://balcarce.gob.ar/2026/10/22/el-rotary-club-balcarce-dono-sillitas-de-comer-a-las-udis/",
+          "fecha": "2026-10-22T15:20:27.000Z",
+          "oficial": true,
+          "aporte": "Informó sobre la donación de sillitas de comer a las UDIs y los nombres de las funcionarias y las integrantes del Rotary Club."
+        },
+        {
+          "medio": "Puntonueve (FM 100.9)",
+          "enlace": "https://puntonueve.com.ar/el-rotary-club-balcarce-dono-sillitas-de-comer-para-las-unidades-de-desarrollo-infantil/",
+          "fecha": "2026-10-22T15:58:43.000Z",
+          "oficial": false,
+          "aporte": "Agregó que la acción se enmarca en la colaboración entre instituciones y el Municipio."
+        },
+        {
+          "medio": "Infórmese Primero (FM 104.9)",
+          "enlace": "http://www.informeseprimero.com.ar/2026/10/el-rotary-club-balcarce-dono-sillitas.html",
+          "fecha": "2026-10-22T16:20:12.830Z",
+          "oficial": false,
+          "aporte": "Precisó que la actividad se llevó a cabo el miércoles por la mañana."
+        },
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/rotary-club-balcarce-dono-sillitas-de-comer-para-las-unidades-de-desarrollo-infantil",
+          "fecha": "2026-10-22T16:15:59.000Z",
+          "oficial": false,
+          "aporte": "Detalló la participación de las representantes en el encuentro y el agradecimiento oficial."
+        },
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/el-rotary-club-balcarce-dono-sillitas-de-comer-para-las-unidades-de-desarrollo-infantil-319",
+          "fecha": "2026-10-22T21:36:01.000Z",
+          "oficial": false,
+          "aporte": "Aportó detalles sobre la fecha de la entrega y el contexto de colaboración institucional."
+        },
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45149-el-rotary-club-balcarce-dono-sillitas-de-comer-para-las-udis-municipales/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Confirmó la entrega de equipamiento y el trabajo conjunto con el Municipio para la primera infancia."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo confirman cuatro medios independientes y Municipalidad de Balcarce.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-rotary-club-dona-sillitas-de-comer-para-las-unidades-de-desarrollo"
     },
     {
       "id": "umqt3y",
@@ -3565,7 +4170,7 @@
       "fecha": "2026-10-22T15:01:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T22:31:33.435Z",
-      "relevancia": 47,
+      "relevancia": 40,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3643,15 +4248,15 @@
         "Noticias Argentinas (NA)",
         "Ámbito",
         "La Capital (Rosario)",
-        "La Gaceta (Tucumán)",
-        "La Nueva"
+        "La Nueva",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1159160/deportes/me-decia-siempre-habia-jugada-mas-messi-recordo-consejo-padre-oviedo.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-22T14:34:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T18:31:24.517Z",
-      "relevancia": 75,
+      "relevancia": 68,
       "local": false,
       "muyContada": {
         "medios": 8,
@@ -3761,24 +4366,25 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "TN (Todo Noticias)",
+        "El Destape",
         "Crónica",
         "Diario Popular",
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
-        "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.lacapital.com.ar/zoom/soledad-pastorutti-hablo-la-enfermedad-su-papa-reconocio-mi-voz-n10288082.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-22T14:24:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T18:31:24.517Z",
-      "relevancia": 59,
+      "relevancia": 53,
       "local": false,
       "muyContada": {
-        "medios": 8,
-        "porque": "8 medios",
+        "medios": 9,
+        "porque": "9 medios",
         "desde": "2026-10-22T22:01:20.146Z"
       },
       "publicadaPor": null,
@@ -3928,91 +4534,6 @@
       }
     },
     {
-      "id": "3vccru",
-      "titulo": "El dólar oficial alcanza su valor máximo del año tras una nueva suba",
-      "copete": "La cotización minorista en el Banco Nación se ubicó en $1550 y el segmento mayorista llegó a $1528. El dólar blue se mantuvo sin cambios y el riesgo país superó la barrera de los 700 puntos.",
-      "cuerpo": "El dólar oficial minorista operado en las pizarras del Banco Nación subió $5 y se posicionó en $1550, lo que representa un nuevo valor máximo en lo que va del año. Esta suba respondió a un incremento en la demanda habitual de fines de mes.\n\nEn el segmento mayorista, el tipo de cambio sumó $2 y alcanzó los $1528, acumulando cinco ruedas consecutivas al alza. Por su parte, el dólar blue operó sin modificaciones y cerró a $1565 para la venta, mientras que los dólares financieros registraron variaciones mixtas.\n\nEn el plano financiero, el Banco Central adquirió U$D 61 millones en el mercado de cambios y totalizó U$D 1211 millones comprados durante octubre. En tanto, el riesgo país elaborado por JP Morgan avanzó hasta los 704 puntos básicos.",
-      "guion": "El dólar oficial alcanza su valor máximo del año tras una nueva suba.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)"
-      ],
-      "enlace": "https://www.lanacion.com.ar/economia/el-riesgo-pais-supera-los-700-puntos-y-vuelve-al-valor-maximo-del-ano-nid22102026/",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-22T14:01:31.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 49,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El dólar minorista del Banco Nación cotizó a $1550 tras subir cinco pesos.",
-        "El segmento mayorista se ubicó en $1528 al sumar su quinta rueda en alza.",
-        "El dólar informal se mantuvo sin cambios y cerró la jornada a $1565.",
-        "El Banco Central compró U$D 61 millones y el riesgo país superó los 700 puntos."
-      ],
-      "seSabe": [
-        "El dólar oficial minorista alcanzó los $1550 en el Banco Nación.",
-        "El mayorista se posicionó en $1528 tras una suba de $2.",
-        "El dólar blue cerró sin variaciones a $1565.",
-        "El Banco Central adquirió U$D 61 millones en el mercado de cambios.",
-        "El riesgo país superó la barrera de los 700 puntos básicos."
-      ],
-      "noConfirmado": [
-        "Todavía no se informaron los detalles sobre el comportamiento futuro de la demanda en las próximas ruedas cambiarias."
-      ],
-      "textoRedes": "El dólar oficial minorista subió a $1550 y alcanzó su valor máximo del año. El segmento mayorista llegó a $1528, mientras que el blue se mantuvo estable a $1565 y el riesgo país superó los 700 puntos.",
-      "etiquetas": [
-        "dolar oficial",
-        "dolar blue",
-        "economia",
-        "banco central",
-        "riesgo pais"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/el-riesgo-pais-supera-los-700-puntos-y-vuelve-al-valor-maximo-del-ano-nid22102026/",
-          "fecha": "2026-10-22T14:01:31.000Z",
-          "oficial": false,
-          "aporte": "Informó la cotización minorista, mayorista, los movimientos del mercado y la suba del riesgo país."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/22/el-dolar-oficial-alcanzo-un-nuevo-maximo-subio-5-y-cerro-a-1550-en-el-banco-nacion/",
-          "fecha": "2026-10-22T21:31:52.000Z",
-          "oficial": false,
-          "aporte": "Aportó el valor de cierre del dólar blue y las declaraciones de operadores sobre la demanda."
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159184/economia/dolar-hoy-oficial-alcanzo-nuevo-maximo-nominal-blue-opero-sin-variantes.html",
-          "fecha": "2026-10-22T18:09:00.000Z",
-          "oficial": false,
-          "aporte": "Señaló la acumulación anual del tipo de cambio y su comparación con la inflación."
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/economia/el-dolar-oficial-subio-1550-y-alcanzo-su-maximo-valor-lo-que-va-del-ano-n6011368",
-          "fecha": "2026-10-22T21:53:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló las compras de divisas del Banco Central y el nivel de las reservas internacionales."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-dolar-oficial-alcanza-su-valor-maximo-del-ano-tras-una-nueva-suba"
-    },
-    {
       "id": "1uib2z8",
       "titulo": "Boca e Independiente juegan el domingo por el Torneo Clausura",
       "copete": "Boca visitará a Independiente el domingo a las 17 en Avellaneda por la fecha 14 del Torneo Clausura 2026. El clásico llega con un historial de 229 partidos oficiales que favorece al conjunto xeneize.",
@@ -4020,6 +4541,7 @@
       "guion": "Boca e Independiente juegan el domingo por el Torneo Clausura.",
       "seccion": "Fútbol",
       "medios": [
+        "El Destape",
         "TyC Sports",
         "Minuto Uno"
       ],
@@ -4028,7 +4550,7 @@
       "fecha": "2026-10-22T14:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T18:01:33.458Z",
-      "relevancia": 30,
+      "relevancia": 35,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4183,6 +4705,9 @@
       "guion": "La confianza del consumidor sube un 0,81% en octubre.",
       "seccion": "Economía",
       "medios": [
+        "Agencia DIB",
+        "Noticias Argentinas (NA)",
+        "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
         "Ámbito",
         "C5N"
@@ -4192,7 +4717,7 @@
       "fecha": "2026-10-22T13:51:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T19:01:49.033Z",
-      "relevancia": 35,
+      "relevancia": 43,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4450,8 +4975,8 @@
     {
       "id": "19jkaky",
       "titulo": "El Tribunal fija la fecha del veredicto por la muerte de Maradona",
-      "copete": "El debate oral por el fallecimiento del exfutbolista llegó este jueves a su etapa final tras los alegatos. La decisión judicial se conocerá antes de fin de año.",
-      "cuerpo": "El Tribunal Oral en lo Criminal N.º 7 de San Isidro resolvió este jueves finalizar la etapa de debate oral en el juicio por la muerte de Diego Armando Maradona con la absolución del médico clínico Pedro Di Spagna. Los magistrados Alberto Gaig, Alberto Ortolani y Pablo Rolón informaron que la decisión final sobre los otros seis imputados se leerá el 22 de diciembre a las 12.\n\nDurante la última jornada, las defensas de los enfermeros expusieron sus argumentos y reclamaron sus absoluciones. A su vez, varios de los acusados hicieron uso de su derecho a las últimas palabras ante los jueces antes del cierre del proceso.",
+      "copete": "El debate oral por el fallecimiento del exfutbolista llegó el jueves a su etapa final tras los alegatos. La decisión judicial se conocerá antes de fin de año.",
+      "cuerpo": "El Tribunal Oral en lo Criminal N.º 7 de San Isidro resolvió el jueves finalizar la etapa de debate oral en el juicio por la muerte de Diego Armando Maradona con la absolución del médico clínico Pedro Di Spagna. Los magistrados Alberto Gaig, Alberto Ortolani y Pablo Rolón informaron que la decisión final sobre los otros seis imputados se leerá el 22 de diciembre a las 12.\n\nDurante la última jornada, las defensas de los enfermeros expusieron sus argumentos y reclamaron sus absoluciones. A su vez, varios de los acusados hicieron uso de su derecho a las últimas palabras ante los jueces antes del cierre del proceso.",
       "guion": "El Tribunal fija la fecha del veredicto por la muerte de Maradona.",
       "seccion": "Argentina",
       "medios": [
@@ -5433,6 +5958,7 @@
       "seccion": "Economía",
       "medios": [
         "TN (Todo Noticias)",
+        "El Destape",
         "El Día",
         "La Tecla",
         "El Marplatense",
@@ -5446,11 +5972,11 @@
       "fecha": "2026-10-22T10:17:44.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T11:01:21.108Z",
-      "relevancia": 44,
+      "relevancia": 46,
       "local": false,
       "muyContada": {
-        "medios": 7,
-        "porque": "6 medios en sus primeras 3 horas",
+        "medios": 8,
+        "porque": "8 medios",
         "desde": "2026-10-22T12:01:14.908Z"
       },
       "publicadaPor": null,
@@ -5983,6 +6509,25 @@
             },
             "penales": null,
             "goles": []
+          },
+          {
+            "dia": "Martes 27 de octubre",
+            "hora": "19:00",
+            "estado": "programado",
+            "estadio": "Diego Armando Maradona",
+            "fase": null,
+            "local": {
+              "id": "3",
+              "nombre": "Argentinos Juniors",
+              "goles": 0
+            },
+            "visitante": {
+              "id": "9744",
+              "nombre": "Independiente Rivadavia",
+              "goles": 0
+            },
+            "penales": null,
+            "goles": []
           }
         ]
       },
@@ -5993,9 +6538,9 @@
         }
       ],
       "lugarFoto": "Juan Carmelo Zerillo (El Bosque)",
-      "titulo": "Liga Profesional: los partidos de la fecha del 23 al 26 de octubre, con horarios",
+      "titulo": "Liga Profesional: los partidos de la fecha del 23 al 27 de octubre, con horarios",
       "copete": "Todos los partidos de Liga Profesional de Fútbol de la fecha, con horarios en hora argentina.",
-      "cuerpo": "Estos son los partidos de Liga Profesional de Fútbol del 23 al 26 de octubre, con sus horarios en hora argentina (UTC-3), en el orden en que se juegan:\n\nViernes 23 de octubre, 18:00: Gimnasia La Plata vs Sarmiento (Junín) (Juan Carmelo Zerillo (El Bosque)).\n\nViernes 23 de octubre, 18:30: Gimnasia (Mendoza) vs Platense (Estadio Víctor Antonio Legrotaglie).\n\nViernes 23 de octubre, 21:15: Tigre vs Atlético Tucumán (Monumental de Victoria (José Dellagiovanna)).\n\nSábado 24 de octubre, 14:45: Banfield vs Lanús (Florencio Solá).\n\nSábado 24 de octubre, 17:00: Talleres (Córdoba) vs Defensa y Justicia (Mario Alberto Kempes).\n\nSábado 24 de octubre, 19:15: San Lorenzo vs Newell's Old Boys (Estadio Pedro Bidegain).\n\nSábado 24 de octubre, 21:30: Rosario Central vs Huracán (Gigante de Arroyito).\n\nDomingo 25 de octubre, 14:45: Aldosivi vs Belgrano (Córdoba) (José María Minella).\n\nDomingo 25 de octubre, 17:00: Independiente vs Boca Juniors (Estadio Libertadores de América).\n\nDomingo 25 de octubre, 19:15: River Plate vs Racing Club (Estadio Más Monumental).\n\nDomingo 25 de octubre, 21:30: Barracas Central vs Estudiantes de Río Cuarto (Estadio Claudio Chiqui Tapia).\n\nDomingo 25 de octubre, 21:30: Central Córdoba (Santiago del Estero) vs Vélez Sarsfield ('Estadio Único Madre de Ciudades).\n\nLunes 26 de octubre, 19:00: Unión (Santa Fe) vs Estudiantes de La Plata (15 de Abril).\n\nLunes 26 de octubre, 21:15: Instituto (Córdoba) vs Deportivo Riestra (Monumental Presidente Perón).\n\nLos horarios son los que informa ESPN y pueden cambiar; los consultamos de nuevo cada pocas horas. Después de cada partido sumamos el resultado en otra nota.",
+      "cuerpo": "Estos son los partidos de Liga Profesional de Fútbol del 23 al 27 de octubre, con sus horarios en hora argentina (UTC-3), en el orden en que se juegan:\n\nViernes 23 de octubre, 18:00: Gimnasia La Plata vs Sarmiento (Junín) (Juan Carmelo Zerillo (El Bosque)).\n\nViernes 23 de octubre, 18:30: Gimnasia (Mendoza) vs Platense (Estadio Víctor Antonio Legrotaglie).\n\nViernes 23 de octubre, 21:15: Tigre vs Atlético Tucumán (Monumental de Victoria (José Dellagiovanna)).\n\nSábado 24 de octubre, 14:45: Banfield vs Lanús (Florencio Solá).\n\nSábado 24 de octubre, 17:00: Talleres (Córdoba) vs Defensa y Justicia (Mario Alberto Kempes).\n\nSábado 24 de octubre, 19:15: San Lorenzo vs Newell's Old Boys (Estadio Pedro Bidegain).\n\nSábado 24 de octubre, 21:30: Rosario Central vs Huracán (Gigante de Arroyito).\n\nDomingo 25 de octubre, 14:45: Aldosivi vs Belgrano (Córdoba) (José María Minella).\n\nDomingo 25 de octubre, 17:00: Independiente vs Boca Juniors (Estadio Libertadores de América).\n\nDomingo 25 de octubre, 19:15: River Plate vs Racing Club (Estadio Más Monumental).\n\nDomingo 25 de octubre, 21:30: Barracas Central vs Estudiantes de Río Cuarto (Estadio Claudio Chiqui Tapia).\n\nDomingo 25 de octubre, 21:30: Central Córdoba (Santiago del Estero) vs Vélez Sarsfield ('Estadio Único Madre de Ciudades).\n\nLunes 26 de octubre, 19:00: Unión (Santa Fe) vs Estudiantes de La Plata (15 de Abril).\n\nLunes 26 de octubre, 21:15: Instituto (Córdoba) vs Deportivo Riestra (Monumental Presidente Perón).\n\nMartes 27 de octubre, 19:00: Argentinos Juniors vs Independiente Rivadavia (Diego Armando Maradona).\n\nLos horarios son los que informa ESPN y pueden cambiar; los consultamos de nuevo cada pocas horas. Después de cada partido sumamos el resultado en otra nota.",
       "guion": null,
       "seccion": "Fútbol",
       "local": false,
@@ -6450,6 +6995,92 @@
       }
     },
     {
+      "id": "3vccru",
+      "titulo": "El dólar oficial alcanza su valor máximo del año tras una nueva suba",
+      "copete": "La cotización minorista en el Banco Nación se ubicó en $1550 y el segmento mayorista llegó a $1528. El dólar blue se mantuvo sin cambios y el riesgo país superó la barrera de los 700 puntos.",
+      "cuerpo": "El dólar oficial minorista operado en las pizarras del Banco Nación subió $5 y se posicionó en $1550, lo que representa un nuevo valor máximo en lo que va del año. Esta suba respondió a un incremento en la demanda habitual de fines de mes.\n\nEn el segmento mayorista, el tipo de cambio sumó $2 y alcanzó los $1528, acumulando cinco ruedas consecutivas al alza. Por su parte, el dólar blue operó sin modificaciones y cerró a $1565 para la venta, mientras que los dólares financieros registraron variaciones mixtas.\n\nEn el plano financiero, el Banco Central adquirió U$D 61 millones en el mercado de cambios y totalizó U$D 1211 millones comprados durante octubre. En tanto, el riesgo país elaborado por JP Morgan avanzó hasta los 704 puntos básicos.",
+      "guion": "El dólar oficial alcanza su valor máximo del año tras una nueva suba.",
+      "seccion": "Economía",
+      "medios": [
+        "La Nación",
+        "TN (Todo Noticias)",
+        "Ámbito",
+        "Los Andes (Mendoza)",
+        "La Gaceta (Tucumán)"
+      ],
+      "enlace": "https://www.lanacion.com.ar/economia/el-riesgo-pais-supera-los-700-puntos-y-vuelve-al-valor-maximo-del-ano-nid22102026/",
+      "teniaImagenLaFuente": true,
+      "fecha": "2026-10-21T21:13:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-23T00:01:53.168Z",
+      "relevancia": 52,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El dólar minorista del Banco Nación cotizó a $1550 tras subir cinco pesos.",
+        "El segmento mayorista se ubicó en $1528 al sumar su quinta rueda en alza.",
+        "El dólar informal se mantuvo sin cambios y cerró la jornada a $1565.",
+        "El Banco Central compró U$D 61 millones y el riesgo país superó los 700 puntos."
+      ],
+      "seSabe": [
+        "El dólar oficial minorista alcanzó los $1550 en el Banco Nación.",
+        "El mayorista se posicionó en $1528 tras una suba de $2.",
+        "El dólar blue cerró sin variaciones a $1565.",
+        "El Banco Central adquirió U$D 61 millones en el mercado de cambios.",
+        "El riesgo país superó la barrera de los 700 puntos básicos."
+      ],
+      "noConfirmado": [
+        "Todavía no se informaron los detalles sobre el comportamiento futuro de la demanda en las próximas ruedas cambiarias."
+      ],
+      "textoRedes": "El dólar oficial minorista subió a $1550 y alcanzó su valor máximo del año. El segmento mayorista llegó a $1528, mientras que el blue se mantuvo estable a $1565 y el riesgo país superó los 700 puntos.",
+      "etiquetas": [
+        "dolar oficial",
+        "dolar blue",
+        "economia",
+        "banco central",
+        "riesgo pais"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/el-riesgo-pais-supera-los-700-puntos-y-vuelve-al-valor-maximo-del-ano-nid22102026/",
+          "fecha": "2026-10-22T14:01:31.000Z",
+          "oficial": false,
+          "aporte": "Informó la cotización minorista, mayorista, los movimientos del mercado y la suba del riesgo país."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/22/el-dolar-oficial-alcanzo-un-nuevo-maximo-subio-5-y-cerro-a-1550-en-el-banco-nacion/",
+          "fecha": "2026-10-22T21:31:52.000Z",
+          "oficial": false,
+          "aporte": "Aportó el valor de cierre del dólar blue y las declaraciones de operadores sobre la demanda."
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1159184/economia/dolar-hoy-oficial-alcanzo-nuevo-maximo-nominal-blue-opero-sin-variantes.html",
+          "fecha": "2026-10-22T18:09:00.000Z",
+          "oficial": false,
+          "aporte": "Señaló la acumulación anual del tipo de cambio y su comparación con la inflación."
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/economia/el-dolar-oficial-subio-1550-y-alcanzo-su-maximo-valor-lo-que-va-del-ano-n6011368",
+          "fecha": "2026-10-22T21:53:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló las compras de divisas del Banco Central y el nivel de las reservas internacionales."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-dolar-oficial-alcanza-su-valor-maximo-del-ano-tras-una-nueva-suba"
+    },
+    {
       "id": "16fc2fy",
       "titulo": "River recibe a Racing por la fecha 14 del Torneo Clausura",
       "copete": "El conjunto dirigido por Leonardo Ponzio se medirá el domingo ante la Academia en el Monumental con el objetivo de escalar posiciones en la tabla.",
@@ -6459,17 +7090,18 @@
       "medios": [
         "TN (Todo Noticias)",
         "Olé",
+        "Crónica",
         "Noticias Argentinas (NA)",
         "Bolavip Argentina",
-        "El Gráfico",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "El Gráfico"
       ],
       "enlace": "https://www.ole.com.ar/river-plate/river-plate-vivo-jueves-22-octubre-ultimas-noticias-racing_0_EQ9f8qDUi8.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-21T20:49:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T23:03:18.864Z",
-      "relevancia": 41,
+      "relevancia": 47,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6940,6 +7572,7 @@
       "guion": "Presentan en Puerto Madero el primer ferry 100% eléctrico del mundo.",
       "seccion": "Tecnología",
       "medios": [
+        "El Destape",
         "iProfesional",
         "Noticias Argentinas (NA)",
         "Minuto Uno",
@@ -6951,7 +7584,7 @@
       "fecha": "2026-10-21T19:04:53.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T02:01:06.703Z",
-      "relevancia": 27,
+      "relevancia": 30,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7016,6 +7649,7 @@
         "La Nación",
         "Perfil",
         "TN (Todo Noticias)",
+        "El Destape",
         "Noticias Argentinas (NA)",
         "La Verdad",
         "Ámbito",
@@ -7028,7 +7662,7 @@
       "fecha": "2026-10-21T19:02:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-21T19:31:12.645Z",
-      "relevancia": 43,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7482,6 +8116,7 @@
     }
   ],
   "secciones": [
+    "Fútbol",
     "Política",
     "Automovilismo",
     "Policiales",
@@ -7491,7 +8126,6 @@
     "Educación",
     "Argentina",
     "Economía",
-    "Fútbol",
     "Tecnología",
     "Salud"
   ],
@@ -7500,24 +8134,13 @@
     "ahora": {
       "temp": 12,
       "sensacion": 10,
-      "humedad": 97,
-      "viento": 16,
+      "humedad": 98,
+      "viento": 17,
       "rumbo": "E",
       "cielo": "Chaparrones",
       "esDeDia": false
     },
     "dias": [
-      {
-        "fecha": "2026-10-22",
-        "dia": "jue",
-        "max": 20,
-        "min": 9,
-        "lluvia": 90,
-        "codigo": 81,
-        "viento": 21,
-        "milimetros": 12,
-        "cielo": "Chaparrones fuertes"
-      },
       {
         "fecha": "2026-10-23",
         "dia": "vie",
@@ -7550,6 +8173,17 @@
         "viento": 18,
         "milimetros": 0,
         "cielo": "Llovizna leve"
+      },
+      {
+        "fecha": "2026-10-26",
+        "dia": "lun",
+        "max": 14,
+        "min": 7,
+        "lluvia": 0,
+        "codigo": 3,
+        "viento": 12,
+        "milimetros": 0,
+        "cielo": "Nublado"
       }
     ],
     "fuente": "Open-Meteo"
@@ -7848,77 +8482,17 @@
   },
   "pendientes": [
     {
-      "id": "8hc85",
-      "titulo": null,
-      "seccion": "Policiales",
-      "motivo": "necesita ojo humano: \"adolescente\""
-    },
-    {
-      "id": "v2mfmz",
-      "titulo": null,
-      "seccion": "Balcarce",
-      "motivo": "necesita ojo humano: \"niños\""
-    },
-    {
-      "id": "oki1tq",
-      "titulo": null,
-      "seccion": "Política",
-      "motivo": "necesita ojo humano: \"menores de edad\" (en otro medio que cuenta lo mismo)"
-    },
-    {
-      "id": "yvuxkh",
-      "titulo": null,
-      "seccion": "Policiales",
-      "motivo": "necesita ojo humano: \"detenido\""
-    },
-    {
-      "id": "10k46b4",
-      "titulo": "La Dirección de Juventud expresó su repudio y preocupación…",
-      "seccion": "Balcarce",
-      "motivo": "necesita ojo humano: \"murieron\" (en otro medio que cuenta lo mismo)"
-    },
-    {
-      "id": "eqev5e",
-      "titulo": null,
-      "seccion": "Policiales",
-      "motivo": "necesita ojo humano: \"adolescente\""
-    },
-    {
-      "id": "l0y98w",
-      "titulo": "Suspenden la Estudiantina 2026 y 2027 por los episodios de…",
-      "seccion": "Educación",
-      "motivo": "necesita ojo humano: \"herido\" (en otro medio que cuenta lo mismo)"
-    },
-    {
-      "id": "junk5b",
-      "titulo": null,
-      "seccion": "Cultura y agenda",
-      "motivo": "necesita ojo humano: \"adolescente\""
-    },
-    {
-      "id": "f3cclg",
-      "titulo": null,
-      "seccion": "Balcarce",
-      "motivo": "necesita ojo humano: \"niño\""
-    },
-    {
-      "id": "1vk5xun",
-      "titulo": null,
-      "seccion": "Policiales",
-      "motivo": "necesita ojo humano: \"apuñalado\""
-    },
-    {
       "id": "w7qu88",
-      "titulo": null,
+      "titulo": "Petruccelli habló de salud mental y pidió medidas…",
       "seccion": "Salud",
-      "motivo": "necesita ojo humano: \"adolescente\", en el texto completo de la fuente (visto al reescribir)"
+      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     },
     {
-      "id": "t5nq4s",
+      "id": "12if1s5",
       "titulo": null,
-      "seccion": "Balcarce",
-      "motivo": "necesita ojo humano: \"víctima\" (en otro medio que cuenta lo mismo)"
+      "seccion": "Policiales",
+      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 3
+  "esperandoCuerpo": 5
 }
