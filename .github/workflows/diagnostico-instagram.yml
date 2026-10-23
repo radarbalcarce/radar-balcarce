@@ -1,23 +1,40 @@
 name: Diagnóstico de Instagram
 
 # A mano. Sólo mira: cupo de publicación, permisos y una subida de prueba (sin publicar). Ver scripts/medir/diagnostico-instagram.mjs.
+# Con «corridas» (números de corridas de «Redes», separados por comas) sube también los videos que esas corridas dejaron como adjunto, para ver
+# si Instagram los rechaza (sin publicarlos).
 
 on:
   workflow_dispatch:
+    inputs:
+      corridas:
+        description: 'Corridas de Redes con videos a probar, separadas por comas (opcional)'
+        required: false
+        default: ''
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   ver:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
       - run: npm ci --no-audit --no-fund
-      - run: node scripts/medir/diagnostico-instagram.mjs
+      - name: Diagnóstico
         env:
           META_TOKEN: ${{ secrets.META_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          CORRIDAS: ${{ inputs.corridas }}
+        run: |
+          VIDEOS=""
+          for c in $(echo "$CORRIDAS" | tr ',' ' '); do
+            gh run download "$c" --repo "$GITHUB_REPOSITORY" -D "videos/$c" || echo "(la corrida $c no tiene adjunto)"
+          done
+          VIDEOS=$(find videos -name '*.mp4' 2>/dev/null | tr '\n' ' ')
+          node scripts/medir/diagnostico-instagram.mjs $VIDEOS

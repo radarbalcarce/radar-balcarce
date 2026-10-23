@@ -38,18 +38,26 @@ const carpeta = mkdtempSync(join(tmpdir(), 'diag-'));
 const archivo = join(carpeta, 'prueba.mp4');
 const ffmpeg = (await import('ffmpeg-static')).default;
 execFileSync(ffmpeg, ['-y', '-f', 'lavfi', '-i', 'color=c=0x1d4ed8:s=1080x1920:r=30:d=5', '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100:duration=5', '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ac', '1', '-shortest', '-movflags', '+faststart', archivo], { stdio: 'ignore' });
+// Con rutas como argumentos sube esos videos (los que fallaron) en vez del de prueba.
+const rutas = process.argv.slice(2);
+if (rutas.length) { for (const r of rutas) await subir(readFileSync(r), r); process.exit(0); }
 const video = readFileSync(archivo);
 
-const cont = await pedir(`${ig}/media`, { metodo: 'POST', params: { media_type: 'REELS', upload_type: 'resumable' }, tokenUso: tokenPagina });
-console.log(`Contenedor: HTTP ${cont.http} ${cont.j.id ? 'creado' : limpio(cont.j, tokenPagina)}`);
-if (cont.j.uri) {
-  const r = await fetch(cont.j.uri, { method: 'POST', headers: { Authorization: `OAuth ${tokenPagina}`, offset: '0', file_size: String(video.length) }, body: video });
-  const cuerpo = await r.json().catch(() => ({}));
-  console.log(`Subida de un video de prueba (${video.length} bytes): HTTP ${r.status} ${limpio(cuerpo, tokenPagina)}`);
-  for (let i = 0; i < 20; i += 1) {
-    const e = await pedir(cont.j.id, { params: { fields: 'status_code,status' }, tokenUso: tokenPagina });
-    console.log(`  estado: ${e.j.status_code ?? '?'} ${e.j.status ?? ''}`);
-    if (e.j.status_code === 'FINISHED' || e.j.status_code === 'ERROR' || e.j.status_code === 'EXPIRED') break;
-    await new Promise((x) => setTimeout(x, 3000));
+await subir(video, "video de prueba");
+
+async function subir(video, nombre) {
+  const cont = await pedir(`${ig}/media`, { metodo: 'POST', params: { media_type: 'REELS', upload_type: 'resumable' }, tokenUso: tokenPagina });  
+  console.log(nombre);
+  console.log(`Contenedor: HTTP ${cont.http} ${cont.j.id ? 'creado' : limpio(cont.j, tokenPagina)}`);  
+  if (cont.j.uri) {  
+    const r = await fetch(cont.j.uri, { method: 'POST', headers: { Authorization: `OAuth ${tokenPagina}`, offset: '0', file_size: String(video.length) }, body: video });  
+    const cuerpo = await r.json().catch(() => ({}));  
+    console.log(`Subida de un video de prueba (${video.length} bytes): HTTP ${r.status} ${limpio(cuerpo, tokenPagina)}`);  
+    for (let i = 0; i < 20; i += 1) {  
+      const e = await pedir(cont.j.id, { params: { fields: 'status_code,status' }, tokenUso: tokenPagina });  
+      console.log(`  estado: ${e.j.status_code ?? '?'} ${e.j.status ?? ''}`);  
+      if (e.j.status_code === 'FINISHED' || e.j.status_code === 'ERROR' || e.j.status_code === 'EXPIRED') break;  
+      await new Promise((x) => setTimeout(x, 3000));  
+    }  
+  }  
   }
-}
