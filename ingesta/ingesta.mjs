@@ -10,7 +10,7 @@ import {
   MOTIVO_INTERNACIONAL, PALABRAS_DE_TECNOLOGIA_EN_EL_TITULO, SECCIONES_QUE_NO_ENTRAN, CONEXION_ARGENTINA, TITULO_HOROSCOPO, TITULO_LOTERIA,
   nombraLocalidadDudosa, INSTITUCIONES_QUE_SORTEAN,
 } from './fuentes.mjs';
-import { PORTADA, PUNTAJE } from './criterio.mjs';
+import { PORTADA, PUNTAJE, MUY_CONTADA } from './criterio.mjs';
 import { marcarMuyContadas } from './muy-contada.mjs';
 import { mediosMinimos, popularidadDe, esSeccionSoloDeAca } from './popularidad.mjs';
 import { policialNacionalRelevante } from './policial-nacional.mjs';
@@ -904,7 +904,8 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // por una palabra sensible (niños, murió, detenido…). Sólo quedan el rojo (arriba) y la regla de la IA de no nombrar a menores ni a víctimas.
   // Se anota qué palabra lo habría frenado (liberadaPor) para medir cuánto se libera y si se está cuidando bien (estadistica-seleccion.json).
   let liberadaPor = null;
-  if (sensible?.color === 'amarillo' && esDeAca(nota)) { liberadaPor = sensible.motivo.replace(/^necesita ojo humano: /, ''); sensible = null; }
+  // Desde el 23/10 (Hernán: «más de 8 fuentes debería ser algo súper relevante») tampoco espera lo que cuentan MUY_CONTADA.medios medios o más.
+  if (sensible?.color === 'amarillo' && (esDeAca(nota) || medios >= MUY_CONTADA.medios)) { liberadaPor = sensible.motivo.replace(/^necesita ojo humano: /, ''); sensible = null; }
   const conLiberada = (r) => (liberadaPor ? { ...r, liberadaPor } : r);
   // Lo que no se publica nunca (las listas de sepelios, Hernán 27/09). Sólo
   // el título: la palabra suelta en un texto largo no alcanza. Va ANTES del

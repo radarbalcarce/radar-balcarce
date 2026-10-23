@@ -220,7 +220,8 @@ export const MUY_CONTADA = {
   nocheDesde: 20,
   nocheHasta: 7,
   horasDelHecho: 24,
-  horasDeLaUltimaNota: 12,
+  // 24 (23/10): igual que el estreno de lo muy contado (PORTADA.horasParaEstrenarMuyContada); con 12, una historia grande de ayer a la noche salía sin la marca.
+  horasDeLaUltimaNota: 24,
   horasPrimeraEnSuSeccion: 6,
   porTema: 2,
   mediosDeAca: 3,

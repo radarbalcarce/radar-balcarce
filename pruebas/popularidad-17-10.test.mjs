@@ -90,11 +90,11 @@ test('regla 197: o 5 medios en sus primeras 3 horas de día, o 4 de noche (de 20
   assert.match(porQueEsMuyContada(deNoche, { ahora: AHORA, contar }).porque, /de noche/);
 });
 
-test('regla 197: sólo con el hecho de menos de 24 horas y alguna nota de las últimas 12', () => {
+test('regla 197: sólo con el hecho de menos de 24 horas y alguna nota de las últimas 24 (antes 12; 23/10, regla 287)', () => {
   const vieja = deAfuera('h', { medios: NACIONALES.slice(0, 10), horas: 30, cada: 0.1 });
   assert.equal(porQueEsMuyContada(vieja, { ahora: AHORA, contar: contarMedios }), null);
   const quieta = deAfuera('i', { medios: NACIONALES.slice(0, 10), horas: 20, cada: 0.1 });
-  assert.equal(porQueEsMuyContada(quieta, { ahora: AHORA, contar: contarMedios }), null, 'la última nota es de hace 19 horas');
+  assert.ok(porQueEsMuyContada(quieta, { ahora: AHORA, contar: contarMedios }), 'con la última nota de hace 19 horas ya cuenta: igual que el estreno de lo muy contado');
 });
 
 test('regla 197: lo que no es noticia no es muy contada aunque lo cuenten todos (casos reales del 15/10)', () => {

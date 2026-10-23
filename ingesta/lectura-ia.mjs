@@ -24,6 +24,7 @@ import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
 import { SECCIONES_SUMADAS, TEXTO_PARA_LA_FICHA, esSumada } from './secciones-nuevas.mjs';
 import { policialNacionalRelevante } from './policial-nacional.mjs';
+import { MUY_CONTADA } from './criterio.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 const AQUI = import.meta.dirname;
@@ -514,7 +515,7 @@ export function aplicarFichas(notas, fichas = {}, {
     // Balcarce (Hernán, 27/09): una figura argentina (Colapinto, Messi) o la
     // conexión argentina en el título. La Fórmula 1 sin un argentino, no.
     // Sin excepciones (desde la regla 260 tampoco la ciencia y la tecnología).
-    else if (f.ambito === 'internacional' && !n.figura && !conexionArgentina) motivo = 'es del extranjero';
+    else if (f.ambito === 'internacional' && !n.figura && !conexionArgentina && medios < MUY_CONTADA.medios) motivo = 'es del extranjero';
     // Lo de la zona sí entra (28/09): ver esPolicialDeAfuera, ingesta/ingesta.mjs.
     if (!motivo && f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
     if (motivo) { cambios.sacadas.push({ ...caso, motivo }); continue; }
@@ -760,7 +761,7 @@ export function quitarRepetidas(notas, grupos = [], { publicadas = new Set() } =
     const [queda, ...resto] = del;
     const medios = [...new Set(del.flatMap((n) => n.medios ?? []))];
     const heredada = hayRoja ? { semaforo: 'rojo', motivo: 'la misma noticia, en otro medio, es un tema sensible' }
-      : (sensible && queda.semaforo === 'verde' ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {});
+      : (sensible && queda.semaforo === 'verde' && medios.length < MUY_CONTADA.medios ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {});
     reemplazo.set(queda.id, { ...queda, ...heredada, medios, ...fuentesSumadas(queda, resto) });
     for (const n of resto) fuera.set(n.id, { id: n.id, titulo: n.titulo, queda: queda.id });
   }

@@ -90,3 +90,19 @@ test('policial de afuera con pocos medios: la lectura con IA lo sigue sacando', 
   const { cambios } = aplicarFichas([policial(3)], { pol1: FICHA_POLICIAL });
   assert.equal(cambios.sacadas.length, 1);
 });
+
+// 23/10 (regla 288): lo que cuentan 8 medios o más no espera por una palabra sensible (el rojo no se toca), no se saca por "es del extranjero"
+// y no hereda el amarillo de una sola versión. Hernán: «más de 8 fuentes debería ser algo súper relevante».
+
+test('lo muy contado (8 medios) no espera por "denunció"; con 3 medios, sí', () => {
+  const nota = (n) => ({ titulo: 'Boca denunció daños en el estadio tras el partido', cuerpo: '', seccion: 'Fútbol', alcance: 'pais', medios: Array.from({ length: n }, (_, i) => `M${i}`) });
+  assert.equal(paraPruebas.semaforo(nota(9), 'Fútbol', 9).color, 'verde');
+  assert.equal(paraPruebas.semaforo(nota(3), 'Fútbol', 3).color, 'amarillo');
+});
+
+test('la lectura con IA no saca por "es del extranjero" lo que cuentan 8 medios o más', () => {
+  const ficha = { ambito: 'internacional', seccion: 'Fútbol', impacto: 'nulo', razon: 'ninguna', importancia: 'media', publicidad: false, chimento: false, porque: '', cuando: '2026-10-23T00:00:00.000Z' };
+  const nota = (n) => ({ id: 'f1', titulo: 'Un clásico europeo que cuentan todos', seccion: 'Fútbol', semaforo: 'verde', alcance: 'pais', medios: Array.from({ length: n }, (_, i) => `M${i}`) });
+  assert.equal(aplicarFichas([nota(9)], { f1: ficha }).cambios.sacadas.length, 0);
+  assert.equal(aplicarFichas([nota(3)], { f1: ficha }).cambios.sacadas.length, 1);
+});

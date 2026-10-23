@@ -891,7 +891,7 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Muy contada: la noche empieza a la hora | 20 | `MUY_CONTADA.nocheDesde` |
 | Muy contada: la noche termina a la hora | 7 | `MUY_CONTADA.nocheHasta` |
 | Muy contada: horas que puede tener el hecho | 24 | `MUY_CONTADA.horasDelHecho` |
-| Muy contada: horas que puede tener su nota más nueva | 12 | `MUY_CONTADA.horasDeLaUltimaNota` |
+| Muy contada: horas que puede tener su nota más nueva | 24 | `MUY_CONTADA.horasDeLaUltimaNota` |
 | Muy contada: horas que va primera en su sección | 6 | `MUY_CONTADA.horasPrimeraEnSuSeccion` |
 | Muy contada: cuántas del mismo tema a la vez, como mucho | 2 | `MUY_CONTADA.porTema` |
 | Muy contada de acá: medios de Balcarce que la cuentan (primera para la nota grande y Facebook) | 3 | `MUY_CONTADA.mediosDeAca` |
