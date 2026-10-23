@@ -32685,14 +32685,28 @@
   "huella": "b234b6b370f494da"
  },
  "1anbbrs": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1anbbrs.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "France Football aclara que el Balón de Oro de todos los tiempos no entrega un trofeo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T05:01:57.214Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://442.perfil.com/noticias/futbol/france-football-confirmo-que-el-boat-balon-de-oro-de-todos-los-tiempos-no-entregara-un-trofeo.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/22/trim/1140/641/messi-y-cristiano-ronaldo-en-la-gala-del-balon-de-oro-2354116.png",
+  "razon": "La foto A corresponde exactamente a la temática del Balón de Oro y no tiene marcas superpuestas, a diferencia de la B que incluye el zócalo del medio.",
+  "cuando": "2026-10-23T11:03:10.638Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cristiano Ronaldo y Lionel Messi con el trofeo del Balón de Oro"
+  },
+  "huella": "e463616525357561"
  },
  "1d27b9k": {
   "archivo": "fotos-notas/1d27b9k.jpg",
@@ -32744,11 +32758,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes empata sin goles ante Flamengo con un jugador menos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T05:01:57.214Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de El Día no se usa todavía.",
+  "cuando": "2026-10-23T11:03:10.638Z",
+  "intentos": 4,
+  "fuentes": 3
  },
  "v2mfmz": {
   "intentado": true,
@@ -33006,5 +33019,59 @@
   "cuando": "2026-10-23T10:32:28.024Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1rl7tnm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Garena lanza los nuevos códigos gratuitos de Free Fire para hoy",
+  "razon": "La mejor foto era la de TyC Sports, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-23T11:03:10.638Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1t2bs23": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Claudio Tapia felicita a Estudiantes por su pase a la final de la Copa Libertadores",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-23T11:03:10.638Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "z8ktkl": {
+  "archivo": "fotos-notas/z8ktkl.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes gana por penales ante Flamengo y pasa a la final de la Libertadores",
+  "enlace": "https://laverdadonline.com/fernando-muslera-tras-la-clasificacion-de-estudiantes-el-futbol-da-revancha/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/10/muslera.webp",
+  "razon": "Es la única foto válida que corresponde a los festejos, con buena calidad, sin marcas de agua añadidas y sin menores.",
+  "cuando": "2026-10-23T11:03:10.638Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Arquero señalando hacia arriba en el campo de juego",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Arquero de Estudiantes con camiseta amarilla señalando hacia arriba en el estadio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "72369a1a1c5e5c19"
  }
 }
