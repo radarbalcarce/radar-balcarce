@@ -297,7 +297,7 @@ export const DESDE_QUE_NO_SE_ESTRENA_VIEJA = '2026-09-28T16:00:00.000Z';
  * ¿La fecha con la que figura una nota ya publicada es un error del cruce? (regla 194). Sólo si salió SOLA (automática, sin una
  * persona: lo de una persona se respeta), con fecha de la fuente (no «sin hora»), después de que existiera llegaTarde, y su
  * fecha quedó más de HORAS_DE_UN_HECHO antes de la primera vez que la vimos. Así no se pudo haber estrenado (se estrena con el
- * hecho de menos de 24 horas, 12 desde octubre), y el cruce no junta un mismo hecho más largo que eso: envejeció después, por
+ * hecho de menos de 12 horas, o de 24 si lo cuentan 8 medios o más), y el cruce no junta un mismo hecho más largo que eso: envejeció después, por
  * una nota vieja de OTRO hecho que se le pegó. Es la única excepción a «nunca rejuvenece»: no rejuvenece una nota, le saca una
  * fecha que nunca fue la suya.
  */

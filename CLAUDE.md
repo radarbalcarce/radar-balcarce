@@ -101,7 +101,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   retira la revisión del archivo (regla 212) va aparte, en `web/data/revision-archivo.json`, que
   escribe sólo su workflow y no se poda: cuenta igual que lo retirado a mano.
 - **Las ventanas de tiempo**: la portada muestra **36 horas** (`HORAS_EN_PORTADA`; las secciones
-  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12**;
+  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12** (**24** si lo cuentan 8 medios o más: regla 287);
   la página dura 180 días en teoría, pero el tope es de 3.700 notas (a ~46 por día, unos 80 días: medido el 15/10, 15.900 archivos de los 20.000 de Cloudflare); lo raspado de más de 72 horas no entra. Los
   números viven en `ingesta/criterio.mjs` **y** en `web/lib/archivo.js`.
 - **Una nota tiene una sola fecha**, que envejece y nunca rejuvenece (`fechaReal`,

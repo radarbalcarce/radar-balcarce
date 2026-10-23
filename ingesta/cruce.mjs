@@ -64,7 +64,7 @@ export const CRUCE = {
     // del mismo hecho, sigue siendo una).
     maxNotas: 25,
     // Entre la primera y la última nota de un hecho, como mucho (la memoria
-    // guarda 36: lo que pasa de esto son notas viejas de los feeds o cadenas).
+    // guarda 36 horas lo de afuera y 72 lo de acá: lo que pasa de esto son notas viejas de los feeds o cadenas).
     horasDeUnHecho: 30,
     // …salvo una noticia en desarrollo: dos pedazos que se parecen mucho (el
     // promedio de todas sus notas llega a `promedioEnDesarrollo`) siguen juntos
