@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-23T21:27:51.306Z",
+ "consultado": "2026-10-23T22:05:22.583Z",
  "equipos": [
   "9739",
   "3",
@@ -691,8 +691,8 @@
     "id": "401841638",
     "competencia": "liga",
     "inicio": "2026-10-23T21:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "25'",
+    "estado": "entretiempo",
+    "minuto": "45'+2'",
     "local": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
@@ -721,12 +721,12 @@
     "id": "401841637",
     "competencia": "liga",
     "inicio": "2026-10-23T21:30:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "36'",
     "local": {
      "id": "11972",
      "nombre": "Gimnasia (Mendoza)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "7764",
@@ -734,7 +734,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Agustín Módica",
+      "minuto": "10'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Víctor Antonio Legrotaglie",
     "fase": null,
     "partidoDeLaSerie": null,

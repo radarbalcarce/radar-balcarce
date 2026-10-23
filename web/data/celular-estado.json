@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T21:27:53.657Z",
- "portada": 112,
+ "generado": "2026-10-23T22:05:25.496Z",
+ "portada": 127,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-23T21:27:54.259Z",
+  "generado": "2026-10-23T22:05:25.953Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-23T19:46:36.885Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -114,7 +114,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-23T19:46:36.885Z",
     "segundos": null,
     "notas": [
@@ -147,22 +147,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "1gbhjbe",
+      "titulo": "Petruccelli pide una reunión urgente para recuperar la Estudiantina",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1w90w0b",
       "titulo": "Colapinto termina 17° en Austin y recibe una sanción",
       "seccion": "Automovilismo"
      },
      {
-      "id": "1usw8vx",
-      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-      "seccion": "Balcarce"
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
      },
      {
-      "id": "wnfa2u",
-      "titulo": "Registran precipitaciones dispares en el partido",
-      "seccion": "Balcarce"
+      "id": "5o84cc",
+      "titulo": "Manuel Pastorino repasa su trayectoria y la inspiración en el hierro",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -197,8 +202,14 @@
    ],
    "cola": [
     {
-     "id": "5v361f",
-     "titulo": "María Elena Luro gana la medalla de plata en los Juegos Bonaerenses",
+     "id": "1gbhjbe",
+     "titulo": "Petruccelli pide una reunión urgente para recuperar la Estudiantina",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "149ahyx",
+     "titulo": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses",
      "seccion": "Deportes",
      "marcada": false
     },
@@ -209,15 +220,15 @@
      "marcada": false
     },
     {
-     "id": "qkw865",
-     "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-     "seccion": "Balcarce",
+     "id": "5v361f",
+     "titulo": "María Elena Luro gana la medalla de plata en los Juegos Bonaerenses",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "149ahyx",
-     "titulo": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses",
-     "seccion": "Deportes",
+     "id": "qkw865",
+     "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
