@@ -111,8 +111,9 @@ async function alOrigen(request, env, fetchFn) {
   const url = new URL(request.url);
   url.protocol = base.protocol;
   url.host = base.host;
-  const encabezados = new Headers(request.headers);
-  encabezados.delete('host');
+  // 23/10/2026: sólo los encabezados que importan. Con los cf-* y x-forwarded-* del pedido original, Cloudflare contestaba 503 al preguntarle a pages.dev desde workers.dev.
+  const encabezados = new Headers();
+  for (const k of ['accept', 'accept-language', 'user-agent', 'if-none-match', 'if-modified-since', 'range']) if (request.headers.has(k)) encabezados.set(k, request.headers.get(k));
   return fetchFn(new Request(url.toString(), { method: request.method, headers: encabezados, redirect: 'manual' }));
 }
 
