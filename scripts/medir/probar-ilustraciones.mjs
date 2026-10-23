@@ -37,7 +37,7 @@ for (const e of hechas) {
   item.promptAntes = e.prompt ?? null;
   try {
     const tono = tonoDeLaNota(nota);
-    const deGemini = await pedirPrompt(nota, { claves, claveGroq });
+    const deGemini = await pedirPrompt(nota, { claves, claveGroq, cloudflare: { token } });
     const prompt = promptFinal(deGemini, tono);
     item.tono = tono;
     item.prompt = prompt;

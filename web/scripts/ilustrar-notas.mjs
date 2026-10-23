@@ -416,9 +416,29 @@ async function pedirAGroq(partes, { claveGroq, fetchFn = fetch, json = false }) 
   return t;
 }
 
-/** El prompt de una nota, escrito por Gemini. */
-export async function pedirPrompt(nota, opciones) {
-  return pedirAGemini([{ text: armarInstruccion(nota) }], opciones);
+/** La IA de texto de Cloudflare (Workers AI, gratis; Worker de imágenes, POST /texto): escribe el prompt de cada imagen. */
+export async function pedirACloudflare(texto, { token, fetchFn = fetch, url = URL_DEL_WORKER.replace('/generar', '/texto') }) {
+  const r = await fetchFn(url, {
+    method: 'POST', headers: { 'x-token': token, 'content-type': 'application/json' },
+    body: JSON.stringify({ prompt: texto, max_tokens: 200 }), signal: AbortSignal.timeout(60_000),
+  });
+  if (r.status !== 200) throw new Error(`Cloudflare HTTP ${r.status}`);
+  const j = await r.json();
+  const t = String(j?.texto ?? '').trim();
+  if (!t) throw new Error('Cloudflare sin texto');
+  return t;
+}
+
+/**
+ * El prompt de una nota. 23/10/2026: primero la IA de texto de Cloudflare (gratis y aparte); si falla, Gemini, y después Groq: así las cuotas de
+ * Gemini y Groq quedan para escribir las notas. Sin `opciones.cloudflare` (la contraseña del Worker), va directo a Gemini.
+ */
+export async function pedirPrompt(nota, opciones = {}) {
+  const texto = armarInstruccion(nota);
+  if (opciones.cloudflare?.token) {
+    try { return await pedirACloudflare(texto, { ...opciones.cloudflare, fetchFn: opciones.fetchFn ?? fetch }); } catch { /* sigue con Gemini */ }
+  }
+  return pedirAGemini([{ text: texto }], opciones);
 }
 
 /** Lo que se le pregunta a Gemini al mirar la imagen terminada. Todo tiene que venir en false. */
@@ -546,7 +566,7 @@ export async function revisar({
     const tono = tonoDeLaNota(nota);
     const item = { id: nota.id, titulo: nota.titulo, seccion: nota.seccion, fecha: nota.fecha ?? null, tono, prompt: null, archivo: null, control: null, ...(reemplaza ? { reemplaza } : {}) };
     let deGemini;
-    try { deGemini = await pedirPrompt(nota, { claves: clavesDelPrompt, claveGroq, fetchFn, esperar }); } catch (e) {
+    try { deGemini = await pedirPrompt(nota, { claves: clavesDelPrompt, claveGroq, cloudflare: token ? { token } : null, fetchFn, esperar }); } catch (e) {
       saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `no se pudo escribir el prompt (${String(e?.message ?? e).slice(0, 80)})` });
       continue;
     }

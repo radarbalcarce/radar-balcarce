@@ -6,12 +6,18 @@
 //   GET  /            → «en hora» (no gasta nada)
 //   GET  /modelos     → los modelos que sabe usar
 //   POST /generar     → JSON { prompt, modelo?, ancho?, alto?, steps?, negativo? }, encabezado x-token → la imagen (image/jpeg o image/png)
+//   POST /texto       → JSON { prompt, max_tokens? }, encabezado x-token → { texto } (23/10/2026: la IA de texto de Workers AI, gratis, que escribe el prompt de cada
+//                       imagen para dejar libres las cuotas de Gemini y Groq, que son para escribir las notas)
 //
 // Un solo modelo desde el 17/10/2026: «sdxl» (Stable Diffusion XL de Workers AI, con tamaño a elección y prompt negativo), el que usan las
 // ilustraciones de las notas y los fondos del clima. Los que se probaron el 16/10 y no se usaban (flux, sdxl-lightning, dreamshaper, phoenix)
 // se sacaron: con ellos el Worker aceptaba pedidos que nadie hace (phoenix cuesta 100 veces más).
 
 export const PROMPT_MAXIMO = 700;
+/** El pedido a la IA de texto puede ser largo (lleva la nota entera y las instrucciones). */
+export const TEXTO_MAXIMO = 12000;
+/** La IA de texto de Workers AI que escribe los prompts: Llama 3.3 70B rápido (unas 40 de las 10.000 neuronas gratis diarias por prompt). */
+export const MODELO_DE_TEXTO = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 export const LADO = { minimo: 256, maximo: 2048 };
 
 /** Los modelos: `id` de Workers AI, cómo pedirle la imagen y de qué forma devuelve el resultado. */
@@ -64,11 +70,31 @@ export async function imagenDeResultado(r) {
   return { bytes, tipo: png ? 'image/png' : 'image/jpeg' };
 }
 
+/** POST /texto: una respuesta de la IA de texto. Mismo token que /generar. */
+async function texto(req, env) {
+  if (!mismoToken(req.headers.get('x-token'), env.TOKEN)) return json({ error: 'Sin permiso.' }, 401);
+  let cuerpo;
+  try { cuerpo = await req.json(); } catch { return json({ error: 'El cuerpo tiene que ser JSON.' }, 400); }
+  const prompt = String(cuerpo?.prompt ?? '').trim();
+  if (!prompt) return json({ error: 'Falta el prompt.' }, 400);
+  if (prompt.length > TEXTO_MAXIMO) return json({ error: `El prompt pasa de ${TEXTO_MAXIMO} caracteres.` }, 400);
+  const maxTokens = Math.min(400, Math.max(16, Math.round(Number(cuerpo?.max_tokens) || 200)));
+  try {
+    const r = await env.AI.run(MODELO_DE_TEXTO, { messages: [{ role: 'user', content: prompt }], max_tokens: maxTokens, temperature: 0.4 });
+    const salida = String(r?.response ?? '').trim();
+    if (!salida) return json({ error: 'El modelo no devolvió texto.' }, 502);
+    return json({ texto: salida }, 200);
+  } catch (e) {
+    return json({ error: `Falló la IA de texto: ${String(e?.message ?? e).slice(0, 200)}` }, 502);
+  }
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (req.method === 'GET' && url.pathname === '/') return new Response('Imágenes de Radar Balcarce: en hora.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } });
     if (req.method === 'GET' && url.pathname === '/modelos') return json({ modelos: Object.fromEntries(Object.entries(MODELOS).map(([k, v]) => [k, v.id])) }, 200);
+    if (req.method === 'POST' && url.pathname === '/texto') return await texto(req, env);
     if (url.pathname !== '/generar' || req.method !== 'POST') return json({ error: 'No existe.' }, 404);
     if (!mismoToken(req.headers.get('x-token'), env.TOKEN)) return json({ error: 'Sin permiso.' }, 401);
     let cuerpo;
