@@ -1,3 +1,5 @@
+> **23/10/2026:** el resumen vigente (hecho, pendientes de Claude, de Hernán y Andrés, decisiones e ideas) está en `docs/RESUMEN-Y-PENDIENTES.html` y en `docs/TRASPASO.md`. Lo de abajo es el historial de pendientes anteriores.
+
 # Pendientes
 
 *Actualizado el 17/10/2026. Sólo lo que está abierto, una vez cada cosa. Lo hecho se saca de acá (queda en el

@@ -1,0 +1,126 @@
+<title>Resumen y pendientes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Concepto: una lista de trabajo. Tres columnas lógicas (hecho, mío, tuyo) en una sola columna angosta, con casillas para tildar en este teléfono. */
+:root { --papel:#f7f8fa; --tinta:#12161c; --texto:#343b46; --suave:#667080; --linea:#dde1e8; --panel:#fff; --marca:#1e40af; --marca-suave:#e4eafb; --bien:#17714f; --ojo:#9a5b00; --ojo-suave:#fbeed5;
+  --f-titulo:"Source Serif 4", Georgia, serif; --f-texto:system-ui, -apple-system, "Segoe UI", sans-serif; --f-dato:ui-monospace, Consolas, monospace }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --papel:#0f1217; --tinta:#eef1f6; --texto:#c9d0db; --suave:#98a2b3; --linea:#2a313c; --panel:#171c24; --marca:#8aa4f5; --marca-suave:#1c2744; --bien:#5fc79c; --ojo:#e6b45a; --ojo-suave:#382a0e; color-scheme: dark } }
+:root[data-theme="dark"] { --papel:#0f1217; --tinta:#eef1f6; --texto:#c9d0db; --suave:#98a2b3; --linea:#2a313c; --panel:#171c24; --marca:#8aa4f5; --marca-suave:#1c2744; --bien:#5fc79c; --ojo:#e6b45a; --ojo-suave:#382a0e; color-scheme: dark }
+* { box-sizing:border-box }
+body { background:var(--papel); color:var(--texto); font:16px/1.55 var(--f-texto); padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:0 60px }
+main { max-width:46rem; margin:0 auto } header { padding-block:34px 6px }
+h1, h2, h3 { font-family:var(--f-titulo); color:var(--tinta); line-height:1.15; text-wrap:balance; margin:0 }
+h1 { font-size:clamp(1.9rem, 5.5vw, 2.6rem); font-weight:800 }
+h2 { font-size:1.45rem; font-weight:800; margin-top:40px; padding-top:16px; border-top:2px solid var(--tinta) }
+h3 { font-size:1.02rem; font-weight:600; margin-top:20px; font-family:var(--f-texto) }
+p { margin:.5rem 0 } .fecha { color:var(--suave); font:.8rem var(--f-dato); margin-top:.6rem }
+.volanta { font:600 .75rem var(--f-dato); letter-spacing:.1em; text-transform:uppercase; color:var(--marca); margin:0 0 .6rem }
+ul.lista { list-style:none; padding:0; margin:.4rem 0 }
+ul.lista li { display:grid; grid-template-columns:1.9rem minmax(0,1fr); gap:2px 8px; padding:10px 0; border-bottom:1px solid var(--linea) }
+ul.lista input { width:1.25rem; height:1.25rem; margin-top:.2rem; accent-color:var(--bien) }
+ul.lista b { color:var(--tinta) } ul.lista span { color:var(--suave); font-size:.92rem; display:block }
+input:checked + div b { text-decoration:line-through; color:var(--suave) }
+.nota { background:var(--ojo-suave); border-left:3px solid var(--ojo); padding:10px 14px; margin:14px 0; font-size:.95rem }
+.hecho li { grid-template-columns:1.2rem minmax(0,1fr) } .hecho li::before { content:"✓"; color:var(--bien); font-weight:700 }
+a { color:var(--marca) } code { font:.85em var(--f-dato); background:var(--marca-suave); color:var(--tinta); padding:1px 5px; word-break:break-word }
+.caja { min-width:0; overflow-x:auto; background:var(--panel); border:1px solid var(--linea); margin:12px 0 } table { border-collapse:collapse; width:100%; font-size:.9rem }
+th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--linea); vertical-align:top } th { font:600 .72rem var(--f-dato); text-transform:uppercase; letter-spacing:.05em; color:var(--suave) } td.n { text-align:right; font-family:var(--f-dato); white-space:nowrap }
+:focus-visible { outline:2px solid var(--marca); outline-offset:2px }
+</style>
+<main>
+<header>
+  <p class="volanta">Radar Balcarce · estado al 23/10/2026</p>
+  <h1>Resumen de todo y lo que falta</h1>
+  <p>Qué se hizo, qué sigue de mi lado, qué te toca a vos y las ideas guardadas. Las casillas quedan tildadas en este teléfono.</p>
+  <p class="fecha">Detalle técnico: <code>docs/TRASPASO.md</code> · cómo funciona todo: <a href="https://claude.ai/artifact/GG3izunMR9cTr6F5ukrupm">Radar Balcarce por dentro</a> · reglas y prompts: <a href="https://claude.ai/artifact/HwN9CMQMAg2aLFn1uMLrPs">Reglas y prompts</a> · fotos: <a href="https://claude.ai/artifact/HkkCQZ65GFPrTKaAq2waw9">antes y después</a></p>
+</header>
+
+<h2>1. Lo que se hizo (22 y 23 de octubre)</h2>
+<ul class="lista hecho">
+<li><div><b>Mudanza a Cloudflare, completa.</b><span>La web, las tareas chicas, las redes y el video corren desde Cloudflare. GitHub quedó para guardar código y datos. Costo nuevo: US$ 0.</span></div></li>
+<li><div><b>Lo de Balcarce ya no se frena por palabras sensibles.</b><span>Sólo frena el rojo (abuso, suicidio, femicidio) y los avisos fúnebres. Cada vez que se libera una nota queda anotada la palabra, para medir.</span></div></li>
+<li><div><b>Una nota, un solo formato.</b><span>Lo que contó un repaso no va como posteo de Facebook, y lo posteado no entra en un repaso.</span></div></li>
+<li><div><b>Fotos con IA renovadas.</b><span>Modelo FLUX (más nítido y rápido), objetos de hoy y luz clara. El prompt de cada imagen lo escribe la IA gratis de Cloudflare. El control de la imagen usa un modelo gratis de OpenRouter. Hoy pasan el control 5 de 10.</span></div></li>
+<li><div><b>Menos mails.</b><span>El informe diario sale corto y dice cuántas visitas son de Argentina. El vigilante repite avisos cada 24 horas y no manda el «se arregló».</span></div></li>
+<li><div><b>Documentos limpios.</b><span>Se sacaron las contradicciones (Facebook, «fuentes consultadas», ejemplos, tiempos). Hay una página con todas las reglas y prompts reales.</span></div></li>
+<li><div><b>Pruebas estables.</b><span>Dos pruebas que fallaban según la hora ya no dependen del reloj. Pasan las 2.937.</span></div></li>
+<li><div><b>Archivo en R2 cargando solo.</b><span>1.124 notas guardadas y comprobadas. Todavía no se enciende la ruta pública (ver mis pendientes).</span></div></li>
+<li><div><b>Datos nuevos para decidir.</b><span><code>web/data/muy-contadas.json</code> guarda los hechos de 8 o más medios que no salen, con título y motivo. Se llena con las próximas vueltas.</span></div></li>
+</ul>
+
+<h2>2. Lo que sigue de mi lado (sin ayuda tuya)</h2>
+<h3>Primero</h3>
+<ul class="lista">
+<li><input type="checkbox" id="m1"><div><b>Encender el archivo permanente en R2.</b><span>Lo intenté: la comprobación previa encontró que 2 páginas devuelven 503 por el Worker, así que no se activó (el sitio quedó intacto). Falta diagnosticar y volver a probar. El límite de 3.700 notas se alcanza hacia el 13/11.</span></div></li>
+<li><input type="checkbox" id="m2"><div><b>Reordenar las APIs de IA.</b><span>Hecho: prompts de fotos en Cloudflare, control de imágenes en OpenRouter. Falta: pasar parte de la escritura de notas a OpenRouter y Cloudflare para que Gemini y Groq no se queden sin cupo (error 429).</span></div></li>
+<li><input type="checkbox" id="m3"><div><b>Mostrarte por qué se descartan los hechos con 10 o más medios.</b><span>Cuando <code>muy-contadas.json</code> junte unas vueltas, te paso la lista con título y motivo.</span></div></li>
+<li><input type="checkbox" id="m4"><div><b>Mejorar las fotos de deportes.</b><span>Las de pelotas y zapatillas todavía las rechaza el control por logos y letras. Ajusto la lista de objetos.</span></div></li>
+</ul>
+<h3>Después, en orden</h3>
+<ul class="lista">
+<li><input type="checkbox" id="m5"><div><b>Cambiar la firma.</b><span>Sacar «Redacción con IA» del encabezado y dejarlo adentro de «Fuentes», para que Google no nos vea sólo como agregador.</span></div></li>
+<li><input type="checkbox" id="m6"><div><b>Notas más originales y completas.</b><span>Cuerpo de hasta 300 palabras cuando hay material, bloque de contexto con enlaces a notas anteriores, títulos con el lugar adelante, 36 horas de ventana para lo local.</span></div></li>
+<li><input type="checkbox" id="m7"><div><b>Fútbol sólo de Primera</b><span>más selección y futbolistas argentinos en el exterior.</span></div></li>
+<li><input type="checkbox" id="m8"><div><b>Secciones flojas con una sola fuente</b><span>(Ciencia, Agro, Tecnología e IA, Automovilismo) y buscar fuentes y temas mejor rankeados.</span></div></li>
+<li><input type="checkbox" id="m9"><div><b>Policiales nacionales muy relevantes</b><span>y muertes de famosos con muchas fuentes entran.</span></div></li>
+<li><input type="checkbox" id="m10"><div><b>Agente que propone notas propias.</b><span>Lanzamientos, novedades y temas futuros para tener notas propias por sección.</span></div></li>
+<li><input type="checkbox" id="m11"><div><b>Redes: cronograma y formato de cada pieza.</b><span>Cuidar el clima de la mañana, bajar los posteos de notas, revisar la continuidad de los locutores.</span></div></li>
+<li><input type="checkbox" id="m12"><div><b>Estadísticas.</b><span>Separar robots de lectores en el panel y medir si la IA saca los nombres de víctimas.</span></div></li>
+<li><input type="checkbox" id="m13"><div><b>Historial de GitHub.</b><span>Agrupar los commits de «libro de redes» y «vigilancia» fuera de git. Antes de pasar a privado, un solo historial limpio con copia previa (necesito tu confirmación).</span></div></li>
+</ul>
+
+<h2>3. Lo que te toca a vos</h2>
+<ul class="lista">
+<li><input type="checkbox" id="t1"><div><b>Apagar 7 workflows viejos en GitHub.</b><span>En <a href="https://github.com/radarbalcarce/radar-balcarce/actions">Actions</a>: Actualizar la web, Redes, Vigilancia, Auditoría IA, Pistas, Informe diario, Ilustrar notas. Cada uno: tres puntitos y «Disable workflow».</span></div></li>
+<li><input type="checkbox" id="t2"><div><b>Tope de gasto de Actions en US$ 0.</b><span><a href="https://github.com/settings/billing/budgets">Facturación de GitHub</a>.</span></div></li>
+<li><input type="checkbox" id="t3"><div><b>Repositorio principal a privado.</b><span>Hacerlo cuando veas que todo sigue andando. Ajustes del repositorio, «Danger zone».</span></div></li>
+<li><input type="checkbox" id="t4"><div><b>Clave paga de Gemini para las voces.</b><span>Antes hay que guardar la referencia de las voces actuales.</span></div></li>
+<li><input type="checkbox" id="t5"><div><b>Cuentas de Bluesky y Telegram.</b></div></li>
+<li><input type="checkbox" id="t6"><div><b>Variable <code>FOTOS_MENORES_OFICIALES</code> en «Si».</b><span>Prende las fotos con chicos de fuentes de Balcarce.</span></div></li>
+<li><input type="checkbox" id="t7"><div><b>Borrar <code>panel\datos</code> y <code>respaldos</code> en la PC.</b><span>Tienen claves. No desinstalar Tailscale por ahora.</span></div></li>
+<li><input type="checkbox" id="t8"><div><b>Instagram: revisar el mail de cambio de contraseña y activar la verificación en dos pasos.</b></div></li>
+</ul>
+
+<h2>4. Para decidir juntos</h2>
+<ul class="lista">
+<li><input type="checkbox" id="d1"><div><b>El cartel «Redacción con IA».</b><span>Mi propuesta: pasarlo a «Fuentes» con una frase más corta.</span></div></li>
+<li><input type="checkbox" id="d2"><div><b>Fotos: estilo foto con leyenda visible, o ilustración.</b><span>Hoy salen con la leyenda «Ilustración generada con IA».</span></div></li>
+<li><input type="checkbox" id="d3"><div><b>Control de nombres para chicos y víctimas en lo local.</b><span>La nota sale sola, pero si junto a «menor» o «víctima» aparece un nombre propio, espera a una persona.</span></div></li>
+<li><input type="checkbox" id="d4"><div><b>Posteos de notas por día.</b><span>Rinden poco (5 vistas y 0,1 clics). Propongo bajar de 5 a 2 o 3.</span></div></li>
+<li><input type="checkbox" id="d5"><div><b>Cuántas notas guardar en el archivo.</b><span>Con 120 por día, el tope de 3.700 dura 30 días.</span></div></li>
+<li><input type="checkbox" id="d6"><div><b>Un solo informe por día en vez de dos.</b></div></li>
+</ul>
+
+<h2>5. Datos para tener a mano</h2>
+<div class="caja"><table>
+<tr><th>Qué</th><th class="n">Valor</th></tr>
+<tr><td>Notas publicadas por día</td><td class="n">~120 (15 a 20 de Balcarce)</td></tr>
+<tr><td>Reel de Facebook, clima de la mañana</td><td class="n">5.115 reproducciones</td></tr>
+<tr><td>Reel de Facebook, farmacia</td><td class="n">227</td></tr>
+<tr><td>Posteos de notas en Facebook</td><td class="n">5 vistas, 0,1 clics</td></tr>
+<tr><td>Visitas reales de Argentina</td><td class="n">6 a 11 por día</td></tr>
+<tr><td>Revisión del archivo</td><td class="n">291 de 1.459 revisadas (termina en ~4 días)</td></tr>
+<tr><td>Commits por día en GitHub</td><td class="n">~100</td></tr>
+<tr><td>Fotos de IA que pasan el control</td><td class="n">5 de 10</td></tr>
+</table></div>
+
+<h2>6. Ideas guardadas</h2>
+<ul>
+<li>Notas propias con foto del celular, firmadas, una o dos por semana (el panel del celular ya lo permite).</li>
+<li>Canal de WhatsApp con «las tres de la mañana» y «las tres de la tarde».</li>
+<li>Newsletter semanal simple.</li>
+<li>Foto original, de stock o de la fuente, como alternativa a las ilustraciones.</li>
+<li>Páginas de barrio y de calle, y rehacer el panel del celular, cuando el sitio esté estable.</li>
+<li>Elegir una de las dos portadas de <code>docs/diseno/VISTA-PREVIA-PORTADA-2.html</code>.</li>
+<li>Sacar de git los datos que cambian cada media hora, o pasar los commits a una sola vez por hora.</li>
+</ul>
+</main>
+<script>
+(function () {
+  var cajas = document.querySelectorAll('ul.lista input[type=checkbox]');
+  function leer() { try { return JSON.parse(localStorage.getItem('resumen-radar') || '{}'); } catch (e) { return {}; } }
+  function guardar(o) { try { localStorage.setItem('resumen-radar', JSON.stringify(o)); } catch (e) {} }
+  var estado = leer();
+  cajas.forEach(function (c) { if (estado[c.id]) c.checked = true; c.addEventListener('change', function () { var o = leer(); o[c.id] = c.checked; guardar(o); }); });
+})();
+</script>
