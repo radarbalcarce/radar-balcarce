@@ -544,6 +544,10 @@ export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesA
       atencion.push({ nivel: w.seguidas >= 2 || w.nombre === 'Actualizar la web' ? 'alta' : 'media', t: `«${w.nombre}» falló en su última corrida (${w.seguidas} seguida${w.seguidas === 1 ? '' : 's'}).`, url: w.url });
     }
     if (!(gh.conFalla ?? []).length) lineas.push({ t: 'Las demás tareas automáticas (redes, Cloudflare, respaldo, auditorías, pistas) terminaron bien la última vez.', sub: true });
+    if (Number.isFinite(gh.repoMB)) {
+      lineas.push({ t: `Tamaño del repositorio: ${num(gh.repoMB)} MB.`, sub: true });
+      if (gh.repoMB >= 600) atencion.push({ nivel: 'media', t: `El repositorio pesa ${num(gh.repoMB)} MB. Conviene correr «Compactar el historial» (Actions): deja un solo commit y no cambia nada de lo publicado.` });
+    }
   } else if (enVivo && !enVivo.omitido) {
     lineas.push({ t: `No pude leer las corridas de GitHub${gh?.motivo ? ` (${gh.motivo})` : ''}.` });
   }
@@ -793,6 +797,8 @@ export async function consultarEnVivo({ env = process.env, fetchFn = fetch, ahor
     return res;
   }
   res.github.lectura = true;
+  // 23/10/2026: cuánto pesa el repositorio (GitHub lo da en KB). Pasados los 600 MB conviene correr «Compactar el historial».
+  try { const info = await pedirJson(api, { fetchFn, token }); if (info.ok && Number.isFinite(info.json?.size)) res.github.repoMB = Math.round(info.json.size / 1024); } catch { /* sin dato */ }
   const corridas = (motor ? (motor.historial ?? []).slice().reverse().map((v, i) => ({ id: `motor-${i}`, status: 'completed', conclusion: v.ok ? 'success' : 'failure', updated_at: v.cuando, html_url: null })) : (actualizar.json.workflow_runs ?? [])).map((c) => ({ id: c.id, estado: c.status, resultado: c.conclusion, cuando: c.updated_at ?? c.created_at, url: c.html_url }));
   const terminadas = corridas.filter((c) => c.estado === 'completed' && ['success', 'failure', 'timed_out'].includes(c.resultado));
   res.github.actualizar = {
