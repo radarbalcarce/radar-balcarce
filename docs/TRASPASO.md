@@ -60,3 +60,15 @@ Mirar la estadística de selección (cuántas notas llegan, con cuántos medios,
 ## Para correr a mano (lo frenó el permiso de Claude Code, 23/10)
 
 - **Compactar el historial**: el archivo ya está en 498 notas y hay respaldo del 23/10. En GitHub → Actions → «Compactar el historial» → Run workflow → escribir `COMPACTAR`. Después, en la PC: `git fetch origin && git reset --hard origin/main && git reflog expire --expire=now --all && git gc --prune=now --aggressive`.
+
+## Auditoría integral del 23/10: qué se hizo y qué queda para decidir
+
+Hecho (reglas 284 a 288): notas de largo dinámico; lo contado por 8 medios o más se estrena con 24 horas, no se frena por palabras sensibles ni por "es del extranjero"; se sacó el filtro "sin relación con Balcarce"; criterio unificado en documentos; catálogo de números en `docs/CATALOGO-DE-NUMEROS.md`; medición de commits y peso en `docs/etapa-10-operacion/MENOS-COMMITS.md`.
+
+Para decidir con Hernán (el detalle y los riesgos están en esos dos documentos):
+1. Agro y Automovilismo como áreas chicas (2 medios): Agro salió 0 notas el 22/10 con 139 llegadas. La regla 260 los puso en 3.
+2. Redes: Facebook llega al tope de 5 posteos casi todos los días; el catálogo recomienda 8, y bajar el mínimo de relevancia de 75 a 62. Se discute con el plan de reels de la semana del 26/10.
+3. Sacar las fotos de git a R2 (son el 60 % del historial, unos 160 MB) y compactar el historial una vez por mes.
+4. Sacar de git los archivos que solo usa el robot (vigilancia, estadísticas, auditoría, uso de IA): bajaría unos 60 de los 200 commits en 48 horas, pero primero hay que cambiar cómo los leen el panel y el informe diario.
+5. No volver a dibujar las imágenes de las notas que no cambiaron (unas 7.400 por vuelta): es el mayor ahorro de tiempo de compilación.
+6. Restos de la época de los cupos que ya no hacen nada (listados en el catálogo).
