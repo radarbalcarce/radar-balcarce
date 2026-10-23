@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T12:45:57.813Z",
- "portada": 86,
- "archivo": 1345,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-23T13:36:06.181Z",
+ "portada": 84,
+ "archivo": 1245,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-23T12:45:58.192Z",
+  "generado": "2026-10-23T13:36:06.596Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,9 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 34,
+    "segundos": 55,
     "notas": [
      {
       "id": "1kx53j2",
@@ -106,6 +106,16 @@
       "id": "1pd22ww",
       "titulo": "Cipriano Higuera gana medalla de bronce en los Juegos Bonaerenses",
       "seccion": "Deportes"
+     },
+     {
+      "id": "131te0p",
+      "titulo": "Comienza la vigesimosegunda Fiesta Nacional del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "174prqh",
+      "titulo": "LALCEC Balcarce organiza una caminata de concientización sobre cáncer de mama",
+      "seccion": "Salud"
      }
     ]
    },
@@ -136,15 +146,14 @@
      "id": "1bw0xc2",
      "titulo": "Estudiantes clasifica a la final de la Copa Libertadores",
      "cuando": "2026-10-23T11:05:16.708Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "9cnbf5",
      "titulo": "El Turismo Special de la Costa corre en el Fangio sin Nahuel Morón",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
+     "cuando": "2026-10-23T12:45:32.110Z"
+    }
+   ],
+   "cola": [
     {
      "id": "1kx53j2",
      "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
@@ -152,14 +161,26 @@
      "marcada": false
     },
     {
-     "id": "1vp56p5",
-     "titulo": "Charly García cumple 75 años y recibe homenajes en Buenos Aires",
+     "id": "131te0p",
+     "titulo": "Comienza la vigesimosegunda Fiesta Nacional del Postre",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "174prqh",
+     "titulo": "LALCEC Balcarce organiza una caminata de concientización sobre cáncer de mama",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "1qr79y1",
+     "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-23T12:35:16.708Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-23T14:15:32.110Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

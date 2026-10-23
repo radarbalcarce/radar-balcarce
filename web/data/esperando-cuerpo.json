@@ -1,7 +1,24 @@
 {
- "generado": "2026-10-23T12:45:57.813Z",
+ "generado": "2026-10-23T13:36:06.181Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "bvylmk",
+   "titulo": "Estudiantina 2027: ¿fue acertada la suspensión o se podría realizar sin público?",
+   "copete": "Tras los graves hechos de violencia que provocaron la cancelación de las ediciones 2026 y 2027, surge el debate sobre la posibilidad de recuperar la tradicional competencia estudiantil con nuevas medidas de seguridad, entre ellas el ingreso exclusivo de participantes acreditados.",
+   "seccion": "Balcarce",
+   "fecha": "2026-10-23T12:51:26.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/estudiantina-2027-fue-acertada-la-suspension-o-se-podria-realizar-sin-publico",
+     "fecha": "2026-10-23T12:51:26.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título dice 2.027 y el cuerpo no lo explica; sin esas oraciones quedan 140 palabras",
+   "maximo": 3
+  },
   {
    "id": "15n24pt",
    "titulo": "Licitación Pública para avanzar con una nueva etapa del Microestadio del cef nº 119",
@@ -22,7 +39,7 @@
   {
    "id": "18lgv8x",
    "titulo": "Pato Negro y Pato Naranja se enfrentan en la semifinal de los playoffs",
-   "copete": "El encuentro se disputará este sábado desde las 12:30 en Balcarce. En paralelo, Camarones recibirá a Villa Gesell en Pinamar. Los ganadores se medirán el próximo 7 de noviembre, con la posibilidad de que la definición se juegue en nuestra ciudad.",
+   "copete": "El encuentro se disputará este sábado desde las 12:00 en Balcarce. En paralelo, Camarones recibirá a Villa Gesell en Pinamar. Los ganadores se medirán el próximo 7 de noviembre, con la posibilidad de que la definición se juegue en nuestra ciudad.",
    "seccion": "Deportes",
    "fecha": "2026-10-23T11:41:02.000Z",
    "fuentes": [
@@ -32,7 +49,7 @@
      "fecha": "2026-10-23T11:41:02.000Z"
     }
    ],
-   "intentos": 2,
+   "intentos": 3,
    "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
@@ -91,11 +108,6 @@
      "fecha": "2026-10-23T10:55:00.000Z"
     },
     {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/politica/javier-milei-medidas-vivo-presidente-reune-funcionario-eeuu-medio-discusiones-ley-malvinas_0_Og4Ejkms1E.html",
-     "fecha": "2026-10-23T11:32:44.000Z"
-    },
-    {
      "medio": "TN (Todo Noticias)",
      "enlace": "https://tn.com.ar/politica/2026/10/23/javier-milei-se-reunira-con-un-alto-funcionario-de-eeuu-en-plena-discusion-por-la-causa-malvinas/",
      "fecha": "2026-10-23T12:15:23.000Z"
@@ -108,12 +120,12 @@
     {
      "medio": "La Nueva",
      "enlace": "https://www.lanueva.com/nota/2026-10-23-9-30-0-causa-malvinas-milei-se-reune-con-un-alto-funcionario-de-la-diplomacia-de-ee-uu",
-     "fecha": "2026-10-23T12:37:52.000Z"
+     "fecha": "2026-10-23T13:01:02.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 123 palabras",
-   "maximo": 4
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"ee\", \"uu\" y el cuerpo no los explica; sin esas oraciones quedan 161 palabras",
+   "maximo": 3
   }
  ]
 }
