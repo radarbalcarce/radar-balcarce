@@ -360,7 +360,7 @@ export function fotoDeLaWeb(banco, id) {
 export const CREDITO_ILUSTRACION = 'Ilustración generada con IA';
 
 /** ¿Esta foto (`{ archivo, credito }` de una nota, o una entrada de fotos-ia.json) es una ilustración de una nota? Se reconoce por el archivo: <id>-ia.jpg. */
-export const esIlustracionDeNota = (foto) => /(^|\/)[a-z0-9]+-ia(?:-\d+)?\.jpg$/.test(String(foto?.archivo ?? ''));
+export const esIlustracionDeNota = (foto) => /(^|\/)[a-z0-9]+-(?:ia|lib)(?:-\d+)?\.jpg$/.test(String(foto?.archivo ?? ''));
 
 const plano = (t) => String(t ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
 
@@ -397,6 +397,8 @@ export function ilustracionPermitida(nota, { semaforo = () => null } = {}) {
 function ilustracionDeLaWeb(ilustraciones, id) {
   const il = ilustraciones?.[id];
   if (!il?.archivo || !esIlustracionDeNota(il)) return null;
+  // Una foto real libre de una figura pública (<id>-lib.jpg, origen 'libre') conserva su crédito de Commons: nunca dice que es de IA.
+  if (il.origen === 'libre' && /^Foto:/.test(String(il.credito ?? ''))) return { archivo: il.archivo, credito: il.credito };
   const credito = /^Ilustración generada con IA/.test(String(il.credito ?? '')) ? il.credito : CREDITO_ILUSTRACION;
   return { archivo: il.archivo, credito };
 }

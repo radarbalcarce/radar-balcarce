@@ -15,6 +15,7 @@ import {
   promptFinal, problemaDelPrompt, interpretarControl, pedidoAlWorker, llamarAlWorker, revisar, aplicar, entradaDeIlustracion, neuronasEstimadas,
   TOPE_POR_CORRIDA, TOPE_POR_DIA, REINTENTOS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, AGREGADO, NEGATIVO, PROMPT_DE_HERNAN,
   PROMPT_MAXIMO, MODELO, ANCHO, ALTO, PASOS, URL_DEL_WORKER, CUERPO_MAXIMO, PREGUNTA_DE_CONTROL,
+  figuraPublicaDeLaNota, fotoEsDeLaFigura, guiaDeEscena, varianteDeLaNota, temaDeLaNota, OBJETOS_DE_DEPORTE, PROHIBIDO_EN_DEPORTE, VARIANTES,
   tonoDeLaNota, TONOS, esDeGeminiWeb, cupoAutomatico, automatico, HORAS_AUTOMATICAS, MINIMO_POR_CORRIDA_AUTOMATICA, ilustracionControlada,
 } from '../web/scripts/ilustrar-notas.mjs';
 import { nombresDePersona } from '../web/scripts/nombres-de-persona.mjs';
@@ -803,4 +804,96 @@ test('el workflow no se pisa: una corrida por vez, y el job que sube va en la fi
   assert.match(guardar, /git push -q origin HEAD:main/);
   // y "Actualizar la web" sigue sin tocar fotos-ia.json
   assert.ok(!/fotos-ia\.json/.test(actualizar));
+});
+
+// ---------------------------------------------- 23/10/2026: figuras públicas, variedad, deportes y política
+
+test('figura pública: el título que nombra a Milei busca una foto real; sin nombre, no; la foto tiene que llevar el apellido', () => {
+  assert.equal(figuraPublicaDeLaNota(nota('a1', 'Milei niega que la economía entre en recesión', 'Economía'))?.consulta, 'Javier Milei');
+  assert.equal(figuraPublicaDeLaNota(nota('a2', 'Reunión de Kicillof con intendentes', 'Política'))?.apellido, 'kicillof');
+  assert.equal(figuraPublicaDeLaNota(nota('a3', 'El Concejo aprobó el presupuesto', 'Política')), null);
+  assert.equal(figuraPublicaDeLaNota(nota('a4', 'Los milenials y el ahorro', 'Economía')), null, 'no es una subcadena');
+  const f = figuraPublicaDeLaNota(nota('a1', 'Milei habla', 'Política'));
+  assert.ok(fotoEsDeLaFigura({ titulo: 'File:Javier Milei en 2024.jpg' }, f));
+  assert.ok(!fotoEsDeLaFigura({ titulo: 'File:Casa Rosada.jpg' }, f));
+  assert.ok(!fotoEsDeLaFigura(null, f));
+});
+
+test('política: la guía prohíbe escritorio y oficina, y un prompt de escritorio se descarta; deportes: lista de objetos sin marcas', () => {
+  const pol = nota('p1', 'El Concejo debate el presupuesto 2027', 'Política');
+  const g = guiaDeEscena(pol);
+  assert.match(g, /no hay escritorio, oficina/);
+  assert.match(g, /Nunca una persona, ni un retrato/);
+  const malo = 'Candid photojournalistic close-up still life of a wooden office desk with a blank notebook and a pen, soft window light, no people, no text, no logos';
+  assert.match(problemaDelPrompt(malo, pol), /desk|office|notebook|pen/);
+  const bueno = 'Candid photojournalistic photograph of empty stone steps leading to a columned civic building, soft morning light, no people, no text, no logos';
+  assert.equal(problemaDelPrompt(bueno, pol), null);
+  assert.equal(problemaDelPrompt(malo, nota('p2', 'La feria de artesanos abre', 'Balcarce')), null, 'fuera de Política un escritorio sigue valiendo');
+});
+
+test('deportes: la guía lista objetos lisos y prohíbe camisetas, trofeos y marcadores; el prompt con camiseta se descarta; la cola sale sin patrones', () => {
+  const dep = nota('d1', 'Estudiantes goleó en la Liga', 'Fútbol');
+  const g = guiaDeEscena(dep);
+  assert.ok(g.includes(OBJETOS_DE_DEPORTE) && g.includes(PROHIBIDO_EN_DEPORTE));
+  assert.equal(temaDeLaNota(dep), 'deporte');
+  assert.equal(temaDeLaNota(nota('d2', 'x', 'Política')), 'politica');
+  assert.match(problemaDelPrompt('Candid photojournalistic close-up still life of a striped team jersey on a bench, soft light, no people, no text, no logos', dep), /jersey/);
+  assert.equal(problemaDelPrompt('Candid photojournalistic close-up still life of a plain white ball on short grass beside orange cones and a goal net, soft light, no people, no text, no logos', dep), null);
+  const p = promptFinal('Candid photojournalistic close-up still life of a plain white ball on grass', 'alegre', 'deporte');
+  assert.match(p, /solid single-color gear with no patterns/);
+  assert.ok(p.length <= PROMPT_MAXIMO);
+  assert.ok(!promptFinal('Candid photojournalistic close-up still life of a plain white ball on grass', 'alegre').includes('single-color'));
+});
+
+test('variedad: cada nota lleva una variante de toma estable por id, y la instrucción la incluye', () => {
+  assert.equal(varianteDeLaNota({ id: 'abc' }), varianteDeLaNota({ id: 'abc' }));
+  const distintas = new Set(Array.from({ length: 40 }, (_, i) => varianteDeLaNota({ id: `nota${i}` })));
+  assert.ok(distintas.size >= 5, `variantes distintas: ${distintas.size}`);
+  assert.ok(VARIANTES.includes(varianteDeLaNota({ id: 'zzz' })));
+  const i = armarInstruccion(nota('abc', 'La feria del libro abre sus puertas', 'Cultura y agenda'));
+  assert.ok(i.includes(`${varianteDeLaNota({ id: 'abc' })}.`));
+  assert.match(i, /VARIEDAD: cada nota lleva una imagen DISTINTA/);
+});
+
+test('el control acepta costuras de una pelota y rayas, pero sigue rechazando letras y logos reconocibles', () => {
+  assert.match(PREGUNTA_DE_CONTROL, /NO cuentan: los paneles, costuras/);
+  assert.match(PREGUNTA_DE_CONTROL, /letras, palabras o números/);
+  assert.ok(!interpretarControl({ personas: false, rostros: false, texto: true, logos: false, sensible: false, raro: false }).ok);
+});
+
+test('revisar: la nota de una figura pública lleva foto real libre (sin gastar el Worker) y aplicar la guarda con su crédito, sin decir IA', async () => {
+  const e = escenario(0, { extra: [nota('mil1', 'Milei anunció medidas económicas', 'Política', { fecha: '2026-10-16T14:00:00Z', cuerpo: 'El presidente anunció medidas.' })] });
+  const { fetchFn, pedidos } = redSimulada();
+  const consultas = [];
+  const fotoLibre = {
+    buscar: async (c, o) => { consultas.push([c, o.excluir]); return { url: 'https://upload.wikimedia.org/x.jpg', titulo: 'File:Javier Milei 2024.jpg', pagina: 'https://commons.wikimedia.org/wiki/File:x', licencia: 'CC BY-SA 4.0', autor: 'Fulano' }; },
+    bajar: async (foto, nombre) => ({ archivo: `fotos-notas/${nombre}.jpg`, bytes: JPEG(12_000), entrada: { archivo: `fotos-notas/${nombre}.jpg`, medio: 'Wikimedia Commons', credito: 'Foto: Fulano / Wikimedia Commons (CC BY-SA 4.0)', licencia: foto.licencia, origen: 'libre', imagenOriginal: foto.url } }),
+  };
+  const r = await revisar({ ...e, clave: 'k', token: 't', fetchFn, achicar, esperar: sinEspera, registro: () => {}, fotoLibre });
+  assert.deepEqual(consultas.map((c) => c[0]), ['Javier Milei']);
+  assert.equal(pedidos.worker, 0, 'no se gasta una neurona');
+  assert.equal(pedidos.gemini, 0, 'ni se pide un prompt');
+  assert.equal(r.candidatas[0].libre.origen, 'libre');
+  assert.deepEqual(r.paraAplicar, ['mil1']);
+  const a = aplicar({ desde: e.salida, ahora: e.ahora, rutas: e.rutas, registro: () => {} });
+  assert.deepEqual(a.aplicadas, ['mil1']);
+  const entrada = JSON.parse(fs.readFileSync(e.rutas.ilustraciones, 'utf8')).mil1;
+  assert.equal(entrada.archivo, 'fotos-notas/mil1-lib.jpg');
+  assert.match(entrada.credito, /Wikimedia Commons/);
+  assert.ok(esIlustracionDeNota(entrada));
+  assert.equal(aplicadasHoy({ mil1: entrada }, '2026-10-16'), 0, 'no cuenta para el tope del Worker');
+  const [n] = conFotosDelBanco([{ id: 'mil1', seccion: 'Política', titulo: 'Milei' }], {}, { ilustraciones: { mil1: entrada } });
+  assert.match(n.foto.credito, /^Foto: Fulano/);
+  assert.ok(!/IA/.test(n.foto.credito));
+});
+
+test('revisar: si Commons no tiene una foto de la figura, la nota sigue con la ilustración (sin personas)', async () => {
+  const e = escenario(0, { extra: [nota('mil2', 'Milei viaja a Estados Unidos', 'Política', { fecha: '2026-10-16T14:00:00Z' })] });
+  const { fetchFn, pedidos } = redSimulada({ prompt: 'Candid photojournalistic photograph of empty stone steps leading to a columned civic building, soft morning light, no people, no text, no logos' });
+  const fotoLibre = { buscar: async () => ({ url: 'u', titulo: 'File:Casa Rosada.jpg' }), bajar: async () => { throw new Error('no se baja'); } };
+  const r = await revisar({ ...e, clave: 'k', token: 't', fetchFn, achicar, esperar: sinEspera, registro: () => {}, fotoLibre });
+  assert.equal(pedidos.worker, 1);
+  assert.equal(r.candidatas[0].libre, undefined);
+  assert.ok(r.candidatas[0].prompt);
+  assert.match(pedidos.instrucciones[0], /no hay escritorio, oficina/);
 });

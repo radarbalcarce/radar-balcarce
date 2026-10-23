@@ -480,6 +480,18 @@ muestra (`ilustracionPermitida`); una de Policiales con una foto del banco que n
 no borra los `*-ia.jpg` de notas vivas. El epígrafe de la página, el RSS y el pie de Instagram dicen «Ilustración generada con IA».
 Para sacar una: borrar su entrada de `fotos-ia.json` y el archivo.
 
+### 12 bis. Figuras públicas, variedad, deportes y política (23/10/2026)
+
+- **Figuras públicas** (Milei, Kicillof, Macri... la lista es `FIGURAS_PUBLICAS` en `web/scripts/ilustrar-notas.mjs`, por el apellido en el **título**):
+  antes de la ilustración se busca una **foto real libre** en Wikimedia Commons (`foto-libre.mjs`). Se usa sólo si el nombre del archivo lleva el
+  apellido, la licencia es abierta y no se repite una foto ya usada. Se guarda como `<id>-lib.jpg` en `fotos-ia.json` (`origen: 'libre'`) con
+  su crédito de Commons: **no dice «Ilustración generada con IA»**, no gasta el Worker ni cuenta para el tope de 20 por día. Si no hay una buena,
+  sigue la ilustración, que nunca muestra a una persona (ni un parecido).
+- **Variedad**: cada nota recibe una variante de toma (encuadre y luz, estable por id) y se le pide a la IA objetos del tema concreto, no un bodegón fijo.
+- **Deportes**: lista de objetos lisos (balón liso, conos, red, césped) y lista de lo que FLUX llena de logos y letras (camisetas, trofeos, marcadores,
+  carteles); un prompt que las nombra se descarta. El control con visión no cuenta como texto o logo las costuras, rayas o tramas ni lo borroso del fondo.
+- **Política**: nada de escritorio, oficina, computadora ni cuaderno; fachadas, escalinatas, plazas y recintos vacíos, sin carteles ni banderas.
+
 ## 13. Fotos con chicos de las fuentes de Balcarce (17/10/2026, reglas 186 y 211)
 
 **La ampliación (regla 211, el mismo 17/10).** Hernán: "si es de fuentes de Balcarce no hay problema, sobre todo si no son de tinte policial".

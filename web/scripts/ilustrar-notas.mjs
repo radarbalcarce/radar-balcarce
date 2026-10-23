@@ -200,6 +200,76 @@ export function tonoDeLaNota(nota) {
   return 'neutro';
 }
 
+// ------------------------------------------------------------------ la escena: figuras públicas, política, deportes y variedad
+
+// 23/10/2026 (pedido del dueño): (1) una nota de una figura pública (Milei...) lleva, si se encuentra, una FOTO REAL LIBRE de Wikimedia Commons
+// en vez de una ilustración; la ilustración nunca muestra a una persona real reconocible (no hay personas en ningún prompt). (2) Cada ilustración
+// es distinta (objetos del tema y una variante de encuadre y luz según el id), no un bodegón fijo. (3) En deportes la lista de objetos evita lo
+// que FLUX llena de logos y letras. (4) Nada de oficina ni escritorio para Política.
+
+/** Figuras públicas que las notas nombran: apellido (sin tildes) → lo que se busca en Wikimedia Commons. */
+export const FIGURAS_PUBLICAS = {
+  milei: 'Javier Milei', kicillof: 'Axel Kicillof', macri: 'Mauricio Macri', bullrich: 'Patricia Bullrich', villarruel: 'Victoria Villarruel',
+  caputo: 'Luis Caputo', massa: 'Sergio Massa', sturzenegger: 'Federico Sturzenegger', adorni: 'Manuel Adorni', francos: 'Guillermo Francos',
+  larreta: 'Horacio Rodriguez Larreta', cristina: 'Cristina Fernandez de Kirchner', kirchner: 'Cristina Fernandez de Kirchner', pichetto: 'Miguel Angel Pichetto',
+  petri: 'Luis Petri', scaloni: 'Lionel Scaloni', messi: 'Lionel Messi', colapinto: 'Franco Colapinto',
+};
+
+/** Si el TÍTULO nombra a una figura pública conocida: `{ apellido, consulta }`; si no, null. */
+export function figuraPublicaDeLaNota(nota) {
+  const titulo = ` ${plano(nota?.titulo).replace(/[^a-z0-9 ]/g, ' ')} `;
+  for (const [apellido, consulta] of Object.entries(FIGURAS_PUBLICAS)) {
+    if (titulo.includes(` ${apellido} `)) return { apellido, consulta };
+  }
+  return null;
+}
+
+/** ¿La foto que devolvió Commons es de esa figura? El nombre del archivo tiene que llevar el apellido (Commons busca por texto: trae de todo). */
+export const fotoEsDeLaFigura = (foto, figura) => !!foto && !!figura && plano(foto.titulo).includes(figura.apellido);
+
+const esPolitica = (nota) => nota?.seccion === 'Política';
+const esDeporte = (nota) => ['Deportes', 'Fútbol', 'Automovilismo'].includes(nota?.seccion);
+
+/** Objetos que SÍ pueden ir en una nota de deportes: lisos, sin marca, sin camiseta ni nada que FLUX llene de letras o logos. */
+export const OBJETOS_DE_DEPORTE = 'balón liso blanco o de un solo color sin dibujos, conos de colores lisos, silbato liso, red de arco en primer plano, césped y líneas de cal, banco de madera vacío, mallas y vallas, guantes de arquero lisos, tobilleras y vendas lisas, cronómetro de pared sin números, cascos y guantes lisos de un solo color, bidones lisos';
+/** Lo que en deportes FLUX dibuja con logos, letras o números (y el control rechaza). */
+export const PROHIBIDO_EN_DEPORTE = 'camisetas, remeras, botines o zapatillas de marca, pelotas con dibujos o marcas, trofeos o copas con inscripciones, medallas, tableros, marcadores, carteles, banderas, entradas, banderines, números de dorsal';
+/** Lo que SÍ van en una nota de política: nada de escritorios, oficinas ni naturaleza muerta de despacho. */
+export const OBJETOS_DE_POLITICA = 'escalinata de piedra de un edificio público sin carteles ni banderas, columnas y balcones del frente de un edificio institucional, una plaza cívica vacía al amanecer, bancas vacías de un recinto o una urna lisa de cartón sin impresión, una puerta de madera cerrada con picaporte, un pasillo vacío con luz de ventana, un atril liso sin micrófono de marca, cortinados lisos';
+
+/** Variantes de encuadre y luz: se elige una por id para que dos notas parecidas no salgan con la misma imagen. */
+export const VARIANTES = [
+  'encuadre cenital (flat lay) con luz suave de ventana',
+  'plano bajo, a ras de la superficie, con luz rasante de la tarde',
+  'plano detalle lateral con luz cálida de media mañana',
+  'vista tres cuartos desde arriba con luz difusa de cielo nublado',
+  'macro en primer plano con fondo muy desenfocado y luz de contraluz suave',
+  'composición asimétrica con el objeto a un tercio del cuadro y luz dorada del atardecer',
+  'plano frontal simétrico con luz fría y limpia de la mañana',
+  'plano en diagonal con sombras largas y luz de sol directo',
+];
+
+/** Una variante estable para ese id (el mismo id siempre la misma, ids distintos casi siempre distintas). */
+export function varianteDeLaNota(nota) {
+  let h = 0;
+  for (const c of String(nota?.id ?? '')) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return VARIANTES[h % VARIANTES.length];
+}
+
+/** El tema para la cola del prompt y la guía de escena: 'deporte', 'politica' o null. */
+export const temaDeLaNota = (nota) => (esPolitica(nota) ? 'politica' : esDeporte(nota) ? 'deporte' : null);
+
+/** El punto 9 del pedido a Gemini: variante, objetos del tema y lo que no puede ir. Cambia el punto 2 y 3 para política y deportes. */
+export function guiaDeEscena(nota) {
+  const lineas = [`9. VARIEDAD: cada nota lleva una imagen DISTINTA. Elegí objetos propios del tema concreto de ESTA nota (no un bodegón genérico de siempre) y resolvé la toma así: ${varianteDeLaNota(nota)}.`];
+  if (esPolitica(nota)) {
+    lineas.push(`10. POLÍTICA: no hay escritorio, oficina, despacho, computadora, cuaderno ni lapicera sobre una mesa (aunque el punto 3 diga superficie de trabajo, acá NO). Mostrá un lugar o un objeto institucional anónimo y sin letras: ${OBJETOS_DE_POLITICA}. Nunca una persona, ni un retrato, ni un político, ni su silueta, ni un parecido con alguien real. Para esta nota empezá por «Candid photojournalistic photograph of» en vez de «close-up still life of».`);
+  } else if (esDeporte(nota)) {
+    lineas.push(`10. DEPORTE: usá sólo objetos como estos: ${OBJETOS_DE_DEPORTE}. NUNCA: ${PROHIBIDO_EN_DEPORTE} (el generador los llena de logos, letras y números). Si hay duda, un balón liso sobre el césped o un par de conos con la red de un arco desenfocada atrás.`);
+  }
+  return lineas.join('\n');
+}
+
 const idValido = (id) => /^[a-z0-9]{3,20}$/.test(String(id ?? ''));
 
 /** Los ids pedidos ("abc, def ghi"), sólo los que tienen forma de id. */
@@ -256,7 +326,7 @@ export function elegirCandidatas({
 
 /** Cuántas ilustraciones del Worker se aplicaron en ese día (de web/data/fotos-ia.json). Las de Gemini web no gastan neuronas: no cuentan. */
 export function aplicadasHoy(ilustraciones = {}, dia = diaAR()) {
-  return Object.values(ilustraciones ?? {}).filter((e) => e?.cuando && !esDeGeminiWeb(e) && diaAR(new Date(e.cuando)) === dia).length;
+  return Object.values(ilustraciones ?? {}).filter((e) => e?.cuando && !esDeGeminiWeb(e) && e.origen !== 'libre' && diaAR(new Date(e.cuando)) === dia).length;
 }
 
 /** Cuántas llamadas al Worker hicieron las revisiones anteriores de ese día (sus cuenta.json, que el workflow baja de las corridas de hoy). */
@@ -317,6 +387,7 @@ export function armarInstruccion(nota) {
   return `${PROMPT_DE_HERNAN}
 7. Composición con el objeto principal bien centrado (la imagen sale cuadrada y después se recorta a 16:9), sin ningún texto legible.
 8. TONO: ${tono.es}.
+${guiaDeEscena(nota)}
 
 Tu salida NO es la imagen: es el PROMPT para un generador de imágenes (FLUX), escrito en INGLÉS, de 40 a 70 palabras, en una sola línea, que describa esa foto cumpliendo los requisitos de arriba, con la luz y los colores del TONO. Empezá por «Candid photojournalistic close-up still life of». Describí sólo objetos, la superficie de trabajo, el fondo desenfocado y la luz, siempre en afirmativo (lo que SÍ hay en la foto). Los objetos son de uso actual, del año 2026: modernos y en buen estado, NUNCA antiguos, vintage ni de otra época. Usá SÓLO objetos lisos y sin nada escrito: tazas lisas, plantas, cuadernos y hojas en blanco, lápices, carpetas lisas, llaves, anteojos, cascos lisos, herramientas, cables, auriculares, vasos, cajas de cartón sin imprimir, balones lisos. NUNCA objetos que llevan letras, números o marcas: calculadoras, teclados, relojes, calendarios, frascos y cajas de remedios, botellas con etiqueta, camisetas, banderas, billetes, monedas, mapas, pantallas, libros con tapa, carteles, micrófonos de marca. Pedí «sharp focus, high detail, natural daylight, shallow depth of field». NUNCA escribas nombres de personas, de lugares, de instituciones, de clubes, de marcas ni de medios. Nada de personas ni de chicos, ni manos ni siluetas (los objetos de una escuela, de un taller o de un deporte sí, sin nadie). Nada de armas, sangre, ataúdes, coronas de flores, esposas ni nada que sugiera un delito, un accidente o una muerte: si la nota es de un hecho policial, judicial o de un accidente, un objeto simbólico y cotidiano del tema, nunca la escena. Si hay papeles, que estén en blanco. Incluí «no people, no text, no logos». Respondé SOLO con el prompt.
 
@@ -332,9 +403,10 @@ ${cuerpo}`;
  * El prompt que va al Worker: el de Gemini en una línea, sin comillas, recortado para que siempre entren el tono (si se pasa: 'alegre',
  * 'sobrio' o 'neutro') y el agregado.
  */
-export function promptFinal(deGemini, tono = null) {
+export function promptFinal(deGemini, tono = null, tema = null) {
   const base = String(deGemini ?? '').replace(/[\r\n]+/g, ' ').replace(/["“”«»`*]/g, '').replace(/^\s*prompt\s*:\s*/i, '').replace(/\s+/g, ' ').trim().replace(/[.,;\s]+$/, '');
-  const cola = TONOS[tono] ? `${TONOS[tono].en}, ${AGREGADO}` : AGREGADO;
+  const base2 = TONOS[tono] ? `${TONOS[tono].en}, ${AGREGADO}` : AGREGADO;
+  const cola = tema === 'deporte' ? `${base2}, solid single-color gear with no patterns, no jerseys` : base2;
   const lugar = PROMPT_MAXIMO - cola.length - 2;
   const corto = base.length > lugar ? base.slice(0, lugar).replace(/\s+\S*$/, '').replace(/[.,;\s]+$/, '') : base;
   return corto ? `${corto}, ${cola}` : '';
@@ -342,7 +414,9 @@ export function promptFinal(deGemini, tono = null) {
 
 // Lo que no puede describir el prompt (sacadas antes las negaciones: "no people" está bien): personas, armas, muerte, logos y la escena de un
 // hecho (un auto chocado o un patrullero al lado de una nota real se puede tomar por la foto del hecho).
-const PROHIBIDO_EN_PROMPT = /\b(child|children|kids?|boys?|girls?|bab(?:y|ies)|toddlers?|teens?|teenagers?|students?|pupils?|schoolchildren|man|men|woman|women|persons?|people|humans?|crowd|faces?|portraits?|silhouettes?|hands?|players?|athletes?|blood\w*|weapons?|guns?|pistols?|rifles?|knife|knives|bullets?|corpses?|coffins?|caskets?|funeral\w*|graves?|tombstones?|wreaths?|handcuffs?|crime scene|police tape|police cars?|patrol cars?|crash\w*|wreck\w*|syringes?|drugs?|flags?|logos?|emblems?|coat of arms)\b/i;
+const PROHIBIDO_EN_PROMPT = /\b(child|children|kids?|boys?|girls?|bab(?:y|ies)|toddlers?|teens?|teenagers?|students?|pupils?|schoolchildren|man|men|woman|women|persons?|people|humans?|crowd|faces?|portraits?|silhouettes?|hands?|players?|athletes?|blood\w*|weapons?|guns?|pistols?|rifles?|knife|knives|bullets?|corpses?|coffins?|caskets?|funeral\w*|graves?|tombstones?|wreaths?|handcuffs?|crime scene|police tape|police cars?|patrol cars?|crash\w*|wreck\w*|syringes?|drugs?|flags?|logos?|emblems?|coat of arms|politicians?|presidents?|mayors?|ministers?|likeness|jerseys?|shirts?|t-shirts?|uniforms?|trophy|trophies|scoreboards?|tickets?|banners?)\b/i;
+// Lo que además no va en una nota de Política (4º pedido del dueño, 23/10/2026): nada de oficina ni naturaleza muerta de escritorio.
+const PROHIBIDO_SI_ES_POLITICA = /\b(desks?|offices?|workspace|work ?surface|work ?table|laptops?|computers?|keyboards?|notebooks?|pens?|pencils?|paperwork|documents?|folders?|binders?|coffee|mugs?|cups?)\b/i;
 // Lo que además no va en una nota de tono sobrio (Policiales, Política, lo grave): juguetes, fuego, ambulancias, sirenas.
 const PROHIBIDO_SI_ES_SOBRIA = /\b(toys?|dolls?|teddy|strollers?|cribs?|fire|flames?|burning|smoke|ambulances?|sirens?|injur\w*|bandages?)\b/i;
 
@@ -351,7 +425,8 @@ export function problemaDelPrompt(prompt, nota) {
   const p = String(prompt ?? '');
   if (p.length < 40) return 'Gemini devolvió un prompt demasiado corto';
   const sinNegaciones = p.split(/[,.;]/).map((f) => f.replace(/\b(?:no|without|free of|devoid of|nobody|absent)\b.*$/i, '')).join(' , ');
-  const m = sinNegaciones.match(PROHIBIDO_EN_PROMPT) ?? (tonoDeLaNota(nota) === 'sobrio' ? sinNegaciones.match(PROHIBIDO_SI_ES_SOBRIA) : null);
+  const m = sinNegaciones.match(PROHIBIDO_EN_PROMPT) ?? (tonoDeLaNota(nota) === 'sobrio' ? sinNegaciones.match(PROHIBIDO_SI_ES_SOBRIA) : null)
+    ?? (esPolitica(nota) ? sinNegaciones.match(PROHIBIDO_SI_ES_POLITICA) : null);
   if (m) return `el prompt describe "${m[0]}"`;
   const nombres = nombresDePersona([nota?.titulo, nota?.copete, String(nota?.cuerpo ?? '').slice(0, CUERPO_MAXIMO)].filter(Boolean).join('. '));
   const pp = plano(p);
@@ -477,8 +552,8 @@ export const PREGUNTA_DE_CONTROL = `Sos el control de calidad de Radar Balcarce,
 Mirala ENTERA y contestá sólo un JSON con estas claves booleanas:
   "personas": hay alguna persona, silueta, mano o parte de un cuerpo,
   "rostros": hay algún rostro, aunque sea chico, dibujado o en un cuadro,
-  "texto": hay letras, palabras o números, aunque estén deformes o no se entiendan,
-  "logos": hay un logo, una marca, una bandera, un escudo o un emblema,
+  "texto": hay letras, palabras o números que se distingan como tales, aunque estén deformes o no se entiendan (NO cuentan: rayas, costuras, tramas, manchas, vetas de madera, ni formas borrosas del fondo desenfocado que no parecen letras),
+  "logos": hay un logo, una marca, una bandera, un escudo o un emblema reconocibles (NO cuentan: los paneles, costuras y colores lisos de una pelota, las rayas o la trama de una tela o de una red, ni un dibujo geométrico abstracto sin forma de marca),
   "sensible": hay sangre, armas, un ataúd, flores de velorio, heridas, drogas o algo que sugiera un delito, un accidente o una muerte, o parece la escena real de un hecho (un choque, un incendio, un operativo),
   "raro": algo deforme, absurdo, de mal gusto o que no parece una foto de diario,
 y "razon": una frase corta en castellano que diga qué se ve.`;
@@ -499,6 +574,21 @@ export async function mirarImagen(bytes, opciones) {
     return interpretarControl(JSON.parse(t.replace(/^```(?:json)?|```$/g, '').trim()));
   } catch (e) {
     return { ok: false, motivo: `no se pudo mirar la imagen (${String(e?.message ?? e).slice(0, 80)})`, razon: null };
+  }
+}
+
+/**
+ * La foto real libre de una figura pública, o null: busca en Commons, exige que el nombre del archivo lleve el apellido y que no se repita
+ * una ya usada, y la baja achicada. Nunca lanza. Devuelve `{ bytes, entrada }` (entrada = lo que se anota, con crédito y licencia).
+ */
+export async function buscarLibre(nota, figura, { fotoLibre, fetchFn, achicar, usadas = [] } = {}) {
+  try {
+    const foto = await fotoLibre.buscar(figura.consulta, { fetchFn, excluir: usadas });
+    if (!fotoEsDeLaFigura(foto, figura)) return null;
+    const baj = await fotoLibre.bajar(foto, `${nota.id}-lib`, { fetchFn, achicar });
+    return baj ? { bytes: baj.bytes, entrada: baj.entrada } : null;
+  } catch {
+    return null;
   }
 }
 
@@ -550,8 +640,9 @@ ${filas || '<p>No hay candidatas.</p>'}
  */
 export async function revisar({
   horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', claveOpenRouter = '', token,
-  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log,
+  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log, fotoLibre = null,
 } = {}) {
+  // `fotoLibre`: { buscar, bajar } (foto-libre.mjs: buscarFotoLibre y bajarFotoLibre). Sin eso no se busca nada (las pruebas y el uso local).
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
   // En el modo automático, también las notas del archivo que la revisión del archivo dejó sin foto (regla 212), después de las del día.
   const delArchivo = automatico && !ids.length && rutas.revision ? idsParaIlustrar(leerJson(rutas.revision, null)) : [];
@@ -572,6 +663,7 @@ export async function revisar({
   // Las ilustraciones que estaban sin control (regla 206): las que pasaron (se les anota el control) y las que no (se reemplazan o se sacan).
   const revisadas = [];
   const aSacar = [];
+  const urlsLibres = [...Object.values(banco), ...Object.values(ilustraciones)].map((e) => e?.imagenOriginal).filter(Boolean);
   let llamadas = 0;
   let sinPermiso = false;
   const anotarCuenta = () => {
@@ -592,6 +684,21 @@ export async function revisar({
       reemplaza = anterior.archivo;
       aSacar.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, motivo: control.motivo, razon: control.razon ?? null });
     }
+    // Una figura pública (Milei...): primero una foto REAL libre de Commons; no gasta el Worker ni el cupo. Si no hay una buena, sigue la ilustración.
+    const figura = fotoLibre ? figuraPublicaDeLaNota(nota) : null;
+    if (figura) {
+      const libre = await buscarLibre(nota, figura, { fotoLibre, fetchFn, achicar, usadas: urlsLibres });
+      if (libre) {
+        urlsLibres.push(libre.entrada.imagenOriginal);
+        fs.writeFileSync(path.join(salida, `${nota.id}.jpg`), libre.bytes);
+        hechas.push({
+          id: nota.id, titulo: nota.titulo, seccion: nota.seccion, fecha: nota.fecha ?? null, tono: tonoDeLaNota(nota), prompt: null, archivo: `${nota.id}.jpg`,
+          control: { ok: true, motivo: null, razon: `foto real libre de Wikimedia Commons (${figura.consulta})` }, libre: libre.entrada, ...(reemplaza ? { reemplaza } : {}),
+        });
+        registro(`  [${nota.id}] foto real libre de ${figura.consulta}: ${libre.entrada.credito}`);
+        continue;
+      }
+    }
     if (sinPermiso) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el Worker rechazó la contraseña (VIGILANTE_TOKEN): no se siguió' }); continue; }
     if (llamadas >= cupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `sin cupo (tope de ${TOPE_POR_CORRIDA} por corrida y ${TOPE_POR_DIA} por día${automatico ? ', repartido en el día' : ''})` }); continue; }
     const tono = tonoDeLaNota(nota);
@@ -601,7 +708,7 @@ export async function revisar({
       saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `no se pudo escribir el prompt (${String(e?.message ?? e).slice(0, 80)})` });
       continue;
     }
-    const prompt = promptFinal(deGemini, tono);
+    const prompt = promptFinal(deGemini, tono, temaDeLaNota(nota));
     const problema = problemaDelPrompt(prompt, nota);
     if (problema) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: problema, prompt }); continue; }
     item.prompt = prompt;
@@ -685,17 +792,21 @@ export function aplicar({ desde, ids = [], automatico = false, informe = null, a
     const sinLaAnterior = c.reemplaza ? Object.fromEntries(Object.entries(nuevo).filter(([id]) => id !== c.id)) : nuevo;
     const motivo = motivoParaSaltar(nota, { banco, manuales, ilustraciones: sinLaAnterior });
     if (motivo) { no(c, motivo); continue; }
-    if (quedan <= 0) { no(c, `tope de ${TOPE_POR_DIA} por día`); continue; }
+    if (quedan <= 0 && !c.libre) { no(c, `tope de ${TOPE_POR_DIA} por día`); continue; }
     const origen = path.join(desde, path.basename(c.archivo));
     if (!fs.existsSync(origen)) { no(c, 'falta la imagen en la revisión'); continue; }
     const bytes = fs.readFileSync(origen);
     if (bytes.length < PESO_MINIMO_DE_UNA_FOTO || bytes[0] !== 0xff || bytes[1] !== 0xd8) { no(c, 'la imagen no es un JPEG que sirva'); continue; }
-    const ocupados = [...fs.readdirSync(rutas.carpeta).filter((f) => f.startsWith(`${c.id}-ia`)), libro[c.id]?.archivo ?? ''];
-    const nombre = `${nombreDeFotoNueva(`${c.id}-ia`, ocupados)}.jpg`;
+    const sufijo = c.libre ? 'lib' : 'ia';
+    const ocupados = [...fs.readdirSync(rutas.carpeta).filter((f) => f.startsWith(`${c.id}-${sufijo}`)), libro[c.id]?.archivo ?? ''];
+    const nombre = `${nombreDeFotoNueva(`${c.id}-${sufijo}`, ocupados)}.jpg`;
     fs.writeFileSync(path.join(rutas.carpeta, nombre), bytes);
-    nuevo[c.id] = entradaDeIlustracion({ archivo: `fotos-notas/${nombre}`, nota, prompt: c.prompt, ahora, automatico, control: c.control });
+    // Una foto real libre (figura pública) lleva su propio crédito y licencia de Commons y no cuenta para el tope del Worker.
+    nuevo[c.id] = c.libre
+      ? { ...c.libre, archivo: `fotos-notas/${nombre}`, origen: 'libre', cuando: ahora.toISOString(), control: { ok: true, motivo: null, razon: c.control?.razon ?? null }, ...(automatico ? { automatica: true } : {}) }
+      : entradaDeIlustracion({ archivo: `fotos-notas/${nombre}`, nota, prompt: c.prompt, ahora, automatico, control: c.control });
     aplicadas.push(c.id);
-    quedan -= 1;
+    if (!c.libre) quedan -= 1;
     registro(`  ${c.id}: guardada como fotos-notas/${nombre}${c.control?.ok ? '' : ` (pedida a mano; el control había dicho: ${c.control?.motivo ?? 'nada'})`}`);
   }
   // Las ilustraciones sin control que la revisión miró (regla 206): la que pasó queda con su control anotado; la que no pasó y no se
@@ -768,6 +879,12 @@ function resumenDeAplicadas({ aplicadas, detalle, noAplicadas }, esAutomatico) {
   try { fs.appendFileSync(archivo, `${lineas.join('\n')}\n`, 'utf8'); } catch { /* el resumen no frena nada */ }
 }
 
+/** Las dos funciones de foto-libre.mjs, para las figuras públicas (se cargan acá para que las pruebas nunca busquen en internet). */
+async function fotoLibreDeCommons() {
+  const { buscarFotoLibre, bajarFotoLibre } = await import('./foto-libre.mjs');
+  return { buscar: buscarFotoLibre, bajar: bajarFotoLibre };
+}
+
 async function principal() {
   const [accion] = process.argv.slice(2);
   const opcion = (n) => (process.argv.find((a) => a.startsWith(`--${n}=`)) ?? '').slice(n.length + 3);
@@ -785,7 +902,7 @@ async function principal() {
     cuentas: leerCuentas(opcion('cuentas') || 'cuentas'), ...claves(),
   });
   if (accion === 'revisar') {
-    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico });
+    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico, fotoLibre: await fotoLibreDeCommons() });
     resumenParaGitHub(resultado);
     // Para el workflow: si ninguna pasó el control, el job "Guardar" del modo automático ni arranca.
     // También cuenta lo que hay que anotar o sacar de las ilustraciones sin control (regla 206): eso también lo guarda el job "Guardar".
@@ -795,7 +912,7 @@ async function principal() {
     const r = aplicar({ desde: opcion('desde') || 'revision', ids, automatico: esAutomatico, informe: opcion('informe') || null });
     resumenDeAplicadas(r, esAutomatico);
   } else if (accion === 'automatico') {
-    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas' });
+    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas', fotoLibre: await fotoLibreDeCommons() });
     resumenParaGitHub(r.revision);
     resumenDeAplicadas(r, true);
   } else {
