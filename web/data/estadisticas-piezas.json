@@ -9769,6 +9769,58 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "facebook/historia/1101298889204764",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "clima-manana",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T10:07:22.453Z",
+   "medida": "2026-10-23T12:00:52.311Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/reel/994005890418154",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "clima-manana",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T10:07:52.057Z",
+   "medida": "2026-10-23T12:00:52.311Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 4295,
+    "fb_reels_total_plays": 4885,
+    "post_video_avg_time_watched": 6568,
+    "post_video_social_actions": 1,
+    "post_video_likes_by_reaction_type": 35
+   }
+  },
+  {
+   "clave": "instagram/historia/18263349928307529",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "farmacia",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T22:07:03.107Z",
+   "medida": "2026-10-23T12:00:52.311Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18098794742429990",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "clima-noche",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T23:06:39.281Z",
+   "medida": "2026-10-23T12:00:52.311Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
   }
  ]
 }
