@@ -1,6 +1,6 @@
 # Radar Balcarce
 
-*Actualizado el 17/10/2026. Corto a propósito: el detalle está en `docs/` (empezar por
+*Actualizado el 23/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
 `docs/00-INDICE.md`). Si esto y el código no coinciden, manda el código, y se corrige
 esto.*
 

@@ -4,6 +4,17 @@
 arriba. Una decisión no se borra: si se cambia, se anota la nueva y se dice cuál reemplaza. Lo que falta hacer
 está en `PENDIENTES.md`; las reglas numeradas con su prueba, en `docs/10-REGLAS-Y-PRUEBAS.md`.*
 
+## 23/10/2026
+
+| Qué | Por qué | Quién |
+|---|---|---|
+| **23/10: el robot corre en Cloudflare y se achica para que dure.** Tope de notas en la web (`TOPE_DE_NOTAS`, mínimo 500, baja 100 por vuelta) con las viejas guardadas en R2 (`radar-archivo`, Worker `radar-balcarce-archivo` sirve `/nota/*` y `/fotos-notas/*`). | La compilación crecía con las notas y el repositorio ya pesaba cientos de MB. | Hernán y Andrés |
+| **23/10: vigilante de vueltas en el reloj.** Si la última vuelta buena tiene 40 minutos o más, el reloj la vuelve a pedir; cron extra a los :10, :25, :40, :50 y :55. | Cloudflare perdió ticks entre las 12:05 y las 12:35. | Claude |
+| **23/10: Balcarce ya no espera por amarillo** (siguen el rojo y la lista "nunca"). Lo muy contado (8 medios o más) que no sale queda en `web/data/muy-contadas.json` con el motivo. | "Todo lo de Balcarce se publica; evitar nombres de víctimas." | Hernán |
+| **23/10: la revisión del archivo (1.459 notas) quedó en pausa** (`REVISION_DEL_ARCHIVO=no`) hasta cerrar reglas de fotos y selección. | Evitar rehacer trabajo con reglas que todavía cambian. | Hernán |
+| **23/10: la historia de git se compacta una vez que el tope se estabilice** (`compactar-historial.yml`, confirmar=COMPACTAR; respaldo completo del 23/10 en artefactos de GitHub por 90 días). | Irreversible: necesita OK y respaldo. | Hernán dio OK; falta correrlo |
+| **23/10: fotos, notas más largas, Fútbol/Policiales y fuentes flojas** salen de a ramas `agente/*` revisadas antes de unir a main. | Ordenar el trabajo en paralelo sin romper la web. | Claude |
+
 ## 18/10/2026
 
 | Qué | Por qué | Quién |
