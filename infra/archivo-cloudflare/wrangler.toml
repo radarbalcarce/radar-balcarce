@@ -12,6 +12,8 @@ main = "worker.mjs"
 compatibility_date = "2026-10-01"
 # La dirección de workers.dev queda prendida: sirve para probarlo antes de poner la ruta y para que el vigilante lea /_archivo/estado.
 workers_dev = true
+# 23/10/2026: sin esta bandera, desde workers.dev el Worker no podía preguntarle al sitio en pages.dev (error 1019) y la comprobación del archivo daba 404.
+compatibility_flags = ["global_fetch_strictly_public"]
 
 # NO descomentar: la ruta la maneja ruta.mjs (ver arriba). Queda escrita sólo como referencia de cómo sería.
 # OJO: tendría que quedar acá arriba, antes de la primera tabla ([[r2_buckets]]); más abajo TOML la tomaría como parte de otra tabla.
