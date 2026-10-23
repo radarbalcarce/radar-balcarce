@@ -32583,10 +32583,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes gana por penales ante Flamengo y pasa a la final",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T05:31:50.939Z",
-  "intentos": 2,
-  "fuentes": 12,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-23T06:32:02.535Z",
+  "intentos": 3,
+  "fuentes": 15,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1d5jf0q": {
@@ -32607,6 +32607,16 @@
   "cuando": "2026-10-23T05:31:50.939Z",
   "intentos": 1,
   "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "fh60c0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes vence a Flamengo por penales y llega a la final de la Libertadores",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: The operation was aborted due to timeout",
+  "cuando": "2026-10-23T06:32:02.535Z",
+  "intentos": 1,
+  "fuentes": 15,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
