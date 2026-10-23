@@ -25,5 +25,5 @@ jobs:
           console.log('MES:',JSON.stringify(j.mes));
           console.log('HISTORIAL (más viejo primero):');
           for(const v of (j.historial||[]))console.log(' ',f(v),v.motivo||'');
-          console.log('Claves:',Object.keys(j).join(','));
+          console.log('PRESUPUESTO:',JSON.stringify(j.presupuesto).slice(0,900));
           "
