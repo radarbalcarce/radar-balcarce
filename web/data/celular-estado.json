@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T14:35:12.933Z",
- "portada": 96,
- "archivo": 1045,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-23T15:09:06.232Z",
+ "portada": 97,
+ "archivo": 945,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-23T14:35:13.359Z",
+  "generado": "2026-10-23T15:09:06.768Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu nota",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -116,7 +116,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 45,
     "notas": [
      {
       "id": "idsz54",
@@ -132,11 +132,6 @@
       "id": "174prqh",
       "titulo": "LALCEC Balcarce organiza una caminata de concientización sobre cáncer de mama",
       "seccion": "Salud"
-     },
-     {
-      "id": "bvylmk",
-      "titulo": "Debaten sobre alternativas tras la suspensión de la Estudiantina 2026 y 2027",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -162,6 +157,11 @@
      "id": "9cnbf5",
      "titulo": "El Turismo Special de la Costa corre en el Fangio sin Nahuel Morón",
      "cuando": "2026-10-23T12:45:32.110Z"
+    },
+    {
+     "id": "1qr79y1",
+     "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
+     "cuando": "2026-10-23T14:36:02.348Z"
     }
    ],
    "cola": [
@@ -169,12 +169,6 @@
      "id": "idsz54",
      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1kx53j2",
-     "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
-     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -190,15 +184,9 @@
      "marcada": false
     },
     {
-     "id": "bvylmk",
-     "titulo": "Debaten sobre alternativas tras la suspensión de la Estudiantina 2026 y 2027",
+     "id": "1kx53j2",
+     "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1qr79y1",
-     "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
-     "seccion": "Economía",
      "marcada": false
     },
     {
@@ -208,8 +196,8 @@
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-23T14:15:32.110Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-23T16:06:02.348Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
