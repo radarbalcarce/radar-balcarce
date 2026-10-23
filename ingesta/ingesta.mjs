@@ -482,7 +482,7 @@ function mencionaBalcarce(nota) {
  * puso el propio medio (los tramos de la dirección: infobae.com/mexico/…,
  * lanacion.com.ar/estados-unidos/…), no el texto. Devuelve el motivo o null.
  */
-function motivoDeDescarte(nota, fuente = {}) {
+function motivoDeDescarte(nota, fuente = {}, { sinDiferibles = false } = {}) {
   // La quiniela y la lotería no se analizan, ni de un medio de acá, salvo que la nota nombre algo de Balcarce (2/10).
   if (TITULO_LOTERIA.test(normalizar(nota.titulo ?? '')) && !mencionaBalcarce(nota)) return 'lotería o quiniela: sólo si gana alguien de Balcarce';
   if (fuente.alcance === 'local') return null;
@@ -491,7 +491,7 @@ function motivoDeDescarte(nota, fuente = {}) {
   // general"). Esto mira el título aparte, con frases puntuales.
   if (TITULO_HOROSCOPO.test(normalizar(nota.titulo ?? ''))) return 'consejo genérico';
   // Fútbol: sólo Primera División argentina y argentinos jugando afuera (23/10, dueño; ingesta/futbol-argentino.mjs).
-  if (clasificar({ categorias: [], cuerpo: '', ...nota }) === 'Fútbol') {
+  if (!sinDiferibles && clasificar({ categorias: [], cuerpo: '', ...nota }) === 'Fútbol') {
     const noArgentino = motivoFutbolNoArgentino(nota);
     if (noArgentino) return noArgentino;
   }
@@ -503,12 +503,48 @@ function motivoDeDescarte(nota, fuente = {}) {
   for (const regla of SECCIONES_QUE_NO_ENTRAN) {
     const coinciden = regla.tramos.filter((t) => tramos.includes(t));
     if (!coinciden.length) continue;
+    if (sinDiferibles && MOTIVOS_DIFERIBLES.includes(regla.motivo)) continue;
     // Olé pone toda su F1 y su TC bajo "/autos/": en una fuente de automovilismo no es un consejo de autos (30/09).
     if (esDeFierros && coinciden.every((t) => t === 'autos')) continue;
     if (regla.conExcepcion && (esDeFierros || conArgentino(nota))) continue;
     return regla.motivo;
   }
   return null;
+}
+
+/** Los descartes que dependen de cuántos medios cuentan lo mismo (regla 303): no se deciden nota por nota, se marcan y se resuelven
+ *  con la historia entera (resolverDescartesDeSeccion). El fútbol que no es de Primera tiene su propio motivo (futbol-argentino.mjs). */
+const MOTIVOS_DIFERIBLES = ['de otro país', 'policial de afuera'];
+const esMotivoDeFutbol = (m) => String(m ?? '').startsWith('fútbol');
+
+/** El motivo de sección o de fútbol que se decide DESPUÉS del cruce, o null. Lo temprano (lotería, horóscopo, consejos) va en motivoDeDescarte. */
+function motivoDiferido(nota, fuente = {}) {
+  if (fuente.alcance === 'local') return null;
+  const m = motivoDeDescarte(nota, fuente);
+  return m && (MOTIVOS_DIFERIBLES.includes(m) || esMotivoDeFutbol(m)) ? m : null;
+}
+
+/**
+ * Regla 303 (23/10/2026, auditoría A3): las notas marcadas con `descarteDeSeccion` se juzgan con la historia entera y la cuenta de
+ * todos sus medios, no una por una. Se quedan si la historia tiene una excepción; si no, se sacan igual que antes (las demás notas
+ * de la historia siguen). Excepciones: policial de afuera, si la historia es de acá (medio de Balcarce, Balcarce, la zona) o la cuentan
+ * 8 medios o más / es la muerte de un famoso (policialNacionalRelevante); de otro país, si alguna versión tiene conexión argentina;
+ * fútbol, si alguna versión nombra un club de Primera, una competencia argentina o un argentino afuera. Devuelve las notas que quedan.
+ */
+export function resolverDescartesDeSeccion(ns) {
+  const marcadas = ns.filter((n) => n.descarteDeSeccion);
+  if (!marcadas.length) return ns;
+  const medios = new Set(ns.map((n) => n.medio)).size;
+  const deAca = ns.some((n) => n.alcance === 'local' || n.nombraBalcarce || n.deLaZona);
+  const sale = (m) => {
+    if (esMotivoDeFutbol(m)) return ns.some((n) => esFutbolArgentino(n));
+    if (m === 'policial de afuera') return deAca || ns.some((n) => policialNacionalRelevante(n, medios));
+    if (m === 'de otro país') return ns.some((n) => conArgentino(n));
+    return false;
+  };
+  const motivos = [...new Set(marcadas.map((n) => n.descarteDeSeccion))];
+  const quedan = new Set(motivos.filter(sale));
+  return ns.filter((n) => !n.descarteDeSeccion || quedan.has(n.descarteDeSeccion));
 }
 
 /** ¿Es un policial que no es de Balcarce? No viene de un medio de acá ni dice
@@ -1709,8 +1745,10 @@ export async function ingestar({
     // las mira para todos; lo demás, sólo para los de afuera). Hasta el 15/10 se
     // llamaba sólo para los de afuera y la regla no hacía lo que decía.
     const antes = notas.length;
-    notas = notas.filter((n) => !motivoDeDescarte(n, f));
+    notas = notas.filter((n) => !motivoDeDescarte(n, f, { sinDiferibles: true }));
     const descartadas = antes - notas.length;
+    // Lo de sección y el fútbol que no es argentino se marca y se decide con la historia entera (regla 303).
+    for (const n of notas) { const d = motivoDiferido(n, f); if (d) n.descarteDeSeccion = d; }
     if (f.alcance !== 'local') notas.forEach(marcarDeAfuera);
     return { fuente: f, notas, descartadas };
   }));
@@ -1762,11 +1800,11 @@ export async function ingestar({
   // memoria, regla 195, se mira como lo de acá de siempre).
   deAntes.filter((n) => n.alcance !== 'local').forEach(marcarDeAfuera);
   const conjunto = [...todas, ...deAntes];
-  const { grupos, deUnSoloMedio, deOtraCiudad, revisados, partidos, deUnSoloMedioLista } = armarHistorias(conjunto, { idsConocidos, idsUnidos });
+  const { grupos, deUnSoloMedio, deOtraCiudad, deSeccion, revisados, partidos, deUnSoloMedioLista } = armarHistorias(conjunto, { idsConocidos, idsUnidos });
   // Desde el 17/10 (regla 195) también lo de acá, 72 horas (CRUCE.horasDeMemoriaDeAca); MEMORIA_DE_ACA=no lo apaga.
   if (memoria) guardarMemoria(memoria, memoriaAntes, MEMORIA_DE_ACA ? todas : todas.filter((n) => n.alcance !== 'local'));
   log(`
-  cruce: ${conjunto.length} notas (${deAntes.length} de la memoria) · ${grupos.length} historias · ${deUnSoloMedio} de afuera con un solo medio y ${deOtraCiudad} de otra ciudad de la zona no entran`);
+  cruce: ${conjunto.length} notas (${deAntes.length} de la memoria) · ${grupos.length} historias · ${deUnSoloMedio} de afuera con un solo medio y ${deOtraCiudad} de otra ciudad de la zona no entran · ${deSeccion} no entran por la sección del medio o el fútbol, vistas con todos sus medios (regla 303)`);
   if (revisados) log(`  cruce coherente (regla 184): ${revisados} grupos encadenados revisados, ${partidos} partidos en hechos distintos`);
   return seguirConLasHistorias({ grupos, estadoFuentes, todas, t0, escribirArchivos, idsConocidos, deUnSoloMedioLista });
 }
@@ -1783,9 +1821,18 @@ export function armarHistorias(conjunto, { idsConocidos = null, idsUnidos = null
   let deUnSoloMedio = 0;
   const deUnSoloMedioLista = [];
   let deOtraCiudad = 0;
+  let deSeccion = 0;
   const cruce = agruparConDetalle(conjunto, { ...(coherente === undefined ? {} : { coherente }), ...(parametros ? { parametros } : {}) });
   for (const indices of cruce.grupos) {
-    const ns = indices.map((i) => conjunto[i]);
+    let ns = indices.map((i) => conjunto[i]);
+    // Regla 303: los descartes por sección o fútbol se resuelven acá, con todos los medios de la historia.
+    if (ns.some((n) => n.descarteDeSeccion)) {
+      const quedan = resolverDescartesDeSeccion(ns);
+      if (quedan.length < ns.length) {
+        if (!quedan.length) { if (!ns.every((n) => n.deLaMemoria)) deSeccion += 1; continue; }
+        ns = quedan;
+      }
+    }
     const locales = ns.filter((n) => n.alcance === 'local');
     // Lo de acá que sólo está en la memoria (regla 195) sirve para que se le sume lo que llega después, no para volver a
     // aparecer: si ya no está en el feed, queda como siempre (lo publicado sigue en el archivo).
@@ -1849,7 +1896,7 @@ export function armarHistorias(conjunto, { idsConocidos = null, idsUnidos = null
     if (!principal.figura) principal.figura = ns.find((n) => n.figura)?.figura;
     grupos.push({ principal, medios, tambien, nombraAca: historiaDeAca && localesNombranAca });
   }
-  return { grupos, deUnSoloMedio, deUnSoloMedioLista, deOtraCiudad, revisados: cruce.revisados, partidos: cruce.partidos };
+  return { grupos, deUnSoloMedio, deUnSoloMedioLista, deOtraCiudad, deSeccion, revisados: cruce.revisados, partidos: cruce.partidos };
 }
 
 /**

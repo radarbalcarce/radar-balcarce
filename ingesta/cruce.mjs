@@ -378,6 +378,7 @@ function paraLaMemoria(n) {
     peso: n.peso ?? 10,
     imagen: n.imagen ?? '',
     categorias: n.categorias ?? [],
+    ...(n.descarteDeSeccion ? { descarteDeSeccion: n.descarteDeSeccion } : {}),
   };
 }
 
