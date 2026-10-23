@@ -141,7 +141,7 @@ test('el epígrafe de las redes no dice "Foto:" delante de una ilustración de I
 
 test('generar-datos saca la foto del clima si el archivo no está, y no llama a ninguna red para elegirla', () => {
   const g = fs.readFileSync(new URL('../web/scripts/generar-datos.mjs', import.meta.url), 'utf8');
-  assert.match(g, /n\.propia !== 'clima'[\s\S]{0,400}existsSync[\s\S]{0,200}delete n\.foto/);
+  assert.match(g, /n\.propia !== 'clima'[\s\S]{0,400}(?:existsSync|existeFoto)[\s\S]{0,200}delete n\.foto/);
   const lib = fs.readFileSync(new URL('../web/lib/fondos-clima.js', import.meta.url), 'utf8');
   assert.ok(!/\bfetch\s*\(|node:https?|XMLHttpRequest/.test(lib), 'elegir la imagen no usa la red');
   assert.ok(!/^import /m.test(lib), 'sin dependencias');

@@ -48,6 +48,7 @@
 //   node scripts/generar-datos.mjs   (en GitHub Actions; en la PC, ver más abajo)
 
 import fs from 'node:fs';
+import { crearExisteFoto } from '../../infra/compartido/fotos-r2.mjs';
 import path from 'node:path';
 import { leerJson, leerJsonEstricto } from '../../ingesta/json.mjs';
 import { NUMEROS, tocaHoy, diaDeEstaSemana, diaDeTurno, comoISO, decisionHumana } from '../../ingesta/utiles.mjs';
@@ -139,6 +140,8 @@ const BANCO_FOTOS = path.join(AQUI, '..', 'data', 'banco-fotos.json');
 // reels/marca/fuentes/): así también las sirve Cloudflare Pages sin nada
 // más que hacer.
 const FOTOS_NOTAS = path.join(AQUI, '..', 'public', 'fotos-notas');
+// ¿Existe esa foto? En disco o, con FOTOS_EN_R2 prendida, en R2 (el índice que deja la vuelta del motor): una nota no pierde su foto porque no esté en disco.
+const existeFoto = crearExisteFoto(FOTOS_NOTAS);
 // Las notas que esperan cuerpo, con lo necesario para escribirlo a mano (28/09:
 // Gemini sin cupo dejaba 34 esperando y la portada con notas de días atrás; así
 // Claude u otra persona las redacta en web/data/correcciones.json).
@@ -678,7 +681,7 @@ const FOTOS_MANUALES = path.join(AQUI, '..', 'data', 'fotos-manuales.json');
 // "Un día como hoy" (14/10/2026): lo que dice el video de cada día; la nota sale cuando el video sale (lib/notas-propias.js).
 const EFEMERIDES_PIEZAS = path.join(AQUI, '..', 'data', 'efemerides-piezas.json');
 const fotosManuales = Object.fromEntries(Object.entries(leerJson(FOTOS_MANUALES, {}))
-  .filter(([, f]) => f?.archivo && fs.existsSync(path.join(FOTOS_NOTAS, path.basename(f.archivo)))));
+  .filter(([, f]) => f?.archivo && existeFoto(path.basename(f.archivo))));
 let bancoDeFotos = { ...leerJson(BANCO_FOTOS, {}), ...fotosManuales };
 // Las ilustraciones hechas con IA para notas sin foto (regla 182, web/scripts/ilustrar-notas.mjs): las anota sólo el workflow manual "Ilustrar
 // notas sin foto", después de que una persona las miró; esta corrida nunca escribe ese archivo. Van con la prioridad MÁS BAJA (primero las
@@ -686,7 +689,7 @@ let bancoDeFotos = { ...leerJson(BANCO_FOTOS, {}), ...fotosManuales };
 // la búsqueda de fotos reales (elegirFotosNuevas) sigue probando esas notas y la poda no las toca. Sólo si el archivo está en disco.
 const FOTOS_IA = path.join(AQUI, '..', 'data', 'fotos-ia.json');
 const ilustracionesIA = Object.fromEntries(Object.entries(leerJson(FOTOS_IA, {}))
-  .filter(([, f]) => f?.archivo && esIlustracionDeNota(f) && fs.existsSync(path.join(FOTOS_NOTAS, path.basename(f.archivo)))));
+  .filter(([, f]) => f?.archivo && esIlustracionDeNota(f) && existeFoto(path.basename(f.archivo))));
 const conIlustraciones = { ilustraciones: ilustracionesIA, ilustracionPermitida: (n) => ilustracionPermitida(n, { semaforo: semaforoDelTexto }) };
 /** Una nota del archivo sin foto real (o con su ilustración) toma la ilustración que tenga, o la pierde si ya no puede llevarla. */
 const conLaIlustracion = (n) => (n && (!n.foto || esIlustracionDeNota(n.foto)) ? conFotosDelBanco([{ ...n }], {}, conIlustraciones)[0] : n);
@@ -922,13 +925,13 @@ if (propias.length) console.log(`  notas propias: ${propias.map((n) => n.id).joi
 // archivo no está (todavía no se subió, o se borró), la nota sale sin foto en vez de con una imagen rota.
 for (const n of propias) {
   if (n.propia !== 'clima' || !n.foto?.archivo) continue;
-  if (!fs.existsSync(path.join(FOTOS_NOTAS, path.basename(n.foto.archivo)))) { console.log(`  clima: falta ${n.foto.archivo}, la nota ${n.id} sale sin foto`); delete n.foto; }
+  if (!existeFoto(path.basename(n.foto.archivo))) { console.log(`  clima: falta ${n.foto.archivo}, la nota ${n.id} sale sin foto`); delete n.foto; }
 }
 
 // Una nota propia que una persona armó (la de una pista) y a la que se le subió una foto desde el celular: la foto está en el banco con el id de la nota.
 for (const n of propias) {
   const guardada = bancoDeFotos[n.id];
-  if (!n.foto && n.propia === 'pista' && guardada?.archivo && fs.existsSync(path.join(FOTOS_NOTAS, path.basename(guardada.archivo)))) n.foto = { archivo: guardada.archivo, credito: guardada.credito };
+  if (!n.foto && n.propia === 'pista' && guardada?.archivo && existeFoto(path.basename(guardada.archivo))) n.foto = { archivo: guardada.archivo, credito: guardada.credito };
 }
 
 // Las notas propias que no tienen la foto de ninguna fuente (la F1: 3/10, Hernán) llevan una foto libre del lugar, de Wikimedia Commons
@@ -944,7 +947,7 @@ for (const n of propias) {
     if (!lugarDeLaFoto || n.foto) continue;
     const guardada = bancoDeFotos[n.id];
     const repetida = guardada?.imagenOriginal && usadas.has(guardada.imagenOriginal);
-    if (!repetida && guardada?.archivo && fs.existsSync(path.join(FOTOS_NOTAS, path.basename(guardada.archivo)))) {
+    if (!repetida && guardada?.archivo && existeFoto(path.basename(guardada.archivo))) {
       n.foto = { archivo: guardada.archivo, credito: guardada.credito };
       if (guardada.imagenOriginal) usadas.add(guardada.imagenOriginal);
       continue;
@@ -1109,7 +1112,7 @@ const conLaFotoPasada = (n) => (pasaLaFoto.has(n?.id) && (!n.foto || esIlustraci
 // Regla 186: una nota del archivo con una foto con chicos que entró por la excepción la pierde si se apagó FOTOS_MENORES_OFICIALES o si la
 // nota, como está hoy, ya no la permite (después le toca su ilustración, si tiene).
 // La foto de cada nota del archivo, al día con el banco (regla 203): sin imágenes rotas ni fotos que se sacaron.
-const conLaFotoAlDia = (n) => fotoDelArchivoAlDia(n, bancoDeFotos, { existe: (nombre) => fs.existsSync(path.join(FOTOS_NOTAS, nombre)) });
+const conLaFotoAlDia = (n) => fotoDelArchivoAlDia(n, bancoDeFotos, { existe: (nombre) => existeFoto(nombre) });
 const sinFotoConMenorBloqueada = (n) => {
   const b = bancoDeFotos[n?.id];
   if (!n?.foto?.archivo || !b?.excepcion || n.foto.archivo !== b.archivo || fotoConMenorPermitida(n)) return n;

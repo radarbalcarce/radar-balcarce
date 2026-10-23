@@ -27,6 +27,10 @@ import { crearGithub } from '../compartido/github.mjs';
 import { clienteR2 } from '../compartido/r2-s3.mjs';
 import { fotografiar, cambiosDesde } from './archivos.mjs';
 import {
+  fotosEnR2Activas, indiceDeFotos, guardarIndice, rutaDelIndice, hidratar, lectorDeR2, fotosQueNecesitan, separarCambios, subirFotos,
+  fotosRetiradasParaBorrar, idsRetiradosDe, claveDeFoto,
+} from '../compartido/fotos-r2.mjs';
+import {
   restaurarCache, guardarCache, tomarCandado, soltarCandado, anotarVuelta,
 } from './estado-r2.mjs';
 import { hayQueRecompilar } from '../../web/scripts/recompilar.mjs';
@@ -86,6 +90,10 @@ export function configurar(env = process.env) {
     r2: cuenta && bucket && env.R2_ACCESS_KEY_ID && env.R2_SECRET_ACCESS_KEY
       ? { cuenta, bucket, accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY } : null,
     archivoR2: (env.R2_ARCHIVO ?? '').trim(),
+    // FOTOS_EN_R2 ("Si"): las fotos nuevas van a R2 (el depósito del archivo) y no al commit. Vacía, todo como siempre. docs/etapa-10-operacion/FOTOS-EN-R2.md
+    fotosEnR2: fotosEnR2Activas(env),
+    r2Fotos: cuenta && (env.R2_ARCHIVO ?? '').trim() && env.R2_ACCESS_KEY_ID && env.R2_SECRET_ACCESS_KEY
+      ? { cuenta, bucket: (env.R2_ARCHIVO ?? '').trim(), accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY } : null,
     id: env.WORKERS_CI_BUILD_UUID || env.MOTOR_ID || `vuelta-${Date.now()}`,
   };
 }
@@ -95,7 +103,7 @@ export function configurar(env = process.env) {
  * Devuelve { ok, omitida?, motivo?, pasos, segundos, commit? }; si algo salió mal, ok es false (el programa sale con error).
  */
 export async function vuelta({
-  env = process.env, raiz = RAIZ, ejecutar = ejecutarReal, github = null, r2 = null, ahora = () => new Date(), log = console.log,
+  env = process.env, raiz = RAIZ, ejecutar = ejecutarReal, github = null, r2 = null, r2Fotos = null, ahora = () => new Date(), log = console.log,
 } = {}) {
   const cfg = configurar(env);
   const inicio = ahora().getTime();
@@ -104,6 +112,8 @@ export async function vuelta({
   const web = path.join(raiz, 'web');
   const gh = github ?? (cfg.token && !cfg.simular ? crearGithub({ token: cfg.token, repo: cfg.repo }) : null);
   const deposito = r2 ?? (cfg.r2 ? clienteR2(cfg.r2) : null);
+  // El depósito de las fotos (el del archivo permanente), sólo con el interruptor prendido y sin simulacro.
+  const depositoFotos = cfg.fotosEnR2 && !cfg.simular ? (r2Fotos ?? (cfg.r2Fotos ? clienteR2(cfg.r2Fotos) : null)) : null;
   let tenemosElCandado = false;
   let resultado = { ok: false, pasos };
 
@@ -173,6 +183,25 @@ export async function vuelta({
 
     // 5. Buscar noticias y armar los datos. La foto de los archivos de antes es lo que después permite saber qué cambió.
     const antes = fotografiar(raiz);
+    // FOTOS_EN_R2: lo que muestran las notas de ahora se trae de R2 antes de armar (la compilación lee las fotos del disco) y se anota qué fotos
+    // tiene R2 (generar-datos no da por perdida una foto que está en R2 y no en disco). Si algo falla, sigue sin eso: nunca frena la vuelta.
+    const hidratadas = new Set();
+    let indiceR2 = new Set();
+    if (cfg.fotosEnR2 && !cfg.simular && !depositoFotos) log('(FOTOS_EN_R2 está prendida pero faltan R2_ARCHIVO o las claves de R2: las fotos siguen yendo a git)');
+    if (depositoFotos) {
+      try {
+        indiceR2 = await indiceDeFotos(depositoFotos);
+        guardarIndice(raiz, indiceR2);
+        entorno.FOTOS_R2_INDICE = rutaDelIndice(raiz);
+        const leerLista = (ruta) => { try { return JSON.parse(fs.readFileSync(path.join(raiz, ruta), 'utf8')); } catch { return []; } };
+        const archivoNotas = leerLista('web/data/archivo.json');
+        const nombres = fotosQueNecesitan(leerLista('web/data/portada.json')?.notas ?? [], Array.isArray(archivoNotas) ? archivoNotas : []).filter((n) => indiceR2.has(n)).slice(0, 800);
+        const h = await hidratar({ raiz, nombres, leer: lectorDeR2(depositoFotos), limiteSegundos: 150, ahora: () => ahora().getTime(), log });
+        for (const n of h.bajadas) hidratadas.add(n);
+        pasos['Traer las fotos de R2'] = { ok: true, segundos: 0, bajadas: h.bajadas.size, faltan: h.faltan.length, fallaron: h.fallaron.length };
+        log(`Fotos de R2: ${indiceR2.size} en el depósito, ${h.bajadas.size} traídas para compilar${h.faltan.length + h.fallaron.length ? ` (${h.faltan.length} que R2 no tiene, ${h.fallaron.length} que fallaron)` : ''}.`);
+      } catch (e) { log(`(no se pudo leer el depósito de fotos: ${e.message}; la vuelta sigue como si no hubiera R2)`); }
+    }
     // El commit con el que empezó esta vuelta: lo que entre después es lo que "entró mientras se armaba" (paso 8).
     const cabezaAlInicio = env.WORKERS_CI_COMMIT_SHA || (gh && !cfg.simular ? await gh.cabeza().catch(() => null) : null);
     await correr('Buscar noticias y armar los datos', 'node', ['scripts/generar-datos.mjs'], { cwd: web, capturar: true });
@@ -187,7 +216,26 @@ export async function vuelta({
 
     // 7. Guardar los datos en main por la API. Si no se puede guardar, no se sube nada (como en el workflow).
     let padre = null;
-    const cambios = cambiosDesde(raiz, antes);
+    let cambios = cambiosDesde(raiz, antes);
+    if (depositoFotos) {
+      // Las fotos nuevas van a R2 y salen del commit; la que no se pudo subir va en el commit como siempre. Se sube ANTES de guardar
+      // banco-fotos.json: el banco nunca apunta a una foto que no esté en R2 ni en git.
+      try {
+        const { git, subir } = separarCambios(cambios, { hidratadas });
+        const { subidas, fallidas } = await subirFotos(depositoFotos, subir);
+        const fallo = new Set(fallidas.map((x) => x.nombre));
+        cambios = [...git, ...subir.filter((s) => fallo.has(s.nombre)).map((s) => s.cambio)].sort((a, b) => (a.ruta < b.ruta ? -1 : 1));
+        log(`Fotos nuevas: ${subidas.length} a R2${fallidas.length ? `, ${fallidas.length} no se pudieron subir y van en el commit (${fallidas[0].error})` : ''}.`);
+        pasos['Fotos nuevas a R2'] = { ok: fallidas.length === 0, segundos: 0, subidas: subidas.length, fallidas: fallidas.length };
+        for (const n of subidas) indiceR2.add(n);
+        // Lo retirado (menores, víctimas) se borra también de R2: es lo único que se borra de ahí.
+        const leerObjeto = (ruta) => { try { return JSON.parse(fs.readFileSync(path.join(raiz, ruta), 'utf8')); } catch { return {}; } };
+        const retiradas = idsRetiradosDe({ banco: leerObjeto('web/data/banco-fotos.json'), retiradas: leerObjeto('web/data/retiradas.json'), revision: leerObjeto('web/data/revision-archivo.json') });
+        const aBorrar = fotosRetiradasParaBorrar(indiceR2, retiradas);
+        for (const n of aBorrar) await depositoFotos.borrar(claveDeFoto(n));
+        if (aBorrar.length) log(`Fotos de notas retiradas borradas de R2: ${aBorrar.length}.`);
+      } catch (e) { log(`(las fotos no se pudieron mandar a R2: ${e.message}; van en el commit)`); cambios = cambiosDesde(raiz, antes).filter((c) => !(c.baseSha === null && hidratadas.has(c.ruta.split("/").pop()))); }
+    }
     log(`\n▶ Guardar si cambió algo: ${cambios.length} archivo(s) distintos.`);
     if (cfg.simular) log('  (simulacro: no se guarda)');
     else if (cambios.length) {

@@ -20,6 +20,7 @@ import { espejosPendientes, esLimiteDeMeta, posteoYaPublicado, comoSaleEnFaceboo
 import { FOTO_EN_INSTAGRAM } from '../web/lib/tarjeta-diseno.js';
 import { raizDelProyecto } from './raiz.mjs';
 import { fijarEnlacesCortos } from './enlaces-cortos.mjs';
+import { traerFotosDeLaPortada } from '../infra/compartido/fotos-r2.mjs';
 import { fotosCambiadasDespuesDelPosteo } from './foto-cambiada.mjs';
 import {
   elegirParaFacebook, mensajeDeNota, enlaceDeNota, enlaceConOrigen, imagenDeNota, conCreditoDeFoto, libroNuevo, anotar, yaPublicada, estaActivo,
@@ -308,6 +309,8 @@ export async function main({ argv = process.argv.slice(2), env = process.env, ra
   ACTIVO = estaActivo(env.REDES_ACTIVAS);
   // ENLACES_CORTOS ("Si"): los enlaces de los posteos y los pies salen como radarbalcarce.com/r/<red>/<destino> (regla 282). Vacía, todo sale como siempre.
   fijarEnlacesCortos(env.ENLACES_CORTOS);
+  // FOTOS_EN_R2 ("Si"): las fotos de las notas ya no están en git; las placas y los collages las toman del disco, así que se traen antes de armar nada.
+  if (argv[0] === '--facebook' || argv[0] === '--piezas') await traerFotosDeLaPortada({ raiz: RAIZ, sitio: SITIO, env, log: console.log });
   const modo = argv[0];
   try {
     if (modo === '--verificar') await verificar();
