@@ -9995,6 +9995,74 @@
    "medida": "2026-10-23T15:26:13.128Z",
    "v": 2,
    "metricas": {}
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122114603193495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "juo82o",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T15:35:41.459Z",
+   "medida": "2026-10-23T18:00:13.790Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 5,
+    "post_total_media_view_unique": 2,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/17885117736625702",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "juo82o",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T15:35:51.311Z",
+   "medida": "2026-10-23T18:00:13.790Z",
+   "v": 2,
+   "metricas": {
+    "reach": 1,
+    "views": 4,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122114628195495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "sg5gtd",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T17:35:45.092Z",
+   "medida": "2026-10-23T18:00:13.790Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 10,
+    "post_total_media_view_unique": 5,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18489498973110399",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "sg5gtd",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T17:35:56.822Z",
+   "medida": "2026-10-23T18:00:13.790Z",
+   "v": 2,
+   "metricas": {
+    "reach": 2,
+    "views": 4,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
   }
  ]
 }
