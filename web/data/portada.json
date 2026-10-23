@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-23T11:19:09.497Z",
+  "generado": "2026-10-23T11:32:17.151Z",
   "notas": [
     {
       "id": "1vp56p5",
@@ -1098,7 +1098,7 @@
       "fecha": "2026-10-22T23:27:16.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 72,
+      "relevancia": 65,
       "local": false,
       "muyContada": {
         "medios": 19,
@@ -1209,7 +1209,7 @@
       "fecha": "2026-10-22T23:18:44.518Z",
       "sinFecha": false,
       "visto": "2026-10-23T11:18:11.433Z",
-      "relevancia": 88,
+      "relevancia": 81,
       "local": true,
       "deUnMedioDeAca": true,
       "muyContadaDeAca": 3,
@@ -1761,6 +1761,7 @@
         "Agencia DIB",
         "Clarín",
         "TN (Todo Noticias)",
+        "El Cronista",
         "El Destape",
         "Perfil",
         "iProfesional",
@@ -1768,7 +1769,6 @@
         "Ámbito",
         "C5N",
         "Los Andes (Mendoza)",
-        "El Cronista",
         "Radio Mitre",
         "La Nueva"
       ],
@@ -2097,9 +2097,9 @@
       "guion": "Citan a indagatoria a los dueños de Suizo Argentina por causa en Andis.",
       "seccion": "Política",
       "medios": [
-        "La Nación",
         "Agencia DIB",
         "Clarín",
+        "La Nación",
         "TN (Todo Noticias)",
         "El Destape",
         "Perfil",
@@ -2948,6 +2948,7 @@
       "medios": [
         "La Nación",
         "Perfil",
+        "TN (Todo Noticias)",
         "Noticias Argentinas (NA)",
         "Letra P",
         "Ámbito",
@@ -2961,6 +2962,11 @@
       "visto": "2026-10-22T20:01:25.381Z",
       "relevancia": 48,
       "local": false,
+      "muyContada": {
+        "medios": 7,
+        "porque": "6 medios en sus primeras 3 horas",
+        "desde": "2026-10-22T20:31:11.288Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -3103,6 +3109,7 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
+        "Agencia DIB",
         "TN (Todo Noticias)",
         "El Cronista",
         "Perfil",
@@ -3120,11 +3127,11 @@
       "fecha": "2026-10-22T17:29:24.000Z",
       "sinFecha": false,
       "visto": "2026-10-22T22:01:20.146Z",
-      "relevancia": 54,
+      "relevancia": 55,
       "local": false,
       "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
+        "medios": 12,
+        "porque": "12 medios",
         "desde": "2026-10-23T01:31:48.542Z"
       },
       "publicadaPor": null,
@@ -4174,7 +4181,6 @@
       "guion": "Procesan a José Luis Espert por lavado de dinero.",
       "seccion": "Política",
       "medios": [
-        "Agencia DIB",
         "La Nación",
         "TN (Todo Noticias)",
         "El Destape",
@@ -4188,6 +4194,7 @@
         "El Día",
         "0221",
         "La Tecla",
+        "La Verdad",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
@@ -4200,6 +4207,7 @@
         "elDiarioAR",
         "El Cronista",
         "Radio Mitre",
+        "Agencia DIB",
         "La Brújula 24"
       ],
       "enlace": "https://www.c5n.com/politica/procesaron-jose-luis-espert-lavado-dinero-n252279",
@@ -4210,8 +4218,8 @@
       "relevancia": 63,
       "local": false,
       "muyContada": {
-        "medios": 24,
-        "porque": "24 medios",
+        "medios": 25,
+        "porque": "25 medios",
         "desde": "2026-10-22T16:31:32.068Z"
       },
       "publicadaPor": null,
@@ -4525,6 +4533,84 @@
       "slug": "zuban-cordoba-mide-la-gestion-bonaerense-y-el-potencial-electoral"
     },
     {
+      "id": "1lukod9",
+      "titulo": "Bullrich advierte sobre la ayuda financiera de Estados Unidos",
+      "copete": "La senadora nacional cuestionó la estrategia económica oficial y sostuvo que el país debe prescindir de nuevos auxilios externos. Además, reiteró sus aspiraciones presidenciales para el futuro.",
+      "cuerpo": "La jefa del bloque oficialista en el Senado, Patricia Bullrich, cuestionó la asistencia monetaria de Estados Unidos y advirtió que el Gobierno debería rechazar un hipotético nuevo apoyo financiero del país norteamericano. En declaraciones periodísticas, la legisladora se refirió al impacto del año electoral y señaló que la administración nacional necesita construir sus propios reparos para evitar los vaivenes financieros registrados el año pasado.\n\nEn paralelo, el embajador estadounidense Peter Lamelas anunció en Neuquén un aporte financiero de hasta 20.000 millones de dólares antes de finalizar 2027. Por otro lado, la senadora reiteró que se encuentra preparada para competir por la presidencia, aunque aclaró que las candidaturas deberían definirse más cerca de los comicios y descartó haber recibido un ofrecimiento formal para integrar una fórmula.",
+      "guion": "Bullrich advierte sobre la ayuda financiera de Estados Unidos.",
+      "seccion": "Política",
+      "medios": [
+        "Agencia DIB",
+        "Noticias Argentinas (NA)",
+        "C5N"
+      ],
+      "enlace": "https://noticiasargentinas.com/politica/bullrich---no-nos-puede-pasar-lo-del-2025-que-quedamos-atados-a-bessent-_a6ada2ee96877f7c84affe3c9",
+      "teniaImagenLaFuente": false,
+      "fecha": "2026-10-22T15:34:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-22T19:31:22.462Z",
+      "relevancia": 29,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Patricia Bullrich cuestionó la asistencia financiera de Estados Unidos.",
+        "La legisladora pidió evitar la dependencia de fondos externos.",
+        "Estados Unidos anunció un aporte de hasta 20.000 millones de dólares hacia 2027."
+      ],
+      "seSabe": [
+        "Patricia Bullrich criticó el respaldo financiero de Estados Unidos otorgado en 2025.",
+        "Peter Lamelas anunció una asistencia financiera de hasta 20.000 millones de dólares antes de finalizar 2027.",
+        "La senadora reiteró su intención de postularse a la presidencia."
+      ],
+      "noConfirmado": [
+        "Todavía no se definieron las candidaturas ni los integrantes de una eventual fórmula electoral para 2027."
+      ],
+      "textoRedes": "La senadora Patricia Bullrich cuestionó la asistencia financiera de Estados Unidos y advirtió que el Gobierno debería prescindir de nuevos auxilios externos para garantizar la estabilidad económica.",
+      "etiquetas": [
+        "Patricia Bullrich",
+        "Senado",
+        "Economía",
+        "Estados Unidos",
+        "Elecciones 2027"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/politica/bullrich---no-nos-puede-pasar-lo-del-2025-que-quedamos-atados-a-bessent-_a6ada2ee96877f7c84affe3c9",
+          "fecha": "2026-10-22T15:34:00.000Z",
+          "oficial": false,
+          "aporte": "Consolidó los dichos de la legisladora respecto a la necesidad de contar con gobernabilidad y evitar corridas cambiarias."
+        },
+        {
+          "medio": "Agencia DIB",
+          "enlace": "https://dib.com.ar/politica/bullrich-vuelve-tensar-milei-no-nos-puede-pasar-que-terminemos-atados-scott-bessent-n56721",
+          "fecha": "2026-10-22T19:08:49.000Z",
+          "oficial": false,
+          "aporte": "Aportó las definiciones de la senadora sobre sus aspiraciones presidenciales y sus objeciones al blindaje económico."
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/politica/patricia-bullrich-subio-la-tension-javier-milei-y-critico-la-ayuda-scott-bessent-no-nos-puede-pasar-n252299",
+          "fecha": "2026-10-22T17:45:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló las declaraciones de Patricia Bullrich sobre Scott Bessent y los anuncios del embajador Peter Lamelas en Neuquén."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "bullrich-advierte-sobre-la-ayuda-financiera-de-estados-unidos",
+      "foto": {
+        "archivo": "fotos-notas/1lukod9.jpg",
+        "credito": "Foto: Agencia DIB"
+      }
+    },
+    {
       "id": "pf7w5a",
       "titulo": "La UNLP extiende el plazo de inscripción a sus colegios",
       "copete": "La Universidad Nacional de La Plata prorrogó el plazo para anotar a los aspirantes a sus establecimientos preuniversitarios. El trámite se realiza de forma digital hasta el martes 27 de octubre.",
@@ -4533,8 +4619,8 @@
       "seccion": "Educación",
       "seccionAntes": "Argentina",
       "medios": [
-        "El Día",
-        "0221"
+        "0221",
+        "El Día"
       ],
       "enlace": "https://www.0221.com.ar/universidad/la-unlp-extendio-el-plazo-la-inscripcion-sus-colegios-hasta-cuando-n136221",
       "teniaImagenLaFuente": false,
@@ -4846,10 +4932,10 @@
       "medios": [
         "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
         "Municipalidad de Balcarce",
         "El Diario Balcarce",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/22/el-rotary-club-balcarce-dono-sillitas-de-comer-a-las-udis/",
       "teniaImagenLaFuente": true,
@@ -4933,7 +5019,11 @@
         "porque": "Lo confirman cuatro medios independientes y Municipalidad de Balcarce.",
         "sugeridoPorIA": null
       },
-      "slug": "el-rotary-club-dona-sillitas-de-comer-para-las-unidades-de-desarrollo"
+      "slug": "el-rotary-club-dona-sillitas-de-comer-para-las-unidades-de-desarrollo",
+      "foto": {
+        "archivo": "fotos-notas/v2mfmz.jpg",
+        "credito": "Foto: Puntonueve (FM 100.9)"
+      }
     },
     {
       "id": "umqt3y",
@@ -7691,8 +7781,8 @@
   "clima": {
     "ahora": {
       "temp": 14,
-      "sensacion": 13,
-      "humedad": 97,
+      "sensacion": 14,
+      "humedad": 96,
       "viento": 8,
       "rumbo": "S",
       "cielo": "Llovizna leve",
@@ -7749,50 +7839,22 @@
   "avisosClima": [],
   "farmacias": {
     "hoy": {
-      "dia": 22,
-      "diaSemana": "JUEVES",
+      "dia": 23,
+      "diaSemana": "VIERNES",
       "farmacias": [
-        "SANTA INES",
-        "DEL PATIO"
+        "FREITAS"
       ],
       "detalle": [
         {
-          "nombre": "Santa Inés",
-          "direccion": "Calle 17 N° 537",
-          "telefono": "42-4301"
-        },
-        {
-          "nombre": "Del Patio",
-          "direccion": "Av. 39 N° 793",
-          "telefono": "42-2200"
+          "nombre": "Freitas",
+          "direccion": "Av. Kelly N° 840 e/ 23 y 25",
+          "telefono": "42-5942"
         }
       ],
       "mes": 10,
-      "fecha": "2026-10-22"
+      "fecha": "2026-10-23"
     },
     "proximos": [
-      {
-        "dia": 22,
-        "diaSemana": "JUEVES",
-        "farmacias": [
-          "SANTA INES",
-          "DEL PATIO"
-        ],
-        "detalle": [
-          {
-            "nombre": "Santa Inés",
-            "direccion": "Calle 17 N° 537",
-            "telefono": "42-4301"
-          },
-          {
-            "nombre": "Del Patio",
-            "direccion": "Av. 39 N° 793",
-            "telefono": "42-2200"
-          }
-        ],
-        "mes": 10,
-        "fecha": "2026-10-22"
-      },
       {
         "dia": 23,
         "diaSemana": "VIERNES",
@@ -7878,6 +7940,28 @@
         ],
         "mes": 10,
         "fecha": "2026-10-27"
+      },
+      {
+        "dia": 28,
+        "diaSemana": "MIERCOLES",
+        "farmacias": [
+          "SANTA INES",
+          "DEL PATIO"
+        ],
+        "detalle": [
+          {
+            "nombre": "Santa Inés",
+            "direccion": "Calle 17 N° 537",
+            "telefono": "42-4301"
+          },
+          {
+            "nombre": "Del Patio",
+            "direccion": "Av. 39 N° 793",
+            "telefono": "42-2200"
+          }
+        ],
+        "mes": 10,
+        "fecha": "2026-10-28"
       }
     ],
     "avisos": []
@@ -8039,5 +8123,5 @@
     "tocaHoy": false
   },
   "pendientes": [],
-  "esperandoCuerpo": 1
+  "esperandoCuerpo": 2
 }

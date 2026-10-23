@@ -32764,14 +32764,40 @@
   "fuentes": 3
  },
  "v2mfmz": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/v2mfmz.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Rotary Club dona sillitas de comer para las Unidades de Desarrollo Infantil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T05:31:50.939Z",
-  "intentos": 3,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://puntonueve.com.ar/el-rotary-club-balcarce-dono-sillitas-de-comer-para-las-unidades-de-desarrollo-infantil/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-22-at-11.56.17-AM-2-e1792684934491.jpeg",
+  "razon": "Es la foto con mejor encuadre, nitidez y calidad que muestra completa la donación sin marcas agregadas.",
+  "cuando": "2026-10-23T11:32:00.499Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mujeres posando junto a las donaciones del Rotary Club y sillitas de comer",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Grupo de mujeres posando con sillitas de comer y el logo de Rotary."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b9d13737979f8989"
  },
  "futbolresultadoslibertadores20261022": {
   "archivo": "fotos-notas/libre-futbolresultadoslibertadores20261022.jpg",
