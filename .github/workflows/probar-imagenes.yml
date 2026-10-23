@@ -31,7 +31,7 @@ jobs:
           node -e "
           const fs=require('fs');
           const f=JSON.parse(fs.readFileSync('web/data/fotos-ia.json','utf8'));
-          const l=Object.values(f).filter(x=>x.prompt).sort((a,b)=>String(b.cuando).localeCompare(String(a.cuando))).slice(0,Number(process.env.CUANTAS)||6);
+          const l=Object.entries(f).map(([k,v])=>({...v,id:v.id||k})).filter(x=>x.prompt).sort((a,b)=>String(b.cuando).localeCompare(String(a.cuando))).slice(0,Number(process.env.CUANTAS)||6);
           fs.writeFileSync('salida/prompts.json',JSON.stringify(l.map(x=>({id:x.id,titulo:x.titulo,prompt:x.prompt}))));
           "
           for modelo in sdxl flux; do
