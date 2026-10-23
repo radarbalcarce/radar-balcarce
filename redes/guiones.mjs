@@ -590,7 +590,9 @@ const MEDIOS_DE_LAS_FUENTES = [...new Set([...FUENTES, ...FUENTES_NACIONALES, ..
 export const MEDIOS_QUE_NO_SE_NOMBRAN = [...new Set([...MEDIOS_A_MANO, ...MEDIOS_DE_LAS_FUENTES])];
 
 const escapar = (t) => t.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
-const RE_MEDIOS = new RegExp(`(?<![\\p{L}\\p{N}])(${MEDIOS_QUE_NO_SE_NOMBRAN.map(escapar).join('|')})(?![\\p{L}\\p{N}])`, 'iu');
+// "Ámbito" es también una palabra común ("en el ámbito rural"): sólo cuenta como medio escrito con mayúscula (23/10).
+const RE_MEDIOS = new RegExp(`(?<![\\p{L}\\p{N}])(${MEDIOS_QUE_NO_SE_NOMBRAN.filter((m) => m.toLowerCase() !== 'ámbito').map(escapar).join('|')})(?![\\p{L}\\p{N}])`, 'iu');
+const RE_AMBITO_MEDIO = /(?<![\p{L}\p{N}])Ámbito(?![\p{L}\p{N}])/u;
 
 /** ¿Las dos primeras frases dicen "Balcarce" (sin contar "Radar Balcarce")? "Buen día, Balcarce. Así amanece Balcarce…" suena a repetición. */
 export function repiteBalcarceAlPrincipio(texto) {
@@ -611,7 +613,7 @@ export function revisarTexto(texto, { tipo = 'voz', momento } = {}) {
   const mal = (cond, que) => { if (cond) problemas.push(que); };
 
   mal(/\.com\.ar|\.ar\b|punto\s+a\s+ere|punto\s+ar\b/i.test(t), 'dice o escribe la dirección con ".ar"');
-  mal(RE_MEDIOS.test(t), 'nombra un medio de origen');
+  mal(RE_MEDIOS.test(t) || RE_AMBITO_MEDIO.test(t), 'nombra un medio de origen');
   mal(/en vivo|minuto a minuto|tiempo real/i.test(t), 'dice "en vivo" o "minuto a minuto"');
   mal(/resumen hecho con ia/i.test(t), 'dice "Resumen hecho con IA"');
   mal(/incre[ií]ble|impactante|esc[aá]ndalo/i.test(t), 'usa un adjetivo de titular');

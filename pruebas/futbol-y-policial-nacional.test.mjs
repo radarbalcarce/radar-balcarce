@@ -71,3 +71,22 @@ test('esPolicialDeAfuera respeta la excepción', () => {
   assert.equal(typeof esPolicialDeAfuera, 'function');
   assert.ok(paraPruebas);
 });
+
+// 23/10 (regla 286): la lectura con IA no saca por "no tiene relación con Balcarce" a un policial de afuera que pasa la excepción.
+import { aplicarFichas } from '../ingesta/lectura-ia.mjs';
+
+const FICHA_POLICIAL = { ambito: 'nacional', seccion: 'Policiales', impacto: 'nulo', razon: 'ninguna', importancia: 'media', publicidad: false, chimento: false, porque: '', cuando: '2026-10-23T00:00:00.000Z' };
+const policial = (medios) => ({
+  id: 'pol1', titulo: 'Detuvieron al capataz de una estancia en una causa nacional', seccion: 'Policiales', semaforo: 'verde', alcance: 'pais',
+  medios: Array.from({ length: medios }, (_, i) => `Medio ${i + 1}`),
+});
+
+test('policial de afuera con 8 medios: la lectura con IA no lo saca', () => {
+  const { cambios } = aplicarFichas([policial(8)], { pol1: FICHA_POLICIAL });
+  assert.equal(cambios.sacadas.length, 0);
+});
+
+test('policial de afuera con pocos medios: la lectura con IA lo sigue sacando', () => {
+  const { cambios } = aplicarFichas([policial(3)], { pol1: FICHA_POLICIAL });
+  assert.equal(cambios.sacadas.length, 1);
+});

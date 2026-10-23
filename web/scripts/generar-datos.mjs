@@ -1317,7 +1317,8 @@ try {
     const motivoDeLasFinales = new Map(finales.map((n) => [n.id, n.motivo]));
     dias[hoy] ??= {};
     for (const o of observaciones) {
-      if (o.medios < 8 || o.resultado === 'publicada') continue;
+      if (o.resultado === 'publicada') { delete dias[hoy][o.id]; continue; } // si más tarde salió, deja de figurar como no publicada
+      if (o.medios < 8) continue;
       dias[hoy][o.id] = [String(titulos.get(o.id) ?? '').slice(0, 140), o.seccion, o.medios, o.resultado, String(motivosDeLaIA.get(o.id) ?? motivoDeLasFinales.get(o.id) ?? '').slice(0, 90)];
     }
     const quedan = Object.keys(dias).sort().slice(-3);

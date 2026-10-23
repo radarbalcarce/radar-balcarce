@@ -126,9 +126,10 @@ medios 24, 32 medios 40), sin tope: una historia de 30 medios vale más que una 
 **Una IA lee cada nota antes de decidir** (`ingesta/lectura-ia.mjs`). Con el perfil de
 Balcarce (`ingesta/perfil-balcarce.md`) y la ciudad del medio arma una ficha: de dónde es
 el hecho, de qué sección es, si le importa a un vecino y por qué. Con esa ficha no entran
-la **publicidad**, los **chimentos**, lo del **extranjero** sin un argentino destacado,
-lo de un medio de afuera **sin relación con Balcarce** ni un **policial que no es de
-acá**. La sección es la que dice la IA. **La IA nunca destraba:** lo que el semáforo pone
+la **publicidad**, los **chimentos**, lo del **extranjero** sin un argentino destacado
+ni un **policial que no es de acá** (salvo los muy contados: 8 medios o más, o la muerte
+de un famoso). **Lo de afuera no se saca por "no tener relación con Balcarce"**
+(23/10, regla 286): lo decide la popularidad, 3 medios o 2 en un área chica. La sección es la que dice la IA. **La IA nunca destraba:** lo que el semáforo pone
 en rojo o amarillo sigue igual.
 
 **Una noticia, una nota.** Si varios medios cuentan el mismo hecho, es **una** nota con

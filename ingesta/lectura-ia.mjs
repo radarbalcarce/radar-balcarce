@@ -23,16 +23,8 @@ import { FUENTES_CRUCE } from './fuentes-cruce.mjs';
 import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
 import { SECCIONES_SUMADAS, TEXTO_PARA_LA_FICHA, esSumada } from './secciones-nuevas.mjs';
-import { mediosMinimos } from './popularidad.mjs';
 import { policialNacionalRelevante } from './policial-nacional.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
-
-/** ¿El título nombra a Balcarce o a una localidad del partido? San Agustín y
- *  Los Pinos, con respaldo (regla 179): en un medio de acá alcanzan solas. */
-function nombraBalcarceEnElTitulo(n) {
-  const titulo = sinTildes(n.titulo ?? '');
-  return PALABRAS_LOCALES.some((p) => titulo.includes(sinTildes(p))) || !!nombraLocalidadDudosa(n, { soloTitulo: true });
-}
 
 const AQUI = import.meta.dirname;
 const MODELO = MODELO_DE_TEXTO;
@@ -439,8 +431,8 @@ export async function leerNotasNuevas(notas, {
  *
  * Con ficha:
  *   · No entra: publicidad; lo del extranjero que no es automovilismo ni
- *     nombra a una figura argentina; lo de un medio de afuera sin relación
- *     con Balcarce (impacto nulo); un policial que no es de Balcarce.
+ *     nombra a una figura argentina; un policial que no es de Balcarce (salvo la
+ *     excepción de policial-nacional.mjs). Lo de afuera NO se saca por "no tener relación con Balcarce" (regla 286): lo decide la popularidad.
  *   · Es de Balcarce sólo con dos llaves: la fuente es de acá o el medio lo
  *     dice en el título, Y la IA dice que el hecho es de Balcarce. Una nota
  *     nacional reproducida por un medio local deja de ser local (sin los +25)
@@ -502,7 +494,6 @@ export function aplicarFichas(notas, fichas = {}, {
     if (!f || original.semaforo === 'rojo') { salida.push(original); continue; }
     const n = { ...original };
     const deFuenteLocal = n.alcance === 'local';
-    const deFierros = f.seccion === 'Automovilismo' || n.seccion === 'Automovilismo' || !!n.figura;
     const llaveDeLaFuente = deFuenteLocal || !!n.nombraBalcarce;
     // El ámbito es dónde se decidió; el impacto, dónde pega. Una medida
     // provincial que cambia la tarifa de luz acá es de Balcarce (27/09).
@@ -511,12 +502,9 @@ export function aplicarFichas(notas, fichas = {}, {
     // cubren muchos medios o es muy importante no se saca por "no ser de acá".
     const palabrasDelTitulo = new Set(sinTildes(n.titulo ?? '').split(/[^a-z0-9ñ]+/));
     const conexionArgentina = CONEXION_ARGENTINA.some((p) => palabrasDelTitulo.has(sinTildes(p)));
-    // La popularidad manda (reglas 211 y 260): lo que cuentan tantos medios como pide su sección (3, o 2 en un área chica) no se
-    // saca por "no tener relación con Balcarce": ya llegó a lo que se pide.
-    const seccionDeLaIA = seccionDe(f, n);
+    // La popularidad manda (reglas 211 y 260): lo de afuera sale por cuántos medios lo cuentan (3, o 2 en un área chica) y eso ya se
+    // decidió en el cruce. Desde la regla 286 (23/10) no hay otro filtro encima de "sin relación con Balcarce".
     const medios = n.medios?.length ?? 1;
-    const nacionalQueImporta = medios >= mediosMinimos(seccionDeLaIA) || f.importancia === 'alta'
-      || ['nacional', 'popular', 'servicio'].includes(f.razon);
     const caso = { id: n.id, titulo: n.titulo, porque: f.porque };
 
     let motivo = null;
@@ -527,12 +515,8 @@ export function aplicarFichas(notas, fichas = {}, {
     // conexión argentina en el título. La Fórmula 1 sin un argentino, no.
     // Sin excepciones (desde la regla 260 tampoco la ciencia y la tecnología).
     else if (f.ambito === 'internacional' && !n.figura && !conexionArgentina) motivo = 'es del extranjero';
-    // De un medio de acá sólo se saca si ni siquiera nombra a Balcarce en el
-    // título ("precios sugeridos para alquilar en Mar del Plata", 27/09).
-    else if (f.impacto === 'nulo' && !deFierros && !conexionArgentina && !nacionalQueImporta
-      && (!deFuenteLocal || !nombraBalcarceEnElTitulo(n))) motivo = 'no tiene relación con Balcarce';
     // Lo de la zona sí entra (28/09): ver esPolicialDeAfuera, ingesta/ingesta.mjs.
-    else if (f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
+    if (!motivo && f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
     if (motivo) { cambios.sacadas.push({ ...caso, motivo }); continue; }
 
     // Tenía la llave de la fuente o del título pero la IA dice que el hecho no

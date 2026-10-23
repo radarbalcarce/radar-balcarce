@@ -326,9 +326,11 @@ test('con un solo medio no sale nada, tampoco la ciencia: la IA no destraba y el
   // Con dos medios, en un área chica llega por la popularidad aunque la IA la ponga en baja; con uno, no.
   const dos = lectura.aplicarFichas([unica({ medios: ['Perfil', 'Infobae'], semaforo: 'verde', motivo: 'sección Ciencia' })], { z1: ficha({ ambito: 'nacional', importancia: 'baja' }) });
   assert.equal(dos.notas.length, 1);
+  // Con uno, la lectura ya no la saca por "sin relación con Balcarce" (regla 286): la frena la popularidad (exigirMedios).
   const uno = lectura.aplicarFichas([unica()], { z1: ficha({ ambito: 'nacional', importancia: 'baja' }) });
-  assert.equal(uno.notas.length, 0);
-  assert.match(uno.cambios.sacadas[0].motivo, /no tiene relación con Balcarce/);
+  assert.equal(uno.cambios.sacadas.length, 0);
+  exigirMedios(uno.notas);
+  assert.equal(uno.notas[0].semaforo, 'amarillo');
   // Chimento y publicidad no salen.
   assert.equal(lectura.aplicarFichas([unica()], { z1: { ...ficha({ ambito: 'nacional' }), chimento: true } }).notas.length, 0);
   assert.equal(lectura.aplicarFichas([unica()], { z1: { ...ficha({ ambito: 'nacional' }), publicidad: true } }).notas.length, 0);

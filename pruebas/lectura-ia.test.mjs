@@ -165,11 +165,11 @@ const VERDES = ['Servicios', 'Cultura y agenda', 'Deportes', 'Automovilismo', 'A
 const ficha = (extra) => fichaValida(fichaDe('x', extra));
 const aplicar = (nota, f) => aplicarFichas([nota], { [nota.id]: f }, { verdeSecciones: VERDES });
 
-test('la IA saca lo que no es para Radar: publicidad, extranjero, sin relación con Balcarce, policiales de afuera', () => {
+test('la IA saca lo que no es para Radar: publicidad, extranjero y policiales de afuera (no "sin relación con Balcarce": lo decide la popularidad, regla 286)', () => {
   const afuera = { id: 'a', titulo: 'Algo', seccion: 'Economía', semaforo: 'verde', alcance: 'pais', local: false, relevancia: 60 };
   assert.equal(aplicar(afuera, ficha({ es_publicidad: true })).notas.length, 0);
   assert.equal(aplicar(afuera, ficha({ ambito: 'internacional', impacto_balcarce: 'nulo' })).notas.length, 0);
-  assert.equal(aplicar(afuera, ficha({ ambito: 'region', impacto_balcarce: 'nulo', razon: 'ninguna' })).notas.length, 0, 'la de Necochea');
+  assert.equal(aplicar(afuera, ficha({ ambito: 'region', impacto_balcarce: 'nulo', razon: 'ninguna' })).notas.length, 1, 'la de Necochea ya no se saca por la IA: si pocos medios la cuentan, la frena la popularidad');
   assert.equal(aplicar(afuera, ficha({ ambito: 'nacional', seccion: 'Policiales' })).notas.length, 0);
   const r = aplicar(afuera, ficha({ es_publicidad: true }));
   assert.equal(r.cambios.sacadas[0].motivo, 'es publicidad', 'y dice por qué');
@@ -223,9 +223,9 @@ test('lo que la IA sacó mal en la primera corrida del 27/09 ya no se saca', () 
   const r = aplicar(vtv, ficha({ ambito: 'provincia', seccion: 'Servicios', impacto_balcarce: 'directo', razon: 'servicio' }));
   assert.equal(r.notas[0].local, true, 'sigue siendo de Balcarce');
   assert.equal(r.notas[0].relevancia, 80);
-  // Y lo que sí tenía que salir, sale: el dólar blue en Mendoza.
+  // El dólar blue en Mendoza: la IA ya no lo saca (regla 286); con un solo medio lo frena la popularidad, no la IA.
   const mendoza = { id: 'd', titulo: 'Dólar blue: a cuánto cotiza hoy en Mendoza', seccion: 'Economía', semaforo: 'verde', alcance: 'pais', relevancia: 50, medios: ['Minuto Uno'] };
-  assert.equal(aplicar(mendoza, ficha({ ambito: 'provincia', seccion: 'Economía', impacto_balcarce: 'nulo', razon: 'ninguna', importancia: 'baja' })).notas.length, 0);
+  assert.equal(aplicar(mendoza, ficha({ ambito: 'provincia', seccion: 'Economía', impacto_balcarce: 'nulo', razon: 'ninguna', importancia: 'baja' })).notas.length, 1);
 });
 
 // ------------------------------------------------------- repetidas y respaldo

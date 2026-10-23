@@ -303,11 +303,11 @@ salía con un solo medio si la ficha le daba interés se sacó).
    - el ámbito es internacional y no nombra a una figura argentina ni tiene
      conexión argentina en el título ("es del extranjero": la Fórmula 1 sin un
      argentino, no), tampoco en Ciencia ni en Tecnología e IA (regla 260);
-   - el impacto es nulo, no es automovilismo ni figura, no tiene conexión argentina,
-     no es una nacional que importa (los medios que pide su sección, importancia alta, razón
-     nacional, popular o servicio) y, si es de un medio de acá, tampoco nombra a
-     Balcarce en el título ("no tiene relación con Balcarce");
-   - la IA la pone en Policiales y no es de Balcarce.
+   - la IA la pone en Policiales y no es de Balcarce (salvo la excepción de 8 medios o la
+     muerte de un famoso).
+
+   Desde el 23/10 (regla 286) **no hay más un filtro de "sin relación con Balcarce"**: la ficha
+   sigue diciendo el impacto, pero lo de afuera sale o no por cuántos medios lo cuentan.
 2. **Dos llaves para ser de Balcarce.** Una nota con la llave de la fuente (un
    medio de acá, o Balcarce en el título) es de Balcarce sólo si la IA dice que el
    hecho es de Balcarce o que la afecta directamente. Si no, queda
