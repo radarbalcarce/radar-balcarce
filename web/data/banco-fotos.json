@@ -32661,14 +32661,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "r41tr7": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/r41tr7.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Sergio Massa se reúne con las 62 Organizaciones Peronistas",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T04:10:30.379Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ambito.com/politica/sergio-massa-visito-las-62-organizaciones-y-profundiza-su-agenda-rumbo-2027-n6336881",
+  "imagenOriginal": "https://media.ambito.com/p/908829169ce03cb6a609bf7f1fd2f737/adjuntos/239/imagenes/043/721/0043721929/massa.jpeg",
+  "razon": "La foto A tiene mejor encuadre completo, nitidez y muestra claramente a Sergio Massa con las 62 Organizaciones Peronistas.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Sergio Massa junto a un grupo numeroso de personas en una sala."
+  },
+  "huella": "b234b6b370f494da"
  },
  "1anbbrs": {
   "intentado": true,
@@ -32681,14 +32695,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1d27b9k": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1d27b9k.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T04:10:30.379Z",
-  "intentos": 3,
-  "fuentes": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/estudiantina-ratas-basura-y-otras-yerbas-se-trataron-en-la-decimosexta-sesion-ordinaria-del-concejo-deliberante",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Sesion%2022-10-2026.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y muestra claramente la sesión del Concejo Deliberante.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto del Concejo Deliberante durante una sesión.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Sesión del Concejo Deliberante de Balcarce con concejales en el estrado y público en la sala."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "07074fcdcd2e8f4d"
  },
  "voif0z": {
   "intentado": true,
@@ -32876,5 +32916,95 @@
   "cuando": "2026-10-23T09:02:12.093Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "jk7o21": {
+  "archivo": "fotos-notas/jk7o21.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45156-el-concejo-deliberante-aprobo-convenios-aumentos-salariales-y-pedidos-por-obras-y-servicios-como-el-de-salud-mental/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66126.png",
+  "razon": "Es la única opción disponible, cumple con los requisitos y corresponde a la nota.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Concejales sentados en el recinto del Honorable Concejo Deliberante de Balcarce",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Concejales sentados en el estrado del Honorable Concejo Deliberante de Balcarce durante una sesión."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ed0d0d070b944c57"
+ },
+ "1bw0xc2": {
+  "archivo": "fotos-notas/1bw0xc2.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes clasifica a la final de la Copa Libertadores",
+  "enlace": "https://www.tycsports.com/polideportivo/muslera-el-futbol-en-definitiva-da-revancha-id768033.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/998638/muslera-el-futbol-en-definitiva-da-revancha_1440x810.webp",
+  "razon": "La foto B muestra una jugada clara del partido sin marcas de agua de medios ni menores reconocibles.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego con el arquero despejando la pelota ante la llegada de rivales",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Estudiantes (Plata) y arquero rival en acción durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ad69513931335ad9"
+ },
+ "mw6fri": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes vence a Flamengo por penales y llega a la final de la Copa Libertadores",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Verdad no se usa todavía.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "3zhuu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes avanza en el ranking de la Conmebol para el Mundial de Clubes 2029",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-23T10:32:28.024Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }
