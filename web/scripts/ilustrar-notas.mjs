@@ -76,10 +76,12 @@ export const HORAS_POR_DEFECTO = 24;
 export const HORAS_MAXIMAS = 72;
 
 export const URL_DEL_WORKER = 'https://radar-balcarce-imagenes.radarbalcarce.workers.dev/generar';
-export const MODELO = 'sdxl';
+// 22/10/2026: FLUX.1 schnell (más nítido y 5 a 10 veces más rápido que SDXL; sale cuadrada y las tarjetas la recortan). Las hechas con SDXL siguen valiendo.
+export const MODELO = 'flux';
+export const MODELOS_VALIDOS = ['sdxl', 'flux'];
 export const ANCHO = 1024;
-export const ALTO = 576;
-export const PASOS = 20;
+export const ALTO = 1024;
+export const PASOS = 6;
 /** Lo que se le suma a todo prompt, pase lo que pase con el de Gemini. */
 export const AGREGADO = 'blank paper, no writing, no letters, no signs, no logos, no people';
 /** Lo que el modelo tiene que evitar (el Worker lo corta a 300 caracteres). */
@@ -130,7 +132,7 @@ export const esDeGeminiWeb = (e) => !!e && (e.modelo === 'gemini-web' || /gemini
  * (hechas por el Worker, `modelo: 'sdxl'`, que sólo se aplicaban si pasaban) cuentan como controladas. Las de Gemini web, sólo después de
  * pasar el control (una persona las miraba, y 5 de 6 tenían texto, marcas o gente: regla 206).
  */
-export const ilustracionControlada = (e) => !!e && (e.control?.ok === true || (!esDeGeminiWeb(e) && e.modelo === MODELO));
+export const ilustracionControlada = (e) => !!e && (e.control?.ok === true || (!esDeGeminiWeb(e) && MODELOS_VALIDOS.includes(e.modelo)));
 
 /**
  * Por qué una nota NO lleva ilustración (el motivo, en castellano), o null si puede llevarla. Sólo mira la nota y los bancos; no usa la red.

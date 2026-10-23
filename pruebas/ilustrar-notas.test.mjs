@@ -253,10 +253,10 @@ test('el control de la imagen terminada sólo pasa si TODO vino en false; una cl
   assert.equal(interpretarControl(null).ok, false);
 });
 
-test('el pedido al Worker: SDXL 1024 x 576, 20 pasos, con prompt negativo que entra en 300 caracteres', () => {
+test('el pedido al Worker: FLUX (steps 6; el Worker ignora el tamaño y el negativo), con prompt negativo que entra en 300 caracteres', () => {
   const p = pedidoAlWorker('prompt');
-  assert.deepEqual(p, { prompt: 'prompt', modelo: 'sdxl', ancho: 1024, alto: 576, steps: 20, negativo: NEGATIVO });
-  assert.equal(MODELO, 'sdxl'); assert.equal(ANCHO, 1024); assert.equal(ALTO, 576); assert.equal(PASOS, 20);
+  assert.deepEqual(p, { prompt: 'prompt', modelo: 'flux', ancho: 1024, alto: 1024, steps: 6, negativo: NEGATIVO });
+  assert.equal(MODELO, 'flux'); assert.equal(ANCHO, 1024); assert.equal(ALTO, 1024); assert.equal(PASOS, 6);
   assert.ok(NEGATIVO.length <= 300, `el negativo tiene ${NEGATIVO.length} caracteres`);
   for (const w of ['people', 'face', 'child', 'text', 'letters', 'logo', 'watermark', 'flag', 'blood', 'weapon']) assert.match(NEGATIVO, new RegExp(`\\b${w}\\b`));
   assert.equal(URL_DEL_WORKER, 'https://radar-balcarce-imagenes.radarbalcarce.workers.dev/generar');
@@ -275,7 +275,7 @@ test('los topes: 12 llamadas por corrida, 20 por día, un solo reintento; y el d
   assert.equal(cupoDeLaCorrida(15), 5);
   assert.equal(cupoDeLaCorrida(20), 0);
   assert.equal(cupoDeLaCorrida(31), 0);
-  assert.equal(neuronasEstimadas(), 212);
+  assert.equal(neuronasEstimadas(), 77);
   assert.ok(TOPE_POR_DIA * neuronasEstimadas() < NEURONAS_GRATIS_POR_DIA / 2, 'el tope del día gasta menos de la mitad de lo gratis');
 });
 
@@ -378,7 +378,7 @@ test('revisar: con 15 notas buenas hace 12 llamadas al Worker como mucho, deja l
   assert.equal(pedidos.gemini, 12, 'a lo que no tiene cupo ni se le pide el prompt');
   assert.equal(r.paraAplicar.length, 12);
   for (const c of pedidos.cuerpos) {
-    assert.equal(c.modelo, 'sdxl');
+    assert.equal(c.modelo, 'flux');
     assert.ok(c.prompt.endsWith(AGREGADO));
     assert.equal(c.negativo, NEGATIVO);
   }
@@ -471,7 +471,7 @@ test('automático: genera, controla y APLICA sólo lo que pasó el control, con 
   const libro = JSON.parse(fs.readFileSync(e.rutas.ilustraciones, 'utf8'));
   assert.deepEqual(Object.keys(libro).sort(), ['n00', 'n02', 'n04']);
   assert.equal(libro.n00.automatica, true);
-  assert.equal(libro.n00.modelo, 'sdxl');
+  assert.equal(libro.n00.modelo, 'flux');
   assert.ok(libro.n00.prompt.endsWith(`, ${TONOS.neutro.en}, ${AGREGADO}`), 'el prompt lleva el tono de la nota');
   for (const id of ['n00', 'n02', 'n04']) assert.ok(fs.existsSync(path.join(e.rutas.carpeta, `${id}-ia.jpg`)));
   const informe = JSON.parse(fs.readFileSync(path.join(e.dir, 'aplicadas', 'aplicadas.json'), 'utf8'));
