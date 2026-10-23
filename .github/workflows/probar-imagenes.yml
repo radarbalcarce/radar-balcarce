@@ -1,0 +1,55 @@
+name: Probar modelos de imágenes
+
+# A mano. Genera las mismas ilustraciones con dos modelos (los prompts de las últimas notas ilustradas) y las deja como adjunto para compararlas.
+# Gasta unas 100 de las 10.000 neuronas gratis del día. Ver infra/imagenes-cloudflare/worker.mjs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      cuantas:
+        description: 'Cuántos prompts probar'
+        default: '6'
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generar con cada modelo
+        env:
+          TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
+          CUANTAS: ${{ inputs.cuantas }}
+        run: |
+          mkdir -p salida
+          node -e "
+          const fs=require('fs');
+          const f=JSON.parse(fs.readFileSync('web/data/fotos-ia.json','utf8'));
+          const l=Object.values(f).filter(x=>x.prompt).sort((a,b)=>String(b.cuando).localeCompare(String(a.cuando))).slice(0,Number(process.env.CUANTAS)||6);
+          fs.writeFileSync('salida/prompts.json',JSON.stringify(l.map(x=>({id:x.id,titulo:x.titulo,prompt:x.prompt}))));
+          "
+          for modelo in sdxl flux; do
+            node -e "
+            const fs=require('fs');
+            const l=JSON.parse(fs.readFileSync('salida/prompts.json','utf8'));
+            (async()=>{for(const x of l){
+              const cuerpo=process.argv[1]==='sdxl'?{prompt:x.prompt,modelo:'sdxl',ancho:1024,alto:576,steps:20}:{prompt:x.prompt,modelo:'flux',steps:6};
+              const t0=Date.now();
+              const r=await fetch('https://radar-balcarce-imagenes.radarbalcarce.workers.dev/generar',{method:'POST',headers:{'x-token':process.env.TOKEN,'content-type':'application/json'},body:JSON.stringify(cuerpo)});
+              const b=Buffer.from(await r.arrayBuffer());
+              if(!r.ok){console.log(process.argv[1],x.id,'ERROR',r.status,b.toString().slice(0,200));continue}
+              fs.writeFileSync('salida/'+process.argv[1]+'-'+x.id+'.jpg',b);
+              console.log(process.argv[1],x.id,b.length,'bytes',Date.now()-t0,'ms');
+            }})();
+            " "$modelo"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: imagenes-de-prueba
+          path: salida/

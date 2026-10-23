@@ -17,6 +17,8 @@ export const LADO = { minimo: 256, maximo: 2048 };
 /** Los modelos: `id` de Workers AI, cómo pedirle la imagen y de qué forma devuelve el resultado. */
 export const MODELOS = {
   sdxl: { id: '@cf/stabilityai/stable-diffusion-xl-base-1.0', pasos: { normal: 20, maximo: 20 }, tamano: true, negativo: true },
+  // 22/10/2026: FLUX.1 schnell, para probar si las ilustraciones se ven mejor. No acepta tamaño ni prompt negativo (sale cuadrada) y usa steps.
+  flux: { id: '@cf/black-forest-labs/flux-1-schnell', pasos: { normal: 6, maximo: 8 }, tamano: false, negativo: false },
 };
 export const MODELO_POR_DEFECTO = 'sdxl';
 
@@ -36,8 +38,9 @@ const lado = (v, normal) => { const n = Math.round(Number(v)); return Number.isF
 export function parametrosDe(clave, { prompt, ancho, alto, steps, negativo }) {
   const m = MODELOS[clave];
   const pasos = Math.min(m.pasos.maximo, Math.max(1, Math.round(Number(steps) || m.pasos.normal)));
+  if (!m.tamano) return { prompt, steps: pasos };
   const p = { prompt, num_steps: pasos, width: lado(ancho, 1024), height: lado(alto, 576) };
-  if (negativo) p.negative_prompt = String(negativo).slice(0, 300);
+  if (negativo && m.negativo) p.negative_prompt = String(negativo).slice(0, 300);
   return p;
 }
 

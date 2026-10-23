@@ -326,7 +326,7 @@ test('regla 206: un solo camino de ilustración (Cloudflare con SDXL): sin el c�
     assert.ok(!fs.existsSync(path.join(RAIZ, f)), `${f} se borró`);
   }
   const { MODELOS } = await import('../infra/imagenes-cloudflare/worker.mjs');
-  assert.deepEqual(Object.keys(MODELOS), ['sdxl']);
+  assert.deepEqual(Object.keys(MODELOS), ['sdxl', 'flux']);  // flux: prueba del 22/10, si gana pasa a ser el único
   const claves = fs.readFileSync(path.join(RAIZ, 'reels/claves.mjs'), 'utf8');
   assert.ok(!/GEMINI_API_KEY_IMAGENES|claveImagenes/.test(claves), 'sin la clave de imágenes que nunca se usó');
   const ilustrar = fs.readFileSync(path.join(RAIZ, 'web/scripts/ilustrar-notas.mjs'), 'utf8');
