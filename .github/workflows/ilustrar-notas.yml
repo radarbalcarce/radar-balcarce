@@ -13,7 +13,7 @@
 #
 # Topes (web/scripts/ilustrar-notas.mjs, no se cambian desde acá): 12 llamadas al Worker por corrida y 20 por día, un solo reintento por imagen.
 # Las llamadas de las corridas anteriores de hoy se cuentan con su adjunto "cuenta-ilustraciones".
-# Secretos: GEMINI_API_KEY_REDACCION y GEMINI_API_KEY_CLASIFICACION (gratis) y VIGILANTE_TOKEN (la contraseña del Worker). Ninguna otra clave.
+# Secretos: GEMINI_API_KEY_REDACCION y GEMINI_API_KEY_CLASIFICACION (gratis), GROQ_API_KEY (gratis; respaldo cuando Gemini no contesta, 22/10) y VIGILANTE_TOKEN (la contraseña del Worker). Ninguna otra clave.
 name: Ilustrar notas sin foto
 run-name: "Ilustrar notas · ${{ inputs.aplicar && 'aplicar' || (inputs.automatico && 'automático' || 'revisar') }}"
 
@@ -96,6 +96,7 @@ jobs:
           AUTOMATICO: ${{ inputs.automatico }}
           GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
 
       - uses: actions/upload-artifact@v4

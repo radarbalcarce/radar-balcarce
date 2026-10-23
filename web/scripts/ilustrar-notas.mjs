@@ -371,9 +371,9 @@ const dormir = (ms) => new Promise((ok) => { setTimeout(ok, ms); });
  * Un pedido a Gemini con las claves gratis (`claves`, en orden; o una sola, `clave`). Con cada clave, hasta 4 intentos (503 es común),
  * probando también el modelo flash; si una clave no sirve (rechazada o sin cupo), se prueba la siguiente. Nunca muestra una clave.
  */
-async function pedirAGemini(partes, { clave, claves, fetchFn = fetch, esperar = dormir, json = false }) {
+async function pedirAGemini(partes, { clave, claves, claveGroq = "", fetchFn = fetch, esperar = dormir, json = false }) {
   const lista = [...new Set((Array.isArray(claves) ? claves : [clave]).map((k) => String(k ?? '').trim()).filter(Boolean))];
-  if (!lista.length) throw new Error('Gemini sin clave');
+  if (!lista.length && !claveGroq) throw new Error('Gemini sin clave');
   let ultimo = 'sin respuesta';
   for (const k of lista) {
     for (const [i, modelo] of MODELOS_DE_TEXTO.entries()) {
@@ -392,7 +392,28 @@ async function pedirAGemini(partes, { clave, claves, fetchFn = fetch, esperar = 
       if (i < MODELOS_DE_TEXTO.length - 1) await esperar(4000 * (i + 1));
     }
   }
+  // 22/10/2026: si Gemini no contesta (se acabó el cupo gratis del momento: 429; o está caído: 503), Groq (gratis) escribe el prompt o mira la imagen.
+  if (claveGroq) {
+    try { return await pedirAGroq(partes, { claveGroq, fetchFn, json }); } catch (e) { ultimo = `${ultimo}; Groq: ${String(e?.message ?? e).slice(0, 60)}`; }
+  }
   throw new Error(`Gemini ${ultimo}`);
+}
+
+export const MODELO_GROQ = 'qwen/qwen3.8-27b';
+/** Lo mismo que pedirAGemini pero con Groq (API de OpenAI): las partes de texto y las imágenes (inlineData) van como un solo mensaje. */
+async function pedirAGroq(partes, { claveGroq, fetchFn = fetch, json = false }) {
+  const content = partes.map((p) => (p.inlineData ? { type: 'image_url', image_url: { url: `data:${p.inlineData.mimeType};base64,${p.inlineData.data}` } } : { type: 'text', text: p.text }));
+  const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', authorization: `Bearer ${claveGroq}` },
+    body: JSON.stringify({ model: MODELO_GROQ, messages: [{ role: 'user', content }], temperature: json ? 0 : 0.7, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
+    signal: AbortSignal.timeout(60_000),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const j = await res.json();
+  const t = String(j.choices?.[0]?.message?.content ?? '').trim();
+  if (!t) throw new Error('sin texto');
+  return t;
 }
 
 /** El prompt de una nota, escrito por Gemini. */
@@ -477,7 +498,7 @@ ${filas || '<p>No hay candidatas.</p>'}
  *   automatico:         el cupo se reparte entre las corridas que faltan hoy (cupoAutomatico)
  */
 export async function revisar({
-  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, token,
+  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', token,
   automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log,
 } = {}) {
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
@@ -514,7 +535,7 @@ export async function revisar({
     let reemplaza = null;
     if (tieneArchivo(anterior) && !ilustracionControlada(anterior)) {
       const ruta = path.join(rutas.carpeta, path.basename(anterior.archivo));
-      const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
+      const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, claveGroq, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
       registro(`  [${nota.id}] ilustración sin control (${esDeGeminiWeb(anterior) ? 'Gemini web' : 'sin control anotado'}): ${control.ok ? 'pasa' : control.motivo}`);
       if (control.ok) { revisadas.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, control }); continue; }
       reemplaza = anterior.archivo;
@@ -525,7 +546,7 @@ export async function revisar({
     const tono = tonoDeLaNota(nota);
     const item = { id: nota.id, titulo: nota.titulo, seccion: nota.seccion, fecha: nota.fecha ?? null, tono, prompt: null, archivo: null, control: null, ...(reemplaza ? { reemplaza } : {}) };
     let deGemini;
-    try { deGemini = await pedirPrompt(nota, { claves: clavesDelPrompt, fetchFn, esperar }); } catch (e) {
+    try { deGemini = await pedirPrompt(nota, { claves: clavesDelPrompt, claveGroq, fetchFn, esperar }); } catch (e) {
       saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `no se pudo escribir el prompt (${String(e?.message ?? e).slice(0, 80)})` });
       continue;
     }
@@ -549,7 +570,7 @@ export async function revisar({
     if (guardar.bytes.length < PESO_MINIMO_DE_UNA_FOTO) { item.error = 'la imagen salió vacía (casi negra o lisa)'; hechas.push(item); continue; }
     item.archivo = `${nota.id}.jpg`;
     fs.writeFileSync(path.join(salida, item.archivo), guardar.bytes);
-    item.control = await mirarImagen(guardar.bytes, { claves: clavesDelControl, fetchFn, esperar });
+    item.control = await mirarImagen(guardar.bytes, { claves: clavesDelControl, claveGroq, fetchFn, esperar });
     hechas.push(item);
   }
   const listas = hechas.filter((c) => c.archivo && c.control?.ok).map((c) => c.id);
@@ -706,7 +727,7 @@ async function principal() {
     const claveClasificacion = (process.env.GEMINI_API_KEY_CLASIFICACION ?? '').trim();
     const token = (process.env.VIGILANTE_TOKEN ?? '').trim();
     if ((!clave && !claveClasificacion) || !token) { console.error('Faltan GEMINI_API_KEY_REDACCION (o GEMINI_API_KEY_CLASIFICACION) o VIGILANTE_TOKEN.'); process.exit(1); }
-    return { clave, claveClasificacion, token };
+    return { clave, claveClasificacion, claveGroq: (process.env.GROQ_API_KEY ?? '').trim(), token };
   };
   const comunes = () => ({
     horas: horasPedidas(process.env.HORAS), salida: opcion('salida') || 'salida-ilustraciones', cuenta: opcion('cuenta') || 'cuenta-ilustraciones',

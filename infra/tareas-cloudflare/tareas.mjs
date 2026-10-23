@@ -149,7 +149,7 @@ export const TAREAS = {
         salida: path.join(raiz, '.cache', 'ilustraciones'), informe: null, rutas, ahora, fetchFn, ...(esperar ? { esperar } : {}),
         horas: ilustrar.horasPedidas(inputs?.horas),
         cuenta: path.join(cuentas, `${diaAR(ahora)}-${ahora.getTime()}`), cuentas: ilustrar.leerCuentas(cuentas),
-        clave: (env.GEMINI_API_KEY_REDACCION ?? '').trim(), claveClasificacion: (env.GEMINI_API_KEY_CLASIFICACION ?? '').trim(), token: (env.VIGILANTE_TOKEN ?? '').trim(),
+        clave: (env.GEMINI_API_KEY_REDACCION ?? '').trim(), claveClasificacion: (env.GEMINI_API_KEY_CLASIFICACION ?? '').trim(), claveGroq: (env.GROQ_API_KEY ?? '').trim(), token: (env.VIGILANTE_TOKEN ?? '').trim(),
       });
       return {};
     },

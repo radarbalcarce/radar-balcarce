@@ -759,7 +759,7 @@ test('el workflow: a mano o por el reloj (sin schedule propio), aplicar y automÃ
   assert.match(y, /horas:\n\s+description:[^\n]*\n\s+required: false\n\s+default: '24'/);
   assert.match(y, /ids:\n\s+description:[^\n]*\n\s+required: false\n\s+default: ''/);
   const secretos = [...y.matchAll(/secrets\.([A-Z_]+)/g)].map((m) => m[1]);
-  assert.deepEqual([...new Set(secretos)].sort(), ['GEMINI_API_KEY_CLASIFICACION', 'GEMINI_API_KEY_REDACCION', 'VIGILANTE_TOKEN']);
+  assert.deepEqual([...new Set(secretos)].sort(), ['GEMINI_API_KEY_CLASIFICACION', 'GEMINI_API_KEY_REDACCION', 'GROQ_API_KEY', 'VIGILANTE_TOKEN']);
   assert.ok(!/TOPE|MAXIMO/.test(y.replace(/^#.*$/gm, '')), 'los topes no se cambian desde el workflow');
   assert.match(y, /if: \$\{\{ inputs\.aplicar && inputs\.corrida == '' \}\}/);
   assert.match(y, /actions\/download-artifact@v4[\s\S]*run-id: \$\{\{ inputs\.corrida \}\}/);
@@ -774,8 +774,8 @@ test('el workflow: a mano o por el reloj (sin schedule propio), aplicar y automÃ
   // el script no lee ninguna otra clave
   const s = leer('web/scripts/ilustrar-notas.mjs');
   const env = new Set([...s.matchAll(/process\.env\.([A-Z_]+)/g)].map((m) => m[1]));
-  for (const v of env) assert.ok(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_CLASIFICACION', 'VIGILANTE_TOKEN', 'HORAS', 'IDS', 'AUTOMATICO', 'GITHUB_STEP_SUMMARY', 'GITHUB_RUN_ID', 'GITHUB_OUTPUT'].includes(v), v);
-  assert.ok(!/GROQ|GEMINI_API_KEY_(?!REDACCION|CLASIFICACION)|TAVILY|claves\.mjs/.test(s), 'ninguna otra clave');
+  for (const v of env) assert.ok(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_CLASIFICACION', 'GROQ_API_KEY', 'VIGILANTE_TOKEN', 'HORAS', 'IDS', 'AUTOMATICO', 'GITHUB_STEP_SUMMARY', 'GITHUB_RUN_ID', 'GITHUB_OUTPUT'].includes(v), v);
+  assert.ok(!/GEMINI_API_KEY_(?!REDACCION|CLASIFICACION)|TAVILY|claves\.mjs/.test(s), 'ninguna otra clave');
 });
 
 test('el workflow no se pisa: una corrida por vez, y el job que sube va en la fila de "Actualizar la web" y nunca resuelve un choque a ciegas', () => {
