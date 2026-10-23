@@ -83,7 +83,8 @@ export const ANCHO = 1024;
 export const ALTO = 1024;
 export const PASOS = 6;
 /** Lo que se le suma a todo prompt, pase lo que pase con el de Gemini. */
-export const AGREGADO = 'blank paper, no writing, no letters, no signs, no logos, no people';
+// 23/10/2026: FLUX no entiende las negaciones («no writing» lo tienta a escribir): en afirmativo, objetos lisos, sin etiquetas y sin nadie.
+export const AGREGADO = 'plain unmarked matte objects, blank clean paper, unlabeled smooth surfaces, an empty room';
 /** Lo que el modelo tiene que evitar (el Worker lo corta a 300 caracteres). */
 export const NEGATIVO = 'people, person, human, face, hands, child, crowd, text, letters, words, writing, numbers, signs, logo, watermark, signature, brand, '
   + 'flag, emblem, coat of arms, blood, weapon, cartoon, illustration, painting, 3d render, oversaturated, deformed';
@@ -415,7 +416,7 @@ async function pedirAOpenRouter(partes, { claveOpenRouter, fetchFn = fetch, json
     const res = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: { 'content-type': 'application/json', authorization: `Bearer ${claveOpenRouter}`, 'HTTP-Referer': 'https://radarbalcarce.com', 'X-Title': 'Radar Balcarce' },
-      body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], temperature: 0, max_tokens: 600, reasoning: { exclude: true }, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
+      body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], temperature: 0, max_tokens: 1200, reasoning: { exclude: true }, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
       signal: AbortSignal.timeout(75_000),
     }).catch((e) => ({ ok: false, status: 0, error: e }));
     ultimo = `HTTP ${res.status}`;

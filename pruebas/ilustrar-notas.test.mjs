@@ -205,7 +205,7 @@ test('el prompt final lleva siempre el agregado (y el tono, si se pasa), entra e
   const p = promptFinal('"Candid photojournalistic close-up still life of a worn wooden desk with a blank notebook,\nsoft window light, no people, no text, no logos."');
   assert.ok(p.endsWith(`, ${AGREGADO}`));
   assert.ok(!/["\n]/.test(p));
-  assert.equal(AGREGADO, 'blank paper, no writing, no letters, no signs, no logos, no people');
+  assert.equal(AGREGADO, 'plain unmarked matte objects, blank clean paper, unlabeled smooth surfaces, an empty room');
   const largo = promptFinal(`Candid photojournalistic close-up still life of ${'old tools and '.repeat(100)}a table`);
   assert.ok(largo.length <= PROMPT_MAXIMO && largo.endsWith(AGREGADO));
   assert.equal(promptFinal(''), '');
