@@ -1,0 +1,36 @@
+name: Probar ilustraciones
+
+# A mano. Genera ilustraciones de prueba con las instrucciones de hoy (una nota por sección) y las deja como adjunto con el prompt y el control. No publica nada.
+# Gasta unas pocas llamadas a Gemini y ~80 neuronas por imagen del cupo gratis diario. Ver scripts/medir/probar-ilustraciones.mjs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      cuantas:
+        description: 'Cuántas notas probar'
+        default: '8'
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generar
+        env:
+          TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
+          GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
+          GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
+          CUANTAS: ${{ inputs.cuantas }}
+        run: node scripts/medir/probar-ilustraciones.mjs salida
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ilustraciones-de-prueba
+          path: salida/
