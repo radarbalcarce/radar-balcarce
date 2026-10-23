@@ -105,7 +105,7 @@ export const NEURONAS_GRATIS_POR_DIA = 10_000;
 export const PROMPT_DE_HERNAN = `Generá una imagen fotoperiodística y conceptual para ilustrar la nota periodística que te dejo abajo. Requisitos importantes:
 1. No debe aparecer ninguna persona en la imagen (completamente sin gente) para evitar confusiones de identidad.
 2. Debe ser un plano detalle o bodegón natural y espontáneo de los objetos y herramientas típicos de la actividad o profesión de la que habla la nota.
-3. Los objetos deben estar sobre una superficie de trabajo (mesa, escritorio, etc.) y mostrar desgaste por uso.
+3. Los objetos deben estar sobre una superficie de trabajo (mesa, escritorio, etc.) y estar en buen estado, de uso cotidiano y de HOY (año 2026): nada antiguo ni vintage ni de otra época (nada de teléfonos de disco, máquinas de escribir ni televisores de tubo).
 4. Evitá por completo mostrar logotipos oficiales, escudos, marcas o textos institucionales específicos. Si hay carteles, folletos o documentos, que tengan un diseño genérico, desenfocado o meramente de texto simple, o solo colores y formas abstractas sin emblemas.
 5. El fondo debe estar muy desenfocado (efecto bokeh) pero debe sugerir el lugar donde transcurren los hechos.
 6. La foto debe ser natural, con luz real (de archivo de diario), de aspecto cotidiano y sin retoques digitales exagerados.`;
@@ -174,12 +174,12 @@ export const TONOS = {
     en: 'bright warm sunny daylight, vivid clean cheerful colors',
   },
   sobrio: {
-    es: 'sobria y neutra, nunca dramática: luz natural pareja y colores apagados; un objeto simbólico y cotidiano del tema, NUNCA la escena del hecho (nada de autos chocados, patrulleros, cinta policial, fuego, ambulancias ni juguetes)',
-    en: 'soft even natural light, muted sober colors, calm neutral mood',
+    es: 'ordenada y tranquila, nunca dramática ni triste: luz natural clara y suave, colores limpios y frescos (nada gris, oscuro ni apagado); un objeto simbólico y cotidiano del tema, NUNCA la escena del hecho (nada de autos chocados, patrulleros, cinta policial, fuego, ambulancias ni juguetes)',
+    en: 'bright soft natural daylight, clean fresh colors, tidy calm composition, never gloomy or dark',
   },
   neutro: {
-    es: 'luz natural neutra, colores naturales, aspecto cotidiano',
-    en: 'natural neutral daylight, true-to-life colors',
+    es: 'luz natural clara, colores frescos y naturales, aspecto cuidado y actual',
+    en: 'bright natural daylight, fresh true-to-life colors, clean modern look',
   },
 };
 
@@ -314,10 +314,10 @@ export function armarInstruccion(nota) {
   const cuerpo = String(nota?.cuerpo ?? '').slice(0, CUERPO_MAXIMO);
   const tono = TONOS[tonoDeLaNota(nota)];
   return `${PROMPT_DE_HERNAN}
-7. Formato horizontal 16:9, sin ningún texto legible.
+7. Composición con el objeto principal bien centrado (la imagen sale cuadrada y después se recorta a 16:9), sin ningún texto legible.
 8. TONO: ${tono.es}.
 
-Tu salida NO es la imagen: es el PROMPT para un generador de imágenes (Stable Diffusion XL), escrito en INGLÉS, de 40 a 70 palabras, en una sola línea, que describa esa foto cumpliendo los requisitos de arriba, con la luz y los colores del TONO. Empezá por «Candid photojournalistic close-up still life of». Describí sólo objetos, la superficie de trabajo, el fondo desenfocado y la luz. NUNCA escribas nombres de personas, de lugares, de instituciones, de clubes, de marcas ni de medios. Nada de personas ni de chicos, ni manos ni siluetas (los objetos de una escuela, de un taller o de un deporte sí, sin nadie). Nada de armas, sangre, ataúdes, coronas de flores, esposas ni nada que sugiera un delito, un accidente o una muerte: si la nota es de un hecho policial, judicial o de un accidente, un objeto simbólico y cotidiano del tema, nunca la escena. Si hay papeles, que estén en blanco. Incluí «no people, no text, no logos». Respondé SOLO con el prompt.
+Tu salida NO es la imagen: es el PROMPT para un generador de imágenes (FLUX), escrito en INGLÉS, de 40 a 70 palabras, en una sola línea, que describa esa foto cumpliendo los requisitos de arriba, con la luz y los colores del TONO. Empezá por «Candid photojournalistic close-up still life of». Describí sólo objetos, la superficie de trabajo, el fondo desenfocado y la luz, siempre en afirmativo (lo que SÍ hay en la foto). Los objetos son de uso actual, del año 2026: modernos y en buen estado, NUNCA antiguos, vintage ni de otra época. Preferí objetos sin letras ni números a la vista (herramientas, tazas, carpetas lisas, cascos, balones, plantas, cables, instrumentos) y evitá teclados, marcadores, relojes con números, calendarios, carteles y portadas de libros. Pedí «sharp focus, high detail, natural daylight, shallow depth of field». NUNCA escribas nombres de personas, de lugares, de instituciones, de clubes, de marcas ni de medios. Nada de personas ni de chicos, ni manos ni siluetas (los objetos de una escuela, de un taller o de un deporte sí, sin nadie). Nada de armas, sangre, ataúdes, coronas de flores, esposas ni nada que sugiera un delito, un accidente o una muerte: si la nota es de un hecho policial, judicial o de un accidente, un objeto simbólico y cotidiano del tema, nunca la escena. Si hay papeles, que estén en blanco. Incluí «no people, no text, no logos». Respondé SOLO con el prompt.
 
 Nota:
 ${nota?.titulo ?? ''}

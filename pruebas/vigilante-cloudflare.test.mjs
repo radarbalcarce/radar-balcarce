@@ -158,32 +158,29 @@ test('las corridas se leen del JSON de GitHub', () => {
 
 const problema = (clave, titulo = `Problema ${clave}`) => ({ clave, titulo, texto: 'Pasó algo.', mirar: [['Acá', 'https://example.com/']] });
 
-test('un problema nuevo avisa; mientras siga, no se repite antes de 6 horas; a las 6 horas, sí', () => {
+test('un problema nuevo avisa; mientras siga, no se repite antes de 24 horas; a las 24 horas, sí', () => {
   let previo = {};
   let d = decidir({ previo, problemas: [problema('web-vieja')], ahora: z('2026-10-15T15:00:00Z') });
   assert.equal(d.envios.length, 1);
   assert.equal(d.envios[0].tipo, 'alerta');
   previo = { alertas: d.alertas };
-  for (const iso of ['2026-10-15T15:30:00Z', '2026-10-15T18:00:00Z', '2026-10-15T20:59:00Z']) {
+  for (const iso of ['2026-10-15T15:30:00Z', '2026-10-15T18:00:00Z', '2026-10-16T14:59:00Z']) {
     d = decidir({ previo, problemas: [problema('web-vieja')], ahora: z(iso) });
     assert.equal(d.envios.length, 0, iso);
     previo = { alertas: d.alertas };
   }
   assert.equal(previo.alertas['web-vieja'].desde, '2026-10-15T15:00:00.000Z');
-  d = decidir({ previo, problemas: [problema('web-vieja')], ahora: z('2026-10-15T21:00:00Z') });
+  d = decidir({ previo, problemas: [problema('web-vieja')], ahora: z('2026-10-16T15:00:00Z') });
   assert.equal(d.envios.length, 1);
   assert.match(d.envios[0].texto, /sigue sin resolverse/);
-  assert.equal(d.alertas['web-vieja'].ultimoAviso, '2026-10-15T21:00:00.000Z');
+  assert.equal(d.alertas['web-vieja'].ultimoAviso, '2026-10-16T15:00:00.000Z');
 });
 
-test('cuando se arregla, llega un solo mail de "se arregló" y después nada', () => {
+test('cuando se arregla ya no llega mail (22/10: demasiados avisos) y el estado queda limpio', () => {
   let d = decidir({ previo: {}, problemas: [problema('web-caida', 'La web está caída')], ahora: z('2026-10-15T15:00:00Z') });
   let previo = { alertas: d.alertas };
   d = decidir({ previo, problemas: [], ahora: z('2026-10-15T16:12:00Z') });
-  assert.equal(d.envios.length, 1);
-  assert.equal(d.envios[0].tipo, 'recuperado');
-  assert.match(d.envios[0].asunto, /^\[Radar Balcarce\] Se arregló: La web está caída$/);
-  assert.match(d.envios[0].texto, /1,2 h|72 min/);
+  assert.equal(d.envios.length, 0);
   assert.deepEqual(d.alertas, {});
   d = decidir({ previo: { alertas: d.alertas }, problemas: [], ahora: z('2026-10-15T16:42:00Z') });
   assert.equal(d.envios.length, 0);
@@ -209,8 +206,6 @@ test('si el mail no salió, el problema sigue "sin avisar" y se reintenta; el de
   const rep = decidir({ previo, problemas: [problema('a')], ahora });
   const sinCambio = deshacerLosFallidos({ previo, alertas: rep.alertas, envios: rep.envios, fallidos: rep.envios });
   assert.equal(sinCambio.a.ultimoAviso, '2026-10-15T01:00:00.000Z');
-  const rec = decidir({ previo, problemas: [], ahora });
-  assert.deepEqual(Object.keys(deshacerLosFallidos({ previo, alertas: rec.alertas, envios: rec.envios, fallidos: rec.envios })), ['a']);
 });
 
 test('el resumen (ahora, de respaldo del informe de la noche) toca desde las 22 de Balcarce, una vez por día, y sólo si el informe no llegó', () => {
@@ -266,10 +261,9 @@ test('una vuelta entera: web vieja avisa una vez, no repite a la media hora, y c
 
   const fresca = fetchFalso({ sitemap: '<lastmod>2026-10-15T16:00:00.000Z</lastmod>', runs: [run('success', '2026-10-15T16:08:00Z')] });
   r = await correr(env, z('2026-10-15T16:12:00Z'), { fetchFn: fresca, enviar });
-  assert.equal(enviados.length, 2);
-  assert.match(enviados[1].asunto, /Se arregló/);
+  assert.equal(enviados.length, 1, 'ya no se manda el se arregló');
   r = await correr(env, z('2026-10-15T16:42:00Z'), { fetchFn: fresca, enviar });
-  assert.equal(enviados.length, 2, 'el "se arregló" sale una sola vez');
+  assert.equal(enviados.length, 1);
   assert.deepEqual(JSON.parse(env.ESTADO.datos.get('estado')).alertas, {});
 });
 
@@ -646,7 +640,7 @@ test('el Worker no importa nada: sólo cloudflare:email, y recién adentro de la
   const w = leer('infra/vigilante-cloudflare/worker.mjs');
   assert.ok(!/^import\s/m.test(w), 'sin imports estáticos');
   assert.deepEqual([...w.matchAll(/import\(['"]([^'"]+)['"]\)/g)].map((m) => m[1]), ['cloudflare:email']);
-  assert.ok(LIMITES.horasEntreAvisos === 6 && LIMITES.horasSinActualizarDeDia === 3 && LIMITES.horasSinActualizarDeNoche === 6);
+  assert.ok(LIMITES.horasEntreAvisos === 24 && LIMITES.horasSinActualizarDeDia === 3 && LIMITES.horasSinActualizarDeNoche === 6);
 });
 
 test('el workflow del vigilante es sólo a mano, de sólo lectura, con tope de tiempo, versión fijada, el mismo wrangler que el reloj y nada de commitear', () => {

@@ -47,7 +47,7 @@ export const LIMITES = {
   sinFechaParaAvisar: 2,
   fallasSeguidasEnGitHub: 3,   // corridas seguidas fallidas de "Actualizar la web"
   lecturasFallidasDeGitHub: 4, // revisiones seguidas sin poder leer a GitHub
-  horasEntreAvisos: 6,
+  horasEntreAvisos: 24,
   horaDelResumen: 22,          // el resumen de respaldo (el informe de la noche lo manda GitHub a las 21:15, redes/informe-diario.mjs)
   corridasQuePide: 10,
 };
@@ -432,8 +432,8 @@ export function evaluar({ ahora, web, github, contadores = {} }) {
 
 /**
  * La máquina de avisos. Recibe el estado anterior y los problemas de ahora; devuelve el estado nuevo y los mails que corresponde mandar:
- *   · un problema nuevo se avisa enseguida; mientras siga, se repite cada 6 horas (nunca antes);
- *   · uno que se fue se avisa una sola vez como "recuperado".
+ *   · un problema nuevo se avisa enseguida; mientras siga, se repite cada 24 horas (nunca antes);
+ *   · uno que se fue ya no manda mail (desde el 22/10).
  * Es pura: no manda nada. Si un mail después no sale, `deshacerLosFallidos` devuelve el estado a como estaba para ese aviso.
  */
 export function decidir({ previo = {}, problemas = [], ahora }) {
@@ -464,7 +464,8 @@ export function decidir({ previo = {}, problemas = [], ahora }) {
   const envios = [];
   const aAvisar = [...nuevas, ...repetidas];
   if (aAvisar.length) envios.push({ tipo: 'alerta', claves: aAvisar.map((p) => p.clave), ...armarAlerta({ problemas: aAvisar, ahora }) });
-  if (recuperadas.length) envios.push({ tipo: 'recuperado', claves: recuperadas.map((r) => r.clave), ...armarRecuperado({ recuperadas, ahora }) });
+  // 22/10/2026 (Hernán: demasiados mails): ya no se manda el «se arregló»; el aviso se repite cada 24 horas y no cada 6.
+  // (Se sigue anotando en el estado para que, si el problema vuelve, se avise como nuevo.)
   return { alertas, envios };
 }
 

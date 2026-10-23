@@ -164,14 +164,14 @@ test('elegirCandidatas: sólo la portada de las últimas horas, las más nuevas 
 // (17/10/2026: se borró la prueba a mano de un día, probar-imagen-nota, que tenía una copia de este pedido: queda uno solo, acá.)
 test('el pedido a Gemini es el de Hernán con la nota COMPLETA, el 16:9 y el tono, y pide un prompt sin nombres ni personas', () => {
   assert.match(PROMPT_DE_HERNAN, /No debe aparecer ninguna persona/);
-  for (const pedido of ['No debe aparecer ninguna persona', 'bodegón', 'superficie de trabajo', 'desgaste por uso', 'logotipos', 'bokeh', 'archivo de diario']) assert.ok(PROMPT_DE_HERNAN.includes(pedido), pedido);
+  for (const pedido of ['No debe aparecer ninguna persona', 'bodegón', 'superficie de trabajo', 'buen estado', 'logotipos', 'bokeh', 'archivo de diario']) assert.ok(PROMPT_DE_HERNAN.includes(pedido), pedido);
   const cuerpo = `${'Cuerpo '.repeat(1000)}FINAL-DEL-CUERPO`;
   const i = armarInstruccion(nota('n1', 'El Festival Cervantino de Azul cumple 20 años', 'Cultura y agenda', { copete: 'Bajada', cuerpo }));
   assert.ok(i.startsWith(PROMPT_DE_HERNAN));
-  assert.match(i, /7\. Formato horizontal 16:9, sin ningún texto legible\./);
+  assert.match(i, /7\. Composición con el objeto principal bien centrado .*16:9\), sin ningún texto legible\./);
   assert.ok(i.includes(`8. TONO: ${TONOS.alegre.es}.`), 'un festival va con tono alegre');
   assert.match(i, /INGLÉS/);
-  assert.match(i, /Stable Diffusion XL/);
+  assert.match(i, /FLUX/);
   assert.match(i, /NUNCA escribas nombres de personas/);
   assert.match(i, /Nada de personas ni de chicos/);
   assert.match(i, /nunca la escena/);
