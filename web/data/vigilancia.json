@@ -1,6 +1,7 @@
 {
   "avisos": {
-    "efemerides-por-acabarse": "2026-10-23T09:00:45.784Z"
+    "efemerides-por-acabarse": "2026-10-23T09:00:45.784Z",
+    "archivo-r2-fallo": "2026-10-23T12:45:53.009Z"
   },
   "importantes": {
     "avisadas": {
@@ -43,6 +44,12 @@
   "ultimoCierre": "2026-10-22",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
+    {
+      "clave": "archivo-r2-fallo",
+      "nivel": "media",
+      "texto": "La última corrida del archivo permanente salió mal (se acabó el tiempo: quedaron 787 objetos para la próxima corrida). El sitio se publica igual, pero lo que está por salir puede no estar guardado y lo retirado puede no haberse borrado de R2. Mirá el paso \"Archivar las notas por salir (R2)\" del workflow \"Actualizar la web\" en GitHub Actions.",
+      "desde": "2026-10-23T12:45:53.009Z"
+    },
     {
       "clave": "efemerides-por-acabarse",
       "nivel": "media",
