@@ -42,6 +42,20 @@ async function leerJson(deposito, clave) {
   try { const o = await deposito.get(clave); return o ? JSON.parse(await o.text()) : null; } catch { return null; }
 }
 
+/** Minutos sin una vuelta buena a partir de los cuales el reloj despierta al motor aunque no sea :00 ni :30 (los avisos de Cloudflare a veces se pierden). */
+export const MINUTOS_PARA_DAR_POR_ATRASADO = 40;
+
+/**
+ * ¿La última vuelta buena del motor es de hace MINUTOS_PARA_DAR_POR_ATRASADO minutos o más? (23/10/2026: el cron de las 12:30 no llegó y la web quedó 45 minutos sin armarse.)
+ * Sin dato (nunca hubo una vuelta buena) no se dice atrasado: la corrida normal de los :00 y :30 se ocupa.
+ */
+export async function motorAtrasado(env, ahora = new Date()) {
+  if (!env?.MOTOR) return false;
+  const estado = await leerJson(env.MOTOR, 'motor/estado.json');
+  const t = Date.parse(estado?.ultimaBuena ?? '');
+  return Number.isFinite(t) && (ahora.getTime() - t) / 60000 >= MINUTOS_PARA_DAR_POR_ATRASADO;
+}
+
 /** Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del mes. */
 export async function despertarMotor(env, { fetchFn = fetch, ahora = new Date() } = {}) {
   if (!env.MOTOR_DEPLOY_HOOK) return { archivo: MOTOR, ok: false, estado: 0, motivo: 'falta el secreto MOTOR_DEPLOY_HOOK (el «deploy hook» de Workers Builds)' };

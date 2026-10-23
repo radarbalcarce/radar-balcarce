@@ -4,7 +4,7 @@
 // Necesita UN secreto, GITHUB_TOKEN: un token de grano fino de la cuenta del repositorio, sólo para este repositorio, con "Actions: lectura y
 // escritura". Se carga una sola vez (docs/08-INFRAESTRUCTURA.md, "El reloj de Cloudflare"). Nunca se escribe en el código.
 
-import { enLaNube, despertarEnLaNube } from './nube.mjs';
+import { enLaNube, despertarEnLaNube, motorAtrasado, MOTOR } from './nube.mjs';
 
 export const REPOSITORIO = 'radarbalcarce/radar-balcarce';
 export const RAMA = 'main';
@@ -97,6 +97,9 @@ export default {
     // 18/10/2026: lo que figura en la variable NUBE se le pide a Cloudflare (infra/reloj-cloudflare/nube.mjs); lo demás, a GitHub, como siempre.
     // Sin NUBE (lo de siempre) no cambia nada: todo a GitHub y el mismo error si falta la llave.
     const nube = enLaNube(env);
+    // 23/10/2026: el vigilante de vueltas. Si el aviso de las :00 o las :30 se perdió, a los minutos múltiplos de 10 (10, 20, 40, 50) se vuelve a pedir la vuelta del
+    // motor cuando la última buena es de hace 40 minutos o más. En cada :00 y :30 el pedido normal sigue igual.
+    if (nube.has(MOTOR) && !trabajos.some((t) => t.archivo === MOTOR) && minuto % 10 === 0 && await motorAtrasado(env, cuando).catch(() => false)) trabajos.push({ archivo: MOTOR });
     const aGitHub = trabajos.filter((t) => !nube.has(t.archivo));
     const aLaNube = trabajos.filter((t) => nube.has(t.archivo));
     if (aGitHub.length && !env.GITHUB_TOKEN) throw new Error('Falta el secreto GITHUB_TOKEN del reloj.');

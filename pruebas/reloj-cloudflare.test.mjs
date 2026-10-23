@@ -148,7 +148,7 @@ test('el Worker a las 13:20 UTC (10:20 en Balcarce) no pide ilustraciones y a la
 test('el reloj está definido (crons), el workflow que lo sube es sólo a mano y no hay ninguna clave escrita', () => {
   const toml = leer('infra/reloj-cloudflare/wrangler.toml');
   const crons = toml.match(/^crons = \[([^\]]+)\]/m)[1].match(/"[^"]+"/g).map((c) => c.slice(1, -1));
-  assert.deepEqual(crons, ['0,30 * * * *', '5,35,45 * * * *', '15 0,11 * * *', '20 0,2,10,12,14,16,18,20,22 * * *', '23 */3 * * *', '41 * * * *', '12 1,3,5,7,9,11,13,15,17,19,21,23 * * *']);
+  assert.deepEqual(crons, ['0,30 * * * *', '5,35,45 * * * *', '15 0,11 * * *', '20 0,2,10,12,14,16,18,20,22 * * *', '23 */3 * * *', '41 * * * *', '12 1,3,5,7,9,11,13,15,17,19,21,23 * * *', '10,25,40,50,55 * * * *']);
   // 17/10/2026: el comentario viejo ("los triggers de la cuenta son pocos", cuatro como mucho) era del plan gratis; con Workers Paid son 250.
   assert.match(toml, /250/);
   const horasDelCron = toml.match(/"20 ([\d,]+) \* \* \*"/)[1].split(',').map(Number).sort((a, b) => a - b);
@@ -164,4 +164,19 @@ test('el reloj está definido (crons), el workflow que lo sube es sólo a mano y
   assert.match(w, /on:\s+workflow_dispatch:/);
   assert.ok(!/schedule:|push:/.test(w), 'el reloj nuevo no se sube solo');
   for (const f of ['infra/reloj-cloudflare/worker.mjs', 'infra/reloj-cloudflare/wrangler.toml']) assert.ok(!/ghp_|github_pat_|Bearer [A-Za-z0-9_]{20,}/.test(leer(f)), f);
+});
+
+test('el vigilante de vueltas: si la última vuelta buena es de hace 40 minutos o más, el reloj la pide aunque no sea :00 ni :30 (23/10/2026)', async () => {
+  const { motorAtrasado, MINUTOS_PARA_DAR_POR_ATRASADO } = await import('../infra/reloj-cloudflare/nube.mjs');
+  assert.equal(MINUTOS_PARA_DAR_POR_ATRASADO, 40);
+  const ahora = new Date('2026-10-23T12:40:00Z');
+  const deposito = (ultimaBuena) => ({ get: async (k) => (k === 'motor/estado.json' ? { text: async () => JSON.stringify({ ultimaBuena }) } : null) });
+  assert.equal(await motorAtrasado({ MOTOR: deposito('2026-10-23T12:16:00Z') }, ahora), false, 'hace 24 minutos: normal');
+  assert.equal(await motorAtrasado({ MOTOR: deposito('2026-10-23T12:01:00Z') }, ahora), false, 'hace 39 minutos: todavía no');
+  assert.equal(await motorAtrasado({ MOTOR: deposito('2026-10-23T12:00:00Z') }, ahora), true, 'hace 40 minutos: se pide');
+  assert.equal(await motorAtrasado({ MOTOR: deposito(null) }, ahora), false, 'sin dato no se dice atrasado');
+  assert.equal(await motorAtrasado({}, ahora), false, 'sin depósito tampoco');
+  // El cron de esos minutos existe y el Worker lo usa sólo con el motor en la nube.
+  const w = leer('infra/reloj-cloudflare/worker.mjs');
+  assert.match(w, /minuto % 10 === 0 && await motorAtrasado/);
 });
