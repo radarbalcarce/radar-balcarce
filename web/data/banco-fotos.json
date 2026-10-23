@@ -32483,5 +32483,25 @@
   "intentos": 1,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "voif0z": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cicinho postula a Atlético Mineiro como favorito ante Boca",
+  "razon": "La única foto disponible muestra a jugadores del Real Madrid, lo cual no tiene ninguna relación con la nota sobre Atlético Mineiro y Boca.",
+  "cuando": "2026-10-23T02:31:50.440Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1m615hw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes empata sin goles ante Flamengo con un jugador menos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-23T02:31:50.440Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-23T02:02:34.529Z",
+ "consultado": "2026-10-23T02:31:54.014Z",
  "equipos": [
   "9739",
   "3",
@@ -1040,7 +1040,7 @@
     "competencia": "libertadores",
     "inicio": "2026-10-23T00:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "74'",
+    "minuto": "95'",
     "local": {
      "id": "819",
      "nombre": "Flamengo",
@@ -1051,8 +1051,24 @@
      "nombre": "Estudiantes de La Plata",
      "goles": 0
     },
-    "penales": null,
-    "goles": [],
+    "penales": {
+     "local": 1,
+     "visitante": 1
+    },
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Giorgian de Arrascaeta",
+      "minuto": "91'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "José Sosa",
+      "minuto": "92'",
+      "tipo": "de penal"
+     }
+    ],
     "estadio": "Estadio do Maracana",
     "fase": "Semifinals",
     "partidoDeLaSerie": 2,
