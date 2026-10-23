@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T16:33:31.970Z",
- "portada": 92,
- "archivo": 545,
+ "generado": "2026-10-23T17:05:07.214Z",
+ "portada": 94,
+ "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-23T16:33:32.689Z",
+  "generado": "2026-10-23T17:05:07.569Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -116,12 +116,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 40,
+    "segundos": 54,
     "notas": [
      {
       "id": "1usw8vx",
       "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
      },
      {
       "id": "131te0p",
@@ -157,6 +162,11 @@
      "id": "1qr79y1",
      "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
      "cuando": "2026-10-23T14:36:02.348Z"
+    },
+    {
+     "id": "1jrajck",
+     "titulo": "Fito Páez saluda a Charly García en su cumpleaños",
+     "cuando": "2026-10-23T16:36:07.137Z"
     }
    ],
    "cola": [
@@ -167,15 +177,15 @@
      "marcada": false
     },
     {
-     "id": "1kx53j2",
-     "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
-     "seccion": "Balcarce",
+     "id": "idsz54",
+     "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "1jrajck",
-     "titulo": "Fito Páez saluda a Charly García en su cumpleaños",
-     "seccion": "Cultura y agenda",
+     "id": "1kx53j2",
+     "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -185,8 +195,8 @@
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-23T16:06:02.348Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-23T18:06:07.137Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
