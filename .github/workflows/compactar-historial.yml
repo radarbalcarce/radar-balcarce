@@ -1,0 +1,65 @@
+name: Compactar el historial
+
+# A mano, y sólo para cuando el repositorio engordó (el informe diario avisa el tamaño). Deja UN solo commit con lo que hay hoy en main y tira el historial
+# viejo (el robot guarda datos cada media hora y el historial pesa más que el proyecto: 14 MB por día a fines de octubre de 2026).
+#
+# ES IRREVERSIBLE en GitHub: por eso exige escribir COMPACTAR y que exista un «Respaldo» bueno de las últimas 24 horas (el bundle con todo el historial queda en
+# esa corrida y en R2). El commit nuevo se arma con el árbol más reciente de main y se sube con force-with-lease: si el robot guardó algo en el medio, no pisa
+# nada, se vuelve a armar (hasta 5 veces). Los datos y el código quedan exactamente iguales; sólo cambia el historial.
+#
+# Después, en la PC: git fetch origin && git reset --hard origin/main && git reflog expire --expire=now --all && git gc --prune=now --aggressive
+# (GitHub libera el espacio de los commits viejos cuando hace su limpieza interna, a los días).
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmar:
+        description: 'Escribir COMPACTAR para confirmar (borra el historial viejo de main)'
+        required: true
+        default: ''
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: compactar-historial
+  cancel-in-progress: false
+
+jobs:
+  compactar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Confirmación
+        env:
+          CONFIRMAR: ${{ inputs.confirmar }}
+        run: test "$CONFIRMAR" = "COMPACTAR" || { echo "Hay que escribir COMPACTAR para confirmar."; exit 1; }
+
+      - name: Hay un respaldo bueno de las últimas 24 horas
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          desde=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          n=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow respaldo.yml --status success --json createdAt -q "[.[]|select(.createdAt > \"$desde\")]|length")
+          echo "Respaldos buenos en las últimas 24 horas: $n"
+          test "$n" -ge 1 || { echo "No hay un Respaldo bueno de las últimas 24 horas: correr «Respaldo» primero."; exit 1; }
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Armar el commit único y subirlo
+        run: |
+          git config user.name "Radar Balcarce"
+          git config user.email "radarbalcarce@users.noreply.github.com"
+          for intento in 1 2 3 4 5; do
+            git fetch --depth=1 origin main
+            punta=$(git rev-parse FETCH_HEAD)
+            nuevo=$(git commit-tree "$punta^{tree}" -m "Historial compactado el $(date -u +%d/%m/%Y): un solo commit con el estado de main (el historial anterior está en el respaldo)")
+            echo "intento $intento: main estaba en ${punta:0:7}, commit nuevo ${nuevo:0:7}"
+            if git push --force-with-lease="main:$punta" origin "$nuevo:refs/heads/main"; then echo "Listo."; exit 0; fi
+            echo "main se movió mientras tanto: se vuelve a armar."
+            sleep 20
+          done
+          echo "No se pudo en 5 intentos."; exit 1
