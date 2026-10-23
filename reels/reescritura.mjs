@@ -713,7 +713,7 @@ export function motivoCorto(problemas = []) {
 // ------------------------------------------------ el nivel de verificación
 
 /** Lo que va en "Qué falta confirmar" cuando hay una sola fuente. */
-export const FRASE_FUENTE_UNICA = 'No pudo ser contrastado de forma independiente con las fuentes consultadas.';
+export const FRASE_FUENTE_UNICA = 'Lo cuenta un solo medio; no se pudo contrastar con otra fuente.';
 
 const normalizar = (s = '') => sinTildes(s)
   .replace(/\s+/g, ' ')

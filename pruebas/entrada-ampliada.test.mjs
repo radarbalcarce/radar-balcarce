@@ -213,7 +213,7 @@ test('para el nivel de verificación, el cable cuenta como UNA voz: "dos medios"
     { titulo: 'La VTV aumenta y cuesta $114.105,99' },
   );
   assert.equal(solo.verificacion.nivel, 'MEDIA');
-  assert.deepEqual(solo.noConfirmado, ['No pudo ser contrastado de forma independiente con las fuentes consultadas.']);
+  assert.deepEqual(solo.noConfirmado, ['Lo cuenta un solo medio; no se pudo contrastar con otra fuente.']);
 });
 
 test('la gacetilla del municipio repetida por una radio (Bilbao, § 3.6): sale de una fuente oficial, sin "un medio independiente"', () => {

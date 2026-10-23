@@ -221,8 +221,11 @@ Lo común a todas:
   texto, sin la etiqueta visual de Meta). Es de la voz, no de la nota: no cambia lo que sigue.
 - **No lleva:** la fuente, "Resumen hecho con IA" (quién escribió la nota se dice en la
   nota), "en vivo", `.com.ar`, ni "punto com" escrito (eso es sólo para la voz).
-- **Bien:** "Ferroviarios gana el Apertura y va por la final. Toda la nota acá:
-  https://radarbalcarce.com/nota/ferroviarios-gana-abc #Balcarce #Fútbol"
+- **Bien:** "Ferroviarios venció a Pato Naranja por 24 a 10 en el clásico del rugby local.
+
+  La nota completa, en Radar Balcarce: https://radarbalcarce.com/nota/ferroviarios-gana-abc
+
+  #Balcarce #RadarBalcarce #Ferroviarios #Rugby"
 - **Mal:** "Ferroviarios ganó (Resumen hecho con IA). Fuente: Puntonueve.
   https://puntonueve.com/…"
 
@@ -241,7 +244,7 @@ Lo común a todas:
 - **Cómo se arma:** saludo, cuántas actividades hay, la primera con su día y su lugar,
   dónde está la agenda completa y firma. Sale de la agenda publicada en la web.
 - **No lleva:** actividades sin fecha confirmada ni la fuente.
-- **Bien:** "Buenas tardes, Balcarce. Hay 3 actividades en Balcarce estos días. La feria
+- **Bien:** "Buen día, Balcarce. Hay 3 actividades en Balcarce estos días. La feria
   de artesanos, el sábado 10:00, en el Parque Cerro El Triunfo. La agenda completa está en
   Radar Balcarce punto com. Radar Balcarce."
 
@@ -301,7 +304,7 @@ El código los toma de `ingesta/criterio.mjs` (la columna "Clave" dice cuál) y
 | Clima: segundos como mínimo | 8 | `CLIMA_VOZ.segundosMinimo` |
 | Clima: segundos como máximo (se apunta a 10 a 20) | 25 | `CLIMA_VOZ.segundosMaximo` |
 | Podcast: segundos como mínimo | 20 | `PODCAST_VOZ.segundosMinimo` |
-| Podcast: segundos como máximo (se apunta a 45 a 75) | 100 | `PODCAST_VOZ.segundosMaximo` |
+| Podcast: segundos como máximo (se apunta a 45 a 55; el límite real al escribirlo es el presupuesto de 55, más abajo) | 100 | `PODCAST_VOZ.segundosMaximo` |
 | Podcast: ritmo real de la voz (palabras por segundo; salieron 2,3 a 2,6) | 2.4 | `PODCAST_VOZ.palabrasPorSegundo` |
 | Podcast: segundos que el video suma a la voz (entrada y cola) | 1.65 | `PODCAST_VOZ.segundosDeAdorno` |
 | Podcast: presupuesto de duración al escribirlo (segundos) | 55 | `PODCAST_VOZ.segundosPresupuesto` |

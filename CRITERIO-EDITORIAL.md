@@ -1,6 +1,6 @@
 # Criterio editorial de Radar Balcarce
 
-*Actualizado el 17/10/2026 (lo de Balcarce entra todo; lo nacional, por popularidad y sin cupos: regla 215).* Éste es **el** criterio editorial del medio: qué se publica,
+*Actualizado el 23/10/2026: lo de Balcarce entra todo y ya no espera a una persona por una palabra sensible (sólo frena el rojo); una nota sale en un solo formato en las redes; lo nacional, por popularidad y sin cupos (regla 215).* Éste es **el** criterio editorial del medio: qué se publica,
 cómo se escribe, cómo se trabaja con las fuentes y cómo se verifica. Hay uno solo y está
 acá; los otros documentos remiten a éste.
 
@@ -233,6 +233,11 @@ que lo decidan Hernán y Andrés.**
 | **Rojo** | No se publica nunca, ni por error | Identifica o puede identificar a un menor o a una víctima de violencia de género o de un delito sexual (menor de edad, abuso sexual, violación, femicidio, grooming, suicidio…). También las listas de sepelios (`REGLAS_SEMAFORO.nunca`), las efemérides de otro medio y lo que no es nota (el autobombo de un medio, el pronóstico o las farmacias de otro medio, la publicidad de un comercio: motivo "no es nota"; una persona igual puede publicarlo) |
 | **Amarillo** | Espera a una persona (en el panel del celular sólo lo de acá, hasta 5 por día; lo de afuera no va al celular desde el 17/10/2026, regla 200: si no sale solo, no sale) | Acusa a alguien (denuncia, detenido, imputado), habla de una muerte o de un herido (en Policiales, en Balcarce, en lo de acá o de la zona y en lo que cuenta un solo medio), involucra a un chico, parece promoción, es de afuera y la cuentan menos medios de los que pide la popularidad (sección 2), es la cotización del dólar, o tiene **verificación baja** (sección 5) |
 | **Verde** | Sale sola | Todo lo demás |
+
+**Lo de Balcarce (desde el 22/10/2026, Hernán: «todas esas de Balcarce no se deben frenar»).** Una nota de acá no espera a una persona por una palabra sensible
+(niños, murió, detenido, víctima, violencia…): sale sola. Lo que la protege es el **rojo** (arriba), la regla 9 de la IA (nunca identificar a un menor ni a una
+víctima: ni nombre, ni escuela, ni domicilio) y el verificador. Cada vez que el amarillo habría frenado una nota de acá, queda anotada la palabra
+(`liberadaPor`) para medir cuántas se liberan y si se cuida bien. El amarillo sigue frenando **lo de afuera**.
 
 **Qué mira.** En el **título y el comienzo del resumen**, las listas enteras. En el
 **texto entero** (el artículo de la fuente, lo de los otros medios y lo que escribe la
@@ -470,7 +475,7 @@ panel y para las redes (sección 7).
 |---|---|---|
 | Claves | Lo esencial, en puntos de una línea | De 3 a 5 |
 | Qué se sabe | Los datos confirmados, atribuidos | Lista |
-| Qué falta confirmar | Lo que no se pudo verificar y lo que las fuentes cuentan distinto. Con una sola fuente va siempre "No pudo ser contrastado de forma independiente con las fuentes consultadas." | Lista, puede ir vacía |
+| Qué falta confirmar | Lo que no se pudo verificar y lo que las fuentes cuentan distinto. Con una sola fuente va siempre "Lo cuenta un solo medio; no se pudo contrastar con otra fuente." | Lista, puede ir vacía |
 | Lo que aportó cada fuente | Una frase por fuente, sin nombrar al medio | Una por fuente |
 | Texto para redes | El posteo de Facebook: qué pasó y, si la fuente lo dice, por qué le importa a Balcarce. Sin nombrar al medio, sin hashtags, enlaces ni emojis | Hasta 280 caracteres |
 | Etiquetas | De qué trata la nota, sin "#". Van a Google y dos o tres como hashtags en Facebook | De 3 a 8 |
@@ -748,9 +753,11 @@ manda sobre lo que se repita acá. Los horarios y cómo se publica, en
 
 - **Sólo sale lo que ya está publicado en la web.** Lo que el semáforo frenó no llega a
   las redes.
-- **A Facebook e Instagram, por ahora, sólo lo de Balcarce:** las notas de un medio de
-  Balcarce o de uno de afuera que dice Balcarce en su título. Del automovilismo de afuera,
-  sólo lo que nombra a una figura argentina.
+- **A Facebook e Instagram va lo más relevante de Balcarce** (las notas de un medio de Balcarce o de uno de afuera que dice Balcarce en su título) **y, si no
+  hay, lo más contado del país** (5 medios distintos o más: `FACEBOOK.mediosParaRedes`, regla 280). Del automovilismo de afuera, sólo lo que nombra a una
+  figura argentina.
+- **Una nota, un solo formato (23/10/2026):** lo que ya contó un repaso (de los últimos tres días) no sale como posteo, y lo que ya salió como posteo no entra
+  en un repaso: la misma nota repetida en varias piezas aburre.
 - **Los podcasts, lo de Balcarce primero:** desde el 29/09 también pueden contar notas de
   afuera, si están entre las de más puntaje (80 o más, también a la noche) y **dos como
   mucho por repaso**, para que siga siendo un repaso de Balcarce.
