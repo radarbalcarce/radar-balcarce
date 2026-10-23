@@ -1,0 +1,23 @@
+name: Diagnóstico de Instagram
+
+# A mano. Sólo mira: cupo de publicación, permisos y una subida de prueba (sin publicar). Ver scripts/medir/diagnostico-instagram.mjs.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --no-audit --no-fund
+      - run: node scripts/medir/diagnostico-instagram.mjs
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
