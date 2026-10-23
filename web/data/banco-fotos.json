@@ -32013,11 +32013,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El peronismo realiza una nueva cumbre para definir su estrategia electoral",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-23T00:32:06.611Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Tecla no se usa todavía.",
+  "cuando": "2026-10-23T07:04:05.450Z",
+  "intentos": 4,
+  "fuentes": 6
  },
  "vgprx0": {
   "archivo": "fotos-notas/vgprx0.jpg",
@@ -32618,5 +32617,62 @@
   "intentos": 1,
   "fuentes": 15,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "8vwm07": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Charly cumple 75 años y organizan homenajes con agenda cultural",
+  "razon": "La única foto que muestra el tema es una marca de agua superpuesta del medio NA, por lo que no se puede elegir. (la IA nombró a \"Charly García\", pero el título no: sin foto de Wikimedia)",
+  "cuando": "2026-10-23T07:04:05.450Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1mera1o": {
+  "archivo": "fotos-notas/1mera1o.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Organismos nucleares activan protocolos preventivos por eventos climáticos",
+  "enlace": "https://www.perfil.com/noticias/clima/cnea-nucleoelectrica-y-dioxitek-activaron-planes-preventivos-en-caso-de-problematicas-de-clima.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/23/trim/1140/641/central-nuclear-de-atucha-2354582.jpg",
+  "razon": "La foto B ilustra adecuadamente la planta nuclear sin marcas de agua que la invaliden.",
+  "cuando": "2026-10-23T07:04:05.450Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de perfil de la central nuclear y el río."
+  },
+  "huella": "0b1ecccb8564c5d2"
+ },
+ "1sr3i95": {
+  "archivo": "fotos-notas/1sr3i95.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Especialistas debaten sobre hidrología antigua y cambio climático en Corea del Sur",
+  "enlace": "https://www.cronista.com/transport-cargo/el-agua-un-patrimonio-que-mira-al-futuro/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/LDC5FLPGPBA3BJI7EYMHNSXRXE.jpeg?auth=bf2a0c4a4837f2d800c4f60fae1158bceae8bb70b7c4bc322c9d3c4a350cdcf0&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto A muestra claramente el evento y los especialistas debatiendo sobre hidrología y cambio climático, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-23T07:04:05.450Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Conferencia o debate en auditorio sobre hidrología y cambio climático"
+  },
+  "huella": "3396cccccc3268cd"
  }
 }
