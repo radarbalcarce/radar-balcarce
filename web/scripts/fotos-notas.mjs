@@ -310,6 +310,24 @@ export function podarFotos({
 }
 
 /**
+ * La marca `ausenteDesde` no se mueve (23/10/2026, "menos commits"): las fotos puestas a mano (fotos-manuales.json) pisan su renglón del banco al
+ * empezar cada vuelta y le sacan la marca; `podarFotos` se la volvía a poner con la hora de ESA vuelta, y así banco-fotos.json (1,7 MB) cambiaba y
+ * se commiteaba en cada vuelta sólo por una hora. Esto le devuelve a cada renglón la marca que ya tenía en el archivo guardado.
+ *   · `soloSiLaTiene: true` (el resultado de la poda): se restaura donde la poda puso una marca nueva y el archivo ya tenía una más vieja.
+ *   · `soloSiLaTiene: false` (el banco con el que se arrancó, para comparar): se restaura donde el archivo la tenía.
+ * No cambia qué foto se borra ni cuándo: sólo qué hora queda escrita.
+ */
+export function conMarcasDeAusenciaDeAntes(banco = {}, guardado = {}, { soloSiLaTiene = true } = {}) {
+  const salida = { ...banco };
+  for (const [id, b] of Object.entries(banco)) {
+    const vieja = guardado?.[id]?.ausenteDesde;
+    if (!vieja || !b || typeof b !== 'object') continue;
+    if (soloSiLaTiene ? b.ausenteDesde && b.ausenteDesde !== vieja : !b.ausenteDesde) salida[id] = { ...b, ausenteDesde: vieja };
+  }
+  return salida;
+}
+
+/**
  * ¿Se puede mostrar HOY la foto con chicos que entró por la excepción de la regla 186? Con el interruptor prendido y la nota, como está
  * ahora, todavía permitiéndola (una corrección o una fuente nueva pudo volverla policial o de salud). Apagado el interruptor, esas fotos
  * dejan de mostrarse en la próxima corrida: el interruptor también es el freno.

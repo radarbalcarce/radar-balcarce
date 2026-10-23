@@ -78,7 +78,7 @@ import {
 } from '../../ingesta/estadistica-seleccion.mjs';
 import { reporteHtml as reporteDeLaSeleccionHtml } from '../../scripts/medir/estadistica-seleccion.mjs';
 import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
-import { conFotosDelBanco, podarFotos, esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
+import { conFotosDelBanco, podarFotos, conMarcasDeAusenciaDeAntes,esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
 import { idsRetiradosPorLaRevision, parejasDeLaRevision } from '../lib/revision-archivo.js';
 import { actualizarAgenda, aplicarSuspendidos, comoAgendaJson } from '../lib/eventos.js';
 import { traerDolar } from '../lib/dolar.js';
@@ -1207,8 +1207,11 @@ if (fs.existsSync(FOTOS_NOTAS)) {
     banco: bancoDeFotos, enDisco: fs.readdirSync(FOTOS_NOTAS), quedan, retiradas: RETIRADAS_A_MANO, ilustraciones: ilustracionesIA,
   });
   for (const f of borrar) fs.rmSync(path.join(FOTOS_NOTAS, f), { force: true });
-  if (JSON.stringify(banco) !== JSON.stringify(bancoDeFotos)) {
-    fs.writeFileSync(BANCO_FOTOS, `${JSON.stringify(banco, null, 1)}\n`, 'utf8');
+  // La hora de `ausenteDesde` no cuenta como cambio si el archivo ya tenía una (conMarcasDeAusenciaDeAntes): evita reescribir 1,7 MB por una hora.
+  const guardadoEnDisco = leerJson(BANCO_FOTOS, {});
+  const bancoParaGuardar = conMarcasDeAusenciaDeAntes(banco, guardadoEnDisco);
+  if (JSON.stringify(bancoParaGuardar) !== JSON.stringify(conMarcasDeAusenciaDeAntes(bancoDeFotos, guardadoEnDisco, { soloSiLaTiene: false }))) {
+    fs.writeFileSync(BANCO_FOTOS, `${JSON.stringify(bancoParaGuardar, null, 1)}\n`, 'utf8');
   }
   if (borrar.length) console.log(`  fotos: ${borrar.length} sin nota, borradas`);
 }
