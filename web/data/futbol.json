@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-23T21:04:23.810Z",
+ "consultado": "2026-10-23T21:27:51.306Z",
  "equipos": [
   "9739",
   "3",
@@ -692,11 +692,11 @@
     "competencia": "liga",
     "inicio": "2026-10-23T21:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "2'",
+    "minuto": "25'",
     "local": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "10158",
@@ -704,7 +704,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Ignacio Fernández",
+      "minuto": "13'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Juan Carmelo Zerillo (El Bosque)",
     "fase": null,
     "partidoDeLaSerie": null,
