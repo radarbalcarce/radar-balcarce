@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T15:20:50.605Z",
- "portada": 100,
- "archivo": 845,
+ "generado": "2026-10-23T16:04:50.313Z",
+ "portada": 93,
+ "archivo": 745,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-23T15:20:51.128Z",
+  "generado": "2026-10-23T16:04:51.349Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-23T13:47:28.837Z"
    },
    {
@@ -43,8 +43,8 @@
     "que": "Tu nota",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-23T15:36:36.732Z"
    },
    {
     "nombre": "noticia2",
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-23T13:47:28.837Z",
     "segundos": null,
     "notas": [
@@ -116,13 +116,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 46,
     "notas": [
-     {
-      "id": "idsz54",
-      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
-      "seccion": "Fútbol"
-     },
      {
       "id": "1usw8vx",
       "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
@@ -171,33 +166,21 @@
    ],
    "cola": [
     {
-     "id": "idsz54",
-     "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1usw8vx",
      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "131te0p",
-     "titulo": "Comienza la vigesimosegunda Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "174prqh",
-     "titulo": "LALCEC Balcarce organiza una caminata de concientización sobre cáncer de mama",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
      "id": "1kx53j2",
      "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1jrajck",
+     "titulo": "Fito Páez saluda a Charly García en su cumpleaños",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
