@@ -27,3 +27,11 @@ jobs:
           for(const v of (j.historial||[]))console.log(' ',f(v),v.motivo||'');
           console.log('PRESUPUESTO:',JSON.stringify(j.presupuesto).slice(0,900));
           "
+      - name: Últimas compilaciones en Workers Builds
+        env:
+          CF_BUILDS_TOKEN: ${{ secrets.CF_BUILDS_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          api() { curl -s -H "Authorization: Bearer $CF_BUILDS_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID$1"; }
+          TAG=$(api /workers/scripts | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const x=JSON.parse(s).result.find(w=>w.id==='radar-balcarce-motor');process.stdout.write(x.tag||'')})")
+          api "/builds/workers/$TAG/builds?per_page=12" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const j=JSON.parse(s);const l=j.result||[];console.log('COMPILACIONES (más nueva primero):');for(const b of l.slice(0,12))console.log(' ',(b.created_on||'').slice(5,16),(b.status||''),(b.build_outcome||''),'duración',b.stopped_on&&b.created_on?Math.round((Date.parse(b.stopped_on)-Date.parse(b.created_on))/1000)+'s':'-', (b.trigger?.trigger_type||b.trigger_type||''))})"
