@@ -9948,6 +9948,53 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "instagram/reel/18107500484260751",
+   "red": "instagram",
+   "parte": "reel",
+   "pieza": "agenda",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T15:07:09.606Z",
+   "medida": "2026-10-23T15:26:13.128Z",
+   "v": 2,
+   "metricas": {
+    "reach": 0,
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/1440140851390832",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "agenda",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T15:08:06.777Z",
+   "medida": "2026-10-23T15:26:13.128Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 207,
+    "fb_reels_total_plays": 219,
+    "post_video_avg_time_watched": 1651,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 0
+   }
+  },
+  {
+   "clave": "facebook/historia/2173741176900484",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "agenda",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T15:08:36.419Z",
+   "medida": "2026-10-23T15:26:13.128Z",
+   "v": 2,
+   "metricas": {}
   }
  ]
 }
