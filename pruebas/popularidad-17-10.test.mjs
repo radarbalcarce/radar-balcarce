@@ -336,9 +336,9 @@ test('regla 201: "Murió Fernando Confessore" (30 medios, 16/10) no espera a una
   assert.equal(semaforoDeLaReescritura({}, ESCRITO)?.color, 'amarillo');
   // Con la nota de verdad valen las exenciones ya decididas (28/09): contada por muchos medios, de afuera, no frena.
   assert.equal(semaforoDeLaReescritura(sinLosTextos(CONFESSORE), ESCRITO), null);
-  // La lista y las exenciones no cambiaron: una muerte de acá, contada por un medio, sigue esperando.
+  // 22/10/2026: una muerte de acá, contada por un medio, ya no espera a una persona (sólo frena lo rojo).
   const deAcaUnMedio = { ...CONFESSORE, id: 'x', seccion: 'Balcarce', alcance: 'local', local: true, medios: ['Radio Gabal (FM 104.1)'], origenes: [] };
-  assert.equal(semaforoDeLaReescritura(sinLosTextos(deAcaUnMedio), ESCRITO)?.color, 'amarillo');
+  assert.equal(semaforoDeLaReescritura(sinLosTextos(deAcaUnMedio), ESCRITO), null);
   // Y lo rojo, siempre.
   assert.equal(semaforoDeLaReescritura(sinLosTextos(CONFESSORE), { ...ESCRITO, copete: 'Se investiga un abuso sexual.' })?.color, 'rojo');
 });

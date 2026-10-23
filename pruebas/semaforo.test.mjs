@@ -22,7 +22,11 @@ const { semaforo, normalizar } = paraPruebas;
 
 /** Una nota local, de Balcarce, con mucho puntaje: si no hay nada sensible,
  *  sale sola. Así el color depende sólo de las palabras. */
-const colorDe = (titulo, cuerpo = '') => semaforo({
+// 22/10/2026: lo de acá ya no espera por palabras sensibles (sólo el rojo frena), así que las listas se prueban sobre el texto mismo, que es lo que
+// miran lo de afuera y la IA: el color que la lista da. Lo de acá se prueba más abajo.
+const colorDe = (titulo, cuerpo = '') => semaforoDelTexto(`${titulo} ${cuerpo}`.trim())?.color ?? 'verde';
+/** El semáforo entero de una nota de Balcarce (cotización, internacional, promoción…): lo que no es una palabra sensible. */
+const colorDeNota = (titulo, cuerpo = '') => semaforo({
   titulo, cuerpo, categorias: [], peso: 20, alcance: 'local', local: true, fecha: new Date(), imagen: null,
 }, 'Balcarce').color;
 
@@ -49,21 +53,21 @@ const deAca = (titulo, extra = {}) => semaforo({
   titulo, cuerpo: '', categorias: [], peso: 20, alcance: 'local', local: true, fecha: new Date(), imagen: null, ...extra,
 }, extra.seccion ?? 'Balcarce');
 
-test('"denuncia" suelta en lo de acá ya no espera; en Política sólo si la confirman', () => {
+test('"denuncia" suelta en lo de acá no espera (tampoco en Política)', () => {
   for (const t of AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA) {
     assert.equal(deAca(`Balcarce: novedades sobre ${t} del servicio de agua`).color, 'verde', t);
-    // Un solo medio en Política: sigue esperando.
-    assert.equal(deAca(`Balcarce: novedades sobre ${t} al intendente`, { seccion: 'Política' }).color, 'amarillo', t);
+    // 22/10: ni siquiera en Política con un solo medio (la IA atribuye y usa el condicional).
+    assert.equal(deAca(`Balcarce: novedades sobre ${t} al intendente`, { seccion: 'Política' }).color, 'verde', t);
     // La confirma una fuente oficial o dos medios: sale.
     assert.equal(deAca(`Balcarce: novedades sobre ${t} al intendente`, { seccion: 'Política', oficial: true }).color, 'verde', t);
     assert.equal(deAca(`Balcarce: novedades sobre ${t} al intendente`, { seccion: 'Política', medios: ['A', 'B'] }).color, 'verde', t);
   }
 });
 
-test('"detenido", "acusado" e "imputado" en lo de acá salen sólo con fuente oficial o dos medios', () => {
+test('"detenido", "acusado" e "imputado" en lo de acá salen siempre (22/10)', () => {
   for (const t of AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN) {
     const titulo = `Balcarce: hay un ${t} por el robo de una moto`;
-    assert.equal(deAca(titulo, { seccion: 'Policiales' }).color, 'amarillo', `un solo medio: ${t}`);
+    assert.equal(deAca(titulo, { seccion: 'Policiales' }).color, 'verde', `un solo medio: ${t}`);
     assert.equal(deAca(titulo, { seccion: 'Policiales', oficial: true }).color, 'verde', `oficial: ${t}`);
     assert.equal(deAca(titulo, { seccion: 'Policiales', medios: ['A', 'B'] }).color, 'verde', `dos medios: ${t}`);
     // Lo de afuera no se afloja nunca por esto.
@@ -71,12 +75,16 @@ test('"detenido", "acusado" e "imputado" en lo de acá salen sólo con fuente of
   }
 });
 
-test('lo grave sigue frenando aunque sea de acá y esté confirmado: víctimas, muertes, chicos y lo rojo', () => {
+test('lo de acá ya no espera por víctimas, muertes o chicos (22/10; sólo frena lo rojo) y queda anotado qué palabra lo habría frenado', () => {
   for (const t of ['víctima', 'homicidio', 'cadáver', 'baleado', 'adolescente', 'niño', 'menores de edad', 'abusado']) {
-    assert.equal(deAca(`Balcarce: hay un ${t} en el barrio`, { seccion: 'Policiales', oficial: true, medios: ['A', 'B'] }).color, 'amarillo', t);
+    const s = deAca(`Balcarce: hay un ${t} en el barrio`, { seccion: 'Policiales' });
+    assert.equal(s.color, 'verde', t);
+    assert.ok(s.liberadaPor, `${t}: anota qué palabra lo habría frenado`);
   }
   assert.equal(deAca('Balcarce: una denuncia por grooming', { oficial: true, medios: ['A', 'B'] }).color, 'rojo');
-  assert.equal(deAca('Falleció un vecino en un accidente', { seccion: 'Policiales', oficial: true }).color, 'amarillo');
+  assert.equal(deAca('Falleció un vecino en un accidente', { seccion: 'Policiales', oficial: true }).color, 'verde');
+  // Lo de afuera no cambia: lo grave sigue esperando.
+  assert.equal(semaforoDelTexto('Hay un adolescente involucrado en el hecho')?.color, 'amarillo');
 });
 
 test('también frena si el término está en el resumen y no en el título', () => {
@@ -175,19 +183,19 @@ test('una nota de la cotización del dólar no sale sola: queda amarilla con su 
   assert.equal(s.color, 'amarillo');
   assert.equal(s.motivo, MOTIVO_COTIZACION);
   for (const t of ['Dólar hoy: a cuánto cotiza el oficial', 'Dólar blue hoy en vivo', 'Cotización del dólar este lunes', 'El dólar MEP cerró en alza']) {
-    assert.equal(colorDe(t), 'amarillo', t);
+    assert.equal(colorDeNota(t), 'amarillo', t);
   }
 });
 
 test('lo que habla de plata pero no es la cotización sí sale', () => {
-  assert.equal(colorDe('El Concejo aprobó el presupuesto en pesos'), 'verde');
+  assert.equal(colorDeNota('El Concejo aprobó el presupuesto en pesos'), 'verde');
   // Sólo el título: el dólar en el cuerpo de una nota de economía no la frena.
-  assert.equal(colorDe('Suben las exportaciones del partido', 'Los productores cobran en dólar oficial.'), 'verde');
+  assert.equal(colorDeNota('Suben las exportaciones del partido', 'Los productores cobran en dólar oficial.'), 'verde');
 });
 
 test('cada término de la lista de la cotización, en un titular, da amarillo', () => {
   for (const termino of REGLAS_SEMAFORO.cotizacion) {
-    assert.equal(colorDe(`Balcarce: ${termino} en el barrio`), 'amarillo', termino);
+    assert.equal(colorDeNota(`Balcarce: ${termino} en el barrio`), 'amarillo', termino);
   }
 });
 
@@ -218,8 +226,8 @@ test('el aviso fúnebre no sale nunca, pero la noticia de una muerte importante 
   for (const t of ['Necrológicas de Balcarce', 'Obituario: despedimos a un vecino', 'Participan su fallecimiento los hijos de Pedro Pérez', 'Servicios fúnebres de hoy']) {
     assert.equal(nota(t).color, 'rojo', t);
   }
-  // La muerte de alguien importante no es un aviso fúnebre: espera a una persona (que es quien la aprueba), no se bloquea para siempre.
-  assert.equal(nota('Murió el histórico dirigente del club').color, 'amarillo');
+  // La muerte de alguien importante no es un aviso fúnebre: desde el 22/10 lo de acá sale (antes esperaba a una persona).
+  assert.equal(nota('Murió el histórico dirigente del club').color, 'verde');
 });
 
 test('si una versión de la misma noticia es roja o sensible, la que queda lo hereda', async () => {

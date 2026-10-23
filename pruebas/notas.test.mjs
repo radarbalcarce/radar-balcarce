@@ -388,9 +388,8 @@ test('Política y Policiales salen solas cuando no hay nada sensible', () => {
   assert.equal(semaforo(po, 'Policiales').color, 'verde');
 });
 
-test('en Policiales lo grave sigue esperando a una persona', () => {
-  // Esto es lo que hace segura la entrada de la sección: no que esté
-  // afuera, sino que todo lo que acusa, mata o involucra a un chico espere.
+test('en Policiales lo de acá sale (22/10) y queda anotado qué palabra lo habría frenado', () => {
+  // Hernán, 22/10/2026: «todas esas de Balcarce no se deben frenar». Lo que cuida a chicos y víctimas es la IA al escribir (no los nombra) y el rojo.
   const casos = [
     'Detuvieron a un hombre por el homicidio de un vecino',
     'Encontraron un cadáver en el arroyo',
@@ -400,17 +399,18 @@ test('en Policiales lo grave sigue esperando a una persona', () => {
   ];
   for (const titulo of casos) {
     const s = semaforo(nota({ titulo, local: true }), 'Policiales');
-    assert.notEqual(s.color, 'verde', 'salió sola: ' + titulo);
+    assert.equal(s.color, 'verde', 'no salió: ' + titulo);
+    assert.ok(s.liberadaPor, 'sin anotar la palabra: ' + titulo);
   }
 });
 
-test('una muerte espera se la llame como se la llame', () => {
+test('una muerte de acá sale como noticia, se la llame como se la llame (22/10)', () => {
   // "Murió Mario Torres" salió sola porque el filtro sólo conocía "muerte" y
   // "falleció". Es una necrológica, y las necrológicas no salen sin fuente
   // firmada.
-  for (const titulo of ['Murió un reconocido vecino', 'Falleció el histórico dirigente', 'Es el velatorio de un docente']) {
+  for (const titulo of ['Murió un reconocido vecino', 'Falleció el histórico dirigente']) {
     const s = semaforo(nota({ titulo, local: true }), 'Balcarce');
-    assert.notEqual(s.color, 'verde', 'salió sola: ' + titulo);
+    assert.equal(s.color, 'verde', 'no salió: ' + titulo);
   }
 });
 
@@ -420,7 +420,8 @@ test('la política de todos los días ya no espera', () => {
   for (const titulo of ['El intendente inauguró una obra', 'El Concejo Deliberante aprobó el presupuesto', 'Reclamo de vecinos por el alumbrado']) {
     assert.equal(semaforo(nota({ titulo, local: true }), 'Política').color, 'verde', titulo);
   }
-  assert.notEqual(semaforo(nota({ titulo: 'Denuncian al intendente por irregularidades', local: true }), 'Política').color, 'verde');
+  // 22/10: tampoco espera lo que acusa (la IA lo atribuye y usa el condicional).
+  assert.equal(semaforo(nota({ titulo: 'Denuncian al intendente por irregularidades', local: true }), 'Política').color, 'verde');
 });
 
 test('Economía sale sola con tres medios y Tecnología, con dos (es un área donde suele haber poco)', () => {

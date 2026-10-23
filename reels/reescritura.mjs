@@ -655,6 +655,8 @@ export function semaforoDeLaReescritura(nota, escrito = null) {
       soloMenores, conMuerte, deAca, corroborada,
     });
     if (!s) continue;
+    // 22/10/2026: lo de acá no espera a una persona por una palabra sensible; sólo el rojo frena (ver ingesta/ingesta.mjs, semaforo()).
+    if (s.color === 'amarillo' && esDeAca(nota ?? {})) continue;
     const conDonde = { color: s.color, motivo: `${s.motivo}, en ${donde}` };
     if (s.color === 'rojo') return conDonde;
     peor ??= conDonde;

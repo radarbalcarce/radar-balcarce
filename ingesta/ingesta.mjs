@@ -889,10 +889,16 @@ function pareceDePromocion(nota) {
  *  (desde el 27/09 lo de afuera se mide en medios, no en puntaje). */
 function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   const corroborada = !!nota.oficial || medios >= 2;
-  const sensible = semaforoDelTexto(`${nota.titulo} ${nota.cuerpo.slice(0, 600)}`, {
+  let sensible = semaforoDelTexto(`${nota.titulo} ${nota.cuerpo.slice(0, 600)}`, {
     conMuerte: laMuerteFrena(nota, seccion, medios), deAca: aflojaParaLoDeAca(nota, seccion, corroborada), corroborada: esDeAca(nota) && corroborada,
   });
   if (sensible?.color === 'rojo') return sensible;
+  // 22/10/2026 (Hernán: «todas esas de Balcarce no se deben frenar; hay que borrar esos criterios viejos»): lo de acá ya no espera a una persona
+  // por una palabra sensible (niños, murió, detenido…). Sólo quedan el rojo (arriba) y la regla de la IA de no nombrar a menores ni a víctimas.
+  // Se anota qué palabra lo habría frenado (liberadaPor) para medir cuánto se libera y si se está cuidando bien (estadistica-seleccion.json).
+  let liberadaPor = null;
+  if (sensible?.color === 'amarillo' && esDeAca(nota)) { liberadaPor = sensible.motivo.replace(/^necesita ojo humano: /, ''); sensible = null; }
+  const conLiberada = (r) => (liberadaPor ? { ...r, liberadaPor } : r);
   // Lo que no se publica nunca (las listas de sepelios, Hernán 27/09). Sólo
   // el título: la palabra suelta en un texto largo no alcanza. Va ANTES del
   // amarillo (28/09): una lista de sepelios dice "falleció", quedaba amarilla
@@ -925,7 +931,7 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // es justo lo que esa regla miraba. Se sacó el 28/09.
   const promocion = pareceDePromocion(nota);
   if (promocion) return { color: 'amarillo', motivo: `parece promoción, no noticia: "${promocion}"` };
-  if (nota.oficial) return { color: 'verde', motivo: 'comunicado oficial' };
+  if (nota.oficial) return conLiberada({ color: 'verde', motivo: 'comunicado oficial' });
 
   // Lo de afuera sale solo si lo cuentan bastantes medios (27/09, el cruce):
   // la importancia se mide con cuántos lo cuentan, no con el puntaje. Desde el 17/10 (reglas 215 y 260) es la popularidad
@@ -939,7 +945,7 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
     if (!pop.llega) return { color: 'amarillo', motivo: motivoPocoContada(medios, seccion, pop.minimo, pop.motivo) };
   }
 
-  return { color: 'verde', motivo: `sección ${seccion}` };
+  return conLiberada({ color: 'verde', motivo: `sección ${seccion}` });
 }
 
 /** Deja el copete listo para publicar: le saca la firma del medio que casi
@@ -1815,6 +1821,7 @@ export function armarPortada(grupos) {
       temas: temasDe(g.principal),
       semaforo: sem.color,
       motivo: sem.motivo,
+      ...(sem.liberadaPor ? { liberadaPor: sem.liberadaPor } : {}),
       relevancia: rel,
       imagen: g.principal.imagen || null,
       resumenFuente: limpiarCopete(g.principal.cuerpo, g.principal.titulo, g.principal.medio),

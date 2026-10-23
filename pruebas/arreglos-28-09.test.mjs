@@ -61,8 +61,8 @@ test('una lista de sepelios con "falleció" es roja, no amarilla: una persona no
   const r = semaforo(nota, 'Balcarce', 1);
   assert.equal(r.color, 'rojo');
   assert.match(r.motivo, /sepelios/);
-  // Una muerte que no es una lista de sepelios sigue esperando a una persona.
-  assert.equal(semaforo({ ...nota, titulo: 'Falleció un histórico vecino del barrio Norte' }, 'Balcarce', 1).color, 'amarillo');
+  // Una muerte que no es una lista de sepelios: desde el 22/10 lo de acá sale (antes esperaba a una persona).
+  assert.equal(semaforo({ ...nota, titulo: 'Falleció un histórico vecino del barrio Norte' }, 'Balcarce', 1).color, 'verde');
 });
 
 test('lo que no se publica nunca se frena también si lo aprobó una persona, y pierde la página del archivo', () => {
