@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-23T00:32:32.896Z",
+ "generado": "2026-10-23T01:02:23.879Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,62 +15,8 @@
      "fecha": "2026-10-22T23:48:31.374Z"
     }
    ],
-   "intentos": 1,
+   "intentos": 2,
    "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-   "maximo": 3
-  },
-  {
-   "id": "1pgsfk1",
-   "titulo": "Tiene menos de 100 habitantes y explota en verano: el pueblo escondido de Córdoba con cascadas, arroyos y cabalgatas",
-   "copete": "",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-10-22T22:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/lifestyle/tiene-menos-100-habitantes-y-explota-verano-el-pueblo-escondido-cordoba-cascadas-arroyos-y-cabalgatas-n6336391",
-     "fecha": "2026-10-22T22:00:00.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/turismo/2026/10/22/tiene-menos-de-400-habitantes-y-recibe-cientos-de-turistas-en-verano-el-pueblo-de-cordoba-con-cascadas-y-piletas-naturales/",
-     "fecha": "2026-10-22T22:32:45.000Z"
-    }
-   ],
-   "intentos": 3,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no lo dice",
-   "maximo": 3
-  },
-  {
-   "id": "1h5tb8d",
-   "titulo": "Elon Musk apoya la posible fusión de SpaceX y Tesla, valuada en u$s3,5 billones",
-   "copete": "Durante una presentación a analistas tras los resultados de SpaceX, con pérdidas de 1.068 millones de euros hasta septiembre, el magnate tecnológico dijo que sería \"buena idea\" la unión de ambas compañías. El fundador y consejero delegado de SpaceX y Tesla, Elon Musk , mostró su…",
-   "seccion": "Tecnología",
-   "fecha": "2026-10-21T12:49:40.000Z",
-   "fuentes": [
-    {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/tecnologia/467112-musk-apoya-unir-spacex-y-tesla-en-un-gigante-de-us35-billones",
-     "fecha": "2026-10-21T13:44:00.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://www.perfil.com/noticias/economia/spacex-impulsa-las-bolsas-mundiales-ganancias-millonarias-de-elon-musk-y-expectativa-por-una-posible-fusion-con-tesla.phtml",
-     "fecha": "2026-10-21T12:49:40.000Z"
-    },
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/finanzas/wall-street-adelanta-nuevas-subas-medida-que-el-apetito-las-tecnologicas-se-reinicia-n6336157",
-     "fecha": "2026-10-21T22:06:00.000Z"
-    },
-    {
-     "medio": "elDiarioAR",
-     "enlace": "https://www.eldiarioar.com/tecnologia/elon-musk-estudia-fusion-spacex-tesla-gigante-tecnologico-3-5-billones-dolares_1_13607511.html",
-     "fecha": "2026-10-22T15:49:13.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
    "maximo": 3
   },
   {
@@ -93,6 +39,28 @@
    ],
    "intentos": 3,
    "motivo": "semáforo: necesita ojo humano: \"alumnos de entre 13 y 15 anos\", en lo que escribió la IA",
+   "maximo": 3
+  },
+  {
+   "id": "1pgsfk1",
+   "titulo": "Tiene menos de 100 habitantes y explota en verano: el pueblo escondido de Córdoba con cascadas, arroyos y cabalgatas",
+   "copete": "",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-22T22:00:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/lifestyle/tiene-menos-100-habitantes-y-explota-verano-el-pueblo-escondido-cordoba-cascadas-arroyos-y-cabalgatas-n6336391",
+     "fecha": "2026-10-22T22:00:00.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/turismo/2026/10/22/tiene-menos-de-400-habitantes-y-recibe-cientos-de-turistas-en-verano-el-pueblo-de-cordoba-con-cascadas-y-piletas-naturales/",
+     "fecha": "2026-10-22T22:32:45.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no lo dice",
    "maximo": 3
   }
  ]

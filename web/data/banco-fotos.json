@@ -32102,9 +32102,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tigre y Atlético Tucumán juegan por el Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T22:32:20.574Z",
-  "intentos": 1,
+  "razon": "La única foto disponible corresponde a un partido de Racing Club (se ve el escudo y las banderas de la hinchada), no al partido entre Tigre y Atlético Tucumán al que hace referencia la nota.",
+  "cuando": "2026-10-23T01:02:04.535Z",
+  "intentos": 2,
   "fuentes": 10,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -32162,10 +32162,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "River recibe a Racing por la fecha 14 del Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T23:03:50.241Z",
-  "intentos": 1,
-  "fuentes": 5,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-23T01:02:04.535Z",
+  "intentos": 2,
+  "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "144vsrf": {
@@ -32238,9 +32238,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Zuban Córdoba mide la gestión bonaerense y el potencial electoral",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T23:33:34.820Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-23T01:02:04.535Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -32268,9 +32268,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-22T23:33:34.820Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-23T01:02:04.535Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -32432,6 +32432,16 @@
   "cuando": "2026-10-23T00:32:06.611Z",
   "intentos": 1,
   "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "15xeuts": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno evalúa prorrogar el plazo para ofertar por el Belgrano Cargas",
+  "razon": "La única foto disponible (A) posee una marca de agua superpuesta del medio 'Noticias Argentinas' (NA), lo que impide su selección según las reglas de exclusión.",
+  "cuando": "2026-10-23T01:02:04.535Z",
+  "intentos": 1,
+  "fuentes": 8,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
