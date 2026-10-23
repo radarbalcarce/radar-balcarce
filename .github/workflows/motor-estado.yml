@@ -1,6 +1,6 @@
 name: Estado del motor
 
-# A mano. Muestra el estado de las últimas vueltas del motor en Cloudflare (duración, notas, minutos del mes) con la contraseña del vigilante en un encabezado.
+# A mano. Muestra el estado de las últimas vueltas del motor en Cloudflare (duración por paso, minutos del mes) con la contraseña del vigilante en un encabezado.
 
 on:
   workflow_dispatch:
@@ -17,4 +17,13 @@ jobs:
         env:
           VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
         run: |
-          curl -s -m 60 https://radar-balcarce-motor.radarbalcarce.workers.dev/estado -H "x-token: $VIGILANTE_TOKEN" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const j=JSON.parse(s);console.log(JSON.stringify(j,null,1).slice(0,6000))}catch{console.log(s.slice(0,800))}})"
+          curl -s -m 60 https://radar-balcarce-motor.radarbalcarce.workers.dev/estado -H "x-token: $VIGILANTE_TOKEN" > estado.json
+          node -e "
+          const j=JSON.parse(require('fs').readFileSync('estado.json','utf8'));
+          const f=(v)=>v?.cuando?.slice(5,16)+' '+(v.ok?'ok ':'MAL')+' '+String(v.segundos).padStart(4)+'s';
+          console.log('ULTIMA:',f(j.ultima),'| pasos:',Object.entries(j.ultima?.pasos||{}).map(([k,p])=>k.slice(0,14)+' '+p.segundos+'s').join(' · '));
+          console.log('MES:',JSON.stringify(j.mes));
+          console.log('HISTORIAL (más viejo primero):');
+          for(const v of (j.historial||[]))console.log(' ',f(v),v.motivo||'');
+          console.log('Claves:',Object.keys(j).join(','));
+          "
