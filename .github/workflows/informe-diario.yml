@@ -69,3 +69,5 @@ jobs:
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
           # Con el archivo permanente prendido (16/10/2026), llegar al tope de notas no es un problema: el informe no avisa por eso.
           R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
+          # El tope de notas que rige de verdad (hoy 500), para que el informe no diga «de 3.700».
+          TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}

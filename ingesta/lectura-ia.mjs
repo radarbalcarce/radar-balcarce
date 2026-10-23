@@ -18,7 +18,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { claveClasificacion, claveGroq, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
 import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
-import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, CONEXION_ARGENTINA, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
+import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
+import { conArgentino, cuantosMedios, contarMedios } from './ingesta.mjs';
+import { esFutbolArgentino, futbolSoloArgentinoActivo } from './futbol-argentino.mjs';
 import { FUENTES_CRUCE } from './fuentes-cruce.mjs';
 import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
@@ -86,7 +88,7 @@ Con el perfil de Balcarce que sigue, completá una ficha por nota (con el mismo 
 
 - Juzgá por lo que cuenta la nota, no por palabras sueltas ("Fangio", "taller" o "Balcarce" no definen nada). El ámbito es el del HECHO, no el del medio que lo publica (cada nota dice de qué ciudad es el medio). Lo que hace o dice el gobierno argentino en el exterior es "nacional", no "internacional".
 - Si una medida provincial o nacional cambia algo concreto en Balcarce (una tarifa, un subsidio, un trámite, un precio), el impacto es "directo". Que la nota nombre Balcarce en una lista no la hace de Balcarce.
-- Si no es de Balcarce, decí en una frase concreta por qué le interesaría a un vecino; si no hay una razón concreta, el impacto es "nulo" y la razón "ninguna". No inventes vínculos.
+- Si no es de Balcarce, decí en una frase concreta por qué le interesaría a un vecino; si no hay una razón concreta, el impacto es "nulo" y la razón "ninguna". No inventes vínculos. El impacto y la razón sólo informan (el panel los muestra): no deciden si la nota sale; eso lo decide cuántos medios la cuentan.
 - "impacto_balcarce": "directo" si pasa en Balcarce o cambia algo concreto acá; "indirecto" si toca la zona o una actividad de la ciudad (campo, papa, automovilismo); "nulo" si no.
 - "razon": local (pasó acá), servicio (cambia algo práctico: tarifas, trámites, salud, clima, rutas), actividad (automovilismo, campo, papa), provincia (medida provincial con efecto acá), nacional (noticia nacional importante), popular (habla todo el país) o ninguna.
 - "importancia": qué tan relevante es la noticia en sí, no qué tan cerca está de Balcarce.
@@ -501,11 +503,14 @@ export function aplicarFichas(notas, fichas = {}, {
     const esLocal = llaveDeLaFuente && (f.ambito === 'balcarce' || f.impacto === 'directo');
     // Lo argentino en el exterior (Milei en París, Malvinas en la ONU) y lo que
     // cubren muchos medios o es muy importante no se saca por "no ser de acá".
-    const palabrasDelTitulo = new Set(sinTildes(n.titulo ?? '').split(/[^a-z0-9ñ]+/));
-    const conexionArgentina = CONEXION_ARGENTINA.some((p) => palabrasDelTitulo.has(sinTildes(p)));
+    // Una sola respuesta a «¿tiene un argentino?» (conArgentino, ingesta/ingesta.mjs, regla 292): figuras, conexión argentina en el título y,
+    // en fútbol, los clubes de Primera, las competencias argentinas y los argentinos afuera (antes la IA sacó a Estudiantes y a Nico Paz).
+    const tieneArgentino = conArgentino(n);
+    const futbolDeAfuera = (n.seccion === 'Fútbol' || f.seccion === 'Fútbol') && futbolSoloArgentinoActivo() && !esFutbolArgentino(n);
     // La popularidad manda (reglas 211 y 260): lo de afuera sale por cuántos medios lo cuentan (3, o 2 en un área chica) y eso ya se
     // decidió en el cruce. Desde la regla 286 (23/10) no hay otro filtro encima de "sin relación con Balcarce".
-    const medios = n.medios?.length ?? 1;
+    // Los medios, contados igual que en el semáforo y la popularidad: los del mismo dueño cuentan uno (regla 292, auditoría M5).
+    const medios = cuantosMedios(n);
     const caso = { id: n.id, titulo: n.titulo, porque: f.porque };
 
     let motivo = null;
@@ -515,7 +520,9 @@ export function aplicarFichas(notas, fichas = {}, {
     // Balcarce (Hernán, 27/09): una figura argentina (Colapinto, Messi) o la
     // conexión argentina en el título. La Fórmula 1 sin un argentino, no.
     // Sin excepciones (desde la regla 260 tampoco la ciencia y la tecnología).
-    else if (f.ambito === 'internacional' && !n.figura && !conexionArgentina && medios < MUY_CONTADA.medios) motivo = 'es del extranjero';
+    // Lo que cuentan MUY_CONTADA.medios medios o más no se saca por esto (regla 292), salvo el fútbol de afuera sin argentinos: ni con 8 medios
+    // sale (regla 290; la ingesta ya lo tira antes del cruce, esto cubre lo que llegue por otro camino).
+    else if (f.ambito === 'internacional' && !tieneArgentino && (medios < MUY_CONTADA.medios || futbolDeAfuera)) motivo = 'es del extranjero';
     // Lo de la zona sí entra (28/09): ver esPolicialDeAfuera, ingesta/ingesta.mjs.
     if (!motivo && f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
     if (motivo) { cambios.sacadas.push({ ...caso, motivo }); continue; }
@@ -761,7 +768,7 @@ export function quitarRepetidas(notas, grupos = [], { publicadas = new Set() } =
     const [queda, ...resto] = del;
     const medios = [...new Set(del.flatMap((n) => n.medios ?? []))];
     const heredada = hayRoja ? { semaforo: 'rojo', motivo: 'la misma noticia, en otro medio, es un tema sensible' }
-      : (sensible && queda.semaforo === 'verde' && medios.length < MUY_CONTADA.medios ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {});
+      : (sensible && queda.semaforo === 'verde' && contarMedios(medios) < MUY_CONTADA.medios ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {});
     reemplazo.set(queda.id, { ...queda, ...heredada, medios, ...fuentesSumadas(queda, resto) });
     for (const n of resto) fuera.set(n.id, { id: n.id, titulo: n.titulo, queda: queda.id });
   }

@@ -13,9 +13,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import {
-  REGLAS_SEMAFORO, MOTIVO_COTIZACION, AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA, AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN,
-} from '../ingesta/fuentes.mjs';
+import { REGLAS_SEMAFORO, MOTIVO_COTIZACION } from '../ingesta/fuentes.mjs';
 import { paraPruebas, semaforoDelTexto } from '../ingesta/ingesta.mjs';
 
 const { semaforo, normalizar } = paraPruebas;
@@ -39,9 +37,8 @@ test('cada término de la lista roja, en un titular, da rojo', () => {
   }
 });
 
-test('cada término de la lista amarilla, en un titular, da amarillo (salvo lo que lo de acá suelta, más abajo)', () => {
+test('cada término de la lista amarilla, en un titular, da amarillo (lo de acá lo suelta, más abajo)', () => {
   for (const termino of REGLAS_SEMAFORO.amarillo) {
-    if (AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA.includes(termino) || AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN.includes(termino)) continue;
     const titulo = `Balcarce: novedades sobre ${termino} en el barrio`;
     assert.equal(colorDe(titulo), 'amarillo', `"${termino}" no pidió ojo humano: ${titulo}`);
   }
@@ -54,7 +51,7 @@ const deAca = (titulo, extra = {}) => semaforo({
 }, extra.seccion ?? 'Balcarce');
 
 test('"denuncia" suelta en lo de acá no espera (tampoco en Política)', () => {
-  for (const t of AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA) {
+  for (const t of ['denuncia', 'denunció', 'denuncio']) {
     assert.equal(deAca(`Balcarce: novedades sobre ${t} del servicio de agua`).color, 'verde', t);
     // 22/10: ni siquiera en Política con un solo medio (la IA atribuye y usa el condicional).
     assert.equal(deAca(`Balcarce: novedades sobre ${t} al intendente`, { seccion: 'Política' }).color, 'verde', t);
@@ -65,7 +62,7 @@ test('"denuncia" suelta en lo de acá no espera (tampoco en Política)', () => {
 });
 
 test('"detenido", "acusado" e "imputado" en lo de acá salen siempre (22/10)', () => {
-  for (const t of AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN) {
+  for (const t of ['detenido', 'acusado', 'imputado']) {
     const titulo = `Balcarce: hay un ${t} por el robo de una moto`;
     assert.equal(deAca(titulo, { seccion: 'Policiales' }).color, 'verde', `un solo medio: ${t}`);
     assert.equal(deAca(titulo, { seccion: 'Policiales', oficial: true }).color, 'verde', `oficial: ${t}`);
@@ -193,10 +190,15 @@ test('lo que habla de plata pero no es la cotización sí sale', () => {
   assert.equal(colorDeNota('Suben las exportaciones del partido', 'Los productores cobran en dólar oficial.'), 'verde');
 });
 
-test('cada término de la lista de la cotización, en un titular, da amarillo', () => {
+test('cada término de la lista de la cotización, al arrancar un titular, da amarillo; en el medio del título, no (regla 292)', () => {
   for (const termino of REGLAS_SEMAFORO.cotizacion) {
-    assert.equal(colorDeNota(`Balcarce: ${termino} en el barrio`), 'amarillo', termino);
+    // Los que son frases de otro lugar del título ("cotiza el dólar") valen como parte del día cuando arrancan el título o están en PARTE_DEL_DOLAR.
+    const arranca = colorDeNota(`${termino}: lo que hay que saber`);
+    const enElMedio = colorDeNota(`Balcarce: ${termino} en el barrio`);
+    assert.ok(arranca === 'amarillo' || enElMedio === 'amarillo', `${termino}: ni arrancando ni en el medio frena`);
   }
+  assert.equal(colorDeNota('Dólar blue: lo que hay que saber'), 'amarillo');
+  assert.equal(colorDeNota('Balcarce: dólar oficial en el barrio'), 'verde', 'una mención en el medio del título no es el parte del día');
 });
 
 // ------------------------------------------------ 8/10/2026: huecos cerrados (C-12), con el visto bueno de Hernán y Andrés

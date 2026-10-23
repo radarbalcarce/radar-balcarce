@@ -464,16 +464,19 @@ test('el registro cuenta qué clave se usó: la gratis primero, la paga sólo si
   }
 });
 
-test("con el cupo casi gastado, lo de afuera espera y lo de Balcarce sigue (reserva para locales)", async () => {
+test("con el cupo del día gastado no se pide nada; antes de gastarlo, lo de afuera y lo de Balcarce se piden igual (ya no hay reserva para locales, regla 296)", async () => {
   const { REESCRITURA } = await import("../ingesta/criterio.mjs");
+  assert.ok(!("reservaParaLocales" in REESCRITURA));
   const { fn, pedidos } = fetchFalso([]);
   const ahora = Date.parse("2026-09-25T15:00:00Z");
-  const gastadas = REESCRITURAS_POR_DIA - REESCRITURA.reservaParaLocales;
-  const intentos = Object.fromEntries(Array.from({ length: gastadas }, (_, i) => [`v${i}`, { intentos: 1, ultimo: "2026-09-25T12:00:00Z" }]));
-  await reescribirAutomaticas([{ ...notaVerde(), id: "afuera", seccion: "Deportes", local: false, alcance: "nacional" }], { ...SIN_PISO, opciones: { fetchFn: fn }, intentos, ahora, registro: () => {} });
-  assert.equal(pedidos.length, 0, "lo de afuera ya no se pide");
-  await reescribirAutomaticas([{ ...notaVerde(), id: "local", seccion: "Balcarce" }], { ...SIN_PISO, opciones: { fetchFn: fn }, intentos, ahora, registro: () => {} });
-  assert.ok(pedidos.length > 0, "lo local todavía tiene cupo");
+  const gastar = (n) => Object.fromEntries(Array.from({ length: n }, (_, i) => [`v${i}`, { intentos: 1, ultimo: "2026-09-25T12:00:00Z" }]));
+  const completo = gastar(REESCRITURAS_POR_DIA);
+  await reescribirAutomaticas([{ ...notaVerde(), id: "afuera", seccion: "Deportes", local: false, alcance: "nacional" }], { ...SIN_PISO, opciones: { fetchFn: fn }, intentos: completo, ahora, registro: () => {} });
+  await reescribirAutomaticas([{ ...notaVerde(), id: "local", seccion: "Balcarce" }], { ...SIN_PISO, opciones: { fetchFn: fn }, intentos: completo, ahora, registro: () => {} });
+  assert.equal(pedidos.length, 0, "con el tope del día gastado no se pide nada, ni de afuera ni local");
+  const casi = gastar(REESCRITURAS_POR_DIA - 1);
+  await reescribirAutomaticas([{ ...notaVerde(), id: "afuera", seccion: "Deportes", local: false, alcance: "nacional" }], { ...SIN_PISO, opciones: { fetchFn: fn }, intentos: casi, ahora, registro: () => {} });
+  assert.ok(pedidos.length > 0, "con un pedido de cupo todavía se pide lo de afuera");
 });
 
 test("la reescritura empieza por lo más nuevo: una nota local de hace dos días no pasa delante de una de hace una hora", async () => {

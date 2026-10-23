@@ -115,7 +115,7 @@ const nota = (o) => ({
   local: true, fecha: '2026-09-29T18:00:00Z', origenes: [{ medio: 'Medio', enlace: 'https://medio.com/a', resumen: 'r' }], ...o,
 });
 
-test('para decidir: sólo lo de acá, cinco por día, las de más puntaje; lo que marcó una persona sigue (regla 200, 17/10/2026)', () => {
+test('para decidir: sólo lo de acá y sin tope por día; lo que marcó una persona sigue (reglas 200 y 295, 17/10 y 23/10/2026)', () => {
   const ahora = new Date(AHORA);
   const lista = paraDecidir([
     nota({ id: 'afuera', local: false, alcance: 'pais', seccion: 'Argentina', titulo: 'Detuvieron a un empresario en Córdoba' }),
@@ -127,9 +127,9 @@ test('para decidir: sólo lo de acá, cinco por día, las de más puntaje; lo qu
   const ids = lista.map((n) => n.id).sort();
   assert.ok(!ids.includes('afuera'), 'lo de afuera que nadie miró no va al celular');
   assert.ok(ids.includes('marcada'), 'lo que marcó una persona, sí');
-  assert.ok(ids.includes('ayer'), 'el tope es por día: lo de otro día tiene sus cinco');
-  // La zona cuenta como de acá; de las siete del 29/09, las cinco de más puntaje.
-  assert.deepEqual(ids.filter((id) => id.startsWith('aca') || id === 'zona'), ['aca3', 'aca4', 'aca5', 'aca6', 'zona'].sort());
+  assert.ok(ids.includes('ayer'), 'lo de otro día también');
+  // La zona cuenta como de acá; ya no hay tope de cinco por día (regla 295): llegan las seis de acá y la de la zona.
+  assert.deepEqual(ids.filter((id) => id.startsWith('aca') || id === 'zona'), ['aca1', 'aca2', 'aca3', 'aca4', 'aca5', 'aca6', 'zona'].sort());
 });
 
 test('para decidir: lo amarillo de estos días con lo que contó cada medio; nunca lo rojo ni el relleno (29/09: "es muy poca información")', () => {

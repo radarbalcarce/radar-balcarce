@@ -109,11 +109,11 @@ test('Tecnología: se confirma con el título, así que un reloj deportivo no es
 // ------------------------------------- 3. los medios y el cupo de cada sección
 
 test('los medios que pide cada sección son los que dice el criterio, y los cupos ya no existen (regla 215)', () => {
-  // Las áreas chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura) piden dos; el resto, tres (antes: Fútbol y Deportes cuatro,
-  // Economía, Agro y Automovilismo dos). Ni un cupo por sección: Hernán, 17/10, "NO HAY NINGÚN CUPO DE NADA".
-  assert.deepEqual([...AREAS_CHICAS].sort(), ['Ciencia', 'Cultura y agenda', 'Educación', 'Salud', 'Tecnología']);
+  // Las áreas chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo: regla 294) piden dos; el resto, tres (antes:
+  // Fútbol y Deportes cuatro, Economía dos). Ni un cupo por sección: Hernán, 17/10, "NO HAY NINGÚN CUPO DE NADA".
+  assert.deepEqual([...AREAS_CHICAS].sort(), ['Agro', 'Automovilismo', 'Ciencia', 'Cultura y agenda', 'Educación', 'Salud', 'Tecnología']);
   for (const s of AREAS_CHICAS) assert.equal(mediosMinimosDe(s), POPULARIDAD.minimoAreasChicas, s);
-  for (const s of ['Fútbol', 'Deportes', 'Economía', 'Política', 'Argentina', 'Agro', 'Automovilismo']) assert.equal(mediosMinimosDe(s), POPULARIDAD.minimoNacional, s);
+  for (const s of ['Fútbol', 'Deportes', 'Economía', 'Política', 'Argentina']) assert.equal(mediosMinimosDe(s), POPULARIDAD.minimoNacional, s);
   assert.equal(POPULARIDAD.minimoNacional, 3);
   assert.equal(POPULARIDAD.minimoAreasChicas, 2);
   assert.deepEqual(SECCIONES_SOLO_DE_ACA, ['Policiales']);

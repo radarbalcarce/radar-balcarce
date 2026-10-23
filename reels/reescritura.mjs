@@ -33,7 +33,7 @@ import {
   verificar, verificarExtras, resumirProblemas, depurarCuerpo, arreglarEscritura,
 } from '../ingesta/verificar.mjs';
 import { guionNoticia } from '../redes/guiones.mjs';
-import { semaforoDelTexto, laMuerteFrena, esDeAca, aflojaParaLoDeAca, cuantosMedios } from '../ingesta/ingesta.mjs';
+import { semaforoDelTexto, laMuerteFrena, esMuerteDeFamosoEnPoliciales, sueltaElAmarillo, cuantosMedios } from '../ingesta/ingesta.mjs';
 import { decisionHumana } from '../ingesta/utiles.mjs';
 import { ZONA } from '../ingesta/zona.mjs';
 import { traerTexto } from '../ingesta/articulo.mjs';
@@ -661,17 +661,17 @@ export function semaforoDeLaReescritura(nota, escrito = null) {
   ];
   let peor = null;
   const conMuerte = laMuerteFrena(nota ?? {});
-  // Lo de acá espera menos (2/10): lo mismo que en el semáforo de la ingesta.
-  const corroboradaPorOtros = !!nota?.oficial || cuantosMedios(nota) >= 2;
-  const deAca = aflojaParaLoDeAca(nota ?? {}, nota?.seccion, corroboradaPorOtros);
-  const corroborada = esDeAca(nota ?? {}) && corroboradaPorOtros;
+  // La muerte de un famoso en Policiales (regla 289): lo mismo que en el semáforo de la ingesta.
+  const muerteDeUnFamoso = esMuerteDeFamosoEnPoliciales(nota ?? {});
   for (const [donde, texto, soloMenores] of partes) {
     const s = semaforoDelTexto(texto, {
-      soloMenores, conMuerte, deAca, corroborada,
+      soloMenores, conMuerte, muerteDeUnFamoso,
     });
     if (!s) continue;
     // 22/10/2026: lo de acá no espera a una persona por una palabra sensible; sólo el rojo frena (ver ingesta/ingesta.mjs, semaforo()).
-    if (s.color === 'amarillo' && esDeAca(nota ?? {})) continue;
+    // 23/10/2026 (regla 292): lo que cuentan MUY_CONTADA.medios medios o más tampoco, con la misma condición que la ingesta. Cuantos más
+    // medios, más textos y más chances de un «nene» en algún párrafo: la ingesta lo soltaba y esta segunda mirada lo frenaba (caso de 20 medios).
+    if (s.color === 'amarillo' && sueltaElAmarillo(nota ?? {}, cuantosMedios(nota ?? {}))) continue;
     const conDonde = { color: s.color, motivo: `${s.motivo}, en ${donde}` };
     if (s.color === 'rojo') return conDonde;
     peor ??= conDonde;
@@ -1296,7 +1296,7 @@ export async function reescribirAutomaticas(notas, {
     // de redacción, que se usa primero, para no caer en la de redes. Lo
     // que no entra hoy espera a mañana.
     const pedidasAhora = yaPedidasHoy + cuenta.hechas;
-    if (pedidasAhora >= porDia || (!esLocal(nota) && pedidasAhora >= porDia - REESCRITURA.reservaParaLocales)) {
+    if (pedidasAhora >= porDia) {
       if (!topeDelDia) { topeDelDia = true; registro(`  tope del día: ya se le pidieron ${yaPedidasHoy + cuenta.hechas} notas a la IA hoy (máximo ${porDia}); el resto espera a mañana`); }
       continue;
     }

@@ -35,6 +35,7 @@ import { avisarPorMail } from './avisar-por-mail.mjs';
 import { raizDelProyecto } from './raiz.mjs';
 import { WORKFLOWS_VIGILADOS, VENCIMIENTOS, DIAS_DE_AVISO_ANTES, redesPrendidas } from './vigilar.mjs';
 import { TOPE_DE_CLOUDFLARE, archivosEstimados } from '../web/scripts/contar-archivos.mjs';
+import { MAXIMO_EN_ARCHIVO, topeDeNotas } from '../web/lib/archivo.js';
 
 export const SITIO = 'https://radarbalcarce.com';
 export const PANEL = `${SITIO}/panel/`;
@@ -44,8 +45,9 @@ export const REPOSITORIO = 'radarbalcarce/radar-balcarce';
 export const ESTADO_DEL_VIGILANTE = 'https://radar-balcarce-vigilante.radarbalcarce.workers.dev/estado';
 export const MOMENTOS = ['manana', 'noche'];
 
-/** Tope de notas con página (web/lib/archivo.js, MAXIMO_EN_ARCHIVO): una prueba controla que sigan iguales. */
-export const TOPE_DE_NOTAS = 3700;
+/** El techo técnico de notas con página (MAXIMO_EN_ARCHIVO, el mismo número de web/lib/archivo.js y de PORTADA.maximoDeNotas). El que rige de verdad
+ *  es `topeDeNotas(env).tope` (la variable TOPE_DE_NOTAS, hoy 500): el informe lo recibe como `topeReal`. */
+export const TOPE_DE_NOTAS = MAXIMO_EN_ARCHIVO;
 /** Las dos voces propias de Gemini vencen al año de crearse (CRITERIO-REDES.md § 6; la vigilancia avisa 30 días antes). */
 export const VENCIMIENTOS_DEL_INFORME = [
   ...VENCIMIENTOS.map((v) => ({ fecha: v.fecha, que: v.clave === 'vence-dominio' ? 'el dominio radarbalcarce.com (se renueva en DonWeb)' : v.texto })),
@@ -214,7 +216,7 @@ export function grupoDelMotivo(motivo = '') {
   if (/v[ií]ctima|abus/.test(m)) return 'posibles víctimas (los titulares no se muestran)';
   if (/falleci|muri|sepelio|velat/.test(m)) return 'fallecimientos';
   if (/denunci|imputad|detenid|homicid|asesin|causa|juic|estafa/.test(m)) return 'temas judiciales o policiales';
-  if (/internacional/.test(m)) return 'noticias del exterior sin relación con Balcarce';
+  if (/internacional/.test(m)) return 'noticias del exterior sin un argentino en el título';
   if (/cotizaci/.test(m)) return 'cotización del dólar';
   return 'otros motivos del semáforo';
 }
@@ -510,7 +512,7 @@ export function audiosDelDia(libro, dia) {
   return Object.keys(libro?.instagram ?? {}).filter((k) => k.startsWith(`${dia}/`) && !k.slice(dia.length + 1).startsWith('participa-')).length;
 }
 
-export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesActivas = true, archivoActivo = false }) {
+export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesActivas = true, archivoActivo = false, topeReal = null }) {
   const { portada, vigilancia, archivo, historia, usoIA, libro } = datos;
   const atencion = [];
   const lineas = [];
@@ -591,16 +593,18 @@ export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesA
   const n = archivo?.total;
   if (Number.isFinite(n)) {
     const archivos = archivosEstimados(n);
-    const fraccion = n / TOPE_DE_NOTAS;
+    // El tope de verdad de esta vuelta (la variable TOPE_DE_NOTAS, hoy 500), no el techo técnico de Cloudflare (3.700): el informe decía «498 de 3.700».
+    const tope = Number.isFinite(topeReal) && topeReal > 0 ? topeReal : TOPE_DE_NOTAS;
+    const fraccion = n / tope;
     const ritmo = (() => {
       const dias = Object.keys(historia?.dias ?? {}).sort().slice(-8, -1);
       return dias.length >= 3 ? sumar(dias.map((f) => historia.dias[f]?.publicadas ?? 0)) / dias.length : null;
     })();
-    const llena = ritmo && ritmo > 0 ? Math.ceil((TOPE_DE_NOTAS - n) / ritmo) : null;
-    lineas.push({ t: `Archivo de notas: ${num(n)} de ${num(TOPE_DE_NOTAS)} (${Math.round(fraccion * 100)} %). Archivos del sitio estimados: ${num(archivos)} de ${num(TOPE_DE_CLOUDFLARE)} que acepta Cloudflare (${Math.round((archivos / TOPE_DE_CLOUDFLARE) * 100)} %).${llena && fraccion < 1 ? ` Al ritmo de ${num(Math.round(ritmo))} notas por día, el tope de notas se alcanza en unos ${num(llena)} días y desde ahí las más viejas ${archivoActivo ? 'pasan al archivo permanente (R2) con la misma dirección' : 'dejan lugar a las nuevas'}.` : ''}${archivoActivo ? ' El archivo permanente está prendido: llegar al tope es lo esperable, lo que sale del sitio sigue en R2.' : ''}` });
+    const llena = ritmo && ritmo > 0 ? Math.ceil((tope - n) / ritmo) : null;
+    lineas.push({ t: `Archivo de notas: ${num(n)} de ${num(tope)} (${Math.round(fraccion * 100)} %). Archivos del sitio estimados: ${num(archivos)} de ${num(TOPE_DE_CLOUDFLARE)} que acepta Cloudflare (${Math.round((archivos / TOPE_DE_CLOUDFLARE) * 100)} %).${llena && fraccion < 1 ? ` Al ritmo de ${num(Math.round(ritmo))} notas por día, el tope de notas se alcanza en unos ${num(llena)} días y desde ahí las más viejas ${archivoActivo ? 'pasan al archivo permanente (R2) con la misma dirección' : 'dejan lugar a las nuevas'}.` : ''}${archivoActivo ? ' El archivo permanente está prendido: llegar al tope es lo esperable, lo que sale del sitio sigue en R2.' : ''}` });
     // Con el archivo permanente prendido (16/10/2026) llegar al tope no es un problema: lo que sale del sitio queda en R2.
-    if (archivoActivo) { /* sin aviso */ } else if (fraccion >= LIMITES_DEL_INFORME.topeDeNotasAlerta) atencion.push({ nivel: 'alta', t: `El archivo de notas está al ${Math.round(fraccion * 100)} % del tope (${num(n)} de ${num(TOPE_DE_NOTAS)}).` });
-    else if (fraccion >= LIMITES_DEL_INFORME.topeDeNotasAviso) atencion.push({ nivel: 'media', t: `El archivo de notas está al ${Math.round(fraccion * 100)} % del tope (${num(n)} de ${num(TOPE_DE_NOTAS)}); conviene decidir qué hacer antes de llegar.` });
+    if (archivoActivo) { /* sin aviso */ } else if (fraccion >= LIMITES_DEL_INFORME.topeDeNotasAlerta) atencion.push({ nivel: 'alta', t: `El archivo de notas está al ${Math.round(fraccion * 100)} % del tope (${num(n)} de ${num(tope)}).` });
+    else if (fraccion >= LIMITES_DEL_INFORME.topeDeNotasAviso) atencion.push({ nivel: 'media', t: `El archivo de notas está al ${Math.round(fraccion * 100)} % del tope (${num(n)} de ${num(tope)}); conviene decidir qué hacer antes de llegar.` });
   } else {
     lineas.push({ t: 'No pude contar las notas del archivo (web/data/archivo.json).', sub: true });
   }
@@ -649,9 +653,9 @@ export function asuntoDelInforme({ momento, dia, ahora, atencion, publicadas, vi
  * Arma el informe. Función pura: recibe lo ya leído (`datos`, y `enVivo` si se pudo consultar GitHub/Cloudflare) y devuelve
  * { asunto, texto, html, atencion, secciones }.
  */
-export function armarInforme({ momento = 'noche', ahora = new Date(), datos, enVivo = null, redesActivas = true, sitio = SITIO, archivoActivo = false } = {}) {
+export function armarInforme({ momento = 'noche', ahora = new Date(), datos, enVivo = null, redesActivas = true, sitio = SITIO, archivoActivo = false, topeReal = null } = {}) {
   const dia = diaDelInforme(momento, ahora);
-  const ctx = { momento, dia, ahora, datos, enVivo, redesActivas, sitio, archivoActivo };
+  const ctx = { momento, dia, ahora, datos, enVivo, redesActivas, sitio, archivoActivo, topeReal };
   const hacer = [seccionPublicacion, seccionEspera, seccionRedes, seccionVisitas, seccionSalud];
   const secciones = [];
   const atencion = [];
@@ -871,7 +875,8 @@ export async function main({ argv = process.argv.slice(2), env = process.env, ra
   // Con el motor en Cloudflare, su estado (las últimas vueltas y sus avisos de fuentes) lo deja el corredor de tareas en .motor/estado.json.
   const motor = leerJson(path.join(carpeta, '.motor', 'estado.json'), null);
   const enVivo = argv.includes('--sin-red') ? { omitido: true } : await consultarEnVivo({ ahora, env, motor });
-  const informe = armarInforme({ momento, ahora, datos, enVivo, redesActivas: redesPrendidas(env), archivoActivo: Boolean(String(process.env.R2_ARCHIVO ?? '').trim()) });
+  const informe = armarInforme({ momento, ahora, datos, enVivo, redesActivas: redesPrendidas(env), archivoActivo: Boolean(String(process.env.R2_ARCHIVO ?? '').trim()),
+    topeReal: topeDeNotas(process.env).tope });
 
   console.log(`ASUNTO: [Radar Balcarce] ${informe.asunto}\n`);
   console.log(informe.texto);

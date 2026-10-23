@@ -21,10 +21,12 @@
 import { slugDe } from './ruta.js';
 import { tieneRespaldo, tieneCuerpo } from './cuerpo.js';
 import { sinTildes } from './texto.js';
+// Los números salen de un solo lugar (23/10/2026, auditoría M1 a M3): ingesta/criterio.mjs no importa nada, la web ya lo lee (datos.js).
+import { PORTADA, MUY_CONTADA } from '../../ingesta/criterio.mjs';
 
 /** Cuánto se queda una nota en las listas del sitio (el 25/09 la portada tenía
  *  43 notas de más de tres días). */
-export const HORAS_EN_PORTADA = 36;
+export const HORAS_EN_PORTADA = PORTADA.horas;
 
 /**
  * Las notas que se sacaron a mano de la web (web/data/retiradas.json), fuera
@@ -188,7 +190,7 @@ export function pierdeLaPagina(deHoy, { conserva = () => false } = {}) {
 }
 
 /** Cuánto dura una página. Pasado eso, el enlace ya no circula. */
-export const DIAS_DE_ARCHIVO = 180;
+export const DIAS_DE_ARCHIVO = PORTADA.diasDeArchivo;
 
 /** Tope de notas con página. Cada una son varios archivos en el sitio (la
  *  página, su texto, su fragmento del buscador, su foto, su parte de las secciones
@@ -201,7 +203,7 @@ export const DIAS_DE_ARCHIVO = 180;
  *  400, no los 3,2 que se creían. 3.700 notas son unos 15.900 archivos (80% de 20.000); es lo más que se puede subir sin sacar las fotos
  *  del sitio. Lo de ingesta/criterio.mjs (`PORTADA.maximoDeNotas`) tiene que decir lo mismo; `web/scripts/contar-archivos.mjs` avisa si
  *  el recuento real se sale de la cuenta. Más allá hace falta el archivo permanente (R2). */
-export const MAXIMO_EN_ARCHIVO = 3700;
+export const MAXIMO_EN_ARCHIVO = PORTADA.maximoDeNotas;
 
 /** Lo menos que puede quedar el tope cuando se baja con la variable TOPE_DE_NOTAS (por si alguien escribe 20 en vez de 2000). */
 export const TOPE_MINIMO_DE_NOTAS = 500;
@@ -320,18 +322,21 @@ export function conFechaSinError(nota) {
 }
 
 /** Horas que puede tener un hecho para publicarse por primera vez
- *  (PORTADA.horasParaEstrenar en ingesta/criterio.mjs; una prueba lo controla). */
-export const HORAS_PARA_ESTRENAR = 12;
+ *  (PORTADA.horasParaEstrenar en ingesta/criterio.mjs). */
+export const HORAS_PARA_ESTRENAR = PORTADA.horasParaEstrenar;
 
 /** Una historia que cuentan tantos medios (MUY_CONTADA.medios, 8) es noticia aunque el hecho sea de ayer a la noche: se estrena con
- *  hasta HORAS_PARA_ESTRENAR_MUY_CONTADA horas, las mismas que MUY_CONTADA.horasDelHecho (23/10, Hernán: "más de 8 fuentes debería
- *  ser algo súper relevante"). Los dos números viven en ingesta/criterio.mjs y una prueba los controla. */
-export const MEDIOS_MUY_CONTADA = 8;
-export const HORAS_PARA_ESTRENAR_MUY_CONTADA = 24;
+ *  hasta HORAS_PARA_ESTRENAR_MUY_CONTADA horas, las de MUY_CONTADA.horasDelHecho (23/10, Hernán: "más de 8 fuentes debería
+ *  ser algo súper relevante"). Un solo 8 y un solo 24: viven en ingesta/criterio.mjs y acá se importan. */
+export const MEDIOS_MUY_CONTADA = MUY_CONTADA.medios;
+export const HORAS_PARA_ESTRENAR_MUY_CONTADA = MUY_CONTADA.horasDelHecho;
+/** Lo de Balcarce se estrena con el hecho de hasta esto (23/10/2026, regla 293, Hernán: «Balcarce entra todo»; antes, 12 como todo). */
+export const HORAS_PARA_ESTRENAR_DE_ACA = PORTADA.horasParaEstrenarDeAca;
 
-/** Cuántas horas puede tener un hecho para estrenarse, según cuántos medios lo cuentan. */
-export function horasParaEstrenar(medios = 1) {
-  return Number(medios) >= MEDIOS_MUY_CONTADA ? HORAS_PARA_ESTRENAR_MUY_CONTADA : HORAS_PARA_ESTRENAR;
+/** Cuántas horas puede tener un hecho para estrenarse, según cuántos medios lo cuentan y si es de acá (esDeAca). */
+export function horasParaEstrenar(medios = 1, deAca = false) {
+  const porMedios = Number(medios) >= MEDIOS_MUY_CONTADA ? HORAS_PARA_ESTRENAR_MUY_CONTADA : HORAS_PARA_ESTRENAR;
+  return deAca ? Math.max(porMedios, HORAS_PARA_ESTRENAR_DE_ACA) : porMedios;
 }
 
 /**

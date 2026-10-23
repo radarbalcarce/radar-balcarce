@@ -6,15 +6,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  NOMBRES_PROPIOS, FIGURAS, TEMAS, FARMACIAS_A_MANO, BALCARCE, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, REGLAS_SECCION, AMARILLO_MENORES, AMARILLO_SOLO_EN_EL_PRINCIPIO, REGLAS_SEMAFORO, MOTIVO_COTIZACION, AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA, AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN,
+  NOMBRES_PROPIOS, FIGURAS, TEMAS, FARMACIAS_A_MANO, BALCARCE, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, REGLAS_SECCION, AMARILLO_MENORES, AMARILLO_SOLO_EN_EL_PRINCIPIO, REGLAS_SEMAFORO, MOTIVO_COTIZACION,
   MOTIVO_INTERNACIONAL, PALABRAS_DE_TECNOLOGIA_EN_EL_TITULO, SECCIONES_QUE_NO_ENTRAN, CONEXION_ARGENTINA, TITULO_HOROSCOPO, TITULO_LOTERIA,
   nombraLocalidadDudosa, INSTITUCIONES_QUE_SORTEAN,
 } from './fuentes.mjs';
 import { PORTADA, PUNTAJE, MUY_CONTADA } from './criterio.mjs';
 import { marcarMuyContadas } from './muy-contada.mjs';
 import { mediosMinimos, popularidadDe, esSeccionSoloDeAca } from './popularidad.mjs';
-import { policialNacionalRelevante } from './policial-nacional.mjs';
-import { motivoFutbolNoArgentino } from './futbol-argentino.mjs';
+import { policialNacionalRelevante, policialNacionalActivo, muerteDeFamoso } from './policial-nacional.mjs';
+import { motivoFutbolNoArgentino, esFutbolArgentino } from './futbol-argentino.mjs';
 import { seccionSumada, esSumada, encaje } from './secciones-nuevas.mjs';
 import { porQueNoEsNota } from './no-es-nota.mjs';
 import { diaDeTurno, fechaEnBalcarce, comoISO } from './utiles.mjs';
@@ -505,10 +505,7 @@ function motivoDeDescarte(nota, fuente = {}) {
     if (!coinciden.length) continue;
     // Olé pone toda su F1 y su TC bajo "/autos/": en una fuente de automovilismo no es un consejo de autos (30/09).
     if (esDeFierros && coinciden.every((t) => t === 'autos')) continue;
-    if (regla.conExcepcion) {
-      const titulo = normalizar(nota.titulo ?? '');
-      if (esDeFierros || figuraQueNombra(nota) || CONEXION_ARGENTINA.some((p) => contiene(titulo, p))) continue;
-    }
+    if (regla.conExcepcion && (esDeFierros || conArgentino(nota))) continue;
     return regla.motivo;
   }
   return null;
@@ -575,8 +572,8 @@ export function esDeAca(nota = {}) {
  * "de los balcarceños" en la bajada): la IA dijo región, pasó a pedir 2 medios de Automovilismo y quedó
  * esperando como relleno, sin que nadie la viera.
  *
- * NO es esDeAca: no afloja ninguna palabra del semáforo (aflojaParaLoDeAca sigue con esDeAca), la IA la puede
- * seguir sacando (publicidad, chimento, del extranjero, sin relación) y no le devuelve los +25 del puntaje. Lo de
+ * NO es esDeAca: no afloja ninguna palabra del semáforo (eso sigue con esDeAca), la IA la puede
+ * seguir sacando (publicidad, chimento, del extranjero) y no le devuelve los +25 del puntaje. Lo de
  * un medio de acá que NO nombra nada de acá (la copia de una noticia nacional) no entra acá: si la IA dice que no
  * es de acá, pide los medios de su sección como cualquier nota de afuera (historiaDeAca, MOTIVO_ESPERA_LECTURA).
  * `nombraAca` lo pone el cruce (ingestar) mirando el título y los primeros 600 caracteres de las notas de acá.
@@ -589,8 +586,25 @@ export function esDeUnMedioDeAca(nota = {}) {
  *  afuera? Messi, Colapinto, la Selección. Devuelve el nombre encontrado o
  *  null, para poder mostrar por qué entró. */
 function figuraQueNombra(nota) {
-  const texto = normalizar(`${nota.titulo} ${nota.cuerpo.slice(0, 400)}`);
+  const texto = normalizar(`${nota.titulo ?? ''} ${String(nota.cuerpo ?? '').slice(0, 400)}`);
   return FIGURAS.find((f) => contiene(texto, f)) ?? null;
+}
+
+/**
+ * ¿La nota tiene un argentino? UNA sola respuesta para los tres lugares que la necesitan (23/10/2026, regla 292, auditoría M4): antes el
+ * semáforo usaba una lista (`tituloConArgentino`: Milei, Caputo, Casa Rosada…), la lectura con IA y el descarte por sección otra
+ * (`CONEXION_ARGENTINA`, ocho palabras, sin clubes) y el fútbol una tercera (ingesta/futbol-primera.json): el 23/10 la IA sacó a Estudiantes
+ * en la Libertadores y a Marcos Rojo con el TAS por «del extranjero». Hoy es cualquiera de:
+ *   · una figura argentina (FIGURAS) en el título o el comienzo del texto;
+ *   · una palabra de CONEXION_ARGENTINA o de `tituloConArgentino` en el título;
+ *   · en una nota de Fútbol, un club de Primera, una competencia argentina o un argentino jugando afuera (`esFutbolArgentino`).
+ */
+export function conArgentino(nota = {}) {
+  if (nota.figura || figuraQueNombra(nota)) return true;
+  const titulo = normalizar(String(nota.titulo ?? ''));
+  if (CONEXION_ARGENTINA.some((p) => contiene(titulo, p)) || tituloConArgentino(titulo)) return true;
+  const esFutbol = nota.seccion ? nota.seccion === 'Fútbol' : clasificar({ categorias: [], cuerpo: '', ...nota }) === 'Fútbol';
+  return esFutbol && esFutbolArgentino(nota);
 }
 
 // Palabras que adentro del deporte significan una cosa y afuera otra.
@@ -812,7 +826,7 @@ const motivoPocoContada = (medios, seccion, minimo, falla = null) => `${MOTIVO_P
  * cualquier nota.
  */
 export function semaforoDelTexto(textoCrudo, {
-  soloMenores = false, conMuerte = true, deAca = false, corroborada = false,
+  soloMenores = false, conMuerte = true, muerteDeUnFamoso = false,
 } = {}) {
   const texto = normalizar(String(textoCrudo ?? ''));
   if (!texto) return null;
@@ -826,9 +840,8 @@ export function semaforoDelTexto(textoCrudo, {
   // En un texto entero (el artículo completo, el cuerpo que escribió la IA)
   // sólo frena lo que cuida a chicos y víctimas: ver AMARILLO_MENORES.
   for (const p of soloMenores ? AMARILLO_MENORES : [...REGLAS_SEMAFORO.amarillo, ...AMARILLO_SOLO_EN_EL_PRINCIPIO]) {
-    // Lo de acá espera menos (2/10): ver AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA.
-    if (deAca && AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA.includes(p)) continue;
-    if (corroborada && AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN.includes(p)) continue;
+    // La muerte de un famoso en Policiales (regla 289): el asesinato de un cantante no espera a una persona que nunca lo va a mirar.
+    if (muerteDeUnFamoso && PALABRAS_DE_UN_ASESINATO.includes(p)) continue;
     if (contiene(textoAmarillo, p)) return { color: 'amarillo', motivo: `necesita ojo humano: "${p}"` };
   }
   // Una persona menor de 18 años dicha por su edad ("una chica de 16 años"): espera a una persona, también en el texto entero.
@@ -846,14 +859,37 @@ export function semaforoDelTexto(textoCrudo, {
  *  de acá: Policiales, Balcarce, lo de acá o de la zona, y lo que cuenta un
  *  solo medio (28/09, REGLAS_SEMAFORO.amarilloMuerte). */
 export function laMuerteFrena(nota = {}, seccion = nota.seccion, medios = cuantosMedios(nota)) {
+  if (esMuerteDeFamosoEnPoliciales(nota, seccion)) return false;
   return seccion === 'Policiales' || seccion === 'Balcarce' || nota.alcance === 'local' || !!nota.local
     || !!nota.nombraBalcarce || !!nota.deLaZona || tocaLaZona({ titulo: nota.titulo ?? '', cuerpo: nota.cuerpo ?? '' })
     || medios < 2;
 }
 
-/** ¿Se le sueltan las palabras de AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA a esta nota? Si es de acá; y en Política, una denuncia contada por un solo
- *  medio ("Denuncian al intendente…") sigue esperando: sólo se suelta si la confirma una fuente oficial o dos medios. */
-export const aflojaParaLoDeAca = (nota, seccion, corroborada) => esDeAca(nota) && (seccion !== 'Política' || corroborada);
+/** Las frases que dicen que el título ES el parte del dólar del día, donde estén. */
+const PARTE_DEL_DOLAR = ['dólar hoy', 'a cuánto cotiza', 'a cuanto cotiza', 'blue hoy', 'cotización del dólar', 'cotizacion del dolar'];
+
+/** ¿El título es la cotización del día del dólar (regla 292, 23/10/2026, Hernán: «el riesgo país con muchos medios sale»)? Sí si dice «dólar hoy», «a
+ *  cuánto cotiza», «cotización del dólar»…, o si ARRANCA con alguna de las frases de REGLAS_SEMAFORO.cotizacion («El dólar blue sube…», «Dólar
+ *  oficial: …»). Una mención al final o en el medio («El riesgo país supera los 700 y el dólar oficial…») no lo es. */
+export function esCotizacionDelDia(titulo) {
+  const t = normalizar(String(titulo ?? '')).replace(/^(el|la|los|las)\s+/, '');
+  if (!t) return false;
+  if (PARTE_DEL_DOLAR.some((p) => contiene(t, p))) return true;
+  return (REGLAS_SEMAFORO.cotizacion ?? []).some((p) => t.startsWith(normalizar(p)));
+}
+
+/** Las palabras de un asesinato que, en la muerte de un famoso en Policiales, no frenan (regla 289). "Víctima", "cadáver", "baleado" y todo lo de
+ *  chicos siguen frenando, y el rojo no se toca. Las de "murió" están en REGLAS_SEMAFORO.amarilloMuerte (las suelta `conMuerte`). */
+const PALABRAS_DE_UN_ASESINATO = ['homicidio', 'asesinato', 'asesinado', 'asesinaron'];
+
+/** ¿Es la muerte de un famoso contada en Policiales, que sale con el mínimo de medios aunque diga "murió" o "asesinaron" (regla 289, Hernán
+ *  23/10/2026)? Se apaga con la variable POLICIAL_NACIONAL = "no". Sólo mira el título. */
+export const esMuerteDeFamosoEnPoliciales = (nota = {}, seccion = nota?.seccion) => seccion === 'Policiales'
+  && policialNacionalActivo() && muerteDeFamoso(nota?.titulo);
+
+/** ¿Se le suelta el amarillo de las palabras sensibles a esta nota? Si es de acá (regla 291) o la cuentan MUY_CONTADA.medios medios o más
+ *  (regla 288 y 292: lo mismo en la ingesta y en el semáforo de la redacción). El rojo (menores, víctimas) nunca se suelta. */
+export const sueltaElAmarillo = (nota = {}, medios = cuantosMedios(nota)) => esDeAca(nota) || medios >= MUY_CONTADA.medios;
 
 /** Una efeméride sacada de otro medio (Hernán, 14/10/2026: una nota de Radio Gabal "Efemérides 10 de octubre…"). Las efemérides son
  *  nuestras (`ingesta/efemerides.mjs`, el reel y su nota): de afuera no se toma ninguna, de ningún medio. Se reconoce por la dirección
@@ -895,9 +931,8 @@ function pareceDePromocion(nota) {
 /** El color de una nota recién leída: { color, motivo }. El puntaje no entra
  *  (desde el 27/09 lo de afuera se mide en medios, no en puntaje). */
 function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
-  const corroborada = !!nota.oficial || medios >= 2;
   let sensible = semaforoDelTexto(`${nota.titulo} ${nota.cuerpo.slice(0, 600)}`, {
-    conMuerte: laMuerteFrena(nota, seccion, medios), deAca: aflojaParaLoDeAca(nota, seccion, corroborada), corroborada: esDeAca(nota) && corroborada,
+    conMuerte: laMuerteFrena(nota, seccion, medios), muerteDeUnFamoso: esMuerteDeFamosoEnPoliciales(nota, seccion),
   });
   if (sensible?.color === 'rojo') return sensible;
   // 22/10/2026 (Hernán: «todas esas de Balcarce no se deben frenar; hay que borrar esos criterios viejos»): lo de acá ya no espera a una persona
@@ -905,7 +940,7 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // Se anota qué palabra lo habría frenado (liberadaPor) para medir cuánto se libera y si se está cuidando bien (estadistica-seleccion.json).
   let liberadaPor = null;
   // Desde el 23/10 (Hernán: «más de 8 fuentes debería ser algo súper relevante») tampoco espera lo que cuentan MUY_CONTADA.medios medios o más.
-  if (sensible?.color === 'amarillo' && (esDeAca(nota) || medios >= MUY_CONTADA.medios)) { liberadaPor = sensible.motivo.replace(/^necesita ojo humano: /, ''); sensible = null; }
+  if (sensible?.color === 'amarillo' && sueltaElAmarillo(nota, medios)) { liberadaPor = sensible.motivo.replace(/^necesita ojo humano: /, ''); sensible = null; }
   const conLiberada = (r) => (liberadaPor ? { ...r, liberadaPor } : r);
   // Lo que no se publica nunca (las listas de sepelios, Hernán 27/09). Sólo
   // el título: la palabra suelta en un texto largo no alcanza. Va ANTES del
@@ -921,14 +956,16 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   const noEsNota = porQueNoEsNota(nota);
   if (noEsNota) return { color: 'rojo', motivo: noEsNota.motivo };
   if (sensible) return sensible;
-  // La cotización del dólar no sale como nota: está en /dolar. Sólo el título.
+  // La cotización del dólar no sale como nota: está en /dolar. Sólo el título, y sólo si es el parte del día (regla 292): «El riesgo país supera
+  // los 700 y el dólar oficial…» (16 medios) es economía y sale.
   const delTitulo = normalizar(String(nota.titulo ?? ''));
-  if ((REGLAS_SEMAFORO.cotizacion ?? []).some((p) => contiene(delTitulo, p))) {
+  if (esCotizacionDelDia(nota.titulo)) {
     return { color: 'amarillo', motivo: MOTIVO_COTIZACION };
   }
-  // Lo internacional sin relación con Balcarce no sale solo. Sólo el título.
-  // Si el título nombra a un argentino (Milei, "Argentina"…) no es "sin relación con acá": sigue al control de los medios (regla 172).
-  if (nota.alcance !== 'local' && !nota.nombraBalcarce && !tituloConArgentino(delTitulo)
+  // Lo internacional (Trump, Putin, la Casa Blanca en el título) de afuera no sale solo, salvo que lo cuenten MUY_CONTADA.medios medios o más
+  // (regla 292, Hernán 23/10/2026). Sólo el título. Si la nota tiene un argentino (conArgentino: Milei, "Argentina", Messi…) no es
+  // internacional a secas: sigue al control de los medios (regla 172).
+  if (nota.alcance !== 'local' && !nota.nombraBalcarce && medios < MUY_CONTADA.medios && !conArgentino(nota)
     && (REGLAS_SEMAFORO.internacional ?? []).some((p) => contiene(delTitulo, p))) {
     return { color: 'amarillo', motivo: MOTIVO_INTERNACIONAL };
   }
@@ -946,8 +983,8 @@ function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   // (ingesta/popularidad.mjs): 3 medios, 2 en las áreas chicas. Nunca con uno solo.
   // Lo que toca la zona (la 226, la 55, la papa) es tema de
   // Balcarce aunque lo cuente un solo medio (Hernán, 27/09: "si son de la zona
-  // y son realmente temas de Balcarce, que salga"). La lectura con IA igual
-  // saca lo que no tenga relación con acá. Qué es de acá: esDeAca.
+  // y son realmente temas de Balcarce, que salga"). La lectura con IA saca la publicidad, los chimentos, lo del extranjero sin un argentino y el
+  // policial de afuera, no lo que "no tenga relación con acá" (regla 286). Qué es de acá: esDeAca.
   if (!esDeAca(nota)) {
     const pop = popularidadDe({ ...nota, seccion }, medios, { seccion });
     if (!pop.llega) return { color: 'amarillo', motivo: motivoPocoContada(medios, seccion, pop.minimo, pop.motivo) };
@@ -1480,21 +1517,20 @@ export function aplicarPopularidad(portada, {
   return portada;
 }
 
-/** ¿Esperaba sólo por el cupo que se sacó el 17/10 (regla 215)? Las notas guardadas con ese motivo vuelven a su motivo de antes. */
-const esperaPorElCupo = (n) => String(n?.motivo ?? '').startsWith(MOTIVO_CUPO) || String(n?.motivo ?? '').endsWith(MOTIVO_SECCION_DE_ACA);
+/** ¿Esperaba sólo por ser un policial de afuera? Se vuelve a mirar en cada pasada: si ahora lo cuentan 8 medios o es la muerte de un famoso, sale. */
+const esperabaPorSerPolicialDeAfuera = (n) => String(n?.motivo ?? '').endsWith(MOTIVO_SECCION_DE_ACA);
 
-/** Cómo empieza el motivo del cupo (ya no existe) y qué dice el de una sección que es sólo de Balcarce y la zona. */
-export const MOTIVO_CUPO = 'pasó el cupo de';
+/** Qué dice el motivo de una sección que es sólo de Balcarce y la zona. (El del cupo, «pasó el cupo de», se borró el 23/10/2026: el cupo se sacó el 17/10.) */
 export const MOTIVO_SECCION_DE_ACA = 'la sección es sólo de Balcarce y la zona';
 
 /**
- * ¿Esta nota espera SÓLO por cantidad: los medios que pide la popularidad (exigirMedios) o el cupo de antes? No es un problema
+ * ¿Esta nota espera SÓLO por cantidad: los medios que pide la popularidad (exigirMedios) o por ser un policial de afuera? No es un problema
  * de lo que dice la nota: una ya publicada no pierde su página por esto (28/09, pierdeLaPagina en web/lib/archivo.js).
  */
 export function esperaSoloPorCantidad(nota = {}) {
   if (nota.semaforo !== 'amarillo') return false;
   const m = String(nota.motivo ?? '');
-  return m.startsWith(MOTIVO_POCO_CONTADA) || m.startsWith(MOTIVO_CUPO) || m.endsWith(MOTIVO_SECCION_DE_ACA);
+  return m.startsWith(MOTIVO_POCO_CONTADA) || m.endsWith(MOTIVO_SECCION_DE_ACA);
 }
 
 /**
@@ -1511,17 +1547,17 @@ export function esperaSoloPorCantidad(nota = {}) {
 export function exigirMedios(portada, { publicadas = null } = {}) {
   for (const n of portada) {
     if (n.propia) continue;
-    // El cupo se sacó (regla 215): lo que había quedado esperando por él vuelve a su motivo de antes y se mira de nuevo.
-    if (n.semaforo === 'amarillo' && esperaPorElCupo(n) && n.alcance !== 'local') {
+    // Lo que esperaba por ser un policial de afuera vuelve a su motivo de antes y se mira de nuevo.
+    if (n.semaforo === 'amarillo' && esperabaPorSerPolicialDeAfuera(n) && n.alcance !== 'local') {
       n.semaforo = 'verde';
-      n.motivo = n.motivoAntesDelCupo ?? `sección ${n.seccion}`;
-      delete n.motivoAntesDelCupo;
+      n.motivo = n.motivoAntes ?? `sección ${n.seccion}`;
+      delete n.motivoAntes;
     }
     if (esDeAca(n) || esDeUnMedioDeAca(n)) continue;
     // Policiales es sólo de Balcarce y la zona (26/09): lo de afuera no sale solo, ni con 30 medios.
     if (esSeccionSoloDeAca(n.seccion) && !policialNacionalRelevante(n, cuantosMedios(n))) {
       if (n.semaforo === 'verde') {
-        n.motivoAntesDelCupo = n.motivo;
+        n.motivoAntes = n.motivo;
         n.semaforo = 'amarillo';
         n.motivo = `${n.seccion} de afuera: ${MOTIVO_SECCION_DE_ACA}`;
       }

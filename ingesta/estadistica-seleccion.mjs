@@ -104,6 +104,31 @@ export function observarCorrida({
 }
 
 /**
+ * Por qué una historia muy contada (MUY_CONTADA.medios o más) no salió, en una frase (23/10/2026, auditoría M6: «otros» decía «sección
+ * Fútbol» en 94 de 140 casos, o sea, no decía nada). Sirve para web/data/muy-contadas.json.
+ *
+ * @param {object} o       la observación de `observarCorrida` ({ resultado, ... })
+ * @param {object} [datos] { motivo: lo que dijo el semáforo o la lectura con IA (puede ser vacío), escrita: ¿la IA ya le escribió el cuerpo?,
+ *                           enLaPortada: ¿su hecho está dentro de las horas de la portada? }
+ */
+export function motivoDeUnaMuyContada(o = {}, { motivo = '', escrita = false, enLaPortada = true } = {}) {
+  const m = String(motivo ?? '').trim();
+  switch (o.resultado) {
+    case 'ia': return m || 'la lectura con IA la sacó o espera que la lea';
+    case 'sinCuerpo': return 'esperando cuerpo: la IA todavía no logró escribirla';
+    case 'tarde': return 'llegó tarde: el hecho ya tenía más horas de las que se estrena';
+    case 'retirada': return 'retirada por una persona o unida a otra nota ya publicada';
+    case 'repetida': return 'unida a otra historia (repetida)';
+    case 'semaforo': return m ? `frenada por el semáforo: ${m}` : 'frenada por el semáforo';
+    case 'pocasFuentes': return m || 'pocas fuentes para su sección';
+    case 'unMedio': return 'un solo medio';
+    default:
+      if (!enLaPortada) return 'verde, pero su hecho ya salió de las horas de la portada';
+      return escrita ? 'verde y escrita, pero todavía no salió en las listas (revisar)' : 'en la cola de la redacción: todavía sin escribir';
+  }
+}
+
+/**
  * Lo de afuera con un solo medio de esta vuelta, por día de la propia nota y por sección: { 'AAAA-MM-DD': { Sección: cuántas } }. Sólo los
  * `DIAS_DE_UN_SOLO_MEDIO` días que el cruce todavía recuerda (hoy y los dos anteriores); lo anterior ya no se mueve.
  *

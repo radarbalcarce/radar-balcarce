@@ -82,13 +82,20 @@ distintos cuentan lo mismo (los del mismo dueño cuentan uno).
 1. **Lo de Balcarce entra todo**: no pide medios ni tiene tope.
 2. **Lo nacional entra si lo cuentan 3 medios distintos** (`MINIMO_NACIONAL`).
 3. **En las áreas chicas, con 2** (`MINIMO_AREAS_CHICAS`): Tecnología e IA, Ciencia, Salud,
-   Educación y Cultura (con los espectáculos). Si una sección no tiene notas todos los días, no
-   vale la pena tenerla.
+   Educación, Cultura (con los espectáculos), Agro y Automovilismo (estas dos volvieron el
+   23/10/2026, regla 294: Agro salió 0 de 139 el 22/10). Si una sección no tiene notas todos los
+   días, no vale la pena tenerla.
 4. **No hay cupos ni topes de nada**: ni por sección, ni por día, ni por área. Los únicos
    límites son técnicos (los cupos gratis de las IA y el tope de páginas del sitio).
 5. **Lo muy contado va primero** en su sección (más abajo).
 6. **Del extranjero, sólo con un argentino** (Trump, Gaza, la Fórmula 1 sin un argentino: no;
-   tampoco la ciencia ni la tecnología). **Policiales de afuera no sale nunca**: la sección es de acá.
+   tampoco la ciencia ni la tecnología), **salvo lo que cuentan 8 medios o más** (regla 292), que
+   no se frena por "es del extranjero" ni por la lista internacional. Un argentino es una figura,
+   una conexión argentina en el título o, en fútbol, un club de Primera, una competencia argentina
+   o un argentino jugando afuera: hay una sola respuesta (`conArgentino`). **El fútbol de afuera
+   sin argentinos no sale, ni con 8 medios** (regla 290). **Policiales de afuera no sale solo**: la
+   sección es de acá, salvo lo que cuentan 8 medios o más y la muerte de un famoso, que sale con
+   el mínimo de medios aunque diga "murió" o "asesinaron" (regla 289).
 
 **Dónde se cambian los números:** los dos mínimos, sin tocar código, con las variables de GitHub
 `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (Settings, Secrets and variables, Actions, Variables;
@@ -117,8 +124,9 @@ distintos o más** (los del mismo dueño cuentan uno), o que junta **5 en sus pr
 si empezó de noche, de 20 a 7), con el hecho de menos de 24 horas. **Va primera en su sección
 durante 6 horas** y no salen más de 2 del mismo tema a la vez (las de más medios). No cuentan
 "dónde ver", "a qué hora juega", el "en vivo", la cotización del dólar ni el pronóstico, aunque los
-cuenten todos; lo que el semáforo frena (menores, víctimas, acusados, chimentos, el extranjero
-sin un argentino) sigue frenado. Y **muy contada de acá**: lo de Balcarce que cuentan 3 medios de
+cuenten todos, ni los chimentos. Lo que cuentan 8 medios o más **no se frena por palabras
+sensibles** (acusados, muertes…), **ni por la lista internacional, ni por "es del extranjero"**
+(reglas 288 y 292); el **rojo** (menores y víctimas) sí, siempre. Y **muy contada de acá**: lo de Balcarce que cuentan 3 medios de
 acá o más (lo que más se lee del sitio) es la primera candidata a la nota grande de la tapa y a
 Facebook. El **puntaje** suma 8 cada vez que se duplican los medios (2 medios 8, 4 medios 16, 8
 medios 24, 32 medios 40), sin tope: una historia de 30 medios vale más que una de 5.
@@ -127,8 +135,8 @@ medios 24, 32 medios 40), sin tope: una historia de 30 medios vale más que una 
 Balcarce (`ingesta/perfil-balcarce.md`) y la ciudad del medio arma una ficha: de dónde es
 el hecho, de qué sección es, si le importa a un vecino y por qué. Con esa ficha no entran
 la **publicidad**, los **chimentos**, lo del **extranjero** sin un argentino destacado
-ni un **policial que no es de acá** (salvo los muy contados: 8 medios o más, o la muerte
-de un famoso). **Lo de afuera no se saca por "no tener relación con Balcarce"**
+(salvo lo que cuentan 8 medios o más) ni un **policial que no es de acá** (salvo los muy
+contados: 8 medios o más, o la muerte de un famoso). **Lo de afuera no se saca por "no tener relación con Balcarce"**
 (23/10, regla 286): lo decide la popularidad, 3 medios o 2 en un área chica. La sección es la que dice la IA. **La IA nunca destraba:** lo que el semáforo pone
 en rojo o amarillo sigue igual.
 
@@ -140,8 +148,9 @@ puede salir sola, la que cuentan más medios y la de más puntaje. Si la misma n
 igual vuelve a entrar con otra dirección (porque el medio cambió el enlace), se une sola:
 queda una y la otra dirección redirige a ésa (`web/lib/repetidas.js`).
 
-**Nada viejo.** Una nota que nunca salió no se publica si el hecho tiene más de 12 horas
-(24 si la cuentan 8 medios o más: eso es noticia aunque haya pasado ayer a la noche),
+**Nada viejo.** Una nota de afuera que nunca salió no se publica si el hecho tiene más de 12 horas
+(24 si la cuentan 8 medios o más: eso es noticia aunque haya pasado ayer a la noche; 36 si es
+de Balcarce, regla 293: los medios de acá publican tarde y las notas esperan cuerpo),
 y la portada y las secciones muestran sólo las últimas 36. La fecha de una nota es la más
 vieja que se conoce: un medio que actualiza la suya no la rejuvenece. De lo que se lee
 raspando la portada de un medio (El Diario Balcarce, que no tiene feed) se toma la fecha
@@ -156,7 +165,7 @@ de adentro de cada nota y lo de más de 72 horas no se trae.
 | Policiales | Sí en la web; **en las redes, nunca sin una persona** |
 | Educación | Sí (escuelas, docentes, universidades, becas; desde el 17/10) |
 | Salud | Sí (hospitales, vacunas, brotes, PAMI e IOMA; desde el 17/10) |
-| Fútbol | Sí (de la liga de Balcarce a la Selección) |
+| Fútbol | Sí (de la liga de Balcarce a la Selección; de afuera, sólo Primera División argentina, la Selección y argentinos jugando afuera: `ingesta/futbol-primera.json`, regla 290) |
 | Deportes | Sí (todos los demás deportes) |
 | Automovilismo | Sí |
 | Agro | Sí |
@@ -213,9 +222,9 @@ elige cada foto, en `docs/05-FOTOS.md`.
 |---|---|
 | **Nada que identifique a un menor ni a una víctima** de un delito sexual o de violencia de género: ni nombre, ni apodo, ni iniciales, ni escuela, ni domicilio o cuadra, ni un parentesco que la deje identificada, ni su foto ni su descripción. Aunque la fuente lo publique | Lo exigen las leyes 26.061 y 26.485. El semáforo rojo lo frena (`INVESTIGACION.md` § 6) |
 | **Una acusación dicha como hecho.** Sin condena o confirmación oficial, se atribuye a quien acusó y va en condicional ("habría") | Doctrina Campillay: es lo que protege al medio de una demanda por calumnias o injurias |
-| **La cotización del dólar como nota de otro medio** ("dólar hoy", "dólar blue") | La cotización está en `/dolar`, y el sitio arma su propia nota del dólar el día que se mueve (sección 8) |
-| **Lo de otros países sin conexión argentina** (Trump, Gaza, Ucrania…, `REGLAS_SEMAFORO.internacional`, sólo en el título) | No le importa a nadie de acá; lo principal es no traerlo (sección 2) |
-| **Un policial de otro lugar** | Los diarios nacionales traen crímenes de todo el país, con nombres de acusados |
+| **La cotización del dólar como nota de otro medio** (el parte del día: títulos que dicen "dólar hoy" o "a cuánto cotiza", o que arrancan con "dólar blue", "dólar oficial"…; una mención en el medio del título, como "el riesgo país supera los 700 y el dólar oficial…", sale: regla 292) | La cotización está en `/dolar`, y el sitio arma su propia nota del dólar el día que se mueve (sección 8) |
+| **Lo de otros países sin conexión argentina** (Trump, Gaza, Ucrania…, `REGLAS_SEMAFORO.internacional`, sólo en el título), salvo que lo cuenten 8 medios o más | No le importa a nadie de acá, salvo que lo cuente medio país; lo principal es no traerlo (sección 2) |
+| **Un policial de otro lugar**, salvo que lo cuenten 8 medios o más o sea la muerte de un famoso | Los diarios nacionales traen crímenes de todo el país, con nombres de acusados |
 | **"En vivo", "minuto a minuto", "en directo"** en el título, la bajada, el guion o el texto para redes ("música en vivo" sí). Las páginas viejas que lo dicen en el título se retiran solas | Radar Balcarce no hace coberturas en vivo: cuenta lo que pasó |
 | **Una nota automática sin cuerpo** | Una nota de dos renglones no es una nota (sección 4) |
 | **El nombre del medio de origen en el título, el guion, las placas o las redes** | La atribución va en la nota de la web, con el enlace al original |
@@ -233,7 +242,7 @@ que lo decidan Hernán y Andrés.**
 | Color | Qué pasa | Cuándo |
 |---|---|---|
 | **Rojo** | No se publica nunca, ni por error | Identifica o puede identificar a un menor o a una víctima de violencia de género o de un delito sexual (menor de edad, abuso sexual, violación, femicidio, grooming, suicidio…). También las listas de sepelios (`REGLAS_SEMAFORO.nunca`), las efemérides de otro medio y lo que no es nota (el autobombo de un medio, el pronóstico o las farmacias de otro medio, la publicidad de un comercio: motivo "no es nota"; una persona igual puede publicarlo) |
-| **Amarillo** | Espera a una persona (en el panel del celular sólo lo de acá, hasta 5 por día; lo de afuera no va al celular desde el 17/10/2026, regla 200: si no sale solo, no sale) | Acusa a alguien (denuncia, detenido, imputado), habla de una muerte o de un herido (en Policiales, en Balcarce, en lo de acá o de la zona y en lo que cuenta un solo medio), involucra a un chico, parece promoción, es de afuera y la cuentan menos medios de los que pide la popularidad (sección 2), es la cotización del dólar, o tiene **verificación baja** (sección 5) |
+| **Amarillo** | Espera a una persona (en el panel del celular sólo lo de acá, sin tope por día desde la regla 295; lo de afuera no va al celular desde el 17/10/2026, regla 200: si no sale solo, no sale) | Acusa a alguien (denuncia, detenido, imputado), habla de una muerte o de un herido (en Policiales, en Balcarce, en lo de acá o de la zona y en lo que cuenta un solo medio; no la muerte de un famoso en Policiales), involucra a un chico, parece promoción, es de afuera y la cuentan menos medios de los que pide la popularidad (sección 2), es la cotización del dólar, o tiene **verificación baja** (sección 5) |
 | **Verde** | Sale sola | Todo lo demás |
 
 **Lo de Balcarce (desde el 22/10/2026, Hernán: «todas esas de Balcarce no se deben frenar»).** Una nota de acá no espera a una persona por una palabra sensible
@@ -816,7 +825,7 @@ voces de los videos también son de IA.
   cuentan la saca de las listas pero le deja la página (y lo que ya salió no se baja por cantidad). Si ya había salido
   en Facebook o Instagram, allá se borra a mano.
 - **El enlace no se rompe:** la dirección de una nota queda fija desde que sale aunque
-  cambie el titular, y la página dura 180 días aunque salga de la portada (con el tope de 3.700 notas, a unas 46 por día, son unos 80). Si la misma
+  cambie el titular, y la página dura 180 días aunque salga de la portada (el tope de notas del sitio es el de la variable `TOPE_DE_NOTAS`, hoy 500, y con unas 120 por día una nota está unos 4 días en el sitio; el resto de los 180 días lo da el archivo permanente en R2). Si la misma
   noticia tenía dos direcciones, la que se va redirige a la que queda.
 - **Cuando se arregla algo que estuvo mal publicado, se escribe una prueba**, para que no
   vuelva a pasar (`docs/10-REGLAS-Y-PRUEBAS.md`). Y si el error es de criterio, se
@@ -865,7 +874,6 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Notas que se le piden a la IA por corrida | 40 | `REESCRITURA.porCorrida` |
 | Notas que se le piden a la IA por día, como máximo (con la clave de lectura propia) | 450 | `REESCRITURA.porDia` |
 | Lo mismo, mientras la lectura con IA comparte la clave gratis | 330 | `REESCRITURA.porDiaSinClaveDeLectura` |
-| De esas, reservadas para lo de Balcarce (lo de afuera para antes) | 80 | `REESCRITURA.reservaParaLocales` |
 | Texto completo de cada fuente: caracteres que recibe la IA | 4000 | `REESCRITURA.caracteresDelTextoCompleto` |
 | Textos completos que recibe la IA, como mucho (de fuentes distintas) | 4 | `REESCRITURA.textosCompletosMaximo` |
 | Caracteres de todos los textos completos juntos, como mucho | 12000 | `REESCRITURA.caracteresDeTextosEnTotal` |
@@ -875,14 +883,14 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Antecedentes: días hacia atrás | 30 | `REESCRITURA.diasDeAntecedentes` |
 | Antecedentes: como máximo | 3 | `REESCRITURA.antecedentesMaximo` |
 | Portada: horas que una nota está en las listas | 36 | `PORTADA.horas` |
-| Horas que puede tener un hecho para publicarse por primera vez (una nota que nunca salió y es más vieja, no sale) | 12 | `PORTADA.horasParaEstrenar` |
-| Lo mismo, si lo cuentan `MUY_CONTADA.medios` medios o más | 24 | `PORTADA.horasParaEstrenarMuyContada` |
+| Horas que puede tener un hecho para publicarse por primera vez (una nota de afuera que nunca salió y es más vieja, no sale) | 12 | `PORTADA.horasParaEstrenar` |
+| Lo mismo, si la nota es de Balcarce (regla 293) | 36 | `PORTADA.horasParaEstrenarDeAca` |
 | Portada: horas que una nota compite por el lugar grande | 6 | `PORTADA.horasNotaGrande` |
 | Días que dura la página de una nota | 180 | `PORTADA.diasDeArchivo` |
-| Notas con página como máximo (por el tope de 20.000 archivos de Cloudflare; a unas 46 por día se llena y manda antes que los 180 días) | 3700 | `PORTADA.maximoDeNotas` |
+| Notas con página como máximo: el techo técnico (por el tope de 20.000 archivos de Cloudflare). El que rige hoy es la variable de GitHub `TOPE_DE_NOTAS` (500, nunca menos de 500 ni más de este número) | 3700 | `PORTADA.maximoDeNotas` |
 | Nota del dólar: cuánto tiene que moverse el blue o el oficial contra el día anterior para salir (%) | 2 | `NOTA_DEL_DOLAR.movimientoMinimo` |
 | Medios que tienen que contar lo nacional (se cambia con la variable de GitHub `MINIMO_NACIONAL`, sin tocar código) | 3 | `POPULARIDAD.minimoNacional` |
-| Medios que tienen que contar lo nacional en las áreas chicas: Tecnología e IA, Ciencia, Salud, Educación, Cultura (variable `MINIMO_AREAS_CHICAS`) | 2 | `POPULARIDAD.minimoAreasChicas` |
+| Medios que tienen que contar lo nacional en las áreas chicas: Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo (variable `MINIMO_AREAS_CHICAS`) | 2 | `POPULARIDAD.minimoAreasChicas` |
 | Orden de una sección: horas más nueva que vale una nota cada vez que se duplican los medios | 2 | `POPULARIDAD.horasPorDuplicarMedios` |
 | Muy contada: medios distintos que la cuentan (va primera en su sección; sobre 50 medios del país) | 8 | `MUY_CONTADA.medios` |
 | Muy contada: medios en sus primeras horas, de día | 5 | `MUY_CONTADA.mediosRapidos` |
@@ -890,13 +898,12 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Muy contada: cuántas son "las primeras horas" | 3 | `MUY_CONTADA.horasRapidas` |
 | Muy contada: la noche empieza a la hora | 20 | `MUY_CONTADA.nocheDesde` |
 | Muy contada: la noche termina a la hora | 7 | `MUY_CONTADA.nocheHasta` |
-| Muy contada: horas que puede tener el hecho | 24 | `MUY_CONTADA.horasDelHecho` |
-| Muy contada: horas que puede tener su nota más nueva | 24 | `MUY_CONTADA.horasDeLaUltimaNota` |
+| Muy contada: horas que puede tener el hecho (son también las que tiene para estrenarse lo que cuentan `MUY_CONTADA.medios` medios o más: un solo 24) | 24 | `MUY_CONTADA.horasDelHecho` |
+| Muy contada: horas que puede tener su nota más nueva (las mismas que las del hecho) | 24 | `MUY_CONTADA.horasDeLaUltimaNota` |
 | Muy contada: horas que va primera en su sección | 6 | `MUY_CONTADA.horasPrimeraEnSuSeccion` |
 | Muy contada: cuántas del mismo tema a la vez, como mucho | 2 | `MUY_CONTADA.porTema` |
 | Muy contada de acá: medios de Balcarce que la cuentan (primera para la nota grande y Facebook) | 3 | `MUY_CONTADA.mediosDeAca` |
 | Puntaje: lo que suma cada vez que se duplican los medios (sin tope) | 8 | `PUNTAJE.porDuplicarMedios` |
-| Lo de acá que espera a una persona en el celular: notas por día, como mucho | 5 | `ESPERA_PERSONA.deAcaPorDia` |
 | Facebook: notas por día, como máximo | 5 | `FACEBOOK.porDia` |
 | Facebook: relevancia mínima | 75 | `FACEBOOK.relevanciaMinima` |
 | Facebook e Instagram: medios distintos que tiene que contar lo de afuera para salir (lo de Balcarce no lo pide) | 5 | `FACEBOOK.mediosParaRedes` |

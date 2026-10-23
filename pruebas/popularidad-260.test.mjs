@@ -37,13 +37,13 @@ function conVariables(variables, f) {
 
 // ------------------------------------------------------------------ los dos números
 
-test('3 medios por defecto y 2 en las cinco áreas chicas; nada de afuera con uno solo', () => {
-  assert.deepEqual([...AREAS_CHICAS].sort(), ['Ciencia', 'Cultura y agenda', 'Educación', 'Salud', 'Tecnología']);
+test('3 medios por defecto y 2 en las siete áreas chicas; nada de afuera con uno solo', () => {
+  assert.deepEqual([...AREAS_CHICAS].sort(), ['Agro', 'Automovilismo', 'Ciencia', 'Cultura y agenda', 'Educación', 'Salud', 'Tecnología']);
   assert.equal(POPULARIDAD.minimoNacional, 3);
   assert.equal(POPULARIDAD.minimoAreasChicas, 2);
   for (const s of AREAS_CHICAS) { assert.equal(mediosMinimos(s), 2, s); assert.ok(esAreaChica(s)); }
-  // Agro y Automovilismo pedían 2 hasta la regla 260.
-  for (const s of ['Política', 'Economía', 'Fútbol', 'Deportes', 'Argentina', 'Balcarce', 'Agro', 'Automovilismo']) {
+  // Agro y Automovilismo pedían 2 hasta la regla 260, pidieron 3 hasta el 23/10 y vuelven a pedir 2 (regla 294).
+  for (const s of ['Política', 'Economía', 'Fútbol', 'Deportes', 'Argentina', 'Balcarce']) {
     assert.equal(mediosMinimos(s), 3, s);
     assert.ok(!esAreaChica(s));
   }
@@ -119,7 +119,10 @@ test('la popularidad de una nota: llega con 3, con 2 en un área chica; con 1, n
   assert.equal(popularidadDe(n('Ciencia'), 2).llega, true);
   assert.equal(popularidadDe(n('Ciencia'), 1).llega, false);
   assert.equal(popularidadDe(n('Ciencia', { especializada: true, interesDeLaIA: true }), 1).llega, false, 'el interés de la IA ya no destraba nada');
-  assert.equal(popularidadDe(n('Agro'), 2).llega, false, 'Agro ya no es un área chica');
+  // 23/10 (regla 294): Agro y Automovilismo volvieron a ser áreas chicas.
+  assert.equal(popularidadDe(n('Agro'), 2).llega, true, 'Agro es un área chica otra vez');
+  assert.equal(popularidadDe(n('Agro'), 1).llega, false);
+  assert.equal(popularidadDe(n('Automovilismo'), 2).llega, true);
   assert.equal(popularidadDe(n('Agro'), 3).llega, true);
 });
 

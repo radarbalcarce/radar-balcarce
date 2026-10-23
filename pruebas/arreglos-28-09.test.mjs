@@ -141,10 +141,9 @@ test('lo ya publicado que hoy espera sólo por los medios (o por el cupo viejo) 
   const [sola] = exigirMedios([deAfuera('s', { seccion: 'Policiales' })]);
   assert.equal(sola.semaforo, 'amarillo');
   assert.equal(esperaSoloPorCantidad(sola), true, sola.motivo);
-  // Y el motivo del cupo de antes (17/10, regla 215) sigue contando como "cantidad" en lo que quedó guardado.
-  const delCupoViejo = { semaforo: 'amarillo', motivo: 'pasó el cupo de Deportes de afuera (10 a la vez)' };
-  assert.equal(esperaSoloPorCantidad(delCupoViejo), true);
-  const pasadas = [sola, delCupoViejo];
+  // El motivo del cupo de antes (17/10, regla 215) se borró el 23/10 (regla 296): no quedaba nada guardado con él.
+  assert.equal(esperaSoloPorCantidad({ semaforo: 'amarillo', motivo: 'pasó el cupo de Deportes de afuera (10 a la vez)' }), false);
+  const pasadas = [sola];
 
   const conserva = (n) => esperaSoloPorCantidad(n);
   assert.equal(pierdeLaPagina(poca, { conserva }), false);

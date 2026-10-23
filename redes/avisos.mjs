@@ -73,7 +73,7 @@ export function pendientesDeLaIngesta(notas = [], decisiones = {}, ahora = new D
     const t = new Date(n.fecha).getTime();
     return n.cuando === 'sin fecha en la fuente' || !Number.isFinite(t) || t >= desde;
   };
-  // Lo mismo que va al celular (regla 200): de lo que no miró nadie, sólo lo de acá y con tope por día.
+  // Lo mismo que va al celular (regla 200): de lo que no miró nadie, sólo lo de acá (sin tope por día desde el 23/10, regla 295).
   const paraUnaPersona = idsParaUnaPersona((notas ?? []).filter((n) => n?.id && n.semaforo === 'amarillo'
     && !decisionHumana(decisiones?.[n.id]) && !MOTIVOS_DE_RELLENO.test(n.motivo ?? '') && enVentana(n)));
   for (const n of notas ?? []) {

@@ -369,7 +369,6 @@ import { PORTADA, MUY_CONTADA } from '../ingesta/criterio.mjs';
 
 test('una nota que nunca salió no se estrena con el hecho de más de 12 horas', () => {
   assert.equal(HORAS_PARA_ESTRENAR, PORTADA.horasParaEstrenar);
-  assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, PORTADA.horasParaEstrenarMuyContada);
   assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, MUY_CONTADA.horasDelHecho);
   assert.equal(MEDIOS_MUY_CONTADA, MUY_CONTADA.medios);
   const hace = (h) => new Date(Date.now() - h * 3600000).toISOString();
@@ -392,8 +391,10 @@ test('generar-datos no estrena lo que llega tarde ni le pide cuerpo a Gemini, y 
   const s = fs.readFileSync(path.join(import.meta.dirname, '..', 'web', 'scripts', 'generar-datos.mjs'), 'utf8');
   // La misma fecha decide las dos cosas, sin excepción para las notas sin hora
   // (28/09: una sin hora quedaba fuera de la reescritura pero se podía estrenar).
-  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*if \(!humana && !yaSalieron\.has\(n\.id\) && llegaTarde\(fecha, Date\.now\(\), horasParaEstrenar\(contarMedios\(n\.medios\)\)\)\) return null;/);
-  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*return vigenteEnPortada\(\{ fecha \}\) && \(yaSalieron\.has\(n\.id\) \|\| !llegaTarde\(fecha, Date\.now\(\), horasParaEstrenar\(contarMedios\(n\.medios\)\)\)\);/);
+  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*if \(!humana && !yaSalieron\.has\(n\.id\) && llegaTarde\(fecha, Date\.now\(\), horasDeEstreno\(n\)\)\) return null;/);
+  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*return vigenteEnPortada\(\{ fecha \}\) && \(yaSalieron\.has\(n\.id\) \|\| !llegaTarde\(fecha, Date\.now\(\), horasDeEstreno\(n\)\)\);/);
+  // Y las horas dependen de los medios y de si es de acá (regla 293).
+  assert.match(s, /const horasDeEstreno = \(n\) => horasParaEstrenar\(contarMedios\(n\.medios\), esDeAca\(n\)\);/);
 });
 
 // 8/10/2026 (C-5): un archivo de datos roto no puede vaciar el sitio ni hacer que las redes vuelvan a publicar lo ya publicado.

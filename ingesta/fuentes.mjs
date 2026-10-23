@@ -1610,8 +1610,8 @@ export const INSTITUCIONES_QUE_SORTEAN = ['bomberos', 'club', 'merendero', 'coop
   'comisión', 'comision', 'rotary', 'rotario', 'club de leones', 'lalcec', 'cáritas', 'caritas', 'centro de jubilados', 'hogar',
   'comedor', 'scouts', 'instituto', 'colegio', 'liga', 'cooperativa', 'bono contribución', 'bono contribucion'];
 
-/** El motivo con que queda amarilla una nota internacional sin relación con Balcarce. */
-export const MOTIVO_INTERNACIONAL = 'internacional: sin relación con Balcarce';
+/** El motivo con que queda amarilla una nota internacional (Trump, Putin…) sin un argentino y contada por menos de MUY_CONTADA.medios medios. */
+export const MOTIVO_INTERNACIONAL = 'internacional: sin un argentino en el título';
 
 // Las fuentes de tecnología de los diarios nacionales traen de todo (esa
 // cumbre, un partido, una serie): no alcanza con que el feed diga "Tecnología".
@@ -1648,14 +1648,8 @@ export const AMARILLO_MENORES = REGLAS_SEMAFORO.amarillo.filter((p) => ES_DE_MEN
 // publicadas habrían frenado 4 de 1.339 (0,3 %). No son de la lista amarilla para que no entren en AMARILLO_MENORES.
 export const AMARILLO_SOLO_EN_EL_PRINCIPIO = ['niños', 'niñas', 'nenes', 'nenas'];
 
-// Lo de Balcarce espera menos (2/10, Hernán: "si son de Balcarce que sean un poco menos estrictas, así salen más"). Dos cosas se
-// sueltan SÓLO para lo de acá (esDeAca) y nunca para lo rojo ni para lo de menores y víctimas:
-//   · "denuncia" / "denunció" suelto: un reclamo vecinal o una denuncia de un servicio no acusa a nadie.
-//   · "detenido", "acusado", "imputado": si la noticia la confirma una fuente oficial (Policía, Bomberos, la Municipalidad) o la
-//     cuentan al menos dos medios. Un solo medio de acá contando una detención sigue esperando a una persona.
-// "homicidio", "víctima", "cadáver", "baleado", lo de chicos y las muertes siguen frenando como antes.
-export const AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA = ['denuncia', 'denunció', 'denuncio'];
-export const AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN = ['detenido', 'acusado', 'imputado'];
+// (Hasta el 22/10/2026 acá estaban AMARILLO_QUE_SE_SUELTA_EN_LO_DE_ACA y AMARILLO_QUE_SE_SUELTA_SI_LA_CONFIRMAN, regla 96. Desde la regla 291
+// lo de acá suelta TODO el amarillo y las listas no cambiaban nada: se borraron el 23/10/2026, regla 296.)
 
 // Argentinos que, cuando aparecen, la gente quiere leer — aunque la noticia
 // no tenga nada que ver con Balcarce.

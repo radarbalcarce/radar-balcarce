@@ -25,7 +25,7 @@ escribir siempre en castellano rioplatense, claro y sin voseo forzado.
 Flujo: fuentes → ingesta → cruce → sección, puntaje y semáforo → lectura con IA →
 reescritura con IA → verificación → `web/data/*.json` → una sola compilación → Cloudflare Pages, todo
 en "Actualizar la web" (regla 189; "Cloudflare Pages" quedó a mano, de rescate); después, redes
-y vigilancia. Todo en GitHub Actions, disparado por el Worker de Cloudflare
+y vigilancia. Desde el 23/10 corre en Cloudflare (motor en Workers Builds, tareas en un Worker; GitHub Actions queda de vuelta atrás: `docs/TRASPASO.md`), disparado por el Worker de Cloudflare
 `radar-balcarce-reloj` (`infra/reloj-cloudflare/`). **La web, las redes, la
 vigilancia y el panel del celular andan con la PC apagada.**
 
@@ -42,7 +42,7 @@ vigilancia y el panel del celular andan con la PC apagada.**
 ## Reglas que no se negocian
 
 (La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; la
-próxima regla es la 284 (la 260 a la 263, el criterio simple, la estadística y las instrucciones de la IA más cortas) (la 280 a la 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la foto cambiada; las 258 a 279, de otras tandas): del 189 al 210 son los arreglos de Radar 2.0 del 17/10, por tandas y con huecos; la 211, las fotos con chicos de las
+próxima regla es la 297 (la 289 a la 296, de la auditoría integral del 23/10: policial nacional, fútbol sólo argentino, Balcarce sin amarillo, lo muy contado sin frenos, Balcarce con 36 horas, Agro y Automovilismo en 2 medios, el celular sin tope y la limpieza; la 284 a la 288, de otras tandas del 23/10) (la 260 a la 263, el criterio simple, la estadística y las instrucciones de la IA más cortas) (la 280 a la 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la foto cambiada; las 258 a 279, de otras tandas): del 189 al 210 son los arreglos de Radar 2.0 del 17/10, por tandas y con huecos; la 211, las fotos con chicos de las
 fuentes de Balcarce; la 212, la revisión del archivo entero por tandas; la 215 a la 218, lo nacional por popularidad sin cupos, las secciones nuevas
 siempre activas, las fuentes de ciencia, salud, educación y tecnología, y el orden por popularidad; la 230 a la 235, la mudanza a Cloudflare; la 240, OpenRouter;
 la 260 a la 263, la selección en seis líneas con su estadística, las fuentes de las áreas chicas y las instrucciones de la IA más cortas.)
@@ -78,7 +78,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   y los pega una persona. El repositorio es **público**: por eso lo que espera a una
   persona viaja cifrado para el celular.
 - **Sin cuerpo no se publica**: una nota automática sin cuerpo de 70 palabras o más no va a
-  ningún lado (`web/lib/cuerpo.js`); se reintenta hasta tres veces (mientras, en
+  ningún lado (`web/lib/cuerpo.js`); se reintenta hasta tres veces (cuatro con 5 medios, cinco con 8: `REESCRITURA.fuentesParaUnIntentoExtra` y `fuentesParaDosIntentosExtra`) (mientras, en
   `web/data/esperando-cuerpo.json`). Lo de una persona se respeta; un cuerpo en
   `web/data/correcciones.json` cuenta como cuerpo.
 - **El lector ve la nota, no el análisis**: título, bajada, cuerpo y un desplegable
@@ -101,9 +101,9 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   retira la revisión del archivo (regla 212) va aparte, en `web/data/revision-archivo.json`, que
   escribe sólo su workflow y no se poda: cuenta igual que lo retirado a mano.
 - **Las ventanas de tiempo**: la portada muestra **36 horas** (`HORAS_EN_PORTADA`; las secciones
-  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12** (**24** si lo cuentan 8 medios o más: regla 287);
-  la página dura 180 días en teoría, pero el tope es de 3.700 notas (a ~46 por día, unos 80 días: medido el 15/10, 15.900 archivos de los 20.000 de Cloudflare); lo raspado de más de 72 horas no entra. Los
-  números viven en `ingesta/criterio.mjs` **y** en `web/lib/archivo.js`.
+  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12** (**24** si lo cuentan 8 medios o más: regla 287; **36** si es de Balcarce: regla 293);
+  la página dura 180 días en teoría, pero el tope de notas en el sitio es el de la variable `TOPE_DE_NOTAS` (hoy **500**; el techo técnico de 3.700 es `PORTADA.maximoDeNotas`, medido el 15/10: 15.900 archivos de los 20.000 de Cloudflare) y, con unas 120 notas por día, una nota está unos 4 días en el sitio; el resto lo da el archivo permanente en R2; lo raspado de más de 72 horas no entra. Los
+  números viven en `ingesta/criterio.mjs` y `web/lib/archivo.js` los importa (no hay copias, desde la regla 293).
 - **Una nota tiene una sola fecha**, que envejece y nunca rejuvenece (`fechaReal`,
   `fechaDeLaNota`; una nota vieja de otro hecho que el cruce pega, de más de 48 h antes de verla, no la envejece: regla 194), y **una sola dirección**, fija desde que sale. La misma noticia que
   vuelve con otra dirección se une a la que ya estaba y redirige (`web/lib/repetidas.js`).
@@ -113,8 +113,9 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   no nombra nada de acá espera a la IA (`mencionaAca`).
 - **Lo de afuera se publica por popularidad, sin cupos ni topes** (reglas 215 y 260, Hernán 17/10), en seis
   líneas: Balcarce entra todo; lo nacional, con **3 medios** distintos (`MINIMO_NACIONAL`); en las áreas
-  chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura), con **2** (`MINIMO_AREAS_CHICAS`); sin cupos ni
-  topes; lo muy contado va primero; del extranjero, sólo con un argentino, y Policiales de afuera, nunca. Los
+  chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo: regla 294), con **2** (`MINIMO_AREAS_CHICAS`); sin cupos ni
+  topes; lo muy contado (8 medios o más) va primero y **no se frena por palabras sensibles, la lista internacional ni "es del extranjero"** (reglas 288 y 292; el rojo,
+  nunca); del extranjero, sólo con un argentino (`conArgentino`), y el fútbol de afuera sin argentinos, ni con 8 medios (regla 290); Policiales de afuera, sólo lo contado por 8 medios o más y la muerte de un famoso (regla 289). Los
   dos números se cambian con variables de GitHub, sin tocar código (`ingesta/popularidad.mjs`, `POPULARIDAD` en
   `ingesta/criterio.mjs`). Nunca con un solo medio. Lo que ya salió no se baja. Cómo cae todo se mide en
   `web/data/estadistica-seleccion.json` (regla 261): Hernán lo mira cada semana y regula.
@@ -174,7 +175,8 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 - **17/10, limpieza final**: se retiraron el panel de la PC y su "modo PC", los ensayos en sombra (selección nueva, feed de
   podcast, audio en la página, video de presentación), `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/`
   (los que se usan, en `scripts/medir/`). Todo queda en el historial de git (`docs/DECISIONES.md`, 17/10).
-- **Mudanza a Cloudflare, escrita y probada en Node, sin prender (18/10):** el motor en Workers Builds, las tareas chicas en un Worker (`radar-balcarce-tareas`) y el video en un repositorio público sin secretos; todo detrás de la variable `NUBE` del reloj (vacía = todo en GitHub, como hoy). Qué se eligió, con qué números y cómo se prende: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md` (reglas 230 a 235).
+- **Mudanza a Cloudflare: HECHA (23/10)** (según `docs/TRASPASO.md`): web, tareas, redes y video corren en Cloudflare con el reloj `NUBE`; el motor guarda lo que dice `infra/motor-cloudflare/archivos.mjs`; los workflows viejos de GitHub quedan de vuelta atrás y se apagan a mano. Antes de tocar "dónde corre" cada cosa, mirar el traspaso y `NUBE`, no esta lista. Lo que sigue es lo que se escribió el 18/10:
+- **Mudanza a Cloudflare, escrita el 18/10 (hoy hecha, ver arriba):** el motor en Workers Builds, las tareas chicas en un Worker (`radar-balcarce-tareas`) y el video en un repositorio público sin secretos; todo detrás de la variable `NUBE` del reloj (vacía = todo en GitHub, como hoy). Qué se eligió, con qué números y cómo se prende: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md` (reglas 230 a 235).
 - Lo que falta: **`PENDIENTES.md`**. Qué se decidió y las preguntas abiertas: **`docs/DECISIONES.md`**.
 
 ## Dónde tocar cada cosa
@@ -184,7 +186,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 | Sumar, sacar o apagar una fuente, o cambiar un peso | `ingesta/fuentes.mjs` o `ingesta/fuentes-cruce.mjs` (`activa: false`); después, `node ingesta/listar-fuentes.mjs` |
 | Pasar un trabajo de GitHub a Cloudflare (o volver), el motor en Workers Builds, el Worker de tareas, el render público | `NUBE` en `infra/reloj-cloudflare/nube.mjs`; `infra/motor-cloudflare/`; `infra/tareas-cloudflare/tareas.mjs` (`lee`/`escribe`); `infra/render-publico/` (copia de `reels/`: `node scripts/sincronizar-render-publico.mjs`); cómo se sube: workflow «Desplegar Workers de Cloudflare» y `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md` |
 | Que una palabra mande una nota a otra sección | `REGLAS_SECCION` (`ingesta/fuentes.mjs`); si es ambigua, también `PALABRAS_DEBILES` (`ingesta/ingesta.mjs`) |
-| Que algo espere a una persona o no salga nunca | `REGLAS_SEMAFORO` (`ingesta/fuentes.mjs`: `rojo` —no sin preguntar—, `nunca`, `amarillo`, `cotizacion`, `internacional`, `promocional`); lo que lo de Balcarce suelta: `AMARILLO_QUE_SE_SUELTA_*` (regla 96) |
+| Que algo espere a una persona o no salga nunca | `REGLAS_SEMAFORO` (`ingesta/fuentes.mjs`: `rojo` —no sin preguntar—, `nunca`, `amarillo`, `cotizacion`, `internacional`, `promocional`); lo de Balcarce y lo que cuentan 8 medios o más no esperan por el amarillo (reglas 291 y 292: `sueltaElAmarillo`, `ingesta/ingesta.mjs`); la cotización, `esCotizacionDelDia`; la muerte de un famoso en Policiales, `esMuerteDeFamosoEnPoliciales` (regla 289) |
 | Qué es "de acá" o "la zona" | `esDeAca` (`ingesta/ingesta.mjs`), `PALABRAS_LOCALES` y `PALABRAS_ZONA` (`ingesta/fuentes.mjs`) |
 | Cómo se juntan las notas del mismo hecho | `CRUCE` y el cruce coherente, que no encadena (`CRUCE.coherente`, `CRUCE_COHERENTE`, regla 184: `docs/flujo/CRUCE-COHERENTE.md`) (`ingesta/cruce.mjs`), `agruparRepetidas` y `quitarRepetidas` (`ingesta/lectura-ia.mjs`), y las que vuelven con otra dirección, `web/lib/repetidas.js`; lo de acá con otras palabras, la huella de significado (`ingesta/huellas-significado.mjs`, regla 195: `docs/flujo/REPETIDAS-2-0.md`) |
 | Cualquier número del criterio | `ingesta/criterio.mjs` **y** la tabla "Los números" de `CRITERIO-EDITORIAL.md` |

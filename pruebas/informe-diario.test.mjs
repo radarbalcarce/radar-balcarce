@@ -40,7 +40,7 @@ function datosDeEjemplo(cambios = {}) {
       { id: 'p1', titulo: null, seccion: 'Balcarce', motivo: 'necesita ojo humano: "niño"' },
       { id: 'p2', titulo: null, seccion: 'Policiales', motivo: 'necesita ojo humano: "homicidio"' },
       { id: 'p3', titulo: 'Un funcionario denunció a otro', seccion: 'Política', motivo: 'necesita ojo humano: "denunció"' },
-      { id: 'p4', titulo: 'Viaja a Estados Unidos el presidente', seccion: 'Política', motivo: 'internacional: sin relación con Balcarce' },
+      { id: 'p4', titulo: 'Viaja a Estados Unidos el presidente', seccion: 'Política', motivo: 'internacional: sin un argentino en el título' },
     ],
     esperandoCuerpo: 2,
   };
@@ -96,7 +96,9 @@ test('el momento sale de la hora de Balcarce, el día del informe es hoy (noche)
 });
 
 test('las constantes que copian a otro archivo dicen lo mismo que el original', () => {
-  assert.match(leer('web/lib/archivo.js'), new RegExp(`export const MAXIMO_EN_ARCHIVO = ${TOPE_DE_NOTAS};`));
+  // El techo técnico de notas ya no está copiado: el informe lo importa de web/lib/archivo.js (auditoría 23/10, M3).
+  assert.equal(TOPE_DE_NOTAS, 3700);
+  assert.match(leer('redes/informe-diario.mjs'), /export const TOPE_DE_NOTAS = MAXIMO_EN_ARCHIVO;/);
   assert.ok(leer('CRITERIO-REDES.md').includes('29/09/2027'), 'el vencimiento de las voces sigue siendo el 29/09/2027');
   assert.ok(VENCIMIENTOS_DEL_INFORME.some((v) => v.fecha === '2027-09-29'));
   assert.ok(VENCIMIENTOS_DEL_INFORME.some((v) => v.fecha === '2027-09-21'), 'el dominio');

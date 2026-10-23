@@ -75,10 +75,13 @@ import {
 } from '../../ingesta/ingesta.mjs';
 import { MOTIVO_ESPERA_LECTURA } from '../../ingesta/lectura-ia.mjs';
 import {
-  observarCorrida, anotarCorrida, contarUnSoloMedio, leerEstado as leerEstadisticaDeLaSeleccion, comoJson as comoEstadisticaDeLaSeleccionJson,
+  observarCorrida, anotarCorrida, contarUnSoloMedio, motivoDeUnaMuyContada, leerEstado as leerEstadisticaDeLaSeleccion, comoJson as comoEstadisticaDeLaSeleccionJson,
 } from '../../ingesta/estadistica-seleccion.mjs';
 import { reporteHtml as reporteDeLaSeleccionHtml } from '../../scripts/medir/estadistica-seleccion.mjs';
 import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
+
+/** Cuántas horas puede tener el hecho de esta nota para estrenarse: 12 si es de afuera, 24 si la cuentan MUY_CONTADA.medios o más, 36 si es de acá (regla 293). */
+const horasDeEstreno = (n) => horasParaEstrenar(contarMedios(n.medios), esDeAca(n));
 import { conFotosDelBanco, podarFotos, conMarcasDeAusenciaDeAntes,esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
 import { idsRetiradosPorLaRevision, parejasDeLaRevision } from '../lib/revision-archivo.js';
 import { actualizarAgenda, aplicarSuspendidos, comoAgendaJson } from '../lib/eventos.js';
@@ -450,7 +453,7 @@ const intentosAlEmpezar = JSON.stringify(intentos);
       const fecha = fechaReal(n);
       // Lo que ya no se va a estrenar (hecho de más de HORAS_PARA_ESTRENAR,
       // nunca salió) tampoco: no va a salir (28/09).
-      return vigenteEnPortada({ fecha }) && (yaSalieron.has(n.id) || !llegaTarde(fecha, Date.now(), horasParaEstrenar(contarMedios(n.medios))));
+      return vigenteEnPortada({ fecha }) && (yaSalieron.has(n.id) || !llegaTarde(fecha, Date.now(), horasDeEstreno(n)));
     });
   // El archivo va también como fuente de ANTECEDENTES: lo que el sitio ya
   // publicó sobre el mismo tema en los últimos 30 días (CRITERIO-EDITORIAL.md).
@@ -527,7 +530,7 @@ function notaPublicada(n) {
   // HORAS_PARA_ESTRENAR (llegaTarde, lib/archivo.js). Lo que publicó una
   // persona se respeta. Sin excepción para las notas sin hora: se cuentan desde
   // la primera vez que las vimos (fechaReal).
-  if (!humana && !yaSalieron.has(n.id) && llegaTarde(fecha, Date.now(), horasParaEstrenar(contarMedios(n.medios)))) return null;
+  if (!humana && !yaSalieron.has(n.id) && llegaTarde(fecha, Date.now(), horasDeEstreno(n))) return null;
   // Lo que decidió una persona manda. Si no, lo que ya reescribió la IA sola
   // en esta corrida o en una anterior. Si ninguna de las dos cosas pasó,
   // queda el resumen mecánico de la fuente, como salía antes de todo esto.
@@ -1311,7 +1314,7 @@ try {
     sacadasPorLaIA, repetidas: repetidasFuera, sinCuerpo: new Set(esperandoCuerpo.map((e) => e.id)),
     // Lo que no es de la selección sino de lo que pasa después: una persona la retiró o se unió a otra / el hecho llegó pasado de horas.
     retiradas: new Set(finales.filter((n) => RETIRADAS_A_MANO.has(n.id) || UNIDAS_FIRMES.has(n.id)).map((n) => n.id)),
-    tarde: new Set(finales.filter((n) => !yaSalieron.has(n.id) && llegaTarde(fechaReal(n), Date.now(), horasParaEstrenar(contarMedios(n.medios)))).map((n) => n.id)),
+    tarde: new Set(finales.filter((n) => !yaSalieron.has(n.id) && llegaTarde(fechaReal(n), Date.now(), horasDeEstreno(n))).map((n) => n.id)),
     yaSalieron, motivos: { pocoContada: MOTIVO_POCO_CONTADA, esperaLectura: MOTIVO_ESPERA_LECTURA },
     vistaDe: (id) => vistas[id] ?? null, ahora,
   });
@@ -1325,10 +1328,20 @@ try {
     const titulos = new Map(delCruce.map((h) => [h.id, h.titulo]));
     const motivoDeLasFinales = new Map(finales.map((n) => [n.id, n.motivo]));
     dias[hoy] ??= {};
+    const finalPorId = new Map(finales.map((n) => [n.id, n]));
     for (const o of observaciones) {
-      if (o.resultado === 'publicada') { delete dias[hoy][o.id]; continue; } // si más tarde salió, deja de figurar como no publicada
-      if (o.medios < 8) continue;
-      dias[hoy][o.id] = [String(titulos.get(o.id) ?? '').slice(0, 140), o.seccion, o.medios, o.resultado, String(motivosDeLaIA.get(o.id) ?? motivoDeLasFinales.get(o.id) ?? '').slice(0, 90)];
+      // Si más tarde salió, deja de figurar como no publicada (en cualquiera de los días guardados, no sólo en el de hoy).
+      if (o.resultado === 'publicada') { for (const d of Object.values(dias)) delete d[o.id]; continue; }
+      if (o.medios < MUY_CONTADA.medios) continue;
+      const final = finalPorId.get(o.id);
+      const motivo = motivoDeUnaMuyContada(o, {
+        motivo: motivosDeLaIA.get(o.id) ?? motivoDeLasFinales.get(o.id),
+        escrita: !!reescritas[o.id],
+        enLaPortada: !final || vigenteEnPortada({ fecha: fechaReal(final) }),
+      });
+      // Se vuelve a escribir en cada vuelta (con el estado de ahora) y, si estaba en otro día, se mueve al de hoy: una sola entrada por historia.
+      for (const d of Object.values(dias)) delete d[o.id];
+      dias[hoy][o.id] = [String(titulos.get(o.id) ?? '').slice(0, 140), o.seccion, o.medios, o.resultado, motivo.slice(0, 110)];
     }
     const quedan = Object.keys(dias).sort().slice(-3);
     const texto = JSON.stringify({ version: 1, dias: Object.fromEntries(quedan.map((d) => [d, dias[d]])) }, null, 1) + '\n';

@@ -100,9 +100,12 @@ test('lo muy contado (8 medios) no espera por "denunció"; con 3 medios, sí', (
   assert.equal(paraPruebas.semaforo(nota(3), 'Fútbol', 3).color, 'amarillo');
 });
 
-test('la lectura con IA no saca por "es del extranjero" lo que cuentan 8 medios o más', () => {
-  const ficha = { ambito: 'internacional', seccion: 'Fútbol', impacto: 'nulo', razon: 'ninguna', importancia: 'media', publicidad: false, chimento: false, porque: '', cuando: '2026-10-23T00:00:00.000Z' };
-  const nota = (n) => ({ id: 'f1', titulo: 'Un clásico europeo que cuentan todos', seccion: 'Fútbol', semaforo: 'verde', alcance: 'pais', medios: Array.from({ length: n }, (_, i) => `M${i}`) });
+test('la lectura con IA no saca por "es del extranjero" lo que cuentan 8 medios o más (salvo el fútbol de afuera sin argentinos: regla 290, auditoría 23/10)', () => {
+  const ficha = { ambito: 'internacional', seccion: 'Política', impacto: 'nulo', razon: 'ninguna', importancia: 'media', publicidad: false, chimento: false, porque: '', cuando: '2026-10-23T00:00:00.000Z' };
+  const nota = (n) => ({ id: 'f1', titulo: 'Una cumbre de líderes europeos que cuentan todos', seccion: 'Política', semaforo: 'verde', alcance: 'pais', medios: Array.from({ length: n }, (_, i) => `M${i}`) });
   assert.equal(aplicarFichas([nota(9)], { f1: ficha }).cambios.sacadas.length, 0);
   assert.equal(aplicarFichas([nota(3)], { f1: ficha }).cambios.sacadas.length, 1);
+  // Un clásico europeo sin argentinos no sale ni con 9 medios: la regla de fútbol (sólo Primera y argentinos) manda sobre el 8.
+  const clasico = { ...nota(9), titulo: 'Un clásico europeo que cuentan todos', seccion: 'Fútbol' };
+  assert.equal(aplicarFichas([clasico], { f1: { ...ficha, seccion: 'Fútbol' } }).cambios.sacadas.length, 1);
 });

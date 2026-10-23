@@ -152,12 +152,12 @@ test('regla 215: lo que ya salió no se baja por cantidad, y lo que había queda
   const frenada = { ...publicada, semaforo: 'amarillo', motivo: 'de afuera y poco contada (2 medios; Política pide 3)' };
   exigirMedios([frenada], { publicadas: new Set(['pub']) });
   assert.equal(frenada.semaforo, 'verde');
-  // Datos guardados con el cupo viejo: vuelven a su motivo y se miran de nuevo con los medios.
-  const delCupo = { ...deAfuera('cupo', { titulo: 'Una con cupo viejo' }), semaforo: 'amarillo', motivo: 'pasó el cupo de Política de afuera (8 a la vez)', motivoAntesDelCupo: 'sección Política' };
-  exigirMedios([delCupo]);
-  assert.equal(delCupo.semaforo, 'verde');
-  assert.equal(delCupo.motivo, 'sección Política');
-  assert.equal(delCupo.motivoAntesDelCupo, undefined);
+  // Un policial de afuera que esperaba por ser de afuera vuelve a su motivo y se mira de nuevo (acá, un policial que hoy es la muerte de un famoso).
+  const policial = { ...deAfuera('pol-famoso', { titulo: 'Murió el cantante Juan Pérez' }), seccion: 'Policiales', semaforo: 'amarillo', motivo: 'Policiales de afuera: la sección es sólo de Balcarce y la zona', motivoAntes: 'sección Policiales' };
+  exigirMedios([policial]);
+  assert.equal(policial.semaforo, 'verde');
+  assert.equal(policial.motivo, 'sección Policiales');
+  assert.equal(policial.motivoAntes, undefined);
 });
 
 test('regla 197: lo muy contado de afuera se escribe con IA antes que el resto de lo de afuera (sin cuerpo no sale)', async () => {

@@ -144,7 +144,7 @@ test('por qué espera una nota, dicho para una persona: cada motivo que pone el 
     ['parece promoción, no noticia: "sorteo"', 'promocion', /promoción/],
     ['verificación baja: espera a una persona', 'verificacion', /un solo medio/],
     ['de afuera, contada por 2 medios', 'poco-contada', /menos medios/],
-    ['internacional: sin relación con Balcarce', 'extranjero', /otro país/],
+    ['internacional: sin un argentino en el título', 'extranjero', /otro país/],
     ['de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA', 'lectura', /copiada/],
     ['la sección es sólo de Balcarce y la zona', 'seccion-de-aca', /sólo para lo de Balcarce/],
   ];

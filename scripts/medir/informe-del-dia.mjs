@@ -774,7 +774,7 @@ ${A.raro.localesPublicadasSinLectura.length ? `<p class="chico">Además salieron
 <div class="tabla-envoltura"><table class="nums"><thead><tr><th>Medios</th><th class="n">Historias</th><th class="n">Salieron</th><th class="n">Esperan</th><th class="n">No salen</th></tr></thead><tbody>
 ${pm('1').total ? filaBalde('1 (excepción: nombra la zona o es oficial)', pm('1')) : ''}${filaBalde('2', dos)}${filaBalde('3', tres)}${filaBalde('4', cuatro)}${filaBalde('5 o más', cinco)}
 </tbody></table></div>
-<p class="chico">La regla de hoy pide 3 medios (Fútbol y Deportes 4; Economía, Tecnología, Agro y Automovilismo 2). De las ${dos.total} historias de 2 medios, ${dosRutina} son pronósticos del tiempo, partidos "en vivo" o lo que la IA ya saca (chimentos, del extranjero, sin relación con Balcarce).</p>
+<p class="chico">La regla de hoy pide 3 medios (2 en las áreas chicas: Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo). De las ${dos.total} historias de 2 medios, ${dosRutina} son pronósticos del tiempo, partidos "en vivo" o lo que la IA ya saca (chimentos, del extranjero sin un argentino).</p>
 <details class="literal" open><summary><span>Contadas por 5 medios o más (${cinco.total})</span><small>las más contadas primero</small></summary><div class="lit-md">${listaBalde(cinco, 20)}</div></details>
 <details class="literal"><summary><span>Contadas por 4 medios (${cuatro.total})</span></summary><div class="lit-md">${listaBalde(cuatro, 20)}</div></details>
 <details class="literal"><summary><span>Contadas por 3 medios (${tres.total})</span></summary><div class="lit-md">${listaBalde(tres, 30)}</div></details>

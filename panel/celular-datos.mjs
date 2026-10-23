@@ -17,31 +17,20 @@
 
 import { decisionHumana } from '../ingesta/utiles.mjs';
 import { esDeAca, esDeUnMedioDeAca } from '../ingesta/ingesta.mjs';
-import { ESPERA_PERSONA } from '../ingesta/criterio.mjs';
-import { diaAR } from '../ingesta/zona.mjs';
 
 /** ¿Es de acá, para esperar a una persona? (esDeAca, o un organismo o un medio de Balcarce que nombra algo de acá) */
 const deAcaParaUnaPersona = (n) => esDeAca(n) || esDeUnMedioDeAca(n);
 
 /**
- * De lo amarillo que todavía no miró nadie, lo que va a una persona (regla 200, 17/10/2026): sólo lo de acá, y como
- * mucho ESPERA_PERSONA.deAcaPorDia por día (las de más puntaje). Lo de afuera que no sale solo no va al celular:
- * desde el 8/10 no hubo una sola decisión de una persona y esperaban unas 33 notas por día, casi todas de afuera
- * (docs/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md § 5.1). Devuelve los identificadores que quedan.
+ * De lo amarillo que todavía no miró nadie, lo que va a una persona (regla 200, 17/10/2026): sólo lo de acá. Lo de afuera que
+ * no sale solo no va al celular: desde el 8/10 no hubo una sola decisión de una persona y esperaban unas 33 notas por día, casi
+ * todas de afuera (docs/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md § 5.1). Desde el 23/10/2026 (regla 295, Hernán, auditoría D7)
+ * ya no hay tope de cinco por día: casi nada de acá queda amarillo (verificación baja, promoción dudosa) y lo que queda lo tiene
+ * que ver alguien. Devuelve los identificadores que quedan.
  */
-export function idsParaUnaPersona(notas = [], { porDia = ESPERA_PERSONA.deAcaPorDia } = {}) {
-  const porDiaDeLaNota = new Map();
-  for (const n of notas) {
-    if (!n?.id || !deAcaParaUnaPersona(n)) continue;
-    const t = Date.parse(n.fecha ?? '');
-    const dia = Number.isFinite(t) ? diaAR(new Date(t)) : 'sin fecha';
-    if (!porDiaDeLaNota.has(dia)) porDiaDeLaNota.set(dia, []);
-    porDiaDeLaNota.get(dia).push(n);
-  }
+export function idsParaUnaPersona(notas = []) {
   const quedan = new Set();
-  for (const lista of porDiaDeLaNota.values()) {
-    for (const n of [...lista].sort((a, b) => (b.relevancia ?? 0) - (a.relevancia ?? 0)).slice(0, porDia)) quedan.add(n.id);
-  }
+  for (const n of notas) if (n?.id && deAcaParaUnaPersona(n)) quedan.add(n.id);
   return quedan;
 }
 

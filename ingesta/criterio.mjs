@@ -116,11 +116,6 @@ export const REESCRITURA = {
   // que el tope baja: 330 + 120 = 450, por debajo de los 500 gratis. Lo elige
   // topeDeReescrituras (reels/reescritura.mjs).
   porDiaSinClaveDeLectura: 330,
-  // De esos, los últimos quedan reservados para lo de Balcarce: lo de afuera
-  // deja de pedirse antes, así lo local que llega a la noche no se queda sin
-  // cupo (26/09: a las 21:30 ya se habían gastado los 150 y tres notas locales
-  // importantes esperaban sin cuerpo).
-  reservaParaLocales: 80,
   // El texto completo de CADA fuente que recibe la IA (lo corta ingesta/articulo.mjs al bajarlo).
   caracteresDelTextoCompleto: 4000,
   // La entrada ampliada (15/10, regla 174; ingesta/fuentes-para-la-ia.mjs): la IA recibe el texto
@@ -155,9 +150,9 @@ export const PORTADA = {
   // 140 salían con más de 24 horas, por esperar medios o cuerpo).
   // 12 (28/09, Hernán eligió 12 entre 2, 12 y 24).
   horasParaEstrenar: 12,
-  // Lo que cuentan MUY_CONTADA.medios medios o más se estrena con el hecho de hasta esto (23/10, Hernán: "más de 8 fuentes debería ser algo
-  // súper relevante"): son las mismas horas que MUY_CONTADA.horasDelHecho. Antes las 12 dejaban sin salir 150 a 250 historias por día.
-  horasParaEstrenarMuyContada: 24,
+  // Lo de Balcarce (esDeAca) se estrena con el hecho de hasta esto (23/10/2026, Hernán, auditoría D5: «Balcarce entra todo»; los medios de acá
+  // publican tarde y las notas esperan cuerpo, y con 12 se perdían a medio camino). Son las mismas horas que dura en la portada.
+  horasParaEstrenarDeAca: 36,
   horasNotaGrande: 6,
   diasDeArchivo: 180,
   // Tope de notas con página (web/lib/archivo.js, MAXIMO_EN_ARCHIVO). Cloudflare Pages acepta 20.000 archivos por despliegue y, medido el
@@ -174,10 +169,11 @@ export const PORTADA = {
 //
 //   1. Lo de Balcarce entra todo: no pide medios ni tiene tope.
 //   2. Lo nacional entra si lo cuentan `minimoNacional` medios distintos (3; los del mismo dueño cuentan uno).
-//   3. En las áreas chicas (AREAS_CHICAS: Tecnología e IA, Ciencia, Salud, Educación, Cultura) alcanzan `minimoAreasChicas` (2).
+//   3. En las áreas chicas (AREAS_CHICAS: Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro, Automovilismo) alcanzan `minimoAreasChicas` (2).
 //   4. No hay cupos ni topes de nada: ni por sección, ni por día, ni por área.
 //   5. Lo "muy contado" (MUY_CONTADA) va primero en su sección.
-//   6. Del extranjero, sólo con un argentino; Policiales de afuera no sale solo nunca.
+//   6. Del extranjero, sólo con un argentino o si lo cuentan MUY_CONTADA.medios medios o más (el fútbol de afuera sin argentinos,
+//      ni así: regla 290); Policiales de afuera sólo si lo cuentan MUY_CONTADA.medios o más o es la muerte de un famoso (regla 289).
 //
 // Los dos números se regulan SIN tocar código con las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS`
 // (ingesta/popularidad.mjs las lee); acá están los de siempre, que son los que controla CRITERIO-EDITORIAL.md. Hasta la regla
@@ -194,9 +190,9 @@ export const POPULARIDAD = {
 };
 
 /** Las áreas donde suele haber poco: piden `minimoAreasChicas` medios y no `minimoNacional` (claves de sección; Espectáculos va
- *  dentro de Cultura y agenda). Agro y Automovilismo, que pedían 2 hasta la regla 260, vuelven al mínimo de todos: si hace falta
- *  sumarlas, es una palabra más en esta lista. */
-export const AREAS_CHICAS = ['Tecnología', 'Ciencia', 'Salud', 'Educación', 'Cultura y agenda'];
+ *  dentro de Cultura y agenda). Agro y Automovilismo pedían 2 hasta la regla 260, pasaron al mínimo de todos y el 23/10/2026
+ *  (regla 294, Hernán, auditoría D8) volvieron: Agro salió 0 de 139 el 22/10. */
+export const AREAS_CHICAS = ['Tecnología', 'Ciencia', 'Salud', 'Educación', 'Cultura y agenda', 'Agro', 'Automovilismo'];
 
 /** Secciones que son sólo de Balcarce y la zona: lo de afuera no sale solo (antes, cupo 0). */
 export const SECCIONES_SOLO_DE_ACA = ['Policiales'];
@@ -212,6 +208,7 @@ export const SECCIONES_SOLO_DE_ACA = ['Policiales'];
 // medios del país: si la lista de fuentes cambia mucho, el 8 significa otra cosa y hay que volver a mirarlo.
 // Lo de acá no lo necesita para salir: entra todo. Pero lo que cuentan `mediosDeAca` medios de Balcarce o
 // más es "muy contada de acá" (lo que más se lee del sitio): primera candidata a la nota grande y a Facebook.
+const HORAS_MUY_CONTADA = 24;
 export const MUY_CONTADA = {
   medios: 8,
   mediosRapidos: 5,
@@ -219,9 +216,10 @@ export const MUY_CONTADA = {
   horasRapidas: 3,
   nocheDesde: 20,
   nocheHasta: 7,
-  horasDelHecho: 24,
-  // 24 (23/10): igual que el estreno de lo muy contado (PORTADA.horasParaEstrenarMuyContada); con 12, una historia grande de ayer a la noche salía sin la marca.
-  horasDeLaUltimaNota: 24,
+  horasDelHecho: HORAS_MUY_CONTADA,
+  // Las mismas horas (23/10): un solo 24 para "hasta cuándo una historia de 8 medios o más es noticia". Es también cuánto puede tener
+  // el hecho para estrenarse (web/lib/archivo.js, horasParaEstrenar). Con 12, una historia grande de ayer a la noche salía sin la marca.
+  horasDeLaUltimaNota: HORAS_MUY_CONTADA,
   horasPrimeraEnSuSeccion: 6,
   porTema: 2,
   mediosDeAca: 3,
@@ -234,12 +232,6 @@ export const PUNTAJE = {
   porDuplicarMedios: 8,
 };
 
-// Lo que espera a una persona en el panel del celular (regla 200): sólo lo de acá, y como mucho
-// `deAcaPorDia` notas por día (las de más puntaje). Lo de afuera que no sale solo, no sale: desde el 8/10
-// nadie lo miraba (18 decisiones en total contra unas 33 notas por día esperando).
-export const ESPERA_PERSONA = {
-  deAcaPorDia: 5,
-};
 
 /** Secciones que no salen solas a ninguna red: las decide una persona. */
 export const SECCIONES_QUE_ESPERAN_PERSONA = ['Policiales', 'Política'];
@@ -319,7 +311,6 @@ export const NUMEROS_DEL_CRITERIO = {
   POPULARIDAD,
   MUY_CONTADA,
   PUNTAJE,
-  ESPERA_PERSONA,
   FACEBOOK,
   PIEZAS,
   CONTRATO_DIARIO,

@@ -150,21 +150,21 @@ test('la política de un estado de otro país tampoco sale sola, aunque no sea u
   // intercambio estudiantil con México" salió sola en Política por la
   // palabra "gobernador". La lista de internacional sólo tenía líderes
   // mundiales.
-  const abierto = (n) => paraPruebas.semaforo({ ...n, cuerpo: 'El gobernador de California, Gavin Newsom, promulgó la ley.' }, 'Política', 80);
+  const abierto = (n) => paraPruebas.semaforo({ ...n, cuerpo: 'El gobernador de California, Gavin Newsom, promulgó la ley.' }, 'Política', 3);
   const california = abierto(nacional('California promulga una ley para fortalecer el intercambio estudiantil con México'));
   assert.equal(california.color, 'amarillo');
   assert.match(california.motivo, /internacional/);
 });
 
 test('lo internacional sin relación con Balcarce no sale solo; lo de acá, sí', () => {
-  const abierto = (n) => paraPruebas.semaforo({ ...n, cuerpo: 'Texto.' }, 'Política', 80);
+  const abierto = (n) => paraPruebas.semaforo({ ...n, cuerpo: 'Texto.' }, 'Política', 3);
   const cumbre = abierto(nacional('Donald Trump y Xi Jinping concluyen su cumbre en Washington'));
   assert.equal(cumbre.color, 'amarillo');
   assert.match(cumbre.motivo, /internacional/);
   // Si nombra a Balcarce, es otra cosa.
-  assert.notEqual(abierto(nacional('Trump impone aranceles y afecta a los productores de papa de Balcarce', { nombraBalcarce: true })).motivo, 'internacional: sin relación con Balcarce');
+  assert.notEqual(abierto(nacional('Trump impone aranceles y afecta a los productores de papa de Balcarce', { nombraBalcarce: true })).motivo, 'internacional: sin un argentino en el título');
   // Una nota local nunca.
-  assert.notEqual(abierto({ ...nacional('Viaje a la cumbre del G20', {}), alcance: 'local' }).motivo, 'internacional: sin relación con Balcarce');
+  assert.notEqual(abierto({ ...nacional('Viaje a la cumbre del G20', {}), alcance: 'local' }).motivo, 'internacional: sin un argentino en el título');
   // Lo argentino no se toca.
-  assert.notEqual(abierto(nacional('Milei y Caputo presentan el presupuesto en el Congreso')).motivo, 'internacional: sin relación con Balcarce');
+  assert.notEqual(abierto(nacional('Milei y Caputo presentan el presupuesto en el Congreso')).motivo, 'internacional: sin un argentino en el título');
 });

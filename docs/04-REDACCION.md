@@ -78,7 +78,6 @@ queda como estaba escrita.
 | Fallas de Gemini en una corrida para dejar de insistir | 3 | `FALLOS_PARA_CORTAR` |
 | Notas por día (día de Balcarce), con la clave de lectura propia cargada | 450 | `REESCRITURA.porDia` |
 | Lo mismo, si la lectura con IA comparte la clave de redacción | 330 | `REESCRITURA.porDiaSinClaveDeLectura` (lo elige `topeDeReescrituras`) |
-| De esas, las últimas reservadas para lo de Balcarce | 80 | `REESCRITURA.reservaParaLocales` |
 | Intentos por nota, en corridas distintas | 3 | `REESCRITURA.intentosMaximos` (`MAXIMO_DE_INTENTOS`) |
 | Uno más si la cuentan 5 medios o más; dos más desde 8 (1/10) | 4 o 5 | `fuentesParaUnIntentoExtra`, `fuentesParaDosIntentosExtra` (lo suma `intentosMaximosPara`) |
 | Días que se recuerdan los intentos | 7 | `REESCRITURA.diasDeIntentos` |

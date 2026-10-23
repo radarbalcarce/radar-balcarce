@@ -12,7 +12,7 @@ Hoy: **125 feeds activos de 76 medios** (287 configurados).
 4. **Qué queda:**
    - todo lo de los medios de Balcarce;
    - de afuera, lo que dice Balcarce en el título o toca la zona (la ruta 226, la 55, la papa);
-   - de afuera, lo que cuentan 3 medios distintos, o 2 en las áreas chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura y agenda); los dos números se cambian con las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (`POPULARIDAD`, en `ingesta/criterio.mjs`). Nunca con un solo medio, y sin cupos.
+   - de afuera, lo que cuentan 3 medios distintos, o 2 en las áreas chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura y agenda, Agro, Automovilismo); los dos números se cambian con las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (`POPULARIDAD`, en `ingesta/criterio.mjs`). Nunca con un solo medio, y sin cupos.
    - Lo que cuentan **sólo** medios de otras ciudades de la zona (Mar del Plata, Tandil, Necochea…) no se trae.
 5. **El peso** sirve para ordenar (qué va primero, qué va a las redes), no para decidir si sale. Lo de Balcarce pesa más a propósito.
 6. **"Oficial"** es un organismo público (la Municipalidad, el Gobierno de la Provincia): da verificación alta y sale solo si dice Balcarce en el título o toca la zona.
