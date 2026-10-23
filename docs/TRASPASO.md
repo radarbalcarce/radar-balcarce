@@ -49,3 +49,10 @@ Mirar la estadística de selección (cuántas notas llegan, con cuántos medios,
 
 ## Si se acaban los tokens de Claude
 `scripts\claude-con-openrouter.cmd` (DeepSeek V4 Pro por OpenRouter, con la clave que ya está en la PC) o `node scripts/deepseek.mjs "pregunta"`. Detalle en `docs/11-OPERACION.md`.
+
+## Semana del 26/10: redes, reels y animaciones (acordado el 23/10)
+
+- No bajar posteos de notas en redes con las estadísticas de hoy: la cuenta recién arranca y todavía no es conocida. Se decide con la cuenta crecida.
+- Pensar más reels (en Facebook rinde el video corto) y elegir con qué noticias empezar: lo de Balcarce y la zona, el resumen del día y lo nacional más contado. A definir con Hernán.
+- Revisar las animaciones mirando lo que está publicado hoy en Facebook e Instagram. Los videos de `reels/salida/` son viejos y no sirven de referencia (el de farmacia ya tiene otro diseño).
+- Armar bien todas las redes: bio, formato por red y continuidad de las voces.
