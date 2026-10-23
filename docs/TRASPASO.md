@@ -1,7 +1,7 @@
 # Traspaso: dónde estamos y qué sigue
 
 *Se actualiza cada vez que se cierra una tanda. Para retomar con otra sesión (por ejemplo con DeepSeek: `scripts\claude-con-openrouter.cmd`)
-leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actualización: 21/10/2026.*
+leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actualización: 22/10/2026.*
 
 ## Cómo se trabaja
 - Hablar siempre en castellano rioplatense, claro. Los dueños (Hernán y Andrés) no programan: **pedirles cada cosa una sola vez**, con el enlace y el paso.
@@ -17,11 +17,10 @@ leer primero `CLAUDE.md`, después este archivo y `PENDIENTES.md`. Última actua
 - Mudanza a Cloudflare: el código está en `main` apagado (variable `NUBE` vacía); plan en `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.
 - Sitio: sitemap de noticias, `/hoy`, firma de IA adentro de "Fuentes", datos estructurados. Redes: hashtags fijos, lo que va a Facebook solo Balcarce o lo más contado.
 
-## EN CURSO AHORA (21/10, pedido de Hernán): hacer la mudanza a Cloudflare entera, ya
-- Hernán pidió: nada de ensayos largos ni dramatismo; la web recién arranca, se puede frenar uno o dos días; relanzamiento el mes que viene. Quiere el sitio como hoy pero en Cloudflare, con menos gasto, y el repo principal en privado al final (el de render queda público). Después se mejora módulo por módulo.
-- Estado real al 21/10 (mirado en GitHub): pasos 1 y 2 del plan hechos (código en `main`, repo `radar-balcarce-render` con su prueba verde). El paso 3 no empezó: faltan los secretos `RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` y la variable `R2_RENDER=radar-render`, y el token de Cloudflare necesita los permisos extra (R2, KV, Workers Scripts, Pages: Edit). Esas llaves las crea y pega una persona; nunca en el chat.
-- Cuando Hernán diga «listo» con las llaves: seguir `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md` desde el paso 3 hasta el 9 sin pausas largas (un ensayo corto de cada paso, el que el plan ya trae), después repo principal a privado (con tope de gasto de Actions en US$ 0) — Hernán ya pidió esto explícitamente.
-- Ojo cupo: el 21/10 el cupo semanal de Claude llegó al 100% (se renueva jueves 22/10 ~9:00). Se prendió DeepSeek (`scripts\usar-deepseek.cmd`) para las sesiones nuevas. Con DeepSeek no hay Remote Control del celular.
+## Mudanza a Cloudflare (22/10/2026): HECHA y andando
+- En Cloudflare: la web (motor en Workers Builds, ensayo ok y vueltas reales desde 20:39), vigilancia, informe, auditoría IA, pistas, ilustraciones y redes (el repaso de las 21:00 salió en Instagram desde la nube). El reloj manda a la nube la lista de NUBE: vigilancia, informe-diario, auditoria-ia, pistas, ilustrar-notas, redes y actualizar.- Las variables de Workers Builds se cargan con el workflow «Cargar variables del motor» (usa CF_BUILDS_TOKEN); las del Worker de tareas, con «Desplegar Workers de Cloudflare» (REDES_ACTIVAS_NUBE, R2_ARCHIVO, y la lista NUBE). Ensayos: «Ensayo en seco de la nube» y «Ensayo del motor en Cloudflare». Diagnóstico de Meta: «Diagnóstico de Instagram». GitHub: REDES_ACTIVAS=No (las redes salen de la nube con REDES_ACTIVAS_NUBE=Si).
+- FALTA (a mano, el sistema de permisos no me dejó): (1) apagar en GitHub → Actions los siete workflows viejos: Actualizar la web, Redes, Vigilancia, Auditoría IA, Pistas, Informe diario, Ilustrar notas sin foto (Disable workflow; se reactivan con un clic); (2) tope de gasto de Actions en US$ 0 (github.com/settings/billing/budgets); (3) repositorio principal a privado (Settings → Danger zone), si la observación sale limpia. Vuelta atrás: ver PLAN-DE-CAMBIO.md.
+- Después (Hernán 22/10): limpieza de código y archivos sin uso, informe del flujo de noticias y redes de punta a punta, clave paga de Gemini para voces, análisis de las fotos con IA (salen malas), sacar el cartel «Redacción con IA» del encabezado para SEO (dejarlo en Fuentes) y notas más originales; más notas o mejores. Auditoría de Meta AI recibida (PDF): sirve como ideas.
 
 ## En curso (si se corta, retomar de acá)
 1. **Animaciones del repaso, guiones con continuidad y voces nuevas: terminado y subido** (reglas 300 a 302; `docs/redes/GUION-DEL-DIA-EJEMPLO.md`, `docs/redes/VOCES-NUEVAS.md`). Falta oírlo y verlo: el ejemplo renderizado está en el scratchpad de la sesión; rehacerlo con `node reels/guion-del-dia.mjs` y los scripts de reels. Voces: guardar la referencia de las voces actuales ANTES de cambiar la clave de Gemini.
