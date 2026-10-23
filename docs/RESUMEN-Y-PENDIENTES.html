@@ -44,14 +44,14 @@ th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--linea)
 <li><div><b>Menos mails.</b><span>El informe diario sale corto y dice cuántas visitas son de Argentina. El vigilante repite avisos cada 24 horas y no manda el «se arregló».</span></div></li>
 <li><div><b>Documentos limpios.</b><span>Se sacaron las contradicciones (Facebook, «fuentes consultadas», ejemplos, tiempos). Hay una página con todas las reglas y prompts reales.</span></div></li>
 <li><div><b>Pruebas estables.</b><span>Dos pruebas que fallaban según la hora ya no dependen del reloj. Pasan las 2.937.</span></div></li>
-<li><div><b>Archivo en R2 cargando solo.</b><span>1.124 notas guardadas y comprobadas. Todavía no se enciende la ruta pública (ver mis pendientes).</span></div></li>
+<li><div><b>Archivo permanente en R2: ENCENDIDO (23/10).</b><span>1.124 notas guardadas. La ruta <code>radarbalcarce.com/nota/*</code> ya pasa por el Worker del archivo: lo que el sitio no tenga se sirve desde R2 en vez de dar 404. Se arregló el 503 (el Worker se llamaba a sí mismo). Falta sumar las fotos (ruta aparte) antes de bajar el tope de notas del sitio.</span></div></li>
 <li><div><b>Datos nuevos para decidir.</b><span><code>web/data/muy-contadas.json</code> guarda los hechos de 8 o más medios que no salen, con título y motivo. Se llena con las próximas vueltas.</span></div></li>
 </ul>
 
 <h2>2. Lo que sigue de mi lado (sin ayuda tuya)</h2>
 <h3>Primero</h3>
 <ul class="lista">
-<li><input type="checkbox" id="m1"><div><b>Encender el archivo permanente en R2.</b><span>Lo intenté: la comprobación previa encontró que 2 páginas devuelven 503 por el Worker, así que no se activó (el sitio quedó intacto). Falta diagnosticar y volver a probar. El límite de 3.700 notas se alcanza hacia el 13/11.</span></div></li>
+<li><input type="checkbox" id="m1"><div><b>Plan para que el sistema dure (ver sección 7).</b><span>Estado fuera de git, fotos y notas viejas en R2, sitio liviano. Es lo primero de mañana.</span></div></li>
 <li><input type="checkbox" id="m2"><div><b>Reordenar las APIs de IA.</b><span>Hecho: prompts de fotos en Cloudflare, control de imágenes en OpenRouter. Falta: pasar parte de la escritura de notas a OpenRouter y Cloudflare para que Gemini y Groq no se queden sin cupo (error 429).</span></div></li>
 <li><input type="checkbox" id="m3"><div><b>Mostrarte por qué se descartan los hechos con 10 o más medios.</b><span>Cuando <code>muy-contadas.json</code> junte unas vueltas, te paso la lista con título y motivo.</span></div></li>
 <li><input type="checkbox" id="m4"><div><b>Mejorar las fotos de deportes.</b><span>Las de pelotas y zapatillas todavía las rechaza el control por logos y letras. Ajusto la lista de objetos.</span></div></li>
@@ -104,7 +104,16 @@ th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--linea)
 <tr><td>Fotos de IA que pasan el control</td><td class="n">5 de 10</td></tr>
 </table></div>
 
-<h2>6. Ideas guardadas</h2>
+<h2>6. Plan para que dure: 100 commits, 14 MB por día, 200 MB y la página entera cada 30 minutos</h2>
+<p>Hoy cada media hora se rehace el sitio completo (unas 3.700 páginas, 6,5 minutos) y se guarda todo en git. Medido del 16 al 23/10: el repositorio creció 101 MB (14 MB por día): 54 MB de datos que cambian todo el tiempo y 41 MB de fotos. Con ese ritmo llega a 1 GB en unos 70 días. No es una catástrofe hoy, pero no es sano para años. Cuatro etapas, de más simple a más grande:</p>
+<ul>
+<li><b>1. Estado fuera de git.</b> El libro de redes, la vigilancia, las fichas, las estadísticas y los contadores viven en R2. Git guarda código, documentos y lo que escriben ustedes. Bajan los commits de ~100 a ~10 por día y el crecimiento a casi cero.</li>
+<li><b>2. Fotos a R2.</b> Sacan 6 MB por día de git y miles de archivos del sitio.</li>
+<li><b>3. Sitio liviano.</b> Con el archivo ya encendido, el sitio guarda sólo las notas recientes (por ejemplo 400) y el resto sale de R2. La compilación baja de 6,5 a 1 o 2 minutos y desaparece el límite de 20.000 archivos.</li>
+<li><b>4. Historial limpio.</b> Un solo historial nuevo con copia previa, antes de pasar el repositorio a privado.</li>
+</ul>
+<p>Más adelante, si hace falta, el sitio puede pasar a armarse página por página sin rehacer nada (rediseño más grande). Con las etapas 1 a 3 no hace falta para el lanzamiento.</p>
+<h2>7. Ideas guardadas</h2>
 <ul>
 <li>Notas propias con foto del celular, firmadas, una o dos por semana (el panel del celular ya lo permite).</li>
 <li>Canal de WhatsApp con «las tres de la mañana» y «las tres de la tarde».</li>
