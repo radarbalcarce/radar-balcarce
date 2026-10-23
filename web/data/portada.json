@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-23T23:01:47.389Z",
+  "generado": "2026-10-23T23:33:46.035Z",
   "notas": [
     {
       "id": "futbolresultadosliga20261023",
@@ -39,9 +39,47 @@
                 "tipo": "gol"
               }
             ]
+          },
+          {
+            "dia": "Viernes 23 de octubre",
+            "hora": "18:30",
+            "estado": "final",
+            "estadio": "Estadio Víctor Antonio Legrotaglie",
+            "fase": null,
+            "local": {
+              "id": "11972",
+              "nombre": "Gimnasia (Mendoza)",
+              "goles": 1
+            },
+            "visitante": {
+              "id": "7764",
+              "nombre": "Platense",
+              "goles": 2
+            },
+            "penales": null,
+            "goles": [
+              {
+                "equipo": "local",
+                "jugador": "Agustín Módica",
+                "minuto": "10'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Juan Gauto",
+                "minuto": "79'",
+                "tipo": "gol"
+              },
+              {
+                "equipo": "visitante",
+                "jugador": "Bruno Sepúlveda",
+                "minuto": "90'+3'",
+                "tipo": "gol"
+              }
+            ]
           }
         ],
-        "faltan": 14,
+        "faltan": 13,
         "aparte": 0
       },
       "destacados": [
@@ -52,8 +90,8 @@
       ],
       "lugarFoto": "Juan Carmelo Zerillo (El Bosque)",
       "titulo": "Liga Profesional: así va la fecha del 23 al 27 de octubre, con los resultados",
-      "copete": "1 partido terminado de Liga Profesional de Fútbol y otros por jugarse: marcadores y goleadores.",
-      "cuerpo": "Estos son los resultados de Liga Profesional de Fútbol de la fecha del 23 al 27 de octubre, en el orden en que se jugaron:\n\nViernes 23 de octubre, 18:00: Gimnasia La Plata 2, Sarmiento (Junín) 0. Goles: Gimnasia La Plata: Ignacio Fernández (13') y Franco Torres (74').\n\nTodavía faltan jugarse: Gimnasia (Mendoza) y Platense (Viernes 23 de octubre, 18:30), Tigre y Atlético Tucumán (Viernes 23 de octubre, 21:15), Banfield y Lanús (Sábado 24 de octubre, 14:45), Talleres (Córdoba) y Defensa y Justicia (Sábado 24 de octubre, 17:00), San Lorenzo y Newell's Old Boys (Sábado 24 de octubre, 19:15), Rosario Central y Huracán (Sábado 24 de octubre, 21:30), Aldosivi y Belgrano (Córdoba) (Domingo 25 de octubre, 14:45), Independiente y Boca Juniors (Domingo 25 de octubre, 17:00), River Plate y Racing Club (Domingo 25 de octubre, 19:15), Barracas Central y Estudiantes de Río Cuarto (Domingo 25 de octubre, 21:30), Central Córdoba (Santiago del Estero) y Vélez Sarsfield (Domingo 25 de octubre, 21:30), Unión (Santa Fe) y Estudiantes de La Plata (Lunes 26 de octubre, 19:00), Instituto (Córdoba) y Deportivo Riestra (Lunes 26 de octubre, 21:15) y Argentinos Juniors y Independiente Rivadavia (Martes 27 de octubre, 19:00). Esta nota se completa a medida que terminan los partidos.\n\nLos datos son los resultados oficiales según ESPN.",
+      "copete": "2 partidos terminados de Liga Profesional de Fútbol y otros por jugarse: marcadores y goleadores.",
+      "cuerpo": "Estos son los resultados de Liga Profesional de Fútbol de la fecha del 23 al 27 de octubre, en el orden en que se jugaron:\n\nViernes 23 de octubre, 18:00: Gimnasia La Plata 2, Sarmiento (Junín) 0. Goles: Gimnasia La Plata: Ignacio Fernández (13') y Franco Torres (74').\n\nViernes 23 de octubre, 18:30: Gimnasia (Mendoza) 1, Platense 2. Goles: Gimnasia (Mendoza): Agustín Módica (10'). Platense: Juan Gauto (79') y Bruno Sepúlveda (90'+3').\n\nTodavía faltan jugarse: Tigre y Atlético Tucumán (Viernes 23 de octubre, 21:15), Banfield y Lanús (Sábado 24 de octubre, 14:45), Talleres (Córdoba) y Defensa y Justicia (Sábado 24 de octubre, 17:00), San Lorenzo y Newell's Old Boys (Sábado 24 de octubre, 19:15), Rosario Central y Huracán (Sábado 24 de octubre, 21:30), Aldosivi y Belgrano (Córdoba) (Domingo 25 de octubre, 14:45), Independiente y Boca Juniors (Domingo 25 de octubre, 17:00), River Plate y Racing Club (Domingo 25 de octubre, 19:15), Barracas Central y Estudiantes de Río Cuarto (Domingo 25 de octubre, 21:30), Central Córdoba (Santiago del Estero) y Vélez Sarsfield (Domingo 25 de octubre, 21:30), Unión (Santa Fe) y Estudiantes de La Plata (Lunes 26 de octubre, 19:00), Instituto (Córdoba) y Deportivo Riestra (Lunes 26 de octubre, 21:15) y Argentinos Juniors y Independiente Rivadavia (Martes 27 de octubre, 19:00). Esta nota se completa a medida que terminan los partidos.\n\nLos datos son los resultados oficiales según ESPN.",
       "guion": null,
       "seccion": "Fútbol",
       "local": false,
@@ -80,7 +118,9 @@
         "Liga Profesional",
         "resultados",
         "Gimnasia La Plata",
-        "Sarmiento (Junín)"
+        "Sarmiento (Junín)",
+        "Gimnasia (Mendoza)",
+        "Platense"
       ],
       "como": "automatica",
       "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
@@ -384,6 +424,7 @@
       "guion": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses.",
       "seccion": "Deportes",
       "medios": [
+        "Infórmese Primero (FM 104.9)",
         "Radio Gabal (FM 104.1)",
         "Puntonueve (FM 100.9)"
       ],
@@ -392,9 +433,10 @@
       "fecha": "2026-10-23T20:20:40.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T20:31:31.209Z",
-      "relevancia": 90,
+      "relevancia": 89,
       "local": true,
       "deUnMedioDeAca": true,
+      "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -461,93 +503,6 @@
       "foto": {
         "archivo": "fotos-notas/149ahyx.jpg",
         "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
-      "id": "pvnj5f",
-      "titulo": "El Concejo Deliberante debate reclamos de higiene y obras",
-      "copete": "Ediles evaluaron pedidos por basura, pastizales altos y la presencia de roedores en distintos puntos. Además, un expediente sobre el Estadio Municipal volvió a comisión.",
-      "cuerpo": "El Concejo Deliberante llevó a cabo la decimosexta sesión para abordar diversas demandas sobre el mantenimiento urbano en Balcarce. Los bloques trataron reclamos vecinales vinculados con la acumulación de basura y la presencia de pastizales altos en distintos sectores de la ciudad. Asimismo, los ediles analizaron la necesidad de instrumentar un plan de desratización para mitigar la problemática de roedores y reforzar las tareas de prevención sanitaria en los espacios públicos.\n\nPor otra parte, la iniciativa orientada a levantar un paredón en el Estadio Municipal General Balcarce fue derivada a comisión. El expediente sobre la infraestructura del predio deportivo recibió observaciones de los bloques opositores y continuará en estudio dentro del cuerpo legislativo antes de un futuro tratamiento en el recinto.",
-      "guion": "El Concejo Deliberante debate reclamos de higiene y obras",
-      "seccion": "Política",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/basura-pastizales-y-roedores-los-reclamos-que-llegaron-al-concejo-deliberante-366",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T20:03:57.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T20:31:31.209Z",
-      "relevancia": 88,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "concejo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Se realizó la decimosexta sesión del Concejo Deliberante.",
-        "Trataron reclamos por basura, pastizales altos y roedores.",
-        "Un proyecto sobre el Estadio Municipal pasó a comisión."
-      ],
-      "seSabe": [
-        "El Concejo Deliberante concretó la decimosexta sesión ordinaria.",
-        "Ediles recibieron reclamos por acumulación de residuos y pastizales altos.",
-        "Trataron la necesidad de un plan de desratización.",
-        "El expediente por el paredón del Estadio Municipal General Balcarce volvió a comisión por solicitud de bloques opositores."
-      ],
-      "noConfirmado": [
-        "Todavía no se detallaron los plazos para la resolución del expediente sobre el estadio ni las fechas de aplicación del plan de desratización.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Concejo Deliberante analizó reclamos por basura, pastizales y roedores en Balcarce, y envió a comisión un proyecto sobre el Estadio Municipal.",
-      "etiquetas": [
-        "Concejo Deliberante",
-        "Balcarce",
-        "higiene urbana",
-        "Estadio Municipal",
-        "reclamos"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/basura-pastizales-y-roedores-los-reclamos-que-llegaron-al-concejo-deliberante-366",
-          "fecha": "2026-10-23T20:03:57.000Z",
-          "oficial": false,
-          "aporte": "Detalló los temas de la decimosexta sesión del Concejo Deliberante, los reclamos de higiene urbana y el pase a comisión del proyecto del estadio."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "qkw865",
-          "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-          "fecha": "2026-10-23T18:11:48.000Z",
-          "ruta": "/nota/el-concejo-deliberante-reconoce-al-atleta-felipe-pereyra-qkw865"
-        },
-        {
-          "id": "7nqq08",
-          "titulo": "El Concejo Deliberante declara de interés las acciones de LALCEC",
-          "fecha": "2026-10-23T17:29:51.000Z",
-          "ruta": "/nota/el-concejo-deliberante-declara-de-interes-las-acciones-de-lalcec-7nqq08"
-        },
-        {
-          "id": "jk7o21",
-          "titulo": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras",
-          "fecha": "2026-10-23T10:32:03.547Z",
-          "ruta": "/nota/el-concejo-deliberante-aprueba-ordenanzas-paritarias-y-obras-jk7o21"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-concejo-deliberante-debate-reclamos-de-higiene-y-obras",
-      "foto": {
-        "archivo": "fotos-notas/pvnj5f.jpg",
-        "credito": "Foto: El Diario Balcarce"
       }
     },
     {
@@ -717,6 +672,11 @@
       "visto": "2026-10-23T20:31:31.209Z",
       "relevancia": 54,
       "local": false,
+      "muyContada": {
+        "medios": 6,
+        "porque": "6 medios en sus primeras 3 horas",
+        "desde": "2026-10-23T21:25:15.720Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -919,95 +879,6 @@
       }
     },
     {
-      "id": "qkw865",
-      "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-      "copete": "El cuerpo legislativo declaró de interés la trayectoria del deportista local tras su participación en el campeonato nacional de Lobería.",
-      "cuerpo": "El Concejo Deliberante aprobó declarar de interés legislativo la trayectoria del deportista Felipe Pereyra durante la decimosexta sesión ordinaria.\n\nLa iniciativa impulsada por la edil Sol Di Gerónimo, del bloque Fuerza Patria, destacó el esfuerzo y la constancia del atleta local en la disciplina de marcha atlética. La concejal resaltó que el deportista representa habitualmente a la ciudad en distintas competencias y mantiene una rutina constante de entrenamiento en las calles locales.\n\nDurante el tratamiento en el recinto, los ediles valoraron su participación en el reciente Campeonato Nacional de Marcha Atlética Máster para mayores de 65 años, disputado en la vecina ciudad de Lobería. Si bien el atleta no se consagró ganador de la prueba, el cuerpo legislativo enfatizó su ejemplo de superación y el acompañamiento familiar a lo largo de su carrera deportiva.",
-      "guion": "El Concejo Deliberante reconoce al atleta Felipe Pereyra.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Radio Gabal (FM 104.1)",
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/vos-ya-ganaste-la-carrera-de-la-vida-reconocieron-la-trayectoria-de-felipe-pereyra-en-el-concejo-deliberante",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T18:11:48.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T18:31:28.636Z",
-      "relevancia": 86,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "concejo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El Concejo Deliberante reconoció la trayectoria del atleta local Felipe Pereyra.",
-        "La distinción fue aprobada durante la decimosexta sesión ordinaria del cuerpo legislativo.",
-        "La iniciativa destacó su participación en el campeonato nacional de Lobería."
-      ],
-      "seSabe": [
-        "El Concejo Deliberante declaró de interés legislativo la trayectoria de Felipe Pereyra.",
-        "La propuesta fue presentada por la concejal Sol Di Gerónimo.",
-        "El deportista participó en el torneo nacional de marcha atlética en Lobería."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Concejo Deliberante declaró de interés legislativo la trayectoria del atleta local Felipe Pereyra tras su participación en el campeonato nacional de marcha atlética en Lobería.",
-      "etiquetas": [
-        "Felipe Pereyra",
-        "Concejo Deliberante",
-        "Deportes",
-        "Balcarce",
-        "Marcha atlética"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/vos-ya-ganaste-la-carrera-de-la-vida-reconocieron-la-trayectoria-de-felipe-pereyra-en-el-concejo-deliberante",
-          "fecha": "2026-10-23T18:11:48.000Z",
-          "oficial": false,
-          "aporte": "Detalló el reconocimiento del Concejo Deliberante a la trayectoria del atleta Felipe Pereyra."
-        },
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/el-hcd-homenajeo-a-felipe-pereyra-por-su-trayectoria-deportiva/",
-          "fecha": "2026-10-23T19:53:27.000Z",
-          "oficial": false,
-          "aporte": "Detalló el homenaje del Concejo Deliberante al atleta Felipe Pereyra y su actuación en el campeonato nacional de Lobería."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "7nqq08",
-          "titulo": "El Concejo Deliberante declara de interés las acciones de LALCEC",
-          "fecha": "2026-10-23T17:29:51.000Z",
-          "ruta": "/nota/el-concejo-deliberante-declara-de-interes-las-acciones-de-lalcec-7nqq08"
-        },
-        {
-          "id": "jk7o21",
-          "titulo": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras",
-          "fecha": "2026-10-23T10:32:03.547Z",
-          "ruta": "/nota/el-concejo-deliberante-aprueba-ordenanzas-paritarias-y-obras-jk7o21"
-        },
-        {
-          "id": "1d27b9k",
-          "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
-          "fecha": "2026-10-23T01:35:50.000Z",
-          "ruta": "/nota/el-concejo-deliberante-realiza-su-decimosexta-sesion-ordinaria-1d27b9k"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-concejo-deliberante-reconoce-al-atleta-felipe-pereyra"
-    },
-    {
       "id": "16qa6gn",
       "titulo": "Denuncian al municipio por fondos girados a OSeBal SAPEM",
       "copete": "El sindicato municipal acudió al Tribunal de Cuentas por una transferencia de 484 millones de pesos destinada a una obra hídrica. Además, el gremio reclama precisiones sobre gastos mensuales y contrataciones en la empresa.",
@@ -1094,9 +965,9 @@
       "guion": "Petruccelli pide una reunión urgente para recuperar la Estudiantina.",
       "seccion": "Balcarce",
       "medios": [
-        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
-        "Puntonueve (FM 100.9)"
+        "Puntonueve (FM 100.9)",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://www.diariolavanguardia.com/noticias/45163-petruccelli-pidio-una-reunion-urgente-para-intentar-recuperar-la-estudiantina/",
       "teniaImagenLaFuente": true,
@@ -1603,71 +1474,6 @@
       }
     },
     {
-      "id": "12hiw48",
-      "titulo": "El Concejo Deliberante rechaza un proyecto para construir un paredón",
-      "copete": "La iniciativa para levantar un cerco perimetral en el Estadio Municipal volvió a comisión en el Concejo Deliberante. La oposición cuestionó aspectos técnicos y presupuestarios.",
-      "cuerpo": "El Concejo Deliberante resolvió que el proyecto para construir un paredón en el Estadio Municipal regrese a comisión, tras una votación que reunió 10 votos afirmativos en la decimosexta sesión ordinaria. La iniciativa contempla una inversión de 14 millones de pesos para contratar a una empresa privada encargada de ejecutar los trabajos de seguridad en el predio.\n\nDurante el debate, la concejal de Fuerza Patria, Sol Di Gerónimo, expresó su apoyo a la obra pero cuestionó que no se utilizara personal municipal para abaratar costos. Por su parte, el edil de Primero la Patria, Javier Menonne, advirtió sobre diferencias en los presupuestos y en la cantidad prevista de columnas. En la misma línea, el representante de La Libertad Avanza, Enrique Guillén, criticó que el plano carece de medidas y que el presupuesto presentado por la Liga Balcarceña de Fútbol es manuscrito.\n\nEn defensa de la iniciativa, el concejal de Somos Buenos Aires, Gonzalo Scioli, sostuvo que el acuerdo permite acelerar los tiempos para finalizar los trabajos antes de fin de año. Argumentó que el Departamento Ejecutivo carece de disponibilidad de personal y defendió que el costo se descuente del canon que abona la Liga por el uso del predio municipal.",
-      "guion": "El Concejo Deliberante rechaza un proyecto para construir un paredón.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/politica/un-proyecto-para-la-construccion-de-un-paredon-en-el-estadio-municipal-fue-rechazado-por-la-oposicion-y-vuelve-a-comision",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T17:01:15.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T17:32:31.666Z",
-      "relevancia": 74,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El expediente sobre el paredón del Estadio Municipal volvió a comisión.",
-        "La iniciativa prevé una inversión de 14 millones de pesos para una empresa privada.",
-        "La oposición cuestionó diferencias técnicas, presupuestarias y la falta de mano de obra municipal.",
-        "El oficialismo defendió el acuerdo para agilizar los plazos de ejecución antes de fin de año."
-      ],
-      "seSabe": [
-        "El proyecto para construir el paredón en el Estadio Municipal volvió a comisión por 10 votos afirmativos.",
-        "La iniciativa contempla un gasto de 14 millones de pesos para una empresa privada.",
-        "El bloque opositor cuestionó presupuestos, planos y la contratación externa en lugar de personal municipal.",
-        "El oficialismo defendió la medida para terminar las obras antes de fin de año debido a la falta de personal ejecutivo."
-      ],
-      "noConfirmado": [
-        "Todavía no se definieron las especificaciones técnicas definitivas ni los plazos para la aprobación final del expediente.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Concejo Deliberante devolvió a comisión el proyecto para construir un paredón en el Estadio Municipal. La iniciativa preveía una inversión de 14 millones de pesos y generó cruces entre los bloques por cuestiones técnicas y presupuestarias.",
-      "etiquetas": [
-        "Concejo Deliberante",
-        "Estadio Municipal",
-        "Balcarce",
-        "obras públicas",
-        "Liga Balcarceña de Fútbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/politica/un-proyecto-para-la-construccion-de-un-paredon-en-el-estadio-municipal-fue-rechazado-por-la-oposicion-y-vuelve-a-comision",
-          "fecha": "2026-10-23T17:01:15.000Z",
-          "oficial": false,
-          "aporte": "Informó el rechazo del proyecto del paredón municipal en el Concejo, los 14 millones de pesos de inversión y los argumentos de los distintos bloques políticos."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-concejo-deliberante-rechaza-un-proyecto-para-construir-un-paredon",
-      "foto": {
-        "archivo": "fotos-notas/12hiw48.jpg",
-        "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
       "id": "1m458c5",
       "titulo": "Brasil proyecta compras récord de trigo y abre una oportunidad para la Argentina",
       "copete": "El vecino país prevé importar más de nueve millones de toneladas debido a una caída en su producción. El sector triguero nacional analiza una mayor demanda para el ciclo 2026 y 2027.",
@@ -2088,8 +1894,8 @@
       "seccion": "Balcarce",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
         "Municipalidad de Balcarce",
+        "Radio Gabal (FM 104.1)",
         "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/23/profesores-de-la-emdab-participaron-del-primer-foro-provincial-del-deporte/",
@@ -3002,90 +2808,6 @@
       }
     },
     {
-      "id": "1m4nm4s",
-      "titulo": "Guillén pide rever la suspensión de la Estudiantina tras hechos de violencia",
-      "copete": "El concejal de La Libertad Avanza cuestionó la medida adoptada tras una pelea con heridos. Reclamó evaluar la seguridad para retomar la actividad.",
-      "cuerpo": "El concejal de La Libertad Avanza Enrique Guillén pidió que se revea la suspensión de la Estudiantina 2026. Lo planteó durante la decimosexta sesión ordinaria del Concejo Deliberante desarrollada el jueves, tras los episodios de violencia donde un joven sufrió heridas de arma blanca.\n\nEl edil cuestionó la interrupción de la propuesta y consideró que perjudica a quienes participan de forma responsable. Asimismo, solicitó a las autoridades educativas que evalúuen retomar el tradicional evento si existen condiciones y que garanticen su realización en 2027.\n\nPor último, planteó la necesidad de revisar los esquemas de prevención y seguridad entre el Estado, las instituciones y el municipio para evitar nuevos episodios.",
-      "guion": "Guillén pide rever la suspensión de la Estudiantina tras hechos de violencia.",
-      "seccion": "Política",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/politica/guillen-pidio-que-se-revea-la-suspension-de-la-estudiantina-los-malos-le-ganan-a-los-buenos",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T12:53:12.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T13:31:28.773Z",
-      "relevancia": 74,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "concejo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El concejal Enrique Guillén pidió rever la suspensión de la Estudiantina 2026.",
-        "El planteo se realizó en la decimosexta sesión ordinaria del Concejo Deliberante.",
-        "La medida se originó tras una pelea que dejó un jóven herido con arma blanca."
-      ],
-      "seSabe": [
-        "Enrique Guillén pidió rever la suspensión de la Estudiantina 2026 durante la sesión del Concejo Deliberante.",
-        "La suspensión ocurrió tras un enfrentamiento entre jóvenes que derivó en un herido de arma blanca.",
-        "El edil solicitó revisar las medidas de seguridad y evaluar la continuidad de la actividad."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó una decisión oficial de las autoridades educativas sobre la posible reanudación del evento.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El concejal Enrique Guillén pidió rever la suspensión de la Estudiantina 2026 tras los hechos de violencia registrados en el evento.",
-      "etiquetas": [
-        "Concejo Deliberante",
-        "Enrique Guillén",
-        "Estudiantina",
-        "seguridad"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/politica/guillen-pidio-que-se-revea-la-suspension-de-la-estudiantina-los-malos-le-ganan-a-los-buenos",
-          "fecha": "2026-10-23T12:53:12.000Z",
-          "oficial": false,
-          "aporte": "El pedido del concejal Enrique Guillén para rever la suspensión de la Estudiantina tras los hechos de violencia."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "jk7o21",
-          "titulo": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras",
-          "fecha": "2026-10-23T10:32:03.547Z",
-          "ruta": "/nota/el-concejo-deliberante-aprueba-ordenanzas-paritarias-y-obras-jk7o21"
-        },
-        {
-          "id": "1d27b9k",
-          "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
-          "fecha": "2026-10-23T01:35:50.000Z",
-          "ruta": "/nota/el-concejo-deliberante-realiza-su-decimosexta-sesion-ordinaria-1d27b9k"
-        },
-        {
-          "id": "2rqepx",
-          "titulo": "Menonne no descarta un candidato de La Cámpora para 2027",
-          "fecha": "2026-10-19T17:31:10.518Z",
-          "ruta": "/nota/menonne-no-descarta-un-candidato-de-la-campora-para-2027-2rqepx"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "guillen-pide-rever-la-suspension-de-la-estudiantina-tras-hechos-de",
-      "foto": {
-        "archivo": "fotos-notas/1m4nm4s.jpg",
-        "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
       "id": "j7qnl0",
       "titulo": "La Corte Suprema frena restricciones patronales a la cuota sindical",
       "copete": "El máximo tribunal determinó que las empresas no pueden decidir a qué empleados afiliados les retienen los aportes gremiales. El fallo benefició a un sindicato petrolero tras un litigio con una petrolera.",
@@ -3479,72 +3201,6 @@
       }
     },
     {
-      "id": "1kx53j2",
-      "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
-      "copete": "La institución recibió ejemplares para la laguna La Brava y reactivó su estación de piscicultura. Además, gestionó mayores controles contra la pesca ilegal.",
-      "cuerpo": "El Club de Pesca Balcarce recibió 130.000 alevinos para repoblar la laguna La Brava y sumó 20.000 huevas destinadas a reactivar su estación de piscicultura. La entrega de los ejemplares se concretó el lunes 19 tras gestiones canalizadas por la comuna ante la Estación Hidrobiológica de Chascomús.\n\nLa conducción de la entidad quedó a cargo de Agustín Farisano, quien sucedió a Miguel Cassibba tras una asamblea. Por otra parte, la comisión directiva solicitó la intervención provincial y policial para frenar infracciones reglamentarias en la zona de la cola de la laguna mediante controles del Ministerio de Desarrollo Agrario y el Comando de Prevención Rural.",
-      "guion": "El Club de Pesca Balcarce incorpora alevinos y huevas.",
-      "seccion": "Balcarce",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/mas-de-130000-alevinos-para-la-brava-el-plan-del-club-de-pesca-balcarce-para-cuidar-el-recurso-462",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T11:52:56.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T12:02:45.800Z",
-      "relevancia": 78,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Club de Pesca Balcarce recibió 130.000 alevinos para la laguna La Brava.",
-        "Incorporaron 20.000 huevas para reactivar la estación de piscicultura.",
-        "Agustín Farisano asumió la presidencia de la entidad.",
-        "Gestionaron mayores controles contra la pesca ilegal."
-      ],
-      "seSabe": [
-        "El club recibió 130.000 alevinos el lunes 19.",
-        "Se incorporaron 20.000 huevas para la sala de incubación.",
-        "La Estación Hidrobiológica de Chascomús aportó los peces a través de gestiones municipales.",
-        "Agustín Farisano preside la comisión directiva en reemplazo de Miguel Cassibba.",
-        "El Ministerio de Desarrollo Agrario y el Comando de Prevención Rural realizan controles por infracciones en la zona."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Club de Pesca Balcarce recibió 130.000 alevinos para la laguna La Brava, reactivó su estación de piscicultura y gestionó operativos contra la pesca ilegal.",
-      "etiquetas": [
-        "Club de Pesca Balcarce",
-        "La Brava",
-        "piscicultura",
-        "pesca ilegal",
-        "Agustín Farisano"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/mas-de-130000-alevinos-para-la-brava-el-plan-del-club-de-pesca-balcarce-para-cuidar-el-recurso-462",
-          "fecha": "2026-10-23T11:52:56.000Z",
-          "oficial": false,
-          "aporte": "Detalló la recepción de alevinos y huevas, el cambio de autoridades y las gestiones contra la pesca ilegal en La Brava."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-club-de-pesca-balcarce-incorpora-alevinos-y-huevas",
-      "foto": {
-        "archivo": "fotos-notas/1kx53j2.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
       "id": "1qr79y1",
       "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
       "copete": "Un informe del diario británico advierte sobre el estancamiento de la actividad, la caída de salarios y el impacto social del ajuste a un año de las elecciones de 2027.",
@@ -3918,7 +3574,7 @@
       "fecha": "2026-10-23T11:20:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T20:01:37.264Z",
-      "relevancia": 52,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4027,7 +3683,7 @@
       "fecha": "2026-10-23T11:02:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T13:31:28.773Z",
-      "relevancia": 48,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4289,6 +3945,7 @@
       "guion": "Argentina golea a Marruecos y avanza a los octavos de final.",
       "seccion": "Fútbol",
       "medios": [
+        "La Nueva",
         "El Marplatense",
         "El Gráfico",
         "Olé"
@@ -4298,7 +3955,7 @@
       "fecha": "2026-10-23T10:45:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T21:25:15.720Z",
-      "relevancia": 42,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5041,7 +4698,7 @@
       "fecha": "2026-10-23T05:43:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T12:43:50.167Z",
-      "relevancia": 55,
+      "relevancia": 48,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5374,91 +5031,6 @@
       }
     },
     {
-      "id": "1d27b9k",
-      "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
-      "copete": "El cuerpo deliberativo abordó proyectos sobre la Estudiantina, obras públicas y mantenimiento urbano. También realizó reconocimientos a instituciones y deportistas locales.",
-      "cuerpo": "El Concejo Deliberante llevó adelante la decimosexta sesión ordinaria con un temario de 33 expedientes vinculados con servicios, educación y obras públicas. En la previa, el concejal Guillén reclamó medidas para los estudiantes que participaron de forma responsable en la Estudiantina y quedaron alcanzados por la suspensión de las competencias deportivas escolares hasta 2028 tras hechos de violencia.\n\nPor otro lado, el proyecto para construir un paredón en el Estadio Municipal General Balcarce no consiguió la aprobación del oficialismo y pasó a comisión para continuar su debate. En la misma jornada, los ediles recibieron reclamos por pastizales altos, acumulación de basura y la necesidad de aplicar un plan de desratización.\n\nEl cuerpo legislativo entregó además reconocimientos a la labor de LALCEC Balcarce por la campaña de concientización sobre el cáncer de mama y al deportista Felipe Pereyra por su trayectoria en el Campeonato Nacional de Marcha en Ruta.",
-      "guion": "El Concejo Deliberante realiza su decimosexta sesión ordinaria.",
-      "seccion": "Política",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/politica/estudiantina-ratas-basura-y-otras-yerbas-se-trataron-en-la-decimosexta-sesion-ordinaria-del-concejo-deliberante",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-23T01:35:50.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T02:01:49.051Z",
-      "relevancia": 67,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "concejo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El Concejo Deliberante concretó la decimosexta sesión ordinaria con 33 expedientes.",
-        "Reclamaron medidas para alumnos afectados por la suspensión de competencias de la Estudiantina.",
-        "El proyecto sobre el paredón del Estadio Municipal pasó a comisión tras no ser aprobado.",
-        "Plantearon reclamos por basura, pastizales y la necesidad de un plan de desratización.",
-        "Reconocieron a LALCEC por el Octubre Rosa y al atleta Felipe Pereyra."
-      ],
-      "seSabe": [
-        "El Concejo Deliberante realizó su decimosexta sesión ordinaria con 33 expedientes.",
-        "El concejal Guillén pidió contemplar a los estudiantes cumplidores afectados por la suspensión de las competencias de la Estudiantina hasta 2028.",
-        "La iniciativa sobre el paredón en el Estadio Municipal pasó a comisión tras no ser aprobada por el oficialismo.",
-        "Presentaron reclamos por acumulación de basura, pastizales altos y la implementación de desratización.",
-        "Distinguieron a LALCEC Balcarce por el Octubre Rosa y al deportista Felipe Pereyra por su paso en el Campeonato Nacional de Marcha en Ruta."
-      ],
-      "textoRedes": "El Concejo Deliberante abordó reclamos sobre la Estudiantina, obras, mantenimiento urbano y entregó distinciones a instituciones y deportistas locales durante su decimosexta sesión ordinaria.",
-      "etiquetas": [
-        "Concejo Deliberante",
-        "Estudiantina",
-        "Estadio Municipal",
-        "LALCEC",
-        "Felipe Pereyra"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/politica/estudiantina-ratas-basura-y-otras-yerbas-se-trataron-en-la-decimosexta-sesion-ordinaria-del-concejo-deliberante",
-          "fecha": "2026-10-23T01:35:50.000Z",
-          "oficial": false,
-          "aporte": "Detalló los temas tratados en la decimosexta sesión ordinaria del Concejo Deliberante, incluyendo reclamos por la Estudiantina, obras, mantenimiento y reconocimientos."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "10znf8w",
-          "titulo": "El operativo de DNI funciona en el Concejo Deliberante",
-          "fecha": "2026-10-08T20:25:28.000Z",
-          "ruta": "/nota/el-operativo-de-dni-funciona-en-el-concejo-deliberante-10znf8w"
-        },
-        {
-          "id": "1opc9eu",
-          "titulo": "El Concejo Deliberante distingue a la Fiscalía Descentralizada",
-          "fecha": "2026-10-07T18:31:21.770Z",
-          "ruta": "/nota/el-concejo-deliberante-distingue-a-la-fiscalia-descentralizada-1opc9eu"
-        },
-        {
-          "id": "1chkxhh",
-          "titulo": "El Concejo trató 39 expedientes en su decimocuarta sesión",
-          "fecha": "2026-09-25T02:23:01.000Z",
-          "ruta": "/nota/concejo-deliberante-la-decimocuarta-sesion-tuvo-debates-mas-1chkxhh"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-concejo-deliberante-realiza-su-decimosexta-sesion-ordinaria",
-      "foto": {
-        "archivo": "fotos-notas/1d27b9k.jpg",
-        "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
       "id": "171ypvy",
       "titulo": "El Turismo Special de la Costa inicia la Copa de Oro",
       "copete": "El autódromo local recibe el fin de semana al Turismo Special de la Costa tras casi tres años. Diez protagonistas disputan la primera fecha de la etapa decisiva con cronograma confirmado para sábado y domingo.",
@@ -5676,10 +5248,8 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "Perfil",
         "TyC Sports",
         "Crónica",
-        "Radio Mitre",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
@@ -6026,13 +5596,8 @@
       "fecha": "2026-10-22T23:27:16.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T00:01:53.168Z",
-      "relevancia": 61,
+      "relevancia": 53,
       "local": false,
-      "muyContada": {
-        "medios": 21,
-        "porque": "21 medios",
-        "desde": "2026-10-23T00:01:53.168Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -6129,15 +5694,15 @@
       "seccion": "Deportes",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "El Diario Balcarce",
-        "Radio Gabal (FM 104.1)"
+        "Radio Gabal (FM 104.1)",
+        "El Diario Balcarce"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/10/juegos-bonaerenses-balcarce-consiguio.html",
       "teniaImagenLaFuente": true,
       "fecha": "2026-10-22T23:18:44.518Z",
       "sinFecha": false,
       "visto": "2026-10-23T11:18:11.433Z",
-      "relevancia": 86,
+      "relevancia": 78,
       "local": true,
       "deUnMedioDeAca": true,
       "muyContadaDeAca": 3,
@@ -6228,6 +5793,7 @@
         "Crónica",
         "Radio Mitre",
         "QZ Noticias (Mar del Plata)",
+        "El Eco de Tandil",
         "Clarín",
         "Minuto Uno",
         "Los Andes (Mendoza)",
@@ -6239,13 +5805,8 @@
       "fecha": "2026-10-22T23:16:39.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T21:25:15.720Z",
-      "relevancia": 51,
+      "relevancia": 43,
       "local": false,
-      "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
-        "desde": "2026-10-23T21:25:15.720Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -7977,9 +7538,9 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
-        "El Diario Balcarce",
         "Diario La Vanguardia",
         "Radio Gabal (FM 104.1)",
+        "El Diario Balcarce",
         "News Balcarce (FM 91.7)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/22/realizan-operativos-preventivos-con-drones-en-la-zona-rural-de-balcarce/",
@@ -8151,10 +7712,8 @@
       "guion": "Detienen a un hombre de 31 años por una causa judicial de rebeldía.",
       "seccion": "Policiales",
       "medios": [
-        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
-        "El Diario Balcarce",
-        "Puntonueve (FM 100.9)",
+        "Radio Gabal (FM 104.1)",
         "Infórmese Primero (FM 104.9)"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/policiales/detuvieron-en-balcarce-a-un-hombre-de-31-anos-por-una-causa-de-rebeldia",
@@ -8165,7 +7724,7 @@
       "relevancia": 79,
       "local": true,
       "deUnMedioDeAca": true,
-      "muyContadaDeAca": 5,
+      "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -9331,9 +8890,9 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
-        "El Diario Balcarce",
         "Diario La Vanguardia",
         "Radio Gabal (FM 104.1)",
+        "El Diario Balcarce",
         "Puntonueve (FM 100.9)",
         "News Balcarce (FM 91.7)"
       ],
@@ -11140,87 +10699,6 @@
       "slug": "un-dia-como-hoy-en-1854-se-funda-chivilcoy"
     },
     {
-      "id": "4c84q3",
-      "titulo": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
-      "copete": "El piloto local completó una destacada remontada en la novena fecha de la Clase 1 disputada en Concepción del Uruguay. Partió desde la última fila tras una exclusión y avanzó 30 lugares en la final.",
-      "cuerpo": "Nahuel Di Cicco completó una destacada remontada en la novena fecha de la Clase 1 del Turismo Pista, disputada en el autódromo de Concepción del Uruguay. El piloto local debió afrontar un fin de semana condicionado por complicaciones en la tanda cronometrada, donde quedó en el puesto 31 tras esquivar un choque múltiple, y una posterior exclusión en su serie debido a una modificación en la bomba de nafta que infringe el reglamento de seguridad.\n\nEsa sanción lo obligó a largar la competencia final desde el cajón 47, ubicado en la última fila del pelotón. Durante la carrera desarrolló un ritmo firme que le permitió avanzar treinta lugares para cruzar la meta en la posición 17. Con este resultado, el deportista se ubica en el puesto 18 del campeonato con 90 puntos. El calendario concluirá el 22 de noviembre con la décima fecha en el autódromo de Rafaela.",
-      "guion": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/nahuel-di-cicco-y-otra-remontada-en-turismo-pista-del-puesto-47-al-17-441",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-22T12:06:08.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-22T12:31:16.422Z",
-      "relevancia": 63,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Nahuel Di Cicco avanzó del puesto 47 al 17 en la final de la Clase 1.",
-        "La competencia se disputó en el autódromo de Concepción del Uruguay.",
-        "El piloto local debió largar desde el fondo por una exclusión en su serie.",
-        "El campeonato se definirá el 22 de noviembre en Rafaela."
-      ],
-      "seSabe": [
-        "Nahuel Di Cicco compitió en la novena fecha de la Clase 1 del Turismo Pista en Concepción del Uruguay.",
-        "El piloto clasificó en el puesto 31 y fue excluido en su serie por una modificación no permitida en la bomba de nafta.",
-        "Largó la final desde la última posición y terminó en el puesto 17.",
-        "Se ubica en la posición 18 del campeonato con 90 unidades.",
-        "La última fecha se disputará el 22 de noviembre en Rafaela."
-      ],
-      "textoRedes": "Nahuel Di Cicco completó una gran remontada en la novena fecha de la Clase 1 del Turismo Pista en Concepción del Uruguay. El piloto local largó desde el puesto 47 tras una sanción y finalizó en el 17.",
-      "etiquetas": [
-        "Nahuel Di Cicco",
-        "Turismo Pista",
-        "Clase 1",
-        "Concepción del Uruguay"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/nahuel-di-cicco-y-otra-remontada-en-turismo-pista-del-puesto-47-al-17-441",
-          "fecha": "2026-10-22T12:06:08.000Z",
-          "oficial": false,
-          "aporte": "Detalló los incidentes en clasificación, la sanción reglamentaria, la remontada en la final y la situación en el campeonato de la Clase 1 del Turismo Pista."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1v7303j",
-          "titulo": "Matías Cantarini choca en la final de la Clase 2 del Turismo Pista",
-          "fecha": "2026-10-18T16:30:10.000Z",
-          "ruta": "/nota/matias-cantarini-choca-en-la-final-de-la-clase-2-del-turismo-pista-1v7303j"
-        },
-        {
-          "id": "1qgpd66",
-          "titulo": "Saúl Eidilstein domina la primera clasificación del Turismo Pista",
-          "fecha": "2026-10-16T20:09:06.000Z",
-          "ruta": "/nota/saul-eidilstein-domina-la-primera-clasificacion-del-turismo-pista-1qgpd66"
-        },
-        {
-          "id": "1ofousc",
-          "titulo": "Suárez logra el segundo puesto en su serie del TC Pista Pick Up",
-          "fecha": "2026-09-27T15:55:51.000Z",
-          "ruta": "/nota/suarez-logra-el-segundo-puesto-en-su-serie-del-tc-pista-pick-up-en-1ofousc"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "nahuel-di-cicco-trepa-del-fondo-al-puesto-17-en-el-turismo-pista",
-      "foto": {
-        "archivo": "fotos-notas/4c84q3.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
       "id": "1bw0xc2",
       "titulo": "Estudiantes clasifica a la final de la Copa Libertadores",
       "copete": "El conjunto platense superó por penales a Flamengo en el estadio Maracaná tras empatar sin goles. El arquero Fernando Muslera contuvo tres remates y se metió en la definición del torneo continental.",
@@ -11455,197 +10933,6 @@
         "archivo": "fotos-notas/1bw0xc2.jpg",
         "credito": "Foto: TyC Sports"
       }
-    },
-    {
-      "id": "1otiit9",
-      "titulo": "El Gobierno aprueba inversión de Toyota en Zárate para fabricar una pick-up",
-      "copete": "El Ministerio de Economía autorizó la adhesión de la automotriz al régimen de incentivos para inversiones. La iniciativa demandará más de u$s1.250 millones en la provincia de Buenos Aires.",
-      "cuerpo": "El Gobierno nacional autorizó la incorporación de Toyota Argentina al Régimen de Incentivo para Grandes Inversiones para levantar una tercera planta en el complejo industrial situado en Zárate, provincia de Buenos Aires. La medida quedó formalizada a través de la Resolución 1848/2026 del Ministerio de Economía, firmada por el titular de esa cartera.\n\nEl proyecto contempla una inversión total de u$s1.252.926.108 para la construcción de instalaciones destinadas a producir un vehículo híbrido eléctrico no enchufable. En una primera etapa se fabricará una pick-up, con la opción de desarrollar un modelo SUV posteriormente, una tecnología que carece de antecedentes de producción local.\n\nPara cumplir con las exigencias del programa, la firma creó una sociedad específica y se comprometió a desembolsar u$s19,5 millones en el primer año y u$s147,75 millones en el segundo. Además, prevé destinar u$s669,58 millones al desarrollo de proveedores locales y planea otros u$s400 millones para renovar la Hilux.",
-      "guion": "El Gobierno aprueba inversión de Toyota en Zárate para fabricar una pick-up.",
-      "seccion": "Economía",
-      "medios": [
-        "El Economista",
-        "El Cronista",
-        "Ámbito"
-      ],
-      "enlace": "https://www.ambito.com/economia/el-gobierno-aprobo-el-ingreso-toyota-al-rigi-fabricar-una-pick-up-hibrida-zarate-n6336597",
-      "teniaImagenLaFuente": true,
-      "fecha": "2026-10-22T11:14:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-22T13:31:13.812Z",
-      "relevancia": 35,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Ministerio de Economía aprobó la llegada de Toyota al RIGI.",
-        "La inversión inicial supera los u$s1.250 millones en Zárate.",
-        "Fabricarán una pick-up híbrida sin antecedentes locales de producción."
-      ],
-      "seSabe": [
-        "El Ministerio de Economía aprobó la adhesión de Toyota al RIGI mediante la Resolución 1848/2026.",
-        "El proyecto demandará u$s1.252.926.108 para levantar una tercera planta en Zárate.",
-        "La automotriz fabricará un vehículo híbrido eléctrico no enchufable, inicialmente una pick-up.",
-        "La empresa invertirá u$s669,58 millones en proveedores locales y planea otros u$s400 millones para renovar la Hilux."
-      ],
-      "noConfirmado": [
-        "La documentación presentada no detalla la denominación comercial de la nueva unidad ni establece una fecha exacta para el inicio de su producción."
-      ],
-      "textoRedes": "El Gobierno aprobó el ingreso de Toyota al RIGI para construir una planta en Zárate y fabricar una pick-up híbrida con una inversión superior a los u$s1.250 millones.",
-      "etiquetas": [
-        "Toyota",
-        "RIGI",
-        "Zárate",
-        "industria automotriz",
-        "Ministerio de Economía"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/economia/el-gobierno-aprobo-el-ingreso-toyota-al-rigi-fabricar-una-pick-up-hibrida-zarate-n6336597",
-          "fecha": "2026-10-22T11:14:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los montos, plazos de inversión, la resolución oficial y los dictámenes de los organismos de control."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/negocios/el-rigi-de-toyota-es-para-una-producir-pick-up-100-hibrida-y-la-japonesa-tambien-planea-un-suv-con-esa-tecnologia/",
-          "fecha": "2026-10-22T12:30:52.159Z",
-          "oficial": false,
-          "aporte": "Informó sobre los u$s400 millones adicionales para renovar la Hilux y la creación de la sociedad específica."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/economia/467213-gobierno-nacional-aprobo-rigitoyota-invertira-1252-millones-dolares-zarate",
-          "fecha": "2026-10-22T13:14:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó precisiones sobre la falta de definición del modelo comercial y el contexto exportador de la empresa."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "vp5l7j",
-          "titulo": "Toyota consigue el primer RIGI automotriz para fabricar autos eléctricos",
-          "fecha": "2026-09-30T20:14:46.000Z",
-          "ruta": "/nota/toyota-consigue-el-primer-rigi-automotriz-para-fabricar-autos-vp5l7j"
-        },
-        {
-          "id": "1ugpk62",
-          "titulo": "Toyota obtiene el primer RIGI automotriz y proyecta fabricar autos eléctricos",
-          "fecha": "2026-09-30T20:14:46.000Z",
-          "ruta": "/nota/toyota-obtiene-el-primer-rigi-automotriz-y-proyecta-fabricar-autos-1ugpk62"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-gobierno-aprueba-inversion-de-toyota-en-zarate-para-fabricar-una",
-      "foto": {
-        "archivo": "fotos-notas/1otiit9.jpg",
-        "credito": "Foto: El Cronista"
-      }
-    },
-    {
-      "id": "1kpq8dd",
-      "titulo": "El riesgo país argentino sube a 717 puntos y alcanza un nuevo máximo",
-      "copete": "El indicador financiero que elabora JP Morgan suma 13 unidades y marca un nuevo récord en el año. La suba ocurre en medio de un contexto internacional adverso.",
-      "cuerpo": "El riesgo país argentino alcanza los 717 puntos básicos y registra un nuevo máximo de los últimos doce meses. La curva de los bonos muestra que la incertidumbre está concentrada en el período posterior a las elecciones presidenciales, cuando el mercado intenta anticipar el rumbo económico. El secretario de Finanzas, Federico Furiase, atribuyó la escalada al contexto internacional y sostuvo que el país recibe un castigo excesivo, al tiempo que remarcó que la economía llega al período electoral con superávit fiscal y equilibrio comercial. En paralelo, el deterioro de los activos locales ocurre en un momento de fuerte aversión al riesgo global, impulsado por el aumento del precio del petróleo por encima de los 116 dólares el barril de Brent ante el conflicto en Medio Oriente.",
-      "guion": "El riesgo país argentino sube a 717 puntos y alcanza un nuevo máximo.",
-      "seccion": "Economía",
-      "medios": [
-        "Noticias Argentinas (NA)",
-        "La Nueva",
-        "Diario Popular"
-      ],
-      "enlace": "https://noticiasargentinas.com/economia/otro-avance-del-riesgo-pais-argentino--sube-a-717-puntos_a6adb68a96b2236dda911057e",
-      "teniaImagenLaFuente": false,
-      "fecha": "2026-10-22T11:09:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T15:19:46.733Z",
-      "relevancia": 36,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El indicador de JP Morgan trepa 13 unidades frente al cierre anterior.",
-        "La suba responde a un escenario internacional adverso y a la cautela de los inversores.",
-        "El secretario de Finanzas, Federico Furiase, afirmó que el programa financiero de 2027 está cerrado."
-      ],
-      "seSabe": [
-        "El riesgo país argentino sube a 717 puntos básicos.",
-        "El indicador elaborado por JP Morgan suma 13 unidades.",
-        "El secretario de Finanzas, Federico Furiase, sostuvo que el país recibe un castigo excesivo por parte de los mercados."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó el detalle de la refinanciación de los 5.000 millones de dólares en Bonar."
-      ],
-      "textoRedes": "El riesgo país argentino trepa a 717 puntos básicos y alcanza un nuevo máximo anual según el indicador de JP Morgan.",
-      "etiquetas": [
-        "riesgo pais",
-        "economia",
-        "bonos",
-        "finanzas",
-        "jp morgan"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/otro-avance-del-riesgo-pais-argentino--sube-a-717-puntos_a6adb68a96b2236dda911057e",
-          "fecha": "2026-10-23T14:06:28.922Z",
-          "oficial": false,
-          "aporte": "Reprodujo el reporte sobre la suba del indicador financiero."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/riesgo-pais-en-717-puntos-que-lo-impulsa-hacia-arriba/",
-          "fecha": "2026-10-23T15:13:46.709Z",
-          "oficial": false,
-          "aporte": "Detalló los factores económicos y políticos que explican el salto del riesgo país y las declaraciones del secretario de Finanzas."
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-23-11-8-0-otro-avance-del-riesgo-pais-argentino-sube-a-717-puntos",
-          "fecha": "2026-10-23T15:11:53.000Z",
-          "oficial": false,
-          "aporte": "Informó la baja de los bonos y la cotización del petróleo Brent."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1lvtb0b",
-          "titulo": "El riesgo país llega a 660 puntos y los bonos operan en baja",
-          "fecha": "2026-10-19T03:00:00.000Z",
-          "ruta": "/nota/el-riesgo-pais-llega-a-660-puntos-y-los-bonos-operan-en-baja-1lvtb0b"
-        },
-        {
-          "id": "1ilkp5d",
-          "titulo": "El riesgo país sube a 648 puntos básicos y el dólar mayorista llega a 1518 pesos",
-          "fecha": "2026-10-16T19:23:05.000Z",
-          "ruta": "/nota/el-riesgo-pais-sube-a-648-puntos-basicos-y-el-dolar-mayorista-llega-a-1ilkp5d"
-        },
-        {
-          "id": "1cr7omj",
-          "titulo": "El riesgo país supera los 623 puntos por la cautela global",
-          "fecha": "2026-10-15T16:29:27.000Z",
-          "ruta": "/nota/el-riesgo-pais-supera-los-623-puntos-por-la-cautela-global-1cr7omj"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-riesgo-pais-argentino-sube-a-717-puntos-y-alcanza-un-nuevo-maximo",
-      "foto": {
-        "archivo": "fotos-notas/1kpq8dd.jpg",
-        "credito": "Foto: La Nueva"
-      }
     }
   ],
   "secciones": [
@@ -11668,7 +10955,7 @@
     {
       "nombre": "El Concejo Deliberante",
       "ranura": "concejo",
-      "cuantas": 9
+      "cuantas": 5
     },
     {
       "nombre": "Las rutas",
@@ -11678,10 +10965,10 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 13,
-      "sensacion": 10,
-      "humedad": 85,
-      "viento": 21,
+      "temp": 12,
+      "sensacion": 9,
+      "humedad": 86,
+      "viento": 22,
       "rumbo": "SO",
       "cielo": "Nublado",
       "esDeDia": false
@@ -12030,29 +11317,23 @@
   },
   "pendientes": [
     {
-      "id": "11p74p5",
-      "titulo": "El Instituto Adventista celebró sus 40 años con un emotivo…",
-      "seccion": "Educación",
-      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
-    },
-    {
       "id": "1i9rlqx",
       "titulo": null,
       "seccion": "Balcarce",
       "motivo": "necesita ojo humano: \"niño\" (en otro medio que cuenta lo mismo)"
     },
     {
+      "id": "1i876xe",
+      "titulo": "Diputados dio media sanción a una nueva ley de…",
+      "seccion": "Política",
+      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
+    },
+    {
       "id": "w7qu88",
       "titulo": "Petruccelli habló de salud mental y pidió medidas…",
       "seccion": "Salud",
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
-    },
-    {
-      "id": "12if1s5",
-      "titulo": null,
-      "seccion": "Policiales",
-      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 5
+  "esperandoCuerpo": 9
 }

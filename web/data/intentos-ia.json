@@ -105,9 +105,9 @@
   "motivo": "con cuerpo"
  },
  "11ubrm7": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T23:01:35.766Z",
-  "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
+  "intentos": 2,
+  "ultimo": "2026-10-23T23:33:13.343Z",
+  "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC"
  },
  "11wm7cc": {
   "intentos": 1,
@@ -615,11 +615,6 @@
   "ultimo": "2026-10-23T01:31:55.891Z",
   "motivo": "con cuerpo"
  },
- "1ax3e8b": {
-  "intentos": 1,
-  "ultimo": "2026-10-16T23:31:26.602Z",
-  "motivo": "con cuerpo"
- },
  "1b25lqu": {
   "intentos": 2,
   "ultimo": "2026-10-17T14:01:50.412Z",
@@ -799,6 +794,11 @@
   "intentos": 2,
   "ultimo": "2026-10-21T22:01:13.791Z",
   "motivo": "con cuerpo"
+ },
+ "1es4apg": {
+  "intentos": 1,
+  "ultimo": "2026-10-23T23:33:13.343Z",
+  "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
  },
  "1esapfz": {
   "intentos": 3,
@@ -1670,9 +1670,9 @@
   "motivo": "con cuerpo"
  },
  "1s7ffmt": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T23:01:35.766Z",
-  "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
+  "intentos": 2,
+  "ultimo": "2026-10-23T23:33:13.343Z",
+  "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC"
  },
  "1s8934q": {
   "intentos": 1,
@@ -1969,11 +1969,6 @@
   "ultimo": "2026-10-22T20:32:04.217Z",
   "motivo": "con cuerpo"
  },
- "1w6n98i": {
-  "intentos": 1,
-  "ultimo": "2026-10-16T23:31:26.602Z",
-  "motivo": "con cuerpo"
- },
  "1w90w0b": {
   "intentos": 3,
   "ultimo": "2026-10-23T20:01:53.695Z",
@@ -2258,11 +2253,6 @@
   "ultimo": "2026-10-19T14:02:22.344Z",
   "motivo": "con cuerpo"
  },
- "4gdhzi": {
-  "intentos": 1,
-  "ultimo": "2026-10-16T23:31:26.602Z",
-  "motivo": "con cuerpo"
- },
  "4iyi2i": {
   "intentos": 1,
   "ultimo": "2026-10-18T13:31:18.635Z",
@@ -2479,11 +2469,6 @@
   "intentos": 1,
   "ultimo": "2026-10-21T00:01:15.359Z",
   "motivo": "con cuerpo"
- },
- "8sfd4e": {
-  "intentos": 4,
-  "ultimo": "2026-10-16T23:31:26.602Z",
-  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
  },
  "8sk5u6": {
   "intentos": 1,

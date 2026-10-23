@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-23T23:01:47.389Z",
+ "generado": "2026-10-23T23:33:46.035Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -79,7 +79,7 @@
     {
      "medio": "La Nación",
      "enlace": "https://www.lanacion.com.ar/politica/sin-precedentes-el-trabajo-en-el-centro-de-detencion-clandestino-la-perla-identifico-a-ocho-nuevos-nid23102026/",
-     "fecha": "2026-10-23T22:34:03.000Z"
+     "fecha": "2026-10-23T23:07:49.000Z"
     },
     {
      "medio": "Página/12",
@@ -127,8 +127,90 @@
      "fecha": "2026-10-23T20:12:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI",
+   "intentos": 2,
+   "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC",
+   "maximo": 5
+  },
+  {
+   "id": "o9j14j",
+   "titulo": "Desaparición de Nancy Godoy: imputan a los detenidos",
+   "copete": "La investigación por la desaparición de Nancy Estela Godoy, la docente de 52 años que fue vista por última vez en Corrientes, sumó este viernes un nuevo capítulo ya que Rosa Leguizamón, una vecina de la mujer, fue imputada por homicidio simple. La acusación se formalizó durante…",
+   "seccion": "Policiales",
+   "fecha": "2026-10-23T13:18:10.298Z",
+   "fuentes": [
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/sociedad/desaparicion-de-nancy-godoy--imputan-a-los-detenidos_a6adb5d666b2236dda90ff100",
+     "fecha": "2026-10-23T13:18:10.298Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/videos/policiales/2026/10/23/imputaron-por-homicidio-simple-a-la-vecina-de-la-docente-desaparecida-en-corrientes/",
+     "fecha": "2026-10-23T13:28:40.000Z"
+    },
+    {
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/10/23/desaparicion-de-nancy-godoy-imputaron-a-cinco-detenidos-y-la-fiscalia-avanza-con-la-hipotesis-del-homicidio/",
+     "fecha": "2026-10-23T16:14:29.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/policiales/imputaron-por-homicidio-a-la-vecina-de-la-docente-desaparecida-en-corrientes/",
+     "fecha": "2026-10-23T16:05:00.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/policiales/2026/10/23/desaparicion-de-nancy-godoy-en-corrientes-imputan-a-los-detenidos-por-homicidio-simple/",
+     "fecha": "2026-10-23T14:34:58.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/sociedad/desaparicion-de-nancy-godoy--imputaron-a-los-cinco-detenidos-y-dictaron-la-prision-preventiva_a6adb5d666b2236dda90ff100",
+     "fecha": "2026-10-23T22:36:10.000Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-10-23-11-8-0-desaparicion-de-nancy-godoy-imputan-a-los-detenidos",
+     "fecha": "2026-10-23T14:22:17.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/fuerte-declaracion-del-hijo-nancy-godoy-su-desaparicion-corrientes-todo-empezo-la-denuncia-n6337168",
+     "fecha": "2026-10-23T14:15:00.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/giro-caso-nancy-godoy-imputaron-rosa-leguizamon-homicidio-simple-20261023121748",
+     "fecha": "2026-10-23T15:17:00.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/caso-nancy-godoy-pruebas-rosa-leguizamon-mujer-imputaron-homicidio-simple-20261023124433",
+     "fecha": "2026-10-23T15:44:33.430Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/sociedad/desaparicion-de-nancy-godoy--imputaron-a-los-cinco-detenidos_a6adb5d666b2236dda90ff100",
+     "fecha": "2026-10-23T15:25:10.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/caso-nancy-godoy-imputaron-cuatro-los-detenidos-como-coautores-homicidio-n6337246",
+     "fecha": "2026-10-23T17:12:50.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/sociedad/desaparicion-nanci-godoy-dictaron-la-prision-preventiva-rosa-leguizamon-y-nahuel-rojas-n252399",
+     "fecha": "2026-10-23T17:55:00.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/desaparicion-nancy-godoy-dictan-prision-preventiva-rosa-leguizamon-y-nahuel-rojas-n6337281",
+     "fecha": "2026-10-23T18:00:00.000Z"
+    }
+   ],
+   "intentos": 0,
+   "motivo": "",
    "maximo": 5
   },
   {
@@ -264,8 +346,8 @@
      "fecha": "2026-10-23T20:25:20.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI",
+   "intentos": 2,
+   "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC",
    "maximo": 5
   },
   {
@@ -283,7 +365,7 @@
     {
      "medio": "La Nación",
      "enlace": "https://www.lanacion.com.ar/deportes/futbol/el-insolito-gol-de-nacho-fernandez-para-gimnasia-ante-sarmiento-por-el-torneo-clausura-nid23102026/",
-     "fecha": "2026-10-23T22:01:12.000Z"
+     "fecha": "2026-10-23T23:02:33.000Z"
     },
     {
      "medio": "El Día",
@@ -316,17 +398,75 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
+  },
+  {
+   "id": "wji9rt",
+   "titulo": "Cuándo es la misa del papa León XIV en Buenos Aires",
+   "copete": "La visita del papa León XIV a la Argentina tendrá una de sus celebraciones centrales en la Ciudad de Buenos Aires . El programa oficial combina una misa abierta con una visita social en Claypole y encuentros con trabajadores, líderes religiosos y autoridades. ¿Cuándo y dónde…",
+   "seccion": "Argentina",
+   "fecha": "2026-10-23T20:09:08.000Z",
+   "fuentes": [
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/sociedad/cuando-es-la-misa-del-papa-leon-xiv-en-buenos-aires-nid23102026/",
+     "fecha": "2026-10-23T20:09:08.000Z"
+    },
+    {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/protagonistas/df-entertainment-elegida-para-producir-la-misa-y-la-vigilia-de-jovenes-con-el-papa-leon-xiv/",
+     "fecha": "2026-10-23T23:16:41.463Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/misa-del-papa-leon-xiv--dan-un-negocio-de-us-5-6-m_a6adbd38f6b2236dda91d5d3b",
+     "fecha": "2026-10-23T21:40:22.676Z"
+    }
+   ],
+   "intentos": 0,
+   "motivo": "",
+   "maximo": 3
+  },
+  {
+   "id": "1es4apg",
+   "titulo": "Precio de la Soja en Rosario hoy 23 octubre 2026",
+   "copete": "Precio Hoy soja $550.000,00 Todo sobre la cotización de soja, precio en tiempo real. Pizarra Rosario, cotización de cereales ¿Qué pasa con el precio de la soja? El precio de la soja hoy se encuentra en un contexto de alta volatilidad tanto a nivel local como internacional. En el…",
+   "seccion": "Agro",
+   "fecha": "2026-10-23T14:05:26.000Z",
+   "fuentes": [
+    {
+     "medio": "Infocampo",
+     "enlace": "https://www.infocampo.com.ar/precio-de-la-soja-hoy-23-octubre-2026/",
+     "fecha": "2026-10-23T14:05:26.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/campo/2026/10/23/la-soja-termino-la-semana-con-un-rebote-del-precio-en-chicago-y-en-rosario/",
+     "fecha": "2026-10-23T23:03:36.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI",
+   "maximo": 3
+  },
+  {
+   "id": "12if1s5",
+   "titulo": "La Defensoría del Pueblo local presentó pruebas ante la Justicia por la necesidad de obras en la ruta 226",
+   "copete": "",
+   "seccion": "Policiales",
+   "fecha": "2026-10-22T19:54:44.000Z",
+   "fuentes": [
+    {
+     "medio": "El Eco de Tandil",
+     "enlace": "https://www.eleco.com.ar/ecotv/la-defensoria-del-pueblo-local-presento-pruebas-ante-la-justicia-por-la-necesidad-de-obras-en-la-ruta-226",
+     "fecha": "2026-10-22T19:54:44.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "verificación baja: espera a una persona",
+   "maximo": 3
   }
  ],
  "descartadas": [
-  {
-   "id": "1sn7z3c",
-   "titulo": "El Chavo del 8 llegó al Hostal de los Abuelos con una tarde de teatro y merienda",
-   "seccion": "Balcarce",
-   "fecha": "2026-10-23T20:55:44.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo corto (67 palabras)"
-  },
   {
    "id": "1y9unht",
    "titulo": "La Escuela Colegiales de Fútbol de Balcarce: un predio que no para de crecer con obras",
