@@ -9902,6 +9902,52 @@
    "medida": "2026-10-23T12:45:53.009Z",
    "v": 2,
    "metricas": {}
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122114576733495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "d54qko",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T13:45:42.186Z",
+   "medida": "2026-10-23T15:05:08.575Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 10,
+    "post_total_media_view_unique": 8,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18647607781040077",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "d54qko",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-22T13:45:51.951Z",
+   "medida": "2026-10-23T15:05:08.575Z",
+   "v": 2,
+   "metricas": {
+    "reach": 2,
+    "views": 4,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "instagram/historia/17951369160340118",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "podcast",
+   "dia": "2026-10-22",
+   "cuando": "2026-10-23T00:47:24.836Z",
+   "medida": "2026-10-23T15:05:08.575Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
   }
  ]
 }

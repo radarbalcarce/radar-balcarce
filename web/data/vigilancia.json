@@ -1,7 +1,10 @@
 {
   "avisos": {
-    "efemerides-por-acabarse": "2026-10-23T09:00:45.784Z",
-    "archivo-r2-fallo": "2026-10-23T12:45:53.009Z"
+    "efemerides-por-acabarse": "2026-10-23T15:05:08.575Z",
+    "falta-facebook-reel:efemeride": "2026-10-23T15:05:08.575Z",
+    "falta-facebook-historia:efemeride": "2026-10-23T15:05:08.575Z",
+    "falta-instagram-reel:efemeride": "2026-10-23T15:05:08.575Z",
+    "falta-instagram-historia:efemeride": "2026-10-23T15:05:08.575Z"
   },
   "importantes": {
     "avisadas": {
@@ -45,16 +48,34 @@
   "ultimoInforme": "2026-10-01",
   "abiertos": [
     {
-      "clave": "archivo-r2-fallo",
-      "nivel": "media",
-      "texto": "La última corrida del archivo permanente salió mal (se acabó el tiempo: quedaron 787 objetos para la próxima corrida). El sitio se publica igual, pero lo que está por salir puede no estar guardado y lo retirado puede no haberse borrado de R2. Mirá el paso \"Archivar las notas por salir (R2)\" del workflow \"Actualizar la web\" en GitHub Actions.",
-      "desde": "2026-10-23T12:45:53.009Z"
-    },
-    {
       "clave": "efemerides-por-acabarse",
       "nivel": "media",
       "texto": "Ya es 23 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
+    },
+    {
+      "clave": "falta-facebook-reel:efemeride",
+      "nivel": "media",
+      "texto": "Facebook: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
+      "desde": "2026-10-23T15:05:08.575Z"
+    },
+    {
+      "clave": "falta-facebook-historia:efemeride",
+      "nivel": "media",
+      "texto": "Facebook: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
+      "desde": "2026-10-23T15:05:08.575Z"
+    },
+    {
+      "clave": "falta-instagram-reel:efemeride",
+      "nivel": "media",
+      "texto": "Instagram: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
+      "desde": "2026-10-23T15:05:08.575Z"
+    },
+    {
+      "clave": "falta-instagram-historia:efemeride",
+      "nivel": "media",
+      "texto": "Instagram: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
+      "desde": "2026-10-23T15:05:08.575Z"
     }
   ]
 }
