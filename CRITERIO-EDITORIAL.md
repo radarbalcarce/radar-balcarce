@@ -786,8 +786,8 @@ Google (`author`):
 
 | La nota es… | La línea dice |
 |---|---|
-| Escrita por la IA, sin revisión de una persona | "Redacción con IA, verificada contra las fuentes · Fuentes (N)" |
-| Escrita por la IA y revisada y publicada por una persona | "Redacción con IA, revisada por la redacción · Fuentes (N)" |
+| Escrita por la IA, sin revisión de una persona | "Redacción asistida con IA, verificada contra las fuentes · Fuentes (N)" |
+| Escrita por la IA y revisada y publicada por una persona | "Redacción asistida con IA, revisada por la redacción · Fuentes (N)" |
 | Cargada o corregida por una persona | "Revisada por la redacción · Fuentes (N)" |
 | El texto de la fuente, sin reescribir | "Texto de *medio* · Fuentes (N)" |
 | Propia (dólar, repaso) | Lo que dice la nota: "Nota de Radar Balcarce con datos de…" |

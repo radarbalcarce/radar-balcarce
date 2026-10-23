@@ -48,7 +48,7 @@ const ESTILO = `
 
 /**
  * El pie de la nota: una sola línea gris, "Fuentes (4)". Al abrir el desplegable, la firma
- * ("Redacción con IA, verificada contra las fuentes"), su explicación y el nombre de cada medio con su enlace. La firma se dice
+ * ("Redacción asistida con IA, verificada contra las fuentes"), su explicación y el nombre de cada medio con su enlace. La firma se dice
  * siempre (regla del sitio: cada nota dice quién la escribió), pero adentro del desplegable y no arriba (17/10/2026, Hernán:
  * "cuanto menos cosas así tan visibles, mejor; cuando la gente aprieta en Fuentes ya sabe"); lo interno ("salió sin revisión
  * humana") no se dice. Sin fuentes, la línea con la firma sola.

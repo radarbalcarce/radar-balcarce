@@ -43,12 +43,12 @@ test('una nota con el cuerpo escrito en correcciones.json firma "Revisada por la
   // Lo que la IA redactó y una persona corrigió (sólo el título): revisada.
   const b = conCorreccion({ id: 'b', guion: 'algo', como: 'automatica', medios: ['TN'] }, correcciones);
   assert.equal(b.cuerpoAMano, undefined);
-  assert.equal(firmaCorta(b), 'Redacción con IA, revisada por la redacción');
+  assert.equal(firmaCorta(b), 'Redacción asistida con IA, revisada por la redacción');
 
   // Sin corrección, la nota no se toca.
   const z = { id: 'z', guion: 'x', como: 'automatica' };
   assert.equal(conCorreccion(z, correcciones), z);
-  assert.equal(firmaCorta(z), 'Redacción con IA, verificada contra las fuentes');
+  assert.equal(firmaCorta(z), 'Redacción asistida con IA, verificada contra las fuentes');
 });
 
 // -------------------------------------------------------- 3. los sepelios

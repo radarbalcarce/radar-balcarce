@@ -197,13 +197,12 @@ test('el autor de los datos estructurados dice lo mismo que la firma de la nota'
   // aclaración sobre la IA sigue en el marcado, en author.description (y en publishingPrinciples de la nota), y la firma visible no cambió.
   const auto = autorDeNota({ guion: 'x', como: 'automatica', medios: ['La Vanguardia'] }, 'https://radarbalcarce.com');
   assert.equal(auto.name, 'Radar Balcarce');
-  assert.match(auto.description, /IA/);
-  assert.match(auto.description, /verificada automáticamente contra las fuentes/);
-  assert.ok(!/revis/i.test(auto.description), `una nota automática dice que fue revisada: ${auto.description}`);
+  // 23/10/2026: el autor es sólo el nombre y su página; cómo se escribe va adentro de «Fuentes» y en «Cómo trabajamos».
+  assert.equal(auto.description, undefined);
 
   const revisada = autorDeNota({ guion: 'x', como: 'publicada' }, 'https://radarbalcarce.com');
   assert.equal(revisada.name, 'Radar Balcarce');
-  assert.match(revisada.description, /revisada por una persona/);
+  assert.equal(revisada.description, undefined);
 
   // El resumen es el de la fuente: el autor es ese medio.
   assert.equal(autorDeNota({ guion: null, como: 'automatica', medios: ['El Diario Balcarce'] }).name, 'El Diario Balcarce');
@@ -219,8 +218,8 @@ test('el autor de los datos estructurados dice lo mismo que la firma de la nota'
 
 test('la firma que ve el lector es una línea corta, coherente con el autor de los datos', () => {
   const auto = { guion: 'x', como: 'automatica', medios: ['La Vanguardia'] };
-  assert.equal(firmaCorta(auto), 'Redacción con IA, verificada contra las fuentes');
-  assert.equal(firmaCorta({ ...auto, como: 'publicada' }), 'Redacción con IA, revisada por la redacción');
+  assert.equal(firmaCorta(auto), 'Redacción asistida con IA, verificada contra las fuentes');
+  assert.equal(firmaCorta({ ...auto, como: 'publicada' }), 'Redacción asistida con IA, revisada por la redacción');
   assert.equal(firmaCorta({ guion: null, como: 'publicada' }), 'Revisada por la redacción');
   assert.equal(firmaCorta({ guion: null, como: 'automatica', medios: ['El Diario Balcarce'] }), 'Texto de El Diario Balcarce');
   assert.equal(firmaCorta({ guion: null, como: 'automatica', medios: [] }), 'Texto de la fuente');
@@ -575,7 +574,7 @@ test('D5: el autor es sólo "Radar Balcarce", y la transparencia sobre la IA sig
     assert.equal(a.name, 'Radar Balcarce');
     assert.ok(!/[()]/.test(a.name));
     assert.equal(a.url, `${base}/quienes-somos`, 'el autor conserva la página de Quiénes somos');
-    assert.match(a.description, /escrita con IA/);
+    assert.equal(a.description, undefined, 'desde el 23/10 el autor es sólo el nombre y su página: cómo se escribe va adentro de «Fuentes»');
     // La política de firmas de la nota apunta a "Cómo trabajamos".
     assert.deepEqual(principiosDeNota(quienEscribio(nota), base), { publishingPrinciples: `${base}/quienes-somos#como-trabajamos` });
   }
@@ -584,5 +583,5 @@ test('D5: el autor es sólo "Radar Balcarce", y la transparencia sobre la IA sig
   assert.equal(autorDeNota({ propia: true }, base).description, undefined);
   assert.match(leer('components/ficha.js'), /\.\.\.principiosDeNota\(quienEscribio\(nota\), base\)/);
   // La firma visible no se tocó: sigue diciendo que la escribió la IA.
-  assert.equal(firmaCorta({ guion: 'x', como: 'automatica', medios: ['X'] }), 'Redacción con IA, verificada contra las fuentes');
+  assert.equal(firmaCorta({ guion: 'x', como: 'automatica', medios: ['X'] }), 'Redacción asistida con IA, verificada contra las fuentes');
 });

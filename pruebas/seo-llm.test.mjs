@@ -194,7 +194,7 @@ test('ultimas.json: sólo lo que Google puede ver, más nuevo primero, sin el cu
   assert.deepEqual(Object.keys(n), ['id', 'titulo', 'bajada', 'seccion', 'fecha', 'de_balcarce', 'url', 'fuentes', 'redaccion']);
   assert.equal(n.url, `${BASE}/nota/titulo-nueva`);
   assert.deepEqual(n.fuentes, ['El Diario Balcarce', 'La Nación']);
-  assert.equal(n.redaccion, 'Redacción con IA, verificada contra las fuentes');
+  assert.equal(n.redaccion, 'Redacción asistida con IA, verificada contra las fuentes');
   assert.ok(!JSON.stringify(j).includes('palabra5'), 'el cuerpo no viaja');
   assert.match(j.como_citar, /fuente original/);
   assert.equal(j.correcciones, `${BASE}/contacto`);

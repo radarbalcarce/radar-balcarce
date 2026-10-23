@@ -131,7 +131,7 @@ test('los ítems salen del más nuevo al más viejo y con un tope', () => {
 test('cada ítem dice quién escribió la nota, igual que la página', () => {
   // Redactada por la IA y verificada: firma como el pie de la nota; el creador es Radar Balcarce.
   const ia = itemDeLaNota(nota({ guion: 'g', como: 'automatica', medios: ['El Diario Balcarce'] }), SITIO);
-  assert.match(ia, /<p><em>Redacción con IA, verificada contra las fuentes<\/em><\/p>/);
+  assert.match(ia, /<p><em>Redacción asistida con IA, verificada contra las fuentes<\/em><\/p>/);
   assert.match(ia, /<dc:creator>Radar Balcarce<\/dc:creator>/);
   // El texto de la fuente, tal cual: ese medio es el autor.
   const fuente = itemDeLaNota(nota({ medios: ['El Diario Balcarce'] }), SITIO);

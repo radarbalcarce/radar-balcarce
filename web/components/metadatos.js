@@ -125,10 +125,9 @@ export function autorDeNota(nota = {}, base = '') {
       ? { '@type': 'Organization', name: fuente }
       : { '@type': 'Organization', name: NOMBRE, url: paginaDelAutor };
   }
-  const como = revisada
-    ? 'Nota escrita con IA y revisada por una persona'
-    : 'Nota escrita con IA y verificada automáticamente contra las fuentes';
-  return { '@type': 'Organization', name: NOMBRE, url: paginaDelAutor, description: como };
+  // 23/10/2026 (SEO): el autor es sólo el nombre y su página. Cómo se escribe cada nota se explica adentro de «Fuentes» (visible para el lector) y en «Cómo trabajamos»
+  // (publishingPrinciples de la nota), no en el dato que lee el buscador.
+  return { '@type': 'Organization', name: NOMBRE, url: paginaDelAutor };
 }
 
 /**
@@ -137,8 +136,8 @@ export function autorDeNota(nota = {}, base = '') {
  * `author` de arriba, en pocas palabras:
  *
  *   · propia:            lo que dice la nota ("Nota de Radar Balcarce con datos de…")
- *   · escrita por la IA: "Redacción con IA, verificada contra las fuentes"
- *   · ...y revisada:     "Redacción con IA, revisada por la redacción"
+ *   · escrita por la IA: "Redacción asistida con IA, verificada contra las fuentes"
+ *   · ...y revisada:     "Redacción asistida con IA, revisada por la redacción"
  *   · de una persona:    "Revisada por la redacción"
  *   · texto de la fuente: "Texto de <medio>"
  *
@@ -148,7 +147,7 @@ export function autorDeNota(nota = {}, base = '') {
 export function firmaCorta(nota = {}) {
   const { reescrita, revisada, propia } = quienEscribio(nota);
   if (propia) return String(nota.firma || 'Nota de Radar Balcarce').replace(/\.\s*$/, '');
-  if (reescrita) return revisada ? 'Redacción con IA, revisada por la redacción' : 'Redacción con IA, verificada contra las fuentes';
+  if (reescrita) return revisada ? 'Redacción asistida con IA, revisada por la redacción' : 'Redacción asistida con IA, verificada contra las fuentes';
   if (revisada) return 'Revisada por la redacción';
   const medio = (nota.medios ?? [])[0];
   return medio ? `Texto de ${medio}` : 'Texto de la fuente';
