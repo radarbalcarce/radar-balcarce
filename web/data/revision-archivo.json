@@ -1,10 +1,10 @@
 {"version":1,
 "desde":"2026-10-22T03:00:00.000Z",
-"generado":"2026-10-23T07:21:34.967Z",
+"generado":"2026-10-23T07:30:14.300Z",
 "terminada":null,
-"contadores":{"total":1459,"revisadas":305,"faltan":1154,"retiradas":5,"repetidas":14,"fotosSacadas":10,"arreglos":31,"paraUnaPersona":20,"fallas":6},
-"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":6,"vision":18,"gemini":15}},
-"ultimaTanda":{"cuando":"2026-10-23T07:19:53.664Z","notas":8,"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":4,"paraUnaPersona":1,"pendientes":0,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":4,"paraUnaPersona":1,"saltadas":0}},
+"contadores":{"total":1459,"revisadas":308,"faltan":1151,"retiradas":5,"repetidas":14,"fotosSacadas":10,"arreglos":34,"paraUnaPersona":20,"fallas":6},
+"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":8,"vision":24,"gemini":15}},
+"ultimaTanda":{"cuando":"2026-10-23T07:29:00.592Z","notas":9,"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":3,"paraUnaPersona":0,"pendientes":6,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":3,"paraUnaPersona":0,"saltadas":0}},
 "retiradas":{
 "i06m20":{"motivo":"no es nota: el pronóstico de otro medio (el sitio tiene su clima)","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
 "1m2za7b":{"motivo":"no es nota: el medio habla de sí mismo","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
@@ -387,5 +387,14 @@
 "1ofousc":{"v":1,"c":"2026-10-23T07:21:34.967Z","r":"ok","f":"ok","t":"ok","a":2,"i":1},
 "p8h86x":{"v":1,"c":"2026-10-23T07:21:34.967Z","r":"ok","f":"ok","t":"ok","i":1},
 "4aj9uy":{"v":1,"c":"2026-10-23T07:21:34.967Z","r":"persona","f":"sin-foto","t":"avisos","a":1,"i":1},
-"5x5bq":{"v":1,"c":"2026-10-23T07:21:34.967Z","r":"ok","f":"ok","t":"no-aplica","i":1}
+"5x5bq":{"v":1,"c":"2026-10-23T07:21:34.967Z","r":"ok","f":"ok","t":"no-aplica","i":1},
+"119oqdp":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"sin-foto","t":"ok","i":1},
+"1oj9qzr":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"ok","a":1,"i":1},
+"17pc5cx":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"ok","i":1},
+"in20o1":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"ok","i":1},
+"1as5wmy":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"sin-foto","t":"ok","a":1,"i":1},
+"83u2vt":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"sin-foto","t":"ok","a":1,"i":1},
+"1d5l8dl":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"no-aplica","i":1},
+"15o4k9f":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"no-aplica","i":1},
+"1dtg8ms":{"v":1,"c":"2026-10-23T07:30:14.300Z","r":"ok","f":"pendiente","t":"no-aplica","i":1}
 }}
