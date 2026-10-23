@@ -24,7 +24,7 @@ const fin = (id, semaforo, motivo = '', seccion = null, medios = 1) => ({ id, se
 
 test('la estadística cuenta las mismas catorce secciones que la lectura con IA, y los resultados tienen texto', () => {
   assert.deepEqual(SECCIONES_DE_LA_ESTADISTICA, seccionesDeLaFicha());
-  assert.deepEqual(Object.keys(RESULTADOS).sort(), ['ia', 'otros', 'pocasFuentes', 'publicada', 'repetida', 'semaforo', 'sinCuerpo', 'unMedio']);
+  assert.deepEqual(Object.keys(RESULTADOS).sort(), ['ia', 'otros', 'pocasFuentes', 'publicada', 'repetida', 'retirada', 'semaforo', 'sinCuerpo', 'tarde', 'unMedio']);
   assert.equal(DIAS_GUARDADOS, 60);
   assert.deepEqual(['1', '2', '5', '6', '9', '40'].map((n) => cuboDeMedios(Number(n))), ['1', '2', '5', '6+', '6+', '6+']);
 });

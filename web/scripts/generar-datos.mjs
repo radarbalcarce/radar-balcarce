@@ -64,7 +64,7 @@ import { pendientesDeLaIngesta } from '../../redes/avisos.mjs';
 import { cuentaDelDia, anotarDia, comoHistoriaJson as comoNotasPorDiaJson } from '../../ingesta/estadistica-diaria.mjs';
 import {
   vigenteEnPortada, slugsConocidos, fijarSlug, actualizarArchivo, aligerarViejas, idsEnRedes, sinPuntaje, comoArchivoJson, guardiaDelArchivo, ingestaSana, bajasDelArchivo, mesDeLaNota, conBajasEnElHistorico,
-  idsRetiradosAMano, correccionesAMano, conCorreccion, cambiosDeLaAuditoria, conCambiosDeLaAuditoria, fechaDeLaNota, llegaTarde,
+  idsRetiradosAMano, correccionesAMano, conCorreccion, cambiosDeLaAuditoria, conCambiosDeLaAuditoria, fechaDeLaNota, llegaTarde, horasParaEstrenar,
   conFechaSinError, HORAS_DE_UN_HECHO,
   esDeLoQueNuncaSePublica, pierdeLaPagina, podarRetiradas, comoRetiradasJson, sePodaPorFaltaDeCuerpo, topeDeNotas, topeDeEstaVuelta, MAXIMO_EN_ARCHIVO,
 } from '../lib/archivo.js';
@@ -447,7 +447,7 @@ const intentosAlEmpezar = JSON.stringify(intentos);
       const fecha = fechaReal(n);
       // Lo que ya no se va a estrenar (hecho de más de HORAS_PARA_ESTRENAR,
       // nunca salió) tampoco: no va a salir (28/09).
-      return vigenteEnPortada({ fecha }) && (yaSalieron.has(n.id) || !llegaTarde(fecha));
+      return vigenteEnPortada({ fecha }) && (yaSalieron.has(n.id) || !llegaTarde(fecha, Date.now(), horasParaEstrenar(contarMedios(n.medios))));
     });
   // El archivo va también como fuente de ANTECEDENTES: lo que el sitio ya
   // publicó sobre el mismo tema en los últimos 30 días (CRITERIO-EDITORIAL.md).
@@ -524,7 +524,7 @@ function notaPublicada(n) {
   // HORAS_PARA_ESTRENAR (llegaTarde, lib/archivo.js). Lo que publicó una
   // persona se respeta. Sin excepción para las notas sin hora: se cuentan desde
   // la primera vez que las vimos (fechaReal).
-  if (!humana && !yaSalieron.has(n.id) && llegaTarde(fecha)) return null;
+  if (!humana && !yaSalieron.has(n.id) && llegaTarde(fecha, Date.now(), horasParaEstrenar(contarMedios(n.medios)))) return null;
   // Lo que decidió una persona manda. Si no, lo que ya reescribió la IA sola
   // en esta corrida o en una anterior. Si ninguna de las dos cosas pasó,
   // queda el resumen mecánico de la fuente, como salía antes de todo esto.
@@ -1303,6 +1303,9 @@ try {
     finales: finales.map((n) => ({ id: n.id, seccion: n.seccion, semaforo: n.semaforo, motivo: n.motivo, medios: contarMedios(n.medios) })),
     publicadas: new Set(deLaIngesta.map((n) => n.id)),
     sacadasPorLaIA, repetidas: repetidasFuera, sinCuerpo: new Set(esperandoCuerpo.map((e) => e.id)),
+    // Lo que no es de la selección sino de lo que pasa después: una persona la retiró o se unió a otra / el hecho llegó pasado de horas.
+    retiradas: new Set(finales.filter((n) => RETIRADAS_A_MANO.has(n.id) || UNIDAS_FIRMES.has(n.id)).map((n) => n.id)),
+    tarde: new Set(finales.filter((n) => !yaSalieron.has(n.id) && llegaTarde(fechaReal(n), Date.now(), horasParaEstrenar(contarMedios(n.medios)))).map((n) => n.id)),
     yaSalieron, motivos: { pocoContada: MOTIVO_POCO_CONTADA, esperaLectura: MOTIVO_ESPERA_LECTURA },
     vistaDe: (id) => vistas[id] ?? null, ahora,
   });

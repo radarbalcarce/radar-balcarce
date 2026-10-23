@@ -364,11 +364,18 @@ test('la fecha de una nota es la más vieja que se conoce: un medio que actualiz
 
 // ------------------ una nota vieja no se estrena (28/09, "noticias viejas")
 
-import { llegaTarde, HORAS_PARA_ESTRENAR } from '../web/lib/archivo.js';
-import { PORTADA } from '../ingesta/criterio.mjs';
+import { llegaTarde, HORAS_PARA_ESTRENAR, HORAS_PARA_ESTRENAR_MUY_CONTADA, MEDIOS_MUY_CONTADA, horasParaEstrenar } from '../web/lib/archivo.js';
+import { PORTADA, MUY_CONTADA } from '../ingesta/criterio.mjs';
 
 test('una nota que nunca salió no se estrena con el hecho de más de 12 horas', () => {
   assert.equal(HORAS_PARA_ESTRENAR, PORTADA.horasParaEstrenar);
+  assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, PORTADA.horasParaEstrenarMuyContada);
+  assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, MUY_CONTADA.horasDelHecho);
+  assert.equal(MEDIOS_MUY_CONTADA, MUY_CONTADA.medios);
+  const hace = (h) => new Date(Date.now() - h * 3600000).toISOString();
+  assert.equal(llegaTarde(hace(20), Date.now(), horasParaEstrenar(3)), true, 'con pocos medios, 20 horas es tarde');
+  assert.equal(llegaTarde(hace(20), Date.now(), horasParaEstrenar(8)), false, 'con 8 medios, 20 horas todavía se estrena');
+  assert.equal(llegaTarde(hace(30), Date.now(), horasParaEstrenar(20)), true, 'ni con 20 medios pasa de 24 horas');
   const ahora = new Date('2026-09-28T15:00:00Z').getTime();
   // El choque de Colapinto en Bakú (sábado 26 a la mañana): el lunes ya no se estrena.
   assert.equal(llegaTarde('2026-09-26T12:47:00Z', ahora), true);
@@ -385,8 +392,8 @@ test('generar-datos no estrena lo que llega tarde ni le pide cuerpo a Gemini, y 
   const s = fs.readFileSync(path.join(import.meta.dirname, '..', 'web', 'scripts', 'generar-datos.mjs'), 'utf8');
   // La misma fecha decide las dos cosas, sin excepción para las notas sin hora
   // (28/09: una sin hora quedaba fuera de la reescritura pero se podía estrenar).
-  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*if \(!humana && !yaSalieron\.has\(n\.id\) && llegaTarde\(fecha\)\) return null;/);
-  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*return vigenteEnPortada\(\{ fecha \}\) && \(yaSalieron\.has\(n\.id\) \|\| !llegaTarde\(fecha\)\);/);
+  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*if \(!humana && !yaSalieron\.has\(n\.id\) && llegaTarde\(fecha, Date\.now\(\), horasParaEstrenar\(contarMedios\(n\.medios\)\)\)\) return null;/);
+  assert.match(s, /const fecha = fechaReal\(n\);\s+(\/\/[^\n]*\s+)*return vigenteEnPortada\(\{ fecha \}\) && \(yaSalieron\.has\(n\.id\) \|\| !llegaTarde\(fecha, Date\.now\(\), horasParaEstrenar\(contarMedios\(n\.medios\)\)\)\);/);
 });
 
 // 8/10/2026 (C-5): un archivo de datos roto no puede vaciar el sitio ni hacer que las redes vuelvan a publicar lo ya publicado.

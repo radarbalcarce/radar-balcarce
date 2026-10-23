@@ -323,6 +323,17 @@ export function conFechaSinError(nota) {
  *  (PORTADA.horasParaEstrenar en ingesta/criterio.mjs; una prueba lo controla). */
 export const HORAS_PARA_ESTRENAR = 12;
 
+/** Una historia que cuentan tantos medios (MUY_CONTADA.medios, 8) es noticia aunque el hecho sea de ayer a la noche: se estrena con
+ *  hasta HORAS_PARA_ESTRENAR_MUY_CONTADA horas, las mismas que MUY_CONTADA.horasDelHecho (23/10, Hernán: "más de 8 fuentes debería
+ *  ser algo súper relevante"). Los dos números viven en ingesta/criterio.mjs y una prueba los controla. */
+export const MEDIOS_MUY_CONTADA = 8;
+export const HORAS_PARA_ESTRENAR_MUY_CONTADA = 24;
+
+/** Cuántas horas puede tener un hecho para estrenarse, según cuántos medios lo cuentan. */
+export function horasParaEstrenar(medios = 1) {
+  return Number(medios) >= MEDIOS_MUY_CONTADA ? HORAS_PARA_ESTRENAR_MUY_CONTADA : HORAS_PARA_ESTRENAR;
+}
+
 /**
  * ¿Esta nota llega tarde para estrenarse? Una nota que nunca salió no se
  * publica si el hecho (su fecha, ya corregida con fechaDeLaNota) tiene más de

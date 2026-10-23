@@ -155,6 +155,9 @@ export const PORTADA = {
   // 140 salían con más de 24 horas, por esperar medios o cuerpo).
   // 12 (28/09, Hernán eligió 12 entre 2, 12 y 24).
   horasParaEstrenar: 12,
+  // Lo que cuentan MUY_CONTADA.medios medios o más se estrena con el hecho de hasta esto (23/10, Hernán: "más de 8 fuentes debería ser algo
+  // súper relevante"): son las mismas horas que MUY_CONTADA.horasDelHecho. Antes las 12 dejaban sin salir 150 a 250 historias por día.
+  horasParaEstrenarMuyContada: 24,
   horasNotaGrande: 6,
   diasDeArchivo: 180,
   // Tope de notas con página (web/lib/archivo.js, MAXIMO_EN_ARCHIVO). Cloudflare Pages acepta 20.000 archivos por despliegue y, medido el

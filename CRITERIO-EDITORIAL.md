@@ -140,7 +140,8 @@ puede salir sola, la que cuentan más medios y la de más puntaje. Si la misma n
 igual vuelve a entrar con otra dirección (porque el medio cambió el enlace), se une sola:
 queda una y la otra dirección redirige a ésa (`web/lib/repetidas.js`).
 
-**Nada viejo.** Una nota que nunca salió no se publica si el hecho tiene más de 12 horas,
+**Nada viejo.** Una nota que nunca salió no se publica si el hecho tiene más de 12 horas
+(24 si la cuentan 8 medios o más: eso es noticia aunque haya pasado ayer a la noche),
 y la portada y las secciones muestran sólo las últimas 36. La fecha de una nota es la más
 vieja que se conoce: un medio que actualiza la suya no la rejuvenece. De lo que se lee
 raspando la portada de un medio (El Diario Balcarce, que no tiene feed) se toma la fecha
@@ -875,6 +876,7 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Antecedentes: como máximo | 3 | `REESCRITURA.antecedentesMaximo` |
 | Portada: horas que una nota está en las listas | 36 | `PORTADA.horas` |
 | Horas que puede tener un hecho para publicarse por primera vez (una nota que nunca salió y es más vieja, no sale) | 12 | `PORTADA.horasParaEstrenar` |
+| Lo mismo, si lo cuentan `MUY_CONTADA.medios` medios o más | 24 | `PORTADA.horasParaEstrenarMuyContada` |
 | Portada: horas que una nota compite por el lugar grande | 6 | `PORTADA.horasNotaGrande` |
 | Días que dura la página de una nota | 180 | `PORTADA.diasDeArchivo` |
 | Notas con página como máximo (por el tope de 20.000 archivos de Cloudflare; a unas 46 por día se llena y manda antes que los 180 días) | 3700 | `PORTADA.maximoDeNotas` |

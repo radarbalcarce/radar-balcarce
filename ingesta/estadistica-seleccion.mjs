@@ -42,7 +42,9 @@ export const RESULTADOS = {
   semaforo: 'el semáforo la frenó (tema sensible, promoción, internacional, dólar, no es nota)',
   pocasFuentes: 'pocas fuentes (2 o más medios, pero menos de los que pide su sección)',
   unMedio: 'un solo medio (no pasó el cruce)',
-  otros: 'otros (llegó tarde, la retiró una persona, unida a otra)',
+  tarde: 'llegó tarde (el hecho tenía más horas de las que se estrena: 12, o 24 si lo cuentan 8 medios o más)',
+  retirada: 'la retiró una persona o quedó unida a otra',
+  otros: 'otros (sin un motivo que podamos nombrar)',
 };
 
 /** Los resultados que, con más medios, habrían salido: pasaron el semáforo y la lectura con IA (sirve para simular otro mínimo). */
@@ -72,7 +74,7 @@ export const cuboDeMedios = (medios) => (medios >= 6 ? '6+' : String(Math.max(1,
  */
 export function observarCorrida({
   delCruce = [], finales = [], publicadas = new Set(), sacadasPorLaIA = new Set(), repetidas = new Set(),
-  sinCuerpo = new Set(), yaSalieron = new Set(), motivos = { pocoContada: 'de afuera y poco contada', esperaLectura: 'espera la lectura con IA' },
+  sinCuerpo = new Set(), tarde = new Set(), retiradas = new Set(), yaSalieron = new Set(), motivos = { pocoContada: 'de afuera y poco contada', esperaLectura: 'espera la lectura con IA' },
   vistaDe = () => null, ahora = new Date(),
 } = {}) {
   const finalPorId = new Map(finales.map((n) => [n.id, n]));
@@ -83,6 +85,8 @@ export function observarCorrida({
     else if (sacadasPorLaIA.has(hst.id)) resultado = 'ia';
     else if (repetidas.has(hst.id)) resultado = 'repetida';
     else if (sinCuerpo.has(hst.id)) resultado = 'sinCuerpo';
+    else if (retiradas.has(hst.id)) resultado = 'retirada';
+    else if (tarde.has(hst.id)) resultado = 'tarde';
     else if (f?.semaforo === 'rojo') resultado = 'semaforo';
     else if (f?.semaforo === 'amarillo') {
       const motivo = String(f.motivo ?? '');

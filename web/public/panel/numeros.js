@@ -177,7 +177,7 @@ export function evolucionDeSeguidores(puntos, red, desdeDia) {
 
 const MOTIVOS_DE_LA_SELECCION = [
   ['unMedio', 'un solo medio'], ['pocasFuentes', 'pocas fuentes'], ['semaforo', 'el semáforo'], ['ia', 'la IA'], ['repetida', 'repetidas'],
-  ['sinCuerpo', 'sin cuerpo'], ['otros', 'otros'],
+  ['sinCuerpo', 'sin cuerpo'], ['tarde', 'llegó tarde'], ['retirada', 'retirada o unida'], ['otros', 'otros'],
 ];
 
 /**
