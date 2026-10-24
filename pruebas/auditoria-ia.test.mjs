@@ -88,6 +88,41 @@ test('de a tres, con espera entre pedidos; un pedido que falla no frena a los ot
   assert.deepEqual(sinCupo.leidas, []);
 });
 
+test('regla 318: con las IA lentas la corrida deja de empezar pedidos a los 4 minutos, y lo que no alcanzó queda sin leer para la hora siguiente (no es una falla)', async () => {
+  // Una corrida de 12 notas = 4 pedidos. Cada pedido tarda lo que tardan Groq y tres modelos gratis de OpenRouter sin contestar (90 + 3 x 75 = 315 s) y entre uno y otro se
+  // duermen 25 s. Sin tope eran ~17 minutos: más de los 15 que un Worker deja correr a una tarea del reloj (la corrida se cortaba sin guardar ni anotar nada).
+  const notas = Array.from({ length: 12 }, (_, i) => nota(`n${i}`));
+  let ahora = 0;
+  const reloj = () => ahora;
+  const dormir = async (s) => { ahora += s * 1000; };
+  let pedidos = 0;
+  const fetchFn = async () => { pedidos += 1; ahora += 315_000; return { ok: false, status: 503 }; };
+  const r = await auditarNotas(notas, { clave: 'k', fetchFn, dormir, reloj });
+  assert.equal(pedidos, 1, 'el primero tardó 315 s: ya pasó el tope y no se empieza otro');
+  assert.equal(r.sinTiempo, 9);
+  assert.equal(r.fallas.length, 1, 'sólo el pedido que falló de verdad cuenta como falla');
+  assert.deepEqual(r.leidas, []);
+  assert.ok(ahora <= (AUDITORIA.empezarAntesDeSegundos + 315) * 1000, 'la corrida entera cabe en los 15 minutos');
+  // con las IA rápidas se leen todas, como siempre
+  ahora = 0; pedidos = 0;
+  const rapido = await auditarNotas(notas, { clave: 'k', fetchFn: async () => { pedidos += 1; ahora += 3000; return respuestaGroq({ notas: [] }); }, dormir, reloj });
+  assert.equal(pedidos, 4);
+  assert.equal(rapido.sinTiempo, 0);
+  assert.equal(rapido.leidas.length, 12);
+  // y el tope también corta mientras se duerme: pedidos de 215 s + 25 s de espera pasan los 240 s justo antes del segundo
+  ahora = 0; pedidos = 0;
+  const justo = await auditarNotas(notas, { clave: 'k', fetchFn: async () => { pedidos += 1; ahora += 216_000; return respuestaGroq({ notas: [] }); }, dormir, reloj });
+  assert.equal(pedidos, 1);
+  assert.equal(justo.sinTiempo, 9);
+  assert.equal(justo.leidas.length, 3);
+});
+
+test('regla 318: la auditoría lee el uso de IA del día para que su tope de OpenRouter cuente lo que ya gastaron la lectura y la redacción, y no lo guarda', async () => {
+  const { ARCHIVOS_QUE_LEE, ARCHIVOS_QUE_ESCRIBE } = await import('../redes/auditar-notas.mjs');
+  assert.ok(ARCHIVOS_QUE_LEE.includes('web/data/uso-ia.json'));
+  assert.ok(!ARCHIVOS_QUE_ESCRIBE.includes('web/data/uso-ia.json'), 'lo escribe el motor; la auditoría no puede pisarlo con una copia vieja');
+});
+
 test('lo guardado: lo nuevo reemplaza lo de la misma nota, lo viejo se va, y lo grave se resume para WhatsApp', () => {
   const notas = [nota('a'), nota('b')];
   const hallazgos = [{ id: 'a', tipo: 'sensible', gravedad: 'alta', detalle: 'Nombra a un menor', sugerencia: '' }, { id: 'b', tipo: 'ortografia', gravedad: 'baja', detalle: 'x', sugerencia: '' }];

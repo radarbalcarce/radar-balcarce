@@ -202,6 +202,34 @@ test('el entorno de la tarea sólo toma textos y pone los nombres que usan los p
   assert.equal(fechaDeLosMensajes(new Date('2026-10-18T13:07:00Z')), '18/10 10:07');
 });
 
+test('regla 318: cada corrida anota cuándo ARRANCÓ en otra clave de KV (no pisa el estado), y el estado del Worker lo muestra para que el vigilante vea una corrida cortada', async () => {
+  const e = entorno({ 'web/data/a.json': '{"a":1}' });
+  let anotadoAlArrancar = null;
+  const r = await correrTarea(tareaDePrueba({
+    ejecutar: async () => { anotadoAlArrancar = e.kv.m.get('inicio:prueba'); return {}; },
+  }), { env: e.env, github: e.github, kv: e.kv, raiz: e.raiz, ahora: (() => { const t = new Date('2026-10-24T12:41:00Z'); return () => t; })(), log: silencio });
+  assert.equal(r.ok, true);
+  assert.equal(anotadoAlArrancar, '2026-10-24T12:41:00.000Z', 'ya estaba anotado cuando el programa empezó a trabajar');
+  assert.equal(JSON.parse(e.kv.m.get('estado:prueba')).ok, true, 'el estado sigue siendo lo que anota al terminar');
+  // un simulacro no anota nada
+  const e2 = entorno({ 'web/data/a.json': '{"a":1}' });
+  await correrTarea(tareaDePrueba(), { env: e2.env, github: e2.github, kv: e2.kv, raiz: e2.raiz, simular: true, log: silencio });
+  assert.equal(e2.kv.m.has('inicio:prueba'), false);
+  // una corrida que no llega al `finally` (la cancela Cloudflare) deja el inicio más nuevo que el último estado: GET /estado lo junta
+  const env = { VIGILANTE_TOKEN: 'secreto', ESTADO: kvFalso() };
+  await env.ESTADO.put('estado:auditoria-ia', JSON.stringify({ ok: true, cuando: '2026-10-24T11:41:30.000Z', ultimaBuena: '2026-10-24T11:41:30.000Z' }));
+  await env.ESTADO.put('inicio:auditoria-ia', '2026-10-24T12:41:00.000Z');
+  const estado = await (await atender(new Request('https://x/estado', { headers: { 'x-token': 'secreto' } }), env, { github: {} })).json();
+  assert.equal(estado.tareas['auditoria-ia'].empezo, '2026-10-24T12:41:00.000Z');
+  assert.equal(estado.tareas['auditoria-ia'].ultimaBuena, '2026-10-24T11:41:30.000Z');
+  assert.equal(estado.tareas.pistas, null, 'una tarea sin rastro sigue en null');
+});
+
+test('regla 318: la auditoría IA declara que lee el uso de IA del día (el tope de OpenRouter) y no lo escribe', () => {
+  assert.ok(TAREAS['auditoria-ia'].lee.includes('web/data/uso-ia.json'));
+  assert.ok(!TAREAS['auditoria-ia'].escribe.includes('web/data/uso-ia.json'));
+});
+
 // ------------------------------------------------------------------ el Worker
 
 test('el Worker pide la contraseña, conoce sus tareas, corre una y no devuelve el contenido de los archivos', async () => {

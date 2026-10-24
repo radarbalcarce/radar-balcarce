@@ -45,7 +45,7 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 316** (la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
+(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 319** (la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10; la 316 y la 317 las usan otras ramas; la 318, una tarea del Worker de tareas no pasa de los 15 minutos del reloj y el aviso del vigilante dice si la cortaron, falló o no se la pidieron); una prueba controla que este número sea el que sigue al
 último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
 de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
 instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la

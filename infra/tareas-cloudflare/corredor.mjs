@@ -152,6 +152,16 @@ export async function anotarCorrida(kv, tarea, datos) {
   await kv.put(`estado:${tarea}`, JSON.stringify(nuevo), { expirationTtl: 60 * 60 * 24 * 14 });
 }
 
+/**
+ * Anota que una corrida ARRANCÓ (regla 318), antes de hacer nada. Si Cloudflare corta la corrida a la mitad (el reloj deja correr una tarea 15 minutos; después
+ * cancela y esta ni llega al `finally`), el inicio queda más nuevo que `cuando` (lo que anota `anotarCorrida`): el vigilante distingue así «la cortaron» de «el reloj no
+ * la pidió» y de «terminó con error». Va en otra clave de KV (`inicio:<tarea>`): KV deja escribir una vez por segundo por clave y una tarea corta pisaría el estado.
+ */
+export async function anotarInicio(kv, tarea, cuando) {
+  if (!kv) return;
+  await kv.put(`inicio:${tarea}`, cuando, { expirationTtl: 60 * 60 * 24 * 14 });
+}
+
 const porRuta = (a, b) => (a.ruta < b.ruta ? -1 : 1);
 
 /**
@@ -176,6 +186,7 @@ export async function correrTarea(tarea, {
     candado = await tomarCandado(kv, tarea.grupo ?? tarea.nombre, { vigenciaSeg: tarea.vigenciaDelCandadoSeg ?? 900, ahora: inicio.getTime() });
     if (!candado) { resultado.ok = true; resultado.omitida = true; resultado.motivo = 'otra corrida de lo mismo sigue andando'; log(`${tarea.nombre}: ${resultado.motivo}.`); return resultado; }
 
+    if (!simular) { try { await anotarInicio(kv, tarea.nombre, inicio.toISOString()); } catch { /* no frena */ } }
     fs.mkdirSync(raiz, { recursive: true });
     const lee = typeof tarea.lee === 'function' ? tarea.lee({ inputs, ahora: inicio }) : tarea.lee;
     const bajados = await hidratar({ github, rutas: [...lee, ...(tarea.escribe ?? [])], raiz });

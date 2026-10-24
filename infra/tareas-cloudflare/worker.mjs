@@ -47,6 +47,11 @@ export async function atender(request, env, { github = null, correr = correrTare
     const tareas = {};
     for (const nombre of Object.keys(TAREAS)) {
       try { tareas[nombre] = JSON.parse(await env.ESTADO?.get(`estado:${nombre}`) ?? 'null'); } catch { tareas[nombre] = null; }
+      // Cuándo ARRANCÓ la última corrida (regla 318): si es más nueva que `cuando`, esa corrida no llegó a anotar cómo terminó (la cortaron).
+      try {
+        const empezo = await env.ESTADO?.get(`inicio:${nombre}`);
+        if (empezo) tareas[nombre] = { ...(tareas[nombre] ?? {}), empezo };
+      } catch { /* sin el inicio, el vigilante sigue con lo de siempre */ }
     }
     return json({ ok: true, tareas, ahora: new Date().toISOString() });
   }

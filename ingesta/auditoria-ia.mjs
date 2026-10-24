@@ -44,6 +44,13 @@ export const AUDITORIA = {
   horas: 12,
   /** Cuántos días se guardan los hallazgos. */
   dias: 3,
+  /**
+   * Segundos desde que arranca la corrida después de los cuales ya no se empieza un pedido nuevo (regla 318). Un pedido puede tardar hasta unos 315 s
+   * (Groq 90 s + tres modelos de OpenRouter de 75 s) y entre un pedido y otro se espera: sin este tope, cuatro pedidos lentos pasan los 15 minutos que
+   * un Worker de Cloudflare deja correr a una tarea del reloj, y la corrida se corta sin guardar nada ni anotar cómo salió. Con el tope, lo que no se
+   * alcanzó a leer queda para la hora siguiente.
+   */
+  empezarAntesDeSegundos: 240,
 };
 
 /** Una huella corta de lo que se leyó: si la nota cambia (la corrigió una persona), se vuelve a leer. */
@@ -192,19 +199,27 @@ export async function auditarLoteOpenRouter(lote, { clave, fetchFn = fetch, tare
 /**
  * Lee todas las notas de a lotes, con una espera entre un pedido y otro. Un lote que falla no frena a los demás y se
  * cuenta aparte (esas notas no se marcan como leídas: se vuelven a intentar en la próxima corrida).
- * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados }.
+ * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados, openrouter, sinTiempo }. `sinTiempo` son las notas que no se
+ * llegaron a pedir porque la corrida pasó `empezarAntesDeSegundos` (regla 318): no son una falla, se leen en la corrida siguiente.
  */
 export async function auditarNotas(notas, {
   clave, fetchFn = fetch, dormir = (s) => new Promise((r) => { setTimeout(r, s * 1000); }), porPedido = AUDITORIA.porPedido,
-  claveOpenRouter = null, archivoDeUso = null,
+  claveOpenRouter = null, archivoDeUso = null, reloj = () => Date.now(), empezarAntesDeSegundos = AUDITORIA.empezarAntesDeSegundos,
 } = {}) {
   const hallazgos = [];
   const leidas = [];
   const fallas = [];
   let descartados = 0;
+  let sinTiempo = 0;
   const usadas = [];
+  const inicio = reloj();
   for (let i = 0; i < notas.length; i += porPedido) {
-    if (i > 0) await dormir(AUDITORIA.esperaEntrePedidos);
+    if (i > 0) {
+      // Antes de dormir: si ya pasó el tiempo, no se empieza otro pedido (cada uno puede tardar minutos si las IA contestan lento).
+      if (reloj() - inicio >= empezarAntesDeSegundos * 1000) { sinTiempo = notas.length - i; break; }
+      await dormir(AUDITORIA.esperaEntrePedidos);
+      if (reloj() - inicio >= empezarAntesDeSegundos * 1000) { sinTiempo = notas.length - i; break; }
+    }
     const lote = notas.slice(i, i + porPedido);
     let r = null;
     let error = null;
@@ -229,7 +244,7 @@ export async function auditarNotas(notas, {
       if (error && (error.status === 429 || error.status === 401 || error.status === 403)) break;
     }
   }
-  return { hallazgos, leidas, fallas, descartados, openrouter: usadas };
+  return { hallazgos, leidas, fallas, descartados, openrouter: usadas, sinTiempo };
 }
 
 /**

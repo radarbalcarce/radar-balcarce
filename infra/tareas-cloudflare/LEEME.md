@@ -19,7 +19,7 @@ Seis workflows de GitHub que gastaban minutos esperando respuestas de una IA o d
 `RADAR_RAIZ=/tmp/radar`, guarda lo que cambió con **un commit por la API** (mismo mensaje y autor que el workflow) y anota cómo salió en KV. Un candado por tarea evita que dos corridas se pisen. Si el
 programa falla a mitad, **igual se guarda lo que alcanzó a hacer**.
 
-- `GET /` · en hora. `GET /estado` (con `x-token`) · cómo salió la última corrida de cada tarea (lo mira el vigilante de afuera).
+- `GET /` · en hora. `GET /estado` (con `x-token`) · cómo salió la última corrida de cada tarea (lo mira el vigilante de afuera) y, en `empezo`, cuándo ARRANCÓ la última (regla 318: si es más nueva que `cuando`, esa corrida no llegó a anotar cómo terminó, la cortaron). El reloj deja correr una tarea 15 minutos: ninguna debería acercarse (la auditoría IA no empieza pedidos nuevos pasados los 240 s).
 - `POST /correr` (con `x-token`: `VIGILANTE_TOKEN`) · `{ "tarea": "vigilancia", "inputs": {…}, "simular": true }`. **`simular` corre todo y no guarda nada**: es el ensayo del plan.
 
 ## Qué hay que saber al tocar
