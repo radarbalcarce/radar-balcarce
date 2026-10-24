@@ -197,6 +197,22 @@ test('CON el interruptor: la foto nueva va a R2 y no al commit; la poda sale de 
   assert.ok(log.some((l) => /Fotos nuevas: 1 a R2/.test(l)));
 });
 
+test('CON el interruptor: una ilustración nueva que el Worker de tareas subió sólo a R2 (todavía ninguna nota del sitio la muestra) también está en disco al compilar', async () => {
+  const e = escenario();
+  escribir(e.raiz, 'web/data/fotos-ia.json', JSON.stringify({ n9: { archivo: 'fotos-notas/n9-ia.jpg', cuando: '2026-10-24T15:00:00Z', modelo: 'flux', control: { ok: true } } }));
+  const fotos = r2Falso();
+  await fotos.cliente.guardar('fotos-notas/n9-ia.jpg', new Uint8Array([8, 8, 8]));
+  let enDisco = null;
+  const ejecutar = async (comando, args, op) => {
+    if (/generar-datos/.test(args.join(' '))) enDisco = fs.existsSync(path.join(e.raiz, 'web/public/fotos-notas/n9-ia.jpg'));
+    return e.ejecutar(comando, args, op);
+  };
+  const r = await vuelta({ env: { ...ENTORNO, FOTOS_EN_R2: 'Si' }, raiz: e.raiz, ejecutar, github: e.ghCliente, r2: r2Falso().cliente, r2Fotos: fotos.cliente, log: silencio });
+  assert.equal(r.ok, true, r.motivo);
+  assert.equal(enDisco, true, 'al armar, la ilustración nueva ya estaba en disco (traída de R2)');
+  assert.equal(e.github.leer('web/public/fotos-notas/n9-ia.jpg'), null, 'y la copia traída no se sube a git');
+});
+
 test('CON el interruptor y R2 caído al guardar: la foto nueva va en el commit como siempre (nunca se pierde)', async () => {
   const e = escenario();
   const fotos = r2Falso({ fallar: { guardar: true } });
@@ -277,6 +293,7 @@ test('migrar-fotos-a-r2: simulacro no toca nada; --subir sube las que faltan; --
   const segunda = [];
   await migrar({ carpeta, deposito: fotos.cliente, subir: true, quitar: (n) => segunda.push(...n) });
   assert.ok(!segunda.includes('b.jpg'));
-  // Con --max va de a poco.
-  assert.equal((await migrar({ carpeta, max: 2 })).total, 2);
+  // Con --max va de a poco: sube a lo sumo N fotos NUEVAS por corrida (la prueba está en fotos-en-r2-hidratacion.test.mjs).
+  const poco = r2Falso();
+  assert.equal((await migrar({ carpeta, deposito: poco.cliente, subir: true, max: 2 })).subidas.length, 2);
 });

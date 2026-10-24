@@ -48,6 +48,7 @@ import { nombresDePersona } from './nombres-de-persona.mjs';
 import { diaAR, horaAR } from '../../ingesta/zona.mjs';
 import { leerJson } from '../../ingesta/json.mjs';
 import { idsParaIlustrar } from '../lib/revision-archivo.js';
+import { traerFotos, fotosEnR2Activas } from '../../infra/compartido/fotos-r2.mjs';
 import { fotoParaGuardar, nombreDeFotoNueva, PESO_MINIMO_DE_UNA_FOTO } from './achicar-foto.mjs';
 import { CREDITO_ILUSTRACION, esIlustracionDeNota, elegiblePorSeccion, tocaUnaMuerte, esPropiaConImagen } from './fotos-notas.mjs';
 
@@ -134,6 +135,13 @@ export const esDeGeminiWeb = (e) => !!e && (e.modelo === 'gemini-web' || /gemini
  * pasar el control (una persona las miraba, y 5 de 6 tenían texto, marcas o gente: regla 206).
  */
 export const ilustracionControlada = (e) => !!e && (e.control?.ok === true || (!esDeGeminiWeb(e) && MODELOS_VALIDOS.includes(e.modelo)));
+
+/**
+ * Los nombres de archivo de las ilustraciones que hay que MIRAR de nuevo (regla 206: las que nunca pasaron por el control). Con FOTOS_EN_R2 las fotos
+ * ya no están en git y el programa que corre en un clon pelado o en un Worker las tiene que traer de R2 antes de revisar (regla 316).
+ */
+export const archivosDeIlustracionesSinControl = (libro = {}) => Object.values(libro ?? {})
+  .filter((e) => e?.archivo && !ilustracionControlada(e)).map((e) => path.basename(e.archivo));
 
 /**
  * Por qué una nota NO lleva ilustración (el motivo, en castellano), o null si puede llevarla. Sólo mira la nota y los bancos; no usa la red.
@@ -640,7 +648,7 @@ ${filas || '<p>No hay candidatas.</p>'}
  */
 export async function revisar({
   horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', claveOpenRouter = '', token,
-  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log, fotoLibre = null,
+  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log, fotoLibre = null, conservarSiFalta = false,
 } = {}) {
   // `fotoLibre`: { buscar, bajar } (foto-libre.mjs: buscarFotoLibre y bajarFotoLibre). Sin eso no se busca nada (las pruebas y el uso local).
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
@@ -678,6 +686,9 @@ export async function revisar({
     let reemplaza = null;
     if (tieneArchivo(anterior) && !ilustracionControlada(anterior)) {
       const ruta = path.join(rutas.carpeta, path.basename(anterior.archivo));
+      // Con FOTOS_EN_R2 (`conservarSiFalta`): si el archivo no se pudo traer de R2 NO se lo da por malo (sería sacar una ilustración por un corte de red):
+      // la nota se salta y se vuelve a mirar en la corrida siguiente.
+      if (conservarSiFalta && !fs.existsSync(ruta)) { registro(`  [${nota.id}] ilustración sin control: el archivo ${path.basename(anterior.archivo)} no se pudo traer de R2; se deja como está`); continue; }
       const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
       registro(`  [${nota.id}] ilustración sin control (${esDeGeminiWeb(anterior) ? 'Gemini web' : 'sin control anotado'}): ${control.ok ? 'pasa' : control.motivo}`);
       if (control.ok) { revisadas.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, control }); continue; }
@@ -901,8 +912,14 @@ async function principal() {
     horas: horasPedidas(process.env.HORAS), salida: opcion('salida') || 'salida-ilustraciones', cuenta: opcion('cuenta') || 'cuenta-ilustraciones',
     cuentas: leerCuentas(opcion('cuentas') || 'cuentas'), ...claves(),
   });
+  // FOTOS_EN_R2 (regla 316): las ilustraciones viejas sin control se vuelven a mirar y necesitan su archivo; si las fotos ya no están en git se traen del sitio.
+  const traerLasQueSeMiran = () => traerFotos({
+    raiz: path.join(RAIZ, '..'), nombres: archivosDeIlustracionesSinControl(leerJson(RUTAS.ilustraciones, {})), sitio: process.env.SITIO ?? 'https://radarbalcarce.com', log: console.log,
+  });
+  if (accion === 'revisar' || accion === 'automatico') await traerLasQueSeMiran();
+  const conservarSiFalta = fotosEnR2Activas();
   if (accion === 'revisar') {
-    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico, fotoLibre: await fotoLibreDeCommons() });
+    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico, conservarSiFalta, fotoLibre: await fotoLibreDeCommons() });
     resumenParaGitHub(resultado);
     // Para el workflow: si ninguna pasó el control, el job "Guardar" del modo automático ni arranca.
     // También cuenta lo que hay que anotar o sacar de las ilustraciones sin control (regla 206): eso también lo guarda el job "Guardar".
@@ -912,7 +929,7 @@ async function principal() {
     const r = aplicar({ desde: opcion('desde') || 'revision', ids, automatico: esAutomatico, informe: opcion('informe') || null });
     resumenDeAplicadas(r, esAutomatico);
   } else if (accion === 'automatico') {
-    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas', fotoLibre: await fotoLibreDeCommons() });
+    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas', conservarSiFalta, fotoLibre: await fotoLibreDeCommons() });
     resumenParaGitHub(r.revision);
     resumenDeAplicadas(r, true);
   } else {

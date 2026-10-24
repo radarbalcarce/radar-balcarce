@@ -775,7 +775,7 @@ test('el workflow: a mano o por el reloj (sin schedule propio), aplicar y automÃ
   // el script no lee ninguna otra clave
   const s = leer('web/scripts/ilustrar-notas.mjs');
   const env = new Set([...s.matchAll(/process\.env\.([A-Z_]+)/g)].map((m) => m[1]));
-  for (const v of env) assert.ok(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_CLASIFICACION', 'GROQ_API_KEY', 'OPENROUTER_API_KEY', 'VIGILANTE_TOKEN', 'HORAS', 'IDS', 'AUTOMATICO', 'GITHUB_STEP_SUMMARY', 'GITHUB_RUN_ID', 'GITHUB_OUTPUT'].includes(v), v);
+  for (const v of env) assert.ok(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_CLASIFICACION', 'GROQ_API_KEY', 'OPENROUTER_API_KEY', 'VIGILANTE_TOKEN', 'HORAS', 'IDS', 'AUTOMATICO', 'GITHUB_STEP_SUMMARY', 'GITHUB_RUN_ID', 'GITHUB_OUTPUT', 'SITIO'].includes(v), v);
   assert.ok(!/GEMINI_API_KEY_(?!REDACCION|CLASIFICACION)|TAVILY|claves\.mjs/.test(s), 'ninguna otra clave');
 });
 

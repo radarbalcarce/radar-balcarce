@@ -38,6 +38,7 @@ import {
 import { conLineaEditorialDelDia } from '../redes/linea-del-dia.mjs';
 import { secuenciaDelRepaso, fotoParaElRepaso } from './escenas/repaso.mjs';
 import { entradaDelManifiesto } from './pedido.mjs';
+import { traerFotosDeLaPortada } from '../infra/compartido/fotos-r2.mjs';
 import { INDICACIONES, momentoDeHora } from '../redes/prompt-redes.mjs';
 import { revisarTexto } from '../redes/guiones.mjs';
 import { nombreDeEvento } from '../web/lib/eventos.js';
@@ -589,6 +590,11 @@ export function planDelDia(datos, {
 
 if (process.argv[1] && process.argv[1].endsWith('plan.mjs')) {
   const datos = leerDatos();
+  // FOTOS_EN_R2 ("Si", regla 316): las fotos de las notas ya no están en git y el repaso de los podcasts las lee DEL DISCO (`fotoParaElRepaso`), y lo
+  // hace al armar el plan (`planDelDia`, más abajo), no al generar los videos. Por eso se traen ACÁ, antes de armar el plan y sea quien sea el que corre esto
+  // (Redes, Piezas, Piezas de redes): ya no dependen del orden de los pasos de cada workflow. Apagado, o sin red, no hace nada y el repaso sale con las placas
+  // de sección como siempre.
+  if (process.argv.includes('--generar')) await traerFotosDeLaPortada({ raiz: path.join(import.meta.dirname, '..'), sitio: process.env.SITIO ?? 'https://radarbalcarce.com', env: process.env, log: console.log });
   const incluir = (process.argv.find((a) => a.startsWith('--incluir='))?.slice(10) ?? '').split(',').map((x) => x.trim()).filter(Boolean);
   const { piezas } = planDelDia(datos, { libro: leerLibro(), forzar: incluir });
 

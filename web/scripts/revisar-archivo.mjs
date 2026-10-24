@@ -61,6 +61,7 @@ import { rutaDeNota } from '../lib/ruta.js';
 import { POR_LA_REVISION } from '../lib/revision-archivo.js';
 import { mismoTema, esIlustracionDeNota, fotoConMenorPermitida, elegiblePorSeccion } from './fotos-notas.mjs';
 import { mismaFoto } from './achicar-foto.mjs';
+import { traerFotosDeNotas, fotosEnR2Activas } from '../../infra/compartido/fotos-r2.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..');
 
@@ -385,7 +386,7 @@ export function fotoRepetidaDeOtroTema(n, b, banco = {}) {
  * Qué hacer con la foto de una nota, sin IA: { accion: 'ok' | 'sacar' | 'mirar' | 'sin-foto' | 'no-aplica', motivo, archivo, permiteMenor,
  * exigirQueCorresponda }. 'mirar' = no hay ficha que lo diga: la tiene que mirar el modelo de visión.
  */
-export function revisionDeLaFoto(n, { banco = {}, manuales = {}, existe = () => true } = {}) {
+export function revisionDeLaFoto(n, { banco = {}, manuales = {}, existe = () => true, faltaEsPendiente = false } = {}) {
   const foto = n?.foto;
   if (!foto?.archivo) return { accion: 'sin-foto' };
   if (esIlustracionDeNota(foto)) return { accion: 'no-aplica', motivo: 'ilustración con IA: la controla «Ilustrar notas sin foto» (regla 206)' };
@@ -396,7 +397,9 @@ export function revisionDeLaFoto(n, { banco = {}, manuales = {}, existe = () => 
   if (!b?.archivo || b.archivo !== foto.archivo) return { accion: 'no-aplica', motivo: 'no es la foto del banco (la vuelta siguiente la pone al día)' };
   if (b.origen === 'manual') return { accion: 'no-aplica', motivo: 'la sumó una persona' };
   if (b.origen === 'libre') return { accion: 'no-aplica', motivo: 'foto libre de F1 o fútbol, con su propio control' };
-  if (!existe(nombreDe(b.archivo))) return { accion: 'no-aplica', motivo: 'el archivo no está (la vuelta siguiente la saca)' };
+  // Con FOTOS_EN_R2 (regla 316) una foto que falta en disco es, casi siempre, una foto que no se pudo traer de R2 (un corte de red): no se da la nota por
+  // revisada sin mirarla; queda pendiente y se prueba en la tanda siguiente (a la tercera sin suerte se da por perdida, como cualquier pendiente).
+  if (!existe(nombreDe(b.archivo))) return faltaEsPendiente ? { accion: 'pendiente', motivo: 'la foto no está en disco ni se pudo traer de R2' } : { accion: 'no-aplica', motivo: 'el archivo no está (la vuelta siguiente la saca)' };
   if (!elegiblePorSeccion(n)) return { accion: 'no-aplica', motivo: 'Policiales sin fuente oficial: la web ya no la muestra' };
   const base = { archivo: b.archivo };
   const conExcepcion = !!b.excepcion;
@@ -428,7 +431,7 @@ export function revisionDeLaFoto(n, { banco = {}, manuales = {}, existe = () => 
  * Lo que la parte sin IA decide de una nota: { id, retirar?, paraUnaPersona?, repetida?, arreglos, fechaConError, foto, texto }. `texto`:
  * 'mirar' si va a la IA de texto, o el motivo por el que no. Pura: no lee ni escribe nada.
  */
-export function revisarSinIA(n, { notas = [], banco = {}, manuales = {}, enRedes = new Set(), existe = () => true, hoy = new Date(), yaUnidas = new Set(), retiradas = new Set() } = {}) {
+export function revisarSinIA(n, { notas = [], banco = {}, manuales = {}, enRedes = new Set(), existe = () => true, faltaEsPendiente = false, hoy = new Date(), yaUnidas = new Set(), retiradas = new Set() } = {}) {
   const r = { id: n.id, arreglos: [], fechaConError: fechaEnvejecidaPorError(n) };
   const deUnaPersona = esDeUnaPersona(n);
   const retiro = motivoParaRetirar(n, { enRedes: enRedes.has(n.id) || !!n.redes });
@@ -437,7 +440,7 @@ export function revisarSinIA(n, { notas = [], banco = {}, manuales = {}, enRedes
   const rep = repetidaDe(n, notas, { yaUnidas, retiradas });
   if (rep) { r.repetida = rep; r.foto = { accion: 'no-aplica' }; r.texto = 'se une a la que ya estaba'; return r; }
   r.arreglos = arreglosQueNoInventan(n, { hoy });
-  r.foto = revisionDeLaFoto(n, { banco, manuales, existe });
+  r.foto = revisionDeLaFoto(n, { banco, manuales, existe, faltaEsPendiente });
   r.texto = n.propia ? 'nota propia' : deUnaPersona ? 'la publicó o corrigió una persona' : !tieneCuerpo(n) ? 'sin cuerpo' : retiro ? 'espera a una persona' : 'mirar';
   return r;
 }
@@ -475,7 +478,7 @@ export async function revisarTanda({
   for (const n of faltan) {
     if (resultados.length >= criterio.notasPorTanda) break;
     const r = revisarSinIA(comoSeLee(n, cambiosHechos), {
-      notas, banco: datos.banco, manuales: datos.manuales, enRedes, existe: datos.existe ?? (() => true), hoy: ahora, yaUnidas, retiradas,
+      notas, banco: datos.banco, manuales: datos.manuales, enRedes, existe: datos.existe ?? (() => true), faltaEsPendiente: datos.faltaEsPendiente === true, hoy: ahora, yaUnidas, retiradas,
     });
     // El tope de retiros (sin contar el rojo): lo que sobra queda para la tanda siguiente.
     if (r.retirar && r.retirar.tipo !== 'rojo') { if (retiros >= criterio.retirosPorTanda) continue; retiros += 1; }
@@ -763,7 +766,7 @@ export function simular(datos, { ahora = new Date() } = {}) {
 // ------------------------------------------------------------------ leer y escribir
 
 /** Lo que la revisión lee de web/data (todo opcional). */
-export function leerDatos(rutas = RUTAS) {
+export function leerDatos(rutas = RUTAS, env = process.env) {
   return {
     archivo: leerJson(rutas.archivo, { notas: [] }).notas ?? [],
     portada: leerJson(rutas.portada, { notas: [] }).notas ?? [],
@@ -773,6 +776,8 @@ export function leerDatos(rutas = RUTAS) {
     cambios: leerJson(rutas.cambios, { notas: {} }),
     ilustraciones: leerJson(rutas.ilustraciones, {}),
     existe: (nombre) => fs.existsSync(path.join(rutas.carpeta, nombre)),
+    // Con FOTOS_EN_R2 una foto que falta en disco no se da por revisada (regla 316): `revisionDeLaFoto` la deja pendiente.
+    faltaEsPendiente: fotosEnR2Activas(env),
   };
 }
 
@@ -790,6 +795,16 @@ export function leerFotoDelSitio(archivo, carpeta = RUTAS.carpeta) {
     const mime = bytes[0] === 0x89 ? 'image/png' : bytes[0] === 0x52 ? 'image/webp' : 'image/jpeg';
     return { mime, base64: bytes.toString('base64') };
   } catch { return null; }
+}
+
+/**
+ * FOTOS_EN_R2 (regla 316): esta revisión corre en un clon que no tiene las fotos (están en R2, no en git). Antes de empezar trae las de las notas que
+ * va a mirar la tanda (las pendientes más viejas, con margen por las que se saltean), por la dirección pública del sitio o por `leer`. Apagado, no hace
+ * nada. Nunca tira: la foto que no llegue deja su nota pendiente (`faltaEsPendiente`), no revisada.
+ */
+export function traerFotosDeLaTanda({ datos, estado = estadoVacio(), criterio = REVISION, raiz = path.join(RAIZ, '..'), ...resto } = {}) {
+  const notas = pendientes(notasConPagina(datos), estado, criterio).slice(0, criterio.notasPorTanda * 5);
+  return traerFotosDeNotas({ raiz, notas, max: criterio.notasPorTanda * 5, limiteSegundos: 120, ...resto });
 }
 
 /** ¿Toca hoy? null si sí, o el motivo por el que no. */
@@ -833,6 +848,7 @@ async function principal() {
     const { leerVariable } = await import('../../reels/claves.mjs');
     const claves = { groq: leerVariable('GROQ_API_KEY'), gemini: leerVariable('GEMINI_API_KEY_CLASIFICACION'), openrouter: leerVariable('OPENROUTER_API_KEY') };
     const llaves = leerLlaves(leerJson(RUTAS.llaves, {}));
+    await traerFotosDeLaTanda({ datos: leerDatos(), estado, sitio: process.env.SITIO ?? 'https://radarbalcarce.com', log: console.log });
     const { tanda, graves, faltaban } = await revisarTanda({
       datos: leerDatos(), estado, ahora, claves, llaves, leerFoto: (a) => leerFotoDelSitio(a), registro: console.log,
     });

@@ -1,0 +1,109 @@
+name: Fotos a R2 (migración)
+run-name: "Fotos a R2 · ${{ inputs.modo }}${{ inputs.max != '' && format(' · hasta {0}', inputs.max) || '' }}"
+
+# Pasa a R2 las fotos de las notas que hoy están en git (regla 316, docs/etapa-10-operacion/FOTOS-EN-R2.md: ahí está el paso a paso completo).
+# SÓLO a mano (pestaña Actions → «Fotos a R2 (migración)» → Run workflow). No tiene horario ni lo despierta el reloj: nunca corre solo.
+#
+#   simulacro        cuenta cuántas fotos hay en git y cuánto pesan; NO usa la red y no cambia nada. Se puede correr las veces que se quiera.
+#   mirar            además LEE el depósito de R2 y dice cuántas ya tiene y cuántas le faltan; no sube ni cambia nada.
+#   subir            sube a R2 las que faltan (hasta «max» por vez); NO saca nada de git. Si una ya está en R2, no la pisa.
+#   subir-y-quitar   lo mismo y además saca de git (commit y push) SOLO las fotos que R2 confirma tener iguales, byte por byte.
+#                    Sólo corre con la variable FOTOS_EN_R2 en «Si» (si no, la compilación dejaría de ver las fotos). Conviene correrlo
+#                    ENTRE vueltas del motor (que arranca a los :00 y :30; apretar el botón unos 10 minutos después, con «Estado del motor» sin vuelta en curso).
+#
+# Hace falta (los carga una persona, nunca en un chat): secretos CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID y R2_SECRET_ACCESS_KEY (con permiso de
+# ESCRITURA sobre el depósito radar-archivo: «subir» con max = 1 lo comprueba) y la variable R2_ARCHIVO (= radar-archivo).
+# Vuelta atrás: vaciar FOTOS_EN_R2 (lo ya movido se sigue sirviendo desde R2) o, para volver a poner las fotos en git, `git revert` del commit
+# «Fotos de las notas a R2» (las fotos quedan en el historial). El script no borra nada de R2.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: 'Qué hacer (ver arriba). Para empezar: simulacro, después mirar, después subir con max 5'
+        type: choice
+        options: [simulacro, mirar, subir, subir-y-quitar]
+        default: simulacro
+      max:
+        description: 'Subir a lo sumo cuántas fotos nuevas por vez (vacío = todas). Para empezar: 5'
+        type: string
+        default: '5'
+
+permissions:
+  contents: write # sólo lo usa «subir-y-quitar», para guardar el commit que saca las fotos de git
+
+# Una por vez.
+concurrency:
+  group: fotos-a-r2
+  cancel-in-progress: false
+
+jobs:
+  fotos:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      # Siempre la última versión de main: se saca de git lo que main tiene ahora, no lo de cuando se apretó el botón.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # El modo y el máximo llegan por variables de entorno y no pegados en el comando (lo que se escribe en «max» nunca se ejecuta).
+      - name: Comprobar lo que se pidió
+        env:
+          MODO: ${{ inputs.modo }}
+          MAX: ${{ inputs.max }}
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+        shell: bash
+        run: |
+          case "$MODO" in simulacro|mirar|subir|subir-y-quitar) ;; *) echo "::error::El modo «$MODO» no existe"; exit 1;; esac
+          [[ "$MAX" =~ ^[0-9]*$ ]] || { echo "::error::«max» tiene que ser un número (o quedar vacío)"; exit 1; }
+          if [ "$MODO" = "subir-y-quitar" ] && ! printf '%s' "$FOTOS_EN_R2" | grep -Eiq '^\s*(si|sí|true|1)\s*$'; then
+            echo "::error title=Falta FOTOS_EN_R2::Para sacar las fotos de git hay que prender antes la variable FOTOS_EN_R2 («Si») en GitHub y en Workers Builds, y haber visto dos vueltas buenas (docs/etapa-10-operacion/FOTOS-EN-R2.md, paso 7)."
+            exit 1
+          fi
+
+      - name: La migración
+        env:
+          MODO: ${{ inputs.modo }}
+          MAX: ${{ inputs.max }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
+        shell: bash
+        run: |
+          tope=""; [ -n "$MAX" ] && tope="--max=$MAX"
+          case "$MODO" in
+            simulacro)      node scripts/migrar-fotos-a-r2.mjs ;;
+            mirar)          node scripts/migrar-fotos-a-r2.mjs --mirar ;;
+            subir)          node scripts/migrar-fotos-a-r2.mjs --subir $tope ;;
+            subir-y-quitar) node scripts/migrar-fotos-a-r2.mjs --subir --quitar $tope ;;
+          esac 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # Sólo «subir-y-quitar»: el script ya hizo `git rm` de lo confirmado; acá se guarda. El mismo ciclo que los demás workflows que escriben en main
+      # (traer lo de las otras corridas antes de subir, y reintentar si otro subió en el medio).
+      - name: Guardar el commit que saca las fotos de git
+        if: ${{ inputs.modo == 'subir-y-quitar' }}
+        shell: bash
+        run: |
+          git config user.name "Radar Balcarce"
+          git config user.email "272334999+balcar-dev@users.noreply.github.com"
+          if git diff --cached --quiet; then
+            echo "Nada que sacar de git."
+            exit 0
+          fi
+          cantidad=$(git diff --cached --name-only | wc -l)
+          git commit -q -m "Fotos de las notas a R2 · $cantidad fotos · $(date '+%d/%m %H:%M')"
+          for intento in 1 2 3; do
+            git pull -q --rebase && git push -q origin HEAD:main && { echo "Guardado (intento $intento)."; exit 0; }
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "::error::No se pudo guardar el commit después de tres intentos. Las fotos ya están en R2; volver a correr."
+          exit 1

@@ -94,6 +94,8 @@ jobs:
           HORAS: ${{ inputs.horas }}
           IDS: ${{ inputs.ids }}
           AUTOMATICO: ${{ inputs.automatico }}
+          # FOTOS_EN_R2 ("Si", regla 316): las ilustraciones viejas sin control se traen del sitio antes de mirarlas (ya no están en git). Vacía, no hace nada.
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
           GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
