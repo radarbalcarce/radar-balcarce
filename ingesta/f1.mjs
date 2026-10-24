@@ -311,6 +311,64 @@ export function resumirPilotos(json) {
   return { temporada: entero(json.MRData.DriverTable.season), colapinto: c ? { piloto: nombreDePiloto(c), numero: c.permanentNumber ?? null } : null };
 }
 
+// ------------------------------------------------------------ la ficha de Colapinto (24/10/2026, regla 323)
+
+/** Cuántos días de atraso, como mucho, puede tener lo guardado para armar la ficha: pasado eso, la ficha no sale (un puesto de hace un mes no es "el puesto"). */
+export const DIAS_DE_LA_FICHA = 21;
+
+/** Cómo terminó una carrera, dicho en castellano: terminó, terminó con vueltas de atraso, abandonó o fue descalificado. Lo que no se entiende se calla. */
+export function comoTerminoLaCarrera(fila) {
+  const estado = String(fila?.estado ?? '').trim();
+  if (/^finished$/i.test(estado)) return 'terminó';
+  if (/^\+\d+\s+laps?$/i.test(estado)) return 'terminó con vueltas de atraso';
+  if (/^disqualified$/i.test(estado)) return 'fue descalificado';
+  if (/^did not (start|qualify)$/i.test(estado)) return 'no largó';
+  if (estado || String(fila?.posicionTexto ?? '') === 'R') return 'abandonó';
+  return null;
+}
+
+/**
+ * La ficha de Colapinto que ya se puede armar con lo guardado en web/data/f1.json (la ingesta de F1 de siempre; sin pedir nada nuevo a Jolpica):
+ * el puesto en el campeonato, los puntos, las victorias, el compañero de equipo y la última carrera. Sale de código, no de la IA.
+ *
+ * Devuelve null (y no hay ficha) si Colapinto no está en la clasificación, si el dato es de hace más de DIAS_DE_LA_FICHA días respecto de `ahora`
+ * o si no tiene la fecha de cuando se consultó. La última carrera es opcional: sin la fila de Colapinto en el resultado, la ficha sale sin ella.
+ */
+export function fichaDeColapinto(f1, { ahora = new Date() } = {}) {
+  const filas = f1?.clasificacion?.filas;
+  const consultado = Date.parse(f1?.consultado ?? '');
+  if (!Array.isArray(filas) || !Number.isFinite(consultado)) return null;
+  if (Math.abs(new Date(ahora).getTime() - consultado) > DIAS_DE_LA_FICHA * DIA_MS) return null;
+  const yo = filas.find((f) => f.colapinto && Number.isFinite(f.posicion) && Number.isFinite(f.puntos));
+  if (!yo) return null;
+  const compas = filas.filter((f) => !f.colapinto && f.equipo && f.equipo === yo.equipo && Number.isFinite(f.puntos)).sort((a, b) => b.puntos - a.puntos);
+  const compa = compas[0] ? { piloto: compas[0].piloto, posicion: compas[0].posicion, puntos: compas[0].puntos } : null;
+  const fila = f1?.resultado?.filas?.find((f) => f.colapinto);
+  const como = fila ? comoTerminoLaCarrera(fila) : null;
+  const ultima = fila && como ? {
+    ronda: f1.resultado.ronda ?? null,
+    gran: nombreDelGranPremio(f1.resultado.nombre),
+    largada: f1.resultado.largada ?? null,
+    parrilla: Number.isFinite(fila.parrilla) && fila.parrilla > 0 ? fila.parrilla : null,
+    posicion: /^\d+$/.test(String(fila.posicionTexto ?? '')) ? Number(fila.posicionTexto) : null,
+    como,
+    vueltas: Number.isFinite(fila.vueltas) ? fila.vueltas : null,
+  } : null;
+  return {
+    temporada: f1.clasificacion.temporada ?? null,
+    ronda: f1.clasificacion.ronda ?? null,
+    carreras: f1.calendario?.carreras?.length ?? null,
+    piloto: yo.piloto,
+    posicion: yo.posicion,
+    puntos: yo.puntos,
+    victorias: Number.isFinite(yo.victorias) ? yo.victorias : null,
+    equipo: yo.equipo ?? null,
+    compa,
+    ultima,
+    consultado: f1.consultado,
+  };
+}
+
 // ------------------------------------------------------------ la red
 
 const ESPERA_MS = 15000;
