@@ -4498,9 +4498,7 @@
   "huella": "7317d39f96d6f8f0"
  },
  "q7x46o": {
-  "archivo": "fotos-notas/q7x46o.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "La UBA sigue entre las diez mejores de la región y el sistema sufre caídas",
@@ -4509,7 +4507,8 @@
   "razon": "Muestra la fachada de la facultad con buena calidad y sin menores identificables ni marcas de medios.",
   "cuando": "2026-10-01T13:32:05.036Z",
   "huella": "df475151773b2ffd",
-  "ausenteDesde": "2026-10-17T07:32:03.820Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ckhubg": {
   "intentado": true,
@@ -9046,9 +9045,7 @@
   "retirada": true
  },
  "18wosri": {
-  "archivo": "fotos-notas/18wosri.jpg",
   "medio": "INTA",
-  "credito": "Foto: INTA",
   "licencia": null,
   "origen": "medio",
   "titulo": "El INTA Rafaela implementa cruzamientos entre ganado lechero y carnicero",
@@ -9057,7 +9054,8 @@
   "razon": "La foto A tiene mejor encuadre, mostrando más terreno y flores, y ninguna de las dos presenta marcas ni menores.",
   "cuando": "2026-10-06T13:02:48.398Z",
   "huella": "6d5033e6e5ad2d63",
-  "ausenteDesde": "2026-10-17T07:32:03.820Z"
+  "intentado": true,
+  "borrada": true
  },
  "dowztx": {
   "medio": "Wikimedia Commons",
@@ -18218,9 +18216,7 @@
   "ausenteDesde": "2026-10-17T19:01:49.545Z"
  },
  "yqsuir": {
-  "archivo": "fotos-notas/yqsuir.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Amplían procesamientos por desmanejos en la Agencia de Discapacidad",
@@ -18229,7 +18225,8 @@
   "razon": "Tiene excelente nitidez, encuadre adecuado y muestra claramente al protagonista sin marcas de agua ni menores.",
   "cuando": "2026-10-16T19:08:25.304Z",
   "huella": "d9c9edcc8d89c9c9",
-  "ausenteDesde": "2026-10-17T07:32:03.820Z"
+  "intentado": true,
+  "borrada": true
  },
  "jgf5ur": {
   "archivo": "fotos-notas/jgf5ur.jpg",
@@ -19058,9 +19055,7 @@
   "ausenteDesde": "2026-10-23T17:05:07.188Z"
  },
  "ywsilb": {
-  "archivo": "fotos-notas/ywsilb.jpg",
   "medio": "La Brújula 24",
-  "credito": "Foto: La Brújula 24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca vence 2-1 a Talleres y trepa a la cima de la tabla anual",
@@ -19080,12 +19075,11 @@
    "descripcion": "Jugador de Boca festejando un gol en la cancha con rivales alrededor y tribuna llena"
   },
   "huella": "aa0ead697171522f",
-  "ausenteDesde": "2026-10-17T07:32:03.820Z"
+  "intentado": true,
+  "borrada": true
  },
  "iofi4t": {
-  "archivo": "fotos-notas/iofi4t.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca vence a Talleres y llega con triunfo al duelo de Copa",
@@ -19105,7 +19099,8 @@
    "descripcion": "Jugador de Boca disputando el balón con un rival de Talleres."
   },
   "huella": "139bab5567664e93",
-  "ausenteDesde": "2026-10-17T08:01:44.994Z"
+  "intentado": true,
+  "borrada": true
  },
  "1b2v5n": {
   "intentado": true,
@@ -36445,9 +36440,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Universidades llevan al Papa una denuncia contra el Gobierno por fondos",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-10-24T07:01:30.367Z",
-  "intentos": 2,
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-24T08:01:33.980Z",
+  "intentos": 3,
   "fuentes": 18
  },
  "1xezweo": {
