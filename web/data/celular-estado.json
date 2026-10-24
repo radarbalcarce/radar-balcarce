@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T14:02:32.690Z",
- "portada": 71,
+ "generado": "2026-10-24T14:35:50.699Z",
+ "portada": 84,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-24T14:02:33.197Z",
+  "generado": "2026-10-24T14:35:51.134Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-24T14:06:36.147Z"
    },
    {
     "nombre": "noticia2",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 47,
+    "salio": "2026-10-24T14:06:36.147Z",
+    "segundos": null,
     "notas": [
      {
       "id": "149ahyx",
@@ -126,8 +126,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 31,
+    "notas": [
+     {
+      "id": "qgon5k",
+      "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -147,6 +158,12 @@
      "id": "1o59q8j",
      "titulo": "Suspenden todos los partidos de fútbol del sábado por la lluvia",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1wdy2e7",
+     "titulo": "Franco Colapinto afronta la tercera práctica y la clasificación en Austin",
+     "seccion": "Automovilismo",
      "marcada": false
     }
    ],

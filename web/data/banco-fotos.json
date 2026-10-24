@@ -23124,7 +23124,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0565cda989294b4b"
+  "huella": "0565cda989294b4b",
+  "ausenteDesde": "2026-10-24T14:35:50.654Z"
  },
  "1sj0m21": {
   "intentado": true,
@@ -23251,7 +23252,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "dbc37acaaa2a9c4b"
+  "huella": "dbc37acaaa2a9c4b",
+  "ausenteDesde": "2026-10-24T14:35:50.654Z"
  },
  "qomk2i": {
   "archivo": "fotos-notas/qomk2i.jpg",
@@ -23385,7 +23387,8 @@
    "corresponde": "si",
    "descripcion": "Reunión o sesión con un cartel de Argentina"
   },
-  "huella": "9e96b57696550747"
+  "huella": "9e96b57696550747",
+  "ausenteDesde": "2026-10-24T14:35:50.654Z"
  },
  "1hlcr56": {
   "archivo": "fotos-notas/1hlcr56.jpg",
@@ -35967,9 +35970,9 @@
   "origen": "ninguna",
   "titulo": "San Lorenzo juega ante Newell's por el Torneo Clausura",
   "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota); la de La Capital (Rosario) (es un flyer, un afiche o una captura de pantalla, no una foto): no se elige ninguna.",
-  "cuando": "2026-10-24T13:32:02.304Z",
-  "intentos": 4,
-  "fuentes": 14
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "intentos": 5,
+  "fuentes": 16
  },
  "a3gdkz": {
   "archivo": "fotos-notas/a3gdkz.jpg",
@@ -37010,13 +37013,28 @@
   "huella": "0009296d0d6d4d4e"
  },
  "1o59q8j": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Suspenden todos los partidos de fútbol del sábado por la lluvia",
-  "razon": "La mejor foto era la de Infórmese Primero (FM 104.9), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-24T13:32:02.304Z",
-  "intentos": 1,
-  "fuentes": 1
+  "archivo": "fotos-notas/1n4d7hk.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Suspenden otra fecha del fútbol local por las malas condiciones climáticas",
+  "enlace": "https://accion5.com/otra-suspension-undecima-postergacion-del-futbol-oficial/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/suspendido-26.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no tiene marcas ni menores y sirve para ilustrar la suspensión del partido.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pelota de fútbol sobre el césped en una cancha con el fondo desenfocado"
+  },
+  "huella": "04072d3533795c73"
  },
  "kc54ji": {
   "archivo": "fotos-notas/kc54ji.jpg",
@@ -37050,5 +37068,179 @@
   "cuando": "2026-10-24T14:01:44.175Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "8jftdd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Discrepan sobre la posición de Balcarce en el Índice de Municipios",
+  "razon": "La única foto disponible es una imagen gráfica de un índice y no una fotografía de una escena real del hecho.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "tg1ump": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Concejo rechaza proyecto de la Liga sobre el Estadio Municipal",
+  "razon": "La foto muestra el recinto del HCD de San Vicente en lugar de Balcarce.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1n4d7hk": {
+  "archivo": "fotos-notas/1n4d7hk.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Suspenden otra fecha del fútbol local por las malas condiciones climáticas",
+  "enlace": "https://accion5.com/otra-suspension-undecima-postergacion-del-futbol-oficial/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/suspendido-26.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no tiene marcas ni menores y sirve para ilustrar la suspensión del partido.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pelota de fútbol sobre el césped en una cancha con el fondo desenfocado"
+  },
+  "huella": "04072d3533795c73"
+ },
+ "vxrvqo": {
+  "archivo": "fotos-notas/vxrvqo.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Enfrían la Ley de Soberanía en Diputados tras diferencias y el factor Trump",
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/islas-malvinas-se-enfria-el-tratamiento.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOYAEsbzEcMYUWbF6L1lGove1EHPH8smj6RwM1Lv8odSzti3Nd-nXzPIi4zBFRGzwEaB_vfAFSmVsMCjU3dbApNqm2CLw37GUxBut0VjWrxXe4HRI0nVMWrLb72PzdL8HVGFkkYf5Ie3Znpc0dtmPj0E7H2yohMT-rgh2y0CU4VFw8aL_Dx8KHmel35uk/w640-h364/malvinas.jpg",
+  "razon": "La foto B es la única limpia y sin marcas que corresponde a la temática de soberanía nacional.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Monumento a Malvinas y bandera argentina"
+  },
+  "huella": "3f5db9393434b03c"
+ },
+ "1wdy2e7": {
+  "archivo": "fotos-notas/1wdy2e7.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto afronta la tercera práctica y la clasificación en Austin",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/24/franco-colapinto-retoma-la-actividad-en-el-gp-de-estados-unidos-con-la-tercera-practica-y-la-clasificacion/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/colapinto-en-el-gp-de-estados-unidos-foto-xalpinef1team-EW5CVIDZIRHY5FLFSCOUZG4UIE.jpg?auth=bdbcca02ceb33bc272097ed6c91a7937e750edb461b4136e180b66d53b4ad726&width=1023",
+  "razon": "Es la foto que mejor ilustra al piloto con el auto en pista, con buen encuadre y sin marcas ni elementos no deseados.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del monoplaza en velocidad durante la práctica"
+  },
+  "huella": "09324a94bea88fc0"
+ },
+ "1hzwgy3": {
+  "archivo": "fotos-notas/1hzwgy3.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto retrocede diez puestos en la grilla del Gran Premio de Estados Unidos",
+  "enlace": "https://www.lanacion.com.ar/deportes/penalizaron-a-franco-colapinto-y-retrocedera-diez-posiciones-en-la-largada-del-gran-premio-de-nid23102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-photo-by-angela-weiss-GF47PHMJIBC6FBMT2DACY4KJ5Y.jpg?auth=5d448db2b044a1f60ea0b9550d5d91b026389807cf06bf84fdbb24a068fbbfcc&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto que corresponde plenamente al evento, muestra nitidez, no tiene marcas agregadas por el medio ni otras restricciones.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto sonriendo con indumentaria de Alpine sosteniendo un casco."
+  },
+  "huella": "2529acecccd999cf"
+ },
+ "16a1tyx": {
+  "archivo": "fotos-notas/16a1tyx.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lionel Messi recibe el Premio Princesa de Asturias de los Deportes",
+  "enlace": "https://dib.com.ar/sociedad/lionel-messi-sigue-haciendo-historia-recibio-el-premio-el-princesa-asturias-n56764",
+  "imagenOriginal": "https://media.dib.com.ar/p/0ee69c896a96f39ab2b49b956d842cc0/adjuntos/377/imagenes/100/059/0100059651/1200x675/988x636:1008x656/messi-leonor-2.jpg",
+  "razon": "Muestra claramente el momento en que Lionel Messi recibe el premio en la ceremonia, tiene excelente calidad, sin marcas agregadas ni menores reconocibles.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Messi saludando y recibiendo un diploma en la ceremonia",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Lionel Messi estrecha la mano de la Princesa de Asturias durante la ceremonia de entrega del premio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "25252365cf9e96a6"
+ },
+ "1jjzphm": {
+  "archivo": "fotos-notas/1jjzphm.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere a los 118 años Manuel Moisés Álvez en San Vicente",
+  "enlace": "https://tn.com.ar/sociedad/2026/10/23/murio-a-los-118-anos-uno-de-los-hombres-mas-longevos-de-la-argentina-la-historia-de-manuel-moises-alvez/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/foto-gentileza-el-territorio-CCJNH5KWBJHPXBBVN4J6P7LQ4Q.jpg?auth=769f40455ce3dfa9c180cda85d25b75384698dc02dae1f9bfd76503669b7c33d&width=1023",
+  "razon": "Muestra claramente al protagonista con su torta de cumpleaños, sin gente de más y sin marcas ni menores.",
+  "cuando": "2026-10-24T14:33:19.853Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Manuel sentado en silla de ruedas junto a una mesa con una torta."
+  },
+  "huella": "0c11890d140c9c5c"
  }
 }
