@@ -6,7 +6,7 @@ Hoy: **125 feeds activos de 76 medios** (287 configurados).
 
 ## Cómo se usan
 
-1. **Cada media hora** se leen todos los feeds activos (GitHub Actions, "Actualizar la web").
+1. **Cada media hora** se leen todos los feeds activos (el motor, "Actualizar la web": desde el 23/10 en Cloudflare Workers Builds).
 2. **De los medios de afuera, lo que el propio medio pone en una sección de otro país, de policiales o de consejos no se trae** (se mira la dirección de la nota: `SECCIONES_QUE_NO_ENTRAN`, en `ingesta/fuentes.mjs`).
 3. **El cruce** (`ingesta/cruce.mjs`): se juntan las notas de todos los medios que cuentan el mismo hecho, con una memoria de 36 horas. Un medio cuenta una sola vez aunque llegue por varios feeds (por eso cada medio tiene **un solo nombre**, el de la columna "Medio").
 4. **Qué queda:**

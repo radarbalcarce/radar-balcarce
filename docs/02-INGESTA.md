@@ -182,8 +182,15 @@ hoy en cada corrida. Por eso:
 | Motivo | Tramos de la dirección | Excepción |
 |---|---|---|
 | "de otro país" | `mexico`, `espana`, `peru`, `colombia`, `america`, `estados-unidos`, `venezuela`, `chile`, `uruguay`, `el-mundo`, `mundo`, `internacional`, `internacionales`, `futbol-internacional` | Entra igual si la fuente es de automovilismo, si nombra a una figura argentina (`FIGURAS`) o si el título tiene conexión argentina (`CONEXION_ARGENTINA`: argentina/o/s, Milei, Malvinas, Boca, River) |
-| "policial de afuera" | `policiales`, `seguridad` | Ninguna: los policiales son sólo de Balcarce |
+| "policial de afuera" | `policiales`, `seguridad` | Entra igual si la historia es de acá (medio de Balcarce, Balcarce en el título, la zona) o, ya cruzada, la cuentan 8 medios o más o es la muerte de un famoso (regla 289, `policialNacionalRelevante`) |
 | "consejo genérico" | `autos`, `horoscopo`, `astrologia`, `recetas` | Ninguna |
+
+**Desde la regla 303 (23/10), los motivos "de otro país", "policial de afuera" y "fútbol que no es de Primera ni de argentinos"
+no tiran la nota en la entrada: la marcan** (`descarteDeSeccion`, que viaja por la memoria del cruce) y se deciden después del
+cruce, con todos los medios de la historia (`resolverDescartesDeSeccion`, `armarHistorias`): se quedan si alguna versión tiene
+la excepción (conexión argentina, un club de Primera, 8 medios o más); si no, se sacan igual que antes y no llegan a la IA.
+Lo temprano (lotería, horóscopo, consejos) sigue cortándose en la entrada. El fútbol de afuera sin argentinos no sale ni con
+8 medios (regla 290, `FUTBOL_SOLO_ARGENTINO`).
 
 El registro de "Actualizar la web" dice cuántas descartó cada fuente ("Clarín: 12
 no entran por la sección del medio").
@@ -337,8 +344,8 @@ Después se guarda la memoria (paso 9).
 
 ### 13. Cómo queda armada cada historia
 
-Antes de decidir nada se sacan los policiales de afuera (`docs/03-SELECCION.md`,
-paso 1). Del resto, cada historia queda con estos campos:
+Antes de decidir nada se sacan los policiales de afuera que no cuentan 8 medios ni son la muerte de un famoso
+(`docs/03-SELECCION.md`, paso 1). Del resto, cada historia queda con estos campos:
 
 | Campo | De dónde sale |
 |---|---|

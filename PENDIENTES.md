@@ -1,151 +1,166 @@
-> **23/10/2026:** el resumen vigente (hecho, pendientes de Claude, de Hernán y Andrés, decisiones e ideas) está en `docs/RESUMEN-Y-PENDIENTES.html` y en `docs/TRASPASO.md`. Lo de abajo es el historial de pendientes anteriores.
+# Pendientes: la lista maestra
 
-# Pendientes
+*24/10/2026, segunda vuelta de auditoría (`docs/auditoria-2-0/M-SEGUNDA-VUELTA.md`; el estado verificado, en `docs/auditoria-2-0/F-ESTADO-Y-PLAN-2-0.md`).
+Es **la única lista de tareas**: cada pendiente vive acá y los demás documentos la enlazan, no la copian. Lo que se decidió y por qué queda en
+`docs/DECISIONES.md` (cuando una pregunta de acá se contesta, pasa allá). `docs/TRASPASO.md` es corto y no tiene tareas. `IDEAS.md` es un banco:
+una idea que se decide hacer se mueve acá con una línea. La lista vieja entera (15 a 23/10) está en `docs/historico/PENDIENTES-HASTA-24-10.md`.*
 
-*Actualizado el 17/10/2026. Sólo lo que está abierto, una vez cada cosa. Lo hecho se saca de acá (queda en el
-historial de git; la lista anterior, con todo lo viejo, era `docs/historico/propuestas-2026-10/PENDIENTES-HASTA-15-10.md`,
-borrada el 17/10 con esa carpeta). Lo que se decidió y las preguntas abiertas viven en
-`docs/DECISIONES.md`. Cómo funciona cada cosa: `docs/00-INDICE.md`.*
+Cada renglón dice **quién**: Hernán, Andrés, "los dos" o Claude. Lo que pide una cuenta, una clave, borrar algo publicado o una decisión de criterio lo hace una
+persona; Claude nunca. Se pide **una sola vez cada cosa, con el enlace y el paso** (un paso por mensaje si es desde el celular).
 
-Cada pendiente dice **quién**: Hernán, Andrés, "los dos" o Claude. Lo que pide una cuenta, una clave, borrar algo
-publicado o una decisión de criterio lo hace una persona; Claude nunca.
+## 1. Hecho y andando (no hace falta pedirlo de nuevo)
 
-## Radar 2.0: lo que queda para autorizar o hacer (17/10, después de la auditoría y los arreglos)
+- **Todo corre en Cloudflare** desde el 22 y 23/10: el motor en Workers Builds, las tareas (vigilancia, informe, pistas, auditoría IA, ilustraciones, redes) en el Worker
+  `radar-balcarce-tareas`, el video en `radarbalcarce/radar-balcarce-render`, el reloj en `radar-balcarce-reloj` con vigilante de vueltas. En GitHub ya no corre
+  "Actualizar la web", ni "Redes", ni "Vigilancia" (`docs/TRASPASO.md`).
+- **Archivo permanente en R2 encendido** (23/10): `/nota/*` va al Worker `radar-balcarce-archivo`; `TOPE_DE_NOTAS` = 500.
+- **Selección sin cupos** (3 medios lo nacional, 2 las áreas chicas incluidos Agro y Automovilismo; lo muy contado, 8; Balcarce con 36 horas; policial nacional y fútbol sólo
+  argentino): reglas 215 a 218, 260 y 286 a 299 (`docs/CRITERIO-EN-UNA-PAGINA.md`).
+- **Claves cargadas**: tres de Gemini, Groq, OpenRouter (23/10), Tavily, Meta, Cloudflare; las llaves de la mudanza (`RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`,
+  `R2_SECRET_ACCESS_KEY`, `MOTOR_DEPLOY_HOOK`, `CF_BUILDS_TOKEN`) y la variable `R2_RENDER`.
+- **Respaldo semanal** de los domingos (a R2) y el workflow «Compactar el historial» (exige escribir `COMPACTAR`).
+- **Auditoría 2.0 (24/10)**: limpieza de código (regla 311), textos de la web al día y mapa del archivo escrito (310), redes (309), lo que recibe la IA (308), sin "fuente
+  principal" suelta (307), minutos de Workers Builds medidos y tres palancas escritas (312), y esta segunda vuelta de documentación (313).
 
-Hecho el 17/10 (reglas 188 a 210): una sola compilación por vuelta; el reloj dispara cada cosa sólo cuando tiene algo que hacer; redirecciones con tope; repetidas de Balcarce por significado contra lo publicado; fechas corregidas; lo nacional "muy contado" sale aunque el cupo esté lleno y lo de acá sin tope; autobombo, sorteos del medio, publicidad, clima y farmacias de otros medios no son nota; el semáforo de "murió" con la nota real; fotos controladas (corresponde, archivo, captura, repetida, Wikimedia vieja) y un solo camino de ilustración (Cloudflare); medición de redes arreglada, contador de voces y el repaso con la foto de cada nota; limpieza final (panel de la PC, ensayos, programas en docs/: de 1.958 a 1.710 archivos y de 34 a 12 MB). Detalle: `docs/auditoria-2-0/`.
+## 2. Escrito y probado, pero APAGADO: qué hace y quién lo prende
 
-**Para autorizar (Hernán y Andrés):**
-- Limpiar el historial de GitHub (dejar una sola versión con el estado actual, con copia completa guardada antes en R2): borra las notas retiradas que hoy siguen en las versiones viejas. No tiene vuelta atrás en GitHub.
-- Ordenar las claves de Google (`docs/auditoria-2-0/09-CLAVES-DE-IA-ORDEN.md`): la facturación está en un proyecto que Radar no usa; proyectos de otras cosas en la cuenta del medio.
-- Prender `SECCIONES_NUEVAS` (Educación y Salud; vista previa en `docs/secciones/vista-previa/`) y decidir `FOTOS_MENORES_OFICIALES` (desde la regla 211, el 17/10, vale para las fotos propias de cualquier fuente de Balcarce: medios de acá y organismos; la prende una persona con "Si").
-- Los dos bloques de portada propuestos ("Lo que se cuenta en todo el país" y "En los medios de Balcarce"): `docs/propuestas/EN-LOS-MEDIOS-DE-BALCARCE.md`.
-- Permiso del token de Cloudflare (Workers Routes: Edit + Zone: Read) para activar el archivo permanente (antes del ~2/11).
-- Pasar el robot a Cloudflare (motor como Workflow + D1/R2, video al repo público `radar-balcarce-render`) para que el principal pueda ser privado sin pagar: `docs/08-INFRAESTRUCTURA.md`, "Los minutos de GitHub".
-- Pedir permiso de fotos a los medios de Balcarce (investigación 07: un fallo de julio de 2026 por una sola foto).
+Estado real al 24/10 (`gh variable list`): ninguna de estas variables existe todavía, salvo donde se indica. Se prenden **de a una y en el orden de cada documento**.
 
-**A mano (una persona):** **desplegar el reloj de Cloudflare** (Actions → «Reloj de Cloudflare» → Run workflow) para que pida la revisión del archivo, que empieza sola el jueves 22/10 a los :12 (regla 212, `docs/flujos/REVISION-DEL-ARCHIVO.md`; para frenarla, la variable `REVISION_DEL_ARCHIVO` en "no"); borrar en la PC `panel/datos/` y `respaldos/` (tienen claves) y dar de baja Tailscale; borrar el Worker `radar-balcarce-sondeo-fuentes` y el secreto `SONDEO_TOKEN`; revisar el aviso de cambio de contraseña de Instagram en el Gmail del medio y activar la verificación en dos pasos en Google, Meta, GitHub y Cloudflare.
+| Interruptor | Qué hace | Quién lo prende | Cómo |
+|---|---|---|---|
+| `TARJETAS_EN_R2` = Si | La memoria de las imágenes de las notas vive en R2: la compilación baja de ~180 a ~50 s (regla 312) | Los dos, cuando Claude diga que miró el registro de pasos | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` § 4 (paso 3) |
+| `MOTOR_NOCHE_CADA_HORA` = Si | De 23:00 a 6:59 una vuelta por hora (40 por día en vez de 48) | Los dos | Mismo documento (paso 4): **en el reloj y en el Worker del motor**, y después correr «Reloj de Cloudflare» |
+| `FOTOS_EN_R2` = Si | Las fotos nuevas van a R2 y no a git | Los dos, **después** de la ruta de fotos y de que Claude suba las que hay | `docs/etapa-10-operacion/FOTOS-EN-R2.md` (pasos 1 a 7) |
+| `SITEMAP_DEL_ARCHIVO` = Si | El mapa de las notas viejas (R2) para Google | Los dos, al final | Subir el Worker del archivo, esperar una vuelta del exportador y recién ahí la variable (regla 310) |
+| `ENLACES_CORTOS` = Si | Enlaces cortos en Facebook (`radarbalcarce.com/r/f/<id>`) | Hernán decide; los dos lo hacen | Subir el Worker `infra/enlaces-cloudflare/`, poner la ruta, probar y recién ahí la variable (`docs/redes/ACORTADOR-DE-ENLACES.md`) |
+| `FOTOS_MENORES_OFICIALES` = Si | Fotos con chicos de fuentes de Balcarce (deporte, escuela, cultura; nada policial) | Los dos (Hernán ya dijo que sí el 17/10) | Crear la variable con "Si" (regla 211) |
+| `REVISION_DEL_ARCHIVO` (hoy "no") | El repaso de las 1.459 notas viejas con el criterio de hoy (llevaba 291) | Hernán decide cuándo | Cambiarla a "si" después de cerrar las reglas de fotos |
+| `MINIMO_NACIONAL` / `MINIMO_AREAS_CHICAS` | Cuántos medios hacen falta (valen 3 y 2 si no existen) | Hernán, con la estadística | Variables de GitHub, sin tocar código |
+| `POLICIAL_NACIONAL` / `FUTBOL_SOLO_ARGENTINO` | Valen **prendidas** por código; se apagan poniendo "no" | Hernán, sólo si se arrepiente | Variables de GitHub |
+| `WHATSAPP_CANAL_URL`, `TELEGRAM_CANAL_URL`, `BLUESKY_URL` | Botones de esos canales en el sitio | Las personas, cuando crean las cuentas | Pegar la dirección como variable |
+| `COMPILAR_SIEMPRE` | Fuerza compilar aunque nada haya cambiado | Sólo para probar | — |
 
-**Lo que mira Claude en los próximos días:** desde el 22/10, las tandas de «Revisar el archivo» (lo que retira, une y saca: que no se equivoque; los números en `web/data/revision-archivo.json` y en el informe diario); las uniones de repetidas en el registro de "Actualizar la web" (deshacer una mala: borrar su renglón de `fusionadas.json`); que la temperatura 0,3 de la redacción no aumente las copias (medir con `reels/comparar-instruccion.mjs`); que el reloj dispare Auditoría IA y Pistas; las primeras métricas de historias de Facebook (API v25).
+Ojo con dos variables que parecen la misma: `REDES_ACTIVAS` (GitHub: hoy "No") y `REDES_ACTIVAS_NUBE` (Cloudflare: hoy "Sí"). **Manda la de la nube**; quien mire sólo GitHub cree que las
+redes están apagadas.
 
-**Quedó sacado y se rehace cuando lo pidan:** el prototipo de audio en la página (los podcasts para escuchar desde la nota); el panel nuevo del celular se hace de cero.
+## 3. Pendiente de Claude
 
-## El rediseño (lo principal desde el 15/10)
+"Lanza" = hace falta antes del lanzamiento.
 
-Se rehace todo desde cero, **una etapa por vez**: fuentes → entrada → duplicadas → clasificación → puntaje →
-contexto → redacción y verificación → fotos → publicación y redes → operación (`docs/DECISIONES.md`, 15/10). En
-cada etapa: mirar los criterios de hoy, proponer, probar con notas reales y recién ahí cambiar. Las preguntas que
-frenan alguna etapa están en `docs/DECISIONES.md` → "Preguntas abiertas".
+| # | Qué | Lanza |
+|---|---|---|
+| C1 | Confirmar que `npm test` esté verde en `main`: la prueba roja que anotó la auditoría F ("una historia retoma el TEMA del repaso anterior…") **pasó** en la corrida completa del 24/10 en la rama de la segunda vuelta (3.103 pruebas; sólo fallan 3 por el entorno de esa carpeta: falta `react` y un CRLF), pero hay que mirar la corrida de «Pruebas» de GitHub | Sí |
+| C2 | **Fotos a R2**: simulacro, subir sin quitar, mirar dos vueltas; después la hidratación que falta para `revisar-archivo`, `ilustrar-notas` y el render público | Sí |
+| C3 | Medir los minutos de Workers Builds por día contra el presupuesto (200 por día) y mirar el registro por paso que quedó escrito (regla 312); decidir con los dos si se achican los PNG de las tarjetas o se acepta pagar el excedente (`MOTOR_SIN_TOPE`) | Sí |
+| C4 | Que la revisión pausada **deje de despertar a GitHub** cada 2 h (el reloj no debería pedirla si `REVISION_DEL_ARCHIVO` = "no") | Sí, si pasan a privado |
+| C5 | Bajar lo que gasta "Pruebas" en GitHub (corre en cada cambio de código) | Sí, si pasan a privado |
+| C6 | **El botón "Actualizar la web ahora" del panel del celular** dispara el workflow `actualizar.yml` de GitHub, no el motor de Cloudflare (y la pestaña Hoy mira las corridas de GitHub): hay que apuntarlo al motor **antes** de apagar los workflows viejos | Sí (antes de P1) |
+| C7 | Sincronizar el repositorio público de render con `reels/` (`node scripts/sincronizar-render-publico.mjs`; el último push fue el 17/10 y `reels/` cambió desde entonces: reglas 300 a 302) | Sí |
+| C8 | Botón de emergencia que frene toda la publicación automática (hoy el camino es poner `REDES_ACTIVAS_NUBE` en No o retirar la nota a mano) | Sí |
+| C9 | Separar robots de lectores en las estadísticas (desde el 19/10 casi toda la visita figura de Francia y Estados Unidos) | Conviene |
+| C10 | Reordenar las IA: Gemini y Groq sólo para escribir y verificar notas; Cloudflare y OpenRouter para lo demás; medir los 429 | Conviene |
+| C11 | Mostrar a Hernán por qué se descartan hechos de 8 o más medios (`web/data/muy-contadas.json`, ya con motivos separados) y mirar una semana de policial nacional y muertes de famosos | Conviene |
+| C12 | Fotos de deportes (pasan el control 5 de 10), notas más completas, secciones flojas (Agro, Ciencia, Tecnología, Automovilismo) | Conviene |
+| C13 | Animaciones del repaso, guiones con continuidad y voces nuevas: falta "oírlo y verlo" (reglas 300 a 302; `docs/redes/VOCES-NUEVAS.md`) | Conviene |
+| C14 | Sacar de git lo que sólo lee el robot (libro de redes, vigilancia, estadísticas, fichas): de ~100 commits por día a ~10. **Bloqueado por el panel** (lee esos archivos de git) | No |
+| C15 | Sitio liviano: bajar `TOPE_DE_NOTAS` a ~400 y compilar en 1 a 2 minutos. **Bloqueado por las fotos** (ruta) | No |
+| C16 | Lo que quedó de la auditoría integral: sacar `impacto` de la ficha de la IA, bajar la entrada de feeds de acá de 72 a 36 h, regenerar `REGLAS-Y-PROMPTS.html` | No |
+| C17 | Actualizar las acciones de GitHub con Node 20 deprecado (`checkout`, `setup-node`, `cache`), probando en un workflow manual | Conviene |
+| C18 | Leer las respuestas de ChatGPT y Gemini guardadas en el Chrome y anotarlas en `docs/auditoria-2-0/08-IDEAS-DE-OTRAS-IA.md` | No |
+| C19 | Enchufar el registro de uso de la IA (`redes/uso-ia.mjs`, regla 170) en la lectura, las fotos, las voces y las pistas (hoy sólo anota la redacción) | No |
+| C20 | Pruebas de documentos: ya está la que controla que "la próxima regla" de `CLAUDE.md` sea la que sigue en `docs/10` (regla 313); falta la de enlaces relativos que existan | Conviene |
+| C21 | Títulos de pruebas que quedaron viejos (no cambian lo que prueban): `archivo.test.mjs` "corta las listas en 72 horas" (son 36) y el encabezado de `criterios-extranjero-zona.test.mjs` ("las listas de sepelios esperan a una persona", "notas de más de 7 días") | No |
 
-| Qué | Quién |
-|---|---|
-| **Poner en marcha los informes diarios por mail** (regla 176; ya está el código, sin subir): después de subir los cambios, correr en Actions «Vigilante de Cloudflare» y «Reloj de Cloudflare», probar «Informe diario» a mano (primero con «enviar» apagado, después prendido) y confirmar que llegan a las 8:15 y a las 21:15 (`docs/11-OPERACION.md`, 12 bis) | Hernán o Andrés (los clics); Claude mira el primero |
-| **Etapa 1, fuentes**: reactivar las que se apagaron por bloqueo si andan (2261 Lobería, El Diario de Tandil, El Argentino Digital, Sendero Regional), sumar las verificadas, el motivo de cada fuente apagada en `FUENTES.md` y probar desde Cloudflare las que bloquean a GitHub | Claude; los dos aprueban |
-| **Elegir los modelos** de cada paso (con pruebas; lo ya probado, en `docs/historico/PRUEBAS-DE-MODELOS.md`) y, con eso, crear las claves nuevas en cuentas de `radarbalcarce` | Claude prueba; los dos eligen; una persona pega las claves |
-| **Una prueba de los documentos** (`pruebas/docs.test.mjs`): que existan los enlaces relativos, que "la próxima regla" coincida con `docs/10`, sin números de feeds escritos a mano | Claude |
-| **Enchufar el registro de uso de la IA** (`redes/uso-ia.mjs`, regla 170) en `ingesta/lectura-ia.mjs`, fotos, voces y pistas: hoy sólo anota la redacción. En cada llamada, después de leer el JSON de la respuesta: `anotarUsoIA({ tarea: 'lectura', modelo, clave: 'clasificacion' o 'groq', respuesta: j })` (Gemini trae `usageMetadata`, Groq `usage`; los dos los entiende) y, si la llamada falla, `anotarUsoIA({ tarea, modelo, clave, error: res.status })`. Nunca lanza. Con 2 semanas de datos se puede calcular el costo equivalente a precio de lista | Claude |
+Dormidos (existen, tienen pruebas y producción no los usa; los despierta o los borra el dueño): `comercial/`, `motor/`, `sePuedeSola` (`redes/elegir.mjs`), `agruparPorHecho` (`ingesta/cruce.mjs`).
 
-## Para revisar juntos: qué sirve y qué no (pedido de Andrés, 15/10)
+## 4. Pendiente de una persona
 
-Pasada de punta a punta, módulo por módulo, después de terminar la tanda de mejoras. Para cada herramienta, servicio, archivo y proceso: qué hace, por qué existe, si se usa de verdad (con evidencia), qué cuesta y qué conviene (mantener, reemplazar o apagar).
-- La base ya está hecha en las auditorías del 15/10: `docs/etapa-10-operacion/ANALISIS.md` (tabla herramienta/servicio), `docs/salud-tecnica/ANALISIS.md` (mapa de 13 módulos), `docs/auditoria-opus/ANALISIS.md`, `docs/criterio/`, `docs/analiticas/`, `docs/etapa-2-5/` y `docs/etapa-6-9/`.
-- Revisar con ojo de dueños: las redes (qué piezas rinden), el panel del celular, los workflows manuales, `comercial/` y `motor/` (lo único armado y sin usar que quedó después de la limpieza del 17/10), las claves de IA y cada cuenta (cuáles se usan y cuáles no).
-- Después de esa pasada: la auditoría final con Opus sobre lo que quedó.
-- **Dos errores de escritura congelados en `web/data/correcciones.json`** (hallazgo B1 de la auditoría de Opus; no se tocaron porque lo de una persona no se edita sin decidir): en la nota `1b3umaz` dice "si el equipo se consagra **campen**" (debería ser "campeón") y en `woerbj` dice "La **Séleccion** Argentina" (debería ser "La Selección Argentina"). Como `correcciones.json` cuenta como escrito por una persona, ningún arreglo automático los toca. Decidir juntos: corregirlos a mano (con `motivo`, `cuando` y `por`) o dejarlos.
+Primero lo que salió el 24/10 y desbloquea lo demás, en orden. Después lo de siempre.
 
-## De la consulta a ChatGPT (15/10) cruzada con la auditoría de Opus
+### 4.1 Salió el 24/10 (en este orden)
 
-Respuesta completa en `docs/auditoria-opus/RESPUESTAS-OTRAS-IAS.md` (Grok y Meta AI piden iniciar sesión: no se consultaron). Coinciden con Opus en: abogado para la reescritura y las notas policiales, 2FA y recuperación de cuentas, respaldo fuera de GitHub, correcciones visibles, riesgo de Google por "contenido masivo sin valor propio" y más peso a lo local. Lo nuevo o distinto:
-- **Contar fuentes independientes, no direcciones** (la Municipalidad más tres diarios que copian su comunicado es UNA fuente): ampliar el campo `grupo` a "fuente primaria".
-- **Botón de emergencia** que frene toda publicación automática, y uno separado para Policiales, Política y redes.
-- **Alerta si el robot publica de más** (por ejemplo más de 10 notas en 30 minutos) y si pasa una hora sin ejecutarse (el vigilante nuevo ya cubre lo segundo).
-- **Historial de correcciones por nota** (publicado → qué cambió → por qué → quién aprobó) y una página pública de correcciones.
-- **Niveles de certeza** en las notas (confirmado, informado por una fuente, versión oficial, en desarrollo, contradictorio); si dos fuentes discrepan, la nota lo dice en vez de elegir.
-- **Hacia un medio más local:** menos peso a lo nacional, páginas permanentes de servicio (cortes, farmacias, Concejo, clubes, escuelas), fuentes primarias locales y alianzas (Bomberos, clubes, escuelas, Cámara de Comercio).
-- **Google:** News Sitemap aparte (solo las últimas 48 horas), NewsArticle completo (autor, fecha de modificación), página de transparencia (cómo trabajamos, uso de IA, correcciones, propietario).
-- **Canal de WhatsApp y una newsletter** ("Radar de la mañana", 5 notas, 7:30), antes que una guía de comercios.
-- **Etiqueta de IA visible en los videos** ("Video y voz generados con IA a partir de información periodística verificada") y nunca una voz que imite a una persona real.
-- **Un documento "si mañana falta uno de nosotros"** (dominio, cuentas, pagos, recuperación) y la prueba anual de reconstruir todo si desapareciera GitHub.
-- **Dónde NO coincide con Opus:** ChatGPT no migraría a Workers + D1 todavía (50 visitas por día). Lo que sí recomienda es sacar de git los datos que hacen de base de datos y pasar la multimedia a R2. Se discute en la revisión de punta a punta; mientras tanto el rumbo acordado sigue siendo menos GitHub y más Cloudflare. Sobre las 500 compilaciones gratis de Pages: no aplican, el sitio se sube por Direct Upload sin que Cloudflare compile.
+| # | Quién | Qué | Dónde |
+|---|---|---|---|
+| P1 | Los dos | **Subir los Workers** que cambiaron (no se suben solos): «Desplegar Workers de Cloudflare» (motor, vigilante y archivo) y «Reloj de Cloudflare». Sin variables nuevas, sólo se empieza a registrar el tiempo por paso | https://github.com/radarbalcarce/radar-balcarce/actions → Run workflow |
+| P2 | Los dos | **Prender las variables de minutos en orden y de a una** (mirar un día el registro; `TARJETAS_EN_R2`; `MOTOR_NOCHE_CADA_HORA`) | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` § 4 |
+| P3 | Los dos | **Fotos en R2**: poner la ruta de fotos (workflow «Archivo permanente (producción)» con `activar_fotos`) y, cuando Claude avise que el simulacro salió bien, crear `FOTOS_EN_R2` en GitHub **y** en Workers Builds | `docs/etapa-10-operacion/FOTOS-EN-R2.md` |
+| P4 | Los dos | **Mapa de las notas archivadas**: después de subir el Worker del archivo (P1) y de una vuelta del exportador, crear `SITEMAP_DEL_ARCHIVO` = Si | Variables de GitHub |
+| P5 | Hernán | **Decidir los enlaces cortos**; si es sí, subir el Worker y poner la ruta | `docs/redes/ACORTADOR-DE-ENLACES.md` |
+| P6 | Los dos | **Search Console** (una vez por semana, 15 min: Páginas, Sitemaps con `sitemap-index.xml`, Rendimiento); **Bing Webmaster Tools** (importar desde Search Console); Google Publisher Center (decisión) | https://search.google.com/search-console · https://www.bing.com/webmasters |
+| P7 | Los dos | **Participá: las piezas fijas vencen el 31/10.** Decidir si se renuevan y, si sí, correr «Fijar piezas» antes (se gasta voz: el cupo es de 10 audios por día) | Actions → «Fijar piezas» |
+| P8 | Hernán | **Open-Meteo**: el plan gratis es de uso no comercial (sus términos) y el sitio va a tener publicidad; decidir qué se hace antes de sumar datos de lluvia (o el clima sale de `api.met.no`) | `docs/auditoria-2-0/K-DATOS-E-INFOGRAFIAS-POR-TEMA.md` § 11 |
+| P9 | Los dos | **Altas de redes** (sólo si las quieren; ninguna bloquea el lanzamiento): Telegram (canal y bot con @BotFather), Bluesky, canal de WhatsApp, y después X, Threads, TikTok y YouTube; pegar las direcciones como variables | `docs/redes/PLAN-REELS-OTRAS-REDES.md`, `docs/auditoria-2-0/J-REDES-CRONOGRAMAS-Y-CANALES.md` |
 
-## Para cuando vuelvan Hernán y Andrés (16/10 a la noche)
+### 4.2 Antes del lanzamiento
 
-**Para revisar juntos (páginas HTML que se marcan con Sí / No / Duda y 'Copiar mis decisiones'):**
-- `docs/flujos/INFORME-DE-HOY.html` (cómo llegó la información hoy, fuentes y secciones) → después `docs/etapa-1-fuentes/REVISION-FUENTES.html` (lista corta de 47) y `docs/secciones/MAPA-DE-SECCIONES.html` + `PROTOTIPO-MENU.html` (17 secciones).
-- `docs/historico/flujo/FLUJO-NUEVO.html` y `FLUJO-NUEVO-SIMULACION.html` (todo lo de Balcarce, nacional con 3 medios, tope 150), `docs/criterio/PESOS-Y-PUNTAJES.html`, `docs/historico/flujo/GUIA-DEL-FLUJO.html` (el flujo paso a paso con los prompts).
-- `docs/panel/PROTOTIPO-PANEL.html` y `PLAN-NUEVO-PANEL.md` (8 preguntas; la etapa 0 son arreglos de textos y un error).
+| # | Quién | Qué | Dónde |
+|---|---|---|---|
+| P10 | Los dos | **Verificación en dos pasos** en Google (radarbalcarce@gmail.com), Meta, Instagram, GitHub, Cloudflare y DonWeb; revisar el mail de "cambio de contraseña" de Instagram que apareció en el Gmail del medio | Cada cuenta |
+| P11 | Los dos | **Apagar los 7 workflows viejos** (Actualizar la web, Redes, Vigilancia, Auditoría IA, Pistas, Informe diario, Ilustrar notas sin foto), **sólo después de C6** y de que Claude confirme que ninguno es respaldo vivo. No apagar «Revisar el archivo», «Piezas de redes», «Pruebas», «Respaldo», «Reloj de Cloudflare», «Vigilante de Cloudflare», «Desplegar Workers de Cloudflare» ni «Compactar el historial». "Informe diario" tiene un horario de respaldo propio (11:45 y 00:45 UTC) que desaparece al apagarlo | Actions → tres puntitos → *Disable workflow* |
+| P12 | Los dos | **Tope de gasto de Actions en US$ 0** | github.com → Settings → Billing → Budgets |
+| P13 | Los dos | **Compactar el historial** (escribir `COMPACTAR`), **recién después de mover las fotos** (P3); después, en la PC: `git fetch origin && git reset --hard origin/main && git reflog expire --expire=now --all && git gc --prune=now --aggressive` | Actions → «Compactar el historial» |
+| P14 | Los dos | **Pasar el repositorio a privado**, cuando se cumplan las condiciones de la etapa 4 del plan (`docs/auditoria-2-0/F-ESTADO-Y-PLAN-2-0.md`) | Settings → Danger zone |
+| P15 | Los dos | **Respaldo afuera de GitHub**: el de los domingos sube a R2; falta GitLab (`GITLAB_TOKEN`) y una copia a Drive o a la PC; y probar la restauración una vez | `docs/propuestas/PASOS-PARA-USTEDES.md` § 1 |
+| P16 | Los dos | Un documento "si mañana falta uno de nosotros" (dominio, cuentas, pagos, recuperación), guardado fuera del repositorio (Claude lo redacta con la lista) | — |
+| P17 | Hernán | Cloudflare: confirmar que no estén prendidos "Block AI bots" ni "robots.txt administrado"; mirar "AI Crawl Control" | https://dash.cloudflare.com |
 
-**Tareas que sólo pueden hacer ustedes (con link):**
-- Cloudflare: agregar al token `CLOUDFLARE_API_TOKEN` los permisos «Zone → Workers Routes: Edit» y «Zone → Zone: Read» (https://dash.cloudflare.com/profile/api-tokens) para poder activar el archivo permanente en R2; y revisar en https://dash.cloudflare.com/99f5fbcb09c321124d5d0395cd283425/radarbalcarce.com/security/settings que no esté activo el bloqueo de bots de IA.
-- Voces pagas: cargar la clave de Google con crédito como secreto `GEMINI_API_KEY_REDES` en https://github.com/radarbalcarce/radar-balcarce/settings/secrets/actions (hoy las tres claves están en el plan gratis, con 10 audios por día). Las imágenes ya no la necesitan.
-- Buscadores: Bing Webmaster Tools (https://www.bing.com/webmasters, importar desde Search Console) y mirar Search Console una vez por semana (https://search.google.com/search-console?resource_id=sc-domain%3Aradarbalcarce.com).
-- Redes nuevas (todas gratis salvo X): crear el canal de Telegram (@BotFather), la cuenta de Bluesky y el canal de YouTube; TikTok y WhatsApp canal a mano o con Buffer. Plan en `docs/redes/PLAN-REELS-OTRAS-REDES.md` y `AUTOMATIZAR-REDES-ALTERNATIVAS.md`.
+### 4.3 Limpieza y cuentas (cuando puedan)
 
-**En curso o activado el 16/10:** el mail de agradecimiento a Prensa Cicaré sale cuando salga el reel de las 15:00 con la nota de Azul; la tarea programada `ilustrar-notas-sin-foto` (10:00 y 18:00, requiere la PC y la app abiertas); el reloj dispara el informe diario a los :15 y a los :30; la carga inicial del archivo en R2 (`Archivo permanente (producción)`, sin ruta).
+- En la PC: borrar `panel\datos` y `respaldos` (tienen claves viejas) y dar de baja Tailscale si no se usa.
+- Borrar el Worker `radar-balcarce-sondeo-fuentes`, el secreto `SONDEO_TOKEN` y los tres trabajos pausados de cron-job.org; borrar el proyecto de Vercel y limpiar el DNS.
+- Ordenar las claves de Google: la facturación está en un proyecto que Radar no usa (`docs/auditoria-2-0/09-CLAVES-DE-IA-ORDEN.md`).
+- **Clave paga de Gemini para las voces** (sin ella, 10 audios por día), pero antes **guardar la referencia de las voces actuales** (`docs/redes/VOCES-NUEVAS.md`) y poner un límite de gasto en Google.
+- GitHub → Settings → Actions → General: *Require approval for all outside collaborators* (mientras el repositorio sea público).
+- Completar bios y perfiles de Instagram y Facebook (categoría, enlace, botón de WhatsApp, historias destacadas: `PERFILES.md`); Instagram tiene 7 seguidores y Facebook 53 (23/10).
+- Mandarse un mail de prueba a `contacto@`, `redaccion@` y `publicidad@` y decidir "Enviar como" en Gmail.
+- Borrar a mano en Instagram las copias repetidas de antes y, si se decide, el posteo del superávit del 29/09.
+- AdSense con `radarbalcarce@gmail.com` (pide datos fiscales); Wikidata y Bing Places.
+- Dos errores de escritura congelados en `web/data/correcciones.json` (hallazgo B1 de Opus): en la nota `1b3umaz`, "campen" (debería decir "campeón"), y en `woerbj`, "La Séleccion Argentina".
+  Lo de una persona no se edita sin decidir: corregirlos a mano (con `motivo`, `cuando` y `por`) o dejarlos.
 
-**Cierre del 16/10 (commit 63418e00) — lo que quedó hecho, lo que quedó apagado y lo que falta:**
-- Hecho: la web se arma UNA vez por media hora (se sacó el `schedule` de respaldo de GitHub; sólo la dispara el Worker); comentarios y docs al día con el reloj de Cloudflare; Instagram sin links y reels de podcast con un solo link al repaso; archivo en R2 andando (`/_archivo/estado` ok=true).
-- Subido pero APAGADO (no prender sin que ustedes lo pidan): `SECCIONES_NUEVAS=Si` (Educación y Salud + menú «Más secciones»; mirar primero `docs/secciones/vista-previa/index.html`, regla 187), `FOTOS_MENORES_OFICIALES=Si` (fotos con chicos de la Municipalidad, el Concejo y la Facultad; la revisa Hernán primero, regla 186). El prototipo de audio en la página se borró el 17/10 (queda en git; el plan, en `docs/redes/AUDIO-EN-LA-PAGINA-Y-PODCAST-GENERAL.md`).
-- Por comprobar (Claude): la primera corrida automática de ilustraciones (20:20 UTC del 16/10, luego cada 2 h) y que mañana no haya corridas `schedule` de «Actualizar la web» (`gh run list --workflow=actualizar.yml`). Descartado: compilar el sitio una sola vez en lugar de dos (ahorra poco, riesgoso para el paso de R2).
-- Mañana (17/10): rehacer el panel de cero; decidir las páginas HTML de arriba. Antes del ~2/11: activar la ruta del archivo en R2 (tras los permisos del token) y decidir qué pasa con las fotos de las notas que salen del sitio.
+## 5. Decisiones abiertas (una pregunta por renglón; Claude recomienda, vos decidís)
 
-## Lo que quedó armado en la ventana autónoma del 15/10 (para mirar juntos)
+Las de más peso, con la recomendación. Cada módulo de la auditoría 2.0 tiene su lista completa con el razonamiento (`docs/auditoria-2-0/B`, `C`, `E`, `H`, `K`).
 
-- **Armado y sin conectar a producción**: `motor/` (esquema de la base D1 y su importador, con prueba de espejo contra `web/data`), `redes/reparar-estadisticas.mjs` (simula por defecto; 6 días a reparar; necesita el token de analíticas de Cloudflare para `--aplicar`), `docs/etapa-10-operacion/DISENO-MOTOR.md` y `docs/salud-tecnica/ARCHIVO-PERMANENTE.md` (diseños, con sus preguntas).
-- **12 decisiones del celular de tipo "publicada" no traen `motivo`** (`celular-decisiones.json`): el esquema nuevo las rechaza. Decidir qué motivo se les pone antes de armar el puente.
-- **Decisiones de ustedes** (ver `docs/DECISIONES.md`, 15/10): limpiar o no el historial público de git (M4), recorte automático cerca de los 20.000 archivos (M5) y "una menor" suelta en la lista roja.
-- **Tocar a mano**: probar `/probar-mail` del vigilante (mail de prueba), confirmar el perfil de TikTok, y el espejo en GitLab si lo quieren.
+1. **Posteos de notas por día en Facebook** (hoy 5, relevancia 75, 5 medios para lo de afuera): 98 posteos dieron 265 personas y las visitas reales son 6 a 11 por día. El 23/10 se acordó no bajarlos "porque la cuenta recién arranca".
+   Recomendación: dejar como está y probar un mes con franjas (`docs/auditoria-2-0/C-REDES.md` D-1); no tocar los reels.
+2. **Política y Policiales de Balcarce hacia las redes**: hoy no sale ninguna sola y nadie las mira. Recomendación: una lista diaria de 3 a 5 candidatas en el celular (C-REDES D-2).
+3. **Firma de las notas**: "Redacción asistida con IA, verificada contra las fuentes" (hoy, adentro de "Fuentes") o "Escrita por IA" afuera (B, preguntas 1 a 4). Recomendación: la línea corta y visible.
+4. **¿Se rehacen las notas cuando suman medios?** (E, pregunta 1). Recomendación: sí, una sola vez, al llegar a 8 medios.
+5. **Largo de las muy contadas**: hoy 70 a 300 palabras; recomendación 200 a 350 (E, pregunta 2).
+6. **Semáforo, lista roja**: sumar edades y verbos ("violaron a una nena") para que frene también las pistas; "una menor" suelta. Es de Hernán y no se toca sin su sí por escrito.
+7. **Nombrar a menores en notas positivas** (un logro escolar o deportivo): choca con la regla de oro; sigue prohibido hasta que Hernán diga que sí.
+8. **Línea editorial (regla 22)**: el texto final de "centro y centro-derecha, tono neutral" (hay un borrador sin aplicar); **opinión firmada** sí o no.
+9. **Rastreadores de IA en `robots.txt`**: hoy se permite entrenar con el sitio por defecto; no hay registro de que se haya decidido a conciencia.
+10. **Historial de GitHub**: compactarlo (irreversible, con copia previa) y cuándo pasar a privado (P13 y P14).
+11. **Elegir una de las dos portadas** de `docs/diseno/VISTA-PREVIA-PORTADA-2.html`; los bloques "Lo que se cuenta en todo el país" y "En los medios de Balcarce" (`docs/propuestas/EN-LOS-MEDIOS-DE-BALCARCE.md`).
+12. **Música en los videos** y **colores de las secciones** nuevas.
+13. **Comercial**: seguir con `comercial/` o retirarlo; quién habla con comercios; avisos gratis a 3 o 4 comercios (H, sección 12).
+14. **Datos legales del medio** en "Quiénes somos" y una página pública de correcciones (D6 y D8 de `docs/auditoria-2-0/D-SEO.md`).
+15. Cuatro fuentes de España apagadas: **no se prenden** (Hernán: "no es necesario sumar fuentes de afuera"). Está decidido; se deja escrito para que nadie lo vuelva a preguntar.
 
-## Después de la mudanza (15/10)
+## 6. Bloqueado (y por qué)
 
-| Qué | Quién |
-|---|---|
-| Mirar unos días que el Worker `radar-balcarce-reloj` dispare "Actualizar la web" (:00 y :30) y "Redes" (:05, :35 y :45) y que las corridas sigan en verde | Claude, con los dos |
-| Cuando el Worker esté confirmado, borrar los tres trabajos pausados de cron-job.org | Una persona |
-| Comprobar que la llave del panel del celular de cada uno anda con el repositorio nuevo (si dice "La llave no anda", crear otra: `docs/09-PANEL.md`) | Hernán y Andrés |
+| Qué | Bloqueado por | Se destraba cuando |
+|---|---|---|
+| Compactar el historial con efecto real | Las fotos nuevas siguen entrando a git | `FOTOS_EN_R2` prendida y `--subir --quitar` hechos |
+| Bajar `TOPE_DE_NOTAS` de 500 a ~400 | La ruta de fotos en el Worker (sin ella una foto sacada de Pages da 404) | P3 hecho |
+| Repositorio privado | Minutos de GitHub (P11, P12, C4, C5), historial compactado (P13) y tres días sin que nada vuelva a GitHub | Etapa 4 del plan |
+| Sacar estado de git (libro de redes, vigilancia, fichas, estadísticas) | El panel del celular y el informe diario leen esos archivos de git; el panel se rehace de cero aparte | Se decide rehacer el panel (después del lanzamiento) |
+| Revisión del archivo (1.459 notas, 291 hechas) | Pausada por decisión; con las fotos fuera de git no puede ver la foto de una nota vieja | Cerrar C2 y las reglas de fotos |
+| Voces nuevas | Clave paga de Gemini y guardar la referencia de las actuales | Las personas |
+| Enlaces cortos | Decisión de Hernán, el Worker y la ruta | P5 |
+| Más redes (X, Threads, TikTok, YouTube, Telegram, Bluesky) | Cuentas sin crear | P9 |
+| Panel nuevo del celular, audio en la página, páginas por barrio | No hay prioridad antes del lanzamiento | Después del lanzamiento |
 
-## Con fecha
+## 7. Con fecha
 
 | Cuándo | Qué | Quién |
 |---|---|---|
-| Antes del 19/10 | Ubuntu 26: los robots están fijos en 24.04; probar uno a propósito antes de pasar | Claude |
-| Desde el 20/10 | Efemérides de noviembre: se arman **después de la renovación** (decisión del 12/10); el vigilante va a avisar desde el 20 que falta el mes | Claude arma; los dos aprueban en Fechas |
-| 21/10 | Next 15 deja de recibir parches. No se pasa a Next 16 mientras el límite de 20.000 archivos de Cloudflare lo impida (regla 148) | Los dos deciden; Claude |
-| Antes del 25/10 | Piezas fijas de Participá: vencen el 31/10. Decidir si se renuevan ("Fijar piezas") | Los dos |
-| Antes del 10/12 | Archivo permanente: que el enlace de una nota que salió de las 3.700 con página no dé 404 (R2 + Worker o páginas mínimas; diseño y pasos en `docs/salud-tecnica/ARCHIVO-PERMANENTE.md`). Mientras tanto, sacar las fotos del sitio a R2 gana lugar | Los dos deciden; Claude arma; una persona crea el depósito |
+| **31/10** | Vencen las piezas fijas de Participá (P7) | Los dos |
+| Hacia el 13/11 | Decidir si se indexa sólo lo de Balcarce y lo respaldado, con datos de Search Console (D2 del SEO; hoy no hay datos porque nadie mira Search Console) | Los dos |
 | 15/12 | Revisión general (archivo, fotos, respaldo) | Los dos, con Claude |
-| 21/09/2027 | Renovar el dominio `radarbalcarce.com` (DonWeb). El vigilante avisa 30 días antes | Los dos |
-| 29/09/2027 | Renovar la llave del panel del celular y las dos voces propias ("Crear voces", modo `recrear`; `CRITERIO-REDES.md` § 6) | Hernán; los dos |
-| Cada 90 días | Mirar las medidas de imagen de las redes (`FORMATOS.md`; la auditoría de los lunes avisa) | Los dos |
-
-## Lo que hace una persona (cuentas, claves, borrar publicado)
-
-| Qué | Quién |
-|---|---|
-| **Respaldo externo** (GitLab y Cloudflare R2): hoy el único historial está en GitHub. Pasos en `docs/propuestas/PASOS-PARA-USTEDES.md` § 1 | Los dos |
-| Aprobar que corran los pull requests de afuera (GitHub → Settings → Actions → General → "Require approval for all outside collaborators") | Andrés |
-| Verificación en dos pasos en las cuentas del medio; confirmar quién administra cada una | Los dos |
-| Borrar el proyecto de Vercel y limpiar el DNS que quedó (apagado desde el 25/09) | Hernán |
-| Pegar las bios y completar los perfiles de Instagram y Facebook (`PERFILES.md`, `/compartir`): categoría, enlace, botón de WhatsApp, cinco historias destacadas | Los dos |
-| Mandarse un mail de prueba a `contacto@`, `redaccion@` y `publicidad@` y decidir "Enviar como" en Gmail | Los dos |
-| Borrar a mano las copias repetidas de Instagram (nota de 19 y 114 bis), el repaso duplicado del 25/09 y, si se decide, el posteo del superávit del 29/09 | Hernán |
-| AdSense, con `radarbalcarce@gmail.com` (pide datos fiscales) | Los dos |
-| Search Console, Bing y todo lo de SEO: **después de la renovación** (decisión del 12/10) | Los dos |
-
-## Lo que puede hacer Claude (cuando la etapa lo permita)
-
-| Qué | Notas |
-|---|---|
-| Avisos y resumen diario por **mail** (decisión del 12/10), con un aviso de afuera si el vigilante mismo se cae | Falta elegir el servicio de envío |
-| Farmacia con fuente propia, cotejada con la página del Colegio (decisión del 12/10) | |
-| Miniaturas livianas (~480 px) y fotos nuevas en WebP | La mayor mejora de carga en el celular |
-| Sacar del despliegue los dos videos de `/compartir` (9,9 MB) | |
-| En el panel del celular: lista de sólo lectura de lo frenado en rojo; "juntadas hoy" y "parecidas sin juntar" en Revisión | |
-| Revisar qué parte del texto de las pistas queda todavía sin cifrar (el informe ya viaja cifrado) | Delicado: se avisa antes |
-| Contar los créditos de búsqueda (Tavily) en el resumen diario | |
-| Actualizar las acciones de GitHub (Node 20 deprecado en `checkout`, `setup-node`, `cache` v4) | Probar en un workflow manual primero |
-| Arreglos chicos del sitio: `<title>` cortado con "…", botones de menos de 44 px, política de privacidad (Open-Meteo, DolarApi), podar `banco-fotos.json`, tres créditos de Wikimedia incompletos | |
-| Comentarios viejos en el código ("clave paga") | |
-| Fuentes locales que faltan: fútbol local (Liga Balcarceña, Regional Amateur), Policiales (Policía, bomberos, Defensa Civil), agenda con una semana de anticipación (municipio, clubes, Teatro, Sociedad Rural) | Entra en la etapa de fuentes |
-| Medir la originalidad de las notas de varias fuentes (cuánto se parece cada cuerpo a sus fuentes) | Entra en la etapa de redacción |
-| Conectar las escenas de deporte (F1, tabla de la Liga) cuando se decida cuándo salen | Falta decisión |
-| "Buenas noches" dicho dos veces al principio del clima de la noche (4/10): ver si se repite | |
+| Enero de 2027 | Volver a mirar si hace falta un servidor MCP | Claude |
+| 21/09/2027 | Renovar el dominio `radarbalcarce.com` (DonWeb); el vigilante avisa 30 días antes | Los dos |
+| 29/09/2027 | Renovar la llave del panel del celular y las dos voces propias (`CRITERIO-REDES.md` § 6) | Hernán; los dos |
+| Cada 90 días | Medidas de imagen de las redes (`FORMATOS.md`) y las guías de Google sobre IA | Los dos |

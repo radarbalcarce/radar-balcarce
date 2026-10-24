@@ -1,6 +1,6 @@
 # 00 · Índice: Radar Balcarce de punta a punta
 
-*Actualizado el 17/10/2026. Es la puerta de entrada a la documentación: qué es el
+*Actualizado el 24/10/2026. Es la puerta de entrada a la documentación: qué es el
 proyecto, por dónde pasa una noticia y qué documento cuenta cada cosa. Si un
 documento y el código no coinciden, manda el código.*
 
@@ -52,7 +52,7 @@ los pasos 1 a 8; las redes y la vigilancia corren aparte.
 | 5 | Redacción | Gemini escribe título, bajada y cuerpo con el texto completo de hasta 4 fuentes (regla 174) y `CRITERIO-EDITORIAL.md` § 12 | `docs/04-REDACCION.md` |
 | 6 | Verificación | Cada dato contra las fuentes, el semáforo otra vez, el nivel de verificación; sin cuerpo no se publica | `docs/04-REDACCION.md` (pasos 7 a 11) |
 | 7 | Publicación | Lo que decidió una persona (panel del celular), fecha real, "llega tarde" (12 h), retiradas y correcciones, foto del banco | `docs/03-SELECCION.md` (pasos 10 a 13), `docs/05-FOTOS.md`, `docs/09-PANEL.md` |
-| 8 | Web | `web/data/*.json` → Next.js estático → Cloudflare Pages: portada de 36 h, página mientras la nota esté entre las últimas 3.700 (unos 80 días al ritmo de hoy; el archivo permanente en R2 está listo y sin activar), dirección fija | `docs/06-WEB.md`, `docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md` |
+| 8 | Web | `web/data/*.json` → Next.js estático → Cloudflare Pages: portada de 36 h, página mientras la nota esté entre las últimas 500 del sitio (`TOPE_DE_NOTAS`; techo técnico 3.700; el resto se sirve desde el archivo permanente en R2, encendido el 23/10), dirección fija | `docs/06-WEB.md`, `docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md` |
 | 9 | Redes | Facebook (posteo y espejo en Instagram) y piezas de video con voz: clima, farmacia, tres podcasts | `docs/07-REDES.md`, `CRITERIO-REDES.md` |
 | 10 | Vigilancia | Mira la web, las corridas, las redes, las claves de IA y las voces (en GitHub y en el Worker `radar-balcarce-vigilante`); avisa por mail cuando algo falla (WhatsApp de respaldo) y manda los informes de las 8:15 y las 21:15 | `docs/08-INFRAESTRUCTURA.md`, `docs/11-OPERACION.md` |
 
@@ -94,7 +94,7 @@ Un dato vive en **un** lugar; los demás documentos remiten a ése.
 | `docs/03-SELECCION.md` | Qué sale, dónde y cuándo: sección, puntaje, semáforo, "de acá", medios y cupos de lo de afuera, la lectura con IA, la fecha, "llega tarde", la decisión final, las ventanas, retirar y corregir |
 | `docs/04-REDACCION.md` | Cómo escribe la IA, cada control del verificador, los arreglos automáticos, el nivel de verificación, "sin cuerpo no se publica", escribir un cuerpo a mano, escribir a pedido y la firma |
 | `docs/05-FOTOS.md` | El banco de fotos: cómo se elige una foto sin marca de agua, Wikimedia, qué se guarda, dónde se muestra y dónde no |
-| `docs/06-WEB.md` | Cómo se arma el sitio: `generar-datos.mjs` paso a paso, los archivos de `web/data/`, la tapa, las páginas, cuánto dura la página de una nota (tope de 3.700), la dirección fija, las repetidas, las notas propias, el SEO y el diseño |
+| `docs/06-WEB.md` | Cómo se arma el sitio: `generar-datos.mjs` paso a paso, los archivos de `web/data/`, la tapa, las páginas, cuánto dura la página de una nota (tope de 500, techo de 3.700), la dirección fija, las repetidas, las notas propias, el SEO y el diseño |
 | `docs/07-REDES.md` | Facebook e Instagram: el interruptor, los posteos y el espejo, el reloj, las piezas, los podcasts, el contrato del día, el libro, la conexión con Meta y las auditorías |
 | `docs/08-INFRAESTRUCTURA.md` | Qué corre dónde: los workflows, el reloj (Worker de Cloudflare), Cloudflare, GitHub, las claves de IA y sus topes, los secretos por nombre, la vigilancia, los vencimientos y lo que cuesta |
 | `docs/09-PANEL.md` | El panel del celular: qué muestra, qué pasa cuando alguien decide y cómo llega a la web (el de la PC se retiró el 17/10) |
@@ -126,7 +126,7 @@ cómo funciona algo que ya anda), **para decidir** (propuesta o página con caja
 | `docs/secciones/MAPA-DE-SECCIONES.md` (y `.html`) | De 11 a 17 secciones: el mapa propuesto, con el clasificador nuevo en sombra (`ingesta/secciones-nuevas.mjs`) | para decidir |
 | `docs/secciones/PROTOTIPO-MENU.html` | El menú y la portada con 17 secciones, dibujados | para decidir (cambio visible) |
 | `docs/panel/PLAN-NUEVO-PANEL.md` y `PROTOTIPO-PANEL.html` | Auditoría del panel del celular, diseño del nuevo y prototipo para tocar | para decidir |
-| `docs/auditoria-2-0/` (01 a 09 y `RADAR-2-0.html`) | La auditoría para Radar 2.0 del 16 y 17/10: armado e infraestructura, fuentes y repetidas, fotos, IA y modelos, módulos y redes, prompts, medios parecidos, ideas de otras IA y el orden de las claves | vigente (la base del rediseño) |
+| `docs/auditoria-2-0/` (01 a 09, A a M y `RADAR-2-0.html`) | La auditoría para Radar 2.0 del 16 y 17/10 (armado e infraestructura, fuentes y repetidas, fotos, IA y modelos, módulos y redes, prompts, medios parecidos, ideas de otras IA y el orden de las claves) y la segunda del 24/10 (A a L por tema, `F-ESTADO-Y-PLAN-2-0.md` con el estado verificado y `M-SEGUNDA-VUELTA.md` con lo corregido en los documentos) | vigente (la base del rediseño) |
 | `docs/diseno/COMPARACION.html` (y `DIRECCION-A`, `DIRECCION-B`) | Dos direcciones para el rediseño del sitio | para decidir (cambio visible) |
 | `docs/diseno/VISTA-PREVIA-PORTADA-2.html` | Dos propuestas de portada para el celular (servicio arriba, nota principal grande, «Lo último» con hora y carruseles por sección), con datos reales y lo que cuesta cada una | para decidir (cambio visible; 17/10) |
 | `docs/secciones/MINI-PORTALES.html` | Mini portales por tema | para decidir |
@@ -185,7 +185,8 @@ cómo funciona algo que ya anda), **para decidir** (propuesta o página con caja
 | `CRITERIO-EDITORIAL.md` | **El criterio editorial único**: qué entra, semáforo, cómo se escribe, fuentes, verificación, qué ve el lector, notas propias, redes, firma, los números (§ 11) y la instrucción exacta de la IA (§ 12). La IA lo lee tal cual |
 | `CRITERIO-REDES.md` | **El criterio único de las redes**: identidad, las voces, una ficha por pieza, las reglas de toda pieza y los números. El código lo lee tal cual |
 | `FUENTES.md` | Todas las fuentes: dónde se leen, ciudad, tipo, sección, peso, si son oficiales. **Generado** desde el código: no se edita a mano |
-| `PENDIENTES.md` | Todo lo que falta, con quién y qué tan urgente |
+| `PENDIENTES.md` | **La única lista de tareas** (24/10): lo hecho, lo apagado y quién lo prende, lo de Claude, lo de las personas, las decisiones abiertas y lo bloqueado. La vieja, en `docs/historico/PENDIENTES-HASTA-24-10.md` |
+| `docs/TRASPASO.md` | Corto: cómo se trabaja y dónde estamos en diez renglones (sin tareas). El largo del 23/10, en `docs/historico/TRASPASO-HASTA-24-10.md` |
 | `IDEAS.md` | Ideas de producto y de sistema, para discutir |
 | `MEDIA-KIT.md` | La identidad visual: colores, tipografía, íconos, medidas, plantillas |
 | `FORMATOS.md` | Las medidas de imágenes y videos de cada red y su porqué (los números viven en `redes/formatos.mjs`) |
@@ -228,7 +229,7 @@ vigente está en `docs/`.
 
 Es decisión de los dueños si se borra o se despierta; no se toca sin preguntar (auditoría 2.0, módulo A):
 `comercial/` (la guía de comercios: base, propuestas y vista previa; ver `COMERCIAL.md`), `motor/` (los cimientos de una base D1 del «motor nuevo»; el motor que
-corre hoy es `infra/motor-cloudflare/`), `redes/texto-por-red.mjs` (el texto para redes que todavía no tienen cuenta),
+corre hoy es `infra/motor-cloudflare/`),
 `sePuedeSola` (`redes/elegir.mjs`) y `agruparPorHecho` (`ingesta/cruce.mjs`; producción llama a `agruparConDetalle`).
 
 ## La historia corta

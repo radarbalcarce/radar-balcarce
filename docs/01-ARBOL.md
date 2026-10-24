@@ -321,7 +321,7 @@ vivían en `docs/etapa-1-fuentes/` y pasaron acá el 24/10 (regla 311: `docs/` n
 
 | Archivo | Qué hace | Quién lo usa | ¿En uso? |
 |---|---|---|---|
-| `archivo.js` | Qué se muestra (36 h), qué tiene página (180 días, con tope de 3.700 notas: `MAXIMO_EN_ARCHIVO`, `topeDeNotas`), llega tarde, fecha de la nota, retiradas, correcciones, `pierdeLaPagina`, la dirección fija, `aligerarViejas` | `generar-datos.mjs`, `datos.js` | Sí |
+| `archivo.js` | Qué se muestra (36 h), qué tiene página (180 días, con el tope de notas del sitio: `topeDeNotas`, hoy 500; techo 3.700 en `MAXIMO_EN_ARCHIVO`), llega tarde, fecha de la nota, retiradas, correcciones, `pierdeLaPagina`, la dirección fija, `aligerarViejas` | `generar-datos.mjs`, `datos.js` | Sí |
 | `revision-archivo.js` | Lo que los demás leen de la revisión del archivo (regla 212): lo retirado, las repetidas, lo que espera su ilustración | `generar-datos.mjs`, `ilustrar-notas.mjs`, `revisar-archivo.mjs` | Sí |
 | `clima.js`, `pedir-clima.js` | Qué dibujo le toca a cada cielo; el pedido del clima en el navegador (Open-Meteo, un solo pedido por página) | `clima-vivo.js`, `hoy-balcarce.js` | Sí |
 | `cuerpo.js` | `tieneCuerpo` (70 palabras), `tieneRespaldo`, `esperaCuerpo` | `generar-datos.mjs`, `datos.js`, `sitemap.js`, redes, panel, reescritura | Sí |
@@ -382,7 +382,7 @@ vivían en `docs/etapa-1-fuentes/` y pasaron acá el 24/10 (regla 311: `docs/` n
 | Archivo | Qué guarda | Quién lo escribe |
 |---|---|---|
 | `portada.json` | Lo que se muestra (36 h), clima, farmacia, pendientes | "Actualizar la web" |
-| `archivo.json` | Lo que tiene página (180 días en teoría; en la práctica el tope de 3.700 notas, unos 80 días), una nota por renglón | "Actualizar la web" |
+| `archivo.json` | Lo que tiene página (180 días en teoría; en la práctica el tope de `TOPE_DE_NOTAS`, hoy 500 notas, unos 4 días; el resto sale de R2), una nota por renglón | "Actualizar la web" |
 | `agenda.json` | Los eventos con página | "Actualizar la web" |
 | `banco-fotos.json` | El banco de fotos | "Actualizar la web" |
 | `dolar-historia.json` | La cotización de las 11 de cada día hábil (60 días) | "Actualizar la web" |

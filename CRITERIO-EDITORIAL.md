@@ -1,6 +1,6 @@
 # Criterio editorial de Radar Balcarce
 
-*Actualizado el 23/10/2026: lo de Balcarce entra todo y ya no espera a una persona por una palabra sensible (sólo frena el rojo); una nota sale en un solo formato en las redes; lo nacional, por popularidad y sin cupos (regla 215).* Éste es **el** criterio editorial del medio: qué se publica,
+*Actualizado el 24/10/2026 (segunda vuelta de auditoría: textos al día con las reglas 286 a 312). Del 23/10: lo de Balcarce entra todo y ya no espera a una persona por una palabra sensible (sólo frena el rojo); una nota sale en un solo formato en las redes; lo nacional, por popularidad y sin cupos (regla 215).* Éste es **el** criterio editorial del medio: qué se publica,
 cómo se escribe, cómo se trabaja con las fuentes y cómo se verifica. Hay uno solo y está
 acá; los otros documentos remiten a éste.
 
@@ -56,7 +56,9 @@ sección de **otro país** (`/mexico/`, `/el-mundo/`…), de **policiales o segu
 **consejos genéricos** (autos, horóscopo, recetas). Se mira la sección de la dirección de
 la nota, no palabras del texto. De una sección de otro país entra sólo lo que tiene
 conexión argentina en el título (una figura argentina, "Argentina", Malvinas) o es
-automovilismo (`SECCIONES_QUE_NO_ENTRAN`). De los medios de Balcarce entra todo. Los
+automovilismo (`SECCIONES_QUE_NO_ENTRAN`); de policiales o seguridad, sólo si lo cuentan 8
+medios o más o es la muerte de un famoso. Desde la regla 303 esas notas entran marcadas al cruce y se
+decide después, con todos los medios de la historia. De los medios de Balcarce entra todo. Los
 medios de España y de chimentos están apagados.
 
 ### De acá y de afuera
@@ -185,8 +187,9 @@ se revisan sus fuentes.
 
 No hay sección Servicios, Región ni Provincia: los cortes, trámites y obras de acá van a
 Balcarce; la farmacia, el clima y el dólar son servicios del sitio, no notas.
-**Policiales es sólo de Balcarce y la zona** (el partido, Napaleofú, Los Pinos, Ramos
-Otero y las rutas 226 y 55 dentro del partido): un policial de otro lugar no se trae; lo
+**Policiales es de Balcarce y la zona** (el partido, Napaleofú, Los Pinos, Ramos
+Otero y las rutas 226 y 55 dentro del partido): un policial de otro lugar no se trae, salvo
+que lo cuenten 8 medios o más o sea la muerte de un famoso (regla 289); lo
 de la zona sí, con el mismo semáforo. "Sale sola" quiere decir que no espera a nadie si el
 semáforo da verde (sección 3) y si tiene cuerpo (sección 4).
 
@@ -242,13 +245,13 @@ que lo decidan Hernán y Andrés.**
 | Color | Qué pasa | Cuándo |
 |---|---|---|
 | **Rojo** | No se publica nunca, ni por error | Identifica o puede identificar a un menor o a una víctima de violencia de género o de un delito sexual (menor de edad, abuso sexual, violación, femicidio, grooming, suicidio…). También las listas de sepelios (`REGLAS_SEMAFORO.nunca`), las efemérides de otro medio y lo que no es nota (el autobombo de un medio, el pronóstico o las farmacias de otro medio, la publicidad de un comercio: motivo "no es nota"; una persona igual puede publicarlo) |
-| **Amarillo** | Espera a una persona (en el panel del celular sólo lo de acá, sin tope por día desde la regla 295; lo de afuera no va al celular desde el 17/10/2026, regla 200: si no sale solo, no sale) | Acusa a alguien (denuncia, detenido, imputado), habla de una muerte o de un herido (en Policiales, en Balcarce, en lo de acá o de la zona y en lo que cuenta un solo medio; no la muerte de un famoso en Policiales), involucra a un chico, parece promoción, es de afuera y la cuentan menos medios de los que pide la popularidad (sección 2), es la cotización del dólar, o tiene **verificación baja** (sección 5) |
+| **Amarillo** | Espera a una persona (en el panel del celular sólo lo de acá, sin tope por día desde la regla 295; lo de afuera no va al celular desde el 17/10/2026, regla 200: si no sale solo, no sale) | **Sólo en lo de afuera que cuentan menos de 8 medios** (reglas 288, 291, 292 y 297): acusa a alguien (denuncia, detenido, imputado), habla de una muerte o de un herido (en Policiales y en lo que cuenta un solo medio; no la muerte de un famoso en Policiales), involucra a un chico, parece promoción, o la cuentan menos medios de los que pide la popularidad (sección 2). En todo (también en lo de acá): **verificación baja** (sección 5) o una promoción dudosa. El parte del dólar y lo internacional sin argentino se descartan con motivo y no esperan a nadie (regla 298) |
 | **Verde** | Sale sola | Todo lo demás |
 
 **Lo de Balcarce (desde el 22/10/2026, Hernán: «todas esas de Balcarce no se deben frenar»).** Una nota de acá no espera a una persona por una palabra sensible
 (niños, murió, detenido, víctima, violencia…): sale sola. Lo que la protege es el **rojo** (arriba), la regla 9 de la IA (nunca identificar a un menor ni a una
 víctima: ni nombre, ni escuela, ni domicilio) y el verificador. Cada vez que el amarillo habría frenado una nota de acá, queda anotada la palabra
-(`liberadaPor`) para medir cuántas se liberan y si se cuida bien. El amarillo sigue frenando **lo de afuera**.
+(`liberadaPor`) para medir cuántas se liberan y si se cuida bien. El amarillo sigue frenando **lo de afuera** que cuentan menos de 8 medios (lo que cuentan 8 o más no se frena por palabras sensibles, salvo un chico junto a un delito, una denuncia o una muerte: regla 297).
 
 **Qué mira.** En el **título y el comienzo del resumen**, las listas enteras. En el
 **texto entero** (el artículo de la fuente, lo de los otros medios y lo que escribe la
@@ -509,8 +512,9 @@ esa lista y se arregla para siempre.
 
 **Primero se juntan.** Si varios medios contaron lo mismo, la IA los recibe a
 todos, numerados (Fuente 1, Fuente 2…), cada uno con su medio, su fecha y si
-es oficial, más el **texto completo** de hasta cuatro de ellos (desde el 15/10,
-regla 174; antes, de uno solo). Van numerados por lo que aportan: primero la
+es oficial, y su titular y su resumen, más el **texto completo** de las que entran en un presupuesto de 12.000
+caracteres (con textos largos, tres o cuatro; con cortos, más; desde el 15/10, regla 174, y sin tope de
+cantidad de fuentes desde el 24/10, regla 308; antes, de uno solo). Van numerados por lo que aportan: primero la
 oficial, después la de más texto útil y después la que más datos agrega; los
 textos van limpios de restos de la página y de letras rotas. Si dos medios
 publicaron el mismo texto (un cable, una gacetilla), el segundo va marcado como
@@ -663,7 +667,7 @@ medio" pasaba sin que nadie lo mirara).
 4. **Las partes para la redacción** (claves, qué se sabe…) se controlan **cada
    una por su lado**: la que falla se descarta sola y la nota sale igual. Las
    etiquetas se sacan de a una.
-5. **Tres intentos por nota como mucho**, en corridas distintas: no se gasta
+5. **Tres intentos por nota como mucho** (cuatro si la cuentan 5 medios, cinco si 8), en corridas distintas: no se gasta
    cupo de más en una nota que no da. Una falla del servicio (sin cupo,
    saturado, sin red, una clave rechazada) no cuenta como intento.
 6. **Sin material no se escribe.** Sin el texto completo de ninguna fuente y
@@ -683,11 +687,11 @@ El vigilante avisa por WhatsApp si menos del 35 % de las notas de las últimas
 
 | | Qué es | Dónde se ve |
 |---|---|---|
-| **El lector** | Título, bajada, cuerpo y, al pie, un desplegable chico y **cerrado** "Fuentes (N)" con el nombre de cada medio y el enlace a su nota; la **firma** va en el mismo renglón (sección 10). Después, compartir | La web |
+| **El lector** | Título, bajada, cuerpo y, al pie, un desplegable chico y **cerrado** "Fuentes (N)" con el nombre de cada medio y el enlace a su nota; la **firma** va adentro, en la primera línea al abrirlo (sección 10; desde el 17/10 no está a la vista arriba: Hernán, «cuanto menos cosas así tan visibles, mejor»). Después, compartir | La web |
 | **La redacción** | Claves, qué se sabe, qué falta confirmar, lo que aportó cada fuente, los antecedentes, el nivel de verificación y el texto para redes | Internos: no van a la web ni a los datos para Google (las etiquetas sí, como palabras clave). En el archivo, las notas de más de cuatro días guardan sólo lo que ve el lector |
 
-**El desplegable de fuentes es la atribución** (ley 11.723): toda nota tiene al menos la
-fuente principal, y el enlace es siempre **la página de la nota original**, nunca un
+**El desplegable de fuentes es la atribución** (ley 11.723): toda nota tiene al menos una
+fuente y no se muestra ninguna como "la principal" (regla 307), y el enlace es siempre **la página de la nota original**, nunca un
 archivo interno del medio.
 
 ### Lo que respeta toda página del sitio
@@ -696,7 +700,7 @@ Vale para una nota de una fuente, la nota del dólar, el repaso de un podcast, l
 un evento y las páginas de servicio. Lo cuidan pruebas (`pruebas/seo-paginas.test.mjs`,
 `pruebas/tipografia.test.mjs`, `pruebas/eventos.test.mjs`).
 
-1. **Una sola línea de firma.** Corta, gris, pegada al desplegable "Fuentes". Nunca un
+1. **Una sola línea de firma.** Corta, adentro del desplegable "Fuentes" (la primera línea al abrirlo; sin fuentes, una línea gris sola). Nunca un
    párrafo explicando quién la escribió o si la revisó una persona (eso está en
    `/quienes-somos`).
 2. **Las fuentes, plegadas.** Un botón chico y cerrado "Fuentes (N)" con el nombre y el
@@ -794,11 +798,10 @@ manda sobre lo que se repita acá. Los horarios y cómo se publica, en
 
 ## 10. Correcciones y firma
 
-**Cada nota dice quién la escribió**, en **una sola línea chica y gris** al pie, pegada al
-desplegable de fuentes (`firmaCorta`, `web/components/metadatos.js`), y en los datos para
-Google (`author`):
+**Cada nota dice quién la escribió**, en **una sola frase corta**: la primera línea del desplegable «Fuentes (N)» del pie (sin fuentes, una línea gris sola) (`firmaCorta`, `web/components/verificacion.js` y `web/components/metadatos.js`), y en los datos para
+Google (`author`). Si la firma vuelve al renglón cerrado es una pregunta abierta (`PENDIENTES.md`, decisión 3).
 
-| La nota es… | La línea dice |
+| La nota es… | La frase dice |
 |---|---|
 | Escrita por la IA, sin revisión de una persona | "Redacción asistida con IA, verificada contra las fuentes · Fuentes (N)" |
 | Escrita por la IA y revisada y publicada por una persona | "Redacción asistida con IA, revisada por la redacción · Fuentes (N)" |
@@ -865,7 +868,7 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Etiquetas: como mínimo | 3 | `PARTES.etiquetasMinimo` |
 | Etiquetas: como máximo | 8 | `PARTES.etiquetasMaximo` |
 | Una etiqueta: largo máximo (caracteres) | 40 | `PARTES.etiqueta` |
-| Palabras seguidas copiadas del original: el verificador rechaza desde 12 (a la IA se le pide un margen: «nada de más de diez»; 10 es lo que se pide, 12 lo que se rechaza) | 12 | `COPIA_MAXIMA` |
+| Palabras seguidas copiadas del original: el verificador rechaza más de 12 (a la IA se le pide un margen: «nada de más de diez»; 10 es lo que se pide, más de 12 lo que se rechaza) | 12 | `COPIA_MAXIMA` |
 | Palabras sin tilde para dar un texto por escrito sin tildes (con menos, se les pone la tilde) | 3 | `ESTILO.palabrasSinTilde` |
 | Intentos de la IA por nota | 3 | `REESCRITURA.intentosMaximos` |
 | Medios que la cuentan para un intento más de la IA | 5 | `REESCRITURA.fuentesParaUnIntentoExtra` |

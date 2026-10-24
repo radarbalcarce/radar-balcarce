@@ -62,7 +62,7 @@ export const PARTES = {
 };
 
 /** Más de esto seguido, palabra por palabra, es copiar y no reescribir. A la IA se le pide un poco menos (10: «nada de más de diez
- *  palabras seguidas», § 12) y el verificador rechaza desde 12: es margen a propósito, para no tirar una nota por una frase hecha de
+ *  palabras seguidas», § 12) y el verificador rechaza más de 12 (`comunes > COPIA_MAXIMA`): es margen a propósito, para no tirar una nota por una frase hecha de
  *  más (23/10/2026, auditoría B6). */
 export const COPIA_MAXIMA = 12;
 

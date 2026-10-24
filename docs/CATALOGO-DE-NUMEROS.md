@@ -4,6 +4,8 @@
 
 **Cómo leerlo.** Cada tabla es un tema. "Dónde" es el nombre en el código; si el número también está en la tabla de `CRITERIO-EDITORIAL.md` (sección 11), una prueba obliga a que digan lo mismo. "Recomiendo" puede ser **dejar**, **cambiar a X** o **sacar**. Los datos son de `web/data/estadistica-seleccion.json` (días completos del 16 al 22/10), `muy-contadas.json` (23/10), `portada.json`, `uso-ia.json`, `intentos-ia.json` y `redes.json`. Donde el dato no alcanza, lo digo.
 
+**Estado al 24/10/2026 (segunda vuelta de auditoría, `docs/auditoria-2-0/M-SEGUNDA-VUELTA.md`).** Este catálogo es una foto del 23/10: varias de sus recomendaciones ya se aplicaron y sus renglones "hoy" quedaron viejos. Lo que manda hoy es el código y `docs/CRITERIO-EN-UNA-PAGINA.md`. Ya aplicado: la muerte de un famoso y lo muy contado de afuera en Policiales (regla 289, el renglón de "Policiales de afuera no sale solo, ni con 30 medios" ya no vale), el fútbol sólo argentino (290), lo de Balcarce sin amarillo y lo muy contado sin frenos (291, 292, 297), Balcarce con 36 horas de estreno (293), Agro y Automovilismo con 2 medios (294), el celular sin tope de cinco por día (295), la limpieza de `ESPERA_PERSONA`, `reservaParaLocales`, `AMARILLO_QUE_SE_SUELTA_*`, `aflojaParaLoDeAca` y `MOTIVO_CUPO` (296), el parte del dólar y lo internacional descartados con motivo (298) y el descarte de sección después del cruce (303). Sigue abierto: los posteos por día y el mínimo de relevancia de Facebook (`PENDIENTES.md`, decisión 1) y el tope de notas del sitio, que hoy es 500 (`TOPE_DE_NOTAS`) y no 3.700.
+
 ---
 
 ## 0. Lo más importante, en diez renglones

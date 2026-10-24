@@ -109,7 +109,8 @@ cada nota de la ingesta, en este orden:
    verde = `automatica`, rojo = `bloqueada`, el resto = `pendiente`. Sólo
    `publicada` o `automatica` siguen.
 3. Calcula `fechaReal(n)`. Si la nota **nunca salió**, no la decidió una
-   persona y el hecho tiene más de 12 horas (`HORAS_PARA_ESTRENAR`), **no se
+   persona y el hecho tiene más de 12 horas lo de afuera, 24 si la cuentan 8 medios o más y 36 si es de
+   Balcarce (`horasParaEstrenar(medios, deAca)`, `web/lib/archivo.js`; reglas 287 y 293), **no se
    estrena**: llega tarde.
 4. Elige el texto: el de la persona si decidió una; si no, el de una decisión
    guardada que no es de una persona **sólo si tiene cuerpo**; si no, el que
@@ -381,7 +382,7 @@ auditoría están en `docs/09-PANEL.md`, `docs/07-REDES.md` y `docs/13-EFEMERIDE
 | Archivo | Qué guarda | Quién lo escribe | Quién lo lee | ¿Lo sube Actualizar? |
 |---|---|---|---|---|
 | `portada.json` | Lo que se **muestra**: las notas de las últimas 36 h, secciones con notas, temas, clima y avisos, farmacia, fiestas anuales, útiles, pendientes, cuántas esperan cuerpo | `generar-datos.mjs`, sólo si `cambioQueImporta` | Todas las páginas (`lib/datos.js`), las redes (`redes/datos.mjs`), el vigilante, la auditoría de redes, y `generar-datos` en la corrida siguiente (primer avistaje, fechas, slugs, lo ya reescrito) | Sí |
-| `archivo.json` | Lo que tiene **página**: lo publicado en los últimos 180 días, hasta 3.700 notas (el tope manda antes: unos 80 días), una por renglón | `generar-datos.mjs` (`actualizarArchivo`) | `lib/datos.js` (páginas de notas, tapa, "Seguí leyendo", sitemap), `generar-redirects.mjs`, la reescritura (antecedentes para la IA), `generar-datos` | Sí |
+| `archivo.json` | Lo que tiene **página**: lo publicado en los últimos 180 días, hasta el tope de notas del sitio (500 hoy; techo 3.700), una por renglón | `generar-datos.mjs` (`actualizarArchivo`) | `lib/datos.js` (páginas de notas, tapa, "Seguí leyendo", sitemap), `generar-redirects.mjs`, la reescritura (antecedentes para la IA), `generar-datos` | Sí |
 | `agenda.json` | Los eventos con página: los que vienen y los que pasaron hace menos de 60 días | `generar-datos.mjs` (`actualizarAgenda`) | `lib/datos.js` (agenda, portada, Cultura, sitemap), `reels/plan.mjs` | Sí |
 | `intentos-ia.json` | Cuántas veces se le pidió cada nota a Gemini y por qué falló (7 días) | `generar-datos.mjs` con `reels/reescritura.mjs` | `generar-datos.mjs` | Sí |
 | `futbol.json` | Los partidos (con goleadores) de la Liga y las copas de los últimos 10 días y los próximos 4, la tabla de la Liga y los equipos argentinos, de ESPN, y la fecha de cada nota de fútbol | `generar-datos.mjs` | `ingesta/futbol.mjs` | Sí |
@@ -428,15 +429,15 @@ Todo sale de `web/lib/datos.js`. Los números:
 | Qué | Valor | Constante | Dónde |
 |---|---|---|---|
 | Cuánto se queda una nota en las listas (portada, secciones, temas, buscador, feed, sitemap de notas vigentes) | 36 horas | `HORAS_EN_PORTADA` | `web/lib/archivo.js` (= `PORTADA.horas`, `ingesta/criterio.mjs`) |
-| Cuánto puede tener un hecho para salir por primera vez | 12 horas | `HORAS_PARA_ESTRENAR` | `web/lib/archivo.js` (= `PORTADA.horasParaEstrenar`) |
+| Cuánto puede tener un hecho para salir por primera vez | 12 horas lo de afuera; 24 si lo cuentan 8 medios o más; 36 si es de Balcarce | `HORAS_PARA_ESTRENAR`, `HORAS_PARA_ESTRENAR_MUY_CONTADA`, `HORAS_PARA_ESTRENAR_DE_ACA` (`horasParaEstrenar()`) | `web/lib/archivo.js` (= `PORTADA.horasParaEstrenar`, `MUY_CONTADA.horasDelHecho`, `PORTADA.horasParaEstrenarDeAca`) |
 | Con qué notas compite la nota grande | las de las últimas 6 horas | `VENTANA_HORAS` | `web/lib/datos.js` (= `PORTADA.horasNotaGrande`) |
 | Hasta cuándo el archivo completa una sección | 36 horas (las mismas) | `HORAS_PARA_COMPLETAR = HORAS_EN_PORTADA` | `web/lib/datos.js` |
 | Notas por sección en la portada | 3 | `NOTAS_POR_SECCION` | `web/lib/datos.js` |
 | Notas por página de sección | 10 | `POR_PAGINA` | `web/lib/paginas.js` |
 | Notas en "Seguí leyendo" | 4 (de la misma sección si las hay, desde el 8/10) | `CUANTAS_SIGUEN` | `web/lib/seguir-leyendo.js` |
 
-Una prueba (`pruebas/criterio.test.mjs`) controla que las tres primeras digan
-lo mismo en la web y en `ingesta/criterio.mjs`.
+Desde la regla 293 `web/lib/archivo.js` importa esos números de `ingesta/criterio.mjs` (ya no los copia); una prueba
+(`pruebas/criterio.test.mjs`) controla que las primeras filas digan lo mismo en la web y en el criterio.
 
 ### Cómo se arma la tapa: `armarTapa`
 
@@ -518,7 +519,7 @@ bloques por sección. La tira de temas está apagada (`MOSTRAR_TEMAS = false`,
 
 La franja de arriba (fecha, pastilla del clima que lleva a `/clima`, farmacia
 de turno que lleva a `/farmacias`), el logo, el buscador, el menú
-(`components/navegacion.js`: las secciones de `EN_NAVEGACION` que hoy tienen
+(`components/navegacion.js`: las secciones de `navegacionDelSitio`, `web/lib/datos.js`, que hoy tienen
 notas, y al final en verde Agenda, Clima, Farmacias, Dólar y Teléfonos) y el
 pie. En el `<head>`, la ficha del sitio para Google (`FichaDelSitio`), el feed
 y las tipografías (desde el 8/10 en el propio sitio, `web/public/fuentes/`, sin pedirle nada a Google).
@@ -565,8 +566,9 @@ Todas se generan al compilar, como archivos.
 
 **Dos listas** (`web/lib/archivo.js`):
 - `portada.json` es lo que se **muestra** (36 horas).
-- `archivo.json` es lo que tiene **página** (180 días en teoría; en la práctica
-  manda el tope de 3.700 notas).
+- `archivo.json` es lo que tiene **página en el sitio** (180 días en teoría; en la práctica
+  manda el tope de notas: `TOPE_DE_NOTAS`, hoy **500**; el techo técnico es 3.700). Lo que sale del
+  sitio sigue visible desde el archivo permanente en R2 (abajo).
 
 Así una nota que sale de la portada sigue teniendo su página y el enlace que
 ya está en Facebook, en un grupo de WhatsApp o en Google no da error.
@@ -582,16 +584,14 @@ ya está en Facebook, en un grupo de WhatsApp o en Google no da error.
 - lo que hoy no tiene respaldo (de afuera, contado por un solo medio y sin
   fuente oficial: `tieneRespaldo`, `web/lib/cuerpo.js`) se va, **salvo** que
   haya salido en redes;
-- lo de más de 180 días (`DIAS_DE_ARCHIVO`) se va, y si pasa de 3.700 notas
-  (`MAXIMO_EN_ARCHIVO` = `PORTADA.maximoDeNotas`, por el límite de 20.000 archivos
-  por despliegue de Cloudflare: medido el 15/10/2026, unos 400 de base y 4,2 por
-  nota, o sea unos 15.900 al tope) se quedan primero las que salieron en redes y
-  después las más nuevas. Al ritmo de hoy (46 notas por día) el tope manda antes
-  que los 180 días y cada nota vive unos 80; con 1.125 notas al 16/10, el tope
-  se alcanza hacia el 10/12/2026. Lo que sale por edad o por el tope no se
-  pierde del todo: el dato queda en `web/data/historico/AAAA-MM.json`
-  (`bajasDelArchivo`, 8/10), pero la página sí se pierde (hasta que se prenda el
-  archivo permanente, abajo).
+- lo de más de 180 días (`DIAS_DE_ARCHIVO`) se va, y si pasa del tope de notas del sitio
+  (`topeDeNotas(env).tope`: la variable `TOPE_DE_NOTAS`, hoy 500; nunca más de `MAXIMO_EN_ARCHIVO` = `PORTADA.maximoDeNotas`
+  = 3.700, por el límite de 20.000 archivos por despliegue de Cloudflare: medido el 15/10/2026, unos 400 de base y 4,2 por
+  nota, o sea unos 15.900 al techo) se quedan primero las que salieron en redes y
+  después las más nuevas. Con unas 120 notas por día el tope manda mucho antes
+  que los 180 días y cada nota está unos 4 días en el sitio (el 15/10 se calculó 80 días a 46 por día; ya no
+  vale). Lo que sale por edad o por el tope no se pierde: el dato queda en `web/data/historico/AAAA-MM.json`
+  (`bajasDelArchivo`, 8/10) y la página se sirve desde R2 (abajo).
 
 El conteo de archivos lo vigila `web/scripts/contar-archivos.mjs` en cada
 compilación (aviso desde 16.500, alerta desde 18.000; paso B5). Con la cuenta
@@ -599,16 +599,16 @@ medida el 15/10 (unos 400 archivos de base más 4,2 por nota), las 1.125 notas d
 16/10 son unos 5.100 archivos (estimado, no contado) y unas 1.245 direcciones en
 el sitemap.
 
-### El archivo permanente en R2 (listo, sin activar)
+### El archivo permanente en R2 (ENCENDIDO el 23/10)
 
 Para que el enlace de una nota que sale del sitio no dé 404 (regla 183;
 diseño en `docs/salud-tecnica/ARCHIVO-PERMANENTE.md`, cómo se activa en
 `docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md`). Hernán, 16/10: "se
-hace sí o sí". **Al 16/10 a la tarde está a medio prender**: la variable
-`R2_ARCHIVO` ya está cargada (desde las 18:06 UTC) y la carga inicial corrió, así
-que cada despliegue ya guarda las notas en R2; pero **no hay ruta** de
-`radarbalcarce.com` al Worker (el público no ve ningún cambio) y el tope sigue en
-3.700. Cómo funciona:
+hace sí o sí". **Encendido el 23/10**: la ruta `radarbalcarce.com/nota/*` va al Worker
+`radar-balcarce-archivo` (vuelta atrás: workflow «Archivo permanente (producción)» con `sacar_ruta`), `TOPE_DE_NOTAS` está
+en 500 y el depósito tenía 1.466 notas ese día. **Falta la ruta de las fotos** (`activar_fotos`): sin ella, una foto
+sacada de Pages da 404, y por eso no se baja más el tope (`docs/etapa-10-operacion/FOTOS-EN-R2.md`). El mapa de las
+notas archivadas (`/nota/sitemap-archivo.xml`, regla 310) está escrito y apagado (`SITEMAP_DEL_ARCHIVO`). Cómo funciona:
 
 - en cada despliegue, `web/scripts/archivar-a-r2.mjs` guarda en R2 la página de
   cada nota que está por salir del sitio (sin el «Seguí leyendo», que se
@@ -748,7 +748,7 @@ El detalle y lo que falta está en `SEO.md` y, desde el 16/10, en
   su **foto** con el tamaño real en vez de la tarjeta del sitio (`imagenesParaCompartir`); y un control de velocidad del HTML compilado
   (`web/lib/auditoria-html.js`, corre en `revisar-seo.mjs`): toda imagen con ancho y alto, una sola con `fetchpriority="high"` y todas las demás
   `loading="lazy"`, ningún recurso de otro dominio, ninguna tipografía de Google, scripts `async`. **Formatos**: no se hace WebP: cada copia suma archivos
-  al tope de 20.000 de Cloudflare Pages (5.554 en la compilación del 17/10 con 1.212 notas; al tope de 3.700 notas son unos 15.900) y las fotos ya se achican a ~72 KB;
+  al tope de 20.000 de Cloudflare Pages (5.554 en la compilación del 17/10 con 1.212 notas; al techo de 3.700 notas son unos 15.900; hoy con 500 son unos 2.500) y las fotos ya se achican a ~72 KB;
   se puede hacer cuando las fotos vivan en R2 (`FOTOS_BASE`).
 - **Los canales propios** (regla 257): `WHATSAPP_CANAL_URL`, `TELEGRAM_CANAL_URL` y `BLUESKY_URL` (variables de GitHub, o del motor de Cloudflare). Sin la
   variable no aparece nada; con ella, un cartel discreto al final de cada nota y de `/hoy` (sólo WhatsApp), enlaces en el pie y `sameAs` en el marcado
@@ -882,7 +882,7 @@ Las pruebas que cuidan el diseño: `pruebas/tipografia.test.mjs`,
 | Cuánto puede tener un hecho para salir por primera vez | `HORAS_PARA_ESTRENAR` y `PORTADA.horasParaEstrenar`, igual que arriba |
 | Con cuántas horas compite la nota grande | `VENTANA_HORAS` (`web/lib/datos.js`) y `PORTADA.horasNotaGrande` |
 | Cuántas notas por sección en la portada | `NOTAS_POR_SECCION` (`web/lib/datos.js`) |
-| El orden, los nombres y el menú de las secciones | `SECCIONES` y `EN_NAVEGACION` (`web/lib/datos.js`); el color, `--s-*` en `web/app/globals.css` (`MEDIA-KIT.md`; Argentina conserva la variable vieja `--s-pais`). Las ranuras son `balcarce`, `politica`, `policiales`, `futbol`, `deportes`, `automovilismo`, `agro`, `economia`, `cultura`, `tecnologia` y `argentina` |
+| El orden, los nombres y el menú de las secciones | `SECCIONES` (`seccionesDelSitio`) y `navegacionDelSitio` (`web/lib/datos.js`); el color, `--s-*` en `web/app/globals.css` (`MEDIA-KIT.md`; Argentina conserva la variable vieja `--s-pais`). Las ranuras son `balcarce`, `politica`, `policiales`, `futbol`, `deportes`, `automovilismo`, `agro`, `economia`, `cultura`, `tecnologia` y `argentina` |
 | Cuánto dura el archivo o cuántas notas guarda | `DIAS_DE_ARCHIVO`, `MAXIMO_EN_ARCHIVO` (`web/lib/archivo.js`) **y** `PORTADA.maximoDeNotas` (`ingesta/criterio.mjs`); bajarlo con el archivo permanente prendido, la variable `TOPE_DE_NOTAS` |
 | Sacar una nota de la web sin el panel | `web/data/retiradas.json` (motivo, cuándo, quién) |
 | Corregir título, bajada, sección o cuerpo sin el panel | `web/data/correcciones.json` (motivo, cuándo, quién; `CAMPOS_CORREGIBLES`) |

@@ -117,7 +117,7 @@ titular y la bajada cortada en 220 caracteres; después, el cierre y los hashtag
 (regla 281, `hashtagsDe`): **`#Balcarce #RadarBalcarce` siempre, primeros** (`HASHTAGS_FIJOS`), y hasta tres de la nota (sus etiquetas o, si no trae, el tema de su sección),
 sin repetir: con los fijos, cinco como mucho, el tope que Instagram anunció en diciembre de 2025. Los pies de los reels llevan los dos fijos y uno del tipo de pieza
 (`hashtagsDePieza`: #Noticias, #Clima, #FarmaciaDeTurno…) después del aviso de la voz. El largo, los enlaces y los hashtags de las demás redes (Threads, X, Telegram, Bluesky, TikTok, YouTube Shorts, el canal de WhatsApp) están en
-`docs/redes/FORMATOS-POR-RED.md` (el programa `textoParaRed` de las otras redes se borró el 24/10, regla 308; sigue en el historial de git). El cierre depende de la red (16/10, `lineaFinal`):
+`docs/redes/FORMATOS-POR-RED.md` (el programa `textoParaRed` de las otras redes se borró el 24/10, regla 309; sigue en el historial de git). El cierre depende de la red (16/10, `lineaFinal`):
 
 - **En Facebook**, una línea con el enlace a la nota (la frase cambia de nota en
   nota y es siempre la misma para la misma nota: `FRASES_DEL_ENLACE`). Desde el
@@ -695,7 +695,7 @@ anteriores cuenta las historias por el libro y lo dice.
 | `.github/workflows/piezas.yml` | Armar (y si se pide, publicar) piezas a mano | una persona, Actions → Piezas | `solo` (vacío no arma nada), `todas`, `publicar`, `destino`; los mismos secretos | artefacto (7 días); el libro si publicó |
 | `redes/publicar.mjs` | El programa: `--verificar`, `--facebook`, `--piezas [--sin-horario] [--destino=…]`, `--enlaces` | los dos workflows | `portada.json`, `redes.json`, `reels/salida/piezas.json` | `redes.json` |
 | `redes/medios-contados.mjs` | Cuántos medios distintos cuentan una nota (los del mismo dueño, uno): la barra de lo de afuera (regla 280) | `elegir.mjs` | `ingesta/fuentes*.mjs` | — |
-| ~~`redes/texto-por-red.mjs`~~ | Borrado el 24/10 (regla 308): era el texto para Threads, X, Telegram, Bluesky, TikTok, YouTube y WhatsApp, redes sin cuenta; está en el historial de git | — | — | — |
+| ~~`redes/texto-por-red.mjs`~~ | Borrado el 24/10 (regla 309): era el texto para Threads, X, Telegram, Bluesky, TikTok, YouTube y WhatsApp, redes sin cuenta; está en el historial de git | — | — | — |
 | `redes/enlaces-cortos.mjs` | La gramática `/r/<red>/<destino>` y el interruptor `ENLACES_CORTOS` (regla 282) | `elegir.mjs`, el Worker de enlaces | — | — |
 | `redes/foto-cambiada.mjs` | Qué posteos de Facebook cambiaron de foto después de salir (regla 283) y la espera a la foto real | `publicar.mjs`, `elegir.mjs` | — | — |
 | `redes/elegir.mjs` | Qué se publica: reglas de Facebook (`vaAFacebookPorLoQueEs`, `esPopularParaRedes`), texto del posteo, hashtags fijos, qué notas cuenta cada podcast y su guion con presupuesto, el interruptor | `publicar.mjs`, `reels/plan.mjs`, contrato, avisos | `ingesta/criterio.mjs`, `web/lib/cuerpo.js` | — (funciones puras) |
@@ -831,7 +831,7 @@ vuelve a pedir: la historia de un reel que sí salió, o una red secundaria que 
 
 ## El video, como módulo aparte (`radarbalcarce/radar-balcarce-render`)
 
-*Anotado el 17/10 a pedido de los dueños. **Escrito y probado el 18/10/2026, sin prender** (`infra/render-publico/`, `reels/pedido.mjs`, `reels/render-remoto.mjs`; reglas 230 a 235): hoy el video se sigue armando en «Redes» como siempre. El plan para prenderlo, en `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.* La idea: que lo que dibuja y arma los videos
+*Anotado el 17/10 a pedido de los dueños. Escrito y probado el 18/10/2026 (`infra/render-publico/`, `reels/pedido.mjs`, `reels/render-remoto.mjs`; reglas 230 a 235) y **prendido el 23/10** con la mudanza a Cloudflare: el Worker de tareas arma el pedido («Piezas de redes») y el video se hace en el repositorio público de render; el armado en «Redes» de GitHub queda de vuelta atrás. Cuando cambia `reels/`, hay que copiarlo al repositorio de render (`node scripts/sincronizar-render-publico.mjs` y subirlo: pendiente de verificar, `PENDIENTES.md`). El plan, en `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.* La idea: que lo que dibuja y arma los videos
 (placas, escenas, subtítulos, ffmpeg) corra en un repositorio público aparte, **sin ningún secreto**, y que este
 repositorio le pase todo lo que necesita. Hoy la frontera ya casi existe: `armarReel` (`reels/reel.mjs`) recibe
 la voz por parámetro (`hablar`), así que no necesita saber de Gemini.

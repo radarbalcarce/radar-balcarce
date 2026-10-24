@@ -1,6 +1,6 @@
 # 08 · Infraestructura: qué corre dónde
 
-*Actualizado el 17/10/2026 (una sola compilación por vuelta, el reloj que dispara cada cosa sólo cuando hace falta, la limpieza de workflows y Workers y el tope de las redirecciones: reglas 189 a 191). Antes, el 16/10 (revisado contra los 36 `.yml`, los Workers de `infra/` y los
+*Actualizado el 24/10/2026: **la mudanza a Cloudflare está HECHA desde el 22 y 23/10** (reglas 230 a 235; el estado y lo que falta, en `docs/TRASPASO.md` y `PENDIENTES.md`): el motor corre en Workers Builds, las tareas chicas en un Worker, el video en el repositorio público de render y el reloj los pide según la variable `NUBE`; los workflows viejos de GitHub quedan de vuelta atrás y se apagan a mano. Lo que sigue de esta línea es del 17/10 (una sola compilación por vuelta, el reloj que dispara cada cosa sólo cuando hace falta, la limpieza de workflows y Workers y el tope de las redirecciones: reglas 189 a 191). Antes, el 16/10 (revisado contra los 36 `.yml`, los Workers de `infra/` y los
 nombres de secretos y variables cargados en GitHub ese día; el 15/10 el repositorio se mudó a
 `radarbalcarce/radar-balcarce` y el reloj pasó a Cloudflare). Si algo de acá no coincide con los `.yml` o con el
 código, mandan ellos.* Los secretos figuran **sólo por nombre**: sus valores no
@@ -11,9 +11,9 @@ la web: `06-WEB`.
 
 ## En una frase
 
-Todo lo automático corre gratis en GitHub Actions, con la PC apagada: un
+Todo lo automático corre con la PC apagada. **Desde el 23/10 el grueso corre en Cloudflare** (el motor en Workers Builds, la vigilancia, el informe, las pistas, las ilustraciones y las redes en el Worker `radar-balcarce-tareas`, el video en el repositorio público de render) y GitHub Actions queda para lo que no se mudó (pruebas, respaldo, revisión del archivo, despliegues) y de vuelta atrás: la variable `NUBE` del reloj dice qué trabajo va adónde. Un
 reloj propio (un programa chico de Cloudflare, el Worker `radar-balcarce-reloj`) lo
-despierta cada media hora, GitHub busca las
+despierta cada media hora; el motor busca las
 noticias, escribe con IA (Gemini, con Groq de respaldo en la lectura y OpenRouter, gratis, de último respaldo), arma la
 web una sola vez y la sube a Cloudflare Pages, publica en Facebook e Instagram con la API de
 Meta, y dos vigilantes revisan y avisan **por mail** (WhatsApp quedó de respaldo):
@@ -144,7 +144,7 @@ Los que sólo corren a mano y no escriben nada en el repositorio están marcados
 | **Pruebas con otra hora** (`pruebas-otra-hora.yml`) | Lunes 8:43 UTC; a mano | Corre las pruebas como si fuera otra hora y otra fecha (`pruebas/hora-falsa.mjs`). Falló el 5 y el 12/10 (la memoria de voces); el 17/10 pasa | Ninguno | Nada | 40 min |
 | **Respaldo** (`respaldo.yml`) | Domingos 6:17 UTC (3:17 en Balcarce); a mano | Arma un paquete de git con todo el historial y una copia de datos y fotos (artefacto de 90 días); si hay GitLab (`GITLAB_TOKEN`, variable `GITLAB_REPO`) sube un espejo, y si hay R2 (variable `R2_RESPALDOS`) sube el paquete. **Hoy (16/10) sube a R2** (`radar-balcarce-respaldos`); **el espejo de GitLab no corre**: no están cargados ni `GITLAB_TOKEN` ni `GITLAB_REPO` | `GITLAB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`; variables `GITLAB_REPO`, `R2_RESPALDOS` | Nada | 40 min |
 | **Probar la restauración del respaldo** (`probar-restauracion.yml`) | A mano (opcional: `fecha`) | Baja de R2 el respaldo de ese día (junta las partes según el manifiesto y compara el sha256), rearma el repositorio desde el paquete, corre `git fsck`, compara el último commit con GitHub y abre el archivo de datos y fotos. Anduvo el 15/10 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`; variable `R2_RESPALDOS` | Nada | 20 min |
-| **Piezas de redes** (`redes-piezas.yml`, 18/10/2026) | Sólo a mano o por el Worker de tareas (acción «redes»), **y sólo con `redes.yml` en la lista `NUBE` del reloj**; hoy no corre | `npm ci`, la memoria de voces, `reels/plan.mjs --generar --solo=…` con `RENDER_REMOTO=Si`: pide la voz a Gemini, arma el pedido de video, lo sube a R2 y despierta al repositorio público de render; **no espera el video** | `GEMINI_API_KEY_REDES`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `RENDER_GITHUB_TOKEN`; `R2_RENDER` | Nada (la memoria de voces va a la caché de Actions) | 10 min |
+| **Piezas de redes** (`redes-piezas.yml`, 18/10/2026) | Sólo a mano o por el Worker de tareas (acción «redes»), **y sólo con `redes.yml` en la lista `NUBE` del reloj**; desde el 23/10 el Worker lo dispara (pide la voz y despierta al render público) | `npm ci`, la memoria de voces, `reels/plan.mjs --generar --solo=…` con `RENDER_REMOTO=Si`: pide la voz a Gemini, arma el pedido de video, lo sube a R2 y despierta al repositorio público de render; **no espera el video** | `GEMINI_API_KEY_REDES`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `RENDER_GITHUB_TOKEN`; `R2_RENDER` | Nada (la memoria de voces va a la caché de Actions) | 10 min |
 | **Desplegar Workers de Cloudflare** (`desplegar-nube.yml`, 18/10/2026) | A mano: `que` (todo, tareas, motor, vigilante, reloj), `con_nube` y `nube` (qué workflows pasan a Cloudflare) | Crea los depósitos R2 y los KV, sube los Workers de la mudanza con wrangler 4.139.0 (`--keep-vars`) y carga sus secretos por `wrangler secret bulk` (`infra/compartido/secretos-para-wrangler.mjs`). Sin `con_nube` el reloj y el vigilante quedan como siempre | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` y los secretos de los Workers (`docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`) | Nada | 15 min |
 | **Reloj de Cloudflare** (`reloj-cloudflare.yml`) | A mano (cuando cambia el reloj) | Sube el Worker `radar-balcarce-reloj` (`infra/reloj-cloudflare/`) con wrangler 4.139.0 y le carga el secreto | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `RELOJ_GITHUB_TOKEN` | Nada | 10 min |
 | **Vigilante de Cloudflare** (`vigilante-cloudflare.yml`) | A mano (cuando cambia el vigilante) | Sube el Worker `radar-balcarce-vigilante` (`infra/vigilante-cloudflare/`) con wrangler 4.139.0, crea su KV si falta y le carga los secretos | `CLOUDFLARE_API_TOKEN` (con «Workers KV Storage: Edit»), `CLOUDFLARE_ACCOUNT_ID`, `VIGILANTE_TOKEN`; opcional `VIGILANTE_GITHUB_TOKEN` (está cargado) | Nada | 10 min |
@@ -353,28 +353,28 @@ La cuenta de Cloudflare (`radarbalcarce@gmail.com`) tiene contratado el plan
 |---|---|---|---|
 | `radar-balcarce-reloj` (`infra/reloj-cloudflare/`) | El despertador (arriba) | **Andando** desde el 15/10 | «Reloj de Cloudflare» |
 | `radar-balcarce-vigilante` (`infra/vigilante-cloudflare/`) | Mira desde afuera a los :12 y :42 y manda todos los mails (`POST /avisar`) | **Andando** desde el 15/10 | «Vigilante de Cloudflare» |
-| `radar-balcarce-tareas` (`infra/tareas-cloudflare/`) | **Nuevo (18/10/2026, escrito y probado en Node; todavía no subido).** Vigilancia, auditoría IA, pistas, informe diario, ilustraciones y la parte de Redes que no necesita ffmpeg, en lugar de seis workflows | Sin subir: lo prende el reloj con `NUBE` | «Desplegar Workers de Cloudflare» |
-| `radar-balcarce-motor` (`infra/motor-cloudflare/`) | **Nuevo (18/10/2026).** El Worker al que se conecta Workers Builds: la vuelta de «Actualizar la web» corre en su compilación (6.000 minutos por mes incluidos) | Sin subir | «Desplegar Workers de Cloudflare» |
+| `radar-balcarce-tareas` (`infra/tareas-cloudflare/`) | **Andando desde el 22/23-10.** Vigilancia, auditoría IA, pistas, informe diario, ilustraciones y la parte de Redes que no necesita ffmpeg, en lugar de seis workflows | **Andando**: lo pide el reloj según `NUBE` | «Desplegar Workers de Cloudflare» |
+| `radar-balcarce-motor` (`infra/motor-cloudflare/`) | El Worker al que se conecta Workers Builds: la vuelta de «Actualizar la web» corre en su compilación (6.000 minutos por mes incluidos; presupuesto y medición: `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`) | **Andando** desde el 22/23-10 | «Desplegar Workers de Cloudflare» |
 | `radar-balcarce-imagenes` (`infra/imagenes-cloudflare/`) | Genera imágenes con Workers AI (SDXL y otros) en `…workers.dev/generar`, con `VIGILANTE_TOKEN` como contraseña. Lo usan «Ilustrar notas sin foto» y «Generar fondos del clima» | **Andando** desde el 16/10 | «Imágenes con Workers AI» |
-| `radar-balcarce-archivo` (`infra/archivo-cloudflare/`) | El archivo permanente: sirve desde el depósito `radar-archivo` las notas que ya salieron del sitio | **Subido sin ruta** (sólo en workers.dev) desde el 16/10, con la carga inicial hecha (1.165 notas). Cada vuelta de "Actualizar la web", antes de subir el sitio, guarda ahí las que están por salir. **Los lectores todavía no lo ven**: falta poner la ruta `radarbalcarce.com/nota/*` (el token de Cloudflare necesita «Zone → Workers Routes: Edit») | «Archivo permanente (producción)»; el de ensayo, `radar-balcarce-archivo-staging`, con «Archivo permanente (staging)» |
+| `radar-balcarce-archivo` (`infra/archivo-cloudflare/`) | El archivo permanente: sirve desde el depósito `radar-archivo` las notas que ya salieron del sitio | **ENCENDIDO el 23/10**: la ruta `radarbalcarce.com/nota/*` va a este Worker (vuelta atrás: workflow «Archivo permanente (producción)» con `sacar_ruta`); `/_archivo/estado` contesta `ok: true` (1.466 notas, 223 MB el 23/10). Cada vuelta guarda ahí las que están por salir. **Falta la ruta de las fotos** (`activar_fotos`) antes de bajar `TOPE_DE_NOTAS` de 500 | «Archivo permanente (producción)»; el de ensayo, `radar-balcarce-archivo-staging`, con «Archivo permanente (staging)» |
 | `radar-balcarce-sondeo-fuentes` | Fue una prueba de una vez (15/10): si los feeds contestan pedidos desde Cloudflare | **Su carpeta y su workflow se borraron el 17/10. Falta, a mano: borrarlo en Cloudflare** (Workers → `radar-balcarce-sondeo-fuentes` → Settings → Delete) | — |
 
 **Depósitos R2** (variables de GitHub cargadas al 16/10): `radar-balcarce-respaldos`
 (`R2_RESPALDOS`, los respaldos de los domingos), `radar-piezas` (`R2_PIEZAS`,
 desde el 15/10: los videos, audios y placas de las redes) y `radar-archivo`
-(`R2_ARCHIVO`, desde el 16/10: el archivo permanente). **No hay depósito de
-fotos**: `R2_FOTOS` y `FOTOS_BASE` no están cargadas, así que las fotos siguen
-saliendo del sitio (`web/public/fotos-notas/`); el workflow que las copiaba ("Fotos a R2")
-nunca se usó y se borró el 17/10.
+(`R2_ARCHIVO`, desde el 16/10: el archivo permanente) y, de la mudanza, `radar-motor`, `radar-render` y `radar-tareas`. **No hay depósito de
+fotos todavía**: `R2_FOTOS` y `FOTOS_BASE` no están cargadas y `FOTOS_EN_R2` no existe (apagada), así que las fotos siguen
+saliendo del sitio (`web/public/fotos-notas/`, en git); el código para pasarlas a R2 está escrito y probado, apagado
+(`docs/etapa-10-operacion/FOTOS-EN-R2.md`); el workflow viejo "Fotos a R2" nunca se usó y se borró el 17/10.
 
-## La mudanza del robot a Cloudflare (18/10/2026, escrita y probada; sin prender)
+## La mudanza del robot a Cloudflare (escrita el 18/10; HECHA el 22 y 23/10)
 
-Para que el repositorio principal entre en los 2.000 minutos gratis de un repositorio privado (hoy ~14.400 facturables por mes) sin sumar costo, se escribió la mudanza completa: el motor ("Actualizar la web") a **Workers Builds**, las tareas chicas a **un Worker** y el video a un **repositorio público de render** sin secretos. **Está todo en archivos nuevos o detrás de un interruptor (la variable `NUBE` del reloj, vacía por defecto): hoy no cambia nada de lo que anda.**
+Para que el repositorio principal entre en los 2.000 minutos gratis de un repositorio privado (hoy ~14.400 facturables por mes) sin sumar costo, se escribió la mudanza completa: el motor ("Actualizar la web") a **Workers Builds**, las tareas chicas a **un Worker** y el video a un **repositorio público de render** sin secretos. **Se prendió el 22 y 23/10** (variable `NUBE` del reloj; vacía = todo vuelve a GitHub). Lo que falta, a mano de una persona: apagar los siete workflows viejos de GitHub, el tope de gasto de Actions en US$ 0 y pasar el repositorio a privado (`PENDIENTES.md`). Los minutos de Workers Builds se miden y se cuidan con `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` (regla 312).
 
 - Qué se eligió, con qué números, qué costó (US$ 0 nuevo), qué minutos quedan (~1.620 a 1.820 de 2.000) y qué quedó afuera: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md`.
 - Cómo se prende, paso a paso, qué se pega y cómo se vuelve atrás en minutos: `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.
 - Reglas 230 a 235 (`docs/10-REGLAS-Y-PRUEBAS.md`).
-- Variables y secretos nuevos (los crea y los pega una persona): `RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `MOTOR_DEPLOY_HOOK`, y las variables `R2_RENDER` e `INFORME_RESPALDO_EN_GITHUB`; en Cloudflare, depósitos R2 `radar-motor`, `radar-render` y `radar-tareas`.
+- Variables y secretos nuevos (los crea y los pega una persona): `RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `MOTOR_DEPLOY_HOOK`, `CF_BUILDS_TOKEN`, y las variables `R2_RENDER` e `INFORME_RESPALDO_EN_GITHUB` (cargadas el 22/10), más `REDES_ACTIVAS_NUBE` (el interruptor de las redes **en la nube**: es una variable distinta de `REDES_ACTIVAS`, que es la de GitHub; el 22/10 la de GitHub decía "No" y la de la nube "Sí", a propósito: quien mire sólo GitHub cree que las redes están apagadas); en Cloudflare, depósitos R2 `radar-motor`, `radar-render` y `radar-tareas`.
 
 ## GitHub: el repositorio
 
@@ -405,7 +405,7 @@ modelos distintos: no compiten entre sí). Las lee `reels/claves.mjs`.
 
 | Secreto | Para qué | Modelo | Cupo y topes | Si falla |
 |---|---|---|---|---|
-| `GEMINI_API_KEY_REDACCION` (acepta el nombre viejo `GEMINI_API_KEY`) | Redactar las notas: título, bajada y cuerpo (`reels/reescritura.mjs`, `04-REDACCION`), también las que pide el panel del celular | `gemini-flash-lite-latest` (`MODELO_DE_TEXTO`) | Google da 500 pedidos por día; el sistema se pone **450** si la lectura tiene su propia clave y **330** si no (`topeDeReescrituras`, `REESCRITURA` en `ingesta/criterio.mjs`); 40 por corrida; los últimos 80 del día quedan para lo de Balcarce; 3 intentos por nota | Pasa a los respaldos (abajo) |
+| `GEMINI_API_KEY_REDACCION` (acepta el nombre viejo `GEMINI_API_KEY`) | Redactar las notas: título, bajada y cuerpo (`reels/reescritura.mjs`, `04-REDACCION`), también las que pide el panel del celular | `gemini-flash-lite-latest` (`MODELO_DE_TEXTO`) | Google da 500 pedidos por día; el sistema se pone **450** si la lectura tiene su propia clave y **330** si no (`topeDeReescrituras`, `REESCRITURA` en `ingesta/criterio.mjs`); 40 por corrida; 3 intentos por nota (4 con 5 medios, 5 con 8) | Pasa a los respaldos (abajo) |
 | `GEMINI_API_KEY_REDES` | Las voces de las piezas (`reels/voz-gemini.mjs`), Auditar voz y Crear voces. Las dos voces propias viven en el proyecto de esta clave: si la clave pasa a otro proyecto, hay que crearlas de nuevo. Segundo respaldo de la redacción | `gemini-3.8-flash-tts` (voz) | **10 audios por día**, compartidos por Redes, Piezas, Auditar voz y Crear voces (cuánto gasta un día normal: `07-REDES`, "El cupo de voz"); 2 segundos entre pedidos | La pieza no sale: nunca con otra voz |
 | `GEMINI_API_KEY_CLASIFICACION` | La lectura con IA (`ingesta/lectura-ia.mjs`, `03-SELECCION`) y el banco de fotos (`ingesta/fotos.mjs`, `05-FOTOS`). Último respaldo de la redacción | `gemini-flash-lite-latest` | Fichas: **200 pedidos por día** (60 sin esta clave, `topeDeLecturas`), 5 por corrida, 12 notas por pedido; repetidas: 60 por día; fotos: hasta 10 por corrida | Prueba con Groq. Sin esta clave, usa la de redacción; **nunca la de redes** |
 | `GROQ_API_KEY` | Segundo proveedor de la lectura con IA y de las fotos: si Gemini falla o se queda sin cupo, el mismo pedido va a Groq | `openai/gpt-oss-120b` (lectura), `qwen/qwen3.8-27b` (fotos, con visión) | Los de la cuenta gratis: 8.000 tokens por minuto, por eso **no sirve para redactar** (un pedido de redacción ocupa unos 9.000) | La lectura sigue sólo con Gemini |
@@ -525,8 +525,8 @@ GitHub sin sumarlos antes al `env:` del workflow; la lista completa está en la 
 `WHATSAPP_APIKEY` y `WHATSAPP_TELEFONO`. Variables (4): `R2_ARCHIVO`,
 `R2_PIEZAS`, `R2_RESPALDOS` y `REDES_ACTIVAS` (en `Si`). **No están cargados**
 (los workflows siguen sin ellos): `GITLAB_TOKEN` y `GITLAB_REPO` (el espejo en
-GitLab), `R2_FOTOS` y `FOTOS_BASE` (las fotos en R2), `TOPE_DE_NOTAS`,
-`CLOUDFLARE_ZONE_ID` y `CLOUDFLARE_PROJECT`.
+GitLab), `R2_FOTOS` y `FOTOS_BASE` (las fotos en R2),
+`CLOUDFLARE_ZONE_ID` y `CLOUDFLARE_PROJECT`. (Después se cargaron `TOPE_DE_NOTAS`, `OPENROUTER_API_KEY`, las llaves de la mudanza y `REVISION_DEL_ARCHIVO` = "no": el estado real, con `gh secret list` y `gh variable list`.)
 
 Qué workflow usa cada uno está en la tabla de los workflows.
 
@@ -534,7 +534,7 @@ Qué workflow usa cada uno está en la tabla de los workflows.
 |---|---|---|
 | `META_TOKEN` | Secreto | Publicar y leer en Facebook e Instagram (`07-REDES`). No vence. Al regenerarlo, tildar todos los permisos de ahora **más** `read_insights` e `instagram_manage_insights` |
 | `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_REDES`, `GEMINI_API_KEY_CLASIFICACION`, `GROQ_API_KEY`, `OPENROUTER_API_KEY` (opcional) | Secretos | Las claves de IA ("Las claves de IA") |
-| `MINIMO_NACIONAL`, `MINIMO_AREAS_CHICAS` (opcionales, regla 260) | Variables | Cuántos medios distintos tienen que contar lo de afuera para salir: lo nacional (3) y las áreas chicas, Tecnología e IA, Ciencia, Salud, Educación y Cultura (2). Un número de 2 a 10; vacías, rotas o fuera de ese rango valen los de siempre. Se cambian en Settings, Secrets and variables, Actions, Variables, sin tocar código; en la vuelta de Cloudflare (Workers Builds), como variables del build. Hernán las mira cada semana con la estadística (`docs/03-SELECCION.md`, paso 7) |
+| `MINIMO_NACIONAL`, `MINIMO_AREAS_CHICAS` (opcionales, regla 260) | Variables | Cuántos medios distintos tienen que contar lo de afuera para salir: lo nacional (3) y las áreas chicas, Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo (2). Un número de 2 a 10; vacías, rotas o fuera de ese rango valen los de siempre. Se cambian en Settings, Secrets and variables, Actions, Variables, sin tocar código; en la vuelta de Cloudflare (Workers Builds), como variables del build. Hernán las mira cada semana con la estadística (`docs/03-SELECCION.md`, paso 7) |
 | `OPENROUTER_MODELOS`, `OPENROUTER_TOPE_DIARIO` (opcionales) | Variables | La lista de modelos gratis de OpenRouter en orden (separados por coma) y el tope de pedidos por día. Si no están, valen los de `reels/openrouter.mjs` |
 | `CLOUDFLARE_API_TOKEN` | Secreto | Subir el sitio y los Workers, escribir en R2 y KV; tiene también el permiso *Account · Account Analytics · Read*. Para poner la ruta del archivo permanente le falta «Zone → Workers Routes: Edit» |
 | `CLOUDFLARE_ACCOUNT_ID` | Secreto | La cuenta de Cloudflare: el sitio y las estadísticas |
@@ -551,7 +551,7 @@ Qué workflow usa cada uno está en la tabla de los workflows.
 | `R2_PIEZAS` | Variable | (Cargada el 15/10: `radar-piezas`.) El depósito de Cloudflare R2 donde "Redes", "Piezas" y "Fijar piezas" archivan los videos, audios, subtítulos y placas que arman (`redes/archivar-piezas.mjs`; el script lo crea si falta; usa `CLOUDFLARE_API_TOKEN` con *Workers R2 Storage: Edit* y `CLOUDFLARE_ACCOUNT_ID`). Sin ella, cada corrida dice «sin archivo de piezas» y sigue. Qué guarda, cuánto pesa y cuesta, cómo bajar una pieza: `docs/redes/ARCHIVO-DE-PIEZAS.md` |
 | `R2_RESPALDOS` | Variable (cargada: `radar-balcarce-respaldos`) | El depósito donde "Respaldo" sube el paquete de git y los datos; lo lee "Probar la restauración del respaldo" |
 | `R2_ARCHIVO` | Variable (cargada el 16/10: `radar-archivo`) | Prende el archivo permanente: con ella, cada vuelta de "Actualizar la web" (y "Cloudflare Pages" a mano) guarda en R2 las notas por salir, y el vigilante y el informe lo controlan |
-| `TOPE_DE_NOTAS` | Variable opcional (no cargada) | Sólo **baja** el tope de notas con página (3.700), y sólo con `R2_ARCHIVO` puesta (`topeDeNotas`, `web/lib/archivo.js`) |
+| `TOPE_DE_NOTAS` | Variable (cargada el 23/10: `500`, también en Workers Builds con «Cargar variables del motor») | **Baja** el tope de notas con página (techo 3.700, mínimo 500, de a 100 por vuelta), y sólo con `R2_ARCHIVO` puesta (`topeDeNotas`, `web/lib/archivo.js`); lo que sale del sitio se sirve desde R2 |
 | `R2_FOTOS`, `FOTOS_BASE` | Variables opcionales (no cargadas) | El depósito de fotos (sólo para que el archivo R2 y los respaldos se nieguen a escribir ahí; "Fotos a R2" se borró el 17/10) y el dominio desde el que el sitio sacaría las fotos (`web/lib/fotos.js`). Sin `FOTOS_BASE`, las fotos salen del sitio |
 | `WHATSAPP_CANAL_URL`, `TELEGRAM_CANAL_URL`, `BLUESKY_URL` | Variables opcionales (no cargadas; 17/10, regla 257) | Las direcciones de los canales propios, que crea y pega una persona (`https://whatsapp.com/channel/…`, `https://t.me/…`, `https://bsky.app/profile/…`). Sin ellas no aparece nada en el sitio; con ellas, un cartel de WhatsApp al final de cada nota y de `/hoy`, enlaces en el pie y `sameAs` en el marcado. Las pasan `actualizar.yml` y `cloudflare-deploy.yml` a cada compilación; si el sitio lo arma el motor de Cloudflare, se cargan también en su configuración (el motor le pasa el entorno entero a `npm run build`). Se validan en `web/lib/canales.js` |
 | `CLOUDFLARE_ZONE_ID` | Variable opcional (no cargada) | Sólo para la ruta del archivo permanente (si falta, la busca por el nombre del dominio, para lo que el token necesita «Zone: Read») |
@@ -640,8 +640,8 @@ vueltas), lo de antes habría sido ~14.900 reales y ~20.500 facturables: **el ah
 ~3.800 minutos reales y ~6.000 facturables por mes (~30 %)**. En privado (plan Free, 2.000
 incluidos, US$ 0,006 a 0,008 el minuto) serían todavía **unos US$ 75 a 100 por mes**.
 
-**Qué haría falta para que el repositorio principal entre en los 2.000 minutos gratis**
-(no está hecho; es la etapa del motor, `docs/etapa-10-operacion/DISENO-MOTOR.md`):
+**Qué hacía falta para que el repositorio principal entre en los 2.000 minutos gratis**
+(HECHO en el código y prendido el 22 y 23/10 con la variable `NUBE`, salvo apagar a mano los workflows viejos y pasar el repositorio a privado; es la etapa del motor, `docs/etapa-10-operacion/DISENO-MOTOR.md`, aunque la mudanza real usó Workers Builds y no el Workflow con D1 de ese diseño). Lo que sigue describe el plan original:
 
 - **A Cloudflare, dentro de los US$ 5 de Workers Paid** (Workers, Cron, Workflows, D1, R2, KV):
   "Vigilancia" (~330), "Auditoría IA" (~1.000), "Pistas" (~240), "Informe diario" (~90) e
@@ -681,7 +681,7 @@ límite de gasto en Google (`PENDIENTES.md`).
 | El video de las redes (qué pide el principal y qué arma el render) | `reels/pedido.mjs`, `reels/render-remoto.mjs` y `infra/render-publico/` (se copia con `node scripts/sincronizar-render-publico.mjs`) |
 | Cómo se manda un aviso | `avisar` (`redes/avisar-por-mail.mjs`: mail primero, WhatsApp de respaldo) y `POST /avisar` (`infra/vigilante-cloudflare/worker.mjs`) |
 | Agregar o cambiar un secreto | GitHub → Settings → Secrets and variables → Actions (lo hace una persona) y, si un workflow nuevo lo necesita, el bloque `env:` de ese paso en el `.yml` |
-| Prender o apagar las redes | Variable `REDES_ACTIVAS` |
+| Prender o apagar las redes | Variable `REDES_ACTIVAS` (GitHub) y `REDES_ACTIVAS_NUBE` (Cloudflare: la que manda desde la mudanza) |
 | Cambiar la versión de wrangler o el proyecto de Pages | `actualizar.yml` **y** `cloudflare-deploy.yml` (la misma versión en los dos) y variable `CLOUDFLARE_PROJECT` |
 | Qué obliga a recompilar antes de subir | `NO_CAMBIAN_EL_SITIO` (`web/scripts/recompilar.mjs`): lo que se sabe que el sitio no lee; todo lo demás recompila |
 | Las redirecciones y su tope | `planDeRedirecciones` (`web/scripts/generar-redirects.mjs`, regla 191) |

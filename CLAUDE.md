@@ -5,7 +5,7 @@
 esto.*
 
 Medio digital automático de Balcarce (Buenos Aires), en `radarbalcarce.com`. Cada media
-hora lee unos cien feeds de unos setenta medios (la cuenta exacta, en `FUENTES.md`), junta la misma
+hora lee unos 125 feeds de unos 75 medios (la cuenta exacta, en `FUENTES.md`), junta la misma
 noticia contada por varios, decide qué publicar, lo escribe con IA, lo verifica contra
 las fuentes, arma el sitio y lo sube, sin nadie despierto; varias veces por día publica
 en Facebook e Instagram con voz. Los usuarios son Hernán y Andrés (no programan):
@@ -18,12 +18,12 @@ escribir siempre en castellano rioplatense, claro y sin voseo forzado.
     redes/     Facebook e Instagram (API de Meta), contrato del día, vigilante, WhatsApp. SIN dependencias
     panel/     lo del panel del celular que corre en GitHub (cifrado, pedidos a la IA, pistas). SIN dependencias (el panel de la PC se retiró el 17/10)
     web/       el sitio (Next.js 15, JavaScript, HTML estático); web/public/panel/ es el panel del celular; web/scripts/generar-datos.mjs arma los datos
-    pruebas/   `npm test`: unas 2.600 pruebas, sin red (en la vuelta de 30 minutos sólo corre el núcleo legal, `npm run test:nucleo`)
+    pruebas/   `npm test`: unas 3.000 pruebas, sin red (en la vuelta de 30 minutos sólo corre el núcleo legal, `npm run test:nucleo`)
     docs/      la documentación: 00-INDICE a 13-EFEMERIDES, DECISIONES.md, propuestas/ (lo abierto) e historico/. Sin programas adentro
     scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas, revisión de fuentes
     infra/     los Workers de Cloudflare (reloj, vigilante, tareas, archivo, enlaces, motor en Workers Builds) y `infra/compartido/`
     Dormidos (existen y tienen pruebas, pero producción no los usa; los despierta o los borra el dueño, no se tocan sin preguntar):
-               comercial/ (guía de comercios), motor/ (cimientos de una base D1), redes/texto-por-red.mjs, `sePuedeSola` (redes/elegir.mjs)
+               comercial/ (guía de comercios), motor/ (cimientos de una base D1), `sePuedeSola` (redes/elegir.mjs)
                y `agruparPorHecho` (ingesta/cruce.mjs)
 
 Flujo: fuentes → ingesta → cruce → sección, puntaje y semáforo → lectura con IA →
@@ -45,11 +45,14 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; la
-próxima regla es la 313 (la 312, los minutos de Workers Builds: tarjetas en R2, vuelta de noche por hora y presupuesto real) (la 311, la limpieza de la auditoría 2.0 módulo A: código muerto, interruptores que no llegaban y carpetas de documentos) (la 310, el mapa de las notas archivadas, las fuentes en el marcado y los textos de la web al día) (la 308 y la 309, lo que recibe la IA y los arreglos de redes) (la 308, lo que recibe la IA de cada fuente y qué queda anotado de cada nota) (la 307, sin "fuente principal" suelta en la nota) (la 297 a la 303, del semáforo, el sin cuerpo y el descarte después del cruce) (la 289 a la 296, de la auditoría integral del 23/10: policial nacional, fútbol sólo argentino, Balcarce sin amarillo, lo muy contado sin frenos, Balcarce con 36 horas, Agro y Automovilismo en 2 medios, el celular sin tope y la limpieza; la 284 a la 288, de otras tandas del 23/10) (la 260 a la 263, el criterio simple, la estadística y las instrucciones de la IA más cortas) (la 280 a la 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la foto cambiada; las 258 a 279, de otras tandas): del 189 al 210 son los arreglos de Radar 2.0 del 17/10, por tandas y con huecos; la 211, las fotos con chicos de las
-fuentes de Balcarce; la 212, la revisión del archivo entero por tandas; la 215 a la 218, lo nacional por popularidad sin cupos, las secciones nuevas
-siempre activas, las fuentes de ciencia, salud, educación y tecnología, y el orden por popularidad; la 230 a la 235, la mudanza a Cloudflare; la 240, OpenRouter;
-la 260 a la 263, la selección en seis líneas con su estadística, las fuentes de las áreas chicas y las instrucciones de la IA más cortas.)
+(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 314**; una prueba controla que este número sea el que sigue al
+último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
+de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
+instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la
+foto cambiada; 284 a 296, la auditoría integral del 23/10 (policial nacional, fútbol sólo argentino, Balcarce sin amarillo y con 36 horas, lo muy contado sin frenos, Agro y
+Automovilismo en 2 medios, el celular sin tope); 297 a 303, el semáforo, el «sin cuerpo» y el descarte después del cruce; 304 a 306, menos compilación; 307 y 308, sin "fuente
+principal" suelta y lo que recibe la IA; 309 a 312, la auditoría 2.0 (redes, textos de la web, limpieza de código y minutos de Workers Builds); 313, la segunda vuelta de
+documentación.)
 
 - **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
   vigila (sigue los imports en cadena).
@@ -93,8 +96,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 - **Los archivos del repo están en CRLF.** En scripts, editar por líneas; un `\n` literal
   en un reemplazo multilínea no encuentra nada. Para regex con `\b`, `\s`, `\d`: escribir
   un `.cjs` con Write, no `node -e` ni un heredoc (se comen las barras).
-- **GitHub Actions regenera `web/data/` cada media hora** (corre a los :00 y :30 UTC y
-  tarda ~5 minutos con la subida). Antes de `git push`, `git pull --rebase`; si choca en `web/data/`,
+- **El motor regenera `web/data/` cada media hora** (desde el 23/10, en Cloudflare Workers Builds: commits "Datos de la portada"; el workflow viejo de GitHub queda de vuelta atrás). Antes de `git push`, `git pull --rebase`; si choca en `web/data/`,
   `git checkout --theirs` sobre esos archivos y seguir. Commitear sólo los archivos
   tocados (`git commit -- archivos`). Correr `ARMAR_EN_LA_PC=1 npm run datos` en la PC deja esos
   archivos cambiados: no subirlos. Subir `banco-fotos.json` o fotos sólo entre corridas.
@@ -132,10 +134,10 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   menú "Más secciones". La sección de una nota la decide el feed (si el título la confirma), las palabras
   (`seccionSumada`, `ingesta/secciones-nuevas.mjs`, que nunca se lleva una de Política o Policiales) y la
   IA. Cada sección tiene que tener notas todos los días: si no, no vale la pena tenerla (menos Policiales,
-  que es sólo de acá).
+  que es de acá y la zona, más lo de afuera que cuentan 8 medios o la muerte de un famoso).
 - **Los títulos automáticos se arreglan sin inventar** (`arreglarEscritura`,
   `tituloAutomatico`); lo de una persona no se toca.
-- **Las redes tienen un interruptor**: la variable de GitHub `REDES_ACTIVAS` ("Si"); apagado,
+- **Las redes tienen un interruptor**: la variable `REDES_ACTIVAS` en GitHub y, desde la mudanza, `REDES_ACTIVAS_NUBE` para lo que corre en Cloudflare (**manda ésta**; el 22/10 la de GitHub decía "No" y la de la nube "Sí"); apagado,
   todo simula. "Piezas" con `solo` vacío no arma nada (marcar `todas`). En GitHub las piezas
   salen de lo ya publicado (`web/data/portada.json`), con los horarios de `redes/horarios.mjs`.
 - **Cuatro claves de IA, todas gratis desde el 29/09** (`reels/claves.mjs`):
@@ -155,7 +157,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   `TZ: America/Argentina/Buenos_Aires` en el workflow (`ingesta/zona.mjs`).
 - **El turno de farmacia dura hasta las 8:30 del día siguiente** (la web no dice hasta qué
   hora). **Si Open-Meteo falla, el clima sale de `api.met.no`**, sin sensación térmica.
-- **Los minutos de Workers Builds** (6.000 por mes; regla 311, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
+- **Los minutos de Workers Builds** (6.000 por mes; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
   asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas, todas **apagadas por
   defecto**: `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor»: la memoria de tarjetas de la regla 305 vive en R2 como
   objetos sueltos por huella, la compilación baja sólo las que pide; la primera vuelta con ella dibuja todo), `MOTOR_NOCHE_CADA_HORA=Si` (variable del
@@ -175,23 +177,18 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   dispara "Panel del celular" (`panel.yml`), que lee las notas de la caché de Actions. Su
   página tiene su propia CSP en `web/public/_headers`: no cargar nada de afuera ahí.
 
-## Estado (17/10/2026)
+## Estado (24/10/2026)
 
-- **Sin cupos desde el 17/10** (reglas 215 y 260): lo nacional sale por cuántos medios lo cuentan (3, o 2 en las áreas
-  chicas); Educación, Salud y Ciencia son secciones de siempre. Esta primera semana no se toca nada: se mira la estadística
-  de la selección (`scripts/medir/estadistica-seleccion.mjs`, el informe diario y la pestaña Números) y el lunes se decide
-  si hace falta cambiar `MINIMO_NACIONAL` o `MINIMO_AREAS_CHICAS`.
-
-- **Todo andando en la nube** (web, redes con voz y escenas animadas, vigilancia, panel del
-  celular). El 15/10 el repositorio se mudó y el reloj pasó al Worker: mirar que dispare.
-- **Rediseño desde cero, una etapa por vez** (empieza por las fuentes). Las reglas de arriba
-  valen hasta que se cambien con su prueba; las claves nuevas, cuando se elijan los modelos.
-- **17/10, limpieza final**: se retiraron el panel de la PC y su "modo PC", los ensayos en sombra (selección nueva, feed de
-  podcast, audio en la página, video de presentación), `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/`
-  (los que se usan, en `scripts/medir/`). Todo queda en el historial de git (`docs/DECISIONES.md`, 17/10).
-- **Mudanza a Cloudflare: HECHA (23/10)** (según `docs/TRASPASO.md`): web, tareas, redes y video corren en Cloudflare con el reloj `NUBE`; el motor guarda lo que dice `infra/motor-cloudflare/archivos.mjs`; los workflows viejos de GitHub quedan de vuelta atrás y se apagan a mano. Antes de tocar "dónde corre" cada cosa, mirar el traspaso y `NUBE`, no esta lista. Lo que sigue es lo que se escribió el 18/10:
-- **Mudanza a Cloudflare, escrita el 18/10 (hoy hecha, ver arriba):** el motor en Workers Builds, las tareas chicas en un Worker (`radar-balcarce-tareas`) y el video en un repositorio público sin secretos; todo detrás de la variable `NUBE` del reloj (vacía = todo en GitHub, como hoy). Qué se eligió, con qué números y cómo se prende: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md` (reglas 230 a 235).
-- Lo que falta: **`PENDIENTES.md`**. Qué se decidió y las preguntas abiertas: **`docs/DECISIONES.md`**.
+- **Todo corre en Cloudflare** (23/10, `docs/TRASPASO.md`): web (motor en Workers Builds), tareas, redes con voz y escenas animadas, vigilancia e informes en el Worker
+  `radar-balcarce-tareas`, video en el repositorio público de render, reloj `radar-balcarce-reloj` con la variable `NUBE`. Los workflows viejos de GitHub quedan de vuelta atrás
+  y se apagan a mano. El archivo permanente en R2 está encendido y el sitio guarda 500 notas. Las redes están prendidas en la nube (`REDES_ACTIVAS_NUBE` = Sí al 22/10).
+- **Sin cupos desde el 17/10** (reglas 215 y 260): lo nacional sale por cuántos medios lo cuentan (3, o 2 en las áreas chicas); la estadística de la selección
+  (`scripts/medir/estadistica-seleccion.mjs`, el informe diario y la pestaña Números) es lo que Hernán mira cada semana para cambiar `MINIMO_NACIONAL` o `MINIMO_AREAS_CHICAS`.
+- **Apagado y listo para prender** (lo prende una persona, en orden): tarjetas en R2, vuelta de noche por hora, fotos en R2, mapa del archivo, enlaces cortos, fotos con
+  chicos de fuentes de Balcarce. Revisión del archivo pausada. Todo en **`PENDIENTES.md`**, que es la única lista de tareas; qué se decidió y las preguntas abiertas, en
+  **`docs/DECISIONES.md`**; el estado verificado de la auditoría 2.0, en `docs/auditoria-2-0/F-ESTADO-Y-PLAN-2-0.md`.
+- **17/10, limpieza final**: se retiraron el panel de la PC, los ensayos en sombra, `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/` (los que se usan, en
+  `scripts/medir/`). Todo queda en el historial de git. El 24/10 se sumó la limpieza de código sin uso de la regla 311.
 
 ## Dónde tocar cada cosa
 
@@ -252,8 +249,8 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 ## Cuentas
 
 - **GitHub:** cuenta de `radarbalcarce@gmail.com`, repositorio `radarbalcarce/radar-balcarce`
-  (desde el 15/10), **público** hasta que el robot salga de Actions (privado costaría unos
-  US$ 100 por mes en minutos). Colaboradores invitados: `balcardev`, Andrés y Hernán.
+  (desde el 15/10), **público** todavía: el robot ya salió de Actions (23/10) pero faltan apagar los workflows
+  viejos, el tope de gasto en US$ 0 y compactar el historial antes de pasarlo a privado (`PENDIENTES.md`). Colaboradores invitados: `balcardev`, Andrés y Hernán.
 - **Todo lo demás:** `radarbalcarce@gmail.com` (Cloudflare con el Worker del reloj,
   Google/Gemini, Meta, Instagram, Search Console, Tailscale; cron-job.org, pausado;
   Vercel, apagado).
