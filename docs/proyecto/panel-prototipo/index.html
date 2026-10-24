@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14161A">
+<title>Panel nuevo (prototipo) · Radar Balcarce</title>
+<style>
+  /* PROTOTIPO del panel del celular (24/10/2026). Datos inventados; ningún botón guarda nada.
+     Los colores y las letras son los del panel de hoy (web/public/panel/index.html). */
+  :root {
+    --tinta: #14161A; --papel: #FFFFFF; --fondo: #F4F1EA; --linea: #E4DFD2; --suave: #5F635F; --texto: #22262B;
+    --rojo: #C7381C; --rojo-oscuro: #9C2B15; --rojo-fondo: #FBE9E4;
+    --verde: #16615B; --verde-fondo: #E4F2EF; --ambar: #8A5A00; --ambar-fondo: #FFF4DC;
+    --s-balcarce: #B91C1C; --s-politica: #3730A3; --s-policiales: #831843; --s-deportes: #0F766E; --s-futbol: #7C3AED;
+    --s-cultura: #9D2C8F; --s-economia: #8A6500; --s-pais: #4B5563; --s-agro: #5A6B0A; --s-salud: #004E5C; --s-educacion: #1D4BE0;
+    --radio: 16px; --sombra: 0 1px 2px rgba(20,22,26,.06), 0 2px 8px rgba(20,22,26,.05);
+    --f-titulo: Georgia, "Source Serif 4", "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papel: #1C1F24; --fondo: #121417; --linea: #2E333A; --suave: #A7ADB3; --texto: #ECEDEE;
+      --ambar: #F2C46B; --ambar-fondo: #2B2415; --rojo: #E4583B; --rojo-fondo: #33201B; --verde: #5CC2B2; --verde-fondo: #16302D; --sombra: 0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --papel: #1C1F24; --fondo: #121417; --linea: #2E333A; --suave: #A7ADB3; --texto: #ECEDEE;
+    --ambar: #F2C46B; --ambar-fondo: #2B2415; --rojo: #E4583B; --rojo-fondo: #33201B; --verde: #5CC2B2; --verde-fondo: #16302D; --sombra: 0 1px 2px rgba(0,0,0,.4);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; background: var(--fondo); color: var(--texto); }
+  body { font: 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+  button, input, textarea, select { font: inherit; color: inherit; }
+  a { color: var(--rojo); }
+  .barra { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px; padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top));
+    background: var(--tinta); color: #fff; border-bottom: 3px solid var(--rojo); }
+  .logo { font-family: var(--f-titulo); font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+  .logo span { color: #FF6A4D; }
+  .barra .etiqueta { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .75; }
+  .barra .espacio { flex: 1; }
+  .proto { background: var(--ambar-fondo); color: var(--ambar); text-align: center; font-size: 13px; padding: 6px 12px; }
+  .aviso-fijo { padding: 12px 16px; font-size: 15px; line-height: 1.35; }
+  .aviso-fijo.pausa { background: var(--rojo); color: #fff; font-weight: 650; }
+  .aviso-fijo.pausa button { margin-top: 8px; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 0; background: #fff; color: var(--rojo-oscuro); font-weight: 700; }
+  .aviso-fijo.senal { background: var(--ambar-fondo); color: var(--ambar); border-bottom: 1px solid var(--linea); }
+  main { max-width: 640px; margin: 0 auto; padding: 14px 16px 24px; }
+  h1 { font-family: var(--f-titulo); font-size: 28px; line-height: 1.15; letter-spacing: -.01em; margin: 6px 0 6px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--suave); margin: 26px 0 10px; display: flex; align-items: center; gap: 8px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--linea); }
+  p { margin: 8px 0; }
+  .suave { color: var(--suave); font-size: 15px; }
+  .chico { font-size: 13.5px; color: var(--suave); }
+
+  /* Botones: uno principal por pantalla (rojo), los demás de contorno, el que saca de rojo suave. */
+  .boton { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; padding: 0 20px; border-radius: 14px; border: 1.5px solid var(--linea);
+    background: var(--papel); color: var(--texto); font-weight: 650; text-align: center; text-decoration: none; cursor: pointer; margin: 0 0 10px; }
+  .boton:active { transform: scale(.985); }
+  .boton.principal { background: var(--rojo); border-color: var(--rojo); color: #fff; box-shadow: 0 2px 0 var(--rojo-oscuro); }
+  .boton.peligro { background: var(--rojo-fondo); border-color: transparent; color: var(--rojo); }
+  .boton.verde { background: var(--verde); border-color: var(--verde); color: #fff; }
+  .boton[disabled] { opacity: .5; }
+  .boton.link { background: transparent; border: 0; min-height: 48px; color: var(--suave); font-weight: 600; }
+  .fila-botones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fila-botones .boton { margin: 0; }
+  .volver { background: transparent; border: 0; color: var(--rojo); font-weight: 650; min-height: 48px; padding: 0 4px 0 0; font-size: 17px; cursor: pointer; }
+
+  /* El semáforo de salud */
+  .semaforo { display: grid; grid-template-columns: 56px 1fr 14px; gap: 14px; align-items: center; width: 100%; text-align: left; border-radius: 20px; padding: 14px 16px; border: 0; cursor: pointer; margin: 0 0 14px; }
+  .semaforo .luz { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 32px; font-weight: 800; color: #fff; }
+  .semaforo .quien { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+  .semaforo .frase { font-family: var(--f-titulo); font-size: 20px; line-height: 1.2; font-weight: 800; margin-top: 2px; }
+  .semaforo .mas { font-size: 14px; margin-top: 4px; opacity: .85; }
+  .semaforo.verde { background: var(--verde-fondo); color: var(--verde); } .semaforo.verde .luz { background: var(--verde); }
+  .semaforo.amarillo { background: var(--ambar-fondo); color: var(--ambar); } .semaforo.amarillo .luz { background: #C98A00; }
+  .semaforo.rojo { background: var(--rojo-fondo); color: var(--rojo); } .semaforo.rojo .luz { background: var(--rojo); }
+  .semaforo.gris { background: var(--linea); color: var(--texto); } .semaforo.gris .luz { background: var(--suave); }
+
+  /* Los cinco botones grandes del inicio */
+  .grandes { display: grid; gap: 10px; }
+  .grande { display: grid; grid-template-columns: 48px 1fr 14px; gap: 14px; align-items: center; width: 100%; min-height: 72px; text-align: left; padding: 10px 14px; border-radius: var(--radio);
+    border: 1px solid var(--linea); background: var(--papel); box-shadow: var(--sombra); cursor: pointer; }
+  .grande:active { background: var(--fondo); }
+  .grande .num { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--rojo-fondo); color: var(--rojo); font-size: 24px; font-weight: 800; }
+  .grande .num.suave { background: var(--fondo); color: var(--suave); }
+  .grande .num.ok { background: var(--verde-fondo); color: var(--verde); }
+  .grande .t { font-weight: 700; font-size: 18px; line-height: 1.2; }
+  .grande .d { font-size: 14.5px; color: var(--suave); margin-top: 2px; }
+  .flecha { color: var(--suave); font-size: 24px; }
+  .datos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 0; }
+  .dato { background: var(--papel); border: 1px solid var(--linea); border-radius: 14px; padding: 10px 12px; }
+  .dato b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
+  .dato span { font-size: 13px; color: var(--suave); }
+
+  /* Tarjetas, chips, cajas */
+  .tarjeta { display: block; width: 100%; text-align: left; background: var(--papel); border: 1px solid var(--linea); border-left: 5px solid var(--franja, var(--linea)); border-radius: var(--radio);
+    padding: 14px 16px; margin: 0 0 12px; box-shadow: var(--sombra); cursor: pointer; }
+  .tarjeta .titulo { font-family: var(--f-titulo); font-weight: 800; font-size: 18px; line-height: 1.3; margin: 6px 0 8px; }
+  .chip { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: var(--s-pais); border-radius: 6px; padding: 3px 8px; margin-right: 6px; }
+  .motivo { display: block; font-size: 14.5px; color: var(--ambar); background: var(--ambar-fondo); border-radius: 10px; padding: 8px 10px; margin-top: 8px; line-height: 1.35; }
+  .motivo.rojo { color: var(--rojo); background: var(--rojo-fondo); }
+  .motivo.verde { color: var(--verde); background: var(--verde-fondo); }
+  .caja { background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 12px 16px; margin: 0 0 12px; font-size: 16px; box-shadow: var(--sombra); }
+  .caja p { margin: 4px 0; }
+  .caja.aviso { background: var(--ambar-fondo); border-color: transparent; }
+  details { background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 4px 16px; margin: 0 0 12px; }
+  summary { cursor: pointer; font-weight: 650; min-height: 48px; display: flex; align-items: center; }
+  .estado-fila { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 12px 0; border-top: 1px solid var(--linea); }
+  .estado-fila:first-child { border-top: 0; }
+  .estado-fila .ic { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; font-size: 16px; }
+  .ic.ok { background: var(--verde); } .ic.aten { background: #C98A00; } .ic.mal { background: var(--rojo); } .ic.espera { background: var(--suave); }
+  .estado-fila b { display: block; }
+  .estado-fila .que { font-size: 14.5px; color: var(--suave); }
+
+  /* Pestañas chicas y buscador */
+  .sub { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 4px; background: var(--linea); border-radius: 14px; margin: 10px 0 14px; }
+  .sub button { min-height: 48px; border: 0; background: transparent; border-radius: 10px; font-weight: 650; color: var(--suave); cursor: pointer; }
+  .sub button[aria-current="true"] { background: var(--papel); color: var(--texto); box-shadow: var(--sombra); }
+  input[type=search], input[type=text], textarea, select { width: 100%; min-height: 56px; padding: 12px 14px; border: 1.5px solid var(--linea); border-radius: 14px; background: var(--papel); }
+  textarea { min-height: 130px; resize: vertical; line-height: 1.5; }
+  textarea.cuerpo { min-height: 260px; }
+  label { display: block; font-size: 14px; font-weight: 650; margin: 16px 0 6px; }
+  .check { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; font-size: 16px; }
+  .check input { width: 26px; height: 26px; min-height: 0; margin-top: 2px; flex: 0 0 auto; }
+  .barras { list-style: none; margin: 0; padding: 0; }
+  .barras li { margin: 0 0 12px; }
+  .barras .l { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; }
+  .barras .f { height: 10px; background: var(--linea); border-radius: 5px; margin-top: 4px; overflow: hidden; }
+  .barras .f i { display: block; height: 100%; background: var(--verde); border-radius: 5px; }
+  .dias { display: flex; align-items: flex-end; gap: 6px; height: 90px; margin: 8px 0; }
+  .dias i { flex: 1; background: var(--verde); border-radius: 4px 4px 0 0; min-height: 4px; }
+  .dias-et { display: flex; gap: 6px; font-size: 11px; color: var(--suave); } .dias-et span { flex: 1; text-align: center; }
+  .foto-prev { width: 100%; max-height: 220px; object-fit: cover; border-radius: 14px; margin: 8px 0; }
+  .resultado { text-align: center; padding: 28px 8px 8px; }
+  .resultado .ico { display: grid; place-items: center; width: 84px; height: 84px; margin: 0 auto 14px; border-radius: 50%; background: var(--verde-fondo); color: var(--verde); font-size: 46px; font-weight: 700; }
+  .vacio { text-align: center; color: var(--suave); padding: 28px 8px; }
+  .pildora { display: inline-block; background: var(--rojo); color: #fff; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 8px; }
+
+  /* La barra de abajo: cuatro pestañas */
+  .pestanas { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--papel); border-top: 1px solid var(--linea);
+    padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 16px rgba(20,22,26,.08); }
+  .pestanas button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 66px; border: 0; background: transparent; font-size: 13px; font-weight: 650; color: var(--suave); cursor: pointer; }
+  .pestanas svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .pestanas button[aria-current="page"] { color: var(--rojo); box-shadow: inset 0 3px 0 var(--rojo); }
+  .pestanas .globo { position: absolute; top: 8px; left: calc(50% + 6px); min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--rojo); color: #fff; font-size: 12px; font-weight: 700; line-height: 20px; text-align: center; }
+
+  /* Confirmaciones (se abren desde abajo) y avisos */
+  .velo { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.5); display: flex; align-items: flex-end; justify-content: center; }
+  .hoja { width: 100%; max-width: 640px; background: var(--papel); border-radius: 22px 22px 0 0; padding: 20px 16px calc(16px + env(safe-area-inset-bottom)); max-height: 92vh; overflow: auto; }
+  .hoja h3 { font-family: var(--f-titulo); font-size: 22px; margin: 0 0 6px; }
+  .hoja .botones { margin-top: 14px; }
+  .toast { position: fixed; left: 12px; right: 12px; top: calc(70px + env(safe-area-inset-top)); z-index: 30; max-width: 616px; margin: 0 auto; background: var(--tinta); color: #fff; border-radius: 14px; padding: 14px 16px; box-shadow: 0 6px 20px rgba(0,0,0,.3); font-size: 16px; }
+  .esc { margin-top: 28px; padding-top: 14px; border-top: 1px dashed var(--linea); }
+</style>
+</head>
+<body>
+<header class="barra"><strong class="logo">Radar <span>Balcarce</span></strong><span class="etiqueta">Panel</span><span class="espacio"></span><span class="pildora" id="pend" hidden></span></header>
+<div class="proto">Prototipo: datos inventados, nada se guarda. Probá los estados en Más → «Probar el prototipo».</div>
+<div id="aviso-pausa" class="aviso-fijo pausa" hidden></div>
+<div id="aviso-senal" class="aviso-fijo senal" hidden>Sin señal: lo que ves es de hace 12 minutos. Lo que decidas se guarda en el celular y se manda cuando vuelva la señal.</div>
+<main id="v"></main>
+<nav class="pestanas" id="nav" aria-label="Secciones"></nav>
+<div id="capa"></div>
+<div id="toast" class="toast" role="status" hidden></div>
+
+<script>
+'use strict';
+// ------------------------------------------------------------------ datos inventados
+const E = { semaforo: 'rojo', pausa: false, offline: false, tema: 'auto', pendientesDeEnviar: 0, retiradas: [], hechos: 0 };
+const COLOR = { Balcarce: 'balcarce', Política: 'politica', Policiales: 'policiales', Fútbol: 'futbol', Deportes: 'deportes', 'Cultura y agenda': 'cultura', Economía: 'economia', Argentina: 'pais', Agro: 'agro', Salud: 'salud', Educación: 'educacion' };
+const SECCIONES = ['Balcarce', 'Política', 'Policiales', 'Educación', 'Salud', 'Fútbol', 'Deportes', 'Agro', 'Economía', 'Cultura y agenda', 'Argentina'];
+
+let esperan = [
+  { id: 'e1', seccion: 'Policiales', hace: 'hace 25 min', titulo: 'Detienen a un hombre por un robo en el barrio Plaza', motivo: 'Acusa a alguien (“detenido”)', medios: 3,
+    cuentan: [['Medio local 1', 'Policía detuvo a un hombre de 34 años por un robo a un comercio de la calle 17. Será indagado el lunes.'], ['Medio local 2', 'Un detenido por el robo del comercio. La causa está en la fiscalía.'], ['Medio de la región', 'Robo en Balcarce: hay un detenido.']], foto: 'Sin foto: en Policiales sólo va foto oficial.' },
+  { id: 'e2', seccion: 'Policiales', hace: 'hace 1 h', titulo: 'Choque en la Ruta 226 con dos personas heridas', motivo: 'Muerto o herido (“heridos”)', medios: 4,
+    cuentan: [['Medio local 1', 'Dos heridos tras un choque entre un auto y un camión en el kilómetro 56.'], ['Medio de la región', 'Choque en la 226: trasladaron a dos personas al hospital.']], foto: 'Se busca al publicarla.' },
+  { id: 'e3', seccion: 'Balcarce', hace: 'hace 3 h', titulo: 'Aumentan las tarifas del agua desde noviembre', motivo: 'Poco confirmada: sólo la cuenta un medio', medios: 1,
+    cuentan: [['Medio local 2', 'La cooperativa anunció un aumento del 18 % en la tarifa del agua desde noviembre.']], foto: 'Va con foto.' },
+];
+const salieron = [
+  { id: 's1', seccion: 'Balcarce', hora: '13:05', titulo: 'Suspenden todos los partidos de fútbol del sábado por la lluvia', medios: 6 },
+  { id: 's2', seccion: 'Deportes', hora: '12:40', titulo: 'Nazareno gana la medalla de oro en los Juegos Bonaerenses', medios: 4 },
+  { id: 's3', seccion: 'Balcarce', hora: '11:55', titulo: 'Avanzan los trabajos de refacción en el primer piso del Hospital Municipal', medios: 2 },
+  { id: 's4', seccion: 'Economía', hora: '11:10', titulo: 'El dólar blue cerró estable y el oficial subió dos pesos', medios: 9 },
+  { id: 's5', seccion: 'Política', hora: '10:30', titulo: 'El Concejo Deliberante aprobó la ordenanza de tránsito pesado', medios: 3 },
+  { id: 's6', seccion: 'Cultura y agenda', hora: '09:45', titulo: 'Se viene la feria de artesanos en la plaza del barrio', medios: 2 },
+];
+const noSalieron = [
+  { id: 'n1', seccion: 'Fútbol', titulo: 'Messi recibió el Premio Princesa de Asturias de los Deportes', medios: 17, motivo: 'Llegó vieja: el hecho tiene más de 12 horas', clase: '' },
+  { id: 'n2', seccion: 'Fútbol', titulo: 'Scaloni renueva con la Selección hasta 2030', medios: 9, motivo: 'Llegó vieja: el hecho tiene más de 12 horas', clase: '' },
+  { id: 'n3', seccion: 'Política', titulo: 'Diputados dio media sanción a la Ley de Tierras', medios: 19, motivo: 'Ya salió: se unió a otra nota que sí está publicada', clase: 'verde', ya: true },
+  { id: 'n4', seccion: 'Cultura y agenda', titulo: 'El fuerte descargo de un cantante tras la palabra de una conductora', medios: 12, motivo: 'La lectura con IA la sacó: es un chimento', clase: '' },
+  { id: 'n5', seccion: 'Política', titulo: 'Sobreseimiento en una causa que involucra a funcionarios nacionales', medios: 11, motivo: 'Tema delicado: espera tu OK', clase: 'rojo' },
+];
+const notas = [...salieron.map((n) => ({ ...n, cuerpo: 'Texto de la nota inventada para el prototipo. La Municipalidad informó que el sábado se suspenden las actividades al aire libre por el pronóstico de lluvias y que se reprogramarán durante la semana. Los vecinos pueden consultar los horarios en las redes oficiales.', resumen: 'Resumen de la nota, debajo del título.' })),
+  { id: 'p7', seccion: 'Salud', hora: 'ayer', titulo: 'Campaña de vacunación antigripal en las salitas de los barrios', medios: 2, cuerpo: 'Texto inventado.', resumen: 'Resumen inventado.' }];
+let sinFoto = [
+  { id: 'f1', seccion: 'Balcarce', titulo: 'Avanzan los trabajos de refacción en el primer piso del Hospital Municipal', motivo: 'Ninguna de sus fuentes trae una foto que sirva', firme: false },
+  { id: 'f2', seccion: 'Policiales', titulo: 'Allanan una vivienda por una causa de amenazas', motivo: 'Policiales: sólo va foto oficial', firme: true },
+  { id: 'f3', seccion: 'Educación', titulo: 'Abren la inscripción a los talleres de oficios', motivo: 'Se le puede buscar una foto', firme: false },
+];
+const redes = [
+  { h: '07:00', q: 'El clima de la mañana', e: 'ok', t: 'Salió en Facebook e Instagram' },
+  { h: '09:00', q: 'Un día como hoy (video)', e: 'aten', t: 'No salió: se cerró su horario. Si ese día había más de ocho historias, el tope pudo sacarla.' },
+  { h: '10:00', q: 'El repaso de la mañana (video)', e: 'ok', t: 'El video salió en Facebook e Instagram' },
+  { h: '10:00', q: 'El repaso de la mañana (historia)', e: 'mal', t: 'No salió la historia de Instagram: las historias aceptan hasta 60 segundos' },
+  { h: '15:00', q: 'El repaso de la tarde (video)', e: 'espera', t: 'Sale a las 15:00' },
+  { h: '17:00', q: 'Los teléfonos útiles', e: 'espera', t: 'Sale a las 17:00' },
+  { h: '19:00', q: 'La farmacia de turno', e: 'espera', t: 'Sale a las 19:00' },
+];
+const efem = [['Dom 25/10', 'ok', 'Aprobado'], ['Lun 26/10', 'aten', 'Sin revisar'], ['Mar 27/10', 'aten', 'Sin revisar'], ['Mié 28/10', 'espera', 'Todavía sin armar'], ['Jue 29/10', 'espera', 'Todavía sin armar']];
+
+// ------------------------------------------------------------------ utilidades
+const $ = (s) => document.querySelector(s);
+const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const chip = (s) => `<span class="chip" style="background:var(--s-${COLOR[s] ?? 'pais'})">${esc(s)}</span>`;
+let RUTA = (location.hash || '#/inicio');
+const ir = (h) => { RUTA = h; try { if (location.hash !== h) location.hash = h; } catch { /* sin barra de direcciones */ } ruta(); };
+const frase = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+let tt;
+function toast(t) { const e = $('#toast'); e.textContent = t; e.hidden = false; clearTimeout(tt); tt = setTimeout(() => { e.hidden = true; }, 3800); }
+
+/** Confirma antes de algo que cuesta deshacer: una hoja desde abajo, con "Cancelar" enfocado. */
+function confirmar({ titulo, texto, si = 'Sí', no = 'Cancelar', motivo = null, peligro = false }) {
+  return new Promise((listo) => {
+    const velo = document.createElement('div');
+    velo.className = 'velo';
+    velo.innerHTML = `<div class="hoja" role="dialog" aria-modal="true"><h3>${esc(titulo)}</h3><p>${esc(texto)}</p>
+      ${motivo ? `<label for="mot">${esc(motivo)}</label><textarea id="mot" rows="3" maxlength="200"></textarea>` : ''}
+      <div class="botones"><button class="boton ${peligro ? 'peligro' : 'principal'}" data-r="si">${esc(si)}</button><button class="boton" data-r="no" ${motivo ? '' : 'autofocus'}>${esc(no)}</button></div></div>`;
+    document.body.append(velo);
+    const cerrar = (r) => { const v = velo.querySelector('#mot')?.value.trim() ?? ''; if (r && motivo && !v) { velo.querySelector('#mot').focus(); toast('Hace falta escribir el motivo.'); return; } velo.remove(); listo({ ok: r, texto: v }); };
+    velo.addEventListener('click', (ev) => { const b = ev.target.closest('[data-r]'); if (b) cerrar(b.dataset.r === 'si'); else if (ev.target === velo) cerrar(false); });
+    velo.querySelector('[autofocus]')?.focus();
+  });
+}
+
+/** Con mala conexión una decisión no se pierde: queda en el celular. */
+function guardar(texto) {
+  if (E.offline) { E.pendientesDeEnviar += 1; pintarAvisos(); toast('Guardado en el celular. Se manda cuando vuelva la señal.'); return false; }
+  toast(texto); return true;
+}
+
+// ------------------------------------------------------------------ la salud
+function salud() {
+  const filas = [];
+  const aviso = [];
+  filas.push({ e: 'ok', t: 'La web', d: 'Se armó hace 12 minutos. La próxima actualización, a las 15:30.' });
+  if (E.semaforo === 'verde') {
+    filas.push({ e: 'ok', t: 'Redes', d: 'Hoy salieron 5 de 7 piezas. Las otras 2 todavía no es su hora.' });
+    filas.push({ e: 'ok', t: 'Inteligencia artificial', d: 'Pedidos de hoy: 75 de 450 (17 %). Voz: 6 de 10 audios.' });
+  } else if (E.semaforo === 'amarillo') {
+    filas.push({ e: 'aten', t: 'Redes', d: 'No salió el video de “Un día como hoy” de las 09:00.' });
+    filas.push({ e: 'aten', t: 'Inteligencia artificial', d: 'Pedidos de hoy: 372 de 450 (83 %). Si se acaban, las notas nuevas quedan sin texto hasta mañana.' });
+  } else {
+    filas.push({ e: 'mal', t: 'Redes', d: 'No salió la historia de Instagram del repaso de la mañana. El video sí salió.' });
+    filas.push({ e: 'ok', t: 'Inteligencia artificial', d: 'Pedidos de hoy: 75 de 450 (17 %). Voz: 6 de 10 audios.' });
+  }
+  filas.push({ e: 'ok', t: 'Minutos de armado de la web', d: 'Este mes se usaron 2.610 de 6.000 (43 %). Cierra el 10/11.' });
+  if (E.semaforo === 'verde') filas.push({ e: 'ok', t: 'Avisos del vigilante', d: 'No hay ninguno abierto.' });
+  else filas.push({ e: E.semaforo === 'rojo' ? 'mal' : 'aten', t: 'Avisos del vigilante', d: E.semaforo === 'rojo' ? '7 abiertos, 1 grave (la historia de Instagram). Los otros 6 son de “Un día como hoy”, las piezas fijas de Participá que vencen el 31/10 y el mes de efemérides que falta armar.' : '2 abiertos: las piezas fijas de Participá vencen el 31/10 y falta armar las efemérides del mes que viene.' });
+  filas.push({ e: E.semaforo === 'rojo' ? 'aten' : 'ok', t: 'Para mirar', d: E.semaforo === 'rojo' ? '2 avisos graves de la revisión de la IA sobre notas ya publicadas.' : 'La revisión no marcó nada grave.' });
+  let color = E.semaforo; let quien = { verde: 'Todo anda', amarillo: 'Hay algo para mirar', rojo: 'Algo no anda' }[color];
+  let f = { verde: 'La web y las redes salen con normalidad.', amarillo: 'Hay 2 cosas para mirar, pero nada urgente.', rojo: 'Falló una historia de Instagram.' }[color];
+  if (E.pausa) { color = 'gris'; quien = 'En pausa'; f = 'Está todo frenado: no sale nada nuevo.'; filas.unshift({ e: 'espera', t: 'Pausa general', d: 'Prendida desde las 14:10 por Hernán. La web ya publicada sigue en pie.' }); }
+  aviso.push(color);
+  return { filas, color, quien, f };
+}
+
+// ------------------------------------------------------------------ pantallas
+const V = {};
+V.inicio = () => {
+  const s = salud();
+  const cola = esperan.length;
+  return `<h1>Hoy, sábado 24</h1>
+    <button class="semaforo ${s.color}" data-go="#/salud"><span class="luz">${{ verde: '✓', amarillo: '!', rojo: '✕', gris: 'II' }[s.color]}</span>
+      <span><span class="quien">${s.quien}</span><div class="frase">${esc(s.f)}</div><div class="mas">Ver el detalle</div></span><span class="flecha">›</span></button>
+    <div class="grandes">
+      <button class="grande" data-go="#/decidir"><span class="num ${cola ? '' : 'ok'}">${cola || '✓'}</span><span><div class="t">Decidir lo que espera</div><div class="d">${cola ? `${frase(cola, 'nota espera', 'notas esperan')} tu OK` : 'No hay nada esperando'}</div></span><span class="flecha">›</span></button>
+      <button class="grande" data-go="#/salio"><span class="num suave">${salieron.length}</span><span><div class="t">Qué salió y qué no</div><div class="d">${salieron.length} publicadas hoy · ${noSalieron.length} muy contadas sin salir</div></span><span class="flecha">›</span></button>
+      <button class="grande" data-go="#/notas"><span class="num suave">✎</span><span><div class="t">Corregir o retirar una nota</div><div class="d">Buscá por título</div></span><span class="flecha">›</span></button>
+      <button class="grande" data-go="#/foto"><span class="num ${sinFoto.length ? '' : 'ok'}">${sinFoto.length || '✓'}</span><span><div class="t">Sumar una foto</div><div class="d">${sinFoto.length ? `${frase(sinFoto.length, 'nota sin foto', 'notas sin foto')}` : 'Todas tienen foto'}</div></span><span class="flecha">›</span></button>
+    </div>
+    <h2 style="margin-top:18px">Pausa y actualización</h2>
+    <div class="fila-botones">
+      <button class="boton ${E.pausa ? 'verde' : 'peligro'}" data-act="pausa">${E.pausa ? 'Reanudar todo' : 'Pausa general'}</button>
+      <button class="boton" data-act="actualizar" ${E.pausa ? 'disabled' : ''}>Actualizar la web ahora</button>
+    </div>
+    <p class="chico">${E.pausa ? 'Con la pausa prendida no se arma la web ni salen las redes.' : 'La pausa frena la web nueva, las redes y la IA. Lo ya publicado sigue en pie.'}</p>
+    <div class="datos">
+      <div class="dato"><b>hace 12 min</b><span>última actualización de la web</span></div>
+      <div class="dato"><b>31</b><span>notas publicadas hoy</span></div>
+      <div class="dato"><b>17 %</b><span>pedidos a la IA usados hoy</span></div>
+      <div class="dato"><b>43 %</b><span>minutos de armado del mes</span></div>
+    </div>`;
+};
+
+V.salud = () => {
+  const s = salud();
+  return `<button class="volver" data-go="#/inicio">‹ Inicio</button><h1>Cómo está todo</h1>
+    <button class="semaforo ${s.color}" style="cursor:default"><span class="luz">${{ verde: '✓', amarillo: '!', rojo: '✕', gris: 'II' }[s.color]}</span><span><span class="quien">${s.quien}</span><div class="frase">${esc(s.f)}</div></span><span></span></button>
+    <div class="caja">${s.filas.map((x) => `<div class="estado-fila"><span class="ic ${x.e}">${{ ok: '✓', aten: '!', mal: '✕', espera: 'II' }[x.e]}</span><span><b>${esc(x.t)}</b><span class="que">${esc(x.d)}</span></span></div>`).join('')}</div>
+    <p class="chico">Costo fijo: US$ 5 por mes (Cloudflare). Todo lo demás corre en planes gratis; lo que se agota primero son los pedidos a la IA y los minutos de armado. Datos de ejemplo.</p>
+    ${E.semaforo === 'rojo' ? '<button class="boton" data-go="#/redes">Ver las redes de hoy</button>' : ''}`;
+};
+
+V.decidir = () => `<h1>Para decidir</h1><p class="suave">Las notas que el sistema no publica solo. Se decide de a una.</p>
+  ${esperan.length ? esperan.map((n) => `<button class="tarjeta" style="--franja:var(--s-${COLOR[n.seccion] ?? 'pais'})" data-go="#/decidir/${n.id}">${chip(n.seccion)}<span class="chico">${n.hace}</span>
+    <div class="titulo">${esc(n.titulo)}</div><span class="motivo">${esc(n.motivo)}</span></button>`).join('')
+    : '<p class="vacio">✓ No hay nada esperando. Todo en orden.</p>'}
+  <p class="chico">Lo que no se decide en 48 horas se va solo de la lista.</p>`;
+
+V.decidirUna = (id) => {
+  const n = esperan.find((x) => x.id === id);
+  if (!n) return V.decidir();
+  return `<button class="volver" data-go="#/decidir">‹ Volver</button>
+    <p>${chip(n.seccion)}<span class="chico">${n.hace} · ${frase(n.medios, 'medio la cuenta', 'medios la cuentan')}</span></p>
+    <h1>${esc(n.titulo)}</h1>
+    <div class="caja aviso"><b>Por qué espera:</b> ${esc(n.motivo)}. ${n.seccion === 'Policiales' ? 'Las notas policiales con nombres o heridos no salen sin que una persona las lea.' : 'Con un solo medio hay que ser prudente.'}</div>
+    <div class="caja"><b>Foto:</b> ${esc(n.foto)}</div>
+    <details><summary>Qué cuenta cada medio (${n.cuentan.length})</summary>${n.cuentan.map(([m, t]) => `<p><b>${esc(m)}</b><br>${esc(t)}</p>`).join('')}</details>
+    <div style="height:150px"></div>
+    <div class="esc" style="position:fixed;left:0;right:0;bottom:calc(66px + env(safe-area-inset-bottom));z-index:7;background:var(--papel);border-top:1px solid var(--linea);padding:12px 16px;margin:0;">
+      <div class="fila-botones" style="max-width:640px;margin:0 auto"><button class="boton peligro" data-act="descartar" data-id="${n.id}">Descartar</button><button class="boton principal" data-act="publicar" data-id="${n.id}">Publicar</button></div>
+      <button class="boton link" style="margin:4px 0 0" data-act="mas-opciones" data-id="${n.id}">Otras opciones: escribirla yo, pedir que la IA la revise</button></div>`;
+};
+
+V.resultado = (titulo, texto, siguiente) => `<div class="resultado"><div class="ico">✓</div><h1>${esc(titulo)}</h1><p>${esc(texto)}</p></div>
+  ${siguiente?.hash ? `<button class="boton principal" data-go="${siguiente.hash}">${esc(siguiente.texto)}</button>` : ''}
+  <button class="boton" data-go="#/inicio">Volver al inicio</button>`;
+
+V.salio = (tab = 'salieron') => `<h1>Qué salió y qué no</h1>
+  <div class="sub"><button data-go="#/salio/salieron" aria-current="${tab === 'salieron'}">Salieron (${salieron.length})</button><button data-go="#/salio/no" aria-current="${tab === 'no'}">No salieron (${noSalieron.length})</button></div>
+  ${tab === 'salieron' ? `<p class="suave">Lo publicado hoy, lo último arriba.</p>${salieron.map((n) => `<button class="tarjeta" style="--franja:var(--s-${COLOR[n.seccion] ?? 'pais'})" data-go="#/nota/${n.id}">${chip(n.seccion)}<span class="chico">${n.hora} · ${frase(n.medios, 'medio', 'medios')}</span><div class="titulo">${esc(n.titulo)}</div></button>`).join('')}`
+    : `<div class="caja"><b>Hoy llegaron 1.274 historias y salieron 25.</b><p class="chico">Acá van las que contaron muchos medios (8 o más) y no salieron, con el motivo.</p></div>
+      ${noSalieron.map((n) => `<div class="tarjeta" style="--franja:var(--s-${COLOR[n.seccion] ?? 'pais'});cursor:default">${chip(n.seccion)}<span class="chico">${frase(n.medios, 'medio', 'medios')}</span><div class="titulo">${esc(n.titulo)}</div><span class="motivo ${n.clase}">${esc(n.motivo)}</span>
+        ${n.ya ? '' : `<button class="boton" style="margin:10px 0 0" data-act="salir-igual" data-id="${n.id}">${n.clase === 'rojo' ? 'Verla y decidir' : 'Pedir que salga igual'}</button>`}</div>`).join('')}
+      <p class="chico">Prototipo: «Pedir que salga igual» necesita un cambio en el robot (etapa 4 del plan).</p>`}`;
+
+V.notas = (q = '') => {
+  const lista = notas.filter((n) => !q || n.titulo.toLowerCase().includes(q.toLowerCase()));
+  return `<h1>Notas</h1><p class="suave">Buscá una nota publicada para corregirla o retirarla.</p>
+    <input type="search" id="q" placeholder="Buscar por título" value="${esc(q)}" aria-label="Buscar"><div style="height:12px"></div>
+    ${lista.map((n) => `<button class="tarjeta" style="--franja:var(--s-${COLOR[n.seccion] ?? 'pais'})" data-go="#/nota/${n.id}">${chip(n.seccion)}<span class="chico">${n.hora}</span><div class="titulo">${esc(n.titulo)}</div></button>`).join('') || '<p class="vacio">No hay nada con eso.</p>'}
+    ${E.retiradas.length ? `<h2>Retiradas hoy</h2>${E.retiradas.map((n) => `<div class="tarjeta" style="cursor:default">${chip(n.seccion)}<div class="titulo">${esc(n.titulo)}</div><span class="motivo">Retirada: ${esc(n.motivoRetiro)}</span><button class="boton" style="margin:10px 0 0" data-act="volver-a-publicar" data-id="${n.id}">Volver a publicar</button></div>`).join('')}` : ''}`;
+};
+
+V.nota = (id) => {
+  const n = notas.find((x) => x.id === id);
+  if (!n) return V.notas();
+  return `<button class="volver" data-go="#/notas">‹ Notas</button><p>${chip(n.seccion)}<span class="chico">${n.hora} · ${frase(n.medios, 'medio', 'medios')}</span></p>
+    <h1>${esc(n.titulo)}</h1><div class="caja"><p><b>${esc(n.resumen)}</b></p><p>${esc(n.cuerpo)}</p></div>
+    <div class="caja"><b>Qué le pasó:</b> entró de ${n.medios} medios, salió sola a las ${n.hora} y no tuvo correcciones. <a href="#" data-act="ver-web">Ver en la web ↗</a></div>
+    <button class="boton principal" data-go="#/editar/${n.id}">Corregir</button>
+    <button class="boton" data-act="redes" data-id="${n.id}">Mandar también a las redes</button>
+    <button class="boton peligro" data-act="retirar" data-id="${n.id}">Retirar de la web</button>`;
+};
+
+V.editar = (id) => {
+  const n = notas.find((x) => x.id === id);
+  return `<button class="volver" data-go="#/nota/${id}">‹ Volver</button><h1>Corregir la nota</h1>
+    <label for="t1">Título</label><input type="text" id="t1" value="${esc(n.titulo)}">
+    <label for="t2">Resumen (debajo del título)</label><textarea id="t2">${esc(n.resumen)}</textarea>
+    <label for="t3">Texto <span class="chico" id="cuenta"></span></label><textarea id="t3" class="cuerpo">${esc(n.cuerpo)}</textarea>
+    <label for="t4">Sección</label><select id="t4">${SECCIONES.map((s) => `<option ${s === n.seccion ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select>
+    <div style="height:16px"></div><button class="boton principal" data-act="guardar-edicion" data-id="${id}">Guardar los cambios</button>
+    <p class="chico">Los cambios se ven en la web en la próxima actualización. La dirección de la nota no cambia.</p>`;
+};
+
+V.foto = () => `<h1>Sumar una foto</h1><p class="suave">Notas de hoy que quedaron sin foto.</p>
+  ${sinFoto.length ? sinFoto.map((n) => `<button class="tarjeta" style="--franja:var(--s-${COLOR[n.seccion] ?? 'pais'})" data-go="#/foto/${n.id}">${chip(n.seccion)}<div class="titulo">${esc(n.titulo)}</div><span class="motivo ${n.firme ? 'rojo' : ''}">${esc(n.motivo)}</span></button>`).join('') : '<p class="vacio">✓ Todas las notas tienen foto.</p>'}`;
+
+V.fotoUna = (id) => {
+  const n = sinFoto.find((x) => x.id === id);
+  if (!n) return V.foto();
+  return `<button class="volver" data-go="#/foto">‹ Volver</button><h1>${esc(n.titulo)}</h1>
+    ${n.firme ? `<div class="caja aviso"><b>Ojo:</b> ${esc(n.motivo)}. Sólo se suma una foto oficial o propia.</div>` : ''}
+    <label for="arch">La foto (de la galería del celular)</label>
+    <input type="file" id="arch" accept="image/*" style="min-height:56px;padding:12px;border:1.5px dashed var(--linea);border-radius:14px;width:100%;background:var(--papel)">
+    <img id="prev" class="foto-prev" alt="" hidden>
+    <label for="cred">Quién la sacó o de dónde es</label><input type="text" id="cred" placeholder="Municipalidad de Balcarce" maxlength="80">
+    <div style="height:14px"></div><label class="check"><input type="checkbox" id="ok"> La foto no tiene marca de agua de otro medio ni chicos que se reconozcan.</label>
+    <div style="height:16px"></div><button class="boton principal" data-act="sumar-foto" data-id="${id}">Sumar la foto</button>
+    <p class="chico">Se achica en el celular antes de mandarla. Sale en la próxima actualización.</p>`;
+};
+
+V.mas = () => `<h1>Más</h1>
+  ${[['#/redes', 'Redes de hoy', 'Qué salió en Facebook e Instagram y qué no'], ['#/propia', 'Nota propia', 'Pegá un dato o un comunicado y hacé una nota'], ['#/efemerides', 'Efemérides del mes', 'Aprobar o sacar “Un día como hoy”'], ['#/numeros', 'Números', 'Cuánta gente lee y qué lee'], ['#/revision', 'Revisión de la IA', '2 avisos graves para mirar'], ['#/ayuda', 'Ayuda', 'Cómo se usa cada pantalla']]
+    .map(([h, t, d]) => `<button class="grande" style="min-height:72px;margin-bottom:10px" data-go="${h}"><span class="num suave">›</span><span><div class="t">${t}</div><div class="d">${d}</div></span><span class="flecha"></span></button>`).join('')}
+  <h2>Probar el prototipo</h2>
+  <div class="caja"><p><b>Semáforo</b></p><div class="fila-botones"><button class="boton" data-act="estado" data-v="verde">Verde</button><button class="boton" data-act="estado" data-v="amarillo">Amarillo</button></div><button class="boton" style="margin-top:10px" data-act="estado" data-v="rojo">Rojo (como hoy)</button>
+    <p><b>Otros estados</b></p><button class="boton" data-act="senal">${E.offline ? 'Volver la señal' : 'Simular que no hay señal'}</button>
+    <p><b>Colores</b></p><div class="fila-botones"><button class="boton" data-act="tema" data-v="light">Claro</button><button class="boton" data-act="tema" data-v="dark">Oscuro</button></div><button class="boton link" data-act="tema" data-v="auto">Como el teléfono</button></div>
+  <button class="boton peligro" data-act="salir">Salir y borrar la llave de este celular</button>`;
+
+V.redes = () => `<button class="volver" data-go="#/mas">‹ Más</button><h1>Redes de hoy</h1>
+  <p class="suave">Cada pieza, a su hora. No se reintenta desde acá todavía: si falló, el motivo está abajo.</p>
+  <div class="caja">${redes.map((r) => `<div class="estado-fila"><span class="ic ${r.e}">${{ ok: '✓', aten: '!', mal: '✕', espera: 'II' }[r.e]}</span><span><b>${r.h} · ${esc(r.q)}</b><span class="que">${esc(r.t)}</span></span></div>`).join('')}</div>`;
+
+V.numeros = () => {
+  const d = [310, 355, 402, 388, 450, 421, 412]; const m = Math.max(...d);
+  return `<button class="volver" data-go="#/mas">‹ Más</button><h1>Números</h1><p class="suave">Visitas medidas por Cloudflare, sin cookies. Son aproximadas.</p>
+    <div class="datos"><div class="dato"><b>412</b><span>visitas ayer (+8 % contra la semana anterior)</span></div><div class="dato"><b>31</b><span>notas publicadas hoy</span></div><div class="dato"><b>53</b><span>seguidores en Facebook</span></div><div class="dato"><b>7</b><span>seguidores en Instagram</span></div></div>
+    <h2>Últimos 7 días</h2><div class="dias">${d.map((v) => `<i style="height:${Math.round(v / m * 100)}%"></i>`).join('')}</div><div class="dias-et">${['S', 'D', 'L', 'M', 'M', 'J', 'V'].map((x) => `<span>${x}</span>`).join('')}</div>
+    <h2>Qué sección se lee más</h2><ul class="barras">${[['Balcarce', 46], ['Fútbol', 21], ['Política', 14], ['Economía', 9]].map(([s, v]) => `<li><div class="l"><span>${s}</span><b>${v} %</b></div><div class="f"><i style="width:${v * 2}%"></i></div></li>`).join('')}</ul>
+    <h2>De dónde llegan</h2><ul class="barras">${[['Facebook', 52], ['Google', 22], ['Directo o WhatsApp', 20], ['Instagram', 6]].map(([s, v]) => `<li><div class="l"><span>${s}</span><b>${v} %</b></div><div class="f"><i style="width:${v}%"></i></div></li>`).join('')}</ul>
+    <button class="boton" data-act="reporte">Cómo cayó la selección (reporte completo) ↗</button>`;
+};
+
+V.propia = () => `<button class="volver" data-go="#/mas">‹ Más</button><h1>Nota propia</h1><p class="suave">Pegá un dato, un comunicado o un enlace. Primero se mira quién más lo cuenta; después se escribe la nota.</p>
+  <label for="dato">El dato</label><textarea id="dato" placeholder="Pegá acá el texto o el enlace"></textarea>
+  <div style="height:12px"></div><button class="boton principal" data-act="mirar-dato">Ver quién más lo cuenta</button><div id="dato-res"></div>`;
+
+V.efemerides = () => `<button class="volver" data-go="#/mas">‹ Más</button><h1>Efemérides del mes</h1><p class="suave">“Un día como hoy”, tal como va a salir. Lo que no se aprueba no sale.</p>
+  ${efem.map(([d, e, t]) => `<div class="tarjeta" style="cursor:default"><b>${d}</b> <span class="motivo ${e === 'ok' ? 'verde' : ''}" style="display:inline-block;margin:0 0 0 8px">${t}</span>
+    ${e === 'espera' ? '' : `<div class="fila-botones" style="margin-top:10px"><button class="boton ${e === 'ok' ? '' : 'principal'}" data-act="efem" data-v="aprobar">Aprobar</button><button class="boton peligro" data-act="efem" data-v="sacar">Sacar</button></div>`}</div>`).join('')}`;
+
+V.revision = () => `<button class="volver" data-go="#/mas">‹ Más</button><h1>Revisión de la IA</h1><p class="suave">Lo que una IA marcó al releer notas ya publicadas. Lo grave llega además por mail.</p>
+  <div class="tarjeta" style="--franja:var(--rojo);cursor:default"><span class="chip" style="background:var(--rojo)">Grave</span><div class="titulo">Avanzan los trabajos de refacción en el Hospital Municipal</div><span class="motivo rojo">Afirmación sin sostén: el texto dice que terminan en diciembre y las fuentes no lo dicen.</span><button class="boton" style="margin:10px 0 0" data-go="#/nota/s3">Abrir la nota</button></div>
+  <div class="tarjeta" style="--franja:var(--rojo);cursor:default"><span class="chip" style="background:var(--rojo)">Grave</span><div class="titulo">Allanan una vivienda por una causa de amenazas</div><span class="motivo rojo">Tema sensible: puede nombrar a un menor.</span><button class="boton" style="margin:10px 0 0" data-act="retirar-ya">Retirar ahora</button></div>`;
+
+V.ayuda = () => `<button class="volver" data-go="#/mas">‹ Más</button><h1>Ayuda</h1>
+  <details open><summary>¿Cuándo se ve en la web lo que decido?</summary><p>Se guarda al instante y sale en la próxima actualización, que es cada media hora. Si no querés esperar, tocá «Actualizar la web ahora» en el inicio (tarda unos 8 minutos).</p></details>
+  <details><summary>¿Qué frena la pausa general?</summary><p>La web nueva, las redes y todo lo que gasta IA. No frena a los avisos ni al panel. Lo ya publicado sigue en pie.</p></details>
+  <details><summary>¿Y si no tengo señal?</summary><p>El panel abre con lo último que viste. Lo que decidas queda guardado en el celular y se manda cuando vuelva la señal.</p></details>
+  <details><summary>Seguridad</summary><p>Lo que espera a una persona llega cifrado: sólo los celulares registrados lo pueden leer. La llave de GitHub queda sólo en este celular; si lo perdés, borrala en GitHub.</p></details>
+  <button class="boton" data-act="actualizar-panel">Actualizar el panel (si algo se ve viejo)</button>`;
+
+// ------------------------------------------------------------------ router
+function ruta() {
+  const [, a = 'inicio', b = ''] = RUTA.split('/');
+  const clave = a || 'inicio';
+  let html;
+  if (clave === 'decidir') html = b ? V.decidirUna(b) : V.decidir();
+  else if (clave === 'salio') html = V.salio(b || 'salieron');
+  else if (clave === 'nota') html = V.nota(b);
+  else if (clave === 'editar') html = V.editar(b);
+  else if (clave === 'foto') html = b ? V.fotoUna(b) : V.foto();
+  else if (clave === 'listo') { const l = E.listo ? [...E.listo] : null; if (l && E.offline) { l[0] = 'Guardado en el celular'; l[1] = 'Se manda solo cuando vuelva la señal. Mientras tanto no cambia nada en la web.'; } html = l ? V.resultado(...l) : V.inicio(); }
+  else html = (V[clave] ?? V.inicio)();
+  $('#v').innerHTML = html;
+  window.scrollTo(0, 0);
+  pestanas(clave);
+  const t3 = $('#t3'); if (t3) { const c = () => { const p = t3.value.trim().split(/\s+/).filter(Boolean).length; $('#cuenta').textContent = `${p} palabras`; }; t3.addEventListener('input', c); c(); }
+  const arch = $('#arch'); if (arch) arch.addEventListener('change', () => { const f = arch.files[0]; if (f) { const im = $('#prev'); im.src = URL.createObjectURL(f); im.hidden = false; } });
+}
+const ICONOS = {
+  inicio: '<svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>',
+  decidir: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></svg>',
+  notas: '<svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M9 9h6M9 13h6"/></svg>',
+  mas: '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>',
+};
+function pestanas(clave) {
+  const grupo = { inicio: 'inicio', salud: 'inicio', salio: 'inicio', listo: 'inicio', decidir: 'decidir', notas: 'notas', nota: 'notas', editar: 'notas', foto: 'inicio' }[clave] ?? 'mas';
+  $('#nav').innerHTML = [['inicio', 'Inicio'], ['decidir', 'Decidir'], ['notas', 'Notas'], ['mas', 'Más']].map(([id, t]) => `<button data-go="#/${id}" ${grupo === id ? 'aria-current="page"' : ''}>${ICONOS[id]}${id === 'decidir' && esperan.length ? `<span class="globo">${esperan.length}</span>` : ''}${t}</button>`).join('');
+}
+function pintarAvisos() {
+  const p = $('#aviso-pausa');
+  p.hidden = !E.pausa;
+  p.innerHTML = '<b>PAUSA GENERAL prendida</b> desde las 14:10 (Hernán). No sale nada nuevo.<br><button data-act="pausa">Reanudar todo</button>';
+  $('#aviso-senal').hidden = !E.offline;
+  const c = $('#pend'); c.hidden = !E.pendientesDeEnviar; c.textContent = `${E.pendientesDeEnviar} sin mandar`;
+}
+function tema() { if (E.tema === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', E.tema); }
+
+// ------------------------------------------------------------------ acciones
+document.addEventListener('click', async (ev) => {
+  const go = ev.target.closest('[data-go]');
+  if (go && !ev.target.closest('[data-act]')) { ir(go.dataset.go); return; }
+  const el = ev.target.closest('[data-act]');
+  if (!el) return;
+  ev.preventDefault();
+  const id = el.dataset.id; const a = el.dataset.act;
+  const sig = () => (esperan.length ? { hash: '#/decidir', texto: `Siguiente nota (quedan ${esperan.length})` } : null);
+  if (a === 'publicar') {
+    const r = await confirmar({ titulo: '¿Publicarla?', texto: 'La IA la escribe (tarda un minuto) y se controla contra las fuentes. Si el control no encuentra problemas, sale en la próxima actualización (15:30). Si encuentra algo, te la muestra para que decidas.', si: 'Sí, publicarla' });
+    if (!r.ok) return;
+    esperan = esperan.filter((n) => n.id !== id); guardar('Pedido. La IA la está escribiendo.');
+    E.listo = ['Se está escribiendo', 'La IA la escribe y sale en la próxima actualización, hacia las 15:30. Podés seguir con otra.', sig()]; ir('#/listo');
+  } else if (a === 'descartar') {
+    const r = await confirmar({ titulo: '¿Descartarla?', texto: 'Se saca de la lista. Si te equivocás, la podés volver a traer mientras siga en las noticias del día.', si: 'Sí, descartarla', peligro: true });
+    if (!r.ok) return;
+    esperan = esperan.filter((n) => n.id !== id); guardar('Descartada.');
+    E.listo = ['Descartada', 'Ya no está en la lista.', sig()]; ir('#/listo');
+  } else if (a === 'mas-opciones') toast('Acá irían: escribirla a mano, o pedirle a la IA una versión para leer antes de publicar.');
+  else if (a === 'retirar') {
+    const r = await confirmar({ titulo: '¿Retirar la nota de la web?', texto: 'Deja de verse en la próxima actualización. No se borra: la podés volver a publicar durante 24 horas. Si ya salió en Facebook o Instagram, allá hay que borrarla a mano.', si: 'Sí, retirarla', peligro: true, motivo: '¿Por qué la retirás?' });
+    if (!r.ok) return;
+    const n = notas.find((x) => x.id === id); E.retiradas.push({ ...n, motivoRetiro: r.texto });
+    guardar('Retirada.'); E.listo = ['Retirada', 'Sale de la web en la próxima actualización. La encontrás en Notas → Retiradas hoy, por si te equivocaste.', null]; ir('#/listo');
+  } else if (a === 'volver-a-publicar') { E.retiradas = E.retiradas.filter((n) => n.id !== id); guardar('Vuelve a la web en la próxima actualización, con la misma dirección.'); ir('#/notas'); }
+  else if (a === 'guardar-edicion') { guardar('Cambios guardados.'); E.listo = ['Cambios guardados', 'Se ven en la web en la próxima actualización. La dirección de la nota no cambia.', null]; ir('#/listo'); }
+  else if (a === 'redes') { const r = await confirmar({ titulo: '¿Mandarla a las redes?', texto: 'Sale en el próximo posteo de Facebook que permitan las reglas (hasta 5 por día, 90 minutos entre uno y otro).', si: 'Sí, mandarla' }); if (r.ok) guardar('En la cola de las redes.'); }
+  else if (a === 'sumar-foto') {
+    if (!$('#arch').files[0]) { toast('Elegí primero la foto.'); return; }
+    if (!$('#cred').value.trim()) { toast('Falta decir quién la sacó o de dónde es.'); return; }
+    if (!$('#ok').checked) { toast('Tildá la confirmación de la foto.'); return; }
+    const r = await confirmar({ titulo: '¿Sumar esta foto?', texto: `Sale en la nota con el crédito “${$('#cred').value.trim()}” en la próxima actualización.`, si: 'Sí, sumarla' });
+    if (!r.ok) return;
+    sinFoto = sinFoto.filter((n) => n.id !== id); guardar('Foto sumada.');
+    E.listo = ['Foto sumada', 'Sale en la nota en la próxima actualización.', sinFoto.length ? { hash: '#/foto', texto: `Otra nota sin foto (quedan ${sinFoto.length})` } : null]; ir('#/listo');
+  } else if (a === 'pausa') {
+    if (!E.pausa) {
+      const r = await confirmar({ titulo: '¿Pausar todo?', texto: 'Se frena la web nueva, las redes y todo lo que usa IA. Lo ya publicado sigue en pie y los avisos siguen andando. Se reanuda con un toque.', si: 'Sí, pausar todo', peligro: true });
+      if (!r.ok) return;
+      E.pausa = true; toast('Pausa prendida.');
+    } else { E.pausa = false; toast('Se reanuda: la próxima actualización sale sola.'); }
+    pintarAvisos(); ruta();
+  } else if (a === 'actualizar') {
+    const r = await confirmar({ titulo: '¿Actualizar la web ahora?', texto: 'Se arma una actualización fuera de hora. Tarda unos 8 minutos en estar en la web. Si ya pediste una hace menos de 3 minutos, hay que esperar.', si: 'Sí, actualizar' });
+    if (r.ok) guardar('Pedido. Estará en la web hacia las 14:25.');
+  } else if (a === 'estado') { E.semaforo = el.dataset.v; toast(`Semáforo: ${el.dataset.v}.`); }
+  else if (a === 'senal') { E.offline = !E.offline; pintarAvisos(); ruta(); }
+  else if (a === 'tema') { E.tema = el.dataset.v; tema(); }
+  else if (a === 'salir') toast('En el panel de verdad: borra la llave y lo guardado en este celular.');
+  else if (a === 'mirar-dato') {
+    if (($('#dato').value || '').trim().length < 20) { toast('Pegá al menos una frase.'); return; }
+    $('#dato-res').innerHTML = `<div class="caja" style="margin-top:14px"><b>3 medios lo cuentan</b> (el más viejo, hace 2 horas). Nosotros todavía no lo tenemos.</div><button class="boton principal" data-act="hacer-nota">Hacer la nota</button>`;
+  } else if (a === 'hacer-nota') { toast('La IA está escribiendo (1 o 2 minutos). Te aviso cuando esté.'); }
+  else if (a === 'efem') toast(el.dataset.v === 'aprobar' ? 'Aprobado.' : 'Sacado: ese día no sale.');
+  else if (a === 'salir-igual') toast('Pedido anotado: la próxima actualización la escribe.');
+  else if (a === 'retirar-ya') { const r = await confirmar({ titulo: '¿Retirar la nota ahora?', texto: 'Deja de verse en la próxima actualización.', si: 'Sí, retirarla', peligro: true, motivo: '¿Por qué?' }); if (r.ok) guardar('Retirada.'); }
+  else if (a === 'actualizar-panel') { toast('Panel actualizado.'); }
+  else if (a === 'reporte' || a === 'ver-web') toast('Este enlace no está en el prototipo.');
+  if (a === 'estado') ruta();
+});
+document.addEventListener('input', (ev) => { if (ev.target.id !== 'q') return; const p = ev.target.selectionStart; $('#v').innerHTML = V.notas(ev.target.value); const n = $('#q'); n.focus(); n.setSelectionRange(p, p); });
+window.addEventListener('hashchange', () => { if (location.hash === RUTA) return; RUTA = location.hash || '#/inicio'; ruta(); });
+pintarAvisos(); tema(); ruta();
+</script>
+</body>
+</html>
