@@ -216,7 +216,13 @@ export async function vuelta({
         entorno.FOTOS_R2_INDICE = rutaDelIndice(raiz);
         const leerLista = (ruta) => { try { return JSON.parse(fs.readFileSync(path.join(raiz, ruta), 'utf8')); } catch { return []; } };
         const archivoNotas = leerLista('web/data/archivo.json');
-        const nombres = fotosQueNecesitan(leerLista('web/data/portada.json')?.notas ?? [], Array.isArray(archivoNotas) ? archivoNotas : []).filter((n) => indiceR2.has(n)).slice(0, 800);
+        // Las ilustraciones más nuevas del libro van primero (regla 316): el Worker de tareas las sube a R2 y NO a git, y en esta misma vuelta una nota va a
+        // empezar a mostrarlas; sin traerlas, la tarjeta y la medida de esa nota saldrían sin foto hasta la vuelta siguiente.
+        let libroIA = {};
+        try { libroIA = JSON.parse(fs.readFileSync(path.join(raiz, 'web/data/fotos-ia.json'), 'utf8')) ?? {}; } catch { /* sin libro */ }
+        const ilustracionesNuevas = Object.values(libroIA).filter((e) => e?.archivo).sort((a, b) => String(b.cuando ?? '').localeCompare(String(a.cuando ?? ''))).slice(0, 40)
+          .map((e) => ({ foto: { archivo: e.archivo } }));
+        const nombres = fotosQueNecesitan(ilustracionesNuevas, leerLista('web/data/portada.json')?.notas ?? [], Array.isArray(archivoNotas) ? archivoNotas : []).filter((n) => indiceR2.has(n)).slice(0, 800);
         const h = await hidratar({ raiz, nombres, leer: lectorDeR2(depositoFotos), limiteSegundos: 150, ahora: () => ahora().getTime(), log });
         for (const n of h.bajadas) hidratadas.add(n);
         pasos['Traer las fotos de R2'] = { ok: true, segundos: Math.round((ahora().getTime() - tFotos) / 1000), bajadas: h.bajadas.size, faltan: h.faltan.length, fallaron: h.fallaron.length };

@@ -10,6 +10,8 @@
 //   · Lo que sólo pregunta "¿esa foto existe?" (generar-datos) mira también el índice de R2 (`FOTOS_R2_INDICE`): una nota no pierde su foto
 //     porque la foto no esté en disco.
 //   · Las fijas (las ilustraciones del clima y la de las efemérides) siguen en git: son pocas y la compilación las necesita siempre.
+//   · Todo programa que corre en un lugar sin las fotos (el armado de los reels, la revisión del archivo, las ilustraciones, el Worker de tareas) las trae con
+//     `traerFotos` / `traerFotosDeNotas` ANTES de usarlas (regla 316). Las ilustraciones nuevas del Worker de tareas se suben a R2 con `depositoDeBucket`.
 //
 // Sólo Node 24 (fetch, fs). Sin dependencias: lo usan la vuelta del motor, generar-datos y las redes.
 
@@ -213,17 +215,42 @@ export function idsRetiradosDe({ banco = {}, retiradas = {}, revision = {} } = {
   return ids;
 }
 
+/** Un depósito para `subirFotos` hecho con un R2 de un Worker (`env.ARCHIVO`, el depósito `radar-archivo` por binding, sin claves). */
+export const depositoDeBucket = (bucket) => ({
+  guardar: (clave, contenido, tipo) => bucket.put(clave, contenido, { httpMetadata: { contentType: tipo } }),
+});
+
+/** Un lector para un R2 de un Worker: los bytes de `fotos-notas/<nombre>` o null. */
+export const lectorDeBucket = (bucket) => async (nombre) => {
+  const o = await bucket.get(claveDeFoto(nombre));
+  return o ? new Uint8Array(await o.arrayBuffer()) : null;
+};
+
 /**
- * Para las redes (redes/publicar.mjs) y cualquier programa que arme imágenes con la foto de una nota: trae por la dirección pública del sitio
+ * Para todo programa que necesita FOTOS EN DISCO y corre en un lugar sin ellas (un clon pelado, un Worker, el armado de un reel): trae las fotos
+ * `nombres` que falten, por `leer` (un lector de R2: `lectorDeBucket`) o, si no se da, por la dirección pública del sitio, que sirve R2 cuando Pages no
+ * la tiene (`lectorPorUrl`, sin claves). SÓLO con FOTOS_EN_R2 prendida (apagada no hace nada: las fotos están en git). Nunca tira: lo que no se pudo
+ * traer queda en `faltan` o `fallaron` y quien llama sigue sin esa foto.
+ */
+export async function traerFotos({ raiz, nombres, sitio = 'https://radarbalcarce.com', env = process.env, fetchFn = fetch, leer = null, max = 80, limiteSegundos = 60, log = () => {} } = {}) {
+  if (!fotosEnR2Activas(env)) return { bajadas: new Set(), faltan: [], fallaron: [], salteadas: 0, activo: false };
+  try {
+    const h = await hidratar({ raiz, nombres: [...new Set(nombres ?? [])].slice(0, max), leer: leer ?? lectorPorUrl(sitio, { fetchFn }), limiteSegundos, log });
+    if (h.bajadas.size || h.faltan.length || h.fallaron.length) log(`Fotos traídas de ${leer ? 'R2' : sitio}: ${h.bajadas.size} (faltan ${h.faltan.length}, fallaron ${h.fallaron.length}).`);
+    return { ...h, activo: true };
+  } catch (e) { log(`(no se pudieron traer las fotos: ${e.message})`); return { bajadas: new Set(), faltan: [], fallaron: [], salteadas: 0, activo: true, error: e.message }; }
+}
+
+/** Lo mismo, con las fotos que muestran las notas dadas (las más nuevas primero). */
+export const traerFotosDeNotas = ({ notas, ...resto } = {}) => traerFotos({ ...resto, nombres: fotosQueNecesitan(notas ?? []) });
+
+/**
+ * Para las redes (redes/publicar.mjs, reels/plan.mjs) y cualquier programa que arme imágenes con la foto de una nota: trae por la dirección pública del sitio
  * (que sirve R2 cuando Pages no la tiene) las fotos de las notas de la portada que no están en disco. Sólo con FOTOS_EN_R2 prendida; nunca tira.
  */
 export async function traerFotosDeLaPortada({ raiz, sitio = 'https://radarbalcarce.com', env = process.env, fetchFn = fetch, max = 80, log = () => {} } = {}) {
   if (!fotosEnR2Activas(env)) return { bajadas: new Set(), activo: false };
-  try {
-    const portada = JSON.parse(fs.readFileSync(path.join(raiz, 'web', 'data', 'portada.json'), 'utf8'));
-    const nombres = fotosQueNecesitan(portada?.notas ?? []).slice(0, max);
-    const h = await hidratar({ raiz, nombres, leer: lectorPorUrl(sitio, { fetchFn }), limiteSegundos: 60, log });
-    if (h.bajadas.size || h.faltan.length || h.fallaron.length) log(`Fotos de la portada traídas de ${sitio}: ${h.bajadas.size} (faltan ${h.faltan.length}, fallaron ${h.fallaron.length}).`);
-    return { ...h, activo: true };
-  } catch (e) { log(`(no se pudieron traer las fotos de la portada: ${e.message})`); return { bajadas: new Set(), activo: true, error: e.message }; }
+  let notas = [];
+  try { notas = JSON.parse(fs.readFileSync(path.join(raiz, 'web', 'data', 'portada.json'), 'utf8'))?.notas ?? []; } catch (e) { log(`(no se pudieron traer las fotos de la portada: ${e.message})`); return { bajadas: new Set(), activo: true, error: e.message }; }
+  return traerFotosDeNotas({ raiz, notas, sitio, env, fetchFn, max, log });
 }

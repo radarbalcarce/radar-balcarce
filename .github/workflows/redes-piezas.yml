@@ -71,6 +71,10 @@ jobs:
           RENDER_REMOTO: 'Si'
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz
+          # FOTOS_EN_R2 ("Si", regla 316): las fotos del repaso viajan DENTRO del pedido (van en los SVG) y se leen del disco de este clon; con el
+          # interruptor prendido ya no están en git, así que reels/plan.mjs las trae del sitio antes de armar el plan. Vacía, no hace nada.
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+          SITIO: https://radarbalcarce.com
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}

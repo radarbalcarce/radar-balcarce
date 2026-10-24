@@ -88,8 +88,10 @@ jobs:
       - name: Subir el Worker de tareas
         if: env.QUE == 'todo' || env.QUE == 'tareas'
         working-directory: infra/tareas-cloudflare
-        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars --var "REDES_ACTIVAS:${REDES_EN_LA_NUBE}" --var "R2_ARCHIVO:${R2_ARCHIVO_NUBE}" --var "WORKFLOWS_EN_LA_NUBE:${NUBE}"
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars --var "REDES_ACTIVAS:${REDES_EN_LA_NUBE}" --var "R2_ARCHIVO:${R2_ARCHIVO_NUBE}" --var "WORKFLOWS_EN_LA_NUBE:${NUBE}" --var "FOTOS_EN_R2:${FOTOS_EN_R2_NUBE}"
         env:
+          # FOTOS_EN_R2 (regla 316): el Worker de tareas la necesita para traer de R2 las fotos que usa (ilustraciones) y para subir las nuevas. Vacía = apagada.
+          FOTOS_EN_R2_NUBE: ${{ vars.FOTOS_EN_R2 }}
           REDES_EN_LA_NUBE: ${{ vars.REDES_ACTIVAS_NUBE || 'No' }}
           R2_ARCHIVO_NUBE: ${{ vars.R2_ARCHIVO || 'radar-archivo' }}
 

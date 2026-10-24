@@ -140,6 +140,10 @@ jobs:
         env:
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz
+          # FOTOS_EN_R2 ("Si", regla 316): el repaso de los podcasts lee las fotos del disco y reels/plan.mjs las trae del sitio ANTES de armar el plan
+          # (no depende de que el paso de Facebook ya las haya bajado). Vacía, no hace nada.
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+          SITIO: https://radarbalcarce.com
 
       - name: Guardar la memoria de voces
         if: always() && hashFiles('.cache/voz/*.json') != ''

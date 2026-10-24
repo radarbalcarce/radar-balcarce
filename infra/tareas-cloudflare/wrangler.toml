@@ -48,6 +48,12 @@ bucket_name = "radar-render"
 binding = "MOTOR"
 bucket_name = "radar-motor"
 
+# El depósito de las fotos y el archivo permanente (fotos-notas/<archivo>): con FOTOS_EN_R2 en "Si" la tarea de ilustraciones sube ahí las ilustraciones nuevas (y no al
+# commit) y trae de ahí las que tiene que volver a mirar (infra/tareas-cloudflare/corredor.mjs y tareas.mjs, regla 316). Sin la variable no se usa.
+[[r2_buckets]]
+binding = "ARCHIVO"
+bucket_name = "radar-archivo"
+
 # El Worker que genera las imágenes (infra/imagenes-cloudflare/): se llama por binding, no por su dirección pública.
 [[services]]
 binding = "IMAGENES"

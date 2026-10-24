@@ -30,7 +30,7 @@ Estado real al 24/10 (`gh variable list`): ninguna de estas variables existe tod
 |---|---|---|---|
 | `TARJETAS_EN_R2` = Si | La memoria de las imágenes de las notas vive en R2: la compilación baja de ~180 a ~50 s (regla 312) | Los dos, cuando Claude diga que miró el registro de pasos | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` § 4 (paso 3) |
 | `MOTOR_NOCHE_CADA_HORA` = Si | De 23:00 a 6:59 una vuelta por hora (40 por día en vez de 48) | Los dos | Mismo documento (paso 4): **en el reloj y en el Worker del motor**, y después correr «Reloj de Cloudflare» |
-| `FOTOS_EN_R2` = Si | Las fotos nuevas van a R2 y no a git | Los dos, **después** de la ruta de fotos y de que Claude suba las que hay | `docs/etapa-10-operacion/FOTOS-EN-R2.md` (pasos 1 a 7) |
+| `FOTOS_EN_R2` = Si | Las fotos nuevas van a R2 y no a git | Los dos, **después** de la ruta de fotos y de que Claude suba las que hay | `docs/etapa-10-operacion/FOTOS-EN-R2.md` (fases 0 a 3: primero subir las fotos con el botón «Fotos a R2 (migración)», recién después la variable; al llevarla a Workers Builds, «Cargar variables del motor» con `simular` = `No`: por defecto trae `Si`, que deja el motor en ensayo y la web deja de publicar, como pasó el 24/10) |
 | `SITEMAP_DEL_ARCHIVO` = Si | El mapa de las notas viejas (R2) para Google | Los dos, al final | Subir el Worker del archivo, esperar una vuelta del exportador y recién ahí la variable (regla 310) |
 | `ENLACES_CORTOS` = Si | Enlaces cortos en Facebook (`radarbalcarce.com/r/f/<id>`) | Hernán decide; los dos lo hacen | Subir el Worker `infra/enlaces-cloudflare/`, poner la ruta, probar y recién ahí la variable (`docs/redes/ACORTADOR-DE-ENLACES.md`) |
 | `FOTOS_MENORES_OFICIALES` = Si | Fotos con chicos de fuentes de Balcarce (deporte, escuela, cultura; nada policial) | Los dos (Hernán ya dijo que sí el 17/10) | Crear la variable con "Si" (regla 211) |
@@ -53,7 +53,7 @@ redes están apagadas.
 | # | Qué | Lanza |
 |---|---|---|
 | C1 | Confirmar que `npm test` esté verde en `main`: la prueba roja que anotó la auditoría F ("una historia retoma el TEMA del repaso anterior…") **pasó** en la corrida completa del 24/10 en la rama de la segunda vuelta (3.103 pruebas; sólo fallan 3 por el entorno de esa carpeta: falta `react` y un CRLF), pero hay que mirar la corrida de «Pruebas» de GitHub | Sí |
-| C2 | **Fotos a R2**: simulacro, subir sin quitar, mirar dos vueltas; después la hidratación que falta para `revisar-archivo`, `ilustrar-notas` y el render público | Sí |
+| C2 | **Fotos a R2**: la hidratación ya está hecha (regla 316: reels, revisión del archivo, ilustraciones, Worker de tareas) y la migración probada, con un botón («Fotos a R2 (migración)»). Falta **ejecutar** el paso a paso de `docs/etapa-10-operacion/FOTOS-EN-R2.md` (simulacro, mirar, subir de a poco, prender, mirar dos vueltas y tres días, sacar de git entre vueltas) | Sí |
 | C3 | Medir los minutos de Workers Builds por día contra el presupuesto (200 por día) y mirar el registro por paso que quedó escrito (regla 312); decidir con los dos si se achican los PNG de las tarjetas o se acepta pagar el excedente (`MOTOR_SIN_TOPE`) | Sí |
 | C4 | Que la revisión pausada **deje de despertar a GitHub** cada 2 h (el reloj no debería pedirla si `REVISION_DEL_ARCHIVO` = "no") | Sí, si pasan a privado |
 | C5 | Bajar lo que gasta "Pruebas" en GitHub (corre en cada cambio de código) | Sí, si pasan a privado |
@@ -87,7 +87,7 @@ Primero lo que salió el 24/10 y desbloquea lo demás, en orden. Después lo de 
 | P1 | Los dos | **Subir los Workers** que cambiaron (no se suben solos): «Desplegar Workers de Cloudflare» (motor, vigilante y archivo) y «Reloj de Cloudflare». Sin variables nuevas, sólo se empieza a registrar el tiempo por paso | https://github.com/radarbalcarce/radar-balcarce/actions → Run workflow |
 | P2 | Los dos | **Subir juntos el reloj y el Worker del motor** (regla 315: los minutos se cuentan por ciclo de facturación, del 11 al 10; `MOTOR_CICLO_DIA` ya vale 11 sin poner nada) y mirar en `GET /estado` que `ciclo.minutos` se parezca al contador de Cloudflare |
 | P2 | Los dos | **Prender las variables de minutos en orden y de a una** (mirar un día el registro; `TARJETAS_EN_R2`; `MOTOR_NOCHE_CADA_HORA`) | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` § 4 |
-| P3 | Los dos | **Fotos en R2**: poner la ruta de fotos (workflow «Archivo permanente (producción)» con `activar_fotos`) y, cuando Claude avise que el simulacro salió bien, crear `FOTOS_EN_R2` en GitHub **y** en Workers Builds | `docs/etapa-10-operacion/FOTOS-EN-R2.md` |
+| P3 | Los dos | **Fotos en R2**: poner la ruta de fotos (workflow «Archivo permanente (producción)» con `activar_fotos`) y, cuando el botón «Fotos a R2 (migración)» (modo `mirar`) diga que a R2 no le falta ninguna, crear `FOTOS_EN_R2` en GitHub, llevarla a Workers Builds y subir el Worker de tareas | `docs/etapa-10-operacion/FOTOS-EN-R2.md` (paso a paso) |
 | P4 | Los dos | **Mapa de las notas archivadas**: después de subir el Worker del archivo (P1) y de una vuelta del exportador, crear `SITEMAP_DEL_ARCHIVO` = Si | Variables de GitHub |
 | P5 | Hernán | **Decidir los enlaces cortos**; si es sí, subir el Worker y poner la ruta | `docs/redes/ACORTADOR-DE-ENLACES.md` |
 | P6 | Los dos | **Search Console** (una vez por semana, 15 min: Páginas, Sitemaps con `sitemap-index.xml`, Rendimiento); **Bing Webmaster Tools** (importar desde Search Console); Google Publisher Center (decisión) | https://search.google.com/search-console · https://www.bing.com/webmasters |
@@ -151,7 +151,7 @@ Las de más peso, con la recomendación. Cada módulo de la auditoría 2.0 tiene
 | Bajar `TOPE_DE_NOTAS` de 500 a ~400 | La ruta de fotos en el Worker (sin ella una foto sacada de Pages da 404) | P3 hecho |
 | Repositorio privado | Minutos de GitHub (P11, P12, C4, C5), historial compactado (P13) y tres días sin que nada vuelva a GitHub | Etapa 4 del plan |
 | Sacar estado de git (libro de redes, vigilancia, fichas, estadísticas) | El panel del celular y el informe diario leen esos archivos de git; el panel se rehace de cero aparte | Se decide rehacer el panel (después del lanzamiento) |
-| Revisión del archivo (1.459 notas, 291 hechas) | Pausada por decisión; con las fotos fuera de git no puede ver la foto de una nota vieja | Cerrar C2 y las reglas de fotos |
+| Revisión del archivo (1.459 notas, 291 hechas) | Pausada por decisión; ya sabe traer de R2 la foto de una nota vieja (regla 316) y deja la nota pendiente si no llega | Ejecutar C2 y las reglas de fotos |
 | Voces nuevas | Clave paga de Gemini y guardar la referencia de las actuales | Las personas |
 | Enlaces cortos | Decisión de Hernán, el Worker y la ruta | P5 |
 | Más redes (X, Threads, TikTok, YouTube, Telegram, Bluesky) | Cuentas sin crear | P9 |

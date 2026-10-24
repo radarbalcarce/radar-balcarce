@@ -114,6 +114,9 @@ jobs:
           TODAS: ${{ inputs.todas }}
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz
+          # FOTOS_EN_R2 ("Si", regla 316): reels/plan.mjs trae del sitio las fotos del repaso antes de armar el plan. Vacía, no hace nada.
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+          SITIO: https://radarbalcarce.com
 
       - name: Guardar la memoria de voces
         if: always() && hashFiles('.cache/voz/*.json') != ''

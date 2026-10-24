@@ -25,6 +25,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { shaDeBlob } from '../compartido/github.mjs';
+import { subirFotos, depositoDeBucket, esRutaDeFoto, sePuedeMoverAR2 } from '../compartido/fotos-r2.mjs';
 
 export const RAIZ_EN_UN_WORKER = '/tmp/radar';
 
@@ -181,7 +182,7 @@ export async function correrTarea(tarea, {
     const bajados = await hidratar({ github, rutas: [...lee, ...(tarea.escribe ?? [])], raiz });
     // Lo que sólo se sabe leyendo lo bajado (por ejemplo, qué fotos hay que traer porque las nombra un JSON).
     if (tarea.despuesDeBajar) {
-      const mas = await tarea.despuesDeBajar({ github, raiz, bajados, inputs, ahora: inicio });
+      const mas = await tarea.despuesDeBajar({ github, raiz, bajados, inputs, ahora: inicio, env: entorno, bindings: env });
       for (const [ruta, v] of mas ?? []) bajados.set(ruta, v);
     }
     const fotoDeMemoria = await restaurarMemoria({ deposito: memoria, tarea: tarea.nombre, carpetas: tarea.memoria ?? [], raiz });
@@ -220,12 +221,19 @@ export async function correrTarea(tarea, {
     // Los archivos bajados de estas carpetas que la tarea borró (una ilustración que se saca) se borran también en GitHub.
     for (const [ruta, previo] of bajados) {
       if (!(tarea.borra ?? []).some((c) => ruta.startsWith(c))) continue;
+      if (previo.deR2) continue; // una copia que se trajo de R2 para trabajar: en GitHub no estaba, no hay nada que borrar ahí (regla 316)
       if (!fs.existsSync(path.join(raiz, ruta))) cambios.push({ ruta, contenido: null, baseSha: previo.sha });
     }
+    // FOTOS_EN_R2 (regla 316): las fotos nuevas de la tarea (las ilustraciones) van al depósito de fotos por el binding ARCHIVO y no al commit. Si la tarea no
+    // lo pide (`fotosAR2`), no hay binding o la subida falla, van al commit como siempre.
+    const aR2 = [];
+    const quiereR2 = Boolean(tarea.fotosAR2?.({ env: entorno })) && Boolean(env?.ARCHIVO);
     for (const carpeta of tarea.carpetas ?? []) {
       for (const ruta of listarArchivos(path.join(raiz, carpeta), carpeta)) {
         if (bajados.has(ruta) || cambios.some((c) => c.ruta === ruta)) continue;
-        cambios.push({ ruta, contenido: new Uint8Array(fs.readFileSync(path.join(raiz, ruta))), baseSha: null });
+        const contenido = new Uint8Array(fs.readFileSync(path.join(raiz, ruta)));
+        if (quiereR2 && esRutaDeFoto(ruta) && sePuedeMoverAR2(path.basename(ruta))) { aR2.push({ ruta, nombre: path.basename(ruta), contenido }); continue; }
+        cambios.push({ ruta, contenido, baseSha: null });
       }
     }
     cambios.sort(porRuta);
@@ -234,8 +242,17 @@ export async function correrTarea(tarea, {
     // Los modos de prueba de los workflows ("simular", "probar-resumen"…) leen y muestran, pero no guardan nada.
     const sinGuardar = simular || Boolean(tarea.sinGuardarEn?.(inputs));
     if (sinGuardar) {
-      log(`${tarea.nombre}: simulacro, habría guardado ${cambios.length} archivo(s): ${cambios.map((c) => c.ruta).join(', ') || '(ninguno)'}.`);
+      log(`${tarea.nombre}: simulacro, habría guardado ${cambios.length} archivo(s): ${cambios.map((c) => c.ruta).join(', ') || '(ninguno)'}${aR2.length ? ` y subido ${aR2.length} foto(s) a R2: ${aR2.map((f) => f.nombre).join(', ')}` : ''}.`);
     } else {
+      if (aR2.length) {
+        // Primero las fotos y después el commit con los datos que las nombran: nunca un libro que apunte a una foto que todavía no está en R2.
+        const { subidas, fallidas } = await subirFotos(depositoDeBucket(env.ARCHIVO), aR2);
+        resultado.fotosAR2 = subidas.length;
+        for (const f of aR2) if (fallidas.some((x) => x.nombre === f.nombre)) cambios.push({ ruta: f.ruta, contenido: f.contenido, baseSha: null });
+        cambios.sort(porRuta);
+        resultado.cambios = cambios.length;
+        log(`${tarea.nombre}: ${subidas.length} foto(s) a R2${fallidas.length ? `, ${fallidas.length} fallaron y van al commit (${fallidas.map((x) => x.nombre).join(', ')})` : ''}.`);
+      }
       if (cambios.length) {
         const r = await github.commitear({ mensaje: tarea.mensaje({ ahora: inicio, inputs }), cambios });
         resultado.commit = r.sha;

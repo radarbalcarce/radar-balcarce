@@ -18,6 +18,7 @@ import { unirArchivo } from '../../panel/unir-conflictos.mjs';
 import * as ilustrar from '../../web/scripts/ilustrar-notas.mjs';
 import { diaAR } from '../../ingesta/zona.mjs';
 import { shaDeBlob } from '../compartido/github.mjs';
+import { fotosEnR2Activas, lectorDeBucket, lectorPorUrl } from '../compartido/fotos-r2.mjs';
 import { escribirEn } from './corredor.mjs';
 import { fechaDeLosMensajes, leerJsonDe } from './util.mjs';
 import { REDES } from './redes.mjs';
@@ -112,18 +113,27 @@ export const TAREAS = {
     escribe: ['web/data/fotos-ia.json'],
     carpetas: ['web/public/fotos-notas/'],
     borra: ['web/public/fotos-notas/'],
+    // FOTOS_EN_R2 (regla 316): con el interruptor prendido las ilustraciones nuevas van al depósito de fotos (binding ARCHIVO) y no al commit: son unas 12 por
+    // día de ~180 KB (2 MB por día de historial de git). Apagado, o si la subida falla, siguen yendo al commit como siempre.
+    fotosAR2: ({ env }) => fotosEnR2Activas(env),
     // El cupo del día (cuántas imágenes se generaron hoy) sobrevive entre corridas en R2, como antes en los adjuntos «cuenta-ilustraciones».
     memoria: ['.cache/cuentas/'],
     mensaje: () => 'Ilustraciones con IA para notas sin foto (automático)',
     // Una ilustración vieja sin control se vuelve a mirar (regla 206): hace falta su archivo, que no es de los que se bajan siempre.
-    despuesDeBajar: async ({ github, raiz, bajados }) => {
+    despuesDeBajar: async ({ github, raiz, bajados, env = {}, bindings = {} }) => {
       const mas = new Map();
       const libro = (() => { try { return JSON.parse(new TextDecoder().decode(bajados.get('web/data/fotos-ia.json')?.bytes ?? new Uint8Array())); } catch { return {}; } })();
-      for (const e of Object.values(libro)) {
-        if (!e?.archivo || ilustrar.ilustracionControlada(e)) continue;
-        const ruta = `web/public/fotos-notas/${path.basename(e.archivo)}`;
-        const bytes = await github.leerArchivo(ruta);
-        if (bytes) { escribirEn(raiz, ruta, bytes); mas.set(ruta, { sha: await shaDeBlob(bytes), bytes }); }
+      // Con FOTOS_EN_R2 la foto puede no estar en git: se busca en R2 (el binding ARCHIVO, sin claves) y, si no, por la dirección pública del sitio.
+      const leerDeR2 = fotosEnR2Activas(env)
+        ? (bindings.ARCHIVO ? lectorDeBucket(bindings.ARCHIVO) : lectorPorUrl(env.SITIO || 'https://radarbalcarce.com'))
+        : null;
+      for (const nombre of ilustrar.archivosDeIlustracionesSinControl(libro)) {
+        const ruta = `web/public/fotos-notas/${nombre}`;
+        let bytes = await github.leerArchivo(ruta);
+        let deR2 = false;
+        if (!bytes && leerDeR2) { try { bytes = await leerDeR2(nombre); deR2 = Boolean(bytes); } catch { bytes = null; } }
+        // `deR2`: una copia de trabajo; el corredor no la sube a git ni la borra de git (en GitHub no está).
+        if (bytes) { escribirEn(raiz, ruta, bytes); mas.set(ruta, { sha: await shaDeBlob(bytes), bytes, ...(deR2 ? { deR2: true } : {}) }); }
       }
       return mas;
     },
@@ -147,7 +157,7 @@ export const TAREAS = {
         ? bindings.IMAGENES.fetch(new Request(url, init)) : fetch(url, init));
       await ilustrar.automatico({
         salida: path.join(raiz, '.cache', 'ilustraciones'), informe: null, rutas, ahora, fetchFn, ...(esperar ? { esperar } : {}),
-        horas: ilustrar.horasPedidas(inputs?.horas),
+        horas: ilustrar.horasPedidas(inputs?.horas), conservarSiFalta: fotosEnR2Activas(env),
         cuenta: path.join(cuentas, `${diaAR(ahora)}-${ahora.getTime()}`), cuentas: ilustrar.leerCuentas(cuentas),
         clave: (env.GEMINI_API_KEY_REDACCION ?? '').trim(), claveClasificacion: (env.GEMINI_API_KEY_CLASIFICACION ?? '').trim(), claveGroq: (env.GROQ_API_KEY ?? '').trim(), claveOpenRouter: (env.OPENROUTER_API_KEY ?? '').trim(), token: (env.VIGILANTE_TOKEN ?? '').trim(),
       });
