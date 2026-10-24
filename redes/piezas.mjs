@@ -52,7 +52,8 @@ export const VENTANA_MINUTOS = 120;
 // salir a las 14 diciendo "buen día". Si se le pasa la franja, ese día no sale.
 const VENTANAS = {
   'clima-manana': 240, // 7:00 → 11:00
-  noticia1: 180,       // 10:00 → 13:00 (hasta el 29/09, hasta las 15)
+  // (noticia1, noticia2 y podcast son los repasos de la mañana, la tarde y la noche: no se renombran, están en el libro y las estadísticas)
+  noticia1: 180,      // 10:00 → 13:00 (hasta el 29/09, hasta las 15)
   noticia2: 240,       // 15:00 → 19:00 (hasta el 29/09, hasta las 20)
   farmacia: 300,       // 19:00 → 24:00
   'clima-noche': 240,  // 20:00 → 24:00

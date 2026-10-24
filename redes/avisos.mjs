@@ -45,7 +45,7 @@ export const LIMITES_AVISOS = {
 /** Lo amarillo que no es para una persona: relleno de afuera que el filtro
  *  ya dejó afuera por puntaje o por cupo. Son decenas por corrida y casi
  *  nunca se aprueban: avisarlas sería ruido. */
-const MOTIVOS_DE_RELLENO = /de afuera y poco contada|pas[oó] el cupo|cotizaci[oó]n del d[oó]lar/i;
+const MOTIVOS_DE_RELLENO = /de afuera y poco contada|cotizaci[oó]n del d[oó]lar/i;
 
 /** Motivos que hablan de chicos o de víctimas: esas notas van SIN titular a
  *  portada.json, que es público (leyes 26.061 y 26.485). */

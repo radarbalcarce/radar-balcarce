@@ -40,9 +40,11 @@ export const INTENTOS_HISTORIA = 3;
  * con parte = reel | historia | historia-del-reel. Se borra cuando sale.
  */
 export const parteDe = (tipo) => (tipo === 'REELS' ? 'reel' : 'historia');
-export function registrarProblema(libro, clave, { pieza, red, parte, error, ahora = new Date() }) {
+export function registrarProblema(libro, clave, { pieza, red, parte, error, intentos, ahora = new Date() }) {
   libro.problemas ??= {};
-  libro.problemas[clave] = { pieza, red, parte, error: String(error ?? '').slice(0, 240), cuando: ahora.toISOString() };
+  // `intentos`: cuántas veces se intentó en esa corrida (se suman a las de las vueltas anteriores si el problema sigue abierto), para que el informe diga «intentó 3 veces».
+  const previos = Number(libro.problemas[clave]?.intentos) || 0;
+  libro.problemas[clave] = { pieza, red, parte, error: String(error ?? '').slice(0, 240), cuando: ahora.toISOString(), ...(intentos ? { intentos: previos + intentos } : {}) };
   // Sólo los últimos tres días: el libro no crece.
   const limite = diaAR(new Date(ahora.getTime() - 3 * 24 * 3600e3));
   for (const k of Object.keys(libro.problemas)) if (k.slice(0, 10) < limite) delete libro.problemas[k];
@@ -225,7 +227,7 @@ export async function publicarPiezas({
                   const ultimo = intentoH === INTENTOS_HISTORIA || e.tokenMuerto;
                   log(`             la historia del reel falló (intento ${intentoH} de ${INTENTOS_HISTORIA})${ultimo ? ', queda igual el reel' : ''}: ${e.message}`);
                   if (ultimo) {
-                    registrarProblema(libro, `${clave}/${red}/historia-del-reel`, { pieza: pieza.nombre, red, parte: 'historia-del-reel', error: e.message, ahora });
+                    registrarProblema(libro, `${clave}/${red}/historia-del-reel`, { pieza: pieza.nombre, red, parte: 'historia-del-reel', error: e.message, intentos: INTENTOS_HISTORIA, ahora });
                     guardar();
                     break;
                   }
@@ -263,15 +265,15 @@ export async function publicarPiezas({
           }
           if (intento === intentos) {
             resultado.fallos.push({ pieza: pieza.nombre, red, error: e.message });
-            registrarProblema(libro, `${clave}/${red}/${parteDe(tipo)}`, { pieza: pieza.nombre, red, parte: parteDe(tipo), error: e.message, ahora });
+            registrarProblema(libro, `${clave}/${red}/${parteDe(tipo)}`, { pieza: pieza.nombre, red, parte: parteDe(tipo), error: e.message, intentos, ahora });
             guardar();
           }
           else await esperar(4000 * intento);
         }
       }
 
-      // Si la red que manda falló, no se intenta en las otras.
-      if (i === 0 && !hecho) break;
+      // Si la red que manda falló, las otras se intentan igual (regla 308: el 22/10 un error 400 de Instagram dejó sin repaso también a Facebook, que es donde
+      // está la gente). La principal sigue sin su entrada en el libro, así que la vuelta siguiente la reintenta; las otras ya la tienen y no se repiten.
     }
   }
   return resultado;

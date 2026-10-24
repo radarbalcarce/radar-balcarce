@@ -34,7 +34,7 @@
 
 import path from 'node:path';
 import { leerJson } from '../ingesta/json.mjs';
-import { CONTRATO_DIARIO } from '../ingesta/criterio.mjs';
+import { CONTRATO_DIARIO, FACEBOOK } from '../ingesta/criterio.mjs';
 import { diaAR, horaCortaAR as hhmm } from '../ingesta/zona.mjs';
 import { crearCliente, sinToken, PAGINA_DE_FACEBOOK } from './meta.mjs';
 import {
@@ -282,7 +282,7 @@ export function informeDeSemana({
     }
     porRed[def.red] = {
       nombre: def.nombre, piezas, salieron, debian, porcentaje: debian ? Math.round((salieron / debian) * 100) : null,
-      posteos, posteosTope: cuentan.length * CONTRATO_DIARIO.posteosPorDia, diasConPosteosFalla,
+      posteos, posteosTope: cuentan.length * FACEBOOK.porDia, diasConPosteosFalla,
     };
   }
   for (const inf of informes) for (const d of inf.discrepancias) discrepancias.push(`${inf.fecha} · ${d}`);

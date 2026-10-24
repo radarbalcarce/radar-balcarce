@@ -15,8 +15,9 @@ import { vozDePieza, VOCES } from './prompt-redes.mjs';
 import { horariosDe } from './horarios.mjs';
 import { feriadoDelDia } from './feriado.mjs';
 import { diaAR } from '../ingesta/zona.mjs';
+import { AUDIOS_POR_DIA } from '../reels/cupo-voz.mjs';
 
-export const CUPO_DE_VOZ_POR_DIA = 10;
+export const CUPO_DE_VOZ_POR_DIA = AUDIOS_POR_DIA; // un solo lugar para el 10: reels/cupo-voz.mjs (regla 308)
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const HORA_EFEMERIDE = '09:00';

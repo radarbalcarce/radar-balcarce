@@ -25,9 +25,9 @@ import { diaAR, horaAR, horaCortaAR } from '../ingesta/zona.mjs';
 import { leerJson } from '../ingesta/json.mjs';
 import { cuentaDelDia, promedioAnterior } from '../ingesta/estadistica-diaria.mjs';
 import { seccionesSinNotas } from '../ingesta/estadistica-seleccion.mjs';
-import { CONTRATO_DIARIO } from '../ingesta/criterio.mjs';
+import { CONTRATO_DIARIO, FACEBOOK } from '../ingesta/criterio.mjs';
 import { contratoDelDia } from './contrato.mjs';
-import { enlaceDeNota } from './elegir.mjs';
+import { enlaceDeNota, esperanDecisionParaRedes } from './elegir.mjs';
 import { cronogramaDelDiaConVoz, CUPO_DE_VOZ_POR_DIA } from './cronograma-semana.mjs';
 import { diaIncoherente } from './estadisticas-detalle.mjs';
 import { esIncoherente } from './estadisticas.mjs';
@@ -328,7 +328,11 @@ export function seccionRedes({ momento, dia, ahora, datos, redesActivas = true, 
   // --- posteos de notas
   const fb = Object.entries(libro.facebook ?? {}).filter(([, v]) => deEseDia(v?.cuando, dia)).sort((a, b) => new Date(a[1].cuando) - new Date(b[1].cuando));
   const ig = Object.entries(libro.instagramFeed ?? {}).filter(([, v]) => deEseDia(v?.cuando, dia));
-  lineas.push({ t: `Posteos de notas: ${num(fb.length)} en Facebook (de ${CONTRATO_DIARIO.posteosPorDia} posibles) y ${num(ig.length)} en Instagram.` });
+  lineas.push({ t: `Posteos de notas: ${num(fb.length)} en Facebook (de ${FACEBOOK.porDia} posibles) y ${num(ig.length)} en Instagram.` });
+  const esperanDecision = esperanDecisionParaRedes(portada?.notas, { libro, dia });
+  if (esperanDecision.length) {
+    lineas.push({ t: `${plural(esperanDecision.length, 'nota de Política o Policiales de Balcarce con puntaje alto no sale', 'notas de Política o Policiales de Balcarce con puntaje alto no salen')} a redes: ${esperanDecision.length === 1 ? 'espera' : 'esperan'} que una persona la${esperanDecision.length === 1 ? '' : 's'} mande.`, sub: true });
+  }
   for (const [id, v] of fb) {
     const espejo = libro.instagramFeed?.[id] ? 'también en Instagram' : 'sin foto en Instagram';
     lineas.push({ t: `${horaCortaAR(v.cuando)} · ${recortar(v.titulo, 90)}`, url: enlaceDePosteoDeFacebook(v.postId) ?? v.enlace, nota: espejo, sub: true });
@@ -375,9 +379,15 @@ export function seccionRedes({ momento, dia, ahora, datos, redesActivas = true, 
       atencion.push({ nivel: 'media', t: `${r.nombre}: quedaron posteos sin salir aunque había ${plural(r.posteos.candidatas.length, 'nota candidata', 'notas candidatas')}.` });
     }
   }
+  // Por qué un día no tuvo (todos) los posteos: lo que anota redes/publicar.mjs en el libro (regla 308).
+  const sinPosteos = libro.sinPosteos?.[dia];
+  if (sinPosteos) {
+    const motivos = Object.entries(sinPosteos.descartes ?? {}).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([m, n]) => `${m.replace(/-/g, ' ')}: ${n}`).join(', ');
+    lineas.push({ t: `Posteos de notas: el día quedó sin candidatas (${num(sinPosteos.notasMiradas)} notas miradas; ${motivos || 'ninguna'}).`, sub: true });
+  }
   if (fallas.length) {
     lineas.push({ t: `${fallas.length === 1 ? 'Falló 1 publicación' : `Fallaron ${num(fallas.length)} publicaciones`} en Meta:`, fuerte: true });
-    for (const f of fallas.slice(0, 4)) lineas.push({ t: `${nombreDe(f.pieza)} en ${f.red === 'facebook' ? 'Facebook' : 'Instagram'}${f.parte ? ` (${String(f.parte).replace(/-/g, ' ')})` : ''}: ${recortar(f.error, 90)}`, sub: true });
+    for (const f of fallas.slice(0, 4)) lineas.push({ t: `${nombreDe(f.pieza)} en ${f.red === 'facebook' ? 'Facebook' : 'Instagram'}${f.parte ? ` (${String(f.parte).replace(/-/g, ' ')})` : ''}${f.intentos > 1 ? ` (intentó ${f.intentos} veces)` : ''}: ${recortar(f.error, 90)}`, sub: true });
     atencion.push({ nivel: 'media', t: `${esHoy ? 'Hoy' : 'Ayer'} ${fallas.length === 1 ? 'falló 1 publicación' : `fallaron ${num(fallas.length)} publicaciones`} en Meta (${[...new Set(fallas.map((f) => nombreDe(f.pieza)))].slice(0, 3).join(', ')}).` });
   }
   if (faltan.length) {

@@ -535,13 +535,15 @@ test('los reels van como reel y las historias como historia, en las dos redes', 
   assert.equal(api.hechas.facebook.find((h) => h.nombre === 'clima-manana.mp4').tipo, 'STORIES');
 });
 
-test('si falla Instagram, no se publica en Facebook: quedaría un video distinto en cada red', async () => {
+test('si falla Instagram, Facebook se publica igual (regla 308) y Instagram queda para la vuelta siguiente', async () => {
   const api = apiDoble({ fallaInstagram: true });
   const libro = libroNuevo();
   const r = await CORRIDA(api, libro);
-  assert.equal(api.hechas.facebook.length, 0);
-  assert.equal(r.publicadas.length, 0);
-  assert.equal(libro.facebookVideos[claveDePieza('noticia1', A_LAS('16:00'))], undefined);
+  assert.equal(api.hechas.facebook.length, 4, 'Facebook sale aunque Instagram falle');
+  assert.equal(r.publicadas.length, 0, 'publicadas cuenta sólo la red que manda');
+  assert.ok(r.fallos.length >= 1 && r.fallos.every((f) => f.red === 'instagram'));
+  assert.ok(libro.facebookVideos[claveDePieza('noticia1', A_LAS('16:00'))]);
+  assert.equal(libro.instagram[claveDePieza('noticia1', A_LAS('16:00'))], undefined);
 });
 
 test('si Facebook falla una vez, se reintenta y sale', async () => {

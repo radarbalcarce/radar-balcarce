@@ -61,6 +61,9 @@ export const REGLAS_FACEBOOK = {
   // nueva con 90 posteos por día pierde alcance y parece un robot. Cinco buenas
   // por día, y más adelante se mezclan con las notas propias y originales.
   porDia: FACEBOOK.porDia,
+  // El 75 (Balcarce, para ir solo a Facebook) es el piso de los repasos (62) más margen: un posteo suelto se ve solo y tiene que ser de lo mejor del día;
+  // en un repaso la nota viaja con otras. El 80 de afuera en un repaso (PIEZAS.relevanciaAfueraPodcast) es de la regla 29/09 y deja afuera casi todo
+  // lo nacional (docs/CATALOGO-DE-NUMEROS.md § 4, docs/auditoria-2-0/C-REDES.md H-13): decisión del dueño, no se toca acá.
   relevanciaMinima: FACEBOOK.relevanciaMinima,
   mediosParaRedes: FACEBOOK.mediosParaRedes, // lo de afuera sólo sale si lo cuentan tantos medios distintos o más (regla 280)
   porCorrida: 1,           // así no salen dos pegadas
@@ -158,6 +161,19 @@ export function esPopularParaRedes(n, reglas = REGLAS_FACEBOOK) {
   return mediosDeLaNota(n) >= (reglas.mediosParaRedes ?? FACEBOOK.mediosParaRedes);
 }
 
+/** Las notas de Política y Policiales de Balcarce que por puntaje habrían salido a las redes pero esperan a una persona (A-3 de la auditoría 2.0, regla 308).
+ *  Sólo cuenta: no cambia qué se publica. `dia` (AAAA-MM-DD) limita a lo que salió ese día. */
+export function esperanDecisionParaRedes(notas, { libro = libroNuevo(), dia = null, reglas = REGLAS_FACEBOOK } = {}) {
+  return (notas ?? []).filter((n) => {
+    if (!n || esNotaPropia(n) || esperaCuerpo(n) || aprobadaParaLasRedes(n) || yaPublicada(libro, 'facebook', n.id)) return false;
+    if (!reglas.seccionesQueEsperanPersona.includes(n.seccion) || !esParaLasRedes(n)) return false;
+    if (!((n.relevancia ?? 0) >= reglas.relevanciaMinima || muyContadaDeAca(n))) return false;
+    if (!dia) return true;
+    const salio = cuandoSalio(n);
+    return Boolean(salio) && diaAR(new Date(salio)) === dia;
+  });
+}
+
 /** ¿Es de acá y la cuentan tres medios de Balcarce o más? (generar-datos la marca; regla 198) */
 export const muyContadaDeAca = (n) => Boolean(n?.muyContadaDeAca) && esParaLasRedes(n);
 
@@ -166,19 +182,56 @@ export const muyContadaDeAca = (n) => Boolean(n?.muyContadaDeAca) && esParaLasRe
  * Puede devolver cero, y casi siempre lo hace: es lo normal.
  */
 export function elegirParaFacebook({ notas, libro = libroNuevo(), ahora = new Date(), reglas = REGLAS_FACEBOOK }) {
+  const { corte, candidatas, cupo } = analizarPosteos({ notas, libro, ahora, reglas });
+  if (corte) return [];
+  return candidatas.slice(0, Math.min(cupo, reglas.porCorrida));
+}
+
+/** Por qué no hay posteo ahora (regla 308: el 11/10 no salió ninguno y el libro no decía por qué). Si no toca mirar notas, `{ corte }`
+ *  ('fuera-de-horario', 'cupo-completo', 'esperando-intervalo'); si el día está abierto, `{ corte: null, candidatas, descartes }` con cuántas notas
+ *  cayeron en cada filtro (la primera razón por la que no sirven). Sólo informa: no cambia qué se publica. */
+export function porQueNoHayPosteo({ notas, libro = libroNuevo(), ahora = new Date(), reglas = REGLAS_FACEBOOK }) {
+  const { corte, candidatas, descartes } = analizarPosteos({ notas, libro, ahora, reglas });
+  if (corte) return { corte };
+  return { corte: null, candidatas: candidatas.length, descartes };
+}
+
+/** Deja en el libro (`libro.sinPosteos[día]`) por qué el día está abierto y no sale nada: cuántas notas hubo y en qué filtro cayó cada una. Se pisa en
+ *  cada vuelta (queda lo último del día) y sólo devuelve true si cambió algo, para no reescribir el libro por nada. Guarda 30 días. */
+export function anotarSinPosteos(libro, info, ahora = new Date()) {
+  if (!info || info.corte) return false;
+  const dia = diaAR(ahora);
+  const hechos = Object.values(libro.facebook ?? {}).filter((p) => p?.cuando && diaAR(new Date(p.cuando)) === dia).length;
+  const nuevo = { motivo: 'sin-candidatas', posteosDeHoy: hechos, notasMiradas: Object.values(info.descartes).reduce((s, x) => s + x, 0) + info.candidatas, descartes: info.descartes };
+  libro.sinPosteos ??= {};
+  const antes = libro.sinPosteos[dia];
+  const igual = antes && JSON.stringify({ ...antes, cuando: undefined }) === JSON.stringify(nuevo);
+  if (info.candidatas > 0) { // hubo con qué: ese día no es "sin candidatas"
+    if (!antes) return false;
+    delete libro.sinPosteos[dia];
+    return true;
+  }
+  if (igual) return false;
+  libro.sinPosteos[dia] = { ...nuevo, cuando: ahora.toISOString() };
+  const limite = diaAR(new Date(ahora.getTime() - 30 * 24 * 3600e3));
+  for (const k of Object.keys(libro.sinPosteos)) if (k < limite) delete libro.sinPosteos[k];
+  return true;
+}
+
+function analizarPosteos({ notas, libro, ahora, reglas }) {
   // Se cuenta en minutos: con la hora sola, "hasta las 22" dejaba pasar todo
   // hasta las 22:59, y el 24/09 salió un posteo a las 22:25.
   const minutos = minutoDelDiaAR(ahora);
-  if (minutos < reglas.desdeHora * 60 || minutos > reglas.hastaHora * 60) return [];
+  if (minutos < reglas.desdeHora * 60 || minutos > reglas.hastaHora * 60) return { corte: 'fuera-de-horario', candidatas: [], descartes: {}, cupo: 0 };
 
   const hoy = diaAR(ahora);
   const previas = Object.values(libro.facebook ?? {});
   const deHoy = previas.filter((p) => diaAR(new Date(p.cuando)) === hoy);
   const cupo = reglas.porDia - deHoy.length;
-  if (cupo <= 0) return [];
+  if (cupo <= 0) return { corte: 'cupo-completo', candidatas: [], descartes: {}, cupo };
 
   const ultima = previas.reduce((max, p) => Math.max(max, new Date(p.cuando).getTime()), 0);
-  if (ultima && (ahora.getTime() - ultima) / 60000 < reglas.minutosEntrePosteos) return [];
+  if (ultima && (ahora.getTime() - ultima) / 60000 < reglas.minutosEntrePosteos) return { corte: 'esperando-intervalo', candidatas: [], descartes: {}, cupo };
 
   // Lo publicado en Facebook en las últimas 24 horas, para no repetir tema.
   // Cada posteo se compara con el titular con el que salió (el libro lo
@@ -196,19 +249,22 @@ export function elegirParaFacebook({ notas, libro = libroNuevo(), ahora = new Da
   // 23/10/2026 (Hernán: «que no se repitan: la misma nota como posteo y en los resúmenes aburre»): una nota sale en UN formato. Lo que ya contó un
   // repaso de los últimos 3 días no va como posteo (y, al revés, redes/repasos.mjs no cuenta en un repaso lo que ya salió como posteo).
   const yaContadasEnRepasos = notasContadasEnRepasos(libro, ahora);
+  const descartes = {}; // cuántas notas cayeron en cada filtro (la primera razón), para decir por qué un día no tuvo posteos (regla 308)
   const candidatas = notas.filter((n) => {
-    if (yaPublicada(libro, 'facebook', n.id)) return false;
-    if (yaContadasEnRepasos.has(n.id)) return false;
-    if (!vaAFacebookPorLoQueEs(n, reglas)) return false;
-    if (recientes.some((p) => temaParecido(n, p))) return false;
+    const no = (motivo) => { descartes[motivo] = (descartes[motivo] ?? 0) + 1; return false; };
+    if (yaPublicada(libro, 'facebook', n.id)) return no('ya-publicada');
+    if (yaContadasEnRepasos.has(n.id)) return no('ya-en-un-repaso');
+    if (!vaAFacebookPorLoQueEs(n, reglas)) return no('no-va-a-redes');
+    if (recientes.some((p) => temaParecido(n, p))) return no('tema-repetido');
     const salio = cuandoSalio(n);
-    if (!salio) return false;
+    if (!salio) return no('sin-fecha');
     const edad = minutosDesde(salio, ahora);
-    if (edad < reglas.esperaMinutos || edad > reglas.edadMaximaHoras * 60) return false;
+    if (edad < reglas.esperaMinutos) return no('recien-salida');
+    if (edad > reglas.edadMaximaHoras * 60) return no('muy-vieja');
     // Con sólo una ilustración de IA se puede esperar a la foto real (regla 283; apagado por defecto).
-    if (esperaFotoDefinitiva(n, edad, reglas.horasEsperandoFotoReal)) return false;
+    if (esperaFotoDefinitiva(n, edad, reglas.horasEsperandoFotoReal)) return no('esperando-foto-real');
     // Sin foto todavía: se espera (la foto se sigue buscando) salvo que una persona la haya marcado.
-    return Boolean(n.foto?.archivo) || aprobadaParaLasRedes(n) || edad >= (reglas.horasEsperandoFoto ?? 0) * 60;
+    return Boolean(n.foto?.archivo) || aprobadaParaLasRedes(n) || edad >= (reglas.horasEsperandoFoto ?? 0) * 60 || no('esperando-foto');
   });
 
   // Lo que aprobó una persona para las redes va primero; después lo de Balcarce que cuentan tres medios de acá o más (regla 198),
@@ -217,7 +273,7 @@ export function elegirParaFacebook({ notas, libro = libroNuevo(), ahora = new Da
   const grupo = (n) => (aprobadaParaLasRedes(n) ? 0 : muyContadaDeAca(n) ? 1 : esParaLasRedes(n) ? 2 : 3);
   const medios = (n) => (grupo(n) === 3 ? mediosDeLaNota(n) : 0);
   candidatas.sort((a, b) => (grupo(a) - grupo(b)) || (medios(b) - medios(a)) || (Number(Boolean(b.foto?.archivo)) - Number(Boolean(a.foto?.archivo))) || ((b.relevancia ?? 0) - (a.relevancia ?? 0)));
-  return candidatas.slice(0, Math.min(cupo, reglas.porCorrida));
+  return { corte: null, candidatas, descartes, cupo };
 }
 
 // Palabras de cinco letras o más que no dicen de qué trata una nota: están en
@@ -532,9 +588,28 @@ const esPropia = (n) => Boolean(n.guion) || n.deIA === true;
 export function primeraOracion(texto = '', maximo = 150) {
   const t = String(texto).replace(/\s+/g, ' ').trim();
   if (!t) return '';
-  const fin = t.search(/[.!?](\s|$)/);
+  // Un punto no cierra la oración si sigue a una abreviatura ("Dr.", "Av.", "EE. UU.", "N°.") ni a una inicial suelta ("Luis A. Pérez", "J. M. Fangio").
+  const re = /[.!?](?=\s|$)/g;
+  let fin = -1;
+  for (let m = re.exec(t); m; m = re.exec(t)) {
+    if (t[m.index] === '.' && !cierraOracion(t.slice(0, m.index))) continue;
+    fin = m.index;
+    break;
+  }
   const oracion = fin > 0 ? t.slice(0, fin + 1) : t;
   return oracion.length <= maximo ? oracion : '';
+}
+
+/** Las abreviaturas que terminan en punto sin terminar la oración (A-1 de la auditoría 2.0, regla 308). */
+const ABREVIATURAS = new Set(['dr', 'dra', 'sr', 'sra', 'srta', 'av', 'lic', 'ing', 'prof', 'gral', 'cnel', 'pte', 'pdte', 'ee', 'uu', 'hnos', 'cía', 'cia', 'sta', 'sto', 'n°', 'nº', 'etc', 'aprox', 'vs', 'mons', 'dpto', 'tte', 'cap', 'cdte', 'arq', 'esc', 'pdo', 'dip']);
+/** ¿Un punto después de este texto cierra la oración? No, si la última palabra es una abreviatura o una sola mayúscula. */
+function cierraOracion(antes) {
+  const palabra = (antes.match(/(\S+)$/)?.[1] ?? '').replace(/^[("'«¿¡]+/, '');
+  const base = palabra.toLowerCase();
+  if (ABREVIATURAS.has(base)) return false;
+  if (/^\p{Lu}$/u.test(palabra)) return false;           // inicial: "Luis A.", "J. M."
+  if (/^(\p{L}\.)+\p{L}$/u.test(palabra)) return false;  // "J.P." / "S.A" ya con puntos adentro
+  return true;
 }
 
 /** Las notas de un podcast: las de más puntaje, de temas distintos, sin
