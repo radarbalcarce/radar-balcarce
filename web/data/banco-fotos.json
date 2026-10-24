@@ -33927,13 +33927,28 @@
   "huella": "3918ddcddf5e5652"
  },
  "1rl7tnm": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1rl7tnm.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Garena lanza los nuevos códigos gratuitos de Free Fire para hoy",
-  "razon": "La mejor foto era la de TyC Sports, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-23T11:03:10.638Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.tycsports.com/gaming/free-fire-codigos-de-hoy-de-octubre-de-2026-todas-las-skins-diamantes-y-recompensas-gratis-id767492.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2025/12/07/908190/free-fire_862x485.webp",
+  "razon": "Es la imagen promocional más limpia y representativa del videojuego para ilustrar la nota sobre códigos.",
+  "cuando": "2026-10-24T11:01:17.840Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ilustración promocional de dos personajes de Free Fire armados"
+  },
+  "huella": "4715192d9d0b1b1b"
  },
  "1t2bs23": {
   "archivo": "fotos-notas/1t2bs23.jpg",
@@ -36741,5 +36756,41 @@
   },
   "huella": "b33332b3db5d7c8e",
   "ausenteDesde": "2026-10-24T09:02:13.328Z"
+ },
+ "1uzcjcc": {
+  "archivo": "fotos-notas/1uzcjcc.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Internan a Vincent Kompany tras desplomarse en el Bayern Munich",
+  "enlace": "https://www.clarin.com/deportes/preocupacion-vincent-kompany-dt-40-anos-bayern-munich-desplomo-plena-practica-trasladado-hospital_0_hqU2eQEETy.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/23/ZSqWmQ9QL_2000x1500__1.jpg",
+  "razon": "Es la única foto que corresponde a la temática, muestra claramente al protagonista y cumple con todos los requisitos sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-24T11:01:17.840Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vincent Kompany con campera del Bayern Munich y gorra roja en un entrenamiento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vincent Kompany en un entrenamiento del Bayern Munich"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4451577079635243"
  }
 }
