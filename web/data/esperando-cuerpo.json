@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-24T20:32:25.932Z",
+ "generado": "2026-10-24T21:02:50.024Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -20,30 +20,8 @@
      "fecha": "2026-10-24T20:30:54.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (position, autodromo): va con las tildes y la eñe donde corresponde",
-   "maximo": 3
-  },
-  {
-   "id": "1w1bqj1",
-   "titulo": "TC en Rosario: Lambiris ganó la clasificación",
-   "copete": "Noticia en desarrollo – Mauricio Lambiris (Ford Mustang) ganó la clasificación del “Gran Premio AFA”, correspondiente a la 13ª fecha del Turismo Carretera en Rosario. El piloto del Uruguay marcó un tiempo de 1m35s092 y selló su 1ª pole position de la temporada, cortando una…",
-   "seccion": "Automovilismo",
-   "fecha": "2026-10-24T19:45:49.000Z",
-   "fuentes": [
-    {
-     "medio": "Solotc",
-     "enlace": "https://www.solotc.com.ar/tc-rosario-gano-clasificacion-hoy-resultados-fecha-13-2026/",
-     "fecha": "2026-10-24T19:45:49.000Z"
-    },
-    {
-     "medio": "Campeones",
-     "enlace": "https://campeones.com.ar/mauricio-lambiris-domino-en-rosario-y-logro-la-pole-en-tc-luego-de-4-anos/",
-     "fecha": "2026-10-24T19:55:48.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 146 palabras",
+   "intentos": 2,
+   "motivo": "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 138 palabras",
    "maximo": 3
   },
   {
@@ -57,11 +35,6 @@
      "medio": "Doble Amarilla",
      "enlace": "https://www.dobleamarilla.com.ar/liga-/banfield-y-lanus-se-enfrentan-en-el-clasico-del-sur-con-objetivos-diferentes_a6adb9896ea1e51978cc02f2e",
      "fecha": "2026-10-24T11:14:56.995Z"
-    },
-    {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/deportes/banfield-vs-lanus-torneo-clausura-vivo-hora-formaciones-ver_0_vbsaa6PvWw.html",
-     "fecha": "2026-10-24T15:17:40.000Z"
     },
     {
      "medio": "Perfil",
@@ -92,16 +65,33 @@
      "medio": "Doble Amarilla",
      "enlace": "https://www.dobleamarilla.com.ar/liga-/banfield-y-lanus-igualaron-en-una-nueva-edicion-caliente-del-clasico-del-sur_a6adb9896ea1e51978cc02f2e",
      "fecha": "2026-10-24T20:00:56.000Z"
+    }
+   ],
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica; sin esas oraciones quedan 242 palabras",
+   "maximo": 4
+  },
+  {
+   "id": "1b4pjdh",
+   "titulo": "Murió Marcelo Trepat, actor de “Montaña rusa”, “La niñera” y “Los simuladores”",
+   "copete": "El actor y cantante Marcelo Trepat murió a los 62 años . La noticia fue informada por la Asociación Argentina de Actores, que despidió al intérprete y acompañó a sus familiares, amistades y colegas en este difícil momento. Nacido el 15 de marzo de 1964 en Pergamino, provincia de…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-24T20:03:25.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/show/famosos/2026/10/24/murio-marcelo-trepat-actor-de-montana-rusa-la-ninera-y-los-simuladores/",
+     "fecha": "2026-10-24T20:03:25.000Z"
     },
     {
-     "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/futbolargentino/banfield-lanus-torneo-clausura-clasico-del-sur-goles-videos-resumen",
-     "fecha": "2026-10-24T16:38:25.000Z"
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/espectaculos/2026/10/24/murio-marcelo-trepat-reconocido-actor-de-montana-rusa-la-ninera-y-los-simuladores/",
+     "fecha": "2026-10-24T20:47:23.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 5
+   "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 20 y la fuente no lo dice; sin esas oraciones quedan 233 palabras",
+   "maximo": 3
   },
   {
    "id": "1yxp5q5",
@@ -124,33 +114,6 @@
      "medio": "Canal 26",
      "enlace": "https://www.canal26.com/politica/2026/10/24/momo-y-dalto-convocaron-a-mas-de-15000-jovenes-en-jose-c-paz-educacion-tecnologia-e-inteligencia-artificial/",
      "fecha": "2026-10-24T16:11:37.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
-   "id": "i9n7eh",
-   "titulo": "Diario británico The Telegraph afirma que Netanyahu autorizaría apoyo para la Argentina por el conflicto con Inglaterra por Malvinas",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-10-24T13:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/diario-britanico-the-telegraph-afirma-que-netanyahu-autorizaria-apoyo-para-la-argentina-por-el-conflicto-con-inglaterra-por-malvinas_a6adca44e8d54d665107ac90c",
-     "fecha": "2026-10-24T13:00:00.000Z"
-    },
-    {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/politica/467392-netanyahu-respaldara-el-reclamo-argentino-por-malvinas-segun-diario-the-telegraph",
-     "fecha": "2026-10-24T15:52:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/mundo/the-telegraph-asegura-que-netanyahu-ordeno-respaldar-la-argentina-su-reclamo-las-islas-malvinas-n6337504",
-     "fecha": "2026-10-24T15:55:00.000Z"
     }
    ],
    "intentos": 1,

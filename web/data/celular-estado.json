@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T20:32:25.932Z",
- "portada": 88,
+ "generado": "2026-10-24T21:02:50.024Z",
+ "portada": 87,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-24T20:32:26.362Z",
+  "generado": "2026-10-24T21:02:50.589Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,8 +53,8 @@
     "que": "Los teléfonos útiles",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-24T20:36:36.144Z"
    },
    {
     "nombre": "farmacia",
@@ -172,18 +172,16 @@
      "id": "5r4s16",
      "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
      "cuando": "2026-10-24T19:06:02.095Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "1vxdqss",
      "titulo": "Fito Páez cuestiona al gobierno de Javier Milei y critica el sistema",
-     "seccion": "Cultura y agenda",
-     "marcada": false
+     "cuando": "2026-10-24T20:47:14.581Z"
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-24T20:36:02.095Z",
+   "cola": [],
+   "cupo": 1,
+   "proximoDesde": "2026-10-24T22:17:14.581Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

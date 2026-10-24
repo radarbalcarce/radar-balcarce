@@ -620,6 +620,21 @@
   "ultimo": "2026-10-19T23:31:07.063Z",
   "motivo": "con cuerpo"
  },
+ "1b4pjdh": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:01:45.224Z",
+  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 20 y la fuente no lo dice; sin esas oraciones quedan 233 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (cita, copia): el cuerpo pone entre comillas algo ",
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 20 y la fuente n"
+  ],
+  "falla": [
+   "el cuerpo dice 20 y la fuente no lo dice",
+   "el título nombra a \"marcelo\", \"trepat\" y el cuerpo no los explica"
+  ]
+ },
  "1bf0t54": {
   "intentos": 1,
   "ultimo": "2026-10-21T13:02:10.043Z",
@@ -1650,6 +1665,13 @@
   "ultimo": "2026-10-19T19:31:08.720Z",
   "motivo": "con cuerpo"
  },
+ "1roocg0": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:01:45.224Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "1rozd4x": {
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
@@ -1980,17 +2002,14 @@
   "motivo": "con cuerpo"
  },
  "1w1bqj1": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T20:31:34.707Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 146 palabras",
-  "textos": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-24T21:01:45.224Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1w1iijh": {
@@ -2877,19 +2896,19 @@
   "motivo": "con cuerpo"
  },
  "dky59": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T20:31:34.707Z",
-  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (position, autodromo): va con las tildes y la eñe donde corresponde",
+  "intentos": 2,
+  "ultimo": "2026-10-24T21:01:45.224Z",
+  "motivo": "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 138 palabras",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re",
-   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
+   "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re"
   ],
   "falla": [
-   "el cuerpo nombra a \"nro\" y la fuente no",
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el texto está escrito sin tildes (position, autodromo, Autodromo, clasificacion, participacion): va con las tildes y la eñe donde correspond"
+   "el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden"
   ]
  },
  "dn35sg": {
@@ -3528,17 +3547,18 @@
   "numeradas": 15
  },
  "nqkyot": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T20:31:34.707Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-24T21:01:45.224Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica; sin esas oraciones quedan 242 palabras",
   "textos": 5,
-  "numeradas": 9,
+  "numeradas": 7,
   "motivos": [
    "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
+   "título o bajada: 5 problemas (forma, nombre, antecedente): el titulo t",
+   "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
    "el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica"
   ]
  },
