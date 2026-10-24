@@ -34,3 +34,12 @@
 ## Lo que no se pudo ver
 
 - **Cloudflare:** el panel pidió iniciar sesión (no hay sesión en este Chrome). Los minutos de Workers Builds y el uso real de R2 quedan sin mirar. Lo hace una persona o se arma el acceso.
+
+## Cloudflare, leído el 24/10/2026 (sólo lectura)
+
+- **Minutos de compilación (Workers Builds):** **578 minutos usados** en el período 11/10 al 11/11, de los 6.000 incluidos en el plan. Uso facturable acumulado: US$ 0,00.
+- **Compilaciones del motor:** 94 hasta ahora. Promedio: unos 6 minutos por compilación (578 / 94), no los 14 que se temían. Hay que confirmar la duración exacta por vuelta en cada compilación.
+- **Proyección:** si se sostiene el ritmo (unas 47 compilaciones por día de unos 6 minutos), serían unos 8.500 minutos por mes, o sea unos 2.500 por encima de lo incluido (orden de US$ 12 a 15 de excedente por mes). Con la vuelta de noche una por hora y las imágenes en R2 (regla 312) entra en el presupuesto.
+- **Workers en Cloudflare:** tareas (subido hace 22 h), reloj, vigilante, motor y archivo (hace 1 día), imágenes, archivo-staging y sondeo-fuentes. Los Workers de hoy todavía no están subidos con los cambios del 24/10: falta correr «Desplegar Workers de Cloudflare» (lo hace una persona).
+- **Uso del mes:** 7,72 mil pedidos y 34,39 mil ms de CPU. Sin alertas de presupuesto configuradas (hay un botón «Add Budget Alert»).
+- **Sobrante:** `radar-balcarce-sondeo-fuentes` (8 días) y `radar-balcarce-archivo-staging` (7 días) parecen ensayos que ya no hacen falta; confirmar antes de borrarlos.
