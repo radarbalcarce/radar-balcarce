@@ -25,7 +25,8 @@ function archivosDe(dir, prefijo = '', salida = []) {
   let entradas;
   try { entradas = fs.readdirSync(dir, { withFileTypes: true }); } catch { return salida; }
   for (const e of entradas) {
-    // `.cache/tarjetas/` (regla 305) son ~100 MB de PNG: la caché de Actions los guarda, pero acá no se bajarían de R2 en cada vuelta.
+    // `.cache/tarjetas/` (regla 305) son ~300 MB de PNG: no se bajan todos de R2 en cada vuelta. Con TARJETAS_EN_R2 (regla 312) cada imagen vive como un
+    // objeto suelto (motor/tarjetas/<huella>.png) y la compilación baja sólo las que pide (infra/motor-cloudflare/tarjetas-r2.mjs).
     if (e.isDirectory() && !(prefijo === '' && e.name === 'tarjetas')) archivosDe(path.join(dir, e.name), `${prefijo}${e.name}/`, salida);
     else if (e.isFile()) salida.push(`${prefijo}${e.name}`);
   }
@@ -89,7 +90,7 @@ export const VUELTAS_QUE_SE_RECUERDAN = 96;
  * en GitHub los mostraba la API de anotaciones y de ahí los leía el informe diario; ahora quedan acá.
  */
 export async function anotarVuelta(r2, {
-  id, ok, motivo = null, segundos, pasos = {}, ahora = new Date(), anotaciones = null,
+  id, ok, motivo = null, segundos, pasos = {}, ahora = new Date(), anotaciones = null, compilo = null, extraMinutos = undefined,
 }) {
   const estado = { id, ok, motivo, segundos: Math.round(segundos), cuando: ahora.toISOString(), pasos };
   let previo = null;
@@ -102,7 +103,7 @@ export async function anotarVuelta(r2, {
   const mes = mesDe(ahora);
   let registro = registroVacio(mes);
   try { registro = JSON.parse(await r2.leerTexto(claveDelMes(mes)) ?? 'null') ?? registro; } catch { /* mes nuevo o roto */ }
-  const nuevo = sumarVuelta(registro, { segundos, ahora, mes });
+  const nuevo = sumarVuelta(registro, { segundos, ahora, mes, pasos, compilo, ...(extraMinutos === undefined ? {} : { extraMinutos }) });
   await r2.guardar(claveDelMes(mes), JSON.stringify(nuevo), 'application/json');
   return { estado, registro: nuevo };
 }

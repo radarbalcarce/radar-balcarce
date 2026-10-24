@@ -5,6 +5,7 @@
 // escritura". Se carga una sola vez (docs/08-INFRAESTRUCTURA.md, "El reloj de Cloudflare"). Nunca se escribe en el código.
 
 import { enLaNube, despertarEnLaNube, motorAtrasado, MOTOR } from './nube.mjs';
+import { nocheCadaHora, HORAS_DE_NOCHE } from '../motor-cloudflare/presupuesto.mjs';
 
 export const REPOSITORIO = 'radarbalcarce/radar-balcarce';
 export const RAMA = 'main';
@@ -12,7 +13,9 @@ export const RAMA = 'main';
 /**
  * Qué workflows pedir según el minuto y la hora UTC (Balcarce es UTC-3 todo el año, sin horario de verano: los minutos son los mismos y la
  * hora de Balcarce es la UTC menos 3). Desde el 17/10/2026 (auditoría 2.0, 01-ARMADO-E-INFRA) cada cosa corre sólo cuando tiene algo que hacer:
- *  - :00 y :30, todo el día     → Actualizar la web (la web se arma de día y de noche).
+ *  - :00 y :30, todo el día     → Actualizar la web (la web se arma de día y de noche). Con la variable MOTOR_NOCHE_CADA_HORA="Si" (regla 312,
+ *    apagada por defecto), de 23:00 a 6:59 de Balcarce sólo a los :00: ocho vueltas menos por día. El «vigilante de vueltas» (motorAtrasado) espera
+ *    entonces una hora más antes de pedir una vuelta de rescate.
  *  - :00 de las horas UTC múltiplo de 3 (0, 3, 6… 21 en Balcarce) → Vigilancia, cada 3 horas (antes, cada media hora). Lo urgente (la web
  *    que no se actualiza, "Actualizar" que falla) ya lo avisa el vigilante de Cloudflare cada media hora. Lo que depende de la hora tiene
  *    su corrida: las estadísticas de las 9 y de las 21 (antes del informe de las 21:15) y el cierre del día de la medianoche (que cierra el
@@ -45,7 +48,7 @@ export const HORAS_REVISION_UTC = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23];
 /** La hora de Balcarce (0 a 23) de una hora UTC. */
 export const horaDeBalcarce = (horaUtc) => (Number(horaUtc) + 21) % 24;
 
-export function trabajosDelMinuto(minuto, horaUtc = null) {
+export function trabajosDelMinuto(minuto, horaUtc = null, { nocheCadaHora: nocheCadaHoraPrendida = false } = {}) {
   const m = Number(minuto);
   const conHora = horaUtc !== null && horaUtc !== undefined;
   const h = conHora ? Number(horaUtc) : null;
@@ -54,7 +57,10 @@ export function trabajosDelMinuto(minuto, horaUtc = null) {
     if (h === 11) lista.push({ archivo: 'informe-diario.yml', inputs: { momento: 'manana' } });
     if (h === 0) lista.push({ archivo: 'informe-diario.yml', inputs: { momento: 'noche' } });
   }
-  if (m === 0 || m === 30) lista.push({ archivo: 'actualizar.yml' });
+  // 24/10/2026 (regla 312): con MOTOR_NOCHE_CADA_HORA="Si", de 23:00 a 6:59 de Balcarce la web se arma sólo a los :00 (ocho vueltas menos por día, ~20 % de
+  // los minutos de Workers Builds). Sin la hora no se sabe si es de noche: se pide como siempre.
+  const sinLos30DeNoche = nocheCadaHoraPrendida && m === 30 && conHora && HORAS_DE_NOCHE.includes(horaDeBalcarce(h));
+  if ((m === 0 || m === 30) && !sinLos30DeNoche) lista.push({ archivo: 'actualizar.yml' });
   if (conHora && ((m === 0 && HORAS_VIGILANCIA_UTC.includes(h)) || (m === 30 && REINTENTOS_VIGILANCIA_UTC.includes(h)))) {
     lista.push({ archivo: 'vigilancia.yml' });
   }
@@ -93,7 +99,7 @@ export default {
   async scheduled(evento, env) {
     const cuando = new Date(evento.scheduledTime);
     const minuto = cuando.getUTCMinutes();
-    const trabajos = trabajosDelMinuto(minuto, cuando.getUTCHours());
+    const trabajos = trabajosDelMinuto(minuto, cuando.getUTCHours(), { nocheCadaHora: nocheCadaHora(env) });
     // 18/10/2026: lo que figura en la variable NUBE se le pide a Cloudflare (infra/reloj-cloudflare/nube.mjs); lo demás, a GitHub, como siempre.
     // Sin NUBE (lo de siempre) no cambia nada: todo a GitHub y el mismo error si falta la llave.
     const nube = enLaNube(env);

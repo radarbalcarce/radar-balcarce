@@ -11,7 +11,7 @@
 //
 // Sin dependencias.
 
-import { debeCorrer, mesDe, claveDelMes } from '../motor-cloudflare/presupuesto.mjs';
+import { debeCorrer, mesDe, claveDelMes, nocheCadaHora, esDeNocheParaElMotor } from '../motor-cloudflare/presupuesto.mjs';
 
 export const MOTOR = 'actualizar.yml';
 
@@ -53,7 +53,16 @@ export async function motorAtrasado(env, ahora = new Date()) {
   if (!env?.MOTOR) return false;
   const estado = await leerJson(env.MOTOR, 'motor/estado.json');
   const t = Date.parse(estado?.ultimaBuena ?? '');
-  return Number.isFinite(t) && (ahora.getTime() - t) / 60000 >= MINUTOS_PARA_DAR_POR_ATRASADO;
+  return Number.isFinite(t) && (ahora.getTime() - t) / 60000 >= umbralDeAtraso(env, ahora);
+}
+
+/**
+ * Cuántos minutos sin una vuelta buena dan por atrasado al motor. De día es MINUTOS_PARA_DAR_POR_ATRASADO (la vuelta sale cada media hora). De 23:00 a
+ * 6:59, con MOTOR_NOCHE_CADA_HORA="Si" (24/10/2026, regla 312) la vuelta sale cada hora: el hueco normal es de ~65 minutos y 40 darían falsas alarmas
+ * (a los :50 se pediría una vuelta de más, que es justo el gasto que se quería ahorrar). Se le suma esa hora de más.
+ */
+export function umbralDeAtraso(env = {}, ahora = new Date()) {
+  return MINUTOS_PARA_DAR_POR_ATRASADO + (nocheCadaHora(env) && esDeNocheParaElMotor(ahora) ? 60 : 0);
 }
 
 /** Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del mes. */

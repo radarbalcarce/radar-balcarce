@@ -476,3 +476,98 @@ test('regla 305: la memoria de tarjetas (.cache/tarjetas) no baja ni sube de R2:
   assert.equal(await guardarCache(cliente, raiz, new Map()), 1);
   assert.deepEqual(registro.filter(([v]) => v === 'guardar').map(([, k]) => k), ['motor/cache/cruce-memoria.json']);
 });
+
+// ------------------------------------------------------------------ regla 311: minutos de Workers Builds
+
+const HUELLA_A = 'a'.repeat(40);
+const HUELLA_B = 'b'.repeat(40);
+const PNG_DE_PRUEBA = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1]);
+
+/** El escenario de siempre, pero la «compilación» deja dos imágenes en .cache/tarjetas (una que ya estaba en R2 y una dibujada de nuevo). */
+function escenarioConTarjetas() {
+  const e = escenario();
+  const base = e.ejecutar;
+  e.ejecutar = async (comando, args, o) => {
+    const r = await base(comando, args, o);
+    if (/run build/.test(`${comando} ${args.join(' ')}`) && r.codigo === 0) {
+      escribir(e.raiz, `.cache/tarjetas/${HUELLA_A}.png`, PNG_DE_PRUEBA);
+      escribir(e.raiz, `.cache/tarjetas/${HUELLA_B}.png`, PNG_DE_PRUEBA);
+    }
+    return r;
+  };
+  return e;
+}
+
+test('regla 311: con TARJETAS_EN_R2 la vuelta sube a R2 sólo las imágenes nuevas, antes de subir el sitio, y lo anota en el registro de minutos', async () => {
+  const e = escenarioConTarjetas();
+  const r2 = r2Falso();
+  await r2.cliente.guardar(`motor/tarjetas/${HUELLA_A}.png`, PNG_DE_PRUEBA); // ésta ya estaba: la compilación la bajó
+  r2.registro.length = 0;
+  const log = [];
+  const r = await vuelta({ env: { ...ENTORNO, TARJETAS_EN_R2: 'Si', MOTOR_MINUTOS_DE_MAS: '1' }, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2.cliente, ahora: () => new Date('2026-10-18T13:07:00Z'), log: (x) => log.push(x) });
+  assert.equal(r.ok, true, r.motivo);
+  assert.deepEqual(r2.registro.filter(([v, k]) => v === 'guardar' && k.startsWith('motor/tarjetas')).map(([, k]) => k).sort(), [`motor/tarjetas-indice.json`, `motor/tarjetas/${HUELLA_B}.png`].sort());
+  assert.ok(log.some((l) => /Tarjetas: 2 pedidas en esta compilación, 1 nuevas a R2/.test(l)), log.filter((l) => /Tarjeta/.test(l)).join('|'));
+  assert.ok(r.pasos['Guardar las tarjetas nuevas en R2']?.ok);
+  // el entorno de la compilación lleva las claves (la compilación de Next las lee para pedir cada imagen)
+  const compilacion = e.comandos.find((c) => c.args === 'run build');
+  assert.equal(compilacion.env.TARJETAS_EN_R2, 'Si');
+  assert.equal(compilacion.env.R2_MOTOR, 'radar-motor');
+  // el registro de minutos guarda el tiempo de cada paso, que la vuelta compiló y el extra configurado (1 minuto en vez de medio)
+  const mes = JSON.parse(r2.texto('motor/minutos/2026-10.json'));
+  assert.equal(mes.compiladas, 1);
+  assert.equal(mes.sinCompilar, 0);
+  assert.equal(mes.segundos, 60, 'la vuelta de mentira dura 0 segundos: sólo queda el minuto de más de MOTOR_MINUTOS_DE_MAS');
+  assert.ok(typeof mes.pasos === 'object');
+  // el orden: las tarjetas se guardan antes de subir el sitio
+  const iTarjetas = log.findIndex((l) => /Tarjetas:/.test(l));
+  assert.ok(iTarjetas >= 0);
+});
+
+test('regla 311: apagada (sin la variable), en simulacro, o si la vuelta no compila, no toca las tarjetas en R2', async () => {
+  // sin la variable: lo de siempre
+  const a = escenarioConTarjetas();
+  const ra = r2Falso();
+  await vuelta({ env: ENTORNO, raiz: a.raiz, ejecutar: a.ejecutar, github: a.ghCliente, r2: ra.cliente, log: silencio });
+  assert.deepEqual(ra.registro.filter(([, k]) => String(k).startsWith('motor/tarjetas')), []);
+  // prendida pero con el sitio idéntico al publicado: no compila, no hay nada que guardar
+  const b = escenarioConTarjetas();
+  const rb = r2Falso();
+  const ahora = () => new Date('2026-10-18T13:07:00Z');
+  const igual = async () => huellaDelSitio({ raiz: b.raiz, env: { ...ENTORNO, TARJETAS_EN_R2: 'Si' }, ahora: ahora() });
+  const res = await vuelta({ env: { ...ENTORNO, TARJETAS_EN_R2: 'Si' }, raiz: b.raiz, ejecutar: b.ejecutar, github: b.ghCliente, r2: rb.cliente, ahora, log: silencio, huellaPublicada: igual });
+  assert.equal(res.ok, true, res.motivo);
+  assert.ok(!b.comandos.some((c) => c.args === 'run build'), 'no compiló');
+  assert.deepEqual(rb.registro.filter(([, k]) => String(k).startsWith('motor/tarjetas')), []);
+  const mes = JSON.parse(rb.texto('motor/minutos/2026-10.json'));
+  assert.equal(mes.sinCompilar, 1, 'el registro cuenta las vueltas que no compilaron');
+  assert.equal(mes.compiladas, 0);
+  // simulacro: no escribe nada en R2
+  const c = escenarioConTarjetas();
+  const rc = r2Falso();
+  await vuelta({ env: { ...ENTORNO, TARJETAS_EN_R2: 'Si', MOTOR_SIMULAR: 'Si' }, raiz: c.raiz, ejecutar: c.ejecutar, github: null, r2: rc.cliente, log: silencio });
+  assert.deepEqual(rc.registro.filter(([v]) => v !== 'leer'), []);
+});
+
+test('regla 311: si R2 falla al guardar las tarjetas, la vuelta sube el sitio igual', async () => {
+  const e = escenarioConTarjetas();
+  const r2 = r2Falso();
+  const original = r2.cliente.guardar;
+  r2.cliente.guardar = async (clave, ...resto) => { if (String(clave).startsWith('motor/tarjetas')) throw new Error('R2 guardar: HTTP 500'); return original(clave, ...resto); };
+  const r = await vuelta({ env: { ...ENTORNO, TARJETAS_EN_R2: 'Si' }, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2.cliente, log: silencio });
+  assert.equal(r.ok, true, r.motivo);
+  assert.ok(e.comandos.some((c) => /pages deploy/.test(c.args)), 'el sitio se subió');
+  assert.equal(r.pasos['Guardar las tarjetas nuevas en R2'].ok, false);
+});
+
+test('regla 311: los pasos que antes no se medían (la memoria de R2, el commit de los datos) quedan con su tiempo real', async () => {
+  const e = escenario();
+  let t = Date.parse('2026-10-18T13:00:00Z');
+  const ahora = () => { t += 2000; return new Date(t); };
+  const r = await vuelta({ env: ENTORNO, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2Falso().cliente, ahora, log: silencio });
+  assert.equal(r.ok, true, r.motivo);
+  for (const nombre of ['Traer la memoria del cruce (R2)', 'Guardar la memoria del cruce (R2)', 'Guardar los datos en GitHub']) {
+    assert.ok(r.pasos[nombre], `falta el paso «${nombre}»`);
+    assert.ok(r.pasos[nombre].segundos > 0, `«${nombre}» quedó en ${r.pasos[nombre].segundos} s`);
+  }
+});

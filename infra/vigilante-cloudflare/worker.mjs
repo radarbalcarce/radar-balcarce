@@ -286,9 +286,19 @@ export function problemasDeLaNube({ ahora, nube }) {
         problemas.push({
           clave: 'actualizar-vieja', titulo: `Hace ${min === null ? 'rato' : formatoEdad(min)} que la vuelta del motor no termina bien`,
           texto: u?.ultimaBuena
-            ? `La última vuelta buena del motor terminó a las ${fechaHoraAR(new Date(u.ultimaBuena))} (hace ${formatoEdad(min)}); debería haber una cada media hora${u.ok === false ? `. La última falló: ${u.motivo ?? 'sin motivo'}` : ''}.`
+            ? `La última vuelta buena del motor terminó a las ${fechaHoraAR(new Date(u.ultimaBuena))} (hace ${formatoEdad(min)}); debería haber una cada media hora (de 23 a 7 puede ser una por hora)${u.ok === false ? `. La última falló: ${u.motivo ?? 'sin motivo'}` : ''}.`
             : 'El motor no tiene ninguna vuelta buena anotada.',
           mirar: [['El motor en Cloudflare (Workers Builds)', ENLACES.motor], ['El reloj de Cloudflare', ENLACES.reloj]],
+        });
+      }
+      // 24/10/2026 (regla 312): el motor proyecta el mes con lo que de verdad tardan sus vueltas (infra/motor-cloudflare/presupuesto.mjs, `proyectar` y
+      // `avisoDeMinutos`; este Worker no importa nada, así que el texto llega armado en /estado). Si el ritmo pedido pasa los minutos incluidos de
+      // Workers Builds, se avisa ANTES de que el presupuesto empiece a saltear vueltas. Se repite cada 24 horas mientras siga.
+      const aviso = m.json?.aviso;
+      if (aviso?.titulo && aviso?.texto) {
+        problemas.push({
+          clave: 'motor-minutos', titulo: String(aviso.titulo).slice(0, 160), texto: String(aviso.texto).slice(0, 1200),
+          mirar: [['El motor en Cloudflare (Workers Builds → Builds)', ENLACES.motor], ['El reloj de Cloudflare', ENLACES.reloj]],
         });
       }
     }
@@ -693,7 +703,7 @@ export async function correr(env, ahora, deps = {}) {
         ...(github.lectura ? (({ terminadas, buenas, malas, ultimaBuena }) => ({ terminadas, buenas, malas, ultimaBuena: ultimaBuena?.cuando ?? null }))(resumenDeCorridas(github.corridas)) : {}),
       },
       problemas: problemas.map((p) => p.clave),
-      ...(nube ? { nube: { motor: nube.motor ? { ok: nube.motor.ok, ultima: nube.motor.json?.ultima?.cuando ?? null, motivo: nube.motor.motivo ?? null } : null, tareas: nube.tareas ? { ok: nube.tareas.ok, motivo: nube.tareas.motivo ?? null } : null } } : {}),
+      ...(nube ? { nube: { motor: nube.motor ? { ok: nube.motor.ok, ultima: nube.motor.json?.ultima?.cuando ?? null, motivo: nube.motor.motivo ?? null, minutos: nube.motor.json?.proyeccion ? { gastado: nube.motor.json.proyeccion.gastado, alRitmo: nube.motor.json.proyeccion.alRitmo, porVuelta: nube.motor.json.proyeccion.porVuelta, alcanzan: nube.motor.json.proyeccion.alcanzan } : null } : null, tareas: nube.tareas ? { ok: nube.tareas.ok, motivo: nube.tareas.motivo ?? null } : null } } : {}),
       mails: envios.filter((e) => !fallidos.includes(e)).map((e) => e.tipo),
       mailsConError: errores,
     },

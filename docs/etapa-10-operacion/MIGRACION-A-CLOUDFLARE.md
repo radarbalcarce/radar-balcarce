@@ -178,6 +178,8 @@ La vuelta de hoy tarda **4,5 minutos** en Actions (p50 226 s, media 249 s, + 30 
 
 O sea: **nunca pasa de ~5.900 de los 6.000** y nunca deja la web más de ~35 minutos de más sin armarse; a cambio, con vueltas de 5 minutos la web se arma cada ~42 minutos en promedio en vez de cada 30. **Para volver a 48 por día** hay que bajar la vuelta a ~3 minutos (la caché de `node_modules` de Workers Builds, si existe, ahorra ~1 minuto) o aceptar pagar: `MOTOR_SIN_TOPE=Si` en el reloj = 48 vueltas × 5 min = 7.200 → **1.200 de más × US$ 0,005 = US$ 6 por mes**.
 
+**Actualización del 24/10/2026 (regla 312):** la estimación de 4,5 minutos por vuelta no se cumplió (el 23/10 se anotaron vueltas de ~14). Qué se midió, la tabla de esta sección con vueltas de 14 minutos, y las tres palancas escritas (tarjetas en R2, noche una por hora, registro por paso con aviso): `MINUTOS-DE-WORKERS-BUILDS.md`.
+
 ## 6. Los límites que mandaron
 
 - **El motor cabe**: 20 min de tope (la vuelta tarda ~5; el 95 % de las de Actions tarda menos de 8; la peor que se midió, 20 minutos, se cortaría y la vuelta siguiente la retoma), 8 GB de memoria y 4 vCPU de sobra para Next. `vuelta.mjs` se rinde a los 18 minutos y lo dice.

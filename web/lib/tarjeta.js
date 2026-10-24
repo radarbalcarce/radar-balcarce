@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { carpetaDeLaMemoria, huellaDelDiseno, huellaDeTarjeta, leerDeLaMemoria, guardarEnLaMemoria } from './cache-tarjetas.js';
+import { traerTarjetaDeR2 } from '../../infra/compartido/tarjetas-r2.mjs';
 import {
   PAPEL, TINTA, GRIS, ROJO, INSTAGRAM, INTERLINEA_TITULO, INTERLINEA_BAJADA, ANCHO_FOTO_ENLACE,
   colorDe, repartirTexto, tamNombreDeSeccion, fechaCorta, fotoDeLaNota,
@@ -238,7 +239,8 @@ export async function tarjetaConMemoria(nota = {}, { instagram = false, conFoto 
     try { fotoBytes = f ? fs.readFileSync(f.ruta) : null; } catch { fotoBytes = null; }
   }
   const clave = huellaDeTarjeta(nota, { instagram, fotoBytes, diseno });
-  const guardada = leerDeLaMemoria(carpeta, clave);
+  // Regla 311: en Workers Builds la carpeta arranca vacía en cada vuelta; con TARJETAS_EN_R2 se pide ESTA imagen a R2 antes de dibujarla (apagado: null).
+  const guardada = leerDeLaMemoria(carpeta, clave) ?? await traerTarjetaDeR2(carpeta, clave, guardarEnLaMemoria);
   const cabeceras = { 'content-type': TIPO, 'cache-control': 'public, immutable, no-transform, max-age=31536000' };
   if (guardada) return new Response(guardada, { headers: cabeceras });
 
