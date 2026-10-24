@@ -220,7 +220,8 @@ test('el detector de imports ve todas las formas de escribirlos', () => {
 
 /** Los archivos de código del proyecto, sin node_modules ni lo generado. */
 function archivosDeCodigo(desde = RAIZ, acumulado = []) {
-  const IGNORAR = new Set(['node_modules', '.next', '.git', 'datos', 'data', 'salida']);
+  // `.claude` (las copias de trabajo de los agentes) y `out` (lo que arma la compilación, p. ej. el buscador) no son código nuestro (24/10/2026).
+  const IGNORAR = new Set(['node_modules', '.next', '.git', '.claude', 'out', 'datos', 'data', 'salida']);
   for (const entrada of fs.readdirSync(desde, { withFileTypes: true })) {
     if (IGNORAR.has(entrada.name)) continue;
     const completo = path.join(desde, entrada.name);

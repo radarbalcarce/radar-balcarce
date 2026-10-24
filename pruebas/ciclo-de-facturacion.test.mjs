@@ -326,7 +326,7 @@ test('regla 315: la vuelta lee MOTOR_CICLO_DIA, y la variable llega a Workers Bu
   assert.equal(configurar({ MOTOR_CICLO_DIA: '15' }).cicloDia, 15);
   assert.equal(configurar({ MOTOR_CICLO_DIA: 'roto' }).cicloDia, 11);
   assert.match(leer('infra/motor-cloudflare/vuelta.mjs'), /cicloDia: cfg\.cicloDia/);
-  assert.match(leer('infra/motor-cloudflare/cargar-variables.mjs'), /'MOTOR_NOCHE_CADA_HORA', 'MOTOR_CICLO_DIA'\]/);
+  assert.match(leer('infra/motor-cloudflare/cargar-variables.mjs'), /'MOTOR_NOCHE_CADA_HORA', 'MOTOR_CICLO_DIA'[,\]]/);
   assert.match(leer('.github/workflows/motor-variables.yml'), /MOTOR_CICLO_DIA: \$\{\{ vars\.MOTOR_CICLO_DIA \}\}/);
   // el reloj y el Worker del motor la leen de su panel de Cloudflare (está dicho en sus wrangler.toml)
   assert.match(leer('infra/reloj-cloudflare/wrangler.toml'), /MOTOR_CICLO_DIA/);
