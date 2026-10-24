@@ -274,6 +274,32 @@ export async function revisarLaNube({ env = {} } = {}) {
   return out;
 }
 
+/** Minutos desde que arrancó una corrida a partir de los cuales, si no anotó cómo terminó, se da por cortada (las tareas largas tardan unos 10; el reloj las deja 15). */
+export const MINUTOS_PARA_DAR_POR_CORTADA = 20;
+
+/**
+ * Por qué una tarea no sale bien, según lo que el Worker de tareas anotó de ella (regla 318). Distingue tres cosas que antes se veían igual:
+ *  · la cortaron: su última corrida ARRANCÓ (`empezo`) y nunca anotó cómo terminó (`cuando` es anterior): Cloudflare la canceló o se cayó a la mitad;
+ *  · el reloj no la pide: la última corrida que arrancó es de hace más que su ritmo, o no hay ninguna;
+ *  · terminó con error: se dice aparte (`ok === false`, con su motivo). Pura; devuelve un texto o ''.
+ */
+export function causaDeLaTarea(e, ahora, ritmoMinutos) {
+  const empezo = e?.empezo ? Date.parse(e.empezo) : NaN;
+  const termino = e?.cuando ? Date.parse(e.cuando) : NaN;
+  if (Number.isFinite(empezo) && (!Number.isFinite(termino) || empezo > termino)) {
+    const min = minutosDesde(e.empezo, ahora);
+    if (min !== null && min > MINUTOS_PARA_DAR_POR_CORTADA) {
+      return `La última vez que arrancó fue a las ${fechaHoraAR(new Date(e.empezo))} (hace ${formatoEdad(min)}) y no llegó a anotar cómo terminó: la cortaron o se cayó a la mitad (el reloj deja correr una tarea 15 minutos). El reloj sí la está pidiendo.`;
+    }
+    return '';
+  }
+  const ultimo = Number.isFinite(empezo) ? empezo : termino;
+  if (!Number.isFinite(ultimo)) return 'No hay rastro de que alguna vez haya arrancado: el reloj no se la pidió o el Worker de tareas no la recibió.';
+  const min = minutosDesde(new Date(ultimo).toISOString(), ahora);
+  if (min !== null && min > ritmoMinutos) return `Tampoco arrancó ninguna corrida desde las ${fechaHoraAR(new Date(ultimo))} (hace ${formatoEdad(min)}): el reloj no se la pidió o el Worker de tareas no la recibió.`;
+  return '';
+}
+
 /** Los problemas de la nube: el motor que no sale bien, o una tarea que no corre hace demasiado. Pura. */
 export function problemasDeLaNube({ ahora, nube }) {
   const problemas = [];
@@ -327,11 +353,12 @@ export function problemasDeLaNube({ ahora, nube }) {
         const e = t.json?.tareas?.[nombre] ?? null;
         const min = e?.ultimaBuena ? minutosDesde(e.ultimaBuena, ahora) : null;
         if (min === null || min > ritmo.minutos) {
+          const causa = causaDeLaTarea(e, ahora, ritmo.minutos);
           problemas.push({
             clave: `tarea-${nombre}`, titulo: `La tarea «${nombre}» no sale bien hace ${min === null ? 'rato' : formatoEdad(min)}`,
-            texto: e?.ultimaBuena
+            texto: (e?.ultimaBuena
               ? `«${nombre}» salió bien por última vez a las ${fechaHoraAR(new Date(e.ultimaBuena))} (hace ${formatoEdad(min)}); lo normal es cada ${ritmo.minutos >= 120 ? `${Math.round(ritmo.minutos / 60)} horas` : `${ritmo.minutos} minutos`} como mucho${e.ok === false ? `. La última corrida falló: ${e.motivo ?? 'sin motivo'}` : ''}.`
-              : `«${nombre}» no tiene ninguna corrida buena anotada${e?.motivo ? ` (la última falló: ${e.motivo})` : ''}.`,
+              : `«${nombre}» no tiene ninguna corrida buena anotada${e?.motivo ? ` (la última falló: ${e.motivo})` : ''}.`) + (causa ? ` ${causa}` : ''),
             mirar: [['El Worker de tareas', ENLACES.tareas], ['El reloj de Cloudflare', ENLACES.reloj]],
           });
         }

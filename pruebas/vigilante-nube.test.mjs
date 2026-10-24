@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { correr, revisarLaNube, problemasDeLaNube, RITMO_DE_LAS_TAREAS, TAREA_DE_CADA_WORKFLOW } from '../infra/vigilante-cloudflare/worker.mjs';
+import { correr, revisarLaNube, problemasDeLaNube, causaDeLaTarea, RITMO_DE_LAS_TAREAS, TAREA_DE_CADA_WORKFLOW } from '../infra/vigilante-cloudflare/worker.mjs';
 import { TAREA_DE } from '../infra/reloj-cloudflare/nube.mjs';
 
 const z = (iso) => new Date(iso);
@@ -87,6 +87,34 @@ test('una tarea que no sale bien hace más del doble de su ritmo avisa con su no
   assert.deepEqual(problemasDeLaNube({ ahora: AHORA, nube: sin }).map((p) => p.clave), ['tarea-pistas']);
   // el Worker de tareas sin contestar es un aviso aparte
   assert.deepEqual(problemasDeLaNube({ ahora: AHORA, nube: nubeSana({ tareas: { ok: false, motivo: 'HTTP 401' } }) }).map((p) => p.clave), ['tareas-sin-estado']);
+});
+
+test('regla 318: el aviso de una tarea dice por qué no sale bien: la cortaron (arrancó y no anotó cómo terminó), terminó con error, o el reloj no se la pide', () => {
+  const aviso = (e) => {
+    const n = nubeSana();
+    n.tareas.json.tareas['auditoria-ia'] = e;
+    const ps = problemasDeLaNube({ ahora: AHORA, nube: n });
+    assert.deepEqual(ps.map((p) => p.clave), ['tarea-auditoria-ia'], 'la clave del aviso no cambia (así el aviso abierto se sigue y se cierra solo)');
+    return ps[0].texto;
+  };
+  // el caso del 24/10: la última buena es de hace 3 h y la última que arrancó, de hace 30 min, nunca anotó cómo terminó
+  const cortada = aviso({ ok: true, cuando: hace(AHORA, 180), ultimaBuena: hace(AHORA, 180), empezo: hace(AHORA, 30) });
+  assert.match(cortada, /no llegó a anotar cómo terminó: la cortaron/);
+  assert.match(cortada, /El reloj sí la está pidiendo/);
+  // una que arrancó hace 5 minutos puede estar corriendo: no se la da por cortada (y no se agrega nada)
+  assert.doesNotMatch(aviso({ ok: true, cuando: hace(AHORA, 180), ultimaBuena: hace(AHORA, 180), empezo: hace(AHORA, 5) }), /cortaron|reloj/);
+  // terminó con error: se dice el motivo, y no se la da por cortada porque terminó después de arrancar
+  const conError = aviso({ ok: false, motivo: 'GitHub no aceptó el commit', cuando: hace(AHORA, 20), ultimaBuena: hace(AHORA, 180), empezo: hace(AHORA, 22) });
+  assert.match(conError, /La última corrida falló: GitHub no aceptó el commit/);
+  assert.doesNotMatch(conError, /cortaron/);
+  // el reloj no la pidió: ni una corrida arrancó desde hace más que su ritmo
+  assert.match(aviso({ ok: true, cuando: hace(AHORA, 200), ultimaBuena: hace(AHORA, 200), empezo: hace(AHORA, 201) }), /Tampoco arrancó ninguna corrida desde.*el reloj no se la pidió/);
+  assert.match(aviso({ ok: true, cuando: hace(AHORA, 200), ultimaBuena: hace(AHORA, 200) }), /Tampoco arrancó ninguna corrida desde.*el reloj no se la pidió/, 'sin la marca de inicio (corridas de antes de la regla 318) también');
+  // nunca hubo rastro
+  const n = nubeSana();
+  delete n.tareas.json.tareas['auditoria-ia'];
+  assert.match(problemasDeLaNube({ ahora: AHORA, nube: n })[0].texto, /No hay rastro de que alguna vez haya arrancado/);
+  assert.equal(causaDeLaTarea(null, AHORA, 150).startsWith('No hay rastro'), true);
 });
 
 function fetchDeLaWeb(llamadas) {

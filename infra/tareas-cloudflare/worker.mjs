@@ -51,6 +51,11 @@ export async function atender(request, env, { github = null, correr = correrTare
     const tareas = {};
     for (const nombre of Object.keys(TAREAS)) {
       try { tareas[nombre] = JSON.parse(await env.ESTADO?.get(`estado:${nombre}`) ?? 'null'); } catch { tareas[nombre] = null; }
+      // Cuándo ARRANCÓ la última corrida (regla 318): si es más nueva que `cuando`, esa corrida no llegó a anotar cómo terminó (la cortaron).
+      try {
+        const empezo = await env.ESTADO?.get(`inicio:${nombre}`);
+        if (empezo) tareas[nombre] = { ...(tareas[nombre] ?? {}), empezo };
+      } catch { /* sin el inicio, el vigilante sigue con lo de siempre */ }
     }
     // La pausa general (regla 317) viaja en el estado: el vigilante ya le pregunta esto a este Worker y de ahí sabe si «la web no se actualiza» es una pausa y no una rotura.
     const pausa = await leerPausa(lectorDeBinding(env.MOTOR));
