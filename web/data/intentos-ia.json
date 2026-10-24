@@ -105,9 +105,9 @@
   "motivo": "con cuerpo"
  },
  "11ubrm7": {
-  "intentos": 2,
-  "ultimo": "2026-10-23T23:33:13.343Z",
-  "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC"
+  "intentos": 3,
+  "ultimo": "2026-10-24T00:01:52.989Z",
+  "motivo": "con cuerpo"
  },
  "11wm7cc": {
   "intentos": 1,
@@ -311,6 +311,11 @@
  "157sicu": {
   "intentos": 1,
   "ultimo": "2026-10-19T11:31:25.546Z",
+  "motivo": "con cuerpo"
+ },
+ "157w6e1": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
  "15c1xk": {
@@ -796,9 +801,9 @@
   "motivo": "con cuerpo"
  },
  "1es4apg": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T23:33:13.343Z",
-  "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
+  "intentos": 2,
+  "ultimo": "2026-10-24T00:01:52.989Z",
+  "motivo": "con cuerpo"
  },
  "1esapfz": {
   "intentos": 3,
@@ -955,11 +960,6 @@
   "ultimo": "2026-10-21T02:01:16.093Z",
   "motivo": "con cuerpo"
  },
- "1h6knvx": {
-  "intentos": 3,
-  "ultimo": "2026-10-17T00:01:29.458Z",
-  "motivo": "con cuerpo"
- },
  "1h6s4i8": {
   "intentos": 1,
   "ultimo": "2026-10-19T12:02:00.813Z",
@@ -988,6 +988,11 @@
  "1hlcr56": {
   "intentos": 1,
   "ultimo": "2026-10-19T15:02:08.920Z",
+  "motivo": "con cuerpo"
+ },
+ "1hmio7x": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
  "1hnhixv": {
@@ -1350,6 +1355,11 @@
  "1n6g7ka": {
   "intentos": 2,
   "ultimo": "2026-10-17T01:01:33.674Z",
+  "motivo": "con cuerpo"
+ },
+ "1ncb58l": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
  "1ndcv2n": {
@@ -1972,11 +1982,6 @@
  "1w90w0b": {
   "intentos": 3,
   "ultimo": "2026-10-23T20:01:53.695Z",
-  "motivo": "con cuerpo"
- },
- "1w9aja0": {
-  "intentos": 2,
-  "ultimo": "2026-10-17T00:01:29.458Z",
   "motivo": "con cuerpo"
  },
  "1w9sag8": {
@@ -2979,11 +2984,6 @@
   "ultimo": "2026-10-21T16:31:17.473Z",
   "motivo": "con cuerpo"
  },
- "f9bo89": {
-  "intentos": 4,
-  "ultimo": "2026-10-17T00:01:29.458Z",
-  "motivo": "semáforo: necesita ojo humano: \"chicos de entre 8 y 13 anos\", en lo que escribió la IA"
- },
  "fa1cz": {
   "intentos": 1,
   "ultimo": "2026-10-19T05:02:10.878Z",
@@ -3280,9 +3280,9 @@
   "motivo": "con cuerpo"
  },
  "junk0o": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T22:31:48.552Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 2588 (line 25 column 13)"
+  "intentos": 2,
+  "ultimo": "2026-10-24T00:01:52.989Z",
+  "motivo": "con cuerpo"
  },
  "juo82o": {
   "intentos": 1,
@@ -3771,6 +3771,11 @@
   "ultimo": "2026-10-22T14:02:05.680Z",
   "motivo": "con cuerpo"
  },
+ "rwln79": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T00:01:52.989Z",
+  "motivo": "con cuerpo"
+ },
  "rwp4sv": {
   "intentos": 1,
   "ultimo": "2026-10-21T19:31:25.527Z",
@@ -3825,6 +3830,15 @@
   "intentos": 1,
   "ultimo": "2026-10-19T19:01:09.386Z",
   "motivo": "con cuerpo"
+ },
+ "su7ljf": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T00:01:52.989Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 143 palabras",
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 13 palabras seguidas del original (\"los delitos de abuso de autoridad y negociaciones incompatibles con la funcion publica\"): decilo c"
+  ]
  },
  "sx9mu9": {
   "intentos": 1,
@@ -4274,11 +4288,6 @@
  "z6r54g": {
   "intentos": 2,
   "ultimo": "2026-10-21T16:04:04.676Z",
-  "motivo": "con cuerpo"
- },
- "z7cv8i": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T00:01:29.458Z",
   "motivo": "con cuerpo"
  },
  "z8ktkl": {

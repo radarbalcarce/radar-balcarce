@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-23T23:33:46.035Z",
- "portada": 114,
+ "generado": "2026-10-24T00:04:01.859Z",
+ "portada": 127,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-23T23:33:46.682Z",
+  "generado": "2026-10-24T00:04:02.358Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-23T23:36:40.298Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -145,7 +145,7 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 55,
     "notas": [
@@ -155,14 +155,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "171ypvy",
-      "titulo": "El Turismo Special de la Costa inicia la Copa de Oro",
-      "seccion": "Automovilismo"
-     },
-     {
       "id": "1w90w0b",
       "titulo": "Colapinto termina 17° en Austin y recibe una sanción",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
      },
      {
       "id": "5o84cc",
@@ -208,6 +208,12 @@
      "marcada": false
     },
     {
+     "id": "k59a1x",
+     "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "149ahyx",
      "titulo": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses",
      "seccion": "Deportes",
@@ -220,8 +226,8 @@
      "marcada": false
     },
     {
-     "id": "k59a1x",
-     "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
+     "id": "qkw865",
+     "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
      "seccion": "Balcarce",
      "marcada": false
     },
