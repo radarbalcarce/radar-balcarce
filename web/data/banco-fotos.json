@@ -19239,9 +19239,7 @@
   "ausenteDesde": "2026-10-23T17:05:07.188Z"
  },
  "daz0ef": {
-  "archivo": "fotos-notas/daz0ef.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Revelan la verdadera falla del auto de Carlos Reutemann en 1981",
@@ -19261,7 +19259,8 @@
    "descripcion": "Carlos Reutemann conduciendo su monoplaza en pista."
   },
   "huella": "e7eaaaf269240f0d",
-  "ausenteDesde": "2026-10-17T13:31:52.093Z"
+  "intentado": true,
+  "borrada": true
  },
  "181owly": {
   "archivo": "fotos-notas/181owly.jpg",
@@ -35971,10 +35970,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Lorenzo juega ante Newell's por el Torneo Clausura",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-24T07:01:30.367Z",
-  "intentos": 3,
-  "fuentes": 9
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota); la de La Capital (Rosario) (es un flyer, un afiche o una captura de pantalla, no una foto): no se elige ninguna.",
+  "cuando": "2026-10-24T13:32:02.304Z",
+  "intentos": 4,
+  "fuentes": 14
  },
  "a3gdkz": {
   "archivo": "fotos-notas/a3gdkz.jpg",
@@ -36535,14 +36534,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "nb111o": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/nb111o.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Lula cuestiona a Milei y cruza a Bolsonaro en el debate",
-  "razon": "La única imagen disponible tiene una marca de agua superpuesta del medio (Noticias Argentinas), lo que impide su selección según las reglas.",
-  "cuando": "2026-10-24T04:01:32.525Z",
-  "intentos": 2,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.c5n.com/mundo/debate-balotaje-lula-da-silva-flavio-bolsonaro-elecciones-brasil-viernes-23-octubre-2026",
+  "imagenOriginal": "https://media.c5n.com/p/1f55c33d93d1ad61cad55d62f8d848bf/adjuntos/326/imagenes/000/404/0000404588/1200x675/smart/flavio-bolsonaro-y-lula-da-silva-el-debate-previo-al-balotaje.jpg",
+  "razon": "Muestra claramente a Lula y Bolsonaro en el debate político con un plano medio cercano y sin marcas superpuestas.",
+  "cuando": "2026-10-24T13:32:02.304Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Bolsonaro señalando y Lula al lado durante el debate"
+  },
+  "huella": "b0b636379786d656"
  },
  "o7bgji": {
   "archivo": "fotos-notas/o7bgji.jpg",
@@ -36908,7 +36921,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y Lula da Silva de cuerpo entero en el debate."
   },
-  "huella": "444cc8cccccccdc8"
+  "huella": "444cc8cccccccdc8",
+  "ausenteDesde": "2026-10-24T13:33:03.185Z"
  },
  "1qaxnjd": {
   "archivo": "fotos-notas/1qaxnjd.jpg",
@@ -36957,5 +36971,38 @@
    "descripcion": "V cantando con camiseta de la selección en una pantalla"
   },
   "huella": "0009296d0d6d4d4e"
+ },
+ "1o59q8j": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Suspenden todos los partidos de fútbol del sábado por la lluvia",
+  "razon": "La mejor foto era la de Infórmese Primero (FM 104.9), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-24T13:32:02.304Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "kc54ji": {
+  "archivo": "fotos-notas/kc54ji.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Se derrumba el entrepiso de un bar en Paraná y hay 15 heridos",
+  "enlace": "https://www.clarin.com/sociedad/dramatico-derrumbe-entrepiso-bar-medio-festejo-cumpleanos-15-heridos_0_Alio7SX6ic.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/24/iFG3OVIzI_2000x1500__1.jpg",
+  "razon": "Muestra claramente el operativo exterior con patrulleros y ambulancias tras el derrumbe, sin marcas ni menores.",
+  "cuando": "2026-10-24T13:32:02.304Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vehiculos de emergencia y policia frente al bar"
+  },
+  "huella": "b8be962c27a5e047"
  }
 }
