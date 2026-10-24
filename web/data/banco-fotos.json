@@ -18426,9 +18426,7 @@
   "fuentes": 3
  },
  "1w6n98i": {
-  "archivo": "fotos-notas/1w6n98i.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "La soja cae por quinta jornada consecutiva en Chicago",
@@ -18437,7 +18435,8 @@
   "razon": "La imagen A ofrece un encuadre completo y de mayor nitidez que muestra la cosecha de soja en acción, ilustrando mejor el contexto agropecuario de la nota, mientras que la B es un primer plano abstracto.",
   "cuando": "2026-10-16T23:31:58.342Z",
   "huella": "0c6266c20a095123",
-  "ausenteDesde": "2026-10-17T04:01:44.345Z"
+  "intentado": true,
+  "borrada": true
  },
  "4gdhzi": {
   "archivo": "fotos-notas/4gdhzi.jpg",
@@ -36166,14 +36165,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1tz9cn4": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1tz9cn4.jpg",
+  "medio": "Noticias Argentinas (NA)",
+  "credito": "Foto: Noticias Argentinas (NA)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La venta de combustibles sube casi un 2% interanual en septiembre",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:32:12.142Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://noticiasargentinas.com/economia/luego-de-siete-meses-con-caidas--la-venta-de-combustibles-repunto-y-subio-casi-un-2--en-septiembre_a6adbb9936b2236dda919353f",
+  "imagenOriginal": "https://alpha-app.tadevel-cdn.com/hostname/noticiasargentinas.com/api/v1/image/article/6adbb9936b2236dda919353f/facebook?v=ba1702f9bbc20cdcde840cc669b3b555&s=b582532c2424a1addf0a90ffba0bd43b",
+  "razon": "Es la única foto sin marcas de agua añadidas, menores de edad ni problemas de stock, mostrando surtidores de combustible.",
+  "cuando": "2026-10-24T04:01:32.525Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Estación de servicio con surtidores de combustible"
+  },
+  "huella": "c5d6d852c9cece4d"
  },
  "cvbw9g": {
   "intentado": true,
@@ -36209,9 +36222,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Reciben en China el primer coche de los subtes para las líneas A y C",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T03:01:23.547Z",
-  "intentos": 2,
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida según las reglas.",
+  "cuando": "2026-10-24T04:01:32.525Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36249,9 +36262,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Leonel Jaime frena el juego por un rival y rompe en llanto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:32:12.142Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T04:01:32.525Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36279,9 +36292,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lula cuestiona a Milei y cruza a Bolsonaro en el debate",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T03:01:23.547Z",
-  "intentos": 1,
+  "razon": "La única imagen disponible tiene una marca de agua superpuesta del medio (Noticias Argentinas), lo que impide su selección según las reglas.",
+  "cuando": "2026-10-24T04:01:32.525Z",
+  "intentos": 2,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
