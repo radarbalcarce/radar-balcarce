@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T02:35:16.957Z",
- "portada": 120,
+ "generado": "2026-10-24T03:02:22.971Z",
+ "portada": 118,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-24T02:35:17.718Z",
+  "generado": "2026-10-24T03:02:23.522Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-23T10:35:56.318Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,18 +33,8 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-23T13:47:28.837Z"
-   },
-   {
-    "nombre": "participa-nota",
-    "tipo": "reel",
-    "hora": "12:00",
-    "que": "Tu nota",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-23T15:36:36.732Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +43,18 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-23T19:46:36.885Z"
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "utiles",
+    "tipo": "reel",
+    "hora": "17:00",
+    "que": "Los teléfonos útiles",
+    "voz": "locutor",
+    "ventana": 60,
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-23T22:36:39.472Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-23T23:36:40.298Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-24T02:06:53.698Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,19 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-23T13:47:28.837Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
     "notas": [
      {
-      "id": "1kx53j2",
-      "titulo": "El Club de Pesca Balcarce incorpora alevinos y huevas",
+      "id": "k59a1x",
+      "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
       "seccion": "Balcarce"
      },
      {
-      "id": "1pd22ww",
-      "titulo": "Cipriano Higuera gana medalla de bronce en los Juegos Bonaerenses",
-      "seccion": "Deportes"
+      "id": "1usw8vx",
+      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "tdc3z0",
+      "titulo": "El ISFT Nº 246 abre la preinscripción a la Tecnicatura de Pymes",
+      "seccion": "Educación"
+     },
+     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -114,92 +124,24 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-23T19:46:36.885Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "i3syjh",
-      "titulo": "La Liga Balcarceña reprograma tres partidos de fútbol para el próximo lunes",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1815on1",
-      "titulo": "Presentan el libro sobre gliptodontes en el museo",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "qkw865",
-      "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1fc5z47",
-      "titulo": "Realizan en Balcarce una charla sobre administración de finanzas personales",
-      "seccion": "Educación"
-     }
-    ]
+    "notas": []
    },
    {
     "nombre": "podcast",
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-24T02:06:53.698Z",
+    "momento": "antes",
+    "salio": null,
     "segundos": null,
-    "notas": [
-     {
-      "id": "1gbhjbe",
-      "titulo": "Petruccelli pide una reunión urgente para recuperar la Estudiantina",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "171ypvy",
-      "titulo": "El Turismo Special de la Costa inicia la Copa de Oro",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1w90w0b",
-      "titulo": "Colapinto termina 17° en Austin y recibe una sanción",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "5o84cc",
-      "titulo": "Manuel Pastorino repasa su trayectoria y la inspiración en el hierro",
-      "seccion": "Cultura y agenda"
-     }
-    ]
+    "notas": []
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "1bw0xc2",
-     "titulo": "Estudiantes clasifica a la final de la Copa Libertadores",
-     "cuando": "2026-10-23T11:05:16.708Z"
-    },
-    {
-     "id": "9cnbf5",
-     "titulo": "El Turismo Special de la Costa corre en el Fangio sin Nahuel Morón",
-     "cuando": "2026-10-23T12:45:32.110Z"
-    },
-    {
-     "id": "1qr79y1",
-     "titulo": "El Financial Times publica un duro análisis sobre el plan económico",
-     "cuando": "2026-10-23T14:36:02.348Z"
-    },
-    {
-     "id": "1jrajck",
-     "titulo": "Fito Páez saluda a Charly García en su cumpleaños",
-     "cuando": "2026-10-23T16:36:07.137Z"
-    },
-    {
-     "id": "16af5xf",
-     "titulo": "Licitan una nueva etapa de obras en el Microestadio del CEF 119",
-     "cuando": "2026-10-23T18:36:06.886Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "149ahyx",
@@ -220,7 +162,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-23T20:06:06.886Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

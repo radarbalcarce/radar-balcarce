@@ -22105,7 +22105,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "d1531b703c717574"
+  "huella": "d1531b703c717574",
+  "ausenteDesde": "2026-10-24T03:02:22.918Z"
  },
  "2qoyht": {
   "archivo": "fotos-notas/2qoyht.jpg",
@@ -36084,8 +36085,8 @@
   "origen": "ninguna",
   "titulo": "Gimnasia supera 2 a 0 a Sarmiento y trepa a la cima de la Zona B",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T01:43:24.467Z",
-  "intentos": 2,
+  "cuando": "2026-10-24T03:01:23.547Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36119,20 +36120,34 @@
   "origen": "ninguna",
   "titulo": "Netflix anuncia un documental sobre la vida y obra de Charly García",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T01:43:24.467Z",
-  "intentos": 2,
+  "cuando": "2026-10-24T03:01:23.547Z",
+  "intentos": 3,
   "fuentes": 14,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1lumco0": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lumco0.webp",
+  "medio": "iProUP",
+  "credito": "Foto: iProUP",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Gobierno reglamenta la Ley de Inocencia Fiscal II",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T01:43:24.467Z",
-  "intentos": 2,
-  "fuentes": 10,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.iproup.com/finanzas/72585-arca-reglamenta-inocencia-fiscal-ii-el-cambio-clave-en-ganancias",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/filters:format(webp):quality(75):max_bytes(102400)/assets.iproup.com/assets/jpg/2024/07/39594_landscape.jpg",
+  "razon": "Es la única foto sin marca, gráfica, menor ni stock que corresponde perfectamente a la temática económica de la nota.",
+  "cuando": "2026-10-24T03:01:23.547Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona usando una calculadora y laptop con papeles"
+  },
+  "huella": "935241800232723d"
  },
  "169jneq": {
   "intentado": true,
@@ -36199,8 +36214,8 @@
   "origen": "ninguna",
   "titulo": "Reciben en China el primer coche de los subtes para las líneas A y C",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T01:43:24.467Z",
-  "intentos": 1,
+  "cuando": "2026-10-24T03:01:23.547Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36262,6 +36277,16 @@
   "cuando": "2026-10-24T02:32:12.142Z",
   "intentos": 1,
   "fuentes": 25,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "nb111o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lula cuestiona a Milei y cruza a Bolsonaro en el debate",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T03:01:23.547Z",
+  "intentos": 1,
+  "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
