@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-24T00:04:01.859Z",
+ "generado": "2026-10-24T00:33:07.503Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -25,34 +25,42 @@
    "maximo": 3
   },
   {
-   "id": "su7ljf",
-   "titulo": "\"La verdad triunfa por sí misma\": el mensaje de Milei tras ser sobreseído por $LIBRA",
-   "copete": "El Presidente publicó un mensaje en Instagram. Santiago Caputo escribió: \"Por supuesto que no veremos ni un solo pedido de disculpas\"",
-   "seccion": "Política",
-   "fecha": "2026-10-23T20:58:00.000Z",
+   "id": "cvbw9g",
+   "titulo": "Sofía Cairo fue elegida la mejor jugadora de hockey del mundo: todos los argentinos premiados por la FIH",
+   "copete": "",
+   "seccion": "Deportes",
+   "fecha": "2026-10-23T18:05:47.944Z",
    "fuentes": [
     {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/politica/467361-la-verdad-triunfa-por-si-misma-el-mensaje-de-milei-tras-ser-sobreseido-por-libra",
-     "fecha": "2026-10-23T20:58:00.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/economia-politica/milei-hablo-tras-haber-sido-sobreseido-en-la-causa-libra-la-verdad-triunfa-por-si-misma-la-mentira-necesita-siempre-complicidad/",
-     "fecha": "2026-10-23T23:57:10.929Z"
-    },
-    {
      "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/milei-hablo-tras-haber-sido-sobreseido-en-la-causa--libra---la-verdad-triunfa-por-si-misma--la-mentira-necesita-siempre-complicidad-_a6adbcd4b6b2236dda91c7115",
-     "fecha": "2026-10-23T21:49:24.627Z"
+     "enlace": "https://noticiasargentinas.com/deportes/sofia-cairo-fue-elegida-la-mejor-jugadora-de-hockey-del-mundo--todos-los-argentinos-premiados-por-la-fih_a6adba16b6b2236dda915d0b1",
+     "fecha": "2026-10-23T18:05:47.944Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/hockey/hockey-argentino-alto-premiados-mejores-mundo_0_jZ5n4lJrd4.html",
+     "fecha": "2026-10-23T19:30:44.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/deportes/orgullo-argentino-el-hockey-sofia-cairo-es-la-nueva-mejor-jugadora-del-mundo-n6337396",
+     "fecha": "2026-10-23T22:06:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 143 palabras",
+   "motivo": "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 213 palabras",
    "maximo": 3
   }
  ],
  "descartadas": [
+  {
+   "id": "1sn7z3c",
+   "titulo": "El Chavo del 8 llegó al Hostal de los Abuelos con una tarde de teatro y merienda",
+   "seccion": "Balcarce",
+   "fecha": "2026-10-23T20:55:44.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo corto (67 palabras)"
+  },
   {
    "id": "1y9unht",
    "titulo": "La Escuela Colegiales de Fútbol de Balcarce: un predio que no para de crecer con obras",
@@ -60,14 +68,6 @@
    "fecha": "2026-10-22T23:48:31.374Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
-  },
-  {
-   "id": "1sn7z3c",
-   "titulo": "El Chavo del 8 llegó al Hostal de los Abuelos con una tarde de teatro y merienda",
-   "seccion": "Balcarce",
-   "fecha": "2026-10-23T21:01:23.450Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo corto (67 palabras)"
   }
  ]
 }
