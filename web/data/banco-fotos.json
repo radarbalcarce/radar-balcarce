@@ -36545,14 +36545,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "o7bgji": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/o7bgji.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Atlético Tucumán vence a Tigre y Dabove deja su cargo como DT",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T06:19:52.890Z",
-  "intentos": 3,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/diego-dabove-renuncio-como-tecnico-de-tigre-id768350.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/999029/diego-dabove-_1440x810.webp?v=1",
+  "razon": "Es la mejor foto que ilustra directamente al DT protagonista de la nota con excelente nitidez y sin marcas ni restricciones.",
+  "cuando": "2026-10-24T12:31:18.926Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del director técnico Diego Dabove serio"
+  },
+  "huella": "9187078386a6e4a4"
  },
  "1dia4on": {
   "intentado": true,
