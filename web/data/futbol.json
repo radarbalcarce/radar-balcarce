@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-24T01:44:57.487Z",
+ "consultado": "2026-10-24T02:02:13.491Z",
  "equipos": [
   "9739",
   "3",
@@ -770,7 +770,7 @@
     "competencia": "liga",
     "inicio": "2026-10-24T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "70'",
+    "minuto": "87'",
     "local": {
      "id": "7767",
      "nombre": "Tigre",
@@ -779,10 +779,17 @@
     "visitante": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Ramiro Ruiz Rodriguez",
+      "minuto": "72'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Monumental de Victoria (José Dellagiovanna)",
     "fase": null,
     "partidoDeLaSerie": null,

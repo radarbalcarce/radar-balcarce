@@ -36211,5 +36211,15 @@
   "intentos": 1,
   "fuentes": 13,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "8es622": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mauricio Serna recuerda la tensa disputa con los referentes de Boca por los premios",
+  "razon": "Groq también falló: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqstatus.com to see if there is an (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T02:01:32.618Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
