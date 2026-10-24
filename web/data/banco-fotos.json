@@ -19120,9 +19120,7 @@
   "fuentes": 1
  },
  "3cvzzz": {
-  "archivo": "fotos-notas/3cvzzz.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca vence a Talleres y escala a la cima de la Tabla Anual",
@@ -19154,7 +19152,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "5eef37c5d199ea2e",
-  "ausenteDesde": "2026-10-17T12:01:48.930Z"
+  "intentado": true,
+  "borrada": true
  },
  "1t5zb3r": {
   "archivo": "fotos-notas/1t5zb3r.jpg",
@@ -33474,14 +33473,28 @@
   "ausenteDesde": "2026-10-24T10:01:20.430Z"
  },
  "171ypvy": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/171ypvy.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Turismo Special de la Costa inicia la Copa de Oro",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T05:58:43.610Z",
-  "intentos": 4,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.elmarplatense.com/la-copa-de-oro-del-tsc-arranca-este-fin-de-semana-en-balcarce-con-diez-pilotos-en-pista",
+  "imagenOriginal": "https://n2.cdnartic.ar/0ibCn8EoxA_oaQA8LKQxPn7UT_s=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/f1_4.webp",
+  "razon": "Muestra claramente los autos de competición en la pista sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-24T12:01:28.775Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Autos de carrera del Turismo Special de la Costa en la pista"
+  },
+  "huella": "0f8f85a7a68da2c6"
  },
  "r41tr7": {
   "archivo": "fotos-notas/r41tr7.jpg",
@@ -35495,14 +35508,40 @@
   "huella": "2984cc1f0e4f0f73"
  },
  "1fcqd3m": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1fcqd3m.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Argentina golea a Marruecos y avanza a los octavos de final",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T05:58:43.610Z",
-  "intentos": 4,
-  "fuentes": 8,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/futbol-femenino/seleccion-argentina-futbol-femenino-mundial-sub-17-hora-juega-transmite-marruecos-partido_0_rTVV4wUzql.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/22/0_U-kZhgW_2000x1500__1.jpg",
+  "razon": "Es la foto con mejor encuadre, nitidez y calidad para ilustrar el festejo de la selección, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-24T12:01:28.775Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadoras de la selección argentina celebrando en la cancha.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadoras de la selección argentina de fútbol femenino celebran en la cancha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "185b292b39391a1a"
  },
  "1rozd4x": {
   "archivo": "fotos-notas/1rozd4x.jpg",
@@ -36687,7 +36726,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre jugadores de Atlético Tucumán y Tigre"
   },
-  "huella": "aa8b2b852c2f5565"
+  "huella": "aa8b2b852c2f5565",
+  "ausenteDesde": "2026-10-24T12:01:50.191Z"
  },
  "10vefy4": {
   "archivo": "fotos-notas/10vefy4.jpg",
@@ -36855,5 +36895,53 @@
    "descripcion": "Flávio Bolsonaro y Lula da Silva de cuerpo entero en el debate."
   },
   "huella": "444cc8cccccccdc8"
+ },
+ "1qaxnjd": {
+  "archivo": "fotos-notas/1qaxnjd.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei afirma que las Islas Malvinas volverán a ser argentinas",
+  "enlace": "https://www.labrujula24.com/notas/2026/10/24/tarde-o-temprano-las-malvinas-volveran-a-ser-argentinas-ratifico-milei-n527008/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/09/malvinas-2-1000x600.jpg",
+  "razon": "La foto C muestra un paisaje de las Islas Malvinas junto a la bandera argentina, sin marcas de agua ni personas, cumpliendo perfectamente con los requisitos para la nota.",
+  "cuando": "2026-10-24T12:01:28.775Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Bandera argentina flameando con un pueblo y paisaje de las Islas Malvinas de fondo."
+  },
+  "huella": "22824442132f7e36"
+ },
+ "1q9z2db": {
+  "archivo": "fotos-notas/1q9z2db.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "V de BTS canta Muchachos en su segundo show en Argentina",
+  "enlace": "https://www.minutouno.com/espectaculos/el-furor-bts-argentina-v-canto-muchachos-su-segundo-show-y-desato-la-locura-n6337446",
+  "imagenOriginal": "https://media.minutouno.com/p/026f82cc036f7564aa7afa066290c13b/adjuntos/150/imagenes/043/719/0043719916/1200x675/smart/bts-argentina.png",
+  "razon": "Muestra claramente a V cantando en el escenario con la camiseta de Argentina, sin marcas agregadas por el medio ni menores reconocibles.",
+  "cuando": "2026-10-24T12:01:28.775Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "V cantando con camiseta de la selección en una pantalla"
+  },
+  "huella": "0009296d0d6d4d4e"
  }
 }

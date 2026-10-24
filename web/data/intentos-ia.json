@@ -1548,21 +1548,23 @@
   "motivo": "con cuerpo"
  },
  "1q9z2db": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T11:31:24.681Z",
-  "motivo": "título o bajada: 3 problemas (forma, numero, nombre): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "intentos": 2,
+  "ultimo": "2026-10-24T12:01:18.746Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "cuerpo corto (68 palabras)",
-   "título o bajada: 3 problemas (forma, numero, nombre): el copete trae u"
-  ],
-  "falla": [
-   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el copete dice 0 y la fuente no lo dice",
-   "el copete nombra a \"anico\" y la fuente no",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
+   "título o bajada: 3 problemas (forma, numero, nombre): el copete trae u",
+   "título o bajada: 1 problema (titulo): el título usa un adjetivo de gan"
   ]
+ },
+ "1qaxnjd": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T12:01:18.746Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
  },
  "1qdc7t": {
   "intentos": 1,
