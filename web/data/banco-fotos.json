@@ -7563,9 +7563,7 @@
   "borrada": true
  },
  "1yyjpmk": {
-  "archivo": "fotos-notas/1yyjpmk.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lautaro Mart\\u00inez alcanza a Agüero como goleador histórico",
@@ -7574,7 +7572,8 @@
   "razon": "La foto B muestra a Lautaro Martínez con los brazos abiertos celebrando un gol de manera clara y limpia, sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-04T12:01:35.445Z",
   "huella": "d21331c8e9346060",
-  "ausenteDesde": "2026-10-17T03:03:03.931Z"
+  "intentado": true,
+  "borrada": true
  },
  "1p4thhs": {
   "medio": "TN (Todo Noticias)",
@@ -16940,9 +16939,7 @@
   "borrada": true
  },
  "cq95nc": {
-  "archivo": "fotos-notas/cq95nc.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "La madre de Gaspi recuerda al influencer a cuatro meses del accidente",
@@ -16951,7 +16948,8 @@
   "razon": "Es la única foto con buen encuadre y nitidez de la escena que no tiene marcas añadidas por el medio ni menores reconocibles.",
   "cuando": "2026-10-15T16:34:41.849Z",
   "huella": "cccc9e978f9d194a",
-  "ausenteDesde": "2026-10-17T03:31:33.400Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ycwu60": {
   "medio": "TN (Todo Noticias)",
@@ -17093,9 +17091,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "1ylxz2o": {
-  "archivo": "fotos-notas/1ylxz2o.jpg",
   "medio": "Puntonueve (FM 100.9)",
-  "credito": "Foto: Puntonueve (FM 100.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Suteba Balcarce adhiere al paro nacional con una acatamiento del 90 por ciento",
@@ -17104,7 +17100,8 @@
   "razon": "Es la única foto disponible, tiene buena nitidez y encuadre, y no presenta marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-15T19:32:32.961Z",
   "huella": "a5adac2694366a29",
-  "ausenteDesde": "2026-10-17T03:03:03.931Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ual5u4": {
   "archivo": "fotos-notas/1ual5u4.jpg",
@@ -17906,9 +17903,7 @@
   "borrada": true
  },
  "1xw2rw": {
-  "archivo": "fotos-notas/1xw2rw.jpg",
   "medio": "Mi8 (Canal 8 Mar del Plata)",
-  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mar del Plata registra lloviznas y vientos fuertes este viernes",
@@ -17917,7 +17912,8 @@
   "razon": "La foto A muestra claramente el paisaje marítimo y costero bajo el clima tormentoso sin incluir menores ni marcas de agua.",
   "cuando": "2026-10-16T15:44:44.307Z",
   "huella": "090f0f060f0f0f07",
-  "ausenteDesde": "2026-10-17T03:03:03.931Z"
+  "intentado": true,
+  "borrada": true
  },
  "ebpyd0": {
   "archivo": "fotos-notas/ebpyd0.jpg",
@@ -36233,9 +36229,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Mauricio Serna recuerda la tensa disputa con los referentes de Boca por los premios",
-  "razon": "Groq también falló: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqstatus.com to see if there is an (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:01:32.618Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: The operation was aborted due to timeout",
+  "cuando": "2026-10-24T03:31:35.829Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36285,6 +36281,26 @@
   "titulo": "Lula cuestiona a Milei y cruza a Bolsonaro en el debate",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
   "cuando": "2026-10-24T03:01:23.547Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "o7bgji": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Atlético Tucumán vence a Tigre y Dabove deja su cargo como DT",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T03:31:35.829Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1dia4on": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Platense vence agónicamente a Gimnasia de Mendoza por el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T03:31:35.829Z",
   "intentos": 1,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
