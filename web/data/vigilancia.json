@@ -1,10 +1,7 @@
 {
   "avisos": {
     "efemerides-por-acabarse": "2026-10-24T00:00:12.810Z",
-    "falta-facebook-reel:efemeride": "2026-10-24T00:00:12.810Z",
-    "falta-facebook-historia:efemeride": "2026-10-24T00:00:12.810Z",
-    "falta-instagram-reel:efemeride": "2026-10-24T00:00:12.810Z",
-    "falta-instagram-historia:efemeride": "2026-10-24T00:00:12.810Z"
+    "fijas-por-vencer": "2026-10-24T03:00:14.655Z"
   },
   "importantes": {
     "avisadas": {
@@ -41,42 +38,24 @@
     "ultimo": "2026-10-24T00:30:13.574Z"
   },
   "redes": {
-    "hasta": "2026-10-23T23:37:17.873Z"
+    "hasta": "2026-10-24T02:10:20.570Z"
   },
   "ultimaMedicion": "2026-10-23/21",
   "ultimoResumen": "2026-10-01",
-  "ultimoCierre": "2026-10-22",
+  "ultimoCierre": "2026-10-23",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
     {
       "clave": "efemerides-por-acabarse",
       "nivel": "media",
-      "texto": "Ya es 23 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
+      "texto": "Ya es 24 y el mes que sigue de \"Un día como hoy\" no está armado (llega hasta el 31/10). Hernán pidió armarlo el día 20, para tener 10 días de revisión (docs/13-EFEMERIDES.md).",
       "desde": "2026-10-20T03:00:22.804Z"
     },
     {
-      "clave": "falta-facebook-reel:efemeride",
+      "clave": "fijas-por-vencer",
       "nivel": "media",
-      "texto": "Facebook: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-23T15:05:08.575Z"
-    },
-    {
-      "clave": "falta-facebook-historia:efemeride",
-      "nivel": "media",
-      "texto": "Facebook: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-23T15:05:08.575Z"
-    },
-    {
-      "clave": "falta-instagram-reel:efemeride",
-      "nivel": "media",
-      "texto": "Instagram: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-23T15:05:08.575Z"
-    },
-    {
-      "clave": "falta-instagram-historia:efemeride",
-      "nivel": "media",
-      "texto": "Instagram: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-23T15:05:08.575Z"
+      "texto": "Las piezas fijas de participá vencen el 31/10: desde entonces gastan un audio por día. Hay que renovarlas o decidir que no (reels/fijas/vigencia.json).",
+      "desde": "2026-10-24T03:00:14.655Z"
     }
   ]
 }
