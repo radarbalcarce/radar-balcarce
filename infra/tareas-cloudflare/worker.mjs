@@ -5,7 +5,8 @@
 //
 //   GET  /          → «en hora» (no gasta nada)
 //   POST /correr    → { tarea, inputs?, simular? } con el encabezado x-token (VIGILANTE_TOKEN): corre una tarea y cuenta cómo salió
-//   GET  /estado    → con x-token: cómo salió la última corrida de cada tarea (lo mira el vigilante de Cloudflare)
+//   GET  /estado    → con x-token: cómo salió la última corrida de cada tarea y si la pausa general está prendida (lo mira el vigilante de Cloudflare)
+//   (Con la PAUSA GENERAL prendida, /correr no corre redes, auditoría IA, pistas ni ilustraciones: contesta ok con `enPausa`. Regla 317, infra/compartido/pausa.mjs.)
 //
 // `simular: true` corre la tarea de verdad pero NO guarda nada en GitHub ni en R2 (el ensayo del plan de cambio). A mano:
 //   curl -X POST https://radar-balcarce-tareas.<cuenta>.workers.dev/correr -H "x-token: $VIGILANTE_TOKEN" -d '{"tarea":"vigilancia","simular":true}'
@@ -19,6 +20,9 @@
 import { crearGithub } from '../compartido/github.mjs';
 import { correrTarea, RAIZ_EN_UN_WORKER } from './corredor.mjs';
 import { TAREAS } from './tareas.mjs';
+import {
+  leerPausa, lectorDeBinding, frenaALaTarea, textoDeLaPausa, vistaPublica,
+} from '../compartido/pausa.mjs';
 
 const REPOSITORIO = 'radarbalcarce/radar-balcarce';
 
@@ -48,7 +52,9 @@ export async function atender(request, env, { github = null, correr = correrTare
     for (const nombre of Object.keys(TAREAS)) {
       try { tareas[nombre] = JSON.parse(await env.ESTADO?.get(`estado:${nombre}`) ?? 'null'); } catch { tareas[nombre] = null; }
     }
-    return json({ ok: true, tareas, ahora: new Date().toISOString() });
+    // La pausa general (regla 317) viaja en el estado: el vigilante ya le pregunta esto a este Worker y de ahí sabe si «la web no se actualiza» es una pausa y no una rotura.
+    const pausa = await leerPausa(lectorDeBinding(env.MOTOR));
+    return json({ ok: true, tareas, pausa: vistaPublica(pausa), ...(pausa.lecturaFallida ? { pausaLecturaFallida: true } : {}), ahora: new Date().toISOString() });
   }
 
   if (request.method === 'POST' && url.pathname === '/correr') {
@@ -56,6 +62,14 @@ export async function atender(request, env, { github = null, correr = correrTare
     try { pedido = await request.json(); } catch { return json({ ok: false, error: 'el cuerpo no es JSON' }, 400); }
     const tarea = TAREAS[String(pedido?.tarea ?? '')];
     if (!tarea) return json({ ok: false, error: `no conozco la tarea «${pedido?.tarea}»`, tareas: Object.keys(TAREAS) }, 404);
+    // 24/10/2026 (regla 317): con la PAUSA GENERAL prendida no corre ninguna tarea que publique o gaste IA (redes, auditoría, pistas, ilustraciones), venga de donde venga el
+    // pedido: el reloj ya no las pide, pero esta es la segunda llave. La vigilancia y el informe diario no se frenan nunca. Un ensayo (`simular`) no publica nada: pasa.
+    if (frenaALaTarea(tarea.nombre) && pedido.simular !== true) {
+      const pausa = await leerPausa(lectorDeBinding(env.MOTOR));
+      if (pausa.pausada) {
+        return json({ ok: true, tarea: tarea.nombre, omitida: true, enPausa: true, simulada: false, cambios: 0, commit: null, ms: 0, motivo: textoDeLaPausa(pausa) });
+      }
+    }
     const gh = github ?? (() => {
       try { return crearGithub({ token: env.RADAR_GITHUB_TOKEN, repo: env.MOTOR_REPOSITORIO || REPOSITORIO }); } catch { return null; }
     })();

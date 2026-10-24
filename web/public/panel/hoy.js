@@ -4,6 +4,8 @@
 // cuántas notas no tienen foto, cómo viene el día en las redes y si hay una pista con novedad. Cada renglón es un atajo a la pestaña donde se
 // resuelve. No decide nada ni publica nada: sólo muestra y lleva. Funciones puras, sin datos de afuera (se prueban en pruebas/panel-hoy.test.mjs).
 
+import { htmlDelCartelDePausa } from './nube.js';
+
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 const BALCARCE = 'America/Argentina/Buenos_Aires';
 
@@ -70,7 +72,10 @@ export function resumenDeHoy(datos = {}, ahora = new Date()) {
     enCurso: b.enCurso ?? [],
     necesitaToque,
     delDia,
-    todoEnOrden: !necesitaToque.length && !delDia.some((x) => x.icono === '⚠'),
+    // Regla 317: la pausa general (si está prendida) y cómo viene el motor (su última vuelta), que contesta la nube (nube.js). Sin eso, como siempre.
+    pausa: datos.pausa ?? null,
+    motor: datos.motor ?? null,
+    todoEnOrden: !necesitaToque.length && !delDia.some((x) => x.icono === '⚠') && !datos.pausa && datos.motor?.clase !== 'mal',
   };
 }
 
@@ -79,11 +84,15 @@ export function htmlDeHoy(r, { esc, haceCuanto, horaEnBalcarce }) {
   const fila = (x, conNumero) => `<button type="button" class="tarjeta fila-hoy" data-pestana="${esc(x.id)}">
       <div class="menu-item">${conNumero ? `<span class="numero-hoy">${esc(x.n)}</span>` : `<span class="menu-icono">${esc(x.icono)}</span>`}
       <div><div class="titulo">${esc(x.titulo)}</div>${x.detalle ? `<div class="meta">${esc(x.detalle)}</div>` : ''}</div><span class="meta">›</span></div></button>`;
-  const web = r.generado ? `La web se armó a las ${esc(horaEnBalcarce(r.generado))} (${esc(haceCuanto(r.generado))}) · la próxima, a las ${esc(r.proximoArmado)}.` : `La próxima actualización de la web, a las ${esc(r.proximoArmado)}.`;
+  const web = r.pausa
+    ? 'La web ya publicada sigue andando; no se arma nada nuevo hasta que reanudes.'
+    : (r.generado ? `La web se armó a las ${esc(horaEnBalcarce(r.generado))} (${esc(haceCuanto(r.generado))}) · la próxima, a las ${esc(r.proximoArmado)}.` : `La próxima actualización de la web, a las ${esc(r.proximoArmado)}.`);
   const curso = r.enCurso.length
     ? `<p class="estado">✎ La IA está escribiendo ${r.enCurso.map((t) => `“${esc(t)}”`).join(', ')}.</p>` : '';
+  const motor = r.motor ? `<p class="${r.motor.clase === 'mal' ? 'problemas' : 'estado'}">⚙ ${esc(r.motor.texto)}</p>` : '';
   return `<h1>Hoy, ${esc(r.fecha)}</h1>
-    <p class="estado">${web}</p>${curso}
+    ${r.pausa ? htmlDelCartelDePausa(r.pausa, { esc, haceCuanto }) : ''}
+    <p class="estado">${web}</p>${motor}${curso}
     ${r.necesitaToque.length ? `<h2>Necesita tu toque</h2>${r.necesitaToque.map((x) => fila(x, true)).join('')}` : ''}
     ${r.delDia.length ? `<h2>Cómo viene el día</h2>${r.delDia.map((x) => fila(x, false)).join('')}` : ''}
     ${r.todoEnOrden ? '<p class="vacio">✓ No hay nada que necesite tu toque ahora. Todo en orden.</p>' : ''}`;

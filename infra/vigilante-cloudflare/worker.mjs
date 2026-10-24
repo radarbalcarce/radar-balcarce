@@ -9,7 +9,9 @@
 //   · web-sin-fecha      la portada anda pero no se puede leer cuándo se armó la web (dos revisiones seguidas);
 //   · actualizar-vieja   la última corrida buena de "Actualizar la web" tiene más de 3 horas;
 //   · actualizar-falla   las últimas 3 corridas de "Actualizar la web" fallaron;
-//   · github-sin-lectura GitHub no deja leer sus corridas cuatro revisiones seguidas (media hora cada una).
+//   · github-sin-lectura GitHub no deja leer sus corridas cuatro revisiones seguidas (media hora cada una);
+//   · pausa-general      una persona frenó toda la publicación desde el panel del celular (regla 317): «en pausa desde X por Y». Mientras dura (y 3 horas después de reanudar)
+//                        no se avisa que la web o una tarea frenada «no se actualizan»; una web caída, sí. El informe diario (POST /avisar) sale con «EN PAUSA» arriba.
 // Cada problema se avisa una vez y se repite cada 6 horas mientras siga; cuando se arregla, llega un mail de "recuperado" (una sola vez).
 // A las 22 (hora de Balcarce) sale un resumen del día, pero SÓLO si el informe de la noche (redes/informe-diario.mjs, 21:15) no llegó: es su
 // respaldo, y vive afuera de GitHub (regla 176).
@@ -256,6 +258,12 @@ async function pedirEstado(servicio, ruta, token) {
   } catch (e) { return { ok: false, motivo: String(e?.message ?? e).slice(0, 100) }; }
 }
 
+/** La pausa general de ahora, preguntándole al Worker de tareas (que la lee de R2). null si no se pudo ver: nunca tira. */
+export async function pausaVigente(env = {}) {
+  const r = await pedirEstado(env.TAREAS, '/estado', env.VIGILANTE_TOKEN);
+  return r.ok && r.json?.pausa && typeof r.json.pausa === 'object' ? r.json.pausa : null;
+}
+
 /** Le pregunta a los Workers del motor y de las tareas cómo vienen. Nunca tira. */
 export async function revisarLaNube({ env = {} } = {}) {
   const nube = enLaNube(env);
@@ -330,6 +338,51 @@ export function problemasDeLaNube({ ahora, nube }) {
       }
     }
   }
+  return problemas;
+}
+
+// ---------------------------------------------------------------- la pausa general (24/10/2026, regla 317; infra/compartido/pausa.mjs)
+// Una persona puede frenar toda la publicación desde el panel del celular. El vigilante no se frena nunca: avisa «en pausa desde X por Y» (una vez y cada 24 horas
+// mientras siga) y NO confunde la pausa con una rotura: mientras dura (y tres horas después de reanudar, para que lo atrasado se ponga al día) no avisa que la web
+// «no se actualiza» ni que una tarea frenada «no sale bien». Una web caída, en cambio, sigue avisándose siempre. Este Worker no importa nada: las cuentas son las mismas
+// de infra/compartido/pausa.mjs y una prueba controla que digan lo mismo.
+
+/** Los problemas que la pausa explica (la web que no se arma, las tareas que no corren). */
+export const PROBLEMAS_QUE_EXPLICA_LA_PAUSA = ['web-vieja', 'web-sin-fecha', 'actualizar-vieja', 'actualizar-falla', 'tarea-redes', 'tarea-auditoria-ia', 'tarea-pistas', 'tarea-ilustrar-notas'];
+export const MINUTOS_DE_GRACIA_DESPUES_DE_REANUDAR = 180;
+
+/** La pausa que cuenta el Worker de tareas en su /estado (o null si no se pudo ver). */
+export const pausaDeLaNube = (nube) => {
+  const p = nube?.tareas?.json?.pausa;
+  return p && typeof p === 'object' ? p : null;
+};
+
+/** ¿Terminó hace poco (menos de MINUTOS_DE_GRACIA_DESPUES_DE_REANUDAR)? */
+export function reanudadaHaceUnRato(pausa, ahora) {
+  const hasta = Date.parse(pausa?.ultima?.hasta ?? '');
+  return !pausa?.pausada && Number.isFinite(hasta) && ahora.getTime() >= hasta && ahora.getTime() - hasta < MINUTOS_DE_GRACIA_DESPUES_DE_REANUDAR * 60000;
+}
+
+/** La frase «En pausa desde 24/10 14:05 (hace 2 h) por Hernán: motivo». */
+export function textoDeLaPausa(pausa, ahora) {
+  const min = minutosDesde(pausa.desde, ahora);
+  return `En pausa desde ${fechaHoraAR(new Date(pausa.desde))}${min === null ? '' : ` (hace ${formatoEdad(min)})`} por ${pausa.por || 'alguien'}${pausa.motivo ? `: ${pausa.motivo}` : ''}`;
+}
+
+/**
+ * Con la pausa prendida: suma el problema «pausa-general» (para que llegue el mail «en pausa desde X por Y») y saca los que la pausa explica. Recién reanudada: saca los
+ * que explica y ya no suma nada. Sin pausa (o sin poder verla) devuelve los problemas tal cual. Pura.
+ */
+export function aplicarLaPausa(problemas, pausa, ahora) {
+  if (pausa?.pausada && pausa.desde) {
+    return [{
+      clave: 'pausa-general',
+      titulo: `La publicación está en PAUSA GENERAL desde ${fechaHoraAR(new Date(pausa.desde))}${pausa.por ? ` (por ${pausa.por})` : ''}`,
+      texto: `${textoDeLaPausa(pausa, ahora)}.\nQué quiere decir: la web ya publicada sigue andando, pero no entra ninguna nota nueva; las redes no publican nada; la IA no escribe, no audita ni ilustra. El vigilante y los informes siguen. Mientras dure no se avisa que "la web no se actualiza": es a propósito.\nPara reanudar: panel del celular → Más → Pausa general → Reanudar (o, a mano, docs/11-OPERACION.md, "Pausa general").`,
+      mirar: [['El panel del celular', `${SITIO}/panel/`], ['El reloj de Cloudflare', ENLACES.reloj]],
+    }, ...problemas.filter((p) => !PROBLEMAS_QUE_EXPLICA_LA_PAUSA.includes(p.clave))];
+  }
+  if (reanudadaHaceUnRato(pausa, ahora)) return problemas.filter((p) => !PROBLEMAS_QUE_EXPLICA_LA_PAUSA.includes(p.clave));
   return problemas;
 }
 
@@ -519,8 +572,9 @@ export function armarAlerta({ problemas, ahora }) {
   return { asunto, texto };
 }
 
-export function armarResumen({ ahora, web, github, problemasAbiertos = [], notas = null, respaldo = false }) {
+export function armarResumen({ ahora, web, github, problemasAbiertos = [], notas = null, respaldo = false, pausa = null }) {
   const lineas = [`Resumen del ${diaLargoAR(ahora)} (hora de Balcarce)`, ''];
+  if (pausa?.pausada && pausa.desde) lineas.push(`PAUSA GENERAL: ${textoDeLaPausa(pausa, ahora)}. No entran notas nuevas, las redes no publican y la IA está frenada.`, '');
   if (respaldo) lineas.push('El informe completo de la noche no llegó hoy (lo arma GitHub): este es el resumen de respaldo del vigilante, que mira desde afuera.', '');
   if (!web?.home?.ok) lineas.push(`La web: NO responde bien (${web?.home?.motivo ?? 'sin datos'}).`);
   else {
@@ -548,7 +602,7 @@ export function armarResumen({ ahora, web, github, problemasAbiertos = [], notas
   } else lineas.push('Problemas abiertos: ninguno.');
   lineas.push('', `Las corridas: ${ENLACES.acciones}`, '', PIE);
 
-  const estado = !web?.home?.ok ? 'web caída' : problemasAbiertos.length ? `${problemasAbiertos.length} problema${problemasAbiertos.length > 1 ? 's' : ''} abierto${problemasAbiertos.length > 1 ? 's' : ''}` : 'todo en orden';
+  const estado = !web?.home?.ok ? 'web caída' : pausa?.pausada ? 'EN PAUSA GENERAL' : problemasAbiertos.length ? `${problemasAbiertos.length} problema${problemasAbiertos.length > 1 ? 's' : ''} abierto${problemasAbiertos.length > 1 ? 's' : ''}` : 'todo en orden';
   const asunto = `[Radar Balcarce] Resumen del ${diaLargoAR(ahora)}: ${estado}${notas ? `, ${notas.hoy} notas hoy` : ''}`;
   return { asunto, texto: lineas.join('\n') };
 }
@@ -664,7 +718,9 @@ export async function correr(env, ahora, deps = {}) {
     revisarLaNube({ env }),
   ]);
   const evaluado = evaluar({ ahora, web, github, contadores: previo.contadores });
-  const problemas = [...evaluado.problemas, ...problemasDeLaNube({ ahora, nube })];
+  // Regla 317: la pausa general (la ve a través del Worker de tareas) suma su propio aviso y explica los que serían falsas alarmas.
+  const pausa = pausaDeLaNube(nube);
+  const problemas = aplicarLaPausa([...evaluado.problemas, ...problemasDeLaNube({ ahora, nube })], pausa, ahora);
   const { contadores } = evaluado;
   const { alertas, envios } = decidir({ previo, problemas, ahora });
 
@@ -676,7 +732,7 @@ export async function correr(env, ahora, deps = {}) {
     let notas = null;
     const feed = await pedir(`${SITIO}/feed.xml`, { fetchFn });
     if (feed.r?.ok) { try { notas = notasDeHoy(await feed.r.text(), ahora); } catch { notas = null; } }
-    envioResumen = { tipo: 'resumen', claves: [], ...armarResumen({ ahora, web, github, problemasAbiertos: problemas, notas, respaldo: true }) };
+    envioResumen = { tipo: 'resumen', claves: [], ...armarResumen({ ahora, web, github, problemasAbiertos: problemas, notas, respaldo: true, pausa }) };
     envios.push(envioResumen);
     resumenDia = diaAR(ahora);
   }
@@ -703,6 +759,7 @@ export async function correr(env, ahora, deps = {}) {
         ...(github.lectura ? (({ terminadas, buenas, malas, ultimaBuena }) => ({ terminadas, buenas, malas, ultimaBuena: ultimaBuena?.cuando ?? null }))(resumenDeCorridas(github.corridas)) : {}),
       },
       problemas: problemas.map((p) => p.clave),
+      ...(pausa?.pausada ? { pausa: { desde: pausa.desde, por: pausa.por ?? null, motivo: pausa.motivo ?? null } } : {}),
       ...(nube ? { nube: { motor: nube.motor ? { ok: nube.motor.ok, ultima: nube.motor.json?.ultima?.cuando ?? null, motivo: nube.motor.motivo ?? null, minutos: nube.motor.json?.proyeccion ? { ciclo: nube.motor.json.proyeccion.ciclo ?? null, hasta: nube.motor.json.proyeccion.hasta ?? null, gastado: nube.motor.json.proyeccion.gastado, alRitmo: nube.motor.json.proyeccion.alRitmo, porVuelta: nube.motor.json.proyeccion.porVuelta, alcanzan: nube.motor.json.proyeccion.alcanzan } : null } : null, tareas: nube.tareas ? { ok: nube.tareas.ok, motivo: nube.tareas.motivo ?? null } : null } } : {}),
       mails: envios.filter((e) => !fallidos.includes(e)).map((e) => e.tipo),
       mailsConError: errores,
@@ -791,6 +848,20 @@ export async function recibirAviso(request, env, deps = {}) {
   const colaHtml = `<p style="font:12px Arial,sans-serif;color:#777;border-top:1px solid #ddd;padding-top:8px;margin-top:24px">${cola.replace(/^\n+---\n/, '').replace(/&/g, '&amp;').replace(/</g, '&lt;')}</p>`;
   const mail = { asunto: asuntoDeAviso(asunto, nivel), texto: `${texto.slice(0, TOPES_DE_AVISAR.largoDelTexto)}${cola}` };
   if (htmlLimpio) mail.html = /<\/body>/i.test(htmlLimpio) ? htmlLimpio.replace(/<\/body>/i, () => colaHtml + '</body>') : htmlLimpio + colaHtml;
+  // Regla 317: el informe diario (clave `informe-…`) lleva arriba, bien a la vista, «en pausa desde X por Y» cuando la pausa general está prendida. Si no se puede saber, sale como siempre.
+  if (claveLimpia?.startsWith('informe-')) {
+    let pausa = null;
+    try { pausa = deps.pausa !== undefined ? deps.pausa : await pausaVigente(env); } catch { pausa = null; }
+    if (pausa?.pausada && pausa.desde) {
+      const cartel = textoDeLaPausa(pausa, ahora);
+      mail.asunto = mail.asunto.replace(/^\[Radar Balcarce\] /, '[Radar Balcarce] EN PAUSA: ');
+      mail.texto = `*** PAUSA GENERAL ***\n${cartel}.\nNo entran notas nuevas, las redes no publican y la IA está frenada; el sitio ya publicado sigue andando. Para reanudar: panel del celular → Más → Pausa general.\n\n${mail.texto}`;
+      if (mail.html) {
+        const caja = `<div style="background:#b3261e;color:#fff;font:700 15px Arial,sans-serif;padding:12px 14px;margin:0 0 16px;border-radius:6px">PAUSA GENERAL<br><span style="font-weight:400">${cartel.replace(/&/g, '&amp;').replace(/</g, '&lt;')}. No entran notas nuevas, las redes no publican y la IA está frenada; el sitio ya publicado sigue andando.</span></div>`;
+        mail.html = /<body[^>]*>/i.test(mail.html) ? mail.html.replace(/<body[^>]*>/i, (m) => m + caja) : caja + mail.html;
+      }
+    }
+  }
   try {
     await enviar(mail);
   } catch (e) {

@@ -6,6 +6,8 @@
 
 import { enLaNube, despertarEnLaNube, motorAtrasado, MOTOR } from './nube.mjs';
 import { nocheCadaHora, HORAS_DE_NOCHE } from '../motor-cloudflare/presupuesto.mjs';
+import { leerPausa, lectorDeBinding, separarPorPausa } from '../compartido/pausa.mjs';
+import { atenderPanel } from './panel-api.mjs';
 
 export const REPOSITORIO = 'radarbalcarce/radar-balcarce';
 export const RAMA = 'main';
@@ -103,18 +105,23 @@ export default {
     // 18/10/2026: lo que figura en la variable NUBE se le pide a Cloudflare (infra/reloj-cloudflare/nube.mjs); lo demás, a GitHub, como siempre.
     // Sin NUBE (lo de siempre) no cambia nada: todo a GitHub y el mismo error si falta la llave.
     const nube = enLaNube(env);
+    // 24/10/2026 (regla 317): LA PAUSA GENERAL. Lo primero de cada minuto es mirar si una persona frenó todo desde el panel del celular (un archivo en el depósito R2 del motor).
+    // Con la pausa prendida no se pide el motor, ni las redes, ni lo que gasta IA (TRABAJOS_QUE_FRENA); la vigilancia y el informe diario siguen. Leer la pausa nunca tira ni frena
+    // al reloj: si el depósito no contesta, el reloj sigue como siempre.
+    const pausa = await leerPausa(lectorDeBinding(env.MOTOR));
     // 23/10/2026: el vigilante de vueltas. Si el aviso de las :00 o las :30 se perdió, a los minutos múltiplos de 10 (10, 20, 40, 50) se vuelve a pedir la vuelta del
-    // motor cuando la última buena es de hace 40 minutos o más. En cada :00 y :30 el pedido normal sigue igual.
-    if (nube.has(MOTOR) && !trabajos.some((t) => t.archivo === MOTOR) && minuto % 10 === 0 && await motorAtrasado(env, cuando).catch(() => false)) trabajos.push({ archivo: MOTOR });
-    const aGitHub = trabajos.filter((t) => !nube.has(t.archivo));
-    const aLaNube = trabajos.filter((t) => nube.has(t.archivo));
+    // motor cuando la última buena es de hace 40 minutos o más. En cada :00 y :30 el pedido normal sigue igual. En pausa no hay "atraso" que rescatar.
+    if (!pausa.pausada && nube.has(MOTOR) && !trabajos.some((t) => t.archivo === MOTOR) && minuto % 10 === 0 && await motorAtrasado(env, cuando).catch(() => false)) trabajos.push({ archivo: MOTOR });
+    const { siguen, frenados } = separarPorPausa(trabajos, pausa);
+    const aGitHub = siguen.filter((t) => !nube.has(t.archivo));
+    const aLaNube = siguen.filter((t) => nube.has(t.archivo));
     if (aGitHub.length && !env.GITHUB_TOKEN) throw new Error('Falta el secreto GITHUB_TOKEN del reloj.');
     const resultados = [];
     for (const t of aGitHub) resultados.push(await despertar(t, { token: env.GITHUB_TOKEN }));
     // Las de la nube salen juntas (una tarda minutos y no tiene por qué demorar a las otras); un error de una no tapa a las demás.
     const enNube = await Promise.all(aLaNube.map((t) => despertarEnLaNube(t, env).catch((e) => ({ archivo: t.archivo, ok: false, estado: 0, motivo: String(e?.message ?? e).slice(0, 160) }))));
     resultados.push(...enNube);
-    console.log(JSON.stringify({ minuto, resultados }));
+    console.log(JSON.stringify({ minuto, resultados, ...(pausa.pausada ? { pausa: { desde: pausa.desde, por: pausa.por }, frenados: frenados.map((t) => t.archivo) } : {}) }));
     // Un error hace que Cloudflare marque la ejecución como fallida (se ve en el panel del Worker).
     const quejas = [];
     const fallasDeGitHub = resultados.slice(0, aGitHub.length).filter((x) => !x.ok);
@@ -123,6 +130,10 @@ export default {
     if (fallasDeLaNube.length) quejas.push(`la nube no aceptó: ${fallasDeLaNube.map((f) => `${f.archivo} (${f.estado || f.motivo})`).join(', ')}`);
     if (quejas.length) throw new Error(quejas.join('; '));
   },
-  // Para ver que está vivo (no despierta nada, no necesita el token).
-  async fetch() { return new Response('Reloj de Radar Balcarce: en hora.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } }); },
+  // Para ver que está vivo (no despierta nada, no necesita el token). Y, desde el 24/10/2026 (regla 317), la puerta del panel del celular a la nube: /panel/estado,
+  // /panel/pausa y /panel/vuelta (infra/reloj-cloudflare/panel-api.mjs; cada pedido lleva la llave de GitHub de quien lo usa o la contraseña del vigilante).
+  async fetch(request, env) {
+    if (new URL(request.url).pathname.startsWith('/panel/')) return atenderPanel(request, env);
+    return new Response('Reloj de Radar Balcarce: en hora.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+  },
 };

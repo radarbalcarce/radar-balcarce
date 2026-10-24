@@ -34,6 +34,9 @@ import {
   notasSinFoto, htmlDeFotos, htmlDeUnaNotaSinFoto, urlDeFotoValida, creditoDeFoto, motivoDeFoto, MOTIVOS_DE_FOTO,
 } from './fotos.js';
 import { estadoPorRed, explicarFalloDeRed, problemasDeHoy, NOMBRE_DE_RED, NOMBRE_DE_PARTE } from './redes-estado.js';
+import {
+  crearClienteDeLaNube, explicarErrorDeLaNube, datosDeHoyDeLaNube, htmlDeLaPausaEnMas, resumenDeVueltasDelMotor, PREGUNTA_DE_PAUSA, PREGUNTA_DE_REANUDAR, AVISOS_DE_LA_NUBE,
+} from './nube.js';
 
 const $ = (s) => document.querySelector(s);
 const app = $('#app');
@@ -48,7 +51,7 @@ const COLOR = {
 const chip = (s) => (s ? `<span class="chip" style="background:var(--s-${COLOR[s] ?? 'pais'})">${esc(s)}</span>` : '');
 const GUARDADO = 'radar-panel';
 /** Los archivos del panel (los mismos que guarda sw.js): "Actualizar el panel" los vuelve a bajar. */
-const ARCHIVOS_DEL_PANEL = ['app.js', 'github.js', 'cifrado.js', 'textos.js', 'fechas.js', 'numeros.js', 'redes-estado.js', 'revision.js', 'pistas.js', 'contactos.js', 'fotos.js', 'hoy.js', 'borradores.js', 'recorrido.js', 'index.html'].map((a) => `/panel/${a}`);
+const ARCHIVOS_DEL_PANEL = ['app.js', 'github.js', 'cifrado.js', 'textos.js', 'fechas.js', 'numeros.js', 'redes-estado.js', 'revision.js', 'pistas.js', 'contactos.js', 'fotos.js', 'hoy.js', 'borradores.js', 'recorrido.js', 'nube.js', 'index.html'].map((a) => `/panel/${a}`);
 const DEMO = new URLSearchParams(location.search).has('demo');
 const VOCES = { locutora: 'la locutora', locutor: 'el locutor' };
 const enlaceDeNota = (n) => `https://radarbalcarce.com/nota/${n.slug ? `${n.slug}-${n.id}` : n.id}`;
@@ -96,6 +99,8 @@ async function guardarLlavesDelCelular(v) {
 
 const E = {
   cliente: null, nombre: '', llaves: null, pestana: 'hoy', busqueda: '',
+  // La nube de Cloudflare (nube.js, regla 317): el cliente, y lo último que contestó /panel/estado ({ pausa, motor }, o { error }).
+  nubeCliente: null, nube: null, nubeCargadaEn: 0,
   portada: null, esperando: [], intentosMaximos: 3, pendientes: null, descartadas: [], papelera: [], publicos: [],
   decisiones: { notas: {}, redes: {} }, correcciones: { notas: {} }, archivo: null, estadoCel: null, libro: {},
   // La pestaña Fechas (se carga la primera vez que se abre).
@@ -473,8 +478,35 @@ function vistaHoy() {
     redes: r ? { problemas: problemasDeHoy(E.libro, hoy).length, salieron: piezas.filter(salio).length, total: piezas.length, proxima: proxima ? { que: proxima.que, hora: proxima.hora } : null } : null,
     pistas: pistasConNovedad(),
     graves: rev?.graves ?? 0,
+    // Regla 317: la pausa general y la última vuelta del motor, de la nube (no de las corridas de GitHub).
+    ...datosDeHoyDeLaNube(E.nube, { haceCuanto }),
   });
   app.innerHTML = htmlDeHoy(resumen, { esc, haceCuanto, horaEnBalcarce });
+  // Si lo de la nube es viejo (más de un minuto) se vuelve a pedir; al llegar, la pantalla se dibuja de nuevo.
+  if (Date.now() - E.nubeCargadaEn > 60000) refrescarNube();
+}
+
+// ------------------------------------------------------------------ la nube: pausa general y vueltas del motor (regla 317)
+
+/** Pide a la nube si la pausa está prendida y cómo viene el motor. Nunca tira: si falla, queda anotado el motivo. Vuelve a dibujar Hoy o Más si están a la vista. */
+async function refrescarNube() {
+  if (!E.nubeCliente) return;
+  E.nubeCargadaEn = Date.now();
+  try { E.nube = await E.nubeCliente.estado(); } catch (e) { E.nube = { error: explicarErrorDeLaNube(e) }; }
+  if (E.pestana === 'hoy') vistaHoy();
+  else if (E.pestana === 'mas') vistaMas();
+}
+
+/** Prende o apaga la pausa general (un toque, con una pregunta antes). */
+async function cambiarPausa(prender) {
+  if (!E.nubeCliente) return;
+  const r = await preguntar(prender ? PREGUNTA_DE_PAUSA : PREGUNTA_DE_REANUDAR);
+  if (!r.ok) return;
+  try {
+    const j = prender ? await E.nubeCliente.pausar({ motivo: r.texto, nombre: E.nombre }) : await E.nubeCliente.reanudar({ nombre: E.nombre });
+    aviso(prender ? (j.yaEstaba ? AVISOS_DE_LA_NUBE.yaPausada : AVISOS_DE_LA_NUBE.pausada) : (j.yaEstaba ? AVISOS_DE_LA_NUBE.yaReanudada : AVISOS_DE_LA_NUBE.reanudada), { ms: 9000 });
+  } catch (e) { aviso(explicarErrorDeLaNube(e), { ms: 12000 }); }
+  await refrescarNube();
 }
 
 /** Si la nota va a tener foto cuando se publique, y si no, por qué (2/10, Hernán: "saber si la nota que uno revisa va a tener o no foto"). */
@@ -1075,7 +1107,8 @@ async function abrirNumeros() {
       traerCorridas('actualizar.yml'), traerCorridas('redes.yml'), traerCorridas('vigilancia.yml'),
     ]);
     E.archivo = archivo;
-    E.numeros = { estadisticas, produccion, seleccion, corridas: { actualizar, redes, vigilancia } };
+    // Regla 317: «Actualizar la web» corre en el motor de Cloudflare; si la nube dio sus últimas vueltas, son ésas y no las corridas (viejas) de GitHub.
+    E.numeros = { estadisticas, produccion, seleccion, corridas: { actualizar: resumenDeVueltasDelMotor(E.nube?.motor) ?? actualizar, redes, vigilancia } };
     vistaNumeros();
   } catch (e) {
     aviso(explicarError(e), { ms: 9000 });
@@ -1332,6 +1365,7 @@ function vistaMas() {
   app.innerHTML = `
     <h1>Más</h1>
     ${MENU_MAS.map(([id, nombre, icono, que]) => `<button type="button" class="tarjeta" data-pestana="${id}"><div class="menu-item"><span class="menu-icono">${icono}</span><div><div class="titulo">${esc(nombre)}${avisoDe[id] ? ` <span class="marca${(rev?.graves && id === 'revision') || (id === 'pistas' && nPistas) ? ' mal' : ''}">${esc(avisoDe[id])}</span>` : ''}</div><div class="meta">${esc(que)}</div></div><span class="flecha">›</span></div></button>`).join('')}
+    ${htmlDeLaPausaEnMas(E.nube, { esc, haceCuanto })}
     <div class="botones">
       <button type="button" class="boton ancho" data-accion="actualizar-web">Actualizar la web ahora</button>
       <a class="boton ancho enlace-boton" href="https://radarbalcarce.com" target="_blank" rel="noopener">Abrir la web</a>
@@ -1358,7 +1392,11 @@ function vistaMas() {
       <p>En Chrome del celular: menú ⋮ → <strong>Instalar app</strong> (o "Agregar a pantalla principal"). Queda con su ícono y se actualiza sola.</p></details>
     <details><summary>Seguridad</summary>
       <p>Lo que espera a una persona y las retiradas llegan cifradas: sólo los celulares registrados las pueden leer. La llave de GitHub queda sólo en este celular; si lo perdés, borrala en GitHub (Settings → Developer settings → Fine-grained tokens).</p></details>
+    <details><summary>Pausa general: frenar todo en una emergencia</summary>
+      <p>Si algo sale mal (se publica algo que no debía, una fuente manda cualquier cosa, una IA se vuelve loca), "Pausa general" frena todo de un toque: la web ya publicada sigue andando pero no entra ninguna nota nueva, las redes no publican y la IA no escribe, no audita ni ilustra. El vigilante y los informes diarios no se frenan: avisan "en pausa desde tal hora por tal persona". "Reanudar todo" lo deshace también de un toque, y la web vuelve a armarse en la próxima vuelta. Pedir una vuelta a mano ("Actualizar la web ahora") no anda mientras esté en pausa.</p></details>
     <div class="botones"><button type="button" class="boton peligro ancho" data-accion="salir">Salir y borrar la llave de este celular</button></div>`;
+  // Regla 317: si lo de la nube es viejo (más de un minuto), se vuelve a pedir y Más se dibuja de nuevo.
+  if (Date.now() - E.nubeCargadaEn > 60000) refrescarNube();
 }
 
 // ------------------------------------------------------------------ una nota
@@ -1942,7 +1980,16 @@ document.addEventListener('click', async (ev) => {
     el.disabled = true;
     try { await cargar({ archivo: true }); vistaLista(); } catch (e) { aviso(explicarError(e)); }
   } else if (accion === 'actualizar-web') {
-    try { await E.cliente.disparar('actualizar.yml'); aviso('Pedido. En unos 8 minutos está en la web.'); } catch (e) { aviso(explicarError(e)); }
+    // Regla 317 (C6): ya no dispara el workflow viejo de GitHub: le pide una vuelta al motor de Cloudflare por el Worker del reloj (con la misma llave de GitHub de siempre).
+    // Con la pausa general prendida el Worker no la hace y lo dice.
+    el.disabled = true;
+    try { await E.nubeCliente.pedirVuelta({ nombre: E.nombre }); aviso(AVISOS_DE_LA_NUBE.vuelta); } catch (e) { aviso(explicarErrorDeLaNube(e), { ms: 10000 }); }
+    el.disabled = false;
+    refrescarNube();
+  } else if (accion === 'pausar-todo') {
+    await cambiarPausa(true);
+  } else if (accion === 'reanudar-todo') {
+    await cambiarPausa(false);
   } else if (accion === 'recargar-pagina') {
     location.reload();
   } else if (accion === 'salir') {
@@ -1950,6 +1997,8 @@ document.addEventListener('click', async (ev) => {
     localStorage.removeItem(GUARDADO);
     indexedDB.deleteDatabase(GUARDADO);
     E.cliente = null;
+    E.nubeCliente = null;
+    E.nube = null;
     vistaLlave();
   }
 });
@@ -1957,6 +2006,7 @@ document.addEventListener('click', async (ev) => {
 $('#recargar').addEventListener('click', async () => {
   app.innerHTML = '<div class="girando"></div>';
   E.numeros = null;
+  E.nubeCargadaEn = 0;
   try { await cargar({ archivo: !!E.archivo }); vistaLista(); } catch (e) { aviso(explicarError(e)); vistaLista(); }
 });
 
@@ -1964,15 +2014,17 @@ $('#recargar').addEventListener('click', async () => {
 
 async function arrancar() {
   if (DEMO) {
-    const { clienteDePrueba, llavesDePrueba } = await import('./prueba.js');
+    const { clienteDePrueba, llavesDePrueba, nubeDePrueba } = await import('./prueba.js');
     $('#demo').hidden = false;
     E.cliente = clienteDePrueba();
+    E.nubeCliente = nubeDePrueba();
     E.llaves = await llavesDePrueba();
     E.nombre = 'Prueba';
   } else {
     const a = leerAjustes();
     if (!a?.token) { vistaLlave(); return; }
     E.cliente = crearCliente({ token: a.token });
+    E.nubeCliente = crearClienteDeLaNube({ token: a.token });
     E.nombre = a.nombre;
     E.llaves = await llavesDelCelular();
     if (!E.llaves) E.llaves = await registrarCelular(E.cliente, a.nombre);

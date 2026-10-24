@@ -2,6 +2,9 @@
 name = "radar-balcarce-reloj"
 main = "worker.mjs"
 compatibility_date = "2026-10-01"
+# La dirección https://radar-balcarce-reloj.radarbalcarce.workers.dev tiene que existir: el panel del celular le habla a /panel/estado, /panel/pausa y /panel/vuelta
+# (panel-api.mjs, regla 317; la CSP del panel nombra esta dirección en web/public/_headers). Es el valor de siempre, pero queda dicho.
+workers_dev = true
 
 [triggers]
 # Cada expresión sólo DESPIERTA al Worker; qué pide a GitHub en cada minuto (y a qué horas) lo decide `trabajosDelMinuto` en worker.mjs, que
