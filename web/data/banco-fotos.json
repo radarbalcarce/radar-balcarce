@@ -17115,9 +17115,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "11eytds": {
-  "archivo": "fotos-notas/11eytds.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "La AFA fija el partido de la Supercopa Argentina para noviembre",
@@ -17126,7 +17124,8 @@
   "razon": "La foto B muestra claramente el trofeo de la Supercopa de manera nítida y sin marcas de agua ni menores.",
   "cuando": "2026-10-15T19:32:32.961Z",
   "huella": "1e16373759513333",
-  "ausenteDesde": "2026-10-17T16:31:44.477Z"
+  "intentado": true,
+  "borrada": true
  },
  "fpal84": {
   "medio": "La Nación",
@@ -17437,9 +17436,7 @@
   "ausenteDesde": "2026-10-18T08:31:22.258Z"
  },
  "16q0gf8": {
-  "archivo": "fotos-notas/16q0gf8.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lalcec Balcarce ofrece mamografías y prepara la jornada comunitaria de octubre rosa",
@@ -17448,7 +17445,8 @@
   "razon": "Es la única opción disponible, cumple con los requisitos de calidad, no tiene marcas de agua del medio ni menores de edad.",
   "cuando": "2026-10-16T03:06:06.531Z",
   "huella": "02b6b6787173b3f2",
-  "ausenteDesde": "2026-10-17T16:31:44.477Z"
+  "intentado": true,
+  "borrada": true
  },
  "w9mlsu": {
   "archivo": "fotos-notas/w9mlsu.jpg",
@@ -19485,9 +19483,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "mp9n0b": {
-  "archivo": "fotos-notas/mp9n0b.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Aranaga pide autocrítica en el PJ local y defiende las internas partidarias",
@@ -19507,7 +19503,8 @@
    "descripcion": "Retrato de Aranaga en el estudio de Radio Gabal con fondo verde."
   },
   "huella": "0717151416367c2a",
-  "ausenteDesde": "2026-10-17T16:31:44.477Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kgatx3": {
   "archivo": "fotos-notas/1kgatx3.jpg",
@@ -23003,7 +23000,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de soldados equipados marchando en terreno abierto"
   },
-  "huella": "08c93355795e6a83"
+  "huella": "08c93355795e6a83",
+  "ausenteDesde": "2026-10-24T16:36:25.045Z"
  },
  "1jl00o6": {
   "intentado": true,
@@ -23627,7 +23625,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei junto a un funcionario y personal militar en una pista."
   },
-  "huella": "337140d250536373"
+  "huella": "337140d250536373",
+  "ausenteDesde": "2026-10-24T16:36:25.045Z"
  },
  "mvrt1g": {
   "intentado": true,
@@ -23829,7 +23828,8 @@
    "corresponde": "si",
    "descripcion": "Luis Enrique en conferencia de prensa saludando con la mano en alto"
   },
-  "huella": "9b3f326b7b7a1b13"
+  "huella": "9b3f326b7b7a1b13",
+  "ausenteDesde": "2026-10-24T16:36:25.045Z"
  },
  "1l2bh67": {
   "archivo": "fotos-notas/1l2bh67.jpg",
@@ -37321,5 +37321,122 @@
   "cuando": "2026-10-24T15:32:18.570Z",
   "intentos": 1,
   "fuentes": 5
+ },
+ "1yxp5q5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Momo y Dalto convocan a más de 15.000 jóvenes en José C. Paz",
+  "razon": "Ambas fotos muestran menores reconocibles en el público, por lo que no pueden ser publicadas.",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "i9n7eh": {
+  "archivo": "fotos-notas/i9n7eh.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Israel respaldaría el reclamo argentino por la soberanía de Malvinas",
+  "enlace": "https://www.minutouno.com/mundo/the-telegraph-asegura-que-netanyahu-ordeno-respaldar-la-argentina-su-reclamo-las-islas-malvinas-n6337504",
+  "imagenOriginal": "https://media.minutouno.com/p/cccc579087f8fc1705fcaa3d9bf4f224/adjuntos/150/imagenes/043/310/0043310986/1200x675/smart/milei-y-netanyahu-5.jpg",
+  "razon": "La foto C corresponde perfectamente al hecho, tiene buena nitidez, muestra a los protagonistas de frente sin marcas de agua superpuestas ni problemas de menores.",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Benjamin Netanyahu con banderas de fondo"
+  },
+  "huella": "b9c1e5e5aaaab2b2"
+ },
+ "wzkylt": {
+  "archivo": "fotos-notas/wzkylt.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "CICOP acepta la oferta salarial bonaerense con un aumento del 7,4%",
+  "enlace": "https://dib.com.ar/sociedad/los-profesionales-la-salud-cicop-cerraron-su-paritaria-un-aumento-del-74-n56778",
+  "imagenOriginal": "https://media.dib.com.ar/p/29b0d158c941a937505e9cc227d4b13a/adjuntos/377/imagenes/100/059/0100059701/1200x675/smart/cicop.jpg",
+  "razon": "Muestra claramente a las autoridades del gremio CICOP en conferencia de prensa, sin marcas de agua ni menores.",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Conferencia de prensa de autoridades de CICOP sentados en una mesa"
+  },
+  "huella": "697971b98c8d0e2e"
+ },
+ "1mamx6j": {
+  "archivo": "fotos-notas/1mamx6j.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula y Flávio Bolsonaro cierran la campaña en Brasil de cara al balotaje",
+  "enlace": "https://www.c5n.com/mundo/balotaje-brasil-lula-da-silva-y-flavio-bolsonaro-como-votar-argentina-n252214",
+  "imagenOriginal": "https://media.c5n.com/p/093ac701df30fc751f4fc25f3b60f2d2/adjuntos/326/imagenes/000/403/0000403892/1200x675/smart/flavio-bolsonaro-lula-da-silva-2.jpg",
+  "razon": "Es la única opción disponible, muestra a los protagonistas de la nota (Lula y Flávio Bolsonaro) en el acto de cierre de campaña, con buena nitidez y sin marcas de agua ni menores.",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lula y Flávio Bolsonaro aplaudiendo en un escenario con un cartel de campaña al fondo."
+  },
+  "huella": "530f0f5a6c6424a4"
+ },
+ "1w688vu": {
+  "archivo": "fotos-notas/1w688vu.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto afronta la práctica y la clasificación en Austin",
+  "enlace": "https://www.ambito.com/deportes/franco-colapinto-vuelve-correr-la-formula-1-horarios-y-cronograma-del-gp-eeuu-n6337072",
+  "imagenOriginal": "https://media.ambito.com/p/7949914785e9574cd7f49374683daa53/adjuntos/239/imagenes/043/723/0043723315/formula-1.jpg",
+  "razon": "Es la única opción disponible y muestra claramente el auto de Colapinto en la pista, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto conduce su monoplaza de Alpine en la pista, con otros autos de fondo."
+  },
+  "huella": "9595b9e8b486fcff"
+ },
+ "rvsn70": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lionel Messi recibe el Premio Princesa de Asturias en Oviedo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T16:34:31.898Z",
+  "intentos": 1,
+  "fuentes": 45,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
