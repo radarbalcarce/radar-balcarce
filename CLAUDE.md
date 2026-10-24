@@ -1,6 +1,6 @@
 # Radar Balcarce
 
-*Actualizado el 23/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
+*Actualizado el 24/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
 `docs/00-INDICE.md`). Si esto y el código no coinciden, manda el código, y se corrige
 esto.*
 
@@ -20,7 +20,11 @@ escribir siempre en castellano rioplatense, claro y sin voseo forzado.
     web/       el sitio (Next.js 15, JavaScript, HTML estático); web/public/panel/ es el panel del celular; web/scripts/generar-datos.mjs arma los datos
     pruebas/   `npm test`: unas 2.600 pruebas, sin red (en la vuelta de 30 minutos sólo corre el núcleo legal, `npm run test:nucleo`)
     docs/      la documentación: 00-INDICE a 13-EFEMERIDES, DECISIONES.md, propuestas/ (lo abierto) e historico/. Sin programas adentro
-    scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas
+    scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas, revisión de fuentes
+    infra/     los Workers de Cloudflare (reloj, vigilante, tareas, archivo, enlaces, motor en Workers Builds) y `infra/compartido/`
+    Dormidos (existen y tienen pruebas, pero producción no los usa; los despierta o los borra el dueño, no se tocan sin preguntar):
+               comercial/ (guía de comercios), motor/ (cimientos de una base D1), redes/texto-por-red.mjs, `sePuedeSola` (redes/elegir.mjs)
+               y `agruparPorHecho` (ingesta/cruce.mjs)
 
 Flujo: fuentes → ingesta → cruce → sección, puntaje y semáforo → lectura con IA →
 reescritura con IA → verificación → `web/data/*.json` → una sola compilación → Cloudflare Pages, todo
@@ -42,7 +46,7 @@ vigilancia y el panel del celular andan con la PC apagada.**
 ## Reglas que no se negocian
 
 (La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; la
-próxima regla es la 311 (la 310, el mapa de las notas archivadas, las fuentes en el marcado y los textos de la web al día) (la 308 y la 309, lo que recibe la IA y los arreglos de redes) (la 308, lo que recibe la IA de cada fuente y qué queda anotado de cada nota) (la 307, sin "fuente principal" suelta en la nota) (la 297 a la 303, del semáforo, el sin cuerpo y el descarte después del cruce) (la 289 a la 296, de la auditoría integral del 23/10: policial nacional, fútbol sólo argentino, Balcarce sin amarillo, lo muy contado sin frenos, Balcarce con 36 horas, Agro y Automovilismo en 2 medios, el celular sin tope y la limpieza; la 284 a la 288, de otras tandas del 23/10) (la 260 a la 263, el criterio simple, la estadística y las instrucciones de la IA más cortas) (la 280 a la 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la foto cambiada; las 258 a 279, de otras tandas): del 189 al 210 son los arreglos de Radar 2.0 del 17/10, por tandas y con huecos; la 211, las fotos con chicos de las
+próxima regla es la 312 (la 311, la limpieza de la auditoría 2.0 módulo A: código muerto, interruptores que no llegaban y carpetas de documentos) (la 310, el mapa de las notas archivadas, las fuentes en el marcado y los textos de la web al día) (la 308 y la 309, lo que recibe la IA y los arreglos de redes) (la 308, lo que recibe la IA de cada fuente y qué queda anotado de cada nota) (la 307, sin "fuente principal" suelta en la nota) (la 297 a la 303, del semáforo, el sin cuerpo y el descarte después del cruce) (la 289 a la 296, de la auditoría integral del 23/10: policial nacional, fútbol sólo argentino, Balcarce sin amarillo, lo muy contado sin frenos, Balcarce con 36 horas, Agro y Automovilismo en 2 medios, el celular sin tope y la limpieza; la 284 a la 288, de otras tandas del 23/10) (la 260 a la 263, el criterio simple, la estadística y las instrucciones de la IA más cortas) (la 280 a la 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la foto cambiada; las 258 a 279, de otras tandas): del 189 al 210 son los arreglos de Radar 2.0 del 17/10, por tandas y con huecos; la 211, las fotos con chicos de las
 fuentes de Balcarce; la 212, la revisión del archivo entero por tandas; la 215 a la 218, lo nacional por popularidad sin cupos, las secciones nuevas
 siempre activas, las fuentes de ciencia, salud, educación y tecnología, y el orden por popularidad; la 230 a la 235, la mudanza a Cloudflare; la 240, OpenRouter;
 la 260 a la 263, la selección en seis líneas con su estadística, las fuentes de las áreas chicas y las instrucciones de la IA más cortas.)
@@ -144,6 +148,9 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
   día**; si se acaba, la pieza no sale (nunca con otra voz). Una clave rechazada
   (401/402/403) no gasta los intentos de una nota. Texto: `gemini-flash-lite-latest`; voz:
   `gemini-3.8-flash-tts`, dos voces propias que **vencen el 29/09/2027** (`CRITERIO-REDES.md` § 6).
+- **Una variable que el código lee tiene que llegar** (regla 311): GitHub sólo le pasa a un paso lo que el `env:` del workflow nombra;
+  Workers Builds, sólo lo que carga `infra/motor-cloudflare/cargar-variables.mjs` (que a su vez la recibe de `motor-variables.yml`).
+  Sumar una variable nueva es sumarla en esos lugares: `pruebas/variables-conectadas.test.mjs` falla si el código la lee y no llega.
 - **Para que "hoy" sea el de Balcarce en Actions** hay que poner
   `TZ: America/Argentina/Buenos_Aires` en el workflow (`ingesta/zona.mjs`).
 - **El turno de farmacia dura hasta las 8:30 del día siguiente** (la web no dice hasta qué
@@ -188,7 +195,7 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 | Que una palabra mande una nota a otra sección | `REGLAS_SECCION` (`ingesta/fuentes.mjs`); si es ambigua, también `PALABRAS_DEBILES` (`ingesta/ingesta.mjs`) |
 | Que algo espere a una persona o no salga nunca | `REGLAS_SEMAFORO` (`ingesta/fuentes.mjs`: `rojo` —no sin preguntar—, `nunca`, `amarillo`, `cotizacion`, `internacional`, `promocional`); lo de Balcarce y lo que cuentan 8 medios o más no esperan por el amarillo (reglas 291 y 292: `sueltaElAmarillo`, `ingesta/ingesta.mjs`); la cotización, `esCotizacionDelDia`; la muerte de un famoso en Policiales, `esMuerteDeFamosoEnPoliciales` (regla 289) |
 | Qué es "de acá" o "la zona" | `esDeAca` (`ingesta/ingesta.mjs`), `PALABRAS_LOCALES` y `PALABRAS_ZONA` (`ingesta/fuentes.mjs`) |
-| Cómo se juntan las notas del mismo hecho | `CRUCE` y el cruce coherente, que no encadena (`CRUCE.coherente`, `CRUCE_COHERENTE`, regla 184: `docs/flujo/CRUCE-COHERENTE.md`) (`ingesta/cruce.mjs`), `agruparRepetidas` y `quitarRepetidas` (`ingesta/lectura-ia.mjs`), y las que vuelven con otra dirección, `web/lib/repetidas.js`; lo de acá con otras palabras, la huella de significado (`ingesta/huellas-significado.mjs`, regla 195: `docs/flujo/REPETIDAS-2-0.md`) |
+| Cómo se juntan las notas del mismo hecho | `CRUCE` y el cruce coherente, que no encadena (`CRUCE.coherente`, `CRUCE_COHERENTE`, regla 184: `docs/flujos/CRUCE-COHERENTE.md`) (`ingesta/cruce.mjs`), `agruparRepetidas` y `quitarRepetidas` (`ingesta/lectura-ia.mjs`), y las que vuelven con otra dirección, `web/lib/repetidas.js`; lo de acá con otras palabras, la huella de significado (`ingesta/huellas-significado.mjs`, regla 195: `docs/flujos/REPETIDAS-2-0.md`) |
 | Cualquier número del criterio | `ingesta/criterio.mjs` **y** la tabla "Los números" de `CRITERIO-EDITORIAL.md` |
 | Cuántos medios pide lo de afuera (3) y en las áreas chicas (2) | Las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (sin tocar código); el valor de siempre y qué áreas son chicas, `POPULARIDAD` y `AREAS_CHICAS` (`ingesta/criterio.mjs` **y** la tabla del criterio), `ingesta/popularidad.mjs` (regla 260) |
 | Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261) |
@@ -212,13 +219,13 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 | Ilustrar con IA las notas sin foto (automático cada 2 h de 7 a 23 por el reloj de Cloudflare, o a mano: revisar y después aplicar; reglas 182, 185 y 206: un solo camino, Cloudflare gratis; Gemini web quedó desactivado el 17/10) | Workflow «Ilustrar notas sin foto» (`ilustrar-notas.yml`), `web/scripts/ilustrar-notas.mjs` (filtros `motivoParaSaltar`, tono, prompt, topes y `cupoAutomatico`), `web/data/fotos-ia.json` (lo escribe ese workflow; prioridad más baja en `conFotosDelBanco`) |
 | La firma de las notas | `quienEscribio`, `firmaCorta` (`web/components/metadatos.js`) |
 | Las fotos | `web/scripts/fotos-notas.mjs`, `ingesta/fotos.mjs`, `web/scripts/achicar-foto.mjs` |
-| Una sección nueva, su nombre o su color | `SECCIONES` (`web/lib/datos.js`), `--s-*` (`web/app/globals.css`), `REGLAS_SECCION`, `SECCIONES_DE_LA_FICHA` (`ingesta/lectura-ia.mjs`), `SECCIONES` de `web/public/panel/github.js`; las del mapa de 17, activas Educación, Salud y Ciencia: `SECCIONES_SUMADAS` y `seccionSumada` (`ingesta/secciones-nuevas.mjs`), `seccionesDelSitio` y `navegacionDelSitio` (`web/lib/datos.js`), `COLOR_SECCION` + `CRITERIO-REDES.md` § 8 y `--s-*` (reglas 187 y 211) |
+| Una sección nueva, su nombre o su color | `SECCIONES` (`web/lib/datos.js`), `--s-*` (`web/app/globals.css`), `REGLAS_SECCION`, `seccionesDeLaFicha()` (`ingesta/lectura-ia.mjs`), `SECCIONES` de `web/public/panel/github.js`; las del mapa de 17, activas Educación, Salud y Ciencia: `SECCIONES_SUMADAS` y `seccionSumada` (`ingesta/secciones-nuevas.mjs`), `seccionesDelSitio` y `navegacionDelSitio` (`web/lib/datos.js`), `COLOR_SECCION` + `CRITERIO-REDES.md` § 8 y `--s-*` (reglas 187 y 211) |
 | La tapa, las secciones o "Seguí leyendo" | `armarTapa` (`web/lib/datos.js`), `web/lib/seguir-leyendo.js` |
 | La nota del dólar o la de cada podcast | `web/lib/notas-propias.js` |
 | Las notas de F1 (horarios, clasificación, resultado; Jolpica) y de fútbol (Liga, Copa Argentina, Libertadores y Sudamericana con equipos argentinos; ESPN) | `ingesta/f1.mjs`, `ingesta/futbol.mjs`, `web/data/f1.json`, `web/data/futbol.json`; la foto libre, `web/scripts/foto-libre.mjs` |
-| Qué va a las redes (sólo Balcarce y lo más contado del país: `FACEBOOK.mediosParaRedes`, regla 280) | `vaAFacebookPorLoQueEs`, `esPopularParaRedes`, `elegirParaFacebook`, `sePuedeSola`; en los repasos, `elegirParaPodcast` y `sePuedeEnUnRepaso` (`redes/elegir.mjs`); cuántos por día: `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md` |
+| Qué va a las redes (sólo Balcarce y lo más contado del país: `FACEBOOK.mediosParaRedes`, regla 280) | `vaAFacebookPorLoQueEs`, `esPopularParaRedes`, `elegirParaFacebook`; en los repasos, `elegirParaPodcast` y `sePuedeEnUnRepaso` (`redes/elegir.mjs`); cuántos por día: `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md` |
 | El texto de cada red y los hashtags fijos (`#Balcarce #RadarBalcarce`, regla 281) | `hashtagsDe`, `mensajeDeNota` (`redes/elegir.mjs`), `hashtagsDePieza`, `pieDePieza` (`redes/piezas.mjs`); la tabla por red: `docs/redes/FORMATOS-POR-RED.md` |
-| Los enlaces cortos de las redes (`ENLACES_CORTOS`, apagado; regla 282) | `redes/enlaces-cortos.mjs`, `infra/enlaces-cloudflare/` (Worker y ruta); `docs/redes/ACORTADOR-DE-ENLACES.md` |
+| Los enlaces cortos de las redes (`ENLACES_CORTOS`, apagado; regla 282; llega a Actions por `redes.yml`, `piezas.yml` y `reintentar.yml`, y a Workers Builds por `cargar-variables.mjs`: regla 311) | `redes/enlaces-cortos.mjs`, `infra/enlaces-cloudflare/` (Worker y ruta); `docs/redes/ACORTADOR-DE-ENLACES.md` |
 | La foto de una nota que cambia después de salir en Facebook (regla 283) | `redes/foto-cambiada.mjs`, `releerEnlace` (`redes/meta.mjs`), `FACEBOOK.horasEsperandoFotoReal`; `docs/redes/FOTO-CAMBIADA-DESPUES-DEL-POSTEO.md` |
 | A qué hora sale una pieza | `HORAS_REELS`, `VENTANAS` (`redes/piezas.mjs`) y `HISTORIAS_FIJAS` (`redes/horarios.mjs`) |
 | Cómo suenan o qué dicen las piezas | `CRITERIO-REDES.md` y `redes/guiones.mjs` |

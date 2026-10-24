@@ -231,7 +231,7 @@ Gabal uno o dos días después, cuando la de Gabal ya no está en el feed. Lo de
 sólo está en la memoria no vuelve a aparecer como historia: sirve para que se le
 sume lo que llega después (y conserve la dirección ya publicada). Lo que dura más que
 un hecho lo sigue partiendo el cruce coherente; para eso está la huella de
-significado (`docs/flujo/REPETIDAS-2-0.md`).
+significado (`docs/flujos/REPETIDAS-2-0.md`).
 
 - **Dónde vive:** `.cache/cruce-memoria.json` (`MEMORIA_DEL_CRUCE`). No va al
   repositorio: en GitHub la guarda la caché de Actions entre corridas.
@@ -283,7 +283,7 @@ corrida y las de la memoria) y devuelve grupos. Sin IA: tarda segundos.
    1" y "2 a 0"), o tipos de hecho distintos (la previa, el resultado, los
    puntajes, la tabla, la sanción). **Partir sólo separa**: nunca junta lo que el
    cruce de siempre no juntaba. Con la lectura de las 12 del 16/10, la historia más
-   grande pasó de 228 notas a 51. Medición: `docs/flujo/CRUCE-COHERENTE.md`.
+   grande pasó de 228 notas a 51. Medición: `docs/flujos/CRUCE-COHERENTE.md`.
 
 ### 11. Qué grupos quedan
 

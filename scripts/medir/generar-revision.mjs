@@ -1,8 +1,8 @@
 // Arma docs/etapa-1-fuentes/REVISION-FUENTES.html: un solo archivo, sin librerías, para que
 // Hernán y Andrés revisen las fuentes de a una (Sí / No / Duda) desde la PC o el celular.
 //
-//   node docs/etapa-1-fuentes/generar-revision.mjs            escribe REVISION-FUENTES.html
-//   node docs/etapa-1-fuentes/generar-revision.mjs --salida=otra.html
+//   node scripts/medir/generar-revision.mjs            escribe REVISION-FUENTES.html
+//   node scripts/medir/generar-revision.mjs --salida=otra.html
 //
 // SÓLO LEE. De dónde sale cada cosa (no se inventa nada: sin dato, "—"):
 //   · la lista de fuentes y sus pesos, dueños y secciones: ingesta/fuentes.mjs y ingesta/fuentes-cruce.mjs
@@ -1383,7 +1383,7 @@ ${htmlCandidatas(d)}
     <li><b>Dudosa por datos</b> (franja amarilla): cero o casi cero notas en 30 días, feed caído o sin notas nuevas, bloquea a Cloudflare, o mismo dueño que otro medio activo.</li>
     <li><b>Sugerencia</b>: <i>Apagar</i> si no aportó nada en 30 días, si su feed no responde, o si bloquea y aporta poco. <i>Revisar</i> si aporta ${u.pocas} notas o menos sin haber sido imprescindible, si tiene un feed con problemas, si bloquea pero aporta mucho (${u.muchas} notas o ${u.imprescindible} veces imprescindible), o si una apagada aportaba ${u.aportaba} notas o más. <i>Mantener</i> en el resto. Los de Balcarce nunca se sugieren apagar (decisión de ustedes: entran todos) y las altas nuevas van a prueba. Es una ayuda: la decisión es de ustedes.</li>
     <li><b>Descartadas</b>: salen solas de la tabla las apagadas y las activas de afuera cuya sugerencia es <i>Apagar</i>; además Claude sacó a mano las de mismo dueño que otra que ya cuenta y las que casi no aportan (con el motivo escrito en cada una).</li>
-    <li><b>Balcarce a fondo</b>: la sugerencia de esas filas es <i>Mantener</i>, <i>Revisar</i> (hay algo para cambiar), <i>Sumar</i> (hoy no se lee y conviene), <i>No sumar</i> o <i>Apagar</i>; los datos salen de <code>docs/etapa-1-fuentes/balcarce-fondo.mjs</code>.</li>
+    <li><b>Balcarce a fondo</b>: la sugerencia de esas filas es <i>Mantener</i>, <i>Revisar</i> (hay algo para cambiar), <i>Sumar</i> (hoy no se lee y conviene), <i>No sumar</i> o <i>Apagar</i>; los datos salen de <code>scripts/medir/balcarce-fondo.mjs</code>.</li>
   </ul>
 </details>
 
@@ -1419,7 +1419,7 @@ ${cuerpo}
 </table>
 </div>
 ${htmlDescartadas(d)}
-<p class="pie">Hecho con docs/etapa-1-fuentes/generar-revision.mjs a partir de ingesta/fuentes.mjs, ingesta/fuentes-cruce.mjs, LISTA-ELEGIDA.md, balcarce-fondo.mjs, fuentes-medidas.csv y web/data. Para rehacerlo: <code>node docs/etapa-1-fuentes/generar-revision.mjs</code>.</p>
+<p class="pie">Hecho con scripts/medir/generar-revision.mjs a partir de ingesta/fuentes.mjs, ingesta/fuentes-cruce.mjs, LISTA-ELEGIDA.md, balcarce-fondo.mjs, fuentes-medidas.csv y web/data. Para rehacerlo: <code>node scripts/medir/generar-revision.mjs</code>.</p>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>(${clienteDeLaPagina.toString()})();</script>
@@ -1444,7 +1444,7 @@ export function generarMarkdownBalcarce(d) {
   const L = [];
   L.push('# Balcarce a fondo · investigación de fuentes (15/10/2026)');
   L.push('');
-  L.push(`*Pedido de Hernán y Andrés: investigar de nuevo, a fondo, todas las fuentes posibles de Balcarce (el partido: Balcarce, San Agustín, Los Pinos, Napaleofú, Ramos Otero, Bosch, Laguna La Brava), y decir de cada una si tiene feed, si hay que leer la página o si sólo se puede seguir a mano. Este archivo se arma con \`node docs/etapa-1-fuentes/generar-revision.mjs\` a partir de \`docs/etapa-1-fuentes/balcarce-fondo.mjs\`; la misma información está en la sección "Balcarce a fondo" de \`REVISION-FUENTES.html\`, donde se decide con Sí / No / Duda. No se tocó \`ingesta/fuentes.mjs\`.*`);
+  L.push(`*Pedido de Hernán y Andrés: investigar de nuevo, a fondo, todas las fuentes posibles de Balcarce (el partido: Balcarce, San Agustín, Los Pinos, Napaleofú, Ramos Otero, Bosch, Laguna La Brava), y decir de cada una si tiene feed, si hay que leer la página o si sólo se puede seguir a mano. Este archivo se arma con \`node scripts/medir/generar-revision.mjs\` a partir de \`scripts/medir/balcarce-fondo.mjs\`; la misma información está en la sección "Balcarce a fondo" de \`REVISION-FUENTES.html\`, donde se decide con Sí / No / Duda. No se tocó \`ingesta/fuentes.mjs\`.*`);
   L.push('');
   L.push('## En una mirada');
   L.push('');

@@ -309,22 +309,11 @@ export function leerEstado(texto) {
 
 // ------------------------------------------------------------------ preguntas sobre los números
 
-/** Lo publicado en un día: { total, deAca, deAfuera }, o null si no hay números de ese día. */
-export function publicadasDelDia(estado, dia) {
-  const d = estado?.dias?.[dia];
-  return d ? { total: d.publicadas ?? 0, deAca: d.deAcaPublicadas ?? 0, deAfuera: d.deAfueraPublicadas ?? 0 } : null;
-}
-
 /** Las secciones de la estadística que no tienen ninguna nota publicada ese día. */
 export function seccionesSinNotas(estado, dia, secciones = SECCIONES_DE_LA_ESTADISTICA) {
   const d = estado?.dias?.[dia];
   if (!d) return [];
   return secciones.filter((s) => !(d.secciones?.[s]?.publicadas > 0));
-}
-
-/** Los últimos `n` días con números, terminando en `hasta` (inclusive), del más viejo al más nuevo. */
-export function ultimosDiasConNumeros(estado, hasta, n = 7) {
-  return Object.keys(estado?.dias ?? {}).filter((d) => d <= hasta).sort().slice(-n);
 }
 
 /**

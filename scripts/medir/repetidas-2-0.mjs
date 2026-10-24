@@ -1,4 +1,4 @@
-// Mide la capa de repetidas por significado (regla 195, docs/flujo/REPETIDAS-2-0.md) sobre lo de acá YA publicado: en el orden en
+// Mide la capa de repetidas por significado (regla 195, docs/flujos/REPETIDAS-2-0.md) sobre lo de acá YA publicado: en el orden en
 // que se vio cada nota, la compara con lo de acá de 72 horas que salió antes, le pregunta a la IA por las dos más parecidas y
 // cuenta qué se habría unido. Una nota que se une ya no se publica, así que no queda para las que vienen después (como en
 // producción). Usa el mismo código del motor (huellasDe, parejasPorSignificado, anclasConfirmadas, confirmarParejas).

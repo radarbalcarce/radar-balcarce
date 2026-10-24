@@ -243,7 +243,6 @@ export function notaDelDolar(entrada, historia = { dias: [] }) {
     medios: [fuente.medio],
     enlace: fuente.enlace,
     fuentesConsultadas: [fuente],
-    teniaImagenLaFuente: false,
     fecha: entrada.consultado,
     sinFecha: false,
     visto: entrada.consultado,
@@ -422,7 +421,6 @@ export function notaDelClima(entrada, { enlaceReel = '' } = {}) {
     medios: [fuente.medio],
     enlace: fuente.enlace,
     fuentesConsultadas: [fuente],
-    teniaImagenLaFuente: false,
     // Una ilustración genérica del clima, hecha con IA y declarada como tal (web/lib/fondos-clima.js, regla 181): una según el estado del tiempo y
     // la fecha, la misma siempre para el mismo día.
     foto: fondoDelClima(entrada),
@@ -532,7 +530,6 @@ export function notaDeEfemeride(salio, delDia) {
     medios: [fuente.medio],
     enlace: fuente.enlace,
     fuentesConsultadas: [fuente],
-    teniaImagenLaFuente: false,
     foto: { ...FOTO_DE_EFEMERIDE },
     // Para escribir el año y la fecha sobre la hoja en blanco de la ilustración (web/scripts/foto-efemeride.mjs).
     diaDeLaFoto: dia,
@@ -754,7 +751,6 @@ export function notaDeRepaso(podcast, notasPorId = new Map(), { catalogo = [] } 
     relevancia: RELEVANCIA_REPASO,
     medios: [],
     enlace: null,
-    teniaImagenLaFuente: false,
     fecha: podcast.cuando,
     sinFecha: false,
     visto: podcast.cuando,

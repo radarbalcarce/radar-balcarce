@@ -1,4 +1,4 @@
-// El cruce coherente (16/10/2026, regla 184; docs/flujo/CRUCE-COHERENTE.md, ingesta/cruce.mjs).
+// El cruce coherente (16/10/2026, regla 184; docs/flujos/CRUCE-COHERENTE.md, ingesta/cruce.mjs).
 //
 // El cruce encadenaba: si A se parece a B y B a C, A, B y C quedaban juntas. Medido el 16/10 a las 12: una sola
 // «historia» de fútbol de 223 notas (River-Sarmiento, Boca, Huracán-Gimnasia, los puntajes, el Tribunal de Disciplina)

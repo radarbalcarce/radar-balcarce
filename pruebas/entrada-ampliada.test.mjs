@@ -20,7 +20,7 @@ import {
   completarReescritura, nivelDeVerificacion, semaforoDeLaReescritura, origenesDe, previasDeLaPortada, revalidarExtras,
 } from '../reels/reescritura.mjs';
 import {
-  armarFuentesParaLaIA, limpiarTextoBajado, repararCodificacion, repartirCaracteres, cortarTexto, parecidoEntreTextos,
+  armarFuentesParaLaIA, limpiarTextoBajado, repararCodificacion, repartirCaracteres, cortarTexto,
   mediosQueNoCuentan,
 } from '../ingesta/fuentes-para-la-ia.mjs';
 import { decodificarPagina, traerTexto } from '../ingesta/articulo.mjs';
@@ -178,8 +178,6 @@ const TEXTOS_VTV = {
 };
 
 test('el cable de DIB repetido por tres medios va UNA vez: las otras dos, marcadas como copia (VTV, § 3.3)', async () => {
-  assert.ok(parecidoEntreTextos(CABLE.join('\n'), [...CABLE.slice(0, 3), LOCAL].join('\n')) >= 0.5);
-  assert.ok(parecidoEntreTextos(CABLE.join('\n'), DE_0221) < 0.1);
   const conTexto = conEntradaAmpliada(NOTA_VTV, await textosDeLasFuentes(NOTA_VTV, traerDe(TEXTOS_VTV)));
   const { fuentes, noCuentan } = conTexto.entradaAmpliada;
   assert.deepEqual(fuentes.map((f) => [f.numero, f.medio, f.copiaDe]), [

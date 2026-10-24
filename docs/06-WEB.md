@@ -141,7 +141,7 @@ enlace, `fecha`, `sinFecha`, `visto`, relevancia, `local`, quién la publicó y
 cuándo, temas, `como` (automática o publicada) y las partes internas de la IA
 (claves, qué se sabe, fuentes consultadas, nivel de verificación; se guardan
 pero el lector no las ve). **La foto de la fuente nunca se copia**: sólo se
-guarda `teniaImagenLaFuente`.
+guarda nada de ella (el campo `teniaImagenLaFuente` se sacó en la regla 311: no lo leía nadie).
 
 **6. Las fotos.** `elegirFotosNuevas`
 (`web/scripts/fotos-notas.mjs`) prueba una foto para hasta 10 notas nuevas por

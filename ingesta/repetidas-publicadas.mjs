@@ -53,7 +53,7 @@ export const REPETIDAS_PUBLICADAS = {
 
 /**
  * Dos notas que citan EXACTAMENTE la misma nota de otro medio (el mismo enlace, sin UTM ni fbclid ni barra final) son la misma
- * noticia, aunque estén en otra sección o una sea de acá y la otra de afuera (15/10/2026, regla 175; docs/COMO-SE-ELIGE-UNA-NOTA.html,
+ * noticia, aunque estén en otra sección o una sea de acá y la otra de afuera (15/10/2026, regla 175; docs/historico/COMO-SE-ELIGE-UNA-NOTA.html,
  * «huecos» 3 y 5). En los 7 días al 15/10 salieron 7 pares así y los 7 eran repetidas (VTV, Zona Fría, Instituto Adventista,
  * Seguridad Vial, Milei-Caputo, Cavallo, Cauan Barros). Pero el cruce encadena noticias (la misma nota de TN sobre Caputo en
  * París quedó en cuatro notas distintas del 2/10: Milei en Francia, Santilli contra Kicillof…), así que el enlace solo no alcanza:

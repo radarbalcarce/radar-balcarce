@@ -80,28 +80,3 @@ export function esperaFotoDefinitiva(nota, edadMinutos, horas = 0) {
   return esFotoDeIA(nota) && edadMinutos < horas * 60;
 }
 
-/**
- * La medición del problema sobre el libro de Facebook y los libros de fotos (la usa el informe, no el robot): cuántos posteos salieron con una
- * ilustración o con la placa (sin foto en el banco) y después la nota recibió su foto real.
- * @returns {{ posteos: number, conFotoReal: number, conIlustracion: number, sinFoto: number, cambiaronDespues: number, deIlustracionAReal: number, dePlacaAReal: number }}
- */
-export function medirCambiosDeFoto({ libro = {}, banco = {}, manuales = {}, fotosIA = {} } = {}) {
-  const m = { posteos: 0, conFotoReal: 0, conIlustracion: 0, sinFoto: 0, cambiaronDespues: 0, deIlustracionAReal: 0, dePlacaAReal: 0 };
-  for (const [id, p] of Object.entries(libro?.facebook ?? {})) {
-    const posteo = tiempo(p?.cuando);
-    if (!posteo) continue;
-    m.posteos += 1;
-    const antes = (f) => f?.archivo && (tiempo(f.cuando) ?? Infinity) <= posteo;
-    const realAntes = antes(banco?.[id]) || antes(manuales?.[id]);
-    const iaAntes = antes(fotosIA?.[id]);
-    const estado = realAntes ? 'real' : iaAntes ? 'ia' : 'sin';
-    if (estado === 'real') m.conFotoReal += 1; else if (estado === 'ia') m.conIlustracion += 1; else m.sinFoto += 1;
-    if (estado === 'real') continue;
-    const vista = fotoQueSeVe(id, { banco, manuales, fotosIA });
-    if (vista.origen === 'real' && (tiempo(vista.cuando) ?? 0) > posteo) {
-      m.cambiaronDespues += 1;
-      if (estado === 'ia') m.deIlustracionAReal += 1; else m.dePlacaAReal += 1;
-    }
-  }
-  return m;
-}

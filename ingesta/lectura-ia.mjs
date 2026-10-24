@@ -42,13 +42,11 @@ const LAS_ONCE = ['Balcarce', 'Política', 'Policiales', 'Fútbol', 'Deportes', 
   'Economía', 'Agro', 'Tecnología', 'Cultura y agenda', 'Argentina'];
 /**
  * Las secciones que puede elegir: las de la web, sin inventar ninguna. Desde el 17/10/2026 (regla 211) son catorce: las once de
- * siempre más Educación, Salud y Ciencia (SECCIONES_SUMADAS), después de Policiales. El interruptor SECCIONES_NUEVAS de la regla
- * 187 se sacó.
+ * siempre más Educación, Salud y Ciencia (SECCIONES_SUMADAS), después de Policiales.
  */
 export function seccionesDeLaFicha() {
   return [...LAS_ONCE.slice(0, 3), ...SECCIONES_SUMADAS, ...LAS_ONCE.slice(3)];
 }
-export const SECCIONES_DE_LA_FICHA = seccionesDeLaFicha();
 export const AMBITOS = ['balcarce', 'region', 'provincia', 'nacional', 'internacional'];
 export const IMPACTOS = ['directo', 'indirecto', 'nulo'];
 export const RAZONES = ['local', 'servicio', 'actividad', 'provincia', 'nacional', 'popular', 'ninguna'];

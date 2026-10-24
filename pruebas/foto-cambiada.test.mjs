@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
-  fotosCambiadasDespuesDelPosteo, fotoQueSeVe, esFotoDeIA, esperaFotoDefinitiva, medirCambiosDeFoto, HORAS_DE_RELECTURA,
+  fotosCambiadasDespuesDelPosteo, fotoQueSeVe, esFotoDeIA, esperaFotoDefinitiva, HORAS_DE_RELECTURA,
 } from '../redes/foto-cambiada.mjs';
 import { elegirParaFacebook, REGLAS_FACEBOOK, libroNuevo } from '../redes/elegir.mjs';
 import { crearCliente } from '../redes/meta.mjs';
@@ -190,21 +190,4 @@ test('elegirParaFacebook respeta la espera cuando se prende (la ilustración esp
   assert.deepEqual(elegirParaFacebook({ notas: [ia], libro: libroNuevo(), ahora, reglas: prendida }), [], 'prendida: espera la foto real (1 h 30 de vida, pide 3)');
   assert.deepEqual(elegirParaFacebook({ notas: [real], libro: libroNuevo(), ahora, reglas: prendida }).map((n) => n.id), ['real']);
   assert.deepEqual(elegirParaFacebook({ notas: [ia], libro: libroNuevo(), ahora: new Date('2026-10-17T17:00:00Z'), reglas: prendida }).map((n) => n.id), ['ia'], 'a las 3 horas sale igual');
-});
-
-test('la medición: cuántos posteos salieron con ilustración o sin foto y después tuvieron la foto real', () => {
-  const libro = { facebook: {
-    a: { cuando: '2026-10-10T12:00:00Z' }, // con foto real desde antes
-    b: { cuando: '2026-10-10T13:00:00Z' }, // sin foto → real después
-    c: { cuando: '2026-10-10T14:00:00Z' }, // ilustración → real después
-    d: { cuando: '2026-10-10T15:00:00Z' }, // sin foto y sigue sin foto
-    e: { cuando: '2026-10-10T16:00:00Z' }, // ilustración y sigue con la ilustración
-  } };
-  const banco = {
-    a: { archivo: 'a.jpg', cuando: '2026-10-10T11:00:00Z' },
-    b: { archivo: 'b.jpg', cuando: '2026-10-10T20:00:00Z' },
-    c: { archivo: 'c.jpg', cuando: '2026-10-10T21:00:00Z' },
-  };
-  const fotosIA = { c: { archivo: 'c-ia.jpg', cuando: '2026-10-10T13:50:00Z' }, e: { archivo: 'e-ia.jpg', cuando: '2026-10-10T15:50:00Z' } };
-  assert.deepEqual(medirCambiosDeFoto({ libro, banco, fotosIA }), { posteos: 5, conFotoReal: 1, conIlustracion: 2, sinFoto: 2, cambiaronDespues: 2, deIlustracionAReal: 1, dePlacaAReal: 1 });
 });

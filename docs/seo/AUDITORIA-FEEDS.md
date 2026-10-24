@@ -200,7 +200,7 @@ filtro `VOLUMEN_PAREJO` de `reels/reel.mjs` (-16 LUFS), y etiquetas ID3 (título
 5. **Anunciarlo**: `<link rel="alternate" type="application/rss+xml" title="El repaso de Radar Balcarce" href="/podcast.xml">` en el `<head>`, y
    una página `/podcast` con los botones a cada plataforma y un reproductor (hoy no hay página de podcast; es una decisión de diseño que se
    consulta antes, como todo cambio visible).
-6. **Probar**: `node web/scripts/podcast-feed.mjs --salida=podcast.xml`, `curl -I -H "Range: bytes=0-99"` contra un audio (tiene que
+6. **Probar** (el generador `web/scripts/podcast-feed.mjs` se borró el 17/10: hay que recuperarlo del historial de git antes de este paso; ver el apartado de arriba): `curl -I -H "Range: bytes=0-99"` contra un audio (tiene que
    contestar `206` con `Content-Range`) y pasar el feed por los validadores (abajo). Recién ahí, enviar.
 
 ### Decisión que les toca a Hernán y Andrés

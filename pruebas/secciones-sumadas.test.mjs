@@ -97,6 +97,11 @@ test('el interruptor SECCIONES_NUEVAS ya no existe: ni en el código ni en el si
   }
   assert.equal(fs.existsSync(new URL('../web/scripts/vista-previa-secciones.mjs', import.meta.url)), false, 'la vista previa ya no hace falta');
   assert.doesNotMatch(leer('../web/package.json'), /vista-previa-secciones/);
+  // Regla 311: tampoco la pasa ningún workflow ni la cuenta la huella del sitio (no la lee ningún programa: sólo provocaría una compilación de más).
+  assert.doesNotMatch(leer('../web/scripts/huella-del-sitio.mjs'), /SECCIONES_NUEVAS/);
+  for (const w of fs.readdirSync(new URL('../.github/workflows/', import.meta.url)).filter((f) => f.endsWith('.yml'))) {
+    assert.doesNotMatch(leer(`../.github/workflows/${w}`), /vars\.SECCIONES_NUEVAS/, w);
+  }
   const layout = leer('../web/app/layout.js');
   assert.match(layout, /const menu = navegacionDelSitio\(\{ notas: d\.notas \?\? \[\], archivo: obtenerArchivo\(\) \}\);/);
   assert.match(layout, /\{\.\.\.\(menu\.mas \? \{ mas: menu\.mas \} : \{\}\)\}/);

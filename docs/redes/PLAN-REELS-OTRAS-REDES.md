@@ -277,7 +277,7 @@ cuánto trámite es y en qué pasa **después**:
 | Orden | Qué | Por qué | Cuándo (si les parece) |
 |---|---|---|---|
 | **0** | **Pedir hoy la auditoría de TikTok** y crear el canal de YouTube y la cuenta de Bluesky | Son los trámites con espera; los demás son de minutos | Ahora, en paralelo |
-| **1** | **Base común** (`redes/destinos.mjs`, ya escrita como esqueleto) + **Telegram** | Gratis, sin revisión, sin riesgo; prueba todo el circuito | Semana 1 |
+| **1** | **Base común** (`redes/destinos.mjs`, esqueleto sacado el 17/10; queda en el historial) + **Telegram** | Gratis, sin revisión, sin riesgo; prueba todo el circuito | Semana 1 |
 | **2** | **Bluesky** | Gratis, sin revisión; mismo molde | Semana 1 |
 | **3** | **YouTube Shorts** | El de más alcance y el único donde el video no caduca; 100 subidas por día de cuota | Semana 2 |
 | **4** | **Threads** (con el depósito de videos y la renovación del token) | Mismo público que Instagram; obliga a resolver "guardar un token que cambia", que sirve después para TikTok | Semana 3 |
@@ -393,7 +393,7 @@ vez de repartirlo en la misma corrida. Hoy no hace falta.
 1. **Un archivo por red**: `redes/telegram.mjs`, `redes/bluesky.mjs`, `redes/youtube.mjs`, `redes/threads.mjs`, `redes/x.mjs`,
    `redes/tiktok.mjs`. **Sin dependencias externas** (sólo `fetch`, `FormData`, `Blob` y `node:crypto` de Node 24); una prueba vigila que
    `redes/` no importe nada de afuera.
-2. **Un contrato común** (`redes/destinos.mjs`, **ya escrito como esqueleto**): el catálogo (`DESTINOS`), el interruptor por red
+2. **Un contrato común** (`redes/destinos.mjs`, **escrito como esqueleto y sacado el 17/10; queda en el historial de git**): el catálogo (`DESTINOS`), el interruptor por red
    (`destinoPrendido`), las claves que faltan (`faltanClaves`), qué pieza va a qué red (`destinosDeLaPieza`) y el repartidor
    (`publicarEnDestinos`), que **simula por defecto**.
 3. **El cliente de cada red cumple una sola función**: `publicarVideo({ video, pieza, pie }) → { id, enlace? }`. No decide *qué* se publica

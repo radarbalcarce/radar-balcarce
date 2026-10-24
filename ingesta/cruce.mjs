@@ -12,7 +12,7 @@
 // 2.664 notas: con un umbral de 0,42 junta bien el mismo hecho y no mezcla
 // notas distintas del mismo tema; con 0,25 encadenaba cosas sin relación.
 //
-// El cruce coherente (16/10/2026, regla 184; docs/flujo/CRUCE-COHERENTE.md).
+// El cruce coherente (16/10/2026, regla 184; docs/flujos/CRUCE-COHERENTE.md).
 // Hasta acá los grupos se ENCADENABAN: si A se parece a B y B a C, A, B y C
 // quedaban juntas aunque A y C no tuvieran nada que ver. El 16/10 una sola
 // «historia» de fútbol juntaba 223 notas (River-Sarmiento, Boca, Huracán, los

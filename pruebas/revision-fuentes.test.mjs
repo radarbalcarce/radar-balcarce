@@ -1,7 +1,7 @@
-// La página de revisión de fuentes (docs/etapa-1-fuentes/generar-revision.mjs): se arma en memoria con los
+// La página de revisión de fuentes (scripts/medir/generar-revision.mjs): se arma en memoria con los
 // datos reales del repositorio y tiene que mostrar cada fuente activa del registro, un solo archivo y sin red.
 // Desde el 15/10 tiene dos secciones nuevas: "Balcarce a fondo" (arriba, con lo investigado en
-// docs/etapa-1-fuentes/balcarce-fondo.mjs) y "Descartadas" (plegada, al final, con el motivo de cada una).
+// scripts/medir/balcarce-fondo.mjs) y "Descartadas" (plegada, al final, con el motivo de cada una).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -10,10 +10,10 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { FUENTES, FUENTES_NACIONALES } from '../ingesta/fuentes.mjs';
 import { FUENTES_CRUCE } from '../ingesta/fuentes-cruce.mjs';
-import { armarDatos, generarHTML, generarMarkdownBalcarce, leerCSV, esc, sugerenciaDe, dudasDe, descarteDe, DESCARTADAS_POR_CLAUDE, leerCandidatas, PESTANAS } from '../docs/etapa-1-fuentes/generar-revision.mjs';
-import { VERIFICACION_LOCAL, OBJETIVO, CRITERIO_CORTA } from '../docs/etapa-1-fuentes/afinar.mjs';
+import { armarDatos, generarHTML, generarMarkdownBalcarce, leerCSV, esc, sugerenciaDe, dudasDe, descarteDe, DESCARTADAS_POR_CLAUDE, leerCandidatas, PESTANAS } from '../scripts/medir/generar-revision.mjs';
+import { VERIFICACION_LOCAL, OBJETIVO, CRITERIO_CORTA } from '../scripts/medir/afinar.mjs';
 import os from 'node:os';
-import { BALCARCE_FONDO, COMO, resumenFondo } from '../docs/etapa-1-fuentes/balcarce-fondo.mjs';
+import { BALCARCE_FONDO, COMO, resumenFondo } from '../scripts/medir/balcarce-fondo.mjs';
 
 const registro = [...FUENTES, ...FUENTES_NACIONALES, ...FUENTES_CRUCE];
 const activas = registro.filter((f) => f.activa !== false);
@@ -232,8 +232,8 @@ test('BALCARCE-INVESTIGACION.md: la tabla y una ficha por fuente, y está al dí
     // prueba cada vez que cambiaban los datos (la de «Pruebas» en GitHub falló así el 16/10). Se controla la ESTRUCTURA: cada fuente de Balcarce
     // tiene su ficha y la tabla, igual que el informe recién armado.
     const guardado = fs.readFileSync(enDisco, 'utf8').replace(/\r\n/g, '\n');
-    for (const f of BALCARCE_FONDO) assert.ok(guardado.includes(f.nombre), `BALCARCE-INVESTIGACION.md no nombra ${f.nombre}: correr node docs/etapa-1-fuentes/generar-revision.mjs`);
-    assert.equal((guardado.match(/^### \d+\. /gm) ?? []).length, BALCARCE_FONDO.length, 'BALCARCE-INVESTIGACION.md tiene otra cantidad de fichas: correr node docs/etapa-1-fuentes/generar-revision.mjs');
+    for (const f of BALCARCE_FONDO) assert.ok(guardado.includes(f.nombre), `BALCARCE-INVESTIGACION.md no nombra ${f.nombre}: correr node scripts/medir/generar-revision.mjs`);
+    assert.equal((guardado.match(/^### \d+\. /gm) ?? []).length, BALCARCE_FONDO.length, 'BALCARCE-INVESTIGACION.md tiene otra cantidad de fichas: correr node scripts/medir/generar-revision.mjs');
   }
 });
 

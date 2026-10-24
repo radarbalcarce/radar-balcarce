@@ -141,6 +141,9 @@ jobs:
           DESTINO: ${{ inputs.destino }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
+          # Interruptores apagados por defecto (regla 311): ver redes.yml.
+          ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
 
       # El libro dice qué pieza ya salió. Sin guardarlo, la próxima vuelta
       # publicaría lo mismo otra vez. Se guarda aunque el paso anterior haya

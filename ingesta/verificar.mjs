@@ -384,22 +384,6 @@ function oraciones(texto) {
   return String(texto).split(/(?<=[.!?])\s+|\n+/).map((o) => o.trim()).filter(Boolean);
 }
 
-/**
- * Lo que dice una fecha que la IA recibe (15/10): el día de la semana y el mes en
- * palabras, y el día, el mes y el año en números. La IA recibe "Fecha de hoy:
- * viernes 09/10/2026" y "publicada el jueves 08/10/2026", y escribe "el viernes 9
- * de octubre": el verificador, que sólo miraba el texto de la fuente, lo marcaba
- * como inventado. Devuelve null si no es una fecha.
- */
-export function datosDeFecha(valor) {
-  const p = partesDeFecha(valor);
-  if (!p) return null;
-  return {
-    palabras: [p.semana, p.mesPalabra].filter(Boolean),
-    numeros: [p.dia, p.mes, p.anio].filter(Number.isFinite),
-  };
-}
-
 /** Las partes de una fecha, en la hora de Balcarce: { semana, mesPalabra, dia, mes, anio }. */
 function partesDeFecha(valor) {
   const t = valor instanceof Date ? valor.getTime() : Date.parse(valor ?? '');

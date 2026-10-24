@@ -1,5 +1,5 @@
 // Regla 175 (15/10/2026): que la misma noticia no salga dos veces aunque haya muchas fuentes. Los "huecos" de
-// docs/COMO-SE-ELIGE-UNA-NOTA.html, con los casos reales de esa semana:
+// docs/historico/COMO-SE-ELIGE-UNA-NOTA.html, con los casos reales de esa semana:
 //   1. cuando la historia cambia de nota principal entre corridas nacía otra dirección (VTV 15/10, Zona Fría 13/10);
 //   3. dos notas que citan exactamente la misma nota de otro medio son la misma noticia (7 pares en 7 días);
 //   4. una unión queda firme (fusionadas.json) y la unida no se vuelve a escribir con IA;

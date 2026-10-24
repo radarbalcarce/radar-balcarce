@@ -69,15 +69,6 @@ function contencion(A, B) {
   return comunes / menor;
 }
 
-/**
- * Qué parte del más corto de dos textos está también en el otro, por tramos de
- * cinco palabras (0 a 1). Medido el 15/10 sobre las notas del § 3 de la propuesta:
- * las copias dan 96 a 100 %, dos fuentes distintas del mismo hecho, menos de 50 %.
- */
-export function parecidoEntreTextos(a, b) {
-  return contencion(tramosDeCinco(a), tramosDeCinco(b));
-}
-
 // --------------------------------------------------------------- la limpieza
 
 // Palabras de cinco letras o más que no dicen de qué trata un párrafo.

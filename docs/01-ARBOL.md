@@ -38,7 +38,7 @@ radar-balcarce/
 │   └── public/          íconos, letras, escudos, encabezados de Cloudflare, fotos del banco y el panel del celular (public/panel/)
 ├── pruebas/             las pruebas (198 archivos *.test.mjs, unas 2.500 pruebas), el núcleo legal y material (docs/10)
 ├── comercial/           la base de comercios, aparte del sitio (COMERCIAL.md)
-├── docs/                la documentación (docs/00-INDICE.md), las etapas del rediseño, flujo/, secciones/ e historico/
+├── docs/                la documentación, sin programas (docs/00-INDICE.md), las etapas del rediseño, flujos/, secciones/ e historico/
 └── (raíz)               CLAUDE.md, los criterios, PENDIENTES.md y demás documentos; package.json
 ```
 
@@ -249,14 +249,16 @@ el 17/10/2026: nunca se usó; queda en el historial de git.
 ## `scripts/medir/` — medir el motor con datos reales (a mano)
 
 Nada de esto corre solo ni escribe en `web/data/`: lo corre una persona para
-medir o calibrar. Hasta el 17/10 estaban en `docs/flujo/` y `docs/etapa-2-5/`.
+medir o calibrar. Hasta el 17/10 estaban en `docs/flujo/` y `docs/etapa-2-5/`; los tres programas de la revisión de fuentes
+vivían en `docs/etapa-1-fuentes/` y pasaron acá el 24/10 (regla 311: `docs/` no tiene programas).
 
 | Archivo | Qué hace | ¿Gasta cupo? |
 |---|---|---|
-| `informe-del-dia.mjs` | El informe del día: cómo llegó la información, cómo anduvo cada fuente, lo de Balcarce y lo nacional, las secciones; escribe `docs/flujo/INFORME-DE-HOY.html` y guarda la lectura en `.cache/` | No (sin IA) |
-| `cruce-coherente.mjs` | Compara el cruce coherente (regla 184) con el de antes sobre la misma lectura guardada (`docs/flujo/CRUCE-COHERENTE.md`) | No |
-| `repetidas-2-0.mjs` | Mide las repetidas por significado (regla 195) sobre lo de acá ya publicado (`docs/flujo/REPETIDAS-2-0.md`) | Sí, cupo gratis de clasificación |
+| `informe-del-dia.mjs` | El informe del día: cómo llegó la información, cómo anduvo cada fuente, lo de Balcarce y lo nacional, las secciones; escribe `docs/flujos/INFORME-DE-HOY.html` y guarda la lectura en `.cache/` | No (sin IA) |
+| `cruce-coherente.mjs` | Compara el cruce coherente (regla 184) con el de antes sobre la misma lectura guardada (`docs/flujos/CRUCE-COHERENTE.md`) | No |
+| `repetidas-2-0.mjs` | Mide las repetidas por significado (regla 195) sobre lo de acá ya publicado (`docs/flujos/REPETIDAS-2-0.md`) | Sí, cupo gratis de clasificación |
 | `calibrar-repetidas.mjs`, `etiquetas-duplicadas.json` | Calibra la comparación sin IA de repetidas (regla 171) contra 127 pares etiquetados a mano (el `.json`) | No |
+| `generar-revision.mjs`, `afinar.mjs`, `balcarce-fondo.mjs` | La revisión de fuentes: rehacen `docs/etapa-1-fuentes/REVISION-FUENTES.html` y `BALCARCE-INVESTIGACION.md` (`afinar` y `balcarce-fondo` son sus datos; `informe-del-dia.mjs` también importa los dos primeros) | No |
 
 ## `web/` — el sitio (`docs/06-WEB.md`)
 
@@ -452,17 +454,17 @@ Nada de esta carpeta lo usa la web ni lo corre un workflow: todo es **a mano**.
 
 ## `docs/` y `pruebas/`
 
-- **`docs/`**: los documentos `00` a `13`, `DECISIONES.md`, `COMO-FUNCIONA-HOY.html`,
-  `COMO-SE-ELIGE-UNA-NOTA.html`, las carpetas de las etapas del rediseño
-  (`etapa-1-fuentes/`, con sus programas de la revisión de fuentes, que sigue
-  abierta; `etapa-2-5/`, `etapa-6-9/` y `etapa-10-operacion/`, ya sin programas:
+- **`docs/`** (sin programas adentro): los documentos `00` a `13`, `DECISIONES.md`, `COMO-FUNCIONA-HOY.html`,
+  las carpetas de las etapas del rediseño
+  (`etapa-1-fuentes/`, la revisión de fuentes, que sigue abierta: sus programas
+  están en `scripts/medir/`; `etapa-2-5/`, `etapa-6-9/` y `etapa-10-operacion/`, sin programas:
   los que se usan pasaron a `scripts/medir/`), la auditoría del 16/10
-  (`auditoria-2-0/`), las de los temas nuevos (`flujo/`: el flujo nuevo, la guía
-  del flujo, el cruce coherente, las repetidas 2.0 y el informe de hoy;
+  (`auditoria-2-0/`), las de los temas nuevos (`flujos/`: el cruce coherente, las repetidas 2.0,
+  el informe de hoy, la revisión del archivo, las imágenes con Gemini web y una nota desde un mail
+  (una sola carpeta desde el 24/10; antes había `flujo/` y `flujos/`);
   `secciones/`: el mapa de secciones, `MINI-PORTALES.html`, el prototipo del menú
   y `vista-previa/`; `diseno/`: las dos direcciones de diseño y su comparación;
-  `criterio/`; `flujos/`: cómo hacer a mano las imágenes con Gemini web y una nota
-  desde un mail; `redes/`; `panel/`; `seo/`; `salud-tecnica/`; `analiticas/`;
+  `criterio/`; `redes/`; `panel/`; `seo/`; `salud-tecnica/`; `analiticas/`;
   `auditoria-opus/`), `propuestas/` e `historico/` (con `PRUEBAS-DE-MODELOS.md`,
   el resumen de los ensayos de modelos, y `criterio-unico/`, el borrador del
   criterio único, que no rige); ver `docs/00-INDICE.md`.

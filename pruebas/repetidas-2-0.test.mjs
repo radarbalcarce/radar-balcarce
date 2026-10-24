@@ -1,5 +1,5 @@
 // Reglas 195 y 196 (17/10/2026, auditoría 2.0: docs/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md § 3 y 04-IA-Y-MODELOS.md;
-// medición en docs/flujo/REPETIDAS-2-0.md). Entre el 12 y el 16/10 salieron repetidas cinco noticias de Balcarce: Campo de Pato
+// medición en docs/flujos/REPETIDAS-2-0.md). Entre el 12 y el 16/10 salieron repetidas cinco noticias de Balcarce: Campo de Pato
 // en semifinales (tres veces), SUTEBA y el paro (en Balcarce y en Política), LALCEC y el mes rosa, el plan de educación vial y
 // los atletas en Tamangueyú. Lo que se arregla, con esos casos (pruebas/datos-fijos/huellas-casos.json, con el parecido medido):
 //   195 · la memoria del cruce guarda también lo de acá, 72 horas;

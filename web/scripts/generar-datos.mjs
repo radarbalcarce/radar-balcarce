@@ -577,11 +577,8 @@ function notaPublicada(n) {
     ...(n.seccionAntes ? { seccionAntes: n.seccionAntes } : {}),
     medios: n.medios,
     enlace: n.enlace,
-    // La dirección de la imagen de la fuente no se publica tal cual: se
-    // guarda sólo si la fuente tenía imagen. La foto que sí sale en la página
-    // es la del banco de fotos (28/09, `foto`, más abajo: conFotosDelBanco),
-    // elegida sin marca de agua y con el crédito en la cita.
-    teniaImagenLaFuente: !!n.imagen,
+    // La imagen de la fuente no se guarda en la nota (regla 311: el campo `teniaImagenLaFuente` no lo leía nadie). La foto que sí sale en
+    // la página es la del banco de fotos (28/09, `foto`, más abajo: conFotosDelBanco), elegida sin marca de agua y con el crédito en la cita.
     // La hora para ordenar. Si la fuente no la publica, la ingesta pone la de
     // ahora en cada corrida: la nota saltaba arriba de todo una y otra vez. En
     // ese caso manda la primera vez que la vimos, que no cambia.

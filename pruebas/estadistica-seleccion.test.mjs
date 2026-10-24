@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   SECCIONES_DE_LA_ESTADISTICA, RESULTADOS, DIAS_GUARDADOS, DIAS_DE_HISTORIAS, observarCorrida, anotarCorrida, contarUnSoloMedio, numerosDelDia, estadoVacio, comoJson, leerEstado,
-  simularMinimo, seccionesSinNotas, publicadasDelDia, cuboDeMedios,
+  simularMinimo, seccionesSinNotas, cuboDeMedios,
 } from '../ingesta/estadistica-seleccion.mjs';
 import { seccionesDeLaFicha, MOTIVO_ESPERA_LECTURA } from '../ingesta/lectura-ia.mjs';
 import { MOTIVO_POCO_CONTADA } from '../ingesta/ingesta.mjs';
@@ -188,8 +188,6 @@ test('el archivo se escribe un día por renglón y una historia por renglón, y 
   assert.deepEqual(leerEstado('esto no es json'), estadoVacio());
   assert.deepEqual(leerEstado(''), estadoVacio());
   assert.equal(comoJson(estadoVacio()), '{"version":1,\n"dias":{},\n"solos":{},\n"historias":{}}\n');
-  assert.deepEqual(publicadasDelDia(estado, dia), { total: 2, deAca: 1, deAfuera: 1 });
-  assert.equal(publicadasDelDia(estado, '2026-01-01'), null);
   assert.deepEqual(seccionesSinNotas(estado, dia).includes('Salud'), false);
   assert.equal(seccionesSinNotas(estado, dia).length, 13);
   assert.deepEqual(seccionesSinNotas(estado, '2026-01-01'), []);

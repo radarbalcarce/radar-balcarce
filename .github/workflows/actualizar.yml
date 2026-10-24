@@ -153,9 +153,12 @@ jobs:
           # prende; vacía o cualquier otra cosa, APAGADA (como siempre: ninguna foto real con un menor). Apagarla también saca de la web las
           # fotos que ya habían entrado por ella. Cada foto aceptada queda en el log de este paso y en web/data/banco-fotos.json (`excepcion`).
           FOTOS_MENORES_OFICIALES: ${{ vars.FOTOS_MENORES_OFICIALES }}
-          # Educación y Salud y el menú con "Más secciones" (regla 187, 17/10/2026; ingesta/secciones-nuevas.mjs). "Si" las prende;
-          # vacía, APAGADAS: la IA elige entre las once de siempre y el sitio sale igual que antes. Va también en "Compilar el sitio".
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
+          # Interruptores que el código lee (regla 311). Vacías, como siempre. FOTOS_EN_R2 (apagada): "¿existe esa foto?" mira también el
+          # índice de R2 (docs/etapa-10-operacion/FOTOS-EN-R2.md). POLICIAL_NACIONAL y FUTBOL_SOLO_ARGENTINO (prendidas): "no" las apaga
+          # (reglas 289 y 290).
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+          POLICIAL_NACIONAL: ${{ vars.POLICIAL_NACIONAL }}
+          FUTBOL_SOLO_ARGENTINO: ${{ vars.FUTBOL_SOLO_ARGENTINO }}
 
       # ¿Lo que lee la compilación es idéntico a lo que ya está publicado? Entonces no se compila ni se sube (regla 304,
       # web/scripts/huella-del-sitio.mjs; la huella de lo publicado está en /huella-del-sitio.txt del propio sitio). La franja de 3 horas y
@@ -173,7 +176,6 @@ jobs:
           WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
       # El sitio se compila acá, UNA vez, antes de guardar y de publicar: esto mismo es lo que se sube a Cloudflare al final (regla 189).
       # Si no compila, no se commitea ni se sube: la web se queda como está.
@@ -188,8 +190,6 @@ jobs:
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
           FOTOS_BASE: ${{ vars.FOTOS_BASE }}
-          # Las secciones nuevas y el menú nuevo (regla 187): vacía = el sitio de siempre.
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
       # Que lo importante haya quedado en el HTML. Sin esto, alguien toca
       # layout.js dentro de seis meses, se lleva puesto el Open Graph y no
@@ -286,7 +286,6 @@ jobs:
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
           FOTOS_BASE: ${{ vars.FOTOS_BASE }}
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
       # El ARCHIVO PERMANENTE (16/10/2026; docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md). Antes de subir el sitio, guarda en el
       # depósito R2 las notas que están por salir del sitio por el tope (las de los próximos ~4 días al ritmo de la última semana: --margen=auto)
@@ -351,7 +350,6 @@ jobs:
           WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
       - name: Subir a Cloudflare Pages
         if: ${{ steps.huella.outputs.igual != 'true' || steps.recompilar.outputs.recompilar == 'true' }}

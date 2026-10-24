@@ -70,8 +70,8 @@ Respuesta completa en `docs/auditoria-opus/RESPUESTAS-OTRAS-IAS.md` (Grok y Meta
 ## Para cuando vuelvan Hernán y Andrés (16/10 a la noche)
 
 **Para revisar juntos (páginas HTML que se marcan con Sí / No / Duda y 'Copiar mis decisiones'):**
-- `docs/flujo/INFORME-DE-HOY.html` (cómo llegó la información hoy, fuentes y secciones) → después `docs/etapa-1-fuentes/REVISION-FUENTES.html` (lista corta de 47) y `docs/secciones/MAPA-DE-SECCIONES.html` + `PROTOTIPO-MENU.html` (17 secciones).
-- `docs/flujo/FLUJO-NUEVO.html` y `FLUJO-NUEVO-SIMULACION.html` (todo lo de Balcarce, nacional con 3 medios, tope 150), `docs/criterio/PESOS-Y-PUNTAJES.html`, `docs/flujo/GUIA-DEL-FLUJO.html` (el flujo paso a paso con los prompts).
+- `docs/flujos/INFORME-DE-HOY.html` (cómo llegó la información hoy, fuentes y secciones) → después `docs/etapa-1-fuentes/REVISION-FUENTES.html` (lista corta de 47) y `docs/secciones/MAPA-DE-SECCIONES.html` + `PROTOTIPO-MENU.html` (17 secciones).
+- `docs/historico/flujo/FLUJO-NUEVO.html` y `FLUJO-NUEVO-SIMULACION.html` (todo lo de Balcarce, nacional con 3 medios, tope 150), `docs/criterio/PESOS-Y-PUNTAJES.html`, `docs/historico/flujo/GUIA-DEL-FLUJO.html` (el flujo paso a paso con los prompts).
 - `docs/panel/PROTOTIPO-PANEL.html` y `PLAN-NUEVO-PANEL.md` (8 preguntas; la etapa 0 son arreglos de textos y un error).
 
 **Tareas que sólo pueden hacer ustedes (con link):**
