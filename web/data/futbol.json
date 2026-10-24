@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-24T21:47:12.861Z",
+ "consultado": "2026-10-24T22:03:13.908Z",
  "equipos": [
   "9739",
   "3",
@@ -69,42 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841598",
-    "competencia": "liga",
-    "inicio": "2026-10-14T22:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+8'",
-    "local": {
-     "id": "10158",
-     "nombre": "Sarmiento (Junín)",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "16",
-     "nombre": "River Plate",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Julian Contrera",
-      "minuto": "15'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Gonzalo Montiel",
-      "minuto": "71'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Eva Perón",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841622",
     "competencia": "liga",
@@ -835,8 +799,8 @@
     "id": "401841631",
     "competencia": "liga",
     "inicio": "2026-10-24T20:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "89'",
+    "estado": "final",
+    "minuto": "90'+5'",
     "local": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
@@ -845,7 +809,7 @@
     "visitante": {
      "id": "8950",
      "nombre": "Defensa y Justicia",
-     "goles": 1
+     "goles": 2
     },
     "penales": null,
     "goles": [
@@ -859,6 +823,12 @@
       "equipo": "visitante",
       "jugador": "Leandro Miguel Fernandez",
       "minuto": "47'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Juan Gutiérrez",
+      "minuto": "88'",
       "tipo": "gol"
      }
     ],
@@ -1343,6 +1313,19 @@
      },
      {
       "posicion": 2,
+      "id": "8950",
+      "equipo": "Defensa y Justicia",
+      "pj": 14,
+      "g": 8,
+      "e": 3,
+      "p": 3,
+      "gf": 20,
+      "gc": 13,
+      "dif": 7,
+      "pts": 27
+     },
+     {
+      "posicion": 3,
       "id": "5",
       "equipo": "Boca Juniors",
       "pj": 13,
@@ -1355,7 +1338,7 @@
       "pts": 24
      },
      {
-      "posicion": 3,
+      "posicion": 4,
       "id": "12",
       "equipo": "Lanús",
       "pj": 14,
@@ -1365,19 +1348,6 @@
       "gf": 17,
       "gc": 10,
       "dif": 7,
-      "pts": 24
-     },
-     {
-      "posicion": 4,
-      "id": "8950",
-      "equipo": "Defensa y Justicia",
-      "pj": 13,
-      "g": 7,
-      "e": 3,
-      "p": 3,
-      "gf": 18,
-      "gc": 12,
-      "dif": 6,
       "pts": 24
      },
      {
@@ -1514,13 +1484,13 @@
       "posicion": 15,
       "id": "19",
       "equipo": "Talleres (Córdoba)",
-      "pj": 13,
+      "pj": 14,
       "g": 2,
       "e": 3,
-      "p": 8,
-      "gf": 12,
-      "gc": 20,
-      "dif": -8,
+      "p": 9,
+      "gf": 13,
+      "gc": 22,
+      "dif": -9,
       "pts": 9
      }
     ]
@@ -1727,7 +1697,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-24T20:32:23.455Z",
+ "tablaCuando": "2026-10-24T22:03:13.908Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

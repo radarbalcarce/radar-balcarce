@@ -1220,11 +1220,6 @@
   "ultimo": "2026-10-22T21:01:49.719Z",
   "motivo": "con cuerpo"
  },
- "1kx30ao": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T22:01:25.455Z",
-  "motivo": "con cuerpo"
- },
  "1kx53j2": {
   "intentos": 1,
   "ultimo": "2026-10-23T12:03:48.998Z",
@@ -1920,8 +1915,8 @@
   "motivo": "con cuerpo"
  },
  "1ubxtwt": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T21:47:00.025Z",
+  "intentos": 2,
+  "ultimo": "2026-10-24T22:02:18.222Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -2220,6 +2215,13 @@
   "ultimo": "2026-10-24T16:32:00.306Z",
   "motivo": "con cuerpo",
   "textos": 2,
+  "numeradas": 2
+ },
+ "1zgmo8": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:02:18.222Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
   "numeradas": 2
  },
  "23umjj": {
@@ -3128,11 +3130,6 @@
   "ultimo": "2026-10-19T14:33:02.076Z",
   "motivo": "con cuerpo"
  },
- "hhlpca": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T22:01:25.455Z",
-  "motivo": "con cuerpo"
- },
  "hi8g69": {
   "intentos": 1,
   "ultimo": "2026-10-18T23:02:23.903Z",
@@ -3289,6 +3286,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T20:01:53.695Z",
   "motivo": "con cuerpo"
+ },
+ "joqom0": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:02:18.222Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "jskasn": {
   "intentos": 1,
@@ -3579,21 +3583,19 @@
   "numeradas": 15
  },
  "nqkyot": {
-  "intentos": 3,
-  "ultimo": "2026-10-24T21:31:52.811Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
-  "textos": 5,
+  "intentos": 4,
+  "ultimo": "2026-10-24T22:02:18.222Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"lanus\", \"clasico\", \"sur\", \"clausura\" y el cuerpo no los explica; sin esas oraciones quedan 249 palabras",
+  "textos": 3,
   "numeradas": 8,
   "motivos": [
-   "título o bajada: 5 problemas (forma, nombre, antecedente): el titulo t",
-   "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el",
    "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
-   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que"
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
+   "cuerpo: 1 problema (promesa): el título nombra a \"lanus\", \"clasico\", \""
   ],
   "falla": [
-   "el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
-   "el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica"
+   "el título nombra a \"lanus\", \"clasico\", \"sur\", \"clausura\" y el cuerpo no los explica"
   ]
  },
  "ns7t1j": {
@@ -3747,6 +3749,16 @@
   "ultimo": "2026-10-21T14:33:11.148Z",
   "motivo": "con cuerpo"
  },
+ "prtuo4": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:02:18.222Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"river\" y la"
+  ]
+ },
  "pt3elm": {
   "intentos": 1,
   "ultimo": "2026-10-23T22:01:46.034Z",
@@ -3785,6 +3797,20 @@
   "numeradas": 1,
   "motivos": [
    "título o bajada: 2 problemas (nombre): el copete nombra a \"liga\" y la "
+  ]
+ },
+ "qkpudb": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:02:18.222Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 238 palabras",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 18 palabras seguidas del original (\"de la premier league y termino con la racha de siete victorias consecutivas del…\"): decilo con otr"
   ]
  },
  "qkw865": {
@@ -4257,11 +4283,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "x83ds0": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T22:01:25.455Z",
-  "motivo": "con cuerpo"
  },
  "xaer6r": {
   "intentos": 1,
