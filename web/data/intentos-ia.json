@@ -136,11 +136,6 @@
   "ultimo": "2026-10-18T19:31:20.141Z",
   "motivo": "con cuerpo"
  },
- "12b46u9": {
-  "intentos": 3,
-  "ultimo": "2026-10-17T22:31:39.759Z",
-  "motivo": "con cuerpo"
- },
  "12dac1n": {
   "intentos": 2,
   "ultimo": "2026-10-21T16:31:17.473Z",
@@ -1915,8 +1910,8 @@
   "motivo": "con cuerpo"
  },
  "1ubxtwt": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T22:02:18.222Z",
+  "intentos": 3,
+  "ultimo": "2026-10-24T22:31:33.967Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -2505,11 +2500,6 @@
   "ultimo": "2026-10-23T00:02:24.603Z",
   "motivo": "con cuerpo"
  },
- "82uc2p": {
-  "intentos": 2,
-  "ultimo": "2026-10-17T22:31:39.759Z",
-  "motivo": "con cuerpo"
- },
  "83pqou": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:01:12.633Z",
@@ -2902,11 +2892,6 @@
  "d7r9de": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:01:12.633Z",
-  "motivo": "con cuerpo"
- },
- "d8q9yx": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T22:31:39.759Z",
   "motivo": "con cuerpo"
  },
  "da9tzf": {
@@ -3471,6 +3456,13 @@
   "ultimo": "2026-10-20T23:01:14.584Z",
   "motivo": "con cuerpo"
  },
+ "m4riz4": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:31:33.967Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 23
+ },
  "m58zlj": {
   "intentos": 2,
   "ultimo": "2026-10-21T15:03:56.836Z",
@@ -3583,19 +3575,22 @@
   "numeradas": 15
  },
  "nqkyot": {
-  "intentos": 4,
-  "ultimo": "2026-10-24T22:02:18.222Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"lanus\", \"clasico\", \"sur\", \"clausura\" y el cuerpo no los explica; sin esas oraciones quedan 249 palabras",
-  "textos": 3,
+  "intentos": 5,
+  "ultimo": "2026-10-24T22:31:33.967Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+  "textos": 5,
   "numeradas": 8,
   "motivos": [
-   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
-   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
    "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
-   "cuerpo: 1 problema (promesa): el título nombra a \"lanus\", \"clasico\", \""
+   "cuerpo: 1 problema (promesa): el título nombra a \"lanus\", \"clasico\", \"",
+   "título o bajada: 6 problemas (forma, nombre): el titulo trae un escape",
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que"
   ],
   "falla": [
-   "el título nombra a \"lanus\", \"clasico\", \"sur\", \"clausura\" y el cuerpo no los explica"
+   "el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo nombra a \"grupo\" y la fuente no",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "ns7t1j": {
@@ -4154,6 +4149,16 @@
   "intentos": 1,
   "ultimo": "2026-10-19T04:01:07.443Z",
   "motivo": "con cuerpo"
+ },
+ "vsnnzb": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T22:31:33.967Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
+  ]
  },
  "vx2jre": {
   "intentos": 2,

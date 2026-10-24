@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T22:03:18.991Z",
- "portada": 84,
+ "generado": "2026-10-24T22:32:35.071Z",
+ "portada": 89,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-24T22:03:19.475Z",
+  "generado": "2026-10-24T22:32:35.763Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -152,8 +152,19 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 42,
+    "notas": [
+     {
+      "id": "vsnnzb",
+      "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+      "seccion": "Salud"
+     },
+     {
+      "id": "169jneq",
+      "titulo": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo",
+      "seccion": "Deportes"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -179,7 +190,14 @@
      "cuando": "2026-10-24T20:47:14.581Z"
     }
    ],
-   "cola": [],
+   "cola": [
+    {
+     "id": "vsnnzb",
+     "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+     "seccion": "Salud",
+     "marcada": false
+    }
+   ],
    "cupo": 1,
    "proximoDesde": "2026-10-24T22:17:14.581Z",
    "porDia": 5,

@@ -19946,9 +19946,7 @@
   "huella": "8311194b4b4b4d6c"
  },
  "z267nf": {
-  "archivo": "fotos-notas/z267nf.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "Axel Kicillof cuestiona a Javier Milei y pide una alternativa para 2027",
@@ -19968,7 +19966,8 @@
    "descripcion": "Axel Kicillof hablando detrás de un atril en un acto político"
   },
   "huella": "2ce9f03333a38386",
-  "ausenteDesde": "2026-10-17T22:32:22.695Z"
+  "intentado": true,
+  "borrada": true
  },
  "1c79rbp": {
   "archivo": "fotos-notas/1c79rbp.jpg",
@@ -23107,7 +23106,8 @@
    "corresponde": "si",
    "descripcion": "Cuatro personas en el estudio de televisión de MasterChef"
   },
-  "huella": "3511527667a3a3b2"
+  "huella": "3511527667a3a3b2",
+  "ausenteDesde": "2026-10-24T22:32:34.989Z"
  },
  "19ojs9v": {
   "archivo": "fotos-notas/19ojs9v.jpg",
@@ -37950,5 +37950,54 @@
   "cuando": "2026-10-24T22:03:02.332Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "vsnnzb": {
+  "archivo": "fotos-notas/vsnnzb.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/lalcec-concreto-su-caminata-anual-en-la-plaza-libertad",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/LALCEC_caminata.jpeg",
+  "razon": "Es la única foto disponible, corresponde al evento de LALCEC en la plaza y no presenta marcas de agua, menores reconocibles ni problemas técnicos.",
+  "cuando": "2026-10-24T22:32:03.210Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gente reunida en la plaza Libertad frente a gazebos durante la caminata de LALCEC"
+  },
+  "huella": "f3d4307374f45971"
+ },
+ "m4riz4": {
+  "archivo": "fotos-notas/m4riz4.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula y Flávio Bolsonaro cruzan acusaciones en el último debate en Brasil",
+  "enlace": "https://www.pagina12.com.ar/2026/10/24/milei-insulto-a-lula-a-un-dia-del-balotaje-en-brasil/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/NQN5FYCEX5FNDGLTZMCCPQLNJQ.jpg?smart=true&auth=ab51c455f27cc8f5661a34aa40d7a8bc8485ef2064c10387bc246a8f6c8df648&width=1200&height=630",
+  "razon": "Es la única opción disponible y muestra directamente a los protagonistas de la nota (Lula y Flávio Bolsonaro) en el contexto del debate, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-24T22:32:03.210Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Imagen dividida que muestra a Lula y a Flávio Bolsonaro durante el debate presidencial."
+  },
+  "huella": "6761676662576363"
  }
 }
