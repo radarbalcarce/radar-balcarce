@@ -2,21 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/posteo/1254237411116171_122100596745495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "1sko7lj",
-   "dia": "2026-10-01",
-   "cuando": "2026-10-01T15:25:55.233Z",
-   "medida": "2026-10-09T01:30:18.860Z",
-   "metricas": {
-    "post_media_view": 0,
-    "post_total_media_view_unique": 0,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
    "clave": "instagram/foto/17902220916596705",
    "red": "instagram",
    "parte": "foto",
@@ -10152,6 +10137,18 @@
    "dia": "2026-10-23",
    "cuando": "2026-10-23T13:48:46.500Z",
    "medida": "2026-10-24T03:00:14.655Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18605887117064121",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "participa-nota",
+   "dia": "2026-10-23",
+   "cuando": "2026-10-23T15:37:12.373Z",
+   "medida": "2026-10-24T06:00:15.863Z",
    "v": 2,
    "metricas": {},
    "pocas": true
