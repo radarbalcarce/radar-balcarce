@@ -17952,9 +17952,7 @@
   "borrada": true
  },
  "94s29q": {
-  "archivo": "fotos-notas/94s29q.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Federico Sturzenegger cuestiona al gobierno bonaerense por la suba de la VTV",
@@ -17963,7 +17961,8 @@
   "razon": "La foto B ilustra directamente el tema de la VTV al mostrar una inspección vehicular, sin marcas de agua ni menores.",
   "cuando": "2026-10-16T16:04:42.324Z",
   "huella": "d8fce85870e0d836",
-  "ausenteDesde": "2026-10-17T08:32:11.753Z"
+  "intentado": true,
+  "borrada": true
  },
  "k4nvoi": {
   "archivo": "fotos-notas/k4nvoi.jpg",
@@ -36118,14 +36117,40 @@
   "ausenteDesde": "2026-10-24T01:05:07.282Z"
  },
  "1gudm7h": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Gimnasia supera 2 a 0 a Sarmiento y trepa a la cima de la Zona B",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T03:01:23.547Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/10vefy4.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia le gana 2 a 0 a Sarmiento y alcanza la cima en el Clausura",
+  "enlace": "https://www.diariopopular.com.ar/deportes/gimnasia-vencio-sarmiento-y-quedo-un-paso-clasificarse-los-playoffs-n925986",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/16adc6284a322f74498642d112ba2711/adjuntos/143/imagenes/008/261/0008261738/1200x675/smart/gimnasia.jpg",
+  "razon": "Es la única foto que corresponde perfectamente a la nota, muestra claramente a un jugador celebrando, no tiene marcas de agua agregadas, menores ni ningún otro impedimento.",
+  "cuando": "2026-10-24T08:31:41.140Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando con los brazos en alto",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Gimnasia y Esgrima La Plata celebrando con los brazos en alto"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2b130ab6b4d5e961"
  },
  "uxhjzr": {
   "archivo": "fotos-notas/uxhjzr.jpg",
@@ -36536,5 +36561,110 @@
    "descripcion": "Acción de juego entre jugadores de Atlético Tucumán y Tigre"
   },
   "huella": "aa8b2b852c2f5565"
+ },
+ "10vefy4": {
+  "archivo": "fotos-notas/10vefy4.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia le gana 2 a 0 a Sarmiento y alcanza la cima en el Clausura",
+  "enlace": "https://www.diariopopular.com.ar/deportes/gimnasia-vencio-sarmiento-y-quedo-un-paso-clasificarse-los-playoffs-n925986",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/16adc6284a322f74498642d112ba2711/adjuntos/143/imagenes/008/261/0008261738/1200x675/smart/gimnasia.jpg",
+  "razon": "Es la única foto que corresponde perfectamente a la nota, muestra claramente a un jugador celebrando, no tiene marcas de agua agregadas, menores ni ningún otro impedimento.",
+  "cuando": "2026-10-24T08:31:41.140Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando con los brazos en alto",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Gimnasia y Esgrima La Plata celebrando con los brazos en alto"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2b130ab6b4d5e961"
+ },
+ "qgon5k": {
+  "archivo": "fotos-notas/qgon5k.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
+  "enlace": "https://accion5.com/oficial-estan-los-arbitros-para-la-segunda-fecha-del-clausura/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/alves.jpg",
+  "razon": "Es la única foto disponible y cumple con todos los requisitos para ilustrar la nota sobre ternas arbitrales.",
+  "cuando": "2026-10-24T08:31:41.140Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Árbitro principal con tarjeta amarilla en mano en medio de un partido de fútbol",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Un árbitro con camiseta naranja y jugadores de fútbol en una cancha bajo la lluvia."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "22c587cb85aa7232"
+ },
+ "1njgpup": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lionel Messi recibe el Premio Princesa de Asturias de los Deportes",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Cronista no se usa todavía.",
+  "cuando": "2026-10-24T08:31:41.140Z",
+  "intentos": 1,
+  "fuentes": 28
+ },
+ "16jgta5": {
+  "archivo": "fotos-notas/16jgta5.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Independiente y Boca se enfrentan el domingo por el Torneo Clausura",
+  "enlace": "https://www.minutouno.com/deportes/independiente-vs-boca-el-torneo-clausura-2026-horario-formaciones-y-tv-n6336791",
+  "imagenOriginal": "https://media.minutouno.com/p/9bfe41ec304b24d9ad634c120d832e40/adjuntos/150/imagenes/043/720/0043720727/1200x675/849x214:869x234/boca-independiente-velasco.jpg",
+  "razon": "Es la única foto que muestra claramente el partido entre Independiente y Boca con buena calidad y sin marcas de agua de medios.",
+  "cuando": "2026-10-24T08:31:41.140Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Independiente y Boca disputando el balón en el partido."
+  },
+  "huella": "b33332b3db5d7c8e"
  }
 }
