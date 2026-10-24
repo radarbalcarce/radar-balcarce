@@ -965,9 +965,6 @@ a.telefono:hover { border-color: var(--rojo); color: inherit; }
 .boton-compartir.whatsapp:hover { background: #12793A; border-color: #12793A; color: #FFFFFF; }
 
 /* La fuente original, a la vista debajo del cuerpo (17/10/2026, regla 254): una línea, sin caja. */
-.fuente-original { margin: 24px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--texto); overflow-wrap: anywhere; }
-.fuente-original a { color: var(--rojo); font-weight: 600; }
-.fuente-original .mas-fuentes { color: var(--suave); font-size: 13px; }
 /* "Publicado" y "Actualizado" van en la misma línea y, en el celular, pasan a dos. */
 .fecha-actualizada { margin-left: 6px; }
 @media (max-width: 519px) { .fecha-actualizada { display: block; margin: 2px 0 0; } .fecha-actualizada .sep-fecha { display: none; } }

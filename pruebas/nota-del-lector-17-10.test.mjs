@@ -93,16 +93,11 @@ test('copiar enlace es lo único que necesita JavaScript y copia la dirección c
 
 // ----------------------------------------------------------- la fuente original a la vista (regla 254)
 
-test('debajo del cuerpo hay un enlace común a la nota original, además del desplegable', () => {
+test('la nota no muestra una "fuente principal" suelta: todas las fuentes van en el desplegable (24/10, Hernán: la nota se arma con todas)', () => {
   const p = leer('web/app/nota/[id]/page.js');
-  assert.match(p, /<FuenteOriginal fuentes=\{fuentesDeLaNota\(n\)\} \/>\s*<FuentesDeLaNota nota=\{n\} \/>/, 'la fuente va arriba del desplegable, que sigue estando');
-  const c = leer('web/components/piezas.js');
-  assert.match(c, /export function FuenteOriginal/);
-  assert.match(c, /Leer la nota original ↗/);
-  assert.match(c, /rel="noopener noreferrer"/);
-  // Sólo se ve la atribución: nunca el análisis (CRITERIO-EDITORIAL.md, sección 7).
-  const cuerpo = c.slice(c.indexOf('export function FuenteOriginal'), c.indexOf('export function AvisarDeUnError'));
-  assert.ok(!/seSabe|noConfirmado|claves|verificacion|antecedentes/.test(cuerpo), 'la fuente original muestra algo del análisis interno');
+  assert.ok(!/FuenteOriginal/.test(p), 'la página de la nota vuelve a mostrar una sola fuente como principal');
+  assert.ok(p.includes('<FuentesDeLaNota nota={n} />'), 'el desplegable con todas las fuentes sigue estando');
+  assert.ok(!/Leer la nota original/.test(leer('web/components/piezas.js')));
 });
 
 test('la fuente que se enlaza es una que el lector puede abrir: nunca la entrada XML de un feed', () => {

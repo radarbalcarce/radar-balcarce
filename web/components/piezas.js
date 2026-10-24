@@ -273,26 +273,6 @@ export function FechasDeLaNota({ nota }) {
   );
 }
 
-/**
- * La fuente original, a la vista (17/10/2026, regla 254). Hasta hoy la única forma de llegar a la nota del medio que la contó era abrir el
- * desplegable "Fuentes (N)". Ahora, debajo del cuerpo, una línea con el medio principal y un enlace común a su nota. El desplegable sigue
- * ahí, con todas las fuentes y la firma; esto no muestra nada del análisis (qué aportó cada una, qué falta confirmar): sólo la atribución,
- * que es lo que el lector tiene que poder ver sin buscarla. Sin una fuente con enlace, no se dibuja.
- */
-export function FuenteOriginal({ fuentes = [] }) {
-  const principal = fuentes.find((f) => /^https?:[/][/]/i.test(f.enlace ?? ''));
-  if (!principal) return null;
-  const otras = fuentes.length - 1;
-  return (
-    <p className="fuente-original">
-      Fuente: <strong>{principal.medio ?? 'nota original'}</strong>
-      {' · '}
-      <a href={principal.enlace} target="_blank" rel="noopener noreferrer">Leer la nota original ↗</a>
-      {otras > 0 && <span className="mas-fuentes">{' · '}y {otras === 1 ? 'otra fuente' : `${otras} fuentes más`}, abajo</span>}
-    </p>
-  );
-}
-
 /** Un enlace para avisar de un error en esta nota, con el titular y la dirección ya escritos (17/10/2026, regla 256). */
 export function AvisarDeUnError({ titulo, url }) {
   const asunto = `Corrección: ${titulo}`;

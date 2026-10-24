@@ -2,11 +2,10 @@ import {
   obtenerDatos, obtenerArchivo, obtenerNota, todasLasNotas, datosSeccion, temasVivos, tieneTarjetaPropia, paramsNoVacios,
 } from '@/lib/datos';
 import {
-  Etiqueta, FilaNota, Cierre, Invitacion, TemasDeLaNota, Hace, FechasDeLaNota, PlacaSeccion, FuenteOriginal, AvisarDeUnError,
+  Etiqueta, FilaNota, Cierre, Invitacion, TemasDeLaNota, Hace, FechasDeLaNota, PlacaSeccion, AvisarDeUnError,
 } from '@/components/piezas';
 import Compartir from '@/components/compartir';
 import { CartelDelCanal } from '@/components/canales';
-import { fuentesDeLaNota } from '@/lib/fuentes-de-la-nota';
 import { enlace } from '@/lib/sitio';
 import CuerpoDeFutbol from '@/components/futbol';
 import FuentesDeLaNota from '@/components/verificacion';
@@ -179,7 +178,6 @@ export default async function PaginaNota({ params }) {
             verificación son de uso interno: se usan para escribir la nota y
             se ven en el panel, no acá (CRITERIO-EDITORIAL.md, sección 7). */}
         {/* La fuente original, a la vista y con enlace común (regla 254), arriba del desplegable que sigue teniendo todas. */}
-        <FuenteOriginal fuentes={fuentesDeLaNota(n)} />
         <FuentesDeLaNota nota={n} />
 
         {MOSTRAR_TEMAS && <TemasDeLaNota temas={n.temas} catalogo={temas} />}
