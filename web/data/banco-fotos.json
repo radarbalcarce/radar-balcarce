@@ -35976,14 +35976,28 @@
   "cuando": "2026-10-23T23:01:46.818Z"
  },
  "157w6e1": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/157w6e1.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Habilitan un sistema para negociar el plus de la soja Visec en el mercado",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:32:12.142Z",
-  "intentos": 3,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lanacion.com.ar/economia/campo/soja-visec-habilitan-una-modalidad-para-negociar-el-premio-sobre-la-soja-tradicional-nid23102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/a3-el-pase-cotizara-en-dolares-estadounidenses-M3LIKVQHT5HCHLFFGQZC7IEHUM.jpg?auth=76bc76c4e2508af2ee45ed10dca8e079dad7df790f527c0a5331b6301762984e&width=1200&height=800&quality=70&smart=true",
+  "razon": "Ambas son fotos genéricas de cosecha de soja, pero la foto A tiene mejor iluminación y encuadre más dinámico sin marcas ni problemas.",
+  "cuando": "2026-10-24T09:01:31.983Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Cosechadora descargando granos de soja"
+  },
+  "huella": "00242969bffe1d65"
  },
  "1hmio7x": {
   "archivo": "fotos-notas/1hmio7x.jpg",
@@ -36061,24 +36075,64 @@
   "huella": "d3d3c7434b0f0f27"
  },
  "1ncb58l": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ncb58l.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Nico Paz recibe elogios de la UEFA y lo comparan con Maradona",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:32:12.142Z",
-  "intentos": 3,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/champions-league/el-elogio-supremo-que-recibio-nico-paz-tras-brillar-en-la-champions-league-era-como-ver-a-maradona-id768108.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/998737/nico-paz_1440x810.webp",
+  "razon": "Es la única foto en acción de juego limpia, sin marcas añadidas y con buen encuadre de Nico Paz.",
+  "cuando": "2026-10-24T09:01:31.983Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Nico Paz dominando la pelota en un partido"
+  },
+  "huella": "8723b3931358ec2b"
  },
  "11ubrm7": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/11ubrm7.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Identifican los restos de ocho desaparecidos en el excentro clandestino La Perla",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T02:32:12.142Z",
-  "intentos": 3,
-  "fuentes": 11,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.pagina12.com.ar/2026/10/23/lanzan-una-campana-para-identificar-restos-de-desaparecidos-en-cordoba/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/OXTIZ3N3RBD3LFVXQNP77CPE2Y.jpg?smart=true&auth=c8f44f4404ae1788c166791c3d5a2e1af6b2379f5a31eda957d9f744d751b03c&width=1200&height=630",
+  "razon": "Es la foto de mejor encuadre y nitidez sobre el hecho, sin marcas de agua sobreimpresas, menores reconocibles ni problemas de formato.",
+  "cuando": "2026-10-24T09:01:31.983Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Trabajadores del Equipo Argentino de Antropología Forense revisando cajas",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Miembros del Equipo Argentino de Antropología Forense (EAAF) trabajando con cajas de restos óseos en un laboratorio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "e2e8a80a9aac3cf6"
  },
  "junk0o": {
   "intentado": true,
@@ -36175,17 +36229,32 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un escenario con micrófonos, con el fondo de color morado."
   },
-  "huella": "07120a2b0f6b69c9"
+  "huella": "07120a2b0f6b69c9",
+  "ausenteDesde": "2026-10-24T09:02:13.328Z"
  },
  "uqfq28": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/uqfq28.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Netflix anuncia un documental sobre la vida y obra de Charly García",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T03:01:23.547Z",
-  "intentos": 3,
-  "fuentes": 14,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.eldestapeweb.com/cultura/say-no-more-sera-documental-charly-garcia-netflix-20261023115231",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1792765892619.jpg?&cw=1600&ch=900",
+  "razon": "Es una foto nítida y limpia, sin marcas de agua ni menores, que muestra a Charly García junto a su teclado, correspondiendo perfectamente con la temática del anuncio del documental.",
+  "cuando": "2026-10-24T09:01:31.983Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Charly García tocando el teclado en un estudio"
+  },
+  "huella": "0d850d945416170f"
  },
  "1lumco0": {
   "archivo": "fotos-notas/1lumco0.webp",
@@ -36596,7 +36665,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "2b130ab6b4d5e961"
+  "huella": "2b130ab6b4d5e961",
+  "ausenteDesde": "2026-10-24T09:02:13.328Z"
  },
  "qgon5k": {
   "archivo": "fotos-notas/qgon5k.jpg",
@@ -36665,6 +36735,7 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Independiente y Boca disputando el balón en el partido."
   },
-  "huella": "b33332b3db5d7c8e"
+  "huella": "b33332b3db5d7c8e",
+  "ausenteDesde": "2026-10-24T09:02:13.328Z"
  }
 }
