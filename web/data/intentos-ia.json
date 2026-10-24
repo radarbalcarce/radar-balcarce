@@ -3545,11 +3545,12 @@
   "motivo": "con cuerpo"
  },
  "olt0q0": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T04:31:09.717Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 206 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-24T05:01:06.698Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 187 palabras",
   "falla": [
-   "el título nombra a \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica"
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 24 palabras seguidas del original (\"el juez federal marcelo martinez de giorgi sobreseyo al presidente javier milei a su…\"): decilo co"
   ]
  },
  "onp5c1": {
@@ -3871,13 +3872,9 @@
   "fuentes": 1
  },
  "tpg5x6": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T04:31:09.717Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 95 palabras",
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 15 palabras seguidas del original (\"figura legal como presunta estafa abuso de autoridad o negociaciones incompatibles con la funcion…"
-  ]
+  "intentos": 2,
+  "ultimo": "2026-10-24T05:01:06.698Z",
+  "motivo": "con cuerpo"
  },
  "tpivoa": {
   "intentos": 1,

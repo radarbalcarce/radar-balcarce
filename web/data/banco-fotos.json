@@ -18886,9 +18886,7 @@
   "fuentes": 2
  },
  "qrho5d": {
-  "archivo": "fotos-notas/qrho5d.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno bonaerense ofrece un aumento del 6 por ciento a estatales",
@@ -18909,7 +18907,8 @@
    "descripcion": "Fachada del edificio del Gobierno de la Provincia de Buenos Aires."
   },
   "huella": "7071f937361e3232",
-  "ausenteDesde": "2026-10-17T05:01:34.541Z"
+  "intentado": true,
+  "borrada": true
  },
  "dhznnq": {
   "archivo": "fotos-notas/dhznnq.jpg",
@@ -35155,9 +35154,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Xabi Alonso confirma que la recuperación de Emiliano Martínez avanza de manera favorable",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Olé no se usa todavía.",
-  "cuando": "2026-10-23T22:32:27.707Z",
-  "intentos": 3,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:01:28.201Z",
+  "intentos": 4,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36242,9 +36241,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Mauricio Serna recuerda la tensa disputa con los referentes de Boca por los premios",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: The operation was aborted due to timeout",
-  "cuando": "2026-10-24T03:31:35.829Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:01:28.201Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36302,9 +36301,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Atlético Tucumán vence a Tigre y Dabove deja su cargo como DT",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T03:31:35.829Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:01:28.201Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36317,5 +36316,30 @@
   "intentos": 1,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "tpg5x6": {
+  "archivo": "fotos-notas/tpg5x6.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Sobreseen a Javier y Karina Milei en la causa por la criptomoneda $Libra",
+  "enlace": "https://www.clarin.com/politica/verdad-triunfa-mismo-mentira-necesita-siempre-complicidad-frase-publico-milei-sobreseido-caso-libra_0_Im4YPN6eCz.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/23/kYWWFXPKP_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra claramente a Javier Milei, el protagonista de la nota, con un encuadre y nitidez aceptables.",
+  "cuando": "2026-10-24T05:01:28.201Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando frente a un micrófono con traje y corbata."
+  },
+  "huella": "1e4e36a600000000"
  }
 }
