@@ -1,5 +1,7 @@
 # 07 · Las redes: Facebook e Instagram de punta a punta
 
+*El cronograma hora por hora, la audiencia, las propuestas de horario y las redes que faltan están en [`docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md`](proyecto/REDES-CRONOGRAMA-MAESTRO.md) (24/10/2026).*
+
 *Actualizado el 17/10/2026. Si algo de acá no coincide con el código, manda el
 código.* Cómo suenan y qué dicen las piezas: [`CRITERIO-REDES.md`](../CRITERIO-REDES.md).
 Colores, letras y medidas: [`MEDIA-KIT.md`](../MEDIA-KIT.md) y

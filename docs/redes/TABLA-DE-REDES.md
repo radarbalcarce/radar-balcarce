@@ -1,5 +1,7 @@
 # Tabla de redes: qué hay, qué publicar en cada una y qué se puede automatizar
 
+> **24/10/2026:** el cronograma maestro (qué sale hoy hora por hora, qué falta, el orden de alta de cada red, WhatsApp, herramientas gratis y publicar a mano) está en [`docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md`](../proyecto/REDES-CRONOGRAMA-MAESTRO.md). Esta tabla es el detalle de cada servicio.
+
 *17/10/2026. Es una **investigación**, no código: no se creó ninguna cuenta, no se tocó ninguna clave, no se publicó nada y no se cambió ningún archivo del robot. Los datos de precios y límites se leyeron el 17/10/2026 en las páginas oficiales de cada servicio cuando se pudo; lo que sólo salió de blogs o de notas de prensa, o que no se pudo abrir (varias páginas de ayuda de TikTok, Meta y WhatsApp cargan con JavaScript y no se dejan leer), está marcado **SIN VERIFICAR**. Complementa y actualiza `AUTOMATIZAR-REDES-ALTERNATIVAS.md` (15/10) y `FORMATOS-POR-RED.md` (16/10); no los reemplaza: los detalles técnicos (medidas de video, topes de la API) siguen estando ahí.*
 
 **Cómo leer los veredictos**
