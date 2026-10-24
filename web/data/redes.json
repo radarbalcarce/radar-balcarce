@@ -1130,6 +1130,15 @@
       "temas": [],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/1wdy2e7.jpg"
+    },
+    "5r4s16": {
+      "cuando": "2026-10-24T19:06:02.095Z",
+      "postId": "1254237411116171_122115366357495512",
+      "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
+      "enlace": "https://radarbalcarce.com/nota/la-liga-balcarcena-revela-perdidas-millonarias-por-fecha-en-su-torneo-5r4s16",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/5r4s16.jpg"
     }
   },
   "instagram": {
@@ -5649,6 +5658,20 @@
       ],
       "postId": "122115290247495512",
       "permalink": "https://www.facebook.com/reel/29133882036296174/"
+    },
+    "2026-10-24/noticia2": {
+      "cuando": "2026-10-24T19:06:56.423Z",
+      "mediaId": "28796499926627693",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "qgon5k",
+      "notaIds": [
+        "qgon5k",
+        "12z1bhb",
+        "idsz54"
+      ],
+      "postId": "122115366741495512",
+      "permalink": "https://www.facebook.com/reel/28796499926627693/"
     }
   },
   "instagramFeed": {
@@ -6457,6 +6480,12 @@
       "mediaId": "18079742807461963",
       "titulo": "Franco Colapinto afronta la tercera práctica y la clasificación en Austin",
       "enlace": "https://radarbalcarce.com/nota/franco-colapinto-afronta-la-tercera-practica-y-la-clasificacion-en-1wdy2e7"
+    },
+    "5r4s16": {
+      "cuando": "2026-10-24T19:06:13.797Z",
+      "mediaId": "18096021137660598",
+      "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
+      "enlace": "https://radarbalcarce.com/nota/la-liga-balcarcena-revela-perdidas-millonarias-por-fecha-en-su-torneo-5r4s16"
     }
   },
   "historiasDeReels": {
@@ -8046,6 +8075,14 @@
       "red": "facebook",
       "notaId": "149ahyx",
       "postId": "1051128137977950"
+    },
+    "facebook/2026-10-24/noticia2": {
+      "cuando": "2026-10-24T19:07:24.782Z",
+      "mediaId": "1497203779129749",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "qgon5k",
+      "postId": "2193021151634157"
     }
   },
   "problemas": {
@@ -8069,17 +8106,20 @@
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
+    },
+    "2026-10-24/noticia2/instagram/reel": {
+      "pieza": "noticia2",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-24T19:06:15.064Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
     "fa17ki": {
       "intentos": 2,
       "ultimo": "2026-10-13T11:05:17.715Z",
-      "error": "Missing or invalid image file"
-    },
-    "5r4s16": {
-      "intentos": 1,
-      "ultimo": "2026-10-24T18:45:59.241Z",
       "error": "Missing or invalid image file"
     }
   },
