@@ -18586,9 +18586,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "rwxsr5": {
-  "archivo": "fotos-notas/rwxsr5.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "El INTA Balcarce participa de una investigación global sobre suelo",
@@ -18608,7 +18606,8 @@
    "descripcion": "Investigadora tomando muestras en un campo de cultivo en Balcarce"
   },
   "huella": "2eaa0952931333b2",
-  "ausenteDesde": "2026-10-17T20:02:50.629Z"
+  "intentado": true,
+  "borrada": true
  },
  "1r0oe4f": {
   "archivo": "fotos-notas/1r0oe4f.jpg",
@@ -23355,7 +23354,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "3f3f266654bc1b53"
+  "huella": "3f3f266654bc1b53",
+  "ausenteDesde": "2026-10-24T20:03:27.424Z"
  },
  "hf7e95": {
   "archivo": "fotos-notas/hf7e95.jpg",
@@ -37594,5 +37594,53 @@
   },
   "huella": "c3c77d868707030b",
   "ausenteDesde": "2026-10-24T19:31:22.478Z"
+ },
+ "nwddkk": {
+  "archivo": "fotos-notas/nwddkk.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Banfield y Lanús empatan 1 a 1 en el clásico del Sur",
+  "enlace": "https://www.minutouno.com/deportes/ni-magis-tv-ni-pelota-libre-como-ver-vivo-banfield-vs-lanus-internet-n6336503",
+  "imagenOriginal": "https://media.minutouno.com/p/95162cb31657f7e36d0cff9e59915f65/adjuntos/150/imagenes/042/998/0042998747/1200x675/smart/estadio-florencio-sola.jpg",
+  "razon": "Es la única foto que corresponde plenamente al estadio del partido, sin marcas de agua añadidas, gráficos ni elementos indeseados.",
+  "cuando": "2026-10-24T20:02:30.759Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea del estadio de Banfield."
+  },
+  "huella": "598cd4f3e2d66d52"
+ },
+ "l9ymzm": {
+  "archivo": "fotos-notas/l9ymzm.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto termina 15 en la tercera práctica en Estados Unidos",
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/franco-colapinto-en-vivo-nid24102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-pone-a-punto-su-alpine-para-la-Q3GSXWFK7ZDA5FPT3USHBHCGTA.jpg?auth=93a1749f450d200ad9ed956e1acd48a019fc8ebbf28681ddfe82445615563a1a&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es una fotografía limpia, de alta calidad y excelente encuadre del auto en pista durante la práctica, sin marcas de agua ni personas.",
+  "cuando": "2026-10-24T20:02:30.759Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El auto de Colapinto circulando por la pista de frente"
+  },
+  "huella": "003939c8cc86ac29"
  }
 }
