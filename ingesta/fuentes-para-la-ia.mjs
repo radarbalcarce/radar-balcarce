@@ -10,10 +10,11 @@
 // Esto arma, sin red y sin IA, lo que recibe la IA de redacción. El prompt
 // (CRITERIO-EDITORIAL.md § 12) NO cambia:
 //
-//   · los textos completos de hasta REESCRITURA.textosCompletosMaximo fuentes, cada
+//   · TODAS las fuentes numeradas, cada una con su medio, su fecha, su titular y su resumen (sin tope de cantidad, regla 308);
+//   · los textos completos de las que entren en el presupuesto, cada
 //     uno con su número, su medio y su fecha, limpios (sin párrafos de otra nota,
 //     pies de nota ni letras rotas) y con topes: REESCRITURA.caracteresDelTextoCompleto
-//     cada uno y REESCRITURA.caracteresDeTextosEnTotal entre todos;
+//     cada uno y REESCRITURA.caracteresDeTextosEnTotal entre todos (no hay un número fijo de textos);
 //   · numeradas por lo que aportan, no por quién publicó primero: la oficial con
 //     texto, después la de más texto útil, después la que más agrega a lo ya
 //     elegido (la "principal" para la IA es la más completa; la dirección y el
@@ -35,6 +36,12 @@ const palabrasNorm = (s) => sinTildes(s).match(/[a-zñ0-9]+/g) ?? [];
 
 /** Con menos palabras que esto, un texto no se compara con otro para ver si es copia: es muy corto para saberlo. */
 export const PALABRAS_PARA_COMPARAR = 25;
+
+/** El titular de una fuente como lo lee la IA: en una línea y de hasta este largo (24/10, regla 308). */
+export const LARGO_MAXIMO_DEL_TITULAR = 200;
+
+/** El titular de una fuente en una línea, cortado si pasa de LARGO_MAXIMO_DEL_TITULAR; '' si no hay. */
+export const titularDeFuente = (titulo) => cortarTexto(String(titulo ?? '').replace(/\s+/g, ' ').trim(), LARGO_MAXIMO_DEL_TITULAR);
 
 /** Un texto completo que suma menos palabras nuevas que esto a lo ya elegido no se manda: dice lo mismo. */
 const PALABRAS_NUEVAS_MINIMAS = 5;
@@ -243,23 +250,20 @@ export function cortarTexto(texto, max) {
  * @param {{ indice: number, texto: string }[]} textos  los textos bajados, por índice en `origenes`
  * @param {object} [o]
  * @returns {{
- *   fuentes: { numero, indice, medio, enlace, fecha, oficial, resumen, texto, agrega, copiaDe, largoUtil }[],
- *   sinNumero: string[],
+ *   fuentes: { numero, indice, medio, titulo, enlace, fecha, oficial, resumen, texto, agrega, copiaDe, largoUtil }[],
  *   noCuentan: string[],
  * }}
  *   `fuentes`: numeradas como las lee la IA (Fuente 1, 2…); `indice` es su lugar en
  *   `origenes` (con eso se arman "Fuentes consultadas" en el orden de siempre).
  *   `texto`: el texto completo que se manda (o null); `agrega`: lo propio de una
- *   copia; `copiaDe`: el número de la fuente de la que es copia. `sinNumero`: los
- *   medios que pasan del tope de fuentes numeradas. `noCuentan`: los medios que, por
+ *   copia; `copiaDe`: el número de la fuente de la que es copia. `noCuentan`: los medios que, por
  *   ser copia, no cuentan como confirmación independiente.
  */
 export function armarFuentesParaLaIA(origenes = [], textos = [], {
   titulo = '',
   porFuente = REESCRITURA.caracteresDelTextoCompleto,
   total = REESCRITURA.caracteresDeTextosEnTotal,
-  maximoDeTextos = REESCRITURA.textosCompletosMaximo,
-  maximoNumeradas = REESCRITURA.fuentesEnLaEntradaMaximo,
+  minimoDeUnTexto = REESCRITURA.caracteresMinimosDeUnTexto,
   umbralDeCopia = REESCRITURA.copiaEntreFuentes / 100,
 } = {}) {
   const limpios = new Map();
@@ -273,7 +277,7 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     const resumen = o.resumen ?? '';
     const material = texto || resumen;
     return {
-      ...o, indice, resumen, texto, material, tramos: tramosDeCinco(material), palabras: palabrasNorm(material).length,
+      ...o, indice, resumen, titulo: titularDeFuente(o.titulo), texto, material, tramos: tramosDeCinco(material), palabras: palabrasNorm(material).length,
     };
   });
 
@@ -303,15 +307,20 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     rep.esRepresentante = true;
   }
 
-  // 2. Qué textos completos van y en qué orden: la oficial con texto primero; después, de a una, la que
-  //    más palabras fuertes nuevas suma a lo ya elegido (la primera, la de más texto útil).
+  // 2. Qué textos completos van y en qué orden, con un PRESUPUESTO de caracteres y no un número de textos: la oficial con texto primero;
+  //    después, de a una, la de un medio que todavía no tiene texto elegido, y entre ésas la que más palabras fuertes nuevas suma a lo ya
+  //    elegido (la primera, la de más texto útil). Se sigue mientras quede lugar para un texto de `minimoDeUnTexto` caracteres.
   const candidatas = base.filter((f) => f.texto && f.copiaDeIndice == null)
     .map((f) => ({ f, fuertes: palabrasFuertes(f.texto) }));
   const elegidas = [];
   const cubiertas = new Set();
-  while (elegidas.length < maximoDeTextos && candidatas.length) {
+  const mediosElegidos = new Set();
+  const clave = (m) => sinTildes(String(m ?? '')).replace(/\s+/g, ' ').trim().toLowerCase();
+  let usado = 0;
+  while (candidatas.length && total - usado >= minimoDeUnTexto) {
     const puntaje = ({ f, fuertes }) => [
       elegidas.length === 0 && f.oficial ? 1 : 0,
+      mediosElegidos.has(clave(f.medio)) ? 0 : 1,
       [...fuertes].filter((w) => !cubiertas.has(w)).length,
       f.texto.length,
     ];
@@ -325,6 +334,8 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     const nuevas = [...fuertes].filter((w) => !cubiertas.has(w)).length;
     if (elegidas.length && nuevas < PALABRAS_NUEVAS_MINIMAS) continue;
     elegidas.push(f);
+    mediosElegidos.add(clave(f.medio));
+    usado += Math.min(f.texto.length, porFuente);
     for (const w of fuertes) cubiertas.add(w);
   }
 
@@ -335,7 +346,7 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     ...base.filter((f) => !yaVan.has(f) && f.copiaDeIndice == null),
     ...base.filter((f) => f.copiaDeIndice != null),
   ];
-  const numeradas = orden.slice(0, Math.max(1, maximoNumeradas));
+  const numeradas = orden;
   const numeroDe = new Map(numeradas.map((f, k) => [f.indice, k + 1]));
 
   // 4. Los topes: los textos completos, repartidos; con lo que sobra, lo que agrega cada copia.
@@ -364,6 +375,7 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     numero: numeroDe.get(f.indice),
     indice: f.indice,
     medio: f.medio ?? null,
+    titulo: f.titulo || null,
     enlace: f.enlace ?? null,
     ...(f.enlaceFeed ? { enlaceFeed: f.enlaceFeed } : {}),
     fecha: f.fecha ?? null,
@@ -374,8 +386,7 @@ export function armarFuentesParaLaIA(origenes = [], textos = [], {
     copiaDe: f.copiaDeIndice != null ? (numeroDe.get(f.copiaDeIndice) ?? null) : null,
     largoUtil: f.texto ? f.texto.length : 0,
   }));
-  const sinNumero = [...new Set(orden.slice(numeradas.length).map((f) => f.medio).filter(Boolean))];
-  return { fuentes, sinNumero, noCuentan: mediosQueNoCuentan(base) };
+  return { fuentes, noCuentan: mediosQueNoCuentan(base) };
 }
 
 /**

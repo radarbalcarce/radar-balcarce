@@ -716,6 +716,7 @@ function origenesDeLaNota(n) {
   if (n.origenes?.length) return n.origenes;
   return [{
     medio: n.medio ?? n.medios?.[0] ?? null,
+    ...(n.titulo ? { titulo: n.titulo } : {}),
     enlace: n.enlace ?? null,
     ...(n.enlaceFeed ? { enlaceFeed: n.enlaceFeed } : {}),
     fecha: n.cuando === 'sin fecha en la fuente' ? null : (n.fecha ?? null),

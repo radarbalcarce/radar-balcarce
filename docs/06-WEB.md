@@ -97,8 +97,8 @@ salir solo. No se le pide nada a Gemini de una nota que:
 Lo ya reescrito en corridas anteriores (`previasDeLaPortada`, de la portada y
 del archivo) se reusa sin gastar. Cuántas veces se pidió cada nota queda en
 `web/data/intentos-ia.json` (tope de tres, uno o dos más si la cuentan 5 u 8
-medios; podado a 7 días). Desde el 15/10 la IA recibe hasta cuatro textos
-completos de las fuentes (regla 174). Es el único lugar que reescribe solo
+medios; podado a 7 días; guarda también cuántos textos llegaron y los motivos de rechazo, regla 308). Desde el 15/10 la IA recibe todas las fuentes y los textos
+completos que entran en su presupuesto (reglas 174 y 308). Es el único lugar que reescribe solo
 (aparte, una persona puede pedir una nota desde el panel del celular). El detalle, en `docs/04-REDACCION.md`.
 
 **5. Decide qué nota se publica: `notaPublicada(n)`.** Es el corazón. Para

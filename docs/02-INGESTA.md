@@ -369,11 +369,11 @@ ingesta), se baja la página de la nota original (`ingesta/articulo.mjs`):
 
 1. **De qué fuentes:** desde el 15/10 (regla 174, "la entrada ampliada")
    `textosDeLasFuentes()` (`reels/reescritura.mjs`) intenta bajar el texto de hasta
-   6 fuentes (`REESCRITURA.fuentesQueSeBajan`: la principal siempre, con su
+   6 fuentes (`REESCRITURA.fuentesQueSeBajan`, 8 si la cuentan 8 medios o más: la principal siempre, con su
    `enlaceFeed` si es Blogger, y las oficiales antes), y `armarFuentesParaLaIA()`
-   (`ingesta/fuentes-para-la-ia.mjs`) elige hasta 4 textos completos
-   (`textosCompletosMaximo`), la más completa primero, con 12.000 caracteres entre
-   todos (`caracteresDeTextosEnTotal`); dos textos que comparten la mitad o más
+   (`ingesta/fuentes-para-la-ia.mjs`) elige los textos completos que
+   entran en el presupuesto de 12.000 caracteres (`caracteresDeTextosEnTotal`; no hay un número fijo de textos),
+   la oficial y un medio distinto cada vez primero, y manda TODAS las fuentes numeradas con titular y resumen; dos textos que comparten la mitad o más
    (`copiaEntreFuentes`) son copia y cuentan como una voz. Antes iba el texto de
    una sola fuente. Ver
    `docs/04-REDACCION.md`, paso 4.

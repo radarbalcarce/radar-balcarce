@@ -525,3 +525,25 @@ Selección para Facebook (`redes/elegir.mjs`):
 Verificado leyendo el código y los datos del 24/10 04:02 UTC: todo lo que lleva `archivo:línea`, los números de `portada.json`, `banco-fotos.json`, `fichas.json`, `intentos-ia.json`, `uso-ia.json`, `estadistica-seleccion.json`, el tamaño del prompt (medido con `leerCriterio`), el conteo de feeds activos por tipo (`FUENTES.md`), las fechas a medianoche (14/500, 10/111).
 
 No pude verificar (**hipótesis**): la causa de la fecha a medianoche; cuáles fueron exactamente los 4 textos que recibió la IA para el Papa (la entrada no se guarda); por qué la nota esperó 11 horas; por qué no salió en Facebook; si "robo" dispara el tono serio con "robot" (se deduce del código, no se probó con una nota real); el funcionamiento de la corrida en Cloudflare (la descripción es la del programa, que es el mismo).
+
+---
+
+## Apéndice: qué recibe la IA hoy (24/10, regla 308)
+
+*Corrige el punto de arriba sobre "hasta 12 fuentes y 4 textos": desde la regla 308 ya no hay tope de fuentes.*
+
+Cuando la IA escribe una nota (`reels/reescritura.mjs`, `ingesta/fuentes-para-la-ia.mjs`) le llega, en un solo pedido:
+
+- **Todas las fuentes de la historia**, numeradas, sin tope de cantidad. De cada una: el medio, la fecha, si es oficial, **el titular** con que ese medio cuenta lo mismo y **el resumen** del feed (280 caracteres).
+- **El texto completo, sólo de algunas**, con un presupuesto: 12.000 caracteres entre todos y 4.000 como mucho cada uno. No hay un número fijo de textos: entra primero la fuente oficial, después un medio que todavía no tiene texto y, entre esos, el que más datos nuevos trae; se sigue mientras queden 800 caracteres libres. Con textos largos entran tres; con cortos, seis. Para elegir se baja el texto de hasta 6 fuentes (8 si la historia la cuentan 8 medios o más).
+- **Las copias marcadas**: un cable o una gacetilla repetidos van como «mismo texto que la Fuente N» y cuentan como una sola voz.
+- **Antecedentes**: hasta 3 notas propias de los últimos 30 días sobre el tema, con su fecha.
+- **El largo** que corresponde a esa nota (`largoSugerido`) y la fecha de hoy.
+
+Lo que se le manda es lo mismo contra lo que después se verifica (números, nombres, días, citas, copia), titulares incluidos.
+
+Costo medido el 24/10 con notas reales: un pedido común, unos 5.450 tokens; una nota muy contada (8 medios o más, 22 a 39 fuentes), unos 9.100 (máximo 9.700).
+
+Después de escrita, la nota se reusa de la caché sin pedir nada más, pero «Fuentes (N)» y el nivel de verificación se refrescan con las fuentes de cada día (`conFuentesDeHoy`).
+
+Más: `docs/04-REDACCION.md` (paso 4), reglas 174, 307 y 308 en `docs/10-REGLAS-Y-PRUEBAS.md`.

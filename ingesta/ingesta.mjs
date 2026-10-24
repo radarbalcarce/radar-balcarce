@@ -1957,6 +1957,8 @@ export function armarPortada(grupos) {
       // escribir: a la web no llega.
       origenes: [g.principal, ...g.tambien].map((n) => ({
         medio: n.medio,
+        // El titular de esa fuente: la IA lo lee (es el ángulo con que cada medio cuenta lo mismo; regla 308).
+        ...(n.titulo ? { titulo: n.titulo } : {}),
         enlace: n.enlace,
         ...(n.enlaceFeed ? { enlaceFeed: n.enlaceFeed } : {}),
         fecha: n.fechaEstimada || !(n.fecha instanceof Date) ? null : n.fecha.toISOString(),

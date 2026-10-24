@@ -37,7 +37,7 @@ import { semaforoDelTexto, laMuerteFrena, esMuerteDeFamosoEnPoliciales, sueltaEl
 import { decisionHumana } from '../ingesta/utiles.mjs';
 import { ZONA } from '../ingesta/zona.mjs';
 import { traerTexto } from '../ingesta/articulo.mjs';
-import { armarFuentesParaLaIA } from '../ingesta/fuentes-para-la-ia.mjs';
+import { armarFuentesParaLaIA, titularDeFuente } from '../ingesta/fuentes-para-la-ia.mjs';
 import { MEDIOS_OFICIALES } from '../ingesta/fuentes.mjs';
 import { palabrasDeTitular } from '../redes/elegir.mjs';
 import { anotarUsoIA } from '../redes/uso-ia.mjs';
@@ -46,7 +46,7 @@ import { sinTildes } from '../web/lib/texto.js';
 import { tieneCuerpo, palabrasDe } from '../web/lib/cuerpo.js';
 import { leerCriterio } from '../ingesta/prompt-editorial.mjs';
 import {
-  CUERPO, PARTES, REESCRITURA,
+  CUERPO, PARTES, REESCRITURA, MUY_CONTADA,
 } from '../ingesta/criterio.mjs';
 
 // "-latest" en vez de un número de versión fijo: la reescritura no necesita
@@ -152,6 +152,8 @@ export function origenesDe(nota) {
   if (nota?.origenes?.length) {
     return nota.origenes.map((o) => ({
       medio: o.medio ?? null,
+      // El titular con que ese medio cuenta lo mismo (24/10, regla 308): la IA lo lee; las notas de antes no lo traen.
+      ...(o.titulo ? { titulo: o.titulo } : {}),
       enlace: o.enlace ?? null,
       // La entrada del feed (Blogger): de ahí se baja el texto completo.
       ...(o.enlaceFeed ? { enlaceFeed: o.enlaceFeed } : {}),
@@ -229,9 +231,10 @@ function textoDeAntecedentes(antecedentes = []) {
   return antecedentes.map((a) => `[${fechaCorta(a.fecha)}] ${a.titulo}. ${a.copete ?? ''}`.trim()).join('\n');
 }
 
-/** "medio · fuente oficial · publicada el jueves 15/10/2026", como la IA lee cada fuente. */
+/** "medio · fuente oficial · publicada el jueves 15/10/2026 · titular «…»", como la IA lee cada fuente. */
 function datosDeLaFuente(o) {
-  return [o.medio ?? 'otro medio', o.oficial ? 'fuente oficial' : null, o.fecha ? `publicada el ${fechaConDia(o.fecha)}` : null].filter(Boolean).join(' · ');
+  const titular = titularDeFuente(o.titulo);
+  return [o.medio ?? 'otro medio', o.oficial ? 'fuente oficial' : null, o.fecha ? `publicada el ${fechaConDia(o.fecha)}` : null, titular ? `titular «${titular}»` : null].filter(Boolean).join(' · ');
 }
 
 /** "4", "4 y 6", "4, 5 y 6". */
@@ -242,12 +245,13 @@ function listaDeNumeros(numeros = []) {
 /**
  * La entrada ampliada (15/10, regla 174; ingesta/fuentes-para-la-ia.mjs): las
  * fuentes numeradas por lo que aportan (la Fuente 1 es la más completa), cada una
- * con su medio y su fecha; las copias marcadas como copias; los textos completos de
- * hasta cuatro fuentes, cada uno con su número; lo que agrega cada copia, y los
+ * con su medio, su fecha y su titular (todas, sin tope de cantidad: regla 308); las copias
+ * marcadas como copias; los textos completos que entran en el presupuesto de caracteres
+ * (no hay un número fijo), cada uno con su número; lo que agrega cada copia, y los
  * antecedentes. Las reglas de la IA (CRITERIO-EDITORIAL.md § 12) no cambian.
  */
 function entradaAmpliadaDe(nota) {
-  const { fuentes, sinNumero = [] } = nota.entradaAmpliada;
+  const { fuentes } = nota.entradaAmpliada;
   const copias = fuentes.filter((f) => f.copiaDe);
   const conTexto = fuentes.filter((f) => f.texto);
   let cabecera = fuentes.length === 1 ? 'una sola: no hay confirmación independiente' : `${fuentes.length}, numeradas`;
@@ -267,7 +271,6 @@ function entradaAmpliadaDe(nota) {
     if (f.copiaDe) partes.push(`Fuente ${f.numero} (${datosDeLaFuente(f)}): mismo texto que la Fuente ${f.copiaDe}; es una copia, no una confirmación independiente.`);
     else partes.push(`Fuente ${f.numero} (${datosDeLaFuente(f)}${f.texto ? ' · su texto completo va abajo' : ''}): ${f.resumen || '(sin resumen)'}`);
   }
-  if (sinNumero.length) partes.push(`También la contaron, sin más datos: ${sinNumero.join(', ')}.`);
   conTexto.forEach((f, k) => {
     const nota1 = conTexto.length === 1
       ? '; de acá sale la mayor parte de lo que podés contar en el cuerpo'
@@ -299,8 +302,7 @@ function entradaDe(nota) {
     `FUENTES (${origenes.length === 1 ? 'una sola: no hay confirmación independiente' : `${origenes.length}, numeradas`}):`,
   ];
   origenes.forEach((o, i) => {
-    const datos = [o.medio ?? 'otro medio', o.oficial ? 'fuente oficial' : null, o.fecha ? `publicada el ${fechaConDia(o.fecha)}` : null].filter(Boolean).join(' · ');
-    partes.push(`Fuente ${i + 1} (${datos}): ${o.resumen || '(sin resumen)'}`);
+    partes.push(`Fuente ${i + 1} (${datosDeLaFuente(o)}): ${o.resumen || '(sin resumen)'}`);
   });
   if (nota.textoDeLaFuente) partes.push(`Texto completo de la Fuente ${nota.fuenteDelTexto ?? 1} (de acá sale la mayor parte de lo que podés contar en el cuerpo):\n${nota.textoDeLaFuente}`);
   if (nota.antecedentes?.length) {
@@ -313,7 +315,7 @@ function entradaDe(nota) {
  *  Se mide el material que dieron las fuentes: el cuerpo ronda la mitad de eso, nunca menos de lo que pide el
  *  criterio para publicar ni más del techo. Mucha fuente → nota larga; poca → corta, sin relleno. */
 export function largoSugerido(nota) {
-  const material = String(fuenteParaVerificar(nota) ?? '').split(/\s+/).filter(Boolean).length;
+  const material = String(materialDeLasFuentes(nota) ?? '').split(/\s+/).filter(Boolean).length;
   // Se apunta a 90 como mínimo (CUERPO.palabrasObjetivoMinimo, regla 299), no a las 70 con que apenas se publica: una IA que apunta a 70 queda en
   // 56, 66 o 68 y la nota espera cuerpo. Con poco material, de 90 a 120.
   const min = Math.max(CUERPO.palabrasPedidasMinimo, CUERPO.palabrasObjetivoMinimo ?? 0);
@@ -322,10 +324,22 @@ export function largoSugerido(nota) {
   return { material, piso, techo };
 }
 
+/** Los titulares de las fuentes que la IA recibió (24/10, regla 308), todas numeradas.
+ *  El de la principal ya va aparte (`titulo` de materialParaVerificar); acá se repite sin problema. */
+function titularesEnviados(nota) {
+  if (nota?.entradaAmpliada) return nota.entradaAmpliada.fuentes.map((f) => f.titulo).filter(Boolean);
+  return (nota?.origenes ?? []).map((o) => o.titulo).filter(Boolean);
+}
+
 /** Todo lo que la IA recibió de la fuente, junto: contra eso se verifica. Si se
  *  verificara sólo contra un resumen, un dato que venía en otro medio o en el
- *  texto completo pasaría por inventado. */
+ *  texto completo pasaría por inventado. Con los titulares de cada fuente (regla 308). */
 export function fuenteParaVerificar(nota) {
+  return [materialDeLasFuentes(nota), ...titularesEnviados(nota)].filter(Boolean).join('\n');
+}
+
+/** Los resúmenes y los textos de las fuentes, sin los titulares: lo que mide el largo del cuerpo (largoSugerido). */
+function materialDeLasFuentes(nota) {
   // Con la entrada ampliada (regla 174), TODO lo que se mandó: el resumen de cada fuente que no es copia,
   // los textos completos de cada una y lo que agrega cada copia. Nada que no se haya mandado.
   if (nota?.entradaAmpliada) {
@@ -654,7 +668,7 @@ export function semaforoDeLaReescritura(nota, escrito = null) {
   // Con la entrada ampliada (regla 174), CADA texto completo que recibe la IA, y los resúmenes de todas las
   // fuentes (también las que sumó una repetida): más texto es más chance de que aparezca un nombre.
   const textos = textosEnviados(nota);
-  const resumenes = [...new Set([...(nota?.fuentesTexto ?? []), ...(nota?.origenes ?? []).map((o) => o?.resumen)].filter(Boolean))];
+  const resumenes = [...new Set([...(nota?.fuentesTexto ?? []), ...(nota?.origenes ?? []).flatMap((o) => [o?.resumen, o?.titulo])].filter(Boolean))];
   const partes = [
     ...textos.map((t) => [`el texto completo de la fuente${textos.length > 1 ? ` ${t.numero}` : ''}`, t.texto, true]),
     ['lo que contaron otros medios', resumenes.join('\n'), true],
@@ -686,7 +700,7 @@ export function semaforoDeLaReescritura(nota, escrito = null) {
  *  semáforo (la sección, de dónde es, cuántos medios la cuentan, si es oficial) sin volver a mirar esos textos. */
 export function sinLosTextos(nota = {}) {
   const { textoDeLaFuente, fuentesTexto, entradaAmpliada, ...resto } = nota ?? {};
-  return { ...resto, origenes: (nota?.origenes ?? []).map(({ resumen, ...o }) => o) };
+  return { ...resto, origenes: (nota?.origenes ?? []).map(({ resumen, titulo, ...o }) => o) };
 }
 
 /**
@@ -962,6 +976,43 @@ export function conEnlacesDelLector(fuentes = [], nota = {}) {
 }
 
 /**
+ * Las fuentes de HOY en una nota que se reusa de la caché (24/10, regla 308), sin reescribirla ni gastar IA.
+ *
+ * La nota se escribe una vez, con las fuentes que había, y se reusa; el cruce, en cambio, sigue sumando medios. Resultado: "Fuentes (N)"
+ * y el nivel de verificación se quedaban con las de entonces (una nota con 4 medios en la tarjeta decía "lo cuenta un solo medio").
+ * Acá: a las fuentes consultadas se les suman las de hoy que no estaban (con su enlace, sin "aporte": esa frase la escribió la IA sobre
+ * las de entonces; las que ya estaban conservan la suya y no se sacan nunca); y si la nota se escribió con UNA sola fuente y hoy hay
+ * más, el nivel se recalcula con las de hoy (sube de MEDIA a ALTA) y deja de decir "Lo cuenta un solo medio". Una nota que ya era
+ * ALTA queda ALTA con su frase: cuántos de esos medios eran copia de otro (mediosQueNoCuentan) sólo se sabe con los textos del momento
+ * en que se escribió, que no se guardan. Lo escrito antes de que existieran las partes nuevas (sin `fuentesConsultadas`) no se toca.
+ */
+export function conFuentesDeHoy(cacheada = {}, nota = {}) {
+  const antes = cacheada.fuentesConsultadas ?? [];
+  if (!antes.length) return cacheada;
+  const enlaces = new Set(antes.map((f) => f?.enlace).filter(Boolean));
+  const sinEnlace = new Set(antes.filter((f) => !f?.enlace).map((f) => f?.medio));
+  const nuevas = fuentesConsultadasDeOrigenes(nota)
+    .filter((f) => (f.enlace ? !enlaces.has(f.enlace) : !sinEnlace.has(f.medio)));
+  if (!nuevas.length) return cacheada;
+  const fuentes = [...antes, ...nuevas];
+  const limpia = { ...cacheada, fuentesConsultadas: fuentes };
+
+  const { nOficiales, nMedios } = contarFuentes(fuentes, nota.medios ?? [], []);
+  if (nOficiales + nMedios > 1 && cacheada.noConfirmado?.some((d) => normalizar(d) === normalizar(FRASE_FUENTE_UNICA))) {
+    const quedan = cacheada.noConfirmado.filter((d) => normalizar(d) !== normalizar(FRASE_FUENTE_UNICA));
+    if (quedan.length) limpia.noConfirmado = quedan; else delete limpia.noConfirmado;
+  }
+  if (cacheada.verificacion?.nivel === 'MEDIA') {
+    const nuevo = nivelDeVerificacion({
+      origenes: fuentes, medios: nota.medios ?? [], escrito: { ...limpia }, tituloFuente: nota.titulo, sugerido: cacheada.verificacion.sugeridoPorIA,
+    });
+    // Con una denuncia de un solo medio sería BAJA, y eso espera a una persona: lo decide la escritura, no este arreglo.
+    if (nuevo && nuevo.nivel !== 'BAJA') limpia.verificacion = nuevo;
+  }
+  return limpia;
+}
+
+/**
  * Lo ya publicado, revalidado con las reglas de forma de hoy (largo, tildes,
  * acusaciones, que el texto para redes no nombre al medio): la parte que ya
  * no pasa se saca, sin tocar el resto ni pedir nada a Gemini.
@@ -1073,6 +1124,28 @@ export const PALABRAS_MINIMAS_DE_MATERIAL = REESCRITURA.palabrasMinimasDeMateria
 export const FRENO_POR_VERIFICACION = { color: 'amarillo', motivo: 'verificación baja: espera a una persona' };
 export const esVerificacionBaja = (x) => x?.verificacion?.nivel === 'BAJA';
 
+/** Cuántos motivos de rechazo se guardan por nota en web/data/intentos-ia.json, y de cuántos caracteres cada uno (24/10, regla 308). */
+export const MOTIVOS_GUARDADOS = 4;
+export const LARGO_DE_UN_MOTIVO = 70;
+
+/**
+ * Los motivos de rechazo de una nota, de todos sus intentos y no sólo del último (regla 308): los de antes, los de esta vuelta (el primer
+ * pedido y su corrección) y, si no es 'con cuerpo', el que cerró la vuelta. Cortos, sin repetir el mismo dos veces seguidas y los
+ * últimos `MOTIVOS_GUARDADOS`: el archivo es público y no crece sin tope.
+ */
+export function motivosDeLosIntentos(antes = [], deLaVuelta = [], porque = '') {
+  const nuevos = [...deLaVuelta];
+  if (porque && porque !== 'con cuerpo' && nuevos.at(-1) !== porque) nuevos.push(porque);
+  const todos = [];
+  for (const m of [...antes, ...nuevos.map((x) => String(x).replace(/\s+/g, ' ').trim().slice(0, LARGO_DE_UN_MOTIVO))]) {
+    if (m && todos.at(-1) !== m) todos.push(m);
+  }
+  return todos.slice(-MOTIVOS_GUARDADOS);
+}
+
+/** Cuántos textos completos (no resúmenes) le llegaron a la IA en esta nota. */
+const textosCompletosQueLlegaron = (nota) => (nota?.entradaAmpliada?.fuentes ?? []).filter((f) => f.texto).length;
+
 /** Cuántos días se recuerdan los intentos (web/data/intentos-ia.json). */
 export const DIAS_DE_INTENTOS = REESCRITURA.diasDeIntentos;
 
@@ -1089,26 +1162,47 @@ export function podarIntentos(intentos = {}, ahora = Date.now(), dias = DIAS_DE_
  *  red, sin clave): no cuenta como intento, porque no se gastó nada. Una clave
  *  rechazada o sin crédito (401, 402, 403) tampoco: el 29/09 la clave de
  *  redacción quedó desactivada por Google y cada nota gastaba sus tres intentos
- *  en 401, así que se perdía para siempre aunque después volviera la clave. */
-export const FALLA_DEL_SERVICIO = /falta GEMINI|no se pudo pedir|HTTP (40[123]|429|5\d\d)|fetch failed|abort|timeout|network|ECONN|ENOTFOUND|EAI_AGAIN/i;
+ *  en 401, así que se perdía para siempre aunque después volviera la clave. Desde el 24/10 (regla 308) tampoco el 400 "User location is
+ *  not supported for the API use": es el lugar desde donde sale el pedido con esa clave, no la nota (2 notas gastaron un intento por eso). */
+export const FALLA_DEL_SERVICIO = /falta GEMINI|no se pudo pedir|HTTP (40[123]|429|5\d\d)|HTTP 400[^]*User location is not supported|fetch failed|abort|timeout|network|ECONN|ENOTFOUND|EAI_AGAIN/i;
 
 /**
  * Los textos completos de las fuentes de la noticia (15/10, regla 174): el de la
  * principal (como siempre, aunque no tenga enlace propio) y los de las demás, las
  * oficiales primero, hasta REESCRITURA.fuentesQueSeBajan, sin repetir un enlace.
+ * Si la cuentan MUY_CONTADA.medios medios o más (24/10, regla 308) se bajan hasta
+ * REESCRITURA.fuentesQueSeBajanMuyContada y después de las oficiales va un enlace
+ * por medio distinto (no dos de un mismo medio antes de que todos tengan el suyo).
  * Antes se bajaba el de la principal y, sólo si fallaba, el de otra: la IA recibía
  * uno solo, y no el más completo. Devuelve [{ indice, texto }] (el lugar de la
  * fuente en origenesDe), sólo los que se pudieron bajar.
  */
-export async function textosDeLasFuentes(nota, traer = traerTexto, { maximo = REESCRITURA.fuentesQueSeBajan } = {}) {
+export async function textosDeLasFuentes(nota, traer = traerTexto, {
+  maximo = esMuyContada(nota) ? REESCRITURA.fuentesQueSeBajanMuyContada : REESCRITURA.fuentesQueSeBajan,
+} = {}) {
   const origenes = origenesDe(nota);
   const dePrincipal = nota?.enlaceFeed ?? nota?.enlace ?? origenes[0]?.enlaceFeed ?? origenes[0]?.enlace;
   const pedidos = [{ indice: 0, enlace: dePrincipal }];
   const vistos = new Set([dePrincipal].filter(Boolean));
   const otras = origenes
-    .map((o, indice) => ({ indice, enlace: o.enlaceFeed ?? o.enlace, oficial: !!o.oficial }))
+    .map((o, indice) => ({
+      indice, enlace: o.enlaceFeed ?? o.enlace, oficial: !!o.oficial, medio: sinTildes(String(o.medio ?? '')).toLowerCase().trim(),
+    }))
     .filter((o) => o.indice > 0 && o.enlace);
-  for (const o of [...otras.filter((x) => x.oficial), ...otras.filter((x) => !x.oficial)]) {
+  const oficiales = otras.filter((x) => x.oficial);
+  const demas = otras.filter((x) => !x.oficial);
+  // Una muy contada: de los medios que todavía no tienen su texto en la lista, uno cada uno; después, los que quedan.
+  const deMediosDistintos = () => {
+    const medios = new Set([origenes[0]?.medio, ...oficiales.map((x) => x.medio)].map((m) => sinTildes(String(m ?? '')).toLowerCase().trim()));
+    const primeras = [];
+    for (const x of demas) {
+      if (x.medio && medios.has(x.medio)) continue;
+      if (x.medio) medios.add(x.medio);
+      primeras.push(x);
+    }
+    return [...primeras, ...demas.filter((x) => !primeras.includes(x))];
+  };
+  for (const o of [...oficiales, ...(esMuyContada(nota) ? deMediosDistintos() : demas)]) {
     if (pedidos.length >= maximo) break;
     if (vistos.has(o.enlace)) continue;
     vistos.add(o.enlace);
@@ -1127,6 +1221,11 @@ export async function textosDeLasFuentes(nota, traer = traerTexto, { maximo = RE
  */
 export function conEntradaAmpliada(nota, textos = []) {
   return { ...nota, entradaAmpliada: armarFuentesParaLaIA(origenesDe(nota), textos, { titulo: nota?.titulo ?? '' }) };
+}
+
+/** ¿La cuentan MUY_CONTADA.medios medios o más? De esas notas se bajan más textos para elegir con diversidad (regla 308). */
+export function esMuyContada(nota) {
+  return cuantosMedios(nota ?? {}) >= MUY_CONTADA.medios;
 }
 
 /** Las palabras de todos los resúmenes de las fuentes, sin repetir uno. */
@@ -1257,10 +1356,17 @@ export async function reescribirAutomaticas(notas, {
   };
 
   /** Anota un intento. Si con éste se agotaron, el registro lo dice. */
-  const anotarIntento = (nota, porque, extra = {}) => {
+  const anotarIntento = (nota, porque, extra = {}, vuelta = null) => {
     const n = (intentos[nota.id]?.intentos ?? 0) + 1;
+    const motivos = motivosDeLosIntentos(intentos[nota.id]?.motivos, vuelta?.motivos, porque);
     intentos[nota.id] = {
-      intentos: n, ultimo: new Date(Number(ahora)).toISOString(), motivo: String(porque).slice(0, 160), ...extra,
+      intentos: n,
+      ultimo: new Date(Number(ahora)).toISOString(),
+      motivo: String(porque).slice(0, 160),
+      // Qué le llegó a la IA (regla 308): cuántos textos completos y cuántas fuentes numeradas. Sin eso no se puede medir la entrada.
+      ...(vuelta ? { textos: vuelta.textos, numeradas: vuelta.numeradas } : {}),
+      ...(motivos.length ? { motivos } : {}),
+      ...extra,
     };
     if (porque !== 'con cuerpo' && !extra.baja && n >= intentosMaximosPara(origenesDe(nota).length, maximoDeIntentos)) {
       registro(`  sin cuerpo después de ${n} intentos, no se publica · nota ${nota.id} · ${String(porque).slice(0, 120)}`);
@@ -1280,7 +1386,7 @@ export async function reescribirAutomaticas(notas, {
       // "este sábado" pasa a "el sábado" cuando ya no es sábado, se va una
       // etiqueta "Rugby:" o una coma colgando del título.
       const arreglada = { ...previa, ...arreglarEscritura(previa, { hoy: new Date(Number(ahora)) }).nuevo };
-      const cacheada = revalidarExtras(arreglada, nota);
+      const cacheada = conFuentesDeHoy(revalidarExtras(arreglada, nota), nota);
       // Lo ya publicado también pasa por el semáforo de hoy: si la lista
       // creció (como el 25/09), lo que ya estaba y ahora da rojo o amarillo
       // deja de salir solo en esta misma corrida.
@@ -1332,6 +1438,8 @@ export async function reescribirAutomaticas(notas, {
       ...conEntradaAmpliada(nota, textos),
       antecedentes: antecedentesDe(nota, archivo, { ahora }),
     };
+    // Lo que se anota de esta vuelta en intentos-ia.json: qué le llegó a la IA y por qué se rechazó cada pedido (regla 308).
+    const vuelta = { textos: textosCompletosQueLlegaron(conTexto), numeradas: conTexto.entradaAmpliada.fuentes.length, motivos: [] };
 
     // Antes de gastar un pedido: si la nota entera es sensible, la IA no la
     // escribe y la nota deja de salir sola.
@@ -1344,7 +1452,7 @@ export async function reescribirAutomaticas(notas, {
     // siguiente otro medio cuenta lo mismo y hay material.
     if (!textosEnviados(conTexto).length && palabrasDeResumenes(nota) < minimoDeMaterial) {
       cuenta.sinMaterial += 1;
-      anotarIntento(nota, 'sin material');
+      anotarIntento(nota, 'sin material', {}, vuelta);
       continue;
     }
     cuenta.hechas += 1;
@@ -1387,7 +1495,7 @@ export async function reescribirAutomaticas(notas, {
       // gastó nada y no cuenta; si contestó algo que no sirve, sí.
       cuenta.fallos += 1;
       motivo ??= r.motivoRespaldo;
-      if (!FALLA_DEL_SERVICIO.test(String(r.motivoRespaldo))) anotarIntento(nota, `Gemini: ${r.motivoRespaldo}`);
+      if (!FALLA_DEL_SERVICIO.test(String(r.motivoRespaldo))) anotarIntento(nota, `Gemini: ${r.motivoRespaldo}`, {}, vuelta);
       continue;
     }
     let evaluacion = evaluar(r);
@@ -1396,6 +1504,7 @@ export async function reescribirAutomaticas(notas, {
     // corto) y se le pide que lo rehaga. Antes se tiraba todo apenas aparecía
     // un dato de más, y así sólo 1 de cada 10 notas llegaba a tener cuerpo.
     if (!evaluacion.ok) {
+      vuelta.motivos.push(evaluacion.motivo);
       const correccion = evaluacion.problemas.map((p) => p.detalle).slice(0, 6);
       if (evaluacion.corto !== undefined) {
         correccion.push(`el cuerpo quedó corto (${evaluacion.corto} palabras): es obligatorio y va de ${CUERPO.palabrasPedidasMinimo} a ${CUERPO.palabrasPedidasMaximo} palabras, desarrollado con lo que dicen todas las fuentes`);
@@ -1412,7 +1521,7 @@ export async function reescribirAutomaticas(notas, {
       if (evaluacion.motivo.startsWith('título')) cuenta.rechazadas += 1; else cuenta.sinCuerpo += 1;
       registro(`  IA rechazada · ${String(nota.titulo).slice(0, 50)} · ${evaluacion.motivo}`);
       const falla = fallaParaElProximoIntento(evaluacion);
-      anotarIntento(nota, evaluacion.motivo, falla.length ? { falla } : {});
+      anotarIntento(nota, evaluacion.motivo, falla.length ? { falla } : {}, vuelta);
       continue;
     }
     r = evaluacion.r;
@@ -1438,17 +1547,17 @@ export async function reescribirAutomaticas(notas, {
     // ser alguien de acá o lo cuenta un solo medio, 28/09; lo de acá espera menos, 2/10). Sin los textos de las
     // fuentes: ya se miraron antes de pedirle nada a la IA (deLaFuente, más arriba).
     const loEscrito = semaforoDeLaReescritura(sinLosTextos(nota), { ...r, ...extras });
-    if (loEscrito) { frenada(nota, loEscrito); anotarIntento(nota, `semáforo: ${loEscrito.motivo}`); continue; }
+    if (loEscrito) { frenada(nota, loEscrito); anotarIntento(nota, `semáforo: ${loEscrito.motivo}`, {}, vuelta); continue; }
 
     // Criterio de editor: con verificación BAJA no sale sola.
     if (esVerificacionBaja(extras)) {
       frenada(nota, FRENO_POR_VERIFICACION);
-      anotarIntento(nota, FRENO_POR_VERIFICACION.motivo, { baja: true, fuentes: origenesDe(nota).length });
+      anotarIntento(nota, FRENO_POR_VERIFICACION.motivo, { baja: true, fuentes: origenesDe(nota).length }, vuelta);
       continue;
     }
 
     // Con un modelo gratis de OpenRouter, queda anotado cuál (intentos-ia.json y el registro): lo escribió igual que Gemini, pero se sabe.
-    anotarIntento(nota, 'con cuerpo', r.modeloIA ? { modelo: r.modeloIA } : {});
+    anotarIntento(nota, 'con cuerpo', r.modeloIA ? { modelo: r.modeloIA } : {}, vuelta);
     if (r.modeloIA) { cuenta.openrouter += 1; registro(`  escrita con OpenRouter · nota ${nota.id} · ${r.modeloIA}`); }
     cuenta.conCuerpo += 1;
     resultado[nota.id] = {

@@ -85,12 +85,14 @@ queda como estaba escrita.
 Los pedidos del día se cuentan con los intentos guardados en
 `web/data/intentos-ia.json` (`pedidasHoy`). Cada intento guarda cuántos van, cuándo
 fue el último y por qué: `{"intentos":1,"ultimo":"2026-09-27T13:31:22Z","motivo":"título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice"}`.
+Desde el 24/10 (regla 308) también `textos` (cuántos textos completos le llegaron a la IA), `numeradas` (cuántas fuentes numeradas) y `motivos`: los rechazos de todos los intentos y no sólo el último (hasta 4, de 70 caracteres, sin repetir uno seguido). Sirve para medir falsos rechazos y la entrada.
 
 **Una falla del servicio no cuenta como intento** (`FALLA_DEL_SERVICIO`): sin cupo,
 503, sin red, sin clave, tiempo agotado, y también **una clave rechazada o sin
 crédito (401, 402, 403)**: si no, cuando Google desactiva una clave cada nota
-gastaría sus tres intentos y se perdería para siempre. Una respuesta que no sirve,
-sí cuenta.
+gastaría sus tres intentos y se perdería para siempre. Desde el 24/10 (regla 308)
+tampoco el **400 "User location is not supported"** (la clave de redes desde donde
+sale el pedido). Una respuesta que no sirve, sí cuenta.
 
 **Una nota que ya dio verificación BAJA** no se vuelve a pedir, salvo que hoy
 tenga más fuentes que entonces.
@@ -103,11 +105,19 @@ tenga más fuentes que entonces.
    recibía el texto de una sola fuente y 280 caracteres de las demás. Ahora:
    - se intenta bajar el texto de **hasta 6 fuentes** (la principal siempre, de su
      `enlaceFeed` si es Blogger; las oficiales antes que las demás:
-     `REESCRITURA.fuentesQueSeBajan`);
-   - a la IA le llegan **hasta 4 textos completos** (`textosCompletosMaximo`), cada
-     uno con su número, su medio y su fecha, con tope de **4.000 caracteres cada uno
-     y 12.000 entre todos** (`caracteresDelTextoCompleto`, `caracteresDeTextosEnTotal`);
-     un texto que no suma nada nuevo no se manda;
+     `REESCRITURA.fuentesQueSeBajan`); si la cuentan 8 medios o más (`MUY_CONTADA.medios`),
+     **hasta 8** (`fuentesQueSeBajanMuyContada`), con las oficiales primero y después un
+     enlace por medio distinto antes de repetir uno (regla 308);
+   - a la IA le llegan **TODAS las fuentes de la historia, numeradas, cada una con su
+     titular y su resumen** (sin tope de cantidad: Hernán, 24/10, regla 308);
+   - el **texto completo** es lo único con presupuesto, no con un número fijo de textos:
+     entre todos **12.000 caracteres** (`caracteresDeTextosEnTotal`) y **4.000 como mucho
+     cada uno** (`caracteresDelTextoCompleto`). Entran en este orden de prioridad: la oficial,
+     después un medio que todavía no tiene texto elegido, y entre ésos el que más datos
+     nuevos trae; se sigue mientras quede lugar para un texto de 800 caracteres como mínimo
+     (`caracteresMinimosDeUnTexto`). Con tres textos largos entran tres; con seis cortos,
+     seis. Cada uno va con su número, su medio y su fecha; un texto que no suma nada nuevo
+     no se manda;
    - las fuentes van **numeradas por lo que aportan**: la Fuente 1 es la oficial con
      texto o, si no, la más completa (la dirección y el identificador de la nota no
      cambian, y "Fuentes consultadas" sigue en el orden de la ingesta);
@@ -115,7 +125,13 @@ tenga más fuentes que entonces.
      (`copiaEntreFuentes`: un cable, una gacetilla) son **copia**: van como "mismo
      texto que la Fuente N", con sólo lo que agregan, y cuentan como una sola voz
      para el nivel de verificación (paso 10);
-   - más de 12 fuentes, las demás sólo se nombran (`fuentesEnLaEntradaMaximo`);
+   - **cada fuente va con su titular** («titular «…»») además del resumen (regla 308): es el
+     ángulo con que cada medio cuenta lo mismo; el verificador lo cuenta como material mandado;
+   - de las fuentes sin texto completo la IA lee el titular y el resumen del feed (280
+     caracteres). Costo medido el 24/10 con 8 muy contadas y 12 comunes reales: el pedido de
+     una muy contada pesa unos 9.100 tokens (el máximo, 9.700; antes, 7.400) y el de una
+     común, unos 5.450 (antes, 5.260). Con unas 20 muy contadas por día son +35.000
+     tokens: cabe sobrado en el cupo gratis de Gemini (unos 1,3 millones diarios en uso hoy);
    - el texto llega limpio (`limpiarTextoBajado`): sin letras rotas, pies de nota ni
      párrafos de otra nota de la página.
 

@@ -243,18 +243,31 @@ test('la gacetilla del municipio repetida por una radio (Bilbao, § 3.6): sale d
 /** Un texto de `parrafos` párrafos con palabras propias de la fuente `n` (no se parece a ningún otro). */
 const textoPropio = (n, parrafos = 12) => Array.from({ length: parrafos }, (_, p) => Array.from({ length: 60 }, (__, k) => `fuente${'abcdefgh'[n]}dato${p}x${k}`).join(' ')).join('\n');
 
-test('hasta cuatro textos completos: cada uno con su tope y, entre todos, no más de 12.000 caracteres; el quinto, con su resumen', () => {
-  assert.equal(REESCRITURA.textosCompletosMaximo, 4);
+test('los textos completos entran por presupuesto: cada uno con su tope y, entre todos, no más de 12.000 caracteres; los que no entran, con su resumen', () => {
   assert.equal(REESCRITURA.caracteresDeTextosEnTotal, 12000);
+  assert.equal(REESCRITURA.textosCompletosMaximo, undefined, 'no hay un número fijo de textos');
   const origenes = Array.from({ length: 5 }, (_, i) => ({ medio: `Medio ${i + 1}`, enlace: `https://m${i}/n`, fecha: null, oficial: false, resumen: `Resumen del medio ${i + 1}.` }));
   const textos = origenes.map((_, i) => ({ indice: i, texto: textoPropio(i).slice(0, REESCRITURA.caracteresDelTextoCompleto) }));
   const { fuentes } = armarFuentesParaLaIA(origenes, textos, { titulo: 'Una nota' });
   const conTexto = fuentes.filter((f) => f.texto);
-  assert.equal(conTexto.length, 4);
-  for (const f of conTexto) assert.ok(f.texto.length <= 3000, `${f.medio}: ${f.texto.length}`);
+  assert.equal(conTexto.length, 3, 'tres de 4.000 llenan los 12.000');
+  for (const f of conTexto) assert.ok(f.texto.length <= REESCRITURA.caracteresDelTextoCompleto, `${f.medio}: ${f.texto.length}`);
   assert.ok(conTexto.reduce((s, f) => s + f.texto.length, 0) <= 12000);
-  assert.equal(fuentes.length, 5, 'la quinta sigue numerada, con su resumen');
+  assert.equal(fuentes.length, 5, 'las demás siguen numeradas, con su resumen');
   assert.equal(fuentes[4].texto, null);
+  // Con textos cortos entran más: son seis de 1.800 caracteres, que caben juntos (10.800).
+  const cortos = origenes.concat({ medio: 'Medio 6', enlace: 'https://m6/n', resumen: 'Resumen 6.' });
+  const seis = armarFuentesParaLaIA(cortos, cortos.map((_, i) => ({ indice: i, texto: textoPropio(i % 8).slice(0, 1800) })), { titulo: 'Una nota' });
+  assert.equal(seis.fuentes.filter((f) => f.texto).length, 6, 'no hay un número fijo de textos: manda el presupuesto');
+});
+
+test('el texto completo se elige con un medio distinto antes que un segundo texto del mismo medio', () => {
+  const origenes = ['A', 'A', 'B', 'C'].map((m, i) => ({ medio: m, enlace: `https://${m}/${i}`, resumen: `Resumen ${i}.` }));
+  // El texto 0 es el más largo; el 1 (también de A) tiene más palabras fuertes nuevas que el 2, pero el 2 y el 3 son de otros medios.
+  const textos = [3800, 3900, 3000, 3000].map((n, i) => ({ indice: i, texto: textoPropio(i).slice(0, n) }));
+  const { fuentes } = armarFuentesParaLaIA(origenes, textos, { total: 9000 });
+  const medios = fuentes.filter((f) => f.texto).map((f) => f.medio);
+  assert.equal(new Set(medios).size, medios.length, `un texto por medio mientras alcance: ${medios}`);
 });
 
 test('los topes se reparten: lo que un texto corto no usa lo usan los largos', () => {
@@ -286,11 +299,12 @@ test('la nota de una sola fuente se arma como siempre: "una sola" y el texto com
   assert.match(g.pedidos[0], /Texto completo de la Fuente 1 \(NA, publicada el jueves 15\/10\/2026; de acá sale la mayor parte de lo que podés contar en el cuerpo\):/);
 });
 
-test('más de doce fuentes: las que sobran van nombradas, sin número ni resumen', () => {
-  const origenes = Array.from({ length: 15 }, (_, i) => ({ medio: `Medio ${i + 1}`, resumen: `Resumen ${i + 1}.` }));
-  const { fuentes, sinNumero } = armarFuentesParaLaIA(origenes, []);
-  assert.equal(fuentes.length, REESCRITURA.fuentesEnLaEntradaMaximo);
-  assert.deepEqual(sinNumero, ['Medio 13', 'Medio 14', 'Medio 15']);
+test('todas las fuentes van numeradas, con su resumen: no hay tope de cantidad (regla 308)', () => {
+  const origenes = Array.from({ length: 40 }, (_, i) => ({ medio: `Medio ${i + 1}`, resumen: `Resumen ${i + 1}.` }));
+  const r = armarFuentesParaLaIA(origenes, []);
+  assert.equal(r.fuentes.length, 40);
+  assert.equal(r.sinNumero, undefined);
+  assert.equal(REESCRITURA.fuentesEnLaEntradaMaximo, undefined);
 });
 
 test('se bajan los textos de hasta seis fuentes, la principal siempre y las oficiales antes que el resto', async () => {

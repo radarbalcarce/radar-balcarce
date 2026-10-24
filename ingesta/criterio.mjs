@@ -124,16 +124,19 @@ export const REESCRITURA = {
   porDiaSinClaveDeLectura: 330,
   // El texto completo de CADA fuente que recibe la IA (lo corta ingesta/articulo.mjs al bajarlo).
   caracteresDelTextoCompleto: 4000,
-  // La entrada ampliada (15/10, regla 174; ingesta/fuentes-para-la-ia.mjs): la IA recibe el texto
-  // completo de hasta `textosCompletosMaximo` fuentes (antes, de una sola), y entre todos no pasan de
-  // `caracteresDeTextosEnTotal` (con cuatro de 4.000, 3.000 cada uno). Se intenta bajar el texto de
-  // hasta `fuentesQueSeBajan` fuentes para elegir las más completas; en la entrada van numeradas hasta
-  // `fuentesEnLaEntradaMaximo` (las demás, sólo nombradas). Dos textos con `copiaEntreFuentes` % o más
+  // La entrada ampliada (15/10, regla 174; ingesta/fuentes-para-la-ia.mjs): la IA recibe TODAS las fuentes de la historia,
+  // numeradas, cada una con su titular y su resumen (sin tope de cantidad: 24/10, regla 308, Hernán). El texto completo es lo
+  // único con presupuesto: entre todos no pasa de `caracteresDeTextosEnTotal`, y se van sumando textos (la oficial primero, después un medio
+  // distinto de los ya elegidos y el que más datos nuevos trae) mientras quede lugar para uno de al menos `caracteresMinimosDeUnTexto`;
+  // no hay un número fijo de textos (con tres de 4.000 entran tres; con seis de 2.000, seis). Para elegir los más completos se intenta
+  // bajar el texto de hasta `fuentesQueSeBajan` fuentes (red, no cupo de IA). Dos textos con `copiaEntreFuentes` % o más
   // de sus tramos de cinco palabras en común son copia (un cable, una gacetilla): cuentan como una voz.
-  textosCompletosMaximo: 4,
   caracteresDeTextosEnTotal: 12000,
+  caracteresMinimosDeUnTexto: 800,
   fuentesQueSeBajan: 6,
-  fuentesEnLaEntradaMaximo: 12,
+  // Si la cuentan `MUY_CONTADA.medios` medios o más: se bajan más textos para elegir con más diversidad de medio (el presupuesto de
+  // caracteres no cambia: el pedido medio de una muy contada pesa unos 9.000 tokens, medido el 24/10).
+  fuentesQueSeBajanMuyContada: 8,
   copiaEntreFuentes: 50,
   diasDeAntecedentes: 30,
   antecedentesMaximo: 3,
