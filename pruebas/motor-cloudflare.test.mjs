@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { ARCHIVOS_DEL_MOTOR, fotografiar, cambiosDesde, rutasExistentes, shaDeArchivo } from '../infra/motor-cloudflare/archivos.mjs';
 import {
-  debeCorrer, sumarVuelta, registroVacio, mesDe, diasDelMes, fraccionDelMes, MINUTOS_INCLUIDOS, MARGEN, HORAS_MAXIMAS_SIN_VUELTA, MINUTOS_DE_MAS_POR_VUELTA,
+  debeCorrer, sumarVuelta, registroVacio, mesDe, cicloDe, claveDelCiclo, diasDelCiclo, fraccionDelCiclo, MINUTOS_INCLUIDOS, MARGEN, HORAS_MAXIMAS_SIN_VUELTA, MINUTOS_DE_MAS_POR_VUELTA,
 } from '../infra/motor-cloudflare/presupuesto.mjs';
 import {
   restaurarCache, guardarCache, tomarCandado, soltarCandado, anotarVuelta, CLAVE_DEL_CANDADO, CLAVE_DEL_ESTADO,
@@ -60,54 +60,57 @@ test('fotografiar y cambiosDesde: lo nuevo, lo cambiado y lo borrado salen; lo i
 
 const en = (iso) => new Date(`${iso}-03:00`);
 
-test('el mes, sus días y qué parte pasó, en hora de Balcarce', () => {
+test('el mes y el ciclo de facturación, sus días y qué parte pasó, en hora de Balcarce', () => {
   assert.equal(mesDe(en('2026-10-31T23:30:00')), '2026-10');
   assert.equal(mesDe(new Date('2026-11-01T01:00:00Z')), '2026-10', '1/11 01:00 UTC todavía es 31/10 en Balcarce');
-  assert.equal(diasDelMes('2026-10'), 31);
-  assert.equal(diasDelMes('2026-02'), 28);
-  assert.ok(Math.abs(fraccionDelMes(en('2026-10-16T12:00:00')) - 15.5 / 31) < 1e-9);
+  assert.equal(cicloDe(en('2026-10-24T10:00:00')), '2026-10-11');
+  assert.equal(diasDelCiclo('2026-10-11'), 31);
+  assert.equal(diasDelCiclo('2027-02-11'), 28);
+  assert.ok(Math.abs(fraccionDelCiclo(en('2026-10-26T12:00:00')) - 15.5 / 31) < 1e-9);
 });
 
 test('dentro del presupuesto corre; pasado de lo que corresponde se saltea, salvo que lleve horas sin una vuelta buena', () => {
-  const ahora = en('2026-10-10T12:00:00');
+  const ahora = en('2026-10-21T12:00:00');
   assert.equal(debeCorrer({ registro: null, ahora }).correr, true);
-  const gastoJusto = { ...registroVacio('2026-10'), segundos: 60 * 1000 }; // 1.000 min a mitad del mes
+  const gastoJusto = { ...registroVacio('2026-10-11'), segundos: 60 * 1000 }; // 1.000 min el día 21
   assert.equal(debeCorrer({ registro: gastoJusto, ahora }).correr, true);
-  const pasado = { ...registroVacio('2026-10'), segundos: 60 * 3000 }; // 3.000 min el día 10: les corresponden ~1.900
-  const r = debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-10T11:30:00').toISOString(), ahora });
+  const pasado = { ...registroVacio('2026-10-11'), segundos: 60 * 3000 }; // 3.000 min el día 21: les corresponden ~1.900
+  const r = debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-21T11:30:00').toISOString(), ahora });
   assert.equal(r.correr, false);
   assert.match(r.motivo, /se salteó/);
   assert.equal(r.incluidos, MINUTOS_INCLUIDOS);
   // hace más de 3 horas que no hay una vuelta buena: corre igual (la web no se queda sin actualizar por ahorrar)
-  const tarde = debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-10T08:30:00').toISOString(), ahora });
+  const tarde = debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-21T08:30:00').toISOString(), ahora });
   assert.equal(tarde.correr, true);
   assert.match(tarde.motivo, /hace 3\.5 h/);
   assert.equal(debeCorrer({ registro: pasado, ultimaVueltaBuena: null, ahora }).correr, true, 'sin ninguna vuelta buena anotada, corre');
-  assert.equal(debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-10T11:30:00').toISOString(), ahora, sinTope: true }).correr, true, 'MOTOR_SIN_TOPE');
-  // un registro de otro mes no cuenta
-  assert.equal(debeCorrer({ registro: { ...pasado, mes: '2026-09' }, ahora }).correr, true);
+  assert.equal(debeCorrer({ registro: pasado, ultimaVueltaBuena: en('2026-10-21T11:30:00').toISOString(), ahora, sinTope: true }).correr, true, 'MOTOR_SIN_TOPE');
+  // un registro de otro ciclo no cuenta
+  assert.equal(debeCorrer({ registro: { ...pasado, ciclo: '2026-09-11' }, ahora }).correr, true);
 });
 
-test('sumarVuelta acumula por mes y por día, con el medio minuto de más por vuelta', () => {
+test('sumarVuelta acumula por ciclo y por día, con el medio minuto de más por vuelta', () => {
   const a = en('2026-10-18T10:00:00');
   let reg = sumarVuelta(null, { segundos: 270, ahora: a });
   reg = sumarVuelta(reg, { segundos: 270, ahora: new Date(a.getTime() + 1800e3) });
-  assert.equal(reg.mes, '2026-10');
+  assert.equal(reg.ciclo, '2026-10-11');
   assert.equal(reg.vueltas, 2);
   assert.equal(reg.segundos, 2 * (270 + MINUTOS_DE_MAS_POR_VUELTA * 60));
   assert.deepEqual(reg.porDia['2026-10-18'], { s: 600, n: 2 });
-  // el mes siguiente arranca de cero
-  assert.equal(sumarVuelta(reg, { segundos: 60, ahora: en('2026-11-01T00:30:00') }).vueltas, 1);
+  // el cambio de mes NO reinicia el ciclo (regla 315): sigue hasta el 10/11 a la noche y el 11/11 arranca de cero
+  assert.equal(sumarVuelta(reg, { segundos: 60, ahora: en('2026-11-01T00:30:00') }).vueltas, 3);
+  assert.equal(sumarVuelta(reg, { segundos: 60, ahora: en('2026-11-10T23:30:00') }).vueltas, 3);
+  assert.equal(sumarVuelta(reg, { segundos: 60, ahora: en('2026-11-11T00:00:00') }).vueltas, 1);
 });
 
-test('un mes entero a una vuelta cada media hora de 4,5 minutos: el presupuesto la frena antes de pasar de los 6.000 minutos incluidos y nunca deja la web más de 3 horas sin vuelta', () => {
+test('un ciclo entero a una vuelta cada media hora de 4,5 minutos: el presupuesto la frena antes de pasar de los 6.000 minutos incluidos y nunca deja la web más de 3 horas sin vuelta', () => {
   let registro = null;
   let ultimaBuena = null;
   let corridas = 0;
   let saltadas = 0;
   let maxSinVuelta = 0;
-  const inicio = en('2026-10-01T00:00:00').getTime();
-  for (let t = inicio; t < en('2026-11-01T00:00:00').getTime(); t += 1800e3) {
+  const inicio = en('2026-10-11T00:00:00').getTime();
+  for (let t = inicio; t < en('2026-11-11T00:00:00').getTime(); t += 1800e3) {
     const ahora = new Date(t);
     const d = debeCorrer({ registro, ultimaVueltaBuena: ultimaBuena, ahora });
     if (!d.correr) { saltadas += 1; if (ultimaBuena) maxSinVuelta = Math.max(maxSinVuelta, (t - new Date(ultimaBuena).getTime()) / 3600e3); continue; }
@@ -125,7 +128,7 @@ test('un mes entero a una vuelta cada media hora de 4,5 minutos: el presupuesto 
 test('con vueltas más cortas (3,5 min) corre las 48 de cada día y no saltea ninguna', () => {
   let registro = null;
   let saltadas = 0;
-  for (let t = en('2026-10-01T00:00:00').getTime(); t < en('2026-11-01T00:00:00').getTime(); t += 1800e3) {
+  for (let t = en('2026-10-11T00:00:00').getTime(); t < en('2026-11-11T00:00:00').getTime(); t += 1800e3) {
     const ahora = new Date(t);
     if (!debeCorrer({ registro, ultimaVueltaBuena: null, ahora }).correr) { saltadas += 1; continue; }
     registro = sumarVuelta(registro, { segundos: 3.5 * 60, ahora });
@@ -170,7 +173,7 @@ test('el candado: una vuelta que anda lo bloquea, una colgada de más de 25 minu
   assert.equal(texto(CLAVE_DEL_CANDADO), null);
 });
 
-test('anotarVuelta guarda el estado, conserva la última buena si esta falló y suma los minutos del mes', async () => {
+test('anotarVuelta guarda el estado, conserva la última buena si esta falló y suma los minutos del ciclo', async () => {
   const { cliente, texto } = r2Falso();
   const t = new Date('2026-10-18T13:00:00Z');
   await anotarVuelta(cliente, { id: 'v1', ok: true, segundos: 270, ahora: t });
@@ -178,7 +181,8 @@ test('anotarVuelta guarda el estado, conserva la última buena si esta falló y 
   const estado = JSON.parse(texto(CLAVE_DEL_ESTADO));
   assert.equal(estado.ok, false);
   assert.equal(estado.ultimaBuena, t.toISOString(), 'la última buena sigue siendo la primera');
-  const mes = JSON.parse(texto('motor/minutos/2026-10.json'));
+  const mes = JSON.parse(texto('motor/minutos/2026-10-11.json'));
+  assert.equal(mes.ciclo, '2026-10-11');
   assert.equal(mes.vueltas, 2);
   assert.equal(mes.segundos, 270 + 120 + 2 * MINUTOS_DE_MAS_POR_VUELTA * 60);
 });
@@ -255,7 +259,7 @@ test('una vuelta buena hace lo mismo que el workflow, en el mismo orden, y guard
   assert.equal(estado.historial[0].ok, true);
   assert.ok(e.comandos.find((c) => /generar-datos/.test(c.args)), 'se pidió capturar la salida del armado');
   assert.equal(r2.texto(CLAVE_DEL_CANDADO), null);
-  assert.equal(JSON.parse(r2.texto('motor/minutos/2026-10.json')).vueltas, 1);
+  assert.equal(JSON.parse(r2.texto('motor/minutos/2026-10-11.json')).vueltas, 1);
 });
 
 test('si falla el núcleo legal no se arma, no se guarda, no se sube, se avisa y se suelta el candado', async () => {
@@ -366,7 +370,7 @@ test('la configuración lee el entorno sin inventar nada y el tope de tiempo dej
 test('el Worker del motor cuenta su estado sólo con la contraseña y no cambia nada', async () => {
   const deposito = bindingR2Falso({
     'motor/estado.json': JSON.stringify({ ok: true, cuando: '2026-10-18T13:00:00Z', ultimaBuena: '2026-10-18T13:00:00Z' }),
-    'motor/minutos/2026-10.json': JSON.stringify({ mes: '2026-10', segundos: 120000, vueltas: 400, porDia: {} }),
+    [claveDelCiclo(cicloDe(new Date()))]: JSON.stringify({ ciclo: cicloDe(new Date()), segundos: 120000, vueltas: 400, porDia: {} }),
   });
   const pedir = (ruta, token) => motorWorker.fetch(new Request(`https://x${ruta}`, { headers: token ? { 'x-token': token } : {} }), { MOTOR: deposito, VIGILANTE_TOKEN: 'secreto' });
   assert.equal((await pedir('/')).status, 200);
@@ -514,7 +518,7 @@ test('regla 311: con TARJETAS_EN_R2 la vuelta sube a R2 sólo las imágenes nuev
   assert.equal(compilacion.env.TARJETAS_EN_R2, 'Si');
   assert.equal(compilacion.env.R2_MOTOR, 'radar-motor');
   // el registro de minutos guarda el tiempo de cada paso, que la vuelta compiló y el extra configurado (1 minuto en vez de medio)
-  const mes = JSON.parse(r2.texto('motor/minutos/2026-10.json'));
+  const mes = JSON.parse(r2.texto('motor/minutos/2026-10-11.json'));
   assert.equal(mes.compiladas, 1);
   assert.equal(mes.sinCompilar, 0);
   assert.equal(mes.segundos, 60, 'la vuelta de mentira dura 0 segundos: sólo queda el minuto de más de MOTOR_MINUTOS_DE_MAS');
@@ -539,7 +543,7 @@ test('regla 311: apagada (sin la variable), en simulacro, o si la vuelta no comp
   assert.equal(res.ok, true, res.motivo);
   assert.ok(!b.comandos.some((c) => c.args === 'run build'), 'no compiló');
   assert.deepEqual(rb.registro.filter(([, k]) => String(k).startsWith('motor/tarjetas')), []);
-  const mes = JSON.parse(rb.texto('motor/minutos/2026-10.json'));
+  const mes = JSON.parse(rb.texto('motor/minutos/2026-10-11.json'));
   assert.equal(mes.sinCompilar, 1, 'el registro cuenta las vueltas que no compilaron');
   assert.equal(mes.compiladas, 0);
   // simulacro: no escribe nada en R2

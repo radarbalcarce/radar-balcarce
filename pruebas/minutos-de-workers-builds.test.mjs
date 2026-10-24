@@ -43,9 +43,9 @@ test('regla 312: el registro del mes suma el tiempo de cada paso, las vueltas qu
   const f = sumarVuelta(reg, { segundos: 60, ahora: a, compilo: null });
   assert.equal(f.compiladas + f.sinCompilar, 2);
   // un registro viejo (sin pasos) se sigue entendiendo
-  const viejo = { mes: '2026-10', segundos: 600, vueltas: 2, porDia: {}, actualizado: null };
+  const viejo = { ciclo: '2026-10-11', segundos: 600, vueltas: 2, porDia: {}, actualizado: null };
   assert.equal(sumarVuelta(viejo, { segundos: 60, ahora: a }).vueltas, 3);
-  assert.deepEqual(registroVacio('2026-10').pasos, {});
+  assert.deepEqual(registroVacio('2026-10-11').pasos, {});
 });
 
 test('regla 312: MOTOR_MINUTOS_DE_MAS cambia el «medio minuto de más» de cada vuelta sin tocar código (0 a 10; roto o vacío, 0,5)', () => {
@@ -60,9 +60,9 @@ test('regla 312: MOTOR_MINUTOS_DE_MAS cambia el «medio minuto de más» de cada
 });
 
 test('regla 312: la proyección usa lo que de verdad tardan las vueltas y avisa antes de que el presupuesto empiece a saltearlas', () => {
-  // El 8/10 al mediodía (7,5 de 31 días): 360 vueltas de 14 minutos, medidas
-  const ahora = en('2026-10-08T12:00:00');
-  const medido = { ...registroVacio('2026-10'), vueltas: 360, segundos: 360 * 14 * 60, pasos: { 'Compilar el sitio': 360 * 400, 'Buscar noticias y armar los datos': 360 * 120, 'Archivar las notas por salir (R2)': 360 * 300 } };
+  // El 18/10 al mediodía (7,5 de los 31 días del ciclo que arrancó el 11/10): 360 vueltas de 14 minutos, medidas
+  const ahora = en('2026-10-18T12:00:00');
+  const medido = { ...registroVacio('2026-10-11'), vueltas: 360, segundos: 360 * 14 * 60, pasos: { 'Compilar el sitio': 360 * 400, 'Buscar noticias y armar los datos': 360 * 120, 'Archivar las notas por salir (R2)': 360 * 300 } };
   const p = proyectar({ registro: medido, ahora, vueltasPorDiaPedidas: 48 });
   assert.equal(p.medido, true);
   assert.equal(p.porVuelta, 14);
@@ -73,13 +73,14 @@ test('regla 312: la proyección usa lo que de verdad tardan las vueltas y avisa 
   assert.ok(p.cadaMinutos > 240);
   assert.equal(p.masPesados[0].nombre, 'Compilar el sitio', 'el paso más pesado, primero');
   const aviso = avisoDeMinutos(p);
-  assert.match(aviso.titulo, /se pasa de los 6000 minutos/);
+  assert.match(aviso.titulo, /se pasa de los 6000 minutos del ciclo/);
+  assert.match(aviso.texto, /11\/10 al 10\/11/, 'el aviso dice qué ciclo de facturación es');
   assert.match(aviso.texto, /14 minutos en promedio/);
   assert.match(aviso.texto, /Compilar el sitio/);
   assert.match(aviso.texto, /MOTOR_NOCHE_CADA_HORA/);
   assert.match(aviso.texto, /MOTOR_SIN_TOPE/);
   // vueltas de 4 minutos: cabe (40 por día × 4 min × 30 días = 4.800)
-  const cabe = { ...registroVacio('2026-10'), vueltas: 360, segundos: 360 * 4 * 60 };
+  const cabe = { ...registroVacio('2026-10-11'), vueltas: 360, segundos: 360 * 4 * 60 };
   const q = proyectar({ registro: cabe, ahora, vueltasPorDiaPedidas: 40 });
   assert.equal(q.pasa, false);
   assert.equal(avisoDeMinutos(q), null, 'si cabe, no se avisa');
@@ -87,15 +88,15 @@ test('regla 312: la proyección usa lo que de verdad tardan las vueltas y avisa 
 });
 
 test('regla 312: con pocas vueltas medidas no se avisa de nada (un promedio de dos vueltas no dice nada) y se usa el valor de diseño', () => {
-  const ahora = en('2026-10-02T12:00:00');
-  const pocas = { ...registroVacio('2026-10'), vueltas: VUELTAS_PARA_CONFIAR - 1, segundos: (VUELTAS_PARA_CONFIAR - 1) * 20 * 60 };
+  const ahora = en('2026-10-13T12:00:00');
+  const pocas = { ...registroVacio('2026-10-11'), vueltas: VUELTAS_PARA_CONFIAR - 1, segundos: (VUELTAS_PARA_CONFIAR - 1) * 20 * 60 };
   const p = proyectar({ registro: pocas, ahora });
   assert.equal(p.medido, false);
   assert.equal(p.pasa, false);
   assert.equal(p.porVuelta, 5);
   assert.equal(avisoDeMinutos(p), null);
   assert.equal(proyectar({ registro: null, ahora }).gastado, 0);
-  assert.equal(proyectar({ registro: { ...pocas, mes: '2026-09' }, ahora }).vueltas, 0, 'el registro de otro mes no cuenta');
+  assert.equal(proyectar({ registro: { ...pocas, ciclo: '2026-09-11' }, ahora }).vueltas, 0, 'el registro de otro ciclo no cuenta');
 });
 
 test('regla 312: la vuelta de noche en una por hora son 40 vueltas por día en vez de 48', () => {
@@ -113,15 +114,19 @@ test('regla 312: la vuelta de noche en una por hora son 40 vueltas por día en v
 });
 
 test('regla 312: el estado del motor (GET /estado) lleva la proyección, el aviso y los números del mes', async () => {
-  const ahora = en('2026-10-08T12:00:00');
-  const registro = { ...registroVacio('2026-10'), vueltas: 360, segundos: 360 * 14 * 60, compiladas: 300, sinCompilar: 60, masLarga: 1200 };
-  const deposito = bindingR2Falso({ 'motor/minutos/2026-10.json': JSON.stringify(registro), 'motor/estado.json': JSON.stringify({ ultimaBuena: ahora.toISOString() }) });
+  const ahora = en('2026-10-18T12:00:00');
+  const registro = { ...registroVacio('2026-10-11'), vueltas: 360, segundos: 360 * 14 * 60, compiladas: 300, sinCompilar: 60, masLarga: 1200 };
+  const deposito = bindingR2Falso({ 'motor/minutos/2026-10-11.json': JSON.stringify(registro), 'motor/estado.json': JSON.stringify({ ultimaBuena: ahora.toISOString() }) });
   const e = await estadoDelMotor(deposito, ahora, { MOTOR_NOCHE_CADA_HORA: 'Si' });
   assert.equal(e.proyeccion.vueltasPorDiaPedidas, 40);
   assert.equal(e.proyeccion.pasa, true);
   assert.ok(e.aviso.titulo);
-  assert.equal(e.mes.compiladas, 300);
-  assert.equal(e.mes.masLargaMinutos, 20);
+  assert.equal(e.registro.compiladas, 300);
+  assert.equal(e.registro.masLargaMinutos, 20);
+  assert.equal(e.ciclo.ciclo, '2026-10-11', 'GET /estado dice de qué ciclo de facturación son los minutos');
+  assert.equal(e.ciclo.hasta, '2026-11-10');
+  assert.equal(e.ciclo.minutos, 5040);
+  assert.equal(e.proyeccion.ciclo, '2026-10-11');
   assert.ok(e.presupuesto, 'lo de siempre sigue');
   const sinDatos = await estadoDelMotor(bindingR2Falso(), ahora);
   assert.equal(sinDatos.aviso, null);
@@ -395,5 +400,5 @@ test('regla 312: los puntos del código quedan atados entre sí (la lectura y la
 test('regla 312: el límite de plata no cambió: 6.000 minutos incluidos', () => {
   assert.equal(MINUTOS_INCLUIDOS, 6000);
   // y el presupuesto de siempre sigue andando con un registro de antes de la regla (sin pasos)
-  assert.equal(debeCorrer({ registro: { mes: '2026-10', segundos: 0, vueltas: 0, porDia: {} }, ahora: en('2026-10-10T12:00:00') }).correr, true);
+  assert.equal(debeCorrer({ registro: { ciclo: '2026-10-11', segundos: 0, vueltas: 0, porDia: {} }, ahora: en('2026-10-21T12:00:00') }).correr, true);
 });

@@ -2,11 +2,11 @@
 // (eso lo hace vuelta.mjs dentro de la compilación): sólo cuenta cómo viene el motor, para el vigilante y para mirar desde el celular.
 //
 //   GET /          → «en hora» (no gasta nada)
-//   GET /estado    → con el encabezado x-token (VIGILANTE_TOKEN): cómo terminó la última vuelta y cuántos minutos de compilación lleva el mes
+//   GET /estado    → con el encabezado x-token (VIGILANTE_TOKEN): cómo terminó la última vuelta y cuántos minutos de compilación lleva el ciclo de facturación (del 11 al 10)
 //
 // Lee de R2 (binding MOTOR, el depósito `radar-motor`) lo que escribe la vuelta (estado-r2.mjs). Sin dependencias.
 
-import { mesDe, claveDelMes, debeCorrer, proyectar, vueltasPorDia, avisoDeMinutos } from './presupuesto.mjs';
+import { leerRegistroDelCiclo, cicloDiaDe, debeCorrer, proyectar, vueltasPorDia, avisoDeMinutos } from './presupuesto.mjs';
 
 const CLAVE_DEL_ESTADO = 'motor/estado.json';
 
@@ -27,14 +27,17 @@ async function leerJson(deposito, clave) {
 
 /** El estado del motor tal como lo ve el vigilante. */
 export async function estadoDelMotor(deposito, ahora = new Date(), env = {}) {
-  const [ultima, registro] = await Promise.all([leerJson(deposito, CLAVE_DEL_ESTADO), leerJson(deposito, claveDelMes(mesDe(ahora)))]);
-  const presupuesto = debeCorrer({ registro, ultimaVueltaBuena: ultima?.ultimaBuena ?? null, ahora });
-  // 24/10/2026 (regla 312): cuánto llevaría el mes al ritmo pedido con lo que de verdad tardan las vueltas, y en qué pasos se van los minutos.
+  // 24/10/2026 (regla 315): los minutos se cuentan por ciclo de facturación de Cloudflare (del 11 al 10 si MOTOR_CICLO_DIA no dice otro día), no por mes.
+  const cicloDia = cicloDiaDe(env);
+  const [ultima, registro] = await Promise.all([leerJson(deposito, CLAVE_DEL_ESTADO), leerRegistroDelCiclo((clave) => leerJson(deposito, clave), ahora, cicloDia)]);
+  const presupuesto = debeCorrer({ registro, ultimaVueltaBuena: ultima?.ultimaBuena ?? null, ahora, cicloDia });
+  // 24/10/2026 (regla 312): cuánto llevaría el ciclo al ritmo pedido con lo que de verdad tardan las vueltas, y en qué pasos se van los minutos.
   // Lo lee el vigilante para avisar antes de que el presupuesto empiece a saltear vueltas.
-  const proyeccion = proyectar({ registro, ahora, vueltasPorDiaPedidas: vueltasPorDia(env) });
+  const proyeccion = proyectar({ registro, ahora, vueltasPorDiaPedidas: vueltasPorDia(env), cicloDia });
   return {
     ultima,
-    mes: registro ? { mes: registro.mes, minutos: Math.round((registro.segundos ?? 0) / 60), vueltas: registro.vueltas, compiladas: registro.compiladas ?? null, sinCompilar: registro.sinCompilar ?? null, masLargaMinutos: registro.masLarga ? Math.round(registro.masLarga / 6) / 10 : null } : null,
+    ciclo: { ciclo: proyeccion.ciclo, desde: proyeccion.desde, hasta: proyeccion.hasta, dias: proyeccion.dias, diasQueFaltan: proyeccion.diasQueFaltan, cicloDia, minutos: proyeccion.gastado, vueltas: proyeccion.vueltas, incluidos: proyeccion.incluidos },
+    registro: registro ? { ciclo: registro.ciclo, migradoDe: registro.migradoDe ?? null, minutos: Math.round((registro.segundos ?? 0) / 60), vueltas: registro.vueltas, compiladas: registro.compiladas ?? null, sinCompilar: registro.sinCompilar ?? null, masLargaMinutos: registro.masLarga ? Math.round(registro.masLarga / 6) / 10 : null } : null,
     presupuesto,
     proyeccion,
     aviso: avisoDeMinutos(proyeccion),

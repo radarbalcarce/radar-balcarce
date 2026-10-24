@@ -1,6 +1,6 @@
 # Los minutos de Workers Builds: de dónde salen y cómo se bajan
 
-*24/10/2026, regla 312. Para Hernán y Andrés: la web se arma en una máquina de Cloudflare («Workers Builds») que incluye **6.000 minutos por mes**; pasados, cada minuto cuesta US$ 0,005. El motor se diseñó suponiendo vueltas de ~4,5 minutos; el 23/10 se anotaron de ~14. Con 48 vueltas por día eso se agota en pocos días y el reloj empieza a saltear vueltas (la web tarda más en actualizarse). Acá está qué se midió, qué se cambió y qué falta. Todo lo nuevo viene **apagado**; se prende con variables.*
+*24/10/2026, regla 312. Para Hernán y Andrés: la web se arma en una máquina de Cloudflare («Workers Builds») que incluye **6.000 minutos por mes**; pasados, cada minuto cuesta US$ 0,005. El motor se diseñó suponiendo vueltas de ~4,5 minutos; el 23/10 se anotaron de ~14. Con 48 vueltas por día eso se agota en pocos días y el reloj empieza a saltear vueltas (la web tarda más en actualizarse). Acá está qué se midió, qué se cambió y qué falta. Todo lo nuevo viene **apagado**; se prende con variables. **Ojo: los 6.000 minutos se cuentan por ciclo de facturación (del 11 al 10), no por mes calendario: sección 7, regla 315.***
 
 ## 1. El problema, con números
 
@@ -86,7 +86,7 @@ Ya existía y la vuelta lo usa (`huellaPublicada`). Se verificó que los pasos s
 
 ### D. El presupuesto usa el tiempo real y avisa (`proyectar`, `avisoDeMinutos`)
 
-- El registro `motor/minutos/AAAA-MM.json` suma ahora **el tiempo de cada paso** (`pasos`), las vueltas que compilaron y las que no, y la más larga. Se miden además tres pasos que antes valían 0: «Traer la memoria del cruce (R2)», «Guardar la memoria del cruce (R2)», «Guardar los datos en GitHub» (y el tiempo real de «Traer las fotos de R2»).
+- El registro `motor/minutos/AAAA-MM-DD.json` (desde la regla 315, por ciclo de facturación; antes `AAAA-MM.json`) suma ahora **el tiempo de cada paso** (`pasos`), las vueltas que compilaron y las que no, y la más larga. Se miden además tres pasos que antes valían 0: «Traer la memoria del cruce (R2)», «Guardar la memoria del cruce (R2)», «Guardar los datos en GitHub» (y el tiempo real de «Traer las fotos de R2»).
 - **`MOTOR_MINUTOS_DE_MAS`** (variable de GitHub, se carga con «Cargar variables del motor»): el medio minuto que se le suma a cada vuelta por lo que ella no ve (el clon, la cola, la instalación de la raíz). Cuando se compare el contador de Cloudflare (Workers & Pages → `radar-balcarce-motor` → Builds) con el registro, la diferencia dividida por las vueltas es el número que va. Entre 0 y 10; vacío, 0,5.
 - **`GET /estado`** del Worker del motor (con `x-token`) devuelve `proyeccion` (minutos que lleva el mes, lo que tarda una vuelta, adónde llegaría el mes **al ritmo pedido**, cuántas vueltas por día alcanzan, cada cuánto se armaría la web y los pasos que más pesan) y `aviso`.
 - **El aviso:** si el mes proyectado pasa los 6.000 minutos con al menos 12 vueltas medidas, el **vigilante de Cloudflare** manda por mail un problema `motor-minutos` («A este ritmo el armado de la web se pasa de los 6000 minutos…», con los números y las opciones), que se repite cada 24 horas mientras siga. Avisa **antes** de que el presupuesto empiece a saltear vueltas. Hoy 14 minutos por vuelta lo dispararía en cuanto haya 12 vueltas medidas.
@@ -95,7 +95,7 @@ Ya existía y la vuelta lo usa (`huellaPublicada`). Se verificó que los pasos s
 ## 4. Cómo prender cada cosa (en este orden, de a una)
 
 1. **Subir los programas** (a mano; no se suben solos): «Desplegar Workers de Cloudflare» (motor, vigilante) y «Reloj de Cloudflare». Sin variables nuevas, todo sigue como hoy; sólo se empieza a registrar el tiempo por paso y a verse la proyección.
-2. **Mirar un día el registro** (`GET /estado` del motor o `motor/minutos/AAAA-MM.json` en R2): `pasos` dice qué paso gasta más. Poner `MOTOR_MINUTOS_DE_MAS` si el contador de Cloudflare no coincide.
+2. **Mirar un día el registro** (`GET /estado` del motor o `motor/minutos/AAAA-MM-DD.json` en R2): `pasos` dice qué paso gasta más. Poner `MOTOR_MINUTOS_DE_MAS` si el contador de Cloudflare no coincide.
 3. **`TARJETAS_EN_R2=Si`** (variable de GitHub, después «Cargar variables del motor»). Primera vuelta: lenta (dibuja todo, sube 490 imágenes; el log dice `Tarjetas: N pedidas en esta compilación, N nuevas a R2`). Segunda: tiene que decir `0 nuevas` o unas pocas, y el paso «Compilar el sitio» tiene que bajar de minutos. Vuelta atrás: vaciar la variable (las imágenes quedan en R2 hasta que se borren a mano; no molestan).
 4. **`MOTOR_NOCHE_CADA_HORA=Si`** en el reloj y en el Worker del motor. Mirar la primera noche: una vuelta por hora y ningún rescate a los :50 (el log del reloj muestra `actualizar.yml` sólo a los :00).
 
@@ -120,4 +120,24 @@ Ya existía y la vuelta lo usa (`huellaPublicada`). Se verificó que los pasos s
 | Vuelta de noche por hora | `infra/reloj-cloudflare/worker.mjs` (`trabajosDelMinuto`), `nube.mjs` (`umbralDeAtraso`) |
 | El aviso | `infra/vigilante-cloudflare/worker.mjs` (`problemasDeLaNube`, problema `motor-minutos`) |
 | Variables | `MOTOR_NOCHE_CADA_HORA` (reloj y motor), `TARJETAS_EN_R2` y `MOTOR_MINUTOS_DE_MAS` (GitHub → Workers Builds por `cargar-variables.mjs`) |
-| Las pruebas | `pruebas/minutos-de-workers-builds.test.mjs`, `pruebas/motor-cloudflare.test.mjs` (la vuelta con tarjetas) |
+| Variable del ciclo de facturación | `MOTOR_CICLO_DIA` (reloj, Worker del motor y GitHub → Workers Builds por `cargar-variables.mjs`); sección 7 |
+| Las pruebas | `pruebas/minutos-de-workers-builds.test.mjs`, `pruebas/motor-cloudflare.test.mjs` (la vuelta con tarjetas), `pruebas/ciclo-de-facturacion.test.mjs` (sección 7) |
+
+## 7. El ciclo de facturación: del 11 al 10, no el mes calendario (regla 315)
+
+*24/10/2026. Cloudflare muestra el período «Oct 11 - Nov 10»: los 6.000 minutos se cuentan por **ciclo de facturación**, que arranca el día 11 de cada mes y termina el 10 del siguiente. Hasta esta regla, el presupuesto contaba y repartía por **mes calendario** de Balcarce, y entre el 1 y el 10 de cada mes su registro arrancaba de cero mientras Cloudflare seguía sumando el mismo ciclo: el freno habría creído que se gastó poco y se podía haber pasado de los 6.000 (US$ 0,005 por minuto de más).*
+
+**Qué cambió** (`infra/motor-cloudflare/presupuesto.mjs`):
+
+- **El día de arranque** es la variable `MOTOR_CICLO_DIA` (un entero de 1 a 28; vacío, roto o fuera de rango, **11**). Se pone en tres lugares, igual que `MOTOR_NOCHE_CADA_HORA`: el panel de Cloudflare del **reloj**, el del **Worker del motor**, y la variable de GitHub (se carga a Workers Builds con «Cargar variables del motor»). Sólo hace falta tocarla si Cloudflare cambia el día del ciclo (se ve en *Billing*).
+- **El registro vive por ciclo:** `motor/minutos/2026-10-11.json` (la fecha en que arrancó el ciclo). Trae `ciclo`, y el tiempo de cada paso como antes. El cambio de mes **no** lo reinicia: el 1/11 sigue sumando en `2026-10-11.json`; el 11/11 arranca `2026-11-11.json`.
+- **El reparto** es el de siempre aplicado al ciclo: 5.700 minutos (el 95 % de lo incluido) en partes iguales por día **del ciclo** (28, 29, 30 o 31 días: `diasDelCiclo`), un día de colchón, y si el gasto pasa de lo que corresponde hasta ahora se saltea la vuelta (nunca más de 3 horas sin una). La proyección y «cuántas vueltas por día alcanzan» usan los días que **quedan del ciclo**.
+- **Migración sin perder lo medido:** el registro por mes (`motor/minutos/2026-10.json`) se sigue leyendo, **una sola vez por ciclo**, hasta que la primera vuelta escribe el registro del ciclo. Cada día de su `porDia` va al ciclo que le toca; el tiempo de cada paso y las vueltas que compilaron se reparten en proporción de vueltas si el mes toca dos ciclos. Lo medido en octubre desde que el registro existe (desde el 23/10) cuenta entero para el ciclo que arrancó el 11/10 (`migradoDe: ["2026-10"]` en el registro). El reloj y el Worker del motor hacen la misma lectura en memoria, así que no hace falta esperar a la primera vuelta. Los registros por mes no se borran ni se vuelven a escribir.
+- **Qué informa el sistema:** `GET /estado` del Worker del motor ahora trae `ciclo` (`ciclo`, `desde`, `hasta`, `dias`, `diasQueFaltan`, `cicloDia`, `minutos`, `vueltas`, `incluidos`), `registro` (lo que antes era `mes`: minutos, vueltas, compiladas, la más larga, de dónde se migró), `presupuesto` (con `ciclo`) y `proyeccion` (con `ciclo`, `desde`, `hasta`, `dias`, `diasQueFaltan`). El vigilante de Cloudflare guarda `ciclo` y `hasta` en su resumen, y el aviso `motor-minutos` dice «el ciclo de facturación (11/10 al 10/11)».
+
+**Lo que hay que saber:**
+
+- **Lo medido empieza el 23/10.** El ciclo en curso arrancó el 11/10: las vueltas de Workers Builds de antes de que existiera el registro no están. Si el contador de Cloudflare (*Workers & Pages* → `radar-balcarce-motor` → *Builds*) marca más que `ciclo.minutos` de `/estado`, la diferencia se puede cargar como `MOTOR_MINUTOS_DE_MAS` (dividida por las vueltas) o, mejor, esperar al 11/11, cuando el registro cubre el ciclo entero. El margen del 5 % y el colchón de un día cubren una diferencia chica.
+- **Subir el reloj y el Worker del motor juntos** (workflows «Reloj de Cloudflare» y «Desplegar Workers de Cloudflare»): el reloj viejo lee `2026-10.json`, que ya nadie escribe, y quedaría con un registro congelado.
+- **Cambiar `MOTOR_CICLO_DIA`** cambia la clave del registro: lo medido en el ciclo anterior no se traslada solo (sólo se migran los registros por mes). Se cambia al arrancar un ciclo nuevo.
+- **Días 29 a 31** no se aceptan como día de arranque: hay meses que no los tienen.

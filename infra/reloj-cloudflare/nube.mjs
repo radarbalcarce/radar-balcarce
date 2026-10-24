@@ -11,7 +11,7 @@
 //
 // Sin dependencias.
 
-import { debeCorrer, mesDe, claveDelMes, nocheCadaHora, esDeNocheParaElMotor } from '../motor-cloudflare/presupuesto.mjs';
+import { debeCorrer, leerRegistroDelCiclo, cicloDiaDe, nocheCadaHora, esDeNocheParaElMotor } from '../motor-cloudflare/presupuesto.mjs';
 
 export const MOTOR = 'actualizar.yml';
 
@@ -65,13 +65,15 @@ export function umbralDeAtraso(env = {}, ahora = new Date()) {
   return MINUTOS_PARA_DAR_POR_ATRASADO + (nocheCadaHora(env) && esDeNocheParaElMotor(ahora) ? 60 : 0);
 }
 
-/** Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del mes. */
+/** Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del ciclo de facturación. */
 export async function despertarMotor(env, { fetchFn = fetch, ahora = new Date() } = {}) {
   if (!env.MOTOR_DEPLOY_HOOK) return { archivo: MOTOR, ok: false, estado: 0, motivo: 'falta el secreto MOTOR_DEPLOY_HOOK (el «deploy hook» de Workers Builds)' };
   let decision = null;
   if (env.MOTOR) {
-    const [registro, estado] = await Promise.all([leerJson(env.MOTOR, claveDelMes(mesDe(ahora))), leerJson(env.MOTOR, 'motor/estado.json')]);
-    decision = debeCorrer({ registro, ultimaVueltaBuena: estado?.ultimaBuena ?? null, ahora, sinTope: /^\s*(si|sí)\s*$/i.test(String(env.MOTOR_SIN_TOPE ?? '')) });
+    // Regla 315: los minutos se cuentan por ciclo de facturación de Cloudflare (MOTOR_CICLO_DIA, 11 si no está), no por mes calendario.
+    const cicloDia = cicloDiaDe(env);
+    const [registro, estado] = await Promise.all([leerRegistroDelCiclo((clave) => leerJson(env.MOTOR, clave), ahora, cicloDia), leerJson(env.MOTOR, 'motor/estado.json')]);
+    decision = debeCorrer({ registro, ultimaVueltaBuena: estado?.ultimaBuena ?? null, ahora, cicloDia, sinTope: /^\s*(si|sí)\s*$/i.test(String(env.MOTOR_SIN_TOPE ?? '')) });
     if (!decision.correr) return { archivo: MOTOR, ok: true, saltada: true, estado: 0, motivo: decision.motivo };
   }
   const r = await fetchFn(env.MOTOR_DEPLOY_HOOK, { method: 'POST' });

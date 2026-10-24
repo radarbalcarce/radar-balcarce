@@ -65,3 +65,4 @@ jobs:
           TARJETAS_EN_R2: ${{ vars.TARJETAS_EN_R2 }}
           MOTOR_MINUTOS_DE_MAS: ${{ vars.MOTOR_MINUTOS_DE_MAS }}
           MOTOR_NOCHE_CADA_HORA: ${{ vars.MOTOR_NOCHE_CADA_HORA }}
+          MOTOR_CICLO_DIA: ${{ vars.MOTOR_CICLO_DIA }}

@@ -82,6 +82,7 @@ Primero lo que salió el 24/10 y desbloquea lo demás, en orden. Después lo de 
 | # | Quién | Qué | Dónde |
 |---|---|---|---|
 | P1 | Los dos | **Subir los Workers** que cambiaron (no se suben solos): «Desplegar Workers de Cloudflare» (motor, vigilante y archivo) y «Reloj de Cloudflare». Sin variables nuevas, sólo se empieza a registrar el tiempo por paso | https://github.com/radarbalcarce/radar-balcarce/actions → Run workflow |
+| P2 | Los dos | **Subir juntos el reloj y el Worker del motor** (regla 315: los minutos se cuentan por ciclo de facturación, del 11 al 10; `MOTOR_CICLO_DIA` ya vale 11 sin poner nada) y mirar en `GET /estado` que `ciclo.minutos` se parezca al contador de Cloudflare |
 | P2 | Los dos | **Prender las variables de minutos en orden y de a una** (mirar un día el registro; `TARJETAS_EN_R2`; `MOTOR_NOCHE_CADA_HORA`) | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` § 4 |
 | P3 | Los dos | **Fotos en R2**: poner la ruta de fotos (workflow «Archivo permanente (producción)» con `activar_fotos`) y, cuando Claude avise que el simulacro salió bien, crear `FOTOS_EN_R2` en GitHub **y** en Workers Builds | `docs/etapa-10-operacion/FOTOS-EN-R2.md` |
 | P4 | Los dos | **Mapa de las notas archivadas**: después de subir el Worker del archivo (P1) y de una vuelta del exportador, crear `SITEMAP_DEL_ARCHIVO` = Si | Variables de GitHub |
