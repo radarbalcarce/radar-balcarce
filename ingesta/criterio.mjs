@@ -61,7 +61,9 @@ export const PARTES = {
   etiqueta: 40,
 };
 
-/** Más de esto seguido, palabra por palabra, es copiar y no reescribir. */
+/** Más de esto seguido, palabra por palabra, es copiar y no reescribir. A la IA se le pide un poco menos (10: «nada de más de diez
+ *  palabras seguidas», § 12) y el verificador rechaza desde 12: es margen a propósito, para no tirar una nota por una frase hecha de
+ *  más (23/10/2026, auditoría B6). */
 export const COPIA_MAXIMA = 12;
 
 /** El estilo que controla el verificador (28/09). Con esta cantidad de
@@ -98,6 +100,8 @@ export const REESCRITURA = {
   // (1/10, Hernán: "si la cuentan 12 medios tiene lógica"): un intento más desde
   // `fuentesParaUnIntentoExtra` medios y dos más desde `fuentesParaDosIntentosExtra`.
   fuentesParaUnIntentoExtra: 5,
+  // Es el mismo 8 de «muy contada» (MUY_CONTADA.medios) en la idea, pero va aparte a propósito: este mide cuánto insistirle a la IA
+  // con una nota que no logra cuerpo, aquél decide qué es noticia grande. Si Hernán mueve uno, no tiene por qué mover el otro.
   fuentesParaDosIntentosExtra: 8,
   diasDeIntentos: 7,
   palabrasMinimasDeMaterial: 60,
@@ -133,6 +137,15 @@ export const REESCRITURA = {
   copiaEntreFuentes: 50,
   diasDeAntecedentes: 30,
   antecedentesMaximo: 3,
+};
+
+/** Cuántas veces por día se llama a la IA que lee las notas nuevas (la «lectura con IA»: sección, de dónde es el hecho, si es publicidad).
+ *  Con su propia clave (GEMINI_API_KEY_CLASIFICACION) 200; mientras comparte la clave gratis de la redacción (500 pedidos por día en total
+ *  con las reescrituras), 60. Es de los límites que de verdad frenan: con unas 3.000 historias por día, las que quedan sin leer esperan
+ *  a la corrida siguiente (ingesta/lectura-ia.mjs, topeDeLecturas). */
+export const LECTURA_IA = {
+  pedidosPorDia: 60,
+  pedidosPorDiaConClavePropia: 200,
 };
 
 /** La nota propia del dólar sale sólo si el blue o el oficial se movieron al
@@ -308,6 +321,7 @@ export const NUMEROS_DEL_CRITERIO = {
   COPIA_MAXIMA,
   ESTILO,
   REESCRITURA,
+  LECTURA_IA,
   PORTADA,
   NOTA_DEL_DOLAR,
   POPULARIDAD,

@@ -251,6 +251,6 @@ la 260 a la 263, la selección en seis líneas con su estadística, las fuentes 
 
 ## Documentos
 
-**`docs/00-INDICE.md`** tiene la lista completa. Los que más se usan: `docs/11-OPERACION.md`,
+**`docs/CRITERIO-EN-UNA-PAGINA.md`** es qué sale, qué no y por qué, con cada número y dónde vive (empezar por ahí para saber algo del criterio). **`docs/00-INDICE.md`** tiene la lista completa. Los que más se usan: `docs/11-OPERACION.md`,
 `docs/10-REGLAS-Y-PRUEBAS.md`, `docs/08-INFRAESTRUCTURA.md`, `docs/09-PANEL.md`, los dos criterios
 (`CRITERIO-EDITORIAL.md` y `CRITERIO-REDES.md`), `docs/DECISIONES.md`, `PENDIENTES.md` e `IDEAS.md`.

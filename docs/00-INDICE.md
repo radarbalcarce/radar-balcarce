@@ -19,6 +19,7 @@ WhatsApp quedó de respaldo) y dos informes por mail, a las 8:15 y a las 21:15, 
 cómo va el día.
 
 **La explicación completa para leer en el celular, con un diagrama, los costos y lo que
+| `docs/CRITERIO-EN-UNA-PAGINA.md` | **Qué sale, qué no y por qué, en una página**, con cada número, su porqué y dónde vive en el código (23/10). Si querés saber algo del criterio, empezá por acá | vigente |
 sobra: `docs/COMO-FUNCIONA-HOY.html`.**
 
 **Todo eso corre en GitHub y en Cloudflare, con la PC apagada** (el reloj, el
@@ -114,10 +115,10 @@ cómo funciona algo que ya anda), **para decidir** (propuesta o página con caja
 
 | Documento | Qué cuenta | Estado |
 |---|---|---|
-| `docs/flujo/GUIA-DEL-FLUJO.html` | Los trece pasos que hace el sistema con cada noticia, con un ejemplo real, los números y los prompts tal cual | vigente (16/10), para revisar juntos |
-| `docs/flujo/FLUJO-NUEVO.html` | El flujo nuevo pedido por Hernán: todo lo de Balcarce sale, lo nacional con 3 medios, tope de 150 por día | para decidir (lo de Balcarce y lo muy contado entró con las reglas 197 a 202; la selección en sombra que lo simulaba se borró el 17/10) |
-| `docs/flujo/FLUJO-NUEVO-SIMULACION.html` | La simulación del flujo nuevo con la corrida real del 16/10 | foto del 16/10 |
-| `docs/flujo/INFORME-DE-HOY.html` | Cómo llegó la información el 16/10, cómo anduvo cada fuente y cómo quedarían las secciones; diez preguntas (se rehace con `scripts/medir/informe-del-dia.mjs`) | para decidir |
+| `docs/historico/flujo/GUIA-DEL-FLUJO.html` | Los trece pasos del 16/10 con los prompts de esa fecha | **histórico** (movido el 23/10: los textos y reglas de hoy están en `docs/REGLAS-Y-PROMPTS.html`, regenerado) |
+| `docs/historico/flujo/FLUJO-NUEVO.html` | La propuesta de flujo del 16/10 (tope de 150 por día) | **histórico**: ya está en producción, sin tope y con otras reglas |
+| `docs/historico/flujo/FLUJO-NUEVO-SIMULACION.html` | La simulación de esa propuesta con la corrida del 16/10 | **histórico** |
+| `docs/flujo/INFORME-DE-HOY.html` | Cómo llegó la información el 16/10, cómo anduvo cada fuente y cómo quedarían las secciones; diez preguntas (se rehace con `scripts/medir/informe-del-dia.mjs`) | foto del 16/10; se rehace cuando se corre el programa |
 | `docs/flujo/CRUCE-COHERENTE.md` | El cruce que ya no encadena noticias distintas (regla 184, interruptor `CRUCE_COHERENTE`) y cómo se midió | vigente |
 | `docs/flujo/REPETIDAS-2-0.md` | Lo de acá que no sale repetido (memoria de acá, huella de significado, parejas entre secciones, tope repartido) y la fecha que no envejece por una nota vieja pegada (reglas 193 a 196), con la medición; `scripts/medir/repetidas-2-0.mjs` la repite | vigente |
 | `docs/flujos/NOTA-DESDE-MAIL.md` | Los pasos para armar una nota desde un mail de prensa | vigente (lo sigue Claude) |

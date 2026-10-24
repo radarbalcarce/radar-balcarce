@@ -8,11 +8,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { aplicarFichas } from '../ingesta/lectura-ia.mjs';
-import { paraPruebas, exigirMedios } from '../ingesta/ingesta.mjs';
+import { paraPruebas, exigirMedios, esViejaSinSalir } from '../ingesta/ingesta.mjs';
 import { REGLAS_SEMAFORO } from '../ingesta/fuentes.mjs';
 import { armarTapa, HORAS_PARA_COMPLETAR } from '../web/lib/datos.js';
 
-const { semaforo } = paraPruebas;
+const { semaforo, idDe } = paraPruebas;
 const ficha = (extra = {}) => ({ ambito: 'internacional', lugar: 'Bakú', seccion: 'Automovilismo', impacto: 'nulo', razon: 'ninguna', importancia: 'media', publicidad: false, anuncio: false, chimento: false, porque: '', tema: 'x', ...extra });
 const nota = (id, titulo, extra = {}) => ({ id, titulo, seccion: 'Automovilismo', semaforo: 'verde', local: false, medios: ['A', 'B', 'C'], ...extra });
 
@@ -78,9 +78,13 @@ test('lo que no se publica nunca se mira también en el texto final (el panel pu
   assert.match(g, /if \(nuncaSePublica\(corregida\)\) return null;/);
 });
 
-test('lo que se lee de la página de un medio sin feed toma la fecha real de adentro y no entra si tiene más de 72 horas (27/09, El Diario)', () => {
-  const g = fs.readFileSync(new URL('../ingesta/ingesta.mjs', import.meta.url), 'utf8');
-  assert.match(g, /const pendientes = notas\.filter\(\(n\) => !n\.cuerpo \|\| n\.fechaEstimada\);/, 'se abre también la que ya trae bajada pero no fecha');
-  assert.doesNotMatch(g, /d > new Date\(Date\.now\(\) - 30 \* 864e5\)/, 'una fecha vieja ya no se ignora');
-  assert.match(g, /notas = notas\.filter\(\(n\) => n\.fechaEstimada \|\| Date\.now\(\) - n\.fecha\.getTime\(\) <= HORAS_DE_UNA_NOTA_NUEVA \* 3600e3\);/);
+test('lo que un medio trae con más de 72 horas y nunca salió no entra; con fecha de adentro de la nota o ya publicada, sí (27/09, El Diario)', () => {
+  const ahora = Date.parse('2026-09-27T22:00:00Z');
+  const hace = (h) => new Date(ahora - h * 3600e3);
+  const enlace = 'https://eldiario.test/nota-de-la-portada';
+  assert.equal(esViejaSinSalir({ fecha: hace(80), enlace }, null, ahora), true, 'una nota de 80 horas que nunca salió no entra');
+  assert.equal(esViejaSinSalir({ fecha: hace(60), enlace }, null, ahora), false, 'una de 60 horas entra');
+  assert.equal(esViejaSinSalir({ fecha: hace(72), enlace }, null, ahora), false, 'justo 72 horas todavía entra');
+  assert.equal(esViejaSinSalir({ fecha: hace(24 * 30), enlace, fechaEstimada: true }, null, ahora), false, 'sin fecha en la fuente se cuenta desde que se vio, no se ignora');
+  assert.equal(esViejaSinSalir({ fecha: hace(80), enlace }, new Set([idDe(enlace)]), ahora), false, 'si ya salió, conserva su historia y su dirección');
 });

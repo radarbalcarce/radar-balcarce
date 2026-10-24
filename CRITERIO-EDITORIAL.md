@@ -865,11 +865,11 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Etiquetas: como mínimo | 3 | `PARTES.etiquetasMinimo` |
 | Etiquetas: como máximo | 8 | `PARTES.etiquetasMaximo` |
 | Una etiqueta: largo máximo (caracteres) | 40 | `PARTES.etiqueta` |
-| Palabras seguidas copiadas del original, como máximo | 12 | `COPIA_MAXIMA` |
+| Palabras seguidas copiadas del original: el verificador rechaza desde 12 (a la IA se le pide un margen: «nada de más de diez»; 10 es lo que se pide, 12 lo que se rechaza) | 12 | `COPIA_MAXIMA` |
 | Palabras sin tilde para dar un texto por escrito sin tildes (con menos, se les pone la tilde) | 3 | `ESTILO.palabrasSinTilde` |
 | Intentos de la IA por nota | 3 | `REESCRITURA.intentosMaximos` |
 | Medios que la cuentan para un intento más de la IA | 5 | `REESCRITURA.fuentesParaUnIntentoExtra` |
-| Medios que la cuentan para dos intentos más de la IA | 8 | `REESCRITURA.fuentesParaDosIntentosExtra` |
+| Medios que la cuentan para dos intentos más de la IA (aparte de `MUY_CONTADA.medios`, aunque hoy valgan lo mismo: éste mide cuánto insistirle a la IA con una nota que no logra cuerpo; el otro, qué es noticia grande) | 8 | `REESCRITURA.fuentesParaDosIntentosExtra` |
 | Días que se recuerdan los intentos | 7 | `REESCRITURA.diasDeIntentos` |
 | Palabras de resumen mínimas sin texto completo | 60 | `REESCRITURA.palabrasMinimasDeMaterial` |
 | Notas que se le piden a la IA por corrida | 40 | `REESCRITURA.porCorrida` |
@@ -883,6 +883,8 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Tramos de cinco palabras en común para que un texto sea copia de otro (por ciento) | 50 | `REESCRITURA.copiaEntreFuentes` |
 | Antecedentes: días hacia atrás | 30 | `REESCRITURA.diasDeAntecedentes` |
 | Antecedentes: como máximo | 3 | `REESCRITURA.antecedentesMaximo` |
+| Lecturas con IA por día, mientras comparte la clave gratis de la redacción | 60 | `LECTURA_IA.pedidosPorDia` |
+| Lecturas con IA por día, con su propia clave (`GEMINI_API_KEY_CLASIFICACION`) | 200 | `LECTURA_IA.pedidosPorDiaConClavePropia` |
 | Portada: horas que una nota está en las listas | 36 | `PORTADA.horas` |
 | Horas que puede tener un hecho para publicarse por primera vez (una nota de afuera que nunca salió y es más vieja, no sale) | 12 | `PORTADA.horasParaEstrenar` |
 | Lo mismo, si la nota es de Balcarce (regla 293) | 36 | `PORTADA.horasParaEstrenarDeAca` |

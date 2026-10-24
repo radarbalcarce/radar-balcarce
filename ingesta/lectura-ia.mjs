@@ -26,7 +26,7 @@ import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
 import { SECCIONES_SUMADAS, TEXTO_PARA_LA_FICHA, esSumada } from './secciones-nuevas.mjs';
 import { policialNacionalRelevante } from './policial-nacional.mjs';
-import { MUY_CONTADA } from './criterio.mjs';
+import { MUY_CONTADA, LECTURA_IA } from './criterio.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 const AQUI = import.meta.dirname;
@@ -64,8 +64,8 @@ export const LECTURA = {
   // (GEMINI_API_KEY_CLASIFICACION), 200: el 27/09 quedaron 170 historias de
   // afuera sin leer porque se habían gastado los 60 (topeDeLecturas).
   pedidosPorCorrida: 5,
-  pedidosPorDia: 60,
-  pedidosPorDiaConClavePropia: 200,
+  pedidosPorDia: LECTURA_IA.pedidosPorDia,
+  pedidosPorDiaConClavePropia: LECTURA_IA.pedidosPorDiaConClavePropia,
   // Las repetidas: una vuelta por corrida como mucho, y sólo si cambió la
   // lista. Cada vuelta hace hasta dos pedidos (lo que va a salir, y lo de
   // afuera que espera por pocos medios) y cuenta como una contra este tope
