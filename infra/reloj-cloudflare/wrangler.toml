@@ -15,6 +15,8 @@ compatibility_date = "2026-10-01"
 #   "41 * * * *"                         Auditoría IA, cada hora de 7 a 23 de Balcarce (17/10/2026: antes, con el horario de GitHub, que la
 #                                        corría una de cada cuatro horas)
 #   "12 1,3,5,7,9,11,13,15,17,19,21,23 * * *"  Revisar el archivo, una tanda cada 2 horas (regla 212; antes del 22/10/2026 no hace nada)
+# Variable opcional, del panel de Cloudflare (no acá): MOTOR_CICLO_DIA="11" (regla 315): el día en que arranca el ciclo de facturación de Workers Builds
+# («Oct 11 - Nov 10»); con ella el presupuesto de minutos que mira el reloj antes de pedir una vuelta cuenta por ciclo y no por mes calendario. Sin ella, 11.
 # Hasta el 16/10 este comentario decía que había que apretar todo en cuatro expresiones porque "los triggers de la cuenta son pocos": eso
 # era el plan gratis (5 por cuenta). Con Workers Paid, que ya se paga, son 250 por cuenta: se puede separar cada trabajo en la suya.
 # OJO: este archivo no se sube solo. Después de cambiarlo hay que correr a mano el workflow "Reloj de Cloudflare" (reloj-cloudflare.yml).

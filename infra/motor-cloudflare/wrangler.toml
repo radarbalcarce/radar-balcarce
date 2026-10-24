@@ -12,3 +12,5 @@ bucket_name = "radar-motor"
 # Secretos (con `wrangler secret put`, nunca acá): VIGILANTE_TOKEN (el mismo de los demás Workers).
 # Variable opcional, del panel de Cloudflare (no acá): MOTOR_NOCHE_CADA_HORA="Si" (la misma que en el reloj; regla 312). Sin ella, la proyección del mes
 # del GET /estado cuenta 48 vueltas por día aunque el reloj pida 40.
+# Variable opcional, del panel de Cloudflare (no acá): MOTOR_CICLO_DIA="11" (la misma que en el reloj; regla 315): el día del mes en que arranca el ciclo de
+# facturación de Workers Builds («Oct 11 - Nov 10»). Sin ella, 11. Si la cuenta cambia de ciclo, cambiarla en el reloj, acá y en GitHub (1 a 28).

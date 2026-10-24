@@ -33,7 +33,7 @@ import {
 import {
   restaurarCache, guardarCache, tomarCandado, soltarCandado, anotarVuelta,
 } from './estado-r2.mjs';
-import { minutosDeMasPorVuelta } from './presupuesto.mjs';
+import { minutosDeMasPorVuelta, cicloDiaDe } from './presupuesto.mjs';
 import { sincronizarTarjetas } from './tarjetas-r2.mjs';
 import { configuracionDeR2 as configuracionDeTarjetas } from '../compartido/tarjetas-r2.mjs';
 import { hayQueRecompilar } from '../../web/scripts/recompilar.mjs';
@@ -103,6 +103,8 @@ export function configurar(env = process.env) {
     tarjetasEnR2: configuracionDeTarjetas(env) !== null,
     // Lo que se le suma a cada vuelta en el registro de minutos por lo que ella no ve de sí misma (MOTOR_MINUTOS_DE_MAS; 0,5 si no está).
     minutosDeMas: minutosDeMasPorVuelta(env),
+    // El día en que arranca el ciclo de facturación de Cloudflare (MOTOR_CICLO_DIA; 11 si no está): el registro de minutos es por ciclo (regla 315).
+    cicloDia: cicloDiaDe(env),
   };
 }
 
@@ -352,7 +354,7 @@ export async function vuelta({
   } finally {
     if (deposito && !cfg.simular && tenemosElCandado) {
       const segundos = (ahora().getTime() - inicio) / 1000;
-      try { await anotarVuelta(deposito, { id: cfg.id, ok: resultado.ok, motivo: resultado.motivo ?? null, segundos, pasos, ahora: ahora(), anotaciones, compilo, extraMinutos: cfg.minutosDeMas }); } catch (e) { log(`(no se pudo anotar la vuelta en R2: ${e.message})`); }
+      try { await anotarVuelta(deposito, { id: cfg.id, ok: resultado.ok, motivo: resultado.motivo ?? null, segundos, pasos, ahora: ahora(), anotaciones, compilo, extraMinutos: cfg.minutosDeMas, cicloDia: cfg.cicloDia }); } catch (e) { log(`(no se pudo anotar la vuelta en R2: ${e.message})`); }
       await soltarCandado(deposito, { id: cfg.id });
     }
     log(`\nVuelta ${resultado.omitida ? 'saltada' : resultado.ok ? 'terminada' : 'fallida'} en ${resultado.segundos ?? Math.round((ahora().getTime() - inicio) / 1000)} s.`);

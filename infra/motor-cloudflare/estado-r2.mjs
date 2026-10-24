@@ -4,7 +4,8 @@
 //                            enteras que lee el panel del celular, la papelera). Antes: `actions/cache`. Se pierde sin drama: se rearma sola.
 //   motor/candado.json       que no corran dos vueltas a la vez (antes: `concurrency` de GitHub). Vale 25 minutos.
 //   motor/estado.json        cómo terminó la última vuelta (para el vigilante y el informe diario).
-//   motor/minutos/AAAA-MM.json  los minutos de Workers Builds que lleva gastados el mes (presupuesto.mjs; lo lee el reloj para saltearse vueltas).
+//   motor/minutos/AAAA-MM-DD.json  los minutos de Workers Builds que lleva gastados el ciclo de facturación que arrancó ese día (presupuesto.mjs; lo lee el
+//                            reloj para saltearse vueltas). Regla 315: antes era por mes calendario (AAAA-MM.json) y se migra solo.
 //
 // El candado no es atómico (R2 por S3 no da "escribir sólo si no existe" en todos los casos): alcanza porque el reloj despierta al motor cada media
 // hora y la vuelta dura 5 minutos; lo que protege es el caso de una vuelta colgada o lanzada a mano encima de otra.
@@ -12,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { claveDelMes, registroVacio, sumarVuelta, mesDe } from './presupuesto.mjs';
+import { claveDelCiclo, registroVacio, sumarVuelta, cicloDe, leerRegistroDelCiclo, CICLO_DIA_POR_DEFECTO } from './presupuesto.mjs';
 
 export const PREFIJO_DE_LA_CACHE = 'motor/cache/';
 export const CLAVE_DEL_CANDADO = 'motor/candado.json';
@@ -86,11 +87,12 @@ export async function soltarCandado(r2, { id }) {
 export const VUELTAS_QUE_SE_RECUERDAN = 96;
 
 /**
- * Anota cómo terminó la vuelta y suma sus minutos al mes. `anotaciones` son los avisos `::warning title=…::…` que imprimió el armado (fuentes caídas o vacías):
+ * Anota cómo terminó la vuelta y suma sus minutos al ciclo de facturación (`cicloDia`: el día en que arranca, MOTOR_CICLO_DIA). Si el ciclo todavía no
+ * tiene registro, lo arma con los registros por mes calendario que había (regla 315) y no se pierde lo medido. `anotaciones` son los avisos `::warning title=…::…` que imprimió el armado (fuentes caídas o vacías):
  * en GitHub los mostraba la API de anotaciones y de ahí los leía el informe diario; ahora quedan acá.
  */
 export async function anotarVuelta(r2, {
-  id, ok, motivo = null, segundos, pasos = {}, ahora = new Date(), anotaciones = null, compilo = null, extraMinutos = undefined,
+  id, ok, motivo = null, segundos, pasos = {}, ahora = new Date(), anotaciones = null, compilo = null, extraMinutos = undefined, cicloDia = CICLO_DIA_POR_DEFECTO,
 }) {
   const estado = { id, ok, motivo, segundos: Math.round(segundos), cuando: ahora.toISOString(), pasos };
   let previo = null;
@@ -100,10 +102,10 @@ export async function anotarVuelta(r2, {
   estado.anotaciones = Array.isArray(anotaciones) ? anotaciones : (previo?.anotaciones ?? null);
   estado.historial = [...(Array.isArray(previo?.historial) ? previo.historial : []), { cuando: ahora.toISOString(), ok, segundos: Math.round(segundos) }].slice(-VUELTAS_QUE_SE_RECUERDAN);
   await r2.guardar(CLAVE_DEL_ESTADO, JSON.stringify(estado), 'application/json');
-  const mes = mesDe(ahora);
-  let registro = registroVacio(mes);
-  try { registro = JSON.parse(await r2.leerTexto(claveDelMes(mes)) ?? 'null') ?? registro; } catch { /* mes nuevo o roto */ }
-  const nuevo = sumarVuelta(registro, { segundos, ahora, mes, pasos, compilo, ...(extraMinutos === undefined ? {} : { extraMinutos }) });
-  await r2.guardar(claveDelMes(mes), JSON.stringify(nuevo), 'application/json');
+  const ciclo = cicloDe(ahora, cicloDia);
+  const leerJson = async (clave) => { try { return JSON.parse(await r2.leerTexto(clave) ?? 'null'); } catch { return null; /* no está o está roto */ } };
+  const registro = (await leerRegistroDelCiclo(leerJson, ahora, cicloDia)) ?? registroVacio(ciclo);
+  const nuevo = sumarVuelta(registro, { segundos, ahora, ciclo, pasos, compilo, ...(extraMinutos === undefined ? {} : { extraMinutos }) });
+  await r2.guardar(claveDelCiclo(ciclo), JSON.stringify(nuevo), 'application/json');
   return { estado, registro: nuevo };
 }

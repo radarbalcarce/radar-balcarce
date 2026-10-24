@@ -65,10 +65,10 @@ test('el motor en la nube: a los :00 y :30 despierta el deploy hook de Workers B
   assert.equal(pedidos[0].auth, undefined);
 });
 
-test('el motor en la nube, pasado del presupuesto del mes: saltea la vuelta (y lo dice) salvo que lleve horas sin una buena', async () => {
+test('el motor en la nube, pasado del presupuesto del ciclo de facturación: saltea la vuelta (y lo dice) salvo que lleve horas sin una buena', async () => {
   const { env } = entorno({ nube: 'actualizar.yml' });
-  const ahora = new Date('2026-10-10T15:00:00Z');
-  await env.MOTOR.put('motor/minutos/2026-10.json', JSON.stringify({ mes: '2026-10', segundos: 3000 * 60, vueltas: 600, porDia: {} }));
+  const ahora = new Date('2026-10-21T15:00:00Z');
+  await env.MOTOR.put('motor/minutos/2026-10-11.json', JSON.stringify({ ciclo: '2026-10-11', segundos: 3000 * 60, vueltas: 600, porDia: {} }));
   await env.MOTOR.put('motor/estado.json', JSON.stringify({ ok: true, ultimaBuena: new Date(ahora.getTime() - 40 * 60000).toISOString() }));
   const r = await despertarMotor(env, { fetchFn: async () => { throw new Error('no tendría que pedirlo'); }, ahora });
   assert.equal(r.ok, true);
@@ -138,5 +138,5 @@ test('la parte que agrega la nube al reloj: tiene los bindings que el código us
   assert.match(leer('infra/motor-cloudflare/wrangler.toml'), /bucket_name = "radar-motor"/);
   // y la vuelta suma al mismo registro que lee el reloj
   const reg = sumarVuelta(null, { segundos: 60, ahora: new Date('2026-10-18T13:00:00Z') });
-  assert.equal(reg.mes, '2026-10');
+  assert.equal(reg.ciclo, '2026-10-11');
 });

@@ -45,7 +45,7 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 314**; una prueba controla que este número sea el que sigue al
+(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 316** (la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
 último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
 de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
 instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la
@@ -157,12 +157,12 @@ documentación.)
   `TZ: America/Argentina/Buenos_Aires` en el workflow (`ingesta/zona.mjs`).
 - **El turno de farmacia dura hasta las 8:30 del día siguiente** (la web no dice hasta qué
   hora). **Si Open-Meteo falla, el clima sale de `api.met.no`**, sin sensación térmica.
-- **Los minutos de Workers Builds** (6.000 por mes; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
+- **Los minutos de Workers Builds** (6.000 por **ciclo de facturación, del 11 al 10**, no por mes calendario: regla 315, variable `MOTOR_CICLO_DIA`, 11 si no está, en el reloj, el Worker del motor y GitHub; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
   asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas, todas **apagadas por
   defecto**: `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor»: la memoria de tarjetas de la regla 305 vive en R2 como
   objetos sueltos por huella, la compilación baja sólo las que pide; la primera vuelta con ella dibuja todo), `MOTOR_NOCHE_CADA_HORA=Si` (variable del
   reloj **y** del Worker del motor, en el panel de Cloudflare: de 23:00 a 6:59 la vuelta sale sólo a los :00 y el vigilante de vueltas espera una hora
-  más) y `MOTOR_MINUTOS_DE_MAS` (los minutos que se le suman a cada vuelta por lo que no ve de sí misma; hoy 0,5). El registro `motor/minutos/AAAA-MM.json`
+  más) y `MOTOR_MINUTOS_DE_MAS` (los minutos que se le suman a cada vuelta por lo que no ve de sí misma; hoy 0,5). El registro `motor/minutos/AAAA-MM-DD.json` (el día en que arrancó el ciclo; migra solo el viejo por mes)
   guarda el tiempo de cada paso, y `GET /estado` del Worker del motor da la proyección del mes; el vigilante avisa si se pasa (`motor-minutos`).
 - **El reloj es el Worker `radar-balcarce-reloj`** (desde el 15/10; cron-job.org, pausado):
   si algo deja de salir, mirar Cloudflare → Workers → radar-balcarce-reloj. Desde el 17/10
