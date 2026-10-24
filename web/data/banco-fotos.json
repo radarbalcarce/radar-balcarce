@@ -22716,7 +22716,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "5a529a53456d6cac"
+  "huella": "5a529a53456d6cac",
+  "ausenteDesde": "2026-10-24T05:33:37.087Z"
  },
  "10jkdys": {
   "intentado": true,
@@ -33456,10 +33457,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno evalúa prorrogar el plazo para ofertar por el Belgrano Cargas",
-  "razon": "La única foto disponible (A) posee una marca de agua superpuesta del medio 'Noticias Argentinas' (NA), lo que impide su selección según las reglas de exclusión.",
-  "cuando": "2026-10-23T01:02:04.535Z",
-  "intentos": 1,
-  "fuentes": 8,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 2,
+  "fuentes": 11,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "171ypvy": {
@@ -33561,10 +33562,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cicinho postula a Atlético Mineiro como favorito ante Boca",
-  "razon": "La única foto disponible muestra a jugadores del Real Madrid, lo cual no tiene ninguna relación con la nota sobre Atlético Mineiro y Boca.",
-  "cuando": "2026-10-23T02:31:50.440Z",
-  "intentos": 1,
-  "fuentes": 4,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 2,
+  "fuentes": 13,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1m615hw": {
@@ -33637,10 +33638,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Una excomcursante de Gran Hermano se entera de la muerte del Indio Solari",
-  "razon": "Ninguna foto sirve: la A tiene marca de un canal, la B muestra a otra persona y la C muestra la casa de Gran Hermano y no tiene relación directa clara.",
-  "cuando": "2026-10-23T12:04:44.947Z",
-  "intentos": 4,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 5,
+  "fuentes": 7,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "wqqbie": {
   "intentado": true,
@@ -34919,13 +34921,29 @@
   "huella": "13767460f8c9d1d0"
  },
  "qkw865": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/qkw865.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-  "razon": "La foto no corresponde al atleta Felipe Pereyra ni al Concejo Deliberante de Balcarce, sino a un grupo de atletas en el Centro Cultural Educativo Municipal Ramón Tito Filgueiras de Lobería. (la foto libre de \"Felipe Pereyra\" no sirve: no corresponde a la nota (Placa conmemorativa en el suelo con el nombre de Felipe Pereyra de Lucena))",
-  "cuando": "2026-10-23T20:32:05.429Z",
-  "intentos": 2,
-  "fuentes": 2
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/vos-ya-ganaste-la-carrera-de-la-vida-reconocieron-la-trayectoria-de-felipe-pereyra-en-el-concejo-deliberante",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Felipe-Pereyra-1-1024x576.jpeg",
+  "razon": "La foto A muestra el evento deportivo y al atleta en el podio, lo cual ilustra el logro que motivó el reconocimiento, mientras que la foto B es un encuadre pobre de una sala de reuniones que no identifica el hecho.",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas posando con banderas y un atleta en un podio frente al Centro Cultural Educativo Municipal."
+  },
+  "huella": "9f63ee9babafe449"
  },
  "i3syjh": {
   "archivo": "fotos-notas/i3syjh.jpg",
@@ -35846,10 +35864,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Lorenzo juega ante Newell's por el Torneo Clausura",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-23T22:32:27.707Z",
-  "intentos": 1,
-  "fuentes": 6
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unterminated string in JSON at position 558 (line 1 column 559)",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 2,
+  "fuentes": 8,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "a3gdkz": {
   "archivo": "fotos-notas/a3gdkz.jpg",
@@ -36261,9 +36280,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Leonel Jaime frena el juego por un rival y rompe en llanto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T04:01:32.525Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 3,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36340,6 +36359,27 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando frente a un micrófono con traje y corbata."
   },
-  "huella": "1e4e36a600000000"
+  "huella": "1e4e36a600000000",
+  "ausenteDesde": "2026-10-24T05:33:37.087Z"
+ },
+ "z7gynb": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata distingue a Sor María Ludovica y realiza una peregrinación",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de 0221 no se usa todavía.",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "l3nb78": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Universidades llevan al Papa una denuncia contra el Gobierno por fondos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T05:31:43.272Z",
+  "intentos": 1,
+  "fuentes": 17,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

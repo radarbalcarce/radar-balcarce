@@ -216,11 +216,6 @@
   "ultimo": "2026-10-19T00:01:31.690Z",
   "motivo": "con cuerpo"
  },
- "13sxop4": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T05:31:19.724Z",
-  "motivo": "con cuerpo"
- },
  "13szlej": {
   "intentos": 1,
   "ultimo": "2026-10-17T07:01:40.594Z",
@@ -3319,6 +3314,13 @@
   "ultimo": "2026-10-20T16:02:41.898Z",
   "motivo": "con cuerpo"
  },
+ "l3nb78": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T05:31:20.809Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 17
+ },
  "l5bpbu": {
   "intentos": 1,
   "ultimo": "2026-10-19T23:31:07.063Z",
@@ -3545,12 +3547,17 @@
   "motivo": "con cuerpo"
  },
  "olt0q0": {
-  "intentos": 3,
-  "ultimo": "2026-10-24T05:01:06.698Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 187 palabras",
+  "intentos": 4,
+  "ultimo": "2026-10-24T05:31:20.809Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 262 pala",
+  "textos": 3,
+  "numeradas": 20,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\","
+  ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 24 palabras seguidas del original (\"el juez federal marcelo martinez de giorgi sobreseyo al presidente javier milei a su…\"): decilo co"
+   "el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica"
   ]
  },
  "onp5c1": {
@@ -4293,6 +4300,13 @@
   "intentos": 2,
   "ultimo": "2026-10-21T16:04:04.676Z",
   "motivo": "con cuerpo"
+ },
+ "z7gynb": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T05:31:20.809Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "z8ktkl": {
   "intentos": 1,
