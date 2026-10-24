@@ -219,7 +219,7 @@ test('regla 204: una candidata repetida no se le muestra a la IA', async () => {
   assert.equal(r.elegida, null);
   assert.match(r.razon, /ya se usó o se sacó/);
   assert.match(r.candidatas[0].repetida.motivo, /otro tema/);
-  assert.equal(llamoALaIA, true, 'sólo para preguntar por la persona: ninguna foto le llegó');
+  assert.equal(llamoALaIA, false, 'ninguna foto le llegó a la IA y ya no se le pregunta por la persona (regla 319)');
 });
 
 test('regla 204: el pádel (1ge6irq) y el rugby "Torneo Desarrollo": la segunda opinión (Groq) mira la elegida y, si ve un menor, no va', async () => {
@@ -293,7 +293,7 @@ test('regla 205: Wikimedia no da una foto de hace años para un hecho de hoy (Me
 test('regla 205: sólo si el título nombra a la persona (Grupo Cali salió con Messi) y la visión dice que corresponde (un F1 para un choque de GT)', async () => {
   assert.equal(nombraALaPersona('Grupo Cali explica los motivos de la suspensión de su show', 'Lionel Messi'), false);
   assert.equal(nombraALaPersona('La Messi Cup define fechas', 'Lionel Messi'), true);
-  // kr8nxa: la IA dice "Lionel Messi" pero el título no lo nombra: ni se busca.
+  // kr8nxa: la IA dice "Lionel Messi" pero el título no lo nombra: ni se busca. Y desde la regla 319 no se busca nunca (ni con el nombre en el título).
   let buscoEnCommons = false;
   const cali = { titulo: 'Grupo Cali explica los motivos de la suspensión de su show', copete: 'Lo comparan con el show de Messi', seccion: 'Cultura y agenda', fuentesConsultadas: [] };
   const r = await elegirFotoParaNota(cali, {
@@ -302,20 +302,14 @@ test('regla 205: sólo si el título nombra a la persona (Grupo Cali salió con 
   });
   assert.equal(r.elegida, null);
   assert.equal(buscoEnCommons, false);
-  assert.match(r.razon, /el título no/);
-  // gizbaj: la foto de Verstappen es de este año, pero la visión ve un Fórmula 1 para un choque de GT: no corresponde.
   const verstappen = { titulo: 'Max Verstappen choca al argentino Ezequiel Pérez Companc en Portugal', seccion: 'Automovilismo', fuentesConsultadas: [], fecha: '2026-10-16T12:00:00Z' };
-  const fetchFn = async (url, init) => {
-    if (String(url).includes('generativelanguage')) {
-      const conImagen = JSON.parse(init.body).contents[0].parts.length > 1;
-      return respuestaGemini(conImagen ? { menor: false, tiene_marca: false, grafica: false, stock: false, corresponde: 'no', descripcion: 'un Fórmula 1 Red Bull en pista' } : { persona: 'Max Verstappen' });
-    }
-    if (String(url).includes('commons.wikimedia.org/w/api.php')) return { ok: true, json: async () => ({ query: { pages: { 1: paginaCommons('Verstappen_2026.jpg', 2026) } } }) };
-    return { ok: true, headers: { get: () => 'image/jpeg' }, arrayBuffer: async () => JPEG(400) };
+  const fetchFn = async (url) => {
+    if (String(url).includes('commons')) buscoEnCommons = true;
+    return respuestaGemini({ persona: 'Max Verstappen' });
   };
   const r2 = await elegirFotoParaNota(verstappen, { clave: 'g', claveRespaldo: null, fetchFn });
   assert.equal(r2.elegida, null);
-  assert.match(r2.razon, /no corresponde[\s\S]*Fórmula 1/);
+  assert.equal(buscoEnCommons, false);
 });
 
 // ------------------------------------------------------------------ regla 206: un solo camino

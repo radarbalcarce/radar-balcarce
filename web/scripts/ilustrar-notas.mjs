@@ -202,30 +202,11 @@ export function tonoDeLaNota(nota) {
 
 // ------------------------------------------------------------------ la escena: figuras públicas, política, deportes y variedad
 
-// 23/10/2026 (pedido del dueño): (1) una nota de una figura pública (Milei...) lleva, si se encuentra, una FOTO REAL LIBRE de Wikimedia Commons
-// en vez de una ilustración; la ilustración nunca muestra a una persona real reconocible (no hay personas en ningún prompt). (2) Cada ilustración
+// 23/10/2026 (pedido del dueño): (1) la ilustración nunca muestra a una persona real reconocible (no hay personas en ningún prompt); y desde el 24/10 (regla 319)
+// tampoco hay foto de Wikimedia Commons para una figura pública: una foto buscada por el nombre no garantiza que la persona sea la de la nota, y la foto de una
+// nota sale SIEMPRE de sus fuentes (docs/05-FOTOS.md). (2) Cada ilustración
 // es distinta (objetos del tema y una variante de encuadre y luz según el id), no un bodegón fijo. (3) En deportes la lista de objetos evita lo
 // que FLUX llena de logos y letras. (4) Nada de oficina ni escritorio para Política.
-
-/** Figuras públicas que las notas nombran: apellido (sin tildes) → lo que se busca en Wikimedia Commons. */
-export const FIGURAS_PUBLICAS = {
-  milei: 'Javier Milei', kicillof: 'Axel Kicillof', macri: 'Mauricio Macri', bullrich: 'Patricia Bullrich', villarruel: 'Victoria Villarruel',
-  caputo: 'Luis Caputo', massa: 'Sergio Massa', sturzenegger: 'Federico Sturzenegger', adorni: 'Manuel Adorni', francos: 'Guillermo Francos',
-  larreta: 'Horacio Rodriguez Larreta', cristina: 'Cristina Fernandez de Kirchner', kirchner: 'Cristina Fernandez de Kirchner', pichetto: 'Miguel Angel Pichetto',
-  petri: 'Luis Petri', scaloni: 'Lionel Scaloni', messi: 'Lionel Messi', colapinto: 'Franco Colapinto',
-};
-
-/** Si el TÍTULO nombra a una figura pública conocida: `{ apellido, consulta }`; si no, null. */
-export function figuraPublicaDeLaNota(nota) {
-  const titulo = ` ${plano(nota?.titulo).replace(/[^a-z0-9 ]/g, ' ')} `;
-  for (const [apellido, consulta] of Object.entries(FIGURAS_PUBLICAS)) {
-    if (titulo.includes(` ${apellido} `)) return { apellido, consulta };
-  }
-  return null;
-}
-
-/** ¿La foto que devolvió Commons es de esa figura? El nombre del archivo tiene que llevar el apellido (Commons busca por texto: trae de todo). */
-export const fotoEsDeLaFigura = (foto, figura) => !!foto && !!figura && plano(foto.titulo).includes(figura.apellido);
 
 const esPolitica = (nota) => nota?.seccion === 'Política';
 const esDeporte = (nota) => ['Deportes', 'Fútbol', 'Automovilismo'].includes(nota?.seccion);
@@ -577,21 +558,6 @@ export async function mirarImagen(bytes, opciones) {
   }
 }
 
-/**
- * La foto real libre de una figura pública, o null: busca en Commons, exige que el nombre del archivo lleve el apellido y que no se repita
- * una ya usada, y la baja achicada. Nunca lanza. Devuelve `{ bytes, entrada }` (entrada = lo que se anota, con crédito y licencia).
- */
-export async function buscarLibre(nota, figura, { fotoLibre, fetchFn, achicar, usadas = [] } = {}) {
-  try {
-    const foto = await fotoLibre.buscar(figura.consulta, { fetchFn, excluir: usadas });
-    if (!fotoEsDeLaFigura(foto, figura)) return null;
-    const baj = await fotoLibre.bajar(foto, `${nota.id}-lib`, { fetchFn, achicar });
-    return baj ? { bytes: baj.bytes, entrada: baj.entrada } : null;
-  } catch {
-    return null;
-  }
-}
-
 /** El cuerpo del pedido al Worker. */
 export function pedidoAlWorker(prompt) {
   return { prompt, modelo: MODELO, ancho: ANCHO, alto: ALTO, steps: PASOS, negativo: NEGATIVO };
@@ -640,9 +606,8 @@ ${filas || '<p>No hay candidatas.</p>'}
  */
 export async function revisar({
   horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', claveOpenRouter = '', token,
-  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log, fotoLibre = null,
+  automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log,
 } = {}) {
-  // `fotoLibre`: { buscar, bajar } (foto-libre.mjs: buscarFotoLibre y bajarFotoLibre). Sin eso no se busca nada (las pruebas y el uso local).
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
   // En el modo automático, también las notas del archivo que la revisión del archivo dejó sin foto (regla 212), después de las del día.
   const delArchivo = automatico && !ids.length && rutas.revision ? idsParaIlustrar(leerJson(rutas.revision, null)) : [];
@@ -663,7 +628,6 @@ export async function revisar({
   // Las ilustraciones que estaban sin control (regla 206): las que pasaron (se les anota el control) y las que no (se reemplazan o se sacan).
   const revisadas = [];
   const aSacar = [];
-  const urlsLibres = [...Object.values(banco), ...Object.values(ilustraciones)].map((e) => e?.imagenOriginal).filter(Boolean);
   let llamadas = 0;
   let sinPermiso = false;
   const anotarCuenta = () => {
@@ -683,21 +647,6 @@ export async function revisar({
       if (control.ok) { revisadas.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, control }); continue; }
       reemplaza = anterior.archivo;
       aSacar.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, motivo: control.motivo, razon: control.razon ?? null });
-    }
-    // Una figura pública (Milei...): primero una foto REAL libre de Commons; no gasta el Worker ni el cupo. Si no hay una buena, sigue la ilustración.
-    const figura = fotoLibre ? figuraPublicaDeLaNota(nota) : null;
-    if (figura) {
-      const libre = await buscarLibre(nota, figura, { fotoLibre, fetchFn, achicar, usadas: urlsLibres });
-      if (libre) {
-        urlsLibres.push(libre.entrada.imagenOriginal);
-        fs.writeFileSync(path.join(salida, `${nota.id}.jpg`), libre.bytes);
-        hechas.push({
-          id: nota.id, titulo: nota.titulo, seccion: nota.seccion, fecha: nota.fecha ?? null, tono: tonoDeLaNota(nota), prompt: null, archivo: `${nota.id}.jpg`,
-          control: { ok: true, motivo: null, razon: `foto real libre de Wikimedia Commons (${figura.consulta})` }, libre: libre.entrada, ...(reemplaza ? { reemplaza } : {}),
-        });
-        registro(`  [${nota.id}] foto real libre de ${figura.consulta}: ${libre.entrada.credito}`);
-        continue;
-      }
     }
     if (sinPermiso) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el Worker rechazó la contraseña (VIGILANTE_TOKEN): no se siguió' }); continue; }
     if (llamadas >= cupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `sin cupo (tope de ${TOPE_POR_CORRIDA} por corrida y ${TOPE_POR_DIA} por día${automatico ? ', repartido en el día' : ''})` }); continue; }
@@ -792,21 +741,18 @@ export function aplicar({ desde, ids = [], automatico = false, informe = null, a
     const sinLaAnterior = c.reemplaza ? Object.fromEntries(Object.entries(nuevo).filter(([id]) => id !== c.id)) : nuevo;
     const motivo = motivoParaSaltar(nota, { banco, manuales, ilustraciones: sinLaAnterior });
     if (motivo) { no(c, motivo); continue; }
-    if (quedan <= 0 && !c.libre) { no(c, `tope de ${TOPE_POR_DIA} por día`); continue; }
+    if (quedan <= 0) { no(c, `tope de ${TOPE_POR_DIA} por día`); continue; }
     const origen = path.join(desde, path.basename(c.archivo));
     if (!fs.existsSync(origen)) { no(c, 'falta la imagen en la revisión'); continue; }
     const bytes = fs.readFileSync(origen);
     if (bytes.length < PESO_MINIMO_DE_UNA_FOTO || bytes[0] !== 0xff || bytes[1] !== 0xd8) { no(c, 'la imagen no es un JPEG que sirva'); continue; }
-    const sufijo = c.libre ? 'lib' : 'ia';
+    const sufijo = 'ia';
     const ocupados = [...fs.readdirSync(rutas.carpeta).filter((f) => f.startsWith(`${c.id}-${sufijo}`)), libro[c.id]?.archivo ?? ''];
     const nombre = `${nombreDeFotoNueva(`${c.id}-${sufijo}`, ocupados)}.jpg`;
     fs.writeFileSync(path.join(rutas.carpeta, nombre), bytes);
-    // Una foto real libre (figura pública) lleva su propio crédito y licencia de Commons y no cuenta para el tope del Worker.
-    nuevo[c.id] = c.libre
-      ? { ...c.libre, archivo: `fotos-notas/${nombre}`, origen: 'libre', cuando: ahora.toISOString(), control: { ok: true, motivo: null, razon: c.control?.razon ?? null }, ...(automatico ? { automatica: true } : {}) }
-      : entradaDeIlustracion({ archivo: `fotos-notas/${nombre}`, nota, prompt: c.prompt, ahora, automatico, control: c.control });
+    nuevo[c.id] = entradaDeIlustracion({ archivo: `fotos-notas/${nombre}`, nota, prompt: c.prompt, ahora, automatico, control: c.control });
     aplicadas.push(c.id);
-    if (!c.libre) quedan -= 1;
+    quedan -= 1;
     registro(`  ${c.id}: guardada como fotos-notas/${nombre}${c.control?.ok ? '' : ` (pedida a mano; el control había dicho: ${c.control?.motivo ?? 'nada'})`}`);
   }
   // Las ilustraciones sin control que la revisión miró (regla 206): la que pasó queda con su control anotado; la que no pasó y no se
@@ -879,12 +825,6 @@ function resumenDeAplicadas({ aplicadas, detalle, noAplicadas }, esAutomatico) {
   try { fs.appendFileSync(archivo, `${lineas.join('\n')}\n`, 'utf8'); } catch { /* el resumen no frena nada */ }
 }
 
-/** Las dos funciones de foto-libre.mjs, para las figuras públicas (se cargan acá para que las pruebas nunca busquen en internet). */
-async function fotoLibreDeCommons() {
-  const { buscarFotoLibre, bajarFotoLibre } = await import('./foto-libre.mjs');
-  return { buscar: buscarFotoLibre, bajar: bajarFotoLibre };
-}
-
 async function principal() {
   const [accion] = process.argv.slice(2);
   const opcion = (n) => (process.argv.find((a) => a.startsWith(`--${n}=`)) ?? '').slice(n.length + 3);
@@ -902,7 +842,7 @@ async function principal() {
     cuentas: leerCuentas(opcion('cuentas') || 'cuentas'), ...claves(),
   });
   if (accion === 'revisar') {
-    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico, fotoLibre: await fotoLibreDeCommons() });
+    const resultado = await revisar({ ...comunes(), ids, automatico: esAutomatico });
     resumenParaGitHub(resultado);
     // Para el workflow: si ninguna pasó el control, el job "Guardar" del modo automático ni arranca.
     // También cuenta lo que hay que anotar o sacar de las ilustraciones sin control (regla 206): eso también lo guarda el job "Guardar".
@@ -912,7 +852,7 @@ async function principal() {
     const r = aplicar({ desde: opcion('desde') || 'revision', ids, automatico: esAutomatico, informe: opcion('informe') || null });
     resumenDeAplicadas(r, esAutomatico);
   } else if (accion === 'automatico') {
-    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas', fotoLibre: await fotoLibreDeCommons() });
+    const r = await automatico({ ...comunes(), informe: opcion('informe') || 'aplicadas' });
     resumenParaGitHub(r.revision);
     resumenDeAplicadas(r, true);
   } else {

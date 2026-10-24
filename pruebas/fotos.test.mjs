@@ -288,25 +288,18 @@ test('elegirFotoParaNota: si una fuente sirve, ni pregunta por la persona públi
   assert.equal(preguntoPersona, false);
 });
 
-test('elegirFotoParaNota: sin foto de fuente, prueba Wikimedia si hay una persona pública clara (y la IA mira la foto: 17/10/2026)', async () => {
+test('elegirFotoParaNota: sin foto de fuente NO prueba Wikimedia aunque haya una persona pública clara (regla 319: la foto sale de las fuentes)', async () => {
   const nota = { titulo: 'Mariano Werner lidera la clasificación del TC Pick Up', seccion: 'Automovilismo', fuentesConsultadas: [] };
-  const fetchFn = async (url, init) => {
-    if (String(url).includes('generativelanguage')) {
-      // Sin imagen: la pregunta por la persona. Con imagen: el control de la foto de Wikimedia.
-      const conImagen = JSON.parse(init.body).contents[0].parts.length > 1;
-      const respuesta = conImagen
-        ? { menor: false, tiene_marca: false, grafica: false, stock: false, corresponde: 'si', descripcion: 'Werner junto a su auto' }
-        : { persona: 'Mariano Werner' };
-      return { ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text: JSON.stringify(respuesta) }] } }] }) };
-    }
-    if (String(url).includes('commons.wikimedia.org/w/api.php')) return { ok: true, json: async () => ({ query: { pages: paginaWikimedia({}) } }) };
-    if (String(url).includes('upload.wikimedia.org')) return { ok: true, headers: { get: () => 'image/jpeg' }, arrayBuffer: async () => Buffer.from('foto') };
+  const pedidos = [];
+  const fetchFn = async (url) => {
+    pedidos.push(String(url));
+    if (String(url).includes('generativelanguage')) return { ok: true, json: async () => ({ candidates: [{ content: { parts: [{ text: JSON.stringify({ persona: 'Mariano Werner' }) }] } }] }) };
+    throw new Error('no debería buscar en Wikimedia ni bajar nada');
   };
   const r = await elegirFotoParaNota(nota, { clave: 'g', claveRespaldo: null, fetchFn });
-  assert.equal(r.origen, 'wikimedia');
-  assert.equal(r.elegida.medio, 'Wikimedia Commons');
-  assert.match(r.razon, /Mariano Werner/);
-  assert.match(r.razon, /Wikimedia/);
+  assert.equal(r.origen, 'ninguna');
+  assert.equal(r.elegida, null);
+  assert.ok(!pedidos.some((u) => /wikimedia|commons/.test(u)), 'ni una consulta a Commons');
 });
 
 test('elegirFotoParaNota: sin foto de fuente y sin persona pública clara, no elige ninguna', async () => {

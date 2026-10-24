@@ -13,10 +13,10 @@ muestra y dónde no. El criterio (qué foto se puede usar y por qué) está en
 En cada corrida de "Actualizar la web", a hasta 10 notas publicadas que todavía
 no se probaron se les busca la foto principal de cada medio que las contó, una
 IA con visión elige la mejor **sin marca de agua, sin chicos, que corresponda a la nota y que no sea un flyer, una captura ni una foto de
-stock** (en los casos dudosos la mira además un segundo modelo; la misma foto no puede ilustrar dos notas de temas distintos; o, si
-ninguna sirve y la nota es de una persona pública que nombra el título, se busca una foto libre y reciente en Wikimedia Commons, que
-también mira la IA),
-se guarda en el banco propio con su crédito y se muestra en la página de la
+stock** (en los casos dudosos la mira además un segundo modelo; la misma foto no puede ilustrar dos notas de temas distintos). **La foto de
+una nota con fuentes sale siempre de las fuentes de esa nota** (regla 319, 24/10/2026): si ninguna sirve, la nota sale con la placa (o con la
+ilustración marcada como IA); nunca con una foto de Wikimedia Commons buscada por el nombre de una persona (§ 7).
+Se guarda en el banco propio con su crédito y se muestra en la página de la
 nota con el crédito debajo y en el espejo de Instagram (el crédito va en el
 texto del posteo) y en la tarjeta para compartir el enlace; los videos siguen
 con placa.
@@ -146,27 +146,37 @@ mucho 3 imágenes por pedido**, así que se comparan las tres primeras; si igual
 las dos fallan, la nota queda sin foto y se reintenta; **el error de Gemini queda guardado** (en la razón y en `errorGemini`: antes se
 perdía y no se sabía si era cupo). Nunca se usa la clave paga de redes.
 
-### 7. Si ninguna foto sirve: Wikimedia Commons
+### 7. Si ninguna foto sirve: la placa (Wikimedia Commons, retirada el 24/10/2026, regla 319)
 
-Idea de Hernán del 28/09, al ver el caso de Mariano Werner (una sola fuente,
-con marca de agua, y una persona fácil de identificar):
+**Regla 319 (24/10/2026, Hernán: cero errores): la foto de una nota con fuentes sale SIEMPRE de las fuentes de esa nota** (la imagen del propio
+artículo de un medio, con su crédito), mientras no tenga marca de agua ni sea autopublicidad de otro medio y pase los controles de siempre.
+**Wikimedia Commons no ilustra ninguna nota que tenga fuentes: ni de personas, ni de lugares, ni de objetos.** Si ninguna foto de las fuentes
+sirve, la nota sale con la placa o, si ya existe ese camino y está permitido, con la ilustración marcada como IA (§ 12).
 
-1. Se le pregunta a Gemini, sólo con el título y la bajada, si la nota es
-   **centralmente sobre una sola persona pública identificable** (un
-   deportista, un funcionario, alguien con página en Wikipedia) y cómo se
-   llama (`personaPublicaDeNota`). Si es sobre un hecho, una institución o
-   varias personas, no se sigue.
-2. **El título tiene que nombrar a esa persona** (17/10, regla 205, `nombraALaPersona`: «Grupo Cali explica la suspensión de su show»
-   salió con una foto de Messi).
-3. Se busca en Wikimedia Commons una foto con ese nombre en el título del
-   archivo (`buscarFotoWikimedia`, sin clave y sin costo), y se toma la
-   primera que sea JPEG o PNG, de al menos 400 × 300 píxeles, con una
-   **licencia libre** (CC0, CC BY, CC BY-SA o dominio público:
-   `WIKIMEDIA_LICENCIAS_LIBRES`), **de no más de dos años** contados desde la nota (`ANTIGUEDAD_MAXIMA_WIKIMEDIA`, `anioDeLaFoto`: la
-   fecha de la toma, el año del nombre del archivo o la fecha de subida; sin fecha, no va) y **que no se haya usado antes**. Lo que tiene
-   "todos los derechos reservados" se descarta.
-4. Se baja la versión de 1.280 px y **la mira la IA** (`revisarUnaFoto`): sin menor, sin marca, que no sea una gráfica y que
-   **corresponda** (se ve a la persona como protagonista y no contradice la nota: un Fórmula 1 de 2016 para un choque de GT, no).
+Por qué: el 24/10 la nota 1vxdqss, «Fito Páez cuestiona al gobierno de Javier Milei…», salió con una foto de Commons buscada por el nombre. Un nombre
+en el título de un archivo de Commons **no garantiza que la persona de la imagen sea la de la noticia** (la IA que la miraba dijo «corresponde» y no
+era), y publicar la cara equivocada junto a una nota política es grave. Antes (28/09, idea de la regla 205) se le preguntaba a Gemini si la nota era de
+una sola persona pública, se buscaba su nombre en Commons y se tomaba una foto libre de no más de dos años que mirara la IA; ese camino se sacó de
+`elegirFotoParaNota` y del de las ilustraciones (`FIGURAS_PUBLICAS`, `buscarLibre`), y `personaPublicaDeNota` y `buscarFotoWikimedia` quedaron
+sin uso en producción.
+
+Cómo se cuida (todo en la prueba `pruebas/fotos-sin-commons.test.mjs`):
+
+- `elegirFotoParaNota` (`ingesta/fotos.mjs`) ya no pregunta por la persona ni consulta a Commons.
+- `ilustrar-notas.mjs` ya no busca foto real de figuras públicas: la nota de Milei o Kicillof va con la ilustración sin personas.
+- `conFotosDelBanco` (`web/scripts/fotos-notas.mjs`) no le pone a una nota con fuentes una foto de origen `wikimedia` (ni `libre`) aunque siga en el
+  banco (`esFotoDeCommonsEnNotaConFuentes`). La foto que sumó una persona a mano (`origen: manual`) no entra en esto.
+- La revisión del archivo (`revisionDeLaFoto`, `web/scripts/revisar-archivo.mjs`) **saca** esa foto de cualquier nota con fuentes, también si la nota
+  la publicó una persona y también si el año y la ficha de visión eran buenos.
+- **Lo único que sigue usando Commons** son las notas propias de F1 y fútbol, por el **lugar** (el circuito o el estadio), que no identifica a nadie
+  (`web/scripts/foto-libre.mjs`, § "Fotos libres para las notas propias"). Además `buscarFotoLibre` sólo busca consultas de un lugar
+  (`consultaEsDeUnLugar`: circuito, autódromo, estadio, arena...): una consulta con el nombre de una persona no sale a la red, y los archivos con
+  `portrait`, `retrato` o `headshot` en el nombre no se eligen. Quedó **abierta** la pregunta de si las notas automáticas de F1 y fútbol tienen que
+  seguir así (`docs/DECISIONES.md`, 24/10).
+
+Fotos de Commons que estaban publicadas y se sacaron del banco (`descartada`, con motivo, el 24/10/2026; sus archivos se borraron con `git rm`):
+1vxdqss (Fito Páez, ya sacada a mano), 1tckq4a (Fito Páez), 9hkq7t y zd48ar (Colapinto, la misma foto), 18tlzl2 (Colapinto) y 1223qry (Kicillof).
+Si Hernán quiere devolver una, tiene que decirlo con la nota y la foto (la restituye una persona, con la foto de las fuentes o una propia; no el robot).
 
 De Commons se guarda también **el autor** (`extmetadata.Artist`, pasado a
 texto por `textoPlano`), y el crédito dice autor y licencia, como piden CC BY y
@@ -324,7 +334,7 @@ Ver `docs/07-REDES.md`.
 | Archivo | Qué hace | Quién lo llama | Qué lee | Qué escribe |
 |---|---|---|---|---|
 | `web/scripts/fotos-notas.mjs` | A qué notas se les prueba foto (`elegirFotosNuevas`, `elegiblePorSeccion`, `TOPE_POR_CORRIDA`; sólo en la nube) y qué se guarda; `fotoDeLaWeb` y `conFotosDelBanco` (las ya guardadas, en cada corrida) | `generar-datos.mjs` | El banco anterior | Devuelve el banco nuevo y los archivos |
-| `ingesta/fotos.mjs` | Candidatas (`og:image`), descarga, comparación con Gemini o Groq, red de seguridad contra la marca, persona pública y Wikimedia (`elegirFotoParaNota`) | `fotos-notas.mjs` | Las páginas de los medios, las APIs de Gemini, Groq y Wikimedia | — |
+| `ingesta/fotos.mjs` | Candidatas (`og:image`), descarga, comparación con Gemini o Groq, red de seguridad contra la marca y las reglas de Commons (`elegirFotoParaNota`; sin Wikimedia desde la regla 319) | `fotos-notas.mjs` | Las páginas de los medios, las APIs de Gemini, Groq y Wikimedia | — |
 | `web/scripts/generar-datos.mjs` | Dispara todo y escribe los archivos | `actualizar.yml` | `banco-fotos.json` | `web/data/banco-fotos.json`, `web/public/fotos-notas/`, el campo `foto` de cada nota |
 | `web/data/banco-fotos.json` | El banco: qué nota se probó y con qué resultado | — | — | — |
 | `web/public/fotos-notas/` | Las fotos elegidas | — | — | — |
@@ -482,11 +492,8 @@ Para sacar una: borrar su entrada de `fotos-ia.json` y el archivo.
 
 ### 12 bis. Figuras públicas, variedad, deportes y política (23/10/2026)
 
-- **Figuras públicas** (Milei, Kicillof, Macri... la lista es `FIGURAS_PUBLICAS` en `web/scripts/ilustrar-notas.mjs`, por el apellido en el **título**):
-  antes de la ilustración se busca una **foto real libre** en Wikimedia Commons (`foto-libre.mjs`). Se usa sólo si el nombre del archivo lleva el
-  apellido, la licencia es abierta y no se repite una foto ya usada. Se guarda como `<id>-lib.jpg` en `fotos-ia.json` (`origen: 'libre'`) con
-  su crédito de Commons: **no dice «Ilustración generada con IA»**, no gasta el Worker ni cuenta para el tope de 20 por día. Si no hay una buena,
-  sigue la ilustración, que nunca muestra a una persona (ni un parecido).
+- **Figuras públicas** (Milei, Kicillof, Macri...): hasta el 24/10 se les buscaba una foto real libre en Wikimedia Commons; **se sacó (regla 319, § 7)**.
+  La nota de una figura pública sale con la foto de sus fuentes o, si no hay, con la ilustración, que nunca muestra a una persona (ni un parecido).
 - **Variedad**: cada nota recibe una variante de toma (encuadre y luz, estable por id) y se le pide a la IA objetos del tema concreto, no un bodegón fijo.
 - **Deportes**: lista de objetos lisos (balón liso, conos, red, césped) y lista de lo que FLUX llena de logos y letras (camisetas, trofeos, marcadores,
   carteles); un prompt que las nombra se descarta. El control con visión no cuenta como texto o logo las costuras, rayas o tramas ni lo borroso del fondo.
@@ -576,7 +583,8 @@ sin sumar costos (sólo las claves gratis y Cloudflare). Lo que cambió:
 | Lo que una persona saca (`descartada`) no vuelve en esa nota ni en otra | `sePuedeReintentar`, `fotoRepetidaEnElBanco` | 203 |
 | La misma foto no ilustra dos notas de temas distintos (huella o dirección) | `huellaDeFoto`, `mismoTema`, `fotoRepetidaEnElBanco` | 204 |
 | Segunda opinión del otro modelo gratis en los casos dudosos | `esDudosa`, `conSegundaOpinion`, `revisarUnaFoto` | 204 |
-| Wikimedia: el título nombra a la persona, la foto no tiene más de dos años, no se repite y la mira la IA | `nombraALaPersona`, `buscarFotoWikimedia`, `elegirFotoParaNota` | 205 |
+| Wikimedia: el título nombra a la persona, la foto no tiene más de dos años, no se repite y la mira la IA (**retirado el 24/10 por la 319**; sólo queda lo que sacaba) | `nombraALaPersona`, `buscarFotoWikimedia`, `anioDeLaFoto` | 205 |
+| Wikimedia Commons no ilustra ninguna nota con fuentes (ni personas, ni lugares, ni objetos): la foto sale de las fuentes; Commons sólo por el lugar en las notas propias de F1 y fútbol; la revisión del archivo saca las que aparezcan | `esFotoDeCommonsEnNotaConFuentes`, `commonsPermitidoParaLaNota` (`ingesta/fotos.mjs`), `consultaEsDeUnLugar` (`web/scripts/foto-libre.mjs`), `conFotosDelBanco`, `revisionDeLaFoto` | 319 |
 | Un solo camino de ilustración (Cloudflare); las de Gemini web se controlan igual; se borró el código muerto y los modelos sin uso del Worker | `ilustrar-notas.mjs`, `infra/imagenes-cloudflare/worker.mjs` | 206 |
 | `npm run auditar-fotos` separa la foto real de la ilustración y de lo sacado | `motivoDeLaNota` (`ingesta/auditar-fotos.mjs`) | 203 |
 

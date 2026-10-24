@@ -3,6 +3,10 @@
 // licencias abiertas. Sólo se usa lo que se puede reusar con crédito: dominio público, CC0, CC BY y CC BY-SA (nada "NC", "ND" ni "fair use"), y el
 // crédito dice quién la sacó, de dónde es y con qué licencia. Se achica y se guarda en el banco propio, como las demás (docs/05-FOTOS.md).
 //
+// Regla 319 (24/10/2026): Commons es SÓLO para el lugar de esas notas propias (circuito, estadio). Nunca para ilustrar una nota que tenga fuentes, y nunca
+// una búsqueda por el nombre de una persona: un archivo de Commons con un nombre en el título no garantiza que la persona de la imagen sea esa (la nota
+// de Fito Páez del 24/10 salió con otra cara). La foto de una nota con fuentes sale de las fuentes de la nota (docs/05-FOTOS.md).
+//
 // Corre sólo en la nube (generar-datos.mjs). Si Commons no contesta o no hay una foto buena, la nota sale sin foto: nunca se rompe nada.
 
 import { fotoParaGuardar } from './achicar-foto.mjs';
@@ -19,7 +23,19 @@ export function licenciaBuena(texto = '') {
 
 const sinEtiquetas = (h) => String(h ?? '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
 
-const NO_SIRVE = /logo|map|mapa|diagram|poster|flag|bandera|signature|banner|stamp|icon|crest|escudo|coat|svg|screenshot|plan\b|layout|track[- ]?map|schematic/i;
+const NO_SIRVE = /logo|map|mapa|diagram|poster|flag|bandera|signature|banner|stamp|icon|crest|escudo|coat|svg|screenshot|plan\b|layout|track[- ]?map|schematic|portrait|retrato|headshot/i;
+
+/** Las palabras que tiene una consulta que busca un LUGAR (circuito, estadio, autódromo). Sin acentos. */
+const PALABRA_DE_LUGAR = /\b(estadio|stadium|stade|arena|circuit|circuito|autodr\w*|speedway|raceway|hungaroring|madring|nurburgring|red bull ring)\b/;
+
+/**
+ * ¿La consulta busca un lugar (un circuito o un estadio)? Conservador (regla 319): si no se puede asegurar que es un lugar —un nombre de persona, o
+ * cualquier otra cosa— no se busca nada. Una consulta con el nombre de "Fito Páez", "Franco Colapinto" o "Axel Kicillof" nunca pasa.
+ */
+export function consultaEsDeUnLugar(consulta = '') {
+  const plano = String(consulta).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  return PALABRA_DE_LUGAR.test(plano);
+}
 
 /**
  * De lo que devolvió Commons, la mejor foto: jpeg, horizontal, de al menos 900 px de ancho, de licencia buena, que no sea un logo ni un mapa; y la
@@ -52,6 +68,7 @@ export const creditoDeCommons = (f) => `Foto: ${f.autor ? `${f.autor} / ` : ''}W
 
 /** Busca en Commons la mejor foto libre para esa consulta. Nunca lanza: sin respuesta, null. */
 export async function buscarFotoLibre(consulta, { fetchFn = fetch, excluir = [] } = {}) {
+  if (!consultaEsDeUnLugar(consulta)) return null; // regla 319: ni personas ni nada que no sea el lugar de una nota propia
   try {
     const q = new URLSearchParams({
       action: 'query', format: 'json', generator: 'search', gsrnamespace: '6', gsrsearch: String(consulta).slice(0, 200), gsrlimit: '12',

@@ -215,26 +215,22 @@ test('la foto de Wikimedia guarda al autor y el crédito dice autor y licencia (
   assert.equal(wiki.autor, 'Juan Pérez');
   assert.equal(wiki.licencia, 'CC BY-SA 4.0');
 
-  // De punta a punta: la fuente no tiene foto, la IA dice de quién es la nota,
-  // Commons tiene una libre, y el banco la guarda con autor y crédito completo.
-  const fetchFn = async (url, init) => {
+  // De punta a punta (regla 319, 24/10): la fuente no tiene foto y la nota es de una persona pública, pero Commons NO se consulta: el banco no la guarda.
+  const pedidos = [];
+  const fetchFn = async (url) => {
     const u = String(url);
-    // Sin imagen, la pregunta por la persona; con imagen, el control de la foto de Wikimedia (regla 205).
-    const conImagen = u.includes('generativelanguage') && JSON.parse(init.body).contents[0].parts.length > 1;
-    if (conImagen) return respuesta({ candidates: [{ content: { parts: [{ text: '{"menor":false,"tiene_marca":false,"grafica":false,"stock":false,"corresponde":"si"}' }] } }] });
+    pedidos.push(u);
     if (u.includes('generativelanguage')) return respuesta({ candidates: [{ content: { parts: [{ text: '{"persona":"Mariano Werner"}' }] } }] });
-    if (u.includes('commons.wikimedia.org/w/api.php')) return respuesta(COMMONS);
-    if (u.includes('upload.wikimedia.org')) return respuesta(new Uint8Array([0xff, 0xd8, 0xff, 0xe0]), 'image/jpeg');
     return respuesta('<html><head><title>Sin foto</title></head></html>', 'text/html');
   };
   const { banco, archivos } = await elegirFotosNuevas(
     [{ id: 'w', titulo: 'Mariano Werner ganó en Paraná', seccion: 'Automovilismo', enlace: 'https://medio.test/nota', medios: ['Medio'] }],
     { clave: 'clave-de-prueba', claveRespaldo: null, fetchFn },
   );
-  assert.equal(banco.w.origen, 'wikimedia');
-  assert.equal(banco.w.autor, 'Juan Pérez');
-  assert.equal(banco.w.credito, 'Foto: Juan Pérez / Wikimedia Commons (CC BY-SA 4.0)');
-  assert.ok(archivos['fotos-notas/w.jpg']);
+  assert.equal(banco.w.origen, 'ninguna');
+  assert.equal(banco.w.credito, undefined);
+  assert.ok(!pedidos.some((u) => /wikimedia|commons/.test(u)));
+  assert.deepEqual(archivos, {});
 });
 
 // ------------------------- 9. el interruptor de las redes, una sola regla

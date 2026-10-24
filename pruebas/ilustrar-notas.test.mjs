@@ -15,7 +15,7 @@ import {
   promptFinal, problemaDelPrompt, interpretarControl, pedidoAlWorker, llamarAlWorker, revisar, aplicar, entradaDeIlustracion, neuronasEstimadas,
   TOPE_POR_CORRIDA, TOPE_POR_DIA, REINTENTOS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, AGREGADO, NEGATIVO, PROMPT_DE_HERNAN,
   PROMPT_MAXIMO, MODELO, ANCHO, ALTO, PASOS, URL_DEL_WORKER, CUERPO_MAXIMO, PREGUNTA_DE_CONTROL,
-  figuraPublicaDeLaNota, fotoEsDeLaFigura, guiaDeEscena, varianteDeLaNota, temaDeLaNota, OBJETOS_DE_DEPORTE, PROHIBIDO_EN_DEPORTE, VARIANTES,
+  guiaDeEscena, varianteDeLaNota, temaDeLaNota, OBJETOS_DE_DEPORTE, PROHIBIDO_EN_DEPORTE, VARIANTES,
   tonoDeLaNota, TONOS, esDeGeminiWeb, cupoAutomatico, automatico, HORAS_AUTOMATICAS, MINIMO_POR_CORRIDA_AUTOMATICA, ilustracionControlada,
 } from '../web/scripts/ilustrar-notas.mjs';
 import { nombresDePersona } from '../web/scripts/nombres-de-persona.mjs';
@@ -808,15 +808,9 @@ test('el workflow no se pisa: una corrida por vez, y el job que sube va en la fi
 
 // ---------------------------------------------- 23/10/2026: figuras públicas, variedad, deportes y política
 
-test('figura pública: el título que nombra a Milei busca una foto real; sin nombre, no; la foto tiene que llevar el apellido', () => {
-  assert.equal(figuraPublicaDeLaNota(nota('a1', 'Milei niega que la economía entre en recesión', 'Economía'))?.consulta, 'Javier Milei');
-  assert.equal(figuraPublicaDeLaNota(nota('a2', 'Reunión de Kicillof con intendentes', 'Política'))?.apellido, 'kicillof');
-  assert.equal(figuraPublicaDeLaNota(nota('a3', 'El Concejo aprobó el presupuesto', 'Política')), null);
-  assert.equal(figuraPublicaDeLaNota(nota('a4', 'Los milenials y el ahorro', 'Economía')), null, 'no es una subcadena');
-  const f = figuraPublicaDeLaNota(nota('a1', 'Milei habla', 'Política'));
-  assert.ok(fotoEsDeLaFigura({ titulo: 'File:Javier Milei en 2024.jpg' }, f));
-  assert.ok(!fotoEsDeLaFigura({ titulo: 'File:Casa Rosada.jpg' }, f));
-  assert.ok(!fotoEsDeLaFigura(null, f));
+test('regla 319: ya no hay foto de Commons por figura pública: ilustrar-notas no tiene ese camino', () => {
+  const fuente = fs.readFileSync(path.join(RAIZ, 'web/scripts/ilustrar-notas.mjs'), 'utf8');
+  assert.ok(!/foto-libre|buscarLibre|figuraPublicaDeLaNota|FIGURAS_PUBLICAS/.test(fuente), 'ilustrar-notas.mjs no busca fotos en Commons');
 });
 
 test('política: la guía prohíbe escritorio y oficina, y un prompt de escritorio se descarta; deportes: lista de objetos sin marcas', () => {
@@ -861,36 +855,10 @@ test('el control acepta costuras de una pelota y rayas, pero sigue rechazando le
   assert.ok(!interpretarControl({ personas: false, rostros: false, texto: true, logos: false, sensible: false, raro: false }).ok);
 });
 
-test('revisar: la nota de una figura pública lleva foto real libre (sin gastar el Worker) y aplicar la guarda con su crédito, sin decir IA', async () => {
-  const e = escenario(0, { extra: [nota('mil1', 'Milei anunció medidas económicas', 'Política', { fecha: '2026-10-16T14:00:00Z', cuerpo: 'El presidente anunció medidas.' })] });
-  const { fetchFn, pedidos } = redSimulada();
-  const consultas = [];
-  const fotoLibre = {
-    buscar: async (c, o) => { consultas.push([c, o.excluir]); return { url: 'https://upload.wikimedia.org/x.jpg', titulo: 'File:Javier Milei 2024.jpg', pagina: 'https://commons.wikimedia.org/wiki/File:x', licencia: 'CC BY-SA 4.0', autor: 'Fulano' }; },
-    bajar: async (foto, nombre) => ({ archivo: `fotos-notas/${nombre}.jpg`, bytes: JPEG(12_000), entrada: { archivo: `fotos-notas/${nombre}.jpg`, medio: 'Wikimedia Commons', credito: 'Foto: Fulano / Wikimedia Commons (CC BY-SA 4.0)', licencia: foto.licencia, origen: 'libre', imagenOriginal: foto.url } }),
-  };
-  const r = await revisar({ ...e, clave: 'k', token: 't', fetchFn, achicar, esperar: sinEspera, registro: () => {}, fotoLibre });
-  assert.deepEqual(consultas.map((c) => c[0]), ['Javier Milei']);
-  assert.equal(pedidos.worker, 0, 'no se gasta una neurona');
-  assert.equal(pedidos.gemini, 0, 'ni se pide un prompt');
-  assert.equal(r.candidatas[0].libre.origen, 'libre');
-  assert.deepEqual(r.paraAplicar, ['mil1']);
-  const a = aplicar({ desde: e.salida, ahora: e.ahora, rutas: e.rutas, registro: () => {} });
-  assert.deepEqual(a.aplicadas, ['mil1']);
-  const entrada = JSON.parse(fs.readFileSync(e.rutas.ilustraciones, 'utf8')).mil1;
-  assert.equal(entrada.archivo, 'fotos-notas/mil1-lib.jpg');
-  assert.match(entrada.credito, /Wikimedia Commons/);
-  assert.ok(esIlustracionDeNota(entrada));
-  assert.equal(aplicadasHoy({ mil1: entrada }, '2026-10-16'), 0, 'no cuenta para el tope del Worker');
-  const [n] = conFotosDelBanco([{ id: 'mil1', seccion: 'Política', titulo: 'Milei' }], {}, { ilustraciones: { mil1: entrada } });
-  assert.match(n.foto.credito, /^Foto: Fulano/);
-  assert.ok(!/IA/.test(n.foto.credito));
-});
-
-test('revisar: si Commons no tiene una foto de la figura, la nota sigue con la ilustración (sin personas)', async () => {
+test('regla 319: la nota de una figura pública (Milei) va con la ilustración sin personas, aunque se le pase un buscador de Commons', async () => {
   const e = escenario(0, { extra: [nota('mil2', 'Milei viaja a Estados Unidos', 'Política', { fecha: '2026-10-16T14:00:00Z' })] });
   const { fetchFn, pedidos } = redSimulada({ prompt: 'Candid photojournalistic photograph of empty stone steps leading to a columned civic building, soft morning light, no people, no text, no logos' });
-  const fotoLibre = { buscar: async () => ({ url: 'u', titulo: 'File:Casa Rosada.jpg' }), bajar: async () => { throw new Error('no se baja'); } };
+  const fotoLibre = { buscar: async () => { throw new Error('no se busca en Commons'); }, bajar: async () => { throw new Error('no se baja'); } };
   const r = await revisar({ ...e, clave: 'k', token: 't', fetchFn, achicar, esperar: sinEspera, registro: () => {}, fotoLibre });
   assert.equal(pedidos.worker, 1);
   assert.equal(r.candidatas[0].libre, undefined);

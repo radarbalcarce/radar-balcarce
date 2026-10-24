@@ -12,7 +12,7 @@
 // veces, con una hora entre una y otra (`sePuedeReintentar`, 29/09).
 
 import {
-  elegirFotoParaNota, descargarImagen, creditoDeFoto, bytesOriginales, mimeOriginal, normalizarMime, sinConsulta,
+  elegirFotoParaNota, descargarImagen, creditoDeFoto, bytesOriginales, mimeOriginal, normalizarMime, sinConsulta, esFotoDeCommonsEnNotaConFuentes,
 } from '../../ingesta/fotos.mjs';
 import { excepcionActiva, menorEnActividadOficial, tieneFuenteOficialParaMenores } from '../../ingesta/fotos-menores.mjs';
 import { achicarFoto, achicarParaIA, fotoParaGuardar, huellaDeFoto, mismaFoto } from './achicar-foto.mjs';
@@ -149,12 +149,6 @@ export function fotoRepetidaEnElBanco(banco, nota, { huella = null, imagen = nul
   return null;
 }
 
-/** Las direcciones de Wikimedia que ya están en el banco (usadas o sacadas): no se repiten (regla 205). */
-export function wikimediaYaUsadas(banco) {
-  return new Set(Object.values(banco ?? {}).filter((e) => e?.origen === 'wikimedia' || e?.descartada?.origen === 'wikimedia')
-    .map((e) => sinConsulta(e.imagenOriginal ?? e.descartada?.imagenOriginal)).filter(Boolean));
-}
-
 /**
  * Prueba una foto para las notas que todavía no están en el banco (y las que
  * quedaron sin foto por una falla, hasta tres veces), hasta `tope` por corrida.
@@ -196,7 +190,6 @@ export async function elegirFotosNuevas(notas, {
         clave, claveRespaldo, fetchFn, fotosMenoresOficiales, prepararParaIA, huellaDe,
         // Con el banco de este momento (también lo que se eligió antes en esta misma corrida).
         esRepetida: (foto) => fotoRepetidaEnElBanco(bancoNuevo, n, foto),
-        excluirWikimedia: wikimediaYaUsadas(bancoNuevo),
       });
       // El error de Gemini queda en la ficha aunque después Groq haya contestado (17/10/2026).
       const deGemini = r.errorGemini ? { errorGemini: r.errorGemini } : {};
@@ -436,7 +429,9 @@ export function conFotosDelBanco(notas = [], banco = {}, {
   for (const n of notas) {
     // Una foto con chicos que entró por la excepción de la regla 186 sólo se muestra si hoy se sigue pudiendo (fotoConMenorPermitida);
     // si no, se le saca a la nota aunque ya la tuviera puesta.
-    const bloqueada = !!banco?.[n.id]?.excepcion && !conMenor(n);
+    // Regla 319: una foto de Wikimedia Commons en una nota con fuentes no se muestra, aunque siga en el banco (la foto sale de las fuentes de la nota).
+    const deCommons = esFotoDeCommonsEnNotaConFuentes(banco?.[n.id], n);
+    const bloqueada = deCommons || (!!banco?.[n.id]?.excepcion && !conMenor(n));
     if (bloqueada && n.foto?.archivo && n.foto.archivo === banco[n.id].archivo) delete n.foto;
     const foto = bloqueada ? null : fotoDeLaWeb(banco, n.id);
     // Policiales sin fuente oficial no lleva foto real, ni aunque esté en el banco o la haya sumado una persona desde el panel
