@@ -31,3 +31,11 @@
 ## La pregunta que se envió (sin datos privados)
 
 Descripción del proyecto (medio digital local automático, 40.000 habitantes, dos operadores no programadores, el robot lee ~125 feeds de ~75 medios, publica lo de Balcarce y lo nacional si lo cuentan 3 o más medios, reescribe con IA verificando contra las fuentes, Cloudflare con un Worker de reloj, redes con voz sintética), los datos reales de 28 días de Search Console y de redes, el presupuesto (US$ 5 por mes más cupos gratuitos) y seis preguntas: modelo, riesgos con Google, contenido único, crecimiento en 90 días, qué se rompe primero y qué sobra, y las diez decisiones y los cinco "no".
+
+## Aclaración del dueño (24/10, después de la consulta)
+
+Hernán no quería que se evaluara el **concepto** (qué noticias elegimos, local o nacional, el modelo): eso está decidido, y la estructura se arma para que a futuro haya noticias propias, autores y columnistas. Lo que se quería preguntar era **si técnicamente estamos haciendo bien y cómo lograr el mejor SEO con lo que hay**. Por eso:
+
+- Las partes de esta respuesta sobre sacar lo nacional, bajar la cantidad de notas por día y el modelo de negocio quedan **fuera de alcance** y no se aplican ni se ponen en la lista de decisiones.
+- Se rescatan sólo lo técnico y el SEO: la señal de calidad de Search Console, autoría y política editorial visibles, enlaces claros a las fuentes, noindex para lo de bajo valor, datos estructurados, página de correcciones, canal de WhatsApp y servicios destacados.
+- La revisión independiente (`P-REVISION-INDEPENDIENTE.md`) se reencuadró con ese alcance.
