@@ -65,11 +65,15 @@ export function umbralDeAtraso(env = {}, ahora = new Date()) {
   return MINUTOS_PARA_DAR_POR_ATRASADO + (nocheCadaHora(env) && esDeNocheParaElMotor(ahora) ? 60 : 0);
 }
 
-/** Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del ciclo de facturación. */
-export async function despertarMotor(env, { fetchFn = fetch, ahora = new Date() } = {}) {
+/**
+ * Pide una vuelta del motor (un build de Workers Builds), salvo que se haya pasado del presupuesto del ciclo de facturación.
+ * `sinPresupuesto` (24/10/2026, regla 317): el botón «Actualizar la web ahora» del panel del celular la pide aunque el presupuesto diga que no toca: la pidió una
+ * persona y es una vuelta sola. La pausa general, en cambio, la frena quien llama (leerPausa, infra/compartido/pausa.mjs).
+ */
+export async function despertarMotor(env, { fetchFn = fetch, ahora = new Date(), sinPresupuesto = false } = {}) {
   if (!env.MOTOR_DEPLOY_HOOK) return { archivo: MOTOR, ok: false, estado: 0, motivo: 'falta el secreto MOTOR_DEPLOY_HOOK (el «deploy hook» de Workers Builds)' };
   let decision = null;
-  if (env.MOTOR) {
+  if (env.MOTOR && !sinPresupuesto) {
     // Regla 315: los minutos se cuentan por ciclo de facturación de Cloudflare (MOTOR_CICLO_DIA, 11 si no está), no por mes calendario.
     const cicloDia = cicloDiaDe(env);
     const [registro, estado] = await Promise.all([leerRegistroDelCiclo((clave) => leerJson(env.MOTOR, clave), ahora, cicloDia), leerJson(env.MOTOR, 'motor/estado.json')]);

@@ -268,6 +268,58 @@ Qué pasa:
 - `Si` vale con cualquier mayúscula, con o sin tilde (`si`, `SÍ`, `sí`…):
   Facebook y el reloj de las piezas lo leen con la misma regla desde el 28/09.
 
+## 5 bis. Pausa general: el botón de emergencia (regla 317)
+
+**Para qué sirve.** Si algo sale mal y hay que frenar todo ya (se publicó algo que no debía, una fuente manda cualquier cosa, una IA se vuelve loca), un
+toque en el celular frena **la web nueva, las redes y la IA**. Lo que ya está publicado en la web sigue andando; no se borra nada. Se deshace con otro toque.
+
+**Pausar (desde el celular, un minuto):**
+
+1. Abrir el panel (`radarbalcarce.com/panel/`) → **Más**.
+2. Bajar hasta **Pausa general** y tocar **⏸ Pausa general: frenar todo**.
+3. Escribir el motivo en una línea (queda a la vista del vigilante y de los informes; sin nombres de personas) → **Sí, pausar todo**.
+4. Tiene que aparecer, arriba de **Hoy**, un cartel rojo: «⏸ PAUSA GENERAL · Desde 24/10 14:05 por Fulano». Si no aparece, mirar «Si el panel no anda», más abajo.
+
+**Qué pasa desde ese momento** (en el minuto siguiente: el reloj lo mira al principio de cada minuto):
+
+- **La web:** el motor deja de pedirse; no entra ninguna nota nueva. Lo ya publicado sigue sirviéndose. Si una vuelta ya estaba en marcha, termina; la siguiente ni empieza.
+- **Las redes:** nada sale a Facebook ni a Instagram, ni videos, ni repasos.
+- **La IA:** no corren la auditoría, las pistas, las ilustraciones ni la revisión del archivo. Escribir una nota con IA desde el panel (a pedido de una persona) no se frena: es una decisión tuya.
+- **Lo que NO se frena nunca:** la vigilancia, el informe diario de las 8:15 y las 21:15, los respaldos, el reloj y el panel.
+- **Los avisos:** en la próxima revisión del vigilante (a los :12 y :42) llega un mail «La publicación está en PAUSA GENERAL desde … (por …)», que se repite cada 24 horas mientras siga. Los informes de las 8:15 y 21:15 salen con «EN PAUSA» en el asunto y un cartel rojo arriba. **Mientras dura la pausa no llegan los avisos de «la web no se actualiza»**: es a propósito (una web caída, en cambio, sí avisa).
+- **Lo que ya salió no se saca solo.** Si había que frenar por una nota mala, además hay que retirarla (tarea 2) y, si ya estaba en redes, borrarla a mano allá.
+- «Actualizar la web ahora» **no anda en pausa**: dice «En pausa desde… Reanudá antes de pedir una vuelta».
+
+**Reanudar (un toque):** Hoy o Más → **▶ Reanudar todo** → **Sí, reanudar**. Desde ese momento el reloj vuelve a pedir todo; la web se arma en la próxima vuelta (a los :00 o :30) o
+al tocar «Actualizar la web ahora». Durante unas 3 horas después de reanudar el vigilante no se alarma por lo que quedó atrasado.
+
+**Si el panel no anda (a mano).** Dos caminos, el primero alcanza con la cuenta de Cloudflare y el celular:
+
+1. **Cloudflare → R2 → `radar-motor`** (dash.cloudflare.com, cuenta `radarbalcarce@gmail.com`). Para **pausar**: *Upload* de un archivo llamado exactamente `estado.json`
+   dentro de una carpeta `pausa` (la clave completa es `pausa/estado.json`) con este contenido, cambiando la fecha y el motivo:
+   `{"version":1,"pausada":true,"desde":"2026-10-24T17:05:00Z","por":"Hernán","motivo":"lo que haya pasado"}`
+   (la fecha es la hora UTC, tres horas más que Balcarce; tiene que ser una fecha válida o no cuenta). Para **reanudar**: *Delete* de ese objeto (o subir el mismo con `"pausada":false`).
+2. **Con la contraseña de los Workers** (`VIGILANTE_TOKEN`, desde una consola; nunca en un chat):
+   `curl -X POST https://radar-balcarce-reloj.radarbalcarce.workers.dev/panel/pausa -H "x-token: LA_CONTRASEÑA" -H "content-type: application/json" -d '{"pausar":true,"motivo":"lo que haya pasado","nombre":"Hernán"}'`
+   y para reanudar `-d '{"pausar":false,"nombre":"Hernán"}'`. Para ver cómo está: `curl https://radar-balcarce-reloj.radarbalcarce.workers.dev/panel/estado -H "x-token: LA_CONTRASEÑA"`.
+
+La receta de siempre sigue valiendo si todo lo demás falla: poner `REDES_ACTIVAS_NUBE` en No (sólo frena las redes) o retirar la nota a mano (tarea 2).
+
+**Qué mirar si «no frenó».** (a) Cloudflare → Workers → `radar-balcarce-reloj` → Logs: cada minuto escribe una línea; en pausa trae `"pausa":{…}` y `"frenados":[…]`.
+(b) Si dice «No se pudo ver si la pausa está prendida» en el panel, el Worker del reloj no contestó (¿se subió? ver abajo). (c) Si el panel dice «Esa llave no puede escribir en el repositorio», la llave de este celular
+no tiene permiso de escritura (el mismo permiso que ya hace falta para aprobar notas).
+
+**Cómo se sube y se prueba (lo hace Claude con una persona; escrito el 24/10 y NO subido).** El panel y los Workers tienen que subirse en este orden, porque el panel nuevo le habla al reloj nuevo:
+
+1. Mirar en Cloudflare → `radar-balcarce-reloj` → *Settings → Variables* cuál es la variable `NUBE` de hoy (la lista de workflows en la nube, o `todo`).
+2. GitHub → Actions → **Desplegar Workers de Cloudflare** → Run workflow: *Qué subir* = `todo` (o primero `tareas` y después `vigilante` y `reloj`), *con_nube* = **sí**, *nube* = el valor del paso 1. **No usar «Reloj de Cloudflare»** (`reloj-cloudflare.yml`): sube el reloj sin la nube y le saca los accesos al motor y a las tareas.
+3. Comprobar el reloj nuevo: `curl https://radar-balcarce-reloj.radarbalcarce.workers.dev/panel/estado -H "x-token: LA_CONTRASEÑA"` tiene que contestar `"pausa":{"pausada":false…}` y la última vuelta del motor.
+4. Recién ahora publicar el panel y la vuelta (mergear a `main`; el panel sale con la próxima vuelta de la web y la vuelta nueva corre desde la siguiente compilación del motor). En el celular: Más → *Actualizar el panel*.
+5. **Ensayo de 2 minutos**, mejor en un momento tranquilo: pausar con el motivo «prueba», mirar que aparezca el cartel en Hoy, esperar un minuto y ver en los logs del reloj `"frenados"`, reanudar, y tocar «Actualizar la web ahora» (a los 8 minutos tiene que figurar la vuelta en Hoy).
+6. **Vuelta atrás**: volver a subir los Workers del commit anterior (el mismo workflow) y borrar `pausa/estado.json` de R2. El panel viejo no sabe de la pausa pero tampoco se rompe.
+
+No hace falta ninguna variable nueva (el reloj, el Worker de tareas y el vigilante ya tienen los accesos que usa; la dirección del reloj ya figura en la CSP del panel).
+
 ## 6. Publicar una pieza a mano
 
 Para una historia fija que no salió (clima, farmacia) o para probar:
@@ -314,6 +366,9 @@ historial de git. Los datos de la web los arma sólo GitHub Actions.
 
 ## 8. Si algo dejó de salir: el orden para mirar
 
+**Antes de todo: ¿está en pausa general?** Si en el panel, en **Hoy**, hay un cartel rojo «PAUSA GENERAL», o llegó el mail «La publicación está en PAUSA GENERAL…», no salir es lo esperado:
+alguien la prendió a propósito (tarea 5 bis). Se reanuda con un toque.
+
 1. **¿Llegó un mail de aviso?** (a `radarbalcarce@gmail.com`; mirar también
    Spam). Dice qué falló. Los mandan los dos vigilantes: el de GitHub
    ("Vigilancia") y el Worker `radar-balcarce-vigilante`, que mira desde afuera
@@ -334,7 +389,10 @@ historial de git. Los datos de la web los arma sólo GitHub Actions.
 ## 9. La web no se actualiza
 
 Se nota porque la portada no cambia o llega el aviso "La web no se actualiza
-hace N horas".
+hace N horas". (Si el panel muestra el cartel rojo «PAUSA GENERAL», no es una
+rotura: reanudar, tarea 5 bis. Y el botón «Actualizar la web ahora» del panel
+pide una vuelta al motor de Cloudflare, no el workflow de GitHub; la pestaña
+Hoy muestra cómo terminó la última vuelta.)
 
 1. Actions → **Actualizar la web**: ¿la última corrida cuándo fue?
    - **No hay corridas recientes** → el reloj de Cloudflare (tarea 10). Mientras tanto,

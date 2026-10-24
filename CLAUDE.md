@@ -175,7 +175,15 @@ documentación.)
 - **El panel del celular** (`web/public/panel/`) no tiene servidor: escribe con la llave de
   GitHub de quien lo usa; lo sensible viaja cifrado (`panel/cifrado.mjs`); pedirle a la IA
   dispara "Panel del celular" (`panel.yml`), que lee las notas de la caché de Actions. Su
-  página tiene su propia CSP en `web/public/_headers`: no cargar nada de afuera ahí.
+  página tiene su propia CSP en `web/public/_headers`: no cargar nada de afuera ahí (sólo GitHub y,
+  desde la regla 317, el Worker del reloj para la pausa general y «Actualizar la web ahora»).
+- **PAUSA GENERAL** (regla 317, botón de emergencia; escrita y probada el 24/10, sin subir): un archivo
+  de R2 (`pausa/estado.json` en `radar-motor`, `infra/compartido/pausa.mjs`) que el panel prende y apaga
+  por el Worker del reloj (`infra/reloj-cloudflare/panel-api.mjs`, con la misma llave de GitHub). En
+  pausa el reloj no pide el motor, las redes ni lo que gasta IA; el Worker de tareas y la vuelta del
+  motor lo vuelven a mirar. La vigilancia, el informe diario y los respaldos **no se frenan nunca**; el
+  vigilante y el informe dicen «en pausa desde X por Y». Si R2 no se puede leer, no se asume pausa.
+  Paso a paso para personas: `docs/11-OPERACION.md`, tarea 5 bis.
 
 ## Estado (24/10/2026)
 
@@ -218,6 +226,7 @@ documentación.)
 | Las pistas del panel (pegar un tuit o un enlace; quedan abiertas, se vuelven a mirar cada 3 horas y se sigue en qué quedó cada una) | `ingesta/pistas.mjs`, `panel/pistas-libro.mjs`, `panel/revisar-pistas.mjs`, `.github/workflows/pistas.yml`, `web/data/pistas.json`, `web/public/panel/pistas.js`, `panel/celular.mjs` (acciones `pista` y `nota-pista`) |
 | Hacer una nota propia de una pista (búsqueda con texto en internet, Tavily) | `ingesta/busqueda.mjs`, `panel/nota-de-pista.mjs`, `web/lib/notas-de-pistas.js`, `web/data/notas-de-pistas.json` (lo escribe sólo el celular) |
 | El panel del celular | `web/public/panel/` (la app), `panel/celular-datos.mjs` (lo que decide y lo que recibe), `panel/cifrado.mjs`, `panel/celular.mjs` y `panel/reescribir-una.mjs` (el pedido a la IA), `.github/workflows/panel.yml` |
+| Frenar todo en una emergencia (PAUSA GENERAL) y «Actualizar la web ahora» (regla 317) | `infra/compartido/pausa.mjs` (qué frena y qué no: `TRABAJOS_QUE_FRENA`, `TAREAS_QUE_FRENA`), `infra/reloj-cloudflare/panel-api.mjs` (la puerta del panel: `/panel/estado`, `/panel/pausa`, `/panel/vuelta`) y `worker.mjs` del reloj (lo lee cada minuto), `infra/tareas-cloudflare/worker.mjs` y `infra/motor-cloudflare/vuelta.mjs` (segunda llave), `aplicarLaPausa` (`infra/vigilante-cloudflare/worker.mjs`), `web/public/panel/nube.js`; subirlo y probarlo: `docs/11-OPERACION.md`, tarea 5 bis |
 | "Un día como hoy" y los feriados (el mes armado se aprueba, se saca o se frena en la pestaña Fechas → Mes armado: `redes/efemeride.mjs`, regla 97) | `ingesta/efemerides.mjs` (candidatas y puntaje), `ingesta/generar-efemerides.mjs` (la corrida mensual), `ingesta/efemerides-curadas.json` (fechas patrias y de Balcarce), pestaña Fechas del panel (`web/public/panel/fechas.js`); `docs/13-EFEMERIDES.md` |
 | La nota del diario de "Un día como hoy" (sale cuando sale el video; texto propio, ilustración fija con IA) | `notasDeEfemerides` (`web/lib/notas-propias.js`), `web/public/fotos-notas/efemeride-fondo.jpg`; regla 165 |
 | La imagen de la nota del clima (ilustración fija con IA según el estado del tiempo y la fecha; regla 181) | `web/lib/fondos-clima.js`, `web/public/fotos-notas/clima-<estado>-<n>.jpg`, workflow manual `generar-fondos-clima.yml` (genera candidatas nuevas) |

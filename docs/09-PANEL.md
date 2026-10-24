@@ -11,7 +11,8 @@ paso de todos los días (crear la llave, instalar, decidir, corregir):
 ## En una frase
 
 **El panel del celular** (`radarbalcarce.com/panel/`) es una app sin servidor
-propio que habla directo con GitHub con la llave de quien lo usa, para aprobar,
+propio que habla directo con GitHub con la llave de quien lo usa (y, desde el 24/10, con la misma llave, con el
+Worker del reloj de Cloudflare para la pausa general y «Actualizar la web ahora»: sección del final), para aprobar,
 editar, retirar (y volver a publicar), pedirle a la IA que escriba una nota,
 seguir pistas y hacer notas propias, sumar fotos, escribirles a los contactos,
 armar las efemérides, ver lo que sale hoy en las redes, lo que marcó la
@@ -294,6 +295,7 @@ repositorio con la llave de cada persona, y lo sensible viaja cifrado.
 | `web/public/panel/app.js` | El panel del celular: pantallas, pestañas, decisiones, las preguntas antes de confirmar | El navegador del celular | Por la API de GitHub: `web/data/` | `celular-decisiones.json`, `correcciones.json`, `retiradas.json` (sólo saca), `celular-llaves.json` (vía `github.js`) |
 | `web/public/panel/textos.js` | Lo que explica el panel: por qué espera cada nota (`explicarMotivo`, `motivoCorto`), lo que anotó la IA (`explicarFicha`), las pestañas (`PESTANAS`), las preguntas (`PREGUNTAS`, `preguntaRedes`), el estado de cada pieza y del próximo posteo, la hora de Balcarce | `app.js` | — | — |
 | `web/public/panel/github.js` | Cómo habla con GitHub: leer, guardar con reintento, disparar un workflow, encontrar su corrida | `app.js` | La llave | — |
+| `web/public/panel/nube.js` | La nube de Cloudflare desde el panel (24/10, regla 317): el cliente de `/panel/estado`, `/panel/pausa` y `/panel/vuelta`, el cartel de la pausa general, el bloque de Más y la frase de cómo viene el motor | `app.js`, `hoy.js` | La llave de GitHub (la misma, hacia el Worker del reloj) | — (la pausa vive en R2: `pausa/estado.json`) |
 | `web/public/panel/cifrado.js` | Crea las llaves del celular y abre los sobres | `app.js` | La llave privada del navegador | — |
 | `web/public/panel/sw.js`, `manifest.webmanifest` | Lo que lo vuelve una app instalable | Chrome | — | — |
 | `web/public/panel/prueba.js`, `prueba-sobre.js` | El modo de prueba (`?demo`), con los mismos archivos que arma la web | `app.js` | — | — |
@@ -464,3 +466,33 @@ PC (que estaba apagada). Ahora, en **Más → Contactos** (`web/public/panel/con
 - **Seguimiento: en qué quedó cada pista.** Cada pista lleva su **seguimiento** (cuándo se empezó, cada novedad de cobertura, que se escribió un borrador,
   la nota, cómo se cerró) y su **resultado**: *se confirmó*, *se desmintió o era falsa*, *sin novedades*, *salió como nota nuestra* o *la descartamos*, con un
   comentario opcional. Se ve en el detalle de la pista y en la lista ("En qué quedó: …"). Reabrir la pista conserva todo. Pruebas: `nota-de-pista.test.mjs`.
+
+## La pausa general y «Actualizar la web ahora» (24/10/2026, regla 317)
+
+*Escrito y probado el 24/10; no subido hasta que se haga el paso a paso de `docs/11-OPERACION.md`, tarea 5 bis.* Hasta ahora el panel sólo hablaba con GitHub. Con el motor y las tareas en
+Cloudflare, dos cosas ya no se podían hacer desde ahí, y el panel ahora le habla además al **Worker del reloj** (`radar-balcarce-reloj.radarbalcarce.workers.dev`, `infra/reloj-cloudflare/panel-api.mjs`):
+
+| Qué | Dónde se toca en el panel | Qué hace en la nube |
+|---|---|---|
+| **Pausa general** (C8) | **Más → Pausa general → ⏸ frenar todo** (pide un motivo y confirma) y, con la pausa prendida, el cartel rojo de **Hoy** y de **Más** con **▶ Reanudar todo** | `POST /panel/pausa`: escribe `pausa/estado.json` en R2 (`radar-motor`). El reloj, el Worker de tareas y la vuelta del motor lo leen y no publican (qué frena y qué no, en la regla 317) |
+| **Actualizar la web ahora** (C6) | Los botones de siempre (Más, y el que ofrece el aviso de cada decisión) | `POST /panel/vuelta`: pide UNA vuelta del motor con el deploy hook de Workers Builds. En pausa dice que no; no más de una cada 3 minutos |
+| **Cómo viene el motor** | **Hoy** («⚙ Última vuelta del motor: bien, a las 14:05 (hace 12 min); duró 5 min», en rojo si falló, «hay una vuelta andando» si la hay) y la fila «Actualizar la web» de **Números** | `GET /panel/estado`: lee `motor/estado.json` y el candado de la vuelta de R2 (el vigilante lo mira por su lado: `GET /estado` del Worker del motor) |
+
+**Cómo se autentica.** No hay nada nuevo que pegar ni guardar: el panel manda la **misma llave de GitHub** (`Authorization: Bearer`), el Worker le pregunta a GitHub si esa llave puede escribir en el
+repositorio (`GET /repos/radarbalcarce/radar-balcarce`, `permissions.push`; es lo mismo que mira el panel al entrar) y recién entonces obedece. Quien no es colaborador con permiso de escritura no puede
+pausar ni pedir vueltas. La contraseña de los Workers (`VIGILANTE_TOKEN`, encabezado `x-token`) sirve para el procedimiento a mano y nunca viaja en el navegador. Desde un navegador sólo pueden llamar
+`radarbalcarce.com`, `www.radarbalcarce.com` y `radar-balcarce.pages.dev` (CORS), y la CSP del panel (`web/public/_headers`) deja hablar con `api.github.com` y con esa dirección exacta del reloj, nada más.
+La pausa no es nada sensible (quién, desde cuándo y un motivo corto; el panel pide que no se pongan nombres de personas), así que no se cifra; el depósito es privado y el endpoint pide la llave.
+
+**Qué puede fallar.**
+
+| Qué pasa | Cómo se nota | Qué hacer |
+|---|---|---|
+| El reloj nuevo no se subió | Más dice «No se pudo ver si la pausa está prendida (No se pudo hablar con la nube…)» y «Actualizar la web ahora» da el mismo error | Subir los Workers (`docs/11-OPERACION.md`, 5 bis). El botón de pausar igual se muestra, para poder intentarlo |
+| La llave no tiene permiso de escritura | «La nube no te deja hacer esto: Esa llave no puede escribir en el repositorio» | La misma llave que ya hace falta para aprobar notas (Contents y Actions en lectura y escritura) |
+| GitHub no contesta cuando la nube quiere comprobar la llave | «GitHub no contestó: no se pudo comprobar la llave» | Probar en un minuto; o el procedimiento a mano de la tarea 5 bis |
+| «Ya se pidió una vuelta hace N min» | El doble toque | Esperar: la vuelta tarda unos 8 minutos |
+| «En pausa desde… Reanudá antes de pedir una vuelta» | Hay pausa general | Reanudar (un toque) |
+| El depósito de R2 no contesta al pausar | «No se pudo leer el estado de la pausa… No se cambió nada» | Probar de nuevo; si sigue, el procedimiento a mano o `REDES_ACTIVAS_NUBE` en No |
+
+Cómo se prueba: `pruebas/pausa-general.test.mjs` (la nube) y `pruebas/panel-pausa.test.mjs` (el panel). El modo de prueba (`?demo`) trae una nube de mentira (`nubeDePrueba`, en `prueba.js`) para ver los dos carteles sin tocar nada.

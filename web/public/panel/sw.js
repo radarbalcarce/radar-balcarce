@@ -7,7 +7,7 @@
 // no pasan por acá.
 
 const CACHE = 'radar-panel-23';
-const ARCHIVOS = ['/panel/', '/panel/app.js', '/panel/github.js', '/panel/cifrado.js', '/panel/textos.js', '/panel/fechas.js', '/panel/numeros.js', '/panel/redes-estado.js', '/panel/revision.js', '/panel/pistas.js', '/panel/contactos.js', '/panel/fotos.js', '/panel/hoy.js', '/panel/borradores.js', '/panel/recorrido.js', '/panel/manifest.webmanifest'];
+const ARCHIVOS = ['/panel/', '/panel/app.js', '/panel/github.js', '/panel/cifrado.js', '/panel/textos.js', '/panel/fechas.js', '/panel/numeros.js', '/panel/redes-estado.js', '/panel/revision.js', '/panel/pistas.js', '/panel/contactos.js', '/panel/fotos.js', '/panel/hoy.js', '/panel/borradores.js', '/panel/recorrido.js', '/panel/nube.js', '/panel/manifest.webmanifest'];
 
 self.addEventListener('install', (ev) => {
   ev.waitUntil(caches.open(CACHE).then((c) => c.addAll(ARCHIVOS.map((a) => new Request(a, { cache: 'reload' })))).then(() => self.skipWaiting()));

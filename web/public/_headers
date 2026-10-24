@@ -72,15 +72,17 @@
 
 # El panel del celular (29/09, web/public/panel/): una herramienta de la
 # redacción, no una página. Que no se indexe, que el navegador traiga siempre la
-# versión nueva (un arreglo llega enseguida) y que sólo pueda hablar con GitHub:
-# guarda la llave de quien lo usa, así que nada de scripts de afuera.
+# versión nueva (un arreglo llega enseguida) y que sólo pueda hablar con GitHub
+# y con el Worker del reloj de Cloudflare (la pausa general y "Actualizar la web
+# ahora", regla 317; esa dirección exacta y ninguna otra): guarda la llave de quien
+# lo usa, así que nada de scripts de afuera.
 /panel
   X-Robots-Tag: noindex, nofollow
 
 /panel/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-cache
-  Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.github.com https://radar-balcarce-reloj.radarbalcarce.workers.dev; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'self'
 
 # Los feeds (15/10): Cloudflare Pages los servía como application/xml, sin juego de caracteres. Un feed RSS es application/rss+xml
 # (la prueba pruebas/rss.test.mjs lo vigila).

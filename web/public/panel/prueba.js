@@ -194,3 +194,31 @@ export function clienteDePrueba() {
     async corridas() { return [{ display_title: `Panel · escribir · ${this.marca}`, status: 'completed', conclusion: 'success' }]; },
   };
 }
+
+/** La nube de mentira del modo de prueba (regla 317): la pausa general se prende y se apaga en memoria, y el motor siempre viene bien. No toca ninguna red. */
+export function nubeDePrueba() {
+  let pausa = { pausada: false, desde: null, por: null, motivo: null, ultima: null };
+  const estado = () => ({
+    ok: true,
+    ahora: new Date().toISOString(),
+    pausa: { ...pausa },
+    motor: { ultima: { cuando: hace(12), ok: true, segundos: 310, motivo: null }, ultimaBuena: hace(12), recientes: [], enMarcha: null, ultimoPedidoDelPanel: null },
+  });
+  return {
+    async estado() { return estado(); },
+    async pausar({ motivo, nombre }) {
+      const yaEstaba = pausa.pausada;
+      if (!yaEstaba) pausa = { pausada: true, desde: new Date().toISOString(), por: nombre || 'Prueba', motivo: motivo || null, ultima: pausa.ultima };
+      return { ok: true, yaEstaba, pausa: { ...pausa } };
+    },
+    async reanudar({ nombre }) {
+      const yaEstaba = !pausa.pausada;
+      if (!yaEstaba) pausa = { pausada: false, desde: null, por: null, motivo: null, ultima: { desde: pausa.desde, hasta: new Date().toISOString(), por: pausa.por, reanudadaPor: nombre || 'Prueba', motivo: pausa.motivo } };
+      return { ok: true, yaEstaba, pausa: { ...pausa } };
+    },
+    async pedirVuelta() {
+      if (pausa.pausada) { const { ErrorDeLaNube } = await import('./nube.js'); throw new ErrorDeLaNube(409, 'En pausa general: reanudá antes de pedir una vuelta.', { enPausa: true }); }
+      return { ok: true, pedida: true };
+    },
+  };
+}

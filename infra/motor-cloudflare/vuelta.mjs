@@ -24,6 +24,7 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { crearGithub } from '../compartido/github.mjs';
+import { leerPausa, lectorDeS3, textoDeLaPausa } from '../compartido/pausa.mjs';
 import { clienteR2 } from '../compartido/r2-s3.mjs';
 import { fotografiar, cambiosDesde } from './archivos.mjs';
 import {
@@ -151,6 +152,20 @@ export async function vuelta({
     log(`Vuelta ${cfg.id}${cfg.simular ? ' · SIMULACRO (no guarda ni sube nada)' : ''}`);
     if (!cfg.simular && !gh) throw new Error('falta RADAR_GITHUB_TOKEN (la llave de GitHub para guardar los datos): sin eso no se puede guardar nada');
     if (!cfg.simular && !deposito) log('(sin las variables de R2: corre sin memoria entre vueltas ni candado; el cruce de medios se rearma solo con los índices)');
+
+    // 0. LA PAUSA GENERAL (24/10/2026, regla 317): si una persona frenó todo desde el panel del celular, la vuelta termina en segundos, antes de instalar nada, tomar el candado
+    // o leer una sola fuente: no entra ninguna nota nueva y no se gasta IA. El sitio ya publicado sigue sirviéndose. El reloj ya no la pide en pausa; esto cubre la que
+    // arranca igual (un push al repositorio, el botón de Workers Builds). Si el depósito no contesta no se asume pausa.
+    if (deposito && !cfg.simular) {
+      const pausa = await leerPausa(lectorDeS3(deposito));
+      if (pausa.pausada) {
+        const motivo = textoDeLaPausa(pausa, ahora());
+        log(`${motivo}. Esta vuelta no arma ni publica nada.`);
+        resultado = { ok: true, omitida: true, enPausa: true, motivo, pasos, segundos: Math.round((ahora().getTime() - inicio) / 1000) };
+        return resultado;
+      }
+      if (pausa.lecturaFallida) log('(no se pudo leer si la pausa general está prendida; se sigue como si no lo estuviera)');
+    }
 
     // 1. El candado, lo primero: si hay otra vuelta andando, esta termina en segundos y no gasta la compilación.
     if (deposito && !cfg.simular) {
