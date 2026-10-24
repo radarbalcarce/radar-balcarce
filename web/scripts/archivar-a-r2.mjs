@@ -41,7 +41,7 @@ import { execFile } from 'node:child_process';
 import { MAXIMO_EN_ARCHIVO, idsRetiradosAMano, topeDeNotas } from '../lib/archivo.js';
 import { parteDeNota } from '../lib/ruta.js';
 import {
-  claveDePagina, claveDeTarjeta, claveDeInstagram, claveDeFoto, rutaCanonicaDe,
+  claveDePagina, claveDeTarjeta, claveDeInstagram, claveDeFoto, rutaCanonicaDe, xmlDelArchivo, CLAVE_DEL_SITEMAP,
 } from '../../infra/archivo-cloudflare/worker.mjs';
 
 const AQUI = import.meta.dirname;
@@ -149,6 +149,9 @@ function quitarSeguiLeyendo(html) {
     else desde = fin;
   }
 }
+
+/** La página pide que no se indexe (una nota sin cuerpo de verdad: web/lib/cuerpo.js, noSeOfreceAGoogle). */
+const SIN_INDEXAR = /<meta\b[^>]*\bname="robots"[^>]*\bcontent="[^"]*noindex/i;
 
 const ATRIBUTO = (etiqueta, nombre) => new RegExp(`\\b${nombre}="([^"]*)"`, 'i').exec(etiqueta)?.[1] ?? null;
 const DATOS_ESTRUCTURADOS = /\btype="application\/ld\+json"/i;
@@ -280,7 +283,7 @@ export function armarPlan(viejas, { out, fotos = path.join(out, 'fotos-notas'), 
         if (fs.existsSync(origen)) objetos.push(objetoDeArchivo(claveDeFoto(f), origen, TIPO_DE_FOTO[f.split('.').pop().toLowerCase()] ?? 'application/octet-stream', CONTROL_DE_FOTO));
       }
     }
-    entradas.push({ id: n.id, parte, ruta, titulo: n.titulo ?? '', fecha: n.fecha ?? null, objetos });
+    entradas.push({ id: n.id, parte, ruta, titulo: n.titulo ?? '', fecha: n.fecha ?? null, indexar: !SIN_INDEXAR.test(html), objetos });
   }
   return { entradas, omitidas };
 }
@@ -291,6 +294,8 @@ export function armarManifiesto(plan, { bucket = null, tope, margen, creado = ne
   for (const e of plan.entradas) {
     notas[e.id] = {
       ruta: e.ruta, titulo: e.titulo, fecha: e.fecha,
+      // Sólo se anota cuando la página dice noindex: el mapa del archivo (xmlDelArchivo) no la ofrece a Google.
+      ...(e.indexar === false ? { indexar: false } : {}),
       objetos: e.objetos.map((o) => ({ clave: o.clave, bytes: o.bytes, sha256: o.sha256, ...(o.huella ? { huella: o.huella } : {}) })),
     };
   }
@@ -527,6 +532,11 @@ export async function subirAlDeposito({
       const r = await ponerTexto({ bucket, clave: CLAVE_DEL_MANIFIESTO, texto: `${JSON.stringify(final)}\n`, carpeta, ejecutar });
       manifiestoSubido = r.ok;
       if (!r.ok) fallidos.push({ clave: CLAVE_DEL_MANIFIESTO, salida: r.salida ?? '' });
+    }
+    // El mapa de las notas archivadas (24/10/2026, regla 310), armado con el mismo manifiesto que acaba de quedar en el depósito.
+    if (final && manifiestoSubido) {
+      const r = await ponerTexto({ bucket, clave: CLAVE_DEL_SITEMAP, texto: xmlDelArchivo(final), tipo: 'application/xml; charset=utf-8', control: 'public, max-age=300', carpeta, ejecutar });
+      if (!r.ok) fallidos.push({ clave: CLAVE_DEL_SITEMAP, salida: r.salida ?? '' });
     }
     let estadoSubido = false;
     const cuerpoDelEstado = typeof estado === 'function' ? estado({ ...resultado, manifiesto: final, manifiestoSubido }) : null;

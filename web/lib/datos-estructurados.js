@@ -7,6 +7,7 @@
 // guía de datos estructurados y penaliza lo contrario). Por eso no se inventan fecha de fundación ni domicilio.
 
 import { palabrasDe } from './cuerpo.js';
+import { fuentesDeLaNota } from './fuentes-de-la-nota.js';
 
 /**
  * Las páginas donde el medio explica cómo trabaja. Las anclas existen en /quienes-somos y /contacto (ids de los títulos): una prueba lo
@@ -85,6 +86,20 @@ export function imagenesDeNota({ nota, tarjeta, urlFoto, dimensiones = () => nul
   // Sin tarjeta propia (una nota archivada), la "tarjeta" es la del sitio, igual para todas: la foto de la nota, que es lo que vale, va primero (17/10/2026).
   if (!tarjetaPropia && foto) return [foto, tarjeta];
   return [grande && foto, tarjeta, !grande && foto].filter(Boolean);
+}
+
+/**
+ * De dónde salió la nota, para el marcado (24/10/2026): lo mismo que el desplegable "Fuentes (N)" de la página, con los enlaces de cada
+ * fuente. `citation` lleva el medio y su enlace; `isBasedOn` la lista de enlaces (uno solo se declara como texto, varios como lista).
+ * Nunca la entrada XML de un feed (fuentesDeLaNota ya la descarta). Sin fuentes, no se declara nada.
+ */
+export function fuentesParaElMarcado(nota) {
+  const fuentes = fuentesDeLaNota(nota);
+  const citation = fuentes
+    .filter((f) => f.medio || f.enlace)
+    .map((f) => ({ '@type': 'CreativeWork', ...(f.medio ? { name: f.medio } : {}), ...(f.enlace ? { url: f.enlace } : {}) }));
+  const enlaces = fuentes.map((f) => f.enlace).filter(Boolean);
+  return { citation, isBasedOn: enlaces.length > 1 ? enlaces : enlaces[0] || undefined };
 }
 
 /** Dónde pasa la nota: Balcarce, cuando la nota es de acá (esDeAca ya lo decidió al armar los datos: `local`). */

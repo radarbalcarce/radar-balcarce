@@ -40,10 +40,9 @@ export default function Portada() {
       <h1 className="solo-lectores">Radar Balcarce: noticias de Balcarce, clima y farmacia de turno</h1>
       {!d.generado && (
         <div className="tarjeta" style={{ marginBottom: 24 }}>
-          <strong>Todavía no hay datos generados.</strong>
+          <strong>Estamos actualizando las noticias.</strong>
           <p className="mini" style={{ marginTop: 8 }}>
-            Corré <code>npm run datos</code> en la carpeta <code>web/</code> (con el panel habiendo
-            corrido al menos un ciclo) y volvé a cargar esta página.
+            Todavía no hay notas para mostrar. Volvé a entrar en unos minutos.
           </p>
         </div>
       )}

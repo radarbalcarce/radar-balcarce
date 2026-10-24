@@ -5,7 +5,8 @@
 // De los cinco portales de la zona sólo dos tienen uno (docs/historico/INVESTIGACION-COMPETENCIA.md).
 // Un sitio con ochenta notas sin forma de buscar es un archivo cerrado con llave.
 //
-// Desde el 8/10/2026 busca en TODO el archivo (más de mil notas, hasta 3.500), no sólo en las de hoy: usa Pagefind, un índice que se arma
+// Busca en las notas que tienen página en el sitio (no sólo en las de hoy, pero tampoco en las viejas que viven en el archivo de R2: el
+// tope es TOPE_DE_NOTAS): usa Pagefind, un índice que se arma
 // al compilar el sitio (web/scripts/indexar.mjs) y que el navegador baja de a pedacitos, según lo que se escribe. Antes cada página
 // llevaba adentro la lista de las notas de la portada (unos 18 KB repetidos en cada una de las 1.200 páginas): ahora no lleva nada y el
 // índice sólo se baja cuando alguien abre el buscador.
@@ -46,10 +47,16 @@ export default function Buscador() {
   const [resultados, setResultados] = useState([]);
   const [estado, setEstado] = useState('quieto'); // quieto · buscando · listo · sin-indice
   const campo = useRef(null);
+  const abrir = useRef(null);
+  const estuvoAbierto = useRef(false);
   const numero = useRef(0);
 
+  // Al abrir, el foco va al campo; al cerrar, vuelve al botón que lo abrió (24/10/2026): sin esto quien navega con teclado o lector de
+  // pantalla quedaba al principio de la página.
   useEffect(() => {
     if (abierto) campo.current?.focus();
+    else if (estuvoAbierto.current) abrir.current?.focus();
+    estuvoAbierto.current = abierto;
   }, [abierto]);
 
   // Cada vez que cambia lo escrito se busca; una respuesta vieja nunca pisa a una nueva.
@@ -90,7 +97,7 @@ export default function Buscador() {
 
   if (!abierto) {
     return (
-      <button type="button" className="abrir-buscador" onClick={() => setAbierto(true)} aria-label="Buscar en el sitio">
+      <button type="button" ref={abrir} className="abrir-buscador" onClick={() => setAbierto(true)} aria-label="Buscar en el sitio">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
           <circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" />
         </svg>
@@ -122,7 +129,7 @@ export default function Buscador() {
         </div>
 
         <div className="resultados" aria-live="polite">
-          {q.length < 2 && <p className="pista">Escribí al menos dos letras. Busca en todas las notas publicadas.</p>}
+          {q.length < 2 && <p className="pista">Escribí al menos dos letras. Busca en las notas más recientes del sitio.</p>}
           {q.length >= 2 && estado === 'buscando' && <p className="pista">Buscando…</p>}
           {q.length >= 2 && estado === 'sin-indice' && <p className="pista">El buscador no está disponible en este momento. Probá de nuevo en un rato.</p>}
           {q.length >= 2 && estado === 'listo' && resultados.length === 0 && <p className="pista">No encontramos nada con esas palabras.</p>}

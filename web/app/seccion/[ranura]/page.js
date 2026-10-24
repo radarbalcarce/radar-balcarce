@@ -36,9 +36,8 @@ export async function generateMetadata({ params }) {
   // (17/10/2026, regla 251, C9 de la auditoría SEO). El h1 de la página sigue siendo el nombre.
   const titulo = pagina > 1 ? `${tituloDeSeccion(s.nombre)} · página ${pagina}` : tituloDeSeccion(s.nombre);
   const delDia = notasDeLaSeccion(s.nombre);
-  // Los titulares más nuevos que entren ENTEROS en 155 caracteres (descripcionDeSeccion): antes se cortaba a mitad de un titular.
-  const ultimas = delDia.slice(0, 3).map((n) => n.titulo);
-  const descripcion = descripcionDeSeccion({ lema: frasesDeSeccion(s.nombre).lema, pagina, titulares: ultimas });
+  // Una descripción fija por sección (descripcionDeSeccion): el último titular podía no tener nada que ver con ella.
+  const descripcion = descripcionDeSeccion({ nombre: s.nombre, pagina });
   const camino = direccionDePagina(s.ranura, pagina);
 
   return {
@@ -81,7 +80,7 @@ export default async function PaginaSeccion({ params }) {
       )}
       <div className="titulo-seccion" style={{ marginBottom: 22 }}>
         <span className="barra" style={{ background: s.color }} />
-        <h1 style={{ fontSize: 28 }}>{s.nombre}</h1>
+        <h1 style={{ fontSize: 28 }}>{nombreCorto(s.nombre)}</h1>
         <span className="meta">
           {todas.length} {todas.length === 1 ? 'nota' : 'notas'}
           {paginas > 1 ? ` · página ${pagina} de ${paginas}` : ''}

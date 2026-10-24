@@ -3,12 +3,11 @@ import { autorDeNota, quienEscribio } from '@/components/metadatos';
 import { REDES_SOCIALES, WHATSAPP } from '@/lib/datos';
 import { fichaDeEvento } from '@/lib/eventos';
 import { canalesDelMedio } from '@/lib/canales';
-import { enlaceParaElLector } from '@/lib/fuentes-de-la-nota';
 import { fechaDeModificacion } from '@/lib/tiempo';
 import { urlDeFoto } from '@/lib/fotos';
 import { dimensionesDeFoto } from '@/lib/dimensiones-foto';
 import {
-  politicasDelMedio, puntosDeContacto, camposExtraDeNota, principiosDeNota, editorDeNota, datosDeSeccion,
+  politicasDelMedio, puntosDeContacto, camposExtraDeNota, fuentesParaElMarcado, principiosDeNota, editorDeNota, datosDeSeccion,
 } from '@/lib/datos-estructurados';
 
 // Los datos estructurados: lo mismo que ya está en la página, pero escrito
@@ -123,11 +122,9 @@ export function FichaDeNota({ nota, conTarjeta = true }) {
     // `name` es sólo el nombre (guía de Google); cómo se escribió va en author.description y en publishingPrinciples (D5).
     author: autorDeNota(nota, base),
     ...principiosDeNota(quienEscribio(nota), base),
-    // De dónde salió. Es la mitad de lo que ofrecemos: el trabajo original
-    // es del medio que la informó.
-    citation: (nota.medios ?? []).map((m) => ({ '@type': 'CreativeWork', name: m })),
-    // Nunca la entrada XML de un feed de Blogger (CRITERIO-EDITORIAL.md, § 7).
-    isBasedOn: enlaceParaElLector(nota.enlace) || undefined,
+    // De dónde salió, con el enlace de cada fuente: lo mismo que el desplegable "Fuentes (N)" de la página. Nunca la entrada XML de un feed
+    // (CRITERIO-EDITORIAL.md, § 7). El trabajo original es del medio que la informó.
+    ...fuentesParaElMarcado(nota),
     // Las etiquetas de la nota (desde el 25/09) son palabras clave de verdad.
     // El nivel de verificación, las claves y lo que falta confirmar NO van
     // acá: schema.org no tiene una propiedad clara para eso y no se inventa.

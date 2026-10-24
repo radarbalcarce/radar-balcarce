@@ -744,7 +744,7 @@ El detalle y lo que falta está en `SEO.md` y, desde el 16/10, en
 - **La ronda de SEO y velocidad del 17/10** (reglas 250 a 252, `docs/seo/AUDITORIA-SEO-LLM.md`, parte 11):
   el mapa de noticias y el índice de mapas; `publisher` completo (nombre, dirección y logo) en cada `NewsArticle`; `CollectionPage` con la
   lista de notas en cada sección (`FichaDeSeccion`); títulos de sección que dicen qué son ("Salud en Balcarce: hospital y vacunas", `tituloDeSeccion`,
-  `web/lib/datos.js`) y descripciones que nunca cortan un titular (`descripcionDeSeccion`); las notas archivadas, que no tienen tarjeta, comparten
+  `web/lib/datos.js`) y una descripción fija por sección (`descripcionDeSeccion`, regla 310; antes pegaba el último titular); las notas archivadas, que no tienen tarjeta, comparten
   su **foto** con el tamaño real en vez de la tarjeta del sitio (`imagenesParaCompartir`); y un control de velocidad del HTML compilado
   (`web/lib/auditoria-html.js`, corre en `revisar-seo.mjs`): toda imagen con ancho y alto, una sola con `fetchpriority="high"` y todas las demás
   `loading="lazy"`, ningún recurso de otro dominio, ninguna tipografía de Google, scripts `async`. **Formatos**: no se hace WebP: cada copia suma archivos
