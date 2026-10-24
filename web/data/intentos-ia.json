@@ -284,16 +284,18 @@
   "motivo": "con cuerpo"
  },
  "14ia4ef": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T15:01:29.122Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo explica; sin esas oraciones quedan 342 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-24T15:31:51.269Z",
+  "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo expli"
+   "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo expli",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique"
   ],
   "falla": [
+   "el título empieza con una etiqueta y dos puntos (\"Cáncer de mama:\"): tiene que empezar por el hecho",
    "el título dice 4 y el cuerpo no lo explica"
   ]
  },
@@ -4078,17 +4080,14 @@
   "motivo": "con cuerpo"
  },
  "vx2jre": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T15:01:29.122Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 187 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-24T15:31:51.269Z",
+  "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5,
   "motivos": [
    "título o bajada: 1 problema (forma): el copete trae letras rotas (letr",
    "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 31 palabras seguidas del original (\"por el prefecto del dicasterio para la causa de los santos marcello semeraro bavosi…\"): decilo con"
   ]
  },
  "vxf5r": {
