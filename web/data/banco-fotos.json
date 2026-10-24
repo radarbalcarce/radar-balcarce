@@ -17252,9 +17252,7 @@
   "fuentes": 1
  },
  "1m9svv0": {
-  "archivo": "fotos-notas/1m9svv0.jpg",
   "medio": "Motorsport",
-  "credito": "Foto: Motorsport",
   "licencia": null,
   "origen": "medio",
   "titulo": "Rafael Câmara llega a la Fórmula 1 y corre en Haas desde 2027",
@@ -17263,7 +17261,8 @@
   "razon": "Es una foto nítida, con excelente encuadre del protagonista, sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-15T21:32:00.960Z",
   "huella": "92c28975b29a56de",
-  "ausenteDesde": "2026-10-17T17:03:28.378Z"
+  "intentado": true,
+  "borrada": true
  },
  "n6v2wu": {
   "archivo": "fotos-notas/n6v2wu.jpg",
@@ -18372,9 +18371,7 @@
   "ausenteDesde": "2026-10-17T21:32:00.614Z"
  },
  "1idlalr": {
-  "archivo": "fotos-notas/1idlalr.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Banco Central compra 642 millones de dólares y supera los 50.000 millones en reservas",
@@ -18383,7 +18380,8 @@
   "razon": "La imagen de A24 es una composición gráfica que ilustra perfectamente el tema de la nota (reservas en dólares del Banco Central) sin mostrar personas, mientras que la foto de Infobae tiene un encuadre distorsionado y personas de fondo.",
   "cuando": "2026-10-16T22:01:35.827Z",
   "huella": "ce6d86e6f37b3e96",
-  "ausenteDesde": "2026-10-17T17:32:30.116Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ilkp5d": {
   "archivo": "fotos-notas/1ilkp5d.jpg",
@@ -19733,9 +19731,7 @@
   "ausenteDesde": "2026-10-23T17:05:07.188Z"
  },
  "e2pox8": {
-  "archivo": "fotos-notas/e2pox8.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Partido Justicialista exige la libertad de Cristina Fernández",
@@ -19755,7 +19751,8 @@
    "descripcion": "Cristina Fernández asomada a un balcón con los brazos levantados."
   },
   "huella": "4149695961e8b8a0",
-  "ausenteDesde": "2026-10-17T17:32:30.116Z"
+  "intentado": true,
+  "borrada": true
  },
  "12xnbwz": {
   "archivo": "fotos-notas/12xnbwz.jpg",
@@ -33577,7 +33574,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "07074fcdcd2e8f4d"
+  "huella": "07074fcdcd2e8f4d",
+  "ausenteDesde": "2026-10-24T18:43:31.050Z"
  },
  "voif0z": {
   "archivo": "fotos-notas/voif0z.jpg",
@@ -34105,7 +34103,8 @@
    "corresponde": "si",
    "descripcion": "Cipriano Higuera con su medalla de bronce en los Juegos Bonaerenses"
   },
-  "huella": "01373b69b9b03a38"
+  "huella": "01373b69b9b03a38",
+  "ausenteDesde": "2026-10-24T18:43:31.050Z"
  },
  "1kx53j2": {
   "archivo": "fotos-notas/1kx53j2.jpg",
@@ -37427,7 +37426,8 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto conduce su monoplaza de Alpine en la pista, con otros autos de fondo."
   },
-  "huella": "9595b9e8b486fcff"
+  "huella": "9595b9e8b486fcff",
+  "ausenteDesde": "2026-10-24T18:43:31.050Z"
  },
  "rvsn70": {
   "intentado": true,
@@ -37438,5 +37438,77 @@
   "intentos": 1,
   "fuentes": 45,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "12z1bhb": {
+  "archivo": "fotos-notas/12z1bhb.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Asociación Italiana recibe el espectáculo Varieté en El Conventillo",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45169-variete-en-el-conventillo-una-propuesta-de-teatro-musica-y-danza-en-balcarce/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66139.png",
+  "razon": "Es la única foto disponible, corresponde perfectamente al espectáculo y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-10-24T18:43:01.693Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elenco del espectáculo Varieté en El Conventillo posando en el escenario"
+  },
+  "huella": "926c66460e8f4d8f"
+ },
+ "5r4s16": {
+  "archivo": "fotos-notas/5r4s16.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
+  "enlace": "https://accion5.com/futbol-en-crisis-revelo-la-liga-perdidas-millonarias-por-fecha/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/liga-.jpg",
+  "razon": "Es la única opción disponible, corresponde a la temática del torneo de la Liga Balcarceña y pérdidas financieras, sin marcas de agua ni personas.",
+  "cuando": "2026-10-24T18:43:01.693Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elementos de fútbol, caja registradora y calculadora con números negativos sobre césped."
+  },
+  "huella": "c5328bd2f6a91c0c"
+ },
+ "1dv8w89": {
+  "archivo": "fotos-notas/1dv8w89.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Fernando Gray expone su modelo de gestión ante el Partido Federal",
+  "enlace": "https://www.cronica.com.ar/politica/gray-expuso-su-modelo-de-gestion-ante-las-autoridades-del-partido-federal/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1725/1725007/6adcd349986cd_600_315!.jpg?s=53e8e2df3c382f32c8e40e1cc403f09b&d=1792810800",
+  "razon": "La foto A muestra claramente a Fernando Gray exponiendo ante el público sin marcas de agua ni elementos objetables.",
+  "cuando": "2026-10-24T18:43:01.693Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fernando Gray hablando frente a un público en una sala"
+  },
+  "huella": "20280028eaea5431"
  }
 }
