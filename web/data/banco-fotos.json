@@ -22502,7 +22502,8 @@
    "corresponde": "si",
    "descripcion": "Fernando Confessore y Jimena Confessore sonriendo al aire libre."
   },
-  "huella": "e86c6c6c6c6c5efc"
+  "huella": "e86c6c6c6c6c5efc",
+  "ausenteDesde": "2026-10-24T01:44:59.197Z"
  },
  "1kfwd2m": {
   "intentado": true,
@@ -22535,7 +22536,8 @@
    "corresponde": "si",
    "descripcion": "Lula señalando a Bolsonaro en el debate"
   },
-  "huella": "434969425e565813"
+  "huella": "434969425e565813",
+  "ausenteDesde": "2026-10-24T01:44:59.197Z"
  },
  "hiemrm": {
   "archivo": "fotos-notas/hiemrm.jpg",
@@ -36079,9 +36081,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gimnasia supera 2 a 0 a Sarmiento y trepa a la cima de la Zona B",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T00:32:18.873Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36115,8 +36117,8 @@
   "origen": "ninguna",
   "titulo": "Netflix anuncia un documental sobre la vida y obra de Charly García",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T00:32:18.873Z",
-  "intentos": 1,
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 2,
   "fuentes": 14,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36125,8 +36127,8 @@
   "origen": "ninguna",
   "titulo": "El Gobierno reglamenta la Ley de Inocencia Fiscal II",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T00:32:18.873Z",
-  "intentos": 1,
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 2,
   "fuentes": 10,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -36168,6 +36170,46 @@
   "cuando": "2026-10-24T01:03:22.029Z",
   "intentos": 1,
   "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1kjsc7z": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Platense vence a Gimnasia de Mendoza por la Liga Profesional",
+  "razon": "La única imagen disponible es una captura de pantalla (gráfica) con marca de agua del medio, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "p8mrcf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnasia le gana 2 a 0 a Sarmiento en el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1typ7xh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Reciben en China el primer coche de los subtes para las líneas A y C",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1hdb9ra": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Charly García celebra 75 años con homenajes y la emoción de sus fans",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T01:43:24.467Z",
+  "intentos": 1,
+  "fuentes": 13,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
