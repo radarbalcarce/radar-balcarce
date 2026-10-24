@@ -18695,9 +18695,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "10pra4l": {
-  "archivo": "fotos-notas/10pra4l.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La CGT reclama unidad al peronismo y apunta contra el Gobierno",
@@ -18717,7 +18715,8 @@
    "descripcion": "Tres dirigentes sindicales haciendo el símbolo de la victoria junto a un atril de la CGT"
   },
   "huella": "86c6c2caca8ccccc",
-  "ausenteDesde": "2026-10-17T23:31:42.836Z"
+  "intentado": true,
+  "borrada": true
  },
  "1jpywoz": {
   "archivo": "fotos-notas/1jpywoz.jpg",
@@ -20592,9 +20591,7 @@
   "ausenteDesde": "2026-10-23T18:33:19.093Z"
  },
  "6p53et": {
-  "archivo": "fotos-notas/6p53et.jpg",
   "medio": "Página/12",
-  "credito": "Foto: Página/12",
   "licencia": null,
   "origen": "medio",
   "titulo": "Kicillof encabeza el acto por el Día de la Lealtad en La Matanza",
@@ -20614,7 +20611,8 @@
    "descripcion": "Plano medio de Axel Kicillof hablando con micrófono en el acto con dirigentes políticos"
   },
   "huella": "c69b023292b6a4a4",
-  "ausenteDesde": "2026-10-17T23:31:42.836Z"
+  "intentado": true,
+  "borrada": true
  },
  "pdpa8i": {
   "intentado": true,
@@ -23552,7 +23550,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando desde las escalinatas de un avión."
   },
-  "huella": "1353d752327975ff"
+  "huella": "1353d752327975ff",
+  "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "15mz4jn": {
   "archivo": "fotos-notas/15mz4jn.jpg",
@@ -23806,7 +23805,8 @@
    "corresponde": "si",
    "descripcion": "Playero cargando combustible en un vehículo en una estación de servicio"
   },
-  "huella": "d4d496bfcbce6376"
+  "huella": "d4d496bfcbce6376",
+  "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "8sk5u6": {
   "archivo": "fotos-notas/8sk5u6.jpg",
@@ -24178,7 +24178,8 @@
    "corresponde": "si",
    "descripcion": "Fausto Vera tomándose la pierna con gesto de dolor en la cancha"
   },
-  "huella": "34258d8d32311f1f"
+  "huella": "34258d8d32311f1f",
+  "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "mb2bex": {
   "archivo": "fotos-notas/mb2bex.jpg",
@@ -24810,7 +24811,8 @@
    "corresponde": "si",
    "descripcion": "Retratos de Antonio Banderas y Nicolas Cage."
   },
-  "huella": "2526262622ab6b63"
+  "huella": "2526262622ab6b63",
+  "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "1sc8ia5": {
   "archivo": "fotos-notas/1sc8ia5.jpg",
@@ -38044,7 +38046,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "414f19ebab1f1f0f"
+  "huella": "414f19ebab1f1f0f",
+  "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "177zcz0": {
   "archivo": "fotos-notas/177zcz0.webp",
@@ -38069,5 +38072,60 @@
    "descripcion": "Javier Milei y Patricia Bullrich fundidos en un abrazo con gente aplaudiendo de fondo"
   },
   "huella": "0b95a453c7864707"
+ },
+ "r8gyl1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-24T23:33:11.131Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "146xxio": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Tottenham le gana a Chelsea 2 a 0 por la Premier League",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T23:33:11.131Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "10w3c3h": {
+  "archivo": "fotos-notas/10w3c3h.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto termina decimoquinto en la última práctica libre en Austin",
+  "enlace": "https://www.lanueva.com/nota/2026-10-24-14-19-0-gran-premio-de-estados-unidos-la-ultima-prueba-para-franco-colapinto-y-alpine",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792862372018.jpg?&cw=600&ch=365",
+  "razon": "Es la única imagen completa y nítida que muestra el auto de Colapinto en la pista, sin marcas de agua ni menores visibles.",
+  "cuando": "2026-10-24T23:33:11.131Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 de Colapinto (Racing Point) en la pista de Austin."
+  },
+  "huella": "c3e3df6985abe8fb"
+ },
+ "ub2qng": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-24T23:33:11.131Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

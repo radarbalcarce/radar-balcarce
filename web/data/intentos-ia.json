@@ -54,6 +54,13 @@
   "ultimo": "2026-10-18T20:01:18.551Z",
   "motivo": "con cuerpo"
  },
+ "10w3c3h": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "10xg1d": {
   "intentos": 1,
   "ultimo": "2026-10-19T22:31:24.692Z",
@@ -234,6 +241,16 @@
   "intentos": 1,
   "ultimo": "2026-10-19T06:01:16.535Z",
   "motivo": "con cuerpo"
+ },
+ "146xxio": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 4 problemas (nombre, relleno, copia): el cuerpo nombra a \"manc"
+  ]
  },
  "149ahyx": {
   "intentos": 1,
@@ -891,6 +908,13 @@
   "intentos": 1,
   "ultimo": "2026-10-19T18:31:03.847Z",
   "motivo": "con cuerpo"
+ },
+ "1fvad3q": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1g1qjac": {
   "intentos": 1,
@@ -3436,18 +3460,22 @@
   "motivo": "con cuerpo"
  },
  "ltfvuv": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T23:01:27.507Z",
-  "motivo": "cuerpo: 2 problemas (antecedente, nombre): el cuerpo usa 0, que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 184 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (clasificacion, penalizacion): va con las tildes y la eñe donde cor",
   "textos": 4,
-  "numeradas": 19,
+  "numeradas": 21,
   "motivos": [
    "cuerpo: 2 problemas (promesa): el título dice 14 y el cuerpo no lo exp",
-   "cuerpo: 2 problemas (antecedente, nombre): el cuerpo usa 0, que sale d"
+   "cuerpo: 2 problemas (antecedente, nombre): el cuerpo usa 0, que sale d",
+   "cuerpo: 3 problemas (antecedente, repite, promesa): el cuerpo usa 0, q",
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
   ],
   "falla": [
-   "el cuerpo usa 0, que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo nombra a \"juniors\" y la fuente no"
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el texto está escrito sin tildes (clasificacion, penalizacion, sesion, posicion, sancion): va con las tildes y la eñe donde corresponden",
+   "el título nombra a \"estados\", \"unidos\" y el cuerpo no los explica",
+   "el título dice 14 y el cuerpo no lo explica"
   ]
  },
  "lty6ot": {
@@ -3641,6 +3669,20 @@
   "intentos": 1,
   "ultimo": "2026-10-21T23:31:14.306Z",
   "motivo": "con cuerpo"
+ },
+ "o0han3": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (ubicaci",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "o25951": {
   "intentos": 1,
@@ -3872,6 +3914,13 @@
   "ultimo": "2026-10-20T00:31:09.817Z",
   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 49 palabras"
  },
+ "r8gyl1": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "rdo3nh": {
   "intentos": 1,
   "ultimo": "2026-10-22T15:32:38.768Z",
@@ -4030,6 +4079,20 @@
   "ultimo": "2026-10-21T11:01:20.466Z",
   "motivo": "con cuerpo"
  },
+ "tu91t6": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"estudiantes\", \"marcos\", \"rojo\" y el cuerpo no los explica; sin esas oraciones quedan 272 palabras",
+  "textos": 4,
+  "numeradas": 24,
+  "motivos": [
+   "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or",
+   "cuerpo: 1 problema (promesa): el título nombra a \"estudiantes\", \"marco"
+  ],
+  "falla": [
+   "el título nombra a \"estudiantes\", \"marcos\", \"rojo\" y el cuerpo no los explica"
+  ]
+ },
  "tuhpwo": {
   "intentos": 1,
   "ultimo": "2026-10-19T15:02:08.920Z",
@@ -4044,6 +4107,13 @@
   "intentos": 1,
   "ultimo": "2026-10-20T14:01:26.743Z",
   "motivo": "con cuerpo"
+ },
+ "ub2qng": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T23:32:07.797Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "ue9p6q": {
   "intentos": 1,
