@@ -1,6 +1,6 @@
 # 04 · La redacción: cómo se escribe, se verifica y se firma una nota
 
-*Actualizado el 17/10/2026. Si el código cambia, manda el código.*
+*Actualizado el 24/10/2026 (reglas 299, 307 y 308). Si el código cambia, manda el código.*
 
 Qué pasa desde que una historia está en verde (`docs/03-SELECCION.md`) hasta que
 tiene título, bajada y cuerpo propios, verificados contra sus fuentes, o queda
@@ -11,10 +11,10 @@ el código las hace cumplir.
 ## En una frase
 
 A cada nota verde que nadie revisó se le bajan los textos completos de sus
-fuentes (hasta cuatro llegan a la IA, desde el 15/10), se le manda a Gemini con la
+fuentes (entran los que caben en un presupuesto de 12.000 caracteres, desde el 15/10 y sin número fijo desde el 24/10), se le manda a Gemini con la
 instrucción de `CRITERIO-EDITORIAL.md` § 12 y todas sus fuentes numeradas, lo que
 devuelve se arregla sin inventar y se compara dato por dato contra lo que recibió; si pasa y tiene un cuerpo de 70 palabras o más, se
-publica con la firma "Redacción con IA"; si no, se reintenta hasta tres veces y
+publica con la firma "Redacción asistida con IA"; si no, se reintenta hasta tres veces y
 mientras tanto la nota no sale.
 
 ---
@@ -33,7 +33,7 @@ Las notas que nacen de una pista o de un mail de prensa van por otro camino (pas
 
 - las que ya tienen un cuerpo escrito en `web/data/correcciones.json` (paso 12);
 - las que ya no están dentro de las 36 horas de la portada;
-- las que **llegan tarde** (hecho de más de 12 horas y nunca publicadas:
+- las que **llegan tarde** (hecho de más de 12 horas —24 si la cuentan 8 medios o más, 36 si es de Balcarce— y nunca publicadas:
   `docs/03-SELECCION.md`, paso 10).
 
 Las que ya escribió la IA (paso 2) se pasan siempre, para revisarlas. De todas,
@@ -165,7 +165,7 @@ serio** si la nota es de Policiales o tiene una palabra de `PALABRAS_SERIAS`
 
 - **La regla 1 pone número a la copia:** nunca más de diez palabras seguidas iguales
   a una fuente, en ninguna parte, tampoco adentro de una cita (el verificador
-  rechaza desde 13, `COPIA_MAXIMA`), y cómo evitarlo: cambiar el orden y el verbo,
+  rechaza más de 12, `COPIA_MAXIMA`), y cómo evitarlo: cambiar el orden y el verbo,
   partir la oración larga.
 - **Primero, los datos:** la IA anota en un campo `datos` de 3 a 10 datos
   concretos, cada uno con el número de su fuente ("F1: …"), y escribe el resto
@@ -234,7 +234,7 @@ Resumen; las reglas completas, con ejemplos, están en `CRITERIO-EDITORIAL.md`:
 |---|---|---|
 | **Título** | Una frase completa, en presente, que dice qué pasó; unos 70 caracteres y nunca más de 90; sin etiqueta adelante, sin cortar, sin signos ni gancho, sin "en Balcarce" al final, nunca "en vivo" | § 4 "El título"; § 12 regla 2 |
 | **Bajada** (campo `copete`) | Dos o tres frases, unas 50 palabras, hasta 360 caracteres; completa el título, no lo repite; lo que promete, el cuerpo lo cuenta | § 4 "La bajada"; § 12 regla 3 |
-| **Cuerpo** | Obligatorio; de 70 a 180 palabras, nunca más largo que los datos; hasta 3 párrafos y 1.800 caracteres; pirámide invertida; sólo con lo de las fuentes; pasado para lo que ya pasó; sin relleno | § 4 "El cuerpo"; § 12 reglas 4, 6, 9, 11, 14 a 20 |
+| **Cuerpo** | Obligatorio; de 70 a 300 palabras (el largo de cada nota lo fija el pedido: la mitad del material de las fuentes, desde 90 hasta el techo; `largoSugerido`, reglas 284 y 299), nunca más largo que los datos; hasta 5 párrafos y 2.600 caracteres; pirámide invertida; sólo con lo de las fuentes; pasado para lo que ya pasó; sin relleno | § 4 "El cuerpo"; § 12 reglas 4, 6, 9, 11, 14 a 20 |
 | **Copia** | Nunca más de diez palabras seguidas iguales a una fuente, tampoco en una cita: con palabras propias | § 12 regla 1 |
 | **Guion** | El título dicho tal cual, unos 10 segundos, hasta 200 caracteres. Lo usan las redes | § 4 "El guion"; § 12 regla 7 |
 | **Las fuentes** | Lo que confirman varias va como hecho, lo de una sola atribuido, lo que se contradice con las dos versiones; nunca el nombre del medio en el texto | § 5; § 12 pasos A a H y reglas 8, 16 |
@@ -294,7 +294,7 @@ controles que **valen siempre** (también al revisar lo ya escrito, paso 2) y ot
 |---|---|---|
 | `lugar` | Una nota que no es de Balcarce con Balcarce en el título, si el titular original no lo decía | Real: "Comienza la Invasión de Pueblos en Necochea con presencia de jóvenes de Balcarce" |
 | `vacio` | Sin título o sin bajada | — |
-| `largo` | Pasar el máximo de cada parte (título 90, bajada 360, guion 200, cuerpo 1.800; claves 180, datos 260, aporte 220, texto para redes 280, etiqueta 40) | Un título de 95 caracteres |
+| `largo` | Pasar el máximo de cada parte (título 90, bajada 360, guion 200, cuerpo 2.600; claves 180, datos 260, aporte 220, texto para redes 280, etiqueta 40) | Un título de 95 caracteres |
 | `acusacion` | Un verbo de delito en pasado (asesinó, mató, robó, estafó, abusó…) sin ninguna atribución en el mismo texto (según, habría, presunto, acusado, la denuncia, policía, fiscal…). Se mira con tildes: "un robo" o "un presunto abuso" no son "robó" ni "abusó" | Prueba: "Asesinó a su vecino" sin atribuir |
 | `negacion` | Una negación (no, nunca, jamás, tampoco, ni, sin, rechaza, niega…) en el título o la bajada que las fuentes no tienen, o una del titular original que desapareció de toda la nota | Real: "la fuente niega algo en el título y el texto nuevo no" |
 | `repite` | El primer párrafo del cuerpo dice casi lo mismo que la bajada (70 % de palabras en común) o arranca con sus mismas palabras | Real: "el cuerpo repite el copete en vez de desarrollarlo" |
@@ -330,7 +330,7 @@ Las partes internas pasan por los mismos controles, cada una por su lado
    nota X · 2 (numero), quedan 94 palabras").
 3. **Si no alcanza, un segundo pedido** en la misma corrida, con una "CORRECCIÓN
    OBLIGATORIA" que dice qué falló (hasta seis problemas) y, si el cuerpo quedó
-   corto, que es obligatorio y de 70 a 180 palabras.
+   corto, que es obligatorio y de 70 a 300 palabras (`CUERPO.palabrasPedidasMinimo` y `palabrasPedidasMaximo`).
 4. **Si tampoco**, la nota no sale, se anota el intento con el motivo ("IA
    rechazada · título · cuerpo: 3 problemas (numero, copia)…") y se vuelve a probar
    en otra corrida, hasta el tercer intento.
@@ -431,7 +431,7 @@ que desde el 15/10 reemplazan al resumen de las 21 del vigilante.
 
 | | Qué | Dónde |
 |---|---|---|
-| **El lector** | Título, bajada, la foto si la hay (`docs/05-FOTOS.md`), cuerpo y, al pie, una línea gris con la firma y un desplegable **cerrado** "Fuentes (N)" con el nombre de cada medio y el enlace a su nota | `web/app/nota/[id]/page.js`, `web/components/verificacion.js`, `web/lib/fuentes-de-la-nota.js` |
+| **El lector** | Título, bajada, la foto si la hay (`docs/05-FOTOS.md`), cuerpo y, al pie, un desplegable **cerrado** "Fuentes (N)" que, al abrirlo, trae la firma y el nombre de cada medio con el enlace a su nota | `web/app/nota/[id]/page.js`, `web/components/verificacion.js`, `web/lib/fuentes-de-la-nota.js` |
 | **La redacción** | Claves, qué se sabe, qué falta confirmar, lo que aportó cada fuente, antecedentes, nivel de verificación, texto para redes | En `portada.json` y `archivo.json` (`CAMPOS_EXTRA`; en el archivo, sólo los primeros 4 días: `aligerarViejas`), para el panel del celular. No van a la web ni a los datos para Google (las etiquetas sí, como palabras clave) |
 
 Las fuentes que ve el lector: las de "Fuentes consultadas" o, si no hay, los medios
@@ -442,7 +442,7 @@ texto, las de la IA no van, porque se armaron sobre otro texto.
 
 ### 14. La firma
 
-Cada nota dice quién la escribió, en una línea gris (`firmaCorta`,
+Cada nota dice quién la escribió, en la primera línea del desplegable «Fuentes (N)» (una línea gris sola si no hay fuentes) (`firmaCorta`,
 `web/components/metadatos.js`), y lo mismo en los datos para Google (`autorDeNota`).
 La decide `quienEscribio`: "escrita por la IA" si la nota tiene **guion** y su
 cuerpo no se escribió a mano (`cuerpoAMano`); "revisada" si la publicó una persona
@@ -450,8 +450,8 @@ cuerpo no se escribió a mano (`cuerpoAMano`); "revisada" si la publicó una per
 
 | La nota es… | La línea dice |
 |---|---|
-| Escrita por la IA, sin revisión | "Redacción con IA, verificada contra las fuentes · Fuentes (N)" |
-| Escrita por la IA y aprobada o corregida por una persona (también un texto de la IA a pedido, guardado con `deIA: true`) | "Redacción con IA, revisada por la redacción · Fuentes (N)" |
+| Escrita por la IA, sin revisión | "Redacción asistida con IA, verificada contra las fuentes · Fuentes (N)" |
+| Escrita por la IA y aprobada o corregida por una persona (también un texto de la IA a pedido, guardado con `deIA: true`) | "Redacción asistida con IA, revisada por la redacción · Fuentes (N)" |
 | Con el cuerpo escrito a mano en `correcciones.json`, o publicada por una persona sin guion | "Revisada por la redacción · Fuentes (N)" (autor para Google: Radar Balcarce) |
 | Sin guion y sin persona | "Texto de *medio* · Fuentes (N)" |
 | Propia (el dólar, un repaso, el clima, "Un día como hoy") | Lo que dice la nota ("Nota de Radar Balcarce…") |
@@ -568,6 +568,6 @@ tienen que tener cuerpo de 70 palabras o más.
 | La IA escribe un verbo de delito sin tilde ("robo" por "robó") | El control no lo ve: esos verbos sólo se reconocen con la tilde, a propósito, para no rechazar cada "un robo" | Riesgo aceptado; si una nota así sale, se corrige |
 | Una regla nueva no alcanza a lo ya publicado | Una nota vieja sigue con un defecto que hoy se rechazaría | Sólo se revalida lo que la ingesta todavía trae; lo demás se corrige a mano |
 | Una nota se frena por verificación BAJA | Amarilla con "verificación baja: espera a una persona" | Revisarla y aprobarla desde el panel del celular si corresponde |
-| Una nota aprobada desde el celular con el texto escrito a mano | Firma "Redacción con IA, revisada por la redacción": el celular le pone el título como guion, y el guion es la señal de "escrita por la IA" | Avisarle a Claude: es un arreglo de código |
+| Una nota aprobada desde el celular con el texto escrito a mano | Firma "Redacción asistida con IA, revisada por la redacción": el celular le pone el título como guion, y el guion es la señal de "escrita por la IA" | Avisarle a Claude: es un arreglo de código |
 
 Lo que falta, en `PENDIENTES.md`.

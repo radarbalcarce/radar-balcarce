@@ -1,6 +1,6 @@
 # 11 · Operación: el manual de uso diario
 
-*Escrito el 28/09/2026 para Hernán y Andrés. Actualizado el 17/10/2026: el 16/10 se verificó contra el código, los
+*Escrito el 28/09/2026 para Hernán y Andrés. **Ojo, 24/10/2026: desde el 23/10 el motor, las tareas y las redes corren en Cloudflare (Workers Builds y un Worker) y no en GitHub Actions**; donde este manual dice "Actions → Actualizar la web → Run workflow" o "Redes", hoy el camino de verdad es el reloj de Cloudflare y el estado del motor (`GET /estado` del Worker del motor, workflows «Estado del motor» y «Estado del reloj»); los workflows de GitHub quedan de vuelta atrás (`docs/TRASPASO.md`). Actualizado el 17/10/2026: el 16/10 se verificó contra el código, los
 workflows y el reloj de Cloudflare de ese día; el 17/10 se sumó lo de la subida del sitio, los horarios del reloj y los
 workflows que se borraron (reglas 189 a 191) y el retiro del panel de la PC. Es un manual de tareas: cada sección dice qué hacer, paso
 a paso, y qué va a pasar después. Por qué funciona así está en los otros
@@ -37,8 +37,8 @@ Console, y desde el 15/10/2026 también GitHub: es la dueña del repositorio); `
 La web, las redes y la vigilancia andan solas con la PC apagada; a una persona
 le queda decidir las notas que esperan, corregir o sacar lo que salió mal,
 leer los dos informes por mail (8:15 y 21:15) y, cuando algo deja de salir,
-revisar en orden el mail de avisos, el reloj de Cloudflare, GitHub Actions y el
-interruptor de las redes.
+revisar en orden el mail de avisos, el reloj de Cloudflare, el motor (Workers Builds) y el
+interruptor de las redes (`REDES_ACTIVAS_NUBE` para Cloudflare; `REDES_ACTIVAS` es la de GitHub).
 
 ## Antes de empezar: dónde se hace cada cosa
 
@@ -47,7 +47,7 @@ interruptor de las redes.
 | **El panel del celular** (radarbalcarce.com/panel/) | Decidir lo que espera, corregir, cambiar de sección, reescribir con IA, retirar y volver a publicar, mandar una nota a las redes, ver lo que sale hoy en las redes, pistas y notas propias, fotos, contactos, efemérides, revisión y números, actualizar la web | Sí: es para eso. Con la PC apagada |
 | **GitHub** (github.com/radarbalcarce/radar-balcarce; se entra con la cuenta de GitHub de cada uno) | Ver si algo falló (pestaña **Actions**), correr un workflow a mano (**Run workflow**), corregir o retirar una nota editando un archivo, cargar un aviso publicitario (`web/data/avisos.json`), prender o apagar las redes (**Settings**) | Sí, desde el navegador |
 | **El mail** (`radarbalcarce@gmail.com`) | Leer los informes de las 8:15 y 21:15 y los avisos del vigilante (desde el 15/10 llegan por mail; el WhatsApp quedó de respaldo) | Sí |
-| **Cloudflare, Workers** (dash.cloudflare.com, cuenta `radarbalcarce@gmail.com`) | Ver que el reloj `radar-balcarce-reloj` despierte a GitHub (sus ejecuciones: :00 y :30 siempre; :05, :35 y :45 de 7 a 23; :15 a las 8 y 21; :20 cada dos horas; :23 cada tres; :41 de 7 a 23) y que el vigilante `radar-balcarce-vigilante` corra (a los :12 y :42). Los trabajos viejos de cron-job.org están pausados, por si hay que volver | Sí |
+| **Cloudflare, Workers** (dash.cloudflare.com, cuenta `radarbalcarce@gmail.com`) | Ver que el reloj `radar-balcarce-reloj` despierte al motor y a las tareas (a GitHub, para lo que no se mudó) (sus ejecuciones: :00 y :30 siempre; :05, :35 y :45 de 7 a 23; :15 a las 8 y 21; :20 cada dos horas; :23 cada tres; :41 de 7 a 23) y que el vigilante `radar-balcarce-vigilante` corra (a los :12 y :42). Los trabajos viejos de cron-job.org están pausados, por si hay que volver | Sí |
 | **Claude** (una sesión de Claude Code sobre la carpeta del proyecto) | Cualquier cambio de código, escribir cuerpos, repasos editoriales, mirar la web publicada | Según dónde esté abierta la sesión |
 | **Meta, Cloudflare, Google AI Studio, DonWeb** | Cuentas: claves, borrar publicaciones, pagos, dominio | Sí, pero lo hace siempre una persona |
 

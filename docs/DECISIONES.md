@@ -2,12 +2,33 @@
 
 *Empezado el 15/10/2026. Es el registro vivo de **qué se decidió, por qué y quién**, con la fecha. Lo nuevo va
 arriba. Una decisión no se borra: si se cambia, se anota la nueva y se dice cuál reemplaza. Lo que falta hacer
-está en `PENDIENTES.md`; las reglas numeradas con su prueba, en `docs/10-REGLAS-Y-PRUEBAS.md`.*
+está en `PENDIENTES.md` (la única lista de tareas); las reglas numeradas con su prueba, en `docs/10-REGLAS-Y-PRUEBAS.md`.*
+
+## Cuál manda cuando dos entradas se contradicen (24/10/2026)
+
+El registro conserva todo lo que se decidió, también lo que después se cambió. Cuando dos entradas dicen cosas distintas, **manda la más nueva**; acá va la lista de las que
+se pisan, para no tener que adivinar (la segunda vuelta de auditoría, `docs/auditoria-2-0/M-SEGUNDA-VUELTA.md`, las encontró leyendo todo):
+
+| Tema | Manda | Lo superado (sigue escrito más abajo, no vale) |
+|---|---|---|
+| Policiales de afuera | **23/10, regla 289**: sale con 8 medios o más o si es la muerte de un famoso | 17/10: «Policiales de afuera, nunca» (reglas 211 a 214 y 260) |
+| Áreas chicas (2 medios) | **23/10, regla 294**: Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo | 17/10, regla 260: Agro y Automovilismo con 3 |
+| Lo nacional y el ritmo | **17/10, reglas 215 y 260**: 3 medios, 2 en las áreas chicas, sin cupos ni ritmo del día ni fuente «especializada» con un solo medio | 17/10 (mañana), regla 214: ritmo de 100 notas por día y fuente especializada con 1 medio; 16/10: tope de 150 por día |
+| Qué va al celular | **23/10, regla 295**: todo lo de acá que espera, sin tope; lo de afuera no va | 17/10, regla 200: «de lo de acá, cinco por día» |
+| Lo de Balcarce y el amarillo | **22/10, regla 291**: no lo frena ninguna palabra sensible (sólo el rojo, «nunca» y «no es nota») | 2/10, regla 96 («lo de acá espera menos»); pregunta abierta 2 de la sección de abajo |
+| Lo muy contado (8 medios o más) | **23/10, reglas 288, 292 y 297**: no se frena por palabras sensibles, lista internacional ni «es del extranjero» (un chico junto a un delito, sí) | 17/10, regla 197: «sale aunque el cupo esté lleno» (ya no hay cupo) |
+| Cuánto puede tener un hecho para estrenarse | **23/10, reglas 287 y 293**: 12 horas lo de afuera, 24 lo que cuentan 8 medios o más, 36 lo de Balcarce | 28/09, regla 63: 12 horas para todo |
+| Tope de notas con página en el sitio | **23/10**: `TOPE_DE_NOTAS` = 500, el resto desde R2 | 15/10: «sube de 3.500 a 3.700» (3.700 queda como techo técnico) y «se alcanza hacia el 10/12» |
+| Dónde corre el robot | **22 y 23/10**: Cloudflare (Workers Builds, Worker de tareas, render público), GitHub de vuelta atrás | 18/10: «escrito, nada se subió ni se prendió» |
+| Redes: cuántos posteos | **15/10 y 23/10**: «las redes no se recortan» y «no bajar posteos con las estadísticas de hoy»; el 5 por día sigue | 17/10: propuesta de 8 por día (sin decidir; `PENDIENTES.md`, decisión 1) |
+| Search Console y SEO | **Abierta**: el 12/10 se dijo «después de la renovación»; la auditoría 2.0 (módulo D) recomienda mirarlos antes de lanzar | Sin decidir (`PENDIENTES.md`, P6) |
+| Firma de las notas | **23/10**: «Redacción asistida con IA, verificada contra las fuentes», adentro de «Fuentes (N)» | 25/09 y 28/09: la línea chica «Redacción con IA» a la vista; la pregunta de si vuelve afuera sigue abierta (`PENDIENTES.md`, decisión 3) |
 
 ## 24/10/2026
 
 | Qué | Por qué | Quién |
 |---|---|---|
+| **24/10: segunda vuelta de auditoría de los documentos (regla 313, `docs/auditoria-2-0/M-SEGUNDA-VUELTA.md`).** Se leyeron los documentos contra el código y se corrigió todo lo que era un error de texto, sin cambiar lo que el sistema decide: la selección (`docs/03-SELECCION.md`, `docs/02-INGESTA.md`, `CRITERIO-EDITORIAL.md`) ya no dice que Policiales de afuera «nunca» sale ni que al celular van cinco por día; la mudanza a Cloudflare figura como hecha en `docs/08-INFRAESTRUCTURA.md`, `docs/07-REDES.md`, `docs/11-OPERACION.md` y `CLAUDE.md`; el tope de notas es 500 en todos lados (3.700 es el techo técnico); la firma es «Redacción asistida con IA»; las reglas 307 a 312 volvieron a su tabla; `CLAUDE.md` controla con una prueba cuál es la próxima regla. `PENDIENTES.md` es ahora **la única lista de tareas** (la vieja, el traspaso largo y tres HTML de estado pasaron a `docs/historico/`) y `docs/TRASPASO.md` quedó corto. **No se tocó** lo que es de criterio: el botón «Actualizar la web ahora» del panel, que dispara el workflow de GitHub y no el motor de Cloudflare; el repositorio de render sin sincronizar con `reels/`; las dos variables de redes (`REDES_ACTIVAS` y `REDES_ACTIVAS_NUBE`); «opinión firmada» en la política de privacidad contra «sin opinión» en el criterio; la lista de decisiones abiertas está en `PENDIENTES.md` § 5. | Los documentos se habían quedado atrás de las reglas 286 a 312 y se contradecían entre sí; quien los leyera para tocar código podía «arreglar» volviendo atrás. | Claude (pedido del coordinador); lo que quedó para decidir, a Hernán |
 | **24/10: limpieza de la auditoría 2.0, módulo A (regla 311).** Se borró el código que nadie llamaba (`armarRecuperado`, `ultimosDiasConNumeros`, `publicadasDelDia`, `SECCIONES_DE_LA_FICHA`, `datosDeFecha`, `parecidoEntreTextos`, `medirCambiosDeFoto`), `SECCIONES_NUEVAS` salió de los workflows y de la huella del sitio, y el campo `teniaImagenLaFuente` ya no se guarda. `ENLACES_CORTOS` y `FOTOS_EN_R2` quedaron conectadas (siguen apagadas) y una prueba falla si el código lee una variable que no llega. `docs/flujo/` se unió a `docs/flujos/`, tres HTML viejos pasaron a `historico/` y los programas de `docs/etapa-1-fuentes/` a `scripts/medir/`. **No se tocó** lo que decide el dueño: `comercial/`, `motor/`, `texto-por-red.mjs`, `sePuedeSola`, `agruparPorHecho` (quedan anotados como dormidos), ni el campo `datos` del prompt (es el borrador que la IA arma antes de escribir; sacarlo se decide midiendo con `reels/comparar-instruccion.mjs`, que gasta cupo) ni `sugeridoPorIA` (está en `reels/reescritura.mjs`). | Que lo muerto no confunda a quien toque el código, y que prender un interruptor haga lo que dice. | Claude |
 | **24/10: los minutos de Workers Builds** (regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`). Se midió de dónde salen (en la PC, de los ~180-200 s de compilar, 115 a 140 s eran dibujar las imágenes de tarjetas, cuya memoria no servía en Workers Builds) y se dejaron escritas, **apagadas**, tres palancas: `TARJETAS_EN_R2=Si` (la memoria de tarjetas en R2 como objetos por huella; compilar baja de 174-204 a 51 s en la simulación), `MOTOR_NOCHE_CADA_HORA=Si` (de 23:00 a 6:59 una vuelta por hora: 40 por día en vez de 48, con el vigilante de vueltas y los umbrales ajustados) y el registro del mes con el tiempo de cada paso, la proyección del mes y un aviso del vigilante (`motor-minutos`) antes de que el presupuesto empiece a saltear vueltas. | A 48 vueltas por día los 6.000 minutos pedían vueltas de 3,3 minutos o menos y el 23/10 se anotaron de ~14; sin medir cada paso en Workers Builds no se sabía qué bajar. Para pedir 40 por día sin saltear nada la vuelta tiene que tardar 4,1 minutos o menos. Queda por decidir cuándo prender cada una (orden en la sección 4 del documento), si se achican los PNG de las tarjetas y si se acepta pagar el excedente (`MOTOR_SIN_TOPE`, US$ 0,005 el minuto). | Claude (pedido de Hernán y Andrés); falta que ustedes prendan las variables |
 | **24/10: mapa de las notas archivadas, fuentes en el marcado y textos de la web al día** (regla 310). El mapa `/nota/sitemap-archivo.xml` queda escrito y probado pero apagado (`SITEMAP_DEL_ARCHIVO`); `citation`/`isBasedOn` con los enlaces de todas las fuentes; Quiénes somos y privacidad corregidas; descripciones fijas por sección; «Cultura» y «Tecnología e IA» en todos lados; buscador y letra chica. | Auditoría 2.0, módulos B y D. Las notas viejas salían del mapa a razón de ~46 por día. No se tocó la firma «Redacción asistida con IA…» ni cómo se muestran las fuentes (decisión pendiente del dueño). Para prender el mapa: subir el Worker del archivo, esperar una vuelta del exportador y poner `SITEMAP_DEL_ARCHIVO` = Si. | Claude (auditoría 2.0) |
@@ -111,16 +132,16 @@ está en `PENDIENTES.md`; las reglas numeradas con su prueba, en `docs/10-REGLAS
 ### Para Hernán (tocan reglas que no se negocian o la línea editorial: no se aplican sin su sí por escrito)
 
 1. **Semáforo: menores y víctimas.** La lista roja no se toca sin preguntar. Abierto: sumar edades y verbos ("violaron a una nena") para que lo frene también en las pistas, y si en Educación y Salud la palabra "niños" o "alumno" deja de poner amarillo cuando el modelo dice que no hay un menor identificable.
-2. **Policiales de Balcarce**: aprobar por bloques desde el celular o soltar lo que cuentan dos medios o más (regla 96). Lo rojo no cambia.
+2. ~~**Policiales de Balcarce**: aprobar por bloques desde el celular o soltar lo que cuentan dos medios o más (regla 96).~~ **Resuelta el 22/10 (regla 291): lo de Balcarce no espera por amarillo.** Lo rojo no cambia.
 3. **Nombrar menores en notas positivas** (un logro escolar o deportivo): choca con "nunca identificar a un menor". Mientras no diga que sí, sigue prohibido.
 4. **Línea editorial (regla 22)**: el texto final de "centro y centro-derecha, tono neutral" (hay un borrador sin aplicar).
-5. **Dólar**: ¿no entra nunca o queda amarillo (una persona lo puede publicar)? Hoy los documentos dicen las dos cosas.
+5. ~~**Dólar**: ¿no entra nunca o queda amarillo?~~ **Resuelta el 23/10 (reglas 292 y 298): el parte del día (títulos que dicen «dólar hoy», «a cuánto cotiza»…) se descarta con motivo y no espera a nadie; una nota de economía que menciona el dólar sale.**
 6. **Opinión firmada**: ¿sí o no? Hoy el criterio dice "sin opinión" y el buzón admite opinión firmada.
-7. **Salud en las redes**: ¿espera a una persona, como Política y Policiales?
+7. **Salud en las redes**: ¿espera a una persona, como Política y Policiales? (Hoy no: sale sola; sólo Política y Policiales esperan.)
 8. **Música en los videos**: ¿sí o no, y cuál?
-9. **Colores de Salud y Educación**, si se suman esas secciones.
-10. **Recortar el prompt de redacción**: sólo con una prueba antes y después (hoy el nuevo todavía no mejora al actual).
-11. También: cuántas secciones y en qué orden se suman; si ciencia, tecnología, salud y educación pasan con un solo medio cuando la fuente es oficial o especializada; qué redes se recortan y cuánto.
+9. ~~**Colores de Salud y Educación**~~ **Resuelta el 17/10 (regla 211): las secciones se sumaron y Ciencia es violeta `#772E9E`.**
+10. ~~**Recortar el prompt de redacción**~~ **Hecha el 17/10 (regla 263: de 3.529 a 1.843 palabras, medida con 24 notas reales).**
+11. ~~También: cuántas secciones y en qué orden se suman; si ciencia, tecnología, salud y educación pasan con un solo medio cuando la fuente es oficial o especializada~~ **Resuelta el 17/10 (reglas 215 y 260): son catorce y nunca con un solo medio**; qué redes se recortan y cuánto sigue abierto (el 15/10 se dijo que no se recortan).
 
 ### Para los dos
 
@@ -131,5 +152,5 @@ está en `PENDIENTES.md`; las reglas numeradas con su prueba, en `docs/10-REGLAS
 - Si Política y Policiales esperan a una persona también en la web.
 - ~~Si se retira del todo el panel de la PC~~: **se retiró el 17/10** (arriba).
 - Cómo se publica en YouTube y TikTok, y si las piezas de deporte salen con voz (el cupo es de 10 audios por día).
-- El archivo de notas: R2 por mes o D1, **antes del 10/12** (se llega a las 3.700 notas con página; `docs/salud-tecnica/ARCHIVO-PERMANENTE.md`).
+- ~~El archivo de notas: R2 por mes o D1, antes del 10/12~~ **Resuelta: R2, encendido el 23/10** (`TOPE_DE_NOTAS` = 500).
 - Rastreadores de IA en `robots.txt`: permitirlos o bloquearlos.

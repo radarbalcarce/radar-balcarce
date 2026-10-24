@@ -207,7 +207,7 @@ Lo común a todas:
 
 - **Para qué:** que el vecino entre a la nota, en nuestra página.
 - **Cuándo:** hasta 5 por día, de 8 a 22 y con 90 minutos entre uno y otro; es el tope, no una selección: salen mientras haya con qué (si un día
-  queda corto, `redes.json → sinPosteos` dice cuántas notas se miraron y en qué filtro cayó cada una; el 5 vive en `FACEBOOK.porDia`, regla 308) (las reglas están en
+  queda corto, `redes.json → sinPosteos` dice cuántas notas se miraron y en qué filtro cayó cada una; el 5 vive en `FACEBOOK.porDia`, regla 309) (las reglas están en
   `CRITERIO-EDITORIAL.md` § 9 y en `docs/07-REDES.md`).
 - **Cómo se arma:** el texto para redes (hasta 280 caracteres) o el titular y la bajada,
   una línea con el enlace a **nuestra** nota que va cambiando de frase (en Instagram, "link en la bio": ahí los enlaces no se tocan), y los hashtags:
@@ -292,10 +292,10 @@ Lo común a todas:
 
 ### Cosas que muerden (redes)
 
-- **La frase de contexto de un repaso (`primeraOracion`, `redes/elegir.mjs`) no corta en una abreviatura** (regla 308): "Dr.", "Sr.", "Av.", "Lic.",
+- **La frase de contexto de un repaso (`primeraOracion`, `redes/elegir.mjs`) no corta en una abreviatura** (regla 309): "Dr.", "Sr.", "Av.", "Lic.",
   "EE. UU.", "Gral.", "N°.", "etc." ni en una inicial suelta ("Luis A. Pérez", "J. M. Fangio", "J.P."). Si la oración termina ahí, sigue hasta la siguiente. Antes
   la voz leía «…en la sala Dr.». Si aparece una abreviatura nueva que corta mal, se suma a `ABREVIATURAS` con su caso en la prueba.
-- **Si la red principal (Instagram) falla, Facebook se intenta igual** (regla 308) y el problema del libro cuenta los `intentos`. La principal sigue con un solo
+- **Si la red principal (Instagram) falla, Facebook se intenta igual** (regla 309) y el problema del libro cuenta los `intentos`. La principal sigue con un solo
   intento por corrida a propósito: un error de Meta a veces llega después de publicar y repetir duplicaría el reel (se mira si ya está antes de reintentar).
 - **Un solo lugar para cada número repetido:** los posteos por día son `FACEBOOK.porDia` (la copia `CONTRATO_DIARIO.posteosPorDia` la controla una prueba) y
   el cupo de voz es `AUDIOS_POR_DIA` (`reels/cupo-voz.mjs`; `CUPO_DE_VOZ_POR_DIA` lo toma de ahí).

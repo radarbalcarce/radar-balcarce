@@ -74,8 +74,8 @@ export default function QuienesSomos() {
             de Política y Policiales pasa por una persona antes de llegar a nuestras redes.
           </li>
           <li>
-            <strong>Cada nota dice quién la escribió</strong>, en una línea al pie, junto al botón
-            de fuentes: si la redactó la IA, si la revisó la redacción o si el texto es el de la
+            <strong>Cada nota dice quién la escribió</strong>, en la primera línea del desplegable
+            «Fuentes (N)» del pie: si la redactó la IA, si la revisó la redacción o si el texto es el de la
             fuente. Las fichas de la agenda y las notas propias (como la del dólar) se arman con
             datos, sin IA, y también lo dicen.
           </li>
