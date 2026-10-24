@@ -2019,6 +2019,23 @@
   "ultimo": "2026-10-21T11:31:22.745Z",
   "motivo": "con cuerpo"
  },
+ "1xee7y1": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T05:58:21.113Z",
+  "motivo": "Gemini: Bad control character in string literal in JSON at position 1335 (line 1 column 1336)",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "Gemini: Bad control character in string literal in JSON at position 13"
+  ]
+ },
+ "1xezweo": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T05:58:21.113Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1xktpfx": {
   "intentos": 1,
   "ultimo": "2026-10-21T22:01:13.791Z",
@@ -3547,13 +3564,15 @@
   "motivo": "con cuerpo"
  },
  "olt0q0": {
-  "intentos": 4,
-  "ultimo": "2026-10-24T05:31:20.809Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 262 pala",
+  "intentos": 5,
+  "ultimo": "2026-10-24T05:58:21.113Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 233 pala",
   "textos": 3,
   "numeradas": 20,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\",",
+   "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d",
    "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\","
   ],
   "falla": [
@@ -3979,6 +3998,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T03:02:27.826Z",
   "motivo": "con cuerpo"
+ },
+ "v9i832": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T05:58:21.113Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "vaxkhs": {
   "intentos": 1,
