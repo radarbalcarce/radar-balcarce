@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-24T20:03:21.890Z",
+ "consultado": "2026-10-24T20:32:23.455Z",
  "equipos": [
   "9739",
   "3",
@@ -836,11 +836,11 @@
     "competencia": "liga",
     "inicio": "2026-10-24T20:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "4'",
+    "minuto": "33'",
     "local": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "8950",
@@ -848,7 +848,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Agustín Álvarez Martínez",
+      "minuto": "32'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Mario Alberto Kempes",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1343,6 +1350,19 @@
      },
      {
       "posicion": 3,
+      "id": "12",
+      "equipo": "Lanús",
+      "pj": 14,
+      "g": 7,
+      "e": 3,
+      "p": 4,
+      "gf": 17,
+      "gc": 10,
+      "dif": 7,
+      "pts": 24
+     },
+     {
+      "posicion": 4,
       "id": "8950",
       "equipo": "Defensa y Justicia",
       "pj": 13,
@@ -1355,7 +1375,7 @@
       "pts": 24
      },
      {
-      "posicion": 4,
+      "posicion": 5,
       "id": "21",
       "equipo": "Vélez Sarsfield",
       "pj": 13,
@@ -1366,19 +1386,6 @@
       "gc": 13,
       "dif": 5,
       "pts": 24
-     },
-     {
-      "posicion": 5,
-      "id": "12",
-      "equipo": "Lanús",
-      "pj": 13,
-      "g": 7,
-      "e": 2,
-      "p": 4,
-      "gf": 16,
-      "gc": 9,
-      "dif": 7,
-      "pts": 23
      },
      {
       "posicion": 6,
@@ -1647,6 +1654,19 @@
      },
      {
       "posicion": 11,
+      "id": "235",
+      "equipo": "Banfield",
+      "pj": 14,
+      "g": 3,
+      "e": 5,
+      "p": 6,
+      "gf": 15,
+      "gc": 20,
+      "dif": -5,
+      "pts": 14
+     },
+     {
+      "posicion": 12,
       "id": "7767",
       "equipo": "Tigre",
       "pj": 14,
@@ -1656,19 +1676,6 @@
       "gf": 13,
       "gc": 16,
       "dif": -3,
-      "pts": 13
-     },
-     {
-      "posicion": 12,
-      "id": "235",
-      "equipo": "Banfield",
-      "pj": 13,
-      "g": 3,
-      "e": 4,
-      "p": 6,
-      "gf": 14,
-      "gc": 19,
-      "dif": -5,
       "pts": 13
      },
      {
@@ -1714,7 +1721,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-24T18:43:20.573Z",
+ "tablaCuando": "2026-10-24T20:32:23.455Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

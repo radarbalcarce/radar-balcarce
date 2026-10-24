@@ -146,11 +146,6 @@
   "ultimo": "2026-10-21T16:31:17.473Z",
   "motivo": "con cuerpo"
  },
- "12dkxub": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T20:31:31.076Z",
-  "motivo": "con cuerpo"
- },
  "12hiw48": {
   "intentos": 1,
   "ultimo": "2026-10-23T17:33:33.983Z",
@@ -1984,6 +1979,20 @@
   "ultimo": "2026-10-18T02:01:30.726Z",
   "motivo": "con cuerpo"
  },
+ "1w1bqj1": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T20:31:34.707Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 146 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (titulo): el título empieza con una etique",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "1w1iijh": {
   "intentos": 2,
   "ultimo": "2026-10-19T02:30:59.345Z",
@@ -2284,11 +2293,6 @@
  "4iyi2i": {
   "intentos": 1,
   "ultimo": "2026-10-18T13:31:18.635Z",
-  "motivo": "con cuerpo"
- },
- "4tx679": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T20:31:31.076Z",
   "motivo": "con cuerpo"
  },
  "4ulhcx": {
@@ -2871,6 +2875,22 @@
   "intentos": 1,
   "ultimo": "2026-10-21T22:31:10.780Z",
   "motivo": "con cuerpo"
+ },
+ "dky59": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T20:31:34.707Z",
+  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (position, autodromo): va con las tildes y la eñe donde corresponde",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re",
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
+  ],
+  "falla": [
+   "el cuerpo nombra a \"nro\" y la fuente no",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el texto está escrito sin tildes (position, autodromo, Autodromo, clasificacion, participacion): va con las tildes y la eñe donde correspond"
+  ]
  },
  "dn35sg": {
   "intentos": 1,
@@ -3506,6 +3526,21 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 15
+ },
+ "nqkyot": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T20:31:34.707Z",
+  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 5,
+  "numeradas": 9,
+  "motivos": [
+   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica"
+  ]
  },
  "ns7t1j": {
   "intentos": 2,

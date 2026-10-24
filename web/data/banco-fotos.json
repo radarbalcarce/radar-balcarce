@@ -20185,9 +20185,7 @@
   "ausenteDesde": "2026-10-18T07:31:52.027Z"
  },
  "u6k0o2": {
-  "archivo": "fotos-notas/u6k0o2.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiliano Martínez sufre fractura de mandíbula y será operado",
@@ -20207,7 +20205,8 @@
    "descripcion": "Asistencia médica a Emiliano Martínez tendido en el césped."
   },
   "huella": "2e1830b418126124",
-  "ausenteDesde": "2026-10-17T20:31:53.923Z"
+  "intentado": true,
+  "borrada": true
  },
  "1cgklh9": {
   "archivo": "fotos-notas/1cgklh9.jpg",
@@ -37538,13 +37537,28 @@
   "huella": "6064464e4e684ccc"
  },
  "1mztzfv": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1mztzfv.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Libertad Avanza realiza una jornada masiva de afiliaciones",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de Agencia DIB no se usa todavía.",
-  "cuando": "2026-10-24T19:02:54.660Z",
-  "intentos": 1,
-  "fuentes": 4
+  "enlace": "https://www.eleco.com.ar/politica/la-libertad-avanza-desplegara-una-jornada-de-afiliaciones-en-la-provincia-de-buenos-aires",
+  "imagenOriginal": "https://cdnartic.ar/pm48d1PzzE4hXCUA77e-2BLV4Nc=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/la_libertad_avanza.webp",
+  "razon": "La foto A muestra claramente el hecho y a los referentes políticos en la jornada de afiliaciones, sin marcas de agua ni problemas, siendo la opción más adecuada.",
+  "cuando": "2026-10-24T20:32:11.032Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dirigentes políticos en la jornada de afiliaciones con cartelería de La Libertad Avanza."
+  },
+  "huella": "0e344c84a68e8e32"
  },
  "wji9rt": {
   "archivo": "fotos-notas/wji9rt.jpg",
@@ -37641,6 +37655,7 @@
    "corresponde": "si",
    "descripcion": "El auto de Colapinto circulando por la pista de frente"
   },
-  "huella": "003939c8cc86ac29"
+  "huella": "003939c8cc86ac29",
+  "ausenteDesde": "2026-10-24T20:32:25.880Z"
  }
 }
