@@ -156,9 +156,27 @@ jobs:
           # vacía, APAGADAS: la IA elige entre las once de siempre y el sitio sale igual que antes. Va también en "Compilar el sitio".
           SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
+      # ¿Lo que lee la compilación es idéntico a lo que ya está publicado? Entonces no se compila ni se sube (regla 304,
+      # web/scripts/huella-del-sitio.mjs; la huella de lo publicado está en /huella-del-sitio.txt del propio sitio). La franja de 3 horas y
+      # COMPILAR_SIEMPRE=Si (variable de GitHub) fuerzan la compilación de siempre. Si no se pudo calcular o leer algo, se compila.
+      - name: Ver si hace falta compilar
+        id: huella
+        run: node web/scripts/huella-del-sitio.mjs comparar
+        env:
+          SITIO: https://radarbalcarce.com
+          COMPILAR_SIEMPRE: ${{ vars.COMPILAR_SIEMPRE }}
+          FOTOS_BASE: ${{ vars.FOTOS_BASE }}
+          TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
+          R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
+          WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
+          TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
+          BLUESKY_URL: ${{ vars.BLUESKY_URL }}
+          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
+
       # El sitio se compila acá, UNA vez, antes de guardar y de publicar: esto mismo es lo que se sube a Cloudflare al final (regla 189).
       # Si no compila, no se commitea ni se sube: la web se queda como está.
       - name: Compilar el sitio
+        if: steps.huella.outputs.igual != 'true'
         working-directory: web
         run: npm run build
         env:
@@ -175,6 +193,7 @@ jobs:
       # layout.js dentro de seis meses, se lleva puesto el Open Graph y no
       # se entera nadie hasta que una nota compartida llega pelada.
       - name: Revisar que el SEO siga en pie
+        if: steps.huella.outputs.igual != 'true'
         working-directory: web
         run: node scripts/revisar-seo.mjs
 
@@ -275,7 +294,7 @@ jobs:
       # minutos (lo que no llegó a subir sale en la vuelta siguiente).
       - name: Archivar las notas por salir (R2)
         id: archivo
-        if: ${{ vars.R2_ARCHIVO != '' }}
+        if: ${{ vars.R2_ARCHIVO != '' && (steps.huella.outputs.igual != 'true' || steps.recompilar.outputs.recompilar == 'true') }}
         continue-on-error: true
         timeout-minutes: 8
         run: |
@@ -318,7 +337,21 @@ jobs:
       # Si falla, la corrida sale en rojo (los datos ya quedaron en main y la web sigue con la versión anterior): la vuelta siguiente lo vuelve
       # a intentar, y el vigilante lo avisa ("Actualizar la web" falló en el paso "Subir a Cloudflare Pages").
       # Sin `if`: corre sólo si todo lo anterior salió bien (el archivo R2 no cuenta: tiene continue-on-error). Si la recompilación falló, no se sube.
+      - name: Anotar la huella del sitio
+        if: ${{ steps.huella.outputs.igual != 'true' || steps.recompilar.outputs.recompilar == 'true' }}
+        run: node web/scripts/huella-del-sitio.mjs escribir
+        env:
+          SITIO: https://radarbalcarce.com
+          FOTOS_BASE: ${{ vars.FOTOS_BASE }}
+          TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
+          R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
+          WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
+          TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
+          BLUESKY_URL: ${{ vars.BLUESKY_URL }}
+          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
+
       - name: Subir a Cloudflare Pages
+        if: ${{ steps.huella.outputs.igual != 'true' || steps.recompilar.outputs.recompilar == 'true' }}
         working-directory: web
         run: npx --yes wrangler@4.139.0 pages deploy out --project-name="$PROYECTO" --branch=main
         env:
@@ -329,5 +362,6 @@ jobs:
       # Después de subir, se le avisa a Bing (IndexNow, sin cuenta ni clave secreta) qué notas nuevas hay (redes/indexnow.mjs). Es un aviso:
       # si falla, la corrida sigue verde.
       - name: Avisar a Bing de las notas nuevas
+        if: ${{ steps.huella.outputs.igual != 'true' || steps.recompilar.outputs.recompilar == 'true' }}
         continue-on-error: true
         run: node redes/indexnow.mjs

@@ -1,5 +1,5 @@
 import { obtenerNota, notasConImagen, paramsNoVacios } from '@/lib/datos';
-import { tarjeta, fotoParaInstagram } from '@/lib/tarjeta';
+import { tarjetaConMemoria } from '@/lib/tarjeta';
 import { FOTO_EN_ENLACE } from '@/lib/tarjeta-diseno';
 import { parteDeNota } from '@/lib/ruta';
 
@@ -20,5 +20,5 @@ export function generateStaticParams() {
 export async function GET(_pedido, { params }) {
   const { id } = await params;
   const n = obtenerNota(id);
-  return tarjeta(n ?? {}, { foto: FOTO_EN_ENLACE && n ? await fotoParaInstagram(n) : null });
+  return tarjetaConMemoria(n ?? {}, { conFoto: Boolean(FOTO_EN_ENLACE && n) });
 }

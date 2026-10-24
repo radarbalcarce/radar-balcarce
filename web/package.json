@@ -13,6 +13,7 @@
     "_comentario_dolar": "dolar guarda la foto de la cotizacion en data/dolar.json (scripts/foto-dolar.mjs). Corre en cada build, nunca lo frena y el archivo no se versiona: la pagina /dolar la muestra mientras el navegador consulta la de ahora.",
     "dolar": "node scripts/foto-dolar.mjs",
     "build": "npm run dolar && npm run redirects && next build && npm run redirects-paginas && npm run indexar && npm run contar",
+    "postbuild": "node scripts/podar-tarjetas.mjs",
     "indexar": "node scripts/indexar.mjs",
     "contar": "node scripts/contar-archivos.mjs"
   },

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ImageResponse } from 'next/og';
+import { carpetaDeLaMemoria, huellaDelDiseno, huellaDeTarjeta, leerDeLaMemoria, guardarEnLaMemoria } from './cache-tarjetas.js';
 import {
   PAPEL, TINTA, GRIS, ROJO, INSTAGRAM, INTERLINEA_TITULO, INTERLINEA_BAJADA, ANCHO_FOTO_ENLACE,
   colorDe, repartirTexto, tamNombreDeSeccion, fechaCorta, fotoDeLaNota,
@@ -218,4 +219,31 @@ export function tarjeta(nota = {}, { instagram = false, foto = null } = {}) {
       { name: 'Inter', data: leer('Inter-600.ttf'), weight: 600, style: 'normal' },
     ],
   });
+}
+
+/**
+ * Lo mismo que `tarjeta`, pero con la memoria de lo ya dibujado (lib/cache-tarjetas.js, regla 305): si el título, la sección, la fecha y la
+ * foto son los de la vuelta anterior, se devuelve el PNG que ya estaba en vez de dibujarlo otra vez. `conFoto`: si la imagen lleva la foto de
+ * la nota (FOTO_EN_ENLACE / FOTO_EN_INSTAGRAM). Es async porque la foto WebP se pasa a JPEG sólo cuando hace falta dibujar.
+ */
+export async function tarjetaConMemoria(nota = {}, { instagram = false, conFoto = false } = {}) {
+  const carpeta = carpetaDeLaMemoria();
+  const diseno = carpeta ? huellaDelDiseno() : null;
+  const dibujar = async () => tarjeta(nota, { instagram, foto: conFoto ? await fotoParaInstagram(nota) : null });
+  if (!carpeta || !diseno) return dibujar();
+
+  let fotoBytes = null;
+  if (conFoto) {
+    const f = fotoDeLaNota(nota);
+    try { fotoBytes = f ? fs.readFileSync(f.ruta) : null; } catch { fotoBytes = null; }
+  }
+  const clave = huellaDeTarjeta(nota, { instagram, fotoBytes, diseno });
+  const guardada = leerDeLaMemoria(carpeta, clave);
+  const cabeceras = { 'content-type': TIPO, 'cache-control': 'public, immutable, no-transform, max-age=31536000' };
+  if (guardada) return new Response(guardada, { headers: cabeceras });
+
+  const imagen = await dibujar();
+  const bytes = Buffer.from(await imagen.arrayBuffer());
+  guardarEnLaMemoria(carpeta, clave, bytes);
+  return new Response(bytes, { headers: cabeceras });
 }

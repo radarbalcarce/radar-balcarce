@@ -80,9 +80,10 @@ import {
 import { reporteHtml as reporteDeLaSeleccionHtml } from '../../scripts/medir/estadistica-seleccion.mjs';
 import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
 
-/** Cuántas horas puede tener el hecho de esta nota para estrenarse: 12 si es de afuera, 24 si la cuentan MUY_CONTADA.medios o más, 36 si es de acá (regla 293). */
+/** Cuántas horas puede tener el hecho de esta nota para estrenarse: 12 si es de afuera, 24 si la cuentan MUY_CONTADA.medios o más, 36 si es de acá (regla 306). */
 const horasDeEstreno = (n) => horasParaEstrenar(contarMedios(n.medios), esDeAca(n));
-import { conFotosDelBanco, podarFotos, conMarcasDeAusenciaDeAntes,esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
+import { bancoFinal, textoDelBanco, hayQueEscribirElBanco } from './banco-sin-ruido.mjs';
+import { conFotosDelBanco, podarFotos, esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
 import { idsRetiradosPorLaRevision, parejasDeLaRevision } from '../lib/revision-archivo.js';
 import { actualizarAgenda, aplicarSuspendidos, comoAgendaJson } from '../lib/eventos.js';
 import { traerDolar } from '../lib/dolar.js';
@@ -695,6 +696,8 @@ const FOTOS_MANUALES = path.join(AQUI, '..', 'data', 'fotos-manuales.json');
 const EFEMERIDES_PIEZAS = path.join(AQUI, '..', 'data', 'efemerides-piezas.json');
 const fotosManuales = Object.fromEntries(Object.entries(leerJson(FOTOS_MANUALES, {}))
   .filter(([, f]) => f?.archivo && existeFoto(path.basename(f.archivo))));
+// El banco tal como estaba AL EMPEZAR la corrida: de acá salen las horas de `ausenteDesde` que no deben moverse (regla 306, banco-sin-ruido.mjs).
+const bancoGuardadoAlEmpezar = leerJson(BANCO_FOTOS, {});
 let bancoDeFotos = { ...leerJson(BANCO_FOTOS, {}), ...fotosManuales };
 // Las ilustraciones hechas con IA para notas sin foto (regla 182, web/scripts/ilustrar-notas.mjs): las anota sólo el workflow manual "Ilustrar
 // notas sin foto", después de que una persona las miró; esta corrida nunca escribe ese archivo. Van con la prioridad MÁS BAJA (primero las
@@ -1224,10 +1227,12 @@ if (fs.existsSync(FOTOS_NOTAS)) {
   });
   for (const f of borrar) fs.rmSync(path.join(FOTOS_NOTAS, f), { force: true });
   // La hora de `ausenteDesde` no cuenta como cambio si el archivo ya tenía una (conMarcasDeAusenciaDeAntes): evita reescribir 1,7 MB por una hora.
-  const guardadoEnDisco = leerJson(BANCO_FOTOS, {});
-  const bancoParaGuardar = conMarcasDeAusenciaDeAntes(banco, guardadoEnDisco);
-  if (JSON.stringify(bancoParaGuardar) !== JSON.stringify(conMarcasDeAusenciaDeAntes(bancoDeFotos, guardadoEnDisco, { soloSiLaTiene: false }))) {
-    fs.writeFileSync(BANCO_FOTOS, `${JSON.stringify(bancoParaGuardar, null, 1)}\n`, 'utf8');
+  // Regla 306: con el archivo de AL EMPEZAR (no el de ahora, que esta misma corrida pudo reescribir sin las horas) y comparando el texto final.
+  const { final: bancoFinalParaGuardar } = bancoFinal({ banco, bancoDeFotos, alEmpezar: bancoGuardadoAlEmpezar });
+  let bancoEnDisco = '';
+  try { bancoEnDisco = fs.readFileSync(BANCO_FOTOS, 'utf8'); } catch { /* sin banco todavía */ }
+  if (hayQueEscribirElBanco(bancoFinalParaGuardar, bancoEnDisco)) {
+    fs.writeFileSync(BANCO_FOTOS, textoDelBanco(bancoFinalParaGuardar), 'utf8');
   }
   if (borrar.length) console.log(`  fotos: ${borrar.length} sin nota, borradas`);
 }

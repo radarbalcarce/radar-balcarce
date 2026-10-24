@@ -310,7 +310,8 @@ for (const archivo of ['actualizar.yml', 'cloudflare-deploy.yml']) test(`${archi
   const subir = w.indexOf('- name: Subir a Cloudflare Pages');
   assert.ok(compilar > 0 && compilar < archivar && archivar < avisar && avisar < subir, 'compilar → archivar → avisar → subir');
   const paso = w.slice(archivar, avisar);
-  assert.match(paso, /if: \$\{\{ vars\.R2_ARCHIVO != '' \}\}/);
+  // actualizar.yml, desde la regla 304, además sólo si hubo compilación (menos-compilaciones.test.mjs); el de a mano compila siempre.
+  assert.match(paso, /if: \$\{\{ vars\.R2_ARCHIVO != ''( && \(.*\))? \}\}/);
   assert.match(paso, /continue-on-error: true/);
   assert.match(paso, /timeout-minutes: \d+/);
   assert.match(paso, /set -o pipefail/);

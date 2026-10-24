@@ -65,7 +65,9 @@ test('"Actualizar la web" compila una vez, guarda en main y recién ahí sube lo
   assert.match(paso(s, 'Ver si entró algo que cambie el sitio'), /node web\/scripts\/recompilar\.mjs "\$\{\{ steps\.guardar\.outputs\.compilado \}\}"/);
   // la subida: sin `if` (sólo si todo lo anterior salió bien), sin continue-on-error (si falla, se ve), con wrangler fijo
   const subir = paso(s, 'Subir a Cloudflare Pages');
-  assert.ok(!/\bif:/.test(subir), 'sin if: si no compiló o no se guardó en main, no se sube');
+  // sólo se omite si la huella dice que nada cambió (regla 304: menos-compilaciones.test.mjs); ningún `if` de éxito: si algo falló antes, no corre
+  assert.ok(!/success\(\)|always\(\)/.test(subir), 'no se sube por encima de un fallo anterior');
+  assert.match(subir, /if: \$\{\{ steps\.huella\.outputs\.igual != 'true' \|\| steps\.recompilar\.outputs\.recompilar == 'true' \}\}/);
   assert.ok(!/continue-on-error/.test(subir), 'si la subida falla, la corrida sale en rojo y el vigilante lo avisa');
   assert.match(subir, /npx --yes wrangler@\d+\.\d+\.\d+ pages deploy out --project-name="\$PROYECTO" --branch=main/);
   assert.match(subir, /CLOUDFLARE_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/);

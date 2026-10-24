@@ -34,6 +34,7 @@ import {
   restaurarCache, guardarCache, tomarCandado, soltarCandado, anotarVuelta,
 } from './estado-r2.mjs';
 import { hayQueRecompilar } from '../../web/scripts/recompilar.mjs';
+import { huellaDelSitio, decidirSiCompilar, escribirLaHuella, huellaPublicada as leerHuellaPublicada } from '../../web/scripts/huella-del-sitio.mjs';
 import { avisar } from '../../redes/avisar-por-mail.mjs';
 
 export const VERSION_DE_WRANGLER = '4.139.0';
@@ -104,6 +105,9 @@ export function configurar(env = process.env) {
  */
 export async function vuelta({
   env = process.env, raiz = RAIZ, ejecutar = ejecutarReal, github = null, r2 = null, r2Fotos = null, ahora = () => new Date(), log = console.log,
+  // Regla 304: cómo leer la huella de lo publicado (sitio => texto | null). Sin esto la vuelta compila y sube siempre, como antes (las pruebas no
+  // tocan la red); el programa de verdad lo pasa (abajo).
+  huellaPublicada = null,
 } = {}) {
   const cfg = configurar(env);
   const inicio = ahora().getTime();
@@ -212,7 +216,19 @@ export async function vuelta({
       await correr(cual, 'npm', ['run', 'build'], { cwd: web, extra: { SITIO: cfg.sitio } });
       await correr(`${cual === 'Compilar el sitio' ? 'Revisar que el SEO siga en pie' : 'Revisar el SEO (otra vez)'}`, 'node', ['scripts/revisar-seo.mjs'], { cwd: web });
     };
-    await compilar('Compilar el sitio');
+    // Regla 304: si lo que lee la compilación es idéntico a lo publicado, no se compila ni se sube (la huella está en el propio sitio).
+    let compilo = true;
+    if (huellaPublicada && !cfg.simular) {
+      try {
+        const decision = decidirSiCompilar({
+          ahora: huellaDelSitio({ raiz, env: entorno, ahora: ahora() }), publicada: await huellaPublicada(cfg.sitio), forzar: si(env.COMPILAR_SIEMPRE),
+        });
+        log(decision.compilar ? `Se compila: ${decision.porque}.` : `NO se compila ni se sube: ${decision.porque}.`);
+        compilo = decision.compilar;
+      } catch (e) { log(`(no se pudo calcular la huella del sitio: ${e.message}; se compila)`); }
+    }
+    if (compilo) await compilar('Compilar el sitio');
+    else pasos['Compilar el sitio'] = { ok: true, segundos: 0, omitido: true };
 
     // 7. Guardar los datos en main por la API. Si no se puede guardar, no se sube nada (como en el workflow).
     let padre = null;
@@ -264,13 +280,14 @@ export async function vuelta({
             }
             if (lock) { await correr('Instalar de nuevo', 'npm', ['ci', '--no-audit', '--no-fund'], { cwd: raiz }); await correr('Instalar de nuevo (web)', 'npm', ['ci', '--no-audit', '--no-fund'], { cwd: web }); }
             await compilar('Volver a compilar con lo que entró');
+            compilo = true;
           } else log('Mientras se armaba sólo entró lo que el sitio no lee: se sube lo ya compilado.');
         }
       } catch (e) { log(`(no se pudo comparar con lo que entró en el medio: ${e.message}; se sube lo compilado)`); }
     }
 
     // 9. El archivo permanente (R2): no frena la subida.
-    if (cfg.archivoR2 && !cfg.simular) {
+    if (cfg.archivoR2 && !cfg.simular && compilo) {
       await correr('Archivar las notas por salir (R2)', 'node', ['web/scripts/archivar-a-r2.mjs', '--subir', '--borrar', '--produccion', `--bucket=${cfg.archivoR2}`, '--margen=auto', '--limite-segundos=360'], { puedeFallar: true });
       if (pasos['Archivar las notas por salir (R2)']?.ok === false) {
         await avisar({
@@ -283,7 +300,9 @@ export async function vuelta({
 
     // 10. Subir a Cloudflare Pages (Direct Upload: no cuenta contra los builds de Pages) y avisarle a Bing.
     if (cfg.simular) log('\n▶ Subir a Cloudflare Pages: (simulacro: no se sube)');
+    else if (!compilo) log('\n▶ Subir a Cloudflare Pages: (nada cambió desde lo publicado: no se sube)');
     else {
+      if (huellaPublicada) { try { escribirLaHuella(raiz, huellaDelSitio({ raiz, env: entorno, ahora: ahora() })); } catch (e) { log(`(no se pudo anotar la huella del sitio: ${e.message})`); } }
       await correr('Subir a Cloudflare Pages', 'npx', ['--yes', `wrangler@${VERSION_DE_WRANGLER}`, 'pages', 'deploy', 'out', `--project-name=${cfg.proyecto}`, '--branch=main'], { cwd: web });
       await correr('Avisar a Bing de las notas nuevas', 'node', ['redes/indexnow.mjs'], { puedeFallar: true });
     }
@@ -306,6 +325,6 @@ export async function vuelta({
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   if (process.argv.includes('--simular')) process.env.MOTOR_SIMULAR = 'Si';
-  const r = await vuelta();
+  const r = await vuelta({ huellaPublicada: (sitio) => leerHuellaPublicada(sitio) });
   process.exit(r.ok ? 0 : 1);
 }

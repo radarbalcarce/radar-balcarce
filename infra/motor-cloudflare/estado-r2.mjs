@@ -25,7 +25,8 @@ function archivosDe(dir, prefijo = '', salida = []) {
   let entradas;
   try { entradas = fs.readdirSync(dir, { withFileTypes: true }); } catch { return salida; }
   for (const e of entradas) {
-    if (e.isDirectory()) archivosDe(path.join(dir, e.name), `${prefijo}${e.name}/`, salida);
+    // `.cache/tarjetas/` (regla 305) son ~100 MB de PNG: la caché de Actions los guarda, pero acá no se bajarían de R2 en cada vuelta.
+    if (e.isDirectory() && !(prefijo === '' && e.name === 'tarjetas')) archivosDe(path.join(dir, e.name), `${prefijo}${e.name}/`, salida);
     else if (e.isFile()) salida.push(`${prefijo}${e.name}`);
   }
   return salida;

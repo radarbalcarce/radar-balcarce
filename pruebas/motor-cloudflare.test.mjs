@@ -408,3 +408,71 @@ test('los avisos «::warning title=…::…» del armado se leen como las anotac
   for (let i = 0; i < 120; i += 1) await anotarVuelta(cliente, { id: `v${i}`, ok: true, segundos: 1, ahora: new Date(t.getTime() + (i + 2) * 1800e3) });
   assert.equal(JSON.parse(texto(CLAVE_DEL_ESTADO)).historial.length, 96, 'sólo se recuerdan 96 vueltas (dos días)');
 });
+
+// ------------------------------------------------------------------ regla 304: no compilar ni subir lo que no cambió
+
+import { huellaDelSitio, ARCHIVO_DE_LA_HUELLA } from '../web/scripts/huella-del-sitio.mjs';
+
+test('regla 304: si lo que lee la compilación es idéntico a lo publicado, la vuelta guarda los datos pero no compila ni sube', async () => {
+  const e = escenario();
+  const ahora = () => new Date('2026-10-18T13:07:00Z');
+  // «lo publicado» tiene la huella de lo que la vuelta va a calcular (el sitio ya está al día)
+  const huellaPublicada = async () => huellaDelSitio({ raiz: e.raiz, env: ENTORNO, ahora: ahora() });
+  const r = await vuelta({ env: ENTORNO, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2Falso().cliente, ahora, log: silencio, huellaPublicada });
+  assert.equal(r.ok, true, r.motivo);
+  const orden = e.comandos.map((c) => `${c.comando} ${c.args}`);
+  assert.ok(!orden.some((c) => /run build|revisar-seo|pages deploy|indexnow|archivar-a-r2/.test(c)), orden.join(' | '));
+  assert.ok(orden.includes('node scripts/generar-datos.mjs'), 'los datos se arman igual');
+  assert.equal(e.github.leer('web/data/portada.json'), '{"notas":[{"id":"n1"}]}', 'y se guardan en main');
+  assert.equal(r.pasos['Compilar el sitio'].omitido, true);
+});
+
+test('regla 304: si la huella publicada es otra (o no se pudo leer), se compila, se anota la huella y se sube', async () => {
+  for (const publicada of ['a'.repeat(40), null]) {
+    const e = escenario();
+    const ahora = () => new Date('2026-10-18T13:07:00Z');
+    const r = await vuelta({ env: ENTORNO, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2Falso().cliente, ahora, log: silencio, huellaPublicada: async () => publicada });
+    assert.equal(r.ok, true, r.motivo);
+    const orden = e.comandos.map((c) => c.args);
+    assert.ok(orden.includes('run build') && orden.some((a) => /pages deploy/.test(a)), String(publicada));
+    const anotada = fs.readFileSync(path.join(e.raiz, 'web', 'out', ARCHIVO_DE_LA_HUELLA), 'utf8').trim();
+    assert.match(anotada, /^[0-9a-f]{40}$/);
+    assert.equal(anotada, huellaDelSitio({ raiz: e.raiz, env: ENTORNO, ahora: ahora() }), 'la huella anotada es la de lo que se subió');
+  }
+});
+
+test('regla 304: sin huellaPublicada (las pruebas de antes, el simulacro) todo sigue como antes; y COMPILAR_SIEMPRE fuerza la compilación', async () => {
+  const e = escenario();
+  const ahora = () => new Date('2026-10-18T13:07:00Z');
+  const igual = async () => huellaDelSitio({ raiz: e.raiz, env: { ...ENTORNO, COMPILAR_SIEMPRE: 'Si' }, ahora: ahora() });
+  const r = await vuelta({ env: { ...ENTORNO, COMPILAR_SIEMPRE: 'Si' }, raiz: e.raiz, ejecutar: e.ejecutar, github: e.ghCliente, r2: r2Falso().cliente, ahora, log: silencio, huellaPublicada: igual });
+  assert.equal(r.ok, true, r.motivo);
+  assert.ok(e.comandos.some((c) => c.args === 'run build') && e.comandos.some((c) => /pages deploy/.test(c.args)), 'forzada: compila y sube aunque sea idéntico');
+});
+
+test('regla 304: si es idéntico pero mientras se armaba entró algo que el sitio lee, se compila y se sube igual', async () => {
+  const e = escenario();
+  const antes = e.github.cabeza;
+  const ahora = () => new Date('2026-10-18T13:07:00Z');
+  const ejecutarConCelular = async (comando, args, o) => {
+    const r = await e.ejecutar(comando, args, o);
+    if (/generar-datos/.test(args.join(' '))) e.github.subirComoOtro({ 'web/data/retiradas.json': '{"n1":{"motivo":"x","cuando":"hoy","por":"hernan"}}' }, 'celular');
+    return r;
+  };
+  const huellaPublicada = async () => huellaDelSitio({ raiz: e.raiz, env: ENTORNO, ahora: ahora() });
+  const r = await vuelta({ env: { ...ENTORNO, WORKERS_CI_COMMIT_SHA: antes }, raiz: e.raiz, ejecutar: ejecutarConCelular, github: e.ghCliente, r2: r2Falso().cliente, ahora, log: silencio, huellaPublicada });
+  assert.equal(r.ok, true, r.motivo);
+  assert.equal(e.comandos.filter((c) => c.args === 'run build').length, 1, 'la primera se omitió, la segunda (con la retirada) no');
+  assert.ok(e.comandos.some((c) => /pages deploy/.test(c.args)), 'y se sube');
+  assert.ok(fs.existsSync(path.join(e.raiz, 'web', 'out', ARCHIVO_DE_LA_HUELLA)));
+});
+
+test('regla 305: la memoria de tarjetas (.cache/tarjetas) no baja ni sube de R2: son ~100 MB que ya guarda la caché de Actions', async () => {
+  const { cliente, registro } = r2Falso();
+  const raiz = carpetaTemporal();
+  escribir(raiz, '.cache/cruce-memoria.json', '{}');
+  escribir(raiz, '.cache/tarjetas/abc.png', Buffer.from([0x89, 0x50, 0x4e, 0x47, 1, 2, 3, 4]));
+  registro.length = 0;
+  assert.equal(await guardarCache(cliente, raiz, new Map()), 1);
+  assert.deepEqual(registro.filter(([v]) => v === 'guardar').map(([, k]) => k), ['motor/cache/cruce-memoria.json']);
+});
