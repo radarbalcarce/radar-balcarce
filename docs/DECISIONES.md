@@ -4,6 +4,12 @@
 arriba. Una decisión no se borra: si se cambia, se anota la nueva y se dice cuál reemplaza. Lo que falta hacer
 está en `PENDIENTES.md`; las reglas numeradas con su prueba, en `docs/10-REGLAS-Y-PRUEBAS.md`.*
 
+## 24/10/2026
+
+| Qué | Por qué | Quién |
+|---|---|---|
+| **24/10: mapa de las notas archivadas, fuentes en el marcado y textos de la web al día** (regla 309). El mapa `/nota/sitemap-archivo.xml` queda escrito y probado pero apagado (`SITEMAP_DEL_ARCHIVO`); `citation`/`isBasedOn` con los enlaces de todas las fuentes; Quiénes somos y privacidad corregidas; descripciones fijas por sección; «Cultura» y «Tecnología e IA» en todos lados; buscador y letra chica. | Auditoría 2.0, módulos B y D. Las notas viejas salían del mapa a razón de ~46 por día. No se tocó la firma «Redacción asistida con IA…» ni cómo se muestran las fuentes (decisión pendiente del dueño). Para prender el mapa: subir el Worker del archivo, esperar una vuelta del exportador y poner `SITEMAP_DEL_ARCHIVO` = Si. | Claude (auditoría 2.0) |
+
 ## 23/10/2026
 
 | Qué | Por qué | Quién |

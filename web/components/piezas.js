@@ -104,10 +104,6 @@ export function TarjetaFarmacia({ farmacia, verLaSemana = true, verBotones = tru
   );
 }
 
-/** "SAN JOSE PLAZA" en mayúsculas grita. Se pasa a mayúscula inicial, que es
- *  como se escribe el nombre de un comercio. */
-
-
 // ------------------------------------------------------------------ notas
 
 export function Etiqueta({ seccion }) {
@@ -119,9 +115,10 @@ export function Etiqueta({ seccion }) {
  * La placa de la sección: lo que va donde iría la foto cuando no hay una que
  * sirva (CLAUDE.md, "Las fotos"), con el dibujo de su sección. Desde el 29/09
  * también en la página de la nota (Hernán: "si no tiene fotos hay que ponerle
- * la placa de la sección"); antes ahí no iba nada. Nunca una imagen hecha con
- * IA: el criterio no la permite ("Nunca una foto inventada por IA"). `chica`
- * es la de la página de una nota, más baja que la de la portada de sección.
+ * la placa de la sección"). La placa es un dibujo propio, nunca una foto; la
+ * ilustración con IA de las notas sin foto es otra cosa (`ilustrar-notas.mjs`) y
+ * lo dice en el epígrafe. `chica` es la de la página de una nota, más baja que
+ * la de la portada de sección.
  */
 export function PlacaSeccion({ seccion, chica = false }) {
   const s = datosSeccion(seccion);
@@ -190,7 +187,7 @@ export function TituloSeccion({ seccion, verTodo = true }) {
   return (
     <div className="titulo-seccion">
       <span className="barra" style={{ background: s.color }} />
-      <h2>{seccion}</h2>
+      <h2>{nombreCorto(seccion)}</h2>
       {/* "Ver todo →" a secas: el nombre de la sección está tres centímetros
           a la izquierda, repetirlo no agrega nada y en el celular obliga a
           que el título se achique para que entren los dos. */}

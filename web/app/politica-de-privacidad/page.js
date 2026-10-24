@@ -48,6 +48,15 @@ export default function PoliticaPrivacidad() {
           que promete cuidar a sus lectores no puede estar entregándoselos a otro.
         </p>
 
+        <h3 style={{ fontSize: 20, marginTop: 28, marginBottom: 8 }}>El clima y el dólar</h3>
+        <p>
+          Para mostrar el clima y la cotización del dólar al momento, tu navegador les pregunta
+          directamente a <strong>Open-Meteo</strong> (el clima), <strong>DolarApi</strong> y{' '}
+          <strong>Bluelytics</strong> (el dólar). Como en cualquier sitio al que te conectás, esos
+          servicios pueden ver tu dirección IP; nosotros no les mandamos ningún dato tuyo ni
+          guardamos lo que ellos reciben.
+        </p>
+
         <h3 style={{ fontSize: 20, marginTop: 28, marginBottom: 8 }}>Para qué lo usamos</h3>
         <ul style={{ paddingLeft: 20 }}>
           <li>Para poder volver a contactarte si necesitamos verificar algo antes de publicar.</li>
@@ -80,7 +89,7 @@ export default function PoliticaPrivacidad() {
           protege a nosotros y a vos de publicar algo apurado que después haya que corregir.
         </p>
 
-        <p className="mini" style={{ marginTop: 30 }}>Última actualización: 24 de septiembre de 2026.</p>
+        <p className="mini" style={{ marginTop: 30 }}>Última actualización: 24 de octubre de 2026.</p>
       </div>
     </div>
   );

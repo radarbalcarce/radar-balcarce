@@ -1,6 +1,6 @@
 import { obtenerDatos } from '@/lib/datos';
 import { enlace } from '@/lib/sitio';
-import { xmlDeIndice } from '@/lib/sitemap-noticias';
+import { xmlDeIndice, sitemapDelArchivoPrendido, DIRECCION_DEL_SITEMAP_DEL_ARCHIVO } from '@/lib/sitemap-noticias';
 
 // El índice de mapas (17/10/2026, regla 250): una sola dirección que lista el mapa del sitio y el de noticias, para cargarla de una vez
 // en Search Console y Bing. El sitemap.xml de siempre sigue siendo un mapa común, no un índice: el vigilante de Cloudflare lee su
@@ -15,6 +15,8 @@ export async function GET() {
   const xml = xmlDeIndice([
     { loc: enlace('/sitemap.xml'), lastmod: armado },
     { loc: enlace('/sitemap-news.xml'), lastmod: armado },
+    // Las notas que salieron del sitio compilado y viven en R2 (regla 309): el mapa lo arma el exportador y lo sirve el Worker del archivo.
+    ...(sitemapDelArchivoPrendido(process.env) ? [{ loc: enlace(DIRECCION_DEL_SITEMAP_DEL_ARCHIVO) }] : []),
   ]);
   return new Response(xml, { headers: { 'content-type': 'application/xml; charset=utf-8' } });
 }

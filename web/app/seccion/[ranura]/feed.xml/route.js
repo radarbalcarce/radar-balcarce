@@ -1,4 +1,4 @@
-import { obtenerDatos, notasDeLaSeccion, SECCIONES, paramsNoVacios, MAIL } from '@/lib/datos';
+import { obtenerDatos, notasDeLaSeccion, SECCIONES, nombreCorto, paramsNoVacios, MAIL } from '@/lib/datos';
 import { sitio } from '@/lib/sitio';
 import { armarRss } from '@/lib/rss';
 import { tamanoDeFotoLocal } from '@/lib/rss-disco';
@@ -20,8 +20,8 @@ export async function GET(_pedido, { params }) {
   const s = SECCIONES.find((x) => x.ranura === ranura);
   const notas = s ? notasDeLaSeccion(s.nombre).slice(0, CUANTAS) : [];
   const xml = armarRss({
-    titulo: s ? `Radar Balcarce · ${s.nombre}` : 'Radar Balcarce',
-    descripcion: s ? `Las últimas notas de ${s.nombre} en Radar Balcarce.` : undefined,
+    titulo: s ? `Radar Balcarce · ${nombreCorto(s.nombre)}` : 'Radar Balcarce',
+    descripcion: s ? `Las últimas notas de ${nombreCorto(s.nombre)} en Radar Balcarce.` : undefined,
     enlace: s ? `${SITIO}/seccion/${s.ranura}` : SITIO,
     autoEnlace: `${SITIO}/seccion/${ranura}/feed.xml`,
     notas, sitio: SITIO, generado: obtenerDatos().generado,

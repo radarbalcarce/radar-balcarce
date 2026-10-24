@@ -257,7 +257,7 @@ header.principal .envoltura {
 }
 .resultado:hover { background: var(--crema); color: inherit; }
 .resultado .seccion {
-  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--rojo);
 }
 .resultado .titulo { font-size: 15.5px; font-weight: 600; line-height: 1.35; }
@@ -371,7 +371,7 @@ nav.principal.con-mas .desliza { max-width: none; margin: 0; }
 .panel-mas li a::before { content: ''; flex: none; width: 10px; height: 10px; border-radius: 3px; background: var(--c, var(--s-pais)); }
 .panel-mas li a.activo { color: var(--rojo); box-shadow: inset 0 -3px 0 var(--rojo); }
 .panel-mas .nueva {
-  margin-left: auto; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  margin-left: auto; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
   color: var(--suave); border: 1px solid var(--linea); border-radius: 999px; padding: 1px 6px;
 }
 .panel-mas .servicios li a { color: var(--verde); }
@@ -451,7 +451,7 @@ main { padding: 24px 0 10px; }
 /* ------------------------------------------------------------------ notas */
 
 .tag {
-  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+  display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
   text-transform: uppercase; color: #fff; padding: 3px 8px; border-radius: 3px;
   background: var(--s-pais);
 }
@@ -584,7 +584,7 @@ main { padding: 24px 0 10px; }
 /* Gris, quieto y con la etiqueta siempre arriba: ver PUBLICIDAD.md. Nunca
    var(--rojo) acá — un aviso que se ve como una nota deja de distinguirse. */
 .aviso { background: var(--crema); border: 1px solid var(--linea); border-radius: 10px; padding: 14px 16px; margin: 24px 0; }
-.aviso-etiqueta { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--suave); margin: 0 0 8px; }
+.aviso-etiqueta { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--suave); margin: 0 0 8px; }
 .aviso-cuerpo { display: flex; align-items: center; gap: 12px; }
 .aviso-logo { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; flex-shrink: 0; }
 .aviso-nombre { font-family: var(--f-titulo); font-weight: 900; font-size: 16px; margin: 0 0 2px; color: var(--tinta); }
@@ -723,11 +723,11 @@ main { padding: 24px 0 10px; }
   display: flex; flex-direction: column; align-items: center; gap: 3px;
   padding: 6px 4px; background: var(--crema); border-radius: 9px;
 }
-.nombre-dia-hoy { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--texto); white-space: nowrap; }
+.nombre-dia-hoy { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--texto); white-space: nowrap; }
 .linea-dia-hoy { display: flex; align-items: center; gap: 5px; }
 .temps-hoy { font-size: 14px; color: var(--suave); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .temps-hoy strong { color: var(--tinta); font-weight: 700; }
-.lluvia-hoy { font-size: 11px; font-weight: 700; letter-spacing: 0; color: #235F8F; }
+.lluvia-hoy { font-size: 12px; font-weight: 700; letter-spacing: 0; color: #235F8F; }
 .farmacias-hoy { list-style: none; margin: 0; padding: 0; }
 .farmacias-hoy li { display: flex; flex-direction: column; gap: 1px; padding: 7px 0; border-top: 1px solid var(--linea-suave); }
 .farmacias-hoy li:first-child { border-top: 0; padding-top: 0; }
@@ -735,7 +735,7 @@ main { padding: 24px 0 10px; }
 .farmacias-hoy span { font-size: 14px; color: var(--texto); line-height: 1.3; overflow-wrap: anywhere; }
 .dolar-hoy { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .dolar-hoy thead th {
-  padding: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0 0 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--texto); text-align: right;
 }
 .dolar-hoy tbody th { padding: 8px 0; font-size: 16px; font-weight: 700; text-align: left; border-top: 1px solid var(--linea-suave); }
@@ -799,7 +799,7 @@ main { padding: 24px 0 10px; }
   flex: none; width: 52px; align-self: flex-start; text-align: center; border-radius: 8px;
   background: var(--farmacia-fondo); color: var(--farmacia-oscuro); padding: 6px 0;
 }
-.taco-turno .mes { font-size: 10px; font-weight: 700; letter-spacing: var(--ls-etiqueta); text-transform: uppercase; }
+.taco-turno .mes { font-size: 12px; font-weight: 700; letter-spacing: var(--ls-etiqueta); text-transform: uppercase; }
 .taco-turno .dia { font-family: var(--f-texto); font-size: 20px; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .turnos-del-dia { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .turno-farmacia .dato { display: block; }
@@ -814,7 +814,7 @@ main { padding: 24px 0 10px; }
   width: 44px; flex-shrink: 0; text-align: center; background: var(--crema);
   border-radius: 6px; padding: 5px 0; align-self: flex-start;
 }
-.taco .mes { font-size: 10px; font-weight: 700; color: var(--rojo); text-transform: uppercase; letter-spacing: var(--ls-etiqueta); }
+.taco .mes { font-size: 12px; font-weight: 700; color: var(--rojo); text-transform: uppercase; letter-spacing: var(--ls-etiqueta); }
 .taco .dia { font-family: var(--f-texto); font-size: 19px; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .evento .cuerpo-evento { flex-grow: 1; min-width: 0; }
 .evento .que { font-size: var(--t-texto); font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
@@ -825,7 +825,7 @@ main { padding: 24px 0 10px; }
 /* La página de cada evento (app/agenda/[id]): la ficha con los datos. */
 .ficha-evento { margin: 22px 0 0; border-top: 1px solid var(--linea-suave); }
 .ficha-evento > div { display: flex; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--linea-suave); }
-.ficha-evento dt { flex: 0 0 118px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--suave); padding-top: 3px; }
+.ficha-evento dt { flex: 0 0 118px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--suave); padding-top: 3px; }
 .ficha-evento dd { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--texto); min-width: 0; overflow-wrap: anywhere; }
 .ficha-evento a { color: var(--rojo); font-weight: 600; }
 @media (max-width: 480px) {
@@ -923,7 +923,7 @@ a.telefono:hover { border-color: var(--rojo); color: inherit; }
 }
 .chip-tema:hover { border-color: var(--tinta); color: var(--tinta); }
 .chip-tema span {
-  font-size: 11.5px; font-weight: 700; color: var(--suave);
+  font-size: 12px; font-weight: 700; color: var(--suave);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1012,6 +1012,9 @@ a.telefono:hover { border-color: var(--rojo); color: inherit; }
 footer.principal { background: var(--tinta); color: #BDC1B8; padding: 28px 0; margin-top: 44px; font-size: 13px; }
 footer.principal .envoltura { display: flex; flex-direction: column; gap: 9px; }
 footer.principal a:hover { color: #fff; }
+/* Los enlaces del pie, con un blanco táctil de al menos 32 px de alto (24/10/2026): en el celular eran renglones de 13 px pegados. */
+footer.principal .envoltura > div:not(.aclaracion) a, footer.principal .pie-secciones a { display: inline-block; padding: 7px 3px; }
+@media (max-width: 700px) { footer.principal { font-size: 14px; } }
 footer.principal .marca { font-family: var(--f-titulo); font-size: 20px; font-weight: 900; color: var(--crema); }
 footer.principal .aclaracion { max-width: 760px; line-height: 1.6; border-top: 1px solid #2A2E32; padding-top: 14px; margin-top: 6px; }
 
@@ -1117,7 +1120,7 @@ footer.principal .aclaracion { max-width: 760px; line-height: 1.6; border-top: 1
 .miniatura .sin-foto { background: var(--crema); }
 /* Una nota sin foto muestra la placa de su sección también en la miniatura de las listas (9/10: salía un cuadro en blanco). */
 .miniatura .placa-seccion { height: 100%; aspect-ratio: 4 / 3; margin: 0; padding: 4px; border-radius: 0; gap: 2px; }
-.miniatura .placa-seccion span { font-size: 11px; line-height: 1.1; }
+.miniatura .placa-seccion span { font-size: 12px; line-height: 1.1; }
 .miniatura .placa-seccion .pictograma { max-width: 30px; }
 .fila-miniatura h3 { margin-top: 5px; }
 @media (min-width: 720px) { .miniatura { flex-basis: 132px; } }

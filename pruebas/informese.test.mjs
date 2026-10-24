@@ -21,6 +21,7 @@ import {
   origenesDe, textosDeLasFuentes, revalidarExtras, conEnlacesDelLector, completarReescritura,
 } from '../reels/reescritura.mjs';
 import { fuentesDeLaNota, enlaceParaElLector } from '../web/lib/fuentes-de-la-nota.js';
+import { fuentesParaElMarcado } from '../web/lib/datos-estructurados.js';
 
 const FEED_XML = 'http://www.blogger.com/feeds/8495648477830064035/posts/default/8710973599363524528';
 const PAGINA = 'http://www.informeseprimero.com.ar/2026/09/reapertura-del-autodromo-juan-manuel.html';
@@ -130,7 +131,10 @@ test('al lector nunca le llega el XML de un feed: si quedó alguno, se muestra e
   ]);
   // Los datos para Google (isBasedOn) tampoco: el 25/09 decían el XML.
   const ficha = fs.readFileSync(path.join(import.meta.dirname, '..', 'web', 'components', 'ficha.js'), 'utf8');
-  assert.match(ficha, /isBasedOn: enlaceParaElLector\(nota\.enlace\)/);
+  assert.match(ficha, /\.\.\.fuentesParaElMarcado\(nota\)/);
+  const marcado = fuentesParaElMarcado(nota);
+  assert.ok(!JSON.stringify(marcado).includes('/feeds/'));
+  assert.equal(marcado.isBasedOn, 'https://lanacion.com.ar/x');
   // Una nota vieja, sin fuentes consultadas, tampoco.
   assert.deepEqual(fuentesDeLaNota({ enlace: FEED_XML, medios: ['Infórmese Primero (FM 104.9)'] }), [
     { medio: 'Infórmese Primero (FM 104.9)', enlace: null },

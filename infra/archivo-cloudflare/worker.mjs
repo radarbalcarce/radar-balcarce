@@ -27,12 +27,23 @@
 //   FOTOS_DE_RESPALDO  "1" sirve también /fotos-notas/* desde R2 si Pages no la tiene.
 //   ARCHIVO_PRIMERO    "1" mira R2 ANTES que el sitio. Sólo para el ensayo en workers.dev; en producción tiene que ser "0".
 //
+// El mapa del archivo (24/10/2026, regla 309): GET /nota/sitemap-archivo.xml devuelve `sitemap-archivo.xml` del depósito, que el exportador
+// (web/scripts/archivar-a-r2.mjs) arma con `xmlDelArchivo` a partir del manifiesto cada vez que lo sube. Es el mapa de las notas que salieron del
+// sitio compilado: sin él, Google sólo conocía las notas viejas por lo que ya había visto. Lo lista /sitemap-index.xml del sitio cuando se prende la
+// variable de GitHub SITEMAP_DEL_ARCHIVO. Vive bajo /nota/ porque un mapa sólo puede listar direcciones de su propia carpeta y porque esa es la
+// ruta que ya llega a este Worker. Es un archivo ya armado: el Worker no lee el manifiesto (miles de notas serían mucho para el tiempo de un pedido).
+//
 // Además (16/10/2026): GET /_archivo/estado devuelve estado.json, el resumen de la última corrida del exportador (lo mira el vigilante; sólo
 // se llega por workers.dev, porque la ruta del sitio es /nota/*). Y una nota guardada en la caché se confirma contra R2 (`head`, sin bajarla)
 // antes de servirla: lo que se borra de R2 deja de verse en el pedido siguiente.
 
 export const PREFIJO_DE_NOTAS = 'nota/';
 export const PREFIJO_DE_FOTOS = 'fotos-notas/';
+/** El mapa de las notas archivadas: cómo se llama en el depósito y en qué dirección del sitio se pide. */
+export const CLAVE_DEL_SITEMAP = 'sitemap-archivo.xml';
+export const CAMINO_DEL_SITEMAP = '/nota/sitemap-archivo.xml';
+/** Lo máximo que admite un mapa (protocolo de sitemaps). */
+export const MAXIMO_DEL_SITEMAP = 50000;
 export const CACHE_SEGUNDOS_POR_DEFECTO = 3600;
 
 /** Las mismas cabeceras de seguridad que web/public/_headers pone en todo el sitio (una prueba controla que no se separen). */
@@ -148,6 +159,36 @@ async function respuestaDelObjeto(request, ruta, objeto, env) {
   return new Response(metodo === 'HEAD' ? null : objeto.body, { status: 200, headers: cabeceras(base) });
 }
 
+const escaparXml = (t) => String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+
+/**
+ * El mapa del sitio (XML) de las notas archivadas, a partir del manifiesto del depósito: una entrada por nota con su dirección, la fecha de la
+ * nota como `lastmod`. Quedan afuera las que no tienen dirección o fecha válidas y las que la página declara `noindex` (`indexar: false` en
+ * el manifiesto): un mapa que ofrece páginas que dicen "no me indexes" es un error para Search Console. Las más nuevas primero; nunca más de
+ * MAXIMO_DEL_SITEMAP.
+ */
+export function xmlDelArchivo(manifiesto, { base = 'https://radarbalcarce.com' } = {}) {
+  const entradas = Object.values(manifiesto?.notas ?? {})
+    .filter((n) => n && /^\/nota\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(n.ruta ?? '')) && n.indexar !== false)
+    .map((n) => ({ ruta: n.ruta, tiempo: Date.parse(n.fecha) }))
+    .filter((n) => Number.isFinite(n.tiempo))
+    .sort((a, b) => b.tiempo - a.tiempo || (a.ruta < b.ruta ? -1 : 1))
+    .slice(0, MAXIMO_DEL_SITEMAP);
+  const items = entradas.map((n) => `\n  <url>\n    <loc>${escaparXml(`${base}${n.ruta}`)}</loc>\n    <lastmod>${new Date(n.tiempo).toISOString()}</lastmod>\n  </url>`).join('');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${items}\n</urlset>\n`;
+}
+
+async function sitemapDelArchivo(env, metodo) {
+  const base = { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': `public, max-age=300, s-maxage=${segundosDeCache(env)}`, 'X-Radar-Archivo': 'sitemap' };
+  let objeto = null;
+  try { objeto = await env.ARCHIVO.get(CLAVE_DEL_SITEMAP); } catch {
+    return new Response('No se pudo leer el archivo.', { status: 503, headers: cabeceras({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }) });
+  }
+  if (!objeto) return new Response('Todavía no hay mapa del archivo.', { status: 404, headers: cabeceras({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }) });
+  const texto = await objeto.text();
+  return new Response(metodo === 'HEAD' ? null : texto, { status: 200, headers: cabeceras(base) });
+}
+
 /** El camino donde el Worker muestra el estado del archivo (sólo responde en su dirección de workers.dev: la ruta del sitio es /nota/*). */
 export const CAMINO_DEL_ESTADO = '/_archivo/estado';
 export const CLAVE_DEL_ESTADO = 'estado.json';
@@ -180,6 +221,12 @@ export async function manejar(request, env, ctx, { fetchFn = (r) => fetch(r), ca
   }
   // El estado de la última corrida del exportador (estado.json, chico y sin nada secreto): lo mira el vigilante. Nunca el manifiesto.
   if (!apagado && env?.ARCHIVO && (metodo === 'GET' || metodo === 'HEAD') && esPedidoDeEstado(request)) return estadoDelArchivo(env, metodo);
+  // El mapa de las notas archivadas: un archivo ya armado en el depósito (ver arriba).
+  if (!apagado && env?.ARCHIVO && (metodo === 'GET' || metodo === 'HEAD')) {
+    let camino = null;
+    try { camino = new URL(request.url).pathname; } catch { camino = null; }
+    if (camino === CAMINO_DEL_SITEMAP) return sitemapDelArchivo(env, metodo);
+  }
   // Tubo: no es del archivo (o no hay depósito conectado). 23/10/2026: por alOrigen, no con el pedido original: en workers.dev el pedido original se volvía a
   // llamar a sí mismo (error «Compute server error») y la comprobación del archivo daba 503 en la portada y en las notas de ids raros (F1, resultados).
   if (!ruta || !env?.ARCHIVO) return alOrigen(request, env, fetchFn);

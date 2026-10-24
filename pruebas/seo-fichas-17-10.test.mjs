@@ -51,20 +51,20 @@ test('sin tarjeta propia, el marcado de la nota declara su foto primero y no la 
   assert.match(leer('web/components/ficha.js'), /tarjetaPropia: conTarjeta/);
 });
 
-test('la descripción de una sección nunca corta un titular a la mitad', () => {
-  const lema = 'El hospital, las vacunas, PAMI e IOMA: la salud en Balcarce y el país';
-  const t = ['Un estudio vincula el inicio de antipsicóticos con mayor riesgo de diabetes', 'Otro titular corto'];
-  const d = descripcionDeSeccion({ lema, titulares: t });
-  assert.ok(d.length <= 155, `mide ${d.length}`);
-  assert.ok(!d.includes('…'));
-  assert.ok(d.endsWith('.'));
-  // Entran los dos si caben, y la página 2 lo dice.
-  assert.equal(descripcionDeSeccion({ lema: 'Noticias de Balcarce', titulares: ['A', 'B', 'C', 'D'] }), 'Noticias de Balcarce: A · B · C.');
-  assert.equal(descripcionDeSeccion({ lema: 'Noticias de Balcarce', pagina: 2, titulares: ['A'] }), 'Noticias de Balcarce (página 2): A.');
-  // Sin titulares, la frase sola.
-  assert.equal(descripcionDeSeccion({ lema: 'Noticias de Balcarce', titulares: [] }), 'Noticias de Balcarce.');
-  // Un titular que no entra no se corta: se deja afuera.
-  assert.equal(descripcionDeSeccion({ lema, titulares: ['x'.repeat(200)] }), `${lema}.`);
+test('la descripción de una sección es una frase fija, entera y sin titulares (24/10/2026)', () => {
+  for (const s of SECCIONES) {
+    const d = descripcionDeSeccion({ nombre: s.nombre });
+    assert.ok(d.length >= 60 && d.length <= 155, `${s.nombre} mide ${d.length}`);
+    assert.ok(!d.includes('…'), s.nombre);
+    assert.ok(d.endsWith('.'), s.nombre);
+  }
+  // La página 2 lo dice, y nada más cambia.
+  const base = descripcionDeSeccion({ nombre: 'Policiales' });
+  assert.equal(descripcionDeSeccion({ nombre: 'Policiales', pagina: 2 }), `${base} Página 2.`);
+  // Una sección que no conocemos usa la frase de siempre.
+  assert.equal(descripcionDeSeccion({ nombre: 'Rareza' }), 'Rareza en Balcarce.');
+  // La página ya no le pasa titulares.
+  assert.ok(!/titulares/.test(leer('web/app/seccion/[ranura]/page.js').match(/descripcionDeSeccion\(\{[^}]*\}\)/)[0]));
 });
 
 test('el editor de la nota lleva nombre, dirección y logo, y el mismo @id del medio', () => {
@@ -124,7 +124,7 @@ test('cada sección, las nuevas incluidas, tiene un título que dice qué es y e
 test('la página de sección usa ese título en la etiqueta y deja el h1 como estaba', () => {
   const p = leer('web/app/seccion/[ranura]/page.js');
   assert.match(p, /tituloDeSeccion\(s\.nombre\)/);
-  assert.match(p, /<h1 style=\{\{ fontSize: 28 \}\}>\{s\.nombre\}<\/h1>/);
+  assert.match(p, /<h1 style=\{\{ fontSize: 28 \}\}>\{nombreCorto\(s\.nombre\)\}<\/h1>/);
 });
 
 test('cada nota declara su canónico y las etiquetas de Open Graph de un artículo', () => {

@@ -542,24 +542,39 @@ function ranuraDe(nombre) {
 
 /**
  * La frase de cada sección para el buscador y las tarjetas (8/10/2026): antes todas decían "<sección> en Balcarce", y salía "Balcarce en Balcarce" y
- * "Argentina en Balcarce". `lema` va en la descripción de la página; `enBalcarce`, en la tarjeta para compartir.
+ * "Argentina en Balcarce". `lema` es la ficha de la sección; `descripcion`, la frase fija del `<meta name="description">` (24/10/2026: ya no se pega
+ * el último titular, que podía no tener que ver con la sección); `enBalcarce`, la tarjeta para compartir.
  */
 export function frasesDeSeccion(nombre) {
   const frases = {
-    Balcarce: { lema: 'Noticias de Balcarce', enBalcarce: 'Noticias de Balcarce' },
-    Política: { lema: 'Política local y nacional que importa en Balcarce', enBalcarce: 'Política en Balcarce' },
-    Policiales: { lema: 'Policiales de Balcarce y la zona', enBalcarce: 'Policiales en Balcarce' },
-    Educación: { lema: 'Escuelas, docentes y universidades: la educación en Balcarce y la provincia', enBalcarce: 'Educación en Balcarce' },
-    Salud: { lema: 'El hospital, las vacunas, PAMI e IOMA: la salud en Balcarce y el país', enBalcarce: 'Salud en Balcarce' },
-    Fútbol: { lema: 'Fútbol de Balcarce y de Argentina', enBalcarce: 'Fútbol en Balcarce' },
-    Deportes: { lema: 'Deportes en Balcarce y la región', enBalcarce: 'Deportes en Balcarce' },
-    Automovilismo: { lema: 'Automovilismo: Balcarce, tierra de fierros', enBalcarce: 'Automovilismo en Balcarce' },
-    Agro: { lema: 'El campo y el agro de Balcarce y la región', enBalcarce: 'Agro en Balcarce' },
-    Economía: { lema: 'Economía que se siente en Balcarce', enBalcarce: 'Economía para Balcarce' },
-    'Cultura y agenda': { lema: 'Cultura y agenda de Balcarce', enBalcarce: 'Cultura y agenda de Balcarce' },
-    Ciencia: { lema: 'Ciencia: química, biología, espacio e investigación en la Argentina y el mundo', enBalcarce: 'Ciencia vista desde Balcarce' },
-    Tecnología: { lema: 'Tecnología e inteligencia artificial que cambian la vida diaria', enBalcarce: 'Tecnología e IA para Balcarce' },
-    Argentina: { lema: 'Lo que pasa en el país y se lee en Balcarce', enBalcarce: 'Argentina, vista desde Balcarce' },
+    Balcarce: { lema: 'Noticias de Balcarce', enBalcarce: 'Noticias de Balcarce',
+      descripcion: 'Las noticias de Balcarce al día: lo que pasa en la ciudad, las instituciones, los vecinos y la zona, con las fuentes a la vista.' },
+    Política: { lema: 'Política local y nacional que importa en Balcarce', enBalcarce: 'Política en Balcarce',
+      descripcion: 'Política de Balcarce, la provincia y el país: las decisiones del municipio y del Concejo, y lo nacional que toca a los vecinos.' },
+    Policiales: { lema: 'Policiales de Balcarce y la zona', enBalcarce: 'Policiales en Balcarce',
+      descripcion: 'Policiales de Balcarce y la zona: hechos, rutas y seguridad vial, contados con cuidado y sin identificar a menores ni a víctimas.' },
+    Educación: { lema: 'Escuelas, docentes y universidades: la educación en Balcarce y la provincia', enBalcarce: 'Educación en Balcarce',
+      descripcion: 'Educación en Balcarce y la provincia: escuelas, docentes, la universidad y el calendario escolar, con las fuentes a la vista.' },
+    Salud: { lema: 'El hospital, las vacunas, PAMI e IOMA: la salud en Balcarce y el país', enBalcarce: 'Salud en Balcarce',
+      descripcion: 'Salud en Balcarce y el país: el hospital, las vacunas, PAMI e IOMA y lo que conviene saber para cuidarse.' },
+    Fútbol: { lema: 'Fútbol de Balcarce y de Argentina', enBalcarce: 'Fútbol en Balcarce',
+      descripcion: 'Fútbol de Balcarce y de Argentina: la liga local, los clubes de acá, la Primera División, las copas y la Selección.' },
+    Deportes: { lema: 'Deportes en Balcarce y la región', enBalcarce: 'Deportes en Balcarce',
+      descripcion: 'Deportes en Balcarce y la región: clubes, torneos, atletas locales y lo que pasa en el deporte argentino.' },
+    Automovilismo: { lema: 'Automovilismo: Balcarce, tierra de fierros', enBalcarce: 'Automovilismo en Balcarce',
+      descripcion: 'Automovilismo desde Balcarce, tierra de fierros: el autódromo, el Turismo Carretera, Fangio, la Fórmula 1 y Colapinto.' },
+    Agro: { lema: 'El campo y el agro de Balcarce y la región', enBalcarce: 'Agro en Balcarce',
+      descripcion: 'El campo y el agro de Balcarce y la región: la papa, la cosecha, los precios, el INTA y las novedades del sector.' },
+    Economía: { lema: 'Economía que se siente en Balcarce', enBalcarce: 'Economía para Balcarce',
+      descripcion: 'Economía para los vecinos de Balcarce: precios, salarios, impuestos, el dólar y lo que cambia en el bolsillo.' },
+    'Cultura y agenda': { lema: 'Cultura y agenda de Balcarce', enBalcarce: 'Cultura y agenda de Balcarce',
+      descripcion: 'Cultura y agenda de Balcarce: espectáculos, muestras, fiestas y actividades de los próximos días.' },
+    Ciencia: { lema: 'Ciencia: química, biología, espacio e investigación en la Argentina y el mundo', enBalcarce: 'Ciencia vista desde Balcarce',
+      descripcion: 'Ciencia en Argentina y el mundo: investigación, espacio, biología y descubrimientos explicados para leer en un rato.' },
+    Tecnología: { lema: 'Tecnología e inteligencia artificial que cambian la vida diaria', enBalcarce: 'Tecnología e IA para Balcarce',
+      descripcion: 'Tecnología e inteligencia artificial que cambian la vida diaria: novedades, herramientas y cuidados para usarlas.' },
+    Argentina: { lema: 'Lo que pasa en el país y se lee en Balcarce', enBalcarce: 'Argentina, vista desde Balcarce',
+      descripcion: 'Lo que pasa en el país y se lee en Balcarce: las noticias nacionales que cuentan varios medios.' },
   };
   return frases[nombre] ?? { lema: `${nombre} en Balcarce`, enBalcarce: `${nombre} en Balcarce` };
 }
@@ -573,19 +588,14 @@ export function frasesDeSeccion(nombre) {
 export const LARGO_MAXIMO_TITULO_DE_SECCION = 45;
 
 /**
- * La descripción (`<meta name="description">`) de una página de sección: la frase de la sección y, detrás, los titulares más nuevos
- * que entren enteros en `largo` caracteres. Antes se cortaba a mitad del segundo titular con "…" ("…: Un estudio vincula el inicio de
- * antipsicóticos con mayor riesgo de diabetes ·…"); ahora nunca queda un titular a medias. Sin ningún titular que entre, la frase sola.
+ * La descripción (`<meta name="description">`) de una página de sección: la frase fija de la sección (`frasesDeSeccion`) y, en las páginas 2 en
+ * adelante, "página N" al final. Sin titulares: el último titular de una sección podía no tener nada que ver con ella (Policiales mostraba una nota
+ * de seguridad vial de Tandil). Una sección sin frase usa "<nombre> en Balcarce".
  */
-export function descripcionDeSeccion({ lema, pagina = 1, titulares = [], largo = 155 }) {
-  const base = `${lema}${pagina > 1 ? ` (página ${pagina})` : ''}`;
-  let texto = base;
-  for (const t of titulares.slice(0, 3)) {
-    const prox = `${texto}${texto === base ? ': ' : ' · '}${String(t).replace(/\s+/g, ' ').trim()}`;
-    if (prox.length + 1 > largo) break;
-    texto = prox;
-  }
-  return texto === base ? (base.length + 1 > largo ? `${base.slice(0, largo - 2).replace(/\s+\S*$/, '')}…` : `${base}.`) : `${texto}.`;
+export function descripcionDeSeccion({ nombre, pagina = 1 }) {
+  const f = frasesDeSeccion(nombre);
+  const base = f.descripcion ?? `${f.lema}.`;
+  return pagina > 1 ? `${base} Página ${pagina}.` : base;
 }
 export function tituloDeSeccion(nombre) {
   const titulos = {

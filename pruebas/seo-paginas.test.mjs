@@ -92,9 +92,10 @@ test('cada página de sección tiene un h1 y su propia tarjeta para compartir', 
   assert.ok(fs.existsSync(path.join(RAIZ, 'app/seccion/[ranura]/opengraph-image.js')));
 });
 
-test('la descripción de una sección nombra las últimas notas: no es igual para todas', () => {
+test('la descripción de una sección es fija y propia de cada una: no es igual para todas ni pega el último titular', () => {
   const s = leer('app/seccion/[ranura]/page.js');
-  assert.match(s, /ultimas/);
+  assert.match(s, /descripcionDeSeccion\(\{ nombre: s\.nombre, pagina \}\)/);
+  assert.ok(!/ultimas/.test(s));
   assert.ok(!s.includes('Todo lo que publicamos en ${nombreCorto(s.nombre)}, en Radar Balcarce.'));
 });
 

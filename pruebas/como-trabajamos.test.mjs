@@ -12,7 +12,7 @@ test('"Cómo trabajamos" cuenta lo que un lector, otro medio o un buscador quier
   const texto = pagina.replace(/\s+/g, ' ');
   for (const [que, re] of [
     ['que se resume lo que publicaron otros medios', /Resumimos lo que publicaron otros medios/],
-    ['que se cita siempre la fuente con enlace', /enlaza a la nota original justo debajo del texto/],
+    ['que las fuentes están en un desplegable, con enlace', /desplegable «Fuentes \(N\)» que lista todos los medios que se usaron, cada uno con el enlace/],
     ['que se usa IA', /Las notas las escribe una inteligencia artificial/],
     ['que la IA puede equivocarse', /puede equivocarse/],
     ['qué espera a una persona', /Lo sensible lo revisa una persona/],

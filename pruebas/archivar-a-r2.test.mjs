@@ -352,11 +352,12 @@ test('--subir al depósito de ensayo: sube cada objeto con su tipo y su caché, 
     const codigo = await principal([`--out=${sitio.out}`, `--datos=${sitio.datos}`, '--tope=1', '--margen=0', '--subir', '--bucket=radar-archivo-staging'], { env: ENV_CON_CLAVES, ejecutar: w.ejecutar, escribir: (t) => salida.push(t) });
     assert.equal(codigo, 0);
     const puts = w.llamadas.filter((a) => a[2] === 'put');
-    // n1 (3 objetos) + n2 (2): n3 es la que se queda en el sitio; después el manifiesto y el estado
-    assert.equal(puts.length, 5 + 2);
-    assert.equal(puts.at(-2)[3], `radar-archivo-staging/${CLAVE_DEL_MANIFIESTO}`, 'el manifiesto va después de los objetos');
+    // n1 (3 objetos) + n2 (2): n3 es la que se queda en el sitio; después el manifiesto, el mapa del archivo (regla 309) y el estado
+    assert.equal(puts.length, 5 + 3);
+    assert.equal(puts.at(-3)[3], `radar-archivo-staging/${CLAVE_DEL_MANIFIESTO}`, 'el manifiesto va después de los objetos');
+    assert.equal(puts.at(-2)[3], 'radar-archivo-staging/sitemap-archivo.xml', 'el mapa del archivo, armado con ese manifiesto');
     assert.equal(puts.at(-1)[3], `radar-archivo-staging/${CLAVE_DEL_ESTADO}`, 'y el estado al final');
-    for (const p of puts.slice(0, -2)) {
+    for (const p of puts.slice(0, -3)) {
       assert.ok(p.includes('--remote'));
       assert.ok(p[3].startsWith('radar-archivo-staging/'));
       assert.ok(p.includes('--content-type') && p.includes('--cache-control'));

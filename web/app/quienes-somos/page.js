@@ -57,9 +57,8 @@ export default function QuienesSomos() {
             resumen con palabras propias, sin copiar la nota.
           </li>
           <li>
-            <strong>Siempre con la fuente a la vista.</strong> Cada nota dice de qué medio salió,
-            enlaza a la nota original justo debajo del texto y, en el desplegable «Fuentes», lista
-            todas las que se usaron.
+            <strong>Siempre con las fuentes a mano.</strong> Al pie de cada nota hay un desplegable
+            «Fuentes (N)» que lista todos los medios que se usaron, cada uno con el enlace a su nota.
           </li>
           <li>
             <strong>Las notas las escribe una inteligencia artificial</strong> con lo que publicaron
@@ -69,10 +68,10 @@ export default function QuienesSomos() {
             equivocarse; por eso la fuente está siempre al alcance y por eso corregimos (más abajo).
           </li>
           <li>
-            <strong>Lo sensible lo revisa una persona.</strong> Una nota que acusa a alguien, que
-            involucra una muerte o que nombra a un menor no sale sola: espera a que uno de nosotros
-            la lea y decida. Lo mismo pasa con todo lo de Política y Policiales antes de llegar a
-            nuestras redes.
+            <strong>Lo sensible lo revisa una persona.</strong> Lo que podría identificar a un menor
+            o a una víctima no sale solo: espera a que uno de nosotros lo lea y decida. Lo dudoso
+            (una promoción, un dato que no se pudo verificar bien) también puede esperar. Y todo lo
+            de Política y Policiales pasa por una persona antes de llegar a nuestras redes.
           </li>
           <li>
             <strong>Cada nota dice quién la escribió</strong>, en una línea al pie, junto al botón
@@ -98,7 +97,7 @@ export default function QuienesSomos() {
             <strong>No usamos fotos sin decir de dónde salen.</strong> Cada una lleva el crédito de
             quien la sacó o del medio u organismo de donde viene, y nunca la marca de otro medio
             adentro de la imagen. Si no hay una que sirva, va una ilustración hecha con IA (que
-            lo dice) o una placa con el titular. Si una foto es tuya y no querés que esté,{' '}
+            lo dice) o una placa con el dibujo de la sección. Si una foto es tuya y no querés que esté,{' '}
             <a href="#no-usar-algo">pedilo acá abajo</a> y la sacamos.
           </li>
           <li>

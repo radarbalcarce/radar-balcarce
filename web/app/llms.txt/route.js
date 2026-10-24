@@ -1,4 +1,4 @@
-import { obtenerDatos, SECCIONES } from '@/lib/datos';
+import { obtenerDatos, SECCIONES, nombreCorto } from '@/lib/datos';
 import { sitio, enlace, NOMBRE } from '@/lib/sitio';
 
 // Un resumen del sitio para sistemas de IA, en el formato de llmstxt.org: markdown simple, qué es esto y por dónde entrar.
@@ -19,7 +19,7 @@ export async function GET() {
   const d = obtenerDatos();
   const secciones = SECCIONES
     .filter((s) => (d.notas ?? []).some((n) => n.seccion === s.nombre))
-    .map((s) => `- [${s.nombre}](${enlace(`/seccion/${s.ranura}`)})`)
+    .map((s) => `- [${nombreCorto(s.nombre)}](${enlace(`/seccion/${s.ranura}`)})`)
     .join('\n');
 
   const texto = `# ${NOMBRE}

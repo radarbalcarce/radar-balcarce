@@ -86,3 +86,15 @@ export function xmlDeIndice(mapas = []) {
 </sitemapindex>
 `;
 }
+
+/** La dirección del mapa de las notas archivadas (las que salieron del sitio compilado y viven en R2): la sirve el Worker del archivo (regla 309). */
+export const DIRECCION_DEL_SITEMAP_DEL_ARCHIVO = '/nota/sitemap-archivo.xml';
+
+/**
+ * ¿El índice de mapas lista el mapa del archivo? Sólo con la variable de GitHub SITEMAP_DEL_ARCHIVO en "si" (y el archivo permanente prendido,
+ * R2_ARCHIVO): antes de que el Worker del archivo lo sirva, la dirección daría 404 y Search Console lo marcaría como error.
+ */
+export function sitemapDelArchivoPrendido(env = {}) {
+  const si = ['si', 'sí', '1', 'true'].includes(String(env?.SITEMAP_DEL_ARCHIVO ?? '').trim().toLowerCase());
+  return si && String(env?.R2_ARCHIVO ?? '').trim() !== '';
+}

@@ -172,12 +172,11 @@ export default async function PaginaNota({ params }) {
 
         {/* Lo que ve el lector es la nota: título, bajada y cuerpo. Al pie, una
             línea chica con la firma (quién la escribió) y el desplegable
-            cerrado de fuentes (nombre del medio y enlace), que es también la
-            atribución. Las claves, qué se sabe,
-            qué falta confirmar, lo que aportó cada fuente y el nivel de
-            verificación son de uso interno: se usan para escribir la nota y
-            se ven en el panel, no acá (CRITERIO-EDITORIAL.md, sección 7). */}
-        {/* La fuente original, a la vista y con enlace común (regla 254), arriba del desplegable que sigue teniendo todas. */}
+            cerrado "Fuentes (N)" (nombre de cada medio y enlace), que es también
+            la atribución y el único lugar donde van las fuentes (regla 307). Las
+            claves, qué se sabe, qué falta confirmar, lo que aportó cada fuente y
+            el nivel de verificación son de uso interno: se usan para escribir la
+            nota y se ven en el panel, no acá (CRITERIO-EDITORIAL.md, sección 7). */}
         <FuentesDeLaNota nota={n} />
 
         {MOSTRAR_TEMAS && <TemasDeLaNota temas={n.temas} catalogo={temas} />}
