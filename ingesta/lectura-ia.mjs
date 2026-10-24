@@ -19,8 +19,9 @@ import path from 'node:path';
 import { claveClasificacion, claveGroq, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
 import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
 import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
-import { conArgentino, cuantosMedios, contarMedios, hayUnChicoEnApuros, esCotizacionDelDia } from './ingesta.mjs';
+import { conArgentino, cuantosMedios, contarMedios, hayUnChicoEnApuros, esCotizacionDelDia, esDeAca, esDeUnMedioDeAca } from './ingesta.mjs';
 import { esFutbolArgentino, futbolSoloArgentinoActivo } from './futbol-argentino.mjs';
+import { popularidadDe, minimoAreasChicas } from './popularidad.mjs';
 import { FUENTES_CRUCE } from './fuentes-cruce.mjs';
 import { diaAR, minutoDelDiaAR } from './zona.mjs';
 import { sinTildes } from '../web/lib/texto.js';
@@ -341,6 +342,37 @@ export async function leerGrupoOpenRouter(notas, { clave, fetchFn = fetch, model
     tarea: 'lectura', prompt: instruccion, clave, fetchFn, modelos, ahora, archivoDeUso, temperatura: 0, maxTokens: 6000,
   });
   return fichasDeTexto(r.texto, notas, { ia: 'openrouter', modelo: r.modelo });
+}
+
+/**
+ * ¿Esta historia no depende de cuántos medios la cuentan? Lo de acá (Balcarce, la zona, un medio u organismo de acá), una fuente oficial y una nota
+ * propia entran con uno solo (regla 180 y 260); todo lo demás se mide en medios (ingesta/popularidad.mjs).
+ */
+const sinTopeDeCantidad = (n) => esDeAca(n) || esDeUnMedioDeAca(n) || !!n.oficial || !!n.propia || n.alcance === 'local' || !!n.nombraBalcarce || !!n.deLaZona;
+
+/**
+ * ¿Alcanza la cantidad de medios para salir en ALGUNA sección? Con menos de MINIMO_AREAS_CHICAS (2) no hay sección donde salga ni cambiándole
+ * la sección la IA, así que leerla con IA es gastar cupo en lo que no puede salir (regla 314, S6). Con 2 medios en una sección que pide 3, en cambio,
+ * la ficha todavía puede pasarla a un área chica (o juntarla con otra que la cuente): eso se lee, pero después (`ordenParaLeer`).
+ */
+export const puedeSalirPorCantidad = (n) => sinTopeDeCantidad(n) || cuantosMedios(n) >= minimoAreasChicas();
+
+/** ¿Llega ya, con la sección que tiene, a los medios que pide? */
+export const llegaPorCantidad = (n) => sinTopeDeCantidad(n) || popularidadDe(n, cuantosMedios(n)).llega;
+
+/**
+ * Qué se lee con IA y en qué orden (regla 314, S6, 24/10/2026). El informe «Por qué no entró» midió 785 historias de 2 medios fuera de las áreas
+ * chicas en tres días: 327 figuraban como «la IA las sacó» y gastaban lecturas aunque con 2 medios no podían salir. Ahora: (1) lo de un medio de
+ * acá primero (regla 198: si el cupo se acaba, lo que espera a la IA es de acá y entra todo); (2) después lo que ya llega a los medios que pide su
+ * sección; (3) al final lo que sólo podría salir si la IA le cambia la sección o si se junta con otra; (4) lo que no puede salir de ninguna manera
+ * (`puedeSalirPorCantidad`) no se lee. El cupo se acaba por el final de la lista: lo que se queda sin leer es lo que menos chances tenía.
+ * Devuelve { paraLeer, sinLeer }; no toca las originales.
+ */
+export function ordenParaLeer(notas = []) {
+  const rango = (n) => (n.alcance === 'local' ? 2 : (llegaPorCantidad(n) ? 1 : 0));
+  const sinLeer = notas.filter((n) => !puedeSalirPorCantidad(n));
+  const paraLeer = notas.filter(puedeSalirPorCantidad).sort((a, b) => rango(b) - rango(a));
+  return { paraLeer, sinLeer };
 }
 
 /** Las fichas guardadas, sin las de más de `diasDeFichas`. */
@@ -774,7 +806,11 @@ export function quitarRepetidas(notas, grupos = [], { publicadas = new Set() } =
     const heredada = hayRoja ? { semaforo: 'rojo', motivo: 'la misma noticia, en otro medio, es un tema sensible' }
       : (muyContada && sensibleDeLaQueQueda && !esCotizacionDelDia(queda.titulo)
         ? { semaforo: 'verde', motivo: `sección ${queda.seccion}`, liberadaPor: String(queda.motivo).replace(/^necesita ojo humano: /, '') }
-        : (sensible && queda.semaforo === 'verde' && !muyContada ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {}));
+        // Lo de acá no hereda el amarillo de la hermana (regla 314, S2; Scaloni en Mallorca: «Una familia balcarceña conoció a Lionel Scaloni» heredó
+        // el «niño» de otro medio y quedó esperando a una persona que nadie ve, contra la regla 291): si la que queda es de acá, sigue verde. El rojo sí
+        // se hereda (arriba): ése no se toca.
+        : (sensible && queda.semaforo === 'verde' && !muyContada && !esDeAca(queda) && !esDeUnMedioDeAca(queda)
+          ? { semaforo: 'amarillo', motivo: `${sensible.motivo} (en otro medio que cuenta lo mismo)` } : {}));
     reemplazo.set(queda.id, { ...queda, ...heredada, medios, ...fuentesSumadas(queda, resto) });
     for (const n of resto) fuera.set(n.id, { id: n.id, titulo: n.titulo, queda: queda.id });
   }

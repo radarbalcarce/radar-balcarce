@@ -28,17 +28,21 @@ El detalle completo está en `CRITERIO-EDITORIAL.md` y los números, en `ingesta
 - **Lo que no es noticia:** publicidad, chimentos, horóscopo, lotería (salvo que gane alguien de acá), las efemérides de otro medio, el autobombo de un medio de acá.
 - **Lo que no tiene cuerpo:** una nota automática sin 70 palabras de texto no sale; se reintenta y, si no hay manera, se descarta con el motivo anotado.
 - **Lo viejo:** una nota que nunca salió no se estrena si el hecho es más viejo que la ventana (12 horas lo de afuera, 24 lo muy contado, 36 lo de Balcarce).
+  La edad del hecho se cuenta desde la **mediana de las fechas de las fuentes** en lo muy contado y en lo de Balcarce, y desde la fuente más vieja en el resto
+  (regla 314, 24/10/2026): con 8 medios o más casi siempre hay un anticipo del día anterior que, contado como "el hecho", dejaba afuera una noticia que otro medio acababa de publicar.
 
 ## Qué espera a una persona
 
 - Lo amarillo de **Balcarce** ya no espera por una palabra sensible: sólo el rojo lo frena. Lo que queda (promoción dudosa, verificación baja) va al celular.
+  Tampoco la hereda de otra versión del mismo hecho: si al juntar versiones la que queda es de acá, sigue verde (regla 314); el rojo sí se hereda.
 - Política y Policiales esperan a una persona en **todas** las piezas de redes.
 - Lo amarillo de afuera que no llega a ningún celular **no sale** (es la regla de no frenar a nadie sin que lo vea alguien).
 
 ## Cuánto dura todo (las ventanas)
 
 - **36 horas** una nota está en la portada y las listas.
-- **12 horas** puede tener el hecho para estrenarse (lo de afuera); **24** si lo cuentan 8 medios o más; **36** si es de Balcarce.
+- **12 horas** puede tener el hecho para estrenarse (lo de afuera); **24** si lo cuentan 8 medios o más; **36** si es de Balcarce. Se cuentan desde la mediana de las
+  fuentes en las dos últimas y desde la fuente más vieja en la primera (variable `FECHA_DEL_HECHO`: `vieja` vuelve a contar siempre desde la más vieja).
 - **72 horas**: lo que un medio trae con más de eso y nunca salió, no entra ni al cruce.
 - **500 notas** es el tope de notas con página en el sitio hoy (variable de GitHub `TOPE_DE_NOTAS`). El techo técnico del código es 3.700 y el archivo
   de 180 días lo guarda el archivo permanente, no el sitio.

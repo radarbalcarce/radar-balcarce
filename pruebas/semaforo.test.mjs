@@ -240,9 +240,12 @@ test('si una versión de la misma noticia es roja o sensible, la que queda lo he
   const r = quitarRepetidas([roja, verde], [['r', 'v']]);
   assert.equal(r.notas.find((n) => n.id === 'v').semaforo, 'rojo', 'la verde no sale sola si su gemela es roja');
   const sensible = { ...base, id: 's', titulo: 'x', semaforo: 'amarillo', motivo: 'necesita ojo humano: "detenido"' };
-  const r2 = quitarRepetidas([sensible, { ...verde, id: 'v2' }], [['s', 'v2']]);
+  // Lo de afuera hereda la palabra sensible de la otra versión; lo de acá no (regla 291, y desde la 314 tampoco al juntar versiones).
+  const r2 = quitarRepetidas([sensible, { ...verde, id: 'v2', titulo: 'Detienen a un hombre en Rosario' }], [['s', 'v2']]);
   assert.equal(r2.notas.length, 1);
   assert.equal(r2.notas[0].semaforo, 'amarillo');
+  const deAca = quitarRepetidas([sensible, { ...verde, id: 'v2' }], [['s', 'v2']]);
+  assert.equal(deAca.notas[0].semaforo, 'verde', 'la que queda dice Balcarce en el título: no hereda el amarillo');
   // Lo "poco contada" no se hereda: unir los medios es justamente lo que la suelta.
   const poca = { ...base, id: 'p', titulo: 'y', semaforo: 'amarillo', motivo: 'de afuera y poco contada (1 medio; Economía pide 2)' };
   const r3 = quitarRepetidas([poca, { ...verde, id: 'v3' }], [['p', 'v3']]);

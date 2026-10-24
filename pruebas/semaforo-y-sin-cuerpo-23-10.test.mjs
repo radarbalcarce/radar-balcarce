@@ -129,8 +129,10 @@ test('298: la estadística guarda qué frenó a cada historia del semáforo (y s
   assert.equal(por.d.freno, 'rojo: abuso sexual');
   const estado = anotarCorrida(estadoVacio(), obs, { ahora });
   const renglones = Object.values(estado.historias['2026-10-23']);
-  assert.equal(renglones.find((r) => r[3] === 'publicada').length, 5, 'las que no frenó el semáforo siguen con cinco lugares');
-  assert.equal(renglones.find((r) => r[5] === 'denunció+').length, 6);
+  // Desde la regla 314 todos los renglones llevan el motivo en el 7.º lugar (el 6.º es el freno, vacío si no frenó el semáforo).
+  const publicada = renglones.find((r) => r[3] === 'publicada');
+  assert.deepEqual(publicada.slice(5), [null, 'publicada'], 'las que no frenó el semáforo no tienen freno: sólo el motivo');
+  assert.deepEqual(renglones.find((r) => r[5] === 'denunció+').slice(5), ['denunció+', 'semaforo_amarillo']);
   assert.deepEqual(estado.dias['2026-10-23'].frenos, { 'denunció+': 1, 'descartada: dólar': 1, 'rojo: abuso sexual': 1 });
   // Se lee de vuelta tal cual y la vuelta siguiente no pierde el freno.
   const leido = leerEstado(comoJson(estado));

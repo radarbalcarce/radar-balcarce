@@ -66,7 +66,8 @@ test('al generar los datos, una nota sin hora usa la primera vez que se la vio',
   // Sin hora: la primera vez que se la vio. Con hora: la más vieja que se
   // conoce, nunca una más nueva que la ya publicada (fechaDeLaNota, 28/09).
   // Desde el 17/10 (regla 194), con la ventana de las fuentes que cuentan (las notas viejas que el cruce pegó, no).
-  assert.match(s, /const fechaReal = \(n\) => \(n\.cuando === 'sin fecha en la fuente'\s+\? \(primeraVista\(n\) \?\? ahoraISO\)\s+: fechaDeLaNota\(n, \{ fechaAnterior: fechaAntes\[n\.id\], visto: primeraVista\(n\), horas: HORAS_DE_UN_HECHO \}\)\);/);
+  // Desde el 24/10 (regla 314) también los medios y si es de acá: lo muy contado y lo de Balcarce toman la mediana de las fuentes.
+  assert.match(s, /const fechaReal = \(n\) => \(n\.cuando === 'sin fecha en la fuente'\s+\? \(primeraVista\(n\) \?\? ahoraISO\)\s+(\/\/[^\n]*\s+)?: fechaDeLaNota\(n, \{\s*fechaAnterior: fechaAntes\[n\.id\], visto: primeraVista\(n\), horas: HORAS_DE_UN_HECHO, medios: contarMedios\(n\.medios\), deAca: esDeAca\(n\),\s*\}\)\);/);
   assert.match(s, /const primeraVista = \(n\) => vistoAntes\[n\.id\] \?\? vistas\[n\.id\];/, 'la primera vez que se la vio, aunque nunca haya salido (vistas.json, 28/09)');
   assert.match(s, /  const fecha = fechaReal\(n\);/);
   assert.match(s, /\n    fecha,\r?\n/);

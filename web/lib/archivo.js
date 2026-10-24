@@ -23,6 +23,7 @@ import { tieneRespaldo, tieneCuerpo } from './cuerpo.js';
 import { sinTildes } from './texto.js';
 // Los números salen de un solo lugar (23/10/2026, auditoría M1 a M3): ingesta/criterio.mjs no importa nada, la web ya lo lee (datos.js).
 import { PORTADA, MUY_CONTADA } from '../../ingesta/criterio.mjs';
+import { modoDeLaFechaDelHecho, medianaDeLasFechas } from '../../ingesta/fecha-del-hecho.mjs';
 
 /** Cuánto se queda una nota en las listas del sitio (el 25/09 la portada tenía
  *  43 notas de más de tres días). */
@@ -255,6 +256,32 @@ export function vigenteEnPortada(nota, ahora = Date.now(), horas = HORAS_EN_PORT
 }
 
 /**
+ * Los ids de las notas que ya tienen página (la portada anterior y TODO el archivo, no sólo lo que sigue en las listas): las que
+ * `quitarRepetidas` (ingesta/lectura-ia.mjs) tiene que dejar en pie cuando alguna otra versión del mismo hecho todavía no salió.
+ *
+ * Regla 314 (S3, 24/10/2026): hasta ese día sólo contaban las del archivo que seguían dentro de HORAS_EN_PORTADA. La fecha de una historia es
+ * la de su fuente más vieja, así que una nota de un hecho grande salía de ese grupo a las pocas horas de publicada (el sobreseimiento de
+ * Milei en la causa $Libra: salió a las 21:35 y a las 02:37 ya no «estaba ya publicada»); la versión que no había salido, sin cuerpo o
+ * «tarde», pasaba a ser la que queda, la ya publicada perdía la página y el sitio se quedaba sin nota del tema (ni la que se fue ni la que
+ * quedó). La ingesta sólo trae las últimas 72 horas: lo que entra de más con este criterio son las de 36 a 72 horas, que conservan su página.
+ */
+export function idsQueYaTienenPagina({ anterior = [], archivo = [] } = {}) {
+  return new Set([...anterior, ...archivo].map((n) => n?.id).filter(Boolean));
+}
+
+/**
+ * La sección de una nota, sin saltos entre Política y Policiales (regla 314, S4, 24/10/2026). La sección de una historia sale de la ficha de la
+ * IA o, si no tiene, de las palabras de la nota principal; con una historia que se junta con otras, o con una ficha que vence a los 3 días, la
+ * misma nota cambió entre las dos de una vuelta a otra (el sobreseimiento de Milei en la causa $Libra, que figuraba en las dos). Las dos
+ * esperan a una persona en las redes y Policiales de afuera tiene su propia regla, así que el salto no es inocente. Una nota que ya salió
+ * en una de las dos se queda en esa; cualquier otro cambio (a Economía, a Balcarce…) sigue como siempre.
+ */
+const PAR_QUE_NO_SALTA = ['Política', 'Policiales'];
+export function seccionSinSaltos(nueva, anterior) {
+  return anterior && anterior !== nueva && PAR_QUE_NO_SALTA.includes(anterior) && PAR_QUE_NO_SALTA.includes(nueva) ? anterior : nueva;
+}
+
+/**
  * La fecha de una nota: la más vieja entre la que trae la ingesta, la de cada
  * una de sus fuentes, la que ya publicamos antes y la primera vez que la vimos.
  *
@@ -268,17 +295,35 @@ export function vigenteEnPortada(nota, ahora = Date.now(), horas = HORAS_EN_PORT
  * antes de `visto` no cuentan si hay otras de cerca: son notas viejas de otro
  * hecho que el cruce pegó. Y generar-datos no le pasa como `fechaAnterior` una
  * fecha que ya era un error (fechaEnvejecidaPorError, conFechaSinError).
+ *
+ * Desde el 24/10 (regla 314), si la historia la cuentan MUY_CONTADA.medios medios o más (`medios`) o es de acá (`deAca`) y `modo` es
+ * «mediana» (la variable FECHA_DEL_HECHO; por defecto), de las fuentes cuenta la MEDIANA de sus fechas y no la más vieja: un anticipo del
+ * día anterior dejaba a una historia de 34 medios «tarde» (ingesta/fecha-del-hecho.mjs). La ya publicada (`fechaAnterior`) y la primera vez
+ * que se vio (`visto`) siguen compitiendo: una nota nunca rejuvenece. Sin `medios` ni `deAca`, todo queda como antes.
  */
-export function fechaDeLaNota(nota, { fechaAnterior = null, visto = null, horas = HORAS_DE_UN_HECHO } = {}) {
+export function fechaDeLaNota(nota, {
+  fechaAnterior = null, visto = null, horas = HORAS_DE_UN_HECHO, medios = null, deAca = false, modo = modoDeLaFechaDelHecho(),
+} = {}) {
   const t = (f) => (f ? new Date(f).getTime() : NaN);
   const deLasFuentes = [nota?.fecha, ...(nota?.origenes ?? []).map((o) => o?.fecha)].map(t).filter(Number.isFinite);
+  // Regla 314: para lo muy contado y lo de acá, la fecha del hecho es la mediana de las fuentes y no la más vieja (ver fecha-del-hecho.mjs).
+  // Cada fuente cuenta una vez: `origenes` ya incluye a la principal, y su fecha no se repite.
+  const porMediana = modo === 'mediana' && (deAca || Number(medios) >= MEDIOS_MUY_CONTADA);
+  const unaPorFuente = (nota?.origenes ?? []).length ? (nota.origenes ?? []).map((o) => t(o?.fecha)) : [t(nota?.fecha)];
   // Regla 194 (17/10/2026): una fuente mucho más vieja que la primera vez que vimos la nota es una nota vieja que el cruce le
   // pegó, no la fecha del hecho («El Concejo Deliberativo Estudiantil cierra su quinta edición», vista el 14/10, figuraba del
   // 30/04 por una nota vieja del Concejo; en el archivo había 80 así). Si hay alguna fuente de cerca, ésas mandan; si TODAS son
   // viejas, la nota es vieja de verdad (la vimos tarde) y conserva su fecha: llega tarde y no se estrena.
   const vista = t(visto);
   const cercanas = Number.isFinite(vista) ? deLasFuentes.filter((x) => x >= vista - horas * HORA) : deLasFuentes;
-  const candidatas = [...(cercanas.length ? cercanas : deLasFuentes), t(fechaAnterior), vista].filter(Number.isFinite);
+  let lasQueCuentan = cercanas.length ? cercanas : deLasFuentes;
+  if (porMediana) {
+    const porFuente = unaPorFuente.filter(Number.isFinite);
+    const cercanasPorFuente = Number.isFinite(vista) ? porFuente.filter((x) => x >= vista - horas * HORA) : porFuente;
+    const del = medianaDeLasFechas(cercanasPorFuente.length ? cercanasPorFuente : porFuente);
+    if (Number.isFinite(del)) lasQueCuentan = [del];
+  }
+  const candidatas = [...lasQueCuentan, t(fechaAnterior), vista].filter(Number.isFinite);
   if (!candidatas.length) return nota?.fecha ?? null;
   return new Date(Math.min(...candidatas)).toISOString();
 }
