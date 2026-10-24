@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-24T19:04:25.690Z",
+ "consultado": "2026-10-24T19:31:21.037Z",
  "equipos": [
   "9739",
   "3",
@@ -800,7 +800,7 @@
     "competencia": "liga",
     "inicio": "2026-10-24T17:45:00.000Z",
     "estado": "en-juego",
-    "minuto": "62'",
+    "minuto": "89'",
     "local": {
      "id": "235",
      "nombre": "Banfield",
@@ -809,7 +809,7 @@
     "visitante": {
      "id": "12",
      "nombre": "Lanús",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -817,6 +817,12 @@
       "equipo": "local",
       "jugador": "Adrián Balboa",
       "minuto": "20'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Carlos Izquierdoz",
+      "minuto": "62'",
       "tipo": "gol"
      }
     ],

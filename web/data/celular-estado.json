@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T19:04:34.038Z",
- "portada": 87,
+ "generado": "2026-10-24T19:31:22.552Z",
+ "portada": 76,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-24T19:04:34.622Z",
+  "generado": "2026-10-24T19:31:23.113Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,24 +126,8 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 43,
-    "notas": [
-     {
-      "id": "qgon5k",
-      "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "12z1bhb",
-      "titulo": "La Asociación Italiana recibe el espectáculo Varieté en El Conventillo",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "idsz54",
-      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
-      "seccion": "Fútbol"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "podcast",
@@ -167,15 +151,14 @@
      "id": "1wdy2e7",
      "titulo": "Franco Colapinto afronta la tercera práctica y la clasificación en Austin",
      "cuando": "2026-10-24T16:36:03.862Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "5r4s16",
      "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
+     "cuando": "2026-10-24T19:06:02.095Z"
+    }
+   ],
+   "cola": [
     {
      "id": "1vxdqss",
      "titulo": "Fito Páez cuestiona al gobierno de Javier Milei y critica el sistema",
@@ -189,8 +172,8 @@
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-24T18:06:03.862Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-24T20:36:02.095Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
