@@ -1,4 +1,5 @@
 import { textoDeRobots } from '@/lib/robots';
+import { sitemapDelArchivoPrendido } from '@/lib/sitemap-noticias';
 
 // Qué le decimos a los buscadores y a los bots de IA. El texto se arma en lib/robots.js (la política y por qué está explicada ahí).
 //
@@ -11,5 +12,5 @@ import { textoDeRobots } from '@/lib/robots';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  return new Response(textoDeRobots(), { headers: { 'content-type': 'text/plain; charset=utf-8' } });
+  return new Response(textoDeRobots({ conMapaDelArchivo: sitemapDelArchivoPrendido(process.env) }), { headers: { 'content-type': 'text/plain; charset=utf-8' } });
 }

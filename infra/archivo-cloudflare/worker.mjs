@@ -29,9 +29,12 @@
 //
 // El mapa del archivo (24/10/2026, regla 310): GET /nota/sitemap-archivo.xml devuelve `sitemap-archivo.xml` del depósito, que el exportador
 // (web/scripts/archivar-a-r2.mjs) arma con `xmlDelArchivo` a partir del manifiesto cada vez que lo sube. Es el mapa de las notas que salieron del
-// sitio compilado: sin él, Google sólo conocía las notas viejas por lo que ya había visto. Lo lista /sitemap-index.xml del sitio cuando se prende la
+// sitio compilado: sin él, Google sólo conocía las notas viejas por lo que ya había visto. Se anuncia en el robots.txt del sitio cuando se prende la
 // variable de GitHub SITEMAP_DEL_ARCHIVO. Vive bajo /nota/ porque un mapa sólo puede listar direcciones de su propia carpeta y porque esa es la
 // ruta que ya llega a este Worker. Es un archivo ya armado: el Worker no lee el manifiesto (miles de notas serían mucho para el tiempo de un pedido).
+// Partido por mes (24/10/2026, regla 321): `sitemap-archivo.xml` es el ÍNDICE y cada mes tiene el suyo, `/nota/sitemap-archivo-AAAA-MM.xml`
+// (mes en hora de Balcarce). Así Search Console muestra la indexación mes por mes y un mes cerrado no vuelve a cambiar. El exportador arma el índice
+// y los meses con `mapasDelArchivo`; el Worker sólo los sirve (con el mismo código que antes servía el mapa único).
 //
 // Además (16/10/2026): GET /_archivo/estado devuelve estado.json, el resumen de la última corrida del exportador (lo mira el vigilante; sólo
 // se llega por workers.dev, porque la ruta del sitio es /nota/*). Y una nota guardada en la caché se confirma contra R2 (`head`, sin bajarla)
@@ -178,10 +181,51 @@ export function xmlDelArchivo(manifiesto, { base = 'https://radarbalcarce.com' }
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${items}\n</urlset>\n`;
 }
 
-async function sitemapDelArchivo(env, metodo) {
+/** El mes ("AAAA-MM") de una fecha ISO en hora de Balcarce (UTC-3, sin cambio de hora); null si la fecha no es válida. */
+export function mesDeBalcarce(fecha) {
+  const t = Date.parse(fecha);
+  if (!Number.isFinite(t)) return null;
+  const d = new Date(t - 3 * 3600e3);
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+/** Cómo se llama en el depósito el mapa de un mes y en qué dirección del sitio se pide. */
+export const claveDelMapaDelMes = (mes) => `sitemap-archivo-${mes}.xml`;
+export const caminoDelMapaDelMes = (mes) => `/nota/${claveDelMapaDelMes(mes)}`;
+const MAPA_DE_UN_MES = /^\/nota\/(sitemap-archivo-\d{4}-(?:0[1-9]|1[0-2])\.xml)$/;
+
+/**
+ * Todos los mapas del archivo a partir del manifiesto, como { clave: xml }: un mapa por cada mes (de las notas de ese mes en hora de Balcarce,
+ * las más nuevas primero, sin las noindex ni las rotas) y el ÍNDICE (`sitemap-archivo.xml`) que los lista con la fecha de la nota más nueva de
+ * cada uno. Un mes sin ninguna nota para ofrecer no aparece. Los meses van primero y el índice al final: quien los sube deja el índice para
+ * lo último, así nunca apunta a un mes que todavía no está.
+ */
+export function mapasDelArchivo(manifiesto, { base = 'https://radarbalcarce.com' } = {}) {
+  const porMes = new Map();
+  for (const [id, n] of Object.entries(manifiesto?.notas ?? {})) {
+    const mes = mesDeBalcarce(n?.fecha);
+    if (!mes) continue;
+    if (!porMes.has(mes)) porMes.set(mes, {});
+    porMes.get(mes)[id] = n;
+  }
+  const mapas = {};
+  const meses = [];
+  for (const mes of [...porMes.keys()].sort().reverse()) {
+    const xml = xmlDelArchivo({ notas: porMes.get(mes) }, { base });
+    if (!/<loc>/.test(xml)) continue;
+    const ultima = Math.max(...[...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => Date.parse(m[1])));
+    mapas[claveDelMapaDelMes(mes)] = xml;
+    meses.push({ mes, ultima });
+  }
+  const items = meses.map((m) => `\n  <sitemap>\n    <loc>${escaparXml(`${base}${caminoDelMapaDelMes(m.mes)}`)}</loc>\n    <lastmod>${new Date(m.ultima).toISOString()}</lastmod>\n  </sitemap>`).join('');
+  mapas[CLAVE_DEL_SITEMAP] = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${items}\n</sitemapindex>\n`;
+  return mapas;
+}
+
+async function sitemapDelArchivo(env, metodo, clave = CLAVE_DEL_SITEMAP) {
   const base = { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': `public, max-age=300, s-maxage=${segundosDeCache(env)}`, 'X-Radar-Archivo': 'sitemap' };
   let objeto = null;
-  try { objeto = await env.ARCHIVO.get(CLAVE_DEL_SITEMAP); } catch {
+  try { objeto = await env.ARCHIVO.get(clave); } catch {
     return new Response('No se pudo leer el archivo.', { status: 503, headers: cabeceras({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }) });
   }
   if (!objeto) return new Response('Todavía no hay mapa del archivo.', { status: 404, headers: cabeceras({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }) });
@@ -226,6 +270,8 @@ export async function manejar(request, env, ctx, { fetchFn = (r) => fetch(r), ca
     let camino = null;
     try { camino = new URL(request.url).pathname; } catch { camino = null; }
     if (camino === CAMINO_DEL_SITEMAP) return sitemapDelArchivo(env, metodo);
+    const deUnMes = camino ? MAPA_DE_UN_MES.exec(camino) : null;
+    if (deUnMes) return sitemapDelArchivo(env, metodo, deUnMes[1]);
   }
   // Tubo: no es del archivo (o no hay depósito conectado). 23/10/2026: por alOrigen, no con el pedido original: en workers.dev el pedido original se volvía a
   // llamar a sí mismo (error «Compute server error») y la comprobación del archivo daba 503 en la portada y en las notas de ids raros (F1, resultados).

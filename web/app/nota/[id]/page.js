@@ -16,6 +16,7 @@ import { parteDeNota } from '@/lib/ruta';
 import { MOSTRAR_TEMAS } from '@/lib/sitio';
 import { descripcionParaBuscador } from '@/lib/texto';
 import { noSeOfreceAGoogle } from '@/lib/cuerpo';
+import { noSeIndexa } from '@/lib/indexacion';
 import { urlDeFoto } from '@/lib/fotos';
 import { dimensionesDeFoto } from '@/lib/dimensiones-foto';
 import { imagenesParaCompartir } from '@/lib/datos-estructurados';
@@ -67,8 +68,9 @@ export async function generateMetadata({ params }) {
     title: { absolute: tituloDeNota(n.titulo) },
     description: descripcion,
     alternates: { canonical: camino },
-    // Sin cuerpo de verdad, la página existe pero no se ofrece a Google (S-1, 8/10/2026).
-    ...(noSeOfreceAGoogle(n) ? { robots: { index: false, follow: true } } : {}),
+    // Sin cuerpo de verdad (S-1, 8/10/2026) o siendo una plantilla que se repite todos los días (clima, repasos, dólar, horarios, códigos:
+    // lib/indexacion.js, regla 321), la página existe y se muestra pero no se ofrece a Google.
+    ...(noSeIndexa(n) ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       ...OG_COMUN,
       type: 'article',
@@ -101,7 +103,7 @@ export default async function PaginaNota({ params }) {
 
   return (
     <div className="envoltura">
-      <FichaDeNota nota={n} conTarjeta={tieneTarjetaPropia(n)} />
+      <FichaDeNota nota={n} />
       <Migas pasos={[
         { nombre: s.nombre, camino: `/seccion/${s.ranura}` },
         { nombre: n.titulo, camino: n.ruta },
@@ -110,7 +112,9 @@ export default async function PaginaNota({ params }) {
       <article className="cuerpo-nota" {...(noSeOfreceAGoogle(n) ? { 'data-pagefind-ignore': 'all' } : { 'data-pagefind-body': '' })}>
         <span hidden data-pagefind-meta={`seccion:${n.seccion}`} />
         <div className="chapa-nota" data-pagefind-ignore="">
-          <Etiqueta seccion={n.seccion} />
+          {/* La etiqueta de la sección es un enlace a la sección (regla 321): antes la nota sólo enlazaba a su sección desde «Ver todo →», y
+              únicamente si había notas para ofrecer en «Seguí leyendo». */}
+          <a href={`/seccion/${s.ranura}`} style={{ textDecoration: 'none' }}><Etiqueta seccion={n.seccion} /></a>
           <Hace nota={n} />
         </div>
         {/* "Publicado" y, si una persona la corrigió después, "Actualizado" (regla 253): se suma a la fecha única de la nota, no la reemplaza. */}

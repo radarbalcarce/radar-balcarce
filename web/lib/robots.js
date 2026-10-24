@@ -13,6 +13,7 @@
 // Un robots.txt es una cortesía: los bots serios lo respetan y los demás no. Lo que de verdad bloquea es la regla del WAF de Cloudflare.
 
 import { sitio, enElDominioPropio } from './sitio.js';
+import { DIRECCION_DEL_SITEMAP_DEL_ARCHIVO } from './sitemap-noticias.js';
 
 /** ¿Se permite que los bots de entrenamiento lean el sitio? (Decisión pendiente de confirmar: ver el informe, punto D1.) */
 export const ENTRENAMIENTO_IA = true;
@@ -53,10 +54,18 @@ function grupo(agentes, { permitir = true, senal = null } = {}) {
   ].join('\n');
 }
 
-/** El texto del robots.txt. Fuera del dominio propio (vistas previas) prohíbe indexar todo. */
-export function textoDeRobots({ base = sitio(), propio = enElDominioPropio(), entrenamiento = ENTRENAMIENTO_IA, respuestas = RESPUESTAS_IA } = {}) {
+/**
+ * El texto del robots.txt. Fuera del dominio propio (vistas previas) prohíbe indexar todo. `conMapaDelArchivo`: se anuncia también el mapa de las notas
+ * archivadas en R2 (SITEMAP_DEL_ARCHIVO prendida): es un índice de un mapa por mes y no puede ir adentro de /sitemap-index.xml (un índice no lista a otro).
+ */
+export function textoDeRobots({
+  base = sitio(), propio = enElDominioPropio(), entrenamiento = ENTRENAMIENTO_IA, respuestas = RESPUESTAS_IA, conMapaDelArchivo = false,
+} = {}) {
   // El índice (17/10/2026, regla 250) reúne los otros dos; se dicen los tres porque cada buscador lee el que prefiere.
-  const mapas = [`Sitemap: ${base}/sitemap-index.xml`, `Sitemap: ${base}/sitemap.xml`, `Sitemap: ${base}/sitemap-news.xml`];
+  const mapas = [
+    `Sitemap: ${base}/sitemap-index.xml`, `Sitemap: ${base}/sitemap.xml`, `Sitemap: ${base}/sitemap-news.xml`,
+    ...(conMapaDelArchivo ? [`Sitemap: ${base}${DIRECCION_DEL_SITEMAP_DEL_ARCHIVO}`] : []),
+  ];
   if (!propio) return ['User-agent: *', 'Disallow: /', '', `Sitemap: ${base}/sitemap.xml`, ''].join('\n');
   const senal = `search=yes, ai-input=${respuestas ? 'yes' : 'no'}, ai-train=${entrenamiento ? 'yes' : 'no'}`;
   return [

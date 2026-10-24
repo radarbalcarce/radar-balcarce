@@ -59,33 +59,35 @@ export function puntosDeContacto({ email, whatsapp }) {
   }];
 }
 
+/** Píxeles mínimos (ancho por alto) que Google pide para una imagen de un artículo. */
+export const PIXELES_MINIMOS_DE_LA_IMAGEN = 50000;
+
 /**
- * Las imágenes que declara una nota (propiedad `image` del NewsArticle).
+ * Las imágenes que declara una nota (propiedad `image` del NewsArticle). Cambió el 24/10/2026 (regla 321, auditoría 2.0, informe P § 3.4).
  *
- * Google (Discover y Noticias) quiere una imagen de al menos 1200 px de ancho, y también le sirven 16:9, 4:3 y 1:1. La tarjeta propia de la
- * nota es de 1200 × 630 pero lleva el titular encima; la foto sola es mejor para Discover. Por eso:
- *   · foto de 1200 px o más de ancho y proporción de fotografía (entre 1:1 y 2:1) → primero la foto, después la tarjeta;
- *   · foto más chica pero decente (696 px o más y 50.000 píxeles) → primero la tarjeta, después la foto;
- *   · foto diminuta o sin foto → sólo la tarjeta.
- * `dimensiones(archivo)` devuelve { ancho, alto } o null (se lee la cabecera del JPEG al compilar; si la foto está en otro lado, null).
+ * Google pide fotos relevantes de la nota, «no logotipos ni leyendas», de al menos 50.000 píxeles. La tarjeta propia de la nota (1200 × 630) lleva
+ * el titular escrito encima: sirve para compartir en redes (`og:image`, imagenesParaCompartir) pero no es una foto, y desde la regla 321 no se
+ * declara acá. Lo que se declara es LA FOTO de la nota, con su tamaño real y su crédito:
+ *   · foto que se pudo medir y tiene 50.000 píxeles o más → un `ImageObject` con su ancho y su alto;
+ *   · foto que no se pudo medir (está en otro lado, con FOTOS_BASE, o no se entiende la cabecera) → su dirección sola, sin prometer un tamaño;
+ *   · foto diminuta, o sin foto (la placa de la sección o la ilustración no son foto) → ninguna imagen: la propiedad no se declara.
+ * Google pide la misma imagen en 16:9, 4:3 y 1:1, pero eso exigiría generar tres archivos por nota (el sitio guarda cada foto una sola vez, con la
+ * proporción que tenía); sin hacerlo, se declara la que hay. El `ImageObject` no inventa proporciones: dice las de la foto.
+ * `dimensiones(archivo)` devuelve { ancho, alto } o null (se lee la cabecera del JPEG al compilar).
  */
-export function imagenesDeNota({ nota, tarjeta, urlFoto, dimensiones = () => null, tarjetaPropia = true }) {
+export function imagenesDeNota({ nota, urlFoto, dimensiones = () => null }) {
   const archivo = nota?.foto?.archivo;
-  const d = archivo ? dimensiones(archivo) : null;
-  const decente = !!d && d.ancho >= 696 && d.ancho * d.alto >= 50000;
-  const foto = decente
-    ? {
-      '@type': 'ImageObject',
-      url: urlFoto(archivo),
-      width: d.ancho,
-      height: d.alto,
-      ...(nota.foto.credito ? { caption: nota.foto.credito, creditText: nota.foto.credito } : {}),
-    }
-    : null;
-  const grande = decente && d.ancho >= 1200 && d.ancho / d.alto >= 1 && d.ancho / d.alto <= 2;
-  // Sin tarjeta propia (una nota archivada), la "tarjeta" es la del sitio, igual para todas: la foto de la nota, que es lo que vale, va primero (17/10/2026).
-  if (!tarjetaPropia && foto) return [foto, tarjeta];
-  return [grande && foto, tarjeta, !grande && foto].filter(Boolean);
+  if (!archivo) return [];
+  const d = dimensiones(archivo);
+  if (!d) return [urlFoto(archivo)];
+  if (d.ancho * d.alto < PIXELES_MINIMOS_DE_LA_IMAGEN) return [];
+  return [{
+    '@type': 'ImageObject',
+    url: urlFoto(archivo),
+    width: d.ancho,
+    height: d.alto,
+    ...(nota.foto.credito ? { caption: nota.foto.credito, creditText: nota.foto.credito } : {}),
+  }];
 }
 
 /**
@@ -121,9 +123,10 @@ export function palabrasDeNota(nota) {
 /**
  * Lo que se agrega al NewsArticle además de lo de siempre. Va aparte para poder probarlo sin React.
  */
-export function camposExtraDeNota({ nota, tarjeta, urlFoto, dimensiones, tarjetaPropia = true }) {
+export function camposExtraDeNota({ nota, urlFoto, dimensiones }) {
+  const imagenes = imagenesDeNota({ nota, urlFoto, dimensiones });
   return {
-    image: imagenesDeNota({ nota, tarjeta, urlFoto, dimensiones, tarjetaPropia }),
+    image: imagenes.length ? imagenes : undefined,
     contentLocation: lugarDeNota(nota),
     wordCount: palabrasDeNota(nota),
   };

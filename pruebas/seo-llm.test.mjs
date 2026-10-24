@@ -62,7 +62,7 @@ test('robots.txt: fuera del dominio propio prohíbe indexar y el feed nunca se b
 
 test('robots.txt es una ruta (no web/app/robots.js, que no deja escribir Content-Signal) y los JSON para agentes no se bloquean', () => {
   assert.ok(!fs.existsSync(new URL('../web/app/robots.js', import.meta.url)), 'robots.js y robots.txt/route.js a la vez se pisan');
-  assert.match(leer('web/app/robots.txt/route.js'), /textoDeRobots\(\)/);
+  assert.match(leer('web/app/robots.txt/route.js'), /textoDeRobots\(\{ conMapaDelArchivo: sitemapDelArchivoPrendido\(process\.env\) \}\)/);
   assert.match(leer('web/app/robots.txt/route.js'), /force-static/);
   assert.ok(!/Disallow: \/agentes/.test(textoDeRobots({ base: BASE, propio: true })));
   const h = leer('web/public/_headers');
@@ -107,27 +107,29 @@ test('el autor de una nota apunta a la página donde se explica quién escribe',
   assert.equal(autorDeNota({ guion: null, como: 'automatica', medios: ['El Diario Balcarce'] }, BASE).name, 'El Diario Balcarce');
 });
 
-test('imágenes de una nota: la foto grande primero, la chica después de la tarjeta, la diminuta nunca', () => {
-  const tarjeta = `${BASE}/nota/x/opengraph-image`;
+test('imágenes de una nota (regla 321): sólo la foto, con su tamaño real; la tarjeta con el titular nunca; la diminuta o ninguna, tampoco', () => {
   const urlFoto = (a) => `${BASE}/${a}`;
   const n = { foto: { archivo: 'fotos-notas/a.jpg', credito: 'Foto: TN' } };
-  const con = (d) => imagenesDeNota({ nota: n, tarjeta, urlFoto, dimensiones: () => d });
+  const con = (d) => imagenesDeNota({ nota: n, urlFoto, dimensiones: () => d });
   const grande = con({ ancho: 1200, alto: 800 });
-  assert.equal(grande.length, 2);
+  assert.equal(grande.length, 1);
   assert.equal(grande[0]['@type'], 'ImageObject');
   assert.equal(grande[0].url, `${BASE}/fotos-notas/a.jpg`);
   assert.equal(grande[0].width, 1200);
+  assert.equal(grande[0].height, 800);
   assert.equal(grande[0].creditText, 'Foto: TN');
-  assert.equal(grande[1], tarjeta);
-  const chica = con({ ancho: 800, alto: 500 });
-  assert.equal(chica[0], tarjeta);
-  assert.equal(chica[1].width, 800);
-  assert.deepEqual(con({ ancho: 206, alto: 132 }), [tarjeta], 'una foto diminuta no se declara');
-  assert.deepEqual(con({ ancho: 1200, alto: 4000 }).slice(0, 1), [tarjeta], 'una foto muy vertical no es la imagen principal');
-  assert.deepEqual(con(null), [tarjeta], 'sin saber cuánto mide, no se promete');
-  assert.deepEqual(imagenesDeNota({ nota: {}, tarjeta, urlFoto }), [tarjeta]);
+  // Chica (800 × 500 = 400.000 píxeles) o muy vertical: es la foto de la nota y es lo que se declara, con sus medidas.
+  assert.equal(con({ ancho: 800, alto: 500 })[0].width, 800);
+  assert.equal(con({ ancho: 1200, alto: 4000 })[0].height, 4000);
+  // Menos de 50.000 píxeles (el mínimo de Google): no se declara.
+  assert.deepEqual(con({ ancho: 206, alto: 132 }), []);
+  assert.deepEqual(con({ ancho: 300, alto: 160 }), [], '48.000 píxeles');
+  assert.equal(con({ ancho: 300, alto: 167 }).length, 1, '50.100 píxeles');
+  // Sin poder medirla (está en otro lado), la dirección sola; sin foto, nada.
+  assert.deepEqual(con(null), [`${BASE}/fotos-notas/a.jpg`]);
+  assert.deepEqual(imagenesDeNota({ nota: {}, urlFoto }), []);
   // Sin crédito no se inventa uno.
-  assert.ok(!('creditText' in imagenesDeNota({ nota: { foto: { archivo: 'fotos-notas/a.jpg' } }, tarjeta, urlFoto, dimensiones: () => ({ ancho: 1200, alto: 800 }) })[0]));
+  assert.ok(!('creditText' in imagenesDeNota({ nota: { foto: { archivo: 'fotos-notas/a.jpg' } }, urlFoto, dimensiones: () => ({ ancho: 1200, alto: 800 }) })[0]));
 });
 
 test('el lugar y las palabras de la nota: Balcarce sólo si la nota es de acá, y el conteo sale del cuerpo', () => {
@@ -135,7 +137,7 @@ test('el lugar y las palabras de la nota: Balcarce sólo si la nota es de acá, 
   assert.equal(lugarDeNota({ local: false }), undefined);
   assert.equal(palabrasDeNota({ cuerpo }), 90);
   assert.equal(palabrasDeNota({ cuerpo: '' }), undefined);
-  const extra = camposExtraDeNota({ nota: nota('a'), tarjeta: 't', urlFoto: (a) => a, dimensiones: () => null });
+  const extra = camposExtraDeNota({ nota: nota('a'), urlFoto: (a) => a, dimensiones: () => null });
   assert.deepEqual(Object.keys(extra), ['image', 'contentLocation', 'wordCount']);
   const ficha = leer('web/components/ficha.js');
   assert.match(ficha, /\.\.\.camposExtraDeNota\(\{/);
@@ -171,9 +173,12 @@ test('la foto para el sitemap de imágenes sólo si vale la pena', () => {
 // ----------------------------------------------------------------- sitemaps
 
 test('los sitemaps no ofrecen lo que lleva noindex', () => {
-  assert.match(leer('web/app/sitemap.js'), /notas\.filter\(\(n\) => !noSeOfreceAGoogle\(n\)\)/);
-  assert.match(leer('web/lib/sitemap-noticias.js'), /\.filter\(\(n\) => !noSeOfreceAGoogle\(n\)\)/);
-  assert.match(leer('web/app/sitemap.js'), /images: \[foto\]/);
+  // Desde la regla 321 se ofrece lo que Google puede ver Y no es una plantilla repetida (noSeIndexa = sin cuerpo de verdad o plantilla).
+  assert.match(leer('web/lib/sitemap-sitio.js'), /portada\.filter\(\(n\) => !noSeIndexa\(n\)\)/);
+  assert.match(leer('web/lib/sitemap-sitio.js'), /tieneCuerpo\(n\) && !noSeIndexa\(n\)/);
+  assert.match(leer('web/app/sitemap.js'), /entradasDeNotas\(\{/);
+  assert.match(leer('web/lib/sitemap-noticias.js'), /\.filter\(\(n\) => !noSeIndexa\(n\)\)/);
+  assert.match(leer('web/lib/sitemap-sitio.js'), /\.\.\.\(foto \? \{ images: \[foto\] \} : \{\}\)/);
   assert.match(leer('web/scripts/revisar-seo.mjs'), /ofrece \$\{n\.ruta\}, que lleva noindex/);
 });
 

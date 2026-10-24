@@ -13,17 +13,22 @@ export function haceCuanto(fechaISO, ahora = Date.now()) {
 
 /**
  * La fecha de "modificada" de una nota para Google (dateModified, og:modifiedTime):
- * la de la última vez que salió, pero nunca anterior a la de publicación. Había 12
+ * la de la última vez que cambió algo, pero nunca anterior a la de publicación. Había 12
  * notas con la modificación antes que la publicación (auditoría del 29/09).
+ * Cambia algo cuando la nota sale (`publicadaCuando`), cuando una persona la corrige
+ * (`corregidaCuando`, regla 252) y cuando la auditoría le arregla una falta de
+ * ortografía (`auditadaCuando`, regla 321). Esta última NO se muestra como «Actualizado»
+ * (`actualizadaCuando` sólo cuenta lo que hace una persona): es un arreglo de una letra, no
+ * una novedad para el lector, pero sí es la fecha honesta para un buscador.
  */
 export function fechaDeModificacion(nota) {
   const publicada = new Date(nota.fecha).getTime();
   if (!Number.isFinite(publicada)) return nota.publicadaCuando ?? nota.fecha;
-  // La última vez que cambió algo: cuando salió, o cuando una persona la corrigió (`corregidaCuando`, 17/10/2026, regla 252), la que sea
-  // más tarde; y nunca antes de la de publicación.
+  // La última vez que cambió algo: cuando salió, cuando una persona la corrigió (`corregidaCuando`, 17/10/2026, regla 252) o cuando la auditoría
+  // le arregló el texto (`auditadaCuando`, 24/10/2026, regla 321), la que sea más tarde; y nunca antes de la de publicación.
   let mejor = publicada;
   let texto = nota.fecha;
-  for (const candidata of [nota.publicadaCuando, nota.corregidaCuando]) {
+  for (const candidata of [nota.publicadaCuando, nota.corregidaCuando, nota.auditadaCuando]) {
     const t = new Date(candidata ?? '').getTime();
     if (Number.isFinite(t) && t > mejor) { mejor = t; texto = candidata; }
   }

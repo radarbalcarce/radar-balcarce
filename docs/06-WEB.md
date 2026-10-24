@@ -608,7 +608,8 @@ hace sí o sí". **Encendido el 23/10**: la ruta `radarbalcarce.com/nota/*` va a
 `radar-balcarce-archivo` (vuelta atrás: workflow «Archivo permanente (producción)» con `sacar_ruta`), `TOPE_DE_NOTAS` está
 en 500 y el depósito tenía 1.466 notas ese día. **Falta la ruta de las fotos** (`activar_fotos`): sin ella, una foto
 sacada de Pages da 404, y por eso no se baja más el tope (`docs/etapa-10-operacion/FOTOS-EN-R2.md`). El mapa de las
-notas archivadas (`/nota/sitemap-archivo.xml`, regla 310) está escrito y apagado (`SITEMAP_DEL_ARCHIVO`). Cómo funciona:
+notas archivadas (`/nota/sitemap-archivo.xml`, reglas 310 y 321: un índice con un mapa por mes) está escrito y apagado (`SITEMAP_DEL_ARCHIVO`; se anuncia en
+`robots.txt`). El mapa de las notas del sitio, partido por mes, también (`SITEMAP_PARTIDO`): `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md`. Cómo funciona:
 
 - en cada despliegue, `web/scripts/archivar-a-r2.mjs` guarda en R2 la página de
   cada nota que está por salir del sitio (sin el «Seguí leyendo», que se

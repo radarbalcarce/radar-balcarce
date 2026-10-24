@@ -8,12 +8,13 @@
 //   · como mucho 1.000 direcciones por mapa;
 //   · el nombre de la publicación igual al que figura en Google Noticias, el idioma y la fecha con zona horaria;
 //   · el título es el de la nota, tal cual (sin la marca del sitio).
-// Lo nuestro, además: nada de lo que lleva `noindex` (se contradeciría) y nada de una nota cuya fuente no dijo la hora, porque su `fecha`
+// Lo nuestro, además: nada de lo que lleva `noindex` (se contradeciría: sin cuerpo de verdad, o una plantilla que se repite todos los días, el
+// clima, los repasos, el dólar, los horarios y los códigos: lib/indexacion.js, regla 321) y nada de una nota cuya fuente no dijo la hora, porque su `fecha`
 // es la primera vez que la vimos y no cuándo salió (el 25/09 diecinueve notas decían la misma hora de relleno).
 //
 // Sin imports con "@/": las pruebas lo cargan con node pelado.
 
-import { noSeOfreceAGoogle } from './cuerpo.js';
+import { noSeIndexa } from './indexacion.js';
 
 /** Hasta cuántas horas atrás puede tener una nota para entrar al mapa de noticias (regla de Google). */
 export const HORAS_DEL_MAPA_DE_NOTICIAS = 48;
@@ -39,7 +40,7 @@ export function notasParaNoticias(notas = [], { ahora = Date.now() } = {}) {
   const corte = Number(ahora) - HORAS_DEL_MAPA_DE_NOTICIAS * 3600e3;
   return (notas ?? [])
     .filter((n) => n && n.ruta && n.titulo && !n.sinFecha && n.fecha)
-    .filter((n) => !noSeOfreceAGoogle(n))
+    .filter((n) => !noSeIndexa(n))
     .filter((n) => {
       const t = new Date(n.fecha).getTime();
       // Una fecha del futuro (un reloj mal puesto de la fuente) tampoco es una fecha real.
@@ -91,8 +92,9 @@ export function xmlDeIndice(mapas = []) {
 export const DIRECCION_DEL_SITEMAP_DEL_ARCHIVO = '/nota/sitemap-archivo.xml';
 
 /**
- * ¿El índice de mapas lista el mapa del archivo? Sólo con la variable de GitHub SITEMAP_DEL_ARCHIVO en "si" (y el archivo permanente prendido,
- * R2_ARCHIVO): antes de que el Worker del archivo lo sirva, la dirección daría 404 y Search Console lo marcaría como error.
+ * ¿Se anuncia el mapa del archivo (en robots.txt)? Sólo con la variable de GitHub SITEMAP_DEL_ARCHIVO en "si" (y el archivo permanente prendido,
+ * R2_ARCHIVO): antes de que el Worker del archivo lo sirva, la dirección daría 404 y Search Console lo marcaría como error. Desde la regla 321 ese
+ * mapa es un índice (un mapa por mes), así que NO va adentro de /sitemap-index.xml (un índice no puede listar a otro).
  */
 export function sitemapDelArchivoPrendido(env = {}) {
   const si = ['si', 'sí', '1', 'true'].includes(String(env?.SITEMAP_DEL_ARCHIVO ?? '').trim().toLowerCase());

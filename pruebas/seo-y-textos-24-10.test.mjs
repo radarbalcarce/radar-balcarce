@@ -8,7 +8,8 @@ import { nombreCorto, SECCIONES } from '../web/lib/datos.js';
 import {
   xmlDelArchivo, manejar, CAMINO_DEL_SITEMAP, CLAVE_DEL_SITEMAP, MAXIMO_DEL_SITEMAP,
 } from '../infra/archivo-cloudflare/worker.mjs';
-import { DIRECCION_DEL_SITEMAP_DEL_ARCHIVO, sitemapDelArchivoPrendido, xmlDeIndice } from '../web/lib/sitemap-noticias.js';
+import { DIRECCION_DEL_SITEMAP_DEL_ARCHIVO, sitemapDelArchivoPrendido } from '../web/lib/sitemap-noticias.js';
+import { textoDeRobots } from '../web/lib/robots.js';
 import { prepararHtml, armarManifiesto, subirAlDeposito } from '../web/scripts/archivar-a-r2.mjs';
 import { VARIABLES_DEL_SITIO } from '../web/scripts/huella-del-sitio.mjs';
 
@@ -102,12 +103,12 @@ test('sin mapa en el depósito el Worker dice 404, si R2 falla 503, y apagado es
   assert.equal((await manejar(pedir(CAMINO_DEL_SITEMAP, 'POST'), { ARCHIVO: r2({ [CLAVE_DEL_SITEMAP]: '<urlset/>' }) }, {}, sinOrigen)).status, 404);
 });
 
-test('el exportador marca las notas noindex en el manifiesto y sube el mapa al depósito junto con el manifiesto', async () => {
+test('el exportador marca las notas noindex en el manifiesto y sube los mapas del archivo (un índice y uno por mes) antes del manifiesto', async () => {
   const comun = '<!DOCTYPE html><html><head><link rel="canonical" href="https://radarbalcarce.com/nota/a-1"/>';
   const sin = `${comun}<meta name="robots" content="noindex, follow"/></head><body><h1>x</h1>${'y'.repeat(2000)}</body></html>`;
   assert.ok(prepararHtml(sin).html.includes('noindex'));
   const plan = { entradas: [
-    { id: 'a', ruta: '/nota/a-1', titulo: 'A', fecha: '2026-10-01T00:00:00Z', indexar: true, objetos: [] },
+    { id: 'a', ruta: '/nota/a-1', titulo: 'A', fecha: '2026-10-01T12:00:00Z', indexar: true, objetos: [] },
     { id: 'b', ruta: '/nota/b-2', titulo: 'B', fecha: '2026-10-02T00:00:00Z', indexar: false, objetos: [] },
   ], omitidas: [] };
   const m = armarManifiesto(plan);
@@ -122,12 +123,31 @@ test('el exportador marca las notas noindex en el manifiesto y sube el mapa al d
   };
   const r = await subirAlDeposito({ bucket: 'x-staging', hacer: { subir: [], borrar: [] }, manifiesto: m, ejecutar });
   assert.equal(r.manifiestoSubido, true);
-  const mapa = subidas.find((s) => s.clave === CLAVE_DEL_SITEMAP);
-  assert.ok(mapa, 'se subió el mapa');
-  assert.match(mapa.tipo, /xml/);
-  assert.match(mapa.texto, /nota\/a-1/);
-  assert.ok(!mapa.texto.includes('nota/b-2'));
-  assert.ok(subidas.findIndex((s) => s.clave === 'manifiesto.json') < subidas.findIndex((s) => s.clave === CLAVE_DEL_SITEMAP), 'primero el manifiesto');
+  const indice = subidas.find((s) => s.clave === CLAVE_DEL_SITEMAP);
+  const mes = subidas.find((s) => s.clave === 'sitemap-archivo-2026-10.xml');
+  assert.ok(indice && mes, 'se subieron el índice y el mapa del mes');
+  assert.match(mes.tipo, /xml/);
+  assert.match(mes.texto, /nota\/a-1/);
+  assert.ok(!mes.texto.includes('nota/b-2'), 'lo noindex no se ofrece');
+  assert.match(indice.texto, /<sitemapindex/);
+  assert.match(indice.texto, /<loc>https:\/\/radarbalcarce\.com\/nota\/sitemap-archivo-2026-10\.xml<\/loc>/);
+  const orden = (clave) => subidas.findIndex((s) => s.clave === clave);
+  assert.ok(orden('sitemap-archivo-2026-10.xml') < orden(CLAVE_DEL_SITEMAP), 'los meses primero y el índice al final');
+  assert.ok(orden(CLAVE_DEL_SITEMAP) < orden('manifiesto.json'), 'los mapas antes del manifiesto, que anota sus huellas');
+  const manifiestoSubido = JSON.parse(subidas.find((s) => s.clave === 'manifiesto.json').texto);
+  assert.deepEqual(Object.keys(manifiestoSubido.mapas).sort(), ['sitemap-archivo-2026-10.xml', CLAVE_DEL_SITEMAP].sort(), 'el manifiesto guarda la huella de cada mapa');
+  // La corrida siguiente, con esas huellas, no vuelve a subir lo que no cambió (cada subida son unos 4 segundos de la vuelta).
+  subidas.length = 0;
+  await subirAlDeposito({ bucket: 'x-staging', hacer: { subir: [], borrar: [] }, manifiesto: m, ejecutar, mapasPrevios: manifiestoSubido.mapas });
+  assert.deepEqual(subidas.map((s) => s.clave), ['manifiesto.json'], 'sólo el manifiesto: los mapas no cambiaron');
+  // Un mapa que falló no deja su huella: se reintenta.
+  subidas.length = 0;
+  const fallaElMes = async (args) => { const r = await ejecutar(args); return args.some((a) => String(a).includes('sitemap-archivo-2026-10.xml')) ? { ok: false, salida: 'boom' } : r; };
+  const f = await subirAlDeposito({ bucket: 'x-staging', hacer: { subir: [], borrar: [] }, manifiesto: m, ejecutar: fallaElMes });
+  assert.ok(f.fallidos.some((x) => x.clave === 'sitemap-archivo-2026-10.xml'));
+  const sinHuella = JSON.parse(subidas.find((s) => s.clave === 'manifiesto.json').texto);
+  assert.ok(!('sitemap-archivo-2026-10.xml' in sinHuella.mapas));
+  assert.ok(CLAVE_DEL_SITEMAP in sinHuella.mapas);
   // Sin manifiesto nuevo no hay mapa nuevo.
   subidas.length = 0;
   await subirAlDeposito({ bucket: 'x-staging', hacer: { subir: [], borrar: [] }, manifiesto: null, ejecutar });
@@ -139,11 +159,13 @@ test('el índice de mapas lista el del archivo sólo con SITEMAP_DEL_ARCHIVO pre
   assert.equal(sitemapDelArchivoPrendido({ SITEMAP_DEL_ARCHIVO: 'si' }), false, 'sin R2_ARCHIVO no hay archivo');
   assert.equal(sitemapDelArchivoPrendido({ SITEMAP_DEL_ARCHIVO: 'no', R2_ARCHIVO: 'radar-archivo' }), false);
   assert.equal(sitemapDelArchivoPrendido({ SITEMAP_DEL_ARCHIVO: 'Si', R2_ARCHIVO: 'radar-archivo' }), true);
-  const ruta = leer('web/app/sitemap-index.xml/route.js');
-  assert.match(ruta, /sitemapDelArchivoPrendido\(process\.env\)/);
-  assert.match(ruta, /DIRECCION_DEL_SITEMAP_DEL_ARCHIVO/);
-  const xml = xmlDeIndice([{ loc: `https://radarbalcarce.com${DIRECCION_DEL_SITEMAP_DEL_ARCHIVO}` }]);
-  assert.match(xml, /<loc>https:\/\/radarbalcarce\.com\/nota\/sitemap-archivo\.xml<\/loc>/);
+  // Desde la regla 321 el mapa del archivo es un ÍNDICE (un mapa por mes) y el protocolo no deja que un índice liste a otro: se anuncia en el
+  // robots.txt y no adentro de /sitemap-index.xml.
+  assert.ok(!/DIRECCION_DEL_SITEMAP_DEL_ARCHIVO|sitemapDelArchivoPrendido/.test(leer('web/app/sitemap-index.xml/route.js')), 'un índice no lista a otro');
+  assert.match(leer('web/app/robots.txt/route.js'), /sitemapDelArchivoPrendido\(process\.env\)/);
+  assert.ok(!/nota\/sitemap-archivo/.test(textoDeRobots({ base: 'https://radarbalcarce.com', propio: true })), 'apagado, no se anuncia');
+  assert.match(textoDeRobots({ base: 'https://radarbalcarce.com', propio: true, conMapaDelArchivo: true }), new RegExp(`^Sitemap: https://radarbalcarce\\.com${DIRECCION_DEL_SITEMAP_DEL_ARCHIVO.replace(/\./g, '\\.')}$`, 'm'));
+  assert.ok(!/nota\/sitemap-archivo/.test(textoDeRobots({ base: 'http://localhost:3000', propio: false, conMapaDelArchivo: true })), 'fuera del dominio propio no se anuncia nada');
   assert.ok(VARIABLES_DEL_SITIO.includes('SITEMAP_DEL_ARCHIVO'), 'cambiarla recompila el sitio');
 });
 

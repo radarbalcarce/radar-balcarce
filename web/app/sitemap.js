@@ -1,12 +1,11 @@
 import {
   obtenerDatos, obtenerArchivo, SECCIONES, proximosEventos, notasDeLaSeccion,
 } from '@/lib/datos';
-import { tieneCuerpo, noSeOfreceAGoogle } from '@/lib/cuerpo';
 import { urlDeFoto } from '@/lib/fotos';
 import { dimensionesDeFoto } from '@/lib/dimensiones-foto';
-import { fotoParaElSitemap } from '@/lib/datos-estructurados';
 import { cuantasPaginas, direccionDePagina } from '@/lib/paginas';
 import { sitio } from '@/lib/sitio';
+import { entradasDeNotas, paraElMapa, sitemapPartidoPrendido } from '@/lib/sitemap-sitio';
 
 // El mapa del sitio para los buscadores.
 //
@@ -64,32 +63,19 @@ export default function sitemap() {
     }));
   });
 
-  // Lo que lleva noindex (una nota sin cuerpo de verdad) no se ofrece: un sitemap que lista páginas que después dicen "no me indexes" es una
-  // contradicción que Search Console marca como error. Las de la portada traen además su foto (sitemap de imágenes; Google Imágenes).
-  const deNotas = notas.filter((n) => !noSeOfreceAGoogle(n)).map((n) => {
-    const foto = fotoParaElSitemap({ nota: n, urlFoto: (a) => { const u = urlDeFoto(a); return /^https?:/.test(u) ? u : `${base}${u}`; }, dimensiones: dimensionesDeFoto });
-    return {
-      url: `${base}${n.ruta}`,
-      lastModified: new Date(n.fecha),
-      changeFrequency: 'weekly',
-      priority: n.local ? 0.9 : 0.6,
-      ...(foto ? { images: [foto] } : {}),
-    };
-  });
-
-  // Las notas que ya salieron de la portada siguen teniendo página (el
-  // archivo, 180 días). Hasta el 26/09 no estaban acá y Google no encontraba
-  // unas 1.500 páginas propias. Sólo las que tienen cuerpo: una nota de un
-  // párrafo no es algo que valga la pena ofrecerle a un buscador.
-  const enPortada = new Set(notas.map((n) => n.id));
-  const archivadas = obtenerArchivo()
-    .filter((n) => !enPortada.has(n.id) && tieneCuerpo(n))
-    .map((n) => ({
-      url: `${base}${n.ruta}`,
-      lastModified: new Date(n.fecha),
-      changeFrequency: 'monthly',
-      priority: n.local ? 0.5 : 0.3,
-    }));
+  // Las notas (portada y archivo): sólo las que Google puede ver. Lo que lleva noindex —una nota sin cuerpo de verdad o una plantilla que se repite
+  // todos los días (clima, repasos, dólar, horarios, códigos: lib/indexacion.js)— no se ofrece: un sitemap que lista páginas que después dicen «no
+  // me indexes» es una contradicción que Search Console marca como error. Las de la portada traen además su foto (sitemap de imágenes; Google
+  // Imágenes). Las que ya salieron de la portada siguen teniendo página (el archivo): hasta el 26/09 no estaban acá y Google no encontraba unas
+  // 1.500 páginas propias; sólo van las que tienen cuerpo. `lastmod` es la última vez que cambió la nota (una corrección), no sólo su fecha.
+  // Con SITEMAP_PARTIDO prendida las notas no van acá sino en un mapa por mes (/sitemap-notas/AAAA-MM/sitemap.xml, lib/sitemap-sitio.js).
+  const deNotas = sitemapPartidoPrendido(process.env) ? [] : paraElMapa(entradasDeNotas({
+    portada: notas,
+    archivo: obtenerArchivo(),
+    enlace: (ruta) => `${base}${ruta}`,
+    urlFoto: (a) => { const u = urlDeFoto(a); return /^https?:/.test(u) ? u : `${base}${u}`; },
+    dimensiones: dimensionesDeFoto,
+  }));
 
   // Los eventos que vienen, cada uno con su página. Los que ya pasaron siguen
   // teniendo página (los enlaces no se rompen) pero no se ofrecen a Google.
@@ -100,6 +86,6 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...fijas, ...secciones, ...deNotas, ...archivadas, ...deEventos];
+  return [...fijas, ...secciones, ...deNotas, ...deEventos];
 }
 
