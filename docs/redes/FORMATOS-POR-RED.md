@@ -50,8 +50,8 @@ podemos automatizar todos o cuáles, y qué formato tienen de publicación: hist
 ## 0b. El texto de cada red (17/10/2026): largo, enlace, hashtags y plantilla
 
 *Pedido de Hernán, 17/10: "revisá el formato del texto de lo que va en Facebook, en Instagram y en cada red social: no todas usan el mismo ni respetan los links. Los hashtags: 'Balcarce' y
-'Radar Balcarce' deberían ser FIJOS y después, según la nota, los que correspondan." Esta sección es la tabla; el código es `textoParaRed(red, entrada)` (`redes/texto-por-red.mjs`) y
-sus pruebas (`pruebas/texto-por-red.test.mjs`). Hoy sólo publican Facebook e Instagram; para las demás el texto queda listo, no hay ninguna cuenta ni se publica nada. Lo que no pude leer en la
+'Radar Balcarce' deberían ser FIJOS y después, según la nota, los que correspondan." Esta sección es la tabla; el código de Facebook e Instagram es `mensajeDeNota` y `pieDePieza`; el que armaba el texto de las otras redes (`textoParaRed`, `redes/texto-por-red.mjs`) se borró el 24/10/2026 (regla 308, ninguna tiene cuenta; está en el historial de git, con
+sus pruebas). Hoy sólo publican Facebook e Instagram; para las demás el texto queda listo, no hay ninguna cuenta ni se publica nada. Lo que no pude leer en la
 ayuda o la documentación oficial de cada red el 17/10/2026 está marcado **SIN VERIFICAR**; lo marcado "leído hoy" se leyó el 17/10 en la página que se cita.*
 
 ### Los hashtags (regla 281)
@@ -88,7 +88,7 @@ archivo) más la búsqueda de hoy para el tope de 5 hashtags de Instagram y el d
 ### Qué hace el código con esto (regla 281)
 
 - **Facebook e Instagram** (lo que ya se publica): `mensajeDeNota` y `pieDePieza` arman el texto; ahora siempre cierran con los hashtags (también las notas sin `textoRedes`, que antes no llevaban ninguno).
-- **El resto**: `textoParaRed('<red>', { tipo: 'nota' | 'reel' | 'historia', nota, pieza })` devuelve `{ texto, titulo, descripcion, enlace, hashtags, etiquetaDeTema, facetas, largo, maximo, cabe, avisos }`; si no
+- **El resto** (el programa se borró el 24/10/2026, regla 308; lo que sigue describe lo que hacía, por si se abre una cuenta): `textoParaRed('<red>', { tipo: 'nota' | 'reel' | 'historia', nota, pieza })` devuelve `{ texto, titulo, descripcion, enlace, hashtags, etiquetaDeTema, facetas, largo, maximo, cabe, avisos }`; si no
   entra, recorta en una palabra entera y avisa. TikTok y YouTube no publican notas (son de video). Una historia no lleva texto en ninguna. No publica nada ni habla con ninguna red.
 - **Los enlaces**: con `ENLACES_CORTOS` prendida salen como `radarbalcarce.com/r/<letra de la red>/<id>` (ver `ACORTADOR-DE-ENLACES.md`); apagada, con las UTM largas de siempre.
 

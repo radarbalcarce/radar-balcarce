@@ -117,7 +117,7 @@ titular y la bajada cortada en 220 caracteres; después, el cierre y los hashtag
 (regla 281, `hashtagsDe`): **`#Balcarce #RadarBalcarce` siempre, primeros** (`HASHTAGS_FIJOS`), y hasta tres de la nota (sus etiquetas o, si no trae, el tema de su sección),
 sin repetir: con los fijos, cinco como mucho, el tope que Instagram anunció en diciembre de 2025. Los pies de los reels llevan los dos fijos y uno del tipo de pieza
 (`hashtagsDePieza`: #Noticias, #Clima, #FarmaciaDeTurno…) después del aviso de la voz. El largo, los enlaces y los hashtags de las demás redes (Threads, X, Telegram, Bluesky, TikTok, YouTube Shorts, el canal de WhatsApp) están en
-`docs/redes/FORMATOS-POR-RED.md` y en `textoParaRed` (`redes/texto-por-red.mjs`, sin publicar nada). El cierre depende de la red (16/10, `lineaFinal`):
+`docs/redes/FORMATOS-POR-RED.md` (el programa `textoParaRed` de las otras redes se borró el 24/10, regla 308; sigue en el historial de git). El cierre depende de la red (16/10, `lineaFinal`):
 
 - **En Facebook**, una línea con el enlace a la nota (la frase cambia de nota en
   nota y es siempre la misma para la misma nota: `FRASES_DEL_ENLACE`). Desde el
@@ -695,7 +695,7 @@ anteriores cuenta las historias por el libro y lo dice.
 | `.github/workflows/piezas.yml` | Armar (y si se pide, publicar) piezas a mano | una persona, Actions → Piezas | `solo` (vacío no arma nada), `todas`, `publicar`, `destino`; los mismos secretos | artefacto (7 días); el libro si publicó |
 | `redes/publicar.mjs` | El programa: `--verificar`, `--facebook`, `--piezas [--sin-horario] [--destino=…]`, `--enlaces` | los dos workflows | `portada.json`, `redes.json`, `reels/salida/piezas.json` | `redes.json` |
 | `redes/medios-contados.mjs` | Cuántos medios distintos cuentan una nota (los del mismo dueño, uno): la barra de lo de afuera (regla 280) | `elegir.mjs` | `ingesta/fuentes*.mjs` | — |
-| `redes/texto-por-red.mjs` | `textoParaRed`: el texto de una nota o pieza para cada red (Facebook e Instagram como ya salen; Threads, X, Telegram, Bluesky, TikTok, YouTube, WhatsApp listos y probados, sin publicar) | pruebas | `elegir.mjs`, `piezas.mjs` | — |
+| ~~`redes/texto-por-red.mjs`~~ | Borrado el 24/10 (regla 308): era el texto para Threads, X, Telegram, Bluesky, TikTok, YouTube y WhatsApp, redes sin cuenta; está en el historial de git | — | — | — |
 | `redes/enlaces-cortos.mjs` | La gramática `/r/<red>/<destino>` y el interruptor `ENLACES_CORTOS` (regla 282) | `elegir.mjs`, el Worker de enlaces | — | — |
 | `redes/foto-cambiada.mjs` | Qué posteos de Facebook cambiaron de foto después de salir (regla 283) y la espera a la foto real | `publicar.mjs`, `elegir.mjs` | — | — |
 | `redes/elegir.mjs` | Qué se publica: reglas de Facebook (`vaAFacebookPorLoQueEs`, `esPopularParaRedes`), texto del posteo, hashtags fijos, qué notas cuenta cada podcast y su guion con presupuesto, el interruptor | `publicar.mjs`, `reels/plan.mjs`, contrato, avisos | `ingesta/criterio.mjs`, `web/lib/cuerpo.js` | — (funciones puras) |

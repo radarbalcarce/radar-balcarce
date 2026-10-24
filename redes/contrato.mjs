@@ -9,7 +9,7 @@
 //     · 1 historia de la farmacia de turno (19:00);
 //     · hasta 5 posteos de notas: en Facebook, con enlace; en Instagram, el
 //       espejo como foto del feed. Pueden ser menos si no hubo candidatas
-//       (relevancia 75 o más, tema no repetido, de 8 a 22).
+//       (de Balcarce con relevancia 75 o más, o lo muy contado; tema no repetido; de 8 a 22).
 //   SEMANALES, aparte (no cuentan en las 6 historias): los teléfonos útiles un
 //   día por semana (rotan, ver diaRotativoDeUtiles) y la agenda del jueves (sólo
 //   si hay eventos en los próximos días). El día no pasa de 8 historias en total
@@ -239,7 +239,7 @@ function contratoDeUnaRed(def, { libro, fecha, ahora, portada }) {
   ].map((ids) => ({ tipo: 'posteo', claves: ids, texto: `el mismo enlace o id figura ${ids.length} veces entre los posteos (${ids.join(', ')})` }));
   duplicadas.push(...posteosDuplicados);
 
-  const maximo = CONTRATO_DIARIO.posteosPorDia;
+  const maximo = FACEBOOK.porDia; // un solo lugar para el 5 (regla 308)
   const minutoDeCierreDePosteos = FACEBOOK.hastaHora * 60;
   const cerrado = fecha < hoy || (fecha === hoy && minutoDelDiaAR(ahora) > minutoDeCierreDePosteos);
   const abre = FACEBOOK.desdeHora * 60;

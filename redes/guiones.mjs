@@ -625,8 +625,9 @@ export function revisarTexto(texto, { tipo = 'voz', momento } = {}) {
     mal(/[!¡]/.test(t), 'tiene signos de exclamación');
     mal(/radarbalcarce|\.com\b/i.test(t), 'escribe la dirección en vez de decirla');
     // El trato (18/10, regla 301): vos rioplatense de locutor para hablarle a una persona y ustedes para desear algo a todos; nunca tuteo ("tienes",
-    // "guarda el dato", "tú") ni un voseo forzado de jerga ("che", "boludo").
-    mal(/\b(tú|tienes|puedes|quieres|sabes|recuerda|escríbenos|cuéntanos|abrígate|llévate|guarda el dato|anota el dato)\b/i.test(t), 'tutea (el trato es de vos)');
+    // "guarda el dato", "tú") ni un voseo forzado de jerga ("che", "boludo"). "recuerda" y "sabes" no están (regla 308): en un titular son del tercero
+    // ("Balcarce recuerda a Fangio") y daban un aviso falso; los textos fijos del código ya no las usan.
+    mal(/\b(tú|tienes|puedes|quieres|escríbenos|cuéntanos|abrígate|llévate|guarda el dato|anota el dato)\b/i.test(t), 'tutea (el trato es de vos)');
     mal(/\b(che|boludo|pibe|loco|bárbaro)\b/i.test(t), 'usa jerga forzada');
     mal(/punto com/i.test(t) && !/Radar Balcarce punto com/i.test(t), 'dice "punto com" sin "Radar Balcarce" adelante');
     mal(/punto com(?![.]|$)/i.test(t), 'agrega algo después de "punto com"');

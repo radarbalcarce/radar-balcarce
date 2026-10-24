@@ -23,7 +23,7 @@ import { fijarEnlacesCortos } from './enlaces-cortos.mjs';
 import { traerFotosDeLaPortada } from '../infra/compartido/fotos-r2.mjs';
 import { fotosCambiadasDespuesDelPosteo } from './foto-cambiada.mjs';
 import {
-  elegirParaFacebook, mensajeDeNota, enlaceDeNota, enlaceConOrigen, imagenDeNota, conCreditoDeFoto, libroNuevo, anotar, yaPublicada, estaActivo,
+  elegirParaFacebook, porQueNoHayPosteo, anotarSinPosteos, mensajeDeNota, enlaceDeNota, enlaceConOrigen, imagenDeNota, conCreditoDeFoto, libroNuevo, anotar, yaPublicada, estaActivo,
 } from './elegir.mjs';
 
 // Los archivos que lee y escribe, relativos a la carpeta del proyecto (el corredor de tareas de Cloudflare los baja y los guarda: infra/tareas-cloudflare/).
@@ -176,7 +176,10 @@ async function facebook() {
 
   const elegidas = elegirParaFacebook({ notas: portada.notas ?? [], libro });
   if (!elegidas.length) {
-    console.log('  Nada para publicar en Facebook ahora.');
+    const porQue = porQueNoHayPosteo({ notas: portada.notas ?? [], libro });
+    console.log(`  Nada para publicar en Facebook ahora${porQue.corte ? ` (${porQue.corte})` : `: ${porQue.candidatas} candidata(s); descartes ${JSON.stringify(porQue.descartes)}`}.`);
+    // El día abierto y sin con qué: queda anotado por qué (regla 308). Sólo se reescribe el libro si cambió.
+    if (anotarSinPosteos(libro, porQue) && ACTIVO) fs.writeFileSync(LIBRO, `${JSON.stringify(libro, null, 2)}\n`);
     return;
   }
 
