@@ -6,7 +6,8 @@ compatibility_date = "2026-10-01"
 [triggers]
 # Cada expresión sólo DESPIERTA al Worker; qué pide a GitHub en cada minuto (y a qué horas) lo decide `trabajosDelMinuto` en worker.mjs, que
 # tiene su prueba (pruebas/reloj-cloudflare.test.mjs). Despertarlo de más no cuesta nada: si no toca nada, no pide nada.
-#   "0,30 * * * *"                       Actualizar la web (siempre); Vigilancia (cada 3 horas y sus reintentos); 2º intento del informe
+#   "0,30 * * * *"                       Actualizar la web (siempre; con la variable MOTOR_NOCHE_CADA_HORA="Si" del panel, de 23:00 a 6:59 sólo los :00,
+#                                        regla 311); Vigilancia (cada 3 horas y sus reintentos); 2º intento del informe
 #   "5,35,45 * * * *"                    Redes, sólo de 7 a 23 de Balcarce
 #   "15 0,11 * * *"                      el informe diario por mail, 8:15 y 21:15 de Balcarce
 #   "20 0,2,10,12,14,16,18,20,22 * * *"  Ilustrar notas sin foto, cada 2 horas de 7:20 a 23:20 de Balcarce (regla 185)

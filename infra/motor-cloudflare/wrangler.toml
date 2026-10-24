@@ -10,3 +10,5 @@ binding = "MOTOR"
 bucket_name = "radar-motor"
 
 # Secretos (con `wrangler secret put`, nunca acá): VIGILANTE_TOKEN (el mismo de los demás Workers).
+# Variable opcional, del panel de Cloudflare (no acá): MOTOR_NOCHE_CADA_HORA="Si" (la misma que en el reloj; regla 311). Sin ella, la proyección del mes
+# del GET /estado cuenta 48 vueltas por día aunque el reloj pida 40.

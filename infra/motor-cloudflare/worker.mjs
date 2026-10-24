@@ -6,7 +6,7 @@
 //
 // Lee de R2 (binding MOTOR, el depósito `radar-motor`) lo que escribe la vuelta (estado-r2.mjs). Sin dependencias.
 
-import { mesDe, claveDelMes, debeCorrer } from './presupuesto.mjs';
+import { mesDe, claveDelMes, debeCorrer, proyectar, vueltasPorDia, avisoDeMinutos } from './presupuesto.mjs';
 
 const CLAVE_DEL_ESTADO = 'motor/estado.json';
 
@@ -26,10 +26,19 @@ async function leerJson(deposito, clave) {
 }
 
 /** El estado del motor tal como lo ve el vigilante. */
-export async function estadoDelMotor(deposito, ahora = new Date()) {
+export async function estadoDelMotor(deposito, ahora = new Date(), env = {}) {
   const [ultima, registro] = await Promise.all([leerJson(deposito, CLAVE_DEL_ESTADO), leerJson(deposito, claveDelMes(mesDe(ahora)))]);
   const presupuesto = debeCorrer({ registro, ultimaVueltaBuena: ultima?.ultimaBuena ?? null, ahora });
-  return { ultima, mes: registro ? { mes: registro.mes, minutos: Math.round((registro.segundos ?? 0) / 60), vueltas: registro.vueltas } : null, presupuesto };
+  // 24/10/2026 (regla 311): cuánto llevaría el mes al ritmo pedido con lo que de verdad tardan las vueltas, y en qué pasos se van los minutos.
+  // Lo lee el vigilante para avisar antes de que el presupuesto empiece a saltear vueltas.
+  const proyeccion = proyectar({ registro, ahora, vueltasPorDiaPedidas: vueltasPorDia(env) });
+  return {
+    ultima,
+    mes: registro ? { mes: registro.mes, minutos: Math.round((registro.segundos ?? 0) / 60), vueltas: registro.vueltas, compiladas: registro.compiladas ?? null, sinCompilar: registro.sinCompilar ?? null, masLargaMinutos: registro.masLarga ? Math.round(registro.masLarga / 6) / 10 : null } : null,
+    presupuesto,
+    proyeccion,
+    aviso: avisoDeMinutos(proyeccion),
+  };
 }
 
 export default {
@@ -38,7 +47,7 @@ export default {
     if (url.pathname === '/estado') {
       if (!mismoToken(request.headers.get('x-token'), env.VIGILANTE_TOKEN)) return json({ error: 'sin permiso' }, 401);
       if (!env.MOTOR) return json({ error: 'falta el depósito MOTOR' }, 500);
-      return json(await estadoDelMotor(env.MOTOR));
+      return json(await estadoDelMotor(env.MOTOR, new Date(), env));
     }
     return new Response('Motor de Radar Balcarce: en hora. La vuelta corre en Workers Builds.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } });
   },

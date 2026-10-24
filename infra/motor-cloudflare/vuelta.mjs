@@ -33,6 +33,9 @@ import {
 import {
   restaurarCache, guardarCache, tomarCandado, soltarCandado, anotarVuelta,
 } from './estado-r2.mjs';
+import { minutosDeMasPorVuelta } from './presupuesto.mjs';
+import { sincronizarTarjetas } from './tarjetas-r2.mjs';
+import { configuracionDeR2 as configuracionDeTarjetas } from '../compartido/tarjetas-r2.mjs';
 import { hayQueRecompilar } from '../../web/scripts/recompilar.mjs';
 import { huellaDelSitio, decidirSiCompilar, escribirLaHuella, huellaPublicada as leerHuellaPublicada } from '../../web/scripts/huella-del-sitio.mjs';
 import { avisar } from '../../redes/avisar-por-mail.mjs';
@@ -96,6 +99,10 @@ export function configurar(env = process.env) {
     r2Fotos: cuenta && (env.R2_ARCHIVO ?? '').trim() && env.R2_ACCESS_KEY_ID && env.R2_SECRET_ACCESS_KEY
       ? { cuenta, bucket: (env.R2_ARCHIVO ?? '').trim(), accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY } : null,
     id: env.WORKERS_CI_BUILD_UUID || env.MOTOR_ID || `vuelta-${Date.now()}`,
+    // TARJETAS_EN_R2 ("Si", regla 311): la memoria de tarjetas vive en R2 (objetos sueltos por huella) y la compilación baja sólo las que pide.
+    tarjetasEnR2: configuracionDeTarjetas(env) !== null,
+    // Lo que se le suma a cada vuelta en el registro de minutos por lo que ella no ve de sí misma (MOTOR_MINUTOS_DE_MAS; 0,5 si no está).
+    minutosDeMas: minutosDeMasPorVuelta(env),
   };
 }
 
@@ -120,6 +127,8 @@ export async function vuelta({
   const depositoFotos = cfg.fotosEnR2 && !cfg.simular ? (r2Fotos ?? (cfg.r2Fotos ? clienteR2(cfg.r2Fotos) : null)) : null;
   let tenemosElCandado = false;
   let resultado = { ok: false, pasos };
+  // ¿Esta vuelta compiló el sitio? (null: no llegó a decidirlo). Sirve para el registro de minutos (regla 311).
+  let compilo = null;
 
   let anotaciones = null;
   const correr = async (nombre, comando, args, { cwd = raiz, extra = {}, puedeFallar = false, capturar = false } = {}) => {
@@ -183,7 +192,12 @@ export async function vuelta({
 
     // 4. La memoria del cruce de medios y lo que el celular lee de las notas enteras (antes: actions/cache).
     let memoria = new Map();
-    if (deposito) { memoria = await restaurarCache(deposito, raiz); log(`Memoria restaurada: ${memoria.size} archivo(s).`); }
+    if (deposito) {
+      const t0 = ahora().getTime();
+      memoria = await restaurarCache(deposito, raiz);
+      pasos['Traer la memoria del cruce (R2)'] = { ok: true, segundos: Math.round((ahora().getTime() - t0) / 1000), archivos: memoria.size };
+      log(`Memoria restaurada: ${memoria.size} archivo(s).`);
+    }
 
     // 5. Buscar noticias y armar los datos. La foto de los archivos de antes es lo que después permite saber qué cambió.
     const antes = fotografiar(raiz);
@@ -193,6 +207,7 @@ export async function vuelta({
     let indiceR2 = new Set();
     if (cfg.fotosEnR2 && !cfg.simular && !depositoFotos) log('(FOTOS_EN_R2 está prendida pero faltan R2_ARCHIVO o las claves de R2: las fotos siguen yendo a git)');
     if (depositoFotos) {
+      const tFotos = ahora().getTime();
       try {
         indiceR2 = await indiceDeFotos(depositoFotos);
         guardarIndice(raiz, indiceR2);
@@ -202,14 +217,19 @@ export async function vuelta({
         const nombres = fotosQueNecesitan(leerLista('web/data/portada.json')?.notas ?? [], Array.isArray(archivoNotas) ? archivoNotas : []).filter((n) => indiceR2.has(n)).slice(0, 800);
         const h = await hidratar({ raiz, nombres, leer: lectorDeR2(depositoFotos), limiteSegundos: 150, ahora: () => ahora().getTime(), log });
         for (const n of h.bajadas) hidratadas.add(n);
-        pasos['Traer las fotos de R2'] = { ok: true, segundos: 0, bajadas: h.bajadas.size, faltan: h.faltan.length, fallaron: h.fallaron.length };
+        pasos['Traer las fotos de R2'] = { ok: true, segundos: Math.round((ahora().getTime() - tFotos) / 1000), bajadas: h.bajadas.size, faltan: h.faltan.length, fallaron: h.fallaron.length };
         log(`Fotos de R2: ${indiceR2.size} en el depósito, ${h.bajadas.size} traídas para compilar${h.faltan.length + h.fallaron.length ? ` (${h.faltan.length} que R2 no tiene, ${h.fallaron.length} que fallaron)` : ''}.`);
       } catch (e) { log(`(no se pudo leer el depósito de fotos: ${e.message}; la vuelta sigue como si no hubiera R2)`); }
     }
     // El commit con el que empezó esta vuelta: lo que entre después es lo que "entró mientras se armaba" (paso 8).
     const cabezaAlInicio = env.WORKERS_CI_COMMIT_SHA || (gh && !cfg.simular ? await gh.cabeza().catch(() => null) : null);
     await correr('Buscar noticias y armar los datos', 'node', ['scripts/generar-datos.mjs'], { cwd: web, capturar: true });
-    if (deposito && !cfg.simular) log(`Memoria guardada: ${await guardarCache(deposito, raiz, memoria)} archivo(s) nuevo(s) o cambiados.`);
+    if (deposito && !cfg.simular) {
+      const t0 = ahora().getTime();
+      const subidos = await guardarCache(deposito, raiz, memoria);
+      pasos['Guardar la memoria del cruce (R2)'] = { ok: true, segundos: Math.round((ahora().getTime() - t0) / 1000), archivos: subidos };
+      log(`Memoria guardada: ${subidos} archivo(s) nuevo(s) o cambiados.`);
+    }
 
     // 6. Compilar el sitio UNA vez y revisar el SEO.
     const compilar = async (cual) => {
@@ -217,7 +237,7 @@ export async function vuelta({
       await correr(`${cual === 'Compilar el sitio' ? 'Revisar que el SEO siga en pie' : 'Revisar el SEO (otra vez)'}`, 'node', ['scripts/revisar-seo.mjs'], { cwd: web });
     };
     // Regla 304: si lo que lee la compilación es idéntico a lo publicado, no se compila ni se sube (la huella está en el propio sitio).
-    let compilo = true;
+    compilo = true;
     if (huellaPublicada && !cfg.simular) {
       try {
         const decision = decidirSiCompilar({
@@ -255,7 +275,9 @@ export async function vuelta({
     log(`\n▶ Guardar si cambió algo: ${cambios.length} archivo(s) distintos.`);
     if (cfg.simular) log('  (simulacro: no se guarda)');
     else if (cambios.length) {
+      const tCommit = ahora().getTime();
       const r = await gh.commitear({ mensaje: `Datos de la portada · ${fechaCorta(ahora())}`, cambios });
+      pasos['Guardar los datos en GitHub'] = { ok: true, segundos: Math.round((ahora().getTime() - tCommit) / 1000), archivos: cambios.length };
       padre = r.padre ?? null;
       log(`  guardado${r.sha ? ` (${r.sha.slice(0, 7)})` : ''} en ${r.intentos} intento(s).`);
     } else log('  Sin novedades en los datos: se sube igual lo compilado.');
@@ -284,6 +306,20 @@ export async function vuelta({
           } else log('Mientras se armaba sólo entró lo que el sitio no lee: se sube lo ya compilado.');
         }
       } catch (e) { log(`(no se pudo comparar con lo que entró en el medio: ${e.message}; se sube lo compilado)`); }
+    }
+
+    // 8b. La memoria de tarjetas en R2 (regla 311, apagada por defecto): lo que esta compilación dibujó de nuevo se guarda, lo que pidió se anota y lo que
+    // nadie pidió en 3 días se borra. Antes de subir el sitio y con tope de tiempo: nunca atrasa ni frena la publicación.
+    if (cfg.tarjetasEnR2 && deposito && !cfg.simular && compilo) {
+      const t0 = ahora().getTime();
+      try {
+        const r = await sincronizarTarjetas(deposito, path.join(raiz, '.cache', 'tarjetas'), { ahora: ahora(), desde: inicio, log, reloj: () => ahora().getTime() });
+        pasos['Guardar las tarjetas nuevas en R2'] = { ok: r.fallidas === 0, segundos: Math.round((ahora().getTime() - t0) / 1000), ...r };
+        log(`Tarjetas: ${r.pedidas} pedidas en esta compilación, ${r.subidas} nuevas a R2${r.fallidas ? ` (${r.fallidas} no se pudieron subir)` : ''}${r.pendientes ? `, ${r.pendientes} quedan para la vuelta siguiente` : ''}, ${r.borradas} borradas por viejas; en R2 quedan ${r.enR2}.`);
+      } catch (e) {
+        pasos['Guardar las tarjetas nuevas en R2'] = { ok: false, segundos: Math.round((ahora().getTime() - t0) / 1000) };
+        log(`(no se pudo dejar la memoria de tarjetas en R2: ${e.message}; el sitio se sube igual)`);
+      }
     }
 
     // 9. El archivo permanente (R2): no frena la subida.
@@ -316,7 +352,7 @@ export async function vuelta({
   } finally {
     if (deposito && !cfg.simular && tenemosElCandado) {
       const segundos = (ahora().getTime() - inicio) / 1000;
-      try { await anotarVuelta(deposito, { id: cfg.id, ok: resultado.ok, motivo: resultado.motivo ?? null, segundos, pasos, ahora: ahora(), anotaciones }); } catch (e) { log(`(no se pudo anotar la vuelta en R2: ${e.message})`); }
+      try { await anotarVuelta(deposito, { id: cfg.id, ok: resultado.ok, motivo: resultado.motivo ?? null, segundos, pasos, ahora: ahora(), anotaciones, compilo, extraMinutos: cfg.minutosDeMas }); } catch (e) { log(`(no se pudo anotar la vuelta en R2: ${e.message})`); }
       await soltarCandado(deposito, { id: cfg.id });
     }
     log(`\nVuelta ${resultado.omitida ? 'saltada' : resultado.ok ? 'terminada' : 'fallida'} en ${resultado.segundos ?? Math.round((ahora().getTime() - inicio) / 1000)} s.`);

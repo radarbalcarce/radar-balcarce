@@ -59,3 +59,5 @@ jobs:
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
+          TARJETAS_EN_R2: ${{ vars.TARJETAS_EN_R2 }}
+          MOTOR_MINUTOS_DE_MAS: ${{ vars.MOTOR_MINUTOS_DE_MAS }}
