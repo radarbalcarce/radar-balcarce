@@ -20,7 +20,7 @@ escribir siempre en castellano rioplatense, claro y sin voseo forzado.
     web/       el sitio (Next.js 15, JavaScript, HTML estático); web/public/panel/ es el panel del celular; web/scripts/generar-datos.mjs arma los datos
     pruebas/   `npm test`: unas 3.000 pruebas, sin red (en la vuelta de 30 minutos sólo corre el núcleo legal, `npm run test:nucleo`)
     docs/      la documentación: 00-INDICE a 13-EFEMERIDES, DECISIONES.md, propuestas/ (lo abierto) e historico/. Sin programas adentro
-    scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas, revisión de fuentes
+    scripts/medir/  mediciones a mano: repetidas por significado, cruce coherente, informe del día, calibrar repetidas, revisión de fuentes, por qué no entró
     infra/     los Workers de Cloudflare (reloj, vigilante, tareas, archivo, enlaces, motor en Workers Builds) y `infra/compartido/`
     Dormidos (existen y tienen pruebas, pero producción no los usa; los despierta o los borra el dueño, no se tocan sin preguntar):
                comercial/ (guía de comercios), motor/ (cimientos de una base D1), `sePuedeSola` (redes/elegir.mjs)
@@ -45,7 +45,7 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 316** (la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
+(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 316** (la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
 último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
 de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
 instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la
@@ -107,7 +107,7 @@ documentación.)
   retira la revisión del archivo (regla 212) va aparte, en `web/data/revision-archivo.json`, que
   escribe sólo su workflow y no se poda: cuenta igual que lo retirado a mano.
 - **Las ventanas de tiempo**: la portada muestra **36 horas** (`HORAS_EN_PORTADA`; las secciones
-  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12** (**24** si lo cuentan 8 medios o más: regla 287; **36** si es de Balcarce: regla 293);
+  guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **12** (**24** si lo cuentan 8 medios o más: regla 287; **36** si es de Balcarce: regla 293); la edad del hecho se cuenta desde la **mediana de las fuentes** en lo muy contado y en lo de Balcarce y desde la fuente más vieja en el resto (regla 314; variable `FECHA_DEL_HECHO`, `vieja` vuelve a lo de antes);
   la página dura 180 días en teoría, pero el tope de notas en el sitio es el de la variable `TOPE_DE_NOTAS` (hoy **500**; el techo técnico de 3.700 es `PORTADA.maximoDeNotas`, medido el 15/10: 15.900 archivos de los 20.000 de Cloudflare) y, con unas 120 notas por día, una nota está unos 4 días en el sitio; el resto lo da el archivo permanente en R2; lo raspado de más de 72 horas no entra. Los
   números viven en `ingesta/criterio.mjs` y `web/lib/archivo.js` los importa (no hay copias, desde la regla 293).
 - **Una nota tiene una sola fecha**, que envejece y nunca rejuvenece (`fechaReal`,
@@ -203,7 +203,7 @@ documentación.)
 | Cómo se juntan las notas del mismo hecho | `CRUCE` y el cruce coherente, que no encadena (`CRUCE.coherente`, `CRUCE_COHERENTE`, regla 184: `docs/flujos/CRUCE-COHERENTE.md`) (`ingesta/cruce.mjs`), `agruparRepetidas` y `quitarRepetidas` (`ingesta/lectura-ia.mjs`), y las que vuelven con otra dirección, `web/lib/repetidas.js`; lo de acá con otras palabras, la huella de significado (`ingesta/huellas-significado.mjs`, regla 195: `docs/flujos/REPETIDAS-2-0.md`) |
 | Cualquier número del criterio | `ingesta/criterio.mjs` **y** la tabla "Los números" de `CRITERIO-EDITORIAL.md` |
 | Cuántos medios pide lo de afuera (3) y en las áreas chicas (2) | Las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (sin tocar código); el valor de siempre y qué áreas son chicas, `POPULARIDAD` y `AREAS_CHICAS` (`ingesta/criterio.mjs` **y** la tabla del criterio), `ingesta/popularidad.mjs` (regla 260) |
-| Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261) |
+| Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261); el motivo de cada historia (lista cerrada `MOTIVOS`, primero y último, con quién se unió; «otros» ya no se anota: regla 314), `node scripts/medir/por-que-no-entro.mjs` (repetición sin red de por qué no entró, con la fecha del hecho por mediana o por la fuente más vieja) |
 | Cómo decide la lectura con IA | `ingesta/lectura-ia.mjs`; lo que sabe de Balcarce, `ingesta/perfil-balcarce.md` (va tal cual a la IA) |
 | Cómo escribe la IA | `CRITERIO-EDITORIAL.md` § 4 y § 12; medir un cambio con `reels/comparar-instruccion.mjs` |
 | El verificador o los arreglos que no inventan | `ingesta/verificar.mjs` (`verificar`, `arreglarEscritura`, `diceEnVivo`) |

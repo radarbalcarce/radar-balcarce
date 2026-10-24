@@ -237,6 +237,11 @@ por sección: cuántas historias llegaron al cruce y con cuántos medios (1, 2, 
 cuántas pasaron el semáforo, cuántas aprobó la lectura con IA, cuántas se publicaron (y con cuántos
 medios), y las que quedaron afuera con su motivo (pocas fuentes, la IA la sacó, el semáforo, repetida,
 sin cuerpo, llegó tarde); además, el total publicado del día y su ritmo por hora. Se guardan 60 días.
+**Desde el 24/10 (regla 314) cada historia guarda también su motivo**, de una lista cerrada (`MOTIVOS`,
+`ingesta/estadistica-seleccion.mjs`): el último, el primero que la frenó (no se pisa) y con quién se unió; «otros» ya no
+se anota (una verde que espera su turno es `en_cola`; lo que no encuentra motivo es `sin_motivo` y la corrida avisa),
+«pocas fuentes» va antes que «la IA la sacó» (con 2 medios en una sección que pide 3 no podía salir de todos modos) y
+la suma de los motivos de un día, el campo `motivos`, es siempre `llegaron`.
 `node scripts/medir/estadistica-seleccion.mjs` arma el reporte (un HTML de un solo archivo, en
 `.cache/`, con una tabla "si el mínimo nacional fuera 2, 3, 4 o 5, cuántas notas por día y por
 sección habría" y los días en que una sección quedó sin notas); el informe diario de las 8:15 y las
@@ -344,11 +349,13 @@ notas de la misma falsa oferta de empleo salieron con títulos distintos). Enton
 3. Los grupos se suman a los de corridas anteriores (`unirGrupos`: si antes A y B,
    y ahora B y C, son A, B y C), mientras sus notas sigan en la ingesta.
 4. De cada grupo **queda una** (`quitarRepetidas`): la ya publicada (en la portada
-   anterior o en el archivo, dentro de las 36 horas), la verde, la que cuentan más
+   anterior o en el archivo, **aunque su hecho ya tenga más de 36 horas**: regla 314),
+   la verde, la que cuentan más
    medios, la de más puntaje. **Se le suman los medios de las otras y, desde el
    15/10, también sus fuentes** (`origenes` y `fuentesTexto`, sin repetir un
    enlace: regla 174), así la IA escribe con todas. Si otra versión del mismo hecho
-   era roja o "necesita ojo humano", la que queda hereda ese color. Las demás
+   era roja o "necesita ojo humano", la que queda hereda ese color (**salvo que la que
+   queda sea de Balcarce: no hereda el amarillo, regla 314; el rojo sí**). Las demás
    salen; si alguna ya fue a las redes, conserva su página.
 
 **Además** (en `generar-datos.mjs`; las tres primeras, sin IA):

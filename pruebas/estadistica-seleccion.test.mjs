@@ -24,7 +24,7 @@ const fin = (id, semaforo, motivo = '', seccion = null, medios = 1) => ({ id, se
 
 test('la estadística cuenta las mismas catorce secciones que la lectura con IA, y los resultados tienen texto', () => {
   assert.deepEqual(SECCIONES_DE_LA_ESTADISTICA, seccionesDeLaFicha());
-  assert.deepEqual(Object.keys(RESULTADOS).sort(), ['ia', 'otros', 'pocasFuentes', 'publicada', 'repetida', 'retirada', 'semaforo', 'sinCuerpo', 'tarde', 'unMedio']);
+  assert.deepEqual(Object.keys(RESULTADOS).sort(), ['enCola', 'ia', 'otros', 'pocasFuentes', 'publicada', 'repetida', 'retirada', 'semaforo', 'sinCuerpo', 'sinMotivo', 'tarde', 'unMedio']);
   assert.equal(DIAS_GUARDADOS, 60);
   assert.deepEqual(['1', '2', '5', '6', '9', '40'].map((n) => cuboDeMedios(Number(n))), ['1', '2', '5', '6+', '6+', '6+']);
 });
@@ -51,7 +51,8 @@ test('cómo termina cada historia: publicada, la IA la sacó, repetida, sin cuer
   assert.equal(de('amar').resultado, 'semaforo');
   assert.equal(de('poco').resultado, 'pocasFuentes');
   assert.equal(de('espera').resultado, 'ia', 'una que espera a que la IA la lea cuenta como de la IA');
-  assert.equal(de('tarde').resultado, 'otros', 'verde que no salió y no está sin cuerpo: llegó tarde, retirada, unida…');
+  assert.equal(de('tarde').resultado, 'enCola', 'verde que no salió, no está sin cuerpo y no llegó tarde: espera su turno (regla 314: «otros» ya no se anota)');
+  assert.ok(!obs.some((o) => o.resultado === 'otros'));
   assert.equal(de('acaPub').deAca, true);
   assert.equal(obs.length, 10);
 });

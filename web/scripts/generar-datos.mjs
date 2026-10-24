@@ -66,7 +66,7 @@ import { cuentaDelDia, anotarDia, comoHistoriaJson as comoNotasPorDiaJson } from
 import {
   vigenteEnPortada, slugsConocidos, fijarSlug, actualizarArchivo, aligerarViejas, idsEnRedes, sinPuntaje, comoArchivoJson, guardiaDelArchivo, ingestaSana, bajasDelArchivo, mesDeLaNota, conBajasEnElHistorico,
   idsRetiradosAMano, correccionesAMano, conCorreccion, cambiosDeLaAuditoria, conCambiosDeLaAuditoria, fechaDeLaNota, llegaTarde, horasParaEstrenar,
-  conFechaSinError, HORAS_DE_UN_HECHO,
+  conFechaSinError, HORAS_DE_UN_HECHO, idsQueYaTienenPagina, seccionSinSaltos,
   esDeLoQueNuncaSePublica, pierdeLaPagina, podarRetiradas, comoRetiradasJson, sePodaPorFaltaDeCuerpo, topeDeNotas, topeDeEstaVuelta, MAXIMO_EN_ARCHIVO,
 } from '../lib/archivo.js';
 import { diaAR, diaSemanaAR } from '../../ingesta/zona.mjs';
@@ -75,7 +75,7 @@ import {
 } from '../../ingesta/ingesta.mjs';
 import { MOTIVO_ESPERA_LECTURA } from '../../ingesta/lectura-ia.mjs';
 import {
-  observarCorrida, anotarCorrida, contarUnSoloMedio, motivoDeUnaMuyContada, leerEstado as leerEstadisticaDeLaSeleccion, comoJson as comoEstadisticaDeLaSeleccionJson,
+  observarCorrida, anotarCorrida, contarUnSoloMedio, motivoDeUnaMuyContada, sinMotivo, leerEstado as leerEstadisticaDeLaSeleccion, comoJson as comoEstadisticaDeLaSeleccionJson,
 } from '../../ingesta/estadistica-seleccion.mjs';
 import { reporteHtml as reporteDeLaSeleccionHtml } from '../../scripts/medir/estadistica-seleccion.mjs';
 import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
@@ -108,7 +108,7 @@ import { traerF1, notasDeF1, comoF1Json } from '../../ingesta/f1.mjs';
 import { traerFutbol, notasDeFutbol, comoFutbolJson } from '../../ingesta/futbol.mjs';
 import { notasDePistas } from '../lib/notas-de-pistas.js';
 import { SECCIONES_SUMADAS } from '../../ingesta/secciones-nuevas.mjs';
-import { minimoNacional, minimoAreasChicas } from '../../ingesta/popularidad.mjs';
+import { minimoNacional, minimoAreasChicas, popularidadDe } from '../../ingesta/popularidad.mjs';
 
 const AQUI = import.meta.dirname;
 const SALIDA = path.join(AQUI, '..', 'data', 'portada.json');
@@ -215,6 +215,7 @@ let ultima = await ingestar({
 // Lo que llegó del cruce, antes de la lectura con IA: para la estadística de la selección (regla 260, ingesta/estadistica-seleccion.mjs).
 const delCruce = (ultima.notas ?? []).map((n) => ({
   id: n.id, titulo: n.titulo, seccion: n.seccion, medios: contarMedios(n.medios), deAca: esDeAca(n) || esDeUnMedioDeAca(n) || n.alcance === 'local',
+  oficial: !!n.oficial,
 }));
 const agenda = await agendaCompleta().catch(() => null);
 // Las decisiones de las personas son las del celular (las del panel de la PC, web/data/decisiones.json, vacías desde el 28/09,
@@ -274,6 +275,10 @@ const vistoAntes = Object.fromEntries([...(archivoAnterior.notas ?? []), ...(ant
 const fechaAntes = Object.fromEntries([...(archivoAnterior.notas ?? []), ...(anterior.notas ?? [])]
   .filter((n) => n.fecha && !n.sinFecha)
   .map((n) => [n.id, n.fecha]));
+// La sección con la que ya salió cada nota (regla 314, S4): la de la portada anterior manda sobre la del archivo.
+const seccionConLaQueSalio = Object.fromEntries([...(archivoAnterior.notas ?? []), ...(anterior.notas ?? [])]
+  .filter((n) => n.id && n.seccion)
+  .map((n) => [n.id, n.seccion]));
 // Lo que ya salió alguna vez (la portada anterior y el archivo): sólo eso puede
 // seguir en las listas con el hecho de más de HORAS_PARA_ESTRENAR (llegaTarde,
 // lib/archivo.js).
@@ -313,7 +318,8 @@ const vistas = {};
 /**
  * La fecha de una nota, una sola regla para todo (28/09): si la fuente no dio
  * hora, la primera vez que la vimos; si la dio, la más vieja que se conoce
- * (sus fuentes, la ya publicada, la primera vez que la vimos). Es la que se
+ * (sus fuentes, la ya publicada, la primera vez que la vimos) y, desde la regla 314, para lo muy
+ * contado y lo de acá, la mediana de sus fuentes en vez de la más vieja. Es la que se
  * muestra, la que ordena y la que decide si llega tarde (llegaTarde).
  */
 const primeraVista = (n) => vistoAntes[n.id] ?? vistas[n.id];
@@ -321,7 +327,10 @@ const primeraVista = (n) => vistoAntes[n.id] ?? vistas[n.id];
 // cruce pegó) no la envejecen. La fecha ya publicada sigue mandando (fechaAntes, corregida arriba si era un error).
 const fechaReal = (n) => (n.cuando === 'sin fecha en la fuente'
   ? (primeraVista(n) ?? ahoraISO)
-  : fechaDeLaNota(n, { fechaAnterior: fechaAntes[n.id], visto: primeraVista(n), horas: HORAS_DE_UN_HECHO }));
+  // Regla 314: lo muy contado y lo de acá toman la mediana de sus fuentes, no la más vieja (ingesta/fecha-del-hecho.mjs; FECHA_DEL_HECHO="vieja" vuelve a lo de antes).
+  : fechaDeLaNota(n, {
+    fechaAnterior: fechaAntes[n.id], visto: primeraVista(n), horas: HORAS_DE_UN_HECHO, medios: contarMedios(n.medios), deAca: esDeAca(n),
+  }));
 
 // La lectura con IA (plan V2.2, ingesta/lectura-ia.mjs). Desde el 27/09 DECIDE
 // (Hernán: sin prueba, se corrige en vivo): una IA lee cada nota nueva con el
@@ -332,6 +341,8 @@ const fechaReal = (n) => (n.cuando === 'sin fecha en la fuente'
 let sacadasPorLaIA = new Set();
 let motivosDeLaIA = new Map();
 let repetidasFuera = new Set();
+// Con cuál quedó cada una de las que juntó la lectura (id → id de la que queda): sólo para la estadística de la selección (regla 314).
+let repetidasCon = new Map();
 // Las parejas de notas que la IA confirmó que cuentan el mismo hecho con otras palabras (1/10): [[idA, idB], …]. Se
 // preguntan más abajo, con los títulos ya escritos; acá van las que se confirmaron antes (fichas.json).
 const confirmadasDe = (pares = {}) => Object.entries(pares).filter(([, v]) => v).map(([k]) => k.split('|'));
@@ -343,7 +354,7 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
 {
   try {
     const {
-      leerNotasNuevas, aplicarFichas, comoFichasJson, agruparRepetidas, quitarRepetidas, unirGrupos, candidatasParaAgrupar, LECTURA,
+      leerNotasNuevas, aplicarFichas, comoFichasJson, agruparRepetidas, quitarRepetidas, unirGrupos, candidatasParaAgrupar, ordenParaLeer, LECTURA,
       cupoDelMomento,
     } = await import('../../ingesta/lectura-ia.mjs');
     const { claveClasificacion } = await import('../../reels/claves.mjs');
@@ -351,7 +362,10 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
     const fichasAntes = leerJson(FICHAS, {});
     // Lo de un medio de acá se lee primero (regla 198): si el cupo diario de la lectura se acaba, lo que espera a la IA
     // (MOTIVO_ESPERA_LECTURA) es lo de acá, y lo de acá entra todo. Lo demás, por puntaje.
-    const primeroLoDeAca = [...(ultima.notas ?? [])].sort((a, b) => (b.alcance === 'local' ? 1 : 0) - (a.alcance === 'local' ? 1 : 0));
+    // Regla 314 (S6): después lo que ya llega a los medios que pide su sección, al final lo que sólo podría salir con otra sección o juntándose
+    // con otra, y lo que no puede salir por cantidad de ninguna manera no se lee (ordenParaLeer, ingesta/lectura-ia.mjs).
+    const { paraLeer: primeroLoDeAca, sinLeer } = ordenParaLeer(ultima.notas ?? []);
+    if (sinLeer.length) console.log(`  lectura con IA: ${sinLeer.length} historias no se leen (no llegan ni a los medios de un área chica)`);
     const { archivo: fichas, cuenta } = await leerNotasNuevas(primeroLoDeAca, { guardado: fichasAntes, registro: console.log });
     if (cuenta.sinClave) console.log('  lectura con IA: sin clave, se decide como siempre');
     const { notas: conFichas, cambios } = aplicarFichas(ultima.notas ?? [], fichas.fichas, {
@@ -400,13 +414,15 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
       }
     }
     fichas.repetidas = rep;
-    // Queda la que ya está publicada (en la portada anterior o en el archivo,
-    // todavía vigente en la portada, HORAS_EN_PORTADA): si no, desaparece de la
+    // Queda la que ya está publicada (en la portada anterior o en el archivo): si no, desaparece de la
     // portada y queda una que todavía espera cuerpo (27/09, la de YPF y la de
     // la maestra china).
-    const yaPublicadas = new Set([...(anterior.notas ?? []), ...(archivoAnterior.notas ?? []).filter((n) => vigenteEnPortada(n))].map((n) => n.id));
+    // Regla 314 (S3): todas las que tienen página, no sólo las que siguen dentro de las horas de la portada (la fecha de una historia es la
+    // de su fuente más vieja y una ya publicada salía del grupo a las pocas horas, dejando como sobreviviente a una sin cuerpo o «tarde»).
+    const yaPublicadas = idsQueYaTienenPagina({ anterior: anterior.notas ?? [], archivo: archivoAnterior.notas ?? [] });
     const { notas, repetidas } = quitarRepetidas(conFichas, rep.grupos, { publicadas: yaPublicadas });
     repetidasFuera = new Set(repetidas.map((r) => r.id));
+    repetidasCon = new Map(repetidas.map((r) => [r.id, r.queda]));
     // Con los medios de las repetidas sumados, una nota de afuera puede llegar
     // a los que pide su sección, y con la sección que corrigió la IA el mínimo
     // puede ser otro: la regla se vuelve a mirar, en los dos sentidos. Lo que
@@ -571,7 +587,9 @@ function notaPublicada(n) {
     // siempre — ver CRITERIO-EDITORIAL.md.
     cuerpo: deLaDecision?.cuerpo ?? auto?.cuerpo ?? null,
     guion: humana ? (deLaDecision?.guion ?? null) : (tituloAutomatico(deLaDecision?.guion ?? auto?.guion ?? '') || null),
-    seccion: n.seccion,
+    // Regla 314 (S4): una nota ya publicada no salta entre Política y Policiales de una vuelta a otra (la ficha de la IA, las palabras del título y
+    // cuál es la principal de la historia no siempre dicen lo mismo). Lo que corrige una persona (conCorreccion, más abajo) sigue mandando.
+    seccion: seccionSinSaltos(n.seccion, seccionConLaQueSalio[n.id]),
     // Si la IA o el clasificador la pasó a Educación, Salud o Ciencia (regla 211), la sección de antes: sirve para el hashtag de las redes
     // (#Balcarce si era de Balcarce, redes/elegir.mjs) y para saber de dónde vino.
     ...(n.seccionAntes ? { seccionAntes: n.seccionAntes } : {}),
@@ -1322,14 +1340,31 @@ try {
   const observaciones = observarCorrida({
     delCruce,
     finales: finales.map((n) => ({ id: n.id, seccion: n.seccion, semaforo: n.semaforo, motivo: n.motivo, medios: contarMedios(n.medios), descartada: !!n.descartada })),
-    publicadas: new Set(deLaIngesta.map((n) => n.id)),
+    // Publicada es lo que de verdad queda a la vista: una nota que esta misma vuelta se unió a otra (fusion) redirige y no cuenta (regla 314).
+    publicadas: new Set(deLaIngesta.filter((n) => !fusion.has(n.id)).map((n) => n.id)),
     sacadasPorLaIA, repetidas: repetidasFuera, sinCuerpo: new Set([...esperandoCuerpo, ...descartadasSinCuerpo].map((e) => e.id)),
-    // Lo que no es de la selección sino de lo que pasa después: una persona la retiró o se unió a otra / el hecho llegó pasado de horas.
-    retiradas: new Set(finales.filter((n) => RETIRADAS_A_MANO.has(n.id) || UNIDAS_FIRMES.has(n.id)).map((n) => n.id)),
+    // Regla 314: por qué la sacó la IA, con cuál se unió cada repetida (la lectura, la comparación con lo publicado o una unión firme),
+    // cuáles agotaron sus intentos de cuerpo y si alcanzan los medios que pide su sección (la cantidad va antes que «la IA la sacó»).
+    razonesDeLaIA: motivosDeLaIA,
+    unidas: new Map([
+      ...[...repetidasCon].map(([id, con]) => [id, { con, por: 'lectura' }]),
+      ...[...fusion].map(([id, con]) => [id, { con, por: 'publicadas' }]),
+      ...[...UNIDAS_FIRMES].map(([id, con]) => [id, { con, por: 'firme' }]),
+    ]),
+    descartadasSinCuerpo: new Set(descartadasSinCuerpo.map((e) => e.id)),
+    llegaPorCantidad: (h) => popularidadDe({ seccion: h.seccion, titulo: h.titulo }, h.medios).llega,
+    // Lo que no es de la selección sino de lo que pasa después: una persona la retiró (retiradas.json o una decisión del celular) / el hecho llegó pasado de horas.
+    retiradas: new Set(finales.filter((n) => RETIRADAS_A_MANO.has(n.id) || (decisionHumana(estado.decisiones[n.id]) && !['publicada', 'automatica'].includes(estado.decisiones[n.id].estado))).map((n) => n.id)),
     tarde: new Set(finales.filter((n) => !yaSalieron.has(n.id) && llegaTarde(fechaReal(n), Date.now(), horasDeEstreno(n))).map((n) => n.id)),
     yaSalieron, motivos: { pocoContada: MOTIVO_POCO_CONTADA, esperaLectura: MOTIVO_ESPERA_LECTURA },
     vistaDe: (id) => vistas[id] ?? null, ahora,
   });
+  // Regla 314: toda historia que llega termina con un motivo de la lista cerrada. Si alguna quedó sin motivo es un hueco de la estadística, no de la
+  // selección: se avisa arriba de la corrida (no frena nada).
+  {
+    const sinExplicar = sinMotivo(observaciones);
+    if (sinExplicar.length) console.log(`::warning title=Historias sin motivo::${sinExplicar.length} historias llegaron y no se pudo decir por qué no salieron (${sinExplicar.slice(0, 5).map((o) => o.id).join(', ')})`);
+  }
   // 23/10/2026 (Hernán: «ver los títulos de los de 10 o más fuentes y qué pasó»): las historias muy contadas (8 medios o más) que NO salieron, con su
   // título y el motivo, de los últimos 3 días: web/data/muy-contadas.json.
   try {

@@ -146,7 +146,10 @@ en rojo o amarillo sigue igual.
 todos los medios como fuentes (el cruce de medios, `ingesta/cruce.mjs`, y la IA que junta
 repetidas, `agruparRepetidas`). No se juntan notas distintas del mismo tema (dos
 prácticas del TC son dos notas). Queda, en este orden, la que ya está publicada, la que
-puede salir sola, la que cuentan más medios y la de más puntaje. Si la misma noticia
+puede salir sola, la que cuentan más medios y la de más puntaje. «La que ya está publicada»
+es toda la que tiene página, aunque su hecho ya tenga más de 36 horas (regla 314). Si la
+que queda es de Balcarce, no hereda la palabra sensible de otra versión (regla 291); si otra
+versión era roja, sí. Si la misma noticia
 igual vuelve a entrar con otra dirección (porque el medio cambió el enlace), se une sola:
 queda una y la otra dirección redirige a ésa (`web/lib/repetidas.js`).
 
@@ -154,7 +157,13 @@ queda una y la otra dirección redirige a ésa (`web/lib/repetidas.js`).
 (24 si la cuentan 8 medios o más: eso es noticia aunque haya pasado ayer a la noche; 36 si es
 de Balcarce, regla 293: los medios de acá publican tarde y las notas esperan cuerpo),
 y la portada y las secciones muestran sólo las últimas 36. La fecha de una nota es la más
-vieja que se conoce: un medio que actualiza la suya no la rejuvenece. De lo que se lee
+vieja que se conoce: un medio que actualiza la suya no la rejuvenece. **Salvo en lo que cuentan 8
+medios o más y en lo de Balcarce, donde el hecho tiene la fecha de la mediana de sus fuentes y
+no la de la más vieja** (regla 314, 24/10/2026): con tantos medios es casi seguro que alguno publicó
+un anticipo del día anterior, y esa fecha dejaba «tarde» (más de 24 horas) a una historia de 34
+medios que otro medio acababa de publicar. Las horas de cada ventana (12, 24, 36) son las mismas; lo
+que cambia es desde dónde se cuentan, y nunca se rejuvenece una nota ya publicada. La variable de
+GitHub `FECHA_DEL_HECHO` en «vieja» vuelve a contar siempre desde la fuente más vieja. De lo que se lee
 raspando la portada de un medio (El Diario Balcarce, que no tiene feed) se toma la fecha
 de adentro de cada nota y lo de más de 72 horas no se trae.
 

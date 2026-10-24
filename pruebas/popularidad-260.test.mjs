@@ -195,7 +195,8 @@ test('lo de afuera con un solo medio no pasa el cruce, ni de una fuente de cienc
 
 test('generar-datos dice qué mínimos rigen y no tiene ritmo; armarPortada es la misma que usa la ingesta', () => {
   const g = leer('../web/scripts/generar-datos.mjs');
-  assert.match(g, /import \{ minimoNacional, minimoAreasChicas \} from '\.\.\/\.\.\/ingesta\/popularidad\.mjs';/);
+  // popularidadDe se suma en la regla 314 (la estadística dice si alcanzan los medios de la sección antes que «la IA la sacó»).
+  assert.match(g, /import \{ minimoNacional, minimoAreasChicas, popularidadDe \} from '\.\.\/\.\.\/ingesta\/popularidad\.mjs';/);
   assert.match(g, /popularidad: lo nacional pide \$\{minimoNacional\(\)\} medios y las áreas chicas \$\{minimoAreasChicas\(\)\}/);
   assert.match(g, /aplicarPopularidad\(notas\.sort\(\(a, b\) => \(b\.relevancia \?\? 0\) - \(a\.relevancia \?\? 0\)\), \{ publicadas: yaSalieron, fecha: fechaReal \}\);/);
   assert.equal(typeof armarPortada, 'function');

@@ -43,6 +43,9 @@ Estado real al 24/10 (`gh variable list`): ninguna de estas variables existe tod
 Ojo con dos variables que parecen la misma: `REDES_ACTIVAS` (GitHub: hoy "No") y `REDES_ACTIVAS_NUBE` (Cloudflare: hoy "Sí"). **Manda la de la nube**; quien mire sólo GitHub cree que las
 redes están apagadas.
 
+**Por qué no entró (24/10, regla 314, `docs/etapa-10-operacion/POR-QUE-NO-ENTRO-ARREGLOS.md`):** *(Claude)* mirar en la estadística que cada día la suma de `motivos` dé `llegaron`, que no aparezca «Historias sin motivo» en la corrida y cuántas de 8 medios o más salen por día. *(Claude, cuando se pueda tocar `infra/`)* llevar `FECHA_DEL_HECHO` a Workers Builds (`VARIABLES` de `infra/motor-cloudflare/cargar-variables.mjs` y `motor-variables.yml`) para poder volver a `vieja` allá sin tocar código. *(Claude, S5 pendiente)* las uniones de repetidas con guarda de hecho principal: juntar una semana de uniones con título y medios, marcar a mano las malas y medir con `scripts/medir/calibrar-repetidas.mjs` antes de escribir nada. *(Hernán, decisiones D1 a D8 del informe `N-POR-QUE-NO-ENTRO`)*: contar las 36 horas de Balcarce desde que se vio la nota, qué hacer con una nota de Balcarce de un solo medio con verificación baja, el chico muerto sin nombrar, los chimentos de 14 medios, los cuerpos de 50 a 69 palabras, la nota de economía con el dólar, la ventana de 12 horas de lo nacional y el policial de la Patrulla Rural.
+
+**Quedó sacado y se rehace cuando lo pidan:** el prototipo de audio en la página (los podcasts para escuchar desde la nota); el panel nuevo del celular se hace de cero.
 ## 3. Pendiente de Claude
 
 "Lanza" = hace falta antes del lanzamiento.
