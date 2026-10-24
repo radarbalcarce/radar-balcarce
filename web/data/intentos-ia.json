@@ -1854,11 +1854,6 @@
   "ultimo": "2026-10-21T21:01:12.633Z",
   "motivo": "con cuerpo"
  },
- "1ufokdk": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T04:01:18.978Z",
-  "motivo": "con cuerpo"
- },
  "1uib2z8": {
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
@@ -2867,11 +2862,6 @@
   "ultimo": "2026-10-23T15:19:57.538Z",
   "motivo": "con cuerpo"
  },
- "dhznnq": {
-  "intentos": 2,
-  "ultimo": "2026-10-17T04:31:07.603Z",
-  "motivo": "con cuerpo"
- },
  "djuqer": {
   "intentos": 1,
   "ultimo": "2026-10-21T22:31:10.780Z",
@@ -3555,9 +3545,12 @@
   "motivo": "con cuerpo"
  },
  "olt0q0": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T19:33:09.867Z",
-  "motivo": "Gemini: HTTP 400 (clave redaccion): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PREC"
+  "intentos": 2,
+  "ultimo": "2026-10-24T04:31:09.717Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 206 palabras",
+  "falla": [
+   "el título nombra a \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica"
+  ]
  },
  "onp5c1": {
   "intentos": 1,
@@ -3702,11 +3695,6 @@
  "qr4p7v": {
   "intentos": 1,
   "ultimo": "2026-10-23T20:01:53.695Z",
-  "motivo": "con cuerpo"
- },
- "qrho5d": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T04:31:07.603Z",
   "motivo": "con cuerpo"
  },
  "quke5a": {
@@ -3882,6 +3870,15 @@
   "baja": true,
   "fuentes": 1
  },
+ "tpg5x6": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T04:31:09.717Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 95 palabras",
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 15 palabras seguidas del original (\"figura legal como presunta estafa abuso de autoridad o negociaciones incompatibles con la funcion…"
+  ]
+ },
  "tpivoa": {
   "intentos": 1,
   "ultimo": "2026-10-23T00:02:24.603Z",
@@ -3977,11 +3974,6 @@
  "v2mfmz": {
   "intentos": 1,
   "ultimo": "2026-10-23T03:02:27.826Z",
-  "motivo": "con cuerpo"
- },
- "vaow4u": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T04:01:18.978Z",
   "motivo": "con cuerpo"
  },
  "vaxkhs": {
