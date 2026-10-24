@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T22:32:35.071Z",
- "portada": 89,
+ "generado": "2026-10-24T23:03:19.777Z",
+ "portada": 88,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-24T22:32:35.763Z",
+  "generado": "2026-10-24T23:03:20.253Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-24T22:46:34.767Z"
    },
    {
     "nombre": "clima-noche",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -152,11 +152,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 42,
+    "segundos": 43,
     "notas": [
      {
-      "id": "vsnnzb",
-      "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+      "id": "vn1ufa",
+      "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
       "seccion": "Salud"
      },
      {
@@ -188,18 +188,35 @@
      "id": "1vxdqss",
      "titulo": "Fito Páez cuestiona al gobierno de Javier Milei y critica el sistema",
      "cuando": "2026-10-24T20:47:14.581Z"
+    },
+    {
+     "id": "vsnnzb",
+     "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+     "cuando": "2026-10-24T22:36:05.552Z"
     }
    ],
    "cola": [
     {
-     "id": "vsnnzb",
-     "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
+     "id": "vn1ufa",
+     "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
      "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "prtuo4",
+     "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1b4pjdh",
+     "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-24T22:17:14.581Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-25T00:06:05.552Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

@@ -20007,9 +20007,7 @@
   "ausenteDesde": "2026-10-23T17:38:37.719Z"
  },
  "6y60au": {
-  "archivo": "fotos-notas/6y60au.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Kicillof convoca a construir una alternativa electoral para 2027",
@@ -20029,7 +20027,8 @@
    "descripcion": "Axel Kicillof hablando en un atril con micrófono"
   },
   "huella": "192929296265e763",
-  "ausenteDesde": "2026-10-17T23:02:27.624Z"
+  "intentado": true,
+  "borrada": true
  },
  "1m52u47": {
   "archivo": "fotos-notas/1m52u47.jpg",
@@ -20359,9 +20358,7 @@
   "ausenteDesde": "2026-10-23T18:03:19.352Z"
  },
  "82uc2p": {
-  "archivo": "fotos-notas/82uc2p.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Kicillof encabeza un acto y asegura que el peronismo vuelve a gobernar",
@@ -20381,7 +20378,8 @@
    "descripcion": "Axel Kicillof hablando en un atril rodeado de dirigentes políticos."
   },
   "huella": "78ecd98494b4b6b2",
-  "ausenteDesde": "2026-10-17T23:02:27.624Z"
+  "intentado": true,
+  "borrada": true
  },
  "1uov8qv": {
   "medio": "El Día",
@@ -23832,7 +23830,8 @@
    "corresponde": "si",
    "descripcion": "Una paciente realizándose una mamografía asistida por una profesional de la salud."
   },
-  "huella": "041b93c783b72529"
+  "huella": "041b93c783b72529",
+  "ausenteDesde": "2026-10-24T23:03:19.733Z"
  },
  "11grheq": {
   "archivo": "fotos-notas/11grheq.jpg",
@@ -37998,6 +37997,77 @@
    "corresponde": "si",
    "descripcion": "Imagen dividida que muestra a Lula y a Flávio Bolsonaro durante el debate presidencial."
   },
-  "huella": "6761676662576363"
+  "huella": "6761676662576363",
+  "ausenteDesde": "2026-10-24T23:03:19.733Z"
+ },
+ "vn1ufa": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
+  "razon": "La mejor foto era la de Radio Gabal (FM 104.1), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-24T23:02:23.278Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "junk1f": {
+  "archivo": "fotos-notas/junk1f.jpg",
+  "medio": "News Balcarce (FM 91.7)",
+  "credito": "Foto: News Balcarce (FM 91.7)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Realizan la primera edición de la Expo Salud, Deporte y Tecnología",
+  "enlace": "https://newsbalcarce.com.ar/?p=31084",
+  "imagenOriginal": "https://newsbalcarce.com.ar/wp-content/uploads/APERTURA-EXPO-SALUD-DEPORTE-Y-TECNOLOGICA.jpg",
+  "razon": "Es la única opción que ilustra el evento sin mostrar menores de edad reconocibles, mostrando el acto de apertura o presentación.",
+  "cuando": "2026-10-24T23:02:23.278Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acto de presentación en un salón con una mujer hablando al micrófono y un grupo de personas de pie.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Una mujer habla ante un atril con micrófono frente a un público en un salón de exposiciones."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "414f19ebab1f1f0f"
+ },
+ "177zcz0": {
+  "archivo": "fotos-notas/177zcz0.webp",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Patricia Bullrich publica fotos junto a Javier Milei tras versiones de interna",
+  "enlace": "https://www.infobrisas.com/noticias/2026/10/24/112593-bullrich-en-la-fundacion-faro-una-noche-de-ideas-y-de-libertad",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/10/infobrisas/images/02/82/81/2828109_bd61a63284bffdbf8d49dadf22894672b914096ec918cc81179d799441f64eff/lg.webp?_v=v3-129",
+  "razon": "Es la mejor foto que corresponde al hecho, sin marcas de agua agregadas, menores ni problemas técnicos.",
+  "cuando": "2026-10-24T23:02:23.278Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Patricia Bullrich fundidos en un abrazo con gente aplaudiendo de fondo"
+  },
+  "huella": "0b95a453c7864707"
  }
 }
