@@ -18196,9 +18196,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "sddf3a": {
-  "archivo": "fotos-notas/sddf3a.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Guillermo Lobo y Lorena Maciel recuerdan al meteorólogo Fernando Confessore",
@@ -18207,7 +18205,8 @@
   "razon": "Tiene buena nitidez, encuadre adecuado y está libre de marcas de agua y menores.",
   "cuando": "2026-10-16T19:08:25.304Z",
   "huella": "e5a12727276e3e3e",
-  "ausenteDesde": "2026-10-17T19:01:49.545Z"
+  "intentado": true,
+  "borrada": true
  },
  "yqsuir": {
   "medio": "TN (Todo Noticias)",
@@ -18780,9 +18779,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "apovoe": {
-  "archivo": "fotos-notas/apovoe.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mediodía Noticias despide con profunda emoción a Fernando Confessore",
@@ -18802,7 +18799,8 @@
    "descripcion": "Conductor hablando y moviendo las manos en el estudio con imagen de fondo"
   },
   "huella": "d3dcf4e4a8a1a98d",
-  "ausenteDesde": "2026-10-17T19:01:49.545Z"
+  "intentado": true,
+  "borrada": true
  },
  "bfzt9z": {
   "intentado": true,
@@ -33489,7 +33487,8 @@
    "corresponde": "si",
    "descripcion": "Autos de carrera del Turismo Special de la Costa en la pista"
   },
-  "huella": "0f8f85a7a68da2c6"
+  "huella": "0f8f85a7a68da2c6",
+  "ausenteDesde": "2026-10-24T19:04:33.976Z"
  },
  "r41tr7": {
   "archivo": "fotos-notas/r41tr7.jpg",
@@ -35278,7 +35277,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista."
   },
-  "huella": "25d4a48d0ff361ff"
+  "huella": "25d4a48d0ff361ff",
+  "ausenteDesde": "2026-10-24T19:04:33.976Z"
  },
  "pcl0id": {
   "intentado": true,
@@ -37199,7 +37199,8 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto sonriendo con indumentaria de Alpine sosteniendo un casco."
   },
-  "huella": "2529acecccd999cf"
+  "huella": "2529acecccd999cf",
+  "ausenteDesde": "2026-10-24T19:04:33.976Z"
  },
  "16a1tyx": {
   "archivo": "fotos-notas/16a1tyx.jpg",
@@ -37316,10 +37317,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Declaran venerable a la argentina Margarita Bavosi",
-  "razon": "Ninguna de las fotos corresponde a la nota de Margarita Bavosi; todas muestran a otras personas (retratos o autoridades religiosas). (se probó una foto libre de \"Margarita Bavosi\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
-  "cuando": "2026-10-24T15:32:18.570Z",
-  "intentos": 1,
-  "fuentes": 5
+  "razon": "Ninguna de las fotos muestra a Margarita Bavosi o no corresponde a la nota. (se probó una foto libre de \"Margarita Bavosi\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
+  "cuando": "2026-10-24T19:02:54.660Z",
+  "intentos": 2,
+  "fuentes": 6
  },
  "1yxp5q5": {
   "intentado": true,
@@ -37510,5 +37511,86 @@
    "descripcion": "Fernando Gray hablando frente a un público en una sala"
   },
   "huella": "20280028eaea5431"
+ },
+ "xljti9": {
+  "archivo": "fotos-notas/xljti9.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei celebra versión sobre un apoyo de Israel al reclamo de Malvinas",
+  "enlace": "https://www.lacapital.com.ar/politica/milei-celebro-el-sorpresivo-respaldo-israel-malvinas-y-volvio-apuntar-contra-lula-n10288473.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/41ac57eae18d3155d642795a11238398/adjuntos/203/imagenes/103/099/0103099618/1200x675/smart/mieli.jpg",
+  "razon": "Es la única foto que muestra claramente a Javier Milei y Benjamin Netanyahu juntos, con buen encuadre y sin marcas de agua ni problemas.",
+  "cuando": "2026-10-24T19:02:54.660Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Benjamin Netanyahu dándose la mano frente a banderas"
+  },
+  "huella": "6064464e4e684ccc"
+ },
+ "1mztzfv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Libertad Avanza realiza una jornada masiva de afiliaciones",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `): la foto de Agencia DIB no se usa todavía.",
+  "cuando": "2026-10-24T19:02:54.660Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "wji9rt": {
+  "archivo": "fotos-notas/wji9rt.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Adjudican por 5,6 millones de dólares la producción de la misa papal en Buenos Aires",
+  "enlace": "https://www.clarin.com/sociedad/visita-papa-leon-xiv-produccion-general-misa-vigilia-jovenes-quedo-manos-empresa-organiza-lollapalooza_0_3cEkjKQUXl.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/17/i64dFGM8__2000x1500__1.jpg",
+  "razon": "Es la mejor foto disponible que ilustra el tema sin marcas añadidas, menores ni elementos gráficos.",
+  "cuando": "2026-10-24T19:02:54.660Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa saludando desde la ventanilla de un auto"
+  },
+  "huella": "f7bea6e6464e3e81"
+ },
+ "ngdggf": {
+  "archivo": "fotos-notas/ngdggf.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto afronta la clasificación y penaliza en el GP de Estados Unidos",
+  "enlace": "https://www.cronica.com.ar/depo/polideportivo/franco-colapinto-en-la-practica-libre-3-del-gran-premio-de-estados-unidos-hoy-en-vivo-a-que-hora-corre-y-como-verlo-por-tv-y-online/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1724/1724911/6adc83bcebdc9_600_315!.jpg?s=3ccafca3c90720c70a3e3ad0c89900c5&d=1792848432",
+  "razon": "Es la foto más clara del piloto en su monoplaza durante el evento, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-24T19:02:54.660Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con casco dentro del monoplaza"
+  },
+  "huella": "c3c77d868707030b"
  }
 }
