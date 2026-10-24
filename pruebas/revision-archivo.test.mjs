@@ -197,7 +197,8 @@ test('regla 212 (b): no se tocan las ilustraciones, las fotos propias, las que s
   assert.equal(revisionDeLaFoto(nota({ foto: { archivo: 'fotos-notas/n1-ia.jpg' } })).accion, 'no-aplica');
   assert.equal(revisionDeLaFoto(nota({ foto: { archivo: 'fotos-notas/collage-x.jpg' } })).accion, 'no-aplica');
   assert.equal(revisionDeLaFoto(CON_FOTO, { banco: BANCO({ origen: 'manual' }) }).accion, 'no-aplica');
-  assert.equal(revisionDeLaFoto(CON_FOTO, { banco: BANCO({ origen: 'libre' }) }).accion, 'no-aplica');
+  assert.equal(revisionDeLaFoto({ ...CON_FOTO, propia: 'futbol' }, { banco: BANCO({ origen: 'libre' }) }).accion, 'no-aplica', 'la libre del estadio de una nota propia de fútbol queda');
+  assert.equal(revisionDeLaFoto(CON_FOTO, { banco: BANCO({ origen: 'libre' }) }).accion, 'sacar', 'una libre en una nota con fuentes se saca (regla 319)');
   assert.equal(revisionDeLaFoto({ ...CON_FOTO, como: 'publicada', publicadaPor: 'Hernán' }, { banco: BANCO() }).accion, 'no-aplica');
   assert.equal(revisionDeLaFoto(CON_FOTO, { banco: BANCO(), manuales: { n1: { archivo: 'fotos-notas/n1.jpg' } } }).accion, 'no-aplica');
   // Con el interruptor de la excepción de chicos apagado (en las pruebas), una foto que entró por ella no se mira: la web ya no la muestra.
@@ -220,13 +221,16 @@ test('regla 212 (b): la misma foto en otra nota de OTRO tema se saca de la que l
   assert.equal(fotoRepetidaDeOtroTema(CON_FOTO, BANCO().n1, { ...BANCO(), c: { ...otra, archivo: 'fotos-notas/n1.jpg' } }), null);
 });
 
-test('regla 212 (b): Wikimedia sin año, de hace años o de otra persona, se saca (regla 205)', () => {
-  const wiki = (o) => BANCO({ origen: 'wikimedia', enlace: 'https://commons.wikimedia.org/wiki/File:Fito_P%C3%A1ez.jpg', razon: 'se usó una foto libre de "Fito Páez" de Wikimedia Commons', vision: FICHA_BIEN, ...o });
+test('regla 212 (b) y 319: una foto de Wikimedia Commons en una nota con fuentes se saca siempre, con año reciente y ficha buena también', () => {
+  const wiki = (o) => BANCO({ origen: 'wikimedia', enlace: 'https://commons.wikimedia.org/wiki/File:Fito_P%C3%A1ez.jpg', razon: 'se usó una foto libre de "Fito Páez" de Wikimedia Commons', vision: { ...FICHA_BIEN, anio: 2025 }, ...o });
   const fito = nota({ titulo: 'Fito Páez cuestiona a la seguridad en su show', fecha: '2026-10-10T12:00:00.000Z', foto: { archivo: 'fotos-notas/n1.jpg' } });
-  assert.match(revisionDeLaFoto(fito, { banco: wiki() }).motivo, /sin año/);
-  assert.match(revisionDeLaFoto(fito, { banco: wiki({ enlace: 'https://commons.wikimedia.org/wiki/File:Fito_P%C3%A1ez_2012.jpg' }) }).motivo, /de 2012 para un hecho de 2026/);
-  assert.equal(revisionDeLaFoto(fito, { banco: wiki({ vision: { ...FICHA_BIEN, anio: 2025 } }) }).accion, 'ok');
-  assert.match(revisionDeLaFoto({ ...fito, titulo: 'Un show en el Luna Park' }, { banco: wiki({ vision: { ...FICHA_BIEN, anio: 2025 } }) }).motivo, /que el título no nombra/);
+  const r = revisionDeLaFoto(fito, { banco: wiki() });
+  assert.equal(r.accion, 'sacar');
+  assert.match(r.motivo, /regla 319/);
+  assert.equal(revisionDeLaFoto({ ...fito, titulo: 'Un show en el Luna Park' }, { banco: wiki() }).accion, 'sacar');
+  // También si la nota la publicó una persona (la foto la puso el robot), pero no la que sumó una persona a mano.
+  assert.equal(revisionDeLaFoto({ ...fito, como: 'publicada', publicadaPor: 'Hernán' }, { banco: wiki() }).accion, 'sacar');
+  assert.equal(revisionDeLaFoto(fito, { banco: wiki({ origen: 'manual' }) }).accion, 'no-aplica');
 });
 
 // ------------------------------------------------------------------ (c) la tanda, con la IA de mentira

@@ -848,13 +848,34 @@ export function nombraALaPersona(titulo, persona) {
 }
 
 /**
- * El armado completo para una nota: compara las fotos de las fuentes y,
- * si ninguna sirve, prueba con una foto libre de la persona de la nota en
- * Wikimedia Commons (28/09). Nunca lanza.
+ * Regla 319 (24/10/2026, Hernán: "la foto de una nota con fuentes sale de las fuentes de esa nota"). Wikimedia Commons NO ilustra ninguna nota que
+ * tenga fuentes: ni de personas (un archivo de Commons buscado por el nombre no garantiza que la persona de la imagen sea la de la noticia: el
+ * 24/10 la nota de Fito Páez salió con otra cara), ni de lugares ni de objetos. Sólo las notas propias armadas con datos y sin fuentes —las de la
+ * F1 y el fútbol, que llevan el circuito o el estadio— usan Commons, a propósito y por el LUGAR (web/scripts/foto-libre.mjs).
+ */
+export const NOTAS_PROPIAS_CON_FOTO_DE_COMMONS = ['f1', 'futbol'];
+
+/** ¿Esta nota puede llevar una foto de Wikimedia Commons? Sólo las propias de F1 y fútbol (por el lugar); nunca una nota con fuentes. */
+export const commonsPermitidoParaLaNota = (nota) => NOTAS_PROPIAS_CON_FOTO_DE_COMMONS.includes(nota?.propia);
+
+/**
+ * ¿Esta entrada del banco es una foto de Commons que no corresponde (la regla 319)? Es de origen `wikimedia` (la buscaba por la persona de la nota),
+ * o de origen `libre` en una nota que no es propia de F1 o fútbol. La foto que una persona sumó a mano (`manual`) no es de este tipo.
+ */
+export function esFotoDeCommonsEnNotaConFuentes(entrada, nota) {
+  if (!entrada || entrada.origen === 'manual') return false;
+  if (entrada.origen === 'wikimedia') return true;
+  const deCommons = entrada.origen === 'libre' || entrada.medio === 'Wikimedia Commons';
+  return deCommons && !commonsPermitidoParaLaNota(nota);
+}
+
+/**
+ * El armado completo para una nota: compara las fotos de las fuentes y elige la
+ * que pasa los controles. Si ninguna sirve, no hay foto (regla 319: nunca Wikimedia Commons). Nunca lanza.
  */
 export async function elegirFotoParaNota(nota, {
   clave = claveClasificacion(), claveRespaldo = claveGroq(), fetchFn = fetch, fotosMenoresOficiales = excepcionActiva(),
-  prepararParaIA = null, huellaDe = null, esRepetida = null, excluirWikimedia = new Set(),
+  prepararParaIA = null, huellaDe = null, esRepetida = null,
 } = {}) {
   const candidatas = await candidatasConDatos(nota, { fetchFn, prepararParaIA, huellaDe, esRepetida });
   const r = await elegirFoto(nota, candidatas, { clave, claveRespaldo, fetchFn, fotosMenoresOficiales });
@@ -862,34 +883,7 @@ export async function elegirFotoParaNota(nota, {
   // Una falla de la IA (o la segunda opinión que no estuvo) se reintenta: no se tapa con Wikimedia.
   if (/^(Gemini falló|Groq también falló|Segunda opinión no disponible)/.test(String(r.razon ?? ''))) return { ...r, origen: 'ninguna' };
 
-  const persona = await personaPublicaDeNota(nota, { clave, fetchFn });
-  if (!persona) return { ...r, origen: 'ninguna' };
-  const sinWiki = (por) => ({ ...r, razon: `${r.razon} (${por})`, origen: 'ninguna' });
-  // Sólo si la nota es DE esa persona: el título la nombra (17/10/2026: "Grupo Cali explica la suspensión de su show" salió con Messi).
-  if (!nombraALaPersona(nota.titulo, persona)) return sinWiki(`la IA nombró a "${persona}", pero el título no: sin foto de Wikimedia`);
-  const anioDeLaNota = new Date(nota.fecha ?? Date.now()).getFullYear() || new Date().getFullYear();
-  const wiki = await buscarFotoWikimedia(persona, { fetchFn, anioDeLaNota, excluir: excluirWikimedia });
-  if (!wiki) return sinWiki(`se probó una foto libre de "${persona}" en Wikimedia Commons de los últimos ${ANTIGUEDAD_MAXIMA_WIKIMEDIA} años, sin resultado`);
-  // Se baja (la versión de 1.280 px), se mira si ya se usó y la mira la IA: hasta el 17/10 la de Wikimedia no pasaba por ningún control.
-  const bajada = await descargarImagen(wiki.miniatura ?? wiki.imagen, { fetchFn });
-  if (!bajada) return sinWiki(`la foto libre de "${persona}" no se pudo bajar`);
-  const huella = huellaDe ? await huellaDe(bytesOriginales(bajada)).catch(() => null) : null;
-  const repetida = esRepetida ? esRepetida({ huella, imagen: wiki.imagen }) : null;
-  if (repetida) return sinWiki(`la foto libre de "${persona}" ya ilustró otra nota (${repetida.motivo ?? repetida.id})`);
-  const datos = await paraLaIA(bajada, prepararParaIA);
-  const control = await revisarUnaFoto(nota, datos, { clave, claveRespaldo, fetchFn, persona, exigirQueCorresponda: true });
-  if (!control.ok) {
-    if (control.falla) return { ...r, razon: `Gemini falló al mirar la foto libre de "${persona}": ${control.motivo}`, origen: 'ninguna' };
-    return sinWiki(`la foto libre de "${persona}" no sirve: ${control.motivo}${control.vision?.descripcion ? ` (${control.vision.descripcion})` : ''}`);
-  }
-  return {
-    elegida: {
-      medio: wiki.medio, enlace: wiki.enlace, imagen: wiki.imagen, licencia: wiki.licencia, ...(wiki.autor ? { autor: wiki.autor } : {}), letra: null,
-      datos, ...(huella ? { huella } : {}), vision: { ...control.vision, anio: wiki.anio },
-    },
-    razon: `Ninguna fuente tenía una foto que sirviera; se usó una foto libre de "${persona}" de Wikimedia Commons (${wiki.licencia}, ${wiki.anio}).`,
-    candidatas: r.candidatas,
-    proveedor: r.proveedor,
-    origen: 'wikimedia',
-  };
+  // Regla 319: sin foto de las fuentes que pase los controles, la nota sale con la placa (o con la ilustración marcada como IA). Nunca con una
+  // foto de Wikimedia Commons buscada por el nombre de la persona: no garantiza que sea la persona de la nota.
+  return { ...r, origen: 'ninguna' };
 }

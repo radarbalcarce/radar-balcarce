@@ -51,7 +51,7 @@ import { compararNotas, huella } from '../../ingesta/repetidas-publicadas.mjs';
 import {
   auditarLote, auditarLoteGemini, auditarLoteOpenRouter, cambioMecanico, conCambiosGuardados, vecesComoPalabra, AUDITORIA, TIPOS,
 } from '../../ingesta/auditoria-ia.mjs';
-import { revisarUnaFoto, anioDeLaFoto, nombraALaPersona, ANTIGUEDAD_MAXIMA_WIKIMEDIA, sinConsulta } from '../../ingesta/fotos.mjs';
+import { revisarUnaFoto, anioDeLaFoto, nombraALaPersona, ANTIGUEDAD_MAXIMA_WIKIMEDIA, sinConsulta, esFotoDeCommonsEnNotaConFuentes } from '../../ingesta/fotos.mjs';
 import { cerrar, leerLlaves } from '../../panel/cifrado.mjs';
 import { tieneCuerpo } from '../lib/cuerpo.js';
 import {
@@ -391,6 +391,12 @@ export function revisionDeLaFoto(n, { banco = {}, manuales = {}, existe = () => 
   if (!foto?.archivo) return { accion: 'sin-foto' };
   if (esIlustracionDeNota(foto)) return { accion: 'no-aplica', motivo: 'ilustración con IA: la controla «Ilustrar notas sin foto» (regla 206)' };
   if (DE_NOTA_PROPIA.test(nombreDe(foto.archivo)) || n.propia) return { accion: 'no-aplica', motivo: 'imagen de una nota propia' };
+  // Regla 319: una foto de Wikimedia Commons en una nota con fuentes se saca siempre (la foto sale de las fuentes de la nota), también si la nota
+  // la publicó una persona: la foto que una persona sumó a mano (origen manual) no entra acá. Sólo se saca si es la del banco.
+  const deCommons = banco?.[n.id];
+  if (deCommons?.archivo && deCommons.archivo === foto.archivo && esFotoDeCommonsEnNotaConFuentes(deCommons, n) && !(manuales?.[n.id]?.archivo && manuales[n.id].archivo === foto.archivo)) {
+    return { archivo: deCommons.archivo, accion: 'sacar', motivo: 'foto de Wikimedia Commons en una nota con fuentes: la foto sale de las fuentes de la nota (regla 319)', tipo: 'wikimedia' };
+  }
   if (esDeUnaPersona(n) && n.como !== 'automatica') return { accion: 'no-aplica', motivo: 'la publicó una persona' };
   if (manuales?.[n.id]?.archivo && manuales[n.id].archivo === foto.archivo) return { accion: 'no-aplica', motivo: 'la sumó una persona' };
   const b = banco?.[n.id];

@@ -45,14 +45,14 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 319** (la 316, las fotos de las notas en R2 listas para prender sin riesgo: todo lo que usa una foto la trae de R2 antes, la migración probada y su botón; la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
+(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 320** (la 316, las fotos de las notas en R2 listas para prender sin riesgo: todo lo que usa una foto la trae de R2 antes, la migración probada y su botón; la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
 último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
 de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
 instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la
 foto cambiada; 284 a 296, la auditoría integral del 23/10 (policial nacional, fútbol sólo argentino, Balcarce sin amarillo y con 36 horas, lo muy contado sin frenos, Agro y
 Automovilismo en 2 medios, el celular sin tope); 297 a 303, el semáforo, el «sin cuerpo» y el descarte después del cruce; 304 a 306, menos compilación; 307 y 308, sin "fuente
 principal" suelta y lo que recibe la IA; 309 a 312, la auditoría 2.0 (redes, textos de la web, limpieza de código y minutos de Workers Builds); 313, la segunda vuelta de
-documentación.)
+documentación; 319, la foto sale de las fuentes de la nota.)
 
 - **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
   vigila (sigue los imports en cadena).
@@ -67,7 +67,9 @@ documentación.)
   encima de una imagen**: el crédito va en la cita. **Lo que escribe la IA se verifica contra la
   fuente. Cada nota dice quién la escribió. Política y Policiales esperan a una persona en
   todas las piezas de redes.**
-- **Las fotos**: la de otro medio o de un organismo, sólo sin su marca (lo que estaba en
+- **Las fotos** (regla 319, 24/10: **la foto de una nota con fuentes sale siempre de las fuentes de esa nota**; Wikimedia Commons no ilustra ninguna nota con fuentes, ni de personas ni de
+  lugares ni de objetos: un nombre en el archivo no garantiza que la persona sea la de la noticia; Commons sólo por el lugar en las notas propias de F1 y fútbol; sin foto que sirva,
+  placa): la de otro medio o de un organismo, sólo sin su marca (lo que estaba en
   la escena, como el micrófono de una radio, sí: 29/09), con el crédito en el epígrafe y guardada en el banco propio
   (`web/data/banco-fotos.json`). Nunca foto real de un menor o una víctima, ni en
   Policiales salvo fuente oficial (`docs/05-FOTOS.md`). **Única excepción (reglas 186 y 211, Hernán,

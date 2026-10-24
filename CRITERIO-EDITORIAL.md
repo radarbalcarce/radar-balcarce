@@ -215,6 +215,10 @@ por IA que parezca real. Condiciones que no se negocian:
   medios chicos de la zona suelen pegar su logo en una esquina: con la mínima duda, esa
   foto no se usa. Lo que estaba en la escena real sí puede verse, también el micrófono
   con el nombre de una radio (decisión del 29/09).
+- **La foto de una nota con fuentes sale siempre de las fuentes de esa nota** (regla 319, Hernán, 24/10/2026): la imagen del propio artículo de un medio,
+  con su crédito. **Wikimedia Commons no ilustra ninguna nota que tenga fuentes**, ni de personas, ni de lugares, ni de objetos: un archivo de Commons buscado
+  por un nombre no garantiza que la persona de la imagen sea la de la noticia. Sin foto de las fuentes que pase los controles, la nota sale con la placa (o con la
+  ilustración marcada como IA). Commons queda sólo para el lugar (circuito, estadio) de las notas automáticas de F1 y fútbol.
 - **Toda foto usada así se guarda en el banco propio** (`web/data/banco-fotos.json`), con
   su crédito y de qué nota salió.
 - **Nunca la foto de un menor o de una víctima**, ni en Policiales, salvo una foto oficial

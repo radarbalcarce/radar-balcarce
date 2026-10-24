@@ -89,7 +89,7 @@ test('elegirFotosNuevas: no procesa más de "tope" notas por corrida', async () 
   };
   const { banco } = await elegirFotosNuevas(notas, { clave: 'g', claveRespaldo: null, fetchFn, tope: 4 });
   assert.equal(Object.keys(banco).length, 4);
-  assert.equal(llamadas, 4);
+  assert.equal(llamadas, 0, 'sin fotos de las fuentes no se le pregunta nada a la IA (regla 319: ya no hay persona pública ni Commons)');
 });
 
 test('elegirFotosNuevas: con el tope justo, las notas más nuevas van primero (28/09: "que todas las nuevas tengan fotos")', async () => {
