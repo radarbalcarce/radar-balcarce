@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-24T12:31:29.692Z",
+  "generado": "2026-10-24T13:01:30.499Z",
   "notas": [
     {
       "id": "clima20261024",
@@ -116,7 +116,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "la-inteligencia-artificial-en-la-educacion-y-los-avances-en-oncologia"
+      "slug": "la-inteligencia-artificial-en-la-educacion-y-los-avances-en-oncologia",
+      "foto": {
+        "archivo": "fotos-notas/1xezweo-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "1qaxnjd",
@@ -128,8 +132,8 @@
       "medios": [
         "Crónica",
         "Noticias Argentinas (NA)",
-        "Minuto Uno",
-        "La Brújula 24"
+        "La Brújula 24",
+        "Minuto Uno"
       ],
       "enlace": "https://noticiasargentinas.com/politica/-tarde-o-temprano-las-malvinas-volveran-a-ser-argentinas---ratifico-milei_a6adc11216b2236dda9226247",
       "fecha": "2026-10-24T02:14:59.130Z",
@@ -346,6 +350,76 @@
       }
     },
     {
+      "id": "169jneq",
+      "titulo": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo",
+      "copete": "Los dos conjuntos locales se enfrentan el sábado al mediodía en la sede de la avenida San Martín para buscar el pase a la final de la Copa Sponsor.",
+      "cuerpo": "Los equipos de Social Pato Negro y Social Pato Naranja disputarán el sábado a las 12 horas una de las semifinales de los Play Off de la Copa Sponsor. El encuentro correspondiente al Torneo Desarrollo de la Unión de Rugby de Mar del Plata se jugará en la cancha ubicada en la prolongación de la avenida San Martín.\n\nAmbos conjuntos llegaron a esta instancia tras cumplir una sólida labor durante la Fase Regular del certamen. El vencedor de este duelo directo conseguirá el pasaje al partido decisivo por el título.\n\nEn paralelo, la otra llave semifinal tendrá como protagonistas a Camarones y Villa Gesell en la ciudad de Pinamar.",
+      "guion": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo.",
+      "seccion": "Deportes",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/deportes/14368-social-pato-define-su-representante-para-la-final-del-play-off/",
+      "fecha": "2026-10-24T01:01:38.261Z",
+      "sinFecha": true,
+      "visto": "2026-10-24T01:01:38.261Z",
+      "relevancia": 59,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Social Pato Negro y Social Pato Naranja juegan la semifinal este sábado a las 12 horas.",
+        "El encuentro se disputa en la cancha de la sede deportiva ubicada en la avenida San Martín.",
+        "El ganador accede a la final de la Copa Sponsor del Torneo Desarrollo."
+      ],
+      "seSabe": [
+        "Social Pato Negro y Social Pato Naranja juegan este sábado a las 12 horas en la sede de la avenida San Martín.",
+        "El torneo pertenece a la Unión de Rugby de Mar del Plata.",
+        "Camarones y Villa Gesell disputan la otra semifinal en Pinamar."
+      ],
+      "noConfirmado": [
+        "Todavía no se confirmó oficialmente si la final del 7 de noviembre se disputará en las instalaciones de Social Pato.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "Social Pato Negro y Social Pato Naranja se enfrentan este sábado a las 12 horas en la sede de la avenida San Martín para definir el pase a la final de la Copa Sponsor del Torneo Desarrollo.",
+      "etiquetas": [
+        "rugby",
+        "Social Pato",
+        "Torneo Desarrollo",
+        "Copa Sponsor",
+        "deportes"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/deportes/14368-social-pato-define-su-representante-para-la-final-del-play-off/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Detalló los cruces, horarios, sedes y antecedentes de la Fase Regular de las semifinales del Torneo Desarrollo."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1rylju8",
+          "titulo": "Estudiantes define ante Flamengo el pase a la final de la Copa Libertadores",
+          "fecha": "2026-10-20T22:09:41.000Z",
+          "ruta": "/nota/estudiantes-define-ante-flamengo-el-pase-a-la-final-de-la-copa-1rylju8"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "social-pato-negro-y-social-pato-naranja-juegan-la-semifinal-del",
+      "foto": {
+        "archivo": "fotos-notas/169jneq-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
+    },
+    {
       "id": "nb111o",
       "titulo": "Lula cuestiona a Milei y cruza a Bolsonaro en el debate",
       "copete": "El presidente brasileño y su oponente protagonizaron un duro cruce televisivo de cara al balotaje. En la discusión sobre economía, el mandatario utilizó la situación argentina para cuestionar las propuestas de su rival.",
@@ -362,7 +436,7 @@
       "fecha": "2026-10-24T01:00:24.157Z",
       "sinFecha": false,
       "visto": "2026-10-24T03:01:06.527Z",
-      "relevancia": 39,
+      "relevancia": 32,
       "local": false,
       "muyContada": {
         "medios": 4,
@@ -458,7 +532,7 @@
       "fecha": "2026-10-24T00:47:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-24T02:31:21.069Z",
-      "relevancia": 52,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -533,7 +607,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "leonel-jaime-frena-el-juego-por-un-rival-y-rompe-en-llanto"
+      "slug": "leonel-jaime-frena-el-juego-por-un-rival-y-rompe-en-llanto",
+      "foto": {
+        "archivo": "fotos-notas/6bgesn-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "tdc3z0",
@@ -760,22 +838,23 @@
       "guion": "El Instituto Adventista Balcarce celebra sus cuarenta años.",
       "seccion": "Balcarce",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
-        "Radio Gabal (FM 104.1)",
-        "Puntonueve (FM 100.9)",
+        "El Diario Balcarce",
         "Diario La Vanguardia",
+        "Radio Gabal (FM 104.1)",
         "News Balcarce (FM 91.7)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/23/el-instituto-adventista-balcarce-celebro-sus-40-anos-de-trayectoria-con-una-emotiva-jornada-en-su-sede/",
       "fecha": "2026-10-23T22:30:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T22:31:39.103Z",
-      "relevancia": 86,
+      "relevancia": 88,
       "local": true,
       "oficial": true,
       "deUnMedioDeAca": true,
-      "muyContadaDeAca": 6,
+      "muyContadaDeAca": 7,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -861,6 +940,13 @@
           "fecha": null,
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/celebro-sus-40-anos-con-un-acto-conmemorativo-el-instituto-adventista-balcarce-975",
+          "fecha": "2026-10-24T12:32:26.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -880,6 +966,89 @@
       "foto": {
         "archivo": "fotos-notas/k59a1x.jpg",
         "credito": "Foto: Municipalidad de Balcarce"
+      }
+    },
+    {
+      "id": "qgon5k",
+      "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
+      "copete": "Se conocieron las designaciones de los jueces de UADA y SADRA Atlántica para los encuentros de la segunda fecha del Torneo Oficial 2026 en sus distintas categorías.",
+      "cuerpo": "La Asociación Bomberos Voluntarios y la Copa Challenger Alejandro Mascareño dan nombre al certamen que reúne a doce equipos locales en las categorías de orden mayor, Reserva, femenino e inferiores. Para esta segunda jornada de la fase Clausura, la conducción arbitral estará a cargo de integrantes de UADA y SADRA Atlántica, con partidos programados tanto en Balcarce como en San Manuel.\n\nEn el inicio de la programación sabatina, el Estadio Cerono recibirá el cruce entre Amigos Unidos y River Balcarce bajo el arbitraje de Leandro Córdoba. En simultáneo, en la cancha de Ferroviarios, el equipo local se medirá ante Los Patos FC dirigido por Facundo Álvez. Las autoridades restantes cubrirán los compromisos correspondientes en las diferentes divisiones durante el desarrollo de la fecha.",
+      "guion": "Definen las ternas arbitrales para la segunda fecha del Clausura.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Acción 5 (Balcarce)"
+      ],
+      "enlace": "https://accion5.com/oficial-estan-los-arbitros-para-la-segunda-fecha-del-clausura/",
+      "fecha": "2026-10-23T22:11:27.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-24T08:31:10.774Z",
+      "relevancia": 71,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [
+        "bomberos"
+      ],
+      "como": "automatica",
+      "claves": [
+        "Se confirmaron los jueces para la segunda fecha del Clausura",
+        "Participan doce equipos locales en varias categorías",
+        "Los partidos se disputan en Balcarce y San Manuel"
+      ],
+      "seSabe": [
+        "Se anunciaron las designaciones arbitrales para la segunda fecha del Torneo Oficial 2026.",
+        "Los jueces pertenecen a UADA y SADRA Atlántica.",
+        "Intervienen doce equipos locales en las distintas divisiones."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "Se conocieron las designaciones arbitrales de UADA y SADRA Atlántica para la segunda fecha del Torneo Oficial 2026 en las diferentes categorías.",
+      "etiquetas": [
+        "arbitros",
+        "clausura",
+        "torneo oficial",
+        "deportes"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Acción 5 (Balcarce)",
+          "enlace": "https://accion5.com/oficial-estan-los-arbitros-para-la-segunda-fecha-del-clausura/",
+          "fecha": "2026-10-23T22:11:27.000Z",
+          "oficial": false,
+          "aporte": "Informó las designaciones arbitrales, los árbitros asignados y los estadios para la segunda fecha del torneo."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "irc0sr",
+          "titulo": "Bomberos locales detallan su participación en el rescate en Venezuela",
+          "fecha": "2026-10-04T20:31:39.000Z",
+          "ruta": "/nota/bomberos-locales-detallan-su-participacion-en-el-rescate-en-venezuela-irc0sr"
+        },
+        {
+          "id": "16ml7pn",
+          "titulo": "Bomberos locales brindan una charla sobre el operativo en Venezuela",
+          "fecha": "2026-10-03T13:15:01.000Z",
+          "ruta": "/nota/bomberos-locales-brindan-una-charla-sobre-el-operativo-en-venezuela-16ml7pn"
+        },
+        {
+          "id": "76r67w",
+          "titulo": "Bomberos gestiona una unidad de traslado para capacitaciones",
+          "fecha": "2026-09-30T17:35:31.000Z",
+          "ruta": "/nota/bomberos-gestiona-una-unidad-de-traslado-para-capacitaciones-76r67w"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "definen-las-ternas-arbitrales-para-la-segunda-fecha-del-clausura",
+      "foto": {
+        "archivo": "fotos-notas/qgon5k.jpg",
+        "credito": "Foto: Acción 5 (Balcarce)"
       }
     },
     {
@@ -940,6 +1109,155 @@
       "foto": {
         "archivo": "fotos-notas/157w6e1.jpg",
         "credito": "Foto: La Nación"
+      }
+    },
+    {
+      "id": "11m7115",
+      "titulo": "Erreguerena propone crear licencias especiales para concejales",
+      "copete": "La edila de Primero la Patria impulsa modificar el reglamento interno para incorporar permisos por gestación, adopción y cuidados especiales con goce de dieta en Balcarce.",
+      "cuerpo": "La concejal Viviana Erreguerena presentó un proyecto ante el presidente del Concejo Deliberante, Agustín Cassini, para modificar el Reglamento Interno e incorporar licencias especiales por maternidad, adopción y cuidados familiares para los integrantes del cuerpo legislativo local.\n\nAsimismo, contempla 15 días corridos para los progenitores no gestantes y permite transferir o distribuir parcialmente el beneficio en caso de que ambos integrantes de la pareja ejerzan como ediles.\n\nEl texto también prevé ampliaciones del plazo en situaciones particulares como nacimientos múltiples, nacimientos prematuros, defunción fetal, internación de recién nacidos o cuidado de hijos con discapacidad. En materia de adopción, la propuesta fija 110 días corridos de licencia para la tenencia o guarda de niños y adolescentes, y reduce el plazo a 60 días cuando se trate de mayores de 12 años.\n\nPara fundamentar el planteo, la edil tomó como referencia la normativa vigente en el distrito de General Pueyrredón y las facultades que otorga la Ley Orgánica de las Municipalidades. El expediente deberá ser evaluado en el ámbito de la comisión de labor legislativa para su análisis y tratamiento.",
+      "guion": "Erreguerena propone crear licencias especiales para concejales.",
+      "seccion": "Política",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45148-erreguerena-propuso-crear-un-regimen-de-licencias-por-maternidad-adopcion-y-cuidados-para-concejales-de-balcarce/",
+      "fecha": "2026-10-23T22:01:34.097Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T22:01:34.097Z",
+      "relevancia": 63,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [
+        "concejo"
+      ],
+      "como": "automatica",
+      "claves": [
+        "Viviana Erreguerena presentó un proyecto para modificar el Reglamento Interno del Concejo Deliberante.",
+        "La iniciativa contempla licencias por gestación, adopción y cuidados especiales con goce de dieta.",
+        "Se proponen 110 días corridos para gestantes y 15 días para progenitores no gestantes.",
+        "El expediente fue girado al presidente del cuerpo legislativo, Agustín Cassini."
+      ],
+      "seSabe": [
+        "Viviana Erreguerena presentó formalmente una propuesta legislativa al presidente del Concejo Deliberante, Agustín Cassini.",
+        "El proyecto busca incorporar permisos por gestación, adopción y tratamientos de reproducción asistida sin afectar los ingresos de los ediles.",
+        "La iniciativa toma como antecedente la normativa implementada en General Pueyrredón."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó cuándo será tratado el expediente en la comisión de labor legislativa ni si cuenta con los consensos necesarios para su aprobación.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "La concejal Viviana Erreguerena propuso crear un régimen de licencias por gestación, adopción y cuidados especiales con goce de dieta para los integrantes del Concejo Deliberante de Balcarce.",
+      "etiquetas": [
+        "Concejo Deliberante",
+        "Viviana Erreguerena",
+        "Licencias",
+        "Balcarce",
+        "Primero la Patria"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45148-erreguerena-propuso-crear-un-regimen-de-licencias-por-maternidad-adopcion-y-cuidados-para-concejales-de-balcarce/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Aportó los detalles del proyecto de modificación del Reglamento Interno presentado por Viviana Erreguerena en el Concejo Deliberante de Balcarce."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "15i90co",
+          "titulo": "Concejales proponen crear un registro municipal de acompañantes terapéuticos",
+          "fecha": "2026-10-01T15:01:12.943Z",
+          "ruta": "/nota/concejales-proponen-crear-un-registro-municipal-de-acompanantes-15i90co"
+        },
+        {
+          "id": "h1ggzr",
+          "titulo": "Virginia Aparicio expone ante concejales sobre SPRINT y su situación en el INTA",
+          "fecha": "2026-10-02T12:05:00.000Z",
+          "ruta": "/nota/virginia-aparicio-expone-ante-concejales-sobre-sprint-y-su-situacion-h1ggzr"
+        },
+        {
+          "id": "pvnj5f",
+          "titulo": "El Concejo Deliberante debate reclamos de higiene y obras",
+          "fecha": "2026-10-23T20:03:57.000Z",
+          "ruta": "/nota/el-concejo-deliberante-debate-reclamos-de-higiene-y-obras-pvnj5f"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "erreguerena-propone-crear-licencias-especiales-para-concejales",
+      "foto": {
+        "archivo": "fotos-notas/11m7115.jpg",
+        "credito": "Foto: Diario La Vanguardia"
+      }
+    },
+    {
+      "id": "az8510",
+      "titulo": "Endurecen penas por agredir a docentes, médicos y municipales",
+      "copete": "La Provincia promulgó una norma que establece hasta 30 días de arresto o multas para quienes hostiguen o maltraten a personal de educación, salud y servicios esenciales. Las penalizaciones se duplican si ocurren frente a menores.",
+      "cuerpo": "La Legislatura bonaerense sancionó la Ley 15.647 para endurecer las sanciones contra quienes agredan a trabajadores de la educación, el sistema de salud y los servicios públicos esenciales. La norma, publicada en el Boletín Oficial, modifica el artículo 74 bis del Decreto-Ley 8031/73 del Código de Faltas provincial y comprende a todo el territorio bonaerense, incluido Balcarce.\n\nEl texto fija penas de entre cinco y 30 días de arresto o multas equivalentes al 50% y al 100% del haber mensual de un oficial de la Policía bonaerense para quienes hostiguen, insulten, maltraten, arrojen objetos o perturben al personal en sus lugares de desempeño o inmediaciones. Las penalizaciones se duplican si los hechos ocurren frente a alumnos, pacientes o menores de edad.\n\nLa reforma amplía una disposición previa centrada en establecimientos educativos para incorporar al personal sanitario y de servicios esenciales. La aplicación concreta de estas medidas quedará sujeta a las características de cada episodio y a la resolución de la autoridad competente.",
+      "guion": "Endurecen penas por agredir a docentes, médicos y municipales.",
+      "seccion": "Balcarce",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45147-hasta-30-dias-de-arresto-por-agredir-a-docentes-trabajadores-de-la-salud-y-empleados-de-servicios-esenciales/",
+      "fecha": "2026-10-23T22:01:34.097Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T22:01:34.097Z",
+      "relevancia": 63,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Modificaron el Código de Faltas bonaerense.",
+        "Sanciones de cinco a 30 días de arresto o multas.",
+        "Incluye a docentes, trabajadores de salud y servicios esenciales.",
+        "Las penas se duplican ante la presencia de menores, alumnos o pacientes."
+      ],
+      "seSabe": [
+        "La Ley 15.647 fue sancionada el 29 de septiembre de 2026 y publicada en el Boletín Oficial el 21 de octubre.",
+        "Modifica el artículo 74 bis del Decreto-Ley 8031/73.",
+        "Las multas se calculan según el salario mensual de un oficial de la Policía bonaerense."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "La Provincia endureció las sanciones con hasta 30 días de arresto o multas para quienes agredan a docentes, trabajadores de la salud y empleados de servicios esenciales. Las penas se duplican si ocurren frente a menores.",
+      "etiquetas": [
+        "Código de Faltas",
+        "Legislatura bonaerense",
+        "docentes",
+        "salud",
+        "servicios esenciales",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45147-hasta-30-dias-de-arresto-por-agredir-a-docentes-trabajadores-de-la-salud-y-empleados-de-servicios-esenciales/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Detalló los alcances de la Ley 15.647, las penalizaciones vigentes y las circunstancias de agravamiento de las sanciones."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "endurecen-penas-por-agredir-a-docentes-medicos-y-municipales",
+      "foto": {
+        "archivo": "fotos-notas/az8510-ia.jpg",
+        "credito": "Ilustración generada con IA"
       }
     },
     {
@@ -1161,6 +1479,7 @@
       "guion": "Psicólogos de IOMA realizan un paro por falta de pago.",
       "seccion": "Salud",
       "medios": [
+        "Diario La Vanguardia",
         "El Día",
         "0221",
         "La Tecla"
@@ -1169,7 +1488,7 @@
       "fecha": "2026-10-23T21:09:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T22:01:34.097Z",
-      "relevancia": 37,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1212,6 +1531,13 @@
           "medio": "La Tecla",
           "enlace": "https://www.latecla.info/170645-nueva-protesta-de-psicologos-contra-el-ioma",
           "fecha": "2026-10-23T22:47:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45165-psicologos-vuelven-a-protestar-por-la-deuda-de-ioma-balcarce-queda-fuera-de-la-medida/",
+          "fecha": null,
           "oficial": false,
           "aporte": null
         }
@@ -1327,25 +1653,26 @@
       "guion": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses.",
       "seccion": "Deportes",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Radio Gabal (FM 104.1)",
+        "El Diario Balcarce",
+        "Diario La Vanguardia",
         "Agencia DIB",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "Qué Digital",
         "Punto Noticias",
-        "El Eco de Tandil",
-        "Puntonueve (FM 100.9)",
-        "Diario La Vanguardia"
+        "El Eco de Tandil"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/deportes/nazareno-ramirez-bazan-se-quedo-con-el-oro-en-los-juegos-bonaerenses",
       "fecha": "2026-10-23T20:20:40.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T20:31:31.209Z",
-      "relevancia": 96,
+      "relevancia": 97,
       "local": true,
       "deUnMedioDeAca": true,
-      "muyContadaDeAca": 4,
+      "muyContadaDeAca": 5,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -1439,6 +1766,13 @@
           "medio": "Qué Digital",
           "enlace": "https://quedigital.com.ar/deportes/quilmes-campeon-de-los-juegos-bonaerenses-general-pueyrredon-sexto/",
           "fecha": "2026-10-24T12:27:57.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/nazareno-ramirez-oro-en-los-juegos-bonaerenses-863",
+          "fecha": "2026-10-24T12:31:08.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1558,6 +1892,79 @@
       "foto": {
         "archivo": "fotos-notas/pvnj5f.jpg",
         "credito": "Foto: El Diario Balcarce"
+      }
+    },
+    {
+      "id": "5o84cc",
+      "titulo": "Manuel Pastorino repasa su trayectoria y la inspiración en el hierro",
+      "copete": "El escultor local visitó los estudios de un medio radial para detallar su proceso creativo. Explicó cómo vincula el metal con la naturaleza y los recuerdos de su infancia.",
+      "cuerpo": "El artista balcarceño Manuel Pastorino visitó los estudios de Radio Líder Balcarce Stream para detallar su vínculo con el hierro, la naturaleza y los recuerdos de su infancia que inspiran sus esculturas. Durante la entrevista, el escultor señaló que el metal suele percibirse como un material rígido, pero permite transmitir sensaciones al trazar líneas y curvas. En ese sentido, indicó que la botánica ocupa un espacio central en sus creaciones debido al interés personal que mantiene por las plantas y el entorno natural.\n\nPastorino explicó que su relación con las labores manuales comenzó durante sus primeros años de vida, una etapa a la que recurre habitualmente en busca de ideas para sus piezas. Para alimentar su imaginación, el creador recorre las sierras, acampa y observa la vegetación de la zona. Asimismo, mencionó que su paso previo como aviador le aportó otra perspectiva al observar los montes y espacios verdes desde el aire.\n\nPor otra parte, el escultor reflexionó acerca del valor de emplazar obras en los espacios públicos para generar un vínculo directo con los transeúntes. Al respecto, recordó la reacción de los niños al recostarse en el suelo para contemplar sus trabajos desde ángulos diferentes. En octubre de 2026, el artista ya había instalado la pieza denominada El lápiz de papá en el Colegio San José, una obra orientada a simbolizar el aprendizaje como un proceso de crecimiento continuo.",
+      "guion": "Manuel Pastorino repasa su trayectoria y la inspiración en el hierro.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45161-manuel-pastorino-la-naturaleza-es-un-pilar-fundamental-en-mi-vida-y-en-mis-obras/",
+      "fecha": "2026-10-23T20:01:37.264Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T20:01:37.264Z",
+      "relevancia": 59,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El artista local Manuel Pastorino visitó un medio radial para hablar sobre su obra.",
+        "Explicó que transforma el hierro mediante líneas y formas inspiradas en la naturaleza.",
+        "Señaló que su infancia y su paso por la aviación alimentan su proceso creativo."
+      ],
+      "seSabe": [
+        "Manuel Pastorino visitó los estudios de Radio Líder Balcarce Stream.",
+        "El artista trabaja con hierro y formas vinculadas a la botánica.",
+        "El escultor destacó la importancia de la interacción del público con sus obras en los espacios públicos."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "etiquetas": [
+        "Manuel Pastorino",
+        "escultura",
+        "arte",
+        "balcarceño"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45161-manuel-pastorino-la-naturaleza-es-un-pilar-fundamental-en-mi-vida-y-en-mis-obras/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Detalló su proceso creativo, su vínculo con el hierro y su visión sobre el arte en espacios públicos."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "repaso20261021noche",
+          "titulo": "El repaso de la noche en Radar Balcarce: Amigos Unidos, agroquímicos y Manuel Pastorino",
+          "fecha": "2026-10-22T00:07:12.104Z",
+          "ruta": "/nota/el-repaso-de-la-noche-en-radar-balcarce-amigos-unidos-como-y-repaso20261021noche"
+        },
+        {
+          "id": "1lhg66w",
+          "titulo": "Manuel Pastorino instala la obra El lápiz de papá en el Colegio San José",
+          "fecha": "2026-10-21T23:01:07.414Z",
+          "ruta": "/nota/manuel-pastorino-instala-la-obra-el-lapiz-de-papa-en-el-colegio-san-1lhg66w"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "manuel-pastorino-repasa-su-trayectoria-y-la-inspiracion-en-el-hierro",
+      "foto": {
+        "archivo": "fotos-notas/5o84cc.jpg",
+        "credito": "Foto: Diario La Vanguardia"
       }
     },
     {
@@ -2236,16 +2643,18 @@
       "guion": "Denuncian al municipio por fondos girados a OSeBal SAPEM.",
       "seccion": "Política",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Puntonueve (FM 100.9)"
+        "El Diario Balcarce"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/10/fondos-municipales-el-stm-denuncio-la.html",
       "fecha": "2026-10-23T18:03:29.222Z",
       "sinFecha": false,
       "visto": "2026-10-23T19:01:21.733Z",
-      "relevancia": 81,
+      "relevancia": 86,
       "local": true,
       "deUnMedioDeAca": true,
+      "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -2290,6 +2699,13 @@
           "fecha": "2026-10-23T20:47:51.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Diario Balcarce",
+          "enlace": "https://eldiariobalcarce.com.ar/el-stm-denuncia-el-destino-de-484-millones-municipales-para-construir-un-pozo-de-agua-389",
+          "fecha": "2026-10-24T12:41:20.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -2319,10 +2735,10 @@
       "guion": "Petruccelli pide una reunión urgente para recuperar la Estudiantina.",
       "seccion": "Balcarce",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://www.diariolavanguardia.com/noticias/45163-petruccelli-pidio-una-reunion-urgente-para-intentar-recuperar-la-estudiantina/",
       "fecha": "2026-10-23T18:01:44.093Z",
@@ -2427,6 +2843,69 @@
       }
     },
     {
+      "id": "1njqxpr",
+      "titulo": "Sergio Sosa repasa su trayectoria en la aviación comercial y la acrobacia",
+      "copete": "El piloto e instructor formado en el Aero Club Balcarce visitó un medio local. Detalló las exigencias de la disciplina y su labor en Aerolíneas Argentinas.",
+      "cuerpo": "El piloto e instructor Sergio Sosa repasó su trayectoria en la aviación comercial y en la disciplina acrobática durante una visita a los estudios de Radio Líder Balcarce Stream.\n\nSosa inició su formación en 1997 en el Aero Club Balcarce y actualmente se desempeña en Aerolíneas Argentinas. Durante la entrevista, explicó que combina su labor en la aviación comercial con los vuelos acrobáticos, una actividad que requiere entrenamiento constante y conocimientos técnicos específicos.\n\nEl piloto señaló que las maniobras generan importantes fuerzas de aceleración sobre el cuerpo y destacó la importancia de mantener los márgenes de seguridad para reducir riesgos. Para sus prácticas y exhibiciones utiliza aeronaves monoplaza como el modelo Extra 300L, diseñadas para soportar exigencias diferentes a las de un avión comercial.\n\nAsimismo, se refirió a la repercusión de las imágenes en las que se lo observa tomando mate durante un vuelo, y aclaró que surgen de la práctica y la preparación previa. Por último, indicó que contempla la posibilidad de participar en festivales y encuentros vinculados con la actividad deportiva.",
+      "guion": "Sergio Sosa repasa su trayectoria en la aviación comercial y la acrobacia.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45162-es-una-pasion-que-tengo-desde-siempre-sergio-sosa-y-su-vida-entre-los-vuelos-comerciales-y-las-acrobacias-aereas/",
+      "fecha": "2026-10-23T18:01:44.093Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T18:01:44.093Z",
+      "relevancia": 59,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El piloto Sergio Sosa repasó su trayectoria en la aviación comercial y acrobática.",
+        "Comenzó su formación en el Aero Club Balcarce en 1997 y trabaja en Aerolíneas Argentinas.",
+        "Explicó que la disciplina requiere preparación física y técnica para soportar fuerzas de aceleración.",
+        "Utiliza aeronaves monoplaza como el Extra 300L para realizar sus maniobras."
+      ],
+      "seSabe": [
+        "Sergio Sosa comenzó su formación como piloto en 1997 en el Aero Club Balcarce.",
+        "Trabaja en Aerolíneas Argentinas y realiza vuelos acrobáticos.",
+        "Utiliza aviones monoplaza como el Extra 300L para sus exhibiciones.",
+        "Contempla participar en festivales y encuentros vinculados con la acro."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "El piloto e instructor Sergio Sosa repasó su trayectoria en la aviación comercial y en la acrobacia aérea durante una visita a los estudios de Radio Líder Balcarce Stream.",
+      "etiquetas": [
+        "Sergio Sosa",
+        "Aero Club Balcarce",
+        "Aerolíneas Argentinas",
+        "vuelos acrobáticos",
+        "aviación"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45162-es-una-pasion-que-tengo-desde-siempre-sergio-sosa-y-su-vida-entre-los-vuelos-comerciales-y-las-acrobacias-aereas/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Aportó detalles sobre la trayectoria del piloto Sergio Sosa, su paso por el Aero Club Balcarce, su trabajo en Aerolíneas Argentinas y las características de los vuelos acrobáticos."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "sergio-sosa-repasa-su-trayectoria-en-la-aviacion-comercial-y-la",
+      "foto": {
+        "archivo": "fotos-notas/1njqxpr.jpg",
+        "credito": "Foto: Diario La Vanguardia"
+      }
+    },
+    {
       "id": "i3syjh",
       "titulo": "La Liga Balcarceña reprograma tres partidos de fútbol para el próximo lunes",
       "copete": "Tres encuentros previstos para el viernes en la cancha Juan Carlos Gentile pasaron al lunes para preservar el campo de juego. El resto del cronograma sigue sin cambios.",
@@ -2502,6 +2981,69 @@
       "foto": {
         "archivo": "fotos-notas/i3syjh.jpg",
         "credito": "Foto: Infórmese Primero (FM 104.9)"
+      }
+    },
+    {
+      "id": "1fc5z47",
+      "titulo": "Realizan en Balcarce una charla sobre administración de finanzas personales",
+      "copete": "La Universidad FASTA y la Mutual AM organizaron una capacitación en Balcarce. El contador Ariel Ferrari disertó ante una sala colmada de vecinos.",
+      "cuerpo": "Una charla de educación financiera reunió a numerosos vecinos en Balcarce en una actividad organizada por la Universidad FASTA y la Mutual AM. Desde las 18, la sala completó su capacidad con la asistencia de jóvenes emprendedores, comerciantes, trabajadores y jubilados.\n\nDurante más de dos horas, el contador Ariel Ferrari expuso conceptos básicos de economía y compartió herramientas prácticas para aplicar en la administración cotidiana. Los organizadores destacaron la respuesta de la comunidad y anticiparon la proyección de nuevas propuestas similares.",
+      "guion": "Realizan en Balcarce una charla sobre administración de finanzas personales.",
+      "seccion": "Educación",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45159-gran-convocatoria-en-balcarce-para-una-charla-de-educacion-financiera/",
+      "fecha": "2026-10-23T17:32:31.666Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T17:32:31.666Z",
+      "relevancia": 63,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La Universidad FASTA y la Mutual AM organizaron el encuentro.",
+        "El contador Ariel Ferrari estuvo a cargo de la exposición.",
+        "Participaron vecinos de diversas edades en Balcarce."
+      ],
+      "seSabe": [
+        "La actividad se realizó ayer desde las 18 en Balcarce.",
+        "La disertación duró poco más de dos horas.",
+        "Asistieron jóvenes emprendedores, comerciantes, trabajadores y jubilados."
+      ],
+      "noConfirmado": [
+        "Todavía no se detalló la ubicación exacta del lugar donde se desarrolló el evento.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "Vecinos de Balcarce participaron de una charla sobre administración de finanzas personales organizada por la Universidad FASTA y la Mutual AM.",
+      "etiquetas": [
+        "educación financiera",
+        "Universidad FASTA",
+        "Mutual AM",
+        "Ariel Ferrari",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45159-gran-convocatoria-en-balcarce-para-una-charla-de-educacion-financiera/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Informó sobre la charla de educación financiera organizada por la Universidad FASTA y la Mutual AM, a cargo del contador Ariel Ferrari en Balcarce."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "realizan-en-balcarce-una-charla-sobre-administracion-de-finanzas",
+      "foto": {
+        "archivo": "fotos-notas/1fc5z47.jpg",
+        "credito": "Foto: Diario La Vanguardia"
       }
     },
     {
@@ -3191,10 +3733,10 @@
       "guion": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte.",
       "seccion": "Balcarce",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Radio Gabal (FM 104.1)",
         "Municipalidad de Balcarce",
-        "Puntonueve (FM 100.9)",
         "Diario La Vanguardia"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/23/profesores-de-la-emdab-participaron-del-primer-foro-provincial-del-deporte/",
@@ -3275,9 +3817,10 @@
       "guion": "Venden el Teatro Auditórium de Necochea por más de 380 millones.",
       "seccion": "Cultura y agenda",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "0223 (Mar del Plata)",
         "Agencia DIB",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://dib.com.ar/sociedad/necochea-el-teatro-auditorium-fue-vendido-la-misma-empresa-que-compro-el-casino-n56748",
       "fecha": "2026-10-23T14:54:00.000Z",
@@ -3328,6 +3871,13 @@
           "medio": "Puntonueve (FM 100.9)",
           "enlace": "https://puntonueve.com.ar/a-toda-vela-mar-s-a-compro-el-teatro-auditorium-de-necochea-por-mas-de-383-millones/",
           "fecha": "2026-10-23T20:34:38.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/el-empresario-balcarceno-oscar-merlo-adquirio-el-teatro-auditorium-de-necochea",
+          "fecha": "2026-10-24T12:31:57.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3706,6 +4256,69 @@
       }
     },
     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "copete": "El equipo dirigido por Damián González Presa intervino en un certamen selectivo organizado por un captador de River Plate. Participaron jugadores formados principalmente en la categoría 2015 de Los Patos.",
+      "cuerpo": "El Grupo de Entrenamiento GEP Balcarce participó de un torneo selectivo de fútbol en la ciudad de Tandil, organizado por el captador de talentos Mariano Tedesco con el respaldo del Club Herederos.\n\nLa delegación estuvo bajo la conducción de Damián González Presa y se integró principalmente con futbolistas de la categoría 2015 del club Los Patos. Del certamen formaron parte el conjunto anfitrión, los balcarceños, Independiente de Tandil y un selectivo zonal de River Plate.\n\nDurante los encuentros, GEP cayó frente a Herederos por 3 a 0, ante River Plate por 4 a 0 y frente a Independiente por 3 a 2. Respecto a las evaluaciones, algunos chicos quedaron con posibilidades de recibir una citación próximamente.",
+      "guion": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Acción 5 (Balcarce)"
+      ],
+      "enlace": "https://accion5.com/de-un-cuadrangular-en-tandil-participo-gep-entrenamiento/",
+      "fecha": "2026-10-23T13:21:56.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-23T14:31:58.104Z",
+      "relevancia": 71,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El plantel estuvo integrado mayormente por jugadores de Los Patos.",
+        "El torneo se disputó en el complejo del Club Herederos.",
+        "Participaron equipos de Tandil y un selectivo de River Plate."
+      ],
+      "seSabe": [
+        "GEP Balcarce participó en un cuadrangular en Tandil.",
+        "El equipo fue dirigido por Damián González Presa.",
+        "El certamen fue organizado por el captador Mariano Tedesco."
+      ],
+      "noConfirmado": [
+        "Todavía no se precisaron los nombres de los jugadores balcarceños que podrían ser convocados.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "El Grupo de Entrenamiento GEP Balcarce participó de un certamen selectivo de fútbol en Tandil bajo la conducción de Damián González Presa y con jugadores formados en Los Patos.",
+      "etiquetas": [
+        "Fútbol",
+        "GEP Balcarce",
+        "Tandil",
+        "Los Patos",
+        "Damián González Presa"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Acción 5 (Balcarce)",
+          "enlace": "https://accion5.com/de-un-cuadrangular-en-tandil-participo-gep-entrenamiento/",
+          "fecha": "2026-10-23T13:21:56.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre la participación de GEP Balcarce en el cuadrangular de Tandil, los resultados y las evaluaciones de los jugadores."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "gep-balcarce-compite-en-un-cuadrangular-de-futbol-en-tandil",
+      "foto": {
+        "archivo": "fotos-notas/idsz54-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
+    },
+    {
       "id": "av8c10",
       "titulo": "Construyen un espacio cultural y educativo en Quilmes Oeste",
       "copete": "La intendenta interina Eva Mieri presentó el proyecto que se ejecuta en el barrio La Paz con financiamiento municipal. El edificio incluirá un aula de ciencias, un salón de usos múltiples y tecnologías sustentables.",
@@ -3846,7 +4459,7 @@
       "fecha": "2026-10-23T12:53:12.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T13:31:28.773Z",
-      "relevancia": 67,
+      "relevancia": 59,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3931,7 +4544,7 @@
       "fecha": "2026-10-23T12:47:08.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T15:06:28.735Z",
-      "relevancia": 39,
+      "relevancia": 31,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4035,13 +4648,8 @@
       "fecha": "2026-10-23T12:45:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-24T00:01:32.019Z",
-      "relevancia": 51,
+      "relevancia": 43,
       "local": false,
-      "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
-        "desde": "2026-10-24T00:01:32.019Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -4178,7 +4786,7 @@
       "fecha": "2026-10-23T12:37:02.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T22:01:34.097Z",
-      "relevancia": 33,
+      "relevancia": 25,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4244,7 +4852,7 @@
       "fecha": "2026-10-23T12:33:34.000Z",
       "sinFecha": false,
       "visto": "2026-10-23T14:31:58.104Z",
-      "relevancia": 42,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4791,12 +5399,12 @@
       "guion": "Licitan una nueva etapa de obras en el Microestadio del CEF 119.",
       "seccion": "Balcarce",
       "medios": [
+        "News Balcarce (FM 91.7)",
+        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
-        "News Balcarce (FM 91.7)",
-        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/microestadio-del-cef-119-licitan-una-nueva-etapa-de-obras-por-casi-400-millones-de-pesos",
       "fecha": "2026-10-23T11:27:05.000Z",
@@ -5257,6 +5865,13 @@
           "fecha": "2026-10-24T03:05:55.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/liga-/atletico-tucuman-vencio-a-tigre-en-victoria-y-agudizo-la-crisis-deportiva-que-atraviesa-el--matador--_a6adc1b39c86f331c198f6f57",
+          "fecha": "2026-10-24T02:56:21.652Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -5445,6 +6060,84 @@
         }
       ],
       "slug": "clima-en-balcarce-100-de-probabilidad-de-lluvia-con-minima-de-11-y"
+    },
+    {
+      "id": "jk7o21",
+      "titulo": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras",
+      "copete": "El cuerpo legislativo convalidó siete ordenanzas y múltiples comunicaciones. Avaló el acuerdo salarial con los municipales y convenios para infraestructura deportiva y cultural.",
+      "cuerpo": "El Concejo Deliberante llevó a cabo su décimo sexta sesión ordinaria, en la cual avaló siete ordenanzas y aprobó diversas comunicaciones vinculadas a servicios y obras.\n\nEntre las medidas, el cuerpo legislativo ratificó el acuerdo paritario con el Sindicato de Trabajadores Municipales y otorgó incrementos para el personal de la Carrera Profesional Hospitalaria pagaderos en septiembre de 2026. También autorizó un convenio con la Liga Balcarceña de Fútbol para levantar el paredón perimetral del Estadio Municipal y modificó la normativa sobre instrumentos musicales donados por la Fundación Banco Provincia para la Orquesta Escuela Infanto Juvenil. A su vez, aprobó una adenda de alquiler, un convenio con la Universidad Nacional de Tres de Febrero y el registro de una deuda con Ayen Fernández por una excavadora sobre oruga.\n\nEn cuanto a las comunicaciones, solicitó tareas de mantenimiento en el cerro El Triunfo, labores de desratización, la creación de un consultorio de admisión en salud mental y la colocación de reductores de velocidad en la avenida San Martín, entre las calles 113 y 115.",
+      "guion": "El Concejo Deliberante aprueba ordenanzas, paritarias y obras.",
+      "seccion": "Política",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45156-el-concejo-deliberante-aprobo-convenios-aumentos-salariales-y-pedidos-por-obras-y-servicios-como-el-de-salud-mental/",
+      "fecha": "2026-10-23T10:32:03.547Z",
+      "sinFecha": true,
+      "visto": "2026-10-23T10:32:03.547Z",
+      "relevancia": 63,
+      "local": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [
+        "concejo"
+      ],
+      "como": "automatica",
+      "claves": [
+        "El Concejo Deliberante aprobó siete ordenanzas en su décimo sexta sesión ordinaria.",
+        "Avalaron el incremento salarial para los municipales y la Carrera Profesional Hospitalaria.",
+        "Autorizaron un convenio con la Liga Balcarceña de Fútbol para obras en el Estadio Municipal.",
+        "Reclamaron mejoras en el cerro El Triunfo, desratización y un consultorio de salud mental."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "El Concejo Deliberante aprobó siete ordenanzas, el acuerdo paritario municipal, convenios para el Estadio Municipal y pedidos de obras y servicios para la ciudad.",
+      "etiquetas": [
+        "Concejo Deliberante",
+        "Estadio Municipal",
+        "salud mental",
+        "obras públicas"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45156-el-concejo-deliberante-aprobo-convenios-aumentos-salariales-y-pedidos-por-obras-y-servicios-como-el-de-salud-mental/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Informó los detalles de la décimo sexta sesión ordinaria del Concejo Deliberante, incluyendo ordenanzas, paritarias, convenios y pedidos de obras."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1iv58lw",
+          "titulo": "El Concejo Deliberante debate tasas, obras y proyectos",
+          "fecha": "2026-09-24T12:55:31.000Z",
+          "ruta": "/nota/concejo-deliberante-este-jueves-se-desarrollara-el-decimocuarto-1iv58lw"
+        },
+        {
+          "id": "1d27b9k",
+          "titulo": "El Concejo Deliberante realiza su decimosexta sesión ordinaria",
+          "fecha": "2026-10-23T01:35:50.000Z",
+          "ruta": "/nota/el-concejo-deliberante-realiza-su-decimosexta-sesion-ordinaria-1d27b9k"
+        },
+        {
+          "id": "10znf8w",
+          "titulo": "El operativo de DNI funciona en el Concejo Deliberante",
+          "fecha": "2026-10-08T20:25:28.000Z",
+          "ruta": "/nota/el-operativo-de-dni-funciona-en-el-concejo-deliberante-10znf8w"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-concejo-deliberante-aprueba-ordenanzas-paritarias-y-obras",
+      "foto": {
+        "archivo": "fotos-notas/jk7o21.jpg",
+        "credito": "Foto: Diario La Vanguardia"
+      }
     },
     {
       "id": "1parmnt",
@@ -6940,143 +7633,6 @@
         "archivo": "fotos-notas/171ypvy.jpg",
         "credito": "Foto: El Marplatense"
       }
-    },
-    {
-      "id": "repaso20261022noche",
-      "propia": "repaso",
-      "titulo": "El repaso de la noche en Radar Balcarce: Expo Salud, ARBal y Nahuel Di Cicco",
-      "copete": "Radar Balcarce publicó a las 21:46 de este jueves 22 de octubre el repaso de la noche en Instagram y Facebook, un audio con 3 notas. Acá está en texto lo que se contó, con el enlace a cada nota.",
-      "cuerpo": "Estas son las 3 notas que se contaron en el repaso de la noche del jueves 22, en el orden en que salieron en el audio.\n\nRealizan la primera edición de la Expo Salud, deporte y tecnología. El encuentro se desarrollará el sábado desde las 9 con capacitaciones, charlas y exhibiciones deportivas. Cuenta con el respaldo de la comuna local.\n\nARBal proyecta un centro de llamadas para contribuyentes con deudas. La Agencia de Recaudación Balcarce pondrá en marcha un centro de atención telefónica. Agentes municipales se comunicarán con vecinos que tengan deudas pendientes para informar sobre planes de pago.\n\nNahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista. El piloto local completó una destacada remontada en la novena fecha de la Clase 1 disputada en Concepción del Uruguay. Partió desde la última fila tras una exclusión y avanzó 30 lugares en la final.\n\nMirá y escuchá el repaso en Instagram y Facebook, con los botones de acá abajo. Todas las notas del día están en la portada de Radar Balcarce.",
-      "guion": null,
-      "seccion": "Balcarce",
-      "local": true,
-      "relevancia": 60,
-      "medios": [],
-      "enlace": null,
-      "fecha": "2026-10-23T00:46:40.652Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T00:46:40.652Z",
-      "publicadaPor": null,
-      "publicadaCuando": "2026-10-23T00:46:40.652Z",
-      "temas": [],
-      "etiquetas": [
-        "Expo Salud",
-        "ARBal",
-        "Nahuel Di Cicco"
-      ],
-      "como": "automatica",
-      "firma": "Nota de Radar Balcarce: el texto del repaso publicado en nuestras redes.",
-      "notasDelRepaso": [
-        "vxf5r",
-        "1cmow7i",
-        "4c84q3"
-      ],
-      "enlacesEnTexto": [
-        {
-          "texto": "Realizan la primera edición de la Expo Salud, deporte y tecnología",
-          "href": "/nota/realizan-la-primera-edicion-de-la-expo-salud-deporte-y-tecnologia-vxf5r"
-        },
-        {
-          "texto": "ARBal proyecta un centro de llamadas para contribuyentes con deudas",
-          "href": "/nota/arbal-proyecta-un-centro-de-llamadas-para-contribuyentes-con-deudas-1cmow7i"
-        },
-        {
-          "texto": "Nahuel Di Cicco trepa del fondo al puesto 17 en el Turismo Pista",
-          "href": "/nota/nahuel-di-cicco-trepa-del-fondo-al-puesto-17-en-el-turismo-pista-4c84q3"
-        }
-      ],
-      "destacados": [
-        {
-          "texto": "Mirá y escuchá el repaso en Instagram",
-          "href": "https://www.instagram.com/reel/De0TU92ju7Q/",
-          "externo": true
-        },
-        {
-          "texto": "Mirá y escuchá el repaso en Facebook",
-          "href": "https://www.facebook.com/reel/2134725094075054/",
-          "externo": true
-        }
-      ],
-      "slug": "el-repaso-de-la-noche-en-radar-balcarce-expo-salud-arbal-y-lionel",
-      "foto": {
-        "archivo": "fotos-notas/collage-repaso20261022noche.jpg",
-        "credito": "Fotos: Acción 5 (Balcarce) y El Diario Balcarce"
-      }
-    },
-    {
-      "id": "1x7mq5l",
-      "titulo": "Estados Unidos financia un centro de ciberseguridad estatal",
-      "copete": "Washington aportará US$15 millones para reemplazar tecnología de origen chino en redes públicas. El acuerdo incluye auditorías y cooperación contra el narcotráfico.",
-      "cuerpo": "La iniciativa se concretó durante un encuentro en el Palacio San Martín entre el canciller Pablo Quirno y el subsecretario de Estado norteamericano Christopher Landau.\n\nEl plan incluye una primera etapa de diagnóstico de seis meses, una fase de implementación de hasta 18 meses y el objetivo de alcanzar autonomía operativa en tres años, además de una evaluación sobre la red troncal de ARSAT.\n\nEn el plano financiero, la asistencia estadounidense se destinará al diseño arquitectónico, la revisión legal y la capacitación, mientras que la Argentina asumirá la compra de hardware y licencias. Adicionalmente, el entendimiento incorporó la aprobación de US$13 millones para programas antidrogas, de los cuales US$7,5 millones se ejecutarán dentro del territorio nacional.",
-      "guion": "Estados Unidos financia un centro de ciberseguridad estatal.",
-      "seccion": "Tecnología",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Perfil"
-      ],
-      "enlace": "https://tn.com.ar/politica/2026/10/22/eeuu-aportara-us15-millones-para-reemplazar-tecnologia-china-del-estado-y-establecer-un-centro-de-ciberseguridad/",
-      "fecha": "2026-10-23T00:42:44.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-23T09:02:04.534Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Estados Unidos aportará US$15 millones para un centro de ciberseguridad estatal.",
-        "El programa contempla reemplazar equipamiento de origen chino en redes públicas.",
-        "El acuerdo incluye una etapa inicial de diagnóstico de seis meses y una ARSAT evaluada.",
-        "Se aprobaron US$13 millones para programas antidrogas y cooperación internacional."
-      ],
-      "seSabe": [
-        "Estados Unidos aportará US$15 millones para la creación de un centro de ciberseguridad.",
-        "El canciller Pablo Quirno se reunió con el subsecretario estadounidense Christopher Landau en el Palacio San Martín.",
-        "El plan contempla reemplazar equipamiento de la empresa Huawei en redes gubernamentales.",
-        "Se aprobaron US$13 millones para programas antidrogas, con US$7,5 millones destinados al país."
-      ],
-      "noConfirmado": [
-        "Todavía no se precisó con exactitud si el monto actual de US$15 millones incorpora componentes adicionales respecto a una previsión previa de US$13,9 millones."
-      ],
-      "textoRedes": "Estados Unidos aportará US$15 millones para crear un centro de ciberseguridad y reemplazar tecnología de origen chino en redes estatales.",
-      "etiquetas": [
-        "ciberseguridad",
-        "Estados Unidos",
-        "tecnología",
-        "Gobierno nacional",
-        "ARSAT"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/22/eeuu-aportara-us15-millones-para-reemplazar-tecnologia-china-del-estado-y-establecer-un-centro-de-ciberseguridad/",
-          "fecha": "2026-10-23T00:42:44.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre los antecedentes de la negociación y la licitación independiente de ARSAT."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/politica/el-gobierno-argentino-recibira-us15-millones-para-crear-un-centro-de-ciberseguridad-y-reemplazar-tecnologia-china.phtml",
-          "fecha": "2026-10-23T08:22:45.000Z",
-          "oficial": false,
-          "aporte": "Detalló los plazos de las etapas de diagnóstico y la conferencia de prensa de los funcionarios."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "e8pivp",
-          "titulo": "El Gobierno negocia con Estados Unidos para reemplazar tecnología china",
-          "fecha": "2026-10-10T20:17:56.000Z",
-          "ruta": "/nota/el-gobierno-negocia-con-estados-unidos-para-reemplazar-tecnologia-e8pivp"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "estados-unidos-financia-un-centro-de-ciberseguridad-estatal"
     }
   ],
   "secciones": [
@@ -7084,13 +7640,13 @@
     "Educación",
     "Argentina",
     "Cultura y agenda",
+    "Deportes",
     "Política",
     "Fútbol",
     "Agro",
     "Automovilismo",
     "Salud",
     "Economía",
-    "Deportes",
     "Policiales",
     "Tecnología",
     "Ciencia"
@@ -7099,16 +7655,16 @@
     {
       "nombre": "El Concejo Deliberante",
       "ranura": "concejo",
-      "cuantas": 6
+      "cuantas": 8
     }
   ],
   "clima": {
     "ahora": {
       "temp": 11,
       "sensacion": 9,
-      "humedad": 91,
-      "viento": 18,
-      "rumbo": "S",
+      "humedad": 90,
+      "viento": 17,
+      "rumbo": "SE",
       "cielo": "Nublado",
       "esDeDia": true
     },
@@ -7117,11 +7673,11 @@
         "fecha": "2026-10-24",
         "dia": "sáb",
         "max": 15,
-        "min": 8,
-        "lluvia": 12,
+        "min": 9,
+        "lluvia": 33,
         "codigo": 51,
         "viento": 22,
-        "milimetros": 1,
+        "milimetros": 2,
         "cielo": "Llovizna leve"
       },
       {
@@ -7129,9 +7685,9 @@
         "dia": "dom",
         "max": 12,
         "min": 8,
-        "lluvia": 20,
+        "lluvia": 24,
         "codigo": 51,
-        "viento": 19,
+        "viento": 18,
         "milimetros": 1,
         "cielo": "Llovizna leve"
       },
@@ -7140,20 +7696,20 @@
         "dia": "lun",
         "max": 15,
         "min": 7,
-        "lluvia": 2,
+        "lluvia": 4,
         "codigo": 3,
-        "viento": 16,
+        "viento": 14,
         "milimetros": 0,
         "cielo": "Nublado"
       },
       {
         "fecha": "2026-10-27",
         "dia": "mar",
-        "max": 17,
+        "max": 16,
         "min": 6,
-        "lluvia": 9,
+        "lluvia": 12,
         "codigo": 3,
-        "viento": 10,
+        "viento": 11,
         "milimetros": 0,
         "cielo": "Nublado"
       }
@@ -7466,6 +8022,12 @@
       "titulo": null,
       "seccion": "Balcarce",
       "motivo": "necesita ojo humano: \"niño\" (en otro medio que cuenta lo mismo)"
+    },
+    {
+      "id": "2nsfm0",
+      "titulo": "El STM reclama transparencia en OSEBAL y pone la lupa…",
+      "seccion": "Balcarce",
+      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
   "esperandoCuerpo": 1
