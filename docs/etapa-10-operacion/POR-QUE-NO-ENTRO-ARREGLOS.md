@@ -14,7 +14,7 @@ vuelve atrás y qué quedó pendiente. Cada arreglo tiene su prueba en `pruebas/
 | **S1** | La fecha del hecho para decidir «tarde», en lo que cuentan **8 medios o más** y en **lo de Balcarce**, es la **mediana de las fuentes** y no la más vieja. Variable `FECHA_DEL_HECHO`; por defecto `mediana`; `vieja` vuelve a lo de antes. | $Libra (34 medios), Hotesur (21), Scaloni 2030 (18), Skerritt (11) | `ingesta/fecha-del-hecho.mjs`, `fechaDeLaNota` (`web/lib/archivo.js`), `generar-datos.mjs` |
 | **S4** | La sección de una nota ya publicada no salta entre Política y Policiales de una vuelta a otra. | $Libra figuraba en las dos | `seccionSinSaltos` (`web/lib/archivo.js`) |
 | **S6** | No se lee con IA lo que no puede salir por cantidad de medios; lo demás se lee en orden (lo de acá, lo que ya llega, lo que necesita otra sección). En la estadística «pocas fuentes» va antes que «la IA la sacó». | 327 de 785 historias de 2 medios figuraban como «IA» | `ordenParaLeer` (`ingesta/lectura-ia.mjs`), `observarCorrida` |
-| **S5** | Uniones de repetidas con guarda de hecho principal y sin cadenas | Discapacidad, Palmeiras, 75 familias, menor liberado | **No se hizo: pendiente** (ver abajo) |
+| **S5** | Uniones de repetidas con guarda de hecho principal y sin cadenas | Discapacidad, Palmeiras, 75 familias, menor liberado | **Hecho después, en la regla 322** (`docs/etapa-10-operacion/HECHO-PRINCIPAL.md`); lo de abajo es por qué no se hizo en esta tanda |
 
 ## Lo que se midió (repetición sin red)
 
@@ -93,6 +93,8 @@ anterior la envejeció.
 4. Que ninguna nota publicada desaparezca sin quedar unida a otra (`publicada_retirada` en los renglones; `publicada_unida` es lo normal).
 
 ## Pendiente: S5 (uniones de repetidas con guarda de hecho principal y sin cadenas)
+
+*Actualización del 24/10, más tarde: la S5 se hizo en la regla 322, con otra idea que la de acá abajo (una guarda que sólo separa, con cobertura de palabras raras y un núcleo, sobre los grupos de la IA, y `separarLoDeAca` en el cruce) y medida con el historial de git de `fichas.json` en vez de esperar una semana: `docs/etapa-10-operacion/HECHO-PRINCIPAL.md`. Lo que sigue es lo que se pensó antes de hacerla.*
 
 **No se hizo, a propósito.** El informe encontró cuatro uniones que parecen mal (Discapacidad dentro de vandalismo rural; Palmeiras dentro de la previa de Estudiantes-Flamengo;
 «75 familias» dentro del Instituto Adventista; el menor liberado dentro de una nota de opinión). Mirando los grupos que guarda `fichas.json` (20 el 24/10), una guarda de

@@ -452,6 +452,6 @@ test('S6: un chimento de 2 medios en una sección que pide 3 figura como «pocas
 test('S3: generar-datos le da a quitarRepetidas todo lo que tiene página y no sólo lo que sigue en la portada', () => {
   const g = leer('../web/scripts/generar-datos.mjs');
   assert.match(g, /const yaPublicadas = idsQueYaTienenPagina\(\{ anterior: anterior\.notas \?\? \[\], archivo: archivoAnterior\.notas \?\? \[\] \}\);/);
-  assert.match(g, /quitarRepetidas\(conFichas, rep\.grupos, \{ publicadas: yaPublicadas \}\)/);
+  assert.match(g, /quitarRepetidas\(conFichas, rep\.grupos, \{ publicadas: yaPublicadas, guardaDeHecho: true \}\)/, 'y con la guarda del hecho principal (regla 322)');
   assert.doesNotMatch(g, /archivoAnterior\.notas \?\? \[\]\)\.filter\(\(n\) => vigenteEnPortada\(n\)\)\]\.map/, 'ya no se filtra por la portada');
 });

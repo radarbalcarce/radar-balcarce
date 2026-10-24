@@ -170,7 +170,8 @@ test('la IA saca lo que no es para Radar: publicidad, extranjero y policiales de
   assert.equal(aplicar(afuera, ficha({ es_publicidad: true })).notas.length, 0);
   assert.equal(aplicar(afuera, ficha({ ambito: 'internacional', impacto_balcarce: 'nulo' })).notas.length, 0);
   assert.equal(aplicar(afuera, ficha({ ambito: 'region', impacto_balcarce: 'nulo', razon: 'ninguna' })).notas.length, 1, 'la de Necochea ya no se saca por la IA: si pocos medios la cuentan, la frena la popularidad');
-  assert.equal(aplicar(afuera, ficha({ ambito: 'nacional', seccion: 'Policiales' })).notas.length, 0);
+  // (con algo policial en el título: si no dice nada policial, la IA no la lleva a Policiales: regla 322)
+  assert.equal(aplicar({ ...afuera, titulo: 'Detuvieron a un hombre por un robo' }, ficha({ ambito: 'nacional', seccion: 'Policiales' })).notas.length, 0);
   const r = aplicar(afuera, ficha({ es_publicidad: true }));
   assert.equal(r.cambios.sacadas[0].motivo, 'es publicidad', 'y dice por qué');
 });

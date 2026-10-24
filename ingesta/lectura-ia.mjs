@@ -28,6 +28,7 @@ import { sinTildes } from '../web/lib/texto.js';
 import { SECCIONES_SUMADAS, TEXTO_PARA_LA_FICHA, esSumada } from './secciones-nuevas.mjs';
 import { policialNacionalRelevante } from './policial-nacional.mjs';
 import { MUY_CONTADA, LECTURA_IA } from './criterio.mjs';
+import { partirGrupos, HECHO_PRINCIPAL_ACTIVO } from './hecho-principal.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 const AQUI = import.meta.dirname;
@@ -493,13 +494,29 @@ export function mencionaAca(nota) {
     || !!nombraLocalidadDudosa(nota ?? {}); // San Agustín, Los Pinos: en un medio de acá, solas (regla 179)
 }
 
+// Regla 322 (24/10/2026): lo que tiene que decir una nota para que la IA pueda llevarla a Policiales. Son raíces de palabras (con tildes
+// ya sacadas) y tiene que aparecer alguna en el título o al comienzo del resumen; es una red ancha a propósito: sólo frena lo que no dice nada
+// policial, judicial, de accidentes ni de seguridad (el concejal de Tandil hablando de PAMI y de las obras de la ruta 226 salió en Policiales).
+const RAICES_POLICIALES = /\b(polic|detenid|detenc|detuv|deteng|arrest|aprehen|apres|crimen|criminal|asesin|homicid|femicid|rob[oa]|robar|asalt|hurt|allanam|fiscal|juzgad|juez|jueza|condena|imputad|acusad|denunci|estafa|narco|droga|estupefac|balaz|disparo|apunal|herid|muert|muri|falleci|victim|abus|violac|secuestr|accident|choque|colisi|vuelc|incendi|siniestr|alcoholem|persecuc|comisar|gendarm|prision|preso|carcel|delit|delincuen|sentencia|violen|agresi|amenaz|desaparec|rescat|bombero|tribunal|causa judicial|profug|fuga|infraccion|sospech|investig|inseguridad|seguridad ciudadana|motochorro|picada|operativ|preventiv|patrull)/;
+
+/**
+ * ¿La ficha manda a Policiales una nota que no dice nada policial? La sección que dicen las palabras es una concreta (Salud, Economía…: no
+ * Balcarce ni Argentina, que son lo que queda cuando ninguna palabra encontró nada y ahí la IA puede ver lo que las palabras no ven) y ni el
+ * título ni el comienzo del resumen tienen una palabra del vocabulario policial. Apagado con HECHO_PRINCIPAL=no.
+ */
+export function sinPoliciaDeVerdad(nota, seccionDeLaFicha) {
+  if (!HECHO_PRINCIPAL_ACTIVO || seccionDeLaFicha !== 'Policiales' || !nota?.seccion || ['Policiales', 'Balcarce', 'Argentina'].includes(nota.seccion)) return false;
+  const texto = sinTildes(`${nota?.titulo ?? ''} ${String(nota?.resumenFuente ?? nota?.copete ?? nota?.cuerpo ?? '').slice(0, 800)}`);
+  return !RAICES_POLICIALES.test(texto);
+}
+
 /** Desde cuándo las fichas conocen la sección Fútbol (con margen: fue el 27/09 a la tarde). */
 const FICHAS_CON_FUTBOL = '2026-09-28T00:00:00Z';
 
 export function aplicarFichas(notas, fichas = {}, {
   esperarSinFicha = false, yaPublicadas = new Set(),
 } = {}) {
-  const cambios = { sacadas: [], dejanDeSerLocales: [], otraSeccion: [], aEsperar: [] };
+  const cambios = { sacadas: [], dejanDeSerLocales: [], otraSeccion: [], aEsperar: [], seccionContradicha: [] };
   // Las fichas viejas pueden decir "Servicios", que ya no existe (27/09).
   // Educación, Salud y Ciencia (regla 187, activas desde la 211) nunca se llevan una nota de Política o Policiales, que esperan
   // a una persona en todas las piezas de redes.
@@ -555,7 +572,10 @@ export function aplicarFichas(notas, fichas = {}, {
     // sale (regla 290; la ingesta ya lo tira antes del cruce, esto cubre lo que llegue por otro camino).
     else if (f.ambito === 'internacional' && !tieneArgentino && (medios < MUY_CONTADA.medios || futbolDeAfuera)) motivo = 'es del extranjero';
     // Lo de la zona sí entra (28/09): ver esPolicialDeAfuera, ingesta/ingesta.mjs.
-    if (!motivo && f.seccion === 'Policiales' && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
+    // Regla 322: la IA no lleva a Policiales una nota que no dice nada policial (un concejal de Tandil hablando de PAMI y de las obras de la
+    // 226): sigue en la sección que dicen las palabras, y no se la saca por «policial que no es de Balcarce» porque no lo es.
+    const policialSinPolicia = sinPoliciaDeVerdad(n, seccionDe(f, n));
+    if (!motivo && f.seccion === 'Policiales' && !policialSinPolicia && !esLocal && !n.deLaZona && !policialNacionalRelevante(n, medios)) motivo = 'policial que no es de Balcarce';
     if (motivo) { cambios.sacadas.push({ ...caso, motivo }); continue; }
 
     // Tenía la llave de la fuente o del título pero la IA dice que el hecho no
@@ -572,7 +592,9 @@ export function aplicarFichas(notas, fichas = {}, {
     // a Pampas", de rugby, salió en Fútbol por "goleó"). Las fichas duran tres
     // días (LECTURA.diasDeFichas): desde el 1/10 no queda ninguna vieja.
     const sinFutbol = !(Date.parse(f.cuando ?? '') >= Date.parse(FICHAS_CON_FUTBOL));
-    const deLaIA = sinFutbol && seccionDe(f, n) === 'Deportes' && n.seccion === 'Fútbol' ? 'Fútbol' : seccionDe(f, n);
+    const deLaIA = policialSinPolicia ? n.seccion
+      : sinFutbol && seccionDe(f, n) === 'Deportes' && n.seccion === 'Fútbol' ? 'Fútbol' : seccionDe(f, n);
+    if (policialSinPolicia) cambios.seccionContradicha.push({ ...caso, ficha: 'Policiales', queda: n.seccion });
     const seccion = deLaIA === 'Balcarce' && !esLocal ? (['Servicios', 'País'].includes(n.seccion) ? 'Argentina' : n.seccion)
       : deLaIA === 'Argentina' && esLocal ? 'Balcarce'
         : deLaIA;
@@ -714,8 +736,14 @@ ${JSON.stringify(lista, null, 1)}` }] }],
  * que A y B cuentan lo mismo y ahora que B y C, A, B y C son una sola noticia.
  * La IA no siempre agrupa igual (27/09: de las tres de McCain juntó dos), así
  * que lo que ya vio no se pierde. Sólo quedan los ids que siguen existiendo.
+ *
+ * Regla 322 (24/10/2026): la suma por transitividad pegaba hechos distintos (Discapacidad dentro de vandalismo rural, «75 familias» dentro
+ * del cumpleaños del Instituto Adventista, y el 22/10 dos grupos de 23 y 28 notas sin nada que ver). Con las `notas` del momento
+ * ({ id, titulo, resumenFuente }), cada grupo que sale de la suma se parte en los pedazos que comparten el hecho principal
+ * (ingesta/hecho-principal.mjs): sólo separa, nunca junta; una cadena A-B-C no queda junta si A y C no comparten el hecho. Sin `notas`
+ * (o con HECHO_PRINCIPAL=no) es la suma de siempre.
  */
-export function unirGrupos(anteriores = [], nuevos = [], idsVigentes = null) {
+export function unirGrupos(anteriores = [], nuevos = [], idsVigentes = null, { notas = null } = {}) {
   const padre = new Map();
   const raiz = (x) => { while (padre.get(x) !== x) x = padre.get(x); return x; };
   for (const ids of [...anteriores, ...nuevos]) {
@@ -725,7 +753,8 @@ export function unirGrupos(anteriores = [], nuevos = [], idsVigentes = null) {
   }
   const grupos = new Map();
   for (const id of padre.keys()) { const r = raiz(id); (grupos.get(r) ?? grupos.set(r, []).get(r)).push(id); }
-  return [...grupos.values()].filter((g) => g.length >= 2).map((g) => g.sort());
+  const unidos = [...grupos.values()].filter((g) => g.length >= 2).map((g) => g.sort());
+  return notas ? partirGrupos(unidos, notas).grupos.map((g) => g.sort()) : unidos;
 }
 
 /**
@@ -779,7 +808,9 @@ function fuentesSumadas(queda, resto) {
   return { origenes, fuentesTexto };
 }
 
-export function quitarRepetidas(notas, grupos = [], { publicadas = new Set() } = {}) {
+export function quitarRepetidas(notas, grupos = [], { publicadas = new Set(), guardaDeHecho = false } = {}) {
+  // Regla 322: con `guardaDeHecho`, un grupo guardado de antes (fichas.json) que junta hechos distintos se parte antes de quitar nada.
+  if (guardaDeHecho) grupos = partirGrupos(grupos, notas).grupos;
   const porId = new Map(notas.map((n) => [n.id, n]));
   const fuera = new Map();
   const reemplazo = new Map();
