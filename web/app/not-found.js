@@ -1,5 +1,10 @@
 import { destinoDesde404 } from '@/lib/ruta';
 
+// Una sola etiqueta `robots` (24/10/2026, regla 321). Next ya le agrega a toda página 404 su propio `<meta name="robots" content="noindex">`;
+// la del layout (`index, follow, max-image-preview…`) se sumaba al lado y la página decía dos cosas contrarias (manda la más restrictiva, pero
+// es un descuido que ensucia lo que ve un auditor). Con `robots: null` la de la plantilla no se escribe y queda sólo la de Next.
+export const metadata = { robots: null };
+
 // Rescatar enlaces viejos de notas.
 //
 // El sitio es HTML estático: Cloudflare Pages sirve esta página (404.html)

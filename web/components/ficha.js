@@ -84,11 +84,10 @@ export function FichaDelSitio() {
 /**
  * Una nota.
  *
- * `dateModified` es igual a `datePublished` mientras no editemos notas
- * después de publicarlas. Cuando el panel guarde la hora de la última
- * edición, sale de ahí.
+ * `dateModified` es la última vez que cambió algo (lib/tiempo.js, fechaDeModificacion): cuando salió, cuando una persona la aprobó o la corrigió,
+ * o cuando la auditoría le arregló una falta de ortografía; nunca antes de `datePublished`.
  */
-export function FichaDeNota({ nota, conTarjeta = true }) {
+export function FichaDeNota({ nota }) {
   const base = sitio();
   const url = enlace(nota.ruta);
   const datos = {
@@ -103,14 +102,12 @@ export function FichaDeNota({ nota, conTarjeta = true }) {
     articleSection: nota.seccion,
     inLanguage: 'es-AR',
     url,
-    // La foto de la nota (si mide lo que Google pide, con su crédito) y la tarjeta propia; si no hay tarjeta propia, la del sitio (la otra
-    // daba 404). Qué va primero, lo decide imagenesDeNota (lib/datos-estructurados.js); el tamaño sale de la cabecera del archivo.
+    // La FOTO de la nota (con su tamaño real y su crédito), nunca la tarjeta con el titular escrito encima (regla 321): la tarjeta es para
+    // compartir en redes y va en og:image. Sin foto que sirva no se declara imagen. Lo decide imagenesDeNota (lib/datos-estructurados.js).
     ...camposExtraDeNota({
       nota,
-      tarjeta: enlace(conTarjeta ? `${nota.ruta}/opengraph-image` : '/opengraph-image'),
       urlFoto: (archivo) => { const u = urlDeFoto(archivo); return /^https?:/.test(u) ? u : enlace(u); },
       dimensiones: dimensionesDeFoto,
-      tarjetaPropia: conTarjeta,
     }),
     isAccessibleForFree: true,
     // El editor completo (nombre, dirección y logo) y no sólo su `@id`: Google lo pide para Noticias y Discover, y una referencia suelta

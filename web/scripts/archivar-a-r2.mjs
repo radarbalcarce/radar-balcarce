@@ -41,7 +41,7 @@ import { execFile } from 'node:child_process';
 import { MAXIMO_EN_ARCHIVO, idsRetiradosAMano, topeDeNotas } from '../lib/archivo.js';
 import { parteDeNota } from '../lib/ruta.js';
 import {
-  claveDePagina, claveDeTarjeta, claveDeInstagram, claveDeFoto, rutaCanonicaDe, xmlDelArchivo, CLAVE_DEL_SITEMAP,
+  claveDePagina, claveDeTarjeta, claveDeInstagram, claveDeFoto, rutaCanonicaDe, mapasDelArchivo,
 } from '../../infra/archivo-cloudflare/worker.mjs';
 
 const AQUI = import.meta.dirname;
@@ -490,10 +490,13 @@ async function ponerTexto({ bucket, clave, texto, tipo = 'application/json', con
  *   `hasta`       hora (ms) desde la que no se empieza ninguna subida nueva: lo que queda va como "pendiente" y sale en la próxima corrida
  *                 (16/10/2026: el paso del despliegue no puede comerse la vuelta de media hora).
  *   `estado`      función (resultado) → objeto que se sube como estado.json (lo lee el vigilante por el Worker); null para no subirlo.
+ *   `mapasPrevios` las huellas ({ clave: sha256 }) de los mapas del archivo que quedaron subidos la vez anterior (`mapas` del manifiesto): un mapa
+ *                 que no cambió no se vuelve a subir (cada subida con wrangler son unos 4 segundos de la vuelta de media hora).
  * Devuelve { subidos, fallidos: [{clave, salida}], pendientes, borrados, manifiestoSubido, estadoSubido, noSubidas, noBorradas }.
  */
 export async function subirAlDeposito({
   bucket, hacer, manifiesto, estado = null, ejecutar = correrWrangler, concurrencia = 6, reintentos = 3, hasta = Infinity, ahora = () => Date.now(),
+  mapasPrevios = {},
 }) {
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'archivo-r2-'));
   const fallidos = [];
@@ -527,16 +530,22 @@ export async function subirAlDeposito({
 
     const resultado = { subidos, borrados, pendientes, fallidos, noSubidas, noBorradas };
     let manifiestoSubido = false;
-    const final = typeof manifiesto === 'function' ? await manifiesto(resultado) : manifiesto;
+    let final = typeof manifiesto === 'function' ? await manifiesto(resultado) : manifiesto;
     if (final) {
+      // Los mapas de las notas archivadas (24/10/2026, reglas 310 y 321): uno por mes y el índice, armados con el manifiesto que va a quedar en el
+      // depósito. Primero los meses y al final el índice (nunca apunta a un mes que no está). Sólo se sube el que cambió; la huella de lo que quedó
+      // subido viaja en el manifiesto (`mapas`), así lo que falló se reintenta en la próxima corrida.
+      const huellas = { ...mapasPrevios };
+      for (const [clave, texto] of Object.entries(mapasDelArchivo(final))) {
+        const huella = sha256(Buffer.from(texto, 'utf8'));
+        if (huellas[clave] === huella) continue;
+        const r = await ponerTexto({ bucket, clave, texto, tipo: 'application/xml; charset=utf-8', control: 'public, max-age=300', carpeta, ejecutar });
+        if (r.ok) huellas[clave] = huella; else fallidos.push({ clave, salida: r.salida ?? '' });
+      }
+      final = { ...final, mapas: huellas };
       const r = await ponerTexto({ bucket, clave: CLAVE_DEL_MANIFIESTO, texto: `${JSON.stringify(final)}\n`, carpeta, ejecutar });
       manifiestoSubido = r.ok;
       if (!r.ok) fallidos.push({ clave: CLAVE_DEL_MANIFIESTO, salida: r.salida ?? '' });
-    }
-    // El mapa de las notas archivadas (24/10/2026, regla 310), armado con el mismo manifiesto que acaba de quedar en el depósito.
-    if (final && manifiestoSubido) {
-      const r = await ponerTexto({ bucket, clave: CLAVE_DEL_SITEMAP, texto: xmlDelArchivo(final), tipo: 'application/xml; charset=utf-8', control: 'public, max-age=300', carpeta, ejecutar });
-      if (!r.ok) fallidos.push({ clave: CLAVE_DEL_SITEMAP, salida: r.salida ?? '' });
     }
     let estadoSubido = false;
     const cuerpoDelEstado = typeof estado === 'function' ? estado({ ...resultado, manifiesto: final, manifiestoSubido }) : null;
@@ -649,7 +658,7 @@ export async function principal(argv = process.argv.slice(2), { env = process.en
     const hacer = { subir: [], borrar: borrarParaQuitar(quitar, previo) };
     escribir(`Archivo permanente (QUITAR de ${bucket}): ${quitar.join(', ')} · ${hacer.borrar.length} objetos`);
     const r = await subirAlDeposito({
-      bucket, hacer, ejecutar, ahora,
+      bucket, hacer, ejecutar, ahora, mapasPrevios: previo?.mapas ?? {},
       // Sin manifiesto legible no se escribe uno nuevo (se perdería la memoria del depósito): se borra y listo.
       manifiesto: previo ? (res) => manifiestoTrasSubir(previo, { ...previo, notas: {} }, hacer, res) : null,
       estado: (res) => armarEstado({ ok: !res.fallidos.length, modo: 'quitar', bucket, manifiesto: res.manifiesto ?? previo, resultado: res, segundos: Math.round((ahora() - inicio) / 1000) }),
@@ -725,13 +734,15 @@ export async function principal(argv = process.argv.slice(2), { env = process.en
 
   let final = null;
   const r = await subirAlDeposito({
-    bucket, hacer, ejecutar, concurrencia, ahora,
+    bucket, hacer, ejecutar, concurrencia, ahora, mapasPrevios: previo?.mapas ?? {},
     hasta: Number.isFinite(limite) ? inicio + limite * 1000 : Infinity,
-    // Sólo se reescribe el manifiesto si algo cambió (o es la primera vez): con lo que de verdad quedó en el depósito. Antes de escribirlo
+    // Sólo se reescribe el manifiesto si algo cambió (o es la primera vez, o todavía no lleva las huellas de los mapas del archivo —`mapas`,
+    // regla 321—, que así se suben en la primera corrida después de actualizar y no recién cuando haya una nota nueva): con lo que de verdad quedó
+    // en el depósito. Antes de escribirlo
     // se vuelve a leer, por si otra corrida (el despliegue de la media hora y el workflow de producción) lo cambió mientras tanto: lo de
     // esta corrida se suma a ESE, y no se pisa lo que anotó la otra.
     manifiesto: async (res) => {
-      if (!res.subidos && !res.borrados && previo) { final = manifiestoTrasSubir(previo, manifiesto, hacer, res); return null; }
+      if (!res.subidos && !res.borrados && previo?.mapas) { final = manifiestoTrasSubir(previo, manifiesto, hacer, res); return null; }
       const ultimo = await leerManifiestoConEstado({ bucket, ejecutar });
       final = manifiestoTrasSubir(ultimo.estado === 'ok' ? ultimo.manifiesto : previo, manifiesto, hacer, res);
       return final;

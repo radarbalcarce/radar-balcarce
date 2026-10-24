@@ -113,6 +113,8 @@ export function correccionesAMano(json) {
  */
 export function cambiosDeLaAuditoria(json) {
   const salida = new Map();
+  // Cuándo corrigió la auditoría cada nota (regla 321): viaja con los cambios, así quien aplica los pares no necesita otro argumento.
+  salida.fechas = fechasDeLaAuditoria(json);
   const notas = json && typeof json === 'object' ? json.notas : null;
   if (!notas || typeof notas !== 'object') return salida;
   for (const [id, e] of Object.entries(notas)) {
@@ -124,21 +126,41 @@ export function cambiosDeLaAuditoria(json) {
 }
 
 /**
+ * Cuándo corrigió la auditoría cada nota (24/10/2026, regla 321): Map id → ISO, del `cuando` de cada entrada de correcciones-auditoria.json.
+ * Es la fecha que `dateModified` de los datos estructurados usa para una nota cuyo texto la auditoría arregló (`auditadaCuando`).
+ */
+export function fechasDeLaAuditoria(json) {
+  const salida = new Map();
+  const notas = json && typeof json === 'object' ? json.notas : null;
+  if (!notas || typeof notas !== 'object') return salida;
+  for (const [id, e] of Object.entries(notas)) {
+    const t = Date.parse(e?.cuando ?? '');
+    if (Number.isFinite(t)) salida.set(id, new Date(t).toISOString());
+  }
+  return salida;
+}
+
+/**
  * Aplica esos pares al texto de la nota. Sólo si el fragmento está UNA vez en el campo, como palabra entera (no pegado a otras letras),
  * y si lo nuevo no contiene a lo viejo: de otro modo cada corrida volvía a corregir el texto ya corregido y lo estiraba ("se contrajo 1
  * por ciento" → "… en" → "… en en en…", 08/10/2026). Si el texto cambió (se reescribió, lo corrigió una persona), el par ya no calza y no
  * se hace nada. A diferencia de `conCorreccion`, no marca la nota como revisada por la redacción: nadie de la redacción la revisó.
  */
-export function conCambiosDeLaAuditoria(nota, cambios) {
+export function conCambiosDeLaAuditoria(nota, cambios, fechas = cambios?.fechas ?? null) {
   const lista = nota?.id ? cambios?.get(nota.id) : null;
   if (!lista) return nota;
   const salida = { ...nota };
+  let corregida = false;
   for (const c of lista) {
     const texto = salida[c.campo];
     if (typeof texto !== 'string' || c.despues.includes(c.antes)) continue;
     const buscado = new RegExp(`(?<![\\p{L}\\p{N}])${c.antes.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'gu');
-    if ([...texto.matchAll(buscado)].length === 1) salida[c.campo] = texto.replace(buscado, () => c.despues);
+    if ([...texto.matchAll(buscado)].length === 1) { salida[c.campo] = texto.replace(buscado, () => c.despues); corregida = true; } else if (!buscado.test(texto) && texto.includes(c.despues)) corregida = true;
   }
+  // Regla 321: si el texto de la nota lleva el arreglo de la auditoría (recién puesto, o puesto en una corrida anterior), la nota guarda cuándo se
+  // lo hizo (`auditadaCuando`) y dateModified lo dice. Sin la fecha de la auditoría, todo sigue como antes.
+  const cuando = fechas?.get(nota.id);
+  if (corregida && cuando && !(Date.parse(salida.auditadaCuando ?? '') >= Date.parse(cuando))) salida.auditadaCuando = cuando;
   return salida;
 }
 

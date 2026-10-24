@@ -47,6 +47,7 @@ jobs:
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
           R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
           SITEMAP_DEL_ARCHIVO: ${{ vars.SITEMAP_DEL_ARCHIVO }}
+          SITEMAP_PARTIDO: ${{ vars.SITEMAP_PARTIDO }}
           TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
           FOTOS_MENORES_OFICIALES: ${{ vars.FOTOS_MENORES_OFICIALES }}
           POLICIAL_NACIONAL: ${{ vars.POLICIAL_NACIONAL }}

@@ -17,17 +17,29 @@
 //
 // De una entrada y una salida, sin leer archivos: se prueba sin red.
 
-import { mismaHistoria } from './texto.js';
+import { mismaHistoria, sinTildes } from './texto.js';
 import { tieneCuerpo, tieneRespaldo } from './cuerpo.js';
 
 const CUANTAS_SIGUEN = 4;
 
 const tiempo = (n) => new Date(n?.fecha).getTime() || 0;
 const masNueva = (a, b) => tiempo(b) - tiempo(a);
-/** Cuánto se parece a la nota que se lee: temas en común pesan el doble que las etiquetas. */
+// Palabras del título que no dicen de qué se habla (24/10/2026, regla 321): sin ellas, dos titulares «de la semana pasada» o «para hoy» se parecerían.
+const VACIAS = new Set(['sobre', 'desde', 'hasta', 'entre', 'hacia', 'segun', 'tambien', 'luego', 'antes', 'despues', 'durante', 'contra', 'tras',
+  'ahora', 'cuando', 'donde', 'como', 'estos', 'estas', 'nueva', 'nuevo', 'nuevas', 'nuevos', 'semana', 'ultimo', 'ultima', 'primer', 'primera',
+  'hoy', 'ayer', 'manana', 'anuncio', 'confirmo', 'dijo', 'habria', 'tiene', 'tienen', 'fueron', 'cuales', 'quien', 'quienes']);
+/** Las palabras que identifican de qué trata un título (sin tildes, de 5 letras o más y que no sean de las vacías): nombres, lugares, cosas. */
+const palabrasClave = (nota) => new Set(sinTildes(nota?.titulo ?? '').split(/[^a-z0-9ñ]+/).filter((p) => p.length >= 5 && !VACIAS.has(p)));
+/**
+ * Cuánto se parece a la nota que se lee: temas en común pesan el doble que las etiquetas, y cada palabra clave del título que comparten suma uno
+ * (hasta tres). Antes sólo contaban los temas y las etiquetas, que muchas notas del archivo no tienen: dos notas de la misma obra o del mismo club
+ * quedaban «sin relación» y se ofrecía la más nueva de la sección, sea de lo que sea (regla 321).
+ */
 const afinidad = (nota, otra) => {
   const en = (a, b) => (a ?? []).filter((x) => (b ?? []).map((y) => String(y).toLowerCase()).includes(String(x).toLowerCase())).length;
-  return en(nota.temas, otra.temas) * 2 + en(nota.etiquetas, otra.etiquetas);
+  const clave = palabrasClave(nota);
+  const enElTitulo = Math.min(3, [...palabrasClave(otra)].filter((p) => clave.has(p)).length);
+  return en(nota.temas, otra.temas) * 2 + en(nota.etiquetas, otra.etiquetas) + enElTitulo;
 };
 const conHora = (n) => !n.sinFecha && Number.isFinite(new Date(n.fecha).getTime());
 

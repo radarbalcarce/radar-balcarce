@@ -375,8 +375,9 @@ test('cada nota declara una tarjeta que existe: la propia si la tiene y, si no, 
   assert.match(pagina, /tarjetaDelSitio: TARJETA_DEL_SITIO/);
   assert.match(pagina, /images: imagenes,/, 'og:image declarada a mano');
   assert.match(pagina, /images: \[\{ url: imagen\.url, alt: imagen\.alt \}\]/, 'twitter:image igual que la primera og:image');
-  assert.match(pagina, /<FichaDeNota nota=\{n\} conTarjeta=\{tieneTarjetaPropia\(n\)\} \/>/);
-  assert.match(leer('components/ficha.js'), /enlace\(conTarjeta \? `\$\{nota\.ruta\}\/opengraph-image` : '\/opengraph-image'\)/);
+  // 24/10/2026 (regla 321): el marcado de la nota (JSON-LD) ya no declara la tarjeta, sino la FOTO; la tarjeta queda para compartir (og:image).
+  assert.match(pagina, /<FichaDeNota nota=\{n\} \/>/);
+  assert.ok(!/opengraph-image/.test(leer('components/ficha.js').replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '')), 'el JSON-LD no declara la tarjeta con el titular escrito encima');
   // La tarjeta apaisada es una ruta: con el archivo especial opengraph-image.js, Next declaraba la
   // etiqueta en todas las notas, tuvieran tarjeta o no.
   assert.ok(!fs.existsSync(path.join(RAIZ, 'app/nota/[id]/opengraph-image.js')));
@@ -444,7 +445,8 @@ test('una nota automática sin cuerpo lleva noindex, follow; con cuerpo o public
   assert.equal(noSeOfreceAGoogle({ como: 'automatica', copete: 'La bajada', cuerpo }), false);
   assert.equal(noSeOfreceAGoogle({ como: 'publicada', copete: 'La bajada', cuerpo: 'corto' }), false, 'lo que publica una persona se respeta');
   const pagina = fs.readFileSync(path.join(import.meta.dirname, '..', 'web/app/nota/[id]/page.js'), 'utf8');
-  assert.match(pagina, /noSeOfreceAGoogle\(n\) \? \{ robots: \{ index: false, follow: true \} \}/);
+  // Y desde la regla 321 también las plantillas que se repiten (clima, repasos, dólar, horarios, códigos): noSeIndexa = sin cuerpo o plantilla.
+  assert.match(pagina, /noSeIndexa\(n\) \? \{ robots: \{ index: false, follow: true \} \}/);
 });
 
 // V2-13 (8/10/2026): Google usa el feed para descubrir notas; robots.txt no lo bloquea. El panel sí sigue bloqueado.

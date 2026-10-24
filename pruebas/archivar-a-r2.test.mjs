@@ -352,12 +352,14 @@ test('--subir al depósito de ensayo: sube cada objeto con su tipo y su caché, 
     const codigo = await principal([`--out=${sitio.out}`, `--datos=${sitio.datos}`, '--tope=1', '--margen=0', '--subir', '--bucket=radar-archivo-staging'], { env: ENV_CON_CLAVES, ejecutar: w.ejecutar, escribir: (t) => salida.push(t) });
     assert.equal(codigo, 0);
     const puts = w.llamadas.filter((a) => a[2] === 'put');
-    // n1 (3 objetos) + n2 (2): n3 es la que se queda en el sitio; después el manifiesto, el mapa del archivo (regla 310) y el estado
-    assert.equal(puts.length, 5 + 3);
-    assert.equal(puts.at(-3)[3], `radar-archivo-staging/${CLAVE_DEL_MANIFIESTO}`, 'el manifiesto va después de los objetos');
-    assert.equal(puts.at(-2)[3], 'radar-archivo-staging/sitemap-archivo.xml', 'el mapa del archivo, armado con ese manifiesto');
+    // n1 (3 objetos) + n2 (2): n3 es la que se queda en el sitio; después los mapas del archivo (reglas 310 y 321: el de septiembre y el índice),
+    // el manifiesto (que anota sus huellas) y el estado
+    assert.equal(puts.length, 5 + 4);
+    assert.equal(puts.at(-4)[3], 'radar-archivo-staging/sitemap-archivo-2026-09.xml', 'el mapa de cada mes, armado con ese manifiesto');
+    assert.equal(puts.at(-3)[3], 'radar-archivo-staging/sitemap-archivo.xml', 'y el índice al final de los mapas');
+    assert.equal(puts.at(-2)[3], `radar-archivo-staging/${CLAVE_DEL_MANIFIESTO}`, 'el manifiesto va después de los objetos y de los mapas');
     assert.equal(puts.at(-1)[3], `radar-archivo-staging/${CLAVE_DEL_ESTADO}`, 'y el estado al final');
-    for (const p of puts.slice(0, -3)) {
+    for (const p of puts.slice(0, -4)) {
       assert.ok(p.includes('--remote'));
       assert.ok(p[3].startsWith('radar-archivo-staging/'));
       assert.ok(p.includes('--content-type') && p.includes('--cache-control'));
@@ -385,8 +387,18 @@ test('la segunda vez no vuelve a subir lo que no cambió; --borrar saca del dep�
   try {
     const args = [`--out=${sitio.out}`, `--datos=${sitio.datos}`, '--tope=1', '--margen=0', '--subir', '--bucket=radar-archivo-staging'];
     const manifiesto = path.join(sitio.raiz, 'm.json');
-    await principal([...args, `--manifiesto=${manifiesto}`], { env: ENV_CON_CLAVES, ejecutar: wranglerFalso().ejecutar, escribir: () => {} });
-    const previo = JSON.parse(fs.readFileSync(manifiesto, 'utf8'));
+    const w1 = wranglerFalso();
+    await principal([...args, `--manifiesto=${manifiesto}`], { env: ENV_CON_CLAVES, ejecutar: w1.ejecutar, escribir: () => {} });
+    // Lo que de verdad quedó en el depósito (con las huellas de los mapas del archivo, regla 321), no lo que guarda --manifiesto.
+    const previo = JSON.parse(w1.subido.get(CLAVE_DEL_MANIFIESTO));
+    assert.ok(previo.mapas && Object.keys(previo.mapas).length >= 2, 'el manifiesto subido anota la huella de cada mapa');
+
+    // Un manifiesto de antes de la regla 321 (sin `mapas`): aunque no haya nada nuevo, esta vez se escribe y sube los mapas, una sola vez.
+    const { mapas: _sinMapas, ...deAntes } = previo;
+    const w0 = wranglerFalso({ previo: deAntes });
+    await principal(args, { env: ENV_CON_CLAVES, ejecutar: w0.ejecutar, escribir: () => {} });
+    const subidosDeAntes = w0.llamadas.filter((a) => a[2] === 'put').map((a) => a[3]);
+    assert.ok(subidosDeAntes.includes('radar-archivo-staging/sitemap-archivo.xml') && subidosDeAntes.includes(`radar-archivo-staging/${CLAVE_DEL_MANIFIESTO}`), 'se suben los mapas y el manifiesto con sus huellas');
 
     const w2 = wranglerFalso({ previo });
     await principal(args, { env: ENV_CON_CLAVES, ejecutar: w2.ejecutar, escribir: () => {} });

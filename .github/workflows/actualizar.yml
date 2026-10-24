@@ -145,6 +145,7 @@ jobs:
           TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
           R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
           SITEMAP_DEL_ARCHIVO: ${{ vars.SITEMAP_DEL_ARCHIVO }}
+          SITEMAP_PARTIDO: ${{ vars.SITEMAP_PARTIDO }}
           # Cuántos medios distintos tiene que contar lo de afuera para salir (reglas 215 y 260, 17/10/2026; ingesta/popularidad.mjs): lo nacional
           # y las áreas chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura). Un número de 2 a 10; vacías o rotas valen los de siempre (3 y 2).
           MINIMO_NACIONAL: ${{ vars.MINIMO_NACIONAL }}
@@ -177,6 +178,7 @@ jobs:
           TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
           R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
           SITEMAP_DEL_ARCHIVO: ${{ vars.SITEMAP_DEL_ARCHIVO }}
+          SITEMAP_PARTIDO: ${{ vars.SITEMAP_PARTIDO }}
           WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
@@ -351,6 +353,7 @@ jobs:
           TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
           R2_ARCHIVO: ${{ vars.R2_ARCHIVO }}
           SITEMAP_DEL_ARCHIVO: ${{ vars.SITEMAP_DEL_ARCHIVO }}
+          SITEMAP_PARTIDO: ${{ vars.SITEMAP_PARTIDO }}
           WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
           TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}

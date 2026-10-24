@@ -37,18 +37,23 @@ test('sin tarjeta y sin foto que sirva, la del sitio (nunca una dirección que n
   assert.deepEqual(imagenesParaCompartir({ nota, ...comun, dimensiones: () => null }), [SITIO]);
 });
 
-test('sin tarjeta propia, el marcado de la nota declara su foto primero y no la tarjeta del sitio, igual para todas', () => {
+test('el marcado de la nota declara su FOTO, nunca la tarjeta con el titular escrito encima (regla 321)', () => {
   const dims = () => ({ ancho: 862, alto: 486 });
-  const comunes = { nota, tarjeta: 'https://radarbalcarce.com/opengraph-image', urlFoto: (a) => `https://radarbalcarce.com/${a}`, dimensiones: dims };
-  const sin = imagenesDeNota({ ...comunes, tarjetaPropia: false });
-  assert.equal(sin[0].url, 'https://radarbalcarce.com/fotos-notas/a.jpg');
-  assert.equal(sin[1], 'https://radarbalcarce.com/opengraph-image');
-  // Con tarjeta propia, lo de siempre: la tarjeta primero cuando la foto es de menos de 1200 px.
-  const con = imagenesDeNota({ ...comunes, tarjeta: 'https://radarbalcarce.com/nota/x/opengraph-image' });
-  assert.equal(con[0], 'https://radarbalcarce.com/nota/x/opengraph-image');
-  // Sin foto que sirva, sólo la tarjeta.
-  assert.deepEqual(imagenesDeNota({ ...comunes, dimensiones: () => null, tarjetaPropia: false }), ['https://radarbalcarce.com/opengraph-image']);
-  assert.match(leer('web/components/ficha.js'), /tarjetaPropia: conTarjeta/);
+  const comunes = { nota, urlFoto: (a) => `https://radarbalcarce.com/${a}`, dimensiones: dims };
+  const r = imagenesDeNota(comunes);
+  assert.equal(r.length, 1, 'sólo la foto, sea cual sea el tamaño');
+  assert.equal(r[0].url, 'https://radarbalcarce.com/fotos-notas/a.jpg');
+  assert.equal(r[0].width, 862);
+  assert.equal(r[0].height, 486);
+  assert.equal(r[0].creditText, 'Foto: Municipalidad');
+  // Sin foto que sirva (sin foto, o diminuta), ninguna imagen: la tarjeta no la reemplaza.
+  assert.deepEqual(imagenesDeNota({ ...comunes, nota: { ...nota, foto: null } }), []);
+  assert.deepEqual(imagenesDeNota({ ...comunes, dimensiones: () => ({ ancho: 200, alto: 150 }) }), []);
+  // Si no se pudo medir (la foto está en otro lado), se declara su dirección sola, sin prometer un tamaño.
+  assert.deepEqual(imagenesDeNota({ ...comunes, dimensiones: () => null }), ['https://radarbalcarce.com/fotos-notas/a.jpg']);
+  // El componente ya no recibe ni arma la tarjeta.
+  const ficha = leer('web/components/ficha.js');
+  assert.ok(!/tarjetaPropia|conTarjeta/.test(ficha));
 });
 
 test('la descripción de una sección es una frase fija, entera y sin titulares (24/10/2026)', () => {
