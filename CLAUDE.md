@@ -159,7 +159,7 @@ documentación.)
   hora). **Si Open-Meteo falla, el clima sale de `api.met.no`**, sin sensación térmica.
 - **Los minutos de Workers Builds** (6.000 por **ciclo de facturación, del 11 al 10**, no por mes calendario: regla 315, variable `MOTOR_CICLO_DIA`, 11 si no está, en el reloj, el Worker del motor y GitHub; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
   asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas, todas **apagadas por
-  defecto**: `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor»: la memoria de tarjetas de la regla 305 vive en R2 como
+  defecto**: `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor» **con `simular` = No** (por defecto trae `Si`, que deja el motor en ensayo: no guarda ni publica; el 24/10 la web estuvo casi dos horas sin notas nuevas por eso): la memoria de tarjetas de la regla 305 vive en R2 como
   objetos sueltos por huella, la compilación baja sólo las que pide; la primera vuelta con ella dibuja todo), `MOTOR_NOCHE_CADA_HORA=Si` (variable del
   reloj **y** del Worker del motor, en el panel de Cloudflare: de 23:00 a 6:59 la vuelta sale sólo a los :00 y el vigilante de vueltas espera una hora
   más) y `MOTOR_MINUTOS_DE_MAS` (los minutos que se le suman a cada vuelta por lo que no ve de sí misma; hoy 0,5). El registro `motor/minutos/AAAA-MM-DD.json` (el día en que arrancó el ciclo; migra solo el viejo por mes)
