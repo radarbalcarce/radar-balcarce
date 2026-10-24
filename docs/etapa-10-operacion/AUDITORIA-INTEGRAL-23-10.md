@@ -64,7 +64,7 @@ algo en el próximo cambio, o un dato que engaña; **baja** = prolijidad, códig
 | B6 | baja | `CRITERIO-EDITORIAL.md:957` vs `ingesta/criterio.mjs` (`COPIA_MAXIMA` 12) | La instrucción de la IA dice "nada de más de diez palabras seguidas"; el verificador rechaza desde 12. Puede ser margen a propósito, pero no está escrito en ningún lado. | Escribir en la tabla que 10 es lo que se pide y 12 lo que se rechaza, o igualar. |
 | B7 | baja | `CRITERIO-EDITORIAL.md:236`, `:819`, `:882`; `CLAUDE.md:81` | "Hasta 5 por día" al celular; "a unas 46 por día" (son ~120); "se reintenta hasta tres veces" (con 5 medios son 4 y con 8, 5). | Corregir textos. |
 | B8 | baja | `pruebas/criterios-extranjero-zona.test.mjs:85` | La prueba compara el **texto** del código con una expresión regular. Cualquier cambio de forma la rompe aunque la regla siga igual. | Reemplazarla por una prueba de comportamiento (una nota de 80 horas de un feed de acá no entra). |
-| B9 | baja | `docs/REGLAS-Y-PROMPTS.html`, `docs/flujo/GUIA-DEL-FLUJO.html`, `docs/flujo/FLUJO-NUEVO*.html`, `docs/flujo/INFORME-DE-HOY.html` | Copias viejas de las instrucciones de la IA y de reglas superadas ("Fútbol y Deportes 4", "impacto nulo"), en la carpeta de documentos vivos. | Regenerar `REGLAS-Y-PROMPTS.html` y pasar el resto a `docs/historico/`. |
+| B9 | baja | `docs/REGLAS-Y-PROMPTS.html`, `docs/flujo/GUIA-DEL-FLUJO.html`, `docs/flujo/FLUJO-NUEVO*.html`, `docs/flujos/INFORME-DE-HOY.html` | Copias viejas de las instrucciones de la IA y de reglas superadas ("Fútbol y Deportes 4", "impacto nulo"), en la carpeta de documentos vivos. | Regenerar `REGLAS-Y-PROMPTS.html` y pasar el resto a `docs/historico/`. |
 
 ---
 

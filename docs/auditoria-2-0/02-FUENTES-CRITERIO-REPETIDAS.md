@@ -43,7 +43,7 @@ suma lo nuevo. Cómo se midió, al final.*
 
 La lista elegida el 15/10 (`docs/etapa-1-fuentes/LISTA-ELEGIDA.md`) está aplicada: **103 feeds activos de 71 medios** (11 de
 Balcarce con 15 feeds, 10 de la zona, 50 del país), de 265 configurados. En cada vuelta se leen unas **7.600 a 8.000 notas** y
-quedan **540 a 550 historias**; unas 4.200 notas de afuera contadas por un solo medio no entran (`docs/flujo/CRUCE-COHERENTE.md`).
+quedan **540 a 550 historias**; unas 4.200 notas de afuera contadas por un solo medio no entran (`docs/flujos/CRUCE-COHERENTE.md`).
 
 Lo que dice `node ingesta/auditar-fuentes.mjs` (7 días, del 9 al 16/10, 309 notas publicadas):
 

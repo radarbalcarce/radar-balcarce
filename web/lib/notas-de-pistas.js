@@ -67,7 +67,6 @@ export function notasDePistas(json, { ahora = new Date() } = {}) {
       medios: fuentes.map((f) => f.medio),
       enlace: fuentes[0].enlace,
       fuentesConsultadas: fuentes,
-      teniaImagenLaFuente: false,
       fecha,
       sinFecha: false,
       visto: fecha,

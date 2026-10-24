@@ -509,21 +509,6 @@ export function armarAlerta({ problemas, ahora }) {
   return { asunto, texto };
 }
 
-export function armarRecuperado({ recuperadas, ahora }) {
-  const una = recuperadas.length === 1;
-  const asunto = una ? `[Radar Balcarce] Se arregló: ${recuperadas[0].titulo}` : `[Radar Balcarce] Se arreglaron ${recuperadas.length} problemas`;
-  const lineas = recuperadas.map((r) => {
-    const min = r.desde ? minutosDesde(r.desde, ahora) : null;
-    return `  - ${r.titulo}${min != null ? ` (avisado hace ${formatoEdad(min)}, a las ${fechaHoraAR(new Date(r.desde))})` : ''}`;
-  });
-  const texto = [
-    `Radar Balcarce: a las ${fechaHoraAR(ahora)} (hora de Balcarce) volvió a la normalidad:`,
-    '', ...lineas, '',
-    'No hace falta hacer nada. Si querés comprobarlo: ' + ENLACES.sitio, '', PIE,
-  ].join('\n');
-  return { asunto, texto };
-}
-
 export function armarResumen({ ahora, web, github, problemasAbiertos = [], notas = null, respaldo = false }) {
   const lineas = [`Resumen del ${diaLargoAR(ahora)} (hora de Balcarce)`, ''];
   if (respaldo) lineas.push('El informe completo de la noche no llegó hoy (lo arma GitHub): este es el resumen de respaldo del vigilante, que mira desde afuera.', '');

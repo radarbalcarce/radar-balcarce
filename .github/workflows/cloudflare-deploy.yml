@@ -76,8 +76,6 @@ jobs:
           BLUESKY_URL: ${{ vars.BLUESKY_URL }}
           # De dónde salen las fotos de las notas: vacío = el propio sitio (web/lib/fotos.js).
           FOTOS_BASE: ${{ vars.FOTOS_BASE }}
-          # Educación, Salud y el menú con "Más secciones" (regla 187): sólo con la variable en "Si"; vacía, el sitio de siempre.
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
 
       # El ARCHIVO PERMANENTE (16/10/2026; docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md). Antes de subir el sitio, guarda en el
       # depósito R2 las notas que están por salir del sitio por el tope (las de los próximos ~4 días al ritmo de la última semana: --margen=auto)

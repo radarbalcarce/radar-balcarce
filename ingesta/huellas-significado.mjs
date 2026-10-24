@@ -1,4 +1,4 @@
-// La huella de significado de lo de acá (regla 195, 17/10/2026; docs/flujo/REPETIDAS-2-0.md).
+// La huella de significado de lo de acá (regla 195, 17/10/2026; docs/flujos/REPETIDAS-2-0.md).
 //
 // Entre el 12 y el 16/10 salieron repetidas cinco noticias de Balcarce (Campo de Pato en semifinales, tres veces; SUTEBA y el
 // paro; LALCEC y el mes rosa; el plan de educación vial; los atletas en Tamangueyú). Eran el mismo hecho contado con OTRAS

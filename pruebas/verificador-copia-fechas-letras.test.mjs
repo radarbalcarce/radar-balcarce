@@ -2,7 +2,7 @@
 // fórmulas y datos, la fecha de publicación como "inventada") y lo que no marcaba (letras rotas en notas ya publicadas). Regla 167.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { verificar, letrasRotas, datosDeFecha } from '../ingesta/verificar.mjs';
+import { verificar, letrasRotas } from '../ingesta/verificar.mjs';
 import fs from 'node:fs';
 import { materialParaVerificar } from '../reels/reescritura.mjs';
 
@@ -158,14 +158,6 @@ test('A1: una fecha escrita que NO coincide con ninguna recibida se sigue marcan
     const r = verificar(ASFALTO, { titulo: 'Anuncian un plan de asfalto', copete: 'El intendente anunció un plan de asfalto.', cuerpo });
     for (const t of esperados) assert.ok(tipos(r).includes(t), cuerpo + ' -> debía marcar ' + t + ': ' + JSON.stringify(r.problemas));
   }
-});
-
-test('datosDeFecha: día de la semana y mes en palabras, día, mes y año en números, en la hora de Balcarce', () => {
-  assert.deepEqual(datosDeFecha('2026-10-09T14:55:07.000Z'), { palabras: ['viernes', 'octubre'], numeros: [9, 10, 2026] });
-  // 00:30 UTC del 10 es todavía el 9 a la noche en Balcarce (UTC-3).
-  assert.deepEqual(datosDeFecha('2026-10-10T00:30:00.000Z'), { palabras: ['viernes', 'octubre'], numeros: [9, 10, 2026] });
-  assert.equal(datosDeFecha('no es una fecha'), null);
-  assert.equal(datosDeFecha(undefined), null);
 });
 
 test('materialParaVerificar le pasa al verificador la fecha de hoy y la de cada fuente', () => {

@@ -49,7 +49,10 @@ jobs:
           SITEMAP_DEL_ARCHIVO: ${{ vars.SITEMAP_DEL_ARCHIVO }}
           TOPE_DE_NOTAS: ${{ vars.TOPE_DE_NOTAS }}
           FOTOS_MENORES_OFICIALES: ${{ vars.FOTOS_MENORES_OFICIALES }}
-          SECCIONES_NUEVAS: ${{ vars.SECCIONES_NUEVAS }}
+          POLICIAL_NACIONAL: ${{ vars.POLICIAL_NACIONAL }}
+          FUTBOL_SOLO_ARGENTINO: ${{ vars.FUTBOL_SOLO_ARGENTINO }}
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
+          ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}
           FOTOS_BASE: ${{ vars.FOTOS_BASE }}
           R2_RESPALDOS: ${{ vars.R2_RESPALDOS }}
           R2_FOTOS: ${{ vars.R2_FOTOS }}

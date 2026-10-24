@@ -332,7 +332,7 @@ notas de la misma falsa oferta de empleo salieron con títulos distintos). Enton
    el tope se reparte por hora (`cupoDelMomento`): nunca se gasta todo antes de la
    noche, y lo que trae algo de acá nuevo puede adelantarse un poco. Las parejas
    (lo de acá también por significado y entre secciones, contra lo publicado de 72
-   horas) están en `docs/flujo/REPETIDAS-2-0.md`.
+   horas) están en `docs/flujos/REPETIDAS-2-0.md`.
 3. Los grupos se suman a los de corridas anteriores (`unirGrupos`: si antes A y B,
    y ahora B y C, son A, B y C), mientras sus notas sigan en la ingesta.
 4. De cada grupo **queda una** (`quitarRepetidas`): la ya publicada (en la portada

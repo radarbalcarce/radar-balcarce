@@ -1,5 +1,5 @@
 // El informe del día: cómo llegó la información hoy, cómo anduvo cada fuente, qué pasó con lo de Balcarce y
-// con lo nacional, cómo caen las secciones y qué está raro. Arma docs/flujo/INFORME-DE-HOY.html (un solo
+// con lo nacional, cómo caen las secciones y qué está raro. Arma docs/flujos/INFORME-DE-HOY.html (un solo
 // archivo, sin librerías, para el celular y la PC), la hoja de ruta para que Hernán y Andrés revisen juntos
 // las fuentes y las secciones. Pedido del 16/10/2026.
 //
@@ -20,7 +20,7 @@
 //     esperando-cuerpo.json, fusionadas.json, retiradas.json e intentos-ia.json de origin/main.
 //   · por qué no salió lo demás: el filtro de hoy sobre la misma corrida (fichas de la IA guardadas, regla de
 //     medios y cupos), igual que ingesta/comparar-seleccion.mjs.
-//   · la lista corta de 47: docs/etapa-1-fuentes/generar-revision.mjs (armarDatos, sólo lee).
+//   · la lista corta de 47: scripts/medir/generar-revision.mjs (armarDatos, sólo lee).
 //   · el mapa de 17 secciones: ingesta/secciones-nuevas.mjs (modo sombra).
 // De lo rojo y de lo que necesita ojo humano (menores, víctimas) NO se muestra el título: el repositorio es público.
 
@@ -42,8 +42,8 @@ import { SECCIONES_NUEVAS, seccionNueva } from '../../ingesta/secciones-nuevas.m
 import { informe as informeSecciones, muestra as muestraSecciones } from '../../ingesta/secciones-nuevas-sombra.mjs';
 import { simularLista, mediosDelRegistro } from '../../ingesta/auditar-fuentes.mjs';
 import { mediosMinimos } from '../../ingesta/popularidad.mjs';
-import { armarDatos } from '../../docs/etapa-1-fuentes/generar-revision.mjs';
-import { VERIFICACION_LOCAL } from '../../docs/etapa-1-fuentes/afinar.mjs';
+import { armarDatos } from './generar-revision.mjs';
+import { VERIFICACION_LOCAL } from './afinar.mjs';
 
 const { parsearScrape, motivoDeDescarte, normalizar } = paraPruebas;
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
@@ -918,7 +918,7 @@ ${preguntas.map((q, i) => `<section class="decision" data-k="${q.k}" data-titulo
 <li><b>Lo publicado:</b> <code>web/data/</code> de GitHub (${esc(A.commit)}; la portada se armó a las ${horaCorta(A.prodGenerado)}). "Publicada hoy" es lo mismo que cuenta el sistema: está en la portada y se vio por primera vez hoy (${A.oficialHoy ? `<code>notas-por-dia.json</code> dice ${A.oficialHoy.publicadas}` : ''}).</li>
 <li><b>Por qué no salió lo que no salió:</b> lo que espera a una persona y lo que espera cuerpo sale de la portada y de <code>esperando-cuerpo.json</code>; el resto, del filtro de hoy corrido sobre esta lectura con las fichas de la IA guardadas (<code>fichas.json</code>), la regla de medios y los cupos. Es la misma aproximación que <code>ingesta/comparar-seleccion.mjs</code>. Los cupos se cuentan "a la vez" sobre toda la lectura, así que "pasó el cupo" puede ser más estricto que en la nube.</li>
 <li><b>Unir una historia con su nota publicada</b> se hace por el identificador o por los enlaces de las fuentes. Cuando la IA reescribió el título y la nota publicada no comparte enlaces con la historia de hoy, no se puede unir (pasó con la marcha universitaria).</li>
-<li><b>La lista corta</b> es la de <code>docs/etapa-1-fuentes/generar-revision.mjs</code> (sólo lee). <b>El mapa de 17 secciones</b>, <code>ingesta/secciones-nuevas.mjs</code> en modo sombra.</li>
+<li><b>La lista corta</b> es la de <code>scripts/medir/generar-revision.mjs</code> (sólo lee). <b>El mapa de 17 secciones</b>, <code>ingesta/secciones-nuevas.mjs</code> en modo sombra.</li>
 <li><b>Lo rojo y lo que necesita ojo humano no muestra el título</b>: el repositorio es público y la regla cuida a menores y víctimas.</li>
 <li>Para rehacer este informe otro día: <code>node scripts/medir/informe-del-dia.mjs</code> (lee los feeds, no gasta IA, no toca <code>web/data</code>). La lectura queda guardada en <code>.cache/</code> para repetir sin salir a internet.</li>
 </ul>`;
@@ -1277,7 +1277,7 @@ async function principal() {
   const A = analizar({ corrida, leer, dia, revision });
   A.ref = REF; A.commit = commit;
   const html = generarHTML(A);
-  const salida = arg('salida') ? path.resolve(arg('salida')) : path.join(RAIZ, 'docs', 'flujo', 'INFORME-DE-HOY.html');
+  const salida = arg('salida') ? path.resolve(arg('salida')) : path.join(RAIZ, 'docs', 'flujos', 'INFORME-DE-HOY.html');
   fs.writeFileSync(salida, html, 'utf8');
   console.log(`  escrito ${path.relative(RAIZ, salida)} (${Math.round(Buffer.byteLength(html) / 1024)} KB)`);
   console.log(`  ${A.activas} feeds activos, ${A.medios.length} medios · ${fmt(A.embudo.bajadas)} notas bajadas, ${fmt(A.embudo.hoy)} de hoy · ${A.embudo.historiasHoy} historias de hoy · publicadas hoy ${A.pubHoy.length}`);

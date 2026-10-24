@@ -92,6 +92,11 @@ jobs:
         env:
           META_TOKEN: ${{ secrets.META_TOKEN }}
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
+          # Dos interruptores APAGADOS por defecto (regla 311: el código los lee, así que tienen que llegar). Vacías, todo como siempre.
+          # ENLACES_CORTOS: los enlaces salen como radarbalcarce.com/r/<red>/<destino> (regla 282, antes hay que subir el Worker y la ruta).
+          # FOTOS_EN_R2: las fotos de la portada se bajan del sitio antes de armar nada (docs/etapa-10-operacion/FOTOS-EN-R2.md).
+          ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
           SITIO: https://radarbalcarce.com
 
       # ------------------------------------------ Instagram: el reloj y las piezas
@@ -149,6 +154,8 @@ jobs:
         env:
           META_TOKEN: ${{ secrets.META_TOKEN }}
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
+          ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}
+          FOTOS_EN_R2: ${{ vars.FOTOS_EN_R2 }}
 
       # Las piezas quedan unos días por si hay que revisar cómo salieron.
       - name: Guardar las piezas para revisarlas

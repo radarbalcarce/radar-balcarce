@@ -1,7 +1,7 @@
 // Mide el cruce coherente (regla 184) contra el cruce de antes, con la MISMA lectura guardada: arma el conjunto del cruce
 // como lo arma ingestar() (las notas de cada feed, sin las descartadas ni las viejas, sin repetir, más la memoria de 36
 // horas) y corre armarHistorias() dos veces, con CRUCE_COHERENTE apagado y prendido. No llama a ninguna IA, no lee
-// feeds y no escribe nada en web/data. Pedido del 16/10/2026; resultados en docs/flujo/CRUCE-COHERENTE.md.
+// feeds y no escribe nada en web/data. Pedido del 16/10/2026; resultados en docs/flujos/CRUCE-COHERENTE.md.
 //
 //   node scripts/medir/cruce-coherente.mjs                                  la última lectura de .cache/informe-del-dia-*.json
 //   node scripts/medir/cruce-coherente.mjs --ingesta=.cache/informe-del-dia-202610161200.json --memoria=.cache/cruce-memoria.json

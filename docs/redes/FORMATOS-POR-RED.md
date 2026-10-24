@@ -642,5 +642,5 @@ Marcar donde existan: `is_ai_generated` (Instagram), `is_aigc` (TikTok), `contai
 - Canales de WhatsApp sin API: https://getkanal.com/blog/whatsapp-channels-feature-guide.md y https://whapi.cloud/blog/whatsapp-channel-api-automation
 - Plataformas de noticias en Argentina 2025 (Chequeado, sin fecha explícita): https://chequeado.com/?p=96716
 
-**Del propio proyecto**: `redes/piezas.mjs`, `redes/meta.mjs`, `redes/elegir.mjs`, `redes/formatos.mjs`, `redes/destinos.mjs`, `redes/horarios.mjs`, `reels/reel.mjs`, `CRITERIO-REDES.md`, `FORMATOS.md`,
+**Del propio proyecto**: `redes/piezas.mjs`, `redes/meta.mjs`, `redes/elegir.mjs`, `redes/formatos.mjs`, `redes/horarios.mjs`, `reels/reel.mjs`, `CRITERIO-REDES.md`, `FORMATOS.md`,
 `PERFILES.md`, `web/data/estadisticas.json`, `docs/redes/PLAN-REELS-OTRAS-REDES.md`, `docs/redes/AUTOMATIZAR-REDES-ALTERNATIVAS.md`.

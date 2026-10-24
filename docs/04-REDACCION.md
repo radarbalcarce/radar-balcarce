@@ -522,7 +522,7 @@ tienen que tener cuerpo de 70 palabras o más.
 | Archivo | Qué hace | Quién lo llama |
 |---|---|---|
 | `reels/reescritura.mjs` | `reescribirAutomaticas` (todo el flujo), `reescribir` (el pedido, las claves, `pedido`), `entradaDe`, `esTemaSerio`, `ordenarParaReescribir`, `textosDeLasFuentes`, `conEntradaAmpliada`, `antecedentesDe`, `completarReescritura`, `nivelDeVerificacion`, `semaforoDeLaReescritura`, `revalidarExtras`, `previasDeLaPortada`, `topeDeReescrituras` | `generar-datos.mjs` (nube), `panel/reescribir-una.mjs` |
-| `ingesta/fuentes-para-la-ia.mjs` | La entrada ampliada (regla 174): `armarFuentesParaLaIA` (qué textos van y en qué orden), `limpiarTextoBajado`, las copias (`parecidoEntreTextos`, `mediosQueNoCuentan`) | `reels/reescritura.mjs` |
+| `ingesta/fuentes-para-la-ia.mjs` | La entrada ampliada (regla 174): `armarFuentesParaLaIA` (qué textos van y en qué orden), `limpiarTextoBajado`, las copias (`tramosDeCinco`, `mediosQueNoCuentan`) | `reels/reescritura.mjs` |
 | `ingesta/prompt-editorial.mjs` | Lee la sección 12 de `CRITERIO-EDITORIAL.md` entre las marcas; lanza si falta algo | `reels/reescritura.mjs` |
 | `CRITERIO-EDITORIAL.md` | **El criterio único**: las reglas (§ 4 a § 10), los números (§ 11) y la instrucción exacta de la IA (§ 12) | La IA, las personas, las pruebas |
 | `ingesta/criterio.mjs` | Los números del criterio (`TITULO`, `BAJADA`, `CUERPO`, `GUION`, `PARTES`, `COPIA_MAXIMA`, `ESTILO`, `RELLENO`, `REESCRITURA`) | Verificador, reescritura, web |

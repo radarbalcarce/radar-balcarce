@@ -510,6 +510,14 @@ repositorio no se puede ver qué está cargado: ante la duda, mirar esa pantalla
 (o `gh secret list` y `gh variable list`, que muestran sólo los nombres) o
 correr el workflow de prueba que corresponda.
 
+**Una variable cargada en GitHub no llega sola al programa** (regla 311, `pruebas/variables-conectadas.test.mjs`): llega sólo si el
+`env:` del paso del workflow la nombra (por ejemplo `ENLACES_CORTOS` y `FOTOS_EN_R2`, apagadas, están en `redes.yml`, `piezas.yml`,
+`reintentar.yml`, `actualizar.yml` y `motor-variables.yml`), y a Workers Builds sólo si está en `cargar-variables.mjs` y en
+`motor-variables.yml`. Al Worker de tareas se le pone en su panel de Cloudflare o con `--var` en `desplegar-nube.yml`. Los apagados de
+emergencia que **no** se pasan a propósito (`CRUCE_COHERENTE`, `MEMORIA_DE_ACA`, `INGESTA_PERMITIR_VACIA`, `ARCHIVO_PERMITIR_BAJA`,
+`TARJETAS_SIN_CACHE`, `FACEBOOK_COMO_FOTO`, `REELS_ESCENAS`, `META_PAGE_ID`, `CLOUDFLARE_SITE_TAG`, `AVISOS_URL`…) no se pueden usar desde
+GitHub sin sumarlos antes al `env:` del workflow; la lista completa está en la prueba.
+
 **Lo cargado el 16/10/2026.** Secretos (15): `CLOUDFLARE_ACCOUNT_ID`,
 `CLOUDFLARE_ANALYTICS_TOKEN`, `CLOUDFLARE_API_TOKEN`, las tres
 `GEMINI_API_KEY_*`, `GROQ_API_KEY`, `META_TOKEN`, `RELOJ_GITHUB_TOKEN`,

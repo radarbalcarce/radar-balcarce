@@ -42,9 +42,9 @@ Facebook solo (la regla `/r/f/*` hacia `/nota/…` se arregla si la 404 de las n
 1. Subir el Worker: `cd infra/enlaces-cloudflare && npx wrangler deploy` (cuenta `radarbalcarce@gmail.com`; hace falta un workflow como `archivo-produccion.yml` si se quiere desde GitHub: **no lo escribí**, es de `.github/`).
 2. `CLOUDFLARE_API_TOKEN=… node infra/enlaces-cloudflare/ruta.mjs poner` (permiso "Workers Routes: Edit").
 3. Probar a mano: `radarbalcarce.com/r/f/<id de una nota de hoy>` tiene que llevar a la nota; `radarbalcarce.com/r/zz/abc`, a la portada.
-4. Recién ahí, la variable `ENLACES_CORTOS` = `Si`: en GitHub (Settings → Variables) **y** en las variables del Worker de tareas de Cloudflare. **Cambio de workflow que hace falta** (no lo toqué): en
-   `.github/workflows/redes.yml`, agregar `ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}` al `env:` de los pasos «Facebook» y de las piezas (`node redes/publicar.mjs …`), igual que `REDES_ACTIVAS`; y que el Worker de
-   tareas pase la variable a `main()` (ya lee `env.ENLACES_CORTOS`).
+4. Recién ahí, la variable `ENLACES_CORTOS` = `Si`: en GitHub (Settings → Variables) **y** en las variables del Worker de tareas de Cloudflare. **El cambio de workflow ya está hecho (24/10, regla 311):** `redes.yml` (pasos «Facebook» y piezas), `piezas.yml`, `reintentar.yml` y
+   `motor-variables.yml` pasan `ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}`, y `cargar-variables.mjs` la lleva a Workers Builds; vacía, todo sale como siempre
+   (`pruebas/variables-conectadas.test.mjs`). Falta sólo el Worker de tareas: la variable se crea en su panel de Cloudflare (`main()` ya lee `env.ENLACES_CORTOS`).
 5. **Vuelta atrás**: vaciar `ENLACES_CORTOS` (los textos nuevos vuelven al largo). **La ruta no se saca** mientras haya enlaces cortos publicados: dejarían de andar.
 
 Para leer los toques (más adelante): Analytics Engine se consulta con SQL por API (`radar_enlaces_cortos`); falta un `redes/estadisticas-enlaces.mjs` que los junte en el panel de Números (no escrito).

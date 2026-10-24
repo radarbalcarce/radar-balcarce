@@ -42,7 +42,7 @@ Lo que **sigue en git** a propósito: las fijas (`clima-*`, `efemeride-fondo`: l
 2. Poner la ruta de las fotos en el Worker del archivo: workflow «Archivo permanente (producción)» con `activar_fotos` (sin esto, una foto que no está en Pages da 404).
 3. Correr el simulacro: «Motor: ensayo» o `node infra/motor-cloudflare/vuelta.mjs --simular` (no sube nada); y `node scripts/migrar-fotos-a-r2.mjs` (cuenta).
 4. Subir las fotos que hoy están en git **sin quitarlas**: `--subir`. Mirar `/fotos-notas/<una>.jpg` en `workers.dev` con `ARCHIVO_PRIMERO=1`.
-5. Poner la variable `FOTOS_EN_R2=Si` en GitHub y en Workers Builds. Mirar dos vueltas: en el log «Fotos de R2: N en el depósito, M traídas», «Fotos nuevas: K a R2»; el commit de datos ya no trae fotos nuevas; la portada y una tarjeta de Facebook (`/nota/<id>/opengraph-image`) siguen con foto.
+5. Poner la variable `FOTOS_EN_R2=Si` en GitHub y en Workers Builds (desde el 24/10, regla 311, la variable de GitHub llega a `actualizar.yml`, `redes.yml` y `piezas.yml`, y «Cargar variables del motor» la lleva a Workers Builds: ya no hace falta cargarla a mano en el panel de Cloudflare). Mirar dos vueltas: en el log «Fotos de R2: N en el depósito, M traídas», «Fotos nuevas: K a R2»; el commit de datos ya no trae fotos nuevas; la portada y una tarjeta de Facebook (`/nota/<id>/opengraph-image`) siguen con foto.
 6. Cuando esté todo bien, entre vueltas: `--subir --quitar`, commit y push a mano. Solo ahí baja el peso del árbol.
 7. Para volver atrás: vaciar la variable. Las fotos nuevas vuelven a git; lo ya movido sigue sirviéndose desde R2 por el Worker.
 

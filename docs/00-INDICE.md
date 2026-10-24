@@ -46,7 +46,7 @@ los pasos 1 a 8; las redes y la vigilancia corren aparte.
 | # | Paso | Qué pasa | Dónde se cuenta |
 |---|---|---|---|
 | 1 | Ingesta | Se bajan y se leen los feeds (RSS, Atom, índices, páginas), con sus fechas; el filtro de entrada deja afuera otro país, policiales y consejos de afuera | `docs/02-INGESTA.md` |
-| 2 | Cruce | Se juntan las notas que cuentan el mismo hecho (memoria de 36 h, lo de acá 72 h desde el 17/10; desde el 16/10 sin encadenar noticias distintas, regla 184, `docs/flujo/CRUCE-COHERENTE.md`); lo de un organismo o medio de Balcarce entra siempre (regla 180); de afuera queda lo que cuentan varios medios (de 2 a 4 según la sección: `ingesta/criterio.mjs`), dice Balcarce o toca la zona | `docs/02-INGESTA.md` (pasos 9 a 13) |
+| 2 | Cruce | Se juntan las notas que cuentan el mismo hecho (memoria de 36 h, lo de acá 72 h desde el 17/10; desde el 16/10 sin encadenar noticias distintas, regla 184, `docs/flujos/CRUCE-COHERENTE.md`); lo de un organismo o medio de Balcarce entra siempre (regla 180); de afuera queda lo que cuentan varios medios (de 2 a 4 según la sección: `ingesta/criterio.mjs`), dice Balcarce o toca la zona | `docs/02-INGESTA.md` (pasos 9 a 13) |
 | 3 | Selección | Sección, puntaje, semáforo (rojo, amarillo, verde), "de acá", medios que pide lo de afuera, cupos | `docs/03-SELECCION.md` |
 | 4 | Lectura con IA | Una ficha por nota: saca, cambia la sección, junta repetidas; nunca destraba | `docs/03-SELECCION.md` (paso 8) |
 | 5 | Redacción | Gemini escribe título, bajada y cuerpo con el texto completo de hasta 4 fuentes (regla 174) y `CRITERIO-EDITORIAL.md` § 12 | `docs/04-REDACCION.md` |
@@ -105,7 +105,6 @@ Un dato vive en **un** lugar; los demás documentos remiten a ése.
 | `docs/DECISIONES.md` | **El registro de decisiones**: fecha, qué, por qué y quién (lo nuevo arriba), y las preguntas abiertas para Hernán y para los dos |
 | `docs/efemerides-octubre-para-revisar.md` | Las efemérides de octubre para aprobar; se archiva después del 31/10 |
 | `docs/COMO-FUNCIONA-HOY.html` | **Cómo funciona hoy, de punta a punta** (16/10): diagrama, quién corre y cuándo, fuentes, la nota por dentro, redes, mails, panel, archivo y respaldos, costos reales, qué pasa si algo falla, lo que existe y no se usa, y las pruebas que sobran. Para leer en el celular |
-| `docs/COMO-SE-ELIGE-UNA-NOTA.html` | Desde el feed hasta la nota (15/10): filtros, puntaje, semáforo, cruce y repetidas, explicados con ejemplos. *No incluye el cruce coherente ni la regla 180 del 16/10* |
 
 ### Nuevos del 15 y 16/10: análisis, propuestas y flujos
 
@@ -118,9 +117,9 @@ cómo funciona algo que ya anda), **para decidir** (propuesta o página con caja
 | `docs/historico/flujo/GUIA-DEL-FLUJO.html` | Los trece pasos del 16/10 con los prompts de esa fecha | **histórico** (movido el 23/10: los textos y reglas de hoy están en `docs/REGLAS-Y-PROMPTS.html`, regenerado) |
 | `docs/historico/flujo/FLUJO-NUEVO.html` | La propuesta de flujo del 16/10 (tope de 150 por día) | **histórico**: ya está en producción, sin tope y con otras reglas |
 | `docs/historico/flujo/FLUJO-NUEVO-SIMULACION.html` | La simulación de esa propuesta con la corrida del 16/10 | **histórico** |
-| `docs/flujo/INFORME-DE-HOY.html` | Cómo llegó la información el 16/10, cómo anduvo cada fuente y cómo quedarían las secciones; diez preguntas (se rehace con `scripts/medir/informe-del-dia.mjs`) | foto del 16/10; se rehace cuando se corre el programa |
-| `docs/flujo/CRUCE-COHERENTE.md` | El cruce que ya no encadena noticias distintas (regla 184, interruptor `CRUCE_COHERENTE`) y cómo se midió | vigente |
-| `docs/flujo/REPETIDAS-2-0.md` | Lo de acá que no sale repetido (memoria de acá, huella de significado, parejas entre secciones, tope repartido) y la fecha que no envejece por una nota vieja pegada (reglas 193 a 196), con la medición; `scripts/medir/repetidas-2-0.mjs` la repite | vigente |
+| `docs/flujos/INFORME-DE-HOY.html` | Cómo llegó la información el 16/10, cómo anduvo cada fuente y cómo quedarían las secciones; diez preguntas (se rehace con `scripts/medir/informe-del-dia.mjs`) | foto del 16/10; se rehace cuando se corre el programa |
+| `docs/flujos/CRUCE-COHERENTE.md` | El cruce que ya no encadena noticias distintas (regla 184, interruptor `CRUCE_COHERENTE`) y cómo se midió | vigente |
+| `docs/flujos/REPETIDAS-2-0.md` | Lo de acá que no sale repetido (memoria de acá, huella de significado, parejas entre secciones, tope repartido) y la fecha que no envejece por una nota vieja pegada (reglas 193 a 196), con la medición; `scripts/medir/repetidas-2-0.mjs` la repite | vigente |
 | `docs/flujos/NOTA-DESDE-MAIL.md` | Los pasos para armar una nota desde un mail de prensa | vigente (lo sigue Claude) |
 | `docs/flujos/IMAGENES-CON-GEMINI-WEB.md` | El flujo de ilustrar con Gemini web: desactivado el 17/10/2026 (regla 206), por qué y qué hay que apagar | desactivado |
 | `docs/flujos/REVISION-DEL-ARCHIVO.md` | La revisión del archivo entero por tandas, con el criterio de hoy, desde el 22/10/2026 (regla 212): qué mira, qué hace, el cupo, la simulación | vigente |
@@ -148,7 +147,7 @@ cómo funciona algo que ya anda), **para decidir** (propuesta o página con caja
 | `docs/etapa-1-fuentes/ANALISIS.md` | Qué aportaba cada una de las 254 fuentes y tres listas posibles | foto del 15/10 (superada por la lista elegida) |
 | `docs/etapa-1-fuentes/BALCARCE-INVESTIGACION.md` | 35 fuentes posibles de Balcarce y su partido, con feed o sin feed | para decidir |
 | `docs/etapa-1-fuentes/CANDIDATAS-NUEVAS.md` y `DIAGNOSTICO-POLICIALES-CIENCIA-IA.md` | Fuentes candidatas de ciencia, IA, salud y Policiales, y por qué Policiales tiene pocas notas | para decidir |
-| `docs/etapa-1-fuentes/REVISION-FUENTES.html` | La página para decidir fuente por fuente (lista corta de 47) | para decidir |
+| `docs/etapa-1-fuentes/REVISION-FUENTES.html` | La página para decidir fuente por fuente (lista corta de 47); se rehace con `node scripts/medir/generar-revision.mjs` (los programas de esta carpeta pasaron a `scripts/medir/` el 24/10, regla 311: `docs/` ya no tiene programas) | para decidir |
 | `docs/etapa-2-5/ANALISIS.md` | Entrada, duplicadas, clasificación y puntaje: cómo andan y qué se puede elegir | foto del 15/10 (duplicadas ya cambiaron: reglas 171 y 175) |
 | `docs/etapa-6-9/ANALISIS.md` | Semáforo, redacción, fotos y redes: cómo andan y opciones | foto del 15/10 (la propuesta de recortar redes se descartó ese día) |
 | `docs/etapa-10-operacion/ANALISIS.md` | Sacar el robot de GitHub y llevarlo a Cloudflare: minutos medidos, fases, costos, pruebas | foto del 15/10 (desde ese día sólo corre el núcleo legal en cada vuelta y ya hay respaldo en R2) |
@@ -222,6 +221,15 @@ vigente está en `docs/`.
 | `docs/historico/PRUEBAS-DE-MODELOS.md` | Lo que dieron los ensayos de modelos de IA del 10 al 16/10 (la carpeta `pruebas-modelos/` se borró el 17/10) |
 | `docs/historico/criterio-unico/` | El borrador del criterio único del 11/10, nunca aplicado (lo retoma `docs/auditoria-2-0/06-PROMPTS-Y-AGENTES.md`) |
 | `docs/historico/VARIANTES-29-09.md` | La medición de las reglas de la IA del 29/09 y las opciones para las redes |
+| `docs/historico/COMO-SE-ELIGE-UNA-NOTA.html` | Desde el feed hasta la nota (15/10): filtros, puntaje, semáforo, cruce y repetidas, con ejemplos. No incluye el cruce coherente ni la regla 180 del 16/10 (movido el 24/10, regla 311) |
+| `docs/historico/RADAR-COMO-FUNCIONA.html` y `docs/historico/FOTOS-ANTES-Y-DESPUES.html` | Dos fotos viejas: una explicación general y una comparación de fotos; nadie las enlaza ni las regenera (movidas el 24/10, regla 311) |
+
+### Código dormido (existe, tiene pruebas, pero producción no lo usa)
+
+Es decisión de los dueños si se borra o se despierta; no se toca sin preguntar (auditoría 2.0, módulo A):
+`comercial/` (la guía de comercios: base, propuestas y vista previa; ver `COMERCIAL.md`), `motor/` (los cimientos de una base D1 del «motor nuevo»; el motor que
+corre hoy es `infra/motor-cloudflare/`), `redes/texto-por-red.mjs` (el texto para redes que todavía no tienen cuenta),
+`sePuedeSola` (`redes/elegir.mjs`) y `agruparPorHecho` (`ingesta/cruce.mjs`; producción llama a `agruparConDetalle`).
 
 ## La historia corta
 

@@ -111,7 +111,7 @@ test('la nota del clima lleva foto con la leyenda de IA, de su estado y de su fe
   assert.deepEqual(fondoDelClima(e), nota.foto);
   // Sigue siendo una nota propia, automática y sin fuente de foto de otro medio.
   assert.equal(nota.propia, 'clima');
-  assert.equal(nota.teniaImagenLaFuente, false);
+  assert.equal('teniaImagenLaFuente' in nota, false, 'regla 311: el campo que nadie leía ya no se guarda');
   assert.ok(!/\.\.|^\//.test(nota.foto.archivo));
 });
 

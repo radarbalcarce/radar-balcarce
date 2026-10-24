@@ -97,6 +97,8 @@ jobs:
         env:
           META_TOKEN: ${{ secrets.META_TOKEN }}
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}
+          # Interruptor apagado por defecto (regla 311): el pie del reel que se reintenta lleva el enlace corto si está prendido.
+          ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}
           RED: ${{ github.event.inputs.red }}
           PARTE: ${{ github.event.inputs.parte }}
           DIA: ${{ github.event.inputs.dia }}

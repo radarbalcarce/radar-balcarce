@@ -472,7 +472,6 @@ const baseDeLaNota = ({
   medios: [FUENTE_F1.medio],
   enlace: FUENTE_F1.enlace,
   fuentesConsultadas: [FUENTE_F1],
-  teniaImagenLaFuente: false,
   fecha,
   sinFecha: false,
   visto: fecha,

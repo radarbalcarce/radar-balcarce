@@ -1,6 +1,6 @@
 # Balcarce a fondo · investigación de fuentes (15/10/2026)
 
-*Pedido de Hernán y Andrés: investigar de nuevo, a fondo, todas las fuentes posibles de Balcarce (el partido: Balcarce, San Agustín, Los Pinos, Napaleofú, Ramos Otero, Bosch, Laguna La Brava), y decir de cada una si tiene feed, si hay que leer la página o si sólo se puede seguir a mano. Este archivo se arma con `node docs/etapa-1-fuentes/generar-revision.mjs` a partir de `docs/etapa-1-fuentes/balcarce-fondo.mjs`; la misma información está en la sección "Balcarce a fondo" de `REVISION-FUENTES.html`, donde se decide con Sí / No / Duda. No se tocó `ingesta/fuentes.mjs`.*
+*Pedido de Hernán y Andrés: investigar de nuevo, a fondo, todas las fuentes posibles de Balcarce (el partido: Balcarce, San Agustín, Los Pinos, Napaleofú, Ramos Otero, Bosch, Laguna La Brava), y decir de cada una si tiene feed, si hay que leer la página o si sólo se puede seguir a mano. Este archivo se arma con `node scripts/medir/generar-revision.mjs` a partir de `scripts/medir/balcarce-fondo.mjs`; la misma información está en la sección "Balcarce a fondo" de `REVISION-FUENTES.html`, donde se decide con Sí / No / Duda. No se tocó `ingesta/fuentes.mjs`.*
 
 ## En una mirada
 

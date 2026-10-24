@@ -244,7 +244,7 @@ tr.fila-descartada{opacity:.95}
     <li><b>Dudosa por datos</b> (franja amarilla): cero o casi cero notas en 30 días, feed caído o sin notas nuevas, bloquea a Cloudflare, o mismo dueño que otro medio activo.</li>
     <li><b>Sugerencia</b>: <i>Apagar</i> si no aportó nada en 30 días, si su feed no responde, o si bloquea y aporta poco. <i>Revisar</i> si aporta 2 notas o menos sin haber sido imprescindible, si tiene un feed con problemas, si bloquea pero aporta mucho (20 notas o 10 veces imprescindible), o si una apagada aportaba 15 notas o más. <i>Mantener</i> en el resto. Los de Balcarce nunca se sugieren apagar (decisión de ustedes: entran todos) y las altas nuevas van a prueba. Es una ayuda: la decisión es de ustedes.</li>
     <li><b>Descartadas</b>: salen solas de la tabla las apagadas y las activas de afuera cuya sugerencia es <i>Apagar</i>; además Claude sacó a mano las de mismo dueño que otra que ya cuenta y las que casi no aportan (con el motivo escrito en cada una).</li>
-    <li><b>Balcarce a fondo</b>: la sugerencia de esas filas es <i>Mantener</i>, <i>Revisar</i> (hay algo para cambiar), <i>Sumar</i> (hoy no se lee y conviene), <i>No sumar</i> o <i>Apagar</i>; los datos salen de <code>docs/etapa-1-fuentes/balcarce-fondo.mjs</code>.</li>
+    <li><b>Balcarce a fondo</b>: la sugerencia de esas filas es <i>Mantener</i>, <i>Revisar</i> (hay algo para cambiar), <i>Sumar</i> (hoy no se lee y conviene), <i>No sumar</i> o <i>Apagar</i>; los datos salen de <code>scripts/medir/balcarce-fondo.mjs</code>.</li>
   </ul>
 </details>
 
@@ -5824,7 +5824,7 @@ tr.fila-descartada{opacity:.95}
   </table>
   </div>
 </details>
-<p class="pie">Hecho con docs/etapa-1-fuentes/generar-revision.mjs a partir de ingesta/fuentes.mjs, ingesta/fuentes-cruce.mjs, LISTA-ELEGIDA.md, balcarce-fondo.mjs, fuentes-medidas.csv y web/data. Para rehacerlo: <code>node docs/etapa-1-fuentes/generar-revision.mjs</code>.</p>
+<p class="pie">Hecho con scripts/medir/generar-revision.mjs a partir de ingesta/fuentes.mjs, ingesta/fuentes-cruce.mjs, LISTA-ELEGIDA.md, balcarce-fondo.mjs, fuentes-medidas.csv y web/data. Para rehacerlo: <code>node scripts/medir/generar-revision.mjs</code>.</p>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>(function clienteDeLaPagina() {

@@ -272,7 +272,6 @@ const baseDeLaNota = ({
   medios: [FUENTE_FUTBOL.medio],
   enlace: FUENTE_FUTBOL.enlace,
   fuentesConsultadas: [FUENTE_FUTBOL],
-  teniaImagenLaFuente: false,
   fecha,
   sinFecha: false,
   visto: fecha,

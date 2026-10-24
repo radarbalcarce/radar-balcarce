@@ -253,6 +253,8 @@ Lo hace una persona, salvo los workflows (los toca Claude con su prueba). **No s
 
 ### 3.5 La variable no llega: qué hay que conectar, exactamente
 
+*24/10/2026: **hecho** en `redes.yml` (los dos pasos), `piezas.yml`, `reintentar.yml` y `motor-variables.yml` + `cargar-variables.mjs` (regla 311, con `pruebas/variables-conectadas.test.mjs`). Queda apagada; lo que sigue es lo que se escribió antes.*
+
 La auditoría A tiene razón: `ENLACES_CORTOS` **no está en ningún `env:` de ningún workflow**. El código la lee (`redes/publicar.mjs`, `fijarEnlacesCortos(env.ENLACES_CORTOS)`, y `redes/enlaces-cortos.mjs` también mira `process.env`), pero GitHub solo pasa a un paso las variables que el workflow nombra. **Poner `Si` en Settings → Variables hoy no hace nada.**
 
 Hay que agregar la línea `ENLACES_CORTOS: ${{ vars.ENLACES_CORTOS }}` en el `env:` de **estos pasos** (igual que `REDES_ACTIVAS`):

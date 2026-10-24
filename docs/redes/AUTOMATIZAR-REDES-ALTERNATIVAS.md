@@ -106,7 +106,7 @@ publica en público sin que nosotros tengamos que auditar nada.
 
 **Qué quiere decir "evita la auditoría" y cuál es el costo escondido (dependencia):** el servicio publica con *su* aplicación. Si el servicio cambia precios,
 cierra o TikTok le baja la app, hay que cambiar de servicio. Es un riesgo chico si el robot guarda siempre el mp4 y el texto (ya lo hace durante 3 días) y el
-cliente de cada red es un archivo aislado (`redes/destinos.mjs` ya lo prevé). Y **todos publican con la PC apagada**, porque corren en sus servidores.
+cliente de cada red es un archivo aislado (el esqueleto `redes/destinos.mjs` que lo preveía se sacó el 17/10; queda en el historial de git). Y **todos publican con la PC apagada**, porque corren en sus servidores.
 
 **Riesgo de términos con un servicio de terceros:** publicar por la API de un servicio aprobado **cumple** las reglas de TikTok, YouTube, X y Threads (usa canales
 oficiales). El riesgo es otro: el contenido automático de poco valor o repetitivo puede recibir **menos alcance** en TikTok (Buffer misma lo advierte), pero no
