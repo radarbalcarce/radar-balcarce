@@ -21,6 +21,7 @@ import { diaDeTurno, fechaEnBalcarce, comoISO } from './utiles.mjs';
 import { menorPorEdad } from './menores.mjs';
 import { sinFenomenoClimatico, sinExencionesDelAmarillo, sinSorteosDeportivos, tituloConArgentino } from './exenciones.mjs';
 import { agruparConDetalle, leerMemoria, guardarMemoria, desdeLaMemoria, MEMORIA_DE_ACA } from './cruce.mjs';
+import { crearJuez, HECHO_PRINCIPAL_ACTIVO } from './hecho-principal.mjs';
 import { FUENTES_CRUCE } from './fuentes-cruce.mjs';
 import { decodificar, decodificarPagina } from './articulo.mjs';
 import { enlaceNormalizado } from './repetidas-publicadas.mjs';
@@ -1800,12 +1801,13 @@ export async function ingestar({
   // memoria, regla 195, se mira como lo de acá de siempre).
   deAntes.filter((n) => n.alcance !== 'local').forEach(marcarDeAfuera);
   const conjunto = [...todas, ...deAntes];
-  const { grupos, deUnSoloMedio, deOtraCiudad, deSeccion, revisados, partidos, deUnSoloMedioLista } = armarHistorias(conjunto, { idsConocidos, idsUnidos });
+  const { grupos, deUnSoloMedio, deOtraCiudad, deSeccion, revisados, partidos, deUnSoloMedioLista, separadosPorHecho } = armarHistorias(conjunto, { idsConocidos, idsUnidos });
   // Desde el 17/10 (regla 195) también lo de acá, 72 horas (CRUCE.horasDeMemoriaDeAca); MEMORIA_DE_ACA=no lo apaga.
   if (memoria) guardarMemoria(memoria, memoriaAntes, MEMORIA_DE_ACA ? todas : todas.filter((n) => n.alcance !== 'local'));
   log(`
   cruce: ${conjunto.length} notas (${deAntes.length} de la memoria) · ${grupos.length} historias · ${deUnSoloMedio} de afuera con un solo medio y ${deOtraCiudad} de otra ciudad de la zona no entran · ${deSeccion} no entran por la sección del medio o el fútbol, vistas con todos sus medios (regla 303)`);
   if (revisados) log(`  cruce coherente (regla 184): ${revisados} grupos encadenados revisados, ${partidos} partidos en hechos distintos`);
+  if (separadosPorHecho) log(`  hecho principal (regla 322): ${separadosPorHecho} historias de afuera con notas de Balcarce que no cuentan lo mismo, separadas`);
   return seguirConLasHistorias({ grupos, estadoFuentes, todas, t0, escribirArchivos, idsConocidos, deUnSoloMedioLista });
 }
 
@@ -1823,7 +1825,23 @@ export function armarHistorias(conjunto, { idsConocidos = null, idsUnidos = null
   let deOtraCiudad = 0;
   let deSeccion = 0;
   const cruce = agruparConDetalle(conjunto, { ...(coherente === undefined ? {} : { coherente }), ...(parametros ? { parametros } : {}) });
+  // Regla 322: lo de los medios de Balcarce no se queda pegado a una historia de afuera con la que sólo comparte el marco (Nazareno Ramírez Bazán,
+  // oro en los Juegos Bonaerenses, con 9 medios de que Quilmes ganó los Juegos Bonaerenses: la historia salía con 15 «medios»). Sólo separa, y sólo
+  // si hay dos o más notas de medios de acá que no comparten el hecho con nada de afuera (ingesta/hecho-principal.mjs, `separarLoDeAca`).
+  let separadosPorHecho = 0;
+  const gruposDelCruce = [];
+  let juez = null;
+  const esLocalId = (id) => conjunto[Number(id)].alcance === 'local';
   for (const indices of cruce.grupos) {
+    const deAca = HECHO_PRINCIPAL_ACTIVO && indices.length >= 3 ? indices.filter((i) => conjunto[i].alcance === 'local').length : 0;
+    if (deAca >= 2 && deAca < indices.length) {
+      juez ??= crearJuez(conjunto.map((n, i) => ({ id: String(i), titulo: n.titulo, resumenFuente: n.cuerpo })));
+      const pedazos = juez.separarLoDeAca(indices.map(String), esLocalId);
+      if (pedazos.length > 1) { separadosPorHecho += 1; gruposDelCruce.push(...pedazos.map((g) => g.map(Number))); continue; }
+    }
+    gruposDelCruce.push(indices);
+  }
+  for (const indices of gruposDelCruce) {
     let ns = indices.map((i) => conjunto[i]);
     // Regla 303: los descartes por sección o fútbol se resuelven acá, con todos los medios de la historia.
     if (ns.some((n) => n.descarteDeSeccion)) {
@@ -1896,7 +1914,7 @@ export function armarHistorias(conjunto, { idsConocidos = null, idsUnidos = null
     if (!principal.figura) principal.figura = ns.find((n) => n.figura)?.figura;
     grupos.push({ principal, medios, tambien, nombraAca: historiaDeAca && localesNombranAca });
   }
-  return { grupos, deUnSoloMedio, deUnSoloMedioLista, deOtraCiudad, deSeccion, revisados: cruce.revisados, partidos: cruce.partidos };
+  return { grupos, deUnSoloMedio, deUnSoloMedioLista, deOtraCiudad, deSeccion, revisados: cruce.revisados, partidos: cruce.partidos, separadosPorHecho };
 }
 
 /**

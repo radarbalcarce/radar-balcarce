@@ -407,7 +407,8 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
       try {
         const nuevos = await agruparRepetidas(candidatas, { clave });
         const deAfuera = deUnMedio.length > 1 ? await agruparRepetidas(deUnMedio, { clave }) : [];
-        rep.grupos = unirGrupos(rep.grupos, [...nuevos, ...deAfuera], new Set((ultima.notas ?? []).map((n) => n.id)));
+        // Regla 322: cada grupo se parte en los pedazos que comparten el hecho principal (ingesta/hecho-principal.mjs).
+        rep.grupos = unirGrupos(rep.grupos, [...nuevos, ...deAfuera], new Set((ultima.notas ?? []).map((n) => n.id)), { notas: ultima.notas ?? [] });
         rep.lista = claveDeLaLista;
       } catch (e) {
         console.log(`  repetidas: falló el pedido (${e.message}); quedan los grupos de antes`);
@@ -420,7 +421,8 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
     // Regla 314 (S3): todas las que tienen página, no sólo las que siguen dentro de las horas de la portada (la fecha de una historia es la
     // de su fuente más vieja y una ya publicada salía del grupo a las pocas horas, dejando como sobreviviente a una sin cuerpo o «tarde»).
     const yaPublicadas = idsQueYaTienenPagina({ anterior: anterior.notas ?? [], archivo: archivoAnterior.notas ?? [] });
-    const { notas, repetidas } = quitarRepetidas(conFichas, rep.grupos, { publicadas: yaPublicadas });
+    // Regla 322: también los grupos guardados de antes (fichas.json) pasan por la guarda del hecho principal.
+    const { notas, repetidas } = quitarRepetidas(conFichas, rep.grupos, { publicadas: yaPublicadas, guardaDeHecho: true });
     repetidasFuera = new Set(repetidas.map((r) => r.id));
     repetidasCon = new Map(repetidas.map((r) => [r.id, r.queda]));
     // Con los medios de las repetidas sumados, una nota de afuera puede llegar
@@ -433,7 +435,8 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
     ultima = { ...ultima, notas };
     console.log(`  lectura con IA: ${cuenta.nuevas} fichas nuevas en ${cuenta.pedidos} pedidos (${fichas.pedidosHoy ?? 0} hoy${cuenta.groq ? `, ${cuenta.groq} con Groq de respaldo` : ''})`
       + ` · sacó ${cambios.sacadas.length}, ${cambios.dejanDeSerLocales.length} dejaron de ser de Balcarce,`
-      + ` ${cambios.otraSeccion.length} cambiaron de sección, ${cambios.aEsperar.length} a esperar, ${repetidas.length} repetidas`);
+      + ` ${cambios.otraSeccion.length} cambiaron de sección, ${cambios.aEsperar.length} a esperar, ${repetidas.length} repetidas`
+      + (cambios.seccionContradicha?.length ? ` · ${cambios.seccionContradicha.length} con la sección de las palabras porque la ficha decía Policiales sin nada policial (regla 322)` : ''));
     for (const r of repetidas.slice(0, 10)) console.log(`    repetida: ${r.titulo}`);
     for (const c of cambios.sacadas.slice(0, 15)) console.log(`    fuera (${c.motivo}): ${c.titulo}`);
     const texto = comoFichasJson(fichas);
