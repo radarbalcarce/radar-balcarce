@@ -1547,6 +1547,23 @@
   "ultimo": "2026-10-22T01:31:13.864Z",
   "motivo": "con cuerpo"
  },
+ "1q9z2db": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T11:31:24.681Z",
+  "motivo": "título o bajada: 3 problemas (forma, numero, nombre): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo corto (68 palabras)",
+   "título o bajada: 3 problemas (forma, numero, nombre): el copete trae u"
+  ],
+  "falla": [
+   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el copete dice 0 y la fuente no lo dice",
+   "el copete nombra a \"anico\" y la fuente no",
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
+  ]
+ },
  "1qdc7t": {
   "intentos": 1,
   "ultimo": "2026-10-21T01:31:17.123Z",
@@ -2084,11 +2101,6 @@
  "1yfpfnm": {
   "intentos": 1,
   "ultimo": "2026-10-20T18:01:46.640Z",
-  "motivo": "con cuerpo"
- },
- "1yhd2y8": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T11:01:45.920Z",
   "motivo": "con cuerpo"
  },
  "1yhn69m": {
@@ -2842,11 +2854,6 @@
   "ultimo": "2026-10-20T21:32:25.955Z",
   "motivo": "con cuerpo"
  },
- "dg5er4": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T11:01:45.920Z",
-  "motivo": "con cuerpo"
- },
  "dhsie1": {
   "intentos": 2,
   "ultimo": "2026-10-23T15:19:57.538Z",
@@ -3338,6 +3345,13 @@
   "intentos": 1,
   "ultimo": "2026-10-20T22:31:48.164Z",
   "motivo": "con cuerpo"
+ },
+ "lnaikw": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T11:31:24.681Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 20
  },
  "lnmciw": {
   "intentos": 1,

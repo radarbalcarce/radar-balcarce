@@ -35210,14 +35210,40 @@
   "huella": "033271783838f8f2"
  },
  "1kyav9g": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1kyav9g.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Xabi Alonso confirma que la recuperación de Emiliano Martínez avanza de manera favorable",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T05:01:28.201Z",
-  "intentos": 4,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/futbol-internacional/xabi-alonso-sobre-la-recuperacion-del-dibu-martinez-tras-la-operacion-chelsea-seleccion-argentina-id768145.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/17/997066/dibu-martinez-operado_1440x810.webp?v=1",
+  "razon": "Es la foto más limpia y directa de Emiliano Martínez en el hospital mostrando su recuperación, sin marcas añadidas por el medio, menores ni elementos gráficos.",
+  "cuando": "2026-10-24T11:31:43.979Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Emiliano Martínez internado en el hospital haciendo una seña con la mano.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Emiliano Martínez en una cama de hospital haciendo un gesto con la mano."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "766de6efefededa6"
  },
  "1w90w0b": {
   "archivo": "fotos-notas/1w90w0b.jpg",
@@ -36407,14 +36433,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "8es622": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/8es622.webp",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Mauricio Serna recuerda la tensa disputa con los referentes de Boca por los premios",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T05:01:28.201Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/boca-juniors/chicho-serna-recordo-la-pelea-con-referentes-de-boca-por-los-premios-aca-solo-se-paga-por-ganar-id768238.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/998849/mauricio-serna-cuando-aun-formaba-parte-del-consejo-del-futbol_862x485.webp",
+  "razon": "Es la única foto que corresponde a la temática de la nota sobre Mauricio Serna, tiene buena nitidez, muestra claramente al protagonista y no posee marcas de agua del medio ni menores.",
+  "cuando": "2026-10-24T11:31:43.979Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mauricio Serna hablando frente a cámara con campera de Boca Juniors"
+  },
+  "huella": "662d64a4646cf0d0"
  },
  "1vpy6pn": {
   "intentado": true,
@@ -36430,11 +36470,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Leonel Jaime frena el juego por un rival y rompe en llanto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T05:31:43.272Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Ninguna foto es apta ya que todas tienen marcas de agua o zócalos superpuestos por los medios respectivos. (se probó una foto libre de \"Leonel Jaime\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
+  "cuando": "2026-10-24T11:31:43.979Z",
+  "intentos": 4,
+  "fuentes": 3
  },
  "1qvn6mf": {
   "intentado": true,
@@ -36792,5 +36831,29 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "4451577079635243"
+ },
+ "lnaikw": {
+  "archivo": "fotos-notas/lnaikw.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula da Silva y Flávio Bolsonaro se miden en el balotaje de Brasil",
+  "enlace": "https://www.lanacion.com.ar/el-mundo/lula-y-bolsonaro-se-enfrentan-en-su-ultimo-cara-a-cara-antes-del-balotaje-en-brasil-nid23102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/flavio-bolsonaro-y-lula-antes-del-comienzo-del-6FE2RY57RJBWTGJWLBLOSNSWGU.JPG?auth=f8e9e03ce912150c2c113db9aea149931ad37352aeae96aee1d6ae13965c38bd&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra claramente a ambos candidatos juntos en el debate de manera limpia y sin marcas ni personas de más.",
+  "cuando": "2026-10-24T11:31:43.979Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro y Lula da Silva de cuerpo entero en el debate."
+  },
+  "huella": "444cc8cccccccdc8"
  }
 }

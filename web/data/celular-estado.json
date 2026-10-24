@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T11:01:29.911Z",
- "portada": 94,
- "archivo": 497,
+ "generado": "2026-10-24T11:32:20.014Z",
+ "portada": 91,
+ "archivo": 498,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-24T11:01:30.339Z",
+  "generado": "2026-10-24T11:32:20.898Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,16 +95,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "149ahyx",
+      "titulo": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses",
+      "seccion": "Deportes"
+     },
      {
       "id": "k59a1x",
       "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1usw8vx",
-      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
       "seccion": "Balcarce"
      },
      {
@@ -126,8 +126,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 40,
+    "notas": [
+     {
+      "id": "1usw8vx",
+      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "idsz54",
+      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
+      "seccion": "Fútbol"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -136,19 +147,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 43,
-    "notas": [
-     {
-      "id": "idsz54",
-      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "169jneq",
-      "titulo": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo",
-      "seccion": "Deportes"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    }
   ],
   "facebook": {
