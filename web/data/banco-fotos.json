@@ -17643,9 +17643,7 @@
   "imagenOriginal": "prensa-cicare-gacetilla-festival-cervantino-2026"
  },
  "a6hpqz": {
-  "archivo": "fotos-notas/a6hpqz.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "El peronismo local debate su estrategia de cara a las elecciones",
@@ -17654,7 +17652,8 @@
   "razon": "Es la única opción disponible y no presenta marcas de agua ni menores de edad.",
   "cuando": "2026-10-16T13:19:51.254Z",
   "huella": "224a4d1524cc482c",
-  "ausenteDesde": "2026-10-17T21:32:00.614Z"
+  "intentado": true,
+  "borrada": true
  },
  "130eay0": {
   "medio": "Diario La Vanguardia",
@@ -18140,9 +18139,7 @@
   "ausenteDesde": "2026-10-23T17:05:07.188Z"
  },
  "1xyp583": {
-  "archivo": "fotos-notas/1xyp583.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Museo Histórico Municipal expone el Proyecto Cruz del Centenario",
@@ -18151,7 +18148,8 @@
   "razon": "Es la única imagen completa que ilustra el hecho (la presentación del proyecto) con buena nitidez, sin marcas de agua ni menores de edad.",
   "cuando": "2026-10-16T19:02:07.287Z",
   "huella": "4e1b1aabbb080809",
-  "ausenteDesde": "2026-10-17T21:32:00.614Z"
+  "intentado": true,
+  "borrada": true
  },
  "1d0f1sq": {
   "medio": "Diario La Vanguardia",
@@ -18384,9 +18382,7 @@
   "fuentes": 1
  },
  "191geto": {
-  "archivo": "fotos-notas/191geto.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "El río Iguazú supera su marca habitual por veinticinco metros y genera evacuaciones",
@@ -18395,7 +18391,8 @@
   "razon": "La foto C muestra una vista cenital de las cataratas con el río crecido, sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-16T21:31:37.230Z",
   "huella": "3b3b3c3838383617",
-  "ausenteDesde": "2026-10-17T21:32:00.614Z"
+  "intentado": true,
+  "borrada": true
  },
  "1idlalr": {
   "medio": "A24",
@@ -23216,7 +23213,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo un teléfono celular que muestra el juego Free Fire."
   },
-  "huella": "fadac68ccebc9cec"
+  "huella": "fadac68ccebc9cec",
+  "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "1e8jbcu": {
   "archivo": "fotos-notas/1e8jbcu.jpg",
@@ -23302,7 +23300,8 @@
    "corresponde": "si",
    "descripcion": "Operarios trabajando en planta metalúrgica con rollos de acero"
   },
-  "huella": "5859886386c6d232"
+  "huella": "5859886386c6d232",
+  "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "4fm0rm": {
   "archivo": "fotos-notas/4fm0rm.jpg",
@@ -25236,7 +25235,8 @@
    "corresponde": "si",
    "descripcion": "Cartel de ANSES en una oficina y persona guardando dinero en billetera"
   },
-  "huella": "0ad6464a8fdc3436"
+  "huella": "0ad6464a8fdc3436",
+  "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "socbxm": {
   "archivo": "fotos-notas/socbxm.jpg",
@@ -35056,13 +35056,28 @@
   "huella": "fbfbde6f6fe7c6fe"
  },
  "1815on1": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1815on1.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Presentan el libro sobre gliptodontes en el museo",
-  "razon": "Ninguna de las fotos sirve directamente: la primera es genérica del museo y la segunda es un flyer gráfico de la presentación.",
-  "cuando": "2026-10-23T18:32:11.175Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/presentaran-en-balcarce-el-libro.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi24jgyNhY5AJf82qqg0Aipf1Rq5krKF_525wb_ovEfuuEbrN9ETvi-a-p_4NLdBS1v9ZFQdWNxC78eCmP9DW-_fOnHuD0DiATr26oYWWrL9dFg7HG3W-q4S3qjA2K1GfGzlxUQajddwsOSDFhZ36t5Lyp6TQBrgEC_ZbfMz-oK769Z72fwMI19x4KqPsE/w640-h402/museo-historico.jpg",
+  "razon": "Es la única foto disponible, corresponde al lugar del evento y no presenta marcas, menores ni problemas de calidad.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del Museo Histórico Municipal de Balcarce"
+  },
+  "huella": "4de021b9b9999b57"
  },
  "5v361f": {
   "archivo": "fotos-notas/5v361f.jpg",
@@ -35098,7 +35113,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "25b3a1a9a8aa8682"
+  "huella": "25b3a1a9a8aa8682",
+  "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "a315j7": {
   "archivo": "fotos-notas/a315j7.jpg",
@@ -35319,10 +35335,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La asignación familiar formal cae 45% en su poder de compra",
-  "razon": "Todas las opciones presentan menores de edad reconocibles o marcas superpuestas del medio, por lo que ninguna cumple con las normas de publicación.",
-  "cuando": "2026-10-23T20:02:55.733Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Infobae (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "10p6g5e": {
   "archivo": "fotos-notas/10p6g5e.jpg",
@@ -37359,10 +37375,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Declaran venerable a la argentina Margarita Bavosi",
-  "razon": "Ninguna de las fotos muestra a Margarita Bavosi o no corresponde a la nota. (se probó una foto libre de \"Margarita Bavosi\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
-  "cuando": "2026-10-24T19:02:54.660Z",
-  "intentos": 2,
-  "fuentes": 6
+  "razon": "Ninguna de las fotos cumple con todos los requisitos editoriales ya que o presentan rostros difuminados, no corresponden con el tema de la nota (por ser autoridades eclesiásticas diferentes), o se tratan de ilustraciones/fotos de banco.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "intentos": 3,
+  "fuentes": 7
  },
  "1yxp5q5": {
   "intentado": true,
@@ -37576,7 +37592,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei y Benjamin Netanyahu dándose la mano frente a banderas"
   },
-  "huella": "6064464e4e684ccc"
+  "huella": "6064464e4e684ccc",
+  "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "1mztzfv": {
   "archivo": "fotos-notas/1mztzfv.jpg",
@@ -37747,5 +37764,134 @@
    "descripcion": "Plataforma petrolera y barcos en el mar"
   },
   "huella": "848141cf8d8087cb"
+ },
+ "1b4pjdh": {
+  "archivo": "fotos-notas/1b4pjdh.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
+  "enlace": "https://tn.com.ar/show/famosos/2026/10/24/murio-marcelo-trepat-actor-de-montana-rusa-la-ninera-y-los-simuladores/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/marcelo-trepat-tenia-62-anos-foto-actoresorgar-NRXGF4MNI5CMDBQD4NOWKEQULU.jpg?auth=186418347619ed14519c31117e3bc5d9a19c656f733e124272b3bc9e7a437e05&width=1023",
+  "razon": "Es una fotografía clara del actor y cumple con todos los criterios de selección sin marcas ni problemas.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Marcelo Trepat sonriendo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Retrato de un hombre de mediana edad sonriendo frente a un fondo gris."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1b1f1f171f3b1f33"
+ },
+ "1kkiq4v": {
+  "archivo": "fotos-notas/1kkiq4v.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gremios universitarios convocan a un paro nacional de una semana",
+  "enlace": "https://radiomitre.cienradios.com/politica/gremios-docentes-universitarios-anunciaron-un-nuevo-paro-nacional-cuando-comienza-y-cuanto-durara/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/WCWR4KLDRNGU7K7IIBDKM3IMD4.png?smart=true&auth=11acad6746b7dffb78136b8c542c4decff79b201084086fad4e05f6b1ad615d0&width=1200&height=630",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad, corresponde perfectamente al paro universitario y no tiene marcas ni menores reconocibles.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista cenital de una masiva marcha y protesta gremial universitaria con banderas y carteles",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Multitudinaria marcha de gremios universitarios con banderas y pancartas."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "525e3d0f13496972"
+ },
+ "1fchabx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Publican cinco plantillas de Las Guerreras K-Pop para imprimir y pintar",
+  "razon": "La única foto disponible es una imagen gráfica (render/ilustración 3D), por lo que no es una fotografía real apta para ilustrar la nota según los criterios editoriales.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1ecv2bw": {
+  "archivo": "fotos-notas/1ecv2bw.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pronostican lluvias y vientos para Buenos Aires durante el fin de semana",
+  "enlace": "https://www.cronica.com.ar/sociedad/lluvias-en-buenos-aires-cuando-empieza-a-mejorar-el-tiempo-segun-el-pronostico-del-servicio-meteorologico/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1724/1724505/6adb3979aecdc_600_315!.jpg?s=bfd742ee2c98cfca75a8a8cd231b6368&d=1792724400",
+  "razon": "Es la foto más adecuada, de buena calidad, que ilustra personas con paraguas en la ciudad durante un día de lluvia sin marcas superpuestas.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas caminando con paraguas por una calle urbana mojada"
+  },
+  "huella": "25655dd394585453"
+ },
+ "1axit6y": {
+  "archivo": "fotos-notas/1axit6y.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Justicia confirma el procesamiento del dueño de Manaos",
+  "enlace": "https://www.pagina12.com.ar/2026/10/24/la-justicia-confirmo-el-procesamiento-del-dueno-de-manaos-por-evasion-fiscal/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/VWJJAULEV5BA3I77OFRZM5NCZY.jpg?smart=true&auth=0b3e16f6bafe8c17181a1f5b15bb86152cfb603a4d7c269f01bf08bb7b16bbfb&width=1200&height=630",
+  "razon": "Muestra claramente al dueño de Manaos en la planta con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-10-24T21:32:54.486Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dueño de Manaos en la planta con camisa a cuadros"
+  },
+  "huella": "7095b88988e2a563"
  }
 }

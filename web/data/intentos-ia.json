@@ -608,6 +608,13 @@
   "ultimo": "2026-10-23T01:31:55.891Z",
   "motivo": "con cuerpo"
  },
+ "1axit6y": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 8
+ },
  "1azn9v": {
   "intentos": 1,
   "ultimo": "2026-10-24T15:01:29.122Z",
@@ -621,18 +628,14 @@
   "motivo": "con cuerpo"
  },
  "1b4pjdh": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T21:01:45.224Z",
-  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 20 y la fuente no lo dice; sin esas oraciones quedan 233 palabras",
-  "textos": 2,
-  "numeradas": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (cita, copia): el cuerpo pone entre comillas algo ",
    "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 20 y la fuente n"
-  ],
-  "falla": [
-   "el cuerpo dice 20 y la fuente no lo dice",
-   "el título nombra a \"marcelo\", \"trepat\" y el cuerpo no los explica"
   ]
  },
  "1bf0t54": {
@@ -775,6 +778,13 @@
   "ultimo": "2026-10-20T11:32:02.807Z",
   "motivo": "con cuerpo"
  },
+ "1ecv2bw": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 38
+ },
  "1ee5q35": {
   "intentos": 1,
   "ultimo": "2026-10-23T14:32:29.118Z",
@@ -834,6 +844,16 @@
   "intentos": 1,
   "ultimo": "2026-10-23T17:33:33.983Z",
   "motivo": "con cuerpo"
+ },
+ "1fchabx": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (copia, promesa): copia 20 palabras seguidas del o"
+  ]
  },
  "1fcqd3m": {
   "intentos": 1,
@@ -1182,6 +1202,13 @@
   "intentos": 1,
   "ultimo": "2026-10-24T01:42:55.948Z",
   "motivo": "con cuerpo"
+ },
+ "1kkiq4v": {
+  "intentos": 1,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
  },
  "1kpq8dd": {
   "intentos": 1,
@@ -1905,11 +1932,6 @@
  "1ukvkm9": {
   "intentos": 1,
   "ultimo": "2026-10-20T21:32:25.955Z",
-  "motivo": "con cuerpo"
- },
- "1uov8qv": {
-  "intentos": 1,
-  "ultimo": "2026-10-17T21:31:32.453Z",
   "motivo": "con cuerpo"
  },
  "1usw8vx": {
@@ -2896,19 +2918,19 @@
   "motivo": "con cuerpo"
  },
  "dky59": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T21:01:45.224Z",
-  "motivo": "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 138 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 22 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 102 palabras",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
-   "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re",
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
-   "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re"
+   "cuerpo: 2 problemas (relleno, tildes): el cuerpo tiene una frase de re",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (copia): copia 22 palabras seguidas del original: d"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden"
+   "copia 22 palabras seguidas del original (\"detras de los tres primeros se ubicaron thomas pozner cuarto a 141 milesimas y…\"): decilo con otra"
   ]
  },
  "dn35sg": {
@@ -3547,18 +3569,20 @@
   "numeradas": 15
  },
  "nqkyot": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T21:01:45.224Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica; sin esas oraciones quedan 242 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-24T21:31:52.811Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 5,
-  "numeradas": 7,
+  "numeradas": 8,
   "motivos": [
-   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
    "título o bajada: 5 problemas (forma, nombre, antecedente): el titulo t",
-   "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el"
+   "cuerpo: 1 problema (promesa): el título nombra a \"clasico\", \"sur\" y el",
+   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que"
   ],
   "falla": [
+   "el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
    "el título nombra a \"clasico\", \"sur\" y el cuerpo no los explica"
   ]
  },

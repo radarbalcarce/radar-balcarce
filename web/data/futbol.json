@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-24T21:02:41.062Z",
+ "consultado": "2026-10-24T21:35:02.896Z",
  "equipos": [
   "9739",
   "3",
@@ -835,8 +835,8 @@
     "id": "401841631",
     "competencia": "liga",
     "inicio": "2026-10-24T20:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+2'",
+    "estado": "en-juego",
+    "minuto": "77'",
     "local": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
@@ -845,7 +845,7 @@
     "visitante": {
      "id": "8950",
      "nombre": "Defensa y Justicia",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -853,6 +853,12 @@
       "equipo": "local",
       "jugador": "Agustín Álvarez Martínez",
       "minuto": "32'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Leandro Miguel Fernandez",
+      "minuto": "47'",
       "tipo": "gol"
      }
     ],
