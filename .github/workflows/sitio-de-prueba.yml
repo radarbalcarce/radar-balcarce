@@ -1,0 +1,70 @@
+name: Sitio de prueba
+
+# Un sitio de PRUEBA en paralelo (25/10/2026, pedido de Hernán: "verlo como si fuese real, pero de prueba").
+# SÓLO a mano. Arma el sitio con los datos de `main` (con lo que se quiera probar prendido, p. ej. las notas con datos propias) y lo sube
+# como una VISTA PREVIA de Cloudflare Pages en una rama aparte (`prueba`): la dirección es https://prueba.<proyecto>.pages.dev
+# (hoy https://prueba.radar-balcarce.pages.dev). NO toca radarbalcarce.com, ni el sitio de producción, ni las redes, ni las variables.
+# Lleva `noindex` para que Google no lo indexe. Se puede volver a correr cuando se quiera: pisa la vista previa anterior.
+#
+# Hace falta (ya cargados para el despliegue normal): secreto CLOUDFLARE_API_TOKEN con "Cloudflare Pages: Edit" y CLOUDFLARE_ACCOUNT_ID.
+
+on:
+  workflow_dispatch:
+    inputs:
+      notas_con_datos:
+        description: 'Prender las notas con datos propios en esta vista previa: Si (todas), o una lista (antes, f1, dolar), o vacío = apagadas'
+        type: string
+        default: 'Si'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sitio-de-prueba
+  cancel-in-progress: true
+
+jobs:
+  armar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Instalar
+        working-directory: web
+        run: |
+          n=0; until npm ci --no-audit --no-fund; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "npm ci falló (intento $n), se reintenta"; sleep 20; done
+
+      - name: Compilar el sitio de prueba
+        working-directory: web
+        run: npm run build
+        env:
+          SITIO: https://radarbalcarce.com
+          NOTAS_CON_DATOS: ${{ inputs.notas_con_datos }}
+          WHATSAPP_CANAL_URL: ${{ vars.WHATSAPP_CANAL_URL }}
+          TELEGRAM_CANAL_URL: ${{ vars.TELEGRAM_CANAL_URL }}
+          BLUESKY_URL: ${{ vars.BLUESKY_URL }}
+
+      - name: Que Google no lo indexe
+        working-directory: web
+        run: |
+          printf '\n/*\n  X-Robots-Tag: noindex, nofollow\n' >> out/_headers
+          printf 'User-agent: *\nDisallow: /\n' > out/robots.txt
+
+      - name: Subir la vista previa (rama prueba)
+        working-directory: web
+        run: npx --yes wrangler@4.139.0 pages deploy out --project-name="$PROYECTO" --branch=prueba --commit-dirty=true
+        env:
+          PROYECTO: ${{ vars.CLOUDFLARE_PROJECT || 'radar-balcarce' }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
