@@ -244,8 +244,9 @@ test('el panel: la pestaña Fechas está en la app, el service worker y los arch
   assert.match(leer('web/public/panel/sw.js'), /\/panel\/fechas\.js/);
   for (const ruta of [ARCHIVOS.candidatas, ARCHIVOS.feriados]) assert.ok(fs.existsSync(new URL(`../${ruta}`, import.meta.url)), `falta ${ruta}`);
   const cand = JSON.parse(leer(ARCHIVOS.candidatas));
-  assert.equal(Object.keys(cand.dias).length, 34, 'el mes entero desde el 2/10 (los días 2 al 4 se sumaron a mano)');
-  assert.ok(Object.keys(cand.dias)[0] === '2026-10-02');
+  // Las candidatas son las del último mes generado (25/10/2026: noviembre; desde ahí, la rutina del día 20 genera el mes que sigue).
+  assert.ok(Object.keys(cand.dias).length >= 28, 'un mes entero');
+  assert.equal(Object.keys(cand.dias)[0], cand.desde);
   for (const [dia, v] of Object.entries(cand.dias)) {
     assert.ok(v.candidatas.length >= 1 && v.candidatas.length <= 20, `${dia}: ${v.candidatas.length} candidatas`);
     for (const c of v.candidatas) assert.ok(/^https?:/.test(c.enlace ?? '') || c.origen === 'curada' || c.origen === 'especial-ar', `${dia}: una candidata sin enlace para ver la nota`);

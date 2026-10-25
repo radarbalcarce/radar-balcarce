@@ -184,13 +184,16 @@ flojo (una compañía de aviación holandesa de principal). Para eso está la pe
 
 `node ingesta/generar-efemerides.mjs --desde=AAAA-MM-DD --dias=31` tarda unos 10
 minutos la primera vez (mide cuántos idiomas conocen cada tema) y menos de 2 con la
-memoria que deja en la carpeta temporal. **Se corre a mano** una vez por mes: no
-está en ningún workflow. Lo decidido el 12/10 (`docs/DECISIONES.md`) es que el mes
-se arme **el día 20** y ellos lo miren; armarlo solo ese día **no está conectado**:
-hoy lo único automático es el aviso del vigilante desde el 20 (arriba). Las de
-noviembre quedaron para después de la renovación. Después de generar, el mes que
-sale de verdad (`efemerides-piezas.json`) lo arma una persona o Claude con los datos
-verificados.
+memoria que deja en la carpeta temporal.
+
+**Desde el 25/10/2026 el mes se arma solo** (pedido de los dueños: "armalos 10 días antes y así
+siempre, no hace falta que me avises"): una rutina de Claude en la nube («Radar Balcarce: armar
+Un dia como hoy del mes que viene», en claude.ai/code/routines, cuenta de Andrés) corre **el día
+20 de cada mes a las 10:00** de Balcarce, genera las candidatas, arma y verifica cada día del mes
+siguiente en `efemerides-piezas.json`, corre las pruebas y lo sube a `main`. Ellos lo miran cuando
+quieran en la pestaña Fechas → Mes armado (lo que nadie toca, sale). Noviembre de 2026 lo armó
+Claude a mano el 25/10. Si un mes no aparece armado el 21, el aviso del vigilante (arriba) llega en
+el informe diario.
 
 ## La propuesta por consenso de auditorías (1/10)
 

@@ -1,6 +1,6 @@
 {
-  "generado": "2026-10-02",
-  "nota": "Un día como hoy: lo que se lee, quién lo lee y cómo se ve, preparado por tandas (2 al 31/10/2026). Todos los días a las 9:00, con la locutora. Desde el 4/10 todo sale como está, salvo que Hernán o Andrés lo saquen o pidan cambios desde la pestaña Fechas del panel (Más → Fechas → Mes armado). Los guiones están escritos con los datos verificados; los \"verificar\" son datos que no vienen del archivo y hay que confirmar con una segunda fuente.",
+  "generado": "2026-10-25",
+  "nota": "Un día como hoy: lo que se lee, quién lo lee y cómo se ve, preparado por tandas (2/10 al 30/11/2026; noviembre, armado y verificado por Claude el 25/10; desde diciembre lo arma solo una rutina el día 20 de cada mes). Todos los días a las 9:00, con la locutora. Desde el 4/10 todo sale como está, salvo que Hernán o Andrés lo saquen o pidan cambios desde la pestaña Fechas del panel (Más → Fechas → Mes armado). Los guiones están escritos con los datos verificados; los \"verificar\" son datos que no vienen del archivo y hay que confirmar con una segunda fuente.",
   "hora": "09:00",
   "dias": {
     "2026-10-02": {
@@ -817,6 +817,790 @@
         }
       ],
       "guion": "Buen día, Balcarce. Un día como hoy, en 1512, se inauguraron en Roma los frescos del techo de la Capilla Sixtina, pintados por Miguel Ángel. Y además, un día como hoy: en 1541 Miguel Ángel terminó en esa misma capilla El Juicio Final; y en 1925 murió José Ingenieros, psiquiatra y escritor argentino, autor de El hombre mediocre. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-01": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1kwygev",
+        "anio": 1907,
+        "titulo": "Nace Homero Manzi",
+        "cuerpo": "Poeta y letrista del tango, autor de Sur y de Barrio de tango. Nació en Añatuya, Santiago del Estero.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "10u5ejl",
+          "anio": 1786,
+          "texto": "Nace en Buenos Aires Mariquita Sánchez de Thompson, figura de la época de la Revolución de Mayo"
+        },
+        {
+          "id": "14hkz7i",
+          "anio": 1878,
+          "texto": "Nace Carlos Saavedra Lamas, el primer argentino que ganó un Nobel de la Paz"
+        },
+        {
+          "id": "pet236",
+          "anio": 1912,
+          "texto": "Se funda el Club Atlético Temperley"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1907, nació en Añatuya, Santiago del Estero, Homero Manzi, uno de los grandes letristas del tango, autor de Sur y de Barrio de tango. Y además, un día como hoy: en 1786 nació en Buenos Aires Mariquita Sánchez de Thompson, figura de la época de la Revolución de Mayo; en 1878 nació Carlos Saavedra Lamas, el primer argentino que ganó un Nobel de la Paz; y en 1912 se fundó el Club Atlético Temperley. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-02": {
+      "voz": "locutora",
+      "principal": {
+        "id": "ho6xtd",
+        "anio": 1962,
+        "titulo": "Un avión argentino llega a la Antártida",
+        "cuerpo": "Un Douglas C-47 de la Fuerza Aérea despega de Río Gallegos y llega a la Base Matienzo, en un vuelo de casi ocho horas.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1ntdhho",
+          "anio": 1909,
+          "texto": "Se funda el Club Atlético San Martín de Tucumán"
+        },
+        {
+          "id": "19nh59l",
+          "anio": 1998,
+          "texto": "Buenos Aires es sede de la cuarta conferencia de la ONU sobre el cambio climático"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1962, un avión Douglas C-47 de la Fuerza Aérea Argentina despegó de Río Gallegos y llegó a la Base Matienzo, en la Antártida, después de casi ocho horas de vuelo. Fue el comienzo del transporte aéreo militar argentino hacia el continente blanco. Y además, un día como hoy: en 1909 se fundó el Club Atlético San Martín de Tucumán; y en 1998 comenzó en Buenos Aires la cuarta conferencia de las Naciones Unidas sobre el cambio climático. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-03": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1fg93bi",
+        "anio": 1870,
+        "titulo": "Día del Artista Plástico Argentino",
+        "cuerpo": "Se recuerda a Prilidiano Pueyrredón, pintor, arquitecto e ingeniero, que murió un 3 de noviembre de 1870 y retrató a Manuelita Rosas.",
+        "verificar": [
+          "El Gobierno aclara que no hay una resolución oficial que fije la fecha: es un homenaje por el día de su muerte"
+        ]
+      },
+      "ademas": [
+        {
+          "id": "qn9g1u",
+          "anio": 1783,
+          "texto": "Se inaugura en Buenos Aires el Real Colegio de San Carlos, antecesor del Colegio Nacional Buenos Aires"
+        },
+        {
+          "id": "1vhly9q",
+          "anio": 1903,
+          "texto": "Se funda el Club Atlético Newell's Old Boys, de Rosario"
+        },
+        {
+          "id": "1b7hq0i",
+          "anio": 1950,
+          "texto": "Argentina gana el primer Mundial de básquet, en el Luna Park"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Hoy se recuerda el Día del Artista Plástico Argentino, por la muerte de Prilidiano Pueyrredón, pintor, arquitecto e ingeniero, que en 1870 dejó obras como el retrato de Manuelita Rosas. Y además, un día como hoy: en 1783 se inauguró en Buenos Aires el Real Colegio de San Carlos, antecesor del Colegio Nacional Buenos Aires; en 1903 se fundó el Club Atlético Newell's Old Boys, de Rosario; y en 1950 Argentina ganó el primer Mundial de básquet, en el Luna Park. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-04": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1yvmc1w",
+        "anio": 1967,
+        "titulo": "Racing, campeón del mundo",
+        "cuerpo": "En Montevideo, Racing Club vence 1 a 0 a Celtic, de Escocia, con gol de Juan Carlos Cárdenas, y gana la Copa Intercontinental.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "17ynr9w",
+          "anio": 1838,
+          "texto": "Nace Federico Lacroze, que junto a su hermano creó la primera empresa de tranvías de Buenos Aires"
+        },
+        {
+          "id": "1urgnfa",
+          "anio": 1964,
+          "texto": "Muere el escritor Ezequiel Martínez Estrada, autor de Radiografía de la pampa"
+        },
+        {
+          "id": "qc19xb",
+          "anio": 2010,
+          "texto": "Sale a la venta Kinect para la consola Xbox 360"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1967, en Montevideo, Racing Club venció 1 a 0 a Celtic, de Escocia, con gol de Juan Carlos Cárdenas, y se consagró campeón del mundo en la Copa Intercontinental. Y además, un día como hoy: en 1838 nació Federico Lacroze, que junto a su hermano creó la primera empresa de tranvías de Buenos Aires; en 1964 murió el escritor Ezequiel Martínez Estrada, autor de Radiografía de la pampa; y en 2010 salió a la venta Kinect. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-05": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1t47zrt",
+        "anio": 1877,
+        "titulo": "Nace Aarón de Anchorena, pionero de la aviación",
+        "cuerpo": "Fue el primer presidente del Aero Club Argentino y cruzó el Río de la Plata en globo junto a Jorge Newbery, en 1907. Hoy es el Día Nacional de la Aviación Civil.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "10vl39",
+          "anio": 1991,
+          "texto": "Un decreto fija el 5 de noviembre como Día Nacional de la Aviación Civil, en homenaje a Anchorena"
+        },
+        {
+          "id": "1ozea54",
+          "anio": 2007,
+          "texto": "Martín Kohan gana el Premio Herralde de Novela con Ciencias morales"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1877, nació en Buenos Aires Aarón de Anchorena, pionero de la aviación argentina. Fue el primer presidente del Aero Club Argentino y, en 1907, cruzó el Río de la Plata en el globo Pampero junto a Jorge Newbery. Y además, un día como hoy: en 1991 un decreto fijó esta fecha como el Día Nacional de la Aviación Civil, en su homenaje; y en 2007 el escritor argentino Martín Kohan ganó el Premio Herralde de Novela con Ciencias morales. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-06": {
+      "voz": "locutora",
+      "principal": {
+        "id": "135w24k",
+        "anio": 1903,
+        "titulo": "El Perito Moreno dona tierras para el primer parque nacional",
+        "cuerpo": "Francisco Pascasio Moreno cede al Estado tres leguas cuadradas cerca del lago Nahuel Huapi, origen del Parque Nacional Nahuel Huapi. Hoy es el Día de los Parques Nacionales.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "8oudl2",
+          "anio": 1809,
+          "texto": "El virrey Cisneros decreta el libre comercio en el puerto de Buenos Aires"
+        },
+        {
+          "id": "1prdc4r",
+          "anio": 1968,
+          "texto": "El IA-50 Guaraní II es el primer avión construido en el país que sobrevuela la Antártida"
+        },
+        {
+          "id": "ulpwqs",
+          "anio": 1892,
+          "texto": "Muere la escritora Juana Manuela Gorriti"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1903, el perito Francisco Pascasio Moreno donó al Estado tres leguas cuadradas de tierras junto al lago Nahuel Huapi, para que fueran un parque público. Hoy es el Día de los Parques Nacionales. Y además, un día como hoy: en 1809 el virrey Cisneros decretó el libre comercio en el puerto de Buenos Aires; en 1892 murió la escritora Juana Manuela Gorriti; y en 1968 el avión argentino IA-50 Guaraní II sobrevoló por primera vez la Antártida. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-07": {
+      "voz": "locutora",
+      "principal": {
+        "id": "ka5dp1",
+        "anio": 1810,
+        "titulo": "Batalla de Suipacha",
+        "cuerpo": "El general Antonio González Balcarce, cuyo apellido lleva nuestro partido, gana la primera victoria de las armas de la Revolución de Mayo.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "ka5dp1",
+          "anio": 1810,
+          "texto": "Por ese triunfo la Primera Junta nombró brigadier a González Balcarce"
+        },
+        {
+          "id": "2dqyhh",
+          "anio": null,
+          "texto": "Día del Canillita, en recuerdo de Florencio Sánchez, autor de la obra Canillita"
+        },
+        {
+          "id": "1coxpxa",
+          "anio": 1867,
+          "texto": "Nace Marie Curie, la científica que ganó dos premios Nobel"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1810, en Suipacha, en la actual Bolivia, el general Antonio González Balcarce ganó la primera victoria de las armas de la Revolución de Mayo. Por ese triunfo la Primera Junta lo nombró brigadier, y su apellido lleva nuestro partido, creado en 1865. Y además, un día como hoy: se celebra el Día del Canillita, en recuerdo del dramaturgo Florencio Sánchez; y en 1867 nació Marie Curie, la científica que ganó dos premios Nobel. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-08": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1ei7dxx",
+        "anio": 1847,
+        "titulo": "Día Nacional de los Afroargentinos y de la Cultura Afro",
+        "cuerpo": "Se recuerda a María Remedios del Valle, la Madre de la Patria, que combatió con el Ejército del Norte, fue nombrada capitana por Belgrano y murió en 1847.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "6lmf50",
+          "anio": 2011,
+          "texto": "El asteroide 2005 YU55 pasa a unos 325 mil kilómetros de la Tierra, menos que la distancia a la Luna"
+        },
+        {
+          "id": "e3n9jx",
+          "anio": 2011,
+          "texto": "Shakira recibe su estrella en el Paseo de la Fama de Hollywood"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Hoy es el Día Nacional de los Afroargentinos y de la Cultura Afro. La fecha recuerda a María Remedios del Valle, la Madre de la Patria, que combatió junto al Ejército del Norte, fue nombrada capitana por Manuel Belgrano y murió en 1847. Y además, un día como hoy: en 2011 el asteroide 2005 YU55 pasó a 325 mil kilómetros de la Tierra, más cerca que la Luna; y ese mismo año Shakira recibió su estrella en el Paseo de la Fama de Hollywood. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-09": {
+      "voz": "locutora",
+      "principal": {
+        "id": "von7wc",
+        "anio": 1914,
+        "titulo": "Primera transfusión de sangre con citrato",
+        "cuerpo": "El médico argentino Luis Agote realiza en el Hospital Rawson una transfusión con sangre tratada con citrato de sodio, un método que cedió al mundo sin patentarlo. Hoy es el Día del Donante Voluntario de Sangre.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1cl5hiz",
+          "anio": 1917,
+          "texto": "Se estrena en Buenos Aires El apóstol, considerado el primer largometraje animado"
+        },
+        {
+          "id": "1ce6gyq",
+          "anio": 1934,
+          "texto": "Se inaugura la Línea C del subte porteño"
+        },
+        {
+          "id": "qy4lug",
+          "anio": 1967,
+          "texto": "La NASA lanza el Apolo 4, primer vuelo del cohete Saturno V"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1914, el médico argentino Luis Agote hizo en el Hospital Rawson la primera transfusión con sangre tratada con citrato de sodio. No lo patentó, y hoy es el Día del Donante Voluntario de Sangre. Y además, un día como hoy: en 1917 se estrenó El apóstol, el primer largometraje animado; en 1934 se inauguró la Línea C del subte porteño; y en 1967 la NASA lanzó el Apolo 4, el primer vuelo del cohete Saturno V. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-10": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1svhzap",
+        "anio": 1834,
+        "titulo": "Día de la Tradición",
+        "cuerpo": "Recuerda el nacimiento de José Hernández, autor del Martín Fierro.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1svhzap",
+          "anio": 1939,
+          "texto": "La provincia de Buenos Aires crea el Día de la Tradición con la ley 4756; en 1975 una ley nacional lo extiende a todo el país"
+        },
+        {
+          "id": "1svhzap",
+          "anio": 1872,
+          "texto": "Se publica El gaucho Martín Fierro; La vuelta de Martín Fierro, de 1879, fue traducida a más de treinta idiomas"
+        },
+        {
+          "id": "1ly957c",
+          "anio": 1993,
+          "texto": "Muere el historietista Alberto Breccia, y por eso hoy es el Día del Dibujante"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Hoy es el Día de la Tradición, que recuerda el nacimiento de José Hernández, en 1834, autor del Martín Fierro. Y además, un día como hoy: en 1939 la provincia de Buenos Aires creó este día con la ley 4756, y en 1975 una ley nacional lo extendió a todo el país; en 1872 se publicó El gaucho Martín Fierro, al que siguió La vuelta, en 1879; y en 1993 murió el historietista Alberto Breccia, en cuyo homenaje hoy es el Día del Dibujante. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-11": {
+      "voz": "locutora",
+      "principal": {
+        "id": "w6a5il",
+        "anio": 1875,
+        "titulo": "Se inaugura el Parque Tres de Febrero",
+        "cuerpo": "En Buenos Aires se inaugura oficialmente el Parque Tres de Febrero, los Bosques de Palermo, un espacio verde que había impulsado Sarmiento.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1g50885",
+          "anio": 1905,
+          "texto": "Se funda la ciudad de General Pico, en La Pampa"
+        },
+        {
+          "id": "1aq64ts",
+          "anio": 1930,
+          "texto": "Einstein y Leó Szilárd reciben la patente de una heladera sin partes móviles"
+        },
+        {
+          "id": "17ker1h",
+          "anio": 1675,
+          "texto": "Leibniz aplica por primera vez el cálculo integral para hallar el área bajo una curva"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1875, se inauguró oficialmente en Buenos Aires el Parque Tres de Febrero, los Bosques de Palermo, un espacio verde que había impulsado Sarmiento. Y además, un día como hoy: en 1905 se fundó General Pico, en La Pampa; en 1930 Albert Einstein y Leó Szilárd recibieron la patente de una heladera sin partes móviles; y en 1675 el matemático alemán Leibniz usó por primera vez el cálculo integral para hallar el área bajo una curva. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-12": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1bvznmy",
+        "anio": 2014,
+        "titulo": "Una sonda aterriza sobre un cometa",
+        "cuerpo": "La sonda Philae, de la misión Rosetta de la Agencia Espacial Europea, se posa sobre el cometa 67P: es el primer aterrizaje suave sobre un cometa.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1u3308n",
+          "anio": 1980,
+          "texto": "La Voyager 1 pasa junto a Saturno y envía imágenes de sus anillos"
+        },
+        {
+          "id": "p6x68k",
+          "anio": 1990,
+          "texto": "Tim Berners-Lee presenta la propuesta formal de la World Wide Web"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 2014, la sonda Philae, de la misión Rosetta de la Agencia Espacial Europea, se posó sobre el cometa 67P, el primer aterrizaje suave que se logró sobre un cometa. Y además, un día como hoy: en 1980 la nave Voyager 1 pasó junto a Saturno y envió imágenes de sus anillos; y en 1990 Tim Berners-Lee presentó, junto a Robert Cailliau, la propuesta formal de la World Wide Web, el origen de la web que usamos todos los días. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-13": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1x4ut7q",
+        "anio": 1914,
+        "titulo": "Nace Amelia Bence",
+        "cuerpo": "Actriz del cine argentino, recordada por Los ojos más lindos del mundo. Vivió 101 años.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "pen1su",
+          "anio": 1940,
+          "texto": "Se estrena Fantasía, de Walt Disney, en el Broadway Theatre de Nueva York"
+        },
+        {
+          "id": "1q4aglx",
+          "anio": 1962,
+          "texto": "Sale el primer número de la revista Primera Plana"
+        },
+        {
+          "id": "1vk0aeg",
+          "anio": 2009,
+          "texto": "La NASA anuncia que el impacto de la sonda LCROSS detectó agua en la Luna"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1914, nació en Buenos Aires Amelia Bence, una de las grandes actrices del cine argentino, recordada por Los ojos más lindos del mundo. Vivió 101 años. Y además, un día como hoy: en 1940 se estrenó Fantasía, la película de Walt Disney, en Nueva York; en 1962 salió el primer número de la revista Primera Plana; y en 2009 la NASA anunció que el impacto de la sonda LCROSS había detectado agua en la Luna. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-14": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1g1sli0",
+        "anio": 1969,
+        "titulo": "Despega el Apolo 12",
+        "cuerpo": "Segunda misión tripulada que se posó sobre la Luna. Despegó de Florida con los astronautas Conrad, Gordon y Bean.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1chzn4h",
+          "anio": 1913,
+          "texto": "Nace Mario Roberto Álvarez, arquitecto del Teatro San Martín, de Buenos Aires"
+        },
+        {
+          "id": "1eft5to",
+          "anio": 1920,
+          "texto": "Se funda la Unión General de Tamberos, y por eso hoy se recuerda el Día del Tambero"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1969, despegó desde Florida el Apolo 12, la segunda misión tripulada que se posó sobre la Luna, con los astronautas Pete Conrad, Richard Gordon y Alan Bean. Y además, un día como hoy: en 1913 nació en Buenos Aires Mario Roberto Álvarez, uno de los grandes arquitectos argentinos, autor del Teatro San Martín; y en 1920 se fundó la Unión General de Tamberos, una fecha que recuerda a quienes trabajan en el tambo. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-15": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1d006nc",
+        "anio": 1990,
+        "titulo": "Bioy Casares gana el Premio Cervantes",
+        "cuerpo": "El escritor argentino, autor de La invención de Morel, obtiene el máximo premio de las letras en castellano.",
+        "verificar": [
+          "El premio se anunció el 15/11/1990; la entrega formal fue en abril de 1991"
+        ]
+      },
+      "ademas": [
+        {
+          "id": "4kbc2i",
+          "anio": 1573,
+          "texto": "Juan de Garay funda la ciudad de Santa Fe de la Vera Cruz"
+        },
+        {
+          "id": "1ipbggl",
+          "anio": 1942,
+          "texto": "Nace en Buenos Aires el pianista y director de orquesta Daniel Barenboim"
+        },
+        {
+          "id": "7dyduu",
+          "anio": 2001,
+          "texto": "Sale a la venta la primera Xbox, de Microsoft"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1990, el escritor argentino Adolfo Bioy Casares, autor de La invención de Morel, ganó el Premio Cervantes, el máximo premio de las letras en castellano. Y además, un día como hoy: en 1573 Juan de Garay fundó la ciudad de Santa Fe de la Vera Cruz; en 1942 nació en Buenos Aires el pianista y director de orquesta Daniel Barenboim; y en 2001 salió a la venta la primera Xbox, la consola de Microsoft. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-16": {
+      "voz": "locutora",
+      "principal": {
+        "id": "l0cu8v",
+        "anio": 1810,
+        "titulo": "Belgrano funda Curuzú Cuatiá",
+        "cuerpo": "Manuel Belgrano, camino al Paraguay, funda el pueblo correntino de Curuzú Cuatiá, hoy llamado Primer Pueblo Patrio.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "kqxwb2",
+          "anio": 1945,
+          "texto": "Se firma en Londres la constitución de la UNESCO"
+        },
+        {
+          "id": "b9d4bk",
+          "anio": 2022,
+          "texto": "Se lanza la misión Artemis 1, de la NASA, rumbo a la Luna"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1810, Manuel Belgrano, camino al Paraguay al frente del Ejército del Norte, fundó el pueblo correntino de Curuzú Cuatiá, que hoy es reconocido como el Primer Pueblo Patrio del país. Y además, un día como hoy: en 1945 se firmó en Londres la constitución de la UNESCO, el organismo de las Naciones Unidas para la educación, la ciencia y la cultura; y en 2022 la NASA lanzó la misión Artemis 1 rumbo a la Luna. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-17": {
+      "voz": "locutora",
+      "principal": {
+        "id": "telr7k",
+        "anio": 1866,
+        "titulo": "Nace Lola Mora",
+        "cuerpo": "Escultora argentina, autora de la Fuente de las Nereidas, en Buenos Aires. Hoy es el Día del Escultor.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "7d66h1",
+          "anio": 1876,
+          "texto": "Se estrena en Moscú la Marcha eslava, de Chaikovski"
+        },
+        {
+          "id": "92xz0",
+          "anio": 1869,
+          "texto": "Se inaugura el Canal de Suez"
+        },
+        {
+          "id": "1uvvcto",
+          "anio": 1970,
+          "texto": "El Lunojod 1 llega a la Luna y es el primer vehículo teledirigido sobre otro mundo"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1866, nació Lola Mora, escultora argentina y autora de la Fuente de las Nereidas, en Buenos Aires. En su homenaje, hoy es el Día del Escultor. Y además, un día como hoy: hace 150 años, en 1876, se estrenó en Moscú la Marcha eslava, de Chaikovski; en 1869 se inauguró el Canal de Suez; y en 1970 el vehículo soviético Lunojod 1 llegó a la Luna, el primer vehículo teledirigido sobre otro mundo. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-18": {
+      "voz": "locutora",
+      "principal": {
+        "id": "70lgvt",
+        "anio": 1908,
+        "titulo": "Nace Juan Carlos Castagnino",
+        "cuerpo": "Pintor nacido en Mar del Plata, con una obra de mirada social y mural. El Museo de Arte de Mar del Plata lleva su nombre.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1nui3ni",
+          "anio": 1996,
+          "texto": "Gabriela Sabatini recibe en Nueva York el homenaje de despedida del tenis profesional"
+        },
+        {
+          "id": "dg84tt",
+          "anio": 1943,
+          "texto": "Nace Daniel Rabinovich, integrante de Les Luthiers"
+        },
+        {
+          "id": "2tnz8i",
+          "anio": 1928,
+          "texto": "Se estrena Steamboat Willie, el debut de Mickey Mouse"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1908, nació en Mar del Plata el pintor Juan Carlos Castagnino, de obra social y muralista, y hoy el museo de arte de esa ciudad lleva su nombre. Y además, un día como hoy: hace 30 años, en 1996, Gabriela Sabatini recibió en Nueva York el homenaje de despedida del tenis profesional; en 1943 nació Daniel Rabinovich, de Les Luthiers; y en 1928 se estrenó Steamboat Willie, el debut de Mickey Mouse. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-19": {
+      "voz": "locutora",
+      "principal": {
+        "id": "b8ocnx",
+        "anio": 1882,
+        "titulo": "Se funda La Plata",
+        "cuerpo": "Dardo Rocha funda La Plata, una ciudad planificada de punta a punta como nueva capital de la provincia de Buenos Aires.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "4iibvv",
+          "anio": 1493,
+          "texto": "Cristóbal Colón llega a la isla que hoy es Puerto Rico y la bautiza San Juan Bautista"
+        },
+        {
+          "id": "uuhy9q",
+          "anio": 1998,
+          "texto": "Un autorretrato de Van Gogh se vende en una subasta en Nueva York por 71,5 millones de dólares"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1882, Dardo Rocha fundó La Plata, una ciudad planificada de punta a punta como nueva capital de la provincia de Buenos Aires. Y además, un día como hoy: en 1493 Cristóbal Colón, en su segundo viaje, llegó a la isla que hoy es Puerto Rico y la bautizó San Juan Bautista; y en 1998 un autorretrato de Vincent van Gogh, pintado sin barba, se vendió en una subasta en Nueva York por 71 millones y medio de dólares. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-20": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1wha105",
+        "anio": 1845,
+        "titulo": "Día de la Soberanía Nacional",
+        "cuerpo": "Recuerda la batalla de la Vuelta de Obligado, librada en el río Paraná, en el actual partido de San Pedro.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1wha105",
+          "anio": 1845,
+          "texto": "El general Lucio Mansilla hace tender tres gruesas cadenas de costa a costa, sobre 24 lanchones, donde el río mide 700 metros"
+        },
+        {
+          "id": "1wha105",
+          "anio": 1974,
+          "texto": "La ley 20.770 crea el Día de la Soberanía Nacional"
+        },
+        {
+          "id": "zifoa2",
+          "anio": 2022,
+          "texto": "Comienza en Catar el Mundial de fútbol que ganó la Argentina"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Hoy es el Día de la Soberanía Nacional, que recuerda la batalla de la Vuelta de Obligado, librada el 20 de noviembre de 1845 en el río Paraná, en el actual partido de San Pedro. Y además, un día como hoy: en 1845 el general Lucio Norberto Mansilla hizo tender tres gruesas cadenas de costa a costa, sobre 24 lanchones, donde el río mide 700 metros de ancho; en 1974 la ley 20.770 creó este día; y en 2022 comenzó en Catar el Mundial de fútbol que ganó la Argentina. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-21": {
+      "voz": "locutora",
+      "principal": {
+        "id": "15uo5mb",
+        "anio": 1694,
+        "titulo": "Nace Voltaire",
+        "cuerpo": "Escritor y filósofo francés, una de las grandes voces de la Ilustración.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "5huf55",
+          "anio": 1905,
+          "texto": "Einstein publica en Annalen der Physik su artículo sobre la inercia y la energía de un cuerpo, de donde sale la equivalencia entre masa y energía"
+        },
+        {
+          "id": "pvj9o5",
+          "anio": 1969,
+          "texto": "Se establece el primer enlace permanente de ARPANET, antecesora de internet, entre UCLA y Stanford"
+        },
+        {
+          "id": "1l1oqxy",
+          "anio": null,
+          "texto": "Día de la Enfermería Argentina"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1694, nació en París Voltaire, escritor y filósofo francés, una de las grandes voces de la Ilustración. Y además, un día como hoy: en 1905 Albert Einstein publicó su artículo sobre la inercia y la energía de un cuerpo, del que sale la famosa equivalencia entre masa y energía; en 1969 se estableció el primer enlace permanente de ARPANET, la antecesora de internet; y hoy es el Día de la Enfermería Argentina. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-22": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1nphh5l",
+        "anio": 1859,
+        "titulo": "Nace Cecilia Grierson",
+        "cuerpo": "Fue la primera mujer en recibirse de médica en el país, en 1889, y fundó la primera escuela de enfermeras de la Argentina.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1ghsugk",
+          "anio": 1968,
+          "texto": "Los Beatles publican su disco doble The Beatles, conocido como el Álbum Blanco"
+        },
+        {
+          "id": "14uovo7",
+          "anio": 1497,
+          "texto": "Vasco da Gama dobla el Cabo de Buena Esperanza rumbo a la India"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1859, nació Cecilia Grierson, la primera mujer en recibirse de médica en la Argentina, en 1889, y fundadora de la primera escuela de enfermeras del país. Y además, un día como hoy: en 1968 los Beatles publicaron el disco doble que conocemos como el Álbum Blanco; y en 1497 el navegante portugués Vasco da Gama dobló el Cabo de Buena Esperanza, en el extremo sur de África, rumbo a la India. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-23": {
+      "voz": "locutora",
+      "principal": {
+        "id": "4cqihq",
+        "anio": 1876,
+        "titulo": "Nace Manuel de Falla",
+        "cuerpo": "Compositor español de El amor brujo y El sombrero de tres picos. Pasó sus últimos años en Alta Gracia, Córdoba.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1czbc97",
+          "anio": 1862,
+          "texto": "Nace Alberto Williams, compositor y pianista argentino"
+        },
+        {
+          "id": "1x547vw",
+          "anio": 2024,
+          "texto": "Racing vence 3 a 1 a Cruzeiro y gana la Copa Sudamericana"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, hace 150 años, en 1876, nació en Cádiz el compositor Manuel de Falla, autor de El amor brujo y de El sombrero de tres picos, que pasó sus últimos años en Alta Gracia, en Córdoba. Y además, un día como hoy: en 1862 nació en Buenos Aires Alberto Williams, compositor y pianista argentino; y en 2024, en Asunción, Racing venció 3 a 1 a Cruzeiro y ganó la Copa Sudamericana. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-24": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1v390mm",
+        "anio": 1859,
+        "titulo": "Darwin publica El origen de las especies",
+        "cuerpo": "El naturalista británico Charles Darwin publica en Londres su obra sobre la evolución por selección natural. La primera edición, de 1.250 ejemplares, se agotó enseguida.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "we313f",
+          "anio": 1941,
+          "texto": "Nace en Córdoba Horacio Altuna, historietista creador de El Loco Chávez"
+        },
+        {
+          "id": "653tz2",
+          "anio": null,
+          "texto": "Día del Vino Argentino, declarado bebida nacional"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1859, el naturalista británico Charles Darwin publicó en Londres El origen de las especies, su obra sobre la evolución por selección natural. La primera edición, de 1.250 ejemplares, se agotó enseguida. Y además, un día como hoy: en 1941 nació en Córdoba Horacio Altuna, el historietista que creó, junto a Carlos Trillo, El Loco Chávez; y hoy se celebra el Día del Vino Argentino, declarado bebida nacional. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-25": {
+      "voz": "locutora",
+      "principal": {
+        "id": "l3zj1d",
+        "anio": 1955,
+        "titulo": "Se funda la Asociación Paleontológica Argentina",
+        "cuerpo": "Un grupo de especialistas de Buenos Aires y La Plata crea la asociación, y por eso hoy es el Día de la Paleontología.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "tmcuul",
+          "anio": 1915,
+          "texto": "Einstein presenta ante la Academia de Ciencias de Prusia las ecuaciones de la relatividad general"
+        },
+        {
+          "id": "g6o4hi",
+          "anio": 1799,
+          "texto": "Comienzan los cursos de la Escuela de Náutica impulsada por Belgrano, origen del Día de la Marina Mercante"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1955, un grupo de especialistas de Buenos Aires y La Plata fundó la Asociación Paleontológica Argentina, y por eso hoy es el Día de la Paleontología. Y además, un día como hoy: en 1799 comenzaron los cursos de la Escuela de Náutica impulsada por Manuel Belgrano, y en su recuerdo se celebra el Día de la Marina Mercante; y en 1915 Albert Einstein presentó ante la Academia de Ciencias de Prusia las ecuaciones de la relatividad general. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-26": {
+      "voz": "locutora",
+      "principal": {
+        "id": "hs7xhh",
+        "anio": 1944,
+        "titulo": "Nace Roberto Fontanarrosa",
+        "cuerpo": "Escritor y humorista gráfico rosarino, creador de Inodoro Pereyra y Boogie, el aceitoso. Hoy es el Día Nacional del Humorista.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "ysdcj3",
+          "anio": 1954,
+          "texto": "Pascual Pérez es el primer argentino campeón mundial de boxeo, en Tokio"
+        },
+        {
+          "id": "h1kbey",
+          "anio": 2011,
+          "texto": "La NASA lanza el robot Curiosity rumbo a Marte"
+        },
+        {
+          "id": "c11jc3",
+          "anio": 2018,
+          "texto": "La sonda InSight, de la NASA, aterriza en Marte"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1944, nació en Rosario Roberto Fontanarrosa, escritor y humorista gráfico, creador de Inodoro Pereyra y de Boogie, el aceitoso. En su homenaje, hoy es el Día Nacional del Humorista. Y además, un día como hoy: en 1954 Pascual Pérez se convirtió, en Tokio, en el primer argentino campeón mundial de boxeo; en 2011 la NASA lanzó el robot Curiosity rumbo a Marte; y en 2018 la sonda InSight aterrizó en ese planeta. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-27": {
+      "voz": "locutora",
+      "principal": {
+        "id": "rxy22n",
+        "anio": 2016,
+        "titulo": "Argentina gana la Copa Davis",
+        "cuerpo": "En Zagreb, Argentina vence 3 a 2 a Croacia y gana por primera vez la Copa Davis. Federico Delbonis ganó el punto final.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1v358lk",
+          "anio": 1895,
+          "texto": "Alfred Nobel firma el testamento que da origen a los premios Nobel"
+        },
+        {
+          "id": "k8e40d",
+          "anio": 1970,
+          "texto": "George Harrison publica en Estados Unidos su triple álbum All Things Must Pass"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, hace 10 años, en 2016, en Zagreb, Argentina venció 3 a 2 a Croacia y ganó por primera vez en su historia la Copa Davis de tenis. El punto final lo ganó Federico Delbonis. Y además, un día como hoy: en 1895 el sueco Alfred Nobel firmó en París el testamento que dio origen a los premios Nobel; y en 1970 George Harrison publicó en Estados Unidos su triple álbum All Things Must Pass. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-28": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1wuelpr",
+        "anio": 1932,
+        "titulo": "Nace Gato Barbieri",
+        "cuerpo": "Saxofonista de jazz nacido en Rosario, autor de la música de El último tango en París.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1b4gomx",
+          "anio": 2000,
+          "texto": "Boca vence 2 a 1 a Real Madrid en Tokio y gana la Copa Intercontinental, con dos goles de Palermo"
+        },
+        {
+          "id": "1ss3xiw",
+          "anio": 1811,
+          "texto": "Se estrena en Leipzig el Concierto para piano número 5 de Beethoven, conocido como Emperador"
+        },
+        {
+          "id": "155d4vs",
+          "anio": 1520,
+          "texto": "Magallanes sale del estrecho que lleva su nombre y llega al océano Pacífico"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1932, nació en Rosario Leandro Gato Barbieri, saxofonista de jazz de fama mundial y autor de la música de El último tango en París. Y además, un día como hoy: en 2000 Boca venció 2 a 1 a Real Madrid, en Tokio, con dos goles de Martín Palermo, y ganó la Copa Intercontinental; en 1811 se estrenó en Leipzig el Concierto número 5 para piano de Beethoven, el Emperador; y en 1520 Magallanes llegó al océano Pacífico. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-29": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1wucop9",
+        "anio": 1984,
+        "titulo": "Argentina y Chile firman el Tratado de Paz y Amistad",
+        "cuerpo": "En el Vaticano, los cancilleres de ambos países firman el tratado que cierra el conflicto por el canal de Beagle, con mediación de la Santa Sede.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "1h601wu",
+          "anio": 1969,
+          "texto": "Sale el primer disco de Almendra, la banda de Luis Alberto Spinetta"
+        },
+        {
+          "id": "an46h6",
+          "anio": 1929,
+          "texto": "Richard Byrd sobrevuela por primera vez el Polo Sur"
+        },
+        {
+          "id": "8m9er0",
+          "anio": 2021,
+          "texto": "Lionel Messi gana su séptimo Balón de Oro"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1984, en el Vaticano, los cancilleres de la Argentina y de Chile firmaron el Tratado de Paz y Amistad, que puso fin al conflicto por el canal de Beagle con la mediación de la Santa Sede. Y además, un día como hoy: en 1929 el estadounidense Richard Byrd sobrevoló por primera vez el Polo Sur; en 1969 salió el primer disco de Almendra, la banda de Luis Alberto Spinetta; y en 2021 Lionel Messi ganó su séptimo Balón de Oro. Un día como hoy, en Radar Balcarce."
+    },
+    "2026-11-30": {
+      "voz": "locutora",
+      "principal": {
+        "id": "1cvjz5d",
+        "anio": 1912,
+        "titulo": "Nace Hugo del Carril",
+        "cuerpo": "Cantor, actor y director del cine argentino. Dirigió Las aguas bajan turbias.",
+        "verificar": []
+      },
+      "ademas": [
+        {
+          "id": "8artxh",
+          "anio": 1835,
+          "texto": "Nace Mark Twain, autor de Tom Sawyer"
+        },
+        {
+          "id": "rbtfal",
+          "anio": 1979,
+          "texto": "Pink Floyd publica en el Reino Unido el álbum The Wall"
+        },
+        {
+          "id": "1q1ax8q",
+          "anio": 1982,
+          "texto": "Michael Jackson publica Thriller, el álbum más vendido de la historia"
+        }
+      ],
+      "guion": "Buen día, Balcarce. Un día como hoy, en 1912, nació en Buenos Aires Hugo del Carril, cantor, actor y director del cine argentino, que dirigió Las aguas bajan turbias. Y además, un día como hoy: en 1835 nació el escritor estadounidense Mark Twain, autor de Tom Sawyer; en 1979 Pink Floyd publicó en el Reino Unido el álbum The Wall; y en 1982 Michael Jackson publicó Thriller, considerado el álbum más vendido de la historia. Un día como hoy, en Radar Balcarce."
     }
   }
 }
