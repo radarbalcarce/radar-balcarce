@@ -21705,9 +21705,7 @@
   "huella": "8e6b494d494d090c"
  },
  "1k3aqu5": {
-  "archivo": "fotos-notas/1k3aqu5.jpg",
   "medio": "Ahora Balcarce",
-  "credito": "Foto: Ahora Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Jennifer Lasa gana en el Campeonato Argentino de powerlifting",
@@ -21727,7 +21725,8 @@
    "descripcion": "Jennifer Lasa posa con su medalla y certificado en el Campeonato Argentino de powerlifting."
   },
   "huella": "b2359e1e1a181098",
-  "ausenteDesde": "2026-10-18T19:02:17.390Z"
+  "intentado": true,
+  "borrada": true
  },
  "10s1e1d": {
   "archivo": "fotos-notas/10s1e1d.jpg",
@@ -40365,10 +40364,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Ninguna de las fotos corresponde a la noticia sobre María Corina Machado.",
-  "cuando": "2026-10-25T18:03:06.116Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T19:05:39.514Z",
   "intentos": 1,
-  "fuentes": 2
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "e9cid4": {
   "intentado": true,
