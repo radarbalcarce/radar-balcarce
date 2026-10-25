@@ -165,11 +165,15 @@ test('elegirCandidatas: sólo la portada de las últimas horas, las más nuevas 
 // (17/10/2026: se borró la prueba a mano de un día, probar-imagen-nota, que tenía una copia de este pedido: queda uno solo, acá.)
 test('el pedido a Gemini es el de Hernán con la nota COMPLETA, el 16:9 y el tono, y pide un prompt sin nombres ni personas', () => {
   assert.match(PROMPT_DE_HERNAN, /No debe aparecer ninguna persona/);
-  for (const pedido of ['No debe aparecer ninguna persona', 'bodegón', 'superficie de trabajo', 'buen estado', 'logotipos', 'bokeh', 'archivo de diario']) assert.ok(PROMPT_DE_HERNAN.includes(pedido), pedido);
+  // 25/10/2026: el pedido se rehizo (foto real del lugar, no bodegón); lo que no se negocia sigue.
+  for (const pedido of ['No debe aparecer ninguna persona', 'foto REAL de diario', 'buen estado', 'logotipo', 'texto', 'desenfocado']) assert.ok(PROMPT_DE_HERNAN.includes(pedido), pedido);
+  assert.ok(!PROMPT_DE_HERNAN.includes('superficie de trabajo'), 'ya no es un bodegón sobre una mesa');
   const cuerpo = `${'Cuerpo '.repeat(1000)}FINAL-DEL-CUERPO`;
   const i = armarInstruccion(nota('n1', 'El Festival Cervantino de Azul cumple 20 años', 'Cultura y agenda', { copete: 'Bajada', cuerpo }));
   assert.ok(i.startsWith(PROMPT_DE_HERNAN));
-  assert.match(i, /7\. Composición con el objeto principal bien centrado .*16:9\), sin ningún texto legible\./);
+  assert.match(i, /7\. Composición con el tema principal bien centrado .*16:9\), sin ningún texto legible\./);
+  assert.match(i, /9\. ESCENA \(sección Cultura y agenda\)/);
+  assert.match(i, /Candid documentary photograph of/);
   assert.ok(i.includes(`8. TONO: ${TONOS.alegre.es}.`), 'un festival va con tono alegre');
   assert.match(i, /INGLÉS/);
   assert.match(i, /FLUX/);
@@ -206,7 +210,7 @@ test('el prompt final lleva siempre el agregado (y el tono, si se pasa), entra e
   const p = promptFinal('"Candid photojournalistic close-up still life of a worn wooden desk with a blank notebook,\nsoft window light, no people, no text, no logos."');
   assert.ok(p.endsWith(`, ${AGREGADO}`));
   assert.ok(!/["\n]/.test(p));
-  assert.equal(AGREGADO, 'plain unmarked matte objects, blank clean paper, unlabeled smooth surfaces, an empty room');
+  assert.equal(AGREGADO, 'realistic documentary photo, deserted scene, plain unmarked surfaces, signage-free');
   const largo = promptFinal(`Candid photojournalistic close-up still life of ${'old tools and '.repeat(100)}a table`);
   assert.ok(largo.length <= PROMPT_MAXIMO && largo.endsWith(AGREGADO));
   assert.equal(promptFinal(''), '');
@@ -816,7 +820,7 @@ test('regla 319: ya no hay foto de Commons por figura pública: ilustrar-notas n
 test('política: la guía prohíbe escritorio y oficina, y un prompt de escritorio se descarta; deportes: lista de objetos sin marcas', () => {
   const pol = nota('p1', 'El Concejo debate el presupuesto 2027', 'Política');
   const g = guiaDeEscena(pol);
-  assert.match(g, /no hay escritorio, oficina/);
+  assert.match(g, /nada de escritorio, oficina/);
   assert.match(g, /Nunca una persona, ni un retrato/);
   const malo = 'Candid photojournalistic close-up still life of a wooden office desk with a blank notebook and a pen, soft window light, no people, no text, no logos';
   assert.match(problemaDelPrompt(malo, pol), /desk|office|notebook|pen/);
@@ -863,5 +867,5 @@ test('regla 319: la nota de una figura pública (Milei) va con la ilustración s
   assert.equal(pedidos.worker, 1);
   assert.equal(r.candidatas[0].libre, undefined);
   assert.ok(r.candidatas[0].prompt);
-  assert.match(pedidos.instrucciones[0], /no hay escritorio, oficina/);
+  assert.match(pedidos.instrucciones[0], /nada de escritorio, oficina/);
 });

@@ -87,7 +87,8 @@ export const ALTO = 1024;
 export const PASOS = 6;
 /** Lo que se le suma a todo prompt, pase lo que pase con el de Gemini. */
 // 23/10/2026: FLUX no entiende las negaciones («no writing» lo tienta a escribir): en afirmativo, objetos lisos, sin etiquetas y sin nadie.
-export const AGREGADO = 'plain unmarked matte objects, blank clean paper, unlabeled smooth surfaces, an empty room';
+// 25/10/2026: ya no «an empty room» ni «blank clean paper» (todas las imágenes salían como el mismo cuarto con papeles): lugares reales, sin nadie y sin letras.
+export const AGREGADO = 'realistic documentary photo, deserted scene, plain unmarked surfaces, signage-free';
 /** Lo que el modelo tiene que evitar (el Worker lo corta a 300 caracteres). */
 export const NEGATIVO = 'people, person, human, face, hands, child, crowd, text, letters, words, writing, numbers, signs, logo, watermark, signature, brand, '
   + 'flag, emblem, coat of arms, blood, weapon, cartoon, illustration, painting, 3d render, oversaturated, deformed';
@@ -105,14 +106,40 @@ export function neuronasEstimadas({ ancho = ANCHO, alto = ALTO, pasos = PASOS } 
 }
 export const NEURONAS_GRATIS_POR_DIA = 10_000;
 
-/** El pedido de Hernán (16/10/2026; el único: la prueba a mano de ese día, redes/probar-imagen-nota.mjs, se borró el 17/10). */
-export const PROMPT_DE_HERNAN = `Generá una imagen fotoperiodística y conceptual para ilustrar la nota periodística que te dejo abajo. Requisitos importantes:
-1. No debe aparecer ninguna persona en la imagen (completamente sin gente) para evitar confusiones de identidad.
-2. Debe ser un plano detalle o bodegón natural y espontáneo de los objetos y herramientas típicos de la actividad o profesión de la que habla la nota.
-3. Los objetos deben estar sobre una superficie de trabajo (mesa, escritorio, etc.) y estar en buen estado, de uso cotidiano y de HOY (año 2026): nada antiguo ni vintage ni de otra época (nada de teléfonos de disco, máquinas de escribir ni televisores de tubo).
-4. Evitá por completo mostrar logotipos oficiales, escudos, marcas o textos institucionales específicos. Si hay carteles, folletos o documentos, que tengan un diseño genérico, desenfocado o meramente de texto simple, o solo colores y formas abstractas sin emblemas.
-5. El fondo debe estar muy desenfocado (efecto bokeh) pero debe sugerir el lugar donde transcurren los hechos.
-6. La foto debe ser natural, con luz real (de archivo de diario), de aspecto cotidiano y sin retoques digitales exagerados.`;
+/**
+ * El pedido base (16/10/2026, Hernán; rehecho el 25/10/2026 a pedido de los dueños: «tenía muchas trabas y se veían bastante mal»). Antes era
+ * siempre un bodegón de objetos sobre una mesa con papeles en blanco: todas las notas salían parecidas y grises. Ahora es una FOTO REAL del lugar o
+ * del ámbito del tema, con una escena guía por sección (ESCENAS_POR_SECCION). Lo que no se negocia sigue igual: sin personas, sin texto ni marcas,
+ * nunca la escena de un hecho policial, un accidente o una muerte. (Se sigue llamando PROMPT_DE_HERNAN porque así lo nombran el resto y las pruebas.)
+ */
+export const PROMPT_DE_HERNAN = `Generá una imagen fotoperiodística para ilustrar la nota periodística que te dejo abajo. Requisitos importantes:
+1. No debe aparecer ninguna persona en la imagen (completamente sin gente: ni caras, ni manos, ni siluetas, ni público) para evitar confusiones de identidad.
+2. Tiene que parecer una foto REAL de diario, sacada en el lugar o en el ámbito del tema de la nota (un paisaje, un lugar, un ambiente, o un objeto propio del tema en su lugar), con luz natural y colores reales. Nada de dibujo, 3D ni bodegón de estudio.
+3. Todo de HOY (año 2026) y en buen estado: nada antiguo ni vintage.
+4. Sin ningún texto, cartel, logotipo, escudo, bandera, marca ni número legible.
+5. El tema principal nítido y el fondo apenas desenfocado, que sitúe el lugar.
+6. Que sea una imagen linda y prolija, que invite a leer la nota.`;
+
+/**
+ * La escena guía de cada sección (25/10/2026): lugares y objetos que FLUX dibuja bien y sin letras. Gemini elige dentro de esto lo que corresponde
+ * al tema concreto de la nota.
+ */
+export const ESCENAS_POR_SECCION = {
+  Balcarce: 'un lugar de una ciudad chica de la llanura bonaerense con sierras bajas de fondo, según el tema: una calle arbolada con casas bajas, una plaza con árboles, el frente de un edificio público sin carteles, la ruta entre campos, la laguna o las sierras',
+  Política: 'un lugar institucional anónimo: escalinata y columnas de un edificio público sin carteles ni banderas, una plaza cívica vacía, las bancas vacías de un recinto, una urna lisa de cartón',
+  Policiales: 'algo tranquilo y simbólico, nunca la escena del hecho: una calle de barrio de noche con faroles encendidos, un portón cerrado, el frente de un edificio de tribunales sin carteles, una ruta vacía al atardecer',
+  Educación: 'un aula vacía y luminosa con pupitres y un pizarrón verde limpio, el patio vacío de una escuela, mochilas y útiles lisos sobre un banco',
+  Salud: 'un consultorio o el pasillo de un hospital vacío y limpio, una camilla, un estetoscopio, una ventana con luz',
+  Fútbol: 'una cancha de fútbol vacía con el césped cortado y las líneas de cal, un arco con su red, una pelota lisa, una tribuna vacía sin carteles, con luz de tarde o luces del estadio',
+  Deportes: 'el lugar del deporte de la nota, vacío: la pista, la pileta, la cancha (de básquet, tenis, rugby, hockey o vóley), la ruta para ciclismo, con su equipamiento liso',
+  Automovilismo: 'un circuito vacío con los pianos rojos y blancos de una curva, la recta con el asfalto brillante, los boxes vacíos, un casco liso de un solo color apoyado sobre un neumático',
+  Agro: 'el campo bonaerense: un cultivo (papa, trigo, girasol, maíz o soja), un tractor o una cosechadora de un solo color sin marcas, silos y un galpón, vacas pastando a lo lejos, cielo amplio',
+  Economía: 'la actividad económica del tema, sin personas: un puerto con contenedores lisos, camiones en la ruta, el interior de una fábrica o un galpón, un comercio de barrio cerrado con la persiana baja, campos sembrados',
+  Ciencia: 'un laboratorio limpio con tubos de ensayo y un microscopio, un invernadero con plantas, un telescopio bajo el cielo nocturno, muestras de suelo o de semillas',
+  'Cultura y agenda': 'el escenario o el taller vacío: un escenario con luces suaves, butacas vacías, una guitarra lisa en su soporte, un piano cerrado, pinceles y un lienzo en blanco, una sala de museo vacía',
+  Tecnología: 'tecnología sin pantallas encendidas ni letras: una placa de circuitos, cables de red en un rack con luces, paneles solares, una antena contra el cielo, un dron liso',
+  Argentina: 'un lugar argentino que corresponda al tema, sin personas: una avenida de una ciudad, una ruta, el campo, un puerto, un edificio público sin carteles, un paisaje',
+};
 
 // ------------------------------------------------------------------ filtros
 
@@ -238,16 +265,16 @@ export const esDeCultura = (nota) => nota?.seccion === 'Cultura y agenda';
 /** ¿El título (o la bajada) nombra a una persona real? Entonces la ilustración muestra el ámbito de su actividad, nunca a la persona. */
 export const giraEnTornoAUnaPersona = (nota) => nombresDePersona([nota?.titulo, nota?.copete].filter(Boolean).join('. ')).length > 0;
 
-/** Variantes de encuadre y luz: se elige una por id para que dos notas parecidas no salgan con la misma imagen. */
+/** Variantes de encuadre y luz: se elige una por id para que dos notas parecidas no salgan con la misma imagen (25/10/2026: de foto de lugar, no de bodegón). */
 export const VARIANTES = [
-  'encuadre cenital (flat lay) con luz suave de ventana',
-  'plano bajo, a ras de la superficie, con luz rasante de la tarde',
-  'plano detalle lateral con luz cálida de media mañana',
-  'vista tres cuartos desde arriba con luz difusa de cielo nublado',
-  'macro en primer plano con fondo muy desenfocado y luz de contraluz suave',
-  'composición asimétrica con el objeto a un tercio del cuadro y luz dorada del atardecer',
-  'plano frontal simétrico con luz fría y limpia de la mañana',
-  'plano en diagonal con sombras largas y luz de sol directo',
+  'plano general con luz dorada del atardecer',
+  'plano medio a la altura de los ojos con luz suave de la mañana',
+  'plano bajo con mucho cielo de fondo',
+  'plano detalle de un objeto propio del lugar con el ambiente desenfocado detrás',
+  'vista desde un poco más arriba con luz pareja de día nublado',
+  'composición con el tema principal a un tercio del cuadro y sombras largas',
+  'contraluz suave con el sol bajo',
+  'plano frontal y simétrico con luz limpia de mediodía',
 ];
 
 /** Una variante estable para ese id (el mismo id siempre la misma, ids distintos casi siempre distintas). */
@@ -262,16 +289,20 @@ export const temaDeLaNota = (nota) => (esPolitica(nota) ? 'politica' : esDeporte
 
 /** El punto 9 del pedido a Gemini: variante, objetos del tema y lo que no puede ir. Cambia el punto 2 y 3 para política y deportes. */
 export function guiaDeEscena(nota) {
-  const lineas = [`9. VARIEDAD: cada nota lleva una imagen DISTINTA. Elegí objetos propios del tema concreto de ESTA nota (no un bodegón genérico de siempre) y resolvé la toma así: ${varianteDeLaNota(nota)}.`];
+  const escena = ESCENAS_POR_SECCION[nota?.seccion] ?? ESCENAS_POR_SECCION.Argentina;
+  const lineas = [
+    `9. ESCENA (sección ${nota?.seccion ?? 'Argentina'}): ${escena}. Elegí lo que corresponda al tema concreto de ESTA nota.`,
+    `10. VARIEDAD: cada nota lleva una imagen DISTINTA; resolvé la toma así: ${varianteDeLaNota(nota)}.`,
+  ];
   if (esPolitica(nota)) {
-    lineas.push(`10. POLÍTICA: no hay escritorio, oficina, despacho, computadora, cuaderno ni lapicera sobre una mesa (aunque el punto 3 diga superficie de trabajo, acá NO). Mostrá un lugar o un objeto institucional anónimo y sin letras: ${OBJETOS_DE_POLITICA}. Nunca una persona, ni un retrato, ni un político, ni su silueta, ni un parecido con alguien real. Para esta nota empezá por «Candid photojournalistic photograph of» en vez de «close-up still life of».`);
+    lineas.push(`11. POLÍTICA: nada de escritorio, oficina, despacho, computadora, cuaderno ni lapicera. Mostrá un lugar o un objeto institucional anónimo y sin letras: ${OBJETOS_DE_POLITICA}. Nunca una persona, ni un retrato, ni un político, ni su silueta, ni un parecido con alguien real.`);
   } else if (esDeporte(nota)) {
-    lineas.push(`10. DEPORTE: usá sólo objetos como estos: ${OBJETOS_DE_DEPORTE}. NUNCA: ${PROHIBIDO_EN_DEPORTE} (el generador los llena de logos, letras y números). Si hay duda, un balón liso sobre el césped o un par de conos con la red de un arco desenfocada atrás.`);
+    lineas.push(`11. DEPORTE: si hay objetos, que sean como estos: ${OBJETOS_DE_DEPORTE}. NUNCA: ${PROHIBIDO_EN_DEPORTE} (el generador los llena de logos, letras y números).`);
   } else if (esDeCultura(nota)) {
-    lineas.push(`10. CULTURA: mostrá el escenario o el taller, sin nadie: ${OBJETOS_DE_CULTURA}. NUNCA: ${PROHIBIDO_EN_CULTURA} (el generador los llena de letras y logos). Si hay duda, una guitarra lisa en su soporte sobre un escenario vacío con luces suaves de fondo.`);
+    lineas.push(`11. CULTURA: el escenario o el taller, sin nadie: ${OBJETOS_DE_CULTURA}. NUNCA: ${PROHIBIDO_EN_CULTURA} (el generador los llena de letras y logos).`);
   }
   if (giraEnTornoAUnaPersona(nota)) {
-    lineas.push('11. PERSONA REAL: la nota gira en torno a una persona. La imagen NO la muestra: ni su cara, ni su silueta, ni un retrato, un cuadro, un póster, un disco o un parecido con ella. Mostrá el ámbito de su actividad como un lugar sin nadie (el escenario, el instrumento, el estudio, la cancha, el taller, la sala vacía), con objetos lisos y sin nada escrito. Que tampoco aparezca el público ni un fan.');
+    lineas.push('12. PERSONA REAL: la nota gira en torno a una persona. La imagen NO la muestra: ni su cara, ni su silueta, ni un retrato, un cuadro, un póster, un disco o un parecido con ella. Mostrá el ámbito de su actividad como un lugar sin nadie (el escenario, el instrumento, el estudio, la cancha, el taller, la sala vacía), con objetos lisos y sin nada escrito. Que tampoco aparezca el público ni un fan.');
   }
   return lineas.join('\n');
 }
@@ -391,11 +422,11 @@ export function armarInstruccion(nota) {
   const cuerpo = String(nota?.cuerpo ?? '').slice(0, CUERPO_MAXIMO);
   const tono = TONOS[tonoDeLaNota(nota)];
   return `${PROMPT_DE_HERNAN}
-7. Composición con el objeto principal bien centrado (la imagen sale cuadrada y después se recorta a 16:9), sin ningún texto legible.
+7. Composición con el tema principal bien centrado (la imagen sale cuadrada y después se recorta a 16:9), sin ningún texto legible.
 8. TONO: ${tono.es}.
 ${guiaDeEscena(nota)}
 
-Tu salida NO es la imagen: es el PROMPT para un generador de imágenes (FLUX), escrito en INGLÉS, de 40 a 70 palabras, en una sola línea, que describa esa foto cumpliendo los requisitos de arriba, con la luz y los colores del TONO. Empezá por «Candid photojournalistic close-up still life of». Describí sólo objetos, la superficie de trabajo, el fondo desenfocado y la luz, siempre en afirmativo (lo que SÍ hay en la foto). Los objetos son de uso actual, del año 2026: modernos y en buen estado, NUNCA antiguos, vintage ni de otra época. Usá SÓLO objetos lisos y sin nada escrito: tazas lisas, plantas, cuadernos y hojas en blanco, lápices, carpetas lisas, llaves, anteojos, cascos lisos, herramientas, cables, auriculares, vasos, cajas de cartón sin imprimir, balones lisos. NUNCA objetos que llevan letras, números o marcas: calculadoras, teclados, relojes, calendarios, frascos y cajas de remedios, botellas con etiqueta, camisetas, banderas, billetes, monedas, mapas, pantallas, libros con tapa, carteles, micrófonos de marca. Pedí «sharp focus, high detail, natural daylight, shallow depth of field». NUNCA escribas nombres de personas, de lugares, de instituciones, de clubes, de marcas ni de medios. Nada de personas ni de chicos, ni manos ni siluetas (los objetos de una escuela, de un taller o de un deporte sí, sin nadie). Nada de armas, sangre, ataúdes, coronas de flores, esposas ni nada que sugiera un delito, un accidente o una muerte: si la nota es de un hecho policial, judicial o de un accidente, un objeto simbólico y cotidiano del tema, nunca la escena. Si hay papeles, que estén en blanco. Incluí «no people, no text, no logos». Respondé SOLO con el prompt.
+Tu salida NO es la imagen: es el PROMPT para un generador de imágenes (FLUX), escrito en INGLÉS, de 40 a 70 palabras, en una sola línea, que describa esa foto cumpliendo los requisitos de arriba, con la luz y los colores del TONO. Empezá por «Candid documentary photograph of». Describí el lugar, lo que hay en él, la luz y el fondo, siempre en afirmativo (lo que SÍ hay en la foto). Todo de uso actual, del año 2026, moderno y en buen estado. NUNCA cosas que llevan letras, números o marcas: carteles, camisetas, banderas, billetes, monedas, mapas, pantallas encendidas, libros con tapa, envases con etiqueta, relojes, calendarios, patentes de autos. Pedí «sharp focus, high detail, natural light». NUNCA escribas nombres de personas, de lugares, de instituciones, de clubes, de marcas ni de medios. Nada de personas ni de chicos, ni manos ni siluetas (los objetos de una escuela, de un taller o de un deporte sí, sin nadie). Nada de armas, sangre, ataúdes, coronas de flores, esposas ni nada que sugiera un delito, un accidente o una muerte: si la nota es de un hecho policial, judicial o de un accidente, un objeto simbólico y cotidiano del tema, nunca la escena. Si hay papeles, que estén en blanco. Incluí «no people, no text, no logos». Respondé SOLO con el prompt.
 
 Nota:
 ${nota?.titulo ?? ''}

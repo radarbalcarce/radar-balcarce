@@ -265,21 +265,21 @@ test('regla 324, Fito Páez: la guía de escena pide el escenario vacío y objet
   assert.equal(giraEnTornoAUnaPersona(FITO), true);
   assert.equal(giraEnTornoAUnaPersona({ titulo: 'Convocan a estudiantes a crear obras artísticas sobre peces', seccion: 'Ciencia' }), false);
   const guia = guiaDeEscena(FITO);
-  assert.match(guia, /10\. CULTURA/);
+  assert.match(guia, /11\. CULTURA/);
   assert.ok(guia.includes(OBJETOS_DE_CULTURA));
-  assert.match(guia, /11\. PERSONA REAL/);
+  assert.match(guia, /12\. PERSONA REAL/);
   assert.match(guia, /NO la muestra: ni su cara, ni su silueta, ni un retrato, un cuadro, un póster/);
   assert.match(guia, /escenario/);
   const instruccion = armarInstruccion(FITO);
   assert.match(instruccion, /PERSONA REAL/);
   // una nota de cultura sin persona nombrada lleva el escenario pero no la regla de la persona
   const sinPersona = guiaDeEscena({ titulo: 'La muestra de arte abre el sábado en el museo', seccion: 'Cultura y agenda' });
-  assert.match(sinPersona, /10\. CULTURA/);
+  assert.match(sinPersona, /11\. CULTURA/);
   assert.doesNotMatch(sinPersona, /PERSONA REAL/);
   // y una de política con una persona nombrada conserva su guía y suma la de la persona
   const politica = guiaDeEscena({ titulo: 'Javier Milei habla ante empresarios', seccion: 'Política' });
-  assert.match(politica, /10\. POLÍTICA/);
-  assert.match(politica, /11\. PERSONA REAL/);
+  assert.match(politica, /11\. POLÍTICA/);
+  assert.match(politica, /12\. PERSONA REAL/);
 });
 
 test('regla 324, Fito Páez: un prompt con cantante, público o fans se descarta; el escenario vacío pasa', () => {
