@@ -8111,9 +8111,7 @@
   "ausenteDesde": "2026-10-23T15:09:06.193Z"
  },
  "cn09w9": {
-  "archivo": "fotos-notas/cn09w9.jpg",
   "medio": "Municipalidad de Balcarce",
-  "credito": "Foto: Municipalidad de Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARBal lanza planes de pago con quitas para regularizar tasas",
@@ -8121,7 +8119,17 @@
   "imagenOriginal": "https://balcarce.gob.ar/wp-content/uploads/2025/11/ARBAL-INFORMA-.jpg",
   "razon": "Es la única opción disponible, cuenta con buena calidad y no tiene marcas de agua ni menores.",
   "cuando": "2026-10-05T13:31:57.737Z",
-  "huella": "206c70f162685400"
+  "huella": "206c70f162685400",
+  "intentado": true,
+  "descartada": {
+   "motivo": "marca de agua u otro medio",
+   "cuando": "2026-10-25T23:16:44.975Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/cn09w9.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://balcarce.gob.ar/wp-content/uploads/2025/11/ARBAL-INFORMA-.jpg",
+   "huella": "206c70f162685400"
+  }
  },
  "1ulp23j": {
   "archivo": "fotos-notas/1ulp23j.jpg",
