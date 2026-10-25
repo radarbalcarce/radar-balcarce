@@ -1220,13 +1220,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "1i6c71m": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T14:31:08.024Z",
-  "motivo": "verificación baja: espera a una persona",
-  "baja": true,
-  "fuentes": 1
- },
  "1i9rlqx": {
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
@@ -3524,11 +3517,6 @@
   "ultimo": "2026-10-22T19:02:09.994Z",
   "motivo": "con cuerpo"
  },
- "gco3gy": {
-  "intentos": 2,
-  "ultimo": "2026-10-18T14:31:08.024Z",
-  "motivo": "con cuerpo"
- },
  "gga1nw": {
   "intentos": 1,
   "ultimo": "2026-10-23T17:33:33.983Z",
@@ -4531,18 +4519,21 @@
   "motivo": "con cuerpo"
  },
  "sohq68": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T11:31:05.154Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 151 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T14:31:33.288Z",
+  "motivo": "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asociacion\" y la fuente no; sin esas oraciones quedan 150 palabras",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 4 problemas (antecedente, relleno, repite, copia): el cuerpo u",
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asoci"
   ],
   "falla": [
+   "el cuerpo nombra a \"asociacion\" y la fuente no",
    "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 16 palabras seguidas del original (\"al igual que defensa y justicia y velez a los que supera por diferencia…\"): decilo con otras palab"
+   "copia 14 palabras seguidas del original (\"de la tabla de posiciones de su zona con 19 puntos producto de cinco\"): decilo con otras palabras"
   ]
  },
  "sq9hhm": {
@@ -4848,6 +4839,16 @@
   "ultimo": "2026-10-20T05:31:10.676Z",
   "motivo": "con cuerpo"
  },
+ "w6rmgj": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:31:33.288Z",
+  "motivo": "Gemini: No number after minus sign in JSON at position 3286 (line 22 column 6)",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "Gemini: No number after minus sign in JSON at position 3286 (line 22 c"
+  ]
+ },
  "w7qu88": {
   "intentos": 1,
   "ultimo": "2026-10-23T03:02:27.826Z",
@@ -4967,11 +4968,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 6
- },
- "xnrqaj": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T14:31:08.024Z",
-  "motivo": "con cuerpo"
  },
  "xnuphz": {
   "intentos": 1,

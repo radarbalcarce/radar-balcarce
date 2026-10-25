@@ -20247,9 +20247,7 @@
   "borrada": true
  },
  "1cgklh9": {
-  "archivo": "fotos-notas/1cgklh9.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Científicos descubren nueva especie de planta en Perú y la bautizan Salvia messii",
@@ -20269,7 +20267,8 @@
    "descripcion": "Foto de la planta Salvia messii y de Lionel Messi"
   },
   "huella": "2523251303022a22",
-  "ausenteDesde": "2026-10-18T14:31:34.183Z"
+  "intentado": true,
+  "borrada": true
  },
  "e4tn1f": {
   "archivo": "fotos-notas/e4tn1f.jpg",
@@ -21281,9 +21280,7 @@
   "ausenteDesde": "2026-10-21T18:03:58.736Z"
  },
  "grudo8": {
-  "archivo": "fotos-notas/grudo8.jpg",
   "medio": "iProfesional",
-  "credito": "Foto: iProfesional",
   "licencia": null,
   "origen": "medio",
   "titulo": "El papa León XIV reaparece en el Vaticano tras su cirugía pulmonar",
@@ -21303,7 +21300,8 @@
    "descripcion": "Plano medio del papa en la ventana con atril y papeles."
   },
   "huella": "7555555ddd5ddd61",
-  "ausenteDesde": "2026-10-18T14:31:34.183Z"
+  "intentado": true,
+  "borrada": true
  },
  "y5omqb": {
   "intentado": true,
@@ -38299,11 +38297,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Olé no se usa todavía.",
-  "cuando": "2026-10-25T10:31:31.989Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
+  "cuando": "2026-10-25T14:31:48.837Z",
   "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "1yd732f": {
   "intentado": true,
@@ -39605,7 +39603,8 @@
    "corresponde": "si",
    "descripcion": "Persona armando una bolsa con mercadería y alimentos sobre una mesa"
   },
-  "huella": "70e1c9d924242898"
+  "huella": "70e1c9d924242898",
+  "ausenteDesde": "2026-10-25T14:31:57.444Z"
  },
  "z79t7q": {
   "archivo": "fotos-notas/z79t7q.jpg",
@@ -39700,7 +39699,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Defensa y Justicia festejando un gol."
   },
-  "huella": "b365bdbc9e9cb6e6"
+  "huella": "b365bdbc9e9cb6e6",
+  "ausenteDesde": "2026-10-25T14:31:57.444Z"
  },
  "7g8022": {
   "archivo": "fotos-notas/7g8022.jpg",
@@ -39757,6 +39757,7 @@
    "corresponde": "generica",
    "descripcion": "Estadio de San Lorenzo vacío de noche"
   },
-  "huella": "c8f8e0e0e0e21717"
+  "huella": "c8f8e0e0e0e21717",
+  "ausenteDesde": "2026-10-25T14:31:57.444Z"
  }
 }
