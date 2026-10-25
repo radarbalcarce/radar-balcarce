@@ -40364,22 +40364,22 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T21:31:53.686Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-25T22:32:04.363Z",
   "intentos": 2,
   "fuentes": 3,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "e9cid4": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alvarado visita a Sportivo Las Parejas por el Torneo Federal A",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T21:31:53.686Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T22:32:04.363Z",
   "intentos": 1,
   "fuentes": 5,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "8lorat": {
