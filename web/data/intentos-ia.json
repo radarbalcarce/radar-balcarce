@@ -615,6 +615,16 @@
   "ultimo": "2026-10-21T18:02:46.365Z",
   "motivo": "con cuerpo"
  },
+ "19j43n6": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:01:53.053Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 12,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
  "19jkaky": {
   "intentos": 2,
   "ultimo": "2026-10-23T00:02:24.603Z",
@@ -676,11 +686,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "1amjlr2": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T15:01:23.108Z",
-  "motivo": "con cuerpo"
  },
  "1amudby": {
   "intentos": 1,
@@ -4456,6 +4461,16 @@
   "ultimo": "2026-10-22T14:02:05.680Z",
   "motivo": "con cuerpo"
  },
+ "ruqrmq": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:01:53.053Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
+  ]
+ },
  "rvsn70": {
   "intentos": 1,
   "ultimo": "2026-10-24T16:32:00.306Z",
@@ -4503,11 +4518,6 @@
   "ultimo": "2026-10-22T15:02:11.750Z",
   "motivo": "con cuerpo"
  },
- "siji8f": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T15:01:23.108Z",
-  "motivo": "con cuerpo"
- },
  "sl6jjd": {
   "intentos": 1,
   "ultimo": "2026-10-20T19:02:09.668Z",
@@ -4519,27 +4529,40 @@
   "motivo": "con cuerpo"
  },
  "sohq68": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T14:31:33.288Z",
-  "motivo": "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asociacion\" y la fuente no; sin esas oraciones quedan 150 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-25T15:01:53.053Z",
+  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "cuerpo: 4 problemas (antecedente, relleno, repite, copia): el cuerpo u",
-   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asoci"
+   "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asoci",
+   "cuerpo: 4 problemas (numero, relleno): el cuerpo dice 13 y la fuente n",
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
   ],
   "falla": [
-   "el cuerpo nombra a \"asociacion\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 14 palabras seguidas del original (\"de la tabla de posiciones de su zona con 19 puntos producto de cinco\"): decilo con otras palabras"
+   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "sq9hhm": {
   "intentos": 1,
   "ultimo": "2026-10-21T07:31:22.026Z",
   "motivo": "con cuerpo"
+ },
+ "squxbf": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:01:53.053Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "sscp8z": {
   "intentos": 1,
@@ -4840,13 +4863,14 @@
   "motivo": "con cuerpo"
  },
  "w6rmgj": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T14:31:33.288Z",
-  "motivo": "Gemini: No number after minus sign in JSON at position 3286 (line 22 column 6)",
+  "intentos": 2,
+  "ultimo": "2026-10-25T15:01:53.053Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "Gemini: No number after minus sign in JSON at position 3286 (line 22 c"
+   "Gemini: No number after minus sign in JSON at position 3286 (line 22 c",
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"rodrobi\" y "
   ]
  },
  "w7qu88": {
