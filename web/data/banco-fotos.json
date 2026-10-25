@@ -38834,14 +38834,40 @@
   "huella": "c7e7272707323212"
  },
  "ck6fho": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ck6fho.webp",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "La única imagen disponible es un gráfico con marca de agua del medio (Olé) y no corresponde a los equipos de la nota (Central Córdoba y Vélez).",
-  "cuando": "2026-10-25T20:35:48.279Z",
-  "intentos": 4,
-  "fuentes": 19,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-central-cordoba-se-vs-velez-fecha-14-id768323.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/08/17/979534/manuel-lanzini_862x485.webp?v=1",
+  "razon": "Muestra un festejo de gol de un jugador con nitidez y cumple con todos los requisitos editoriales sin marcas ni menores.",
+  "cuando": "2026-10-25T23:31:35.025Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando con los brazos en alto",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de fútbol con camiseta de Central Córdoba saludando a la tribuna."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3b2b2b4dcc8cc833"
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
