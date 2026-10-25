@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-25T16:33:34.813Z",
- "portada": 76,
+ "generado": "2026-10-25T17:03:02.847Z",
+ "portada": 78,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-25T16:33:35.378Z",
+  "generado": "2026-10-25T17:03:03.337Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -106,8 +106,19 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 28,
+    "notas": [
+     {
+      "id": "leizg3",
+      "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "2of31o",
+      "titulo": "Guillermo Weingast destaca los avances globales para erradicar la polio",
+      "seccion": "Salud"
+     }
+    ]
    },
    {
     "nombre": "podcast",
@@ -128,7 +139,14 @@
      "cuando": "2026-10-25T15:06:45.299Z"
     }
    ],
-   "cola": [],
+   "cola": [
+    {
+     "id": "leizg3",
+     "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    }
+   ],
    "cupo": 4,
    "proximoDesde": "2026-10-25T16:36:45.299Z",
    "porDia": 5,

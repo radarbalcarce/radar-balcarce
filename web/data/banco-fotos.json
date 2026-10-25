@@ -26112,7 +26112,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "552d271158d5d694"
+  "huella": "552d271158d5d694",
+  "ausenteDesde": "2026-10-25T17:03:02.792Z"
  },
  "ou35y3": {
   "intentado": true,
@@ -28940,7 +28941,8 @@
    "corresponde": "si",
    "descripcion": "Yeguas de polo muertas en el campo bajo la lluvia con una persona corriendo"
   },
-  "huella": "004c8696d5d71f1f"
+  "huella": "004c8696d5d71f1f",
+  "ausenteDesde": "2026-10-25T17:03:02.792Z"
  },
  "1vvngo6": {
   "archivo": "fotos-notas/1vvngo6.jpg",
@@ -38803,11 +38805,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-25T16:02:12.720Z",
-  "intentos": 2,
-  "fuentes": 14,
-  "intentosPorCupo": 1
+  "razon": "Ninguna foto corresponde directamente al partido entre Central Córdoba y Vélez del Torneo Clausura (las de partidos muestran otros equipos y las otras son gráficas o escudos).",
+  "cuando": "2026-10-25T17:02:14.266Z",
+  "intentos": 3,
+  "fuentes": 18
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
@@ -40104,7 +40105,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "898d8c8e8c868686"
+  "huella": "898d8c8e8c868686",
+  "ausenteDesde": "2026-10-25T17:03:02.792Z"
  },
  "14f8xgk": {
   "intentado": true,
@@ -40138,7 +40140,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril frente a un cartel de Fundación Faro"
   },
-  "huella": "3939393131381c14"
+  "huella": "3939393131381c14",
+  "ausenteDesde": "2026-10-25T17:03:02.792Z"
  },
  "17f0k0j": {
   "archivo": "fotos-notas/17f0k0j.jpg",
@@ -40187,5 +40190,101 @@
    "descripcion": "Jugadores de Rosario Central festejando un gol en el suelo"
   },
   "huella": "357134cc6ada28d9"
+ },
+ "leizg3": {
+  "archivo": "fotos-notas/leizg3.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/rodrigo-cunqueiro-logro-el-segundo-puesto-en-un-campeonato-sudamericano-en-chile",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Cunqueiro_Plata.jpeg",
+  "razon": "Es la única foto disponible y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-25T17:02:14.266Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rodrigo Cunqueiro sosteniendo una medalla y vistiendo la camiseta de la selección argentina"
+  },
+  "huella": "37e1e0e1cb51d646"
+ },
+ "gux4r": {
+  "archivo": "fotos-notas/gux4r.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
+  "enlace": "https://www.ambito.com/espectaculos/luciano-pereyra-y-nahuel-pennisi-cantaran-el-papa-leon-xiv-su-visita-la-argentina-n6337662",
+  "imagenOriginal": "https://media.ambito.com/p/519b4fabd9ac04e513d63fb78a44ba9e/adjuntos/239/imagenes/039/612/0039612454/luciano-pereyraajpg.jpg",
+  "razon": "La foto A muestra claramente a Luciano Pereyra cantando en un escenario, cumpliendo perfectamente con la temática de la nota y sin marcas ni menores.",
+  "cuando": "2026-10-25T17:02:14.266Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Luciano Pereyra cantando y tocando la guitarra en un escenario"
+  },
+  "huella": "4c4e862e138f9b0b"
+ },
+ "1bt4gdt": {
+  "archivo": "fotos-notas/1bt4gdt.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto larga 21 en el Gran Premio de Estados Unidos de Fórmula 1",
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/f1-a-que-hora-corre-franco-colapinto-en-el-gp-de-estados-unidos-2026-y-por-donde-se-puede-ver-nid25102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-en-el-gp-de-estados-unidos-el-IG6F4J5ZQJHGZNQV6FJFW7TA6I.jpg?auth=227204739d3b87d81ecf018a1ff5f3924d4bbe988f91ecbebe35d5e29af52629&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto de mejor encuadre y nitidez de un monoplaza en pista, sin personas irrelevantes ni marcas de agua.",
+  "cuando": "2026-10-25T17:02:14.266Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de Fórmula 1 en primer plano lateral sobre la pista"
+  },
+  "huella": "0bba6ea7e829f90f"
+ },
+ "1db7lrd": {
+  "archivo": "fotos-notas/1db7lrd.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Repudian declaraciones de Milei tras pedir que quemen a periodistas",
+  "enlace": "https://www.eldestapeweb.com/politica/quemados-hoguera-pidio-milei-periodistas-siguieron-caso-libra-20261024112812",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1792848448552.jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto limpia sin marcas, menores ni problemas, que ilustra directamente al protagonista de la nota.",
+  "cuando": "2026-10-25T17:02:14.266Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando en un atril con fondo violeta y logo"
+  },
+  "huella": "73737577737676f2"
  }
 }
