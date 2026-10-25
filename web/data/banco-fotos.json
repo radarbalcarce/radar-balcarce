@@ -18718,9 +18718,7 @@
   "borrada": true
  },
  "1jpywoz": {
-  "archivo": "fotos-notas/1jpywoz.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Base Aérea de Morón despide con un homenaje al meteorólogo Fernando Confessore",
@@ -18752,7 +18750,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "d538948e8c0c068e",
-  "ausenteDesde": "2026-10-18T07:01:21.062Z"
+  "intentado": true,
+  "borrada": true
  },
  "1qgpd66": {
   "archivo": "fotos-notas/1qgpd66.jpg",
@@ -19858,9 +19857,7 @@
   "ausenteDesde": "2026-10-23T18:03:19.352Z"
  },
  "12b46u9": {
-  "archivo": "fotos-notas/12b46u9.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Axel Kicillof encabeza el acto por el Día de la Lealtad",
@@ -19880,7 +19877,8 @@
    "descripcion": "Axel Kicillof hablando por micrófono en un acto."
   },
   "huella": "32525266262525c9",
-  "ausenteDesde": "2026-10-18T07:01:21.062Z"
+  "intentado": true,
+  "borrada": true
  },
  "quke5a": {
   "archivo": "fotos-notas/quke5a.jpg",
@@ -38153,24 +38151,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "o0han3": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/o0han3.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:32:32.477Z",
-  "intentos": 2,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/abdias-lescano-logro-el-tercer-puesto.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXuh1jmBCnthN2865M8cl4blJouEClBu2qiXp79pYX3pRh4gEgzlagJKRmll2FCcYR_5ou4B4H3N7KNuDsKEUlz1IudVkJ9Oyn7qUgmsYA8V04zvK-1erKX1oHtUzJ6dAOmhVsLY9B-jRmR6l_yHyimO6YyMcTMnKdozSQkF8m-ivbgFRW2r3JmPm74os/w640-h462/lescano.jpg",
+  "razon": "Es la única imagen completa y con buen encuadre que muestra a los tres ciclistas en el podio, identificando claramente el evento y el podio.",
+  "cuando": "2026-10-25T07:02:15.595Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Los tres primeros puestos del podio del Mar del Plata Bikefest 2026 celebrando con las medallas."
+  },
+  "huella": "ccc6dacae8cce5da"
  },
  "1lp8r26": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Expected double-quoted property name in JSON at position 190 (line 1 column 191)",
-  "cuando": "2026-10-25T01:32:32.477Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T07:02:15.595Z",
   "intentos": 2,
   "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1df4mi": {
   "intentado": true,
@@ -38186,11 +38200,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:32:32.477Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de El Día no se usa todavía.",
+  "cuando": "2026-10-25T07:02:15.595Z",
   "intentos": 2,
   "fuentes": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1yd732f": {
   "intentado": true,
