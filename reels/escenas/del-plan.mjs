@@ -60,8 +60,8 @@ export function escenaDeLaFarmacia({ turno, fecha, hasta }) {
   }), Boolean(turno?.detalle?.length));
 }
 
-export function escenaDeLosUtiles({ grupos }) {
-  return hacer('utiles', 'escenaDeUtiles', () => ({ grupos }), Boolean(grupos?.length));
+export function escenaDeLosUtiles({ pantallas }) {
+  return hacer('utiles', 'escenaDeUtiles', () => ({ pantallas }), Boolean(pantallas?.length));
 }
 
 export function escenaDeLaAgenda({ eventos }) {

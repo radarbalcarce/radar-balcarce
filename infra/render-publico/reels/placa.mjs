@@ -240,10 +240,15 @@ const firma = ({ x = MARGEN, y, tam = 44, ancla = 'start', claro = false } = {})
 // El pie de las placas: una raya de tinta, la firma y la dirección del sitio.
 // Termina en la fila 1560, antes de la zona de abajo que tapa la app.
 const Y_PIE = 1478;
-const pie = (derecha = 'radarbalcarce.com') => `<rect x="${MARGEN}" y="${Y_PIE}" width="${ANCHO - MARGEN * 2}" height="3" fill="${COLORES.tinta}"/>
-  ${firma({ y: Y_PIE + 66 })}
-  <text x="${ANCHO - MARGEN}" y="${Y_PIE + 60}" font-family="${TEXTO}" font-size="27" font-weight="600"
+// Los teléfonos útiles lo suben y le acortan el ancho (zona segura de Facebook e Instagram: `opciones` = PIE_DE_UTILES); con `marca` va envuelto en un
+// <g data-pie> para que la entrada animada lo reconozca como pie aunque no esté en las últimas filas (reels/animacion.mjs).
+const pie = (derecha = 'radarbalcarce.com', { y = Y_PIE, hasta = ANCHO - MARGEN, marca = false } = {}) => {
+  const dibujo = `<rect x="${MARGEN}" y="${y}" width="${hasta - MARGEN}" height="3" fill="${COLORES.tinta}"/>
+  ${firma({ y: y + 66 })}
+  <text x="${hasta}" y="${y + 60}" font-family="${TEXTO}" font-size="27" font-weight="600"
         text-anchor="end" fill="${COLORES.gris}">${esc(derecha)}</text>`;
+  return marca ? `<g data-pie="si">${dibujo}</g>` : dibujo;
+};
 
 /** Cabecera de las historias de servicio: rótulo rojo y un título grande. */
 function cabecera(kicker, titulo, { y = 300, color = COLORES.rojo } = {}) {
@@ -612,7 +617,6 @@ function listaDeFilas(filas, { desde, hasta, colorRotulo }) {
   }).join('\n  ');
 }
 
-const COLOR_UTILES = COLORES.rojo;
 const COLOR_AGENDA = COLOR_SECCION['Cultura y agenda'];
 
 /** La agenda del fin de semana (los jueves). Cuatro eventos como máximo: en
@@ -628,30 +632,178 @@ export function placaAgenda({ eventos = [], titulo = 'Qué hacer este fin de sem
   ${pie()}`);
 }
 
-/**
- * Números útiles: una vez por semana, en un día que varía (ver
- * ingesta/utiles.mjs). Sólo entran las primeras 6 líneas para que la
- * tipografía no se achique: el resto queda para la página. La categoría sólo
- * se escribe cuando cambia.
- * `grupos` = [{ categoria, items: [{ nombre, numero }] }]
- */
-export function placaUtiles({ grupos = [] }) {
-  const filas = [];
-  let anterior = null;
-  for (const g of grupos) {
-    for (const it of g.items) {
-      if (filas.length >= 6) break;
-      filas.push({
-        rotulo: g.categoria !== anterior ? g.categoria : '', principal: it.nombre, secundario: it.numero, destacado: true,
-      });
-      anterior = g.categoria;
-    }
+// ------------------------------------------------- los teléfonos útiles (24/10, regla 324)
+//
+// Antes: seis renglones en una sola placa, siempre los primeros de la lista, con el nombre partido en dos y el número chico. Ahora: grupos por
+// categoría (Emergencias arriba, después Salud, Seguridad y municipio, Servicios), el nombre corto en una línea, el número grande, y la lista partida
+// en dos pantallas (ingesta/utiles.mjs, `PANTALLAS_DE_UTILES`) en vez de achicar la letra. Todo sale de los colores de la tabla de CRITERIO-REDES.md § 8:
+// el color de Balcarce (lo de acá) para el rótulo, los íconos y los números de emergencia; el resto, tinta sobre papel.
+//
+// Zona segura: Instagram y Facebook ponen sus botones sobre el borde derecho de un reel (la firma, el 107 o un teléfono largo quedaban tapados), y
+// Facebook cubre la parte de abajo con el texto del posteo. Por eso nada pasa de la columna 960 y la raya de la firma sube a la fila 1330.
+
+export const COLOR_UTILES = COLOR_SECCION.Balcarce;
+
+/** Hasta qué columna llega el contenido de los útiles: más allá van los botones de la app. */
+export const DERECHA_SEGURA = 960;
+/** Dónde va la raya de la firma en los útiles (en las demás placas sigue en `Y_PIE`). */
+export const Y_PIE_UTILES = 1330;
+/** El pie de los útiles: más arriba y sin pasar de la columna segura. */
+export const PIE_DE_UTILES = { y: Y_PIE_UTILES, hasta: DERECHA_SEGURA, marca: true };
+const FIN_UTILES = Y_PIE_UTILES - 44;
+
+// Los íconos de cada categoría, simples y del mismo trazo, sobre una grilla de 24: blancos, adentro de un círculo del color de la pieza.
+const ICONOS_UTILES = {
+  emergencias: '<path d="M12 4.4 21 19.6H3z" fill="none" stroke="#FFFFFF" stroke-width="2.1" stroke-linejoin="round"/><path d="M12 10.2v4.4" stroke="#FFFFFF" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="17.1" r="1.15" fill="#FFFFFF"/>',
+  salud: '<path d="M9.2 4.5h5.6v4.7h4.7v5.6h-4.7v4.7H9.2v-4.7H4.5V9.2h4.7z" fill="#FFFFFF"/>',
+  municipio: '<path d="M12 3.8 20.6 9.2H3.4z" fill="#FFFFFF"/><path d="M5.8 10.8h2.8v6.4H5.8zM10.6 10.8h2.8v6.4h-2.8zM15.4 10.8h2.8v6.4h-2.8z" fill="#FFFFFF"/><path d="M3.6 18.7h16.8v2.1H3.6z" fill="#FFFFFF"/>',
+  servicios: '<path d="M13.5 3 5.4 13.7h5.4L9.9 21l8.7-11.2h-5.5z" fill="#FFFFFF"/>',
+};
+
+/** Qué ícono lleva una categoría de `NUMEROS` cuando quien llama no dice cuál (las pantallas lo dicen siempre). */
+function iconoPorCategoria(categoria = '') {
+  const c = String(categoria).toLowerCase();
+  if (/emergenc/.test(c)) return 'emergencias';
+  if (/salud/.test(c)) return 'salud';
+  if (/seguridad|municip|delegaci/.test(c)) return 'municipio';
+  return 'servicios';
+}
+
+const iconoDeUtiles = (clave, cx, cy, radio, color) => `<circle cx="${cx}" cy="${cy}" r="${radio}" fill="${color}"/>
+  <g transform="translate(${(cx - radio * 0.72).toFixed(1)} ${(cy - radio * 0.72).toFixed(1)}) scale(${(radio * 1.44 / 24).toFixed(3)})">${ICONOS_UTILES[clave] ?? ICONOS_UTILES.servicios}</g>`;
+
+/** El número principal de un contacto: si hay varias líneas ("a / b / c"), la primera; el resto queda en la página. */
+export const numeroPrincipal = (numero) => String(numero ?? '').split(' / ')[0].trim();
+
+/** Achica el cuerpo de un texto hasta que entre en `disponible` (sin partirlo): un número o un nombre nunca se parten. */
+function cuerpoQueEntra(texto, maximo, disponible, familia, minimo = 22) {
+  let tam = maximo;
+  while (tam > minimo && anchoAproximado(texto, tam, familia) > disponible * AIRE) tam -= 2;
+  return tam;
+}
+
+/** Un grupo de contactos: el rótulo con su ícono y, debajo, las tarjetas. Devuelve { svg, alto }. */
+function grupoDeUtiles(g, { y, k }) {
+  const m = (v) => Math.round(v * k);
+  const x0 = MARGEN;
+  const ancho = DERECHA_SEGURA - MARGEN;
+  const color = COLOR_UTILES;
+  const items = g.items ?? [];
+  const radio = m(30);
+  const rotuloSvg = `${iconoDeUtiles(g.icono ?? iconoPorCategoria(g.rotulo), x0 + radio, y + radio, radio, color)}
+  ${rotulo(g.rotulo ?? '', { x: x0 + radio * 2 + m(22), y: y + radio + m(10), color, tam: m(28) })}`;
+  const top = y + radio * 2 + m(22);
+
+  // Pocas tarjetas grandes, una al lado de la otra (las emergencias: 911, 107, 100).
+  if (g.estilo === 'tarjetas') {
+    const n = Math.max(1, items.length);
+    const hueco = m(20);
+    const w = (ancho - hueco * (n - 1)) / n;
+    const pad = m(30);
+    const datos = items.map((it) => {
+      const numero = numeroPrincipal(it.numero);
+      const tam = cuerpoQueEntra(numero, m(128), w - pad * 2, 'serif', m(60));
+      const detalle = it.detalle ? repartir(it.detalle, [{ tam: m(26), max: 2 }], w - pad * 2, 'sans') : { lineas: [], tam: m(26) };
+      return { it, numero, tam, detalle };
+    });
+    const tamNum = Math.min(...datos.map((d) => d.tam));
+    const yNum = top + m(26) + Math.round(tamNum * 0.76);
+    const yNombre = yNum + m(62);
+    const lineasDetalle = Math.max(0, ...datos.map((d) => d.detalle.lineas.length));
+    const alto = (yNombre - top) + (lineasDetalle ? m(18) + lineasDetalle * m(32) : 0) + m(34);
+    const tarjetas = datos.map((d, i) => {
+      const x = x0 + i * (w + hueco);
+      const nombre = cuerpoQueEntra(d.it.nombre, m(36), w - pad * 2, 'sans', m(26));
+      return `<rect x="${x.toFixed(1)}" y="${top}" width="${w.toFixed(1)}" height="${alto}" rx="${m(28)}" fill="#FFFFFF" stroke="${COLORES.linea}" stroke-width="2"/>
+  <text x="${(x + pad).toFixed(1)}" y="${yNum}" font-family="${DISPLAY}" font-size="${tamNum}" font-weight="900" letter-spacing="-2" fill="${color}">${esc(d.numero)}</text>
+  <text x="${(x + pad).toFixed(1)}" y="${yNombre}" font-family="${TEXTO}" font-size="${nombre}" font-weight="700" fill="${COLORES.tinta}">${esc(d.it.nombre)}</text>
+  ${renglones(d.detalle.lineas, { x: x + pad, y: yNombre + m(36), tam: m(26), interlinea: m(32), familia: TEXTO, peso: 500, color: COLORES.gris })}`;
+    }).join('\n  ');
+    return { svg: `${rotuloSvg}\n  ${tarjetas}`, alto: top + alto - y };
   }
-  const cab = cabecera('Teléfonos útiles', 'Guardalos en el celular', { color: COLOR_UTILES });
+
+  // Una tarjeta con una fila por contacto: el nombre corto (y su detalle) arriba, el número grande abajo.
+  const filaAlto = m(138);
+  const pad = m(38);
+  const disponible = ancho - pad * 2;
+  const filas = items.map((it, i) => {
+    const yFila = top + i * filaAlto;
+    const numero = numeroPrincipal(it.numero);
+    const tamNum = cuerpoQueEntra(numero, m(64), disponible, 'serif', m(40));
+    const tamNombre = cuerpoQueEntra(it.detalle ? `${it.nombre} · ${it.detalle}` : it.nombre, m(34), disponible, 'sans', m(26));
+    const conDetalle = it.detalle && anchoAproximado(`${it.nombre} · ${it.detalle}`, tamNombre, 'sans') <= disponible * AIRE;
+    const raya = i > 0 ? `<rect x="${x0 + pad}" y="${yFila}" width="${disponible}" height="2" fill="${COLORES.lineaSuave}"/>\n  ` : '';
+    // El detalle va pegado al nombre, en gris y más liviano (dx: el espacio de la tspan se pierde al medir).
+    return `${raya}<text x="${x0 + pad}" y="${yFila + m(52)}" font-family="${TEXTO}" font-size="${tamNombre}" font-weight="700" fill="${COLORES.tinta}">${esc(it.nombre)}${conDetalle ? `<tspan dx="${m(14)}" font-weight="500" fill="${COLORES.gris}">· ${esc(it.detalle)}</tspan>` : ''}</text>
+  <text x="${x0 + pad}" y="${yFila + m(52) + m(10) + Math.round(tamNum * 0.86)}" font-family="${DISPLAY}" font-size="${tamNum}" font-weight="900" letter-spacing="-1" fill="${COLORES.tinta}">${esc(numero)}</text>`;
+  }).join('\n  ');
+  const alto = filaAlto * Math.max(1, items.length);
+  return {
+    svg: `${rotuloSvg}\n  <rect x="${x0}" y="${top}" width="${ancho}" height="${alto}" rx="${m(28)}" fill="#FFFFFF" stroke="${COLORES.linea}" stroke-width="2"/>\n  ${filas}`,
+    alto: top + alto - y,
+  };
+}
+
+/**
+ * Lo que dibuja una pantalla de útiles, bloque por bloque, para que la placa quieta y la escena animada usen el mismo dibujo.
+ * `pantalla` = { titulo, grupos: [{ rotulo, icono, estilo, items: [{ nombre, detalle, numero }] }] }. Devuelve
+ * { cab, subtitulo, bloques: [{ svg, y, alto }], fin }; `k` es la escala (1 = tamaño completo).
+ */
+export function pantallaDeUtiles(pantalla, { k = 1, kicker = 'Teléfonos útiles', subtitulo = '' } = {}) {
+  const cab = cabecera(kicker, pantalla.titulo ?? 'Guardalos en el celular', { color: COLOR_UTILES });
+  let y = cab.hasta;
+  let sub = '';
+  if (subtitulo) {
+    y += 52;
+    sub = `<text x="${MARGEN}" y="${y}" font-family="${TEXTO}" font-size="32" font-weight="500" fill="${COLORES.gris}">${esc(subtitulo)}</text>`;
+  }
+  y += Math.round(56 * k);
+  const bloques = [];
+  for (const g of pantalla.grupos ?? []) {
+    const b = grupoDeUtiles(g, { y, k });
+    bloques.push({ svg: b.svg, y, alto: b.alto });
+    y += b.alto + Math.round(44 * k);
+  }
+  return { cab, subtitulo: sub, bloques, fin: y - Math.round(44 * k) };
+}
+
+/** La pantalla a tamaño completo y, si no entra antes de la firma, achicada lo justo (nunca se corta ni se superpone). */
+export function pantallaQueEntra(pantalla, opciones = {}) {
+  let armada = null;
+  for (const k of [1, 0.94, 0.88, 0.8, 0.72, 0.64, 0.56, 0.5, 0.44, 0.38]) {
+    armada = pantallaDeUtiles(pantalla, { ...opciones, k });
+    if (armada.fin <= FIN_UTILES) break;
+  }
+  return armada;
+}
+
+/** Lo que reciben las placas y la escena, como pantallas: acepta las `pantallas` nuevas o los `grupos` viejos de `NUMEROS` (una sola pantalla). */
+export function pantallasDeUtilesDe({ pantallas = null, grupos = [] } = {}) {
+  if (pantallas?.length) return pantallas;
+  if (!grupos.length) return [];
+  return [{
+    titulo: 'Guardalos en el celular',
+    grupos: grupos.map((g) => ({
+      rotulo: g.categoria,
+      icono: iconoPorCategoria(g.categoria),
+      items: g.items.map((it) => ({ nombre: it.nombre, detalle: it.detalle, numero: it.numero })),
+    })),
+  }];
+}
+
+/**
+ * Números útiles (los sábados): con `pantallas` (lo normal) dibuja todo en UNA placa, achicando lo justo; es la placa de respaldo, la que sale
+ * si la escena animada (reels/escenas/servicios.mjs, una pantalla por vez) no se pudo armar. Con los `grupos` viejos de `NUMEROS`, como antes.
+ * `grupos` = [{ categoria, items: [{ nombre, numero }] }].
+ */
+export function placaUtiles(opciones = {}) {
+  const pantallas = pantallasDeUtilesDe(opciones);
+  const todos = { titulo: pantallas.length > 1 ? 'Guardalos en el celular' : (pantallas[0]?.titulo ?? 'Guardalos en el celular'), grupos: pantallas.flatMap((p) => p.grupos ?? []) };
+  const armada = pantallaQueEntra(todos);
   return lienzo(`
-  ${cab.svg}
-  ${listaDeFilas(filas, { desde: cab.hasta + 70, hasta: Y_PIE - 20, colorRotulo: COLOR_UTILES })}
-  ${pie()}`);
+  ${armada.cab.svg}
+  ${armada.bloques.map((b) => b.svg).join('\n  ')}
+  ${pie('radarbalcarce.com', PIE_DE_UTILES)}`);
 }
 
 // ------------------------------------------------- una lista con rótulo

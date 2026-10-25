@@ -233,9 +233,22 @@ Lo común a todas:
 ### Teléfonos útiles · 17:00, los sábados · 8 a 20 segundos
 
 - **Para qué:** que tengan a mano los números que sirven.
-- **Cómo se arma:** saludo de su hora, qué números son (emergencias, hospital, comisaría,
-  municipio), "Guardalos ahora, que después te olvidás" y dónde están todos. El audio no
-  lee los números.
+- **Cómo se arma:** saludo de su hora, qué números son (los que se ven: emergencias, el hospital,
+  la comisaría de la mujer, el municipio, la cooperativa eléctrica y defensa al consumidor),
+  "Guardalos ahora, que después te olvidás" y dónde están todos. El audio no lee los números.
+  **La voz dice exactamente lo que se ve, ni más ni menos** (regla 324): la frase sale de las mismas
+  pantallas (`PANTALLAS_DE_UTILES`, `ingesta/utiles.mjs`), nunca de una lista aparte.
+- **Qué se ve (24/10, regla 324):** dos pantallas en el mismo reel, la primera mitad "Emergencias y
+  salud" (911, 107, 100 en tarjetas grandes y el hospital) y la segunda "Municipio y servicios"
+  (comisaría de la Mujer, municipalidad, guardia de la Cooperativa Eléctrica, Defensa al
+  Consumidor). Grupos con su ícono simple, el nombre corto en una línea y **un solo número por
+  contacto (el principal)**, grande; el resto queda en la página de teléfonos. Color: el de Balcarce,
+  nada más. Los números salen de `NUMEROS`, nunca escritos a mano en la pantalla.
+- **Zona segura de esta pieza:** nada pasa de la columna 960 (los botones de Facebook e Instagram
+  tapan el borde derecho) y la raya de la firma sube a la fila 1330 (Facebook tapa la parte de
+  abajo con el texto del posteo). Las demás placas siguen con la firma en la fila 1478.
+- **Pendientes de confirmar** (no están en los datos del repo, así que no se muestran ni se dicen):
+  la comisaría general y Defensa Civil.
 - **No lleva:** "esta semana" ni "una vez por semana": los teléfonos son siempre los
   mismos.
 
@@ -436,7 +449,7 @@ que esta tabla diga lo mismo que el código.
 | Tinta | #14161A | Texto, títulos, la raya y "Radar" de la firma |
 | Papel | #FAF8F3 | Fondo de todas las placas |
 | Rojo de la marca | #C7381C | Sólo "Balcarce" de la firma y los rótulos de la marca |
-| Balcarce | #B91C1C | Lo de acá; participá con noticias; una efeméride de Balcarce |
+| Balcarce | #B91C1C | Lo de acá; participá con noticias; una efeméride de Balcarce; los teléfonos útiles |
 | Política | #3730A3 | Política (nunca sale sola) |
 | Policiales | #831843 | Policiales (nunca sale sola) |
 | Educación | #1D4BE0 | Educación: escuelas, docentes, la Facultad y las universidades (sección nueva desde el 17/10) |

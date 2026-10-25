@@ -482,7 +482,7 @@ y lo arma `redes/guiones.mjs`.
 | Clima de la noche | `guionClimaNoche` | `placaClima` | "Cómo sigue el día": ahora, la mínima de esta noche, mañana y pasado, con el pronóstico de mañana en una frase |
 | Aviso de clima | título y texto del aviso | `placaClima` con recuadro | La tarjeta del clima con el recuadro del aviso: el título se ve de reojo y abajo va lo que hay que saber; acento en el color de Policiales |
 | Farmacia de turno | `guionFarmacia` | `placaFarmacia` | La farmacia (o las dos) de turno, la dirección y "De turno hasta mañana a las 8:30" (`hastaCuandoElTurno`). El turno lo decide la web (`02-INGESTA`) |
-| Teléfonos útiles | `guionUtiles` | `placaUtiles` | Los números de `NUMEROS` (`ingesta/utiles.mjs`), por categoría |
+| Teléfonos útiles | `guionUtiles` (dice lo que se ve) | `placaUtiles` (respaldo) y `escenaDeUtiles` (dos pantallas) | Los números de `NUMEROS` (`ingesta/utiles.mjs`), repartidos en `PANTALLAS_DE_UTILES` (regla 324) |
 | Agenda | `guionAgenda` | `placaAgenda` | Los eventos de los próximos 4 días de la agenda publicada (`web/data/agenda.json`) |
 | Los tres podcasts | `armarPodcast` vía `repasoConPresupuesto` | `placaRepaso` | "Repaso · tapa": el nombre del podcast en el color del día y la lista numerada de sus notas, cada una con el color de su sección |
 

@@ -47,6 +47,78 @@ export const NUMEROS = [
   { categoria: 'Delegaciones', nombre: 'Delegación San Agustín', numero: '(02266) 49-1013' },
 ];
 
+// Lo que muestra el reel de los sábados (24/10/2026, regla 324): dos pantallas, con los nombres cortos y un solo número por contacto (el principal; el
+// resto queda en la página de teléfonos). Cada contacto se nombra por su `de` en NUMEROS: el número NUNCA se escribe acá, se lee de la lista de arriba
+// (`pantallasDeUtiles`), así una corrección en NUMEROS llega sola a la pantalla y a la voz. `dice` es lo que dice la voz de esa tarjeta o grupo
+// (`redes/guiones.mjs`, `guionUtiles`): la voz nombra exactamente lo que se ve, ni más ni menos.
+//
+// Pendientes de confirmar (no están en los datos del repo, así que no se muestran ni se dicen): la comisaría general (hoy sólo está la de la Mujer),
+// Defensa Civil y cualquier otro número que no esté arriba. Para sumarlos, primero van a NUMEROS con su fuente.
+export const PANTALLAS_DE_UTILES = [
+  {
+    titulo: 'Emergencias y salud',
+    grupos: [
+      {
+        rotulo: 'Emergencias', icono: 'emergencias', estilo: 'tarjetas', dice: 'emergencias',
+        items: [
+          { de: 'Emergencias (línea única)', nombre: 'Emergencias', detalle: 'Línea única' },
+          { de: 'SAME / Emergencias médicas', nombre: 'SAME', detalle: 'Emergencias médicas' },
+          { de: 'Bomberos', nombre: 'Bomberos' },
+        ],
+      },
+      {
+        rotulo: 'Salud', icono: 'salud', dice: 'el hospital',
+        items: [{ de: 'Hospital · conmutador', nombre: 'Hospital', detalle: 'Conmutador' }],
+      },
+    ],
+  },
+  {
+    titulo: 'Municipio y servicios',
+    grupos: [
+      {
+        rotulo: 'Seguridad y municipio', icono: 'municipio',
+        items: [
+          { de: 'Comisaría de la Mujer', nombre: 'Comisaría de la Mujer', dice: 'la comisaría de la mujer' },
+          { de: 'Municipalidad · conmutador', nombre: 'Municipalidad', detalle: 'Conmutador', dice: 'el municipio' },
+        ],
+      },
+      {
+        rotulo: 'Servicios', icono: 'servicios',
+        items: [
+          { de: 'Cooperativa Eléctrica · guardia 24 h', nombre: 'Cooperativa Eléctrica', detalle: 'Guardia 24 h', dice: 'la cooperativa eléctrica' },
+          { de: 'Defensa al Consumidor', nombre: 'Defensa al Consumidor', dice: 'defensa al consumidor' },
+        ],
+      },
+    ],
+  },
+];
+
+/** El número que se muestra de un contacto: el primero de su lista ("a / b / c" → "a"). */
+const principal = (numero) => String(numero).split(' / ')[0].trim();
+
+/**
+ * Las pantallas de los útiles con los números ya puestos, leídos de `numeros` (NUMEROS). Lanza si una tarjeta nombra un contacto que no está:
+ * mejor que falle la prueba a que el sábado salga una tarjeta sin número.
+ */
+export function pantallasDeUtiles(numeros = NUMEROS) {
+  return PANTALLAS_DE_UTILES.map((p) => ({
+    ...p,
+    grupos: p.grupos.map((g) => ({
+      ...g,
+      items: g.items.map(({ de, ...resto }) => {
+        const n = numeros.find((x) => x.nombre === de);
+        if (!n) throw new Error(`teléfonos útiles: "${de}" no está en NUMEROS`);
+        return { ...resto, numero: principal(n.numero) };
+      }),
+    })),
+  }));
+}
+
+/** Lo que dice la voz de las pantallas, en orden y sin repetir ("emergencias", "el hospital", "la comisaría de la mujer"…). */
+export function queDiceLaVoz(pantallas = PANTALLAS_DE_UTILES) {
+  return pantallas.flatMap((p) => p.grupos.flatMap((g) => (g.dice ? [g.dice] : g.items.map((it) => it.dice)))).filter(Boolean);
+}
+
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 
 const DIA_MS = 24 * 60 * 60 * 1000;
