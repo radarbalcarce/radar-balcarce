@@ -30083,7 +30083,8 @@
    "corresponde": "si",
    "descripcion": "Francisco Cerúndolo celebrando con el puño en alto durante un partido de tenis."
   },
-  "huella": "a66e095d0dc98f24"
+  "huella": "a66e095d0dc98f24",
+  "ausenteDesde": "2026-10-25T23:02:13.164Z"
  },
  "bbatvv": {
   "archivo": "fotos-notas/bbatvv.jpg",
@@ -38307,11 +38308,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
-  "cuando": "2026-10-25T14:02:24.428Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T23:01:55.753Z",
   "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 4
+  "intentosPorCupo": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1df4mi": {
   "intentado": true,
@@ -38327,11 +38329,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-10-25T14:31:48.837Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de El Día no se usa todavía.",
+  "cuando": "2026-10-25T23:01:55.753Z",
   "intentos": 2,
-  "fuentes": 4,
-  "intentosPorCupo": 4
+  "fuentes": 5,
+  "intentosPorCupo": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1yd732f": {
   "intentado": true,
@@ -40541,11 +40544,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens p (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T20:35:48.279Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 2,
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas) y es una imagen genérica de stock, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-10-25T23:01:55.753Z",
+  "intentos": 2,
+  "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1qtse9x": {
@@ -40583,5 +40585,16 @@
    "descripcion": "Vista panorámica del circuito del Autódromo Juan Manuel Fangio desde una altura, mostrando las curvas y el entorno rural."
   },
   "huella": "000010c0e3fc6fe2"
+ },
+ "f1resultado2026r18": {
+  "archivo": "fotos-notas/libre-f1resultado2026r18.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Larry D. Moore / Wikimedia Commons (CC BY 4.0)",
+  "licencia": "CC BY 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg/1280px-Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Cirque du Soleil at Circuit of the Americas 2015.jpg",
+  "cuando": "2026-10-25T23:02:12.142Z"
  }
 }

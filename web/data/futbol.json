@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-25T22:32:29.336Z",
+ "consultado": "2026-10-25T23:02:09.874Z",
  "equipos": [
   "9739",
   "3",
@@ -69,48 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841622",
-    "competencia": "liga",
-    "inicio": "2026-10-15T23:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+9'",
-    "local": {
-     "id": "10",
-     "nombre": "Huracán",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "9",
-     "nombre": "Gimnasia La Plata",
-     "goles": 2
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Ignacio Fernández",
-      "minuto": "18'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Jordy Caicedo",
-      "minuto": "83'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Germán Conti",
-      "minuto": "90'+7'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Estadio Tomás Adolfo Ducó",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841626",
     "competencia": "liga",
@@ -961,11 +919,11 @@
     "competencia": "liga",
     "inicio": "2026-10-25T22:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "17'",
+    "minuto": "45'+1'",
     "local": {
      "id": "16",
      "nombre": "River Plate",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "15",
@@ -973,7 +931,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Lautaruo Rivero",
+      "minuto": "33'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Más Monumental",
     "fase": null,
     "partidoDeLaSerie": null,
