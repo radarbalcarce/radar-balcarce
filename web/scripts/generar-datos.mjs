@@ -765,9 +765,10 @@ sumarFuentesDeParejas(deLaIngesta, [...parejasConfirmadas, ...parejasSinIA]);
     const { elegirFotosNuevas } = await import('./fotos-notas.mjs');
     const { claveClasificacion, claveGroq } = await import('../../reels/claves.mjs');
     const bancoAntes = bancoDeFotos;
-    const { banco, archivos, porExcepcion } = await elegirFotosNuevas(deLaIngesta, {
+    const { banco, archivos, porExcepcion, cortadaPorCupo } = await elegirFotosNuevas(deLaIngesta, {
       banco: bancoAntes, clave: claveClasificacion(), claveRespaldo: claveGroq(),
     });
+    if (cortadaPorCupo) console.log('  fotos: las IA de control están sin cupo (429): se cortó la búsqueda de esta vuelta; las notas sin foto se vuelven a probar con espera creciente y, mientras tanto, llevan la ilustración o la placa (regla 324)');
     const nuevas = Object.keys(banco).length - Object.keys(bancoAntes).length;
     if (nuevas) console.log(`  fotos: ${nuevas} notas nuevas probadas (${Object.keys(archivos).length} con foto)`);
     // El registro de las fotos con chicos que entraron por la excepción de la regla 186 (FOTOS_MENORES_OFICIALES): queda en el log de la

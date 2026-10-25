@@ -17,7 +17,7 @@ const leer = (r) => fs.readFileSync(new URL(r, import.meta.url), 'utf8').replace
 test('ninguna instrucción de la IA pasa de su techo (si alguna tiene que crecer, se decide y se sube el techo acá)', () => {
   const c = leerCriterio();
   const techos = [
-    ['las reglas de la redacción (CRITERIO-EDITORIAL.md § 12)', palabras(c.reglas), 1900],
+    ['las reglas de la redacción (CRITERIO-EDITORIAL.md § 12)', palabras(c.reglas), 1990], // 1900 hasta el 24/10/2026: la regla 15 (deportes sin culpa ni drama, regla 324) sumó 92 palabras
     ['el tono de todos los días', palabras(c.tonoAmeno), 70],
     ['el tono serio', palabras(c.tonoSerio), 60],
     ['la lectura con IA', palabras(instruccion()), 620],

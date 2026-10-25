@@ -12,7 +12,7 @@
 // veces, con una hora entre una y otra (`sePuedeReintentar`, 29/09).
 
 import {
-  elegirFotoParaNota, descargarImagen, creditoDeFoto, bytesOriginales, mimeOriginal, normalizarMime, sinConsulta, esFotoDeCommonsEnNotaConFuentes,
+  elegirFotoParaNota, descargarImagen, creditoDeFoto, bytesOriginales, mimeOriginal, normalizarMime, sinConsulta, esFotoDeCommonsEnNotaConFuentes, esFallaDeCupo,
 } from '../../ingesta/fotos.mjs';
 import { excepcionActiva, menorEnActividadOficial, tieneFuenteOficialParaMenores } from '../../ingesta/fotos-menores.mjs';
 import { achicarFoto, achicarParaIA, fotoParaGuardar, huellaDeFoto, mismaFoto } from './achicar-foto.mjs';
@@ -48,7 +48,17 @@ export const REINTENTOS_DE_FOTO = {
   // mirar cada tantas horas, hasta `repasos` veces más.
   horasEntreRepasos: 6,
   repasos: 2,
+  // Una falla de CUPO (Gemini y Groq en 429, "Request too large", la segunda opinión sin cupo; regla 324, 24/10/2026) no es una decisión sobre la
+  // foto ni un intento gastado: se vuelve a probar con espera creciente (1 h, 2 h, 4 h, 8 h y 8 h) hasta `veces` veces, que cubre más que el día en
+  // que la nota está en la portada y pasa por la hora en que se renueva el cupo. Antes se gastaban los tres intentos de una hora en la misma tarde sin cupo.
+  cupo: { veces: 8, minutosBase: 60, minutosTope: 480, seguidasParaFrenar: 2 },
 };
+
+/** ¿La entrada del banco quedó sin foto por una falla de cupo (y no por una decisión sobre las fotos)? */
+export const quedoPorFaltaDeCupo = (entrada) => !!entrada && !entrada.archivo && !entrada.descartada && esFallaDeCupo(entrada.razon ?? entrada.error ?? '');
+
+/** Cuánto se espera para volver a probar después de `n` fallas de cupo seguidas: 60, 120, 240, 480, 480… minutos. */
+export const esperaPorCupo = (n, cupo = REINTENTOS_DE_FOTO.cupo) => Math.min(cupo.minutosBase * 2 ** Math.max(0, (Number(n) || 1) - 1), cupo.minutosTope);
 
 // Lo que no es una decisión sobre la foto sino una falla: sin cupo o sin
 // respuesta de la IA, ninguna foto que bajar en ese momento, o la elegida que
@@ -71,6 +81,11 @@ export function sePuedeReintentar(entrada, { ahora = new Date(), reintentos = RE
   const pasaron = ahora.getTime() - Date.parse(entrada.cuando ?? 0);
   const falla = entrada.origen === 'error' || !!entrada.error || FALLA.test(String(entrada.razon ?? ''));
   if (falla) {
+    // Regla 324: sin cupo no se gastan los intentos; se vuelve a probar con espera creciente (las de antes, sin contador, cuentan como una).
+    if (reintentos.cupo && quedoPorFaltaDeCupo(entrada)) {
+      const porCupo = entrada.intentosPorCupo ?? 1;
+      return porCupo < reintentos.cupo.veces && pasaron >= esperaPorCupo(porCupo, reintentos.cupo) * 60_000;
+    }
     if (intentos < reintentos.veces) return pasaron >= reintentos.minutosEntreIntentos * 60_000;
     // Ya se probó tres veces: un repaso cada tanto, un par de veces más.
     return intentos < reintentos.veces + reintentos.repasos && pasaron >= reintentos.horasEntreRepasos * 3_600_000;
@@ -181,10 +196,16 @@ export async function elegirFotosNuevas(notas, {
     .sort((a, b) => (Number(!!banco[a.id]) - Number(!!banco[b.id])) || (new Date(b.fecha ?? 0) - new Date(a.fecha ?? 0)));
 
   let procesadas = 0;
+  // Regla 324: si dos notas seguidas fallan por falta de cupo, se corta la corrida (las demás se vuelven a probar en la próxima, con su espera).
+  // Seguir sólo gastaba pedidos que no iban a contestar.
+  let sinCupoSeguidas = 0;
+  let cortadaPorCupo = false;
   for (const n of candidatas) {
     if (procesadas >= tope) break;
+    if (sinCupoSeguidas >= REINTENTOS_DE_FOTO.cupo.seguidasParaFrenar) { cortadaPorCupo = true; break; }
     procesadas += 1;
-    const intentos = (banco[n.id]?.intentos ?? (banco[n.id] ? 1 : 0)) + 1;
+    const intentosAntes = banco[n.id]?.intentos ?? (banco[n.id] ? 1 : 0);
+    let intentos = intentosAntes + 1;
     try {
       const r = await elegirFotoParaNota(n, {
         clave, claveRespaldo, fetchFn, fotosMenoresOficiales, prepararParaIA, huellaDe,
@@ -194,11 +215,16 @@ export async function elegirFotosNuevas(notas, {
       // El error de Gemini queda en la ficha aunque después Groq haya contestado (17/10/2026).
       const deGemini = r.errorGemini ? { errorGemini: r.errorGemini } : {};
       if (!r.elegida) {
+        // Sin cupo: no se gasta el intento (queda el que tenía) y se cuenta aparte, para esperar cada vez más (regla 324).
+        const porCupo = quedoPorFaltaDeCupo({ razon: r.razon });
+        const extra = porCupo ? { intentosPorCupo: (banco[n.id]?.intentosPorCupo ?? (quedoPorFaltaDeCupo(banco[n.id]) ? 1 : 0)) + 1 } : {};
+        if (porCupo) { intentos = Math.max(1, intentosAntes); sinCupoSeguidas += 1; } else sinCupoSeguidas = 0;
         bancoNuevo[n.id] = {
-          intentado: true, origen: r.origen, titulo: n.titulo ?? null, razon: r.razon ?? null, cuando: ahora.toISOString(), intentos, fuentes: cuantasFuentes(n), ...deGemini, ...marca,
+          intentado: true, origen: r.origen, titulo: n.titulo ?? null, razon: r.razon ?? null, cuando: ahora.toISOString(), intentos, fuentes: cuantasFuentes(n), ...extra, ...deGemini, ...marca,
         };
         continue;
       }
+      sinCupoSeguidas = 0;
       // La comparación ya bajó la imagen para mirarla: se guarda ésa (la original, no la achicada que vio la IA). Sólo si no la trae, se baja.
       const datos = r.elegida.datos ?? await descargarImagen(r.elegida.imagen, { fetchFn });
       const mime = normalizarMime(mimeOriginal(datos) ?? '');
@@ -240,7 +266,7 @@ export async function elegirFotosNuevas(notas, {
       bancoNuevo[n.id] = { intentado: true, origen: 'error', error: e.message, cuando: ahora.toISOString(), intentos };
     }
   }
-  return { banco: bancoNuevo, archivos, porExcepcion };
+  return { banco: bancoNuevo, archivos, porExcepcion, cortadaPorCupo };
 }
 
 /**

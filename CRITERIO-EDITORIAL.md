@@ -322,6 +322,30 @@ Es lo único que lee la mayoría: tiene que decir la noticia entera, solo.
 | Reabre el autódromo Juan Manuel Fangio tras una década | "EN VIVO: la reapertura del Fangio" (no hacemos coberturas en vivo) |
 | Cortan la luz el martes en el barrio Norte | "Lo que tenés que saber del corte de luz" (gancho) |
 
+### Títulos de deportes y automovilismo (regla 324, 24/10/2026)
+
+El deporte tienta al drama y a culpar a alguien. El título cuenta el hecho con su
+nombre, su tiempo verbal y su causa, y no castiga a nadie que la fuente no culpe:
+
+- **El tiempo es el del hecho.** Lo que todavía no pasó (una largada, un partido, un
+  lugar en la grilla, un resultado) va en futuro o con el día; el presente de arriba
+  es para lo que ya ocurrió o se anuncia ("Ferroviarios juega el domingo").
+  "Retrocede diez lugares" da por cumplido algo que no se corrió.
+- **La causa va si la fuente la da.** Una penalización de grilla por superar el
+  número de unidades de un componente es del equipo, no del piloto: el título dice
+  "por un cambio de unidad" y el sujeto no es una falta del piloto.
+- **Sin "castigo"** ("castigan", "castigo técnico"), "se hunde", "naufraga", "humillación",
+  "papelón", "batacazo", "debacle": ni en el título, ni en la bajada, ni en el texto para
+  redes. "Sanciona" sólo cuando la fuente dice que un tribunal o los comisarios sancionaron.
+- **Nada que la fuente no diga**: ni un motivo, ni una posición final, ni un resultado
+  anticipado. Lo que falta (dónde largará en definitiva) va en lo que falta confirmar.
+
+| Bien | Mal, y por qué |
+|---|---|
+| Colapinto largará diez puestos más atrás en Austin por un cambio de unidad del Alpine | "Penalizan a Franco Colapinto y retrocede diez lugares en Estados Unidos" (24/10/2026: presente que da por cumplido lo que todavía no se corrió, sin la causa y con la bajada "castigo técnico", como si fuera una falta del piloto) |
+| Alonso larga último tras cambiar el motor | "Castigan a Alonso: se hunde en la grilla" (castigo y drama; la fuente cuenta un cambio de motor) |
+| El tribunal de disciplina suspende por dos fechas al arquero de Unión | "Duro castigo para el arquero de Unión" (adjetivo y castigo, en vez del hecho) |
+
 Lo que se arregla solo, sin volver a pedirle nada a la IA y también en lo ya
 publicado (`tituloAutomatico`, `web/lib/titulos.js`): "en Balcarce" al final,
 una etiqueta **conocida** adelante (una sección, un deporte, "Exclusivo",
@@ -636,7 +660,12 @@ publicar una mentira.
   "increíble");
 - **frases de gancho** en el título, la bajada, el guion o el texto para
   redes: "lo que tenés que saber", "enterate", "te contamos", "no te lo
-  pierdas", "imperdible".
+  pierdas", "imperdible";
+- **un título de deportes con castigo, drama o el tiempo equivocado** (regla 324,
+  `tituloDeportivoTendencioso`): "castigo", "se hunde", "naufraga", "papelón"… en una
+  nota de deportes; y el título de una penalización de posiciones en la grilla que
+  la da por cumplida ("retrocede diez lugares") o que calla la causa (un cambio de
+  unidad) cuando la fuente la da. Sólo en lo que se escribe nuevo.
 
 **Y en lo que escribe nueva** (no al revalidar lo ya publicado: son reglas
 que miran la forma de las palabras, y una nota que ya está en la portada no
@@ -990,10 +1019,12 @@ Después la escribís, con estas reglas fijas:
 8. Si la nota ACUSA a alguien de algo (un delito, una falta, una irregularidad) y todavía no hay condena o confirmación oficial, SIEMPRE atribuís la acusación a quien la hizo ("según la denuncia de…", "de acuerdo con la Policía…") y usás el condicional ("habría"), en la bajada y en el cuerpo; nunca como un hecho tuyo. Es lo que protege a un medio de una demanda por calumnias o injurias (doctrina Campillay).
 9. NUNCA identificás a un menor de edad (sea víctima, acusado o testigo) ni a una víctima de un delito sexual o de violencia de género: ni su nombre, apodo o iniciales, ni su escuela, domicilio o cuadra, ni un parentesco que la deje identificada ("la hija del dueño de tal comercio"), ni su foto o descripción física. Aunque la fuente lo publique, vos hablás de forma general. No es estilo: lo exigen las leyes 26.061 y 26.485.
 10. La fuente NO se nombra en el título ni en el texto para redes; en el cuerpo sólo en general ("según informó el municipio"), nunca el nombre del medio que publicó. Nunca presentás como propio lo que informó otro medio. Cada dato importante va atribuido a quien lo dio, mejor la fuente primaria (el organismo, el club, la Policía) que el medio que la reprodujo; la versión oficial va primero.
-11. Fijate CUÁNDO pasó el hecho: la fecha de hoy y la de cada fuente te llegan con el día de la semana, comparalas. Si ya pasó, el CUERPO lo cuenta en pasado ("aprobó", "ganó", "se largó") aunque la fuente lo anunciara en futuro; si no pasó, en futuro o con el día ("Ferroviarios juega el domingo"). El TÍTULO va siempre en presente (regla 2) y ese presente no pasa al cuerpo. Sin "ayer", "hoy" ni "mañana", ni "este lunes" o "este fin de semana" (la nota se lee días después): va "el sábado" o "el sábado 26", o nada. No mezcles lo de antes con lo de ahora.
+11. Fijate CUÁNDO pasó el hecho: la fecha de hoy y la de cada fuente te llegan con el día de la semana, comparalas. Si ya pasó, el CUERPO lo cuenta en pasado ("aprobó", "ganó", "se largó") aunque la fuente lo anunciara en futuro; si no pasó, en futuro o con el día ("Ferroviarios juega el domingo"). El TÍTULO va en presente (regla 2; lo que todavía no pasó, regla 15) y ese presente no pasa al cuerpo. Sin "ayer", "hoy" ni "mañana", ni "este lunes" o "este fin de semana" (la nota se lee días después): va "el sábado" o "el sábado 26", o nada. No mezcles lo de antes con lo de ahora.
 12. NUNCA afirmás que algo afecta a Balcarce, a los balcarceños o a la región si las fuentes no lo dicen (ni lo contrario): si la fuente no dice nada de Balcarce, la nota tampoco, y no le busqués una conexión. Escribís en tercera persona (nunca "nuestra ciudad"). Lo de Balcarce que traiga la fuente (un nombre, un resultado, una dirección, un comercio, una cifra) va primero.
 13. Escribís en castellano correcto, con las tildes y la eñe donde van (un texto sin tildes se rechaza). Cada persona, con su cargo la primera vez ("el intendente Fulano Pérez") y después por el apellido; las siglas, explicadas (salvo AFA, ANSES). Oraciones cortas con un dato cada una, en voz activa y con palabras de todos los días ("empezó", no "dio inicio"). Sin cierres que resuman o valoren ("sin dudas", "una gran noticia") ni frases de relleno como "cabe destacar", "en el marco de", "fuentes consultadas", "pudo saber", "hito histórico" o "dijo presente": una oración con relleno se saca entera y, en el título o la bajada, se descarta todo lo que escribiste. Con posturas enfrentadas, cada una va con SU argumento concreto, atribuido, y no las resolvés vos ("ambos coinciden en…").
 14. Si la nota anuncia algo que va a pasar o cambia algo práctico (un corte, un cambio de horario, un trámite, un evento, un partido), el cuerpo trae TODOS los datos prácticos que da la fuente: el día con su fecha, la hora de inicio y la de fin, el lugar, a quién afecta, qué hay que hacer o llevar y cuánto cuesta. Nunca cambiés un dato concreto por una frase vaga ("se confirmaron las fechas y las sedes" sin decir cuáles).
+
+15. Deportes y automovilismo (título, bajada y textoRedes): lo que todavía no pasó va en futuro, no en un presente que lo da por cumplido ("Colapinto largará diez puestos más atrás", no "retrocede diez lugares"). Una penalización de grilla o una suspensión dicen su causa si la fuente la da ("por un cambio de unidad del Alpine"), y lo que es del equipo no se le atribuye al piloto. Nunca "castigo", "se hunde", "naufraga" ni "papelón"; "sanciona" sólo si la fuente dice que un tribunal sancionó.
 
 Además devolvés, con las mismas reglas del cuerpo:
 
