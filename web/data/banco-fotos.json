@@ -38570,7 +38570,8 @@
    "descripcion": "Imagen dividida que muestra a Flávio Bolsonaro y a Lula hablando con micrófonos frente a sus respectivas multitudes de simpatizantes.",
    "detalle": "Se observan carteles de campaña en el fondo (Flávio, Lula) que son parte de la escena real, pero no se detecta marca de agua ni logo superpuesto por el medio."
   },
-  "huella": "9cd95879b2914d59"
+  "huella": "9cd95879b2914d59",
+  "ausenteDesde": "2026-10-25T20:36:27.534Z"
  },
  "de0frz": {
   "intentado": true,
@@ -38825,10 +38826,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "Ninguna foto corresponde directamente al partido entre Central Córdoba y Vélez del Torneo Clausura (las de partidos muestran otros equipos y las otras son gráficas o escudos).",
-  "cuando": "2026-10-25T17:02:14.266Z",
-  "intentos": 3,
-  "fuentes": 18
+  "razon": "La única imagen disponible es un gráfico con marca de agua del medio (Olé) y no corresponde a los equipos de la nota (Central Córdoba y Vélez).",
+  "cuando": "2026-10-25T20:35:48.279Z",
+  "intentos": 4,
+  "fuentes": 19,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
@@ -40535,11 +40537,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T19:32:48.454Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens p (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T20:35:48.279Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1qtse9x": {
@@ -40552,5 +40554,30 @@
   "fuentes": 8,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "i3z8vw": {
+  "archivo": "fotos-notas/i3z8vw.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/el-autodromo-juan-manuel-fangio-de-balcarce-vive-una-jornada-de-automovilismo",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/zonalbalcarce.jpg",
+  "razon": "Es la única opción disponible y muestra el lugar del hecho (el autódromo) de forma clara y sin elementos que impidan su publicación.",
+  "cuando": "2026-10-25T20:35:48.279Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista panorámica del circuito del Autódromo Juan Manuel Fangio desde una altura, mostrando las curvas y el entorno rural."
+  },
+  "huella": "000010c0e3fc6fe2"
  }
 }

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-25T20:07:16.967Z",
+  "generado": "2026-10-25T20:36:27.572Z",
   "notas": [
     {
       "id": "1is9y1g",
@@ -9,6 +9,7 @@
       "guion": "Aprehenden a dos menores con una moto robada en avenida Caseros.",
       "seccion": "Policiales",
       "medios": [
+        "Infórmese Primero (FM 104.9)",
         "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia"
       ],
@@ -16,9 +17,10 @@
       "fecha": "2026-10-25T18:51:36.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T19:31:18.085Z",
-      "relevancia": 96,
+      "relevancia": 100,
       "local": true,
       "deUnMedioDeAca": true,
+      "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -60,6 +62,13 @@
           "fecha": null,
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Infórmese Primero (FM 104.9)",
+          "enlace": "http://www.informeseprimero.com.ar/2026/10/dos-menores-fueron-aprehendidos-cuando.html",
+          "fecha": "2026-10-25T19:11:19.165Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -68,6 +77,85 @@
         "sugeridoPorIA": null
       },
       "slug": "aprehenden-a-dos-menores-con-una-moto-robada-en-avenida-caseros"
+    },
+    {
+      "id": "i3z8vw",
+      "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
+      "copete": "El circuito serrano es escenario de una nueva fecha del Zonal del Atlántico. La programación incluye competencias para titulares e invitados del Turismo Special de la Costa.",
+      "cuerpo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo 25 de octubre una nueva jornada de automovilismo zonal con la presencia de distintas categorías. La programación convoca a los aficionados del deporte motor en el circuito serrano con el desarrollo de diversas competencias.\n\nEl encuentro reúne al Turismo Special de la Costa, la Promocional del Atlántico, la Monomarca Fiat, la Monomarca del Salado y el TC 2000 del Atlántico. Entre los principales atractivos, el Turismo Special de la Costa disputa pruebas para titulares e invitados dentro de la Copa de Oro.\n\nSegún el cronograma previsto por la organización, las finales de esa categoría se largan a las 12:30 para los invitados y a las 15:30 para los titulares, a un total de 18 vueltas cada una. De todas formas, las autoridades advirtieron que los horarios pueden registrar modificaciones según el estado de la pista y las decisiones de la propia organización durante la jornada.",
+      "guion": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal.",
+      "seccion": "Automovilismo",
+      "medios": [
+        "Radio Gabal (FM 104.1)"
+      ],
+      "enlace": "https://www.radiogabal.com.ar/index.php/deportes/el-autodromo-juan-manuel-fangio-de-balcarce-vive-una-jornada-de-automovilismo",
+      "fecha": "2026-10-25T18:44:49.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-25T20:31:46.310Z",
+      "relevancia": 90,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [
+        "autodromo",
+        "fangio"
+      ],
+      "como": "automatica",
+      "claves": [
+        "El Autódromo Juan Manuel Fangio recibe este domingo al automovilismo zonal.",
+        "Participan el Turismo Special de la Costa, Promocional del Atlántico, Monomarca Fiat, Monomarca del Salado y TC 2000 del Atlántico.",
+        "Las finales del Turismo Special de la Costa están previstas para las 12:30 y las 15:30."
+      ],
+      "noConfirmado": [
+        "Los horarios de las competencias pueden sufrir modificaciones según las condiciones de la pista y la organización.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "etiquetas": [
+        "Autodromo Juan Manuel Fangio",
+        "automovilismo zonal",
+        "Turismo Special de la Costa",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/deportes/el-autodromo-juan-manuel-fangio-de-balcarce-vive-una-jornada-de-automovilismo",
+          "fecha": "2026-10-25T18:44:49.000Z",
+          "oficial": false,
+          "aporte": "Detalló las categorías participantes, las características de las finales del Turismo Special de la Costa y los horarios previstos."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "wgq362",
+          "titulo": "Omar Martínez termina cuarto en el autódromo Juan Manuel Fangio",
+          "fecha": "2026-09-29T14:55:00.000Z",
+          "ruta": "/nota/omar-martinez-termina-cuarto-en-el-autodromo-juan-manuel-fangio-wgq362"
+        },
+        {
+          "id": "9cnbf5",
+          "titulo": "El Turismo Special de la Costa corre en el Fangio sin Nahuel Morón",
+          "fecha": "2026-10-22T15:15:49.000Z",
+          "ruta": "/nota/el-turismo-special-de-la-costa-corre-en-el-fangio-sin-nahuel-moron-9cnbf5"
+        },
+        {
+          "id": "16tb2vo",
+          "titulo": "El Zonal del Atlántico compite el fin de semana en el autódromo",
+          "fecha": "2026-10-08T13:03:34.000Z",
+          "ruta": "/nota/el-zonal-del-atlantico-compite-el-fin-de-semana-en-el-autodromo-16tb2vo"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-autodromo-juan-manuel-fangio-de-balcarce-recibe-este-domingo-al",
+      "foto": {
+        "archivo": "fotos-notas/i3z8vw.jpg",
+        "credito": "Foto: Radio Gabal (FM 104.1)"
+      }
     },
     {
       "id": "f1parrilla2026r18",
@@ -191,7 +279,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "las-pymes-argentinas-afrontan-62-obligaciones-fiscales-al-ano"
+      "slug": "las-pymes-argentinas-afrontan-62-obligaciones-fiscales-al-ano",
+      "foto": {
+        "archivo": "fotos-notas/dri7vy-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "2of31o",
@@ -481,7 +573,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "maria-corina-machado-regresa-a-venezuela-tras-casi-un-ano-en-el-exilio"
+      "slug": "maria-corina-machado-regresa-a-venezuela-tras-casi-un-ano-en-el-exilio",
+      "foto": {
+        "archivo": "fotos-notas/njwqjk-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "gux4r",
@@ -491,11 +587,13 @@
       "guion": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV.",
       "seccion": "Cultura y agenda",
       "medios": [
+        "La Nación",
         "TN (Todo Noticias)",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "La Nueva",
+        "El Marplatense",
         "La Gaceta (Tucumán)",
         "Ámbito",
         "C5N",
@@ -505,11 +603,11 @@
       "fecha": "2026-10-25T15:51:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T17:01:21.234Z",
-      "relevancia": 61,
+      "relevancia": 64,
       "local": false,
       "muyContada": {
-        "medios": 8,
-        "porque": "8 medios",
+        "medios": 10,
+        "porque": "10 medios",
         "desde": "2026-10-25T20:01:32.504Z"
       },
       "publicadaPor": null,
@@ -605,6 +703,20 @@
           "medio": "Canal 26",
           "enlace": "https://www.canal26.com/historia/2026/10/25/luciano-pereyra-cantara-ante-el-papa-leon-xiv-en-lujan-el-anuncio-que-lo-quebro-en-pleno-show/",
           "fecha": "2026-10-25T19:32:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/espectaculos/musica/nahuel-pennisi-y-luciano-pereyra-cantaran-en-dos-de-los-encuentros-del-papa-leon-xiv-en-la-argentina-nid25102026/",
+          "fecha": "2026-10-25T20:03:42.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Marplatense",
+          "enlace": "https://www.elmarplatense.com/luciano-pereyra-anuncio-que-le-cantara-al-papa-leon-xiv",
+          "fecha": "2026-10-25T20:16:27.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1225,10 +1337,10 @@
       "seccion": "Fútbol",
       "medios": [
         "TyC Sports",
+        "Olé",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Bolavip Argentina",
-        "Olé",
         "Minuto Uno",
         "Clarín"
       ],
@@ -1505,11 +1617,10 @@
       "guion": "IDEA reclama un debate sin agravios tras los ataques de Milei a la prensa.",
       "seccion": "Política",
       "medios": [
+        "Clarín",
         "La Nación",
         "El Cronista",
         "Perfil",
-        "Clarín",
-        "El Destape",
         "Ámbito",
         "C5N"
       ],
@@ -1517,7 +1628,7 @@
       "fecha": "2026-10-25T06:12:41.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T13:32:00.575Z",
-      "relevancia": 53,
+      "relevancia": 52,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1625,8 +1736,8 @@
       "guion": "Repudian declaraciones de Milei tras pedir que quemen a periodistas.",
       "seccion": "Política",
       "medios": [
-        "Noticias Argentinas (NA)",
         "El Destape",
+        "Noticias Argentinas (NA)",
         "El Día"
       ],
       "enlace": "https://www.eldestapeweb.com/politica/quemados-hoguera-pidio-milei-periodistas-siguieron-caso-libra-20261024112812",
@@ -1877,104 +1988,6 @@
       }
     },
     {
-      "id": "10ymrrf",
-      "titulo": "Alpine rechaza los dichos de Jeremy Clarkson contra Franco Colapinto",
-      "copete": "El expresentador británico ironizó sobre la sanción del piloto argentino en el Gran Premio de Estados Unidos. La escudería francesa debió emitir un comunicado para distanciarse de su propio invitado.",
-      "cuerpo": "El expresentador británico Jeremy Clarkson protagonizó una controversia durante el Gran Premio de Estados Unidos de Fórmula 1 al vincular la sanción deportiva de Franco Colapinto con su nacionalidad. El hecho ocurrió en el Circuito de las Américas, en Austin, durante una entrevista con la cadena Sky Sports F1 en la previa de la competencia.\n\nEl comentarista hizo mención a la penalización de diez puestos que recibió el piloto argentino en la grilla de partida por utilizar una cuarta unidad de control electrónico, un cambio que excede el límite reglamentario. En ese contexto, el británico ironizó sobre el origen del corredor al señalar que le daría un castigo por ser argentino.\n\nLa situación generó especial incomodidad dentro de la estructura francesa debido a que Clarkson asistió al evento como invitado oficial de Alpine. El exconductor de Top Gear compartió actividades con integrantes del equipo y posó para fotografías junto a Flavio Briatore, imágenes que fueron difundidas en las redes sociales de la escudería.\n\nAnte el impacto de las declaraciones, la escudería difundió un texto para tomar distancia de su invitado. En el mensaje, la organización remarcó que las expresiones correspondieron a una opinión personal y no reflejan los valores de respeto que promueve el equipo, y concluyó con un respaldo al piloto.\n\nLa controversia también revivió repercusiones por antecedentes del comunicador en el país, vinculados a un viaje realizado en 2014 para filmar un programa televisivo en la Patagonia. En aquella oportunidad, el vehículo que conducía portaba una patente que generó conflicto y derivó en la salida anticipada del equipo de producción.",
-      "guion": "Alpine rechaza los dichos de Jeremy Clarkson contra Franco Colapinto.",
-      "seccion": "Deportes",
-      "medios": [
-        "TyC Sports",
-        "La Brújula 24",
-        "Doble Amarilla",
-        "C5N"
-      ],
-      "enlace": "https://www.dobleamarilla.com.ar/mas-alla-del-futbol/verguenza--un-periodista-ingles-invitado-por-alpine-dijo-que-colapinto-deberia-ser-sancionado-solo-por--ser-argentino-_a6add4a8194c86cee201ce950",
-      "fecha": "2026-10-25T01:26:21.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-25T16:01:33.287Z",
-      "relevancia": 54,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Jeremy Clarkson ironizó sobre la sanción de Colapinto en el GP de Estados Unidos.",
-        "El británico asistió al circuito de Austin como invitado oficial de la escudería Alpine.",
-        "El equipo francés emitió un comunicado para desligarse de los dichos de su invitado.",
-        "La penalización deportiva del piloto argentino obedeció al cambio de un componente electrónico."
-      ],
-      "seSabe": [
-        "Jeremy Clarkson realizó un comentario sobre la nacionalidad de Franco Colapinto durante una transmisión en Austin.",
-        "Franco Colapinto fue penalizado con diez posiciones en la grilla por usar un cuarto componente electrónico.",
-        "Alpine repudió los dichos de su invitado a través de un comunicado oficial y respaldó al piloto."
-      ],
-      "textoRedes": "Alpine repudió los dichos del expresentador Jeremy Clarkson, quien ironizó sobre la sanción de Franco Colapinto en el Gran Premio de Estados Unidos por su nacionalidad. La escudería aclaró que la postura de su invitado no representa los valores del equipo.",
-      "etiquetas": [
-        "Franco Colapinto",
-        "Formula 1",
-        "Alpine",
-        "Jeremy Clarkson",
-        "Gran Premio de Estados Unidos"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/mas-alla-del-futbol/verguenza--un-periodista-ingles-invitado-por-alpine-dijo-que-colapinto-deberia-ser-sancionado-solo-por--ser-argentino-_a6add4a8194c86cee201ce950",
-          "fecha": "2026-10-25T00:40:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/automovilismo/un-periodista-ingles-invitado-por-alpine-al-gp-de-estados-unidos-se-burlo-de-colapinto-penalizado-por-argentino-id768495.html",
-          "fecha": "2026-10-25T01:26:21.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre las declaraciones de Clarkson en Sky Sports F1 y su presencia junto a Flavio Briatore."
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/10/25/un-periodista-britanico-se-burlo-de-colapinto-por-ser-argentino-y-alpine-salio-a-defenderlo-n527175/",
-          "fecha": "2026-10-25T14:59:42.000Z",
-          "oficial": false,
-          "aporte": "Detalló el contexto de la entrevista en Austin, la sanción técnica y el comunicado de Alpine."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/deportes/un-importante-conductor-tv-britanico-ataco-franco-colapinto-ser-argentino-y-alpine-salio-respaldarlo-n252496",
-          "fecha": "2026-10-25T15:04:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó la referencia al episodio ocurrido en la Patagonia en 2014."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/deportes/quien-el-britanico-que-se-burlo-franco-colapinto-y-encendio-una-polemica-malvinas-n136369",
-          "fecha": "2026-10-25T16:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1amudby",
-          "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-          "fecha": "2026-10-24T22:30:20.000Z",
-          "ruta": "/nota/alpine-repudia-los-comentarios-de-jeremy-clarkson-sobre-franco-1amudby"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "alpine-rechaza-los-dichos-de-jeremy-clarkson-contra-franco-colapinto",
-      "foto": {
-        "archivo": "fotos-notas/10ymrrf.jpg",
-        "credito": "Foto: TyC Sports"
-      }
-    },
-    {
       "id": "1njq0wu",
       "titulo": "Chocan un auto y una camioneta en avenida Pueyrredón y dos personas van al hospital",
       "copete": "Un Chevrolet Corsa y una Volkswagen Amarok colisionaron en la intersección de avenida Pueyrredón y calle 14. Una mujer y un hombre resultaron derivados al centro de salud local.",
@@ -1982,8 +1995,8 @@
       "guion": "Chocan un auto y una camioneta en avenida Pueyrredón y dos personas van al hospital.",
       "seccion": "Policiales",
       "medios": [
-        "Diario La Vanguardia",
-        "Puntonueve (FM 100.9)"
+        "Puntonueve (FM 100.9)",
+        "Diario La Vanguardia"
       ],
       "enlace": "https://puntonueve.com.ar/violento-choque-entre-un-auto-y-una-camioneta-dos-personas-fueron-trasladadas-al-hospital/",
       "fecha": "2026-10-25T01:24:54.000Z",
@@ -1991,6 +2004,7 @@
       "visto": "2026-10-25T02:01:12.497Z",
       "relevancia": 81,
       "local": true,
+      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [
@@ -2136,9 +2150,9 @@
       "medios": [
         "TN (Todo Noticias)",
         "TyC Sports",
+        "Olé",
         "Noticias Argentinas (NA)",
-        "El Día",
-        "Olé"
+        "El Día"
       ],
       "enlace": "https://www.eldia.com/deportes/es-ridiculo-la-presidenta-de-palmeiras-salio-a-defender-a-estudiantes-tras-el-reclamo-de-flamengo-deportes_1792882140",
       "fecha": "2026-10-24T23:55:29.000Z",
@@ -2320,6 +2334,68 @@
       }
     },
     {
+      "id": "1al05om",
+      "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+      "copete": "Productores del distrito firmaron contratos para acceder a nuevas líneas de financiamiento provincial. La iniciativa busca sostener la actividad y potenciar las inversiones.",
+      "cuerpo": "Productores apícolas de Balcarce firmaron contratos para acceder a líneas de financiamiento con tasa de interés cero impulsadas por el Ministerio de Desarrollo Agrario de la provincia de Buenos Aires. La rúbrica se concretó el viernes en la Subsecretaría con la participación de autoridades provinciales y municipales, entre ellas el asesor agrario Alan Feito, la concejal Sol Di Gerónimo, el titular del área productiva comunal Martín Carballo y la directora Mariana Berardo.\n\nEstas herramientas crediticias están diseñadas para amortiguar los costos operativos, estimular la inversión privada y fomentar el empleo en el distrito. El proceso comenzó en agosto, cuando funcionarios provinciales se reunieron con el sector agroindustrial local para presentar las opciones de financiamiento.",
+      "guion": "Apicultores locales obtienen créditos con tasa de interés cero",
+      "seccion": "Agro",
+      "medios": [
+        "Puntonueve (FM 100.9)"
+      ],
+      "enlace": "https://puntonueve.com.ar/productores-apicolas-de-balcarce-accedieron-a-creditos-con-tasa-de-interes-cero/",
+      "fecha": "2026-10-24T23:36:33.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-25T00:01:11.370Z",
+      "relevancia": 67,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Apicultores de Balcarce firmaron créditos con tasa de interés cero.",
+        "La rúbrica se realizó el viernes en la Subsecretaría.",
+        "La medida busca reducir costos operativos e impulsar la inversión.",
+        "Las gestiones habían comenzado en agosto con referentes provinciales."
+      ],
+      "seSabe": [
+        "Los productores apícolas de Balcarce firmaron contratos de financiamiento con tasa de interés del 0%.",
+        "La firma se realizó el viernes en la Subsecretaría con presencia de funcionarios provinciales y municipales.",
+        "El otorgamiento deriva de gestiones iniciadas en agosto con el sector agroindustrial."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "Apicultores de Balcarce firmaron contratos para acceder a créditos provinciales con tasa de interés cero con el fin de sostener la actividad y potenciar las inversiones en el distrito.",
+      "etiquetas": [
+        "créditos",
+        "Balcarce",
+        "producción",
+        "Gobierno bonaerense"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Puntonueve (FM 100.9)",
+          "enlace": "https://puntonueve.com.ar/productores-apicolas-de-balcarce-accedieron-a-creditos-con-tasa-de-interes-cero/",
+          "fecha": "2026-10-24T23:36:33.000Z",
+          "oficial": false,
+          "aporte": "Informó la firma de créditos a tasa cero para apicultores de Balcarce, los funcionarios presentes y los antecedentes de las gestiones de agosto."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "apicultores-locales-obtienen-creditos-con-tasa-de-interes-cero",
+      "foto": {
+        "archivo": "fotos-notas/1al05om-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
+    },
+    {
       "id": "1d9wr9g",
       "titulo": "Sebastián Rambert asegura que Ramón Díaz será director técnico de River",
       "copete": "El exayudante de campo del entrenador riojano afirmó que su regreso al club de Núñez ocurrirá en el futuro. A la vez, consideró inoportuno debatir sobre el tema mientras Leonardo Ponzio conduce al plantel.",
@@ -2410,16 +2486,16 @@
         "La Nación",
         "TN (Todo Noticias)",
         "TyC Sports",
+        "Olé",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
         "La Nueva",
-        "Clarín",
-        "Minuto Uno",
         "Bolavip Argentina",
-        "Olé"
+        "Clarín",
+        "Minuto Uno"
       ],
       "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/24/el-repudiable-comentario-de-un-periodista-ingles-anti-argentina-tras-la-penalizacion-de-colapinto-en-el-gp-de-estados-unidos/",
       "fecha": "2026-10-24T22:30:20.000Z",
@@ -2618,12 +2694,12 @@
       "guion": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura.",
       "seccion": "Fútbol",
       "medios": [
+        "Clarín",
         "TN (Todo Noticias)",
         "TyC Sports",
         "Olé",
-        "Minuto Uno",
-        "Clarín",
-        "Bolavip Argentina"
+        "Bolavip Argentina",
+        "Minuto Uno"
       ],
       "enlace": "https://www.ole.com.ar/futbol-primera/barracas-central-vs-estudiantes-rio-cuarto-partido-torneo-clausura-2026-dia-horario-tv_0_h1tGmYDjZq.html",
       "fecha": "2026-10-24T21:51:00.000Z",
@@ -2781,6 +2857,13 @@
           "fecha": "2026-10-25T13:53:52.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbolargentino/alineaciones-de-barracas-central-y-estudiantes-de-rio-cuarto-para-el-duelo-de-la-fecha-14-del-torneo-clausura",
+          "fecha": "2026-10-25T19:41:10.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -2815,6 +2898,112 @@
       }
     },
     {
+      "id": "1k5kb9o",
+      "titulo": "Gimnasia vence a Sarmiento y avanza en la tabla del Torneo Clausura",
+      "copete": "El conjunto platense superó a Sarmiento por dos tantos y escaló al primer puesto de la Zona B. La jornada dejó además los triunfos de Platense y Atlético Tucumán.",
+      "cuerpo": "El Torneo Clausura desarrolla la fecha catorce con encuentros que modifican las posiciones a falta de dos jornadas para concluir la etapa. Gimnasia y Esgrima de La Plata superó por dos a cero a Sarmiento durante la tarde del viernes y se instaló en la cima de la Zona B del certamen, además de acercarse a los puestos de clasificación a la Copa Libertadores.\n\nEn otros resultados de la jornada inicial de la fecha, Platense derrotó por dos a uno a Gimnasia de Mendoza para mantener sus aspiraciones de avanzar a los octavos de final. Por su parte, Atlético Tucumán se impuso por uno a cero en su visita a Tigre.\n\nEn cuanto a la tabla anual del fútbol argentino, Boca Juniors encabeza las posiciones con cincuenta y cuatro unidades, seguido por Argentinos Juniors con la misma cantidad de puntos y Rosario Central con cincuenta y tres.\n\nPor otra parte, la Primera Nacional entra en su etapa final con dos fechas pendientes por disputar.",
+      "guion": "Gimnasia vence a Sarmiento y avanza en la tabla del Torneo Clausura.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TyC Sports",
+        "Doble Amarilla",
+        "Bolavip Argentina",
+        "El Gráfico",
+        "El Día"
+      ],
+      "enlace": "https://bolavip.com/ar/futbolargentino/asi-quedaron-la-tabla-anual-y-los-cruces-del-torneo-clausura-tras-el-triunfo-de-gimnasia",
+      "fecha": "2026-10-24T21:25:19.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-25T08:14:23.870Z",
+      "relevancia": 33,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Gimnasia de La Plata se impuso por dos a cero ante Sarmiento y lidera la Zona B.",
+        "Platense venció a Gimnasia de Mendoza y Atlético Tucumán hizo lo propio frente a Tigre.",
+        "Boca Juniors encabeza la tabla anual del fútbol argentino con cincuenta y cuatro puntos.",
+        "Ferro y Tristán Suárez lideran sus respectivas zonas en la Primera Nacional a falta de dos fechas."
+      ],
+      "textoRedes": "Gimnasia de La Plata superó a Sarmiento por dos a cero y se convirtió en el líder de la Zona B del Torneo Clausura a dos fechas del cierre.",
+      "etiquetas": [
+        "Torneo Clausura",
+        "Gimnasia",
+        "Fútbol",
+        "Tabla anual",
+        "Primera Nacional"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbolargentino/asi-quedaron-la-tabla-anual-y-los-cruces-del-torneo-clausura-tras-el-triunfo-de-gimnasia",
+          "fecha": "2026-10-24T02:10:57.000Z",
+          "oficial": false,
+          "aporte": "Detalló los resultados de los partidos del viernes, las posiciones de la tabla anual y los cruces de playoffs."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/primera-nacional/tabla-de-posiciones-de-la-primera-nacional-2026-la-pelea-por-el-ascenso-y-el-descenso-id767943.html",
+          "fecha": "2026-10-24T21:25:19.000Z",
+          "oficial": false,
+          "aporte": "Informó el estado de las dos zonas de la Primera Nacional y la pelea por el ascenso y el descenso."
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/deportes/torneo-clausura-2026-los-numeros-deportes_1792911995",
+          "fecha": "2026-10-25T07:06:35.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/liga-/tabla-de-posiciones-del-torneo-clausura-2026_a68746ec1df15f06b9503248f",
+          "fecha": "2026-10-25T02:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Gráfico",
+          "enlace": "https://www.elgrafico.com.ar/articulo/1038/101748/la-tabla-de-posiciones-del-torneo-clausura-2026",
+          "fecha": "2026-10-24T19:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "71vu5t",
+          "titulo": "Gimnasia le gana parcial a Sarmiento por el Torneo Clausura",
+          "fecha": "2026-10-22T19:35:00.000Z",
+          "ruta": "/nota/gimnasia-le-gana-parcial-a-sarmiento-por-el-torneo-clausura-71vu5t"
+        },
+        {
+          "id": "1uib2z8",
+          "titulo": "Boca e Independiente juegan el domingo por el Torneo Clausura",
+          "fecha": "2026-10-22T14:00:00.000Z",
+          "ruta": "/nota/boca-e-independiente-juegan-el-domingo-por-el-torneo-clausura-1uib2z8"
+        },
+        {
+          "id": "4vneuc",
+          "titulo": "San Lorenzo juega ante Newell's por el Torneo Clausura",
+          "fecha": "2026-10-22T10:05:00.000Z",
+          "ruta": "/nota/san-lorenzo-juega-ante-newell-s-por-el-torneo-clausura-4vneuc"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cinco medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "gimnasia-vence-a-sarmiento-y-avanza-en-la-tabla-del-torneo-clausura",
+      "foto": {
+        "archivo": "fotos-notas/1k5kb9o.jpg",
+        "credito": "Foto: TyC Sports"
+      }
+    },
+    {
       "id": "o0han3",
       "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
       "copete": "El ciclista balcarceño obtuvo la medalla de bronce en la categoría Máster A durante el certamen nacional disputado en Laguna de los Padres. La prueba principal debió modificarse por las condiciones climáticas.",
@@ -2822,8 +3011,8 @@
       "guion": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel.",
       "seccion": "Deportes",
       "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "Puntonueve (FM 100.9)"
+        "Puntonueve (FM 100.9)",
+        "Infórmese Primero (FM 104.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/10/abdias-lescano-logro-el-tercer-puesto.html",
       "fecha": "2026-10-24T21:22:51.524Z",
@@ -3240,20 +3429,20 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
+        "El Destape",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "QZ Noticias (Mar del Plata)",
         "Doble Amarilla",
         "Bolavip Argentina",
-        "Córdoba Competición",
         "Campeones",
         "0223 (Mar del Plata)",
-        "El Destape",
         "La Gaceta (Tucumán)",
         "0221",
         "Minuto Uno",
         "La Capital (Rosario)",
+        "Córdoba Competición",
         "El Gráfico",
         "TyC Sports",
         "Diario Popular",
@@ -3267,11 +3456,6 @@
       "visto": "2026-10-25T16:31:41.017Z",
       "relevancia": 77,
       "local": false,
-      "muyContada": {
-        "medios": 21,
-        "porque": "21 medios",
-        "desde": "2026-10-25T16:31:41.017Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -3939,10 +4123,10 @@
         "Crónica",
         "Canal 26",
         "Noticias Argentinas (NA)",
-        "Página/12",
         "Radio Mitre",
         "La Nación",
         "El Día",
+        "Página/12",
         "Ámbito",
         "A24",
         "C5N",
@@ -3955,13 +4139,8 @@
       "fecha": "2026-10-24T20:03:25.000Z",
       "sinFecha": false,
       "visto": "2026-10-24T21:31:15.669Z",
-      "relevancia": 56,
+      "relevancia": 48,
       "local": false,
-      "muyContada": {
-        "medios": 13,
-        "porque": "13 medios",
-        "desde": "2026-10-24T23:01:19.029Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -4184,10 +4363,8 @@
       "guion": "Lambiris gana la clasificación del Turismo Carretera en Rosario.",
       "seccion": "Automovilismo",
       "medios": [
-        "Córdoba Competición",
         "Solotc",
         "La Brújula 24",
-        "La Capital (Rosario)",
         "El Eco de Tandil",
         "Campeones"
       ],
@@ -4195,14 +4372,11 @@
       "fecha": "2026-10-24T19:45:49.000Z",
       "sinFecha": false,
       "visto": "2026-10-24T21:01:34.828Z",
-      "relevancia": 42,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
-      "temas": [
-        "autodromo",
-        "fangio"
-      ],
+      "temas": [],
       "como": "automatica",
       "claves": [
         "Mauricio Lambiris logró la pole position con un Ford Mustang en Rosario",
@@ -4279,6 +4453,13 @@
           "fecha": "2026-10-25T17:48:11.000Z",
           "oficial": false,
           "aporte": "Detalló los resultados de la final, el podio, la situación en la Copa de Oro y las declaraciones de los protagonistas"
+        },
+        {
+          "medio": "La Brújula 24",
+          "enlace": "https://www.labrujula24.com/notas/2026/10/25/tc-lambiris-domino-en-rosario-y-logro-una-victoria-clave-en-la-pelea-por-el-titulo-n527215/",
+          "fecha": "2026-10-25T20:20:55.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -4454,749 +4635,6 @@
       "foto": {
         "archivo": "fotos-notas/collage-repaso20261024tarde.jpg",
         "credito": "Fotos: Acción 5 (Balcarce) y Diario La Vanguardia"
-      }
-    },
-    {
-      "id": "v1so1i",
-      "titulo": "Lula y Flávio Bolsonaro cierran sus campañas de cara al balotaje",
-      "copete": "Casi 160 millones de brasileños eligen el domingo al nuevo presidente en una segunda vuelta marcada por la paridad en los sondeos. Los candidatos cerraron sus actividades proselitistas con masivas movilizaciones.",
-      "cuerpo": "El presidente brasileño, Luiz Inácio Lula da Silva, y el senador opositor Flávio Bolsonaro finalizaron sus actividades proselitistas con multitudinarias caravanas en diferentes distritos, a pocas horas de la votación del domingo 25 de octubre. El mandatario recorrió la playa de Copacabana en Río de Janeiro y culminó su jornada en São Paulo, mientras que su adversario encabezó una marcha de motocicletas en Belo Horizonte antes de trasladarse a Río de Janeiro. Los comicios se desarrollarán entre las 8 y las 17, hora de Brasilia, para definir al próximo mandatario del país.\n\nLos sondeos previos a esta instancia reflejan un escenario de paridad extrema, con una encuesta de Datafolha que ubicó a ambos contendientes con el 50 por ciento de los votos válidos. Durante la recta final, ambos postulantes protagonizaron un último debate televisivo y buscaron captar el respaldo de los votantes indecisos.",
-      "guion": "Lula y Flávio Bolsonaro cierran sus campañas de cara al balotaje.",
-      "seccion": "Política",
-      "medios": [
-        "TN (Todo Noticias)",
-        "TyC Sports",
-        "Crónica",
-        "Canal 26",
-        "Noticias Argentinas (NA)",
-        "La Nación",
-        "C5N",
-        "El Cronista",
-        "Ámbito",
-        "El Destape",
-        "A24",
-        "Minuto Uno",
-        "La Nueva",
-        "Diario Popular",
-        "Clarín"
-      ],
-      "enlace": "https://www.lanacion.com.ar/el-mundo/quien-ganara-las-elecciones-en-brasil-que-dicen-las-encuestas-antes-del-balotaje-entre-lula-y-nid17102026/",
-      "fecha": "2026-10-24T19:01:28.835Z",
-      "sinFecha": false,
-      "visto": "2026-10-25T01:31:00.412Z",
-      "relevancia": 48,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Lula da Silva y Flávio Bolsonaro disputan la presidencia de Brasil en una segunda vuelta.",
-        "Los sondeos previos muestran un escenario de empate técnico entre ambos candidatos.",
-        "Casi 160 millones de electores están habilitados para participar en los comicios del domingo."
-      ],
-      "seSabe": [
-        "El balotaje presidencial en Brasil se celebra el domingo 25 de octubre de 2026.",
-        "Lula da Silva cerró su campaña en Río de Janeiro y São Paulo.",
-        "Flávio Bolsonaro realizó su cierre en Belo Horizonte y Río de Janeiro.",
-        "En la primera vuelta, Bolsonaro obtuvo el 47,03% y Lula el 45,16% de los votos válidos.",
-        "La encuesta de Datafolha indicó un empate técnico con el 50% para cada postulante."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó el resultado definitivo de la elección presidencial."
-      ],
-      "textoRedes": "Lula da Silva y Flávio Bolsonaro cerraron sus campañas electorales con masivas movilizaciones en distintas ciudades de Brasil de cara al balotaje presidencial del domingo, en un escenario de paridad extrema según las encuestas.",
-      "etiquetas": [
-        "Elecciones en Brasil",
-        "Lula da Silva",
-        "Flávio Bolsonaro",
-        "Balotaje",
-        "Política internacional"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/quien-ganara-las-elecciones-en-brasil-que-dicen-las-encuestas-antes-del-balotaje-entre-lula-y-nid17102026/",
-          "fecha": "2026-10-24T11:18:23.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/quienes-son-los-candidatos-a-vicepresidente-de-lula-y-flavio-bolsonaro-para-las-elecciones-brasil-nid20102026/",
-          "fecha": "2026-10-24T22:22:02.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/cuando-es-el-balotaje-de-las-elecciones-brasil-2026-nid19102026/",
-          "fecha": "2026-10-24T22:21:46.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/internacional/2026/10/24/lula-da-silva-cierra-su-campana-con-una-multitudinaria-caravana-por-rio-de-janeiro/",
-          "fecha": "2026-10-24T23:40:26.000Z",
-          "oficial": false,
-          "aporte": "Mencionó la realización del último debate televisivo entre los dos postulantes antes de la jornada electoral."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/mundo/elecciones-brasil-lula-y-flavio-bolsonaro-cerraron-sus-campanas-antes-del-balotaje-n1609816",
-          "fecha": "2026-10-24T20:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/politica/467362-elecciones-en-brasil-lula-y-bolsonaro-cabeza-a-cabeza-en-un-balotaje-clave-para-milei",
-          "fecha": "2026-10-24T20:30:00.000Z",
-          "oficial": false,
-          "aporte": "Informó que casi 160 millones de ciudadanos están convocados a votar y detalló los porcentajes de la primera vuelta."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/interes-general/quien-gano-las-elecciones-en-brasil-2026-este-domingo-25-de-octubre-id768395.html",
-          "fecha": "2026-10-24T16:12:27.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/mundo/lula-da-silva-y-flavio-bolsonaro-cerraron-sus-campanas-con-multitudinarios-actos-antes-del-balotaje-en-brasil/",
-          "fecha": "2026-10-24T23:50:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/internacionales/2026/10/24/lula-da-silva-y-flavio-bolsonaro-cierran-sus-campanas-con-marchas-y-motos-antes-del-balotaje-en-brasil/",
-          "fecha": "2026-10-24T21:30:20.000Z",
-          "oficial": false,
-          "aporte": "Detalló las actividades de cierre de campaña de ambos candidatos en Río de Janeiro, São Paulo y Belo Horizonte, además de los datos de la primera vuelta y la encuesta de Datafolha."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/internacionales/lula-y-bolsonaro-cerraron-sus-campanas-en-las-principales-ciudades-de-brasil_a6add12bf8d54d665107f16cb",
-          "fecha": "2026-10-24T20:26:53.522Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-24-22-3-0-lula-y-bolsonaro-cerraron-sus-campanas-en-las-principales-ciudades-de-brasil",
-          "fecha": "2026-10-25T01:06:56.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/escala-la-tension-entre-milei-y-lula-a-horas-de-las-elecciones-en-brasil",
-          "fecha": "2026-10-24T18:15:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/lula-da-silva-o-flavio-bolsonaro-brasil-elige-una-eleccion-que-mira-el-continente-n6337587",
-          "fecha": "2026-10-25T01:07:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/elecciones-brasil-flavio-bolsonaro-aventaja-un-margen-minimo-lula-da-silva-antes-del-balotaje-n6337531",
-          "fecha": "2026-10-24T19:07:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/lula-da-silva-y-flavio-bolsonaro-disputaron-las-calles-el-cierre-campana-del-balotaje-n6337530",
-          "fecha": "2026-10-24T18:27:43.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/elecciones-brasil-quienes-son-los-candidatos-vicepresidente-lula-da-silva-y-flavio-bolsonaro-n6337485",
-          "fecha": "2026-10-24T15:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-lula-da-silva-vs-flavio-bolsonaro-2026-que-dicen-las-ultimas-encuestas-antes-las-elecciones-del-domingo-25-octubre-n6336805",
-          "fecha": "2026-10-24T18:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/brasil-elecciones-balotaje-bolsonaro-lula-sabado-24-octubre-2026",
-          "fecha": "2026-10-24T16:26:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/balotaje-brasil-lula-y-bolsonaro-cerraron-sus-campanas-un-escenario-empate-tecnico-n6337559",
-          "fecha": "2026-10-24T22:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/internacionales/elecciones-en-brasil-a-horas-del-balotaje-quien-gana-entre-bolsonaro-y-lula/",
-          "fecha": "2026-10-24T11:36:15.302Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/mundo/elecciones-brasil-lula-da-silva-flavio-bolsonaro-pelean-voto-voto-pais-partido_0_Eu3SlYOuWf.html",
-          "fecha": "2026-10-24T19:35:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/gana-lula-bolsonaro-dicen-ultimas-encuestas-antes-balotaje-brasil-20261024201357",
-          "fecha": "2026-10-24T23:13:57.668Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/balotaje-brasil-2026-cuando-define-dicen-encuestas-quien-gana-lula-flavio-bolsonaro-2026102420055",
-          "fecha": "2026-10-24T23:00:55.316Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/lula-y-bolsonaro-cerraron-sus-campanas-actos-masivos-y-un-empate-las-encuestas-n926183",
-          "fecha": "2026-10-25T01:34:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/el-mundo/balotaje-en-brasil-se-define-quien-presidira-al-pais-lula-o-flavio-bolsonaro-el-mundo_1792899525",
-          "fecha": "2026-10-25T03:38:45.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/balotaje-brasil-vivo-boca-urna-lula-da-silva-vs-flavio-bolsonaro-resultados-y-minuto-minuto-n6337547",
-          "fecha": "2026-10-25T03:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/elecciones-en-brasil-2026-en-vivo-lula-vs-flavio-bolsonaro-y-las-ultimas-noticias-del-balotaje-voto-nid25102026/",
-          "fecha": "2026-10-25T05:50:05.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/flavio-bolsonaro-candidato-mintio-ultimo-debate-presidencial-antes-balotaje-2026102417263",
-          "fecha": "2026-10-24T20:26:03.040Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/internacionales/lula-y-flavio-bolsonaro-protagonizaron-el-ultimo-debate-que-dijeron-javier-milei-n926096",
-          "fecha": "2026-10-24T10:36:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/lula-da-silva-y-flavio-bolsonaro-protagonizan-el-ultimo-debate-antes-del-balotaje-n6337416",
-          "fecha": "2026-10-24T00:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/alguien-que-nunca-trabajo-lula-da-silva-lo-acorralo-el-debate-y-flavio-bolsonaro-tuvo-que-disculparse-n6337450",
-          "fecha": "2026-10-24T02:46:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/el-mundo/lula-vs-bolsonaro-protagonizaron-un-duro-debate-con-milei-en-el-centro-de-la-pelea-el-mundo_1792816642",
-          "fecha": "2026-10-24T04:37:22.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Letra P",
-          "enlace": "https://www.letrap.com.ar//politica/flavio-bolsonaro-gano-el-show-del-debate-n5427666",
-          "fecha": "2026-10-24T13:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/internacionales/brasil-elige-la-continuidad-lula-o-la-vuelta-la-derecha-flavio-bolsonaro-n926233",
-          "fecha": "2026-10-25T10:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/internacionales/segunda-vuelta-electoral-en-brasil--bolsonaro-o-lula--la-hora-de-la-verdad_a6adb71026b2236dda911979e",
-          "fecha": "2026-10-25T11:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-brasil-lula-da-silva-flavio-bolsonaro-elecciones-pt-pl-presidente-resultados-en-vivo-minuto-a-minuto-25-de-octubre",
-          "fecha": "2026-10-25T11:14:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/mundo/brasil-comenzo-votar-elecciones-balotaje-renidas-historia-presidente-lula-da-silva-opositor-flavio-bolsonaro_0_UDE9wTFhEX.html",
-          "fecha": "2026-10-25T11:00:58.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/lula-vs-flavio-bolsonaro-proponen-economia-seguridad-salud-balotaje-brasil-2026102585522",
-          "fecha": "2026-10-25T11:55:22.240Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/al-angulo/lula-o-bolsonaro-a-quien-votan-los-futbolistas-de-brasil-id768143.html",
-          "fecha": "2026-10-24T11:47:49.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/internacionales/elecciones-en-brasil-lula-y-flavio-bolsonaro-se-disputan-la-presidencia-en-el-balotaje/",
-          "fecha": "2026-10-25T10:42:17.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/internacionales/comenzo-el-balotaje-brasil-elige-la-continuidad-lula-o-la-vuelta-la-derecha-flavio-bolsonaro-n926233",
-          "fecha": "2026-10-25T10:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/segunda-vuelta-electoral-en-brasil-bolsonaro-o-lula-la-hora-de-la-verdad/",
-          "fecha": "2026-10-24T12:59:51.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-lula-da-silva-vs-flavio-bolsonaro-2026-como-votan-los-brasilenos-que-viven-la-argentina-n6336784",
-          "fecha": "2026-10-25T11:53:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/balotaje-brasil-abrieron-las-urnas-y-lula-da-silva-y-flavio-bolsonaro-se-enfrentan-la-presidencia-n252482",
-          "fecha": "2026-10-25T11:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/internacional/2026/10/25/historico-balotaje-brasil-decide-entre-lula-o-flavio-bolsonaro-en-unas-elecciones-de-enorme-impacto-regional/",
-          "fecha": "2026-10-25T10:54:45.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/lula-flavio-bolsonaro-cuando-asume-nuevo-presidente-brasil-balotaje-elecciones-brasil-2026-202610259022",
-          "fecha": "2026-10-25T12:00:22.289Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Mi8 (Canal 8 Mar del Plata)",
-          "enlace": "https://mi8.com.ar/brasil-define-su-proximo-presidente-lula-y-flavio-bolsonaro-se-enfrentan-en-el-balotaje/",
-          "fecha": "2026-10-25T12:18:50.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-lula-da-silva-vs-flavio-bolsonaro-2026-las-propuestas-economia-seguridad-educacion-salud-y-empleo-brasil-n6337623",
-          "fecha": "2026-10-25T12:28:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/elecciones-brasil-balotaje-lula-flavio-bolsonaro-vivo-resultados-25-octubre-2026",
-          "fecha": "2026-10-25T11:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/ultima-encuesta-del-balotaje-de-las-elecciones-brasil-2026-anticipan-que-flavio-bolsonaro-y-lula-nid23102026/",
-          "fecha": "2026-10-24T22:09:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/internacionales/2026/10/01/quien-es-flavio-bolsonaro-el-candidato-elegido-por-jair-para-enfrentar-a-lula-da-silva-en-las-elecciones-en-brasil/",
-          "fecha": "2026-10-25T12:25:46.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/mundo/brasil-optare-entre-bolsonaro-y-lula-en-la-segunda-vuelta-electoral",
-          "fecha": "2026-10-24T21:30:34.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/mundo/balotaje-brasil-define-lula-y-flavio-bolsonaro-quien-sera-el-proximo-presidente-n6011607",
-          "fecha": "2026-10-25T12:53:47.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/internacionales/elecciones-en-brasil-flavio-bolsonaro-y-lula-da-silva-se-disputan-la-presidencia-en-el-balotaje/",
-          "fecha": "2026-10-25T13:25:21.308Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/internacionales/balotaje-en-brasil-bolsonaro-voto-en-rio-de-janeiro-y-aseguro-que-llego-el-momento-de-cambio/",
-          "fecha": "2026-10-25T12:42:41.519Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/flavio-bolsonaro-voto-balotaje-afirmo-brasil-no-aguanta-2026102592413",
-          "fecha": "2026-10-25T12:24:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/mundo/elecciones-brasil-flavio-bolsonaro-voto-rio-janeiro-y-aseguro-que-llego-la-hora-del-cambio-n1609879",
-          "fecha": "2026-10-25T11:52:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/mundo/elecciones-en-brasil-llego-el-momento-de-cambiar-aseguro-flavio-bolsonaro-al-votar-en-el-balotaje/",
-          "fecha": "2026-10-25T12:32:29.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/videos/flavio-bolsonaro-voto-en-el-balotaje-de-brasil-llego-el-momento-de-cambiar/",
-          "fecha": "2026-10-25T12:16:23.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/internacionales/flavio-bolsonaro-voto-en-el-balotaje-de-brasil-y-afirmo-que-llego--el-momento-del-cambio-_a6addec21cc41cb31c3a4633a",
-          "fecha": "2026-10-25T11:49:08.409Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-brasil-voto-flavio-bolsonaro-n6337613",
-          "fecha": "2026-10-25T11:24:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-lula-da-silva-flavio-bolsonaro-2026-los-33-millones-electores-que-no-votaron-y-pueden-cambiar-el-resultado-brasil-n6336830",
-          "fecha": "2026-10-25T12:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/balotaje-brasil-voto-flavio-bolsonaro-y-aseguro-que-llego-el-tiempo-cambiar-n252484",
-          "fecha": "2026-10-25T11:38:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/10/25/brasil-lula-y-flavio-bolsonaro-se-juegan-la-presidencia-en-un-historico-balotaje-n527166/",
-          "fecha": "2026-10-25T13:39:53.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "QZ Noticias (Mar del Plata)",
-          "enlace": "https://www.qznoticias.com/el-mundo/brasil-define-su-futuro-politico-en-una-segunda-vuelta-entre-lula-y-bolsonaro",
-          "fecha": "2026-10-25T13:40:34.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/brasil-define-su-futuro-entre-lula-y-el-hijo-de-bolsonaro",
-          "fecha": "2026-10-25T14:00:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/mas-alla-del-futbol/-lula-o-bolsonaro--futbolistas-de-brasil-llaman-a-votar-por-los-candidatos-en-las-elecciones-presidenciales_a6ade063e94c8ca83be0fc4a1",
-          "fecha": "2026-10-25T14:00:12.734Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/lula-vs-bolsonaro-la-eleccion-brasil-que-define-el-mapa-america-latina-n250348",
-          "fecha": "2026-10-24T11:41:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/internacionales/avanza-el-balotaje-brasil-elige-la-continuidad-lula-o-la-vuelta-la-derecha-flavio-bolsonaro-n926233",
-          "fecha": "2026-10-25T10:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/internacionales/elecciones-en-brasil--flavio-bolsonaro-supera-a-lula-en-los-primeros-votos-del-exterior_a6ade0da1cc41cb31c3a53ee3",
-          "fecha": "2026-10-25T14:11:30.642Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/balotaje-brasil-lula-da-silva-y-flavio-bolsonaro-que-hora-se-conocera-el-ganador-n252222",
-          "fecha": "2026-10-24T11:08:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/videos/internacional/2026/10/25/acompanado-de-su-mujer-flavio-bolsonaro-voto-en-rio-de-janeiro-y-aseguro-llego-el-momento-de-cambiar/",
-          "fecha": "2026-10-25T14:32:39.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/internacional/esta-por-comenzar-una-de-las-elecciones-que-puede-definir-el-rumbo-de-america-latina-a-que-hora-abren-los-comicios-en-brasil.phtml",
-          "fecha": "2026-10-25T10:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/internacionales/lula-y-flavio-bolsonaro-votaron-el-balotaje-brasil-que-dijeron-n926240",
-          "fecha": "2026-10-25T14:54:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-25-10-47-0-balotaje-brasil-ya-elige-entre-lula-y-bolsonaro-al-nuevo-presidente",
-          "fecha": "2026-10-25T14:50:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159563/mundo/elecciones-brasil-flavio-bolsonaro-voto-pidio-cambio-verdad.html",
-          "fecha": "2026-10-25T11:45:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/hora-salen-resultados-balotaje-brasil-2026-lula-flavio-bolsonaro-seguir-escrutinio-vivo-elecciones-20261025121522",
-          "fecha": "2026-10-25T15:15:22.288Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/economia/balotaje-brasil-2026-las-apuestas-dan-un-80-probabilidades-triunfo-flavio-bolsonaro-lula-da-silva-n6337654",
-          "fecha": "2026-10-25T15:57:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/internacionales/2026/10/25/elecciones-en-brasil-en-vivo-abrieron-los-colegios-para-un-balotaje-decisivo-entre-lula-da-silva-y-flavio-bolsonaro/",
-          "fecha": "2026-10-25T16:09:36.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/elecciones-balotaje-brasil-votos-exterior-lula-bolsonaro-25-octubre-2026",
-          "fecha": "2026-10-25T16:19:59.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/lula-da-silva-vs-flavio-bolsonaro-anticiparon-que-hora-estaran-los-resultados-del-balotaje-brasil-n6337663",
-          "fecha": "2026-10-25T16:08:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/balotaje-en-brasil-lula-y-flavio-bolsonaro-se-enfrentan-en-la-eleccion-mas-pareja-en-un-pais-partido-nid24102026/",
-          "fecha": "2026-10-24T22:20:21.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/economia-politica/lula-vs-bolsonaro-los-estados-clave-donde-se-juega-el-balotaje-y-el-mapa-de-poder-del-proximo-presidente/",
-          "fecha": "2026-10-25T15:45:40.074Z",
-          "oficial": false,
-          "aporte": "Informó el lugar de votación de Flávio Bolsonaro en Río de Janeiro y datos de sufragio en distritos clave."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/donde-ver-vivo-resultados-balotaje-elecciones-brasil-2026-lula-flavio-bolsonaro-2026102512022",
-          "fecha": "2026-10-25T15:00:22.279Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/internacionales/lula-voto-en-el-balotaje-de-brasil-y-agradecio-el-apoyo-del-pueblo---sere-eternamente-agradecido-_a6ade032ecc41cb31c3a4ebf1",
-          "fecha": "2026-10-25T13:29:20.676Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/mundo/balotaje-brasil-flavio-bolsonaro-hablo-cambio-y-lula-se-mostro-agradecido-el-pueblo-n6011628",
-          "fecha": "2026-10-25T15:23:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/juan-pablo-sorin-pidio-por-el-voto-a-lula-en-el-balotaje-contra-flavio-bolsonaro-por-la-democracia-y-nid25102026/",
-          "fecha": "2026-10-25T17:24:23.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre el respaldo público del exfutbolista Juan Pablo Sorín a la candidatura de Lula da Silva."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/internacional/2026/10/25/lula-da-silva-voto-en-san-pablo-y-critico-a-bolsonaro-es-una-persona-sin-calificacion-moral-fue-educado-para-mentir/",
-          "fecha": "2026-10-25T17:06:28.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/mundo/lula-voto-en-el-balotaje-en-brasil-y-critico-a-bolsonaro-no-tiene-moral-y-fue-educado-para-mentir/",
-          "fecha": "2026-10-25T14:10:04.000Z",
-          "oficial": false,
-          "aporte": "Registró las declaraciones de Lula da Silva tras emitir su sufragio en San Pablo."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/mundo/lula-da-silva-voto-en-el-balotaje-de-brasil-y-apunto-contra-flavio-bolsonaro-es-una-persona-sin-calificacion-moral-fue-educado-para-mentir/",
-          "fecha": "2026-10-25T13:44:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-brasil-2026-vota-lula-da-silva-san-pablo-n6337629",
-          "fecha": "2026-10-25T12:39:32.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/mundo/voto-lula-da-silva-y-cruzo-flavio-bolsonaro-es-una-persona-descalificada-fue-educado-mentir-n252490",
-          "fecha": "2026-10-25T13:14:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/lula-da-silva-voto-y-cruzo-flavio-bolsonaro-fue-educado-mentir-n6337643",
-          "fecha": "2026-10-25T14:21:44.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Letra P",
-          "enlace": "https://www.letrap.com.ar//politica/lula-da-silva-voto-san-pablo-y-dijo-que-flavio-bolsonaro-fue-educado-mentir-n5427679",
-          "fecha": "2026-10-25T13:48:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/mundo/balotaje-brasil-2026-que-hora-se-conoceran-los-resultados-las-elecciones-presidenciales-lula-da-silva-y-flavio-bolsonaro-n6337674",
-          "fecha": "2026-10-25T17:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1mamx6j",
-          "titulo": "Lula y Flávio Bolsonaro cierran la campaña en Brasil de cara al balotaje",
-          "fecha": "2026-10-24T00:46:41.000Z",
-          "ruta": "/nota/lula-y-flavio-bolsonaro-cierran-la-campana-en-brasil-de-cara-al-1mamx6j"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 16 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "lula-y-flavio-bolsonaro-cierran-sus-campanas-de-cara-al-balotaje",
-      "foto": {
-        "archivo": "fotos-notas/v1so1i.jpg",
-        "credito": "Foto: La Nación"
       }
     },
     {
@@ -5435,10 +4873,10 @@
       "guion": "Estudiantes pide aguardar el comunicado oficial sobre las entradas.",
       "seccion": "Fútbol",
       "medios": [
-        "El Día",
+        "El Destape",
         "Olé",
-        "0221",
-        "El Destape"
+        "El Día",
+        "0221"
       ],
       "enlace": "https://www.eldia.com/deportes/atencion-pinchas-el-comunicado-oficial-de-estudiantes-por-la-venta-de-entradas-para-la-final-en-montevideo-deportes_1792866660",
       "fecha": "2026-10-24T18:31:00.000Z",
@@ -5628,8 +5066,8 @@
       "guion": "La Fiesta del Postre abre sus puertas con entrada gratuita.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Radio Mitre",
-        "El Destape"
+        "El Destape",
+        "Radio Mitre"
       ],
       "enlace": "https://www.eldestapeweb.com/sociedad/escapada-primavera-pueblo-celebra-fiesta-postre-entrada-gratis-20261024145548",
       "fecha": "2026-10-24T17:55:48.033Z",
@@ -6030,9 +5468,9 @@
       "seccion": "Fútbol",
       "medios": [
         "TN (Todo Noticias)",
+        "Olé",
         "Noticias Argentinas (NA)",
         "El Eco de Tandil",
-        "Olé",
         "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/arsenal-everton-triunfo-alcanzo-city-premier-league_0_eaEJXwNJHp.html",
@@ -6113,6 +5551,106 @@
       }
     },
     {
+      "id": "v0ck3a",
+      "titulo": "La FIFA comparte un video aéreo del gol de Lautaro Martínez a Inglaterra",
+      "copete": "A cien días de la semifinal del Mundial 2026, el organismo rector del fútbol mundial difundió imágenes exclusivas desde la cámara araña del tanto agónico que le dio el pase a la definición a la Selección Argentina.",
+      "cuerpo": "A cien días del triunfo agónico que metió a la Selección Argentina en la definición de la Copa del Mundo 2026, la FIFA publicó imágenes inéditas tomadas desde una cámara aérea del gol de Lautaro Martínez ante Inglaterra.\n\nEl material difundido por los canales oficiales del organismo detalla la secuencia completa de la jugada en la semifinal frente al seleccionado dirigido por Thomas Tuchel.\n\nEl tanto frente al conjunto europeo llegó en el tramo final de un encuentro cerrado y disputado, luego de que el atacante ingresara desde el banco de suplentes para romper la paridad. Aquella victoria le permitió al conjunto albiceleste avanzar al partido decisivo del certamen ecuménico, donde finalmente cayó frente a España.\n\nEn los días previos a la difusión de estas imágenes desde la perspectiva de la cámara araña, el delantero se había referido emocionado a la reacción de un excombatiente de Malvinas que celebró su conquista. El atacante dedicó su anotación a los veteranos de guerra por la forma en que representaron al país en aquel momento histórico.",
+      "guion": "La FIFA comparte un video aéreo del gol de Lautaro Martínez a Inglaterra.",
+      "seccion": "Fútbol",
+      "medios": [
+        "El Destape",
+        "TyC Sports",
+        "Olé",
+        "La Brújula 24",
+        "Los Andes (Mendoza)"
+      ],
+      "enlace": "https://www.ole.com.ar/seleccion/lautaromartinez-seleccionargentina-inglaterra-mundial2026-fifa-leomessi-alexismacallister_0_HLhnrg9G8M.html",
+      "fecha": "2026-10-24T16:01:19.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-25T08:14:23.870Z",
+      "relevancia": 49,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La FIFA difundió un video aéreo del gol de Lautaro Martínez a Inglaterra a cien días de la semifinal del Mundial 2026.",
+        "Las imágenes muestran el quite de Montiel, el remate al palo de Mac Allister y la asistencia de Messi.",
+        "El tanto agónico de cabeza le otorgó a la Selección Argentina la clasificación a la final de la Copa del Mundo.",
+        "El equipo nacional cayó posteriormente en el partido decisivo del certamen frente al seleccionado de España."
+      ],
+      "seSabe": [
+        "La FIFA compartió un video inédito de la jugada registrado por la cámara aérea a cien días de la semifinal del Mundial 2026.",
+        "La jugada incluyó la recuperación de Gonzalo Montiel, el remate de Alexis Mac Allister en el poste, el centro de Lionel Messi y el cabezazo de Lautaro Martínez.",
+        "El encuentro se disputó frente al seleccionado de Inglaterra dirigido por Thomas Tuchel.",
+        "El triunfo por 2 a 1 clasificó a la Selección Argentina a la final de la Copa del Mundo frente a España, partido en el que el equipo nacional resultó derrotado."
+      ],
+      "textoRedes": "A cien días de la semifinal del Mundial 2026, la FIFA publicó un video aéreo inédito del gol de Lautaro Martínez a Inglaterra que clasificó a la Selección Argentina a la final.",
+      "etiquetas": [
+        "Selección Argentina",
+        "Lautaro Martínez",
+        "Mundial 2026",
+        "FIFA",
+        "Inglaterra",
+        "Fútbol"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/seleccion/lautaromartinez-seleccionargentina-inglaterra-mundial2026-fifa-leomessi-alexismacallister_0_HLhnrg9G8M.html",
+          "fecha": "2026-10-23T23:00:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/no-vio-tv-fifa-mostro-video-unico-gol-lautaro-martinez-seleccion-argentina-inglaterra-2026102416413",
+          "fecha": "2026-10-24T19:41:03.514Z",
+          "oficial": false,
+          "aporte": "Detalló los cuatro pasos de la jugada completa, la repercusión en redes sociales y las declaraciones previas del delantero sobre los excombatientes de Malvinas."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/seleccion-argentina/para-ver-una-y-otra-vez-fifa-rememoro-el-gol-de-lautaro-martinez-a-inglaterra-desde-una-camara-exclusiva-id768370.html",
+          "fecha": "2026-10-24T16:41:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/seleccion/gol-lautaro-martinez-inglaterra-camara-mostro-fifa_3_ubFjtCjECN.html",
+          "fecha": "2026-10-23T23:03:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/video-fifa-recordo-el-gol-lautaro-martinez-inglaterra-una-camara-exclusiva-n6011592",
+          "fecha": "2026-10-24T23:22:48.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre la publicación del material de archivo inédito por parte de la FIFA y el impacto del video entre los hinchas argentinos."
+        },
+        {
+          "medio": "La Brújula 24",
+          "enlace": "https://www.labrujula24.com/notas/2026/10/24/para-ver-una-y-otra-vez-fifa-mostro-el-gol-de-lautaro-a-inglaterra-desde-una-camara-exclusiva-n527053/",
+          "fecha": "2026-10-24T16:01:19.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la difusión del video a través de la cuenta oficial de la Copa del Mundo y la mención al paso previo a la final."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-fifa-comparte-un-video-aereo-del-gol-de-lautaro-martinez-a",
+      "foto": {
+        "archivo": "fotos-notas/v0ck3a.jpg",
+        "credito": "Foto: Olé"
+      }
+    },
+    {
       "id": "prtuo4",
       "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
       "copete": "El delantero argentino convirtió el sábado frente a Deportivo La Coruña por la fecha 10 de LaLiga. Es su segundo tanto consecutivo en la temporada.",
@@ -6120,27 +5658,27 @@
       "guion": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid.",
       "seccion": "Fútbol",
       "medios": [
+        "Clarín",
         "LU9 Mar del Plata",
         "La Nación",
         "TN (Todo Noticias)",
+        "El Destape",
         "Perfil",
         "TyC Sports",
+        "Olé",
         "Crónica",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Eco de Tandil",
         "Doble Amarilla",
         "Bolavip Argentina",
-        "Olé",
         "El Gráfico",
-        "El Destape",
         "C5N",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
         "Radio Mitre",
         "Los Andes (Mendoza)",
-        "El Día",
-        "Clarín"
+        "El Día"
       ],
       "enlace": "https://www.elgrafico.com.ar/articulo/1119/103524/la-figurita-que-le-faltaba-para-pelear-el-titulo-en-espania-julian-alvarez-convirtio-otro-gol-y-le-pidio-disculpas-a-los-hinchas-de-atletico-de-madrid",
       "fecha": "2026-10-24T16:00:00.000Z",
@@ -6421,10 +5959,10 @@
       "guion": "Gremios universitarios convocan a un paro nacional de una semana.",
       "seccion": "Política",
       "medios": [
+        "El Destape",
         "Radio Mitre",
         "Minuto Uno",
-        "Infobae",
-        "El Destape"
+        "Infobae"
       ],
       "enlace": "https://www.infobae.com/politica/2026/10/24/conflicto-universitario-convocaron-a-un-nuevo-paro-nacional-por-una-semana/",
       "fecha": "2026-10-24T15:55:45.000Z",
@@ -6499,6 +6037,57 @@
       "foto": {
         "archivo": "fotos-notas/1kkiq4v.jpg",
         "credito": "Foto: Radio Mitre"
+      }
+    },
+    {
+      "id": "5r4s16",
+      "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
+      "copete": "El ente oficial de fútbol detalló un déficit superior a los 11 millones de pesos por jornada. Los costos operativos superan ampliamente la recaudación por entradas.",
+      "cuerpo": "La Liga Balcarceña de Fútbol registró un saldo negativo de 11.080.195 pesos por cada fecha disputada. Según informó el propio organismo en sus redes sociales, la última jornada generó una recaudación de 9.876.000 pesos por la venta de entradas. Sin embargo, los gastos generales alcanzaron los 20.956.195 pesos, lo que duplicó los ingresos obtenidos. Desde la entidad aclararon que este rojo financiero es absorbido mediante el programa BonoGol.\n\nEl informe económico trascendió en medio de un calendario deportivo que acumula complicaciones operativas. El Torneo Oficial lleva disputadas 16 fechas, pero debió postergarse en 11 oportunidades por diversos motivos, lo que generó un retraso de tres meses en el desarrollo de la competencia. Al certamen actual le quedan 8 fechas pendientes y nueve potenciales en caso de disputarse una final anual.\n\nLa comunicación institucional de la Liga se mantiene restringida, ya que no utiliza correo electrónico ni otras plataformas digitales, y canaliza los intercambios exclusivamente a través de un grupo interno destinado a los delegados de los clubes.",
+      "guion": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Acción 5 (Balcarce)"
+      ],
+      "enlace": "https://accion5.com/futbol-en-crisis-revelo-la-liga-perdidas-millonarias-por-fecha/",
+      "fecha": "2026-10-24T14:56:14.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-24T18:42:07.434Z",
+      "relevancia": 63,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "noConfirmado": [
+        "Todavía no se informaron los motivos exactos que provocaron cada una de las 11 suspensiones del torneo.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "etiquetas": [
+        "Liga Balcarcea de Futbol",
+        "futbol local",
+        "economia",
+        "Balcarce"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Acción 5 (Balcarce)",
+          "enlace": "https://accion5.com/futbol-en-crisis-revelo-la-liga-perdidas-millonarias-por-fecha/",
+          "fecha": "2026-10-24T14:56:14.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-liga-balcarcena-revela-perdidas-millonarias-por-fecha-en-su-torneo",
+      "foto": {
+        "archivo": "fotos-notas/5r4s16.jpg",
+        "credito": "Foto: Acción 5 (Balcarce)"
       }
     },
     {
@@ -6743,24 +6332,23 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
+        "El Destape",
         "TyC Sports",
+        "Olé",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "El Eco de Tandil",
         "Bolavip Argentina",
-        "Olé",
         "Minuto Uno",
         "Clarín",
-        "C5N",
-        "El Destape",
-        "El Gráfico"
+        "C5N"
       ],
       "enlace": "https://bolavip.com/ar/river/cambios-sensibles-en-river-de-cara-al-clasico-contra-racing",
       "fecha": "2026-10-24T14:31:27.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T15:31:23.184Z",
-      "relevancia": 46,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7492,6 +7080,7 @@
       "guion": "Fito Páez cuestiona al gobierno de Javier Milei y critica el sistema.",
       "seccion": "Cultura y agenda",
       "medios": [
+        "El Destape",
         "Perfil",
         "Noticias Argentinas (NA)",
         "La Nueva",
@@ -7499,7 +7088,6 @@
         "La Nación",
         "Clarín",
         "Los Andes (Mendoza)",
-        "El Destape",
         "C5N"
       ],
       "enlace": "https://noticiasargentinas.com/espectaculos/fito-paez-contra-milei---el-cuentito-de-la-democracia-se-termino--hoy-reinan-las-finanzas-_a6adcaa888d54d665107af786",
@@ -7628,18 +7216,23 @@
       "guion": "San Lorenzo empata 0 a 0 con Newell's y complica su ingreso a los playoffs.",
       "seccion": "Fútbol",
       "medios": [
-        "Bolavip Argentina",
-        "Crónica",
-        "Noticias Argentinas (NA)",
-        "Clarín",
+        "TN (Todo Noticias)",
         "Olé",
-        "TyC Sports"
+        "Noticias Argentinas (NA)",
+        "El Día",
+        "El Eco de Tandil",
+        "Doble Amarilla",
+        "Bolavip Argentina",
+        "La Capital (Rosario)",
+        "Los Andes (Mendoza)",
+        "Diario Popular",
+        "El Gráfico"
       ],
       "enlace": "https://www.ole.com.ar/futbol-primera/torneo-clausura-san-lorenzo-newells-partido-playoffs-clasificacion-insua_0_dPTO0SSfcK.html",
       "fecha": "2026-10-24T13:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T01:01:10.221Z",
-      "relevancia": 41,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7967,12 +7560,12 @@
       "guion": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026.",
       "seccion": "Deportes",
       "medios": [
+        "Puntonueve (FM 100.9)",
         "El Día",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Qué Digital",
-        "0223 (Mar del Plata)",
-        "Puntonueve (FM 100.9)"
+        "0223 (Mar del Plata)"
       ],
       "enlace": "https://puntonueve.com.ar/juegos-bonaerenses-2026-balcarce-termino-en-el-puesto-113-del-medallero/",
       "fecha": "2026-10-24T12:49:30.000Z",
@@ -8667,13 +8260,13 @@
       "medios": [
         "TN (Todo Noticias)",
         "QZ Noticias (Mar del Plata)",
-        "La Gaceta (Tucumán)",
         "El Cronista",
         "Ámbito",
         "Radio Mitre",
         "Diario Popular",
         "Infobae",
-        "C5N"
+        "C5N",
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.qznoticias.com/interes-general/el-vaticano-declaro-venerable-a-la-argentina-margarita-bavosi-y-avanzo-su-causa-de-beatificacion",
       "fecha": "2026-10-24T11:26:08.000Z",
@@ -9188,6 +8781,7 @@
     "Política",
     "Fútbol",
     "Argentina",
+    "Agro",
     "Deportes",
     "Ciencia",
     "Tecnología"
@@ -9197,7 +8791,7 @@
     "ahora": {
       "temp": 11,
       "sensacion": 8,
-      "humedad": 70,
+      "humedad": 71,
       "viento": 16,
       "rumbo": "S",
       "cielo": "Nublado",
@@ -9211,29 +8805,29 @@
         "min": 8,
         "lluvia": 43,
         "codigo": 51,
-        "viento": 20,
+        "viento": 19,
         "milimetros": 1,
         "cielo": "Llovizna leve"
       },
       {
         "fecha": "2026-10-26",
         "dia": "lun",
-        "max": 18,
+        "max": 17,
         "min": 6,
         "lluvia": 0,
         "codigo": 3,
-        "viento": 13,
+        "viento": 15,
         "milimetros": 0,
         "cielo": "Nublado"
       },
       {
         "fecha": "2026-10-27",
         "dia": "mar",
-        "max": 17,
+        "max": 16,
         "min": 5,
         "lluvia": 2,
         "codigo": 3,
-        "viento": 13,
+        "viento": 11,
         "milimetros": 0,
         "cielo": "Nublado"
       },
@@ -9241,12 +8835,12 @@
         "fecha": "2026-10-28",
         "dia": "mié",
         "max": 20,
-        "min": 7,
+        "min": 6,
         "lluvia": 30,
-        "codigo": 51,
+        "codigo": 80,
         "viento": 13,
-        "milimetros": 0,
-        "cielo": "Llovizna leve"
+        "milimetros": 6,
+        "cielo": "Chaparrones"
       }
     ],
     "fuente": "Open-Meteo"
@@ -9547,12 +9141,6 @@
   },
   "pendientes": [
     {
-      "id": "11jir7o",
-      "titulo": "Proponen un sistema de transporte seguro para recolectores…",
-      "seccion": "Balcarce",
-      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
-    },
-    {
       "id": "q0a45j",
       "titulo": "“Mamá, te estoy buscando”: nació en Mar del Plata y busca…",
       "seccion": "Balcarce",
@@ -9565,5 +9153,5 @@
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 15
+  "esperandoCuerpo": 16
 }

@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-25T20:07:14.079Z",
+ "consultado": "2026-10-25T20:36:24.103Z",
  "equipos": [
   "9739",
   "3",
@@ -931,7 +931,7 @@
     "competencia": "liga",
     "inicio": "2026-10-25T20:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "8'",
+    "minuto": "37'",
     "local": {
      "id": "11",
      "nombre": "Independiente",
@@ -1561,13 +1561,13 @@
       "posicion": 4,
       "id": "4",
       "equipo": "Belgrano (Córdoba)",
-      "pj": 13,
+      "pj": 14,
       "g": 6,
       "e": 4,
-      "p": 3,
+      "p": 4,
       "gf": 14,
-      "gc": 10,
-      "dif": 4,
+      "gc": 11,
+      "dif": 3,
       "pts": 22
      },
      {
@@ -1689,6 +1689,19 @@
      },
      {
       "posicion": 14,
+      "id": "9739",
+      "equipo": "Aldosivi",
+      "pj": 14,
+      "g": 3,
+      "e": 2,
+      "p": 9,
+      "gf": 15,
+      "gc": 22,
+      "dif": -7,
+      "pts": 11
+     },
+     {
+      "posicion": 15,
       "id": "19685",
       "equipo": "Estudiantes de Río Cuarto",
       "pj": 13,
@@ -1699,25 +1712,12 @@
       "gc": 17,
       "dif": -9,
       "pts": 9
-     },
-     {
-      "posicion": 15,
-      "id": "9739",
-      "equipo": "Aldosivi",
-      "pj": 13,
-      "g": 2,
-      "e": 2,
-      "p": 9,
-      "gf": 14,
-      "gc": 22,
-      "dif": -8,
-      "pts": 8
      }
     ]
    }
   ]
  },
- "tablaCuando": "2026-10-25T19:05:46.122Z",
+ "tablaCuando": "2026-10-25T20:36:24.103Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
