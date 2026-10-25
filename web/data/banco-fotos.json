@@ -24001,7 +24001,8 @@
    "corresponde": "si",
    "descripcion": "Integrantes de la banda en el escenario durante el concierto."
   },
-  "huella": "6636270f050f0f23"
+  "huella": "6636270f050f0f23",
+  "ausenteDesde": "2026-10-25T01:03:13.791Z"
  },
  "1fthrp8": {
   "intentado": true,
@@ -24084,7 +24085,8 @@
    "corresponde": "si",
    "descripcion": "Barco carguero amarrado en un puerto durante el atardecer"
   },
-  "huella": "0e0c053373315bce"
+  "huella": "0e0c053373315bce",
+  "ausenteDesde": "2026-10-25T01:03:13.791Z"
  },
  "1ro9hjs": {
   "archivo": "fotos-notas/1ro9hjs.jpg",
@@ -24448,7 +24450,8 @@
    "corresponde": "si",
    "descripcion": "Techo con desprendimiento de mampostería y estructura de madera a la vista en un ambiente con azulejos."
   },
-  "huella": "0c86e16931b3b133"
+  "huella": "0c86e16931b3b133",
+  "ausenteDesde": "2026-10-25T01:03:13.791Z"
  },
  "izhwg1": {
   "archivo": "fotos-notas/izhwg1.jpg",
@@ -38285,6 +38288,51 @@
   "cuando": "2026-10-25T00:33:40.581Z",
   "intentos": 1,
   "fuentes": 13,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1li6hwr": {
+  "archivo": "fotos-notas/1li6hwr.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto larga 21° en el Gran Premio de Estados Unidos por una sanción",
+  "enlace": "https://www.labrujula24.com/notas/2026/10/24/franco-colapinto-largara-21-en-el-gran-premio-de-ee-uu-por-una-penalizacion-n527102/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/10/f1-1000x600.jpg",
+  "razon": "La foto A muestra claramente al piloto en el auto, es nítida y no tiene marcas de agua del medio, a diferencia de la B que es borrosa y tiene el logo de La Brújula 24.",
+  "cuando": "2026-10-25T01:02:49.103Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto dentro del cockpit de su monoplaza de Fórmula 1."
+  },
+  "huella": "c36f1f8607030b8d"
+ },
+ "1amudby": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:02:49.103Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ektjdh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "San Lorenzo empata 0 a 0 con Newell's y complica su ingreso a los playoffs",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:02:49.103Z",
+  "intentos": 1,
+  "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
