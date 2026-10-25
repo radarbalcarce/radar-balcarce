@@ -2,50 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/historia/1439367611630334",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "noticia2",
-   "dia": "2026-10-02",
-   "cuando": "2026-10-02T18:10:05.160Z",
-   "medida": "2026-10-09T03:00:20.302Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "facebook/posteo/1254237411116171_122101708761495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "h1ggzr",
-   "dia": "2026-10-02",
-   "cuando": "2026-10-02T18:18:09.517Z",
-   "medida": "2026-10-09T03:00:20.302Z",
-   "metricas": {
-    "post_media_view": 0,
-    "post_total_media_view_unique": 0,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
-   "clave": "instagram/foto/18112647515024684",
-   "red": "instagram",
-   "parte": "foto",
-   "pieza": "h1ggzr",
-   "dia": "2026-10-02",
-   "cuando": "2026-10-02T18:33:56.363Z",
-   "medida": "2026-10-09T03:00:20.302Z",
-   "metricas": {
-    "reach": 3,
-    "views": 11,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0
-   }
-  },
-  {
    "clave": "facebook/historia/3983703481925631",
    "red": "facebook",
    "parte": "historia",
@@ -10178,6 +10134,53 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "instagram/reel/18153470095495529",
+   "red": "instagram",
+   "parte": "reel",
+   "pieza": "podcast",
+   "dia": "2026-10-23",
+   "cuando": "2026-10-24T02:06:53.698Z",
+   "medida": "2026-10-25T03:00:12.283Z",
+   "v": 2,
+   "metricas": {
+    "reach": 5,
+    "views": 6,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/1944477729863592",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "podcast",
+   "dia": "2026-10-23",
+   "cuando": "2026-10-24T02:09:25.870Z",
+   "medida": "2026-10-25T03:00:12.283Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 7,
+    "fb_reels_total_plays": 8,
+    "post_video_avg_time_watched": 4694,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 0
+   }
+  },
+  {
+   "clave": "facebook/historia/1833957984451185",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "podcast",
+   "dia": "2026-10-23",
+   "cuando": "2026-10-24T02:10:20.570Z",
+   "medida": "2026-10-25T03:00:12.283Z",
+   "v": 2,
+   "metricas": {}
   }
  ]
 }
