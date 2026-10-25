@@ -87,6 +87,7 @@ export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}
     channelId: canal.id,
     text: String(texto ?? '').slice(0, 2000),
     schedulingType: 'automatic',
+    needsApproval: false,
     mode: 'shareNow',
     assets: [{ video: { url } }],
   };
