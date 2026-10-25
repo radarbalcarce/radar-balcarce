@@ -1,10 +1,10 @@
 {"version":1,
 "desde":"2026-10-22T03:00:00.000Z",
-"generado":"2026-10-25T11:14:26.240Z",
+"generado":"2026-10-25T13:14:28.861Z",
 "terminada":null,
-"contadores":{"total":252,"revisadas":68,"faltan":184,"retiradas":5,"repetidas":14,"fotosSacadas":12,"arreglos":33,"paraUnaPersona":11,"fallas":7},
-"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":12,"vision":36,"gemini":15,"openrouter":1},"2026-10-25":{"groq":6,"vision":14,"gemini":10}},
-"ultimaTanda":{"cuando":"2026-10-25T11:13:08.928Z","notas":6,"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"pendientes":0,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"saltadas":0}},
+"contadores":{"total":247,"revisadas":73,"faltan":174,"retiradas":5,"repetidas":14,"fotosSacadas":13,"arreglos":33,"paraUnaPersona":11,"fallas":7},
+"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":12,"vision":36,"gemini":15,"openrouter":1},"2026-10-25":{"groq":8,"vision":18,"gemini":15}},
+"ultimaTanda":{"cuando":"2026-10-25T13:13:13.663Z","notas":6,"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"pendientes":0,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"saltadas":0}},
 "retiradas":{
 "i06m20":{"motivo":"no es nota: el pronóstico de otro medio (el sitio tiene su clima)","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
 "1m2za7b":{"motivo":"no es nota: el medio habla de sí mismo","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
@@ -30,7 +30,8 @@
 },
 "paraIlustrar":{
 "8ydg1":{"cuando":"2026-10-25T07:14:54.281Z"},
-"m212r6":{"cuando":"2026-10-25T11:14:26.240Z"}
+"m212r6":{"cuando":"2026-10-25T11:14:26.240Z"},
+"y1kgx4":{"cuando":"2026-10-25T13:14:28.861Z"}
 },
 "paraUnaPersona":{
 "1ifyi35":{"cuando":"2026-10-22T03:13:34.192Z","ruta":"/nota/balcarce-basquet-sumo-dos-victorias-en-una-nueva-fecha-de-la-1ifyi35","cuantos":1},
@@ -396,5 +397,11 @@
 "1bheb6v":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
 "1sko7lj":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
 "15i90co":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"sin-foto","t":"ok","i":1},
-"alddw5":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1}
+"alddw5":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
+"y1kgx4":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"sacada","t":"ok","i":1},
+"h1ggzr":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"ok","t":"ok","i":1},
+"xvt4t1":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"no-aplica","t":"ok","i":1},
+"1knptpr":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"no-aplica","t":"ok","i":1},
+"164o14u":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"ok","t":"ok","i":1},
+"17lpda8":{"v":1,"c":"2026-10-25T13:14:28.861Z","r":"ok","f":"ok","t":"ok","i":1}
 }}
