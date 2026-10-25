@@ -40136,11 +40136,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El 80% de los argentinos prioriza el equilibrio laboral y personal",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
-  "cuando": "2026-10-25T16:32:25.730Z",
-  "intentos": 1,
+  "razon": "La única imagen disponible es una composición de stock (o generada por IA) que incluye la cara reconocible de menores de edad, por lo que no puede ser publicada.",
+  "cuando": "2026-10-25T18:32:06.065Z",
+  "intentos": 2,
   "fuentes": 3,
-  "intentosPorCupo": 1
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "muohzi": {
   "archivo": "fotos-notas/muohzi.jpg",
@@ -40401,7 +40401,8 @@
    "corresponde": "si",
    "descripcion": "Lula da Silva sosteniendo una bandera de Brasil junto a una urna electoral."
   },
-  "huella": "6f2f2f4f4d579395"
+  "huella": "6f2f2f4f4d579395",
+  "ausenteDesde": "2026-10-25T18:32:40.267Z"
  },
  "s06nlt": {
   "archivo": "fotos-notas/s06nlt.jpg",
@@ -40437,7 +40438,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "357134cc6ada28d9"
+  "huella": "357134cc6ada28d9",
+  "ausenteDesde": "2026-10-25T18:32:40.267Z"
  },
  "1aogfll": {
   "archivo": "fotos-notas/1aogfll.jpg",
@@ -40473,7 +40475,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0586b6a20f4dd58e"
+  "huella": "0586b6a20f4dd58e",
+  "ausenteDesde": "2026-10-25T18:32:40.267Z"
  },
  "1qkiy8z": {
   "archivo": "fotos-notas/1qkiy8z.jpg",
@@ -40497,7 +40500,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Newell's y San Lorenzo disputando el balón"
   },
-  "huella": "243343ebc395b6a7"
+  "huella": "243343ebc395b6a7",
+  "ausenteDesde": "2026-10-25T18:32:40.267Z"
  },
  "1wp91xf": {
   "intentado": true,
@@ -40518,5 +40522,16 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Circuit_of_the_Americas%2C_April_22%2C_2018_SkySat.jpg/1280px-Circuit_of_the_Americas%2C_April_22%2C_2018_SkySat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Circuit of the Americas, April 22, 2018 SkySat.jpg",
   "cuando": "2026-10-25T18:05:31.243Z"
+ },
+ "8zp46n": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Independiente y Boca juegan a las 17 por el Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T18:32:06.065Z",
+  "intentos": 1,
+  "fuentes": 25,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

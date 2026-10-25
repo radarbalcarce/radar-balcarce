@@ -29,11 +29,6 @@
   "ultimo": "2026-10-23T20:01:53.695Z",
   "motivo": "con cuerpo"
  },
- "10s1e1d": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T18:31:26.616Z",
-  "motivo": "con cuerpo"
- },
  "10sy0lu": {
   "intentos": 1,
   "ultimo": "2026-10-19T22:01:15.467Z",
@@ -1253,11 +1248,6 @@
    "el texto está escrito sin tildes (informacion, region, Todavia): va con las tildes y la eñe donde corresponden"
   ]
  },
- "1h8zd1p": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T18:31:26.616Z",
-  "motivo": "con cuerpo"
- },
  "1hdb9ra": {
   "intentos": 2,
   "ultimo": "2026-10-24T01:42:55.948Z",
@@ -1472,11 +1462,6 @@
   "falla": [
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
- },
- "1k3aqu5": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T18:31:26.616Z",
-  "motivo": "con cuerpo"
  },
  "1k3lvbc": {
   "intentos": 2,
@@ -1955,11 +1940,6 @@
  "1pu1se2": {
   "intentos": 1,
   "ultimo": "2026-10-21T12:31:19.828Z",
-  "motivo": "con cuerpo"
- },
- "1pudola": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T18:31:26.616Z",
   "motivo": "con cuerpo"
  },
  "1put3ro": {
@@ -3115,16 +3095,14 @@
   "motivo": "con cuerpo"
  },
  "8zp46n": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T18:02:00.589Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-25T18:31:33.643Z",
+  "motivo": "con cuerpo",
   "textos": 6,
-  "numeradas": 28,
+  "numeradas": 25,
   "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ]
  },
  "90372i": {
@@ -3547,6 +3525,20 @@
   "intentos": 1,
   "ultimo": "2026-10-19T18:31:03.847Z",
   "motivo": "con cuerpo"
+ },
+ "dri7vy": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T18:31:33.643Z",
+  "motivo": "cuerpo: 1 problema (numero): el cuerpo dice 12 y la fuente no lo dice; sin esas oraciones quedan 259 palabras",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
+   "cuerpo: 1 problema (numero): el cuerpo dice 12 y la fuente no lo dice;"
+  ],
+  "falla": [
+   "el cuerpo dice 12 y la fuente no lo dice"
+  ]
  },
  "drmjxg": {
   "intentos": 1,
@@ -4555,6 +4547,19 @@
   "intentos": 1,
   "ultimo": "2026-10-21T17:01:54.471Z",
   "motivo": "con cuerpo"
+ },
+ "q0a45j": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T18:31:33.643Z",
+  "motivo": "verificación baja: espera a una persona",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "verificación baja: espera a una persona"
+  ],
+  "baja": true,
+  "fuentes": 1
  },
  "q80h27": {
   "intentos": 1,

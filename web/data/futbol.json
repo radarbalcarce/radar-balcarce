@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-25T18:05:26.894Z",
+ "consultado": "2026-10-25T18:32:38.775Z",
  "equipos": [
   "9739",
   "3",
@@ -901,11 +901,11 @@
     "competencia": "liga",
     "inicio": "2026-10-25T17:45:00.000Z",
     "estado": "en-juego",
-    "minuto": "19'",
+    "minuto": "45'+1'",
     "local": {
      "id": "9739",
      "nombre": "Aldosivi",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "4",
@@ -913,7 +913,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Andrés Vombergar",
+      "minuto": "20'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "José María Minella",
     "fase": null,
     "partidoDeLaSerie": null,
