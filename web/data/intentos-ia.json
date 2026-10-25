@@ -517,19 +517,20 @@
   "motivo": "con cuerpo"
  },
  "17ztrqj": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo explica; sin esas oraciones quedan 192 palabras",
+  "intentos": 4,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 242 palabras",
   "textos": 5,
   "numeradas": 5,
   "motivos": [
-   "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"bajo\" y la f",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una fr",
-   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl"
+   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl",
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ],
   "falla": [
-   "el título dice 14 y el cuerpo no lo explica"
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1815on1": {
@@ -750,20 +751,22 @@
   "motivo": "con cuerpo"
  },
  "1c65rq6": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "cuerpo: 15 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y la fuente no lo dice; sin esas oraciones quedan 108 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuente no lo dice",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 10 problemas (numero, promesa): el cuerpo dice 2.000 y la fuen",
-   "cuerpo: 15 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y"
+   "cuerpo: 15 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y",
+   "cuerpo: 13 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y",
+   "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuent"
   ],
   "falla": [
+   "el copete dice 2.000 y la fuente no lo dice",
+   "el copete dice 30 y la fuente no lo dice",
    "el cuerpo dice 2.000 y la fuente no lo dice",
-   "el cuerpo dice 30 y la fuente no lo dice",
-   "el cuerpo nombra a \"administracion\" y la fuente no",
-   "el cuerpo nombra a \"seguridad\" y la fuente no"
+   "el cuerpo dice 30 y la fuente no lo dice"
   ]
  },
  "1c9sm1f": {
@@ -1704,18 +1707,15 @@
   "motivo": "con cuerpo"
  },
  "1oh36fp": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, el máximo es 90",
-  "textos": 5,
+  "intentos": 2,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
   "numeradas": 24,
   "motivos": [
    "cuerpo: 2 problemas (promesa): el título dice 14 y el cuerpo no lo exp",
-   "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, e"
-  ],
-  "falla": [
-   "el titulo tiene 101 caracteres, el máximo es 90",
-   "el título nombra a \"estados\", \"unidos\" y el cuerpo no los explica"
+   "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, e",
+   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
   ]
  },
  "1okjo5q": {
@@ -2290,6 +2290,16 @@
   "intentos": 1,
   "ultimo": "2026-10-24T02:31:30.840Z",
   "motivo": "con cuerpo"
+ },
+ "1vrprpw": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
+  ]
  },
  "1vss7pv": {
   "intentos": 1,
@@ -3069,20 +3079,14 @@
   "motivo": "con cuerpo"
  },
  "bdmgtc": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "cuerpo: 4 problemas (forma, numero, relleno, copia): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oracion",
+  "intentos": 2,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 103 caracteres, e",
    "cuerpo: 4 problemas (forma, numero, relleno, copia): el cuerpo trae un"
-  ],
-  "falla": [
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo dice 0 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "copia 14 palabras seguidas del original (\"en el marco de la gira no vayas a atender cuando el demonio llama\"): decilo con otras palabras"
   ]
  },
  "beeajf": {
@@ -3736,16 +3740,18 @@
   "motivo": "con cuerpo"
  },
  "kull4p": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la fuente no",
-  "textos": 2,
-  "numeradas": 3,
+  "intentos": 2,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo explica; sin esas oraciones quedan 227 palabras",
+  "textos": 5,
+  "numeradas": 7,
   "motivos": [
-   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
+   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
+   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl"
   ],
   "falla": [
-   "el copete nombra a \"nunez\" y la fuente no"
+   "el título dice 14 y el cuerpo no lo explica"
   ]
  },
  "kx9cur": {
@@ -4110,18 +4116,15 @@
   "motivo": "con cuerpo"
  },
  "oi5a2p": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T08:14:31.078Z",
-  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 201 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T09:01:26.528Z",
+  "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 7,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el título dice 14 y el cuerpo no lo explica"
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
  "olt0q0": {
@@ -4802,11 +4805,6 @@
   "intentos": 1,
   "ultimo": "2026-10-21T04:01:26.531Z",
   "motivo": "con cuerpo"
- },
- "wyswmb": {
-  "intentos": 4,
-  "ultimo": "2026-10-18T08:31:13.755Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"liniers\", que sale de una nota anterior, como si fuera de hoy"
  },
  "wz4853": {
   "intentos": 1,
