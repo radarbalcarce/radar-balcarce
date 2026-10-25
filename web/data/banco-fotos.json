@@ -40364,20 +40364,23 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.); OpenRouter: Unterminated string in JSON at position 168 (line 1 column 169)",
-  "cuando": "2026-10-25T20:06:54.748Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T21:31:53.686Z",
   "intentos": 2,
   "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "e9cid4": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alvarado visita a Sportivo Las Parejas por el Torneo Federal A",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos sin marcas o problemas de formato.",
-  "cuando": "2026-10-25T18:03:06.116Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T21:31:53.686Z",
   "intentos": 1,
-  "fuentes": 3
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "8lorat": {
   "archivo": "fotos-notas/8lorat.jpg",
