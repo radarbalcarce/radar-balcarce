@@ -603,3 +603,34 @@ ilustración y 239 con la placa** (9 con la imagen rota); lo esperado después d
 Pierden la foto real 38 notas (7 de la auditoría, 17 de Wikimedia y 14 repetidas de otro tema) y la recuperan 3 (podadas de más); pierden la
 ilustración 6. Las notas de las últimas 24 horas que quedaron sin nada las ilustra sola la próxima corrida automática; para las demás,
 correr a mano «Ilustrar notas sin foto» con sus ids.
+
+## 15. Sin cupo de la IA: se espera, se achica y mientras tanto va la ilustración o la placa (regla 324, 24/10/2026)
+
+El 24/10 (Hernán): notas como la del Concejo y los terrenos baldíos (r8gyl1), la de Colapinto (1df4mi) y otras quedaron sin foto porque el control con IA contestó
+**429**: Gemini sin cupo del día y Groq con «Request too large». De las 94 notas de las últimas 48 horas, **21 no tenían foto** (sin contar las propias): 11 por falta de cupo
+(la IA de fotos no pudo correr), 8 porque ninguna foto pasó los controles (marca de agua, gráfica, stock; entre ellas Fito Páez, con la foto de Commons ya retirada) y 2 por una
+muerte en el texto (que no se ilustra a propósito). **Ninguna de las 19 que se pueden ilustrar tenía su ilustración**: ningún filtro las salta (`motivoParaSaltar`), así que lo único que queda en el camino
+es el control con visión de la propia imagen, que usa las mismas IA y las mismas claves, en 429.
+
+Qué cambió:
+
+- **Un 429 no es una decisión sobre la foto** (`esFallaDeCupo`, `quedoPorFaltaDeCupo`). La nota no gasta sus intentos: se cuenta aparte (`intentosPorCupo`) y se vuelve a probar con
+  espera creciente, **1 h, 2 h, 4 h, 8 h y 8 h**, hasta 8 veces (más de dos días: cubre la hora en que se renueva el cupo). Antes se gastaban los tres intentos de una hora en la
+  misma tarde sin cupo y después sólo dos repasos de 6 horas (1usw8vx: 5 intentos con 429 y nunca más). La marca de agua, la gráfica o el stock siguen siendo decisiones: no se vuelven a preguntar.
+- **No se gasta el cupo en bucle**: si dos notas seguidas fallan por cupo, `elegirFotosNuevas` corta la corrida (`cortadaPorCupo`) y generar-datos lo dice en el registro.
+- **Groq con tope de respuesta y sin repetir el mismo pedido** (`TOPE_DE_RESPUESTA_GROQ`, `esPedidoDemasiadoGrande`): el `Request too large … on output tokens per minute` salía porque el
+  pedido no llevaba tope de respuesta y Groq contaba el máximo del modelo contra el cupo por minuto. Ahora lleva `max_completion_tokens` (2.000 con varias fotos, 1.000 con una) y,
+  ante un 413 o un 429 «Request too large», se repite UNA vez con la primera foto sola; con una foto sola no se insiste.
+- **El orden**: (1) la foto de las fuentes que pasa los controles; (2) si el control no pudo correr por cupo, se reintenta más tarde (arriba); (3) mientras tanto la nota lleva la
+  **ilustración generada con IA** (§ 12, siempre marcada «Ilustración generada con IA», sin personas) o la **placa**. Nunca una foto de afuera de las fuentes ni de Wikimedia (regla 319).
+  Si más tarde aparece una foto de las fuentes que pasa, gana sobre la ilustración (prioridad más baja).
+- **Ilustraciones cuando el control con visión está sin cupo** (`controlSinCupo`, `CONTROL_SIN_CUPO`): una imagen sin control no se publica. En lugar de gastar las 12 llamadas al Worker
+  (y las 20 del día) en imágenes que nadie puede mirar, se genera UNA, se reintenta el control tras 20 segundos y, si sigue sin cupo, se corta la corrida; las demás notas se saltan con
+  el motivo. Una ilustración vieja sin control **no se saca** cuando el control no pudo correr (antes se la daba por mala).
+- **Notas sobre una persona real** (Fito Páez; `giraEnTornoAUnaPersona`) y las de Cultura (`OBJETOS_DE_CULTURA`): el prompt pide el **escenario vacío** (telón liso, butacas vacías, una guitarra
+  lisa en su soporte, un micrófono con pie sin logo, partituras en blanco), nunca a la persona, un retrato, un póster ni el público; un prompt con «singer», «audience», «fans» o el nombre se descarta.
+
+Lo que no se pudo confirmar: por qué la corrida automática no las tomó ese día. El adjunto de cada corrida (`candidatas.json`) no se guarda y el registro del Worker de tareas no estaba a mano;
+por los datos, el control con visión en 429 es la causa más probable. La corrida de ahora deja en el resumen `controlSinCupo` cuando pasa.
+
+Prueba: `pruebas/fotos-sin-cupo.test.mjs` (con las entradas reales del banco del 24/10).

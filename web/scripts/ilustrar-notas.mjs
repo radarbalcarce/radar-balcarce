@@ -226,6 +226,16 @@ export const PROHIBIDO_EN_DEPORTE = 'camisetas, remeras, botines o zapatillas de
 /** Lo que SÍ van en una nota de política: nada de escritorios, oficinas ni naturaleza muerta de despacho. */
 export const OBJETOS_DE_POLITICA = 'escalinata de piedra de un edificio público sin carteles ni banderas, columnas y balcones del frente de un edificio institucional, una plaza cívica vacía al amanecer, bancas vacías de un recinto o una urna lisa de cartón sin impresión, una puerta de madera cerrada con picaporte, un pasillo vacío con luz de ventana, un atril liso sin micrófono de marca, cortinados lisos';
 
+/**
+ * Regla 324 (24/10/2026): una nota de música, teatro o artes (la de Fito Páez) y, en general, la nota que gira en torno a UNA persona real, se
+ * ilustran con el ESCENARIO de su actividad, vacío y liso, nunca con la persona, un retrato, un póster o un parecido. Objetos que FLUX no llena de letras.
+ */
+export const OBJETOS_DE_CULTURA = 'un escenario vacío de teatro con telón liso y focos apagados, butacas vacías de una sala, una guitarra acústica lisa apoyada en un soporte, un piano de cola cerrado sin marca, un micrófono con pie liso sin logo, auriculares y cables enrollados, partituras en blanco sobre un atril, una consola de sonido apagada, instrumentos de percusión lisos, pinceles y un lienzo en blanco';
+export const PROHIBIDO_EN_CULTURA = 'afiches, pósters, entradas, discos o vinilos con tapa, carteles, banners, pantallas, instrumentos o equipos con marca visible, retratos o fotos enmarcadas';
+export const esDeCultura = (nota) => nota?.seccion === 'Cultura y agenda';
+/** ¿El título (o la bajada) nombra a una persona real? Entonces la ilustración muestra el ámbito de su actividad, nunca a la persona. */
+export const giraEnTornoAUnaPersona = (nota) => nombresDePersona([nota?.titulo, nota?.copete].filter(Boolean).join('. ')).length > 0;
+
 /** Variantes de encuadre y luz: se elige una por id para que dos notas parecidas no salgan con la misma imagen. */
 export const VARIANTES = [
   'encuadre cenital (flat lay) con luz suave de ventana',
@@ -255,6 +265,11 @@ export function guiaDeEscena(nota) {
     lineas.push(`10. POLÍTICA: no hay escritorio, oficina, despacho, computadora, cuaderno ni lapicera sobre una mesa (aunque el punto 3 diga superficie de trabajo, acá NO). Mostrá un lugar o un objeto institucional anónimo y sin letras: ${OBJETOS_DE_POLITICA}. Nunca una persona, ni un retrato, ni un político, ni su silueta, ni un parecido con alguien real. Para esta nota empezá por «Candid photojournalistic photograph of» en vez de «close-up still life of».`);
   } else if (esDeporte(nota)) {
     lineas.push(`10. DEPORTE: usá sólo objetos como estos: ${OBJETOS_DE_DEPORTE}. NUNCA: ${PROHIBIDO_EN_DEPORTE} (el generador los llena de logos, letras y números). Si hay duda, un balón liso sobre el césped o un par de conos con la red de un arco desenfocada atrás.`);
+  } else if (esDeCultura(nota)) {
+    lineas.push(`10. CULTURA: mostrá el escenario o el taller, sin nadie: ${OBJETOS_DE_CULTURA}. NUNCA: ${PROHIBIDO_EN_CULTURA} (el generador los llena de letras y logos). Si hay duda, una guitarra lisa en su soporte sobre un escenario vacío con luces suaves de fondo.`);
+  }
+  if (giraEnTornoAUnaPersona(nota)) {
+    lineas.push('11. PERSONA REAL: la nota gira en torno a una persona. La imagen NO la muestra: ni su cara, ni su silueta, ni un retrato, un cuadro, un póster, un disco o un parecido con ella. Mostrá el ámbito de su actividad como un lugar sin nadie (el escenario, el instrumento, el estudio, la cancha, el taller, la sala vacía), con objetos lisos y sin nada escrito. Que tampoco aparezca el público ni un fan.');
   }
   return lineas.join('\n');
 }
@@ -403,7 +418,7 @@ export function promptFinal(deGemini, tono = null, tema = null) {
 
 // Lo que no puede describir el prompt (sacadas antes las negaciones: "no people" está bien): personas, armas, muerte, logos y la escena de un
 // hecho (un auto chocado o un patrullero al lado de una nota real se puede tomar por la foto del hecho).
-const PROHIBIDO_EN_PROMPT = /\b(child|children|kids?|boys?|girls?|bab(?:y|ies)|toddlers?|teens?|teenagers?|students?|pupils?|schoolchildren|man|men|woman|women|persons?|people|humans?|crowd|faces?|portraits?|silhouettes?|hands?|players?|athletes?|blood\w*|weapons?|guns?|pistols?|rifles?|knife|knives|bullets?|corpses?|coffins?|caskets?|funeral\w*|graves?|tombstones?|wreaths?|handcuffs?|crime scene|police tape|police cars?|patrol cars?|crash\w*|wreck\w*|syringes?|drugs?|flags?|logos?|emblems?|coat of arms|politicians?|presidents?|mayors?|ministers?|likeness|jerseys?|shirts?|t-shirts?|uniforms?|trophy|trophies|scoreboards?|tickets?|banners?)\b/i;
+const PROHIBIDO_EN_PROMPT = /\b(child|children|kids?|boys?|girls?|bab(?:y|ies)|toddlers?|teens?|teenagers?|students?|pupils?|schoolchildren|man|men|woman|women|persons?|people|humans?|crowd|faces?|portraits?|silhouettes?|hands?|players?|athletes?|singers?|musicians?|performers?|audience|spectators?|fans?|celebrit\w+|blood\w*|weapons?|guns?|pistols?|rifles?|knife|knives|bullets?|corpses?|coffins?|caskets?|funeral\w*|graves?|tombstones?|wreaths?|handcuffs?|crime scene|police tape|police cars?|patrol cars?|crash\w*|wreck\w*|syringes?|drugs?|flags?|logos?|emblems?|coat of arms|politicians?|presidents?|mayors?|ministers?|likeness|jerseys?|shirts?|t-shirts?|uniforms?|trophy|trophies|scoreboards?|tickets?|banners?)\b/i;
 // Lo que además no va en una nota de Política (4º pedido del dueño, 23/10/2026): nada de oficina ni naturaleza muerta de escritorio.
 const PROHIBIDO_SI_ES_POLITICA = /\b(desks?|offices?|workspace|work ?surface|work ?table|laptops?|computers?|keyboards?|notebooks?|pens?|pencils?|paperwork|documents?|folders?|binders?|coffee|mugs?|cups?)\b/i;
 // Lo que además no va en una nota de tono sobrio (Policiales, Política, lo grave): juguetes, fuego, ambulancias, sirenas.
@@ -501,7 +516,8 @@ async function pedirAGroq(partes, { claveGroq, fetchFn = fetch, json = false }) 
   const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${claveGroq}` },
-    body: JSON.stringify({ model: MODELO_GROQ, messages: [{ role: 'user', content }], temperature: json ? 0 : 0.7, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
+    // El tope de respuesta (regla 324): sin él Groq cuenta el máximo del modelo contra su cupo por minuto y contesta 429 "Request too large".
+    body: JSON.stringify({ model: MODELO_GROQ, messages: [{ role: 'user', content }], temperature: json ? 0 : 0.7, max_completion_tokens: json ? 1000 : 500, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
     signal: AbortSignal.timeout(60_000),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -562,9 +578,15 @@ export async function mirarImagen(bytes, opciones) {
     const t = await pedirAGemini([{ text: PREGUNTA_DE_CONTROL }, { inlineData: { mimeType: 'image/jpeg', data: Buffer.from(bytes).toString('base64') } }], { ...opciones, json: true });
     return interpretarControl(JSON.parse(t.replace(/^```(?:json)?|```$/g, '').trim()));
   } catch (e) {
-    return { ok: false, motivo: `no se pudo mirar la imagen (${String(e?.message ?? e).slice(0, 80)})`, razon: null };
+    const detalle = String(e?.message ?? e).slice(0, 120);
+    // `sinCupo` (regla 324): el control NO pudo correr (429, una clave rechazada, sin red); no es que la imagen esté mal. Quien llama no la da por mala,
+    // ni sigue gastando llamadas al Worker mientras no haya quién la mire.
+    return { ok: false, motivo: `no se pudo mirar la imagen (${detalle.slice(0, 80)})`, razon: null, sinCupo: CONTROL_SIN_CUPO.test(detalle) };
   }
 }
+
+/** Lo que dice el error cuando el control con visión no estuvo disponible (sin cupo, clave rechazada, sin red), y no que la imagen sea mala. */
+export const CONTROL_SIN_CUPO = /HTTP (401|402|403|413|429|5\d\d)|sin clave|sin red|sin respuesta|quota|rate limit|too large/i;
 
 /** El cuerpo del pedido al Worker. */
 export function pedidoAlWorker(prompt) {
@@ -638,6 +660,15 @@ export async function revisar({
   const aSacar = [];
   let llamadas = 0;
   let sinPermiso = false;
+  // Regla 324: si el control con visión no puede correr (las tres IA en 429), no se generan más imágenes en esta corrida: cada una gastaría una
+  // llamada al Worker y un lugar de las 20 del día para una imagen que nadie puede mirar. Las notas siguen sin foto (placa) y se vuelven a probar en la próxima.
+  let controlSinCupo = false;
+  const miraConReintento = async (bytes) => {
+    let control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar });
+    if (control.sinCupo) { await esperar(20_000); control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar }); }
+    if (control.sinCupo) controlSinCupo = true;
+    return control;
+  };
   const anotarCuenta = () => {
     if (!cuenta) return;
     fs.mkdirSync(cuenta, { recursive: true });
@@ -653,12 +684,16 @@ export async function revisar({
       // Con FOTOS_EN_R2 (`conservarSiFalta`): si el archivo no se pudo traer de R2 NO se lo da por malo (sería sacar una ilustración por un corte de red):
       // la nota se salta y se vuelve a mirar en la corrida siguiente.
       if (conservarSiFalta && !fs.existsSync(ruta)) { registro(`  [${nota.id}] ilustración sin control: el archivo ${path.basename(anterior.archivo)} no se pudo traer de R2; se deja como está`); continue; }
-      const control = fs.existsSync(ruta) ? await mirarImagen(fs.readFileSync(ruta), { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar }) : { ok: false, motivo: 'el archivo no está' };
+      if (controlSinCupo) { registro(`  [${nota.id}] ilustración sin control: el control con visión no tiene cupo ahora; se deja como está y se vuelve a mirar en la próxima corrida`); continue; }
+      const control = fs.existsSync(ruta) ? await miraConReintento(fs.readFileSync(ruta)) : { ok: false, motivo: 'el archivo no está' };
       registro(`  [${nota.id}] ilustración sin control (${esDeGeminiWeb(anterior) ? 'Gemini web' : 'sin control anotado'}): ${control.ok ? 'pasa' : control.motivo}`);
       if (control.ok) { revisadas.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, control }); continue; }
+      // Regla 324: si el control NO pudo correr (sin cupo), la ilustración no se da por mala ni se saca: se deja y se vuelve a mirar.
+      if (control.sinCupo) continue;
       reemplaza = anterior.archivo;
       aSacar.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, motivo: control.motivo, razon: control.razon ?? null });
     }
+    if (controlSinCupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el control con visión no tiene cupo ahora (Gemini, Groq y OpenRouter en 429): no se genera nada hasta que haya quién la mire; se sigue en la próxima corrida' }); continue; }
     if (sinPermiso) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el Worker rechazó la contraseña (VIGILANTE_TOKEN): no se siguió' }); continue; }
     if (llamadas >= cupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `sin cupo (tope de ${TOPE_POR_CORRIDA} por corrida y ${TOPE_POR_DIA} por día${automatico ? ', repartido en el día' : ''})` }); continue; }
     const tono = tonoDeLaNota(nota);
@@ -688,14 +723,14 @@ export async function revisar({
     if (guardar.bytes.length < PESO_MINIMO_DE_UNA_FOTO) { item.error = 'la imagen salió vacía (casi negra o lisa)'; hechas.push(item); continue; }
     item.archivo = `${nota.id}.jpg`;
     fs.writeFileSync(path.join(salida, item.archivo), guardar.bytes);
-    item.control = await mirarImagen(guardar.bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar });
+    item.control = await miraConReintento(guardar.bytes);
     hechas.push(item);
   }
   const listas = hechas.filter((c) => c.archivo && c.control?.ok).map((c) => c.id);
   const resultado = {
-    generado: ahora.toISOString(), dia, horas, ids, automatico, cupo, usadasAntes: usadas, llamadas,
+    generado: ahora.toISOString(), dia, horas, ids, automatico, cupo, usadasAntes: usadas, llamadas, controlSinCupo,
     neuronasPorImagen: porImagen, neuronasEstimadas: llamadas * porImagen, modelo: MODELO, tamano: `${ANCHO}x${ALTO}`, pasos: PASOS, negativo: NEGATIVO,
-    resumen: `${hechas.filter((c) => c.archivo).length} imágenes (${listas.length} pasaron el control), ${saltadas.length} notas saltadas, ${llamadas} llamadas al Worker (~${llamadas * porImagen} neuronas de ${NEURONAS_GRATIS_POR_DIA} gratis por día)${revisadas.length || aSacar.length ? `; ilustraciones sin control: ${revisadas.length} pasaron, ${aSacar.length} no` : ''}.`,
+    resumen: `${hechas.filter((c) => c.archivo).length} imágenes (${listas.length} pasaron el control), ${saltadas.length} notas saltadas, ${llamadas} llamadas al Worker (~${llamadas * porImagen} neuronas de ${NEURONAS_GRATIS_POR_DIA} gratis por día)${revisadas.length || aSacar.length ? `; ilustraciones sin control: ${revisadas.length} pasaron, ${aSacar.length} no` : ''}${controlSinCupo ? '; el control con visión se quedó sin cupo: se cortó la corrida (regla 324)' : ''}.`,
     paraAplicar: listas, candidatas: hechas, saltadas, revisadas, aSacar,
   };
   fs.writeFileSync(path.join(salida, 'candidatas.json'), `${JSON.stringify(resultado, null, 1)}\n`, 'utf8');

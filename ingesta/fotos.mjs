@@ -468,13 +468,29 @@ async function visionGemini(texto, imagenes, { clave, fetchFn = fetch, modelo = 
   try { return JSON.parse(t); } catch { throw new Error('la respuesta no es JSON'); }
 }
 
+/**
+ * Cuántos tokens de respuesta se le piden a Groq (regla 324, 24/10/2026). Sin este tope Groq cuenta el máximo del modelo contra el cupo por minuto
+ * de la cuenta y contesta 429 "Request too large for model … on output tokens per minute" aunque la respuesta real sea de 200 tokens (cinco
+ * notas del 24/10 quedaron sin foto por eso). Una foto sola necesita muy poco; con varias, más.
+ */
+export const TOPE_DE_RESPUESTA_GROQ = { varias: 2000, una: 1000 };
+
+/** ¿Es un 413 o un 429 de "pedido demasiado grande"? Se repite achicado (una foto sola y menos tokens), nunca igual: igual daría lo mismo. */
+export const esPedidoDemasiadoGrande = (e) => e?.status === 413 || (e?.status === 429 && /request too large|too large|too many tokens/i.test(String(e?.message ?? '')));
+
+/**
+ * ¿Esta falla (el texto de `razon` de una foto, o el error de una llamada) es de cupo o de límite de pedidos y no una decisión sobre la foto?
+ * Se vuelve a probar más tarde, con espera creciente (web/scripts/fotos-notas.mjs, `esperaPorCupo`), y no gasta los intentos de la nota.
+ */
+export const esFallaDeCupo = (texto) => /HTTP (429|413|503)|quota|rate limit|request too large|resource has been exhausted|exceeded your current|Segunda opinión no disponible|sin clave para comparar/i.test(String(texto ?? ''));
+
 /** El mismo pedido a Groq (API de OpenAI: un solo mensaje con texto e imágenes como `image_url` en base64). */
-async function visionGroq(texto, imagenes, { clave, fetchFn = fetch, modelo = MODELO_GROQ_VISION }) {
+async function visionGroq(texto, imagenes, { clave, fetchFn = fetch, modelo = MODELO_GROQ_VISION, maxTokens = imagenes.length > 1 ? TOPE_DE_RESPUESTA_GROQ.varias : TOPE_DE_RESPUESTA_GROQ.una }) {
   const content = [{ type: 'text', text: texto }, ...imagenes.map((d) => ({ type: 'image_url', image_url: { url: `data:${d.mime};base64,${d.base64}` } }))];
   const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${clave}` },
-    body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], response_format: { type: 'json_object' }, temperature: 0 }),
+    body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], response_format: { type: 'json_object' }, temperature: 0, max_completion_tokens: maxTokens }),
     signal: AbortSignal.timeout(60_000),
   });
   if (!res.ok) throw await errorDeRespuesta(res);
@@ -515,10 +531,11 @@ async function pedirAGroq(nota, candidatas, { clave, fetchFn = fetch, modelo = M
     const obj = await visionGroq(instruccion(nota, conFoto, excepcion), conFoto.map((c) => c.datos), { clave, fetchFn, modelo });
     return interpretarRespuesta(obj, conFoto, excepcion);
   } catch (e) {
-    // 413 ("demasiado grande": Groq cuenta las imágenes contra su tope por minuto): una vez más, con la primera foto sola.
-    if (e.status !== 413 || conFoto.length === 1) throw e;
+    // 413 o 429 "Request too large" ("demasiado grande": Groq cuenta las imágenes y los tokens de respuesta contra su tope por minuto): una vez
+    // más, con la primera foto sola y menos tokens (regla 324). El mismo pedido no se repite.
+    if (!esPedidoDemasiadoGrande(e) || conFoto.length === 1) throw e;
     conFoto = conFoto.slice(0, 1);
-    const obj = await visionGroq(instruccion(nota, conFoto, excepcion), conFoto.map((c) => c.datos), { clave, fetchFn, modelo });
+    const obj = await visionGroq(instruccion(nota, conFoto, excepcion), conFoto.map((c) => c.datos), { clave, fetchFn, modelo, maxTokens: TOPE_DE_RESPUESTA_GROQ.una });
     return interpretarRespuesta(obj, conFoto, excepcion);
   }
 }

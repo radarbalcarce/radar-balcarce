@@ -273,7 +273,8 @@ test('elegirFotosNuevas guarda la foto achicada (jpg) y la anota así en el banc
 test('el repaso: una falla que ya se probó tres veces se mira otra vez cada seis horas, dos veces más; con más fuentes, también lo descartado', () => {
   const ahora = new Date('2026-10-01T18:00:00Z');
   const hace = (min) => new Date(ahora.getTime() - min * 60_000).toISOString();
-  const falla = (intentos, min) => ({ intentado: true, origen: 'ninguna', razon: 'Groq también falló: HTTP 429', cuando: hace(min), intentos });
+  // Una falla que NO es de cupo (la respuesta rota): los tres intentos y los repasos de siempre. La de cupo (429) tiene su espera creciente (regla 324, más abajo).
+  const falla = (intentos, min) => ({ intentado: true, origen: 'ninguna', razon: 'Gemini falló: la respuesta no es JSON', cuando: hace(min), intentos });
   assert.equal(sePuedeReintentar(falla(3, 90), { ahora }), false, 'todavía no pasaron seis horas');
   assert.equal(sePuedeReintentar(falla(3, 400), { ahora }), true, 'primer repaso');
   assert.equal(sePuedeReintentar(falla(4, 400), { ahora }), true, 'segundo repaso');

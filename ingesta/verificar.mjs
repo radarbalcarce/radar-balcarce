@@ -1006,7 +1006,7 @@ export function verificar(fuente, nuevo, { soloForma = false, deBalcarce = null,
   // publicado). Lo pide la reescritura (reels/reescritura.mjs) y el panel; no
   // se aplica al revalidar lo ya publicado (`soloForma`): son heurísticas, y
   // una nota que ya está en la portada no se baja por una de ellas.
-  if (estilo && !soloForma) problemas.push(...problemasDeEstilo(nuevo), ...exageraLaDecision(fuente, nuevo));
+  if (estilo && !soloForma) problemas.push(...problemasDeEstilo(nuevo), ...exageraLaDecision(fuente, nuevo), ...tituloDeportivoTendencioso(fuente, nuevo));
 
   return { ok: problemas.length === 0, problemas };
 }
@@ -1045,6 +1045,59 @@ export function exageraLaDecision(fuente = {}, nuevo = {}) {
     } else if (verbo === 'aprueba' && UN_PEDIDO.test(tituloFuente) && !enLaFuente.test(tituloFuente) && !EL_TITULO_DICE_PEDIDO.test(titulo)) {
       problemas.push({ tipo: 'exagera', detalle: 'el título dice "aprueba" y la fuente cuenta un pedido o un proyecto: va "pide", "propone" o "presenta un proyecto para"' });
     }
+  }
+  return problemas;
+}
+
+// ------------------------------------------------- títulos de deportes y de F1 sin culpa ni drama (regla 324, 24/10/2026)
+//
+// El 24/10 salió "Penalizan a Franco Colapinto y retrocede diez lugares en Estados Unidos", con la bajada "recibió un castigo técnico". Los hechos:
+// Alpine instaló una nueva unidad de control electrónico y por eso Colapinto PARTIRÁ diez posiciones más atrás (todavía no corrió). El título lo
+// daba por cumplido, lo presentaba como un castigo al piloto y no decía la causa. Estos controles son de forma (miran palabras, no la verdad de
+// los hechos, que ya cuida el resto del verificador) y sólo valen para lo que se escribe nuevo.
+
+/** Que la nota es de deportes o de automovilismo (por lo que dice ella o la fuente). */
+const CONTEXTO_DEPORTIVO = /\b(grilla|largada|largar\w*|gran premio|formula 1|f1|escuderia|monoplaza|piloto|partido|torneo|campeonato|liga|copa|jugador\w*|equipo|club|gol|goles|seleccion|entrenador|arbitro|futbol|rugby|basquet|tenis|automovilismo)\b/;
+/** Lo que sólo es drama o castigo, no un hecho: ni en el título, ni en la bajada ni en el texto para redes. */
+const DRAMA_DEPORTIVO = /\b(castig\w*|se hund\w*|se desplom\w*|naufrag\w*|humill\w*|papelon\w*|batacazo\w*|debacle|cachetazo\w*|mazazo\w*)\b/;
+/** Una penalización de posiciones en la grilla: el verbo y las posiciones, en el título. */
+const VERBO_DE_PENALIZACION = /\b(penaliz\w*|sancion\w*|castig\w*|retroced\w*|descuent\w*)\b/;
+const VERBO_QUE_BAJA = /\b(pierd\w*|baja|bajan|cae|caen|retrasa\w*)\b/;
+const POSICIONES = /\b(puestos|posiciones|lugares|casilleros)\b/;
+const DE_LA_GRILLA = /\b(grilla|largada|largar\w*|gran premio|formula 1|f1|escuderia|monoplaza|piloto)\b/;
+/** El futuro de lo que todavía no pasó: "largará", "partirá", "saldrá", "tendrá", "deberá". */
+const EN_FUTURO = /\b(largar\w*|partir\w*|saldr\w*|arrancar\w*|tendr\w*|deber\w*|(?:ser|recibir|perder|retroceder|bajar|caer|quedar)(?:a|an))\b/;
+/** La causa de una penalización de grilla, en la fuente y en el título: el cambio de una pieza del auto. */
+const CAUSA_EN_LA_FUENTE = /\b(unidad\w*|motor\w*|caja de cambios|componente\w*|bateria\w*|escape|turbo|control electronico|reemplazo|cambio de)\b/;
+const CAUSA_EN_EL_TITULO = /\b(cambio|cambia\w*|unidad\w*|componente\w*|motor\w*|reemplazo|caja|bateria\w*|escape|turbo|electronic\w*|pieza\w*)\b/;
+
+/**
+ * Los títulos de deportes y automovilismo sin culpa, drama ni tiempos mal puestos (regla 324). Tres controles, sólo con `estilo`:
+ *   · ni el título, ni la bajada ni el texto para redes dicen "castigo", "castigan", "se hunde", "naufraga", "papelón"… en una nota de deportes;
+ *   · el título de una penalización de posiciones en la grilla ("retrocede diez lugares") es de algo que todavía no pasó: va en futuro
+ *     ("largará diez puestos más atrás"), no en un presente que lo da por cumplido;
+ *   · y dice la causa cuando la fuente la da (un cambio de unidad o de componentes del auto), que es del equipo y no culpa del piloto.
+ * @returns {{ tipo: string, detalle: string }[]}
+ */
+export function tituloDeportivoTendencioso(fuente = {}, nuevo = {}) {
+  const tituloCrudo = String(nuevo?.titulo ?? '');
+  const titulo = sinTildes(tituloCrudo).toLowerCase();
+  const cabeza = sinTildes(`${tituloCrudo} ${nuevo?.copete ?? ''} ${nuevo?.textoRedes ?? ''}`).toLowerCase();
+  const origen = sinTildes(`${fuente?.titulo ?? ''} ${fuente?.resumen ?? ''}`).toLowerCase();
+  const cuerpo = sinTildes(String(nuevo?.cuerpo ?? '')).toLowerCase();
+  const problemas = [];
+  if (!tituloCrudo.trim()) return problemas;
+  if (!CONTEXTO_DEPORTIVO.test(`${cabeza} ${origen}`)) return problemas;
+
+  const drama = cabeza.match(DRAMA_DEPORTIVO);
+  if (drama) problemas.push({ tipo: 'sensacionalista', detalle: `usa "${drama[0]}", que presenta un hecho deportivo como un castigo o un drama: contá el hecho con su nombre y su causa ("penalización de grilla", "largará diez puestos más atrás"), sin culpar al jugador o al piloto` });
+
+  const penaliza = POSICIONES.test(titulo)
+    && (VERBO_DE_PENALIZACION.test(titulo) || (VERBO_QUE_BAJA.test(titulo) && /\b(penaliz\w*|sancion\w*|grilla|largada)\b/.test(`${titulo} ${origen}`)))
+    && DE_LA_GRILLA.test(`${titulo} ${origen} ${cuerpo}`);
+  if (penaliza) {
+    if (!EN_FUTURO.test(titulo)) problemas.push({ tipo: 'tiempo', detalle: 'el título da por cumplido el retroceso en la grilla, que todavía no pasó: va en futuro y con la posición de largada ("Colapinto largará diez puestos más atrás"), no "retrocede" ni "penalizan"' });
+    if (CAUSA_EN_LA_FUENTE.test(origen) && !CAUSA_EN_EL_TITULO.test(titulo)) problemas.push({ tipo: 'causa', detalle: 'el título no dice por qué: la fuente cuenta que fue por el cambio de una unidad o de componentes del auto, que es del equipo y no culpa del piloto ("por un cambio de unidad en el Alpine")' });
   }
   return problemas;
 }
