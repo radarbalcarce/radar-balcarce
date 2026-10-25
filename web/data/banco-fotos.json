@@ -20624,9 +20624,7 @@
   "fuentes": 7
  },
  "ym6mpi": {
-  "archivo": "fotos-notas/ym6mpi.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Provincia acuerda aumento salarial del 6 por ciento con los docentes",
@@ -20646,7 +20644,8 @@
    "descripcion": "Funcionarios y dirigentes gremiales docentes sentados en una mesa larga de reunión"
   },
   "huella": "2838f9d050f2e167",
-  "ausenteDesde": "2026-10-18T02:31:33.155Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ua2be4": {
   "intentado": true,
@@ -20874,9 +20873,7 @@
   "ausenteDesde": "2026-10-23T18:33:19.093Z"
  },
  "1w09gtm": {
-  "archivo": "fotos-notas/1w09gtm.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Inter Miami vence 3 a 1 a Atlanta United con doblete de Messi",
@@ -20897,7 +20894,8 @@
    "descripcion": "Messi abraza a Casemiro en el banco de suplentes de Inter Miami."
   },
   "huella": "f0909ca44cad7170",
-  "ausenteDesde": "2026-10-18T03:01:49.735Z"
+  "intentado": true,
+  "borrada": true
  },
  "1h4dkdp": {
   "archivo": "fotos-notas/1h4dkdp.jpg",
@@ -38091,10 +38089,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-10-25T02:02:28.596Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-25T03:02:44.938Z",
   "intentos": 3,
   "fuentes": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "146xxio": {
@@ -38322,10 +38321,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:02:49.103Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T03:02:44.938Z",
   "intentos": 1,
-  "fuentes": 3,
+  "fuentes": 4,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ektjdh": {

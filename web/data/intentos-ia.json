@@ -1050,11 +1050,6 @@
   "ultimo": "2026-10-22T22:31:46.685Z",
   "motivo": "con cuerpo"
  },
- "1h4dkdp": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T03:01:30.220Z",
-  "motivo": "con cuerpo"
- },
  "1h5tb8d": {
   "intentos": 1,
   "ultimo": "2026-10-21T15:03:56.836Z",
@@ -1185,19 +1180,18 @@
   "motivo": "con cuerpo"
  },
  "1icrbuv": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T02:01:57.637Z",
-  "motivo": "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 167 palabras",
-  "textos": 3,
+  "intentos": 2,
+  "ultimo": "2026-10-25T03:02:08.872Z",
+  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "textos": 4,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 5 problemas (nombre, relleno, copia): el cuerpo nombra a \"minu",
-   "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una fr"
+   "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una fr",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título dice 14 y el cuerpo no lo explica"
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "1iig27": {
@@ -2139,6 +2133,23 @@
   "intentos": 3,
   "ultimo": "2026-10-20T02:01:03.431Z",
   "motivo": "con cuerpo"
+ },
+ "1v9mssi": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T03:02:08.872Z",
+  "motivo": "cuerpo: 5 problemas (numero, nombre, promesa): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 86 palabras",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 5 problemas (numero, nombre, promesa): el cuerpo dice 30 y la "
+  ],
+  "falla": [
+   "el cuerpo dice 30 y la fuente no lo dice",
+   "el cuerpo dice 50 y la fuente no lo dice",
+   "el cuerpo dice 6 y la fuente no lo dice",
+   "el cuerpo nombra a \"juniors\" y la fuente no"
+  ]
  },
  "1venq3u": {
   "intentos": 1,
@@ -4665,17 +4676,21 @@
   "motivo": "con cuerpo"
  },
  "yzy9ii": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T02:01:57.637Z",
-  "motivo": "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emilersk\" y la fuente no; sin esas oraciones quedan 202 palabras",
-  "textos": 3,
-  "numeradas": 4,
+  "intentos": 2,
+  "ultimo": "2026-10-25T03:02:08.872Z",
+  "motivo": "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 192 palabras",
+  "textos": 4,
+  "numeradas": 5,
   "motivos": [
    "cuerpo: 5 problemas (nombre, relleno, copia): el cuerpo nombra a \"majo",
-   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emilersk\" y la fuente"
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emilersk\" y la fuente",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n"
   ],
   "falla": [
-   "el cuerpo nombra a \"emilersk\" y la fuente no"
+   "el cuerpo nombra a \"major\" y la fuente no",
+   "el cuerpo nombra a \"league\" y la fuente no",
+   "el cuerpo nombra a \"soccer\" y la fuente no"
   ]
  },
  "z1rcsy": {

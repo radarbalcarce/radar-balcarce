@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-25T02:04:05.179Z",
- "portada": 92,
- "archivo": 500,
- "esperandoCuerpo": 4,
+ "generado": "2026-10-25T03:03:01.104Z",
+ "portada": 76,
+ "archivo": 499,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-25T02:04:05.530Z",
+  "generado": "2026-10-25T03:03:01.688Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-24T10:36:56.415Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,8 +33,8 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-24T14:06:36.147Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -43,18 +43,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-24T19:36:49.328Z"
-   },
-   {
-    "nombre": "utiles",
-    "tipo": "reel",
-    "hora": "17:00",
-    "que": "Los teléfonos útiles",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-24T20:36:36.144Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +53,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-24T22:46:34.767Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +63,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-24T23:36:36.397Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +73,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-25T01:36:36.346Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,29 +83,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-24T14:06:36.147Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 47,
     "notas": [
      {
-      "id": "149ahyx",
-      "titulo": "Nazareno Ramirez Bazan gana la medalla de oro en los Juegos Bonaerenses",
-      "seccion": "Deportes"
+      "id": "tu91t6",
+      "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
+      "seccion": "Fútbol"
      },
      {
-      "id": "k59a1x",
-      "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1usw8vx",
-      "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "tdc3z0",
-      "titulo": "El ISFT Nº 246 abre la preinscripción a la Tecnicatura de Pymes",
-      "seccion": "Educación"
+      "id": "1mamx6j",
+      "titulo": "Lula y Flávio Bolsonaro cierran la campaña en Brasil de cara al balotaje",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -124,24 +104,19 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-24T19:36:49.328Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 43,
     "notas": [
      {
-      "id": "qgon5k",
-      "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
+      "id": "prtuo4",
+      "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
       "seccion": "Fútbol"
      },
      {
-      "id": "12z1bhb",
-      "titulo": "La Asociación Italiana recibe el espectáculo Varieté en El Conventillo",
+      "id": "1b4pjdh",
+      "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "idsz54",
-      "titulo": "GEP Balcarce compite en un cuadrangular de fútbol en Tandil",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -150,83 +125,34 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-25T01:36:36.346Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 42,
     "notas": [
      {
-      "id": "1al05om",
-      "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
-      "seccion": "Agro"
+      "id": "6bgesn",
+      "titulo": "Leonel Jaime frena el juego por un rival y rompe en llanto",
+      "seccion": "Fútbol"
      },
      {
-      "id": "vn1ufa",
-      "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
-      "seccion": "Salud"
-     },
-     {
-      "id": "169jneq",
-      "titulo": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo",
-      "seccion": "Deportes"
+      "id": "1df4mi",
+      "titulo": "Penalizan a Franco Colapinto y retrocede diez lugares en Estados Unidos",
+      "seccion": "Automovilismo"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "1o59q8j",
-     "titulo": "Suspenden todos los partidos de fútbol del sábado por la lluvia",
-     "cuando": "2026-10-24T14:46:01.823Z"
-    },
-    {
-     "id": "1wdy2e7",
-     "titulo": "Franco Colapinto afronta la tercera práctica y la clasificación en Austin",
-     "cuando": "2026-10-24T16:36:03.862Z"
-    },
-    {
-     "id": "5r4s16",
-     "titulo": "La Liga Balcarceña revela pérdidas millonarias por fecha en su torneo",
-     "cuando": "2026-10-24T19:06:02.095Z"
-    },
-    {
-     "id": "1vxdqss",
-     "titulo": "Fito Páez cuestiona al gobierno de Javier Milei y critica el sistema",
-     "cuando": "2026-10-24T20:47:14.581Z"
-    },
-    {
-     "id": "vsnnzb",
-     "titulo": "LALCEC realiza su tradicional caminata anual en la plaza Libertad",
-     "cuando": "2026-10-24T22:36:05.552Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
-    {
-     "id": "1al05om",
-     "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
-     "seccion": "Agro",
-     "marcada": false
-    },
-    {
-     "id": "r8gyl1",
-     "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
     {
      "id": "1b4pjdh",
      "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
      "seccion": "Cultura y agenda",
      "marcada": false
-    },
-    {
-     "id": "18q724f",
-     "titulo": "YPF prevé ganancias récord y confirma la firma del proyecto de GNL",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-25T00:06:05.552Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
