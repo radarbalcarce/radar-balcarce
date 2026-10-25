@@ -19633,9 +19633,7 @@
   "fuentes": 1
  },
  "mcgl08": {
-  "archivo": "fotos-notas/mcgl08.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Ciudadanos italianos tienen plazo hasta noviembre para votar en el COMITES",
@@ -19655,7 +19653,8 @@
    "descripcion": "Cuatro personas paradas frente al edificio de la Sociedad Italiana de Balcarce"
   },
   "huella": "60b9d2d2b2a92dec",
-  "ausenteDesde": "2026-10-18T12:32:05.673Z"
+  "intentado": true,
+  "borrada": true
  },
  "6qfnj1": {
   "archivo": "fotos-notas/6qfnj1.jpg",
@@ -21174,9 +21173,7 @@
   "ausenteDesde": "2026-10-23T21:27:53.586Z"
  },
  "8xi33h": {
-  "archivo": "fotos-notas/8xi33h.jpg",
   "medio": "Infobrisas (Radio Brisas)",
-  "credito": "Foto: Infobrisas (Radio Brisas)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Analizan las chances electorales de los outsiders frente al escenario político actual",
@@ -21196,7 +21193,8 @@
    "descripcion": "Hombre con brazos cruzados frente a una biblioteca."
   },
   "huella": "68c8c8d4cccc942c",
-  "ausenteDesde": "2026-10-18T12:32:05.673Z"
+  "intentado": true,
+  "borrada": true
  },
  "1i802uu": {
   "archivo": "fotos-notas/1i802uu.jpg",
@@ -25052,7 +25050,8 @@
   "enlace": "https://commons.wikimedia.org/wiki/File:Estadio_barracas_central_1922.jpg",
   "imagenOriginal": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Estadio_barracas_central_1922.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
   "titulo": "File:Estadio barracas central 1922.jpg",
-  "cuando": "2026-10-20T01:02:29.403Z"
+  "cuando": "2026-10-20T01:02:29.403Z",
+  "ausenteDesde": "2026-10-25T13:05:23.023Z"
  },
  "jvgvwn": {
   "archivo": "fotos-notas/jvgvwn.jpg",
@@ -25373,7 +25372,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b5b1b18bd3f1e8b4"
+  "huella": "b5b1b18bd3f1e8b4",
+  "ausenteDesde": "2026-10-25T13:05:23.023Z"
  },
  "19tmo66": {
   "intentado": true,
@@ -37431,13 +37431,28 @@
   "ausenteDesde": "2026-10-24T15:32:31.043Z"
  },
  "vx2jre": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/vx2jre.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Declaran venerable a la argentina Margarita Bavosi",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos editoriales ya que o presentan rostros difuminados, no corresponden con el tema de la nota (por ser autoridades eclesiásticas diferentes), o se tratan de ilustraciones/fotos de banco.",
-  "cuando": "2026-10-24T21:32:54.486Z",
-  "intentos": 3,
-  "fuentes": 7
+  "enlace": "https://www.qznoticias.com/interes-general/el-vaticano-declaro-venerable-a-la-argentina-margarita-bavosi-y-avanzo-su-causa-de-beatificacion",
+  "imagenOriginal": "https://n2.cdnartic.ar/6OFrFbOh-s2Xhg4V0vgKuyoaOxU=/1200x630/smart/filters:format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/10/margarita_bavosi.webp",
+  "razon": "Es la única foto que muestra claramente a Margarita Bavosi sin problemas técnicos, marcas de agua ni personas irreconocibles que invaliden las otras opciones.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Margarita Bavosi sonriendo con anteojos."
+  },
+  "huella": "2464c62e2e2e2c06"
  },
  "1yxp5q5": {
   "intentado": true,
@@ -38207,11 +38222,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
-  "cuando": "2026-10-25T11:01:52.875Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-25T13:03:10.177Z",
   "intentos": 3,
-  "fuentes": 5,
-  "intentosPorCupo": 2
+  "fuentes": 6,
+  "intentosPorCupo": 3
  },
  "1al05om": {
   "intentado": true,
@@ -38317,10 +38332,10 @@
   "origen": "ninguna",
   "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-10-25T11:01:52.875Z",
+  "cuando": "2026-10-25T13:03:10.177Z",
   "intentos": 2,
-  "fuentes": 29,
-  "intentosPorCupo": 2
+  "fuentes": 30,
+  "intentosPorCupo": 3
  },
  "18q724f": {
   "archivo": "fotos-notas/18q724f.jpg",
@@ -38384,14 +38399,28 @@
   "huella": "90de8bcece0e2e2d"
  },
  "3357kp": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3357kp.jpg",
+  "medio": "News Balcarce (FM 91.7)",
+  "credito": "Foto: News Balcarce (FM 91.7)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de 0223 (Mar del Plata) no se usa todavía.",
-  "cuando": "2026-10-25T11:01:52.875Z",
-  "intentos": 2,
-  "fuentes": 13,
-  "intentosPorCupo": 2
+  "enlace": "https://newsbalcarce.com.ar/?p=31105",
+  "imagenOriginal": "https://newsbalcarce.com.ar/wp-content/uploads/NAZARENO-RAMIREZ-FABIAN-BIANCHINI.webp",
+  "razon": "Es la única foto válida que corresponde a la delegación de Balcarce, muestra a adultos identificados con la indumentaria oficial sin presentar menores reconocibles, marcas de agua de medios ni problemas de edición.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos hombres adultos vistiendo camperas oficiales de Deportes Balcarce en un salón"
+  },
+  "huella": "1e9e1b130a92cac8"
  },
  "1li6hwr": {
   "archivo": "fotos-notas/1li6hwr.jpg",
@@ -38630,7 +38659,8 @@
    "corresponde": "si",
    "descripcion": "Collage con dos hombres del equipo Alpine riendo y un primer plano de Franco Colapinto."
   },
-  "huella": "8ddc5e76a9a9e3c9"
+  "huella": "8ddc5e76a9a9e3c9",
+  "ausenteDesde": "2026-10-25T13:05:23.023Z"
  },
  "1va73pk": {
   "intentado": true,
@@ -38755,11 +38785,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-25T12:01:37.721Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 1
+  "razon": "Ninguna de las fotos muestra el partido entre Central Córdoba y Vélez del Torneo Clausura (corresponden a otros equipos como Estudiantes o son placas gráficas genéricas).",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "intentos": 2,
+  "fuentes": 13
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
@@ -39414,5 +39443,107 @@
   "intentos": 1,
   "fuentes": 22,
   "intentosPorCupo": 1
+ },
+ "1lz683a": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Diputados da media sanción al régimen permanente de discapacidad",
+  "razon": "La única foto disponible es de stock o genérica y generada por IA, sin mostrar el hecho real de la noticia.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "13gb00y": {
+  "archivo": "fotos-notas/13gb00y.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La presidenta de Palmeiras defiende a Estudiantes y critica a Flamengo",
+  "enlace": "https://www.eldia.com/deportes/es-ridiculo-la-presidenta-de-palmeiras-salio-a-defender-a-estudiantes-tras-el-reclamo-de-flamengo-deportes_1792882140",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792882117011.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto que muestra netamente a la presidenta de Palmeiras en el estadio sin personas de más ni marcas o elementos extraños.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "La presidenta de Palmeiras saludando en el estadio",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Una mujer adulta con chaqueta verde saluda con la mano en un estadio de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0f0f07170f4dee30"
+ },
+ "qrmy04": {
+  "archivo": "fotos-notas/qrmy04.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Banco Nación otorga más de 210 créditos hipotecarios y recibe 40.000 millones",
+  "enlace": "https://www.c5n.com/economia/el-banco-nacion-coloco-el-100-los-fondos-anses-y-otorgo-mas-210-creditos-hipotecarios-uva-n252466",
+  "imagenOriginal": "https://media.c5n.com/p/261d59d39aaa2777c75f8adbd0ae89c5/adjuntos/326/imagenes/000/404/0000404641/1200x675/smart/banco-la-nacion-argentina.jpg",
+  "razon": "Es la única foto real tomada en el lugar de los hechos (sede central del Banco Nación), sin marcas de agua de medios ni características de stock o gráfica.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio principal del Banco Nación Argentina con personas caminando en la vereda"
+  },
+  "huella": "73f4cec8caca4a4f"
+ },
+ "1g9tyya": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Milei cruza a Lula tras sus críticas económicas en el debate",
+  "razon": "Ninguna foto corresponde directamente a un cruce entre Milei y Lula en el debate mencionado (las fotos muestran a Lula con otros políticos brasileños como Bolsonaro o Flávio Dino, o son fotomontajes/gráficas generadas).",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "intentos": 1,
+  "fuentes": 30
+ },
+ "zlom91": {
+  "archivo": "fotos-notas/zlom91.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Liga Balcarceña defiende el paredón del Estadio Municipal",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/la-liga-balcarcena-defendio-la-construccion-del-paredon-en-el-estadio-municipal-y-cuestiono-a-concejales",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2025/Liga_Balcarcea_de_Futbol_-__frente.jpg",
+  "razon": "Ambas fotos muestran el cartel de la Liga Balcarceña de Fútbol, pero la opción A tiene mejor nitidez y encuadre general.",
+  "cuando": "2026-10-25T13:03:10.177Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cartel institucional de la Liga Balcarceña de Fútbol en una pared exterior"
+  },
+  "huella": "4bcbeb2323239313"
  }
 }
