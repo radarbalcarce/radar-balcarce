@@ -9,6 +9,8 @@ import { dimensionesDeFoto } from '@/lib/dimensiones-foto';
 import {
   politicasDelMedio, puntosDeContacto, camposExtraDeNota, fuentesParaElMarcado, principiosDeNota, editorDeNota, datosDeSeccion,
 } from '@/lib/datos-estructurados';
+import { marcadoConBloques } from '@/lib/bloques-de-datos';
+import { bloquesDeUnaNota } from '@/lib/bloques-del-sitio';
 
 // Los datos estructurados: lo mismo que ya está en la página, pero escrito
 // para que lo lea una máquina.
@@ -88,6 +90,8 @@ export function FichaDelSitio() {
  * o cuando la auditoría le arregló una falta de ortografía; nunca antes de `datePublished`.
  */
 export function FichaDeNota({ nota }) {
+  // Los bloques de datos propios (regla 323): [] con la variable NOTAS_CON_DATOS apagada. Se calculan una sola vez por nota (la página los pide también).
+  const bloques = bloquesDeUnaNota(nota);
   const base = sitio();
   const url = enlace(nota.ruta);
   const datos = {
@@ -122,6 +126,9 @@ export function FichaDeNota({ nota }) {
     // De dónde salió, con el enlace de cada fuente: lo mismo que el desplegable "Fuentes (N)" de la página. Nunca la entrada XML de un feed
     // (CRITERIO-EDITORIAL.md, § 7). El trabajo original es del medio que la informó.
     ...fuentesParaElMarcado(nota),
+    // Con los bloques de datos propios prendidos (regla 323) se suman `mentions` (las notas nuestras que enlaza «Antes en Radar» y Colapinto) y
+    // la cita de Jolpica o DolarApi: lo que la página ya muestra. Sin bloques (la variable apagada) no se suma nada: el marcado es el de siempre.
+    ...(bloques.length ? marcadoConBloques(fuentesParaElMarcado(nota), bloques, enlace) : {}),
     // Las etiquetas de la nota (desde el 25/09) son palabras clave de verdad.
     // El nivel de verificación, las claves y lo que falta confirmar NO van
     // acá: schema.org no tiene una propiedad clara para eso y no se inventa.

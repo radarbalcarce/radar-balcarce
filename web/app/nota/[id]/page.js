@@ -23,6 +23,8 @@ import { imagenesParaCompartir } from '@/lib/datos-estructurados';
 import { fechaDeModificacion } from '@/lib/tiempo';
 import { seguirLeyendo } from '@/lib/seguir-leyendo';
 import { parrafosConEnlaces } from '@/lib/enlaces-en-texto';
+import { bloquesDeUnaNota } from '@/lib/bloques-del-sitio';
+import BloquesDeDatos from '@/components/bloque-de-datos';
 
 export function generateStaticParams() {
   // El parámetro es "titular-en-guiones-id". Ver lib/ruta.js. Van todas las
@@ -100,6 +102,8 @@ export default async function PaginaNota({ params }) {
   // archivo.
   const recientes = obtenerDatos().notas;
   const relacionadas = seguirLeyendo(n, recientes, obtenerArchivo());
+  // Los datos propios de la nota (regla 323; apagados salvo que la variable NOTAS_CON_DATOS los prenda): [] y la página queda como siempre.
+  const bloques = bloquesDeUnaNota(n);
 
   return (
     <div className="envoltura">
@@ -173,6 +177,9 @@ export default async function PaginaNota({ params }) {
             ))}
           </div>
         )}
+
+        {/* Los bloques de datos propios, armados por código con su fuente y su fecha (lib/bloques-de-datos.js, regla 323): sin la variable, nada. */}
+        <BloquesDeDatos bloques={bloques} />
 
         {/* Lo que ve el lector es la nota: título, bajada y cuerpo. Al pie, una
             línea chica con la firma (quién la escribió) y el desplegable

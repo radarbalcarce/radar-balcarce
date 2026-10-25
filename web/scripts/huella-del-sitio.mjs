@@ -26,7 +26,7 @@ export const ARCHIVO_DE_LA_HUELLA = 'huella-del-sitio.txt';
 export const HORAS_ENTRE_COMPILACIONES = 3;
 /** Las variables que cambian lo que sale de la compilación (las lee web/lib; una prueba controla que estén todas). */
 export const VARIABLES_DEL_SITIO = [
-  'SITIO', 'FOTOS_BASE', 'TOPE_DE_NOTAS', 'R2_ARCHIVO', 'SITEMAP_DEL_ARCHIVO', 'SITEMAP_PARTIDO', 'WHATSAPP_CANAL_URL', 'TELEGRAM_CANAL_URL', 'BLUESKY_URL',
+  'SITIO', 'FOTOS_BASE', 'TOPE_DE_NOTAS', 'R2_ARCHIVO', 'SITEMAP_DEL_ARCHIVO', 'SITEMAP_PARTIDO', 'NOTAS_CON_DATOS', 'WHATSAPP_CANAL_URL', 'TELEGRAM_CANAL_URL', 'BLUESKY_URL',
 ];
 /** Lo que la propia vuelta escribe en web/public/ y que no es del sitio de verdad (se rehace en cada vuelta). */
 const GENERADOS_EN_PUBLIC = [/^web\/public\/_redirects$/, /^web\/public\/panel\/estadistica-seleccion\.html$/];
