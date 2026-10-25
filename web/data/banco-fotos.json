@@ -24156,7 +24156,8 @@
    "corresponde": "si",
    "descripcion": "Martín Demichelis sonriendo en primer plano."
   },
-  "huella": "665c1c0d31b9d1d8"
+  "huella": "665c1c0d31b9d1d8",
+  "ausenteDesde": "2026-10-25T00:34:52.826Z"
  },
  "cmfrc0": {
   "archivo": "fotos-notas/cmfrc0.jpg",
@@ -24330,7 +24331,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "3321a5ed17555397"
+  "huella": "3321a5ed17555397",
+  "ausenteDesde": "2026-10-25T00:34:52.826Z"
  },
  "r7kz7s": {
   "intentado": true,
@@ -38083,9 +38085,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-10-24T23:33:11.131Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "intentos": 2,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38093,9 +38095,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tottenham le gana a Chelsea 2 a 0 por la Premier League",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T23:33:11.131Z",
-  "intentos": 1,
+  "razon": "La única imagen disponible es una captura de pantalla de televisión (ESPN) con zócalos y logos superpuestos, por lo que no puede ser elegida.",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "intentos": 2,
   "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38129,9 +38131,9 @@
   "origen": "ninguna",
   "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T23:33:11.131Z",
-  "intentos": 1,
-  "fuentes": 2,
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "intentos": 2,
+  "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1al05om": {
@@ -38212,6 +38214,77 @@
   "cuando": "2026-10-25T00:03:05.082Z",
   "intentos": 1,
   "fuentes": 24,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "18q724f": {
+  "archivo": "fotos-notas/18q724f.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "YPF prevé ganancias récord y confirma la firma del proyecto de GNL",
+  "enlace": "https://tn.com.ar/economia/2026/10/24/el-presidente-de-ypf-anticipo-ganancias-record-para-este-ano-y-confirmo-cuando-se-define-la-inversion-millonaria-para-exportar-gnl/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/foto-ypf-IP7RLJY7FNDAFKN7UGVR6MGNZA.jpg?auth=eb7f90761ee55d950a5aa0310de684dc8cf20e06652b80a4a6ea5d5b2cd33c76&width=1023",
+  "razon": "Es la única opción disponible y muestra claramente la infraestructura de YPF (tanque y operario) que ilustra el tema de la nota, sin marcas de agua del medio ni menores.",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operario de YPF subiendo una escalera en una planta industrial con tanques de almacenamiento al fondo.",
+   "detalle": "Los logos de YPF y TMC corresponden a la escena real (uniforme y maquinaria), no son marcas de agua del medio."
+  },
+  "huella": "cefcad2a27090593"
+ },
+ "j70uyh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Balerdi anota un doblete y Soulé marca en el empate 3 a 3 de la Roma ante el Napoli",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "r5zwi4": {
+  "archivo": "fotos-notas/r5zwi4.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Inter Miami pierde ante New York Red Bulls con Messi de suplente",
+  "enlace": "https://www.clarin.com/deportes/inter-miami-lionel-messi-vs-new-york-red-bulls-vivo-hora-formaciones-ver_0_mPwBDy1Fib.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/24/FmNfSu_ex_2000x1500__1.jpg",
+  "razon": "Es la única imagen completa y nítida que muestra la acción del partido entre Inter Miami y New York Red Bulls, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Messi (Inter Miami) y un jugador de New York Red Bulls disputando el balón durante el partido."
+  },
+  "huella": "90de8bcece0e2e2d"
+ },
+ "3357kp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:33:40.581Z",
+  "intentos": 1,
+  "fuentes": 13,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

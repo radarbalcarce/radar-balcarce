@@ -503,19 +503,17 @@
   "motivo": "con cuerpo"
  },
  "17ztrqj": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T00:01:25.805Z",
-  "motivo": "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"bajo\" y la fuente no; sin esas oraciones quedan 96 palabras",
-  "textos": 6,
-  "numeradas": 8,
+  "intentos": 2,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 194 palabras",
+  "textos": 5,
+  "numeradas": 6,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"bajo\" y la f"
+   "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"bajo\" y la f",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ],
   "falla": [
-   "el cuerpo nombra a \"bajo\" y la fuente no",
-   "el cuerpo nombra a \"flores\" y la fuente no",
-   "el cuerpo nombra a \"asociacion\" y la fuente no",
    "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
@@ -545,17 +543,14 @@
   "motivo": "con cuerpo"
  },
  "18q724f": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T00:01:25.805Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 214 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 5,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 21 palabras seguidas del original (\"italiana eni y xrg el brazo internacional de inversiones de la petrolera estatal de…\"): decilo con"
   ]
  },
  "18qkpo0": {
@@ -1257,6 +1252,19 @@
   "ultimo": "2026-10-23T13:32:24.119Z",
   "motivo": "con cuerpo"
  },
+ "1jydy9z": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 178 palabras",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1k3aqu5": {
   "intentos": 1,
   "ultimo": "2026-10-18T18:31:26.616Z",
@@ -1350,19 +1358,18 @@
   "motivo": "con cuerpo"
  },
  "1li6hwr": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T00:01:25.805Z",
-  "motivo": "cuerpo: 4 problemas (antecedente, nombre, repite, promesa): el cuerpo usa \"boca\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan",
+  "intentos": 2,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo explica; sin esas oraciones quedan 216 palabras",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "cuerpo: 2 problemas (tildes, promesa): el texto está escrito sin tilde",
-   "cuerpo: 4 problemas (antecedente, nombre, repite, promesa): el cuerpo "
+   "cuerpo: 4 problemas (antecedente, nombre, repite, promesa): el cuerpo ",
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
+   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
   ],
   "falla": [
-   "el cuerpo usa \"boca\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo nombra a \"juniors\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo",
    "el título dice 21 y el cuerpo no lo explica"
   ]
  },
@@ -1563,11 +1570,6 @@
   "intentos": 1,
   "ultimo": "2026-10-18T19:01:20.189Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
- },
- "1o3t45b": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T00:31:36.824Z",
-  "motivo": "con cuerpo"
  },
  "1o59q8j": {
   "intentos": 1,
@@ -1826,11 +1828,6 @@
   "intentos": 1,
   "ultimo": "2026-10-22T21:31:32.104Z",
   "motivo": "con cuerpo"
- },
- "1rwyna1": {
-  "intentos": 3,
-  "ultimo": "2026-10-18T00:31:36.824Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y la fuente no"
  },
  "1rylju8": {
   "intentos": 1,
@@ -2399,18 +2396,14 @@
   "motivo": "con cuerpo"
  },
  "3357kp": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T00:01:25.805Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "con cuerpo",
   "textos": 4,
-  "numeradas": 12,
+  "numeradas": 13,
   "motivos": [
    "cuerpo: 3 problemas (antecedente, promesa): el cuerpo usa \"ariel\", que",
    "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título dice 2.026 y el cuerpo no lo explica"
   ]
  },
  "348w4g": {
@@ -3384,6 +3377,13 @@
   "ultimo": "2026-10-18T11:01:22.898Z",
   "motivo": "con cuerpo"
  },
+ "j70uyh": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6
+ },
  "j7qnl0": {
   "intentos": 1,
   "ultimo": "2026-10-23T15:07:07.916Z",
@@ -3576,22 +3576,20 @@
   "motivo": "con cuerpo"
  },
  "ltfvuv": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T23:32:07.797Z",
-  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (clasificacion, penalizacion): va con las tildes y la eñe donde cor",
+  "intentos": 3,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "cuerpo: 2 problemas (promesa): el título dice 14 y el cuerpo no lo explica; sin esas oraciones quedan 236 palabras",
   "textos": 4,
-  "numeradas": 21,
+  "numeradas": 27,
   "motivos": [
-   "cuerpo: 2 problemas (promesa): el título dice 14 y el cuerpo no lo exp",
    "cuerpo: 2 problemas (antecedente, nombre): el cuerpo usa 0, que sale d",
    "cuerpo: 3 problemas (antecedente, repite, promesa): el cuerpo usa 0, q",
-   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
+   "cuerpo: 2 problemas (promesa): el título dice 14 y el cuerpo no lo exp"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el texto está escrito sin tildes (clasificacion, penalizacion, sesion, posicion, sancion): va con las tildes y la eñe donde corresponden",
-   "el título nombra a \"estados\", \"unidos\" y el cuerpo no los explica",
-   "el título dice 14 y el cuerpo no lo explica"
+   "el título dice 14 y el cuerpo no lo explica",
+   "el título dice 21 y el cuerpo no lo explica"
   ]
  },
  "lty6ot": {
@@ -4016,6 +4014,16 @@
   "intentos": 1,
   "ultimo": "2026-10-23T01:31:55.891Z",
   "motivo": "con cuerpo"
+ },
+ "r5zwi4": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T00:32:33.031Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
+  ]
  },
  "r7kz7s": {
   "intentos": 1,
@@ -4648,11 +4656,6 @@
  "zd1iq": {
   "intentos": 1,
   "ultimo": "2026-10-19T23:01:16.420Z",
-  "motivo": "con cuerpo"
- },
- "zfh85l": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T00:31:36.824Z",
   "motivo": "con cuerpo"
  },
  "zmx9iz": {
