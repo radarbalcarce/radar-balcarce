@@ -34698,10 +34698,10 @@
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-25T13:32:29.139Z",
+  "cuando": "2026-10-25T18:03:06.116Z",
   "intentos": 5,
   "fuentes": 5,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -36839,7 +36839,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "c48485757963353d"
+  "huella": "c48485757963353d",
+  "ausenteDesde": "2026-10-25T18:05:33.962Z"
  },
  "1xezweo": {
   "intentado": true,
@@ -38212,14 +38213,28 @@
   "huella": "63e226a8bcc14c31"
  },
  "146xxio": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/146xxio.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Tottenham le gana a Chelsea 2 a 0 por la Premier League",
-  "razon": "La única imagen disponible es una captura de pantalla de televisión (ESPN) con zócalos y logos superpuestos, por lo que no puede ser elegida.",
-  "cuando": "2026-10-25T00:33:40.581Z",
-  "intentos": 2,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/video-gol-arquero-chelsea-dibu-martinez_0_GNPOgo21K9.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/24/_6E7wpV5y_2000x1500__1.jpg",
+  "razon": "Es una excelente foto de partido de la Premier League con buen encuadre y sin marcas de medios ni menores.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Tottenham y Chelsea disputando la pelota en el area con arquero."
+  },
+  "huella": "b627169b468d149c"
  },
  "10w3c3h": {
   "archivo": "fotos-notas/10w3c3h.jpg",
@@ -40343,6 +40358,165 @@
    "corresponde": "si",
    "descripcion": "El auto de carrera circulando de frente en la pista"
   },
-  "huella": "ba12e8684c54710e"
+  "huella": "ba12e8684c54710e",
+  "ausenteDesde": "2026-10-25T18:05:33.962Z"
+ },
+ "njwqjk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
+  "razon": "Ninguna de las fotos corresponde a la noticia sobre María Corina Machado.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "e9cid4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Alvarado visita a Sportivo Las Parejas por el Torneo Federal A",
+  "razon": "Ninguna de las fotos cumple con todos los requisitos sin marcas o problemas de formato.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "8lorat": {
+  "archivo": "fotos-notas/8lorat.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Brasil define la presidencia en el balotaje entre Lula da Silva y Flávio Bolsonaro",
+  "enlace": "https://tn.com.ar/internacional/2026/10/25/lula-da-silva-voto-en-san-pablo-y-critico-a-bolsonaro-es-una-persona-sin-calificacion-moral-fue-educado-para-mentir/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/lula-da-silva-voto-en-san-pablo-y-critico-a-bolsonaro-foto-ap-HXHOGU6Z4ZGXRC4QX6ERV7A4P4.jpg?auth=06b3e92c9297c995581318907dea6b4c654313f3150c824cd68d372a088300a9&width=1023",
+  "razon": "Muestra claramente a uno de los candidatos en el contexto electoral con buena calidad y sin problemas de marcas ni menores.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lula da Silva sosteniendo una bandera de Brasil junto a una urna electoral."
+  },
+  "huella": "6f2f2f4f4d579395"
+ },
+ "s06nlt": {
+  "archivo": "fotos-notas/s06nlt.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central derrota 2 a 0 a Huracán por el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-rosario-central-vs-huracan-fecha-14-id767987.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/24/999322/rosario-central_1440x810.webp?v=1",
+  "razon": "Es la única foto que muestra un festejo de gol real del partido, sin marcas agregadas, sin menores y con excelente nitidez.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central celebrando un gol en el suelo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Rosario Central celebran un gol abrazados en el campo de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "357134cc6ada28d9"
+ },
+ "1aogfll": {
+  "archivo": "fotos-notas/1aogfll.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Psicólogos bonaerenses suspenden la atención a afiliados de IOMA",
+  "enlace": "https://puntonueve.com.ar/psicologos-bonaerenses-volveran-a-suspender-la-atencion-a-afiliados-de-ioma/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/ioma.jpg",
+  "razon": "La foto A muestra el edificio central de IOMA de manera clara y directa sin marcas de agua ni problemas de stock o menores.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio central de IOMA.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fachada exterior de la sede de IOMA con autos estacionados frente a la entrada."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0586b6a20f4dd58e"
+ },
+ "1qkiy8z": {
+  "archivo": "fotos-notas/1qkiy8z.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo y Newell´s empatan sin goles por el Torneo Clausura",
+  "enlace": "https://www.clarin.com/deportes/san-lorenzo-vs-newells-torneo-clausura-vivo-hora-formaciones-ver_0_1vQL5f6ow1.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/24/GLxVvX3Hl_2000x1500__1.jpg",
+  "razon": "Es la única foto de partido válida, nítida, sin marcas superpuestas ni gráficos.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Newell's y San Lorenzo disputando el balón"
+  },
+  "huella": "243343ebc395b6a7"
+ },
+ "1wp91xf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata conmemora a Sor María Ludovica con una marcha y misa",
+  "razon": "No hay ninguna foto disponible que cumpla con los requisitos sin menores reconocibles o marcas.",
+  "cuando": "2026-10-25T18:03:06.116Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "f1parrilla2026r18": {
+  "archivo": "fotos-notas/libre-f1parrilla2026r18.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Planet Labs, Inc. / Wikimedia Commons (CC BY-SA 4.0)",
+  "licencia": "CC BY-SA 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Circuit_of_the_Americas,_April_22,_2018_SkySat.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Circuit_of_the_Americas%2C_April_22%2C_2018_SkySat.jpg/1280px-Circuit_of_the_Americas%2C_April_22%2C_2018_SkySat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Circuit of the Americas, April 22, 2018 SkySat.jpg",
+  "cuando": "2026-10-25T18:05:31.243Z"
  }
 }
