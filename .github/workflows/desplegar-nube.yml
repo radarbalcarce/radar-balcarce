@@ -98,7 +98,7 @@ jobs:
       - name: Cargar los secretos de las tareas
         if: env.QUE == 'todo' || env.QUE == 'tareas'
         run: |
-          node infra/compartido/secretos-para-wrangler.mjs RADAR_GITHUB_TOKEN VIGILANTE_TOKEN META_TOKEN GEMINI_API_KEY_REDACCION GEMINI_API_KEY_CLASIFICACION GEMINI_API_KEY_REDES GROQ_API_KEY TAVILY_API_KEY OPENROUTER_API_KEY CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_ANALYTICS_TOKEN CLOUDFLARE_API_TOKEN WHATSAPP_TELEFONO WHATSAPP_APIKEY \
+          node infra/compartido/secretos-para-wrangler.mjs RADAR_GITHUB_TOKEN VIGILANTE_TOKEN META_TOKEN GEMINI_API_KEY_REDACCION GEMINI_API_KEY_CLASIFICACION GEMINI_API_KEY_REDES GROQ_API_KEY TAVILY_API_KEY OPENROUTER_API_KEY CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_ANALYTICS_TOKEN CLOUDFLARE_API_TOKEN WHATSAPP_TELEFONO WHATSAPP_APIKEY BUFFER_API_KEY \
             | npx --yes wrangler@4.139.0 secret bulk --config infra/tareas-cloudflare/wrangler.generado.toml
         env:
           RADAR_GITHUB_TOKEN: ${{ secrets.RADAR_GITHUB_TOKEN }}
@@ -113,6 +113,7 @@ jobs:
           CLOUDFLARE_ANALYTICS_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_TOKEN }}
           WHATSAPP_TELEFONO: ${{ secrets.WHATSAPP_TELEFONO }}
           WHATSAPP_APIKEY: ${{ secrets.WHATSAPP_APIKEY }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
 
       # ------------------------------------------------------------------ motor
       - name: Subir el Worker del motor

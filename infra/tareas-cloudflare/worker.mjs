@@ -45,6 +45,13 @@ export const resumenDe = (r) => ({
 export async function atender(request, env, { github = null, correr = correrTarea, raiz = RAIZ_EN_UN_WORKER } = {}) {
   const url = new URL(request.url);
   if (request.method === 'GET' && url.pathname === '/') return new Response('Tareas de Radar Balcarce: en hora.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+  // 25/10/2026: los reels ya publicados, para que Buffer los lleve a TikTok y YouTube (redes/buffer.mjs). Sólo los .mp4 de listos/ del render.
+  const video = request.method === 'GET' && url.pathname.match(/^\/video\/([A-Za-z0-9_-]{6,80})\/([A-Za-z0-9_.-]{1,80}\.mp4)$/);
+  if (video) {
+    const o = await env.RENDER?.get(`listos/${video[1]}/${video[2]}`);
+    if (!o) return new Response('no está', { status: 404 });
+    return new Response(o.body, { status: 200, headers: { 'content-type': 'video/mp4', 'content-length': String(o.size), 'cache-control': 'public, max-age=3600' } });
+  }
   if (!mismoToken(request.headers.get('x-token'), env.VIGILANTE_TOKEN)) return json({ ok: false, error: 'sin permiso' }, 401);
 
   if (request.method === 'GET' && url.pathname === '/estado') {
