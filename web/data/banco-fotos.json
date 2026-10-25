@@ -20325,9 +20325,7 @@
   "fuentes": 3
  },
  "12dkxub": {
-  "archivo": "fotos-notas/12dkxub.jpg",
   "medio": "Página/12",
-  "credito": "Foto: Página/12",
   "licencia": null,
   "origen": "medio",
   "titulo": "Cristina Kirchner saluda a la militancia desde su domicilio",
@@ -20347,7 +20345,8 @@
    "descripcion": "Cristina Kirchner saluda desde el balcón de su domicilio."
   },
   "huella": "3171737373f3f3f3",
-  "ausenteDesde": "2026-10-18T19:32:24.851Z"
+  "intentado": true,
+  "borrada": true
  },
  "4tx679": {
   "archivo": "fotos-notas/4tx679.jpg",
@@ -21779,9 +21778,7 @@
   "ausenteDesde": "2026-10-18T20:01:48.078Z"
  },
  "8wtx5v": {
-  "archivo": "fotos-notas/8wtx5v.jpg",
   "medio": "Diario Popular",
-  "credito": "Foto: Diario Popular",
   "licencia": null,
   "origen": "medio",
   "titulo": "Racing le gana 1 a 0 a Independiente en el clásico de Avellaneda",
@@ -21801,7 +21798,8 @@
    "descripcion": "Dos jugadores de Racing celebrando un gol en el clásico"
   },
   "huella": "c777f3568eb4313a",
-  "ausenteDesde": "2026-10-18T19:32:24.851Z"
+  "intentado": true,
+  "borrada": true
  },
  "669t41": {
   "archivo": "fotos-notas/669t41.jpg",
@@ -26049,7 +26047,8 @@
    "corresponde": "si",
    "descripcion": "Susana Giménez y actor caracterizado para la serie de Menem"
   },
-  "huella": "242c4c7c4c585a79"
+  "huella": "242c4c7c4c585a79",
+  "ausenteDesde": "2026-10-25T19:33:40.901Z"
  },
  "1gd2xcu": {
   "intentado": true,
@@ -40532,6 +40531,28 @@
   "cuando": "2026-10-25T18:32:06.065Z",
   "intentos": 1,
   "fuentes": 25,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "dri7vy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T19:32:48.454Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1qtse9x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mauricio Lambiris gana la final del Turismo Carretera en Rosario",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T19:32:48.454Z",
+  "intentos": 1,
+  "fuentes": 8,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
