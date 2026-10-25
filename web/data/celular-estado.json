@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-25T17:03:02.847Z",
- "portada": 78,
+ "generado": "2026-10-25T17:33:14.089Z",
+ "portada": 71,
  "archivo": 500,
  "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-25T17:03:03.337Z",
+  "generado": "2026-10-25T17:33:14.642Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -106,19 +106,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 28,
-    "notas": [
-     {
-      "id": "leizg3",
-      "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "2of31o",
-      "titulo": "Guillermo Weingast destaca los avances globales para erradicar la polio",
-      "seccion": "Salud"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "podcast",
@@ -137,18 +126,23 @@
      "id": "19j43n6",
      "titulo": "Aldosivi enfrenta a Belgrano en Mar del Plata por el Torneo Clausura",
      "cuando": "2026-10-25T15:06:45.299Z"
+    },
+    {
+     "id": "leizg3",
+     "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
+     "cuando": "2026-10-25T17:06:05.259Z"
     }
    ],
    "cola": [
     {
-     "id": "leizg3",
-     "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
+     "id": "gux4r",
+     "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
      "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-25T16:36:45.299Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-25T18:36:05.259Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

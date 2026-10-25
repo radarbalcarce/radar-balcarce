@@ -28598,7 +28598,8 @@
    "corresponde": "si",
    "descripcion": "Operarios realizando tareas de reparación con agua a presión"
   },
-  "huella": "07330546c6cf7b5b"
+  "huella": "07330546c6cf7b5b",
+  "ausenteDesde": "2026-10-25T17:33:14.019Z"
  },
  "xnuphz": {
   "archivo": "fotos-notas/xnuphz.jpg",
@@ -38250,11 +38251,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-10-25T13:03:10.177Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
+  "cuando": "2026-10-25T17:32:01.943Z",
   "intentos": 3,
-  "fuentes": 6,
-  "intentosPorCupo": 3
+  "fuentes": 10,
+  "intentosPorCupo": 4
  },
  "1al05om": {
   "intentado": true,
@@ -38359,11 +38360,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-10-25T13:03:10.177Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Olé no se usa todavía.",
+  "cuando": "2026-10-25T17:32:01.943Z",
   "intentos": 2,
-  "fuentes": 30,
-  "intentosPorCupo": 3
+  "fuentes": 31,
+  "intentosPorCupo": 4
  },
  "18q724f": {
   "archivo": "fotos-notas/18q724f.jpg",
@@ -40269,7 +40270,8 @@
    "corresponde": "si",
    "descripcion": "Monoplaza de Fórmula 1 en primer plano lateral sobre la pista"
   },
-  "huella": "0bba6ea7e829f90f"
+  "huella": "0bba6ea7e829f90f",
+  "ausenteDesde": "2026-10-25T17:33:14.019Z"
  },
  "1db7lrd": {
   "archivo": "fotos-notas/1db7lrd.jpg",
@@ -40294,5 +40296,53 @@
    "descripcion": "Javier Milei hablando en un atril con fondo violeta y logo"
   },
   "huella": "73737577737676f2"
+ },
+ "125cdkx": {
+  "archivo": "fotos-notas/125cdkx.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Brasileños residentes en la Argentina votan este domingo en el balotaje presidencial",
+  "enlace": "https://www.cronica.com.ar/sociedad/elecciones-en-brasil-mas-de-13-mil-residentes-brasilenos-votan-en-argentina-para-elegir-presidente/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1725/1725359/6ade3091c7e89_600_315!.jpg?s=060dfd319e7387e5b31780c45e2ecb4b&d=1792897200",
+  "razon": "Muestra claramente el proceso de votación de brasileños en el exterior sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-25T17:32:01.943Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con bandera de Brasil frente a una cabina de votación"
+  },
+  "huella": "0e8484a4aebe2d3c"
+ },
+ "1o2uiov": {
+  "archivo": "fotos-notas/1o2uiov.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto larga 21º en el Gran Premio de Estados Unidos",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/25/franco-colapinto-afronta-el-gp-de-estados-unidos-desde-el-fondo-de-la-grilla-largara-21/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/franco-colapinto-largara-21-en-el-gp-de-estados-unidos-foto-efe-WA2QWPMIMRDIZKD3RJJ6D6JGUU.jpg?auth=f319cca4c4385d5ca1da407ef2a67274aa5d1f9a568cd4e604c232b7e3a1a036&width=1023",
+  "razon": "Se seleccionó la foto B porque tiene excelente encuadre y nitidez de frente en pista, y cumple con todos los requisitos sin marcas ni inconvenientes.",
+  "cuando": "2026-10-25T17:32:01.943Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El auto de carrera circulando de frente en la pista"
+  },
+  "huella": "ba12e8684c54710e"
  }
 }

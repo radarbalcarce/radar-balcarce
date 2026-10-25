@@ -142,6 +142,13 @@
   "ultimo": "2026-10-20T16:32:58.063Z",
   "motivo": "con cuerpo"
  },
+ "125cdkx": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T17:31:37.482Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "128odtv": {
   "intentos": 1,
   "ultimo": "2026-10-21T02:31:34.762Z",
@@ -1206,11 +1213,6 @@
   "ultimo": "2026-10-24T00:31:43.933Z",
   "motivo": "con cuerpo"
  },
- "1h0p2e2": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T17:31:34.574Z",
-  "motivo": "con cuerpo"
- },
  "1h3sch4": {
   "intentos": 1,
   "ultimo": "2026-10-22T22:31:46.685Z",
@@ -1365,11 +1367,6 @@
   "intentos": 3,
   "ultimo": "2026-10-22T05:01:19.492Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
- },
- "1iqzgfw": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T17:31:34.574Z",
-  "motivo": "con cuerpo"
  },
  "1irbt94": {
   "intentos": 1,
@@ -1814,6 +1811,13 @@
   "intentos": 1,
   "ultimo": "2026-10-18T19:01:20.189Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
+ },
+ "1o2uiov": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T17:31:37.482Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5
  },
  "1o59q8j": {
   "intentos": 1,
@@ -3074,6 +3078,19 @@
   "intentos": 1,
   "ultimo": "2026-10-18T19:01:20.189Z",
   "motivo": "con cuerpo"
+ },
+ "8zp46n": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T17:31:37.482Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 6,
+  "numeradas": 21,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "90372i": {
   "intentos": 1,
