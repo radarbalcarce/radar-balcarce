@@ -509,16 +509,22 @@ test('el vigilante, en pausa: avisa "en pausa desde X por Y" y NO avisa que la w
   assert.ok(sin.estado.ultimo.problemas.includes('tarea-redes'));
   // con pausa: sólo la pausa (y las roturas de verdad, que la pausa no explica, seguirían)
   const enviados = [];
-  const con = await vigilante.correr(envDelVigilante(vistaPublica(ENCENDIDA)), AHORA, { fetchFn: fetchDeLaWeb(300), enviar: async (m) => { enviados.push(m); } });
+  const envCon = envDelVigilante(vistaPublica(ENCENDIDA));
+  const con = await vigilante.correr(envCon, AHORA, { fetchFn: fetchDeLaWeb(300), enviar: async (m) => { enviados.push(m); } });
+  con.carpeta = await envCon.ESTADO.get(vigilante.CLAVE_DE_LA_CARPETA);
   assert.deepEqual(con.estado.ultimo.problemas, ['pausa-general']);
-  assert.equal(enviados.length, 1);
-  assert.match(enviados[0].asunto, /PAUSA GENERAL desde 24\/10 14:05 \(por Hernán\)/);
-  assert.match(enviados[0].texto, /En pausa desde 24\/10 14:05 \(hace 67 min\) por Hernán: se publicó algo que no debía/);
-  assert.match(enviados[0].texto, /Más → Pausa general → Reanudar/);
+  // 25/10: el aviso no es un mail suelto; queda en la carpeta del informe
+  assert.equal(enviados.length, 0);
+  const carpetaDe = (r) => JSON.parse(r ?? '[]');
+  const enLaCarpeta = carpetaDe(con.carpeta);
+  assert.equal(enLaCarpeta.length, 1);
+  assert.match(enLaCarpeta[0].asunto, /PAUSA GENERAL desde 24\/10 14:05 \(por Hernán\)/);
   assert.deepEqual(con.estado.ultimo.pausa, { desde: ENCENDIDA.desde, por: 'Hernán', motivo: 'se publicó algo que no debía' });
-  // a la media hora no se repite el mail
-  const otra = await vigilante.correr({ ...envDelVigilante(vistaPublica(ENCENDIDA)), ESTADO: (() => { const k = kvFalso(); k.put('estado', JSON.stringify(con.estado)); return k; })() }, new Date(AHORA.getTime() + 1800e3), { fetchFn: fetchDeLaWeb(330), enviar: async (m) => { enviados.push(m); } });
-  assert.equal(enviados.length, 1);
+  // a la media hora no se anota de nuevo
+  const kv2 = (() => { const k = kvFalso(); k.put('estado', JSON.stringify(con.estado)); return k; })();
+  const otra = await vigilante.correr({ ...envDelVigilante(vistaPublica(ENCENDIDA)), ESTADO: kv2 }, new Date(AHORA.getTime() + 1800e3), { fetchFn: fetchDeLaWeb(330), enviar: async (m) => { enviados.push(m); } });
+  assert.equal(enviados.length, 0);
+  assert.equal(await kv2.get(vigilante.CLAVE_DE_LA_CARPETA), null, 'nada nuevo en la carpeta');
   assert.deepEqual(otra.estado.ultimo.problemas, ['pausa-general']);
 });
 
@@ -566,10 +572,10 @@ test('el informe diario sale con "EN PAUSA" arriba (asunto, texto y html) cuando
   await vigilante.atender(pedirAviso({ ...informe, clave: 'informe-noche-2026-10-25' }), env(), dep(null));
   assert.equal(enviados[0].asunto, '[Radar Balcarce] Informe de la noche');
   assert.doesNotMatch(enviados[0].texto, /PAUSA/);
-  // otro aviso (no es un informe) no lleva el cartel
+  // otro aviso (no es un informe) no sale como mail: va a la carpeta del informe (25/10)
   enviados.length = 0;
   await vigilante.atender(pedirAviso({ asunto: 'Falló algo', texto: 'detalle', clave: 'otra-cosa' }), env(), dep(vistaPublica(ENCENDIDA)));
-  assert.doesNotMatch(enviados[0].texto, /PAUSA/);
+  assert.equal(enviados.length, 0);
   // si el Worker de tareas no contesta, el informe sale igual, como siempre
   enviados.length = 0;
   await vigilante.atender(pedirAviso({ ...informe, clave: 'informe-manana-2026-10-26' }), { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' }, dep());

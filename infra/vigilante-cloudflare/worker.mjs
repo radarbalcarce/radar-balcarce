@@ -12,12 +12,12 @@
 //   · github-sin-lectura GitHub no deja leer sus corridas cuatro revisiones seguidas (media hora cada una);
 //   · pausa-general      una persona frenó toda la publicación desde el panel del celular (regla 317): «en pausa desde X por Y». Mientras dura (y 3 horas después de reanudar)
 //                        no se avisa que la web o una tarea frenada «no se actualizan»; una web caída, sí. El informe diario (POST /avisar) sale con «EN PAUSA» arriba.
-// Cada problema se avisa una vez y se repite cada 6 horas mientras siga; cuando se arregla, llega un mail de "recuperado" (una sola vez).
-// A las 22 (hora de Balcarce) sale un resumen del día, pero SÓLO si el informe de la noche (redes/informe-diario.mjs, 21:15) no llegó: es su
+// Desde el 25/10 NINGÚN aviso sale como mail suelto: cada problema se anota una vez (y otra cada 24 horas mientras siga) en la carpeta del informe,
+// que va resumida arriba del informe de las 8:15 y de las 21:15. Así llegan, como mucho, dos mails por día. A las 22 (hora de Balcarce) sale un resumen del día, pero SÓLO si el informe de la noche (redes/informe-diario.mjs, 21:15) no llegó: es su
 // respaldo, y vive afuera de GitHub (regla 176).
 //
-// Además de vigilar, es la puerta de salida de los avisos de GitHub: POST /avisar (redes/avisar-por-mail.mjs) manda por mail lo que antes iba por
-// WhatsApp (regla 173). Necesita: un KV (ESTADO), el envío de mails (AVISOS) y un secreto, VIGILANTE_TOKEN (para /probar-mail y /avisar). Opcional: GITHUB_TOKEN, de sólo lectura,
+// Además de vigilar, es la puerta de salida de los avisos de GitHub y de las tareas: POST /avisar (redes/avisar-por-mail.mjs) manda por mail los
+// informes y guarda en la carpeta todo lo demás (regla 173; 25/10). Necesita: un KV (ESTADO), el envío de mails (AVISOS) y un secreto, VIGILANTE_TOKEN (para /probar-mail y /avisar). Opcional: GITHUB_TOKEN, de sólo lectura,
 // por si GitHub limita las lecturas sin llave (las IP de Cloudflare se comparten). Ver LEEME.md. Nada se escribe en el código.
 
 export const SITIO = 'https://radarbalcarce.com';
@@ -645,9 +645,68 @@ export function resumenDebido(previo = {}, ahora, { informeLlego = false } = {})
 /** La clave con la que redes/informe-diario.mjs manda el informe de un momento ("manana" o "noche") de un día; el Worker la recuerda 6 horas. */
 export const claveDelInforme = (momento, dia) => `informe-${momento}-${dia}`;
 
+// ---------------------------------------------------------------- la carpeta del informe
+
+// 25/10/2026 (los dueños: «a lo sumo uno o dos mails por día, no reviso el mail todo el tiempo»): los avisos sueltos (los del vigilante y los
+// que llegan por POST /avisar) ya no salen como mail. Se guardan acá y van, juntos y resumidos, arriba del próximo informe (8:15 y 21:15) o
+// del resumen de respaldo de las 22. Los únicos mails son esos.
+export const CLAVE_DE_LA_CARPETA = 'avisos-para-el-informe';
+export const TOPE_DE_LA_CARPETA = 60;
+
+const sinPrefijo = (asunto) => String(asunto ?? '').replace(/^\[Radar Balcarce\]\s*/i, '').replace(/^URGENTE:\s*/i, '').trim();
+
+/** Guarda avisos ({ asunto, nivel?, texto? }) para el próximo informe. Nunca tira: si el KV falla, se pierde ese aviso y nada más. */
+export async function guardarParaElInforme(kv, avisos = [], ahora = new Date()) {
+  if (!kv || !avisos.length) return;
+  try {
+    const previos = (await kv.get(CLAVE_DE_LA_CARPETA, 'json')) ?? [];
+    const nuevos = avisos.map((a) => ({ cuando: ahora.toISOString(), asunto: sinPrefijo(a.asunto).slice(0, 160), nivel: a.nivel ?? 'media' }));
+    await kv.put(CLAVE_DE_LA_CARPETA, JSON.stringify([...previos, ...nuevos].slice(-TOPE_DE_LA_CARPETA)));
+  } catch { /* un aviso perdido no frena la vuelta */ }
+}
+
+/** Los avisos guardados, comprimidos: uno por asunto, con cuántas veces y desde cuándo. Lo urgente primero. */
+export function resumirLaCarpeta(avisos = []) {
+  const porAsunto = new Map();
+  for (const a of avisos) {
+    const g = porAsunto.get(a.asunto) ?? { asunto: a.asunto, veces: 0, primero: a.cuando, ultimo: a.cuando, alta: false };
+    g.veces += 1;
+    if (a.cuando < g.primero) g.primero = a.cuando;
+    if (a.cuando > g.ultimo) g.ultimo = a.cuando;
+    g.alta ||= a.nivel === 'alta';
+    porAsunto.set(a.asunto, g);
+  }
+  const grupos = [...porAsunto.values()].sort((x, y) => Number(y.alta) - Number(x.alta) || y.ultimo.localeCompare(x.ultimo));
+  if (!grupos.length) return null;
+  const renglon = (g) => `${g.alta ? 'Importante: ' : ''}${g.asunto}${g.veces > 1 ? ` (${g.veces} veces, desde las ${fechaHoraAR(new Date(g.primero))})` : ` (${fechaHoraAR(new Date(g.ultimo))})`}`;
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const titulo = `AVISOS DESDE EL INFORME ANTERIOR (${grupos.length})`;
+  const texto = [titulo, ...grupos.map((g) => `  - ${renglon(g)}`), '  El detalle de cada uno, en el panel del celular y en /estado del vigilante.', ''].join('\n');
+  const html = `<div style="max-width:640px;margin:12px auto 0;padding:12px 16px;background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;font:14px/1.45 Arial,Helvetica,sans-serif;color:#1b2433"><div style="font-size:12px;letter-spacing:1px;font-weight:bold;color:#9a5b00;margin-bottom:6px">${esc(titulo)}</div>${grupos.map((g) => `<div style="margin:4px 0">• ${esc(renglon(g))}</div>`).join('')}</div>`;
+  return { texto, html, cuantos: grupos.length };
+}
+
+/** Saca la carpeta (para meterla en un mail) y la deja vacía. */
+async function vaciarLaCarpeta(kv) {
+  if (!kv) return [];
+  try {
+    const avisos = (await kv.get(CLAVE_DE_LA_CARPETA, 'json')) ?? [];
+    return Array.isArray(avisos) ? avisos : [];
+  } catch { return []; }
+}
+
+/** Le pone la carpeta arriba a un mail (texto y, si tiene, html). */
+export function conLaCarpeta(mail, avisos = []) {
+  const r = resumirLaCarpeta(avisos);
+  if (!r) return mail;
+  const nuevo = { ...mail, texto: `${r.texto}\n${mail.texto}` };
+  if (mail.html) nuevo.html = /<body[^>]*>/i.test(mail.html) ? mail.html.replace(/<body[^>]*>/i, (m) => m + r.html) : r.html + mail.html;
+  return nuevo;
+}
+
 // ---------------------------------------------------------------- el mail
 
-const bytes = (s) => new TextEncoder().encode(s);
+const bytes =(s) => new TextEncoder().encode(s);
 const base64 = (u8) => {
   let bin = '';
   for (let i = 0; i < u8.length; i += 0x8000) bin += String.fromCharCode(...u8.subarray(i, i + 0x8000));
@@ -764,10 +823,16 @@ export async function correr(env, ahora, deps = {}) {
     resumenDia = diaAR(ahora);
   }
 
+  // Los avisos van a la carpeta del informe (25/10); el único mail que sale de acá es el resumen de respaldo, con la carpeta adentro.
+  await guardarParaElInforme(env.ESTADO, envios.filter((e) => e.tipo === 'alerta').map((e) => ({ asunto: e.asunto, nivel: 'alta' })), ahora);
   const fallidos = [];
   const errores = [];
-  for (const e of envios) {
-    try { await enviar({ asunto: e.asunto, texto: e.texto }); } catch (err) { fallidos.push(e); errores.push(String(err?.message ?? err).slice(0, 200)); }
+  if (envioResumen) {
+    const carpeta = await vaciarLaCarpeta(env.ESTADO);
+    try {
+      await enviar(conLaCarpeta({ asunto: envioResumen.asunto, texto: envioResumen.texto }, carpeta));
+      await env.ESTADO.put(CLAVE_DE_LA_CARPETA, '[]');
+    } catch (err) { fallidos.push(envioResumen); errores.push(String(err?.message ?? err).slice(0, 200)); }
   }
 
   const estado = {
@@ -875,6 +940,15 @@ export async function recibirAviso(request, env, deps = {}) {
   const colaHtml = `<p style="font:12px Arial,sans-serif;color:#777;border-top:1px solid #ddd;padding-top:8px;margin-top:24px">${cola.replace(/^\n+---\n/, '').replace(/&/g, '&amp;').replace(/</g, '&lt;')}</p>`;
   const mail = { asunto: asuntoDeAviso(asunto, nivel), texto: `${texto.slice(0, TOPES_DE_AVISAR.largoDelTexto)}${cola}` };
   if (htmlLimpio) mail.html = /<\/body>/i.test(htmlLimpio) ? htmlLimpio.replace(/<\/body>/i, () => colaHtml + '</body>') : htmlLimpio + colaHtml;
+  // 25/10/2026: lo que no es un informe no sale como mail; va a la carpeta y llega en el próximo informe.
+  const esInforme = Boolean(claveLimpia?.startsWith('informe-'));
+  if (!esInforme) {
+    await guardarParaElInforme(env.ESTADO, [{ asunto, nivel: typeof nivel === 'string' ? nivel : 'media' }], ahora);
+    if (env.ESTADO && claveLimpia) await env.ESTADO.put(`avisar-clave:${claveLimpia}`, ahora.toISOString(), { expirationTtl: TOPES_DE_AVISAR.horasSinRepetirClave * 3600 });
+    return json({ ok: true, guardado: true });
+  }
+  const carpeta = await vaciarLaCarpeta(env.ESTADO);
+  Object.assign(mail, conLaCarpeta(mail, carpeta));
   // Regla 317: el informe diario (clave `informe-…`) lleva arriba, bien a la vista, «en pausa desde X por Y» cuando la pausa general está prendida. Si no se puede saber, sale como siempre.
   if (claveLimpia?.startsWith('informe-')) {
     let pausa = null;
@@ -894,7 +968,8 @@ export async function recibirAviso(request, env, deps = {}) {
   } catch (e) {
     return json({ ok: false, error: String(e?.message ?? e).slice(0, 200) }, 500);
   }
-  // La clave se recuerda recién cuando el mail salió: si falló, el siguiente intento no queda tapado.
+  // La clave se recuerda recién cuando el mail salió: si falló, el siguiente intento no queda tapado (y la carpeta tampoco se vacía).
+  if (env.ESTADO && carpeta.length) await env.ESTADO.put(CLAVE_DE_LA_CARPETA, '[]');
   if (env.ESTADO && claveLimpia) await env.ESTADO.put(`avisar-clave:${claveLimpia}`, ahora.toISOString(), { expirationTtl: TOPES_DE_AVISAR.horasSinRepetirClave * 3600 });
   return json({ ok: true, para: DESTINO, ...(htmlDemasiadoLargo ? { sinHtml: true } : {}) });
 }

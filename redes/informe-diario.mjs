@@ -463,7 +463,7 @@ export function seccionVisitas({ momento, dia, ahora, datos, sitio = SITIO }) {
     const totalPaises = Object.values(d.paises ?? {}).reduce((a, n) => a + (Number(n) || 0), 0);
     const deArgentina = Number(d.paises?.AR) || 0;
     if (totalPaises >= 20 && deArgentina / totalPaises < 0.5) lineas.push({ t: `Desde Argentina: ${num(deArgentina)} de ${num(totalPaises)}. Con tan poco de acá, el resto son casi seguro robots, no lectores.`, sub: true });
-    const notas = Object.entries(d.notas ?? {}).sort((a, b) => b[1] - a[1]).slice(0, 3);
+    const notas = Object.entries(d.notas ?? {}).sort((a, b) => b[1] - a[1]).slice(0, 5);
     if (notas.length) {
       lineas.push({ t: 'Lo más leído:', fuerte: true });
       for (const [id, n] of notas) lineas.push({ t: titulosPorId.get(id) ?? `Nota ${id}`, url: titulosPorId.has(id) ? `${sitio}/nota/${id}` : null, nota: `${plural(n, 'vista', 'vistas')}`, sub: true });
@@ -498,6 +498,23 @@ export function seccionVisitas({ momento, dia, ahora, datos, sitio = SITIO }) {
     const f = ultimo.facebook?.seguidores;
     const i = ultimo.instagram?.seguidores;
     lineas.push({ t: `Seguidores (medidos el ${fechaCorta(diaAR(new Date(ultimo.cuando)))} a las ${horaCortaAR(ultimo.cuando)}): Facebook ${Number.isFinite(f) ? num(f) : 's/d'}${antes ? delta(f, antes.facebook?.seguidores) : ''} · Instagram ${Number.isFinite(i) ? num(i) : 's/d'}${antes ? delta(i, antes.instagram?.seguidores) : ''}.` });
+    // 25/10/2026 (los dueños: «las estadísticas bien al detalle, de la página, las notas y las redes»): lo que mide Meta, tal cual llega.
+    const metricas = (red, x, campos) => {
+      const partes = campos.filter(([k]) => Number.isFinite(x?.[k])).map(([k, nombre]) => `${nombre} ${num(x[k])}`);
+      return partes.length ? `${red}: ${partes.join(' · ')}` : null;
+    };
+    const redesMedidas = [
+      metricas('Facebook', ultimo.facebook, [['vistas', 'vistas'], ['interacciones', 'interacciones']]),
+      metricas('Instagram', ultimo.instagram, [['alcance', 'alcance'], ['vistas', 'vistas'], ['interacciones', 'interacciones'], ['publicaciones', 'publicaciones en total']]),
+    ].filter(Boolean);
+    if (redesMedidas.length) lineas.push({ t: `Lo que mide Meta (últimos días, según su API): ${redesMedidas.join(' — ')}.`, sub: true });
+  }
+  // Las páginas más vistas en las últimas 24 horas (Cloudflare), aunque no sean notas de ese día.
+  const top = [...(estadisticas.puntos ?? [])].reverse().find((p) => Array.isArray(p?.web?.top) && p.web.top.length)?.web;
+  if (top) {
+    if (top.u24) lineas.push({ t: `Últimas 24 horas en la web: ${plural(top.u24.visitas, 'visita', 'visitas')} y ${plural(top.u24.vistas, 'página vista', 'páginas vistas')}${top.a24 ? ` (las 24 anteriores: ${num(top.a24.visitas)} y ${num(top.a24.vistas)})` : ''}.`, sub: true });
+    lineas.push({ t: 'Páginas más vistas en las últimas 24 horas:', fuerte: true });
+    for (const p of top.top.slice(0, 5)) lineas.push({ t: p.camino === '/' ? 'Portada' : (titulosPorId.get(String(p.camino).split('-').at(-1)) ?? p.camino), url: `${sitio}${p.camino}`, nota: plural(p.vistas, 'vista', 'vistas'), sub: true });
   }
   return { seccion: { id: 'visitas', titulo, lineas }, atencion };
 }
@@ -870,7 +887,8 @@ export async function consultarEnVivo({ env = process.env, fetchFn = fetch, ahor
 /** Manda el informe por mail (sólo mail: nunca cae a WhatsApp, un informe largo no entra). Devuelve { ok, motivo?, repetido? }. */
 export async function enviarInforme(informe, { env = process.env, fetchFn = fetch } = {}) {
   return avisarPorMail({
-    asunto: informe.asunto, texto: informe.textoCorto ?? informe.texto, html: informe.htmlCorto ?? informe.html, clave: claveDelInforme(informe.momento, informe.dia), nivel: 'info',
+    // 25/10/2026: va el informe completo (los dueños quieren el detalle en el mail; a cambio, ya no llega ningún otro mail en el día).
+    asunto: informe.asunto, texto: informe.texto, html: informe.html, clave: claveDelInforme(informe.momento, informe.dia), nivel: 'info',
   }, { env, fetchFn });
 }
 

@@ -489,8 +489,8 @@ test('enviarInforme: va por el Worker con el asunto, el texto, el html y la clav
   assert.equal(p.o.headers['x-token'], 'secreto-largo-123');
   assert.equal(p.json.clave, 'informe-noche-2026-10-15');
   assert.equal(p.json.asunto, informe.asunto);
-  assert.equal(p.json.texto, informe.textoCorto);
-  assert.equal(p.json.html, informe.htmlCorto);
+  assert.equal(p.json.texto, informe.texto, "25/10: el mail lleva el informe completo");
+  assert.equal(p.json.html, informe.html);
   assert.equal(p.json.nivel, 'info', 'un informe diario no es «URGENTE»');
   assert.ok(!p.o.body.includes('secreto-largo-123'), 'el token no viaja en el cuerpo');
   assert.equal((await enviarInforme(informe, { env: {}, fetchFn })).ok, false, 'sin VIGILANTE_TOKEN no sale (y no cae a WhatsApp)');

@@ -1,12 +1,12 @@
 // El vigilante independiente de Cloudflare (15/10/2026, auditoría Opus punto 1): lee cuándo se actualizó la web, decide qué avisar, no repite el
-// mismo aviso a cada rato, avisa una vez cuando se arregla y arma el mail a mano. Todo sin red y sin el runtime de Cloudflare.
+// mismo aviso a cada rato y, desde el 25/10, guarda los avisos para el informe en vez de mandarlos sueltos; arma el mail a mano. Todo sin red y sin el runtime de Cloudflare.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import worker, {
   ultimaActualizacion, notasDeHoy, esDeDia, limiteDeHorasSinActualizar, formatoEdad, evaluar, decidir, deshacerLosFallidos, resumenDeCorridas,
   parsearCorridas, armarMime, codificarAsunto, enviarPorCloudflare, correr, atender, resumenDebido, revisarWeb, revisarGitHub, LIMITES, DESTINO, REMITENTE,
-  asuntoDeAviso, TOPES_DE_AVISAR, claveDelInforme,
+  asuntoDeAviso, TOPES_DE_AVISAR, claveDelInforme, CLAVE_DE_LA_CARPETA, resumirLaCarpeta,
 } from '../infra/vigilante-cloudflare/worker.mjs';
 
 const leer = (r) => fs.readFileSync(new URL(`../${r}`, import.meta.url), 'utf8');
@@ -241,7 +241,9 @@ function fetchFalso({ sitemap = SITEMAP, home = '<html><title>Radar Balcarce</ti
 }
 const run = (resultado, iso) => ({ status: 'completed', conclusion: resultado, updated_at: iso, html_url: 'https://github.com/radarbalcarce/radar-balcarce/actions/runs/1' });
 
-test('una vuelta entera: web vieja avisa una vez, no repite a la media hora, y cuando se arregla manda "se arregló"', async () => {
+const carpeta = (env) => JSON.parse(env.ESTADO.datos.get(CLAVE_DE_LA_CARPETA) ?? '[]');
+
+test('25/10: una vuelta entera no manda mails sueltos; la web vieja se anota UNA vez en la carpeta del informe y no se repite a la media hora', async () => {
   const env = { ESTADO: kvFalso() };
   const enviados = [];
   const enviar = async (m) => { enviados.push(m); };
@@ -250,45 +252,63 @@ test('una vuelta entera: web vieja avisa una vez, no repite a la media hora, y c
   // 12:12 en Balcarce (15:12Z); la web se armó por última vez a las 08:00 en Balcarce (11:00Z): 4 h 12 min.
   const vieja = fetchFalso({ sitemap: '<lastmod>2026-10-15T11:00:00.000Z</lastmod>', runs: buenas });
   let r = await correr(env, z('2026-10-15T15:12:00Z'), { fetchFn: vieja, enviar });
-  assert.equal(enviados.length, 1);
-  assert.match(enviados[0].asunto, /^\[Radar Balcarce\] La web no se actualiza hace 4,2 h$/);
-  assert.match(enviados[0].texto, /actions\/workflows\/actualizar\.yml/);
-  assert.match(enviados[0].texto, /dash\.cloudflare\.com/);
+  assert.equal(enviados.length, 0, 'ningún mail suelto');
+  assert.deepEqual(carpeta(env).map((a) => a.asunto), ['La web no se actualiza hace 4,2 h']);
+  assert.equal(carpeta(env)[0].nivel, 'alta');
   assert.deepEqual(r.estado.ultimo.problemas, ['web-vieja']);
 
   r = await correr(env, z('2026-10-15T15:42:00Z'), { fetchFn: vieja, enviar });
-  assert.equal(enviados.length, 1, 'no se repite a la media hora');
+  assert.equal(carpeta(env).length, 1, 'no se repite a la media hora');
 
   const fresca = fetchFalso({ sitemap: '<lastmod>2026-10-15T16:00:00.000Z</lastmod>', runs: [run('success', '2026-10-15T16:08:00Z')] });
   r = await correr(env, z('2026-10-15T16:12:00Z'), { fetchFn: fresca, enviar });
-  assert.equal(enviados.length, 1, 'ya no se manda el se arregló');
-  r = await correr(env, z('2026-10-15T16:42:00Z'), { fetchFn: fresca, enviar });
-  assert.equal(enviados.length, 1);
+  assert.equal(enviados.length, 0);
   assert.deepEqual(JSON.parse(env.ESTADO.datos.get('estado')).alertas, {});
 });
 
-test('la portada caída: no avisa la primera vez y sí la segunda; la caída no pide el sitemap', async () => {
+test('la portada caída: no se anota la primera vez y sí la segunda, sin mail', async () => {
   const env = { ESTADO: kvFalso() };
   const enviados = [];
   const caida = fetchFalso({ homeEstado: 503, runs: [run('success', '2026-10-15T14:40:00Z')] });
   await correr(env, z('2026-10-15T15:12:00Z'), { fetchFn: caida, enviar: async (m) => enviados.push(m) });
-  assert.equal(enviados.length, 0);
+  assert.equal(carpeta(env).length, 0);
   assert.ok(!caida.pedidos.some((u) => u.endsWith('sitemap.xml')));
   await correr(env, z('2026-10-15T15:42:00Z'), { fetchFn: caida, enviar: async (m) => enviados.push(m) });
-  assert.equal(enviados.length, 1);
-  assert.match(enviados[0].asunto, /La web está caída/);
-  assert.match(enviados[0].texto, /HTTP 503/);
+  assert.equal(enviados.length, 0);
+  assert.match(carpeta(env)[0].asunto, /La web está caída/);
 });
 
-test('si el mail falla, la vuelta no se pierde: queda guardado que NO se avisó y se reintenta a la media hora', async () => {
-  const env = { ESTADO: kvFalso() };
-  const vieja = fetchFalso({ sitemap: '<lastmod>2026-10-15T11:00:00.000Z</lastmod>', runs: [run('success', '2026-10-15T14:40:00Z')] });
-  const r1 = await correr(env, z('2026-10-15T15:12:00Z'), { fetchFn: vieja, enviar: async () => { throw new Error('destination address not verified'); } });
-  assert.equal(r1.errores.length, 1);
-  assert.match(r1.estado.ultimo.mailsConError[0], /not verified/);
+test('25/10: la carpeta se resume (uno por asunto, cuántas veces, lo importante primero) y viaja arriba del informe, que la vacía', async () => {
+  const r = resumirLaCarpeta([
+    { cuando: '2026-10-25T10:00:00.000Z', asunto: 'Un día como hoy tiene 6 días', nivel: 'media' },
+    { cuando: '2026-10-25T13:00:00.000Z', asunto: 'Un día como hoy tiene 6 días', nivel: 'media' },
+    { cuando: '2026-10-25T12:00:00.000Z', asunto: 'La web no se actualiza hace 4,2 h', nivel: 'alta' },
+  ]);
+  assert.equal(r.cuantos, 2);
+  assert.match(r.texto, /AVISOS DESDE EL INFORME ANTERIOR \(2\)\n  - Importante: La web no se actualiza[\s\S]*Un día como hoy tiene 6 días \(2 veces, desde las 25\/10 07:00\)/);
+  assert.equal(resumirLaCarpeta([]), null);
+
+  const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
   const enviados = [];
-  await correr(env, z('2026-10-15T15:42:00Z'), { fetchFn: vieja, enviar: async (m) => enviados.push(m) });
+  const deps = { enviar: async (m) => enviados.push(m), ahora: z('2026-10-25T14:00:00Z'), pausa: null };
+  const suelto = await atender(pedirAviso({ asunto: 'URGENTE: Un día como hoy tiene 6 días', texto: 'x', nivel: 'alta', clave: 'efemerides-2026-10-25' }), env, deps);
+  assert.deepEqual(await suelto.json(), { ok: true, guardado: true });
+  assert.equal(enviados.length, 0, 'un aviso suelto no es un mail');
+  await atender(pedirAviso({ asunto: 'Un día como hoy tiene 6 días', texto: 'x', clave: 'efemerides-2026-10-25' }), env, deps);
+  assert.equal(carpeta(env).length, 1, 'la misma clave no se anota dos veces');
+  await atender(pedirAviso({ asunto: 'Informe de la noche', texto: 'cuerpo', html: '<html><body><p>Hola</p></body></html>', clave: 'informe-noche-2026-10-25' }), env, deps);
   assert.equal(enviados.length, 1);
+  assert.match(enviados[0].texto, /^AVISOS DESDE EL INFORME ANTERIOR \(1\)\n  - Importante: Un día como hoy tiene 6 días/);
+  assert.match(enviados[0].html, /<body><div style="max-width:640px[^"]*">[\s\S]*Un día como hoy[\s\S]*<p>Hola<\/p>/);
+  assert.equal(carpeta(env).length, 0, 'el informe vacía la carpeta');
+});
+
+test('si el informe no sale, la carpeta no se vacía', async () => {
+  const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
+  await atender(pedirAviso({ asunto: 'algo', texto: 'x' }), env, { enviar: async () => {} });
+  const r = await atender(pedirAviso({ asunto: 'Informe', texto: 'y', clave: 'informe-manana-2026-10-25' }), env, { enviar: async () => { throw new Error('no'); }, pausa: null });
+  assert.equal(r.status, 500);
+  assert.equal(carpeta(env).length, 1);
 });
 
 test('el resumen de respaldo sale a las 22, una sola vez por día, con las notas de hoy y la última corrida buena, y dice que es el respaldo', async () => {
@@ -304,6 +324,7 @@ test('el resumen de respaldo sale a las 22, una sola vez por día, con las notas
   assert.match(enviados[0].texto, /Problemas abiertos: ninguno/);
   assert.match(enviados[0].texto, /última corrida buena/);
   assert.match(enviados[0].texto, /El informe completo de la noche no llegó hoy/);
+  assert.equal(enviados.length, 1, 'el resumen de respaldo es el único mail de la vuelta');
   await correr(env, z('2026-10-16T01:42:00Z'), { fetchFn: fn, enviar });
   assert.equal(enviados.length, 1);
 });
@@ -359,10 +380,10 @@ test('/avisar acepta un html opcional: sale con las dos versiones, le suma el pi
   assert.deepEqual(await otra.json(), { ok: true, repetido: true });
   assert.equal(enviados.length, 1);
   // sin html: como siempre, sin la propiedad
-  await atender(pedirAviso({ asunto: 'a', texto: 'b' }), env, deps);
+  await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-manana-2026-10-16' }), env, deps);
   assert.equal('html' in enviados[1], false);
   // html sin </body>: el pie va al final
-  await atender(pedirAviso({ asunto: 'c', texto: 'd', html: '<p>suelto</p>' }), env, deps);
+  await atender(pedirAviso({ asunto: 'c', texto: 'd', html: '<p>suelto</p>', clave: 'informe-manana-2026-10-17' }), env, deps);
   assert.match(enviados[2].html, /^<p>suelto<\/p><p style=/);
 });
 
@@ -372,7 +393,7 @@ test('/avisar: un html que no es texto es 400; uno demasiado largo se descarta y
   const deps = { enviar: async (m) => enviados.push(m) };
   assert.equal((await atender(pedirAviso({ asunto: 'a', texto: 'b', html: { raro: 1 } }), env, deps)).status, 400);
   assert.equal(enviados.length, 0);
-  const largo = await atender(pedirAviso({ asunto: 'a', texto: 'b', html: `<p>${'x'.repeat(TOPES_DE_AVISAR.largoDelHtml)}</p>` }), env, deps);
+  const largo = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-noche-2026-10-16', html: `<p>${'x'.repeat(TOPES_DE_AVISAR.largoDelHtml)}</p>` }), env, deps);
   assert.equal(largo.status, 200);
   assert.deepEqual(await largo.json(), { ok: true, para: DESTINO, sinHtml: true });
   assert.equal(enviados.length, 1);
@@ -499,17 +520,17 @@ const pedirAviso = (cuerpo, { token = 'tok-largo', metodo = 'POST', crudo = null
   headers: { 'content-type': 'application/json', ...(token ? { 'x-token': token } : {}) },
 });
 
-test('/avisar manda el mail con el asunto prefijado, el texto y la clave y el nivel al pie', async () => {
+test('/avisar manda el informe por mail con el asunto prefijado, el texto y la clave y el nivel al pie', async () => {
   const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
   const enviados = [];
   const deps = { enviar: async (m) => enviados.push(m), ahora: z('2026-10-15T15:12:00Z') };
-  const r = await atender(pedirAviso({ asunto: 'Hay un problema: la web', texto: 'Texto del aviso\nsegunda línea', clave: 'web-vieja', nivel: 'alta' }), env, deps);
+  const r = await atender(pedirAviso({ asunto: 'Hay un problema: la web', texto: 'Texto del aviso\nsegunda línea', clave: 'informe-noche-2026-10-15', nivel: 'alta' }), env, deps);
   assert.equal(r.status, 200);
   assert.deepEqual(await r.json(), { ok: true, para: DESTINO });
   assert.equal(enviados.length, 1);
   assert.equal(enviados[0].asunto, '[Radar Balcarce] URGENTE: Hay un problema: la web');
   assert.match(enviados[0].texto, /^Texto del aviso\nsegunda línea/);
-  assert.match(enviados[0].texto, /clave: web-vieja/);
+  assert.match(enviados[0].texto, /clave: informe-noche-2026-10-15/);
   assert.match(enviados[0].texto, /nivel: alta/);
 });
 
@@ -550,7 +571,7 @@ test('/avisar: un cuerpo roto, sin asunto o sin texto es 400; uno enorme es 413;
 test('/avisar: el texto largo se corta en vez de rechazarse', async () => {
   const enviados = [];
   const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
-  const r = await atender(pedirAviso({ asunto: 'a', texto: 'y'.repeat(TOPES_DE_AVISAR.largoDelTexto + 500) }), env, { enviar: async (m) => enviados.push(m) });
+  const r = await atender(pedirAviso({ asunto: 'a', clave: 'informe-noche-2026-10-15', texto: 'y'.repeat(TOPES_DE_AVISAR.largoDelTexto + 500) }), env, { enviar: async (m) => enviados.push(m) });
   assert.equal(r.status, 200);
   assert.ok(enviados[0].texto.startsWith('y'.repeat(TOPES_DE_AVISAR.largoDelTexto)) && !enviados[0].texto.startsWith('y'.repeat(TOPES_DE_AVISAR.largoDelTexto + 1)));
 });
@@ -559,20 +580,19 @@ test('/avisar: la misma clave no se repite en 6 horas (contesta ok, repetido, y 
   const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
   const enviados = [];
   const deps = { enviar: async (m) => enviados.push(m), ahora: z('2026-10-15T15:12:00Z') };
-  let r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'k1' }), env, deps);
+  let r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-k1' }), env, deps);
   assert.equal((await r.json()).ok, true);
-  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'k1' }), env, deps);
+  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-k1' }), env, deps);
   assert.equal(r.status, 200);
   assert.deepEqual(await r.json(), { ok: true, repetido: true });
   assert.equal(enviados.length, 1, 'la repetida no sale');
-  await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'k2' }), env, deps);
+  await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-k2' }), env, deps);
   await atender(pedirAviso({ asunto: 'a', texto: 'b' }), env, deps);
-  await atender(pedirAviso({ asunto: 'a', texto: 'b' }), env, deps);
-  assert.equal(enviados.length, 4, 'sin clave no hay dedupe');
+  assert.equal(enviados.length, 2, 'lo que no es un informe va a la carpeta, no al mail');
   const roto = { enviar: async () => { throw new Error('rechazado'); }, ahora: z('2026-10-15T15:12:00Z') };
-  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'k3' }), env, roto);
+  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-k3' }), env, roto);
   assert.equal(r.status, 500);
-  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'k3' }), env, deps);
+  r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-k3' }), env, deps);
   assert.deepEqual(await r.json(), { ok: true, para: DESTINO }, 'el reintento sale');
 });
 
@@ -595,7 +615,7 @@ test('/avisar: como mucho 30 mails por hora (429 desde el 31); a la hora siguien
   const enviados = [];
   const deps = (iso) => ({ enviar: async (m) => enviados.push(m), ahora: z(iso) });
   for (let i = 0; i < TOPES_DE_AVISAR.maximoPorHora; i++) {
-    assert.equal((await atender(pedirAviso({ asunto: `a${i}`, texto: 'b' }), env, deps('2026-10-15T15:12:00Z'))).status, 200);
+    assert.equal((await atender(pedirAviso({ asunto: `a${i}`, texto: 'b', clave: `informe-${i}` }), env, deps('2026-10-15T15:12:00Z'))).status, 200);
   }
   const r = await atender(pedirAviso({ asunto: 'uno más', texto: 'b' }), env, deps('2026-10-15T15:50:00Z'));
   assert.equal(r.status, 429);
@@ -605,7 +625,7 @@ test('/avisar: como mucho 30 mails por hora (429 desde el 31); a la hora siguien
 
 test('/avisar: si el envío falla dice 500 con el motivo y sin el token', async () => {
   const env = { ESTADO: kvFalso(), VIGILANTE_TOKEN: 'tok-largo' };
-  const r = await atender(pedirAviso({ asunto: 'a', texto: 'b' }), env, { enviar: async () => { throw new Error('rechazado por Cloudflare'); } });
+  const r = await atender(pedirAviso({ asunto: 'a', texto: 'b', clave: 'informe-manana-2026-10-15' }), env, { enviar: async () => { throw new Error('rechazado por Cloudflare'); }, pausa: null });
   assert.equal(r.status, 500);
   const c = await r.json();
   assert.equal(c.ok, false);

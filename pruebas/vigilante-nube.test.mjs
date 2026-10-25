@@ -129,7 +129,7 @@ function fetchDeLaWeb(llamadas) {
   };
 }
 
-test('una vuelta entera con el motor en la nube: no le pide nada a la API de GitHub, ve al motor atrasado y avisa por mail una sola vez', async () => {
+test('una vuelta entera con el motor en la nube: no le pide nada a la API de GitHub, ve al motor atrasado y lo anota una sola vez para el informe (25/10: sin mail suelto)', async () => {
   const llamadas = [];
   const enviados = [];
   const env = {
@@ -139,12 +139,14 @@ test('una vuelta entera con el motor en la nube: no le pide nada a la API de Git
   const r = await correr(env, AHORA, { fetchFn: fetchDeLaWeb(llamadas), enviar: async (m) => { enviados.push(m); } });
   assert.ok(!llamadas.some((u) => u.startsWith('https://api.github.com/')), 'ni una llamada a GitHub');
   assert.deepEqual(r.estado.ultimo.problemas, ['actualizar-vieja']);
-  assert.equal(enviados.length, 1);
-  assert.match(enviados[0].texto, /no compiló/);
+  assert.equal(enviados.length, 0);
+  const carpeta = async () => (await env.ESTADO.get('avisos-para-el-informe', 'json')) ?? [];
+  assert.equal((await carpeta()).length, 1);
   assert.equal(r.estado.ultimo.nube.motor.ok, true);
   // a la media hora, el mismo problema no se repite
   const otra = await correr(env, new Date(AHORA.getTime() + 1800e3), { fetchFn: fetchDeLaWeb(llamadas), enviar: async (m) => { enviados.push(m); } });
-  assert.equal(enviados.length, 1);
+  assert.equal(enviados.length, 0);
+  assert.equal((await carpeta()).length, 1);
   assert.deepEqual(otra.estado.ultimo.problemas, ['actualizar-vieja']);
 });
 
