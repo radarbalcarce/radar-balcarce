@@ -38630,8 +38630,7 @@
    "corresponde": "si",
    "descripcion": "Collage con dos hombres del equipo Alpine riendo y un primer plano de Franco Colapinto."
   },
-  "huella": "8ddc5e76a9a9e3c9",
-  "ausenteDesde": "2026-10-25T10:02:50.130Z"
+  "huella": "8ddc5e76a9a9e3c9"
  },
  "1va73pk": {
   "intentado": true,
@@ -39343,7 +39342,8 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto sentado dentro de un monoplaza Alpine con casco"
   },
-  "huella": "c77d0f8607234b0b"
+  "huella": "c77d0f8607234b0b",
+  "ausenteDesde": "2026-10-25T12:31:42.773Z"
  },
  "2hfek1": {
   "archivo": "fotos-notas/2hfek1.jpg",
@@ -39404,5 +39404,15 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "9e8e8e8e8ebeae8e"
+ },
+ "z7awtc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere Marcelo Trepat, actor de Los Simuladores, a los 62 años",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-10-25T12:31:30.088Z",
+  "intentos": 1,
+  "fuentes": 22,
+  "intentosPorCupo": 1
  }
 }
