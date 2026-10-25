@@ -3450,6 +3450,18 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-25/noticia1": {
+      "cuando": "2026-10-25T13:47:27.819Z",
+      "mediaId": "18128856889799875",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "3357kp",
+      "notaIds": [
+        "3357kp",
+        "r8gyl1"
+      ],
+      "permalink": "https://www.instagram.com/reel/De62SrhCfgP/"
     }
   },
   "facebookVideos": {
@@ -8279,6 +8291,13 @@
       "red": "facebook",
       "notaId": "3357kp",
       "postId": "1844203283239670"
+    },
+    "instagram/2026-10-25/noticia1": {
+      "cuando": "2026-10-25T13:48:01.281Z",
+      "mediaId": "18388803121225035",
+      "nombre": "noticia1",
+      "red": "instagram",
+      "notaId": "3357kp"
     }
   },
   "problemas": {
@@ -8302,14 +8321,6 @@
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
-    },
-    "2026-10-25/noticia1/instagram/reel": {
-      "pieza": "noticia1",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-25T13:35:57.955Z",
-      "intentos": 1
     }
   },
   "facebookFoto": {
