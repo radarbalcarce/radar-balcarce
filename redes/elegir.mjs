@@ -40,7 +40,9 @@ import { esperaFotoDefinitiva } from './foto-cambiada.mjs';
 import {
   FACEBOOK, PIEZAS, PODCAST_VOZ, POSTEO, SECCIONES_QUE_ESPERAN_PERSONA,
 } from '../ingesta/criterio.mjs';
-import { armarPodcast, variante, segundosDePodcast } from './guiones.mjs';
+import {
+  armarPodcast, variante, segundosDePodcast, semillaDe, ENTRADAS_DE_LO_MAS_CONTADO,
+} from './guiones.mjs';
 import { MEDIO } from './prompt-redes.mjs';
 import { diaAR, minutoDelDiaAR } from '../ingesta/zona.mjs';
 
@@ -648,6 +650,41 @@ export function elegirParaPodcast(notas, { cuantas = PIEZAS.notasPorPodcast, exc
 }
 
 /**
+ * Las notas de un repaso, con la composición de la regla 325 (24/10/2026): TRES notas de acá fijas y un cuarto bloque.
+ *
+ *   1. Las tres fijas son lo de acá (`esParaLasRedes`) de más puntaje, de temas y secciones distintos, sin repetir lo ya contado (`excluir`); lo que una
+ *      persona pidió para el repaso entra primero (`elegirParaPodcast` hace esa parte, sin lo de afuera por puntaje).
+ *   2. Si de acá hay menos de tres, se completan con lo más contado del país: lo de afuera que cuentan `mediosAfueraEnRepaso` medios o más (el 8 de «muy
+ *      contada»; sin pedir puntaje, que a la noche baja), de más a menos medios, con las mismas guardas de siempre (nada de Política ni Policiales, nada en
+ *      rojo, nada propio ni sin cuerpo, nada de lo que no es noticia aunque lo cuenten todos), y como mucho `afueraPorPodcast` de afuera por repaso.
+ *   3. El cuarto bloque es la siguiente más contada del país, si todavía entra; si no hay, queda libre para el tiempo (`resumenDelClima`, que pone quien
+ *      llama): el repaso nunca se rellena con una nota de acá floja ni con una de afuera que no cuenta casi nadie.
+ *
+ * Con cuatro notas por repaso hacían falta doce notas de acá por día y hay unas ocho o diez (medido del 1 al 24/10): el de la tarde y el de la noche salían
+ * con dos o tres. Con tres fijas alcanzan nueve y el repaso siempre tiene su cuarto bloque.
+ *
+ * Devuelve { notas, cuartaDelPais }: `cuartaDelPais` es true si la última nota es la de lo más contado del día y cierra el repaso con su propia entrada.
+ */
+export function elegirRepaso(notas, { excluir = [], cuantas = PIEZAS.notasPorPodcast, fijas = PIEZAS.notasDeAcaFijasPorRepaso } = {}, reglasPedidas = {}) {
+  const reglas = { ...REGLAS_PIEZAS, mediosAfuera: PIEZAS.mediosAfueraEnRepaso, ...reglasPedidas };
+  const fijasReales = Math.max(1, Math.min(fijas, cuantas));
+  const deAca = elegirParaPodcast(notas, { cuantas: fijasReales, excluir }, { ...reglas, afueraPorPodcast: 0 });
+  const mediosPedidos = { mediosParaRedes: reglas.mediosAfuera };
+  const pais = sinRepetidos(
+    notas
+      .filter((n) => sePuedeEnUnRepaso(n) && !esParaLasRedes(n) && !deAca.some((x) => x.id === n.id) && esPopularParaRedes(n, mediosPedidos))
+      .sort((a, b) => mediosDeLaNota(b) - mediosDeLaNota(a) || porRelevancia(a, b)),
+    [...excluir, ...deAca],
+  );
+  const afueraYa = deAca.filter((n) => !esParaLasRedes(n)).length;
+  const completan = pais.slice(0, Math.max(0, Math.min(fijasReales - deAca.length, reglas.afueraPorPodcast - afueraYa)));
+  const base = [...deAca, ...completan];
+  const afuera = afueraYa + completan.length;
+  const cuarta = base.length < cuantas && afuera < reglas.afueraPorPodcast ? pais.find((n) => !completan.includes(n)) ?? null : null;
+  return { notas: cuarta ? [...base, cuarta] : base, cuartaDelPais: Boolean(cuarta) };
+}
+
+/**
  * El guion de un podcast: el saludo de su hora, cada noticia con su titular y, si
  * el texto es propio, una oración más de contexto, y el cierre de su hora. Todo
  * sale de lo ya publicado: no hay nada que la IA pueda inventar acá. La fuente no
@@ -669,33 +706,47 @@ export function elegirParaPodcast(notas, { cuantas = PIEZAS.notasPorPodcast, exc
  */
 export function repasoConPresupuesto(elegidas, {
   momento = 'manana', fecha = new Date(), presupuesto = PODCAST_VOZ.segundosPresupuesto, saludo, cierre, direccion,
+  // Regla 325: `resumen` es el cuarto bloque de texto (resumenDelClima: { frase, … }) y `cuartaId` la nota de lo más contado del día que cierra el repaso
+  // con su propia entrada («Y lo más comentado del día»). Sin ninguno de los dos, el guion es el de siempre.
+  resumen = null, cuartaId = null,
 } = {}) {
   if (elegidas.length < PIEZAS.notasMinimasPodcast) return null;
-  const armar = (notas, sinDetalle) => {
+  const armar = (notas, sinDetalle, conResumen) => {
+    const s = semillaDe(`podcast-${momento}`, fecha);
     const items = notas.map((n, i) => ({
       titular: n.titulo,
       detalle: !sinDetalle.has(i) && esPropia(n) ? primeraOracion(n.copete) : '',
+      ...(cuartaId && n.id === cuartaId && i === notas.length - 1 ? { conector: variante(ENTRADAS_DE_LO_MAS_CONTADO, s, 'lo-mas-contado') } : {}),
     }));
+    if (conResumen && resumen?.frase) items.push({ frase: resumen.frase });
     return armarPodcast(items, { momento, fecha, saludo, cierre, direccion });
   };
-  const resultado = (notas, sinDetalle, recortes) => {
-    const guion = armar(notas, sinDetalle);
+  const resultado = (notas, sinDetalle, recortes, conResumen) => {
+    const guion = armar(notas, sinDetalle, conResumen);
     const segundos = segundosDePodcast(guion);
-    return { guion, notas, segundos, cabe: segundos <= presupuesto, recortes };
+    return {
+      guion, notas, segundos, cabe: segundos <= presupuesto, recortes, resumen: conResumen && resumen?.frase ? resumen : null,
+    };
   };
 
   let notas = [...elegidas];
   const sinDetalle = new Set();
-  let r = resultado(notas, sinDetalle, { detalles: 0, notas: 0 });
+  let conResumen = Boolean(resumen?.frase);
+  let r = resultado(notas, sinDetalle, { detalles: 0, notas: 0 }, conResumen);
   // 1) sin la oración de contexto, empezando por la última nota
   for (let i = notas.length - 1; i >= 0 && !r.cabe; i -= 1) {
     sinDetalle.add(i);
-    r = resultado(notas, sinDetalle, { detalles: sinDetalle.size, notas: 0 });
+    r = resultado(notas, sinDetalle, { detalles: sinDetalle.size, notas: 0 }, conResumen);
   }
-  // 2) sin las últimas notas
+  // 2) sin el cuarto bloque de texto (el tiempo): dura unos seis segundos y es lo primero que se saca antes que una nota
+  if (!r.cabe && conResumen) {
+    conResumen = false;
+    r = resultado(notas, sinDetalle, { detalles: sinDetalle.size, notas: 0, resumen: 1 }, conResumen);
+  }
+  // 3) sin las últimas notas
   while (!r.cabe && notas.length > PIEZAS.notasMinimasPodcast) {
     notas = notas.slice(0, -1);
-    r = resultado(notas, sinDetalle, { detalles: sinDetalle.size, notas: elegidas.length - notas.length });
+    r = resultado(notas, sinDetalle, { detalles: sinDetalle.size, notas: elegidas.length - notas.length, ...(resumen?.frase && !conResumen ? { resumen: 1 } : {}) }, conResumen);
   }
   return r;
 }

@@ -69,15 +69,17 @@ test('qué cuenta cada repaso: lo que contó si salió; nada si ya no sale; si n
   assert.ok(porNombre.podcast.segundos > 0);
 });
 
-test('los tres repasos cuentan cuatro notas cada uno y ninguno repite (29/09, Hernán)', () => {
+test('los tres repasos cuentan tres notas de acá cada uno y cierran con un cuarto bloque (el tiempo); ninguno repite (29/09 y regla 325)', () => {
   const temas = ['mercado', 'biblioteca', 'hospital', 'cooperadora', 'autódromo', 'bomberos', 'polideportivo', 'carnaval', 'geriátrico', 'terminal', 'cementerio', 'balneario'];
   const secciones = ['Balcarce', 'Cultura y agenda', 'Deportes', 'Agro'];
   // Títulos sin palabras largas en común: si no, son "el mismo tema" y cuentan una vez.
   const notas = temas.map((t, i) => nota(`t${i}`, `El ${t} abre hoy`, secciones[i % secciones.length], 95 - i * 3));
-  const r = repasosDelDia(notas, { libro: {}, fecha: new Date('2026-09-29T12:00:00Z') });
+  const clima = { dias: [{ fecha: '2026-09-29', max: 20, min: 9, lluvia: 10 }, { fecha: '2026-09-30', max: 18, min: 7, lluvia: 60 }] };
+  const r = repasosDelDia(notas, { libro: {}, fecha: new Date('2026-09-29T09:00:00Z'), clima });
   const ids = ['noticia1', 'noticia2', 'podcast'].map((nombre) => r[nombre].notas.map((n) => n.id));
-  ids.forEach((lista) => assert.equal(lista.length, 4));
-  assert.equal(new Set(ids.flat()).size, 12, 'se repitió una nota entre repasos');
+  ids.forEach((lista) => assert.equal(lista.length, 3, 'tres de acá fijas'));
+  ['noticia1', 'noticia2', 'podcast'].forEach((nombre) => assert.equal(r[nombre].resumen?.tipo, 'clima', 'y el tiempo de cuarto bloque'));
+  assert.equal(new Set(ids.flat()).size, 9, 'se repitió una nota entre repasos');
   for (const nombre of ['noticia1', 'noticia2', 'podcast']) assert.ok(r[nombre].segundos <= 55, `${nombre}: ${r[nombre].segundos} s`);
 });
 

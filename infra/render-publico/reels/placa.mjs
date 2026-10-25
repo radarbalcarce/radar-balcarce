@@ -283,6 +283,16 @@ const ESCALONES_LISTA = [
   { tam: 50, max: 3 }, { tam: 46, max: 3 }, { tam: 42, max: 4 }, { tam: 38, max: 4 }, { tam: 34, max: 5 }, { tam: 30, max: 5 },
 ];
 
+/** La pastilla "▶ Audio · 43 s" de arriba a la derecha (la lista del repaso y la portada del reel): cuánto dura lo que se va a escuchar. */
+export function pastillaDeAudio(segundos, color = COLORES.rojo) {
+  const texto = `Audio · ${Math.round(segundos)} s`;
+  const ancho = Math.round(anchoAproximado(texto, 26, 'sans') + 92);
+  const x = ANCHO - MARGEN - ancho;
+  return `<rect x="${x}" y="262" width="${ancho}" height="60" rx="30" fill="${color}"/>
+  <path d="M${x + 30} 279 v26 l22 -13 z" fill="#FFFFFF"/>
+  <text x="${x + 64}" y="301" font-family="${TEXTO}" font-size="26" font-weight="600" fill="#FFFFFF">${esc(texto)}</text>`;
+}
+
 /**
  * El repaso (los tres podcasts del día), con el diseño "Repaso · tapa": el
  * nombre del podcast en el color del día, cuánto dura el audio, un título y la
@@ -290,23 +300,17 @@ const ESCALONES_LISTA = [
  * sección. `notas` = [{ seccion, titulo }].
  */
 export function placaRepaso({
-  titulo, momento = 'tarde', fecha = '', notas = [], segundos = null, color: colorPedido,
+  titulo, momento = 'tarde', fecha = '', notas = [], segundos = null, color: colorPedido, llamado = false,
 }) {
   const color = paraTextoBlanco(colorPedido ?? COLORES.rojo);
   const lista = notas.slice(0, 5);
   const disponible = ANCHO - MARGEN * 2;
 
   // El rótulo con el nombre del podcast y, a la derecha, cuánto dura el audio.
-  const pastilla = segundos ? (() => {
-    const texto = `Audio · ${Math.round(segundos)} s`;
-    const ancho = Math.round(anchoAproximado(texto, 26, 'sans') + 92);
-    const x = ANCHO - MARGEN - ancho;
-    return `<rect x="${x}" y="262" width="${ancho}" height="60" rx="30" fill="${color}"/>
-  <path d="M${x + 30} 279 v26 l22 -13 z" fill="#FFFFFF"/>
-  <text x="${x + 64}" y="301" font-family="${TEXTO}" font-size="26" font-weight="600" fill="#FFFFFF">${esc(texto)}</text>`;
-  })() : '';
+  const pastilla = segundos ? pastillaDeAudio(segundos, color) : '';
 
-  const enc = repartir(encabezadoDelRepaso(momento, lista.length), [{ tam: 100, max: 2 }, { tam: 88, max: 2 }, { tam: 76, max: 3 }], disponible);
+  // El título cuenta las NOTAS: el bloque del tiempo (regla 325, `resumen: true`) va en la lista pero no es una noticia más ("Tres noticias para empezar el día").
+  const enc = repartir(encabezadoDelRepaso(momento, lista.filter((n) => !n.resumen).length), [{ tam: 100, max: 2 }, { tam: 88, max: 2 }, { tam: 76, max: 3 }], disponible);
   const yEnc = 300 + 34 + Math.round(enc.tam * 0.9);
   const interEnc = Math.round(enc.tam * 0.98);
   const finEnc = yEnc + (enc.lineas.length - 1) * interEnc;
@@ -316,7 +320,8 @@ export function placaRepaso({
   const xTexto = MARGEN + 112;
   const anchoTitulo = ANCHO - MARGEN - xTexto;
   const desde = yFecha + 50;
-  const hasta = Y_PIE - 24;
+  // Con el llamado de cierre (la lista del final del repaso), la franja roja ocupa el lugar de arriba de la firma.
+  const hasta = Y_PIE - (llamado ? 150 : 24);
   const medir = (e) => lista.map((n) => {
     const t = repartir(n.titulo, [e], anchoTitulo);
     return { t, alto: 30 + 24 + 16 + t.lineas.length * Math.round(e.tam * 1.08) + 26 };
@@ -353,7 +358,15 @@ export function placaRepaso({
   ${renglones(enc.lineas, { y: yEnc, tam: enc.tam, interlinea: interEnc, espaciado: -2 })}
   ${fecha ? `<text x="${MARGEN}" y="${yFecha}" font-family="${TEXTO}" font-size="32" font-weight="500" fill="${COLORES.gris}">${esc(fecha)}</text>` : ''}
   ${filas}
+  ${llamado ? llamadoDelRepaso() : ''}
   ${pie()}`);
+}
+
+/** La franja roja con la que cierra la lista del repaso (regla 325): invita a seguir lo de acá. Va entera en la zona segura (filas 1358 a 1442). */
+function llamadoDelRepaso() {
+  const y = Y_PIE - 120;
+  return `<g id="rp-llamado"><rect x="${MARGEN}" y="${y}" width="${ANCHO - MARGEN * 2}" height="84" rx="42" fill="${COLORES.rojo}"/>
+  <text x="${ANCHO / 2}" y="${y + 55}" font-family="${TEXTO}" font-size="38" font-weight="700" text-anchor="middle" fill="#FFFFFF">Seguí lo de acá todos los días</text></g>`;
 }
 
 // --------------------------------------------------------------- el clima
@@ -975,5 +988,5 @@ export async function aPng(svg, destino, ancho = ANCHO) {
 
 // Lo que usan las escenas animadas (reels/escenas/): las mismas piezas de dibujo de las placas, para que una escena y una placa se vean de la misma familia.
 export {
-  esc, rotulo, cabecera, pie, lienzo, renglones, firma, DISPLAY, TEXTO, MARGEN, Y_PIE, FIN_CONTENIDO,
+  esc, rotulo, cabecera, pie, lienzo, renglones, firma, DISPLAY, TEXTO, MARGEN, Y_PIE, FIN_CONTENIDO, iconoSvg,
 };
