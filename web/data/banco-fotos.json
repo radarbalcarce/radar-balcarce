@@ -20898,9 +20898,7 @@
   "borrada": true
  },
  "1h4dkdp": {
-  "archivo": "fotos-notas/1h4dkdp.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Inter Miami le gana 3 a 1 a Atlanta United con dos goles de Messi",
@@ -20921,7 +20919,8 @@
    "descripcion": "Messi celebra un gol abrazado a sus compañeros de equipo en la cancha."
   },
   "huella": "8d8595392921494d",
-  "ausenteDesde": "2026-10-18T03:31:53.436Z"
+  "intentado": true,
+  "borrada": true
  },
  "5aer7x": {
   "intentado": true,
@@ -24368,7 +24367,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de la planta de FATE con su cartel principal y los techos de la fábrica"
   },
-  "huella": "cedc615f664e75cc"
+  "huella": "cedc615f664e75cc",
+  "ausenteDesde": "2026-10-25T04:02:30.907Z"
  },
  "z9lw4j": {
   "intentado": true,
@@ -36277,7 +36277,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "e2e8a80a9aac3cf6"
+  "huella": "e2e8a80a9aac3cf6",
+  "ausenteDesde": "2026-10-25T04:02:30.907Z"
  },
  "junk0o": {
   "intentado": true,
@@ -38402,6 +38403,53 @@
   "cuando": "2026-10-25T02:02:28.596Z",
   "intentos": 1,
   "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1prc59w": {
+  "archivo": "fotos-notas/1prc59w.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Analizan el escenario político tras las elecciones legislativas",
+  "enlace": "https://www.losandes.com.ar/opinion/centro-divino-tesoro-n6011551",
+  "imagenOriginal": "https://media.losandes.com.ar/p/da363bb0bab087853d68196e7f897482/adjuntos/368/imagenes/100/759/0100759493/1200x675/smart/patricia-bullrich-y-javier-milei.png",
+  "razon": "Es la única fotografía real que ilustra el contexto político de la nota, mientras que la opción B es un dibujo caricaturesco.",
+  "cuando": "2026-10-25T04:02:01.025Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Un hombre y una mujer sentados en una mesa con micrófonos, intercambiando un gesto de cercanía."
+  },
+  "huella": "01133149c4c69503"
+ },
+ "x4yqog": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto largará 21° en el Gran Premio de Estados Unidos por una sanción",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T04:02:01.025Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1v9mssi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rosario Central vence a Huracán por dos a cero y lidera la tabla",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T04:02:01.025Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

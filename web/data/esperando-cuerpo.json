@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-25T03:03:01.104Z",
+ "generado": "2026-10-25T04:02:30.966Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -35,8 +35,8 @@
      "fecha": "2026-10-25T00:22:00.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 192 palabras",
+   "intentos": 3,
+   "motivo": "título o bajada: 4 problemas (nombre, negacion): el copete nombra a \"major\" y la fuente no",
    "maximo": 4
   },
   {
@@ -57,6 +57,11 @@
      "fecha": "2026-10-24T23:30:02.000Z"
     },
     {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/rosario-central/rosario-di-maria_5_h00KWmRlDz.html",
+     "fecha": "2026-10-25T03:06:05.000Z"
+    },
+    {
      "medio": "Canal 26",
      "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/rosario-central-vs-huracan-en-vivo-hoy-resultado-goles-y-minuto-a-minuto-del-torneo-clausura-2026/",
      "fecha": "2026-10-25T02:24:00.000Z"
@@ -67,36 +72,56 @@
      "fecha": "2026-10-24T23:44:32.000Z"
     }
    ],
-   "intentos": 2,
+   "intentos": 3,
    "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-   "maximo": 3
+   "maximo": 4
   },
   {
-   "id": "1v9mssi",
-   "titulo": "En vivo: Central derrotó a un duro Huracán y quedó en lo más alto de la tabla anual",
+   "id": "i9n7eh",
+   "titulo": "Diario británico The Telegraph afirma que Netanyahu autorizaría apoyo para la Argentina por el conflicto con Inglaterra por Malvinas",
    "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-25T00:32:00.000Z",
+   "seccion": "Argentina",
+   "fecha": "2026-10-24T12:40:34.000Z",
    "fuentes": [
     {
-     "medio": "La Capital (Rosario)",
-     "enlace": "https://www.lacapital.com.ar/ovacion/en-vivo-central-derroto-un-duro-huracan-y-quedo-lo-mas-alto-la-tabla-anual-n10288498.html",
-     "fecha": "2026-10-25T00:32:00.000Z"
-    },
-    {
      "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/deportes/rosario-central-le-gano-a-huracan-para-afianzarse-como-puntero-de-la-zona-b-y-de-la-tabla-anual_a6add68828d54d6651081d8bc",
-     "fecha": "2026-10-25T02:42:44.251Z"
+     "enlace": "https://noticiasargentinas.com/politica/diario-britanico-the-telegraph-afirma-que-netanyahu-autorizaria-apoyo-para-la-argentina-por-el-conflicto-con-inglaterra-por-malvinas_a6adca44e8d54d665107ac90c",
+     "fecha": "2026-10-24T13:00:00.000Z"
     },
     {
-     "medio": "Doble Amarilla",
-     "enlace": "https://www.dobleamarilla.com.ar/liga-/rosario-central-derroto-a-huracan--aseguro-su-lugar-en-los-playoffs-y-se-trepo--momentaneamente--a-la-cima-en-la-tabla-anual_a6add681e94c86cee2022c70e",
-     "fecha": "2026-10-25T02:30:30.836Z"
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/internacional/2026/10/24/un-medio-britanico-asegura-que-el-primer-ministro-de-israel-ordeno-apoyar-el-reclamo-de-la-argentina-por-malvinas/",
+     "fecha": "2026-10-24T12:40:34.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/politica/diario-britanico-afirmo-netanyahu-autorizaria-apoyo-argentina-malvinas-2026102418941",
+     "fecha": "2026-10-24T21:09:00.000Z"
+    },
+    {
+     "medio": "iProfesional",
+     "enlace": "https://www.iprofesional.com/politica/467392-netanyahu-respaldara-el-reclamo-argentino-por-malvinas-segun-diario-the-telegraph",
+     "fecha": "2026-10-24T15:52:00.000Z"
+    },
+    {
+     "medio": "El Marplatense",
+     "enlace": "https://www.elmarplatense.com/el-gobierno-de-israel-nego-versiones-de-un-medio-britanico-sobre-el-respaldo-al-reclamo-argentino-por-malvinas",
+     "fecha": "2026-10-24T14:07:22.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/politica/malvinas-benjamin-netanyahu-autorizo-apoyo-la-argentina-y-javier-milei-lo-festejo-n6337541",
+     "fecha": "2026-10-24T19:44:00.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/mundo/the-telegraph-asegura-que-netanyahu-ordeno-respaldar-la-argentina-su-reclamo-las-islas-malvinas-n6337504",
+     "fecha": "2026-10-24T15:55:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 5 problemas (numero, nombre, promesa): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 86 palabras",
-   "maximo": 3
+   "motivo": "con cuerpo",
+   "maximo": 4
   },
   {
    "id": "1yxp5q5",
@@ -124,43 +149,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
-  },
-  {
-   "id": "i9n7eh",
-   "titulo": "Diario británico The Telegraph afirma que Netanyahu autorizaría apoyo para la Argentina por el conflicto con Inglaterra por Malvinas",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-10-24T13:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/diario-britanico-the-telegraph-afirma-que-netanyahu-autorizaria-apoyo-para-la-argentina-por-el-conflicto-con-inglaterra-por-malvinas_a6adca44e8d54d665107ac90c",
-     "fecha": "2026-10-24T13:00:00.000Z"
-    },
-    {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/politica/467392-netanyahu-respaldara-el-reclamo-argentino-por-malvinas-segun-diario-the-telegraph",
-     "fecha": "2026-10-24T15:52:00.000Z"
-    },
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/politica/malvinas-benjamin-netanyahu-autorizo-apoyo-la-argentina-y-javier-milei-lo-festejo-n6337541",
-     "fecha": "2026-10-24T19:44:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/mundo/the-telegraph-asegura-que-netanyahu-ordeno-respaldar-la-argentina-su-reclamo-las-islas-malvinas-n6337504",
-     "fecha": "2026-10-24T15:55:00.000Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/politica/diario-britanico-afirmo-netanyahu-autorizaria-apoyo-argentina-malvinas-2026102418941",
-     "fecha": "2026-10-24T21:09:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 4
   }
  ],
  "descartadas": [
@@ -179,14 +167,6 @@
    "fecha": "2026-10-24T19:06:11.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (copia): copia 22 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 102 palabras"
-  },
-  {
-   "id": "nqkyot",
-   "titulo": "Banfield y Lanús se enfrentan en el Clásico del Sur con objetivos diferentes",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-24T19:41:00.000Z",
-   "intentos": 5,
-   "motivo": "agotó los 5 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
   },
   {
    "id": "1jydy9z",
