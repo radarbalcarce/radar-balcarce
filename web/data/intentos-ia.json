@@ -1184,6 +1184,22 @@
   "ultimo": "2026-10-21T14:33:11.148Z",
   "motivo": "con cuerpo"
  },
+ "1icrbuv": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 167 palabras",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 5 problemas (nombre, relleno, copia): el cuerpo nombra a \"minu",
+   "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una fr"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título dice 14 y el cuerpo no lo explica"
+  ]
+ },
  "1iig27": {
   "intentos": 1,
   "ultimo": "2026-10-22T23:32:08.233Z",
@@ -1553,6 +1569,13 @@
    "cuerpo: 7 problemas (nombre, relleno, copia): el cuerpo nombra a \"esta"
   ]
  },
+ "1njq0wu": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1njqxpr": {
   "intentos": 1,
   "ultimo": "2026-10-23T18:01:56.881Z",
@@ -1781,11 +1804,6 @@
   "ultimo": "2026-10-23T12:44:12.221Z",
   "motivo": "con cuerpo"
  },
- "1qs7g84": {
-  "intentos": 2,
-  "ultimo": "2026-10-18T02:01:30.726Z",
-  "motivo": "con cuerpo"
- },
  "1quk9eb": {
   "intentos": 1,
   "ultimo": "2026-10-20T16:32:58.063Z",
@@ -1943,6 +1961,13 @@
   "ultimo": "2026-10-23T07:03:52.312Z",
   "motivo": "con cuerpo"
  },
+ "1sst0xl": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "1sswrvk": {
   "intentos": 1,
   "ultimo": "2026-10-21T12:31:19.828Z",
@@ -2049,11 +2074,11 @@
   "motivo": "con cuerpo"
  },
  "1ubxtwt": {
-  "intentos": 3,
-  "ultimo": "2026-10-24T22:31:33.967Z",
-  "motivo": "sin material",
-  "textos": 0,
-  "numeradas": 2,
+  "intentos": 4,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
   "motivos": [
    "sin material"
   ]
@@ -2156,11 +2181,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
- },
- "1w09gtm": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T02:01:30.726Z",
-  "motivo": "con cuerpo"
  },
  "1w1bqj1": {
   "intentos": 2,
@@ -2796,11 +2816,6 @@
    "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d"
   ]
  },
- "a7pz5a": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T02:01:30.726Z",
-  "motivo": "con cuerpo"
- },
  "a8cny3": {
   "intentos": 1,
   "ultimo": "2026-10-22T01:31:13.864Z",
@@ -3059,6 +3074,13 @@
   "intentos": 1,
   "ultimo": "2026-10-20T21:32:25.955Z",
   "motivo": "con cuerpo"
+ },
+ "de0frz": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "dhsie1": {
   "intentos": 2,
@@ -4275,11 +4297,6 @@
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
  },
- "uq23ri": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T02:01:30.726Z",
-  "motivo": "con cuerpo"
- },
  "uqfq28": {
   "intentos": 1,
   "ultimo": "2026-10-24T00:31:43.933Z",
@@ -4646,6 +4663,20 @@
   "intentos": 1,
   "ultimo": "2026-10-21T15:31:39.554Z",
   "motivo": "con cuerpo"
+ },
+ "yzy9ii": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T02:01:57.637Z",
+  "motivo": "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emilersk\" y la fuente no; sin esas oraciones quedan 202 palabras",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 5 problemas (nombre, relleno, copia): el cuerpo nombra a \"majo",
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emilersk\" y la fuente"
+  ],
+  "falla": [
+   "el cuerpo nombra a \"emilersk\" y la fuente no"
+  ]
  },
  "z1rcsy": {
   "intentos": 1,

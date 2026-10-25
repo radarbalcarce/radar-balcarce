@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-25T01:34:07.232Z",
- "portada": 78,
+ "generado": "2026-10-25T02:04:05.179Z",
+ "portada": 92,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-25T01:34:07.576Z",
+  "generado": "2026-10-25T02:04:05.530Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -84,7 +84,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-25T01:36:36.346Z"
    }
   ],
   "repasos": [
@@ -151,18 +151,23 @@
     "hora": "21:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 37,
+    "salio": "2026-10-25T01:36:36.346Z",
+    "segundos": null,
     "notas": [
+     {
+      "id": "1al05om",
+      "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+      "seccion": "Agro"
+     },
      {
       "id": "vn1ufa",
       "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
       "seccion": "Salud"
      },
      {
-      "id": "prtuo4",
-      "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
-      "seccion": "Fútbol"
+      "id": "169jneq",
+      "titulo": "Social Pato Negro y Social Pato Naranja juegan la semifinal del Torneo Desarrollo",
+      "seccion": "Deportes"
      }
     ]
    }
@@ -197,15 +202,15 @@
    ],
    "cola": [
     {
-     "id": "r8gyl1",
-     "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-     "seccion": "Balcarce",
+     "id": "1al05om",
+     "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+     "seccion": "Agro",
      "marcada": false
     },
     {
-     "id": "vn1ufa",
-     "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
-     "seccion": "Salud",
+     "id": "r8gyl1",
+     "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {

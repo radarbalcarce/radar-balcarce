@@ -23907,7 +23907,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de un hombre adulto con micrófono."
   },
-  "huella": "b5b5b5b5b5b4f4e4"
+  "huella": "b5b5b5b5b5b4f4e4",
+  "ausenteDesde": "2026-10-25T02:04:05.138Z"
  },
  "18qkpo0": {
   "intentado": true,
@@ -24134,7 +24135,8 @@
    "corresponde": "si",
    "descripcion": "Intendentes y funcionarios parados frente a la entrada del parque industrial en Ezeiza."
   },
-  "huella": "280360527045ddc7"
+  "huella": "280360527045ddc7",
+  "ausenteDesde": "2026-10-25T02:04:05.138Z"
  },
  "cx9y9d": {
   "archivo": "fotos-notas/cx9y9d.jpg",
@@ -25581,7 +25583,8 @@
    "corresponde": "si",
    "descripcion": "Diego Maradona gambeteando con la camiseta de Argentinos Juniors."
   },
-  "huella": "73b2e2d3ebea9a9b"
+  "huella": "73b2e2d3ebea9a9b",
+  "ausenteDesde": "2026-10-25T02:04:05.138Z"
  },
  "cg0vyu": {
   "intentado": true,
@@ -38088,9 +38091,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:33:40.581Z",
-  "intentos": 2,
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 3,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38133,9 +38136,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:33:40.581Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 3,
   "fuentes": 5,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38143,9 +38146,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
+  "razon": "La única foto disponible (A) tiene una marca de agua del medio (Puntonueve) superpuesta en la esquina inferior derecha, lo que impide elegirla según las reglas estrictas.",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 2,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38249,9 +38252,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Balerdi anota un doblete y Soulé marca en el empate 3 a 3 de la Roma ante el Napoli",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:33:40.581Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 2,
   "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38284,9 +38287,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:33:40.581Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 2,
   "fuentes": 13,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38370,5 +38373,35 @@
    "detalle": "Se observan carteles de campaña en el fondo (Flávio, Lula) que son parte de la escena real, pero no se detecta marca de agua ni logo superpuesto por el medio."
   },
   "huella": "9cd95879b2914d59"
+ },
+ "de0frz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nicolás Cabré asiste al Teatro Colón junto a Rocío Pardo y su hija Rufina",
+  "razon": "La única foto disponible muestra a una menor de edad (Rufina) claramente identificable, lo que impide su publicación según las normas del medio.",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1sst0xl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto larga vigesimoprimero en Estados Unidos tras una penalización",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 1,
+  "fuentes": 47,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ubxtwt": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cierran quirófanos en Mendoza por un brote de meningitis con dos muertos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T02:02:28.596Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
