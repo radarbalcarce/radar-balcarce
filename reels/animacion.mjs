@@ -84,6 +84,7 @@ const esFondo = (h) => nombreDe(h) === 'rect' && /\swidth="(1080|100%)"/.test(h)
 export function clasificar(hijos) {
   return hijos.map((h, i) => {
     if (ESTATICOS.has(nombreDe(h)) || (i === 0 && esFondo(h))) return { h, tipo: 'fijo' };
+    if (/^<g[^>]*\sdata-pie=/.test(h)) return { h, tipo: 'pie' }; // el pie subido de los teléfonos útiles
     const y = filaDe(h);
     if (y !== null && y >= FILA_DEL_PIE) return { h, tipo: 'pie' };
     return { h, tipo: 'bloque' };

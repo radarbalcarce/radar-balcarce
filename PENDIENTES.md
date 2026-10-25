@@ -120,6 +120,7 @@ Primero lo que salió el 24/10 y desbloquea lo demás, en orden. Después lo de 
 - GitHub → Settings → Actions → General: *Require approval for all outside collaborators* (mientras el repositorio sea público).
 - Completar bios y perfiles de Instagram y Facebook (categoría, enlace, botón de WhatsApp, historias destacadas: `PERFILES.md`); Instagram tiene 7 seguidores y Facebook 53 (23/10).
 - Mandarse un mail de prueba a `contacto@`, `redaccion@` y `publicidad@` y decidir "Enviar como" en Gmail.
+- Teléfonos útiles (regla 324): confirmar con la fuente oficial el número de la **comisaría general** y el de **Defensa Civil**, que la voz y la pantalla de los sábados todavía no nombran porque no están en los datos del repo; recién entonces se suman a `NUMEROS` (`ingesta/utiles.mjs`) y a una pantalla (`PANTALLAS_DE_UTILES`).
 - Borrar a mano en Instagram las copias repetidas de antes y, si se decide, el posteo del superávit del 29/09.
 - AdSense con `radarbalcarce@gmail.com` (pide datos fiscales); Wikidata y Bing Places.
 - Dos errores de escritura congelados en `web/data/correcciones.json` (hallazgo B1 de Opus): en la nota `1b3umaz`, "campen" (debería decir "campeón"), y en `woerbj`, "La Séleccion Argentina".

@@ -49,8 +49,8 @@ export function azar(semilla) {
 }
 
 /** El lienzo con su fondo de papel: `fondo` y `contenido` van adentro, el pie siempre al final. */
-export function escenaSobrePapel({ fondo = '', contenido = '', defs = '' }) {
-  return lienzo(`${defs ? `<defs>${defs}</defs>` : ''}${fondo}${contenido}${pie()}`);
+export function escenaSobrePapel({ fondo = '', contenido = '', defs = '', pie: opcionesDePie = undefined }) {
+  return lienzo(`${defs ? `<defs>${defs}</defs>` : ''}${fondo}${contenido}${pie(undefined, opcionesDePie)}`);
 }
 
 export { COLORES, esc, pie };

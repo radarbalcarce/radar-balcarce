@@ -12,10 +12,10 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { placaClima, placaFarmacia, placaRepaso, placaUtiles, placaAgenda, placaParticipa, placaEfemeride, COLOR_FERIADO, COLOR_SECCION, COLORES } from './placa.mjs';
+import { placaClima, placaFarmacia, placaRepaso, placaUtiles, placaAgenda, placaParticipa, placaEfemeride, COLOR_FERIADO, COLOR_UTILES, COLOR_SECCION, COLORES } from './placa.mjs';
 import { PIEZAS_PARTICIPA, IDS_PARTICIPA, guionParticipa, MAIL_REDACCION } from '../redes/participa.mjs';
 import { feriadoDelDia, fechaDeFeriado, datosParaContar, guionFeriado } from '../redes/feriado.mjs';
-import { NUMEROS, HORA_DE_CAMBIO, MINUTO_DE_CAMBIO } from '../ingesta/utiles.mjs';
+import { pantallasDeUtiles, HORA_DE_CAMBIO, MINUTO_DE_CAMBIO } from '../ingesta/utiles.mjs';
 import { horariosDe, toca } from '../redes/horarios.mjs';
 import { enlaceDeNota } from '../redes/elegir.mjs';
 import { fijaVigente } from './fijas.mjs';
@@ -60,10 +60,8 @@ export const REGLAS = {
   historiasMaximasPorDia: CONTRATO_DIARIO.historiasMaximasPorDia,
 };
 
-// El color de la placa de teléfonos útiles (el mismo que usa reels/placa.mjs). Se había
-// perdido en un refactor y, como los útiles sólo salían un día fijo que nadie
-// corría, nadie lo notó: el plan se caía con ReferenceError el día que tocaba.
-const COLOR_UTILES_ACENTO = '#8C2D18';
+// El color de los teléfonos útiles es COLOR_UTILES (reels/placa.mjs): el de Balcarce, de la tabla de CRITERIO-REDES.md § 8. Hasta el 24/10 había un marrón
+// (#8C2D18) que no estaba en la tabla; una prueba (pruebas/utiles-redes.test.mjs) vigila que no vuelva.
 
 const SALIDA = path.join(import.meta.dirname, 'salida');
 
@@ -383,8 +381,8 @@ export function planDelDia(datos, {
   // decide cuál). No es noticia ni clima: es contenido de utilidad pura, así
   // que no compite por cupo de reel ni tiene por qué salir todos los días.
   if (tocaHoy('utiles')) {
-    const grupos = [...new Set(NUMEROS.map((n) => n.categoria))]
-      .map((categoria) => ({ categoria, items: NUMEROS.filter((n) => n.categoria === categoria) }));
+    // Dos pantallas con los contactos más buscados, un número por contacto y la voz diciendo lo que se ve (24/10, regla 324).
+    const pantallas = pantallasDeUtiles();
     piezas.push({
       tipo: 'reel', hora: cuando.utiles.hora, nombre: 'utiles',
       titulo: 'Teléfonos útiles de Balcarce', motivo: 'una vez por semana, los sábados',
@@ -393,9 +391,9 @@ export function planDelDia(datos, {
       seccion: 'Balcarce',
       guion: guionUtiles({ momento: momentoDeHora(cuando.utiles.hora) }),
       momento: momentoDeHora(cuando.utiles.hora), indicacion: INDICACIONES[momentoDeHora(cuando.utiles.hora)],
-      svg: placaUtiles({ grupos }),
-      escena: escenaDeLosUtiles({ grupos }),
-      acento: COLOR_UTILES_ACENTO,
+      svg: placaUtiles({ pantallas }),
+      escena: escenaDeLosUtiles({ pantallas }),
+      acento: COLOR_UTILES,
     });
   }
 

@@ -3,6 +3,7 @@
 
 import {
   COLORES, COLOR_SECCION, DISPLAY, TEXTO, MARGEN, cabecera, rotulo, repartir, renglones, esc,
+  pantallaQueEntra, pantallasDeUtilesDe, PIE_DE_UTILES,
 } from '../placa.mjs';
 import {
   W, clamp, prog, easeOut, easeInOut, entra, aparece, escenaSobrePapel, crearEscena,
@@ -114,38 +115,31 @@ export function escenaDeParticipa({ p, color, numero = '2266 51-1612', mail = 'r
 
 // ------------------------------------------------------------------ teléfonos útiles
 
-const COLOR_UTILES = '#8C2D18';
-
-/** Un tubito de teléfono dentro de un círculo, centrado en (0,0). */
-const TELEFONO = (color) => `<circle r="38" fill="${color}"/><path d="M-14 -16 q-6 2 -4 10 q8 24 30 28 q8 2 10 -4 l-2 -10 l-12 -3 l-6 6 q-10 -5 -14 -16 l6 -6 l-3 -12 z" fill="#FFFFFF"/>`;
-
-/** Los teléfonos útiles. `grupos`: [{ categoria, items: [{ nombre, numero }] }] (como en ingesta/utiles.mjs); hasta seis filas. */
-export function escenaDeUtiles({ grupos = [] }) {
-  const filas = [];
-  let anterior = null;
-  for (const g of grupos) {
-    for (const it of g.items) {
-      if (filas.length >= 6) break;
-      filas.push({ categoria: g.categoria, nombre: it.nombre, numero: String(it.numero).split(' / ')[0] });
-      anterior = g.categoria;
-    }
-  }
-  const cab = cabecera('Teléfonos útiles', 'Guardalos en el celular', { color: COLOR_UTILES });
-  const y0 = cab.hasta + 60;
-  const alto = Math.min(176, Math.floor((FIN - y0 - 14 * (filas.length - 1)) / Math.max(1, filas.length)));
-  const cuadro = (t) => {
-    const lista = filas.map((f, k) => {
-      const y = y0 + k * (alto + 14);
-      const nombre = repartir(f.nombre, [{ tam: 44, max: 1 }, { tam: 36, max: 2 }], W - 128 - 140 - 330, 'sans');
-      return aparece(t, 0.6 + k * 0.28, `<rect x="64" y="${y}" width="${W - 128}" height="${alto}" rx="24" fill="#FFFFFF" stroke="${COLORES.lineaSuave}" stroke-width="2"/>
-        <g transform="translate(${64 + 70} ${y + alto / 2})">${TELEFONO(COLOR_UTILES)}</g>
-        ${f.categoria ? `<text x="${64 + 140}" y="${y + 50}" font-family="${TEXTO}" font-size="22" font-weight="700" letter-spacing="3" fill="${COLOR_UTILES}">${esc(f.categoria.toUpperCase())}</text>` : ''}
-        ${renglones(nombre.lineas, { x: 64 + 140, y: y + (f.categoria ? 104 : 88), tam: nombre.tam, interlinea: Math.round(nombre.tam * 1.15), familia: TEXTO, peso: 600, color: TINTA })}
-        <text x="${W - 64 - 36}" y="${y + alto / 2 + 18}" text-anchor="end" font-family="${DISPLAY}" font-size="${f.numero.length > 13 ? 44 : 58}" font-weight="900" letter-spacing="-1" fill="${TINTA}">${esc(f.numero)}</text>`, { dx: -50, dy: 0, dur: 0.6 });
-    }).join('');
-    return escenaSobrePapel({ contenido: `${aparece(t, 0, cab.svg, { dy: 0, dur: 0.5 })}${lista}` });
+/**
+ * Los teléfonos útiles (24/10/2026, regla 324). `pantallas`: [{ titulo, grupos: [{ rotulo, icono, estilo, items: [{ nombre, detalle, numero }] }] }]
+ * (`pantallasDeUtiles` de ingesta/utiles.mjs, con los números ya puestos); también acepta los `grupos` viejos de NUMEROS (una sola pantalla).
+ *
+ * Una pantalla por vez, en vez de una lista larga con la letra chica: cada una dura la misma parte del video y la anterior se apaga un instante antes
+ * de que entre la siguiente. Adentro, el título, "Guardalos en el celular" y cada grupo entran de a uno. Todo queda dentro de la zona segura de las
+ * redes: nada pasa de la columna 960 (los botones de la app) y la firma sube a la fila 1330 (PIE_DE_UTILES).
+ */
+export function escenaDeUtiles({ pantallas = null, grupos = [] } = {}) {
+  const lista = pantallasDeUtilesDe({ pantallas, grupos });
+  const n = lista.length;
+  const armadas = lista.map((p, i) => pantallaQueEntra(p, {
+    kicker: n > 1 ? `Teléfonos útiles · ${i + 1} de ${n}` : 'Teléfonos útiles', subtitulo: 'Guardalos en el celular',
+  }));
+  const cuadro = (t, duracion = 14) => {
+    const tramo = duracion / Math.max(1, n);
+    const i = Math.min(n - 1, Math.max(0, Math.floor(t / tramo)));
+    const tl = t - i * tramo;
+    const a = armadas[i];
+    // La pantalla que se va se apaga en el último cuarto de segundo de su tramo.
+    const sale = i < n - 1 ? 1 - prog(tl, tramo - 0.25, tramo) : 1;
+    const contenido = `${aparece(tl, 0, a.cab.svg, { dy: 0, dur: 0.5 })}${aparece(tl, 0.1, a.subtitulo, { dy: 0, dur: 0.5 })}${a.bloques.map((b, k) => aparece(tl, 0.45 + k * 0.45, b.svg, { dy: 30, dur: 0.6 })).join('')}`;
+    return escenaSobrePapel({ contenido: sale < 1 ? `<g opacity="${sale.toFixed(3)}">${contenido}</g>` : contenido, pie: PIE_DE_UTILES });
   };
-  return crearEscena({ nombre: 'utiles', variante: 'utiles', cuadro, duracionMinima: 12 });
+  return crearEscena({ nombre: 'utiles', variante: n > 1 ? 'utiles-2' : 'utiles', cuadro, duracionMinima: 12 });
 }
 
 // ------------------------------------------------------------------ la agenda

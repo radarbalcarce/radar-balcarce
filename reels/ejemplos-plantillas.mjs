@@ -20,7 +20,7 @@ import { escenaDeClasificacion, escenaDePodio, escenaDeTabla, escenaDeResultado 
 import { PIEZAS_PARTICIPA, IDS_PARTICIPA, guionParticipa, MAIL_REDACCION } from '../redes/participa.mjs';
 import { guionFarmacia, guionUtiles, guionAgenda } from '../redes/guiones.mjs';
 import { guionFeriado } from '../redes/feriado.mjs';
-import { NUMEROS } from '../ingesta/utiles.mjs';
+import { pantallasDeUtiles } from '../ingesta/utiles.mjs';
 import { guionClima, guionClimaNoche } from '../redes/guiones.mjs';
 import { COLOR_SECCION } from './placa.mjs';
 
@@ -125,7 +125,7 @@ export function ejemplosDeServicios() {
     escena: escenaDeEfemeride({ fecha, principal: { anio, titulo, cuerpo }, ademas: [], tipo }),
     guion: `${titulo}. ${cuerpo} Radar Balcarce.`,
   }));
-  const grupos = ['Emergencias', 'Salud'].map((categoria) => ({ categoria, items: NUMEROS.filter((n) => n.categoria === categoria) }));
+  const pantallas = pantallasDeUtiles();
   const eventos = [
     { nombre: '22° Fiesta Nacional del Postre', cuando: 'viernes 18:00', lugar: 'Parque Cerro El Triunfo' },
     { nombre: 'Peña folklórica con Los Nocheros del Sur', cuando: 'sábado 21:30', lugar: 'Club Ferroviarios' },
@@ -142,7 +142,7 @@ export function ejemplosDeServicios() {
     feriado('feriado-4-trasladable', /Soberan/, 'trasladable'),
     feriado('feriado-5-carnaval', /Carnaval/, 'carnaval'),
     ...HECHOS, ...participa,
-    { nombre: 'utiles-1', escena: escenaDeUtiles({ grupos }), guion: guionUtiles({ fecha: new Date('2026-10-10T20:00:00Z'), momento: 'tarde' }) },
+    { nombre: 'utiles-1', escena: escenaDeUtiles({ pantallas }), guion: guionUtiles({ fecha: new Date('2026-10-10T20:00:00Z'), momento: 'tarde' }) },
     { nombre: 'agenda-1', escena: escenaDeAgenda({ eventos }), guion: guionAgenda(eventos, { fecha: new Date('2026-10-08T15:00:00Z'), momento: 'tarde' }) },
   ].filter(Boolean);
 }

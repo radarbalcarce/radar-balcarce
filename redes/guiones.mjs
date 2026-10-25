@@ -14,6 +14,7 @@
 import { VOZ, CLIMA_VOZ, PODCAST_VOZ, PIEZA_FIJA_VOZ } from '../ingesta/criterio.mjs';
 import { MEDIO, SITIO_DICHO } from './prompt-redes.mjs';
 import { ZONA, diaAR } from '../ingesta/zona.mjs';
+import { queDiceLaVoz } from '../ingesta/utiles.mjs';
 import { FUENTES, FUENTES_NACIONALES } from '../ingesta/fuentes.mjs';
 import { FUENTES_CRUCE } from '../ingesta/fuentes-cruce.mjs';
 
@@ -453,6 +454,9 @@ export function guionFarmacia(turno, { fecha = new Date(), direccion, momento = 
   ]);
 }
 
+/** "a, b y c" (dos: "a y b"; uno solo: "a"). */
+const enLista = (cosas) => (cosas.length > 1 ? `${cosas.slice(0, -1).join(', ')} y ${cosas.at(-1)}` : (cosas[0] ?? ''));
+
 /** Los teléfonos útiles. Nada de "esta semana" ni "una vez por semana": son los
  *  mismos teléfonos siempre, la única variable es cuándo sale la pieza. */
 export function guionUtiles({ fecha = new Date(), direccion, momento = 'manana' } = {}) {
@@ -465,7 +469,8 @@ export function guionUtiles({ fecha = new Date(), direccion, momento = 'manana' 
       'Estos son los teléfonos que conviene tener a mano.',
       'Anotá los teléfonos que conviene tener a mano.',
     ], s, 'apertura'),
-    'Están los de emergencias, el hospital, la comisaría y el municipio.',
+    // Lo que se dice es lo que se ve en pantalla, ni más ni menos (24/10, regla 324): sale de las mismas pantallas (ingesta/utiles.mjs).
+    `Están los de ${enLista(queDiceLaVoz())}.`,
     variante([
       'Guardalos ahora, que después te olvidás.',
       'Tenelos a mano, que nunca se sabe.',
