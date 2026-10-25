@@ -1,34 +1,7 @@
 {
- "generado": "2026-10-25T13:32:45.185Z",
+ "generado": "2026-10-25T14:03:41.922Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "z79t7q",
-   "titulo": "Villa Mitre vs. Douglas Haig en vivo: cómo verlo, horario y TV",
-   "copete": "Villa Mitre y Olimpo siguen en busca del ascenso hacia la Primera Nacional y ahora ambos lo harán desde la Reválida del Torneo Federal A. Los representantes bahienses disputarán hoy, desde las 16, los partidos de ida de los octavos de final. El tricolor recibirá a Douglas Haig…",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-25T11:05:00.000Z",
-   "fuentes": [
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/federal-a/argentina-torneo-federal-a-2026-villa-mitre-vs-douglas-haig-3-etapa-llave-5-id768215.html",
-     "fecha": "2026-10-25T11:00:04.000Z"
-    },
-    {
-     "medio": "La Nueva",
-     "enlace": "https://www.lanueva.com/nota/2026-10-23-11-7-0-al-ascenso-por-la-revalida-villa-mitre-juega-en-el-fortin-y-olimpo-se-presenta-en-entre-rios",
-     "fecha": "2026-10-25T12:11:41.000Z"
-    },
-    {
-     "medio": "La Brújula 24",
-     "enlace": "https://www.labrujula24.com/notas/2026/10/25/olimpo-y-villa-mitre-juegan-por-la-revalida-del-federal-a-n527125/",
-     "fecha": "2026-10-25T11:05:00.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y el cuerpo no los explica; sin esas oraciones quedan 297 palabras",
-   "maximo": 3
-  },
   {
    "id": "1uhxxc4",
    "titulo": "Mauricio Lambiris dominó en Rosario y logró la “pole” en TC luego de 4 años",
@@ -47,8 +20,8 @@
      "fecha": "2026-10-25T11:08:10.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 122 palabras",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
   {
@@ -170,28 +143,12 @@
  ],
  "descartadas": [
   {
-   "id": "yzy9ii",
-   "titulo": "En la previa del Balón de Oro, Messi fue al banco e Inter Miami no pudo evitar la derrota",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-25T00:22:00.000Z",
-   "intentos": 4,
-   "motivo": "agotó los 4 intentos; cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 221 palabras"
-  },
-  {
    "id": "dky59",
    "titulo": "TC Pista: Juan Sebastián Gallo retomó su sana costumbre",
    "seccion": "Automovilismo",
    "fecha": "2026-10-24T19:06:11.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (copia): copia 22 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 102 palabras"
-  },
-  {
-   "id": "1icrbuv",
-   "titulo": "Ni Magis TV ni Pelota Libre: cómo ver EN VIVO Rosario Central vs. Huracán por Internet",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-24T23:44:32.000Z",
-   "intentos": 4,
-   "motivo": "agotó los 4 intentos; cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo explica; sin esas oraciones quedan 171 palabras"
   },
   {
    "id": "kull4p",
@@ -202,20 +159,20 @@
    "motivo": "agotó los 5 intentos; título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la fuente no"
   },
   {
+   "id": "1icrbuv",
+   "titulo": "Ni Magis TV ni Pelota Libre: cómo ver EN VIVO Rosario Central vs. Huracán por Internet",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-24T23:44:32.000Z",
+   "intentos": 4,
+   "motivo": "agotó los 4 intentos; cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo explica; sin esas oraciones quedan 171 palabras"
+  },
+  {
    "id": "nqkyot",
    "titulo": "Banfield y Lanús se enfrentan en el Clásico del Sur con objetivos diferentes",
    "seccion": "Fútbol",
    "fecha": "2026-10-24T19:42:00.000Z",
    "intentos": 5,
    "motivo": "agotó los 5 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
-  },
-  {
-   "id": "17ztrqj",
-   "titulo": "Ver en vivo San Lorenzo vs. Newell's por Fútbol Libre, Pelota Libre o Xuper TV es un riesgo: dónde hacerlo de manera legal",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-24T21:15:02.000Z",
-   "intentos": 4,
-   "motivo": "agotó los 4 intentos; cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 242 palabr"
   }
  ]
 }

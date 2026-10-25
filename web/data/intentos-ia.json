@@ -204,6 +204,13 @@
   "ultimo": "2026-10-19T00:01:31.690Z",
   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el máximo es 90"
  },
+ "13auhfk": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
  "13b5zj": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:01:12.633Z",
@@ -285,6 +292,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
   "motivo": "con cuerpo"
+ },
+ "14h6kc8": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 10
  },
  "14hjcia": {
   "intentos": 1,
@@ -479,11 +493,6 @@
  "174prqh": {
   "intentos": 1,
   "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "con cuerpo"
- },
- "177ws3g": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T14:01:21.471Z",
   "motivo": "con cuerpo"
  },
  "177zcz0": {
@@ -1203,6 +1212,13 @@
   "intentos": 1,
   "ultimo": "2026-10-19T14:33:02.076Z",
   "motivo": "con cuerpo"
+ },
+ "1i5a8ln": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1i6c71m": {
   "intentos": 1,
@@ -2209,20 +2225,20 @@
   ]
  },
  "1uhxxc4": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T13:32:09.421Z",
-  "motivo": "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 122 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
-   "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no"
+   "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no",
+   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu"
   ],
   "falla": [
-   "el cuerpo dice 30 y la fuente no lo dice",
-   "el cuerpo dice 90 y la fuente no lo dice",
-   "el cuerpo dice 50 y la fuente no lo dice",
-   "el cuerpo dice 30 y la fuente no lo dice"
+   "el copete usa \"domingo\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo dice 60 y la fuente no lo dice",
+   "el cuerpo usa \"domingo\", que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "1uib2z8": {
@@ -2835,6 +2851,16 @@
   "intentos": 2,
   "ultimo": "2026-10-23T05:31:47.042Z",
   "motivo": "con cuerpo"
+ },
+ "7g8022": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 13,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl"
+  ]
  },
  "7jdj7i": {
   "intentos": 1,
@@ -4157,6 +4183,13 @@
   "ultimo": "2026-10-20T19:32:22.356Z",
   "motivo": "con cuerpo"
  },
+ "o5xodv": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6
+ },
  "o7bgji": {
   "intentos": 1,
   "ultimo": "2026-10-24T03:31:17.479Z",
@@ -4647,6 +4680,13 @@
   "ultimo": "2026-10-23T15:07:07.916Z",
   "motivo": "con cuerpo"
  },
+ "uhfldh": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 7
+ },
  "umd08f": {
   "intentos": 1,
   "ultimo": "2026-10-22T02:01:20.413Z",
@@ -5036,21 +5076,16 @@
   "motivo": "con cuerpo"
  },
  "yzy9ii": {
-  "intentos": 4,
-  "ultimo": "2026-10-25T05:01:14.355Z",
-  "motivo": "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 221 palabras",
-  "textos": 4,
-  "numeradas": 5,
+  "intentos": 5,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 9,
   "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "título o bajada: 4 problemas (nombre, negacion): el copete nombra a \"m",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
-   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n"
-  ],
-  "falla": [
-   "el cuerpo nombra a \"major\" y la fuente no",
-   "el cuerpo nombra a \"league\" y la fuente no",
-   "el cuerpo nombra a \"soccer\" y la fuente no"
+   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ]
  },
  "z1rcsy": {
@@ -5069,19 +5104,16 @@
   "motivo": "con cuerpo"
  },
  "z79t7q": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T13:32:09.421Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y el cuerpo no los explica; sin esas oraciones quedan 297 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-25T14:01:27.567Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or",
    "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"consejo\" y ",
    "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or",
-   "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y e"
-  ],
-  "falla": [
-   "el título nombra a \"mitre\", \"olimpo\" y el cuerpo no los explica"
+   "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y e",
+   "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or"
   ]
  },
  "z7awtc": {

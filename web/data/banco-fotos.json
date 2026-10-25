@@ -25150,7 +25150,8 @@
   "enlace": "https://commons.wikimedia.org/wiki/File:Viaducto_belgrano_sur_proyecto.jpg",
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Viaducto_belgrano_sur_proyecto.jpg/1280px-Viaducto_belgrano_sur_proyecto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Viaducto belgrano sur proyecto.jpg",
-  "cuando": "2026-10-20T02:31:24.359Z"
+  "cuando": "2026-10-20T02:31:24.359Z",
+  "ausenteDesde": "2026-10-25T14:03:41.841Z"
  },
  "1okjo5q": {
   "archivo": "fotos-notas/1okjo5q.jpg",
@@ -25414,7 +25415,8 @@
    "corresponde": "si",
    "descripcion": "Puerta de vidrio de una oficina de ARBA con cartelería institucional"
   },
-  "huella": "dcad8db6a6e4c494"
+  "huella": "dcad8db6a6e4c494",
+  "ausenteDesde": "2026-10-25T14:03:41.841Z"
  },
  "15t1wen": {
   "intentado": true,
@@ -27960,7 +27962,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de fútbol celebrando con camiseta blanca y azul en la cancha"
   },
-  "huella": "544a1f85cec74fc5"
+  "huella": "544a1f85cec74fc5",
+  "ausenteDesde": "2026-10-25T14:03:41.841Z"
  },
  "14b2cpb": {
   "archivo": "fotos-notas/14b2cpb.jpg",
@@ -30155,7 +30158,8 @@
    "descripcion": "Vista de cámara de seguridad de un auto blanco estacionado frente a una vidriera rota con escombros en el piso.",
    "detalle": "No se observan marcas de medios ni menores de edad."
   },
-  "huella": "3b395b7b99a94dcd"
+  "huella": "3b395b7b99a94dcd",
+  "ausenteDesde": "2026-10-25T14:03:41.841Z"
  },
  "1cn3042": {
   "intentado": true,
@@ -38276,10 +38280,10 @@
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
-  "cuando": "2026-10-25T10:01:57.377Z",
+  "cuando": "2026-10-25T14:02:24.428Z",
   "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "1df4mi": {
   "intentado": true,
@@ -39578,5 +39582,181 @@
    "descripcion": "Javier Milei hablando en un atril con micrófonos."
   },
   "huella": "032145c69a9a2917"
+ },
+ "1i5a8ln": {
+  "archivo": "fotos-notas/1i5a8ln.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Desarrollo Social inicia la entrega mensual de mercadería",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45150-la-entrega-mensual-de-mercaderia-comenzara-el-lunes-26-de-octubre/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66120.png",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y contenido sin marcas ni menores.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona armando una bolsa con mercadería y alimentos sobre una mesa"
+  },
+  "huella": "70e1c9d924242898"
+ },
+ "z79t7q": {
+  "archivo": "fotos-notas/z79t7q.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Villa Mitre y Olimpo juegan hoy por la Reválida del Federal A",
+  "enlace": "https://www.lanueva.com/nota/2026-10-23-11-7-0-al-ascenso-por-la-revalida-villa-mitre-juega-en-el-fortin-y-olimpo-se-presenta-en-entre-rios",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792766177975.jpg?&cw=600&ch=365",
+  "razon": "La foto B muestra el festejo de los jugadores con buena nitidez y sin menores reconocibles.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores celebrando un gol en el partido"
+  },
+  "huella": "848c4ab29e9ab163"
+ },
+ "13auhfk": {
+  "archivo": "fotos-notas/13auhfk.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Neymar recibe la tarjeta roja en el empate entre Santos y Bahía",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/neymar-fue-expulsado-por-la-ley-prestianni-se-llevo-una-mano-a-la-boca-en-un-entrevero-en-santos-nid24102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/capitan-de-santos-neymar-vio-la-tarjeta-roja-por-673T2OITPRHOHFMMISPGP543VU.JPG?auth=a174c61b551d2e1cbd2c972deed25c507795e81d69866a057fb8152a069f442f&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto de buena calidad y con mejor encuadre que no tiene marcas de medios ni problemas.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Neymar con la camiseta de Santos en la cancha bajo la lluvia",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Neymar con la camiseta de Santos en una noche de lluvia durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "cca95d1e8e8eb5a9"
+ },
+ "yzy9ii": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Inter Miami cae ante New York Red Bulls con Messi en el banco",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: la respuesta no es JSON); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "intentos": 1,
+  "fuentes": 24,
+  "intentosPorCupo": 1,
+  "errorGemini": "la respuesta no es JSON"
+ },
+ "uhfldh": {
+  "archivo": "fotos-notas/uhfldh.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Defensa y Justicia le gana 2 a 1 a Talleres por el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-talleres-vs-defensa-y-justicia-fecha-14-id767837.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/24/999223/juan-manuel-gutierrez-_862x485.webp?v=1",
+  "razon": "Es una fotografía limpia, de buena calidad, sin marcas de agua sobreimpresas ni menores, que ilustra perfectamente el partido.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Defensa y Justicia festejando un gol."
+  },
+  "huella": "b365bdbc9e9cb6e6"
+ },
+ "7g8022": {
+  "archivo": "fotos-notas/7g8022.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto finaliza decimocuarto en la clasificación y penaliza en Austin",
+  "enlace": "https://bolavip.com/ar/formula-1/fp-3-del-gp-de-estados-unidos-hamilton-fue-lider-y-colapinto-15",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/24153701/GettyImages-2301665752-1200x740.webp",
+  "razon": "Es la foto de mejor encuadre, nitidez y calidad que corresponde a la nota, mostrando al piloto en pista sin marcas agregadas, menores ni problemas de archivo.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza tomando una curva junto al piano rojo y blanco"
+  },
+  "huella": "1ef1a1b28103073c"
+ },
+ "o5xodv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Miguel Ángel Borja pronostica que Álvaro Montero será la figura del Superclásico",
+  "razon": "La mejor foto era la de Noticias Argentinas (NA), pero no se puede usar (marca de agua u otro medio) (Logo y zócalo de Noticias Argentinas (NA) abajo a la izquierda.), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "intentos": 1,
+  "fuentes": 6
+ },
+ "14h6kc8": {
+  "archivo": "fotos-notas/14h6kc8.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo y Newell's empatan cero a cero por el Clausura",
+  "enlace": "https://www.minutouno.com/deportes/ni-magis-tv-ni-pelota-libre-como-ver-vivo-san-lorenzo-vs-newells-internet-n6336870",
+  "imagenOriginal": "https://media.minutouno.com/p/cc34031dee60805d3a9d91bdbd45d398/adjuntos/150/imagenes/041/738/0041738953/estadio-pedro-bidegain-nuevo-gasometro-san-lorenzo-canchajpg.jpg",
+  "razon": "Es la única foto de acción del partido que corresponde a la nota, muestra claramente a los jugadores disputando el balón y no tiene marcas de agua agregadas por el medio.",
+  "cuando": "2026-10-25T14:02:24.428Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Estadio de San Lorenzo vacío de noche"
+  },
+  "huella": "c8f8e0e0e0e21717"
  }
 }
