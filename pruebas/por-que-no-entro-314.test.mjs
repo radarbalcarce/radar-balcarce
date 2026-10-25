@@ -17,7 +17,7 @@ import {
 import { MOTIVO_POCO_CONTADA } from '../ingesta/ingesta.mjs';
 import { MOTIVO_ESPERA_LECTURA, quitarRepetidas, ordenParaLeer, puedeSalirPorCantidad, llegaPorCantidad } from '../ingesta/lectura-ia.mjs';
 import { idsQueYaTienenPagina, vigenteEnPortada, fechaDeLaNota, llegaTarde, horasParaEstrenar, seccionSinSaltos } from '../web/lib/archivo.js';
-import { FECHA_DEL_HECHO, modoDeLaFechaDelHecho, medianaDeLasFechas } from '../ingesta/fecha-del-hecho.mjs';
+import { medianaDeLasFechas } from '../ingesta/fecha-del-hecho.mjs';
 
 const leer = (r) => fs.readFileSync(new URL(r, import.meta.url), 'utf8').replace(/\r\n/g, '\n');
 const a = (dia, hhmm) => new Date(`${dia}T${hhmm}:00-03:00`);
@@ -277,26 +277,16 @@ const fuentesDe = (fechas) => fechas.map((f, i) => ({ medio: `Medio ${i + 1}`, e
 const historia = (fechas) => ({ fecha: new Date(fechas[0]).toISOString(), origenes: fuentesDe(fechas) });
 const H = 3600e3;
 
-test('S1: la mediana de las fechas y el modo de la variable FECHA_DEL_HECHO (por defecto «mediana»; «vieja» vuelve a lo de antes)', () => {
+// Desde la regla 327 (25/10/2026) la mediana vale para todo y la variable FECHA_DEL_HECHO no existe más: las pruebas de S1 comparan con la
+// fuente más vieja (lo de antes) a mano.
+const laMasVieja = (n) => new Date(Math.min(...n.origenes.map((o) => Date.parse(o.fecha)))).toISOString();
+
+test('S1: la mediana de las fechas (la usa fechaDeLaNota, para todo desde la regla 327)', () => {
   assert.equal(medianaDeLasFechas([5, 1, 3]), 3);
   assert.equal(medianaDeLasFechas([4, 2]), 3);
   assert.equal(medianaDeLasFechas([7]), 7);
   assert.ok(Number.isNaN(medianaDeLasFechas([])));
   assert.ok(Number.isNaN(medianaDeLasFechas([NaN])));
-  assert.equal(modoDeLaFechaDelHecho({}), 'mediana');
-  assert.equal(modoDeLaFechaDelHecho({ FECHA_DEL_HECHO: '' }), 'mediana');
-  assert.equal(modoDeLaFechaDelHecho({ FECHA_DEL_HECHO: 'vieja' }), 'vieja');
-  assert.equal(modoDeLaFechaDelHecho({ FECHA_DEL_HECHO: ' Vieja ' }), 'vieja');
-  assert.equal(modoDeLaFechaDelHecho({ FECHA_DEL_HECHO: 'promedio' }), 'mediana', 'una variable rota vale el de siempre de la regla');
-  assert.deepEqual(FECHA_DEL_HECHO.valores, ['mediana', 'vieja']);
-  // Sin pasar nada, lee la variable del entorno.
-  const antes = process.env.FECHA_DEL_HECHO;
-  try {
-    process.env.FECHA_DEL_HECHO = 'vieja';
-    assert.equal(modoDeLaFechaDelHecho(), 'vieja');
-    delete process.env.FECHA_DEL_HECHO;
-    assert.equal(modoDeLaFechaDelHecho(), 'mediana');
-  } finally { if (antes === undefined) delete process.env.FECHA_DEL_HECHO; else process.env.FECHA_DEL_HECHO = antes; }
 });
 
 test('S1: el sobreseimiento de Milei en la causa $Libra (26 medios): con la fuente más vieja llegaba «tarde»; con la mediana, no', () => {
@@ -306,26 +296,24 @@ test('S1: el sobreseimiento de Milei en la causa $Libra (26 medios): con la fuen
     ...Array.from({ length: 23 }, (_, i) => Date.parse('2026-10-23T18:00:00Z') + i * 5.5 * 60e3)];
   const n = historia(fechas);
   const visto = '2026-10-23T20:08:00Z';
-  const vieja = fechaDeLaNota(n, { visto, medios: 26, modo: 'vieja' });
-  const mediana = fechaDeLaNota(n, { visto, medios: 26, modo: 'mediana' });
+  const vieja = laMasVieja(n);
+  const mediana = fechaDeLaNota(n, { visto });
   assert.equal(vieja, '2026-10-22T17:37:00.000Z');
   assert.ok(Date.parse(mediana) > Date.parse('2026-10-23T18:30:00Z') && Date.parse(mediana) < Date.parse('2026-10-23T20:00:00Z'), mediana);
   const horasDelHecho = horasParaEstrenar(26, false);
-  assert.equal(horasDelHecho, 24, 'regla 287: lo muy contado se estrena con el hecho de hasta 24 horas');
+  assert.equal(horasDelHecho, 24);
   assert.equal(llegaTarde(vieja, ahora, horasDelHecho), true, 'antes: 26,7 horas, «tarde»');
   assert.equal(llegaTarde(mediana, ahora, horasDelHecho), false, 'ahora: de hace una hora y pico, sale');
-  // Se apaga con la variable, sin tocar código: vuelve a la más vieja.
-  assert.equal(fechaDeLaNota(n, { visto, medios: 26, modo: modoDeLaFechaDelHecho({ FECHA_DEL_HECHO: 'vieja' }) }), vieja);
 });
 
 test('S1: Hotesur-Los Sauces (17 medios) y Scaloni hasta 2030 (18): la mediana los deja en su día', () => {
   const ahora = Date.parse('2026-10-23T20:17:00Z');
   const hotesur = historia([Date.parse('2026-10-22T14:45:00Z'), Date.parse('2026-10-23T11:00:00Z'), ...Array.from({ length: 15 }, (_, i) => Date.parse('2026-10-23T16:00:00Z') + i * 15 * 60e3)]);
   const hasta2030 = historia([Date.parse('2026-10-22T20:00:00Z'), ...Array.from({ length: 17 }, (_, i) => Date.parse('2026-10-23T15:00:00Z') + i * 20 * 60e3)]);
-  for (const [n, medios] of [[hotesur, 17], [hasta2030, 18]]) {
+  for (const n of [hotesur, hasta2030]) {
     const visto = '2026-10-23T19:00:00Z';
-    assert.equal(llegaTarde(fechaDeLaNota(n, { visto, medios, modo: 'vieja' }), ahora, 24), true);
-    assert.equal(llegaTarde(fechaDeLaNota(n, { visto, medios, modo: 'mediana' }), ahora, 24), false);
+    assert.equal(llegaTarde(laMasVieja(n), ahora, 24), true);
+    assert.equal(llegaTarde(fechaDeLaNota(n, { visto }), ahora, 24), false);
   }
 });
 
@@ -335,41 +323,38 @@ test('S1: lo de Balcarce también (36 horas desde la mediana de sus fuentes, no 
   const n = historia([Date.parse('2026-10-20T23:10:00Z'), Date.parse('2026-10-21T11:12:00Z'), Date.parse('2026-10-21T14:00:00Z')]);
   const visto = '2026-10-21T11:30:00Z';
   assert.equal(horasParaEstrenar(3, true), 36);
-  assert.equal(llegaTarde(fechaDeLaNota(n, { visto, medios: 3, deAca: true, modo: 'vieja' }), ahora, 36), true, 'antes: 36,8 horas');
-  assert.equal(llegaTarde(fechaDeLaNota(n, { visto, medios: 3, deAca: true, modo: 'mediana' }), ahora, 36), false, 'ahora: 24,8 horas');
+  assert.equal(llegaTarde(laMasVieja(n), ahora, 36), true, 'antes: 36,8 horas');
+  assert.equal(llegaTarde(fechaDeLaNota(n, { visto }), ahora, 36), false, 'ahora: 24,8 horas');
 });
 
-test('S1: lo nacional de 3 a 7 medios sigue con la fuente más vieja (la regla de las 12 horas es del dueño, 28/09) y sin datos de medios todo queda como antes', () => {
+test('S1 y regla 327: lo nacional de 3 a 7 medios también toma la mediana (una sola regla para todo)', () => {
   const n = historia([Date.parse('2026-10-23T02:00:00Z'), Date.parse('2026-10-23T09:00:00Z'), Date.parse('2026-10-23T10:00:00Z'), Date.parse('2026-10-23T11:00:00Z')]);
   const visto = '2026-10-23T10:00:00Z';
-  const vieja = fechaDeLaNota(n, { visto, medios: 4, deAca: false, modo: 'vieja' });
-  assert.equal(fechaDeLaNota(n, { visto, medios: 4, deAca: false, modo: 'mediana' }), vieja, 'con 4 medios y de afuera, la mediana no se usa');
-  assert.equal(fechaDeLaNota(n, { visto, medios: 7, deAca: false, modo: 'mediana' }), vieja, 'con 7 tampoco: el corte es MUY_CONTADA.medios (8)');
-  assert.notEqual(fechaDeLaNota(n, { visto, medios: 8, deAca: false, modo: 'mediana' }), vieja, 'con 8 sí');
-  assert.equal(fechaDeLaNota(n, { visto }), vieja, 'quien no dice los medios (las pruebas y los demás usos) sigue como siempre');
+  // Cuatro fuentes: la mediana «baja» es la segunda (9:00), no la más vieja (2:00).
+  assert.equal(fechaDeLaNota(n, { visto }), '2026-10-23T09:00:00.000Z');
 });
 
 test('S1: cada fuente cuenta una vez, nunca rejuvenece una nota ya publicada y las fuentes de otro hecho (regla 194) no cuentan', () => {
   const t0 = Date.parse('2026-10-23T00:00:00Z');
   // La principal (la primera de `origenes`) también está en `fecha`: no se cuenta dos veces. Tres fuentes a 0, 10 y 20 horas: la mediana es la de 10.
   const n = historia([t0, t0 + 10 * H, t0 + 20 * H]);
-  assert.equal(fechaDeLaNota(n, { visto: new Date(t0 + 20 * H).toISOString(), medios: 8, modo: 'mediana' }), new Date(t0 + 10 * H).toISOString());
+  assert.equal(fechaDeLaNota(n, { visto: new Date(t0 + 20 * H).toISOString() }), new Date(t0 + 10 * H).toISOString());
   // Ya publicada con una fecha más vieja: la mediana no la rejuvenece.
-  assert.equal(fechaDeLaNota(n, { fechaAnterior: new Date(t0 + 2 * H).toISOString(), visto: new Date(t0 + 20 * H).toISOString(), medios: 8, modo: 'mediana' }), new Date(t0 + 2 * H).toISOString());
-  // Una fuente de más de 48 horas antes de verla es de otro hecho: ni en la mediana. Con las otras dos, la mediana es el punto medio.
+  assert.equal(fechaDeLaNota(n, { fechaAnterior: new Date(t0 + 2 * H).toISOString(), visto: new Date(t0 + 20 * H).toISOString() }), new Date(t0 + 2 * H).toISOString());
+  // Una fuente de más de 48 horas antes de verla es de otro hecho: ni en la mediana. Con las otras dos, la más vieja de las dos (mediana baja).
   const conVieja = historia([t0 - 100 * H, t0 + 10 * H, t0 + 20 * H]);
-  assert.equal(fechaDeLaNota(conVieja, { visto: new Date(t0 + 20 * H).toISOString(), medios: 8, modo: 'mediana' }), new Date(t0 + 15 * H).toISOString());
+  assert.equal(fechaDeLaNota(conVieja, { visto: new Date(t0 + 20 * H).toISOString() }), new Date(t0 + 10 * H).toISOString());
   // Si TODAS son viejas (la vimos tarde), la mediana de las viejas: la nota es vieja de verdad.
   const todasViejas = historia([t0 - 100 * H, t0 - 90 * H, t0 - 80 * H]);
-  assert.equal(fechaDeLaNota(todasViejas, { visto: new Date(t0).toISOString(), medios: 8, modo: 'mediana' }), new Date(t0 - 90 * H).toISOString());
+  assert.equal(fechaDeLaNota(todasViejas, { visto: new Date(t0).toISOString() }), new Date(t0 - 90 * H).toISOString());
   // Sin `origenes` (una nota de antes): la fecha de la nota.
-  assert.equal(fechaDeLaNota({ fecha: new Date(t0).toISOString() }, { visto: new Date(t0).toISOString(), medios: 8, modo: 'mediana' }), new Date(t0).toISOString());
+  assert.equal(fechaDeLaNota({ fecha: new Date(t0).toISOString() }, { visto: new Date(t0).toISOString() }), new Date(t0).toISOString());
 });
 
-test('S1: generar-datos toma la fecha con los medios y si es de acá, y FECHA_DEL_HECHO llega a Actualizar la web', () => {
+test('S1 y regla 327: generar-datos toma la fecha con una sola regla y la variable FECHA_DEL_HECHO ya no existe', () => {
   const g = leer('../web/scripts/generar-datos.mjs');
-  assert.match(g, /fechaDeLaNota\(n, \{\s*fechaAnterior: fechaAntes\[n\.id\], visto: primeraVista\(n\), horas: HORAS_DE_UN_HECHO, medios: contarMedios\(n\.medios\), deAca: esDeAca\(n\),\s*\}\)/);
-  assert.match(leer('../.github/workflows/actualizar.yml'), /FECHA_DEL_HECHO: \$\{\{ vars\.FECHA_DEL_HECHO \}\}/);
+  assert.match(g, /fechaDeLaNota\(n, \{ fechaAnterior: fechaAntes\[n\.id\], visto: primeraVista\(n\), horas: HORAS_DE_UN_HECHO \}\)/);
+  assert.doesNotMatch(leer('../.github/workflows/actualizar.yml'), /FECHA_DEL_HECHO/);
 });
 
 // ------------------------------------------------------------------ S4: la sección no salta entre Política y Policiales

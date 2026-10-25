@@ -153,17 +153,13 @@ versión era roja, sí. Si la misma noticia
 igual vuelve a entrar con otra dirección (porque el medio cambió el enlace), se une sola:
 queda una y la otra dirección redirige a ésa (`web/lib/repetidas.js`).
 
-**Nada viejo.** Una nota de afuera que nunca salió no se publica si el hecho tiene más de 12 horas
-(24 si la cuentan 8 medios o más: eso es noticia aunque haya pasado ayer a la noche; 36 si es
-de Balcarce, regla 293: los medios de acá publican tarde y las notas esperan cuerpo),
-y la portada y las secciones muestran sólo las últimas 36. La fecha de una nota es la más
-vieja que se conoce: un medio que actualiza la suya no la rejuvenece. **Salvo en lo que cuentan 8
-medios o más y en lo de Balcarce, donde el hecho tiene la fecha de la mediana de sus fuentes y
-no la de la más vieja** (regla 314, 24/10/2026): con tantos medios es casi seguro que alguno publicó
-un anticipo del día anterior, y esa fecha dejaba «tarde» (más de 24 horas) a una historia de 34
-medios que otro medio acababa de publicar. Las horas de cada ventana (12, 24, 36) son las mismas; lo
-que cambia es desde dónde se cuentan, y nunca se rejuvenece una nota ya publicada. La variable de
-GitHub `FECHA_DEL_HECHO` en «vieja» vuelve a contar siempre desde la fuente más vieja. De lo que se lee
+**Nada viejo.** Una nota de afuera que nunca salió no se publica si el hecho tiene más de 24 horas
+(36 si es de Balcarce, regla 293: los medios de acá publican tarde y las notas esperan cuerpo),
+y la portada y las secciones muestran sólo las últimas 36. **La fecha del hecho es una sola regla para
+todo: la mediana de las fechas de sus fuentes** (regla 327, 25/10/2026; antes era la más vieja y la
+mediana sólo valía con 8 medios o en Balcarce): un anticipo del día anterior o la primera vez que vimos
+la nota ya no dejan «tarde» a una historia que hoy cuentan 17 medios. Una fuente que da el día y no la
+hora no cuenta para esa fecha. Una nota ya publicada nunca rejuvenece. De lo que se lee
 raspando la portada de un medio (El Diario Balcarce, que no tiene feed) se toma la fecha
 de adentro de cada nota y lo de más de 72 horas no se trae.
 
@@ -920,18 +916,18 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Notas que se le piden a la IA por corrida | 40 | `REESCRITURA.porCorrida` |
 | Notas que se le piden a la IA por día, como máximo (con la clave de lectura propia) | 450 | `REESCRITURA.porDia` |
 | Lo mismo, mientras la lectura con IA comparte la clave gratis | 330 | `REESCRITURA.porDiaSinClaveDeLectura` |
-| Texto completo de cada fuente: caracteres que recibe la IA | 4000 | `REESCRITURA.caracteresDelTextoCompleto` |
+| Texto completo de cada fuente: caracteres que recibe la IA | 6000 | `REESCRITURA.caracteresDelTextoCompleto` |
 | Texto completo: caracteres mínimos que tienen que quedar en el presupuesto para sumar otro texto (no hay un número fijo de textos: entran los que caben, la oficial primero y un medio distinto cada vez) | 800 | `REESCRITURA.caracteresMinimosDeUnTexto` |
-| Presupuesto: caracteres de todos los textos completos juntos, como mucho | 12000 | `REESCRITURA.caracteresDeTextosEnTotal` |
-| Fuentes cuyo texto se intenta bajar para elegir las más completas | 6 | `REESCRITURA.fuentesQueSeBajan` |
-| Lo mismo, si la cuentan `MUY_CONTADA.medios` medios o más: fuentes cuyo texto se intenta bajar (la oficial y después uno por medio). A la IA le llegan TODAS las fuentes, numeradas, con titular y resumen: sin tope | 8 | `REESCRITURA.fuentesQueSeBajanMuyContada` |
+| Presupuesto: caracteres de todos los textos completos juntos, como mucho | 18000 | `REESCRITURA.caracteresDeTextosEnTotal` |
+| Fuentes cuyo texto se intenta bajar para elegir las más completas | 8 | `REESCRITURA.fuentesQueSeBajan` |
+| Lo mismo, si la cuentan `MUY_CONTADA.medios` medios o más: fuentes cuyo texto se intenta bajar (la oficial y después uno por medio). A la IA le llegan TODAS las fuentes, numeradas, con titular y resumen: sin tope | 12 | `REESCRITURA.fuentesQueSeBajanMuyContada` |
 | Tramos de cinco palabras en común para que un texto sea copia de otro (por ciento) | 50 | `REESCRITURA.copiaEntreFuentes` |
 | Antecedentes: días hacia atrás | 30 | `REESCRITURA.diasDeAntecedentes` |
 | Antecedentes: como máximo | 3 | `REESCRITURA.antecedentesMaximo` |
 | Lecturas con IA por día, mientras comparte la clave gratis de la redacción | 60 | `LECTURA_IA.pedidosPorDia` |
 | Lecturas con IA por día, con su propia clave (`GEMINI_API_KEY_CLASIFICACION`) | 200 | `LECTURA_IA.pedidosPorDiaConClavePropia` |
 | Portada: horas que una nota está en las listas | 36 | `PORTADA.horas` |
-| Horas que puede tener un hecho para publicarse por primera vez (una nota de afuera que nunca salió y es más vieja, no sale) | 12 | `PORTADA.horasParaEstrenar` |
+| Horas que puede tener un hecho para publicarse por primera vez (una nota de afuera que nunca salió y es más vieja, no sale) | 24 | `PORTADA.horasParaEstrenar` |
 | Lo mismo, si la nota es de Balcarce (regla 293) | 36 | `PORTADA.horasParaEstrenarDeAca` |
 | Portada: horas que una nota compite por el lugar grande | 6 | `PORTADA.horasNotaGrande` |
 | Días que dura la página de una nota | 180 | `PORTADA.diasDeArchivo` |

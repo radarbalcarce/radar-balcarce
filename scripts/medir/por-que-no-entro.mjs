@@ -55,13 +55,14 @@ function deDisco(archivo) {
 /** Las fechas del hecho que se comparan, en milisegundos: la más vieja (como hasta el 24/10), la mediana de las fuentes (regla 314; con «forzar», también para lo que la regla no toca, sólo para ver qué pasaría), la tercera más nueva y la más nueva. */
 export function fechasDelHecho(nota, visto, { medios = 0, forzar = false } = {}) {
   const t = (f) => (f ? new Date(f).getTime() : NaN);
-  const vieja = t(fechaDeLaNota(nota, { visto, modo: 'vieja' }));
-  if (!Number.isFinite(vieja)) return null;
-  const mediana = t(fechaDeLaNota(nota, { visto, medios, deAca: forzar, modo: 'mediana' }));
+  // Desde la regla 327 la fecha del hecho es la mediana para todo (fechaDeLaNota); «vieja» es la de antes, calculada acá para comparar.
   const fuentes = (nota?.origenes?.length ? nota.origenes.map((o) => t(o?.fecha)) : [t(nota?.fecha)]).filter(Number.isFinite).sort((a, b) => a - b);
   const vista = t(visto);
   const cercanas = Number.isFinite(vista) ? fuentes.filter((x) => x >= vista - HORAS_DE_UN_HECHO * HORA) : fuentes;
   const cuentan = cercanas.length ? cercanas : fuentes;
+  const vieja = Math.min(...[cuentan[0], vista].filter(Number.isFinite));
+  if (!Number.isFinite(vieja)) return null;
+  const mediana = t(fechaDeLaNota(nota, { visto }));
   return { vieja, mediana, tercera: cuentan[Math.max(0, cuentan.length - 3)] ?? vieja, nueva: cuentan.at(-1) ?? vieja, fuentes: cuentan.length };
 }
 

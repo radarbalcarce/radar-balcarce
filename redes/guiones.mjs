@@ -17,6 +17,7 @@ import { ZONA, diaAR } from '../ingesta/zona.mjs';
 import { queDiceLaVoz } from '../ingesta/utiles.mjs';
 import { FUENTES, FUENTES_NACIONALES } from '../ingesta/fuentes.mjs';
 import { FUENTES_CRUCE } from '../ingesta/fuentes-cruce.mjs';
+import { diceEnVivo } from '../ingesta/verificar.mjs';
 
 
 // --- la semilla ------------------------------------------------------------
@@ -619,7 +620,8 @@ export function revisarTexto(texto, { tipo = 'voz', momento } = {}) {
 
   mal(/\.com\.ar|\.ar\b|punto\s+a\s+ere|punto\s+ar\b/i.test(t), 'dice o escribe la dirección con ".ar"');
   mal(RE_MEDIOS.test(t) || RE_AMBITO_MEDIO.test(t), 'nombra un medio de origen');
-  mal(/en vivo|minuto a minuto|tiempo real/i.test(t), 'dice "en vivo" o "minuto a minuto"');
+  // La misma regla que la web (diceEnVivo, regla 327): una cobertura en vivo no, un concierto en vivo (una efeméride de U2) sí.
+  mal(diceEnVivo(t) || /tiempo real/i.test(t), 'dice "en vivo" o "minuto a minuto"');
   mal(/resumen hecho con ia/i.test(t), 'dice "Resumen hecho con IA"');
   mal(/incre[ií]ble|impactante|esc[aá]ndalo/i.test(t), 'usa un adjetivo de titular');
   mal(/radar\s*balcarce\.com\.ar/i.test(t), 'la dirección es radarbalcarce.com');

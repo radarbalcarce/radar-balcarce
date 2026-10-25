@@ -122,8 +122,9 @@ export const REESCRITURA = {
   // que el tope baja: 330 + 120 = 450, por debajo de los 500 gratis. Lo elige
   // topeDeReescrituras (reels/reescritura.mjs).
   porDiaSinClaveDeLectura: 330,
-  // El texto completo de CADA fuente que recibe la IA (lo corta ingesta/articulo.mjs al bajarlo).
-  caracteresDelTextoCompleto: 4000,
+  // El texto completo de CADA fuente que recibe la IA (lo corta ingesta/articulo.mjs al bajarlo). 25/10 (regla 327): de 4.000 a 6.000, de
+  // 12.000 a 18.000 entre todos y de 6 a 8 fuentes bajadas (12 en lo muy contado): con 4.000 las notas largas se cortaban a la mitad.
+  caracteresDelTextoCompleto: 6000,
   // La entrada ampliada (15/10, regla 174; ingesta/fuentes-para-la-ia.mjs): la IA recibe TODAS las fuentes de la historia,
   // numeradas, cada una con su titular y su resumen (sin tope de cantidad: 24/10, regla 308, Hernán). El texto completo es lo
   // único con presupuesto: entre todos no pasa de `caracteresDeTextosEnTotal`, y se van sumando textos (la oficial primero, después un medio
@@ -131,12 +132,12 @@ export const REESCRITURA = {
   // no hay un número fijo de textos (con tres de 4.000 entran tres; con seis de 2.000, seis). Para elegir los más completos se intenta
   // bajar el texto de hasta `fuentesQueSeBajan` fuentes (red, no cupo de IA). Dos textos con `copiaEntreFuentes` % o más
   // de sus tramos de cinco palabras en común son copia (un cable, una gacetilla): cuentan como una voz.
-  caracteresDeTextosEnTotal: 12000,
+  caracteresDeTextosEnTotal: 18000,
   caracteresMinimosDeUnTexto: 800,
-  fuentesQueSeBajan: 6,
+  fuentesQueSeBajan: 8,
   // Si la cuentan `MUY_CONTADA.medios` medios o más: se bajan más textos para elegir con más diversidad de medio (el presupuesto de
   // caracteres no cambia: el pedido medio de una muy contada pesa unos 9.000 tokens, medido el 24/10).
-  fuentesQueSeBajanMuyContada: 8,
+  fuentesQueSeBajanMuyContada: 12,
   copiaEntreFuentes: 50,
   diasDeAntecedentes: 30,
   antecedentesMaximo: 3,
@@ -163,11 +164,10 @@ export const NOTA_DEL_DOLAR = {
 export const PORTADA = {
   // 36 (28/09, Hernán: "en la tapa, lo que pasó entre ayer y hoy"; eran 72).
   horas: 36,
-  // Una nota que nunca salió no se estrena si el hecho ya tiene más de esto
-  // (28/09, Hernán: "no tomar notas que vienen de hace dos o tres días"; 40 de
-  // 140 salían con más de 24 horas, por esperar medios o cuerpo).
-  // 12 (28/09, Hernán eligió 12 entre 2, 12 y 24).
-  horasParaEstrenar: 12,
+  // Una nota que nunca salió no se estrena si el hecho ya tiene más de esto (28/09: "no tomar notas que vienen de hace dos o tres días").
+  // 24 para todo lo de afuera desde el 25/10 (regla 327; eran 12, y 24 sólo con 8 medios o más): con la fecha del hecho por la mediana de
+  // las fuentes, lo de dos o tres días ya no entra, y con 12 se vencía lo que la IA no llegaba a escribir a tiempo.
+  horasParaEstrenar: 24,
   // Lo de Balcarce (esDeAca) se estrena con el hecho de hasta esto (23/10/2026, Hernán, auditoría D5: «Balcarce entra todo»; los medios de acá
   // publican tarde y las notas esperan cuerpo, y con 12 se perdían a medio camino). Son las mismas horas que dura en la portada.
   horasParaEstrenarDeAca: 36,

@@ -369,6 +369,7 @@ function paraLaMemoria(n) {
     // Lo raspado sin fecha (La Vanguardia, El Diario Balcarce): la «fecha» es cuándo se vio y no cuenta para el largo de un
     // hecho (horaDe). Sin la marca, al volver de la memoria parecía una fecha de verdad.
     ...(n.fechaEstimada ? { fechaEstimada: true } : {}),
+    ...(n.sinHora ? { sinHora: true } : {}),
     visto: n.visto ?? new Date().toISOString(),
     medio: n.medio,
     fuenteId: n.fuenteId,

@@ -68,4 +68,3 @@ jobs:
           MOTOR_MINUTOS_DE_MAS: ${{ vars.MOTOR_MINUTOS_DE_MAS }}
           MOTOR_NOCHE_CADA_HORA: ${{ vars.MOTOR_NOCHE_CADA_HORA }}
           MOTOR_CICLO_DIA: ${{ vars.MOTOR_CICLO_DIA }}
-          FECHA_DEL_HECHO: ${{ vars.FECHA_DEL_HECHO }}

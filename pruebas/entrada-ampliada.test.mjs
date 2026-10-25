@@ -241,16 +241,16 @@ test('la gacetilla del municipio repetida por una radio (Bilbao, § 3.6): sale d
 /** Un texto de `parrafos` párrafos con palabras propias de la fuente `n` (no se parece a ningún otro). */
 const textoPropio = (n, parrafos = 12) => Array.from({ length: parrafos }, (_, p) => Array.from({ length: 60 }, (__, k) => `fuente${'abcdefgh'[n]}dato${p}x${k}`).join(' ')).join('\n');
 
-test('los textos completos entran por presupuesto: cada uno con su tope y, entre todos, no más de 12.000 caracteres; los que no entran, con su resumen', () => {
-  assert.equal(REESCRITURA.caracteresDeTextosEnTotal, 12000);
+test('los textos completos entran por presupuesto: cada uno con su tope y, entre todos, no más de 18.000 caracteres (regla 327); los que no entran, con su resumen', () => {
+  assert.equal(REESCRITURA.caracteresDeTextosEnTotal, 18000);
   assert.equal(REESCRITURA.textosCompletosMaximo, undefined, 'no hay un número fijo de textos');
   const origenes = Array.from({ length: 5 }, (_, i) => ({ medio: `Medio ${i + 1}`, enlace: `https://m${i}/n`, fecha: null, oficial: false, resumen: `Resumen del medio ${i + 1}.` }));
   const textos = origenes.map((_, i) => ({ indice: i, texto: textoPropio(i).slice(0, REESCRITURA.caracteresDelTextoCompleto) }));
   const { fuentes } = armarFuentesParaLaIA(origenes, textos, { titulo: 'Una nota' });
   const conTexto = fuentes.filter((f) => f.texto);
-  assert.equal(conTexto.length, 3, 'tres de 4.000 llenan los 12.000');
+  assert.equal(conTexto.length, 3, 'tres de 6.000 llenan los 18.000');
   for (const f of conTexto) assert.ok(f.texto.length <= REESCRITURA.caracteresDelTextoCompleto, `${f.medio}: ${f.texto.length}`);
-  assert.ok(conTexto.reduce((s, f) => s + f.texto.length, 0) <= 12000);
+  assert.ok(conTexto.reduce((s, f) => s + f.texto.length, 0) <= 18000);
   assert.equal(fuentes.length, 5, 'las demás siguen numeradas, con su resumen');
   assert.equal(fuentes[4].texto, null);
   // Con textos cortos entran más: son seis de 1.800 caracteres, que caben juntos (10.800).

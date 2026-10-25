@@ -106,8 +106,8 @@ test('origenesDe conserva el titular de cada origen', () => {
 
 // ------------------------------------------------------------------ 5. las muy contadas
 
-test('una nota de 8 medios o más baja hasta 8 textos y elige un enlace por medio antes de repetir uno', async () => {
-  assert.equal(REESCRITURA.fuentesQueSeBajanMuyContada, 8);
+test('una nota de 8 medios o más baja hasta 12 textos y elige un enlace por medio antes de repetir uno', async () => {
+  assert.equal(REESCRITURA.fuentesQueSeBajanMuyContada, 12);
   // Principal (Medio 0), tres enlaces del Medio 1 y después un enlace de cada uno de los otros siete medios.
   const nota = historia(1, 1);
   const mas = [1, 1, 1, 2, 3, 4, 5, 6, 7, 8].map((m, k) => ({ medio: `Medio ${m}`, titulo: `T ${k}`, enlace: `https://m${m}.test/n-${k}`, resumen: 'r' }));
@@ -116,16 +116,17 @@ test('una nota de 8 medios o más baja hasta 8 textos y elige un enlace por medi
   assert.equal(esMuyContada(nota), true);
   const pedidos = [];
   await textosDeLasFuentes(nota, async (url) => { pedidos.push(url); return null; });
-  assert.equal(pedidos.length, 8);
+  // Hay 11 enlaces de 9 medios y el tope es 12: se piden todos, primero uno por medio.
+  assert.equal(pedidos.length, 11);
   const medios = pedidos.map((u) => u.match(/m(\d)\.test/)[1]);
-  assert.equal(new Set(medios).size, 8, `ningún medio repetido mientras falten medios: ${medios}`);
-  // Una de 7 medios: como siempre (6, en el orden de la ingesta).
+  assert.equal(new Set(medios.slice(0, 9)).size, 9, `ningún medio repetido mientras falten medios: ${medios}`);
+  // Una de 7 medios: como siempre (8 desde la regla 327, en el orden de la ingesta).
   const comun = { ...nota, medios: nota.medios.slice(0, 7) };
   assert.equal(esMuyContada(comun), false);
   const pedidos2 = [];
   await textosDeLasFuentes(comun, async (url) => { pedidos2.push(url); return null; });
   assert.equal(pedidos2.length, REESCRITURA.fuentesQueSeBajan);
-  assert.deepEqual(pedidos2, ['https://m0.test/nota-0', 'https://m1.test/n-0', 'https://m1.test/n-1', 'https://m1.test/n-2', 'https://m2.test/n-3', 'https://m3.test/n-4'], 'la principal y los enlaces en el orden de siempre');
+  assert.deepEqual(pedidos2, ['https://m0.test/nota-0', 'https://m1.test/n-0', 'https://m1.test/n-1', 'https://m1.test/n-2', 'https://m2.test/n-3', 'https://m3.test/n-4', 'https://m4.test/n-5', 'https://m5.test/n-6'], 'la principal y los enlaces en el orden de siempre');
 });
 
 test('numeradas: todas, en una nota común y en una muy contada', () => {
@@ -135,7 +136,7 @@ test('numeradas: todas, en una nota común y en una muy contada', () => {
   assert.equal(armarFuentesParaLaIA(historia(30, 30).origenes, []).fuentes.length, 30);
 });
 
-test('el pedido de una muy contada de 24 fuentes con los textos al presupuesto cabe en unos 11.000 tokens', async () => {
+test('el pedido de una muy contada de 24 fuentes con los textos al presupuesto cabe en unos 13.000 tokens (regla 327: 18.000 caracteres de texto)', async () => {
   const nota = historia(24, 24);
   nota.origenes.forEach((o) => { o.resumen = `${o.resumen} `.repeat(6).slice(0, 280); });
   const textos = Array.from({ length: 8 }, (_, k) => ({
@@ -146,9 +147,9 @@ test('el pedido de una muy contada de 24 fuentes con los textos al presupuesto c
   const g = gemini([{ titulo: 'Reunión por el agua', copete: 'x', cuerpo: CUERPO, guion: 'x' }]);
   await reescribir(conTexto, { fetchFn: g.fetchFn, intentos: 1 });
   const tokens = g.pedidos[0].length / 3.5; // el español de este prompt: unos 3,5 caracteres por token
-  assert.ok(tokens < 11000, `el pedido pesa unos ${Math.round(tokens)} tokens`);
+  assert.ok(tokens < 13000, `el pedido pesa unos ${Math.round(tokens)} tokens`);
   const textosCompletos = conTexto.entradaAmpliada.fuentes.filter((f) => f.texto);
-  assert.equal(textosCompletos.length, 3, 'tres de 4.000 caracteres llenan los 12.000');
+  assert.equal(textosCompletos.length, 3, 'tres de 6.000 caracteres llenan los 18.000');
   assert.ok(textosCompletos.reduce((s, f) => s + f.texto.length, 0) <= REESCRITURA.caracteresDeTextosEnTotal);
 });
 

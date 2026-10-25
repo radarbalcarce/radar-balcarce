@@ -364,22 +364,22 @@ test('la fecha de una nota es la más vieja que se conoce: un medio que actualiz
 
 // ------------------ una nota vieja no se estrena (28/09, "noticias viejas")
 
-import { llegaTarde, HORAS_PARA_ESTRENAR, HORAS_PARA_ESTRENAR_MUY_CONTADA, MEDIOS_MUY_CONTADA, horasParaEstrenar } from '../web/lib/archivo.js';
+import { llegaTarde, HORAS_PARA_ESTRENAR, MEDIOS_MUY_CONTADA, horasParaEstrenar } from '../web/lib/archivo.js';
 import { PORTADA, MUY_CONTADA } from '../ingesta/criterio.mjs';
 
-test('una nota que nunca salió no se estrena con el hecho de más de 12 horas', () => {
+test('una nota que nunca salió no se estrena con el hecho de más de 24 horas (regla 327: una sola ventana para lo de afuera)', () => {
   assert.equal(HORAS_PARA_ESTRENAR, PORTADA.horasParaEstrenar);
-  assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, MUY_CONTADA.horasDelHecho);
   assert.equal(MEDIOS_MUY_CONTADA, MUY_CONTADA.medios);
   const hace = (h) => new Date(Date.now() - h * 3600000).toISOString();
-  assert.equal(llegaTarde(hace(20), Date.now(), horasParaEstrenar(3)), true, 'con pocos medios, 20 horas es tarde');
+  assert.equal(llegaTarde(hace(20), Date.now(), horasParaEstrenar(3)), false, 'con pocos medios, 20 horas todavía se estrena');
   assert.equal(llegaTarde(hace(20), Date.now(), horasParaEstrenar(8)), false, 'con 8 medios, 20 horas todavía se estrena');
   assert.equal(llegaTarde(hace(30), Date.now(), horasParaEstrenar(20)), true, 'ni con 20 medios pasa de 24 horas');
   const ahora = new Date('2026-09-28T15:00:00Z').getTime();
   // El choque de Colapinto en Bakú (sábado 26 a la mañana): el lunes ya no se estrena.
   assert.equal(llegaTarde('2026-09-26T12:47:00Z', ahora), true);
-  // Lo de anoche a las 20, tampoco (más de 12 horas).
-  assert.equal(llegaTarde('2026-09-27T23:00:00Z', ahora), true);
+  // Lo de ayer a la mañana, tampoco (más de 24 horas); lo de anoche a las 20, sí (regla 327).
+  assert.equal(llegaTarde('2026-09-27T14:00:00Z', ahora), true);
+  assert.equal(llegaTarde('2026-09-27T23:00:00Z', ahora), false);
   // Lo de esta mañana, sí.
   assert.equal(llegaTarde('2026-09-28T09:00:00Z', ahora), false);
   // Justo en el borde, todavía sale.

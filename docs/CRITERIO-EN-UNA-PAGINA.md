@@ -27,9 +27,9 @@ El detalle completo está en `CRITERIO-EDITORIAL.md` y los números, en `ingesta
 - **La cotización del dólar del día** (está en la página del dólar). Una nota de economía que menciona el dólar sí sale.
 - **Lo que no es noticia:** publicidad, chimentos, horóscopo, lotería (salvo que gane alguien de acá), las efemérides de otro medio, el autobombo de un medio de acá.
 - **Lo que no tiene cuerpo:** una nota automática sin 70 palabras de texto no sale; se reintenta y, si no hay manera, se descarta con el motivo anotado.
-- **Lo viejo:** una nota que nunca salió no se estrena si el hecho es más viejo que la ventana (12 horas lo de afuera, 24 lo muy contado, 36 lo de Balcarce).
-  La edad del hecho se cuenta desde la **mediana de las fechas de las fuentes** en lo muy contado y en lo de Balcarce, y desde la fuente más vieja en el resto
-  (regla 314, 24/10/2026): con 8 medios o más casi siempre hay un anticipo del día anterior que, contado como "el hecho", dejaba afuera una noticia que otro medio acababa de publicar.
+- **Lo viejo:** una nota que nunca salió no se estrena si el hecho tiene más de **24 horas** (36 si es de Balcarce).
+  La edad del hecho es la **mediana de las fechas de sus fuentes**, igual para todo (regla 327, 25/10/2026): un anticipo del día anterior
+  o la primera vez que vimos la nota ya no dejan afuera una noticia que otro medio acaba de publicar. Una fuente sin hora no cuenta para esa fecha.
 
 ## Qué espera a una persona
 
@@ -41,8 +41,7 @@ El detalle completo está en `CRITERIO-EDITORIAL.md` y los números, en `ingesta
 ## Cuánto dura todo (las ventanas)
 
 - **36 horas** una nota está en la portada y las listas.
-- **12 horas** puede tener el hecho para estrenarse (lo de afuera); **24** si lo cuentan 8 medios o más; **36** si es de Balcarce. Se cuentan desde la mediana de las
-  fuentes en las dos últimas y desde la fuente más vieja en la primera (variable `FECHA_DEL_HECHO`: `vieja` vuelve a contar siempre desde la más vieja).
+- **24 horas** puede tener el hecho para estrenarse (lo de afuera); **36** si es de Balcarce. Se cuentan desde la mediana de las fuentes (regla 327).
 - **72 horas**: lo que un medio trae con más de eso y nunca salió, no entra ni al cruce.
 - **500 notas** es el tope de notas con página en el sitio hoy (variable de GitHub `TOPE_DE_NOTAS`). El techo técnico del código es 3.700 y el archivo
   de 180 días lo guarda el archivo permanente, no el sitio.
@@ -56,8 +55,8 @@ El detalle completo está en `CRITERIO-EDITORIAL.md` y los números, en `ingesta
 | **8** medios | "Muy contada": noticia grande | Medido sobre 50 medios del país: es el punto donde ya es de todos (regla 197; Hernán: "más de 8 fuentes debería ser algo súper relevante") | `MUY_CONTADA.medios` (`ingesta/criterio.mjs`). Lo leen la ingesta, el policial nacional (`POLICIAL_NACIONAL`), la web (`web/lib/archivo.js`) y el semáforo (`sueltaElAmarillo`) |
 | **5 / 8** medios | Intentos extra de la IA con una nota que no logra cuerpo (+1 y +2) | Insistirle más a lo que cuenta mucha gente; es un 8 aparte del de "muy contada" a propósito (uno mide cuánto insistir, el otro qué es noticia grande) | `REESCRITURA.fuentesParaUnIntentoExtra` y `fuentesParaDosIntentosExtra` |
 | **36** h | Portada y listas; y estreno de lo de Balcarce | Hernán 28/09: "en la tapa, lo que pasó entre ayer y hoy"; 23/10: Balcarce entra todo | `PORTADA.horas` y `PORTADA.horasParaEstrenarDeAca`; `web/lib/archivo.js` los importa |
-| **12** h | Estreno de lo de afuera | Hernán 28/09: no traer noticias de hace dos o tres días | `PORTADA.horasParaEstrenar`; `horasParaEstrenar()` en `web/lib/archivo.js` |
-| **24** h | Estreno y vigencia de lo muy contado | Una historia grande de anoche sigue siendo noticia hoy (regla 287) | `MUY_CONTADA.horasDelHecho` y `horasDeLaUltimaNota` |
+| **24** h | Estreno de lo de afuera | Hernán 28/09: no traer noticias de hace dos o tres días; 25/10 (regla 327): una sola ventana, contada desde la mediana de las fuentes | `PORTADA.horasParaEstrenar`; `horasParaEstrenar()` en `web/lib/archivo.js` |
+| **24** h | Vigencia de lo muy contado (la marca de «muy contada») | Una historia grande de anoche sigue siendo noticia hoy (regla 287) | `MUY_CONTADA.horasDelHecho` y `horasDeLaUltimaNota` |
 | **72** h | Máxima edad de lo que entra de un medio o se raspa | Los feeds de acá traen notas de meses que arrastran a las nuevas (regla 180) | `HORAS_DE_UNA_NOTA_NUEVA` (`ingesta/ingesta.mjs`) |
 | **70** palabras | Mínimo de cuerpo para publicar | Con menos es un título largo, no una nota | `CUERPO.minimoParaPublicar` |
 | **12** palabras | Copiar del original: el verificador rechaza más de 12 seguidas | A la IA se le pide "no más de 10" (margen a propósito: no tirar una nota por una frase hecha) | `COPIA_MAXIMA`; la instrucción, `CRITERIO-EDITORIAL.md` § 12 |

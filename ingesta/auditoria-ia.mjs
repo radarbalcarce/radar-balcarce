@@ -36,8 +36,9 @@ export const AUDITORIA = {
   porPedido: 3,
   /** Cuántas notas se leen por corrida. */
   porCorrida: 12,
-  /** Cuánto del cuerpo se manda (caracteres). */
-  cuerpoMaximo: 1600,
+  /** Cuánto del cuerpo se manda (caracteres): el cuerpo entero, el mismo tope que tiene un cuerpo (CUERPO.maximo; regla 327: con 1.600
+   *  no veía el final de las notas largas). */
+  cuerpoMaximo: 2600,
   /** Segundos de espera entre un pedido y el siguiente, por el tope de tokens por minuto. */
   esperaEntrePedidos: 25,
   /** Hasta cuántas horas atrás se miran las notas. */

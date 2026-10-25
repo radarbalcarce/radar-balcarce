@@ -150,8 +150,33 @@ export function extraerTexto(html, { max = REESCRITURA.caracteresDelTextoComplet
   const parrafos = esEntradaDeFeed(crudo)
     ? (parrafosDeAtom(crudo) ?? [])
     : tramoPrincipal(sinBloquesDeRuido(crudo));
-  const texto = parrafos.join('\n').slice(0, max);
+  let texto = parrafos.join('\n');
+  // Regla 327: muchos sitios arman la nota con JavaScript y en el HTML sólo queda el texto entero dentro del marcado para Google
+  // (`articleBody` del JSON-LD). Si ése es más largo que lo que se sacó de los párrafos, se usa ése.
+  const delMarcado = esEntradaDeFeed(crudo) ? '' : cuerpoDelMarcado(crudo);
+  if (delMarcado.length > texto.length) texto = delMarcado;
+  texto = texto.slice(0, max);
   return texto.length >= minimo ? texto : null;
+}
+
+/** El `articleBody` más largo de los bloques JSON-LD de la página, en párrafos limpios, o '' si no hay. */
+export function cuerpoDelMarcado(html) {
+  let mejor = '';
+  const visitar = (v) => {
+    if (!v || typeof v !== 'object') return;
+    if (Array.isArray(v)) { v.forEach(visitar); return; }
+    if (typeof v.articleBody === 'string' && v.articleBody.length > mejor.length) mejor = v.articleBody;
+    Object.values(v).forEach(visitar);
+  };
+  for (const m of String(html ?? '').matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try { visitar(JSON.parse(m[1].trim())); } catch { /* marcado roto: se ignora */ }
+  }
+  if (!mejor) return '';
+  return decodificar(mejor.replace(/<[^>]+>/g, ' '))
+    .split(/\n+/)
+    .map(limpiar)
+    .filter((t) => t.length >= 50 && !RUIDO.test(t) && !NECROLOGICA.test(t))
+    .join('\n');
 }
 
 /**

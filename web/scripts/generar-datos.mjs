@@ -80,7 +80,7 @@ import {
 import { reporteHtml as reporteDeLaSeleccionHtml } from '../../scripts/medir/estadistica-seleccion.mjs';
 import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
 
-/** Cuántas horas puede tener el hecho de esta nota para estrenarse: 12 si es de afuera, 24 si la cuentan MUY_CONTADA.medios o más, 36 si es de acá (regla 306). */
+/** Cuántas horas puede tener el hecho de esta nota para estrenarse: 24 si es de afuera, 36 si es de acá (regla 327). */
 const horasDeEstreno = (n) => horasParaEstrenar(contarMedios(n.medios), esDeAca(n));
 import { bancoFinal, textoDelBanco, hayQueEscribirElBanco } from './banco-sin-ruido.mjs';
 import { conFotosDelBanco, podarFotos, esIlustracionDeNota, ilustracionPermitida, fotoConMenorPermitida, fotoDelArchivoAlDia } from './fotos-notas.mjs';
@@ -316,21 +316,17 @@ const vistas = {};
 }
 
 /**
- * La fecha de una nota, una sola regla para todo (28/09): si la fuente no dio
- * hora, la primera vez que la vimos; si la dio, la más vieja que se conoce
- * (sus fuentes, la ya publicada, la primera vez que la vimos) y, desde la regla 314, para lo muy
- * contado y lo de acá, la mediana de sus fuentes en vez de la más vieja. Es la que se
- * muestra, la que ordena y la que decide si llega tarde (llegaTarde).
+ * La fecha de una nota, una sola regla para todo: si la fuente no dio hora, la primera vez que la vimos; si la dio, la mediana
+ * de sus fuentes o la ya publicada, la más vieja de las dos (regla 327). Es la que se muestra, la que ordena y la que decide si
+ * llega tarde (llegaTarde).
  */
 const primeraVista = (n) => vistoAntes[n.id] ?? vistas[n.id];
 // Regla 194: las fuentes de más de HORAS_DE_UN_HECHO antes de la primera vez que la vimos (notas viejas de otro hecho que el
 // cruce pegó) no la envejecen. La fecha ya publicada sigue mandando (fechaAntes, corregida arriba si era un error).
 const fechaReal = (n) => (n.cuando === 'sin fecha en la fuente'
   ? (primeraVista(n) ?? ahoraISO)
-  // Regla 314: lo muy contado y lo de acá toman la mediana de sus fuentes, no la más vieja (ingesta/fecha-del-hecho.mjs; FECHA_DEL_HECHO="vieja" vuelve a lo de antes).
-  : fechaDeLaNota(n, {
-    fechaAnterior: fechaAntes[n.id], visto: primeraVista(n), horas: HORAS_DE_UN_HECHO, medios: contarMedios(n.medios), deAca: esDeAca(n),
-  }));
+  // Regla 327: la mediana de las fuentes, igual para todo (web/lib/archivo.js, fechaDeLaNota).
+  : fechaDeLaNota(n, { fechaAnterior: fechaAntes[n.id], visto: primeraVista(n), horas: HORAS_DE_UN_HECHO }));
 
 // La lectura con IA (plan V2.2, ingesta/lectura-ia.mjs). Desde el 27/09 DECIDE
 // (Hernán: sin prueba, se corrige en vivo): una IA lee cada nota nueva con el

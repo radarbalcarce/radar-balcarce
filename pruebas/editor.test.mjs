@@ -75,7 +75,7 @@ const correr = (respuestas, extra = {}) => {
 
 // ----------------------------------------------------------------- el prompt
 
-test('la instrucción es la del editor digital y conserva sus 14 reglas fijas (achicada a la mitad en la regla 263)', () => {
+test('la instrucción es la del editor digital y conserva sus 15 reglas fijas (achicada a la mitad en la regla 263; la 15, de deportes, desde la regla 326)', () => {
   assert.match(INSTRUCCION_EDITORIAL, /Sos el editor digital de Radar Balcarce/);
   assert.match(INSTRUCCION_EDITORIAL, /Contrastás las fuentes/);
   assert.match(INSTRUCCION_EDITORIAL, /declaración de parte/);
@@ -85,8 +85,8 @@ test('la instrucción es la del editor digital y conserva sus 14 reglas fijas (a
   assert.match(INSTRUCCION_EDITORIAL, /el sistema lo agrega solo/);
   assert.match(INSTRUCCION_EDITORIAL, /NUNCA pasa de 90/);
   assert.match(INSTRUCCION_EDITORIAL, /de 70 a 300 palabras/);
-  for (let i = 1; i <= 14; i += 1) assert.match(INSTRUCCION_EDITORIAL, new RegExp(`\\n${i}\\. `), `falta la regla ${i}`);
-  assert.doesNotMatch(INSTRUCCION_EDITORIAL, /\n15\. /, 'son 14');
+  for (let i = 1; i <= 15; i += 1) assert.match(INSTRUCCION_EDITORIAL, new RegExp(`\\n${i}\\. `), `falta la regla ${i}`);
+  assert.doesNotMatch(INSTRUCCION_EDITORIAL, /\n16\. /, 'son 15');
   assert.match(INSTRUCCION_EDITORIAL, /doctrina Campillay/);
   assert.match(INSTRUCCION_EDITORIAL, /26\.061 y 26\.485/);
   for (const campo of ['claves', 'seSabe', 'noConfirmado', 'aportes', 'textoRedes', 'etiquetas']) {

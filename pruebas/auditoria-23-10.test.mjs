@@ -18,7 +18,7 @@ import { semaforoDeLaReescritura } from '../reels/reescritura.mjs';
 import { aplicarFichas } from '../ingesta/lectura-ia.mjs';
 import { motivoDeUnaMuyContada } from '../ingesta/estadistica-seleccion.mjs';
 import {
-  horasParaEstrenar, llegaTarde, HORAS_PARA_ESTRENAR, HORAS_PARA_ESTRENAR_MUY_CONTADA, HORAS_PARA_ESTRENAR_DE_ACA, MEDIOS_MUY_CONTADA,
+  horasParaEstrenar, llegaTarde, HORAS_PARA_ESTRENAR, HORAS_PARA_ESTRENAR_DE_ACA, MEDIOS_MUY_CONTADA,
   HORAS_EN_PORTADA, DIAS_DE_ARCHIVO, MAXIMO_EN_ARCHIVO,
 } from '../web/lib/archivo.js';
 import { idsParaUnaPersona } from '../panel/celular-datos.mjs';
@@ -135,9 +135,9 @@ test('M5: la lectura con IA cuenta los medios como el semáforo: los del mismo d
 
 // ------------------------------------------------------------------ regla 293: Balcarce se estrena con 36 horas, y un solo 8 y un solo 24 (D3, M1, M2, M3)
 
-test('D3: lo de Balcarce se estrena con el hecho de hasta 36 horas; lo de afuera 12, y lo muy contado 24', () => {
-  assert.equal(horasParaEstrenar(1), 12);
-  assert.equal(horasParaEstrenar(3, false), 12);
+test('D3: lo de Balcarce se estrena con el hecho de hasta 36 horas; lo de afuera 24, tenga los medios que tenga (regla 327)', () => {
+  assert.equal(horasParaEstrenar(1), 24);
+  assert.equal(horasParaEstrenar(3, false), 24);
   assert.equal(horasParaEstrenar(8, false), 24);
   assert.equal(horasParaEstrenar(1, true), 36);
   assert.equal(horasParaEstrenar(20, true), 36);
@@ -152,7 +152,6 @@ test('D3: lo de Balcarce se estrena con el hecho de hasta 36 horas; lo de afuera
 test('M1 y M2: un solo 8 y un solo 24, y la web los importa en vez de copiarlos', () => {
   assert.equal(POLICIAL_NACIONAL.medios, MUY_CONTADA.medios);
   assert.equal(MEDIOS_MUY_CONTADA, MUY_CONTADA.medios);
-  assert.equal(HORAS_PARA_ESTRENAR_MUY_CONTADA, MUY_CONTADA.horasDelHecho);
   assert.equal(MUY_CONTADA.horasDeLaUltimaNota, MUY_CONTADA.horasDelHecho);
   assert.ok(!('horasParaEstrenarMuyContada' in PORTADA), 'el 24 del estreno ya no está dos veces');
   assert.equal(HORAS_PARA_ESTRENAR, PORTADA.horasParaEstrenar);

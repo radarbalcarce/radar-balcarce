@@ -69,6 +69,8 @@ const CRITERIO = leerCriterio();
  *  ameno de todos los días: son una "problemática", no una novedad cualquiera.
  *  Están en CRITERIO-EDITORIAL.md (sección 4, "Los dos tonos"). */
 export const PALABRAS_SERIAS = CRITERIO.palabrasSerias;
+const escapar = (t) => String(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const palabraEntera = (p) => new RegExp(`(?<!\\p{L})${escapar(p)}(?!\\p{L})`, 'u');
 
 /** ¿Esta nota pide el tono serio en vez del ameno de todos los días?
  *  Policiales siempre lo pide: aunque ya pasó el filtro de palabras (lo que
@@ -77,7 +79,8 @@ export const PALABRAS_SERIAS = CRITERIO.palabrasSerias;
 export function esTemaSerio(nota) {
   if (nota?.seccion === 'Policiales') return true;
   const texto = `${nota?.titulo ?? ''} ${nota?.resumenFuente ?? ''}`.toLowerCase();
-  return PALABRAS_SERIAS.some((p) => texto.includes(p));
+  // Palabra entera (regla 327): «robo» no se activa con «robot» ni «crisis» dentro de otra palabra.
+  return PALABRAS_SERIAS.some((p) => palabraEntera(p).test(texto));
 }
 
 // Sólo para comparar dos versiones de las reglas con notas reales

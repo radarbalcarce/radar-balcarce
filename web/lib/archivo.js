@@ -23,7 +23,6 @@ import { tieneRespaldo, tieneCuerpo } from './cuerpo.js';
 import { sinTildes } from './texto.js';
 // Los números salen de un solo lugar (23/10/2026, auditoría M1 a M3): ingesta/criterio.mjs no importa nada, la web ya lo lee (datos.js).
 import { PORTADA, MUY_CONTADA } from '../../ingesta/criterio.mjs';
-import { modoDeLaFechaDelHecho, medianaDeLasFechas } from '../../ingesta/fecha-del-hecho.mjs';
 
 /** Cuánto se queda una nota en las listas del sitio (el 25/09 la portada tenía
  *  43 notas de más de tres días). */
@@ -304,8 +303,7 @@ export function seccionSinSaltos(nueva, anterior) {
 }
 
 /**
- * La fecha de una nota: la más vieja entre la que trae la ingesta, la de cada
- * una de sus fuentes, la que ya publicamos antes y la primera vez que la vimos.
+ * La fecha de una nota: la del hecho (la mediana de sus fuentes, regla 327) o la que ya publicamos antes, la más vieja de las dos.
  *
  * Los medios "actualizan" sus notas y el feed trae la fecha nueva: la de
  * Colapinto y Gasly en Bakú (sábado 26/09) figuraba "hace 46 minutos" el lunes
@@ -318,34 +316,28 @@ export function seccionSinSaltos(nueva, anterior) {
  * hecho que el cruce pegó. Y generar-datos no le pasa como `fechaAnterior` una
  * fecha que ya era un error (fechaEnvejecidaPorError, conFechaSinError).
  *
- * Desde el 24/10 (regla 314), si la historia la cuentan MUY_CONTADA.medios medios o más (`medios`) o es de acá (`deAca`) y `modo` es
- * «mediana» (la variable FECHA_DEL_HECHO; por defecto), de las fuentes cuenta la MEDIANA de sus fechas y no la más vieja: un anticipo del
- * día anterior dejaba a una historia de 34 medios «tarde» (ingesta/fecha-del-hecho.mjs). La ya publicada (`fechaAnterior`) y la primera vez
- * que se vio (`visto`) siguen compitiendo: una nota nunca rejuvenece. Sin `medios` ni `deAca`, todo queda como antes.
+ * Desde el 25/10 (regla 327) la fecha del hecho es UNA SOLA REGLA para todo: la MEDIANA de las fechas de sus fuentes (una por fuente;
+ * las que no dieron hora no cuentan). Antes era la más vieja (y la mediana sólo en lo muy contado y lo de acá), y competía con la primera
+ * vez que vimos la nota: una historia que arrancó con un medio ayer y hoy cuentan 17 quedaba con la fecha de ayer y «llegaba tarde» sin que
+ * nadie la escribiera (el 24/10, 70 historias de 8 medios o más). La primera vez que la vimos (`visto`) sólo cuenta si la nota tiene una
+ * sola fuente (un medio que «actualiza» la fecha de su nota no la rejuvenece: Colapinto en Bakú, 28/09). La ya publicada (`fechaAnterior`)
+ * sigue mandando: una nota publicada nunca rejuvenece.
  */
-export function fechaDeLaNota(nota, {
-  fechaAnterior = null, visto = null, horas = HORAS_DE_UN_HECHO, medios = null, deAca = false, modo = modoDeLaFechaDelHecho(),
-} = {}) {
+export function fechaDeLaNota(nota, { fechaAnterior = null, visto = null, horas = HORAS_DE_UN_HECHO } = {}) {
   const t = (f) => (f ? new Date(f).getTime() : NaN);
-  const deLasFuentes = [nota?.fecha, ...(nota?.origenes ?? []).map((o) => o?.fecha)].map(t).filter(Number.isFinite);
-  // Regla 314: para lo muy contado y lo de acá, la fecha del hecho es la mediana de las fuentes y no la más vieja (ver fecha-del-hecho.mjs).
-  // Cada fuente cuenta una vez: `origenes` ya incluye a la principal, y su fecha no se repite.
-  const porMediana = modo === 'mediana' && (deAca || Number(medios) >= MEDIOS_MUY_CONTADA);
-  const unaPorFuente = (nota?.origenes ?? []).length ? (nota.origenes ?? []).map((o) => t(o?.fecha)) : [t(nota?.fecha)];
+  const origenes = nota?.origenes ?? [];
+  // Cada fuente cuenta una vez: `origenes` ya incluye a la principal.
+  const porFuente = (origenes.length ? origenes.map((o) => t(o?.fecha)) : [t(nota?.fecha)]).filter(Number.isFinite);
   // Regla 194 (17/10/2026): una fuente mucho más vieja que la primera vez que vimos la nota es una nota vieja que el cruce le
   // pegó, no la fecha del hecho («El Concejo Deliberativo Estudiantil cierra su quinta edición», vista el 14/10, figuraba del
-  // 30/04 por una nota vieja del Concejo; en el archivo había 80 así). Si hay alguna fuente de cerca, ésas mandan; si TODAS son
-  // viejas, la nota es vieja de verdad (la vimos tarde) y conserva su fecha: llega tarde y no se estrena.
+  // 30/04 por una nota vieja del Concejo). Si hay alguna fuente de cerca, ésas mandan; si TODAS son viejas, la nota es vieja de verdad.
   const vista = t(visto);
-  const cercanas = Number.isFinite(vista) ? deLasFuentes.filter((x) => x >= vista - horas * HORA) : deLasFuentes;
-  let lasQueCuentan = cercanas.length ? cercanas : deLasFuentes;
-  if (porMediana) {
-    const porFuente = unaPorFuente.filter(Number.isFinite);
-    const cercanasPorFuente = Number.isFinite(vista) ? porFuente.filter((x) => x >= vista - horas * HORA) : porFuente;
-    const del = medianaDeLasFechas(cercanasPorFuente.length ? cercanasPorFuente : porFuente);
-    if (Number.isFinite(del)) lasQueCuentan = [del];
-  }
-  const candidatas = [...lasQueCuentan, t(fechaAnterior), vista].filter(Number.isFinite);
+  const cercanas = Number.isFinite(vista) ? porFuente.filter((x) => x >= vista - horas * HORA) : porFuente;
+  // La mediana «baja»: con una cantidad par, la más vieja de las dos del medio (siempre la fecha de una fuente; con dos fuentes, la más vieja).
+  const lista = (cercanas.length ? cercanas : porFuente).slice().sort((x, y) => x - y);
+  const delHecho = lista.length ? lista[Math.floor((lista.length - 1) / 2)] : NaN;
+  const unaSola = origenes.length <= 1;
+  const candidatas = [delHecho, t(fechaAnterior), unaSola || !Number.isFinite(delHecho) ? vista : NaN].filter(Number.isFinite);
   if (!candidatas.length) return nota?.fecha ?? null;
   return new Date(Math.min(...candidatas)).toISOString();
 }
@@ -392,18 +384,14 @@ export function conFechaSinError(nota) {
  *  (PORTADA.horasParaEstrenar en ingesta/criterio.mjs). */
 export const HORAS_PARA_ESTRENAR = PORTADA.horasParaEstrenar;
 
-/** Una historia que cuentan tantos medios (MUY_CONTADA.medios, 8) es noticia aunque el hecho sea de ayer a la noche: se estrena con
- *  hasta HORAS_PARA_ESTRENAR_MUY_CONTADA horas, las de MUY_CONTADA.horasDelHecho (23/10, Hernán: "más de 8 fuentes debería
- *  ser algo súper relevante"). Un solo 8 y un solo 24: viven en ingesta/criterio.mjs y acá se importan. */
 export const MEDIOS_MUY_CONTADA = MUY_CONTADA.medios;
-export const HORAS_PARA_ESTRENAR_MUY_CONTADA = MUY_CONTADA.horasDelHecho;
-/** Lo de Balcarce se estrena con el hecho de hasta esto (23/10/2026, regla 293, Hernán: «Balcarce entra todo»; antes, 12 como todo). */
+/** Lo de Balcarce se estrena con el hecho de hasta esto (23/10/2026, regla 293, Hernán: «Balcarce entra todo»). */
 export const HORAS_PARA_ESTRENAR_DE_ACA = PORTADA.horasParaEstrenarDeAca;
 
-/** Cuántas horas puede tener un hecho para estrenarse, según cuántos medios lo cuentan y si es de acá (esDeAca). */
+/** Cuántas horas puede tener un hecho para estrenarse: 24 lo de afuera y 36 lo de acá (regla 327: una sola ventana para lo de afuera,
+ *  sin contar los medios). `medios` queda en la firma por compatibilidad y no cambia nada. */
 export function horasParaEstrenar(medios = 1, deAca = false) {
-  const porMedios = Number(medios) >= MEDIOS_MUY_CONTADA ? HORAS_PARA_ESTRENAR_MUY_CONTADA : HORAS_PARA_ESTRENAR;
-  return deAca ? Math.max(porMedios, HORAS_PARA_ESTRENAR_DE_ACA) : porMedios;
+  return deAca ? Math.max(HORAS_PARA_ESTRENAR, HORAS_PARA_ESTRENAR_DE_ACA) : HORAS_PARA_ESTRENAR;
 }
 
 /**

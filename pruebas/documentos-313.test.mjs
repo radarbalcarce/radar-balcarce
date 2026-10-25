@@ -51,7 +51,7 @@ test('la página del criterio en una página dice los números del código', () 
   debeDecir(`| **${REESCRITURA.fuentesParaUnIntentoExtra} / ${REESCRITURA.fuentesParaDosIntentosExtra}** medios |`);
   debeDecir(`| **${PORTADA.horas}** h | Portada y listas`);
   debeDecir(`| **${PORTADA.horasParaEstrenar}** h | Estreno de lo de afuera`);
-  debeDecir(`| **${MUY_CONTADA.horasDelHecho}** h | Estreno y vigencia de lo muy contado`);
+  debeDecir(`| **${MUY_CONTADA.horasDelHecho}** h | Vigencia de lo muy contado`);
   debeDecir(`| **${CUERPO.minimoParaPublicar}** palabras | Mínimo de cuerpo`);
   debeDecir(`| **${COPIA_MAXIMA}** palabras | Copiar del original`);
   debeDecir(`| **${LECTURA_IA.pedidosPorDiaConClavePropia} / ${LECTURA_IA.pedidosPorDia}** |`);
@@ -61,7 +61,7 @@ test('la página del criterio en una página dice los números del código', () 
   debeDecir(`| **${FACEBOOK.mediosParaRedes}** medios | Lo de afuera que va a Facebook`);
   debeDecir(`hasta **${PORTADA.horasParaEstrenarDeAca} horas**`);
   debeDecir(`hasta **${MUY_CONTADA.horasDelHecho} horas**`);
-  debeDecir(`${PORTADA.horasParaEstrenar} horas lo de afuera, ${MUY_CONTADA.horasDelHecho} lo muy contado, ${PORTADA.horasParaEstrenarDeAca} lo de Balcarce`);
+  debeDecir(`más de **${PORTADA.horasParaEstrenar} horas** (${PORTADA.horasParaEstrenarDeAca} si es de Balcarce)`);
   for (const area of AREAS_CHICAS) {
     const nombre = area === 'Tecnología' ? 'Tecnología e IA' : area === 'Cultura y agenda' ? 'Cultura' : area;
     assert.ok(d.includes(nombre), `CRITERIO-EN-UNA-PAGINA.md no nombra el área chica ${nombre}`);
@@ -75,7 +75,7 @@ test('CLAUDE.md dice los números del código', () => {
   debeDecir(`con **${POPULARIDAD.minimoAreasChicas}** (\`MINIMO_AREAS_CHICAS\`)`);
   debeDecir(`lo muy contado (${MUY_CONTADA.medios} medios o más)`);
   debeDecir(`la portada muestra **${PORTADA.horas} horas**`);
-  debeDecir(`más de **${PORTADA.horasParaEstrenar}** (**${MUY_CONTADA.horasDelHecho}** si lo cuentan ${MUY_CONTADA.medios} medios o más: regla 287; **${PORTADA.horasParaEstrenarDeAca}** si es de Balcarce`);
+  debeDecir(`más de **${PORTADA.horasParaEstrenar}** (**${PORTADA.horasParaEstrenarDeAca}** si es de Balcarce)`);
   debeDecir(`el techo técnico de ${miles(PORTADA.maximoDeNotas)} es \`PORTADA.maximoDeNotas\``);
   debeDecir(`Cupo de voz: ${AUDIOS_POR_DIA} audios por día`);
   debeDecir(`cuatro con ${REESCRITURA.fuentesParaUnIntentoExtra} medios, cinco con ${REESCRITURA.fuentesParaDosIntentosExtra}`);

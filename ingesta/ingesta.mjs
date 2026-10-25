@@ -220,6 +220,9 @@ export function tituloDelSitemap(bloque) {
 
 /** Sólo enlaces http y https entran (V2-16, 8/10): un feed con `javascript:` o `data:` no llega a ninguna página. */
 const ES_HTTP = new RegExp('^https?://', 'i');
+// Una fecha de feed que trae el día y no la hora («2026-10-23», «Fri, 23 Oct 2026»): `new Date` la pone a la medianoche UTC (las 21 del día
+// anterior en Balcarce) y la noticia parecía más vieja de lo que era (regla 327). Sirve para el día, pero no cuenta para la fecha del hecho.
+export const sinHora = (texto) => !!texto && !/\d{1,2}:\d{2}/.test(String(texto));
 export function parsearFeed(xml, fuente) {
   // El índice de noticias que cada sitio arma para Google (news-sitemap): trae
   // TODO lo del día, no sólo las últimas 10 o 20 notas de un RSS (27/09, para
@@ -232,6 +235,7 @@ export function parsearFeed(xml, fuente) {
         titulo: tituloDelSitemap(b),
         enlace: etiqueta(b, 'loc').trim(),
         fecha: Number.isNaN(fecha.getTime()) ? new Date() : fecha,
+        ...(sinHora(fechaTexto) ? { sinHora: true } : {}),
         cuerpo: '',
         textoCompleto: false,
         imagen: etiqueta(b, 'image:loc'),
@@ -289,6 +293,7 @@ export function parsearFeed(xml, fuente) {
       enlace: enlace.trim(),
       ...(enlaceFeed ? { enlaceFeed } : {}),
       fecha: Number.isNaN(fecha.getTime()) ? new Date() : fecha,
+      ...(sinHora(fechaTexto) ? { sinHora: true } : {}),
       cuerpo,
       textoCompleto: cuerpo.length > 400,
       imagen,
@@ -1979,7 +1984,8 @@ export function armarPortada(grupos) {
         ...(n.titulo ? { titulo: n.titulo } : {}),
         enlace: n.enlace,
         ...(n.enlaceFeed ? { enlaceFeed: n.enlaceFeed } : {}),
-        fecha: n.fechaEstimada || !(n.fecha instanceof Date) ? null : n.fecha.toISOString(),
+        // Sin hora (regla 327) es como sin fecha para la fecha del hecho: la medianoche no es la hora en que pasó.
+        fecha: n.fechaEstimada || n.sinHora || !(n.fecha instanceof Date) ? null : n.fecha.toISOString(),
         oficial: !!n.oficial,
         resumen: limpiarCopete(n.cuerpo, n.titulo, n.medio),
       })),
