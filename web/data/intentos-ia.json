@@ -81,11 +81,6 @@
   "ultimo": "2026-10-20T13:32:34.902Z",
   "motivo": "con cuerpo"
  },
- "11512oi": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T05:01:08.519Z",
-  "motivo": "con cuerpo"
- },
  "11b59wz": {
   "intentos": 1,
   "ultimo": "2026-10-19T01:31:08.905Z",
@@ -288,11 +283,6 @@
   "intentos": 1,
   "ultimo": "2026-10-22T22:01:30.992Z",
   "motivo": "cuerpo corto (35 palabras)"
- },
- "14hm5l4": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T05:01:08.519Z",
-  "motivo": "con cuerpo"
  },
  "14ia4ef": {
   "intentos": 3,
@@ -1177,18 +1167,19 @@
   "motivo": "con cuerpo"
  },
  "1icrbuv": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T04:01:13.953Z",
-  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "intentos": 4,
+  "ultimo": "2026-10-25T05:01:14.355Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo explica; sin esas oraciones quedan 171 palabras",
   "textos": 4,
   "numeradas": 5,
   "motivos": [
    "cuerpo: 5 problemas (nombre, relleno, copia): el cuerpo nombra a \"minu",
    "cuerpo: 3 problemas (relleno, repite, promesa): el cuerpo tiene una fr",
-   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo expli"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no"
+   "el título dice 0 y el cuerpo no lo explica"
   ]
  },
  "1iig27": {
@@ -2160,10 +2151,15 @@
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ]
  },
- "1venq3u": {
+ "1va73pk": {
   "intentos": 1,
-  "ultimo": "2026-10-18T05:01:08.519Z",
-  "motivo": "con cuerpo"
+  "ultimo": "2026-10-25T05:01:14.355Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 13,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título nombra a \"nuevo\", \"gasometro\" "
+  ]
  },
  "1vg6rsa": {
   "intentos": 1,
@@ -3222,6 +3218,13 @@
   "intentos": 1,
   "ultimo": "2026-10-19T22:01:15.467Z",
   "motivo": "con cuerpo"
+ },
+ "fmbabw": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T05:01:14.355Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
  },
  "fqfkdl": {
   "intentos": 1,
@@ -4697,22 +4700,21 @@
   "motivo": "con cuerpo"
  },
  "yzy9ii": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T04:01:13.953Z",
-  "motivo": "título o bajada: 4 problemas (nombre, negacion): el copete nombra a \"major\" y la fuente no",
+  "intentos": 4,
+  "ultimo": "2026-10-25T05:01:14.355Z",
+  "motivo": "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 221 palabras",
   "textos": 4,
   "numeradas": 5,
   "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "título o bajada: 4 problemas (nombre, negacion): el copete nombra a \"m"
+   "título o bajada: 4 problemas (nombre, negacion): el copete nombra a \"m",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n"
   ],
   "falla": [
-   "el copete nombra a \"major\" y la fuente no",
-   "el copete nombra a \"league\" y la fuente no",
-   "el copete nombra a \"soccer\" y la fuente no",
-   "el cuerpo nombra a \"major\" y la fuente no"
+   "el cuerpo nombra a \"major\" y la fuente no",
+   "el cuerpo nombra a \"league\" y la fuente no",
+   "el cuerpo nombra a \"soccer\" y la fuente no"
   ]
  },
  "z1rcsy": {

@@ -17869,9 +17869,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "10ephb3": {
-  "archivo": "fotos-notas/10ephb3.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Justicia investiga el patrimonio de Claudio Tapia y pide informes a Suiza",
@@ -17880,7 +17878,8 @@
   "razon": "Es la mejor foto en primer plano de Claudio Tapia con buena nitidez y sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-16T15:44:44.307Z",
   "huella": "37333b3231650404",
-  "ausenteDesde": "2026-10-18T04:31:20.066Z"
+  "intentado": true,
+  "borrada": true
  },
  "4p4uuv": {
   "archivo": "fotos-notas/4p4uuv.jpg",
@@ -38449,6 +38448,53 @@
   "cuando": "2026-10-25T04:02:01.025Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tdk3fl": {
+  "archivo": "fotos-notas/1tdk3fl.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alpine se desmarca de los dichos de un periodista británico sobre Franco Colapinto",
+  "enlace": "https://www.minutouno.com/deportes/el-comunicado-alpine-la-frase-antiargentina-un-periodista-ingles-franco-colapinto-n6337594",
+  "imagenOriginal": "https://media.minutouno.com/p/47ea8cceb76b9decabd41071f452a0ec/adjuntos/150/imagenes/043/726/0043726806/1200x675/smart/clarkson2.avif",
+  "razon": "Es la única opción que no contiene marcas de agua de otros medios, mostrando a Franco Colapinto y el equipo Alpine con buena nitidez.",
+  "cuando": "2026-10-25T05:01:42.856Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage con dos hombres del equipo Alpine riendo y un primer plano de Franco Colapinto."
+  },
+  "huella": "8ddc5e76a9a9e3c9"
+ },
+ "1va73pk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "San Lorenzo y Newell's empatan sin goles en el Nuevo Gasómetro",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T05:01:42.856Z",
+  "intentos": 1,
+  "fuentes": 24,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "fmbabw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Roma empata 3 a 3 con el Napoli con goles de Balerdi y Soulé",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T05:01:42.856Z",
+  "intentos": 1,
+  "fuentes": 5,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
