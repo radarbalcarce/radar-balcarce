@@ -17,10 +17,12 @@ import { CUERPO } from './cuerpo-de-prueba.mjs';
 before(() => {
   process.env.GEMINI_API_KEY_REDACCION = 'clave-redaccion-de-prueba';
   process.env.GEMINI_API_KEY_REDES = 'clave-redes-de-prueba';
+  process.env.GEMINI_API_KEY_RESPALDO = 'clave-respaldo-de-prueba';
 });
 after(() => {
   delete process.env.GEMINI_API_KEY_REDACCION;
   delete process.env.GEMINI_API_KEY_REDES;
+  delete process.env.GEMINI_API_KEY_RESPALDO;
 });
 
 /** Un fetch de mentira: contesta lo que se le diga y anota qué se le pidió. */
@@ -115,7 +117,7 @@ test('si hay más de una fuente, se le manda cada una por separado, no sólo la 
   assert.match(texto, /Versión del medio 3\./);
 });
 
-test('si la clave gratis dice "sin cupo" (429), reintenta con la paga', async () => {
+test('si la clave gratis dice "sin cupo" (429), reintenta con la de respaldo paga, nunca con la de voces (25/10)', async () => {
   const { fn, pedidos } = fetchFalso([
     { ok: false, status: 429, json: { error: 'sin cupo' } },
     respuestaOk('Título pagado', 'Copete.', 'Título pagado.'),
@@ -127,7 +129,7 @@ test('si la clave gratis dice "sin cupo" (429), reintenta con la paga', async ()
   assert.equal(r.titulo, 'Título pagado');
   assert.equal(pedidos.length, 2);
   assert.equal(pedidos[0].init.headers['x-goog-api-key'], 'clave-redaccion-de-prueba');
-  assert.equal(pedidos[1].init.headers['x-goog-api-key'], 'clave-redes-de-prueba');
+  assert.equal(pedidos[1].init.headers['x-goog-api-key'], 'clave-respaldo-de-prueba');
 });
 
 test('un error que no es de cupo no reintenta con la clave paga', async () => {
@@ -450,17 +452,17 @@ test('con el tope del día alcanzado no se le pide nada a la IA (la clave es pag
 test('el registro cuenta qué clave se usó: la gratis primero, la paga sólo si la gratis se queda sin cupo', async () => {
   const { USO_DE_CLAVES } = await import('../reels/reescritura.mjs');
   const antes = { ...USO_DE_CLAVES };
-  const previoR = process.env.GEMINI_API_KEY_REDACCION; const previoP = process.env.GEMINI_API_KEY_REDES;
-  process.env.GEMINI_API_KEY_REDACCION = 'gratis'; process.env.GEMINI_API_KEY_REDES = 'paga';
+  const previoR = process.env.GEMINI_API_KEY_REDACCION; const previoP = process.env.GEMINI_API_KEY_RESPALDO;
+  process.env.GEMINI_API_KEY_REDACCION = 'gratis'; process.env.GEMINI_API_KEY_RESPALDO = 'paga';
   try {
     const ok = respuestaOk('Título de prueba', 'Bajada de prueba.', 'Título de prueba.', CUERPO);
     const { fn } = fetchFalso([ok]);
     await reescribir(notaVerde(), { fetchFn: fn });
     assert.equal(USO_DE_CLAVES.redaccion, antes.redaccion + 1);
-    assert.equal(USO_DE_CLAVES.redes, antes.redes);
+    assert.equal(USO_DE_CLAVES.respaldo, antes.respaldo);
   } finally {
     if (previoR === undefined) delete process.env.GEMINI_API_KEY_REDACCION; else process.env.GEMINI_API_KEY_REDACCION = previoR;
-    if (previoP === undefined) delete process.env.GEMINI_API_KEY_REDES; else process.env.GEMINI_API_KEY_REDES = previoP;
+    if (previoP === undefined) delete process.env.GEMINI_API_KEY_RESPALDO; else process.env.GEMINI_API_KEY_RESPALDO = previoP;
   }
 });
 

@@ -54,6 +54,11 @@ export const claveRedaccion = (o) => leerVariable('GEMINI_API_KEY_REDACCION', o)
 
 export const claveRedes = (o) => leerVariable('GEMINI_API_KEY_REDES', o);
 
+/** La de RESPALDO de la redacción (25/10/2026): un proyecto de Google aparte, con facturación y un límite de gasto de US$ 10 por mes que
+ *  pone una persona. Sólo escribe notas cuando la gratis de redacción no puede (sin cupo, saturada, rechazada). El mismo modelo que la
+ *  gratis. Sin ella, la redacción sigue como antes. Nunca la usan las voces, la lectura ni las fotos. */
+export const claveRespaldo = (o) => leerVariable('GEMINI_API_KEY_RESPALDO', o);
+
 /** La de la lectura con IA (plan V2.2): su propio proyecto de Google, para no
  *  gastarle cupo a la redacción. Mientras no esté cargada, usa la de redacción
  *  (gratis). NUNCA la de redes: su cupo de voz es chico, 10 audios por día

@@ -267,15 +267,15 @@ test('el pedido al Worker: FLUX (steps 6; el Worker ignora el tamaño y el negat
 
 // ------------------------------------------------------------------ los topes
 
-test('los topes: 12 llamadas por corrida, 20 por día, un solo reintento; y el día no pasa de las neuronas gratis', () => {
+test('los topes: 12 llamadas por corrida, 60 por día (25/10), un solo reintento; y el día no pasa de las neuronas gratis', () => {
   assert.equal(TOPE_POR_CORRIDA, 12);
-  assert.equal(TOPE_POR_DIA, 20);
+  assert.equal(TOPE_POR_DIA, 60);
   assert.equal(REINTENTOS_POR_IMAGEN, 1);
   assert.equal(cupoDeLaCorrida(0), 12);
-  assert.equal(cupoDeLaCorrida(10), 10);
-  assert.equal(cupoDeLaCorrida(15), 5);
-  assert.equal(cupoDeLaCorrida(20), 0);
-  assert.equal(cupoDeLaCorrida(31), 0);
+  assert.equal(cupoDeLaCorrida(50), 10);
+  assert.equal(cupoDeLaCorrida(55), 5);
+  assert.equal(cupoDeLaCorrida(60), 0);
+  assert.equal(cupoDeLaCorrida(71), 0);
   assert.equal(neuronasEstimadas(), 77);
   assert.ok(TOPE_POR_DIA * neuronasEstimadas() < NEURONAS_GRATIS_POR_DIA / 2, 'el tope del día gasta menos de la mitad de lo gratis');
 });
@@ -283,14 +283,14 @@ test('los topes: 12 llamadas por corrida, 20 por día, un solo reintento; y el d
 test('el modo automático reparte el cupo del día entre las corridas que faltan (7 a 23, cada 2 horas) y nunca pasa los topes', () => {
   assert.deepEqual(HORAS_AUTOMATICAS, [7, 9, 11, 13, 15, 17, 19, 21, 23]);
   assert.equal(MINIMO_POR_CORRIDA_AUTOMATICA, 4);
-  assert.equal(cupoAutomatico(0, 7), 5, 'a las 7 quedan 9 corridas: 20 × 2 / 9 → 5');
-  assert.equal(cupoAutomatico(5, 9), 4, 'a las 9, con 5 usadas: 15 × 2 / 8 → 4');
-  assert.equal(cupoAutomatico(10, 19), 7, 'a las 19, con 10 usadas: 10 × 2 / 3 → 7');
+  assert.equal(cupoAutomatico(0, 7), 12, 'a las 7 quedan 9 corridas: 60 × 2 / 9 → 14, nunca más de 12');
+  assert.equal(cupoAutomatico(40, 9), 5, 'a las 9, con 40 usadas: 20 × 2 / 8 → 5');
+  assert.equal(cupoAutomatico(50, 19), 7, 'a las 19, con 50 usadas: 10 × 2 / 3 → 7');
   assert.equal(cupoAutomatico(0, 23), 12, 'la última del día puede usar todo, pero nunca más de 12');
-  assert.equal(cupoAutomatico(18, 7), 2, 'el mínimo nunca pasa lo que queda del día');
-  assert.equal(cupoAutomatico(20, 13), 0);
-  assert.equal(cupoAutomatico(25, 23), 0);
-  // un día entero: nueve corridas, cada una gastando todo su cupo, nunca pasan de 20 ni de 12 por corrida
+  assert.equal(cupoAutomatico(58, 7), 2, 'el mínimo nunca pasa lo que queda del día');
+  assert.equal(cupoAutomatico(60, 13), 0);
+  assert.equal(cupoAutomatico(65, 23), 0);
+  // un día entero: nueve corridas, cada una gastando todo su cupo, nunca pasan de 60 ni de 12 por corrida
   let usadas = 0;
   for (const h of HORAS_AUTOMATICAS) {
     const c = cupoAutomatico(usadas, h);
@@ -399,7 +399,7 @@ test('revisar: con 15 notas buenas hace 12 llamadas al Worker como mucho, deja l
 
 test('revisar: lo ya gastado hoy achica el cupo; un reintento cuenta como llamada; un 401 corta todo', async () => {
   const a = escenario(10);
-  const r1 = await revisar({ ...a, cuentas: [{ dia: '2026-10-16', llamadas: 17 }], clave: 'k', token: 't', ...redSimulada(), achicar, esperar: sinEspera, registro: () => {} });
+  const r1 = await revisar({ ...a, cuentas: [{ dia: '2026-10-16', llamadas: TOPE_POR_DIA - 3 }], clave: 'k', token: 't', ...redSimulada(), achicar, esperar: sinEspera, registro: () => {} });
   assert.equal(r1.llamadas, 3);
 
   const b = escenario(2);
@@ -434,11 +434,11 @@ test('revisar: lo que el control ve mal queda para revisar, sin aplicar solo; un
   assert.match(r2.saltadas[0].motivo, /Parodi/);
 });
 
-test('revisar: el prompt va con la clave de redacción y el control con la de clasificación (las dos gratis); si una no sirve, la otra', async () => {
+test('revisar: el prompt y el control van con la clave de clasificación; la de redacción, sólo si la otra no sirve (25/10)', async () => {
   const a = escenario(1);
   const red = redSimulada();
   await revisar({ ...a, clave: 'REDACCION', claveClasificacion: 'CLASIFICACION', token: 't', fetchFn: red.fetchFn, achicar, esperar: sinEspera, registro: () => {} });
-  assert.deepEqual(red.pedidos.clavesPrompt, ['REDACCION']);
+  assert.deepEqual(red.pedidos.clavesPrompt, ['CLASIFICACION']);
   assert.deepEqual(red.pedidos.clavesControl, ['CLASIFICACION']);
   assert.match(red.pedidos.instrucciones[0], /8\. TONO: /);
 
@@ -458,36 +458,36 @@ test('revisar: el prompt va con la clave de redacción y el control con la de cl
 
 test('automático: genera, controla y APLICA sólo lo que pasó el control, con el cupo repartido del día, y deja aplicadas.json', async () => {
   const e = escenario(8, { ahora: new Date('2026-10-16T10:20:00Z') }); // 7:20 en Balcarce: la primera corrida del día
-  // la 2ª imagen tiene texto y la 4ª una persona: no se aplican solas
+  // la 2ª imagen tiene texto y la 4ª una persona: no se aplican solas; con el cupo de 60 por día (25/10) entran las 8 notas en la primera corrida
   const red = redSimulada({ control: (n) => (n === 2 ? { ...CONTROL_BIEN, texto: true } : n === 4 ? { ...CONTROL_BIEN, personas: true } : CONTROL_BIEN) });
   const log = [];
   const r = await automatico({ ...e, informe: path.join(e.dir, 'aplicadas'), ids: ['n07'], clave: 'k', token: 't', fetchFn: red.fetchFn, achicar, esperar: sinEspera, registro: (x) => log.push(x) });
   assert.equal(r.revision.automatico, true);
   assert.equal(r.revision.cupo, cupoAutomatico(0, 7));
-  assert.equal(red.pedidos.worker, 5, 'a las 7 quedan 9 corridas: 5 llamadas, no 12');
+  assert.equal(red.pedidos.worker, Math.min(8, cupoAutomatico(0, 7)), 'a las 7: el cupo repartido del día (o las 8 notas que hay, si son menos)');
   assert.deepEqual(r.revision.ids, [], 'en automático los ids no cuentan: todas las que correspondan');
-  assert.deepEqual(r.aplicadas, ['n00', 'n02', 'n04']);
+  assert.deepEqual(r.aplicadas, ['n00', 'n02', 'n04', 'n05', 'n06', 'n07']);
   assert.ok(r.noAplicadas.some((x) => x.id === 'n01' && /texto/.test(x.motivo)));
   assert.ok(r.noAplicadas.some((x) => x.id === 'n03' && /personas/.test(x.motivo)));
   const libro = JSON.parse(fs.readFileSync(e.rutas.ilustraciones, 'utf8'));
-  assert.deepEqual(Object.keys(libro).sort(), ['n00', 'n02', 'n04']);
+  assert.deepEqual(Object.keys(libro).sort(), ['n00', 'n02', 'n04', 'n05', 'n06', 'n07']);
   assert.equal(libro.n00.automatica, true);
   assert.equal(libro.n00.modelo, 'flux');
   assert.ok(libro.n00.prompt.endsWith(`, ${TONOS.neutro.en}, ${AGREGADO}`), 'el prompt lleva el tono de la nota');
-  for (const id of ['n00', 'n02', 'n04']) assert.ok(fs.existsSync(path.join(e.rutas.carpeta, `${id}-ia.jpg`)));
+  for (const id of ['n00', 'n02', 'n04', 'n05', 'n06', 'n07']) assert.ok(fs.existsSync(path.join(e.rutas.carpeta, `${id}-ia.jpg`)));
   const informe = JSON.parse(fs.readFileSync(path.join(e.dir, 'aplicadas', 'aplicadas.json'), 'utf8'));
   assert.equal(informe.automatico, true);
-  assert.deepEqual(informe.aplicadas.map((x) => x.id), ['n00', 'n02', 'n04']);
+  assert.deepEqual(informe.aplicadas.map((x) => x.id), ['n00', 'n02', 'n04', 'n05', 'n06', 'n07']);
   assert.ok(fs.existsSync(path.join(e.dir, 'aplicadas', 'n00-ia.jpg')), 'el adjunto lleva las imágenes aplicadas');
-  assert.equal(JSON.parse(fs.readFileSync(path.join(e.cuenta, 'cuenta.json'), 'utf8')).llamadas, 5);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(e.cuenta, 'cuenta.json'), 'utf8')).llamadas, Math.min(8, cupoAutomatico(0, 7)));
   assert.ok(log.some((l) => /Modo automático/.test(l)));
 });
 
 test('automático: respeta el tope del día (lo aplicado hoy y lo generado por otras corridas) y no hace nada sin cupo', async () => {
   const a = escenario(10, { ahora: new Date('2026-10-17T02:20:00Z') }); // 23:20 del 16 en Balcarce: la última corrida
   const red = redSimulada();
-  const r = await automatico({ ...a, cuentas: [{ dia: '2026-10-16', llamadas: 14 }], clave: 'k', token: 't', fetchFn: red.fetchFn, achicar, esperar: sinEspera, registro: () => {} });
-  assert.equal(red.pedidos.worker, 6, 'quedaban 6 de las 20 del día');
+  const r = await automatico({ ...a, cuentas: [{ dia: '2026-10-16', llamadas: TOPE_POR_DIA - 6 }], clave: 'k', token: 't', fetchFn: red.fetchFn, achicar, esperar: sinEspera, registro: () => {} });
+  assert.equal(red.pedidos.worker, 6, 'quedaban 6 de las del día');
   assert.equal(r.aplicadas.length, 6);
 
   const b = escenario(5, { ahora: new Date('2026-10-16T16:20:00Z') });

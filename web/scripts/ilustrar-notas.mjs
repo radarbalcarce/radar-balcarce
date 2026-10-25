@@ -29,7 +29,7 @@
 // banco o una que sumó una persona siempre gana, y una nota que después toca una muerte pierde la ilustración. El epígrafe dice siempre
 // "Ilustración generada con IA" (la web, la tarjeta, el RSS y el pie de Instagram lo toman de ahí).
 //
-// Topes, para no gastar: 12 llamadas al Worker por corrida y 20 por día (cuentan las de las revisiones anteriores de hoy y lo ya aplicado hoy
+// Topes, para no gastar: 12 llamadas al Worker por corrida y 60 por día (cuentan las de las revisiones anteriores de hoy y lo ya aplicado hoy
 // con el Worker), un solo reintento por imagen. Las únicas claves que se leen son GEMINI_API_KEY_REDACCION y GEMINI_API_KEY_CLASIFICACION
 // (las dos gratis) y VIGILANTE_TOKEN (la contraseña del Worker). Ninguna se imprime. La clave paga de Gemini (la de las voces) nunca.
 //
@@ -70,7 +70,9 @@ export const RUTAS = {
 
 /** Llamadas al Worker por corrida y por día. Cada llamada cuenta, salga bien o mal (el reintento también). */
 export const TOPE_POR_CORRIDA = 12;
-export const TOPE_POR_DIA = 20;
+// 60 por día desde el 25/10/2026 (eran 20): cada día quedan unas 40 notas sin foto de sus fuentes, más las viejas que deja la revisión del
+// archivo, y la IA de Cloudflare da unas 10.000 neuronas gratis por día (~77 por imagen: 60 son ~4.600, menos de la mitad).
+export const TOPE_POR_DIA = 60;
 /** Cuántas veces se vuelve a pedir una imagen que falló (sólo si el Worker falló por su lado: 5xx o sin respuesta). */
 export const REINTENTOS_POR_IMAGEN = 1;
 export const HORAS_POR_DEFECTO = 24;
@@ -650,7 +652,8 @@ export async function revisar({
   const cupo = automatico ? cupoAutomatico(usadas, horaAR(ahora)) : cupoDeLaCorrida(usadas);
   const { candidatas, saltadas } = elegirCandidatas({ portada, archivo, banco, manuales, ilustraciones, horas, ids, ahora, delArchivo });
   const porImagen = neuronasEstimadas();
-  const clavesDelPrompt = [clave, claveClasificacion];
+  // La de clasificación primero para las dos cosas (25/10/2026): la de redacción es para escribir notas y sólo se usa si la otra falla.
+  const clavesDelPrompt = [claveClasificacion, clave];
   const clavesDelControl = [claveClasificacion, clave];
   registro(`${automatico ? 'Modo automático. ' : ''}Notas a ilustrar: ${candidatas.length} (se saltaron ${saltadas.length}). Llamadas al Worker usadas hoy: ${usadas} de ${TOPE_POR_DIA}; en esta corrida, hasta ${cupo}. Neuronas estimadas por imagen: ~${porImagen}.`);
   fs.mkdirSync(salida, { recursive: true });

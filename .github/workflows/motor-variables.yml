@@ -37,6 +37,7 @@ jobs:
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+          GEMINI_API_KEY_RESPALDO: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}

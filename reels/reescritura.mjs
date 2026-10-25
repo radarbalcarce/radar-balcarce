@@ -27,7 +27,7 @@
 // son los medios que contaron lo mismo y los ANTECEDENTES, notas que el sitio
 // ya publicó sobre el tema en los últimos 30 días (antecedentesDe).
 
-import { claveRedaccion, claveRedes, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from './claves.mjs';
+import { claveRedaccion, claveRespaldo, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from './claves.mjs';
 import { pedirJsonAOpenRouter } from './openrouter.mjs';
 import {
   verificar, verificarExtras, resumirProblemas, depurarCuerpo, arreglarEscritura,
@@ -412,9 +412,9 @@ async function pedir({ prompt, entrada, clave, fetchFn, intentos }) {
 export const PEDIDO_MAXIMO = 400;
 
 /** Cuántos pedidos fueron a cada clave desde que arrancó el programa: la gratis
- *  ('redaccion'), la de redes ('redes') o la de clasificación. El registro de Actualizar la web lo
+ *  ('redaccion'), la de respaldo paga ('respaldo') o la de clasificación. El registro de Actualizar la web lo
  *  muestra, para ver de un vistazo si se está gastando. */
-export const USO_DE_CLAVES = { redaccion: 0, redes: 0, clasificacion: 0, openrouter: 0 };
+export const USO_DE_CLAVES = { redaccion: 0, respaldo: 0, clasificacion: 0, openrouter: 0 };
 
 /** Una respuesta de Gemini que vale la pena reintentar con OTRA clave: sin cupo
  *  (429), saturado (5xx) o la clave rechazada o sin crédito (401, 402, 403). */
@@ -427,12 +427,13 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
  * mandado (extrasDeLaRespuesta, todavía sin verificar), o lanza si Gemini
  * falla — quien llama decide el respaldo (ver reescribirConRespaldo).
  *
- * Prueba primero con la clave de redacción (gratis). Si esa clave devuelve
- * "sin cupo" (429) y hay una clave de redes cargada (gratis, pero con un cupo
- * de voz de 10 audios por día), reintenta una sola vez con esa — mejor gastar
- * un poco de ese cupo que dejar la nota sin reescribir. Cualquier otro error de
- * pedido (400) no reintenta con otra clave: no tiene sentido gastar cupo en un
- * pedido que ya está mal armado.
+ * El orden de las claves (25/10/2026, los dueños: «la gratis, y US$ 10 de respaldo para texto; siempre el mismo modelo»):
+ *   1. la de redacción (gratis);
+ *   2. la de RESPALDO (GEMINI_API_KEY_RESPALDO, paga, con límite de gasto), si la gratis no pudo por el servicio;
+ *   3. la de clasificación (gratis, otro proyecto), por si Google desactiva las dos de arriba (pasó el 29/09);
+ *   4. OpenRouter (gratis, otra empresa), sólo si ninguna de Gemini pudo.
+ * La de redes (voces) ya NO escribe notas: su presupuesto es sólo para las voces. Un error del pedido (400) no prueba otra clave:
+ * no tiene sentido gastar cupo en un pedido que ya está mal armado.
  *
  * Último respaldo (29/09): la clave de CLASIFICACIÓN (gratis, otro proyecto de
  * Google, el mismo modelo), si las anteriores fallaron por el servicio (sin cupo,
@@ -449,11 +450,11 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
  */
 export async function reescribir(nota, {
   intentos = 3, fetchFn = fetch, correccion = null, pedido = null,
-  clavePropia = claveRedaccion(), claveDeRedes = claveRedes(), claveDeRespaldo = leerVariable('GEMINI_API_KEY_CLASIFICACION'),
+  clavePropia = claveRedaccion(), claveDePago = claveRespaldo(), claveDeRespaldo = leerVariable('GEMINI_API_KEY_CLASIFICACION'),
   claveDeOpenRouter = claveOpenRouter(), modelosDeOpenRouter,
 } = {}) {
   const primera = clavePropia;
-  const segunda = claveDeRedes;
+  const segunda = claveDePago && claveDePago !== primera ? claveDePago : null;
   // La de clasificación, sólo si es otra clave distinta de las dos de arriba.
   const tercera = claveDeRespaldo && claveDeRespaldo !== primera && claveDeRespaldo !== segunda ? claveDeRespaldo : null;
   if (!primera && !segunda && !tercera && !claveDeOpenRouter) throw new Error('falta GEMINI_API_KEY_REDACCION');
@@ -473,7 +474,7 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
   }
   // Segundo intento: se le dice qué inventó y se le pide que lo rehaga sin eso.
   if (correccion?.length) {
-    entrada += `\n\nCORRECCIÓN OBLIGATORIA: en un intento anterior tu texto tenía estos problemas, y por eso se descartó:\n- ${correccion.join('\n- ')}\nEscribilo de nuevo usando ÚNICAMENTE lo que dicen las fuentes de arriba: si un nombre, un número, un día o una cita no está ahí, no lo pongas. El cuerpo sigue siendo obligatorio, de ${CUERPO.palabrasPedidasMinimo} a ${CUERPO.palabrasPedidasMaximo} palabras, desarrollado con lo que SÍ dicen todas las fuentes, y nunca repite el copete.`;
+    entrada += `\n\nCORRECCIÓN OBLIGATORIA: en un intento anterior tu texto tenía estos problemas, y por eso se descartó:\n- ${correccion.join('\n- ')}\nEscribilo de nuevo usando ÚNICAMENTE lo que dicen las fuentes de arriba: si un nombre, un número, un día o una cita no está ahí, no lo pongas. El cuerpo sigue siendo obligatorio, de ${largo.piso} a ${largo.techo} palabras (el mismo largo de arriba), desarrollado con lo que SÍ dicen todas las fuentes, y nunca repite el copete.`;
   }
 
   let res;
@@ -481,9 +482,9 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
   if (primera) {
     res = await pedir({ prompt, entrada, clave: primera, fetchFn, intentos });
   }
-  if ((!primera || res?.status === 429) && segunda) {
+  if ((!primera || probarOtraClave(res)) && segunda) {
     res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos });
-    usada = 'redes';
+    usada = 'respaldo';
   }
   if (probarOtraClave(res) && tercera) {
     res = await pedir({ prompt, entrada, clave: tercera, fetchFn, intentos });
@@ -1573,7 +1574,7 @@ export async function reescribirAutomaticas(notas, {
       + `${cuenta.sinCuerpo} sin cuerpo que sirva, ${cuenta.rechazadas} rechazadas por el título o la bajada, ${cuenta.sinMaterial} sin material, `
       + `${cuenta.oraciones} oraciones sacadas, ${cuenta.agotadas} ya agotaron los ${maximoDeIntentos} intentos, `
       + `${cuenta.partesDescartadas} partes nuevas descartadas, ${cuenta.frenadas} frenadas por el semáforo`);
-    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.redes} con la de redes, ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.openrouter ? `, ${USO_DE_CLAVES.openrouter} con OpenRouter (modelos gratis, último respaldo)` : ''}`);
+    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.respaldo} con la de respaldo (paga), ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.openrouter ? `, ${USO_DE_CLAVES.openrouter} con OpenRouter (modelos gratis, último respaldo)` : ''}`);
   }
   return resultado;
 }
