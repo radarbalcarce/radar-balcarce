@@ -36596,13 +36596,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "6bgesn": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Leonel Jaime frena el juego por un rival y rompe en llanto",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (marca de agua u otro medio); la de La Nación (un menor): no se elige ninguna. (se probó una foto libre de \"Leonel Jaime\" en Wikimedia Commons de los últimos 2 años, sin resultado)",
-  "cuando": "2026-10-24T13:01:20.267Z",
-  "intentos": 5,
-  "fuentes": 6
+  "archivo": "fotos-notas/cyg8qz.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Leonel Jaime llora tras ser insultado por frenar un ataque en Peñarol",
+  "enlace": "https://www.lanueva.com/nota/2026-10-24-0-14-0-el-mal-momento-de-un-ex-river-en-penarol-lo-insultaron-por-frenar-un-ataque-para-que-atendieran-a-un-rival",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792811846596.jpg?&cw=600&ch=365",
+  "razon": "Es la única foto que corresponde a la nota, muestra claramente al protagonista llorando y está libre de marcas de agua, gráficos y elementos no deseados.",
+  "cuando": "2026-10-25T10:01:57.377Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leonel Jaime emocionado y llorando en la cancha.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage de tres tomas de un jugador de fútbol joven llorando con la cara sudada."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "15233eb2646c4c6c"
  },
  "1qvn6mf": {
   "intentado": true,
@@ -38195,12 +38222,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T07:02:15.595Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
+  "cuando": "2026-10-25T10:01:57.377Z",
   "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "intentosPorCupo": 3
  },
  "1df4mi": {
   "intentado": true,
@@ -38506,7 +38532,8 @@
    "corresponde": "si",
    "descripcion": "Collage con dos hombres del equipo Alpine riendo y un primer plano de Franco Colapinto."
   },
-  "huella": "8ddc5e76a9a9e3c9"
+  "huella": "8ddc5e76a9a9e3c9",
+  "ausenteDesde": "2026-10-25T10:02:50.130Z"
  },
  "1va73pk": {
   "intentado": true,
@@ -38827,7 +38854,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista de perfil"
   },
-  "huella": "1301c0e1a2a27205"
+  "huella": "1301c0e1a2a27205",
+  "ausenteDesde": "2026-10-25T10:02:50.130Z"
  },
  "bdmgtc": {
   "archivo": "fotos-notas/bdmgtc.jpg",
@@ -39038,5 +39066,99 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "ededece6acad37a3"
+ },
+ "y7sjfl": {
+  "archivo": "fotos-notas/y7sjfl.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto afronta la carrera del Gran Premio de Estados Unidos de Fórmula 1",
+  "enlace": "https://www.tycsports.com/automovilismo/a-que-hora-corre-colapinto-la-carrera-del-gp-de-estados-unidos-en-f1-id765921.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/08/18/979676/franco-colapinto_1440x810.webp",
+  "razon": "Es la foto de mejor calidad y encuadre que muestra el auto de Fórmula 1 en pista sin marcas añadidas ni menores.",
+  "cuando": "2026-10-25T10:01:57.377Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 circulando por la pista"
+  },
+  "huella": "2c3850218a64a6de"
+ },
+ "1c65rq6": {
+  "archivo": "fotos-notas/1c65rq6.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Banco Nación otorga 210 créditos hipotecarios con fondos del FGS",
+  "enlace": "https://www.c5n.com/economia/el-banco-nacion-coloco-el-100-los-fondos-anses-y-otorgo-mas-210-creditos-hipotecarios-uva-n252466",
+  "imagenOriginal": "https://media.c5n.com/p/261d59d39aaa2777c75f8adbd0ae89c5/adjuntos/326/imagenes/000/404/0000404641/1200x675/smart/banco-la-nacion-argentina.jpg",
+  "razon": "La foto B muestra el edificio del Banco Nación de forma clara y sin problemas de stock, siendo adecuada para ilustrar la nota sobre créditos hipotecarios.",
+  "cuando": "2026-10-25T10:01:57.377Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada principal del edificio del Banco Nación Argentina con gente caminando en la vereda"
+  },
+  "huella": "73f4cec8caca4a4f"
+ },
+ "cyg8qz": {
+  "archivo": "fotos-notas/cyg8qz.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Leonel Jaime llora tras ser insultado por frenar un ataque en Peñarol",
+  "enlace": "https://www.lanueva.com/nota/2026-10-24-0-14-0-el-mal-momento-de-un-ex-river-en-penarol-lo-insultaron-por-frenar-un-ataque-para-que-atendieran-a-un-rival",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792811846596.jpg?&cw=600&ch=365",
+  "razon": "Es la única foto que corresponde a la nota, muestra claramente al protagonista llorando y está libre de marcas de agua, gráficos y elementos no deseados.",
+  "cuando": "2026-10-25T10:01:57.377Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leonel Jaime emocionado y llorando en la cancha.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage de tres tomas de un jugador de fútbol joven llorando con la cara sudada."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "15233eb2646c4c6c"
+ },
+ "14kpr1g": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ezeiza reduce su capacidad operativa por obras hasta el 11 de noviembre",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
+  "cuando": "2026-10-25T10:01:57.377Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
  }
 }

@@ -751,9 +751,9 @@
   "motivo": "con cuerpo"
  },
  "1c65rq6": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T09:01:26.528Z",
-  "motivo": "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuente no lo dice",
+  "intentos": 3,
+  "ultimo": "2026-10-25T10:01:21.322Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
@@ -761,12 +761,6 @@
    "cuerpo: 15 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y",
    "cuerpo: 13 problemas (numero, nombre, promesa): el cuerpo dice 2.000 y",
    "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuent"
-  ],
-  "falla": [
-   "el copete dice 2.000 y la fuente no lo dice",
-   "el copete dice 30 y la fuente no lo dice",
-   "el cuerpo dice 2.000 y la fuente no lo dice",
-   "el cuerpo dice 30 y la fuente no lo dice"
   ]
  },
  "1c9sm1f": {
@@ -2281,6 +2275,21 @@
   "ultimo": "2026-10-21T03:31:19.077Z",
   "motivo": "con cuerpo"
  },
+ "1vofp13": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T10:01:21.322Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el máximo es 90",
+  "textos": 7,
+  "numeradas": 9,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 94 caracteres, el máximo es 90",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "1vp56p5": {
   "intentos": 1,
   "ultimo": "2026-10-23T11:18:28.573Z",
@@ -3236,6 +3245,13 @@
   "ultimo": "2026-10-19T19:31:08.720Z",
   "motivo": "con cuerpo"
  },
+ "cyg8qz": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T10:01:21.322Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
+ },
  "d0wlq6": {
   "intentos": 1,
   "ultimo": "2026-10-25T00:01:25.805Z",
@@ -3363,11 +3379,6 @@
  "f0tngb": {
   "intentos": 1,
   "ultimo": "2026-10-21T23:01:18.071Z",
-  "motivo": "con cuerpo"
- },
- "f0uvbe": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T10:01:15.544Z",
   "motivo": "con cuerpo"
  },
  "f1051i": {
@@ -3740,18 +3751,19 @@
   "motivo": "con cuerpo"
  },
  "kull4p": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T09:01:26.528Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo explica; sin esas oraciones quedan 227 palabras",
-  "textos": 5,
-  "numeradas": 7,
+  "intentos": 3,
+  "ultimo": "2026-10-25T10:01:21.322Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 249 palabras",
+  "textos": 3,
+  "numeradas": 5,
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
    "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
-   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl"
+   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ],
   "falla": [
-   "el título dice 14 y el cuerpo no lo explica"
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "kx9cur": {
@@ -4876,6 +4888,13 @@
   "intentos": 1,
   "ultimo": "2026-10-21T15:03:56.836Z",
   "motivo": "con cuerpo"
+ },
+ "y7sjfl": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T10:01:21.322Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "y83uce": {
   "intentos": 1,
