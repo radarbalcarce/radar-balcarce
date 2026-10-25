@@ -26915,7 +26915,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores del Manchester City celebrando un gol en la cancha."
   },
-  "huella": "a4a7292b33333336"
+  "huella": "a4a7292b33333336",
+  "ausenteDesde": "2026-10-25T16:02:46.954Z"
  },
  "1po3be2": {
   "intentado": true,
@@ -38799,10 +38800,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "Ninguna de las fotos muestra el partido entre Central Córdoba y Vélez del Torneo Clausura (corresponden a otros equipos como Estudiantes o son placas gráficas genéricas).",
-  "cuando": "2026-10-25T13:03:10.177Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-25T16:02:12.720Z",
   "intentos": 2,
-  "fuentes": 13
+  "fuentes": 14,
+  "intentosPorCupo": 1
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
@@ -39967,6 +39969,77 @@
    "corresponde": "si",
    "descripcion": "Jugador de Defensa y Justicia celebrando un gol en primer plano."
   },
-  "huella": "63b33467c5dddac8"
+  "huella": "63b33467c5dddac8",
+  "ausenteDesde": "2026-10-25T16:02:46.954Z"
+ },
+ "10ymrrf": {
+  "archivo": "fotos-notas/10ymrrf.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alpine rechaza los dichos de Jeremy Clarkson contra Franco Colapinto",
+  "enlace": "https://www.tycsports.com/automovilismo/un-periodista-ingles-invitado-por-alpine-al-gp-de-estados-unidos-se-burlo-de-colapinto-penalizado-por-argentino-id768495.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/20/997816/franco-colapinto_1440x810.webp",
+  "razon": "La foto B muestra claramente a Franco Colapinto, corresponde a la nota sobre las declaraciones de Alpine, tiene buena nitidez y está libre de marcas de agua, menores o formato gráfico.",
+  "cuando": "2026-10-25T16:02:12.720Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con indumentaria del equipo Alpine",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto de pie en un circuito de carreras vistiendo su mono de Alpine."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "30333772b253c95d"
+ },
+ "1dcdral": {
+  "archivo": "fotos-notas/1dcdral.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Banfield y Lanús empatan 1 a 1 por la fecha 14 del Torneo Clausura",
+  "enlace": "https://www.eldia.com/deportes/banfield-y-lanus-quedaron-a-mano-deportes_1792912235",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1792931025886.jpg?&cw=1200&ch=630",
+  "razon": "Es la única fotografía de acción real del partido que cumple con todos los requisitos y no tiene marcas agregadas.",
+  "cuando": "2026-10-25T16:02:12.720Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Banfield con pelota dominada y rivales marcando"
+  },
+  "huella": "4d951d244c4d1c30"
+ },
+ "1xjjw8o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Leonel Jaime llora en Uruguay tras frenar un ataque para ayudar a un rival",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
+  "cuando": "2026-10-25T16:02:12.720Z",
+  "intentos": 1,
+  "fuentes": 17,
+  "intentosPorCupo": 1
  }
 }
