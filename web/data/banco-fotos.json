@@ -24426,7 +24426,8 @@
    "corresponde": "si",
    "descripcion": "Nicolás Vázquez hablando en una entrevista"
   },
-  "huella": "98989898de0cded7"
+  "huella": "98989898de0cded7",
+  "ausenteDesde": "2026-10-25T01:34:07.181Z"
  },
  "flz5f9": {
   "archivo": "fotos-notas/flz5f9.webp",
@@ -35125,8 +35126,7 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "25b3a1a9a8aa8682",
-  "ausenteDesde": "2026-10-24T21:35:10.972Z"
+  "huella": "25b3a1a9a8aa8682"
  },
  "a315j7": {
   "archivo": "fotos-notas/a315j7.jpg",
@@ -38153,9 +38153,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38163,9 +38163,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Expected double-quoted property name in JSON at position 190 (line 1 column 191)",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38173,19 +38173,19 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Penalizan a Franco Colapinto y retrocede diez lugares en Estados Unidos",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
-  "fuentes": 15,
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
+  "fuentes": 47,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "d0wlq6": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38203,9 +38203,9 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Arsenal vence 2 a 0 a Everton y alcanza al Manchester City en la Premier League",
-  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
@@ -38213,10 +38213,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Bolavip Argentina no se usa todavía.",
-  "cuando": "2026-10-25T00:03:05.082Z",
-  "intentos": 1,
-  "fuentes": 24,
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 2,
+  "fuentes": 27,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "18q724f": {
@@ -38334,5 +38334,41 @@
   "intentos": 1,
   "fuentes": 6,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ao19a5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto termina 15 en la clasificación de Estados Unidos y largará 21",
+  "razon": "La única foto disponible tiene una marca de agua o logo superpuesto del medio 'Doble Amarilla', por lo que no puede ser elegida.",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "intentos": 1,
+  "fuentes": 47,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "v1so1i": {
+  "archivo": "fotos-notas/v1so1i.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula y Flávio Bolsonaro cierran sus campañas de cara al balotaje",
+  "enlace": "https://www.lanacion.com.ar/el-mundo/quien-ganara-las-elecciones-en-brasil-que-dicen-las-encuestas-antes-del-balotaje-entre-lula-y-nid17102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/los-candidatos-que-se-mediran-en-el-OCP4IIEOKJA23CBNA4BVQGJMYY.jpg?auth=96ffc6d542b26a1ff8bbb7acc7516ce03d4953677b4c27e63d2171ea26a5baa3&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única opción disponible y muestra claramente a ambos candidatos en sus actos de campaña, correspondiendo al título de la nota.",
+  "cuando": "2026-10-25T01:32:32.477Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Imagen dividida que muestra a Flávio Bolsonaro y a Lula hablando con micrófonos frente a sus respectivas multitudes de simpatizantes.",
+   "detalle": "Se observan carteles de campaña en el fondo (Flávio, Lula) que son parte de la escena real, pero no se detecta marca de agua ni logo superpuesto por el medio."
+  },
+  "huella": "9cd95879b2914d59"
  }
 }

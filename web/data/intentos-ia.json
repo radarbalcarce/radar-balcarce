@@ -92,17 +92,20 @@
   "motivo": "con cuerpo"
  },
  "11cewnr": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T01:01:57.912Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo explica; sin esas oraciones quedan 222 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T01:31:47.609Z",
+  "motivo": "cuerpo: 2 problemas (nombre, copia): el cuerpo nombra a \"stadium\" y la fuente no; sin esas oraciones quedan 154 palabras",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel",
-   "cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo expli"
+   "cuerpo: 1 problema (promesa): el título dice 0 y el cuerpo no lo expli",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 2 problemas (nombre, copia): el cuerpo nombra a \"stadium\" y la"
   ],
   "falla": [
-   "el título dice 0 y el cuerpo no lo explica"
+   "el cuerpo nombra a \"stadium\" y la fuente no",
+   "copia 32 palabras seguidas del original (\"2 a 0 al sassuolo en el estadio giuseppe sinigaglia por la octava fecha…\"): decilo con otras palab"
   ]
  },
  "11grheq": {
@@ -1201,11 +1204,6 @@
   "ultimo": "2026-10-19T01:31:08.905Z",
   "motivo": "con cuerpo"
  },
- "1irxvjh": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T01:31:28.439Z",
-  "motivo": "con cuerpo"
- },
  "1ivxitj": {
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
@@ -1279,14 +1277,19 @@
   "motivo": "con cuerpo"
  },
  "1jydy9z": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T01:01:57.912Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 757 (line 10 column 1)",
+  "intentos": 3,
+  "ultimo": "2026-10-25T01:31:47.609Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 212 palabras",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "Gemini: Expected ',' or ']' after array element in JSON at position 75"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 75",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1k3aqu5": {
@@ -2525,9 +2528,14 @@
   "numeradas": 1
  },
  "5v361f": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T18:31:38.958Z",
-  "motivo": "con cuerpo"
+  "intentos": 2,
+  "ultimo": "2026-10-25T01:31:47.609Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"jesus\" y la fuente no"
+  ]
  },
  "5ymg5i": {
   "intentos": 1,
@@ -2807,6 +2815,13 @@
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
   "motivo": "con cuerpo"
+ },
+ "ao19a5": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T01:31:47.609Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 23
  },
  "ao9ct0": {
   "intentos": 1,
@@ -3991,11 +4006,6 @@
   "ultimo": "2026-10-19T14:02:22.344Z",
   "motivo": "con cuerpo"
  },
- "qqaxwm": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T01:31:28.439Z",
-  "motivo": "con cuerpo"
- },
  "qr24v6": {
   "intentos": 1,
   "ultimo": "2026-10-20T13:32:34.902Z",
@@ -4291,6 +4301,16 @@
   "motivo": "verificación baja: espera a una persona",
   "baja": true,
   "fuentes": 1
+ },
+ "v1so1i": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T01:31:47.609Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 23,
+  "motivos": [
+   "cuerpo: 3 problemas (numero, antecedente, copia): el cuerpo dice 158 y"
+  ]
  },
  "v1ulfw": {
   "intentos": 1,
