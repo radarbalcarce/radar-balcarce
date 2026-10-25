@@ -1008,11 +1008,6 @@
   "ultimo": "2026-10-20T20:01:57.029Z",
   "motivo": "con cuerpo"
  },
- "1fogewp": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T13:31:18.635Z",
-  "motivo": "con cuerpo"
- },
  "1fthrp8": {
   "intentos": 1,
   "ultimo": "2026-10-19T18:31:03.847Z",
@@ -2213,6 +2208,23 @@
    "sin material"
   ]
  },
+ "1uhxxc4": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T13:32:09.421Z",
+  "motivo": "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 122 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
+   "cuerpo: 9 problemas (numero, tildes): el cuerpo dice 30 y la fuente no"
+  ],
+  "falla": [
+   "el cuerpo dice 30 y la fuente no lo dice",
+   "el cuerpo dice 90 y la fuente no lo dice",
+   "el cuerpo dice 50 y la fuente no lo dice",
+   "el cuerpo dice 30 y la fuente no lo dice"
+  ]
+ },
  "1uib2z8": {
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
@@ -2693,11 +2705,6 @@
  "4fm0rm": {
   "intentos": 2,
   "ultimo": "2026-10-19T14:02:22.344Z",
-  "motivo": "con cuerpo"
- },
- "4iyi2i": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T13:31:18.635Z",
   "motivo": "con cuerpo"
  },
  "4vneuc": {
@@ -4318,6 +4325,13 @@
    "título o bajada: 2 problemas (nombre): el copete nombra a \"liga\" y la "
   ]
  },
+ "qhcpi5": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T13:32:09.421Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "qkpudb": {
   "intentos": 1,
   "ultimo": "2026-10-24T22:02:18.222Z",
@@ -5055,17 +5069,18 @@
   "motivo": "con cuerpo"
  },
  "z79t7q": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T13:01:28.461Z",
-  "motivo": "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"consejo\" y la fuente no; sin esas oraciones quedan 168 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T13:32:09.421Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y el cuerpo no los explica; sin esas oraciones quedan 297 palabras",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or",
-   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"consejo\" y "
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"consejo\" y ",
+   "título o bajada: 1 problema (copia): copia 16 palabras seguidas del or",
+   "cuerpo: 1 problema (promesa): el título nombra a \"mitre\", \"olimpo\" y e"
   ],
   "falla": [
-   "el cuerpo nombra a \"consejo\" y la fuente no",
    "el título nombra a \"mitre\", \"olimpo\" y el cuerpo no los explica"
   ]
  },

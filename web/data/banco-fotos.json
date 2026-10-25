@@ -34677,10 +34677,10 @@
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-25T11:31:36.627Z",
+  "cuando": "2026-10-25T13:32:29.139Z",
   "intentos": 5,
   "fuentes": 5,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -39293,11 +39293,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ezeiza reduce su capacidad operativa por obras hasta el 11 de noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Cronista no se usa todavía.",
-  "cuando": "2026-10-25T11:31:36.627Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
+  "cuando": "2026-10-25T13:32:29.139Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "1vofp13": {
   "archivo": "fotos-notas/1vofp13.jpg",
@@ -39519,7 +39519,8 @@
    "corresponde": "si",
    "descripcion": "Fachada del edificio principal del Banco Nación Argentina con personas caminando en la vereda"
   },
-  "huella": "73f4cec8caca4a4f"
+  "huella": "73f4cec8caca4a4f",
+  "ausenteDesde": "2026-10-25T13:32:45.125Z"
  },
  "1g9tyya": {
   "intentado": true,
@@ -39553,5 +39554,29 @@
    "descripcion": "Cartel institucional de la Liga Balcarceña de Fútbol en una pared exterior"
   },
   "huella": "4bcbeb2323239313"
+ },
+ "qhcpi5": {
+  "archivo": "fotos-notas/qhcpi5.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "IDEA reclama un debate sin agravios tras los ataques de Milei a la prensa",
+  "enlace": "https://www.lanacion.com.ar/politica/idea-llamo-a-un-debate-sin-agravios-tras-los-ataques-de-milei-a-la-nacion-nid24102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/idea-llamo-a-un-debate-sin-agravios-tras-los-RQCNXGNG5BEY7EHIZMF5HWC4KQ.JPG?auth=0790ca388d51392f7d6deb885189a2af4dbfe0141b07a90c38d80a112a792d6e&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto A muestra con claridad al protagonista en primer plano y con buena nitidez, sin marcas agregadas por el medio ni otros inconvenientes.",
+  "cuando": "2026-10-25T13:32:29.139Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando en un atril con micrófonos."
+  },
+  "huella": "032145c69a9a2917"
  }
 }
