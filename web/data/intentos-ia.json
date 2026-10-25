@@ -2276,18 +2276,15 @@
   "motivo": "con cuerpo"
  },
  "1vofp13": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T10:31:01.534Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 220 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-25T11:01:35.394Z",
+  "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 9,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1vp56p5": {
@@ -2665,11 +2662,6 @@
  "4iyi2i": {
   "intentos": 1,
   "ultimo": "2026-10-18T13:31:18.635Z",
-  "motivo": "con cuerpo"
- },
- "4ulhcx": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T11:01:22.898Z",
   "motivo": "con cuerpo"
  },
  "4vneuc": {
@@ -3359,6 +3351,22 @@
   "ultimo": "2026-10-21T20:31:13.358Z",
   "motivo": "con cuerpo"
  },
+ "euinjx": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T11:01:35.394Z",
+  "motivo": "cuerpo: 3 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 195 palabras",
+  "textos": 6,
+  "numeradas": 21,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl",
+   "cuerpo: 3 problemas (repite, promesa): el cuerpo repite el copete en v"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título dice 14 y el cuerpo no lo explica",
+   "el título dice 21 y el cuerpo no lo explica"
+  ]
+ },
  "ewxkbe": {
   "intentos": 2,
   "ultimo": "2026-10-19T06:01:16.535Z",
@@ -3635,11 +3643,6 @@
  "izhwg1": {
   "intentos": 1,
   "ultimo": "2026-10-19T22:31:24.692Z",
-  "motivo": "con cuerpo"
- },
- "j2sh1r": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T11:01:22.898Z",
   "motivo": "con cuerpo"
  },
  "j70uyh": {

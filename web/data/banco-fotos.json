@@ -17301,9 +17301,7 @@
   "borrada": true
  },
  "n6v2wu": {
-  "archivo": "fotos-notas/n6v2wu.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "UDOCBA concreta paro docente con alto acatamiento y reclama mejoras",
@@ -17312,7 +17310,8 @@
   "razon": "Es la única foto disponible, tiene buena nitidez, muestra a una adulta sin marcas de agua ni menores.",
   "cuando": "2026-10-15T21:36:41.069Z",
   "huella": "3268e06cc0d8a1b6",
-  "ausenteDesde": "2026-10-18T11:01:50.676Z"
+  "intentado": true,
+  "borrada": true
  },
  "1j6q0tv": {
   "medio": "Radio Mitre",
@@ -38200,11 +38199,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kimi Antonelli busca la consagración en el Gran Premio de Estados Unidos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T02:02:28.596Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
+  "cuando": "2026-10-25T11:01:52.875Z",
   "intentos": 3,
   "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2
  },
  "1al05om": {
   "intentado": true,
@@ -38282,24 +38281,38 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1tbb12c": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1tbb12c.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Arsenal vence 2 a 0 a Everton y alcanza al Manchester City en la Premier League",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:32:32.477Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/arsenal-everton-triunfo-alcanzo-city-premier-league_0_eaEJXwNJHp.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/24/kKtjO1q8g_2000x1500__1.jpg",
+  "razon": "Es la única foto de partido que corresponde exactamente al evento, tiene excelente nitidez y encuadre, y no posee marcas de agua del medio ni menores reconocibles.",
+  "cuando": "2026-10-25T11:01:52.875Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Arsenal celebrando en la cancha."
+  },
+  "huella": "154d34745454d495"
  },
  "tu91t6": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:32:32.477Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-25T11:01:52.875Z",
   "intentos": 2,
-  "fuentes": 27,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "fuentes": 29,
+  "intentosPorCupo": 2
  },
  "18q724f": {
   "archivo": "fotos-notas/18q724f.jpg",
@@ -38366,11 +38379,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T02:02:28.596Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de 0223 (Mar del Plata) no se usa todavía.",
+  "cuando": "2026-10-25T11:01:52.875Z",
   "intentos": 2,
   "fuentes": 13,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2
  },
  "1li6hwr": {
   "archivo": "fotos-notas/1li6hwr.jpg",
@@ -38409,14 +38422,28 @@
   "intentosPorCupo": 4
  },
  "1ektjdh": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ektjdh.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "San Lorenzo empata 0 a 0 con Newell's y complica su ingreso a los playoffs",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T01:02:49.103Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.clarin.com/deportes/san-lorenzo-vs-newells-torneo-clausura-vivo-hora-formaciones-ver_0_1vQL5f6ow1.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/24/GLxVvX3Hl_2000x1500__1.jpg",
+  "razon": "Es la foto de mejor calidad, sin marcas superpuestas ni menores, que muestra una acción clara del partido entre San Lorenzo y Newell's.",
+  "cuando": "2026-10-25T11:01:52.875Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Disputa de balón cercana entre un jugador de Newell's y uno de San Lorenzo"
+  },
+  "huella": "243343ebc395b6a7"
  },
  "ao19a5": {
   "intentado": true,
@@ -38475,14 +38502,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ubxtwt": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ubxtwt.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cierran quirófanos en Mendoza por un brote de meningitis con dos muertos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T02:02:28.596Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.minutouno.com/sociedad/brote-meningitis-posquirurgica-hospital-mendoza-deja-como-saldo-dos-muertos-n6337597",
+  "imagenOriginal": "https://media.minutouno.com/p/6075b6506993f77eb8989c90d420ca3e/adjuntos/150/imagenes/043/726/0043726817/1200x675/smart/hospital-privado-mendoza.jpg",
+  "razon": "Muestra claramente el frente del Hospital Privado donde ocurrieron los hechos, con buen encuadre, nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-25T11:01:52.875Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plano medio corto de la entrada principal y cartel del Hospital Privado."
+  },
+  "huella": "7c2332b6b2b63616"
  },
  "1prc59w": {
   "archivo": "fotos-notas/1prc59w.jpg",
@@ -39185,5 +39226,29 @@
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1
+ },
+ "1vofp13": {
+  "archivo": "fotos-notas/1vofp13.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca visita a Independiente por la decimocuarta fecha del Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-independiente-vs-boca-juniors-fecha-14-id768223.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/998868/boca-vs-independiente_1440x810.webp?v=2",
+  "razon": "Es una fotografía real de una jugada del partido, clara, sin marcas de medios ni elementos gráficos superpuestos.",
+  "cuando": "2026-10-25T11:01:52.875Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en el partido"
+  },
+  "huella": "dbda93b78991b133"
  }
 }
