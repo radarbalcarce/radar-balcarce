@@ -23,8 +23,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  ANCHO, COLORES, colorDeSeccion, repartir, esc, rotulo, renglones, lienzo, pie, DISPLAY, TEXTO, MARGEN, placaRepaso, anchoAproximado, pastillaDeAudio,
-  iconoDelCielo, iconoSvg,
+  ANCHO, COLORES, colorDeSeccion, repartir, esc, rotulo, renglones, lienzo, pie, DISPLAY, TEXTO, MARGEN, placaRepaso,
 } from '../placa.mjs';
 import {
   partirSvg, clasificar, hijosEn, lineaDeTiempo, suave, FPS,
@@ -36,11 +35,6 @@ const RAIZ = path.join(import.meta.dirname, '..', '..');
 /** La caja de la foto (16:10), dentro de la zona segura. */
 export const FOTO = { x: MARGEN, y: 380, ancho: ANCHO - MARGEN * 2, alto: 585, radio: 26 };
 const FIN_TITULAR = 1440;
-/**
- * El ancho del titular: la columna de botones de Instagram y de Facebook (me gusta, comentar, compartir) tapa unos 130 px del borde derecho desde más o
- * menos la fila 1050, que es donde empieza el titular. Hasta acá el texto queda a la vista (regla 325, zona segura).
- */
-export const ANCHO_TITULAR = ANCHO - MARGEN - 150;
 const ESCALONES_TITULAR = [{ tam: 74, max: 3 }, { tam: 66, max: 4 }, { tam: 58, max: 4 }, { tam: 52, max: 5 }, { tam: 46, max: 5 }];
 
 const TIPOS_DE_IMAGEN = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
@@ -81,45 +75,9 @@ export function rayitas(i, n, color, frac = 1) {
 /** "2 de 4" y las rayitas de avance arriba (la nota `i` ya llena, como en la placa quieta). */
 const avance = (i, n, color) => `<g id="rp-avance" data-i="${i}" data-n="${n}">${rayitas(i, n, color, 1)}</g>`;
 
-/**
- * La imagen del bloque del tiempo (regla 325): en el lugar de la foto, una tarjeta con el color del clima, el ícono del cielo, la mínima y la máxima en
- * grande y, si hay probabilidad de lluvia, cuánta. `dato` = { cuando, min, max, lluvia, cielo } (resumenDelClima, redes/guiones.mjs): sólo lo que trae el pronóstico.
- */
-function imagenDelTiempo(dato, color) {
-  const { x, y, ancho, alto, radio } = FOTO;
-  const col2 = x + ancho / 2 + 20;
-  const lado = 210;
-  return `<g id="rp-foto"><rect x="${x}" y="${y}" width="${ancho}" height="${alto}" rx="${radio}" fill="${color}"/>
-    ${rotulo(`El tiempo de ${dato.cuando}`, { x: x + 60, y: y + 84, color: '#FFFFFF', tam: 28 })}
-    ${iconoSvg(iconoDelCielo(dato.cielo ?? '', { esDeDia: true }), x + ancho - 60 - lado, y + 40, lado)}
-    <text x="${x + 60}" y="${y + 232}" font-family="${TEXTO}" font-size="30" font-weight="700" letter-spacing="4" fill="#FFFFFF" fill-opacity="0.78">MÍNIMA</text>
-    <text x="${x + 56}" y="${y + 410}" font-family="${DISPLAY}" font-size="190" font-weight="900" letter-spacing="-4" fill="#FFFFFF">${esc(dato.min)}°</text>
-    <text x="${col2}" y="${y + 232}" font-family="${TEXTO}" font-size="30" font-weight="700" letter-spacing="4" fill="#FFFFFF" fill-opacity="0.78">MÁXIMA</text>
-    <text x="${col2 - 4}" y="${y + 410}" font-family="${DISPLAY}" font-size="190" font-weight="900" letter-spacing="-4" fill="#FFFFFF">${esc(dato.max)}°</text>
-    ${dato.lluvia ? `<text x="${x + 60}" y="${y + alto - 56}" font-family="${TEXTO}" font-size="38" font-weight="600" fill="#FFFFFF">${esc(dato.lluvia)} % de probabilidad de lluvia</text>` : ''}</g>`;
-}
-
-/** La pastilla con el color de la sección (texto blanco encima, como en toda la marca): el "cuadro" que dice de qué sección es la nota. `y` es la línea del texto. */
-function pastillaDeSeccion(texto, y, color) {
-  const t = String(texto).toUpperCase();
-  const tam = 26;
-  const ancho = Math.round(anchoAproximado(t, tam, 'sans') + t.length * tam * 0.14 + 58);
-  return `<rect x="${MARGEN}" y="${y - 36}" width="${ancho}" height="52" rx="26" fill="${color}"/>
-  ${rotulo(t, { x: MARGEN + 29, y, color: '#FFFFFF', tam })}`;
-}
-
-/** Las rayitas de la portada: una por bloque, cada una con el color de su sección (se ve de un vistazo qué trae el repaso). */
-function rayitasDeSecciones(secciones, color) {
-  const hueco = 12;
-  const n = secciones.length;
-  const ancho = (ANCHO - MARGEN * 2 - hueco * (n - 1)) / n;
-  return secciones.map((s, k) => `<rect x="${(MARGEN + k * (ancho + hueco)).toFixed(1)}" y="330" width="${ancho.toFixed(1)}" height="8" rx="4" fill="${s ? colorDeSeccion(s) : color}"/>`).join('');
-}
-
 /** La imagen de la nota (foto o ilustración) recortada en la caja, o la placa de su sección si no tiene. */
 function imagen(nota, i, color) {
   const { x, y, ancho, alto, radio } = FOTO;
-  if (nota.dato) return imagenDelTiempo(nota.dato, color);
   if (nota.foto?.datos) {
     return `<g id="rp-foto"><clipPath id="caja${i}"><rect x="${x}" y="${y}" width="${ancho}" height="${alto}" rx="${radio}"/></clipPath>
     <g clip-path="url(#caja${i})"><image href="${nota.foto.datos}" x="${x}" y="${y}" width="${ancho}" height="${alto}" preserveAspectRatio="xMidYMid slice"/></g></g>`;
@@ -137,32 +95,22 @@ function imagen(nota, i, color) {
  * `nota` = { titulo, seccion, foto: { datos, credito } | null }. Cada parte va en un grupo con nombre (`rp-rotulo`, `rp-cuenta`, `rp-avance`, `rp-foto`,
  * `rp-credito`, `rp-seccion`, `rp-titular`) para que `escenaDelRepaso` pueda moverlas sin tocar el dibujo de la placa quieta.
  */
-export function placaDeNotaDelRepaso({
-  nota, i, n, titulo, portada = null,
-}) {
+export function placaDeNotaDelRepaso({ nota, i, n, titulo }) {
   const color = colorDeSeccion(nota.seccion);
   const credito = nota.foto?.datos && nota.foto.credito ? nota.foto.credito : '';
   const yRotulo = FOTO.y + FOTO.alto + (credito ? 108 : 78);
-  const t = repartir(String(nota.titulo ?? ''), ESCALONES_TITULAR, ANCHO_TITULAR);
+  const t = repartir(String(nota.titulo ?? ''), ESCALONES_TITULAR, ANCHO - MARGEN * 2);
   const inter = Math.round(t.tam * 1.08);
   const yTitular = yRotulo + 26 + Math.round(t.tam * 0.92);
   // Si el titular no entra hasta la fila de la firma, sube un poco (nunca pisa la foto).
   const sobra = Math.max(0, yTitular + (t.lineas.length - 1) * inter - FIN_TITULAR);
-  // La PORTADA (regla 325, `portada` = { segundos, secciones }): es la primera nota ya puesta, como arranca el video, pero arriba lleva "Audio · 43 s" en
-  // lugar de "1 de 4" y las rayitas son una por bloque con el color de su sección. Así el primer cuadro (lo que ve quien pasa por el perfil o por el
-  // inicio) muestra la noticia más fuerte con su foto y su titular, no una lista; la foto ya está en el zoom con el que empieza a moverse.
-  const cuenta = portada?.segundos
-    ? pastillaDeAudio(portada.segundos, COLORES.rojo)
-    : `<text x="${ANCHO - MARGEN}" y="304" font-family="${TEXTO}" font-size="28" font-weight="700" text-anchor="end" fill="${COLORES.gris}">${i + 1} de ${n}</text>`;
-  const barras = portada?.secciones?.length ? `<g id="rp-avance" data-i="0" data-n="${n}">${rayitasDeSecciones(portada.secciones, COLORES.rojo)}</g>` : avance(i, n, COLORES.rojo);
-  const foto = portada ? fotoEn(imagen(nota, i, color), { s: DERIVA[0].s0, x: DERIVA[0].x0, y: DERIVA[0].y0 }) : imagen(nota, i, color);
   return lienzo(`
   <g id="rp-rotulo">${rotulo(titulo, { y: 304, color: COLORES.rojo })}</g>
-  <g id="rp-cuenta">${cuenta}</g>
-  ${barras}
-  ${foto}
+  <g id="rp-cuenta"><text x="${ANCHO - MARGEN}" y="304" font-family="${TEXTO}" font-size="28" font-weight="700" text-anchor="end" fill="${COLORES.gris}">${i + 1} de ${n}</text></g>
+  ${avance(i, n, COLORES.rojo)}
+  ${imagen(nota, i, color)}
   ${credito ? `<g id="rp-credito"><text x="${MARGEN}" y="${FOTO.y + FOTO.alto + 44}" font-family="${TEXTO}" font-size="24" font-weight="500" fill="${COLORES.gris}">${esc(credito)}</text></g>` : ''}
-  ${nota.seccion ? `<g id="rp-seccion">${pastillaDeSeccion(nota.seccion, yRotulo - sobra, color)}</g>` : ''}
+  ${nota.seccion ? `<g id="rp-seccion">${rotulo(nota.seccion, { y: yRotulo - sobra, color, tam: 28 })}</g>` : ''}
   <g id="rp-titular">${renglones(t.lineas, { y: yTitular - sobra, tam: t.tam, interlinea: inter, espaciado: -1.5 })}</g>
   ${pie()}`);
 }
@@ -174,22 +122,13 @@ export function placaDeNotaDelRepaso({
  */
 export function secuenciaDelRepaso({ titulo, momento, fecha = '', segundos = null, notas = [], cierre = '' }) {
   if (notas.length < 2) return null;
-  // La lista del final, con el llamado a seguir lo de acá (regla 325). `resumen` es el bloque del tiempo: va en la lista pero no cuenta como noticia.
-  const lista = placaRepaso({
-    titulo, momento, fecha, segundos, color: COLORES.rojo, llamado: true, notas: notas.map((x) => ({ seccion: x.seccion, titulo: x.titulo, resumen: Boolean(x.dato) })),
-  });
-  // La TAPA (el cuadro 0, lo que muestran Instagram y Facebook antes de darle play) es la portada: la noticia más fuerte con su foto, su titular y "Audio · 43 s".
-  const portada = placaDeNotaDelRepaso({
-    nota: notas[0], i: 0, n: notas.length, titulo, portada: { segundos, secciones: notas.map((x) => x.seccion) },
-  });
+  const lista = placaRepaso({ titulo, momento, fecha, segundos, notas: notas.map((x) => ({ seccion: x.seccion, titulo: x.titulo })), color: COLORES.rojo });
   return {
     placas: [
-      // `marca` es lo que dice la voz para llegar a esa placa: el titular de la nota o, en el bloque del tiempo, su frase.
-      ...notas.map((nota, i) => ({ svg: placaDeNotaDelRepaso({ nota, i, n: notas.length, titulo }), marca: i === 0 ? null : (nota.marca ?? nota.titulo) })),
+      ...notas.map((nota, i) => ({ svg: placaDeNotaDelRepaso({ nota, i, n: notas.length, titulo }), marca: i === 0 ? null : nota.titulo })),
       ...(cierre ? [{ svg: lista, marca: cierre }] : []),
     ],
-    tapa: portada,
-    lista,
+    tapa: lista,
   };
 }
 
@@ -345,9 +284,6 @@ export function escenaDelRepaso({ placas, tapa, total }) {
   if (!placas?.length || !tapa || !Number.isFinite(total)) return null;
   const base = leerPagina(tapa);
   if (!base) return null;
-  // La tapa puede ser la PORTADA (regla 325): la primera nota ya puesta, con la pastilla de audio y las rayitas de colores. Entonces el paso a la primera nota
-  // no es una entrada: la foto y el titular ya están y sólo cambian la pastilla y las rayitas. Si la tapa es una lista (como antes), se entra como siempre.
-  const portada = leerNota(tapa);
   const etapas = [];
   let cuenta = 0;
   for (const [k, p] of placas.entries()) {
@@ -355,9 +291,7 @@ export function escenaDelRepaso({ placas, tapa, total }) {
     // La primera pasa de la tapa a la nota después de ARRANQUE; las demás empiezan un poco antes de que la voz llegue a ellas.
     const inicio = k === 0 ? ARRANQUE : Math.max((etapas.at(-1)?.inicio ?? 0) + TRANSICION.dur + 0.5, p.desde - TRANSICION.antes);
     if (nota) {
-      etapas.push({
-        tipo: 'nota', nota, i: cuenta, inicio, sinEntrada: Boolean(portada) && k === 0,
-      });
+      etapas.push({ tipo: 'nota', nota, i: cuenta, inicio });
       cuenta += 1;
     } else {
       const pagina = leerPagina(p.svg);
@@ -392,8 +326,7 @@ export function escenaDelRepaso({ placas, tapa, total }) {
     foto: fotoEn(e.nota.partes.foto, { ...derivaEn(e, t), dx }),
     credito: e.nota.partes.credito ?? '',
     seccion: e.nota.partes.seccion ?? '',
-    // La primera nota, cuando la tapa es la portada, ya tiene el titular entero desde el cuadro 0: no se vuelve a escribir.
-    titular: e.sinEntrada ? e.nota.partes.titular : titularEn(e.nota.partes.titular, t - e.inicio),
+    titular: titularEn(e.nota.partes.titular, t - e.inicio),
   });
   const juntas = (p) => `${p.rotulo}${p.cuenta}${p.avance}${p.foto}${p.credito}${p.seccion}${p.titular}`;
   /**
@@ -414,17 +347,10 @@ export function escenaDelRepaso({ placas, tapa, total }) {
     let k = 0;
     while (k + 1 < etapas.length && etapas[k + 1].inicio <= t) k += 1;
     const e = etapas[k];
-    const previa = etapas[k - 1] ?? (portada && etapas[0].sinEntrada ? { tipo: 'portada', nota: portada } : { tipo: 'pagina', pagina: base, inicio: -1, esTapa: true });
+    const previa = etapas[k - 1] ?? { tipo: 'pagina', pagina: base, inicio: -1, esTapa: true };
     const p = clamp((t - e.inicio) / TRANSICION.dur);
     if (p >= 1) return armar(quieta(e, t));
     const entra = suave(p);
-    if (previa.tipo === 'portada') {
-      // De la portada a la primera nota: la foto (ya en su zoom de arranque), el crédito, la sección y el titular no se mueven; la pastilla de audio da lugar
-      // al "1 de 4" y las rayitas de colores a las de avance.
-      const b = partesEn(e, t);
-      return armar(`${b.rotulo}${grupo(previa.nota.partes.cuenta, 1 - entra)}${grupo(b.cuenta, entra)}${grupo(previa.nota.partes.avance, 1 - entra)}${grupo(b.avance, entra)}`
-        + `${b.foto}${b.credito}${b.seccion}${b.titular}`);
-    }
     if (e.tipo === 'nota' && previa.tipo === 'nota') {
       // De una nota a la siguiente: el rótulo y la firma no se mueven; la foto nueva se desliza y se aclara sobre la anterior (que sigue entera abajo),
       // lo que dice la nota vieja se va y el titular nuevo entra palabra por palabra; el "2 de 4" rueda hacia arriba.
@@ -450,7 +376,7 @@ export function escenaDelRepaso({ placas, tapa, total }) {
   // Dónde hay que dibujar un cuadro nuevo en cada tic: durante las transiciones y mientras entran los titulares y la lista; el resto (la deriva lenta),
   // uno cada dos tics.
   const intensos = etapas.map((e) => {
-    const largo = e.tipo === 'nota' && e.sinEntrada ? TRANSICION.dur : e.tipo === 'nota'
+    const largo = e.tipo === 'nota'
       ? Math.max(TRANSICION.dur, TITULAR.primero + palabrasDelTitular(e.nota.partes.titular) * TITULAR.cada + TITULAR.dur) : 2.4;
     return [e.inicio, e.inicio + largo];
   });

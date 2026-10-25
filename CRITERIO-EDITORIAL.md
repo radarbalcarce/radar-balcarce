@@ -966,10 +966,8 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Podcasts: relevancia mínima | 62 | `PIEZAS.relevanciaPodcast` |
 | Podcasts (los tres repasos): notas | 4 | `PIEZAS.notasPorPodcast` |
 | Podcast: notas mínimas para que salga | 2 | `PIEZAS.notasMinimasPodcast` |
-| Podcasts: relevancia mínima de una nota de afuera en `elegirParaPodcast` (el repaso ya no la usa: regla 325) | 80 | `PIEZAS.relevanciaAfueraPodcast` |
+| Podcasts: relevancia mínima de una nota de afuera (también a la noche) | 80 | `PIEZAS.relevanciaAfueraPodcast` |
 | Podcasts: notas de afuera como máximo en cada repaso | 2 | `PIEZAS.notasDeAfueraPorPodcast` |
-| Podcasts (repasos): notas de acá fijas (si hay menos se completan con lo más contado del país; el cuarto bloque es lo más contado del día o el tiempo; regla 325) | 3 | `PIEZAS.notasDeAcaFijasPorRepaso` |
-| Podcasts (repasos): medios que tiene que contar lo de afuera para entrar (el 8 de «muy contada», sin pedir puntaje; regla 325) | 8 | `PIEZAS.mediosAfueraEnRepaso` |
 | Contrato del día: posteos de notas, como máximo | 5 | `CONTRATO_DIARIO.posteosPorDia` |
 | Contrato del día: reels (los tres podcasts) | 3 | `CONTRATO_DIARIO.reelsPorDia` |
 | Contrato del día: historias de podcast | 3 | `CONTRATO_DIARIO.historiasDePodcast` |

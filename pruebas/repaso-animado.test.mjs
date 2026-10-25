@@ -1,6 +1,5 @@
 // Regla 209 (17/10/2026): el repaso sigue a la voz. Mientras cuenta cada nota se ve su foto (o la placa de su sección) con su titular;
-// arranca con la primera nota (la más fuerte), cierra con la lista completa. Desde la regla 325 (24/10/2026) la tapa del reel (el cuadro 0) es la PORTADA: la primera
-// nota con su foto, su titular y "Audio · 43 s"; la lista, con el llamado a seguir lo de acá, queda para el final. Sin red ni
+// arranca con la primera nota (la más fuerte), cierra con la lista completa, y la tapa del reel (el cuadro 0) es la lista. Sin red ni
 // cupo: voz falsa con los tiempos que daría Gemini; el video se arma de verdad con ffmpeg, pero no se publica.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -28,21 +27,12 @@ const guionDe = (notas) => armarPodcast(notas.map((n) => ({ titular: n.titulo, d
 
 test('una placa por nota con su foto, el crédito ABAJO de la foto (nunca encima), "i de n" y la lista al final y de tapa', () => {
   const cierre = cierreDePodcast('manana', { fecha: FECHA });
-  const s = secuenciaDelRepaso({ titulo: 'El repaso de la mañana', momento: 'manana', fecha: 'Viernes 16 de octubre', segundos: 43, notas: NOTAS, cierre });
+  const s = secuenciaDelRepaso({ titulo: 'El repaso de la mañana', momento: 'manana', fecha: 'Viernes 16 de octubre', notas: NOTAS, cierre });
   assert.equal(s.placas.length, 4, 'tres notas y la lista');
   assert.equal(s.placas[0].marca, null, 'la primera arranca con el video: es el titular más fuerte, lo primero que se ve');
   assert.equal(s.placas[1].marca, NOTAS[1].titulo);
   assert.equal(s.placas[3].marca, cierre, 'la lista entra con el cierre');
-  assert.match(s.lista, /Tres noticias/, 'al final, la lista completa');
-  assert.match(s.lista, /Seguí lo de acá todos los días/, 'con el llamado a seguir');
-  assert.equal(s.placas.at(-1).svg, s.lista);
-  // La tapa es la portada: la primera nota con su foto y su titular, "Audio · 43 s" arriba y una rayita por bloque con el color de su sección.
-  assert.match(s.tapa, /Audio · 43 s/);
-  assert.match(s.tapa, /Ferroviarios gana el/);
-  assert.match(s.tapa, /<image href="data:image\/jpeg;base64,AAAA"/);
-  assert.ok(!/1 de 3/.test(s.tapa), 'la portada no dice "1 de 3"');
-  const rayitas = [...s.tapa.match(/<g id="rp-avance"[^>]*>([\s\S]*?)<\/g>/)[1].matchAll(/fill="(#[0-9A-F]{6})"/g)].map((m) => m[1]);
-  assert.deepEqual(rayitas, ['#7C3AED', '#B91C1C', '#9D2C8F'], 'Fútbol, Balcarce y Cultura');
+  assert.match(s.tapa, /Cuatro noticias|Tres noticias/, 'la tapa es la lista completa');
   const p0 = s.placas[0].svg;
   assert.match(p0, /<image href="data:image\/jpeg;base64,AAAA"/);
   assert.match(p0, /1 de 3/);
@@ -144,7 +134,7 @@ test('el video del repaso se arma de verdad (sin publicarlo): una placa por nota
   assert.equal(pedidos[0].pieza, 'noticia1', 'la voz sabe qué pieza es (para el contador)');
   assert.equal(pedidos[0].reservar, 2, 'y cuántos audios guardar para las más importantes');
   assert.deepEqual(fs.readdirSync(dir).filter((f) => /-a\d+-\d{3}\.png$|-base\.mp4$|-s\d+\.png$/.test(f)), [], 'sin cuadros ni restos');
-  // El cuadro 0 es la tapa (desde la regla 325, la portada: ya con la foto de la primera nota) y a los 2 s sigue la primera nota con su foto azul.
+  // El cuadro 0 es la tapa (la lista, fondo papel claro) y a los 2 s ya está la primera nota con su foto azul.
   const cuadro = (seg) => {
     const png = path.join(dir, `c-${seg}.raw`);
     execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', String(seg), '-i', r.mp4, '-frames:v', '1', '-vf', 'crop=200:120:440:560,scale=1:1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', png]);
@@ -153,5 +143,5 @@ test('el video del repaso se arma de verdad (sin publicarlo): una placa por nota
   const [r0, g0, b0] = cuadro(0);
   const [r2, g2, b2] = cuadro(2);
   assert.ok(b2 > r2 + 40, `a los 2 s se ve la foto (azul): ${r2},${g2},${b2}`);
-  assert.ok(b0 > r0 + 40, `el cuadro 0 ya muestra la foto de la primera nota (la portada): ${r0},${g0},${b0}`);
+  assert.ok(r0 > 200 && g0 > 200, `el cuadro 0 es la tapa sobre papel: ${r0},${g0},${b0}`);
 });

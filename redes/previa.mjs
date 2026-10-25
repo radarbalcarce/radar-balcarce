@@ -72,7 +72,7 @@ export function previaDelDia({ portada = {}, libro = {}, archivo = [], ahora = n
     salio: libro?.instagram?.[`${hoy}/${p.nombre}`]?.cuando ?? null,
   }));
 
-  const pendientes = repasosDelDia(notas, { libro, fecha: ahora, clima: portada.clima ?? null });
+  const pendientes = repasosDelDia(notas, { libro, fecha: ahora });
   const repasos = PODCASTS.map((p) => {
     const hecho = libro?.instagram?.[`${hoy}/${p.nombre}`] ?? null;
     const momento = momentoDePieza(p.hora, ventanaDe(p.nombre), ahora);

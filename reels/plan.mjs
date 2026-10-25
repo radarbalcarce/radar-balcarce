@@ -184,13 +184,7 @@ export function secuenciaDelPlan({ ronda, repaso, fecha, banco = {} }) {
     const cierre = cierreDePodcast(ronda.momento, { fecha });
     return secuenciaDelRepaso({
       titulo: ronda.titulo, momento: ronda.momento, fecha: fechaLarga(fecha), segundos: repaso.segundos,
-      notas: [
-        ...repaso.notas.map((n) => ({ titulo: n.titulo, seccion: n.seccion, foto: fotoParaElRepaso(n, { banco }) })),
-        // El bloque del tiempo (regla 325): sin foto, con su tarjeta; la voz llega a él con su frase.
-        ...(repaso.resumen ? [{
-          titulo: repaso.resumen.titulo, seccion: repaso.resumen.seccion, foto: null, dato: repaso.resumen.dato, marca: repaso.resumen.frase,
-        }] : []),
-      ],
+      notas: repaso.notas.map((n) => ({ titulo: n.titulo, seccion: n.seccion, foto: fotoParaElRepaso(n, { banco }) })),
       // El cierre del guion, para que la lista entre cuando la voz se despide. Si el guion no termina así, la última nota queda hasta el final.
       cierre: String(repaso.guion ?? '').trim().endsWith(cierre.trim()) ? cierre : '',
     });
@@ -491,7 +485,7 @@ export function planDelDia(datos, {
   // Qué cuenta cada repaso que falta hoy: la misma función que usa la previa del
   // panel del celular (redes/repasos.mjs), así lo que muestra el celular es lo
   // que arma el plan.
-  const repasos = repasosDelDia(publicables, { libro, fecha, clima: datos.clima });
+  const repasos = repasosDelDia(publicables, { libro, fecha });
   const hechas = piezasPublicadasHoy(libro, fecha);
 
   // Tres podcasts por día en vez de noticias sueltas (24/09: una noticia sola
@@ -517,18 +511,17 @@ export function planDelDia(datos, {
       notaIds: elegidas.map((n) => n.id),
       // Las secciones de lo que cuenta (la línea editorial del día retoma el tema, nunca el titular: redes/linea-del-dia.mjs).
       secciones: elegidas.map((n) => n.seccion),
-      // La lista del posteo: las notas con su enlace y, si cierra con el tiempo (regla 325), su línea sin enlace (notaIds y secciones son sólo de las notas).
-      items: [...elegidas.map((n) => ({ titulo: n.titulo, enlace: enlaceDeNota(n, SITIO) })), ...(repaso.resumen ? [{ titulo: repaso.resumen.titulo, enlace: null }] : [])],
+      items: elegidas.map((n) => ({ titulo: n.titulo, enlace: enlaceDeNota(n, SITIO) })),
       titulo: ronda.titulo, momento: ronda.momento, indicacion: INDICACIONES[ronda.momento],
       motivo: esNoche
         ? `el podcast diario: los titulares más fuertes, un solo audio · ~${repaso.segundos.toFixed(0)} s`
-        : `podcast de ${elegidas.length} notas${repaso.resumen ? ' y el tiempo' : ''}, tres de acá de temas distintos y lo más contado del día o el tiempo (regla 325) · ~${repaso.segundos.toFixed(0)} s`,
+        : `podcast de ${elegidas.length} notas, las de más puntaje de temas distintos · ~${repaso.segundos.toFixed(0)} s`,
       segundosEstimados: repaso.segundos,
       seccion: 'Balcarce', guion,
       // "Repaso · tapa" (28/09): la lista numerada de las notas que cuenta, cada una con el color de su sección.
       svg: placaRepaso({
         titulo: ronda.titulo, momento: ronda.momento, fecha: fechaLarga(fecha), segundos: repaso.segundos,
-        notas: [...elegidas.map((n) => ({ seccion: n.seccion, titulo: n.titulo })), ...(repaso.resumen ? [{ seccion: repaso.resumen.seccion, titulo: repaso.resumen.titulo, resumen: true }] : [])], color: COLORES.rojo,
+        notas: elegidas.map((n) => ({ seccion: n.seccion, titulo: n.titulo })), color: COLORES.rojo,
       }),
       secuencia: secuenciaDelPlan({ ronda, repaso, fecha, banco }),
       acento: COLORES.rojo,

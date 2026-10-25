@@ -8,8 +8,7 @@
 // Las reglas de fondo (nada de Política ni Policiales, sólo lo de Balcarce, temas
 // distintos, el presupuesto de 55 segundos) están en redes/elegir.mjs.
 
-import { elegirRepaso, repasoConPresupuesto, REGLAS_PIEZAS } from './elegir.mjs';
-import { resumenDelClima } from './guiones.mjs';
+import { elegirParaPodcast, repasoConPresupuesto, REGLAS_PIEZAS } from './elegir.mjs';
 import {
   PODCASTS, piezasPublicadasHoy, notasContadasEnPodcasts, ventanaDe,
 } from './piezas.mjs';
@@ -24,7 +23,7 @@ const yaPasoSuHora = (ronda, fecha) => minutoDelDiaAR(fecha) >= minutosDeHora(ro
  * repasoConPresupuesto(...) } (guion, notas, segundos…). `publicables` son las
  * notas que pueden entrar (lo ya publicado en la web), de más a menos relevantes.
  *
- * Los tres cuentan tres notas de acá y un cuarto bloque (lo más contado del día o el tiempo: regla 325, `elegirRepaso`), de temas distintos, y
+ * Los tres cuentan cuatro notas de temas distintos (PIEZAS.notasPorPodcast), y
  * ninguno repite una nota ni un tema que ya contó otro repaso de hoy o de los dos
  * días anteriores (29/09, Hernán: la misma nota salió en el de la tarde y en el de
  * la noche). El de la noche repasa lo que dejó el día y todavía no se contó, sin
@@ -32,7 +31,7 @@ const yaPasoSuHora = (ronda, fecha) => minutoDelDiaAR(fecha) >= minutosDeHora(ro
  * menos de dos, no sale. Un repaso cuya hora ya pasó sin salir no se lleva
  * notas: quedan para los que siguen.
  */
-export function repasosDelDia(publicables = [], { libro = null, fecha = new Date(), clima = null } = {}) {
+export function repasosDelDia(publicables = [], { libro = null, fecha = new Date() } = {}) {
   const hechas = piezasPublicadasHoy(libro, fecha);
   const contadas = notasContadasEnPodcasts(libro, fecha);
   // Lo ya contado se excluye por la nota y por el tema: otra nota del mismo
@@ -45,13 +44,10 @@ export function repasosDelDia(publicables = [], { libro = null, fecha = new Date
   for (const ronda of PODCASTS) {
     if (hechas.has(ronda.nombre) || yaPasoSuHora(ronda, fecha)) continue;
     const reglas = ronda.momento === 'noche' ? { ...REGLAS_PIEZAS, relevanciaParaPodcast: 0 } : REGLAS_PIEZAS;
-    // Regla 325 (24/10/2026): tres notas de acá fijas (completadas con lo más contado del país si hay menos) y un cuarto bloque: la nota más contada del
-    // día o, si no hay, el tiempo (`resumenDelClima`, sólo con el pronóstico del día que toca; sin clima, el repaso sale con las notas que haya).
-    const { notas, cuartaDelPais } = elegirRepaso(libres, { cuantas: PIEZAS.notasPorPodcast, excluir: yaContadas }, reglas);
-    const resumen = cuartaDelPais ? null : resumenDelClima(clima, { momento: ronda.momento, fecha });
-    const repaso = repasoConPresupuesto(notas, {
-      momento: ronda.momento, fecha, resumen, cuartaId: cuartaDelPais ? notas.at(-1).id : null,
-    });
+    const repaso = repasoConPresupuesto(
+      elegirParaPodcast(libres, { cuantas: PIEZAS.notasPorPodcast, excluir: yaContadas }, reglas),
+      { momento: ronda.momento, fecha },
+    );
     if (!repaso) continue;
     yaContadas.push(...repaso.notas);
     salida[ronda.nombre] = repaso;
