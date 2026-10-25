@@ -25170,7 +25170,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de una funcionaria con bandera de YPF y bandera argentina al fondo."
   },
-  "huella": "d2cc6a6ea86bc060"
+  "huella": "d2cc6a6ea86bc060",
+  "ausenteDesde": "2026-10-25T11:32:10.209Z"
  },
  "w6j6mv": {
   "intentado": true,
@@ -34668,11 +34669,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-24T06:19:52.890Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-10-25T11:31:36.627Z",
   "intentos": 5,
   "fuentes": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -38570,15 +38571,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1v9mssi": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1v9mssi.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Rosario Central vence a Huracán por dos a cero y lidera la tabla",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T04:02:01.025Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lacapital.com.ar/ovacion/en-vivo-central-derroto-un-duro-huracan-y-quedo-lo-mas-alto-la-tabla-anual-n10288498.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/7d9f722cd55f5d03ac262184235340e4/adjuntos/203/imagenes/103/490/0103490806/1200x675/smart/image-7.jpg",
+  "razon": "Es la foto de mejor calidad, encuadre y nitidez, corresponde exactamente al partido entre Rosario Central y Huracán, y no tiene marcas de agua agregadas ni menores.",
+  "cuando": "2026-10-25T11:31:36.627Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central festejando un gol."
+  },
+  "huella": "9dad8d1339ab6b51"
  },
  "1tdk3fl": {
   "archivo": "fotos-notas/1tdk3fl.jpg",
@@ -39229,11 +39243,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ezeiza reduce su capacidad operativa por obras hasta el 11 de noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
-  "cuando": "2026-10-25T10:01:57.377Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Cronista no se usa todavía.",
+  "cuando": "2026-10-25T11:31:36.627Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "1vofp13": {
   "archivo": "fotos-notas/1vofp13.jpg",
@@ -39257,6 +39271,40 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota en el partido"
   },
-  "huella": "dbda93b78991b133"
+  "huella": "dbda93b78991b133",
+  "ausenteDesde": "2026-10-25T11:32:10.209Z"
+ },
+ "euinjx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto finaliza 14 en la clasificación y largará 21 en Austin",
+  "razon": "Ninguna de las fotos muestra a Franco Colapinto en el evento correspondiente (las de autos muestran a Mercedes y Red Bull con otros pilotos, y las de personas muestran a otro piloto o no corresponden al circuito de Austin de esta nota).",
+  "cuando": "2026-10-25T11:31:36.627Z",
+  "intentos": 1,
+  "fuentes": 14
+ },
+ "1f76ep8": {
+  "archivo": "fotos-notas/1f76ep8.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lluvias y crecidas aíslan localidades y complican rutas en Neuquén y Chaco",
+  "enlace": "https://www.qznoticias.com/el-pais/las-lluvias-e-inundaciones-complicaron-las-operaciones-en-vaca-muerta-y-dejaron-localidades-aisladas",
+  "imagenOriginal": "https://n2.cdnartic.ar/DpExpaxXG0ZTyknGDwEyIcIQ_Jo=/1200x630/filters:focal(410x282:614x486):format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/10/inundaciones_de_vaca_muerta.webp",
+  "razon": "La foto C ilustra perfectamente la crecida de los ríos y el impacto en las rutas sin marcas de medios ni personas.",
+  "cuando": "2026-10-25T11:31:36.627Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Camioneta tapada por la crecida de agua marrón junto a una máquina excavadora."
+  },
+  "huella": "9ca9b95c1b793221"
  }
 }

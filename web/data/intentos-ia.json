@@ -939,6 +939,13 @@
   "ultimo": "2026-10-23T12:44:12.221Z",
   "motivo": "con cuerpo"
  },
+ "1f76ep8": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T11:31:05.154Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "1f8niph": {
   "intentos": 1,
   "ultimo": "2026-10-20T11:01:22.198Z",
@@ -3352,19 +3359,14 @@
   "motivo": "con cuerpo"
  },
  "euinjx": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T11:01:35.394Z",
-  "motivo": "cuerpo: 3 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 195 palabras",
-  "textos": 6,
-  "numeradas": 21,
+  "intentos": 2,
+  "ultimo": "2026-10-25T11:31:05.154Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 14,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl",
    "cuerpo: 3 problemas (repite, promesa): el cuerpo repite el copete en v"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título dice 14 y el cuerpo no lo explica",
-   "el título dice 21 y el cuerpo no lo explica"
   ]
  },
  "ewxkbe": {
@@ -3754,18 +3756,19 @@
   "motivo": "con cuerpo"
  },
  "kull4p": {
-  "intentos": 4,
-  "ultimo": "2026-10-25T10:31:01.534Z",
-  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 329 palabras",
-  "textos": 4,
-  "numeradas": 6,
+  "intentos": 5,
+  "ultimo": "2026-10-25T11:31:05.154Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la fuente no",
+  "textos": 7,
+  "numeradas": 9,
   "motivos": [
-   "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
   ],
   "falla": [
+   "el copete nombra a \"nunez\" y la fuente no",
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
    "el título dice 14 y el cuerpo no lo explica"
   ]
@@ -4456,6 +4459,21 @@
   "intentos": 1,
   "ultimo": "2026-10-20T10:01:21.852Z",
   "motivo": "con cuerpo"
+ },
+ "sohq68": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T11:31:05.154Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 151 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 4 problemas (antecedente, relleno, repite, copia): el cuerpo u",
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 16 palabras seguidas del original (\"al igual que defensa y justicia y velez a los que supera por diferencia…\"): decilo con otras palab"
+  ]
  },
  "sq9hhm": {
   "intentos": 1,
