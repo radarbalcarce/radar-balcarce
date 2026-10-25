@@ -265,83 +265,83 @@
   "2026-10-25": {
    "lectura": {
     "google/gemma-4-31b-it:free": {
-     "llamadas": 1,
-     "errores": 1,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "openrouter": 1
+      "openrouter": 3
      }
     },
     "nvidia/nemotron-3-super-120b-a12b:free": {
-     "llamadas": 1,
-     "errores": 1,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "openrouter": 1
+      "openrouter": 3
      }
     },
     "nvidia/nemotron-3.5-super-vl:free": {
-     "llamadas": 1,
-     "errores": 1,
-     "entrada": 2881,
-     "salida": 6000,
+     "llamadas": 3,
+     "errores": 2,
+     "entrada": 8404,
+     "salida": 16712,
      "pensamiento": 0,
-     "total": 8881,
+     "total": 25116,
      "claves": {
-      "openrouter": 1
+      "openrouter": 3
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 216,
-     "errores": 4,
+     "llamadas": 219,
+     "errores": 7,
      "entrada": 1359628,
      "salida": 233524,
      "pensamiento": 0,
      "total": 1593152,
      "claves": {
       "redes": 26,
-      "redaccion": 190
+      "redaccion": 193
      }
     },
     "google/gemma-4-31b-it:free": {
-     "llamadas": 4,
-     "errores": 4,
+     "llamadas": 7,
+     "errores": 7,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "openrouter": 4
+      "openrouter": 7
      }
     },
     "nvidia/nemotron-3-super-120b-a12b:free": {
-     "llamadas": 4,
-     "errores": 4,
+     "llamadas": 7,
+     "errores": 7,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "openrouter": 4
+      "openrouter": 7
      }
     },
     "nvidia/nemotron-3.5-super-vl:free": {
-     "llamadas": 4,
-     "errores": 4,
-     "entrada": 0,
-     "salida": 0,
+     "llamadas": 7,
+     "errores": 7,
+     "entrada": 10653,
+     "salida": 8000,
      "pensamiento": 0,
-     "total": 0,
+     "total": 18653,
      "claves": {
-      "openrouter": 4
+      "openrouter": 7
      }
     }
    }

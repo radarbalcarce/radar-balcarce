@@ -21753,9 +21753,7 @@
   "ausenteDesde": "2026-10-19T20:31:36.217Z"
  },
  "1h8zd1p": {
-  "archivo": "fotos-notas/1h8zd1p.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Racing le gana 1 a 0 a Independiente por el Torneo Clausura",
@@ -21775,7 +21773,8 @@
    "descripcion": "Jugadores de Racing celebrando un gol"
   },
   "huella": "035f6557b6a27b23",
-  "ausenteDesde": "2026-10-18T20:01:48.078Z"
+  "intentado": true,
+  "borrada": true
  },
  "8wtx5v": {
   "medio": "Diario Popular",
@@ -21889,9 +21888,7 @@
   "ausenteDesde": "2026-10-24T00:33:07.429Z"
  },
  "19t6h1l": {
-  "archivo": "fotos-notas/19t6h1l.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Racing le gana 1 a 0 a Independiente con un gol de Matías Zaracho",
@@ -21911,7 +21908,8 @@
    "descripcion": "Matías Zaracho convirtiendo el gol de Racing ante Independiente"
   },
   "huella": "5958da5a525ada98",
-  "ausenteDesde": "2026-10-18T20:01:48.078Z"
+  "intentado": true,
+  "borrada": true
  },
  "129pubj": {
   "archivo": "fotos-notas/129pubj.jpg",
@@ -40363,12 +40361,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T19:05:39.514Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.); OpenRouter: Unterminated string in JSON at position 168 (line 1 column 169)",
+  "cuando": "2026-10-25T20:06:54.748Z",
+  "intentos": 2,
   "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "e9cid4": {
   "intentado": true,
