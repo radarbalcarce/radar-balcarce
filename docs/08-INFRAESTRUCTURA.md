@@ -424,7 +424,7 @@ modelos distintos: no compiten entre sí). Las lee `reels/claves.mjs`.
    el modelo queda anotado en `web/data/intentos-ia.json` (`modelo`), en el
    registro de "Actualizar la web" y en `uso-ia.json`.
 
-**Cambio en curso (25/10/2026, en otra rama; todavía no está en `main`):** la redacción pasa a usar la clave gratis de
+**Desde el 25/10/2026 (en `main`, commit b9fc82cc):** la redacción pasa a usar la clave gratis de
 redacción, después una clave **paga** de respaldo, `GEMINI_API_KEY_RESPALDO` (US$ 10 por mes; la crea y la pega una persona),
 después la gratis de clasificación y por último OpenRouter. La de voces (`GEMINI_API_KEY_REDES`) deja de escribir notas y
 tendrá US$ 10 por mes sólo para las voces. Hasta que ese cambio se una, vale el orden de arriba (`docs/DECISIONES.md`, 25/10).

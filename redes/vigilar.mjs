@@ -492,7 +492,7 @@ export function problemasDelContrato(contrato, { redesActivas = true } = {}) {
   const lista = [];
   for (const red of [contrato.facebook, contrato.instagram]) {
     for (const d of red.duplicadas) {
-      lista.push({ clave: `duplicado-${red.red}-${d.claves.join('+')}`, nivel: 'alta', texto: `${red.nombre}: DUPLICADO. ${d.texto}. Revisá la página y borrá la copia (regla 33, docs/10-REGLAS-Y-PRUEBAS.md: una pieza por día).` });
+      lista.push({ clave: `duplicado-${red.red}-${d.claves.join('+')}`, nivel: 'alta', texto: `${red.nombre}: DUPLICADO. ${d.texto}. Revisá la página y borrá la copia (R26, docs/10-REGLAS-Y-PRUEBAS.md: una pieza por día).` });
     }
     // Con las redes apagadas lo que falta es lo esperable: lo dice `evaluar` una vez.
     if (!redesActivas) continue;

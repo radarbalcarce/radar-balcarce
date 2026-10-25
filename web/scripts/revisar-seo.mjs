@@ -128,7 +128,16 @@ if (!primera) {
 }
 
 // --- El sitemap y el robots -------------------------------------------
-const sitemap = leer('sitemap.xml.body');
+// Con SITEMAP_PARTIDO (regla 321, prendido el 25/10/2026) las notas no van en sitemap.xml sino en los mapas por mes (/sitemap-notas/AAAA-MM/):
+// se cuentan todos juntos. Los mapas por mes se arman siempre, así que con el interruptor apagado una nota cuenta dos veces, y alcanza igual.
+const mapasPorMes = (() => {
+  try {
+    return fs.readdirSync(path.join(SALIDA, 'sitemap-notas')).filter((m) => /^\d{4}-\d{2}$/.test(m))
+      .map((m) => leer(path.join('sitemap-notas', m, 'sitemap.xml.body')) ?? '').join('\n');
+  } catch { return ''; }
+})();
+const delSitio = leer('sitemap.xml.body');
+const sitemap = delSitio === null ? null : `${delSitio}\n${mapasPorMes}`;
 if (!sitemap) fallas.push('el sitemap: no se generó');
 else {
   const cuantas = (sitemap.match(/<url>/g) ?? []).length;

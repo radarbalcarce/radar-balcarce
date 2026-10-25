@@ -320,3 +320,9 @@ test('la etiqueta de la sección, en cada nota, es un enlace a la sección', () 
   const pagina = leer('web/app/nota/[id]/page.js');
   assert.match(pagina, /<a href=\{`\/seccion\/\$\{s\.ranura\}`\}[^>]*><Etiqueta seccion=\{n\.seccion\} \/><\/a>/);
 });
+
+test('regla 321, 25/10/2026: con SITEMAP_PARTIDO prendido, el control de SEO del motor cuenta las notas de los mapas por mes (sin eso, frenó la publicación de las 7:30 y las 8:05)', () => {
+  const fuente = fs.readFileSync(new URL('../web/scripts/revisar-seo.mjs', import.meta.url), 'utf8');
+  assert.match(fuente, /sitemap-notas/);
+  assert.ok(fuente.includes('${delSitio}\\n${mapasPorMes}'), 'sitemap.xml y los mapas por mes se cuentan juntos');
+});
