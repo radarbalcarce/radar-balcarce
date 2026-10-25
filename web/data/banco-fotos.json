@@ -17734,9 +17734,7 @@
   "fuentes": 1
  },
  "1x4gtj1": {
-  "archivo": "fotos-notas/1x4gtj1.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Santilli advierte a gobernadores por un posible regreso del kirchnerismo",
@@ -17745,7 +17743,8 @@
   "razon": "Es la única foto de calidad aceptable que muestra claramente al protagonista sin marcas de agua ni menores, con un encuadre limpio.",
   "cuando": "2026-10-16T14:02:01.162Z",
   "huella": "1f13a3a22824e9d9",
-  "ausenteDesde": "2026-10-18T12:01:35.000Z"
+  "intentado": true,
+  "borrada": true
  },
  "1o58pw8": {
   "medio": "Wikimedia Commons",
@@ -18298,9 +18297,7 @@
   "ausenteDesde": "2026-10-23T16:33:31.913Z"
  },
  "1wze6ju": {
-  "archivo": "fotos-notas/1wze6ju.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Trenes Argentinos compra cuarenta y tres formaciones para el AMBA",
@@ -18321,7 +18318,8 @@
    "descripcion": "Formación de trenes de la empresa Trenes Argentinos circulando por vías en un entorno rural."
   },
   "huella": "1e7686230ce2fcde",
-  "ausenteDesde": "2026-10-18T12:01:35.000Z"
+  "intentado": true,
+  "borrada": true
  },
  "1wg0k3x": {
   "archivo": "fotos-notas/1wg0k3x.jpg",
@@ -25574,7 +25572,8 @@
    "corresponde": "si",
    "descripcion": "Pirotecnia frente al hotel Regency"
   },
-  "huella": "6f2b3d2524242525"
+  "huella": "6f2b3d2524242525",
+  "ausenteDesde": "2026-10-25T12:02:03.720Z"
  },
  "1toth9e": {
   "archivo": "fotos-notas/1toth9e.jpg",
@@ -38421,14 +38420,28 @@
   "ausenteDesde": "2026-10-25T10:31:48.013Z"
  },
  "1amudby": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-10-25T10:31:31.989Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 4
+  "archivo": "fotos-notas/b19s77.jpg",
+  "medio": "LU9 Mar del Plata",
+  "credito": "Foto: LU9 Mar del Plata",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alpine rechaza dichos de Jeremy Clarkson y respalda a Franco Colapinto",
+  "enlace": "https://www.lu9mardelplata.com.ar/alpine-rechazo-los-dichos-de-jeremy-clarkson-y-respaldo-a-franco-colapinto",
+  "imagenOriginal": "https://cdnartic.ar/bTSMWV5KP1ryR22XCUN0KzH0KIg=/1200x630/smart/filters:format(jpeg):quality(70)/https://lu9mardelplatacdn.eleco.com.ar/media/2026/10/jeremy_clarkson.jpg",
+  "razon": "La foto A muestra a Franco Colapinto en el auto de Alpine, cumpliendo perfectamente con el tema central de la nota.",
+  "cuando": "2026-10-25T12:01:37.721Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto sentado dentro de un monoplaza Alpine con casco"
+  },
+  "huella": "c77d0f8607234b0b"
  },
  "1ektjdh": {
   "archivo": "fotos-notas/1ektjdh.jpg",
@@ -38743,10 +38756,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Central Córdoba y Vélez juegan este domingo por el Torneo Clausura",
-  "razon": "Ninguna foto cumple con todos los requisitos para ilustrar la nota sobre Central Córdoba y Vélez, ya que la mayoría corresponde a otros equipos (Estudiantes), son gráficas o flyers con marcas de agua, o no muestran el partido solicitado.",
-  "cuando": "2026-10-25T08:18:08.223Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-25T12:01:37.721Z",
   "intentos": 1,
-  "fuentes": 8
+  "fuentes": 9,
+  "intentosPorCupo": 1
  },
  "1k5kb9o": {
   "archivo": "fotos-notas/1k5kb9o.jpg",
@@ -39306,5 +39320,89 @@
    "descripcion": "Camioneta tapada por la crecida de agua marrón junto a una máquina excavadora."
   },
   "huella": "9ca9b95c1b793221"
+ },
+ "b19s77": {
+  "archivo": "fotos-notas/b19s77.jpg",
+  "medio": "LU9 Mar del Plata",
+  "credito": "Foto: LU9 Mar del Plata",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alpine rechaza dichos de Jeremy Clarkson y respalda a Franco Colapinto",
+  "enlace": "https://www.lu9mardelplata.com.ar/alpine-rechazo-los-dichos-de-jeremy-clarkson-y-respaldo-a-franco-colapinto",
+  "imagenOriginal": "https://cdnartic.ar/bTSMWV5KP1ryR22XCUN0KzH0KIg=/1200x630/smart/filters:format(jpeg):quality(70)/https://lu9mardelplatacdn.eleco.com.ar/media/2026/10/jeremy_clarkson.jpg",
+  "razon": "La foto A muestra a Franco Colapinto en el auto de Alpine, cumpliendo perfectamente con el tema central de la nota.",
+  "cuando": "2026-10-25T12:01:37.721Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto sentado dentro de un monoplaza Alpine con casco"
+  },
+  "huella": "c77d0f8607234b0b"
+ },
+ "2hfek1": {
+  "archivo": "fotos-notas/2hfek1.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto estrena casco especial con símbolos argentinos en Austin",
+  "enlace": "https://radiomitre.cienradios.com/deportes/el-disenador-del-casco-de-franco-colapinto-revelo-que-hara-un-nuevo-diseno-para-el-gp-de-brasil-el-guino-a-boca-que-genero-revuelo-en-redes/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/SXI6HZTEURCILPGIFHV42CUWHY.jpg?smart=true&auth=9d031a93f4908a7bb141ce07842db0394896a82bc24672b32c5d3c570d09cc77&width=1200&height=630",
+  "razon": "Muestra claramente a Franco Colapinto con el casco especial mencionado en la nota, sin personas extras ni marcas de agua.",
+  "cuando": "2026-10-25T12:01:37.721Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto luciendo en detalle su casco especial con símbolos argentinos"
+  },
+  "huella": "1e1c1f180b0a0b1b"
+ },
+ "1nldeav": {
+  "archivo": "fotos-notas/1nldeav.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "DF Entertainment produce la misa y la vigilia del papa León XIV",
+  "enlace": "https://radiomitre.cienradios.com/sociedad/visita-del-papa-leon-xiv-confirmaron-cual-sera-la-productora-encargada-de-misa-y-la-vigilia-de-jovenes/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/TQU6AAPT6FF6RC7OTCJTJEYOQM.png?smart=true&auth=4d7632a84aa69741a36b3fc1773b6b182d71888aa5a93c56fc5e7b449ca8abeb&width=1200&height=630",
+  "razon": "Es la única foto que cumple con todos los requisitos editoriales: muestra claramente al Papa León XIV hablando ante un micrófono, tiene buen encuadre y nitidez, y no presenta marcas de agua, menores de edad reconocibles, gráficos ni problemas de archivo.",
+  "cuando": "2026-10-25T12:01:37.721Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV hablando ante un micrófono gesticulando con la mano.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El papa León XIV hablando frente a un micrófono."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9e8e8e8e8ebeae8e"
  }
 }

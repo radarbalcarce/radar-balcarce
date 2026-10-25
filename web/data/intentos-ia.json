@@ -1199,11 +1199,6 @@
   "baja": true,
   "fuentes": 1
  },
- "1i802uu": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T11:31:40.945Z",
-  "motivo": "con cuerpo"
- },
  "1i9rlqx": {
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
@@ -1642,6 +1637,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
+ },
+ "1nldeav": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T12:01:13.708Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5
  },
  "1nq1fjz": {
   "intentos": 1,
@@ -2107,13 +2109,19 @@
   "motivo": "con cuerpo"
  },
  "1tdk3fl": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T04:01:13.953Z",
-  "motivo": "con cuerpo",
+  "intentos": 2,
+  "ultimo": "2026-10-25T12:01:13.708Z",
+  "motivo": "cuerpo: 3 problemas (antecedente, repite): el cuerpo usa 1, que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 173 palabras",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
-   "título o bajada: 2 problemas (antecedente): el copete usa 1, que sale "
+   "título o bajada: 2 problemas (antecedente): el copete usa 1, que sale ",
+   "cuerpo: 3 problemas (antecedente, repite): el cuerpo usa 1, que sale d"
+  ],
+  "falla": [
+   "el cuerpo usa 1, que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"formula\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1tgcpwq": {
@@ -2541,6 +2549,13 @@
   "ultimo": "2026-10-22T16:32:56.090Z",
   "motivo": "con cuerpo"
  },
+ "2hfek1": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T12:01:13.708Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "2mceuj": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:31:25.830Z",
@@ -2909,11 +2924,6 @@
   "ultimo": "2026-10-18T19:01:20.189Z",
   "motivo": "con cuerpo"
  },
- "8xi33h": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T11:31:40.945Z",
-  "motivo": "con cuerpo"
- },
  "90372i": {
   "intentos": 1,
   "ultimo": "2026-10-19T22:31:24.692Z",
@@ -3056,6 +3066,13 @@
   "ultimo": "2026-10-21T23:01:18.071Z",
   "motivo": "con cuerpo"
  },
+ "b19s77": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T12:01:13.708Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "b7vvvl": {
   "intentos": 1,
   "ultimo": "2026-10-19T15:31:03.833Z",
@@ -3140,11 +3157,6 @@
  "bojlys": {
   "intentos": 1,
   "ultimo": "2026-10-23T00:02:24.603Z",
-  "motivo": "con cuerpo"
- },
- "bpb4fk": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T12:01:17.972Z",
   "motivo": "con cuerpo"
  },
  "bs6lxt": {
@@ -3573,11 +3585,6 @@
  "i53lfi": {
   "intentos": 1,
   "ultimo": "2026-10-23T20:01:53.695Z",
-  "motivo": "con cuerpo"
- },
- "i61qlm": {
-  "intentos": 3,
-  "ultimo": "2026-10-18T11:31:40.945Z",
   "motivo": "con cuerpo"
  },
  "i7863v": {
