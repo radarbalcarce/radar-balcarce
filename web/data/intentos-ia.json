@@ -238,6 +238,16 @@
   "ultimo": "2026-10-22T02:01:20.413Z",
   "motivo": "cuerpo: 1 problema (promesa): el título dice 43 y el cuerpo no lo explica; sin esas oraciones quedan 114 palabras"
  },
+ "13qbnwb": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 2 problemas (promesa): el título nombra a \"balon\", \"oro\" y el "
+  ]
+ },
  "13qte13": {
   "intentos": 3,
   "ultimo": "2026-10-19T00:01:31.690Z",
@@ -246,11 +256,6 @@
  "13yazdt": {
   "intentos": 1,
   "ultimo": "2026-10-22T23:03:27.106Z",
-  "motivo": "con cuerpo"
- },
- "142fseb": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T15:31:18.218Z",
   "motivo": "con cuerpo"
  },
  "144vsrf": {
@@ -299,6 +304,13 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 10
+ },
+ "14hgtny": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 6
  },
  "14hjcia": {
   "intentos": 1,
@@ -595,6 +607,20 @@
   "ultimo": "2026-10-20T23:31:16.784Z",
   "motivo": "con cuerpo"
  },
+ "18t4sv0": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo explica; sin esas oraciones quedan 284 palabras",
+  "textos": 5,
+  "numeradas": 63,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 125 caracteres, e",
+   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
+  ],
+  "falla": [
+   "el título dice 21 y el cuerpo no lo explica"
+  ]
+ },
  "18x95um": {
   "intentos": 1,
   "ultimo": "2026-10-23T23:01:35.766Z",
@@ -756,6 +782,13 @@
   "ultimo": "2026-10-20T21:32:25.955Z",
   "motivo": "con cuerpo"
  },
+ "1bsmonr": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "1bv0n51": {
   "intentos": 1,
   "ultimo": "2026-10-20T15:33:44.460Z",
@@ -845,6 +878,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "1dcdral": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 4,
+  "numeradas": 12,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
+  ]
  },
  "1df4mi": {
   "intentos": 1,
@@ -2768,11 +2811,6 @@
    "cuerpo: 1 problema (nombre): el cuerpo nombra a \"jesus\" y la fuente no"
   ]
  },
- "5ymg5i": {
-  "intentos": 1,
-  "ultimo": "2026-10-18T15:31:18.218Z",
-  "motivo": "con cuerpo"
- },
  "669t41": {
   "intentos": 1,
   "ultimo": "2026-10-18T19:01:20.189Z",
@@ -3341,6 +3379,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "dfa2po": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
  },
  "dhsie1": {
   "intentos": 2,
@@ -4551,17 +4599,15 @@
   "motivo": "con cuerpo"
  },
  "squxbf": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T15:01:53.053Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-25T15:31:35.019Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
    "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 4 problemas (forma, nombre): el titulo trae un escape"
   ]
  },
  "sscp8z": {
