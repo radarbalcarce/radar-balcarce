@@ -2843,9 +2843,7 @@
   "borrada": true
  },
  "8ydg1": {
-  "archivo": "fotos-notas/8ydg1.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La cuenta corriente de la balanza de pagos cierra con superávit",
@@ -2853,7 +2851,17 @@
   "imagenOriginal": "https://fotos.perfil.com/2026/06/09/trim/1140/641/ministerio-de-economia-2257459.jpg",
   "razon": "La foto A muestra claramente el frente del Ministerio de Economía, es limpia, sin marcas de agua ni menores reconocibles, y se adapta perfectamente a una nota sobre la balanza de pagos.",
   "cuando": "2026-09-29T21:22:21.839Z",
-  "huella": "61a88e87e9ac8d89"
+  "huella": "61a88e87e9ac8d89",
+  "intentado": true,
+  "descartada": {
+   "motivo": "parece una foto de stock",
+   "cuando": "2026-10-25T07:14:54.281Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/8ydg1.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://fotos.perfil.com/2026/06/09/trim/1140/641/ministerio-de-economia-2257459.jpg",
+   "huella": "61a88e87e9ac8d89"
+  }
  },
  "9ul7an": {
   "archivo": "fotos-notas/9ul7an.jpg",
