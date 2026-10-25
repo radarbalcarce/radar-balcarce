@@ -23173,7 +23173,8 @@
    "corresponde": "si",
    "descripcion": "Virginia Aparicio hablando con un micrófono en la mano"
   },
-  "huella": "79b9c97979a9b9f1"
+  "huella": "79b9c97979a9b9f1",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "c6mopr": {
   "intentado": true,
@@ -23756,7 +23757,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0f0f47456c6a6a46"
+  "huella": "0f0f47456c6a6a46",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "usi2pn": {
   "archivo": "fotos-notas/usi2pn.jpg",
@@ -24689,7 +24691,8 @@
    "corresponde": "si",
    "descripcion": "Matías Morla junto a Diego Maradona"
   },
-  "huella": "ce9636b5a7a7a6e6"
+  "huella": "ce9636b5a7a7a6e6",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "1eh71pl": {
   "archivo": "fotos-notas/1eh71pl.jpg",
@@ -24787,7 +24790,8 @@
    "corresponde": "si",
    "descripcion": "Reunión en la mesa del Consejo de la Magistratura con autoridades presentes"
   },
-  "huella": "cf4d4b4b271d65a7"
+  "huella": "cf4d4b4b271d65a7",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "l5bpbu": {
   "archivo": "fotos-notas/l5bpbu.jpg",
@@ -24903,7 +24907,8 @@
    "corresponde": "si",
    "descripcion": "Músicos de La Renga tocando en el escenario con iluminación roja."
   },
-  "huella": "d8c4959132a49090"
+  "huella": "d8c4959132a49090",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "pbebhl": {
   "archivo": "fotos-notas/pbebhl.jpg",
@@ -26183,7 +26188,8 @@
    "corresponde": "si",
    "descripcion": "Audiencia en la sala del Tribunal Internacional del Derecho del Mar"
   },
-  "huella": "251d065a51b69e1a"
+  "huella": "251d065a51b69e1a",
+  "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "t6gt6o": {
   "archivo": "fotos-notas/t6gt6o.jpg",
@@ -38126,6 +38132,86 @@
   "cuando": "2026-10-24T23:33:11.131Z",
   "intentos": 1,
   "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1al05om": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "o0han3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1lp8r26": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1df4mi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Penalizan a Franco Colapinto y retrocede diez lugares en Estados Unidos",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 15,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "d0wlq6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1yd732f": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Excursionistas golea a Sportivo Italiano, es campeón y asciende",
+  "razon": "La única foto disponible (A) tiene una marca de agua del medio 'La Gaceta' (Tucumán) en la esquina inferior izquierda, lo que impide su selección según las reglas.",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tbb12c": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Arsenal vence 2 a 0 a Everton y alcanza al Manchester City en la Premier League",
+  "razon": "Groq también falló: HTTP 429: Request too large for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "tu91t6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Flamengo denuncia a Estudiantes en la Conmebol por Marcos Rojo",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Bolavip Argentina no se usa todavía.",
+  "cuando": "2026-10-25T00:03:05.082Z",
+  "intentos": 1,
+  "fuentes": 24,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

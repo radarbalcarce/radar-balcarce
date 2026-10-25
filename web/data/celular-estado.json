@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-24T23:33:53.821Z",
- "portada": 87,
+ "generado": "2026-10-25T00:04:23.302Z",
+ "portada": 94,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-10-24T23:33:54.361Z",
+  "generado": "2026-10-25T00:04:23.794Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-24T23:36:36.397Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -150,10 +150,15 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 43,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1al05om",
+      "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+      "seccion": "Agro"
+     },
      {
       "id": "vn1ufa",
       "titulo": "Advierten que seis de cada diez menores tienen problemas con pantallas",
@@ -197,6 +202,12 @@
    ],
    "cola": [
     {
+     "id": "1al05om",
+     "titulo": "Apicultores locales obtienen créditos con tasa de interés cero",
+     "seccion": "Agro",
+     "marcada": false
+    },
+    {
      "id": "r8gyl1",
      "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
      "seccion": "Balcarce",
@@ -209,15 +220,15 @@
      "marcada": false
     },
     {
-     "id": "prtuo4",
-     "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1b4pjdh",
      "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1yd732f",
+     "titulo": "Excursionistas golea a Sportivo Italiano, es campeón y asciende",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
