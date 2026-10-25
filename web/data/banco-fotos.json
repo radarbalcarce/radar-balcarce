@@ -18492,9 +18492,7 @@
   "fuentes": 17
  },
  "1w9aja0": {
-  "archivo": "fotos-notas/1w9aja0.jpg",
   "medio": "Acción 5 (Balcarce)",
-  "credito": "Foto: Acción 5 (Balcarce)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La organización designa los árbitros para la primera fecha del torneo",
@@ -18503,7 +18501,8 @@
   "razon": "Es la única imagen nítida y completa que ilustra el hecho, mostrando al árbitro con su indumentaria oficial sin marcas de agua ni menores presentes.",
   "cuando": "2026-10-17T00:01:51.571Z",
   "huella": "ae0d2fa4a0a931b5",
-  "ausenteDesde": "2026-10-18T10:31:08.097Z"
+  "intentado": true,
+  "borrada": true
  },
  "1h6knvx": {
   "intentado": true,
@@ -20740,9 +20739,7 @@
   "borrada": true
  },
  "d4w6b0": {
-  "archivo": "fotos-notas/1w09gtm.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Inter Miami vence 3 a 1 a Atlanta United con doblete de Messi",
@@ -20763,7 +20760,8 @@
    "descripcion": "Messi abraza a Casemiro en el banco de suplentes de Inter Miami."
   },
   "huella": "f0909ca44cad7170",
-  "ausenteDesde": "2026-10-18T10:31:08.097Z"
+  "intentado": true,
+  "borrada": true
  },
  "1684fj7": {
   "intentado": true,
@@ -38127,15 +38125,40 @@
   "huella": "0b95a453c7864707"
  },
  "r8gyl1": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/r8gyl1.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unterminated string in JSON at position 327 (line 1 column 328)",
-  "cuando": "2026-10-25T06:02:17.679Z",
-  "intentos": 3,
-  "fuentes": 1,
-  "intentosPorCupo": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/terrenos-baldios-en-la-mira-presentan-un-proyecto-para-que-el-municipio-intime-a-duenos-por-basura-y-pastizales-altos",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/24Y47.jpeg",
+  "razon": "Es la única foto disponible, corresponde a un terreno baldío y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-25T10:31:31.989Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Terreno baldío con vegetación alta en una esquina de la ciudad.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un terreno baldío con maleza alta en una esquina de calle bajo cielo nublado."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "63e226a8bcc14c31"
  },
  "146xxio": {
   "intentado": true,
@@ -38242,12 +38265,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes pide aguardar el comunicado oficial sobre las entradas",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de El Día no se usa todavía.",
-  "cuando": "2026-10-25T07:02:15.595Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Olé no se usa todavía.",
+  "cuando": "2026-10-25T10:31:31.989Z",
   "intentos": 2,
-  "fuentes": 3,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "fuentes": 4,
+  "intentosPorCupo": 3
  },
  "1yd732f": {
   "intentado": true,
@@ -38373,18 +38395,18 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto dentro del cockpit de su monoplaza de Fórmula 1."
   },
-  "huella": "c36f1f8607030b8d"
+  "huella": "c36f1f8607030b8d",
+  "ausenteDesde": "2026-10-25T10:31:48.013Z"
  },
  "1amudby": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: The operation was aborted due to timeout",
-  "cuando": "2026-10-25T06:02:17.679Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-10-25T10:31:31.989Z",
   "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "fuentes": 6,
+  "intentosPorCupo": 4
  },
  "1ektjdh": {
   "intentado": true,
@@ -38709,7 +38731,8 @@
    "corresponde": "si",
    "descripcion": "Monoplazas en pista durante la clasificación"
   },
-  "huella": "03113818189998da"
+  "huella": "03113818189998da",
+  "ausenteDesde": "2026-10-25T10:31:48.013Z"
  },
  "dk9pyv": {
   "archivo": "fotos-notas/dk9pyv.jpg",
@@ -39089,7 +39112,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 circulando por la pista"
   },
-  "huella": "2c3850218a64a6de"
+  "huella": "2c3850218a64a6de",
+  "ausenteDesde": "2026-10-25T10:31:48.013Z"
  },
  "1c65rq6": {
   "archivo": "fotos-notas/1c65rq6.jpg",
@@ -39149,7 +39173,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "15233eb2646c4c6c"
+  "huella": "15233eb2646c4c6c",
+  "ausenteDesde": "2026-10-25T10:31:48.013Z"
  },
  "14kpr1g": {
   "intentado": true,

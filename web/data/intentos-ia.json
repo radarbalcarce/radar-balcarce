@@ -2276,17 +2276,17 @@
   "motivo": "con cuerpo"
  },
  "1vofp13": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T10:01:21.322Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el máximo es 90",
+  "intentos": 2,
+  "ultimo": "2026-10-25T10:31:01.534Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 220 palabras",
   "textos": 7,
   "numeradas": 9,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ],
   "falla": [
-   "el titulo tiene 94 caracteres, el máximo es 90",
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
@@ -3751,19 +3751,20 @@
   "motivo": "con cuerpo"
  },
  "kull4p": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T10:01:21.322Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 249 palabras",
-  "textos": 3,
-  "numeradas": 5,
+  "intentos": 4,
+  "ultimo": "2026-10-25T10:31:01.534Z",
+  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 329 palabras",
+  "textos": 4,
+  "numeradas": 6,
   "motivos": [
-   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
    "cuerpo: 1 problema (promesa): el título dice 14 y el cuerpo no lo expl",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el título dice 14 y el cuerpo no lo explica"
   ]
  },
  "kx9cur": {
@@ -3850,6 +3851,21 @@
   "intentos": 1,
   "ultimo": "2026-10-19T13:01:44.292Z",
   "motivo": "con cuerpo"
+ },
+ "loqdh6": {
+  "intentos": 1,
+  "ultimo": "2026-10-25T10:31:01.534Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el máximo es 90",
+  "textos": 8,
+  "numeradas": 20,
+  "motivos": [
+   "título o bajada: 1 problema (sensacionalista): usa \"castigo\", que pres",
+   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 96 caracteres, el máximo es 90",
+   "el título nombra a \"gran\", \"unidos\" y el cuerpo no los explica"
+  ]
  },
  "lrvyw3": {
   "intentos": 1,
