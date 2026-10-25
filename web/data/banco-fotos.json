@@ -7455,9 +7455,7 @@
   "ausenteDesde": "2026-10-23T14:35:12.904Z"
  },
  "v0xov9": {
-  "archivo": "fotos-notas/v0xov9.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mastantuono marca su primer gol con la Selección y responde a las críticas",
@@ -7465,7 +7463,17 @@
   "imagenOriginal": "https://www.ole.com.ar/images/2026/10/03/ajw786W-a_2000x1500__1.jpg",
   "razon": "Tiene excelente nitidez, encuadre limpio sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-10-04T03:04:40.679Z",
-  "huella": "23a79c8c4e6a0d5c"
+  "huella": "23a79c8c4e6a0d5c",
+  "intentado": true,
+  "descartada": {
+   "motivo": "no corresponde a la nota",
+   "cuando": "2026-10-25T17:14:19.751Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/v0xov9.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://www.ole.com.ar/images/2026/10/03/ajw786W-a_2000x1500__1.jpg",
+   "huella": "23a79c8c4e6a0d5c"
+  }
  },
  "1zja8b": {
   "medio": "Wikimedia Commons",
