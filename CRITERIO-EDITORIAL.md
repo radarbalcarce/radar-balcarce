@@ -545,8 +545,8 @@ esa lista y se arregla para siempre.
 
 **Primero se juntan.** Si varios medios contaron lo mismo, la IA los recibe a
 todos, numerados (Fuente 1, Fuente 2…), cada uno con su medio, su fecha y si
-es oficial, y su titular y su resumen, más el **texto completo** de las que entran en un presupuesto de 12.000
-caracteres (con textos largos, tres o cuatro; con cortos, más; desde el 15/10, regla 174, y sin tope de
+es oficial, y su titular y su resumen, más el **texto completo** de las que entran en un presupuesto de 18.000
+caracteres, 6.000 como mucho cada uno (regla 327; con textos largos, tres o cuatro; con cortos, más; desde el 15/10, regla 174, y sin tope de
 cantidad de fuentes desde el 24/10, regla 308; antes, de uno solo). Van numerados por lo que aportan: primero la
 oficial, después la de más texto útil y después la que más datos agrega; los
 textos van limpios de restos de la página y de letras rotas. Si dos medios

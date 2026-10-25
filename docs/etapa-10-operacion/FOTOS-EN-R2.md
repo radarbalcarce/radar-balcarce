@@ -114,6 +114,6 @@ Cada paso dice **quién** lo hace, **qué mirar** al terminar y **cómo volver a
 
 - **Ejecutar la migración y prender el interruptor** (todo lo de arriba): nada se ejecutó.
 - Verificar que la clave de R2 que usa la vuelta puede **escribir** en `radar-archivo` (paso 6) y que la ruta de las fotos está puesta (paso 3).
-- Otros archivos de `web/data` que sólo usa el robot (`celular-pendientes.json`, `fichas.json`, etc.) siguen en git: ya está en `docs/etapa-10-operacion/MENOS-COMMITS.md`.
+- Otros archivos de `web/data` que sólo usa el robot (`celular-pendientes.json`, `fichas.json`, etc.) siguen en git: ya está en `docs/historico/etapa-10-operacion/MENOS-COMMITS.md`.
 - Compactar el historial (paso 14).
 - `ENLACES_CORTOS` (apagada) tampoco llega al Worker de tareas, que es quien publica en Facebook en la nube: antes de prenderla hay que pasarla en el despliegue como se hizo con `FOTOS_EN_R2` (regla 316). No es parte de las fotos.

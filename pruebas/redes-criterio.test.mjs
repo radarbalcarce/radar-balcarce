@@ -607,10 +607,12 @@ test('los módulos de redes/ nuevos no importan nada de afuera de Node', () => {
   }
 });
 
+// docs/10 es la lista corta de reglas (25/10/2026): la R25 remite a CRITERIO-REDES.md.
 test('los documentos se remiten a CRITERIO-REDES.md', () => {
   for (const f of ['CLAUDE.md', 'docs/07-REDES.md', 'CRITERIO-EDITORIAL.md', 'docs/10-REGLAS-Y-PRUEBAS.md']) {
     assert.ok(leer(f).includes('CRITERIO-REDES.md'), `${f} no menciona CRITERIO-REDES.md`);
   }
+  assert.match(leer('docs/10-REGLAS-Y-PRUEBAS.md'), /^\| R25 \|.*CRITERIO-REDES\.md/m, 'la regla de formato de las redes (R25) remite a CRITERIO-REDES.md');
   assert.ok(momentoDeHora('10:00') === 'manana');
 });
 

@@ -112,7 +112,7 @@ algunas, un `LEEME.md`.
 
 | Archivo | Qué hace | ¿En uso? |
 |---|---|---|
-| `esquema.sql` | El esquema de la base del motor nuevo (SQLite local, el mismo que iría a D1); sale de `docs/etapa-10-operacion/DISENO-MOTOR.md` | No |
+| `esquema.sql` | El esquema de la base del motor nuevo (SQLite local, el mismo que iría a D1); sale de `docs/historico/etapa-10-operacion/DISENO-MOTOR.md` | No |
 | `importar.mjs` | Lee `web/data/*.json` y lo vuelca a una base SQLite local (sólo lee el repositorio); `pruebas/motor-espejo.test.mjs` controla que la copia sea fiel | A mano |
 | `README.md` | Cómo se usa | — |
 

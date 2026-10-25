@@ -1,7 +1,7 @@
 # R. SEO técnico de bajo riesgo: qué se arregló del informe P y cómo se prende lo que quedó apagado
 
 *24/10/2026. Sigue al informe `P-REVISION-INDEPENDIENTE.md` (secciones 2.5, 3.1 a 3.10 y 5) y a `O-SEARCH-CONSOLE-24-10.md`. Alcance del dueño: **sólo técnica y SEO**; no se
-toca qué noticias se eligen, ni la firma, ni cómo se muestran las fuentes, ni `ingesta/`, `reels/` ni `redes/`. Regla 321 (`docs/10-REGLAS-Y-PRUEBAS.md`), prueba
+toca qué noticias se eligen, ni la firma, ni cómo se muestran las fuentes, ni `ingesta/`, `reels/` ni `redes/`. Regla 321 (R30 de `docs/10-REGLAS-Y-PRUEBAS.md`), prueba
 `pruebas/seo-tecnico-321.test.mjs`. Nada se desplegó, ninguna variable se prendió.*
 
 ## 1. Antes y después (compilación real, con los datos del 24/10, `SITIO=https://radarbalcarce.com`)
@@ -71,7 +71,9 @@ resube las que cambiaron mientras están en el margen. Una plantilla vieja ya ar
 
 ### 2.4 El mapa del archivo en R2 y el mapa del sitio, partidos (punto 4)
 
-Todo **escrito, probado y apagado**.
+Escrito y probado el 24/10. **Estado al 25/10/2026: los pasos 1 a 4 de abajo están hechos.** El Worker del archivo se subió el 25/10 y sirve
+`/nota/sitemap-archivo.xml` (índice con un mapa por mes); `SITEMAP_PARTIDO` = Si y `SITEMAP_DEL_ARCHIVO` = Si desde el 25/10, y ese día se enviaron
+`sitemap-index.xml` y `nota/sitemap-archivo.xml` a Search Console. Falta el paso 5 (comparar en una semana).
 
 - **Del archivo (R2)**: `mapasDelArchivo` (`infra/archivo-cloudflare/worker.mjs`) arma, desde el manifiesto, **un mapa por cada mes** (`/nota/sitemap-archivo-AAAA-MM.xml`, mes en hora de
   Balcarce) y **un índice** (`/nota/sitemap-archivo.xml`, que antes era un mapa único). El exportador (`web/scripts/archivar-a-r2.mjs`) los sube **antes** del manifiesto (primero los

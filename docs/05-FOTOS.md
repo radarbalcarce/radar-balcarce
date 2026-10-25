@@ -365,7 +365,7 @@ Ver `docs/07-REDES.md`.
 | Cuánto espera la poda | `HORAS_DE_GRACIA_DE_LA_PODA` (`web/scripts/fotos-notas.mjs`) |
 | Que el espejo de Instagram lleve (o no) la foto del banco | `FOTO_EN_INSTAGRAM` (`web/lib/tarjeta-diseno.js`; hoy `true`) |
 | Cómo se ve en la página | El bloque `{n.foto && …}` de `web/app/nota/[id]/page.js` |
-| Ilustrar con IA las notas sin foto | Workflow «Ilustrar notas sin foto» (§ 12; automático cada 2 h); qué se salta, `motivoParaSaltar` (`web/scripts/ilustrar-notas.mjs`) y `tocaUnaMuerte` (`web/scripts/fotos-notas.mjs`); el tono, `tonoDeLaNota` y `TONOS`; los topes, `TOPE_POR_CORRIDA`, `TOPE_POR_DIA` y `cupoAutomatico`; las horas, `HORAS_AUTOMATICAS` y `HORAS_ILUSTRAR_UTC` (`infra/reloj-cloudflare/worker.mjs`); con Gemini web, `docs/flujos/IMAGENES-CON-GEMINI-WEB.md` |
+| Ilustrar con IA las notas sin foto | Workflow «Ilustrar notas sin foto» (§ 12; automático cada 2 h); qué se salta, `motivoParaSaltar` (`web/scripts/ilustrar-notas.mjs`) y `tocaUnaMuerte` (`web/scripts/fotos-notas.mjs`); el tono, `tonoDeLaNota` y `TONOS`; los topes, `TOPE_POR_CORRIDA`, `TOPE_POR_DIA` y `cupoAutomatico`; las horas, `HORAS_AUTOMATICAS` y `HORAS_ILUSTRAR_UTC` (`infra/reloj-cloudflare/worker.mjs`); Gemini web, desactivado el 17/10 (regla 206) |
 | Qué fuentes entran en la excepción de las fotos con chicos (reglas 186 y 211) | `FUENTES_DE_BALCARCE_PARA_FOTOS_DE_MENORES` (`ingesta/fuentes.mjs`): sale sola de las fuentes con `alcance: 'local'`; una fuente de Balcarce nueva entra sola (la prueba lista las de hoy). La página de un medio cuyas notas no están en el dominio de su feed va en `PAGINAS_DE_LAS_FUENTES_DE_BALCARCE` |
 | Qué actividades la permiten y qué temas la frenan | `ACTIVIDADES` y `PROHIBIDAS` (`ingesta/fotos-menores.mjs`) |
 | Prender o apagar la excepción | La variable de GitHub `FOTOS_MENORES_OFICIALES` ("Si" la prende; apagarla también saca de la web las fotos que entraron por ella) |
@@ -477,7 +477,7 @@ generada con IA», `origen: "ia"`, `cuando`, el título, `modelo` y el prompt; `
 solo camino**, el automático de Cloudflare. Las de Gemini web que ya estaban (o cualquiera sin `control` anotado: `ilustracionControlada`)
 pasan por el mismo control la próxima vez que su nota entra en una revisión: si pasan, quedan y se anota su control; si no, se reemplazan
 por una nueva o se sacan. Cada ilustración nueva guarda su `control`. La tarea programada de la PC que hacía las de Gemini web hay que
-apagarla a mano (`docs/flujos/IMAGENES-CON-GEMINI-WEB.md`).
+apagarla a mano (el documento de ese flujo, `docs/flujos/IMAGENES-CON-GEMINI-WEB.md`, se borró el 25/10: queda en el historial de git).
 
 **Cuánto gasta.** Gemini, nada (claves gratis). El Worker, unas 212 neuronas por imagen (estimadas: Cloudflare no publica la tarifa de SDXL; se usa
 la de flux-schnell). Topes en el código: **12 llamadas por corrida y 20 por día** (cuentan las corridas de hoy, por su adjunto
@@ -570,7 +570,7 @@ la del Día del Sordo y la del juez Ariel Bilbao (su nombre en el título). Que 
 
 ## 14. Los controles del 17/10/2026 y el arreglo de los datos (reglas 203 a 206)
 
-La auditoría del 16/10 (`docs/auditoria-2-0/03-FOTOS.md`) encontró fotos mal puestas que una sola pasada de IA dejó pasar, fallas de código
+La auditoría del 16/10 (`docs/historico/auditoria-2-0/03-FOTOS.md`) encontró fotos mal puestas que una sola pasada de IA dejó pasar, fallas de código
 que dejaban notas con la placa, imágenes rotas en el archivo y código sin usar. Los dueños: "arreglá todo lo que puedas, borrá, mejorá",
 sin sumar costos (sólo las claves gratis y Cloudflare). Lo que cambió:
 

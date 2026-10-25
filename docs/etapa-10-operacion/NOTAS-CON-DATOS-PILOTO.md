@@ -1,6 +1,6 @@
 # Notas con datos propios: el primer piloto (regla 323)
 
-*24/10/2026. Piloto escrito, probado y compilado de verdad; **APAGADO**: nada se desplegó ni se prendió. Sale de los informes G (`docs/auditoria-2-0/G-NOTAS-UNICAS-CON-DATOS.md`) y K (`K-DATOS-E-INFOGRAFIAS-POR-TEMA.md`) y de la decisión del dueño: «lo nuevo importa; las notas tienen que tener datos propios, no ser un resumen de fuentes».*
+*24/10/2026. Piloto escrito, probado y compilado de verdad; **APAGADO**: nada se desplegó ni se prendió. Sale de los informes G (`docs/historico/auditoria-2-0/G-NOTAS-UNICAS-CON-DATOS.md`) y K (`K-DATOS-E-INFOGRAFIAS-POR-TEMA.md`) y de la decisión del dueño: «lo nuevo importa; las notas tienen que tener datos propios, no ser un resumen de fuentes».*
 
 ## 1. Qué es, en cinco líneas
 

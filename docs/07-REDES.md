@@ -90,7 +90,7 @@ sacó el relleno del 12/10 (`vaAFacebookDeRelleno`, `relevanciaMinimaDeRelleno`)
 Ahora lo de afuera sale sólo si lo cuentan **`FACEBOOK.mediosParaRedes` (5) medios distintos o más** (`esPopularParaRedes`: los del mismo dueño cuentan uno, `redes/medios-contados.mjs`; y nada de "dónde ver",
 "en vivo", pronóstico ni cotización: `noEsNoticiaAunqueLaCuentenTodos`). Valen las mismas guardas: nada propio ni sin cuerpo, nunca Política ni Policiales, nada que una persona aprobó sin marcarlo para las
 redes. Orden dentro del cupo: lo marcado por una persona, lo de acá que cuentan tres medios de Balcarce o más, el resto de lo de acá y, al final, lo más contado del país. Instagram copia lo de Facebook. La medición de
-cuántas notas pasan con 4, 5, 6 y 8 medios y la propuesta de cuántos posteos por día están en `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md`.
+cuántas notas pasan con 4, 5, 6 y 8 medios y la propuesta de cuántos posteos por día están en `docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md`.
 
 **Qué nota puede ir** (`vaAFacebookPorLoQueEs`, regla 78):
 
@@ -831,7 +831,7 @@ vuelve a pedir: la historia de un reel que sí salió, o una red secundaria que 
 
 ## El video, como módulo aparte (`radarbalcarce/radar-balcarce-render`)
 
-*Anotado el 17/10 a pedido de los dueños. Escrito y probado el 18/10/2026 (`infra/render-publico/`, `reels/pedido.mjs`, `reels/render-remoto.mjs`; reglas 230 a 235) y **prendido el 23/10** con la mudanza a Cloudflare: el Worker de tareas arma el pedido («Piezas de redes») y el video se hace en el repositorio público de render; el armado en «Redes» de GitHub queda de vuelta atrás. Cuando cambia `reels/`, hay que copiarlo al repositorio de render (`node scripts/sincronizar-render-publico.mjs` y subirlo: pendiente de verificar, `PENDIENTES.md`). El plan, en `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.* La idea: que lo que dibuja y arma los videos
+*Anotado el 17/10 a pedido de los dueños. Escrito y probado el 18/10/2026 (`infra/render-publico/`, `reels/pedido.mjs`, `reels/render-remoto.mjs`; reglas 230 a 235) y **prendido el 23/10** con la mudanza a Cloudflare: el Worker de tareas arma el pedido («Piezas de redes») y el video se hace en el repositorio público de render; el armado en «Redes» de GitHub queda de vuelta atrás. Cuando cambia `reels/`, hay que copiarlo al repositorio de render (`node scripts/sincronizar-render-publico.mjs` y subirlo: pendiente de verificar, `PENDIENTES.md`). El plan, en `docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md`.* La idea: que lo que dibuja y arma los videos
 (placas, escenas, subtítulos, ffmpeg) corra en un repositorio público aparte, **sin ningún secreto**, y que este
 repositorio le pase todo lo que necesita. Hoy la frontera ya casi existe: `armarReel` (`reels/reel.mjs`) recibe
 la voz por parámetro (`hablar`), así que no necesita saber de Gemini.

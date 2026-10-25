@@ -120,6 +120,8 @@ test('regla 319: documentada (fotos, criterio, decisiones, reglas y CLAUDE.md)',
   assert.match(leer('docs/05-FOTOS.md'), /regla 319/i);
   assert.match(leer('CRITERIO-EDITORIAL.md'), /regla 319/i);
   assert.match(leer('docs/DECISIONES.md'), /regla 319/i);
-  assert.match(leer('docs/10-REGLAS-Y-PRUEBAS.md'), /\b319\b/);
+  // Desde el 25/10/2026 la lista corta: la R20 (fotos) absorbe la 319; la regla entera sigue en la lista vieja congelada.
+  assert.match(leer('docs/10-REGLAS-Y-PRUEBAS.md'), /^\| R20 \| Fotos \|.*\b319\b.*`fotos-sin-commons`/m);
+  assert.match(leer('docs/historico/REGLAS-1-A-327.md'), /^\| 319 \|/m);
   assert.match(leer('CLAUDE.md'), /regla 319/i);
 });

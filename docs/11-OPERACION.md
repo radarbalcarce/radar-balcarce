@@ -309,7 +309,7 @@ La receta de siempre sigue valiendo si todo lo demás falla: poner `REDES_ACTIVA
 (b) Si dice «No se pudo ver si la pausa está prendida» en el panel, el Worker del reloj no contestó (¿se subió? ver abajo). (c) Si el panel dice «Esa llave no puede escribir en el repositorio», la llave de este celular
 no tiene permiso de escritura (el mismo permiso que ya hace falta para aprobar notas).
 
-**Cómo se sube y se prueba (lo hace Claude con una persona; escrito el 24/10 y NO subido).** El panel y los Workers tienen que subirse en este orden, porque el panel nuevo le habla al reloj nuevo:
+**Cómo se sube y se prueba (lo hace Claude con una persona; escrito el 24/10; según `docs/TRASPASO.md` ya está subido y falta el ensayo del paso 5).** El panel y los Workers tienen que subirse en este orden, porque el panel nuevo le habla al reloj nuevo:
 
 1. Mirar en Cloudflare → `radar-balcarce-reloj` → *Settings → Variables* cuál es la variable `NUBE` de hoy (la lista de workflows en la nube, o `todo`).
 2. GitHub → Actions → **Desplegar Workers de Cloudflare** → Run workflow: *Qué subir* = `todo` (o primero `tareas` y después `vigilante` y `reloj`), *con_nube* = **sí**, *nube* = el valor del paso 1. **No usar «Reloj de Cloudflare»** (`reloj-cloudflare.yml`): sube el reloj sin la nube y le saca los accesos al motor y a las tareas.
@@ -319,6 +319,33 @@ no tiene permiso de escritura (el mismo permiso que ya hace falta para aprobar n
 6. **Vuelta atrás**: volver a subir los Workers del commit anterior (el mismo workflow) y borrar `pausa/estado.json` de R2. El panel viejo no sabe de la pausa pero tampoco se rompe.
 
 No hace falta ninguna variable nueva (el reloj, el Worker de tareas y el vigilante ya tienen los accesos que usa; la dirección del reloj ya figura en la CSP del panel).
+
+## 5 ter. Cómo se suben los Workers y cómo se vuelve atrás
+
+*Lo que sigue vale para siempre; viene del plan de la mudanza (`docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md`, 18/10, que tiene el paso a paso
+completo de cómo se hizo el 22 y 23/10). Los Workers **no se suben solos**: cada vez que cambia algo de `infra/`, lo sube una persona.*
+
+- **Subir:** GitHub → Actions → **Desplegar Workers de Cloudflare** → Run workflow. *Qué subir* = `todo` o el Worker que cambió (`reloj`, `vigilante`,
+  `tareas`, `motor`…); *con_nube* = **sí**; *nube* = el valor de hoy de la variable `NUBE` del reloj (se mira en Cloudflare → `radar-balcarce-reloj` →
+  *Settings → Variables*). Sin «con la nube» el reloj vuelve a pedirle todo a GitHub.
+- **Cargar variables del motor** (Workers Builds): workflow «Cargar variables del motor» **con `simular` = No** (por defecto trae `Si`, que deja el motor
+  en ensayo: no guarda ni publica).
+- **Cómo se sabe que salió bien:** el workflow sale verde; `https://radar-balcarce-tareas.<cuenta>.workers.dev/` dice «en hora»; `/estado` del motor
+  muestra la última vuelta; en Cloudflare → `radar-balcarce-reloj` → Logs aparece una línea por minuto.
+- **Los secretos** (`VIGILANTE_TOKEN`, `META_TOKEN`, las claves de IA, `RADAR_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`…) ya están en GitHub y el workflow los
+  copia a los Workers. Uno nuevo lo crea y lo pega una persona, nunca en un chat.
+
+**La vuelta atrás:**
+
+| Si quiero volver… | Hago… | Tarda |
+|---|---|---|
+| **Todo a GitHub** | «Desplegar Workers de Cloudflare» → `que: reloj` y `que: vigilante`, `con_nube` **apagado**; reactivar los workflows viejos de GitHub; `REDES_ACTIVAS` de GitHub en `Si` y la del Worker de tareas en `No`; borrar `INFORME_RESPALDO_EN_GITHUB` | 10 minutos |
+| **Sólo el motor** | Subir el reloj con la lista `NUBE` sin `actualizar.yml` | 5 minutos |
+| **Sólo las redes** | Igual, sin `redes.yml`; `REDES_ACTIVAS_NUBE` en `No` corta al instante | 5 minutos |
+| **Una tarea** | Igual, sin su archivo | 5 minutos |
+| **Freno de emergencia** | En el panel del reloj, la variable `NUBE` vacía (efecto inmediato; el workflow la pisa al próximo despliegue). Para frenar lo que se publica, la pausa general (tarea 5 bis) | 1 minuto |
+
+No hay datos que devolver: la verdad está en `web/data/` del repositorio; la nube sólo guarda memoria que se rearma sola y contadores.
 
 ## 6. Publicar una pieza a mano
 

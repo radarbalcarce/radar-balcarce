@@ -146,10 +146,10 @@ Los que sólo corren a mano y no escriben nada en el repositorio están marcados
 | **Respaldo** (`respaldo.yml`) | Domingos 6:17 UTC (3:17 en Balcarce); a mano | Arma un paquete de git con todo el historial y una copia de datos y fotos (artefacto de 90 días); si hay GitLab (`GITLAB_TOKEN`, variable `GITLAB_REPO`) sube un espejo, y si hay R2 (variable `R2_RESPALDOS`) sube el paquete. **Hoy (16/10) sube a R2** (`radar-balcarce-respaldos`); **el espejo de GitLab no corre**: no están cargados ni `GITLAB_TOKEN` ni `GITLAB_REPO` | `GITLAB_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`; variables `GITLAB_REPO`, `R2_RESPALDOS` | Nada | 40 min |
 | **Probar la restauración del respaldo** (`probar-restauracion.yml`) | A mano (opcional: `fecha`) | Baja de R2 el respaldo de ese día (junta las partes según el manifiesto y compara el sha256), rearma el repositorio desde el paquete, corre `git fsck`, compara el último commit con GitHub y abre el archivo de datos y fotos. Anduvo el 15/10 | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`; variable `R2_RESPALDOS` | Nada | 20 min |
 | **Piezas de redes** (`redes-piezas.yml`, 18/10/2026) | Sólo a mano o por el Worker de tareas (acción «redes»), **y sólo con `redes.yml` en la lista `NUBE` del reloj**; desde el 23/10 el Worker lo dispara (pide la voz y despierta al render público) | `npm ci`, la memoria de voces, `reels/plan.mjs --generar --solo=…` con `RENDER_REMOTO=Si`: pide la voz a Gemini, arma el pedido de video, lo sube a R2 y despierta al repositorio público de render; **no espera el video** | `GEMINI_API_KEY_REDES`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `RENDER_GITHUB_TOKEN`; `R2_RENDER` | Nada (la memoria de voces va a la caché de Actions) | 10 min |
-| **Desplegar Workers de Cloudflare** (`desplegar-nube.yml`, 18/10/2026) | A mano: `que` (todo, tareas, motor, vigilante, reloj), `con_nube` y `nube` (qué workflows pasan a Cloudflare) | Crea los depósitos R2 y los KV, sube los Workers de la mudanza con wrangler 4.139.0 (`--keep-vars`) y carga sus secretos por `wrangler secret bulk` (`infra/compartido/secretos-para-wrangler.mjs`). Sin `con_nube` el reloj y el vigilante quedan como siempre | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` y los secretos de los Workers (`docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`) | Nada | 15 min |
+| **Desplegar Workers de Cloudflare** (`desplegar-nube.yml`, 18/10/2026) | A mano: `que` (todo, tareas, motor, vigilante, reloj), `con_nube` y `nube` (qué workflows pasan a Cloudflare) | Crea los depósitos R2 y los KV, sube los Workers de la mudanza con wrangler 4.139.0 (`--keep-vars`) y carga sus secretos por `wrangler secret bulk` (`infra/compartido/secretos-para-wrangler.mjs`). Sin `con_nube` el reloj y el vigilante quedan como siempre | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` y los secretos de los Workers (`docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md`) | Nada | 15 min |
 | **Reloj de Cloudflare** (`reloj-cloudflare.yml`) | A mano (cuando cambia el reloj) | Sube el Worker `radar-balcarce-reloj` (`infra/reloj-cloudflare/`) con wrangler 4.139.0 y le carga el secreto | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `RELOJ_GITHUB_TOKEN` | Nada | 10 min |
 | **Vigilante de Cloudflare** (`vigilante-cloudflare.yml`) | A mano (cuando cambia el vigilante) | Sube el Worker `radar-balcarce-vigilante` (`infra/vigilante-cloudflare/`) con wrangler 4.139.0, crea su KV si falta y le carga los secretos | `CLOUDFLARE_API_TOKEN` (con «Workers KV Storage: Edit»), `CLOUDFLARE_ACCOUNT_ID`, `VIGILANTE_TOKEN`; opcional `VIGILANTE_GITHUB_TOKEN` (está cargado) | Nada | 10 min |
-| **Ilustrar notas sin foto** (`ilustrar-notas.yml`) | El reloj de Cloudflare a los :20 cada 2 horas, de 7:20 a 23:20 de Balcarce, con `automatico` = `true`; a mano: revisar (`horas`, `ids`) o aplicar (`aplicar`, `corrida`, `ids`) | `web/scripts/ilustrar-notas.mjs`: elige las notas sin foto real (salta muertes, sepelios, semáforo rojo y lo que ya tiene imagen), pide a Gemini el prompt y al Worker de imágenes la ilustración (SDXL, 1024 × 576), la hace mirar otra vez por Gemini y, en automático, guarda sólo las que pasan ese control. Hasta 12 llamadas al Worker por corrida y 20 por día. Nunca pisa una ilustración hecha con Gemini web. Regla 185; `docs/flujos/IMAGENES-CON-GEMINI-WEB.md` | `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_CLASIFICACION`, `VIGILANTE_TOKEN` (la contraseña del Worker) | `web/data/fotos-ia.json` y `web/public/fotos-notas/<id>-ia.jpg` (el paso que guarda hace fila con "Actualizar la web") | 30 min (guardar, 15) |
+| **Ilustrar notas sin foto** (`ilustrar-notas.yml`) | El reloj de Cloudflare a los :20 cada 2 horas, de 7:20 a 23:20 de Balcarce, con `automatico` = `true`; a mano: revisar (`horas`, `ids`) o aplicar (`aplicar`, `corrida`, `ids`) | `web/scripts/ilustrar-notas.mjs`: elige las notas sin foto real (salta muertes, sepelios, semáforo rojo y lo que ya tiene imagen), pide a Gemini el prompt y al Worker de imágenes la ilustración (SDXL, 1024 × 576), la hace mirar otra vez por Gemini y, en automático, guarda sólo las que pasan ese control. Hasta 12 llamadas al Worker por corrida y 20 por día. Nunca pisa una ilustración hecha con Gemini web. Regla 185 (R23 de `docs/10-REGLAS-Y-PRUEBAS.md`) | `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_CLASIFICACION`, `VIGILANTE_TOKEN` (la contraseña del Worker) | `web/data/fotos-ia.json` y `web/public/fotos-notas/<id>-ia.jpg` (el paso que guarda hace fila con "Actualizar la web") | 30 min (guardar, 15) |
 | **Revisar el archivo** (`revisar-archivo.yml`) | El reloj de Cloudflare a los :12 de las horas UTC impares (12 por día, desde el 22/10/2026); a mano, con *simular* para no guardar | `web/scripts/revisar-archivo.mjs` (regla 212): una tanda de notas viejas con el criterio de hoy; el paso «Guardar» va en el grupo `actualizar-web` y escribe `web/data/revision-archivo.json`, `banco-fotos.json` y `correcciones-auditoria.json` (`docs/flujos/REVISION-DEL-ARCHIVO.md`). Variable `REVISION_DEL_ARCHIVO` ("no" la frena) | `GROQ_API_KEY`, `GEMINI_API_KEY_CLASIFICACION` (sólo respaldo), `VIGILANTE_TOKEN` (aviso de lo grave) | Nada (Groq y Gemini gratis) | 15 + 10 min |
 | **Imágenes con Workers AI** (`imagenes-cloudflare.yml`) | A mano (subir un Worker) | Sube el Worker `radar-balcarce-imagenes` (`infra/imagenes-cloudflare/`), le carga la contraseña y compara varios modelos con el mismo prompt (adjunto de 3 días) | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `VIGILANTE_TOKEN` | Nada | 15 min |
 | **Generar fondos del clima** (`generar-fondos-clima.yml`) | A mano (`candidatas`) | Pide al Worker de imágenes candidatas de paisaje para nueve estados del tiempo y las deja como adjunto; una persona elige y las guarda como `web/public/fotos-notas/clima-<estado>-<n>.jpg` | `VIGILANTE_TOKEN` | Nada | 30 min |
@@ -231,7 +231,7 @@ Balcarce).**
   mail); y desde el 16/10 a la tarde (el reloj con este horario se subió a las
   15:45 de Balcarce), a los **:20 cada 2 horas de 7:20 a 23:20 de Balcarce**
   (expresión `20 0,2,10,12,14,16,18,20,22 * * *`), "Ilustrar notas sin foto" con
-  `automatico` = `true` (regla 185; `docs/flujos/IMAGENES-CON-GEMINI-WEB.md`).
+  `automatico` = `true` (regla 185; R23 de `docs/10-REGLAS-Y-PRUEBAS.md`).
   Lo decide `trabajosDelMinuto(minuto, horaUtc)` (`worker.mjs`); `wrangler.toml` tiene
   **seis expresiones**, una por trabajo, que sólo despiertan al Worker (despertarlo de
   más no cuesta nada). El comentario viejo de "cuatro expresiones, no sumar más" era
@@ -265,7 +265,7 @@ Balcarce).**
 ### El vigilante de Cloudflare (avisos por mail, afuera de GitHub)
 
 Un segundo Worker, **`radar-balcarce-vigilante`** (`infra/vigilante-cloudflare/`), nació el 15/10/2026 de la auditoría
-(`docs/auditoria-opus/ANALISIS.md`, punto 1): los avisos por WhatsApp llevaban muertos desde el 1/10 (se acabó el cupo de CallMeBot) y
+(`docs/historico/auditoria-opus/ANALISIS.md`, punto 1): los avisos por WhatsApp llevaban muertos desde el 1/10 (se acabó el cupo de CallMeBot) y
 `redes/vigilar.mjs` corre dentro del mismo GitHub que vigila. Éste corre aparte, a los **:12 y :42**, y avisa **por mail** a
 `radarbalcarce@gmail.com` (Email Workers, desde `vigilante@radarbalcarce.com`; el dominio ya tiene Email Routing):
 
@@ -372,9 +372,9 @@ saliendo del sitio (`web/public/fotos-notas/`, en git); el código para pasarlas
 
 Para que el repositorio principal entre en los 2.000 minutos gratis de un repositorio privado (hoy ~14.400 facturables por mes) sin sumar costo, se escribió la mudanza completa: el motor ("Actualizar la web") a **Workers Builds**, las tareas chicas a **un Worker** y el video a un **repositorio público de render** sin secretos. **Se prendió el 22 y 23/10** (variable `NUBE` del reloj; vacía = todo vuelve a GitHub). Lo que falta, a mano de una persona: apagar los siete workflows viejos de GitHub, el tope de gasto de Actions en US$ 0 y pasar el repositorio a privado (`PENDIENTES.md`). Los minutos de Workers Builds se miden y se cuidan con `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md` (regla 312).
 
-- Qué se eligió, con qué números, qué costó (US$ 0 nuevo), qué minutos quedan (~1.620 a 1.820 de 2.000) y qué quedó afuera: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md`.
-- Cómo se prende, paso a paso, qué se pega y cómo se vuelve atrás en minutos: `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`.
-- Reglas 230 a 235 (`docs/10-REGLAS-Y-PRUEBAS.md`).
+- Qué se eligió, con qué números, qué costó (US$ 0 nuevo), qué minutos quedan (~1.620 a 1.820 de 2.000) y qué quedó afuera: `docs/historico/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md`.
+- Cómo se prende, paso a paso, qué se pega y cómo se vuelve atrás en minutos: `docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md`.
+- Reglas 230 a 235 (hoy en la R36 de `docs/10-REGLAS-Y-PRUEBAS.md`).
 - Variables y secretos nuevos (los crea y los pega una persona): `RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `MOTOR_DEPLOY_HOOK`, `CF_BUILDS_TOKEN`, y las variables `R2_RENDER` e `INFORME_RESPALDO_EN_GITHUB` (cargadas el 22/10), más `REDES_ACTIVAS_NUBE` (el interruptor de las redes **en la nube**: es una variable distinta de `REDES_ACTIVAS`, que es la de GitHub; el 22/10 la de GitHub decía "No" y la de la nube "Sí", a propósito: quien mire sólo GitHub cree que las redes están apagadas); en Cloudflare, depósitos R2 `radar-motor`, `radar-render` y `radar-tareas`.
 
 ## GitHub: el repositorio
@@ -424,6 +424,11 @@ modelos distintos: no compiten entre sí). Las lee `reels/claves.mjs`.
    el modelo queda anotado en `web/data/intentos-ia.json` (`modelo`), en el
    registro de "Actualizar la web" y en `uso-ia.json`.
 
+**Cambio en curso (25/10/2026, en otra rama; todavía no está en `main`):** la redacción pasa a usar la clave gratis de
+redacción, después una clave **paga** de respaldo, `GEMINI_API_KEY_RESPALDO` (US$ 10 por mes; la crea y la pega una persona),
+después la gratis de clasificación y por último OpenRouter. La de voces (`GEMINI_API_KEY_REDES`) deja de escribir notas y
+tendrá US$ 10 por mes sólo para las voces. Hasta que ese cambio se una, vale el orden de arriba (`docs/DECISIONES.md`, 25/10).
+
 **El orden de los demás** (siempre OpenRouter al final, y sólo si hay clave):
 la lectura con IA, Gemini → Groq → OpenRouter; la Auditoría IA de cada hora,
 Groq → OpenRouter; la revisión del archivo, Groq → Gemini (con su tope) →
@@ -449,6 +454,41 @@ modelos con cada clave y, con la de redes, la ficha de cada voz propia (si
 existe y cuándo vence, según Google). Avisa si una clave contesta 400 a 403 o
 si una voz ya no existe o vence en menos de 30 días. Con `OPENROUTER_API_KEY` cargada también la mira (`GET https://openrouter.ai/api/v1/key`, que no gasta ninguno de los 50 pedidos del día); sin la variable, no pregunta ni avisa nada. "Sin cupo" (429) y los 5xx
 no se avisan: son de un rato y los maneja cada corrida.
+
+### Los proyectos de Google y cómo ordenarlos (revisado el 17/10/2026)
+
+*Antes estaba en `docs/08-INFRAESTRUCTURA.md (claves de IA)` (se unió acá el 25/10). Se revisó en Google AI Studio con la
+sesión de `radarbalcarce@gmail.com`, sólo mirando, y con la lista de secretos de GitHub (sólo nombres y fechas).*
+
+En la cuenta de Google `radarbalcarce@gmail.com` había seis proyectos:
+
+| Proyecto | ¿Es de Radar? | Facturación | ¿Aparece en AI Studio? |
+|---|---|---|---|
+| Default Gemini Project (`gen-lang-client-0957258153`) | No se sabe para qué se creó | **Sí, Nivel 1 pago** | Sí: tiene **una** clave, del 2/10/2026, que **no está cargada en GitHub** |
+| RadarGratis (`…0871841619`) | Sí (redacción, gratis) | No | No (no está importado) |
+| RadarBalcarce (`…0749672113`) | Sí (voces) | ? | No (no está importado) |
+| LibrosClasicos (`…0540396560`) | **No** | ? | No |
+| Plantas (`…0759315682` y `…0279384394`) | **No** | ? | No |
+
+Las tres claves de Gemini de GitHub se cargaron antes de la clave paga del 2/10, así que ninguna es ésa. Lo que no está bien:
+la facturación está en un proyecto que Radar no usa; hay proyectos de otras cosas en la cuenta del medio; los proyectos de
+Radar no están importados en AI Studio (no se ve qué claves tienen ni cuánto gastan), y no se sabe de qué proyecto es cada
+clave de GitHub. Las dos voces propias quedan atadas al proyecto de `GEMINI_API_KEY_REDES`: si esa clave cambia de proyecto,
+hay que crearlas de nuevo.
+
+**Cómo ordenarlo** (lo hace Hernán o Andrés; Claude puede guiar paso a paso):
+
+1. Importar RadarGratis y RadarBalcarce en AI Studio (Claves de API → «Importar proyectos»). No cambia nada de lo que anda.
+2. Ver de qué proyecto es cada clave de GitHub (AI Studio muestra los últimos cuatro caracteres; se comparan con un pedido de
+   prueba de cada secreto, sin mostrar la clave).
+3. Dejar sólo los proyectos de Radar: uno gratis para redacción y clasificación (sin facturación) y uno con facturación y un
+   tope de gasto (el de las voces; desde el 25/10 se suma la clave paga de respaldo, ver arriba).
+4. Pasar o sacar la facturación del «Default Gemini Project» y borrar la clave del 2/10 que no usa nadie.
+5. Mover LibrosClasicos y Plantas a otra cuenta de Google.
+6. Si cambia de proyecto la clave de las voces: correr «Crear voces» en modo `recrear` (`docs/11-OPERACION.md`).
+7. Anotar acá qué proyecto es cada clave (sin la clave).
+
+Groq y Tavily son de otras empresas: revisar en console.groq.com y en tavily.com que estén a nombre de `radarbalcarce@gmail.com`.
 
 ## Vigilancia y avisos (mail primero, WhatsApp de respaldo)
 
@@ -527,7 +567,7 @@ GitHub sin sumarlos antes al `env:` del workflow; la lista completa está en la 
 `R2_PIEZAS`, `R2_RESPALDOS` y `REDES_ACTIVAS` (en `Si`). **No están cargados**
 (los workflows siguen sin ellos): `GITLAB_TOKEN` y `GITLAB_REPO` (el espejo en
 GitLab), `R2_FOTOS` y `FOTOS_BASE` (las fotos en R2),
-`CLOUDFLARE_ZONE_ID` y `CLOUDFLARE_PROJECT`. (Después se cargaron `TOPE_DE_NOTAS`, `OPENROUTER_API_KEY`, las llaves de la mudanza y `REVISION_DEL_ARCHIVO` = "no": el estado real, con `gh secret list` y `gh variable list`.)
+`CLOUDFLARE_ZONE_ID` y `CLOUDFLARE_PROJECT`. (Después se cargaron `TOPE_DE_NOTAS`, `OPENROUTER_API_KEY`, las llaves de la mudanza, `TARJETAS_EN_R2` y `MOTOR_NOCHE_CADA_HORA` = Si (24/10), y `SITEMAP_PARTIDO`, `SITEMAP_DEL_ARCHIVO` = Si y `REVISION_DEL_ARCHIVO` = "si" (25/10): el estado real, con `gh secret list` y `gh variable list`.)
 
 Qué workflow usa cada uno está en la tabla de los workflows.
 
@@ -535,8 +575,6 @@ Qué workflow usa cada uno está en la tabla de los workflows.
 |---|---|---|
 | `META_TOKEN` | Secreto | Publicar y leer en Facebook e Instagram (`07-REDES`). No vence. Al regenerarlo, tildar todos los permisos de ahora **más** `read_insights` e `instagram_manage_insights` |
 | `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_REDES`, `GEMINI_API_KEY_CLASIFICACION`, `GROQ_API_KEY`, `OPENROUTER_API_KEY` (opcional) | Secretos | Las claves de IA ("Las claves de IA") |
-| `MINIMO_NACIONAL`, `MINIMO_AREAS_CHICAS` (opcionales, regla 260) | Variables | Cuántos medios distintos tienen que contar lo de afuera para salir: lo nacional (3) y las áreas chicas, Tecnología e IA, Ciencia, Salud, Educación y Cultura (2). Un número de 2 a 10; vacías, rotas o fuera de ese rango valen los de siempre. Se cambian en Settings, Secrets and variables, Actions, Variables, sin tocar código; en la vuelta de Cloudflare (Workers Builds), como variables del build. Hernán las mira cada semana con la estadística (`docs/03-SELECCION.md`, paso 7) |
-| `FECHA_DEL_HECHO` (opcional, regla 314) | Variable | De dónde se cuenta la edad del hecho de lo que cuentan 8 medios o más y de lo de Balcarce para decidir si llega «tarde» (12, 24 o 36 horas): vacía o cualquier otra cosa = la **mediana** de las fuentes; `vieja` = la fuente más vieja, como hasta el 24/10. Llega a «Actualizar la web» (`actualizar.yml`); **a Workers Builds todavía no** (falta sumarla a `infra/motor-cloudflare/cargar-variables.mjs` y a `motor-variables.yml`: ver `PENDIENTES.md`). `ingesta/fecha-del-hecho.mjs` |
 | `MINIMO_NACIONAL`, `MINIMO_AREAS_CHICAS` (opcionales, regla 260) | Variables | Cuántos medios distintos tienen que contar lo de afuera para salir: lo nacional (3) y las áreas chicas, Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo (2). Un número de 2 a 10; vacías, rotas o fuera de ese rango valen los de siempre. Se cambian en Settings, Secrets and variables, Actions, Variables, sin tocar código; en la vuelta de Cloudflare (Workers Builds), como variables del build. Hernán las mira cada semana con la estadística (`docs/03-SELECCION.md`, paso 7) |
 | `OPENROUTER_MODELOS`, `OPENROUTER_TOPE_DIARIO` (opcionales) | Variables | La lista de modelos gratis de OpenRouter en orden (separados por coma) y el tope de pedidos por día. Si no están, valen los de `reels/openrouter.mjs` |
 | `CLOUDFLARE_API_TOKEN` | Secreto | Subir el sitio y los Workers, escribir en R2 y KV; tiene también el permiso *Account · Account Analytics · Read*. Para poner la ruta del archivo permanente le falta «Zone → Workers Routes: Edit» |
@@ -573,7 +611,7 @@ encabezado `Authorization` de sus trabajos) y, en la PC, el `.env`.
 | Google AI Studio | Las claves de Gemini y sus cupos | `radarbalcarce@gmail.com` |
 | Groq (console.groq.com) | La clave de respaldo de la lectura | `radarbalcarce@gmail.com` |
 | OpenRouter (openrouter.ai) | La clave del último respaldo gratis (opcional) | `radarbalcarce@gmail.com` |
-| Google Search Console | Indexación; propiedad de dominio, con los dos sitemaps enviados (`SEO.md`) | `radarbalcarce@gmail.com` |
+| Google Search Console | Indexación; propiedad de dominio, con `sitemap-index.xml` y `nota/sitemap-archivo.xml` enviados el 25/10 (`docs/seo/AUDITORIA-SEO-LLM.md` § 12) | `radarbalcarce@gmail.com` |
 | DonWeb | El registro del dominio (el DNS está en Cloudflare) | — |
 | Tailscale | **Para dar de baja**: era el túnel para entrar al panel de la PC desde afuera, y ese panel se retiró el 17/10/2026. Ya no lo usa nada | `radarbalcarce@gmail.com` |
 | Tavily | La búsqueda con texto de las Pistas (`TAVILY_API_KEY`) | — |
@@ -604,11 +642,11 @@ el 21/09/2027; el precio no está en el repositorio), y el plan **Workers Paid d
 Cloudflare, US$ 5 por mes**, ya contratado (lo que usan hoy los Workers, R2 y las
 imágenes de Workers AI entra en lo incluido o en los cupos gratis; la estimación
 para cuando el robot se mude, US$ 5 a 8 por mes, está en
-`docs/etapa-10-operacion/ANALISIS.md`). Todo lo demás es gratis:
+`docs/historico/etapa-10-operacion/ANALISIS.md`). Todo lo demás es gratis:
 
 - **GitHub Actions** (el detalle, en "Los minutos de GitHub", abajo): el 15/10 se midieron unos **13.700 minutos reales por mes**
   (unos 19.000 si GitHub redondea cada corrida al minuto; del 1 al 14/10,
-  `docs/etapa-10-operacion/ANALISIS.md`). Son gratis porque el repositorio es
+  `docs/historico/etapa-10-operacion/ANALISIS.md`). Son gratis porque el repositorio es
   **público**; en privado costarían entre US$ 70 y US$ 136 por mes, por eso
   sigue público mientras el robot corra ahí. **Medido otra vez el 16/10**: del 9
   al 15/10, unos 14.600 reales (19.800 redondeados); y desde el 16/10, unos
@@ -644,7 +682,7 @@ vueltas), lo de antes habría sido ~14.900 reales y ~20.500 facturables: **el ah
 incluidos, US$ 0,006 a 0,008 el minuto) serían todavía **unos US$ 75 a 100 por mes**.
 
 **Qué hacía falta para que el repositorio principal entre en los 2.000 minutos gratis**
-(HECHO en el código y prendido el 22 y 23/10 con la variable `NUBE`, salvo apagar a mano los workflows viejos y pasar el repositorio a privado; es la etapa del motor, `docs/etapa-10-operacion/DISENO-MOTOR.md`, aunque la mudanza real usó Workers Builds y no el Workflow con D1 de ese diseño). Lo que sigue describe el plan original:
+(HECHO en el código y prendido el 22 y 23/10 con la variable `NUBE`, salvo apagar a mano los workflows viejos y pasar el repositorio a privado; es la etapa del motor, `docs/historico/etapa-10-operacion/DISENO-MOTOR.md`, aunque la mudanza real usó Workers Builds y no el Workflow con D1 de ese diseño). Lo que sigue describe el plan original:
 
 - **A Cloudflare, dentro de los US$ 5 de Workers Paid** (Workers, Cron, Workflows, D1, R2, KV):
   "Vigilancia" (~330), "Auditoría IA" (~1.000), "Pistas" (~240), "Informe diario" (~90) e
@@ -678,7 +716,7 @@ límite de gasto en Google (`PENDIENTES.md`).
 |---|---|
 | Cambiar cada cuánto corre algo | El reloj de Cloudflare: `trabajosDelMinuto` (`infra/reloj-cloudflare/worker.mjs`) y, si hace falta despertarlo en otro minuto, `wrangler.toml`; después, **a mano**, el workflow «Reloj de Cloudflare». Los de lo que corre solo ya no tienen `schedule` de GitHub (salvo el informe diario y los semanales) |
 | Cambiar un Worker | Su carpeta en `infra/` y después su workflow (tabla "Los Workers de Cloudflare") |
-| Pasar un trabajo de GitHub a Cloudflare (o volver) | La variable `NUBE` del reloj y del vigilante: se cambia subiendo «Desplegar Workers de Cloudflare» (`docs/etapa-10-operacion/PLAN-DE-CAMBIO.md`) |
+| Pasar un trabajo de GitHub a Cloudflare (o volver) | La variable `NUBE` del reloj y del vigilante: se cambia subiendo «Desplegar Workers de Cloudflare» (`docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md`) |
 | Qué guarda la vuelta del motor / cuántos minutos de Workers Builds gasta | `infra/motor-cloudflare/archivos.mjs` (igual a la línea `git add` de `actualizar.yml`) y `presupuesto.mjs` |
 | Qué lee y qué escribe una tarea del Worker de tareas | `infra/tareas-cloudflare/tareas.mjs` (`lee`, `escribe`): una prueba con los datos reales la controla |
 | El video de las redes (qué pide el principal y qué arma el render) | `reels/pedido.mjs`, `reels/render-remoto.mjs` y `infra/render-publico/` (se copia con `node scripts/sincronizar-render-publico.mjs`) |

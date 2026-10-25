@@ -1,7 +1,7 @@
 # El motor en Cloudflare (`radar-balcarce-motor` + Workers Builds)
 
 "Actualizar la web" (`.github/workflows/actualizar.yml`, 8.100 minutos de GitHub por mes) como **un programa de Node que corre dentro de Workers Builds**, la máquina de compilación de Cloudflare
-(6.000 minutos por mes incluidos en Workers Paid). Todo el porqué, los números y los pasos: `docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md`.
+(6.000 minutos por mes incluidos en Workers Paid). Todo el porqué, los números y los pasos: `docs/historico/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md`.
 
 ```
 reloj (:00 y :30) ──presupuesto──▶ POST deploy hook ──▶ Workers Builds

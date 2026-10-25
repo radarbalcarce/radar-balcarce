@@ -151,8 +151,8 @@ hoy en cada corrida. Por eso:
    en la fuente". Desde el 16/10 (regla 180) pasa lo mismo con **los feeds de los
    medios de Balcarce**: lo de más de 72 horas que nunca salió no entra al cruce
    (`esViejaSinSalir`: el Concejo traía notas de marzo y arrastraban a las nuevas a
-   "llegar tarde"); lo ya publicado y lo sin fecha entran igual. Es un colador grueso: los cortes de verdad (12 horas para
-   estrenar, 36 en la portada) los hace la web (`docs/03-SELECCION.md`, paso 10).
+   "llegar tarde"); lo ya publicado y lo sin fecha entran igual. Es un colador grueso: los cortes de verdad (24 horas para
+   estrenar lo de afuera y 36 lo de Balcarce, contadas desde la mediana de las fuentes; 36 en la portada: regla 327) los hace la web (`docs/03-SELECCION.md`, paso 10).
 3. **La primera vez que se vio cada nota** (`web/data/vistas.json`). En cada
    corrida, antes de decidir nada, `generar-datos.mjs` anota por identificador la
    primera hora en que apareció. Se poda a 7 días (`DIAS_DE_VISTAS`), un
@@ -376,10 +376,10 @@ ingesta), se baja la página de la nota original (`ingesta/articulo.mjs`):
 
 1. **De qué fuentes:** desde el 15/10 (regla 174, "la entrada ampliada")
    `textosDeLasFuentes()` (`reels/reescritura.mjs`) intenta bajar el texto de hasta
-   6 fuentes (`REESCRITURA.fuentesQueSeBajan`, 8 si la cuentan 8 medios o más: la principal siempre, con su
+   8 fuentes (`REESCRITURA.fuentesQueSeBajan`, 12 si la cuentan 8 medios o más, `fuentesQueSeBajanMuyContada`, desde la regla 327: la principal siempre, con su
    `enlaceFeed` si es Blogger, y las oficiales antes), y `armarFuentesParaLaIA()`
    (`ingesta/fuentes-para-la-ia.mjs`) elige los textos completos que
-   entran en el presupuesto de 12.000 caracteres (`caracteresDeTextosEnTotal`; no hay un número fijo de textos),
+   entran en el presupuesto de 18.000 caracteres (`caracteresDeTextosEnTotal`; no hay un número fijo de textos),
    la oficial y un medio distinto cada vez primero, y manda TODAS las fuentes numeradas con titular y resumen; dos textos que comparten la mitad o más
    (`copiaEntreFuentes`) son copia y cuentan como una voz. Antes iba el texto de
    una sola fuente. Ver
@@ -401,8 +401,10 @@ ingesta), se baja la página de la nota original (`ingesta/articulo.mjs`):
      necrológicas** (`NECROLOGICA`: casa de duelo, sala velatoria, servicios de
      sepelio). Un medio de acá pega debajo de cada nota su bloque de fallecidos, y
      la IA llegó a escribir sobre sepelios en una nota escolar.
-4. **El largo:** hasta 4.000 caracteres por fuente (`REESCRITURA.caracteresDelTextoCompleto`,
-   `ingesta/criterio.mjs`); con menos de 300 no hay texto completo.
+   - Si la página trae el texto en su marcado (`articleBody` del JSON-LD) y es más largo que lo sacado de los
+     párrafos, se usa ése (regla 327: sitios armados con JavaScript).
+4. **El largo:** hasta 6.000 caracteres por fuente (`REESCRITURA.caracteresDelTextoCompleto`,
+   `ingesta/criterio.mjs`; eran 4.000 hasta la regla 327); con menos de 300 no hay texto completo.
 5. **La limpieza** (regla 174): letras rotas arregladas si se puede (una página en
    latin1 se lee como tal, `decodificarPagina`; `repararCodificacion`) y, si no, el
    párrafo afuera; pies de nota y párrafos de otra nota de la página, afuera

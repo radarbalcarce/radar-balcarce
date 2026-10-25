@@ -1,6 +1,7 @@
 # La revisión del archivo entero, por tandas (regla 212)
 
-*Escrito el 17/10/2026, cuando se armó. Empieza sola el **jueves 22/10/2026** a las 0 de Balcarce. Si esto y el código no coinciden, manda el
+*Escrito el 17/10/2026, cuando se armó. Empezó sola el **jueves 22/10/2026** a las 0 de Balcarce, estuvo pausada (`REVISION_DEL_ARCHIVO` =
+"no") y **volvió a andar el 25/10/2026** (`REVISION_DEL_ARCHIVO` = "si"). Si esto y el código no coinciden, manda el
 código (`web/scripts/revisar-archivo.mjs`) y se corrige esto.*
 
 ## Qué es y por qué

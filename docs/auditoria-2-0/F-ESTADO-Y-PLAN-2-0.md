@@ -61,7 +61,10 @@ Leyenda: **HECHO** = andando y verificado. **APAGADO** = escrito y probado pero 
 
 ### 1.2 Hecho pero APAGADO (interruptores)
 
-Estado real = lo que dicen las variables y secretos de GitHub hoy. "Quién lo prende" es quién tiene que dar la orden (la persona) y quién hace el clic.
+**Actualización del 25/10/2026:** desde que se escribió esta tabla se prendieron `TARJETAS_EN_R2` y `MOTOR_NOCHE_CADA_HORA` (24/10) y
+`SITEMAP_PARTIDO`, `SITEMAP_DEL_ARCHIVO` y `REVISION_DEL_ARCHIVO` = "si" (25/10). El estado de hoy de cada interruptor está en `PENDIENTES.md` §§ 1 y 2.
+
+Estado real (al 24/10) = lo que dicen las variables y secretos de GitHub. "Quién lo prende" es quién tiene que dar la orden (la persona) y quién hace el clic.
 
 | Interruptor | Qué hace | Estado real hoy (verificado) | Por defecto en código | Quién lo prende |
 |---|---|---|---|---|
@@ -69,7 +72,7 @@ Estado real = lo que dicen las variables y secretos de GitHub hoy. "Quién lo pr
 | Ruta de fotos en el Worker del archivo (`activar_fotos`) | Si una foto no está en Pages, la sirve R2 | **No verificado** (la prueba por HTTP dio 404 igual con o sin ruta). Según `TRASPASO.md`, "falta" | `FOTOS_DE_RESPALDO=1` en el Worker, pero sin ruta no actúa | Una persona corre el workflow «Archivo permanente (producción)» con `activar_fotos` |
 | `NUBE` (variable del **reloj**, en Cloudflare) | Qué trabajos van a Cloudflare y cuáles a GitHub | **No verificado el valor** (no se ve desde GitHub). Se deduce que incluye `actualizar.yml` y `redes.yml`. "Revisar el archivo" sigue yendo a GitHub (no es mudable) | Vacía = todo GitHub | Se cambia con el workflow «Desplegar Workers de Cloudflare» (`nube`) |
 | `REDES_ACTIVAS` (GitHub) y `REDES_ACTIVAS_NUBE` | Interruptor de redes. Dos variables distintas: la de GitHub dice **No**, la de la nube dice **Sí** | **Verificado: GitHub No, nube Sí** (22/10). Es a propósito, pero confunde: si alguien mira sólo GitHub cree que las redes están apagadas | Apagado | Hernán/Andrés |
-| `REVISION_DEL_ARCHIVO` | Repaso de las 1.459 notas viejas con el criterio de hoy | **`no` (pausada el 23/10, llevaba 291).** Ojo: el reloj igual la pide cada 2 h y GitHub la arranca y la deja sin hacer nada (gasta un arranque de máquina por tanda) | Prendida | Hernán decide cuándo (después de cerrar las reglas de fotos) |
+| `REVISION_DEL_ARCHIVO` | Repaso de las 1.459 notas viejas con el criterio de hoy | **`no` (pausada el 23/10, llevaba 291); vuelta a `si` el 25/10.** Ojo (mientras estuvo pausada): el reloj igual la pide cada 2 h y GitHub la arranca y la deja sin hacer nada (gasta un arranque de máquina por tanda) | Prendida | Hernán decide cuándo (después de cerrar las reglas de fotos) |
 | `FOTOS_MENORES_OFICIALES` | Fotos con chicos de fuentes de Balcarce (deportes, escuela, cultura; nada policial) | **No existe → apagada** (Hernán dijo el 17/10 que sí está bien; falta crear la variable) | Apagada | Una persona crea la variable con "Si" |
 | `ENLACES_CORTOS` | Enlaces cortos en Facebook (178 a 36 caracteres) | **No existe → apagado.** El Worker (`infra/enlaces-cloudflare/`) no está subido y no tiene ruta | Apagado | Decide Hernán; después una persona sube el Worker y pone la ruta (`docs/redes/ACORTADOR-DE-ENLACES.md`) |
 | `POLICIAL_NACIONAL` | Policial de afuera con 8+ medios o muerte de famoso | No existe → **prendido** por código | Prendido | Se apaga poniendo "no" |
@@ -123,7 +126,7 @@ Una sola vez cada cosa. Va primero lo que desbloquea el lanzamiento.
 | P9 | Decidir si se prende **`FOTOS_MENORES_OFICIALES`** (Hernán ya dijo que sí; falta crear la variable con "Si") | Settings → Variables | Muchas notas de escuela y deporte de Balcarce salen sin foto de otra manera |
 | P10 | Cuentas de **Bluesky** y **Telegram** (y el bot con @BotFather); si quieren, **canal de WhatsApp**; pegar las direcciones como variables | bsky.app, web.telegram.org | Sólo si quieren más canales; no bloquea el lanzamiento |
 | P11 | **Clave paga de Gemini para las voces**, y antes **guardar la referencia de las voces actuales** (las dos voces propias vencen el 29/09/2027). Poner un límite de gasto en Google | AI Studio | Sin clave paga el cupo es de 10 audios por día |
-| P12 | **Ordenar las claves de Google**: la facturación está en un proyecto que Radar no usa | `docs/auditoria-2-0/09-CLAVES-DE-IA-ORDEN.md` | Evita que una clave "gratis" termine cobrando |
+| P12 | **Ordenar las claves de Google**: la facturación está en un proyecto que Radar no usa | `docs/08-INFRAESTRUCTURA.md (claves de IA)` | Evita que una clave "gratis" termine cobrando |
 | P13 | En la PC: borrar `panel\datos` y `respaldos` (tienen claves); dar de baja Tailscale si no se usa | La PC de Hernán | Quedan claves viejas en un disco |
 | P14 | Borrar el Worker `radar-balcarce-sondeo-fuentes` y el secreto `SONDEO_TOKEN` (el secreto sigue en la lista; el workflow «Sondeo de fuentes (temporal)» también); borrar los trabajos pausados de cron-job.org; borrar el proyecto de Vercel y limpiar el DNS | Cloudflare / cron-job.org / Vercel | Limpieza de superficie de ataque |
 | P15 | **Respaldo afuera de GitHub**: el Respaldo semanal sube a R2 si hay `R2_RESPALDOS` (existe la variable); falta GitLab (no hay `GITLAB_TOKEN`) y una copia a Google Drive o la PC | `docs/propuestas/PASOS-PARA-USTEDES.md` §1 | Hoy el único historial completo está en GitHub y en artefactos que se borran a los 90 días |
@@ -217,7 +220,7 @@ Y **cuatro reglas** para que no se duplique de nuevo:
 | Voz | 10 audios por día gratis | Si se acaba, **la pieza no sale** (nunca otra voz) | Es a propósito. Clave paga: ~US$ 3 a 4 por mes (P11) |
 | Groq, Tavily, OpenRouter | Gratis (OpenRouter con US$ 10 de crédito en la cuenta y tope propio de 45 pedidos por día) | Límite por día | Ver 4.2 |
 | R2 | 10 GB gratis. Hoy 223 MB de notas + las fotos que se sumen | Pasar de 10 GB tardaría años | Mirar el tamaño en el informe diario |
-| Workers AI (imágenes con FLUX, texto de los prompts) | Dentro de lo incluido | Cuotas diarias de Cloudflare | `docs/etapa-10-operacion/ANALISIS.md` |
+| Workers AI (imágenes con FLUX, texto de los prompts) | Dentro de lo incluido | Cuotas diarias de Cloudflare | `docs/historico/etapa-10-operacion/ANALISIS.md` |
 | Meta | Gratis | Token sin vencimiento; si se revoca, no sale ninguna red | P6 (2FA) |
 
 ### 4.2 Qué pasa si falla una clave o se agota un cupo

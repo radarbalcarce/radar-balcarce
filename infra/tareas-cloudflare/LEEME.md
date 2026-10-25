@@ -2,7 +2,7 @@
 
 Seis workflows de GitHub que gastaban minutos esperando respuestas de una IA o de Meta, ahora en un Worker de Cloudflare (18/10/2026). **No tiene horarios propios:** lo despierta el reloj
 (`infra/reloj-cloudflare/`) por un *binding* de servicio, según la variable `NUBE`. Sin `NUBE` (o sin el archivo de la tarea en la lista) no corre nada. Todo el porqué, los números y el plan:
-`docs/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md`.
+`docs/historico/etapa-10-operacion/MIGRACION-A-CLOUDFLARE.md` y `PLAN-DE-CAMBIO.md`.
 
 | Tarea | Reemplaza a | Programa que corre (el de siempre) | Guarda |
 |---|---|---|---|

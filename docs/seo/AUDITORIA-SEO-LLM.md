@@ -254,7 +254,7 @@ Lo que falta es ver los resultados: alta en Bing Webmaster Tools (trámite 2).
 
 - **B1. No hay lectura de Search Console.** Sin ella no se sabe qué indexó Google, qué consultas
   traen gente ni cómo están las Core Web Vitals en campo. *Arreglo*: mirar una vez por semana
-  (trámite 1); la propuesta de leer su API por día está en `docs/analiticas/ANALISIS.md` (11).
+  (trámite 1); la propuesta de leer su API por día está en `docs/historico/analiticas/ANALISIS.md` (11).
 - **B2. Bing sin alta.** IndexNow avisa pero no hay panel. Bing alimenta Copilot y, en parte,
   ChatGPT. Desde febrero de 2026 su panel tiene un reporte de **citas de IA** ("AI Performance",
   *fuente secundaria*): es la única métrica pública de cuántas veces una IA los citó. *Arreglo*:
@@ -501,7 +501,7 @@ Ninguno cuesta plata. Todos con la cuenta `radarbalcarce@gmail.com`.
   va entera hasta ~160 caracteres y, si es más larga, se corta en un final de oración (o en una palabra entera con "…").
   (b) `author.name` = "Radar Balcarce" con `author.url` a "Quiénes somos"; la aclaración de la IA pasó a
   `author.description` y a `publishingPrinciples` de la nota (apunta a "Cómo trabajamos"). La firma visible no cambió.
-  Ver regla 177 (6) de `docs/10-REGLAS-Y-PRUEBAS.md`.
+  Ver regla 177 (6) en `docs/historico/REGLAS-1-A-327.md` (hoy en la R30 de `docs/10-REGLAS-Y-PRUEBAS.md`).
 - **D6. Páginas visibles que conviene sumar** (se proponen, no se hicieron): "Quién escribe y
   cómo corregimos" (política de IA, fuentes, registro público de correcciones, y responsables:
   ¿con apellido?); un enlace discreto en el pie; reactivar temas y entidades; el botón de fuentes
@@ -610,3 +610,34 @@ estructura visible (reglas 250 a 257); la portada nueva queda como vista previa 
 - Encabezados: HSTS, `nosniff`, `frame-ancestors`, `referrer-policy`; HTML con Brotli y HTTP/3;
   fotos y CSS con caché del borde (`HIT`); el HTML se sirve `DYNAMIC` (sin caché del borde).
 - Bots con nombre falsificado: 13 de 13 reciben 200.
+
+## 12. Lo básico del SEO del sitio: qué está hecho, cómo se audita y qué cuidar
+
+*Antes era `SEO.md`, en la raíz (actualizado el 16/10/2026); se unió acá el 25/10/2026. Lo que falta, con quién y qué urgencia, vive en `PENDIENTES.md`.
+Desde entonces cambió: los mapas del sitio están partidos por mes y el del archivo en R2 se anuncia aparte (regla 321, prendidos el 25/10:
+`docs/auditoria-2-0/R-SEO-TECNICO-24-10.md`), y las plantillas que se repiten llevan `noindex` (`web/lib/indexacion.js`).*
+
+| Tema | Cómo está | Dónde |
+|---|---|---|
+| **Direcciones fijas** | `/nota/titulo-de-la-nota-id`, fija desde la primera vez que sale aunque cambie el titular. La 404 rescata direcciones viejas por el identificador (`/nota/indice.json`); lo que sale del sitio lo sirve el archivo en R2 con la misma dirección | `web/lib/ruta.js`, `web/lib/archivo.js`, `pruebas/archivo.test.mjs` |
+| **Redirecciones 301** | Se escriben en cada compilación en `web/public/_redirects`: las direcciones viejas de las notas (`/nota/id`) y de las secciones y las notas repetidas (la que se retira redirige a la que queda: `web/lib/repetidas.js`, `web/data/fusionadas.json`). `www` va al dominio sin `www` (regla de Cloudflare; el vigilante avisa si deja de andar) | `web/scripts/generar-redirects.mjs`, `pruebas/redirects.test.mjs` |
+| **Sitemaps** | `sitemap-index.xml` (lista `sitemap.xml`, `sitemap-news.xml` y un mapa de notas por mes), `sitemap-news.xml` (formato Google News, últimas 48 horas) y el del archivo, `nota/sitemap-archivo.xml`. Enviados a Search Console | `web/app/sitemap.js`, `web/lib/sitemap-sitio.js`, `web/app/sitemap-notas/`, `infra/archivo-cloudflare/worker.mjs` |
+| **`robots.txt`** | En el dominio propio permite todo menos **`/panel/`** y declara la política hacia las IA (`Content-Signal`, bots nombrados). Fuera del dominio propio (vistas previas) prohíbe indexar | `web/app/robots.txt/route.js`, `web/lib/robots.js`, `web/lib/sitio.js` |
+| **Canónico** | Siempre `https` y sin `www`; cada página declara el suyo y sólo la portada es `/` | `web/lib/sitio.js`, `web/components/metadatos.js`, `pruebas/seo.test.mjs` |
+| **Título, descripción y `h1`** | Propios en la portada, cada sección, cada tema y cada nota; el título de una nota se corta en 60 caracteres y la descripción en 155 (`recortarEn`, `web/lib/texto.js`) | `pruebas/seo-paginas.test.mjs` |
+| **Datos estructurados** | `NewsArticle` en cada nota (el autor dice lo mismo que la firma), `NewsMediaOrganization` con logo, `WebSite` y `BreadcrumbList` | `web/components/ficha.js`, `web/lib/datos-estructurados.js` |
+| **Imagen para compartir** | Una tarjeta de 1200 × 630 por nota y otra de 1080 × 1350 para Instagram, con la foto del banco si hay (sin marca de agua ni crédito adentro) o la banda de color | `web/lib/tarjeta.js`; medidas en `FORMATOS.md` |
+| **Íconos y manifiesto** | `favicon.ico`, `icon-192`, `icon-512`, `apple-touch-icon` y `manifest.webmanifest` | `web/public/`, `web/scripts/hacer-iconos.mjs` |
+| **Páginas de servicio y de confianza** | `/farmacias`, `/clima`, `/dolar` (nunca dice "en vivo"), `/agenda`, `/util`; "Quiénes somos", "Contacto" y la política de privacidad, enlazadas desde el pie | `web/app/` |
+| **Notas con cuerpo** | Una nota automática sin cuerpo de 70 palabras no se publica. Las viejas con "EN VIVO" o "minuto a minuto" en el título se retiran solas (`diceEnVivo`) | `web/lib/cuerpo.js`; R17 de `docs/10-REGLAS-Y-PRUEBAS.md` |
+| **Encabezados** (`_headers`) | HSTS, `nosniff`, `frame-ancestors`; caché de un año para `/_next/static` y de una semana para las fotos; el panel del celular, con su propia política de seguridad | `web/public/_headers`, `pruebas/seo-paginas.test.mjs` |
+| **Idioma y accesibilidad básica** | `lang="es-AR"`, etiquetas de sección con contraste de al menos 4,5:1, el buscador con nombre para lectores de pantalla | `pruebas/seo-paginas.test.mjs` |
+| **Feed y `llms.txt`** | `feed.xml` (RSS) y una descripción del sitio para buscadores con IA | `web/app/feed.xml/`, `web/app/llms.txt/` |
+| **Search Console y analítica** | Dominio verificado con un registro TXT en Cloudflare (24/09). Cloudflare Web Analytics, gratis y sin cookies (`CLOUDFLARE_ANALYTICS_TOKEN`) | `radarbalcarce@gmail.com` |
+
+**Cómo se audita.** En cada compilación, `web/scripts/revisar-seo.mjs` (título, descripción, canónico y `h1` de las páginas generadas). A demanda,
+`node web/scripts/auditar-seo-vivo.mjs [url]` revisa lo publicado (título, descripción, `h1`, canónico, ícono, imagen para compartir).
+
+**Reglas a cuidar.** No cambiar la dirección de una nota sin redirección 301. Una nota repetida no se borra: se une a la que queda y redirige
+(`web/data/fusionadas.json`). No indexar la web desde una dirección que no sea `radarbalcarce.com` (`web/lib/sitio.js` lo evita solo). El canónico
+apunta siempre al dominio sin `www`.

@@ -1,6 +1,6 @@
 # El hecho principal: que una historia junte notas del mismo hecho, no del mismo tema (regla 322)
 
-*24/10/2026. Sigue a `docs/auditoria-2-0/P-REVISION-INDEPENDIENTE.md` (errores visibles del cruce en notas de hoy) y a la pendiente S5 de `docs/etapa-10-operacion/POR-QUE-NO-ENTRO-ARREGLOS.md`.
+*24/10/2026. Sigue a `docs/historico/auditoria-2-0/P-REVISION-INDEPENDIENTE.md` (errores visibles del cruce en notas de hoy) y a la pendiente S5 de `docs/historico/etapa-10-operacion/POR-QUE-NO-ENTRO-ARREGLOS.md`.
 Decisión del dueño: lo viejo no importa, importa lo nuevo. Lo que se arregla es el mecanismo que pega hechos distintos; las notas ya publicadas no se tocan.*
 
 ## Qué pasaba (casos reales del 21 al 24/10)

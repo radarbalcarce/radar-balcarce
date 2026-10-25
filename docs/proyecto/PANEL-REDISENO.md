@@ -217,7 +217,7 @@ Ejemplo real de hoy (24/10, 13:38): el vigilante tiene 7 avisos abiertos y uno e
 | Repaso, pieza, reel, historia | Video resumen, video, historia |
 | Vuelta, corrida, ciclo | Actualización de la web, minutos del mes |
 | Motivo `pocas_fuentes` | «Lo contaron pocos medios (hacen falta 3)» |
-| Motivo `tarde` | «Llegó vieja: el hecho tiene más de 12 horas» |
+| Motivo `tarde` | «Llegó vieja: el hecho tiene más de 24 horas (36 si es de Balcarce)» |
 | Motivo `repetida` | «Es lo mismo que otra nota que ya salió» |
 | Motivo `ia_chimento`, `ia_extranjero` | «La lectura con IA la sacó: es un chimento» / «es de otro país, sin argentinos» |
 | Motivo `semaforo_rojo` | «Tema delicado: no sale nunca sola» |

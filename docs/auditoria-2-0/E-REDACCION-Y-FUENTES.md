@@ -1,5 +1,9 @@
 # Módulo E: cómo se escribe una nota con IA y con cuántas fuentes
 
+*Lo que cambió después (25/10/2026): desde la regla 308 la IA recibe todas las fuentes numeradas, sin tope de cantidad, y desde la regla 327
+hasta 6.000 caracteres por fuente y 18.000 en total, con 8 fuentes bajadas (12 en lo muy contado). Los números de abajo son el diagnóstico
+del 24/10; las preguntas abiertas siguen en `PENDIENTES.md` § 5.*
+
 *Auditoría de sólo lectura, 24/10/2026. Se miró el código (`ingesta/fuentes-para-la-ia.mjs`, `reels/reescritura.mjs`, `ingesta/verificar.mjs`, `ingesta/prompt-editorial.mjs`, `ingesta/lectura-ia.mjs`, `ingesta/perfil-balcarce.md`, `reels/claves.mjs`, `ingesta/criterio.mjs`), `CRITERIO-EDITORIAL.md` y los datos de `web/data/` (`portada.json`, `intentos-ia.json`, `uso-ia.json`, `muy-contadas.json`). No se tocó código.*
 
 *Límite de la auditoría: la entrada que recibe la IA (los textos de las fuentes) no se guarda en ningún lado, así que el contraste de las notas con sus fuentes se hizo con lo que sí hay: los títulos y enlaces de cada fuente consultada, los "aportes" y, en una nota, el texto vivo de la fuente (se pudo bajar con WebFetch). No se encontró ningún dato inventado; sí omisiones.*
@@ -45,7 +49,7 @@
 
 ### Por qué "hasta 4 textos completos"
 
-No es una decisión editorial. La regla 174 (`docs/10-REGLAS-Y-PRUEBAS.md`, línea 278) lo justifica con el **costo**: "unos 2.700 a 3.700 caracteres más de entrada por nota en promedio (unos 700 a 950 tokens)... 45.000 a 60.000 tokens más por día con ~46 notas". Arrastra además un viejo tope de Groq (8.000 tokens por minuto, `reels/reescritura.mjs:425` y `docs/04-REDACCION.md:199`). Hoy el costo real es menor al estimado (el promedio total bajó a unos 4.700 tokens), así que **hay margen para subir el tope en las notas que lo merecen**.
+No es una decisión editorial. La regla 174 (hoy en `docs/historico/REGLAS-1-A-327.md`) lo justifica con el **costo**: "unos 2.700 a 3.700 caracteres más de entrada por nota en promedio (unos 700 a 950 tokens)... 45.000 a 60.000 tokens más por día con ~46 notas". Arrastra además un viejo tope de Groq (8.000 tokens por minuto, `reels/reescritura.mjs:425` y `docs/04-REDACCION.md:199`). Hoy el costo real es menor al estimado (el promedio total bajó a unos 4.700 tokens), así que **hay margen para subir el tope en las notas que lo merecen**.
 
 ### "medios 24" frente a "fuentes consultadas 17"
 

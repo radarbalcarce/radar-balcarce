@@ -1,6 +1,6 @@
 # L. Notas de Balcarce con menores, escritas sin identificarlos
 
-*Informe de diseño, 24/10/2026. Solo lectura: no se tocó código ni datos. Se basa en `CLAUDE.md`, `CRITERIO-EDITORIAL.md` (semáforo y regla 9 de la IA), `ingesta/menores.mjs`, `semaforoDelTexto` y `semaforo()` de `ingesta/ingesta.mjs`, `REGLAS_SEMAFORO` de `ingesta/fuentes.mjs`, `reels/reescritura.mjs`, `ingesta/verificar.mjs`, `ingesta/fotos-menores.mjs`, `web/scripts/ilustrar-notas.mjs`, `web/scripts/fotos-notas.mjs`, `redes/elegir.mjs`, `docs/etapa-10-operacion/ANALISIS-SEMAFORO-Y-SIN-CUERPO.md` y los datos de `web/data/` (`archivo.json`, `fichas.json`, `estadistica-seleccion.json`, `redes.json`). Lo legal no se investigó: se parte de lo que el repo ya dice (leyes 26.061 y 26.485) y de la decisión del dueño del 24/10.*
+*Informe de diseño, 24/10/2026. Solo lectura: no se tocó código ni datos. Se basa en `CLAUDE.md`, `CRITERIO-EDITORIAL.md` (semáforo y regla 9 de la IA), `ingesta/menores.mjs`, `semaforoDelTexto` y `semaforo()` de `ingesta/ingesta.mjs`, `REGLAS_SEMAFORO` de `ingesta/fuentes.mjs`, `reels/reescritura.mjs`, `ingesta/verificar.mjs`, `ingesta/fotos-menores.mjs`, `web/scripts/ilustrar-notas.mjs`, `web/scripts/fotos-notas.mjs`, `redes/elegir.mjs`, `docs/historico/etapa-10-operacion/ANALISIS-SEMAFORO-Y-SIN-CUERPO.md` y los datos de `web/data/` (`archivo.json`, `fichas.json`, `estadistica-seleccion.json`, `redes.json`). Lo legal no se investigó: se parte de lo que el repo ya dice (leyes 26.061 y 26.485) y de la decisión del dueño del 24/10.*
 
 ## 0. En diez líneas
 
