@@ -2,30 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/historia/3983703481925631",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "farmacia",
-   "dia": "2026-10-02",
-   "cuando": "2026-10-02T22:04:49.363Z",
-   "medida": "2026-10-09T03:00:20.302Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "facebook/historia/1055242400830974",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "clima-noche",
-   "dia": "2026-10-02",
-   "cuando": "2026-10-02T23:05:00.463Z",
-   "medida": "2026-10-09T03:00:20.302Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
    "clave": "instagram/reel/17960665287234022",
    "red": "instagram",
    "parte": "reel",
@@ -10181,6 +10157,30 @@
    "medida": "2026-10-25T03:00:12.283Z",
    "v": 2,
    "metricas": {}
+  },
+  {
+   "clave": "instagram/historia/18459682456188289",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "noticia2",
+   "dia": "2026-10-24",
+   "cuando": "2026-10-24T19:37:33.284Z",
+   "medida": "2026-10-25T09:00:12.471Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18644374357020125",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "utiles",
+   "dia": "2026-10-24",
+   "cuando": "2026-10-24T20:37:10.784Z",
+   "medida": "2026-10-25T09:00:12.471Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
   }
  ]
 }
