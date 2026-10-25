@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-25T20:36:27.572Z",
- "portada": 79,
+ "generado": "2026-10-25T21:01:55.179Z",
+ "portada": 75,
  "archivo": 500,
- "esperandoCuerpo": 16,
+ "esperandoCuerpo": 21,
  "redes": {
-  "generado": "2026-10-25T20:36:27.853Z",
+  "generado": "2026-10-25T21:01:55.479Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -44,7 +44,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-25T20:46:55.667Z"
    },
    {
     "nombre": "farmacia",
@@ -105,13 +105,13 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 29,
+    "salio": "2026-10-25T20:46:55.667Z",
+    "segundos": null,
     "notas": [
      {
-      "id": "i3z8vw",
-      "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
-      "seccion": "Automovilismo"
+      "id": "zlom91",
+      "titulo": "La Liga Balcarceña defiende el paredón del Estadio Municipal",
+      "seccion": "Balcarce"
      },
      {
       "id": "2of31o",
@@ -147,18 +147,16 @@
      "id": "gux4r",
      "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
      "cuando": "2026-10-25T18:50:06.004Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "i3z8vw",
      "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
-     "seccion": "Automovilismo",
-     "marcada": false
+     "cuando": "2026-10-25T20:46:05.887Z"
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-25T20:20:06.004Z",
+   "cola": [],
+   "cupo": 1,
+   "proximoDesde": "2026-10-25T22:16:05.887Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
