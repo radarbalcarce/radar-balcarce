@@ -291,6 +291,12 @@ export const PIEZAS = {
   notasMinimasPodcast: 2,
   relevanciaAfueraPodcast: 80,
   notasDeAfueraPorPodcast: 2,
+  // Regla 325 (24/10/2026): cómo se compone un repaso. Tres notas de acá fijas (si hay menos, se completan con lo más contado del país) y un cuarto bloque
+  // que es lo más contado del día o, si no hay, el tiempo; así el repaso no sale flojo con dos notas ni se llena con relleno, y las notas de acá del
+  // día alcanzan para los tres repasos (con cuatro cada uno hacían falta doce y hay unas ocho o diez).
+  notasDeAcaFijasPorRepaso: 3,
+  // Lo de afuera que entra a un repaso lo cuentan tantos medios o más: el mismo 8 de «muy contada» (MUY_CONTADA.medios), sin pedir puntaje.
+  mediosAfueraEnRepaso: MUY_CONTADA.medios,
 };
 
 /**

@@ -549,19 +549,59 @@ export function cierreDePodcast(momento, { fecha = new Date(), direccion } = {})
  */
 export function armarPodcast(items, { momento = 'manana', fecha = new Date(), saludo, cierre: cierreDado, direccion } = {}) {
   const s = semillaDe(`podcast-${momento}`, fecha);
-  const medios = variantes(CONECTORES.medio, s, 'medio', Math.max(0, items.length - 2));
-  const conector = (i) => {
-    if (i === 0) return variante(CONECTORES.primero, s, 'primero');
-    if (i === items.length - 1) return variante(CONECTORES.ultimo, s, 'ultimo');
-    return medios[i - 1];
+  // Regla 325: un repaso puede cerrar con un bloque propio (lo más contado del día o el tiempo) que lleva su propia entrada (`conector`) o su frase
+  // entera (`frase`). Si lo hay, la última nota de las comunes ya no dice «Y para cerrar»: cierra el bloque.
+  const comunes = items.filter((it) => !it.frase && !it.conector);
+  const conCierrePropio = comunes.length < items.length;
+  const medios = variantes(CONECTORES.medio, s, 'medio', Math.max(0, comunes.length - (conCierrePropio ? 1 : 2)));
+  const conector = (k) => {
+    if (k === 0) return variante(CONECTORES.primero, s, 'primero');
+    if (k === comunes.length - 1 && !conCierrePropio) return variante(CONECTORES.ultimo, s, 'ultimo');
+    return medios[k - 1];
   };
-  const cuerpo = items.map((it, i) => {
+  let k = -1;
+  const cuerpo = items.map((it) => {
+    if (it.frase) return String(it.frase).replace(/\s+/g, ' ').trim();
     const titular = String(it.titular).replace(/\s+/g, ' ').trim().replace(/[.:]+$/, '');
     const fin = /[?!]$/.test(titular) ? '' : '.';
-    return `${conector(i)}: ${titular}${fin}${it.detalle ? ` ${it.detalle}` : ''}`;
+    const entrada = it.conector ?? conector(k += 1);
+    return `${entrada}: ${titular}${fin}${it.detalle ? ` ${it.detalle}` : ''}`;
   }).join(' ');
   return `${saludo ?? saludoDePodcast(momento, { fecha })} ${cuerpo} ${cierreDado ?? cierreDePodcast(momento, { fecha, direccion })}`;
 }
+
+/**
+ * El cuarto bloque de un repaso cuando no hay una nota de afuera más contada que contar (regla 325, 24/10/2026): el tiempo de hoy (a la mañana y a la
+ * tarde) o el de mañana (a la noche), sacado tal cual del pronóstico de la portada: mínima, máxima y, si hay probabilidad de lluvia, cuánta. Nada que
+ * no esté en los datos: si el pronóstico no trae ese día (la portada es vieja) o le faltan la mínima o la máxima, no hay bloque (null).
+ *
+ * Devuelve { tipo: 'clima', seccion: 'Clima', titulo, frase, dato } o null: `titulo` es lo que se lee en la placa y en la lista del repaso,
+ * `frase` lo que dice la locutora (frase entera: armarPodcast no le pone entrada) y `dato` lo que dibuja la placa.
+ */
+export function resumenDelClima(clima, { momento = 'manana', fecha = new Date() } = {}) {
+  const manana = momento === 'noche';
+  const dia = diaAR(manana ? new Date(fecha.getTime() + 86400e3) : fecha);
+  const d = (clima?.dias ?? []).find((x) => x?.fecha === dia);
+  if (!d || d.min == null || d.max == null || !Number.isFinite(Number(d.min)) || !Number.isFinite(Number(d.max))) return null;
+  const min = Math.round(Number(d.min));
+  const max = Math.round(Number(d.max));
+  const dicho = (n) => (n < 0 ? `menos ${-n}` : String(n));
+  const lluvia = d.lluvia == null ? null : Number(d.lluvia);
+  const cuando = manana ? 'mañana' : 'hoy';
+  const conLluvia = lluvia != null && lluvia >= 50 ? `, con ${Math.round(lluvia)} por ciento de lluvia` : lluvia != null && lluvia >= 25 ? ', con chances de lluvia' : '';
+  const s = semillaDe(`podcast-${momento}`, fecha);
+  const entrada = variante(['Y para cerrar, el tiempo de', 'Y cerramos con el tiempo de'], s, 'resumen');
+  return {
+    tipo: 'clima',
+    seccion: 'Clima',
+    titulo: `El tiempo de ${cuando}: mínima de ${min}°, máxima de ${max}°`,
+    frase: `${entrada} ${cuando}: mínima de ${dicho(min)} y máxima de ${dicho(max)} grados${conLluvia}.`,
+    dato: { cuando, min, max, lluvia: lluvia != null && lluvia >= 25 ? Math.round(lluvia) : null, cielo: d.cielo ?? null },
+  };
+}
+
+/** La entrada de la nota de afuera que cierra un repaso como «lo más contado del día» (regla 325). */
+export const ENTRADAS_DE_LO_MAS_CONTADO = ['Y lo más comentado del día', 'Y lo que más se cuenta hoy', 'Y lo más contado de hoy'];
 
 // --- la revisión: las reglas que TODA pieza respeta -------------------------
 
