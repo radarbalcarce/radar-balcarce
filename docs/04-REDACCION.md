@@ -11,10 +11,10 @@ el código las hace cumplir.
 ## En una frase
 
 A cada nota verde que nadie revisó se le bajan los textos completos de sus
-fuentes (entran los que caben en un presupuesto de 12.000 caracteres, desde el 15/10 y sin número fijo desde el 24/10), se le manda a Gemini con la
+fuentes (entran los que caben en un presupuesto de 18.000 caracteres, 6.000 como mucho cada uno, desde la regla 327 del 25/10; sin número fijo desde el 24/10), se le manda a Gemini con la
 instrucción de `CRITERIO-EDITORIAL.md` § 12 y todas sus fuentes numeradas, lo que
 devuelve se arregla sin inventar y se compara dato por dato contra lo que recibió; si pasa y tiene un cuerpo de 70 palabras o más, se
-publica con la firma "Redacción asistida con IA"; si no, se reintenta hasta tres veces y
+publica con la firma "Redacción asistida con IA"; si no, se reintenta hasta tres veces (cuatro con 5 medios, cinco con 8) y
 mientras tanto la nota no sale.
 
 ---
@@ -33,7 +33,7 @@ Las notas que nacen de una pista o de un mail de prensa van por otro camino (pas
 
 - las que ya tienen un cuerpo escrito en `web/data/correcciones.json` (paso 12);
 - las que ya no están dentro de las 36 horas de la portada;
-- las que **llegan tarde** (hecho de más de 12 horas —24 si la cuentan 8 medios o más, 36 si es de Balcarce— y nunca publicadas:
+- las que **llegan tarde** (hecho de más de 24 horas, 36 si es de Balcarce, contadas desde la mediana de las fuentes, y nunca publicadas; regla 327:
   `docs/03-SELECCION.md`, paso 10).
 
 Las que ya escribió la IA (paso 2) se pasan siempre, para revisarlas. De todas,
@@ -103,16 +103,16 @@ tenga más fuentes que entonces.
    regla 174; `textosDeLasFuentes` y `conEntradaAmpliada` en `reels/reescritura.mjs`,
    `armarFuentesParaLaIA` en `ingesta/fuentes-para-la-ia.mjs`). Hasta el 15/10 la IA
    recibía el texto de una sola fuente y 280 caracteres de las demás. Ahora:
-   - se intenta bajar el texto de **hasta 6 fuentes** (la principal siempre, de su
+   - se intenta bajar el texto de **hasta 8 fuentes** (la principal siempre, de su
      `enlaceFeed` si es Blogger; las oficiales antes que las demás:
      `REESCRITURA.fuentesQueSeBajan`); si la cuentan 8 medios o más (`MUY_CONTADA.medios`),
-     **hasta 8** (`fuentesQueSeBajanMuyContada`), con las oficiales primero y después un
+     **hasta 12** (`fuentesQueSeBajanMuyContada`; eran 6 y 8 hasta la regla 327), con las oficiales primero y después un
      enlace por medio distinto antes de repetir uno (regla 308);
    - a la IA le llegan **TODAS las fuentes de la historia, numeradas, cada una con su
      titular y su resumen** (sin tope de cantidad: Hernán, 24/10, regla 308);
    - el **texto completo** es lo único con presupuesto, no con un número fijo de textos:
-     entre todos **12.000 caracteres** (`caracteresDeTextosEnTotal`) y **4.000 como mucho
-     cada uno** (`caracteresDelTextoCompleto`). Entran en este orden de prioridad: la oficial,
+     entre todos **18.000 caracteres** (`caracteresDeTextosEnTotal`) y **6.000 como mucho
+     cada uno** (`caracteresDelTextoCompleto`; eran 12.000 y 4.000 hasta la regla 327). Entran en este orden de prioridad: la oficial,
      después un medio que todavía no tiene texto elegido, y entre ésos el que más datos
      nuevos trae; se sigue mientras quede lugar para un texto de 800 caracteres como mínimo
      (`caracteresMinimosDeUnTexto`). Con tres textos largos entran tres; con seis cortos,

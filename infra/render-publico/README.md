@@ -62,7 +62,7 @@ En la carpeta `listos/<huella>/` del depósito R2 `radar-render`:
 3. Prueba de humo: pestaña *Actions* → *Render* → *Run workflow* (a mano). Arma un video de mentira con una voz de mentira y lo deja como adjunto.
 4. En el repositorio principal ya están (o las carga una persona, **nunca en un chat**): la variable `R2_RENDER` (`radar-render`) y los secretos `R2_ACCESS_KEY_ID`,
    `R2_SECRET_ACCESS_KEY` y `RENDER_GITHUB_TOKEN` (un token de grano fino, solo para este repositorio, con *Contents: lectura y escritura*: es lo que pide
-   `repository_dispatch`). Detalle: `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md` del principal.
+   `repository_dispatch`). Detalle: `docs/historico/etapa-10-operacion/PLAN-DE-CAMBIO.md` del principal.
 
 ## Qué protege este repositorio
 

@@ -13,7 +13,7 @@
 7. **El bug de las frases cortadas del repaso es real** (`primeraOracion`, `redes/elegir.mjs`): corta en "Dr.", "Sr.", "Av.", "Luis A.", "J.P." y la voz lee "…en la sala Dr." Es poco frecuente (7 de 1.267 bajadas con frase), pero se oye mal y el arreglo es chico y seguro.
 8. Si falla Instagram, **Facebook también se pierde** ("si la red que manda falla, no se intenta en las otras"): el 22/10 el repaso de la mañana no salió en ninguna de las dos, y es Facebook donde está la gente.
 9. **Lo que se mide no alcanza para decidir** la prueba del 5/11: las historias de Facebook siguen dando 0 o vacío (la "medición arreglada" de la regla 207 no se ve en los datos) y las de Instagram dicen "menos de 5 personas".
-10. Los números mágicos (75, 62, 80, 5, 10, 90 min, 8 h) están explicados en `docs/CATALOGO-DE-NUMEROS.md` pero no en el código, **dos están duplicados** (posteos por día y cupo de voz) y hay bastantes restos viejos (`texto-por-red.mjs` para 7 redes sin cuenta, `MOTIVOS_DE_RELLENO` con "pasó el cupo", nombres `noticia1/noticia2/podcast`).
+10. Los números mágicos (75, 62, 80, 5, 10, 90 min, 8 h) están explicados en `docs/historico/CATALOGO-DE-NUMEROS.md` pero no en el código, **dos están duplicados** (posteos por día y cupo de voz) y hay bastantes restos viejos (`texto-por-red.mjs` para 7 redes sin cuenta, `MOTIVOS_DE_RELLENO` con "pasó el cupo", nombres `noticia1/noticia2/podcast`).
 
 ## Qué sale, de dónde sale y si es coherente con la web
 

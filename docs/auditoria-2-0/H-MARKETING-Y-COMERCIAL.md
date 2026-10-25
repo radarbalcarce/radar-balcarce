@@ -32,9 +32,9 @@
 | Página para invitar | `/compartir`: mensajes para copiar, enlaces, video; no está en el menú ni la indexan | `web/app/compartir/page.js` |
 | Perfiles (bio, botón de WhatsApp, destacadas) | Textos definidos; **cargarlos queda pendiente de los dos** | `PERFILES.md`, `PENDIENTES.md` |
 | Mails | `contacto@`, `redaccion@` y `publicidad@radarbalcarce.com` reenvían al Gmail del medio; falta la prueba de envío | `PERFILES.md`, `PENDIENTES.md` |
-| WhatsApp del medio | 2266 51-1612 (falta confirmar si es app común o Business) | `web/lib/datos.js`, `docs/redes/TABLA-DE-REDES.md` |
+| WhatsApp del medio | 2266 51-1612 (falta confirmar si es app común o Business) | `web/lib/datos.js`, `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)` |
 | Redes | Hasta 5 posteos de nota por día, 3 repasos con voz (10, 15 y 21), clima, farmacia, "Un día como hoy" y Participá; cupo de **10 audios por día** | `CRITERIO-REDES.md`, `redes/horarios.mjs` |
-| Canal de WhatsApp, newsletter, Telegram, YouTube | No creados | `docs/redes/TABLA-DE-REDES.md`, `PENDIENTES.md` |
+| Canal de WhatsApp, newsletter, Telegram, YouTube | No creados | `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`, `PENDIENTES.md` |
 
 ### Lo que falta de verdad (en una lista corta)
 
@@ -132,7 +132,7 @@ Meta: **2 o 3 comercios pagando algo**, aunque sea poco, para probar que el mode
 - Pasar de "casos de prueba gratis" a una lista de **precios por escalón** (tabla privada, no en el repo) y subir una vez que ya haya 3 comercios pagando.
 - Si hace falta, abrir la **guía comercial gratis con mapa** (`COMERCIAL.md`): es la puerta de entrada para el 80 % de los comercios y la que más cuesta en tiempo humano (relevar y confirmar). Sólo si hay una persona dedicada.
 - Evaluar sumar **Ofertas de la semana** (una oferta gratis por comercio) y el **concurso de la foto del mes** (es un concurso de habilidad, no un sorteo: la ley 22.802 prohíbe condicionar un sorteo a una compra).
-- Revisar las **redes nuevas** (YouTube Shorts, Telegram, Threads) y decidir cuáles se abren, según `docs/redes/TABLA-DE-REDES.md`. Con 83 seguidores no hay apuro: YouTube y Telegram son los de costo más bajo.
+- Revisar las **redes nuevas** (YouTube Shorts, Telegram, Threads) y decidir cuáles se abren, según `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`. Con 83 seguidores no hay apuro: YouTube y Telegram son los de costo más bajo.
 
 ---
 
@@ -374,7 +374,7 @@ La lista de `contactos-agenda.json` ya tiene los canales públicos de **10 clube
 
 ### 8.4 Cuándo y cómo publicar en redes (A VALIDAR con los datos propios)
 
-- **Hoy el robot sale de 8 a 22, con 90 minutos entre posteos** (`docs/redes/PROPUESTA-POSTEOS-POR-DIA.md`); los repasos con voz son a las 10, 15 y 21.
+- **Hoy el robot sale de 8 a 22, con 90 minutos entre posteos** (`docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md`); los repasos con voz son a las 10, 15 y 21.
 - **No se cambia el contrato del día** por marketing. Lo único que se agrega son piezas de propaganda propia, **una o dos por semana**, para no diluir (con 83 seguidores, más posteos no suma gente).
 - **Qué mirar en la pestaña Números** durante cuatro semanas: alcance por posteo de la mañana contra el de la tarde; qué reel trae más seguidores nuevos; de dónde viene la gente. Con eso se decide el horario de la propaganda.
 - **Para elegir horas de propaganda**: la información que hoy hay (`estadisticas.json`, campo `horas`) muestra picos a la noche (21 a 23); **A VALIDAR** con más semanas antes de cambiar nada.
@@ -463,4 +463,4 @@ Orden sugerido para Claude cuando los dos digan "adelante":
 
 Esperar siempre la aprobación de los dos antes de que cualquier pieza de propaganda salga por primera vez, y no sumar piezas con voz si el cupo del día ya está lleno.
 
-*Fuentes cruzadas: `PUBLICIDAD.md`, `COMERCIAL.md`, `MEDIA-KIT.md`, `PERFILES.md`, `CRITERIO-REDES.md` § 4 a § 6, `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md`, `docs/redes/TABLA-DE-REDES.md`, `docs/redes/PLAN-REELS-OTRAS-REDES.md`, `IDEAS.md` § 8 y § 9, `PENDIENTES.md`, `comercial/propuestas.mjs`, `ingesta/contactos-agenda.json`, `web/data/avisos.json`, `web/data/estadisticas.json`, `web/app/compartir/page.js`.*
+*Fuentes cruzadas: `PUBLICIDAD.md`, `COMERCIAL.md`, `MEDIA-KIT.md`, `PERFILES.md`, `CRITERIO-REDES.md` § 4 a § 6, `docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md`, `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`, `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`, `IDEAS.md` § 8 y § 9, `PENDIENTES.md`, `comercial/propuestas.mjs`, `ingesta/contactos-agenda.json`, `web/data/avisos.json`, `web/data/estadisticas.json`, `web/app/compartir/page.js`.*

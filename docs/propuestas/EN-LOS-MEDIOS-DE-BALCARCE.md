@@ -2,7 +2,7 @@
 
 *17/10/2026. Propuesta, no está en el código: cambia lo que se ve en la portada y eso lo deciden Hernán y Andrés
 (`CLAUDE.md`, "cambios visibles del sitio: consultar"). Sale de la auditoría de Radar 2.0
-(`docs/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md`, § 2.5 y § 4.3). Lo que sí se hizo ese día, en `docs/DECISIONES.md`
+(`docs/historico/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md`, § 2.5 y § 4.3). Lo que sí se hizo ese día, en `docs/DECISIONES.md`
 (reglas 197 a 202).*
 
 ## 1. "En los medios de Balcarce"

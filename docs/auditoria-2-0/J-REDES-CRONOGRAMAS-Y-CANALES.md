@@ -1,6 +1,6 @@
 # Auditoría 2.0 · Módulo J: cronogramas de redes, canales nuevos y enlaces cortos
 
-*Escrita el 24/10/2026. Solo lectura del repositorio e investigación en la web (sin crear cuentas ni entrar a ninguna). No se tocó código. Los números de audiencia salen de `docs/auditoria-2-0/C-REDES.md` (datos reales del 21/09 al 23/10). Lo de las plataformas de afuera (límites, reglas) salió de búsquedas del 24/10; lo que no se pudo confirmar en una página oficial está marcado **SIN VERIFICAR**. Complementa, no reemplaza, a `docs/redes/TABLA-DE-REDES.md` (17/10), `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md` y `docs/redes/ACORTADOR-DE-ENLACES.md`.*
+*Escrita el 24/10/2026. Solo lectura del repositorio e investigación en la web (sin crear cuentas ni entrar a ninguna). No se tocó código. Los números de audiencia salen de `docs/auditoria-2-0/C-REDES.md` (datos reales del 21/09 al 23/10). Lo de las plataformas de afuera (límites, reglas) salió de búsquedas del 24/10; lo que no se pudo confirmar en una página oficial está marcado **SIN VERIFICAR**. Complementa, no reemplaza, a `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)` (17/10), `docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md` y `docs/redes/ACORTADOR-DE-ENLACES.md`.*
 
 ## Resumen en 10 líneas
 
@@ -170,7 +170,7 @@ Un día normal usa **7 audios**, uno con extras **8**, y como mucho **9 o 10**. 
 | Telegram, Bluesky, canal de WhatsApp | No están creados | `texto-por-red.mjs` tiene su texto; `web/lib/canales.js` y `web/components/canales.js` ya muestran botones en la web leyendo las variables `BLUESKY_URL`, `TELEGRAM_CANAL_URL`, `WHATSAPP_CANAL_URL` (vacías) |
 | YouTube | **No hay canal** | Texto en `texto-por-red.mjs` (título y descripción); no hay cliente de subida |
 | Pinterest, LinkedIn | No | Nada (descartadas en `TABLA-DE-REDES.md`) |
-| Podcast (Spotify, Apple, YouTube Music) | No | `docs/redes/AUDIO-EN-LA-PAGINA-Y-PODCAST-GENERAL.md` (propuesta); el feed se retiró el 17/10 |
+| Podcast (Spotify, Apple, YouTube Music) | No | `docs/historico/redes/AUDIO-EN-LA-PAGINA-Y-PODCAST-GENERAL.md` (propuesta); el feed se retiró el 17/10 |
 | Newsletter | No | Nada |
 
 **No hay hoy ninguna otra red conectada a un cliente de API**: el robot solo sabe hablar con Meta. Cada red automática nueva es código nuevo con su prueba (de uno a tres días de trabajo) y un secreto nuevo en GitHub.

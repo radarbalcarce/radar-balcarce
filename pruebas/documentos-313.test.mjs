@@ -1,10 +1,11 @@
-// Segunda vuelta de auditoría de los documentos (24/10/2026, regla 313, docs/auditoria-2-0/M-SEGUNDA-VUELTA.md).
+// Segunda vuelta de auditoría de los documentos (24/10/2026, regla 313, docs/historico/auditoria-2-0/M-SEGUNDA-VUELTA.md), y la limpieza
+// del 25/10/2026 (docs/propuestas/LIMPIEZA-DE-DOCUMENTOS-25-10.md): la lista corta de reglas R1 a R39.
 //
 // Los documentos se fueron quedando atrás de las reglas 286 a 312: la página del criterio decía una cosa, `docs/03-SELECCION.md` otra
 // ("Policiales de afuera, nunca"), `CLAUDE.md` decía que la próxima regla era la 284 cuando ya iban por la 307 y seis reglas habían quedado
 // pegadas al final de `docs/10` fuera de su tabla. Estas pruebas cuidan lo que se puede controlar sin que alguien lea todo:
 //
-//   · "la próxima regla" de CLAUDE.md es la que sigue a la última de `docs/10`; ninguna regla se repite; todas están dentro de una tabla;
+//   · las reglas de `docs/10` van de R1 en adelante sin repetir, todas están dentro de una tabla y cada una nombra pruebas que existen;
 //   · los números que la página `docs/CRITERIO-EN-UNA-PAGINA.md` y `CLAUDE.md` repiten en el texto son los del código;
 //   · los documentos de selección no dicen más que Policiales de afuera "nunca" sale, ni que al celular van "cinco por día";
 //   · la firma que dicen los documentos es la que pone el sitio;
@@ -24,22 +25,36 @@ const RAIZ = path.join(import.meta.dirname, '..');
 const leer = (r) => fs.readFileSync(path.join(RAIZ, r), 'utf8').replace(/\r\n/g, '\n');
 const miles = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
+// Desde el 25/10/2026 docs/10 es la lista corta (R1 a R39, `docs/propuestas/LIMPIEZA-DE-DOCUMENTOS-25-10.md` § 4); la lista larga de
+// la 1 a la 327 quedó congelada en docs/historico/REGLAS-1-A-327.md y ya no hay «próxima regla» que controlar.
 const REGLAS = leer('docs/10-REGLAS-Y-PRUEBAS.md').split('\n');
-const FILAS = REGLAS.map((l, i) => ({ l, i, m: l.match(/^\| (\d+) \|/) })).filter((f) => f.m).map((f) => ({ n: Number(f.m[1]), i: f.i }));
+const FILAS = REGLAS.map((l, i) => ({ l, i, m: l.match(/^\| R(\d+) \|/) })).filter((f) => f.m).map((f) => ({ n: Number(f.m[1]), i: f.i, l: f.l }));
 
-test('la próxima regla de CLAUDE.md es la que sigue a la última de docs/10 (y ninguna regla se repite)', () => {
-  const numeros = FILAS.map((f) => f.n);
-  const ultima = Math.max(...numeros);
-  assert.equal(new Set(numeros).size, numeros.length, `hay reglas repetidas en docs/10: ${numeros.filter((n, i) => numeros.indexOf(n) !== i).join(', ')}`);
-  const dice = leer('CLAUDE.md').match(/la próxima regla es la (\d+)/);
-  assert.ok(dice, 'CLAUDE.md tiene que decir "la próxima regla es la N"');
-  assert.equal(Number(dice[1]), ultima + 1, `CLAUDE.md dice que la próxima regla es la ${dice[1]} y la última de docs/10 es la ${ultima}`);
+test('docs/10 tiene las reglas R1, R2… seguidas, sin repetir ni saltear', () => {
+  assert.ok(FILAS.length >= 30, `docs/10 tiene que tener la lista corta de reglas (encontré ${FILAS.length} filas «| RN |»)`);
+  assert.deepEqual(FILAS.map((f) => f.n), FILAS.map((_, i) => i + 1), 'las reglas de docs/10 tienen que ir de R1 en adelante, sin repetir ni saltear');
 });
 
-test('cada regla numerada de docs/10 está dentro de una tabla (la 307 a la 312 habían quedado sueltas al final del archivo)', () => {
-  for (const { n, i } of FILAS) {
-    assert.ok(REGLAS[i - 1]?.startsWith('|'), `la regla ${n} (línea ${i + 1}) no está pegada a una tabla: la línea de arriba es "${(REGLAS[i - 1] ?? '').slice(0, 60)}"`);
+test('cada regla de docs/10 nombra al menos una prueba, y todas las que nombra existen en pruebas/', () => {
+  for (const { n, l } of FILAS) {
+    const celdas = l.split('|').map((c) => c.trim());
+    const ultima = celdas[celdas.length - 2] ?? '';
+    const pruebas = [...ultima.matchAll(/`([a-z0-9][a-z0-9-]*)`/g)].map((m) => m[1]);
+    assert.ok(pruebas.length, `R${n} no nombra ninguna prueba en su última columna`);
+    for (const p of pruebas) {
+      assert.ok(fs.existsSync(path.join(RAIZ, 'pruebas', `${p}.test.mjs`)), `R${n} nombra la prueba «${p}», y pruebas/${p}.test.mjs no existe`);
+    }
   }
+});
+
+test('cada regla de docs/10 está dentro de una tabla, y la lista vieja quedó en el histórico', () => {
+  for (const { n, i } of FILAS) {
+    assert.ok(REGLAS[i - 1]?.startsWith('|'), `la regla R${n} (línea ${i + 1}) no está pegada a una tabla: la línea de arriba es "${(REGLAS[i - 1] ?? '').slice(0, 60)}"`);
+  }
+  const vieja = leer('docs/historico/REGLAS-1-A-327.md');
+  assert.match(vieja, /^\| 327 \|/m, 'docs/historico/REGLAS-1-A-327.md tiene que conservar la lista vieja hasta la 327');
+  assert.match(leer('CLAUDE.md'), /R1 a R39/, 'CLAUDE.md tiene que decir que las reglas vigentes son R1 a R39');
+  assert.doesNotMatch(leer('CLAUDE.md'), /la próxima regla es la \d+/, 'CLAUDE.md ya no lleva «la próxima regla»: un arreglo nuevo va en su R o como R40');
 });
 
 test('la página del criterio en una página dice los números del código', () => {

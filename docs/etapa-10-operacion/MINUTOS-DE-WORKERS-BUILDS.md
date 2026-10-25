@@ -1,6 +1,6 @@
 # Los minutos de Workers Builds: de dónde salen y cómo se bajan
 
-*24/10/2026, regla 312. Para Hernán y Andrés: la web se arma en una máquina de Cloudflare («Workers Builds») que incluye **6.000 minutos por mes**; pasados, cada minuto cuesta US$ 0,005. El motor se diseñó suponiendo vueltas de ~4,5 minutos; el 23/10 se anotaron de ~14. Con 48 vueltas por día eso se agota en pocos días y el reloj empieza a saltear vueltas (la web tarda más en actualizarse). Acá está qué se midió, qué se cambió y qué falta. Todo lo nuevo viene **apagado**; se prende con variables. **Ojo: los 6.000 minutos se cuentan por ciclo de facturación (del 11 al 10), no por mes calendario: sección 7, regla 315.***
+*24/10/2026, regla 312. Para Hernán y Andrés: la web se arma en una máquina de Cloudflare («Workers Builds») que incluye **6.000 minutos por mes**; pasados, cada minuto cuesta US$ 0,005. El motor se diseñó suponiendo vueltas de ~4,5 minutos; el 23/10 se anotaron de ~14. Con 48 vueltas por día eso se agota en pocos días y el reloj empieza a saltear vueltas (la web tarda más en actualizarse). Acá está qué se midió, qué se cambió y qué falta. Todo lo nuevo viene **apagado**; se prende con variables. **Estado al 25/10/2026: `TARJETAS_EN_R2` = Si y `MOTOR_NOCHE_CADA_HORA` = Si están prendidas desde el 24/10 (pasos 3 y 4 de la sección 4, hechos).** **Ojo: los 6.000 minutos se cuentan por ciclo de facturación (del 11 al 10), no por mes calendario: sección 7, regla 315.***
 
 ## 1. El problema, con números
 
@@ -21,7 +21,7 @@ Para pedir **40 por día sin saltear ninguna** la vuelta tiene que tardar **4,1 
 
 Lo que sabemos y lo que no. **No hay en el repositorio un desglose por paso de las vueltas de Workers Builds**: hasta hoy `motor/estado.json` guardaba sólo la última vuelta y el registro del mes sólo el total. Eso se arregló (sección 3, D): desde la próxima vuelta el registro suma el tiempo de cada paso y `GET /estado` del Worker del motor lo muestra. Mientras tanto, esto es lo medido:
 
-**a) Lo que guarda el repositorio** (corridas de «Actualizar la web» y «Cloudflare Pages» en GitHub Actions, 1 a 14/10, `docs/auditoria-2-0/01-ARMADO-E-INFRA.md` § 1.1; `tabla-minutos-14d.md`), antes del tope de 500 notas:
+**a) Lo que guarda el repositorio** (corridas de «Actualizar la web» y «Cloudflare Pages» en GitHub Actions, 1 a 14/10, `docs/historico/auditoria-2-0/01-ARMADO-E-INFRA.md` § 1.1; `tabla-minutos-14d.md`), antes del tope de 500 notas:
 
 | Paso | Segundos |
 |---|---|

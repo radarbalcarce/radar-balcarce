@@ -64,8 +64,9 @@ guardan 7 días (`DIAS_DE_VISTAS = 7`), un identificador por renglón. De acá y
 de la portada y el archivo anteriores sale `fechaReal(n)`, **la fecha única de
 cada nota** (28/09):
 - si la fuente no dio hora, la primera vez que la vimos;
-- si la dio, la más vieja que se conoce entre la de la ingesta, la de cada
-  una de sus fuentes, la que ya publicamos y la primera vez que la vimos
+- si la dio, la mediana de las fechas de sus fuentes (regla 327; las que dan
+  el día sin la hora no cuentan) o, si es anterior, la que ya publicamos; la
+  primera vez que la vimos sólo cuenta si la nota tiene una sola fuente
   (`fechaDeLaNota`, `web/lib/archivo.js`). Una nota puede envejecer, nunca
   rejuvenecer: un medio que "actualiza" su nota no la devuelve a la tapa.
 
@@ -109,8 +110,8 @@ cada nota de la ingesta, en este orden:
    verde = `automatica`, rojo = `bloqueada`, el resto = `pendiente`. Sólo
    `publicada` o `automatica` siguen.
 3. Calcula `fechaReal(n)`. Si la nota **nunca salió**, no la decidió una
-   persona y el hecho tiene más de 12 horas lo de afuera, 24 si la cuentan 8 medios o más y 36 si es de
-   Balcarce (`horasParaEstrenar(medios, deAca)`, `web/lib/archivo.js`; reglas 287 y 293), **no se
+   persona y el hecho tiene más de 24 horas lo de afuera y 36 si es de
+   Balcarce (`horasParaEstrenar(medios, deAca)`, `web/lib/archivo.js`; regla 327), **no se
    estrena**: llega tarde.
 4. Elige el texto: el de la persona si decidió una; si no, el de una decisión
    guardada que no es de una persona **sólo si tiene cuerpo**; si no, el que
@@ -346,7 +347,7 @@ vuelta siguiente lo vuelve a intentar.
 
 Desde que "Actualizar la web" arranca hasta que la página nueva está en línea
 pasan unos 4 a 5 minutos (con la compilación doble eran unos 6 y medio:
-`docs/auditoria-2-0/01-ARMADO-E-INFRA.md`).
+`docs/historico/auditoria-2-0/01-ARMADO-E-INFRA.md`).
 
 ### E. En el navegador del lector
 
@@ -429,7 +430,7 @@ Todo sale de `web/lib/datos.js`. Los números:
 | Qué | Valor | Constante | Dónde |
 |---|---|---|---|
 | Cuánto se queda una nota en las listas (portada, secciones, temas, buscador, feed, sitemap de notas vigentes) | 36 horas | `HORAS_EN_PORTADA` | `web/lib/archivo.js` (= `PORTADA.horas`, `ingesta/criterio.mjs`) |
-| Cuánto puede tener un hecho para salir por primera vez | 12 horas lo de afuera; 24 si lo cuentan 8 medios o más; 36 si es de Balcarce | `HORAS_PARA_ESTRENAR`, `HORAS_PARA_ESTRENAR_MUY_CONTADA`, `HORAS_PARA_ESTRENAR_DE_ACA` (`horasParaEstrenar()`) | `web/lib/archivo.js` (= `PORTADA.horasParaEstrenar`, `MUY_CONTADA.horasDelHecho`, `PORTADA.horasParaEstrenarDeAca`) |
+| Cuánto puede tener un hecho para salir por primera vez | 24 horas lo de afuera; 36 si es de Balcarce (regla 327, desde la mediana de las fuentes) | `HORAS_PARA_ESTRENAR`, `HORAS_PARA_ESTRENAR_DE_ACA` (`horasParaEstrenar()`) | `web/lib/archivo.js` (= `PORTADA.horasParaEstrenar`, `PORTADA.horasParaEstrenarDeAca`) |
 | Con qué notas compite la nota grande | las de las últimas 6 horas | `VENTANA_HORAS` | `web/lib/datos.js` (= `PORTADA.horasNotaGrande`) |
 | Hasta cuándo el archivo completa una sección | 36 horas (las mismas) | `HORAS_PARA_COMPLETAR = HORAS_EN_PORTADA` | `web/lib/datos.js` |
 | Notas por sección en la portada | 3 | `NOTAS_POR_SECCION` | `web/lib/datos.js` |
@@ -602,14 +603,15 @@ el sitemap.
 ### El archivo permanente en R2 (ENCENDIDO el 23/10)
 
 Para que el enlace de una nota que sale del sitio no dé 404 (regla 183;
-diseño en `docs/salud-tecnica/ARCHIVO-PERMANENTE.md`, cómo se activa en
+diseño en `docs/historico/salud-tecnica/ARCHIVO-PERMANENTE.md`, cómo se activa en
 `docs/salud-tecnica/ARCHIVO-PERMANENTE-IMPLEMENTACION.md`). Hernán, 16/10: "se
 hace sí o sí". **Encendido el 23/10**: la ruta `radarbalcarce.com/nota/*` va al Worker
 `radar-balcarce-archivo` (vuelta atrás: workflow «Archivo permanente (producción)» con `sacar_ruta`), `TOPE_DE_NOTAS` está
 en 500 y el depósito tenía 1.466 notas ese día. **Falta la ruta de las fotos** (`activar_fotos`): sin ella, una foto
 sacada de Pages da 404, y por eso no se baja más el tope (`docs/etapa-10-operacion/FOTOS-EN-R2.md`). El mapa de las
-notas archivadas (`/nota/sitemap-archivo.xml`, reglas 310 y 321: un índice con un mapa por mes) está escrito y apagado (`SITEMAP_DEL_ARCHIVO`; se anuncia en
-`robots.txt`). El mapa de las notas del sitio, partido por mes, también (`SITEMAP_PARTIDO`): `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md`. Cómo funciona:
+notas archivadas (`/nota/sitemap-archivo.xml`, reglas 310 y 321: un índice con un mapa por mes) está **prendido desde el 25/10** (`SITEMAP_DEL_ARCHIVO` = Si; se anuncia en
+`robots.txt` y se envió a Search Console ese día). El mapa de las notas del sitio, partido por mes, también (`SITEMAP_PARTIDO` = Si, 25/10;
+`sitemap-index.xml` enviado a Search Console): `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md`. Cómo funciona:
 
 - en cada despliegue, `web/scripts/archivar-a-r2.mjs` guarda en R2 la página de
   cada nota que está por salir del sitio (sin el «Seguí leyendo», que se
@@ -704,8 +706,8 @@ los últimos 4 días.
 
 ## SEO: lo que Google y WhatsApp necesitan
 
-El detalle y lo que falta está en `SEO.md` y, desde el 16/10, en
-`docs/seo/AUDITORIA-SEO-LLM.md` (regla 177). Lo que arma el código:
+El detalle está en `docs/seo/AUDITORIA-SEO-LLM.md` (regla 177; desde el 25/10 incluye lo que
+era `SEO.md`) y lo que falta, en `PENDIENTES.md`. Lo que arma el código:
 
 - **Dirección del sitio calculada** (`web/lib/sitio.js`): sale de la variable
   `SITIO`, que en GitHub vale `https://radarbalcarce.com`. Si el sitio no está

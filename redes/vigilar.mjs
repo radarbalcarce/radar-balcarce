@@ -340,12 +340,12 @@ export function evaluar({
     de('estadisticas-sin-lectura', 'media', 'Las estadísticas de la web llevan dos días sin una lectura confiable de Cloudflare (números que no cierran, o todo en cero). Las visitas de esos días no son reales. Revisá CLOUDFLARE_ACCOUNT_ID y que el sitio de analítica 63fea168 aparezca en esa cuenta (docs/analiticas/ANALISIS.md, parte 1.3).');
   }
 
-  // --- lo que se pidió que NO aparezca (reglas 1 a 3, docs/10-REGLAS-Y-PRUEBAS.md): si vuelve, se avisa
+  // --- lo que se pidió que NO aparezca (reglas viejas 1 a 3, hoy R7 y R18 de docs/10-REGLAS-Y-PRUEBAS.md): si vuelve, se avisa
   if (contenido?.home) {
     const h = contenido.home;
-    if (h.laVimos) de('regla-la-vimos', 'alta', 'La portada volvió a decir "la vimos hace…" o "sin hora". Se pidió sacarlo (regla 2, docs/10-REGLAS-Y-PRUEBAS.md).');
-    if (h.horaFarmacia) de('regla-hora-farmacia', 'alta', 'La tarjeta de la farmacia volvió a decir hasta qué hora está de turno. Se pidió sacarlo (regla 3, docs/10-REGLAS-Y-PRUEBAS.md).');
-    if (h.fuentesEnChapa) de('regla-fuentes', 'alta', `La portada volvió a mostrar la fuente arriba de los títulos (${h.fuentesEnChapa}). Se pidió sacarlas (regla 1, docs/10-REGLAS-Y-PRUEBAS.md).`);
+    if (h.laVimos) de('regla-la-vimos', 'alta', 'La portada volvió a decir "la vimos hace…" o "sin hora". Se pidió sacarlo (R7, docs/10-REGLAS-Y-PRUEBAS.md).');
+    if (h.horaFarmacia) de('regla-hora-farmacia', 'alta', 'La tarjeta de la farmacia volvió a decir hasta qué hora está de turno. Se pidió sacarlo (R18, docs/10-REGLAS-Y-PRUEBAS.md).');
+    if (h.fuentesEnChapa) de('regla-fuentes', 'alta', `La portada volvió a mostrar la fuente arriba de los títulos (${h.fuentesEnChapa}). Se pidió sacarlas (R18, docs/10-REGLAS-Y-PRUEBAS.md).`);
   }
   if (contenido?.cuerpos && contenido.cuerpos.total >= 10) {
     const { total, conCuerpo } = contenido.cuerpos;

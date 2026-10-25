@@ -55,7 +55,7 @@ Deportes, Automovilismo, Agro, Economía, Ciencia, Cultura y agenda, Tecnología
 "Tecnología e IA") y Argentina. Educación, Salud y Ciencia se sumaron el 17/10 (regla 215; el
 interruptor `SECCIONES_NUEVAS` de la regla 187 se sacó). El resto del mapa de 17
 (Espectáculos, Turismo, Ambiente) sigue en sombra (`ingesta/secciones-nuevas.mjs`,
-`docs/secciones/MAPA-DE-SECCIONES.md`).
+`docs/historico/secciones/MAPA-DE-SECCIONES.md`).
 
 `clasificar()` (`ingesta/ingesta.mjs`) decide así, en orden:
 
@@ -401,16 +401,16 @@ Lo que escribió la IA se mira **con la nota de verdad** (regla 201, 17/10/2026:
 
 **La fecha** (`fechaReal`, en `generar-datos.mjs`): si la fuente no dio hora, es
 **la primera vez que se vio la nota** (`web/data/vistas.json`,
-`docs/02-INGESTA.md`, paso 5). Si la dio, es **la más vieja que se conoce** entre
-la de la ingesta, la de cada fuente, la que ya tenía publicada y la primera vista
-(`fechaDeLaNota`, `web/lib/archivo.js`). **Una nota puede envejecer, nunca
+`docs/02-INGESTA.md`, paso 5). Si la dio, desde el 25/10 (regla 327) es **la mediana de las fechas de sus
+fuentes** (las que dan el día sin la hora no cuentan) o, si es anterior, la que ya tenía publicada; la primera vez
+que se vio sólo cuenta si la nota tiene una sola fuente (`fechaDeLaNota`, `web/lib/archivo.js`). **Una nota puede envejecer, nunca
 rejuvenecer**: un medio que "actualiza" su nota no la devuelve a la tapa. Es la
 fecha que se muestra, la que ordena y la que decide lo que sigue.
 
 **Llega tarde** (`llegaTarde`, `horasParaEstrenar(medios, deAca)`): una nota que **nunca salió** no se
-estrena si el hecho tiene más de **12 horas** lo de afuera (`PORTADA.horasParaEstrenar`), **24** si la cuentan
-8 medios o más (`MUY_CONTADA.horasDelHecho`, regla 287) y **36** si es de Balcarce (`PORTADA.horasParaEstrenarDeAca`,
-regla 293): esperando medios o cuerpo, lo de afuera salía con el hecho de días atrás. Lo que ya salió sigue su
+estrena si el hecho tiene más de **24 horas** lo de afuera, cuente los medios que cuente (`PORTADA.horasParaEstrenar`),
+y **36** si es de Balcarce (`PORTADA.horasParaEstrenarDeAca`). Es una sola ventana desde el 25/10 (regla 327, que reemplaza
+a las 63, 287 y 293: antes eran 12 horas, 24 con 8 medios o más). Lo que ya salió sigue su
 curso, y lo que publicó una persona también. A una nota que llega tarde tampoco se le pide texto a la IA.
 
 ### 11. La decisión final: `notaPublicada`
@@ -456,7 +456,7 @@ los repasos sin pedirlo aparte (`docs/DECISIONES.md`).
 | Memoria del cruce | 36 h (lo de acá, 72 h) | `CRUCE.horasDeMemoria`, `CRUCE.horasDeMemoriaDeAca` | Con qué se cruza cada nota |
 | Repetidas contra lo publicado | 72 h | `PAREJAS.horas`, `HUELLAS.horas`, `REPETIDAS_PUBLICADAS.horas` | Con qué se compara una nota nueva (regla 195) |
 | Una fuente cuenta para la fecha | 48 h antes de verla | `HORAS_DE_UN_HECHO` (`web/lib/archivo.js`) = `CRUCE.coherente.horasEnDesarrollo` | Más atrás es una nota vieja que el cruce pegó: no la envejece (regla 194) |
-| Estreno | 12 h lo de afuera; 24 h lo que cuentan 8 medios o más; 36 h lo de Balcarce | `horasParaEstrenar()` (`web/lib/archivo.js`) = `PORTADA.horasParaEstrenar`, `MUY_CONTADA.horasDelHecho`, `PORTADA.horasParaEstrenarDeAca` | Lo nunca publicado más viejo no sale |
+| Estreno | 24 h lo de afuera; 36 h lo de Balcarce (regla 327), desde la mediana de las fuentes | `horasParaEstrenar()` (`web/lib/archivo.js`) = `PORTADA.horasParaEstrenar`, `PORTADA.horasParaEstrenarDeAca` | Lo nunca publicado más viejo no sale |
 | Portada y secciones | 36 h | `HORAS_EN_PORTADA` = `PORTADA.horas` | Lo que se muestra en las listas (`vigenteEnPortada`) |
 | Nota grande de la tapa | 6 h | `VENTANA_HORAS` (`web/lib/datos.js`) = `PORTADA.horasNotaGrande` | Cuánto compite una nota por el lugar grande |
 | Página de la nota | 180 días en teoría; en el sitio, **500 notas** hoy (variable `TOPE_DE_NOTAS`; con unas 120 notas por día, unos 4 días); techo técnico 3.700 | `DIAS_DE_ARCHIVO` = `PORTADA.diasDeArchivo`; `topeDeNotas()` y `MAXIMO_EN_ARCHIVO` = `PORTADA.maximoDeNotas` | Cuánto existe su página en el sitio; pasado el tope quedan primero las que fueron a las redes y después las más nuevas, y el resto se sirve desde el archivo permanente en R2 (`/nota/*`, Worker `radar-balcarce-archivo`) |

@@ -1,7 +1,7 @@
 # El archivo de piezas
 
-*15/10/2026. Lo hace `redes/archivar-piezas.mjs`; lo corren, al final y sin poder frenar nada, "Redes", "Piezas" y "Fijar piezas". Arranca
-**apagado**: hasta que alguien cree la variable `R2_PIEZAS`, cada corrida dice "sin archivo de piezas" y sigue.*
+*15/10/2026. Lo hace `redes/archivar-piezas.mjs`; lo corren, al final y sin poder frenar nada, "Redes", "Piezas" y "Fijar piezas". Arrancó
+**apagado** y se prendió el 15/10, cuando se cargó la variable `R2_PIEZAS` (`radar-piezas`; `docs/08-INFRAESTRUCTURA.md`). Sin ella, cada corrida dice "sin archivo de piezas" y sigue.*
 
 ## Para qué
 

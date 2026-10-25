@@ -4,6 +4,8 @@
 
 *Se complementa con `docs/auditoria-2-0/E-REDACCION-Y-FUENTES.md` (redacción y verificador), `G-NOTAS-UNICAS-CON-DATOS.md` (ideas de datos propios) y `B-LO-QUE-VE-EL-LECTOR.md` (la web). Lo que esos informes ya dicen se cita; lo que se verificó de nuevo se marca.*
 
+*Lo que cambió después de escrito (25/10/2026): desde la regla 308 a la IA le llegan **todas** las fuentes numeradas, con su titular y su resumen, sin tope de cantidad; desde la regla 327 la IA recibe hasta **6.000 caracteres por fuente y 18.000 entre todas**, se bajan hasta **8** fuentes (**12** en lo muy contado), el texto también sale del `articleBody` del marcado si es más largo, la fecha del hecho es la **mediana** de las fuentes y lo de afuera se estrena con el hecho de hasta **24 horas** (36 lo de Balcarce). Los números de abajo que dicen otra cosa son del 24/10 y se dejan como diagnóstico de ese día.*
+
 *Aclaración de dónde corre: desde el 23/10 el motor corre en Cloudflare (`docs/TRASPASO.md`), pero el programa es el mismo (`web/scripts/generar-datos.mjs`); `.github/workflows/actualizar.yml` queda como vuelta atrás y es el que describe mejor el orden de los pasos.*
 
 ---
@@ -244,12 +246,12 @@ Las verdes, sin decisión de una persona, no retiradas, vigentes y que no llegue
 
 ### Antes de gastar un pedido
 
-1. Se bajan los textos de las fuentes (`textosDeLasFuentes :1103-1121`): la **principal siempre**, después las oficiales, después **las demás en el orden de la ingesta** (no por calidad), hasta **6 enlaces**. Cada descarga: `traerTexto` (`articulo.mjs:171-185`), 8 s de espera, sin JavaScript. Se extraen los `<p>` del tramo más largo de la página (`extraerTexto :148-155`), **mínimo 300 y máximo 4.000 caracteres**. No se usa `og:description`, JSON-LD (`articleBody`) ni versión AMP, así que un sitio que arma el texto con JavaScript o detrás de un muro queda sin texto.
+1. Se bajan los textos de las fuentes (`textosDeLasFuentes :1103-1121`): la **principal siempre**, después las oficiales, después **las demás en el orden de la ingesta** (no por calidad), hasta **8 enlaces** (12 en lo muy contado; eran 6 el 24/10). Cada descarga: `traerTexto` (`ingesta/articulo.mjs`), 8 s de espera, sin JavaScript. Se extraen los `<p>` del tramo más largo de la página (`extraerTexto`), **mínimo 300 y máximo 6.000 caracteres** (eran 4.000). Desde la regla 327 también se usa el `articleBody` del JSON-LD si es más largo; no se usan `og:description` ni la versión AMP, así que un sitio detrás de un muro sigue quedando sin texto.
 2. Se limpian (`limpiarTextoBajado`, `fuentes-para-la-ia.mjs:167-202`): letras rotas, pies de nota, párrafos de otra nota.
 3. **Copias**: dos textos con 50 % o más de tramos de cinco palabras iguales son una sola voz (cable, gacetilla): `armarFuentesParaLaIA :280-304`.
 4. Se eligen **hasta 4 textos completos**: primero la oficial; después, de a una, la que suma más palabras fuertes nuevas; una que suma menos de 5 no va (`:306-329`).
-5. Se numeran **hasta 12 fuentes**: los 4 textos, luego las demás por orden de llegada, al final las copias. **De la 13 en adelante, sólo el nombre del medio** ("También la contaron, sin más datos: …") — `:331-339`, `:377`.
-6. Se reparten los caracteres: **4.000 por texto, 12.000 en total** (con cuatro textos largos, 3.000 cada uno): `repartirCaracteres :212-222`.
+5. Se numeran **todas las fuentes** (regla 308, sin tope de cantidad), cada una con su medio, su fecha, su titular y su resumen (`armarFuentesParaLaIA`).
+6. Se reparten los caracteres: **6.000 por texto, 18.000 en total** desde la regla 327 (el 24/10 eran 4.000 y 12.000): `repartirCaracteres`.
 7. **Antecedentes**: hasta 3 notas propias de los últimos 30 días que comparten un tema o dos palabras del titular (`antecedentesDe :201-224`).
 8. Se pasa el semáforo por cada texto bajado; si da rojo o amarillo, no se escribe (`:1338-1339`). Si no hay ningún texto y los resúmenes suman menos de 60 palabras: "sin material" (`:1345-1349`).
 
@@ -546,4 +548,4 @@ Costo medido el 24/10 con notas reales: un pedido común, unos 5.450 tokens; una
 
 Después de escrita, la nota se reusa de la caché sin pedir nada más, pero «Fuentes (N)» y el nivel de verificación se refrescan con las fuentes de cada día (`conFuentesDeHoy`).
 
-Más: `docs/04-REDACCION.md` (paso 4), reglas 174, 307 y 308 en `docs/10-REGLAS-Y-PRUEBAS.md`.
+Más: `docs/04-REDACCION.md` (paso 4), reglas 174, 307 y 308 (hoy en las R14 y R18 de `docs/10-REGLAS-Y-PRUEBAS.md`).

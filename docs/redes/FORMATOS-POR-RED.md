@@ -643,4 +643,4 @@ Marcar donde existan: `is_ai_generated` (Instagram), `is_aigc` (TikTok), `contai
 - Plataformas de noticias en Argentina 2025 (Chequeado, sin fecha explícita): https://chequeado.com/?p=96716
 
 **Del propio proyecto**: `redes/piezas.mjs`, `redes/meta.mjs`, `redes/elegir.mjs`, `redes/formatos.mjs`, `redes/horarios.mjs`, `reels/reel.mjs`, `CRITERIO-REDES.md`, `FORMATOS.md`,
-`PERFILES.md`, `web/data/estadisticas.json`, `docs/redes/PLAN-REELS-OTRAS-REDES.md`, `docs/redes/AUTOMATIZAR-REDES-ALTERNATIVAS.md`.
+`PERFILES.md`, `web/data/estadisticas.json`, `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`, `docs/proyecto/REDES-CRONOGRAMA-MAESTRO.md (anexos)`.

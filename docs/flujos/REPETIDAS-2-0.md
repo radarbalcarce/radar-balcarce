@@ -1,7 +1,7 @@
 # Repetidas y fechas 2.0: una noticia, una nota, con su fecha
 
-*17/10/2026. Ejecuta la parte de repetidas y fechas de la auditoría 2.0 (`docs/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md`
-§ 2.3, 3 y 5.3, y `04-IA-Y-MODELOS.md` § 1 y 2). Reglas 193 a 196 de `docs/10-REGLAS-Y-PRUEBAS.md`. Sin costo nuevo: la huella
+*17/10/2026. Ejecuta la parte de repetidas y fechas de la auditoría 2.0 (`docs/historico/auditoria-2-0/02-FUENTES-CRITERIO-REPETIDAS.md`
+§ 2.3, 3 y 5.3, y `04-IA-Y-MODELOS.md` § 1 y 2). Reglas 193 a 196 (hoy en las R5, R7 y R11 de `docs/10-REGLAS-Y-PRUEBAS.md`). Sin costo nuevo: la huella
 usa `gemini-embedding-001` con la clave de clasificación que ya existe (gratis), y la IA que confirma es la de siempre.*
 
 ## Qué se arregló

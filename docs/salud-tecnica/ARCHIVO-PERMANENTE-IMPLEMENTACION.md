@@ -2,7 +2,13 @@
 
 *Escrito el 15/10/2026; actualizado el 16/10/2026 con todo lo de producción. Continúa `ARCHIVO-PERMANENTE.md` (el diseño, variante "a": R2 + un Worker delante de las notas). Hernán, 16/10: **"el archivo en R2 hay que hacerlo sí o sí"** (el sitio no puede perder notas viejas; con hasta 150 notas por día el tope de 3.700 se llena en ~25 días).*
 
-**Estado al 16/10/2026:** el ensayo en staging anduvo (corridas 38908149824 y 38911113087). Está **todo listo para producción y probado sin red, pero NO activado**: no se creó el depósito `radar-archivo`, no se subió el Worker de producción, no hay ninguna ruta de `radarbalcarce.com` hacia el Worker, la variable `R2_ARCHIVO` no existe (el paso del despliegue está dormido) y `MAXIMO_EN_ARCHIVO` sigue en 3.700. El sitio publica exactamente lo mismo que ayer.
+**Estado al 25/10/2026: ENCENDIDO.** Desde el 23/10 la ruta `radarbalcarce.com/nota/*` va al Worker `radar-balcarce-archivo`, el depósito
+`radar-archivo` existe, `R2_ARCHIVO` está cargada y `TOPE_DE_NOTAS` = 500. El 25/10 se volvió a subir el Worker, que ahora también sirve el mapa
+del archivo (`/nota/sitemap-archivo.xml`, un índice con un mapa por mes; `SITEMAP_DEL_ARCHIVO` = Si). Falta la ruta de las fotos
+(`activar_fotos`: `docs/etapa-10-operacion/FOTOS-EN-R2.md`). El diseño original (`ARCHIVO-PERMANENTE.md`) pasó a `docs/historico/`.
+Lo que sigue es cómo quedó al 16/10 y el paso a paso que se usó.
+
+**Estado al 16/10/2026 (historia):** el ensayo en staging anduvo (corridas 38908149824 y 38911113087). Está **todo listo para producción y probado sin red, pero NO activado**: no se creó el depósito `radar-archivo`, no se subió el Worker de producción, no hay ninguna ruta de `radarbalcarce.com` hacia el Worker, la variable `R2_ARCHIVO` no existe (el paso del despliegue está dormido) y `MAXIMO_EN_ARCHIVO` sigue en 3.700. El sitio publica exactamente lo mismo que ayer.
 
 Lo que sigue sin verificar contra Cloudflare real está marcado **SIN VERIFICAR**.
 

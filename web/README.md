@@ -9,7 +9,7 @@ cada media hora ("Actualizar la web"). También vive acá **el panel del celular
 **Cómo funciona todo:** [`../docs/06-WEB.md`](../docs/06-WEB.md) (los datos, la
 tapa, las páginas, el archivo de 180 días, la dirección fija y el diseño). Cada
 archivo, con una línea: `../docs/01-ARBOL.md`. Los colores, las letras y el
-sistema tipográfico: `../MEDIA-KIT.md`. El SEO: `../SEO.md`.
+sistema tipográfico: `../MEDIA-KIT.md`. El SEO: `../docs/seo/AUDITORIA-SEO-LLM.md`.
 
 ## Correr en la máquina
 

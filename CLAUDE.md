@@ -1,6 +1,6 @@
 # Radar Balcarce
 
-*Actualizado el 24/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
+*Actualizado el 25/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
 `docs/00-INDICE.md`). Si esto y el código no coinciden, manda el código, y se corrige
 esto.*
 
@@ -45,19 +45,15 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(La lista numerada, con la prueba que cuida cada una: `docs/10-REGLAS-Y-PRUEBAS.md`; **la próxima regla es la 328** (la 327, el criterio limpio de tiempos y de texto: la fecha del hecho es la mediana de las fuentes para todo, una sola ventana de 24 horas para lo de afuera y más texto para la IA; la 324, los teléfonos útiles de los sábados: dos pantallas, un número por contacto leído de `NUMEROS`, la voz dice lo que se ve y todo dentro de la zona segura; la 322, el hecho principal: una historia junta notas del mismo hecho y no del mismo tema, las cadenas A-B-C no se juntan, lo de Balcarce no se pega a un hecho de afuera y la IA no lleva a Policiales lo que no dice nada policial; la 316, las fotos de las notas en R2 listas para prender sin riesgo: todo lo que usa una foto la trae de R2 antes, la migración probada y su botón; la 314, por qué no entró: motivo de cada historia, fecha del hecho por mediana y lo que ya salió no se baja; la 315, los minutos de Workers Builds por ciclo de facturación, del 11 al 10); una prueba controla que este número sea el que sigue al
-último de esa lista. Los números tienen huecos a propósito. Las tandas, para ubicarse: 188 a 210, los arreglos de Radar 2.0 del 17/10; 211, las fotos con chicos de las fuentes
-de Balcarce; 212, la revisión del archivo entero por tandas; 215 a 218 y 260 a 263, lo nacional por popularidad sin cupos, las secciones siempre activas, la estadística y las
-instrucciones de la IA más cortas; 230 a 235, la mudanza a Cloudflare; 240, OpenRouter; 280 a 283, lo que va a Facebook e Instagram, los hashtags fijos, los enlaces cortos y la
-foto cambiada; 284 a 296, la auditoría integral del 23/10 (policial nacional, fútbol sólo argentino, Balcarce sin amarillo y con 36 horas, lo muy contado sin frenos, Agro y
-Automovilismo en 2 medios, el celular sin tope); 297 a 303, el semáforo, el «sin cuerpo» y el descarte después del cruce; 304 a 306, menos compilación; 307 y 308, sin "fuente
-principal" suelta y lo que recibe la IA; 309 a 312, la auditoría 2.0 (redes, textos de la web, limpieza de código y minutos de Workers Builds); 313, la segunda vuelta de
-documentación; 319, la foto sale de las fuentes de la nota.)
+(Las reglas vigentes son **R1 a R39**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
+cada R nombre pruebas que existan. La historia de cada número viejo, de la regla 1 a la 327, quedó congelada en `docs/historico/REGLAS-1-A-327.md`:
+quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (está en la R8). **Un arreglo nuevo se anota en la R que corresponde**
+(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R40.** Las citas "regla NNN" del código no se renumeran.)
 
 - **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
   vigila (sigue los imports en cadena).
 - **Cuando se arregla algo que estuvo mal publicado, se escribe una prueba** con el caso
-  real y, si es una regla nueva, se anota en `docs/10-REGLAS-Y-PRUEBAS.md`.
+  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R40 si es nueva).
 - **El criterio editorial es uno solo: `CRITERIO-EDITORIAL.md`.** La IA lee su § 12 tal
   cual (`ingesta/prompt-editorial.mjs`; si falta, no escribe) y sus números están en
   `ingesta/criterio.mjs`, controlados contra su tabla. Lo de las redes, en
@@ -130,7 +126,7 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 - **Las listas de sepelios no se publican nunca**, ni aprobadas por una persona.
 - **Las palabras clave cortas engañan** ("gol" encontraba "golpe"): las ambiguas van en
   `PALABRAS_DEBILES` y sólo deciden desde el titular.
-- **Las secciones son catorce** (desde el 17/10, regla 211; el interruptor `SECCIONES_NUEVAS` se sacó):
+- **Las secciones son catorce** (desde el 17/10, regla 216; el interruptor `SECCIONES_NUEVAS` se sacó):
   Balcarce, Política, Policiales, Educación, Salud, Fútbol, Deportes, Automovilismo, Agro, Economía,
   Ciencia, Cultura y agenda (se lee "Cultura"), Tecnología (se lee "Tecnología e IA") y Argentina, con el
   menú "Más secciones". La sección de una nota la decide el feed (si el título la confirma), las palabras
@@ -160,8 +156,8 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 - **El turno de farmacia dura hasta las 8:30 del día siguiente** (la web no dice hasta qué
   hora). **Si Open-Meteo falla, el clima sale de `api.met.no`**, sin sensación térmica.
 - **Los minutos de Workers Builds** (6.000 por **ciclo de facturación, del 11 al 10**, no por mes calendario: regla 315, variable `MOTOR_CICLO_DIA`, 11 si no está, en el reloj, el Worker del motor y GitHub; regla 312, `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`): el presupuesto del motor
-  asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas, todas **apagadas por
-  defecto**: `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor» **con `simular` = No** (por defecto trae `Si`, que deja el motor en ensayo: no guarda ni publica; el 24/10 la web estuvo casi dos horas sin notas nuevas por eso): la memoria de tarjetas de la regla 305 vive en R2 como
+  asumía vueltas de ~4,5 min y el 23/10 se anotaron de ~14 (`presupuesto.mjs` saltea vueltas cuando se pasa). Tres palancas (apagadas por
+  defecto en el código; **las dos primeras, prendidas desde el 24/10**): `TARJETAS_EN_R2=Si` (variable de GitHub, se carga con «Cargar variables del motor» **con `simular` = No** (por defecto trae `Si`, que deja el motor en ensayo: no guarda ni publica; el 24/10 la web estuvo casi dos horas sin notas nuevas por eso): la memoria de tarjetas de la regla 305 vive en R2 como
   objetos sueltos por huella, la compilación baja sólo las que pide; la primera vuelta con ella dibuja todo), `MOTOR_NOCHE_CADA_HORA=Si` (variable del
   reloj **y** del Worker del motor, en el panel de Cloudflare: de 23:00 a 6:59 la vuelta sale sólo a los :00 y el vigilante de vueltas espera una hora
   más) y `MOTOR_MINUTOS_DE_MAS` (los minutos que se le suman a cada vuelta por lo que no ve de sí misma; hoy 0,5). El registro `motor/minutos/AAAA-MM-DD.json` (el día en que arrancó el ciclo; migra solo el viejo por mes)
@@ -179,7 +175,7 @@ documentación; 319, la foto sale de las fuentes de la nota.)
   dispara "Panel del celular" (`panel.yml`), que lee las notas de la caché de Actions. Su
   página tiene su propia CSP en `web/public/_headers`: no cargar nada de afuera ahí (sólo GitHub y,
   desde la regla 317, el Worker del reloj para la pausa general y «Actualizar la web ahora»).
-- **PAUSA GENERAL** (regla 317, botón de emergencia; escrita y probada el 24/10, sin subir): un archivo
+- **PAUSA GENERAL** (regla 317, botón de emergencia; escrita y probada el 24/10, subida y sin usar todavía: `docs/TRASPASO.md`): un archivo
   de R2 (`pausa/estado.json` en `radar-motor`, `infra/compartido/pausa.mjs`) que el panel prende y apaga
   por el Worker del reloj (`infra/reloj-cloudflare/panel-api.mjs`, con la misma llave de GitHub). En
   pausa el reloj no pide el motor, las redes ni lo que gasta IA; el Worker de tareas y la vuelta del
@@ -187,18 +183,23 @@ documentación; 319, la foto sale de las fuentes de la nota.)
   vigilante y el informe dicen «en pausa desde X por Y». Si R2 no se puede leer, no se asume pausa.
   Paso a paso para personas: `docs/11-OPERACION.md`, tarea 5 bis.
 
-## Estado (24/10/2026)
+## Estado (25/10/2026)
 
 - **Todo corre en Cloudflare** (23/10, `docs/TRASPASO.md`): web (motor en Workers Builds), tareas, redes con voz y escenas animadas, vigilancia e informes en el Worker
   `radar-balcarce-tareas`, video en el repositorio público de render, reloj `radar-balcarce-reloj` con la variable `NUBE`. Los workflows viejos de GitHub quedan de vuelta atrás
   y se apagan a mano. El archivo permanente en R2 está encendido y el sitio guarda 500 notas. Las redes están prendidas en la nube (`REDES_ACTIVAS_NUBE` = Sí al 22/10).
 - **Sin cupos desde el 17/10** (reglas 215 y 260): lo nacional sale por cuántos medios lo cuentan (3, o 2 en las áreas chicas); la estadística de la selección
   (`scripts/medir/estadistica-seleccion.mjs`, el informe diario y la pestaña Números) es lo que Hernán mira cada semana para cambiar `MINIMO_NACIONAL` o `MINIMO_AREAS_CHICAS`.
-- **Apagado y listo para prender** (lo prende una persona, en orden): tarjetas en R2, vuelta de noche por hora, fotos en R2, mapa del archivo, enlaces cortos, notas con datos propios (`NOTAS_CON_DATOS`, regla 323), fotos con
-  chicos de fuentes de Balcarce. Revisión del archivo pausada. Todo en **`PENDIENTES.md`**, que es la única lista de tareas; qué se decidió y las preguntas abiertas, en
+- **Criterio limpio de tiempos (25/10, regla 327)**: la fecha del hecho es la mediana de las fuentes para todo, una sola ventana de 24 horas para estrenar lo de afuera
+  (36 lo de Balcarce) y la IA recibe 6.000 caracteres por fuente y 18.000 en total. La variable `FECHA_DEL_HECHO` se sacó.
+- **Prendido y andando**: tarjetas en R2 (`TARJETAS_EN_R2`) y vuelta de noche por hora (`MOTOR_NOCHE_CADA_HORA`) desde el 24/10; mapas partidos por mes
+  (`SITEMAP_PARTIDO`), mapa del archivo (`SITEMAP_DEL_ARCHIVO`, el Worker del archivo subido) y la revisión del archivo (`REVISION_DEL_ARCHIVO` = si) desde el 25/10.
+- **Apagado y listo para prender** (lo prende una persona, en orden): fotos en R2, enlaces cortos, notas con datos propios (`NOTAS_CON_DATOS`, regla 323), fotos con
+  chicos de fuentes de Balcarce. Todo en **`PENDIENTES.md`**, que es la única lista de tareas; qué se decidió y las preguntas abiertas, en
   **`docs/DECISIONES.md`**; el estado verificado de la auditoría 2.0, en `docs/auditoria-2-0/F-ESTADO-Y-PLAN-2-0.md`.
-- **17/10, limpieza final**: se retiraron el panel de la PC, los ensayos en sombra, `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/` (los que se usan, en
-  `scripts/medir/`). Todo queda en el historial de git. El 24/10 se sumó la limpieza de código sin uso de la regla 311.
+- **Limpiezas**: el 17/10 se retiraron el panel de la PC, los ensayos en sombra, `pruebas-modelos/`, `criterio-unico/` y los programas de `docs/` (los que se usan, en
+  `scripts/medir/`); el 24/10, el código sin uso (regla 311); el 25/10, los documentos (46 a `docs/historico/`, 3 borrados, 7 unidos; el checklist del 29/10 y las efemérides de octubre pasan cuando venzan) y las reglas (de 327 números a 39).
+  Todo queda en el historial de git.
 
 ## Dónde tocar cada cosa
 
@@ -206,7 +207,7 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 |---|---|
 | Sumar, sacar o apagar una fuente, o cambiar un peso | `ingesta/fuentes.mjs` o `ingesta/fuentes-cruce.mjs` (`activa: false`); después, `node ingesta/listar-fuentes.mjs` |
 | Cuántos minutos de Workers Builds gasta cada paso de la vuelta, la memoria de tarjetas en R2, la vuelta de noche por hora, la proyección del mes y su aviso | `docs/etapa-10-operacion/MINUTOS-DE-WORKERS-BUILDS.md`; `infra/compartido/tarjetas-r2.mjs` (leer, mientras se compila), `infra/motor-cloudflare/tarjetas-r2.mjs` (subir y podar), `infra/motor-cloudflare/presupuesto.mjs` (`proyectar`, `avisoDeMinutos`, `vueltasPorDia`), `trabajosDelMinuto` y `umbralDeAtraso` (`infra/reloj-cloudflare/`), `problemasDeLaNube` (vigilante) |
-| Pasar un trabajo de GitHub a Cloudflare (o volver), el motor en Workers Builds, el Worker de tareas, el render público | `NUBE` en `infra/reloj-cloudflare/nube.mjs`; `infra/motor-cloudflare/`; `infra/tareas-cloudflare/tareas.mjs` (`lee`/`escribe`); `infra/render-publico/` (copia de `reels/`: `node scripts/sincronizar-render-publico.mjs`); cómo se sube: workflow «Desplegar Workers de Cloudflare» y `docs/etapa-10-operacion/PLAN-DE-CAMBIO.md` |
+| Pasar un trabajo de GitHub a Cloudflare (o volver), el motor en Workers Builds, el Worker de tareas, el render público | `NUBE` en `infra/reloj-cloudflare/nube.mjs`; `infra/motor-cloudflare/`; `infra/tareas-cloudflare/tareas.mjs` (`lee`/`escribe`); `infra/render-publico/` (copia de `reels/`: `node scripts/sincronizar-render-publico.mjs`); cómo se sube: workflow «Desplegar Workers de Cloudflare» y `docs/11-OPERACION.md`, tarea 5 ter |
 | Que una palabra mande una nota a otra sección | `REGLAS_SECCION` (`ingesta/fuentes.mjs`); si es ambigua, también `PALABRAS_DEBILES` (`ingesta/ingesta.mjs`) |
 | Que algo espere a una persona o no salga nunca | `REGLAS_SEMAFORO` (`ingesta/fuentes.mjs`: `rojo` —no sin preguntar—, `nunca`, `amarillo`, `cotizacion`, `internacional`, `promocional`); lo de Balcarce y lo que cuentan 8 medios o más no esperan por el amarillo (reglas 291 y 292: `sueltaElAmarillo`, `ingesta/ingesta.mjs`); la cotización, `esCotizacionDelDia`; la muerte de un famoso en Policiales, `esMuerteDeFamosoEnPoliciales` (regla 289) |
 | Qué es "de acá" o "la zona" | `esDeAca` (`ingesta/ingesta.mjs`), `PALABRAS_LOCALES` y `PALABRAS_ZONA` (`ingesta/fuentes.mjs`) |
@@ -214,7 +215,7 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 | Que una historia no junte hechos distintos (cadenas A-B-C de la IA, Balcarce pegado a un evento de afuera, la IA que manda a Policiales lo que no es policial; interruptor `HECHO_PRINCIPAL=no`, regla 322) | `ingesta/hecho-principal.mjs` (`HECHO_PRINCIPAL`: los números; `crearJuez`, `partirGrupos`, `separarLoDeAca`), `unirGrupos` y `quitarRepetidas` (`guardaDeHecho`) y `sinPoliciaDeVerdad` (`ingesta/lectura-ia.mjs`), `armarHistorias` (`ingesta/ingesta.mjs`); medir con `node scripts/medir/hecho-principal.mjs`; `docs/etapa-10-operacion/HECHO-PRINCIPAL.md` |
 | Cualquier número del criterio | `ingesta/criterio.mjs` **y** la tabla "Los números" de `CRITERIO-EDITORIAL.md` |
 | Cuántos medios pide lo de afuera (3) y en las áreas chicas (2) | Las variables de GitHub `MINIMO_NACIONAL` y `MINIMO_AREAS_CHICAS` (sin tocar código); el valor de siempre y qué áreas son chicas, `POPULARIDAD` y `AREAS_CHICAS` (`ingesta/criterio.mjs` **y** la tabla del criterio), `ingesta/popularidad.mjs` (regla 260) |
-| Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261); el motivo de cada historia (lista cerrada `MOTIVOS`, primero y último, con quién se unió; «otros» ya no se anota: regla 314), `node scripts/medir/por-que-no-entro.mjs` (repetición sin red de por qué no entró, con la fecha del hecho por mediana o por la fuente más vieja) |
+| Cómo cae la selección (qué llega, con cuántos medios, qué sale y por qué no; cuántas notas habría con otro mínimo) | `web/data/estadistica-seleccion.json` (`ingesta/estadistica-seleccion.mjs`), `node scripts/medir/estadistica-seleccion.mjs` (`--ahora` mide el momento sin IA), `web/public/panel/numeros.js`, la línea «La selección» de `redes/informe-diario.mjs` (regla 261); el motivo de cada historia (lista cerrada `MOTIVOS`, primero y último, con quién se unió; «otros» ya no se anota: regla 314), `node scripts/medir/por-que-no-entro.mjs` (repetición sin red de por qué no entró: la fecha del hecho por la mediana, que rige para todo desde la regla 327, comparada con la de la fuente más vieja de antes) |
 | Cómo decide la lectura con IA | `ingesta/lectura-ia.mjs`; lo que sabe de Balcarce, `ingesta/perfil-balcarce.md` (va tal cual a la IA) |
 | Cómo escribe la IA | `CRITERIO-EDITORIAL.md` § 4 y § 12; medir un cambio con `reels/comparar-instruccion.mjs` |
 | El verificador o los arreglos que no inventan | `ingesta/verificar.mjs` (`verificar`, `arreglarEscritura`, `diceEnVivo`) |
@@ -237,11 +238,11 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 | Los datos propios de una nota (bloques «Antes en Radar», ficha de Colapinto y tira del dólar, armados por código; apagados con `NOTAS_CON_DATOS`) y los gráficos SVG | `web/lib/bloques-de-datos.js` (interruptor, filtros de seguridad, los tres bloques), `web/lib/graficos.js` (barras, líneas, ficha; también para placas con `anidarSvg`), `web/components/bloque-de-datos.js`, `fichaDeColapinto` (`ingesta/f1.mjs`); `docs/etapa-10-operacion/NOTAS-CON-DATOS-PILOTO.md` |
 | La firma de las notas | `quienEscribio`, `firmaCorta` (`web/components/metadatos.js`) |
 | Las fotos | `web/scripts/fotos-notas.mjs`, `ingesta/fotos.mjs`, `web/scripts/achicar-foto.mjs` |
-| Una sección nueva, su nombre o su color | `SECCIONES` (`web/lib/datos.js`), `--s-*` (`web/app/globals.css`), `REGLAS_SECCION`, `seccionesDeLaFicha()` (`ingesta/lectura-ia.mjs`), `SECCIONES` de `web/public/panel/github.js`; las del mapa de 17, activas Educación, Salud y Ciencia: `SECCIONES_SUMADAS` y `seccionSumada` (`ingesta/secciones-nuevas.mjs`), `seccionesDelSitio` y `navegacionDelSitio` (`web/lib/datos.js`), `COLOR_SECCION` + `CRITERIO-REDES.md` § 8 y `--s-*` (reglas 187 y 211) |
+| Una sección nueva, su nombre o su color | `SECCIONES` (`web/lib/datos.js`), `--s-*` (`web/app/globals.css`), `REGLAS_SECCION`, `seccionesDeLaFicha()` (`ingesta/lectura-ia.mjs`), `SECCIONES` de `web/public/panel/github.js`; las del mapa de 17, activas Educación, Salud y Ciencia: `SECCIONES_SUMADAS` y `seccionSumada` (`ingesta/secciones-nuevas.mjs`), `seccionesDelSitio` y `navegacionDelSitio` (`web/lib/datos.js`), `COLOR_SECCION` + `CRITERIO-REDES.md` § 8 y `--s-*` (regla 216) |
 | La tapa, las secciones o "Seguí leyendo" | `armarTapa` (`web/lib/datos.js`), `web/lib/seguir-leyendo.js` |
 | La nota del dólar o la de cada podcast | `web/lib/notas-propias.js` |
 | Las notas de F1 (horarios, clasificación, resultado; Jolpica) y de fútbol (Liga, Copa Argentina, Libertadores y Sudamericana con equipos argentinos; ESPN) | `ingesta/f1.mjs`, `ingesta/futbol.mjs`, `web/data/f1.json`, `web/data/futbol.json`; la foto libre, `web/scripts/foto-libre.mjs` |
-| Qué va a las redes (sólo Balcarce y lo más contado del país: `FACEBOOK.mediosParaRedes`, regla 280) | `vaAFacebookPorLoQueEs`, `esPopularParaRedes`, `elegirParaFacebook`; en los repasos, `elegirParaPodcast` y `sePuedeEnUnRepaso` (`redes/elegir.mjs`); cuántos por día: `docs/redes/PROPUESTA-POSTEOS-POR-DIA.md` |
+| Qué va a las redes (sólo Balcarce y lo más contado del país: `FACEBOOK.mediosParaRedes`, regla 280) | `vaAFacebookPorLoQueEs`, `esPopularParaRedes`, `elegirParaFacebook`; en los repasos, `elegirParaPodcast` y `sePuedeEnUnRepaso` (`redes/elegir.mjs`); cuántos por día: 5 (`docs/DECISIONES.md`, 23/10; la propuesta vieja, en `docs/historico/redes/PROPUESTA-POSTEOS-POR-DIA.md`) |
 | El texto de cada red y los hashtags fijos (`#Balcarce #RadarBalcarce`, regla 281) | `hashtagsDe`, `mensajeDeNota` (`redes/elegir.mjs`), `hashtagsDePieza`, `pieDePieza` (`redes/piezas.mjs`); la tabla por red: `docs/redes/FORMATOS-POR-RED.md` |
 | Los enlaces cortos de las redes (`ENLACES_CORTOS`, apagado; regla 282; llega a Actions por `redes.yml`, `piezas.yml` y `reintentar.yml`, y a Workers Builds por `cargar-variables.mjs`: regla 311) | `redes/enlaces-cortos.mjs`, `infra/enlaces-cloudflare/` (Worker y ruta); `docs/redes/ACORTADOR-DE-ENLACES.md` |
 | La foto de una nota que cambia después de salir en Facebook (regla 283) | `redes/foto-cambiada.mjs`, `releerEnlace` (`redes/meta.mjs`), `FACEBOOK.horasEsperandoFotoReal`; `docs/redes/FOTO-CAMBIADA-DESPUES-DEL-POSTEO.md` |
@@ -254,7 +255,7 @@ documentación; 319, la foto sale de las fuentes de la nota.)
 | Qué vigila el vigilante o qué dice el WhatsApp | `redes/vigilar.mjs` (`evaluar`, `revisarClaves`, `VENCIMIENTOS`), `redes/avisos.mjs` |
 | Los informes diarios por mail (8:15 y 21:15: qué se publicó, qué espera, redes, visitas, salud; regla 176) | `redes/informe-diario.mjs`, `.github/workflows/informe-diario.yml`, el horario en `infra/reloj-cloudflare/` (`trabajosDelMinuto`) y el `html` de `POST /avisar` en `infra/vigilante-cloudflare/worker.mjs`; el resumen de las 22 del Worker es sólo el respaldo |
 | Qué archivos guarda "Actualizar la web" | La línea `git add` de `.github/workflows/actualizar.yml` (un archivo nuevo de `web/data/` que no esté ahí se pierde) |
-| Qué notas llevan `noindex` aunque se muestren (clima diario, repasos, dólar del día, horarios de F1 y fútbol, códigos de juegos), qué imagen y qué `dateModified` declara el marcado, y los mapas del sitio partidos por mes (`SITEMAP_PARTIDO`, apagado) y el del archivo en R2 (índice + un mapa por mes; se anuncia en `robots.txt` con `SITEMAP_DEL_ARCHIVO`) | `web/lib/indexacion.js` (`motivoDePlantilla`, `noSeIndexa`), `imagenesDeNota` (`web/lib/datos-estructurados.js`), `fechaDeModificacion` (`web/lib/tiempo.js`) y `auditadaCuando` (`web/lib/archivo.js`), `web/lib/sitemap-sitio.js` y `web/app/sitemap-notas/`, `mapasDelArchivo` (`infra/archivo-cloudflare/worker.mjs`); el orden de prendido, `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md` |
+| Qué notas llevan `noindex` aunque se muestren (clima diario, repasos, dólar del día, horarios de F1 y fútbol, códigos de juegos), qué imagen y qué `dateModified` declara el marcado, y los mapas del sitio partidos por mes (`SITEMAP_PARTIDO`, prendido el 25/10) y el del archivo en R2 (índice + un mapa por mes; se anuncia en `robots.txt` con `SITEMAP_DEL_ARCHIVO`) | `web/lib/indexacion.js` (`motivoDePlantilla`, `noSeIndexa`), `imagenesDeNota` (`web/lib/datos-estructurados.js`), `fechaDeModificacion` (`web/lib/tiempo.js`) y `auditadaCuando` (`web/lib/archivo.js`), `web/lib/sitemap-sitio.js` y `web/app/sitemap-notas/`, `mapasDelArchivo` (`infra/archivo-cloudflare/worker.mjs`); el orden de prendido, `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md` |
 | Qué obliga a recompilar antes de subir, y las redirecciones | `NO_CAMBIAN_EL_SITIO` (`web/scripts/recompilar.mjs`, regla 189); `planDeRedirecciones` (`web/scripts/generar-redirects.mjs`, regla 191) |
 | La política hacia buscadores e IA (`robots.txt`, bots), los datos estructurados, los sitemaps, `llms.txt`, y los datos para agentes (el servidor MCP escrito y sin activar se borró el 17/10) | `web/lib/robots.js`, `web/lib/datos-estructurados.js`, `web/components/ficha.js`, `web/app/sitemap.js`, `web/app/llms.txt/route.js`, `web/lib/para-agentes.js` (`/agentes/*.json`); el estado, los trámites y las decisiones: `docs/seo/AUDITORIA-SEO-LLM.md` |
 | Los avisos publicitarios | `web/data/avisos.json`, a mano, con quién y cuándo en el commit (`PUBLICIDAD.md`); la agenda sale sólo del municipio (`ingesta/agenda.mjs`) |

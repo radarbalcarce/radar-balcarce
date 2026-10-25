@@ -3,6 +3,9 @@
 *8/10/2026, a pedido de Hernán y Andrés ("que esté todo planificado: una regla en común para todas y una específica para cada una, con todas las
 variantes del clima, avisos, efemérides, feriados, farmacias, invitaciones a participar, teléfonos útiles y agenda").*
 
+> **25/10/2026: ya no es una propuesta.** Estaba en `docs/propuestas/` y pasó a `docs/redes/` (los comentarios del código que dicen
+> `docs/propuestas/PLANTILLAS-DE-PIEZAS.md` hablan de este documento).
+>
 > **Estado (15/10/2026): aprobadas y conectadas (regla 157).** Desde el 9/10 las piezas de todos los días salen con su escena animada
 > (`reels/escenas/`); si algo falla, sale la placa de siempre. Las escenas de deporte están hechas y sin conectar. Falta pasar estas reglas a
 > `CRITERIO-REDES.md`, que es donde tienen que vivir; mientras tanto, este documento es la referencia de las escenas.

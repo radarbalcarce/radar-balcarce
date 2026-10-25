@@ -266,7 +266,8 @@ test('generar-datos no publica una nota roja cuyo texto final sigue tocando la l
 
 // T-2 y M-7 (8/10/2026): nadie toca la lista roja sin querer. Si esta prueba falla es porque cambió `REGLAS_SEMAFORO.rojo` o `.nunca`: esas listas
 // cuidan a menores y víctimas (leyes 26.061 y 26.485) y NO se tocan sin que Hernán y Andrés lo decidan. Si fue a propósito y lo autorizaron,
-// se actualiza la huella de abajo (el mensaje de la falla dice cuál es la nueva) y se anota en docs/10-REGLAS-Y-PRUEBAS.md.
+// se actualiza la huella de abajo (el mensaje de la falla dice cuál es la nueva) y se anota en la R19 de docs/10-REGLAS-Y-PRUEBAS.md
+// (menores y víctimas) y en docs/DECISIONES.md, con quién lo autorizó.
 test('la lista roja y la de "nunca" tienen la huella autorizada', async () => {
   const { createHash } = await import('node:crypto');
   const huella = (lista) => createHash('sha256').update(JSON.stringify([...lista].map((t) => String(t).normalize('NFC')).sort())).digest('hex').slice(0, 16);

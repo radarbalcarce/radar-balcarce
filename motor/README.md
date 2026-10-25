@@ -1,6 +1,6 @@
 # motor/
 
-Los cimientos del motor nuevo (ver `docs/etapa-10-operacion/DISENO-MOTOR.md`, sección 2).
+Los cimientos del motor nuevo (ver `docs/historico/etapa-10-operacion/DISENO-MOTOR.md`, sección 2).
 Por ahora hay dos cosas, y **ninguna toca producción**: el esquema de la base y un
 importador que sólo *lee* el repositorio.
 
