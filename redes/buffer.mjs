@@ -52,7 +52,7 @@ export async function canales(opciones = {}) {
   if (!org.ok) return { ok: false, motivo: org.motivo, canales: [] };
   const lista = [];
   for (const o of org.datos?.account?.organizations ?? []) {
-    const c = await pedir('query Canales($id: String!) { channels(input: { organizationId: $id }) { id name displayName service } }', { id: o.id }, opciones);
+    const c = await pedir('query Canales($id: OrganizationId!) { channels(input: { organizationId: $id }) { id name displayName service } }', { id: o.id }, opciones);
     if (!c.ok) return { ok: false, motivo: c.motivo, canales: lista };
     for (const x of c.datos?.channels ?? []) lista.push({ id: x.id, servicio: String(x.service ?? '').toLowerCase(), nombre: x.displayName || x.name });
   }
@@ -119,11 +119,13 @@ export async function publicarReel({ url, texto, titulo }, opciones = {}) {
 
 /** Para mirar la forma de la API (enums y campos de entrada) sin publicar nada. */
 export async function forma(opciones = {}) {
-  const tipos = ['CreatePostInput', 'AssetsInput', 'AssetInput', 'VideoAssetInput', 'PostInputMetaData', 'YoutubePostMetadataInput', 'TikTokPostMetadataInput', 'ShareMode', 'SchedulingType', 'YoutubePrivacy', 'PostStatus'];
+  const tipos = ['CreatePostInput', 'AssetsInput', 'AssetInput', 'VideoAssetInput', 'VideoInput', 'PostInputMetaData', 'YoutubePostMetadataInput', 'TikTokPostMetadataInput', 'ShareMode', 'SchedulingType', 'YoutubePrivacy', 'YoutubeLicense', 'PostStatus'];
   const salida = {};
   for (const t of tipos) {
-    const r = await pedir('query T($n: String!) { __type(name: $n) { name kind enumValues { name } inputFields { name type { name kind ofType { name kind ofType { name kind } } } } } }', { n: t }, opciones);
-    salida[t] = r.ok ? r.datos?.__type : { error: r.motivo };
+    const r = await pedir('query T($n: String!) { __type(name: $n) { name kind enumValues { name } inputFields { name type { name kind ofType { name kind ofType { name kind ofType { name kind } } } } } } }', { n: t }, opciones);
+    const ty = r.ok ? r.datos?.__type : null;
+    const nombreDe = (x) => (x ? (x.name ?? nombreDe(x.ofType)) : null);
+    salida[t] = !r.ok ? { error: r.motivo } : !ty ? null : ty.enumValues ? ty.enumValues.map((e) => e.name).join(', ') : (ty.inputFields ?? []).map((c) => `${c.name}: ${nombreDe(c.type)}${c.type.kind === 'NON_NULL' ? '!' : ''}`).join(', ');
   }
   return salida;
 }
