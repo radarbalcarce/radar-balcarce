@@ -4487,9 +4487,7 @@
   "ausenteDesde": "2026-10-23T14:00:32.208Z"
  },
  "m212r6": {
-  "archivo": "fotos-notas/m212r6.jpg",
   "medio": "Municipalidad de Balcarce",
-  "credito": "Foto: Municipalidad de Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Bajo Fondo y Nahuel González Salvo se presentan el domingo en la Casa del Bicentenario",
@@ -4497,7 +4495,17 @@
   "imagenOriginal": "https://balcarce.gob.ar/wp-content/uploads/2024/04/casa-cultura-balcarce-compressed.jpg",
   "razon": "Es la única opción disponible, posee buena calidad de imagen, sin menores ni marcas de agua agregadas.",
   "cuando": "2026-10-01T12:04:00.712Z",
-  "huella": "80e393c233356d6b"
+  "huella": "80e393c233356d6b",
+  "intentado": true,
+  "descartada": {
+   "motivo": "es de archivo y no muestra el hecho",
+   "cuando": "2026-10-25T11:14:26.240Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/m212r6.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://balcarce.gob.ar/wp-content/uploads/2024/04/casa-cultura-balcarce-compressed.jpg",
+   "huella": "80e393c233356d6b"
+  }
  },
  "bvb4v9": {
   "archivo": "fotos-notas/bvb4v9.jpg",

@@ -1,10 +1,10 @@
 {"version":1,
 "desde":"2026-10-22T03:00:00.000Z",
-"generado":"2026-10-25T09:14:25.477Z",
+"generado":"2026-10-25T11:14:26.240Z",
 "terminada":null,
-"contadores":{"total":252,"revisadas":62,"faltan":190,"retiradas":5,"repetidas":14,"fotosSacadas":11,"arreglos":33,"paraUnaPersona":11,"fallas":7},
-"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":12,"vision":36,"gemini":15,"openrouter":1},"2026-10-25":{"groq":4,"vision":9,"gemini":6}},
-"ultimaTanda":{"cuando":"2026-10-25T09:13:06.882Z","notas":6,"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":0,"paraUnaPersona":1,"pendientes":0,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":0,"arreglos":0,"paraUnaPersona":1,"saltadas":0}},
+"contadores":{"total":252,"revisadas":68,"faltan":184,"retiradas":5,"repetidas":14,"fotosSacadas":12,"arreglos":33,"paraUnaPersona":11,"fallas":7},
+"uso":{"2026-10-22":{"groq":24,"vision":72,"gemini":15},"2026-10-23":{"groq":12,"vision":36,"gemini":15,"openrouter":1},"2026-10-25":{"groq":6,"vision":14,"gemini":10}},
+"ultimaTanda":{"cuando":"2026-10-25T11:13:08.928Z","notas":6,"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"pendientes":0,"aplicadas":{"retiradas":0,"repetidas":0,"fotosSacadas":1,"arreglos":0,"paraUnaPersona":0,"saltadas":0}},
 "retiradas":{
 "i06m20":{"motivo":"no es nota: el pronóstico de otro medio (el sitio tiene su clima)","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
 "1m2za7b":{"motivo":"no es nota: el medio habla de sí mismo","tipo":"no-es-nota","cuando":"2026-10-22T11:14:00.277Z","por":"revisión del archivo"},
@@ -29,7 +29,8 @@
 "1xc91gb":{"queda":"bqnbdp","motivo":"citan la misma nota de otro medio que «Milei afirma tener fondos por miles de millones de dólares para frenar una corrida»","cuando":"2026-10-22T13:14:12.221Z","por":"revisión del archivo"}
 },
 "paraIlustrar":{
-"8ydg1":{"cuando":"2026-10-25T07:14:54.281Z"}
+"8ydg1":{"cuando":"2026-10-25T07:14:54.281Z"},
+"m212r6":{"cuando":"2026-10-25T11:14:26.240Z"}
 },
 "paraUnaPersona":{
 "1ifyi35":{"cuando":"2026-10-22T03:13:34.192Z","ruta":"/nota/balcarce-basquet-sumo-dos-victorias-en-una-nueva-fecha-de-la-1ifyi35","cuantos":1},
@@ -389,5 +390,11 @@
 "76r67w":{"v":1,"c":"2026-10-25T09:14:25.477Z","r":"ok","f":"ok","t":"ok","i":1},
 "1h3b7f0":{"v":1,"c":"2026-10-25T09:14:25.477Z","r":"ok","f":"ok","t":"ok","i":1},
 "ff9n91":{"v":1,"c":"2026-10-25T09:14:25.477Z","r":"persona","f":"ok","t":"avisos","i":1},
-"367tdt":{"v":1,"c":"2026-10-25T09:14:25.477Z","r":"ok","f":"ok","t":"ok","i":1}
+"367tdt":{"v":1,"c":"2026-10-25T09:14:25.477Z","r":"ok","f":"ok","t":"ok","i":1},
+"m212r6":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"sacada","t":"ok","i":1},
+"1v6m62u":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
+"1bheb6v":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
+"1sko7lj":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1},
+"15i90co":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"sin-foto","t":"ok","i":1},
+"alddw5":{"v":1,"c":"2026-10-25T11:14:26.240Z","r":"ok","f":"ok","t":"ok","i":1}
 }}
