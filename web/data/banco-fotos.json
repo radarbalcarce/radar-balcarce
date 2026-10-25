@@ -24107,7 +24107,8 @@
    "corresponde": "si",
    "descripcion": "Vista general de la fachada y el ingreso a la nueva tienda Huawei en Unicenter con gran cantidad de gente"
   },
-  "huella": "0f0f0f0f1d79b09c"
+  "huella": "0f0f0f0f1d79b09c",
+  "ausenteDesde": "2026-10-25T06:03:58.583Z"
  },
  "ybejfk": {
   "archivo": "fotos-notas/ybejfk.jpg",
@@ -38089,11 +38090,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-10-25T03:02:44.938Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unterminated string in JSON at position 327 (line 1 column 328)",
+  "cuando": "2026-10-25T06:02:17.679Z",
   "intentos": 3,
   "fuentes": 1,
-  "intentosPorCupo": 2,
+  "intentosPorCupo": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "146xxio": {
@@ -38321,11 +38322,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T03:02:44.938Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: The operation was aborted due to timeout",
+  "cuando": "2026-10-25T06:02:17.679Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 2,
+  "intentosPorCupo": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ektjdh": {
@@ -38497,5 +38498,54 @@
   "fuentes": 5,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1kdyy0y": {
+  "archivo": "fotos-notas/1kdyy0y.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei anuncia posibles acciones legales contra la prensa tras su sobreseimiento",
+  "enlace": "https://www.perfil.com/noticias/politica/revancha-milei-anuncia-acciones-legales-contra-la-prensa.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/25/trim/1140/641/251026mileifundacionfaropresidenciag-2355836.jpg",
+  "razon": "La foto B muestra claramente al protagonista de la nota en un evento público, tiene buena nitidez, encuadre adecuado y no posee marcas de agua agregadas por el medio ni otras restricciones.",
+  "cuando": "2026-10-25T06:02:17.679Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei detrás de un atril con el logo de Fundación Faro de fondo."
+  },
+  "huella": "70723232721216e6"
+ },
+ "lwbp0b": {
+  "archivo": "fotos-notas/lwbp0b.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Fiesta del Postre abre sus puertas con entrada gratuita",
+  "enlace": "https://radiomitre.cienradios.com/sociedad/se-viene-la-fiesta-del-postre-con-entrada-libre-y-gratuita-cuando-y-donde-es/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/GOWOITYTZZB4TOMZOENVPOV2HM.png?smart=true&auth=03389eaa2ae60ab3d71b128b42ed28bbeb6816e6be2ef14ada3568486bf025f5&width=1200&height=630",
+  "razon": "Es la única que muestra la escena real del evento (cocineros en la fiesta), mientras que la A es una foto de stock genérica de un postre.",
+  "cuando": "2026-10-25T06:02:17.679Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cocineros con delantales morados preparando comida en un salón con banderines."
+  },
+  "huella": "f66520a829795dc6"
  }
 }
