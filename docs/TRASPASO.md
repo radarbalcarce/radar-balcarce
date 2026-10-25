@@ -30,3 +30,15 @@ El traspaso largo del 23/10 está en `docs/historico/TRASPASO-HASTA-24-10.md`.*
 ## Si se corta una sesión a mitad de un cambio
 
 Mirar `git status` y `git log -3` en la rama del agente, correr `npm test` y seguir desde `PENDIENTES.md`. Cada tanda deja anotada su regla en `docs/10` y su decisión en `docs/DECISIONES.md`.
+
+## Para la sesión nueva (cierre del 25/10/2026, madrugada)
+
+**Regla de oro de Hernán (25/10):** "revisar / mirar / ver si" = **informar y proponer, NO implementar ni publicar**. Nada nuevo a producción sin que lo pida; un cambio por vez; pocos agentes; dejar andando lo que funciona. Lo nuevo está APAGADO hasta que lo pida.
+
+**Andando y estable:** motor en Cloudflare (vuelta cada 30 min de día y 1 por hora de 23:00 a 6:59; `MOTOR_NOCHE_CADA_HORA`), imágenes de notas en R2 (`TARJETAS_EN_R2=Si`), freno de minutos por ciclo (11 al 10; ~5.000 de 6.000, US$ 0 de excedente), reloj y vigilante desplegados `con la nube`, fotos sin Wikimedia en notas con fuentes (regla 319), SEO técnico (321), hecho principal (322), teléfonos útiles nuevos (324), fotos sin cupo y títulos de deportes (326). El repaso nuevo se SACÓ de producción (queda en la rama `worktree-agent-a366ff7143db2afe9`, commit 504aaf64).
+
+**Apagado (no prender sin pedido):** notas con datos propios (`NOTAS_CON_DATOS`, regla 323: Hernán dijo "descartarlo por ahora"), pausa general (317, escrita y subida pero sin uso), mapa del archivo (`SITEMAP_DEL_ARCHIVO`/`SITEMAP_PARTIDO`), enlaces cortos, fotos en R2 (`FOTOS_EN_R2`), revisión del archivo.
+
+**Cosas que muerden de hoy:** al correr «Cargar variables del motor» poner `simular` = No (por defecto Si deja la web sin publicar); al desplegar Workers tildar «con la nube»; el sistema de permisos bloquea desplegar el archivo y apagar workflows viejos (los hace una persona); `gh`/Chrome: usar el Chrome de Radar Balcarce (Browser con Windows local) para Cloudflare/GitHub/Search Console.
+
+**Pendiente (ver `docs/CHECKLIST-JUEVES-29-10.md` y `PENDIENTES.md`):** jueves 29/10 mirar estado y decidir el cambio del sitio por Worker (`docs/proyecto/SITIO-POR-WORKER-PLAN.md`); renovar «Participá» antes del 31/10 (dejarlas igual por ahora); apagar los 7 workflows viejos de GitHub; una prueba nueva del repaso falla en esta PC por memoria (ya fuera de producción); workflow manual «Sitio de prueba» (vista previa aparte) listo y sin ejecutar.
