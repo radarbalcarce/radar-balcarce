@@ -1,0 +1,42 @@
+name: Buffer (TikTok y YouTube)
+
+# 25/10/2026: a mano. «probar» lista los canales conectados en Buffer y la forma de su API, sin publicar nada; «video» publica un video
+# (una dirección pública .mp4) en TikTok y YouTube. Lo de todos los días lo hace el Worker de tareas (redes/buffer.mjs). Secreto: BUFFER_API_KEY.
+
+on:
+  workflow_dispatch:
+    inputs:
+      accion:
+        description: 'probar (no publica) o video'
+        type: choice
+        options: [probar, video]
+        default: probar
+      video:
+        description: 'Con «video»: la dirección pública del .mp4'
+        required: false
+        default: ''
+      titulo:
+        description: 'Con «video»: el título (YouTube)'
+        required: false
+        default: 'Prueba de Radar Balcarce'
+
+permissions:
+  contents: read
+
+jobs:
+  buffer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          ACCION: ${{ inputs.accion }}
+          VIDEO: ${{ inputs.video }}
+          TITULO: ${{ inputs.titulo }}
+        run: |
+          if [ "$ACCION" = "probar" ]; then node redes/buffer.mjs --probar; else node redes/buffer.mjs "--video=$VIDEO" "--titulo=$TITULO" "--texto=$TITULO"; fi
