@@ -606,11 +606,6 @@
   "ultimo": "2026-10-22T21:01:49.719Z",
   "motivo": "con cuerpo"
  },
- "17nia8a": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:02:00.813Z",
-  "motivo": "con cuerpo"
- },
  "17pi8dd": {
   "intentos": 1,
   "ultimo": "2026-10-26T08:01:24.151Z",
@@ -664,22 +659,20 @@
   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy"
  },
  "18po634": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T11:31:52.432Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"xeneize\", que sale de una nota anterior, como si fuera de hoy",
+  "intentos": 3,
+  "ultimo": "2026-10-26T12:02:11.561Z",
+  "motivo": "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no; sin esas oraciones quedan 53 palabras",
   "textos": 6,
   "numeradas": 6,
   "motivos": [
-   "título o bajada: 2 problemas (antecedente, relleno): el copete usa \"do",
    "título o bajada: 1 problema (antecedente): el copete usa \"xeneize\", qu",
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no",
-   "título o bajada: 1 problema (antecedente): el copete usa \"xeneize\", qu"
+   "título o bajada: 1 problema (antecedente): el copete usa \"xeneize\", qu",
+   "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no"
   ],
   "falla": [
-   "el copete usa \"xeneize\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo nombra a \"fernando\" y la fuente no",
-   "el cuerpo nombra a \"gago\" y la fuente no",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el cuerpo nombra a \"club\" y la fuente no",
+   "el cuerpo nombra a \"ribera\" y la fuente no"
   ]
  },
  "18q724f": {
@@ -1374,6 +1367,13 @@
   "ultimo": "2026-10-24T00:31:43.933Z",
   "motivo": "con cuerpo"
  },
+ "1h1irbf": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:02:11.561Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "1h3sch4": {
   "intentos": 1,
   "ultimo": "2026-10-22T22:31:46.685Z",
@@ -1387,11 +1387,6 @@
  "1h6ga4e": {
   "intentos": 1,
   "ultimo": "2026-10-21T02:01:16.093Z",
-  "motivo": "con cuerpo"
- },
- "1h6s4i8": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:02:00.813Z",
   "motivo": "con cuerpo"
  },
  "1h7qdw1": {
@@ -1630,11 +1625,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 13
- },
- "1jl00o6": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:02:00.813Z",
-  "motivo": "con cuerpo"
  },
  "1jltpu6": {
   "intentos": 1,
@@ -3429,6 +3419,13 @@
   "ultimo": "2026-10-23T07:03:52.312Z",
   "motivo": "con cuerpo"
  },
+ "8xm2jg": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:02:11.561Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "8zp46n": {
   "intentos": 3,
   "ultimo": "2026-10-25T18:31:33.643Z",
@@ -3728,11 +3725,6 @@
   "ultimo": "2026-10-20T08:31:15.678Z",
   "motivo": "cuerpo corto (66 palabras)"
  },
- "cezsut": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:02:00.813Z",
-  "motivo": "con cuerpo"
- },
  "cf054h": {
   "intentos": 1,
   "ultimo": "2026-10-19T16:03:09.982Z",
@@ -3918,8 +3910,8 @@
   ]
  },
  "eemyb": {
-  "intentos": 4,
-  "ultimo": "2026-10-26T11:31:52.432Z",
+  "intentos": 5,
+  "ultimo": "2026-10-26T12:02:11.561Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 9,
   "numeradas": 29,
@@ -3927,7 +3919,8 @@
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no"
+   "la fuente niega algo en el título y el texto nuevo no",
+   "copia 14 palabras seguidas del original (\"comenzo el partido en el banco de suplentes e ingreso en el segundo tiempo\"): decilo con otras pal"
   ]
  },
  "efyhc4": {
@@ -4378,6 +4371,13 @@
   "intentos": 2,
   "ultimo": "2026-10-23T00:31:44.453Z",
   "motivo": "con cuerpo"
+ },
+ "krz5as": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:02:11.561Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 25
  },
  "ktr4gj": {
   "intentos": 1,
@@ -5249,6 +5249,13 @@
   "ultimo": "2026-10-20T19:02:09.668Z",
   "motivo": "con cuerpo"
  },
+ "snq9oy": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:02:11.561Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "socbxm": {
   "intentos": 1,
   "ultimo": "2026-10-20T10:01:21.852Z",
@@ -5731,11 +5738,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 15
- },
- "xb1ppr": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:02:00.813Z",
-  "motivo": "con cuerpo"
  },
  "xh1glv": {
   "intentos": 1,

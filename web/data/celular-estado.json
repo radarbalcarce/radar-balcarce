@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T11:34:01.220Z",
+ "generado": "2026-10-26T12:06:24.569Z",
  "portada": 77,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-26T11:34:01.772Z",
+  "generado": "2026-10-26T12:06:24.958Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "8xm2jg",
+      "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "1qjwv3r",
       "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
       "seccion": "Fútbol"
      },
      {
+      "id": "1h1irbf",
+      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "c4wrll",
       "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
       "seccion": "Salud"
-     },
-     {
-      "id": "19ok4f7",
-      "titulo": "Colapinto abandona en el Gran Premio de Estados Unidos tras un toque",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1acuwye",
-      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -129,8 +129,39 @@
     "segundos": 49,
     "notas": [
      {
-      "id": "1kk1sil",
-      "titulo": "Santiago Amadeo analiza el presente deportivo de Amigos Unidos",
+      "id": "x8mixn",
+      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1covbx8",
+      "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1acuwye",
+      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "15wslu0",
+      "titulo": "Anses paga a jubilados y desempleados con documentos terminados en 2 y 3",
+      "seccion": "Economía"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
+    "notas": [
+     {
+      "id": "323mbq",
+      "titulo": "Real Madrid le gana 2 a 1 al Barcelona con un doblete de Mbappé",
       "seccion": "Fútbol"
      },
      {
@@ -149,37 +180,6 @@
       "seccion": "Argentina"
      }
     ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 50,
-    "notas": [
-     {
-      "id": "x8mixn",
-      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "53yara",
-      "titulo": "Supermercados mayoristas lanzan una semana de descuentos",
-      "seccion": "Economía"
-     },
-     {
-      "id": "njwqjk",
-      "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1j0p7xa",
-      "titulo": "Mar del Plata registra una jornada fría y nublada",
-      "seccion": "Argentina"
-     }
-    ]
    }
   ],
   "facebook": {
@@ -191,6 +191,12 @@
     }
    ],
    "cola": [
+    {
+     "id": "1h1irbf",
+     "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
     {
      "id": "1s2s6et",
      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",

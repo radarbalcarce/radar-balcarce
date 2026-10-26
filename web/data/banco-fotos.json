@@ -22978,9 +22978,7 @@
   "fuentes": 2
  },
  "157sicu": {
-  "archivo": "fotos-notas/157sicu.jpg",
   "medio": "La Brújula 24",
-  "credito": "Foto: La Brújula 24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei viaja a España para cumplir una agenda política",
@@ -23000,7 +22998,8 @@
    "descripcion": "Javier Milei sonriendo y saludando al aire."
   },
   "huella": "5971276725e6e3cb",
-  "ausenteDesde": "2026-10-19T12:03:49.243Z"
+  "intentado": true,
+  "borrada": true
  },
  "17nia8a": {
   "archivo": "fotos-notas/17nia8a.jpg",
@@ -41687,7 +41686,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con la leyenda Argentina Week"
   },
-  "huella": "6f4317139797878f"
+  "huella": "6f4317139797878f",
+  "ausenteDesde": "2026-10-26T12:06:24.516Z"
  },
  "11t01rk": {
   "archivo": "fotos-notas/11t01rk.jpg",
@@ -42364,15 +42364,28 @@
   "huella": "0b084e4e160f0b4c"
  },
  "2rtl95": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/2rtl95.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Liverpool vence 2 a 0 a Brighton y trepa a puestos de Champions",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: la respuesta no es JSON); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T11:02:22.987Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "la respuesta no es JSON"
+  "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/liverpool-alexis-mac-allister-brighton-premier-league-vivo_0_kgJguyci1G.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/25/Spc_CVwY3_2000x1500__1.jpg",
+  "razon": "Es la única foto que corresponde claramente al partido, tiene excelente nitidez y encuadre de un jugador del equipo, y no posee marcas de agua ni restricciones.",
+  "cuando": "2026-10-26T12:04:07.946Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador con la camiseta del Liverpool en medio de un partido"
+  },
+  "huella": "474b55963543564a"
  },
  "1j0p7xa": {
   "archivo": "fotos-notas/1j0p7xa.jpg",
@@ -42444,6 +42457,115 @@
    "corresponde": "si",
    "descripcion": "Lula da Silva sonriendo y haciendo gestos junto a una cabina de votación"
   },
-  "huella": "361313173313135b"
+  "huella": "361313173313135b",
+  "ausenteDesde": "2026-10-26T12:06:24.516Z"
+ },
+ "1h1irbf": {
+  "archivo": "fotos-notas/1h1irbf.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/sebastian-pinilla-propuso-tomar-el-trabajo-realizado-con-el-upd-como-ejemplo-para-la-estudiantina",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Sebastian%20Pinilla%20en%20Polemca.png",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no tiene marcas agregadas ni menores.",
+  "cuando": "2026-10-26T12:04:07.946Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre adulto sentado hablando ante un micrófono en una mesa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Hombre adulto sentado en una mesa con micrófonos durante una conferencia o reunión."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b3b6b7f3636931b3"
+ },
+ "8xm2jg": {
+  "archivo": "fotos-notas/8xm2jg.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
+  "enlace": "https://eldiariobalcarce.com.ar/santiago-lantella-brillo-en-el-fangio-gano-3-competencias-642",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-26-11-57-24IMG_3362.jpg",
+  "razon": "Es la única foto disponible, corresponde perfectamente a la competencia en el autódromo y cumple con todos los requisitos de calidad sin marcas ni menores.",
+  "cuando": "2026-10-26T12:04:07.946Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Autos de carrera compitiendo en el autódromo Juan Manuel Fangio"
+  },
+  "huella": "43d7c50d832f4deb"
+ },
+ "snq9oy": {
+  "archivo": "fotos-notas/snq9oy.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
+  "enlace": "https://www.perfil.com/noticias/economia/arca-reglamento-la-inocencia-fiscal-ii-quienes-pueden-adherir-y-que-cambia-desde-ahora.phtml",
+  "imagenOriginal": "https://fotos.perfil.com/2026/03/31/trim/1140/641/dolar-colchon-2212651.jpg",
+  "razon": "La foto B es la única limpia de marcas de agua y gráficos sobreimpresos, ilustrando de forma adecuada y sin alteraciones el tema económico.",
+  "cuando": "2026-10-26T12:04:07.946Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Billete de cien dólares guardados debajo de un colchón"
+  },
+  "huella": "fcbfc6824a4a321a"
+ },
+ "krz5as": {
+  "archivo": "fotos-notas/krz5as.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto abandona en Estados Unidos y Antonelli acaricia el título",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/25/franco-colapinto-afronta-el-gp-de-estados-unidos-desde-el-fondo-de-la-grilla-largara-21/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/colapinto-abandono-en-la-vuelta-38-de-la-carrera-en-austin-foto-reuters-KYSXGYQYQZAGFK6WAKWUNYO4T4.jpg?auth=afedf093b0252655d6c6ab2e8ba32efe9b1216e8256695a3fcf2ae82581c1e0e&width=1023",
+  "razon": "Muestra claramente el auto de frente en pista con gran nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-26T12:04:07.946Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de frente en pista"
+  },
+  "huella": "0b15498aca9a96b6"
  }
 }
