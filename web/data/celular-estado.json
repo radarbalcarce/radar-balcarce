@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T16:41:01.098Z",
+ "generado": "2026-10-26T17:04:33.860Z",
  "portada": 90,
  "archivo": 499,
- "esperandoCuerpo": 36,
+ "esperandoCuerpo": 43,
  "redes": {
-  "generado": "2026-10-26T16:41:01.633Z",
+  "generado": "2026-10-26T17:04:34.157Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -129,11 +129,6 @@
     "segundos": 49,
     "notas": [
      {
-      "id": "qx4jfi",
-      "titulo": "Convocan a reunión educativa tras incidentes en la Estudiantina",
-      "seccion": "Educación"
-     },
-     {
       "id": "1qjwv3r",
       "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
       "seccion": "Fútbol"
@@ -142,6 +137,11 @@
       "id": "iz5wec",
       "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "qx4jfi",
+      "titulo": "Convocan a reunión educativa tras incidentes en la Estudiantina",
+      "seccion": "Educación"
      },
      {
       "id": "qe737u",
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
      {
-      "id": "bvcva5",
-      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
+      "id": "18zumrm",
+      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
       "seccion": "Fútbol"
      },
      {
-      "id": "1969ryn",
-      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
+      "id": "1r0wt8z",
+      "titulo": "ANSES confirma el calendario de pagos de noviembre de 2026",
       "seccion": "Economía"
-     },
-     {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
      },
      {
       "id": "m94rdd",
       "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
       "seccion": "Argentina"
+     },
+     {
+      "id": "pl8yzi",
+      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+      "seccion": "Agro"
      }
     ]
    }
@@ -198,6 +198,11 @@
      "id": "1s2s6et",
      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
      "cuando": "2026-10-26T14:36:01.340Z"
+    },
+    {
+     "id": "bvcva5",
+     "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
+     "cuando": "2026-10-26T16:36:12.712Z"
     }
    ],
    "cola": [
@@ -226,12 +231,6 @@
      "marcada": false
     },
     {
-     "id": "bvcva5",
-     "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "18zumrm",
      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
      "seccion": "Fútbol",
@@ -248,10 +247,16 @@
      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
      "seccion": "Economía",
      "marcada": false
+    },
+    {
+     "id": "pl8yzi",
+     "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+     "seccion": "Agro",
+     "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-26T16:06:01.340Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-26T18:06:12.712Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
