@@ -15026,9 +15026,7 @@
   "ausenteDesde": "2026-10-23T16:15:24.773Z"
  },
  "95znl3": {
-  "archivo": "fotos-notas/95znl3.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Registro Civil suspende casamientos para el martes 13",
@@ -15036,7 +15034,17 @@
   "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66029.png",
   "razon": "Es la única foto disponible, tiene buena nitidez y encuadre acorde a la temática, sin marcas ni menores.",
   "cuando": "2026-10-13T13:08:52.099Z",
-  "huella": "8494969313130d1f"
+  "huella": "8494969313130d1f",
+  "intentado": true,
+  "descartada": {
+   "motivo": "parece una foto de stock",
+   "cuando": "2026-10-26T23:14:37.102Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/95znl3.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66029.png",
+   "huella": "8494969313130d1f"
+  }
  },
  "uestws": {
   "archivo": "fotos-notas/uestws.jpg",
@@ -16052,9 +16060,7 @@
   }
  },
  "11eff0s": {
-  "archivo": "fotos-notas/11eff0s.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Balcarce evalúa su postura judicial ante la quita del régimen de Zona Fría",
@@ -16062,7 +16068,17 @@
   "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/2024-05-29-17-3-54GAS_CAMUZZI.jpeg",
   "razon": "Es la única foto disponible, cumple con los requisitos y no tiene marcas ni menores.",
   "cuando": "2026-10-14T14:04:59.567Z",
-  "huella": "ad2e0733339e9915"
+  "huella": "ad2e0733339e9915",
+  "intentado": true,
+  "descartada": {
+   "motivo": "esa misma foto se sacó de «El Gobierno promulga la Ley 27.828 que modifica el régimen de Zona Fría» (no corresponde a la nota)",
+   "cuando": "2026-10-26T23:14:37.102Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/11eff0s.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/2024-05-29-17-3-54GAS_CAMUZZI.jpeg",
+   "huella": "ad2e0733339e9915"
+  }
  },
  "11uyvlg": {
   "medio": "El Destape",
