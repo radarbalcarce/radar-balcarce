@@ -506,17 +506,13 @@ ni reels de una sola nota: dichas de a una sonaban raras.
    Política ni Policiales, con cuerpo, que no sea nota propia (salvo la de una
    pista aprobada para las redes) y, si la publicó una persona, que la haya
    marcado para las redes. **De Balcarce
-   primero** (`esParaLasRedes`, la misma regla que Facebook); **de afuera**,
-   desde el 29/09, sólo con relevancia 80 o más (también a la noche) **y, desde el
-   17/10 (regla 280), que las cuenten 5 medios o más** (`esPopularParaRedes`), y **dos
-   como mucho por repaso**, las de más puntaje (`PIEZAS.relevanciaAfueraPodcast`
-   y `PIEZAS.notasDeAfueraPorPodcast`; Hernán: "podrían ser también fuera de
-   Balcarce si son las mejores rankeadas"). Compiten por puntaje con las de acá.
+   primero** (`esParaLasRedes`, la misma regla que Facebook) y **después lo más
+   contado** (cuántos medios), sin piso de puntaje ni tope de afuera (25/10,
+   `elegirParaPodcast`).
 2. **Los tres, 4 notas** (29/09; eran 3 a la mañana y a la tarde), y **ninguno
    repite** una nota ni un tema que ya contó otro repaso de hoy o de los dos días
    anteriores (`notasContadasEnPodcasts`, `repasosDelDia` en `redes/repasos.mjs`).
-3. **Mañana y tarde:** relevancia 62 o más. **Noche:** lo que dejó el día y
-   todavía no se contó, sin piso de relevancia. Un día flojo, un repaso sale con
+3. Los tres eligen igual (25/10: sin piso de relevancia a ninguna hora). Un día flojo, un repaso sale con
    las notas nuevas que haya (hasta 2).
 4. El mismo hecho contado por dos medios cuenta una vez (`mismoTema`: comparten
    una palabra rara de siete letras o más; más estricto que el `temaParecido`

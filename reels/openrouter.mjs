@@ -97,7 +97,7 @@ export function reiniciarEstadoDelProceso() {
 /** Cuántos pedidos a OpenRouter se hicieron hoy (el día de Balcarce): lo anotado en uso-ia.json o lo contado en esta corrida, lo que sea mayor. */
 export function pedidosDeHoy({ ahora = new Date(), archivoDeUso = ARCHIVO_DE_USO } = {}) {
   const dia = diaAR(ahora);
-  const delDia = leerJson(archivoDeUso, { dias: {} })?.dias?.[dia] ?? {};
+  const delDia = (archivoDeUso ? leerJson(archivoDeUso, { dias: {} }) : null)?.dias?.[dia] ?? {};
   let anotados = 0;
   for (const modelos of Object.values(delDia)) {
     for (const m of Object.values(modelos ?? {})) anotados += Number(m?.claves?.openrouter) || 0;
@@ -163,7 +163,8 @@ export async function pedirJsonAOpenRouter({
   const motivos = [];
   let ultimoStatus = null;
   for (const modelo of lista.slice(0, INTENTOS_POR_PEDIDO)) {
-    const hechos = pedidosDeHoy({ ahora, archivoDeUso: archivoDeUso ?? ARCHIVO_DE_USO });
+    // En las pruebas, sin un archivo propio, no se lee el uso real del día (el 25/10 tres pruebas fallaban porque producción llegó a su tope).
+    const hechos = pedidosDeHoy({ ahora, archivoDeUso: archivoDeUso ?? process.env.USO_IA_ARCHIVO ?? (process.env.NODE_TEST_CONTEXT ? null : ARCHIVO_DE_USO) });
     if (hechos >= limite) {
       rechazar(`HTTP 429: tope propio del día para ${tarea}, ${hechos} de ${limite} pedidos${motivos.length ? `; antes: ${motivos.join('; ')}` : ''}`, 429);
     }

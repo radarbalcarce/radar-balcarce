@@ -35,7 +35,7 @@ import {
   CLIMA_VOZ, PODCAST_VOZ, PIEZA_FIJA_VOZ,
 } from '../redes/guiones.mjs';
 import {
-  repasoConPresupuesto, elegirParaPodcast, REGLAS_PIEZAS, mensajeDeNota, FRASES_DEL_ENLACE, HASHTAGS_FIJOS,
+  repasoConPresupuesto, elegirParaPodcast, mensajeDeNota, FRASES_DEL_ENLACE, HASHTAGS_FIJOS,
 } from '../redes/elegir.mjs';
 import { pieDePieza, PODCASTS } from '../redes/piezas.mjs';
 import { IDS_PARTICIPA, guionParticipa } from '../redes/participa.mjs';
@@ -48,7 +48,7 @@ import { planDelDia } from '../reels/plan.mjs';
 // historias-largas.test.mjs), y el de la noche con las notas que elige el plan.
 const guionRepaso = (notas, opciones) => repasoConPresupuesto(notas, { ...opciones, presupuesto: Infinity })?.guion ?? null;
 const guionPodcast = (notas, { fecha } = {}) => repasoConPresupuesto(
-  elegirParaPodcast(notas, { cuantas: criterio.PIEZAS.notasPorPodcast }, { ...REGLAS_PIEZAS, relevanciaParaPodcast: 0 }),
+  elegirParaPodcast(notas, { cuantas: criterio.PIEZAS.notasPorPodcast }),
   { momento: 'noche', fecha },
 )?.guion ?? null;
 

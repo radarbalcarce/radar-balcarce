@@ -5,7 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  elegirParaFacebook, vaAFacebookPorLoQueEs, esPopularParaRedes, elegirParaPodcast, sePuedeSola, libroNuevo, anotar, REGLAS_FACEBOOK, REGLAS_PIEZAS,
+  elegirParaFacebook, vaAFacebookPorLoQueEs, esPopularParaRedes, elegirParaPodcast, sePuedeSola, libroNuevo, anotar, REGLAS_FACEBOOK,
 } from '../redes/elegir.mjs';
 import { mediosDeLaNota, contarMedios } from '../redes/medios-contados.mjs';
 import { candidatasSinPublicar } from '../redes/contrato.mjs';
@@ -93,7 +93,6 @@ test('los repasos (reel e historia) también piden que lo de afuera sea de lo m�
   const elegidas = elegirParaPodcast([nn('pocos', { medios: medios(2), titulo: 'Reforma jubilatoria: lo que cambia desde enero próximo' }), nn('muchos', { medios: medios(9), titulo: 'Récord de exportaciones de soja en el último trimestre' })], { cuantas: 4 });
   // 25/10/2026: lo más contado va primero; la de 2 medios ya no deja el repaso corto: entra a completar (los dueños: "el repaso tiene que tener noticias").
   assert.deepEqual(elegidas.map((n) => n.id), ['muchos', 'pocos'], 'primero lo más contado; lo poco contado sólo completa');
-  assert.equal(REGLAS_PIEZAS.relevanciaAfuera, 80, 'el puntaje de lo de afuera sigue valiendo: se piden las dos cosas');
   assert.equal(sePuedeSola(nn('muchos', { medios: medios(9) })), false, 'una pieza sola sigue siendo sólo de Balcarce');
 });
 

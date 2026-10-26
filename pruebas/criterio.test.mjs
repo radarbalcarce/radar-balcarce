@@ -26,7 +26,7 @@ import {
   INSTRUCCION_EDITORIAL, CRITERIO_EDITORIAL, PALABRAS_SERIAS, esTemaSerio,
   MAXIMO_DE_INTENTOS, PALABRAS_MINIMAS_DE_MATERIAL, DIAS_DE_INTENTOS, REESCRITURAS_POR_CORRIDA,
 } from '../reels/reescritura.mjs';
-import { REGLAS_FACEBOOK, REGLAS_PIEZAS, SECCIONES_QUE_ESPERAN_PERSONA } from '../redes/elegir.mjs';
+import { REGLAS_FACEBOOK, SECCIONES_QUE_ESPERAN_PERSONA } from '../redes/elegir.mjs';
 import { PALABRAS_MINIMAS_CUERPO } from '../web/lib/cuerpo.js';
 import { HORAS_EN_PORTADA, DIAS_DE_ARCHIVO, MAXIMO_EN_ARCHIVO } from '../web/lib/archivo.js';
 
@@ -108,13 +108,9 @@ test('los que usan los números los toman del criterio (o dicen lo mismo)', () =
   // de una nota y el feed de fotos de Instagram se sacaron del código (no salían
   // desde el 24/09), y sus números (historiasDeNotas, relevanciaFeed y
   // feedPorDia) se borraron de ingesta/criterio.mjs y de la tabla.
-  // Desde el 29/09, también lo de afuera en los repasos: su puntaje mínimo y
-  // cuántas como mucho.
-  assert.deepEqual(Object.keys(REGLAS_PIEZAS), ['relevanciaParaPodcast', 'relevanciaAfuera', 'afueraPorPodcast']);
+  // 25/10/2026: los repasos ya no tienen piso de puntaje ni tope de afuera (una sola regla, elegirParaPodcast).
+  assert.deepEqual(Object.keys(PIEZAS), ['notasPorPodcast', 'notasMinimasPodcast']);
   for (const k of ['historiasDeNotas', 'relevanciaFeed', 'feedPorDia']) assert.ok(!(k in PIEZAS), `PIEZAS.${k} ya no existe`);
-  assert.equal(REGLAS_PIEZAS.relevanciaParaPodcast, PIEZAS.relevanciaPodcast);
-  assert.equal(REGLAS_PIEZAS.relevanciaAfuera, PIEZAS.relevanciaAfueraPodcast);
-  assert.equal(REGLAS_PIEZAS.afueraPorPodcast, PIEZAS.notasDeAfueraPorPodcast);
   assert.deepEqual([...SECCIONES_QUE_ESPERAN_PERSONA].sort(), [...criterio.SECCIONES_QUE_ESPERAN_PERSONA].sort());
   // Los tres que viven en web/lib porque los compila la web.
   assert.equal(PALABRAS_MINIMAS_CUERPO, CUERPO.minimoParaPublicar);
@@ -218,7 +214,6 @@ test('los números que el documento repite en el texto son los de la tabla', () 
     `de ${FACEBOOK.desdeHora} a ${FACEBOOK.hastaHora}:00 en punto`,
     `con ${FACEBOOK.minutosEntrePosteos} minutos entre una y otra`,
     `en las últimas ${FACEBOOK.horasSinRepetirTema} horas`,
-    `relevancia ${PIEZAS.relevanciaPodcast} o más`,
     `con menos de ${EN_PALABRAS[PIEZAS.notasMinimasPodcast]} notas, ese podcast no sale`,
     `la página dura ${PORTADA.diasDeArchivo} días`,
   ];

@@ -61,9 +61,7 @@ export const REGLAS_FACEBOOK = {
   // nueva con 90 posteos por día pierde alcance y parece un robot. Cinco buenas
   // por día, y más adelante se mezclan con las notas propias y originales.
   porDia: FACEBOOK.porDia,
-  // El 75 (Balcarce, para ir solo a Facebook) es el piso de los repasos (62) más margen: un posteo suelto se ve solo y tiene que ser de lo mejor del día;
-  // en un repaso la nota viaja con otras. El 80 de afuera en un repaso (PIEZAS.relevanciaAfueraPodcast) es de la regla 29/09 y deja afuera casi todo
-  // lo nacional (docs/CATALOGO-DE-NUMEROS.md § 4, docs/auditoria-2-0/C-REDES.md H-13): decisión del dueño, no se toca acá.
+  // El 75: un posteo suelto se ve solo y tiene que ser de lo mejor del día (los repasos no piden puntaje desde el 25/10).
   relevanciaMinima: FACEBOOK.relevanciaMinima,
   mediosParaRedes: FACEBOOK.mediosParaRedes, // lo de afuera sólo sale si lo cuentan tantos medios distintos o más (regla 280)
   porCorrida: 1,           // así no salen dos pegadas
@@ -498,19 +496,12 @@ export function mensajeDeNota(nota, sitio, origen = null) {
 
 // ------------------------------------------------------------- los podcasts
 //
-// Las notas de los podcasts (reels/plan.mjs, en GitHub o en la PC) se eligen
-// con las mismas reglas de fondo que Facebook: nada sensible solo. Lo de
-// Balcarce primero; lo de afuera, desde el 29/09, sólo si está entre lo de más
-// puntaje y como mucho dos por repaso. Está acá, y no en plan.mjs, porque
+// Las notas de los repasos (reels/plan.mjs) se eligen con las mismas reglas de
+// fondo que Facebook: nada sensible solo. Lo de Balcarce primero y después lo
+// más contado (25/10, `elegirParaPodcast`). Está acá, y no en plan.mjs, porque
 // plan.mjs necesita resvg y ffmpeg instalados y esto se prueba sin nada. Desde
 // el 24/09 no hay historias ni reels de UNA nota, ni fotos en el feed de
 // Instagram fuera del espejo de Facebook: las notas salen dentro de los podcasts.
-
-export const REGLAS_PIEZAS = {
-  relevanciaParaPodcast: PIEZAS.relevanciaPodcast,
-  relevanciaAfuera: PIEZAS.relevanciaAfueraPodcast,
-  afueraPorPodcast: PIEZAS.notasDeAfueraPorPodcast,
-};
 
 /**
  * ¿Es para las redes? Por ahora sólo va lo de Balcarce (Hernán, 27/09): una
@@ -612,51 +603,26 @@ function cierraOracion(antes) {
   return true;
 }
 
-/** Las notas de un podcast: las de más puntaje, de temas distintos, sin
- *  repetir las que ya se contaron en otro podcast del día (`excluir`). Primero
- *  una por sección, para que un podcast no sea tres notas del mismo evento
- *  (el 24/09 salían tres del autódromo); si sobra lugar, se completa por
- *  puntaje. Lo de afuera (29/09) compite por puntaje con lo de acá, pero sólo
- *  con `relevanciaAfuera` o más (también a la noche) y hasta `afueraPorPodcast`
- *  notas: las de más puntaje. */
-export function elegirParaPodcast(notas, { cuantas = PIEZAS.notasPorPodcast, excluir = [] } = {}, reglasPedidas = REGLAS_PIEZAS) {
-  const reglas = { ...REGLAS_PIEZAS, ...reglasPedidas };
-  // Lo que una persona pidió para el próximo repaso (`paraElRepaso`, notas de pistas aprobadas para las redes) entra primero, sin pasar por el puntaje.
+/** Las notas de un repaso (25/10/2026, una sola regla, los dueños: "el repaso tiene que tener noticias; si no son de Balcarce y no están como
+ *  posteos, que siga con otras notas con muchas fuentes"):
+ *    1. lo que una persona pidió para el repaso (`paraElRepaso`);
+ *    2. lo de Balcarce (`esParaLasRedes`), de más a menos puntaje;
+ *    3. el resto, de lo más contado (cuántos medios) a lo menos.
+ *  Sin pisos de puntaje ni topes de notas de afuera. Primero una por sección (el 24/09 salían tres del autódromo) y temas distintos, sin repetir lo
+ *  que ya contó otro repaso o salió como posteo (`excluir`). Nunca: lo rojo, Política y Policiales, lo que espera cuerpo y lo que no es noticia. */
+export function elegirParaPodcast(notas, { cuantas = PIEZAS.notasPorPodcast, excluir = [] } = {}) {
   const pedidas = sinRepetidos(notas.filter((n) => n.paraElRepaso === true && sePuedeEnUnRepaso(n)).sort(porRelevancia), excluir).slice(0, Math.max(0, cuantas - 1));
-  // Lo de afuera, además del puntaje, tiene que ser de lo más contado del país (esPopularParaRedes, regla 280): el reel y la historia también son Facebook e Instagram.
-  const alcanza = (n) => (n.relevancia ?? 0) >= (esParaLasRedes(n) ? reglas.relevanciaParaPodcast : reglas.relevanciaAfuera)
-    && (esParaLasRedes(n) || esPopularParaRedes(n));
-  let deAfuera = 0;
+  const orden = (a, b) => Number(esParaLasRedes(b)) - Number(esParaLasRedes(a))
+    || (esParaLasRedes(a) ? porRelevancia(a, b) : (mediosDeLaNota(b) - mediosDeLaNota(a) || porRelevancia(a, b)));
   const candidatas = sinRepetidos(
-    [...notas]
-      .filter(sePuedeEnUnRepaso)
-      .filter((n) => !pedidas.includes(n))
-      .filter(alcanza)
-      .sort(porRelevancia),
-    excluir,
-  ).filter((n) => esParaLasRedes(n) || (deAfuera += 1) <= reglas.afueraPorPodcast);
-  const secciones = new Set();
-  for (const n of pedidas) secciones.add(n.seccion);
-  const lugares = cuantas - pedidas.length;
-  const variadas = candidatas.filter((n) => {
-    if (secciones.has(n.seccion)) return false;
-    secciones.add(n.seccion);
-    return true;
-  }).slice(0, lugares);
-  const resto = candidatas.filter((n) => !variadas.includes(n));
-  const elegidas = [...pedidas, ...[...variadas, ...resto].slice(0, lugares).sort(porRelevancia)];
-  // 25/10/2026 (los dueños: "el repaso tiene que tener noticias; si no son de Balcarce y no están como posteos, que siga con otras notas con muchas
-  // fuentes"): un repaso nunca queda sin salir por falta de puntaje. Lo que falta se completa con lo más contado que queda (cuántos medios, después
-  // el puntaje), sin piso ni tope de lo de afuera; siguen afuera lo rojo, Política y Policiales, lo que espera cuerpo y lo que no es noticia.
-  if (elegidas.length >= cuantas) return elegidas;
-  const completar = sinRepetidos(
-    notas
-      .filter(sePuedeEnUnRepaso)
-      .filter((n) => !noEsNoticiaAunqueLaCuentenTodos(n?.titulo))
-      .sort((a, b) => mediosDeLaNota(b) - mediosDeLaNota(a) || porRelevancia(a, b)),
-    [...excluir, ...elegidas],
+    notas.filter((n) => !pedidas.includes(n) && sePuedeEnUnRepaso(n) && !noEsNoticiaAunqueLaCuentenTodos(n?.titulo)).sort(orden),
+    [...excluir, ...pedidas],
   );
-  return [...elegidas, ...completar.slice(0, cuantas - elegidas.length)];
+  const secciones = new Set(pedidas.map((n) => n.seccion));
+  const lugares = cuantas - pedidas.length;
+  const variadas = candidatas.filter((n) => !secciones.has(n.seccion) && secciones.add(n.seccion)).slice(0, lugares);
+  const resto = candidatas.filter((n) => !variadas.includes(n));
+  return [...pedidas, ...[...variadas, ...resto].slice(0, lugares).sort(orden)];
 }
 
 /**

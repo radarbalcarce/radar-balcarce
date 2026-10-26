@@ -182,10 +182,10 @@ Lo común a todas:
   como historia y Meta acepta hasta 60. Si no entra, primero se saca la oración de
   contexto de las últimas notas y después notas del final, hasta un mínimo de dos. Un día
   flojo, sale con las notas nuevas que haya; con menos de dos, ese repaso no sale.
-- **Lleva:** titulares ya publicados en la web, de temas distintos, de Balcarce primero.
-  Desde el 29/09 también **hasta dos notas de afuera** por repaso, si están entre las de
-  más puntaje (80 o más, también a la noche): "podrían ser también fuera de Balcarce si
-  son las mejores rankeadas" (Hernán).
+- **Lleva:** titulares ya publicados en la web, de temas distintos: **lo de Balcarce
+  primero y, si no alcanza, lo más contado del día** (cuántos medios lo cuentan), sin
+  piso de puntaje ni tope de notas de afuera (25/10: "el repaso tiene que tener noticias").
+  Nada que ya haya salido como posteo.
 - **No lleva nunca:** Política ni Policiales, nada en rojo, las notas propias del sitio,
   la fuente de ninguna nota, ni nombres de víctimas o menores.
 - **Cómo se ve** (17/10, regla 209): el video sigue a la voz. Arranca con la primera nota,

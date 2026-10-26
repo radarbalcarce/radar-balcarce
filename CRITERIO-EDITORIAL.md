@@ -830,9 +830,9 @@ manda sobre lo que se repita acá. Los horarios y cómo se publica, en
 - **Instagram** recibe video con voz (historias y reels) y el espejo de cada posteo de
   Facebook, con la foto de la nota del banco propio (sin marca de agua, con el crédito en
   el texto) o, si no hay, la placa.
-- **Podcasts en vez de noticias sueltas:** tres por día, de cuatro notas, con notas de
-  Balcarce de relevancia 62 o más (el de la noche, sin mínimo: repasa el día) y hasta dos
-  de afuera con 80 o más, de temas distintos y sin repetir las de otro repaso.
+- **Podcasts en vez de noticias sueltas:** tres por día, de cuatro notas: lo de Balcarce
+  primero y, si no alcanza, lo más contado del día (sin piso de puntaje), de temas distintos
+  y sin repetir las de otro repaso ni lo que ya salió como posteo.
 
 ## 10. Correcciones y firma
 
@@ -959,11 +959,8 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Facebook: horas sin repetir un tema | 24 | `FACEBOOK.horasSinRepetirTema` |
 | Facebook: horas que espera una nota sin foto | 3 | `FACEBOOK.horasEsperandoFoto` |
 | Facebook: horas que espera una nota con sólo una ilustración de IA a que llegue la foto real (0 = no espera) | 0 | `FACEBOOK.horasEsperandoFotoReal` |
-| Podcasts: relevancia mínima | 62 | `PIEZAS.relevanciaPodcast` |
 | Podcasts (los tres repasos): notas | 4 | `PIEZAS.notasPorPodcast` |
 | Podcast: notas mínimas para que salga | 2 | `PIEZAS.notasMinimasPodcast` |
-| Podcasts: relevancia mínima de una nota de afuera (también a la noche) | 80 | `PIEZAS.relevanciaAfueraPodcast` |
-| Podcasts: notas de afuera como máximo en cada repaso | 2 | `PIEZAS.notasDeAfueraPorPodcast` |
 | Contrato del día: posteos de notas, como máximo | 5 | `CONTRATO_DIARIO.posteosPorDia` |
 | Contrato del día: reels (los tres podcasts) | 3 | `CONTRATO_DIARIO.reelsPorDia` |
 | Contrato del día: historias de podcast | 3 | `CONTRATO_DIARIO.historiasDePodcast` |

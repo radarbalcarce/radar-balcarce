@@ -342,7 +342,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { claveRedaccion, claveRedes, leerVariable } from '../reels/claves.mjs';
 import {
-  mismoTema, sePuedeSola, sePuedeEnUnRepaso, estaActivo, repasoConPresupuesto, REGLAS_PIEZAS,
+  mismoTema, sePuedeSola, sePuedeEnUnRepaso, estaActivo, repasoConPresupuesto,
 } from '../redes/elegir.mjs';
 import { PIEZAS } from '../ingesta/criterio.mjs';
 
@@ -353,7 +353,7 @@ function guionRepaso(notas, opciones) {
 
 /** El podcast de la noche: elige las notas como el plan y arma el guion con su presupuesto. */
 function guionPodcast(notas, { fecha } = {}) {
-  const elegidas = elegirParaPodcast(notas, { cuantas: PIEZAS.notasPorPodcast }, { ...REGLAS_PIEZAS, relevanciaParaPodcast: 0 });
+  const elegidas = elegirParaPodcast(notas, { cuantas: PIEZAS.notasPorPodcast });
   return repasoConPresupuesto(elegidas, { momento: 'noche', fecha })?.guion ?? null;
 }
 
@@ -601,10 +601,10 @@ test('a las redes va sólo lo de Balcarce; del automovilismo de afuera, lo que n
   assert.deepEqual(elegirParaPodcast([{ ...necochea, relevancia: 75 }, deAca, colapinto, { ...rosario, relevancia: 70 }], { cuantas: 4 }).map((n) => n.id), ['c', 'b', 'n', 'r']);
 });
 
-test('los repasos también cuentan lo de afuera si está entre lo de más puntaje: 80 o más y dos como mucho (29/09)', () => {
+test('los repasos: lo de Balcarce primero y después lo más contado, sin piso de puntaje ni tope de afuera (25/10; casos del 29/09)', () => {
   // Hernán, 29/09: "las 4 noticias podrían ser también fuera de Balcarce si son
   // las mejores rankeadas". Casos de la portada de ese día.
-  // Desde la regla 280 lo de afuera también tiene que ser de lo más contado (cinco medios o más).
+  // 25/10/2026: una sola regla. Lo de acá primero; lo de afuera, por cuántos medios lo cuentan.
   const afuera = (id, titulo, seccion, relevancia, medios = 6) => ({ id, titulo, seccion, relevancia, local: false, semaforo: 'verde', medios: Array.from({ length: medios }, (_, i) => `Medio ${i + 1}`) });
   const notas = [
     afuera('f1', 'Aston Martin renueva los contratos de Fernando Alonso y Lance Stroll', 'Automovilismo', 97),
@@ -617,13 +617,11 @@ test('los repasos también cuentan lo de afuera si está entre lo de más puntaj
     nn('b', 'Pato Naranja gana por 99 a 12 y queda entre los cuatro mejores', 'Deportes', 90),
   ];
   const elegidas = elegirParaPodcast(notas, { cuantas: 4 });
-  assert.deepEqual(elegidas.map((x) => x.id), ['a', 'f1', 'f2', 'b'], 'las dos de afuera de más puntaje, y lo de acá');
-  assert.ok(!elegidas.some((x) => x.id === 'f3'), 'una tercera de afuera no entra aunque tenga 88');
+  assert.deepEqual(elegidas.map((x) => x.id), ['a', 'b', 'f1', 'f2'], 'lo de acá primero, después lo más contado de secciones distintas');
   assert.ok(!elegidas.some((x) => x.id === 'f5'), 'Política nunca, sea de donde sea');
-  assert.ok(!elegidas.some((x) => x.id === 'f6'), 'con 96 pero contada por 2 medios, no es de las más populares (regla 280)');
-  // A la noche lo de acá no pide puntaje; lo de afuera sigue pidiendo 80.
-  const noche = elegirParaPodcast(notas, { cuantas: 4, excluir: elegidas }, { ...REGLAS_PIEZAS, relevanciaParaPodcast: 0 });
-  // 25/10/2026: f3 sigue primera; el resto se completa con lo más contado que queda (f4, 6 medios, antes que f6, 2), y Política (f5) nunca.
+  assert.ok(!elegidas.some((x) => x.id === 'f6'), 'con 96 pero contada por 2 medios, va detrás de lo más contado');
+  const noche = elegirParaPodcast(notas, { cuantas: 4, excluir: elegidas });
+  // El de la noche sigue con lo que queda: f3 y f4 (6 medios) antes que f6 (2); Política (f5) nunca.
   assert.deepEqual(noche.map((x) => x.id), ['f3', 'f4', 'f6'], 'el repaso de la noche no queda corto');
   // Lo de afuera que salió en la web porque lo aprobó una persona, sólo si lo marcó para las redes.
   assert.equal(sePuedeEnUnRepaso({ ...notas[0], como: 'publicada' }), false);

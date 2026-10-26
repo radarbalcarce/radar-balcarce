@@ -277,20 +277,11 @@ export const FACEBOOK = {
   horasEsperandoFotoReal: 0,
 };
 
-/** Las piezas de video: los podcasts. (Las historias de una nota y el feed de
- *  fotos de Instagram se sacaron el 28/09, y con ellos sus números.) Los tres
- *  repasos cuentan cuatro notas desde el 29/09 (Hernán: "capaz que esté bueno
- *  que siempre sean 4"; eran tres a la mañana y a la tarde). Desde el mismo
- *  día también pueden contar notas de afuera, si están entre las de más
- *  puntaje (Hernán: "podrían ser también fuera de Balcarce si son las mejores
- *  rankeadas"): con 80 o más, y dos como mucho por repaso, para que siga
- *  siendo un repaso de Balcarce. */
+/** Los repasos (podcasts): cuatro notas cada uno (29/09, Hernán: "capaz que esté bueno que siempre sean 4"). Qué notas: lo de Balcarce primero y
+ *  después lo más contado, sin pisos de puntaje ni topes de afuera (25/10, los dueños: "el repaso tiene que tener noticias"; `elegirParaPodcast`). */
 export const PIEZAS = {
-  relevanciaPodcast: 62,
   notasPorPodcast: 4,
   notasMinimasPodcast: 2,
-  relevanciaAfueraPodcast: 80,
-  notasDeAfueraPorPodcast: 2,
 };
 
 /**
