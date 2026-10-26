@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T12:52:42.703Z",
- "portada": 85,
+ "generado": "2026-10-26T13:09:56.727Z",
+ "portada": 90,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 0,
  "redes": {
-  "generado": "2026-10-26T12:52:43.117Z",
+  "generado": "2026-10-26T13:09:57.187Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 50,
     "notas": [
@@ -134,11 +134,6 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1h1irbf",
-      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "1covbx8",
       "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
       "seccion": "Automovilismo"
@@ -147,6 +142,11 @@
       "id": "1acuwye",
       "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
       "seccion": "Argentina"
+     },
+     {
+      "id": "yjlxo0",
+      "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 46,
+    "segundos": 48,
     "notas": [
      {
       "id": "18zumrm",
@@ -170,9 +170,9 @@
       "seccion": "Economía"
      },
      {
-      "id": "yjlxo0",
-      "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
-      "seccion": "Cultura y agenda"
+      "id": "pl8yzi",
+      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+      "seccion": "Agro"
      },
      {
       "id": "11t01rk",
@@ -188,6 +188,11 @@
      "id": "1wqyb20",
      "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
      "cuando": "2026-10-26T11:06:02.624Z"
+    },
+    {
+     "id": "1h1irbf",
+     "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+     "cuando": "2026-10-26T12:46:01.809Z"
     }
    ],
    "cola": [
@@ -222,15 +227,15 @@
      "marcada": false
     },
     {
-     "id": "1h1irbf",
-     "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "1s2s6et",
      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "pl8yzi",
+     "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+     "seccion": "Agro",
      "marcada": false
     },
     {
@@ -240,8 +245,8 @@
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-26T12:36:02.624Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-26T14:16:01.809Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

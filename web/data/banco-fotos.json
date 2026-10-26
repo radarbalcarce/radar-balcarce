@@ -31608,7 +31608,8 @@
    "corresponde": "generica",
    "descripcion": "Retrato de Juan Pablo II saludando"
   },
-  "huella": "9c9e9a969e9c9c8c"
+  "huella": "9c9e9a969e9c9c8c",
+  "ausenteDesde": "2026-10-26T13:09:56.651Z"
  },
  "wmfa75": {
   "archivo": "fotos-notas/wmfa75.jpg",
@@ -31657,7 +31658,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con fondo de mármol verde de la ONU"
   },
-  "huella": "4eadcc8c8d6d646c"
+  "huella": "4eadcc8c8d6d646c",
+  "ausenteDesde": "2026-10-26T13:09:56.651Z"
  },
  "s0tjjb": {
   "archivo": "fotos-notas/s0tjjb.jpg",
@@ -33806,7 +33808,8 @@
    "corresponde": "si",
    "descripcion": "Cicinho festejando un gol con el Real Madrid"
   },
-  "huella": "df3b190d3d315849"
+  "huella": "df3b190d3d315849",
+  "ausenteDesde": "2026-10-26T13:09:56.651Z"
  },
  "1m615hw": {
   "intentado": true,
@@ -41694,8 +41697,7 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con la leyenda Argentina Week"
   },
-  "huella": "6f4317139797878f",
-  "ausenteDesde": "2026-10-26T12:06:24.516Z"
+  "huella": "6f4317139797878f"
  },
  "11t01rk": {
   "archivo": "fotos-notas/11t01rk.jpg",
@@ -42776,5 +42778,84 @@
   "intentos": 1,
   "fuentes": 25,
   "intentosPorCupo": 1
+ },
+ "1m9npby": {
+  "archivo": "fotos-notas/1m9npby.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estiman un fuerte repunte de la demanda mundial de alimentos hacia 2035",
+  "enlace": "https://tn.com.ar/campo/2026/10/26/proyectan-un-fuerte-repunte-de-la-demanda-mundial-de-alimentos-y-aseguran-que-argentina-puede-ser-un-proveedor-clave/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/estiman-un-fuerte-repunte-de-la-demanda-mundial-de-productos-agroindustriales-de-cara-a-los-proximos-10-anos-y-argentina-podria-ser-un-abastecedor-clave-foto-fauba-IND6VI3EIVAXPAW6GI6LFNQPFY.jpg?auth=fff386a8c3836e7dcb67b9b95166ba0f8bed13c0f5493ca9e2a1e6fae30a5fee&width=1023",
+  "razon": "Ambas fotos son excelentes y muestran una cosechadora recolectando granos, pero la foto A tiene una nitidez ligeramente superior y ninguna de las dos presenta marcas de agua, menores o problemas de formato.",
+  "cuando": "2026-10-26T13:05:42.709Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de una cosechadora y un tractor con tolva trabajando en un campo cultivado."
+  },
+  "huella": "8b36b974b2d7ed47"
+ },
+ "1fyorld": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-26T13:05:42.709Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
+ },
+ "1ivqjyr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "ARCA intima a colegios privados bonaerenses por aportes previsionales",
+  "razon": "La única foto disponible muestra menores de edad reconocibles, por lo que no puede ser publicada.",
+  "cuando": "2026-10-26T13:05:42.709Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1jwbwgc": {
+  "archivo": "fotos-notas/1jwbwgc.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Carlos Jornet asume la presidencia de la SIP y advierte sobre amenazas a la prensa",
+  "enlace": "https://tn.com.ar/sociedad/2026/10/25/carlos-jornet-asumio-como-presidente-de-la-sip-y-cuestiono-las-amenazas-a-la-libertad-de-prensa/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/carlos-jornet-asumio-como-presidente-de-la-sip-y-cuestiono-las-amenazas-a-la-libertad-de-prensa-foto-sip-YTL7UBNNWJETLFO5RBS5BGGEDM.jpg?auth=0feecfd0d01856dec9085278aabf4d5da675b1def86807ac7b8bb78f13dc721e&width=1023",
+  "razon": "La foto A muestra claramente el evento y a Carlos Jornet con buen encuadre y sin marcas ajenas.",
+  "cuando": "2026-10-26T13:05:42.709Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Carlos Jornet hablando en el estrado durante la sesion de clausura de la SIP"
+  },
+  "huella": "1f3b66ec9a8b9e91"
+ },
+ "1fezvyn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Brasil define su próximo presidente en el balotaje entre Lula y Flávio Bolsonaro",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T13:05:42.709Z",
+  "intentos": 1,
+  "fuentes": 31,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
  }
 }
