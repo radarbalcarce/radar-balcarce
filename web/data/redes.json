@@ -1214,6 +1214,15 @@
       "temas": [],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/1h1irbf.jpg"
+    },
+    "1s2s6et": {
+      "cuando": "2026-10-26T14:36:01.340Z",
+      "postId": "1254237411116171_122115938397495512",
+      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
+      "enlace": "https://radarbalcarce.com/nota/lionel-messi-compite-en-la-gala-del-balon-de-oro-en-londres-1s2s6et",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/1s2s6et.jpg"
     }
   },
   "instagram": {
@@ -3577,6 +3586,20 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-26/noticia1": {
+      "cuando": "2026-10-26T14:36:46.569Z",
+      "mediaId": "18060463481643242",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "8xm2jg",
+      "notaIds": [
+        "8xm2jg",
+        "1wt9rb0",
+        "141c51l",
+        "c4wrll"
+      ],
+      "permalink": "https://www.instagram.com/reel/De9gvUwjsvZ/"
     }
   },
   "facebookVideos": {
@@ -6879,6 +6902,12 @@
       "mediaId": "18104212883022667",
       "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
       "enlace": "https://radarbalcarce.com/nota/pinilla-pide-replicar-la-experiencia-del-upd-para-la-estudiantina-1h1irbf"
+    },
+    "1s2s6et": {
+      "cuando": "2026-10-26T14:36:12.110Z",
+      "mediaId": "17887484670688420",
+      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
+      "enlace": "https://radarbalcarce.com/nota/lionel-messi-compite-en-la-gala-del-balon-de-oro-en-londres-1s2s6et"
     }
   },
   "historiasDeReels": {
@@ -8581,6 +8610,13 @@
       "nombre": "efemeride",
       "red": "instagram",
       "notaId": null
+    },
+    "instagram/2026-10-26/noticia1": {
+      "cuando": "2026-10-26T14:37:26.097Z",
+      "mediaId": "17974019091157238",
+      "nombre": "noticia1",
+      "red": "instagram",
+      "notaId": "8xm2jg"
     }
   },
   "problemas": {
@@ -8597,14 +8633,6 @@
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
-    },
-    "2026-10-26/noticia1/instagram/reel": {
-      "pieza": "noticia1",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-26T14:06:52.722Z",
-      "intentos": 3
     }
   },
   "facebookFoto": {
@@ -9033,12 +9061,17 @@
       }
     },
     "2026-10-26/noticia1": {
-      "cuando": "2026-10-26T14:06:50.554Z",
+      "cuando": "2026-10-26T14:35:54.179Z",
       "nombre": "noticia1",
       "tiktok": {
         "ok": true,
         "id": "6adf5ea38e6c1ef513ef0554",
         "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6adf65a856fbfbb9119a4157",
+        "estado": "sent"
       }
     }
   }
