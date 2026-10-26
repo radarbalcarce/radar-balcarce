@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T14:44:36.334Z",
- "portada": 96,
- "archivo": 500,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-26T16:41:01.098Z",
+ "portada": 90,
+ "archivo": 499,
+ "esperandoCuerpo": 36,
  "redes": {
-  "generado": "2026-10-26T14:44:36.833Z",
+  "generado": "2026-10-26T16:41:01.633Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-26T13:38:37.549Z"
    },
    {
@@ -33,8 +33,8 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-26T14:36:46.569Z"
    },
    {
     "nombre": "participa-noticias",
@@ -43,8 +43,8 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-26T15:36:37.044Z"
    },
    {
     "nombre": "noticia2",
@@ -93,19 +93,14 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "momento": "cerrada",
+    "salio": "2026-10-26T14:36:46.569Z",
+    "segundos": null,
     "notas": [
      {
       "id": "8xm2jg",
       "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "iz5wec",
-      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "1wt9rb0",
@@ -116,6 +111,11 @@
       "id": "141c51l",
       "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "c4wrll",
+      "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
+      "seccion": "Salud"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
      {
-      "id": "bvcva5",
-      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
+      "id": "qx4jfi",
+      "titulo": "Convocan a reunión educativa tras incidentes en la Estudiantina",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1qjwv3r",
+      "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
       "seccion": "Fútbol"
      },
      {
-      "id": "c4wrll",
-      "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
-      "seccion": "Salud"
+      "id": "iz5wec",
+      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "1covbx8",
-      "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1r0wt8z",
-      "titulo": "ANSES confirma el calendario de pagos de noviembre de 2026",
-      "seccion": "Economía"
+      "id": "qe737u",
+      "titulo": "Campo de Pato consigue triunfos en el hockey marplatense",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 55,
     "notas": [
      {
-      "id": "18zumrm",
-      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
+      "id": "bvcva5",
+      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
       "seccion": "Fútbol"
      },
      {
-      "id": "m94rdd",
-      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "yjlxo0",
-      "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
-      "seccion": "Cultura y agenda"
+      "id": "1969ryn",
+      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
+      "seccion": "Economía"
      },
      {
       "id": "pl8yzi",
       "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
       "seccion": "Agro"
+     },
+     {
+      "id": "m94rdd",
+      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -193,13 +193,30 @@
      "id": "1h1irbf",
      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
      "cuando": "2026-10-26T12:46:01.809Z"
+    },
+    {
+     "id": "1s2s6et",
+     "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
+     "cuando": "2026-10-26T14:36:01.340Z"
     }
    ],
    "cola": [
     {
+     "id": "141c51l",
+     "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "iz5wec",
      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "qe737u",
+     "titulo": "Campo de Pato consigue triunfos en el hockey marplatense",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -227,26 +244,14 @@
      "marcada": false
     },
     {
-     "id": "141c51l",
-     "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1s2s6et",
-     "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "snq9oy",
-     "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
+     "id": "1969ryn",
+     "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
      "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-26T14:16:01.809Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-26T16:06:01.340Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

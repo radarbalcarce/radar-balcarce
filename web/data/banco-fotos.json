@@ -18128,9 +18128,7 @@
   }
  },
  "oiojec": {
-  "archivo": "fotos-notas/oiojec.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Tesla presenta el nuevo Roadster con versiones de alto rendimiento y capacidad de vuelo",
@@ -18139,7 +18137,8 @@
   "razon": "La foto A muestra con excelente nitidez y encuadre el nuevo vehículo flotando junto a toda la flota de Tesla, sin marcas ni menores.",
   "cuando": "2026-10-16T17:03:55.804Z",
   "huella": "040e0b030bab8383",
-  "ausenteDesde": "2026-10-19T15:33:12.000Z"
+  "intentado": true,
+  "borrada": true
  },
  "yfn1ih": {
   "archivo": "fotos-notas/yfn1ih.jpg",
@@ -23481,9 +23480,7 @@
   "ausenteDesde": "2026-10-24T14:35:50.654Z"
  },
  "1hlcr56": {
-  "archivo": "fotos-notas/1hlcr56.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Realizan nueva recolección de residuos electrónicos en plaza Libertad",
@@ -23515,7 +23512,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "5737ebf045519484",
-  "ausenteDesde": "2026-10-19T15:33:12.000Z"
+  "intentado": true,
+  "borrada": true
  },
  "1t0vxaf": {
   "intentado": true,
@@ -23651,9 +23649,7 @@
   "ausenteDesde": "2026-10-24T22:03:18.921Z"
  },
  "pi7383": {
-  "archivo": "fotos-notas/pi7383.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Estados Unidos propone disolver el Comité Especial de Descolonización",
@@ -23673,7 +23669,8 @@
    "descripcion": "Funcionario argentino hablando en la ONU con documentos."
   },
   "huella": "8745255858c98e98",
-  "ausenteDesde": "2026-10-19T16:08:56.402Z"
+  "intentado": true,
+  "borrada": true
  },
  "ktr4gj": {
   "archivo": "fotos-notas/ktr4gj.jpg",
@@ -23769,9 +23766,7 @@
   "fuentes": 1
  },
  "cf054h": {
-  "archivo": "fotos-notas/cf054h.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Santiago Garrido destaca la respuesta vecinal en la recolección de residuos electrónicos",
@@ -23792,7 +23787,8 @@
    "descripcion": "Santiago Garrido posando junto a un promotor ambiental con chaleco de 'Balcarce + Verde' frente a un camión municipal."
   },
   "huella": "9891a6ae69c9c4c4",
-  "ausenteDesde": "2026-10-19T16:33:58.443Z"
+  "intentado": true,
+  "borrada": true
  },
  "bdd09s": {
   "archivo": "fotos-notas/bdd09s.jpg",
@@ -38033,7 +38029,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1b1f1f171f3b1f33"
+  "huella": "1b1f1f171f3b1f33",
+  "ausenteDesde": "2026-10-26T16:41:01.026Z"
  },
  "1kkiq4v": {
   "archivo": "fotos-notas/1kkiq4v.jpg",
@@ -42918,10 +42915,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-  "razon": "La única foto disponible incluye menores de edad reconocibles en el grupo.",
-  "cuando": "2026-10-26T14:39:10.815Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T16:39:19.073Z",
   "intentos": 2,
-  "fuentes": 2
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "e8g0n0": {
   "archivo": "fotos-notas/e8g0n0.webp",
@@ -43019,10 +43018,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Actualizan los topes de cuotas de colegios privados bonaerenses",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos editoriales: la foto A tiene marca de agua y texto superpuesto, y la foto B muestra menores reconocibles de espaldas con enfoque cercano en un entorno escolar.",
-  "cuando": "2026-10-26T14:08:35.216Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T16:39:19.073Z",
   "intentos": 1,
-  "fuentes": 3
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1d404ja": {
   "archivo": "fotos-notas/1d404ja.jpg",
@@ -43143,7 +43144,8 @@
    "corresponde": "si",
    "descripcion": "Operadores trabajando en la bolsa de valores"
   },
-  "huella": "69eb735b52495511"
+  "huella": "69eb735b52495511",
+  "ausenteDesde": "2026-10-26T16:41:01.026Z"
  },
  "fnh3qb": {
   "archivo": "fotos-notas/fnh3qb.jpg",
@@ -43251,6 +43253,17 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "3c71606474644292"
+  "huella": "3c71606474644292",
+  "ausenteDesde": "2026-10-26T16:41:01.026Z"
+ },
+ "qe737u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Campo de Pato consigue triunfos en el hockey marplatense",
+  "razon": "La única foto disponible muestra a jugadoras que parecen menores de edad, lo que impide su publicación según las normas del medio.",
+  "cuando": "2026-10-26T16:39:19.073Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
