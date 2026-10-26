@@ -33605,7 +33605,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo dólares frente a un cartel LED de cotización cambiaria."
   },
-  "huella": "59495b194d3b1d5d"
+  "huella": "59495b194d3b1d5d",
+  "ausenteDesde": "2026-10-26T11:03:56.428Z"
  },
  "q80h27": {
   "archivo": "fotos-notas/q80h27.jpg",
@@ -41010,13 +41011,28 @@
   "huella": "0f131313198b332b"
  },
  "c4wrll": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/c4wrll.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-26T08:04:35.846Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/realizaron-una-operacion-del-cerebro-con-asistencia-de-la-neuronavegacion-866",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-26-0-6-45Captura.JPG",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos y muestra claramente el procedimiento quirúrgico.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Equipo médico en quirófano utilizando un neuronavegador para cirugía cerebral."
+  },
+  "huella": "dad34a6baf2e2c34"
  },
  "fsy5pg": {
   "archivo": "fotos-notas/fsy5pg.jpg",
@@ -41432,14 +41448,40 @@
   "huella": "1028786074352c38"
  },
  "17pi8dd": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/17pi8dd.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Milei y Kicillof registran paridad en un sondeo para un balotaje",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Verdad no se usa todavía.",
-  "cuando": "2026-10-26T09:04:28.574Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "enlace": "https://laverdadonline.com/encuesta-2027-milei-y-kicillof-aparecen-parejos-en-un-eventual-balotaje/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/10/4-encuesta-arriba.avif",
+  "razon": "La foto B es la mejor opción ya que corresponde a la nota, tiene buena calidad y no posee marcas de agua agregadas por el medio.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Axel Kicillof en imágenes separadas",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Mosaico con Javier Milei y Axel Kicillof hablando en distintos actos."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "802c664d08081a3e"
  },
  "xykgwb": {
   "intentado": true,
@@ -42024,7 +42066,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei sonriendo en un atril"
   },
-  "huella": "655757571f1e1b39"
+  "huella": "655757571f1e1b39",
+  "ausenteDesde": "2026-10-26T11:03:56.428Z"
  },
  "3p6jq": {
   "intentado": true,
@@ -42057,7 +42100,8 @@
    "corresponde": "si",
    "descripcion": "Jugador en acción durante el partido."
   },
-  "huella": "27f3d1d55553733b"
+  "huella": "27f3d1d55553733b",
+  "ausenteDesde": "2026-10-26T11:03:56.428Z"
  },
  "1d8gjsf": {
   "intentado": true,
@@ -42114,6 +42158,198 @@
    "corresponde": "si",
    "descripcion": "Bolsonaro y Lula gesticulando en un estudio de televisión"
   },
-  "huella": "87c486ce8ec68686"
+  "huella": "87c486ce8ec68686",
+  "ausenteDesde": "2026-10-26T11:03:56.428Z"
+ },
+ "1pmrj5": {
+  "archivo": "fotos-notas/1pmrj5.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno analiza en Casa Rosada el impacto del triunfo de Lula",
+  "enlace": "https://www.lanueva.com/nota/2026-10-26-7-7-0-milei-evito-saludar-a-lula-tras-su-triunfo-y-el-gobierno-debate-el-impacto-de-la-eleccion-en-brasil",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1793009274940.jpg?&cw=600&ch=365",
+  "razon": "La foto B ilustra adecuadamente el tema político sin marcas de agua superpuestas.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lideres políticos al aire libre"
+  },
+  "huella": "4c0d51632c4e9a96"
+ },
+ "15wslu0": {
+  "archivo": "fotos-notas/15wslu0.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses paga a jubilados y desempleados con documentos terminados en 2 y 3",
+  "enlace": "https://tn.com.ar/economia/2026/10/26/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-lunes-26-de-octubre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/foto-anses-EE6FQB7SYBHOBL7TBB7PDXHJYU.jpg?auth=e70cd2b95282a5c908465fe8543f59a0ac1ba160e37e07f0678b91cfd257a69c&width=1023",
+  "razon": "Es la única foto real que ilustra claramente el edificio de Anses sin marcas de agua ni personas menores.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista exterior del edificio central de ANSES"
+  },
+  "huella": "1e2eabb9b8be9c96"
+ },
+ "jmznw7": {
+  "archivo": "fotos-notas/jmznw7.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ponzio habla sobre el arbitraje de cara al Superclásico tras vencer a Racing",
+  "enlace": "https://www.ole.com.ar/river-plate/ponzio-superclasico_3_KymLQ2uhsC.html",
+  "imagenOriginal": "https://cdn.jwplayer.com/v2/media/5miBL9ii/poster.jpg?width=1920",
+  "razon": "Muestra claramente a Eduardo Coudet en la conferencia de prensa hablando sobre el arbitraje y el partido, con excelente nitidez y sin marcas de agua ni menores.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Eduardo Coudet hablando en conferencia de prensa con sponsors de fondo."
+  },
+  "huella": "d59175e7a9a921b3"
+ },
+ "uwg3cv": {
+  "archivo": "fotos-notas/uwg3cv.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River le gana 1 a 0 a Racing con gol de Lautaro Rivero",
+  "enlace": "https://www.tycsports.com/river-plate/rivero-y-un-regreso-sonado-a-la-titularidad-en-river-cabezazo-letal-para-romper-el-cero-ante-racing-id768576.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/25/999663/lautaro-rivero_1440x810.webp?v=1",
+  "razon": "Es una fotografía clara, con excelente nitidez, encuadre cerrado en el festejo de gol de Lautaro Rivero, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lautaro Rivero celebrando el gol con el puño apretado."
+  },
+  "huella": "b72e4f3b1f062d0e"
+ },
+ "323mbq": {
+  "archivo": "fotos-notas/323mbq.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Real Madrid le gana 2 a 1 al Barcelona con un doblete de Mbappé",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/mbappe-y-mourinho-ganan-en-la-casa-de-lamine-yamal-a-escasas-horas-del-balon-de-oro-nid25102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-festejo-de-kylian-mbappe-la-figura-excluyente-QPUQ37HNOVFVZLT2X5TW7XDLE4.jpg?auth=d12affe3610af37345a301628fbfe49c4c04cde1e4297d45926facf3fb86b92a&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra a Mbappé celebrando un gol de forma clara, con gran nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Kylian Mbappé celebrando un gol con el Real Madrid."
+  },
+  "huella": "0c32329c1406064f"
+ },
+ "1aohnvo": {
+  "archivo": "fotos-notas/1aohnvo.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La inteligencia artificial adelanta el triunfo de River ante Racing",
+  "enlace": "https://bolavip.com/ar/futbolargentino/la-inteligencia-artificial-adelanto-el-resultado-de-river-vs-racing-por-el-torneo-clausura",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/25114216/Racing-River-1200x740.webp",
+  "razon": "La foto A muestra una jugada clara del partido entre Racing y River con buena nitidez y sin marcas de medios ni problemas.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Racing y River disputando el balón en el partido."
+  },
+  "huella": "e309bc1c1d1c2d6d"
+ },
+ "1covbx8": {
+  "archivo": "fotos-notas/1covbx8.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/25/kimi-antonelli-gano-de-punta-a-punta-el-gran-premio-de-estados-unidos-y-quedo-cerca-del-titulo-de-la-formula-1/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/kimi-antonelli-gano-de-punta-a-punta-el-gran-premio-de-las-americas-y-quedo-a-un-paso-del-campeonato-en-la-formula-1-reuters-466KANDBZRHAXDEPAD2LXER5SQ.jpg?auth=0ad6320ac87daf3f91272ff619d06ed8fad5a74436e4f093f065f3f874cce81d&width=1023",
+  "razon": "Es la mejor foto que cumple con todos los requisitos, mostrando a Antonelli de frente con buena nitidez y sin marcas de agua de medios.",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Antonelli con el buzo antiflama de Mercedes sonriendo y con la mano en el pecho",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Conductor de Fórmula 1 con el mono de Mercedes Petronas saludando a la multitud."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "0b084e4e160f0b4c"
+ },
+ "2rtl95": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Liverpool vence 2 a 0 a Brighton y trepa a puestos de Champions",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: la respuesta no es JSON); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T11:02:22.987Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "la respuesta no es JSON"
  }
 }
