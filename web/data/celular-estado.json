@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T17:04:33.860Z",
- "portada": 90,
+ "generado": "2026-10-26T18:03:23.454Z",
+ "portada": 91,
  "archivo": 499,
- "esperandoCuerpo": 43,
+ "esperandoCuerpo": 57,
  "redes": {
-  "generado": "2026-10-26T17:04:34.157Z",
+  "generado": "2026-10-26T18:03:23.858Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 49,
     "notas": [
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 47,
     "notas": [
      {
       "id": "18zumrm",
@@ -170,14 +170,14 @@
       "seccion": "Economía"
      },
      {
-      "id": "m94rdd",
-      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
-      "seccion": "Argentina"
-     },
-     {
       "id": "pl8yzi",
       "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
       "seccion": "Agro"
+     },
+     {
+      "id": "m94rdd",
+      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -243,15 +243,15 @@
      "marcada": false
     },
     {
-     "id": "1969ryn",
-     "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "pl8yzi",
      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
      "seccion": "Agro",
+     "marcada": false
+    },
+    {
+     "id": "snq9oy",
+     "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
+     "seccion": "Economía",
      "marcada": false
     }
    ],

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-26T17:04:33.860Z",
+  "generado": "2026-10-26T18:03:23.454Z",
   "notas": [
     {
       "id": "qe737u",
@@ -202,8 +202,8 @@
       },
       "slug": "cierra-el-jueves-la-inscripcion-a-la-carrera-homenaje-a-luis-vildoza",
       "foto": {
-        "archivo": "fotos-notas/iz5wec-ia.jpg",
-        "credito": "Ilustración generada con IA"
+        "archivo": "fotos-notas/iz5wec.jpg",
+        "credito": "Foto: Radio Gabal (FM 104.1)"
       }
     },
     {
@@ -215,10 +215,7 @@
       "seccion": "Educación",
       "seccionAntes": "Argentina",
       "medios": [
-        "El Día",
-        "La Brújula 24",
         "La Tecla",
-        "QZ Noticias (Mar del Plata)",
         "Infobrisas (Radio Brisas)",
         "0221"
       ],
@@ -226,7 +223,7 @@
       "fecha": "2026-10-26T13:22:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-26T14:02:07.658Z",
-      "relevancia": 37,
+      "relevancia": 29,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1274,6 +1271,7 @@
         "La Nación",
         "Clarín",
         "TN (Todo Noticias)",
+        "Perfil",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
         "La Tecla",
@@ -1288,11 +1286,11 @@
       "fecha": "2026-10-26T12:01:59.000Z",
       "sinFecha": false,
       "visto": "2026-10-26T12:46:26.374Z",
-      "relevancia": 58,
+      "relevancia": 60,
       "local": false,
       "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
+        "medios": 10,
+        "porque": "10 medios",
         "desde": "2026-10-26T13:01:34.408Z"
       },
       "publicadaPor": null,
@@ -1402,6 +1400,13 @@
           "medio": "El Eco de Tandil",
           "enlace": "https://www.eleco.com.ar/nacionales/nacion-declaro-la-emergencia-agropecuaria-por-inundaciones-en-nueve-de-julio-y-necochea",
           "fecha": "2026-10-26T14:35:39.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://www.perfil.com/noticias/sociedad/a50-inundaciones-en-buenos-aires-declaran-la-emergencia-agropecuaria-en-9-de-julio-y-parte-de-necochea.phtml",
+          "fecha": "2026-10-26T17:12:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -2239,14 +2244,13 @@
         "Perfil",
         "TyC Sports",
         "Olé",
-        "Crónica",
         "Radio Mitre",
-        "Canal 26",
         "Noticias Argentinas (NA)",
         "La Verdad",
         "El Marplatense",
         "El Eco de Tandil",
         "Doble Amarilla",
+        "Bolavip Argentina",
         "El Gráfico",
         "El Economista",
         "La Gaceta (Tucumán)",
@@ -2266,8 +2270,8 @@
       "relevancia": 78,
       "local": false,
       "muyContada": {
-        "medios": 23,
-        "porque": "23 medios",
+        "medios": 22,
+        "porque": "22 medios",
         "desde": "2026-10-26T12:46:26.374Z"
       },
       "publicadaPor": null,
@@ -2815,6 +2819,48 @@
           "fecha": "2026-10-26T12:58:59.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/26/balon-de-oro-que-se-sabe-sobre-la-posible-presencia-de-lionel-messi-en-la-ceremonia-en-londres/",
+          "fecha": "2026-10-26T17:42:26.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/balon-oro-2026-vivo-gala-londres-paso-lionel-messi-20261026143510",
+          "fecha": "2026-10-26T17:35:10.190Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/futbol-internacional/por-que-messi-no-viajo-a-la-gala-del-balon-de-oro-id768683.html",
+          "fecha": "2026-10-26T17:58:53.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/deportes/la-contundente-decision-de-kylian-mbappe-antes-de-la-entrega-del-balon-de-oro/",
+          "fecha": "2026-10-26T17:58:56.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbol-internacional/gala-del-balon-de-oro-2026-en-vivo-y-online-la-ceremonia-y-todos-los-premios",
+          "fecha": "2026-10-26T16:32:26.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/primera-c/final-de-la-primera-c-2026-en-vivo-donde-ver-por-tv-y-online-id768282.html",
+          "fecha": "2026-10-25T17:49:21.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -2989,15 +3035,15 @@
       "guion": "Modifican la grilla de MasterChef Celebrity y postergan la gala de eliminación.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "La Nación",
         "TN (Todo Noticias)",
-        "El Destape"
+        "El Destape",
+        "La Nación"
       ],
       "enlace": "https://tn.com.ar/show/television/2026/10/25/por-que-levantaron-la-gala-de-eliminacion-de-masterchef-celebrity-este-domingo/",
       "fecha": "2026-10-26T03:40:02.000Z",
       "sinFecha": false,
       "visto": "2026-10-26T07:01:22.695Z",
-      "relevancia": 39,
+      "relevancia": 35,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3042,6 +3088,13 @@
           "fecha": "2026-10-26T14:24:24.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/espectaculos/paso-gala-masterchef-celebrity-domingo-25-octubre-2026-decision-telefe-20261026145358",
+          "fecha": "2026-10-26T17:53:58.888Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -3061,269 +3114,6 @@
       "foto": {
         "archivo": "fotos-notas/1i3yqk.jpg",
         "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
-      "id": "16tgva7",
-      "titulo": "El dólar oficial abre a 1550 pesos y el riesgo país llega a 707 puntos",
-      "copete": "El mercado financiero inicia la semana con cotizaciones actualizadas para las distintas variantes cambiarias. El Banco Central mantiene el techo de su esquema de bandas en 1943,56 pesos.",
-      "cuerpo": "La cotización del dólar oficial para la venta minorista abre la jornada a 1550 pesos en las pizarras del Banco Nación, mientras que el tipo de cambio mayorista inicia las operaciones en 1529,50 pesos. En el mercado informal, el dólar blue comienza la semana a 1565 pesos para la venta. Por su parte, las paridades bursátiles registran valores de 1653,17 pesos para el contado con liquidación y de 1560,17 pesos para el dólar MEP, según los registros difundidos este lunes.\n\nEn el plano financiero internacional y local, el riesgo país medido por el índice de JP Morgan se ubica en 707 puntos básicos tras avanzar cerca de 60 unidades. Las reservas internacionales brutas del Banco Central se sitúan en 50.203 millones de dólares, afectadas por la variación en la cotización de activos como el oro. Asimismo, el Banco Central acumuló compras por 270 millones de dólares a lo largo de las cinco ruedas de la semana previa.\n\nEn cuanto a los antecedentes macroeconómicos recientes, el Instituto Nacional de Estadística y Censos informó que la inflación de septiembre registró un incremento del 1,9%, impulsada principalmente por los aumentos en tarifas y alimentos, lo que elevó la variación acumulada del año al 23,6%. En tanto, el nivel general de precios minoristas mostró un incremento interanual del 33,4% durante el noveno mes del año.",
-      "guion": "El dólar oficial abre a 1550 pesos y el riesgo país llega a 707 puntos.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "Infocampo",
-        "Perfil",
-        "TN (Todo Noticias)",
-        "El Cronista",
-        "El Destape",
-        "Página/12",
-        "Noticias Argentinas (NA)",
-        "Los Andes (Mendoza)",
-        "Clarín",
-        "El Economista",
-        "Ámbito",
-        "C5N"
-      ],
-      "enlace": "https://www.losandes.com.ar/economia/esta-confirmado-el-precio-que-tendra-el-dolar-este-lunes-26-octubre-n6011600",
-      "fecha": "2026-10-26T03:10:00.852Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T07:01:22.695Z",
-      "relevancia": 49,
-      "local": false,
-      "muyContada": {
-        "medios": 12,
-        "porque": "12 medios",
-        "desde": "2026-10-26T10:31:01.636Z"
-      },
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El dólar oficial minorista cotiza a 1550 pesos en el Banco Nación.",
-        "El dólar blue inicia la semana a 1565 pesos para la venta.",
-        "El riesgo país se ubica en 707 puntos básicos.",
-        "La inflación de septiembre fue del 1,9% según el Indec."
-      ],
-      "seSabe": [
-        "El dólar oficial minorista abre a 1550 pesos en el Banco Nación.",
-        "El dólar mayorista comienza en 1529,50 pesos.",
-        "El dólar blue inicia la semana a 1565 pesos para la venta.",
-        "El riesgo país se ubica en 707 puntos básicos.",
-        "Las reservas internacionales brutas alcanzan los 50.203 millones de dólares.",
-        "La inflación de septiembre fue del 1,9% según datos del Indec."
-      ],
-      "noConfirmado": [
-        "Existen diferencias menores en las cotizaciones informadas por distintas entidades financieras para el dólar MEP y el contado con liquidación."
-      ],
-      "textoRedes": "El dólar oficial abre a 1550 pesos en el Banco Nación y el riesgo país se ubica en 707 puntos básicos en el inicio de la semana.",
-      "etiquetas": [
-        "dolar",
-        "economia",
-        "banco nacion",
-        "inflacion"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/economia/esta-confirmado-el-precio-que-tendra-el-dolar-este-lunes-26-octubre-n6011600",
-          "fecha": "2026-10-25T11:34:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los valores de apertura del dólar oficial, mayorista, blue y financiero, además del riesgo país y el nivel de reservas."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/dolar/a-cuanto-abre-el-dolar-el-lunes-26-de-octubre-nid24102026/",
-          "fecha": "2026-10-25T14:49:27.000Z",
-          "oficial": false,
-          "aporte": "Aportó el dato de inflación de septiembre y el porcentaje acumulado en los primeros nueve meses del año."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/26/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-lunes-26-de-octubre/",
-          "fecha": "2026-10-26T06:34:35.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre la cotización del dólar cripto y las operaciones mediante home banking."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-hoy-y-dolar-blue-hoy-cual-es-la-cotizacion-del-lunes-26-de-octubre-minuto-a-minuto/",
-          "fecha": "2026-10-26T03:10:00.852Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/precio-del-dolar-hoy-y-dolar-blue-hoy-en-vivo-cual-es-su-cotizacion-este-lunes-26-de-octubre-20261026308",
-          "fecha": "2026-10-26T06:00:08.022Z",
-          "oficial": false,
-          "aporte": "Aportó las variaciones porcentuales iniciales para el dólar MEP y el dólar oficial."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/dolar-blue-hoy-cotiza-lunes-26-octubre_0_EzlxuO0vRU.html",
-          "fecha": "2026-10-26T07:00:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infocampo",
-          "enlace": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-26-octubre-2026/",
-          "fecha": "2026-10-26T10:00:32.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/---en-vivo---precio-del-dolar-hoy-lunes-26-de-octubre_a6adf1c5ba8408d82a2ea7b5d",
-          "fecha": "2026-10-26T09:40:06.050Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/dolar-cripto-hoy-cotiza-lunes-26-octubre_0_JkNz0cOCMv.html",
-          "fecha": "2026-10-26T10:05:09.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/dolar-mep-hoy-cotiza-lunes-26-octubre_0_KoB9fmJXQW.html",
-          "fecha": "2026-10-26T10:05:08.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/dolar-hoy-dolar-blue-vivo-cotiza-oficial-precio-paralelo-minuto-minuto-26-octubre_0_yMKkX99Mjv.html",
-          "fecha": "2026-10-26T10:00:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/cordoba/cordoba-dolar-hoy-dolar-blue-hoy-cotizacion-26-de-octubre-261026.phtml",
-          "fecha": "2026-10-26T09:49:17.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/26/dolar-oficial-y-dolar-tarjeta-banco-por-banco-a-cuanto-cotizan-este-lunes-26-de-octubre/",
-          "fecha": "2026-10-26T10:48:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProUP",
-          "enlace": "https://www.iproup.com/economia-digital/72622-sube-el-dolar-cripto-en-brasil-tras-la-reeleccion-de-lula",
-          "fecha": "2026-10-26T12:03:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Economista",
-          "enlace": "https://eleconomista.com.ar/economia/dolar-hoy-cuanto-cotiza-lunes-26-octubre-n99186",
-          "fecha": "2026-10-26T10:35:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/finanzas/dolar-hoy-y-dolar-blue-hoy-minuto-minuto-cuanto-opera-este-lunes-26-octubre-n6337798",
-          "fecha": "2026-10-26T10:38:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/dolar/dolar-hoy-y-dolar-blue-en-vivo-a-cuanto-cotiza-el-oficial-y-cual-es-el-precio-del-paralelo-este-nid26102026/",
-          "fecha": "2026-10-26T11:27:19.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/26/dolar-blue-dolar-hoy-a-cuanto-cotizan-el-lunes-26-de-octubre-de-2026/",
-          "fecha": "2026-10-26T11:50:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/dolar-hoy-cotizan-oficial-diferentes-tipos-cambio-lunes-26-octubre_0_3QhdANPYVG.html",
-          "fecha": "2026-10-26T12:00:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/economia/a-cuanto-cotiza-el-euro-blue-hoy-lunes-26-de-octubre.phtml",
-          "fecha": "2026-10-26T12:10:29.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/dolar-hoy-dolar-blue-hoy-cuanto-cotiza-el-26-octubre-n252558",
-          "fecha": "2026-10-26T12:48:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infocampo",
-          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-26-octubre-2026/",
-          "fecha": "2026-10-26T13:10:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/economia/el-dolar-blue-se-estabiliza-en-los-1565-este-viernes-23-de-octubre.phtml",
-          "fecha": "2026-10-26T13:19:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-26-de-octubre-con-el-mep-y-el-ccl/",
-          "fecha": "2026-10-26T14:24:46.640Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infocampo",
-          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-26-octubre-2026/",
-          "fecha": "2026-10-26T14:35:08.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infocampo",
-          "enlace": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-26-octubre-2026/",
-          "fecha": "2026-10-26T14:35:02.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/euro-hoy-en-mexico-precio-y-cotizacion-de-la-divisa-este-lunes-26-de-octubre-de-2026_0_VMDilHqiqh.html",
-          "fecha": "2026-10-26T10:45:09.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cinco medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-dolar-oficial-abre-a-1550-pesos-y-el-riesgo-pais-llega-a-707-puntos",
-      "foto": {
-        "archivo": "fotos-notas/16tgva7.jpg",
-        "credito": "Foto: El Destape"
       }
     },
     {
@@ -6950,6 +6740,7 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
+        "TyC Sports",
         "Olé",
         "Crónica",
         "Noticias Argentinas (NA)",
@@ -6961,8 +6752,13 @@
       "fecha": "2026-10-25T21:56:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-26T08:01:20.338Z",
-      "relevancia": 48,
+      "relevancia": 50,
       "local": false,
+      "muyContada": {
+        "medios": 8,
+        "porque": "8 medios",
+        "desde": "2026-10-26T18:01:38.619Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -7061,6 +6857,13 @@
           "medio": "Doble Amarilla",
           "enlace": "https://www.dobleamarilla.com.ar/liga-/se-viene-el-superclasico-en-la-bombonera--los-tres-candidatos-a-arbitrar-en-el-proximo-boca---river_a6adf7bdc36c7ad3075c24382",
           "fecha": "2026-10-26T16:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/boca-juniors/entradas-para-boca-river-cuando-se-venden-y-como-comprar-id768685.html",
+          "fecha": "2026-10-26T17:59:15.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -8389,6 +8192,13 @@
           "medio": "Doble Amarilla",
           "enlace": "https://www.dobleamarilla.com.ar/liga-/jadson-viera-explico-el-cambio-de-arquero-y-apunto-contra-el-arbitraje---siempre-hay-algo-contra-independiente-_a6adf12ac0f598f667293943e",
           "fecha": "2026-10-26T00:55:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/independiente/la-particular-decision-de-jadson-viera-en-independiente-dos-dias-libres-para-el-plantel-id768682.html",
+          "fecha": "2026-10-26T17:37:34.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -9776,6 +9586,90 @@
       }
     },
     {
+      "id": "njwqjk",
+      "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
+      "copete": "La opositora de 60 años volvió al país tras siete intentos previos fallidos. La noticia fue anunciada por Edmundo González Urrutia y celebrada por el exembajador argentino Diego Guelar.",
+      "cuerpo": "La dirigente opositora María Corina Machado regresó a Venezuela tras permanecer casi un año en el exilio, según confirmó la propia referente política. La confirmación del retorno fue comunicada inicialmente por Edmundo González Urrutia a través de su cuenta de la red social X, donde calificó la jornada como un momento significativo para los ciudadanos locales. González Urrutia adelantó además que tiene previsto viajar próximamente al territorio venezolano para reencontrarse con la opositora.\n\nEl regreso se concretó luego de que la dirigente intentara volver al país en al menos siete oportunidades anteriores sin éxito, de acuerdo con los registros difundidos. La noticia generó diversas reacciones en el ámbito internacional, entre ellas la del exembajador argentino Diego Guelar. El diplomático expresó su respaldo público al retorno y sostuvo que con esta llegada comienza una nueva etapa orientada a la recuperación democrática en Venezuela.",
+      "guion": "María Corina Machado regresa a Venezuela tras casi un año en el exilio.",
+      "seccion": "Automovilismo",
+      "medios": [
+        "Radio Mitre",
+        "El Marplatense",
+        "Canal 26",
+        "La Nueva"
+      ],
+      "enlace": "https://radiomitre.cienradios.com",
+      "fecha": "2026-10-25T16:07:19.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-25T18:01:47.026Z",
+      "relevancia": 49,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "María Corina Machado volvió a Venezuela tras casi un año fuera del país.",
+        "Edmundo González Urrutia anunció el regreso y adelantó que planea viajar.",
+        "El exembajador argentino Diego Guelar celebró la noticia públicamente.",
+        "La dirigente concretó su retorno luego de siete intentos fallidos previos."
+      ],
+      "seSabe": [
+        "María Corina Machado regresó a Venezuela tras casi un año en el exilio, según confirmó ella misma.",
+        "Edmundo González Urrutia anunció el retorno a través de la red social X.",
+        "El exembajador argentino Diego Guelar respaldó públicamente la vuelta de la dirigente.",
+        "La opositora había intentado volver al país en siete oportunidades anteriores sin éxito."
+      ],
+      "textoRedes": "María Corina Machado regresó a Venezuela tras casi un año en el exilio. La noticia fue anunciada por Edmundo González Urrutia y celebrada por el exembajador argentino Diego Guelar.",
+      "etiquetas": [
+        "María Corina Machado",
+        "Venezuela",
+        "Edmundo González Urrutia",
+        "Diego Guelar",
+        "Política internacional"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com",
+          "fecha": "2026-10-25T16:07:19.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la edad de la dirigente, el tiempo en el exilio y los siete intentos previos de retorno."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/opinion/2026/10/25/diego-guelar-reacciono-al-regreso-de-maria-corina-machado-a-venezuela-empieza-hoy-el-proceso-de-recuperacion-de-la-democracia/",
+          "fecha": "2026-10-25T17:30:06.000Z",
+          "oficial": false,
+          "aporte": "Informó el anuncio de Edmundo González Urrutia sobre el regreso y la reacción del exembajador Diego Guelar."
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-10-25-15-29-0-maria-corina-machado-regreso-a-venezuela-despues-de-casi-diez-meses-en-el-exilio",
+          "fecha": "2026-10-25T18:44:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Marplatense",
+          "enlace": "https://www.elmarplatense.com/maria-corina-machado-anuncio-su-regreso-a-venezuela-tras-siete-intentos-fallidos",
+          "fecha": "2026-10-26T15:00:03.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "maria-corina-machado-regresa-a-venezuela-tras-casi-un-ano-en-el-exilio",
+      "foto": {
+        "archivo": "fotos-notas/njwqjk.jpg",
+        "credito": "Foto: La Nueva"
+      }
+    },
+    {
       "id": "gux4r",
       "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
       "copete": "La organización de la visita papal confirmó la participación de músicos nacionales en las actividades previstas del 8 al 11 de noviembre. Pereyra estará en Luján y Pennisi en Buenos Aires.",
@@ -9783,33 +9677,30 @@
       "guion": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "Crónica",
         "Radio Mitre",
-        "Canal 26",
         "El Día",
         "La Tecla",
         "El Marplatense",
-        "Infobrisas (Radio Brisas)",
         "El Eco de Tandil",
         "La Gaceta (Tucumán)",
         "Ámbito",
         "C5N",
         "A24",
         "La Nueva",
+        "Canal 26",
+        "La Nación",
         "Clarín",
         "Minuto Uno",
         "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
         "Agencia DIB"
       ],
       "enlace": "https://www.ambito.com/espectaculos/luciano-pereyra-y-nahuel-pennisi-cantaran-el-papa-leon-xiv-su-visita-la-argentina-n6337662",
       "fecha": "2026-10-25T15:51:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T17:01:21.234Z",
-      "relevancia": 55,
+      "relevancia": 53,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10036,6 +9927,254 @@
       "foto": {
         "archivo": "fotos-notas/gux4r.jpg",
         "credito": "Foto: Ámbito"
+      }
+    },
+    {
+      "id": "16tgva7",
+      "titulo": "El dólar oficial abre a 1550 pesos y el riesgo país llega a 707 puntos",
+      "copete": "El mercado financiero inicia la semana con cotizaciones actualizadas para las distintas variantes cambiarias. El Banco Central mantiene el techo de su esquema de bandas en 1943,56 pesos.",
+      "cuerpo": "La cotización del dólar oficial para la venta minorista abre la jornada a 1550 pesos en las pizarras del Banco Nación, mientras que el tipo de cambio mayorista inicia las operaciones en 1529,50 pesos. En el mercado informal, el dólar blue comienza la semana a 1565 pesos para la venta. Por su parte, las paridades bursátiles registran valores de 1653,17 pesos para el contado con liquidación y de 1560,17 pesos para el dólar MEP, según los registros difundidos este lunes.\n\nEn el plano financiero internacional y local, el riesgo país medido por el índice de JP Morgan se ubica en 707 puntos básicos tras avanzar cerca de 60 unidades. Las reservas internacionales brutas del Banco Central se sitúan en 50.203 millones de dólares, afectadas por la variación en la cotización de activos como el oro. Asimismo, el Banco Central acumuló compras por 270 millones de dólares a lo largo de las cinco ruedas de la semana previa.\n\nEn cuanto a los antecedentes macroeconómicos recientes, el Instituto Nacional de Estadística y Censos informó que la inflación de septiembre registró un incremento del 1,9%, impulsada principalmente por los aumentos en tarifas y alimentos, lo que elevó la variación acumulada del año al 23,6%. En tanto, el nivel general de precios minoristas mostró un incremento interanual del 33,4% durante el noveno mes del año.",
+      "guion": "El dólar oficial abre a 1550 pesos y el riesgo país llega a 707 puntos.",
+      "seccion": "Economía",
+      "medios": [
+        "La Nación",
+        "Noticias Argentinas (NA)",
+        "Los Andes (Mendoza)"
+      ],
+      "enlace": "https://www.losandes.com.ar/economia/esta-confirmado-el-precio-que-tendra-el-dolar-este-lunes-26-octubre-n6011600",
+      "fecha": "2026-10-25T14:49:27.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-26T07:01:22.695Z",
+      "relevancia": 33,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El dólar oficial minorista cotiza a 1550 pesos en el Banco Nación.",
+        "El dólar blue inicia la semana a 1565 pesos para la venta.",
+        "El riesgo país se ubica en 707 puntos básicos.",
+        "La inflación de septiembre fue del 1,9% según el Indec."
+      ],
+      "seSabe": [
+        "El dólar oficial minorista abre a 1550 pesos en el Banco Nación.",
+        "El dólar mayorista comienza en 1529,50 pesos.",
+        "El dólar blue inicia la semana a 1565 pesos para la venta.",
+        "El riesgo país se ubica en 707 puntos básicos.",
+        "Las reservas internacionales brutas alcanzan los 50.203 millones de dólares.",
+        "La inflación de septiembre fue del 1,9% según datos del Indec."
+      ],
+      "noConfirmado": [
+        "Existen diferencias menores en las cotizaciones informadas por distintas entidades financieras para el dólar MEP y el contado con liquidación."
+      ],
+      "textoRedes": "El dólar oficial abre a 1550 pesos en el Banco Nación y el riesgo país se ubica en 707 puntos básicos en el inicio de la semana.",
+      "etiquetas": [
+        "dolar",
+        "economia",
+        "banco nacion",
+        "inflacion"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/economia/esta-confirmado-el-precio-que-tendra-el-dolar-este-lunes-26-octubre-n6011600",
+          "fecha": "2026-10-25T11:34:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó los valores de apertura del dólar oficial, mayorista, blue y financiero, además del riesgo país y el nivel de reservas."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/dolar/a-cuanto-abre-el-dolar-el-lunes-26-de-octubre-nid24102026/",
+          "fecha": "2026-10-25T14:49:27.000Z",
+          "oficial": false,
+          "aporte": "Aportó el dato de inflación de septiembre y el porcentaje acumulado en los primeros nueve meses del año."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/26/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-lunes-26-de-octubre/",
+          "fecha": "2026-10-26T06:34:35.000Z",
+          "oficial": false,
+          "aporte": "Aportó información sobre la cotización del dólar cripto y las operaciones mediante home banking."
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-hoy-y-dolar-blue-hoy-cual-es-la-cotizacion-del-lunes-26-de-octubre-minuto-a-minuto/",
+          "fecha": "2026-10-26T03:10:00.852Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/precio-del-dolar-hoy-y-dolar-blue-hoy-en-vivo-cual-es-su-cotizacion-este-lunes-26-de-octubre-20261026308",
+          "fecha": "2026-10-26T06:00:08.022Z",
+          "oficial": false,
+          "aporte": "Aportó las variaciones porcentuales iniciales para el dólar MEP y el dólar oficial."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-blue-hoy-cotiza-lunes-26-octubre_0_EzlxuO0vRU.html",
+          "fecha": "2026-10-26T07:00:06.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-26-octubre-2026/",
+          "fecha": "2026-10-26T10:00:32.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/---en-vivo---precio-del-dolar-hoy-lunes-26-de-octubre_a6adf1c5ba8408d82a2ea7b5d",
+          "fecha": "2026-10-26T09:40:06.050Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-cripto-hoy-cotiza-lunes-26-octubre_0_JkNz0cOCMv.html",
+          "fecha": "2026-10-26T10:05:09.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-mep-hoy-cotiza-lunes-26-octubre_0_KoB9fmJXQW.html",
+          "fecha": "2026-10-26T10:05:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-dolar-blue-vivo-cotiza-oficial-precio-paralelo-minuto-minuto-26-octubre_0_yMKkX99Mjv.html",
+          "fecha": "2026-10-26T10:00:06.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://www.perfil.com/noticias/cordoba/cordoba-dolar-hoy-dolar-blue-hoy-cotizacion-26-de-octubre-261026.phtml",
+          "fecha": "2026-10-26T09:49:17.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/26/dolar-oficial-y-dolar-tarjeta-banco-por-banco-a-cuanto-cotizan-este-lunes-26-de-octubre/",
+          "fecha": "2026-10-26T10:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/economia-digital/72622-sube-el-dolar-cripto-en-brasil-tras-la-reeleccion-de-lula",
+          "fecha": "2026-10-26T12:03:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Economista",
+          "enlace": "https://eleconomista.com.ar/economia/dolar-hoy-cuanto-cotiza-lunes-26-octubre-n99186",
+          "fecha": "2026-10-26T10:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/dolar-hoy-y-dolar-blue-hoy-minuto-minuto-cuanto-opera-este-lunes-26-octubre-n6337798",
+          "fecha": "2026-10-26T10:38:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/dolar/dolar-hoy-y-dolar-blue-en-vivo-a-cuanto-cotiza-el-oficial-y-cual-es-el-precio-del-paralelo-este-nid26102026/",
+          "fecha": "2026-10-26T11:27:19.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Página/12",
+          "enlace": "https://www.pagina12.com.ar/2026/10/26/dolar-blue-dolar-hoy-a-cuanto-cotizan-el-lunes-26-de-octubre-de-2026/",
+          "fecha": "2026-10-26T11:50:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-cotizan-oficial-diferentes-tipos-cambio-lunes-26-octubre_0_3QhdANPYVG.html",
+          "fecha": "2026-10-26T12:00:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://www.perfil.com/noticias/economia/a-cuanto-cotiza-el-euro-blue-hoy-lunes-26-de-octubre.phtml",
+          "fecha": "2026-10-26T12:10:29.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/economia/dolar-hoy-dolar-blue-hoy-cuanto-cotiza-el-26-octubre-n252558",
+          "fecha": "2026-10-26T12:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-26-octubre-2026/",
+          "fecha": "2026-10-26T13:10:06.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://www.perfil.com/noticias/economia/el-dolar-blue-se-estabiliza-en-los-1565-este-viernes-23-de-octubre.phtml",
+          "fecha": "2026-10-26T13:19:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-26-de-octubre-con-el-mep-y-el-ccl/",
+          "fecha": "2026-10-26T14:24:46.640Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-26-octubre-2026/",
+          "fecha": "2026-10-26T14:35:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-26-octubre-2026/",
+          "fecha": "2026-10-26T14:35:02.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-mexico-precio-y-cotizacion-de-la-divisa-este-lunes-26-de-octubre-de-2026_0_VMDilHqiqh.html",
+          "fecha": "2026-10-26T10:45:09.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cinco medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-dolar-oficial-abre-a-1550-pesos-y-el-riesgo-pais-llega-a-707-puntos",
+      "foto": {
+        "archivo": "fotos-notas/16tgva7.jpg",
+        "credito": "Foto: El Destape"
       }
     },
     {
@@ -10767,14 +10906,13 @@
         "Perfil",
         "Clarín",
         "El Cronista",
-        "Ámbito",
         "C5N"
       ],
       "enlace": "https://www.lanacion.com.ar/politica/idea-llamo-a-un-debate-sin-agravios-tras-los-ataques-de-milei-a-la-nacion-nid24102026/",
       "fecha": "2026-10-25T06:12:41.000Z",
       "sinFecha": false,
       "visto": "2026-10-25T13:32:00.575Z",
-      "relevancia": 44,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10904,12 +11042,12 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 15,
-      "sensacion": 15,
-      "humedad": 55,
-      "viento": 5,
+      "temp": 17,
+      "sensacion": 16,
+      "humedad": 50,
+      "viento": 6,
       "rumbo": "SE",
-      "cielo": "Parcialmente nublado",
+      "cielo": "Nublado",
       "esDeDia": true
     },
     "dias": [
@@ -11251,6 +11389,13 @@
     "diaDeLaSemana": "sábado",
     "tocaHoy": false
   },
-  "pendientes": [],
-  "esperandoCuerpo": 43
+  "pendientes": [
+    {
+      "id": "81rakn",
+      "titulo": null,
+      "seccion": "Policiales",
+      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
+    }
+  ],
+  "esperandoCuerpo": 57
 }

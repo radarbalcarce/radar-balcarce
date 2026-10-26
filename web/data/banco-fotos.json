@@ -23828,9 +23828,7 @@
   "ausenteDesde": "2026-10-25T00:04:23.237Z"
  },
  "usi2pn": {
-  "archivo": "fotos-notas/usi2pn.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "ATE moviliza a la Quinta de Olivos contra los retiros voluntarios",
@@ -23850,7 +23848,8 @@
    "descripcion": "Primer plano de Rodolfo Aguiar hablando ante los manifestantes"
   },
   "huella": "9c9d411227e284d8",
-  "ausenteDesde": "2026-10-19T18:01:39.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "1u46gsg": {
   "archivo": "fotos-notas/1u46gsg.jpg",
@@ -42866,10 +42865,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo",
-  "razon": "Las imágenes disponibles son ilustraciones (A) o muestran personas en segundo plano que podrían ser menores de edad (B y C), por lo que ninguna cumple con los requisitos del medio.",
-  "cuando": "2026-10-26T14:08:35.216Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T18:02:24.106Z",
   "intentos": 2,
-  "fuentes": 3
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ivqjyr": {
   "intentado": true,
@@ -42916,15 +42917,29 @@
   "errorGemini": "The operation was aborted due to timeout"
  },
  "iz5wec": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/iz5wec.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T16:39:19.073Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/ultimos-dias-para-anotarse-en-la-carrera-homenaje-a-luis-vildoza",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/CARRERA%20VILDOZ.jpg",
+  "razon": "Es la única imagen completa y con buen encuadre que muestra la carrera y el arco de la organización, sin marcas de agua de otros medios ni problemas de menores.",
+  "cuando": "2026-10-26T18:02:24.106Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Corredores pasando bajo el arco inflable azul con el logo de la organización en una carrera."
+  },
+  "huella": "ce878d1dab632d04"
  },
  "e8g0n0": {
   "archivo": "fotos-notas/e8g0n0.webp",
@@ -43023,10 +43038,10 @@
   "origen": "ninguna",
   "titulo": "Actualizan los topes de cuotas de colegios privados bonaerenses",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T16:39:19.073Z",
+  "cuando": "2026-10-26T18:02:24.106Z",
   "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1d404ja": {
