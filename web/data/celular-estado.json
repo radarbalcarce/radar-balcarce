@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T13:38:39.521Z",
- "portada": 91,
+ "generado": "2026-10-26T14:13:24.151Z",
+ "portada": 94,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-26T13:38:39.971Z",
+  "generado": "2026-10-26T14:13:24.949Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-26T10:36:26.872Z"
    },
    {
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-26T13:38:37.549Z"
    },
    {
     "nombre": "noticia1",
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "8xm2jg",
       "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "iz5wec",
+      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "1wt9rb0",
@@ -111,11 +116,6 @@
       "id": "141c51l",
       "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "iz5wec",
-      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 45,
+    "segundos": 52,
     "notas": [
      {
       "id": "18zumrm",
@@ -165,8 +165,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1acuwye",
-      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
+      "id": "m94rdd",
+      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
       "seccion": "Argentina"
      },
      {
@@ -175,8 +175,8 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "15wslu0",
-      "titulo": "Anses paga a jubilados y desempleados con documentos terminados en 2 y 3",
+      "id": "1969ryn",
+      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
       "seccion": "Economía"
      }
     ]
@@ -196,6 +196,12 @@
     }
    ],
    "cola": [
+    {
+     "id": "iz5wec",
+     "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
     {
      "id": "1wt9rb0",
      "titulo": "San Manuel le gana tres a uno a Boca Juniors como visitante",
@@ -227,21 +233,15 @@
      "marcada": false
     },
     {
-     "id": "iz5wec",
-     "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "1s2s6et",
      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "pl8yzi",
-     "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-     "seccion": "Agro",
+     "id": "1d404ja",
+     "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
