@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T11:03:56.579Z",
- "portada": 76,
+ "generado": "2026-10-26T11:34:01.220Z",
+ "portada": 77,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-26T11:03:57.462Z",
+  "generado": "2026-10-26T11:34:01.772Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -103,35 +103,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1wqyb20",
-      "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "c4wrll",
       "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
       "seccion": "Salud"
-     },
-     {
-      "id": "17u34kr",
-      "titulo": "Bruno Boccanera gana las dos finales del Turismo Special de la Costa",
-      "seccion": "Automovilismo"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 48,
-    "notas": [
-     {
-      "id": "1kk1sil",
-      "titulo": "Santiago Amadeo analiza el presente deportivo de Amigos Unidos",
-      "seccion": "Fútbol"
      },
      {
       "id": "19ok4f7",
@@ -142,31 +116,26 @@
       "id": "1acuwye",
       "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
       "seccion": "Argentina"
-     },
-     {
-      "id": "dri7vy",
-      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
-      "seccion": "Economía"
      }
     ]
    },
    {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 49,
     "notas": [
      {
-      "id": "x8mixn",
-      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
+      "id": "1kk1sil",
+      "titulo": "Santiago Amadeo analiza el presente deportivo de Amigos Unidos",
       "seccion": "Fútbol"
      },
      {
-      "id": "53yara",
-      "titulo": "Supermercados mayoristas lanzan una semana de descuentos",
+      "id": "dri7vy",
+      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
       "seccion": "Economía"
      },
      {
@@ -180,17 +149,48 @@
       "seccion": "Argentina"
      }
     ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "x8mixn",
+      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "53yara",
+      "titulo": "Supermercados mayoristas lanzan una semana de descuentos",
+      "seccion": "Economía"
+     },
+     {
+      "id": "njwqjk",
+      "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1j0p7xa",
+      "titulo": "Mar del Plata registra una jornada fría y nublada",
+      "seccion": "Argentina"
+     }
+    ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "1wqyb20",
      "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
+     "cuando": "2026-10-26T11:06:02.624Z"
+    }
+   ],
+   "cola": [
     {
      "id": "1s2s6et",
      "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
@@ -198,8 +198,8 @@
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-25T22:16:05.887Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-26T12:36:02.624Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

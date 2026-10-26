@@ -30423,7 +30423,8 @@
    "corresponde": "si",
    "descripcion": "Messi sonriendo con la camiseta de la selección argentina, con un recorte circular de Catherine Zeta-Jones en la esquina superior derecha."
   },
-  "huella": "d99bb29e1c3fb72a"
+  "huella": "d99bb29e1c3fb72a",
+  "ausenteDesde": "2026-10-26T11:34:01.136Z"
  },
  "hmmoeg": {
   "intentado": true,
@@ -34801,12 +34802,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
-  "cuando": "2026-10-26T03:04:44.748Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-10-26T11:33:00.867Z",
   "intentos": 5,
   "fuentes": 5,
-  "intentosPorCupo": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 6
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -38416,12 +38416,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Paganini detalla su trabajo como ingeniero argentino en la NASA",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T23:01:55.753Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
+  "cuando": "2026-10-26T11:33:00.867Z",
   "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 5,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 6
  },
  "1df4mi": {
   "intentado": true,
@@ -40499,15 +40498,28 @@
   "ausenteDesde": "2026-10-25T18:05:33.962Z"
  },
  "njwqjk": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/njwqjk.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Groq también falló: HTTP 400: invalid image data (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T01:01:41.064Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "intentosPorCupo": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lanueva.com/nota/2026-10-25-15-29-0-maria-corina-machado-regreso-a-venezuela-despues-de-casi-diez-meses-en-el-exilio",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792953160614.jpg?&cw=600&ch=365",
+  "razon": "La foto B muestra correctamente a María Corina Machado, protagonista de la nota, sin marcas ni otros impedimentos.",
+  "cuando": "2026-10-26T11:33:00.867Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de María Corina Machado sonriendo."
+  },
+  "huella": "7d6d4f6f64686869"
  },
  "e9cid4": {
   "intentado": true,
@@ -42050,7 +42062,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo y besando el Balón de Oro."
   },
-  "huella": "ce8a8a8909494b2f"
+  "huella": "ce8a8a8909494b2f",
+  "ausenteDesde": "2026-10-26T11:34:01.136Z"
  },
  "lpxwwu": {
   "archivo": "fotos-notas/lpxwwu.jpg",
@@ -42263,7 +42276,8 @@
    "corresponde": "si",
    "descripcion": "Lautaro Rivero celebrando el gol con el puño apretado."
   },
-  "huella": "b72e4f3b1f062d0e"
+  "huella": "b72e4f3b1f062d0e",
+  "ausenteDesde": "2026-10-26T11:34:01.136Z"
  },
  "323mbq": {
   "archivo": "fotos-notas/323mbq.jpg",
@@ -42359,5 +42373,77 @@
   "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "la respuesta no es JSON"
+ },
+ "1j0p7xa": {
+  "archivo": "fotos-notas/1j0p7xa.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mar del Plata registra una jornada fría y nublada",
+  "enlace": "https://www.elmarplatense.com/mar-del-plata-tendra-un-lunes-frio-nublado-y-con-una-maxima-de-13-grados",
+  "imagenOriginal": "https://n2.cdnartic.ar/Axy3zKGM9KSlqjaqJBXOSMM4bEo=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/07/clima_6.webp",
+  "razon": "La foto C muestra una vista panorámica urbana de Mar del Plata bajo cielo nublado, ideal para ilustrar la jornada fría y nublada.",
+  "cuando": "2026-10-26T11:33:00.867Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista panorámica de la ciudad de Mar del Plata con cielo nublado"
+  },
+  "huella": "afb71faf8d6b4ded"
+ },
+ "m94rdd": {
+  "archivo": "fotos-notas/m94rdd.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
+  "enlace": "https://www.iprofesional.com/impuestos/467414-desde-el-lunes-se-habilita-el-plan-de-arba-como-regularizar-patentes-e-inmobiliario",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/10/628103_landscape.jpg",
+  "razon": "Muestra claramente el edificio de ARBA relacionado con la nota, sin marcas ni menores.",
+  "cuando": "2026-10-26T11:33:00.867Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio de ARBA."
+  },
+  "huella": "6044d28db2b13131"
+ },
+ "1jd9f0x": {
+  "archivo": "fotos-notas/1jd9f0x.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula da Silva gana el balotaje en Brasil y gobernará por cuarta vez",
+  "enlace": "https://www.lanacion.com.ar/el-mundo/cuando-asume-lula-da-silva-su-nuevo-mandato-como-presidente-de-brasil-nid26102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/lula-consiguio-su-cuarto-mandato-AW56UV5SYZERVODVBATKOSUGJU.JPG?auth=d9b98e347044c1dedcfc65a7b9190ef152930f8e34f14b5e0db1720ef3fd5cb0&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía clara que muestra a Lula da Silva sonriendo junto a una urna electoral tras ganar el balotaje, con excelente calidad, sin marcas añadidas ni menores reconocibles.",
+  "cuando": "2026-10-26T11:33:00.867Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lula da Silva sonriendo y haciendo gestos junto a una cabina de votación"
+  },
+  "huella": "361313173313135b"
  }
 }
