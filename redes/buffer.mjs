@@ -100,18 +100,29 @@ export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}
   return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
 }
 
-/** Las redes por las que pasa cada reel (los dueños, 25/10: TikTok como Facebook, YouTube como Instagram: todos los reels a las dos). */
 export const REDES_DE_BUFFER = ['tiktok', 'youtube'];
 
 /**
- * Manda un reel a TikTok y a YouTube. Devuelve { [servicio]: { ok, id?, motivo? } }; sin clave, {}.
+ * A qué redes de Buffer va una pieza ya publicada en Meta (los dueños, 25/10: "en TikTok todos los reels que salen en Facebook y en YouTube
+ * todos los reels que salen en Instagram"): TikTok si salió como reel en Facebook (el reel de siempre o el reel extra del clima y la farmacia),
+ * YouTube si salió como reel en Instagram.
  */
-export async function publicarReel({ url, texto, titulo }, opciones = {}) {
+export function redesParaBuffer(libro, clave) {
+  const redes = [];
+  if (libro?.reelsEnFacebook?.[clave] || libro?.facebookVideos?.[clave]?.tipo === 'REELS') redes.push('tiktok');
+  if (libro?.instagram?.[clave]?.tipo === 'REELS') redes.push('youtube');
+  return redes;
+}
+
+/**
+ * Manda un video a las redes de Buffer pedidas (por defecto, TikTok y YouTube). Devuelve { [servicio]: { ok, id?, motivo? } }; sin clave, {}.
+ */
+export async function publicarReel({ url, texto, titulo, redes = REDES_DE_BUFFER }, opciones = {}) {
   if (!hayBuffer(opciones.env ?? process.env)) return {};
   const c = await canales(opciones);
   const resultado = {};
-  if (!c.ok) { for (const s of REDES_DE_BUFFER) resultado[s] = { ok: false, motivo: c.motivo }; return resultado; }
-  for (const servicio of REDES_DE_BUFFER) {
+  if (!c.ok) { for (const s of redes) resultado[s] = { ok: false, motivo: c.motivo }; return resultado; }
+  for (const servicio of redes) {
     const canal = c.canales.find((x) => x.servicio === servicio);
     resultado[servicio] = canal ? await publicarVideo({ canal, url, texto, titulo }, opciones) : { ok: false, motivo: `no hay un canal de ${servicio} conectado en Buffer` };
   }

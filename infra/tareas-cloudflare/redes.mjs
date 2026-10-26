@@ -20,7 +20,7 @@ import fs from 'node:fs';
 import * as publicar from '../../redes/publicar.mjs';
 import { estadoDelReloj } from '../../redes/reloj.mjs';
 import { claveDePieza, pieDePieza } from '../../redes/piezas.mjs';
-import { hayBuffer, publicarReel, direccionDelVideo } from '../../redes/buffer.mjs';
+import { hayBuffer, publicarReel, direccionDelVideo, redesParaBuffer } from '../../redes/buffer.mjs';
 import { yaPublicada, estaActivo, libroNuevo } from '../../redes/elegir.mjs';
 import { diaAR } from '../../ingesta/zona.mjs';
 import { escribirEn } from './corredor.mjs';
@@ -88,10 +88,12 @@ export async function publicarListos({ render, raiz, env, ahora = new Date(), lo
     if (yaPublicada(despues, 'instagram', clave)) {
       await render.put(`publicados/${huella}`, JSON.stringify({ cuando: ahora.toISOString(), motivo: 'publicado' }));
       resultado.terminadas.push(huella);
-      // 25/10/2026: el mismo reel, a TikTok y a YouTube por Buffer (redes/buffer.mjs). Nunca frena lo de Meta; lo que pasó queda en el libro.
-      if (entrada.tipo === 'reel' && hayBuffer(env) && !despues.buffer?.[clave]) {
+      // 25/10/2026 (los dueños: "en TikTok todos los reels que salen en Facebook y en YouTube todos los reels que salen en Instagram"): por Buffer
+      // (redes/buffer.mjs). Nunca frena lo de Meta; lo que pasó queda en el libro (clave buffer).
+      const redesDeBuffer = redesParaBuffer(despues, clave);
+      if (redesDeBuffer.length && hayBuffer(env) && !despues.buffer?.[clave]) {
         try {
-          const r = await publicarReel({ url: direccionDelVideo(huella, manifiesto.archivo), texto: pieDePieza(entrada), titulo: entrada.titulo ?? entrada.etiqueta ?? entrada.nombre }, { env });
+          const r = await publicarReel({ url: direccionDelVideo(huella, manifiesto.archivo), texto: pieDePieza({ ...entrada, tipo: 'reel' }), titulo: entrada.titulo ?? entrada.etiqueta ?? entrada.nombre, redes: redesDeBuffer }, { env });
           log(`  Buffer (${entrada.nombre}): ${Object.entries(r).map(([red, x]) => `${red} ${x.ok ? 'ok' : `NO (${x.motivo})`}`).join(' · ')}`);
           const libroConBuffer = { ...despues, buffer: { ...(despues.buffer ?? {}), [clave]: { cuando: ahora.toISOString(), nombre: entrada.nombre, ...r } } };
           escribirEn(raiz, 'web/data/redes.json', new TextEncoder().encode(`${JSON.stringify(libroConBuffer, null, 2)}\n`));
