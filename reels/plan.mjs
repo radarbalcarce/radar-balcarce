@@ -159,7 +159,7 @@ function leerLibro() {
  *  "modo PC" (los datos del panel de la PC, en desuso). */
 function leerDatos() {
   if (fs.existsSync(PORTADA_WEB)) return datosDeLaWeb(JSON.parse(fs.readFileSync(PORTADA_WEB, 'utf8')));
-  throw new Error('Todavía no hay datos: falta web/data/portada.json (lo arma "Actualizar la web"; en la PC, git pull)');
+  throw new Error('Todavía no hay datos: falta web/data/portada.json (lo arma la vuelta del motor; en la PC, git pull)');
 }
 
 // --- los guiones -----------------------------------------------------------
@@ -471,9 +471,9 @@ export function planDelDia(datos, {
 
   // --- Reels: los tres podcasts del día ------------------------------------
   //
-  // Las reglas de qué se puede contar solo (nada de Política ni Policiales,
-  // sólo lo de Balcarce) y cómo se eligen las notas están en redes/elegir.mjs,
-  // donde se prueban.
+  // Las reglas de qué se puede contar solo (nada de Política ni Policiales;
+  // Balcarce primero y después lo más contado: sePuedeEnUnRepaso y
+  // elegirParaPodcast) están en redes/elegir.mjs, donde se prueban.
   //
   // Con el libro de lo ya publicado, el plan sabe qué podcasts salieron y qué
   // notas se contaron. Cuando a las 15:00 se arma sólo el de la tarde, elige
@@ -491,14 +491,15 @@ export function planDelDia(datos, {
   // Tres podcasts por día en vez de noticias sueltas (24/09: una noticia sola
   // dicha en voz alta sonaba rara). Los tres cuentan cuatro notas de temas
   // distintos, sin repetir entre sí (29/09); el de la noche, lo que dejó el día
-  // y no se contó. Cada uno lleva su lista de notas con el enlace en el texto del posteo,
-  // y sin nombrar la fuente. Cada podcast se sube también como historia.
-  // La lista (nombre, título, momento, hora) es una sola: PODCASTS, en
-  // redes/piezas.mjs. Cada uno habla como corresponde a su hora: el saludo, el
+  // y no se contó. Cada uno lleva la lista de titulares en el texto del posteo
+  // (en Facebook, un solo enlace: el de la nota del repaso), sin nombrar la
+  // fuente. Cada podcast se sube también como historia. La lista (nombre,
+  // título, momento, hora) es una sola: PODCASTS, que sale de la tabla de
+  // redes/piezas-del-dia.mjs. Cada uno habla como corresponde a su hora: el saludo, el
   // cierre y el tono salen de CRITERIO-REDES.md (redes/guiones.mjs).
   const SITIO = process.env.SITIO ?? 'https://radarbalcarce.com';
-  // Los tres en una sola vuelta (antes eran dos bloques casi iguales). El de la noche es el repaso de lo que dejó el día (sin piso de
-  // puntaje, redes/repasos.mjs); el del 25/09 (4 notas, 62,7 s) dejó sin historia a las dos redes: por eso todos tienen presupuesto.
+  // Los tres en una sola vuelta (antes eran dos bloques casi iguales). El de la noche es el repaso de lo que dejó el día (ninguno
+  // tiene piso de puntaje desde el 25/10, redes/repasos.mjs); el del 25/09 (4 notas, 62,7 s) dejó sin historia a las dos redes: por eso todos tienen presupuesto.
   // El VIDEO sigue a la voz (17/10, regla 209, reels/escenas/repaso.mjs): mientras cuenta cada nota se ve su foto y su titular, arranca
   // con la primera (la más fuerte) y cierra con la lista completa, que es también la tapa. `svg` (la lista) queda de respaldo.
   for (const ronda of PODCASTS) {
@@ -611,7 +612,7 @@ if (process.argv[1] && process.argv[1].endsWith('plan.mjs')) {
 
     // Se carga acá y no arriba del archivo: armar los videos necesita
     // ffmpeg, que son ochenta megas, y leer el plan del día no. Con el
-    // import arriba, las pruebas obligaban a instalarlo en GitHub Actions.
+    // import arriba, las pruebas obligaban a instalarlo en cada máquina que las corre.
     const { armarReel: armarReelLocal } = await import('./reel.mjs');
     // 18/10/2026 (el video en un repositorio aparte, docs/07-REDES.md): con RENDER_REMOTO=Si la pieza no se arma acá. Se pide la voz a Gemini, se arma el pedido,
     // se sube a R2 y se despierta al repositorio público de render (reels/render-remoto.mjs); el video lo publica el Worker de tareas cuando el render lo deja

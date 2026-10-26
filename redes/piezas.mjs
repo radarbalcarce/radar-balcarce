@@ -13,11 +13,17 @@
 //
 // La segunda se responde sin armar nada (sin instalar resvg ni ffmpeg): sólo
 // con la hora y el libro de lo ya publicado. Así, cuando no hay nada para
-// publicar, la corrida de GitHub termina en segundos y no gasta minutos.
+// publicar, la vuelta termina en segundos y no gasta minutos.
+//
+// La hora, la ventana, el formato y el lugar en el cupo de voz de cada pieza
+// están en UNA tabla, redes/piezas-del-dia.mjs (25/10/2026): las listas de acá
+// (VENTANAS, PODCASTS, HORAS_REELS, SALE_COMO_REEL, EXTRAS_DE_HISTORIAS…) salen
+// de ella y se exportan con los nombres de siempre.
 //
 // Sin red y sin reloj propio: se prueba entera.
 
-import { yaPublicada, ponerOrigen, armarHashtags } from './elegir.mjs';
+import { PIEZAS_DEL_DIA } from './piezas-del-dia.mjs';
+import { yaPublicada, ponerOrigen, armarHashtags, notasContadasEnRepasos } from './elegir.mjs';
 import { diaAR, minutoDelDiaAR, diaSemanaAR, minutosDeHora } from '../ingesta/zona.mjs';
 import { horariosDe, toca } from './horarios.mjs';
 import { diaRotativoDeUtiles } from '../ingesta/utiles.mjs';
@@ -25,45 +31,19 @@ import { CONTRATO_DIARIO } from '../ingesta/criterio.mjs';
 import { avisosDelClima } from '../ingesta/alertas.mjs';
 import { SITIO } from './prompt-redes.mjs';
 
-/** Cuánto tiempo después de su hora una pieza todavía vale la pena. Un clima
- *  de las 7:30 a las 15:00 ya no es el clima.
- *
- *  Es también lo que hace tolerable que el reloj de GitHub sea impuntual: si
- *  una corrida llega una hora tarde, todavía alcanza. */
+/** Cuánto tiempo después de su hora sigue valiendo una pieza que no está en la
+ *  tabla (las de la tabla tienen la suya). Un clima de las 7:30 a las 15:00 ya
+ *  no es el clima. También cubre una vuelta que llega tarde. */
 export const VENTANA_MINUTOS = 120;
 
 /**
- * Cuánto sigue valiendo cada pieza después de su hora, en minutos.
- *
- * Es más larga que las 2 horas de arriba en lo que no caduca rápido: el 21/09 el
- * planificador de GitHub no ejecutó ninguna corrida entre las 19:00 y las 21:00,
- * se cerró la ventana de la farmacia y esa noche no salió. Pero la farmacia de
- * turno sirve toda la noche (el turno dura hasta la mañana siguiente), igual que
- * el clima de la noche y el podcast. Ninguna pasa de la medianoche: lo de un día
- * no sale al siguiente.
- *
- * Lo que sí caduca (el clima "de hoy" de la mañana) se deja más corto, para no
- * publicar viejo. El aviso de clima tiene la suya (VENTANA_AVISO, más abajo).
+ * Cuánto sigue valiendo cada pieza después de su hora, en minutos: la columna
+ * `ventana` de redes/piezas-del-dia.mjs. Cada pieza sale dentro de su parte del
+ * día (29/09, Hernán: "que siempre lo que se diga tenga en cuenta si es mañana,
+ * tarde o noche"): si se le pasa la franja, ese día no sale. El aviso de clima
+ * tiene la suya (VENTANA_AVISO, más abajo).
  */
-// Cada pieza sale dentro de su parte del día (29/09, Hernán: "que siempre lo que
-// se diga tenga en cuenta si es mañana, tarde o noche"): el saludo, el cierre y
-// lo que dice son los de su hora (momentoDeHora: mañana hasta las 12:59, tarde
-// hasta las 18:59, noche desde las 19), así que una pieza de la mañana no puede
-// salir a las 14 diciendo "buen día". Si se le pasa la franja, ese día no sale.
-const VENTANAS = {
-  'clima-manana': 240, // 7:00 → 11:00
-  // (noticia1, noticia2 y podcast son los repasos de la mañana, la tarde y la noche: no se renombran, están en el libro y las estadísticas)
-  noticia1: 180,      // 10:00 → 13:00 (hasta el 29/09, hasta las 15)
-  noticia2: 240,       // 15:00 → 19:00 (hasta el 29/09, hasta las 20)
-  farmacia: 300,       // 19:00 → 24:00
-  'clima-noche': 240,  // 20:00 → 24:00
-  podcast: 180,        // 21:00 → 24:00
-  utiles: 60,          // 17:00 → 18:00, los sábados
-  agenda: 60,          // 12:00 → 13:00, los jueves
-  feriado: 240,        // 8:00 → 12:00, los feriados
-  efemeride: 180,      // 9:00 → 12:00, todos los días que tienen su efeméride preparada
-  'participa-noticias': 60, 'participa-evento': 60, 'participa-reclamos': 60, 'participa-nota': 60, // 12:00 → 13:00
-};
+const VENTANAS = Object.fromEntries(PIEZAS_DEL_DIA.map((p) => [p.id, p.ventana]));
 
 /**
  * El aviso de clima (helada fuerte, granizo, viento de más de 60 km/h) no
@@ -97,30 +77,23 @@ export function avisoDeClima(clima, ahora = new Date()) {
   return a ? { ...a, nombre: `aviso-${a.tipo}` } : null;
 }
 
-/** Las piezas por corrida. Antes eran 2, para que salieran de a poco, pero con el
- *  reloj impuntual de GitHub una pieza que quedaba para la corrida siguiente se
- *  podía perder. El cupo de voz es de 10 audios por día (compartido con las
- *  otras corridas de voz), pero el reloj ya reparte las piezas del día y una
- *  que se pierde no se recupera: sale todo lo que toque, junto. */
+/** Las piezas por vuelta. Antes eran 2, para que salieran de a poco, pero una
+ *  pieza que quedaba para la vuelta siguiente se podía perder. El reloj ya
+ *  reparte las piezas del día y una que se pierde no se recupera: sale todo lo
+ *  que toque, junto (el cupo de voz lo cuida reels/cupo-voz.mjs). */
 export const POR_CORRIDA = 6;
 
-/** Los tres podcasts del día: mañana, tarde y noche. Los usa reels/plan.mjs. */
-export const HORAS_REELS = ['10:00', '15:00', '21:00'];
-
 /**
- * LA lista de los podcasts (28/09: antes estaba repetida en redes/contrato.mjs,
- * acá y dos veces en reels/plan.mjs). Cada uno sale como reel y se sube también
+ * Los tres repasos (podcasts) del día: mañana, tarde y noche, las filas
+ * `formato: 'repaso'` de la tabla. Cada uno sale como reel y se sube también
  * como historia. `nombre` es la clave en el libro; `etiqueta`, cómo lo nombran
  * el contrato y el vigilante; `titulo` y `momento`, lo que usa el plan.
- *
- * Desde el 24/09 no hay historias de UNA nota (una noticia sola dicha en voz
- * alta sonaba rara): las notas salen dentro de los podcasts.
  */
-export const PODCASTS = [
-  { nombre: 'noticia1', etiqueta: 'podcast mañana', titulo: 'El repaso de la mañana', momento: 'manana', hora: HORAS_REELS[0] },
-  { nombre: 'noticia2', etiqueta: 'podcast tarde', titulo: 'El repaso de la tarde', momento: 'tarde', hora: HORAS_REELS[1] },
-  { nombre: 'podcast', etiqueta: 'podcast noche', titulo: 'El repaso del día', momento: 'noche', hora: HORAS_REELS[2] },
-];
+export const PODCASTS = PIEZAS_DEL_DIA.filter((p) => p.formato === 'repaso')
+  .map((p) => ({ nombre: p.id, etiqueta: p.etiqueta, titulo: p.titulo, momento: p.momento, hora: p.hora }));
+
+/** Las horas de los tres repasos. */
+export const HORAS_REELS = PODCASTS.map((p) => p.hora);
 
 /** Los nombres de los podcasts, para preguntar "¿esta pieza es un podcast?". */
 export const NOMBRES_DE_PODCAST = PODCASTS.map((p) => p.nombre);
@@ -149,28 +122,20 @@ export function pieDePieza(pieza, red = null) {
   return `${pieDeReel(pieza, red)}\n\n${AVISO_DE_VOZ}\n\n${hashtagsDePieza(pieza).join(' ')}`;
 }
 
-/** El tema de cada tipo de pieza como hashtag (uno solo, después de los fijos). */
-const TEMA_DE_PIEZA = [
-  [(n) => ['noticia1', 'noticia2', 'podcast'].includes(n), 'Noticias'],
-  [(n) => n === 'clima-manana' || n === 'clima-noche' || esAviso(n), 'Clima'],
-  [(n) => n === 'farmacia', 'FarmaciaDeTurno'],
-  [(n) => n === 'efemeride', 'UnDíaComoHoy'],
-  [(n) => n === 'feriado', 'Feriado'],
-  [(n) => n === 'agenda', 'Agenda'],
-  [(n) => n === 'utiles', 'TeléfonosÚtiles'],
-  [(n) => String(n ?? '').startsWith('participa-'), 'Participá'],
-];
+/** El tema de cada pieza como hashtag (uno solo, después de los fijos): la columna `hashtag` de la tabla; los avisos de clima, #Clima. */
+const TEMA_DE_PIEZA = Object.fromEntries(PIEZAS_DEL_DIA.map((p) => [p.id, p.hashtag]));
+const temaDePieza = (nombre) => TEMA_DE_PIEZA[nombre] ?? (esAviso(nombre) ? 'Clima' : null);
 
 /**
  * Los hashtags del pie de una pieza con video (regla 281): `#Balcarce #RadarBalcarce` fijos, primeros, y uno del tipo de pieza (#Noticias, #Clima,
  * #FarmaciaDeTurno…). Lo mismo para Facebook y para Instagram; el repaso no repite los de cada nota porque cuenta varias.
  */
 export function hashtagsDePieza(pieza) {
-  const tema = TEMA_DE_PIEZA.find(([es]) => es(pieza?.nombre))?.[1];
+  const tema = temaDePieza(pieza?.nombre);
   return armarHashtags(tema ? [tema] : [], 1);
 }
 
-const TURNO_DEL_REPASO = { noticia1: 'manana', noticia2: 'tarde', podcast: 'noche' };
+const TURNO_DEL_REPASO = Object.fromEntries(PODCASTS.map((p) => [p.nombre, p.momento]));
 
 /** El enlace a la nota propia del repaso (web/lib/notas-propias.js: id `repaso<AAAAMMDD><manana|tarde|noche>`; /nota/<id> redirige a la dirección completa). */
 export function enlaceDelRepaso(pieza, red = null, ahora = new Date()) {
@@ -212,10 +177,10 @@ export const SERVICIOS_CON_PAGINA = [
   { es: (n) => n === 'farmacia', camino: '/farmacias', frase: 'Las farmacias de turno de toda la semana, con dirección, acá' },
 ];
 
-// Los teléfonos útiles rotan de lunes a viernes, una semana distinta cada vez
-// (ingesta/utiles.mjs). Esa regla es la única: la usan también reels/plan.mjs y
-// el cronograma, vía `toca` de redes/horarios.mjs. Se re-exporta con el nombre de
-// siempre.
+// El día de los teléfonos útiles (el sábado desde el 1/10; antes rotaban de
+// lunes a viernes) es uno solo, el de ingesta/utiles.mjs: lo usan también
+// reels/plan.mjs y el cronograma, vía `toca` de redes/horarios.mjs. Se re-exporta
+// con el nombre de siempre.
 export { diaRotativoDeUtiles };
 
 /**
@@ -223,14 +188,15 @@ export { diaRotativoDeUtiles };
  * cuatro semanas). El clima y la farmacia no: en Instagram son sólo historia, y en Facebook salen como historia y también como reel
  * (`reelEnFacebook`, reels/plan.mjs). Los avisos de clima siguen siendo sólo historia: no esperan nada.
  */
-export const SALE_COMO_REEL = (nombre) => ['efemeride', 'feriado', 'agenda', 'utiles'].includes(nombre) || String(nombre ?? '').startsWith('participa-');
+const SALEN_COMO_REEL = new Set(PIEZAS_DEL_DIA.filter((p) => p.formato === 'reel').map((p) => p.id));
+export const SALE_COMO_REEL = (nombre) => SALEN_COMO_REEL.has(nombre);
 
-/** Las piezas de clima y farmacia que en Facebook salen además como reel. */
-export const TAMBIEN_REEL_EN_FACEBOOK = ['clima-manana', 'clima-noche', 'farmacia'];
+/** Las piezas de clima y farmacia que en Facebook salen además como reel (`reelEnFacebook` en la tabla). */
+export const TAMBIEN_REEL_EN_FACEBOOK = PIEZAS_DEL_DIA.filter((p) => p.reelEnFacebook).map((p) => p.id);
 
 /** Las historias extras (no están en el contrato de las seis), de la que se
- *  sacaría primero a la que menos importa. */
-export const EXTRAS_DE_HISTORIAS = ['utiles', 'agenda', 'participa-noticias', 'participa-evento', 'participa-reclamos', 'participa-nota', 'feriado'];
+ *  sacaría primero a la que menos importa (`seSaca` en la tabla). */
+export const EXTRAS_DE_HISTORIAS = PIEZAS_DEL_DIA.filter((p) => p.seSaca).sort((a, b) => a.seSaca - b.seSaca).map((p) => p.id);
 
 /**
  * Qué historias sobran para que el día no pase el techo (CONTRATO_DIARIO
@@ -255,9 +221,9 @@ export function historiasQueSobran(nombres, techo = CONTRATO_DIARIO.historiasMax
  * Todas las piezas del día con su hora, sin saber todavía qué nota va en cada
  * una. Es la lista que el reloj recorre.
  *
- * Las fijas (clima, farmacia, útiles…) toman su horario de redes/horarios.mjs;
- * en GitHub no hay panel, así que valen los de fábrica. Los podcasts tienen los
- * suyos arriba (PODCASTS).
+ * Las fijas (clima, farmacia, útiles…) toman su horario de redes/horarios.mjs
+ * y los podcasts, de PODCASTS: las dos cosas salen de la tabla de
+ * redes/piezas-del-dia.mjs.
  *
  * Con `clima` (el de web/data/portada.json, que le pasa el reloj), suma el
  * aviso de clima si hay uno grave (avisoDeClima, HORA_AVISO). Sin clima (el
@@ -302,35 +268,15 @@ export function slotsQueTocan({
     .filter((p) => enHora(p.hora, ahora, ventana ?? ventanaDe(p.nombre)));
 }
 
-// (notasUsadasHoy, "las notas de cualquier pieza de hoy", se sacó el 28/09: sólo
-// la usaban las historias de una nota. Los podcasts no repiten notas con
-// notasContadasEnPodcasts, que mira hoy y los dos días anteriores.)
-
-/** Los nombres de pieza que son un podcast (mañana, tarde y noche): las tres
- *  cuentan varias notas, con su lista de enlaces. */
-const PIEZAS_DE_PODCAST = new Set(NOMBRES_DE_PODCAST);
-
 /**
- * Las notas que ya se contaron en un podcast en los últimos `dias` días, para
+ * Las notas que ya se contaron en un repaso en los últimos `dias` días (hoy incluido), para
  * que un repaso no vuelva a contar la misma historia mientras siga siendo
- * noticia. Sin esto, una nota local con puntaje alto se repetía en el
- * podcast de la mañana, el de la tarde y el de la noche de tres días
- * seguidos (27/09, Hernán: "veo de nuevo la nota de McCain"). Cuenta también
- * lo de hoy: desde el 29/09 el repaso de la noche tampoco repite lo que contaron
- * el de la mañana o el de la tarde.
+ * noticia (27/09, Hernán: "veo de nuevo la nota de McCain"; desde el 29/09 el
+ * de la noche tampoco repite lo de la mañana o la tarde). Es la misma cuenta
+ * que usan los posteos (`notasContadasEnRepasos`, redes/elegir.mjs): una sola
+ * función, con el nombre de siempre.
  */
-export function notasContadasEnPodcasts(libro, fecha = new Date(), dias = 3) {
-  const dentro = new Set(Array.from({ length: dias }, (_, i) => diaAR(new Date(fecha.getTime() - i * 86400e3))));
-  return new Set(
-    Object.entries(libro?.instagram ?? {})
-      .filter(([clave]) => {
-        const [dia, nombre] = clave.split('/');
-        return dentro.has(dia) && PIEZAS_DE_PODCAST.has(nombre);
-      })
-      .flatMap(([, v]) => [v?.notaId, ...(v?.notaIds ?? [])])
-      .filter(Boolean),
-  );
-}
+export const notasContadasEnPodcasts = (libro, fecha = new Date(), dias = 3) => notasContadasEnRepasos(libro, fecha, dias);
 
 /**
  * Las piezas armadas que salen ahora: las del manifiesto que están en hora y

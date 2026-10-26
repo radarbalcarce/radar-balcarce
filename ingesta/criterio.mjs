@@ -105,19 +105,17 @@ export const REESCRITURA = {
   palabrasMinimasDeMaterial: 60,
   porCorrida: 40,
   // Tope de notas que se le piden a la IA en un día entero (hora de Balcarce).
-  // Se usa primero la clave de redacción; si se queda sin cupo hay respaldos
-  // (todas las claves son gratis desde el 29/09, ninguna cobra): el 27/09 se
-  // subió de 150 a 300 porque 150 dejaba unas 67 notas verdes esperando.
-  // Primero se gasta en lo de Balcarce y en lo más nuevo (ordenarParaReescribir).
-  // El 27/09 a la noche se subió a 450 (Hernán): ese día había 60 notas de
-  // afuera aprobadas, contadas por dos medios o más, que nunca llegaron a
-  // pedirse porque el cupo se había gastado. La clave gratis de redacción
-  // permite 500 pedidos por día: 450 entra si la lectura con IA tiene su
-  // propia clave (GEMINI_API_KEY_CLASIFICACION).
+  // Se usa primero la clave gratis de redacción y, si se queda sin cupo, los
+  // respaldos (desde el 25/10, el primero es la clave paga GEMINI_API_KEY_RESPALDO).
+  // El 27/09 se subió de 150 a 300 (150 dejaba unas 67 notas verdes esperando)
+  // y esa noche a 450 (Hernán): había 60 notas de afuera aprobadas que nunca
+  // llegaron a pedirse. Primero se gasta en lo de Balcarce y en lo más nuevo
+  // (ordenarParaReescribir). El tope sigue para que un día raro no se coma el
+  // cupo gratis ni el gasto del respaldo pago.
   porDia: 450,
-  // Mientras esa clave no esté cargada, la lectura con IA gasta de la misma
-  // clave gratis (hasta 60 pedidos de fichas y 60 de repetidas por día), así
-  // que el tope baja: 330 + 120 = 450, por debajo de los 500 gratis. Lo elige
+  // Si la lectura con IA no tiene su propia clave (GEMINI_API_KEY_CLASIFICACION),
+  // gasta de la de redacción (hasta 60 pedidos de fichas y 60 de repetidas por
+  // día), y el tope de notas baja lo mismo: 330 + 120 = 450. Lo elige
   // topeDeReescrituras (reels/reescritura.mjs).
   porDiaSinClaveDeLectura: 330,
   // El texto completo de CADA fuente que recibe la IA (lo corta ingesta/articulo.mjs al bajarlo). 25/10 (regla 327): de 4.000 a 6.000, de
@@ -142,9 +140,9 @@ export const REESCRITURA = {
 };
 
 /** Cuántas veces por día se llama a la IA que lee las notas nuevas (la «lectura con IA»: sección, de dónde es el hecho, si es publicidad).
- *  Con su propia clave (GEMINI_API_KEY_CLASIFICACION) 200; mientras comparte la clave gratis de la redacción (500 pedidos por día en total
- *  con las reescrituras), 60. Es de los límites que de verdad frenan: con unas 3.000 historias por día, las que quedan sin leer esperan
- *  a la corrida siguiente (ingesta/lectura-ia.mjs, topeDeLecturas). */
+ *  Con su propia clave (GEMINI_API_KEY_CLASIFICACION) 200; si comparte la clave de la redacción, 60 (para no quitarle cupo a las
+ *  reescrituras). Es de los límites que de verdad frenan: con unas 3.000 historias por día, las que quedan sin leer esperan
+ *  a la vuelta siguiente (ingesta/lectura-ia.mjs, topeDeLecturas). */
 export const LECTURA_IA = {
   pedidosPorDia: 60,
   pedidosPorDiaConClavePropia: 200,
@@ -214,7 +212,7 @@ export const POPULARIDAD = {
  *  (regla 294, Hernán, auditoría D8) volvieron: Agro salió 0 de 139 el 22/10. */
 export const AREAS_CHICAS = ['Tecnología', 'Ciencia', 'Salud', 'Educación', 'Cultura y agenda', 'Agro', 'Automovilismo'];
 
-/** Secciones que son sólo de Balcarce y la zona: lo de afuera no sale solo (antes, cupo 0). */
+/** Secciones que son sólo de Balcarce y la zona: lo de afuera no sale solo (las excepciones, en la regla 289). */
 export const SECCIONES_SOLO_DE_ACA = ['Policiales'];
 
 // "Muy contada": lo de afuera que cuenta medio país (regla 197, 17/10/2026; Hernán: "lo de Balcarce entra

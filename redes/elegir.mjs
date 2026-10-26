@@ -29,6 +29,17 @@
 //     web/lib/notas-propias.js) no van a Facebook como posteo ni a los
 //     podcasts: la del repaso ES un podcast, y la del dólar es un número que
 //     cambia en el día. Serían redundantes.
+//
+// LAS PUERTAS (25/10/2026: una base y una puerta por formato, sin reglas repetidas):
+//   · la base, para todo: quedaAfueraDeLasRedes (lo rojo, lo que espera cuerpo, las notas propias salvo la de una pista aprobada)
+//     y esperaAUnaPersona (Política y Policiales, y lo que la web publicó porque lo aprobó una persona sin marcarlo para las redes);
+//   · posteo de Facebook (y su espejo en Instagram): vaAFacebookPorLoQueEs. Lo marcado por una persona pasa; si no, lo de Balcarce
+//     (esParaLasRedes) con la relevancia mínima o muy contado de acá, o lo de afuera muy contado (esPopularParaRedes). Ninguna nota
+//     propia, ni la de una pista;
+//   · repasos (podcasts): sePuedeEnUnRepaso, y elegirParaPodcast ordena (Balcarce primero, después lo más contado; lo que no es
+//     noticia, afuera salvo que una persona lo pida para el repaso);
+//   · pieza sola de una nota: sePuedeSola (dormida: producción no la usa).
+// Dos comparadores de tema, a propósito: temaParecido (posteos, avisos, contrato) y mismoTema (repasos); ver mismoTema.
 
 import { rutaDeNota } from '../web/lib/ruta.js';
 import { sinTildes } from '../web/lib/texto.js';
@@ -43,6 +54,7 @@ import {
 import { armarPodcast, variante, segundosDePodcast } from './guiones.mjs';
 import { MEDIO } from './prompt-redes.mjs';
 import { diaAR, minutoDelDiaAR } from '../ingesta/zona.mjs';
+import { PIEZAS_DEL_DIA } from './piezas-del-dia.mjs';
 
 // Los números de las redes son parte del criterio editorial: están en
 // ingesta/criterio.mjs y en la tabla "Los números" de CRITERIO-EDITORIAL.md,
@@ -79,12 +91,15 @@ export const REGLAS_FACEBOOK = {
   seccionesQueEsperanPersona: SECCIONES_QUE_ESPERAN_PERSONA,
 };
 
-/** Las notas que contaron los repasos (noticia1, noticia2 y podcast) en los últimos 3 días (incluido hoy), según el libro de Instagram. */
+/** Los repasos (noticia1, noticia2 y podcast), de la tabla de redes/piezas-del-dia.mjs. */
+const REPASOS = PIEZAS_DEL_DIA.filter((p) => p.formato === 'repaso').map((p) => p.id);
+
+/** Las notas que contaron los repasos en los últimos 3 días (incluido hoy), según el libro de Instagram. */
 export function notasContadasEnRepasos(libro, ahora = new Date(), dias = 3) {
   const dentro = new Set(Array.from({ length: dias }, (_, i) => diaAR(new Date(ahora.getTime() - i * 86400e3))));
   return new Set(
     Object.entries(libro?.instagram ?? {})
-      .filter(([clave]) => { const [dia, nombre] = clave.split('/'); return dentro.has(dia) && ['noticia1', 'noticia2', 'podcast'].includes(nombre); })
+      .filter(([clave]) => { const [dia, nombre] = clave.split('/'); return dentro.has(dia) && REPASOS.includes(nombre); })
       .flatMap(([, v]) => [v?.notaId, ...(v?.notaIds ?? [])])
       .filter(Boolean),
   );
@@ -118,8 +133,25 @@ export const aprobadaParaLasRedes = (n) => Boolean(n?.aprobadaParaRedes);
 export const loAproboUnaPersona = (n) => n?.como === 'publicada';
 
 /**
+ * LA BASE de todas las puertas: lo que no va solo a ninguna red, en ningún formato. Lo rojo, lo que espera
+ * cuerpo (una nota de dos renglones) y las notas propias del sitio, salvo la de una pista que una persona
+ * aprobó para las redes (notaDePistaParaLosRepasos; los posteos de Facebook no llevan ni ésa).
+ */
+export function quedaAfueraDeLasRedes(n) {
+  return !n || n.semaforo === 'rojo' || esperaCuerpo(n) || (esNotaPropia(n) && !notaDePistaParaLosRepasos(n));
+}
+
+/**
+ * Lo que espera a una persona para ir a una red: Política y Policiales, y lo que salió en la web porque lo
+ * aprobó una persona (era amarillo) sin marcarlo también para las redes.
+ */
+export function esperaAUnaPersona(n, secciones = SECCIONES_QUE_ESPERAN_PERSONA) {
+  return secciones.includes(n?.seccion) || (loAproboUnaPersona(n) && !aprobadaParaLasRedes(n));
+}
+
+/**
  * ¿Puede ir a Facebook por lo que es, sin mirar la hora ni el libro? (29/09;
- * la misma regla la usa el contrato del día, redes/contrato.mjs):
+ * la misma regla la usan el contrato del día, redes/contrato.mjs, y la previa):
  *
  *   · lo que una persona marcó desde el celular para las redes, sí, aunque sea
  *     de Política o Policiales, de afuera o de poca relevancia: lo decidió ella;
@@ -129,14 +161,14 @@ export const loAproboUnaPersona = (n) => n?.como === 'publicada';
  *   · o lo más contado del país (esPopularParaRedes, regla 280): lo de afuera que cuentan
  *     `mediosParaRedes` medios distintos o más, con las mismas guardas.
  *
- * Nunca una nota propia ni una sin cuerpo.
+ * Nunca lo de la base (quedaAfueraDeLasRedes) ni una nota propia, tampoco la de una pista.
  */
 export function vaAFacebookPorLoQueEs(n, reglas = REGLAS_FACEBOOK) {
-  if (esNotaPropia(n) || esperaCuerpo(n)) return false;
+  if (quedaAfueraDeLasRedes(n) || esNotaPropia(n)) return false;
   if (aprobadaParaLasRedes(n)) return true;
   // Lo de acá que cuentan tres medios de Balcarce o más (`muyContadaDeAca`, regla 198) no pide la relevancia mínima:
-  // es lo que más se lee del sitio. Política y Policiales siguen esperando a una persona.
-  if (loAproboUnaPersona(n) || reglas.seccionesQueEsperanPersona.includes(n.seccion)) return false;
+  // es lo que más se lee del sitio. Política y Policiales siguen esperando a una persona (las secciones son las de `reglas`).
+  if (esperaAUnaPersona(n, reglas.seccionesQueEsperanPersona)) return false;
   if (esParaLasRedes(n)) return (n.relevancia ?? 0) >= reglas.relevanciaMinima || muyContadaDeAca(n);
   return esPopularParaRedes(n, reglas);
 }
@@ -153,8 +185,8 @@ export function vaAFacebookPorLoQueEs(n, reglas = REGLAS_FACEBOOK) {
  * Lo de Balcarce NO pasa por acá (va por esParaLasRedes): esto es sólo la puerta de lo de afuera.
  */
 export function esPopularParaRedes(n, reglas = REGLAS_FACEBOOK) {
-  if (esNotaPropia(n) || esperaCuerpo(n) || loAproboUnaPersona(n)) return false;
-  if (esParaLasRedes(n) || SECCIONES_QUE_ESPERAN_PERSONA.includes(n?.seccion)) return false;
+  if (quedaAfueraDeLasRedes(n) || esNotaPropia(n) || esperaAUnaPersona(n) || loAproboUnaPersona(n)) return false;
+  if (esParaLasRedes(n)) return false;
   if (noEsNoticiaAunqueLaCuentenTodos(n?.titulo)) return false;
   return mediosDeLaNota(n) >= (reglas.mediosParaRedes ?? FACEBOOK.mediosParaRedes);
 }
@@ -163,7 +195,7 @@ export function esPopularParaRedes(n, reglas = REGLAS_FACEBOOK) {
  *  Sólo cuenta: no cambia qué se publica. `dia` (AAAA-MM-DD) limita a lo que salió ese día. */
 export function esperanDecisionParaRedes(notas, { libro = libroNuevo(), dia = null, reglas = REGLAS_FACEBOOK } = {}) {
   return (notas ?? []).filter((n) => {
-    if (!n || esNotaPropia(n) || esperaCuerpo(n) || aprobadaParaLasRedes(n) || yaPublicada(libro, 'facebook', n.id)) return false;
+    if (quedaAfueraDeLasRedes(n) || esNotaPropia(n) || aprobadaParaLasRedes(n) || yaPublicada(libro, 'facebook', n.id)) return false;
     if (!reglas.seccionesQueEsperanPersona.includes(n.seccion) || !esParaLasRedes(n)) return false;
     if (!((n.relevancia ?? 0) >= reglas.relevanciaMinima || muyContadaDeAca(n))) return false;
     if (!dia) return true;
@@ -504,24 +536,26 @@ export function mensajeDeNota(nota, sitio, origen = null) {
 // Instagram fuera del espejo de Facebook: las notas salen dentro de los podcasts.
 
 /**
- * ¿Es para las redes? Por ahora sólo va lo de Balcarce (Hernán, 27/09): una
- * nota de un medio de Balcarce, o de un medio de afuera que dice Balcarce en
- * su título (`local`, ingesta/ingesta.mjs). Del automovilismo nacional, sólo
- * lo que nombra a una figura argentina (Colapinto): Balcarce es la ciudad de
- * Fangio. El 26/09 el podcast de la tarde contó una nota de Necochea y el
- * 27/09 Facebook publicó otra; ninguna de las dos era de acá.
+ * ¿Es de Balcarce, para las redes? (Hernán, 27/09): una nota de un medio de
+ * Balcarce, o de un medio de afuera que dice Balcarce en su título (`local`,
+ * ingesta/ingesta.mjs). Del automovilismo nacional, sólo lo que nombra a una
+ * figura argentina (Colapinto): Balcarce es la ciudad de Fangio. El 26/09 el
+ * podcast de la tarde contó una nota de Necochea y el 27/09 Facebook publicó
+ * otra; ninguna de las dos era de acá. Lo de afuera tiene su propia puerta en
+ * los posteos (esPopularParaRedes, regla 280) y en los repasos va después de lo
+ * de acá (elegirParaPodcast).
  */
 export function esParaLasRedes(nota) {
   return nota?.local === true || (nota?.seccion === 'Automovilismo' && !!nota?.figura);
 }
 
-/** ¿Puede ir en un repaso, sea de acá o de afuera? Lo que salió en la web porque
+/** ¿Puede ir en un repaso, sea de acá o de afuera? Es la base sola: nada de
+ *  quedaAfueraDeLasRedes ni de esperaAUnaPersona. Lo que salió en la web porque
  *  lo aprobó una persona, sólo si también lo marcó para las redes (29/09); y
- *  nunca Política ni Policiales: los podcasts no las llevan. Lo de afuera,
- *  además, tiene que estar entre lo de más puntaje (elegirParaPodcast). */
+ *  nunca Política ni Policiales, ni marcadas: los podcasts no las llevan. El
+ *  orden (Balcarce primero, después lo más contado) lo pone elegirParaPodcast. */
 export function sePuedeEnUnRepaso(nota) {
-  return nota.semaforo !== 'rojo' && !SECCIONES_QUE_ESPERAN_PERSONA.includes(nota.seccion) && !esperaCuerpo(nota)
-    && (!esNotaPropia(nota) || notaDePistaParaLosRepasos(nota)) && (!loAproboUnaPersona(nota) || aprobadaParaLasRedes(nota));
+  return !quedaAfueraDeLasRedes(nota) && !esperaAUnaPersona(nota);
 }
 
 /** Una nota propia que nació de una pista (la armó la redacción desde un mail o un enlace) y que una persona aprobó para las redes SÍ puede ir a
@@ -550,11 +584,11 @@ const palabrasClave = (titulo = '') => new Set(
  *  larga y rara (siete letras o más).
  *
  *  No es el mismo criterio que temaParecido (Facebook, avisos, contrato), y a
- *  propósito no se unificaron (28/09): mismoTema junta con UNA palabra de siete
- *  letras ("Apertura", "Ferroviarios"), temaParecido pide dos de cinco o una de
- *  ocho. Pasar los podcasts a temaParecido cambiaría qué notas cuentan (el
- *  "Ferroviarios… Apertura" / "Ferro… Apertura" de las pruebas dejaría de
- *  juntarse). */
+ *  propósito no se unificaron (28/09; revisado el 25/10): mismoTema junta con UNA
+ *  palabra de siete letras o más, temaParecido pide dos de cinco, una de ocho o
+ *  una y un tema en común. Las pruebas pasan con cualquiera de los dos, pero
+ *  unificarlos cambiaría qué notas cuentan los repasos ("El Concejo aprobó la
+ *  tasa" y "El Concejo debate otra cosa" se juntan acá y no en temaParecido). */
 export function mismoTema(a, b) {
   const A = palabrasClave(a?.titulo);
   return [...palabrasClave(b?.titulo)].some((w) => A.has(w));

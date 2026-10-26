@@ -16,6 +16,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { PIEZAS_DEL_DIA } from '../redes/piezas-del-dia.mjs';
 
 /** El cupo de la clave de voces: 10 por día con la gratis (CLAUDE.md, "Cupo de voz: 10 audios por día"). 25/10/2026: con la clave paga se sube
  *  con la variable de GitHub `AUDIOS_POR_DIA`, sin tocar código (llega por redes-piezas.yml). */
@@ -24,14 +25,11 @@ export const AUDIOS_POR_DIA = Number(process.env.AUDIOS_POR_DIA) > 0 ? Math.floo
 export const AVISO_DESDE = Math.ceil(AUDIOS_POR_DIA * 0.8);
 
 /**
- * Qué tan importante es cada pieza (1 es lo que más). Lo que no está en la lista es opcional (4). Los avisos de clima van con el clima.
+ * Qué tan importante es cada pieza (1 es lo que más): la columna `voz` de la tabla de redes/piezas-del-dia.mjs (25/10/2026). Acá quedan
+ * sólo las que no son opcionales; lo que no está en la lista es opcional (4). Los avisos de clima van con el clima.
  * El reparto lo pidieron Hernán y Andrés: el repaso es la pieza principal del día.
  */
-export const PRIORIDAD = {
-  noticia1: 1, noticia2: 1, podcast: 1,
-  'clima-manana': 2, 'clima-noche': 2, farmacia: 2,
-  efemeride: 3, feriado: 3,
-};
+export const PRIORIDAD = Object.fromEntries(PIEZAS_DEL_DIA.filter((p) => p.voz < 4).map((p) => [p.id, p.voz]));
 export const prioridadDe = (nombre) => PRIORIDAD[nombre] ?? (String(nombre ?? '').startsWith('aviso-') ? 2 : 4);
 
 /** El día del cupo de Google (AAAA-MM-DD en la hora de California). */

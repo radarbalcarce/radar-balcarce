@@ -10,12 +10,12 @@
 //     · hasta 5 posteos de notas: en Facebook, con enlace; en Instagram, el
 //       espejo como foto del feed. Pueden ser menos si no hubo candidatas
 //       (de Balcarce con relevancia 75 o más, o lo muy contado; tema no repetido; de 8 a 22).
-//   SEMANALES, aparte (no cuentan en las 6 historias): los teléfonos útiles un
-//   día por semana (rotan, ver diaRotativoDeUtiles) y la agenda del jueves (sólo
+//   SEMANALES, aparte (no cuentan en las 6 historias): los teléfonos útiles los
+//   sábados (diaRotativoDeUtiles) y la agenda del jueves (sólo
 //   si hay eventos en los próximos días). El día no pasa de 8 historias en total
 //   (CONTRATO_DIARIO.historiasMaximasPorDia).
 //
-// Las horas y las ventanas salen de redes/piezas.mjs (no se repiten acá) y los
+// Las horas, las ventanas y las etiquetas salen de la tabla de redes/piezas-del-dia.mjs (no se repiten acá) y los
 // números de ingesta/criterio.mjs (CONTRATO_DIARIO).
 //
 // ANTES DE ESTE CONTRATO nadie miraba los podcasts ni sus historias, ni nada de
@@ -38,6 +38,7 @@ import { CONTRATO_DIARIO, FACEBOOK } from '../ingesta/criterio.mjs';
 import { temaParecido, vaAFacebookPorLoQueEs } from './elegir.mjs';
 import { diaAR, minutoDelDiaAR, minutosDeHora } from '../ingesta/zona.mjs';
 import { cronogramaDelDia, ventanaDe, PODCASTS, SALE_COMO_REEL } from './piezas.mjs';
+import { piezaDelDia } from './piezas-del-dia.mjs';
 
 /** El día desde el que rige este contrato. Antes las historias eran de notas y
  *  los podcasts no se subían como historia: no se les puede pedir lo de ahora. */
@@ -55,11 +56,9 @@ export const REDES_DEL_CONTRATO = [
  *  redes/piezas.mjs; se re-exporta con el nombre de siempre. */
 export { PODCASTS };
 
-/** Las de fábrica, por si el cronograma no las trae. */
-const HORAS_FIJAS = { 'clima-manana': '07:00', farmacia: '19:00', 'clima-noche': '20:00', utiles: '17:00' };
-const ETIQUETAS_FIJAS = {
-  'clima-manana': 'clima mañana', farmacia: 'farmacia', 'clima-noche': 'clima noche', utiles: 'teléfonos útiles',
-};
+/** La hora de fábrica (por si el cronograma no la trae) y la etiqueta de cada pieza: de la tabla de redes/piezas-del-dia.mjs. */
+const horaFija = (nombre) => piezaDelDia(nombre)?.hora;
+const etiquetaDe = (nombre) => piezaDelDia(nombre)?.etiqueta;
 
 const alMediodia = (fecha) => new Date(`${fecha}T12:00:00-03:00`);
 
@@ -70,7 +69,7 @@ const alMediodia = (fecha) => new Date(`${fecha}T12:00:00-03:00`);
  */
 export function piezasDelContrato(fecha, { clima = null } = {}) {
   const cronograma = cronogramaDelDia(alMediodia(fecha), { clima });
-  const horaDe = (nombre) => cronograma.find((p) => p.nombre === nombre)?.hora ?? HORAS_FIJAS[nombre];
+  const horaDe = (nombre) => cronograma.find((p) => p.nombre === nombre)?.hora ?? horaFija(nombre);
   const lista = [];
   PODCASTS.forEach((p) => {
     lista.push({ id: `reel:${p.nombre}`, grupo: 'reel', nombre: p.nombre, etiqueta: p.etiqueta, tipo: 'REELS', hora: p.hora, ventana: ventanaDe(p.nombre) });
@@ -79,15 +78,15 @@ export function piezasDelContrato(fecha, { clima = null } = {}) {
     lista.push({ id: `historia:${p.nombre}`, grupo: 'historia-podcast', nombre: p.nombre, etiqueta: p.etiqueta, tipo: 'STORIES', hora: p.hora, ventana: ventanaDe(p.nombre) });
   });
   for (const [nombre, grupo] of [['clima-manana', 'clima'], ['farmacia', 'farmacia'], ['clima-noche', 'clima']]) {
-    lista.push({ id: `historia:${nombre}`, grupo, nombre, etiqueta: ETIQUETAS_FIJAS[nombre], tipo: 'STORIES', hora: horaDe(nombre), ventana: ventanaDe(nombre) });
+    lista.push({ id: `historia:${nombre}`, grupo, nombre, etiqueta: etiquetaDe(nombre), tipo: 'STORIES', hora: horaDe(nombre), ventana: ventanaDe(nombre) });
   }
   if (cronograma.some((p) => p.nombre === 'utiles')) {
     // Desde el 9/10 los útiles salen como reel y como historia (SALE_COMO_REEL); antes, sólo historia.
     if (fecha < EXTRAS_DESDE) {
-      lista.push({ id: 'historia:utiles', grupo: 'utiles', nombre: 'utiles', etiqueta: ETIQUETAS_FIJAS.utiles, tipo: 'STORIES', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
+      lista.push({ id: 'historia:utiles', grupo: 'utiles', nombre: 'utiles', etiqueta: etiquetaDe('utiles'), tipo: 'STORIES', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
     } else {
-      lista.push({ id: 'reel:utiles', grupo: 'utiles', nombre: 'utiles', etiqueta: ETIQUETAS_FIJAS.utiles, tipo: 'REELS', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
-      lista.push({ id: 'historia:utiles', grupo: 'historia-del-reel', nombre: 'utiles', etiqueta: `${ETIQUETAS_FIJAS.utiles} (historia)`, tipo: 'STORIES', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
+      lista.push({ id: 'reel:utiles', grupo: 'utiles', nombre: 'utiles', etiqueta: etiquetaDe('utiles'), tipo: 'REELS', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
+      lista.push({ id: 'historia:utiles', grupo: 'historia-del-reel', nombre: 'utiles', etiqueta: `${etiquetaDe('utiles')} (historia)`, tipo: 'STORIES', hora: horaDe('utiles'), ventana: ventanaDe('utiles'), semanal: true });
     }
   }
   // R-4 (8/10/2026): lo que el cronograma trae ese día además de lo fijo —la efeméride (reel y su historia), el feriado, la agenda,
@@ -97,7 +96,7 @@ export function piezasDelContrato(fecha, { clima = null } = {}) {
   for (const p of fecha < EXTRAS_DESDE ? [] : cronograma) {
     if (SALE_COMO_REEL(p.nombre) && p.nombre !== 'utiles') {
       // Salen como reel y, con el mismo video, como historia (8/10, "dónde sale cada pieza"): se mira cada una.
-      const etiqueta = p.nombre === 'efemeride' ? 'Un día como hoy' : (EXTRAS[p.nombre] ?? `Participá (${p.nombre.slice(9)})`);
+      const etiqueta = etiquetaDe(p.nombre);
       lista.push({ id: `reel:${p.nombre}`, grupo: p.nombre === 'efemeride' ? 'efemeride' : 'extra-reel', nombre: p.nombre, etiqueta, tipo: 'REELS', hora: p.hora, ventana: ventanaDe(p.nombre), semanal: true });
       lista.push({ id: `historia:${p.nombre}`, grupo: 'historia-del-reel', nombre: p.nombre, etiqueta: `${etiqueta} (historia)`, tipo: 'STORIES', hora: p.hora, ventana: ventanaDe(p.nombre), semanal: true });
     } else if (p.nombre.startsWith('aviso-')) {
@@ -106,9 +105,6 @@ export function piezasDelContrato(fecha, { clima = null } = {}) {
   }
   return lista.sort((a, b) => minutosDeHora(a.hora) - minutosDeHora(b.hora));
 }
-
-/** Las historias de más que el cronograma trae algunos días (R-4). `utiles` ya figura arriba. */
-const EXTRAS = { feriado: 'feriado', agenda: 'agenda' };
 
 /** Cómo va una pieza que no salió: 'pendiente' (todavía no es su hora, o está
  *  dentro de su ventana) o 'falta' (la ventana se cerró y no salió). */
@@ -164,7 +160,7 @@ function tuvoSuMomento(salio, fecha) {
  * repetido con lo ya publicado. Sirve para distinguir "no había candidatas" de
  * "falló". Antes no miraba esParaLasRedes ni la edad, y el resumen decía
  * "FALLA" por notas que Facebook nunca iba a publicar (28/09).
- * Sólo se puede saber mirando la portada (72 horas): sin ella devuelve null.
+ * Sólo se puede saber mirando la portada (36 horas): sin ella devuelve null.
  */
 export function candidatasSinPublicar({ portada, libro, fecha }) {
   if (!Array.isArray(portada?.notas)) return null;

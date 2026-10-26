@@ -6,8 +6,8 @@
 //                                         pública de los podcasts (sólo lee)
 //
 // Por defecto NO publica: muestra qué haría. Para que publique de verdad hace
-// falta REDES_ACTIVAS=si (en GitHub, Settings → Variables → Actions). Así se
-// puede mirar qué elegiría durante unos días antes de soltarlo.
+// falta REDES_ACTIVAS=si: en la nube, la que recibe el Worker de tareas (infra/tareas-cloudflare/, desde el 23/10);
+// en un workflow manual de GitHub, la variable de Actions. Apagada, todo simula.
 //
 // Necesita META_TOKEN. Nunca lo muestra.
 
@@ -31,7 +31,7 @@ import {
 export const ARCHIVOS_QUE_LEE = ['web/data/portada.json', 'web/data/redes.json', 'web/data/banco-fotos.json', 'web/data/fotos-manuales.json', 'web/data/fotos-ia.json'];
 export const ARCHIVOS_QUE_ESCRIBE = ['web/data/redes.json'];
 
-// Estas cinco se calculan al importar (la terminal y GitHub, como siempre) y `main` las vuelve a calcular con el entorno que reciba: en un Worker de
+// Estas cinco se calculan al importar (la terminal y un workflow de GitHub) y `main` las vuelve a calcular con el entorno que reciba: en un Worker de
 // Cloudflare las variables no están a la vista al importar (infra/tareas-cloudflare/, 18/10/2026). Si no, REDES_ACTIVAS valdría siempre "apagado".
 let RAIZ = path.join(import.meta.dirname, '..');
 let PORTADA = path.join(RAIZ, 'web', 'data', 'portada.json');
@@ -56,7 +56,7 @@ export class Salida extends Error {
 function cliente() {
   const token = process.env.META_TOKEN;
   if (!token) {
-    console.error('  Falta META_TOKEN. En GitHub: Settings → Secrets and variables → Actions.');
+    console.error('  Falta META_TOKEN: es un secreto del Worker de tareas (o de GitHub, en un workflow manual).');
     throw new Salida(1, 'falta META_TOKEN');
   }
   return { token, api: crearCliente({ token, paginaId: PAGINA }) };
@@ -300,7 +300,7 @@ async function enlaces() {
 }
 
 /**
- * La entrada para todos los lados (la terminal, GitHub y un Worker de Cloudflare): `argv` es lo que seguía a `node redes/publicar.mjs`. Devuelve el
+ * La entrada para todos los lados (el Worker de tareas de Cloudflare, un workflow de GitHub y la terminal): `argv` es lo que seguía a `node redes/publicar.mjs`. Devuelve el
  * código de salida (0 = bien) en vez de cerrar el proceso. Vuelve a leer el entorno (`env`, `raiz`) antes de empezar.
  */
 export async function main({ argv = process.argv.slice(2), env = process.env, raiz = null } = {}) {

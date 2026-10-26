@@ -1928,8 +1928,8 @@ export function armarPortada(grupos) {
   //
   // Policiales, sólo de Balcarce (Hernán, 27/09): lo que el sistema clasifica
   // como policial y no viene de un medio de acá ni dice Balcarce en el título
-  // no se trae. Antes quedaba esperando a una persona (cupo 0), y nadie lo
-  // miraba: era ruido en el panel.
+  // no se trae. Antes quedaba esperando a una persona y nadie lo miraba: era
+  // ruido en el panel.
   const sinPolicialesDeAfuera = grupos.filter((g) => !esPolicialDeAfuera(g.principal, contarMedios(g.medios)));
   const portada = sinPolicialesDeAfuera.map((g) => {
     const seccion = clasificar(g.principal);

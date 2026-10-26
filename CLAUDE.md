@@ -246,7 +246,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 | El texto de cada red y los hashtags fijos (`#Balcarce #RadarBalcarce`, regla 281) | `hashtagsDe`, `mensajeDeNota` (`redes/elegir.mjs`), `hashtagsDePieza`, `pieDePieza` (`redes/piezas.mjs`); la tabla por red: `docs/redes/FORMATOS-POR-RED.md` |
 | Los enlaces cortos de las redes (`ENLACES_CORTOS`, apagado; regla 282; llega a Actions por `redes.yml`, `piezas.yml` y `reintentar.yml`, y a Workers Builds por `cargar-variables.mjs`: regla 311) | `redes/enlaces-cortos.mjs`, `infra/enlaces-cloudflare/` (Worker y ruta); `docs/redes/ACORTADOR-DE-ENLACES.md` |
 | La foto de una nota que cambia después de salir en Facebook (regla 283) | `redes/foto-cambiada.mjs`, `releerEnlace` (`redes/meta.mjs`), `FACEBOOK.horasEsperandoFotoReal`; `docs/redes/FOTO-CAMBIADA-DESPUES-DEL-POSTEO.md` |
-| A qué hora sale una pieza | `HORAS_REELS`, `VENTANAS` (`redes/piezas.mjs`) y `HISTORIAS_FIJAS` (`redes/horarios.mjs`) |
+| A qué hora sale una pieza, su ventana, su prioridad de voz y si es reel o historia | Una sola tabla: `PIEZAS_DEL_DIA` (`redes/piezas-del-dia.mjs`); `HORAS_REELS`, `VENTANAS`, `HISTORIAS_FIJAS` y `PRIORIDAD` salen de ahí |
 | Cómo suenan o qué dicen las piezas | `CRITERIO-REDES.md` y `redes/guiones.mjs` |
 | Las voces | `CRITERIO-REDES.md` § 6; crearlas, "Crear voces" (`reels/crear-voces.mjs`) |
 | El contrato del día | `redes/contrato.mjs` y `CONTRATO_DIARIO` (`ingesta/criterio.mjs` **y** `CRITERIO-EDITORIAL.md`) |

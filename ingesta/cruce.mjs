@@ -50,8 +50,8 @@ export const CRUCE = {
   horasDeMemoria: 36,
   // Lo de los medios de Balcarce se recuerda más (regla 195, 17/10/2026): Radio Gabal trae tres notas por feed y El Diario
   // Balcarce publica lo mismo uno o dos días después con otras palabras; cuando llegaba la de El Diario, la de Gabal ya no
-  // estaba en el feed y el cruce no la veía (Campo de Pato salió tres veces entre el 14 y el 16/10). 72 horas, como lo raspado
-  // y lo viejo de un feed de acá (esViejaSinSalir). El cruce coherente sigue partiendo lo que dura más que un hecho.
+  // estaba en el feed y el cruce no la veía (Campo de Pato salió tres veces entre el 14 y el 16/10). 72 horas (lo raspado y lo viejo
+  // de un feed de acá, que también eran 72, pasaron a 48 el 25/10: PORTADA.horasDeUnHecho). El cruce coherente sigue partiendo lo que dura más que un hecho.
   horasDeMemoriaDeAca: 72,
   // Una palabra que aparece en más del 5 % de las notas no sirve para buscar
   // parecidas (es "gobierno", "hoy", "argentina"): no entra al índice.
