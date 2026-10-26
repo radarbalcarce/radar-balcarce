@@ -17,3 +17,26 @@ test('el título de YouTube no pasa de 100 letras y la dirección del video es l
   assert.equal(direccionDelVideo('abc123abc123', 'noticia1.mp4'), 'https://radar-balcarce-tareas.radarbalcarce.workers.dev/video/abc123abc123/noticia1.mp4');
   assert.equal(metadatosDe('youtube', { titulo: 'x' }).youtube.privacy, 'public');
 });
+
+test('el Worker de tareas sirve el video a Buffer con GET, HEAD y por partes (26/10: con sólo GET, Buffer no lo pudo leer)', async () => {
+  const { atender } = await import('../infra/tareas-cloudflare/worker.mjs');
+  const bytes = new Uint8Array(1000).map((_, i) => i % 256);
+  const RENDER = {
+    head: async (k) => (k === 'listos/abc123abc123/efemeride.mp4' ? { size: bytes.length } : null),
+    get: async (k, o) => (k === 'listos/abc123abc123/efemeride.mp4' ? { body: new Blob([o?.range ? bytes.slice(o.range.offset, o.range.offset + o.range.length) : bytes]).stream() } : null),
+  };
+  const env = { RENDER, VIGILANTE_TOKEN: 'x' };
+  const url = 'https://t.example/video/abc123abc123/efemeride.mp4';
+  const head = await atender(new Request(url, { method: 'HEAD' }), env);
+  assert.equal(head.status, 200);
+  assert.equal(head.headers.get('content-length'), '1000');
+  assert.equal(head.headers.get('accept-ranges'), 'bytes');
+  const todo = await atender(new Request(url), env);
+  assert.equal((await todo.arrayBuffer()).byteLength, 1000);
+  const parte = await atender(new Request(url, { headers: { range: 'bytes=100-199' } }), env);
+  assert.equal(parte.status, 206);
+  assert.equal(parte.headers.get('content-range'), 'bytes 100-199/1000');
+  assert.equal((await parte.arrayBuffer()).byteLength, 100);
+  assert.equal((await atender(new Request('https://t.example/video/abc123abc123/otro.mp4'), env)).status, 404);
+  assert.equal((await atender(new Request('https://t.example/estado'), env)).status, 401, 'lo demás sigue pidiendo el token');
+});

@@ -42,16 +42,32 @@ export const resumenDe = (r) => ({
   ok: r.ok, tarea: r.tarea, omitida: r.omitida ?? false, simulada: r.simulada ?? false, cambios: r.cambios, commit: r.commit ?? null, ms: r.ms, ...(r.motivo ? { motivo: r.motivo } : {}),
 });
 
+/** Un video del depósito del render: entero, sólo los encabezados (HEAD) o un pedazo (Range: bytes=a-b). */
+export async function servirVideo(request, env, clave) {
+  const cabeza = await env.RENDER?.head(clave);
+  if (!cabeza) return new Response('no está', { status: 404 });
+  const total = cabeza.size;
+  const base = { 'content-type': 'video/mp4', 'accept-ranges': 'bytes', 'cache-control': 'public, max-age=3600' };
+  const rango = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get('range') ?? '');
+  if (rango && (rango[1] || rango[2])) {
+    const inicio = rango[1] ? Number(rango[1]) : Math.max(0, total - Number(rango[2]));
+    const fin = rango[1] && rango[2] ? Math.min(Number(rango[2]), total - 1) : total - 1;
+    if (inicio >= total || inicio > fin) return new Response(null, { status: 416, headers: { 'content-range': `bytes */${total}` } });
+    const largo = fin - inicio + 1;
+    const cuerpo = request.method === 'HEAD' ? null : (await env.RENDER.get(clave, { range: { offset: inicio, length: largo } }))?.body;
+    return new Response(cuerpo, { status: 206, headers: { ...base, 'content-length': String(largo), 'content-range': `bytes ${inicio}-${fin}/${total}` } });
+  }
+  const cuerpo = request.method === 'HEAD' ? null : (await env.RENDER.get(clave))?.body;
+  return new Response(cuerpo, { status: 200, headers: { ...base, 'content-length': String(total) } });
+}
+
 export async function atender(request, env, { github = null, correr = correrTarea, raiz = RAIZ_EN_UN_WORKER } = {}) {
   const url = new URL(request.url);
   if (request.method === 'GET' && url.pathname === '/') return new Response('Tareas de Radar Balcarce: en hora.', { status: 200, headers: { 'content-type': 'text/plain; charset=utf-8' } });
   // 25/10/2026: los reels ya publicados, para que Buffer los lleve a TikTok y YouTube (redes/buffer.mjs). Sólo los .mp4 de listos/ del render.
-  const video = request.method === 'GET' && url.pathname.match(/^\/video\/([A-Za-z0-9_-]{6,80})\/([A-Za-z0-9_.-]{1,80}\.mp4)$/);
-  if (video) {
-    const o = await env.RENDER?.get(`listos/${video[1]}/${video[2]}`);
-    if (!o) return new Response('no está', { status: 404 });
-    return new Response(o.body, { status: 200, headers: { 'content-type': 'video/mp4', 'content-length': String(o.size), 'cache-control': 'public, max-age=3600' } });
-  }
+  // 26/10/2026: Buffer primero pregunta con HEAD y los lectores de video piden por partes (Range); con sólo GET contestó «Video could not be read».
+  const video = (request.method === 'GET' || request.method === 'HEAD') && url.pathname.match(/^\/video\/([A-Za-z0-9_-]{6,80})\/([A-Za-z0-9_.-]{1,80}\.mp4)$/);
+  if (video) return servirVideo(request, env, `listos/${video[1]}/${video[2]}`);
   if (!mismoToken(request.headers.get('x-token'), env.VIGILANTE_TOKEN)) return json({ ok: false, error: 'sin permiso' }, 401);
 
   if (request.method === 'GET' && url.pathname === '/estado') {
