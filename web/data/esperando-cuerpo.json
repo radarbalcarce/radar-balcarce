@@ -1,48 +1,33 @@
 {
- "generado": "2026-10-26T12:06:24.569Z",
+ "generado": "2026-10-26T12:38:03.310Z",
  "intentosMaximos": 3,
  "notas": [
   {
-   "id": "18po634",
-   "titulo": "Por qué para River el partido con Racing es uno de seis puntos",
-   "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-26T00:36:20.000Z",
+   "id": "pl8yzi",
+   "titulo": "Declaran la emergencia agropecuaria por inundaciones en 2 partidos bonaerenses",
+   "copete": "El Gobierno publicó el decreto que homologó esta decisión; los productores de 9 de Julio y de Necocha afectados accederán a beneficios impositivos. (NAP) El Ministerio de Economía de Argentina homologó la declaración de emergencia y desastre agropecuario por inundaciones en la…",
+   "seccion": "Agro",
+   "fecha": "2026-10-26T12:01:59.000Z",
    "fuentes": [
     {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/deportes/river-partido-racing-uno-seis-puntos-2026102512022",
-     "fecha": "2026-10-25T15:00:22.295Z"
+     "medio": "Noticias Agropecuarias",
+     "enlace": "https://www.noticiasagropecuarias.com/2026/10/26/declaran-la-emergencia-agropecuaria-por-inundaciones-en-2-partidos-bonaerenses/",
+     "fecha": "2026-10-26T11:00:12.000Z"
     },
     {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/racing/racing-river-clausura_0_Xx7P4IsbBG.html",
-     "fecha": "2026-10-26T00:37:00.000Z"
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/economia/campo/el-gobierno-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos-bonaerenses-nid26102026/",
+     "fecha": "2026-10-26T12:01:59.000Z"
     },
     {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/river-plate/river-racing-x-puntajes-clausura-monumental_0_dtIeyymWsa.html",
-     "fecha": "2026-10-26T00:36:20.000Z"
-    },
-    {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/boca-juniors/puntajes-jugadores-boca-partido-independiente-torneo-clausura_0_gfqWDEbHB5.html",
-     "fecha": "2026-10-25T22:04:59.000Z"
-    },
-    {
-     "medio": "El Día",
-     "enlace": "https://www.eldia.com/deportes/uno-por-uno-boca-deportes_1792991190",
-     "fecha": "2026-10-26T05:06:30.000Z"
-    },
-    {
-     "medio": "El Día",
-     "enlace": "https://www.eldia.com/deportes/uno-por-uno-river-deportes_1792991130",
-     "fecha": "2026-10-26T05:05:30.000Z"
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/economia/emergencia-agropecuaria-inundaciones-el-gobierno-la-declaro-nueve-julio-y-parte-necochea-n6337793",
+     "fecha": "2026-10-26T12:30:00.000Z"
     }
    ],
-   "intentos": 3,
-   "motivo": "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no; sin esas oraciones quedan 53 palabras",
-   "maximo": 4
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, el máximo es 90",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -55,20 +40,20 @@
    "motivo": "agotó los 5 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
   },
   {
-   "id": "pj39yz",
-   "titulo": "Lo ganó de Guapo y con polémica: Barracas se lo dio vuelta a Estudiantes de Río Cuarto y está a un paso de los playoffs",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-26T02:31:52.346Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo: 3 problemas (numero, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 207 palabras"
-  },
-  {
    "id": "1bdbhe",
    "titulo": "UAI Urquiza vs. Villa San Carlos, EN VIVO: dónde ver por TV y ONLINE",
    "seccion": "Fútbol",
    "fecha": "2026-10-26T05:17:30.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 214 palabr"
+  },
+  {
+   "id": "pj39yz",
+   "titulo": "Lo ganó de Guapo y con polémica: Barracas se lo dio vuelta a Estudiantes de Río Cuarto y está a un paso de los playoffs",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-26T02:31:52.346Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo: 3 problemas (numero, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 207 palabras"
   },
   {
    "id": "17ztrqj",

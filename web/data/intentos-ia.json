@@ -342,6 +342,13 @@
   "textos": 5,
   "numeradas": 10
  },
+ "14hdgio": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "14hgtny": {
   "intentos": 1,
   "ultimo": "2026-10-25T15:31:35.019Z",
@@ -528,11 +535,6 @@
   "ultimo": "2026-10-22T23:32:08.233Z",
   "motivo": "con cuerpo"
  },
- "16tgrhv": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:31:05.773Z",
-  "motivo": "con cuerpo"
- },
  "16tgva7": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -659,9 +661,9 @@
   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy"
  },
  "18po634": {
-  "intentos": 3,
-  "ultimo": "2026-10-26T12:02:11.561Z",
-  "motivo": "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no; sin esas oraciones quedan 53 palabras",
+  "intentos": 4,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 6,
   "motivos": [
@@ -669,10 +671,6 @@
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no",
    "título o bajada: 1 problema (antecedente): el copete usa \"xeneize\", qu",
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no"
-  ],
-  "falla": [
-   "el cuerpo nombra a \"club\" y la fuente no",
-   "el cuerpo nombra a \"ribera\" y la fuente no"
   ]
  },
  "18q724f": {
@@ -714,6 +712,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T23:01:35.766Z",
   "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
+ },
+ "18zumrm": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "190hfak": {
   "intentos": 1,
@@ -1278,6 +1283,13 @@
   "intentos": 1,
   "ultimo": "2026-10-20T20:01:57.029Z",
   "motivo": "con cuerpo"
+ },
+ "1fnnob0": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "1fthrp8": {
   "intentos": 1,
@@ -2790,11 +2802,6 @@
   "ultimo": "2026-10-23T20:01:53.695Z",
   "motivo": "con cuerpo"
  },
- "1w9sag8": {
-  "intentos": 2,
-  "ultimo": "2026-10-19T12:31:05.773Z",
-  "motivo": "con cuerpo"
- },
  "1wc47mg": {
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
@@ -2998,13 +3005,6 @@
   "intentos": 1,
   "ultimo": "2026-10-19T15:31:03.833Z",
   "motivo": "con cuerpo"
- },
- "2qzp9b": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T12:31:05.773Z",
-  "motivo": "verificación baja: espera a una persona",
-  "baja": true,
-  "fuentes": 1
  },
  "2rqepx": {
   "intentos": 2,
@@ -3687,6 +3687,13 @@
   "intentos": 2,
   "ultimo": "2026-10-20T21:32:25.955Z",
   "motivo": "con cuerpo"
+ },
+ "bvcva5": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "bvylmk": {
   "intentos": 3,
@@ -4963,10 +4970,35 @@
    "el título dice 1 y el cuerpo no lo explica"
   ]
  },
+ "pl8yzi": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, el máximo es 90",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (relleno, copia, promesa): el cuerpo tiene una fra",
+   "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, e"
+  ],
+  "falla": [
+   "el titulo tiene 100 caracteres, el máximo es 90",
+   "el título dice 2 y el cuerpo no lo explica"
+  ]
+ },
  "ppwihh": {
   "intentos": 1,
   "ultimo": "2026-10-21T14:33:11.148Z",
   "motivo": "con cuerpo"
+ },
+ "pr74vq": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 2 problemas (numero): el copete dice 2 y la fuente no"
+  ]
  },
  "prtuo4": {
   "intentos": 1,
@@ -5947,6 +5979,13 @@
   "intentos": 1,
   "ultimo": "2026-10-19T23:01:16.420Z",
   "motivo": "con cuerpo"
+ },
+ "zdxpc1": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T12:32:13.768Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "zlom91": {
   "intentos": 1,
