@@ -25,17 +25,14 @@
   "motivo": "con cuerpo"
  },
  "10tmdys": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo explica; sin esas oraciones quedan 261 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 7,
   "motivos": [
    "cuerpo: 3 problemas (nombre, numero, promesa): el cuerpo nombra a \"jun",
    "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
-  ],
-  "falla": [
-   "el título dice 3 y el cuerpo no lo explica"
   ]
  },
  "10vefy4": {
@@ -107,18 +104,15 @@
   ]
  },
  "11dmdy8": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 2 problemas (promesa): el título nombra a \"londres\", \"messi\" y el cuerpo no los explica; sin esas oraciones quedan 289 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
-   "cuerpo: 2 problemas (promesa): el título nombra a \"londres\", \"messi\" y"
-  ],
-  "falla": [
-   "el título nombra a \"londres\", \"messi\" y el cuerpo no los explica",
-   "el título dice 2.026 y el cuerpo no lo explica"
+   "cuerpo: 2 problemas (promesa): el título nombra a \"londres\", \"messi\" y",
+   "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
   ]
  },
  "11grheq": {
@@ -621,19 +615,16 @@
   "numeradas": 3
  },
  "17u34kr": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 48 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 126 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
-   "cuerpo: 3 problemas (antecedente, repite): el cuerpo usa \"zonal\", que ",
    "cuerpo: 1 problema (promesa): el título dice 2 y el cuerpo no lo expli",
    "título o bajada: 2 problemas (antecedente): el copete usa \"zonal\", que",
-   "cuerpo: 1 problema (copia): copia 48 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 48 palabras seguidas del original (\"special de la costa puso en marcha la copa de oro en el autodromo…\"): decilo con otras palabras"
+   "cuerpo: 1 problema (copia): copia 48 palabras seguidas del original: d",
+   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu"
   ]
  },
  "17ztrqj": {
@@ -856,18 +847,19 @@
   "numeradas": 11
  },
  "1bdbhe": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 205 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 211 palabras",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
+   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"defenos\" y ",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título dice 41 y el cuerpo no lo explica"
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1bf0t54": {
@@ -1212,6 +1204,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
   "motivo": "con cuerpo"
+ },
+ "1femyji": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "1fhd1ex": {
   "intentos": 1,
@@ -1796,17 +1795,18 @@
   "numeradas": 32
  },
  "1md5j9u": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 9 y la fuente no lo dice; sin esas oraciones quedan 231 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"argentinos\", \"juniors\" y el cuerpo no los explica; sin esas oraciones quedan 275 palabras",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
    "título o bajada: 1 problema (forma): el copete dice \"en directo\" y el ",
-   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 9 y la fuente no"
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 9 y la fuente no",
+   "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"asociacion\" y la fue",
+   "cuerpo: 1 problema (promesa): el título nombra a \"argentinos\", \"junior"
   ],
   "falla": [
-   "el cuerpo dice 9 y la fuente no lo dice",
    "el título nombra a \"argentinos\", \"juniors\" y el cuerpo no los explica"
   ]
  },
@@ -3086,20 +3086,14 @@
   ]
  },
  "62hzys": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 6 problemas (numero, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 188 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 7,
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"revallida\" y",
    "cuerpo: 6 problemas (numero, promesa): el cuerpo dice 40 y la fuente n"
-  ],
-  "falla": [
-   "el cuerpo dice 40 y la fuente no lo dice",
-   "el cuerpo dice 3 y la fuente no lo dice",
-   "el cuerpo dice 2.000 y la fuente no lo dice",
-   "el cuerpo dice 70 y la fuente no lo dice"
   ]
  },
  "677aif": {
@@ -4104,17 +4098,18 @@
   "motivo": "con cuerpo"
  },
  "im8n7q": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y la fuente no",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 165 palabras",
   "textos": 2,
   "numeradas": 4,
   "motivos": [
    "título o bajada: 2 problemas (nombre, negacion): el copete nombra a \"l",
-   "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l"
+   "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ],
   "falla": [
-   "el copete nombra a \"liniers\" y la fuente no"
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "iu7mol": {
@@ -4598,9 +4593,9 @@
   ]
  },
  "ns2jue": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y la fuente no",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
@@ -4608,9 +4603,6 @@
    "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l",
    "título o bajada: 3 problemas (forma, nombre): el titulo trae letras ro",
    "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l"
-  ],
-  "falla": [
-   "el copete nombra a \"liniers\" y la fuente no"
   ]
  },
  "ns7t1j": {
@@ -4784,19 +4776,21 @@
   "motivo": "con cuerpo"
  },
  "pj39yz": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 224 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 207 palabras",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "cuerpo: 5 problemas (numero, relleno, repite, promesa): el cuerpo dice",
    "cuerpo: 1 problema (promesa): el título dice 1 y el cuerpo no lo expli",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 40 y la fuente n"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el cuerpo dice 40 y la fuente no lo dice",
+   "el cuerpo dice 4 y la fuente no lo dice",
+   "el título dice 1 y el cuerpo no lo explica"
   ]
  },
  "ppwihh": {
@@ -5002,17 +4996,18 @@
   ]
  },
  "rv3bjc": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T08:01:24.151Z",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:02:59.908Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 8,
   "numeradas": 24,
   "motivos": [
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 1 problema (promesa): el título nombra a \"lionel\", \"miami\" y e",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no",
-   "copia 15 palabras seguidas del original (\"messi comenzo el partido en el banco de suplentes e ingreso en el segundo…\"): decilo con otras pal"
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "rvsn70": {
@@ -5581,20 +5576,20 @@
   "motivo": "con cuerpo"
  },
  "xykgwb": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T08:01:24.151Z",
-  "motivo": "cuerpo: 4 problemas (tilde, relleno, tildes, promesa): el cuerpo dice \"mas\" en vez de \"más\": \"Barracas Central y Estudiantes de Rio Cuarto se enfrentan el\"; sin",
+  "intentos": 2,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 227 palabras",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (forma): el cuerpo trae un escape sin decodificar (",
-   "cuerpo: 4 problemas (tilde, relleno, tildes, promesa): el cuerpo dice "
+   "cuerpo: 4 problemas (tilde, relleno, tildes, promesa): el cuerpo dice ",
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ],
   "falla": [
-   "el cuerpo dice \"mas\" en vez de \"más\": \"Barracas Central y Estudiantes de Rio Cuarto se enfrentan el\"",
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el texto está escrito sin tildes (televisacion, pais, ademas, posicion, ultima): va con las tildes y la eñe donde corresponden",
-   "el título dice 14 y el cuerpo no lo explica"
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "xykr3v": {
@@ -5797,6 +5792,13 @@
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
   "motivo": "con cuerpo"
+ },
+ "zsk58": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T09:02:59.908Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 12
  },
  "zwpcp": {
   "intentos": 1,

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T08:05:49.350Z",
- "portada": 69,
+ "generado": "2026-10-26T09:05:41.047Z",
+ "portada": 71,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-26T08:05:50.053Z",
+  "generado": "2026-10-26T09:05:41.684Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "17u34kr",
+      "titulo": "Bruno Boccanera gana las dos finales del Turismo Special de la Costa",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "c4wrll",
       "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
@@ -111,11 +116,6 @@
       "id": "1om4xy2",
       "titulo": "Lula da Silva gana el balotaje y gobernará Brasil por cuarta vez",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1amudby",
-      "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
-      "seccion": "Automovilismo"
      }
     ]
    },
@@ -126,7 +126,38 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "1amudby",
+      "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "x8mixn",
+      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1acuwye",
+      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "dri7vy",
+      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
+      "seccion": "Economía"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
       "id": "17lxjsf",
@@ -139,65 +170,21 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "1acuwye",
-      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
-      "seccion": "Argentina"
-     },
-     {
       "id": "53yara",
       "titulo": "Supermercados mayoristas lanzan una semana de descuentos",
-      "seccion": "Economía"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 53,
-    "notas": [
-     {
-      "id": "x8mixn",
-      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "dri7vy",
-      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
       "seccion": "Economía"
      },
      {
       "id": "yjlxo0",
       "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "11t01rk",
-      "titulo": "Anamá Ferreira vota en Buenos Aires y discute con un seguidor de Lula",
-      "seccion": "Argentina"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [
-    {
-     "id": "c4wrll",
-     "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "x8mixn",
-     "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
-     "seccion": "Fútbol",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 5,
    "proximoDesde": "2026-10-25T22:16:05.887Z",
    "porDia": 5,
