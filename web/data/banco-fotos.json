@@ -41528,10 +41528,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Barracas Central recibe a Estudiantes de Río Cuarto por el Clausura",
-  "razon": "Ninguna foto cumple con todos los requisitos: A es un gráfico genérico sin acción, B y D tienen marcas de agua del medio de transmisión y botones de reproducción, y C muestra jugadores profesionales en plena celebración donde aparece la marca de un canal de televisión y gráficos superpuestos.",
-  "cuando": "2026-10-26T13:35:49.278Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T19:01:42.348Z",
   "intentos": 2,
-  "fuentes": 4
+  "fuentes": 9,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1om4xy2": {
   "archivo": "fotos-notas/1om4xy2.jpg",
@@ -42118,10 +42120,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lionel Messi inaugura la Messi Cup y genera risas con un divertido blooper",
-  "razon": "Todas las fotos muestran menores reconocibles en el fondo rodeando a Messi, lo cual infringe la política del medio de no publicar fotos de menores.",
-  "cuando": "2026-10-26T14:08:35.216Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T19:01:42.348Z",
   "intentos": 2,
-  "fuentes": 6
+  "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ernddj": {
   "archivo": "fotos-notas/1ernddj.jpg",
