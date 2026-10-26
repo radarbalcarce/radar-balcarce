@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-26T00:01:31.965Z",
+ "consultado": "2026-10-26T00:31:41.298Z",
  "equipos": [
   "9739",
   "3",
@@ -918,8 +918,8 @@
     "id": "401841634",
     "competencia": "liga",
     "inicio": "2026-10-25T22:15:00.000Z",
-    "estado": "en-juego",
-    "minuto": "81'",
+    "estado": "final",
+    "minuto": "90'+4'",
     "local": {
      "id": "16",
      "nombre": "River Plate",
@@ -948,8 +948,8 @@
     "id": "401841640",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "2'",
     "local": {
      "id": "10060",
      "nombre": "Barracas Central",
@@ -971,8 +971,8 @@
     "id": "401841639",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "2'",
     "local": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
@@ -1086,29 +1086,6 @@
    }
   ],
   "libertadores": [
-   {
-    "id": "401912523",
-    "competencia": "libertadores",
-    "inicio": "2026-10-16T00:30:00.000Z",
-    "estado": "final",
-    "minuto": "90'+5'",
-    "local": {
-     "id": "8",
-     "nombre": "Estudiantes de La Plata",
-     "goles": 0
-    },
-    "visitante": {
-     "id": "819",
-     "nombre": "Flamengo",
-     "goles": 0
-    },
-    "penales": null,
-    "goles": [],
-    "estadio": "Estadio Jorge Luis Hirschi",
-    "fase": "Semifinals",
-    "partidoDeLaSerie": 1,
-    "torneo": "semifinals"
-   },
    {
     "id": "401912521",
     "competencia": "libertadores",
@@ -1531,6 +1508,19 @@
      },
      {
       "posicion": 4,
+      "id": "16",
+      "equipo": "River Plate",
+      "pj": 14,
+      "g": 7,
+      "e": 2,
+      "p": 5,
+      "gf": 19,
+      "gc": 13,
+      "dif": 6,
+      "pts": 23
+     },
+     {
+      "posicion": 5,
       "id": "4",
       "equipo": "Belgrano (Córdoba)",
       "pj": 14,
@@ -1543,7 +1533,7 @@
       "pts": 22
      },
      {
-      "posicion": 5,
+      "posicion": 6,
       "id": "10158",
       "equipo": "Sarmiento (Junín)",
       "pj": 14,
@@ -1554,19 +1544,6 @@
       "gc": 21,
       "dif": 1,
       "pts": 21
-     },
-     {
-      "posicion": 6,
-      "id": "16",
-      "equipo": "River Plate",
-      "pj": 13,
-      "g": 6,
-      "e": 2,
-      "p": 5,
-      "gf": 18,
-      "gc": 13,
-      "dif": 5,
-      "pts": 20
      },
      {
       "posicion": 7,
@@ -1650,13 +1627,13 @@
       "posicion": 13,
       "id": "15",
       "equipo": "Racing Club",
-      "pj": 13,
+      "pj": 14,
       "g": 3,
       "e": 3,
-      "p": 7,
+      "p": 8,
       "gf": 14,
-      "gc": 20,
-      "dif": -6,
+      "gc": 21,
+      "dif": -7,
       "pts": 12
      },
      {
@@ -1689,7 +1666,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-25T22:32:29.336Z",
+ "tablaCuando": "2026-10-26T00:31:41.298Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
