@@ -20535,9 +20535,7 @@
   "borrada": true
  },
  "1kx30ao": {
-  "archivo": "fotos-notas/1kx30ao.jpg",
   "medio": "Puntonueve (FM 100.9)",
-  "credito": "Foto: Puntonueve (FM 100.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Peregrinación une la Parroquia Santa María con Los Pinos",
@@ -20557,7 +20555,8 @@
    "descripcion": "Misa al aire libre frente a una estructura vidriada durante la peregrinación."
   },
   "huella": "33f1f1738ba9fd59",
-  "ausenteDesde": "2026-10-19T21:32:11.686Z"
+  "intentado": true,
+  "borrada": true
  },
  "hhlpca": {
   "archivo": "fotos-notas/hhlpca.jpg",
@@ -22550,9 +22549,7 @@
   "borrada": true
  },
  "11b59wz": {
-  "archivo": "fotos-notas/11b59wz.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "River golea a Belgrano en Córdoba y se acomoda en la tabla anual",
@@ -22572,7 +22569,8 @@
    "descripcion": "Jugador de River festejando con el puño en alto"
   },
   "huella": "b6a5ee7d1d0d5656",
-  "ausenteDesde": "2026-10-19T21:32:11.686Z"
+  "intentado": true,
+  "borrada": true
  },
  "1irbt94": {
   "archivo": "fotos-notas/1irbt94.jpg",
@@ -24365,9 +24363,7 @@
   "ausenteDesde": "2026-10-25T08:19:29.411Z"
  },
  "1faek9w": {
-  "archivo": "fotos-notas/1faek9w.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "La balanza comercial registra un superávit de casi 3.000 millones de dólares",
@@ -24387,7 +24383,8 @@
    "descripcion": "Vista aérea de contenedores en el puerto"
   },
   "huella": "1388a9ad95cfcf48",
-  "ausenteDesde": "2026-10-19T21:32:11.686Z"
+  "intentado": true,
+  "borrada": true
  },
  "1jcoft1": {
   "archivo": "fotos-notas/1jcoft1.jpg",
@@ -43313,5 +43310,30 @@
   "intentos": 1,
   "fuentes": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1azkjmy": {
+  "archivo": "fotos-notas/1azkjmy.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/exclusivo-el-municipio-proyecta-un-espacio-para-juventud-cultura-y-turismo-en-un-inmueble-de-ferrosur-roca",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Espacio%20de%20Juventud%20Cultura%20y%20Turismo.jpeg",
+  "razon": "Muestra el inmueble ferroviario con buen encuadre y nitidez, sin personas ni marcas de agua del medio.",
+  "cuando": "2026-10-26T21:31:45.772Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "openrouter",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de un galpón ferroviario largo con techo de chapa oxidada, rodeado de campos y con silos y edificios al fondo."
+  },
+  "huella": "2ea958b64b2d92e3"
  }
 }

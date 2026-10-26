@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T21:02:11.707Z",
- "portada": 80,
- "archivo": 497,
- "esperandoCuerpo": 88,
+ "generado": "2026-10-26T21:32:50.531Z",
+ "portada": 83,
+ "archivo": 498,
+ "esperandoCuerpo": 90,
  "redes": {
-  "generado": "2026-10-26T21:02:12.297Z",
+  "generado": "2026-10-26T21:32:51.037Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "1azkjmy",
+      "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
+      "seccion": "Balcarce"
+     },
      {
       "id": "18zumrm",
       "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
@@ -173,11 +178,6 @@
       "id": "pl8yzi",
       "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
       "seccion": "Agro"
-     },
-     {
-      "id": "snq9oy",
-      "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
-      "seccion": "Economía"
      }
     ]
    }
@@ -210,7 +210,14 @@
      "cuando": "2026-10-26T18:36:02.039Z"
     }
    ],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1azkjmy",
+     "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
+     "seccion": "Balcarce",
+     "marcada": false
+    }
+   ],
    "cupo": 0,
    "proximoDesde": "2026-10-26T20:06:02.039Z",
    "porDia": 5,
