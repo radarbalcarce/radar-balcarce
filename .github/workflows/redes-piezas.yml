@@ -70,6 +70,8 @@ jobs:
           SOLO: ${{ inputs.solo }}
           RENDER_REMOTO: 'Si'
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+          # El cupo de audios por día (reels/cupo-voz.mjs): vacía, 10 (la clave gratis); con la clave paga de voces, más.
+          AUDIOS_POR_DIA: ${{ vars.AUDIOS_POR_DIA }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz
           # FOTOS_EN_R2 ("Si", regla 316): las fotos del repaso viajan DENTRO del pedido (van en los SVG) y se leen del disco de este clon; con el
           # interruptor prendido ya no están en git, así que reels/plan.mjs las trae del sitio antes de armar el plan. Vacía, no hace nada.

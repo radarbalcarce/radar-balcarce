@@ -6,7 +6,7 @@
 # A mano: Actions → "Fijar piezas" → Run workflow.
 #   piezas  cuáles, separadas por coma (participa-noticias, participa-evento, participa-reclamos, participa-nota)
 #   desde   el primer día en que valen (AAAA-MM-DD)
-#   dias    cuántos días valen (14 = dos semanas)
+#   dias    cuántos días valen (0 = siempre, hasta que se vuelvan a armar; 25/10/2026)
 #
 # Gasta un audio por pieza del cupo de voz del día: conviene correrlo un día de poco uso
 # (el sábado o el domingo) y de a dos o tres piezas. Comparte el candado "redes".
@@ -26,9 +26,9 @@ on:
         type: string
         required: true
       dias:
-        description: 'Cuántos días valen'
+        description: 'Cuántos días valen (0 = siempre)'
         type: string
-        default: '14'
+        default: '0'
 
 concurrency:
   group: redes
@@ -45,7 +45,7 @@ jobs:
       # Llegan por los datos de entrada (y se validan en "Revisar lo pedido").
       PIEZAS: ${{ inputs.piezas }}
       DESDE: ${{ inputs.desde }}
-      DIAS: ${{ inputs.dias || '14' }}
+      DIAS: ${{ inputs.dias || '0' }}
     steps:
       - uses: actions/checkout@v4
         with:

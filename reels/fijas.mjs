@@ -3,12 +3,13 @@
 // su voz ya grabado, guardado en reels/fijas/, que el plan sube en lugar de volver a pedir la voz.
 // Cada audio es uno de los 10 del cupo del día; una pieza fija cuesta uno UNA vez y después cero.
 //
-// reels/fijas/vigencia.json dice hasta cuándo vale cada una:
+// reels/fijas/vigencia.json dice desde cuándo vale cada una y, si se quiere, hasta cuándo:
 //
-//   { "participa-noticias": { "desde": "2026-10-05", "hasta": "2026-10-18", "armada": "2026-10-01", "duracion": 24.1 } }
+//   { "participa-noticias": { "desde": "2026-10-05", "armada": "2026-10-01", "duracion": 24.1 } }
 //
-// Pasada la vigencia, el plan vuelve solo a armar la pieza con voz. Se arman con el workflow "Fijar
-// piezas" (.github/workflows/fijar-piezas.yml). Sin dependencias.
+// 25/10/2026 (los dueños: "hay cosas que es hacerlas una vez y repetirlas"): sin "hasta", valen siempre, hasta que alguien las vuelva a
+// armar con el workflow "Fijar piezas" (.github/workflows/fijar-piezas.yml). Con "hasta", pasada esa fecha el plan vuelve a armar la
+// pieza con voz. Sin dependencias.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -33,26 +34,26 @@ export function sumarDias(dia, dias) {
  */
 export function fijaVigente(nombre, dia, { carpeta = CARPETA_FIJAS } = {}) {
   const v = leerVigencias(carpeta)[nombre];
-  if (!v?.desde || !v?.hasta || dia < v.desde || dia > v.hasta) return null;
+  if (!v?.desde || dia < v.desde || (v.hasta && dia > v.hasta)) return null;
   const ruta = path.join(carpeta, `${nombre}.mp4`);
   if (!fs.existsSync(ruta)) return null;
-  return { ruta, hasta: v.hasta, duracion: v.duracion ?? null };
+  return { ruta, hasta: v.hasta ?? null, duracion: v.duracion ?? null };
 }
 
-/** Guarda un video ya armado como pieza fija, con su vigencia (por defecto, dos semanas desde `desde`). */
-export function guardarFija({ nombre, mp4, desde, dias = 14, armada = desde, duracion = null, carpeta = CARPETA_FIJAS }) {
+/** Guarda un video ya armado como pieza fija. Sin `dias`, vale siempre (25/10/2026); con `dias`, esa cantidad desde `desde`. */
+export function guardarFija({ nombre, mp4, desde, dias = null, armada = desde, duracion = null, carpeta = CARPETA_FIJAS }) {
   if (!/^[a-z0-9-]+$/.test(nombre)) throw new Error(`nombre de pieza inválido: ${nombre}`);
   fs.mkdirSync(carpeta, { recursive: true });
   fs.copyFileSync(mp4, path.join(carpeta, `${nombre}.mp4`));
   const todas = leerVigencias(carpeta);
-  todas[nombre] = { desde, hasta: sumarDias(desde, dias - 1), armada, ...(duracion ? { duracion: Number(Number(duracion).toFixed(1)) } : {}) };
+  todas[nombre] = { desde, ...(dias ? { hasta: sumarDias(desde, dias - 1) } : {}), armada, ...(duracion ? { duracion: Number(Number(duracion).toFixed(1)) } : {}) };
   fs.writeFileSync(path.join(carpeta, ARCHIVO_DE_VIGENCIAS), `${JSON.stringify(todas, null, 2)}\n`);
   return todas[nombre];
 }
 
 // ---------------------------------------------------------------- a mano
 
-// node reels/fijas.mjs --piezas=participa-noticias,participa-evento --desde=2026-10-05 [--dias=14] [--origen=reels/salida]
+// node reels/fijas.mjs --piezas=participa-noticias,participa-evento --desde=2026-10-05 [--dias=N, sin él valen siempre] [--origen=reels/salida]
 // (después de armarlas con `node reels/plan.mjs --generar --solo=… --incluir=… --sin-fijas`)
 if (process.argv[1] && process.argv[1].endsWith('fijas.mjs')) {
   const arg = (n, d = '') => (process.argv.find((a) => a.startsWith(`--${n}=`)) ?? `--${n}=${d}`).slice(n.length + 3);
@@ -60,7 +61,7 @@ if (process.argv[1] && process.argv[1].endsWith('fijas.mjs')) {
   const desde = arg('desde');
   const origen = path.resolve(import.meta.dirname, '..', arg('origen', 'reels/salida'));
   if (!piezas.length || !/^\d{4}-\d{2}-\d{2}$/.test(desde)) {
-    console.error('Uso: node reels/fijas.mjs --piezas=a,b --desde=AAAA-MM-DD [--dias=14] [--origen=reels/salida]');
+    console.error('Uso: node reels/fijas.mjs --piezas=a,b --desde=AAAA-MM-DD [--dias=N] [--origen=reels/salida]');
     process.exit(2);
   }
   let manifiesto = [];
@@ -70,8 +71,8 @@ if (process.argv[1] && process.argv[1].endsWith('fijas.mjs')) {
     const mp4 = path.join(origen, `${nombre}.mp4`);
     if (!fs.existsSync(mp4)) { console.error(`  Falta ${nombre}.mp4 en ${origen}: no se armó.`); falto = true; continue; }
     const duracion = manifiesto.find((p) => p.nombre === nombre)?.duracion ?? null;
-    const v = guardarFija({ nombre, mp4, desde, dias: Number(arg('dias', '14')), armada: new Date().toISOString().slice(0, 10), duracion });
-    console.log(`  ${nombre}: vale del ${v.desde} al ${v.hasta}`);
+    const v = guardarFija({ nombre, mp4, desde, dias: Number(arg('dias', '0')) || null, armada: new Date().toISOString().slice(0, 10), duracion });
+    console.log(`  ${nombre}: vale desde el ${v.desde}${v.hasta ? ` hasta el ${v.hasta}` : ' (sin vencimiento)'}`);
   }
   if (falto) process.exit(1);
 }

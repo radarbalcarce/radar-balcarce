@@ -17,10 +17,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-/** El cupo gratis de la clave de redes (CLAUDE.md, "Cupo de voz: 10 audios por día"). */
-export const AUDIOS_POR_DIA = 10;
+/** El cupo de la clave de voces: 10 por día con la gratis (CLAUDE.md, "Cupo de voz: 10 audios por día"). 25/10/2026: con la clave paga se sube
+ *  con la variable de GitHub `AUDIOS_POR_DIA`, sin tocar código (llega por redes-piezas.yml). */
+export const AUDIOS_POR_DIA = Number(process.env.AUDIOS_POR_DIA) > 0 ? Math.floor(Number(process.env.AUDIOS_POR_DIA)) : 10;
 /** Desde cuántos usados se avisa (el 80 %). */
-export const AVISO_DESDE = 8;
+export const AVISO_DESDE = Math.ceil(AUDIOS_POR_DIA * 0.8);
 
 /**
  * Qué tan importante es cada pieza (1 es lo que más). Lo que no está en la lista es opcional (4). Los avisos de clima van con el clima.
