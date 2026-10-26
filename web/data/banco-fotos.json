@@ -19396,9 +19396,7 @@
   "ausenteDesde": "2026-10-23T17:05:07.188Z"
  },
  "961i45": {
-  "archivo": "fotos-notas/961i45.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Servicio Meteorológico emite alertas amarillas por tormentas",
@@ -19418,7 +19416,8 @@
    "descripcion": "Tormenta eléctrica con rayos sobre la ciudad"
   },
   "huella": "330bc3271d1d0413",
-  "ausenteDesde": "2026-10-19T02:02:25.430Z"
+  "intentado": true,
+  "borrada": true
  },
  "19nga6r": {
   "archivo": "fotos-notas/19nga6r.jpg",
@@ -22684,9 +22683,7 @@
   "ausenteDesde": "2026-10-23T21:27:53.586Z"
  },
  "bgyrfp": {
-  "archivo": "fotos-notas/bgyrfp.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Racing e Independiente juegan el clásico en el Cilindro",
@@ -22706,7 +22703,8 @@
    "descripcion": "Vista aérea del Cilindro de Avellaneda con humo celeste"
   },
   "huella": "f1694e82e8e4e475",
-  "ausenteDesde": "2026-10-19T03:01:13.874Z"
+  "intentado": true,
+  "borrada": true
  },
  "vpaw61": {
   "archivo": "fotos-notas/vpaw61.jpg",
@@ -34716,11 +34714,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-25T18:03:06.116Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-26T03:04:44.748Z",
   "intentos": 5,
   "fuentes": 5,
-  "intentosPorCupo": 4
+  "intentosPorCupo": 5,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -40592,11 +40591,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T02:01:40.523Z",
-  "intentos": 2,
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas) y es una imagen genérica de stock, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-10-26T03:04:44.748Z",
+  "intentos": 3,
   "fuentes": 5,
-  "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1qtse9x": {

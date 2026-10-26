@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T02:02:10.331Z",
- "portada": 55,
+ "generado": "2026-10-26T03:04:57.334Z",
+ "portada": 43,
  "archivo": 500,
  "esperandoCuerpo": 54,
  "redes": {
-  "generado": "2026-10-26T02:02:10.719Z",
+  "generado": "2026-10-26T03:04:57.630Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-25T10:36:41.936Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,8 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-25T13:47:27.819Z"
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "participa-noticias",
+    "tipo": "reel",
+    "hora": "12:00",
+    "que": "Participá: mandanos noticias",
+    "voz": "locutora",
+    "ventana": 60,
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -43,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-25T20:46:55.667Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -53,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-25T22:36:49.159Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -63,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-25T23:36:39.424Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -73,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -83,19 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-25T13:47:27.819Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
-      "id": "3357kp",
-      "titulo": "Balcarce termina en el puesto 113 en los Juegos Bonaerenses 2026",
-      "seccion": "Deportes"
+      "id": "13gb00y",
+      "titulo": "La presidenta de Palmeiras defiende a Estudiantes y critica a Flamengo",
+      "seccion": "Fútbol"
      },
      {
-      "id": "r8gyl1",
-      "titulo": "El Concejo aprueba un proyecto para intimar a dueños de terrenos baldíos",
-      "seccion": "Balcarce"
+      "id": "dri7vy",
+      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
+      "seccion": "Economía"
+     },
+     {
+      "id": "125cdkx",
+      "titulo": "Brasileños residentes en la Argentina votan el domingo en el balotaje presidencial",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "njwqjk",
+      "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -104,19 +124,29 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-25T20:46:55.667Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
     "notas": [
      {
-      "id": "zlom91",
-      "titulo": "La Liga Balcarceña defiende el paredón del Estadio Municipal",
-      "seccion": "Balcarce"
+      "id": "18q724f",
+      "titulo": "YPF prevé ganancias récord y confirma la firma del proyecto de GNL",
+      "seccion": "Economía"
      },
      {
-      "id": "2of31o",
-      "titulo": "Guillermo Weingast destaca los avances globales para erradicar la polio",
-      "seccion": "Salud"
+      "id": "1tbb12c",
+      "titulo": "Arsenal vence 2 a 0 a Everton y alcanza al Manchester City en la Premier League",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1prc59w",
+      "titulo": "Analizan el escenario político tras las elecciones legislativas",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "o0han3",
+      "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -125,58 +155,37 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 47,
     "notas": [
      {
-      "id": "17f0k0j",
-      "titulo": "Colapinto largará 21° el Gran Premio de Estados Unidos de Fórmula 1",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "prtuo4",
-      "titulo": "Julián Álvarez anota el gol del triunfo para Atlético de Madrid",
+      "id": "1yd732f",
+      "titulo": "Excursionistas golea a Sportivo Italiano, es campeón y asciende",
       "seccion": "Fútbol"
      },
      {
-      "id": "1b4pjdh",
-      "titulo": "Muere el actor y cantante Marcelo Trepat a los 62 años",
-      "seccion": "Cultura y agenda"
+      "id": "1d9wr9g",
+      "titulo": "Sebastián Rambert asegura que Ramón Díaz será director técnico de River",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1w1bqj1",
-      "titulo": "Lambiris gana la clasificación del Turismo Carretera en Rosario",
-      "seccion": "Automovilismo"
+      "id": "ruqrmq",
+      "titulo": "Nutricionistas detallan componentes para el desayuno a los 50",
+      "seccion": "Salud"
+     },
+     {
+      "id": "lwbp0b",
+      "titulo": "La Fiesta del Postre abre sus puertas con entrada gratuita",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "19j43n6",
-     "titulo": "Aldosivi enfrenta a Belgrano en Mar del Plata por el Torneo Clausura",
-     "cuando": "2026-10-25T15:06:45.299Z"
-    },
-    {
-     "id": "leizg3",
-     "titulo": "Rodrigo Cunqueiro logra el segundo puesto en un Sudamericano en Chile",
-     "cuando": "2026-10-25T17:06:05.259Z"
-    },
-    {
-     "id": "gux4r",
-     "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
-     "cuando": "2026-10-25T18:50:06.004Z"
-    },
-    {
-     "id": "i3z8vw",
-     "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
-     "cuando": "2026-10-25T20:46:05.887Z"
-    }
-   ],
+   "hoy": [],
    "cola": [],
-   "cupo": 1,
+   "cupo": 5,
    "proximoDesde": "2026-10-25T22:16:05.887Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

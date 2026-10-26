@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-26T02:02:07.708Z",
+ "consultado": "2026-10-26T03:04:54.048Z",
  "equipos": [
   "9739",
   "3",
@@ -948,12 +948,12 @@
     "id": "401841640",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "71'",
+    "estado": "final",
+    "minuto": "90'+7'",
     "local": {
      "id": "10060",
      "nombre": "Barracas Central",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "19685",
@@ -973,6 +973,12 @@
       "jugador": "Enzo Taborda",
       "minuto": "66'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Rafael Barrios",
+      "minuto": "74'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Estadio Claudio Chiqui Tapia",
@@ -984,8 +990,8 @@
     "id": "401841639",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "73'",
+    "estado": "final",
+    "minuto": "90'+2'",
     "local": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
@@ -994,7 +1000,7 @@
     "visitante": {
      "id": "21",
      "nombre": "Vélez Sarsfield",
-     "goles": 4
+     "goles": 5
     },
     "penales": null,
     "goles": [
@@ -1021,6 +1027,12 @@
       "jugador": "Lucas Robertone",
       "minuto": "61'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Ronaldo Martínez",
+      "minuto": "83'",
+      "tipo": "de penal"
      }
     ],
     "estadio": "'Estadio Único Madre de Ciudades",
@@ -1093,6 +1105,98 @@
     "penales": null,
     "goles": [],
     "estadio": "Diego Armando Maradona",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841655",
+    "competencia": "liga",
+    "inicio": "2026-10-30T22:00:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "19685",
+     "nombre": "Estudiantes de Río Cuarto",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "9",
+     "nombre": "Gimnasia La Plata",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Ciudad de Río Cuarto Antonio Candini",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841653",
+    "competencia": "liga",
+    "inicio": "2026-10-30T22:00:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "10",
+     "nombre": "Huracán",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "7767",
+     "nombre": "Tigre",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Estadio Tomás Adolfo Ducó",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841648",
+    "competencia": "liga",
+    "inicio": "2026-10-31T00:15:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "15",
+     "nombre": "Racing Club",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "9739",
+     "nombre": "Aldosivi",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Presidente Perón (Cilindro de Avellaneda)",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841647",
+    "competencia": "liga",
+    "inicio": "2026-10-31T00:15:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "10158",
+     "nombre": "Sarmiento (Junín)",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "17",
+     "nombre": "Rosario Central",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Eva Perón",
     "fase": null,
     "partidoDeLaSerie": null,
     "torneo": "torneo-clausura"
@@ -1243,12 +1347,13 @@
    "2026-10-21": "2026-10-24T02:35:11.548Z",
    "2026-10-22": "2026-10-25T01:03:10.262Z",
    "2026-10-23": "2026-10-26T02:02:07.708Z",
-   "2026-10-24": "2026-10-24T02:35:11.548Z",
+   "2026-10-24": "2026-10-26T03:04:54.048Z",
    "2026-10-25": "2026-10-25T01:03:10.262Z",
    "2026-10-26": "2026-10-26T02:02:07.708Z",
    "2026-10-27": "2026-10-26T01:01:53.430Z",
    "2026-10-28": "2026-10-26T01:01:53.430Z",
-   "2026-10-29": "2026-10-26T02:02:07.708Z"
+   "2026-10-29": "2026-10-26T02:02:07.708Z",
+   "2026-10-30": "2026-10-26T03:04:54.048Z"
   },
   "copaargentina": {
    "2026-10-16": "2026-10-19T01:31:37.347Z",
@@ -1259,12 +1364,13 @@
    "2026-10-21": "2026-10-24T02:35:11.548Z",
    "2026-10-22": "2026-10-25T01:03:10.262Z",
    "2026-10-23": "2026-10-26T02:02:07.708Z",
-   "2026-10-24": "2026-10-24T02:35:11.548Z",
+   "2026-10-24": "2026-10-26T03:04:54.048Z",
    "2026-10-25": "2026-10-25T01:03:10.262Z",
    "2026-10-26": "2026-10-26T02:02:07.708Z",
    "2026-10-27": "2026-10-26T01:01:53.430Z",
    "2026-10-28": "2026-10-26T01:01:53.430Z",
-   "2026-10-29": "2026-10-26T02:02:07.708Z"
+   "2026-10-29": "2026-10-26T02:02:07.708Z",
+   "2026-10-30": "2026-10-26T03:04:54.048Z"
   },
   "libertadores": {
    "2026-10-16": "2026-10-19T01:31:37.347Z",
@@ -1275,12 +1381,13 @@
    "2026-10-21": "2026-10-24T02:35:11.548Z",
    "2026-10-22": "2026-10-25T01:03:10.262Z",
    "2026-10-23": "2026-10-26T02:02:07.708Z",
-   "2026-10-24": "2026-10-24T02:35:11.548Z",
+   "2026-10-24": "2026-10-26T03:04:54.048Z",
    "2026-10-25": "2026-10-25T01:03:10.262Z",
    "2026-10-26": "2026-10-26T02:02:07.708Z",
    "2026-10-27": "2026-10-26T01:01:53.430Z",
    "2026-10-28": "2026-10-26T01:01:53.430Z",
-   "2026-10-29": "2026-10-26T02:02:07.708Z"
+   "2026-10-29": "2026-10-26T02:02:07.708Z",
+   "2026-10-30": "2026-10-26T03:04:54.048Z"
   },
   "sudamericana": {
    "2026-10-16": "2026-10-19T01:31:37.347Z",
@@ -1291,12 +1398,13 @@
    "2026-10-21": "2026-10-24T02:35:11.548Z",
    "2026-10-22": "2026-10-25T01:03:10.262Z",
    "2026-10-23": "2026-10-26T02:02:07.708Z",
-   "2026-10-24": "2026-10-24T02:35:11.548Z",
+   "2026-10-24": "2026-10-26T03:04:54.048Z",
    "2026-10-25": "2026-10-25T01:03:10.262Z",
    "2026-10-26": "2026-10-26T02:02:07.708Z",
    "2026-10-27": "2026-10-26T01:01:53.430Z",
    "2026-10-28": "2026-10-26T01:01:53.430Z",
-   "2026-10-29": "2026-10-26T02:02:07.708Z"
+   "2026-10-29": "2026-10-26T02:02:07.708Z",
+   "2026-10-30": "2026-10-26T03:04:54.048Z"
   }
  },
  "tabla": {
