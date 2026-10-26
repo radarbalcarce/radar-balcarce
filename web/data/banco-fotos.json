@@ -34836,11 +34836,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Docentes de la EMDAB participan del Primer Foro Provincial del Deporte",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-26T11:33:00.867Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T20:02:05.343Z",
   "intentos": 5,
   "fuentes": 5,
-  "intentosPorCupo": 6
+  "intentosPorCupo": 7,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1kpq8dd": {
   "archivo": "fotos-notas/1kpq8dd.jpg",
@@ -41544,10 +41545,10 @@
   "origen": "ninguna",
   "titulo": "Barracas Central recibe a Estudiantes de Río Cuarto por el Clausura",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T19:01:42.348Z",
+  "cuando": "2026-10-26T20:02:05.343Z",
   "intentos": 2,
-  "fuentes": 9,
-  "intentosPorCupo": 1,
+  "fuentes": 10,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1om4xy2": {
@@ -42136,12 +42137,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lionel Messi inaugura la Messi Cup y genera risas con un divertido blooper",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T19:01:42.348Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.); OpenRouter: The operation was aborted due to timeout",
+  "cuando": "2026-10-26T20:02:05.343Z",
+  "intentos": 3,
   "fuentes": 7,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1ernddj": {
   "archivo": "fotos-notas/1ernddj.jpg",
