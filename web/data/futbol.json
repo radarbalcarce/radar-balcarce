@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-26T22:32:03.964Z",
+ "consultado": "2026-10-26T23:02:06.828Z",
  "equipos": [
   "9739",
   "3",
@@ -1014,8 +1014,8 @@
     "id": "401841630",
     "competencia": "liga",
     "inicio": "2026-10-26T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "33'",
+    "estado": "entretiempo",
+    "minuto": "45'+4'",
     "local": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
@@ -1024,10 +1024,17 @@
     "visitante": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Lucas Santiago",
+      "minuto": "40'",
+      "tipo": "en contra"
+     }
+    ],
     "estadio": "15 de Abril",
     "fase": null,
     "partidoDeLaSerie": null,
