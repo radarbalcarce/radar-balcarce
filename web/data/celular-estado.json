@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T10:06:04.897Z",
- "portada": 76,
+ "generado": "2026-10-26T10:34:39.198Z",
+ "portada": 81,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-26T10:06:05.523Z",
+  "generado": "2026-10-26T10:34:39.422Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "1qjwv3r",
       "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1wqyb20",
+      "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
+      "seccion": "Balcarce"
      },
      {
       "id": "c4wrll",
@@ -111,11 +116,6 @@
       "id": "17u34kr",
       "titulo": "Bruno Boccanera gana las dos finales del Turismo Special de la Costa",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1om4xy2",
-      "titulo": "Lula da Silva gana el balotaje y gobernará Brasil por cuarta vez",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -184,7 +184,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1wqyb20",
+     "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
+     "seccion": "Balcarce",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-25T22:16:05.887Z",
    "porDia": 5,
