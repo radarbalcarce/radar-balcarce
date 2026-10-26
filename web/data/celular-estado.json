@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T06:05:03.321Z",
- "portada": 39,
+ "generado": "2026-10-26T07:06:34.166Z",
+ "portada": 64,
  "archivo": 500,
- "esperandoCuerpo": 68,
+ "esperandoCuerpo": 29,
  "redes": {
-  "generado": "2026-10-26T06:05:03.615Z",
+  "generado": "2026-10-26T07:06:34.635Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "c4wrll",
+      "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1kk1sil",
+      "titulo": "Santiago Amadeo analiza el presente deportivo de Amigos Unidos",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1om4xy2",
+      "titulo": "Lula da Silva gana el balotaje y gobernará Brasil por cuarta vez",
+      "seccion": "Argentina"
+     },
      {
       "id": "1amudby",
       "titulo": "Alpine repudia los comentarios de Jeremy Clarkson sobre Franco Colapinto",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "dri7vy",
-      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
-      "seccion": "Economía"
-     },
-     {
-      "id": "13gb00y",
-      "titulo": "La presidenta de Palmeiras defiende a Estudiantes y critica a Flamengo",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "125cdkx",
-      "titulo": "Brasileños residentes en la Argentina votan el domingo en el balotaje presidencial",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 55,
     "notas": [
      {
-      "id": "18q724f",
-      "titulo": "YPF prevé ganancias récord y confirma la firma del proyecto de GNL",
-      "seccion": "Economía"
-     },
-     {
-      "id": "1prc59w",
-      "titulo": "Analizan el escenario político tras las elecciones legislativas",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1d9wr9g",
-      "titulo": "Sebastián Rambert asegura que Ramón Díaz será director técnico de River",
+      "id": "x8mixn",
+      "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
       "seccion": "Fútbol"
      },
      {
-      "id": "o0han3",
-      "titulo": "Abdías Lescano logra el tercer puesto en el Campeonato Argentino de Gravel",
-      "seccion": "Deportes"
+      "id": "1covbx8",
+      "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1acuwye",
+      "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "dri7vy",
+      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
+      "seccion": "Economía"
      }
     ]
    },
@@ -157,13 +157,47 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 47,
+    "notas": [
+     {
+      "id": "17lxjsf",
+      "titulo": "Boca vence a Independiente con un gol agónico y se consolida en la cima anual",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "4bkh7p",
+      "titulo": "La Campagnola frena su planta en Mar del Plata y suspende a 60 operarios",
+      "seccion": "Economía"
+     },
+     {
+      "id": "11t01rk",
+      "titulo": "Anamá Ferreira vota en Buenos Aires y discute con un seguidor de Lula",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "1prc59w",
+      "titulo": "Analizan el escenario político tras las elecciones legislativas",
+      "seccion": "Cultura y agenda"
+     }
+    ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "c4wrll",
+     "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "x8mixn",
+     "titulo": "River vence 1 a 0 a Racing en el Monumental y llega al cuarto puesto",
+     "seccion": "Fútbol",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-25T22:16:05.887Z",
    "porDia": 5,
