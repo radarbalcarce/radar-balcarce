@@ -22201,9 +22201,7 @@
   "ausenteDesde": "2026-10-24T01:05:07.282Z"
  },
  "hi8g69": {
-  "archivo": "fotos-notas/hi8g69.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "San Lorenzo vence 2 a 1 a Estudiantes en La Plata por el Clausura",
@@ -22235,7 +22233,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "931e96bd0e3a6b6f",
-  "ausenteDesde": "2026-10-19T01:01:34.626Z"
+  "intentado": true,
+  "borrada": true
  },
  "jygk9m": {
   "archivo": "fotos-notas/jygk9m.jpg",
@@ -40402,22 +40401,21 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "María Corina Machado regresa a Venezuela tras casi un año en el exilio",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
-  "cuando": "2026-10-25T22:32:04.363Z",
+  "razon": "Groq también falló: HTTP 400: invalid image data (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T01:01:41.064Z",
   "intentos": 2,
   "fuentes": 3,
-  "intentosPorCupo": 2,
+  "intentosPorCupo": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "e9cid4": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alvarado visita a Sportivo Las Parejas por el Torneo Federal A",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-25T22:32:04.363Z",
-  "intentos": 1,
+  "razon": "La única imagen disponible es una gráfica o plantilla de diseño, no una fotografía del hecho.",
+  "cuando": "2026-10-26T01:01:41.064Z",
+  "intentos": 2,
   "fuentes": 5,
-  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "8lorat": {
