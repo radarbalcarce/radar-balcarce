@@ -847,19 +847,20 @@
   "numeradas": 11
  },
  "1bdbhe": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T09:02:59.908Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 211 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:16:18.129Z",
+  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 214 palabras",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
    "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"defenos\" y ",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 2 problemas (numero, repite): el cuerpo dice 11 y la fuente no",
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1bf0t54": {
@@ -1456,6 +1457,13 @@
   "ultimo": "2026-10-21T14:33:11.148Z",
   "motivo": "con cuerpo"
  },
+ "1icquoz": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T09:16:18.129Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 13
+ },
  "1icrbuv": {
   "intentos": 4,
   "ultimo": "2026-10-25T05:01:14.355Z",
@@ -1795,9 +1803,9 @@
   "numeradas": 32
  },
  "1md5j9u": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T09:02:59.908Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"argentinos\", \"juniors\" y el cuerpo no los explica; sin esas oraciones quedan 275 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:16:18.129Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
@@ -1805,9 +1813,6 @@
    "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 9 y la fuente no",
    "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"asociacion\" y la fue",
    "cuerpo: 1 problema (promesa): el título nombra a \"argentinos\", \"junior"
-  ],
-  "falla": [
-   "el título nombra a \"argentinos\", \"juniors\" y el cuerpo no los explica"
   ]
  },
  "1mera1o": {
@@ -4098,18 +4103,19 @@
   "motivo": "con cuerpo"
  },
  "im8n7q": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T09:02:59.908Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 165 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:16:18.129Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y la fuente no",
   "textos": 2,
   "numeradas": 4,
   "motivos": [
    "título o bajada: 2 problemas (nombre, negacion): el copete nombra a \"l",
    "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"liniers\" y l"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "el copete nombra a \"liniers\" y la fuente no"
   ]
  },
  "iu7mol": {
@@ -4996,8 +5002,8 @@
   ]
  },
  "rv3bjc": {
-  "intentos": 3,
-  "ultimo": "2026-10-26T09:02:59.908Z",
+  "intentos": 4,
+  "ultimo": "2026-10-26T09:16:18.129Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 8,
   "numeradas": 24,
@@ -5576,20 +5582,16 @@
   "motivo": "con cuerpo"
  },
  "xykgwb": {
-  "intentos": 2,
-  "ultimo": "2026-10-26T09:02:59.908Z",
-  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 227 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-26T09:16:18.129Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
-   "cuerpo: 1 problema (forma): el cuerpo trae un escape sin decodificar (",
    "cuerpo: 4 problemas (tilde, relleno, tildes, promesa): el cuerpo dice ",
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
  "xykr3v": {
