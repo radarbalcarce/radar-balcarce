@@ -24126,9 +24126,7 @@
   "ausenteDesde": "2026-10-24T00:04:01.808Z"
  },
  "ssktw0": {
-  "archivo": "fotos-notas/ssktw0.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca visita a Vasco da Gama por la semifinal de la Copa Sudamericana",
@@ -24148,7 +24146,8 @@
    "descripcion": "Jugadores de Boca festejando en la cancha."
   },
   "huella": "00204238b0b4f848",
-  "ausenteDesde": "2026-10-19T22:02:15.131Z"
+  "intentado": true,
+  "borrada": true
  },
  "n48pgu": {
   "archivo": "fotos-notas/n48pgu.jpg",
@@ -41549,11 +41548,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Barracas Central recibe a Estudiantes de Río Cuarto por el Clausura",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T20:02:05.343Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 502: Provider returned error",
+  "cuando": "2026-10-26T22:31:46.148Z",
   "intentos": 2,
-  "fuentes": 10,
-  "intentosPorCupo": 2,
+  "fuentes": 18,
+  "intentosPorCupo": 3,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1om4xy2": {
