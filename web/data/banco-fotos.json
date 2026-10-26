@@ -14979,9 +14979,7 @@
   }
  },
  "3xm1ge": {
-  "archivo": "fotos-notas/3xm1ge.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno promulga la Ley 27.828 que modifica el régimen de Zona Fría",
@@ -14989,7 +14987,17 @@
   "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/2024-05-29-17-3-54GAS_CAMUZZI.jpeg",
   "razon": "Es la foto de mejor encuadre y nitidez, muestra claramente una hornalla de gas encendida ideal para la nota, sin marcas de agua de medios ni menores de edad.",
   "cuando": "2026-10-13T11:31:35.920Z",
-  "huella": "ad2e0733339e9915"
+  "huella": "ad2e0733339e9915",
+  "intentado": true,
+  "descartada": {
+   "motivo": "no corresponde a la nota",
+   "cuando": "2026-10-26T21:14:23.261Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/3xm1ge.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/2024-05-29-17-3-54GAS_CAMUZZI.jpeg",
+   "huella": "ad2e0733339e9915"
+  }
  },
  "19xpc0o": {
   "medio": "Motorsport",
