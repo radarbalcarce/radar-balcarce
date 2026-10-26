@@ -88,17 +88,19 @@ export async function publicarListos({ render, raiz, env, ahora = new Date(), lo
     if (yaPublicada(despues, 'instagram', clave)) {
       await render.put(`publicados/${huella}`, JSON.stringify({ cuando: ahora.toISOString(), motivo: 'publicado' }));
       resultado.terminadas.push(huella);
-      // 25/10/2026 (los dueños: "en TikTok todos los reels que salen en Facebook y en YouTube todos los reels que salen en Instagram"): por Buffer
-      // (redes/buffer.mjs). Nunca frena lo de Meta; lo que pasó queda en el libro (clave buffer).
-      const redesDeBuffer = redesParaBuffer(despues, clave);
-      if (redesDeBuffer.length && hayBuffer(env) && !despues.buffer?.[clave]) {
-        try {
-          const r = await publicarReel({ url: direccionDelVideo(huella, manifiesto.archivo), texto: pieDePieza({ ...entrada, tipo: 'reel' }), titulo: entrada.titulo ?? entrada.etiqueta ?? entrada.nombre, redes: redesDeBuffer }, { env });
-          log(`  Buffer (${entrada.nombre}): ${Object.entries(r).map(([red, x]) => `${red} ${x.ok ? 'ok' : `NO (${x.motivo})`}`).join(' · ')}`);
-          const libroConBuffer = { ...despues, buffer: { ...(despues.buffer ?? {}), [clave]: { cuando: ahora.toISOString(), nombre: entrada.nombre, ...r } } };
-          escribirEn(raiz, 'web/data/redes.json', new TextEncoder().encode(`${JSON.stringify(libroConBuffer, null, 2)}\n`));
-        } catch (e) { log(`  Buffer (${entrada.nombre}): ${e.message}`); }
-      }
+    }
+    // 25/10/2026 (los dueños: "en TikTok todos los reels que salen en Facebook y en YouTube todos los reels que salen en Instagram"): por Buffer
+    // (redes/buffer.mjs), cada red según su par de Meta y por separado (26/10: el repaso salió en Facebook y falló en Instagram, y TikTok esperaba
+    // a Instagram). Una red que ya salió no se vuelve a mandar. Nunca frena lo de Meta; lo que pasó queda en el libro (clave buffer).
+    const yaEnBuffer = despues.buffer?.[clave] ?? {};
+    const redesDeBuffer = redesParaBuffer(despues, clave).filter((red) => !yaEnBuffer[red]?.ok);
+    if (redesDeBuffer.length && hayBuffer(env)) {
+      try {
+        const r = await publicarReel({ url: direccionDelVideo(huella, manifiesto.archivo), texto: pieDePieza({ ...entrada, tipo: 'reel' }), titulo: entrada.titulo ?? entrada.etiqueta ?? entrada.nombre, redes: redesDeBuffer }, { env });
+        log(`  Buffer (${entrada.nombre}): ${Object.entries(r).map(([red, x]) => `${red} ${x.ok ? 'ok' : `NO (${x.motivo})`}`).join(' · ')}`);
+        const libroConBuffer = { ...despues, buffer: { ...(despues.buffer ?? {}), [clave]: { ...yaEnBuffer, cuando: ahora.toISOString(), nombre: entrada.nombre, ...r } } };
+        escribirEn(raiz, 'web/data/redes.json', new TextEncoder().encode(`${JSON.stringify(libroConBuffer, null, 2)}\n`));
+      } catch (e) { log(`  Buffer (${entrada.nombre}): ${e.message}`); }
     }
   }
   return resultado;
