@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T12:38:03.310Z",
- "portada": 81,
+ "generado": "2026-10-26T12:52:42.703Z",
+ "portada": 85,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-26T12:38:03.986Z",
+  "generado": "2026-10-26T12:52:43.117Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -103,13 +103,13 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "bvcva5",
-      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
+      "id": "1wt9rb0",
+      "titulo": "San Manuel le gana tres a uno a Boca Juniors como visitante",
       "seccion": "Fútbol"
      },
      {
-      "id": "1h1irbf",
-      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+      "id": "141c51l",
+      "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
       "seccion": "Balcarce"
      },
      {
@@ -129,9 +129,14 @@
     "segundos": 53,
     "notas": [
      {
-      "id": "18zumrm",
-      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
+      "id": "bvcva5",
+      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1h1irbf",
+      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
+      "seccion": "Balcarce"
      },
      {
       "id": "1covbx8",
@@ -142,11 +147,6 @@
       "id": "1acuwye",
       "titulo": "El papa León XIV pide paz por Jordania y avanza en la beatificación de una argentina",
       "seccion": "Argentina"
-     },
-     {
-      "id": "15wslu0",
-      "titulo": "Anses paga a jubilados y desempleados con documentos terminados en 2 y 3",
-      "seccion": "Economía"
      }
     ]
    },
@@ -157,16 +157,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 46,
     "notas": [
      {
-      "id": "pr74vq",
-      "titulo": "Agrarias vence a Racing y lidera la Zona C",
+      "id": "18zumrm",
+      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
       "seccion": "Fútbol"
      },
      {
-      "id": "dri7vy",
-      "titulo": "Las PyMEs argentinas afrontan 62 obligaciones fiscales al año",
+      "id": "15wslu0",
+      "titulo": "Anses paga a jubilados y desempleados con documentos terminados en 2 y 3",
       "seccion": "Economía"
      },
      {
@@ -192,6 +192,12 @@
    ],
    "cola": [
     {
+     "id": "1wt9rb0",
+     "titulo": "San Manuel le gana tres a uno a Boca Juniors como visitante",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "bvcva5",
      "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
      "seccion": "Fútbol",
@@ -210,6 +216,12 @@
      "marcada": false
     },
     {
+     "id": "141c51l",
+     "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1h1irbf",
      "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
      "seccion": "Balcarce",
@@ -225,12 +237,6 @@
      "id": "snq9oy",
      "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
      "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "m94rdd",
-     "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],
