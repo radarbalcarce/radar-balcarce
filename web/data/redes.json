@@ -3569,6 +3569,14 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-26/efemeride": {
+      "cuando": "2026-10-26T13:38:37.549Z",
+      "mediaId": "18640896037002594",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": []
     }
   },
   "facebookVideos": {
@@ -5994,6 +6002,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122115905463495512"
+    },
+    "2026-10-26/noticia1": {
+      "cuando": "2026-10-26T13:37:05.711Z",
+      "mediaId": "1115548354616264",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "8xm2jg",
+      "notaIds": [
+        "8xm2jg",
+        "1wt9rb0",
+        "141c51l",
+        "c4wrll"
+      ],
+      "postId": "122115922113495512",
+      "permalink": "https://www.facebook.com/reel/1115548354616264/"
     }
   },
   "instagramFeed": {
@@ -8543,6 +8566,21 @@
       "red": "facebook",
       "notaId": null,
       "postId": "2143346509643884"
+    },
+    "facebook/2026-10-26/noticia1": {
+      "cuando": "2026-10-26T13:37:50.755Z",
+      "mediaId": "1002673688810005",
+      "nombre": "noticia1",
+      "red": "facebook",
+      "notaId": "8xm2jg",
+      "postId": "1162697342983661"
+    },
+    "instagram/2026-10-26/efemeride": {
+      "cuando": "2026-10-26T13:39:16.469Z",
+      "mediaId": "17907344994592866",
+      "nombre": "efemeride",
+      "red": "instagram",
+      "notaId": null
     }
   },
   "problemas": {
@@ -8560,13 +8598,13 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
     },
-    "2026-10-26/efemeride/instagram/reel": {
-      "pieza": "efemeride",
+    "2026-10-26/noticia1/instagram/reel": {
+      "pieza": "noticia1",
       "red": "instagram",
       "parte": "reel",
       "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-26T13:06:01.514Z",
-      "intentos": 3
+      "cuando": "2026-10-26T13:35:56.290Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -8973,6 +9011,18 @@
     "2026-10-25/podcast": {
       "cuando": "2026-10-26T02:05:54.473Z",
       "nombre": "podcast",
+      "tiktok": {
+        "ok": false,
+        "motivo": "Invalid post: Video could not be read from its URL."
+      },
+      "youtube": {
+        "ok": false,
+        "motivo": "Invalid post: Video could not be read from its URL."
+      }
+    },
+    "2026-10-26/efemeride": {
+      "cuando": "2026-10-26T13:35:54.323Z",
+      "nombre": "efemeride",
       "tiktok": {
         "ok": false,
         "motivo": "Invalid post: Video could not be read from its URL."
