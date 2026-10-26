@@ -14105,9 +14105,7 @@
   "ausenteDesde": "2026-10-23T16:04:50.229Z"
  },
  "p21pyq": {
-  "archivo": "fotos-notas/p21pyq.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Hadjar cuestiona con dureza a Colapinto tras el Gran Premio de Singapur",
@@ -14115,7 +14113,17 @@
   "imagenOriginal": "https://pxcdn.lanueva.com/102026/1791801232053.jpg?&cw=600&ch=365",
   "razon": "La foto A tiene una marca de agua superpuesta de Noticias Argentinas (NA) en la esquina inferior izquierda, por lo que se descarta. La foto B es la misma imagen pero limpia, sin marcas de medios, y muestra claramente a los pilotos involucrados en la nota.",
   "cuando": "2026-10-12T11:02:30.094Z",
-  "huella": "c6c6cdcf4b4d8cae"
+  "huella": "c6c6cdcf4b4d8cae",
+  "intentado": true,
+  "descartada": {
+   "motivo": "un menor",
+   "cuando": "2026-10-26T15:14:39.925Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/p21pyq.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://pxcdn.lanueva.com/102026/1791801232053.jpg?&cw=600&ch=365",
+   "huella": "c6c6cdcf4b4d8cae"
+  }
  },
  "vt9ful": {
   "archivo": "fotos-notas/vt9ful.jpg",
