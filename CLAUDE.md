@@ -106,7 +106,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
   escribe sólo su workflow y no se poda: cuenta igual que lo retirado a mano.
 - **Las ventanas de tiempo**: la portada muestra **36 horas** (`HORAS_EN_PORTADA`; las secciones
   guardan todo, 10 por página); lo que nunca salió no se estrena si el hecho tiene más de **24** (**36** si es de Balcarce); la edad del hecho es la **mediana de las fuentes**, igual para todo (regla 327; una fuente sin hora no cuenta);
-  la página dura 180 días en teoría, pero el tope de notas en el sitio es el de la variable `TOPE_DE_NOTAS` (hoy **500**; el techo técnico de 3.700 es `PORTADA.maximoDeNotas`, medido el 15/10: 15.900 archivos de los 20.000 de Cloudflare) y, con unas 120 notas por día, una nota está unos 4 días en el sitio; el resto lo da el archivo permanente en R2; lo raspado de más de 72 horas no entra. Los
+  la página dura 180 días en teoría, pero el tope de notas en el sitio es el de la variable `TOPE_DE_NOTAS` (hoy **500**; el techo técnico de 3.700 es `PORTADA.maximoDeNotas`, medido el 15/10: 15.900 archivos de los 20.000 de Cloudflare) y, con unas 120 notas por día, una nota está unos 4 días en el sitio; el resto lo da el archivo permanente en R2; lo raspado o de un feed de acá de más de 48 horas (`PORTADA.horasDeUnHecho`, lo que dura un mismo hecho) no entra. Los
   números viven en `ingesta/criterio.mjs` y `web/lib/archivo.js` los importa (no hay copias, desde la regla 293).
 - **Una nota tiene una sola fecha**, que envejece y nunca rejuvenece (`fechaReal`,
   `fechaDeLaNota`; una nota vieja de otro hecho que el cruce pega, de más de 48 h antes de verla, no la envejece: regla 194), y **una sola dirección**, fija desde que sale. La misma noticia que

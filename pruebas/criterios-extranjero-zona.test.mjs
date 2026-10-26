@@ -78,13 +78,14 @@ test('lo que no se publica nunca se mira también en el texto final (el panel pu
   assert.match(g, /if \(nuncaSePublica\(corregida\)\) return null;/);
 });
 
-test('lo que un medio trae con más de 72 horas y nunca salió no entra; con fecha de adentro de la nota o ya publicada, sí (27/09, El Diario)', () => {
+test('lo que un medio trae con más de 48 horas (lo que dura un hecho, 25/10; eran 72) y nunca salió no entra; con fecha de adentro de la nota o ya publicada, sí (27/09, El Diario)', () => {
   const ahora = Date.parse('2026-09-27T22:00:00Z');
   const hace = (h) => new Date(ahora - h * 3600e3);
   const enlace = 'https://eldiario.test/nota-de-la-portada';
   assert.equal(esViejaSinSalir({ fecha: hace(80), enlace }, null, ahora), true, 'una nota de 80 horas que nunca salió no entra');
-  assert.equal(esViejaSinSalir({ fecha: hace(60), enlace }, null, ahora), false, 'una de 60 horas entra');
-  assert.equal(esViejaSinSalir({ fecha: hace(72), enlace }, null, ahora), false, 'justo 72 horas todavía entra');
+  assert.equal(esViejaSinSalir({ fecha: hace(60), enlace }, null, ahora), true, 'una de 60 horas tampoco (ya no se podría estrenar)');
+  assert.equal(esViejaSinSalir({ fecha: hace(40), enlace }, null, ahora), false, 'una de 40 horas entra');
+  assert.equal(esViejaSinSalir({ fecha: hace(48), enlace }, null, ahora), false, 'justo 48 horas todavía entra');
   assert.equal(esViejaSinSalir({ fecha: hace(24 * 30), enlace, fechaEstimada: true }, null, ahora), false, 'sin fecha en la fuente se cuenta desde que se vio, no se ignora');
   assert.equal(esViejaSinSalir({ fecha: hace(80), enlace }, new Set([idDe(enlace)]), ahora), false, 'si ya salió, conserva su historia y su dirección');
 });

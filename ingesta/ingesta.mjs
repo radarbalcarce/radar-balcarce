@@ -1644,16 +1644,12 @@ export function exigirMedios(portada, { publicadas = null } = {}) {
   return portada;
 }
 
-/** Cuántas horas puede tener una nota raspada (El Diario Balcarce) para
- *  entrar a la ingesta. Eran las de la portada cuando la portada era de 72
- *  horas; desde el 28/09 la portada es de 36 (PORTADA.horas en
- *  ingesta/criterio.mjs) y una nota que nunca salió no se estrena con el
- *  hecho de más de 12 (PORTADA.horasParaEstrenar): esos cortes los hace la
- *  web (web/lib/archivo.js). Éste es sólo el colador grueso de la entrada. */
-export const HORAS_DE_UNA_NOTA_NUEVA = 72;
+/** Cuántas horas puede tener una nota raspada o de un feed de acá que nunca salió para entrar a la ingesta: lo que dura un mismo hecho
+ *  (PORTADA.horasDeUnHecho, 48; eran 72 hasta el 25/10/2026). Estrenar es otra cosa: hasta 24 horas, 36 lo de Balcarce (web/lib/archivo.js). */
+export const HORAS_DE_UNA_NOTA_NUEVA = PORTADA.horasDeUnHecho;
 
 /**
- * ¿Es una nota de un feed de acá de más de HORAS_DE_UNA_NOTA_NUEVA (72) que nunca salió? (regla 180, 16/10/2026).
+ * ¿Es una nota de un feed de acá de más de HORAS_DE_UNA_NOTA_NUEVA (48) que nunca salió? (regla 180, 16/10/2026).
  * Los feeds de acá que publican poco traen notas de semanas o meses (el Concejo, de marzo; Ahora Balcarce, del 3/10;
  * la Facultad, de septiembre): no se pueden estrenar nunca (llegan tarde) y, al entrar al cruce, arrastran a las
  * nuevas. Caso real: "La 22ª Fiesta Nacional del Postre se realizará el 30 y 31 de octubre" (Municipalidad,
@@ -1734,7 +1730,7 @@ export async function ingestar({
     if (f.tipo === 'scrape') {
       await ampliar(notas);
       // Lo que la portada del medio muestra pero salió hace más de
-      // HORAS_DE_UNA_NOTA_NUEVA (72) no es nuevo: no se trae (27/09, El Diario
+      // HORAS_DE_UNA_NOTA_NUEVA (48) no es nuevo: no se trae (27/09, El Diario
       // Balcarce tenía en su portada notas de 2025).
       notas = notas.filter((n) => n.fechaEstimada || Date.now() - n.fecha.getTime() <= HORAS_DE_UNA_NOTA_NUEVA * 3600e3);
     } else if (f.alcance === 'local') {

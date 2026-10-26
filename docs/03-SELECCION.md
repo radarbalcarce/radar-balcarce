@@ -464,7 +464,7 @@ los repasos sin pedirlo aparte (`docs/DECISIONES.md`).
 | Primera vista | 7 días | `DIAS_DE_VISTAS` | Cuánto se recuerda cuándo se vio |
 | Retiradas a mano | 7 días | `DIAS_DE_RETIRADAS` | Los lunes salen de la lista las más viejas que la ingesta ya no trae |
 
-`ingesta/criterio.mjs` guarda las 36, 12, 24 y 6 horas, los 180 días y el techo de 3.700
+`ingesta/criterio.mjs` guarda las 36, 24, 48 y 6 horas, los 180 días y el techo de 3.700
 notas; `web/lib/archivo.js` los **importa** de ahí (desde la regla 293 no hay copias).
 El tope que rige en el sitio es la variable `TOPE_DE_NOTAS` (hoy 500, mínimo 500) y sólo se puede bajar con
 el archivo permanente en R2 prendido (encendido el 23/10): `topeDeNotas`, `web/lib/archivo.js`;

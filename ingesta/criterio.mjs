@@ -8,11 +8,9 @@
 // Andrés es siempre lo que hace el sistema.
 //
 // Sin imports: lo usan ingesta/, panel/, redes/ y reels/, que no pueden
-// depender de nada de afuera de Node. Los números que también viven en web/lib
-// (las 36 horas de la portada, las 12 para estrenar una nota -24 si la cuentan 8 medios o más-, las 6 horas de
-// la nota grande, los 180 días del archivo y las 70 palabras del cuerpo) se
-// quedan allá porque los compila la web, pero las pruebas (criterio.test.mjs
-// y archivo.test.mjs) controlan que sean iguales a éstos.
+// depender de nada de afuera de Node. web/lib/archivo.js importa de acá las horas
+// (portada, estreno, nota grande, un mismo hecho) y los días del archivo; las 70
+// palabras del cuerpo viven en web/lib y una prueba controla que coincidan.
 
 /** El título: apunta a unos 70 caracteres y el verificador rechaza más de 90. */
 export const TITULO = {
@@ -171,6 +169,10 @@ export const PORTADA = {
   // Lo de Balcarce (esDeAca) se estrena con el hecho de hasta esto (23/10/2026, Hernán, auditoría D5: «Balcarce entra todo»; los medios de acá
   // publican tarde y las notas esperan cuerpo, y con 12 se perdían a medio camino). Son las mismas horas que dura en la portada.
   horasParaEstrenarDeAca: 36,
+  // Lo que dura un mismo hecho (25/10/2026: un solo número para tres cosas que decían 48 o 72). Las fuentes de más de esto antes de la primera
+  // vez que vimos la nota no cuentan para su fecha (regla 194); lo que un medio trae con más de esto y nunca salió no entra ni al cruce
+  // (regla 180; eran 72, pero nada de más de 36 se puede estrenar); y el cruce coherente no junta notas más separadas (CRUCE.coherente).
+  horasDeUnHecho: 48,
   horasNotaGrande: 6,
   diasDeArchivo: 180,
   // Tope de notas con página (web/lib/archivo.js, MAXIMO_EN_ARCHIVO). Cloudflare Pages acepta 20.000 archivos por despliegue y, medido el

@@ -349,7 +349,7 @@ export function fechaDeLaNota(nota, { fechaAnterior = null, visto = null, horas 
  * Balcarce que republica dos días después lo que Infórmese contó el 13/10 («Pato Naranja y Pato Negro clasifican…») es una
  * noticia del 13/10, y está bien que salga de la portada.
  */
-export const HORAS_DE_UN_HECHO = 48;
+export const HORAS_DE_UN_HECHO = PORTADA.horasDeUnHecho;
 
 /** Desde cuándo una nota automática no se estrena vieja (llegaTarde, 28/09/2026 a las 13 de Balcarce): antes no vale la cuenta. */
 export const DESDE_QUE_NO_SE_ESTRENA_VIEJA = '2026-09-28T16:00:00.000Z';
@@ -358,7 +358,7 @@ export const DESDE_QUE_NO_SE_ESTRENA_VIEJA = '2026-09-28T16:00:00.000Z';
  * ¿La fecha con la que figura una nota ya publicada es un error del cruce? (regla 194). Sólo si salió SOLA (automática, sin una
  * persona: lo de una persona se respeta), con fecha de la fuente (no «sin hora»), después de que existiera llegaTarde, y su
  * fecha quedó más de HORAS_DE_UN_HECHO antes de la primera vez que la vimos. Así no se pudo haber estrenado (se estrena con el
- * hecho de menos de 12 horas, o de 24 si lo cuentan 8 medios o más), y el cruce no junta un mismo hecho más largo que eso: envejeció después, por
+ * hecho de hasta 24 horas, 36 si es de Balcarce), y el cruce no junta un mismo hecho más largo que eso: envejeció después, por
  * una nota vieja de OTRO hecho que se le pegó. Es la única excepción a «nunca rejuvenece»: no rejuvenece una nota, le saca una
  * fecha que nunca fue la suya.
  */

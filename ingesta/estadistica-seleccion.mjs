@@ -47,7 +47,7 @@ export const RESULTADOS = {
   semaforo: 'el semáforo la frenó (tema sensible, promoción, internacional, dólar, no es nota)',
   pocasFuentes: 'pocas fuentes (2 o más medios, pero menos de los que pide su sección)',
   unMedio: 'un solo medio (no pasó el cruce)',
-  tarde: 'llegó tarde (el hecho tenía más horas de las que se estrena: 12, 24 si lo cuentan 8 medios o más, 36 si es de Balcarce)',
+  tarde: 'llegó tarde (el hecho tenía más horas de las que se estrena: 24, o 36 si es de Balcarce)',
   retirada: 'la retiró una persona',
   enCola: 'en la cola de la redacción (pasó todo y todavía no se escribió)',
   sinMotivo: 'sin motivo (no debería pasar: la corrida lo avisa)',

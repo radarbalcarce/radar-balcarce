@@ -929,6 +929,7 @@ instrucción de la IA (70, 90, 70 a 300…) también se controlan.
 | Portada: horas que una nota está en las listas | 36 | `PORTADA.horas` |
 | Horas que puede tener un hecho para publicarse por primera vez (una nota de afuera que nunca salió y es más vieja, no sale) | 24 | `PORTADA.horasParaEstrenar` |
 | Lo mismo, si la nota es de Balcarce (regla 293) | 36 | `PORTADA.horasParaEstrenarDeAca` |
+| Lo que dura un mismo hecho: lo más viejo que entra de un medio sin haber salido, y de las fuentes que cuentan para la fecha (horas) | 48 | `PORTADA.horasDeUnHecho` |
 | Portada: horas que una nota compite por el lugar grande | 6 | `PORTADA.horasNotaGrande` |
 | Días que dura la página de una nota | 180 | `PORTADA.diasDeArchivo` |
 | Notas con página como máximo: el techo técnico (por el tope de 20.000 archivos de Cloudflare). El que rige hoy es la variable de GitHub `TOPE_DE_NOTAS` (500, nunca menos de 500 ni más de este número) | 3700 | `PORTADA.maximoDeNotas` |
