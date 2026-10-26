@@ -91,7 +91,8 @@ test('sin relleno hay días con menos de cinco: si no hay de Balcarce ni nada mu
 test('los repasos (reel e historia) también piden que lo de afuera sea de lo más contado', () => {
   const nn = (id, extra) => ({ id, titulo: `Titular distinto ${id} con palabras largas`, seccion: 'Argentina', relevancia: 90, local: false, semaforo: 'verde', cuerpo: CUERPO, ...extra });
   const elegidas = elegirParaPodcast([nn('pocos', { medios: medios(2), titulo: 'Reforma jubilatoria: lo que cambia desde enero próximo' }), nn('muchos', { medios: medios(9), titulo: 'Récord de exportaciones de soja en el último trimestre' })], { cuantas: 4 });
-  assert.deepEqual(elegidas.map((n) => n.id), ['muchos'], 'con 90 de puntaje pero 2 medios, no entra a un repaso');
+  // 25/10/2026: lo más contado va primero; la de 2 medios ya no deja el repaso corto: entra a completar (los dueños: "el repaso tiene que tener noticias").
+  assert.deepEqual(elegidas.map((n) => n.id), ['muchos', 'pocos'], 'primero lo más contado; lo poco contado sólo completa');
   assert.equal(REGLAS_PIEZAS.relevanciaAfuera, 80, 'el puntaje de lo de afuera sigue valiendo: se piden las dos cosas');
   assert.equal(sePuedeSola(nn('muchos', { medios: medios(9) })), false, 'una pieza sola sigue siendo sólo de Balcarce');
 });

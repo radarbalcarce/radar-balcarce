@@ -27,8 +27,8 @@ const yaPasoSuHora = (ronda, fecha) => minutoDelDiaAR(fecha) >= minutosDeHora(ro
  * ninguno repite una nota ni un tema que ya contó otro repaso de hoy o de los dos
  * días anteriores (29/09, Hernán: la misma nota salió en el de la tarde y en el de
  * la noche). El de la noche repasa lo que dejó el día y todavía no se contó, sin
- * piso de relevancia. Con menos notas, el repaso sale con las que haya; con
- * menos de dos, no sale. Un repaso cuya hora ya pasó sin salir no se lleva
+ * piso de relevancia. Si no alcanza, se completa con lo más contado que queda
+ * (25/10/2026, `elegirParaPodcast`); con menos de dos, no sale. Un repaso cuya hora ya pasó sin salir no se lleva
  * notas: quedan para los que siguen.
  */
 export function repasosDelDia(publicables = [], { libro = null, fecha = new Date() } = {}) {

@@ -644,7 +644,19 @@ export function elegirParaPodcast(notas, { cuantas = PIEZAS.notasPorPodcast, exc
     return true;
   }).slice(0, lugares);
   const resto = candidatas.filter((n) => !variadas.includes(n));
-  return [...pedidas, ...[...variadas, ...resto].slice(0, lugares).sort(porRelevancia)];
+  const elegidas = [...pedidas, ...[...variadas, ...resto].slice(0, lugares).sort(porRelevancia)];
+  // 25/10/2026 (los dueños: "el repaso tiene que tener noticias; si no son de Balcarce y no están como posteos, que siga con otras notas con muchas
+  // fuentes"): un repaso nunca queda sin salir por falta de puntaje. Lo que falta se completa con lo más contado que queda (cuántos medios, después
+  // el puntaje), sin piso ni tope de lo de afuera; siguen afuera lo rojo, Política y Policiales, lo que espera cuerpo y lo que no es noticia.
+  if (elegidas.length >= cuantas) return elegidas;
+  const completar = sinRepetidos(
+    notas
+      .filter(sePuedeEnUnRepaso)
+      .filter((n) => !noEsNoticiaAunqueLaCuentenTodos(n?.titulo))
+      .sort((a, b) => mediosDeLaNota(b) - mediosDeLaNota(a) || porRelevancia(a, b)),
+    [...excluir, ...elegidas],
+  );
+  return [...elegidas, ...completar.slice(0, cuantas - elegidas.length)];
 }
 
 /**
