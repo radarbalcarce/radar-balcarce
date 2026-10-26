@@ -1,9 +1,5 @@
 {
-  "avisos": {
-    "clave-GEMINI_API_KEY_REDACCION": "2026-10-26T06:00:18.170Z",
-    "clave-GEMINI_API_KEY_REDES": "2026-10-26T06:00:18.170Z",
-    "clave-GEMINI_API_KEY_CLASIFICACION": "2026-10-26T06:00:18.170Z"
-  },
+  "avisos": {},
   "importantes": {
     "avisadas": {
       "3357kp": {
@@ -32,24 +28,5 @@
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-25",
   "ultimoInforme": "2026-10-01",
-  "abiertos": [
-    {
-      "clave": "clave-GEMINI_API_KEY_REDACCION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
-      "desde": "2026-10-26T06:00:18.170Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_REDES",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDES (las voces de las redes) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDES (nunca en un chat).",
-      "desde": "2026-10-26T06:00:18.170Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_CLASIFICACION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_CLASIFICACION (la lectura con IA y las fotos) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions →…",
-      "desde": "2026-10-26T06:00:18.170Z"
-    }
-  ]
+  "abiertos": []
 }
