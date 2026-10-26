@@ -41708,7 +41708,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con la leyenda Argentina Week"
   },
-  "huella": "6f4317139797878f"
+  "huella": "6f4317139797878f",
+  "ausenteDesde": "2026-10-26T18:32:33.331Z"
  },
  "11t01rk": {
   "archivo": "fotos-notas/11t01rk.jpg",
@@ -42737,22 +42738,22 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: HTTP 500: Internal Server Error",
-  "cuando": "2026-10-26T17:02:52.238Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T18:31:36.354Z",
   "intentos": 2,
   "fuentes": 5,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1wt9rb0": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Manuel le gana tres a uno a Boca Juniors como visitante",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T17:02:52.238Z",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
+  "cuando": "2026-10-26T18:31:36.354Z",
   "intentos": 2,
   "fuentes": 1,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "f51e8j": {
