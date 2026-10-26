@@ -273,6 +273,16 @@
   "ultimo": "2026-10-22T02:01:20.413Z",
   "motivo": "cuerpo: 1 problema (promesa): el título dice 43 y el cuerpo no lo explica; sin esas oraciones quedan 114 palabras"
  },
+ "13m0rpc": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"millonario\" "
+  ]
+ },
  "13myijy": {
   "intentos": 2,
   "ultimo": "2026-10-26T08:01:24.151Z",
@@ -1526,11 +1536,6 @@
    "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e"
   ]
  },
- "1i2ypv1": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T14:33:02.076Z",
-  "motivo": "con cuerpo"
- },
  "1i3yqk": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -2146,6 +2151,13 @@
   "ultimo": "2026-10-23T15:07:07.916Z",
   "motivo": "con cuerpo"
  },
+ "1ogsmzm": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 9
+ },
  "1oh36fp": {
   "intentos": 2,
   "ultimo": "2026-10-25T09:01:26.528Z",
@@ -2157,6 +2169,13 @@
    "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, e",
    "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
   ]
+ },
+ "1oi6qte": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 8
  },
  "1okjo5q": {
   "intentos": 1,
@@ -4088,17 +4107,14 @@
   "motivo": "con cuerpo"
  },
  "f62v8u": {
-  "intentos": 1,
-  "ultimo": "2026-10-26T14:03:39.355Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"austin\", que sale de una nota anterior, como si fuera de hoy",
+  "intentos": 2,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "título o bajada: 1 problema (antecedente): el copete usa \"austin\", que"
-  ],
-  "falla": [
-   "el copete usa \"austin\", que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "fbv6cd": {
@@ -4132,6 +4148,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5
+ },
+ "fnh3qb": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "fqfkdl": {
   "intentos": 1,
@@ -4239,11 +4262,6 @@
  "h7sr4i": {
   "intentos": 1,
   "ultimo": "2026-10-23T20:01:53.695Z",
-  "motivo": "con cuerpo"
- },
- "hf7e95": {
-  "intentos": 1,
-  "ultimo": "2026-10-19T14:33:02.076Z",
   "motivo": "con cuerpo"
  },
  "hipnnd": {
@@ -5965,6 +5983,21 @@
   "intentos": 1,
   "ultimo": "2026-10-19T19:31:08.720Z",
   "motivo": "con cuerpo"
+ },
+ "yi7bfk": {
+  "intentos": 1,
+  "ultimo": "2026-10-26T14:33:42.558Z",
+  "motivo": "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"josep\" y la fuente no; sin esas oraciones quedan 211 palabras",
+  "textos": 3,
+  "numeradas": 5,
+  "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa \"lunes\", que ",
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"josep\" y la"
+  ],
+  "falla": [
+   "el cuerpo nombra a \"josep\" y la fuente no",
+   "el título nombra a \"balon\", \"oro\", \"londres\" y el cuerpo no los explica"
+  ]
  },
  "yjlxo0": {
   "intentos": 1,

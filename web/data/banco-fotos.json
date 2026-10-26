@@ -23387,9 +23387,7 @@
   "ausenteDesde": "2026-10-21T02:01:43.067Z"
  },
  "n4iy6h": {
-  "archivo": "fotos-notas/n4iy6h.jpg",
   "medio": "La Tecla",
-  "credito": "Foto: La Tecla",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno oficializa un plan de retiros voluntarios para estatales",
@@ -23409,7 +23407,8 @@
    "descripcion": "Empleados públicos trabajando en una oficina estatal"
   },
   "huella": "91c994acacae2ebd",
-  "ausenteDesde": "2026-10-19T14:34:46.337Z"
+  "intentado": true,
+  "borrada": true
  },
  "1i2ypv1": {
   "archivo": "fotos-notas/1i2ypv1.jpg",
@@ -31408,7 +31407,8 @@
    "corresponde": "si",
    "descripcion": "Auto de competición de Nahuel Di Cicco en plena pista"
   },
-  "huella": "96203261e861e9e3"
+  "huella": "96203261e861e9e3",
+  "ausenteDesde": "2026-10-26T14:44:36.129Z"
  },
  "d54qko": {
   "archivo": "fotos-notas/d54qko.jpg",
@@ -31698,7 +31698,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "0f0f0f1f0f8e2ab3"
+  "huella": "0f0f0f1f0f8e2ab3",
+  "ausenteDesde": "2026-10-26T14:44:36.129Z"
  },
  "sg5gtd": {
   "archivo": "fotos-notas/sg5gtd.jpg",
@@ -42588,31 +42589,73 @@
   "ausenteDesde": "2026-10-26T12:38:03.225Z"
  },
  "bvcva5": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/bvcva5.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-26T13:35:49.278Z",
-  "intentos": 2,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/primer-triunfo-de-deportivo-los-pinos-20",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-26-12-30-35losp_inos.JPG",
+  "razon": "Es la unica foto disponible, cumple con todos los requisitos y muestra una jugada clara del partido.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Futbolistas disputando el balón en un partido de la liga local"
+  },
+  "huella": "cdd2878da699ab84"
  },
  "18zumrm": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-26T13:35:49.278Z",
-  "intentos": 2,
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de El Diario Balcarce (un menor): no se elige ninguna.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "pr74vq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/pr74vq.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Agrarias vence a Racing y lidera la Zona C",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-26T13:35:49.278Z",
-  "intentos": 2,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/agrarias-vencio-a-racing-y-es-puntero-de-la-zona-c-561",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-26-12-28-58Racing_-_Agrarias2.jpg",
+  "razon": "Es la única foto disponible, corresponde a la nota y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores en un partido de fútbol en una cancha de césped",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol en acción sobre un campo de césped, con un jugador de camiseta a rayas azules y blancas en primer plano."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "5d39e97989a88815"
  },
  "1fnnob0": {
   "archivo": "fotos-notas/1fnnob0.jpg",
@@ -42867,10 +42910,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-26T13:35:49.278Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La única foto disponible incluye menores de edad reconocibles en el grupo.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "e8g0n0": {
   "archivo": "fotos-notas/e8g0n0.webp",
@@ -43043,7 +43086,8 @@
    "corresponde": "si",
    "descripcion": "Autos de Fórmula 1 compitiendo frente a una gran tribuna llena de público."
   },
-  "huella": "0703c0b2295f8593"
+  "huella": "0703c0b2295f8593",
+  "ausenteDesde": "2026-10-26T14:44:36.129Z"
  },
  "1j0tzft": {
   "archivo": "fotos-notas/1j0tzft.jpg",
@@ -43068,5 +43112,137 @@
    "descripcion": "Herrera festejando un gol con los brazos abiertos en el partido contra Independiente"
   },
   "huella": "6b6d13ab2b2babab"
+ },
+ "1ogsmzm": {
+  "archivo": "fotos-notas/1ogsmzm.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Sube el riesgo país y caen las acciones argentinas tras el triunfo de Lula en Brasil",
+  "enlace": "https://tn.com.ar/economia/2026/10/26/tras-el-triunfo-de-lula-caen-hasta-11-las-acciones-argentinas-en-wall-street/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-mercado-reacciono-luego-del-triunfo-de-lula-da-silva-en-brasil-foto-reutersbrendan-mcdermid-ONDBSMKHFVBM3ILNE73IYIO3NY?auth=8ec9e1ef3e422b4695e161ac00691217ce9e8ea90d9d0353271cf7f31cdad4c7&width=1023",
+  "razon": "Es una fotografía clara de operadores en la bolsa que ilustra adecuadamente la nota económica sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores trabajando en la bolsa de valores"
+  },
+  "huella": "69eb735b52495511"
+ },
+ "fnh3qb": {
+  "archivo": "fotos-notas/fnh3qb.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto afronta el Gran Premio de México de Fórmula 1",
+  "enlace": "https://www.lacapital.com.ar/ovacion/cuando-vuelve-correr-colapinto-dias-y-horarios-del-gp-mexico-la-formula-1-n10288725.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/86d1d29eb5bad8cd50450047fdda665d/adjuntos/203/imagenes/103/487/0103487953/1200x675/smart/image-3.png",
+  "razon": "Es la foto más nítida, con excelente encuadre del piloto, sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del casco de Franco Colapinto con los sponsors visibles"
+  },
+  "huella": "8e86961a1acee672"
+ },
+ "13m0rpc": {
+  "archivo": "fotos-notas/13m0rpc.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca le gana a Independiente y Leandro Paredes palpita el Superclásico",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/25/uno-siempre-suena-con-jugar-este-tipo-de-partidos-leandro-paredes-anticipo-el-superclasico-en-la-bombonera/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-8e47500f03811792977098414-1792978242.jpg?auth=0c7f836c6253f7ca33c0d9a058ae5e692be7e1765a2c76084e1aa7562a92ceb3&width=1023",
+  "razon": "Es la mejor foto disponible que corresponde a la nota, muestra claramente al protagonista y está libre de marcas de agua, menores, gráficos o stock.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Leandro Paredes con campera de entrenamiento en el estadio."
+  },
+  "huella": "93252337336ae3e9"
+ },
+ "1oi6qte": {
+  "archivo": "fotos-notas/1oi6qte.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River recibe a Racing y Barcelona enfrenta al Real Madrid",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/por-donde-pasan-hoy-river-vs-racing-y-que-canal-lo-transmite-en-vivo-nid25102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/angel-correa-es-la-gran-figura-que-tiene-river-en-TOMS36XRN5AOHEFAMIXHNC255I.jpg?auth=01d2b5c571d34fd546c2a1f54bb3d9a46c8991b6ece4c7fc499697a73e39ee7f&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto válida que corresponde a uno de los equipos de la nota, con buena nitidez, sin marcas superpuestas ni menores.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de River festejando un gol"
+  },
+  "huella": "8aca175d4d0dbb89"
+ },
+ "f62v8u": {
+  "archivo": "fotos-notas/f62v8u.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Jeremy Clarkson cuestiona a Franco Colapinto y Alpine rechaza dichos",
+  "enlace": "https://www.lanueva.com/nota/2026-10-25-12-52-0-jeremy-clarkson-cuestiono-a-franco-colapinto-por-su-nacionalidad-y-alpine-repudio-los-dichos",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1792943787409.jpg?&cw=600&ch=365",
+  "razon": "Es la única foto válida que muestra claramente a Franco Colapinto sin marcas superpuestas, sin menores y con buen encuadre.",
+  "cuando": "2026-10-26T14:39:10.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con remera rosa y gorra azul tocándose la barbilla",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto con gorra azul y remera rosa en un circuito de automovilismo."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "3c71606474644292"
  }
 }
