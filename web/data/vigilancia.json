@@ -1,11 +1,5 @@
 {
-  "avisos": {
-    "fijas-por-vencer": "2026-10-26T00:31:13.573Z",
-    "falta-facebook-reel:efemeride": "2026-10-26T00:00:20.454Z",
-    "falta-facebook-historia:efemeride": "2026-10-26T00:00:20.454Z",
-    "falta-instagram-reel:efemeride": "2026-10-26T00:00:20.454Z",
-    "falta-instagram-historia:efemeride": "2026-10-26T00:00:20.454Z"
-  },
+  "avisos": {},
   "importantes": {
     "avisadas": {
       "3357kp": {
@@ -28,42 +22,11 @@
     "ultimo": "2026-10-25T21:00:15.175Z"
   },
   "redes": {
-    "hasta": "2026-10-25T23:37:11.974Z"
+    "hasta": "2026-10-26T02:07:29.943Z"
   },
   "ultimaMedicion": "2026-10-25/21",
   "ultimoResumen": "2026-10-01",
-  "ultimoCierre": "2026-10-24",
+  "ultimoCierre": "2026-10-25",
   "ultimoInforme": "2026-10-01",
-  "abiertos": [
-    {
-      "clave": "fijas-por-vencer",
-      "nivel": "media",
-      "texto": "Las piezas fijas de participá vencen el 31/10: desde entonces gastan un audio por día. Hay que renovarlas o decidir que no (reels/fijas/vigencia.json).",
-      "desde": "2026-10-24T03:00:14.655Z"
-    },
-    {
-      "clave": "falta-facebook-reel:efemeride",
-      "nivel": "media",
-      "texto": "Facebook: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-25T15:01:48.976Z"
-    },
-    {
-      "clave": "falta-facebook-historia:efemeride",
-      "nivel": "media",
-      "texto": "Facebook: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-25T15:01:48.976Z"
-    },
-    {
-      "clave": "falta-instagram-reel:efemeride",
-      "nivel": "media",
-      "texto": "Instagram: no salió el reel de Un día como hoy de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-25T15:01:48.976Z"
-    },
-    {
-      "clave": "falta-instagram-historia:efemeride",
-      "nivel": "media",
-      "texto": "Instagram: no salió la historia de Un día como hoy (historia) de las 09:00, y ya se cerró su ventana. Si ese día había más de ocho historias, el tope pudo sacarla a propósito.",
-      "desde": "2026-10-25T15:01:48.976Z"
-    }
-  ]
+  "abiertos": []
 }
