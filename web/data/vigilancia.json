@@ -1,10 +1,13 @@
 {
   "avisos": {
     "fijas-por-vencer": "2026-10-25T18:00:52.294Z",
-    "falta-facebook-reel:efemeride": "2026-10-25T15:01:48.976Z",
-    "falta-facebook-historia:efemeride": "2026-10-25T15:01:48.976Z",
-    "falta-instagram-reel:efemeride": "2026-10-25T15:01:48.976Z",
-    "falta-instagram-historia:efemeride": "2026-10-25T15:01:48.976Z"
+    "falta-facebook-reel:efemeride": "2026-10-26T00:00:20.454Z",
+    "falta-facebook-historia:efemeride": "2026-10-26T00:00:20.454Z",
+    "falta-instagram-reel:efemeride": "2026-10-26T00:00:20.454Z",
+    "falta-instagram-historia:efemeride": "2026-10-26T00:00:20.454Z",
+    "clave-GEMINI_API_KEY_REDACCION": "2026-10-26T00:00:20.454Z",
+    "clave-GEMINI_API_KEY_REDES": "2026-10-26T00:00:20.454Z",
+    "clave-GEMINI_API_KEY_CLASIFICACION": "2026-10-26T00:00:20.454Z"
   },
   "importantes": {
     "avisadas": {
@@ -30,7 +33,7 @@
   "redes": {
     "hasta": "2026-10-25T20:48:28.429Z"
   },
-  "ultimaMedicion": "2026-10-25/9",
+  "ultimaMedicion": "2026-10-25/21",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-24",
   "ultimoInforme": "2026-10-01",
@@ -40,6 +43,24 @@
       "nivel": "media",
       "texto": "Las piezas fijas de participá vencen el 31/10: desde entonces gastan un audio por día. Hay que renovarlas o decidir que no (reels/fijas/vigencia.json).",
       "desde": "2026-10-24T03:00:14.655Z"
+    },
+    {
+      "clave": "clave-GEMINI_API_KEY_REDACCION",
+      "nivel": "alta",
+      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
+      "desde": "2026-10-26T00:00:20.454Z"
+    },
+    {
+      "clave": "clave-GEMINI_API_KEY_REDES",
+      "nivel": "alta",
+      "texto": "La clave GEMINI_API_KEY_REDES (las voces de las redes) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDES (nunca en un chat).",
+      "desde": "2026-10-26T00:00:20.454Z"
+    },
+    {
+      "clave": "clave-GEMINI_API_KEY_CLASIFICACION",
+      "nivel": "alta",
+      "texto": "La clave GEMINI_API_KEY_CLASIFICACION (la lectura con IA y las fotos) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions →…",
+      "desde": "2026-10-26T00:00:20.454Z"
     },
     {
       "clave": "falta-facebook-reel:efemeride",
