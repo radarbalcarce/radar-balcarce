@@ -8603,8 +8603,8 @@
       "red": "instagram",
       "parte": "reel",
       "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-26T13:45:57.542Z",
-      "intentos": 2
+      "cuando": "2026-10-26T14:06:52.722Z",
+      "intentos": 3
     }
   },
   "facebookFoto": {
@@ -9030,6 +9030,15 @@
       "youtube": {
         "ok": false,
         "motivo": "Invalid post: Video could not be read from its URL."
+      }
+    },
+    "2026-10-26/noticia1": {
+      "cuando": "2026-10-26T14:06:50.554Z",
+      "nombre": "noticia1",
+      "tiktok": {
+        "ok": true,
+        "id": "6adf5ea38e6c1ef513ef0554",
+        "estado": "sending"
       }
     }
   }
