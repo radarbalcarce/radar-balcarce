@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-26T21:32:50.531Z",
- "portada": 83,
+ "generado": "2026-10-26T22:01:51.434Z",
+ "portada": 81,
  "archivo": 498,
- "esperandoCuerpo": 90,
+ "esperandoCuerpo": 96,
  "redes": {
-  "generado": "2026-10-26T21:32:51.037Z",
+  "generado": "2026-10-26T22:01:51.791Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-26T18:36:53.006Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-26T18:36:53.006Z",
     "segundos": null,
     "notas": [
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
-     {
-      "id": "1azkjmy",
-      "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
-      "seccion": "Balcarce"
-     },
      {
       "id": "18zumrm",
       "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
       "seccion": "Fútbol"
      },
      {
+      "id": "1azkjmy",
+      "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "snq9oy",
+      "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
+      "seccion": "Economía"
+     },
+     {
       "id": "m94rdd",
       "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
       "seccion": "Argentina"
-     },
-     {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
      }
     ]
    }
@@ -210,14 +210,7 @@
      "cuando": "2026-10-26T18:36:02.039Z"
     }
    ],
-   "cola": [
-    {
-     "id": "1azkjmy",
-     "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
-     "seccion": "Balcarce",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 0,
    "proximoDesde": "2026-10-26T20:06:02.039Z",
    "porDia": 5,

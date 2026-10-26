@@ -42891,11 +42891,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T19:32:16.356Z",
-  "intentos": 2,
+  "razon": "La única imagen disponible es una ilustración (gráfico) y no una fotografía, por lo que no cumple con los requisitos para ser elegida.",
+  "cuando": "2026-10-26T22:01:40.055Z",
+  "intentos": 3,
   "fuentes": 4,
-  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ivqjyr": {
