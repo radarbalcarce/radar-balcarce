@@ -138,7 +138,9 @@ export async function pedirPiezas({ raiz, env, github, kv, ahora = new Date(), s
 
 export const REDES = {
   nombre: 'redes', workflow: 'redes.yml', grupo: 'redes', vigenciaDelCandadoSeg: 25 * 60,
-  lee: ['web/data/portada.json', 'web/data/redes.json'],
+  // 25/10/2026: también lo que lee el cronograma (ingesta/datos-vivos.mjs): sin estos archivos, "Un día como hoy" y el feriado no se pedían nunca
+  // (desde el 22/10, cuando las redes pasaron a la nube, no salió ninguna efeméride). La misma lista que la vigilancia.
+  lee: ['web/data/portada.json', 'web/data/redes.json', 'web/data/efemerides-piezas.json', 'web/data/efemerides-elegidas.json', 'web/data/feriados-piezas.json', 'reels/fijas/vigencia.json'],
   escribe: ['web/data/redes.json'],
   mensaje: ({ ahora }) => `Redes: libro de publicaciones · ${fechaDeLosMensajes(ahora)}`,
   ejecutar: async ({ env, raiz, inputs, github, kv, bindings, ahora, simular }) => {
