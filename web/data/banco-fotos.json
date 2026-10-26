@@ -23943,9 +23943,7 @@
   "ausenteDesde": "2026-10-24T16:36:25.045Z"
  },
  "1l2bh67": {
-  "archivo": "fotos-notas/1l2bh67.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "FASTA dicta una charla gratuita sobre economía familiar",
@@ -23965,7 +23963,8 @@
    "descripcion": "Hombre con anteojos hablando frente a un micrófono."
   },
   "huella": "d3d3dbd3d3d3f9f8",
-  "ausenteDesde": "2026-10-19T19:31:53.244Z"
+  "intentado": true,
+  "borrada": true
  },
  "2rqepx": {
   "archivo": "fotos-notas/2rqepx.jpg",
@@ -42080,7 +42079,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi sonriendo mientras sostiene el Balón de Oro en la ceremonia"
   },
-  "huella": "5055551c18188f9f"
+  "huella": "5055551c18188f9f",
+  "ausenteDesde": "2026-10-26T19:32:31.594Z"
  },
  "4fjwhc": {
   "archivo": "fotos-notas/4fjwhc.jpg",
@@ -42405,7 +42405,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "0b084e4e160f0b4c"
+  "huella": "0b084e4e160f0b4c",
+  "ausenteDesde": "2026-10-26T19:32:31.594Z"
  },
  "2rtl95": {
   "archivo": "fotos-notas/2rtl95.jpg",
@@ -42887,10 +42888,10 @@
   "origen": "ninguna",
   "titulo": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unexpected end of JSON input",
-  "cuando": "2026-10-26T18:02:24.106Z",
+  "cuando": "2026-10-26T19:32:16.356Z",
   "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ivqjyr": {
