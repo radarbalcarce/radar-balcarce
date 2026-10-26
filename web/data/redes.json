@@ -3529,6 +3529,20 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-25/podcast": {
+      "cuando": "2026-10-26T02:06:50.892Z",
+      "mediaId": "18148828645551504",
+      "nombre": "podcast",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [
+        "17f0k0j",
+        "prtuo4",
+        "1b4pjdh",
+        "1w1bqj1"
+      ],
+      "permalink": "https://www.instagram.com/reel/De8K4t1AJis/"
     }
   },
   "facebookVideos": {
@@ -8458,6 +8472,13 @@
       "red": "facebook",
       "notaId": null,
       "postId": "987411727738465"
+    },
+    "instagram/2026-10-25/podcast": {
+      "cuando": "2026-10-26T02:07:29.943Z",
+      "mediaId": "17929389375180370",
+      "nombre": "podcast",
+      "red": "instagram",
+      "notaId": null
     }
   },
   "problemas": {
@@ -8481,14 +8502,6 @@
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
-    },
-    "2026-10-25/podcast/instagram/reel": {
-      "pieza": "podcast",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-26T01:46:30.836Z",
-      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -8882,6 +8895,20 @@
         "muy-vieja": 9
       },
       "cuando": "2026-10-26T00:35:54.684Z"
+    }
+  },
+  "buffer": {
+    "2026-10-25/podcast": {
+      "cuando": "2026-10-26T02:05:54.473Z",
+      "nombre": "podcast",
+      "tiktok": {
+        "ok": false,
+        "motivo": "Invalid post: Video could not be read from its URL."
+      },
+      "youtube": {
+        "ok": false,
+        "motivo": "Invalid post: Video could not be read from its URL."
+      }
     }
   }
 }
