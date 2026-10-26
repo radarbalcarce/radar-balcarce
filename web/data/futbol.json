@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-26T01:01:53.430Z",
+ "consultado": "2026-10-26T01:31:19.135Z",
  "equipos": [
   "9739",
   "3",
@@ -948,8 +948,8 @@
     "id": "401841640",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "31'",
+    "estado": "entretiempo",
+    "minuto": "45'+5'",
     "local": {
      "id": "10060",
      "nombre": "Barracas Central",
@@ -958,10 +958,17 @@
     "visitante": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Ibrahim Hesar",
+      "minuto": "44'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Claudio Chiqui Tapia",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -971,8 +978,8 @@
     "id": "401841639",
     "competencia": "liga",
     "inicio": "2026-10-26T00:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "32'",
+    "estado": "entretiempo",
+    "minuto": "45'+3'",
     "local": {
      "id": "11989",
      "nombre": "Central Córdoba (Santiago del Estero)",
