@@ -630,18 +630,18 @@
    },
    "revision": {
     "openai/gpt-oss-20b": {
-     "llamadas": 6,
+     "llamadas": 8,
      "errores": 0,
-     "entrada": 8168,
-     "salida": 6184,
+     "entrada": 11064,
+     "salida": 8072,
      "pensamiento": 0,
-     "total": 14352,
+     "total": 19136,
      "claves": {
-      "groq": 6
+      "groq": 8
      },
      "motivos": {
       "groq": {
-       "ok": 6
+       "ok": 8
       }
      }
     }
