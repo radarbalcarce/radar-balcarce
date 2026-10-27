@@ -15809,9 +15809,7 @@
   "fuentes": 2
  },
  "5biv0y": {
-  "archivo": "fotos-notas/5biv0y.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARCA habilita el recibo de sueldo electrónico asistido para casas particulares",
@@ -15819,7 +15817,17 @@
   "imagenOriginal": "https://www.infobae.com/resizer/v2/GPDV2EMZV5AT5PNMTI3AGWULNE.png?auth=c351d12739f7f47c6f321e1a85511ae9d93283f0bf52ebf851368ac3ec8be81b&smart=true&width=1200&height=630&quality=85",
   "razon": "La foto A muestra claramente a una persona usando una computadora en un entorno de oficina, lo que ilustra de manera directa y profesional la temática de gestión digital y recibo de sueldo electrónico, sin marcas de agua ni menores.",
   "cuando": "2026-10-14T09:32:16.039Z",
-  "huella": "95b4bca683060901"
+  "huella": "95b4bca683060901",
+  "intentado": true,
+  "descartada": {
+   "motivo": "parece una foto de stock",
+   "cuando": "2026-10-27T01:14:12.905Z",
+   "por": "revisión del archivo",
+   "archivo": "fotos-notas/5biv0y.jpg",
+   "origen": "medio",
+   "imagenOriginal": "https://www.infobae.com/resizer/v2/GPDV2EMZV5AT5PNMTI3AGWULNE.png?auth=c351d12739f7f47c6f321e1a85511ae9d93283f0bf52ebf851368ac3ec8be81b&smart=true&width=1200&height=630&quality=85",
+   "huella": "95b4bca683060901"
+  }
  },
  "1dzsvda": {
   "medio": "TyC Sports",
