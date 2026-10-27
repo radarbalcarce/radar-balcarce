@@ -26406,9 +26406,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "9mq2sr": {
-  "archivo": "fotos-notas/9mq2sr.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Muere el actor Antonio Grimau a los 82 años",
@@ -26428,7 +26426,8 @@
    "descripcion": "Retrato de Antonio Grimau apoyando la mano en la barbilla"
   },
   "huella": "0f0e9f0d1d5d3c71",
-  "ausenteDesde": "2026-10-20T19:10:45.235Z"
+  "intentado": true,
+  "borrada": true
  },
  "cumhf3": {
   "archivo": "fotos-notas/cumhf3.jpg",
@@ -39301,7 +39300,8 @@
    "corresponde": "si",
    "descripcion": "Miguel Ángel Borja celebrando con la camiseta"
   },
-  "huella": "29b3175d164e0f9d"
+  "huella": "29b3175d164e0f9d",
+  "ausenteDesde": "2026-10-27T19:33:42.385Z"
  },
  "17b80pl": {
   "archivo": "fotos-notas/17b80pl.jpg",
@@ -39325,7 +39325,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Defensa y Justicia festejando con los puños apretados."
   },
-  "huella": "b365bdbc9e9cb6e6"
+  "huella": "b365bdbc9e9cb6e6",
+  "ausenteDesde": "2026-10-27T19:33:42.385Z"
  },
  "1oh36fp": {
   "archivo": "fotos-notas/1oh36fp.jpg",
@@ -39435,7 +39436,8 @@
    "corresponde": "si",
    "descripcion": "Funcionario hablando en un atril en conferencia de prensa en Casa Rosada"
   },
-  "huella": "9d2d4d557d696b6f"
+  "huella": "9d2d4d557d696b6f",
+  "ausenteDesde": "2026-10-27T19:33:42.385Z"
  },
  "1w3d9i1": {
   "intentado": true,
@@ -39769,7 +39771,8 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto luciendo en detalle su casco especial con símbolos argentinos"
   },
-  "huella": "1e1c1f180b0a0b1b"
+  "huella": "1e1c1f180b0a0b1b",
+  "ausenteDesde": "2026-10-27T19:33:42.385Z"
  },
  "1nldeav": {
   "archivo": "fotos-notas/1nldeav.jpg",
@@ -45762,8 +45765,7 @@
    "corresponde": "si",
    "descripcion": "Harry Kane sonriendo con el Balón de Oro"
   },
-  "huella": "6b676b7c767666ed",
-  "ausenteDesde": "2026-10-27T13:36:15.463Z"
+  "huella": "6b676b7c767666ed"
  },
  "1h08l3q": {
   "archivo": "fotos-notas/1h08l3q.jpg",
@@ -47116,6 +47118,28 @@
   "cuando": "2026-10-27T19:03:26.127Z",
   "intentos": 1,
   "fuentes": 10,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "106zkm9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cuti Romero revela por qué salió en la final del Mundial 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T19:33:34.475Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6awds4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Flávio Bolsonaro abandona Brasil y viaja a Estados Unidos tras su derrota electoral",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T19:33:34.475Z",
+  "intentos": 1,
+  "fuentes": 13,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
