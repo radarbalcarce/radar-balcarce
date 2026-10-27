@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T17:33:52.892Z",
- "portada": 162,
+ "generado": "2026-10-27T18:04:24.346Z",
+ "portada": 160,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-27T17:33:53.721Z",
+  "generado": "2026-10-27T18:04:25.155Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,9 +103,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
       "id": "15q3x7r",
@@ -118,8 +118,8 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "hd8nd0",
-      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "id": "1xcj3y4",
+      "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
       "seccion": "Salud"
      },
      {
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 52,
     "notas": [
      {
       "id": "1spznqi",
@@ -149,14 +149,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
+     },
+     {
       "id": "1969ryn",
       "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
       "seccion": "Economía"
-     },
-     {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
      }
     ]
    }
@@ -211,21 +211,21 @@
      "marcada": false
     },
     {
-     "id": "1xjv5xx",
-     "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
-     "seccion": "Economía",
+     "id": "1099rtb",
+     "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "mmyfrg",
+     "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
      "id": "1finiqu",
      "titulo": "Moria Casán despide a su histórico chofer Fernando Shedden",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1s0kbrg",
-     "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],

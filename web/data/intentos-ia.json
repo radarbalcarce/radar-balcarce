@@ -635,6 +635,13 @@
    "cuerpo: 3 problemas (tilde, copia, tildes): el cuerpo dice \"mas\" en ve"
   ]
  },
+ "16a5omp": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "16af5xf": {
   "intentos": 1,
   "ultimo": "2026-10-23T17:33:33.983Z",
@@ -651,11 +658,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "16gh7t": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:40:32.447Z",
-  "motivo": "con cuerpo"
  },
  "16jgta5": {
   "intentos": 1,
@@ -1097,6 +1099,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 10
+ },
+ "1ajviax": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "1al05om": {
   "intentos": 1,
@@ -2766,6 +2775,16 @@
   "textos": 5,
   "numeradas": 8
  },
+ "1oitmyu": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+  ]
+ },
  "1om4xy2": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -3224,6 +3243,13 @@
   "intentos": 1,
   "ultimo": "2026-10-21T19:01:21.981Z",
   "motivo": "con cuerpo"
+ },
+ "1t0bf8r": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "con cuerpo",
+  "textos": 0,
+  "numeradas": 2
  },
  "1t2bs23": {
   "intentos": 1,
@@ -3694,11 +3720,6 @@
   "ultimo": "2026-10-21T19:01:21.981Z",
   "motivo": "con cuerpo"
  },
- "1x0qmw": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T18:01:46.640Z",
-  "motivo": "con cuerpo"
- },
  "1x7mq5l": {
   "intentos": 1,
   "ultimo": "2026-10-23T09:02:09.019Z",
@@ -3810,11 +3831,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 6
- },
- "1yfpfnm": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T18:01:46.640Z",
-  "motivo": "con cuerpo"
  },
  "1ynbotb": {
   "intentos": 3,
@@ -4562,11 +4578,6 @@
   "ultimo": "2026-10-23T22:31:48.552Z",
   "motivo": "con cuerpo"
  },
- "9kv3sb": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:40:32.447Z",
-  "motivo": "con cuerpo"
- },
  "9lxmcr": {
   "intentos": 1,
   "ultimo": "2026-10-22T17:31:58.162Z",
@@ -4659,8 +4670,8 @@
   "numeradas": 9
  },
  "af3i1w": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T17:02:59.140Z",
+  "intentos": 3,
+  "ultimo": "2026-10-27T18:02:14.006Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 3,
   "numeradas": 4,
@@ -4929,18 +4940,14 @@
   "motivo": "con cuerpo"
  },
  "d5mdt0": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T17:02:59.140Z",
-  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 17 y la fuente no lo dice; sin esas oraciones quedan 54 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 3 problemas (nombre, numero, relleno): el cuerpo nombra a \"fue",
    "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 17 y la fuente n"
-  ],
-  "falla": [
-   "el cuerpo dice 17 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "d7r9de": {
@@ -5929,19 +5936,20 @@
   "numeradas": 4
  },
  "m9x3m1": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T17:32:24.909Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el máximo es 90",
-  "textos": 2,
-  "numeradas": 3,
+  "intentos": 2,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el máximo es 90",
+  "textos": 3,
+  "numeradas": 4,
   "motivos": [
    "título o bajada: 1 problema (copia): copia 15 palabras seguidas del or",
-   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el",
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
   ],
   "falla": [
-   "el titulo tiene 94 caracteres, el máximo es 90",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo dice 0 y la fuente no lo dice"
+   "el titulo tiene 96 caracteres, el máximo es 90",
+   "el cuerpo nombra a \"grandes\" y la fuente no"
   ]
  },
  "mbax9x": {
@@ -6323,11 +6331,6 @@
  "pgc5jh": {
   "intentos": 1,
   "ultimo": "2026-10-22T19:02:09.994Z",
-  "motivo": "con cuerpo"
- },
- "phvgrd": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:40:32.447Z",
   "motivo": "con cuerpo"
  },
  "pi8okg": {
@@ -7340,18 +7343,14 @@
   "numeradas": 2
  },
  "x5l1ri": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T17:32:24.909Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 134 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-27T18:02:14.006Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 15 palabras seguidas del original (\"un plazo de 30 dias habiles para presentar documentacion que justifique la continuidad del…\"): dec"
   ]
  },
  "x6528a": {
@@ -7431,11 +7430,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "y8hra9": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:40:32.447Z",
-  "motivo": "con cuerpo"
  },
  "yfe1jz": {
   "intentos": 1,
