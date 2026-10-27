@@ -1,37 +1,37 @@
 {
- "generado": "2026-10-27T12:06:35.541Z",
+ "generado": "2026-10-27T12:38:19.650Z",
  "intentosMaximos": 3,
  "notas": [
   {
-   "id": "1yv8myb",
-   "titulo": "Habrá un “zapatazo solidario” en Plaza de Mayo en “defensa de la producción nacional\"",
-   "copete": "",
-   "seccion": "Agro",
-   "fecha": "2026-10-27T10:03:03.000Z",
+   "id": "k2wudj",
+   "titulo": "Horarios y cronograma del Gran Premio de México",
+   "copete": "La Máxima se traslada al Autódromo Hermanos Rodríguez en la continuidad de su gira americana.",
+   "seccion": "Automovilismo",
+   "fecha": "2026-10-26T14:11:00.000Z",
    "fuentes": [
     {
+     "medio": "El Gráfico",
+     "enlace": "https://www.elgrafico.com.ar/articulo/1124/103559/formula-1-horarios-y-cronograma-del-gran-premio-de-mexico",
+     "fecha": "2026-10-26T12:00:00.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/automovilismo/f1-los-horarios-y-el-cronograma-completo-del-gp-de-mexico-id768545.html",
+     "fecha": "2026-10-27T10:45:17.000Z"
+    },
+    {
      "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/habra-un--zapatazo-solidario--en-plaza-de-mayo-en--defensa-de-la-produccion-nacional-_a6adfb024a8408d82a2fc80ab",
-     "fecha": "2026-10-27T09:09:00.000Z"
+     "enlace": "https://noticiasargentinas.com/deportes/colapinto-va-por-la-recuperacion-en-la-formula-1--el-cronograma-y-horarios-del-gp-de-mexico_a6ae08ef6bc8a73c74f10224a",
+     "fecha": "2026-10-27T12:19:08.712Z"
     },
     {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/economia/2026/10/27/crisis-en-la-industria-del-calzado-fabricantes-regalaran-1000-pares-de-zapatos-en-plaza-de-mayo-como-protesta/",
-     "fecha": "2026-10-27T10:03:03.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/actualidad/zapatazo-solidario-regalaran-1000-pares-plaza-mayo-denunciar-la-crisis-las-fabricas-n1610461",
-     "fecha": "2026-10-27T11:52:00.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/economia/regalaran-1000-pares-zapatillas-plaza-mayo-que-hora-es-y-como-conseguirlas-n252644",
-     "fecha": "2026-10-27T11:51:00.000Z"
+     "medio": "La Capital (Rosario)",
+     "enlace": "https://www.lacapital.com.ar/ovacion/cuando-vuelve-correr-colapinto-dias-y-horarios-del-gp-mexico-la-formula-1-n10288725.html",
+     "fecha": "2026-10-26T14:11:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 1091 (line 12 column 1)",
+   "motivo": "título o bajada: 2 problemas (nombre): el titulo nombra a \"forula\" y la fuente no",
    "maximo": 3
   },
   {
@@ -116,6 +116,33 @@
    "maximo": 3
   },
   {
+   "id": "ykpec9",
+   "titulo": "Ponzio sobre el VAR",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-26T14:14:52.714Z",
+   "fuentes": [
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/river-plate/ponzio-var_3_NIF6G6ngE4.html",
+     "fecha": "2026-10-26T02:20:56.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/deportes/boca-vs-river-calienta-siempre-var-nosotros-correa-ganarle-ponzio-cascini-20261026111452",
+     "fecha": "2026-10-26T14:14:52.714Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/river-plate/si-lo-ayudan-a-correa-river-esta-para-ganarle-a-boca-op-id768695.html",
+     "fecha": "2026-10-26T18:25:36.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"ribera\" y la fuente no",
+   "maximo": 3
+  },
+  {
    "id": "1ivqjyr",
    "titulo": "ARCA intimó a colegios privados bonaerenses por los aportes previsionales",
    "copete": "",
@@ -138,5 +165,14 @@
    "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "jsz307",
+   "titulo": "El clima no detuvo el regreso del Zonal Atlántico al “Fangio”",
+   "seccion": "Automovilismo",
+   "fecha": "2026-10-26T12:36:23.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
+  }
+ ]
 }
