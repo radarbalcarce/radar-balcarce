@@ -37795,7 +37795,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei y Benjamin Netanyahu con banderas de fondo"
   },
-  "huella": "b9c1e5e5aaaab2b2"
+  "huella": "b9c1e5e5aaaab2b2",
+  "ausenteDesde": "2026-10-27T18:35:35.062Z"
  },
  "wzkylt": {
   "archivo": "fotos-notas/wzkylt.jpg",
@@ -38828,7 +38829,8 @@
    "corresponde": "si",
    "descripcion": "Disputa de balón cercana entre un jugador de Newell's y uno de San Lorenzo"
   },
-  "huella": "243343ebc395b6a7"
+  "huella": "243343ebc395b6a7",
+  "ausenteDesde": "2026-10-27T18:35:35.062Z"
  },
  "ao19a5": {
   "intentado": true,
@@ -39408,7 +39410,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1d176677d1755333"
+  "huella": "1d176677d1755333",
+  "ausenteDesde": "2026-10-27T18:35:35.062Z"
  },
  "1vrprpw": {
   "archivo": "fotos-notas/1vrprpw.webp",
@@ -39489,7 +39492,8 @@
    "corresponde": "si",
    "descripcion": "Dos pingüinos frente al cartel de ingreso a Aquarium en Mar del Plata"
   },
-  "huella": "030187ac53670980"
+  "huella": "030187ac53670980",
+  "ausenteDesde": "2026-10-27T18:35:35.062Z"
  },
  "6n2p3s": {
   "intentado": true,
@@ -47037,6 +47041,28 @@
   "titulo": "Los bonos argentinos rebotan y el riesgo país se ubica en 750 puntos",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-27T18:03:19.485Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1fblc1n": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nicolás Peralta gana el oro y es campeón mundial juvenil de boxeo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T18:35:09.930Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1meyx0g": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno asegura que dichos de Milei sobre periodistas son metáfora",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T18:35:09.930Z",
   "intentos": 1,
   "fuentes": 4,
   "intentosPorCupo": 1,
