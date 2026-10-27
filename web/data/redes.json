@@ -1268,6 +1268,15 @@
       "temas": [],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/sacn4r.jpg"
+    },
+    "15q3x7r": {
+      "cuando": "2026-10-27T18:36:09.091Z",
+      "postId": "1254237411116171_122116393857495512",
+      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+      "enlace": "https://radarbalcarce.com/nota/pablo-gomez-sube-al-podio-en-el-maraton-charrua-de-rosario-15q3x7r",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/15q3x7r-ia.jpg"
     }
   },
   "instagram": {
@@ -3721,6 +3730,20 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-27/noticia2": {
+      "cuando": "2026-10-27T18:37:20.409Z",
+      "mediaId": "18347028616270339",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "15q3x7r",
+      "notaIds": [
+        "15q3x7r",
+        "1k22m6a",
+        "1xcj3y4",
+        "pr74vq"
+      ],
+      "permalink": "https://www.instagram.com/reel/DfAhC4IkYKK/"
     }
   },
   "facebookVideos": {
@@ -6260,6 +6283,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122116345137495512"
+    },
+    "2026-10-27/noticia2": {
+      "cuando": "2026-10-27T18:39:57.981Z",
+      "mediaId": "2371490010055432",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "15q3x7r",
+      "notaIds": [
+        "15q3x7r",
+        "1k22m6a",
+        "1xcj3y4",
+        "pr74vq"
+      ],
+      "postId": "122116394811495512",
+      "permalink": "https://www.facebook.com/reel/2371490010055432/"
     }
   },
   "instagramFeed": {
@@ -7158,6 +7196,12 @@
       "mediaId": "18118341611601106",
       "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
       "enlace": "https://radarbalcarce.com/nota/el-cementerio-municipal-modifica-horarios-y-servicios-de-atencion-sacn4r"
+    },
+    "15q3x7r": {
+      "cuando": "2026-10-27T18:36:28.204Z",
+      "mediaId": "18117411467043961",
+      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+      "enlace": "https://radarbalcarce.com/nota/pablo-gomez-sube-al-podio-en-el-maraton-charrua-de-rosario-15q3x7r"
     }
   },
   "historiasDeReels": {
@@ -8950,6 +8994,21 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1415853937427698"
+    },
+    "instagram/2026-10-27/noticia2": {
+      "cuando": "2026-10-27T18:39:20.989Z",
+      "mediaId": "18032446664915995",
+      "nombre": "noticia2",
+      "red": "instagram",
+      "notaId": "15q3x7r"
+    },
+    "facebook/2026-10-27/noticia2": {
+      "cuando": "2026-10-27T18:40:36.716Z",
+      "mediaId": "1441629334081153",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "15q3x7r",
+      "postId": "1932360744485112"
     }
   },
   "problemas": {
@@ -9545,6 +9604,20 @@
       "youtube": {
         "ok": true,
         "id": "6ae0c5600574aed3d2699c80",
+        "estado": "sent"
+      }
+    },
+    "2026-10-27/noticia2": {
+      "cuando": "2026-10-27T18:35:54.600Z",
+      "nombre": "noticia2",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae0f0289886bd6ed21cfc27",
+        "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6ae0f0330df7e3b21595e0a3",
         "estado": "sent"
       }
     }
