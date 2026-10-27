@@ -428,6 +428,67 @@
      }
     }
    }
+  },
+  "2026-10-27": {
+   "lectura": {
+    "mistral-small-latest": {
+     "llamadas": 6,
+     "errores": 6,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "mistral": 6
+     }
+    },
+    "google/gemma-4-31b-it:free": {
+     "llamadas": 2,
+     "errores": 2,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "openrouter": 2
+     }
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+     "llamadas": 2,
+     "errores": 2,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "openrouter": 2
+     }
+    },
+    "nvidia/nemotron-3.5-super-vl:free": {
+     "llamadas": 2,
+     "errores": 2,
+     "entrada": 5871,
+     "salida": 12000,
+     "pensamiento": 0,
+     "total": 17871,
+     "claves": {
+      "openrouter": 2
+     }
+    }
+   },
+   "redaccion": {
+    "gemini-flash-lite-latest": {
+     "llamadas": 58,
+     "errores": 0,
+     "entrada": 364864,
+     "salida": 63808,
+     "pensamiento": 0,
+     "total": 428672,
+     "claves": {
+      "respaldo": 58
+     }
+    }
+   }
   }
  }
 }

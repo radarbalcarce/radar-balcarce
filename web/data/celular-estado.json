@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T02:13:03.745Z",
- "portada": 75,
- "archivo": 496,
- "esperandoCuerpo": 115,
+ "generado": "2026-10-27T03:07:24.893Z",
+ "portada": 100,
+ "archivo": 500,
+ "esperandoCuerpo": 79,
  "redes": {
-  "generado": "2026-10-27T02:13:04.217Z",
+  "generado": "2026-10-27T03:07:25.506Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-26T10:36:26.872Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-26T13:38:37.549Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-26T14:36:46.569Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-noticias",
+    "nombre": "participa-evento",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Participá: mandanos noticias",
-    "voz": "locutora",
+    "que": "Tu evento o emprendimiento",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-26T15:36:37.044Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-26T18:36:53.006Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-26T22:36:36.640Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-26T23:36:36.162Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-27T00:46:49.462Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,29 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-26T14:36:46.569Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
     "notas": [
      {
-      "id": "8xm2jg",
-      "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1wt9rb0",
-      "titulo": "San Manuel le gana tres a uno a Boca Juniors como visitante",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "141c51l",
-      "titulo": "La EMDAB realiza un encuentro recreativo por el Día de la Familia",
+      "id": "4782gq",
+      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
       "seccion": "Balcarce"
      },
      {
-      "id": "c4wrll",
-      "titulo": "Operan un tumor cerebral con un neuronavegador en Buenos Aires",
-      "seccion": "Salud"
+      "id": "w22xsq",
+      "titulo": "El Auto Club Balcarce proyecta incorporar nuevas categorías nacionales en 2027",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1ga64ei",
+      "titulo": "Balcarce cierra los Juegos Bonaerenses con tres medallas",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "pr74vq",
+      "titulo": "Agrarias vence a Racing y lidera la Zona C",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -124,29 +124,29 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-26T18:36:53.006Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
-      "id": "1qjwv3r",
-      "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
+      "id": "14e4ing",
+      "titulo": "Campo de Pato define el torneo de rugby y juega la reválida",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "cxqqzy",
+      "titulo": "Amigos Unidos golea a River Balcarce y empata Ferroviarios",
       "seccion": "Fútbol"
      },
      {
-      "id": "iz5wec",
-      "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
+      "id": "rlebq4",
+      "titulo": "El papa León XIV confirma su gira por la Argentina para noviembre",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "1hz7ax",
+      "titulo": "Anuncian a los músicos y coristas que acompañarán al papa León XIV",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "qx4jfi",
-      "titulo": "Convocan a reunión educativa tras incidentes en la Estudiantina",
-      "seccion": "Educación"
-     },
-     {
-      "id": "qe737u",
-      "titulo": "Campo de Pato consigue triunfos en el hockey marplatense",
-      "seccion": "Deportes"
      }
     ]
    },
@@ -155,63 +155,62 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-27T00:46:49.462Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
     "notas": [
      {
-      "id": "18zumrm",
-      "titulo": "Atlético San Agustín supera 3 a 1 a San Lorenzo",
+      "id": "18rr416",
+      "titulo": "Harry Kane gana el Balón de Oro 2026 y Lionel Messi termina quinto",
       "seccion": "Fútbol"
      },
      {
-      "id": "1azkjmy",
-      "titulo": "Proyectan un espacio cultural en un inmueble ferroviario",
-      "seccion": "Balcarce"
+      "id": "yjlxo0",
+      "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "m94rdd",
-      "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
+      "id": "rwwtu0",
+      "titulo": "Mueren a los 30 años el streamer Carlos Mauricio Gómez, conocido como El Komanche",
       "seccion": "Argentina"
      },
      {
-      "id": "snq9oy",
-      "titulo": "ARCA reglamenta la Inocencia Fiscal II para Ganancias simplificada",
-      "seccion": "Economía"
+      "id": "1sq6xx6",
+      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
+      "seccion": "Educación"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
+   "hoy": [],
+   "cola": [
     {
-     "id": "1wqyb20",
-     "titulo": "Anuncian ascenso de temperatura y lluvias hacia mitad de semana",
-     "cuando": "2026-10-26T11:06:02.624Z"
+     "id": "u2tsvk",
+     "titulo": "Lautaro Martínez termina en el puesto 22 en el Balón de Oro 2026",
+     "seccion": "Fútbol",
+     "marcada": false
     },
     {
-     "id": "1h1irbf",
-     "titulo": "Pinilla pide replicar la experiencia del UPD para la Estudiantina",
-     "cuando": "2026-10-26T12:46:01.809Z"
+     "id": "19us6xs",
+     "titulo": "Unai Simon gana el Trofeo Yashin y Dibu Martinez termina quinto",
+     "seccion": "Fútbol",
+     "marcada": false
     },
     {
-     "id": "1s2s6et",
-     "titulo": "Lionel Messi compite en la gala del Balón de Oro en Londres",
-     "cuando": "2026-10-26T14:36:01.340Z"
+     "id": "aa1xxp",
+     "titulo": "El Banco Central frena compras de reservas tras la victoria de Lula en Brasil",
+     "seccion": "Economía",
+     "marcada": false
     },
     {
-     "id": "bvcva5",
-     "titulo": "Deportivo Los Pinos vence a Sportivo Trabajo Mitre y logra su primer triunfo",
-     "cuando": "2026-10-26T16:36:12.712Z"
-    },
-    {
-     "id": "iz5wec",
-     "titulo": "Cierra el jueves la inscripción a la carrera homenaje a Luis Vildoza",
-     "cuando": "2026-10-26T18:36:02.039Z"
+     "id": "1sq6xx6",
+     "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
+     "seccion": "Educación",
+     "marcada": false
     }
    ],
-   "cola": [],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-26T20:06:02.039Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
