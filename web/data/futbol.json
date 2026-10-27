@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-26T23:32:08.392Z",
+ "consultado": "2026-10-27T00:03:04.564Z",
  "equipos": [
   "9739",
   "3",
@@ -1014,12 +1014,12 @@
     "id": "401841630",
     "competencia": "liga",
     "inicio": "2026-10-26T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "73'",
+    "estado": "final",
+    "minuto": "90'+6'",
     "local": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
-     "goles": 2
+     "goles": 3
     },
     "visitante": {
      "id": "8",
@@ -1044,6 +1044,12 @@
       "equipo": "local",
       "jugador": "Marcelo Estigarribia",
       "minuto": "64'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Eric Ramírez",
+      "minuto": "90'+6'",
       "tipo": "gol"
      }
     ],
