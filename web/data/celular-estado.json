@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T13:36:15.554Z",
- "portada": 134,
+ "generado": "2026-10-27T14:26:56.370Z",
+ "portada": 132,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-27T13:36:16.154Z",
+  "generado": "2026-10-27T14:26:57.367Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-27T10:36:47.131Z"
    },
    {
@@ -95,13 +95,8 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
-     {
-      "id": "sacn4r",
-      "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
-      "seccion": "Balcarce"
-     },
      {
       "id": "15q3x7r",
       "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
@@ -111,6 +106,11 @@
       "id": "pr74vq",
       "titulo": "Agrarias vence a Racing y lidera la Zona C",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "pl8yzi",
+      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+      "seccion": "Agro"
      },
      {
       "id": "1vmwhuk",
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
     "notas": [
      {
-      "id": "4782gq",
-      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "14e4ing",
-      "titulo": "Campo de Pato define el torneo de rugby y juega la reválida",
+      "id": "nkd214",
+      "titulo": "Triunfos de las divisiones menores en la Liga Marplatense",
       "seccion": "Deportes"
-     },
-     {
-      "id": "g3akx",
-      "titulo": "La Liga reprograma partidos de la fase Clausura para entre semana",
-      "seccion": "Fútbol"
      },
      {
       "id": "1oi4av9",
       "titulo": "ANSES oficializa los aumentos y las reglas de suspensión para las PNC",
       "seccion": "Economía"
+     },
+     {
+      "id": "fnh3qb",
+      "titulo": "Colapinto afronta el Gran Premio de México de Fórmula 1",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1yv8myb",
+      "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
+      "seccion": "Agro"
      }
     ]
    },
@@ -157,17 +157,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
      {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones para mantener los subsidios de gas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1spznqi",
-      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
-      "seccion": "Deportes"
+      "id": "1xjv5xx",
+      "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
+      "seccion": "Economía"
      },
      {
       "id": "11yhki4",
@@ -175,9 +170,14 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "q9qpl2",
-      "titulo": "Franco Colapinto abandona en Estados Unidos y Alpine apunta a México",
-      "seccion": "Automovilismo"
+      "id": "6mutsm",
+      "titulo": "Una delegación del Vaticano se reúne con movimientos sociales en La Matanza",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "1sq6xx6",
+      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
+      "seccion": "Educación"
      }
     ]
    }
@@ -192,21 +192,33 @@
    ],
    "cola": [
     {
-     "id": "sacn4r",
-     "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "15q3x7r",
      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
      "seccion": "Deportes",
      "marcada": false
     },
     {
+     "id": "1yv8myb",
+     "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
+     "seccion": "Agro",
+     "marcada": false
+    },
+    {
      "id": "1xjv5xx",
      "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "mmyfrg",
+     "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "el0m7z",
+     "titulo": "Riquelme apunta contra Macri y Verón y defiende a los árbitros",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
