@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T11:33:28.442Z",
- "portada": 118,
+ "generado": "2026-10-27T12:06:35.541Z",
+ "portada": 121,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-27T11:33:28.855Z",
+  "generado": "2026-10-27T12:06:36.076Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,12 +95,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "w22xsq",
-      "titulo": "El Auto Club Balcarce proyecta incorporar nuevas categorías nacionales en 2027",
-      "seccion": "Automovilismo"
+      "id": "15crgm2",
+      "titulo": "Confirman la realización de la Fiesta Nacional del Postre",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "pr74vq",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 50,
     "notas": [
      {
       "id": "fp2ndp",
@@ -139,14 +139,14 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "uqsq7m",
-      "titulo": "Anses paga a jubilados y desempleados con DNI terminados en 4, 5, 6 y 7",
-      "seccion": "Economía"
-     },
-     {
       "id": "11yhki4",
       "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1sq6xx6",
+      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
+      "seccion": "Educación"
      }
     ]
    },
@@ -157,16 +157,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
-      "id": "1sq6xx6",
-      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
-      "seccion": "Educación"
-     },
-     {
-      "id": "17033jt",
-      "titulo": "Venden las entradas para la final de la Copa Sudamericana",
+      "id": "jmznw7",
+      "titulo": "Ponzio habla sobre el arbitraje de cara al Superclásico tras vencer a Racing",
       "seccion": "Fútbol"
      },
      {
@@ -178,13 +173,25 @@
       "id": "aa1xxp",
       "titulo": "El Banco Central frena compras de reservas tras la victoria de Lula en Brasil",
       "seccion": "Economía"
+     },
+     {
+      "id": "ffzd6k",
+      "titulo": "Alexia Putellas gana su tercer Balón de Oro en Londres",
+      "seccion": "Deportes"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "15crgm2",
+     "titulo": "Confirman la realización de la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-26T20:06:02.039Z",
    "porDia": 5,

@@ -481,18 +481,18 @@
      }
     },
     "gemini-flash-lite-latest": {
-     "llamadas": 26,
+     "llamadas": 28,
      "errores": 10,
-     "entrada": 38808,
-     "salida": 18197,
+     "entrada": 43554,
+     "salida": 20237,
      "pensamiento": 0,
-     "total": 57005,
+     "total": 63791,
      "claves": {
-      "clasificacion": 26
+      "clasificacion": 28
      },
      "motivos": {
       "clasificacion": {
-       "ok": 16,
+       "ok": 18,
        "cupo-diario": 10
       }
      }
@@ -517,20 +517,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 333,
+     "llamadas": 344,
      "errores": 111,
-     "entrada": 1559819,
-     "salida": 255878,
+     "entrada": 1625283,
+     "salida": 267057,
      "pensamiento": 0,
-     "total": 1815697,
+     "total": 1892340,
      "claves": {
       "respaldo": 168,
-      "redaccion": 165
+      "redaccion": 176
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 110,
-       "ok": 54,
+       "ok": 65,
        "saturado": 1
       },
       "respaldo": {
@@ -541,35 +541,35 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 28,
+     "llamadas": 31,
      "errores": 8,
-     "entrada": 248754,
-     "salida": 2490,
+     "entrada": 284642,
+     "salida": 2784,
      "pensamiento": 0,
-     "total": 251244,
+     "total": 287426,
      "claves": {
-      "clasificacion": 28
+      "clasificacion": 31
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 20
+       "ok": 23
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 3,
+     "llamadas": 4,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 3
+      "clasificacion": 4
      },
      "motivos": {
       "clasificacion": {
-       "ok": 3
+       "ok": 4
       }
      }
     },
@@ -592,19 +592,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 77,
+     "llamadas": 87,
      "errores": 11,
-     "entrada": 414094,
-     "salida": 32768,
+     "entrada": 464160,
+     "salida": 36621,
      "pensamiento": 0,
-     "total": 446862,
+     "total": 500781,
      "claves": {
-      "clasificacion": 77
+      "clasificacion": 87
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 11,
-       "ok": 66
+       "ok": 76
       }
      }
     },
