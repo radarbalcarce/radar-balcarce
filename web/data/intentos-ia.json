@@ -1340,6 +1340,13 @@
   "textos": 6,
   "numeradas": 12
  },
+ "1ctrlp6": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1cu8vex": {
   "intentos": 1,
   "ultimo": "2026-10-21T01:31:17.123Z",
@@ -1788,10 +1795,10 @@
   "motivo": "con cuerpo"
  },
  "1goe3gw": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T16:08:54.201Z",
-  "motivo": "Gemini: Bad control character in string literal in JSON at position 1461 (line 13 column 468)",
-  "textos": 4,
+  "intentos": 3,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 27 palabras seguidas del original: d",
@@ -2225,6 +2232,16 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 21
+ },
+ "1k22m6a": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ]
  },
  "1k5kb9o": {
   "intentos": 1,
@@ -5365,6 +5382,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "hu5736": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 7
+ },
  "i0ei6b": {
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
@@ -5904,6 +5928,22 @@
   "textos": 4,
   "numeradas": 4
  },
+ "m9x3m1": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el máximo es 90",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (copia): copia 15 palabras seguidas del or",
+   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 94 caracteres, el máximo es 90",
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo dice 0 y la fuente no lo dice"
+  ]
+ },
  "mbax9x": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -5958,8 +5998,8 @@
   "numeradas": 3
  },
  "msvshq": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T17:02:59.140Z",
+  "intentos": 3,
+  "ultimo": "2026-10-27T17:32:24.909Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -7298,6 +7338,21 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "x5l1ri": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:32:24.909Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 134 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 15 palabras seguidas del original (\"un plazo de 30 dias habiles para presentar documentacion que justifique la continuidad del…\"): dec"
+  ]
  },
  "x6528a": {
   "intentos": 1,

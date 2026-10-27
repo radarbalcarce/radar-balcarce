@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T17:05:02.388Z",
- "portada": 160,
+ "generado": "2026-10-27T17:33:52.892Z",
+ "portada": 162,
  "archivo": 500,
  "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-27T17:05:02.707Z",
+  "generado": "2026-10-27T17:33:53.721Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,16 +105,16 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1spznqi",
-      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+      "id": "15q3x7r",
+      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
       "seccion": "Deportes"
      },
      {
-      "id": "4782gq",
-      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
+      "id": "1k22m6a",
+      "titulo": "Corte de energía eléctrica en sectores rurales",
       "seccion": "Balcarce"
      },
      {
@@ -136,12 +136,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
-      "id": "15q3x7r",
-      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+      "id": "1spznqi",
+      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
       "seccion": "Deportes"
+     },
+     {
+      "id": "4782gq",
+      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
+      "seccion": "Balcarce"
      },
      {
       "id": "1969ryn",
@@ -152,11 +157,6 @@
       "id": "pl8yzi",
       "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
       "seccion": "Agro"
-     },
-     {
-      "id": "mmyfrg",
-      "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -181,12 +181,6 @@
    ],
    "cola": [
     {
-     "id": "1spznqi",
-     "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "iukc0m",
      "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
      "seccion": "Balcarce",
@@ -199,9 +193,21 @@
      "marcada": false
     },
     {
-     "id": "1finiqu",
-     "titulo": "Moria Casán despide a su histórico chofer Fernando Shedden",
-     "seccion": "Cultura y agenda",
+     "id": "1spznqi",
+     "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1k22m6a",
+     "titulo": "Corte de energía eléctrica en sectores rurales",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "10l9k07",
+     "titulo": "Boca y River estrenan la nueva pelota Argentum Gambeta Derbi",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -211,20 +217,14 @@
      "marcada": false
     },
     {
-     "id": "mmyfrg",
-     "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
-     "seccion": "Argentina",
+     "id": "1finiqu",
+     "titulo": "Moria Casán despide a su histórico chofer Fernando Shedden",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
      "id": "1s0kbrg",
      "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1099rtb",
-     "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
      "seccion": "Argentina",
      "marcada": false
     }

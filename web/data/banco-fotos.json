@@ -22163,9 +22163,7 @@
   "ausenteDesde": "2026-10-23T22:34:25.466Z"
  },
  "nv9toi": {
-  "archivo": "fotos-notas/nv9toi.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Racing empata con Independiente y crece el malestar de los hinchas",
@@ -22185,7 +22183,8 @@
    "descripcion": "Jugadores de Racing cabizbajos en la cancha tras el partido"
   },
   "huella": "2d259d24271ca935",
-  "ausenteDesde": "2026-10-20T17:07:22.753Z"
+  "intentado": true,
+  "borrada": true
  },
  "10fktw1": {
   "archivo": "fotos-notas/10fktw1.jpg",
@@ -25420,9 +25419,7 @@
   "huella": "91180fcd330c9972"
  },
  "hipnnd": {
-  "archivo": "fotos-notas/hipnnd.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno recibe a las cámaras de colectivos por una deuda y posibles recortes",
@@ -25442,7 +25439,8 @@
    "descripcion": "Colectivos circulando y personas caminando por una parada."
   },
   "huella": "1819ae69d43318bc",
-  "ausenteDesde": "2026-10-20T17:07:22.753Z"
+  "intentado": true,
+  "borrada": true
  },
  "1eb9542": {
   "archivo": "fotos-notas/1eb9542.jpg",
@@ -37763,7 +37761,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Margarita Bavosi sonriendo con anteojos."
   },
-  "huella": "2464c62e2e2e2c06"
+  "huella": "2464c62e2e2e2c06",
+  "ausenteDesde": "2026-10-27T17:33:52.783Z"
  },
  "1yxp5q5": {
   "intentado": true,
@@ -46845,7 +46844,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de la pelota Argentum Gambeta Derbi con el logo de la AFA"
   },
-  "huella": "8f0f1d151c9c8a8d"
+  "huella": "8f0f1d151c9c8a8d",
+  "ausenteDesde": "2026-10-27T17:33:52.783Z"
  },
  "iukc0m": {
   "intentado": true,
@@ -46947,6 +46947,53 @@
   "cuando": "2026-10-27T17:04:38.096Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1k22m6a": {
+  "archivo": "fotos-notas/1k22m6a.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Corte de energía eléctrica en sectores rurales",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/corte-del-servicio-electrico-para-distintos-sectores-de-la-ciudad-este-miercoles",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/Coop.png",
+  "razon": "Es la única imagen completa y con buen encuadre que muestra la escena de trabajo en la red eléctrica, sin marcas de agua ni menores.",
+  "cuando": "2026-10-27T17:33:33.821Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de una camioneta y una grúa de plataforma trabajando en un poste de luz en una zona rural."
+  },
+  "huella": "1e0888c8e4dcc084"
+ },
+ "1ctrlp6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cristian Romero elige a Julián Álvarez para heredar la 10 de la Selección",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T17:33:33.821Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "rlei5c": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La industria registra una baja mensual de 0,2% y acumula una contracción de 2,8%",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T17:33:33.821Z",
+  "intentos": 1,
+  "fuentes": 5,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
