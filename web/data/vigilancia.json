@@ -1,6 +1,7 @@
 {
   "avisos": {
-    "clave-GEMINI_API_KEY_REDACCION": "2026-10-27T15:00:19.370Z"
+    "falta-instagram-reel:noticia1": "2026-10-27T18:00:19.348Z",
+    "falta-instagram-historia:noticia1": "2026-10-27T18:00:19.348Z"
   },
   "importantes": {
     "avisadas": {
@@ -18,12 +19,12 @@
   },
   "pendientes": {
     "avisados": [
-      "81rakn"
+      "ufz0ks"
     ],
-    "ultimo": "2026-10-27T00:30:12.807Z"
+    "ultimo": "2026-10-27T18:00:19.348Z"
   },
   "redes": {
-    "hasta": "2026-10-27T14:36:53.854Z"
+    "hasta": "2026-10-27T16:36:20.131Z"
   },
   "ultimaMedicion": "2026-10-27/9",
   "ultimoResumen": "2026-10-01",
@@ -31,10 +32,16 @@
   "ultimoInforme": "2026-10-01",
   "abiertos": [
     {
-      "clave": "clave-GEMINI_API_KEY_REDACCION",
+      "clave": "falta-instagram-reel:noticia1",
       "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
-      "desde": "2026-10-27T15:00:19.370Z"
+      "texto": "Instagram: no salió el reel de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-10-27T18:00:19.348Z"
+    },
+    {
+      "clave": "falta-instagram-historia:noticia1",
+      "nivel": "media",
+      "texto": "Instagram: no salió la historia de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-10-27T18:00:19.348Z"
     }
   ]
 }
