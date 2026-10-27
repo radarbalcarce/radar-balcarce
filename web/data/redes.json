@@ -3704,6 +3704,14 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-27/participa-evento": {
+      "cuando": "2026-10-27T15:36:36.710Z",
+      "mediaId": "17915010984288696",
+      "nombre": "participa-evento",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": []
     }
   },
   "facebookVideos": {
@@ -6234,6 +6242,15 @@
       ],
       "postId": "122116302225495512",
       "permalink": "https://www.facebook.com/reel/4505366646369582/"
+    },
+    "2026-10-27/participa-evento": {
+      "cuando": "2026-10-27T15:37:22.601Z",
+      "mediaId": "2022212605159267",
+      "nombre": "participa-evento",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [],
+      "postId": "122116345137495512"
     }
   },
   "instagramFeed": {
@@ -8903,6 +8920,21 @@
       "red": "facebook",
       "notaId": "15q3x7r",
       "postId": "2177010856507018"
+    },
+    "instagram/2026-10-27/participa-evento": {
+      "cuando": "2026-10-27T15:37:13.059Z",
+      "mediaId": "17911744809307788",
+      "nombre": "participa-evento",
+      "red": "instagram",
+      "notaId": null
+    },
+    "facebook/2026-10-27/participa-evento": {
+      "cuando": "2026-10-27T15:37:55.696Z",
+      "mediaId": "1941503367208376",
+      "nombre": "participa-evento",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "1415853937427698"
     }
   },
   "problemas": {
@@ -8918,8 +8950,8 @@
       "red": "instagram",
       "parte": "reel",
       "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-27T15:07:13.023Z",
-      "intentos": 12
+      "cuando": "2026-10-27T15:39:31.658Z",
+      "intentos": 15
     }
   },
   "facebookFoto": {
@@ -9485,6 +9517,20 @@
         "ok": true,
         "id": "6ae0a65b55e456f4b3c64959",
         "estado": "sending"
+      }
+    },
+    "2026-10-27/participa-evento": {
+      "cuando": "2026-10-27T15:35:54.379Z",
+      "nombre": "participa-evento",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae0c55562bedda2a12c10a3",
+        "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6ae0c5600574aed3d2699c80",
+        "estado": "sent"
       }
     }
   }
