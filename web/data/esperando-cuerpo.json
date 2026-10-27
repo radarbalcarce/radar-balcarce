@@ -1,22 +1,37 @@
 {
- "generado": "2026-10-27T13:09:59.657Z",
+ "generado": "2026-10-27T13:36:15.554Z",
  "intentosMaximos": 3,
  "notas": [
   {
-   "id": "q7qzpl",
-   "titulo": "Desde Canarias, Cristian Méndez lleva la v",
+   "id": "el0m7z",
+   "titulo": "Riquelme cargó contra Macri y Verón: de “ese señor quiere que le vaya mal a Boca” a “es más fácil hablar del árbitro”",
    "copete": "",
-   "seccion": "Deportes",
-   "fecha": "2026-10-27T13:02:49.546Z",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-27T10:28:29.000Z",
    "fuentes": [
     {
-     "medio": "El Diario Balcarce",
-     "enlace": "https://eldiariobalcarce.com.ar/desde-canarias-cristian-mendez-lleva-la-voz-de-balcarce-a-nuevos-escenarios-534",
-     "fecha": null
+     "medio": "Doble Amarilla",
+     "enlace": "https://www.dobleamarilla.com.ar/liga-/riquelme-cargo-contra-macri-y-veron--de--ese-senor-quiere-que-le-vaya-mal-a-boca--a--es-mas-facil-hablar-del-arbitro-_a6ae00faa36c7ad3075ccb1c5",
+     "fecha": "2026-10-27T03:20:00.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/boca-juniors/riquelme-recogio-guante-una-semana-superclasico-id768771.html",
+     "fecha": "2026-10-27T10:56:08.000Z"
+    },
+    {
+     "medio": "La Brújula 24",
+     "enlace": "https://www.labrujula24.com/notas/2026/10/27/riquelme-a-dias-del-superclasico-es-mas-facil-culpar-a-un-arbitro-n527484/",
+     "fecha": "2026-10-27T10:28:29.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/deportes/riquelme-cargo-contra-mauricio-macri-y-sebastian-veron-y-se-defendio-las-acusaciones-river-es-mas-facil-culpar-al-arbitro-n6338296",
+     "fecha": "2026-10-27T13:24:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"islas\" y la fuente no; sin esas oraciones quedan 69 palabras",
+   "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3594 (line 29 column 13)",
    "maximo": 3
   },
   {
@@ -123,14 +138,5 @@
    "maximo": 3
   }
  ],
- "descartadas": [
-  {
-   "id": "jsz307",
-   "titulo": "El clima no detuvo el regreso del Zonal Atlántico al “Fangio”",
-   "seccion": "Automovilismo",
-   "fecha": "2026-10-26T12:36:23.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
-  }
- ]
+ "descartadas": []
 }
