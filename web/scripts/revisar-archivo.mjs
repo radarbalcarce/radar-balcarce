@@ -49,7 +49,7 @@ import { porQueNoEsNota } from '../../ingesta/no-es-nota.mjs';
 import { arreglarEscritura } from '../../ingesta/verificar.mjs';
 import { compararNotas, huella } from '../../ingesta/repetidas-publicadas.mjs';
 import {
-  auditarLote, auditarLoteGemini, auditarLoteOpenRouter, cambioMecanico, conCambiosGuardados, vecesComoPalabra, AUDITORIA, TIPOS,
+  auditarLote, auditarLoteGemini, auditarLoteMistral, auditarLoteOpenRouter, cambioMecanico, conCambiosGuardados, vecesComoPalabra, AUDITORIA, TIPOS,
 } from '../../ingesta/auditoria-ia.mjs';
 import { revisarUnaFoto, anioDeLaFoto, nombraALaPersona, ANTIGUEDAD_MAXIMA_WIKIMEDIA, sinConsulta, esFotoDeCommonsEnNotaConFuentes } from '../../ingesta/fotos.mjs';
 import { cerrar, leerLlaves } from '../../panel/cifrado.mjs';
@@ -516,6 +516,13 @@ export async function revisarTanda({
     if (!leido && claves.gemini && geminiQueda() > 0) {
       try { uso.gemini += 1; leido = await auditarLoteGemini(lote, { clave: claves.gemini, fetchFn }); } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
     }
+    // Mistral (26/10/2026, plan gratis), con su propio tope diario (reels/mistral.mjs), antes que OpenRouter. Sin su clave, nada.
+    if (!leido && claves.mistral) {
+      try {
+        uso.mistral = (uso.mistral ?? 0) + 1;
+        leido = await auditarLoteMistral(lote, { clave: claves.mistral, fetchFn, tarea: 'revision', ahora, archivoDeUso });
+      } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
+    }
     // Último respaldo (17/10/2026): los modelos gratis de OpenRouter, con su propio tope diario (reels/openrouter.mjs). Sin su clave, nada.
     if (!leido && claves.openrouter) {
       try {
@@ -852,7 +859,7 @@ async function principal() {
     const avisarSalida = (hay) => { if (process.env.GITHUB_OUTPUT) { try { fs.appendFileSync(process.env.GITHUB_OUTPUT, `hay_tanda=${hay ? 1 : 0}\n`); } catch { /* no frena */ } } };
     if (no) { console.log(`Revisión del archivo: no corre (${no}).`); avisarSalida(false); return; }
     const { leerVariable } = await import('../../reels/claves.mjs');
-    const claves = { groq: leerVariable('GROQ_API_KEY'), gemini: leerVariable('GEMINI_API_KEY_CLASIFICACION'), openrouter: leerVariable('OPENROUTER_API_KEY') };
+    const claves = { groq: leerVariable('GROQ_API_KEY'), gemini: leerVariable('GEMINI_API_KEY_CLASIFICACION'), mistral: leerVariable('MISTRAL_API_KEY'), openrouter: leerVariable('OPENROUTER_API_KEY') };
     const llaves = leerLlaves(leerJson(RUTAS.llaves, {}));
     await traerFotosDeLaTanda({ datos: leerDatos(), estado, sitio: process.env.SITIO ?? 'https://radarbalcarce.com', log: console.log });
     const { tanda, graves, faltaban } = await revisarTanda({

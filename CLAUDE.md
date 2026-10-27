@@ -142,7 +142,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
   `GEMINI_API_KEY_REDACCION` (redactar), `GEMINI_API_KEY_REDES` (las voces; respaldo de la
   redacción sólo con 429), `GEMINI_API_KEY_CLASIFICACION` (lectura con IA y fotos; último
   respaldo de la redacción) y `GROQ_API_KEY` (respaldo de la lectura y las fotos; no
-  redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `OPENROUTER_API_KEY`**
+  redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `MISTRAL_API_KEY`** (26/10): respaldo de texto gratis que NO es Gemini (plan «Experiment» de la API de Mistral, `mistral-small-latest`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`), **antes** de OpenRouter: redacción Gemini → respaldo pago → clasificación → Mistral → OpenRouter; lectura Gemini → Groq → Mistral → OpenRouter; auditorías Groq → Mistral → OpenRouter; sin la clave, todo como antes. **Opcional, `OPENROUTER_API_KEY`**
   (17/10, regla 240): el último respaldo de la lectura, la redacción y las auditorías con modelos `:free`
   (50 pedidos por día, tope propio de 45, `reels/openrouter.mjs`); sin ella no se llama a nadie. **Cupo de voz: 10 audios por
   día**; si se acaba, la pieza no sale (nunca con otra voz). Una clave rechazada

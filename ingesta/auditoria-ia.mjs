@@ -11,6 +11,7 @@
 
 import crypto from 'node:crypto';
 import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
+import { pedirJsonAMistral } from '../reels/mistral.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 /** Groq: gpt-oss-20b. 1.000 pedidos por día y 8.000 tokens por minuto (sondeo del 1/10, docs/05-FOTOS.md). */
@@ -184,6 +185,19 @@ export async function auditarLoteGemini(lote, { clave, fetchFn = fetch, modelo =
 }
 
 /**
+ * El mismo pedido, a Mistral (26/10/2026, plan gratis): respaldo ANTES de OpenRouter, cuando Groq (o Groq y Gemini, en la revisión del archivo)
+ * no contestó. Misma instrucción y misma lectura de la respuesta (las citas que no están en la nota se descartan). `tarea` decide cuánto del tope
+ * diario puede gastar: 'auditoria' (la de cada hora) o 'revision' (la del archivo). Lanza si falla (con `status`).
+ */
+export async function auditarLoteMistral(lote, { clave, fetchFn = fetch, tarea = 'auditoria', modelo, ahora, archivoDeUso, pausar } = {}) {
+  const r = await pedirJsonAMistral({
+    tarea, prompt: pedidoDeAuditoria(lote), clave, fetchFn, modelo, ahora, archivoDeUso, pausar, temperatura: 0, maxTokens: 4000,
+  });
+  const leido = leerHallazgos(r.texto, new Set(lote.map((n) => n.id)), new Map(lote.map((n) => [n.id, n])));
+  return { ...leido, modelo: r.modelo };
+}
+
+/**
  * El mismo pedido, a los modelos gratis de OpenRouter (17/10/2026): el ÚLTIMO respaldo, cuando Groq (o Groq y Gemini, en la revisión
  * del archivo) no contestó. Misma instrucción y misma lectura de la respuesta (las citas que no están en la nota se descartan).
  * `tarea` decide cuánto del tope diario puede gastar: 'auditoria' (la de cada hora) o 'revision' (la del archivo). Lanza si falla
@@ -200,12 +214,12 @@ export async function auditarLoteOpenRouter(lote, { clave, fetchFn = fetch, tare
 /**
  * Lee todas las notas de a lotes, con una espera entre un pedido y otro. Un lote que falla no frena a los demás y se
  * cuenta aparte (esas notas no se marcan como leídas: se vuelven a intentar en la próxima corrida).
- * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados, openrouter, sinTiempo }. `sinTiempo` son las notas que no se
+ * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados, mistral, openrouter, sinTiempo }. `sinTiempo` son las notas que no se
  * llegaron a pedir porque la corrida pasó `empezarAntesDeSegundos` (regla 318): no son una falla, se leen en la corrida siguiente.
  */
 export async function auditarNotas(notas, {
   clave, fetchFn = fetch, dormir = (s) => new Promise((r) => { setTimeout(r, s * 1000); }), porPedido = AUDITORIA.porPedido,
-  claveOpenRouter = null, archivoDeUso = null, reloj = () => Date.now(), empezarAntesDeSegundos = AUDITORIA.empezarAntesDeSegundos,
+  claveOpenRouter = null, claveMistral = null, archivoDeUso = null, reloj = () => Date.now(), empezarAntesDeSegundos = AUDITORIA.empezarAntesDeSegundos,
 } = {}) {
   const hallazgos = [];
   const leidas = [];
@@ -213,6 +227,7 @@ export async function auditarNotas(notas, {
   let descartados = 0;
   let sinTiempo = 0;
   const usadas = [];
+  const usadasMistral = [];
   const inicio = reloj();
   for (let i = 0; i < notas.length; i += porPedido) {
     if (i > 0) {
@@ -227,7 +242,15 @@ export async function auditarNotas(notas, {
     if (clave) {
       try { r = await auditarLote(lote, { clave, fetchFn }); } catch (e) { error = e; }
     }
-    // Groq no contestó: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
+    // Groq no contestó: Mistral (26/10/2026, plan gratis), antes que OpenRouter. Sin su clave, no se llama a nadie.
+    if (!r && claveMistral) {
+      try {
+        r = await auditarLoteMistral(lote, { clave: claveMistral, fetchFn, tarea: 'auditoria', archivoDeUso });
+        usadasMistral.push(r.modelo);
+        error = null;
+      } catch (e) { error = e; }
+    }
+    // Groq y Mistral no contestaron: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
     if (!r && claveOpenRouter) {
       try {
         r = await auditarLoteOpenRouter(lote, { clave: claveOpenRouter, fetchFn, tarea: 'auditoria', archivoDeUso });
@@ -245,7 +268,7 @@ export async function auditarNotas(notas, {
       if (error && (error.status === 429 || error.status === 401 || error.status === 403)) break;
     }
   }
-  return { hallazgos, leidas, fallas, descartados, openrouter: usadas, sinTiempo };
+  return { hallazgos, leidas, fallas, descartados, mistral: usadasMistral, openrouter: usadas, sinTiempo };
 }
 
 /**

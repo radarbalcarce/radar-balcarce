@@ -14,7 +14,7 @@ la web: `06-WEB`.
 Todo lo automático corre con la PC apagada. **Desde el 23/10 el grueso corre en Cloudflare** (el motor en Workers Builds, la vigilancia, el informe, las pistas, las ilustraciones y las redes en el Worker `radar-balcarce-tareas`, el video en el repositorio público de render) y GitHub Actions queda para lo que no se mudó (pruebas, respaldo, revisión del archivo, despliegues) y de vuelta atrás: la variable `NUBE` del reloj dice qué trabajo va adónde. Un
 reloj propio (un programa chico de Cloudflare, el Worker `radar-balcarce-reloj`) lo
 despierta cada media hora; el motor busca las
-noticias, escribe con IA (Gemini, con Groq de respaldo en la lectura y OpenRouter, gratis, de último respaldo), arma la
+noticias, escribe con IA (Gemini, con Groq de respaldo en la lectura, Mistral y OpenRouter, gratis, de respaldo), arma la
 web una sola vez y la sube a Cloudflare Pages, publica en Facebook e Instagram con la API de
 Meta, y dos vigilantes revisan y avisan **por mail** (WhatsApp quedó de respaldo):
 el de Cloudflare, cada media hora, lo urgente (la web y "Actualizar la web"); el de
@@ -58,7 +58,7 @@ Workers de Cloudflare (cuenta radarbalcarce@gmail.com, plan Workers Paid):
   reloj (el despertador), vigilante (mira desde afuera y manda los mails),
   imágenes (ilustraciones con Workers AI), archivo (archivo permanente, sin ruta todavía)
 
-  IA: Gemini (Google AI Studio, cuenta radarbalcarce@gmail.com), Groq, OpenRouter (último respaldo, sólo modelos gratis) y Workers AI (imágenes)
+  IA: Gemini (Google AI Studio, cuenta radarbalcarce@gmail.com), Groq, Mistral (respaldo gratis de texto), OpenRouter (último respaldo, sólo modelos gratis) y Workers AI (imágenes)
 
 Panel del celular (radarbalcarce.com/panel/) ── llave de GitHub ──▶ API de GitHub
    lee web/data/, escribe sus decisiones y correcciones, dispara
@@ -398,7 +398,7 @@ Para que el repositorio principal entre en los 2.000 minutos gratis de un reposi
 
 ## Las claves de IA
 
-Cinco claves (la quinta, OpenRouter, es opcional y sólo de último respaldo), **todas gratis** y separadas a propósito: en Google el cupo es
+Cinco claves (la quinta, OpenRouter, es opcional y sólo de último respaldo) y, desde el 26/10, una sexta opcional, Mistral, el respaldo gratis que va **antes** de OpenRouter; **todas gratis** y separadas a propósito: en Google el cupo es
 **por proyecto y por modelo**, y si dos usos compartieran un proyecto, un día
 de muchos pedidos de uno se comería el cupo del otro. Si dos claves son del
 mismo proyecto, comparten el cupo de cada modelo (el de texto y el de voz son
@@ -411,6 +411,7 @@ modelos distintos: no compiten entre sí). Las lee `reels/claves.mjs`.
 | `GEMINI_API_KEY_CLASIFICACION` | La lectura con IA (`ingesta/lectura-ia.mjs`, `03-SELECCION`) y el banco de fotos (`ingesta/fotos.mjs`, `05-FOTOS`). Último respaldo de la redacción | `gemini-flash-lite-latest` | Fichas: **200 pedidos por día** (60 sin esta clave, `topeDeLecturas`), 5 por corrida, 12 notas por pedido; repetidas: 60 por día; fotos: hasta 10 por corrida | Prueba con Groq. Sin esta clave, usa la de redacción; **nunca la de redes** |
 | `GROQ_API_KEY` | Segundo proveedor de la lectura con IA y de las fotos: si Gemini falla o se queda sin cupo, el mismo pedido va a Groq | `openai/gpt-oss-120b` (lectura), `qwen/qwen3.8-27b` (fotos, con visión) | Los de la cuenta gratis: 8.000 tokens por minuto, por eso **no sirve para redactar** (un pedido de redacción ocupa unos 9.000) | La lectura sigue sólo con Gemini |
 | `OPENROUTER_API_KEY` (opcional, desde el 17/10/2026) | **Último respaldo** de la lectura con IA, la redacción, la Auditoría IA y la revisión del archivo, cuando Gemini y Groq fallaron o se agotaron. Nunca las voces ni las imágenes (`reels/openrouter.mjs`, regla 240) | Sólo modelos gratis (terminan en `:free`; el código se niega a pedir uno pago). Por defecto, en este orden: `google/gemma-4-31b-it:free`, `nvidia/nemotron-3-super-120b-a12b:free`, `nvidia/nemotron-3.5-super-vl:free`; se cambian con la variable `OPENROUTER_MODELOS` (separados por coma) sin tocar el código | La cuenta gratis da **20 pedidos por minuto y 50 por día** en los modelos `:free` (1.000 por día si alguna vez se compraron US$ 10 de crédito: no es el caso). El sistema se pone **45 por día** (`TOPE_DIARIO`; `OPENROUTER_TOPE_DIARIO` lo sube el día que se compren créditos) y reparte: la redacción puede gastar los 45, la lectura 40, la Auditoría IA 22 y la revisión del archivo 18. Cada modelo probado cuenta como un pedido. Se cuentan en `web/data/uso-ia.json` (clave `openrouter`) | Sin la clave, no se llama a nadie y nada cambia. Un saldo negativo da 402 (hasta en los gratis): se corta por esa corrida y el vigilante avisa. Los modelos gratis rotan sin aviso: **Probar las claves de Gemini** prueba cada uno y dice cuál ya no existe |
+| `MISTRAL_API_KEY` (opcional, desde el 26/10/2026) | **Respaldo gratis de texto que no es Gemini, antes de OpenRouter**: la redacción, la lectura con IA, la Auditoría IA y la revisión del archivo, cuando Gemini (y Groq, donde se usa) fallaron o se agotaron. Nunca las voces ni las imágenes (`reels/mistral.mjs`) | `mistral-small-latest`; se cambia con la variable `MISTRAL_MODELO` sin tocar el código | Plan gratis «Experiment» de la API de Mistral (`api.mistral.ai`, sin tarjeta): límites **por minuto (alrededor de 1 pedido por segundo) y por mes**, no por día. Un 429 se reintenta una o dos veces con una espera corta (velocidad). El sistema se pone **400 pedidos por día** (`TOPE_DIARIO`; `MISTRAL_TOPE_DIARIO` lo cambia) y reparte: la redacción puede gastar los 400, la lectura 360, la Auditoría IA 200 y la revisión del archivo 160. Cada intento cuenta. Se cuentan en `web/data/uso-ia.json` (clave `mistral`) | Sin la clave, no se llama a nadie y nada cambia. Una clave rechazada (401/402/403) corta por esa corrida. Si Mistral falla, sigue OpenRouter (si hay clave) |
 
 **El orden de la redacción** (`reescribir`, `reels/reescritura.mjs`):
 
@@ -418,8 +419,10 @@ modelos distintos: no compiten entre sí). Las lee `reels/claves.mjs`.
 2. La de **redes**, sólo si la de redacción no está o contesta 429 ("sin cupo").
 3. La de **clasificación**, si las anteriores fallaron por el servicio (sin
    cupo, saturado, clave rechazada o sin crédito).
-4. **OpenRouter** (modelos gratis), sólo si existe `OPENROUTER_API_KEY` y las tres de
-   Gemini fallaron por el servicio. Lo que escribe pasa por el mismo verificador
+4. **Mistral** (plan gratis, desde el 26/10/2026), sólo si existe `MISTRAL_API_KEY` y las de
+   Gemini fallaron por el servicio.
+5. **OpenRouter** (modelos gratis), sólo si existe `OPENROUTER_API_KEY` y Gemini y Mistral
+   fallaron por el servicio. Lo que escribe Mistral u OpenRouter pasa por el mismo verificador
    y el mismo semáforo que lo de Gemini (un dato inventado se descarta igual);
    el modelo queda anotado en `web/data/intentos-ia.json` (`modelo`), en el
    registro de "Actualizar la web" y en `uso-ia.json`.
@@ -429,10 +432,12 @@ redacción, después una clave **paga** de respaldo, `GEMINI_API_KEY_RESPALDO` (
 después la gratis de clasificación y por último OpenRouter. La de voces (`GEMINI_API_KEY_REDES`) deja de escribir notas y
 tendrá US$ 10 por mes sólo para las voces. Hasta que ese cambio se una, vale el orden de arriba (`docs/DECISIONES.md`, 25/10).
 
-**El orden de los demás** (siempre OpenRouter al final, y sólo si hay clave):
-la lectura con IA, Gemini → Groq → OpenRouter; la Auditoría IA de cada hora,
-Groq → OpenRouter; la revisión del archivo, Groq → Gemini (con su tope) →
-OpenRouter. Las voces y las imágenes no tienen respaldo en OpenRouter.
+**El orden de los demás** (Mistral antes de OpenRouter, OpenRouter siempre al final, y cada uno sólo si hay clave):
+la lectura con IA, Gemini → Groq → Mistral → OpenRouter; la Auditoría IA de cada hora,
+Groq → Mistral → OpenRouter (el comando sólo se rinde con «Sin GROQ_API_KEY» si no hay ninguna de las tres); la revisión del archivo, Groq → Gemini (con su tope) →
+Mistral → OpenRouter. Las voces y las imágenes no tienen respaldo en Mistral ni en OpenRouter.
+
+**Crear la clave de Mistral (los dueños ya la cargaron el 26/10; nunca se pega en un chat):** en <https://console.mistral.ai> con `radarbalcarce@gmail.com`, plan gratis *Experiment* (sin tarjeta), crear una clave en *API keys* y pegarla en GitHub → *Settings* → *Secrets and variables* → *Actions* como `MISTRAL_API_KEY`. Llega a los workflows de GitHub, a Workers Builds (por «Cargar variables del motor») y al Worker de tareas (por «Desplegar Workers de Cloudflare»). Para sacarla de servicio, borrar el secreto.
 
 **Crear la clave de OpenRouter (3 pasos, los hace una persona; nunca se pega en un chat):**
 
@@ -574,9 +579,10 @@ Qué workflow usa cada uno está en la tabla de los workflows.
 | Nombre | Tipo | Para qué |
 |---|---|---|
 | `META_TOKEN` | Secreto | Publicar y leer en Facebook e Instagram (`07-REDES`). No vence. Al regenerarlo, tildar todos los permisos de ahora **más** `read_insights` e `instagram_manage_insights` |
-| `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_REDES`, `GEMINI_API_KEY_CLASIFICACION`, `GROQ_API_KEY`, `OPENROUTER_API_KEY` (opcional) | Secretos | Las claves de IA ("Las claves de IA") |
+| `GEMINI_API_KEY_REDACCION`, `GEMINI_API_KEY_REDES`, `GEMINI_API_KEY_CLASIFICACION`, `GROQ_API_KEY`, `MISTRAL_API_KEY` (opcional), `OPENROUTER_API_KEY` (opcional) | Secretos | Las claves de IA ("Las claves de IA") |
 | `MINIMO_NACIONAL`, `MINIMO_AREAS_CHICAS` (opcionales, regla 260) | Variables | Cuántos medios distintos tienen que contar lo de afuera para salir: lo nacional (3) y las áreas chicas, Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo (2). Un número de 2 a 10; vacías, rotas o fuera de ese rango valen los de siempre. Se cambian en Settings, Secrets and variables, Actions, Variables, sin tocar código; en la vuelta de Cloudflare (Workers Builds), como variables del build. Hernán las mira cada semana con la estadística (`docs/03-SELECCION.md`, paso 7) |
 | `OPENROUTER_MODELOS`, `OPENROUTER_TOPE_DIARIO` (opcionales) | Variables | La lista de modelos gratis de OpenRouter en orden (separados por coma) y el tope de pedidos por día. Si no están, valen los de `reels/openrouter.mjs` |
+| `MISTRAL_MODELO`, `MISTRAL_TOPE_DIARIO` (opcionales) | Variables | El modelo de Mistral (por defecto `mistral-small-latest`) y el tope de pedidos por día (por defecto 400, un entero de 1 a 5000). Llegan a los workflows de GitHub y a Workers Builds; en el Worker de tareas se ponen en su panel de Cloudflare |
 | `CLOUDFLARE_API_TOKEN` | Secreto | Subir el sitio y los Workers, escribir en R2 y KV; tiene también el permiso *Account · Account Analytics · Read*. Para poner la ruta del archivo permanente le falta «Zone → Workers Routes: Edit» |
 | `CLOUDFLARE_ACCOUNT_ID` | Secreto | La cuenta de Cloudflare: el sitio y las estadísticas |
 | `CLOUDFLARE_ANALYTICS_TOKEN` | Secreto | Leer las visitas de Web Analytics. Sin permiso, el resumen dice "falta permiso de Analytics" |
@@ -610,6 +616,7 @@ encabezado `Authorization` de sus trabajos) y, en la PC, el `.env`.
 |---|---|---|
 | Google AI Studio | Las claves de Gemini y sus cupos | `radarbalcarce@gmail.com` |
 | Groq (console.groq.com) | La clave de respaldo de la lectura | `radarbalcarce@gmail.com` |
+| Mistral (console.mistral.ai) | La clave del respaldo gratis de texto, antes de OpenRouter (opcional, plan Experiment) | `radarbalcarce@gmail.com` |
 | OpenRouter (openrouter.ai) | La clave del último respaldo gratis (opcional) | `radarbalcarce@gmail.com` |
 | Google Search Console | Indexación; propiedad de dominio, con `sitemap-index.xml` y `nota/sitemap-archivo.xml` enviados el 25/10 (`docs/seo/AUDITORIA-SEO-LLM.md` § 12) | `radarbalcarce@gmail.com` |
 | DonWeb | El registro del dominio (el DNS está en Cloudflare) | — |

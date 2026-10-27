@@ -45,6 +45,9 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          MISTRAL_MODELO: ${{ vars.MISTRAL_MODELO }}
+          MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}
           WHATSAPP_TELEFONO: ${{ secrets.WHATSAPP_TELEFONO }}
           WHATSAPP_APIKEY: ${{ secrets.WHATSAPP_APIKEY }}
           VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}

@@ -1,4 +1,4 @@
-// Las claves de las IA: cinco, cada una con su cupo y su uso.
+// Las claves de las IA: cada una con su cupo y su uso.
 //
 // Van separadas a propósito. Cada clave tiene su propio cupo diario en Google,
 // y si comparten, un día de muchos reels se come la cuota con la que se
@@ -19,6 +19,9 @@
 //   OPENROUTER_API_KEY             OpenRouter (17/10/2026): el ÚLTIMO respaldo de la lectura, la
 //                                  redacción y las auditorías, sólo con modelos gratis (:free) y con
 //                                  tope de pedidos por día (reels/openrouter.mjs). Sin ella, nada cambia
+//   MISTRAL_API_KEY                Mistral (26/10/2026), plan gratis «Experiment»: respaldo de texto que NO es
+//                                  Gemini, ANTES de OpenRouter, en la lectura, la redacción y las auditorías
+//                                  (reels/mistral.mjs; opcionales MISTRAL_MODELO y MISTRAL_TOPE_DIARIO). Sin ella, nada cambia
 //
 // Se leen de una variable de entorno o del archivo .env de la raíz. Nunca se
 // escriben en el código ni se muestran.
@@ -77,4 +80,12 @@ export const claveOpenRouter = (o) => variableDeOpenRouter('OPENROUTER_API_KEY',
 /** Las variables de OpenRouter (la clave, OPENROUTER_MODELOS, OPENROUTER_TOPE_DIARIO). Dentro de `node --test` sólo valen si la prueba
  *  las pasa a mano (`{ env }`): una clave que alguien tenga en su entorno o en su .env no puede hacer que una prueba llame al respaldo. */
 export const variableDeOpenRouter = (nombre, o) => (o === undefined && process.env.NODE_TEST_CONTEXT ? null : leerVariable(nombre, o));
+
+/** Mistral (26/10/2026): respaldo gratis de texto, ANTES de OpenRouter, cuando fallan o se agotan Gemini (y Groq donde se usa). Sin esta clave,
+ *  reels/mistral.mjs no llama a nadie. */
+export const claveMistral = (o) => variableDeMistral('MISTRAL_API_KEY', o);
+
+/** Las variables de Mistral (la clave, MISTRAL_MODELO, MISTRAL_TOPE_DIARIO). Igual que las de OpenRouter: dentro de `node --test` sólo valen si
+ *  la prueba las pasa a mano (`{ env }`), para que una clave en el entorno de alguien no haga que una prueba llame a Mistral. */
+export const variableDeMistral = (nombre, o) => (o === undefined && process.env.NODE_TEST_CONTEXT ? null : leerVariable(nombre, o));
 

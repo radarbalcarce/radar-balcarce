@@ -16,7 +16,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { claveClasificacion, claveGroq, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { claveClasificacion, claveGroq, claveMistral, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { pedirJsonAMistral } from '../reels/mistral.mjs';
 import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
 import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
 import { conArgentino, cuantosMedios, contarMedios, hayUnChicoEnApuros, esCotizacionDelDia, esDeAca, esDeUnMedioDeAca } from './ingesta.mjs';
@@ -311,7 +312,7 @@ export async function leerGrupoGroq(notas, { clave, fetchFn = fetch, modelo = MO
 }
 
 /**
- * Las fichas válidas que trae el texto de una respuesta tipo OpenAI (Groq u OpenRouter): { id: ficha }. Se anota quién contestó
+ * Las fichas válidas que trae el texto de una respuesta tipo OpenAI (Groq, Mistral u OpenRouter): { id: ficha }. Se anota quién contestó
  * (`ia`, y `modelo` si se sabe; auditoría 2.0, 04 § 4): sin esto no se sabe cuántas veces se usa el respaldo ni con qué.
  * Lanza si el texto no es JSON.
  */
@@ -328,6 +329,20 @@ function fichasDeTexto(texto, notas, marca) {
     if (v && pedidos.has(f.id)) fichas[f.id] = { ...v, ...marca };
   }
   return fichas;
+}
+
+/**
+ * Igual que leerGrupoGroq, con Mistral (26/10/2026): respaldo gratis ANTES de OpenRouter (reels/mistral.mjs), sólo si Gemini y Groq fallaron.
+ * Mismo prompt, misma forma contada en palabras y la misma validación (fichaValida): una ficha mal formada se descarta, nunca se arregla.
+ * La ficha queda marcada con `ia: 'mistral'` y el `modelo` que la escribió. Lanza si falla (con `status`).
+ */
+export async function leerGrupoMistral(notas, { clave, fetchFn = fetch, modelo, ahora, archivoDeUso, pausar } = {}) {
+  const instruccion = `${pedidoPara(notas)}\n\nDevolvé un objeto JSON con esta forma exacta y nada más, con una ficha por nota, `
+    + `estos nombres de campo tal cual y, en los que tienen opciones, sólo uno de esos valores:\n${formaDeLaFicha()}`;
+  const r = await pedirJsonAMistral({
+    tarea: 'lectura', prompt: instruccion, clave, fetchFn, modelo, ahora, archivoDeUso, pausar, temperatura: 0, maxTokens: 6000,
+  });
+  return fichasDeTexto(r.texto, notas, { ia: 'mistral', modelo: r.modelo });
 }
 
 /**
@@ -391,14 +406,14 @@ export function podarFichas(guardado = {}, { ahora = Date.now(), dias = LECTURA.
  */
 export async function leerNotasNuevas(notas, {
   guardado = {}, fetchFn = fetch, ahora = new Date(), clave = claveClasificacion(), claveRespaldo = claveGroq(), registro = () => {},
-  claveOpenRouterDeRespaldo = claveOpenRouter(),
+  claveOpenRouterDeRespaldo = claveOpenRouter(), claveMistralDeRespaldo = claveMistral(),
 } = {}) {
   const dia = diaAR(ahora);
   let archivo = podarFichas(guardado, { ahora: ahora.getTime() });
   if (archivo.dia !== dia) archivo = { ...archivo, dia, pedidosHoy: 0 };
   archivo.pedidosHoy ??= 0;
   const cuenta = {
-    pedidos: 0, nuevas: 0, fallas: 0, sinClave: !clave, groq: 0, openrouter: 0,
+    pedidos: 0, nuevas: 0, fallas: 0, sinClave: !clave, groq: 0, mistral: 0, openrouter: 0,
   };
   if (!clave) return { archivo, cuenta };
 
@@ -430,7 +445,18 @@ export async function leerNotasNuevas(notas, {
         error = e2;
       }
     }
-    // Gemini y Groq fallaron: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
+    // Gemini y Groq fallaron: Mistral (26/10/2026, plan gratis), antes que OpenRouter. Sin su clave, no se llama a nadie.
+    if (!nuevas && claveMistralDeRespaldo) {
+      try {
+        nuevas = await leerGrupoMistral(grupo, { clave: claveMistralDeRespaldo, fetchFn, ahora });
+        cuenta.mistral += 1;
+        registro(`  lectura con IA: un pedido salió con Mistral (${Object.values(nuevas)[0]?.modelo ?? 'mistral'})`);
+        error = null;
+      } catch (e4) {
+        error = e4;
+      }
+    }
+    // Gemini, Groq y Mistral fallaron: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
     if (!nuevas && claveOpenRouterDeRespaldo) {
       try {
         nuevas = await leerGrupoOpenRouter(grupo, { clave: claveOpenRouterDeRespaldo, fetchFn, ahora });

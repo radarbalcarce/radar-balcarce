@@ -137,6 +137,9 @@ jobs:
           # nunca de verdad (encontrado el 28/09 al armar la prueba del banco de fotos).
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          MISTRAL_MODELO: ${{ vars.MISTRAL_MODELO }}
+          MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}
           # Sólo para contarle al panel del celular si las redes están prendidas
           # (celular-estado.json, 29/09). Acá no se publica nada en las redes.
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}

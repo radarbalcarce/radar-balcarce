@@ -192,7 +192,7 @@ export async function vuelta({
     // 3. El núcleo legal de las pruebas: si falla, no se arma ni se publica nada y se avisa (hallazgo M1 de la auditoría del 15/10/2026).
     try {
       // Las pruebas corren sin las claves reales (en GitHub tampoco las ven): con una clave puesta, algunas llamarían de verdad a la IA.
-      const sinClaves = Object.fromEntries(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_REDES', 'GEMINI_API_KEY_RESPALDO', 'GEMINI_API_KEY_CLASIFICACION', 'GROQ_API_KEY', 'OPENROUTER_API_KEY', 'TAVILY_API_KEY', 'VIGILANTE_TOKEN', 'WHATSAPP_TELEFONO', 'WHATSAPP_APIKEY'].map((k) => [k, '']));
+      const sinClaves = Object.fromEntries(['GEMINI_API_KEY_REDACCION', 'GEMINI_API_KEY_REDES', 'GEMINI_API_KEY_RESPALDO', 'GEMINI_API_KEY_CLASIFICACION', 'GROQ_API_KEY', 'MISTRAL_API_KEY', 'OPENROUTER_API_KEY', 'TAVILY_API_KEY', 'VIGILANTE_TOKEN', 'WHATSAPP_TELEFONO', 'WHATSAPP_APIKEY'].map((k) => [k, '']));
       await correr('Núcleo legal de las pruebas', 'npm', ['run', 'test:nucleo'], { extra: sinClaves });
     } catch (e) {
       if (!cfg.simular) {
