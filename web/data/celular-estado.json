@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T09:04:35.343Z",
- "portada": 122,
+ "generado": "2026-10-27T10:04:10.970Z",
+ "portada": 117,
  "archivo": 495,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-27T09:04:35.872Z",
+  "generado": "2026-10-27T10:04:11.656Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -126,18 +126,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
-     {
-      "id": "14t82lv",
-      "titulo": "Harry Kane gana el Balón de Oro 2026 en Londres",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "yjlxo0",
-      "titulo": "Muere Roxana Amed, la destacada cantante y compositora de jazz",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "fp2ndp",
       "titulo": "Cataratas del Iguazú registra un caudal récord y cierra circuitos",
@@ -147,6 +137,16 @@
       "id": "1oi4av9",
       "titulo": "ANSES oficializa los aumentos y las reglas de suspensión para las PNC",
       "seccion": "Economía"
+     },
+     {
+      "id": "10vughh",
+      "titulo": "Boca vence a Independiente y recupera la punta de la tabla anual",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "q9qpl2",
+      "titulo": "Franco Colapinto abandona en Estados Unidos y Alpine apunta a México",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,12 +157,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
-      "id": "64yqg6",
-      "titulo": "Colapinto abandona en el Gran Premio de Estados Unidos de la F1",
-      "seccion": "Automovilismo"
+      "id": "11yhki4",
+      "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
+      "seccion": "Fútbol"
      },
      {
       "id": "rwwtu0",
@@ -170,14 +170,14 @@
       "seccion": "Argentina"
      },
      {
-      "id": "11yhki4",
-      "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
-      "seccion": "Fútbol"
-     },
-     {
       "id": "1sq6xx6",
       "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
       "seccion": "Educación"
+     },
+     {
+      "id": "aa1xxp",
+      "titulo": "El Banco Central frena compras de reservas tras la victoria de Lula en Brasil",
+      "seccion": "Economía"
      }
     ]
    }
