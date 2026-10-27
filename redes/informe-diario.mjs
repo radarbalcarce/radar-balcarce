@@ -33,6 +33,7 @@ import { diaIncoherente } from './estadisticas-detalle.mjs';
 import { esIncoherente } from './estadisticas.mjs';
 import { avisarPorMail } from './avisar-por-mail.mjs';
 import { raizDelProyecto } from './raiz.mjs';
+import { resumenPorClave } from './uso-ia.mjs';
 import { WORKFLOWS_VIGILADOS, VENCIMIENTOS, DIAS_DE_AVISO_ANTES, redesPrendidas } from './vigilar.mjs';
 import { TOPE_DE_CLOUDFLARE, archivosEstimados } from '../web/scripts/contar-archivos.mjs';
 import { MAXIMO_EN_ARCHIVO, topeDeNotas } from '../web/lib/archivo.js';
@@ -538,6 +539,30 @@ export function costoDeLaIA(tareas = {}) {
   return { llamadas, errores, entrada, salida, pensamiento, total, referencia };
 }
 
+/** Cómo se llama cada clave de IA en el informe (las del uso anotado en uso-ia.json) y en qué orden se muestran. */
+const NOMBRES_DE_CLAVES = {
+  redaccion: 'Gemini redacción', respaldo: 'Gemini respaldo (paga)', clasificacion: 'Gemini clasificación', redes: 'Gemini voces', groq: 'Groq', mistral: 'Mistral',
+};
+const NOMBRES_DE_MOTIVOS = { 'cupo-diario': 'cupo del día', velocidad: 'velocidad', saturado: 'saturado', rechazada: 'rechazada', otro: 'otro' };
+
+/**
+ * Una línea corta por clave de IA con lo anotado del día (26/10/2026): cuántos pedidos, cuántos fallaron y por qué (los tres motivos más
+ * frecuentes: cupo del día, velocidad, saturado, rechazada u otro). Sin detalle para lo anotado antes de que se guardara el motivo.
+ * @returns {{ t: string, sub: true }[]}
+ */
+export function lineasDeUsoPorClave(delDia) {
+  const claves = resumenPorClave(delDia);
+  const orden = Object.keys(NOMBRES_DE_CLAVES);
+  return Object.entries(claves)
+    .sort((a, b) => (orden.indexOf(a[0]) + 1 || 99) - (orden.indexOf(b[0]) + 1 || 99) || a[0].localeCompare(b[0]))
+    .map(([clave, r]) => {
+      const nombre = NOMBRES_DE_CLAVES[clave] ?? clave;
+      const principales = Object.entries(r.motivos).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([m, n]) => `${NOMBRES_DE_MOTIVOS[m] ?? m} ${num(n)}`);
+      const fallos = r.sinDetalle && !r.ok && !r.fallos ? 'sin detalle de fallos (anotado antes del 26/10)' : `${plural(r.fallos, 'fallo', 'fallos')}${principales.length ? ` (${principales.join(', ')})` : ''}`;
+      return { t: `${nombre}: ${plural(r.pedidos, 'pedido', 'pedidos')}, ${fallos}.`, sub: true };
+    });
+}
+
 /** Cuántos audios con voz salieron ese día (por lo publicado; las piezas fijas «participá» ya vienen grabadas y no gastan). */
 export function audiosDelDia(libro, dia) {
   return Object.keys(libro?.instagram ?? {}).filter((k) => k.startsWith(`${dia}/`) && !k.slice(dia.length + 1).startsWith('participa-')).length;
@@ -646,7 +671,8 @@ export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesA
     const c = costoDeLaIA(delDia);
     const porTarea = Object.entries(delDia).map(([tarea, modelos]) => `${tarea} ${num(sumar(Object.values(modelos).map((m) => m.llamadas)))}`).join(' · ');
     lineas.push({ t: `IA ${dia === diaAR(ahora) ? 'de hoy' : 'de ayer'}: ${plural(c.llamadas, 'llamada', 'llamadas')} (${porTarea}), ${plural(c.errores, 'con error', 'con error')}; ${num(c.total)} tokens (${num(c.entrada)} de entrada y ${num(c.salida + c.pensamiento)} de salida).` });
-    lineas.push({ t: `Costo: US$ 0 (las claves son gratuitas desde el 29/09). Sólo como referencia, a precio de lista valdría ${c.referencia < 0.01 ? 'menos de US$ 0,01' : `unos US$ ${c.referencia.toFixed(2).replace('.', ',')}`}; no es una factura.`, sub: true });
+    lineas.push(...lineasDeUsoPorClave(delDia));
+    lineas.push({ t: `Costo: las claves de redactar, leer y voces son gratuitas; la de respaldo de redactar es paga (límite US$ 10 por mes, se ve en la facturación de Google). Sólo como referencia, a precio de lista valdría ${c.referencia < 0.01 ? 'menos de US$ 0,01' : `unos US$ ${c.referencia.toFixed(2).replace('.', ',')}`}; no es una factura.`, sub: true });
     if (c.llamadas >= 8 && c.errores / c.llamadas > LIMITES_DEL_INFORME.errorDeIA) atencion.push({ nivel: 'media', t: `La IA falló en ${num(c.errores)} de ${num(c.llamadas)} llamadas (${Math.round((c.errores / c.llamadas) * 100)} %): puede ser una clave sin cupo o rechazada.` });
   } else {
     lineas.push({ t: `IA: no hay uso anotado para ${dia === diaAR(ahora) ? 'hoy' : 'ayer'} (web/data/uso-ia.json).`, sub: true });

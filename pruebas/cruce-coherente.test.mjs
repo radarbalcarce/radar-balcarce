@@ -26,6 +26,8 @@ test('un medio, un nombre: las secciones de un mismo diario no cuentan como dos 
     if (d === 'eleco.com.ar' && /apiv3\./.test(f.url)) continue;
     // Ministerios distintos en el mismo portal del Estado (alta del 15/10/2026).
     if (d === 'argentina.gob.ar') continue;
+    // La Universidad de Mar del Plata y su Facultad de Ciencias Agrarias (la de Balcarce) son una institución: llevan el mismo `grupo` y cuentan una sola vez (26/10/2026).
+    if (d === 'mdp.edu.ar' && TODAS_LAS_FUENTES.filter((x) => dominio(x.url) === d).every((x) => x.grupo === 'mdp.edu.ar')) continue;
     if (!porDominio.has(d)) porDominio.set(d, new Set());
     porDominio.get(d).add(f.medio);
   }

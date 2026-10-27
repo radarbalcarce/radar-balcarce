@@ -31,6 +31,9 @@ const RAIZ = path.join(AQUI, '..', '..');
  *  (hasta la regla 260 se reconocían por el campo `especializada` de la fuente, que se sacó). */
 const MEDIOS_SUMADOS_EL_17_10 = ['FayerWayer', 'SENASA', 'ANMAT', 'CONAE', 'INTI', 'IT Sitio', 'Secretaría de Innovación, Ciencia y Tecnología',
   'UNICEN', 'Universidad Nacional de Cuyo', 'Universidad Nacional de La Plata', 'Universidad Nacional de Rosario'];
+/** Los medios que se sumaron el 26/10/2026 para Ciencia, Agro y Educación (tampoco estaban en la lista del 15/10). */
+const MEDIOS_SUMADOS_EL_26_10 = ['DW Español', 'El Tiempo (Colombia)', 'Facultad de Ciencias Exactas y Naturales (UBA)', 'Mongabay Latam', 'Agrofy News', 'Agroverdad',
+  'Valor Carne', 'Ruralnet', 'Universidad Nacional de Mar del Plata', 'Universidad Nacional de Quilmes', 'Universidad Nacional de La Matanza', 'Universidad Nacional de Salta'];
 
 /** Del registro de Actions de "Sondeo de fuentes desde Cloudflare" (corrida 38786372081, 15/10/2026 18:31 UTC,
  *  nombre de navegador): "97 de 103 feeds andan. No andan 6: 6 desafío (HTTP 403)". Y "contestan pero con lo más
@@ -331,7 +334,7 @@ export function armarDatos({ raiz = RAIZ, ahora = new Date() } = {}) {
     if (!activo) grupo = 'apagadas';
     else if (enLista) grupo = enLista.grupo;
     // Los medios de ciencia, salud, educación y tecnología que se sumaron el 17/10 (regla 215) no estaban en la lista del 15/10.
-    else if (MEDIOS_SUMADOS_EL_17_10.includes(nombre)) grupo = 'sumadas';
+    else if (MEDIOS_SUMADOS_EL_17_10.includes(nombre) || MEDIOS_SUMADOS_EL_26_10.includes(nombre)) grupo = 'sumadas';
     else grupo = 'otras';
     const filaApagada = !activo ? apagadasLista.find((a) => a.nombres.some((n) => mismoMedio(n, nombre))) : null;
 

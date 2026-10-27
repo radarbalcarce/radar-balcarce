@@ -193,8 +193,6 @@ export const CLAVES_DE_IA = [
   { nombre: 'GEMINI_API_KEY_REDES', uso: 'las voces de las redes', proveedor: 'gemini' },
   { nombre: 'GEMINI_API_KEY_CLASIFICACION', uso: 'la lectura con IA y las fotos', proveedor: 'gemini' },
   { nombre: 'GROQ_API_KEY', uso: 'el respaldo de la lectura y de las fotos', proveedor: 'groq' },
-  // 17/10/2026: el último respaldo con modelos gratis. Si no está cargada, no se revisa ni se avisa nada.
-  { nombre: 'OPENROUTER_API_KEY', uso: 'el último respaldo de la IA (modelos gratis)', proveedor: 'openrouter' },
 ];
 
 const API_GEMINI = 'https://generativelanguage.googleapis.com/v1beta';
@@ -226,12 +224,9 @@ export async function revisarClaves({ env = process.env, fetchFn = fetch, voces 
   for (const c of CLAVES_DE_IA) {
     const clave = String(env[c.nombre] ?? '').trim();
     if (!clave) continue;
-    // Para OpenRouter se pregunta por la clave misma (no gasta ningún pedido de los 50 gratis del día): 401 si no existe más.
     const res = c.proveedor === 'groq'
       ? await pedir('https://api.groq.com/openai/v1/models', { authorization: `Bearer ${clave}` })
-      : c.proveedor === 'openrouter'
-        ? await pedir('https://openrouter.ai/api/v1/key', { authorization: `Bearer ${clave}` })
-        : await pedir(`${API_GEMINI}/models?pageSize=1`, { 'x-goog-api-key': clave });
+      : await pedir(`${API_GEMINI}/models?pageSize=1`, { 'x-goog-api-key': clave });
     claves.push({ ...c, estado: res?.status ?? null, detalle: res && !res.ok ? await detalleDe(res, clave) : '' });
   }
   // Las voces propias viven en el proyecto de la clave de redes. Google contesta
@@ -255,7 +250,6 @@ export async function revisarClaves({ env = process.env, fetchFn = fetch, voces 
 const ARREGLO_DE_CLAVE = {
   gemini: (nombre) => `Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → ${nombre} (nunca en un chat).`,
   groq: (nombre) => `Entrá a console.groq.com, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → ${nombre} (nunca en un chat).`,
-  openrouter: (nombre) => `Entrá a openrouter.ai/keys (radarbalcarce@gmail.com), creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → ${nombre} (nunca en un chat). Si el aviso es 402, la cuenta quedó con saldo negativo: sumá créditos hasta pasar de cero o no uses la clave. Es sólo el último respaldo: la web sigue andando sin ella.`,
 };
 
 const minutos = (desde, ahora) => (ahora.getTime() - new Date(desde).getTime()) / 60000;
@@ -378,7 +372,7 @@ export function evaluar({
   // un rato y ya los maneja cada corrida.
   for (const c of claves ?? []) {
     if (![400, 401, 402, 403].includes(c.estado)) continue;
-    const quien = { groq: 'Groq', openrouter: 'OpenRouter' }[c.proveedor] ?? 'Google';
+    const quien = { groq: 'Groq' }[c.proveedor] ?? 'Google';
     de(`clave-${c.nombre}`, 'alta', `La clave ${c.nombre} (${c.uso}) no anda: ${quien} contesta ${c.estado}${c.detalle ? ` ("${c.detalle}")` : ''}. ${ARREGLO_DE_CLAVE[c.proveedor]?.(c.nombre) ?? ''}`.trim());
   }
   for (const quien of ['locutora', 'locutor']) {

@@ -176,7 +176,7 @@ test('298: lo descartado no va al celular, no se junta con otras ni gasta lectur
   assert.deepEqual(candidatasParaAgrupar([d, normal]).map((n) => n.id), ['n1']);
   let pedidos = 0;
   const fetchFn = async () => { pedidos += 1; throw new Error('no debía pedir'); };
-  const { cuenta } = await leerNotasNuevas([d], { guardado: {}, fetchFn, clave: 'x', claveRespaldo: null, claveOpenRouterDeRespaldo: null });
+  const { cuenta } = await leerNotasNuevas([d], { guardado: {}, fetchFn, clave: 'x', claveRespaldo: null, claveMistralDeRespaldo: null });
   assert.equal(cuenta.pedidos, 0);
   assert.equal(pedidos, 0);
   // Y una ficha no la mueve de color.

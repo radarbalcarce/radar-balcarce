@@ -10,8 +10,8 @@
 // Sin dependencias. Corre en el workflow "Auditoría IA" (redes/auditar-notas.mjs).
 
 import crypto from 'node:crypto';
-import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
 import { pedirJsonAMistral } from '../reels/mistral.mjs';
+import { conMedicion } from '../redes/uso-ia.mjs';
 import { MATERIAL_NO_ORDENES } from './prompt-editorial.mjs';
 
 /** Groq: gpt-oss-20b. 1.000 pedidos por día y 8.000 tokens por minuto (sondeo del 1/10, docs/05-FOTOS.md). */
@@ -48,7 +48,7 @@ export const AUDITORIA = {
   dias: 3,
   /**
    * Segundos desde que arranca la corrida después de los cuales ya no se empieza un pedido nuevo (regla 318). Un pedido puede tardar hasta unos 315 s
-   * (Groq 90 s + tres modelos de OpenRouter de 75 s) y entre un pedido y otro se espera: sin este tope, cuatro pedidos lentos pasan los 15 minutos que
+   * (Groq 90 s + hasta tres intentos de Mistral de 60 s) y entre un pedido y otro se espera: sin este tope, cuatro pedidos lentos pasan los 15 minutos que
    * un Worker de Cloudflare deja correr a una tarea del reloj, y la corrida se corta sin guardar nada ni anotar cómo salió. Con el tope, lo que no se
    * alcanzó a leer queda para la hora siguiente.
    */
@@ -140,9 +140,9 @@ export function leerHallazgos(texto, idsPedidos, porId = null) {
   return { hallazgos: validos, descartados: descartados + (salida.length - validos.length) };
 }
 
-/** Un pedido a Groq con un lote de notas: { hallazgos, descartados }. Lanza si falla (con `status`). */
-export async function auditarLote(lote, { clave, fetchFn = fetch, modelo = MODELO_AUDITORIA } = {}) {
-  const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
+/** Un pedido a Groq con un lote de notas: { hallazgos, descartados }. Lanza si falla (con `status`). `tarea`: 'auditoria' o 'revision' (cómo se anota en uso-ia.json). */
+export async function auditarLote(lote, { clave, fetchFn = fetch, modelo = MODELO_AUDITORIA, tarea = 'auditoria', ahora = null, archivoDeUso = null } = {}) {
+  const res = await conMedicion(fetchFn, { tarea, modelo, clave: 'groq', ahora, archivo: archivoDeUso })('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     // La clave va en el encabezado, nunca en la dirección (docs/10-REGLAS-Y-PRUEBAS.md, regla 16).
     headers: { 'content-type': 'application/json', authorization: `Bearer ${clave}` },
@@ -166,8 +166,8 @@ export const MODELO_AUDITORIA_GEMINI = 'gemini-flash-lite-latest';
  * El mismo pedido, a Gemini (17/10/2026, la revisión del archivo: web/scripts/revisar-archivo.mjs). Sirve de respaldo cuando Groq no
  * tiene cupo. Misma instrucción, misma lectura de la respuesta (las citas que no están en la nota se descartan). Lanza si falla (con `status`).
  */
-export async function auditarLoteGemini(lote, { clave, fetchFn = fetch, modelo = MODELO_AUDITORIA_GEMINI } = {}) {
-  const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
+export async function auditarLoteGemini(lote, { clave, fetchFn = fetch, modelo = MODELO_AUDITORIA_GEMINI, tarea = 'revision', ahora = null, archivoDeUso = null } = {}) {
+  const res = await conMedicion(fetchFn, { tarea, modelo, clave: 'clasificacion', ahora, archivo: archivoDeUso })(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
     method: 'POST',
     // La clave va en el encabezado, nunca en la dirección (regla 16).
     headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
@@ -185,7 +185,7 @@ export async function auditarLoteGemini(lote, { clave, fetchFn = fetch, modelo =
 }
 
 /**
- * El mismo pedido, a Mistral (26/10/2026, plan gratis): respaldo ANTES de OpenRouter, cuando Groq (o Groq y Gemini, en la revisión del archivo)
+ * El mismo pedido, a Mistral (26/10/2026, plan gratis): el último respaldo, cuando Groq (o Groq y Gemini, en la revisión del archivo)
  * no contestó. Misma instrucción y misma lectura de la respuesta (las citas que no están en la nota se descartan). `tarea` decide cuánto del tope
  * diario puede gastar: 'auditoria' (la de cada hora) o 'revision' (la del archivo). Lanza si falla (con `status`).
  */
@@ -198,35 +198,20 @@ export async function auditarLoteMistral(lote, { clave, fetchFn = fetch, tarea =
 }
 
 /**
- * El mismo pedido, a los modelos gratis de OpenRouter (17/10/2026): el ÚLTIMO respaldo, cuando Groq (o Groq y Gemini, en la revisión
- * del archivo) no contestó. Misma instrucción y misma lectura de la respuesta (las citas que no están en la nota se descartan).
- * `tarea` decide cuánto del tope diario puede gastar: 'auditoria' (la de cada hora) o 'revision' (la del archivo). Lanza si falla
- * (con `status`).
- */
-export async function auditarLoteOpenRouter(lote, { clave, fetchFn = fetch, tarea = 'auditoria', modelos, ahora, archivoDeUso } = {}) {
-  const r = await pedirJsonAOpenRouter({
-    tarea, prompt: pedidoDeAuditoria(lote), clave, fetchFn, modelos, ahora, archivoDeUso, temperatura: 0, maxTokens: 4000,
-  });
-  const leido = leerHallazgos(r.texto, new Set(lote.map((n) => n.id)), new Map(lote.map((n) => [n.id, n])));
-  return { ...leido, modelo: r.modelo };
-}
-
-/**
  * Lee todas las notas de a lotes, con una espera entre un pedido y otro. Un lote que falla no frena a los demás y se
  * cuenta aparte (esas notas no se marcan como leídas: se vuelven a intentar en la próxima corrida).
- * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados, mistral, openrouter, sinTiempo }. `sinTiempo` son las notas que no se
+ * Devuelve { hallazgos, leidas: [ids], fallas: [mensajes], descartados, mistral, sinTiempo }. `sinTiempo` son las notas que no se
  * llegaron a pedir porque la corrida pasó `empezarAntesDeSegundos` (regla 318): no son una falla, se leen en la corrida siguiente.
  */
 export async function auditarNotas(notas, {
   clave, fetchFn = fetch, dormir = (s) => new Promise((r) => { setTimeout(r, s * 1000); }), porPedido = AUDITORIA.porPedido,
-  claveOpenRouter = null, claveMistral = null, archivoDeUso = null, reloj = () => Date.now(), empezarAntesDeSegundos = AUDITORIA.empezarAntesDeSegundos,
+  claveMistral = null, archivoDeUso = null, reloj = () => Date.now(), empezarAntesDeSegundos = AUDITORIA.empezarAntesDeSegundos,
 } = {}) {
   const hallazgos = [];
   const leidas = [];
   const fallas = [];
   let descartados = 0;
   let sinTiempo = 0;
-  const usadas = [];
   const usadasMistral = [];
   const inicio = reloj();
   for (let i = 0; i < notas.length; i += porPedido) {
@@ -240,21 +225,13 @@ export async function auditarNotas(notas, {
     let r = null;
     let error = null;
     if (clave) {
-      try { r = await auditarLote(lote, { clave, fetchFn }); } catch (e) { error = e; }
+      try { r = await auditarLote(lote, { clave, fetchFn, tarea: 'auditoria', archivoDeUso }); } catch (e) { error = e; }
     }
-    // Groq no contestó: Mistral (26/10/2026, plan gratis), antes que OpenRouter. Sin su clave, no se llama a nadie.
+    // Groq no contestó: Mistral (26/10/2026, plan gratis), el último respaldo. Sin su clave, no se llama a nadie.
     if (!r && claveMistral) {
       try {
         r = await auditarLoteMistral(lote, { clave: claveMistral, fetchFn, tarea: 'auditoria', archivoDeUso });
         usadasMistral.push(r.modelo);
-        error = null;
-      } catch (e) { error = e; }
-    }
-    // Groq y Mistral no contestaron: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
-    if (!r && claveOpenRouter) {
-      try {
-        r = await auditarLoteOpenRouter(lote, { clave: claveOpenRouter, fetchFn, tarea: 'auditoria', archivoDeUso });
-        usadas.push(r.modelo);
         error = null;
       } catch (e) { error = e; }
     }
@@ -268,7 +245,7 @@ export async function auditarNotas(notas, {
       if (error && (error.status === 429 || error.status === 401 || error.status === 403)) break;
     }
   }
-  return { hallazgos, leidas, fallas, descartados, mistral: usadasMistral, openrouter: usadas, sinTiempo };
+  return { hallazgos, leidas, fallas, descartados, mistral: usadasMistral, sinTiempo };
 }
 
 /**

@@ -63,9 +63,9 @@ test('las 13 fuentes nuevas están bien formadas y pesan poco', () => {
   }
 });
 
-test('el total de fuentes es el que dicen los documentos (82 en fuentes.mjs, más las del cruce)', async () => {
+test('el total de fuentes es el que dicen los documentos (95 en fuentes.mjs, más las del cruce)', async () => {
   const { FUENTES_CRUCE } = await import('../ingesta/fuentes-cruce.mjs');
-  assert.equal(TODAS_LAS_FUENTES.length - FUENTES_CRUCE.length, 82); // 58 y Acción 5 (30/09); FayerWayer y Agencia CyTA (1/10); Ahora Balcarce (5/10); Concejo Deliberante y Facultad de Ciencias Agrarias (15/10); 15 de ciencia, salud, educación y tecnología y 3 de España apagadas (17/10, regla 215)
+  assert.equal(TODAS_LAS_FUENTES.length - FUENTES_CRUCE.length, 95); // 13 de Ciencia, Agro y Educación (26/10); 58 y Acción 5 (30/09); FayerWayer y Agencia CyTA (1/10); Ahora Balcarce (5/10); Concejo Deliberante y Facultad de Ciencias Agrarias (15/10); 15 de ciencia, salud, educación y tecnología y 3 de España apagadas (17/10, regla 215)
   assert.ok(FUENTES_CRUCE.length >= 100, 'las del cruce de medios (27/09)');
   assert.ok(FUENTES_CRUCE.every((f) => f.alcance && f.medio && f.url && f.peso), 'cada una con alcance, medio, dirección y peso');
 });

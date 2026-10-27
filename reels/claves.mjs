@@ -7,21 +7,24 @@
 //
 //   GEMINI_API_KEY_REDACCION       reescribir y redactar notas (gratis). Acepta
 //                                  también el nombre viejo, GEMINI_API_KEY
+//   GEMINI_API_KEY_RESPALDO        respaldo de la redacción (paga, con un límite de gasto de
+//                                  US$ 10 por mes que pone una persona): escribe notas sólo
+//                                  cuando la gratis de redacción no puede
 //   GEMINI_API_KEY_REDES           voces y reels (gratis, con cupo de 10 audios por
-//                                  día). La reescritura la usa sólo si la de
-//                                  redacción se queda sin cupo (429)
+//                                  día). NO escribe notas ni lee con IA: su cupo es sólo
+//                                  para las voces
 //   GEMINI_API_KEY_CLASIFICACION   la lectura con IA y el banco de fotos; si no
 //                                  está, usa la de redacción, nunca la de redes.
-//                                  Desde el 29/09 es también el último respaldo
+//                                  Desde el 29/09 es también el tercer respaldo
 //                                  de la redacción (reescribir, reels/reescritura.mjs)
 //   GROQ_API_KEY                   Groq, el respaldo gratis de la lectura con IA
 //                                  y de la comparación de fotos
-//   OPENROUTER_API_KEY             OpenRouter (17/10/2026): el ÚLTIMO respaldo de la lectura, la
-//                                  redacción y las auditorías, sólo con modelos gratis (:free) y con
-//                                  tope de pedidos por día (reels/openrouter.mjs). Sin ella, nada cambia
-//   MISTRAL_API_KEY                Mistral (26/10/2026), plan gratis «Experiment»: respaldo de texto que NO es
-//                                  Gemini, ANTES de OpenRouter, en la lectura, la redacción y las auditorías
-//                                  (reels/mistral.mjs; opcionales MISTRAL_MODELO y MISTRAL_TOPE_DIARIO). Sin ella, nada cambia
+//   MISTRAL_API_KEY                Mistral (26/10/2026), plan gratis «Experiment»: el ÚLTIMO respaldo de texto y el único que NO es
+//                                  de Google, en la lectura, la redacción y las auditorías (reels/mistral.mjs; opcionales
+//                                  MISTRAL_MODELO y MISTRAL_TOPE_DIARIO). Sin ella, nada cambia. (OpenRouter, el respaldo que iba
+//                                  después, se retiró el 26/10/2026: fallaba el 97 % de los pedidos.)
+//
+// El orden de la redacción, entero: Gemini redacción → Gemini respaldo (paga) → Gemini clasificación → Mistral.
 //
 // Se leen de una variable de entorno o del archivo .env de la raíz. Nunca se
 // escriben en el código ni se muestran.
@@ -73,19 +76,11 @@ export const claveClasificacion = (o) => leerVariable('GEMINI_API_KEY_CLASIFICAC
  *  con Gemini, como hasta ahora. */
 export const claveGroq = (o) => leerVariable('GROQ_API_KEY', o);
 
-/** OpenRouter (17/10/2026): el último respaldo, cuando fallan o se agotan Gemini y Groq. Sólo modelos gratis (`:free`):
- *  reels/openrouter.mjs se niega a pedir uno que no lo sea. Sin esta clave, ese módulo no llama a nadie. */
-export const claveOpenRouter = (o) => variableDeOpenRouter('OPENROUTER_API_KEY', o);
-
-/** Las variables de OpenRouter (la clave, OPENROUTER_MODELOS, OPENROUTER_TOPE_DIARIO). Dentro de `node --test` sólo valen si la prueba
- *  las pasa a mano (`{ env }`): una clave que alguien tenga en su entorno o en su .env no puede hacer que una prueba llame al respaldo. */
-export const variableDeOpenRouter = (nombre, o) => (o === undefined && process.env.NODE_TEST_CONTEXT ? null : leerVariable(nombre, o));
-
-/** Mistral (26/10/2026): respaldo gratis de texto, ANTES de OpenRouter, cuando fallan o se agotan Gemini (y Groq donde se usa). Sin esta clave,
+/** Mistral (26/10/2026): el último respaldo gratis de texto, cuando fallan o se agotan Gemini (y Groq donde se usa). Sin esta clave,
  *  reels/mistral.mjs no llama a nadie. */
 export const claveMistral = (o) => variableDeMistral('MISTRAL_API_KEY', o);
 
-/** Las variables de Mistral (la clave, MISTRAL_MODELO, MISTRAL_TOPE_DIARIO). Igual que las de OpenRouter: dentro de `node --test` sólo valen si
- *  la prueba las pasa a mano (`{ env }`), para que una clave en el entorno de alguien no haga que una prueba llame a Mistral. */
+/** Las variables de Mistral (la clave, MISTRAL_MODELO, MISTRAL_TOPE_DIARIO). Dentro de `node --test` sólo valen si la prueba las pasa a mano
+ *  (`{ env }`), para que una clave en el entorno de alguien no haga que una prueba llame a Mistral. */
 export const variableDeMistral = (nombre, o) => (o === undefined && process.env.NODE_TEST_CONTEXT ? null : leerVariable(nombre, o));
 

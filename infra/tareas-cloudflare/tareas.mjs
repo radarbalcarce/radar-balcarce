@@ -17,6 +17,7 @@ import * as informeDiario from '../../redes/informe-diario.mjs';
 import { unirArchivo } from '../../panel/unir-conflictos.mjs';
 import * as ilustrar from '../../web/scripts/ilustrar-notas.mjs';
 import { diaAR } from '../../ingesta/zona.mjs';
+import { unirUso } from '../../redes/uso-ia.mjs';
 import { shaDeBlob } from '../compartido/github.mjs';
 import { fotosEnR2Activas, lectorDeBucket, lectorPorUrl } from '../compartido/fotos-r2.mjs';
 import { escribirEn } from './corredor.mjs';
@@ -30,6 +31,12 @@ const unirPistas = (ruta, nuestro, ajeno, base) => {
   const j = (x) => { try { return x == null ? null : JSON.parse(x); } catch { return null; } };
   return unirArchivo(ruta, j(base) ?? {}, j(ajeno) ?? {}, j(nuestro) ?? {});
 };
+
+/**
+ * Las tareas que llaman a una IA anotan cada pedido y su motivo en web/data/uso-ia.json (redes/uso-ia.mjs), el mismo archivo que guarda el motor. Si el motor
+ * lo guardó mientras la tarea trabajaba, el corredor une los dos sumando lo que la tarea agregó (`unirUso`) y no pisa nada.
+ */
+const UNIR_USO = { 'web/data/uso-ia.json': unirUso };
 
 // ------------------------------------------------------------------ las seis
 
@@ -59,6 +66,7 @@ export const TAREAS = {
     nombre: 'auditoria-ia', workflow: 'auditoria-ia.yml',
     lee: auditarNotas.ARCHIVOS_QUE_LEE,
     escribe: auditarNotas.ARCHIVOS_QUE_ESCRIBE,
+    unir: UNIR_USO,
     mensaje: ({ ahora }) => `Auditoría IA · ${fechaDeLosMensajes(ahora)}`,
     ejecutar: async ({ env, raiz, inputs }) => {
       await auditarNotas.main({ argv: String(inputs?.simular) === 'true' ? ['--simular'] : [], env, raiz });
@@ -72,7 +80,7 @@ export const TAREAS = {
     lee: revisarPistas.ARCHIVOS_QUE_LEE,
     escribe: revisarPistas.ARCHIVOS_QUE_ESCRIBE,
     // Lo que una persona decide desde el celular en pistas.json no se pisa: se une cambio por cambio, como en el workflow (P-2).
-    unir: { 'web/data/pistas.json': unirPistas, 'web/data/notas-de-pistas.json': unirPistas },
+    unir: { 'web/data/pistas.json': unirPistas, 'web/data/notas-de-pistas.json': unirPistas, ...UNIR_USO },
     mensaje: ({ ahora }) => `Pistas · ${fechaDeLosMensajes(ahora)}`,
     ejecutar: async ({ env, raiz, inputs }) => {
       const argv = [];
@@ -110,7 +118,8 @@ export const TAREAS = {
   'ilustrar-notas': {
     nombre: 'ilustrar-notas', workflow: 'ilustrar-notas.yml',
     lee: ['web/data/portada.json', 'web/data/archivo.json', 'web/data/banco-fotos.json', 'web/data/fotos-manuales.json', 'web/data/fotos-ia.json'],
-    escribe: ['web/data/fotos-ia.json'],
+    escribe: ['web/data/fotos-ia.json', 'web/data/uso-ia.json'],
+    unir: UNIR_USO,
     carpetas: ['web/public/fotos-notas/'],
     borra: ['web/public/fotos-notas/'],
     // FOTOS_EN_R2 (regla 316): con el interruptor prendido las ilustraciones nuevas van al depósito de fotos (binding ARCHIVO) y no al commit: son unas 12 por
@@ -159,7 +168,7 @@ export const TAREAS = {
         salida: path.join(raiz, '.cache', 'ilustraciones'), informe: null, rutas, ahora, fetchFn, ...(esperar ? { esperar } : {}),
         horas: ilustrar.horasPedidas(inputs?.horas), conservarSiFalta: fotosEnR2Activas(env),
         cuenta: path.join(cuentas, `${diaAR(ahora)}-${ahora.getTime()}`), cuentas: ilustrar.leerCuentas(cuentas),
-        clave: (env.GEMINI_API_KEY_REDACCION ?? '').trim(), claveClasificacion: (env.GEMINI_API_KEY_CLASIFICACION ?? '').trim(), claveGroq: (env.GROQ_API_KEY ?? '').trim(), claveOpenRouter: (env.OPENROUTER_API_KEY ?? '').trim(), token: (env.VIGILANTE_TOKEN ?? '').trim(),
+        clave: (env.GEMINI_API_KEY_REDACCION ?? '').trim(), claveClasificacion: (env.GEMINI_API_KEY_CLASIFICACION ?? '').trim(), claveGroq: (env.GROQ_API_KEY ?? '').trim(), token: (env.VIGILANTE_TOKEN ?? '').trim(),
       });
       return {};
     },

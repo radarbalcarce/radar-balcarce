@@ -330,7 +330,7 @@ test('revisarClaves pregunta sin gastar cupo, salta las claves que no están y n
   assert.deepEqual(r.voces, { locutora: { existe: false, vence: null }, locutor: { existe: true, vence: '2027-09-29T13:50:39Z' } });
   // Sólo la lista de modelos y la ficha de cada voz: nada que genere texto o audio.
   assert.ok(pedidos.every((p) => /\/models\?pageSize=1$|\/voices\/voice_[a-z0-9]+$/.test(p.url)));
-  assert.equal(CLAVES_DE_IA.length, 5, 'las tres de Gemini, Groq y OpenRouter (17/10/2026)');
+  assert.equal(CLAVES_DE_IA.length, 4, 'las tres de Gemini y Groq (OpenRouter se retiró el 26/10/2026)');
 });
 
 test('revisarClaves sin red no inventa problemas', async () => {

@@ -16,7 +16,7 @@ persona; Claude nunca. Se pide **una sola vez cada cosa, con el enlace y el paso
 - **Archivo permanente en R2 encendido** (23/10): `/nota/*` va al Worker `radar-balcarce-archivo`; `TOPE_DE_NOTAS` = 500.
 - **Selección sin cupos** (3 medios lo nacional, 2 las áreas chicas incluidos Agro y Automovilismo; lo muy contado, 8; Balcarce con 36 horas; policial nacional y fútbol sólo
   argentino): reglas 215 a 218, 260 y 286 a 299 (`docs/CRITERIO-EN-UNA-PAGINA.md`).
-- **Claves cargadas**: tres de Gemini, Groq, OpenRouter (23/10), Tavily, Meta, Cloudflare; las llaves de la mudanza (`RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`,
+- **Claves cargadas**: tres de Gemini, la paga de respaldo de la redacción, Groq, Mistral (26/10; OpenRouter se retiró ese día), Tavily, Meta, Cloudflare; las llaves de la mudanza (`RADAR_GITHUB_TOKEN`, `RENDER_GITHUB_TOKEN`, `R2_ACCESS_KEY_ID`,
   `R2_SECRET_ACCESS_KEY`, `MOTOR_DEPLOY_HOOK`, `CF_BUILDS_TOKEN`) y la variable `R2_RENDER`.
 - **Respaldo semanal** de los domingos (a R2) y el workflow «Compactar el historial» (exige escribir `COMPACTAR`).
 - **Auditoría 2.0 (24/10)**: limpieza de código (regla 311), textos de la web al día y mapa del archivo escrito (310), redes (309), lo que recibe la IA (308), sin "fuente
@@ -65,7 +65,7 @@ redes están apagadas.
 | C7 | Sincronizar el repositorio público de render con `reels/` (`node scripts/sincronizar-render-publico.mjs`; el último push fue el 17/10 y `reels/` cambió desde entonces: reglas 300 a 302) | Sí |
 | C8 | Botón de emergencia que frene toda la publicación automática (hoy el camino es poner `REDES_ACTIVAS_NUBE` en No o retirar la nota a mano). **Escrito y probado el 24/10 (regla 317, «Pausa general» en Más): falta SUBIRLO y hacer el ensayo de 2 minutos (`docs/11-OPERACION.md`, tarea 5 bis)** | Sí |
 | C9 | Separar robots de lectores en las estadísticas (desde el 19/10 casi toda la visita figura de Francia y Estados Unidos) | Conviene |
-| C10 | Reordenar las IA: Gemini y Groq sólo para escribir y verificar notas; Cloudflare y OpenRouter para lo demás; medir los 429 | Conviene |
+| C10 | Reordenar las IA: Gemini y Groq sólo para escribir y verificar notas; Cloudflare para lo demás. OpenRouter se retiró y los 429 ya se miden con su motivo (26/10: `web/data/uso-ia.json`, línea por clave del informe diario); falta mirar una semana de datos y decidir | Conviene |
 | C11 | Mostrar a Hernán por qué se descartan hechos de 8 o más medios (`web/data/muy-contadas.json`, ya con motivos separados) y mirar una semana de policial nacional y muertes de famosos | Conviene |
 | C12 | Fotos de deportes (pasan el control 5 de 10), notas más completas, secciones flojas (Agro, Ciencia, Tecnología, Automovilismo) | Conviene |
 | C13 | Animaciones del repaso, guiones con continuidad y voces nuevas: falta "oírlo y verlo" (reglas 300 a 302; `docs/redes/VOCES-NUEVAS.md`) | Conviene |
@@ -116,6 +116,7 @@ Primero lo que salió el 24/10 y desbloquea lo demás, en orden. Después lo de 
 
 ### 4.3 Limpieza y cuentas (cuando puedan)
 
+- Borrar el secreto `OPENROUTER_API_KEY` de GitHub (Settings → Secrets) y del Worker de tareas: desde el 26/10 el código no lo lee (los dos). Para trabajar con DeepSeek desde la PC (`scripts/claude-con-openrouter.cmd`) se usa la variable de Windows, aparte.
 - En la PC: borrar `panel\datos` y `respaldos` (tienen claves viejas) y dar de baja Tailscale si no se usa.
 - Borrar el Worker `radar-balcarce-sondeo-fuentes`, el secreto `SONDEO_TOKEN` y los tres trabajos pausados de cron-job.org; borrar el proyecto de Vercel y limpiar el DNS.
 - Ordenar las claves de Google: la facturación está en un proyecto que Radar no usa (`docs/08-INFRAESTRUCTURA.md`, «Los proyectos de Google y cómo ordenarlos»).

@@ -21,8 +21,12 @@ test('la lista tiene 11 medios de Balcarce, 10 de Tandil y Mar del Plata, 50 del
   const sumadosEl17 = ['SENASA', 'Universidad Nacional de La Plata', 'Universidad Nacional de Rosario', 'UNICEN', 'Universidad Nacional de Cuyo', 'IT Sitio', 'FayerWayer'];
   for (const m of sumadosEl17) assert.ok(mediosDe(pais).has(m), m);
   for (const m of ['CONAE', 'INTI', 'ANMAT', 'Secretaría de Innovación, Ciencia y Tecnología', 'Agencia CyTA', 'Ministerio de Capital Humano']) assert.ok(!mediosDe(pais).has(m), `${m} está apagada`);
-  assert.equal(mediosDe(pais).size, 48 + sumadosEl17.length);
-  assert.equal(mediosDe(activas).size, 69 + sumadosEl17.length);
+  // Y los 12 medios que se sumaron el 26/10 para Ciencia, Agro y Educación (Infobae · Ciencia es el mismo medio que Infobae: no suma uno).
+  const sumadosEl26 = ['DW Español', 'El Tiempo (Colombia)', 'Facultad de Ciencias Exactas y Naturales (UBA)', 'Mongabay Latam', 'Agrofy News', 'Agroverdad', 'Valor Carne', 'Ruralnet',
+    'Universidad Nacional de Mar del Plata', 'Universidad Nacional de Quilmes', 'Universidad Nacional de La Matanza', 'Universidad Nacional de Salta'];
+  for (const m of sumadosEl26) assert.ok(mediosDe(pais).has(m), m);
+  assert.equal(mediosDe(pais).size, 48 + sumadosEl17.length + sumadosEl26.length);
+  assert.equal(mediosDe(activas).size, 69 + sumadosEl17.length + sumadosEl26.length);
   // Todas las de la zona son de Tandil o de Mar del Plata.
   for (const f of zona) assert.match(f.ciudad ?? '', /Tandil|Mar del Plata/, `${f.id}: ${f.ciudad}`);
 });

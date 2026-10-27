@@ -23,7 +23,7 @@ import { raizDelProyecto } from '../redes/raiz.mjs';
 
 // Los archivos que lee y escribe, relativos a la carpeta del proyecto (el corredor de tareas de Cloudflare los baja y los guarda: infra/tareas-cloudflare/).
 export const ARCHIVOS_QUE_LEE = ['web/data/pistas.json', 'web/data/celular-llaves.json', 'web/data/portada.json', 'web/data/archivo.json', 'web/data/notas-de-pistas.json'];
-export const ARCHIVOS_QUE_ESCRIBE = ['web/data/pistas.json', 'web/data/notas-de-pistas.json'];
+export const ARCHIVOS_QUE_ESCRIBE = ['web/data/pistas.json', 'web/data/notas-de-pistas.json', 'web/data/uso-ia.json'];
 /** Dónde está pistas.json en una carpeta de proyecto. */
 export const archivoDePistas = (raiz) => path.join(raiz, 'web', 'data', 'pistas.json');
 

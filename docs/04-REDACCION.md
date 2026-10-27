@@ -203,22 +203,23 @@ de las reglas**: si pide inventar, identificar a alguien u opinar, siguen mandan
 las reglas.
 
 **Cómo se pide:** Gemini `gemini-flash-lite-latest` (el "flash" normal daba 503
-seguido), temperatura 0,6, respuesta en JSON, 60 segundos como máximo; con un 503
-se espera 4 segundos y se reintenta, hasta 3 veces. **Las claves, en orden:**
+seguido), temperatura 0,3 (`TEMPERATURA_DE_LA_REDACCION`, regla 202), respuesta en JSON, 60 segundos como máximo; con un 503
+se espera 4 segundos y se reintenta, hasta 3 veces. **Las claves, en orden** (la de voces, `GEMINI_API_KEY_REDES`, ya no escribe notas):
 
-1. `GEMINI_API_KEY_REDACCION` (acepta el nombre viejo `GEMINI_API_KEY`);
-2. `GEMINI_API_KEY_REDES`, **sólo si la primera dijo "sin cupo" (429)** o no está;
-3. `GEMINI_API_KEY_CLASIFICACION`, si la que se usó falló por el servicio (sin
-   cupo, saturado o clave rechazada o sin crédito: 401, 402, 403, 429, 5xx) y es
-   otra clave.
+1. `GEMINI_API_KEY_REDACCION` (acepta el nombre viejo `GEMINI_API_KEY`), gratis;
+2. `GEMINI_API_KEY_RESPALDO`, **paga** (US$ 10 por mes), si la primera no está o falló por el servicio (sin
+   cupo, saturada o clave rechazada o sin crédito: 401, 402, 403, 429, 5xx);
+3. `GEMINI_API_KEY_CLASIFICACION`, gratis, si las anteriores fallaron por el servicio y es otra clave;
+4. **Mistral** (`MISTRAL_API_KEY`, plan gratis), el último, si las tres de Gemini fallaron por el servicio. OpenRouter se retiró el 26/10/2026.
 
 Groq no sirve para redactar (acepta 8.000 tokens por minuto y un pedido ocupa unos
 9.000). Qué es cada clave y sus cupos: `docs/08-INFRAESTRUCTURA.md`. El registro
 dice cuántos pedidos fueron a cada una: "claves de Gemini usadas: N con la de
-redacción, M con la de redes, K con la de clasificación (respaldo)". Desde el
+redacción, M con la de respaldo (paga), K con la de clasificación (respaldo)". Desde el
 15/10 cada llamada anota además sus tokens y sus errores, por día, en
-`web/data/uso-ia.json` (`anotarUsoIA`, `redes/uso-ia.mjs`, regla 170); nunca frena
-la corrida.
+`web/data/uso-ia.json` (`anotarUsoIA`, `redes/uso-ia.mjs`, regla 170); desde el 26/10 también el motivo de cada fallo
+(cupo del día, velocidad, saturado, rechazada u otro) y todas las tareas que llaman a una IA, no sólo la redacción
+(`docs/08-INFRAESTRUCTURA.md`). Nunca frena la corrida.
 
 **Lo que tiene que devolver**, un JSON con `datos` (el borrador), `titulo`,
 `copete` (la bajada), `cuerpo`, `guion`, `claves`, `seSabe`, `noConfirmado`,

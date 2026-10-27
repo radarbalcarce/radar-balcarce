@@ -49,7 +49,7 @@ import { porQueNoEsNota } from '../../ingesta/no-es-nota.mjs';
 import { arreglarEscritura } from '../../ingesta/verificar.mjs';
 import { compararNotas, huella } from '../../ingesta/repetidas-publicadas.mjs';
 import {
-  auditarLote, auditarLoteGemini, auditarLoteMistral, auditarLoteOpenRouter, cambioMecanico, conCambiosGuardados, vecesComoPalabra, AUDITORIA, TIPOS,
+  auditarLote, auditarLoteGemini, auditarLoteMistral, cambioMecanico, conCambiosGuardados, vecesComoPalabra, AUDITORIA, TIPOS,
 } from '../../ingesta/auditoria-ia.mjs';
 import { revisarUnaFoto, anioDeLaFoto, nombraALaPersona, ANTIGUEDAD_MAXIMA_WIKIMEDIA, sinConsulta, esFotoDeCommonsEnNotaConFuentes } from '../../ingesta/fotos.mjs';
 import { cerrar, leerLlaves } from '../../panel/cifrado.mjs';
@@ -58,6 +58,7 @@ import {
   esDeLoQueNuncaSePublica, fechaEnvejecidaPorError, conCambiosDeLaAuditoria, cambiosDeLaAuditoria, idsEnRedes,
 } from '../lib/archivo.js';
 import { rutaDeNota } from '../lib/ruta.js';
+import { unirUso, archivoDeUsoPorDefecto } from '../../redes/uso-ia.mjs';
 import { POR_LA_REVISION } from '../lib/revision-archivo.js';
 import { mismoTema, esIlustracionDeNota, fotoConMenorPermitida, elegiblePorSeccion } from './fotos-notas.mjs';
 import { mismaFoto } from './achicar-foto.mjs';
@@ -511,23 +512,16 @@ export async function revisarTanda({
     let leido = null;
     const fallas = [];
     if (claves.groq) {
-      try { uso.groq += 1; leido = await auditarLote(lote, { clave: claves.groq, fetchFn }); } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
+      try { uso.groq += 1; leido = await auditarLote(lote, { clave: claves.groq, fetchFn, tarea: 'revision', ahora, archivoDeUso }); } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
     }
     if (!leido && claves.gemini && geminiQueda() > 0) {
-      try { uso.gemini += 1; leido = await auditarLoteGemini(lote, { clave: claves.gemini, fetchFn }); } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
+      try { uso.gemini += 1; leido = await auditarLoteGemini(lote, { clave: claves.gemini, fetchFn, tarea: 'revision', ahora, archivoDeUso }); } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
     }
-    // Mistral (26/10/2026, plan gratis), con su propio tope diario (reels/mistral.mjs), antes que OpenRouter. Sin su clave, nada.
+    // Mistral (26/10/2026, plan gratis), con su propio tope diario (reels/mistral.mjs): el último respaldo. Sin su clave, nada.
     if (!leido && claves.mistral) {
       try {
         uso.mistral = (uso.mistral ?? 0) + 1;
         leido = await auditarLoteMistral(lote, { clave: claves.mistral, fetchFn, tarea: 'revision', ahora, archivoDeUso });
-      } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
-    }
-    // Último respaldo (17/10/2026): los modelos gratis de OpenRouter, con su propio tope diario (reels/openrouter.mjs). Sin su clave, nada.
-    if (!leido && claves.openrouter) {
-      try {
-        uso.openrouter = (uso.openrouter ?? 0) + 1;
-        leido = await auditarLoteOpenRouter(lote, { clave: claves.openrouter, fetchFn, tarea: 'revision', ahora, archivoDeUso });
       } catch (e) { fallas.push(String(e.message ?? e).slice(0, 120)); }
     }
     for (const nota of lote) {
@@ -859,14 +853,24 @@ async function principal() {
     const avisarSalida = (hay) => { if (process.env.GITHUB_OUTPUT) { try { fs.appendFileSync(process.env.GITHUB_OUTPUT, `hay_tanda=${hay ? 1 : 0}\n`); } catch { /* no frena */ } } };
     if (no) { console.log(`Revisión del archivo: no corre (${no}).`); avisarSalida(false); return; }
     const { leerVariable } = await import('../../reels/claves.mjs');
-    const claves = { groq: leerVariable('GROQ_API_KEY'), gemini: leerVariable('GEMINI_API_KEY_CLASIFICACION'), mistral: leerVariable('MISTRAL_API_KEY'), openrouter: leerVariable('OPENROUTER_API_KEY') };
+    const claves = { groq: leerVariable('GROQ_API_KEY'), gemini: leerVariable('GEMINI_API_KEY_CLASIFICACION'), mistral: leerVariable('MISTRAL_API_KEY') };
     const llaves = leerLlaves(leerJson(RUTAS.llaves, {}));
     await traerFotosDeLaTanda({ datos: leerDatos(), estado, sitio: process.env.SITIO ?? 'https://radarbalcarce.com', log: console.log });
+    // El uso de IA de esta tanda (redes/uso-ia.mjs anota cada pedido y su motivo en uso-ia.json de este trabajo): se lleva en el adjunto, antes y después,
+    // porque el trabajo que guarda (`aplicar`) arranca de un main recién bajado y lo suma ahí (`unirUso`).
+    const destinoDeUso = archivoDeUsoPorDefecto();
+    const leerTexto = (f) => { try { return fs.readFileSync(f, 'utf8'); } catch { return null; } };
+    const usoAntes = leerTexto(destinoDeUso);
     const { tanda, graves, faltaban } = await revisarTanda({
       datos: leerDatos(), estado, ahora, claves, llaves, leerFoto: (a) => leerFotoDelSitio(a), registro: console.log,
     });
     fs.mkdirSync(salida, { recursive: true });
     fs.writeFileSync(path.join(salida, 'tanda.json'), `${JSON.stringify(tanda, null, 1)}\n`, 'utf8');
+    const usoDespues = leerTexto(destinoDeUso);
+    if (usoDespues && usoDespues !== usoAntes) {
+      fs.writeFileSync(path.join(salida, 'uso-ia-antes.json'), usoAntes ?? '{"dias":{}}\n', 'utf8');
+      fs.writeFileSync(path.join(salida, 'uso-ia-despues.json'), usoDespues, 'utf8');
+    }
     const r = tanda.resumen;
     console.log(`Revisión del archivo: tanda de ${r.notas} notas (faltaban ${faltaban}): ${r.retiradas} a retirar, ${r.repetidas} repetidas, ${r.fotosSacadas} fotos a sacar, ${r.arreglos} arreglos, ${r.paraUnaPersona} para una persona, ${r.pendientes} quedan para otra tanda. IA: ${JSON.stringify(tanda.uso)}.`);
     avisarSalida(r.notas > 0);
@@ -890,6 +894,16 @@ async function principal() {
     fs.writeFileSync(RUTAS.revision, comoRevisionJson(nuevo), 'utf8');
     if (hechos.fotosSacadas) fs.writeFileSync(RUTAS.banco, `${JSON.stringify(banco, null, 1)}\n`, 'utf8');
     if (libroCambios) fs.writeFileSync(RUTAS.cambios, comoCambiosJson(libroCambios), 'utf8');
+    // Lo que la IA gastó en la tanda (y por qué falló cuando falló) se suma al uso del día que ya hay en main.
+    try {
+      const antes = path.join(desde, 'uso-ia-antes.json');
+      const despues = path.join(desde, 'uso-ia-despues.json');
+      if (fs.existsSync(antes) && fs.existsSync(despues)) {
+        const destino = archivoDeUsoPorDefecto();
+        const actual = fs.existsSync(destino) ? fs.readFileSync(destino, 'utf8') : null;
+        fs.writeFileSync(destino, unirUso(destino, fs.readFileSync(despues, 'utf8'), actual, fs.readFileSync(antes, 'utf8')), 'utf8');
+      }
+    } catch { /* medir el uso nunca frena la revisión */ }
     const c = nuevo.contadores;
     console.log(`Aplicada: ${hechos.retiradas} retiradas, ${hechos.repetidas} unidas, ${hechos.fotosSacadas} fotos sacadas, ${hechos.arreglos} arreglos, ${hechos.paraUnaPersona} para una persona${hechos.saltadas ? `, ${hechos.saltadas} saltadas (ya no tienen página)` : ''}. En total: ${c.revisadas} de ${c.total} revisadas, faltan ${c.faltan}.`);
     return;

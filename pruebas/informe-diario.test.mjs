@@ -152,7 +152,7 @@ test('la noche: atención arriba, las cinco partes, las tres principales con enl
   // salud
   assert.match(t, /1\.131 de 3\.700 \(31 %\)/);
   assert.match(t, /IA de hoy: 10 llamadas/);
-  assert.match(t, /Costo: US\$ 0/);
+  assert.match(t, /Costo: las claves de redactar, leer y voces son gratuitas; la de respaldo de redactar es paga/);
   assert.match(t, /Cupo de voz de hoy: 2 de 10/);
   // el asunto
   assert.match(r.asunto, /^Informe de la noche, jueves 15\/10 · .* · /);

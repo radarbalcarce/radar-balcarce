@@ -45,7 +45,7 @@ test('también están las apagadas, y la lista elegida da 11 de Balcarce, 48 del
   assert.equal(p.zona, 10);
   // Los 11 medios que se sumaron el 17/10 (regla 215) no estaban en LISTA-ELEGIDA.md; la regla 260 apagó cuatro (ANMAT, CONAE, INTI y la
   // Secretaría de Innovación, Ciencia y Tecnología: casi no publican) y quedan 7 activos.
-  assert.equal(p.sumadas, 7, 'los 7 medios de ciencia, salud, educación y tecnología que se sumaron el 17/10 y siguen activos');
+  assert.equal(p.sumadas, 19, 'los 7 medios de ciencia, salud, educación y tecnología que se sumaron el 17/10 y siguen activos, más los 12 del 26/10 (Ciencia, Agro y Educación)');
   assert.equal(p.otras, 0, 'una activa quedó fuera de LISTA-ELEGIDA.md');
   // lo que queda en la pantalla principal más lo descartado de cada grupo es la lista entera
   const d = datos.medios.filter((m) => m.descartada && m.activo);

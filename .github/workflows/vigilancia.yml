@@ -95,7 +95,6 @@ jobs:
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # Si las redes están apagadas, que el vigilante lo sepa: es esperable que
           # no salga nada y no tiene que avisar pieza por pieza.
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}

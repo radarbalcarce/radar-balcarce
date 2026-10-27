@@ -483,12 +483,12 @@ diario (sección de la IA), o en el registro de "Actualizar la web" la línea
 "tope del día" o "claves de Gemini usadas: N con la de redacción, M con la de
 redes, K con la de clasificación (respaldo)".
 
-**Qué pasa solo:** (desde el 29/09 las cuatro claves de IA son gratis; el
+**Qué pasa solo:** (las claves de IA son gratis salvo el respaldo pago de la redacción, con un límite de US$ 10 por mes; el
 detalle, en `08-INFRAESTRUCTURA`, "Las claves de IA")
 
 - La redacción usa la clave de redacción (tope propio de 450 notas por día). Si
-  dice "sin cupo" (429), prueba con la de redes y, si el servicio sigue
-  fallando, con la de clasificación. Lo que no se pudo escribir queda esperando
+  dice "sin cupo" (429), prueba con la de respaldo (paga), después con la de
+  clasificación y, si el servicio sigue fallando, con Mistral. Lo que no se pudo escribir queda esperando
   cuerpo y se reintenta en las corridas siguientes (hasta tres intentos por
   nota). El cupo se renueva al día siguiente.
 - La lectura con IA, si Gemini falla, prueba con Groq.

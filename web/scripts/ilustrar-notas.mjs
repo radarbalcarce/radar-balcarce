@@ -47,6 +47,7 @@ import { REGLAS_SEMAFORO } from '../../ingesta/fuentes.mjs';
 import { nombresDePersona } from './nombres-de-persona.mjs';
 import { diaAR, horaAR } from '../../ingesta/zona.mjs';
 import { leerJson } from '../../ingesta/json.mjs';
+import { conMedicion } from '../../redes/uso-ia.mjs';
 import { idsParaIlustrar } from '../lib/revision-archivo.js';
 import { traerFotos, fotosEnR2Activas } from '../../infra/compartido/fotos-r2.mjs';
 import { fotoParaGuardar, nombreDeFotoNueva, PESO_MINIMO_DE_UNA_FOTO } from './achicar-foto.mjs';
@@ -484,20 +485,17 @@ const dormir = (ms) => new Promise((ok) => { setTimeout(ok, ms); });
  * Un pedido a Gemini con las claves gratis (`claves`, en orden; o una sola, `clave`). Con cada clave, hasta 4 intentos (503 es común),
  * probando también el modelo flash; si una clave no sirve (rechazada o sin cupo), se prueba la siguiente. Nunca muestra una clave.
  */
-async function pedirAGemini(partes, { clave, claves, claveGroq = "", claveOpenRouter = "", fetchFn = fetch, esperar = dormir, json = false }) {
-  // 23/10/2026: el control de la imagen (mirarla) va primero a un modelo con visión GRATIS de OpenRouter, que tiene su propio cupo: así Gemini y Groq
-  // quedan para escribir las notas. Si no contesta, sigue Gemini y después Groq.
-  let ultimoOpenRouter = null;
-  if (claveOpenRouter && partes.some((p) => p.inlineData)) {
-    try { return await pedirAOpenRouter(partes, { claveOpenRouter, fetchFn, json }); } catch (e) { ultimoOpenRouter = String(e?.message ?? e).slice(0, 60); }
-  }
-  const lista = [...new Set((Array.isArray(claves) ? claves : [clave]).map((k) => String(k ?? '').trim()).filter(Boolean))];
+async function pedirAGemini(partes, { clave, claves, nombres = ['clasificacion', 'redaccion'], claveGroq = "", fetchFn = fetch, esperar = dormir, json = false }) {
+  // Cada pedido queda anotado en uso-ia.json (redes/uso-ia.mjs) con la clave que lo hizo: `nombres` es el nombre de cada una, en el mismo orden que `claves`.
+  const nombreDe = new Map();
+  (Array.isArray(claves) ? claves : [clave]).forEach((k, i) => { const v = String(k ?? '').trim(); if (v && !nombreDe.has(v)) nombreDe.set(v, (Array.isArray(claves) ? nombres[i] : null) ?? 'redaccion'); });
+  const lista = [...nombreDe.keys()];
   if (!lista.length && !claveGroq) throw new Error('Gemini sin clave');
   let ultimo = 'sin respuesta';
   for (const k of lista) {
     for (const [i, modelo] of MODELOS_DE_TEXTO.entries()) {
       try {
-        const r = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
+        const r = await conMedicion(fetchFn, { tarea: 'ilustraciones', modelo, clave: nombreDe.get(k) })(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
           method: 'POST', headers: { 'x-goog-api-key': k, 'content-type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: partes }], ...(json ? { generationConfig: { responseMimeType: 'application/json', temperature: 0 } } : {}) }),
           signal: AbortSignal.timeout(60_000),
@@ -515,38 +513,14 @@ async function pedirAGemini(partes, { clave, claves, claveGroq = "", claveOpenRo
   if (claveGroq) {
     try { return await pedirAGroq(partes, { claveGroq, fetchFn, json }); } catch (e) { ultimo = `${ultimo}; Groq: ${String(e?.message ?? e).slice(0, 60)}`; }
   }
-  throw new Error(`Gemini ${ultimo}${ultimoOpenRouter ? `; OpenRouter: ${ultimoOpenRouter}` : ''}`);
-}
-
-/** Modelos GRATIS de OpenRouter con visión, en orden (nunca uno pago: terminan en :free). */
-export const MODELOS_DE_OPENROUTER_CON_VISION = ['google/gemma-4-31b-it:free', 'nvidia/nemotron-3.5-super-vl:free'];
-/** Lo mismo que pedirAGemini pero con OpenRouter (API de OpenAI): texto e imágenes (inlineData) como un solo mensaje. Prueba cada modelo gratis. */
-async function pedirAOpenRouter(partes, { claveOpenRouter, fetchFn = fetch, json = false }) {
-  const content = partes.map((p) => (p.inlineData ? { type: 'image_url', image_url: { url: `data:${p.inlineData.mimeType};base64,${p.inlineData.data}` } } : { type: 'text', text: p.text }));
-  let ultimo = 'sin respuesta';
-  for (const modelo of MODELOS_DE_OPENROUTER_CON_VISION) {
-    const res = await fetchFn('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', authorization: `Bearer ${claveOpenRouter}`, 'HTTP-Referer': 'https://radarbalcarce.com', 'X-Title': 'Radar Balcarce' },
-      body: JSON.stringify({ model: modelo, messages: [{ role: 'user', content }], temperature: 0, max_tokens: 1200, reasoning: { exclude: true }, ...(json ? { response_format: { type: 'json_object' } } : {}) }),
-      signal: AbortSignal.timeout(75_000),
-    }).catch((e) => ({ ok: false, status: 0, error: e }));
-    ultimo = `HTTP ${res.status}`;
-    if (res.ok) {
-      const j = await res.json().catch(() => null);
-      const t = String(j?.choices?.[0]?.message?.content ?? '').trim();
-      if (t) return t;
-    }
-    if ([401, 402, 403].includes(res.status)) break; // la clave no sirve: no se insiste
-  }
-  throw new Error(ultimo);
+  throw new Error(`Gemini ${ultimo}`);
 }
 
 export const MODELO_GROQ = 'qwen/qwen3.8-27b';
 /** Lo mismo que pedirAGemini pero con Groq (API de OpenAI): las partes de texto y las imágenes (inlineData) van como un solo mensaje. */
 async function pedirAGroq(partes, { claveGroq, fetchFn = fetch, json = false }) {
   const content = partes.map((p) => (p.inlineData ? { type: 'image_url', image_url: { url: `data:${p.inlineData.mimeType};base64,${p.inlineData.data}` } } : { type: 'text', text: p.text }));
-  const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
+  const res = await conMedicion(fetchFn, { tarea: 'ilustraciones', modelo: MODELO_GROQ, clave: 'groq' })('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${claveGroq}` },
     // El tope de respuesta (regla 324): sin él Groq cuenta el máximo del modelo contra su cupo por minuto y contesta 429 "Request too large".
@@ -586,7 +560,7 @@ export async function pedirPrompt(nota, opciones = {}) {
 }
 
 /** Lo que se le pregunta a Gemini al mirar la imagen terminada. Todo tiene que venir en false. */
-export const PREGUNTA_DE_CONTROL = `Sos el control de calidad de Radar Balcarce, un medio de noticias. Te muestro una imagen hecha con IA que se publicaría como ilustración de una nota, con la leyenda "Ilustración generada con IA". Tiene que ser un bodegón de objetos, sin gente.
+export const PREGUNTA_DE_CONTROL = `Sos el control de calidad de Radar Balcarce, un medio de noticias. Te muestro una imagen hecha con IA que se publicaría como ilustración de una nota, con la leyenda "Ilustración generada con IA". Tiene que parecer una foto realista de un lugar, un ambiente o un objeto propio del tema, sin gente.
 Mirala ENTERA y contestá sólo un JSON con estas claves booleanas:
   "personas": hay alguna persona, silueta, mano o parte de un cuerpo,
   "rostros": hay algún rostro, aunque sea chico, dibujado o en un cuadro,
@@ -668,7 +642,7 @@ ${filas || '<p>No hay candidatas.</p>'}
  *   automatico:         el cupo se reparte entre las corridas que faltan hoy (cupoAutomatico)
  */
 export async function revisar({
-  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', claveOpenRouter = '', token,
+  horas = HORAS_POR_DEFECTO, ids = [], ahora = new Date(), rutas = RUTAS, salida, cuenta, cuentas = [], clave, claveClasificacion, claveGroq = '', token,
   automatico = false, fetchFn = fetch, achicar, esperar = dormir, registro = console.log, conservarSiFalta = false,
 } = {}) {
   const portada = leerJson(rutas.portada, { notas: [] }).notas ?? [];
@@ -698,8 +672,8 @@ export async function revisar({
   // llamada al Worker y un lugar de las 20 del día para una imagen que nadie puede mirar. Las notas siguen sin foto (placa) y se vuelven a probar en la próxima.
   let controlSinCupo = false;
   const miraConReintento = async (bytes) => {
-    let control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar });
-    if (control.sinCupo) { await esperar(20_000); control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, claveOpenRouter, fetchFn, esperar }); }
+    let control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, fetchFn, esperar });
+    if (control.sinCupo) { await esperar(20_000); control = await mirarImagen(bytes, { claves: clavesDelControl, claveGroq, fetchFn, esperar }); }
     if (control.sinCupo) controlSinCupo = true;
     return control;
   };
@@ -727,7 +701,7 @@ export async function revisar({
       reemplaza = anterior.archivo;
       aSacar.push({ id: nota.id, titulo: nota.titulo, archivo: anterior.archivo, motivo: control.motivo, razon: control.razon ?? null });
     }
-    if (controlSinCupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el control con visión no tiene cupo ahora (Gemini, Groq y OpenRouter en 429): no se genera nada hasta que haya quién la mire; se sigue en la próxima corrida' }); continue; }
+    if (controlSinCupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el control con visión no tiene cupo ahora (Gemini y Groq en 429): no se genera nada hasta que haya quién la mire; se sigue en la próxima corrida' }); continue; }
     if (sinPermiso) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: 'el Worker rechazó la contraseña (VIGILANTE_TOKEN): no se siguió' }); continue; }
     if (llamadas >= cupo) { saltadas.push({ id: nota.id, titulo: nota.titulo, seccion: nota.seccion, motivo: `sin cupo (tope de ${TOPE_POR_CORRIDA} por corrida y ${TOPE_POR_DIA} por día${automatico ? ', repartido en el día' : ''})` }); continue; }
     const tono = tonoDeLaNota(nota);
@@ -915,7 +889,7 @@ async function principal() {
     const claveClasificacion = (process.env.GEMINI_API_KEY_CLASIFICACION ?? '').trim();
     const token = (process.env.VIGILANTE_TOKEN ?? '').trim();
     if ((!clave && !claveClasificacion) || !token) { console.error('Faltan GEMINI_API_KEY_REDACCION (o GEMINI_API_KEY_CLASIFICACION) o VIGILANTE_TOKEN.'); process.exit(1); }
-    return { clave, claveClasificacion, claveGroq: (process.env.GROQ_API_KEY ?? '').trim(), claveOpenRouter: (process.env.OPENROUTER_API_KEY ?? '').trim(), token };
+    return { clave, claveClasificacion, claveGroq: (process.env.GROQ_API_KEY ?? '').trim(), token };
   };
   const comunes = () => ({
     horas: horasPedidas(process.env.HORAS), salida: opcion('salida') || 'salida-ilustraciones', cuenta: opcion('cuenta') || 'cuenta-ilustraciones',

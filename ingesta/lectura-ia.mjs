@@ -16,9 +16,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { claveClasificacion, claveGroq, claveMistral, claveOpenRouter, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { claveClasificacion, claveGroq, claveMistral, leerVariable, MODELO_DE_TEXTO } from '../reels/claves.mjs';
 import { pedirJsonAMistral } from '../reels/mistral.mjs';
-import { pedirJsonAOpenRouter } from '../reels/openrouter.mjs';
+import { conMedicion } from '../redes/uso-ia.mjs';
 import { fichaDeFuente, FUENTES, FUENTES_NACIONALES, PALABRAS_LOCALES, PALABRAS_ZONA, nombraLocalidadDudosa } from './fuentes.mjs';
 import { conArgentino, cuantosMedios, contarMedios, hayUnChicoEnApuros, esCotizacionDelDia, esDeAca, esDeUnMedioDeAca } from './ingesta.mjs';
 import { esFutbolArgentino, futbolSoloArgentinoActivo } from './futbol-argentino.mjs';
@@ -208,7 +208,7 @@ export function fichaValida(f) {
 
 /** Un pedido a Gemini. Devuelve la lista de fichas válidas por id, o lanza. */
 export async function leerGrupo(notas, { clave, fetchFn = fetch } = {}) {
-  const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
+  const res = await conMedicion(fetchFn, { tarea: 'lectura', modelo: MODELO, clave: 'clasificacion' })(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
     method: 'POST',
     // La clave va en el encabezado, nunca en la dirección (docs/10-REGLAS-Y-PRUEBAS.md, regla 16).
     headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
@@ -290,7 +290,7 @@ export function fichaDeGroq(f) {
 export async function leerGrupoGroq(notas, { clave, fetchFn = fetch, modelo = MODELO_GROQ } = {}) {
   const instruccion = `${pedidoPara(notas)}\n\nDevolvé un objeto JSON con esta forma exacta y nada más, con una ficha por nota, `
     + `estos nombres de campo tal cual y, en los que tienen opciones, sólo uno de esos valores:\n${formaDeLaFicha()}`;
-  const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
+  const res = await conMedicion(fetchFn, { tarea: 'lectura', modelo, clave: 'groq' })('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     // La clave va en el encabezado, nunca en la dirección (docs/10-REGLAS-Y-PRUEBAS.md, regla 16).
     headers: { 'content-type': 'application/json', authorization: `Bearer ${clave}` },
@@ -312,7 +312,7 @@ export async function leerGrupoGroq(notas, { clave, fetchFn = fetch, modelo = MO
 }
 
 /**
- * Las fichas válidas que trae el texto de una respuesta tipo OpenAI (Groq, Mistral u OpenRouter): { id: ficha }. Se anota quién contestó
+ * Las fichas válidas que trae el texto de una respuesta tipo OpenAI (Groq o Mistral): { id: ficha }. Se anota quién contestó
  * (`ia`, y `modelo` si se sabe; auditoría 2.0, 04 § 4): sin esto no se sabe cuántas veces se usa el respaldo ni con qué.
  * Lanza si el texto no es JSON.
  */
@@ -332,7 +332,7 @@ function fichasDeTexto(texto, notas, marca) {
 }
 
 /**
- * Igual que leerGrupoGroq, con Mistral (26/10/2026): respaldo gratis ANTES de OpenRouter (reels/mistral.mjs), sólo si Gemini y Groq fallaron.
+ * Igual que leerGrupoGroq, con Mistral (26/10/2026): el último respaldo gratis (reels/mistral.mjs), sólo si Gemini y Groq fallaron.
  * Mismo prompt, misma forma contada en palabras y la misma validación (fichaValida): una ficha mal formada se descarta, nunca se arregla.
  * La ficha queda marcada con `ia: 'mistral'` y el `modelo` que la escribió. Lanza si falla (con `status`).
  */
@@ -343,21 +343,6 @@ export async function leerGrupoMistral(notas, { clave, fetchFn = fetch, modelo, 
     tarea: 'lectura', prompt: instruccion, clave, fetchFn, modelo, ahora, archivoDeUso, pausar, temperatura: 0, maxTokens: 6000,
   });
   return fichasDeTexto(r.texto, notas, { ia: 'mistral', modelo: r.modelo });
-}
-
-/**
- * Igual que leerGrupoGroq, con OpenRouter (17/10/2026): el ÚLTIMO respaldo, con modelos gratis (reels/openrouter.mjs), sólo si
- * Gemini y Groq fallaron. Mismo prompt, misma forma contada en palabras y la misma validación (fichaValida): una ficha mal formada
- * se descarta, nunca se arregla. La ficha queda marcada con `ia: 'openrouter'` y el `modelo` que la escribió. Lanza si falla
- * (con `status`).
- */
-export async function leerGrupoOpenRouter(notas, { clave, fetchFn = fetch, modelos, ahora, archivoDeUso } = {}) {
-  const instruccion = `${pedidoPara(notas)}\n\nDevolvé un objeto JSON con esta forma exacta y nada más, con una ficha por nota, `
-    + `estos nombres de campo tal cual y, en los que tienen opciones, sólo uno de esos valores:\n${formaDeLaFicha()}`;
-  const r = await pedirJsonAOpenRouter({
-    tarea: 'lectura', prompt: instruccion, clave, fetchFn, modelos, ahora, archivoDeUso, temperatura: 0, maxTokens: 6000,
-  });
-  return fichasDeTexto(r.texto, notas, { ia: 'openrouter', modelo: r.modelo });
 }
 
 /**
@@ -406,14 +391,14 @@ export function podarFichas(guardado = {}, { ahora = Date.now(), dias = LECTURA.
  */
 export async function leerNotasNuevas(notas, {
   guardado = {}, fetchFn = fetch, ahora = new Date(), clave = claveClasificacion(), claveRespaldo = claveGroq(), registro = () => {},
-  claveOpenRouterDeRespaldo = claveOpenRouter(), claveMistralDeRespaldo = claveMistral(),
+  claveMistralDeRespaldo = claveMistral(),
 } = {}) {
   const dia = diaAR(ahora);
   let archivo = podarFichas(guardado, { ahora: ahora.getTime() });
   if (archivo.dia !== dia) archivo = { ...archivo, dia, pedidosHoy: 0 };
   archivo.pedidosHoy ??= 0;
   const cuenta = {
-    pedidos: 0, nuevas: 0, fallas: 0, sinClave: !clave, groq: 0, mistral: 0, openrouter: 0,
+    pedidos: 0, nuevas: 0, fallas: 0, sinClave: !clave, groq: 0, mistral: 0,
   };
   if (!clave) return { archivo, cuenta };
 
@@ -445,7 +430,7 @@ export async function leerNotasNuevas(notas, {
         error = e2;
       }
     }
-    // Gemini y Groq fallaron: Mistral (26/10/2026, plan gratis), antes que OpenRouter. Sin su clave, no se llama a nadie.
+    // Gemini y Groq fallaron: Mistral (26/10/2026, plan gratis), el último respaldo. Sin su clave, no se llama a nadie.
     if (!nuevas && claveMistralDeRespaldo) {
       try {
         nuevas = await leerGrupoMistral(grupo, { clave: claveMistralDeRespaldo, fetchFn, ahora });
@@ -454,17 +439,6 @@ export async function leerNotasNuevas(notas, {
         error = null;
       } catch (e4) {
         error = e4;
-      }
-    }
-    // Gemini, Groq y Mistral fallaron: último respaldo, los modelos gratis de OpenRouter (17/10/2026). Sin su clave, no se llama a nadie.
-    if (!nuevas && claveOpenRouterDeRespaldo) {
-      try {
-        nuevas = await leerGrupoOpenRouter(grupo, { clave: claveOpenRouterDeRespaldo, fetchFn, ahora });
-        cuenta.openrouter += 1;
-        registro(`  lectura con IA: un pedido salió con OpenRouter (${Object.values(nuevas)[0]?.modelo ?? 'modelo gratis'})`);
-        error = null;
-      } catch (e3) {
-        error = e3;
       }
     }
     if (nuevas) {
@@ -675,7 +649,7 @@ export async function confirmarParejas(parejas, { clave, claveRespaldo, fetchFn 
   let falla = null;
   if (clave) {
     try {
-      const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
+      const res = await conMedicion(fetchFn, { tarea: 'repetidas', modelo: MODELO, clave: 'clasificacion' })(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }),
@@ -687,7 +661,7 @@ export async function confirmarParejas(parejas, { clave, claveRespaldo, fetchFn 
     } catch (e) { falla = e; }
   }
   if (!claveRespaldo) throw falla ?? new Error('sin clave');
-  const res = await fetchFn('https://api.groq.com/openai/v1/chat/completions', {
+  const res = await conMedicion(fetchFn, { tarea: 'repetidas', modelo: MODELO_GROQ_PAREJAS, clave: 'groq' })('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${claveRespaldo}` },
     body: JSON.stringify({ model: MODELO_GROQ_PAREJAS, messages: [{ role: 'user', content: prompt }], response_format: { type: 'json_object' }, temperature: 0 }),
@@ -736,7 +710,7 @@ export async function agruparRepetidas(notas, { clave, fetchFn = fetch } = {}) {
   const lista = notas.map((n) => ({
     id: n.id, titulo: n.titulo, bajada: String(n.resumenFuente ?? n.copete ?? '').slice(0, 200), medio: n.medio ?? n.medios?.[0] ?? '',
   }));
-  const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
+  const res = await conMedicion(fetchFn, { tarea: 'repetidas', modelo: MODELO, clave: 'clasificacion' })(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
     body: JSON.stringify({

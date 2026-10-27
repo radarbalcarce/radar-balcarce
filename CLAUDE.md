@@ -138,13 +138,15 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 - **Las redes tienen un interruptor**: la variable `REDES_ACTIVAS` en GitHub y, desde la mudanza, `REDES_ACTIVAS_NUBE` para lo que corre en Cloudflare (**manda ésta**; el 22/10 la de GitHub decía "No" y la de la nube "Sí"); apagado,
   todo simula. "Piezas" con `solo` vacío no arma nada (marcar `todas`). En GitHub las piezas
   salen de lo ya publicado (`web/data/portada.json`), con los horarios de `redes/horarios.mjs`.
-- **Cuatro claves de IA, todas gratis desde el 29/09** (`reels/claves.mjs`):
-  `GEMINI_API_KEY_REDACCION` (redactar), `GEMINI_API_KEY_REDES` (las voces; respaldo de la
-  redacción sólo con 429), `GEMINI_API_KEY_CLASIFICACION` (lectura con IA y fotos; último
-  respaldo de la redacción) y `GROQ_API_KEY` (respaldo de la lectura y las fotos; no
-  redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `MISTRAL_API_KEY`** (26/10): respaldo de texto gratis que NO es Gemini (plan «Experiment» de la API de Mistral, `mistral-small-latest`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`), **antes** de OpenRouter: redacción Gemini → respaldo pago → clasificación → Mistral → OpenRouter; lectura Gemini → Groq → Mistral → OpenRouter; auditorías Groq → Mistral → OpenRouter; sin la clave, todo como antes. **Opcional, `OPENROUTER_API_KEY`**
-  (17/10, regla 240): el último respaldo de la lectura, la redacción y las auditorías con modelos `:free`
-  (50 pedidos por día, tope propio de 45, `reels/openrouter.mjs`); sin ella no se llama a nadie. **Cupo de voz: 10 audios por
+- **Las claves de IA** (`reels/claves.mjs`): `GEMINI_API_KEY_REDACCION` (redactar, gratis), `GEMINI_API_KEY_RESPALDO`
+  (respaldo **pago** de la redacción, límite de US$ 10 por mes que pone una persona), `GEMINI_API_KEY_CLASIFICACION` (lectura con IA y fotos; tercer respaldo de la
+  redacción), `GEMINI_API_KEY_REDES` (sólo las voces: **no escribe notas ni lee con IA**) y `GROQ_API_KEY` (respaldo de la lectura, las fotos y las auditorías; no
+  redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `MISTRAL_API_KEY`** (26/10): el último respaldo de texto, gratis y el único que NO es de Google (plan «Experiment»
+  de la API de Mistral, `mistral-small-latest`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`).
+  Las cadenas: **redacción** Gemini redacción → Gemini respaldo (paga) → Gemini clasificación → Mistral; **lectura** Gemini → Groq → Mistral; **auditorías** Groq → Mistral
+  (la revisión del archivo, Groq → Gemini → Mistral); **fotos** Gemini → Groq; sin la clave de Mistral, todo como antes. **OpenRouter se retiró el 26/10** (fallaba el 97 %:
+  `docs/DECISIONES.md`). **Cada pedido a una IA queda medido** en `web/data/uso-ia.json` (`redes/uso-ia.mjs`) por día, tarea y clave, con el motivo de cada fallo
+  (`cupo-diario`, `velocidad`, `saturado`, `rechazada`, `otro`); el informe diario lo resume por clave. **Cupo de voz: 10 audios por
   día**; si se acaba, la pieza no sale (nunca con otra voz). Una clave rechazada
   (401/402/403) no gasta los intentos de una nota. Texto: `gemini-flash-lite-latest`; voz:
   `gemini-3.8-flash-tts`, dos voces propias que **vencen el 29/09/2027** (`CRITERIO-REDES.md` § 6).
@@ -254,6 +256,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 | Los colores de las placas (qué color es de qué) | `CRITERIO-REDES.md` § 8 y `COLOR_SECCION` (`reels/placa.mjs`); una prueba controla que digan lo mismo |
 | Qué vigila el vigilante o qué dice el WhatsApp | `redes/vigilar.mjs` (`evaluar`, `revisarClaves`, `VENCIMIENTOS`), `redes/avisos.mjs` |
 | Los informes diarios por mail (8:15 y 21:15: qué se publicó, qué espera, redes, visitas, salud; regla 176) | `redes/informe-diario.mjs`, `.github/workflows/informe-diario.yml`, el horario en `infra/reloj-cloudflare/` (`trabajosDelMinuto`) y el `html` de `POST /avisar` en `infra/vigilante-cloudflare/worker.mjs`; el resumen de las 22 del Worker es sólo el respaldo |
+| Cuántos pedidos hace cada IA y por qué fallan (cupo del día, velocidad, saturado, rechazada, otro) | `redes/uso-ia.mjs` (`anotarUsoIA`, `anotarFallaIA`, `conMedicion`, `motivoDeError`, `resumenPorClave`, `unirUso`), `web/data/uso-ia.json`, `lineasDeUsoPorClave` (`redes/informe-diario.mjs`); las tareas del Worker lo unen en `infra/tareas-cloudflare/tareas.mjs` (`UNIR_USO`) |
 | Qué archivos guarda "Actualizar la web" | La línea `git add` de `.github/workflows/actualizar.yml` (un archivo nuevo de `web/data/` que no esté ahí se pierde) |
 | Qué notas llevan `noindex` aunque se muestren (clima diario, repasos, dólar del día, horarios de F1 y fútbol, códigos de juegos), qué imagen y qué `dateModified` declara el marcado, y los mapas del sitio partidos por mes (`SITEMAP_PARTIDO`, prendido el 25/10) y el del archivo en R2 (índice + un mapa por mes; se anuncia en `robots.txt` con `SITEMAP_DEL_ARCHIVO`) | `web/lib/indexacion.js` (`motivoDePlantilla`, `noSeIndexa`), `imagenesDeNota` (`web/lib/datos-estructurados.js`), `fechaDeModificacion` (`web/lib/tiempo.js`) y `auditadaCuando` (`web/lib/archivo.js`), `web/lib/sitemap-sitio.js` y `web/app/sitemap-notas/`, `mapasDelArchivo` (`infra/archivo-cloudflare/worker.mjs`); el orden de prendido, `docs/auditoria-2-0/R-SEO-TECNICO-24-10.md` |
 | Qué obliga a recompilar antes de subir, y las redirecciones | `NO_CAMBIAN_EL_SITIO` (`web/scripts/recompilar.mjs`, regla 189); `planDeRedirecciones` (`web/scripts/generar-redirects.mjs`, regla 191) |

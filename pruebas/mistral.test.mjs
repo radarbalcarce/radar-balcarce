@@ -1,11 +1,12 @@
-// Regla 240 (R-IA) ampliada el 26/10/2026: Mistral, respaldo GRATIS de la IA de texto que no es Gemini, ANTES de OpenRouter (reels/mistral.mjs).
+// Regla 240 (R-IA) ampliada el 26/10/2026: Mistral, el último respaldo GRATIS de la IA de texto y el único que no es de Google (reels/mistral.mjs).
+// OpenRouter, que iba después, se retiró el mismo día (fallaba el 97 % de los pedidos): esta prueba absorbió lo que cuidaba su archivo (el JSON de la respuesta).
 // Los dueños cargaron MISTRAL_API_KEY (plan gratis «Experiment»: límites por minuto y por mes, no por día; Cerebras se descartó porque pide tarjeta).
 // Todo sin red: Mistral se simula con respuestas grabadas. Lo que se cuida:
 //   · sin MISTRAL_API_KEY no se llama a nadie y todo anda exactamente como antes;
 //   · la clave va en el encabezado, nunca en la dirección ni en el cuerpo; el pedido es el de OpenAI con JSON forzado;
 //   · 401/402/403 cortan la corrida; 429 se reintenta una o dos veces (velocidad) y después sale con status 429; 5xx sale con su status;
 //   · el tope propio por día (MISTRAL_TOPE_DIARIO, 400) se cuenta en uso-ia.json y frena sin llamar a nadie;
-//   · el orden de respaldo: Gemini → (Groq) → Mistral → OpenRouter, en la redacción, la lectura, la auditoría y la revisión del archivo;
+//   · el orden de respaldo: Gemini → (Groq) → Mistral, en la redacción (cuatro claves de Gemini y Mistral), la lectura, la auditoría y la revisión del archivo;
 //   · lo que escribe Mistral se verifica igual, queda anotado con su modelo, y una falla suya no le gasta un intento a la nota.
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,9 +15,8 @@ import os from 'node:os';
 import path from 'node:path';
 import {
   pedirJsonAMistral, modeloDeMistral, topeDiario, limiteDeLaTarea, pedidosDeHoy, reiniciarEstadoDelProceso, URL_MISTRAL,
-  MODELO_POR_DEFECTO, TOPE_DIARIO, REINTENTOS_POR_VELOCIDAD, ESPERA_ENTRE_REINTENTOS, TOPE_DE_LA_ESPERA, FALLOS_PARA_CORTAR,
+  MODELO_POR_DEFECTO, TOPE_DIARIO, REINTENTOS_POR_VELOCIDAD, ESPERA_ENTRE_REINTENTOS, TOPE_DE_LA_ESPERA, FALLOS_PARA_CORTAR, jsonDeLaRespuesta,
 } from '../reels/mistral.mjs';
-import { reiniciarEstadoDelProceso as reiniciarOpenRouter } from '../reels/openrouter.mjs';
 import { claveMistral } from '../reels/claves.mjs';
 import { reescribir, FALLA_DEL_SERVICIO } from '../reels/reescritura.mjs';
 import { leerNotasNuevas } from '../ingesta/lectura-ia.mjs';
@@ -27,7 +27,7 @@ const AHORA = new Date('2026-10-26T15:00:00Z');
 const NADA = { env: {}, archivo: path.join(os.tmpdir(), 'no-existe-.env') };
 const sinEsperar = async () => {};
 
-beforeEach(() => { reiniciarEstadoDelProceso(); reiniciarOpenRouter(); });
+beforeEach(() => { reiniciarEstadoDelProceso(); });
 
 /** Una carpeta nueva con un uso-ia.json (o sin él), para que el contador no toque el repositorio. */
 function usoDeMentira(hechos = 0, dia = '2026-10-26') {
@@ -270,13 +270,12 @@ const NOTA = {
 const SALIDA_DE_LA_NOTA = { titulo: 'Bacheo en la ruta 226', copete: 'Vialidad trabaja toda la semana.', cuerpo: 'Vialidad hace trabajos de bacheo en la ruta 226. '.repeat(20) };
 const geminiOk = { ok: true, status: 200, json: async () => ({ candidates: [{ content: { parts: [{ text: JSON.stringify(SALIDA_DE_LA_NOTA) }] } }] }), text: async () => '' };
 
-/** fetch que reparte: Gemini contesta `gemini`, Mistral `mistral` y OpenRouter `or`; guarda el orden de los llamados. */
-function mundo({ gemini, mistral = () => respuestaDe('{}'), or = () => respuestaDe('{}') }) {
-  const llamados = { gemini: 0, mistral: 0, openrouter: 0, orden: [] };
+/** fetch que reparte: Gemini contesta `gemini` y Mistral `mistral`; guarda el orden de los llamados. */
+function mundo({ gemini, mistral = () => respuestaDe('{}') }) {
+  const llamados = { gemini: 0, mistral: 0, orden: [] };
   const fn = async (url, o) => {
     const u = String(url);
     if (u.includes('mistral.ai')) { llamados.mistral += 1; llamados.orden.push('mistral'); return mistral(llamados.mistral, o); }
-    if (u.includes('openrouter.ai')) { llamados.openrouter += 1; llamados.orden.push('openrouter'); return or(llamados.openrouter, o); }
     llamados.gemini += 1;
     llamados.orden.push(`gemini:${o?.headers?.['x-goog-api-key'] ?? '?'}`);
     return typeof gemini === 'function' ? gemini(llamados.gemini) : gemini;
@@ -288,43 +287,39 @@ const DE_PRUEBA = { intentos: 1, clavePropia: 'g', claveDeRedes: null, claveDeRe
 
 test('redacción: si Gemini contesta, Mistral ni se toca (aunque haya clave)', async () => {
   const { fn, llamados } = mundo({ gemini: geminiOk });
-  const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm', claveDeOpenRouter: 'or' });
+  const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm' });
   assert.equal(r.titulo, SALIDA_DE_LA_NOTA.titulo);
   assert.equal(llamados.mistral, 0);
-  assert.equal(llamados.openrouter, 0);
   assert.equal(r.ia, undefined);
   assert.equal(r.modeloIA, undefined);
 });
 
-test('redacción: Gemini sin cupo (429), saturado (503) o con la clave rechazada (401/402/403) → Mistral escribe, anotado con ia y modelo, y OpenRouter ni se toca', async () => {
+test('redacción: Gemini sin cupo (429), saturado (503) o con la clave rechazada (401/402/403) → Mistral escribe, anotado con ia y modelo', async () => {
   for (const status of [429, 503, 401, 402, 403]) {
     reiniciarEstadoDelProceso();
     const { fn, llamados } = mundo({ gemini: falla(status), mistral: () => respuestaDe(JSON.stringify(SALIDA_DE_LA_NOTA)) });
-    const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm', claveDeOpenRouter: 'or' });
+    const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm' });
     assert.equal(r.deIA, true, `con Gemini en ${status}`);
     assert.equal(r.titulo, SALIDA_DE_LA_NOTA.titulo);
     assert.equal(r.ia, 'mistral');
     assert.equal(r.modeloIA, 'mistral-small-latest');
     assert.equal(llamados.mistral, 1);
-    assert.equal(llamados.openrouter, 0, 'Mistral va antes que OpenRouter');
   }
 });
 
-test('redacción: el orden entero — Gemini de redacción, Gemini de respaldo (paga), Gemini de clasificación, Mistral y, al final, OpenRouter', async () => {
-  const { fn, llamados } = mundo({ gemini: falla(429), mistral: () => falla(503), or: () => respuestaDe(JSON.stringify(SALIDA_DE_LA_NOTA)) });
-  const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDePago: 'pago', claveDeRespaldo: 'clasif', claveDeMistral: 'm', claveDeOpenRouter: 'or' });
-  assert.equal(r.ia, 'openrouter', 'si Mistral también falla, escribe OpenRouter');
-  assert.deepEqual(llamados.orden, ['gemini:g', 'gemini:pago', 'gemini:clasif', 'mistral', 'openrouter']);
-  assert.ok(r.modeloIA.endsWith(':free'));
+test('redacción: el orden entero — Gemini de redacción, Gemini de respaldo (paga), Gemini de clasificación y, al final, Mistral (la clave de voces no escribe notas)', async () => {
+  const { fn, llamados } = mundo({ gemini: falla(429), mistral: () => respuestaDe(JSON.stringify(SALIDA_DE_LA_NOTA)) });
+  const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDePago: 'pago', claveDeRespaldo: 'clasif', claveDeMistral: 'm' });
+  assert.equal(r.ia, 'mistral', 'si las tres de Gemini fallan, escribe Mistral');
+  assert.deepEqual(llamados.orden, ['gemini:g', 'gemini:pago', 'gemini:clasif', 'mistral']);
 });
 
 test('redacción: un pedido mal armado (400) no se manda a Mistral, y sin su clave nada cambia', async () => {
   const { fn, llamados } = mundo({ gemini: falla(400, 'mal') });
-  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm', claveDeOpenRouter: 'or' }), /HTTP 400/);
+  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm' }), /HTTP 400/);
   assert.equal(llamados.mistral, 0);
-  assert.equal(llamados.openrouter, 0);
   const sinClave = mundo({ gemini: falla(503) });
-  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: sinClave.fn, claveDeMistral: null, claveDeOpenRouter: null }), (e) => /HTTP 503/.test(e.message) && FALLA_DEL_SERVICIO.test(e.message));
+  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: sinClave.fn, claveDeMistral: null }), (e) => /HTTP 503/.test(e.message) && FALLA_DEL_SERVICIO.test(e.message));
   assert.equal(sinClave.llamados.mistral, 0, 'sin MISTRAL_API_KEY no se llama a nadie');
   // Y sin pasarle nada a mano, dentro de las pruebas la clave del entorno no cuenta (claveMistral() devuelve null).
   const porDefecto = mundo({ gemini: falla(503) });
@@ -332,27 +327,24 @@ test('redacción: un pedido mal armado (400) no se manda a Mistral, y sin su cla
   assert.equal(porDefecto.llamados.mistral, 0);
 });
 
-test('redacción: si Mistral y OpenRouter también fallan, el error es de falla del servicio (no le gasta un intento a la nota) y nombra a los dos', async () => {
-  const { fn } = mundo({ gemini: falla(429), mistral: () => falla(503), or: () => falla(503) });
-  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm', claveDeOpenRouter: 'or' }), (e) => {
+test('redacción: si Mistral también falla, el error es de falla del servicio (no le gasta un intento a la nota) y nombra a Mistral', async () => {
+  const { fn } = mundo({ gemini: falla(429), mistral: () => falla(503) });
+  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDeMistral: 'm' }), (e) => {
     assert.match(e.message, /HTTP 429/);
     assert.match(e.message, /Mistral/);
-    assert.match(e.message, /OpenRouter/);
+    assert.ok(!/OpenRouter/.test(e.message), 'OpenRouter se retiró el 26/10/2026');
     assert.ok(FALLA_DEL_SERVICIO.test(e.message));
     return true;
   });
-  // Sólo con Mistral, el error lo nombra a él.
-  const soloMistral = mundo({ gemini: falla(429), mistral: () => falla(503) });
-  await assert.rejects(() => reescribir(NOTA, { ...DE_PRUEBA, fetchFn: soloMistral.fn, claveDeMistral: 'm', claveDeOpenRouter: null }), (e) => /HTTP 429/.test(e.message) && /Mistral/.test(e.message) && !/OpenRouter/.test(e.message));
 });
 
 test('redacción: sin ninguna clave de Gemini pero con la de Mistral, escribe con Mistral; sin ninguna, el mismo error de siempre', async () => {
   const { fn, llamados } = mundo({ gemini: geminiOk, mistral: () => respuestaDe(JSON.stringify(SALIDA_DE_LA_NOTA)) });
   const sinGemini = { intentos: 1, clavePropia: null, claveDeRedes: null, claveDeRespaldo: null, ahora: AHORA };
-  const r = await reescribir(NOTA, { ...sinGemini, fetchFn: fn, claveDeMistral: 'm', claveDeOpenRouter: null });
+  const r = await reescribir(NOTA, { ...sinGemini, fetchFn: fn, claveDeMistral: 'm' });
   assert.equal(r.ia, 'mistral');
   assert.equal(llamados.gemini, 0);
-  await assert.rejects(() => reescribir(NOTA, { ...sinGemini, fetchFn: fn, claveDeMistral: null, claveDeOpenRouter: null }), /falta GEMINI_API_KEY_REDACCION/);
+  await assert.rejects(() => reescribir(NOTA, { ...sinGemini, fetchFn: fn, claveDeMistral: null }), /falta GEMINI_API_KEY_REDACCION/);
 });
 
 test('redacción de punta a punta: lo que escribe Mistral pasa por el verificador, sale con cuerpo y queda anotado con su modelo en intentos-ia.json y en el registro', async () => {
@@ -368,7 +360,7 @@ test('redacción de punta a punta: lo que escribe Mistral pasa por el verificado
     const fn = async (url) => (String(url).includes('mistral.ai') ? respuestaDe(contenido) : falla(503));
     const r = await reescribirAutomaticas([nota], {
       minimoDeMaterial: 0, intentos, registro: (t) => registros.push(t), ahora: AHORA.getTime(),
-      opciones: { fetchFn: fn, intentos: 1, clavePropia: 'g', claveDeRedes: null, claveDeRespaldo: null, claveDeMistral: 'm', claveDeOpenRouter: null },
+      opciones: { fetchFn: fn, intentos: 1, clavePropia: 'g', claveDeRedes: null, claveDeRespaldo: null, claveDeMistral: 'm' },
     });
     return { r, intentos, registros };
   };
@@ -379,7 +371,7 @@ test('redacción de punta a punta: lo que escribe Mistral pasa por el verificado
   assert.equal(bien.intentos.n1.motivo, 'con cuerpo');
   assert.equal(bien.intentos.n1.modelo, 'mistral-small-latest', 'queda anotado con qué modelo la escribió');
   assert.ok(bien.registros.some((t) => t.includes('escrita con Mistral') && t.includes('mistral-small-latest')));
-  assert.ok(bien.registros.some((t) => /con Mistral \(gratis, respaldo antes de OpenRouter\)/.test(t)), 'y el resumen de claves lo cuenta');
+  assert.ok(bien.registros.some((t) => /con Mistral \(gratis, último respaldo\)/.test(t)), 'y el resumen de claves lo cuenta');
   assert.equal(USO_DE_CLAVES.mistral, antes + 1);
   // Un dato inventado por Mistral se descarta igual que si lo inventara Gemini: la verificación no se afloja.
   const mala = await correr(inventa);
@@ -391,11 +383,10 @@ test('redacción de punta a punta: lo que escribe Mistral pasa por el verificado
 const NOTA_LECTURA = { id: 'abc', titulo: 'El Concejo aprueba el presupuesto', medio: 'El Diario Balcarce', resumenFuente: 'Sesión ordinaria.', seccion: 'Política', local: true, semaforo: 'verde' };
 const FICHA = { id: 'abc', ambito: 'balcarce', seccion: 'Política', impacto_balcarce: 'directo', razon: 'local', importancia: 'media', es_publicidad: false, es_chimento: false, por_que_interesa: 'Es de acá.' };
 
-function lecturaDelMundo({ gemini, groq, mistral, or }) {
-  const llamados = { gemini: 0, groq: 0, mistral: 0, openrouter: 0, orden: [] };
+function lecturaDelMundo({ gemini, groq, mistral }) {
+  const llamados = { gemini: 0, groq: 0, mistral: 0, orden: [] };
   const fn = async (url) => {
     const u = String(url);
-    if (u.includes('openrouter.ai')) { llamados.openrouter += 1; llamados.orden.push('openrouter'); return or(); }
     if (u.includes('mistral.ai')) { llamados.mistral += 1; llamados.orden.push('mistral'); return mistral(); }
     if (u.includes('groq.com')) { llamados.groq += 1; llamados.orden.push('groq'); return groq(); }
     llamados.gemini += 1;
@@ -406,12 +397,11 @@ function lecturaDelMundo({ gemini, groq, mistral, or }) {
 }
 const fichas = (f = FICHA) => respuestaDe(JSON.stringify({ fichas: [f] }));
 
-test('lectura: Gemini y Groq fallan → Mistral, y la ficha queda marcada con ia y modelo; OpenRouter ni se toca', async () => {
-  const { fn, llamados } = lecturaDelMundo({ gemini: () => falla(429), groq: () => falla(429), mistral: () => fichas(), or: () => respuestaDe('{}') });
+test('lectura: Gemini y Groq fallan → Mistral, y la ficha queda marcada con ia y modelo', async () => {
+  const { fn, llamados } = lecturaDelMundo({ gemini: () => falla(429), groq: () => falla(429), mistral: () => fichas() });
   const registros = [];
-  const r = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm', claveOpenRouterDeRespaldo: 'or', registro: (t) => registros.push(t) });
+  const r = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm', registro: (t) => registros.push(t) });
   assert.equal(r.cuenta.mistral, 1);
-  assert.equal(r.cuenta.openrouter, 0);
   assert.equal(r.cuenta.nuevas, 1);
   assert.equal(r.archivo.fichas.abc.ia, 'mistral');
   assert.equal(r.archivo.fichas.abc.modelo, 'mistral-small-latest');
@@ -420,37 +410,34 @@ test('lectura: Gemini y Groq fallan → Mistral, y la ficha queda marcada con ia
   assert.ok(registros.some((t) => t.includes('Mistral')));
 });
 
-test('lectura: el orden entero es Gemini → Groq → Mistral → OpenRouter', async () => {
-  const { fn, llamados } = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => falla(503), or: () => fichas() });
-  const r = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm', claveOpenRouterDeRespaldo: 'or' });
-  assert.deepEqual(llamados.orden, ['gemini', 'groq', 'mistral', 'openrouter']);
-  assert.equal(r.archivo.fichas.abc.ia, 'openrouter');
+test('lectura: el orden entero es Gemini → Groq → Mistral, y si los tres fallan el pedido falla (la lectura sigue en la próxima vuelta)', async () => {
+  const { fn, llamados } = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => falla(503) });
+  const r = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm' });
+  assert.deepEqual(llamados.orden, ['gemini', 'groq', 'mistral']);
   assert.equal(r.cuenta.mistral, 0);
-  assert.equal(r.cuenta.openrouter, 1);
+  assert.equal(r.cuenta.fallas, 1);
+  assert.equal(r.cuenta.nuevas, 0);
 });
 
-test('lectura: si Groq contesta, Mistral no se toca; sin su clave, no se llama a nadie y el pedido sigue como antes (a OpenRouter o a fallar)', async () => {
-  const bien = lecturaDelMundo({ gemini: () => falla(503), groq: () => fichas(), mistral: () => respuestaDe('{}'), or: () => respuestaDe('{}') });
-  const a = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: bien.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm', claveOpenRouterDeRespaldo: 'or' });
+test('lectura: si Groq contesta, Mistral no se toca; sin su clave, no se llama a nadie y el pedido falla como antes', async () => {
+  const bien = lecturaDelMundo({ gemini: () => falla(503), groq: () => fichas(), mistral: () => respuestaDe('{}') });
+  const a = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: bien.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm' });
   assert.equal(a.cuenta.groq, 1);
   assert.equal(a.cuenta.mistral, 0);
   assert.equal(bien.llamados.mistral, 0);
-  const sin = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => respuestaDe('{}'), or: () => fichas() });
-  const b = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: sin.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: null, claveOpenRouterDeRespaldo: 'or' });
-  assert.equal(sin.llamados.mistral, 0, 'sin MISTRAL_API_KEY no se llama a nadie');
-  assert.equal(b.cuenta.openrouter, 1);
-  const nadie = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => respuestaDe('{}'), or: () => respuestaDe('{}') });
-  const c = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: nadie.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: null, claveOpenRouterDeRespaldo: null });
+  const nadie = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => respuestaDe('{}') });
+  const c = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: nadie.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: null });
+  assert.equal(nadie.llamados.mistral, 0, 'sin MISTRAL_API_KEY no se llama a nadie');
   assert.equal(c.cuenta.fallas, 1);
   assert.equal(c.cuenta.nuevas, 0);
   // Y sin pasarle nada a mano, dentro de las pruebas la clave del entorno no cuenta.
-  const porDefecto = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => respuestaDe('{}'), or: () => respuestaDe('{}') });
+  const porDefecto = lecturaDelMundo({ gemini: () => falla(503), groq: () => falla(503), mistral: () => respuestaDe('{}') });
   await leerNotasNuevas([NOTA_LECTURA], { fetchFn: porDefecto.fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g' });
   assert.equal(porDefecto.llamados.mistral, 0);
 });
 
 test('lectura: una ficha mal formada de Mistral se descarta igual que las de Gemini (nada se arregla de más)', async () => {
-  const { fn } = lecturaDelMundo({ gemini: () => falla(429), groq: () => falla(429), mistral: () => fichas({ ...FICHA, importancia: 'altísima' }), or: () => respuestaDe('{}') });
+  const { fn } = lecturaDelMundo({ gemini: () => falla(429), groq: () => falla(429), mistral: () => fichas({ ...FICHA, importancia: 'altísima' }) });
   const r = await leerNotasNuevas([NOTA_LECTURA], { fetchFn: fn, ahora: AHORA, clave: 'k', claveRespaldo: 'g', claveMistralDeRespaldo: 'm' });
   assert.equal(r.cuenta.nuevas, 0);
   assert.deepEqual(r.archivo.fichas, {});
@@ -460,50 +447,48 @@ test('lectura: una ficha mal formada de Mistral se descarta igual que las de Gem
 
 const NOTA_AUDITADA = { id: 'n1', titulo: 'Nota de prueba', seccion: 'Balcarce', copete: 'Un copete', cuerpo: 'Un cuerpo con una palabra mal escrita: cancion.' };
 const HALLAZGOS = { notas: [{ id: 'n1', hallazgos: [{ tipo: 'ortografia', gravedad: 'baja', cita: 'cancion', detalle: 'Falta la tilde.', sugerencia: 'canción' }] }] };
-const proveedorDe = (u) => (u.includes('groq.com') ? 'groq' : u.includes('mistral.ai') ? 'mistral' : u.includes('openrouter.ai') ? 'openrouter' : 'gemini');
+const proveedorDe = (u) => (u.includes('groq.com') ? 'groq' : u.includes('mistral.ai') ? 'mistral' : 'gemini');
 
-test('auditoría: Groq falla → Mistral lee el lote; las citas que no están en la nota se descartan igual y OpenRouter ni se toca', async () => {
+test('auditoría: Groq falla → Mistral lee el lote; las citas que no están en la nota se descartan igual', async () => {
   const conCitaFalsa = { notas: [{ id: 'n1', hallazgos: [...HALLAZGOS.notas[0].hallazgos, { tipo: 'ortografia', gravedad: 'baja', cita: 'esto no está', detalle: 'x', sugerencia: 'y' }] }] };
   const orden = [];
   const fn = async (url) => {
     orden.push(proveedorDe(String(url)));
     return String(url).includes('mistral.ai') ? respuestaDe(JSON.stringify(conCitaFalsa)) : falla(429);
   };
-  const r = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: fn, dormir: sinEsperar, claveMistral: 'm', claveOpenRouter: 'or', archivoDeUso: usoDeMentira() });
+  const r = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: fn, dormir: sinEsperar, claveMistral: 'm', archivoDeUso: usoDeMentira() });
   assert.equal(r.hallazgos.length, 1);
   assert.equal(r.hallazgos[0].cita, 'cancion');
   assert.equal(r.descartados, 1);
   assert.deepEqual(r.leidas, ['n1']);
   assert.deepEqual(r.fallas, []);
   assert.deepEqual(r.mistral, ['mistral-small-latest']);
-  assert.deepEqual(r.openrouter, []);
   assert.deepEqual(orden, ['groq', 'mistral']);
 });
 
-test('auditoría: el orden es Groq → Mistral → OpenRouter; sin la clave de Mistral no se la llama, y si Groq contesta tampoco', async () => {
+test('auditoría: el orden es Groq → Mistral; sin la clave de Mistral no se la llama, y si Groq contesta tampoco', async () => {
   const orden = [];
   const fn = async (url) => {
     orden.push(proveedorDe(String(url)));
-    return String(url).includes('openrouter.ai') ? respuestaDe(JSON.stringify(HALLAZGOS)) : falla(503);
+    return String(url).includes('mistral.ai') ? respuestaDe(JSON.stringify(HALLAZGOS)) : falla(503);
   };
-  const a = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: fn, dormir: sinEsperar, claveMistral: 'm', claveOpenRouter: 'or', archivoDeUso: usoDeMentira() });
-  assert.deepEqual(orden, ['groq', 'mistral', 'openrouter']);
+  const a = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: fn, dormir: sinEsperar, claveMistral: 'm', archivoDeUso: usoDeMentira() });
+  assert.deepEqual(orden, ['groq', 'mistral']);
   assert.deepEqual(a.leidas, ['n1']);
-  assert.equal(a.openrouter.length, 1);
-  assert.deepEqual(a.mistral, []);
+  assert.equal(a.mistral.length, 1);
 
   const orden2 = [];
   const sinMistral = async (url) => { orden2.push(proveedorDe(String(url))); return falla(429); };
-  const b = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: sinMistral, dormir: sinEsperar, claveMistral: null, claveOpenRouter: null });
+  const b = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: sinMistral, dormir: sinEsperar, claveMistral: null });
   assert.deepEqual(b.leidas, []);
   assert.equal(b.fallas.length, 1);
   assert.deepEqual(orden2, ['groq']);
 
   const orden3 = [];
   const groqBien = async (url) => { orden3.push(proveedorDe(String(url))); return respuestaDe(JSON.stringify({ notas: [] })); };
-  const c = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: groqBien, dormir: sinEsperar, claveMistral: 'm', claveOpenRouter: 'or' });
+  const c = await auditarNotas([NOTA_AUDITADA], { clave: 'g', fetchFn: groqBien, dormir: sinEsperar, claveMistral: 'm' });
   assert.deepEqual(c.leidas, ['n1']);
-  assert.deepEqual(orden3, ['groq'], 'con Groq andando, ni Mistral ni OpenRouter se tocan');
+  assert.deepEqual(orden3, ['groq'], 'con Groq andando, Mistral no se toca');
 });
 
 test('auditoría: sin Groq pero con Mistral también se audita (el comando ya no sale con «Sin GROQ_API_KEY» si hay Mistral)', async () => {
@@ -537,10 +522,10 @@ test('el corredor de la auditoría (redes/auditar-notas.mjs) pasa la clave de Mi
   const r = await correrAuditoria({ portada: { notas: [nota] }, estado: {}, llaves: [], clave: 'g', claveMistral: 'm', fetchFn: fn, dormir: sinEsperar, ahora: AHORA, archivoDeUso: usoDeMentira() });
   assert.deepEqual(r.leidas, ['n1']);
   assert.deepEqual(r.mistral, ['mistral-small-latest']);
-  assert.deepEqual(r.openrouter, []);
+  assert.equal(r.openrouter, undefined, 'OpenRouter se retiró el 26/10/2026');
   assert.deepEqual(orden, ['groq', 'mistral']);
   const codigo = fs.readFileSync(new URL('../redes/auditar-notas.mjs', import.meta.url), 'utf8');
-  assert.match(codigo, /!clave && !claveMistral && !claveOpenRouter/, 'el comando sólo se rinde si no hay ninguna de las tres claves');
+  assert.match(codigo, /!clave && !claveMistral/, 'el comando sólo se rinde si no hay ninguna de las dos claves');
 });
 
 // ------------------------------------------------------------------------------------------------ la revisión del archivo
@@ -553,7 +538,7 @@ const NOTA_ARCHIVO = {
   publicadaCuando: '2026-10-01T12:05:00.000Z', como: 'automatica', publicadaPor: null, local: true, fuentesConsultadas: [], slug: 'el-concejo-aprueba',
 };
 
-test('revisión del archivo: Groq y Gemini sin cupo → Mistral (con su tope «revision») antes que OpenRouter; si Mistral falla, sigue OpenRouter; sin su clave, nada', async () => {
+test('revisión del archivo: Groq y Gemini sin cupo → Mistral (con su tope «revision»), el último respaldo; sin su clave, nada', async () => {
   const { revisarTanda } = await import('../web/scripts/revisar-archivo.mjs');
   const hallazgo = { notas: [{ id: 'n0', hallazgos: [{ tipo: 'ortografia', gravedad: 'baja', cita: 'comision', detalle: 'falta la tilde', sugerencia: 'comisión' }] }] };
   const ahora = new Date('2026-10-22T05:12:00Z');
@@ -567,18 +552,17 @@ test('revisión del archivo: Groq y Gemini sin cupo → Mistral (con su tope «r
     const r = await revisarTanda({ datos: { archivo: [NOTA_ARCHIVO], banco: {} }, ahora, claves, fetchFn, dormir: sinEsperar, archivoDeUso: usoDeMentira() });
     return { ...r, orden };
   };
-  const conMistral = await correr({ groq: 'g', gemini: 'k', mistral: 'm', openrouter: 'or' }, 'mistral');
+  const conMistral = await correr({ groq: 'g', gemini: 'k', mistral: 'm' }, 'mistral');
   assert.deepEqual(conMistral.tanda.resultados[0].tildes, [{ campo: 'cuerpo', antes: 'comision', despues: 'comisión' }]);
   assert.equal(conMistral.tanda.uso.mistral, 1);
-  assert.equal(conMistral.tanda.uso.openrouter, undefined);
-  assert.deepEqual(conMistral.orden, ['groq', 'gemini', 'mistral'], 'Mistral antes que OpenRouter');
+  assert.deepEqual(conMistral.orden, ['groq', 'gemini', 'mistral']);
 
-  reiniciarEstadoDelProceso(); reiniciarOpenRouter();
-  const cae = await correr({ groq: 'g', gemini: 'k', mistral: 'm', openrouter: 'or' }, 'openrouter');
-  assert.deepEqual(cae.orden, ['groq', 'gemini', 'mistral', 'openrouter']);
-  assert.equal(cae.tanda.uso.openrouter, 1);
+  reiniciarEstadoDelProceso();
+  const cae = await correr({ groq: 'g', gemini: 'k', mistral: 'm' }, 'nadie');
+  assert.deepEqual(cae.orden, ['groq', 'gemini', 'mistral'], 'si Mistral también falla, la nota queda pendiente para otra tanda');
+  assert.equal(cae.tanda.resultados[0].texto, 'pendiente');
 
-  reiniciarEstadoDelProceso(); reiniciarOpenRouter();
+  reiniciarEstadoDelProceso();
   const sin = await correr({ groq: 'g', gemini: 'k' }, 'nadie');
   assert.equal(sin.tanda.resultados[0].texto, 'pendiente');
   assert.equal(sin.tanda.uso.mistral, undefined);
@@ -620,4 +604,35 @@ test('la clave llega (regla 311): los workflows que usan la IA de texto la recib
   assert.match(desplegar, /secretos-para-wrangler\.mjs [^\n]*\bMISTRAL_API_KEY\b/, 'la lista de secretos del Worker de tareas');
   // La vuelta del motor corre sus pruebas sin las claves reales.
   assert.match(leerRepo('infra/motor-cloudflare/vuelta.mjs'), /'MISTRAL_API_KEY'/);
+});
+
+test('jsonDeLaRespuesta saca el JSON de la charla y arregla las barras que no son escapes (lo que cuidaba la prueba de OpenRouter)', () => {
+  assert.equal(jsonDeLaRespuesta('Acá va: {"a":1} listo'), '{"a":1}');
+  assert.equal(jsonDeLaRespuesta('```json\n{"a":1}\n```'), '{"a":1}');
+  assert.equal(jsonDeLaRespuesta('[1,2]'), '[1,2]');
+  assert.equal(JSON.parse(jsonDeLaRespuesta('{"t":"a\é"}')).t, 'a\é');
+  assert.equal(jsonDeLaRespuesta('sin nada'), null);
+  assert.equal(jsonDeLaRespuesta('{"roto":'), null);
+});
+
+test('OpenRouter se retiró el 26/10/2026 (fallaba el 97 %): no queda su módulo, ni su clave en los workflows, ni un import suyo en el código', () => {
+  assert.ok(!fs.existsSync(new URL('../reels/openrouter.mjs', import.meta.url)), 'reels/openrouter.mjs se borró');
+  assert.ok(!fs.existsSync(new URL('./openrouter.test.mjs', import.meta.url)), 'y su prueba también');
+  const carpetas = ['reels', 'ingesta', 'redes', 'panel', 'web/scripts', 'web/lib', 'infra', '.github/workflows'];
+  const vistos = [];
+  const recorrer = (dir) => {
+    for (const e of fs.readdirSync(new URL(`../${dir}`, import.meta.url), { withFileTypes: true })) {
+      if (e.name === 'node_modules') continue;
+      const ruta = `${dir}/${e.name}`;
+      if (e.isDirectory()) recorrer(ruta);
+      else if (/\.(mjs|js|yml)$/.test(e.name)) vistos.push(ruta);
+    }
+  };
+  carpetas.forEach(recorrer);
+  assert.ok(vistos.length > 50, 'recorrió el código');
+  for (const f of vistos) {
+    const t = leerRepo(f);
+    assert.ok(!/openrouter\.mjs/.test(t), `${f} importa el módulo retirado`);
+    assert.ok(!/OPENROUTER_API_KEY|openrouter\.ai/.test(t), `${f} todavía nombra la clave o la dirección de OpenRouter`);
+  }
 });

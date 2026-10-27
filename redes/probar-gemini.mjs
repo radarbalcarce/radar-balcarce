@@ -105,40 +105,17 @@ for (const [nombre, variable] of CLAVES) {
   }
 }
 
-// OpenRouter (17/10/2026): el último respaldo gratis. La clave se mira sin gastar nada (/key) y cada modelo gratis configurado se prueba
-// con UN pedido mínimo (hay 50 por día en total: son 3). También avisa si algún modelo configurado ya no existe en la lista de OpenRouter.
+// Mistral (26/10/2026): el último respaldo gratis de texto. Sólo se mira la clave con la lista de modelos (no gasta ningún pedido).
 {
-  const clave = (process.env.OPENROUTER_API_KEY ?? '').trim();
+  const clave = (process.env.MISTRAL_API_KEY ?? '').trim();
   if (!clave) {
-    decir('[openrouter] sin clave cargada (OPENROUTER_API_KEY): el respaldo no se usa');
+    decir('[mistral] sin clave cargada (MISTRAL_API_KEY): el respaldo no se usa');
   } else {
     try {
-      const { modelosDeOpenRouter, URL_OPENROUTER, URL_CLAVE_OPENROUTER, CABEZALES_DE_IDENTIFICACION } = await import('../reels/openrouter.mjs');
-      const cabezal = { authorization: `Bearer ${clave}`, ...CABEZALES_DE_IDENTIFICACION };
-      const k = await fetch(URL_CLAVE_OPENROUTER, { headers: cabezal, signal: AbortSignal.timeout(30_000) });
-      const kj = await k.json().catch(() => null);
-      const d = kj?.data ?? {};
-      decir(`[openrouter] clave: HTTP ${k.status}${k.ok ? `, gratis=${d.is_free_tier ?? '?'}, límite=${d.limit ?? 'sin límite'}, usado hoy=${d.usage_daily ?? '?'}` : ` · ${limpiar(JSON.stringify(kj), clave)}`}`);
-      const lista = await fetch('https://openrouter.ai/api/v1/models', { signal: AbortSignal.timeout(30_000) }).then((r) => r.json()).catch(() => null);
-      const existentes = new Set((lista?.data ?? []).map((m) => m.id));
-      for (const modelo of modelosDeOpenRouter()) {
-        if (existentes.size && !existentes.has(modelo)) { decir(`[openrouter] ${modelo}: YA NO EXISTE en la lista de OpenRouter: sacarlo de OPENROUTER_MODELOS o de MODELOS_POR_DEFECTO (reels/openrouter.mjs)`); continue; }
-        const r = await fetch(URL_OPENROUTER, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json', ...cabezal },
-          body: JSON.stringify({
-            model: modelo, messages: [{ role: 'user', content: 'Respondé sólo con este objeto JSON: {"ok": true}' }],
-            response_format: { type: 'json_object' }, max_tokens: 200, reasoning: { exclude: true },
-          }),
-          signal: AbortSignal.timeout(90_000),
-        });
-        const t = await r.text();
-        let contenido = '';
-        try { contenido = JSON.parse(t)?.choices?.[0]?.message?.content ?? ''; } catch { /* no era JSON */ }
-        decir(`[openrouter] ${modelo}: HTTP ${r.status} ${r.ok ? `«${String(contenido).replace(/\s+/g, ' ').trim().slice(0, 30)}»` : limpiar(t, clave)}`);
-      }
+      const r = await fetch('https://api.mistral.ai/v1/models', { headers: { authorization: `Bearer ${clave}` }, signal: AbortSignal.timeout(30_000) });
+      decir(`[mistral] clave: HTTP ${r.status}${r.ok ? '' : ` · ${limpiar(await r.text(), clave)}`}`);
     } catch (e) {
-      decir(`[openrouter] falló la prueba: ${limpiar(e?.message, clave)}`);
+      decir(`[mistral] falló la prueba: ${limpiar(e?.message, clave)}`);
     }
   }
 }

@@ -56,7 +56,6 @@ jobs:
           FOTOS_MENORES_OFICIALES: ${{ vars.FOTOS_MENORES_OFICIALES }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           MISTRAL_MODELO: ${{ vars.MISTRAL_MODELO }}
           MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}
@@ -111,7 +110,7 @@ jobs:
             git fetch -q origin main
             git reset -q --hard origin/main
             node web/scripts/revisar-archivo.mjs aplicar --desde=revision
-            for f in web/data/revision-archivo.json web/data/banco-fotos.json web/data/correcciones-auditoria.json; do [ -e "$f" ] && git add -- "$f"; done
+            for f in web/data/revision-archivo.json web/data/banco-fotos.json web/data/correcciones-auditoria.json web/data/uso-ia.json; do [ -e "$f" ] && git add -- "$f"; done
             if git diff --cached --quiet; then
               echo "Nada nuevo que guardar."
               exit 0

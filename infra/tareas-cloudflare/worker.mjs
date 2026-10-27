@@ -12,7 +12,7 @@
 //   curl -X POST https://radar-balcarce-tareas.<cuenta>.workers.dev/correr -H "x-token: $VIGILANTE_TOKEN" -d '{"tarea":"vigilancia","simular":true}'
 //
 // Secretos (con `wrangler secret put` o en el panel, nunca en el código): RADAR_GITHUB_TOKEN, VIGILANTE_TOKEN, META_TOKEN, GEMINI_API_KEY_REDACCION,
-// GEMINI_API_KEY_CLASIFICACION, GROQ_API_KEY, MISTRAL_API_KEY (respaldo de la auditoría IA, antes de OpenRouter), TAVILY_API_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_ANALYTICS_TOKEN, CLOUDFLARE_API_TOKEN,
+// GEMINI_API_KEY_CLASIFICACION, GROQ_API_KEY, MISTRAL_API_KEY (último respaldo de la auditoría IA), TAVILY_API_KEY, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_ANALYTICS_TOKEN, CLOUDFLARE_API_TOKEN,
 // WHATSAPP_TELEFONO, WHATSAPP_APIKEY. Variables: REDES_ACTIVAS, R2_ARCHIVO, WORKFLOWS_EN_LA_NUBE (la misma lista que NUBE en el reloj).
 //
 // Necesita `nodejs_compat` (el programa de cada tarea usa `node:fs`, que en un Worker es un sistema de archivos en memoria con /tmp escribible).

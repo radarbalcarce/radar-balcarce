@@ -172,7 +172,7 @@ algunas, un `LEEME.md`.
 | `alinear.mjs`, `tiempos.mjs` | Cuándo arranca cada palabra: los silencios del audio (ffmpeg) y el reparto del tiempo según las sílabas | `voz-gemini.mjs`, `alinear.mjs` | Sí |
 | `auditar-voz.mjs` | La auditoría de voz: clips de prueba, transcripción y juicio | `auditar-voz.yml` | A mano |
 | `avatar.mjs`, `portada.mjs` | Dibujan la foto de perfil de las redes y la portada de la página de Facebook (las sube una persona) | A mano | A mano |
-| `claves.mjs` | Las cuatro claves de IA (redacción, redes, clasificación, Groq), del entorno o del `.env`, y el modelo de texto | Reescritura, lectura, fotos, voz, panel, `generar-datos.mjs` | Sí |
+| `claves.mjs` | Las claves de IA (redacción, respaldo pago de la redacción, redes —sólo voces—, clasificación, Groq y Mistral), del entorno o del `.env`, y el modelo de texto | Reescritura, lectura, fotos, voz, panel, `generar-datos.mjs` | Sí |
 | `comparar-instruccion.mjs` | Compara versiones de las reglas de la IA con notas reales y el verificador de producción (gasta cupo) | A mano | A mano |
 | `crear-voces.mjs` | Crea, lista y borra las voces propias (Voice Design de Gemini 3.8) | `crear-voces.yml` | A mano |
 | `duracion.mjs` | Mide un video y recorta la historia que pasa de 58 segundos | `reel.mjs` | Sí |

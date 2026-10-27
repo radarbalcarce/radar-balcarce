@@ -15,6 +15,7 @@ import { menorPorEdad } from './menores.mjs';
 
 export { menorPorEdad };
 import { claveRedaccion, claveClasificacion, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { conMedicion } from '../redes/uso-ia.mjs';
 
 export const PISTA = {
   /** Cuánto texto se acepta. */
@@ -54,7 +55,7 @@ Devolvé sólo un objeto JSON: {"afirmacion": "la afirmación central, en una fr
 "consultas": hasta tres búsquedas cortas para un buscador de noticias, de la más específica a la más general (nombre propio + hecho; evitá los adjetivos y las frases del tuit como "que eso cale hondo").`;
 
 async function pedirJson(prompt, { clave, fetchFn = fetch, modelo = MODELO_DE_TEXTO } = {}) {
-  const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
+  const res = await conMedicion(fetchFn, { tarea: 'pistas', modelo, clave: 'redaccion' })(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
     body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }),

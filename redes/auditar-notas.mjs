@@ -11,7 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { leerVariable, claveOpenRouter as leerClaveOpenRouter, claveMistral as leerClaveMistral } from '../reels/claves.mjs';
+import { leerVariable, claveMistral as leerClaveMistral } from '../reels/claves.mjs';
 import { cerrar, leerLlaves } from '../panel/cifrado.mjs';
 import { avisar } from './avisar-por-mail.mjs';
 import { raizDelProyecto } from './raiz.mjs';
@@ -20,10 +20,11 @@ import {
 } from '../ingesta/auditoria-ia.mjs';
 
 // Los archivos que lee y escribe, relativos a la carpeta del proyecto (el corredor de tareas de Cloudflare los baja y los guarda: infra/tareas-cloudflare/).
-// `uso-ia.json` sólo se lee: de ahí sale cuántos pedidos gratis a OpenRouter gastó hoy el resto del sistema (reels/openrouter.mjs, `pedidosDeHoy`). Sin él, en un Worker el tope
-// del día de la auditoría no veía lo que ya gastaron la lectura y la redacción y podía comerse el cupo de la cuenta (regla 318). Lo que ella gaste no se guarda: no está en `escribe`.
+// `uso-ia.json`: de ahí sale cuántos pedidos a Mistral gastó hoy el resto del sistema (reels/mistral.mjs, `pedidosDeHoy`). Sin él, en un Worker el tope
+// del día de la auditoría no veía lo que ya gastaron la lectura y la redacción y podía comerse el cupo de la cuenta (regla 318). Desde el 26/10/2026 también se escribe: la
+// auditoría anota cada pedido a Groq y a Mistral con su motivo, y como el motor guarda ese mismo archivo, el corredor lo une sumando lo nuevo (infra/tareas-cloudflare/tareas.mjs, `unirUso`).
 export const ARCHIVOS_QUE_LEE = ['web/data/portada.json', 'web/data/auditoria-ia.json', 'web/data/celular-llaves.json', 'web/data/correcciones-auditoria.json', 'web/data/uso-ia.json'];
-export const ARCHIVOS_QUE_ESCRIBE = ['web/data/auditoria-ia.json', 'web/data/correcciones-auditoria.json'];
+export const ARCHIVOS_QUE_ESCRIBE = ['web/data/auditoria-ia.json', 'web/data/correcciones-auditoria.json', 'web/data/uso-ia.json'];
 
 const leerJson = (f, defecto) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return defecto; } };
 
@@ -33,12 +34,12 @@ const leerJson = (f, defecto) => { try { return JSON.parse(fs.readFileSync(f, 'u
  */
 export async function correrAuditoria({
   portada = { notas: [] }, estado = {}, llaves = [], clave, fetchFn = fetch, dormir, ahora = new Date(), corregir = true,
-  claveOpenRouter = null, claveMistral = null, archivoDeUso = null,
+  claveMistral = null, archivoDeUso = null,
 } = {}) {
   const notas = portada.notas ?? [];
   const revisadas = estado.revisadas ?? {};
   const paraLeer = notasParaAuditar(notas, { revisadas, ahora: ahora.getTime() });
-  const leido = paraLeer.length ? await auditarNotas(paraLeer, { clave, fetchFn, dormir, claveOpenRouter, claveMistral, archivoDeUso }) : { hallazgos: [], leidas: [], fallas: [], descartados: 0 };
+  const leido = paraLeer.length ? await auditarNotas(paraLeer, { clave, fetchFn, dormir, claveMistral, archivoDeUso }) : { hallazgos: [], leidas: [], fallas: [], descartados: 0 };
   const { leidas, fallas, descartados } = leido;
   // Lo mecánico se corrige solo (ETAPA 2) y sale de la lista de avisos: queda anotado aparte, en lo corregido.
   const porId = new Map(paraLeer.map((n) => [n.id, n]));
@@ -92,7 +93,6 @@ export async function correrAuditoria({
     notasLeidas: paraLeer,
     leidas,
     mistral: leido.mistral ?? [],
-    openrouter: leido.openrouter ?? [],
     fallas,
     descartados,
     sinTiempo: leido.sinTiempo ?? 0,
@@ -108,14 +108,13 @@ export async function main({ argv = process.argv.slice(2), env: entorno = proces
   const ARCHIVO_CAMBIOS = path.join(RAIZ, 'web', 'data', 'correcciones-auditoria.json');
   const simular = argv.includes('--simular');
   const clave = leerVariable('GROQ_API_KEY', { env: entorno });
-  // Groq primero; Mistral (26/10/2026, plan gratis) después y los modelos gratis de OpenRouter, sólo de último respaldo (17/10/2026). Sin ninguna, no se audita.
+  // Groq primero; Mistral (26/10/2026, plan gratis) después, sólo de último respaldo. Sin ninguna, no se audita.
   const claveMistral = leerClaveMistral({ env: entorno });
-  const claveOpenRouter = leerClaveOpenRouter({ env: entorno });
-  if (!clave && !claveMistral && !claveOpenRouter) { console.log('Sin GROQ_API_KEY (ni MISTRAL_API_KEY ni OPENROUTER_API_KEY): no se audita.'); return; }
+  if (!clave && !claveMistral) { console.log('Sin GROQ_API_KEY (ni MISTRAL_API_KEY): no se audita.'); return; }
   const portada = leerJson(path.join(RAIZ, 'web', 'data', 'portada.json'), { notas: [] });
   const estado = leerJson(ARCHIVO, {});
   const llaves = leerLlaves(leerJson(path.join(RAIZ, 'web', 'data', 'celular-llaves.json'), {}));
-  const r = await correrAuditoria({ portada, estado, llaves, clave, claveOpenRouter, claveMistral, corregir: !entorno.AUDITORIA_SIN_CORREGIR });
+  const r = await correrAuditoria({ portada, estado, llaves, clave, claveMistral, corregir: !entorno.AUDITORIA_SIN_CORREGIR });
   console.log(`Auditoría: ${r.leidas.length} notas leídas, ${r.hallazgos.length} hallazgos${r.cambios.length ? `, ${r.cambios.length} corregidos solos` : ''}${r.descartados ? ` (${r.descartados} descartados: la cita no estaba en la nota)` : ''}${r.fallas.length ? `, ${r.fallas.length} pedidos fallaron (${[...new Set(r.fallas)].join('; ')})` : ''}${r.sinTiempo ? `, ${r.sinTiempo} sin pedir por falta de tiempo (quedan para la próxima hora)` : ''}.`);
   for (const h of r.hallazgos) console.log(`  [${h.gravedad}] ${h.tipo}: ${h.detalle}`);
   for (const c of r.cambios) console.log(`  corregido (${c.campo}): "${c.antes}" → "${c.despues}"`);

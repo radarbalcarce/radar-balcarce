@@ -24,6 +24,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { marcasDelTitulo, porQueSeparar } from './cruce.mjs';
+import { conMedicion } from '../redes/uso-ia.mjs';
 
 export const HUELLAS = {
   modelo: 'gemini-embedding-001',
@@ -84,7 +85,7 @@ export function coseno(a, b) {
 /** Las huellas de varios textos, en un pedido (batchEmbedContents). La clave va en el encabezado. Lanza si falla. */
 export async function pedirHuellas(textos, { clave, fetchFn = fetch, modelo = HUELLAS.modelo, dimensiones = HUELLAS.dimensiones } = {}) {
   if (!textos.length) return [];
-  const res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:batchEmbedContents`, {
+  const res = await conMedicion(fetchFn, { tarea: 'repetidas', modelo, clave: 'clasificacion' })(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:batchEmbedContents`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
     body: JSON.stringify({

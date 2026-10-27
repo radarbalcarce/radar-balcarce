@@ -89,7 +89,7 @@ test('de a tres, con espera entre pedidos; un pedido que falla no frena a los ot
 });
 
 test('regla 318: con las IA lentas la corrida deja de empezar pedidos a los 4 minutos, y lo que no alcanzó queda sin leer para la hora siguiente (no es una falla)', async () => {
-  // Una corrida de 12 notas = 4 pedidos. Cada pedido tarda lo que tardan Groq y tres modelos gratis de OpenRouter sin contestar (90 + 3 x 75 = 315 s) y entre uno y otro se
+  // Una corrida de 12 notas = 4 pedidos. Cada pedido tarda lo que tardan Groq y Mistral sin contestar (90 + 3 intentos x 75 s = 315 s, como mucho) y entre uno y otro se
   // duermen 25 s. Sin tope eran ~17 minutos: más de los 15 que un Worker deja correr a una tarea del reloj (la corrida se cortaba sin guardar ni anotar nada).
   const notas = Array.from({ length: 12 }, (_, i) => nota(`n${i}`));
   let ahora = 0;
@@ -117,10 +117,11 @@ test('regla 318: con las IA lentas la corrida deja de empezar pedidos a los 4 mi
   assert.equal(justo.leidas.length, 3);
 });
 
-test('regla 318: la auditoría lee el uso de IA del día para que su tope de OpenRouter cuente lo que ya gastaron la lectura y la redacción, y no lo guarda', async () => {
+test('regla 318: la auditoría lee el uso de IA del día para que su tope de Mistral cuente lo que ya gastaron la lectura y la redacción, y (26/10/2026) también lo guarda, uniéndolo con lo del motor', async () => {
   const { ARCHIVOS_QUE_LEE, ARCHIVOS_QUE_ESCRIBE } = await import('../redes/auditar-notas.mjs');
   assert.ok(ARCHIVOS_QUE_LEE.includes('web/data/uso-ia.json'));
-  assert.ok(!ARCHIVOS_QUE_ESCRIBE.includes('web/data/uso-ia.json'), 'lo escribe el motor; la auditoría no puede pisarlo con una copia vieja');
+  // Anota sus pedidos (Groq y Mistral, con su motivo) y el motor guarda el mismo archivo: el corredor lo une sumando (TAREAS['auditoria-ia'].unir), nunca lo pisa con una copia vieja.
+  assert.ok(ARCHIVOS_QUE_ESCRIBE.includes('web/data/uso-ia.json'));
 });
 
 test('lo guardado: lo nuevo reemplaza lo de la misma nota, lo viejo se va, y lo grave se resume para WhatsApp', () => {

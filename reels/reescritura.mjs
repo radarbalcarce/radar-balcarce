@@ -27,8 +27,7 @@
 // son los medios que contaron lo mismo y los ANTECEDENTES, notas que el sitio
 // ya publicó sobre el tema en los últimos 30 días (antecedentesDe).
 
-import { claveRedaccion, claveRespaldo, claveOpenRouter, claveMistral, leerVariable, MODELO_DE_TEXTO } from './claves.mjs';
-import { pedirJsonAOpenRouter } from './openrouter.mjs';
+import { claveRedaccion, claveRespaldo, claveMistral, leerVariable, MODELO_DE_TEXTO } from './claves.mjs';
 import { pedirJsonAMistral } from './mistral.mjs';
 import {
   verificar, verificarExtras, resumirProblemas, depurarCuerpo, arreglarEscritura,
@@ -41,7 +40,7 @@ import { traerTexto } from '../ingesta/articulo.mjs';
 import { armarFuentesParaLaIA, titularDeFuente } from '../ingesta/fuentes-para-la-ia.mjs';
 import { MEDIOS_OFICIALES } from '../ingesta/fuentes.mjs';
 import { palabrasDeTitular } from '../redes/elegir.mjs';
-import { anotarUsoIA } from '../redes/uso-ia.mjs';
+import { anotarUsoIA, anotarFallaIA } from '../redes/uso-ia.mjs';
 import { rutaDeNota } from '../web/lib/ruta.js';
 import { sinTildes } from '../web/lib/texto.js';
 import { tieneCuerpo, palabrasDe } from '../web/lib/cuerpo.js';
@@ -385,8 +384,10 @@ export const TEMPERATURA_DE_LA_REDACCION = 0.3;
 /** Un pedido a Gemini con una clave puntual. Devuelve la respuesta cruda
  *  (fetch Response) o lanza si se agotaron los reintentos por saturación.
  *  La clave va en el encabezado `x-goog-api-key` y no en la dirección
- *  (`?key=`): una dirección queda en registros y mensajes de error. */
-async function pedir({ prompt, entrada, clave, fetchFn, intentos }) {
+ *  (`?key=`): una dirección queda en registros y mensajes de error.
+ *  `nombre` es de qué clave se trata (redaccion, respaldo, clasificacion): cada pedido que falla se anota con su motivo (cupo del día,
+ *  velocidad, saturado…) en web/data/uso-ia.json (redes/uso-ia.mjs); el que sale bien lo anota quien llama, con sus tokens. */
+async function pedir({ prompt, entrada, clave, fetchFn, intentos, nombre = null }) {
   let res;
   for (let i = 1; i <= intentos; i += 1) {
     res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
@@ -400,7 +401,11 @@ async function pedir({ prompt, entrada, clave, fetchFn, intentos }) {
         generationConfig: { responseMimeType: 'application/json', temperature: TEMPERATURA_DE_LA_REDACCION },
       }),
       signal: AbortSignal.timeout(ESPERA_MAXIMA_GEMINI),
+    }).catch((e) => {
+      anotarUsoIA({ tarea: 'redaccion', modelo: MODELO, clave: nombre, error: 'red' });
+      throw e;
     });
+    if (!res.ok) await anotarFallaIA({ tarea: 'redaccion', modelo: MODELO, clave: nombre, res });
     // 503 es "el modelo está saturado en este instante", no un error nuestro:
     // vale la pena esperar un poco y reintentar antes de resignarse.
     if (res.status !== 503 || i === intentos) break;
@@ -409,23 +414,13 @@ async function pedir({ prompt, entrada, clave, fetchFn, intentos }) {
   return res;
 }
 
-/** El error de los respaldos gratis (Mistral, OpenRouter) cuando Gemini no pudo y ninguno contestó: si se probaron los dos, un solo error que
- *  los nombra a ambos (sigue empezando con «no se pudo pedir», que es una falla del servicio); conserva el `status` del último. Null si no hubo. */
-function errorDeLosRespaldos(...errores) {
-  const hubo = errores.filter(Boolean);
-  if (hubo.length < 2) return hubo[0] ?? null;
-  const e = new Error(hubo.map((x) => x.message).join(' · '));
-  e.status = hubo.at(-1).status ?? null;
-  return e;
-}
-
 /** Cuántos caracteres del pedido de una persona llegan a la IA, como mucho. */
 export const PEDIDO_MAXIMO = 400;
 
 /** Cuántos pedidos fueron a cada clave desde que arrancó el programa: la gratis
  *  ('redaccion'), la de respaldo paga ('respaldo') o la de clasificación. El registro de Actualizar la web lo
  *  muestra, para ver de un vistazo si se está gastando. */
-export const USO_DE_CLAVES = { redaccion: 0, respaldo: 0, clasificacion: 0, mistral: 0, openrouter: 0 };
+export const USO_DE_CLAVES = { redaccion: 0, respaldo: 0, clasificacion: 0, mistral: 0 };
 
 /** Una respuesta de Gemini que vale la pena reintentar con OTRA clave: sin cupo
  *  (429), saturado (5xx) o la clave rechazada o sin crédito (401, 402, 403). */
@@ -442,8 +437,7 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
  *   1. la de redacción (gratis);
  *   2. la de RESPALDO (GEMINI_API_KEY_RESPALDO, paga, con límite de gasto), si la gratis no pudo por el servicio;
  *   3. la de clasificación (gratis, otro proyecto), por si Google desactiva las dos de arriba (pasó el 29/09);
- *   4. Mistral (gratis, otra empresa, 26/10/2026), sólo si ninguna de Gemini pudo;
- *   5. OpenRouter (gratis, otra empresa), sólo si ninguna de Gemini ni Mistral pudo.
+ *   4. Mistral (gratis, otra empresa, 26/10/2026), sólo si ninguna de Gemini pudo. Es el último: si también falla, la nota espera a la próxima vuelta.
  * La de redes (voces) ya NO escribe notas: su presupuesto es sólo para las voces. Un error del pedido (400) no prueba otra clave:
  * no tiene sentido gastar cupo en un pedido que ya está mal armado.
  *
@@ -455,24 +449,21 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
  * Groq no sirve de respaldo acá: su plan gratis acepta 8.000 tokens por minuto y un
  * pedido de redacción ocupa unos 9.000.
  *
- * Mistral (26/10/2026): si ninguna clave de Gemini pudo y existe MISTRAL_API_KEY, se prueba con Mistral (reels/mistral.mjs, plan gratis, con tope
- * propio de pedidos por día) ANTES que OpenRouter; el resultado trae `ia: 'mistral'` y `modeloIA`. Sin la clave, no cambia nada.
- *
- * ÚLTIMO de todos (17/10/2026): si ninguna clave de Gemini (ni Mistral) pudo (sin cupo, saturado, rechazada) y existe
- * OPENROUTER_API_KEY, se prueba con los modelos gratis de OpenRouter (reels/openrouter.mjs, con tope de pedidos por día).
- * Lo que escriben pasa por el mismo verificador y el mismo semáforo que lo de Gemini (los hace quien llama); el resultado
- * trae `ia: 'openrouter'` y `modeloIA` para que quede anotado con qué se escribió. Sin la clave, no cambia nada.
+ * Mistral (26/10/2026): si ninguna clave de Gemini pudo (sin cupo, saturado, rechazada) y existe MISTRAL_API_KEY, se prueba con Mistral
+ * (reels/mistral.mjs, plan gratis, con tope propio de pedidos por día). Lo que escribe pasa por el mismo verificador y el mismo semáforo que
+ * lo de Gemini (los hace quien llama); el resultado trae `ia: 'mistral'` y `modeloIA` para que quede anotado con qué se escribió. Sin la
+ * clave, no cambia nada. (OpenRouter, que iba después, se retiró el 26/10/2026.)
  */
 export async function reescribir(nota, {
   intentos = 3, fetchFn = fetch, correccion = null, pedido = null,
   clavePropia = claveRedaccion(), claveDePago = claveRespaldo(), claveDeRespaldo = leerVariable('GEMINI_API_KEY_CLASIFICACION'),
-  claveDeMistral = claveMistral(), claveDeOpenRouter = claveOpenRouter(), modelosDeOpenRouter,
+  claveDeMistral = claveMistral(),
 } = {}) {
   const primera = clavePropia;
   const segunda = claveDePago && claveDePago !== primera ? claveDePago : null;
   // La de clasificación, sólo si es otra clave distinta de las dos de arriba.
   const tercera = claveDeRespaldo && claveDeRespaldo !== primera && claveDeRespaldo !== segunda ? claveDeRespaldo : null;
-  if (!primera && !segunda && !tercera && !claveDeMistral && !claveDeOpenRouter) throw new Error('falta GEMINI_API_KEY_REDACCION');
+  if (!primera && !segunda && !tercera && !claveDeMistral) throw new Error('falta GEMINI_API_KEY_REDACCION');
 
   const prompt = instruccionPara(nota);
   let entrada = entradaDe(nota);
@@ -495,17 +486,17 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
   let res;
   let usada = 'redaccion';
   if (primera) {
-    res = await pedir({ prompt, entrada, clave: primera, fetchFn, intentos });
+    res = await pedir({ prompt, entrada, clave: primera, fetchFn, intentos, nombre: 'redaccion' });
   }
   if ((!primera || probarOtraClave(res)) && segunda) {
-    res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos });
+    res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos, nombre: 'respaldo' });
     usada = 'respaldo';
   }
   if (probarOtraClave(res) && tercera) {
-    res = await pedir({ prompt, entrada, clave: tercera, fetchFn, intentos });
+    res = await pedir({ prompt, entrada, clave: tercera, fetchFn, intentos, nombre: 'clasificacion' });
     usada = 'clasificacion';
   }
-  // Mistral (26/10/2026, plan gratis): antes que OpenRouter, sólo si Gemini no pudo por culpa del servicio y hay clave.
+  // Mistral (26/10/2026, plan gratis): el último respaldo, sólo si Gemini no pudo por culpa del servicio y hay clave.
   const geminiNoPudo = !res || (!res.ok && probarOtraClave(res));
   let deMistral = null;
   let falloMistral = null;
@@ -519,33 +510,16 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
       falloMistral = e;
     }
   }
-  // Último respaldo: los modelos gratis de OpenRouter, sólo si Gemini ni Mistral pudieron y hay clave.
-  let deOpenRouter = null;
-  let falloOpenRouter = null;
-  if (claveDeOpenRouter && !deMistral && geminiNoPudo) {
-    try {
-      deOpenRouter = await pedirJsonAOpenRouter({
-        tarea: 'redaccion', prompt: `${prompt}\n\n---\n\n${entrada}`, clave: claveDeOpenRouter, fetchFn,
-        temperatura: TEMPERATURA_DE_LA_REDACCION, maxTokens: 8000, modelos: modelosDeOpenRouter,
-      });
-    } catch (e) {
-      falloOpenRouter = e;
-    }
-  }
   let texto;
-  const deLosRespaldos = errorDeLosRespaldos(falloMistral, falloOpenRouter);
   if (deMistral) {
     USO_DE_CLAVES.mistral += 1;
     texto = deMistral.texto;
-  } else if (deOpenRouter) {
-    USO_DE_CLAVES.openrouter += 1;
-    texto = deOpenRouter.texto;
   } else {
-    if (!res) throw deLosRespaldos ?? new Error('no se pudo pedir a Gemini');
+    if (!res) throw falloMistral ?? new Error('no se pudo pedir a Gemini');
     USO_DE_CLAVES[usada] += 1;
+    // (el pedido que falló ya quedó anotado con su motivo en pedir(); acá sólo el que salió bien)
     if (!res.ok) {
-      anotarUsoIA({ tarea: 'redaccion', modelo: MODELO, clave: usada, error: res.status });
-      throw new Error(`HTTP ${res.status} (clave ${usada}): ${(await res.text()).slice(0, 200)}${deLosRespaldos ? ` · ${deLosRespaldos.message}` : ''}`);
+      throw new Error(`HTTP ${res.status} (clave ${usada}): ${(await res.text()).slice(0, 200)}${falloMistral ? ` · ${falloMistral.message}` : ''}`);
     }
     const j = await res.json();
     // Los tokens de la llamada (usageMetadata), por día: web/data/uso-ia.json (redes/uso-ia.mjs). Nunca frena la corrida.
@@ -571,7 +545,7 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
     ...extrasDeLaRespuesta(salida),
     deIA: true,
     // Quién la escribió, cuando no fue Gemini (cada nota dice con qué se escribió: intentos-ia.json y el registro).
-    ...(deMistral ? { ia: 'mistral', modeloIA: deMistral.modelo } : deOpenRouter ? { ia: 'openrouter', modeloIA: deOpenRouter.modelo } : {}),
+    ...(deMistral ? { ia: 'mistral', modeloIA: deMistral.modelo } : {}),
   };
 }
 
@@ -1369,7 +1343,7 @@ export async function reescribirAutomaticas(notas, {
   const resultado = {};
   const cuenta = {
     hechas: 0, conCuerpo: 0, fallos: 0, rechazadas: 0, sinCuerpo: 0, sinMaterial: 0, agotadas: 0,
-    oraciones: 0, frenadas: 0, partesDescartadas: 0, mistral: 0, openrouter: 0,
+    oraciones: 0, frenadas: 0, partesDescartadas: 0, mistral: 0,
   };
   let motivo = null;
   const yaPedidasHoy = pedidasHoy(intentos, ahora);
@@ -1593,12 +1567,11 @@ export async function reescribirAutomaticas(notas, {
       continue;
     }
 
-    // Con Mistral o con un modelo gratis de OpenRouter, queda anotado cuál (intentos-ia.json y el registro): lo escribió igual que Gemini, pero se sabe.
+    // Con Mistral queda anotado cuál modelo (intentos-ia.json y el registro): lo escribió igual que Gemini, pero se sabe.
     anotarIntento(nota, 'con cuerpo', r.modeloIA ? { modelo: r.modeloIA } : {}, vuelta);
     if (r.modeloIA) {
-      const conMistral = r.ia === 'mistral';
-      cuenta[conMistral ? 'mistral' : 'openrouter'] += 1;
-      registro(`  escrita con ${conMistral ? 'Mistral' : 'OpenRouter'} · nota ${nota.id} · ${r.modeloIA}`);
+      cuenta.mistral += 1;
+      registro(`  escrita con Mistral · nota ${nota.id} · ${r.modeloIA}`);
     }
     cuenta.conCuerpo += 1;
     resultado[nota.id] = {
@@ -1611,7 +1584,7 @@ export async function reescribirAutomaticas(notas, {
       + `${cuenta.sinCuerpo} sin cuerpo que sirva, ${cuenta.rechazadas} rechazadas por el título o la bajada, ${cuenta.sinMaterial} sin material, `
       + `${cuenta.oraciones} oraciones sacadas, ${cuenta.agotadas} ya agotaron los ${maximoDeIntentos} intentos, `
       + `${cuenta.partesDescartadas} partes nuevas descartadas, ${cuenta.frenadas} frenadas por el semáforo`);
-    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.respaldo} con la de respaldo (paga), ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.mistral ? `, ${USO_DE_CLAVES.mistral} con Mistral (gratis, respaldo antes de OpenRouter)` : ''}${USO_DE_CLAVES.openrouter ? `, ${USO_DE_CLAVES.openrouter} con OpenRouter (modelos gratis, último respaldo)` : ''}`);
+    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.respaldo} con la de respaldo (paga), ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.mistral ? `, ${USO_DE_CLAVES.mistral} con Mistral (gratis, último respaldo)` : ''}`);
   }
   return resultado;
 }

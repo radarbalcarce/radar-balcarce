@@ -1,16 +1,16 @@
-// Mistral: un respaldo GRATIS de la IA de texto que NO es Gemini (26/10/2026, los dueños: "Mistral gratis de respaldo antes de OpenRouter";
-// Cerebras quedó descartado porque pide tarjeta).
+// Mistral: el ÚLTIMO respaldo GRATIS de la IA de texto, y el único que no es de Google (26/10/2026, los dueños; Cerebras quedó descartado
+// porque pide tarjeta). OpenRouter, que iba después, se retiró el mismo día: fallaba el 97 % de los pedidos (docs/DECISIONES.md).
 //
 // Qué es: la API de Mistral (https://api.mistral.ai/v1/chat/completions), compatible con la de OpenAI. No se instala nada: es un fetch,
-// como Groq y OpenRouter. Sin dependencias.
+// como Groq. Sin dependencias.
 //
 // Reglas que no se negocian:
 //   · SIN COSTO. Se usa el plan gratis «Experiment» de la API de Mistral (sin tarjeta). Ese plan se corta solo al llegar al límite: no
 //     cobra. Si algún día se pasa la cuenta a un plan pago, esta clave empezaría a costar: por eso hay un tope propio por día
 //     (MISTRAL_TOPE_DIARIO) y por eso se anota cada pedido en web/data/uso-ia.json.
-//   · SOLO COMO RESPALDO, ANTES DE OpenRouter: lo llaman la lectura con IA, la redacción, la auditoría y la revisión del archivo cuando
-//     Gemini (y Groq, donde lo usan) fallaron o se agotaron. Si Mistral también falla, sigue OpenRouter (reels/openrouter.mjs).
-//     Nunca las voces ni las imágenes (acá sólo hay texto).
+//   · SOLO COMO ÚLTIMO RESPALDO: lo llaman la lectura con IA, la redacción, la auditoría y la revisión del archivo cuando Gemini (y Groq,
+//     donde lo usan) fallaron o se agotaron. Si Mistral también falla, la nota espera a la próxima vuelta. Nunca las voces ni las
+//     imágenes (acá sólo hay texto).
 //   · SIN LA CLAVE (MISTRAL_API_KEY) NO SE LLAMA A NADIE: los llamadores ni entran acá y nada cambia.
 //   · CUPO: el plan gratis tiene límites por minuto (alrededor de 1 pedido por segundo) y por mes, no por día. Por eso (a) un 429 se
 //     reintenta una o dos veces con una espera corta, que es casi siempre un exceso de velocidad, y (b) hay un tope propio de pedidos por
@@ -23,8 +23,7 @@
 // El modelo por defecto es mistral-small-latest (texto en castellano, JSON, contexto de sobra). Se cambia con MISTRAL_MODELO.
 
 import { claveMistral, variableDeMistral } from './claves.mjs';
-import { jsonDeLaRespuesta } from './openrouter.mjs';
-import { anotarUsoIA, ARCHIVO_DE_USO } from '../redes/uso-ia.mjs';
+import { anotarUsoIA, anotarFallaIA, archivoDeUsoPorDefecto } from '../redes/uso-ia.mjs';
 import { leerJson } from '../ingesta/json.mjs';
 import { diaAR } from '../ingesta/zona.mjs';
 
@@ -81,7 +80,7 @@ export function reiniciarEstadoDelProceso() {
 }
 
 /** Cuántos pedidos a Mistral se hicieron hoy (el día de Balcarce): lo anotado en uso-ia.json o lo contado en esta corrida, lo que sea mayor. */
-export function pedidosDeHoy({ ahora = new Date(), archivoDeUso = ARCHIVO_DE_USO } = {}) {
+export function pedidosDeHoy({ ahora = new Date(), archivoDeUso = archivoDeUsoPorDefecto() } = {}) {
   const dia = diaAR(ahora);
   const delDia = (archivoDeUso ? leerJson(archivoDeUso, { dias: {} }) : null)?.dias?.[dia] ?? {};
   let anotados = 0;
@@ -89,6 +88,23 @@ export function pedidosDeHoy({ ahora = new Date(), archivoDeUso = ARCHIVO_DE_USO
     for (const m of Object.values(modelos ?? {})) anotados += Number(m?.claves?.mistral) || 0;
   }
   return Math.max(anotados, proceso.dia === dia ? proceso.pedidos : 0);
+}
+
+/**
+ * Saca de lo que contestó el modelo el JSON solo: sin las vallas ```json, sin charla antes o después. Una barra invertida que no
+ * arma un escape válido se escapa (igual que reels/reescritura.mjs, repararEscapes). Devuelve el texto del JSON o null si no hay.
+ */
+export function jsonDeLaRespuesta(texto) {
+  let t = String(texto ?? '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
+  const desde = t.search(/[[{]/);
+  if (desde < 0) return null;
+  const hasta = t.lastIndexOf(t[desde] === '{' ? '}' : ']');
+  if (hasta < desde) return null;
+  t = t.slice(desde, hasta + 1);
+  for (const candidato of [t, t.replace(/\\(?!["\\/bfnrt]|u[0-9a-fA-F]{4})/g, '\\\\')]) {
+    try { JSON.parse(candidato); return candidato; } catch { /* probar la otra forma */ }
+  }
+  return null;
 }
 
 /** Un error con el estado HTTP, para que quien llama decida (y para que las fallas del servicio no gasten intentos de una nota). */
@@ -146,8 +162,8 @@ export async function pedirJsonAMistral({
   const motivos = [];
   let ultimoStatus = null;
   for (let intento = 0; intento <= REINTENTOS_POR_VELOCIDAD; intento++) {
-    // En las pruebas, sin un archivo propio, no se lee el uso real del día (el mismo cuidado que en reels/openrouter.mjs).
-    const hechos = pedidosDeHoy({ ahora, archivoDeUso: archivoDeUso ?? process.env.USO_IA_ARCHIVO ?? (process.env.NODE_TEST_CONTEXT ? null : ARCHIVO_DE_USO) });
+    // En las pruebas, sin un archivo propio, no se lee el uso real del día (el 25/10 tres pruebas fallaban porque producción llegó a su tope).
+    const hechos = pedidosDeHoy({ ahora, archivoDeUso: archivoDeUso ?? (process.env.NODE_TEST_CONTEXT && !process.env.USO_IA_ARCHIVO ? null : archivoDeUsoPorDefecto()) });
     if (hechos >= limite) {
       rechazar(`HTTP 429: tope propio del día para ${tarea}, ${hechos} de ${limite} pedidos${motivos.length ? `; antes: ${motivos.join('; ')}` : ''}`, 429);
     }
@@ -174,7 +190,7 @@ export async function pedirJsonAMistral({
     }
     ultimoStatus = res.status;
     if (!res.ok) {
-      anotar({ error: res.status });
+      await anotarFallaIA({ tarea, modelo, clave: 'mistral', ahora, archivo: archivoDeUso, res });
       motivos.push(`HTTP ${res.status}`);
       // La clave no sirve (401, 403) o la cuenta tiene un problema de plan (402): no tiene sentido seguir.
       if ([401, 402, 403].includes(res.status)) {

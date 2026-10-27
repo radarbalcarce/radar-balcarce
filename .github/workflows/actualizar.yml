@@ -105,8 +105,9 @@ jobs:
       # Las claves de Gemini son para la reescritura automática de las notas
       # que van a salir sin que nadie las mire (ver reels/reescritura.mjs):
       # primero intenta con la de redacción, y si no está o se quedó sin
-      # cupo, sigue con la de redes. Si ninguna de las dos anda, la nota sale
-      # igual con el resumen mecánico de la fuente — esto nunca frena nada.
+      # cupo, sigue con la de respaldo (paga), la de clasificación y Mistral.
+      # Si ninguna anda, la nota sale igual con el resumen mecánico de la
+      # fuente — esto nunca frena nada.
       # La memoria del cruce de medios (ingesta/cruce.mjs): lo que publicaron
       # todos los medios en las últimas 36 horas, para contar cuántos cuentan
       # cada hecho. No va al repositorio: la guarda la caché de Actions entre
@@ -136,7 +137,6 @@ jobs:
           # workflow nunca llegaba a `process.env` y el respaldo no se probaba
           # nunca de verdad (encontrado el 28/09 al armar la prueba del banco de fotos).
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           MISTRAL_MODELO: ${{ vars.MISTRAL_MODELO }}
           MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}

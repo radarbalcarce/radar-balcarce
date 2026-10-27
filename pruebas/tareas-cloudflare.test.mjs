@@ -225,9 +225,12 @@ test('regla 318: cada corrida anota cuándo ARRANCÓ en otra clave de KV (no pis
   assert.equal(estado.tareas.pistas, null, 'una tarea sin rastro sigue en null');
 });
 
-test('regla 318: la auditoría IA declara que lee el uso de IA del día (el tope de OpenRouter) y no lo escribe', () => {
+test('regla 318: la auditoría IA declara que lee el uso de IA del día (el tope de Mistral) y, desde el 26/10, también lo guarda, uniendo con lo que el motor sumó (nunca pisándolo)', () => {
   assert.ok(TAREAS['auditoria-ia'].lee.includes('web/data/uso-ia.json'));
-  assert.ok(!TAREAS['auditoria-ia'].escribe.includes('web/data/uso-ia.json'));
+  for (const t of ['auditoria-ia', 'pistas', 'ilustrar-notas']) {
+    assert.ok(TAREAS[t].escribe.includes('web/data/uso-ia.json'), `${t} anota sus pedidos de IA en uso-ia.json`);
+    assert.equal(typeof TAREAS[t].unir?.['web/data/uso-ia.json'], 'function', `${t} lo une con lo del motor, no lo pisa`);
+  }
 });
 
 // ------------------------------------------------------------------ el Worker
@@ -398,7 +401,7 @@ for (const [nombre, casos] of Object.entries({
 test('«ilustrar-notas» y «redes» declaran lo que tocan: el libro y la portada, las ilustraciones y sus fotos', () => {
   assert.deepEqual(TAREAS.redes.escribe, ['web/data/redes.json']);
   assert.ok(TAREAS.redes.lee.includes('web/data/portada.json') && TAREAS.redes.lee.includes('web/data/redes.json'));
-  assert.deepEqual(TAREAS['ilustrar-notas'].escribe, ['web/data/fotos-ia.json']);
+  assert.deepEqual(TAREAS['ilustrar-notas'].escribe, ['web/data/fotos-ia.json', 'web/data/uso-ia.json']);
   assert.deepEqual(TAREAS['ilustrar-notas'].carpetas, ['web/public/fotos-notas/']);
   assert.equal(TAREAS.redes.grupo, 'redes');
 });
