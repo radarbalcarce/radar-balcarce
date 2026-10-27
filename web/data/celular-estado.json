@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T15:43:51.769Z",
- "portada": 132,
+ "generado": "2026-10-27T16:20:22.224Z",
+ "portada": 156,
  "archivo": 500,
  "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-27T15:43:52.061Z",
+  "generado": "2026-10-27T16:20:23.540Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,8 +43,8 @@
     "que": "Tu evento o emprendimiento",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-27T15:36:36.710Z"
    },
    {
     "nombre": "noticia2",
@@ -93,9 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 52,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
     "notas": [
      {
       "id": "sacn4r",
@@ -113,20 +123,20 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1d404ja",
-      "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
+      "id": "1969ryn",
+      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
       "seccion": "Economía"
      }
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 53,
     "notas": [
      {
       "id": "4782gq",
@@ -139,45 +149,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1969ryn",
-      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
-      "seccion": "Economía"
-     },
-     {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones para mantener los subsidios de gas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1mtkc68",
-      "titulo": "Paula Boccia compite en el Campeonato Nacional de Veteranas de Tenis",
-      "seccion": "Deportes"
+      "id": "mmyfrg",
+      "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
+      "seccion": "Argentina"
      },
      {
       "id": "1vmwhuk",
       "titulo": "El empleo privado registra catorce meses consecutivos de caída",
       "seccion": "Economía"
-     },
-     {
-      "id": "mmyfrg",
-      "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -209,8 +188,14 @@
      "marcada": false
     },
     {
-     "id": "mmyfrg",
-     "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
+     "id": "1finiqu",
+     "titulo": "Moria Casán despide a su histórico chofer Fernando Shedden",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1244xgg",
+     "titulo": "Cortan la Autopista Buenos Aires-La Plata por una protesta municipal",
      "seccion": "Argentina",
      "marcada": false
     },
@@ -221,9 +206,21 @@
      "marcada": false
     },
     {
+     "id": "mmyfrg",
+     "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
      "id": "el0m7z",
      "titulo": "Riquelme apunta contra Macri y Verón y defiende a los árbitros",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1f9mfdv",
+     "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
