@@ -340,6 +340,13 @@
    "Gemini: la respuesta no trae un JSON reconocible"
   ]
  },
+ "13mza1j": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
+ },
  "13qbnwb": {
   "intentos": 1,
   "ultimo": "2026-10-25T15:31:35.019Z",
@@ -1301,11 +1308,6 @@
    "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuent"
   ]
  },
- "1c9sm1f": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
- },
  "1cg4h7t": {
   "intentos": 1,
   "ultimo": "2026-10-27T10:01:47.185Z",
@@ -1457,11 +1459,6 @@
  "1dia4on": {
   "intentos": 1,
   "ultimo": "2026-10-24T03:31:17.479Z",
-  "motivo": "con cuerpo"
- },
- "1dipiao": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
   "motivo": "con cuerpo"
  },
  "1djsolj": {
@@ -2588,11 +2585,6 @@
   "ultimo": "2026-10-21T15:31:39.554Z",
   "motivo": "con cuerpo"
  },
- "1ndxkov": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
- },
  "1ngxm48": {
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
@@ -2871,11 +2863,6 @@
   "ultimo": "2026-10-22T16:32:56.090Z",
   "motivo": "con cuerpo"
  },
- "1pegz6k": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
- },
  "1pgsfk1": {
   "intentos": 3,
   "ultimo": "2026-10-23T00:31:44.453Z",
@@ -3145,17 +3132,15 @@
   "motivo": "con cuerpo"
  },
  "1s88cvg": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T18:32:37.257Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"espert\" y el cuerpo no los explica; sin esas oraciones quedan 299 palabras",
-  "textos": 3,
-  "numeradas": 4,
+  "intentos": 2,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 5,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"espert\" y el"
-  ],
-  "falla": [
-   "el título nombra a \"luis\", \"espert\" y el cuerpo no los explica"
+   "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"espert\" y el",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
  "1s8934q": {
@@ -3890,6 +3875,16 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1yzm10q": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 97 caracteres, el"
+  ]
+ },
  "1zgmo8": {
   "intentos": 1,
   "ultimo": "2026-10-24T22:02:18.222Z",
@@ -4435,16 +4430,6 @@
   "motivo": "verificación baja: espera a una persona",
   "baja": true,
   "fuentes": 1
- },
- "87sfj5": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
- },
- "87yjas": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
  },
  "8eeslz": {
   "intentos": 2,
@@ -5062,6 +5047,13 @@
   "ultimo": "2026-10-21T18:31:25.970Z",
   "motivo": "con cuerpo"
  },
+ "e6hb9u": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "e8g0n0": {
   "intentos": 1,
   "ultimo": "2026-10-26T13:33:23.573Z",
@@ -5317,11 +5309,6 @@
  "goa2wp": {
   "intentos": 1,
   "ultimo": "2026-10-21T20:31:13.358Z",
-  "motivo": "con cuerpo"
- },
- "gr781c": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
   "motivo": "con cuerpo"
  },
  "gtwrrj": {
@@ -5984,20 +5971,16 @@
   "numeradas": 4
  },
  "m9x3m1": {
-  "intentos": 3,
-  "ultimo": "2026-10-27T18:32:37.257Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-  "textos": 6,
-  "numeradas": 8,
+  "intentos": 4,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 10,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 15 palabras seguidas del original (\"por lo que afrontaran las ultimas cinco fechas del ano con el paquete tecnico…\"): decilo con otras"
   ]
  },
  "mbax9x": {
@@ -6315,6 +6298,20 @@
    "el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica"
   ]
  },
+ "olxzkr": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"balon\", \"oro\" y el cuerpo no los explica; sin esas oraciones quedan 280 palabras",
+  "textos": 4,
+  "numeradas": 87,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"balon\", \"oro\" y el c"
+  ],
+  "falla": [
+   "el título nombra a \"balon\", \"oro\" y el cuerpo no los explica"
+  ]
+ },
  "osvbhw": {
   "intentos": 1,
   "ultimo": "2026-10-22T00:31:11.553Z",
@@ -6527,6 +6524,13 @@
   "textos": 8,
   "numeradas": 9
  },
+ "qb6ymx": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 8
+ },
  "qcmigp": {
   "intentos": 1,
   "ultimo": "2026-10-22T23:32:08.233Z",
@@ -6550,13 +6554,14 @@
   ]
  },
  "qey1ob": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T18:32:37.257Z",
-  "motivo": "semáforo: necesita ojo humano: \"víctima\", en lo que escribió la IA (título, bajada o texto para redes)",
-  "textos": 7,
+  "intentos": 2,
+  "ultimo": "2026-10-27T19:02:02.893Z",
+  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 4,
   "numeradas": 11,
   "motivos": [
-   "semáforo: necesita ojo humano: \"víctima\", en lo que escribió la IA (tí"
+   "semáforo: necesita ojo humano: \"víctima\", en lo que escribió la IA (tí",
+   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
   ]
  },
  "qgon5k": {
@@ -6849,11 +6854,6 @@
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
   ]
- },
- "sl6jjd": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T19:02:09.668Z",
-  "motivo": "con cuerpo"
  },
  "snq9oy": {
   "intentos": 1,

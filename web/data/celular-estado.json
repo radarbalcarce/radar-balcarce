@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T18:35:35.171Z",
- "portada": 150,
+ "generado": "2026-10-27T19:04:25.573Z",
+ "portada": 163,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-27T18:35:35.889Z",
+  "generado": "2026-10-27T19:04:25.858Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-27T18:37:20.409Z"
    },
    {
     "nombre": "farmacia",
@@ -104,8 +104,8 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "salio": "2026-10-27T18:37:20.409Z",
+    "segundos": null,
     "notas": [
      {
       "id": "15q3x7r",
@@ -113,19 +113,19 @@
       "seccion": "Deportes"
      },
      {
+      "id": "1k22m6a",
+      "titulo": "Corte de energía eléctrica en sectores rurales",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "1xcj3y4",
       "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
       "seccion": "Salud"
      },
      {
-      "id": "1969ryn",
-      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
-      "seccion": "Economía"
-     },
-     {
-      "id": "4dmjv2",
-      "titulo": "El partido de Flávio Bolsonaro reconoce el triunfo de Lula en Brasil",
-      "seccion": "Argentina"
+      "id": "pr74vq",
+      "titulo": "Agrarias vence a Racing y lidera la Zona C",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
       "id": "1spznqi",
@@ -144,19 +144,19 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1vmwhuk",
-      "titulo": "El empleo privado registra catorce meses consecutivos de caída",
-      "seccion": "Economía"
+      "id": "4782gq",
+      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
+      "seccion": "Balcarce"
      },
      {
-      "id": "11yhki4",
-      "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
+      "id": "e6hb9u",
+      "titulo": "Confirman la responsabilidad penal de un camionero por una muerte en la ruta 55",
       "seccion": "Fútbol"
      },
      {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
      }
     ]
    }
@@ -177,6 +177,11 @@
      "id": "sacn4r",
      "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
      "cuando": "2026-10-27T16:36:07.124Z"
+    },
+    {
+     "id": "15q3x7r",
+     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+     "cuando": "2026-10-27T18:36:09.091Z"
     }
    ],
    "cola": [
@@ -187,9 +192,9 @@
      "marcada": false
     },
     {
-     "id": "15q3x7r",
-     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
-     "seccion": "Deportes",
+     "id": "m9x3m1",
+     "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -199,21 +204,15 @@
      "marcada": false
     },
     {
+     "id": "1k22m6a",
+     "titulo": "Corte de energía eléctrica en sectores rurales",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "10l9k07",
      "titulo": "Boca y River estrenan la nueva pelota Argentum Gambeta Derbi",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1099rtb",
-     "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1s0kbrg",
-     "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
-     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -223,14 +222,20 @@
      "marcada": false
     },
     {
-     "id": "1goe3gw",
-     "titulo": "Los bonos argentinos rebotan y el riesgo país se ubica en 750 puntos",
+     "id": "1099rtb",
+     "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1hvxmxn",
+     "titulo": "Bunge cierra su planta de fertilizantes en la localidad de Campana",
      "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-27T18:06:07.124Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-27T20:06:09.091Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

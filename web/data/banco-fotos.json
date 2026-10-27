@@ -26356,9 +26356,7 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1yfpfnm": {
-  "archivo": "fotos-notas/1yfpfnm.jpg",
   "medio": "La Capital (Rosario)",
-  "credito": "Foto: La Capital (Rosario)",
   "licencia": null,
   "origen": "medio",
   "titulo": "WhatsApp prepara una nueva función para filtrar llamadas de desconocidos",
@@ -26378,7 +26376,8 @@
    "descripcion": "Persona sosteniendo un teléfono celular que muestra una llamada entrante de WhatsApp"
   },
   "huella": "99d05058d8504078",
-  "ausenteDesde": "2026-10-20T18:36:51.432Z"
+  "intentado": true,
+  "borrada": true
  },
  "1x0qmw": {
   "archivo": "fotos-notas/1x0qmw.jpg",
@@ -37955,7 +37954,8 @@
    "corresponde": "si",
    "descripcion": "Fernando Gray hablando frente a un público en una sala"
   },
-  "huella": "20280028eaea5431"
+  "huella": "20280028eaea5431",
+  "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "xljti9": {
   "archivo": "fotos-notas/xljti9.jpg",
@@ -39468,7 +39468,8 @@
    "corresponde": "si",
    "descripcion": "Línea de producción de vehículos en planta industrial con operarios trabajando"
   },
-  "huella": "a6aa494dcd6a93c5"
+  "huella": "a6aa494dcd6a93c5",
+  "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "mqh2g3": {
   "archivo": "fotos-notas/mqh2g3.jpg",
@@ -39718,7 +39719,8 @@
    "corresponde": "si",
    "descripcion": "Camioneta tapada por la crecida de agua marrón junto a una máquina excavadora."
   },
-  "huella": "9ca9b95c1b793221"
+  "huella": "9ca9b95c1b793221",
+  "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "b19s77": {
   "archivo": "fotos-notas/b19s77.jpg",
@@ -39803,7 +39805,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "9e8e8e8e8ebeae8e"
+  "huella": "9e8e8e8e8ebeae8e",
+  "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "z7awtc": {
   "intentado": true,
@@ -44378,7 +44381,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea panorámica de las Cataratas del Iguazú con caudal elevado y abundante espuma"
   },
-  "huella": "04f0bebd99070313"
+  "huella": "04f0bebd99070313",
+  "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "7jxr5b": {
   "archivo": "fotos-notas/7jxr5b.jpg",
@@ -47065,6 +47069,53 @@
   "cuando": "2026-10-27T18:35:09.930Z",
   "intentos": 1,
   "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "e6hb9u": {
+  "archivo": "fotos-notas/e6hb9u.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Confirman la responsabilidad penal de un camionero por una muerte en la ruta 55",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45184-caso-ziella-la-camara-confirmo-la-responsabilidad-penal-del-camionero-y-ya-no-quedan-instancias-de-apelacion/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66158.png",
+  "razon": "Es la única imagen completa y nítida que muestra la escena del accidente con el vehículo siniestrado y los equipos de emergencia, sin marcas de agua ni menores identificables.",
+  "cuando": "2026-10-27T19:03:26.127Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del lugar del accidente con una camioneta volcada, una ambulancia y personal de bomberos trabajando en el campo."
+  },
+  "huella": "43c7cc344ace0d44"
+ },
+ "1yzm10q": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Arenaza dice que en marzo se define una posible candidatura de Bullrich",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T19:03:26.127Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "m9x3m1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T19:03:26.127Z",
+  "intentos": 1,
+  "fuentes": 10,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
