@@ -35591,7 +35591,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "766de6efefededa6"
+  "huella": "766de6efefededa6",
+  "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "1w90w0b": {
   "archivo": "fotos-notas/1w90w0b.jpg",
@@ -35721,7 +35722,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "6060c2caf2d23fef"
+  "huella": "6060c2caf2d23fef",
+  "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "149ahyx": {
   "archivo": "fotos-notas/149ahyx.jpg",
@@ -36786,7 +36788,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Platense festejando un gol"
   },
-  "huella": "64a6acb339312955"
+  "huella": "64a6acb339312955",
+  "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "p8mrcf": {
   "intentado": true,
@@ -36969,7 +36972,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del director técnico Diego Dabove serio"
   },
-  "huella": "9187078386a6e4a4"
+  "huella": "9187078386a6e4a4",
+  "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "1dia4on": {
   "intentado": true,
@@ -42204,7 +42208,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo y besando el Balón de Oro."
   },
-  "huella": "ce8a8a8909494b2f"
+  "huella": "ce8a8a8909494b2f",
+  "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "lpxwwu": {
   "archivo": "fotos-notas/lpxwwu.jpg",
@@ -43516,6 +43521,53 @@
   "titulo": "Atlético Mineiro pierde ante Flamengo antes de la final con Boca",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-27T04:05:41.479Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6eooir": {
+  "archivo": "fotos-notas/6eooir.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Índice de Confianza en el Gobierno sube un 0,9 por ciento en octubre",
+  "enlace": "https://www.lanacion.com.ar/politica/el-indice-de-confianza-en-el-gobierno-aumento-un-09-en-octubre-tras-la-caida-de-septiembre-nid26102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/milei-hace-dos-semanas-en-3Q6QQ2OKOBFUVMAUWGWK3GGQOY.JPG?auth=87904231226d0d24756257ca3a44f7010b3dbe2edcaf784b48d3951d562ae0c8&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única imagen completa y nítida que muestra al protagonista del hecho (el presidente) hablando, sin marcas de agua ni menores.",
+  "cuando": "2026-10-27T05:02:05.835Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El presidente de la Nación hablando en un atril con traje de etiqueta."
+  },
+  "huella": "2f2b0f5b9b8b839b"
+ },
+ "1c0e1o9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Unión derrota 3 a 1 a Estudiantes por el Torneo Clausura 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T05:02:05.835Z",
+  "intentos": 1,
+  "fuentes": 9,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6mutsm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Una delegación del Vaticano se reúne con movimientos sociales en La Matanza",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T05:02:05.835Z",
   "intentos": 1,
   "fuentes": 5,
   "intentosPorCupo": 1,
