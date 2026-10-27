@@ -6210,6 +6210,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122116289073495512"
+    },
+    "2026-10-27/noticia1": {
+      "cuando": "2026-10-27T13:25:05.130Z",
+      "mediaId": "4505366646369582",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "15q3x7r",
+      "notaIds": [
+        "15q3x7r",
+        "1dar7el",
+        "4782gq",
+        "pr74vq"
+      ],
+      "postId": "122116302225495512",
+      "permalink": "https://www.facebook.com/reel/4505366646369582/"
     }
   },
   "instagramFeed": {
@@ -8865,22 +8880,31 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1447579253402308"
+    },
+    "facebook/2026-10-27/noticia1": {
+      "cuando": "2026-10-27T13:25:46.298Z",
+      "mediaId": "1653594766169620",
+      "nombre": "noticia1",
+      "red": "facebook",
+      "notaId": "15q3x7r",
+      "postId": "2177010856507018"
     }
   },
   "problemas": {
-    "2026-10-23/podcast/instagram/historia-del-reel": {
-      "pieza": "podcast",
-      "red": "instagram",
-      "parte": "historia-del-reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-24T02:06:03.830Z"
-    },
     "2026-10-24/noticia1/instagram/historia-del-reel": {
       "pieza": "noticia1",
       "red": "instagram",
       "parte": "historia-del-reel",
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-24T14:05:56.827Z"
+    },
+    "2026-10-27/noticia1/instagram/reel": {
+      "pieza": "noticia1",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-27T13:23:41.656Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -9437,6 +9461,15 @@
         "ok": true,
         "id": "6ae09ede6cd613c48328ff22",
         "estado": "sent"
+      }
+    },
+    "2026-10-27/noticia1": {
+      "cuando": "2026-10-27T13:23:34.862Z",
+      "nombre": "noticia1",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae0a65b55e456f4b3c64959",
+        "estado": "sending"
       }
     }
   }
