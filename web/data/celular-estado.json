@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T16:20:22.224Z",
+ "generado": "2026-10-27T16:39:40.660Z",
  "portada": 156,
  "archivo": 500,
  "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-27T16:20:23.540Z",
+  "generado": "2026-10-27T16:39:41.084Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,27 +105,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 48,
     "notas": [
      {
-      "id": "sacn4r",
-      "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
-      "seccion": "Balcarce"
+      "id": "1spznqi",
+      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+      "seccion": "Deportes"
      },
      {
-      "id": "15q3x7r",
-      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
-      "seccion": "Deportes"
+      "id": "1xcj3y4",
+      "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
+      "seccion": "Salud"
+     },
+     {
+      "id": "4782gq",
+      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
+      "seccion": "Balcarce"
      },
      {
       "id": "pr74vq",
       "titulo": "Agrarias vence a Racing y lidera la Zona C",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1969ryn",
-      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
-      "seccion": "Economía"
      }
     ]
    },
@@ -136,27 +136,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
      {
-      "id": "4782gq",
-      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
-      "seccion": "Balcarce"
+      "id": "15q3x7r",
+      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+      "seccion": "Deportes"
      },
      {
-      "id": "1spznqi",
-      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
-      "seccion": "Deportes"
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1969ryn",
+      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
+      "seccion": "Economía"
      },
      {
       "id": "mmyfrg",
       "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1vmwhuk",
-      "titulo": "El empleo privado registra catorce meses consecutivos de caída",
-      "seccion": "Economía"
      }
     ]
    }
@@ -176,9 +176,21 @@
    ],
    "cola": [
     {
-     "id": "sacn4r",
-     "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
+     "id": "iukc0m",
+     "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1spznqi",
+     "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1xcj3y4",
+     "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
+     "seccion": "Salud",
      "marcada": false
     },
     {
@@ -194,12 +206,6 @@
      "marcada": false
     },
     {
-     "id": "1244xgg",
-     "titulo": "Cortan la Autopista Buenos Aires-La Plata por una protesta municipal",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "1xjv5xx",
      "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
      "seccion": "Economía",
@@ -212,15 +218,9 @@
      "marcada": false
     },
     {
-     "id": "el0m7z",
-     "titulo": "Riquelme apunta contra Macri y Verón y defiende a los árbitros",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1f9mfdv",
-     "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
-     "seccion": "Economía",
+     "id": "1244xgg",
+     "titulo": "Cortan la Autopista Buenos Aires-La Plata por una protesta municipal",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],

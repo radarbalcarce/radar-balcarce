@@ -4,6 +4,20 @@
   "ultimo": "2026-10-23T22:01:46.034Z",
   "motivo": "con cuerpo"
  },
+ "1099rtb": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 228 palabras",
+  "textos": 5,
+  "numeradas": 8,
+  "motivos": [
+   "título o bajada: 2 problemas (nombre): el titulo nombra a \"fla\" y la f",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "10h3qsy": {
   "intentos": 1,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -159,10 +173,12 @@
   "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
- "11wm7cc": {
+ "11vsjlv": {
   "intentos": 1,
-  "ultimo": "2026-10-20T16:32:58.063Z",
-  "motivo": "con cuerpo"
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
  },
  "11yhki4": {
   "intentos": 1,
@@ -762,6 +778,13 @@
    "Gemini: la respuesta no trae título"
   ]
  },
+ "17hlbx0": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 13
+ },
  "17lxjsf": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -1328,6 +1351,13 @@
   "ultimo": "2026-10-20T20:31:45.549Z",
   "motivo": "con cuerpo"
  },
+ "1d0nslz": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
  "1d0oydo": {
   "intentos": 1,
   "ultimo": "2026-10-23T00:02:24.603Z",
@@ -1741,11 +1771,6 @@
   "ultimo": "2026-10-21T04:01:26.531Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
  },
- "1gd2xcu": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T16:32:58.063Z",
-  "motivo": "con cuerpo"
- },
  "1gfq21m": {
   "intentos": 1,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -1882,12 +1907,14 @@
   "motivo": "título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice"
  },
  "1hvxmxn": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T16:08:54.201Z",
+  "intentos": 3,
+  "ultimo": "2026-10-27T16:34:28.732Z",
   "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
-  "textos": 5,
+  "textos": 3,
   "numeradas": 5,
   "motivos": [
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
+   "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el",
    "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
   ]
  },
@@ -2650,20 +2677,18 @@
   "motivo": "con cuerpo"
  },
  "1o7lszj": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T16:08:54.201Z",
-  "motivo": "título o bajada: 4 problemas (largo, forma, numero, negacion): el titulo tiene 94 caracteres, el máximo es 90",
-  "textos": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "textos": 1,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
-   "título o bajada: 4 problemas (largo, forma, numero, negacion): el titu"
+   "título o bajada: 4 problemas (largo, forma, numero, negacion): el titu",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "el titulo tiene 94 caracteres, el máximo es 90",
-   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el copete dice 0 y la fuente no lo dice",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "1o8hvb": {
@@ -2921,11 +2946,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1quk9eb": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T16:32:58.063Z",
-  "motivo": "con cuerpo"
- },
  "1qvc0lm": {
   "intentos": 1,
   "ultimo": "2026-10-25T16:01:40.784Z",
@@ -3022,10 +3042,10 @@
   "motivo": "con cuerpo"
  },
  "1s2s6et": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T04:02:20.664Z",
+  "intentos": 3,
+  "ultimo": "2026-10-27T16:34:28.732Z",
   "motivo": "con cuerpo",
-  "textos": 6,
+  "textos": 5,
   "numeradas": 11,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título nombra a \"messi\", \"londres\" y "
@@ -3451,6 +3471,13 @@
   "textos": 4,
   "numeradas": 6
  },
+ "1vnnytd": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "1vofp13": {
   "intentos": 3,
   "ultimo": "2026-10-25T11:01:35.394Z",
@@ -3654,6 +3681,16 @@
   "intentos": 1,
   "ultimo": "2026-10-21T11:31:22.745Z",
   "motivo": "con cuerpo"
+ },
+ "1xcj3y4": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 2 problemas (forma): el titulo trae letras rotas (una"
+  ]
  },
  "1xee7y1": {
   "intentos": 2,
@@ -4053,6 +4090,16 @@
    "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa \"emiliano\", "
   ]
  },
+ "5klkwb": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ]
+ },
  "5o84cc": {
   "intentos": 2,
   "ultimo": "2026-10-23T20:01:53.695Z",
@@ -4369,6 +4416,13 @@
   "ultimo": "2026-10-21T00:01:15.359Z",
   "motivo": "con cuerpo"
  },
+ "8n0ond": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "8pzl3i": {
   "intentos": 1,
   "ultimo": "2026-10-27T06:01:49.653Z",
@@ -4557,6 +4611,16 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 9
+ },
+ "af3i1w": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
+  ]
  },
  "ag4xz4": {
   "intentos": 1,
@@ -5217,6 +5281,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "hd8nd0": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "hizo5d": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -5244,11 +5315,6 @@
  "i0ei6b": {
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
-  "motivo": "con cuerpo"
- },
- "i1nv2r": {
-  "intentos": 2,
-  "ultimo": "2026-10-20T16:32:58.063Z",
   "motivo": "con cuerpo"
  },
  "i28ytn": {
@@ -5353,18 +5419,14 @@
   ]
  },
  "iukc0m": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T16:08:54.201Z",
-  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 84 palabras",
-  "textos": 1,
-  "numeradas": 1,
+  "intentos": 2,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d",
    "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el título nombra a \"manos\", \"tierra\" y el cuerpo no los explica"
   ]
  },
  "ixli9j": {
@@ -5846,6 +5908,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "msvshq": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T16:34:28.732Z",
+  "motivo": "sin material",
+  "textos": 0,
+  "numeradas": 2,
+  "motivos": [
+   "sin material"
+  ]
  },
  "muohzi": {
   "intentos": 1,
@@ -7511,10 +7583,5 @@
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
    "el título dice 14 y el cuerpo no lo explica"
   ]
- },
- "zz31xv": {
-  "intentos": 2,
-  "ultimo": "2026-10-20T16:32:58.063Z",
-  "motivo": "sin material"
  }
 }

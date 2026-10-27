@@ -26021,9 +26021,7 @@
   "ausenteDesde": "2026-10-21T17:03:42.424Z"
  },
  "1bf56uk": {
-  "archivo": "fotos-notas/1bf56uk.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Muere el actor Antonio Grimau a los 82 años",
@@ -26043,7 +26041,8 @@
    "descripcion": "Retrato de Antonio Grimau con buzo gris apoyando la mano en la barbilla"
   },
   "huella": "0f0e9f0d1d5d3c71",
-  "ausenteDesde": "2026-10-20T16:39:31.401Z"
+  "intentado": true,
+  "borrada": true
  },
  "1lyji3g": {
   "intentado": true,
@@ -26055,9 +26054,7 @@
   "fuentes": 2
  },
  "s2101r": {
-  "archivo": "fotos-notas/s2101r.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno negocia con empresas de colectivos por una deuda",
@@ -26077,7 +26074,8 @@
    "descripcion": "Colectivos circulando y paradas de colectivos de noche"
   },
   "huella": "68cb9b0dc6ac694e",
-  "ausenteDesde": "2026-10-20T16:39:31.401Z"
+  "intentado": true,
+  "borrada": true
  },
  "1quk9eb": {
   "archivo": "fotos-notas/1quk9eb.jpg",
@@ -36323,7 +36321,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0061310303030700"
+  "huella": "0061310303030700",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "az8510": {
   "intentado": true,
@@ -38256,7 +38255,8 @@
    "corresponde": "si",
    "descripcion": "Personas caminando con paraguas por una calle urbana mojada"
   },
-  "huella": "25655dd394585453"
+  "huella": "25655dd394585453",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "1axit6y": {
   "archivo": "fotos-notas/1axit6y.jpg",
@@ -38280,7 +38280,8 @@
    "corresponde": "si",
    "descripcion": "Dueño de Manaos en la planta con camisa a cuadros"
   },
-  "huella": "7095b88988e2a563"
+  "huella": "7095b88988e2a563",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "joqom0": {
   "archivo": "fotos-notas/joqom0.jpg",
@@ -42229,8 +42230,7 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi sonriendo mientras sostiene el Balón de Oro en la ceremonia"
   },
-  "huella": "5055551c18188f9f",
-  "ausenteDesde": "2026-10-27T08:03:17.873Z"
+  "huella": "5055551c18188f9f"
  },
  "4fjwhc": {
   "archivo": "fotos-notas/4fjwhc.jpg",
@@ -45666,7 +45666,8 @@
    "corresponde": "si",
    "descripcion": "Persona encendiendo la hornalla de una cocina a gas"
   },
-  "huella": "665657deda8f9cae"
+  "huella": "665657deda8f9cae",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "1hbflhh": {
   "archivo": "fotos-notas/1hbflhh.jpg",
@@ -46382,7 +46383,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro hablando con camisa blanca rodeado de personas"
   },
-  "huella": "d9da9d8d9485ac2f"
+  "huella": "d9da9d8d9485ac2f",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "2nuogk": {
   "archivo": "fotos-notas/2nuogk.jpg",
@@ -46529,7 +46531,8 @@
    "corresponde": "si",
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
-  "huella": "2b97b53be4f1f3d3"
+  "huella": "2b97b53be4f1f3d3",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "1qe910f": {
   "intentado": true,
@@ -46717,7 +46720,8 @@
    "corresponde": "si",
    "descripcion": "Avión estacionado en la pista"
   },
-  "huella": "6deb0a4e4fb88162"
+  "huella": "6deb0a4e4fb88162",
+  "ausenteDesde": "2026-10-27T16:39:40.607Z"
  },
  "1sdzgyb": {
   "archivo": "fotos-notas/1sdzgyb.jpg",
@@ -46784,5 +46788,113 @@
   "cuando": "2026-10-27T16:17:44.749Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "hd8nd0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Diario La Vanguardia (un menor): no se elige ninguna.",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "17hlbx0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 32,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1xcj3y4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
+  "razon": "La mejor foto era la de Infórmese Primero (FM 104.9), pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1d0nslz": {
+  "archivo": "fotos-notas/1d0nslz.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "AFA presenta la pelota Argentum Gambeta Derbi para el Superclásico",
+  "enlace": "https://www.tycsports.com/river-plate/la-nueva-pelota-especial-que-se-estrenara-en-el-boca-river-id768811.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/27/1000178/argentum_862x485.webp?v=1",
+  "razon": "Es la única opción disponible, cumple con los requisitos y muestra claramente el objeto de la nota.",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de la pelota Argentum Gambeta Derbi con el logo de la AFA"
+  },
+  "huella": "8f0f1d151c9c8a8d"
+ },
+ "iukc0m": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
+  "razon": "Ambas fotos tienen elementos gráficos superpuestos agregados por los medios.",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "16yybyk": {
+  "archivo": "fotos-notas/16yybyk.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Incucai modifica los requisitos para los trasplantes renales",
+  "enlace": "https://www.iprofesional.com/salud/467566-incucai-que-cambia-en-las-reglas-para-los-trasplantes-renales",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2022/05/536680_landscape.jpg",
+  "razon": "Muestra el edificio del Incucai con buena nitidez y sin personas, cumpliendo con los criterios editoriales.",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada principal del edificio del Incucai"
+  },
+  "huella": "3033161e363222e4"
+ },
+ "1vnnytd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estrenan El correo con Luis Zahera en Netflix",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "18pvagd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Apple reconoce fallos en la pantalla del nuevo iPhone Duo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T16:38:07.322Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
