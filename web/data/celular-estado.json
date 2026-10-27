@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T14:26:56.370Z",
+ "generado": "2026-10-27T15:43:51.769Z",
  "portada": 132,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-27T14:26:57.367Z",
+  "generado": "2026-10-27T15:43:52.061Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-27T12:51:05.126Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu evento o emprendimiento",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "sacn4r",
+      "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
+      "seccion": "Balcarce"
+     },
      {
       "id": "15q3x7r",
       "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
@@ -108,13 +113,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "seccion": "Agro"
-     },
-     {
-      "id": "1vmwhuk",
-      "titulo": "El empleo privado registra catorce meses consecutivos de caída",
+      "id": "1d404ja",
+      "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
       "seccion": "Economía"
      }
     ]
@@ -126,26 +126,26 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 51,
     "notas": [
      {
-      "id": "nkd214",
-      "titulo": "Triunfos de las divisiones menores en la Liga Marplatense",
+      "id": "4782gq",
+      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1spznqi",
+      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
       "seccion": "Deportes"
      },
      {
-      "id": "1oi4av9",
-      "titulo": "ANSES oficializa los aumentos y las reglas de suspensión para las PNC",
+      "id": "1969ryn",
+      "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
       "seccion": "Economía"
      },
      {
-      "id": "fnh3qb",
-      "titulo": "Colapinto afronta el Gran Premio de México de Fórmula 1",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "1yv8myb",
-      "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
+      "id": "pl8yzi",
+      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
       "seccion": "Agro"
      }
     ]
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
      {
-      "id": "1xjv5xx",
-      "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones para mantener los subsidios de gas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1mtkc68",
+      "titulo": "Paula Boccia compite en el Campeonato Nacional de Veteranas de Tenis",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1vmwhuk",
+      "titulo": "El empleo privado registra catorce meses consecutivos de caída",
       "seccion": "Economía"
      },
      {
-      "id": "11yhki4",
-      "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "6mutsm",
-      "titulo": "Una delegación del Vaticano se reúne con movimientos sociales en La Matanza",
+      "id": "mmyfrg",
+      "titulo": "La Policía de Brasil investiga si Flavio Bolsonaro huyó a la Argentina",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1sq6xx6",
-      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
-      "seccion": "Educación"
      }
     ]
    }
@@ -188,25 +188,24 @@
      "id": "7amn8l",
      "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
      "cuando": "2026-10-27T12:49:48.082Z"
-    }
-   ],
-   "cola": [
-    {
-     "id": "15q3x7r",
-     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
-     "seccion": "Deportes",
-     "marcada": false
     },
     {
      "id": "1yv8myb",
      "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
-     "seccion": "Agro",
+     "cuando": "2026-10-27T14:36:33.237Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "sacn4r",
+     "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "1xjv5xx",
-     "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
-     "seccion": "Economía",
+     "id": "15q3x7r",
+     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -216,14 +215,20 @@
      "marcada": false
     },
     {
+     "id": "1xjv5xx",
+     "titulo": "El Gobierno aprueba el proyecto minero Agua Rica dentro del RIGI en Catamarca",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
      "id": "el0m7z",
      "titulo": "Riquelme apunta contra Macri y Verón y defiende a los árbitros",
      "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-27T14:19:48.082Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-27T16:06:33.237Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

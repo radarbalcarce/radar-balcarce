@@ -1,7 +1,61 @@
 {
- "generado": "2026-10-27T14:26:56.370Z",
+ "generado": "2026-10-27T15:43:51.769Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "18bh1xz",
+   "titulo": "Una de las principales cooperativas del país obtuvo una certificación internacional de bienestar animal en su feedlot",
+   "copete": "Para ACA, este avance permite respaldar con una evaluación externa sus prácticas de bienestar animal y aportar, así, información verificable a las cooperativas, los productores y los compradores de su producción bovina. La certificación se enmarca en el trabajo de la entidad…",
+   "seccion": "Agro",
+   "fecha": "2026-10-27T13:30:19.000Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/rural/principales-cooperativas-pais-obtuvo-certificacion-internacional-bienestar-animal-feedlot_0_G8AVcHFUuv.html",
+     "fecha": "2026-10-27T12:55:23.000Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/mitre-y-el-campo/aca-obtiene-la-certificacion-internacional-welfair-de-bienestar-animal-para-su-produccion-de-carne-bovina-en-el-feedlot-los-aromos/",
+     "fecha": "2026-10-27T13:30:19.000Z"
+    },
+    {
+     "medio": "Agrositio",
+     "enlace": "https://www.agrositio.com.ar/noticia/249051-aca-obtuvo-la-primera-certificacion-welfair-de-bienestar-animal-para-un-feedlot-en-argentina.html",
+     "fecha": "2026-10-27T14:19:02.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"aca\", \"fe\" y el cuerpo no los explica; sin esas oraciones quedan 224 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "1goe3gw",
+   "titulo": "Los bonos argentinos rebotan hasta 0,6%, pero el riesgo país sigue por encima de los 750 puntos",
+   "copete": "Los títulos soberanos en dólares ensayan una recuperación tras las fuertes caídas de la jornada anterior, en medio de la volatilidad financiera regional provocada por la reacción de los mercados brasileños al triunfo de Lula da Silva.",
+   "seccion": "Economía",
+   "fecha": "2026-10-27T13:31:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1159830/economia/bonos-argentinos-rebotan-hasta-06porciento-pero-riesgo-pais-sigue-encima-750-puntos.html",
+     "fecha": "2026-10-27T11:15:00.000Z"
+    },
+    {
+     "medio": "iProfesional",
+     "enlace": "https://www.iprofesional.com/finanzas/467584-bonos-argentinos-suben-hasta-06-y-el-mercado-sigue-atento-a-brasil",
+     "fecha": "2026-10-27T14:33:00.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/finanzas/bonos-argentinos-rebotan-06-el-efecto-brasil-y-el-riesgo-pais-se-mantiene-arriba-los-750-puntos-n6338318",
+     "fecha": "2026-10-27T13:31:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
+   "maximo": 3
+  },
   {
    "id": "yrfc8z",
    "titulo": "Ley de Semillas: la industria amplía la superficie contemplada en su propuesta de excepción a productores al pago por uso propio",
@@ -42,35 +96,8 @@
      "fecha": "2026-10-27T14:02:21.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota no es de Balcarce",
-   "maximo": 3
-  },
-  {
-   "id": "nj6d15",
-   "titulo": "Dos semanas de paro y movilización en las universidades públicas",
-   "copete": "",
-   "seccion": "Educación",
-   "fecha": "2026-10-26T18:12:00.000Z",
-   "fuentes": [
-    {
-     "medio": "El Marplatense",
-     "enlace": "https://www.elmarplatense.com/dos-semanas-de-paro-y-movilizacion-en-las-universidades-publicas",
-     "fecha": "2026-10-26T16:00:04.000Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/politica/conflicto-universitario-docentes-anunciaron-paro-nacional-semana-202610251609",
-     "fecha": "2026-10-26T18:12:00.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/informacion-gral/paro-docente-cuando-comienza-la-nueva-medida-de-fuerza-en-las-universidades-publicas-de-rosario/",
-     "fecha": "2026-10-26T18:23:09.093Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
    "maximo": 3
   },
   {
@@ -99,10 +126,69 @@
      "medio": "Doble Amarilla",
      "enlace": "https://www.dobleamarilla.com.ar/rosca/marcelo-moretti-le-inicio-un-juicio-ejecutivo-a-san-lorenzo--reclamando-us--270-000-por-mutuos_a6ae0a1a9f517e41b424df5c4",
      "fecha": "2026-10-27T13:43:59.237Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/deportes/marcelo-moretti-demando-san-lorenzo-que-reclama-y-que-promete-hacer-el-dinero-n6338358",
+     "fecha": "2026-10-27T14:30:00.000Z"
     }
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
+   "maximo": 4
+  },
+  {
+   "id": "nj6d15",
+   "titulo": "Dos semanas de paro y movilización en las universidades públicas",
+   "copete": "",
+   "seccion": "Educación",
+   "fecha": "2026-10-26T16:00:04.000Z",
+   "fuentes": [
+    {
+     "medio": "El Marplatense",
+     "enlace": "https://www.elmarplatense.com/dos-semanas-de-paro-y-movilizacion-en-las-universidades-publicas",
+     "fecha": "2026-10-26T16:00:04.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/politica/conflicto-universitario-docentes-anunciaron-paro-nacional-semana-202610251609",
+     "fecha": "2026-10-26T18:12:00.000Z"
+    },
+    {
+     "medio": "El Eco de Tandil",
+     "enlace": "https://www.eleco.com.ar/nacionales/universidades-publicas-inician-dos-semanas-de-paros-y-movilizaciones-por-mejoras-salariales",
+     "fecha": "2026-10-26T12:00:08.000Z"
+    },
+    {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/informacion-gral/paro-docente-cuando-comienza-la-nueva-medida-de-fuerza-en-las-universidades-publicas-de-rosario/",
+     "fecha": "2026-10-26T18:23:09.093Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "vqyd71",
+   "titulo": "El INTA despidió a una científica que investigó los efectos de los agroquímicos en Argentina",
+   "copete": "El organismo exoneró a la referente en la investigación de agroquímicos tras acusaciones administrativas que ella y la comunidad científica consideran infundadas y con trasfondo político.",
+   "seccion": "Ciencia",
+   "fecha": "2026-10-27T03:01:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/10/27/el-inta-despidio-a-una-cientifica-que-investigo-los-efectos-de-los-agroquimicos-en-argentina/",
+     "fecha": "2026-10-27T03:01:00.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/sociedad/el-gobierno-despidio-del-inta-una-cientifica-que-investigo-y-advirtio-los-efectos-los-agroquimicos-n6338338",
+     "fecha": "2026-10-27T14:35:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "sin material",
    "maximo": 3
   },
   {
@@ -128,5 +214,14 @@
    "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "jsz307",
+   "titulo": "El clima no detuvo el regreso del Zonal Atlántico al “Fangio”",
+   "seccion": "Automovilismo",
+   "fecha": "2026-10-26T12:36:23.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
+  }
+ ]
 }
