@@ -609,18 +609,18 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 17,
+     "llamadas": 18,
      "errores": 10,
-     "entrada": 12378,
-     "salida": 737,
+     "entrada": 13467,
+     "salida": 837,
      "pensamiento": 0,
-     "total": 13115,
+     "total": 14304,
      "claves": {
-      "groq": 17
+      "groq": 18
      },
      "motivos": {
       "groq": {
-       "ok": 7,
+       "ok": 8,
        "cupo-diario": 9,
        "otro": 1
       }
@@ -629,18 +629,18 @@
    },
    "revision": {
     "openai/gpt-oss-20b": {
-     "llamadas": 2,
+     "llamadas": 4,
      "errores": 0,
-     "entrada": 2737,
-     "salida": 1410,
+     "entrada": 5606,
+     "salida": 4144,
      "pensamiento": 0,
-     "total": 4147,
+     "total": 9750,
      "claves": {
-      "groq": 2
+      "groq": 4
      },
      "motivos": {
       "groq": {
-       "ok": 2
+       "ok": 4
       }
      }
     }
