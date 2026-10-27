@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-27T01:31:56.211Z",
+ "consultado": "2026-10-27T02:01:58.358Z",
  "equipos": [
   "9739",
   "3",
@@ -1021,11 +1021,11 @@
     "competencia": "liga",
     "inicio": "2026-10-27T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "58'",
+    "minuto": "88'",
     "local": {
      "id": "2975",
      "nombre": "Instituto (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "17702",
@@ -1033,7 +1033,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Jeremías Lázaro",
+      "minuto": "84'",
+      "tipo": "de penal"
+     }
+    ],
     "estadio": "Monumental Presidente Perón",
     "fase": null,
     "partidoDeLaSerie": null,
