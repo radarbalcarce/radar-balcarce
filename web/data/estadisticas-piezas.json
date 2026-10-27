@@ -2,85 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/historia/29247517888165148",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "podcast",
-   "dia": "2026-10-05",
-   "cuando": "2026-10-06T00:06:07.721Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "facebook/historia/1973889626640977",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "clima-manana",
-   "dia": "2026-10-06",
-   "cuando": "2026-10-06T10:05:19.249Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "instagram/reel/18113156123031572",
-   "red": "instagram",
-   "parte": "reel",
-   "pieza": "efemeride",
-   "dia": "2026-10-06",
-   "cuando": "2026-10-06T12:06:24.110Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {
-    "reach": 1,
-    "views": 4,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "total_interactions": 0
-   }
-  },
-  {
-   "clave": "facebook/reel/39040773755537361",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "efemeride",
-   "dia": "2026-10-06",
-   "cuando": "2026-10-06T12:07:32.187Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {}
-  },
-  {
-   "clave": "facebook/historia/1592810601701361",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "efemeride",
-   "dia": "2026-10-06",
-   "cuando": "2026-10-06T12:08:11.497Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "facebook/posteo/1254237411116171_122105253975495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "1onhk2k",
-   "dia": "2026-10-06",
-   "cuando": "2026-10-06T12:45:29.843Z",
-   "medida": "2026-10-09T06:00:25.031Z",
-   "metricas": {
-    "post_media_view": 2,
-    "post_total_media_view_unique": 1,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
    "clave": "instagram/foto/18004513949795003",
    "red": "instagram",
    "parte": "foto",
@@ -10226,6 +10147,92 @@
    "dia": "2026-10-26",
    "cuando": "2026-10-26T18:37:25.278Z",
    "medida": "2026-10-27T09:00:24.164Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "facebook/historia/2195994064600893",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "clima-manana",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T10:36:55.228Z",
+   "medida": "2026-10-27T12:00:18.761Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/reel/1672145064517205",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "clima-manana",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T10:37:21.726Z",
+   "medida": "2026-10-27T12:00:18.761Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 372,
+    "fb_reels_total_plays": 407,
+    "post_video_avg_time_watched": 3665,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 2
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122115878577495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "1wqyb20",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T11:06:02.624Z",
+   "medida": "2026-10-27T12:00:18.761Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 13,
+    "post_total_media_view_unique": 6,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18127952432494495",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "1wqyb20",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T11:06:17.783Z",
+   "medida": "2026-10-27T12:00:18.761Z",
+   "v": 2,
+   "metricas": {
+    "reach": 0,
+    "views": 4,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "instagram/historia/17915486847536711",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "farmacia",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T22:36:36.640Z",
+   "medida": "2026-10-27T12:00:18.761Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18133557031741801",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "clima-noche",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T23:36:36.162Z",
+   "medida": "2026-10-27T12:00:18.761Z",
    "v": 2,
    "metricas": {},
    "pocas": true
