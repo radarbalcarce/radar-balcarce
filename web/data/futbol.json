@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-27T00:03:04.564Z",
+ "consultado": "2026-10-27T00:31:41.911Z",
  "equipos": [
   "9739",
   "3",
@@ -69,48 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841627",
-    "competencia": "liga",
-    "inicio": "2026-10-17T00:30:00.000Z",
-    "estado": "final",
-    "minuto": "90'+5'",
-    "local": {
-     "id": "5",
-     "nombre": "Boca Juniors",
-     "goles": 2
-    },
-    "visitante": {
-     "id": "19",
-     "nombre": "Talleres (Córdoba)",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Alejandro Galarza",
-      "minuto": "11'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Miguel Merentiel",
-      "minuto": "18'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Leonel Flores",
-      "minuto": "49'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Alberto José Armando (La Bombonera)",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841615",
     "competencia": "liga",
@@ -1062,8 +1020,8 @@
     "id": "401841635",
     "competencia": "liga",
     "inicio": "2026-10-27T00:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "16'",
     "local": {
      "id": "2975",
      "nombre": "Instituto (Córdoba)",
