@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T12:38:19.650Z",
- "portada": 133,
+ "generado": "2026-10-27T13:09:59.657Z",
+ "portada": 134,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-27T12:38:20.134Z",
+  "generado": "2026-10-27T13:10:00.552Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-27T12:51:05.126Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,14 +93,14 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 53,
+    "segundos": 50,
     "notas": [
      {
-      "id": "7amn8l",
-      "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
-      "seccion": "Fútbol"
+      "id": "15q3x7r",
+      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+      "seccion": "Deportes"
      },
      {
       "id": "1dar7el",
@@ -113,9 +113,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "14e4ing",
-      "titulo": "Campo de Pato define el torneo de rugby y juega la reválida",
-      "seccion": "Deportes"
+      "id": "pr74vq",
+      "titulo": "Agrarias vence a Racing y lidera la Zona C",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "15crgm2",
-      "titulo": "Confirman la realización de la Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "pr74vq",
-      "titulo": "Agrarias vence a Racing y lidera la Zona C",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1spznqi",
-      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+      "id": "14e4ing",
+      "titulo": "Campo de Pato define el torneo de rugby y juega la reválida",
       "seccion": "Deportes"
      },
      {
-      "id": "fp2ndp",
-      "titulo": "Cataratas del Iguazú registra un caudal récord y cierra circuitos",
-      "seccion": "Argentina"
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones para mantener los subsidios de gas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "g3akx",
+      "titulo": "La Liga reprograma partidos de la fase Clausura para entre semana",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "rwxsr5",
+      "titulo": "El INTA Balcarce participa de un estudio global sobre suelos",
+      "seccion": "Agro"
      }
     ]
    },
@@ -157,49 +157,49 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 49,
     "notas": [
      {
-      "id": "g3akx",
-      "titulo": "La Liga reprograma partidos de la fase Clausura para entre semana",
+      "id": "1spznqi",
+      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1hbflhh",
+      "titulo": "El INTA Balcarce detalla pautas para preparar silobolsas y evitar pérdidas",
+      "seccion": "Agro"
+     },
+     {
+      "id": "14t82lv",
+      "titulo": "Harry Kane gana el Balón de Oro 2026 en Londres",
       "seccion": "Fútbol"
      },
      {
-      "id": "q9qpl2",
-      "titulo": "Franco Colapinto abandona en Estados Unidos y Alpine apunta a México",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "6mutsm",
-      "titulo": "Una delegación del Vaticano se reúne con movimientos sociales en La Matanza",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1sq6xx6",
-      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
-      "seccion": "Educación"
+      "id": "1vmwhuk",
+      "titulo": "El empleo privado registra catorce meses consecutivos de caída",
+      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "7amn8l",
      "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
-     "seccion": "Fútbol",
+     "cuando": "2026-10-27T12:49:48.082Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "15q3x7r",
+     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
      "id": "1dar7el",
      "titulo": "Estudiantes de la UBA filman un cortometraje",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "15crgm2",
-     "titulo": "Confirman la realización de la Fiesta Nacional del Postre",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -210,8 +210,8 @@
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-26T20:06:02.039Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-27T14:19:48.082Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
