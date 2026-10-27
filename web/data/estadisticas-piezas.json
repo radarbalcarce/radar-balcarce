@@ -2,16 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/reel/1142838171643321",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "podcast",
-   "dia": "2026-10-05",
-   "cuando": "2026-10-06T00:05:33.053Z",
-   "medida": "2026-10-09T05:30:17.500Z",
-   "metricas": {}
-  },
-  {
    "clave": "facebook/historia/29247517888165148",
    "red": "facebook",
    "parte": "historia",
@@ -10224,6 +10214,18 @@
    "dia": "2026-10-26",
    "cuando": "2026-10-26T15:37:09.842Z",
    "medida": "2026-10-27T06:00:14.525Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/18062454947795242",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "noticia2",
+   "dia": "2026-10-26",
+   "cuando": "2026-10-26T18:37:25.278Z",
+   "medida": "2026-10-27T09:00:24.164Z",
    "v": 2,
    "metricas": {},
    "pocas": true
