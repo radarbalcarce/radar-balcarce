@@ -37476,7 +37476,8 @@
    "corresponde": "si",
    "descripcion": "Vehiculos de emergencia y policia frente al bar"
   },
-  "huella": "b8be962c27a5e047"
+  "huella": "b8be962c27a5e047",
+  "ausenteDesde": "2026-10-27T17:05:02.307Z"
  },
  "1vxdqss": {
   "medio": "Wikimedia Commons",
@@ -37576,7 +37577,8 @@
    "corresponde": "generica",
    "descripcion": "Monumento a Malvinas y bandera argentina"
   },
-  "huella": "3f5db9393434b03c"
+  "huella": "3f5db9393434b03c",
+  "ausenteDesde": "2026-10-27T17:05:02.307Z"
  },
  "1wdy2e7": {
   "archivo": "fotos-notas/1wdy2e7.jpg",
@@ -38001,7 +38003,8 @@
    "corresponde": "si",
    "descripcion": "Dirigentes políticos en la jornada de afiliaciones con cartelería de La Libertad Avanza."
   },
-  "huella": "0e344c84a68e8e32"
+  "huella": "0e344c84a68e8e32",
+  "ausenteDesde": "2026-10-27T17:05:02.307Z"
  },
  "wji9rt": {
   "archivo": "fotos-notas/wji9rt.jpg",
@@ -39556,7 +39559,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "ededece6acad37a3"
+  "huella": "ededece6acad37a3",
+  "ausenteDesde": "2026-10-27T17:05:02.307Z"
  },
  "y7sjfl": {
   "archivo": "fotos-notas/y7sjfl.jpg",
@@ -44286,7 +44290,8 @@
    "corresponde": "si",
    "descripcion": "Harry Kane sonriente junto al Balón de Oro en el estrado"
   },
-  "huella": "0717132b69697129"
+  "huella": "0717132b69697129",
+  "ausenteDesde": "2026-10-27T17:05:02.307Z"
  },
  "b4wcz2": {
   "intentado": true,
@@ -46894,6 +46899,54 @@
   "cuando": "2026-10-27T16:38:07.322Z",
   "intentos": 1,
   "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1cgztcn": {
+  "archivo": "fotos-notas/1cgztcn.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Spinelli analiza el futuro electoral de Juntos y plantea cambios en la gestión",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45193-spinelli-sobre-2027-tenemos-la-obligacion-de-estar-preparados/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66167.png",
+  "razon": "Es la única opción disponible y muestra al protagonista de la nota en el contexto de la entrevista, sin marcas de agua ni menores.",
+  "cuando": "2026-10-27T17:04:38.096Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre de mediana edad sonriendo frente a un micrófono de radio con el logo de LDB 99.5.",
+   "detalle": "El logo de la radio en el micrófono es parte de la escena real, no una marca agregada por el medio."
+  },
+  "huella": "0a121212126a4a8a"
+ },
+ "1s0kbrg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T17:04:38.096Z",
+  "intentos": 1,
+  "fuentes": 9,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "c76w83": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Juan Román Riquelme recuerda el secuestro de su hermano",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T17:04:38.096Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

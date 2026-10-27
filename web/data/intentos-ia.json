@@ -5,17 +5,14 @@
   "motivo": "con cuerpo"
  },
  "1099rtb": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T16:34:28.732Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 228 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 8,
   "motivos": [
    "título o bajada: 2 problemas (nombre): el titulo nombra a \"fla\" y la f",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "10h3qsy": {
@@ -1312,6 +1309,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1cgztcn": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "1cifnsd": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -1907,15 +1911,16 @@
   "motivo": "título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice"
  },
  "1hvxmxn": {
-  "intentos": 3,
-  "ultimo": "2026-10-27T16:34:28.732Z",
-  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 4,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 5,
   "motivos": [
    "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
    "título o bajada: 1 problema (largo): el titulo tiene 95 caracteres, el",
-   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
+   "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
   ]
  },
  "1hypkdo": {
@@ -2509,11 +2514,6 @@
    "título o bajada: 1 problema (pasado): el título está en pasado: va en "
   ]
  },
- "1mvszry": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:02:25.465Z",
-  "motivo": "con cuerpo"
- },
  "1mzn6lw": {
   "intentos": 1,
   "ultimo": "2026-10-26T08:01:24.151Z",
@@ -2596,6 +2596,16 @@
   "intentos": 1,
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
+ },
+ "1nkswnj": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 8,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
+  ]
  },
  "1nldeav": {
   "intentos": 1,
@@ -3036,10 +3046,27 @@
   "textos": 4,
   "numeradas": 8
  },
+ "1rycwh2": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"fortin\" y la"
+  ]
+ },
  "1rylju8": {
   "intentos": 1,
   "ultimo": "2026-10-22T03:01:07.069Z",
   "motivo": "con cuerpo"
+ },
+ "1s0kbrg": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 9
  },
  "1s2s6et": {
   "intentos": 3,
@@ -3983,11 +4010,6 @@
    "cuerpo: 3 problemas (tilde, copia, tildes): el cuerpo dice \"mas\" en ve"
   ]
  },
- "4ap1yu": {
-  "intentos": 3,
-  "ultimo": "2026-10-20T17:02:25.465Z",
-  "motivo": "con cuerpo"
- },
  "4bb916": {
   "intentos": 1,
   "ultimo": "2026-10-22T06:01:33.586Z",
@@ -4482,6 +4504,13 @@
   "ultimo": "2026-10-23T22:01:46.034Z",
   "motivo": "sin material"
  },
+ "95jzc": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 8
+ },
  "98ywxr": {
   "intentos": 1,
   "ultimo": "2026-10-20T21:01:25.578Z",
@@ -4613,12 +4642,14 @@
   "numeradas": 9
  },
  "af3i1w": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T16:34:28.732Z",
+  "intentos": 2,
+  "ultimo": "2026-10-27T17:02:59.140Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
+   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t",
+   "cuerpo: 3 problemas (relleno, repite, copia): el cuerpo tiene una fras",
    "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
   ]
  },
@@ -4800,6 +4831,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "c76w83": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "cg451f": {
   "intentos": 1,
   "ultimo": "2026-10-20T22:31:48.164Z",
@@ -4872,6 +4910,21 @@
   "intentos": 1,
   "ultimo": "2026-10-22T13:03:34.287Z",
   "motivo": "con cuerpo"
+ },
+ "d5mdt0": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 17 y la fuente no lo dice; sin esas oraciones quedan 54 palabras",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, numero, relleno): el cuerpo nombra a \"fue",
+   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 17 y la fuente n"
+  ],
+  "falla": [
+   "el cuerpo dice 17 y la fuente no lo dice",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
  },
  "d7r9de": {
   "intentos": 1,
@@ -5766,11 +5819,6 @@
    "el título dice 21 y el cuerpo no lo explica"
   ]
  },
- "lty6ot": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:02:25.465Z",
-  "motivo": "con cuerpo"
- },
  "lvcrbq": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -5910,8 +5958,8 @@
   "numeradas": 3
  },
  "msvshq": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T16:34:28.732Z",
+  "intentos": 2,
+  "ultimo": "2026-10-27T17:02:59.140Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -6165,11 +6213,6 @@
  "osvbhw": {
   "intentos": 1,
   "ultimo": "2026-10-22T00:31:11.553Z",
-  "motivo": "con cuerpo"
- },
- "ou35y3": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T17:02:25.465Z",
   "motivo": "con cuerpo"
  },
  "owsixo": {
@@ -6557,6 +6600,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 65
+ },
+ "rlei5c": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T17:02:59.140Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 5
  },
  "rp0wts": {
   "intentos": 2,

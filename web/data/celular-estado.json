@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T16:39:40.660Z",
- "portada": 156,
+ "generado": "2026-10-27T17:05:02.388Z",
+ "portada": 160,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-27T16:39:41.084Z",
+  "generado": "2026-10-27T17:05:02.707Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,7 +105,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 49,
     "notas": [
      {
       "id": "1spznqi",
@@ -113,14 +113,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1xcj3y4",
-      "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
-      "seccion": "Salud"
-     },
-     {
       "id": "4782gq",
       "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
      },
      {
       "id": "pr74vq",
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 52,
     "notas": [
      {
       "id": "15q3x7r",
@@ -144,14 +144,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "hd8nd0",
-      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
-      "seccion": "Salud"
-     },
-     {
       "id": "1969ryn",
       "titulo": "El Gobierno reglamenta los cambios en el Régimen de Zona Fría",
       "seccion": "Economía"
+     },
+     {
+      "id": "pl8yzi",
+      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
+      "seccion": "Agro"
      },
      {
       "id": "mmyfrg",
@@ -172,15 +172,14 @@
      "id": "1yv8myb",
      "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
      "cuando": "2026-10-27T14:36:33.237Z"
+    },
+    {
+     "id": "sacn4r",
+     "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
+     "cuando": "2026-10-27T16:36:07.124Z"
     }
    ],
    "cola": [
-    {
-     "id": "iukc0m",
-     "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
     {
      "id": "1spznqi",
      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
@@ -188,9 +187,9 @@
      "marcada": false
     },
     {
-     "id": "1xcj3y4",
-     "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
-     "seccion": "Salud",
+     "id": "iukc0m",
+     "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -218,14 +217,20 @@
      "marcada": false
     },
     {
-     "id": "1244xgg",
-     "titulo": "Cortan la Autopista Buenos Aires-La Plata por una protesta municipal",
+     "id": "1s0kbrg",
+     "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1099rtb",
+     "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
      "seccion": "Argentina",
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-27T16:06:33.237Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-27T18:06:07.124Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
