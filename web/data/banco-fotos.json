@@ -26835,9 +26835,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "g7d4sj": {
-  "archivo": "fotos-notas/g7d4sj.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Susana Giménez despide con un emotivo mensaje a Antonio Grimau",
@@ -26857,7 +26855,8 @@
    "descripcion": "Susana Giménez y Antonio Grimau sonriendo en el escenario de una obra de teatro"
   },
   "huella": "d6d79bbaccf4b2b2",
-  "ausenteDesde": "2026-10-20T20:33:35.977Z"
+  "intentado": true,
+  "borrada": true
  },
  "1fmti97": {
   "intentado": true,
@@ -26869,9 +26868,7 @@
   "fuentes": 6
  },
  "1tq3r4e": {
-  "archivo": "fotos-notas/1tq3r4e.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Justicia federal acepta revisar la cautelar de financiamiento universitario",
@@ -26903,7 +26900,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "672fae8f8e470307",
-  "ausenteDesde": "2026-10-20T21:02:10.250Z"
+  "intentado": true,
+  "borrada": true
  },
  "lap6cm": {
   "archivo": "fotos-notas/lap6cm.jpg",
@@ -38463,7 +38461,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei y Patricia Bullrich fundidos en un abrazo con gente aplaudiendo de fondo"
   },
-  "huella": "0b95a453c7864707"
+  "huella": "0b95a453c7864707",
+  "ausenteDesde": "2026-10-27T21:03:52.913Z"
  },
  "r8gyl1": {
   "archivo": "fotos-notas/r8gyl1.jpg",
@@ -38697,7 +38696,8 @@
    "descripcion": "Operario de YPF subiendo una escalera en una planta industrial con tanques de almacenamiento al fondo.",
    "detalle": "Los logos de YPF y TMC corresponden a la escena real (uniforme y maquinaria), no son marcas de agua del medio."
   },
-  "huella": "cefcad2a27090593"
+  "huella": "cefcad2a27090593",
+  "ausenteDesde": "2026-10-27T21:03:52.913Z"
  },
  "j70uyh": {
   "intentado": true,
@@ -39072,7 +39072,8 @@
    "corresponde": "si",
    "descripcion": "Cocineros con delantales morados preparando comida en un salón con banderines."
   },
-  "huella": "f66520a829795dc6"
+  "huella": "f66520a829795dc6",
+  "ausenteDesde": "2026-10-27T21:03:52.913Z"
  },
  "1d9wr9g": {
   "archivo": "fotos-notas/1d9wr9g.jpg",
@@ -39381,7 +39382,8 @@
    "corresponde": "si",
    "descripcion": "Lali y Tini tomadas de la mano con vestidos de novia en el show."
   },
-  "huella": "b7250e9a9ab3952f"
+  "huella": "b7250e9a9ab3952f",
+  "ausenteDesde": "2026-10-27T21:03:52.913Z"
  },
  "oi5a2p": {
   "archivo": "fotos-notas/oi5a2p.jpg",
@@ -47190,6 +47192,37 @@
   "titulo": "Mario Pergolini presenta a Lit Killah y Elena Cataldi-Fleming",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-27T20:32:04.126Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "yb0soh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Alumnos de la Primaria 3 visitan el Concejo Deliberante",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-27T21:03:33.761Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "7lnfde": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Guillermo Duró renuncia como director técnico de Deportivo Riestra",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T21:03:33.761Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1xvfxyy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Armar una canasta de Halloween cuesta desde $5100",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T21:03:33.761Z",
   "intentos": 1,
   "fuentes": 2,
   "intentosPorCupo": 1,
