@@ -26661,9 +26661,7 @@
   "ausenteDesde": "2026-10-20T22:34:00.060Z"
  },
  "1ndxkov": {
-  "archivo": "fotos-notas/1ndxkov.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Muere el actor Antonio Grimau a los 82 años",
@@ -26683,7 +26681,8 @@
    "descripcion": "Retrato de Antonio Grimau con fondo oscuro"
   },
   "huella": "0d0d0d8d8dcde98d",
-  "ausenteDesde": "2026-10-20T19:35:27.764Z"
+  "intentado": true,
+  "borrada": true
  },
  "1dipiao": {
   "archivo": "fotos-notas/1dipiao.jpg",
@@ -38225,7 +38224,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "525e3d0f13496972"
+  "huella": "525e3d0f13496972",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "1fchabx": {
   "intentado": true,
@@ -38332,7 +38332,8 @@
    "corresponde": "si",
    "descripcion": "Julián Álvarez sonriendo en la cancha con la camiseta del Atlético de Madrid"
   },
-  "huella": "8b0b4bab1656872e"
+  "huella": "8b0b4bab1656872e",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "1zgmo8": {
   "intentado": true,
@@ -38522,7 +38523,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Tottenham y Chelsea disputando la pelota en el area con arquero."
   },
-  "huella": "b627169b468d149c"
+  "huella": "b627169b468d149c",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "10w3c3h": {
   "archivo": "fotos-notas/10w3c3h.jpg",
@@ -38658,7 +38660,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Arsenal celebrando en la cancha."
   },
-  "huella": "154d34745454d495"
+  "huella": "154d34745454d495",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "tu91t6": {
   "intentado": true,
@@ -38910,7 +38913,8 @@
    "corresponde": "si",
    "descripcion": "Plano medio corto de la entrada principal y cartel del Hospital Privado."
   },
-  "huella": "7c2332b6b2b63616"
+  "huella": "7c2332b6b2b63616",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "1prc59w": {
   "archivo": "fotos-notas/1prc59w.jpg",
@@ -39227,7 +39231,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico sonriente con indumentaria de entrenamiento frente al arco"
   },
-  "huella": "a373773539347ac2"
+  "huella": "a373773539347ac2",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "ft26du": {
   "archivo": "fotos-notas/ft26du.jpg",
@@ -39276,7 +39281,8 @@
    "corresponde": "si",
    "descripcion": "Lautaro Martínez cabeceando el balón ante la marca de jugadores de Inglaterra."
   },
-  "huella": "9afb33bb99abc7c7"
+  "huella": "9afb33bb99abc7c7",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "7jdj7i": {
   "archivo": "fotos-notas/7jdj7i.jpg",
@@ -40234,7 +40240,8 @@
    "corresponde": "si",
    "descripcion": "Futbolista besando el trofeo del Balón de Oro."
   },
-  "huella": "364e6622f2b62663"
+  "huella": "364e6622f2b62663",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "1bsmonr": {
   "archivo": "fotos-notas/1bsmonr.jpg",
@@ -40307,7 +40314,8 @@
    "corresponde": "si",
    "descripcion": "Francisco Cerúndolo lanzando la pelota para sacar"
   },
-  "huella": "0341a023242c1e7f"
+  "huella": "0341a023242c1e7f",
+  "ausenteDesde": "2026-10-27T20:24:09.502Z"
  },
  "14hgtny": {
   "archivo": "fotos-notas/14hgtny.jpg",
@@ -47140,6 +47148,28 @@
   "cuando": "2026-10-27T19:33:34.475Z",
   "intentos": 1,
   "fuentes": 13,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "si5xga": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T20:23:58.402Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1gzy070": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El personal de casas particulares cobra un aumento del 1,6% en noviembre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T20:23:58.402Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

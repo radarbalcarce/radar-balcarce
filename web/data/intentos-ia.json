@@ -1,4 +1,19 @@
 {
+ "104ufah": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 2 y la fuente no lo dice; sin esas oraciones quedan 69 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 22 y el cuerpo no lo expl",
+   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 2 y la fuente no"
+  ],
+  "falla": [
+   "el cuerpo dice 2 y la fuente no lo dice",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "105sqmh": {
   "intentos": 1,
   "ultimo": "2026-10-23T22:01:46.034Z",
@@ -575,6 +590,13 @@
   "motivos": [
    "título o bajada: 2 problemas (nombre): el copete nombra a \"santa\" y la"
   ]
+ },
+ "15s3d1a": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 12
  },
  "15s4wcj": {
   "intentos": 1,
@@ -1556,6 +1578,13 @@
   "ultimo": "2026-10-23T14:32:29.118Z",
   "motivo": "con cuerpo"
  },
+ "1ehdjsl": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 6
+ },
  "1ek0b2x": {
   "intentos": 1,
   "ultimo": "2026-10-22T00:01:25.258Z",
@@ -1699,11 +1728,6 @@
   "textos": 3,
   "numeradas": 4
  },
- "1fmti97": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T20:01:57.029Z",
-  "motivo": "con cuerpo"
- },
  "1fnd7r6": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -1839,6 +1863,16 @@
   "intentos": 1,
   "ultimo": "2026-10-24T00:31:43.933Z",
   "motivo": "con cuerpo"
+ },
+ "1gzy070": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (tilde, tildes): el cuerpo dice \"mas\" en vez de \"m"
+  ]
  },
  "1h08l3q": {
   "intentos": 1,
@@ -2415,11 +2449,6 @@
   "intentos": 1,
   "ultimo": "2026-10-23T14:32:29.118Z",
   "motivo": "con cuerpo"
- },
- "1lmbyjq": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T20:01:57.029Z",
-  "motivo": "semáforo: necesita ojo humano: \"herido\", en lo que escribió la IA (título, bajada o texto para redes)"
  },
  "1lms91p": {
   "intentos": 1,
@@ -3147,11 +3176,6 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"messi\", \"londres\" y "
   ]
  },
- "1s4d8ch": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T20:01:57.029Z",
-  "motivo": "con cuerpo"
- },
  "1s4fvet": {
   "intentos": 1,
   "ultimo": "2026-10-22T02:01:20.413Z",
@@ -3300,6 +3324,16 @@
   "intentos": 1,
   "ultimo": "2026-10-23T11:02:39.033Z",
   "motivo": "con cuerpo"
+ },
+ "1t46jo0": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
+  ]
  },
  "1t4bx3o": {
   "intentos": 1,
@@ -3940,6 +3974,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "2jfqan": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "2mceuj": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:31:25.830Z",
@@ -4428,6 +4469,20 @@
   "ultimo": "2026-10-22T10:31:22.222Z",
   "motivo": "con cuerpo"
  },
+ "7lnfde": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"division\" y la fuente no",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"division\" y "
+  ],
+  "falla": [
+   "el copete nombra a \"division\" y la fuente no",
+   "el cuerpo nombra a \"division\" y la fuente no"
+  ]
+ },
  "7m3430": {
   "intentos": 4,
   "ultimo": "2026-10-21T13:31:51.862Z",
@@ -4850,6 +4905,16 @@
   "ultimo": "2026-10-21T16:31:17.473Z",
   "motivo": "con cuerpo"
  },
+ "bi2f2l": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
+  ]
+ },
  "biq8s1": {
   "intentos": 1,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -4900,6 +4965,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T17:04:00.077Z",
   "motivo": "con cuerpo"
+ },
+ "bxtx63": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "c4g6so": {
   "intentos": 1,
@@ -5167,17 +5239,14 @@
   ]
  },
  "ewsj3i": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T19:32:02.364Z",
-  "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
-  "textos": 4,
-  "numeradas": 34,
+  "intentos": 2,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 35,
   "motivos": [
    "título o bajada: 1 problema (numero): el copete dice 93 y la fuente no",
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
-  ],
-  "falla": [
-   "el título empieza con una etiqueta y dos puntos (\"Zona Fría:\"): tiene que empezar por el hecho"
   ]
  },
  "eyw4xr": {
@@ -5333,11 +5402,6 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
- "g7d4sj": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T20:01:57.029Z",
-  "motivo": "con cuerpo"
- },
  "g7h7b": {
   "intentos": 1,
   "ultimo": "2026-10-22T19:02:09.994Z",
@@ -5463,6 +5527,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "htgc40": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "hu5736": {
   "intentos": 3,
@@ -6907,6 +6978,13 @@
    "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
   ]
  },
+ "si5xga": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "snq9oy": {
   "intentos": 1,
   "ultimo": "2026-10-26T12:02:11.561Z",
@@ -6982,11 +7060,6 @@
  "t5nq4s": {
   "intentos": 2,
   "ultimo": "2026-10-20T22:01:09.149Z",
-  "motivo": "con cuerpo"
- },
- "t6gt6o": {
-  "intentos": 3,
-  "ultimo": "2026-10-20T20:01:57.029Z",
   "motivo": "con cuerpo"
  },
  "t6n0hi": {
@@ -7248,6 +7321,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T03:02:27.826Z",
   "motivo": "con cuerpo"
+ },
+ "v7w1d1": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
  },
  "v9i832": {
   "intentos": 1,
@@ -7646,6 +7726,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "ysgzoi": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "yuq0y0": {
   "intentos": 1,
   "ultimo": "2026-10-21T00:01:15.359Z",
@@ -7737,6 +7824,21 @@
   "intentos": 1,
   "ultimo": "2026-10-23T11:02:39.033Z",
   "motivo": "con cuerpo"
+ },
+ "zbdsge": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T20:21:57.157Z",
+  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 179 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (sensacionalista): usa \"castigar\", que pre",
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 17 palabras seguidas del original (\"la denuncia formal presentada por el atletico de madrid por negociar de manera irregular…\"): decil"
+  ]
  },
  "zdxpc1": {
   "intentos": 1,
