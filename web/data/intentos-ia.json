@@ -1437,11 +1437,6 @@
   "ultimo": "2026-10-20T11:01:22.198Z",
   "motivo": "con cuerpo"
  },
- "1fbponq": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T07:31:11.482Z",
-  "motivo": "con cuerpo"
- },
  "1fc5z47": {
   "intentos": 1,
   "ultimo": "2026-10-23T17:33:33.983Z",
@@ -1833,17 +1828,21 @@
   "motivo": "con cuerpo"
  },
  "1ixp4h9": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T07:01:40.386Z",
-  "motivo": "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacion, edicion, historico, distincion, seleccion): va con las t; sin esas oraciones quedan 220",
+  "intentos": 2,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "cuerpo: 3 problemas (nombre, repite, promesa): el cuerpo nombra a \"liga\" y la fuente no; sin esas oraciones quedan 0 palabras",
   "textos": 5,
-  "numeradas": 22,
+  "numeradas": 24,
   "motivos": [
    "cuerpo: 3 problemas (nombre, copia, promesa): el cuerpo nombra a \"albi",
-   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacio"
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacio",
+   "cuerpo: 1 problema (promesa): el título dice 2.026 y el cuerpo no lo e",
+   "cuerpo: 3 problemas (nombre, repite, promesa): el cuerpo nombra a \"lig"
   ],
   "falla": [
-   "el texto está escrito sin tildes (votacion, edicion, historico, distincion, seleccion): va con las tildes y la eñe donde corresponden"
+   "el cuerpo nombra a \"liga\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título dice 2.026 y el cuerpo no lo explica"
   ]
  },
  "1iy486p": {
@@ -2273,6 +2272,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1n4to7a": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 56
  },
  "1ncb58l": {
   "intentos": 1,
@@ -3356,6 +3362,13 @@
   "intentos": 3,
   "ultimo": "2026-10-23T01:31:55.891Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
+ },
+ "1ybjm6m": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 77
  },
  "1yd732f": {
   "intentos": 1,
@@ -5298,17 +5311,15 @@
   "motivo": "con cuerpo"
  },
  "n3u9vp": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T07:01:40.386Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 1.500.000 y la fuente no lo dice",
+  "intentos": 3,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 19,
   "motivos": [
    "título o bajada: 1 problema (numero): el copete dice 1.000.000 y la fu",
-   "título o bajada: 1 problema (numero): el copete dice 1.500.000 y la fu"
-  ],
-  "falla": [
-   "el copete dice 1.500.000 y la fuente no lo dice"
+   "título o bajada: 1 problema (numero): el copete dice 1.500.000 y la fu",
+   "título o bajada: 1 problema (numero): el copete dice 1.000.000 y la fu"
   ]
  },
  "n9neme": {
@@ -5606,6 +5617,16 @@
    "el cuerpo dice 40 y la fuente no lo dice",
    "el cuerpo dice 4 y la fuente no lo dice",
    "el título dice 1 y el cuerpo no lo explica"
+  ]
+ },
+ "pl8tx8": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 33 palabras seguidas del original: d"
   ]
  },
  "pl8yzi": {
@@ -6543,17 +6564,14 @@
   ]
  },
  "yjasdx": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T07:01:40.386Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 209 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-27T08:01:15.665Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 17 palabras seguidas del original (\"filipinas mexico y peru registraron tres cada uno los demas paises efectuaron entre una…\"): decilo"
   ]
  },
  "yjlxo0": {
