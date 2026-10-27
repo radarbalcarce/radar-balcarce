@@ -21948,9 +21948,7 @@
   "ausenteDesde": "2026-10-24T00:04:01.808Z"
  },
  "onp5c1": {
-  "archivo": "fotos-notas/onp5c1.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Independiente empata 1 a 1 ante Racing en el clásico de Avellaneda",
@@ -21970,7 +21968,8 @@
    "descripcion": "Jugadores de Independiente celebrando un gol con euforia en el campo."
   },
   "huella": "e7111966c5cecccc",
-  "ausenteDesde": "2026-10-20T06:01:13.755Z"
+  "intentado": true,
+  "borrada": true
  },
  "1m2ojdy": {
   "archivo": "fotos-notas/1m2ojdy.jpg",
@@ -34490,7 +34489,8 @@
    "corresponde": "si",
    "descripcion": "Técnico en emergencias sanitarias asistiendo a un paciente en una ambulancia"
   },
-  "huella": "706464c6e6ecacb4"
+  "huella": "706464c6e6ecacb4",
+  "ausenteDesde": "2026-10-27T06:03:00.357Z"
  },
  "1qr79y1": {
   "archivo": "fotos-notas/1qr79y1.jpg",
@@ -34538,7 +34538,8 @@
    "corresponde": "si",
    "descripcion": "Gabriel Katopodis en primer plano con una bandera argentina de fondo"
   },
-  "huella": "7161217168c8c9cd"
+  "huella": "7161217168c8c9cd",
+  "ausenteDesde": "2026-10-27T06:03:00.357Z"
  },
  "1f59ye": {
   "archivo": "fotos-notas/1f59ye.jpg",
@@ -43568,6 +43569,37 @@
   "titulo": "Una delegación del Vaticano se reúne con movimientos sociales en La Matanza",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-27T05:02:05.835Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tfn2yl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Argentino Lucero asume como anfritión de empresarios en China",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-27T06:02:30.788Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "aa1xxp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Banco Central frena compras de reservas tras la victoria de Lula en Brasil",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T06:02:30.788Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ffzd6k": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Alexia Putellas gana su tercer Balón de Oro en Londres",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-27T06:02:30.788Z",
   "intentos": 1,
   "fuentes": 5,
   "intentosPorCupo": 1,

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T05:02:17.842Z",
- "portada": 148,
+ "generado": "2026-10-27T06:03:00.450Z",
+ "portada": 139,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-27T05:02:18.288Z",
+  "generado": "2026-10-27T06:03:01.778Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,13 +95,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 46,
     "notas": [
-     {
-      "id": "4782gq",
-      "titulo": "El Com.It.Es. llega a Balcarce para informar sobre las elecciones italianas",
-      "seccion": "Balcarce"
-     },
      {
       "id": "w22xsq",
       "titulo": "El Auto Club Balcarce proyecta incorporar nuevas categorías nacionales en 2027",
@@ -116,6 +111,11 @@
       "id": "pr74vq",
       "titulo": "Agrarias vence a Racing y lidera la Zona C",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1hz7ax",
+      "titulo": "Anuncian a los músicos y coristas que acompañarán al papa León XIV",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -126,43 +126,12 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 50,
     "notas": [
      {
       "id": "14e4ing",
       "titulo": "Campo de Pato define el torneo de rugby y juega la reválida",
       "seccion": "Deportes"
-     },
-     {
-      "id": "cxqqzy",
-      "titulo": "Amigos Unidos golea a River Balcarce y empata Ferroviarios",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "rlebq4",
-      "titulo": "El papa León XIV confirma su gira por la Argentina para noviembre",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1hz7ax",
-      "titulo": "Anuncian a los músicos y coristas que acompañarán al papa León XIV",
-      "seccion": "Cultura y agenda"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
-     {
-      "id": "19us6xs",
-      "titulo": "Unai Simon gana el Trofeo Yashin y Dibu Martinez termina quinto",
-      "seccion": "Fútbol"
      },
      {
       "id": "yjlxo0",
@@ -175,9 +144,40 @@
       "seccion": "Argentina"
      },
      {
+      "id": "1e9jd20",
+      "titulo": "Boca y River juegan el Superclásico el domingo 1 de noviembre",
+      "seccion": "Fútbol"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
+    "notas": [
+     {
+      "id": "rwwtu0",
+      "titulo": "Mueren a los 30 años el streamer Carlos Mauricio Gómez, conocido como El Komanche",
+      "seccion": "Argentina"
+     },
+     {
       "id": "64yqg6",
       "titulo": "Colapinto abandona en el Gran Premio de Estados Unidos de la F1",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "g2en58",
+      "titulo": "Aldosivi vence 1 a 0 a Belgrano y sigue en la pelea por la permanencia",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1sq6xx6",
+      "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
+      "seccion": "Educación"
      }
     ]
    }
