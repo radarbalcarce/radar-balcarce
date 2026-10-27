@@ -856,6 +856,13 @@
   "ultimo": "2026-10-22T02:01:20.413Z",
   "motivo": "con cuerpo"
  },
+ "191y121": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 13
+ },
  "195q06o": {
   "intentos": 1,
   "ultimo": "2026-10-22T21:01:49.719Z",
@@ -1824,6 +1831,20 @@
   "intentos": 1,
   "ultimo": "2026-10-22T18:32:14.074Z",
   "motivo": "con cuerpo"
+ },
+ "1ixp4h9": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacion, edicion, historico, distincion, seleccion): va con las t; sin esas oraciones quedan 220",
+  "textos": 5,
+  "numeradas": 22,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, copia, promesa): el cuerpo nombra a \"albi",
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacio"
+  ],
+  "falla": [
+   "el texto está escrito sin tildes (votacion, edicion, historico, distincion, seleccion): va con las tildes y la eñe donde corresponden"
+  ]
  },
  "1iy486p": {
   "intentos": 1,
@@ -2895,6 +2916,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T12:44:12.221Z",
   "motivo": "con cuerpo"
+ },
+ "1ti07j3": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
  },
  "1toth9e": {
   "intentos": 2,
@@ -5270,17 +5298,17 @@
   "motivo": "con cuerpo"
  },
  "n3u9vp": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T06:01:49.653Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 1.000.000 y la fuente no lo dice",
+  "intentos": 2,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 1.500.000 y la fuente no lo dice",
   "textos": 6,
   "numeradas": 19,
   "motivos": [
-   "título o bajada: 1 problema (numero): el copete dice 1.000.000 y la fu"
+   "título o bajada: 1 problema (numero): el copete dice 1.000.000 y la fu",
+   "título o bajada: 1 problema (numero): el copete dice 1.500.000 y la fu"
   ],
   "falla": [
-   "el copete dice 1.000.000 y la fuente no lo dice",
-   "copia 14 palabras seguidas del original (\"varian segun el nivel educativo y el porcentaje de subvencion que recibe cada institucion\"): decil"
+   "el copete dice 1.500.000 y la fuente no lo dice"
   ]
  },
  "n9neme": {
@@ -5719,6 +5747,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T18:31:38.958Z",
   "motivo": "con cuerpo"
+ },
+ "ql5vjm": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "qlki82": {
   "intentos": 1,
@@ -6495,11 +6530,6 @@
   "ultimo": "2026-10-20T17:40:32.447Z",
   "motivo": "con cuerpo"
  },
- "y9qjjl": {
-  "intentos": 1,
-  "ultimo": "2026-10-20T07:01:06.182Z",
-  "motivo": "con cuerpo"
- },
  "yi7bfk": {
   "intentos": 2,
   "ultimo": "2026-10-27T05:01:26.953Z",
@@ -6510,6 +6540,20 @@
    "título o bajada: 1 problema (antecedente): el copete usa \"lunes\", que ",
    "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"josep\" y la",
    "cuerpo: 1 problema (copia): copia 13 palabras seguidas del original: d"
+  ]
+ },
+ "yjasdx": {
+  "intentos": 1,
+  "ultimo": "2026-10-27T07:01:40.386Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 209 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 17 palabras seguidas del original (\"filipinas mexico y peru registraron tres cada uno los demas paises efectuaron entre una…\"): decilo"
   ]
  },
  "yjlxo0": {
