@@ -1,5 +1,7 @@
 {
-  "avisos": {},
+  "avisos": {
+    "clave-GEMINI_API_KEY_REDACCION": "2026-10-27T15:00:19.370Z"
+  },
   "importantes": {
     "avisadas": {
       "3357kp": {
@@ -21,11 +23,18 @@
     "ultimo": "2026-10-27T00:30:12.807Z"
   },
   "redes": {
-    "hasta": "2026-10-27T10:37:26.583Z"
+    "hasta": "2026-10-27T14:36:53.854Z"
   },
   "ultimaMedicion": "2026-10-27/9",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-26",
   "ultimoInforme": "2026-10-01",
-  "abiertos": []
+  "abiertos": [
+    {
+      "clave": "clave-GEMINI_API_KEY_REDACCION",
+      "nivel": "alta",
+      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
+      "desde": "2026-10-27T15:00:19.370Z"
+    }
+  ]
 }
