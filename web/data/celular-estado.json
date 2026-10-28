@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T11:04:07.139Z",
- "portada": 152,
+ "generado": "2026-10-28T11:33:44.055Z",
+ "portada": 156,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-28T11:04:07.974Z",
+  "generado": "2026-10-28T11:33:44.767Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
      {
       "id": "on90e1",
@@ -103,8 +103,8 @@
       "seccion": "Deportes"
      },
      {
-      "id": "kua1e9",
-      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "id": "mvtshk",
+      "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
       "seccion": "Cultura y agenda"
      },
      {
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "kua1e9",
+      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "1a7f21a",
       "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "8rowed",
-      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "8vlpd3",
@@ -144,8 +144,8 @@
       "seccion": "Educación"
      },
      {
-      "id": "19r8vz8",
-      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
+      "id": "1axwk7u",
+      "titulo": "Harry Kane gana el Balón de Oro 2026 y agradece a Pochettino",
       "seccion": "Fútbol"
      }
     ]
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 36,
     "notas": [
      {
       "id": "ytbcok",
@@ -165,35 +165,41 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "8rowed",
+      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "19r8vz8",
+      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
+      "seccion": "Fútbol"
+     },
+     {
       "id": "m9x3m1",
       "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1tj9g7q",
-      "titulo": "Migraciones confirma que Flávio Bolsonaro salió del país rumbo a Ecuador",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "si5xga",
-      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
-      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "1tj9g7q",
      "titulo": "Migraciones confirma que Flávio Bolsonaro salió del país rumbo a Ecuador",
-     "seccion": "Argentina",
+     "cuando": "2026-10-28T11:06:05.476Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "mvtshk",
+     "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-27T22:06:00.671Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-28T12:36:05.476Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
