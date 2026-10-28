@@ -916,18 +916,19 @@
    },
    "ilustraciones": {
     "gemini-flash-lite-latest": {
-     "llamadas": 24,
-     "errores": 0,
-     "entrada": 34512,
-     "salida": 1754,
+     "llamadas": 38,
+     "errores": 3,
+     "entrada": 50330,
+     "salida": 2531,
      "pensamiento": 0,
-     "total": 36266,
+     "total": 52861,
      "claves": {
-      "clasificacion": 24
+      "clasificacion": 38
      },
      "motivos": {
       "clasificacion": {
-       "ok": 24
+       "ok": 35,
+       "saturado": 3
       }
      }
     }
