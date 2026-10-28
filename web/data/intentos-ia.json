@@ -555,6 +555,13 @@
   "ultimo": "2026-10-23T22:01:46.034Z",
   "motivo": "con cuerpo"
  },
+ "150tuga": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 15
+ },
  "1557yh6": {
   "intentos": 1,
   "ultimo": "2026-10-27T16:08:54.201Z",
@@ -1457,6 +1464,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 12
+ },
+ "1cq1p5j": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1ctrlp6": {
   "intentos": 1,
@@ -2431,20 +2445,22 @@
   "numeradas": 4
  },
  "1khxfqd": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T23:31:31.031Z",
-  "motivo": "título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "intentos": 2,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "título o bajada: 2 problemas (antecedente): el copete usa \"municipalidad\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 2 problemas (antecedente): el copete usa \"municipalid",
-   "título o bajada: 4 problemas (forma, numero): el titulo trae un escape"
+   "título o bajada: 4 problemas (forma, numero): el titulo trae un escape",
+   "título o bajada: 1 problema (antecedente): el copete usa 396.000.000, ",
+   "título o bajada: 2 problemas (antecedente): el copete usa \"municipalid"
   ],
   "falla": [
-   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el titulo dice 0 y la fuente no lo dice",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo dice 0 y la fuente no lo dice"
+   "el copete usa \"municipalidad\", que sale de una nota anterior, como si fuera de hoy",
+   "el copete usa 396.000.000, que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa 396.288.049, que sale de una nota anterior, como si fuera de hoy",
+   "el título dice 119 y el cuerpo no lo explica"
   ]
  },
  "1kjsc7z": {
@@ -3697,6 +3713,13 @@
   "ultimo": "2026-10-21T22:31:10.780Z",
   "motivo": "con cuerpo"
  },
+ "1uykc4j": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 9
+ },
  "1uzcjcc": {
   "intentos": 1,
   "ultimo": "2026-10-24T11:01:04.909Z",
@@ -4101,6 +4124,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "1yqnehy": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d"
+  ]
  },
  "1yv8myb": {
   "intentos": 2,
@@ -4790,11 +4823,6 @@
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
- "8mzv5r": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T00:01:15.359Z",
-  "motivo": "con cuerpo"
- },
  "8n0ond": {
   "intentos": 1,
   "ultimo": "2026-10-27T16:34:28.732Z",
@@ -5323,6 +5351,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "degsni": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T00:01:26.809Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 19
  },
  "dfa2po": {
   "intentos": 1,
@@ -6412,8 +6447,8 @@
   "numeradas": 3
  },
  "mr670u": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T23:31:31.031Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T00:01:26.809Z",
   "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 1,
   "numeradas": 2,
@@ -8063,11 +8098,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "yuq0y0": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T00:01:15.359Z",
-  "motivo": "con cuerpo"
  },
  "yvuxkh": {
   "intentos": 1,

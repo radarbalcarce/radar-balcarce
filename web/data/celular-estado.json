@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-27T23:34:04.576Z",
- "portada": 213,
+ "generado": "2026-10-28T00:02:26.748Z",
+ "portada": 200,
  "archivo": 500,
- "esperandoCuerpo": 10,
+ "esperandoCuerpo": 17,
  "redes": {
-  "generado": "2026-10-27T23:34:05.054Z",
+  "generado": "2026-10-28T00:02:27.367Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-27T23:36:31.357Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -134,10 +134,15 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1cq1p5j",
+      "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "owniql",
       "titulo": "La Liga Balcarceña difunde el cronograma de la tercera fecha",
@@ -152,11 +157,6 @@
       "id": "1spznqi",
       "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
       "seccion": "Deportes"
-     },
-     {
-      "id": "8rowed",
-      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -197,6 +197,12 @@
      "marcada": false
     },
     {
+     "id": "1cq1p5j",
+     "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "1k22m6a",
      "titulo": "Corte de energía eléctrica en sectores rurales",
      "seccion": "Balcarce",
@@ -230,12 +236,6 @@
      "id": "a51w1",
      "titulo": "La Liga Balcarceña jugará el sábado por el Superclásico",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "ytbcok",
-     "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
-     "seccion": "Balcarce",
      "marcada": false
     }
    ],

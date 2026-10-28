@@ -42039,7 +42039,8 @@
    "corresponde": "si",
    "descripcion": "Pasillo de supermercado mayorista con carteles de ofertas colgados"
   },
-  "huella": "3534180c2ada1a3b"
+  "huella": "3534180c2ada1a3b",
+  "ausenteDesde": "2026-10-28T00:02:26.657Z"
  },
  "1r0wt8z": {
   "archivo": "fotos-notas/1r0wt8z.jpg",
@@ -42148,7 +42149,8 @@
    "corresponde": "si",
    "descripcion": "Dos personas usando celulares con aplicaciones de apuestas deportivas."
   },
-  "huella": "6ee7ddf0f5a93333"
+  "huella": "6ee7ddf0f5a93333",
+  "ausenteDesde": "2026-10-28T00:02:26.657Z"
  },
  "1md5j9u": {
   "archivo": "fotos-notas/1md5j9u.jpg",
@@ -42619,7 +42621,8 @@
    "corresponde": "si",
    "descripcion": "Jugador con la camiseta del Liverpool en medio de un partido"
   },
-  "huella": "474b55963543564a"
+  "huella": "474b55963543564a",
+  "ausenteDesde": "2026-10-28T00:02:26.657Z"
  },
  "1j0p7xa": {
   "archivo": "fotos-notas/1j0p7xa.jpg",
@@ -47490,5 +47493,63 @@
   "fuentes": 24,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1cq1p5j": {
+  "archivo": "fotos-notas/1cq1p5j.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
+  "enlace": "https://puntonueve.com.ar/el-zonal-del-atlantico-no-volvera-a-correr-en-balcarce-y-traslado-la-proxima-fecha-a-mar-del-plata/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-27-at-20.35.09-e1793144236870.jpeg",
+  "razon": "Es la única imagen completa que muestra a los protagonistas de la reunión, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-28T00:02:13.951Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas sentadas alrededor de una mesa de reuniones en una oficina."
+  },
+  "huella": "c2d264440e0e0f0f"
+ },
+ "sza072": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T00:02:13.951Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "rmyepl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T00:02:13.951Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "futboltablaliga20261023": {
+  "archivo": "fotos-notas/libre-futboltablaliga20261023.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Gelpgim22 (Sergio Moises Panei Pitrau) / Wikimedia Commons (CC BY-SA 4.0)",
+  "licencia": "CC BY-SA 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG/1280px-Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Museo Tripero - Estadio Juan Carmelo Zerillo. 14.JPG",
+  "cuando": "2026-10-28T00:02:25.076Z"
  }
 }

@@ -1,80 +1,529 @@
 {
-  "generado": "2026-10-27T23:34:04.576Z",
+  "generado": "2026-10-28T00:02:26.748Z",
   "notas": [
     {
-      "id": "1vp3mt4",
-      "titulo": "Incendio de un micro escolar en la ruta 226",
-      "copete": "Un micro escolar que viajaba desde Mar del Plata hacia Balcarce se prendió fuego este martes en la ruta 226. Los estudiantes bajaron a tiempo y las autoridades confirmaron que no hubo heridos.",
-      "cuerpo": "Un micro escolar que transportaba estudiantes desde Mar del Plata hacia Balcarce se incendió por completo este martes en la ruta 226. El episodio ocurrió a la altura del kilómetro 33, cuando el chofer detuvo la marcha tras notar humo en la caja de cambios.\n\nLos ocupantes, jóvenes de entre 12 y 18 años, descendieron con rapidez y se alejaron de la zona. Debido a la demora de la dotación de bomberos de Sierra de los Padres, el vehículo quedó consumido por las llamas ante la presencia de los alumnos, el conductor y personal de Gendarmería, que interrumpió la circulación.\n\nEl operativo finalizó sin personas heridas ni víctimas fatales tras la intervención de las autoridades para extinguir el fuego en la autovía.",
-      "guion": "Incendio de un micro escolar en la ruta 226.",
-      "seccion": "Policiales",
-      "medios": [
-        "0223 (Mar del Plata)"
+      "id": "futboltablaliga20261023",
+      "propia": "futbol",
+      "tipoFutbol": "tablas",
+      "competenciaFutbol": "liga",
+      "datosFutbol": {
+        "torneo": "Argentine Liga Profesional de Fútbol",
+        "zonas": [
+          {
+            "nombre": "Zona A",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "2975",
+                "equipo": "Instituto (Córdoba)",
+                "pj": 14,
+                "g": 10,
+                "e": 2,
+                "p": 2,
+                "gf": 21,
+                "gc": 10,
+                "dif": 11,
+                "pts": 32
+              },
+              {
+                "posicion": 2,
+                "id": "21",
+                "equipo": "Vélez Sarsfield",
+                "pj": 14,
+                "g": 7,
+                "e": 6,
+                "p": 1,
+                "gf": 23,
+                "gc": 13,
+                "dif": 10,
+                "pts": 27
+              },
+              {
+                "posicion": 3,
+                "id": "5",
+                "equipo": "Boca Juniors",
+                "pj": 14,
+                "g": 7,
+                "e": 6,
+                "p": 1,
+                "gf": 22,
+                "gc": 14,
+                "dif": 8,
+                "pts": 27
+              },
+              {
+                "posicion": 4,
+                "id": "8950",
+                "equipo": "Defensa y Justicia",
+                "pj": 14,
+                "g": 8,
+                "e": 3,
+                "p": 3,
+                "gf": 20,
+                "gc": 13,
+                "dif": 7,
+                "pts": 27
+              },
+              {
+                "posicion": 5,
+                "id": "12",
+                "equipo": "Lanús",
+                "pj": 14,
+                "g": 7,
+                "e": 3,
+                "p": 4,
+                "gf": 17,
+                "gc": 10,
+                "dif": 7,
+                "pts": 24
+              },
+              {
+                "posicion": 6,
+                "id": "14",
+                "equipo": "Newell's Old Boys",
+                "pj": 14,
+                "g": 5,
+                "e": 6,
+                "p": 3,
+                "gf": 13,
+                "gc": 10,
+                "dif": 3,
+                "pts": 21
+              },
+              {
+                "posicion": 7,
+                "id": "11972",
+                "equipo": "Gimnasia (Mendoza)",
+                "pj": 14,
+                "g": 6,
+                "e": 2,
+                "p": 6,
+                "gf": 16,
+                "gc": 15,
+                "dif": 1,
+                "pts": 20
+              },
+              {
+                "posicion": 8,
+                "id": "11",
+                "equipo": "Independiente",
+                "pj": 14,
+                "g": 5,
+                "e": 4,
+                "p": 5,
+                "gf": 12,
+                "gc": 14,
+                "dif": -2,
+                "pts": 19
+              },
+              {
+                "posicion": 9,
+                "id": "18",
+                "equipo": "San Lorenzo",
+                "pj": 14,
+                "g": 5,
+                "e": 3,
+                "p": 6,
+                "gf": 7,
+                "gc": 12,
+                "dif": -5,
+                "pts": 18
+              },
+              {
+                "posicion": 10,
+                "id": "20",
+                "equipo": "Unión (Santa Fe)",
+                "pj": 14,
+                "g": 5,
+                "e": 2,
+                "p": 7,
+                "gf": 21,
+                "gc": 23,
+                "dif": -2,
+                "pts": 17
+              },
+              {
+                "posicion": 11,
+                "id": "8",
+                "equipo": "Estudiantes de La Plata",
+                "pj": 14,
+                "g": 4,
+                "e": 2,
+                "p": 8,
+                "gf": 17,
+                "gc": 18,
+                "dif": -1,
+                "pts": 14
+              },
+              {
+                "posicion": 12,
+                "id": "7764",
+                "equipo": "Platense",
+                "pj": 14,
+                "g": 3,
+                "e": 5,
+                "p": 6,
+                "gf": 14,
+                "gc": 20,
+                "dif": -6,
+                "pts": 14
+              },
+              {
+                "posicion": 13,
+                "id": "17702",
+                "equipo": "Deportivo Riestra",
+                "pj": 14,
+                "g": 2,
+                "e": 6,
+                "p": 6,
+                "gf": 10,
+                "gc": 14,
+                "dif": -4,
+                "pts": 12
+              },
+              {
+                "posicion": 14,
+                "id": "11989",
+                "equipo": "Central Córdoba (Santiago del Estero)",
+                "pj": 14,
+                "g": 2,
+                "e": 4,
+                "p": 8,
+                "gf": 11,
+                "gc": 23,
+                "dif": -12,
+                "pts": 10
+              },
+              {
+                "posicion": 15,
+                "id": "19",
+                "equipo": "Talleres (Córdoba)",
+                "pj": 14,
+                "g": 2,
+                "e": 3,
+                "p": 9,
+                "gf": 13,
+                "gc": 22,
+                "dif": -9,
+                "pts": 9
+              }
+            ]
+          },
+          {
+            "nombre": "Zona B",
+            "filas": [
+              {
+                "posicion": 1,
+                "id": "17",
+                "equipo": "Rosario Central",
+                "pj": 14,
+                "g": 8,
+                "e": 4,
+                "p": 2,
+                "gf": 22,
+                "gc": 11,
+                "dif": 11,
+                "pts": 28
+              },
+              {
+                "posicion": 2,
+                "id": "3",
+                "equipo": "Argentinos Juniors",
+                "pj": 14,
+                "g": 8,
+                "e": 4,
+                "p": 2,
+                "gf": 18,
+                "gc": 11,
+                "dif": 7,
+                "pts": 28
+              },
+              {
+                "posicion": 3,
+                "id": "9",
+                "equipo": "Gimnasia La Plata",
+                "pj": 14,
+                "g": 7,
+                "e": 4,
+                "p": 3,
+                "gf": 21,
+                "gc": 18,
+                "dif": 3,
+                "pts": 25
+              },
+              {
+                "posicion": 4,
+                "id": "16",
+                "equipo": "River Plate",
+                "pj": 14,
+                "g": 7,
+                "e": 2,
+                "p": 5,
+                "gf": 19,
+                "gc": 13,
+                "dif": 6,
+                "pts": 23
+              },
+              {
+                "posicion": 5,
+                "id": "4",
+                "equipo": "Belgrano (Córdoba)",
+                "pj": 14,
+                "g": 6,
+                "e": 4,
+                "p": 4,
+                "gf": 14,
+                "gc": 11,
+                "dif": 3,
+                "pts": 22
+              },
+              {
+                "posicion": 6,
+                "id": "10060",
+                "equipo": "Barracas Central",
+                "pj": 14,
+                "g": 6,
+                "e": 4,
+                "p": 4,
+                "gf": 13,
+                "gc": 11,
+                "dif": 2,
+                "pts": 22
+              },
+              {
+                "posicion": 7,
+                "id": "10158",
+                "equipo": "Sarmiento (Junín)",
+                "pj": 14,
+                "g": 6,
+                "e": 3,
+                "p": 5,
+                "gf": 22,
+                "gc": 21,
+                "dif": 1,
+                "pts": 21
+              },
+              {
+                "posicion": 8,
+                "id": "10",
+                "equipo": "Huracán",
+                "pj": 14,
+                "g": 5,
+                "e": 4,
+                "p": 5,
+                "gf": 12,
+                "gc": 14,
+                "dif": -2,
+                "pts": 19
+              },
+              {
+                "posicion": 9,
+                "id": "9744",
+                "equipo": "Independiente Rivadavia",
+                "pj": 14,
+                "g": 5,
+                "e": 4,
+                "p": 5,
+                "gf": 17,
+                "gc": 22,
+                "dif": -5,
+                "pts": 19
+              },
+              {
+                "posicion": 10,
+                "id": "9785",
+                "equipo": "Atlético Tucumán",
+                "pj": 14,
+                "g": 4,
+                "e": 5,
+                "p": 5,
+                "gf": 13,
+                "gc": 13,
+                "dif": 0,
+                "pts": 17
+              },
+              {
+                "posicion": 11,
+                "id": "235",
+                "equipo": "Banfield",
+                "pj": 14,
+                "g": 3,
+                "e": 5,
+                "p": 6,
+                "gf": 15,
+                "gc": 20,
+                "dif": -5,
+                "pts": 14
+              },
+              {
+                "posicion": 12,
+                "id": "7767",
+                "equipo": "Tigre",
+                "pj": 14,
+                "g": 3,
+                "e": 4,
+                "p": 7,
+                "gf": 13,
+                "gc": 16,
+                "dif": -3,
+                "pts": 13
+              },
+              {
+                "posicion": 13,
+                "id": "15",
+                "equipo": "Racing Club",
+                "pj": 14,
+                "g": 3,
+                "e": 3,
+                "p": 8,
+                "gf": 14,
+                "gc": 21,
+                "dif": -7,
+                "pts": 12
+              },
+              {
+                "posicion": 14,
+                "id": "9739",
+                "equipo": "Aldosivi",
+                "pj": 14,
+                "g": 3,
+                "e": 2,
+                "p": 9,
+                "gf": 15,
+                "gc": 22,
+                "dif": -7,
+                "pts": 11
+              },
+              {
+                "posicion": 15,
+                "id": "19685",
+                "equipo": "Estudiantes de Río Cuarto",
+                "pj": 14,
+                "g": 2,
+                "e": 3,
+                "p": 9,
+                "gf": 9,
+                "gc": 19,
+                "dif": -10,
+                "pts": 9
+              }
+            ]
+          }
+        ]
+      },
+      "destacados": [
+        {
+          "texto": "Ver la tabla de posiciones",
+          "href": "/tablas/liga-profesional"
+        }
       ],
-      "enlace": "https://www.0223.com.ar/nota/2026-10-27-20-10-0-una-espesa-humareda-y-un-micro-escolar-consumido-por-las-llamas-impactantes-imagenes-del-incendio-en-la-ruta-226",
-      "fecha": "2026-10-27T23:10:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 47,
+      "lugarFoto": "Juan Carmelo Zerillo (El Bosque)",
+      "titulo": "Liga Profesional: así están las tablas después de la fecha del 23 al 27 de octubre",
+      "copete": "Posiciones de las dos zonas de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol), con puntos, partidos jugados y goles.",
+      "cuerpo": "Así quedaron las posiciones de la Liga Profesional de Fútbol (Argentine Liga Profesional de Fútbol) después de los partidos del 23 al 27 de octubre. Los equipos están ordenados como informa ESPN, con los mismos criterios de desempate del torneo:\n\nZona A:\n1º Instituto (Córdoba): 32 puntos, 14 jugados (10 ganados, 2 empatados, 2 perdidos), goles 21 a 10, diferencia +11.\n2º Vélez Sarsfield: 27 puntos, 14 jugados (7 ganados, 6 empatados, 1 perdidos), goles 23 a 13, diferencia +10.\n3º Boca Juniors: 27 puntos, 14 jugados (7 ganados, 6 empatados, 1 perdidos), goles 22 a 14, diferencia +8.\n4º Defensa y Justicia: 27 puntos, 14 jugados (8 ganados, 3 empatados, 3 perdidos), goles 20 a 13, diferencia +7.\n5º Lanús: 24 puntos, 14 jugados (7 ganados, 3 empatados, 4 perdidos), goles 17 a 10, diferencia +7.\n6º Newell's Old Boys: 21 puntos, 14 jugados (5 ganados, 6 empatados, 3 perdidos), goles 13 a 10, diferencia +3.\n7º Gimnasia (Mendoza): 20 puntos, 14 jugados (6 ganados, 2 empatados, 6 perdidos), goles 16 a 15, diferencia +1.\n8º Independiente: 19 puntos, 14 jugados (5 ganados, 4 empatados, 5 perdidos), goles 12 a 14, diferencia -2.\n9º San Lorenzo: 18 puntos, 14 jugados (5 ganados, 3 empatados, 6 perdidos), goles 7 a 12, diferencia -5.\n10º Unión (Santa Fe): 17 puntos, 14 jugados (5 ganados, 2 empatados, 7 perdidos), goles 21 a 23, diferencia -2.\n11º Estudiantes de La Plata: 14 puntos, 14 jugados (4 ganados, 2 empatados, 8 perdidos), goles 17 a 18, diferencia -1.\n12º Platense: 14 puntos, 14 jugados (3 ganados, 5 empatados, 6 perdidos), goles 14 a 20, diferencia -6.\n13º Deportivo Riestra: 12 puntos, 14 jugados (2 ganados, 6 empatados, 6 perdidos), goles 10 a 14, diferencia -4.\n14º Central Córdoba (Santiago del Estero): 10 puntos, 14 jugados (2 ganados, 4 empatados, 8 perdidos), goles 11 a 23, diferencia -12.\n15º Talleres (Córdoba): 9 puntos, 14 jugados (2 ganados, 3 empatados, 9 perdidos), goles 13 a 22, diferencia -9.\n\nZona B:\n1º Rosario Central: 28 puntos, 14 jugados (8 ganados, 4 empatados, 2 perdidos), goles 22 a 11, diferencia +11.\n2º Argentinos Juniors: 28 puntos, 14 jugados (8 ganados, 4 empatados, 2 perdidos), goles 18 a 11, diferencia +7.\n3º Gimnasia La Plata: 25 puntos, 14 jugados (7 ganados, 4 empatados, 3 perdidos), goles 21 a 18, diferencia +3.\n4º River Plate: 23 puntos, 14 jugados (7 ganados, 2 empatados, 5 perdidos), goles 19 a 13, diferencia +6.\n5º Belgrano (Córdoba): 22 puntos, 14 jugados (6 ganados, 4 empatados, 4 perdidos), goles 14 a 11, diferencia +3.\n6º Barracas Central: 22 puntos, 14 jugados (6 ganados, 4 empatados, 4 perdidos), goles 13 a 11, diferencia +2.\n7º Sarmiento (Junín): 21 puntos, 14 jugados (6 ganados, 3 empatados, 5 perdidos), goles 22 a 21, diferencia +1.\n8º Huracán: 19 puntos, 14 jugados (5 ganados, 4 empatados, 5 perdidos), goles 12 a 14, diferencia -2.\n9º Independiente Rivadavia: 19 puntos, 14 jugados (5 ganados, 4 empatados, 5 perdidos), goles 17 a 22, diferencia -5.\n10º Atlético Tucumán: 17 puntos, 14 jugados (4 ganados, 5 empatados, 5 perdidos), goles 13 a 13, diferencia 0.\n11º Banfield: 14 puntos, 14 jugados (3 ganados, 5 empatados, 6 perdidos), goles 15 a 20, diferencia -5.\n12º Tigre: 13 puntos, 14 jugados (3 ganados, 4 empatados, 7 perdidos), goles 13 a 16, diferencia -3.\n13º Racing Club: 12 puntos, 14 jugados (3 ganados, 3 empatados, 8 perdidos), goles 14 a 21, diferencia -7.\n14º Aldosivi: 11 puntos, 14 jugados (3 ganados, 2 empatados, 9 perdidos), goles 15 a 22, diferencia -7.\n15º Estudiantes de Río Cuarto: 9 puntos, 14 jugados (2 ganados, 3 empatados, 9 perdidos), goles 9 a 19, diferencia -10.\n\nLos datos son las posiciones oficiales según ESPN.",
+      "guion": null,
+      "seccion": "Fútbol",
       "local": false,
-      "deLaZona": true,
+      "relevancia": 56,
+      "medios": [
+        "ESPN (datos abiertos)"
+      ],
+      "enlace": "https://www.espn.com.ar/futbol/",
+      "fuentesConsultadas": [
+        {
+          "medio": "ESPN (datos abiertos)",
+          "enlace": "https://www.espn.com.ar/futbol/"
+        }
+      ],
+      "fecha": "2026-10-28T00:02:23.228Z",
+      "sinFecha": false,
+      "visto": "2026-10-28T00:02:23.228Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-28T00:02:23.228Z",
+      "temas": [],
+      "etiquetas": [
+        "fútbol",
+        "Liga Profesional",
+        "tabla de posiciones",
+        "posiciones",
+        "Argentine Liga Profesional de Fútbol"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de ESPN.",
+      "slug": "liga-profesional-asi-estan-las-tablas-despues-de-la-fecha-del-23-al",
+      "foto": {
+        "archivo": "fotos-notas/libre-futboltablaliga20261023.jpg",
+        "credito": "Foto: Gelpgim22 (Sergio Moises Panei Pitrau) / Wikimedia Commons (CC BY-SA 4.0)"
+      }
+    },
+    {
+      "id": "1cq1p5j",
+      "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
+      "copete": "Las categorías resolvieron no volver al autódromo Juan Manuel Fangio tras los incidentes de la última competencia. La actividad se disputará el 14 y 15 de noviembre.",
+      "cuerpo": "Los presidentes de las categorías que integran el Zonal del Atlántico resolvieron no volver a competir en el autódromo Juan Manuel Fangio de Balcarce. La decisión se concretó este martes por la tarde en la sede de la Federación Mar y Sierras, luego de analizar los múltiples accidentes y las roturas que sufrieron varios vehículos durante la última competencia en el trazado serrano. \n\nAnte este panorama, la próxima fecha se trasladó al Autódromo de Mar del Plata y se desarrollará los días 14 y 15 de noviembre. Cada dirigente deberá trabajar para recomponer el vínculo con sus pilotos tras lo ocurrido. En tanto, la sede del premio coronación todavía no fue definida y se evaluará más adelante.",
+      "guion": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata.",
+      "seccion": "Automovilismo",
+      "medios": [
+        "Puntonueve (FM 100.9)"
+      ],
+      "enlace": "https://puntonueve.com.ar/el-zonal-del-atlantico-no-volvera-a-correr-en-balcarce-y-traslado-la-proxima-fecha-a-mar-del-plata/",
+      "fecha": "2026-10-27T23:38:22.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-28T00:01:15.840Z",
+      "relevancia": 92,
+      "local": true,
+      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [
-        "rutas"
+        "autodromo",
+        "fangio"
       ],
       "como": "automatica",
       "claves": [
-        "Un colectivo escolar se incendió este martes en la ruta 226.",
-        "El transporte trasladaba estudiantes desde Mar del Plata hacia Balcarce.",
-        "Los pasajeros descendieron a tiempo y no se reportaron heridos.",
-        "El fuego consumió totalmente el vehículo."
-      ],
-      "seSabe": [
-        "El micro escolar se prendió fuego en la mañana del martes en el kilómetro 33 de la ruta 226.",
-        "Los estudiantes a bordo tienen entre 12 y 18 años y viajaban hacia Balcarce.",
-        "El chofer detuvo el vehículo al percatarse de la presencia de humo.",
-        "El operativo de seguridad concluyó sin personas heridas ni víctimas."
+        "El Zonal del Atlántico cambia de escenario y no volverá a correr en Balcarce.",
+        "La decisión surge tras los incidentes y roturas de autos en el autódromo Juan Manuel Fangio.",
+        "La próxima competencia se realizará en Mar del Plata los días 14 y 15 de noviembre.",
+        "La sede del premio coronación todavía no fue definida por las autoridades."
       ],
       "noConfirmado": [
-        "Demora de la dotación de Bomberos de Sierra de los Padres.",
+        "Todavía no se informó dónde se llevará a cabo el premio coronación de la temporada.",
         "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
       ],
-      "textoRedes": "Un micro escolar que viajaba de Mar del Plata a Balcarce se prendió fuego este martes en la ruta 226. Los estudiantes bajaron a tiempo y no se registraron heridos.",
+      "textoRedes": "El Zonal del Atlántico trasladó su próxima fecha a Mar del Plata tras los incidentes y roturas de autos registrados en el autódromo Juan Manuel Fangio de Balcarce.",
       "etiquetas": [
-        "incendio",
-        "micro escolar",
-        "ruta 226",
-        "Balcarce",
-        "Mar del Plata"
+        "Zonal del Atlántico",
+        "autódromo Juan Manuel Fangio",
+        "Mar del Plata",
+        "Balcarce"
       ],
       "fuentesConsultadas": [
         {
-          "medio": "0223 (Mar del Plata)",
-          "enlace": "https://www.0223.com.ar/nota/2026-10-27-20-10-0-una-espesa-humareda-y-un-micro-escolar-consumido-por-las-llamas-impactantes-imagenes-del-incendio-en-la-ruta-226",
-          "fecha": "2026-10-27T23:10:00.000Z",
+          "medio": "Puntonueve (FM 100.9)",
+          "enlace": "https://puntonueve.com.ar/el-zonal-del-atlantico-no-volvera-a-correr-en-balcarce-y-traslado-la-proxima-fecha-a-mar-del-plata/",
+          "fecha": "2026-10-27T23:38:22.000Z",
           "oficial": false,
-          "aporte": "Informó sobre el incendio del micro escolar en la ruta 226, la evacuación de los alumnos y la intervención de bomberos y gendarmería."
+          "aporte": "Informó la decisión de trasladar el Zonal del Atlántico a Mar del Plata y los motivos vinculados a los incidentes en el autódromo local."
         }
       ],
       "antecedentes": [
         {
-          "id": "124vuyb",
-          "titulo": "Se incendia un colectivo escolar en la Ruta 226",
-          "fecha": "2026-10-27T13:43:52.000Z",
-          "ruta": "/nota/se-incendia-un-colectivo-escolar-en-la-ruta-226-124vuyb"
+          "id": "p8h4md",
+          "titulo": "El Auto Club Balcarce confirma cronograma para el Zonal del Atlántico",
+          "fecha": "2026-10-20T13:03:07.000Z",
+          "ruta": "/nota/el-auto-club-balcarce-confirma-cronograma-para-el-zonal-del-atlantico-p8h4md"
         },
         {
-          "id": "e6hb9u",
-          "titulo": "Confirman la responsabilidad penal de un camionero por una muerte en la ruta 55",
-          "fecha": "2026-10-27T13:41:00.000Z",
-          "ruta": "/nota/confirman-la-responsabilidad-penal-de-un-camionero-por-una-muerte-en-e6hb9u"
+          "id": "f6j0rt",
+          "titulo": "El Auto Club Balcarce suspende la fecha del Zonal del Atlántico",
+          "fecha": "2026-10-08T16:14:22.000Z",
+          "ruta": "/nota/el-auto-club-balcarce-suspende-la-fecha-del-zonal-del-atlantico-f6j0rt"
         },
         {
-          "id": "1uwlw8o",
-          "titulo": "Reclaman obras viales en la Ruta 226 en Tandil",
-          "fecha": "2026-10-25T08:00:04.000Z",
-          "ruta": "/nota/reclaman-obras-viales-en-la-ruta-226-en-tandil-1uwlw8o"
+          "id": "16tb2vo",
+          "titulo": "El Zonal del Atlántico compite el fin de semana en el autódromo",
+          "fecha": "2026-10-08T13:03:34.000Z",
+          "ruta": "/nota/el-zonal-del-atlantico-compite-el-fin-de-semana-en-el-autodromo-16tb2vo"
         }
       ],
       "verificacion": {
@@ -82,7 +531,11 @@
         "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
         "sugeridoPorIA": null
       },
-      "slug": "incendio-de-un-micro-escolar-en-la-ruta-226"
+      "slug": "el-zonal-del-atlantico-traslada-su-proxima-fecha-a-mar-del-plata",
+      "foto": {
+        "archivo": "fotos-notas/1cq1p5j.jpg",
+        "credito": "Foto: Puntonueve (FM 100.9)"
+      }
     },
     {
       "id": "owniql",
@@ -183,29 +636,31 @@
         "Olé",
         "Crónica",
         "Radio Mitre",
+        "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "La Nueva",
         "0221",
         "La Brújula 24",
         "QZ Noticias (Mar del Plata)",
+        "El Eco de Tandil",
         "Doble Amarilla",
+        "Bolavip Argentina",
         "El Gráfico",
         "C5N",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)",
-        "Bolavip Argentina"
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.elgrafico.com.ar/articulo/1103/81451/todos-los-antecedentes-de-nicolas-ramirez-el-arbitro-de-boca-river",
       "fecha": "2026-10-27T22:30:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 67,
+      "relevancia": 61,
       "local": false,
       "muyContada": {
-        "medios": 19,
-        "porque": "19 medios",
+        "medios": 20,
+        "porque": "20 medios",
         "desde": "2026-10-27T23:31:12.894Z"
       },
       "publicadaPor": null,
@@ -401,6 +856,41 @@
           "fecha": "2026-10-27T21:54:22.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/boca-juniors/como-cayo-boca-designacion-nicolas-ramirez-superclasico-id768938.html",
+          "fecha": "2026-10-27T23:52:35.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/river-plate/como-cayo-river-designacion-nicolas-ramirez-superclasico-id768946.html",
+          "fecha": "2026-10-27T23:52:05.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/depo/ligaprofesional/el-particular-condimento-que-la-afa-confirmo-para-el-superc/",
+          "fecha": "2026-10-27T23:23:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/deportes/2026/10/27/nicolas-ramirez-el-arbitro-elegido-para-el-superclasico-entre-boca-y-river-en-la-bombonera/",
+          "fecha": "2026-10-27T23:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/deportes/nicolas-ramirez-sera-el-arbitro-del-superclasico-entre-boca-y-river",
+          "fecha": "2026-10-27T23:20:52.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -538,73 +1028,6 @@
       "slug": "integrantes-de-la-emdab-participan-del-foro-provincial-del-deporte"
     },
     {
-      "id": "b6yjqx",
-      "titulo": "Balcarce Autos inicia la construcción de su nueva sede en el predio comercial",
-      "copete": "Comenzaron las obras de la futura concesionaria en el terreno del ex Carrefour. El proyecto contempla la nueva estética de la marca y la validación de planos en Estados Unidos.",
-      "cuerpo": "El propietario de Balcarce Autos, Oscar Merlo, confirmó que comenzaron las obras de la nueva concesionaria en el predio del ex Carrefour. Los trabajos en las bases se iniciaron la semana pasada en el espacio destinado al futuro centro comercial.\n\nEl empresario explicó que el proyecto contempla la incorporación de la nueva imagen de Ford y que los planos requirieron una validación en Estados Unidos. Asimismo, indicó que el contexto económico y una inversión previa en Necochea demoraron los plazos iniciales.\n\nLa iniciativa cumplirá con exigencias de diseño y materiales homologados por la automotriz para optimizar la atención. Por otra parte, destacó la recuperación del terreno ubicado frente a la fábrica familiar y valoró la iluminación actual del sector.",
-      "guion": "Balcarce Autos inicia la construcción de su nueva sede en el predio comercial.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/balcarce-autos-comenzo-las-obras-de-su-nueva-concesionaria-en-el-nuevo-centro-comercial",
-      "fecha": "2026-10-27T22:18:15.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T22:22:05.574Z",
-      "relevancia": 84,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Iniciaron las obras de la nueva concesionaria de Balcarce Autos",
-        "El edificio se construye en el predio del ex Carrefour",
-        "El diseño adoptará la nueva estética internacional de la marca Ford",
-        "Todavía no se informó la fecha prevista para la inauguración"
-      ],
-      "seSabe": [
-        "Comenzaron las obras en las bases de la futura concesionaria",
-        "Los trabajos se desarrollan en el predio del ex Carrefour",
-        "El proyecto utiliza la nueva imagen de la marca Ford",
-        "Los planos contaron con la validación de Estados Unidos",
-        "No se precisó una fecha para la finalización de los trabajos"
-      ],
-      "noConfirmado": [
-        "No se informó la fecha exacta de inauguración de la concesionaria",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Balcarce Autos inició la construcción de su nueva concesionaria en el predio del ex Carrefour con diseño de la marca Ford y planos validados en Estados Unidos.",
-      "etiquetas": [
-        "Balcarce Autos",
-        "concesionaria",
-        "obras",
-        "centro comercial",
-        "Ford",
-        "Oscar Merlo"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/balcarce-autos-comenzo-las-obras-de-su-nueva-concesionaria-en-el-nuevo-centro-comercial",
-          "fecha": "2026-10-27T22:18:15.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre el inicio de la construcción, las características del diseño y los plazos del proyecto."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "balcarce-autos-inicia-la-construccion-de-su-nueva-sede-en-el-predio",
-      "foto": {
-        "archivo": "fotos-notas/b6yjqx.jpg",
-        "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
       "id": "91xbv7",
       "titulo": "Implementan operativos con drones en la zona rural",
       "copete": "El Ministerio de Seguridad bonaerense puso en marcha operativos de vigilancia con drones en el sector rural de Balcarce. La iniciativa se concretó tras un pedido del Comando de Prevención Rural local.",
@@ -680,7 +1103,7 @@
       "fecha": "2026-10-27T22:13:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T22:22:05.574Z",
-      "relevancia": 46,
+      "relevancia": 36,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -779,66 +1202,72 @@
       "slug": "el-rotary-club-balcarce-dona-sillitas-de-comer-a-las-unidades-de"
     },
     {
-      "id": "8rowed",
-      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
-      "copete": "El empresario local dialogó sobre los inicios de sus emprendimientos, la incorporación de sus hijos al negocio familiar y su faceta como baterista de rock nacional.",
-      "cuerpo": "El empresario Oscar Merlo repasó sus comienzos comerciales vinculados a la industria de los helados y destacó que el esfuerzo compartido junto a su familia consolidó su camino. Durante una entrevista, señaló que su padre continúa ligado a la fábrica y que sus hijos ya lo acompañan en las distintas actividades cotidianas. Según explicó, el crecimiento de los proyectos comerciales en Balcarce y Necochea exige equilibrar los vínculos afectivos con las responsabilidades laborales diarias. En esa línea, remarcó que la capacitación permanente y la incorporación de herramientas tecnológicas resultan fundamentales para afrontar los cambios del sector. El propietario de Balcarce Autos recordó que su expansión hacia Necochea comenzó en 2014 con la apertura de una franquicia de mecánica ligera enfocada en la atención a clientes de la zona. Además de su actividad empresarial, Merlo reveló una faceta artística vinculada a la música y contó que toca la batería. Afirmó que disfruta del rock nacional, especialmente de referentes como Pappo y Riff, y que encuentra en la ejecución de su instrumento un espacio para desconectarse de las obligaciones cotidianas.",
-      "guion": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música.",
-      "seccion": "Cultura y agenda",
+      "id": "1yqnehy",
+      "titulo": "Wall Street sube a la espera de balances y la Reserva Federal",
+      "copete": "Los principales índices bursátiles avanzaron impulsados por el sector de inteligencia artificial y la expectativa sobre las tasas de interés. La Reserva Federal inició su reunión de dos días.",
+      "cuerpo": "Los mercados bursátiles internacionales operaron al alza este martes tras el impulso del sector tecnológico y el anuncio de salida a bolsa de una firma líder en inteligencia artificial. El índice Dow Jones de Industriales avanzó un 0,03% hasta las 57.378,40 unidades, el S&P 500 ganó un 0,6% para ubicarse en 7.722,52 puntos y el Nasdaq Composite trepó un 1,2% hasta alcanzar los 26.477,81 enteros.\n\nEn paralelo, el comité de política monetaria de la Reserva Federal dio inicio a un encuentro de dos jornadas para definir los tipos de interés. Analistas proyectan que las autoridades monetarias mantendrán las tasas sin modificaciones tras el incremento de septiembre, aunque persisten las expectativas de futuros ajustes debido a los niveles de inflación.\n\nEl optimismo en la rueda estuvo respaldado por la presentación de documentos regulatorios para una oferta pública inicial por parte de la desarrolladora de tecnología Anthropic, cuyos informes expusieron pérdidas netas por aproximadamente u$s80.700 millones en la primera mitad del año. Por otro lado, las empresas del sector afrontan fuertes inversiones en infraestructura digital, como el caso de Meta Platforms, que reportó un flujo de caja negativo tras destinar cerca de u$s35.000 millones en el trimestre.\n\nDurante la jornada también se difundieron balances corporativos de diversas firmas globales. Las acciones de Boeing sufrieron una caída del 11% debido a resultados financieros desfavorables y demoras en las entregas, mientras que Coca-Cola retrocedió un 1,3%. En contraste, la compañía de paquetería UPS escaló un 6,6% tras superar las proyecciones de ganancias y la empresa de cruceros Royal Caribbean mejoró un 5,7% impulsada por sus ingresos trimestrales.",
+      "guion": "Wall Street sube a la espera de balances y la Reserva Federal.",
+      "seccion": "Tecnología",
       "medios": [
-        "Radio Gabal (FM 104.1)"
+        "iProUP",
+        "Ámbito"
       ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/oscar-merlo-conto-como-el-trabajo-familiar-marco-su-camino-empresarial",
-      "fecha": "2026-10-27T22:04:10.000Z",
+      "enlace": "https://www.ambito.com/finanzas/los-futuros-wall-street-extienden-las-subas-la-mano-las-tecnologicas-n6338261",
+      "fecha": "2026-10-27T22:04:00.000Z",
       "sinFecha": false,
-      "visto": "2026-10-27T22:22:05.574Z",
-      "relevancia": 84,
-      "local": true,
-      "deUnMedioDeAca": true,
+      "visto": "2026-10-28T00:01:15.840Z",
+      "relevancia": 41,
+      "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
       "como": "automatica",
       "claves": [
-        "El empresario repasó sus inicios comerciales en el sector de los helados.",
-        "Sus hijos y su padre participan de las actividades de la empresa familiar.",
-        "En 2014 concretó una expansión comercial hacia la ciudad de Necochea.",
-        "Destacó la incorporación de tecnología y capacitación para afrontar nuevos desafíos.",
-        "Mantiene una faceta artística como baterista aficionado al rock nacional."
+        "Los índices Dow Jones, S&P 500 y Nasdaq cerraron con subas este martes.",
+        "La Reserva Federal comenzó su reunión de dos días para definir la tasa de interés.",
+        "El sector tecnológico impulsó las operaciones tras los anuncios vinculados a la inteligencia artificial.",
+        "Empresas como Boeing y UPS reportaron sus balances trimestrales con resultados dispares."
       ],
       "seSabe": [
-        "Oscar Merlo encabeza emprendimientos comerciales en Balcarce y Necochea según informó un medio local.",
-        "La empresa familiar abarca la producción de helados y servicios vinculados al sector automotor.",
-        "Desde el año 2014 cuenta con una franquicia de mecánica ligera en la ciudad de Necochea.",
-        "Participa como músico invitado tocando la batería en presentaciones de rock nacional."
+        "El Dow Jones cerró en 57.378,40 puntos.",
+        "El S&P 500 se ubicó en 7.722,52 puntos.",
+        "El Nasdaq Composite alcanzó los 26.477,81 puntos.",
+        "La Reserva Federal inició su encuentro de política monetaria."
       ],
       "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+        "La decisión final sobre los tipos de interés que anunciará el comité monetario.",
+        "El impacto sostenible que tendrán las inversiones en inteligencia artificial sobre los ingresos corporativos."
       ],
-      "textoRedes": "El empresario Oscar Merlo repasó la historia de sus emprendimientos familiares en Balcarce y Necochea, la incorporación de las nuevas tecnologías y su faceta como baterista de rock nacional.",
+      "textoRedes": "Wall Street operó en alza este martes impulsado por el sector de inteligencia artificial y la expectativa ante la decisión sobre tasas de la Reserva Federal. Los principales índices bursátiles registraron ganancias mientras las empresas presentan sus balances.",
       "etiquetas": [
-        "Oscar Merlo",
-        "Balcarce Autos",
-        "empresarios",
-        "familia",
-        "Necochea",
-        "rock nacional"
+        "Wall Street",
+        "Reserva Federal",
+        "acciones",
+        "tecnología",
+        "economía global"
       ],
       "fuentesConsultadas": [
         {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/oscar-merlo-conto-como-el-trabajo-familiar-marco-su-camino-empresarial",
-          "fecha": "2026-10-27T22:04:10.000Z",
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/los-futuros-wall-street-extienden-las-subas-la-mano-las-tecnologicas-n6338261",
+          "fecha": "2026-10-27T22:04:00.000Z",
           "oficial": false,
-          "aporte": "Detalles sobre la trayectoria empresarial, la empresa familiar, la expansión a Necochea y su faceta musical."
+          "aporte": "Detalló el cierre de los índices bursátiles, los balances de las empresas, las pérdidas de Anthropic y el inicio de la reunión de la Reserva Federal."
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/finanzas/72696-w",
+          "fecha": "2026-10-27T23:03:00.000Z",
+          "oficial": false,
+          "aporte": "Indicó el crecimiento general de Wall Street a la espera de la decisión de la FED."
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "oscar-merlo-repasa-su-trayectoria-empresaria-y-su-vinculo-con-la"
+      "slug": "wall-street-sube-a-la-espera-de-balances-y-la-reserva-federal"
     },
     {
       "id": "a51w1",
@@ -1017,14 +1446,22 @@
         "El Cronista",
         "iProfesional",
         "Crónica",
-        "C5N"
+        "Noticias Argentinas (NA)",
+        "C5N",
+        "Los Andes (Mendoza)",
+        "El Destape"
       ],
       "enlace": "https://www.iprofesional.com/politica/467635-proyecto-malvinas-logro-dictamen-feroz-negociacion-avanza-diputados",
       "fecha": "2026-10-27T21:32:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 59,
+      "relevancia": 65,
       "local": false,
+      "muyContada": {
+        "medios": 7,
+        "porque": "7 medios en sus primeras 3 horas",
+        "desde": "2026-10-28T00:01:15.840Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -1084,6 +1521,27 @@
           "fecha": "2026-10-27T22:37:00.000Z",
           "oficial": false,
           "aporte": "Aportó los detalles sobre las 60 firmas del despacho, los cuestionamientos de la oposición y las fechas tentativas del 12 y 14 de noviembre."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/politica/malvinas--la-libertad-avanza-logro-dictamen-por-la-ley-de-defensa-de-la-soberania_a6ae10e26bc8a73c74f22b510",
+          "fecha": "2026-10-27T22:06:41.040Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/diputados-el-proyecto-soberania-nacional-obtuvo-dictamen-cambios-malvinas-n6011976",
+          "fecha": "2026-10-27T23:52:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/politica/lla-dictamino-proyecto-soberania-cambios-pedir-ee-uu-20261027181144",
+          "fecha": "2026-10-27T21:11:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -1283,6 +1741,7 @@
         "El Eco de Tandil",
         "Ámbito",
         "C5N",
+        "Minuto Uno",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
         "Perfil"
@@ -1294,8 +1753,8 @@
       "relevancia": 76,
       "local": false,
       "muyContada": {
-        "medios": 17,
-        "porque": "17 medios",
+        "medios": 18,
+        "porque": "18 medios",
         "desde": "2026-10-27T22:22:05.574Z"
       },
       "publicadaPor": null,
@@ -1486,6 +1945,20 @@
           "fecha": "2026-10-27T23:27:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/nacionales/acuerdo-tecnico-por-la-tercera-revision-del-programa-del-fmi",
+          "fecha": "2026-10-27T23:09:35.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/economia/el-fmi-aprobo-la-tercera-revision-tecnica-y-habilitaria-los-us900-millones-que-queria-caputo-n6338606",
+          "fecha": "2026-10-27T23:32:26.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -1514,7 +1987,7 @@
       "fecha": "2026-10-27T20:53:57.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T21:01:46.236Z",
-      "relevancia": 92,
+      "relevancia": 82,
       "local": true,
       "oficial": true,
       "deUnMedioDeAca": true,
@@ -1604,7 +2077,7 @@
       "fecha": "2026-10-27T20:53:03.097Z",
       "sinFecha": false,
       "visto": "2026-10-27T21:31:28.189Z",
-      "relevancia": 47,
+      "relevancia": 37,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1663,11 +2136,11 @@
       "guion": "Francisco Cerúndolo queda eliminado en la primera ronda del ATP de Viena.",
       "seccion": "Deportes",
       "medios": [
-        "Perfil",
         "Olé",
         "Ámbito",
         "Los Andes (Mendoza)",
-        "Infobae"
+        "Infobae",
+        "Perfil"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/26/francisco-cerundolo-a-un-paso-de-la-mejor-ubicacion-de-su-carrera-asi-quedo-el-ranking-atp-con-10-argentinos-en-el-top-100/",
       "fecha": "2026-10-27T20:38:00.000Z",
@@ -1744,86 +2217,6 @@
         "sugeridoPorIA": null
       },
       "slug": "francisco-cerundolo-queda-eliminado-en-la-primera-ronda-del-atp-de"
-    },
-    {
-      "id": "10nw5om",
-      "titulo": "Netanyahu gana las elecciones en Israel pero sin mayoría",
-      "copete": "Los sondeos a boca de urna señalan al Likud como el partido más votado en los comicios generales de este martes. Ningún bloque alcanza los escaños necesarios en el Parlamento para formar gobierno.",
-      "cuerpo": "Las elecciones generales celebradas este martes en Israel terminaron sin un ganador claro y abrieron un escenario de complejas negociaciones para formar un nuevo gobierno. El partido Likud, liderado por el primer ministro Benjamin Netanyahu, se perfilaba como el más votado de la jornada con un ligero margen, según los sondeos a boca de urna difundidos tras el cierre de los colegios electorales a las 22.\n\nSin embargo, las proyecciones indicaban que ninguna de las principales fuerzas alcanzaría la mayoría propia de 61 bancas en la Knesset, el Parlamento de 120 miembros. Los sondeos otorgaban unas 50 bancas al bloque oficialista y 52 al sector opositor encabezado por el centrista Gadi Eisenkot, mientras que los partidos de mayoría árabe sumarían otros 18 escaños. Estos resultados dejaban a ambos sectores sin un camino directo hacia la conformación de una coalición gubernamental.\n\nLa jornada estuvo marcada por una participación récord que alcanzó el 74,3% del padrón a las 20, la cifra más alta registrada en el país desde 1973. Durante el desarrollo de los comicios, Netanyahu denunció que tres altos funcionarios de un partido de mayoría árabe habrían intentado robar los comicios en el sur del país, un episodio que las autoridades electorales calificaron como un caso aislado bajo investigación por presunto soborno electoral.\n\nUna vez conocidos los resultados definitivos, el presidente Isaac Herzog deberá convocar a los representantes de las fuerzas políticas que ingresen al Parlamento para encomendar la formación del Ejecutivo a quien considere con mayores posibilidades de lograrlo. En tanto, los resultados oficiales podrían demorarse varios días.",
-      "guion": "Netanyahu gana las elecciones en Israel pero sin mayoría.",
-      "seccion": "Argentina",
-      "medios": [
-        "La Nación",
-        "El Economista",
-        "elDiarioAR"
-      ],
-      "enlace": "https://www.eldiarioar.com/mundo/netanyahu-gana-elecciones-israel-no-podra-formar-gobierno-sondeos_1_13620135.html",
-      "fecha": "2026-10-27T20:34:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T21:31:28.189Z",
-      "relevancia": 46,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Likud de Benjamin Netanyahu fue el partido más votado en los comicios generales de Israel.",
-        "Los sondeos señalan que ningún bloque alcanza la mayoría de 61 escaños en el Parlamento.",
-        "La participación electoral alcanzó el 74,3% del padrón, la cifra más alta desde 1973.",
-        "El presidente Isaac Herzog deberá encargar la formación de gobierno tras los resultados definitivos."
-      ],
-      "seSabe": [
-        "Las elecciones generales en Israel se realizaron este martes 27 de octubre de 2026.",
-        "La participación electoral llegó al 74,3% a las 20 según el Comité Electoral Central.",
-        "El Likud de Benjamin Netanyahu y el bloque opositor de Gadi Eisenkot quedaron por debajo de la mayoría de 61 escaños en la Knesset, según los sondeos a boca de urna.",
-        "El Comité Electoral Central rechazó el pedido del oficialismo para extender el horario de votación."
-      ],
-      "noConfirmado": [
-        "Los resultados oficiales definitivos de los comicios, que podrían demorar varios días.",
-        "La conformación final de las futuras alianzas parlamentarias para formar gobierno."
-      ],
-      "textoRedes": "Israel: los sondeos a boca de urna señalan que el partido de Benjamin Netanyahu fue el más votado, pero sin mayoría para formar gobierno.",
-      "etiquetas": [
-        "Israel",
-        "elecciones",
-        "Benjamin Netanyahu",
-        "Parlamento",
-        "Gadi Eisenkot"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "elDiarioAR",
-          "enlace": "https://www.eldiarioar.com/mundo/netanyahu-gana-elecciones-israel-no-podra-formar-gobierno-sondeos_1_13620135.html",
-          "fecha": "2026-10-27T20:29:47.000Z",
-          "oficial": false,
-          "aporte": "Aportó detalles sobre los horarios de la jornada electoral, la negativa a extender el cierre de urnas y las estrategias de campaña vinculadas a los votantes árabes."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/el-mundo/netanyahu-denuncio-que-quieren-robar-las-elecciones-mientras-la-participacion-alcanza-niveles-nid27102026/",
-          "fecha": "2026-10-27T20:39:45.000Z",
-          "oficial": false,
-          "aporte": "Aportó datos sobre los sondeos a boca de urna, la participación del 74,3%, los festejos de la oposición, el incidente con detenidos en el sur y las declaraciones de votantes."
-        },
-        {
-          "medio": "El Economista",
-          "enlace": "https://eleconomista.com.ar/internacional/elecciones-israel-sondeos-boca-urna-proyectan-claro-ganador-n99256",
-          "fecha": "2026-10-27T20:34:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre el estancamiento político, el funcionamiento histórico de las coaliciones, la participación récord desde 1973 y las propuestas de los bloques."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "netanyahu-gana-las-elecciones-en-israel-pero-sin-mayoria",
-      "foto": {
-        "archivo": "fotos-notas/10nw5om-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
     },
     {
       "id": "vdmf9a",
@@ -1984,95 +2377,6 @@
         "sugeridoPorIA": null
       },
       "slug": "cuti-romero-critica-el-balon-de-oro-y-destaca-a-lionel-messi"
-    },
-    {
-      "id": "oitct6",
-      "titulo": "La ACTC inspecciona el autódromo de Salta para evaluar su regreso al Turismo Carretera",
-      "copete": "Representantes de la entidad visitaron el circuito Martín Miguel de Güemes tras un pedido del Auto Club Salta. El trazado no recibe a la categoría desde 2010.",
-      "cuerpo": "La visita se concretó tras una solicitud formal enviada por el Auto Club Salta con el objetivo de evaluar un futuro retorno de la categoría tras dieciséis años de ausencia.\n\nEl gerente general de la entidad, Fernando Miori, y el director de Obras y Planificación de Autódromos, Roberto Argento, recorrieron el predio junto a referentes locales para observar las instalaciones y la totalidad de la pista. Tras la recorrida, las partes acordaron continuar el diálogo de manera permanente de cara al futuro.\n\nPara que la máxima categoría del automovilismo nacional vuelva a presentarse en el escenario norteño, será condición clave realizar obras de reacondicionamiento debido a la falta de inversión y mantenimiento que afectó al circuito en los últimos años.\n\nEl trazado salteño, ubicado a unos ocho kilómetros de la capital provincial y con una extensión de 4.106 metros, no recibe al Turismo Carretera desde el domingo 15 de agosto de 2010, jornada en la que se impuso el piloto Gabriel Ponce de León con Ford. En aquella última presentación, Omar Tanoni estableció el récord vigente del circuito en la sesión clasificatoria con un registro de 1m30s913.\n\nInaugurado el 18 de agosto de 1974 y reinaugurado en junio de 2003, el autódromo albergó cuatro competencias de la categoría entre 2003 y 2010. Posteriormente, dejó de recibir categorías nacionales por problemas en los accesos y el deterioro del asfalto, aunque el último antecedente a nivel nacional ocurrió en mayo de este año con una fecha del TC2000.",
-      "guion": "La ACTC inspecciona el autódromo de Salta para evaluar su regreso al Turismo Carretera.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "Campeones",
-        "Solotc"
-      ],
-      "enlace": "https://campeones.com.ar/integrantes-de-la-actc-recorrieron-el-autodromo-martin-miguel-de-guemes/",
-      "fecha": "2026-10-27T20:18:12.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 53,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "autodromo"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Representantes de la ACTC recorrieron el autódromo salteño tras un pedido formal.",
-        "El Turismo Carretera no compite en ese circuito desde agosto de 2010.",
-        "Las autoridades indicaron que se requerirán obras de reacondicionamiento en las instalaciones.",
-        "El trazado cuenta con una extensión de 4.106 metros y fue inaugurado en 1974."
-      ],
-      "seSabe": [
-        "Fernando Miori y Roberto Argento viajaron a Salta en representación de la ACTC.",
-        "La visita respondió a una solicitud enviada por el Auto Club Salta.",
-        "El último paso del Turismo Carretera por el autódromo fue el 15 de agosto de 2010.",
-        "Omar Tanoni posee el récord del circuito con un tiempo de 1m30s913."
-      ],
-      "noConfirmado": [
-        "Todavía no se definieron los plazos ni el inicio de las obras de reacondicionamiento necesarias en el autódromo.",
-        "Aún no hay una fecha establecida para el retorno oficial de la categoría al circuito salteño."
-      ],
-      "textoRedes": "La ACTC inspeccionó el autódromo Martín Miguel de Güemes en Salta para evaluar un posible regreso del Turismo Carretera tras dieciséis años sin competencias en ese circuito.",
-      "etiquetas": [
-        "Turismo Carretera",
-        "ACTC",
-        "Autodromo Martin Miguel de Guemes",
-        "Salta"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Campeones",
-          "enlace": "https://campeones.com.ar/integrantes-de-la-actc-recorrieron-el-autodromo-martin-miguel-de-guemes/",
-          "fecha": "2026-10-27T20:18:12.000Z",
-          "oficial": false,
-          "aporte": "Confirmó que la solicitud formal provino del Auto Club Salta y el desarrollo de la reunión con las autoridades locales."
-        },
-        {
-          "medio": "Solotc",
-          "enlace": "https://www.solotc.com.ar/actc-inspecciono-autodromo-salta-evaluar-regreso-tc/",
-          "fecha": "2026-10-27T21:15:34.000Z",
-          "oficial": false,
-          "aporte": "Detalló el viaje de Miori y Argento, la fecha de la última carrera de 2010, el récord de Omar Tanoni y las condiciones actuales del autódromo."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "8xm2jg",
-          "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
-          "fecha": "2026-10-26T11:57:24.000Z",
-          "ruta": "/nota/santiago-lantella-gana-tres-competencias-en-el-autodromo-juan-manuel-8xm2jg"
-        },
-        {
-          "id": "i3z8vw",
-          "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
-          "fecha": "2026-10-25T18:44:49.000Z",
-          "ruta": "/nota/el-autodromo-juan-manuel-fangio-de-balcarce-recibe-este-domingo-al-i3z8vw"
-        },
-        {
-          "id": "16tb2vo",
-          "titulo": "El Zonal del Atlántico compite el fin de semana en el autódromo",
-          "fecha": "2026-10-08T13:03:34.000Z",
-          "ruta": "/nota/el-zonal-del-atlantico-compite-el-fin-de-semana-en-el-autodromo-16tb2vo"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-actc-inspecciona-el-autodromo-de-salta-para-evaluar-su-regreso-al"
     },
     {
       "id": "104ufah",
@@ -2267,6 +2571,13 @@
           "fecha": "2026-10-27T21:37:04.000Z",
           "oficial": false,
           "aporte": "Informó la tabla de posiciones, el horario, la fecha y la situación actual de ambos equipos."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/estados-unidos/mls/inter-miami-vs-fc-cincinnati-en-vivo-donde-ver-por-tv-y-online-id768942.html",
+          "fecha": "2026-10-27T23:30:05.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -2306,7 +2617,6 @@
       "medios": [
         "Perfil",
         "TyC Sports",
-        "Olé",
         "Doble Amarilla",
         "Bolavip Argentina"
       ],
@@ -2314,13 +2624,8 @@
       "fecha": "2026-10-27T19:39:50.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T21:01:46.236Z",
-      "relevancia": 48,
+      "relevancia": 45,
       "local": false,
-      "muyContada": {
-        "medios": 5,
-        "porque": "5 medios en sus primeras 3 horas",
-        "desde": "2026-10-27T21:31:28.189Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -2425,6 +2730,7 @@
       "seccion": "Economía",
       "medios": [
         "0223 (Mar del Plata)",
+        "Clarín",
         "La Nación",
         "El Cronista",
         "iProfesional",
@@ -2584,6 +2890,20 @@
           "medio": "Ámbito",
           "enlace": "https://www.ambito.com/economia/cuanto-cobraran-los-empleados-comercio-noviembre-2026-n6338567",
           "fecha": "2026-10-27T21:17:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/politica/paritaria-comercio-sindicato-camaras-empresarias-acordaron-aumento-57-bono-50000_0_lakhYlq91u.html",
+          "fecha": "2026-10-27T23:35:05.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/actualidad/467619-empleados-de-comercio-con-aumento-de-sueldo-y-bono-confirmados",
+          "fecha": "2026-10-27T23:00:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3374,12 +3694,12 @@
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "El Día",
+        "Bolavip Argentina",
         "El Gráfico",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
         "El Destape",
-        "Bolavip Argentina",
         "Perfil"
       ],
       "enlace": "https://radiomitre.cienradios.com/deportes/cuti-romero-revelo-por-que-salio-en-la-final-del-mundial-2026-frente-a-espana/",
@@ -3647,6 +3967,7 @@
       "seccion": "Economía",
       "medios": [
         "Canal 26",
+        "Minuto Uno",
         "La Gaceta (Tucumán)",
         "El Destape",
         "Clarín"
@@ -3655,7 +3976,7 @@
       "fecha": "2026-10-27T17:56:54.323Z",
       "sinFecha": false,
       "visto": "2026-10-27T20:21:44.281Z",
-      "relevancia": 44,
+      "relevancia": 47,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3709,6 +4030,13 @@
           "medio": "Canal 26",
           "enlace": "https://www.canal26.com/economia/2026/10/27/empleadas-domesticas-cuanto-se-paga-por-hora-y-por-mes-en-noviembre-de-2026-con-el-nuevo-aumento/",
           "fecha": "2026-10-27T21:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/sociedad/empleadas-domesticas-cuanto-es-el-aumento-y-cuales-son-los-minimos-n6338602",
+          "fecha": "2026-10-27T23:30:41.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3809,13 +4137,13 @@
         "La Nueva",
         "La Brújula 24",
         "Doble Amarilla",
+        "Bolavip Argentina",
         "El Gráfico",
         "Córdoba Competición",
         "Ámbito",
         "C5N",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
-        "Bolavip Argentina",
         "Perfil"
       ],
       "enlace": "https://campeones.com.ar/franco-colapinto-no-estara-girando-en-la-primera-practica-de-f1-del-gp-de-mexico/",
@@ -4961,6 +5289,7 @@
       "guion": "Mendoza impulsa Vaca Muerta con un proyecto de YPF por US$ 4.500 millones.",
       "seccion": "Economía",
       "medios": [
+        "TN (Todo Noticias)",
         "Página/12",
         "El Economista",
         "Ámbito"
@@ -4969,7 +5298,7 @@
       "fecha": "2026-10-27T16:05:30.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T19:31:51.082Z",
-      "relevancia": 42,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5671,7 +6000,7 @@
       "fecha": "2026-10-27T14:57:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T21:31:28.189Z",
-      "relevancia": 61,
+      "relevancia": 54,
       "local": false,
       "muyContada": {
         "medios": 11,
@@ -6119,7 +6448,7 @@
       "fecha": "2026-10-27T14:25:38.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T17:02:19.414Z",
-      "relevancia": 48,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6529,8 +6858,8 @@
       "medios": [
         "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://puntonueve.com.ar/la-escuela-primaria-no-10-presentara-el-proyecto-manos-en-la-tierra/",
       "fecha": "2026-10-27T13:56:23.000Z",
@@ -6922,10 +7251,10 @@
       "guion": "Se incendia un colectivo escolar en la Ruta 226.",
       "seccion": "Policiales",
       "medios": [
-        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
         "QZ Noticias (Mar del Plata)",
         "Qué Digital",
+        "Radio Gabal (FM 104.1)",
         "LU9 Mar del Plata"
       ],
       "enlace": "https://www.lu9mardelplata.com.ar/se-incendio-un-colectivo-escolar-que-viajaba-con-chicos-cerca-del-peaje-el-dorado",
@@ -7134,64 +7463,6 @@
         "sugeridoPorIA": null
       },
       "slug": "confirman-la-responsabilidad-penal-de-un-camionero-por-una-muerte-en"
-    },
-    {
-      "id": "7v0yi1",
-      "titulo": "Suman reclamos por inseguridad tras el robo de dos motos",
-      "copete": "Sustrajeron dos rodados durante el último domingo, uno de los cuales fue recuperado por la policía con dos menores aprehendidos. La reiteración de estos hechos genera preocupación entre los vecinos.",
-      "cuerpo": "Dos motocicletas fueron sustraídas durante el último domingo, un escenario que generó preocupación entre los vecinos ante la reiteración de delitos contra estos vehículos. El primer caso se registró a las 12, cuando personal de la Estación de Policía Comunal interceptó a dos adolescentes de 15 y 16 años en la zona de avenida Caseros y avenida Italia. Ambos sospechosos intentaron descartar un rodado entre los pastizales e intentaron escapar, pero fueron reducidos. Los uniformados comprobaron que el vehículo registraba un pedido de secuestro activo por un hurto cometido durante la madrugada de ese mismo día.\n\nHoras después se constató la sustracción de una motocicleta Brava 110 de color azul que estaba estacionada frente a una vivienda situada en la calle 114 bis, entre 17 y 19.\n\nLa sucesión de estos episodios volvió a instalar interrogantes sobre los patrullajes preventivos, los controles nocturnos y la cantidad de agentes disponibles en la fuerza de seguridad local.",
-      "guion": "Suman reclamos por inseguridad tras el robo de dos motos.",
-      "seccion": "Policiales",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/policiales/preocupan-los-robos-de-motos-y-crecen-los-reclamos-por-mayor-seguridad",
-      "fecha": "2026-10-27T13:39:03.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T15:34:13.365Z",
-      "relevancia": 74,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Dos motos robadas durante el último domingo",
-        "Aprehendieron a dos menores tras recuperar uno de los rodados",
-        "Reclamos vecinales por la prevención y la presencia policial"
-      ],
-      "seSabe": [
-        "Se registraron dos robos de motocicletas el último domingo.",
-        "La policía recuperó una de las motos y aprehendió a dos menores de 15 y 16 años en la zona de avenida Caseros y avenida Italia.",
-        "El segundo robo afectó a una moto Brava 110 azul en la calle 114 bis, entre 17 y 19.",
-        "El intendente Esteban Reino planteó en declaraciones anteriores la necesidad de una mayor dotación policial."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Suman reclamos por seguridad tras el robo de dos motocicletas durante el último domingo. La policía recuperó uno de los rodados y aprehendió a dos menores.",
-      "etiquetas": [
-        "inseguridad",
-        "robos",
-        "motos",
-        "policiales",
-        "Esteban Reino"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/policiales/preocupan-los-robos-de-motos-y-crecen-los-reclamos-por-mayor-seguridad",
-          "fecha": "2026-10-27T13:39:03.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre dos robos de motocicletas el domingo, la recuperación de un rodado con dos menores aprehendidos y los reclamos por seguridad."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "suman-reclamos-por-inseguridad-tras-el-robo-de-dos-motos"
     },
     {
       "id": "1099rtb",
@@ -8001,13 +8272,14 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "Ámbito",
+        "Crónica",
         "La Nación"
       ],
       "enlace": "https://www.ambito.com/espectaculos/simple-plan-y-all-time-low-llegan-juntos-la-argentina-como-y-donde-comprar-las-entradas-el-show-n6338297",
       "fecha": "2026-10-27T13:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T15:34:13.365Z",
-      "relevancia": 41,
+      "relevancia": 50,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8051,6 +8323,13 @@
           "fecha": "2026-10-27T14:23:12.000Z",
           "oficial": false,
           "aporte": "Informó la fecha del show, el estadio, los detalles de la venta de entradas y la trayectoria de ambas bandas."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/simple-plan-y-all-time-low-llegan-juntos-a-buenos-aires-cuando-y-donde-comprar-las-entradas/",
+          "fecha": "2026-10-27T23:33:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -8743,8 +9022,8 @@
       "medios": [
         "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
-        "Municipalidad de Balcarce"
+        "Municipalidad de Balcarce",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/27/pablo-gomez-hizo-podio-en-rosario/",
       "fecha": "2026-10-27T12:33:07.000Z",
@@ -8900,7 +9179,7 @@
       "fecha": "2026-10-27T12:30:24.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T13:31:40.853Z",
-      "relevancia": 42,
+      "relevancia": 35,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8988,7 +9267,7 @@
       "fecha": "2026-10-27T12:15:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T13:31:40.853Z",
-      "relevancia": 52,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -9310,7 +9589,7 @@
       "fecha": "2026-10-27T12:00:45.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T12:31:13.427Z",
-      "relevancia": 65,
+      "relevancia": 58,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -9710,14 +9989,13 @@
         "TN (Todo Noticias)",
         "TyC Sports",
         "Diario Popular",
-        "0221",
         "Perfil"
       ],
       "enlace": "https://tn.com.ar/deportes/futbol/2026/10/27/juan-roman-riquelme-hablo-de-todo-antes-del-superclasico-el-presente-de-boca-los-arbitros-y-la-exigencia-del-futbol-argentino/",
       "fecha": "2026-10-27T11:40:03.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T12:31:13.427Z",
-      "relevancia": 41,
+      "relevancia": 38,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -12484,14 +12762,17 @@
       "seccion": "Fútbol",
       "medios": [
         "TyC Sports",
+        "Olé",
         "Crónica",
-        "Diario Popular"
+        "Diario Popular",
+        "Noticias Argentinas (NA)",
+        "0221"
       ],
       "enlace": "https://www.diariopopular.com.ar/futbol/torneo-clausura-union-le-gano-estudiantes-y-suena-clasificarse-los-playoffs-n926445",
       "fecha": "2026-10-27T00:21:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-27T17:02:19.414Z",
-      "relevancia": 39,
+      "relevancia": 47,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -13380,209 +13661,6 @@
       "slug": "alexia-putellas-gana-su-tercer-balon-de-oro-en-londres",
       "foto": {
         "archivo": "fotos-notas/ffzd6k-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "1c0e1o9",
-      "titulo": "Unión derrota 3 a 1 a Estudiantes por el Torneo Clausura 2026",
-      "copete": "El conjunto santafesino se impuso como local en la decimocuarta fecha del certamen. El Pincha había comenzado en ventaja pero sufrió la remontada en el complemento.",
-      "cuerpo": "Unión se impuso por 3 a 1 ante Estudiantes en el estadio 15 de Abril por la decimocuarta fecha del Torneo Clausura 2026 y complicó las aspiraciones del conjunto platense en la competencia local.\n\nEl equipo visitante abrió el marcador a los 39 minutos del primer tiempo a través de un tanto en contra de Lucas Ayala, tras un centro enviado por Eric Meza que se desvió en el defensor y descolocó al arquero Matías Mansilla.\n\nSin embargo, el desarrollo cambió en el complemento con la reacción del elenco local. A los 6 minutos, Cristian Tarragona conectó un centro por el segundo palo para estampar el empate parcial. Posteriormente, a los 18 minutos, Marcelo Estigarribia concretó el segundo tanto con un remate frontal que venció la resistencia del arquero Fernando Muslera. Ya en tiempo cumplido, Eric Ramírez sentenció el resultado definitivo en la última jugada del encuentro.\n\nDurante el desarrollo del complemento, el director técnico del equipo platense, Alexander Medina, resultó expulsado a los 7 minutos. Con este marcador, el conjunto santafesino alcanzó los 17 unidades en la tabla de posiciones de la zona A, mientras que el elenco albirrojo quedó relegado con 14 puntos y al borde de la eliminación a dos fechas de la culminación de la fase regular.\n\nEn la próxima jornada del campeonato local, el conjunto albirrojo recibirá a Instituto el sábado 31 de octubre desde las 21:30 en el estadio Jorge Luis Hirschi.",
-      "guion": "Unión derrota 3 a 1 a Estudiantes por el Torneo Clausura 2026.",
-      "seccion": "Fútbol",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Olé",
-        "Noticias Argentinas (NA)",
-        "0221",
-        "El Eco de Tandil",
-        "El Día"
-      ],
-      "enlace": "https://www.0221.com.ar/estudiantes/estudiantes-visita-union-la-fecha-14-del-torneo-clausura-2026-n136430",
-      "fecha": "2026-10-26T22:46:11.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T04:02:06.000Z",
-      "relevancia": 35,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Unión derrotó 3 a 1 a Estudiantes en Santa Fe por la fecha 14 del Torneo Clausura 2026.",
-        "Lucas Ayala abrió el marcador en contra para la visita, mientras que Cristian Tarragona, Marcelo Estigarribia y Eric Ramírez convirtieron para el local.",
-        "El director técnico Alexander Medina fue expulsado en el complemento del encuentro.",
-        "Estudiantes recibirá a Instituto el próximo sábado 31 de octubre a las 21:30."
-      ],
-      "seSabe": [
-        "Unión venció 3 a 1 a Estudiantes en el estadio 15 de Abril.",
-        "Los goles del local fueron convertidos por Cristian Tarragona, Marcelo Estigarribia y Eric Ramírez.",
-        "Lucas Ayala marcó un gol en contra para el equipo platense en la primera etapa.",
-        "Alexander Medina vio la tarjeta roja a los 7 minutos del segundo tiempo."
-      ],
-      "textoRedes": "Unión venció 3 a 1 a Estudiantes en Santa Fe por la fecha 14 del Torneo Clausura 2026. El Pincha ganaba con un gol en contra pero el local lo dio vuelta en el complemento.",
-      "etiquetas": [
-        "Torneo Clausura 2026",
-        "Estudiantes de La Plata",
-        "Unión de Santa Fe",
-        "Fútbol argentino"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/estudiantes/estudiantes-visita-union-la-fecha-14-del-torneo-clausura-2026-n136430",
-          "fecha": "2026-10-26T20:47:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los minutos de los goles, las amonestaciones y los cambios del encuentro."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/26/union-vs-estudiantes-en-vivo-por-la-fase-de-grupos-de-la-liga-profesional-hora-donde-ver-y-formaciones/",
-          "fecha": "2026-10-26T23:57:35.000Z",
-          "oficial": false,
-          "aporte": "Aportó estadísticas oficiales de posesión, remates y pases de ambos equipos."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/union/triunfo-union-estudiantes_3_Q8dGiTHpIj.html",
-          "fecha": "2026-10-27T00:22:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-primera/union-santa-fe-estudiantes-plata-torneo-clausura-fecha-catorce-alexander-medina-cacique-madelon-leonardo_0_jnoGyVrNF4.html",
-          "fecha": "2026-10-26T21:16:46.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/futbol/torneo-clausura-union-le-gano-estudiantes-y-suena-clasificarse-los-playoffs-n926445",
-          "fecha": "2026-10-27T01:44:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la situación en la tabla de posiciones y los próximos compromisos."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/deportes/estudiantes-cayo-con-union-y-se-aleja-de-la-clasificacion-en-el-torneo-clausura-2026_a6adfe7f5ca56bd981c75eea6",
-          "fecha": "2026-10-27T00:01:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó las fechas y horarios de los próximos partidos para ambos clubes."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/ahora-por-el-clausura-se-juega-mucho-en-santa-fe-deportes_1792992510",
-          "fecha": "2026-10-26T23:55:00.000Z",
-          "oficial": false,
-          "aporte": "Describió el desarrollo táctico del partido y el rendimiento de los jugadores."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/video-union-vs-estudiantes-el-gol-de-meza-deportes_1793054760",
-          "fecha": "2026-10-26T22:46:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/estudiantes/estudiantes-perdio-3-1-union-y-quedo-al-borde-la-eliminacion-del-torneo-clausura-n136438",
-          "fecha": "2026-10-27T00:21:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/deportes/estudiantes-cayo-ante-union-y-se-complica",
-          "fecha": "2026-10-27T09:45:54.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/san-lorenzo/que-necesita-san-lorenzo-para-clasificarse-a-los-playoffs-del-torneo-clausura-2026-id768802.html",
-          "fecha": "2026-10-27T13:15:55.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/union-vs-estudiantes-en-vivo-donde-ver-por-tv-y-online-id768569.html",
-          "fecha": "2026-10-26T21:00:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-union-vs-estudiantes-fecha-14-id768458.html",
-          "fecha": "2026-10-26T04:00:04.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/futbol/torneo-clausura-union-estudiantes-e-instituto-riestra-los-duelos-del-lunes-n926346",
-          "fecha": "2026-10-26T11:28:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/estudiantes/cuando-juega-estudiantes-el-torneo-clausura-2026-n130313",
-          "fecha": "2026-10-27T00:46:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/torneo-clausura-2026-los-numeros-deportes_1793081015",
-          "fecha": "2026-10-27T06:03:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/deportes/torneo-clausura-2026-los-numeros-deportes_1792991730",
-          "fecha": "2026-10-26T05:15:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/depo/actualidad/san-lorenzo-se-juega-todo-ante-velez-que-necesita-para-clasificar-a-los-playoffs-del-torneo-clausura/",
-          "fecha": "2026-10-27T16:27:20.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "fsy5pg",
-          "titulo": "Unión y Estudiantes juegan el lunes por el Torneo Clausura",
-          "fecha": "2026-10-25T16:00:00.000Z",
-          "ruta": "/nota/union-y-estudiantes-juegan-este-lunes-por-el-torneo-clausura-fsy5pg"
-        },
-        {
-          "id": "xykgwb",
-          "titulo": "Barracas Central recibe a Estudiantes de Río Cuarto por el Clausura",
-          "fecha": "2026-10-25T19:41:10.000Z",
-          "ruta": "/nota/barracas-central-recibe-a-estudiantes-de-rio-cuarto-por-el-clausura-xykgwb"
-        },
-        {
-          "id": "ym4ito",
-          "titulo": "Boca lidera la tabla anual del torneo Clausura 2026",
-          "fecha": "2026-10-25T19:30:00.000Z",
-          "ruta": "/nota/boca-lidera-la-tabla-anual-del-torneo-clausura-2026-ym4ito"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron seis medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "union-derrota-3-a-1-a-estudiantes-por-el-torneo-clausura-2026",
-      "foto": {
-        "archivo": "fotos-notas/1c0e1o9-ia.jpg",
         "credito": "Ilustración generada con IA"
       }
     },
@@ -14971,29 +15049,28 @@
       "guion": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027.",
       "seccion": "Fútbol",
       "medios": [
-        "TN (Todo Noticias)",
-        "TyC Sports",
-        "Radio Mitre",
-        "Canal 26",
-        "Diario Popular",
         "Noticias Argentinas (NA)",
         "El Marplatense",
         "El Eco de Tandil",
         "Bolavip Argentina",
+        "Crónica",
+        "0223 (Mar del Plata)",
+        "TN (Todo Noticias)",
+        "TyC Sports",
+        "Radio Mitre",
+        "Canal 26",
         "Ámbito",
         "Minuto Uno",
         "Los Andes (Mendoza)",
         "Clarín",
         "Perfil",
-        "Crónica",
-        "0223 (Mar del Plata)",
         "El Destape"
       ],
       "enlace": "https://bolavip.com/ar/futbolargentino/afa-aprobaria-un-nuevo-formato-en-el-futbol-argentino-para-2027",
       "fecha": "2026-10-26T20:14:56.561Z",
       "sinFecha": false,
       "visto": "2026-10-27T03:32:25.767Z",
-      "relevancia": 48,
+      "relevancia": 33,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -15179,6 +15256,13 @@
           "medio": "TyC Sports",
           "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/preguntas-y-respuestas-sobre-formato-torneo-primera-division-2027-id768931.html",
           "fecha": "2026-10-27T22:47:40.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/boca-podria-ser-campeon-del-futbol-argentino-tras-el-superclasico_a6ae10e13bc8a73c74f22b1fa",
+          "fecha": "2026-10-27T20:56:15.906Z",
           "oficial": false,
           "aporte": null
         }
@@ -16891,8 +16975,8 @@
       "seccion": "Política",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/10/petruccelli-pidio-una-reunion-con-reino.html",
       "fecha": "2026-10-26T17:35:16.595Z",
@@ -17007,15 +17091,7 @@
         "Perfil",
         "El Destape",
         "Crónica",
-        "Infobae",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "0221",
-        "La Verdad",
-        "QZ Noticias (Mar del Plata)",
-        "Mi8 (Canal 8 Mar del Plata)",
-        "elDiarioAR",
-        "La Brújula 24"
+        "Infobae"
       ],
       "enlace": "https://www.lanacion.com.ar/economia/el-empleo-en-el-sector-privado-lleva-14-meses-consecutivos-en-caida-segun-la-uba-nid26102026/",
       "fecha": "2026-10-26T17:28:13.000Z",
@@ -17340,425 +17416,6 @@
       "foto": {
         "archivo": "fotos-notas/4782gq.jpg",
         "credito": "Foto: Radio Gabal (FM 104.1)"
-      }
-    },
-    {
-      "id": "1h08l3q",
-      "titulo": "Javier Milei hace el gesto viral six-seven en la Casa Rosada",
-      "copete": "El presidente se mostró en el balcón junto a sus ministros antes de la reunión de Gabinete. Mantiene el silencio oficial tras el triunfo de Lula da Silva en Brasil.",
-      "cuerpo": "El presidente Javier Milei protagonizó una aparición pública en el balcón de la Casa Rosada junto a parte de su Gabinete y realizó el gesto viral conocido como six-seven frente a delegaciones de estudiantes que recorrían la Plaza de Mayo. La secuencia ocurrió antes del encuentro ministerial y en una jornada marcada por la expectativa en torno al escenario regional tras la victoria de Luiz Inácio Lula da Silva en el balotaje presidencial de Brasil, un resultado frente al cual el mandatario argentino evitó realizar pronunciamientos oficiales.\n\nDurante la mañana, la agenda oficial incluyó la recepción al príncipe y gran maestre de la Soberana Orden de Malta, Frey John-Dunlap, acompañado por el canciller Pablo Quirno y el secretario de Culto. Luego, el jefe de Estado encabezó la reunión de Gabinete en el Salón Eva Perón con la participación de la secretaria general de la Presidencia, Karina Milei, el titular de la Cámara de Diputados, Martín Menem, y diversos ministros, aunque sin la presencia de la senadora Patricia Bullrich.\n\nPese al revés electoral de su aliado en los comicios vecinos, el Gobierno mantuvo el hermetismo y el mandatario solo se limitó a replicar en sus redes sociales un mensaje crítico del legislador Juan Ignacio Fernández hacia el electorado del Partido de los Trabajadores. En tanto, el asesor presidencial Santiago Caputo señaló que las acciones del Ejecutivo avanzan conforme a lo previsto.\n\nEn el plano político interno y legislativo, el oficialismo busca ordenar la dinámica parlamentaria de cara a los próximos proyectos de ley. Por otra parte, la agenda presidencial continuará con un viaje rumbo a la provincia de Catamarca para inaugurar plantas de producción de carbonato de litio vinculadas a la empresa Río Tinto, y una posterior visita a Neuquén para participar en actividades de una iglesia evangélica.",
-      "guion": "Javier Milei hace el gesto viral six-seven en la Casa Rosada.",
-      "seccion": "Política",
-      "medios": [
-        "La Nación",
-        "Crónica",
-        "Noticias Argentinas (NA)",
-        "El Economista",
-        "Ámbito",
-        "C5N",
-        "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "Canal 26",
-        "La Gaceta (Tucumán)",
-        "La Nueva",
-        "iProfesional",
-        "0223 (Mar del Plata)",
-        "El Cronista",
-        "Clarín",
-        "El Destape",
-        "Perfil",
-        "Infobae"
-      ],
-      "enlace": "https://www.lagaceta.com.ar/nota/1159679/politica/milei-hizo-gesto-viral-six-seven-desde-balcon-casa-rosada-junto-gabinete.html",
-      "fecha": "2026-10-26T17:18:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T13:02:49.546Z",
-      "relevancia": 53,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Javier Milei realizó el gesto six-seven desde el balcón de la Casa Rosada ante estudiantes.",
-        "El mandatario mantuvo el silencio oficial respecto al triunfo de Lula da Silva en Brasil.",
-        "El jefe de Estado recibió en su despacho al príncipe de la Orden de Malta antes del cónclave ministerial.",
-        "El Gobierno prepara la agenda de viajes presidenciales hacia Catamarca y Neuquén."
-      ],
-      "seSabe": [
-        "Milei hizo el gesto six-seven en el balcón de la Casa Rosada frente a estudiantes de la Plaza de Mayo.",
-        "El presidente mantuvo silencio institucional sobre el triunfo electoral de Lula da Silva en Brasil.",
-        "El mandatario recibió al príncipe y gran maestre de la Soberana Orden de Malta, Frey John-Dunlap.",
-        "El Gobierno ratificó la continuidad del programa económico durante la reunión de Gabinete encabezada en el Salón Eva Perón."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó si la Cancillería emitirá un comunicado formal sobre los comicios presidenciales en Brasil.",
-        "No se detalló si el resultado electoral brasileño formará parte de futuras discusiones en el ámbito legislativo nacional."
-      ],
-      "textoRedes": "El presidente Javier Milei realizó el gesto viral six-seven desde el balcón de la Casa Rosada junto a su Gabinete, en medio del silencio oficial tras el triunfo electoral de Lula da Silva en Brasil y antes de una reunión ministerial.",
-      "etiquetas": [
-        "Javier Milei",
-        "Casa Rosada",
-        "Gabinete nacional",
-        "Brasil",
-        "Lula da Silva",
-        "Orden de Malta"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159679/politica/milei-hizo-gesto-viral-six-seven-desde-balcon-casa-rosada-junto-gabinete.html",
-          "fecha": "2026-10-26T11:35:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/politica/milei-hizo-el-six-seven-en-el-balcon-de-la-rosada-cual-es-el-origen-del-meme-nid27102026/",
-          "fecha": "2026-10-27T12:41:54.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/politica/significa-six-seven-origen-meme-viral-hizo-javier-milei-balcon-casa-rosada_0_Ahyfbme0U9.html",
-          "fecha": "2026-10-27T00:35:13.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/significa-six-seven-gesto-hizo-javier-milei-casa-rosada-20261026224930",
-          "fecha": "2026-10-27T01:49:30.653Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/politica/milei-hizo-six-seven-en-el-balcon-de-la-casa-rosada-antes-de-la-reunion-de-gabinete.phtml",
-          "fecha": "2026-10-27T06:16:39.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la reunión con el representante de la Orden de Malta y la ausencia de Patricia Bullrich."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/politica/la-agenda-de-milei-reunion-de-gabinete-gira-minera-por-catamarca-y-eventos-ejecutivos-en-las-provincias-para-el-gobierno.phtml",
-          "fecha": "2026-10-26T15:29:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/milei-aun-no-reconocio-el-triunfo-lula-y-se-mostro-el-balcon-la-rosada-antes-reunir-al-gabinete-n1610183",
-          "fecha": "2026-10-26T14:56:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre los próximos viajes presidenciales a Catamarca y Neuquén."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/milei-hizo-el-six-seven-en-el-balcon-de-la-casa-rosada-en-medio-del-silencio-por-el-triunfo-de-lula/",
-          "fecha": "2026-10-26T15:17:05.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/10/26/en-la-previa-de-su-reunion-de-gabinete-milei-salio-al-balcon-con-sus-ministros-e-hizo-un-six-seven-ante-los-jovenes/",
-          "fecha": "2026-10-26T15:31:27.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/milei-salio-al-balcon-con-sus-ministros-e-hizo-un--six-seven--ante-los-jovenes_a6adf5bd0a8408d82a2f1efce",
-          "fecha": "2026-10-26T14:30:05.787Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Economista",
-          "enlace": "https://eleconomista.com.ar/politica/milei-sorprendio-extrano-gesto-balcon-casa-rosada-significa-six-seven-n99233",
-          "fecha": "2026-10-27T10:57:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló el origen del gesto six-seven y los funcionarios que acompañaron al presidente en el balcón."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/javier-milei-hizo-six-seven-el-balcon-casa-rosada-junto-al-gabinete-n6337901",
-          "fecha": "2026-10-26T14:01:00.000Z",
-          "oficial": false,
-          "aporte": "Mencionó las repercusiones políticas del escenario brasileño dentro de la estrategia internacional."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/que-significa-el-gesto-del-six-seven-que-hizo-javier-milei-la-casa-rosada-n252579",
-          "fecha": "2026-10-26T22:09:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/video-javier-milei-hizo-un-six-seven-el-balcon-la-casa-rosada-n252569",
-          "fecha": "2026-10-26T14:32:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/mundo/que-significa-six-seven-el-challenge-adolescente-al-que-javier-milei-se-sumo-56-anos-n6338122",
-          "fecha": "2026-10-26T21:04:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/politica/javier-milei-reaparecio-el-triunfo-lula-da-silva-hizo-six-seven-una-plaza-mayo-vacia-n6337929",
-          "fecha": "2026-10-26T14:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/milei-reunio-su-gabinete-casa-rosada-no-se-pronuncio-el-triunfo-lula-y-sorprendio-el-balcon-un-six-seven-n6011749",
-          "fecha": "2026-10-26T16:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-26-13-51-0-milei-salio-al-balcon-con-sus-ministros-e-hizo-un-six-seven-que-significa-ese-gesto-tendencia-en-redes",
-          "fecha": "2026-10-26T17:26:29.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/politica/467502-milei-gesto-viral-balcon-triunfo-lula-brasil",
-          "fecha": "2026-10-26T17:49:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/casa-rosada/",
-          "fecha": "2026-10-26T17:18:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0223 (Mar del Plata)",
-          "enlace": "https://www.0223.com.ar/nota/2026-10-26-15-31-0-milei-no-se-expreso-sobre-brasil-aun-pero-hizo-un-six-seven-en-el-balcon-de-la-casa-rosada",
-          "fecha": "2026-10-26T19:19:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/informacion-gral/que-significa-six-seven-el-gesto-que-hizo-javier-milei-desde-el-balcon-de-casa-rosada/",
-          "fecha": "2026-10-26T20:09:51.443Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/politica/2026/10/26/milei-aun-no-felicito-a-lula-y-encabeza-una-nueva-reunion-de-gabinete-tras-la-derrota-de-bolsonaro/",
-          "fecha": "2026-10-26T17:02:57.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/politica/javier-milei-encabezo-una-reunion-gabinete-casa-rosada-y-sigue-reconocer-el-triunfo-lula-da-silva-n6337993",
-          "fecha": "2026-10-26T17:28:37.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-se-reunira-con-su-gabinete-tras-el-triunfo-de-lula-da-silva-en-brasil/",
-          "fecha": "2026-10-26T10:20:35.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1fnnob0",
-          "titulo": "El presidente Javier Milei reúne a su Gabinete tras el triunfo de Lula da Silva en Brasil",
-          "fecha": "2026-10-26T10:20:35.000Z",
-          "ruta": "/nota/el-presidente-javier-milei-reune-a-su-gabinete-tras-el-triunfo-de-1fnnob0"
-        },
-        {
-          "id": "r2wcct",
-          "titulo": "Javier Milei encabeza reunión de Gabinete y viaja a Catamarca y Neuquén",
-          "fecha": "2026-10-25T23:21:00.000Z",
-          "ruta": "/nota/javier-milei-encabeza-reunion-de-gabinete-y-viaja-a-catamarca-y-r2wcct"
-        },
-        {
-          "id": "177zcz0",
-          "titulo": "Patricia Bullrich publica fotos junto a Javier Milei tras versiones de interna",
-          "fecha": "2026-10-24T18:23:10.000Z",
-          "ruta": "/nota/patricia-bullrich-publica-fotos-junto-a-javier-milei-tras-versiones-177zcz0"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 17 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "javier-milei-hace-el-gesto-viral-six-seven-en-la-casa-rosada",
-      "foto": {
-        "archivo": "fotos-notas/1h08l3q.jpg",
-        "credito": "Foto: Perfil"
-      }
-    },
-    {
-      "id": "1t4bx3o",
-      "titulo": "Proyectan remodelar las canchas del Cerro El Triunfo",
-      "copete": "Impulsan una renovación integral del playón deportivo del Cerro El Triunfo. La iniciativa incluye nuevos tableros de básquet, una cancha de fútbol y redes de contención.",
-      "cuerpo": "La Subsecretaría de Deportes y Recreación elabora un proyecto para renovar de forma integral el playón deportivo del Cerro El Triunfo. La iniciativa surgió durante el tratamiento legislativo sobre el estado de los aros de básquet en ese espacio público.\n\nLa concejal de Juntos, Sandra Divito, explicó que la propuesta contempla dividir el sector en dos áreas. Por un lado, se ubicará la cancha de básquet con cuatro tableros metálicos reforzados para evitar su extracción y disminuir riesgos de lesiones. Por otro lado, en el centro se dispondrá una cancha de fútbol provista de arcos y una red de contención permanente.\n\nLa distribución también permitirá utilizar el predio para practicar vóley y handball mediante la instalación de redes desmontables. La intervención apunta a optimizar las instalaciones tanto para la actividad recreativa de los vecinos como para las clases de Educación Física de las escuelas de la zona.",
-      "guion": "Proyectan remodelar las canchas del Cerro El Triunfo.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/politica/trabajan-en-un-proyecto-para-remodelar-las-canchas-de-basquet-en-el-cerro-el-triunfo",
-      "fecha": "2026-10-26T17:04:23.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T03:01:20.744Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "concejo",
-        "cerro"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Proyectan una renovación integral del playón del Cerro El Triunfo.",
-        "Instalarán cuatro tableros de básquet reforzados y una cancha de fútbol.",
-        "La obra busca beneficiar a vecinos y a escuelas de la zona."
-      ],
-      "seSabe": [
-        "La Subsecretaría de Deportes proyecta remodelar el playón del Cerro El Triunfo.",
-        "Se colocarán tableros metálicos reforzados y una red de contención permanente.",
-        "El espacio se podrá adaptar para la práctica de vóley y handball."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Impulsan un proyecto para remodelar el playón deportivo del Cerro El Triunfo con nuevos tableros, una cancha de fútbol y redes de contención.",
-      "etiquetas": [
-        "Cerro El Triunfo",
-        "basquet",
-        "deportes",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/politica/trabajan-en-un-proyecto-para-remodelar-las-canchas-de-basquet-en-el-cerro-el-triunfo",
-          "fecha": "2026-10-26T17:04:23.000Z",
-          "oficial": false,
-          "aporte": "Detalló los alcances del proyecto de remodelación para el playón del Cerro El Triunfo."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "zlom91",
-          "titulo": "La Liga Balcarceña defiende el paredón del Estadio Municipal",
-          "fecha": "2026-10-24T12:30:09.000Z",
-          "ruta": "/nota/la-liga-balcarcena-defiende-el-paredon-del-estadio-municipal-zlom91"
-        },
-        {
-          "id": "11m7115",
-          "titulo": "Erreguerena propone crear licencias especiales para concejales",
-          "fecha": "2026-10-23T22:01:34.097Z",
-          "ruta": "/nota/erreguerena-propone-crear-licencias-especiales-para-concejales-11m7115"
-        },
-        {
-          "id": "qkw865",
-          "titulo": "El Concejo Deliberante reconoce al atleta Felipe Pereyra",
-          "fecha": "2026-10-23T18:11:48.000Z",
-          "ruta": "/nota/el-concejo-deliberante-reconoce-al-atleta-felipe-pereyra-qkw865"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "proyectan-remodelar-las-canchas-del-cerro-el-triunfo",
-      "foto": {
-        "archivo": "fotos-notas/1t4bx3o-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "b4wcz2",
-      "titulo": "El Concejo pide explicaciones por excavaciones en el Cerro El Triunfo",
-      "copete": "La oposición reclamó detalles sobre las tareas vinculadas a una obra hídrica tras advertir un posible daño en los árboles de la zona.",
-      "cuerpo": "El Concejo Deliberante debatió un pedido de informes sobre las tareas de excavación realizadas en el Cerro El Triunfo para avanzar con la instalación de cañerías de infraestructura hídrica, tras las alertas por posibles daños a las raíces de los pinos ubicados en la cresta de la duna. Durante la sesión, concejales de distintos bloques opositores reclamaron precisiones sobre la planificación, los controles previos y las responsabilidades por la intervención.\n\nEl autor de la iniciativa, Gabriel Petruccelli, aclaró que el reclamo no objeta la obra en sí, sino el desmantelamiento de raíces de la arboleda y exigió saber si los trabajos se detuvieron y cuál será la metodología a seguir. Por su parte, Enrique Guillén cuestionó la falta de una evaluación forestal previa por parte de una máquina excavadora y reclamó datos sobre las autorizaciones a la empresa constructora.\n\nEn tanto, Sol Di Gerónimo recordó que la intervención forma parte de un proyecto de infraestructura hídrica con financiamiento provincial para construir una estación de bombeo destinada a impulsar agua hacia el tanque de calles 27 y 32. La concejal advirtió que aún debe determinarse si las raíces sufrieron daños severos y si existe riesgo de caída de ejemplares.\n\nEn respuesta a los cuestionamientos, el edil oficialista Facundo Lazo señaló que el Ejecutivo municipal interrumpió las tareas al encontrarse con las raíces. Asimismo, indicó que el área comunal trabaja junto a un ingeniero forestal para definir si la obra puede seguir y bajo qué condiciones, y adelantó que responderán la comunicación formal con la documentación correspondiente una vez concluido el análisis técnico.",
-      "guion": "El Concejo pide explicaciones por excavaciones en el Cerro El Triunfo.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/politica/cerro-el-triunfo-la-oposicion-pidio-explicaciones-por-una-excavacion-y-el-posible-dano-de-arboles",
-      "fecha": "2026-10-26T16:44:54.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T03:01:20.744Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "cerro"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El Concejo debatió un pedido de informes por excavaciones en el Cerro El Triunfo.",
-        "La oposición advirtió sobre un posible daño a las raíces de los pinos en la duna.",
-        "El oficialismo indicó que las tareas se detuvieron para evaluar la situación con un ingeniero forestal."
-      ],
-      "seSabe": [
-        "El Concejo Deliberante trató un pedido de informes por excavaciones en el Cerro El Triunfo.",
-        "Gabriel Petruccelli impulsó el proyecto para conocer detalles sobre la afectación del arbolado.",
-        "Facundo Lazo informó que el Ejecutivo detuvo los trabajos tras toparse con las raíces.",
-        "Sol Di Gerónimo detalló que la obra contempla una estación de bombeo vinculada al tanque de calles 27 y 32 con fondos provinciales."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó el alcance definitivo del daño sobre las raíces ni si los árboles correr riesgo de caída.",
-        "Falta la respuesta formal del Municipio con la documentación sobre la planificación y las autorizaciones a la empresa.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Concejo Deliberante trató un pedido de informes por las excavaciones realizadas en el Cerro El Triunfo para una obra hídrica y la oposición advirtió sobre un posible daño en las raíces de los pinos.",
-      "etiquetas": [
-        "Concejo Deliberante",
-        "Cerro El Triunfo",
-        "obra hídrica",
-        "arbolado",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/politica/cerro-el-triunfo-la-oposicion-pidio-explicaciones-por-una-excavacion-y-el-posible-dano-de-arboles",
-          "fecha": "2026-10-26T16:44:54.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre el debate en el Concejo Deliberante, los reclamos de la oposición y la respuesta del oficialismo respecto a la paralización de las tareas y la evaluación forestal."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-concejo-pide-explicaciones-por-excavaciones-en-el-cerro-el-triunfo",
-      "foto": {
-        "archivo": "fotos-notas/b4wcz2-ia.jpg",
-        "credito": "Ilustración generada con IA"
       }
     },
     {
@@ -18181,76 +17838,6 @@
       }
     },
     {
-      "id": "qe737u",
-      "titulo": "Campo de Pato consigue triunfos en el hockey marplatense",
-      "copete": "El Club Social y Campo de Pato inició los playoffs del torneo de la Asociación Amateur Marplatense con victorias en Primera y Sexta división, además de cruces para el resto de las categorías.",
-      "cuerpo": "El Club Social y Campo de Pato comenzó a disputar los playoffs del certamen organizado por la Asociación Amateur Marplatense de Hockey con resultados destacados en sus planteles. En Primera división, el conjunto local se impuso por 3 a 0 frente a Libertad en su cancha, con goles convertidos por Lourdes Zabala, Josefina Blanco Paradela y Abril Fernández. A su vez, la Sexta división goleó por 11 a 0 a Náutico gracias a las anotaciones de Josefina Dagata, María Paz Mónaco, Mora Cerezuela, Rosario Canepa, Emma Arias, Alma García Vergez e Isabel Allaria.\n\nEn contrapartida, las categorías Séptima, Quinta e Intermedia no lograron la victoria ante Sporting A y Banco Provincia. Por su parte, el plantel masculino disputó su compromiso el domingo como local y cayó por 1 a 0 frente a Biguá en un partido parejo.",
-      "guion": "Campo de Pato consigue triunfos en el hockey marplatense.",
-      "seccion": "Deportes",
-      "medios": [
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/deportes/hockey-contundentes-triunfos-de-primera-y-sexta-de-campo-de-pato",
-      "fecha": "2026-10-26T15:57:31.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T16:31:30.663Z",
-      "relevancia": 57,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Campo de Pato inició los playoffs de la Asociación Amateur Marplatense de Hockey.",
-        "La Primera división venció a Libertad por 3 a 0 como local.",
-        "La Sexta división goleó a Náutico por 11 a 0."
-      ],
-      "seSabe": [
-        "La Primera división de hockey de Campo de Pato le ganó 3 a 0 a Libertad con goles de Lourdes Zabala, Josefina Blanco Paradela y Abril Fernández, según informó un medio local.",
-        "La Sexta división goleó 11 a 0 a Náutico con tantos de Josefina Dagata, María Paz Mónaco, Mora Cerezuela, Rosario Canepa, Emma Arias, Alma García Vergez e Isabel Allaria.",
-        "Las categorías Séptima, Quinta e Intermedia perdieron sus respectivos encuentros ante Sporting A y Banco Provincia.",
-        "El equipo masculino cayó por 1 a 0 ante Biguá el domingo como local."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Club Social y Campo de Pato comenzó su participación en los playoffs de la Asociación Amateur Marplatense de Hockey con triunfos en Primera y Sexta división.",
-      "etiquetas": [
-        "Campo de Pato",
-        "hockey",
-        "Asociación Amateur Marplatense de Hockey",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/deportes/hockey-contundentes-triunfos-de-primera-y-sexta-de-campo-de-pato",
-          "fecha": "2026-10-26T15:57:31.000Z",
-          "oficial": false,
-          "aporte": "Detalló los resultados y goleadoras de los playoffs de hockey del Club Social y Campo de Pato."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1njgnul",
-          "titulo": "Campo de Pato gana el torneo regional y asciende en hockey",
-          "fecha": "2026-10-05T11:58:53.000Z",
-          "ruta": "/nota/campo-de-pato-gana-el-torneo-regional-y-asciende-en-hockey-1njgnul"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "campo-de-pato-consigue-triunfos-en-el-hockey-marplatense",
-      "foto": {
-        "archivo": "fotos-notas/qe737u-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
       "id": "nkd214",
       "titulo": "Triunfos de las divisiones menores en la Liga Marplatense",
       "copete": "Las categorías cadetes e infantiles de la Escuela Municipal de Básquet consiguieron sendas victorias en condición de visitantes por la Liga Marplatense. Por su parte, el equipo juvenil cayó en su respectivo encuentro.",
@@ -18259,8 +17846,8 @@
       "seccion": "Deportes",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Radio Gabal (FM 104.1)",
-        "Municipalidad de Balcarce"
+        "Municipalidad de Balcarce",
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/26/victorias-de-infantiles-y-cadetes-en-basquet/",
       "fecha": "2026-10-26T15:50:47.000Z",
@@ -18735,6 +18322,7 @@
       "guion": "Mariana Enriquez publica un nuevo libro de ensayos sobre el género de terror.",
       "seccion": "Cultura y agenda",
       "medios": [
+        "Clarín",
         "Noticias Argentinas (NA)",
         "La Nueva"
       ],
@@ -18742,7 +18330,7 @@
       "fecha": "2026-10-26T15:11:08.620Z",
       "sinFecha": false,
       "visto": "2026-10-27T12:01:41.698Z",
-      "relevancia": 22,
+      "relevancia": 27,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -18759,9 +18347,6 @@
         "El volumen cuenta con 272 páginas organizadas en cinco secciones.",
         "La obra explora las raíces del terror contemporáneo en el Cono Sur.",
         "La autora recopiló años de investigación sobre el género fantástico y la cultura popular."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
       ],
       "textoRedes": "La escritora Mariana Enriquez publica un nuevo libro de ensayos sobre las raíces del terror contemporáneo y la experiencia latinoamericana.",
       "etiquetas": [
@@ -18785,11 +18370,18 @@
           "fecha": "2026-10-27T11:46:54.000Z",
           "oficial": false,
           "aporte": "Reprodujo la información sobre el lanzamiento del volumen literario."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/cultura/nuevo-libro-mariana-enriquez-cartografia-terror-contemporaneo_0_m3xYuy15F1.html",
+          "fecha": "2026-10-27T23:24:27.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
       "slug": "mariana-enriquez-publica-un-nuevo-libro-de-ensayos-sobre-el-genero-de",
@@ -19475,83 +19067,6 @@
       "slug": "buscan-voluntarios-para-trabajar-en-un-vinedo-en-la-provincia-de-san"
     },
     {
-      "id": "ixli9j",
-      "titulo": "Boca le gana 1 a 0 a Independiente en Avellaneda con gran actuación de Montero",
-      "copete": "El conjunto dirigido por Rodolfo Arruabarrena se impuso como visitante con un gol agónico de Facundo Herrera. El arquero colombiano fue clave sobre el final y recibió los elogios de Leandro Paredes.",
-      "cuerpo": "Boca superó por 1 a 0 a Independiente en el estadio Libertadores de América y conservó el primer puesto en la tabla anual del fútbol argentino. En un desarrollo parejo por la decimocuarta fecha del Torneo Clausura, el conjunto dirigido tácticamente por Rodolfo Arruabarrena encontró la victoria en el tramo final del encuentro disputado en Avellaneda.\n\nEl único tanto llegó cuando el partido se moría, luego de que Facundo Herrera conectara de cabeza un tiro de esquina ejecutado desde la izquierda para vencer la resistencia del arquero rival. Sin embargo, el local buscó la igualdad hasta el último minuto y generó peligro con varias aproximaciones.\n\nCuando se jugaba el tiempo de descuento, el guardavallas colombiano Álvaro Montero respondió ante un remate de media vuelta de Chimy Ávila y evitó la caída de su arco. Esa intervención consolidó una actuación sólida que le permitió mantener la valla invicta.\n\nTras el pitazo final del árbitro Nazareno Arasa, el capitán Leandro Paredes cruzó el terreno de juego para abrazarlo y destacó su rendimiento ante la prensa. \"Nos salvó otra vez\", afirmó el mediocampista, quien agregó que los buenos futbolistas de ese puesto aparecen en las instancias determinantes.\n\nCon este resultado, el colombiano suma 21 presentaciones con la camiseta xeneize, en las que recibió 18 goles y mantuvo el arco en cero en siete oportunidades. Su consolidación en el puesto coincide con la participación del equipo en varios frentes, incluidos el torneo doméstico, la tabla anual, la Copa Argentina y la Sudamericana, de cara al próximo compromiso frente a River.",
-      "guion": "Boca le gana 1 a 0 a Independiente en Avellaneda con gran actuación de Montero.",
-      "seccion": "Fútbol",
-      "medios": [
-        "TyC Sports",
-        "Radio Mitre",
-        "Bolavip Argentina"
-      ],
-      "enlace": "https://bolavip.com/ar/boca/leandro-paredes-rendido-ante-alvaro-montero-tras-la-victoria-de-boca-sobre-independiente-nos-salvo-otra-vez",
-      "fecha": "2026-10-26T13:32:42.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T04:02:06.000Z",
-      "relevancia": 31,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Boca venció 1 a 0 a Independiente como visitante y lidera la tabla anual.",
-        "Facundo Herrera marcó el único tanto de cabeza sobre el cierre del encuentro.",
-        "El arquero Álvaro Montero evitó el empate local en tiempo de descuento.",
-        "Leandro Paredes elogió al guardavallas tras la victoria en Avellaneda."
-      ],
-      "seSabe": [
-        "Boca le ganó 1 a 0 a Independiente en Avellaneda por el Torneo Clausura.",
-        "Facundo Herrera anotó el gol de cabeza tras un tiro de esquina.",
-        "Álvaro Montero intervino en el descuento para evitar el empate de Chimy Ávila.",
-        "Leandro Paredes destacó la actuación del arquero colombiano al finalizar el encuentro."
-      ],
-      "textoRedes": "Boca derrotó 1 a 0 a Independiente en Avellaneda con un gol agónico y se mantiene en lo más alto de la tabla anual. El arquero Álvaro Montero fue figura con una atajada clave sobre el cierre y Leandro Paredes lo elogió al finalizar el encuentro.",
-      "etiquetas": [
-        "Boca Juniors",
-        "Independiente",
-        "Torneo Clausura",
-        "Alvaro Montero",
-        "Leandro Paredes",
-        "Futbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/boca/leandro-paredes-rendido-ante-alvaro-montero-tras-la-victoria-de-boca-sobre-independiente-nos-salvo-otra-vez",
-          "fecha": "2026-10-25T22:05:04.000Z",
-          "oficial": false,
-          "aporte": "Informó el autor del gol y el marco de la decimocuarta fecha del Torneo Clausura."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/boca-alvaro-montero-figura-independiente-previa-superclasico-leandro-paredes-id768621.html",
-          "fecha": "2026-10-26T13:32:42.000Z",
-          "oficial": false,
-          "aporte": "Aportó el nombre del árbitro Nazareno Arasa y el desarrollo de los minutos finales."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/deportes/el-tremendo-elogio-de-leandro-paredes-para-alvaro-montero-nos-salvo-otra-vez/",
-          "fecha": "2026-10-26T17:34:26.000Z",
-          "oficial": false,
-          "aporte": "Detalló las estadísticas de Álvaro Montero y las jugadas clave del final del partido."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "boca-le-gana-1-a-0-a-independiente-en-avellaneda-con-gran-actuacion",
-      "foto": {
-        "archivo": "fotos-notas/ixli9j.jpg",
-        "credito": "Foto: Bolavip Argentina"
-      }
-    },
-    {
       "id": "8pzl3i",
       "titulo": "Germán Martitegui detalla su receta para preparar masa de empanadas",
       "copete": "El reconocido chef difundió los ingredientes y el paso a paso para elaborar tapas caseras firmes y elásticas. La preparación destaca el uso de una salmuera tibia para integrar los componentes.",
@@ -19858,349 +19373,6 @@
       "foto": {
         "archivo": "fotos-notas/qx4jfi-ia.jpg",
         "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "1d404ja",
-      "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
-      "copete": "Los mercados financieros operan con fuertes pérdidas el lunes en Wall Street. La reacción responde al impacto regional por el resultado electoral en Brasil.",
-      "cuerpo": "Los activos argentinos registran fuertes bajas el lunes en Wall Street, arrastrados por la marcada volatilidad y el desplome financiero en Brasil tras la victoria electoral de Luiz Inácio Lula da Silva en el balotaje del domingo. El resultado sorprendió a los inversores, que descontaban un triunfo de la oposición y un escenario de mayor ajuste fiscal.\n\nEntre las principales caídas de las empresas nacionales, MercadoLibre encabeza los retrocesos con un 11,65%, seguida por Telecom Argentina con un 8,29% y Grupo Financiero Galicia con una baja del 6,06%. El sector financiero también muestra reducciones en Grupo Supervielle, BBVA Argentina y Banco Macro, mientras que en el segmento energético retroceden Pampa Energía y Vista Energy.\n\nLa tendencia negativa se traslada a la renta fija con descensos generalizados en los títulos soberanos en dólares. El Global 2029 cede un 0,60% y el Global 2046 registra una pérdida del 1,49%. Como consecuencia de este comportamiento, el índice de riesgo país medido por el JP Morgan salta un 4,4% hasta ubicarse en los 738 puntos básicos. En el plano cambiario, el tipo de cambio minorista en el Banco Nación avanza 10 pesos y se sitúa en 1.560 pesos, mientras que el mayorista alcanza los 1.540 pesos.",
-      "guion": "Caen las acciones y los bonos argentinos tras la victoria de Lula.",
-      "seccion": "Economía",
-      "medios": [
-        "La Capital (Rosario)",
-        "El Destape",
-        "Clarín"
-      ],
-      "enlace": "https://www.eldestapeweb.com/economia/fuerte-caida-acciones-argentinas-triunfo-lula-brasil-202610269742",
-      "fecha": "2026-10-26T13:03:33.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T14:02:07.658Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Los activos argentinos operan con mermas en Wall Street tras el resultado electoral en Brasil.",
-        "MercadoLibre lidera las caídas bursátiles locales con un retroceso superior al 11%.",
-        "El índice de riesgo país medido por JP Morgan asciende un 4,4% hasta los 738 puntos.",
-        "El tipo de cambio minorista en el Banco Nación sube a 1.560 pesos."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó el impacto definitivo que la depreciación del real tendrá sobre el comercio bilateral y las exportaciones nacionales en el mediano plazo.",
-        "No se precisó si la volatilidad cambiaria actual se mantendrá durante las próximas ruedas bursátiles en los mercados internacionales."
-      ],
-      "textoRedes": "Fuerte caída de las acciones y bonos argentinos en Wall Street tras el triunfo electoral de Lula da Silva en Brasil. El riesgo país sube a 738 puntos y el dólar minorista avanza a 1.560 pesos en una jornada de marcada volatilidad financiera regional.",
-      "etiquetas": [
-        "mercados",
-        "acciones",
-        "bonos",
-        "Wall Street",
-        "Brasil",
-        "riesgo pais",
-        "dolar"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/fuerte-caida-acciones-argentinas-triunfo-lula-brasil-202610269742",
-          "fecha": "2026-10-26T12:07:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los porcentajes de votación obtenidos por los candidatos en el balotaje presidencial de Brasil."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/cisne-negro-victoria-lula-brasil-golpea-bonos-acciones-argentinas_0_ZaWDwM69wQ.html",
-          "fecha": "2026-10-26T13:03:33.000Z",
-          "oficial": false,
-          "aporte": "Informó el salto del índice de riesgo país de JP Morgan y la cotización del dólar minorista."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/26/tras-el-triunfo-de-lula-caen-hasta-11-las-acciones-argentinas-en-wall-street/",
-          "fecha": "2026-10-26T13:41:01.000Z",
-          "oficial": false,
-          "aporte": "Consignó la magnitud general de la caída de los certificados de empresas argentinas en el mercado internacional."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/caen-las-acciones-argentinas-y-los-bonos-en-wall-street-arrastradas-por-el-desplome-de-brasil/",
-          "fecha": "2026-10-26T13:33:10.283Z",
-          "oficial": false,
-          "aporte": "Detalló los porcentajes específicos de caída de las acciones argentinas y de los títulos públicos en Wall Street."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/economia/2026/10/26/efecto-lula-en-los-mercados-las-acciones-argentinas-caen-hasta-11-en-wall-street/",
-          "fecha": "2026-10-26T13:52:47.000Z",
-          "oficial": false,
-          "aporte": "Explicó la alta volatilidad en los mercados latinoamericanos y la presión vendedora tras el resultado brasileño."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/finanzas/los-adrs-y-acciones-argentina-caen-8-wall-street-la-victoria-lula-da-silva-brasil-n6337806",
-          "fecha": "2026-10-26T12:49:00.000Z",
-          "oficial": false,
-          "aporte": "Indicó las variaciones específicas registradas por los bonos soberanos y acciones de empresas como YPF."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/el-triunfo-sorpresivo-de-lula-en-brasil-presiona-al-riesgo-pais-argentino-y-mercado-libre-se-nid26102026/",
-          "fecha": "2026-10-26T12:21:04.000Z",
-          "oficial": false,
-          "aporte": "Precisó los porcentajes de caída de las acciones en Wall Street y la suba del riesgo país."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/finanzas/467451-como-cotizan-hoy-26-de-octubre-el-merval-adrs-bonos-y-riesgo-pais",
-          "fecha": "2026-10-26T14:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/efecto-brasil--las-acciones-argentinas-caen-mas-de-6--y-el-riesgo-pais-salta-a-738-puntos_a6adf5adba8408d82a2f1c0f2",
-          "fecha": "2026-10-26T13:56:55.972Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "QZ Noticias (Mar del Plata)",
-          "enlace": "https://www.qznoticias.com/el-pais/las-acciones-argentinas-caen-mas-de-6-y-el-riesgo-pais-trepa-a-738-puntos",
-          "fecha": "2026-10-26T14:02:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159690/economia/activos-argentinos-se-desploman-tras-victoria-lula-caen-bonos-acciones-sube-riesgo-pais.html",
-          "fecha": "2026-10-26T12:25:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/economia/el-riesgo-pais-se-dispara-a-745-puntos-y-alcanza-su-nivel-mas-alto-en-un-ano-a40.phtml",
-          "fecha": "2026-10-26T15:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/caen-acciones-bonos-riesgo-pais-argentino-sube-738-puntos-20261026114510",
-          "fecha": "2026-10-26T14:45:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló el comportamiento bajista de las acciones en la Bolsa local y el impacto inicial sobre el costo de financiamiento."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/efecto-brasil-acciones-argentinas-riesgo-pais/",
-          "fecha": "2026-10-26T21:36:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/sociedad/efecto-lula-en-argentina-se-desploman-las-acciones-en-wall-street-y-el-riesgo-pais-supera-los-740-puntos/",
-          "fecha": "2026-10-26T15:40:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/economia/cayeron-hasta-un-9-las-acciones-argentinas-en-wall-street-tras-la-reeleccion-de-lula-y-el-riesgo-pais-llego-a-765-puntos/",
-          "fecha": "2026-10-26T20:53:26.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/el-riesgo-pais-salto-a-755-puntos-y-las-acciones-argentinas-cayeron-hasta-un-9--en-wall-street_a6adfaf21a8408d82a2fc5360",
-          "fecha": "2026-10-26T20:11:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/efecto-brasil--las-acciones-argentinas-caen-mas-4--y-el-riesgo-pais-supera-los-740-puntos_a6adf5adba8408d82a2f1c0f2",
-          "fecha": "2026-10-26T13:56:55.972Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/el-riesgo-pais-se-dispara-tras-el-triunfo-de-lula-en-brasil-politica-y-economia_1793025360",
-          "fecha": "2026-10-26T14:41:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/el-riesgo-pais-salto-a-755-puntos-y-las-acciones-argentinas-cayeron-hasta-un-9-en-wall-street/",
-          "fecha": "2026-10-26T20:30:22.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Mi8 (Canal 8 Mar del Plata)",
-          "enlace": "https://mi8.com.ar/caen-las-acciones-argentinas-y-el-riesgo-pais-sube-a-745-puntos/",
-          "fecha": "2026-10-26T16:18:46.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/economia/el-riesgo-pais-salto-hasta-los-755-puntos",
-          "fecha": "2026-10-26T20:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/mercado-acciones-riesgo-pais-26-octubre-2026",
-          "fecha": "2026-10-26T20:28:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/economia/la-reeleccion-lula-sacude-los-mercados-el-riesgo-pais-se-dispara-y-caen-acciones-argentinas-wall-street-n6337944",
-          "fecha": "2026-10-26T16:12:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/economia/las-acciones-argentinas-caen-mas-9-y-el-riesgo-pais-supera-los-750-puntos-las-elecciones-brasil-n6011775",
-          "fecha": "2026-10-26T20:30:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "elDiarioAR",
-          "enlace": "https://www.eldiarioar.com/economia/riesgo-pais-llego-755-puntos-acciones-argentinas-hundieron-9-wall-street_1_13617142.html",
-          "fecha": "2026-10-26T21:28:42.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/economia/las-acciones-argentinas-cayeron-en-wall-street-tras-la-reeleccion-de-lula-da-silva-marcan-un-12-de-baja-y-el-riesgo-pais-llega-a-745-puntos/",
-          "fecha": "2026-10-26T15:41:08.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-26-13-33-0-efecto-brasil-las-acciones-argentinas-caen-mas-4-y-el-riesgo-pais-supera-los-740-puntos",
-          "fecha": "2026-10-26T16:46:32.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/finanzas/467451-el-riesgo-pais-salta-hasta-los-744-puntos-y-acciones-argentinas-se-hunden-en-wall-street",
-          "fecha": "2026-10-26T18:20:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/economia/las-acciones-argentinas-caen-mas-4-y-el-riesgo-pais-supera-los-740-puntos-n6011775",
-          "fecha": "2026-10-26T18:52:29.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/finanzas/467451-el-riesgo-pais-salto-a-765-puntos-y-las-acciones-argentinas-se-hundieron-en-wall-street",
-          "fecha": "2026-10-26T20:20:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159750/economia/riesgo-pais-supero-760-puntos-acciones-argentinas-cayeron-hasta-9porciento.html",
-          "fecha": "2026-10-26T18:49:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/economia/las-acciones-argentinas-caen-9-wall-street-y-el-riesgo-pais-supera-los-750-puntos-el-triunfo-lula-n1610311",
-          "fecha": "2026-10-26T19:49:08.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/vacaciones-brasil-2027-abaratan-viajes-caida-real-subio-demanda-agencias_0_SdP3VPhfdA.html",
-          "fecha": "2026-10-26T15:20:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Capital (Rosario)",
-          "enlace": "https://www.lacapital.com.ar/informacion-general/vacaciones-brasil-2027-la-fuerte-caida-del-real-el-triunfo-lula-abarata-los-viajes-los-argentinos-n10288795.html",
-          "fecha": "2026-10-26T17:31:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/27/el-riesgo-pais-baja-a-758-puntos-basicos-y-las-acciones-argentinas-suben-en-wall-street/",
-          "fecha": "2026-10-27T15:05:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/economia/el-riesgo-pais-baja-748-puntos-y-rebotan-las-acciones-argentinas-wall-street-n1610666",
-          "fecha": "2026-10-27T18:43:00.000Z",
-          "oficial": false,
-          "aporte": "Registró el posterior retroceso de 17 puntos del indicador de JP Morgan por debajo de las 750 unidades."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/finanzas/467504-por-que-riesgo-pais-sube-en-argentina-pero-no-en-brasil-tras-victoria-de-lula",
-          "fecha": "2026-10-26T19:20:00.000Z",
-          "oficial": false,
-          "aporte": "Explicó que la estabilidad del riesgo país en Brasil se debe a sus mayores reservas y menor deuda externa en comparación con Argentina."
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/economia/2026/10/27/el-riesgo-pais-subio-a-765-puntos-cuanto-afecta-el-programa-financiero-y-que-otras-alternativas-hay/",
-          "fecha": "2026-10-27T05:49:25.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/economia/2026/10/26/efecto-brasil-las-acciones-argentinas-se-desploman-hasta-12-en-wall-street-y-suben-el-dolar-y-el-riesgo-pais/",
-          "fecha": "2026-10-26T20:53:30.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1fnnob0",
-          "titulo": "El presidente Javier Milei reúne a su Gabinete tras el triunfo de Lula da Silva en Brasil",
-          "fecha": "2026-10-26T10:20:35.000Z",
-          "ruta": "/nota/el-presidente-javier-milei-reune-a-su-gabinete-tras-el-triunfo-de-1fnnob0"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron seis medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "caen-las-acciones-y-los-bonos-argentinos-tras-la-victoria-de-lula",
-      "foto": {
-        "archivo": "fotos-notas/1d404ja.jpg",
-        "credito": "Foto: TN (Todo Noticias)"
       }
     },
     {
@@ -21325,6 +20497,348 @@
       }
     },
     {
+      "id": "1d404ja",
+      "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
+      "copete": "Los mercados financieros operan con fuertes pérdidas el lunes en Wall Street. La reacción responde al impacto regional por el resultado electoral en Brasil.",
+      "cuerpo": "Los activos argentinos registran fuertes bajas el lunes en Wall Street, arrastrados por la marcada volatilidad y el desplome financiero en Brasil tras la victoria electoral de Luiz Inácio Lula da Silva en el balotaje del domingo. El resultado sorprendió a los inversores, que descontaban un triunfo de la oposición y un escenario de mayor ajuste fiscal.\n\nEntre las principales caídas de las empresas nacionales, MercadoLibre encabeza los retrocesos con un 11,65%, seguida por Telecom Argentina con un 8,29% y Grupo Financiero Galicia con una baja del 6,06%. El sector financiero también muestra reducciones en Grupo Supervielle, BBVA Argentina y Banco Macro, mientras que en el segmento energético retroceden Pampa Energía y Vista Energy.\n\nLa tendencia negativa se traslada a la renta fija con descensos generalizados en los títulos soberanos en dólares. El Global 2029 cede un 0,60% y el Global 2046 registra una pérdida del 1,49%. Como consecuencia de este comportamiento, el índice de riesgo país medido por el JP Morgan salta un 4,4% hasta ubicarse en los 738 puntos básicos. En el plano cambiario, el tipo de cambio minorista en el Banco Nación avanza 10 pesos y se sitúa en 1.560 pesos, mientras que el mayorista alcanza los 1.540 pesos.",
+      "guion": "Caen las acciones y los bonos argentinos tras la victoria de Lula.",
+      "seccion": "Economía",
+      "medios": [
+        "La Capital (Rosario)",
+        "El Destape"
+      ],
+      "enlace": "https://www.eldestapeweb.com/economia/fuerte-caida-acciones-argentinas-triunfo-lula-brasil-202610269742",
+      "fecha": "2026-10-26T12:07:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-26T14:02:07.658Z",
+      "relevancia": 22,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Los activos argentinos operan con mermas en Wall Street tras el resultado electoral en Brasil.",
+        "MercadoLibre lidera las caídas bursátiles locales con un retroceso superior al 11%.",
+        "El índice de riesgo país medido por JP Morgan asciende un 4,4% hasta los 738 puntos.",
+        "El tipo de cambio minorista en el Banco Nación sube a 1.560 pesos."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó el impacto definitivo que la depreciación del real tendrá sobre el comercio bilateral y las exportaciones nacionales en el mediano plazo.",
+        "No se precisó si la volatilidad cambiaria actual se mantendrá durante las próximas ruedas bursátiles en los mercados internacionales."
+      ],
+      "textoRedes": "Fuerte caída de las acciones y bonos argentinos en Wall Street tras el triunfo electoral de Lula da Silva en Brasil. El riesgo país sube a 738 puntos y el dólar minorista avanza a 1.560 pesos en una jornada de marcada volatilidad financiera regional.",
+      "etiquetas": [
+        "mercados",
+        "acciones",
+        "bonos",
+        "Wall Street",
+        "Brasil",
+        "riesgo pais",
+        "dolar"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/fuerte-caida-acciones-argentinas-triunfo-lula-brasil-202610269742",
+          "fecha": "2026-10-26T12:07:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó los porcentajes de votación obtenidos por los candidatos en el balotaje presidencial de Brasil."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/cisne-negro-victoria-lula-brasil-golpea-bonos-acciones-argentinas_0_ZaWDwM69wQ.html",
+          "fecha": "2026-10-26T13:03:33.000Z",
+          "oficial": false,
+          "aporte": "Informó el salto del índice de riesgo país de JP Morgan y la cotización del dólar minorista."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/26/tras-el-triunfo-de-lula-caen-hasta-11-las-acciones-argentinas-en-wall-street/",
+          "fecha": "2026-10-26T13:41:01.000Z",
+          "oficial": false,
+          "aporte": "Consignó la magnitud general de la caída de los certificados de empresas argentinas en el mercado internacional."
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/caen-las-acciones-argentinas-y-los-bonos-en-wall-street-arrastradas-por-el-desplome-de-brasil/",
+          "fecha": "2026-10-26T13:33:10.283Z",
+          "oficial": false,
+          "aporte": "Detalló los porcentajes específicos de caída de las acciones argentinas y de los títulos públicos en Wall Street."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/economia/2026/10/26/efecto-lula-en-los-mercados-las-acciones-argentinas-caen-hasta-11-en-wall-street/",
+          "fecha": "2026-10-26T13:52:47.000Z",
+          "oficial": false,
+          "aporte": "Explicó la alta volatilidad en los mercados latinoamericanos y la presión vendedora tras el resultado brasileño."
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/los-adrs-y-acciones-argentina-caen-8-wall-street-la-victoria-lula-da-silva-brasil-n6337806",
+          "fecha": "2026-10-26T12:49:00.000Z",
+          "oficial": false,
+          "aporte": "Indicó las variaciones específicas registradas por los bonos soberanos y acciones de empresas como YPF."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/el-triunfo-sorpresivo-de-lula-en-brasil-presiona-al-riesgo-pais-argentino-y-mercado-libre-se-nid26102026/",
+          "fecha": "2026-10-26T12:21:04.000Z",
+          "oficial": false,
+          "aporte": "Precisó los porcentajes de caída de las acciones en Wall Street y la suba del riesgo país."
+        },
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/finanzas/467451-como-cotizan-hoy-26-de-octubre-el-merval-adrs-bonos-y-riesgo-pais",
+          "fecha": "2026-10-26T14:22:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/efecto-brasil--las-acciones-argentinas-caen-mas-de-6--y-el-riesgo-pais-salta-a-738-puntos_a6adf5adba8408d82a2f1c0f2",
+          "fecha": "2026-10-26T13:56:55.972Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "QZ Noticias (Mar del Plata)",
+          "enlace": "https://www.qznoticias.com/el-pais/las-acciones-argentinas-caen-mas-de-6-y-el-riesgo-pais-trepa-a-738-puntos",
+          "fecha": "2026-10-26T14:02:24.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1159690/economia/activos-argentinos-se-desploman-tras-victoria-lula-caen-bonos-acciones-sube-riesgo-pais.html",
+          "fecha": "2026-10-26T12:25:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://www.perfil.com/noticias/economia/el-riesgo-pais-se-dispara-a-745-puntos-y-alcanza-su-nivel-mas-alto-en-un-ano-a40.phtml",
+          "fecha": "2026-10-26T15:22:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/caen-acciones-bonos-riesgo-pais-argentino-sube-738-puntos-20261026114510",
+          "fecha": "2026-10-26T14:45:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló el comportamiento bajista de las acciones en la Bolsa local y el impacto inicial sobre el costo de financiamiento."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/efecto-brasil-acciones-argentinas-riesgo-pais/",
+          "fecha": "2026-10-26T21:36:01.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/sociedad/efecto-lula-en-argentina-se-desploman-las-acciones-en-wall-street-y-el-riesgo-pais-supera-los-740-puntos/",
+          "fecha": "2026-10-26T15:40:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/economia/cayeron-hasta-un-9-las-acciones-argentinas-en-wall-street-tras-la-reeleccion-de-lula-y-el-riesgo-pais-llego-a-765-puntos/",
+          "fecha": "2026-10-26T20:53:26.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/el-riesgo-pais-salto-a-755-puntos-y-las-acciones-argentinas-cayeron-hasta-un-9--en-wall-street_a6adfaf21a8408d82a2fc5360",
+          "fecha": "2026-10-26T20:11:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/efecto-brasil--las-acciones-argentinas-caen-mas-4--y-el-riesgo-pais-supera-los-740-puntos_a6adf5adba8408d82a2f1c0f2",
+          "fecha": "2026-10-26T13:56:55.972Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/el-riesgo-pais-se-dispara-tras-el-triunfo-de-lula-en-brasil-politica-y-economia_1793025360",
+          "fecha": "2026-10-26T14:41:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Verdad",
+          "enlace": "https://laverdadonline.com/el-riesgo-pais-salto-a-755-puntos-y-las-acciones-argentinas-cayeron-hasta-un-9-en-wall-street/",
+          "fecha": "2026-10-26T20:30:22.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Mi8 (Canal 8 Mar del Plata)",
+          "enlace": "https://mi8.com.ar/caen-las-acciones-argentinas-y-el-riesgo-pais-sube-a-745-puntos/",
+          "fecha": "2026-10-26T16:18:46.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/economia/el-riesgo-pais-salto-hasta-los-755-puntos",
+          "fecha": "2026-10-26T20:22:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/economia/mercado-acciones-riesgo-pais-26-octubre-2026",
+          "fecha": "2026-10-26T20:28:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/economia/la-reeleccion-lula-sacude-los-mercados-el-riesgo-pais-se-dispara-y-caen-acciones-argentinas-wall-street-n6337944",
+          "fecha": "2026-10-26T16:12:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/economia/las-acciones-argentinas-caen-mas-9-y-el-riesgo-pais-supera-los-750-puntos-las-elecciones-brasil-n6011775",
+          "fecha": "2026-10-26T20:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "elDiarioAR",
+          "enlace": "https://www.eldiarioar.com/economia/riesgo-pais-llego-755-puntos-acciones-argentinas-hundieron-9-wall-street_1_13617142.html",
+          "fecha": "2026-10-26T21:28:42.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/economia/las-acciones-argentinas-cayeron-en-wall-street-tras-la-reeleccion-de-lula-da-silva-marcan-un-12-de-baja-y-el-riesgo-pais-llega-a-745-puntos/",
+          "fecha": "2026-10-26T15:41:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-10-26-13-33-0-efecto-brasil-las-acciones-argentinas-caen-mas-4-y-el-riesgo-pais-supera-los-740-puntos",
+          "fecha": "2026-10-26T16:46:32.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/finanzas/467451-el-riesgo-pais-salta-hasta-los-744-puntos-y-acciones-argentinas-se-hunden-en-wall-street",
+          "fecha": "2026-10-26T18:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/economia/las-acciones-argentinas-caen-mas-4-y-el-riesgo-pais-supera-los-740-puntos-n6011775",
+          "fecha": "2026-10-26T18:52:29.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/finanzas/467451-el-riesgo-pais-salto-a-765-puntos-y-las-acciones-argentinas-se-hundieron-en-wall-street",
+          "fecha": "2026-10-26T20:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1159750/economia/riesgo-pais-supero-760-puntos-acciones-argentinas-cayeron-hasta-9porciento.html",
+          "fecha": "2026-10-26T18:49:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/economia/las-acciones-argentinas-caen-9-wall-street-y-el-riesgo-pais-supera-los-750-puntos-el-triunfo-lula-n1610311",
+          "fecha": "2026-10-26T19:49:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/vacaciones-brasil-2027-abaratan-viajes-caida-real-subio-demanda-agencias_0_SdP3VPhfdA.html",
+          "fecha": "2026-10-26T15:20:24.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Capital (Rosario)",
+          "enlace": "https://www.lacapital.com.ar/informacion-general/vacaciones-brasil-2027-la-fuerte-caida-del-real-el-triunfo-lula-abarata-los-viajes-los-argentinos-n10288795.html",
+          "fecha": "2026-10-26T17:31:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/27/el-riesgo-pais-baja-a-758-puntos-basicos-y-las-acciones-argentinas-suben-en-wall-street/",
+          "fecha": "2026-10-27T15:05:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/economia/el-riesgo-pais-baja-748-puntos-y-rebotan-las-acciones-argentinas-wall-street-n1610666",
+          "fecha": "2026-10-27T18:43:00.000Z",
+          "oficial": false,
+          "aporte": "Registró el posterior retroceso de 17 puntos del indicador de JP Morgan por debajo de las 750 unidades."
+        },
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/finanzas/467504-por-que-riesgo-pais-sube-en-argentina-pero-no-en-brasil-tras-victoria-de-lula",
+          "fecha": "2026-10-26T19:20:00.000Z",
+          "oficial": false,
+          "aporte": "Explicó que la estabilidad del riesgo país en Brasil se debe a sus mayores reservas y menor deuda externa en comparación con Argentina."
+        },
+        {
+          "medio": "Infobae",
+          "enlace": "https://www.infobae.com/economia/2026/10/27/el-riesgo-pais-subio-a-765-puntos-cuanto-afecta-el-programa-financiero-y-que-otras-alternativas-hay/",
+          "fecha": "2026-10-27T05:49:25.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infobae",
+          "enlace": "https://www.infobae.com/economia/2026/10/26/efecto-brasil-las-acciones-argentinas-se-desploman-hasta-12-en-wall-street-y-suben-el-dolar-y-el-riesgo-pais/",
+          "fecha": "2026-10-26T20:53:30.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1fnnob0",
+          "titulo": "El presidente Javier Milei reúne a su Gabinete tras el triunfo de Lula da Silva en Brasil",
+          "fecha": "2026-10-26T10:20:35.000Z",
+          "ruta": "/nota/el-presidente-javier-milei-reune-a-su-gabinete-tras-el-triunfo-de-1fnnob0"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron seis medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "caen-las-acciones-y-los-bonos-argentinos-tras-la-victoria-de-lula",
+      "foto": {
+        "archivo": "fotos-notas/1d404ja.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
+    },
+    {
       "id": "f51e8j",
       "titulo": "Kicillof define el triunfo de Lula como una derrota para Milei",
       "copete": "El gobernador bonaerense analizó el resultado electoral en Brasil. Sostuvo que la victoria del mandatario brasileño representa un rechazo a las políticas del Gobierno nacional y de Estados Unidos.",
@@ -21332,8 +20846,6 @@
       "guion": "Kicillof define el triunfo de Lula como una derrota para Milei.",
       "seccion": "Política",
       "medios": [
-        "El Diario Balcarce",
-        "Canal 26",
         "Noticias Argentinas (NA)",
         "0221",
         "El Eco de Tandil",
@@ -21342,17 +20854,19 @@
         "La Gaceta (Tucumán)",
         "Agencia DIB",
         "El Cronista",
+        "El Diario Balcarce",
         "Clarín",
         "El Día",
         "La Verdad",
         "Radio Mitre",
+        "Canal 26",
         "Infobae"
       ],
       "enlace": "https://www.ambito.com/politica/axel-kicillof-las-elecciones-brasil-triunfo-lula-da-silva-derrota-donald-trump-y-javier-milei-n6337820",
       "fecha": "2026-10-26T12:03:16.000Z",
       "sinFecha": false,
       "visto": "2026-10-26T12:46:26.374Z",
-      "relevancia": 48,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -21538,461 +21052,20 @@
         "archivo": "fotos-notas/f51e8j.jpg",
         "credito": "Foto: Agencia DIB"
       }
-    },
-    {
-      "id": "yjasdx",
-      "titulo": "Argentina recibe 60 auditorías sanitarias para ampliar exportaciones",
-      "copete": "El país concretó sesenta inspecciones internacionales en casi tres años para sostener mercados externos de alimentos. Las revisiones fueron conducidas por el SENASA con eje en carnes, lácteos y vegetales.",
-      "cuerpo": "Argentina concretó un total de sesenta auditorías sanitarias internacionales entre diciembre de 2023 y octubre de este año, según comunicó la Secretaría de Agricultura, Ganadería y Pesca de la Nación. Las inspecciones alcanzaron un ritmo anual promedio de veinte revisiones para verificar los estándares de inocuidad alimentaria, sanidad animal y protección fitosanitaria exigidos por el extranjero.\n\nEl Servicio Nacional de Sanidad y Calidad Agroalimentaria coordinó las evaluaciones orientadas a mantener mercados activos, sumar destinos y habilitar nuevos productos agropecuarios. Las misiones extranjeras abarcaron envíos pesqueros, genética animal, semillas y alimentos balanceados.\n\nChile y China encabezaron las evaluaciones con foco en carne bovina, lácteos y frutas. Detrás se ubicaron Brasil con cinco controles, Corea con cuatro, mientras que Filipinas, México y Perú contabilizaron tres cada uno, y el resto de los países completó entre una y dos visitas.\n\nPara el tramo final del período y el transcurso de 2027 se programaron nuevas visitas de Japón, Filipinas, Chile, Tailandia y Corea vinculadas a derivados cárnicos, productos lácteos y plantas elaboradoras. Además, la Unión Europea programó cuatro inspecciones presenciales para el próximo año sobre controles de residuos, contaminantes y aspectos sanitarios de origen animal y vegetal.",
-      "guion": "Argentina recibe 60 auditorías sanitarias para ampliar exportaciones.",
-      "seccion": "Agro",
-      "medios": [
-        "Agroempresario",
-        "La Gaceta (Tucumán)"
-      ],
-      "enlace": "https://www.lagaceta.com.ar/nota/1159684/economia/argentina-recibio-60-auditorias-sanitarias-internacionales-casi-tres-anos-para-ampliar-sus-mercados-exportacion.html",
-      "fecha": "2026-10-26T12:02:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T08:01:11.265Z",
-      "relevancia": 18,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Argentina acumuló 60 auditorías sanitarias internacionales en casi tres años",
-        "Chile y China lideraron las inspecciones enfocadas en carnes y lácteos",
-        "El SENASA condujo los procesos de control y certificación",
-        "La Unión Europea fijó cuatro auditorías presenciales para 2027"
-      ],
-      "seSabe": [
-        "Se realizaron 60 auditorías sanitarias internacionales entre diciembre de 2023 y octubre de 2026",
-        "Chile y China encabezaron las inspecciones de acuerdo con la Secretaría de Agricultura",
-        "La Unión Europea confirmó cuatro auditorías presenciales para 2027",
-        "El SENASA condujo los procesos de inspección y certificación"
-      ],
-      "etiquetas": [
-        "Exportaciones",
-        "SENASA",
-        "Mercados internacionales"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1159684/economia/argentina-recibio-60-auditorias-sanitarias-internacionales-casi-tres-anos-para-ampliar-sus-mercados-exportacion.html",
-          "fecha": "2026-10-26T12:02:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó el enfoque sobre el rol del SENASA y las proyecciones de nuevas revisiones comerciales hacia 2027."
-        },
-        {
-          "medio": "Agroempresario",
-          "enlace": "https://agroempresario.com/publicacion/122922/argentina-recibio-60-auditorias-sanitarias-para-ampliar-mercados/",
-          "fecha": "2026-10-26T19:00:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló la cantidad total de auditorías, el promedio anual, el listado completo de países evaluadores y los rubros agropecuarios analizados."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "argentina-recibe-60-auditorias-sanitarias-para-ampliar-exportaciones",
-      "foto": {
-        "archivo": "fotos-notas/yjasdx.jpg",
-        "credito": "Foto: Agroempresario"
-      }
-    },
-    {
-      "id": "pl8yzi",
-      "titulo": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses",
-      "copete": "El Gobierno nacional oficializó la medida mediante una resolución del Ministerio de Economía. La decisión comprende a los productores afectados por los anegamientos en los distritos de 9 de Julio y Necochea.",
-      "cuerpo": "El Gobierno nacional declaró el estado de emergencia y desastre agropecuario por inundaciones en dos distritos de la provincia de Buenos Aires. La medida quedó formalizada a través de la resolución 1850/2026 del Ministerio de Economía, publicada en el Boletín Oficial.\n\nLa norma abarca a la totalidad del partido de 9 de Julio y a las circunscripciones II, III, IV y XII del partido de Necochea. El alcance temporal de la disposición comprende el período que va desde el 1 de mayo hasta el 31 de octubre de 2026.\n\nLa decisión surgió tras el análisis de la Comisión Nacional de Emergencias y Desastres Agropecuarios, que evaluó el decreto provincial 1270 firmado el 31 de agosto pasado y recomendado durante la reunión del organismo realizada el 8 de octubre. Con esta homologación de la ley 26.509, los productores damnificados por los excesos hídricos accederán a facilidades impositivas y crediticias.\n\nPara gestionar los beneficios, los establecimientos rurales alcanzados deberán presentar un certificado emitido por la autoridad competente bonaerense que acredite su situación en los predios afectados. A su vez, la administración provincial asumió el compromiso de remitir el listado correspondiente de beneficiarios a la Secretaría Técnica Ejecutiva de la Comisión Nacional.\n\nPor último, la resolución instruyó a la Agencia de Recaudación y Control Aduanero y a las instituciones bancarias oficiales o mixtas para que arbitren los medios necesarios en la aplicación de las medidas de asistencia tributaria. También facultó al titular de la Secretaría de Agricultura, Ganadería y Pesca para celebrar los convenios operativos pertinentes.",
-      "guion": "Declaran la emergencia agropecuaria por inundaciones en dos partidos bonaerenses.",
-      "seccion": "Agro",
-      "medios": [
-        "La Nación",
-        "Agrofy News",
-        "TN (Todo Noticias)",
-        "A24",
-        "Radio Mitre",
-        "Noticias Argentinas (NA)",
-        "La Tecla",
-        "El Marplatense",
-        "El Eco de Tandil",
-        "Agroempresario",
-        "Noticias Agropecuarias",
-        "Ámbito",
-        "Minuto Uno",
-        "Agencia DIB",
-        "Clarín",
-        "La Verdad",
-        "Perfil"
-      ],
-      "enlace": "https://www.noticiasagropecuarias.com/2026/10/26/declaran-la-emergencia-agropecuaria-por-inundaciones-en-2-partidos-bonaerenses/",
-      "fecha": "2026-10-26T12:01:59.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T12:46:26.374Z",
-      "relevancia": 48,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Abarca al partido de 9 de Julio y cuatro circunscripciones de Necochea",
-        "Rige para el período entre el 1 de mayo y el 31 de octubre de 2026",
-        "Exige la presentación de un certificado provincial para gestionar la asistencia",
-        "Intervienen ARCA y bancos oficiales para otorgar los beneficios impositivos"
-      ],
-      "seSabe": [
-        "El Ministerio de Economía emitió la resolución 1850/2026",
-        "La medida responde al decreto provincial 1270",
-        "La Comisión Nacional evaluó la situación el 8 de octubre",
-        "Los productores deben presentar un certificado para acceder a los beneficios"
-      ],
-      "textoRedes": "El Gobierno declaró la emergencia agropecuaria por inundaciones en 9 de Julio y Necochea. La medida otorga beneficios impositivos y crediticios para los productores afectados durante el ciclo productivo.",
-      "etiquetas": [
-        "emergencia agropecuaria",
-        "inundaciones",
-        "Buenos Aires",
-        "9 de Julio",
-        "Necochea",
-        "Ministerio de Economía"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Noticias Agropecuarias",
-          "enlace": "https://www.noticiasagropecuarias.com/2026/10/26/declaran-la-emergencia-agropecuaria-por-inundaciones-en-2-partidos-bonaerenses/",
-          "fecha": "2026-10-26T11:00:12.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la homologación de la decisión y el acceso a beneficios impositivos y crediticios."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/campo/el-gobierno-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos-bonaerenses-nid26102026/",
-          "fecha": "2026-10-26T12:01:59.000Z",
-          "oficial": false,
-          "aporte": "Detalló los números de la resolución, las fechas del período afectado y los organismos intervinientes."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/economia/emergencia-agropecuaria-inundaciones-el-gobierno-la-declaro-nueve-julio-y-parte-necochea-n6337793",
-          "fecha": "2026-10-26T12:30:00.000Z",
-          "oficial": false,
-          "aporte": "Precisó la fecha de firma del ministro Luis Caputo y la publicación en el Boletín Oficial."
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/economia/nacion-declaro-la-emergencia-agropecuaria-inundaciones-dos-distritos-n56806",
-          "fecha": "2026-10-26T12:55:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/el-gobierno-homologo-la-emergencia-agropecuaria-por-inundaciones-en-9-de-julio-y-necochea_a6adf4073a8408d82a2ed5479",
-          "fecha": "2026-10-26T12:46:39.501Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/rural/inundaciones-declaran-emergencia-agropecuaria-partidos-buenos-aires_0_ycP1zKWRHi.html",
-          "fecha": "2026-10-26T13:45:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Tecla",
-          "enlace": "https://www.latecla.info/170689-nacion-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-distritos-bonaerenses",
-          "fecha": "2026-10-26T14:26:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/campo/2026/10/26/el-gobierno-nacional-declaro-la-emergencia-agropecuaria-en-localidades-bonaerenses-afectadas-por-inundaciones/",
-          "fecha": "2026-10-26T16:14:17.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/el-gobierno-declaro-la-emergencia-agropecuaria-en-medio-de-las-inundaciones-producidas-por-el-nino-en-dos-partidos-bonaerenses/",
-          "fecha": "2026-10-26T16:10:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/nacion-declaro-la-emergencia-agropecuaria-por-inundaciones-en-dos-distritos/",
-          "fecha": "2026-10-26T15:07:16.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/el-nino-nacion-declaro-la-emergencia-agropecuaria-en-9-de-julio-y-necochea",
-          "fecha": "2026-10-26T16:30:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/nacionales/nacion-declaro-la-emergencia-agropecuaria-por-inundaciones-en-nueve-de-julio-y-necochea",
-          "fecha": "2026-10-26T14:35:39.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/sociedad/a50-inundaciones-en-buenos-aires-declaran-la-emergencia-agropecuaria-en-9-de-julio-y-parte-de-necochea.phtml",
-          "fecha": "2026-10-26T17:12:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/inundaciones-buenos-aires-el-gobierno-declaro-la-emergencia-agropecuaria-dos-partidos-n1610209",
-          "fecha": "2026-10-26T15:33:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/declaran-la-emergencia-agropecuaria-distritos-bonaerenses-las-graves-inundaciones-n6338202",
-          "fecha": "2026-10-27T01:42:43.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agrofy News",
-          "enlace": "https://news.agrofy.com.ar/noticia/216857/declaran-emergencia-agropecuaria-inundaciones-nueve-julio-necochea",
-          "fecha": "2026-10-26T09:27:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agroempresario",
-          "enlace": "https://agroempresario.com/publicacion/122970/emergencia-agropecuaria-en-buenos-aires-que-zonas-alcanza/",
-          "fecha": "2026-10-27T14:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "declaran-la-emergencia-agropecuaria-por-inundaciones-en-dos-partidos",
-      "foto": {
-        "archivo": "fotos-notas/pl8yzi.jpg",
-        "credito": "Foto: Noticias Agropecuarias"
-      }
-    },
-    {
-      "id": "8xm2jg",
-      "titulo": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio",
-      "copete": "El Zonal del Atlántico y la Monomarca del Salado corrieron el fin de semana en el circuito local. El clima inestable y las lluvias marcaron las jornadas.",
-      "cuerpo": "El Zonal del Atlántico y la Monomarca del Salado compitieron el fin de semana en el autódromo Juan Manuel Fangio, en una actividad afectada por la inestabilidad climática y las continuas lluvias que condicionaron el estado de la pista. Santiago Lantella se consolidó como la figura excluyente al ganar las tres finales de invitados en las que participó: Promocional, Monomarca y Monomarca del Salado.\n\nEn el Turismo Special de la Costa, Bruno Boccanera se impuso en las dos finales. Por su parte, el TC 2000 del Atlántico tuvo como ganadores a Alan Adolfo y Martín Añón. En la Promocional, Braian Hernández triunfó entre los titulares y la dupla Hernández-Lantella se quedó con la suma de tiempos. En la Monomarca, Lautaro Godino ganó la final de titulares y la combinación Godino-Oubiña lideró la suma de tiempos. En la Monomarca del Salado, Matías Alday venció entre los titulares y Santiago Lantella lo hizo en invitados con el vehículo de Oscar Garay.\n\nLa programación dominical registró varios accidentes que causaron importantes daños materiales en las unidades y consecuencias físicas en algunos competidores. Los pilotos afectados debieron recibir asistencia médica en el Hospital Municipal Subzonal Dr. Felipe A. Fossati. Además, las competencias incluyeron exclusiones y sanciones por maniobras en pista y actitudes antideportivas informadas por los comisarios deportivos, junto con despistes que motivaron neutralizaciones con bandera amarilla y discusiones en la zona de boxes.",
-      "guion": "Santiago Lantella gana tres competencias en el autódromo Juan Manuel Fangio.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "El Diario Balcarce",
-        "Acción 5 (Balcarce)"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/santiago-lantella-brillo-en-el-fangio-gano-3-competencias-642",
-      "fecha": "2026-10-26T11:57:24.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T12:01:18.778Z",
-      "relevancia": 71,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "autodromo",
-        "fangio"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Santiago Lantella ganó tres finales de invitados en el circuito local.",
-        "Bruno Boccanera se impuso en las dos competencias del Turismo Special de la Costa.",
-        "La actividad automovilística se vio afectada por la inestabilidad climática.",
-        "Varios pilotos requirieron asistencia médica en el hospital municipal tras sufrir accidentes."
-      ],
-      "seSabe": [
-        "Santiago Lantella triunfó en las finales de invitados de Promocional, Monomarca y Monomarca del Salado.",
-        "Bruno Boccanera ganó las dos finales del Turismo Special de la Costa.",
-        "Alan Adolfo y Martín Añón se impusieron en el TC 2000 del Atlántico.",
-        "Varios competidores fueron atendidos en el Hospital Municipal Subzonal Dr. Felipe A. Fossati tras registrarse diversos accidentes."
-      ],
-      "noConfirmado": [
-        "La clasificación final de la Monomarca quedó en suspenso tras un toque entre Joaquín Cortina y Diego Ciantini."
-      ],
-      "textoRedes": "Santiago Lantella ganó tres competencias en el autódromo Juan Manuel Fangio durante el paso del Zonal del Atlántico y la Monomarca del Salado.",
-      "etiquetas": [
-        "autodromo Juan Manuel Fangio",
-        "Santiago Lantella",
-        "Zonal del Atlantico",
-        "Monomarca del Salado",
-        "Turismo Special de la Costa"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/santiago-lantella-brillo-en-el-fangio-gano-3-competencias-642",
-          "fecha": "2026-10-26T11:57:24.000Z",
-          "oficial": false,
-          "aporte": "Detalló los resultados generales, ganadores de cada categoría, incidentes en pista y asistencia médica a los pilotos."
-        },
-        {
-          "medio": "Acción 5 (Balcarce)",
-          "enlace": "https://accion5.com/el-clima-no-detuvo-el-regreso-del-zonal-atlantico-al-fangio/",
-          "fecha": "2026-10-26T12:36:23.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "i3z8vw",
-          "titulo": "El Autódromo Juan Manuel Fangio de Balcarce recibe este domingo al automovilismo zonal",
-          "fecha": "2026-10-25T18:44:49.000Z",
-          "ruta": "/nota/el-autodromo-juan-manuel-fangio-de-balcarce-recibe-este-domingo-al-i3z8vw"
-        },
-        {
-          "id": "9cnbf5",
-          "titulo": "El Turismo Special de la Costa corre en el Fangio sin Nahuel Morón",
-          "fecha": "2026-10-22T15:15:49.000Z",
-          "ruta": "/nota/el-turismo-special-de-la-costa-corre-en-el-fangio-sin-nahuel-moron-9cnbf5"
-        },
-        {
-          "id": "173ttfz",
-          "titulo": "El Zonal del Atlántico compite en el circuito chico del Fangio",
-          "fecha": "2026-10-05T12:12:09.000Z",
-          "ruta": "/nota/el-zonal-del-atlantico-compite-en-el-circuito-chico-del-fangio-173ttfz"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "santiago-lantella-gana-tres-competencias-en-el-autodromo-juan-manuel",
-      "foto": {
-        "archivo": "fotos-notas/8xm2jg.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
-      "id": "1fyorld",
-      "titulo": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo",
-      "copete": "El Gobierno porteño envió a la Legislatura un proyecto de ley para crear un sistema de identificación animal, libreta sanitaria digital y habilitar el transporte de mascotas en colectivos. Además, prevé un cementerio en Chacarita.",
-      "cuerpo": "La iniciativa fue presentada por el jefe de Gobierno, Jorge Macri, durante el festival Mascotear en la Plaza de las Naciones Unidas. Se implementará también una Libreta Sanitaria Digital para registrar vacunaciones, estado reproductivo y datos del veterinario interviniente.\n\nEl proyecto autoriza el ingreso de mascotas a dependencias públicas y locales privados, donde regirá el derecho de admisión, con libre acceso garantizado para perros guía o de asistencia.\n\nEn materia de servicios, las guarderías y pensionados deberán cumplir estándares de seguridad, ventilación, luz natural y contar con personal capacitado y veterinario responsable. La propuesta también crea un registro obligatorio de paseadores con capacitación y credencial digital. Por otro lado, se prevé modificar la normativa para habilitar servicios de crematorio y un cementerio público de animales en el barrio de Chacarita.\n\nDe forma paralela, desde el 1 de noviembre se ampliarán los servicios veterinarios gratuitos. Moviles de atención clínica básica recorrerán las 15 comunas de lunes a sábado de 9 a 13 con turnos web, mientras que el centro de Costanera Sur realizará castraciones vespertinas y el de Villa Soldati sumará ecografías.",
-      "guion": "Impulsan un DNI para perros y gatos y evalúan permitir viajes en colectivo.",
-      "seccion": "Argentina",
-      "medios": [
-        "La Nación",
-        "Minuto Uno",
-        "Crónica",
-        "Radio Mitre",
-        "Perfil"
-      ],
-      "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-impulsa-un-dni-para-perros-y-gatos-y-analiza-permitir-que-viajen-en-colectivo-nid26102026/",
-      "fecha": "2026-10-26T11:40:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-26T13:01:34.408Z",
-      "relevancia": 37,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El proyecto de ley prevé un número de identificación y libreta sanitaria digital para perros y gatos.",
-        "Se autorizaría el traslado de mascotas en colectivos porteños mediante transportadoras.",
-        "La iniciativa incluye un registro obligatorio de paseadores y nuevas exigencias para guarderías.",
-        "Se proyecta la creación de un crematorio y cementerio de animales en el barrio de Chacarita."
-      ],
-      "seSabe": [
-        "El Gobierno porteño envió el proyecto a la Legislatura para su debate.",
-        "Se creará un registro digital con los datos de la mascota y su responsable.",
-        "Los colectivos permitirán el viaje de animales en transportadoras según la reglamentación.",
-        "Desde el 1 de noviembre se ampliará la atención veterinaria en las 15 comunas."
-      ],
-      "noConfirmado": [
-        "Todavía no se informaron los plazos exactos para la aprobación parlamentaria del proyecto."
-      ],
-      "textoRedes": "El Gobierno porteño envió un proyecto a la Legislatura para crear un DNI y libreta sanitaria digital para perros y gatos, y analiza permitir su traslado en colectivos.",
-      "etiquetas": [
-        "mascotas",
-        "perros",
-        "gatos",
-        "Legislatura porteña",
-        "transporte público",
-        "Ciudad de Buenos Aires"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-impulsa-un-dni-para-perros-y-gatos-y-analiza-permitir-que-viajen-en-colectivo-nid26102026/",
-          "fecha": "2026-10-26T11:20:39.000Z",
-          "oficial": false,
-          "aporte": "Aportó el contexto sobre los antecedentes legislativos y los detalles del futuro cementerio de mascotas en Chacarita."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/impulsan-crear-un-dni-para-perros-y-gatos-en-caba/",
-          "fecha": "2026-10-26T11:40:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los puntos principales del proyecto de ley, los requisitos para guarderías y los cronogramas de los servicios veterinarios."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/la-ciudad-impulsa-una-ley-para-que-todos-los-perros-y-gatos-tengan-un-numero-de-identificacion-y-una-libreta-sanitaria-digital/",
-          "fecha": "2026-10-26T12:46:26.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre las declaraciones adicionales del jefe de Gobierno y las actividades realizadas durante el festival Mascotear."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/ciudad-de-buenos-aires/la-ciudad-de-buenos-aires-impulsa-una-nueva-ley-para-proteger-a-perros-y-gatos.phtml",
-          "fecha": "2026-10-26T13:38:36.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/sistema-unico-digital-identificacion-perros-y-gatos-buenos-aires-activa-la-libreta-sanitaria-digital-n6338080",
-          "fecha": "2026-10-26T19:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "impulsan-un-dni-para-perros-y-gatos-y-evaluan-permitir-viajes-en"
     }
   ],
   "secciones": [
-    "Policiales",
     "Fútbol",
-    "Balcarce",
-    "Política",
-    "Cultura y agenda",
-    "Argentina",
     "Automovilismo",
+    "Balcarce",
+    "Policiales",
+    "Política",
+    "Tecnología",
+    "Argentina",
     "Economía",
     "Deportes",
+    "Cultura y agenda",
     "Salud",
-    "Tecnología",
     "Agro",
     "Educación"
   ],
@@ -22000,12 +21073,7 @@
     {
       "nombre": "El Concejo Deliberante",
       "ranura": "concejo",
-      "cuantas": 6
-    },
-    {
-      "nombre": "El autódromo",
-      "ranura": "autodromo",
-      "cuantas": 3
+      "cuantas": 5
     },
     {
       "nombre": "Bomberos Voluntarios",
@@ -22013,13 +21081,13 @@
       "cuantas": 3
     },
     {
-      "nombre": "Las rutas",
-      "ranura": "rutas",
-      "cuantas": 3
+      "nombre": "El autódromo",
+      "ranura": "autodromo",
+      "cuantas": 2
     },
     {
-      "nombre": "El Cerro El Triunfo",
-      "ranura": "cerro",
+      "nombre": "Las rutas",
+      "ranura": "rutas",
       "cuantas": 2
     }
   ],
@@ -22030,7 +21098,7 @@
       "humedad": 78,
       "viento": 7,
       "rumbo": "N",
-      "cielo": "Parcialmente nublado",
+      "cielo": "Mayormente despejado",
       "esDeDia": false
     },
     "dias": [
@@ -22383,5 +21451,5 @@
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 10
+  "esperandoCuerpo": 17
 }
