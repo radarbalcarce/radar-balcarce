@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-28T18:03:57.322Z",
+ "consultado": "2026-10-28T21:34:37.885Z",
  "equipos": [
   "9739",
   "3",
@@ -69,90 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841623",
-    "competencia": "liga",
-    "inicio": "2026-10-18T21:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+7'",
-    "local": {
-     "id": "8",
-     "nombre": "Estudiantes de La Plata",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "18",
-     "nombre": "San Lorenzo",
-     "goles": 2
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Edwin Cetre",
-      "minuto": "14'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Guzmán Corujo",
-      "minuto": "44'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Facundo Gulli",
-      "minuto": "90'+5'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Estadio Jorge Luis Hirschi",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
-   {
-    "id": "401841624",
-    "competencia": "liga",
-    "inicio": "2026-10-18T21:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+6'",
-    "local": {
-     "id": "19685",
-     "nombre": "Estudiantes de Río Cuarto",
-     "goles": 2
-    },
-    "visitante": {
-     "id": "9739",
-     "nombre": "Aldosivi",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Andrés Vombergar",
-      "minuto": "68'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Ibrahim Hesar",
-      "minuto": "85'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Gabriel Alanís",
-      "minuto": "87'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Ciudad de Río Cuarto Antonio Candini",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841628",
     "competencia": "liga",
