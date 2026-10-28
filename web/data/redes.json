@@ -1306,6 +1306,15 @@
       ],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/10w8jm5.jpg"
+    },
+    "5qx7kw": {
+      "cuando": "2026-10-28T14:36:01.589Z",
+      "postId": "1254237411116171_122116731663495512",
+      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
+      "enlace": "https://radarbalcarce.com/nota/el-centro-de-educacion-fisica-n-119-conmemora-su-vigesimo-quinto-5qx7kw",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/5qx7kw.jpg"
     }
   },
   "instagram": {
@@ -3819,6 +3828,20 @@
       "tipo": "REELS",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-10-28/noticia1": {
+      "cuando": "2026-10-28T14:36:50.209Z",
+      "mediaId": "18128166352845909",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "w7ghgv",
+      "notaIds": [
+        "w7ghgv",
+        "11f64xi",
+        "5qx7kw",
+        "u2pkjm"
+      ],
+      "permalink": "https://www.instagram.com/reel/DfCqVZZAFbJ/"
     }
   },
   "facebookVideos": {
@@ -7361,6 +7384,12 @@
       "mediaId": "18077908217442429",
       "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
       "enlace": "https://radarbalcarce.com/nota/mario-alberghini-completa-la-novena-fecha-del-procar-4000-en-la-plata-10w8jm5"
+    },
+    "5qx7kw": {
+      "cuando": "2026-10-28T14:36:10.127Z",
+      "mediaId": "17966672873982851",
+      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
+      "enlace": "https://radarbalcarce.com/nota/el-centro-de-educacion-fisica-n-119-conmemora-su-vigesimo-quinto-5qx7kw"
     }
   },
   "historiasDeReels": {
@@ -9206,6 +9235,13 @@
       "red": "facebook",
       "notaId": "w7ghgv",
       "postId": "1171622088864162"
+    },
+    "instagram/2026-10-28/noticia1": {
+      "cuando": "2026-10-28T14:37:19.545Z",
+      "mediaId": "18114148316172965",
+      "nombre": "noticia1",
+      "red": "instagram",
+      "notaId": "w7ghgv"
     }
   },
   "problemas": {
@@ -9216,14 +9252,6 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-27T15:52:22.448Z",
       "intentos": 21
-    },
-    "2026-10-28/noticia1/instagram/reel": {
-      "pieza": "noticia1",
-      "red": "instagram",
-      "parte": "reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-28T14:05:57.504Z",
-      "intentos": 3
     }
   },
   "facebookFoto": {
@@ -9896,12 +9924,17 @@
       }
     },
     "2026-10-28/noticia1": {
-      "cuando": "2026-10-28T13:35:54.878Z",
+      "cuando": "2026-10-28T14:35:54.133Z",
       "nombre": "noticia1",
       "tiktok": {
         "ok": true,
         "id": "6ae1fac4e7fe9e2e3ebef2be",
         "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6ae208a2c7a76511de186144",
+        "estado": "sent"
       }
     }
   }
