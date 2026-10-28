@@ -41075,7 +41075,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "28236361adad4569"
+  "huella": "28236361adad4569",
+  "ausenteDesde": "2026-10-28T14:04:45.904Z"
  },
  "1ivrwby": {
   "archivo": "fotos-notas/1ivrwby.jpg",
@@ -41436,7 +41437,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Vélez festejando con los brazos abiertos."
   },
-  "huella": "cdcc475f6d6e6e2f"
+  "huella": "cdcc475f6d6e6e2f",
+  "ausenteDesde": "2026-10-28T14:04:45.904Z"
  },
  "10tmdys": {
   "archivo": "fotos-notas/10tmdys.jpg",
@@ -44937,7 +44939,8 @@
    "corresponde": "si",
    "descripcion": "Leandro Paredes en primer plano durante el partido."
   },
-  "huella": "321a16141c1c1d1d"
+  "huella": "321a16141c1c1d1d",
+  "ausenteDesde": "2026-10-28T14:04:45.904Z"
  },
  "8pzl3i": {
   "archivo": "fotos-notas/8pzl3i.jpg",
@@ -47176,15 +47179,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "6awds4": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Flávio Bolsonaro abandona Brasil y viaja a Estados Unidos tras su derrota electoral",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T19:33:34.475Z",
-  "intentos": 1,
-  "fuentes": 13,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/2t91wl.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro llega a Estados Unidos tras su derrota electoral en Brasil",
+  "enlace": "https://www.minutouno.com/mundo/flavio-bolsonaro-esta-viaje-estados-unidos-su-derrota-frente-lula-da-silva-n6338439",
+  "imagenOriginal": "https://media.minutouno.com/p/ba3aa8a96dc56f15a069d9a54d8879f8/adjuntos/150/imagenes/039/312/0039312488/1200x675/smart/flavio-bolsonaro.jpg",
+  "razon": "Es la foto más clara del protagonista entre las opciones válidas que no tienen marcas añadidas ni menores.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
+  },
+  "huella": "3591555c28ecbdbf"
  },
  "si5xga": {
   "intentado": true,
@@ -47234,10 +47250,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alumnos de la Primaria 3 visitan el Concejo Deliberante",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-27T21:03:33.761Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La única foto disponible muestra menores de edad reconocibles, por lo que no puede ser publicada según la política del medio.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "7lnfde": {
   "intentado": true,
@@ -47262,22 +47278,52 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "idr5yq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/idr5yq.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Francisco Tamagno finaliza noveno en La Plata por el Procar 4000",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-27T21:34:16.878Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/tamagno-vamos-por-buen-camino-hay-que-seguir-trabajando-270",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-27-21-15-28Tamagno_procar_2026.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y no tiene marcas ni menores.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de competición naranja en pista."
+  },
+  "huella": "a1a3259637afd034"
  },
  "ytbcok": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ytbcok.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-27T21:34:16.878Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/paredon-del-estadio-municipal-buscan-aclarar-aspectos-tecnicos-y-costos-de-la-obra-65",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-27-21-7-55estadio-municipal-balcarce5-640x360-1.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y contenido sin marcas ni personas.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del campo de juego y las instalaciones del Estadio Municipal"
+  },
+  "huella": "3b3b3936ad3b3e19"
  },
  "1wiu5wj": {
   "archivo": "fotos-notas/1wiu5wj.jpg",
@@ -49856,5 +49902,144 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "The operation was aborted due to timeout"
+ },
+ "16j1abo": {
+  "archivo": "fotos-notas/16j1abo.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro llega a Miami tras escapar de la Justicia brasileña",
+  "enlace": "https://www.cronista.com/economia-politica/migraciones-confirmo-que-flavio-bolsonaro-vuela-desde-argentina-hacia-estados-unidos/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/MQHP7PGW3RHEHPOAUTQHGZZZ7I.jpg?auth=b552323e97529ac65ebe336886a3083676e6ab309aad18c459e054b96e71f777&height=630&width=1200&quality=70&smart=true",
+  "razon": "Muestra claramente el hecho de la llegada de Flávio Bolsonaro a Miami bajando de un avión, con buena nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro bajando de un avión en Miami junto a otras personas."
+  },
+  "huella": "6464684c6c4c4ce4"
+ },
+ "1etn680": {
+  "archivo": "fotos-notas/1etn680.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses oficializa un aumento del 1,93% para jubilaciones y asignaciones desde noviembre",
+  "enlace": "https://www.eleco.com.ar/economia/anses-confirmo-un-aumento-en-jubilaciones-y-asignaciones-cuales-seran-los-valores-de-noviembre",
+  "imagenOriginal": "https://cdnartic.ar/dOb2JVMU_Kn_Ay2MipYJQgVd1AY=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/06/jubilacion.png",
+  "razon": "Muestra claramente a una jubilada en una oficina de ANSES recibiendo dinero, sin marcas agregadas, menores ni problemas técnicos.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jubilada en una oficina de ANSES frente a una empleada."
+  },
+  "huella": "6b4f4359581c1593"
+ },
+ "ispal6": {
+  "archivo": "fotos-notas/ispal6.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Conmebol define precios y etapas para las entradas de la final de Sudamericana",
+  "enlace": "https://perfil.com/deportes/entradas-para-boca-vs-atletico-mineiro-por-la-final-de-la-sudamericana-precios-cronograma-y-como-comprar-aE5KX8t1LMQl",
+  "imagenOriginal": "https://fotos.perfil.com/2026/10/28/trim/1140/641/boca-y-la-copa-sudamericana-2357789.jpg",
+  "razon": "Muestra la copa de la Sudamericana y festejo de jugadores, ilustrando perfectamente el tema de precios y etapas de la final.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores festejando y la copa Sudamericana"
+  },
+  "huella": "262b6ca6a684d444"
+ },
+ "2t91wl": {
+  "archivo": "fotos-notas/2t91wl.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro llega a Estados Unidos tras su derrota electoral en Brasil",
+  "enlace": "https://www.minutouno.com/mundo/flavio-bolsonaro-esta-viaje-estados-unidos-su-derrota-frente-lula-da-silva-n6338439",
+  "imagenOriginal": "https://media.minutouno.com/p/ba3aa8a96dc56f15a069d9a54d8879f8/adjuntos/150/imagenes/039/312/0039312488/1200x675/smart/flavio-bolsonaro.jpg",
+  "razon": "Es la foto más clara del protagonista entre las opciones válidas que no tienen marcas añadidas ni menores.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
+  },
+  "huella": "3591555c28ecbdbf"
+ },
+ "1jp7qfd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sergio Dalma trae su gira Ritorno a Via Dalma a la Argentina",
+  "razon": "La mejor foto era la de La Nación, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "tssnvv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Harry Kane gana el Balón de Oro 2026 y agradece a Pochettino",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "intentos": 1,
+  "fuentes": 88,
+  "intentosPorCupo": 1
+ },
+ "1q0z7qt": {
+  "archivo": "fotos-notas/1q0z7qt.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo busca la clasificación a los playoffs del Torneo Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/union-santa-fe-estudiantes-plata-torneo-clausura-fecha-catorce-alexander-medina-cacique-madelon-leonardo_0_jnoGyVrNF4.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/26/rP_XpyIa5_2000x1500__1.jpg",
+  "razon": "Es una excelente foto de acción del partido, sin marcas de agua ni menores reconocibles, con gran nitidez y calidad.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador pateando la pelota durante el partido."
+  },
+  "huella": "54345276320f0b0f"
  }
 }
