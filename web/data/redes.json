@@ -1324,6 +1324,15 @@
       "temas": [],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/mimoad.jpg"
+    },
+    "1xnehl1": {
+      "cuando": "2026-10-28T18:36:03.817Z",
+      "postId": "1254237411116171_122116783665495512",
+      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+      "enlace": "https://radarbalcarce.com/nota/la-fiesta-nacional-del-postre-presenta-el-postre-mas-largo-1xnehl1",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/1xnehl1-ia.jpg"
     }
   },
   "instagram": {
@@ -6488,6 +6497,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122116744767495512"
+    },
+    "2026-10-28/noticia2": {
+      "cuando": "2026-10-28T18:37:36.064Z",
+      "mediaId": "1426160959693272",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "1xnehl1",
+      "notaIds": [
+        "1xnehl1",
+        "le5im8",
+        "on90e1",
+        "jultnd"
+      ],
+      "postId": "122116783971495512",
+      "permalink": "https://www.facebook.com/reel/1426160959693272/"
     }
   },
   "instagramFeed": {
@@ -7422,6 +7446,12 @@
       "mediaId": "17938559997406616",
       "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
       "enlace": "https://radarbalcarce.com/nota/fallece-eulalia-marzetti-la-madre-de-lionel-scaloni-mimoad"
+    },
+    "1xnehl1": {
+      "cuando": "2026-10-28T18:36:16.174Z",
+      "mediaId": "18113788499597125",
+      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+      "enlace": "https://radarbalcarce.com/nota/la-fiesta-nacional-del-postre-presenta-el-postre-mas-largo-1xnehl1"
     }
   },
   "historiasDeReels": {
@@ -9289,6 +9319,14 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1476625624325369"
+    },
+    "facebook/2026-10-28/noticia2": {
+      "cuando": "2026-10-28T18:38:07.752Z",
+      "mediaId": "1635653458294988",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "1xnehl1",
+      "postId": "1434279728902603"
     }
   },
   "problemas": {
@@ -9299,6 +9337,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-27T15:52:22.448Z",
       "intentos": 21
+    },
+    "2026-10-28/noticia2/instagram/reel": {
+      "pieza": "noticia2",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-28T18:36:26.902Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -9995,6 +10041,15 @@
         "ok": true,
         "id": "6ae216daaa69cd87977a0b36",
         "estado": "sent"
+      }
+    },
+    "2026-10-28/noticia2": {
+      "cuando": "2026-10-28T18:35:54.856Z",
+      "nombre": "noticia2",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae241133990f55bf4643c92",
+        "estado": "sending"
       }
     }
   }
