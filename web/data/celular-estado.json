@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T17:34:24.911Z",
- "portada": 167,
+ "generado": "2026-10-28T18:04:00.477Z",
+ "portada": 185,
  "archivo": 500,
  "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-28T17:34:25.670Z",
+  "generado": "2026-10-28T18:04:01.061Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,9 +124,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 49,
     "notas": [
      {
       "id": "1xnehl1",
@@ -139,14 +139,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "jultnd",
-      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
-      "seccion": "Economía"
-     },
-     {
       "id": "on90e1",
       "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
       "seccion": "Deportes"
+     },
+     {
+      "id": "jultnd",
+      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+      "seccion": "Economía"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 35,
+    "segundos": 48,
     "notas": [
      {
       "id": "12niewq",
@@ -170,14 +170,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "19r8vz8",
-      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
-      "seccion": "Fútbol"
+      "id": "l7z1jg",
+      "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
+      "seccion": "Agro"
      },
      {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
      }
     ]
    }
@@ -237,15 +237,15 @@
      "marcada": false
     },
     {
-     "id": "jultnd",
-     "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "u2pkjm",
      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1nvngno",
+     "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+     "seccion": "Argentina",
      "marcada": false
     },
     {

@@ -357,6 +357,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "1302ycq": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
+ },
  "131te0p": {
   "intentos": 1,
   "ultimo": "2026-10-23T13:32:24.119Z",
@@ -1228,11 +1235,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
- },
- "199oqf8": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T18:02:46.365Z",
-  "motivo": "con cuerpo"
  },
  "19i1tlz": {
   "intentos": 2,
@@ -2591,6 +2593,20 @@
   "ultimo": "2026-10-21T22:01:13.791Z",
   "motivo": "con cuerpo"
  },
+ "1j4yz24": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "título o bajada: 1 problema (exagera): el título dice \"inaugura\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 30 y la fuente no",
+   "título o bajada: 1 problema (exagera): el título dice \"inaugura\" y nin"
+  ],
+  "falla": [
+   "el título dice \"inaugura\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un proyecto o algo que se estudia, va \"pid"
+  ]
+ },
  "1j8dfp3": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -2626,6 +2642,22 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 47
+ },
+ "1jfs6xf": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "cuerpo: 3 problemas (nombre, copia): el cuerpo nombra a \"eduardo\" y la fuente no; sin esas oraciones quedan 181 palabras",
+  "textos": 3,
+  "numeradas": 7,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
+   "cuerpo: 3 problemas (nombre, copia): el cuerpo nombra a \"eduardo\" y la"
+  ],
+  "falla": [
+   "el cuerpo nombra a \"eduardo\" y la fuente no",
+   "el cuerpo nombra a \"dominguez\" y la fuente no",
+   "copia 29 palabras seguidas del original (\"la comision disciplinaria de la conmebol resolvio rechazar integramente la protesta presentada por"
+  ]
  },
  "1jgv1bx": {
   "intentos": 1,
@@ -4267,11 +4299,14 @@
   "numeradas": 16
  },
  "1vg00g": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T07:53:11.084Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T18:01:51.395Z",
   "motivo": "con cuerpo",
   "textos": 5,
-  "numeradas": 5
+  "numeradas": 18,
+  "motivos": [
+   "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota"
+  ]
  },
  "1vgzjw8": {
   "intentos": 1,
@@ -4281,17 +4316,14 @@
   "numeradas": 1
  },
  "1vkor44": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T17:32:52.339Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 337 palabras",
-  "textos": 5,
+  "intentos": 2,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
   "numeradas": 11,
   "motivos": [
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 14 palabras seguidas del original (\"orbitaba a menos de 275 kilometros de altura a esa distancia de la superficie\"): decilo con otras "
   ]
  },
  "1vlfy7p": {
@@ -4845,22 +4877,19 @@
   "numeradas": 28
  },
  "2v09er": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T17:32:52.339Z",
-  "motivo": "título o bajada: 2 problemas (numero): el titulo dice 660 y la fuente no lo dice",
-  "textos": 1,
+  "intentos": 3,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 660 y la fuente no lo dice",
+  "textos": 2,
   "numeradas": 2,
   "motivos": [
-   "cuerpo: 2 problemas (copia, promesa): copia 21 palabras seguidas del o",
    "cuerpo: 1 problema (promesa): el título dice 600 y el cuerpo no lo exp",
    "título o bajada: 1 problema (numero): el copete dice 660 y la fuente n",
-   "título o bajada: 2 problemas (numero): el titulo dice 660 y la fuente "
+   "título o bajada: 2 problemas (numero): el titulo dice 660 y la fuente ",
+   "título o bajada: 1 problema (numero): el copete dice 660 y la fuente n"
   ],
   "falla": [
-   "el titulo dice 660 y la fuente no lo dice",
-   "el guion dice 660 y la fuente no lo dice",
-   "copia 18 palabras seguidas del original (\"alejandro bravo dimensiono el peso economico de las cadenas vinculadas con la proteina animal…\"): ",
-   "el título dice 660 y el cuerpo no lo explica"
+   "el copete dice 660 y la fuente no lo dice"
   ]
  },
  "2wd6dn": {
@@ -4896,6 +4925,13 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 23
+ },
+ "330sg8": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "3357kp": {
   "intentos": 2,
@@ -5193,6 +5229,16 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"revallida\" y",
    "cuerpo: 6 problemas (numero, promesa): el cuerpo dice 40 y la fuente n"
+  ]
+ },
+ "63bj78": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 20,
+  "motivos": [
+   "título o bajada: 4 problemas (forma): el titulo trae un escape sin dec"
   ]
  },
  "64yqg6": {
@@ -5656,8 +5702,8 @@
   "motivo": "con cuerpo"
  },
  "9lasg7": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T17:03:29.942Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T18:01:51.395Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 3,
@@ -6695,6 +6741,13 @@
    "el título dice 2.026 y el cuerpo no lo explica"
   ]
  },
+ "huvhtz": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 21
+ },
  "i0ei6b": {
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
@@ -6881,6 +6934,13 @@
   "intentos": 1,
   "ultimo": "2026-10-23T10:32:12.509Z",
   "motivo": "con cuerpo"
+ },
+ "jldj10": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 4
  },
  "jmznw7": {
   "intentos": 1,
@@ -9296,6 +9356,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
+ },
+ "zidruq": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T18:01:51.395Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "zjfey4": {
   "intentos": 2,

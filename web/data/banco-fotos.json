@@ -21383,9 +21383,7 @@
   "ausenteDesde": "2026-10-23T20:32:31.136Z"
  },
  "1qjgwiy": {
-  "archivo": "fotos-notas/1qjgwiy.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "José Luis Pérez analiza los armados electorales y los equipos de gobierno",
@@ -21405,7 +21403,8 @@
    "descripcion": "José Luis Pérez sentado en una mesa con un micrófono frente a él"
   },
   "huella": "c1c5c6eeeaef4573",
-  "ausenteDesde": "2026-10-21T18:03:58.736Z"
+  "intentado": true,
+  "borrada": true
  },
  "grudo8": {
   "medio": "iProfesional",
@@ -42984,7 +42983,8 @@
    "corresponde": "si",
    "descripcion": "Lula y Kicillof abrazados y sonriendo mirando a cámara."
   },
-  "huella": "0939316960666664"
+  "huella": "0939316960666664",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "pl8yzi": {
   "archivo": "fotos-notas/pl8yzi.jpg",
@@ -43068,7 +43068,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de una cosechadora y un tractor con tolva trabajando en un campo cultivado."
   },
-  "huella": "8b36b974b2d7ed47"
+  "huella": "8b36b974b2d7ed47",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "1fyorld": {
   "intentado": true,
@@ -43276,7 +43277,8 @@
    "corresponde": "si",
    "descripcion": "Operadores bursátiles trabajando en la bolsa de valores con pantallas de cotizaciones de fondo."
   },
-  "huella": "69eb735b52495511"
+  "huella": "69eb735b52495511",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "tcea63": {
   "archivo": "fotos-notas/tcea63.jpg",
@@ -48282,8 +48284,7 @@
    "corresponde": "si",
    "descripcion": "Paisaje nocturno con rayos cayendo sobre una ciudad bajo una tormenta"
   },
-  "huella": "c140a0581d1e4950",
-  "ausenteDesde": "2026-10-28T08:03:31.134Z"
+  "huella": "c140a0581d1e4950"
  },
  "1onz526": {
   "archivo": "fotos-notas/1onz526.jpg",
@@ -49357,7 +49358,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro con equipaje junto a acompañantes"
   },
-  "huella": "2ce8a80949090938"
+  "huella": "2ce8a80949090938",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "13thdhp": {
   "intentado": true,
@@ -49892,7 +49894,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en los boxes durante el Gran Premio de México"
   },
-  "huella": "0c2e3a4a144971f0"
+  "huella": "0c2e3a4a144971f0",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "arh9k1": {
   "archivo": "fotos-notas/arh9k1.jpg",
@@ -50279,7 +50282,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro bajando de un avión"
   },
-  "huella": "4d5c5d5cdcd5c53f"
+  "huella": "4d5c5d5cdcd5c53f",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "ogimb9": {
   "intentado": true,
@@ -50371,7 +50375,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
-  "huella": "d6b01818f8787cec"
+  "huella": "d6b01818f8787cec",
+  "ausenteDesde": "2026-10-28T18:04:00.403Z"
  },
  "frkbns": {
   "archivo": "fotos-notas/frkbns.jpg",
@@ -50769,5 +50774,37 @@
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
   "huella": "d6b01818f8787cec"
+ },
+ "jldj10": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La actividad económica registra una caída del 0,8% en septiembre y confirma la recesión",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-10-28T18:03:33.901Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1302ycq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Confirman la autopsia de El Komanche en Monterrey",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T18:03:33.901Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "63bj78": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Flavio Bolsonaro aterriza en Miami tras partir desde Puerto Iguazú",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T18:03:33.901Z",
+  "intentos": 1,
+  "fuentes": 20,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
