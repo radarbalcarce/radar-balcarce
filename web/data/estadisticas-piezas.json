@@ -2,58 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/historia/1002127722909589",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "podcast",
-   "dia": "2026-10-07",
-   "cuando": "2026-10-08T00:06:59.846Z",
-   "medida": "2026-10-09T08:00:21.957Z",
-   "metricas": {
-    "total_video_views": 0
-   }
-  },
-  {
-   "clave": "instagram/historia/17907265737591867",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "clima-manana",
-   "dia": "2026-10-08",
-   "cuando": "2026-10-08T10:04:36.490Z",
-   "medida": "2026-10-09T08:00:21.957Z",
-   "metricas": {}
-  },
-  {
-   "clave": "instagram/historia/18141869827668037",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "efemeride",
-   "dia": "2026-10-08",
-   "cuando": "2026-10-08T12:08:19.666Z",
-   "medida": "2026-10-09T08:00:21.957Z",
-   "metricas": {}
-  },
-  {
-   "clave": "instagram/historia/18056799569797432",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "noticia1",
-   "dia": "2026-10-08",
-   "cuando": "2026-10-08T13:07:04.508Z",
-   "medida": "2026-10-09T08:00:21.957Z",
-   "metricas": {}
-  },
-  {
-   "clave": "instagram/historia/18178769539435879",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "agenda",
-   "dia": "2026-10-08",
-   "cuando": "2026-10-08T15:09:29.403Z",
-   "medida": "2026-10-09T08:00:21.957Z",
-   "metricas": {}
-  },
-  {
    "clave": "instagram/historia/17930525166414479",
    "red": "instagram",
    "parte": "historia",
@@ -10273,6 +10221,87 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "instagram/reel/17915010984288696",
+   "red": "instagram",
+   "parte": "reel",
+   "pieza": "participa-evento",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T15:36:36.710Z",
+   "medida": "2026-10-28T18:00:12.999Z",
+   "v": 2,
+   "metricas": {
+    "reach": 3,
+    "views": 8,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/2022212605159267",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "participa-evento",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T15:37:22.601Z",
+   "medida": "2026-10-28T18:00:12.999Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 91,
+    "fb_reels_total_plays": 95,
+    "post_video_avg_time_watched": 1454,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 1
+   }
+  },
+  {
+   "clave": "facebook/historia/1941503367208376",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "participa-evento",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T15:37:55.696Z",
+   "medida": "2026-10-28T18:00:12.999Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122116354671495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "sacn4r",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T16:36:07.124Z",
+   "medida": "2026-10-28T18:00:12.999Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 7,
+    "post_total_media_view_unique": 7,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18118341611601106",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "sacn4r",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T16:36:20.131Z",
+   "medida": "2026-10-28T18:00:12.999Z",
+   "v": 2,
+   "metricas": {
+    "reach": 5,
+    "views": 9,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
   }
  ]
 }
