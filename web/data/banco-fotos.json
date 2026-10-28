@@ -41832,7 +41832,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Aldosivi celebrando un gol en primer plano."
   },
-  "huella": "2422253424357575"
+  "huella": "2422253424357575",
+  "ausenteDesde": "2026-10-28T06:03:09.459Z"
  },
  "9wa6qd": {
   "archivo": "fotos-notas/9wa6qd.jpg",
@@ -41856,7 +41857,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Independiente y Boca disputando el balón"
   },
-  "huella": "859a838393c7c6c6"
+  "huella": "859a838393c7c6c6",
+  "ausenteDesde": "2026-10-28T06:03:09.459Z"
  },
  "1qb0r2c": {
   "archivo": "fotos-notas/1qb0r2c.jpg",
@@ -41880,7 +41882,8 @@
    "corresponde": "si",
    "descripcion": "Jadson Viera en primer plano con expresión seria en la cancha"
   },
-  "huella": "1e0fcf6663386464"
+  "huella": "1e0fcf6663386464",
+  "ausenteDesde": "2026-10-28T06:03:09.459Z"
  },
  "ym4ito": {
   "intentado": true,
@@ -45669,7 +45672,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi sosteniendo el Balón de Oro en la gala"
   },
-  "huella": "d999991818191fcc"
+  "huella": "d999991818191fcc",
+  "ausenteDesde": "2026-10-28T06:03:09.459Z"
  },
  "1kqzjf7": {
   "archivo": "fotos-notas/1kqzjf7.jpg",
@@ -47782,6 +47786,74 @@
   "cuando": "2026-10-28T05:02:50.739Z",
   "intentos": 1,
   "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1qbhiyg": {
+  "archivo": "fotos-notas/1qbhiyg.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Santiago Carreras sufre rotura de ligamentos y se pierde la temporada",
+  "enlace": "https://www.lagaceta.com.ar/nota/1159889/deportes/dura-baja-para-pumas-santiago-carreras-sufrio-grave-lesion-estara-varios-meses-sin-jugar.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/27/santiago-carreras-se-lesiono-ultimo-partido-bath-1159889-182631.jpg",
+  "razon": "Es la única imagen completa que ilustra el hecho (el jugador siendo asistido por el cuerpo técnico), mientras que las demás son recortes parciales.",
+  "cuando": "2026-10-28T06:02:40.989Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de fútbol siendo asistido por el cuerpo técnico al salir de la cancha."
+  },
+  "huella": "5554991b939a9c9c"
+ },
+ "7vti6o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Argentinos supera a Independiente Rivadavia y alcanza a Boca en la cima",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T06:02:40.989Z",
+  "intentos": 1,
+  "fuentes": 19,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tlqpfz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Llega la tercera edición del concurso Bientratando en noviembre",
+  "razon": "La única imagen disponible es un afiche o gráfico digital, no una fotografía del hecho.",
+  "cuando": "2026-10-28T06:02:40.989Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6knkhm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Riestra y Aldosivi definen el descenso en la Primera División",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T06:02:40.989Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "a4vs0g": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emiten alerta amarilla por tormentas en Buenos Aires y otras provincias",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T06:02:40.989Z",
+  "intentos": 1,
+  "fuentes": 8,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

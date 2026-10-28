@@ -747,162 +747,162 @@
   "2026-10-28": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 9,
-     "errores": 6,
-     "entrada": 8358,
-     "salida": 4408,
+     "llamadas": 14,
+     "errores": 9,
+     "entrada": 13622,
+     "salida": 7337,
      "pensamiento": 0,
-     "total": 12766,
+     "total": 20959,
      "claves": {
-      "clasificacion": 9
+      "clasificacion": 14
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 6,
-       "ok": 3
+       "cupo-diario": 9,
+       "ok": 5
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 6,
-     "errores": 3,
-     "entrada": 9007,
-     "salida": 7992,
+     "llamadas": 9,
+     "errores": 4,
+     "entrada": 14367,
+     "salida": 13207,
      "pensamiento": 0,
-     "total": 16999,
+     "total": 27574,
      "claves": {
-      "groq": 6
+      "groq": 9
      },
      "motivos": {
       "groq": {
-       "ok": 3,
-       "velocidad": 2,
+       "ok": 5,
+       "velocidad": 3,
        "otro": 1
       }
      }
     },
     "mistral-small-latest": {
-     "llamadas": 9,
-     "errores": 9,
+     "llamadas": 12,
+     "errores": 12,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 9
+      "mistral": 12
      },
      "motivos": {
       "mistral": {
-       "velocidad": 9
+       "velocidad": 12
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 7,
-     "errores": 6,
+     "llamadas": 9,
+     "errores": 8,
      "entrada": 35207,
      "salida": 349,
      "pensamiento": 0,
      "total": 35556,
      "claves": {
-      "clasificacion": 7
+      "clasificacion": 9
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 6,
+       "cupo-diario": 8,
        "ok": 1
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 3,
+     "llamadas": 4,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 3
+      "clasificacion": 4
      },
      "motivos": {
       "clasificacion": {
-       "ok": 3
+       "ok": 4
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 3,
-     "errores": 3,
+     "llamadas": 4,
+     "errores": 4,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 3
+      "groq": 4
      },
      "motivos": {
       "groq": {
-       "otro": 3
+       "otro": 4
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 146,
-     "errores": 73,
-     "entrada": 455295,
-     "salida": 81946,
+     "llamadas": 172,
+     "errores": 86,
+     "entrada": 527203,
+     "salida": 96028,
      "pensamiento": 0,
-     "total": 537241,
+     "total": 623231,
      "claves": {
-      "redaccion": 73,
-      "respaldo": 73
+      "redaccion": 86,
+      "respaldo": 86
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 73
+       "cupo-diario": 86
       },
       "respaldo": {
-       "ok": 73
+       "ok": 86
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
-     "errores": 10,
+     "llamadas": 15,
+     "errores": 15,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 15
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 10
+       "cupo-diario": 15
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 15,
-     "errores": 11,
-     "entrada": 10767,
-     "salida": 735,
+     "llamadas": 24,
+     "errores": 18,
+     "entrada": 16670,
+     "salida": 995,
      "pensamiento": 0,
-     "total": 11502,
+     "total": 17665,
      "claves": {
-      "groq": 15
+      "groq": 24
      },
      "motivos": {
       "groq": {
-       "otro": 5,
-       "ok": 4,
-       "velocidad": 6
+       "otro": 9,
+       "ok": 6,
+       "velocidad": 9
       }
      }
     }

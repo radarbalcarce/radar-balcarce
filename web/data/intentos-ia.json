@@ -761,11 +761,6 @@
   "ultimo": "2026-10-22T20:32:04.217Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
  },
- "16n77p9": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T05:31:10.257Z",
-  "motivo": "con cuerpo"
- },
  "16qa6gn": {
   "intentos": 2,
   "ultimo": "2026-10-23T19:01:33.817Z",
@@ -899,6 +894,19 @@
   "motivo": "con cuerpo",
   "textos": 8,
   "numeradas": 10
+ },
+ "17oiioq": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "título o bajada: 1 problema (pasado): el título está en pasado: va en presente, como \"aprueba\" o \"gana\"",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (pasado): el título está en pasado: va en "
+  ],
+  "falla": [
+   "el título está en pasado (\"constituyó\"): va en presente, como \"aprueba\" o \"gana\""
+  ]
  },
  "17pi8dd": {
   "intentos": 1,
@@ -1748,6 +1756,16 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 6
+ },
+ "1ehw1qu": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 28 palabras seguidas del original: d"
+  ]
  },
  "1ek0b2x": {
   "intentos": 1,
@@ -3200,6 +3218,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4
+ },
+ "1qbhiyg": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "1qe910f": {
   "intentos": 1,
@@ -4750,6 +4775,13 @@
   "textos": 5,
   "numeradas": 54
  },
+ "6knkhm": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "6mutsm": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -4924,17 +4956,14 @@
   "numeradas": 1
  },
  "7vti6o": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T05:01:47.331Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
   "textos": 4,
-  "numeradas": 17,
+  "numeradas": 19,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "81rakn": {
@@ -5438,6 +5467,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "by7as2": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
  "c4g6so": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:31:25.830Z",
@@ -5822,6 +5858,13 @@
   "intentos": 1,
   "ultimo": "2026-10-21T12:01:28.991Z",
   "motivo": "con cuerpo"
+ },
+ "fm066p": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 6
  },
  "fmbabw": {
   "intentos": 1,
@@ -6837,6 +6880,13 @@
   "textos": 5,
   "numeradas": 9
  },
+ "notlp4": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "nqkyot": {
   "intentos": 5,
   "ultimo": "2026-10-24T22:31:33.967Z",
@@ -6910,11 +6960,6 @@
  "o7bgji": {
   "intentos": 1,
   "ultimo": "2026-10-24T03:31:17.479Z",
-  "motivo": "con cuerpo"
- },
- "of27l3": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T05:31:10.257Z",
   "motivo": "con cuerpo"
  },
  "ohl9qy": {
@@ -8125,6 +8170,30 @@
   "intentos": 1,
   "ultimo": "2026-10-23T13:32:24.119Z",
   "motivo": "con cuerpo"
+ },
+ "wdurao": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "título o bajada: 1 problema (titulo): el título tiene signos de admiración o de pregunta: \"Lali y Miranda! estrenan Bailar o morir y anunc",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (titulo): el título tiene signos de admira"
+  ],
+  "falla": [
+   "el título tiene signos de admiración o de pregunta: \"Lali y Miranda! estrenan Bailar o morir y anuncian la llegad\"",
+   "copia 20 palabras seguidas del original (\"por lali juliana gattas y ale sergi mientras que la produccion artistica estuvo a…\"): decilo con o"
+  ]
+ },
+ "wgr6up": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+  ]
  },
  "wji9rt": {
   "intentos": 1,
