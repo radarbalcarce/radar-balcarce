@@ -6424,6 +6424,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122116699653495512"
+    },
+    "2026-10-28/noticia1": {
+      "cuando": "2026-10-28T13:37:28.000Z",
+      "mediaId": "2527635581059468",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "w7ghgv",
+      "notaIds": [
+        "w7ghgv",
+        "11f64xi",
+        "5qx7kw",
+        "u2pkjm"
+      ],
+      "postId": "122116716771495512",
+      "permalink": "https://www.facebook.com/reel/2527635581059468/"
     }
   },
   "instagramFeed": {
@@ -9183,16 +9198,17 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1150379884141270"
+    },
+    "facebook/2026-10-28/noticia1": {
+      "cuando": "2026-10-28T13:38:11.434Z",
+      "mediaId": "1117214720851132",
+      "nombre": "noticia1",
+      "red": "facebook",
+      "notaId": "w7ghgv",
+      "postId": "1171622088864162"
     }
   },
   "problemas": {
-    "2026-10-24/noticia1/instagram/historia-del-reel": {
-      "pieza": "noticia1",
-      "red": "instagram",
-      "parte": "historia-del-reel",
-      "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-10-24T14:05:56.827Z"
-    },
     "2026-10-27/noticia1/instagram/reel": {
       "pieza": "noticia1",
       "red": "instagram",
@@ -9200,6 +9216,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-27T15:52:22.448Z",
       "intentos": 21
+    },
+    "2026-10-28/noticia1/instagram/reel": {
+      "pieza": "noticia1",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-28T13:36:01.687Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -9869,6 +9893,15 @@
         "ok": true,
         "id": "6ae1ecdd23102e8c6f801522",
         "estado": "sent"
+      }
+    },
+    "2026-10-28/noticia1": {
+      "cuando": "2026-10-28T13:35:54.878Z",
+      "nombre": "noticia1",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae1fac4e7fe9e2e3ebef2be",
+        "estado": "sending"
       }
     }
   }
