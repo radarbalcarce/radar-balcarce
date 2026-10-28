@@ -43398,7 +43398,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del casco de Franco Colapinto con los sponsors visibles"
   },
-  "huella": "8e86961a1acee672"
+  "huella": "8e86961a1acee672",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "13m0rpc": {
   "archivo": "fotos-notas/13m0rpc.jpg",
@@ -46145,7 +46146,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi con traje y moño junto al Balón de Oro en una ceremonia."
   },
-  "huella": "d999d9585a569593"
+  "huella": "d999d9585a569593",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "1u66a5z": {
   "archivo": "fotos-notas/1u66a5z.jpg",
@@ -46169,7 +46171,8 @@
    "corresponde": "si",
    "descripcion": "Médico examinando lunares en la piel con una lupa"
   },
-  "huella": "06242a3131313238"
+  "huella": "06242a3131313238",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "1244xgg": {
   "archivo": "fotos-notas/1244xgg.jpg",
@@ -47618,23 +47621,46 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T00:02:13.951Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Hay menores reconocibles entre el público asistente y se observan jóvenes.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "intentos": 2,
+  "fuentes": 1
  },
  "rmyepl": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/rmyepl.jpg",
+  "medio": "Ahora Balcarce",
+  "credito": "Foto: Ahora Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T00:02:13.951Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "http://ahorabalcarce.com.ar/profesores-de-la-emdab-participaron-del-primer-foro-provincial-del-deporte/",
+  "imagenOriginal": "http://ahorabalcarce.com.ar/wp-content/uploads/2026/10/profe.jpeg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad, corresponde a la nota y no presenta marcas de agua, menores de edad ni problemas de formato.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuatro personas posando junto a un banner de los Juegos Bonaerenses",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Cuatro personas posan frente a un banner de los Juegos Bonaerenses en un espacio cubierto."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "30393a8a9eceda9f"
  },
  "futboltablaliga20261023": {
   "archivo": "fotos-notas/libre-futboltablaliga20261023.jpg",
@@ -48048,15 +48074,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "a4vs0g": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/a4vs0g.webp",
+  "medio": "Ruralnet",
+  "credito": "Foto: Ruralnet",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas en Buenos Aires y otras provincias",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T06:02:40.989Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://ruralnet.com.ar/alerta-buenos-aires-noa-tormentas/",
+  "imagenOriginal": "https://ruralnet.com.ar/wp-content/uploads/2026/10/alerta-tormentas-buenos-aires-noa-28-octubre-ruralnet.webp",
+  "razon": "Es una foto de paisaje rural que ilustra perfectamente una alerta por tormentas en la provincia, sin personas ni marcas de agua.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tormenta imponente sobre campo cultivado"
+  },
+  "huella": "b871e7fe7e5c85f4"
  },
  "wjy7q4": {
   "archivo": "fotos-notas/wjy7q4.jpg",
@@ -49918,15 +49957,28 @@
   "intentosPorCupo": 2
  },
  "10seb3s": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/10seb3s.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Ander Herrera elige a Juan Román Riquelme como el máximo ídolo de Boca",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-10-28T13:36:50.968Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.ole.com.ar/boca-juniors/boca-jugador-ander-herrera-juan-roman-riquelme-presidente-superclasico-river_0_QGDmEMbEAf.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2025/01/27/wDKvCImql_2000x1500__1.jpg",
+  "razon": "Muestra claramente a Juan Román Riquelme junto a Ander Herrera con la camiseta de Boca, ilustrando perfectamente el hecho con excelente encuadre y calidad.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juan Román Riquelme y Ander Herrera mostrando el dorsal 21 de la camiseta de Boca"
+  },
+  "huella": "c85563c235c76664"
  },
  "16j1abo": {
   "archivo": "fotos-notas/16j1abo.jpg",
@@ -50103,7 +50155,8 @@
    "corresponde": "si",
    "descripcion": "Juan Manuel Fangio conduciendo un auto de Fórmula 1 frente a una multitud."
   },
-  "huella": "6f1e2f6744d4d4f4"
+  "huella": "6f1e2f6744d4d4f4",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "166k37n": {
   "intentado": true,
@@ -50137,7 +50190,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro bajando de un avión"
   },
-  "huella": "4d5c5d5cdcd5c53f"
+  "huella": "4d5c5d5cdcd5c53f",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "ogimb9": {
   "intentado": true,
@@ -50171,7 +50225,8 @@
    "corresponde": "si",
    "descripcion": "Operadores trabajando en la bolsa de valores con pantallas de cotizaciones."
   },
-  "huella": "672b2b293a3726e6"
+  "huella": "672b2b293a3726e6",
+  "ausenteDesde": "2026-10-28T15:22:05.724Z"
  },
  "h8jxu4": {
   "archivo": "fotos-notas/h8jxu4.jpg",
@@ -50196,5 +50251,104 @@
    "descripcion": "Productores entregando bananas desde la parte trasera de un vehículo"
   },
   "huella": "f1129199a5f9ada5"
+ },
+ "jultnd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Radio Gabal (FM 104.1) (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1ijyr02": {
+  "archivo": "fotos-notas/1ijyr02.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro aterriza en Miami tras salir de Argentina",
+  "enlace": "https://www.losandes.com.ar/mundo/asi-llego-flavio-bolsonaro-miami-procedente-argentina-n6012044",
+  "imagenOriginal": "https://media.losandes.com.ar/p/072b6ad58fe12741ddde10eb6ea6adab/adjuntos/368/imagenes/100/761/0100761137/1200x675/smart/junto-su-familia-asi-llego-flavio-bolsonaro-miami-procedente-argentina.jpg",
+  "razon": "Muestra claramente a Flávio Bolsonaro bajando de la aeronave en Miami con buen encuadre y sin marcas de agua de los medios.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
+  },
+  "huella": "d6b01818f8787cec"
+ },
+ "frkbns": {
+  "archivo": "fotos-notas/frkbns.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldosivi y River juegan el jueves 5 de noviembre con público visitante",
+  "enlace": "https://www.tycsports.com/river-plate/aldosivi-river-jueves-6-de-noviembre-publico-visitante-id769004.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/28/1000499/jose-maria-minella_862x485.webp",
+  "razon": "Es una fotografía clara de una jugada de fútbol profesional que corresponde perfectamente al evento, sin marcas de agua añadidas, menores reconocibles ni elementos gráficos.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea cenital de un estadio de fútbol vacío"
+  },
+  "huella": "5362d934296a733f"
+ },
+ "1efiaeu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El consumo de carne porcina sube a 18 kilos por habitante en el país",
+  "razon": "La mejor foto era la de Agrofy News, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1gsqht3": {
+  "archivo": "fotos-notas/1gsqht3.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Christopher Lloyd revela su lucha contra las adicciones en sus memorias",
+  "enlace": "https://www.lanacion.com.ar/espectaculos/personajes/christopher-lloyd-en-su-libro-de-memorias-conto-su-larga-lucha-contra-las-adicciones-nid27102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/christopher-lloyd-otra-estrella-de-hollywood-que-6YXFMUPOXVHHNJH2OE64Q3JVF4.jpg?auth=926c151311672bb33ca650277b7c3b7763e145e4d3f26b057eedc3f741e8e920&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una foto reciente y clara de Christopher Lloyd, el protagonista de la nota, sin marcas ni otros impedimentos.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato actual de Christopher Lloyd sonriendo frente a una pared de ladrillos blancos"
+  },
+  "huella": "71e9797979696cc6"
+ },
+ "n3h2g9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Banco Central publica las tasas de interés para plazos fijos",
+  "razon": "La mejor foto era la de La Nación, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }

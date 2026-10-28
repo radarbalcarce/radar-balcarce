@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T14:43:23.849Z",
+ "generado": "2026-10-28T15:22:05.926Z",
  "portada": 167,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-28T14:43:24.329Z",
+  "generado": "2026-10-28T15:22:07.639Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-28T12:36:40.644Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-28T14:36:50.209Z"
    },
    {
     "nombre": "participa-reclamos",
@@ -43,7 +43,7 @@
     "que": "Tu reclamo",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 54,
+    "salio": "2026-10-28T14:36:50.209Z",
+    "segundos": null,
     "notas": [
      {
       "id": "w7ghgv",
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 47,
     "notas": [
+     {
+      "id": "jultnd",
+      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+      "seccion": "Economía"
+     },
      {
       "id": "79n3bx",
       "titulo": "Estudiantes piden recuperar la Estudiantina",
@@ -142,11 +147,6 @@
       "id": "kua1e9",
       "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "mimoad",
-      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 43,
     "notas": [
      {
       "id": "mvtshk",
@@ -170,8 +170,8 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "id": "mimoad",
+      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
       "seccion": "Argentina"
      },
      {
@@ -193,6 +193,11 @@
      "id": "10w8jm5",
      "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
      "cuando": "2026-10-28T12:46:06.238Z"
+    },
+    {
+     "id": "5qx7kw",
+     "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
+     "cuando": "2026-10-28T14:36:01.589Z"
     }
    ],
    "cola": [
@@ -209,21 +214,9 @@
      "marcada": false
     },
     {
-     "id": "5qx7kw",
-     "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "mimoad",
      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "u2pkjm",
-     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
-     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -233,14 +226,26 @@
      "marcada": false
     },
     {
+     "id": "u2pkjm",
+     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1nvngno",
      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
      "seccion": "Argentina",
      "marcada": false
+    },
+    {
+     "id": "frkbns",
+     "titulo": "Aldosivi y River juegan el jueves 5 de noviembre con público visitante",
+     "seccion": "Fútbol",
+     "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-28T14:16:06.238Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-28T16:06:01.589Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
