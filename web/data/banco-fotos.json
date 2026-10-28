@@ -27265,9 +27265,7 @@
   "fuentes": 3
  },
  "lj23p3": {
-  "archivo": "fotos-notas/lj23p3.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Liga Balcarceña programa la segunda fecha del Clausura",
@@ -27299,12 +27297,11 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "05a2a235cbcd9241",
-  "ausenteDesde": "2026-10-21T11:02:02.128Z"
+  "intentado": true,
+  "borrada": true
  },
  "1vss7pv": {
-  "archivo": "fotos-notas/1vss7pv.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Escuela Tecnica convoca a una jornada de reflexión por la violencia en la Estudiantina",
@@ -27336,7 +27333,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "d0e84191b3911910",
-  "ausenteDesde": "2026-10-21T11:02:02.128Z"
+  "intentado": true,
+  "borrada": true
  },
  "cg451f": {
   "archivo": "fotos-notas/cg451f.jpg",
@@ -41792,7 +41790,8 @@
    "corresponde": "si",
    "descripcion": "Operarios parados en el estribo trasero de un camión recolector de residuos."
   },
-  "huella": "f8cecb8c0c4cfcbc"
+  "huella": "f8cecb8c0c4cfcbc",
+  "ausenteDesde": "2026-10-28T11:04:07.021Z"
  },
  "g2en58": {
   "archivo": "fotos-notas/g2en58.jpg",
@@ -47484,23 +47483,35 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Liga Balcarceña difunde el cronograma de la tercera fecha",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-10-27T23:33:37.704Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
+  "cuando": "2026-10-28T11:02:37.449Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2
  },
  "19r8vz8": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/19r8vz8.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T23:33:37.704Z",
-  "intentos": 1,
-  "fuentes": 24,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/27/la-afa-designo-al-arbitro-para-el-proximo-superclasico-en-la-bombonera/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/nicolas-ramirez-foto-afp-F7HJLMF6IZHRPMM7KEVJSRESFY.jpg?auth=2b6ba4a053a8515711f406e60d5c3cf002269948a635dcb465586836e37fb4ea&width=1023",
+  "razon": "Es una fotografía nítida del árbitro Nicolás Ramírez en primer plano, sin marcas de agua ni menores reconocibles, ideal para ilustrar la nota.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del árbitro Nicolás Ramírez señalando con el silbato en la boca"
+  },
+  "huella": "06c7673395f31818"
  },
  "1cq1p5j": {
   "archivo": "fotos-notas/1cq1p5j.jpg",
@@ -47672,11 +47683,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Verón asegura que Estudiantes juega la final de la Libertadores",
-  "razon": "La única foto disponible muestra a menores de edad reconocibles en el fondo, lo que impide su publicación según las normas del medio.",
-  "cuando": "2026-10-28T03:04:39.301Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
+  "cuando": "2026-10-28T11:02:37.449Z",
   "intentos": 1,
-  "fuentes": 4,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "fuentes": 8,
+  "intentosPorCupo": 1
  },
  "1umo0o2": {
   "intentado": true,
@@ -47690,15 +47701,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "kua1e9": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/kua1e9.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T03:04:39.301Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/laura-favaloro-recibio-al-escritor.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHdvr1KH7bjxgDT6EBqwqIcpu5PeWOPBPHeTDQs5w7qHRMU66zzor51bl3rSap1H2z3MM7gzqHGMupTejAS-YQwp7SGEAV0hHTWm1fVmRChcpVkgp_NR4gXPIrsM_cusTX7j_dX2q1v7lRMR5fdyjWdXzDD6A5kaoLffYL3ZVXJ1LFmODeiYxFK4-Lewc/w640-h462/bibbo-favaloro.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y muestra claramente la reunión.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ariel Bibbó junto a la directora de la Fundación Favaloro."
+  },
+  "huella": "5d7971554d4d6d4d"
  },
  "on90e1": {
   "intentado": true,
@@ -47711,26 +47735,64 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "gwgxyk": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/gwgxyk.jpg",
+  "medio": "Letra P",
+  "credito": "Foto: Letra P",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Máximo Kirchner pide por la libertad de Cristina Fernández y apunta contra Milei",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T04:03:20.619Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.letrap.com.ar//politica/el-minuto-minuto-la-era-javier-milei-n5425362",
+  "imagenOriginal": "https://media.letrap.com.ar/p/28eb817e7505a5eb237b8d159f54eb4c/adjuntos/349/imagenes/100/201/0100201602/1200x630/smart/whatsapp-image-2026-10-27-at-210859.jpeg",
+  "razon": "Es la única opción que cumple con todos los requisitos: corresponde a la nota, muestra claramente a Máximo Kirchner sin gente de más en el encuadre, y no tiene marcas de agua, menores, gráficos ni es de stock.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Máximo Kirchner en un acto hablando con un micrófono frente a banderas con rostros históricos."
+  },
+  "huella": "0f0f0b4d51611233"
  },
  "154jbd0": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/154jbd0.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La morosidad en microempresas alcanza el 17,73% y quintuplica a la de grandes firmas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T04:03:20.619Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.eldestapeweb.com/economia/morosidad-pymes-quintuplica-grandes-empresas-20261027111957",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/032024/1711375091086.jpg?&cw=1600&ch=900",
+  "razon": "La IA había preferido la de Ámbito, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa El Destape en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Trabajadora en una fábrica usando una pistola de calor",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Mujeres operando herramientas en una planta de producción industrial."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9ebbb1e9b3b1623e"
  },
  "1w5wk4d": {
   "archivo": "fotos-notas/1nso2dt.jpg",
@@ -47778,15 +47840,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ed5j5h": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ed5j5h.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Se completa la decimocuarta fecha del Torneo Clausura 2026",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Minuto Uno no se usa todavía.",
-  "cuando": "2026-10-28T05:02:50.739Z",
-  "intentos": 1,
-  "fuentes": 7,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-estan-los-cruces-de-octavos-de-final-del-torneo-clausura-2026-tras-la-fecha-14-nid27102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/boca-le-gano-a-independiente-con-gol-de-facundo-EEREGBGEAZBRHB2TIJHMVINCV4.JPG?auth=35417ef0e090edd0cfe0f82932039f583170ddf844318811770395dc0fdef4dd&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto de un partido de fútbol de la fecha que corresponde, tiene excelente nitidez, no tiene marcas ni menores.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de fútbol sonriendo en pleno partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de fútbol con camiseta a rayas celebrando en la cancha"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8725672f070d4c4c"
  },
  "1qbhiyg": {
   "archivo": "fotos-notas/1qbhiyg.jpg",
@@ -47878,7 +47965,8 @@
    "corresponde": "si",
    "descripcion": "Avión privado en pista de aterrizaje de noche"
   },
-  "huella": "87af1424120f1a30"
+  "huella": "87af1424120f1a30",
+  "ausenteDesde": "2026-10-28T11:04:07.021Z"
  },
  "wdurao": {
   "archivo": "fotos-notas/wdurao.jpg",
@@ -48860,7 +48948,8 @@
    "corresponde": "si",
    "descripcion": "Reunión oficial en mesa de trabajo con funcionarios y banderas"
   },
-  "huella": "b29a1a0a3c143bdb"
+  "huella": "b29a1a0a3c143bdb",
+  "ausenteDesde": "2026-10-28T11:04:07.021Z"
  },
  "1vr0ukt": {
   "archivo": "fotos-notas/1vr0ukt.jpg",
@@ -49002,5 +49091,62 @@
   "cuando": "2026-10-28T10:32:28.598Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1tj9g7q": {
+  "archivo": "fotos-notas/1tj9g7q.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Migraciones confirma que Flávio Bolsonaro salió del país rumbo a Ecuador",
+  "enlace": "https://www.a24.com/mundo/flavio-bolsonaro-aterrizo-ecuador-argentina-huir-brasil-y-viaja-rumbo-eeuu-n1610843",
+  "imagenOriginal": "https://media.a24.com/p/48dfa0730724962a55fc72789bafe89c/adjuntos/296/imagenes/009/839/0009839617/1200x675/smart/bolsonaro-reuters-2.jpg",
+  "razon": "Muestra claramente a Flávio Bolsonaro caminando con equipaje y acompañantes en el aeropuerto sin marcas ni menores.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro con equipaje junto a acompañantes"
+  },
+  "huella": "2ce8a80949090938"
+ },
+ "13thdhp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "ANSES actualiza los topes y montos del SUAF con un aumento de 1,93%",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Cronista (parece una foto de stock); la de Crónica (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "c26d2i": {
+  "archivo": "fotos-notas/c26d2i.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Migraciones contradice versiones sobre el ingreso de Flávio Bolsonaro",
+  "enlace": "https://www.cronista.com/economia-politica/el-gobierno-nego-que-flavio-bolsonaro-haya-cruzado-a-la-argentina-para-escapar-de-brasil/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/HBWILSONDJEYVN7UGJXROW6XDM.JPG?auth=2942ead073cae2475d1f81f4fe9fb1f89bcd3d45ae87fa2348fdb8e7852a3c56&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la única foto actual, clara y directa que ilustra el ingreso de Flávio Bolsonaro sin marcas de agua ni otros impedimentos editoriales.",
+  "cuando": "2026-10-28T11:02:37.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro sonriendo en primer plano durante su llegada."
+  },
+  "huella": "5919998d8f030301"
  }
 }
