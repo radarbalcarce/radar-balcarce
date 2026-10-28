@@ -26779,9 +26779,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "o25951": {
-  "archivo": "fotos-notas/o25951.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "BTS se presenta en La Plata con tres conciertos en el Estadio Único",
@@ -26801,7 +26799,8 @@
    "descripcion": "Exterior del Estadio Único de La Plata"
   },
   "huella": "000020057efe3f07",
-  "ausenteDesde": "2026-10-21T01:01:26.545Z"
+  "intentado": true,
+  "borrada": true
  },
  "1s4d8ch": {
   "archivo": "fotos-notas/1s4d8ch.jpg",
@@ -27609,9 +27608,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "1s8934q": {
-  "archivo": "fotos-notas/1s8934q.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "Internan al presidente de Vasco da Gama en la previa ante Boca",
@@ -27632,7 +27629,8 @@
    "descripcion": "Retrato de un hombre con barba hablando frente a un micrófono con el logo de Vasco da Gama, en un fondo de sponsors."
   },
   "huella": "a20a8e1e0b1ccccc",
-  "ausenteDesde": "2026-10-21T01:01:26.545Z"
+  "intentado": true,
+  "borrada": true
  },
  "futbolresultadosliga20261011": {
   "archivo": "fotos-notas/libre-futbolresultadosliga20261011.jpg",
@@ -47571,6 +47569,28 @@
   "cuando": "2026-10-28T00:31:33.118Z",
   "intentos": 1,
   "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "nizbss": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El oficialismo consigue dictamen para el proyecto de Soberanía Nacional",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T01:02:03.929Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "11zxnxp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cuti Romero critica el Balón de Oro y destaca a Lionel Messi",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T01:02:03.929Z",
+  "intentos": 1,
+  "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
