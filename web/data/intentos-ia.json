@@ -896,8 +896,8 @@
   "numeradas": 10
  },
  "17oiioq": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T06:01:40.462Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T07:53:11.084Z",
   "motivo": "título o bajada: 1 problema (pasado): el título está en pasado: va en presente, como \"aprueba\" o \"gana\"",
   "textos": 2,
   "numeradas": 3,
@@ -905,7 +905,8 @@
    "título o bajada: 1 problema (pasado): el título está en pasado: va en "
   ],
   "falla": [
-   "el título está en pasado (\"constituyó\"): va en presente, como \"aprueba\" o \"gana\""
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título está en pasado (\"fue\"): va en presente, como \"aprueba\" o \"gana\""
   ]
  },
  "17pi8dd": {
@@ -945,26 +946,32 @@
    "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
+ "17zxvyy": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1815on1": {
   "intentos": 1,
   "ultimo": "2026-10-23T18:31:38.958Z",
   "motivo": "con cuerpo"
  },
  "181uud7": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T05:01:47.331Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el máximo es 90",
   "textos": 5,
   "numeradas": 6,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 105 caracteres, e",
-   "cuerpo: 1 problema (promesa): el título nombra a \"anses\", \"pnc\", \"puam",
-   "título o bajada: 1 problema (largo): el titulo tiene 105 caracteres, e",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título nombra a \"anses\", \"pnc\" y el cuerpo no los explica"
+   "el titulo tiene 96 caracteres, el máximo es 90"
   ]
  },
  "184lnn2": {
@@ -2859,6 +2866,13 @@
   "ultimo": "2026-10-21T15:31:39.554Z",
   "motivo": "con cuerpo"
  },
+ "1ngpm0t": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "1ngxm48": {
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
@@ -3456,11 +3470,6 @@
    "título o bajada: 1 problema (copia): copia 14 palabras seguidas del or"
   ]
  },
- "1s9dj48": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T07:01:23.968Z",
-  "motivo": "con cuerpo"
- },
  "1sdzgyb": {
   "intentos": 1,
   "ultimo": "2026-10-27T16:08:54.201Z",
@@ -3735,6 +3744,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1u8a0bl": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1u9akb7": {
   "intentos": 1,
   "ultimo": "2026-10-27T21:02:09.845Z",
@@ -3900,6 +3916,13 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 16
+ },
+ "1vg00g": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5
  },
  "1vgzjw8": {
   "intentos": 1,
@@ -4128,6 +4151,16 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1ww63wt": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
+  ]
  },
  "1ww8f15": {
   "intentos": 1,
@@ -7659,11 +7692,6 @@
    "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
- "sq9hhm": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T07:31:22.026Z",
-  "motivo": "con cuerpo"
- },
  "squxbf": {
   "intentos": 2,
   "ultimo": "2026-10-25T15:31:35.019Z",
@@ -8172,27 +8200,24 @@
   "motivo": "con cuerpo"
  },
  "wdurao": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T06:01:40.462Z",
-  "motivo": "título o bajada: 1 problema (titulo): el título tiene signos de admiración o de pregunta: \"Lali y Miranda! estrenan Bailar o morir y anunc",
+  "intentos": 2,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (titulo): el título tiene signos de admira"
-  ],
-  "falla": [
-   "el título tiene signos de admiración o de pregunta: \"Lali y Miranda! estrenan Bailar o morir y anuncian la llegad\"",
-   "copia 20 palabras seguidas del original (\"por lali juliana gattas y ale sergi mientras que la produccion artistica estuvo a…\"): decilo con o"
   ]
  },
  "wgr6up": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T06:01:40.462Z",
-  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "semáforo: necesita ojo humano: \"alumno de\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
-   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
+   "semáforo: necesita ojo humano: \"alumno de\", en lo que escribió la IA ("
   ]
  },
  "wji9rt": {
@@ -8201,6 +8226,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 11
+ },
+ "wjy7q4": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T07:53:11.084Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "wmfa75": {
   "intentos": 1,
