@@ -978,18 +978,18 @@
    },
    "auditoria": {
     "openai/gpt-oss-20b": {
-     "llamadas": 26,
+     "llamadas": 30,
      "errores": 5,
-     "entrada": 36993,
-     "salida": 26325,
+     "entrada": 44016,
+     "salida": 30690,
      "pensamiento": 0,
-     "total": 63318,
+     "total": 74706,
      "claves": {
-      "groq": 26
+      "groq": 30
      },
      "motivos": {
       "groq": {
-       "ok": 21,
+       "ok": 25,
        "otro": 5
       }
      }
