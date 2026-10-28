@@ -2,21 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/posteo/1254237411116171_122106178845495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "siahkq",
-   "dia": "2026-10-07",
-   "cuando": "2026-10-07T14:31:59.319Z",
-   "medida": "2026-10-09T07:30:28.521Z",
-   "metricas": {
-    "post_media_view": 5,
-    "post_total_media_view_unique": 1,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
    "clave": "instagram/foto/18184360177418409",
    "red": "instagram",
    "parte": "foto",
@@ -10271,6 +10256,18 @@
    "dia": "2026-10-27",
    "cuando": "2026-10-27T12:52:20.901Z",
    "medida": "2026-10-28T03:00:12.776Z",
+   "v": 2,
+   "metricas": {},
+   "pocas": true
+  },
+  {
+   "clave": "instagram/historia/17911744809307788",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "participa-evento",
+   "dia": "2026-10-27",
+   "cuando": "2026-10-27T15:37:13.059Z",
+   "medida": "2026-10-28T06:00:12.464Z",
    "v": 2,
    "metricas": {},
    "pocas": true
