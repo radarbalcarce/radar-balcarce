@@ -25566,9 +25566,7 @@
   "borrada": true
  },
  "1x4xcu7": {
-  "archivo": "fotos-notas/1x4xcu7.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "Sectores disidentes docentes concretan paros en territorio bonaerense",
@@ -25588,7 +25586,8 @@
    "descripcion": "Aula escolar vacía con bancos y pizarrón"
   },
   "huella": "1f8e66a6b6760f3b",
-  "ausenteDesde": "2026-10-21T17:32:06.241Z"
+  "intentado": true,
+  "borrada": true
  },
  "qr24v6": {
   "archivo": "fotos-notas/qr24v6.jpg",
@@ -25616,9 +25615,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "11409o8": {
-  "archivo": "fotos-notas/11409o8.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Muere a los 82 años el actor argentino Antonio Grimau",
@@ -25638,7 +25635,8 @@
    "descripcion": "Retrato en primer plano de Antonio Grimau apoyando la barbilla en la mano."
   },
   "huella": "0f0e9f0d1d5d3c71",
-  "ausenteDesde": "2026-10-21T17:32:06.241Z"
+  "intentado": true,
+  "borrada": true
  },
  "7qcit6": {
   "archivo": "fotos-notas/7qcit6.jpg",
@@ -43010,7 +43008,8 @@
    "corresponde": "si",
    "descripcion": "Camino rural anegado por el agua"
   },
-  "huella": "032fc737373c1e5f"
+  "huella": "032fc737373c1e5f",
+  "ausenteDesde": "2026-10-28T17:34:24.815Z"
  },
  "1d2as5f": {
   "archivo": "fotos-notas/1d2as5f.jpg",
@@ -44838,7 +44837,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de manos contando billetes de dólares."
   },
-  "huella": "31111c1e1e0b0c4f"
+  "huella": "31111c1e1e0b0c4f",
+  "ausenteDesde": "2026-10-28T17:34:24.815Z"
  },
  "tktom9": {
   "archivo": "fotos-notas/tktom9.jpg",
@@ -45146,7 +45146,8 @@
    "corresponde": "si",
    "descripcion": "Reunión oficial en una oficina con banderas de Argentina"
   },
-  "huella": "b29a1a0a3c143bdb"
+  "huella": "b29a1a0a3c143bdb",
+  "ausenteDesde": "2026-10-28T17:34:24.815Z"
  },
  "8mopad": {
   "archivo": "fotos-notas/2wd6dn.jpg",
@@ -47179,15 +47180,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "m9x3m1": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T19:03:26.127Z",
-  "intentos": 1,
-  "fuentes": 10,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/70pmv4.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de México de Fórmula 1",
+  "enlace": "https://www.lagaceta.com.ar/nota/1159800/deportes/formula-1-hora-corre-colapinto-gp-mexico-donde-se-lo-puede-ver-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/27/por-la-revancha-colapinto-viene-teniendo-problemas-alpine-durante-ultimas-carreras-1159800-064025.jpg",
+  "razon": "Es una excelente foto en los boxes del Gran Premio de México que ilustra perfectamente el evento sin marcas de agua ni menores.",
+  "cuando": "2026-10-28T12:54:41.107Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en los boxes durante el Gran Premio de México"
+  },
+  "huella": "0c2e3a4a144971f0"
  },
  "106zkm9": {
   "intentado": true,
@@ -49343,8 +49357,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro con equipaje junto a acompañantes"
   },
-  "huella": "2ce8a80949090938",
-  "ausenteDesde": "2026-10-28T17:05:21.268Z"
+  "huella": "2ce8a80949090938"
  },
  "13thdhp": {
   "intentado": true,
@@ -49879,8 +49892,7 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en los boxes durante el Gran Premio de México"
   },
-  "huella": "0c2e3a4a144971f0",
-  "ausenteDesde": "2026-10-28T13:07:51.690Z"
+  "huella": "0c2e3a4a144971f0"
  },
  "arh9k1": {
   "archivo": "fotos-notas/arh9k1.jpg",
@@ -50267,8 +50279,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro bajando de un avión"
   },
-  "huella": "4d5c5d5cdcd5c53f",
-  "ausenteDesde": "2026-10-28T15:22:05.724Z"
+  "huella": "4d5c5d5cdcd5c53f"
  },
  "ogimb9": {
   "intentado": true,
@@ -50360,8 +50371,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
-  "huella": "d6b01818f8787cec",
-  "ausenteDesde": "2026-10-28T15:46:58.848Z"
+  "huella": "d6b01818f8787cec"
  },
  "frkbns": {
   "archivo": "fotos-notas/frkbns.jpg",
@@ -50713,5 +50723,51 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "19o2az": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River sigue con atención un partido clave para la tabla anual",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T17:34:09.016Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tmyfko": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Anses define el calendario de pagos de noviembre con aumento",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T17:34:09.016Z",
+  "intentos": 1,
+  "fuentes": 27,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ik8pp9": {
+  "archivo": "fotos-notas/1ijyr02.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro aterriza en Miami tras salir de Argentina",
+  "enlace": "https://www.losandes.com.ar/mundo/asi-llego-flavio-bolsonaro-miami-procedente-argentina-n6012044",
+  "imagenOriginal": "https://media.losandes.com.ar/p/072b6ad58fe12741ddde10eb6ea6adab/adjuntos/368/imagenes/100/761/0100761137/1200x675/smart/junto-su-familia-asi-llego-flavio-bolsonaro-miami-procedente-argentina.jpg",
+  "razon": "Muestra claramente a Flávio Bolsonaro bajando de la aeronave en Miami con buen encuadre y sin marcas de agua de los medios.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
+  },
+  "huella": "d6b01818f8787cec"
  }
 }

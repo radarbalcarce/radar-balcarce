@@ -1781,6 +1781,13 @@
   "textos": 4,
   "numeradas": 15
  },
+ "1df6339": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1dia4on": {
   "intentos": 1,
   "ultimo": "2026-10-24T03:31:17.479Z",
@@ -2460,8 +2467,8 @@
   "motivo": "con cuerpo"
  },
  "1ijyr02": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T15:10:14.406Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T17:32:52.339Z",
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 7
@@ -2846,11 +2853,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1l9wacm": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T17:31:21.898Z",
-  "motivo": "con cuerpo"
  },
  "1lci8bv": {
   "intentos": 1,
@@ -4018,11 +4020,11 @@
   "numeradas": 4
  },
  "1tj9g7q": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T13:32:11.052Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T17:32:52.339Z",
   "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 37
+  "textos": 4,
+  "numeradas": 15
  },
  "1tjnzjf": {
   "intentos": 1,
@@ -4277,6 +4279,20 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1vkor44": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 337 palabras",
+  "textos": 5,
+  "numeradas": 11,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 14 palabras seguidas del original (\"orbitaba a menos de 275 kilometros de altura a esa distancia de la superficie\"): decilo con otras "
+  ]
  },
  "1vlfy7p": {
   "intentos": 1,
@@ -4829,17 +4845,22 @@
   "numeradas": 28
  },
  "2v09er": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T17:03:29.942Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 600 y el cuerpo no lo explica; sin esas oraciones quedan 227 palabras",
-  "textos": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "título o bajada: 2 problemas (numero): el titulo dice 660 y la fuente no lo dice",
+  "textos": 1,
   "numeradas": 2,
   "motivos": [
    "cuerpo: 2 problemas (copia, promesa): copia 21 palabras seguidas del o",
-   "cuerpo: 1 problema (promesa): el título dice 600 y el cuerpo no lo exp"
+   "cuerpo: 1 problema (promesa): el título dice 600 y el cuerpo no lo exp",
+   "título o bajada: 1 problema (numero): el copete dice 660 y la fuente n",
+   "título o bajada: 2 problemas (numero): el titulo dice 660 y la fuente "
   ],
   "falla": [
-   "el título dice 600 y el cuerpo no lo explica"
+   "el titulo dice 660 y la fuente no lo dice",
+   "el guion dice 660 y la fuente no lo dice",
+   "copia 18 palabras seguidas del original (\"alejandro bravo dimensiono el peso economico de las cadenas vinculadas con la proteina animal…\"): ",
+   "el título dice 660 y el cuerpo no lo explica"
   ]
  },
  "2wd6dn": {
@@ -5302,11 +5323,11 @@
   ]
  },
  "70pmv4": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T12:52:12.994Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T17:32:52.339Z",
   "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 9
+  "textos": 4,
+  "numeradas": 5
  },
  "71vu5t": {
   "intentos": 1,
@@ -6136,11 +6157,6 @@
   "textos": 5,
   "numeradas": 6
  },
- "da9tzf": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T17:31:21.898Z",
-  "motivo": "con cuerpo"
- },
  "dd51m3": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -6356,11 +6372,6 @@
  "f0tngb": {
   "intentos": 1,
   "ultimo": "2026-10-21T23:01:18.071Z",
-  "motivo": "con cuerpo"
- },
- "f1051i": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T17:31:21.898Z",
   "motivo": "con cuerpo"
  },
  "f51e8j": {
@@ -6906,6 +6917,16 @@
   ],
   "falla": [
    "la fuente niega algo en el título y el texto nuevo no"
+  ]
+ },
+ "jufwwx": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 10 y la fuente no"
   ]
  },
  "jultnd": {
@@ -8348,8 +8369,8 @@
   "numeradas": 3
  },
  "stxwsg": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T17:32:52.339Z",
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 17
@@ -8984,6 +9005,16 @@
   "motivos": [
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ]
+ },
+ "x637tc": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"unidos\" y la fuente n"
   ]
  },
  "x6528a": {
