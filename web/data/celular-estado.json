@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T21:34:41.452Z",
- "portada": 206,
+ "generado": "2026-10-28T22:02:29.441Z",
+ "portada": 197,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 22,
  "redes": {
-  "generado": "2026-10-28T21:34:42.316Z",
+  "generado": "2026-10-28T22:02:30.426Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-28T19:06:50.058Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-28T19:06:50.058Z",
     "segundos": null,
     "notas": [
@@ -218,12 +218,6 @@
      "marcada": false
     },
     {
-     "id": "19c5usk",
-     "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "12niewq",
      "titulo": "El COM.IT.ES. de Mar del Plata visita Balcarce por las elecciones",
      "seccion": "Balcarce",
@@ -242,9 +236,9 @@
      "marcada": false
     },
     {
-     "id": "i61vuy",
-     "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
-     "seccion": "Economía",
+     "id": "19c5usk",
+     "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -256,6 +250,12 @@
     {
      "id": "68piqz",
      "titulo": "Signar Energy opera las estaciones de servicio Shell en el país",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "i61vuy",
+     "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
      "seccion": "Economía",
      "marcada": false
     }

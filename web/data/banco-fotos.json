@@ -49330,7 +49330,8 @@
    "corresponde": "si",
    "descripcion": "Vacunos comiendo balanceado en comederos junto a un tractor."
   },
-  "huella": "e2db99b9ba3f6d69"
+  "huella": "e2db99b9ba3f6d69",
+  "ausenteDesde": "2026-10-28T22:02:29.336Z"
  },
  "8n0ond": {
   "intentado": true,
@@ -51037,6 +51038,28 @@
   "cuando": "2026-10-28T21:34:18.088Z",
   "intentos": 1,
   "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "18w391d": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pallares y Lussich descartan pelea y ratifican el fin de su dupla",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T22:02:11.826Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "91vfy0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca cae ante Ajax y queda eliminado de la Messi Cup",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T22:02:11.826Z",
+  "intentos": 1,
+  "fuentes": 9,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
