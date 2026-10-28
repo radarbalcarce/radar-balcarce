@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T18:34:15.935Z",
- "portada": 187,
+ "generado": "2026-10-28T19:03:26.012Z",
+ "portada": 189,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-28T18:34:16.299Z",
+  "generado": "2026-10-28T19:03:26.411Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "1xnehl1",
-      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "12niewq",
       "titulo": "El COM.IT.ES. de Mar del Plata visita Balcarce por las elecciones",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1yl1hli",
+      "titulo": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "on90e1",
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "1yl1hli",
-      "titulo": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "le5im8",
       "titulo": "Confirman la realización de la Estudiantina para el año 2027",
       "seccion": "Balcarce"
      },
      {
+      "id": "kua1e9",
+      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "l7z1jg",
+      "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
+      "seccion": "Agro"
+     },
+     {
       "id": "1q1zjvw",
       "titulo": "Veintitrés alumnos esperan transporte escolar rural",
       "seccion": "Educación"
-     },
-     {
-      "id": "hd8nd0",
-      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
-      "seccion": "Salud"
      }
     ]
    }
@@ -203,6 +203,11 @@
      "id": "mimoad",
      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
      "cuando": "2026-10-28T16:36:02.400Z"
+    },
+    {
+     "id": "1xnehl1",
+     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+     "cuando": "2026-10-28T18:36:03.817Z"
     }
    ],
    "cola": [
@@ -210,12 +215,6 @@
      "id": "w7ghgv",
      "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
      "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "1xnehl1",
-     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -243,20 +242,26 @@
      "marcada": false
     },
     {
-     "id": "1nvngno",
-     "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "18tglcn",
      "titulo": "Modifican el calendario del fútbol argentino por la visita del papa León XIV",
      "seccion": "Fútbol",
      "marcada": false
+    },
+    {
+     "id": "68piqz",
+     "titulo": "Signar Energy opera las estaciones de servicio Shell en el país",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1knjref",
+     "titulo": "Boca define el equipo con dudas en ataque para el Superclásico",
+     "seccion": "Fútbol",
+     "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-28T18:06:02.400Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-28T20:06:03.817Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

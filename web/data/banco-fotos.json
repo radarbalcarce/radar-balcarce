@@ -50829,5 +50829,27 @@
   "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "fdw4fe": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Conmebol rechaza el reclamo de Flamengo y ratifica a Estudiantes en la final",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T19:03:02.193Z",
+  "intentos": 1,
+  "fuentes": 13,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "8ang76": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cierran los bancos por cinco días consecutivos en noviembre de 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T19:03:02.193Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

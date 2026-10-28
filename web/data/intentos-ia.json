@@ -638,6 +638,21 @@
   "textos": 5,
   "numeradas": 15
  },
+ "151y3im": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (Administracion, segun, inflacion): va con las tildes y la eñe dond",
+  "textos": 6,
+  "numeradas": 23,
+  "motivos": [
+   "cuerpo: 2 problemas (nombre, tildes): el cuerpo nombra a \"republica\" y",
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el texto está escrito sin tildes (Administracion, segun, inflacion, Resolucion, aplicacion): va con las tildes y la eñe donde corresponden"
+  ]
+ },
  "154jbd0": {
   "intentos": 2,
   "ultimo": "2026-10-28T04:01:46.419Z",
@@ -3329,11 +3344,6 @@
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ]
  },
- "1ob6e1p": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:01:21.981Z",
-  "motivo": "con cuerpo"
- },
  "1ocdcp6": {
   "intentos": 1,
   "ultimo": "2026-10-23T15:07:07.916Z",
@@ -3407,6 +3417,13 @@
    "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
    "cuerpo: 1 problema (promesa): el título dice 50 y el cuerpo no lo expl"
   ]
+ },
+ "1okfc8d": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
  },
  "1om4xy2": {
   "intentos": 1,
@@ -3696,6 +3713,20 @@
   "ultimo": "2026-10-23T21:25:26.559Z",
   "motivo": "con cuerpo"
  },
+ "1rphs2p": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo explica; sin esas oraciones quedan 283 palabras",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
+   "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo expli"
+  ],
+  "falla": [
+   "el título dice 4 y el cuerpo no lo explica"
+  ]
+ },
  "1rr9872": {
   "intentos": 1,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -3932,11 +3963,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1sup1ey": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:01:21.981Z",
-  "motivo": "con cuerpo"
  },
  "1t0bf8r": {
   "intentos": 1,
@@ -4179,6 +4205,13 @@
   "intentos": 2,
   "ultimo": "2026-10-22T18:01:56.708Z",
   "motivo": "con cuerpo"
+ },
+ "1uk9uj1": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1ukil1i": {
   "intentos": 1,
@@ -4582,11 +4615,6 @@
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
- },
- "1wye9b1": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T19:01:21.981Z",
-  "motivo": "con cuerpo"
  },
  "1x7mq5l": {
   "intentos": 1,
@@ -5512,11 +5540,6 @@
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
  },
- "7pylwj": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:01:21.981Z",
-  "motivo": "con cuerpo"
- },
  "7qlzxf": {
   "intentos": 1,
   "ultimo": "2026-10-28T17:03:29.942Z",
@@ -5565,6 +5588,13 @@
   "motivo": "verificación baja: espera a una persona",
   "baja": true,
   "fuentes": 1
+ },
+ "8ang76": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "8es622": {
   "intentos": 1,
@@ -5739,11 +5769,6 @@
  "9lxmcr": {
   "intentos": 1,
   "ultimo": "2026-10-22T17:31:58.162Z",
-  "motivo": "con cuerpo"
- },
- "9m23yh": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:01:21.981Z",
   "motivo": "con cuerpo"
  },
  "9wa6qd": {
@@ -6472,6 +6497,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "fdw4fe": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 13
+ },
  "ffzd6k": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -6860,11 +6892,6 @@
  "ik37mg": {
   "intentos": 1,
   "ultimo": "2026-10-22T23:32:08.233Z",
-  "motivo": "con cuerpo"
- },
- "ilpi25": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:01:21.981Z",
   "motivo": "con cuerpo"
  },
  "ilqwh3": {
@@ -7974,6 +8001,21 @@
   "baja": true,
   "fuentes": 1
  },
+ "q0xoll": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 78 palabras",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 4 problemas (antecedente): el titulo usa \"rio\", que s",
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el título nombra a \"rc\", \"gimnasia\" y el cuerpo no los explica"
+  ]
+ },
  "q3a4o5": {
   "intentos": 1,
   "ultimo": "2026-10-27T12:01:57.926Z",
@@ -9044,6 +9086,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "wx4zir": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:01:42.450Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 94 caracteres, el"
+  ]
  },
  "wzkylt": {
   "intentos": 1,
