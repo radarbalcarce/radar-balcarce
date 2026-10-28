@@ -896,8 +896,8 @@
   "numeradas": 10
  },
  "17oiioq": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T07:53:11.084Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T08:02:05.536Z",
   "motivo": "título o bajada: 1 problema (pasado): el título está en pasado: va en presente, como \"aprueba\" o \"gana\"",
   "textos": 2,
   "numeradas": 3,
@@ -905,8 +905,7 @@
    "título o bajada: 1 problema (pasado): el título está en pasado: va en "
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título está en pasado (\"fue\"): va en presente, como \"aprueba\" o \"gana\""
+   "el título está en pasado (\"fueron\"): va en presente, como \"aprueba\" o \"gana\""
   ]
  },
  "17pi8dd": {
@@ -959,19 +958,20 @@
   "motivo": "con cuerpo"
  },
  "181uud7": {
-  "intentos": 3,
-  "ultimo": "2026-10-28T07:53:11.084Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el máximo es 90",
+  "intentos": 4,
+  "ultimo": "2026-10-28T08:02:05.536Z",
+  "motivo": "cuerpo: 2 problemas (copia, promesa): copia 19 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 272 palabras",
   "textos": 5,
   "numeradas": 6,
   "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 105 caracteres, e",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el",
+   "cuerpo: 1 problema (promesa): el título nombra a \"anses\", \"pnc\" y el c",
+   "cuerpo: 2 problemas (copia, promesa): copia 19 palabras seguidas del o"
   ],
   "falla": [
-   "el titulo tiene 96 caracteres, el máximo es 90"
+   "copia 19 palabras seguidas del original (\"con esta actualizacion las pnc por invalidez y vejez alcanzaran los 310 910 91…\"): decilo con otra",
+   "el título nombra a \"anses\", \"puam\" y el cuerpo no los explica"
   ]
  },
  "184lnn2": {
@@ -8210,9 +8210,9 @@
   ]
  },
  "wgr6up": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T07:53:11.084Z",
-  "motivo": "semáforo: necesita ojo humano: \"alumno de\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 3,
+  "ultimo": "2026-10-28T08:02:05.536Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
