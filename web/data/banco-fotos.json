@@ -41651,7 +41651,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando la pelota en pleno partido"
   },
-  "huella": "7a99b9594d95c4c4"
+  "huella": "7a99b9594d95c4c4",
+  "ausenteDesde": "2026-10-28T04:03:28.449Z"
  },
  "1yybtvm": {
   "archivo": "fotos-notas/1yybtvm.jpg",
@@ -41939,7 +41940,8 @@
    "corresponde": "si",
    "descripcion": "Anamá Ferreira introduciendo el sobre en la urna"
   },
-  "huella": "7939396868644442"
+  "huella": "7939396868644442",
+  "ausenteDesde": "2026-10-28T04:03:28.449Z"
  },
  "u4wov9": {
   "archivo": "fotos-notas/u4wov9.jpg",
@@ -42392,7 +42394,8 @@
    "corresponde": "si",
    "descripcion": "Mujer mayor preocupada revisando papeles en una oficina de ANSES"
   },
-  "huella": "36a6a7b3b1b39331"
+  "huella": "36a6a7b3b1b39331",
+  "ausenteDesde": "2026-10-28T04:03:28.449Z"
  },
  "1kssii7": {
   "archivo": "fotos-notas/1kssii7.jpg",
@@ -45170,7 +45173,8 @@
    "corresponde": "si",
    "descripcion": "Persona mirando un calendario de noviembre de 2026 colgado en la pared"
   },
-  "huella": "828983810103c1c3"
+  "huella": "828983810103c1c3",
+  "ausenteDesde": "2026-10-28T04:03:28.449Z"
  },
  "mfyv37": {
   "intentado": true,
@@ -46579,8 +46583,7 @@
    "corresponde": "si",
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
-  "huella": "2b97b53be4f1f3d3",
-  "ausenteDesde": "2026-10-27T16:39:40.607Z"
+  "huella": "2b97b53be4f1f3d3"
  },
  "1qe910f": {
   "intentado": true,
@@ -47694,5 +47697,61 @@
   "fuentes": 1,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "on90e1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+  "razon": "Ninguna de las fotos corresponde a la nota sobre el Argentino de Rally MTB, ya que todas muestran el podio de un evento llamado 'Mar del Plata Bikefest 2026'.",
+  "cuando": "2026-10-28T04:03:20.619Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "gwgxyk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Máximo Kirchner pide por la libertad de Cristina Fernández y apunta contra Milei",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T04:03:20.619Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "154jbd0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La morosidad en microempresas alcanza el 17,73% y quintuplica a la de grandes firmas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T04:03:20.619Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1w5wk4d": {
+  "archivo": "fotos-notas/1nso2dt.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses actualiza haberes y modifica el calendario de pagos de noviembre",
+  "enlace": "https://www.cronista.com/economia-politica/es-oficial-anses-atraso-el-calendario-de-pagos-de-jubilados-y-pensionados-cuando-cobran-en-noviembre/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/XE2YENXUG5DUTJCFL7KCNHCRHY.jpg?auth=d37578ec83b85a1003d1b90c5fa8e32df0103925ada076e6ae20d5f9c1b37d91&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la foto más limpia y representativa de la fachada de una oficina de ANSES sin personas ni marcas agregadas.",
+  "cuando": "2026-10-27T15:41:25.833Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
+  },
+  "huella": "2b97b53be4f1f3d3"
  }
 }

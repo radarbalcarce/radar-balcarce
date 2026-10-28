@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T03:04:53.543Z",
- "portada": 199,
+ "generado": "2026-10-28T04:03:28.579Z",
+ "portada": 190,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 12,
  "redes": {
-  "generado": "2026-10-28T03:04:53.997Z",
+  "generado": "2026-10-28T04:03:29.382Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "on90e1",
+      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+      "seccion": "Deportes"
+     },
      {
       "id": "kua1e9",
       "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
@@ -111,11 +116,6 @@
       "id": "hd8nd0",
       "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
       "seccion": "Salud"
-     },
-     {
-      "id": "1mtkc68",
-      "titulo": "Paula Boccia compite en el Campeonato Nacional de Veteranas de Tenis",
-      "seccion": "Deportes"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 52,
     "notas": [
      {
       "id": "1a7f21a",
@@ -139,14 +139,14 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "1mtkc68",
+      "titulo": "Paula Boccia compite en el Campeonato Nacional de Veteranas de Tenis",
+      "seccion": "Deportes"
+     },
+     {
       "id": "8vlpd3",
       "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
       "seccion": "Educación"
-     },
-     {
-      "id": "19r8vz8",
-      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -186,15 +186,27 @@
    "hoy": [],
    "cola": [
     {
-     "id": "kua1e9",
-     "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
-     "seccion": "Cultura y agenda",
+     "id": "on90e1",
+     "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
      "id": "1cq1p5j",
      "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "kua1e9",
+     "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1tlqpfz",
+     "titulo": "Llega la tercera edición del concurso Bientratando en noviembre",
+     "seccion": "Educación",
      "marcada": false
     },
     {
@@ -218,18 +230,6 @@
     {
      "id": "1a7f21a",
      "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "a51w1",
-     "titulo": "La Liga Balcarceña jugará el sábado por el Superclásico",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "ytbcok",
-     "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
      "seccion": "Balcarce",
      "marcada": false
     }

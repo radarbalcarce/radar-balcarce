@@ -572,19 +572,14 @@
   "numeradas": 15
  },
  "154jbd0": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T03:01:41.368Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, el máximo es 90",
-  "textos": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e"
-  ],
-  "falla": [
-   "el titulo tiene 102 caracteres, el máximo es 90",
-   "copia 19 palabras seguidas del original (\"alcanza el 9 86 en las pequenas empresas y el 7 34 en las…\"): decilo con otras palabras",
-   "el título dice 17 y el cuerpo no lo explica",
-   "el título dice 5 y el cuerpo no lo explica"
+   "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e",
+   "cuerpo: 1 problema (promesa): el título dice 17 y el cuerpo no lo expl"
   ]
  },
  "1557yh6": {
@@ -947,6 +942,20 @@
   "ultimo": "2026-10-23T18:31:38.958Z",
   "motivo": "con cuerpo"
  },
+ "181uud7": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"anses\", \"pnc\", \"puam\" y el cuerpo no los explica; sin esas oraciones quedan 259 palabras",
+  "textos": 5,
+  "numeradas": 6,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 105 caracteres, e",
+   "cuerpo: 1 problema (promesa): el título nombra a \"anses\", \"pnc\", \"puam"
+  ],
+  "falla": [
+   "el título nombra a \"anses\", \"pnc\", \"puam\" y el cuerpo no los explica"
+  ]
+ },
  "184lnn2": {
   "intentos": 1,
   "ultimo": "2026-10-21T17:01:54.471Z",
@@ -1282,17 +1291,14 @@
   "numeradas": 8
  },
  "1axwk7u": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T03:01:41.368Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 178 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 9,
   "motivos": [
    "cuerpo: 4 problemas (nombre, antecedente, repite, tildes): el cuerpo n",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1aygiq8": {
@@ -1485,8 +1491,8 @@
   "numeradas": 7
  },
  "1ciijr9": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T03:01:41.368Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T04:01:46.419Z",
   "motivo": "semáforo: tema sensible: \"menor de edad\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 2,
   "numeradas": 2,
@@ -1662,6 +1668,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "1e02xyr": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "1e2ajtw": {
   "intentos": 1,
@@ -1977,11 +1990,6 @@
   "intentos": 1,
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
- },
- "1gclduh": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T04:01:26.531Z",
-  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)"
  },
  "1gfq21m": {
   "intentos": 1,
@@ -2908,11 +2916,11 @@
   "motivo": "con cuerpo"
  },
  "1nso2dt": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T15:36:03.205Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T04:01:46.419Z",
   "motivo": "con cuerpo",
   "textos": 3,
-  "numeradas": 4
+  "numeradas": 3
  },
  "1ntclvn": {
   "intentos": 1,
@@ -3257,6 +3265,16 @@
   "motivo": "con cuerpo",
   "textos": 8,
   "numeradas": 12
+ },
+ "1qxwho": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (antecedente): el cuerpo usa 21, que sale de una n"
+  ]
  },
  "1r0u1c7": {
   "intentos": 1,
@@ -3636,16 +3654,13 @@
   "numeradas": 3
  },
  "1tlqpfz": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T03:01:41.368Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 107 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 17 palabras seguidas del original (\"propone trabajar sobre la memoria la democracia los derechos la participacion y el valor…\"): decil"
   ]
  },
  "1typ7xh": {
@@ -3826,6 +3841,20 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"nuevo\", \"gasometro\" "
   ]
  },
+ "1vatzqp": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 45 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 183 palabras",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 6 problemas (antecedente, repite): el cuerpo usa \"agencia\", qu",
+   "cuerpo: 1 problema (copia): copia 45 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 45 palabras seguidas del original (\"secretario ejecutivo martin zurita advirtio que los nuevos valores no permiten recuperar la totali"
+  ]
+ },
  "1vbcgqe": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -3833,10 +3862,12 @@
   "textos": 3,
   "numeradas": 3
  },
- "1vg6rsa": {
+ "1vfhba3": {
   "intentos": 1,
-  "ultimo": "2026-10-21T03:31:19.077Z",
-  "motivo": "con cuerpo"
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 16
  },
  "1vgzjw8": {
   "intentos": 1,
@@ -4148,6 +4179,16 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
+ },
+ "1xknntm": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 16,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ]
  },
  "1xktpfx": {
   "intentos": 1,
@@ -5101,6 +5142,13 @@
    "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d"
   ]
  },
+ "a4vs0g": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 8
+ },
  "a51w1": {
   "intentos": 1,
   "ultimo": "2026-10-27T23:31:31.031Z",
@@ -5224,6 +5272,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "b1u1qh": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 9
  },
  "b4wcz2": {
   "intentos": 1,
@@ -5869,6 +5924,13 @@
   "intentos": 1,
   "ultimo": "2026-10-21T12:31:19.828Z",
   "motivo": "con cuerpo"
+ },
+ "gwgxyk": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "h4bqap": {
   "intentos": 1,
@@ -6873,6 +6935,13 @@
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "cuerpo: 2 problemas (promesa): el título nombra a \"balon\", \"oro\", \"lon"
   ]
+ },
+ "on90e1": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T04:01:46.419Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "osvbhw": {
   "intentos": 1,
@@ -8044,11 +8113,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "wwrypi": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T04:01:26.531Z",
-  "motivo": "con cuerpo"
  },
  "wzkylt": {
   "intentos": 1,
