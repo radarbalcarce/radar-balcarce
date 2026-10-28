@@ -27951,9 +27951,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1vg6rsa": {
-  "archivo": "fotos-notas/1vg6rsa.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca derrota a Vasco da Gama y clasifica a la final de la Sudamericana",
@@ -27974,12 +27972,11 @@
    "descripcion": "Plantel de Boca Juniors posando con el cartel de la Conmebol Sudamericana en el estadio."
   },
   "huella": "5a869e1e5917a168",
-  "ausenteDesde": "2026-10-21T05:02:26.088Z"
+  "intentado": true,
+  "borrada": true
  },
  "wwrypi": {
-  "archivo": "fotos-notas/wwrypi.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca vence a Vasco da Gama y clasifica a la final de la Sudamericana",
@@ -28000,7 +27997,8 @@
    "descripcion": "Fotografía panorámica del plantel de Boca Juniors celebrando en el vestuario tras el partido."
   },
   "huella": "4fe94a378d9d4b0d",
-  "ausenteDesde": "2026-10-21T04:31:26.419Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ynbotb": {
   "archivo": "fotos-notas/1ynbotb.jpg",
@@ -46583,7 +46581,8 @@
    "corresponde": "si",
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
-  "huella": "2b97b53be4f1f3d3"
+  "huella": "2b97b53be4f1f3d3",
+  "ausenteDesde": "2026-10-28T05:03:02.297Z"
  },
  "1qe910f": {
   "intentado": true,
@@ -47753,5 +47752,37 @@
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
   "huella": "2b97b53be4f1f3d3"
+ },
+ "1so1px1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Venden entradas para la final de la Sudamericana entre Boca y Atlético Mineiro",
+  "razon": "La única foto disponible tiene una marca de agua del medio 'Doble Amarilla' superpuesta, lo que impide su selección según las reglas.",
+  "cuando": "2026-10-28T05:02:50.739Z",
+  "intentos": 1,
+  "fuentes": 9,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ybt775": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Argentinos Juniors derrota 1 a 0 a Independiente Rivadavia en La Paternal",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T05:02:50.739Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ed5j5h": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Se completa la decimocuarta fecha del Torneo Clausura 2026",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Minuto Uno no se usa todavía.",
+  "cuando": "2026-10-28T05:02:50.739Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

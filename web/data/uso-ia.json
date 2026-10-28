@@ -747,162 +747,162 @@
   "2026-10-28": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 4,
-     "errores": 3,
-     "entrada": 2992,
-     "salida": 1480,
+     "llamadas": 9,
+     "errores": 6,
+     "entrada": 8358,
+     "salida": 4408,
      "pensamiento": 0,
-     "total": 4472,
+     "total": 12766,
      "claves": {
-      "clasificacion": 4
+      "clasificacion": 9
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 3,
-       "ok": 1
+       "cupo-diario": 6,
+       "ok": 3
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 3,
-     "errores": 2,
-     "entrada": 3077,
-     "salida": 3072,
+     "llamadas": 6,
+     "errores": 3,
+     "entrada": 9007,
+     "salida": 7992,
      "pensamiento": 0,
-     "total": 6149,
+     "total": 16999,
      "claves": {
-      "groq": 3
+      "groq": 6
      },
      "motivos": {
       "groq": {
-       "ok": 1,
-       "velocidad": 1,
+       "ok": 3,
+       "velocidad": 2,
        "otro": 1
       }
      }
     },
     "mistral-small-latest": {
-     "llamadas": 6,
-     "errores": 6,
+     "llamadas": 9,
+     "errores": 9,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 6
+      "mistral": 9
      },
      "motivos": {
       "mistral": {
-       "velocidad": 6
+       "velocidad": 9
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 5,
-     "errores": 4,
+     "llamadas": 7,
+     "errores": 6,
      "entrada": 35207,
      "salida": 349,
      "pensamiento": 0,
      "total": 35556,
      "claves": {
-      "clasificacion": 5
+      "clasificacion": 7
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 4,
+       "cupo-diario": 6,
        "ok": 1
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 2,
+     "llamadas": 3,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 2
+      "clasificacion": 3
      },
      "motivos": {
       "clasificacion": {
-       "ok": 2
+       "ok": 3
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 2,
-     "errores": 2,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 2
+      "groq": 3
      },
      "motivos": {
       "groq": {
-       "otro": 2
+       "otro": 3
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 120,
-     "errores": 60,
-     "entrada": 356507,
-     "salida": 65777,
+     "llamadas": 146,
+     "errores": 73,
+     "entrada": 455295,
+     "salida": 81946,
      "pensamiento": 0,
-     "total": 422284,
+     "total": 537241,
      "claves": {
-      "redaccion": 60,
-      "respaldo": 60
+      "redaccion": 73,
+      "respaldo": 73
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 60
+       "cupo-diario": 73
       },
       "respaldo": {
-       "ok": 60
+       "ok": 73
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 6,
-     "errores": 6,
+     "llamadas": 10,
+     "errores": 10,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 6
+      "clasificacion": 10
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 6
+       "cupo-diario": 10
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 9,
-     "errores": 7,
-     "entrada": 6412,
-     "salida": 359,
+     "llamadas": 15,
+     "errores": 11,
+     "entrada": 10767,
+     "salida": 735,
      "pensamiento": 0,
-     "total": 6771,
+     "total": 11502,
      "claves": {
-      "groq": 9
+      "groq": 15
      },
      "motivos": {
       "groq": {
-       "otro": 2,
-       "ok": 2,
-       "velocidad": 5
+       "otro": 5,
+       "ok": 4,
+       "velocidad": 6
       }
      }
     }
