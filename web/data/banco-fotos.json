@@ -41038,7 +41038,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica con rayos sobre un paisaje nocturno"
   },
-  "huella": "073717151517070f"
+  "huella": "073717151517070f",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "g3akx": {
   "archivo": "fotos-notas/g3akx.jpg",
@@ -41459,7 +41460,8 @@
    "corresponde": "si",
    "descripcion": "Ronaldo Martínez celebrando un gol de frente con los brazos abiertos"
   },
-  "huella": "23cdcc4f5f4c4e2e"
+  "huella": "23cdcc4f5f4c4e2e",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "8rb54u": {
   "archivo": "fotos-notas/8rb54u.jpg",
@@ -42477,7 +42479,8 @@
    "corresponde": "si",
    "descripcion": "Eduardo Coudet hablando en conferencia de prensa con sponsors de fondo."
   },
-  "huella": "d59175e7a9a921b3"
+  "huella": "d59175e7a9a921b3",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "uwg3cv": {
   "archivo": "fotos-notas/uwg3cv.jpg",
@@ -43419,7 +43422,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Leandro Paredes con campera de entrenamiento en el estadio."
   },
-  "huella": "93252337336ae3e9"
+  "huella": "93252337336ae3e9",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "1oi6qte": {
   "archivo": "fotos-notas/1oi6qte.jpg",
@@ -49167,8 +49171,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro con equipaje junto a acompañantes"
   },
-  "huella": "2ce8a80949090938",
-  "ausenteDesde": "2026-10-28T12:05:14.242Z"
+  "huella": "2ce8a80949090938"
  },
  "13thdhp": {
   "intentado": true,
@@ -49762,7 +49765,8 @@
    "corresponde": "si",
    "descripcion": "Cartel de ANSES en primer plano con billetes de fondo"
   },
-  "huella": "9c9a03c6dc90a0c9"
+  "huella": "9c9a03c6dc90a0c9",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "wkgwyh": {
   "archivo": "fotos-notas/wkgwyh.jpg",
@@ -49810,6 +49814,47 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto con casco de perfil."
   },
-  "huella": "8e86961a1acee672"
+  "huella": "8e86961a1acee672",
+  "ausenteDesde": "2026-10-28T13:39:57.272Z"
+ },
+ "wbdkco": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El CEF N° 119 celebra 25 anúzos de trayectoria",
+  "razon": "La foto de Radio Gabal (FM 104.1) ya se usó o se sacó (ya ilustra \"El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario\", que es de otro tema) y no hay otra para comparar.",
+  "cuando": "2026-10-28T13:36:50.968Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1xnehl1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+  "razon": "La única foto disponible muestra menores de edad claramente reconocibles, lo que impide su publicación según las normas del medio.",
+  "cuando": "2026-10-28T13:36:50.968Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "The operation was aborted due to timeout"
+ },
+ "pyh11r": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Peñarol supera a San Martín 95 a 76 y estira su invicto",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-28T13:36:50.968Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "10seb3s": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ander Herrera elige a Juan Román Riquelme como el máximo ídolo de Boca",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-10-28T13:36:50.968Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
  }
 }

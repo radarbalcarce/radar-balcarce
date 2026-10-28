@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T13:07:51.787Z",
- "portada": 145,
+ "generado": "2026-10-28T13:39:57.330Z",
+ "portada": 166,
  "archivo": 500,
  "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-28T13:07:52.328Z",
+  "generado": "2026-10-28T13:39:57.728Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,13 +95,8 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 48,
     "notas": [
-     {
-      "id": "w7ghgv",
-      "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
-      "seccion": "Automovilismo"
-     },
      {
       "id": "11f64xi",
       "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
@@ -116,6 +111,11 @@
       "id": "u2pkjm",
       "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1xnehl1",
+      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
      {
       "id": "on90e1",
@@ -139,14 +139,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "ytbcok",
-      "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
+      "id": "rmyepl",
+      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
       "seccion": "Balcarce"
      },
      {
-      "id": "mimoad",
-      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
-      "seccion": "Argentina"
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 52,
     "notas": [
      {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "id": "1a7f21a",
+      "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "8vlpd3",
+      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
+      "seccion": "Educación"
+     },
+     {
+      "id": "mimoad",
+      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
       "seccion": "Argentina"
      },
      {
       "id": "19r8vz8",
       "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "si5xga",
-      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
-      "seccion": "Economía"
      }
     ]
    }
@@ -196,12 +196,6 @@
     }
    ],
    "cola": [
-    {
-     "id": "w7ghgv",
-     "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
     {
      "id": "11f64xi",
      "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
@@ -224,6 +218,18 @@
      "id": "u2pkjm",
      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1xnehl1",
+     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "mvtshk",
+     "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
