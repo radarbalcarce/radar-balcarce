@@ -47551,5 +47551,27 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG/1280px-Museo_Tripero_-_Estadio_Juan_Carmelo_Zerillo._14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Museo Tripero - Estadio Juan Carmelo Zerillo. 14.JPG",
   "cuando": "2026-10-28T00:02:25.076Z"
+ },
+ "1a7f21a": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T00:31:33.118Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "a51w1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Liga Balcarceña jugará el sábado por el Superclásico",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T00:31:33.118Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
