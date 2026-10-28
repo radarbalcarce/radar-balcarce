@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T12:05:14.333Z",
- "portada": 162,
+ "generado": "2026-10-28T12:56:12.304Z",
+ "portada": 158,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-28T12:05:14.819Z",
+  "generado": "2026-10-28T12:56:12.918Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-28T12:36:40.644Z"
    },
    {
     "nombre": "noticia1",
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 54,
     "notas": [
      {
-      "id": "10w8jm5",
-      "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
+      "id": "w7ghgv",
+      "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
       "seccion": "Automovilismo"
      },
      {
-      "id": "u2pkjm",
-      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "on90e1",
-      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+      "id": "11f64xi",
+      "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
       "seccion": "Deportes"
      },
      {
       "id": "5qx7kw",
       "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
       "seccion": "Educación"
+     },
+     {
+      "id": "u2pkjm",
+      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+      "seccion": "Balcarce"
      }
     ]
    },
@@ -128,6 +128,11 @@
     "salio": null,
     "segundos": 50,
     "notas": [
+     {
+      "id": "on90e1",
+      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+      "seccion": "Deportes"
+     },
      {
       "id": "mvtshk",
       "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
@@ -142,11 +147,6 @@
       "id": "hd8nd0",
       "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
       "seccion": "Salud"
-     },
-     {
-      "id": "8vlpd3",
-      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
-      "seccion": "Educación"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 49,
     "notas": [
      {
       "id": "kua1e9",
@@ -170,9 +170,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1099rtb",
-      "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
-      "seccion": "Argentina"
+      "id": "8vlpd3",
+      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
+      "seccion": "Educación"
      },
      {
       "id": "19r8vz8",
@@ -188,25 +188,42 @@
      "id": "1tj9g7q",
      "titulo": "Migraciones confirma que Flávio Bolsonaro salió del país rumbo a Ecuador",
      "cuando": "2026-10-28T11:06:05.476Z"
+    },
+    {
+     "id": "10w8jm5",
+     "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
+     "cuando": "2026-10-28T12:46:06.238Z"
     }
    ],
    "cola": [
     {
-     "id": "10w8jm5",
-     "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
+     "id": "w7ghgv",
+     "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
      "seccion": "Automovilismo",
      "marcada": false
     },
     {
-     "id": "u2pkjm",
-     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
-     "seccion": "Balcarce",
+     "id": "11f64xi",
+     "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
      "id": "5qx7kw",
      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "mimoad",
+     "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "u2pkjm",
+     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -222,8 +239,8 @@
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-28T12:36:05.476Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-28T14:16:06.238Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
