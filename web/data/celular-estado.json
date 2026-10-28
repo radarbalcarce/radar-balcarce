@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T11:33:44.055Z",
- "portada": 156,
+ "generado": "2026-10-28T12:05:14.333Z",
+ "portada": 162,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-28T11:33:44.767Z",
+  "generado": "2026-10-28T12:05:14.819Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -98,10 +98,36 @@
     "segundos": 50,
     "notas": [
      {
+      "id": "10w8jm5",
+      "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "u2pkjm",
+      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "on90e1",
       "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
       "seccion": "Deportes"
      },
+     {
+      "id": "5qx7kw",
+      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
+      "seccion": "Educación"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
      {
       "id": "mvtshk",
       "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
@@ -116,17 +142,22 @@
       "id": "hd8nd0",
       "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
       "seccion": "Salud"
+     },
+     {
+      "id": "8vlpd3",
+      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
+      "seccion": "Educación"
      }
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 48,
     "notas": [
      {
       "id": "kua1e9",
@@ -139,45 +170,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "8vlpd3",
-      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
-      "seccion": "Educación"
-     },
-     {
-      "id": "1axwk7u",
-      "titulo": "Harry Kane gana el Balón de Oro 2026 y agradece a Pochettino",
-      "seccion": "Fútbol"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 36,
-    "notas": [
-     {
-      "id": "ytbcok",
-      "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "8rowed",
-      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
-      "seccion": "Cultura y agenda"
+      "id": "1099rtb",
+      "titulo": "Retienen un avión privado en Puerto Iguazú por sospechas sobre Flávio Bolsonaro",
+      "seccion": "Argentina"
      },
      {
       "id": "19r8vz8",
       "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
      }
     ]
    }
@@ -192,9 +192,33 @@
    ],
    "cola": [
     {
+     "id": "10w8jm5",
+     "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "u2pkjm",
+     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "5qx7kw",
+     "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "mvtshk",
      "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1nvngno",
+     "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
