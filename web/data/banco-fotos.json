@@ -42236,7 +42236,8 @@
    "corresponde": "si",
    "descripcion": "Una mano encendiendo la hornalla de una cocina a gas"
   },
-  "huella": "0f0f0e9e8fde8b18"
+  "huella": "0f0f0e9e8fde8b18",
+  "ausenteDesde": "2026-10-28T15:46:58.848Z"
  },
  "1s2s6et": {
   "archivo": "fotos-notas/1s2s6et.jpg",
@@ -42664,7 +42665,8 @@
    "corresponde": "si",
    "descripcion": "Fachada del edificio de ARBA."
   },
-  "huella": "6044d28db2b13131"
+  "huella": "6044d28db2b13131",
+  "ausenteDesde": "2026-10-28T15:46:58.848Z"
  },
  "1jd9f0x": {
   "archivo": "fotos-notas/1jd9f0x.jpg",
@@ -44669,7 +44671,8 @@
    "corresponde": "si",
    "descripcion": "Diputados y funcionarios sentados en una mesa de debate con carteles institucionales."
   },
-  "huella": "bf6b4f0f2faa0f0f"
+  "huella": "bf6b4f0f2faa0f0f",
+  "ausenteDesde": "2026-10-28T15:46:58.848Z"
  },
  "1ukil1i": {
   "archivo": "fotos-notas/1ukil1i.jpg",
@@ -47677,12 +47680,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T00:31:33.118Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Ahora Balcarce no se usa todavía.",
+  "cuando": "2026-10-28T15:42:44.030Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 2
  },
  "a51w1": {
   "intentado": true,
@@ -49326,10 +49328,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Advierten sobre la importancia de la atención temprana ante un ACV",
-  "razon": "La mejor foto era la de Punto Noticias, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-28T11:32:43.271Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "La mejor foto era la de El Cronista, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1fzkjri": {
   "archivo": "fotos-notas/1fzkjri.jpg",
@@ -49717,10 +49719,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alfonso Prat-Gay cuestiona el impacto económico del crecimiento de Vaca Muerta",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de La Gaceta (Tucumán) (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-10-28T12:54:41.107Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-28T15:42:44.030Z",
   "intentos": 1,
-  "fuentes": 3
+  "fuentes": 4,
+  "intentosPorCupo": 1
  },
  "xwtt0x": {
   "archivo": "fotos-notas/xwtt0x.jpg",
@@ -50163,10 +50166,10 @@
   "origen": "ninguna",
   "titulo": "Reutilizan el cristal de la puerta de un lavarropas para decoración",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
-  "cuando": "2026-10-28T14:38:06.335Z",
+  "cuando": "2026-10-28T15:42:44.030Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "stxwsg": {
   "archivo": "fotos-notas/stxwsg.jpg",
@@ -50283,7 +50286,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
-  "huella": "d6b01818f8787cec"
+  "huella": "d6b01818f8787cec",
+  "ausenteDesde": "2026-10-28T15:46:58.848Z"
  },
  "frkbns": {
   "archivo": "fotos-notas/frkbns.jpg",
@@ -50350,5 +50354,95 @@
   "cuando": "2026-10-28T15:17:47.501Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1c4t8zx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Fiesta Nacional del Postre confirma el corte del postre más largo",
+  "razon": "La única foto disponible no corresponde al hecho de la Fiesta Nacional del Postre.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "18tglcn": {
+  "archivo": "fotos-notas/18tglcn.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Modifican el calendario del fútbol argentino por la visita del papa León XIV",
+  "enlace": "https://www.minutouno.com/deportes/cambios-el-futbol-argentino-la-visita-del-papa-leon-xiv-todas-las-reprogramaciones-n6338866",
+  "imagenOriginal": "https://media.minutouno.com/p/47d54fa6a0632ce1ea708bebc7ba087b/adjuntos/150/imagenes/043/734/0043734980/1200x675/smart/papa-leon.jpg",
+  "razon": "La foto D es la única que está libre de marcas de agua superpuestas, menores de edad o problemas de formato, y muestra al Papa sosteniendo una pelota de fútbol, lo cual ilustra perfectamente la temática de la nota.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa sonriendo sosteniendo una pelota de fútbol."
+  },
+  "huella": "cfddd3d7d73f727b"
+ },
+ "1q1zjvw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+  "razon": "La única foto disponible muestra menores de edad de frente y perfil con rostros reconocibles.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1rxcirl": {
+  "archivo": "fotos-notas/1rxcirl.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno oficializa préstamos del Banco Interamericano de Desarrollo",
+  "enlace": "https://www.losandes.com.ar/economia/el-gobierno-aprobo-un-prestamo-del-bid-us1500-millones-fortalecer-las-cuentas-las-provincias-n6012028",
+  "imagenOriginal": "https://media.losandes.com.ar/p/2860fe292d4170612a24589e1a9e05d8/adjuntos/368/imagenes/100/707/0100707368/1200x675/smart/luis-caputo-bid.jfif",
+  "razon": "La foto C corresponde perfectamente a la nota, tiene excelente nitidez y encuadre, y está libre de marcas, menores u otros problemas.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos funcionarios posando en un pasillo con mejor nitidez y encuadre."
+  },
+  "huella": "2323716921217163"
+ },
+ "ijc2o": {
+  "archivo": "fotos-notas/ijc2o.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta amarilla por tormentas en la provincia de Buenos Aires",
+  "enlace": "https://mi8.com.ar/emiten-un-alerta-amarillo-por-tormentas-en-mar-del-plata-para-cuando/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-22-at-08.19.53.jpeg",
+  "razon": "Muestra rayos y tormenta eléctrica con buena nitidez y sin personas ni marcas agregadas.",
+  "cuando": "2026-10-28T15:42:44.030Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Relámpagos y nubes oscuras de tormenta"
+  },
+  "huella": "000c1dcb8acfcd1d"
  }
 }
