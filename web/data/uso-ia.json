@@ -927,6 +927,41 @@
       }
      }
     }
+   },
+   "auditoria": {
+    "openai/gpt-oss-20b": {
+     "llamadas": 2,
+     "errores": 1,
+     "entrada": 1782,
+     "salida": 1634,
+     "pensamiento": 0,
+     "total": 3416,
+     "claves": {
+      "groq": 2
+     },
+     "motivos": {
+      "groq": {
+       "ok": 1,
+       "otro": 1
+      }
+     }
+    },
+    "mistral-small-latest": {
+     "llamadas": 3,
+     "errores": 3,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "mistral": 3
+     },
+     "motivos": {
+      "mistral": {
+       "velocidad": 3
+      }
+     }
+    }
    }
   }
  }
