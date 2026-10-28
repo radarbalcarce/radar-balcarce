@@ -23405,9 +23405,7 @@
   "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "4fm0rm": {
-  "archivo": "fotos-notas/4fm0rm.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Provincia recibe $2.500 millones del CFI para la visita papal",
@@ -23427,7 +23425,8 @@
    "descripcion": "Hombre con vestimenta papal saludando tras un atril con micrófono"
   },
   "huella": "49231e2a2d0d0d0d",
-  "ausenteDesde": "2026-10-21T02:01:43.067Z"
+  "intentado": true,
+  "borrada": true
  },
  "n4iy6h": {
   "medio": "La Tecla",
@@ -25181,9 +25180,7 @@
   "ausenteDesde": "2026-10-25T08:19:29.411Z"
  },
  "ffxrva": {
-  "archivo": "fotos-notas/ffxrva.jpg",
   "medio": "La Tecla",
-  "credito": "Foto: La Tecla",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei tilda de pelotudez la crisis y niega que la gente no llegue a fin de mes",
@@ -25205,7 +25202,8 @@
    "detalle": "El logo AOG es parte del escenario real, no una marca del medio."
   },
   "huella": "00162a6b4b0f171f",
-  "ausenteDesde": "2026-10-21T01:32:01.981Z"
+  "intentado": true,
+  "borrada": true
  },
  "ws4cc6": {
   "archivo": "fotos-notas/ws4cc6.jpg",
@@ -47623,6 +47621,38 @@
   "cuando": "2026-10-28T01:31:18.468Z",
   "intentos": 1,
   "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "104ufah": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Radio Puntonueve cumple veintidós años en el aire",
+  "razon": "La única imagen disponible es un gráfico o diseño digital, no una fotografía de una escena real.",
+  "cuando": "2026-10-28T02:01:30.326Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "okyjl1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata renueva el Paseo del Bosque con nuevas obras y mejoras",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T02:01:30.326Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1u2i7kq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las acciones argentinas revierten la suba inicial y el riesgo país baja",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T02:01:30.326Z",
+  "intentos": 1,
+  "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
