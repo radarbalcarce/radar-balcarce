@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T02:01:43.352Z",
- "portada": 187,
+ "generado": "2026-10-28T03:04:53.543Z",
+ "portada": 199,
  "archivo": 500,
- "esperandoCuerpo": 46,
+ "esperandoCuerpo": 11,
  "redes": {
-  "generado": "2026-10-28T02:01:44.265Z",
+  "generado": "2026-10-28T03:04:53.997Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-27T10:36:47.131Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-27T12:51:05.126Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
-    "nombre": "participa-evento",
+    "nombre": "participa-reclamos",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu evento o emprendimiento",
-    "voz": "locutor",
+    "que": "Tu reclamo",
+    "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-27T15:36:36.710Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-27T18:37:20.409Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-27T22:36:51.242Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-27T23:36:31.357Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-28T00:36:45.129Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,38 +93,59 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "kua1e9",
+      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "rmyepl",
+      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1mtkc68",
+      "titulo": "Paula Boccia compite en el Campeonato Nacional de Veteranas de Tenis",
+      "seccion": "Deportes"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-27T18:37:20.409Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
     "notas": [
      {
-      "id": "15q3x7r",
-      "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1k22m6a",
-      "titulo": "Corte de energía eléctrica en sectores rurales",
+      "id": "1a7f21a",
+      "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
       "seccion": "Balcarce"
      },
      {
-      "id": "1xcj3y4",
-      "titulo": "Restablecen la atención médica de OSPRERA en el Círculo Médico",
-      "seccion": "Salud"
+      "id": "8rowed",
+      "titulo": "Oscar Merlo repasa su trayectoria empresaria y su vínculo con la música",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "pr74vq",
-      "titulo": "Agrarias vence a Racing y lidera la Zona C",
+      "id": "8vlpd3",
+      "titulo": "Suteba pide una mesa de diálogo tras la suspensión de la Estudiantina",
+      "seccion": "Educación"
+     },
+     {
+      "id": "19r8vz8",
+      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
       "seccion": "Fútbol"
      }
     ]
@@ -134,62 +155,42 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-28T00:36:45.129Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
     "notas": [
      {
-      "id": "1cq1p5j",
-      "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "owniql",
-      "titulo": "La Liga Balcarceña difunde el cronograma de la tercera fecha",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "sza072",
-      "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
+      "id": "ytbcok",
+      "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
       "seccion": "Balcarce"
      },
      {
-      "id": "1spznqi",
-      "titulo": "Social Pato Naranja gana 50 a 19 y llega a la final de la Copa Sponsor",
-      "seccion": "Deportes"
+      "id": "1j23kjm",
+      "titulo": "Harry Kane gana el Balón de Oro y Messi termina en el quinto puesto",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "m9x3m1",
+      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "si5xga",
+      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
+      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "7amn8l",
-     "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
-     "cuando": "2026-10-27T12:49:48.082Z"
-    },
-    {
-     "id": "1yv8myb",
-     "titulo": "Fabricantes de calzado realizan zapatazo solidario en Plaza de Mayo",
-     "cuando": "2026-10-27T14:36:33.237Z"
-    },
-    {
-     "id": "sacn4r",
-     "titulo": "El Cementerio Municipal modifica horarios y servicios de atención",
-     "cuando": "2026-10-27T16:36:07.124Z"
-    },
-    {
-     "id": "15q3x7r",
-     "titulo": "Pablo Gómez sube al podio en el Maratón Charrúa de Rosario",
-     "cuando": "2026-10-27T18:36:09.091Z"
-    },
-    {
-     "id": "iukc0m",
-     "titulo": "La Escuela Primaria Nº 10 realiza la muestra Manos en la Tierra",
-     "cuando": "2026-10-27T20:36:00.671Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
+    {
+     "id": "kua1e9",
+     "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
     {
      "id": "1cq1p5j",
      "titulo": "El Zonal del Atlántico traslada su próxima fecha a Mar del Plata",
@@ -231,15 +232,9 @@
      "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
      "seccion": "Balcarce",
      "marcada": false
-    },
-    {
-     "id": "1wiu5wj",
-     "titulo": "El FMI aprueba la tercera revisión del acuerdo y prevé un desembolso",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-27T22:06:00.671Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
