@@ -2092,20 +2092,15 @@
   ]
  },
  "1h174xa": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T09:52:15.432Z",
-  "motivo": "cuerpo: 11 problemas (numero, copia, promesa): el cuerpo dice 5.000 y la fuente no lo dice; sin esas oraciones quedan 214 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T10:01:16.517Z",
+  "motivo": "Gemini: Bad control character in string literal in JSON at position 1054 (line 1 column 1055)",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 6 problemas (numero, promesa): el cuerpo dice 5.000 y la fuent",
-   "cuerpo: 11 problemas (numero, copia, promesa): el cuerpo dice 5.000 y "
-  ],
-  "falla": [
-   "el cuerpo dice 5.000 y la fuente no lo dice",
-   "el cuerpo dice 50 y la fuente no lo dice",
-   "el cuerpo dice 80.000 y la fuente no lo dice",
-   "el cuerpo dice 10.000 y la fuente no lo dice"
+   "cuerpo: 11 problemas (numero, copia, promesa): el cuerpo dice 5.000 y ",
+   "Gemini: Bad control character in string literal in JSON at position 10"
   ]
  },
  "1h1irbf": {
@@ -2453,8 +2448,8 @@
   ]
  },
  "1jclmlr": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T09:52:15.432Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T10:01:16.517Z",
   "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 1,
   "numeradas": 2,
@@ -2673,11 +2668,6 @@
  "1kyav9g": {
   "intentos": 1,
   "ultimo": "2026-10-23T20:01:53.695Z",
-  "motivo": "con cuerpo"
- },
- "1l27pp5": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T10:01:06.949Z",
   "motivo": "con cuerpo"
  },
  "1l9wacm": {
@@ -3374,11 +3364,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1rg3cf2": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T10:01:06.949Z",
-  "motivo": "con cuerpo"
  },
  "1rl7tnm": {
   "intentos": 1,
@@ -4899,6 +4884,16 @@
   "ultimo": "2026-10-21T13:31:51.862Z",
   "motivo": "con cuerpo"
  },
+ "70bt5o": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:01:16.517Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 7,
+  "motivos": [
+   "cuerpo: 3 problemas (forma, numero, relleno): el cuerpo trae letras ro"
+  ]
+ },
  "71vu5t": {
   "intentos": 1,
   "ultimo": "2026-10-23T21:25:26.559Z",
@@ -5053,11 +5048,6 @@
   "motivo": "verificación baja: espera a una persona",
   "baja": true,
   "fuentes": 1
- },
- "8eeslz": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T10:01:06.949Z",
-  "motivo": "con cuerpo"
  },
  "8es622": {
   "intentos": 1,
@@ -5429,18 +5419,18 @@
   "motivo": "con cuerpo"
  },
  "bag458": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T09:52:15.432Z",
-  "motivo": "cuerpo: 3 problemas (repite, copia, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T10:01:16.517Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el cuerpo no los explica; sin esas oraciones quedan 246 palabras",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el",
-   "cuerpo: 3 problemas (repite, copia, promesa): el cuerpo repite el cope"
+   "cuerpo: 3 problemas (repite, copia, promesa): el cuerpo repite el cope",
+   "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 23 y la fuente n",
+   "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 14 palabras seguidas del original (\"cuyo dictamen sobre la tasa de interes se difundira el miercoles por la tarde\"): decilo con otras ",
    "el título nombra a \"wall\", \"street\" y el cuerpo no los explica"
   ]
  },
@@ -6147,11 +6137,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 13
- },
- "hkeq7j": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T10:01:06.949Z",
-  "motivo": "con cuerpo"
  },
  "hmmoeg": {
   "intentos": 1,

@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-28T09:54:50.179Z",
+ "generado": "2026-10-28T10:02:58.025Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -176,8 +176,8 @@
      "fecha": "2026-10-27T11:00:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 11 problemas (numero, copia, promesa): el cuerpo dice 5.000 y la fuente no lo dice; sin esas oraciones quedan 214 palabras",
+   "intentos": 2,
+   "motivo": "Gemini: Bad control character in string literal in JSON at position 1054 (line 1 column 1055)",
    "maximo": 3
   },
   {
@@ -208,8 +208,8 @@
      "fecha": "2026-10-27T21:11:18.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 3 problemas (repite, copia, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el cuerpo no los explica; sin esas oraciones quedan 246 palabras",
    "maximo": 3
   },
   {
