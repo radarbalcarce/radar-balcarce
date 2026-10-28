@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T14:04:46.026Z",
- "portada": 149,
+ "generado": "2026-10-28T14:43:23.849Z",
+ "portada": 167,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-28T14:04:46.821Z",
+  "generado": "2026-10-28T14:43:24.329Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 48,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "w7ghgv",
+      "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "11f64xi",
       "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
@@ -111,11 +116,6 @@
       "id": "u2pkjm",
       "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1xnehl1",
-      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "79n3bx",
+      "titulo": "Estudiantes piden recuperar la Estudiantina",
+      "seccion": "Balcarce"
+     },
      {
       "id": "on90e1",
       "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
@@ -137,11 +142,6 @@
       "id": "kua1e9",
       "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "ytbcok",
-      "titulo": "El Concejo debate aspectos técnicos y costos del paredón del Estadio Municipal",
-      "seccion": "Balcarce"
      },
      {
       "id": "mimoad",
@@ -157,8 +157,18 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "mvtshk",
+      "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "rmyepl",
+      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1nvngno",
       "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
@@ -168,16 +178,6 @@
       "id": "19r8vz8",
       "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "si5xga",
-      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
-      "seccion": "Economía"
      }
     ]
    }
@@ -196,6 +196,12 @@
     }
    ],
    "cola": [
+    {
+     "id": "w7ghgv",
+     "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
     {
      "id": "11f64xi",
      "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
@@ -221,9 +227,9 @@
      "marcada": false
     },
     {
-     "id": "1xnehl1",
-     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-     "seccion": "Cultura y agenda",
+     "id": "79n3bx",
+     "titulo": "Estudiantes piden recuperar la Estudiantina",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {

@@ -23766,9 +23766,7 @@
   "fuentes": 4
  },
  "1rq74kt": {
-  "archivo": "fotos-notas/1rq74kt.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "Negocian la compra de locales de Toledo y analizan el futuro de la sucursal local",
@@ -23788,7 +23786,8 @@
    "descripcion": "Fachada y cartel del supermercado Toledo en Balcarce con autos estacionados enfrente"
   },
   "huella": "0f0e9e9cd8cee73b",
-  "ausenteDesde": "2026-10-21T14:11:39.586Z"
+  "intentado": true,
+  "borrada": true
  },
  "beeajf": {
   "intentado": true,
@@ -25359,9 +25358,7 @@
   "ausenteDesde": "2026-10-24T21:35:10.972Z"
  },
  "socbxm": {
-  "archivo": "fotos-notas/socbxm.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei viaja a España para cumplir con una serie de actividades oficiales",
@@ -25381,7 +25378,8 @@
    "descripcion": "Javier Milei ajustándose los anteojos frente a un atril"
   },
   "huella": "09190b0a1a6865cc",
-  "ausenteDesde": "2026-10-21T14:11:39.586Z"
+  "intentado": true,
+  "borrada": true
  },
  "1f8niph": {
   "archivo": "fotos-notas/1f8niph.jpg",
@@ -28330,9 +28328,7 @@
   "fuentes": 2
  },
  "eyw4xr": {
-  "archivo": "fotos-notas/eyw4xr.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei descarta acciones bélicas por Malvinas y advierte sobre riesgos en la región",
@@ -28352,7 +28348,8 @@
    "descripcion": "Javier Milei caminando rodeado de seguridad"
   },
   "huella": "17336363632363c3",
-  "ausenteDesde": "2026-10-21T14:41:09.833Z"
+  "intentado": true,
+  "borrada": true
  },
  "fkad82": {
   "archivo": "fotos-notas/fkad82.jpg",
@@ -28512,9 +28509,7 @@
   "huella": "02538b932babaca4"
  },
  "706e8c": {
-  "archivo": "fotos-notas/706e8c.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Pedro Sánchez responde a Javier Milei con un tema de Lali Espósito",
@@ -28546,7 +28541,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "99dbcb8ecaeaa8e3",
-  "ausenteDesde": "2026-10-21T14:11:39.586Z"
+  "intentado": true,
+  "borrada": true
  },
  "1tzpx4f": {
   "archivo": "fotos-notas/1tzpx4f.jpg",
@@ -28574,9 +28570,7 @@
   "ausenteDesde": "2026-10-22T20:06:46.266Z"
  },
  "qzd8f1": {
-  "archivo": "fotos-notas/qzd8f1.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Ferroviarios cae ante Momias de Necochea y aguarda rival en los playoffs",
@@ -28596,7 +28590,8 @@
    "descripcion": "Equipo de básquet de Ferroviarios posando en la cancha"
   },
   "huella": "6a77f5f4c0d8f0f7",
-  "ausenteDesde": "2026-10-21T14:41:09.833Z"
+  "intentado": true,
+  "borrada": true
  },
  "rp0wts": {
   "archivo": "fotos-notas/qzd8f1.jpg",
@@ -40964,7 +40959,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "6525a4252726cccc"
+  "huella": "6525a4252726cccc",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "16tgva7": {
   "archivo": "fotos-notas/16tgva7.jpg",
@@ -42457,7 +42453,8 @@
    "corresponde": "si",
    "descripcion": "Vista exterior del edificio central de ANSES"
   },
-  "huella": "1e2eabb9b8be9c96"
+  "huella": "1e2eabb9b8be9c96",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "jmznw7": {
   "archivo": "fotos-notas/jmznw7.jpg",
@@ -43035,7 +43032,8 @@
    "corresponde": "si",
    "descripcion": "Jugador picando el balón en pleno partido de básquet."
   },
-  "huella": "c6e3e190d1d4c1e8"
+  "huella": "c6e3e190d1d4c1e8",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "1vtomw3": {
   "intentado": true,
@@ -47088,15 +47086,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1goe3gw": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Los bonos argentinos rebotan y el riesgo país se ubica en 750 puntos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T18:03:19.485Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/o4b1ca.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país baja a 753 puntos y los bonos argentinos repuntan",
+  "enlace": "https://mi8.com.ar/caen-las-acciones-argentinas-y-el-riesgo-pais-sube-a-745-puntos/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2026/10/mercados-acciones-riesgo-pais-bolsa-nueva-york.jpg",
+  "razon": "Es la foto con mejor encuadre y nitidez de la bolsa de valores, sin marcas de agua ni menores, adecuada para ilustrar la economía y los mercados financieros.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores trabajando en la bolsa de valores con pantallas de cotizaciones."
+  },
+  "huella": "672b2b293a3726e6"
  },
  "1fblc1n": {
   "intentado": true,
@@ -47200,7 +47211,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf"
+  "huella": "3591555c28ecbdbf",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "si5xga": {
   "intentado": true,
@@ -49633,10 +49645,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
-  "razon": "La única imagen disponible es un logotipo gráfico del medio y no corresponde a una fotografía del evento.",
-  "cuando": "2026-10-28T12:54:41.107Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ninguna foto sirve porque la A contiene el logo del medio y la B muestra menores de edad.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "bijcil": {
   "archivo": "fotos-notas/bijcil.jpg",
@@ -49779,15 +49791,28 @@
   "huella": "35050811991c6007"
  },
  "1ry0zk7": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ry0zk7.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Discrepan sobre supuestos golpes a Javier Milei en su llegada a Catamarca",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-28T13:04:57.092Z",
-  "intentos": 1,
-  "fuentes": 7,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://radiomitre.cienradios.com/politica/un-diputado-de-lla-aseguro-que-golpearon-a-javier-milei-en-su-llegada-al-hotel-en-catamarca/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/E37WSXDJDBGUPNPN4KEY4QKGXU.jpg?smart=true&auth=31a12e0cf552fd2bad7f2a8c9e878e2d2ba73f33f22186590bc204ec33267f28&width=1200&height=630",
+  "razon": "Es la única foto que ilustra claramente la llegada sin marcas añadidas, menores reconocibles ni problemas de calidad.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei llegando a un lugar con traje oscuro y corbata azul"
+  },
+  "huella": "c7d6c30900a9ac0c"
  },
  "1vx77qw": {
   "archivo": "fotos-notas/1vx77qw.jpg",
@@ -49887,10 +49912,10 @@
   "origen": "ninguna",
   "titulo": "Peñarol supera a San Martín 95 a 76 y estira su invicto",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-28T13:36:50.968Z",
+  "cuando": "2026-10-28T14:38:06.335Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "10seb3s": {
   "intentado": true,
@@ -49925,7 +49950,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro bajando de un avión en Miami junto a otras personas."
   },
-  "huella": "6464684c6c4c4ce4"
+  "huella": "6464684c6c4c4ce4",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "1etn680": {
   "archivo": "fotos-notas/1etn680.jpg",
@@ -49949,7 +49975,8 @@
    "corresponde": "si",
    "descripcion": "Jubilada en una oficina de ANSES frente a una empleada."
   },
-  "huella": "6b4f4359581c1593"
+  "huella": "6b4f4359581c1593",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "ispal6": {
   "archivo": "fotos-notas/ispal6.jpg",
@@ -49973,7 +50000,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores festejando y la copa Sudamericana"
   },
-  "huella": "262b6ca6a684d444"
+  "huella": "262b6ca6a684d444",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "2t91wl": {
   "archivo": "fotos-notas/2t91wl.jpg",
@@ -49997,7 +50025,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf"
+  "huella": "3591555c28ecbdbf",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
  },
  "1jp7qfd": {
   "intentado": true,
@@ -50040,6 +50069,132 @@
    "corresponde": "si",
    "descripcion": "Jugador pateando la pelota durante el partido."
   },
-  "huella": "54345276320f0b0f"
+  "huella": "54345276320f0b0f",
+  "ausenteDesde": "2026-10-28T14:43:23.776Z"
+ },
+ "79n3bx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes piden recuperar la Estudiantina",
+  "razon": "La única foto disponible incluye menores reconocibles en la tribuna y grupos de jóvenes, por lo que no cumple con la política de publicación del medio.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1mqndzx": {
+  "archivo": "fotos-notas/1mqndzx.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Juan Manuel Fangio gana su primer campeonato en la Fórmula 1",
+  "enlace": "https://dib.com.ar/adn-bonaerense/fangio-hace-75-anos-el-chueco-balcarce-ganaba-su-primer-titulo-formula-1-n56868",
+  "imagenOriginal": "https://media.dib.com.ar/p/d87b93f601f8f0f8d49fe78e0bb11e6a/adjuntos/377/imagenes/100/059/0100059835/1200x675/smart/fangio-espana-1951-rs.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y muestra claramente a Juan Manuel Fangio en su monoplaza de Fórmula 1 ante el público.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juan Manuel Fangio conduciendo un auto de Fórmula 1 frente a una multitud."
+  },
+  "huella": "6f1e2f6744d4d4f4"
+ },
+ "166k37n": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Reutilizan el cristal de la puerta de un lavarropas para decoración",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1
+ },
+ "stxwsg": {
+  "archivo": "fotos-notas/stxwsg.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro llega a Estados Unidos tras salir de Brasil",
+  "enlace": "https://www.eldestapeweb.com/internacionales/fuga-flavio-bolsonaro-senador-llego-estados-unidos-paso-argentina-20261028104647",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793196042036.jpg?&cw=1600&ch=900",
+  "razon": "Es la mejor foto que ilustra la llegada de Flávio Bolsonaro sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro bajando de un avión"
+  },
+  "huella": "4d5c5d5cdcd5c53f"
+ },
+ "ogimb9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Anuncian la grilla de artistas para la visita del papa Léon XIV",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Destape no se usa todavía.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1
+ },
+ "o4b1ca": {
+  "archivo": "fotos-notas/o4b1ca.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país baja a 753 puntos y los bonos argentinos repuntan",
+  "enlace": "https://mi8.com.ar/caen-las-acciones-argentinas-y-el-riesgo-pais-sube-a-745-puntos/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2026/10/mercados-acciones-riesgo-pais-bolsa-nueva-york.jpg",
+  "razon": "Es la foto con mejor encuadre y nitidez de la bolsa de valores, sin marcas de agua ni menores, adecuada para ilustrar la economía y los mercados financieros.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores trabajando en la bolsa de valores con pantallas de cotizaciones."
+  },
+  "huella": "672b2b293a3726e6"
+ },
+ "h8jxu4": {
+  "archivo": "fotos-notas/h8jxu4.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Productores bananeros regalan 3000 kilos de fruta en Laguna Naineck",
+  "enlace": "https://tn.com.ar/campo/2026/10/27/productores-bananeros-regalaron-mas-de-3000-kilos-de-fruta-en-formosa-en-reclamo-de-una-crisis-terminal/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/durante-la-protesta-en-la-interseccion-de-la-ruta-86-y-la-avenida-san-martin-productores-bananeros-de-laguna-naineck-regalaron-mas-de-3000-kilos-de-fruta-a-los-vecinos-para-hacer-visible-la-crisis-que-atraviesa-el-sector-foto-captura-de-video-XQNVXUHY7RCHFN7XNM3EH5F5PU.jpg?auth=6aa1abb462f0b335746b77b46ed2649de98dfdd8353890c1a117c483124e1dbf&width=1023",
+  "razon": "Muestra claramente el hecho sin marcas de agua ni menores, siendo la de mejor calidad entre las opciones.",
+  "cuando": "2026-10-28T14:38:06.335Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Productores entregando bananas desde la parte trasera de un vehículo"
+  },
+  "huella": "f1129199a5f9ada5"
  }
 }
