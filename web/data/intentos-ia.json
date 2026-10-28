@@ -144,11 +144,6 @@
   "textos": 7,
   "numeradas": 13
  },
- "10y519j": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T16:31:17.473Z",
-  "motivo": "con cuerpo"
- },
  "10ymrrf": {
   "intentos": 1,
   "ultimo": "2026-10-25T16:01:40.784Z",
@@ -297,11 +292,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "12dac1n": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T16:31:17.473Z",
-  "motivo": "con cuerpo"
  },
  "12hiw48": {
   "intentos": 1,
@@ -748,17 +738,14 @@
   "numeradas": 2
  },
  "164d2zn": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T16:07:52.055Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 56 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 226 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 3.000.000.000 y el cuerpo",
    "cuerpo: 1 problema (copia): copia 56 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 56 palabras seguidas del original (\"ante este escenario las autoridades decidieron realizar un nuevo llamado con modificaciones en las"
   ]
  },
  "166k37n": {
@@ -1268,6 +1255,22 @@
   "intentos": 1,
   "ultimo": "2026-10-22T20:01:43.044Z",
   "motivo": "con cuerpo"
+ },
+ "19o2az": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "cuerpo: 3 problemas (antecedente, fecha, repite): el cuerpo usa \"var\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 0 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 3 problemas (antecedente, fecha, repite): el cuerpo usa \"var\","
+  ],
+  "falla": [
+   "el cuerpo usa \"var\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo menciona \"lunes\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "19ok4f7": {
   "intentos": 1,
@@ -2062,11 +2065,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 8
- },
- "1fl3kia": {
-  "intentos": 2,
-  "ultimo": "2026-10-21T16:31:17.473Z",
-  "motivo": "con cuerpo"
  },
  "1fl3rry": {
   "intentos": 1,
@@ -3311,6 +3309,21 @@
    "título o bajada: 1 problema (negacion): agrega una negación que la fue"
   ]
  },
+ "1oekd03": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "cuerpo: 2 problemas (tilde, tildes): el cuerpo dice \"mas\" en vez de \"más\": \"El cantante y productor estadounidense Armando Christian Pér\"; sin esas oraciones qu",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "cuerpo: 2 problemas (tilde, tildes): el cuerpo dice \"mas\" en vez de \"m"
+  ],
+  "falla": [
+   "el cuerpo dice \"mas\" en vez de \"más\": \"El cantante y productor estadounidense Armando Christian Pér\"",
+   "el texto está escrito sin tildes (produccion, presentacion, proyeccion, ademas, participacion): va con las tildes y la eñe donde corresponde"
+  ]
+ },
  "1ogsmzm": {
   "intentos": 1,
   "ultimo": "2026-10-26T14:33:42.558Z",
@@ -4019,6 +4032,20 @@
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
   ]
  },
+ "1tmyfko": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
+  "textos": 6,
+  "numeradas": 26,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 91 caracteres, el máximo es 90"
+  ]
+ },
  "1typ7xh": {
   "intentos": 1,
   "ultimo": "2026-10-24T01:42:55.948Z",
@@ -4028,6 +4055,13 @@
   "intentos": 1,
   "ultimo": "2026-10-24T01:02:13.201Z",
   "motivo": "con cuerpo"
+ },
+ "1u06ywn": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "1u1k4ng": {
   "intentos": 2,
@@ -4328,11 +4362,6 @@
  "1vtze3b": {
   "intentos": 1,
   "ultimo": "2026-10-22T15:32:38.768Z",
-  "motivo": "con cuerpo"
- },
- "1vvngo6": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T16:31:17.473Z",
   "motivo": "con cuerpo"
  },
  "1vx77qw": {
@@ -5864,11 +5893,6 @@
   "ultimo": "2026-10-22T13:33:22.011Z",
   "motivo": "con cuerpo"
  },
- "bh3sgs": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T16:31:17.473Z",
-  "motivo": "con cuerpo"
- },
  "bi2f2l": {
   "intentos": 1,
   "ultimo": "2026-10-27T20:21:57.157Z",
@@ -6216,17 +6240,14 @@
   ]
  },
  "epbd9f": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T16:07:52.055Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 238 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "con cuerpo",
   "textos": 8,
-  "numeradas": 21,
+  "numeradas": 22,
   "motivos": [
    "título o bajada: 1 problema (forma): el copete dice \"en directo\" y el ",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "erzl3d": {
@@ -6301,11 +6322,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "f5uus6": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T16:31:17.473Z",
-  "motivo": "con cuerpo"
  },
  "f62v8u": {
   "intentos": 2,
@@ -6993,6 +7009,13 @@
   "intentos": 1,
   "ultimo": "2026-10-21T20:31:13.358Z",
   "motivo": "con cuerpo"
+ },
+ "l7z1jg": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "l97la3": {
   "intentos": 1,
@@ -8600,6 +8623,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "v9mo2e": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T16:37:44.523Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
  },
  "vbos36": {
   "intentos": 1,

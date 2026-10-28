@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T16:17:07.747Z",
- "portada": 149,
+ "generado": "2026-10-28T16:40:50.712Z",
+ "portada": 174,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-28T16:17:09.086Z",
+  "generado": "2026-10-28T16:40:51.270Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,16 +126,11 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 55,
     "notas": [
      {
-      "id": "on90e1",
-      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "kua1e9",
-      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "id": "1xnehl1",
+      "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
       "seccion": "Cultura y agenda"
      },
      {
@@ -144,9 +139,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "mimoad",
-      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
-      "seccion": "Argentina"
+      "id": "jultnd",
+      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+      "seccion": "Economía"
+     },
+     {
+      "id": "on90e1",
+      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
      {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
-      "seccion": "Argentina"
+      "id": "kua1e9",
+      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "19r8vz8",
-      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
-      "seccion": "Fútbol"
+      "id": "rmyepl",
+      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+      "seccion": "Balcarce"
      },
      {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
+      "id": "l7z1jg",
+      "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
+      "seccion": "Agro"
      },
      {
-      "id": "si5xga",
-      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
-      "seccion": "Economía"
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
      }
     ]
    }
@@ -208,6 +208,18 @@
      "marcada": false
     },
     {
+     "id": "1xnehl1",
+     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "le5im8",
+     "titulo": "Confirman la realización de la Estudiantina para el año 2027",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "mimoad",
      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
      "seccion": "Argentina",
@@ -220,8 +232,14 @@
      "marcada": false
     },
     {
-     "id": "le5im8",
-     "titulo": "Confirman la realización de la Estudiantina para el año 2027",
+     "id": "jultnd",
+     "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "u2pkjm",
+     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -229,18 +247,6 @@
      "id": "1nvngno",
      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "18tglcn",
-     "titulo": "Modifican el calendario del fútbol argentino por la visita del papa León XIV",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "frkbns",
-     "titulo": "Aldosivi y River juegan el jueves 5 de noviembre con público visitante",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],

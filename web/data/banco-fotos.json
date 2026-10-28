@@ -24603,9 +24603,7 @@
   "ausenteDesde": "2026-10-25T08:19:29.411Z"
  },
  "90372i": {
-  "archivo": "fotos-notas/90372i.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Reino confirma que deja la intendencia y detalla la elección de su sucesor",
@@ -24625,7 +24623,8 @@
    "descripcion": "Esteban Reino sentado en el estudio de Radio Gabal con un micrófono."
   },
   "huella": "6f2f0f2d0bab2431",
-  "ausenteDesde": "2026-10-21T16:32:49.887Z"
+  "intentado": true,
+  "borrada": true
  },
  "z2zrep": {
   "archivo": "fotos-notas/z2zrep.jpg",
@@ -42894,7 +42893,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con la bandera argentina de fondo."
   },
-  "huella": "b59199a9a8acacd0"
+  "huella": "b59199a9a8acacd0",
+  "ausenteDesde": "2026-10-28T16:40:50.636Z"
  },
  "18po634": {
   "intentado": true,
@@ -45418,7 +45418,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi y Cristiano Ronaldo con traje y moño"
   },
-  "huella": "2333337333737123"
+  "huella": "2333337333737123",
+  "ausenteDesde": "2026-10-28T16:40:50.636Z"
  },
  "1n4to7a": {
   "archivo": "fotos-notas/6jbun3.jpg",
@@ -45693,7 +45694,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Instituto festejando en la cancha durante el partido"
   },
-  "huella": "95ef574f4f0f6f3f"
+  "huella": "95ef574f4f0f6f3f",
+  "ausenteDesde": "2026-10-28T16:40:50.636Z"
  },
  "yfe1jz": {
   "archivo": "fotos-notas/yfe1jz.jpg",
@@ -46039,7 +46041,8 @@
    "corresponde": "si",
    "descripcion": "Dibu Martínez sonriendo en la gala de premiación"
   },
-  "huella": "cc8c8c8c8cae4e46"
+  "huella": "cc8c8c8c8cae4e46",
+  "ausenteDesde": "2026-10-28T16:40:50.636Z"
  },
  "q9qpl2": {
   "archivo": "fotos-notas/q9qpl2.jpg",
@@ -50606,7 +50609,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1e99999bd9c9585c"
+  "huella": "1e99999bd9c9585c",
+  "ausenteDesde": "2026-10-28T16:40:50.636Z"
  },
  "ewsj3i": {
   "intentado": true,
@@ -50617,5 +50621,27 @@
   "intentos": 1,
   "fuentes": 19,
   "intentosPorCupo": 1
+ },
+ "l7z1jg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T16:40:41.699Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "164d2zn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Provincia lanza nueva licitación de medicamentos oncológicos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T16:40:41.699Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
