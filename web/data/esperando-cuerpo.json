@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-28T10:02:58.025Z",
+ "generado": "2026-10-28T10:33:30.596Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -154,65 +154,6 @@
    "maximo": 3
   },
   {
-   "id": "1h174xa",
-   "titulo": "A cuánto llega la PUAM en noviembre de 2026 con el aumento confirmado",
-   "copete": "Los beneficiarios de la PUAM (Pensión Universal para el Adulto Mayor) que habitualmente cobran la prestación a través de la Anses (Administración Nacional de la Seguridad Social), tienen en noviembre un incremento del 1,93% , producto de la actualización automática con el último…",
-   "seccion": "Economía",
-   "fecha": "2026-10-27T11:00:00.000Z",
-   "fuentes": [
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/economia/a-cuanto-llega-la-puam-en-noviembre-de-2026-con-el-aumento-confirmado-nid20102026/",
-     "fecha": "2026-10-27T10:12:21.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/previsional/anses-confirmo-el-aumento-la-puam-y-pnc-noviembre-n1610835",
-     "fecha": "2026-10-28T09:21:00.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/sociedad/pnc-y-puam-de-anses-cuanto-se-cobra-en-noviembre-con-aumento-y-bono/",
-     "fecha": "2026-10-27T11:00:00.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "Gemini: Bad control character in string literal in JSON at position 1054 (line 1 column 1055)",
-   "maximo": 3
-  },
-  {
-   "id": "bag458",
-   "titulo": "El riesgo país baja a 748 puntos y rebotan las acciones argentinas en Wall Street",
-   "copete": "El indicador de JP Morgan retrocedió 17 puntos y volvió a ubicarse por debajo de las 750 unidades, luego de las subas registradas en la rueda anterior. Los bonos argentinos avanzaron hasta un 0,6%, mientras las acciones mostraron resultados dispares y el dólar oficial se mantuvo…",
-   "seccion": "Economía",
-   "fecha": "2026-10-27T19:48:00.000Z",
-   "fuentes": [
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/economia/el-riesgo-pais-baja-748-puntos-y-rebotan-las-acciones-argentinas-wall-street-n1610666",
-     "fecha": "2026-10-27T18:43:00.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/economia/2026/10/27/el-riesgo-pais-baja-a-758-puntos-basicos-y-las-acciones-argentinas-suben-en-wall-street/",
-     "fecha": "2026-10-27T22:13:17.000Z"
-    },
-    {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/finanzas/467584-rebotan-las-acciones-argentinas-en-wall-street-y-el-riesgo-pais-perfora-los-750-puntos",
-     "fecha": "2026-10-27T19:48:00.000Z"
-    },
-    {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/economia/el-riesgo-pais-bajo-a-753-puntos-tras-la-tension-por-las-elecciones-en-brasil-como-le-fue-a-las-acciones-argentinas-en-wall-street/",
-     "fecha": "2026-10-27T21:11:18.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el cuerpo no los explica; sin esas oraciones quedan 246 palabras",
-   "maximo": 3
-  },
-  {
    "id": "1npjo2h",
    "titulo": "El PRO volvió a diferenciarse del Gobierno y aseguró que “Brasil es nuestro vecino y socio central en el Mercosur“",
    "copete": "",
@@ -299,6 +240,14 @@
    "fecha": "2026-10-27T16:20:59.545Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (pasado): el título está en pasado: va en presente, como \"aprueba\" o \"gana\""
+  },
+  {
+   "id": "bag458",
+   "titulo": "El riesgo país baja a 748 puntos y rebotan las acciones argentinas en Wall Street",
+   "seccion": "Economía",
+   "fecha": "2026-10-27T19:48:00.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo: 12 problemas (numero, nombre, promesa): el cuerpo dice 24 y la fuente no lo dice; sin esas oraciones quedan 235 palabras"
   }
  ]
 }

@@ -25204,9 +25204,7 @@
   "borrada": true
  },
  "ws4cc6": {
-  "archivo": "fotos-notas/ws4cc6.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Hallan sin vida a dos peones rurales durante la crecida de ríos en Corrientes",
@@ -25228,7 +25226,8 @@
    "detalle": "Se leen las inscripciones 'POLICIA DE CORRIENTES' y 'MERCURY' en las lanchas, pero son parte de la escena real y no marcas de agua del medio."
   },
   "huella": "bee6e44b839b8a92",
-  "ausenteDesde": "2026-10-21T10:31:36.979Z"
+  "intentado": true,
+  "borrada": true
  },
  "futboltablaliga20261010": {
   "archivo": "fotos-notas/libre-futboltablaliga20261010.jpg",
@@ -28076,9 +28075,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1cvwp3j": {
-  "archivo": "fotos-notas/1cvwp3j.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca derrota a Vasco da Gama en Brasil y avanza a la final",
@@ -28098,7 +28095,8 @@
    "descripcion": "Jugador de Boca celebrando con la camiseta"
   },
   "huella": "290d2c4507574dc5",
-  "ausenteDesde": "2026-10-21T10:03:15.581Z"
+  "intentado": true,
+  "borrada": true
  },
  "16n77p9": {
   "medio": "Olé",
@@ -28237,9 +28235,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "8eeslz": {
-  "archivo": "fotos-notas/8eeslz.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Liga Balcarceña difunde los partidos de la segunda fecha del torneo",
@@ -28271,12 +28267,11 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "319587251c33050f",
-  "ausenteDesde": "2026-10-21T10:31:36.979Z"
+  "intentado": true,
+  "borrada": true
  },
  "1l27pp5": {
-  "archivo": "fotos-notas/1l27pp5.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "ANSES paga jubilaciones y asignaciones con DNI en 8",
@@ -28296,7 +28291,8 @@
    "descripcion": "Cartel institucional de ANSES en una fachada exterior con árboles"
   },
   "huella": "868e4ecede1e3e32",
-  "ausenteDesde": "2026-10-21T10:31:36.979Z"
+  "intentado": true,
+  "borrada": true
  },
  "ttv205": {
   "archivo": "fotos-notas/ttv205.jpg",
@@ -43111,7 +43107,8 @@
    "corresponde": "si",
    "descripcion": "Carlos Jornet hablando en el estrado durante la sesion de clausura de la SIP"
   },
-  "huella": "1f3b66ec9a8b9e91"
+  "huella": "1f3b66ec9a8b9e91",
+  "ausenteDesde": "2026-10-28T10:33:30.518Z"
  },
  "1fezvyn": {
   "intentado": true,
@@ -46968,15 +46965,28 @@
   "huella": "0a121212126a4a8a"
  },
  "1s0kbrg": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Migraciones niega el ingreso de Flávio Bolsonaro al país tras un operativo en Misiones",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T17:04:38.096Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/wjy7q4.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flavio Bolsonaro ingresa a la Argentina y toma un vuelo privado en Misiones",
+  "enlace": "https://tn.com.ar/internacional/2026/10/28/fuga-de-flavio-bolsonaro-la-salida-de-un-misterioso-avion-de-puerto-iguazu-suma-dudas-sobre-su-paradero/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/flavio-bolsonaro-despego-esta-madrugada-desde-puerto-iguazu-foto-tn-63WLCSRGTNCHVJ6TI6WBQLRNDM.jpg?auth=e60591954de40f81f5f38832ff94ae8faeb6006481e4d2a300d2017366cd1646&width=1023",
+  "razon": "La foto B muestra el hecho concreto de la nota (el vuelo privado en Misiones) sin marcas ni problemas, a diferencia de A y C que son fotos de archivo de Flavio Bolsonaro en Brasil.",
+  "cuando": "2026-10-28T07:54:27.451Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Avión privado en pista de aterrizaje de noche"
+  },
+  "huella": "87af1424120f1a30"
  },
  "c76w83": {
   "intentado": true,
@@ -48550,7 +48560,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei saludando a un trabajador en una sala de control"
   },
-  "huella": "fd6e6ea9a9c34667"
+  "huella": "fd6e6ea9a9c34667",
+  "ausenteDesde": "2026-10-28T10:33:30.518Z"
  },
  "1t0bf8r": {
   "archivo": "fotos-notas/1t0bf8r.jpg",
@@ -48775,5 +48786,221 @@
   "intentos": 1,
   "fuentes": 2,
   "intentosPorCupo": 1
+ },
+ "aplebb": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Liga Balcarceña adelanta los partidos al sábado por el Superclásico",
+  "razon": "La unica imagen disponible es una placa grafica con el logo del medio y no corresponde a una fotografia de la noticia.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "e2zs9v": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Liga Balcarceña reprograma los partidos suspendidos del torneo Oficial",
+  "razon": "La imagen proporcionada es un logotipo gráfico y no una fotografía que ilustre la nota sobre fútbol.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1ntbquu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Social Pato arranca los play-offs del hockey marplatense con triunfos y derrotas",
+  "razon": "La única imagen provista es el logo del medio y no corresponde a una foto de la nota.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1h174xa": {
+  "archivo": "fotos-notas/1h174xa.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses actualiza los haberes de la PUAM y las PNC para noviembre",
+  "enlace": "https://www.cronica.com.ar/sociedad/pnc-y-puam-de-anses-cuanto-se-cobra-en-noviembre-con-aumento-y-bono/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1695/1695957/6a7dc5c7820d9_600_315!.jpg?s=8a022f688c9dff387210a090b311b37a&d=1793135453",
+  "razon": "La IA había preferido la de La Nación, pero no se puede usar (parece una foto de stock): se usa Crónica en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Adulto mayor caminando frente a una oficina de Anses"
+  },
+  "huella": "276f12f7e6e8ecee"
+ },
+ "13b0hlr": {
+  "archivo": "fotos-notas/13b0hlr.jpg",
+  "medio": "Agroempresario",
+  "credito": "Foto: Agroempresario",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina recibe 60 auditorías sanitarias para ampliar mercados externos",
+  "enlace": "https://agroempresario.com/publicacion/122922/argentina-recibio-60-auditorias-sanitarias-para-ampliar-mercados/",
+  "imagenOriginal": "https://cdn.agroempresario.com/images/posts/d0df03860fac2788b8b0439e2df291b8ef9221b3ee519a7f_840.jpg",
+  "razon": "Muestra claramente una reunión oficial relevante para la ampliación de mercados externos y cumple con todos los criterios técnicos.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión oficial en mesa de trabajo con funcionarios y banderas"
+  },
+  "huella": "b29a1a0a3c143bdb"
+ },
+ "1vr0ukt": {
+  "archivo": "fotos-notas/1vr0ukt.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno oficializa el cronograma de feriados y cortes por la visita papal",
+  "enlace": "https://www.c5n.com/sociedad/avanzan-los-preparativos-caba-la-visita-del-papa-leon-xiv-n252641",
+  "imagenOriginal": "https://media.c5n.com/p/e7ed0b20a1a589544361b6f84e0ff121/adjuntos/326/imagenes/000/403/0000403220/1200x675/smart/papa-leon-xiv.jpg",
+  "razon": "Es la mejor foto disponible que cumple con todos los requisitos, mostrando claramente al Papa sin marcas añadidas, menores ni problemas de archivo.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato del Papa sonriendo con fondo negro",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Retrato del Papa Francisco con su vestimenta blanca sobre fondo oscuro"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3010303030383838"
+ },
+ "1vatzqp": {
+  "archivo": "fotos-notas/1vatzqp.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Autorizan aumentos del 3% en noviembre y diciembre para colegios privados",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/habilitan-el-aumento-de-los-colegios-privados-3-en-noviembre-y-3-en-diciembre",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/julio/santarosaok.png",
+  "razon": "Es la única foto válida que muestra un colegio privado de Balcarce sin menores reconocibles y sin marcas de medios.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Frente del Colegio Santa Rosa de Lima en Balcarce",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fachada exterior del Colegio Santa Rosa de Lima en Balcarce."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1d1e1adb751d0cae"
+ },
+ "1lonqjh": {
+  "archivo": "fotos-notas/1lonqjh.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Petruccelli pide reunirse con Reino para evitar la suspensión de la Estudiantina",
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/petruccelli-pidio-revisar-la-suspension-de-la-estudiantina-prevenir-es-una-cosa-y-prohibir-es-otra",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2025/Gabriel_Petruccelli.jpeg",
+  "razon": "Es la foto que mejor ilustra al protagonista de la nota en una escena real, sin menores de edad ni marcas agregadas por el medio.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre de pie en un estudio de radio frente a un fondo con logos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Un hombre de polo gris posa frente a un fondo publicitario de la radio GaBal 104.1 Mhz."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "03036b2c0d0d0d0d"
+ },
+ "v28iop": {
+  "archivo": "fotos-notas/v28iop.jpg",
+  "medio": "Agrofy News",
+  "credito": "Foto: Agrofy News",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno destaca financiamiento para alimentos balanceados",
+  "enlace": "https://news.agrofy.com.ar/noticia/216864/alimento-balanceado-90-dias-tasa-0-baja-aranceles-en-carpeta-gobierno-destaca-financiamiento-disponi",
+  "imagenOriginal": "https://news.agrofystatic.com/portadas/nutricion_animal-sqjad.jpg?d=1200x675",
+  "razon": "Es la mejor foto disponible que cumple con todos los requisitos y muestra ganado alimentándose.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vacunos comiendo balanceado en comederos junto a un tractor."
+  },
+  "huella": "e2db99b9ba3f6d69"
+ },
+ "8n0ond": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Benjamín encabeza el ranking de nombres de varón más elegidos desde 2020",
+  "razon": "Todas las fotos muestran menores de edad con la cara visible, por lo que ninguna puede ser publicada según la política del medio.",
+  "cuando": "2026-10-28T10:32:28.598Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }

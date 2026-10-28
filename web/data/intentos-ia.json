@@ -340,6 +340,13 @@
   "textos": 3,
   "numeradas": 4
  },
+ "13b0hlr": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "13b5zj": {
   "intentos": 1,
   "ultimo": "2026-10-21T21:01:12.633Z",
@@ -2092,15 +2099,16 @@
   ]
  },
  "1h174xa": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T10:01:16.517Z",
-  "motivo": "Gemini: Bad control character in string literal in JSON at position 1054 (line 1 column 1055)",
+  "intentos": 3,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 6 problemas (numero, promesa): el cuerpo dice 5.000 y la fuent",
    "cuerpo: 11 problemas (numero, copia, promesa): el cuerpo dice 5.000 y ",
-   "Gemini: Bad control character in string literal in JSON at position 10"
+   "Gemini: Bad control character in string literal in JSON at position 10",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
  "1h1irbf": {
@@ -2448,12 +2456,14 @@
   ]
  },
  "1jclmlr": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T10:01:16.517Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T10:31:23.389Z",
   "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
+   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
   ]
  },
@@ -2994,6 +3004,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1ntbquu": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1ntclvn": {
   "intentos": 1,
@@ -4016,6 +4033,13 @@
   "intentos": 1,
   "ultimo": "2026-10-24T02:31:30.840Z",
   "motivo": "con cuerpo"
+ },
+ "1vr0ukt": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 7
  },
  "1vrprpw": {
   "intentos": 1,
@@ -5358,6 +5382,16 @@
   "ultimo": "2026-10-21T15:31:39.554Z",
   "motivo": "con cuerpo"
  },
+ "aplebb": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d"
+  ]
+ },
  "arrjxr": {
   "intentos": 1,
   "ultimo": "2026-10-22T05:01:19.492Z",
@@ -5419,19 +5453,22 @@
   "motivo": "con cuerpo"
  },
  "bag458": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T10:01:16.517Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el cuerpo no los explica; sin esas oraciones quedan 246 palabras",
-  "textos": 4,
+  "intentos": 3,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "cuerpo: 12 problemas (numero, nombre, promesa): el cuerpo dice 24 y la fuente no lo dice; sin esas oraciones quedan 235 palabras",
+  "textos": 3,
   "numeradas": 4,
   "motivos": [
-   "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el",
-   "cuerpo: 3 problemas (repite, copia, promesa): el cuerpo repite el cope",
    "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 23 y la fuente n",
-   "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el"
+   "cuerpo: 1 problema (promesa): el título nombra a \"wall\", \"street\" y el",
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 2 y la fuente no",
+   "cuerpo: 12 problemas (numero, nombre, promesa): el cuerpo dice 24 y la"
   ],
   "falla": [
-   "el título nombra a \"wall\", \"street\" y el cuerpo no los explica"
+   "el cuerpo dice 24 y la fuente no lo dice",
+   "el cuerpo nombra a \"agencia\" y la fuente no",
+   "el cuerpo nombra a \"radio\" y la fuente no",
+   "el cuerpo nombra a \"mitre\" y la fuente no"
   ]
  },
  "batui6": {
@@ -5736,6 +5773,13 @@
   "intentos": 2,
   "ultimo": "2026-10-21T18:31:25.970Z",
   "motivo": "con cuerpo"
+ },
+ "e2zs9v": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T10:31:23.389Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "e6hb9u": {
   "intentos": 1,
