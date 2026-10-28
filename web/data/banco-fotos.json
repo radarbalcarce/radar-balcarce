@@ -28925,9 +28925,7 @@
   "ausenteDesde": "2026-10-21T20:33:25.289Z"
  },
  "1q2lmre": {
-  "archivo": "fotos-notas/1q2lmre.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca vence a Vasco da Gama y se clasifica a la final de la Copa Sudamericana",
@@ -28959,7 +28957,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "9b6b317578714246",
-  "ausenteDesde": "2026-10-21T16:08:35.575Z"
+  "intentado": true,
+  "borrada": true
  },
  "z6r54g": {
   "intentado": true,
@@ -42430,7 +42429,8 @@
    "corresponde": "si",
    "descripcion": "Lideres políticos al aire libre"
   },
-  "huella": "4c0d51632c4e9a96"
+  "huella": "4c0d51632c4e9a96",
+  "ausenteDesde": "2026-10-28T16:17:07.615Z"
  },
  "15wslu0": {
   "archivo": "fotos-notas/15wslu0.jpg",
@@ -46125,7 +46125,8 @@
    "corresponde": "si",
    "descripcion": "Maíz siendo descargado por una cinta transportadora en un silo"
   },
-  "huella": "af8ebf1e0e4b8808"
+  "huella": "af8ebf1e0e4b8808",
+  "ausenteDesde": "2026-10-28T16:17:07.615Z"
  },
  "1gfq21m": {
   "archivo": "fotos-notas/1gfq21m.jpg",
@@ -47369,15 +47370,28 @@
   "huella": "7071172353733129"
  },
  "6rpx81": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/6rpx81.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Bunge cierra planta de agroquímicos en Campana y despide a 110 personas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T21:34:16.878Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.eleco.com.ar/economia/un-gigante-del-agro-dejara-de-producir-compuestos-y-despedira-a-110-trabajadores",
+  "imagenOriginal": "https://cdnartic.ar/zQewr_ga86XQX7EHYJgaVYDMY8A=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/bunge.webp",
+  "razon": "La foto B muestra la planta de Bunge sin marcas agregadas por el medio.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Entrada y silos de la planta de Bunge con árboles"
+  },
+  "huella": "5f474da9ad4f2dab"
  },
  "10nw5om": {
   "intentado": true,
@@ -47472,13 +47486,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "105wm5c": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/105wm5c.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Personal doméstico cobra un aumento salarial en noviembre",
-  "razon": "La mejor foto era la de TN (Todo Noticias), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-28T13:04:57.092Z",
-  "intentos": 2,
-  "fuentes": 4
+  "enlace": "https://tn.com.ar/economia/2026/10/27/empleo-domestico-cuanto-cobraran-en-noviembre-con-el-nuevo-aumento-confirmado/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/empleo-domestico-cuanto-cobraran-en-noviembre-con-el-nuevo-aumento-confirmado-foto-freepik-ZXITYHFFUFCXPL32CMLTDIZOUM.jpg?auth=6a65ddf2dd1b7414e005fc44a5b215d4bb2a92917bdb75f4226f0a212fa25d00&width=1023",
+  "razon": "Es la mejor foto disponible que ilustra la temática de personal doméstico, sin marcas de agua ni menores, con buena nitidez y encuadre.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con guantes amarillos limpiando una superficie de madera"
+  },
+  "huella": "4b4a8ab8988e8e8e"
  },
  "1gyo1er": {
   "intentado": true,
@@ -47490,15 +47519,28 @@
   "fuentes": 5
  },
  "vdmf9a": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/vdmf9a.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Avellaneda lanza el programa Repartidores en Red para trabajadores de plataformas",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-27T22:32:18.731Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.diariopopular.com.ar/provincia/presentaron-el-programa-repartidores-red-avellaneda-n926511",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/2b8367dcbfe42d9ce26cfb8d2fc8461c/adjuntos/143/imagenes/008/262/0008262195/1200x675/smart/27xxx.jpg",
+  "razon": "Es la única foto que corresponde a la nota, tiene buena calidad y no posee marcas de agua sobreimpresas ni menores de edad reconocibles.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de trabajadores de plataformas junto a funcionarios."
+  },
+  "huella": "4f318382cacca6b6"
  },
  "qf4k6e": {
   "intentado": true,
@@ -47722,25 +47764,52 @@
   "huella": "17379f95c41d1d1a"
  },
  "11zxnxp": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/11zxnxp.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cuti Romero critica el Balón de Oro y destaca a Lionel Messi",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T01:02:03.929Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.c5n.com/deportes/el-cuti-romero-destrozo-al-balon-oro-es-todo-marketing-y-puso-lionel-messi-encima-todos-n252711",
+  "imagenOriginal": "https://media.c5n.com/p/e9daf3fc29579d55cf1ed13f0321c231/adjuntos/326/imagenes/000/405/0000405015/1200x675/smart/cuti-romero-messi-kane.jpg",
+  "razon": "Muestra claramente a Cuti Romero junto a Lionel Messi, relacionándose directamente con el contenido y los protagonistas de la nota.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuti Romero junto a Lionel Messi con la camiseta de la selección argentina, y Harry Kane con el Balón de Oro."
+  },
+  "huella": "666662267a7a5a5c"
  },
  "18mf9im": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/18mf9im.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Inter Miami y Cincinnati juegan el miércoles a las 20.30 por la MLS",
-  "razon": "La única foto disponible es un paisaje urbano que no tiene relación con el partido de fútbol de la MLS.",
-  "cuando": "2026-10-28T01:31:18.468Z",
-  "intentos": 1,
-  "fuentes": 7,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/estados-unidos/mls/estados-unidos-mls-2026-inter-miami-vs-fc-cincinnati-semana-27-id768748.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/17/997071/messi-festejo_1440x810.webp?v=1",
+  "razon": "Es una fotografía clara de Lionel Messi en un partido de la MLS, con buen encuadre y sin marcas de agua ni menores.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Messi con camiseta negra de Inter Miami con los brazos abiertos"
+  },
+  "huella": "83899af3e8b8b113"
  },
  "oybhvi": {
   "intentado": true,
@@ -50443,6 +50512,110 @@
    "corresponde": "si",
    "descripcion": "Relámpagos y nubes oscuras de tormenta"
   },
-  "huella": "000c1dcb8acfcd1d"
+  "huella": "000c1dcb8acfcd1d",
+  "ausenteDesde": "2026-10-28T16:17:07.615Z"
+ },
+ "68piqz": {
+  "archivo": "fotos-notas/68piqz.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Signar Energy opera las estaciones de servicio Shell en el país",
+  "enlace": "https://www.lanacion.com.ar/economia/negocios/las-estaciones-shell-ya-tienen-nueva-operadora-quien-esta-detras-del-negocio-nid28102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/mercuria-presento-a-signar-energy-la-nueva-PASSZAUYQFBALOBXMEHV2QOVZU.JPG?auth=cdde580b5d1b193feb0ae4b29495a275c42ef1ae558eb86e2bcb26fc105f1f00&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra claramente una estación de servicio Shell con sus surtidores, sin marcas añadidas ni personas, siendo ideal para ilustrar la nota económica.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de los surtidores de una estación Shell"
+  },
+  "huella": "140e96c6b72b1a98"
+ },
+ "1knjref": {
+  "archivo": "fotos-notas/1knjref.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca define el equipo con dudas en ataque para el Superclásico",
+  "enlace": "https://www.cronica.com.ar/depo/actualidad/la-duda-de-arruabarrena-en-el-ataque-de-boca-de-cara-al-superclasico-con-river-que-lo-cambia-todo/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1726/1726671/6ae21a55aefb2_600_315!.jpg?s=e1e5ca5fed2c8670f8b2786098a34b5d&d=1793156400",
+  "razon": "La foto B muestra al DT con mejor encuadre, nitidez y el escudo visible, sin marcas de agua ni menores.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico sonriente frente al arco con indumentaria azul y amarilla de Boca."
+  },
+  "huella": "73773731303472ca"
+ },
+ "le5im8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Confirman la realización de la Estudiantina para el año 2027",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1n2musy": {
+  "archivo": "fotos-notas/1n2musy.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Verón descarta riesgos de quedar afuera de la final de la Libertadores",
+  "enlace": "https://www.ole.com.ar/estudiantes/veron-brujita-estudiantes-marcos-rojo-libertadores_0_5hflpUgtgC.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/09/17/m43G8XNvW_2000x1500__1.jpg",
+  "razon": "Es una foto clara de Juan Sebastián Verón relacionada con la nota, sin marcas de agua ni menores.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juan Sebastian Veron mirando hacia arriba",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Gustavo Verón, director técnico de Estudiantes, mirando hacia arriba en la banda del campo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1e99999bd9c9585c"
+ },
+ "ewsj3i": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno reglamenta el nuevo Régimen de Zona Fría con descuentos",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-28T16:12:59.167Z",
+  "intentos": 1,
+  "fuentes": 19,
+  "intentosPorCupo": 1
  }
 }

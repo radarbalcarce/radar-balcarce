@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T15:46:59.126Z",
- "portada": 167,
+ "generado": "2026-10-28T16:17:07.747Z",
+ "portada": 149,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-10-28T15:47:00.567Z",
+  "generado": "2026-10-28T16:17:09.086Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-28T14:36:50.209Z"
    },
    {
@@ -43,8 +43,8 @@
     "que": "Tu reclamo",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-28T15:36:27.704Z"
    },
    {
     "nombre": "noticia2",
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-28T14:36:50.209Z",
     "segundos": null,
     "notas": [
@@ -126,13 +126,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "jultnd",
-      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
-      "seccion": "Economía"
-     },
      {
       "id": "on90e1",
       "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
@@ -144,9 +139,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "rmyepl",
-      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+      "id": "le5im8",
+      "titulo": "Confirman la realización de la Estudiantina para el año 2027",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "mimoad",
+      "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 53,
     "notas": [
      {
-      "id": "mvtshk",
-      "titulo": "Estampa Criolla presenta Historia y Danza en el Teatro Municipal",
-      "seccion": "Cultura y agenda"
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "seccion": "Argentina"
      },
      {
-      "id": "1a7f21a",
-      "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
-      "seccion": "Balcarce"
+      "id": "19r8vz8",
+      "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
+      "id": "m9x3m1",
+      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "hd8nd0",
-      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
-      "seccion": "Salud"
+      "id": "si5xga",
+      "titulo": "Empleados de comercio acuerdan aumento trimestral y un bono extraordinario",
+      "seccion": "Economía"
      }
     ]
    }
@@ -220,8 +220,8 @@
      "marcada": false
     },
     {
-     "id": "u2pkjm",
-     "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+     "id": "le5im8",
+     "titulo": "Confirman la realización de la Estudiantina para el año 2027",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -229,6 +229,12 @@
      "id": "1nvngno",
      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "18tglcn",
+     "titulo": "Modifican el calendario del fútbol argentino por la visita del papa León XIV",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
