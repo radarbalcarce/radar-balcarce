@@ -44144,7 +44144,8 @@
    "corresponde": "si",
    "descripcion": "Walter Koenig en un evento formal"
   },
-  "huella": "0e0f1d1d0d4d8d8c"
+  "huella": "0e0f1d1d0d4d8d8c",
+  "ausenteDesde": "2026-10-28T23:33:34.890Z"
  },
  "a5u8g0": {
   "intentado": true,
@@ -44227,7 +44228,8 @@
    "corresponde": "generica",
    "descripcion": "Personas sentadas en la vereda utilizando celulares"
   },
-  "huella": "819533362e3132d6"
+  "huella": "819533362e3132d6",
+  "ausenteDesde": "2026-10-28T23:33:34.890Z"
  },
  "1e66hck": {
   "intentado": true,
@@ -44641,7 +44643,8 @@
    "corresponde": "si",
    "descripcion": "Tres personas adultas posando con un documento informativo relacionado con las elecciones italianas"
   },
-  "huella": "3326a62725ad5519"
+  "huella": "3326a62725ad5519",
+  "ausenteDesde": "2026-10-28T23:33:34.890Z"
  },
  "1463fxj": {
   "archivo": "fotos-notas/1463fxj.jpg",
@@ -45845,7 +45848,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "2505a787a5a74434"
+  "huella": "2505a787a5a74434",
+  "ausenteDesde": "2026-10-28T23:33:34.890Z"
  },
  "2wd6dn": {
   "archivo": "fotos-notas/2wd6dn.jpg",
@@ -50381,8 +50385,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
-  "huella": "d6b01818f8787cec",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "huella": "d6b01818f8787cec"
  },
  "frkbns": {
   "archivo": "fotos-notas/frkbns.jpg",
@@ -50805,15 +50808,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "63bj78": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Flavio Bolsonaro aterriza en Miami tras partir desde Puerto Iguazú",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T18:03:33.901Z",
-  "intentos": 1,
-  "fuentes": 20,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/1ijyr02.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro aterriza en Miami tras salir de Argentina",
+  "enlace": "https://www.losandes.com.ar/mundo/asi-llego-flavio-bolsonaro-miami-procedente-argentina-n6012044",
+  "imagenOriginal": "https://media.losandes.com.ar/p/072b6ad58fe12741ddde10eb6ea6adab/adjuntos/368/imagenes/100/761/0100761137/1200x675/smart/junto-su-familia-asi-llego-flavio-bolsonaro-miami-procedente-argentina.jpg",
+  "razon": "Muestra claramente a Flávio Bolsonaro bajando de la aeronave en Miami con buen encuadre y sin marcas de agua de los medios.",
+  "cuando": "2026-10-28T15:17:47.501Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
+  },
+  "huella": "d6b01818f8787cec"
  },
  "1yl1hli": {
   "intentado": true,
@@ -51156,6 +51172,28 @@
   "cuando": "2026-10-28T23:04:06.221Z",
   "intentos": 1,
   "fuentes": 37,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "qqc52p": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Chelsea queda eliminado ante Liverpool en la Copa de la Liga",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T23:33:19.994Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "wmipjx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rulli clasifica a Manchester City en la Carabao Cup",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T23:33:19.994Z",
+  "intentos": 1,
+  "fuentes": 10,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
