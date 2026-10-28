@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T16:40:50.712Z",
- "portada": 174,
+ "generado": "2026-10-28T17:05:21.373Z",
+ "portada": 176,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-28T16:40:51.270Z",
+  "generado": "2026-10-28T17:05:22.027Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -157,17 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 48,
     "notas": [
+     {
+      "id": "12niewq",
+      "titulo": "El COM.IT.ES. de Mar del Plata visita Balcarce por las elecciones",
+      "seccion": "Balcarce"
+     },
      {
       "id": "kua1e9",
       "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "rmyepl",
-      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
-      "seccion": "Balcarce"
      },
      {
       "id": "l7z1jg",
@@ -198,6 +198,11 @@
      "id": "5qx7kw",
      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
      "cuando": "2026-10-28T14:36:01.589Z"
+    },
+    {
+     "id": "mimoad",
+     "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
+     "cuando": "2026-10-28T16:36:02.400Z"
     }
    ],
    "cola": [
@@ -220,15 +225,15 @@
      "marcada": false
     },
     {
-     "id": "mimoad",
-     "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "11f64xi",
      "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
      "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "12niewq",
+     "titulo": "El COM.IT.ES. de Mar del Plata visita Balcarce por las elecciones",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -250,8 +255,8 @@
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-28T16:06:01.589Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-28T18:06:02.400Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
