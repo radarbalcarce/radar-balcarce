@@ -29609,9 +29609,7 @@
   "ausenteDesde": "2026-10-26T09:18:19.691Z"
  },
  "xskrhw": {
-  "archivo": "fotos-notas/xskrhw.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "La actividad económica cae 1,7 por ciento interanual en agosto",
@@ -29631,7 +29629,8 @@
    "descripcion": "Vista general de una planta industrial o fábrica con maquinaria."
   },
   "huella": "f3505c1676a44e1e",
-  "ausenteDesde": "2026-10-21T20:04:22.857Z"
+  "intentado": true,
+  "borrada": true
  },
  "rwp4sv": {
   "archivo": "fotos-notas/rwp4sv.jpg",
@@ -44968,7 +44967,8 @@
    "corresponde": "si",
    "descripcion": "Empanadas doradas sobre tabla de madera y un inserto circular con la foto de Germán Martitegui"
   },
-  "huella": "fff3d3c5b3e9ad69"
+  "huella": "fff3d3c5b3e9ad69",
+  "ausenteDesde": "2026-10-28T20:04:58.745Z"
  },
  "1mkbw0y": {
   "intentado": true,
@@ -49362,8 +49362,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro con equipaje junto a acompañantes"
   },
-  "huella": "2ce8a80949090938",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "huella": "2ce8a80949090938"
  },
  "13thdhp": {
   "intentado": true,
@@ -50899,6 +50898,53 @@
   "cuando": "2026-10-28T19:33:25.264Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1nuxm6g": {
+  "archivo": "fotos-notas/1nuxm6g.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Convocan a los italianos de Balcarce a inscribirse para votar en el COM.IT.ES.",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/convocan-a-los-italianos-de-balcarce-a-inscribirse-para-votar-en-las-elecciones-del-com-it-es",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Inscribirse%20en%20COM.jpeg",
+  "razon": "Es la única opción disponible y muestra el contexto institucional de la reunión de autoridades local, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-28T20:04:34.389Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de autoridades sentadas en una mesa de reuniones con banderas de Argentina y la provincia de Buenos Aires al fondo."
+  },
+  "huella": "dd43cad8921362f0"
+ },
+ "wb3wpx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Reserva Federal mantiene la tasa de interés entre 3,75% y 4%",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T20:04:34.389Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "mr670u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sobreseen a Aníbal Lotocki en tres causas por lesiones graves",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T20:04:34.389Z",
+  "intentos": 1,
+  "fuentes": 9,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
