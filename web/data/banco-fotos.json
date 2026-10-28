@@ -27054,9 +27054,7 @@
   "borrada": true
  },
  "12rbehh": {
-  "archivo": "fotos-notas/12rbehh.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Alexis Mac Allister marca un doblete y Liverpool le gana 4 a 3 a Villarreal",
@@ -27076,7 +27074,8 @@
    "descripcion": "Alexis Mac Allister dominando el balón en la cancha con la camiseta de Liverpool."
   },
   "huella": "83925092824851cc",
-  "ausenteDesde": "2026-10-21T18:32:21.222Z"
+  "intentado": true,
+  "borrada": true
  },
  "1bjmu3f": {
   "medio": "Página/12",
@@ -29326,9 +29325,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "f1051i": {
-  "archivo": "fotos-notas/f1051i.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei dialoga con Abascal para descartar tensiones políticas",
@@ -29348,7 +29345,8 @@
    "descripcion": "Javier Milei y Santiago Abascal saludándose de cerca"
   },
   "huella": "b6b6343434b5917b",
-  "ausenteDesde": "2026-10-21T18:32:21.222Z"
+  "intentado": true,
+  "borrada": true
  },
  "da9tzf": {
   "archivo": "fotos-notas/da9tzf.jpg",
@@ -42865,7 +42863,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "5d39e97989a88815"
+  "huella": "5d39e97989a88815",
+  "ausenteDesde": "2026-10-28T18:34:15.865Z"
  },
  "1fnnob0": {
   "archivo": "fotos-notas/1fnnob0.jpg",
@@ -43174,7 +43173,8 @@
    "corresponde": "si",
    "descripcion": "Cartel institucional de ARCA con una persona caminando de fondo."
   },
-  "huella": "fb735b5b7bab377f"
+  "huella": "fb735b5b7bab377f",
+  "ausenteDesde": "2026-10-28T18:34:15.865Z"
  },
  "asvox4": {
   "intentado": true,
@@ -45115,7 +45115,8 @@
    "corresponde": "si",
    "descripcion": "Atención presencial a jubilados en una oficina de ANSES"
   },
-  "huella": "19196a2a0e86c6ee"
+  "huella": "19196a2a0e86c6ee",
+  "ausenteDesde": "2026-10-28T18:34:15.865Z"
  },
  "136ouq7": {
   "intentado": true,
@@ -48284,7 +48285,8 @@
    "corresponde": "si",
    "descripcion": "Paisaje nocturno con rayos cayendo sobre una ciudad bajo una tormenta"
   },
-  "huella": "c140a0581d1e4950"
+  "huella": "c140a0581d1e4950",
+  "ausenteDesde": "2026-10-28T18:34:15.865Z"
  },
  "1onz526": {
   "archivo": "fotos-notas/1onz526.jpg",
@@ -50169,8 +50171,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf",
-  "ausenteDesde": "2026-10-28T14:43:23.776Z"
+  "huella": "3591555c28ecbdbf"
  },
  "1jp7qfd": {
   "intentado": true,
@@ -50804,6 +50805,28 @@
   "cuando": "2026-10-28T18:03:33.901Z",
   "intentos": 1,
   "fuentes": 20,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1yl1hli": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T18:33:45.134Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ydol03": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Confirman la realización de la Estudiantina 2027",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T18:33:45.134Z",
+  "intentos": 1,
+  "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
