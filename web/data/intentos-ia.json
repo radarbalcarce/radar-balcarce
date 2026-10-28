@@ -1,4 +1,11 @@
 {
+ "1832865": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
  "102gn5q": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:02:15.887Z",
@@ -677,6 +684,16 @@
   "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
+ "159cesm": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 10,
+  "motivos": [
+   "cuerpo: 4 problemas (nombre, tildes): el cuerpo nombra a \"major\" y la "
+  ]
+ },
  "15crgm2": {
   "intentos": 1,
   "ultimo": "2026-10-27T12:01:57.926Z",
@@ -788,6 +805,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "167w7mm": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 7
  },
  "167xqam": {
   "intentos": 1,
@@ -2727,15 +2751,16 @@
   "numeradas": 47
  },
  "1jfs6xf": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T18:32:07.690Z",
-  "motivo": "Gemini: la respuesta no trae título",
-  "textos": 5,
-  "numeradas": 8,
+  "intentos": 3,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 26,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
    "cuerpo: 3 problemas (nombre, copia): el cuerpo nombra a \"eduardo\" y la",
-   "Gemini: la respuesta no trae título"
+   "Gemini: la respuesta no trae título",
+   "título o bajada: 1 problema (largo): el titulo tiene 103 caracteres, e"
   ]
  },
  "1jgv1bx": {
@@ -2842,6 +2867,13 @@
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"junin\", que "
   ]
+ },
+ "1k99k9x": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 18
  },
  "1ka0922": {
   "intentos": 1,
@@ -2996,11 +3028,6 @@
   "ultimo": "2026-10-22T20:01:43.044Z",
   "motivo": "con cuerpo"
  },
- "1lhg66w": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T23:01:18.071Z",
-  "motivo": "con cuerpo"
- },
  "1li6hwr": {
   "intentos": 3,
   "ultimo": "2026-10-25T01:01:57.912Z",
@@ -3082,6 +3109,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1lzp0h": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1m1nwh1": {
   "intentos": 3,
@@ -3409,6 +3443,16 @@
   "motivo": "con cuerpo",
   "textos": 8,
   "numeradas": 10
+ },
+ "1nx7doy": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 12,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
+  ]
  },
  "1o20hna": {
   "intentos": 1,
@@ -4824,17 +4868,19 @@
   "motivo": "con cuerpo"
  },
  "1xlypma": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T22:31:56.359Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, el máximo es 90",
-  "textos": 2,
+  "intentos": 2,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"san\", \"lorenzo\" y el cuerpo no los explica; sin esas oraciones quedan 200 palabras",
+  "textos": 1,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, e"
+   "título o bajada: 1 problema (largo): el titulo tiene 101 caracteres, e",
+   "título o bajada: 1 problema (pasado): el título está en pasado: va en ",
+   "cuerpo: 1 problema (promesa): el título nombra a \"san\", \"lorenzo\" y el"
   ],
   "falla": [
-   "el titulo tiene 101 caracteres, el máximo es 90"
+   "el título nombra a \"san\", \"lorenzo\" y el cuerpo no los explica"
   ]
  },
  "1xnehl1": {
@@ -5457,6 +5503,16 @@
   "textos": 3,
   "numeradas": 3
  },
+ "69ujdg": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 27,
+  "motivos": [
+   "título o bajada: 5 problemas (forma, numero, titulo): el titulo trae u"
+  ]
+ },
  "6aw080": {
   "intentos": 2,
   "ultimo": "2026-10-22T16:32:56.090Z",
@@ -5505,6 +5561,13 @@
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
+ },
+ "6izql9": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "6jbun3": {
   "intentos": 1,
@@ -5766,6 +5829,16 @@
   "numeradas": 1,
   "motivos": [
    "título o bajada: 6 problemas (forma, numero): el titulo trae un escape"
+  ]
+ },
+ "8iblha": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 17,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
   ]
  },
  "8jftdd": {
@@ -6117,11 +6190,6 @@
  "az8510": {
   "intentos": 1,
   "ultimo": "2026-10-23T22:01:46.034Z",
-  "motivo": "con cuerpo"
- },
- "b09g4y": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T23:01:18.071Z",
   "motivo": "con cuerpo"
  },
  "b19s77": {
@@ -6613,11 +6681,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "f0tngb": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T23:01:18.071Z",
-  "motivo": "con cuerpo"
- },
  "f51e8j": {
   "intentos": 1,
   "ultimo": "2026-10-26T12:47:51.263Z",
@@ -6913,6 +6976,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "hr8jo8": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 6
  },
  "htgc40": {
   "intentos": 1,
@@ -9118,6 +9188,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "w44ipj": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T23:01:41.478Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 12
+ },
  "w6rmgj": {
   "intentos": 2,
   "ultimo": "2026-10-25T15:01:53.053Z",
@@ -9253,17 +9330,16 @@
   "motivo": "con cuerpo"
  },
  "wmipjx": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T22:31:56.359Z",
+  "intentos": 2,
+  "ultimo": "2026-10-28T23:01:41.478Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-  "textos": 4,
-  "numeradas": 4,
+  "textos": 6,
+  "numeradas": 8,
   "motivos": [
    "título o bajada: 2 problemas (numero, negacion): el copete dice 12 y l",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "el cuerpo dice 12 y la fuente no lo dice",
    "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
@@ -9383,11 +9459,11 @@
   "numeradas": 2
  },
  "xwtt0x": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T12:52:12.994Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T23:01:41.478Z",
   "motivo": "con cuerpo",
-  "textos": 8,
-  "numeradas": 12,
+  "textos": 6,
+  "numeradas": 24,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 107 caracteres, e",
    "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (miercol",

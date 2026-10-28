@@ -44353,7 +44353,8 @@
    "corresponde": "si",
    "descripcion": "Grúas de gran porte trabajando en la vía pública para los preparativos"
   },
-  "huella": "1717370e078f06a0"
+  "huella": "1717370e078f06a0",
+  "ausenteDesde": "2026-10-28T23:05:10.624Z"
  },
  "v2jdch": {
   "archivo": "fotos-notas/v2jdch.jpg",
@@ -49842,8 +49843,7 @@
    "corresponde": "si",
    "descripcion": "El trofeo de la Copa Sudamericana en primer plano"
   },
-  "huella": "cf0d332f173333f4",
-  "ausenteDesde": "2026-10-28T13:07:51.690Z"
+  "huella": "cf0d332f173333f4"
  },
  "1g2gnwq": {
   "archivo": "fotos-notas/1g2gnwq.jpg",
@@ -51104,6 +51104,58 @@
   "cuando": "2026-10-28T22:33:47.337Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1k99k9x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T23:04:06.221Z",
+  "intentos": 1,
+  "fuentes": 18,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1muatd7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Banco Provincia detecta que el 36% de los empleados agota su sueldo al día 10",
+  "razon": "La mejor foto era la de El Eco de Tandil, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-28T23:04:06.221Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ig4cpo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rata Blanca toca el sábado 5 de diciembre en el Movistar Arena",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-28T23:04:06.221Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "i61vuy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T23:04:06.221Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1jfs6xf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Conmebol rechaza el reclamo de Flamengo y ratifica a Estudiantes en la final",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T23:04:06.221Z",
+  "intentos": 1,
+  "fuentes": 37,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
