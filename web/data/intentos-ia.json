@@ -639,18 +639,15 @@
   "numeradas": 15
  },
  "151y3im": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T19:01:42.450Z",
-  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (Administracion, segun, inflacion): va con las tildes y la eñe dond",
-  "textos": 6,
+  "intentos": 2,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
   "numeradas": 23,
   "motivos": [
    "cuerpo: 2 problemas (nombre, tildes): el cuerpo nombra a \"republica\" y",
-   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el texto está escrito sin tildes (Administracion, segun, inflacion, Resolucion, aplicacion): va con las tildes y la eñe donde corresponden"
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
+   "cuerpo: 2 problemas (repite, tildes): el cuerpo repite el copete en ve"
   ]
  },
  "154jbd0": {
@@ -1250,6 +1247,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
+ },
+ "19c5usk": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 6
  },
  "19i1tlz": {
   "intentos": 2,
@@ -1856,6 +1860,20 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1dza3uu": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 178 palabras",
+  "textos": 4,
+  "numeradas": 38,
+  "motivos": [
+   "cuerpo: 2 problemas (antecedente, repite): el cuerpo usa \"leonardo\", q",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1e02xyr": {
   "intentos": 1,
   "ultimo": "2026-10-28T04:01:46.419Z",
@@ -2372,11 +2390,6 @@
   "ultimo": "2026-10-23T21:25:26.559Z",
   "motivo": "cuerpo: 1 problema (forma): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones quedan 125 palabras"
  },
- "1hviiat": {
-  "intentos": 4,
-  "ultimo": "2026-10-21T19:31:25.527Z",
-  "motivo": "título o bajada: 4 problemas (numero): el titulo dice 70 y la fuente no lo dice"
- },
  "1hvxmxn": {
   "intentos": 4,
   "ultimo": "2026-10-27T17:02:59.140Z",
@@ -2685,6 +2698,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 13
+ },
+ "1jkbwyl": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1jp7qfd": {
   "intentos": 1,
@@ -3714,17 +3734,14 @@
   "motivo": "con cuerpo"
  },
  "1rphs2p": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T19:01:42.450Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo explica; sin esas oraciones quedan 283 palabras",
-  "textos": 1,
+  "intentos": 2,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
    "cuerpo: 1 problema (promesa): el título dice 4 y el cuerpo no lo expli"
-  ],
-  "falla": [
-   "el título dice 4 y el cuerpo no lo explica"
   ]
  },
  "1rr9872": {
@@ -4023,11 +4040,6 @@
   "motivos": [
    "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
   ]
- },
- "1td5lgn": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:31:25.527Z",
-  "motivo": "con cuerpo"
  },
  "1tdk3fl": {
   "intentos": 3,
@@ -5041,6 +5053,13 @@
   "intentos": 3,
   "ultimo": "2026-10-23T13:59:18.085Z",
   "motivo": "con cuerpo"
+ },
+ "3ldov1": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 9
  },
  "3lx6ld": {
   "intentos": 1,
@@ -6177,6 +6196,13 @@
    "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
   ]
  },
+ "cncjc": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "cnqhqm": {
   "intentos": 1,
   "ultimo": "2026-10-22T20:01:43.044Z",
@@ -6936,6 +6962,13 @@
    "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
   ]
  },
+ "ix2xrp": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "ixli9j": {
   "intentos": 1,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -7688,6 +7721,13 @@
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ]
  },
+ "ny7011": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "nzeo2k": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:02:15.887Z",
@@ -8327,11 +8367,6 @@
   "ultimo": "2026-10-24T00:01:52.989Z",
   "motivo": "con cuerpo"
  },
- "rwp4sv": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:31:25.527Z",
-  "motivo": "con cuerpo"
- },
  "rwwtu0": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -8481,11 +8516,11 @@
   "numeradas": 3
  },
  "stxwsg": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T17:32:52.339Z",
+  "intentos": 3,
+  "ultimo": "2026-10-28T19:31:55.392Z",
   "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 17
+  "textos": 4,
+  "numeradas": 21
  },
  "su7ljf": {
   "intentos": 1,
@@ -8866,11 +8901,6 @@
   "ultimo": "2026-10-23T22:31:48.552Z",
   "motivo": "semáforo: necesita ojo humano: \"víctima\", en lo que escribió la IA (título, bajada o texto para redes)"
  },
- "vksulx": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:31:25.527Z",
-  "motivo": "con cuerpo"
- },
  "vn1ufa": {
   "intentos": 1,
   "ultimo": "2026-10-24T23:01:27.507Z",
@@ -8978,6 +9008,13 @@
   "baja": true,
   "fuentes": 1
  },
+ "wb3wpx": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "wbdkco": {
   "intentos": 1,
   "ultimo": "2026-10-28T13:32:11.052Z",
@@ -9080,6 +9117,21 @@
   "ultimo": "2026-10-23T04:01:58.641Z",
   "motivo": "con cuerpo"
  },
+ "wrauae": {
+  "intentos": 1,
+  "ultimo": "2026-10-28T19:31:55.392Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 108 caracteres, el máximo es 90",
+  "textos": 3,
+  "numeradas": 9,
+  "motivos": [
+   "título o bajada: 1 problema (titulo): el título empieza con una etique",
+   "título o bajada: 1 problema (largo): el titulo tiene 108 caracteres, e"
+  ],
+  "falla": [
+   "el titulo tiene 108 caracteres, el máximo es 90",
+   "el cuerpo dice 23,3 y la fuente no lo dice"
+  ]
+ },
  "wunpee": {
   "intentos": 1,
   "ultimo": "2026-10-27T21:31:39.847Z",
@@ -9164,11 +9216,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 6
- },
- "xskrhw": {
-  "intentos": 1,
-  "ultimo": "2026-10-21T19:31:25.527Z",
-  "motivo": "con cuerpo"
  },
  "xtuqwu": {
   "intentos": 1,

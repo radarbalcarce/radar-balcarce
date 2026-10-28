@@ -29458,9 +29458,7 @@
   "ausenteDesde": "2026-10-21T22:31:57.012Z"
  },
  "e2rqz6": {
-  "archivo": "fotos-notas/e2rqz6.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno de España repudia los ataques de Javier Milei a Pedro Sánchez",
@@ -29480,7 +29478,8 @@
    "descripcion": "Javier Milei hablando y gesticulando con la mano en un evento"
   },
   "huella": "08181416161424c4",
-  "ausenteDesde": "2026-10-21T19:32:34.300Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ob6e1p": {
   "archivo": "fotos-notas/1ob6e1p.jpg",
@@ -43302,7 +43301,8 @@
    "corresponde": "si",
    "descripcion": "Tribunal en pleno con jueces y funcionarios en el estrado."
   },
-  "huella": "135133abaa2f0c0e"
+  "huella": "135133abaa2f0c0e",
+  "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "3djttj": {
   "archivo": "fotos-notas/3djttj.jpg",
@@ -45010,7 +45010,8 @@
    "corresponde": "si",
    "descripcion": "Paisaje de montaña al atardecer con campo verde y árboles"
   },
-  "huella": "121e73f95eb607bd"
+  "huella": "121e73f95eb607bd",
+  "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "1xjv5xx": {
   "archivo": "fotos-notas/1xjv5xx.jpg",
@@ -45091,7 +45092,8 @@
    "corresponde": "si",
    "descripcion": "Operadores en la bolsa de valores frente a pantallas con gráficos y números rojos"
   },
-  "huella": "676da72589293a62"
+  "huella": "676da72589293a62",
+  "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "1oi4av9": {
   "archivo": "fotos-notas/1oi4av9.jpg",
@@ -50171,7 +50173,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf"
+  "huella": "3591555c28ecbdbf",
+  "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "1jp7qfd": {
   "intentado": true,
@@ -50283,8 +50286,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro bajando de un avión"
   },
-  "huella": "4d5c5d5cdcd5c53f",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "huella": "4d5c5d5cdcd5c53f"
  },
  "ogimb9": {
   "intentado": true,
@@ -50434,7 +50436,8 @@
    "corresponde": "si",
    "descripcion": "Retrato actual de Christopher Lloyd sonriendo frente a una pared de ladrillos blancos"
   },
-  "huella": "71e9797979696cc6"
+  "huella": "71e9797979696cc6",
+  "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "n3h2g9": {
   "intentado": true,
@@ -50847,6 +50850,53 @@
   "titulo": "Cierran los bancos por cinco días consecutivos en noviembre de 2026",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-28T19:03:02.193Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "19c5usk": {
+  "archivo": "fotos-notas/19c5usk.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/28/cristiano-ronaldo-le-gano-a-lionel-messi-en-la-votacion-de-los-hinchas-por-el-mejor-balon-de-oro-de-la-historia/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/oficial-cristiano-ronaldo-le-gano-a-lionel-messi-en-la-votacion-por-el-mejor-balon-de-oro-de-la-historia-foto-afpap-LT2IWYYQ25CDDPEH7WQP77CZSE.jpg?auth=a5ffe9128ae6a7aa18a1f270cd66dcc999c67e02e54232a20d204cdf1f78cc51&width=1023",
+  "razon": "Es la única opción disponible, muestra a Cristiano Ronaldo con el trofeo del Balón de Oro y no presenta marcas de agua ni menores.",
+  "cuando": "2026-10-28T19:33:25.264Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cristiano Ronaldo sonriendo y sosteniendo el trofeo del Balón de Oro."
+  },
+  "huella": "27252133333b316d"
+ },
+ "1jkbwyl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T19:33:25.264Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ny7011": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sergio Torres advierte que la Suprema Corte funciona por debajo del mínimo legal",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-28T19:33:25.264Z",
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1,
