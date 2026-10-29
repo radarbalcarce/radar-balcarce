@@ -357,13 +357,6 @@
   "ultimo": "2026-10-23T17:33:33.983Z",
   "motivo": "con cuerpo"
  },
- "12if1s5": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T20:32:04.217Z",
-  "motivo": "verificación baja: espera a una persona",
-  "baja": true,
-  "fuentes": 1
- },
  "12kpedr": {
   "intentos": 1,
   "ultimo": "2026-10-25T16:31:49.212Z",
@@ -855,14 +848,15 @@
   "numeradas": 9
  },
  "15mxbha": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T20:01:36.047Z",
-  "motivo": "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 3,
+  "ultimo": "2026-10-29T20:31:41.855Z",
+  "motivo": "con cuerpo",
   "textos": 7,
-  "numeradas": 12,
+  "numeradas": 13,
   "motivos": [
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
-   "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (títu"
+   "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (títu",
+   "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
   ]
  },
  "15n24pt": {
@@ -1066,11 +1060,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 17
- },
- "16m3rtu": {
-  "intentos": 2,
-  "ultimo": "2026-10-22T20:32:04.217Z",
-  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
  },
  "16qa6gn": {
   "intentos": 2,
@@ -2245,11 +2234,6 @@
  "1dia4on": {
   "intentos": 1,
   "ultimo": "2026-10-24T03:31:17.479Z",
-  "motivo": "con cuerpo"
- },
- "1djsolj": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T20:32:04.217Z",
   "motivo": "con cuerpo"
  },
  "1dtp4dh": {
@@ -5470,19 +5454,14 @@
   "numeradas": 31
  },
  "1vmhqqc": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T17:03:20.654Z",
-  "motivo": "cuerpo: 3 problemas (numero, antecedente, repite): el cuerpo dice 11 y la fuente no lo dice; sin esas oraciones quedan 159 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-29T20:31:41.855Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 4,
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"florida\" y l",
    "cuerpo: 3 problemas (numero, antecedente, repite): el cuerpo dice 11 y"
-  ],
-  "falla": [
-   "el cuerpo dice 11 y la fuente no lo dice",
-   "el cuerpo usa \"cristian\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1vmwhuk": {
@@ -5628,11 +5607,6 @@
   "motivos": [
    "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
   ]
- },
- "1w60w6s": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T20:32:04.217Z",
-  "motivo": "con cuerpo"
  },
  "1w688vu": {
   "intentos": 1,
@@ -7800,11 +7774,6 @@
    "título o bajada: 6 problemas (forma, numero, nombre): el titulo trae u"
   ]
  },
- "eka7lm": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T20:32:04.217Z",
-  "motivo": "con cuerpo"
- },
  "el0m7z": {
   "intentos": 2,
   "ultimo": "2026-10-27T14:19:21.475Z",
@@ -8082,17 +8051,17 @@
   "numeradas": 2
  },
  "gb2wra": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T20:01:36.047Z",
-  "motivo": "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"division\" y la fuente no; sin esas oraciones quedan 248 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-29T20:31:41.855Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 33.000.000 y el cuerpo no lo explica; sin esas oraciones quedan 245 palabras",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 33.000.000 y el cuerpo no",
-   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"division\" y"
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"division\" y",
+   "cuerpo: 1 problema (promesa): el título dice 33.000.000 y el cuerpo no"
   ],
   "falla": [
-   "el cuerpo nombra a \"division\" y la fuente no",
    "el título dice 33.000.000 y el cuerpo no lo explica"
   ]
  },
@@ -8957,6 +8926,22 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 6
+ },
+ "m75zbl": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T20:31:41.855Z",
+  "motivo": "cuerpo: 3 problemas (forma, numero, repite): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones queda",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (Federac",
+   "cuerpo: 3 problemas (forma, numero, repite): el cuerpo trae un escape "
+  ],
+  "falla": [
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo dice 0 y la fuente no lo dice",
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "m94rdd": {
   "intentos": 1,
