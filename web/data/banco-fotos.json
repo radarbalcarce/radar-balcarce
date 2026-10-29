@@ -47572,7 +47572,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de trabajadores de plataformas junto a funcionarios."
   },
-  "huella": "4f318382cacca6b6"
+  "huella": "4f318382cacca6b6",
+  "ausenteDesde": "2026-10-29T23:33:33.304Z"
  },
  "qf4k6e": {
   "intentado": true,
@@ -47817,7 +47818,8 @@
    "corresponde": "si",
    "descripcion": "Cuti Romero junto a Lionel Messi con la camiseta de la selección argentina, y Harry Kane con el Balón de Oro."
   },
-  "huella": "666662267a7a5a5c"
+  "huella": "666662267a7a5a5c",
+  "ausenteDesde": "2026-10-29T23:33:33.304Z"
  },
  "18mf9im": {
   "archivo": "fotos-notas/18mf9im.jpg",
@@ -48372,7 +48374,8 @@
    "corresponde": "si",
    "descripcion": "Sergio Pérez parado sosteniendo su casco especial entre dos monoplazas"
   },
-  "huella": "1532b0b272555b3b"
+  "huella": "1532b0b272555b3b",
+  "ausenteDesde": "2026-10-29T23:33:33.304Z"
  },
  "by7as2": {
   "archivo": "fotos-notas/by7as2.jpg",
@@ -49710,7 +49713,8 @@
    "corresponde": "si",
    "descripcion": "Mujer madura aplicándose maquillaje con un pincel"
   },
-  "huella": "3632e2362625f5f9"
+  "huella": "3632e2362625f5f9",
+  "ausenteDesde": "2026-10-29T23:33:33.304Z"
  },
  "v0vz4r": {
   "archivo": "fotos-notas/v0vz4r.jpg",
@@ -54469,6 +54473,38 @@
   "cuando": "2026-10-29T23:04:07.280Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1n99xw3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Binance investiga un posible hackeo tras la salida multimillonaria",
+  "razon": "La mejor foto era la de Clarín, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-29T23:33:25.235Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "eke7ho": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River define el equipo para visitar a Boca con dudas en el mediocampo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T23:33:25.235Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "zd81pg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La ciencia proyecta la fusión entre cerebro humano e inteligencia artificial para 2045",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T23:33:25.235Z",
+  "intentos": 1,
+  "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
