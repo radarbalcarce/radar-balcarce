@@ -31107,9 +31107,7 @@
   "ausenteDesde": "2026-10-26T12:52:42.650Z"
  },
  "k3nnhe": {
-  "archivo": "fotos-notas/k3nnhe.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "María O'Donnell gana el Martín Fierro de Oro de la Radio 2026",
@@ -31129,7 +31127,8 @@
    "descripcion": "Maria O'Donnell posando sonriente con dos estatuillas del Martín Fierro"
   },
   "huella": "ebf6ebebcdb733b3",
-  "ausenteDesde": "2026-10-22T11:02:47.239Z"
+  "intentado": true,
+  "borrada": true
  },
  "xh1glv": {
   "archivo": "fotos-notas/xh1glv.jpg",
@@ -31157,9 +31156,7 @@
   "ausenteDesde": "2026-10-26T07:06:34.081Z"
  },
  "7lfamh": {
-  "archivo": "fotos-notas/7lfamh.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Palmeiras vence a Fluminense por penales y pasa a la final de la Copa Libertadores",
@@ -31191,7 +31188,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "b0a4c6b39b772713",
-  "ausenteDesde": "2026-10-22T11:02:47.239Z"
+  "intentado": true,
+  "borrada": true
  },
  "vnum3w": {
   "archivo": "fotos-notas/vnum3w.jpg",
@@ -46410,7 +46408,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico con remera blanca y campera oscura en el estadio"
   },
-  "huella": "60cc5e1d6f7fbd0d"
+  "huella": "60cc5e1d6f7fbd0d",
+  "ausenteDesde": "2026-10-29T11:06:39.254Z"
  },
  "mbax9x": {
   "archivo": "fotos-notas/mbax9x.jpg",
@@ -48432,13 +48431,28 @@
   "fuentes": 2
  },
  "vecvnc": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Anses aplica un aumento del 1,93 por ciento en la AUH para noviembre",
-  "razon": "Todas las fotos con personas muestran menores reconocibles y las demás son solo carteles institucionales sin mostrar el hecho.",
-  "cuando": "2026-10-28T08:02:32.133Z",
-  "intentos": 1,
-  "fuentes": 5
+  "archivo": "fotos-notas/ik3kab.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Anses oficializa el aumento del 1,93 por ciento para jubilaciones en noviembre",
+  "enlace": "https://tn.com.ar/economia/2026/10/29/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-29-de-octubre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-29-de-octubre-foto-prensa-anses-FYH24OMQKNGPJDOVFBID6X6DJ4.jpg?auth=33d7ba8a4ce2f1ca06f27ff7c917f0555e663e8dc07e9af353ffa1c73d74b1f9&width=1023",
+  "razon": "Es una fotografía clara de la fachada de una oficina de ANSES, sin marcas superpuestas, menores ni personas reconocibles en primer plano, adecuada para ilustrar la nota de economía.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada exterior de una oficina de ANSES"
+  },
+  "huella": "c6cefdf9f0f073f3"
  },
  "ysgzoi": {
   "archivo": "fotos-notas/ysgzoi.jpg",
@@ -52368,13 +52382,28 @@
   "huella": "19197b6545393a23"
  },
  "1pidco9": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "El Cyber Monday 2026 llega del 2 al 4 de noviembre con más de 900 empresas participantes",
-  "razon": "La mejor foto era la de Ámbito, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-29T10:02:52.390Z",
-  "intentos": 1,
-  "fuentes": 8
+  "archivo": "fotos-notas/1ud105d.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Cyber Monday 2026 se realiza del 2 al 4 de noviembre con más de 900 marcas",
+  "enlace": "https://www.losandes.com.ar/turismo/cyber-monday-como-anticipar-las-vacaciones-verano-bus-y-aprovechar-al-maximo-los-beneficios-pasajes-n6012102",
+  "imagenOriginal": "https://media.losandes.com.ar/p/6116380a56662745e054fe2898b9dfc7/adjuntos/368/imagenes/100/761/0100761322/1200x675/smart/cyber-monday.jpg",
+  "razon": "La IA había preferido la de Ámbito, pero no se puede usar (parece una foto de stock): se usa Los Andes (Mendoza) en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona navegando en sitio web de Cyber Monday"
+  },
+  "huella": "ed9595d5e8343622"
  },
  "futbolpartidosliga20261030": {
   "intentado": true,
@@ -52404,7 +52433,8 @@
    "corresponde": "si",
    "descripcion": "Festejo de jugadores de Platense abrazados"
   },
-  "huella": "156d66b1f1797159"
+  "huella": "156d66b1f1797159",
+  "ausenteDesde": "2026-10-29T11:06:39.254Z"
  },
  "1dh34ud": {
   "archivo": "fotos-notas/1dh34ud.jpg",
@@ -52452,7 +52482,8 @@
    "corresponde": "si",
    "descripcion": "Senadores votando levantando la mano en el recinto"
   },
-  "huella": "15d5a95969494c7b"
+  "huella": "15d5a95969494c7b",
+  "ausenteDesde": "2026-10-29T11:06:39.254Z"
  },
  "xqfz4h": {
   "intentado": true,
@@ -52562,5 +52593,238 @@
    "descripcion": "Tormenta eléctrica sobre una ciudad"
   },
   "huella": "0701050505072287"
+ },
+ "1twt8rb": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Los Patos y Amigos Unidos ganan en la Liga Balcarceña",
+  "razon": "La única foto disponible es una imagen gráfica del logo del medio y no corresponde a la nota.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "101j4vt": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+  "razon": "La única imagen proporcionada es el logo del medio, por lo que no es una foto válida para ilustrar la nota.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1rk2uai": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ciclistas locales logran títulos en el Argentino de mountain bike",
+  "razon": "La única imagen provista es el logotipo del medio, no una foto de la nota.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "ik3kab": {
+  "archivo": "fotos-notas/ik3kab.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Anses oficializa el aumento del 1,93 por ciento para jubilaciones en noviembre",
+  "enlace": "https://tn.com.ar/economia/2026/10/29/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-29-de-octubre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-29-de-octubre-foto-prensa-anses-FYH24OMQKNGPJDOVFBID6X6DJ4.jpg?auth=33d7ba8a4ce2f1ca06f27ff7c917f0555e663e8dc07e9af353ffa1c73d74b1f9&width=1023",
+  "razon": "Es una fotografía clara de la fachada de una oficina de ANSES, sin marcas superpuestas, menores ni personas reconocibles en primer plano, adecuada para ilustrar la nota de economía.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada exterior de una oficina de ANSES"
+  },
+  "huella": "c6cefdf9f0f073f3"
+ },
+ "192nkn5": {
+  "archivo": "fotos-notas/192nkn5.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses difunde el calendario y los aumentos de noviembre de 2026",
+  "enlace": "https://www.ambito.com/informacion-general/cuanto-cobro-suaf-noviembre-2026-consulta-las-tablas-oficiales-segun-tu-salario-n6338484",
+  "imagenOriginal": "https://media.ambito.com/p/0182f06db6819d4c543746fdf1bd7a06/adjuntos/239/imagenes/043/732/0043732029/1200x675/912x595:932x615/anses.jpg",
+  "razon": "Es una fotografía clara de la fachada de una oficina de ANSES con excelente encuadre y sin menores ni marcas de medios.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Exterior y letrero de una oficina de ANSES."
+  },
+  "huella": "27478a8a162c3ca4"
+ },
+ "1ud105d": {
+  "archivo": "fotos-notas/1ud105d.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Cyber Monday 2026 se realiza del 2 al 4 de noviembre con más de 900 marcas",
+  "enlace": "https://www.losandes.com.ar/turismo/cyber-monday-como-anticipar-las-vacaciones-verano-bus-y-aprovechar-al-maximo-los-beneficios-pasajes-n6012102",
+  "imagenOriginal": "https://media.losandes.com.ar/p/6116380a56662745e054fe2898b9dfc7/adjuntos/368/imagenes/100/761/0100761322/1200x675/smart/cyber-monday.jpg",
+  "razon": "La IA había preferido la de Ámbito, pero no se puede usar (parece una foto de stock): se usa Los Andes (Mendoza) en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona navegando en sitio web de Cyber Monday"
+  },
+  "huella": "ed9595d5e8343622"
+ },
+ "48ucz9": {
+  "archivo": "fotos-notas/48ucz9.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cavallo cuestiona la política cambiaria y advierte sobre el futuro electoral",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160048/economia/domingo-cavallo-volvio-cuestionar-al-gobierno-milei-manejan-tipo-cambio-como-moreno.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2025/04/01/domingo-cavallo-1077255-085753.jpg",
+  "razon": "Es la única foto nítida, centrada en el protagonista de la nota (Domingo Cavallo) y libre de marcas añadidas, menores o montajes.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Domingo Cavallo hablando con camisa a cuadros y fondo con inscripciones"
+  },
+  "huella": "2da5259111913131"
+ },
+ "190acil": {
+  "archivo": "fotos-notas/190acil.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Productores de Carlos Casares presentan un amparo por fondos viales",
+  "enlace": "https://perfil.com/agro/amparo-contra-la-provincia-de-buenos-aires-por-los-23-billones-del-plan-climatico-asgu50w7Ojfh",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/036ed85b59f0-carlos-casares-frente-a-las-complicaciones-climaticas-causadas-por-el-nino.webp",
+  "razon": "La foto A muestra un camino rural anegado, ilustrando perfectamente el problema de los fondos viales, sin marcas ni gráficos.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Camino rural anegado por el agua"
+  },
+  "huella": "cc0909515a8f0f41"
+ },
+ "2cd0hv": {
+  "archivo": "fotos-notas/2cd0hv.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Banco Central interrumpe compras de dólares en el mercado cambiario",
+  "enlace": "https://www.ambito.com/economia/el-bcra-no-compro-dolares-segunda-rueda-consecutiva-aunque-las-reservas-volvieron-subir-n6338558",
+  "imagenOriginal": "https://media.ambito.com/p/eddaf731a1e9dd90c79e26f63525ac62/adjuntos/239/imagenes/042/752/0042752987/bcra-banco-central.jpg",
+  "razon": "Muestra el edificio del Banco Central con buen encuadre, nitidez y sin personas reconocibles ni marcas ajenas.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del Banco Central de la República Argentina con una persona desenfocada en primer plano"
+  },
+  "huella": "fe9dad9dc5c5e5e5"
+ },
+ "1df6339": {
+  "archivo": "fotos-notas/1df6339.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flor Otero despide a su mamá Susana tras su fallecimiento",
+  "enlace": "https://tn.com.ar/show/famosos/2026/10/27/la-angustia-de-flor-otero-por-la-muerte-de-su-mama-que-tenia-alzheimer-te-veo-en-las-mariposas/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-dolor-de-flor-otero-por-la-muerte-de-su-mama-que-tenia-alzheimer-te-veo-en-las-mariposas-ma-foto-instagram-flootero-6RX7E7TQW5EUZNXAQYT6Q5JP64.jpg?auth=5923e824e83480101663c23431f5cc9461207648a6e4b07e2eb83abb282f62d3&width=1023",
+  "razon": "Es la única opción disponible y muestra a las protagonistas de la nota (Flor Otero y su mamá Susana) en un momento íntimo, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato cercano de una mujer mayor sonriendo y una joven apoyando la cabeza en su hombro, al aire libre.",
+   "detalle": "Se observa a una persona joven (probablemente Flor Otero) pero no menor de edad.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Flor Otero junto a su mamá Susana en una selfie al aire libre."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "dfadb99a97d3f373"
+ },
+ "18xcjou": {
+  "archivo": "fotos-notas/192nkn5.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses difunde el calendario y los aumentos de noviembre de 2026",
+  "enlace": "https://www.ambito.com/informacion-general/cuanto-cobro-suaf-noviembre-2026-consulta-las-tablas-oficiales-segun-tu-salario-n6338484",
+  "imagenOriginal": "https://media.ambito.com/p/0182f06db6819d4c543746fdf1bd7a06/adjuntos/239/imagenes/043/732/0043732029/1200x675/912x595:932x615/anses.jpg",
+  "razon": "Es una fotografía clara de la fachada de una oficina de ANSES con excelente encuadre y sin menores ni marcas de medios.",
+  "cuando": "2026-10-29T11:03:58.013Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Exterior y letrero de una oficina de ANSES."
+  },
+  "huella": "27478a8a162c3ca4"
  }
 }
