@@ -561,6 +561,16 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
+ "141ym2g": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 3 problemas (relleno, repite, copia): el cuerpo tiene una fras"
+  ]
+ },
  "142z1e5": {
   "intentos": 1,
   "ultimo": "2026-10-29T07:03:12.770Z",
@@ -927,11 +937,6 @@
   "intentos": 1,
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
- },
- "162f43t": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T22:31:46.685Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no lo dice"
  },
  "1645b74": {
   "intentos": 1,
@@ -2843,11 +2848,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "1h3sch4": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T22:31:46.685Z",
-  "motivo": "con cuerpo"
- },
  "1h4xiic": {
   "intentos": 1,
   "ultimo": "2026-10-29T05:01:34.303Z",
@@ -3781,6 +3781,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 32
+ },
+ "1maz81v": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1md5j9u": {
   "intentos": 3,
@@ -5129,6 +5136,16 @@
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
   ]
  },
+ "1tm0g5b": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, fecha, numero): el cuerpo nombra a \"veron"
+  ]
+ },
  "1tmwoda": {
   "intentos": 1,
   "ultimo": "2026-10-29T17:03:20.654Z",
@@ -5331,17 +5348,20 @@
   "motivo": "con cuerpo"
  },
  "1utxp49": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T22:02:17.863Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 283 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 40 y la fuente no lo dice",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 32 palabras seguidas del original: d",
-   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d"
+   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d",
+   "título o bajada: 2 problemas (numero): el titulo dice 160.000 y la fue",
+   "título o bajada: 1 problema (numero): el copete dice 40 y la fuente no"
   ],
   "falla": [
-   "copia 16 palabras seguidas del original (\"fuera del sistema formal o en el exterior la propuesta esta dirigida a clientes…\"): decilo con otr"
+   "el copete dice 40 y la fuente no lo dice",
+   "el cuerpo dice 40 y la fuente no lo dice"
   ]
  },
  "1uvjywh": {
@@ -6212,6 +6232,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 6
+ },
+ "3bt1td": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "3bvpyr": {
   "intentos": 1,
@@ -7562,6 +7589,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "c872yu": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 5 problemas (nombre, promesa): el cuerpo nombra a \"barros\" y l",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "ca537u": {
   "intentos": 1,
   "ultimo": "2026-10-29T10:31:31.354Z",
@@ -7570,10 +7611,10 @@
   "numeradas": 2
  },
  "cj8n2f": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T22:02:17.863Z",
-  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
-  "textos": 3,
+  "intentos": 3,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 7,
   "motivos": [
    "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t",
@@ -8032,6 +8073,13 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 15
+ },
+ "fm6pp3": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T22:32:02.347Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "fmbabw": {
   "intentos": 1,
@@ -8551,11 +8599,6 @@
   "textos": 3,
   "numeradas": 5
  },
- "ji2440": {
-  "intentos": 2,
-  "ultimo": "2026-10-22T22:31:46.685Z",
-  "motivo": "con cuerpo"
- },
  "jk7o21": {
   "intentos": 1,
   "ultimo": "2026-10-23T10:32:12.509Z",
@@ -8600,11 +8643,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "jskasn": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T22:31:46.685Z",
-  "motivo": "con cuerpo"
  },
  "jsz307": {
   "intentos": 3,
@@ -9956,11 +9994,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "qlki82": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T22:31:46.685Z",
-  "motivo": "con cuerpo"
  },
  "qqc52p": {
   "intentos": 1,

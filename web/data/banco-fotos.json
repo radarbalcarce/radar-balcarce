@@ -46990,7 +46990,8 @@
    "descripcion": "Hombre de mediana edad sonriendo frente a un micrófono de radio con el logo de LDB 99.5.",
    "detalle": "El logo de la radio en el micrófono es parte de la escena real, no una marca agregada por el medio."
   },
-  "huella": "0a121212126a4a8a"
+  "huella": "0a121212126a4a8a",
+  "ausenteDesde": "2026-10-29T22:33:52.746Z"
  },
  "1s0kbrg": {
   "archivo": "fotos-notas/wjy7q4.jpg",
@@ -47051,7 +47052,8 @@
    "corresponde": "si",
    "descripcion": "Vista general de una camioneta y una grúa de plataforma trabajando en un poste de luz en una zona rural."
   },
-  "huella": "1e0888c8e4dcc084"
+  "huella": "1e0888c8e4dcc084",
+  "ausenteDesde": "2026-10-29T22:33:52.746Z"
  },
  "1ctrlp6": {
   "intentado": true,
@@ -47213,7 +47215,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en los boxes durante el Gran Premio de México"
   },
-  "huella": "0c2e3a4a144971f0"
+  "huella": "0c2e3a4a144971f0",
+  "ausenteDesde": "2026-10-29T22:33:52.746Z"
  },
  "106zkm9": {
   "intentado": true,
@@ -51573,7 +51576,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-29T16:19:44.930Z"
+  "cuando": "2026-10-29T22:33:51.460Z"
  },
  "wg76no": {
   "archivo": "fotos-notas/wg76no.jpg",
@@ -52576,7 +52579,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-29T16:19:43.693Z"
+  "cuando": "2026-10-29T22:33:50.812Z"
  },
  "gbrd5s": {
   "archivo": "fotos-notas/gbrd5s.jpg",
@@ -54423,6 +54426,28 @@
   "cuando": "2026-10-29T22:03:18.227Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1a19f94": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T22:33:18.712Z",
+  "intentos": 1,
+  "fuentes": 11,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "bwfemk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Presentan en Rafaela el Gran Premio Coronación del Turismo Pista",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T22:33:18.712Z",
+  "intentos": 1,
+  "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

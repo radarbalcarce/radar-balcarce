@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-29T22:03:29.474Z",
+ "generado": "2026-10-29T22:33:52.847Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -40,23 +40,6 @@
    "maximo": 4
   },
   {
-   "id": "alpm15",
-   "titulo": "Se lanzó reprogramación de la 22ª Fiesta Nacional del Postre",
-   "copete": "En la Sala de los intendentes, de la Comuna, se presentó este miércoles la reprogramación de la 22ª edición de la Fiesta Nacional del Postre que, como ya lo había anticipado ACCION5, se desarrollará durante el próximo fin de semana en el predio ferial de la Sociedad Rural…",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-10-28T22:46:45.000Z",
-   "fuentes": [
-    {
-     "medio": "Acción 5 (Balcarce)",
-     "enlace": "https://accion5.com/se-lanzo-reprogramacion-de-la-22a-fiesta-nacional-del-postre/",
-     "fecha": "2026-10-28T22:46:45.000Z"
-    }
-   ],
-   "intentos": 3,
-   "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
    "id": "l1jx9w",
    "titulo": "Bullrich, sobre la elección en Brasil: “La gente decide en las urnas y su voluntad se respeta\"",
    "copete": "",
@@ -74,9 +57,9 @@
      "fecha": "2026-10-28T18:00:35.000Z"
     },
     {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/politica/bullrich-volvio-diferenciarse-milei-reconocio-triunfo-lula-gente-decide-urnas-voluntad-respeta-20261028134357",
-     "fecha": "2026-10-28T16:43:00.000Z"
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/10/28/patricia-bullrich-desafia-a-javier-milei-y-reconoce-el-triunfo-de-lula-en-brasil/",
+     "fecha": "2026-10-29T03:01:00.000Z"
     },
     {
      "medio": "Clarín",
@@ -87,6 +70,11 @@
      "medio": "El Cronista",
      "enlace": "https://www.cronista.com/economia-politica/bullrich-rompio-el-silencio-sobre-la-eleccion-en-brasil-reconocio-la-victoria-de-lula-pero-cuestiono-a-la-justicia/",
      "fecha": "2026-10-28T16:41:47.519Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/politica/bullrich-volvio-diferenciarse-milei-reconocio-triunfo-lula-gente-decide-urnas-voluntad-respeta-20261028134357",
+     "fecha": "2026-10-28T16:43:57.893Z"
     },
     {
      "medio": "Canal 26",
@@ -132,11 +120,6 @@
      "medio": "La Brújula 24",
      "enlace": "https://www.labrujula24.com/notas/2026/10/28/bullrich-reconocio-el-triunfo-de-lula-en-brasil-la-gente-decide-en-las-urnas-n527765/",
      "fecha": "2026-10-28T17:56:27.000Z"
-    },
-    {
-     "medio": "Página/12",
-     "enlace": "https://www.pagina12.com.ar/2026/10/28/patricia-bullrich-desafia-a-javier-milei-y-reconoce-el-triunfo-de-lula-en-brasil/",
-     "fecha": "2026-10-28T18:27:14.000Z"
     },
     {
      "medio": "Radio Mitre",
@@ -231,8 +214,35 @@
      "fecha": "2026-10-29T21:44:03.000Z"
     }
    ],
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (numero): el copete dice 40 y la fuente no lo dice",
+   "maximo": 3
+  },
+  {
+   "id": "c872yu",
+   "titulo": "Vélez vs. San Lorenzo, por el Torneo Clausura 2026: horario, formaciones y TV",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-29T13:46:11.804Z",
+   "fuentes": [
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/deportes/velez-vs-san-lorenzo-el-torneo-clausura-2026-horario-formaciones-y-tv-n6338980",
+     "fecha": "2026-10-29T10:20:00.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-velez-vs-san-lorenzo-fecha-15-id769326.html",
+     "fecha": "2026-10-29T22:15:12.000Z"
+    },
+    {
+     "medio": "Doble Amarilla",
+     "enlace": "https://www.dobleamarilla.com.ar/liga-/guillermo-sufre--velez-no-podra-contar-con-un-titular-ante-san-lorenzo_a6ae28ce209e4184628059db5",
+     "fecha": "2026-10-29T13:46:11.804Z"
+    }
+   ],
    "intentos": 1,
-   "motivo": "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 283 palabras",
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
    "maximo": 3
   }
  ],
