@@ -45734,7 +45734,8 @@
    "corresponde": "si",
    "descripcion": "Hombre parado frente a una silobolsa"
   },
-  "huella": "0948081818191999"
+  "huella": "0948081818191999",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "15q3x7r": {
   "intentado": true,
@@ -46223,7 +46224,8 @@
    "corresponde": "si",
    "descripcion": "Avión privado estacionado en una pista"
   },
-  "huella": "81202e260da92a11"
+  "huella": "81202e260da92a11",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "xtuqwu": {
   "archivo": "fotos-notas/xtuqwu.jpg",
@@ -48786,7 +48788,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del fiscal Mariano Moyano con traje y corbata oscura."
   },
-  "huella": "37173e1e3d193d7b"
+  "huella": "37173e1e3d193d7b",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "1aygiq8": {
   "archivo": "fotos-notas/1aygiq8.jpg",
@@ -49758,8 +49761,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "d746ace89ad7d4dc",
-  "ausenteDesde": "2026-10-28T13:07:51.690Z"
+  "huella": "d746ace89ad7d4dc"
  },
  "w7ghgv": {
   "archivo": "fotos-notas/w7ghgv.jpg",
@@ -51759,7 +51761,8 @@
    "corresponde": "si",
    "descripcion": "Dos conductores en el escenario de los Premios Ídolo junto a un atril y pantalla con jurados."
   },
-  "huella": "3416d6f6e6a66a6a"
+  "huella": "3416d6f6e6a66a6a",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "1vwftc2": {
   "archivo": "fotos-notas/1vwftc2.jpg",
@@ -53845,7 +53848,8 @@
    "corresponde": "si",
    "descripcion": "Mapa astronómico con la trayectoria del objeto espacial y zoom de su ubicación"
   },
-  "huella": "961483a0205486a6"
+  "huella": "961483a0205486a6",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "n981ci": {
   "intentado": true,
@@ -53892,7 +53896,8 @@
    "corresponde": "si",
    "descripcion": "Obreros trabajando en la pavimentación de una calle con una hormigonera y un tractor al fondo."
   },
-  "huella": "688888982dbdb92d"
+  "huella": "688888982dbdb92d",
+  "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "phjtkk": {
   "archivo": "fotos-notas/phjtkk.jpg",
@@ -53940,5 +53945,52 @@
   "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "90yhse": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T16:30:24.444Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "nj3vcj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T16:30:24.444Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1v8hw3b": {
+  "archivo": "fotos-notas/q0z4qj.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Avanzan obras viales de pavimentación y bacheo",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45210-avanzan-las-obras-de-pavimentacion-repavimentacion-y-bacheo-en-balcarce/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66186.png",
+  "razon": "Es la única opción disponible y muestra claramente las obras de pavimentación con buena nitidez y encuadre.",
+  "cuando": "2026-10-29T16:19:10.070Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Obreros trabajando en la pavimentación de una calle con una hormigonera y un tractor al fondo."
+  },
+  "huella": "688888982dbdb92d"
  }
 }
