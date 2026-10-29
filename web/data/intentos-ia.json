@@ -1579,6 +1579,16 @@
   "textos": 6,
   "numeradas": 14
  },
+ "1b6ebp6": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 26,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el"
+  ]
+ },
  "1b8vgh8": {
   "intentos": 1,
   "ultimo": "2026-10-27T21:31:39.847Z",
@@ -3903,6 +3913,13 @@
   "ultimo": "2026-10-22T23:32:08.233Z",
   "motivo": "con cuerpo"
  },
+ "1qo8ovk": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1qr79y1": {
   "intentos": 1,
   "ultimo": "2026-10-23T12:44:12.221Z",
@@ -4089,11 +4106,6 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"fortin\" y la"
   ]
- },
- "1rylju8": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T03:01:07.069Z",
-  "motivo": "con cuerpo"
  },
  "1s0kbrg": {
   "intentos": 1,
@@ -4552,6 +4564,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
+ },
+ "1uz19h8": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 17
  },
  "1uzcjcc": {
   "intentos": 1,
@@ -5348,11 +5367,6 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 9
- },
- "3lx6ld": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T03:01:07.069Z",
-  "motivo": "con cuerpo"
  },
  "3nv0nf": {
   "intentos": 1,
@@ -6584,6 +6598,22 @@
   "ultimo": "2026-10-24T01:02:13.201Z",
   "motivo": "con cuerpo"
  },
+ "cwvrnw": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit"
+  ],
+  "falla": [
+   "el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el título dice 2.026 y el cuerpo no lo explica"
+  ]
+ },
  "cxqqzy": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -7489,6 +7519,13 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 24
+ },
+ "k0cb5m": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "k2wudj": {
   "intentos": 2,
@@ -8705,6 +8742,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "rnyh1": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "rrek51": {
   "intentos": 1,
   "ultimo": "2026-10-22T14:02:05.680Z",
@@ -8939,6 +8983,13 @@
   "motivos": [
    "cuerpo: 3 problemas (fecha, copia, promesa): el cuerpo menciona \"marte"
   ]
+ },
+ "szj0w3": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
  },
  "t0olao": {
   "intentos": 1,
@@ -9542,18 +9593,13 @@
   ]
  },
  "wulfww": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T02:01:22.801Z",
-  "motivo": "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente no; sin esas oraciones quedan 154 palabras",
-  "textos": 3,
-  "numeradas": 5,
+  "intentos": 2,
+  "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 7,
   "motivos": [
    "cuerpo: 3 problemas (nombre): el cuerpo nombra a \"major\" y la fuente n"
-  ],
-  "falla": [
-   "el cuerpo nombra a \"major\" y la fuente no",
-   "el cuerpo nombra a \"league\" y la fuente no",
-   "el cuerpo nombra a \"soccer\" y la fuente no"
   ]
  },
  "wunpee": {

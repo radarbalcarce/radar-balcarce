@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T02:01:59.335Z",
- "portada": 186,
+ "generado": "2026-10-29T03:02:29.115Z",
+ "portada": 177,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-29T02:01:59.817Z",
+  "generado": "2026-10-29T03:02:29.527Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-28T10:36:40.824Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-28T12:36:40.644Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-28T14:36:50.209Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-reclamos",
+    "nombre": "agenda",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu reclamo",
+    "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-28T15:36:27.704Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-28T19:06:50.058Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-28T22:36:30.848Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-28T23:36:38.621Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,29 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-28T14:36:50.209Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
     "notas": [
      {
-      "id": "w7ghgv",
-      "titulo": "Fangio consigue su primer título mundial de Fórmula 1 hace 75 años",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "11f64xi",
-      "titulo": "Social y Campo de Pato inicia los play off con triunfos y derrotas",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "5qx7kw",
-      "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
-      "seccion": "Educación"
-     },
-     {
-      "id": "u2pkjm",
-      "titulo": "Clubes de Leones y Cáritas firman convenio para sumar ayuda solidaria",
+      "id": "yb0soh",
+      "titulo": "Alumnos de la Primaria 3 visitan el Concejo Deliberante",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "hd8nd0",
+      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "19c5usk",
+      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -124,28 +124,28 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-28T19:06:50.058Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
     "notas": [
      {
-      "id": "12niewq",
-      "titulo": "El COM.IT.ES. de Mar del Plata visita Balcarce por las elecciones",
+      "id": "12l7i2z",
+      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
       "seccion": "Balcarce"
      },
      {
-      "id": "1yl1hli",
-      "titulo": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo",
-      "seccion": "Cultura y agenda"
+      "id": "1xvssy4",
+      "titulo": "Flávio Bolsonaro llega a Estados Unidos y se proclama líder de Brasil",
+      "seccion": "Argentina"
      },
      {
-      "id": "on90e1",
-      "titulo": "Destacada actuación de ciclistas balcarceños en el Argentino de Rally MTB",
-      "seccion": "Deportes"
+      "id": "m9x3m1",
+      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "jultnd",
-      "titulo": "Noviembre llega con aumentos en alquileres, prepagas, colegios y servicios",
+      "id": "1ieq0nc",
+      "titulo": "Noviembre llega con aumentos en transporte, prepagas y servicios",
       "seccion": "Economía"
      }
     ]
@@ -155,68 +155,36 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 54,
     "notas": [
      {
-      "id": "8s2k9s",
-      "titulo": "Un niño de dos años muere tras caer a una pileta",
-      "seccion": "Salud"
-     },
-     {
-      "id": "le5im8",
-      "titulo": "Confirman la realización de la Estudiantina para el año 2027",
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
       "seccion": "Balcarce"
      },
      {
-      "id": "kua1e9",
-      "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
-      "seccion": "Cultura y agenda"
+      "id": "1t6vp3x",
+      "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
+      "seccion": "Argentina"
      },
      {
-      "id": "l7z1jg",
-      "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
-      "seccion": "Agro"
+      "id": "1ctrlp6",
+      "titulo": "Cristian Romero elige a Julián Álvarez para heredar la 10 de la Selección",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "i61vuy",
+      "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
+      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "1tj9g7q",
-     "titulo": "Migraciones confirma que Flávio Bolsonaro salió del país rumbo a Ecuador",
-     "cuando": "2026-10-28T11:06:05.476Z"
-    },
-    {
-     "id": "10w8jm5",
-     "titulo": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata",
-     "cuando": "2026-10-28T12:46:06.238Z"
-    },
-    {
-     "id": "5qx7kw",
-     "titulo": "El Centro de Educación Física N° 119 conmemora su vigésimo quinto aniversario",
-     "cuando": "2026-10-28T14:36:01.589Z"
-    },
-    {
-     "id": "mimoad",
-     "titulo": "Fallece Eulalia Marzetti, la madre de Lionel Scaloni",
-     "cuando": "2026-10-28T16:36:02.400Z"
-    },
-    {
-     "id": "1xnehl1",
-     "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-     "cuando": "2026-10-28T18:36:03.817Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
-    {
-     "id": "8s2k9s",
-     "titulo": "Un niño de dos años muere tras caer a una pileta",
-     "seccion": "Salud",
-     "marcada": false
-    },
     {
      "id": "19c5usk",
      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
@@ -224,15 +192,21 @@
      "marcada": false
     },
     {
-     "id": "1jkbwyl",
-     "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
-     "seccion": "Fútbol",
+     "id": "8s2k9s",
+     "titulo": "Un niño de dos años muere tras caer a una pileta",
+     "seccion": "Salud",
      "marcada": false
     },
     {
      "id": "1t6vp3x",
      "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1jkbwyl",
+     "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -248,9 +222,9 @@
      "marcada": false
     },
     {
-     "id": "i61vuy",
-     "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
-     "seccion": "Economía",
+     "id": "wulfww",
+     "titulo": "Inter Miami empata 2 a 2 con Cincinnati sobre el final",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -260,7 +234,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-28T20:06:03.817Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

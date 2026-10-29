@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-29T02:01:56.775Z",
+ "consultado": "2026-10-29T03:02:21.757Z",
  "equipos": [
   "9739",
   "3",
@@ -974,6 +974,98 @@
     "fase": null,
     "partidoDeLaSerie": null,
     "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841657",
+    "competencia": "liga",
+    "inicio": "2026-11-02T22:00:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "8950",
+     "nombre": "Defensa y Justicia",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "11",
+     "nombre": "Independiente",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Norberto Tomaghello",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841649",
+    "competencia": "liga",
+    "inicio": "2026-11-02T22:00:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "7764",
+     "nombre": "Platense",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "11989",
+     "nombre": "Central Córdoba (Santiago del Estero)",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Ciudad de Vicente López",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841644",
+    "competencia": "liga",
+    "inicio": "2026-11-03T00:15:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "9785",
+     "nombre": "Atlético Tucumán",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "3",
+     "nombre": "Argentinos Juniors",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Monumental Presidente José Fierro",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
+   },
+   {
+    "id": "401841652",
+    "competencia": "liga",
+    "inicio": "2026-11-03T00:15:00.000Z",
+    "estado": "programado",
+    "minuto": "0'",
+    "local": {
+     "id": "9744",
+     "nombre": "Independiente Rivadavia",
+     "goles": 0
+    },
+    "visitante": {
+     "id": "235",
+     "nombre": "Banfield",
+     "goles": 0
+    },
+    "penales": null,
+    "goles": [],
+    "estadio": "Bautista Gargantini",
+    "fase": null,
+    "partidoDeLaSerie": null,
+    "torneo": "torneo-clausura"
    }
   ],
   "copaargentina": [
@@ -981,8 +1073,8 @@
     "id": "401926287",
     "competencia": "copaargentina",
     "inicio": "2026-10-29T00:15:00.000Z",
-    "estado": "en-juego",
-    "minuto": "86'",
+    "estado": "final",
+    "minuto": "95'",
     "local": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
@@ -993,8 +1085,65 @@
      "nombre": "Platense",
      "goles": 1
     },
-    "penales": null,
+    "penales": {
+     "local": 4,
+     "visitante": 5
+    },
     "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Pedro Canelo",
+      "minuto": "91'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Agustín Lagos",
+      "minuto": "92'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Rodrigo Granillo",
+      "minuto": "93'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Franco Zapiola",
+      "minuto": "94'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Clever Ferreira",
+      "minuto": "95'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Bruno Sepúlveda",
+      "minuto": "96'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Lautaro Godoy",
+      "minuto": "97'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Ignacio Vázquez",
+      "minuto": "98'",
+      "tipo": "de penal"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Guido Mainero",
+      "minuto": "99'",
+      "tipo": "de penal"
+     },
      {
       "equipo": "local",
       "jugador": "Renzo Tesuri",
@@ -1134,12 +1283,13 @@
    "2026-10-24": "2026-10-26T23:32:08.392Z",
    "2026-10-25": "2026-10-27T23:33:52.476Z",
    "2026-10-26": "2026-10-28T23:33:28.460Z",
-   "2026-10-27": "2026-10-26T23:32:08.392Z",
+   "2026-10-27": "2026-10-29T03:02:21.757Z",
    "2026-10-28": "2026-10-27T23:33:52.476Z",
    "2026-10-29": "2026-10-28T23:33:28.460Z",
-   "2026-10-30": "2026-10-28T23:33:28.460Z",
-   "2026-10-31": "2026-10-28T23:33:28.460Z",
-   "2026-11-01": "2026-10-28T23:33:28.460Z"
+   "2026-10-30": "2026-10-29T03:02:21.757Z",
+   "2026-10-31": "2026-10-29T03:02:21.757Z",
+   "2026-11-01": "2026-10-29T03:02:21.757Z",
+   "2026-11-02": "2026-10-29T03:02:21.757Z"
   },
   "copaargentina": {
    "2026-10-19": "2026-10-22T01:31:55.023Z",
@@ -1150,12 +1300,13 @@
    "2026-10-24": "2026-10-26T23:32:08.392Z",
    "2026-10-25": "2026-10-27T23:33:52.476Z",
    "2026-10-26": "2026-10-28T23:33:28.460Z",
-   "2026-10-27": "2026-10-26T23:32:08.392Z",
+   "2026-10-27": "2026-10-29T03:02:21.757Z",
    "2026-10-28": "2026-10-27T23:33:52.476Z",
    "2026-10-29": "2026-10-28T23:33:28.460Z",
-   "2026-10-30": "2026-10-28T23:33:28.460Z",
-   "2026-10-31": "2026-10-28T23:33:28.460Z",
-   "2026-11-01": "2026-10-28T23:33:28.460Z"
+   "2026-10-30": "2026-10-29T03:02:21.757Z",
+   "2026-10-31": "2026-10-29T03:02:21.757Z",
+   "2026-11-01": "2026-10-29T03:02:21.757Z",
+   "2026-11-02": "2026-10-29T03:02:21.757Z"
   },
   "libertadores": {
    "2026-10-19": "2026-10-22T01:31:55.023Z",
@@ -1166,12 +1317,13 @@
    "2026-10-24": "2026-10-26T23:32:08.392Z",
    "2026-10-25": "2026-10-27T23:33:52.476Z",
    "2026-10-26": "2026-10-28T23:33:28.460Z",
-   "2026-10-27": "2026-10-26T23:32:08.392Z",
+   "2026-10-27": "2026-10-29T03:02:21.757Z",
    "2026-10-28": "2026-10-27T23:33:52.476Z",
    "2026-10-29": "2026-10-28T23:33:28.460Z",
-   "2026-10-30": "2026-10-28T23:33:28.460Z",
-   "2026-10-31": "2026-10-28T23:33:28.460Z",
-   "2026-11-01": "2026-10-28T23:33:28.460Z"
+   "2026-10-30": "2026-10-29T03:02:21.757Z",
+   "2026-10-31": "2026-10-29T03:02:21.757Z",
+   "2026-11-01": "2026-10-29T03:02:21.757Z",
+   "2026-11-02": "2026-10-29T03:02:21.757Z"
   },
   "sudamericana": {
    "2026-10-19": "2026-10-22T01:31:55.023Z",
@@ -1182,12 +1334,13 @@
    "2026-10-24": "2026-10-26T23:32:08.392Z",
    "2026-10-25": "2026-10-27T23:33:52.476Z",
    "2026-10-26": "2026-10-28T23:33:28.460Z",
-   "2026-10-27": "2026-10-26T23:32:08.392Z",
+   "2026-10-27": "2026-10-29T03:02:21.757Z",
    "2026-10-28": "2026-10-27T23:33:52.476Z",
    "2026-10-29": "2026-10-28T23:33:28.460Z",
-   "2026-10-30": "2026-10-28T23:33:28.460Z",
-   "2026-10-31": "2026-10-28T23:33:28.460Z",
-   "2026-11-01": "2026-10-28T23:33:28.460Z"
+   "2026-10-30": "2026-10-29T03:02:21.757Z",
+   "2026-10-31": "2026-10-29T03:02:21.757Z",
+   "2026-11-01": "2026-10-29T03:02:21.757Z",
+   "2026-11-02": "2026-10-29T03:02:21.757Z"
   }
  },
  "tabla": {
@@ -1618,6 +1771,7 @@
   "futbolresultadoslibertadores20261022": "2026-10-23T03:03:30.453Z",
   "futbolresultadosliga20261023": "2026-10-23T23:01:45.103Z",
   "futbolpartidoscopaargentina20261028": "2026-10-27T12:38:11.595Z",
-  "futboltablaliga20261023": "2026-10-28T00:02:23.228Z"
+  "futboltablaliga20261023": "2026-10-28T00:02:23.228Z",
+  "futbolresultadoscopaargentina20261028": "2026-10-29T03:02:25.169Z"
  }
 }

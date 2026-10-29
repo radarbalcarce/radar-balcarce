@@ -43817,7 +43817,8 @@
    "corresponde": "si",
    "descripcion": "Papas hirviendo en una olla con agua"
   },
-  "huella": "56cf0f1bb3d7d65b"
+  "huella": "56cf0f1bb3d7d65b",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "1vbcgqe": {
   "archivo": "fotos-notas/1vbcgqe.jpg",
@@ -43841,7 +43842,8 @@
    "corresponde": "si",
    "descripcion": "Operadores bursátiles trabajando frente a pantallas de mercados"
   },
-  "huella": "405f4e3737253b8f"
+  "huella": "405f4e3737253b8f",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "1nhdhsi": {
   "archivo": "fotos-notas/1nhdhsi.jpg",
@@ -43865,7 +43867,8 @@
    "corresponde": "si",
    "descripcion": "Avión comercial en pleno despegue sobre una pista"
   },
-  "huella": "a2a2e2ca07d75dd3"
+  "huella": "a2a2e2ca07d75dd3",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "tzegrg": {
   "archivo": "fotos-notas/tzegrg.jpg",
@@ -43901,7 +43904,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1c1796b4e8a4c0b4"
+  "huella": "1c1796b4e8a4c0b4",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "11yhki4": {
   "archivo": "fotos-notas/11yhki4.jpg",
@@ -43925,7 +43929,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Claudio 'Chiqui' Tapia hablando en conferencia."
   },
-  "huella": "154647f5e5d71716"
+  "huella": "154647f5e5d71716",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "1lms91p": {
   "archivo": "fotos-notas/1lms91p.jpg",
@@ -45312,7 +45317,8 @@
    "corresponde": "si",
    "descripcion": "Ganado cruzando o rodeado de agua en una zona inundada"
   },
-  "huella": "14c4423c7cfdbb83"
+  "huella": "14c4423c7cfdbb83",
+  "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "1iy3a9n": {
   "archivo": "fotos-notas/1iy3a9n.jpg",
@@ -51366,5 +51372,69 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1uz19h8": {
+  "archivo": "fotos-notas/1uz19h8.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense vence a Atlético Tucumán por penales y es finalista de la Copa Argentina",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160074/deportes/atletico-tucuman-cayo-penales-platense-quedo-fuera-copa-argentina.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/atletico-tucuman-cayo-penales-platense-quedo-fuera-copa-argentina-1160074-234919.jpeg",
+  "razon": "Es la única imagen completa que muestra la reacción de los jugadores de Platense, correspondiente al contexto de la nota, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T03:02:15.118Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Platense en el campo de juego mostrando frustración tras el partido."
+  },
+  "huella": "103024206a92aa86"
+ },
+ "wulfww": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Inter Miami empata 2 a 2 con Cincinnati sobre el final",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T03:02:15.118Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "szj0w3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comienzan en Buenos Aires los Premios Ídolo 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T03:02:15.118Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "f1horarios2026r19": {
+  "archivo": "fotos-notas/libre-f1horarios2026r19.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: oxido1180 / Wikimedia Commons (CC BY-SA 2.0)",
+  "licencia": "CC BY-SA 2.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg/1280px-Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Nationwide Series at Autódromo Hermanos Rodríguez 2008.jpg",
+  "cuando": "2026-10-29T03:02:26.664Z"
+ },
+ "futbolresultadoscopaargentina20261028": {
+  "intentado": true,
+  "origen": "libre",
+  "razon": "no hubo una foto libre buena",
+  "cuando": "2026-10-29T03:02:27.629Z"
  }
 }
