@@ -31820,9 +31820,7 @@
   "fuentes": 3
  },
  "6etlvy": {
-  "archivo": "fotos-notas/6etlvy.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "Desarrollo Social inicia la entrega mensual de mercadería",
@@ -31842,7 +31840,8 @@
    "descripcion": "Persona preparando bolsas de mercadería con alimentos"
   },
   "huella": "70e1c9d924242898",
-  "ausenteDesde": "2026-10-22T17:06:29.418Z"
+  "intentado": true,
+  "borrada": true
  },
  "6aw080": {
   "intentado": true,
@@ -46200,7 +46199,8 @@
    "corresponde": "si",
    "descripcion": "Manifestantes protestando con pasacalles"
   },
-  "huella": "38d8948baaabcafe"
+  "huella": "38d8948baaabcafe",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "mmyfrg": {
   "archivo": "fotos-notas/mmyfrg.jpg",
@@ -46495,7 +46495,8 @@
    "corresponde": "si",
    "descripcion": "Reunión de autoridades y empresarios en una sala"
   },
-  "huella": "879484c507965969"
+  "huella": "879484c507965969",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "njiyr0": {
   "archivo": "fotos-notas/njiyr0.jpg",
@@ -46809,7 +46810,8 @@
    "corresponde": "si",
    "descripcion": "Los integrantes de U2 posando juntos al aire libre."
   },
-  "huella": "5292e21692a09a6a"
+  "huella": "5292e21692a09a6a",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "18bh1xz": {
   "archivo": "fotos-notas/18bh1xz.jpg",
@@ -46833,7 +46835,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de personas posando frente a un cartel institucional"
   },
-  "huella": "5f4b958fa6a694dc"
+  "huella": "5f4b958fa6a694dc",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "ur4pbx": {
   "intentado": true,
@@ -47011,7 +47014,8 @@
    "corresponde": "si",
    "descripcion": "Avión privado en pista de aterrizaje de noche"
   },
-  "huella": "87af1424120f1a30"
+  "huella": "87af1424120f1a30",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "c76w83": {
   "intentado": true,
@@ -47173,7 +47177,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del lugar del accidente con una camioneta volcada, una ambulancia y personal de bomberos trabajando en el campo."
   },
-  "huella": "43c7cc344ace0d44"
+  "huella": "43c7cc344ace0d44",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "1yzm10q": {
   "intentado": true,
@@ -48111,7 +48116,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "8725672f070d4c4c"
+  "huella": "8725672f070d4c4c",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "1qbhiyg": {
   "archivo": "fotos-notas/1qbhiyg.jpg",
@@ -51514,7 +51520,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi gambeteando rodeado de jugadores rivales"
   },
-  "huella": "d1511b1d199b2b4e"
+  "huella": "d1511b1d199b2b4e",
+  "ausenteDesde": "2026-10-29T17:36:24.574Z"
  },
  "szj0w3": {
   "archivo": "fotos-notas/szj0w3.jpg",
@@ -53571,8 +53578,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "e3b30dab352ba917",
-  "ausenteDesde": "2026-10-29T17:05:19.047Z"
+  "huella": "e3b30dab352ba917"
  },
  "1tejsa4": {
   "intentado": true,
@@ -54015,6 +54021,53 @@
   "cuando": "2026-10-29T17:05:10.912Z",
   "intentos": 1,
   "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1oxthyw": {
+  "archivo": "fotos-notas/1oxthyw.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei felicita a Benjamin Netanyahu por los resultados en Israel",
+  "enlace": "https://www.lanacion.com.ar/politica/javier-milei-y-sus-medidas-en-vivo-sesion-en-el-senado-y-el-viaje-de-karina-milei-a-rosario-nid29102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/karina-y-javier-milei-con-el-gobernador-raul-SBXLN3BSXZDNBIDNOFWRMDFOHM.jpg?auth=15ce2cc56c8c468559bcb2c4325dc2e238702b21f6c66c3a48dc85e3e3299951&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es la única opción disponible y muestra a Javier Milei, quien es el protagonista de la nota, en un encuadre nítido y sin marcas de agua.",
+  "cuando": "2026-10-29T17:35:56.849Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei sonriendo y haciendo el gesto de pulgar arriba, acompañado por una mujer y un hombre mayor."
+  },
+  "huella": "32d2d2d5752d2f2b"
+ },
+ "1d2n6l3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T17:35:56.849Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1dd73iv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T17:35:56.849Z",
+  "intentos": 1,
+  "fuentes": 5,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
