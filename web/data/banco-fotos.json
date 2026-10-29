@@ -43522,15 +43522,29 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "cxqqzy": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Amigos Unidos golea a River Balcarce y empata Ferroviarios",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.); OpenRouter: Unterminated string in JSON at position 319 (line 1 column 320)",
-  "cuando": "2026-10-27T03:07:13.214Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/wg76no.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amigos Unidos supera a River y Los Patos vence a Ferroviarios",
+  "enlace": "https://accion5.com/bajo-la-lluvia-au-gano-a-river-y-los-patos-lo-doblego-a-ferro/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/1-5.jpg",
+  "razon": "Es la única imagen completa que muestra la acción del partido con nitidez adecuada y sin recortes que impidan identificar el hecho.",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Amigos Unidos y River disputando la pelota en el campo de juego."
+  },
+  "huella": "89193131263ea495"
  },
  "8g3pq3": {
   "archivo": "fotos-notas/8g3pq3.jpg",
@@ -43723,7 +43737,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "7f3f7d79f97d6967"
+  "huella": "7f3f7d79f97d6967",
+  "ausenteDesde": "2026-10-29T07:07:31.135Z"
  },
  "1oy6wbg": {
   "archivo": "fotos-notas/1oy6wbg.jpg",
@@ -49089,7 +49104,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "86460b6bf5c7c5f1"
+  "huella": "86460b6bf5c7c5f1",
+  "ausenteDesde": "2026-10-29T07:07:31.135Z"
  },
  "1aq3bym": {
   "archivo": "fotos-notas/1aq3bym.jpg",
@@ -51731,7 +51747,8 @@
    "corresponde": "si",
    "descripcion": "Arquero de Atlético Tucumán celebrando frente a su arco."
   },
-  "huella": "0f2fbf8b1d0f191b"
+  "huella": "0f2fbf8b1d0f191b",
+  "ausenteDesde": "2026-10-29T07:07:31.135Z"
  },
  "smz12n": {
   "intentado": true,
@@ -51754,5 +51771,201 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "md2rgu": {
+  "archivo": "fotos-notas/md2rgu.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense supera por penales a Atlético Tucumán y avanza a la final de la Copa Argentina",
+  "enlace": "https://www.ole.com.ar/copa-argentina/atleticotucuman-platense-semifinales-copaargentina-mejores-momentos-resumen_0_BgZGspfOHN.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/29/qSRYj1z4z_2000x1500__1.jpg",
+  "razon": "Es la mejor foto que cumple con todos los requisitos: corresponde a la nota, muestra un festejo de Platense sin marcas de agua de medios, sin menores y con excelente calidad.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Festejo de jugadores de Platense abrazados"
+  },
+  "huella": "554d45b1517171f9"
+ },
+ "na1wje": {
+  "archivo": "fotos-notas/na1wje.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diego Santilli irá al Senado el 25 de noviembre a dar su informe",
+  "enlace": "https://www.lanacion.com.ar/politica/por-su-negativa-a-asistir-el-senado-busca-intimar-a-diego-santilli-a-que-concurra-a-brindar-su-nid28102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/entrevista-con-el-jefe-de-gabinete-de-ministros-IIHBNJ3FC5A23BJTDR2VO7PPYA.jpg?auth=4eb9dbcec97ef67671bb096d9863c22594cb9e27aff5a4dc2fe72b08230930db&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una foto nítida, bien encuadrada de Diego Santilli, sin marcas agregadas, menores ni problemas de archivo.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Diego Santilli sentado apoyando la barbilla en la mano"
+  },
+  "huella": "0444c4c6c64e262c"
+ },
+ "1p8y51b": {
+  "archivo": "fotos-notas/1p8y51b.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mozilla apela a la nostalgia con memes clásicos para Firefox",
+  "enlace": "https://www.c5n.com/tecnologia/firefox-recurre-la-nostalgia-la-vieja-internet-recuperar-usuarios-y-devolverles-privacidad-n252851",
+  "imagenOriginal": "https://media.c5n.com/p/d871e24b69e58b51b096e0d993c20120/adjuntos/326/imagenes/000/405/0000405229/1200x675/smart/bad-luck-brian-meme.jpg",
+  "razon": "Es la única opción disponible y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Bad Luck Brian, meme clásico de internet."
+  },
+  "huella": "000e0f0d0f0f0f0f"
+ },
+ "1x3y3pd": {
+  "archivo": "fotos-notas/1x3y3pd.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Vista invierte 2300 millones de dólares y eleva su producción un 33%",
+  "enlace": "https://www.lanacion.com.ar/economia/vista-invirtio-mas-de-us2300-millones-en-vaca-muerta-y-aumento-su-produccion-un-33-nid28102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/vista-energy-presento-sus-resultados-del-tercer-V3PMFBTX5JERXHPQLZ6WKRDXVE.jpeg?auth=3fafe66479e80c8cff5fe1ee6374099229d75ad9a3c0d234d0c9cc8345d7216f&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra claramente la actividad petrolera de la empresa Vista con excelente encuadre y sin problemas de marca ni menores.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Trabajadora de espaldas observando un yacimiento petrolero al atardecer"
+  },
+  "huella": "0f3e5b4f5dcfc9cf"
+ },
+ "ywafgd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nicolás Pareja va a juicio en España por una causa de electricidad",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota); la de Clarín (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "intentos": 1,
+  "fuentes": 12
+ },
+ "i3ze96": {
+  "archivo": "fotos-notas/i3ze96.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Apple presenta la primera MacBook Pro con pantalla táctil y hasta 24 horas de batería",
+  "enlace": "https://www.cronista.com/infotechnology/gadgets/ofensiva-de-apple-lanzo-su-primera-macbook-tactil-y-una-bateria-de-nuevos-dispositivos/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/KHN5G2NAL5FEBOIVY36XH6H5RI.jpg?auth=c70b528c210fa63ada451f8a6aa6839442046cebbbea7edeff4e0a5500d063e0&height=630&width=1200&quality=70&smart=true",
+  "razon": "Muestra claramente el uso de la pantalla táctil de la nueva MacBook Pro, siendo la más representativa para la nota.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona interactuando con la pantalla táctil de una MacBook Pro."
+  },
+  "huella": "b236a60644143171"
+ },
+ "1kil29j": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Delgado y Flores siguen en Boca para la semifinal de Copa Argentina",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Crónica no se usa todavía.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "1ptsjr5": {
+  "archivo": "fotos-notas/1ptsjr5.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Subastan una carta de Brian Jones para convocar a Charlie Watts",
+  "enlace": "https://www.clarin.com/espectaculos/salio-luz-carta-inedita-brian-jones-sumar-charlie-watts-rolling-stones-baterista-pesimo_0_EH3ZTV90uw.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/28/sQvHoJhFT_2000x1500__1.jpg",
+  "razon": "La foto A muestra claramente la carta objeto de la subasta junto a imágenes de los músicos involucrados.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Composicion que muestra la carta de Brian Jones y fotos de los musicos."
+  },
+  "huella": "161f1f1d2b139797"
+ },
+ "ztavbs": {
+  "archivo": "fotos-notas/ztavbs.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El oficialismo posterga el dictamen del Presupuesto 2027 por falta de acuerdos",
+  "enlace": "https://tn.com.ar/politica/2026/10/28/presupuesto-2027-el-gobierno-no-logro-un-acuerdo-con-sus-aliados-y-postergo-la-firma-del-dictamen/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/la-comision-de-presupuesto-y-hacienda-es-presidida-por-el-libertario-bertie-benegas-lynch-foto-camara-de-diputados-C74BRIJXY5A2JMKMASQ725VFSY.jpeg?auth=580021a2568999a952587166f75505d69621d38303666c65758723ea23e4ff24&width=1023",
+  "razon": "Es la única foto sin marcas ni menores, con buena nitidez y correspondiente a la temática política.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Funcionario con anteojos hablando ante un micrófono en una sala institucional."
+  },
+  "huella": "71e3c1c9c9c9e8c9"
+ },
+ "edt3qr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Argentina cae por penales ante Ghana y se despide del Mundial Femenino Sub 17",
+  "razon": "La mejor foto era la de Crónica, pero no se puede usar (un menor), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-29T07:06:06.315Z",
+  "intentos": 1,
+  "fuentes": 10
  }
 }
