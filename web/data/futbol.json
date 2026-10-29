@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-29T01:33:14.262Z",
+ "consultado": "2026-10-29T02:01:56.775Z",
  "equipos": [
   "9739",
   "3",
@@ -982,7 +982,7 @@
     "competencia": "copaargentina",
     "inicio": "2026-10-29T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "57'",
+    "minuto": "86'",
     "local": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
@@ -991,7 +991,7 @@
     "visitante": {
      "id": "7764",
      "nombre": "Platense",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -999,6 +999,12 @@
       "equipo": "local",
       "jugador": "Renzo Tesuri",
       "minuto": "36'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Nicolas Retamar",
+      "minuto": "58'",
       "tipo": "gol"
      }
     ],

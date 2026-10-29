@@ -43625,7 +43625,8 @@
    "corresponde": "si",
    "descripcion": "El presidente de la Nación hablando en un atril con traje de etiqueta."
   },
-  "huella": "2f2b0f5b9b8b839b"
+  "huella": "2f2b0f5b9b8b839b",
+  "ausenteDesde": "2026-10-29T02:01:59.253Z"
  },
  "1c0e1o9": {
   "intentado": true,
@@ -43948,7 +43949,8 @@
    "corresponde": "si",
    "descripcion": "Funcionarios reunidos en una mesa de conferencia participando de un acuerdo."
   },
-  "huella": "6327ab4bcd2c2156"
+  "huella": "6327ab4bcd2c2156",
+  "ausenteDesde": "2026-10-29T02:01:59.253Z"
  },
  "1sq6xx6": {
   "archivo": "fotos-notas/1sq6xx6.jpg",
@@ -50187,7 +50189,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf"
+  "huella": "3591555c28ecbdbf",
+  "ausenteDesde": "2026-10-29T02:01:59.253Z"
  },
  "1jp7qfd": {
   "intentado": true,
@@ -51341,5 +51344,27 @@
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
   "huella": "3591555c28ecbdbf"
+ },
+ "alpm15": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Presentan la nueva programación de la Fiesta Nacional del Postre",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Acción 5 (Balcarce) no se usa todavía.",
+  "cuando": "2026-10-29T02:01:51.581Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "189erh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Huracán recibe a Tigre por la decimoquinta fecha del Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T02:01:51.581Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
