@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-29T05:03:46.765Z",
+ "generado": "2026-10-29T06:02:35.336Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -43,6 +43,11 @@
      "medio": "Crónica",
      "enlace": "https://www.cronica.com.ar/politica/bullrich-se-diferencia-de-milei-reconoce-el-triunfo-de-lula-y-lanza-una-advertencia-por-bolsonaro/",
      "fecha": "2026-10-28T17:36:00.000Z"
+    },
+    {
+     "medio": "El Día",
+     "enlace": "https://www.eldia.com/politica-y-economia/bullrich-reconocio-el-triunfo-de-lula-da-silva-politica-y-economia_1793250666",
+     "fecha": "2026-10-29T05:11:06.000Z"
     },
     {
      "medio": "El Día",
@@ -110,9 +115,26 @@
    "maximo": 5
   },
   {
+   "id": "oux973",
+   "titulo": "Construirán el pozo de agua número 67, al norte de la Ruta 226",
+   "copete": "",
+   "seccion": "Argentina",
+   "fecha": "2026-10-29T05:30:03.000Z",
+   "fuentes": [
+    {
+     "medio": "El Eco de Tandil",
+     "enlace": "https://www.eleco.com.ar/la-ciudad/construiran-el-pozo-de-agua-numero-67-al-norte-de-la-ruta-226",
+     "fecha": "2026-10-29T05:30:03.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "sin material",
+   "maximo": 3
+  },
+  {
    "id": "oitct6",
    "titulo": "Integrantes de la ACTC recorrieron el autódromo «Martín Miguel de Güemes»",
-   "copete": "La ACTC inspeccionó el autódromo de Salta para evaluar su regreso al TC Fernando Miori, gerente general de la ACTC, y Roberto Argento, director de Obras y Planificación de Autódromos de la entidad, viajaron este martes a la ciudad de Salta para inspeccionar el Autódromo Martín…",
+   "copete": "Cumpliendo con una solicitud formal desde el Auto Club Salta, entidad que administra el autódromo «Martín Miguel de Güemes», Fernando Miori (Gerente General) y Roberto Argento (Director de Obras y Planificación de Autódromos) viajaron en representación de la ACTC. En la visita…",
    "seccion": "Automovilismo",
    "fecha": "2026-10-27T20:18:12.000Z",
    "fuentes": [
@@ -130,33 +152,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
-  },
-  {
-   "id": "1npjo2h",
-   "titulo": "El PRO volvió a diferenciarse del Gobierno y aseguró que “Brasil es nuestro vecino y socio central en el Mercosur“",
-   "copete": "",
-   "seccion": "Política",
-   "fecha": "2026-10-27T18:27:13.000Z",
-   "fuentes": [
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/politica/el-pro-volvio-a-diferenciarse-del-gobierno-y-aseguro-que--brasil-es-nuestro-vecino-y-socio-central-en-el-mercosur-_a6ae0d1d4bc8a73c74f18ccf2",
-     "fecha": "2026-10-27T17:15:48.283Z"
-    },
-    {
-     "medio": "La Capital (Rosario)",
-     "enlace": "https://www.lacapital.com.ar/politica/el-pro-volvio-diferenciarse-del-gobierno-milei-respecto-brasil-n10289052.html",
-     "fecha": "2026-10-27T22:16:57.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://perfil.com/nea/pro-brasil-es-nuestro-vecino-y-socio-central-en-el-mercosur-a8EIL0A1SGC0",
-     "fecha": "2026-10-27T18:27:13.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
   }
  ],
  "descartadas": [
@@ -167,14 +162,6 @@
    "fecha": "2026-10-27T23:27:16.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; semáforo: tema sensible: \"menor de edad\", en lo que escribió la IA (título, bajada o texto para redes)"
-  },
-  {
-   "id": "1khxfqd",
-   "titulo": "Licitación pública para avanzar con una nueva etapa del microestadio del CEF Nº 119",
-   "seccion": "Balcarce",
-   "fecha": "2026-10-27T22:17:13.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
   },
   {
    "id": "19s99gt",

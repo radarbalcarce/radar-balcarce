@@ -49125,7 +49125,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "69797575fd93b42e"
+  "huella": "69797575fd93b42e",
+  "ausenteDesde": "2026-10-29T06:02:35.246Z"
  },
  "1uwlw8o": {
   "intentado": true,
@@ -51595,7 +51596,8 @@
    "corresponde": "si",
    "descripcion": "Plantel de Platense festejando con el cheque simbólico de semifinales."
   },
-  "huella": "bd59aad2d41e1c59"
+  "huella": "bd59aad2d41e1c59",
+  "ausenteDesde": "2026-10-29T06:02:35.246Z"
  },
  "1onesd6": {
   "archivo": "fotos-notas/1onesd6.jpg",
@@ -51620,7 +51622,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
   },
-  "huella": "060107f2af0f9c83"
+  "huella": "060107f2af0f9c83",
+  "ausenteDesde": "2026-10-29T06:02:35.246Z"
  },
  "cwvrnw": {
   "intentado": true,
@@ -51677,6 +51680,78 @@
   "cuando": "2026-10-29T05:02:28.913Z",
   "intentos": 1,
   "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "9cbw44": {
+  "archivo": "fotos-notas/9cbw44.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Realizan la tercera edición de los Premios Ídolo Argentina en Buenos Aires",
+  "enlace": "https://radiomitre.cienradios.com/espectaculos/segui-en-vivo-los-premios-idolo-2026/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/W7TK6HDLINHHJNTFVQ7YRPOJ6U.jpg?smart=true&auth=048b0c18800967682ebb1370f9ea7bb8724c1a8776db3676ec2b5b478682dbb0&width=1200&height=630",
+  "razon": "Es la única opción disponible y muestra el objeto central de la nota (el trofeo) con el logo del evento, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T06:02:14.555Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de una mano sosteniendo el trofeo de los Premios Ídolo Argentina frente al logo del evento."
+  },
+  "huella": "4343614b43435440"
+ },
+ "1dzeve0": {
+  "archivo": "fotos-notas/1dzeve0.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense elimina por penales a Atlético Tucumán y es finalista",
+  "enlace": "https://www.lagaceta.com.ar/nota/1159991/deportes/atletico-tucuman-vs-platense-hay-alargue-penales-var-semifinal-copa-argentina.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/hroe-en-los-penales-luis-ingolotti-festeja-sus-tres-atajadas-ante-independiente-rivadavia-definicion-penales-cuartos-final-copa-argentina-1159991-102642.jpg",
+  "razon": "Es la única imagen completa y nítida que muestra al arquero de Atlético Tucumán celebrando, correspondiendo al contexto de la nota.",
+  "cuando": "2026-10-29T06:02:14.555Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Arquero de Atlético Tucumán celebrando frente a su arco."
+  },
+  "huella": "0f2fbf8b1d0f191b"
+ },
+ "smz12n": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La ONU rechaza el embargo a Cuba y la Argentina vota en contra",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T06:02:14.555Z",
+  "intentos": 1,
+  "fuentes": 11,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "6cuttf": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Álvarez Agis advierte una maratón cambiaria y proyecta 17% de inflación para 2027",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T06:02:14.555Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
