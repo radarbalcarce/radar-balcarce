@@ -31661,9 +31661,7 @@
   "ausenteDesde": "2026-10-27T03:07:24.798Z"
  },
  "1vtze3b": {
-  "archivo": "fotos-notas/1vtze3b.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "La FEB realiza un paro docente de 48 horas tras rechazar el aumento salarial",
@@ -31683,7 +31681,8 @@
    "descripcion": "Aula escolar vacía con bancos y pizarrón"
   },
   "huella": "22606278686c436a",
-  "ausenteDesde": "2026-10-22T19:32:41.032Z"
+  "intentado": true,
+  "borrada": true
  },
  "umqt3y": {
   "archivo": "fotos-notas/umqt3y.jpg",
@@ -53588,7 +53587,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "e3b30dab352ba917"
+  "huella": "e3b30dab352ba917",
+  "ausenteDesde": "2026-10-29T19:33:22.261Z"
  },
  "1tejsa4": {
   "intentado": true,
@@ -54194,6 +54194,28 @@
   "cuando": "2026-10-29T19:04:27.162Z",
   "intentos": 1,
   "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "s485pw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Enzo Fernández confirma su deseo de volver a River en el futuro",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T19:33:02.300Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ooa5pe": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Enzo Fernández descarta teorías conspirativas sobre la final del Mundial",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T19:33:02.300Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

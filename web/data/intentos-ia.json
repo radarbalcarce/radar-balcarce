@@ -246,11 +246,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "11jjrxq": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T19:31:33.558Z",
-  "motivo": "con cuerpo"
- },
  "11m7115": {
   "intentos": 1,
   "ultimo": "2026-10-23T22:01:46.034Z",
@@ -342,11 +337,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "129eq1d": {
-  "intentos": 3,
-  "ultimo": "2026-10-22T19:31:33.558Z",
-  "motivo": "semáforo: necesita ojo humano: \"acusado\", en lo que escribió la IA (título, bajada o texto para redes)"
  },
  "129tmj4": {
   "intentos": 1,
@@ -868,6 +858,20 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 9
+ },
+ "15mxbha": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T19:31:53.378Z",
+  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "textos": 7,
+  "numeradas": 11,
+  "motivos": [
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+  ],
+  "falla": [
+   "la fuente niega algo en el título y el texto nuevo no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "15n24pt": {
   "intentos": 3,
@@ -3244,6 +3248,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1j83nh5": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T19:31:53.378Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "1j8dfp3": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -3696,11 +3707,6 @@
  "1lslpgx": {
   "intentos": 1,
   "ultimo": "2026-10-23T00:02:24.603Z",
-  "motivo": "con cuerpo"
- },
- "1lukod9": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T19:31:33.558Z",
   "motivo": "con cuerpo"
  },
  "1lumco0": {
@@ -4494,17 +4500,26 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1qgvel8": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T19:31:53.378Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\" y el cuerpo no los explica; sin esas oraciones quedan 334 palabras",
+  "textos": 3,
+  "numeradas": 36,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"naufez\" y la",
+   "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\""
+  ],
+  "falla": [
+   "el título nombra a \"liga\", \"profesional\" y el cuerpo no los explica"
+  ]
+ },
  "1qh7up8": {
   "intentos": 1,
   "ultimo": "2026-10-29T14:02:11.105Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1qhwdw3": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T19:31:33.558Z",
-  "motivo": "con cuerpo"
  },
  "1qjwv3r": {
   "intentos": 1,
@@ -10083,20 +10098,15 @@
   ]
  },
  "s485pw": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T19:02:28.384Z",
-  "motivo": "título o bajada: 5 problemas (forma, numero, pasado): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "intentos": 2,
+  "ultimo": "2026-10-29T19:31:53.378Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 11 problemas (nombre, antecedente, tilde, tildes): el cuerpo n",
-   "título o bajada: 5 problemas (forma, numero, pasado): el titulo trae u"
-  ],
-  "falla": [
-   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el titulo dice 0 y la fuente no lo dice",
-   "el cuerpo nombra a \"emiliano\" y la fuente no",
-   "el cuerpo nombra a \"juniors\" y la fuente no"
+   "título o bajada: 5 problemas (forma, numero, pasado): el titulo trae u",
+   "cuerpo: 10 problemas (nombre, antecedente, tilde, tildes): el cuerpo n"
   ]
  },
  "s5pobr": {
@@ -10775,17 +10785,19 @@
   ]
  },
  "wfxnpc": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T19:02:28.384Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\", \"anibal\", \"lotocki\" y el cuerpo no los explica; sin esas oraciones quedan 283 palabras",
-  "textos": 7,
+  "intentos": 2,
+  "ultimo": "2026-10-29T19:31:53.378Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\" y el cuerpo no los explica; sin esas oraciones quedan 234 palabras",
+  "textos": 6,
   "numeradas": 9,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 49 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\", \""
+   "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\", \"",
+   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\" y "
   ],
   "falla": [
-   "el título nombra a \"corte\", \"suprema\", \"anibal\", \"lotocki\" y el cuerpo no los explica"
+   "el título nombra a \"corte\", \"suprema\" y el cuerpo no los explica"
   ]
  },
  "wg76no": {
