@@ -1,7 +1,5 @@
 {
-  "avisos": {
-    "web-vieja": "2026-10-29T09:00:13.050Z"
-  },
+  "avisos": {},
   "importantes": {
     "avisadas": {
       "1is9y1g": {
@@ -27,18 +25,11 @@
     "ultimo": "2026-10-29T00:00:13.322Z"
   },
   "redes": {
-    "hasta": "2026-10-29T02:08:29.127Z"
+    "hasta": "2026-10-29T10:37:08.032Z"
   },
-  "ultimaMedicion": "2026-10-28/21",
+  "ultimaMedicion": "2026-10-29/9",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-28",
   "ultimoInforme": "2026-10-01",
-  "abiertos": [
-    {
-      "clave": "web-vieja",
-      "nivel": "alta",
-      "texto": "La web no se actualiza hace 1.9 horas. Revisá el reloj de Cloudflare (Workers → radar-balcarce-reloj) y GitHub Actions.",
-      "desde": "2026-10-29T09:00:13.050Z"
-    }
-  ]
+  "abiertos": []
 }
