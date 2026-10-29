@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T14:17:40.270Z",
- "portada": 157,
+ "generado": "2026-10-29T16:19:47.784Z",
+ "portada": 167,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 17,
  "redes": {
-  "generado": "2026-10-29T14:17:40.811Z",
+  "generado": "2026-10-29T16:19:48.223Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T12:46:39.866Z"
    },
    {
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T13:36:37.870Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T13:36:37.870Z",
     "segundos": null,
     "notas": [
@@ -126,8 +126,18 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "1v8hw3b",
+      "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1tejsa4",
+      "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
+      "seccion": "Deportes"
+     },
      {
       "id": "no17hh",
       "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
@@ -137,16 +147,6 @@
       "id": "1h0i8a7",
       "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
       "seccion": "Salud"
-     },
-     {
-      "id": "1tejsa4",
-      "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1x12myv",
-      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
-      "seccion": "Ciencia"
      }
     ]
    },
@@ -160,9 +160,9 @@
     "segundos": 50,
     "notas": [
      {
-      "id": "1jy9zz0",
-      "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
-      "seccion": "Cultura y agenda"
+      "id": "1x12myv",
+      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
+      "seccion": "Ciencia"
      },
      {
       "id": "1q1zjvw",
@@ -170,14 +170,14 @@
       "seccion": "Educación"
      },
      {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "1rk2uai",
       "titulo": "Ciclistas locales logran títulos en el Argentino de mountain bike",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -188,13 +188,30 @@
      "id": "n7y2s4",
      "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
      "cuando": "2026-10-29T12:36:01.734Z"
+    },
+    {
+     "id": "1jy9zz0",
+     "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
+     "cuando": "2026-10-29T14:36:00.882Z"
     }
    ],
    "cola": [
     {
-     "id": "1u7fzx2",
-     "titulo": "A dos años del derrumbe en Villa Gesell recuerdan a las víctimas balcarceñas",
+     "id": "1v8hw3b",
+     "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "13z5ze5",
+     "titulo": "La Liga Balcarceña suspende los partidos previstos para este jueves",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1tejsa4",
+     "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -216,32 +233,20 @@
      "marcada": false
     },
     {
-     "id": "1jy9zz0",
-     "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1tejsa4",
-     "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "ahxvwa",
-     "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "yvuj6i",
      "titulo": "Carlos Tevez confirma a Lionel Messi y Juan Román Riquelme para su despedida",
      "seccion": "Fútbol",
      "marcada": false
+    },
+    {
+     "id": "1xr0jgj",
+     "titulo": "Gendarmería no logra confirmar la autenticidad de los audios de Spagnuolo",
+     "seccion": "Argentina",
+     "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-29T14:06:01.734Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-29T16:06:00.882Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
