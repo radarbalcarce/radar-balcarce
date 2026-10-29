@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T16:30:36.729Z",
- "portada": 178,
+ "generado": "2026-10-29T17:05:19.177Z",
+ "portada": 162,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-29T16:30:37.752Z",
+  "generado": "2026-10-29T17:05:19.735Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -129,14 +129,14 @@
     "segundos": 48,
     "notas": [
      {
-      "id": "1v8hw3b",
-      "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "90yhse",
       "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "nj3vcj",
+      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
+      "seccion": "Fútbol"
      },
      {
       "id": "1tejsa4",
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
      {
       "id": "wh8hsf",
@@ -165,19 +165,19 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1x12myv",
-      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
-      "seccion": "Ciencia"
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+      "seccion": "Argentina"
      },
      {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
+      "id": "19c5usk",
+      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1rk2uai",
-      "titulo": "Ciclistas locales logran títulos en el Argentino de mountain bike",
-      "seccion": "Deportes"
+      "id": "1rphs2p",
+      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
+      "seccion": "Economía"
      }
     ]
    }
@@ -193,15 +193,14 @@
      "id": "1jy9zz0",
      "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
      "cuando": "2026-10-29T14:36:00.882Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "1v8hw3b",
      "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
+     "cuando": "2026-10-29T16:36:03.360Z"
+    }
+   ],
+   "cola": [
     {
      "id": "90yhse",
      "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
@@ -239,14 +238,20 @@
      "marcada": false
     },
     {
-     "id": "101j4vt",
-     "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
-     "seccion": "Deportes",
+     "id": "1h0i8a7",
+     "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "yvuj6i",
+     "titulo": "Carlos Tevez confirma a Lionel Messi y Juan Román Riquelme para su despedida",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-29T16:06:00.882Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-29T18:06:03.360Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

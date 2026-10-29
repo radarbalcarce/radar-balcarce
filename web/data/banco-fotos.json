@@ -48656,7 +48656,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "5575357577575656"
+  "huella": "5575357577575656",
+  "ausenteDesde": "2026-10-29T17:05:19.047Z"
  },
  "1dtp4dh": {
   "archivo": "fotos-notas/1dtp4dh.jpg",
@@ -48705,7 +48706,8 @@
    "corresponde": "si",
    "descripcion": "Reunión de diputados y asesores en un recinto legislativo"
   },
-  "huella": "562d593b4dd35a9b"
+  "huella": "562d593b4dd35a9b",
+  "ausenteDesde": "2026-10-29T17:05:19.047Z"
  },
  "sgz4i2": {
   "intentado": true,
@@ -53569,7 +53571,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "e3b30dab352ba917"
+  "huella": "e3b30dab352ba917",
+  "ausenteDesde": "2026-10-29T17:05:19.047Z"
  },
  "1tejsa4": {
   "intentado": true,
@@ -53992,5 +53995,27 @@
    "descripcion": "Obreros trabajando en la pavimentación de una calle con una hormigonera y un tractor al fondo."
   },
   "huella": "688888982dbdb92d"
+ },
+ "1i6u691": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca y River juegan el domingo a las 15 y el Millonario rechaza el formato de AFA",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T17:05:10.912Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1hsnjb0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Corresur actualiza las tarifas en los peajes de la Ruta 226",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de El Eco de Tandil no se usa todavía.",
+  "cuando": "2026-10-29T17:05:10.912Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

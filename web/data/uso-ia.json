@@ -1015,72 +1015,72 @@
   "2026-10-29": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 50,
-     "errores": 15,
-     "entrada": 90259,
-     "salida": 44174,
+     "llamadas": 53,
+     "errores": 17,
+     "entrada": 93258,
+     "salida": 45588,
      "pensamiento": 0,
-     "total": 134433,
+     "total": 138846,
      "claves": {
-      "clasificacion": 50
+      "clasificacion": 53
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 12,
-       "ok": 35,
+       "cupo-diario": 14,
+       "ok": 36,
        "otro": 1,
        "saturado": 2
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 15,
-     "errores": 6,
-     "entrada": 27121,
-     "salida": 26642,
+     "llamadas": 17,
+     "errores": 7,
+     "entrada": 30050,
+     "salida": 29376,
      "pensamiento": 0,
-     "total": 53763,
+     "total": 59426,
      "claves": {
-      "groq": 15
+      "groq": 17
      },
      "motivos": {
       "groq": {
-       "ok": 9,
-       "velocidad": 6
+       "ok": 10,
+       "velocidad": 7
       }
      }
     },
     "mistral-small-latest": {
-     "llamadas": 18,
-     "errores": 18,
+     "llamadas": 21,
+     "errores": 21,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 18
+      "mistral": 21
      },
      "motivos": {
       "mistral": {
-       "velocidad": 18
+       "velocidad": 21
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 42,
-     "errores": 17,
+     "llamadas": 44,
+     "errores": 19,
      "entrada": 397091,
      "salida": 5613,
      "pensamiento": 0,
      "total": 402704,
      "claves": {
-      "clasificacion": 42
+      "clasificacion": 44
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 12,
+       "cupo-diario": 14,
        "ok": 25,
        "otro": 2,
        "saturado": 3
@@ -1104,61 +1104,61 @@
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 7,
-     "errores": 7,
+     "llamadas": 8,
+     "errores": 8,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 7
+      "groq": 8
      },
      "motivos": {
       "groq": {
-       "otro": 7
+       "otro": 8
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 405,
-     "errores": 151,
-     "entrada": 1567842,
-     "salida": 277767,
+     "llamadas": 443,
+     "errores": 170,
+     "entrada": 1700645,
+     "salida": 301535,
      "pensamiento": 0,
-     "total": 1845609,
+     "total": 2002180,
      "claves": {
-      "redaccion": 280,
-      "respaldo": 125
+      "redaccion": 299,
+      "respaldo": 144
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 120,
+       "cupo-diario": 139,
        "ok": 129,
        "saturado": 30,
        "otro": 1
       },
       "respaldo": {
-       "ok": 125
+       "ok": 144
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 127,
-     "errores": 33,
+     "llamadas": 130,
+     "errores": 36,
      "entrada": 526268,
      "salida": 40438,
      "pensamiento": 0,
      "total": 566706,
      "claves": {
-      "clasificacion": 127
+      "clasificacion": 130
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 24,
+       "cupo-diario": 27,
        "ok": 94,
        "otro": 6,
        "saturado": 3
@@ -1166,21 +1166,21 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 60,
-     "errores": 34,
-     "entrada": 55784,
-     "salida": 3609,
+     "llamadas": 62,
+     "errores": 35,
+     "entrada": 57964,
+     "salida": 3812,
      "pensamiento": 0,
-     "total": 59393,
+     "total": 61776,
      "claves": {
-      "groq": 60
+      "groq": 62
      },
      "motivos": {
       "groq": {
        "otro": 14,
-       "ok": 26,
+       "ok": 27,
        "velocidad": 12,
-       "cupo-diario": 8
+       "cupo-diario": 9
       }
      }
     }
