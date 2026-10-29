@@ -26578,9 +26578,7 @@
   "ausenteDesde": "2026-10-26T07:06:34.081Z"
  },
  "sl6jjd": {
-  "archivo": "fotos-notas/sl6jjd.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Jorge Macri confunde el nombre de Jorge Luis Borges en Madrid",
@@ -26600,7 +26598,8 @@
    "descripcion": "Jorge Macri mostrando un libro de Jorge Luis Borges frente a casilleros en el Instituto Cervantes."
   },
   "huella": "ce8e3e5991e8a8ac",
-  "ausenteDesde": "2026-10-22T05:01:39.421Z"
+  "intentado": true,
+  "borrada": true
  },
  "87yjas": {
   "intentado": true,
@@ -43748,7 +43747,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota durante el partido."
   },
-  "huella": "ead25393a3950b04"
+  "huella": "ead25393a3950b04",
+  "ausenteDesde": "2026-10-29T05:03:46.660Z"
  },
  "1e9zjy9": {
   "archivo": "fotos-notas/1e9zjy9.jpg",
@@ -43784,7 +43784,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "c4c4c50505251a08"
+  "huella": "c4c4c50505251a08",
+  "ausenteDesde": "2026-10-29T05:03:46.660Z"
  },
  "1rr9872": {
   "intentado": true,
@@ -44913,7 +44914,8 @@
    "corresponde": "si",
    "descripcion": "Playa muy poblada en Río de Janeiro con sombrillas y bañistas"
   },
-  "huella": "b39bcf82cfc95575"
+  "huella": "b39bcf82cfc95575",
+  "ausenteDesde": "2026-10-29T05:03:46.660Z"
  },
  "1lwlax8": {
   "intentado": true,
@@ -51142,15 +51144,29 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1k99k9x": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T23:04:06.221Z",
-  "intentos": 1,
-  "fuentes": 18,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/1onesd6.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Choque de trenes en España deja una argentina muerta y un desaparecido",
+  "enlace": "https://www.elmarplatense.com/tragedia-ferroviaria-en-espana-cancilleria-confirmo-un-argentino-muerto-y-buscan-a-otro-compatriota",
+  "imagenOriginal": "https://n2.cdnartic.ar/S29FBLrNKDaegL-zivmvgxdEV_Y=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/tren_accidente_espana.webp",
+  "razon": "Es la única imagen disponible y muestra claramente el lugar del choque de trenes, correspondiendo al hecho de la nota.",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
+  },
+  "huella": "060107f2af0f9c83"
  },
  "1muatd7": {
   "intentado": true,
@@ -51515,6 +51531,150 @@
   "titulo": "La Reserva Federal mantiene sin cambios las tasas de interés",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-29T04:53:27.066Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "14jqguf": {
+  "archivo": "fotos-notas/14jqguf.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Teo Gutiérrez pronostica que Boca gana la Copa Sudamericana",
+  "enlace": "https://www.ole.com.ar/boca-juniors/teo-gutierrez-final-boca-sudamericana_3_1lbdhdzBf6.html",
+  "imagenOriginal": "https://cdn.jwplayer.com/v2/media/gkeV5R4w/poster.jpg?width=1920",
+  "razon": "Es la única opción disponible y muestra al protagonista de la nota (Teo Gutiérrez) en el contexto de la entrevista, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Teo Gutiérrez sentado en una silla, con el pelo teñido de rubio, durante una entrevista.",
+   "detalle": "Se lee la palabra 'muchos' superpuesta en la imagen, pero no es un logo de medio."
+  },
+  "huella": "fed8c2908289e961"
+ },
+ "1chek2m": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emiten alerta amarilla por tormentas y vientos en Buenos Aires",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1octdto": {
+  "archivo": "fotos-notas/1octdto.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense vence a Atlético Tucumán por penales y llega a la final de la Copa Argentina",
+  "enlace": "https://www.tycsports.com/copa-argentina/platense-atletico-tucuman-tactica-copa-argentina-id768721.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/27/1000355/platense-copa-argentina_862x485.webp",
+  "razon": "Es la única foto nítida y en alta calidad que corresponde exactamente al festejo del triunfo del equipo ganador sin marcas de agua de medios ni elementos gráficos sobreimpresos.",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantel de Platense festejando con el cheque simbólico de semifinales."
+  },
+  "huella": "bd59aad2d41e1c59"
+ },
+ "1onesd6": {
+  "archivo": "fotos-notas/1onesd6.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Choque de trenes en España deja una argentina muerta y un desaparecido",
+  "enlace": "https://www.elmarplatense.com/tragedia-ferroviaria-en-espana-cancilleria-confirmo-un-argentino-muerto-y-buscan-a-otro-compatriota",
+  "imagenOriginal": "https://n2.cdnartic.ar/S29FBLrNKDaegL-zivmvgxdEV_Y=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/tren_accidente_espana.webp",
+  "razon": "Es la única imagen disponible y muestra claramente el lugar del choque de trenes, correspondiendo al hecho de la nota.",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
+  },
+  "huella": "060107f2af0f9c83"
+ },
+ "cwvrnw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Premios Ídolo entrega galardones a creadores digitales en Buenos Aires",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1vwftc2": {
+  "archivo": "fotos-notas/1vwftc2.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Rebord estrena Dominbord en la pantalla de América TV",
+  "enlace": "https://www.a24.com/primiciasya/tomas-rebord-llega-la-pantalla-america-tv-dominbord-el-detras-escena-las-fotos-n1611115",
+  "imagenOriginal": "https://media.a24.com/p/299c9c1a530620c096372274cc7fa386/adjuntos/296/imagenes/009/840/0009840010/1200x675/smart/dominbord-1.png",
+  "razon": "Es la única opción disponible y muestra a los protagonistas de la nota en un encuadre completo y de buena calidad.",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres con traje posan frente a un fondo verde."
+  },
+  "huella": "0f2b2f6bcbeb6bb2"
+ },
+ "au2qyx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere Lolita, la perra del programa de asistencia animal de Mar del Plata",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T05:02:28.913Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1h4xiic": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan en La Plata una edición de Halloween del desfile de mascotas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T05:02:28.913Z",
   "intentos": 1,
   "fuentes": 2,
   "intentosPorCupo": 1,
