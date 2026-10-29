@@ -1254,6 +1254,13 @@
   "ultimo": "2026-10-23T23:01:35.766Z",
   "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
  },
+ "18xcjou": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 25
+ },
  "18ydic0": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -1312,6 +1319,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
+ },
+ "1999opw": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
  },
  "19c5usk": {
   "intentos": 1,
@@ -2298,11 +2312,6 @@
  "1g1qjac": {
   "intentos": 1,
   "ultimo": "2026-10-22T04:31:34.298Z",
-  "motivo": "con cuerpo"
- },
- "1g2400x": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T01:01:30.586Z",
   "motivo": "con cuerpo"
  },
  "1g2gnwq": {
@@ -3373,11 +3382,11 @@
   ]
  },
  "1n75dzn": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T03:01:41.368Z",
+  "intentos": 2,
+  "ultimo": "2026-10-29T01:01:22.593Z",
   "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
+  "textos": 6,
+  "numeradas": 13
  },
  "1ncb58l": {
   "intentos": 1,
@@ -5193,17 +5202,14 @@
   "numeradas": 1
  },
  "2rt1r4": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T00:31:27.175Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 74 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "cuerpo: 5 problemas (nombre, relleno): el cuerpo nombra a \"confederaci",
    "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 31 palabras seguidas del original (\"jueves a las 17 30 se realizara una concentracion en plaza libertad para reclamar…\"): decilo con o"
   ]
  },
  "2rtl95": {
@@ -5635,6 +5641,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4
+ },
+ "68nwdg": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 12
  },
  "68piqz": {
   "intentos": 1,
@@ -6346,13 +6359,14 @@
   "numeradas": 1
  },
  "au2qyx": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T00:31:27.175Z",
-  "motivo": "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (títu"
+   "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (títu",
+   "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d"
   ]
  },
  "av8c10": {
@@ -6931,11 +6945,11 @@
   "motivo": "con cuerpo"
  },
  "fm066p": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T06:01:40.462Z",
+  "intentos": 2,
+  "ultimo": "2026-10-29T01:01:22.593Z",
   "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 6
+  "textos": 7,
+  "numeradas": 15
  },
  "fmbabw": {
   "intentos": 1,
@@ -8397,6 +8411,13 @@
   "ultimo": "2026-10-23T22:01:46.034Z",
   "motivo": "con cuerpo"
  },
+ "pusq7b": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T01:01:22.593Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "pvnj5f": {
   "intentos": 1,
   "ultimo": "2026-10-23T20:31:38.517Z",
@@ -9364,11 +9385,6 @@
    "título o bajada: 1 problema (forma): el copete trae letras rotas (letr",
    "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: d"
   ]
- },
- "vxf5r": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T01:01:30.586Z",
-  "motivo": "con cuerpo"
  },
  "vxrvqo": {
   "intentos": 1,

@@ -30714,9 +30714,7 @@
   "ausenteDesde": "2026-10-22T10:01:58.244Z"
  },
  "13jpsnv": {
-  "archivo": "fotos-notas/13jpsnv.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Piden nuevas indagatorias por presunta corrupción en la Andis",
@@ -30736,7 +30734,8 @@
    "descripcion": "Hombre adulto hablando frente a un micrófono."
   },
   "huella": "1d3f1d3527276363",
-  "ausenteDesde": "2026-10-22T01:02:09.710Z"
+  "intentado": true,
+  "borrada": true
  },
  "vxf5r": {
   "archivo": "fotos-notas/vxf5r.jpg",
@@ -44010,7 +44009,8 @@
    "corresponde": "si",
    "descripcion": "Juan Martín Del Potro junto a otra persona sentado en un banco cerca de la cancha"
   },
-  "huella": "6647163219387bab"
+  "huella": "6647163219387bab",
+  "ausenteDesde": "2026-10-29T01:02:18.730Z"
  },
  "x6528a": {
   "intentado": true,
@@ -44043,7 +44043,8 @@
    "corresponde": "si",
    "descripcion": "Funcionarios posando con cascos en la inauguración de obras."
   },
-  "huella": "a2a7af64706d6d6c"
+  "huella": "a2a7af64706d6d6c",
+  "ausenteDesde": "2026-10-29T01:02:18.730Z"
  },
  "w22xsq": {
   "intentado": true,
@@ -44622,7 +44623,8 @@
    "corresponde": "si",
    "descripcion": "Torta de membrillo casera cortada sobre mesa de madera con taza y platillo"
   },
-  "huella": "f838ed2f3f3c398b"
+  "huella": "f838ed2f3f3c398b",
+  "ausenteDesde": "2026-10-29T01:02:18.730Z"
  },
  "4782gq": {
   "archivo": "fotos-notas/4782gq.jpg",
@@ -45063,7 +45065,8 @@
    "corresponde": "si",
    "descripcion": "Funcionarios provinciales en una conferencia de prensa"
   },
-  "huella": "840e062c4ccc86ce"
+  "huella": "840e062c4ccc86ce",
+  "ausenteDesde": "2026-10-29T01:02:18.730Z"
  },
  "ru0jnb": {
   "intentado": true,
@@ -49278,7 +49281,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1d1e1adb751d0cae"
+  "huella": "1d1e1adb751d0cae",
+  "ausenteDesde": "2026-10-29T01:02:18.730Z"
  },
  "1lonqjh": {
   "archivo": "fotos-notas/1lonqjh.jpg",
@@ -51268,6 +51272,28 @@
   "cuando": "2026-10-29T00:32:33.170Z",
   "intentos": 1,
   "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "2rt1r4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Convocan a una concentración en Plaza Libertad por el crimen de Nancy Godoy",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-10-29T01:02:11.722Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "pusq7b": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Grupo Octubre compra Mandarina Contenidos y el canal de streaming Bondi",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T01:02:11.722Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

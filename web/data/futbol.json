@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-29T00:32:37.103Z",
+ "consultado": "2026-10-29T01:02:15.992Z",
  "equipos": [
   "9739",
   "3",
@@ -982,11 +982,11 @@
     "competencia": "copaargentina",
     "inicio": "2026-10-29T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "15'",
+    "minuto": "44'",
     "local": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "7764",
@@ -994,7 +994,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Renzo Tesuri",
+      "minuto": "36'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Padre Ernesto Martearena",
     "fase": null,
     "partidoDeLaSerie": null,
