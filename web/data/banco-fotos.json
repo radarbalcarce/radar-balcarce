@@ -47136,7 +47136,8 @@
    "corresponde": "si",
    "descripcion": "Operadores trabajando en la bolsa de valores con pantallas de cotizaciones."
   },
-  "huella": "672b2b293a3726e6"
+  "huella": "672b2b293a3726e6",
+  "ausenteDesde": "2026-10-29T01:33:23.706Z"
  },
  "1fblc1n": {
   "intentado": true,
@@ -49281,8 +49282,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1d1e1adb751d0cae",
-  "ausenteDesde": "2026-10-29T01:02:18.730Z"
+  "huella": "1d1e1adb751d0cae"
  },
  "1lonqjh": {
   "archivo": "fotos-notas/1lonqjh.jpg",
@@ -50187,8 +50187,7 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
-  "huella": "3591555c28ecbdbf",
-  "ausenteDesde": "2026-10-28T22:35:35.520Z"
+  "huella": "3591555c28ecbdbf"
  },
  "1jp7qfd": {
   "intentado": true,
@@ -51296,5 +51295,51 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1999opw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El oficialismo no logra firmar dictamen del proyecto de propiedad privada en el Senado",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T01:32:58.343Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "144mul3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "YPF gana 1.200 millones de dólares y proyecta inversiones para el RIGI",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T01:32:58.343Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1czq9i1": {
+  "archivo": "fotos-notas/2t91wl.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flávio Bolsonaro llega a Estados Unidos tras su derrota electoral en Brasil",
+  "enlace": "https://www.minutouno.com/mundo/flavio-bolsonaro-esta-viaje-estados-unidos-su-derrota-frente-lula-da-silva-n6338439",
+  "imagenOriginal": "https://media.minutouno.com/p/ba3aa8a96dc56f15a069d9a54d8879f8/adjuntos/150/imagenes/039/312/0039312488/1200x675/smart/flavio-bolsonaro.jpg",
+  "razon": "Es la foto más clara del protagonista entre las opciones válidas que no tienen marcas añadidas ni menores.",
+  "cuando": "2026-10-28T13:59:22.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
+  },
+  "huella": "3591555c28ecbdbf"
  }
 }
