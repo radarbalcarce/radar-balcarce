@@ -32456,9 +32456,7 @@
   "ausenteDesde": "2026-10-23T19:02:21.271Z"
  },
  "1qhwdw3": {
-  "archivo": "fotos-notas/1qhwdw3.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "El INDEC confirma la caída del consumo masivo y registra una baja de 3,7% en supermercados",
@@ -32478,7 +32476,8 @@
    "descripcion": "Góndolas de un supermercado mayorista con clientes comprando."
   },
   "huella": "a58a8896ded2e093",
-  "ausenteDesde": "2026-10-22T21:02:52.562Z"
+  "intentado": true,
+  "borrada": true
  },
  "1lukod9": {
   "archivo": "fotos-notas/1lukod9.jpg",
@@ -48395,7 +48394,8 @@
    "corresponde": "si",
    "descripcion": "Entrenador de River con campera roja de entrenamiento con brazos cruzados."
   },
-  "huella": "363a36f5f4ea72f1"
+  "huella": "363a36f5f4ea72f1",
+  "ausenteDesde": "2026-10-29T21:04:21.501Z"
  },
  "74v84y": {
   "archivo": "fotos-notas/74v84y.jpg",
@@ -50399,7 +50399,8 @@
    "corresponde": "si",
    "descripcion": "Productores entregando bananas desde la parte trasera de un vehículo"
   },
-  "huella": "f1129199a5f9ada5"
+  "huella": "f1129199a5f9ada5",
+  "ausenteDesde": "2026-10-29T21:04:21.501Z"
  },
  "jultnd": {
   "intentado": true,
@@ -54278,6 +54279,28 @@
   "cuando": "2026-10-29T20:32:31.346Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1s07l6f": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T21:04:07.003Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "dqa51l": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T21:04:07.003Z",
+  "intentos": 1,
+  "fuentes": 35,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
