@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-29T03:02:21.757Z",
+ "consultado": "2026-10-29T22:03:25.578Z",
  "equipos": [
   "9739",
   "3",
@@ -69,84 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841620",
-    "competencia": "liga",
-    "inicio": "2026-10-19T22:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+5'",
-    "local": {
-     "id": "14",
-     "nombre": "Newell's Old Boys",
-     "goles": 2
-    },
-    "visitante": {
-     "id": "11989",
-     "nombre": "Central Córdoba (Santiago del Estero)",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Jerónimo Mattar",
-      "minuto": "31'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Santiago Solari",
-      "minuto": "69'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Leonardo Sequeira",
-      "minuto": "80'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Marcelo Bielsa",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
-   {
-    "id": "401841617",
-    "competencia": "liga",
-    "inicio": "2026-10-19T22:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+13'",
-    "local": {
-     "id": "10158",
-     "nombre": "Sarmiento (Junín)",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "10060",
-     "nombre": "Barracas Central",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Jhon Rentería",
-      "minuto": "14'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Rodrigo Insúa",
-      "minuto": "78'",
-      "tipo": "de penal"
-     }
-    ],
-    "estadio": "Eva Perón",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841625",
     "competencia": "liga",

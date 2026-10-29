@@ -54378,5 +54378,52 @@
    "descripcion": "Jugadores de Platense en el campo de juego mostrando frustración tras el partido."
   },
   "huella": "103024206a92aa86"
+ },
+ "wycpwb": {
+  "archivo": "fotos-notas/wycpwb.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
+  "enlace": "https://eldiariobalcarce.com.ar/el-peaje-entre-balcarce-y-mar-del-plata-tendra-ajustes-trimestrales-877",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-29-21-42-56Peaje.png",
+  "razon": "Es la única imagen de la lista, muestra el peaje de la Ruta 226 (Peaje Dorado) que es el tema de la nota, y no presenta marcas de agua, menores ni es una imagen generada.",
+  "cuando": "2026-10-29T22:03:18.227Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del peaje Dorado en la Ruta 226 con vehículos pasando por las cabinas."
+  },
+  "huella": "b91bf33bb7a75bbd"
+ },
+ "m75zbl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T22:03:18.227Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "lh8na0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Corte confirma las condenas por la muerte del soldado Chirino",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T22:03:18.227Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

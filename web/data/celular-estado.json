@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T21:33:22.307Z",
- "portada": 192,
+ "generado": "2026-10-29T22:03:29.474Z",
+ "portada": 189,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-29T21:33:22.787Z",
+  "generado": "2026-10-29T22:03:30.302Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T18:46:37.884Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T18:46:37.884Z",
     "segundos": null,
     "notas": [
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 44,
     "notas": [
+     {
+      "id": "wycpwb",
+      "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
+      "seccion": "Economía"
+     },
      {
       "id": "13vd8fc",
       "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
@@ -168,11 +173,6 @@
       "id": "joipn0",
       "titulo": "Proyecto Disco organiza una fiesta de Halloween con premios millonarios",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1qq7gak",
-      "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
-      "seccion": "Educación"
      },
      {
       "id": "o6zwz5",
@@ -212,6 +212,12 @@
    ],
    "cola": [
     {
+     "id": "wycpwb",
+     "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
      "id": "13vd8fc",
      "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
      "seccion": "Fútbol",
@@ -236,6 +242,12 @@
      "marcada": false
     },
     {
+     "id": "o6zwz5",
+     "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
+     "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
      "id": "nj3vcj",
      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
      "seccion": "Fútbol",
@@ -245,18 +257,6 @@
      "id": "1d2n6l3",
      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "phjtkk",
-     "titulo": "El FMI acuerda cuatro medidas con el Gobierno para impulsar la economía",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "1dd73iv",
-     "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
-     "seccion": "Economía",
      "marcada": false
     }
    ],
