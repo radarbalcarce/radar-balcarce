@@ -1,5 +1,7 @@
 {
-  "avisos": {},
+  "avisos": {
+    "web-vieja": "2026-10-29T09:00:13.050Z"
+  },
   "importantes": {
     "avisadas": {
       "1is9y1g": {
@@ -31,5 +33,12 @@
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-28",
   "ultimoInforme": "2026-10-01",
-  "abiertos": []
+  "abiertos": [
+    {
+      "clave": "web-vieja",
+      "nivel": "alta",
+      "texto": "La web no se actualiza hace 1.9 horas. Revisá el reloj de Cloudflare (Workers → radar-balcarce-reloj) y GitHub Actions.",
+      "desde": "2026-10-29T09:00:13.050Z"
+    }
+  ]
 }
