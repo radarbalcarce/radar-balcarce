@@ -44076,7 +44076,8 @@
    "corresponde": "si",
    "descripcion": "Tres personas reunidas alrededor de una mesa de madera en una oficina institucional"
   },
-  "huella": "4e4c74796d6f6c4c"
+  "huella": "4e4c74796d6f6c4c",
+  "ausenteDesde": "2026-10-29T00:32:39.684Z"
  },
  "10h3qsy": {
   "archivo": "fotos-notas/10h3qsy.jpg",
@@ -44112,7 +44113,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "67abad8995ab494e"
+  "huella": "67abad8995ab494e",
+  "ausenteDesde": "2026-10-29T00:32:39.684Z"
  },
  "biq8s1": {
   "intentado": true,
@@ -51244,6 +51246,28 @@
   "cuando": "2026-10-29T00:03:23.262Z",
   "intentos": 1,
   "fuentes": 47,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1jdn9gp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T00:32:33.170Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "8s2k9s": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Un niño de dos años muere tras caer a una pileta",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this erro): la foto de Agencia DIB no se usa todavía.",
+  "cuando": "2026-10-29T00:32:33.170Z",
+  "intentos": 1,
+  "fuentes": 1,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

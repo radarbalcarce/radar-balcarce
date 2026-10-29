@@ -1386,11 +1386,6 @@
    "sin material"
   ]
  },
- "19u8gb5": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T00:31:11.553Z",
-  "motivo": "con cuerpo"
- },
  "19us6xs": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -1791,6 +1786,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 12
+ },
+ "1cpn1v6": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 26
  },
  "1cq1p5j": {
   "intentos": 1,
@@ -2820,17 +2822,15 @@
   "numeradas": 47
  },
  "1jdn9gp": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T00:01:51.222Z",
-  "motivo": "cuerpo: 1 problema (antecedente): el cuerpo usa \"copa\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 160 palabras",
-  "textos": 2,
-  "numeradas": 3,
+  "intentos": 2,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"copa\", que s",
-   "cuerpo: 1 problema (antecedente): el cuerpo usa \"copa\", que sale de un"
-  ],
-  "falla": [
-   "el cuerpo usa \"copa\", que sale de una nota anterior, como si fuera de hoy"
+   "cuerpo: 1 problema (antecedente): el cuerpo usa \"copa\", que sale de un",
+   "título o bajada: 1 problema (pasado): el título está en pasado: va en "
   ]
  },
  "1jfs6xf": {
@@ -3941,6 +3941,13 @@
   "textos": 8,
   "numeradas": 12
  },
+ "1qx47hm": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "1qxwho": {
   "intentos": 1,
   "ultimo": "2026-10-28T04:01:46.419Z",
@@ -4393,6 +4400,13 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
   ]
+ },
+ "1tn58ca": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 11
  },
  "1typ7xh": {
   "intentos": 1,
@@ -5178,6 +5192,20 @@
   "textos": 1,
   "numeradas": 1
  },
+ "2rt1r4": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 74 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 5 problemas (nombre, relleno): el cuerpo nombra a \"confederaci",
+   "cuerpo: 1 problema (copia): copia 31 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 31 palabras seguidas del original (\"jueves a las 17 30 se realizara una concentracion en plaza libertad para reclamar…\"): decilo con o"
+  ]
+ },
  "2rtl95": {
   "intentos": 1,
   "ultimo": "2026-10-26T08:01:24.151Z",
@@ -5490,13 +5518,14 @@
   "numeradas": 3
  },
  "5h46bf": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T00:01:51.222Z",
-  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4,
   "motivos": [
-   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
+   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"iguazuj\" y l"
   ]
  },
  "5klkwb": {
@@ -6004,6 +6033,16 @@
   "textos": 1,
   "numeradas": 1
  },
+ "8s2k9s": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y "
+  ]
+ },
  "8u590m": {
   "intentos": 1,
   "ultimo": "2026-10-22T03:31:07.830Z",
@@ -6258,9 +6297,9 @@
   ]
  },
  "alpm15": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T00:01:51.222Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 196 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
@@ -6268,9 +6307,6 @@
    "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida",
    "cuerpo: 2 problemas (copia, promesa): copia 18 palabras seguidas del o",
    "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 20 palabras seguidas del original (\"el corte del postre mas largo a beneficio del hogar nuestro sueno y proteccion…\"): decilo con otra"
   ]
  },
  "ao19a5": {
@@ -6308,6 +6344,16 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "au2qyx": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T00:31:27.175Z",
+  "motivo": "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"niños\", en lo que escribió la IA (títu"
+  ]
  },
  "av8c10": {
   "intentos": 1,
@@ -8184,11 +8230,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "osvbhw": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T00:31:11.553Z",
-  "motivo": "con cuerpo"
  },
  "owniql": {
   "intentos": 1,
