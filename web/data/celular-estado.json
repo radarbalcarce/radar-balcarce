@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T03:02:29.115Z",
- "portada": 177,
+ "generado": "2026-10-29T04:53:40.889Z",
+ "portada": 166,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-29T03:02:29.527Z",
+  "generado": "2026-10-29T04:53:41.220Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,17 +95,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "he8wdz",
+      "titulo": "Los Patos y Amigos Unidos ganan en el cierre de la fecha",
+      "seccion": "Fútbol"
+     },
      {
       "id": "yb0soh",
       "titulo": "Alumnos de la Primaria 3 visitan el Concejo Deliberante",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "hd8nd0",
-      "titulo": "La terapia ocupacional busca recuperar la autonomía cotidiana",
-      "seccion": "Salud"
      },
      {
       "id": "1nvngno",
@@ -113,9 +113,9 @@
       "seccion": "Argentina"
      },
      {
-      "id": "19c5usk",
-      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
-      "seccion": "Fútbol"
+      "id": "1wiu5wj",
+      "titulo": "El FMI aprueba la tercera revisión del acuerdo y prevé un desembolso",
+      "seccion": "Economía"
      }
     ]
    },
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "wg76no",
+      "titulo": "Amigos Unidos supera a River y Los Patos vence a Ferroviarios",
+      "seccion": "Fútbol"
+     },
      {
       "id": "12l7i2z",
       "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
@@ -137,11 +142,6 @@
       "id": "1xvssy4",
       "titulo": "Flávio Bolsonaro llega a Estados Unidos y se proclama líder de Brasil",
       "seccion": "Argentina"
-     },
-     {
-      "id": "m9x3m1",
-      "titulo": "Franco Colapinto cede su Alpine a Gabriele Minì en la práctica del GP de México",
-      "seccion": "Automovilismo"
      },
      {
       "id": "1ieq0nc",
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "1jkbwyl",
+      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
+      "seccion": "Fútbol"
+     },
      {
       "id": "yfe1jz",
       "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
@@ -168,11 +173,6 @@
       "id": "1t6vp3x",
       "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1ctrlp6",
-      "titulo": "Cristian Romero elige a Julián Álvarez para heredar la 10 de la Selección",
-      "seccion": "Fútbol"
      },
      {
       "id": "i61vuy",
@@ -186,8 +186,14 @@
    "hoy": [],
    "cola": [
     {
-     "id": "19c5usk",
-     "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
+     "id": "he8wdz",
+     "titulo": "Los Patos y Amigos Unidos ganan en el cierre de la fecha",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "wg76no",
+     "titulo": "Amigos Unidos supera a River y Los Patos vence a Ferroviarios",
      "seccion": "Fútbol",
      "marcada": false
     },
@@ -195,18 +201,6 @@
      "id": "8s2k9s",
      "titulo": "Un niño de dos años muere tras caer a una pileta",
      "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "1t6vp3x",
-     "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1jkbwyl",
-     "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -231,6 +225,12 @@
      "id": "1jdn9gp",
      "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "o1j2gl",
+     "titulo": "El Tesoro renueva el 107% de los vencimientos y adjudica más de $11 billones",
+     "seccion": "Economía",
      "marcada": false
     }
    ],

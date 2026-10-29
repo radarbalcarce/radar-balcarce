@@ -49050,7 +49050,8 @@
    "corresponde": "si",
    "descripcion": "Jugador rematando al arco disputando la pelota"
   },
-  "huella": "54345276320f0b0f"
+  "huella": "54345276320f0b0f",
+  "ausenteDesde": "2026-10-29T04:53:40.815Z"
  },
  "5klkwb": {
   "archivo": "fotos-notas/5klkwb.jpg",
@@ -51436,5 +51437,87 @@
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
   "cuando": "2026-10-29T03:02:27.629Z"
+ },
+ "wg76no": {
+  "archivo": "fotos-notas/wg76no.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amigos Unidos supera a River y Los Patos vence a Ferroviarios",
+  "enlace": "https://accion5.com/bajo-la-lluvia-au-gano-a-river-y-los-patos-lo-doblego-a-ferro/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/1-5.jpg",
+  "razon": "Es la única imagen completa que muestra la acción del partido con nitidez adecuada y sin recortes que impidan identificar el hecho.",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Amigos Unidos y River disputando la pelota en el campo de juego."
+  },
+  "huella": "89193131263ea495"
+ },
+ "he8wdz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Los Patos y Amigos Unidos ganan en el cierre de la fecha",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1bz2jlk": {
+  "archivo": "fotos-notas/1bz2jlk.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Molinos compra Grupo Ayudín y se mete en el negocio de limpieza",
+  "enlace": "https://www.iprofesional.com/negocios/467728-molinos-se-mete-de-lleno-en-el-negocio-de-limpieza-compro-marcas-ayudin-y-poett",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/06/619953_landscape.jpg",
+  "razon": "Muestra claramente el proceso industrial y los productos de la marca en una línea de producción, sin marcas de agua ni personas.",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Línea de producción de botellas de lavandina Ayudín en fábrica"
+  },
+  "huella": "51b19f81fb2bad5e"
+ },
+ "1hmc6g3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Diputados posterga dictamen sobre la ley de biocombustibles",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "f07mdg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Reserva Federal mantiene sin cambios las tasas de interés",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T04:53:27.066Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

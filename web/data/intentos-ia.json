@@ -1768,6 +1768,20 @@
   "textos": 1,
   "numeradas": 1
  },
+ "1chek2m": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota no es de Balcarce",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 120 caracteres, e",
+   "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota"
+  ],
+  "falla": [
+   "el título pone Balcarce y la nota no es de Balcarce"
+  ]
+ },
  "1cifnsd": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -2306,11 +2320,6 @@
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
   ]
  },
- "1g1qjac": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T04:31:34.298Z",
-  "motivo": "con cuerpo"
- },
  "1g2gnwq": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:52:12.994Z",
@@ -2403,6 +2412,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1gscihf": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
  },
  "1gsqht3": {
   "intentos": 1,
@@ -4161,11 +4177,6 @@
   "ultimo": "2026-10-23T18:01:56.881Z",
   "motivo": "con cuerpo"
  },
- "1skl8ku": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T03:31:07.830Z",
-  "motivo": "con cuerpo"
- },
  "1smnofv": {
   "intentos": 1,
   "ultimo": "2026-10-28T21:32:03.521Z",
@@ -4751,6 +4762,20 @@
   "ultimo": "2026-10-22T15:32:38.768Z",
   "motivo": "con cuerpo"
  },
+ "1vwftc2": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"america\", \"tv\", \"dominbord\" y el cuerpo no los explica; sin esas oraciones quedan 131 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "cuerpo: 1 problema (promesa): el título nombra a \"america\", \"tv\", \"dom"
+  ],
+  "falla": [
+   "el título nombra a \"america\", \"tv\", \"dominbord\" y el cuerpo no los explica"
+  ]
+ },
  "1vx77qw": {
   "intentos": 1,
   "ultimo": "2026-10-28T13:01:56.997Z",
@@ -5029,6 +5054,19 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 13
+ },
+ "1xx78fq": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota no es de Balcarce",
+  "textos": 9,
+  "numeradas": 18,
+  "motivos": [
+   "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota"
+  ],
+  "falla": [
+   "el título pone Balcarce y la nota no es de Balcarce"
+  ]
  },
  "1xzc8wz": {
   "intentos": 1,
@@ -5962,6 +6000,20 @@
   "baja": true,
   "fuentes": 1
  },
+ "87ziti": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 3,
+  "numeradas": 14,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "8ang76": {
   "intentos": 1,
   "ultimo": "2026-10-28T19:01:42.450Z",
@@ -6055,11 +6107,6 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y "
   ]
- },
- "8u590m": {
-  "intentos": 1,
-  "ultimo": "2026-10-22T03:31:07.830Z",
-  "motivo": "con cuerpo"
  },
  "8vlpd3": {
   "intentos": 1,
@@ -6599,18 +6646,21 @@
   "motivo": "con cuerpo"
  },
  "cwvrnw": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T03:01:19.600Z",
+  "intentos": 2,
+  "ultimo": "2026-10-29T04:51:48.767Z",
   "motivo": "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit",
+   "cuerpo: 3 problemas (tilde, tildes, promesa): el cuerpo dice \"mas\" en ",
    "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit"
   ],
   "falla": [
    "el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo nombra a \"vlogger\" y la fuente no",
+   "el cuerpo nombra a \"humor\" y la fuente no",
    "el título dice 2.026 y el cuerpo no lo explica"
   ]
  },
@@ -7163,6 +7213,16 @@
   "textos": 1,
   "numeradas": 1
  },
+ "he8wdz": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ]
+ },
  "hfkw1o": {
   "intentos": 1,
   "ultimo": "2026-10-28T05:01:47.331Z",
@@ -7582,6 +7642,13 @@
   "textos": 3,
   "numeradas": 4
  },
+ "kq41ur": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 9
+ },
  "kqj43m": {
   "intentos": 2,
   "ultimo": "2026-10-23T00:31:44.453Z",
@@ -7999,6 +8066,13 @@
   "falla": [
    "el titulo tiene 91 caracteres, el máximo es 90"
   ]
+ },
+ "na2yxk": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 6
  },
  "nahtyf": {
   "intentos": 1,
@@ -9506,6 +9580,13 @@
    "título o bajada: 1 problema (titulo): el título tiene signos de admira"
   ]
  },
+ "wg76no": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "wgr6up": {
   "intentos": 3,
   "ultimo": "2026-10-28T08:02:05.536Z",
@@ -10036,6 +10117,16 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 12
+ },
+ "ztavbs": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T04:51:48.767Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: d"
+  ]
  },
  "zwpcp": {
   "intentos": 1,
