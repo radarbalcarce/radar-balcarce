@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T09:05:24.463Z",
- "portada": 127,
+ "generado": "2026-10-29T10:04:47.528Z",
+ "portada": 140,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-29T09:05:25.051Z",
+  "generado": "2026-10-29T10:04:47.958Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
       "id": "1jkbwyl",
@@ -103,19 +103,19 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "id": "12l7i2z",
+      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1wiu5wj",
-      "titulo": "El FMI aprueba la tercera revisión del acuerdo y prevé un desembolso",
-      "seccion": "Economía"
-     },
-     {
-      "id": "wdurao",
-      "titulo": "Lali Esposito y Miranda presentan el disco BOM y estrenan el single Bailar o morir",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -126,11 +126,16 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 47,
     "notas": [
      {
-      "id": "1k99k9x",
-      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
       "seccion": "Argentina"
      },
      {
@@ -142,11 +147,6 @@
       "id": "i61vuy",
       "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
       "seccion": "Economía"
-     },
-     {
-      "id": "1gscihf",
-      "titulo": "Monitorean la evolución del elefante marino nacido en Mar del Plata",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -159,6 +159,11 @@
     "salio": null,
     "segundos": 52,
     "notas": [
+     {
+      "id": "rmyepl",
+      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1t6vp3x",
       "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
@@ -173,25 +178,13 @@
       "id": "1rphs2p",
       "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
       "seccion": "Economía"
-     },
-     {
-      "id": "pusq7b",
-      "titulo": "Grupo Octubre compra Mandarina Contenidos y el canal de streaming Bondi",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [
-    {
-     "id": "wulfww",
-     "titulo": "Inter Miami empata 2 a 2 con Cincinnati sobre el final",
-     "seccion": "Fútbol",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 5,
    "proximoDesde": "2026-10-28T20:06:03.817Z",
    "porDia": 5,

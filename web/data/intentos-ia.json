@@ -5325,8 +5325,8 @@
   "numeradas": 1
  },
  "2rt1r4": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T01:01:22.593Z",
+  "intentos": 3,
+  "ultimo": "2026-10-29T10:02:11.753Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
@@ -6901,6 +6901,13 @@
   "textos": 3,
   "numeradas": 6
  },
+ "ee5714": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T10:02:11.753Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
+ },
  "eemyb": {
   "intentos": 5,
   "ultimo": "2026-10-26T12:02:11.561Z",
@@ -6991,6 +6998,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "ezjka6": {
+  "intentos": 1,
+  "ultimo": "2026-10-29T10:02:11.753Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "f07mdg": {
   "intentos": 1,
@@ -7481,21 +7495,21 @@
   "motivo": "con cuerpo"
  },
  "ik3kab": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T09:02:53.982Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el máximo es 90",
+  "intentos": 3,
+  "ultimo": "2026-10-29T10:02:11.753Z",
+  "motivo": "título o bajada: 2 problemas (tilde, tildes): el copete dice \"mas\" en vez de \"más\": \"La Administracion Nacional de la Seguridad Social aplico un \"",
   "textos": 6,
   "numeradas": 13,
   "motivos": [
-   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
-   "cuerpo: 2 problemas (copia, promesa): copia 14 palabras seguidas del o",
    "cuerpo: 3 problemas (numero, copia, tildes): el cuerpo dice 2.000 y la",
-   "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el",
+   "cuerpo: 2 problemas (copia, tildes): copia 19 palabras seguidas del or",
+   "título o bajada: 2 problemas (tilde, tildes): el copete dice \"mas\" en "
   ],
   "falla": [
-   "el titulo tiene 93 caracteres, el máximo es 90",
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 27 palabras seguidas del original (\"aun resta la ratificacion oficial por parte del poder ejecutivo sobre la continuidad y…\"): decilo "
+   "el copete dice \"mas\" en vez de \"más\": \"La Administracion Nacional de la Seguridad Social aplico un \"",
+   "copia 21 palabras seguidas del original (\"aun resta la ratificacion oficial por parte del poder ejecutivo sobre la continuidad y…\"): decilo ",
+   "el texto está escrito sin tildes (Administracion, inflacion, jubilacion, Resolucion, aplicacion): va con las tildes y la eñe donde correspon"
   ]
  },
  "ilqwh3": {

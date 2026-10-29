@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-29T09:05:24.463Z",
+ "generado": "2026-10-29T10:04:47.528Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -58,11 +58,6 @@
      "medio": "La Tecla",
      "enlace": "https://www.latecla.info/170760-interna-libertaria-caputo-monitoreo-la-salida-de-bolsonaro-y-bullrich-reconocio-el-triunfo-de-lula",
      "fecha": "2026-10-28T17:36:00.000Z"
-    },
-    {
-     "medio": "Letra P",
-     "enlace": "https://www.letrap.com.ar//politica/siete-cada-diez-votantes-patricia-bullrich-creen-que-javier-milei-debe-reconocer-el-triunfo-lula-n5427771",
-     "fecha": "2026-10-28T19:56:00.000Z"
     },
     {
      "medio": "QZ Noticias (Mar del Plata)",
@@ -217,12 +212,28 @@
      "fecha": "2026-10-28T19:04:11.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el máximo es 90",
+   "intentos": 3,
+   "motivo": "título o bajada: 2 problemas (tilde, tildes): el copete dice \"mas\" en vez de \"más\": \"La Administracion Nacional de la Seguridad Social aplico un \"",
    "maximo": 5
   }
  ],
  "descartadas": [
+  {
+   "id": "1ciijr9",
+   "titulo": "Falleció un menor de dos años tras ser hallado en una pileta",
+   "seccion": "Policiales",
+   "fecha": "2026-10-27T23:27:16.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; semáforo: tema sensible: \"menor de edad\", en lo que escribió la IA (título, bajada o texto para redes)"
+  },
+  {
+   "id": "1khxfqd",
+   "titulo": "Licitación pública para avanzar con una nueva etapa del microestadio del CEF Nº 119",
+   "seccion": "Balcarce",
+   "fecha": "2026-10-27T22:17:13.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
+  },
   {
    "id": "19s99gt",
    "titulo": "Quiénes cobrarán $656.751 de ANSES en noviembre por AUH y Tarjeta Alimentar",
