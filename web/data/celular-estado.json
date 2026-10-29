@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T11:06:39.389Z",
- "portada": 138,
+ "generado": "2026-10-29T11:37:51.446Z",
+ "portada": 139,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-29T11:06:40.259Z",
+  "generado": "2026-10-29T11:37:52.170Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "1l7ryr5",
+      "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
+      "seccion": "Educación"
+     },
      {
       "id": "1jkbwyl",
       "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
       "seccion": "Fútbol"
      },
      {
+      "id": "1x12myv",
+      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
+      "seccion": "Ciencia"
+     },
+     {
       "id": "12l7i2z",
       "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
-     },
-     {
-      "id": "101j4vt",
-      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
-      "seccion": "Deportes"
      }
     ]
    },
@@ -126,13 +126,39 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
+     },
      {
       "id": "yfe1jz",
       "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
       "seccion": "Balcarce"
      },
+     {
+      "id": "101j4vt",
+      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "seccion": "Argentina"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
+    "notas": [
      {
       "id": "1k99k9x",
       "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
@@ -147,32 +173,6 @@
       "id": "i61vuy",
       "titulo": "Luis Caputo sufre descompensación por altura en Catamarca",
       "seccion": "Economía"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
-     {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "wmipjx",
-      "titulo": "Rulli clasifica a Manchester City en la Carabao Cup",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1rphs2p",
-      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
-      "seccion": "Economía"
      },
      {
       "id": "wdurao",
@@ -184,7 +184,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "1l7ryr5",
+     "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
+     "seccion": "Educación",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-28T20:06:03.817Z",
    "porDia": 5,
