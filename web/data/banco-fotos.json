@@ -32210,9 +32210,7 @@
   "ausenteDesde": "2026-10-27T03:07:24.798Z"
  },
  "2z0jcs": {
-  "archivo": "fotos-notas/2z0jcs.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "BTS inicia su gira en La Plata y convoca a más de 150 mil personas",
@@ -32232,7 +32230,8 @@
    "descripcion": "Vista general del estadio iluminado con pantallas gigantes durante el recital."
   },
   "huella": "2b370fbb83070686",
-  "ausenteDesde": "2026-10-22T19:04:19.171Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ivxitj": {
   "archivo": "fotos-notas/1ivxitj.jpg",
@@ -46664,7 +46663,8 @@
    "corresponde": "si",
    "descripcion": "Caja de juguete a escala del auto de Alpine F1 con logos de McDonald's"
   },
-  "huella": "a8a0c4b4a6e49484"
+  "huella": "a8a0c4b4a6e49484",
+  "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "1finiqu": {
   "archivo": "fotos-notas/1finiqu.jpg",
@@ -46688,7 +46688,8 @@
    "corresponde": "si",
    "descripcion": "Collage con foto de Fernando Shedden y de Moria Casán"
   },
-  "huella": "ccda4beaebebe7ce"
+  "huella": "ccda4beaebebe7ce",
+  "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "10l9k07": {
   "archivo": "fotos-notas/10l9k07.jpg",
@@ -48420,7 +48421,8 @@
    "corresponde": "si",
    "descripcion": "Torre de perforación petrolera en la estepa"
   },
-  "huella": "065b2007170f2a19"
+  "huella": "065b2007170f2a19",
+  "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "1ehdjsl": {
   "archivo": "fotos-notas/1ehdjsl.jpg",
@@ -48478,7 +48480,8 @@
    "corresponde": "si",
    "descripcion": "Fachada exterior de una oficina de ANSES"
   },
-  "huella": "c6cefdf9f0f073f3"
+  "huella": "c6cefdf9f0f073f3",
+  "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "ysgzoi": {
   "archivo": "fotos-notas/ysgzoi.jpg",
@@ -54144,6 +54147,53 @@
   "cuando": "2026-10-29T18:33:32.892Z",
   "intentos": 1,
   "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "o6zwz5": {
+  "archivo": "fotos-notas/o6zwz5.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
+  "enlace": "https://www.radiogabal.com.ar/index.php/agro/virginia-aparicio-apelara-su-exoneracion-del-inta-y-continua-asistiendo-a-su-lugar-de-trabajo",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Virginia%20Aparicio%20NTA.jpeg",
+  "razon": "Es la única opción disponible y muestra a la protagonista de la nota en el lugar de trabajo, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T19:04:27.162Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mujer sentada en un laboratorio con un portátil y documentos sobre la mesa."
+  },
+  "huella": "ead6d3d3b594b232"
+ },
+ "1qq7gak": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T19:04:27.162Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "amwwsv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Buenos Aires organiza eventos de terror y cultura para el fin de semana",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T19:04:27.162Z",
+  "intentos": 1,
+  "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

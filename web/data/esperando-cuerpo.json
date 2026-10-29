@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-29T18:33:56.348Z",
+ "generado": "2026-10-29T19:04:50.868Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -25,30 +25,8 @@
      "fecha": null
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (nombre, tildes): el copete nombra a \"municipalidad\" y la fuente no",
-   "maximo": 3
-  },
-  {
-   "id": "1ra6qq5",
-   "titulo": "La Fiesta Nacional del Postre vuelve este fin de semana: tres días de sabores, música y actividades",
-   "copete": "",
-   "seccion": "Cultura y agenda",
-   "fecha": "2026-10-29T14:41:29.435Z",
-   "fuentes": [
-    {
-     "medio": "Diario La Vanguardia",
-     "enlace": "https://www.diariolavanguardia.com/noticias/45201-la-fiesta-nacional-del-postre-vuelve-este-fin-de-semana-tres-dias-de-sabores-musica-y-actividades/",
-     "fecha": "2026-10-29T14:41:29.435Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/sociedad/celebra-fiesta-postre-balcarce-pueblo-conocer-este-fin-semana-cocina-musica-vivo-20261029114129",
-     "fecha": "2026-10-29T14:41:29.435Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
    "maximo": 3
   },
   {
@@ -89,6 +67,33 @@
    "maximo": 4
   },
   {
+   "id": "s485pw",
+   "titulo": "Enzo Fernández: “Con River siempre pasan cosas en La Bombonera”",
+   "copete": "En diálogo con Los Edul, Enzo Fernández habló de todo. El mediocampista palpitó el Superclásico del próximo domingo en la cancha de Boca: \"Voy a ver el Superclásico. Boca está bien, pero con River siempre pasan cosas en La Bombonera, así que esperemos gane River\". Además, reveló…",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-29T18:44:01.232Z",
+   "fuentes": [
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/river/enzo-fernandez-con-river-siempre-pasan-cosas-en-la-bombonera",
+     "fecha": "2026-10-29T17:17:56.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/depo/actualidad/enzo-fernandez-hablo-de-todo-su-vuelta-a-river-el-superclasico-y-la-selecc/",
+     "fecha": "2026-10-29T18:52:00.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/deportes/enzo-fernandez-sobre-la-promesa-del-retorno-a-river---quiero-y-voy-a-volver-en-algun-momento-_a6ae387de83a79a91f38e9364",
+     "fecha": "2026-10-29T18:44:01.232Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 5 problemas (forma, numero, pasado): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "maximo": 3
+  },
+  {
    "id": "alpm15",
    "titulo": "Se lanzó reprogramación de la 22ª Fiesta Nacional del Postre",
    "copete": "En la Sala de los intendentes, de la Comuna, se presentó este miércoles la reprogramación de la 22ª edición de la Fiesta Nacional del Postre que, como ya lo había anticipado ACCION5, se desarrollará durante el próximo fin de semana en el predio ferial de la Sociedad Rural…",
@@ -104,6 +109,63 @@
    "intentos": 3,
    "motivo": "con cuerpo",
    "maximo": 3
+  },
+  {
+   "id": "wfxnpc",
+   "titulo": "La Corte Suprema dejó firme la condena a ocho años a Aníbal Lotocki",
+   "copete": "La Corte Suprema de Justicia de la Nación dejó firme la condena a ocho años de prisión para el médico Aníbal Lotocki por estafa y por haber ocasionado lesiones graves a Stefanía Xipolitakis, Pamela Sosa, Gabriela Trenchi y Silvina Luna, la modelo fallecida el 31 de agosto de…",
+   "seccion": "Política",
+   "fecha": "2026-10-29T18:30:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/sociedad/la-corte-suprema-dejo-firme-la-condena-a-ocho-anos-a-anibal-lotocki_a6ae3888283a79a91f38e9a95",
+     "fecha": "2026-10-29T18:01:13.354Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/seguridad/quedo-firme-la-condena-a-ocho-anos-de-prision-para-anibal-lotocki-el-cirujano-de-las-estrellas-por-nid29102026/",
+     "fecha": "2026-10-29T18:47:13.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/policiales/2026/10/29/la-corte-suprema-dejo-firme-la-condena-a-anibal-lotocki-por-las-lesiones-causadas-a-silvina-luna-y-a-otras-tres-mujeres/",
+     "fecha": "2026-10-29T18:23:52.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/corte-suprema-dejo-firme-condena-lotocki-8-anos-prision-estafa-lesiones-graves-20261029153032",
+     "fecha": "2026-10-29T18:30:00.000Z"
+    },
+    {
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/10/29/la-corte-suprema-confirmo-la-condena-a-ocho-anos-de-carcel-para-anibal-lotocki/",
+     "fecha": "2026-10-29T18:36:58.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/policiales/la-corte-confirmo-la-condena-a-8-anos-de-prision-para-lotocki-por-las-lesiones-a-silvina-luna-975/",
+     "fecha": "2026-10-29T18:02:17.000Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-10-29-15-37-0-la-corte-suprema-dejo-firme-la-condena-a-ocho-anos-a-anibal-lotocki",
+     "fecha": "2026-10-29T18:47:57.000Z"
+    },
+    {
+     "medio": "QZ Noticias (Mar del Plata)",
+     "enlace": "https://www.qznoticias.com/el-pais/la-corte-suprema-dejo-firme-la-condena-a-ocho-anos-de-prision-de-anibal-lotocki-por-las-lesiones-a-silvina-luna-y-otras-tres-mujeres",
+     "fecha": "2026-10-29T18:33:13.000Z"
+    },
+    {
+     "medio": "C5N",
+     "enlace": "https://www.c5n.com/sociedad/la-corte-suprema-justicia-la-nacion-rechazo-un-recurso-anibal-lotocki-quedo-firme-su-condena-ocho-anos-prision-n252917",
+     "fecha": "2026-10-29T18:02:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"corte\", \"suprema\", \"anibal\", \"lotocki\" y el cuerpo no los explica; sin esas oraciones quedan 283 palabras",
+   "maximo": 5
   }
  ],
  "descartadas": [

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T18:33:56.348Z",
- "portada": 192,
+ "generado": "2026-10-29T19:04:50.868Z",
+ "portada": 198,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-29T18:33:56.795Z",
+  "generado": "2026-10-29T19:04:51.678Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-29T18:46:37.884Z"
    },
    {
     "nombre": "farmacia",
@@ -125,13 +125,18 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 53,
+    "salio": "2026-10-29T18:46:37.884Z",
+    "segundos": null,
     "notas": [
      {
-      "id": "no17hh",
-      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
+      "id": "90yhse",
+      "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "nj3vcj",
+      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
+      "seccion": "Fútbol"
      },
      {
       "id": "1tejsa4",
@@ -139,14 +144,9 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1qq7gak",
-      "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
-      "seccion": "Educación"
-     },
-     {
-      "id": "o6zwz5",
-      "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
-      "seccion": "Ciencia"
+      "id": "1h0i8a7",
+      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+      "seccion": "Salud"
      }
     ]
    },
@@ -160,24 +160,24 @@
     "segundos": 55,
     "notas": [
      {
+      "id": "1qq7gak",
+      "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
+      "seccion": "Educación"
+     },
+     {
+      "id": "o6zwz5",
+      "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
+      "seccion": "Ciencia"
+     },
+     {
       "id": "zv94ul",
       "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
       "seccion": "Agro"
      },
      {
-      "id": "1h0i8a7",
-      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
-      "seccion": "Salud"
-     },
-     {
       "id": "wh8hsf",
       "titulo": "Film de la UBA elige paisajes de Balcarce como escenario",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1x12myv",
-      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
-      "seccion": "Ciencia"
      }
     ]
    }
@@ -198,15 +198,14 @@
      "id": "1v8hw3b",
      "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
      "cuando": "2026-10-29T16:36:03.360Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "no17hh",
      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
+     "cuando": "2026-10-29T18:36:04.353Z"
+    }
+   ],
+   "cola": [
     {
      "id": "11s9ojn",
      "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
@@ -238,20 +237,26 @@
      "marcada": false
     },
     {
-     "id": "90yhse",
-     "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "101j4vt",
      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
      "seccion": "Deportes",
      "marcada": false
+    },
+    {
+     "id": "nj3vcj",
+     "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1h0i8a7",
+     "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+     "seccion": "Salud",
+     "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-29T18:06:03.360Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-29T20:06:04.353Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
