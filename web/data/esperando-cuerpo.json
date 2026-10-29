@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-29T10:04:47.528Z",
+ "generado": "2026-10-29T10:34:47.099Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -60,6 +60,11 @@
      "fecha": "2026-10-28T17:36:00.000Z"
     },
     {
+     "medio": "Letra P",
+     "enlace": "https://www.letrap.com.ar//politica/siete-cada-diez-votantes-patricia-bullrich-creen-que-javier-milei-debe-reconocer-el-triunfo-lula-n5427771",
+     "fecha": "2026-10-28T19:56:00.000Z"
+    },
+    {
      "medio": "QZ Noticias (Mar del Plata)",
      "enlace": "https://www.qznoticias.com/el-pais/bullrich-se-vuelve-a-diferenciar-de-milei-reconocio-el-triunfo-de-lula-en-brasil",
      "fecha": "2026-10-28T19:09:43.000Z"
@@ -98,6 +103,11 @@
      "medio": "Los Andes (Mendoza)",
      "enlace": "https://www.losandes.com.ar/politica/patricia-bullrich-se-refirio-al-balotaje-brasil-la-gente-decide-las-urnas-y-su-voluntad-se-respeta-n6012093",
      "fecha": "2026-10-28T16:53:00.000Z"
+    },
+    {
+     "medio": "elDiarioAR",
+     "enlace": "https://www.eldiarioar.com/politica/patricia-bullrich-vuelve-diferenciarse-milei-viejo-tuit-lula-reconocer-victoria-electoral-brasil_1_13623299.html",
+     "fecha": "2026-10-29T09:26:55.000Z"
     },
     {
      "medio": "Clarín",
@@ -212,9 +222,36 @@
      "fecha": "2026-10-28T19:04:11.000Z"
     }
    ],
-   "intentos": 3,
-   "motivo": "título o bajada: 2 problemas (tilde, tildes): el copete dice \"mas\" en vez de \"más\": \"La Administracion Nacional de la Seguridad Social aplico un \"",
+   "intentos": 4,
+   "motivo": "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 216 palabras",
    "maximo": 5
+  },
+  {
+   "id": "1nnb8jj",
+   "titulo": "Los artistas que tocan por la visita del papa León XIV en Argentina 2026: quiénes son y cronograma confirmado por el Vaticano",
+   "copete": "",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-28T14:08:18.270Z",
+   "fuentes": [
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/artistas-tocan-visita-papa-leon-xiv-argentina-2026-quienes-cronograma-confirmado-vaticano-2026102783245",
+     "fecha": "2026-10-27T11:32:45.219Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/sociedad/artistas-tocan-visita-papa-leon-xiv-cordoba-quienes-cronograma-confirmado-2026102811818",
+     "fecha": "2026-10-28T14:08:18.270Z"
+    },
+    {
+     "medio": "Radio Mitre",
+     "enlace": "https://radiomitre.cienradios.com/videos/visita-de-papa-leon-xiv-a-argentina-como-sera-el-cronograma-de-eventos-hora-por-hora-y-que-tener-en-cuenta-antes-de-ir/",
+     "fecha": "2026-10-29T09:56:41.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -225,14 +262,6 @@
    "fecha": "2026-10-27T23:27:16.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; semáforo: tema sensible: \"menor de edad\", en lo que escribió la IA (título, bajada o texto para redes)"
-  },
-  {
-   "id": "1khxfqd",
-   "titulo": "Licitación pública para avanzar con una nueva etapa del microestadio del CEF Nº 119",
-   "seccion": "Balcarce",
-   "fecha": "2026-10-27T22:17:13.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
   },
   {
    "id": "19s99gt",

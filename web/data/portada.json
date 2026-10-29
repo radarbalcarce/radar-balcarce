@@ -1,6 +1,58 @@
 {
-  "generado": "2026-10-29T10:04:47.528Z",
+  "generado": "2026-10-29T10:34:47.099Z",
   "notas": [
+    {
+      "id": "clima20261029",
+      "propia": "clima",
+      "titulo": "Clima en Balcarce: 98% de probabilidad de lluvia, con mínima de 10° y máxima de 19°",
+      "copete": "El pronóstico de este jueves 29 de octubre para Balcarce marca una mínima de 10° y máxima de 19°, con chaparrones.",
+      "cuerpo": "En Balcarce, a las 07:34 hay 12° y el cielo está parcialmente nublado; la sensación térmica es de 12°; el viento sopla del SE a 6 km/h; la humedad es del 99%. Son los datos de Open-Meteo de ese momento.\n\nPara todo el jueves 29, el pronóstico marca una mínima de 10° y máxima de 19° y chaparrones. La probabilidad de lluvia es del 98%. El viento llegaría a 15 km/h.\n\nPara los días que siguen, el pronóstico dice: el viernes 30, mínima de 9° y máxima de 20°, con 99% de probabilidad de lluvia; el sábado 31, mínima de 11° y máxima de 21°, con 58% de probabilidad de lluvia; el domingo 1, mínima de 11° y máxima de 22°, con 71% de probabilidad de lluvia.\n\nEl clima se actualiza a lo largo del día: los valores de ahora, hora por hora, están en la página del clima de Radar Balcarce.",
+      "guion": null,
+      "seccion": "Balcarce",
+      "local": true,
+      "relevancia": 58,
+      "medios": [
+        "Open-Meteo"
+      ],
+      "enlace": "https://open-meteo.com",
+      "fuentesConsultadas": [
+        {
+          "medio": "Open-Meteo",
+          "enlace": "https://open-meteo.com"
+        }
+      ],
+      "foto": {
+        "archivo": "fotos-notas/clima-lluvia-2.jpg",
+        "credito": "Ilustración generada con IA (Cloudflare Workers AI)"
+      },
+      "fecha": "2026-10-29T10:34:42.932Z",
+      "sinFecha": false,
+      "visto": "2026-10-29T10:34:42.932Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-29T10:34:42.932Z",
+      "temas": [],
+      "etiquetas": [
+        "clima",
+        "pronóstico",
+        "Balcarce",
+        "tiempo"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de Open-Meteo a las 07:34.",
+      "enlacesEnTexto": [
+        {
+          "texto": "página del clima de Radar Balcarce",
+          "href": "/clima"
+        }
+      ],
+      "destacados": [
+        {
+          "texto": "Ver el clima de ahora",
+          "href": "/clima"
+        }
+      ],
+      "slug": "clima-en-balcarce-98-de-probabilidad-de-lluvia-con-minima-de-10-y"
+    },
     {
       "id": "futbolpartidosliga20261030",
       "propia": "futbol",
@@ -770,14 +822,13 @@
         "La Nación",
         "TN (Todo Noticias)",
         "Crónica",
-        "Radio Mitre",
         "Minuto Uno"
       ],
       "enlace": "https://www.minutouno.com/sociedad/alerta-diluvio-este-jueves-buenos-aires-que-hora-llegan-las-tormentas-y-que-zonas-n6339083",
       "fecha": "2026-10-29T00:55:08.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T05:01:19.141Z",
-      "relevancia": 49,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -905,7 +956,11 @@
         "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "emiten-alerta-amarilla-por-tormentas-y-vientos-en-buenos-aires"
+      "slug": "emiten-alerta-amarilla-por-tormentas-y-vientos-en-buenos-aires",
+      "foto": {
+        "archivo": "fotos-notas/1chek2m-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "repaso20261028noche",
@@ -1054,11 +1109,6 @@
       "visto": "2026-10-29T07:02:18.301Z",
       "relevancia": 55,
       "local": false,
-      "muyContada": {
-        "medios": 8,
-        "porque": "8 medios",
-        "desde": "2026-10-29T07:02:18.301Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -1248,7 +1298,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "grupo-octubre-compra-mandarina-contenidos-y-el-canal-de-streaming"
+      "slug": "grupo-octubre-compra-mandarina-contenidos-y-el-canal-de-streaming",
+      "foto": {
+        "archivo": "fotos-notas/pusq7b-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "1jdn9gp",
@@ -1258,8 +1312,11 @@
       "guion": "Nico Williams revela que el empujón de Molina resulta clave en la final.",
       "seccion": "Fútbol",
       "medios": [
+        "TN (Todo Noticias)",
         "TyC Sports",
+        "Canal 26",
         "Noticias Argentinas (NA)",
+        "La Nueva",
         "Doble Amarilla",
         "Bolavip Argentina",
         "Perfil"
@@ -1268,11 +1325,11 @@
       "fecha": "2026-10-28T23:29:47.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T00:31:16.483Z",
-      "relevancia": 64,
+      "relevancia": 73,
       "local": false,
       "muyContada": {
-        "medios": 5,
-        "porque": "5 medios en sus primeras 3 horas",
+        "medios": 8,
+        "porque": "8 medios",
         "desde": "2026-10-29T00:31:16.483Z"
       },
       "publicadaPor": null,
@@ -1338,6 +1395,27 @@
           "fecha": "2026-10-28T23:16:27.000Z",
           "oficial": false,
           "aporte": "Confirmó el rol de la asistencia y el contexto del tanto de Ferran Torres en el tiempo extra."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/28/si-no-me-empujaba-molina-no-llegaba-un-futbolista-de-espana-revelo-un-detalle-de-la-jugada-que-le-dio-el-titulo/",
+          "fecha": "2026-10-28T22:08:02.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/deportes/2026/10/28/si-no-me-empujaba-nahuel-molina-no-llegaba-la-revelacion-de-un-futbolista-espanol-sobre-la-jugada-que-definio-el-mundial-2026/",
+          "fecha": "2026-10-28T23:55:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-10-29-7-8-0-nico-williams-revelo-que-el-empujon-de-molina-fue-clave-para-asistir-a-ferran-en-la-final-del-mundial",
+          "fecha": "2026-10-29T10:23:36.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -1525,80 +1603,6 @@
         "sugeridoPorIA": null
       },
       "slug": "el-oficialismo-no-logra-firmar-dictamen-del-proyecto-de-propiedad"
-    },
-    {
-      "id": "alpm15",
-      "titulo": "Presentan la nueva programación de la Fiesta Nacional del Postre",
-      "copete": "La 22ª edición del tradicional encuentro gastronómico se realizará durante el próximo fin de semana en el predio de la Sociedad Rural. El programa se redujo a tres jornadas tras la postergación por razones climáticas.",
-      "cuerpo": "La Comuna presentó el miércoles la reprogramación de la 22ª Fiesta Nacional del Postre en la Sala de los Intendentes.\n\nEl programa original de cuatro días se redujo a tres jornadas luego de que la organización debiera posponer el evento en octubre debido a los pronósticos meteorológicos adversos.\n\nLa agenda del sábado incluirá la actuación de la Orquesta Escuela Infanto-Juvenil de Balcarce, demostraciones culinarias y un espacio de cocina al aire libre con horno de barro. El momento central de esa jornada será el corte de la tradicional pieza dulce a beneficio del Hogar Nuestro Sueño y Protección a la Infancia. En tanto, el domingo la programación continuará con la participación de los chefs Rocío Espinillo y Valentín Galdon Ritvo.\n\nPara facilitar la asistencia del público, la organización dispondrá de un servicio de transporte con traslados de ida y vuelta entre el centro de la ciudad y el predio ferial durante las tres jornadas. Los horarios de salida y regreso se comunicarán a través de la cuenta de Instagram de Turismo.",
-      "guion": "Presentan la nueva programación de la Fiesta Nacional del Postre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Acción 5 (Balcarce)"
-      ],
-      "enlace": "https://accion5.com/se-lanzo-reprogramacion-de-la-22a-fiesta-nacional-del-postre/",
-      "fecha": "2026-10-28T22:46:45.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T00:31:16.483Z",
-      "relevancia": 78,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Fiesta Nacional del Postre se desarrollará durante el próximo fin de semana en tres jornadas",
-        "El anuncio estuvo a cargo de la subsecretaria de Turismo, Rosario Tufró",
-        "El evento incluirá clases de cocina, espectáculos musicales y el tradicional corte del postre",
-        "Habrá un servicio de transporte gratuito entre el centro de la ciudad y el predio rural"
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Presentaron la reprogramación de la 22ª Fiesta Nacional del Postre, que se realizará el próximo fin de semana en el predio de la Sociedad Rural con actividades gastronómicas y musicales durante tres jornadas.",
-      "etiquetas": [
-        "Fiesta Nacional del Postre",
-        "Sociedad Rural",
-        "Rosario Tufró",
-        "Turismo",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Acción 5 (Balcarce)",
-          "enlace": "https://accion5.com/se-lanzo-reprogramacion-de-la-22a-fiesta-nacional-del-postre/",
-          "fecha": "2026-10-28T22:46:45.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de la reprogramación, el cronograma de actividades por día, las declaraciones de la funcionaria y el servicio de transporte."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1xnehl1",
-          "titulo": "La Fiesta Nacional del Postre presenta el postre más largo",
-          "fecha": "2026-10-28T12:56:20.000Z",
-          "ruta": "/nota/la-fiesta-nacional-del-postre-presenta-el-postre-mas-largo-1xnehl1"
-        },
-        {
-          "id": "15crgm2",
-          "titulo": "Confirman la realización de la Fiesta Nacional del Postre",
-          "fecha": "2026-10-27T11:54:52.000Z",
-          "ruta": "/nota/confirman-la-realizacion-de-la-fiesta-nacional-del-postre-15crgm2"
-        },
-        {
-          "id": "jul321",
-          "titulo": "Suspenden la Fiesta Nacional del Postre por el mal clima",
-          "fecha": "2026-10-08T17:31:16.079Z",
-          "ruta": "/nota/suspenden-la-fiesta-nacional-del-postre-por-el-mal-clima-jul321"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "presentan-la-nueva-programacion-de-la-fiesta-nacional-del-postre"
     },
     {
       "id": "wmipjx",
@@ -2052,7 +2056,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "huracan-recibe-a-tigre-por-la-decimoquinta-fecha-del-torneo-clausura"
+      "slug": "huracan-recibe-a-tigre-por-la-decimoquinta-fecha-del-torneo-clausura",
+      "foto": {
+        "archivo": "fotos-notas/189erh-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "1p8y51b",
@@ -2220,15 +2228,12 @@
         "Perfil",
         "Página/12",
         "A24",
-        "iProfesional",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "La Nueva",
         "0221",
-        "La Brújula 24",
         "La Tecla",
         "La Verdad",
         "QZ Noticias (Mar del Plata)",
@@ -2237,11 +2242,14 @@
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
+        "Los Andes (Mendoza)",
         "elDiarioAR",
         "El Día",
+        "iProfesional",
         "El Cronista",
+        "La Nueva",
         "La Gaceta (Tucumán)",
-        "Los Andes (Mendoza)",
+        "La Brújula 24",
         "Infobae"
       ],
       "enlace": "https://radiomitre.cienradios.com/sociedad/buscan-desesperadamente-a-agustin-randazzo-un-argentino-de-51-anos-que-desaparecio-tras-el-tragico-accidente-de-trenes-en-espana/",
@@ -2677,6 +2685,13 @@
           "fecha": "2026-10-29T07:17:58.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/sociedad/quien-era-ana-martina-conte-grand-viberti-la-sanjuanina-fallecida-el-choque-trenes-espana-n6012189",
+          "fecha": "2026-10-29T10:27:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -2773,7 +2788,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "la-provincia-adelanta-el-pago-a-los-docentes-para-noviembre"
+      "slug": "la-provincia-adelanta-el-pago-a-los-docentes-para-noviembre",
+      "foto": {
+        "archivo": "fotos-notas/1cc0xsp-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "144mul3",
@@ -3713,66 +3732,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "boca-cae-ante-ajax-y-queda-eliminado-de-la-messi-cup"
-    },
-    {
-      "id": "w8nrxb",
-      "titulo": "Vecinos reclaman por la falta de visibilidad en el cruce de 35 y 22",
-      "copete": "Tras un siniestro vial registrado el miércoles, habitantes de la zona exigen el mantenimiento de un terreno baldío. Advierten que la vegetación alta impide la visibilidad y genera peligro en el tránsito.",
-      "cuerpo": "Un choque ocurrido en la mañana del miércoles en el cruce de las calles 35 y 22 motivó el reclamo de los vecinos por la falta de visibilidad. Quienes residen en el sector indicaron que la vegetación alta de un lote privado dificulta la circulación y representa un riesgo constante para conductores y peatones. Además, señalaron que antes había caballos en el predio que mantenían el pasto corto, una práctica que ya no se realiza. Por este motivo, pidieron al propietario la limpieza del terreno y solicitaron la intervención de las autoridades locales para garantizar la seguridad vial.",
-      "guion": "Vecinos reclaman por la falta de visibilidad en el cruce de 35 y 22.",
-      "seccion": "Policiales",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/vecinos-de-35-y-22-reclaman-por-la-falta-de-visibilidad-debido-al-crecimiento-del-pasto/",
-      "fecha": "2026-10-28T20:02:59.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T22:31:44.184Z",
-      "relevancia": 67,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Reclamo vecinal en las calles 35 y 22 tras un siniestro vial",
-        "Piden el corte de pasto en un terreno baldío por falta de visibilidad",
-        "Solicitan la intervención municipal y del propietario del lote"
-      ],
-      "seSabe": [
-        "Un siniestro vial ocurrió en la mañana del miércoles 28/10/2026 en Balcarce.",
-        "Los vecinos exigen el mantenimiento de un lote en la esquina de 35 y 22.",
-        "La vegetación alta impide la visibilidad para quienes transitan por la zona."
-      ],
-      "noConfirmado": [
-        "No se informó si las autoridades municipales iniciarán acciones formales contra el propietario.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Vecinos de las calles 35 y 22 reclaman el corte de pasto en un lote baldío tras un siniestro vial. Advierten que la vegetación alta dificulta la visibilidad y pone en riesgo la seguridad en el tránsito.",
-      "etiquetas": [
-        "vecinos",
-        "siniestro vial",
-        "tránsito",
-        "Balcarce",
-        "seguridad vial"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/vecinos-de-35-y-22-reclaman-por-la-falta-de-visibilidad-debido-al-crecimiento-del-pasto/",
-          "fecha": "2026-10-28T20:02:59.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre el siniestro vial, el reclamo de los vecinos en la esquina de 35 y 22 y el pedido de intervención a las autoridades."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "vecinos-reclaman-por-la-falta-de-visibilidad-en-el-cruce-de-35-y-22"
+      "slug": "boca-cae-ante-ajax-y-queda-eliminado-de-la-messi-cup",
+      "foto": {
+        "archivo": "fotos-notas/91vfy0-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "au2qyx",
@@ -4282,6 +4246,74 @@
       "foto": {
         "archivo": "fotos-notas/1jkbwyl-ia.jpg",
         "credito": "Ilustración generada con IA"
+      }
+    },
+    {
+      "id": "1dh34ud",
+      "titulo": "Sube un 61 por ciento el precio de los toros en los remates de genética",
+      "copete": "Los reproductores bovinos alcanzaron un valor promedio de casi 9,8 millones de pesos por animal entre agosto y octubre. El sector oficial atribuye la suba al interés por mejorar los rodeos y al uso de beneficios fiscales.",
+      "cuerpo": "Los precios de los toros comercializados en los remates de genética bovina registraron un aumento interanual del 61 por ciento en pesos y del 57 por ciento en dólares entre agosto y octubre de este año. La Secretaría de Agricultura informó que las operaciones abarcaron más de 15.500 cabezas durante el período considerado clave para las cabañas de genética reproductiva.\n\nEl valor promedio se ubicó en 9.770.983 pesos por animal, equivalentes a 6.324 dólares, frente a los 6.056.272 pesos y 4.038 dólares registrados en el mismo lapso del año pasado. En etapas anteriores, el promedio rondaba los 1,2 millones de pesos en 2023 y los 4,2 millones en 2024, según los registros oficiales elaborados a partir de datos sectoriales.\n\nEl organismo dependiente del Ministerio de Economía explicó que la suba responde al interés de los criadores por optimizar la eficiencia y la calidad de sus rodeos en un escenario de mayor estabilidad climática y mejores perspectivas forrajeras. Asimismo, destacó que la utilización del Régimen de Incentivo para Medianas Inversiones permite a los productores amortizar la totalidad de los reproductores en el mismo período en que se efectúa la adquisición.\n\nPara la cartera agropecuaria, el incremento refleja una recuperación real del valor de los animales y consolida una apuesta de largo plazo enfocada en mejorar la calidad general de la ganadería nacional. La serie estadística confirma un ciclo sostenido de expectativas favorables para la actividad en todo el país.",
+      "guion": "Sube un 61 por ciento el precio de los toros en los remates de genética.",
+      "seccion": "Agro",
+      "medios": [
+        "La Nación",
+        "Agrositio"
+      ],
+      "enlace": "https://www.agrositio.com.ar/noticia/249071-los-remates-de-genetica-bovina-marcaron-un-crecimiento-interanual-del-61-en-el-precio.html",
+      "fecha": "2026-10-28T18:58:47.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-29T10:31:16.327Z",
+      "relevancia": 34,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Los precios de los toros aumentaron 61% en pesos y 57% en dólares entre agosto y octubre.",
+        "El valor promedio por animal se ubicó en 9.770.983 pesos, según informó la Secretaría de Agricultura.",
+        "Las operaciones totalizaron más de 15.500 cabezas en el período de mayor actividad para las cabañas.",
+        "El sector oficial vinculó la suba a la mejora de la calidad genética y al uso de beneficios impositivos."
+      ],
+      "seSabe": [
+        "Los remates de genética bovina acumularon un incremento interanual del 61% en pesos y del 57% en dólares.",
+        "Se comercializaron más de 15.500 cabezas entre agosto y octubre de este año.",
+        "El precio promedio por reproductor macho alcanzó los 9.770.983 pesos o 6.324 dólares.",
+        "El organismo oficial destacó el impacto del Régimen de Incentivo para Medianas Inversiones en las adquisiciones."
+      ],
+      "textoRedes": "Los precios de los toros en los remates de genética bovina aumentaron un 61 por ciento interanual entre agosto y octubre. El valor promedio por animal se ubicó en casi 9,8 millones de pesos tras la comercialización de más de 15.500 cabezas.",
+      "etiquetas": [
+        "ganaderia",
+        "remates",
+        "genetica bovina",
+        "secretaria de agricultura",
+        "precios"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Agrositio",
+          "enlace": "https://www.agrositio.com.ar/noticia/249071-los-remates-de-genetica-bovina-marcaron-un-crecimiento-interanual-del-61-en-el-precio.html",
+          "fecha": "2026-10-28T18:58:47.000Z",
+          "oficial": false,
+          "aporte": "Aportó la confirmación institucional de la Secretaría de Agricultura sobre las expectativas positivas para el sector ganadero nacional."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/campo/remates-el-precio-de-los-toros-subio-un-61-y-cada-animal-promedia-los-10-millones-nid28102026/",
+          "fecha": "2026-10-28T19:35:37.000Z",
+          "oficial": false,
+          "aporte": "Aportó los detalles sobre el volumen de cabezas comercializadas, el valor promedio en pesos y dólares, la serie comparativa desde 2023 y los alcances del RIMI."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "sube-un-61-por-ciento-el-precio-de-los-toros-en-los-remates-de",
+      "foto": {
+        "archivo": "fotos-notas/1dh34ud.jpg",
+        "credito": "Foto: Agrositio"
       }
     },
     {
@@ -5459,8 +5491,8 @@
       "guion": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Puntonueve (FM 100.9)",
-        "Infórmese Primero (FM 104.9)"
+        "Infórmese Primero (FM 104.9)",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/10/variete-en-el-conventillo-se-presentara_022505111.html",
       "fecha": "2026-10-28T17:44:37.575Z",
@@ -5468,7 +5500,6 @@
       "visto": "2026-10-28T18:31:54.513Z",
       "relevancia": 81,
       "local": true,
-      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -5749,21 +5780,27 @@
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "La Nueva",
-        "La Brújula 24",
         "Letra P",
         "El Marplatense",
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
+        "Los Andes (Mendoza)",
         "El Día",
-        "Perfil"
+        "Perfil",
+        "La Brújula 24"
       ],
       "enlace": "https://www.lanacion.com.ar/politica/diputados-la-oposicion-exige-al-gobierno-explicaciones-por-la-huida-de-bolsonaro-y-complica-el-nid28102026/",
       "fecha": "2026-10-28T17:43:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-28T21:31:50.964Z",
-      "relevancia": 63,
+      "relevancia": 64,
       "local": false,
+      "muyContada": {
+        "medios": 17,
+        "porque": "17 medios",
+        "desde": "2026-10-29T10:31:16.327Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -5910,6 +5947,13 @@
           "medio": "Infórmese Primero (FM 104.9)",
           "enlace": "http://www.informeseprimero.com.ar/2026/10/diputados-la-oposicion-exige.html",
           "fecha": "2026-10-29T02:52:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/diputados-la-oposicion-exigen-que-el-gobierno-explique-la-complicidad-la-fuga-flavio-bolsonaro-n6012183",
+          "fecha": "2026-10-29T10:06:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -6279,6 +6323,68 @@
       "slug": "el-banco-provincia-advierte-que-el-sueldo-se-agota-antes"
     },
     {
+      "id": "cncjc",
+      "titulo": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre",
+      "copete": "La plataforma lanzó el primer tráiler de la nueva adaptación de la novela de Jane Austen. La miniserie cuenta con seis episodios y un elenco encabezado por Emma Corrin y Jack Lowden.",
+      "cuerpo": "Netflix estrenará el 3 de diciembre la nueva adaptación de Orgullo y prejuicio, una miniserie de seis episodios basada en la novela homónima de Jane Austen publicada en 1813. La plataforma presentó el primer adelanto audiovisual de la producción, que recrea la relación entre Elizabeth Bennet y el señor Darcy en la Inglaterra del siglo XIX.\n\nLa historia se centra en el vínculo entre los protagonistas, marcado por diferencias sociales, prejuicios personales y malentendidos que condicionan su trato mutuo. El proyecto cuenta con guion de Dolly Alderton y dirección de Euros Lyn. La trama profundiza en las preocupaciones de la familia Bennet respecto al matrimonio de las hijas, considerado una cuestión de seguridad y posición económica en aquel contexto.\n\nEl elenco principal está encabezado por Emma Corrin en el papel de Elizabeth Bennet y Jack Lowden como el señor Darcy. Olivia Colman interpreta a la señora Bennet y Rufus Sewell asume el rol del señor Bennet.\n\nEl reparto se completa con Freya Mavor como Jane Bennet, Jamie Demetriou como el señor Collins, Daryl McCormack como el señor Bingley y Louis Partridge como el señor Wickham. También participan Rhea Norwood como Lydia Bennet, Siena Kelly como Caroline Bingley, Fiona Shaw como Lady Catherine de Bourg, además de Hopey Parish y Hollie Avery en los papeles de Mary y Kitty Bennet, respectivamente.",
+      "guion": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "Ámbito",
+        "A24"
+      ],
+      "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
+      "fecha": "2026-10-28T17:11:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-28T19:31:41.157Z",
+      "relevancia": 34,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La miniserie de seis episodios se estrena el 3 de diciembre en Netflix.",
+        "La producción adapta la novela de Jane Austen publicada en 1813.",
+        "Emma Corrin y Jack Lowden interpretan a Elizabeth Bennet y al señor Darcy."
+      ],
+      "seSabe": [
+        "La miniserie consta de seis episodios.",
+        "El estreno será el 3 de diciembre de 2026 en Netflix.",
+        "Emma Corrin y Jack Lowden son los protagonistas principales."
+      ],
+      "textoRedes": "Netflix lanzó el tráiler de la nueva miniserie Orgullo y prejuicio. La producción basada en la obra de Jane Austen se estrena el 3 de diciembre con seis episodios y el protagonismo de Emma Corrin y Jack Lowden.",
+      "etiquetas": [
+        "Netflix",
+        "Orgullo y prejuicio",
+        "Emma Corrin",
+        "Jack Lowden",
+        "series"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
+          "fecha": "2026-10-28T17:11:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó la lista completa del elenco secundario, la guionista Dolly Alderton y el director Euros Lyn."
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/trends/netflix-estrena-la-nueva-serie-orgullo-y-prejuicio-y-tan-solo-tiene-6-capitulos-n1611028",
+          "fecha": "2026-10-28T17:21:00.000Z",
+          "oficial": false,
+          "aporte": "Informó la fecha de estreno, la cantidad de episodios, los roles protagónicos y detalles generales de la trama."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "netflix-estrena-la-serie-orgullo-y-prejuicio-el-3-de-diciembre"
+    },
+    {
       "id": "5h46bf",
       "titulo": "Investigan en la Justicia el ingreso al país de Flávio Bolsonaro",
       "copete": "La Justicia federal requirió informes oficiales para determinar cómo ingresó el dirigente brasileño. Migraciones confirmó su paso por Misiones junto a su familia antes de abordar un vuelo privado.",
@@ -6286,20 +6392,15 @@
       "guion": "Investigan en la Justicia el ingreso al país de Flávio Bolsonaro.",
       "seccion": "Política",
       "medios": [
-        "La Nación",
         "TN (Todo Noticias)",
-        "Diario Popular",
         "Ámbito",
-        "C5N",
-        "La Nueva",
-        "La Gaceta (Tucumán)",
-        "Clarín"
+        "C5N"
       ],
       "enlace": "https://www.c5n.com/politica/la-justicia-ya-investiga-como-ingreso-flavio-bolsonaro-la-argentina-n252805",
       "fecha": "2026-10-28T17:11:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T00:31:16.483Z",
-      "relevancia": 48,
+      "relevancia": 29,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6444,146 +6545,6 @@
       "foto": {
         "archivo": "fotos-notas/5h46bf.jpg",
         "credito": "Foto: La Capital (Rosario)"
-      }
-    },
-    {
-      "id": "cncjc",
-      "titulo": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre",
-      "copete": "La plataforma lanzó el primer tráiler de la nueva adaptación de la novela de Jane Austen. La miniserie cuenta con seis episodios y un elenco encabezado por Emma Corrin y Jack Lowden.",
-      "cuerpo": "Netflix estrenará el 3 de diciembre la nueva adaptación de Orgullo y prejuicio, una miniserie de seis episodios basada en la novela homónima de Jane Austen publicada en 1813. La plataforma presentó el primer adelanto audiovisual de la producción, que recrea la relación entre Elizabeth Bennet y el señor Darcy en la Inglaterra del siglo XIX.\n\nLa historia se centra en el vínculo entre los protagonistas, marcado por diferencias sociales, prejuicios personales y malentendidos que condicionan su trato mutuo. El proyecto cuenta con guion de Dolly Alderton y dirección de Euros Lyn. La trama profundiza en las preocupaciones de la familia Bennet respecto al matrimonio de las hijas, considerado una cuestión de seguridad y posición económica en aquel contexto.\n\nEl elenco principal está encabezado por Emma Corrin en el papel de Elizabeth Bennet y Jack Lowden como el señor Darcy. Olivia Colman interpreta a la señora Bennet y Rufus Sewell asume el rol del señor Bennet.\n\nEl reparto se completa con Freya Mavor como Jane Bennet, Jamie Demetriou como el señor Collins, Daryl McCormack como el señor Bingley y Louis Partridge como el señor Wickham. También participan Rhea Norwood como Lydia Bennet, Siena Kelly como Caroline Bingley, Fiona Shaw como Lady Catherine de Bourg, además de Hopey Parish y Hollie Avery en los papeles de Mary y Kitty Bennet, respectivamente.",
-      "guion": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Ámbito",
-        "A24"
-      ],
-      "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
-      "fecha": "2026-10-28T17:11:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T19:31:41.157Z",
-      "relevancia": 34,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La miniserie de seis episodios se estrena el 3 de diciembre en Netflix.",
-        "La producción adapta la novela de Jane Austen publicada en 1813.",
-        "Emma Corrin y Jack Lowden interpretan a Elizabeth Bennet y al señor Darcy."
-      ],
-      "seSabe": [
-        "La miniserie consta de seis episodios.",
-        "El estreno será el 3 de diciembre de 2026 en Netflix.",
-        "Emma Corrin y Jack Lowden son los protagonistas principales."
-      ],
-      "textoRedes": "Netflix lanzó el tráiler de la nueva miniserie Orgullo y prejuicio. La producción basada en la obra de Jane Austen se estrena el 3 de diciembre con seis episodios y el protagonismo de Emma Corrin y Jack Lowden.",
-      "etiquetas": [
-        "Netflix",
-        "Orgullo y prejuicio",
-        "Emma Corrin",
-        "Jack Lowden",
-        "series"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
-          "fecha": "2026-10-28T17:11:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó la lista completa del elenco secundario, la guionista Dolly Alderton y el director Euros Lyn."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/trends/netflix-estrena-la-nueva-serie-orgullo-y-prejuicio-y-tan-solo-tiene-6-capitulos-n1611028",
-          "fecha": "2026-10-28T17:21:00.000Z",
-          "oficial": false,
-          "aporte": "Informó la fecha de estreno, la cantidad de episodios, los roles protagónicos y detalles generales de la trama."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "netflix-estrena-la-serie-orgullo-y-prejuicio-el-3-de-diciembre"
-    },
-    {
-      "id": "12l7i2z",
-      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
-      "copete": "El polista profesional repasó su trayectoria de casi tres décadas entre Argentina y Estados Unidos. Tras trabajar con equipos de alto hándicap y figuras, regresó a Balcarce para afianzar un emprendimiento vitivinícola propio.",
-      "cuerpo": "Martín Muñoz desarrolló una trayectoria de casi tres décadas en el polo internacional que lo llevó a trabajar en equipos de alto hándicap y compartir temporadas en distintos países. Tras haberse radicado nuevamente en Balcarce junto a su familia, impulsa un proyecto vitivinícola propio en la ciudad donde se crio.\n\nSu vínculo con la actividad ecuestre comenzó en su infancia y su carrera profesional despegó a partir de 1996, cuando incursionó en el deporte en Mar del Plata. Años después, se sumó al grupo de trabajo del equipo San Baba, vinculado al actor estadounidense Tommy Lee Jones, y posteriormente integró el plantel del empresario Scott Wood en torneos disputados en Palm Beach, Inglaterra, Saint-Tropêz, Aspen, Houston y Santa Bárbara.\n\nDurante sus estancias en el exterior, el contacto frecuente con regiones productoras despertó su interés por la viticultura. En 2007 adquirió el predio donde actualmente desarrolla su emprendimiento y en 2015 comenzó a indagar sobre las condiciones climáticas y de suelo locales para la elaboración de vino, motivado también por el avance de otras iniciativas en la zona.\n\nTras formar pareja con la veterinaria Verónica Fernández y el nacimiento de su hijo Gael en Texas, la familia decidió volver a radicarse de forma permanente en territorio balcarceño para priorizar el entorno familiar y la cercanía con sus raíces, aunque el deportista mantiene una dinámica de viajes vinculada a su actividad profesional.",
-      "guion": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45203-de-las-canchas-de-polo-de-estados-unidos-a-los-vinedos-de-balcarce-la-historia-de-martin-munoz/",
-      "fecha": "2026-10-28T17:01:51.864Z",
-      "sinFecha": true,
-      "visto": "2026-10-28T17:01:51.864Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Martín Muñoz desarrolló una trayectoria de casi 30 años en el polo internacional.",
-        "Trabajó en equipos de alto hándicap y con figuras del deporte y del espectáculo.",
-        "Compró el predio en 2007 y en 2015 investigó sobre la producción vitivinícola local.",
-        "Regresó a Balcarce junto a su familia para afianzar su emprendimiento de vino."
-      ],
-      "seSabe": [
-        "Martín Muñoz completó cerca de 30 años de trayectoria en el polo profesional internacional.",
-        "Trabajó con el equipo del actor Tommy Lee Jones y del empresario Scott Wood.",
-        "Jugó en torneos de alto hándicap en Palm Beach, Inglaterra, Saint-Tropez, Aspen, Houston y Santa Bárbara.",
-        "Compró el terreno para su proyecto vitivinícola en 2007 y comenzó a investigar la producción en 2015.",
-        "Regresó a vivir a Balcarce hace dos años junto a su pareja y su hijo."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El polista profesional Martín Muñoz repasó su trayectoria internacional de casi treinta años y su regreso a Balcarce para consolidar un emprendimiento vitivinícola propio junto a su familia.",
-      "etiquetas": [
-        "Martín Muñoz",
-        "Polo",
-        "Balcarce",
-        "Viñedos"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45203-de-las-canchas-de-polo-de-estados-unidos-a-los-vinedos-de-balcarce-la-historia-de-martin-munoz/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló su carrera de casi treinta años en el polo internacional, su paso por equipos de alto hándicap y su regreso a Balcarce para desarrollar un proyecto vitivinícola."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1tj9g7q",
-          "titulo": "Flávio Bolsonaro huye a Estados Unidos tras pasar por Puerto Iguazú",
-          "fecha": "2026-10-28T03:34:57.000Z",
-          "ruta": "/nota/migraciones-confirma-que-flavio-bolsonaro-salio-del-pais-rumbo-a-1tj9g7q"
-        },
-        {
-          "id": "6ygxle",
-          "titulo": "Desentierran un auto enterrado como cápsula del tiempo en Estados Unidos",
-          "fecha": "2026-10-27T19:12:00.000Z",
-          "ruta": "/nota/desentierran-un-auto-enterrado-como-capsula-del-tiempo-en-estados-6ygxle"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "martin-munoz-consolida-su-proyecto-vitivinicola-tras-una-carrera",
-      "foto": {
-        "archivo": "fotos-notas/12l7i2z.jpg",
-        "credito": "Foto: Diario La Vanguardia"
       }
     },
     {
@@ -6748,90 +6709,6 @@
       "foto": {
         "archivo": "fotos-notas/1smnofv.jpg",
         "credito": "Foto: El Destape"
-      }
-    },
-    {
-      "id": "l7z1jg",
-      "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
-      "copete": "El organismo nacional advierte que una mayor intensidad del fenómeno climático no implica necesariamente mayores impactos. Se esperan precipitaciones por encima de lo normal hacia el verano.",
-      "cuerpo": "El Grupo de Agrometeorología del INTA Balcarce pidió evitar pronósticos alarmistas frente a las proyecciones climáticas para los próximos meses. Nuria Lewczuk, doctora en Ciencias Biológicas e integrante del organismo, explicó que las estimaciones anticipan una mayor probabilidad de precipitaciones superiores a las normales en la región.\n\nEl fenómeno de El Niño atraviesa un proceso de intensificación que podría alcanzar su nivel máximo alrededor de diciembre, con similitudes al registro de 2015, para luego debilitarse de forma progresiva hasta el otoño. Sin embargo, la especialista remarcó que un incremento en la fuerza del evento no se traduce de manera directa en una mayor gravedad de sus efectos a nivel local.\n\nEl comportamiento de las lluvias en el sudeste bonaerense mantiene características irregulares y depende también de otras variables atmosféricas, como el Índice del Océano Índico y la oscilación antártica. Durante el invierno y el transcurso de octubre, las precipitaciones se mantuvieron dentro de los parámetros esperados en Balcarce, aunque el último mes acumuló solo 40 horas de sol y 16 jornadas con un ochenta por ciento de nubosidad hasta el día 18.\n\nPara el trimestre que comprende noviembre, diciembre y enero, los pronósticos contemplan un aumento en la probabilidad de lluvias y una menor amplitud térmica, con temperaturas máximas menos elevadas y mínimas más altas de lo habitual. Desde el organismo recomendaron seguir las actualizaciones oficiales y destacaron que diciembre y enero resultarán fundamentales para el seguimiento de los cultivos de gruesa.",
-      "guion": "El INTA pide cautela ante el pronóstico de lluvias por El Niño.",
-      "seccion": "Agro",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45202-el-nino-por-que-el-inta-pide-no-caer-en-pronosticos-alarmistas-mas-intensidad-no-significa-mas-impacto/",
-      "fecha": "2026-10-28T16:35:53.969Z",
-      "sinFecha": true,
-      "visto": "2026-10-28T16:35:53.969Z",
-      "relevancia": 63,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "inta"
-      ],
-      "como": "automatica",
-      "claves": [
-        "El INTA pidió no caer en pronósticos alarmistas sobre El Niño.",
-        "Prevén lluvias superiores a las normales para noviembre, diciembre y enero.",
-        "El comportamiento de las precipitaciones en el sudeste bonaerense es variable.",
-        "Octubre acumuló dieciséis días con alta nubosidad y pocas horas de sol en Balcarce."
-      ],
-      "seSabe": [
-        "El INTA Balcarce pronosticó lluvias por encima de lo normal para los próximos meses.",
-        "El fenómeno climático podría alcanzar su pico de intensidad en diciembre.",
-        "Octubre registró una baja cantidad de horas de sol en la ciudad."
-      ],
-      "noConfirmado": [
-        "Todavía no se puede precisar la magnitud exacta del impacto que tendrán las precipitaciones en cada zona.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El INTA Balcarce pidió prudencia frente a las proyecciones de El Niño y explicó que una mayor intensidad climática no implica necesariamente mayores impactos en la región.",
-      "etiquetas": [
-        "INTA Balcarce",
-        "El Niño",
-        "clima",
-        "lluvias"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45202-el-nino-por-que-el-inta-pide-no-caer-en-pronosticos-alarmistas-mas-intensidad-no-significa-mas-impacto/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló los pronósticos climáticos del INTA sobre El Niño, el impacto en las lluvias y las temperaturas, y las condiciones de nubosidad registradas en octubre."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1efiaeu",
-          "titulo": "El consumo de carne porcina sube a 18 kilos por habitante en el país",
-          "fecha": "2026-10-28T11:14:55.000Z",
-          "ruta": "/nota/el-consumo-de-carne-porcina-sube-a-18-kilos-por-habitante-en-el-pais-1efiaeu"
-        },
-        {
-          "id": "15uzzdh",
-          "titulo": "Analizan el comportamiento del arroz durante el almacenamiento postcosecha",
-          "fecha": "2026-10-27T09:37:08.000Z",
-          "ruta": "/nota/analizan-el-comportamiento-del-arroz-durante-el-almacenamiento-15uzzdh"
-        },
-        {
-          "id": "1cj5sd",
-          "titulo": "Virginia Aparicio debate en un programa local sobre su situación en el INTA",
-          "fecha": "2026-10-10T18:47:37.000Z",
-          "ruta": "/nota/virginia-aparicio-debate-en-un-programa-local-sobre-su-situacion-en-1cj5sd"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-inta-pide-cautela-ante-el-pronostico-de-lluvias-por-el-nino",
-      "foto": {
-        "archivo": "fotos-notas/l7z1jg-ia.jpg",
-        "credito": "Ilustración generada con IA"
       }
     },
     {
@@ -7135,7 +7012,7 @@
       "fecha": "2026-10-28T16:10:23.000Z",
       "sinFecha": false,
       "visto": "2026-10-28T21:31:50.964Z",
-      "relevancia": 35,
+      "relevancia": 27,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7280,6 +7157,95 @@
         "archivo": "fotos-notas/12niewq-ia.jpg",
         "credito": "Ilustración generada con IA"
       }
+    },
+    {
+      "id": "xqfz4h",
+      "titulo": "Brindan recomendaciones para proteger al ganado ante excesos hídricos",
+      "copete": "Especialistas del INTA detallan medidas sobre traslados, manejo de reservas forrajeras y controles sanitarios para sostener la producción en el norte santafesino.",
+      "cuerpo": "Las lluvias persistentes, el anegamiento en zonas de islas y la creciente de los ríos condicionan la actividad ganadera en el norte de Santa Fe. Ante esta situación que reduce la superficie de pastoreo, especialistas del INTA Reconquista destacan que la planificación de los movimientos de hacienda y la administración de reservas permiten sostener la producción y reducir pérdidas.\n\nMario Basán Nickisch, especialista en agua del organismo, subrayó la necesidad de monitorear a diario la evolución fluvial y consultar los registros hidrométricos para prever crecidas y definir traslados con anticipación. En los campos afectados resulta primordial identificar potreros utilizables, comprobar alambrados y habilitar sectores secos para el descanso con agua y alimento suficiente.\n\nEl manejo del rodeo requiere establecer prioridades con especial atención en vacas paridas, terneros y vaquillonas de reposición, evaluando alternativas como el destete precoz o la venta de animales menos eficientes. En tanto, la alimentación demanda planificar la distribución de reservas según los requerimientos nutricionales de cada categoría.\n\nErika Bieri, del área de Ganadería, recomendó destinar pastizales diferidos a animales con menores exigencias y reservar los rollos de alfalfa y silajes para terneros destetados, animales en recría y vacas en lactancia. Para evitar la acumulación de barro, aconsejan rotar los sitios de alimentación, ubicar los rollos en sectores elevados y descartar aquellos que presenten deterioro.\n\nLas condiciones de humedad exigen reforzar los controles sanitarios diarios para detectar falta de apetito, debilidad o rengueras. A su vez, se debe garantizar agua segura, revisar el plan de vacunación contra problemas podales, leptospirosis y carbunclo, y dar aviso al Senasa ante cualquier sospecha.",
+      "guion": "Brindan recomendaciones para proteger al ganado ante excesos hídricos.",
+      "seccion": "Agro",
+      "medios": [
+        "INTA",
+        "Agrositio"
+      ],
+      "enlace": "https://www.argentina.gob.ar/noticias/excesos-hidricos-claves-para-proteger-al-ganado-y-reducir-perdidas",
+      "fecha": "2026-10-28T15:52:43.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-29T10:31:16.327Z",
+      "relevancia": 38,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [
+        "inta"
+      ],
+      "como": "automatica",
+      "claves": [
+        "Recomiendan monitorear a diario los niveles de los ríos y los pronósticos del INA.",
+        "Sugieren priorizar la alimentación en vacas paridas, terneros y vaquillonas.",
+        "Aconsejan rotar los lugares de alimentación para prevenir la acumulación de barro.",
+        "Piden reforzar los controles sanitarios y consultar al veterinario ante signos de enfermedad."
+      ],
+      "seSabe": [
+        "Las precipitaciones y la crecida de los ríos complican la ganadería en el norte de Santa Fe.",
+        "El INTA Reconquista aconseja planificar traslados de hacienda y administrar reservas forrajeras.",
+        "Mario Basán Nickisch sugirió consultar registros del Instituto Nacional del Agua.",
+        "Erika Bieri recomendó clasificar el alimento según las exigencias nutricionales de los animales."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó el impacto económico total de las pérdidas en los establecimientos rurales afectados.",
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "etiquetas": [
+        "Ganadería",
+        "INTA",
+        "Santa Fe",
+        "excesos hidricos",
+        "clima"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "INTA",
+          "enlace": "https://www.argentina.gob.ar/noticias/excesos-hidricos-claves-para-proteger-al-ganado-y-reducir-perdidas",
+          "fecha": "2026-10-28T15:52:43.000Z",
+          "oficial": false,
+          "aporte": "Reprodujo el mismo contenido informativo brindado originalmente por la primera fuente."
+        },
+        {
+          "medio": "Agrositio",
+          "enlace": "https://www.agrositio.com.ar/noticia/249076-excesos-hidricos-claves-para-proteger-al-ganado-y-reducir-perdidas.html",
+          "fecha": "2026-10-28T19:52:47.000Z",
+          "oficial": false,
+          "aporte": "Detalló las recomendaciones técnicas del INTA para proteger al ganado frente a los excesos hídricos."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1efiaeu",
+          "titulo": "El consumo de carne porcina sube a 18 kilos por habitante en el país",
+          "fecha": "2026-10-28T11:14:55.000Z",
+          "ruta": "/nota/el-consumo-de-carne-porcina-sube-a-18-kilos-por-habitante-en-el-pais-1efiaeu"
+        },
+        {
+          "id": "1o8bnus",
+          "titulo": "El INTA presenta avances en genética de alfalfa en China",
+          "fecha": "2026-10-27T14:50:30.000Z",
+          "ruta": "/nota/el-inta-presenta-avances-en-genetica-de-alfalfa-en-china-1o8bnus"
+        },
+        {
+          "id": "15uzzdh",
+          "titulo": "Analizan el comportamiento del arroz durante el almacenamiento postcosecha",
+          "fecha": "2026-10-27T09:37:08.000Z",
+          "ruta": "/nota/analizan-el-comportamiento-del-arroz-durante-el-almacenamiento-15uzzdh"
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "brindan-recomendaciones-para-proteger-al-ganado-ante-excesos-hidricos"
     },
     {
       "id": "ezjka6",
@@ -7471,68 +7437,6 @@
         "archivo": "fotos-notas/68piqz.jpg",
         "credito": "Foto: La Nación"
       }
-    },
-    {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "copete": "Un total de 23 estudiantes de Balcarce continúan sin transporte escolar rural a la espera de una respuesta del Gobierno provincial. La falta de oferentes por tarifas insuficientes afecta principalmente a las escuelas N° 25 y N° 30.",
-      "cuerpo": "Un grupo de 23 estudiantes de Balcarce todavía no cuenta con el servicio de transporte escolar rural y espera una respuesta por parte del Gobierno de la provincia de Buenos Aires para poder asistir a clases. Mientras esa prestación permanece sin garantizar para esos alumnos, otros 389 estudiantes del distrito sí disponen del traslado diario hacia sus establecimientos educativos.\n\nLa falta de cobertura afecta principalmente a los recorridos correspondientes a las escuelas N° 25 y N° 30, a lo que se suman algunos casos vinculados a la Escuela N° 502. Según informó un medio local, el principal obstáculo administrativo y económico que impide cubrir los trayectos radica en la escasez de oferentes interesados en realizar los viajes.\n\nEsa situación ocurre porque las tarifas vigentes no resultan suficientes para afrontar los costos que demanda prestar el servicio en las zonas rurales. La falta de transporte representa una barrera para el acceso a la educación de los alumnos que residen lejos de los establecimientos y necesitan recorrer grandes distancias.\n\nLa diferencia entre los estudiantes que ya cuentan con el traslado y quienes continúan a la espera expone la necesidad de revisar las condiciones de contratación y diseñar mecanismos alternativos. De este modo, se busca que la distancia entre el hogar y la escuela no se convierta en un impedimento para el aprendizaje de los chicos.",
-      "guion": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación",
-      "seccionAntes": "Agro",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45198-transporte-escolar-rural-23-alumnos-de-balcarce-esperan-una-respuesta-de-la-provincia/",
-      "fecha": "2026-10-28T15:37:24.153Z",
-      "sinFecha": true,
-      "visto": "2026-10-28T15:37:24.153Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Veintitrés alumnos de Balcarce esperan transporte escolar rural.",
-        "Un total de 389 estudiantes ya cuentan con el servicio en el distrito.",
-        "La falta de cobertura afecta principalmente a las escuelas N° 25 y N° 30.",
-        "La escasez de oferentes se debe a tarifas que no cubren los costos."
-      ],
-      "seSabe": [
-        "Hay 23 alumnos en Balcarce que esperan una respuesta para contar con transporte escolar rural.",
-        "Un total de 389 estudiantes ya tienen cubierto el traslado.",
-        "Los recorridos sin cobertura corresponden principalmente a las escuelas N° 25 y N° 30, además de casos en la Escuela N° 502.",
-        "El servicio depende del Gobierno de la provincia de Buenos Aires.",
-        "La falta de oferentes se origina en tarifas que no resultan suficientes para afrontar los costos."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó una fecha para la resolución del conflicto con las tarifas ni nuevas alternativas para cubrir los recorridos pendientes.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Veintitrés alumnos de Balcarce esperan una respuesta de la Provincia para contar con transporte escolar rural. La falta de oferentes por tarifas insuficientes afecta principalmente a las escuelas N° 25 y N° 30.",
-      "etiquetas": [
-        "transporte escolar",
-        "educacion rural",
-        "Balcarce",
-        "provincia de Buenos Aires"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45198-transporte-escolar-rural-23-alumnos-de-balcarce-esperan-una-respuesta-de-la-provincia/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Aportó los datos sobre la cantidad de alumnos afectados, las escuelas involucradas, el funcionamiento del servicio provincial y los motivos de la falta de oferentes."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "veintitres-alumnos-esperan-transporte-escolar-rural"
     },
     {
       "id": "1dvi7ef",
@@ -7806,7 +7710,6 @@
         "Agencia DIB",
         "La Nación",
         "TN (Todo Noticias)",
-        "Perfil",
         "Noticias Argentinas (NA)",
         "El Día",
         "La Tecla",
@@ -7816,6 +7719,7 @@
         "Clarín",
         "Letra P",
         "El Cronista",
+        "Perfil",
         "Infobae"
       ],
       "enlace": "https://www.lanacion.com.ar/politica/los-hermanos-passaglia-anunciaron-que-competiran-para-la-presidencia-lejos-de-milei-y-del-nid28102026/",
@@ -7968,72 +7872,6 @@
         "sugeridoPorIA": null
       },
       "slug": "los-hermanos-passaglia-anuncian-su-candidatura-presidencial-para-2027"
-    },
-    {
-      "id": "1t55shp",
-      "titulo": "Crean un sistema con inteligencia artificial para enviar olores por internet",
-      "copete": "Un equipo de investigadores desarrolló una tecnología que detecta fragancias y las reproduce a distancia mediante dispositivos receptores. El avance abre aplicaciones en la realidad virtual y la medicina.",
-      "cuerpo": "Un equipo de científicos de la Universidad Estatal de Ohio y del Laboratorio Zhejiang desarrolló un sistema capaz de detectar olores, transmitir la información por internet y reproducir las fragancias en otro lugar. La tecnología, denominada Scentronic, combina sensores electrónicos, inteligencia artificial y pequeños dispositivos que liberan aromas a distancia.\n\nEl prototipo reconoce cinco categorías cotidianas: café, cerveza, vino tinto, naranja y torta. Su funcionamiento comienza con una nariz artificial que analiza los compuestos químicos del aire mediante seis sensores, cuyos datos procesa un algoritmo de aprendizaje automático. Luego, envía una señal digital a un aparato receptor que activa depósitos de líquidos aromáticos mediante un mecanismo de impulsos eléctricos.\n\nDurante las pruebas publicadas en la revista Science Advances, la tecnología distinguió los aromas con una precisión superior al 96 por ciento. En un experimento con catorce voluntarios, los participantes identificaron de forma correcta los olores individuales en el 73 por ciento de los casos y las combinaciones en el 71 por ciento.\n\nLos creadores evalúan su uso en entornos de realidad virtual y en evaluaciones olfativas a distancia para la medicina. Por ahora, el proyecto se mantiene como un prototipo de laboratorio debido a sus limitaciones actuales con la variedad de fragancias y la complejidad química.",
-      "guion": "Crean un sistema con inteligencia artificial para enviar olores por internet.",
-      "seccion": "Tecnología",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Infobae"
-      ],
-      "enlace": "https://www.infobae.com/tecno/2026/10/28/asi-es-la-nariz-electronica-con-ia-para-enviar-olores-por-internet-y-sentirlos-en-la-vida-real/",
-      "fecha": "2026-10-28T14:54:39.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T07:02:18.301Z",
-      "relevancia": 36,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Desarrollan una tecnología para enviar y reproducir olores por internet.",
-        "El sistema Scentronic utiliza sensores y algoritmos de inteligencia artificial.",
-        "Reconoce café, cerveza, vino tinto, naranja y torta con alta precisión.",
-        "Investigan aplicaciones en realidad virtual y medicina a distancia."
-      ],
-      "seSabe": [
-        "El invento fue creado por investigadores de la Universidad Estatal de Ohio y el Laboratorio Zhejiang.",
-        "La tecnología se llama Scentronic y fue publicada en la revista Science Advances.",
-        "El sistema detecta y reproduce cinco categorías de olores cotidianos.",
-        "En las pruebas con catorce voluntarios, el reconocimiento humano alcanzó el 73 por ciento para aromas individuales."
-      ],
-      "noConfirmado": [
-        "Todavía no se confirmó su aplicación comercial ni su fecha de lanzamiento fuera del ámbito de laboratorio."
-      ],
-      "textoRedes": "Desarrollan una tecnología con inteligencia artificial que detecta olores, los transmite por internet y permite reproducir fragancias a distancia mediante dispositivos especiales.",
-      "etiquetas": [
-        "tecnologia",
-        "inteligencia artificial",
-        "aromas",
-        "internet"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/tecno/2026/10/28/asi-es-la-nariz-electronica-con-ia-para-enviar-olores-por-internet-y-sentirlos-en-la-vida-real/",
-          "fecha": "2026-10-28T14:54:39.000Z",
-          "oficial": false,
-          "aporte": "Aporta la introducción sobre la barrera histórica de la transmisión de aromas en videollamadas."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/tecno/novedades/2026/10/28/cientificos-inventaron-una-nariz-electronica-con-ia-que-permite-enviar-y-recibir-olores-por-internet/",
-          "fecha": "2026-10-28T22:57:47.000Z",
-          "oficial": false,
-          "aporte": "Detalla el funcionamiento técnico del sistema Scentronic, las pruebas científicas, los resultados con voluntarios y las posibles aplicaciones."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "crean-un-sistema-con-inteligencia-artificial-para-enviar-olores-por"
     },
     {
       "id": "164d2zn",
@@ -8860,64 +8698,6 @@
       }
     },
     {
-      "id": "e2zs9v",
-      "titulo": "La Liga Balcarceña completa la segunda fecha del torneo Clausura",
-      "copete": "Se disputarán entre miércoles y jueves los seis encuentros que debieron suspenderse el último fin de semana debido a las condiciones climáticas en la ciudad.",
-      "cuerpo": "La Liga Balcarceña reprogramó los seis encuentros de primera división que no pudieron disputarse el sábado pasado a causa de las condiciones climáticas. La actividad se completará entre el miércoles y el jueves con partidos en horario nocturno para evitar retrasos en el desarrollo del torneo Clausura.\n\nPor la zona B del certamen masculino, el miércoles a las 21.30 se enfrentarán Amigos Unidos contra River Balcarce en el estadio Antonio Cerono, con el arbitraje de Leandro Córdoba, y Ferroviarios frente a Los Patos Fútbol Club en la cancha de Ferroviarios, dirigido por Facundo Alvez.\n\nEn cuanto a los cruces del certamen, el miércoles por la zona C jugarán Atlético San Agustín ante San Lorenzo a las 21.30 en el predio de Los Patos, con Ramiro Alvarez como árbitro, y Racing Club contra Ciencias Agrarias a las 21 en el estadio Juan Carlos Gentile, bajo las órdenes de Pablo Gajardo.\n\nFinalmente, el jueves a partir de las 21 se completarán los compromisos de la zona A. Sportivo Trabajo-Mitre recibirá a Deportivo Los Pinos en la cancha de Los Patos con el arbitraje de Luciano Goya, mientras que Boca Juniors se medirá con Atlético San Manuel en el estadio de Boca, con Martín Córdoba como juez principal.",
-      "guion": "La Liga Balcarceña completa la segunda fecha del torneo Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14388-se-completa-la-segunda-fecha-del-oficial/",
-      "fecha": "2026-10-28T14:31:36.873Z",
-      "sinFecha": true,
-      "visto": "2026-10-28T14:31:36.873Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Liga Balcarceña reprogramó seis partidos suspendidos por mal clima.",
-        "Los encuentros pendientes se jugarán en horario nocturno entre miércoles y jueves.",
-        "Participan equipos de las zonas A, B y C del torneo Clausura."
-      ],
-      "seSabe": [
-        "Se suspendieron seis de los doce partidos previstos para el sábado pasado debido a las condiciones climáticas.",
-        "El consejo directivo dispuso que los encuentros se disputen entre semana para no retrasar el certamen.",
-        "Se detallaron las canchas, horarios y árbitros para cada uno de los seis partidos programados."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "La Liga Balcarceña programó para miércoles y jueves los seis partidos de primera división que se habían suspendido el último sábado por el clima.",
-      "etiquetas": [
-        "Liga Balcarceña",
-        "futbol",
-        "Clausura",
-        "primera division",
-        "partidos pendientes",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14388-se-completa-la-segunda-fecha-del-oficial/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Informó la reprogramación de los seis partidos suspendidos de la segunda fecha del Clausura con días, horarios, canchas y árbitros."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-liga-balcarcena-completa-la-segunda-fecha-del-torneo-clausura"
-    },
-    {
       "id": "1j4yz24",
       "titulo": "Affair realiza su cuarta edición con 34 galerías en Retiro",
       "copete": "La feria de arte contemporáneo se desarrolla hasta el domingo en las Galerías Larreta. Cuenta con entrada libre y gratuita, charlas, performances y obras desde los 300.000 pesos.",
@@ -9597,12 +9377,12 @@
       "guion": "La Fiesta Nacional del Postre presenta el postre más largo.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Municipalidad de Balcarce",
         "El Diario Balcarce",
+        "Radio Gabal (FM 104.1)",
         "Diario La Vanguardia",
-        "Radio Gabal (FM 104.1)"
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/la-fiesta-nacional-del-postre-tendra-el-corte-del-postre-balcarce-mas-largo-del-mundo",
       "fecha": "2026-10-28T12:56:20.000Z",
@@ -10959,7 +10739,6 @@
       "medios": [
         "La Nación",
         "Página/12",
-        "iProfesional",
         "Noticias Argentinas (NA)",
         "Infobrisas (Radio Brisas)",
         "Ámbito",
@@ -10967,7 +10746,8 @@
         "La Capital (Rosario)",
         "0223 (Mar del Plata)",
         "El Día",
-        "La Nueva"
+        "La Nueva",
+        "iProfesional"
       ],
       "enlace": "https://www.ambito.com/politica/oficial-el-gobierno-javier-milei-disolvio-iosfa-y-definio-que-pasara-los-trabajadores-la-obra-social-las-fuerzas-armadas-n6338669",
       "fecha": "2026-10-28T12:25:00.000Z",
@@ -11188,7 +10968,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "anuncian-cinco-jornadas-sin-atencion-bancaria-y-analizan-otra"
+      "slug": "anuncian-cinco-jornadas-sin-atencion-bancaria-y-analizan-otra",
+      "foto": {
+        "archivo": "fotos-notas/1lzp0h.jpg",
+        "credito": "Foto: Punto Noticias"
+      }
     },
     {
       "id": "1qx47hm",
@@ -11308,7 +11092,11 @@
         "porque": "Lo contaron cinco medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "flavio-bolsonaro-ingresa-a-misiones-y-vuela-al-exterior"
+      "slug": "flavio-bolsonaro-ingresa-a-misiones-y-vuela-al-exterior",
+      "foto": {
+        "archivo": "fotos-notas/1qx47hm.jpg",
+        "credito": "Foto: Radio Mitre"
+      }
     },
     {
       "id": "bijcil",
@@ -11326,7 +11114,7 @@
       "fecha": "2026-10-28T12:18:24.000Z",
       "sinFecha": false,
       "visto": "2026-10-28T12:51:42.652Z",
-      "relevancia": 29,
+      "relevancia": 21,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11453,8 +11241,8 @@
       "guion": "Mario Alberghini completa la novena fecha del Procar 4000 en La Plata.",
       "seccion": "Automovilismo",
       "medios": [
-        "Puntonueve (FM 100.9)",
-        "El Diario Balcarce"
+        "El Diario Balcarce",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://eldiariobalcarce.com.ar/alberghini-fue-un-fin-de-semana-positivo-mas-alla-del-resultado-final-616",
       "fecha": "2026-10-28T11:53:02.000Z",
@@ -11630,8 +11418,8 @@
       "guion": "Chocan dos automóviles en la intersección de calles 35 y 22.",
       "seccion": "Policiales",
       "medios": [
-        "Puntonueve (FM 100.9)",
-        "Infórmese Primero (FM 104.9)"
+        "Infórmese Primero (FM 104.9)",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://puntonueve.com.ar/choque-entre-dos-vehiculos-en-la-interseccion-de-calles-35-y-22/",
       "fecha": "2026-10-28T11:46:42.000Z",
@@ -11639,7 +11427,6 @@
       "visto": "2026-10-28T12:01:57.931Z",
       "relevancia": 81,
       "local": true,
-      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -11763,9 +11550,11 @@
       "seccion": "Educación",
       "seccionAntes": "Balcarce",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Municipalidad de Balcarce"
+        "Municipalidad de Balcarce",
+        "Puntonueve (FM 100.9)",
+        "Radio Gabal (FM 104.1)",
+        "Diario La Vanguardia"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/28/el-cef-no-119-celebro-sus-25-anos-de-vida/",
       "fecha": "2026-10-28T11:32:19.000Z",
@@ -11775,7 +11564,7 @@
       "local": true,
       "oficial": true,
       "deUnMedioDeAca": true,
-      "muyContadaDeAca": 3,
+      "muyContadaDeAca": 5,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -12886,13 +12675,11 @@
         "TyC Sports",
         "Olé",
         "Crónica",
-        "Radio Mitre",
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "0221",
         "La Tecla",
-        "La Verdad",
         "QZ Noticias (Mar del Plata)",
         "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
@@ -12902,6 +12689,7 @@
         "La Capital (Rosario)",
         "Los Andes (Mendoza)",
         "elDiarioAR",
+        "Radio Mitre",
         "El Cronista",
         "Perfil",
         "Clarín",
@@ -12910,6 +12698,7 @@
         "La Nueva",
         "La Brújula 24",
         "La Gaceta (Tucumán)",
+        "La Verdad",
         "0223 (Mar del Plata)",
         "iProfesional",
         "El Marplatense"
@@ -14031,8 +13820,8 @@
         "TN (Todo Noticias)",
         "La Nación",
         "Crónica",
-        "La Verdad",
         "Radio Mitre",
+        "La Verdad",
         "Canal 26",
         "El Cronista"
       ],
@@ -14221,6 +14010,13 @@
           "fecha": "2026-10-28T13:38:28.558Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/clima/alerta-por-tormentas-severas-en-buenos-aires-a-que-hora-se-larga-con-todo-y-que-zonas-estaran-afectadas-segun-el-smn/",
+          "fecha": "2026-10-29T00:55:08.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -14228,7 +14024,11 @@
         "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "anuncian-tormentas-y-chaparrones-en-buenos-aires-para-los-proximos"
+      "slug": "anuncian-tormentas-y-chaparrones-en-buenos-aires-para-los-proximos",
+      "foto": {
+        "archivo": "fotos-notas/1aqv277.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
     },
     {
       "id": "clima20261028",
@@ -14683,6 +14483,20 @@
           "fecha": "2026-10-28T05:33:25.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-rc-vs-gimnasia-fecha-15-id769087.html",
+          "fecha": "2026-10-29T10:27:54.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/deportivo-riestra-vs-talleres-el-torneo-clausura-2026-horario-formaciones-y-tv-n6338967",
+          "fecha": "2026-10-28T20:56:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -14714,254 +14528,6 @@
       "foto": {
         "archivo": "fotos-notas/frkbns.jpg",
         "credito": "Foto: TyC Sports"
-      }
-    },
-    {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
-      "copete": "El Gobierno nacional reglamentó cambios en los subsidios al gas. Los usuarios deberán cumplir nuevos requisitos para mantener los descuentos y se fijó un recargo para el financiamiento.",
-      "cuerpo": "El Gobierno nacional reglamentó cambios en el Régimen de Zona Fría a través de un decreto publicado en el Boletín Oficial, una medida que alcanza a Balcarce y a otros distritos. La normativa modifica las condiciones para acceder a las bonificaciones y el sistema de financiamiento de los subsidios en todo el país.\n\nEl esquema abarca a unos 3.350.000 hogares a nivel nacional. De ese total, aproximadamente 1.240.000 se encuentran distribuidos en 94 municipios de la provincia de Buenos Aires, entre los que figura Balcarce junto a Mar del Plata, Tandil, Necochea y Bahía Blanca, entre otros.\n\nEl cambio principal indica que residir en una localidad incorporada durante la ampliación del régimen ya no garantiza de manera automática el acceso al descuento. A partir de ahora, los usuarios deben cumplir nuevas condiciones para conservar el beneficio en sus facturas.\n\nEse adicional se traslada a las facturas finales para alimentar el Fondo Fiduciario para Subsidios de Consumos de Gas.\n\nLos recursos recaudados sirven para compensar a las empresas proveedoras, financiar las bonificaciones residenciales y sostener los subsidios de garrafas y gas licuado. El Banco Nación continúa como administrador fiduciario del fondo y su vigencia se extiende hasta el 31 de diciembre de 2031. Para los usuarios locales, la principal incógnita radica en conocer quiénes mantendrán los descuentos y cómo se reflejarán los montos finales en las próximas boletas.",
-      "guion": "Modifican las condiciones del Régimen de Zona Fría y Balcarce.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45189-zona-fria-balcarce-entre-los-distritos-donde-los-usuarios-deberan-cumplir-nuevos-requisitos-para-mantener-los-subsidios-al-gas/",
-      "fecha": "2026-10-28T03:01:29.547Z",
-      "sinFecha": true,
-      "visto": "2026-10-28T03:01:29.547Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Gobierno reglamentó cambios en el Régimen de Zona Fría mediante un decreto.",
-        "Los usuarios deberán cumplir requisitos adicionales para conservar las bonificaciones.",
-        "La medida establece un recargo de hasta el 7,5% para financiar el fondo fiduciario.",
-        "El Banco Nación continuará como administrador del fondo hasta diciembre de 2031."
-      ],
-      "seSabe": [
-        "El Gobierno nacional reglamentó cambios en el Régimen de Zona Fría mediante un decreto en el Boletín Oficial.",
-        "La medida alcanza a unos 3.350.000 hogares en todo el país y a 1.240.000 en 94 municipios bonaerenses.",
-        "Balcarce se encuentra entre los distritos comprendidos por la normativa.",
-        "Vivir en una localidad incorporada en la ampliación ya no garantiza el descuento de forma automática.",
-        "Se estableció un recargo de hasta el 7,5% sobre el precio del gas para financiar el sistema.",
-        "El Banco Nación seguirá como administrador fiduciario hasta el 31 de diciembre de 2031."
-      ],
-      "noConfirmado": [
-        "Todavía falta determinar quiénes podrán mantener los descuentos de manera concreta.",
-        "Aún resta conocer cómo se reflejarán los cambios y los nuevos cargos en las facturas de cada hogar."
-      ],
-      "textoRedes": "El Gobierno nacional reglamentó cambios en el Régimen de Zona Fría. Balcarce figura entre los distritos alcanzados y los usuarios deberán cumplir nuevos requisitos para mantener los subsidios al gas.",
-      "etiquetas": [
-        "Zona Fría",
-        "Gas",
-        "Subsidios",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45189-zona-fria-balcarce-entre-los-distritos-donde-los-usuarios-deberan-cumplir-nuevos-requisitos-para-mantener-los-subsidios-al-gas/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló los cambios en la reglamentación del Régimen de Zona Fría, el alcance en Balcarce y el recargo del 7,5% para el fondo fiduciario."
-        },
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/zona-fria-que-descuentos-podran-recibir-los-usuarios-de-gas-en-balcarce",
-          "fecha": "2026-10-27T12:42:06.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/zona-fria-el-gobierno-fijo-descuentos-del-50-y-20-las-tarifas-gas-n56831",
-          "fecha": "2026-10-27T12:31:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/27/el-gobierno-definio-los-cambios-en-el-regimen-de-zona-fria-quienes-tendran-descuentos-de-hasta-50-en-las-tarifas-de-gas/",
-          "fecha": "2026-10-27T14:19:28.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/zona-fria-el-gobierno-definio-como-se-aplicaran-los-descuentos-del-50-y-el-20-en-el-precio-del-gas/",
-          "fecha": "2026-10-27T10:23:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/el-gobierno-reglamento-los-cambios-en-subsidios-al-gas-por-el-regimen-de-zona-fria-quienes-perderan-el-descuento-en-sus-facturas/",
-          "fecha": "2026-10-26T15:32:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/economia/2026/10/27/zona-fria-quienes-tendran-descuentos-del-50-y-del-20-en-las-tarifas-de-gas-tras-la-resolucion-2992026-del-gobierno/",
-          "fecha": "2026-10-27T14:08:02.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/provincia/el-gobierno-modifico-el-regimen-zona-fria-y-mas-un-millon-hogares-bonaerenses-pagaran-mas-el-gas-n136404",
-          "fecha": "2026-10-26T13:15:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Tecla",
-          "enlace": "https://www.latecla.info/170714-gas-mas-caro-los-cambios-en-zona-fria-que-afectan-a-94-distritos-bonaerenses",
-          "fecha": "2026-10-27T10:39:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/zona-fria-el-gobierno-definio-descuentos-del-50-y-una-bonificacion-adicional-del-20-para-el-gas",
-          "fecha": "2026-10-27T14:30:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/zona-fria-reglamentan-cambios-que-afectan-el-descuento-al-gas-en-mar-del-plata",
-          "fecha": "2026-10-26T16:11:50.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Mi8 (Canal 8 Mar del Plata)",
-          "enlace": "https://mi8.com.ar/zona-fria-quienes-tendran-descuentos-del-50-y-quienes-podran-acceder-al-20/",
-          "fecha": "2026-10-27T13:11:11.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/nacionales/zona-fria-el-gobierno-nacional-fijo-descuentos-del-50-y-20-para-las-tarifas-de-gas",
-          "fecha": "2026-10-27T12:53:02.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/energia/zona-fria-fijo-descuentos-50-y-20-el-precio-del-gas-y-un-padron-beneficiarios-n6338226",
-          "fecha": "2026-10-27T11:32:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/zona-fria-el-gobierno-definio-que-ciudades-quedaron-tarifa-subsidiada-luz-y-gas-n252559",
-          "fecha": "2026-10-26T12:39:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/economia/subsidios-reglamentan-cambios-zona-fria-y-16-millones-hogares-pagaran-mas-caro-el-gas-n6337803",
-          "fecha": "2026-10-26T11:15:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/zona-fria-nacion-definio-los-descuentos-mendoza-y-los-requisitos-mantener-el-beneficio-n6011821",
-          "fecha": "2026-10-27T10:25:21.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/zona-fria-nacion-reglamento-los-cambios-los-subsidios-al-gas-y-asi-impactaran-mendoza-n6011674",
-          "fecha": "2026-10-26T10:20:16.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://www.perfil.com/noticias/politica/zonas-frias-el-gobierno-definio-quienes-tendran-descuentos-del-50-y-el-20-en-el-precio-del-gas.phtml",
-          "fecha": "2026-10-27T08:24:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/el-gobierno-establecio-como-se-aplicara-el-nuevo-regimen-de-zona-fria/",
-          "fecha": "2026-10-27T08:26:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/economia-politica/zona-fria-el-gobierno-oficializo-el-descuento-del-50-en-el-gas-desde-cuando-rige-y-quienes-podran-acceder/",
-          "fecha": "2026-10-27T11:48:21.609Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/economia/zona-fria-y-subsidios-al-gas-quienes-podran-acceder-descuentos-del-50-y-un-beneficio-adicional-del-20-n1610455",
-          "fecha": "2026-10-27T12:07:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/economia/2026/10/27/el-gobierno-definio-como-se-aplicaran-el-nuevo-regimen-de-zona-fria-descuentos-de-50-y-20-sobre-el-precio-del-gas/",
-          "fecha": "2026-10-27T07:05:59.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infórmese Primero (FM 104.9)",
-          "enlace": "http://www.informeseprimero.com.ar/2026/10/tarifas-de-gas-el-gobierno-establecio.html",
-          "fecha": "2026-10-28T01:32:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/el-gobierno-amplio-los-topes-de-consumo-electrico-para-zonas-calidas-y-fijo-los-descuentos-de-zona-fria_a6ae08dc5bc8a73c74f0ff773",
-          "fecha": "2026-10-27T11:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-27-15-33-0-el-gobierno-amplio-topes-de-consumo-electrico-para-zonas-calidas-y-fijo-descuentos-de-zona-fria",
-          "fecha": "2026-10-28T02:39:17.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/zona-fria-rigen-los-nuevos-cuadros-tarifarios-gas-los-descuentos-y-beneficios-n6338670",
-          "fecha": "2026-10-28T12:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 20 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "modifican-las-condiciones-del-regimen-de-zona-fria-y-balcarce",
-      "foto": {
-        "archivo": "fotos-notas/yfe1jz.jpg",
-        "credito": "Foto: Diario La Vanguardia"
       }
     },
     {
@@ -16704,13 +16270,13 @@
       "medios": [
         "TN (Todo Noticias)",
         "El Destape",
-        "Radio Mitre",
         "Diario Popular",
         "Noticias Argentinas (NA)",
         "0221",
         "La Verdad",
         "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
+        "El Eco de Tandil",
         "Ámbito",
         "C5N",
         "Minuto Uno",
@@ -16718,13 +16284,13 @@
         "Crónica",
         "Perfil",
         "La Nueva",
-        "La Gaceta (Tucumán)"
+        "Radio Mitre"
       ],
       "enlace": "https://www.c5n.com/mundo/flavio-bolsonaro-estados-unidos-27-octubre-2026",
       "fecha": "2026-10-27T23:45:01.000Z",
       "sinFecha": false,
       "visto": "2026-10-28T22:31:44.184Z",
-      "relevancia": 50,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -17660,422 +17226,21 @@
         "sugeridoPorIA": null
       },
       "slug": "productores-de-carlos-casares-presentan-un-amparo-por-fondos-viales"
-    },
-    {
-      "id": "sza072",
-      "titulo": "El Instituto Adventista Balcarce celebra sus cuarenta años",
-      "copete": "El establecimiento educativo conmemoró cuatro décadas de labor en la comunidad. Participaron autoridades municipales, educativas y miembros de la institución.",
-      "cuerpo": "El Instituto Adventista Balcarce conmemoró cuatro décadas de trayectoria con un acto institucional que reunió a integrantes de la comunidad académica, alumnos, exalumnos y funcionarios locales en el predio de la entidad.\n\nLa ceremonia contó con la presencia del representante legal, Flavio Iván Penco; el director del establecimiento, Patricio Ordoñez; y el secretario de Gobierno de la comuna, Ricardo Stoppani. También asistieron el director nacional de Educación Pública de Gestión Privada, Social y Cooperativa, Patricio Javier Barber Soler; la inspectora jefa regional de DIEGEP, María Rojas; la representante del nivel secundario, Cecilia Álvarez; y el asesor Esteban Chiarle.\n\nEl inicio protocolar comprendió el ingreso de los pabellones patrios y la entonación del Himno Nacional a cargo del profesor Diego Aravena, seguida por una invocación religiosa del exdirector Rolando Cayrus.\n\nEl programa incluyó números musicales, la presentación de un libro escrito por Raúl Álvarez y la proyección de un video con registros fotográficos históricos. Asimismo, se descubrieron placas conmemorativas —entre ellas una enviada por la Municipalidad—, se abrió el cofre guardado en la piedra fundamental y se colocó simbólicamente el ladrillo del futuro templo.\n\nDurante su discurso, Ordoñez reflexionó sobre los cuarenta años de esfuerzo y aprendizaje, y remarcó la importancia de transmitir valores y fe a las nuevas generaciones. Por su parte, Stoppani recordó los inicios de la escuela secundaria en una zona rural durante 1984 y ratificó el compromiso del municipio para acompañar a la institución en sus futuras actividades.",
-      "guion": "El Instituto Adventista Balcarce celebra sus cuarenta años.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Ahora Balcarce"
-      ],
-      "enlace": "http://ahorabalcarce.com.ar/el-instituto-adventista-balcarce-celebro-sus-40-anos-de-trayectoria/",
-      "fecha": "2026-10-27T22:24:19.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Instituto Adventista Balcarce celebró su cuadragésimo aniversario",
-        "Participaron autoridades educativas nacionales, regionales y municipales",
-        "Descubrieron placas, abrieron un cofre histórico y colocaron un ladrillo simbólico",
-        "El director y el secretario de Gobierno destacaron el crecimiento de la escuela"
-      ],
-      "seSabe": [
-        "El Instituto Adventista Balcarce cumplió cuarenta años de existencia",
-        "El acto central se desarrolló en el predio de la institución educativa",
-        "Asistieron referentes municipales, provinciales y nacionales del área educativa",
-        "Se presentaron un libro y un video conmemorativo sobre la historia del establecimiento"
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Instituto Adventista Balcarce celebró sus cuarenta años de trayectoria con un acto oficial que reunió a autoridades, alumnos y exalumnos en el predio de la institución.",
-      "etiquetas": [
-        "Instituto Adventista Balcarce",
-        "aniversario",
-        "educacion",
-        "Balcarce",
-        "comunidad"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ahora Balcarce",
-          "enlace": "http://ahorabalcarce.com.ar/el-instituto-adventista-balcarce-celebro-sus-40-anos-de-trayectoria/",
-          "fecha": "2026-10-27T22:24:19.000Z",
-          "oficial": false,
-          "aporte": "Detalló el desarrollo del acto por los cuarenta años del Instituto Adventista Balcarce, las autoridades presentes y los discursos brindados."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "97f98g",
-          "titulo": "El Instituto Adventista celebra cuarenta años con un musical",
-          "fecha": "2026-10-14T11:54:19.000Z",
-          "ruta": "/nota/el-instituto-adventista-celebra-cuarenta-anos-con-un-musical-97f98g"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-instituto-adventista-balcarce-celebra-sus-cuarenta-anos",
-      "foto": {
-        "archivo": "fotos-notas/sza072-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "rmyepl",
-      "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
-      "copete": "Profesores y el coordinador del área representaron a Balcarce en el encuentro bonaerense desarrollado en Mar del Plata. Abordaron la inclusión y el deporte paralímpico.",
-      "cuerpo": "Los profesores de la Escuela Municipal de Deporte Adaptado de Balcarce (EMDAB) Cecilia Ghilardi, Tomás Giménez y Gastón Pérez, junto al coordinador Omar Arreguito, asistieron al Primer Foro Provincial del Deporte. La actividad se desarrolló el 21 y 22 de octubre en Mar del Plata en coincidencia con los Juegos Bonaerenses.\n\nEl evento funcionó bajo el lema sobre deporte, inclusión y desarrollo como política pública y fue organizado por la Subsecretaría de Deportes bonaerense para reunir a referentes del sector. La segunda jornada se destinó de manera específica al deporte adaptado, inclusivo y paralímpico mediante paneles de debate.\n\nLa agenda finalizó con la presentación formal de la Declaración de la Provincia de Buenos Aires por el Deporte Adaptado, Inclusivo y Paralímpico.",
-      "guion": "Integrantes de la EMDAB participan del foro provincial del deporte.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Ahora Balcarce"
-      ],
-      "enlace": "http://ahorabalcarce.com.ar/profesores-de-la-emdab-participaron-del-primer-foro-provincial-del-deporte/",
-      "fecha": "2026-10-27T22:21:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Representantes de la EMDAB asistieron al foro provincial del deporte.",
-        "El encuentro tuvo lugar el 21 y 22 de octubre en Mar del Plata.",
-        "La organización corrió por cuenta de la Subsecretaría de Deportes bonaerense.",
-        "Las jornadas incluyeron paneles sobre el deporte adaptado y paralímpico."
-      ],
-      "seSabe": [
-        "Participaron los docentes Cecilia Ghilardi, Tomás Giménez, Gastón Pérez y el coordinador Omar Arreguito.",
-        "El foro se realizó en el transcurso de los Juegos Bonaerenses.",
-        "Se presentó la Declaración de la Provincia de Buenos Aires por el Deporte Adaptado, Inclusivo y Paralímpico."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Representantes de la Escuela Municipal de Deporte Adaptado de Balcarce participaron del Primer Foro Provincial del Deporte en Mar del Plata.",
-      "etiquetas": [
-        "EMDAB",
-        "deporte adaptado",
-        "Mar del Plata",
-        "Juegos Bonaerenses",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ahora Balcarce",
-          "enlace": "http://ahorabalcarce.com.ar/profesores-de-la-emdab-participaron-del-primer-foro-provincial-del-deporte/",
-          "fecha": "2026-10-27T22:21:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la presencia de los profesores de la EMDAB en el foro provincial realizado en Mar del Plata."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "integrantes-de-la-emdab-participan-del-foro-provincial-del-deporte",
-      "foto": {
-        "archivo": "fotos-notas/rmyepl.jpg",
-        "credito": "Foto: Ahora Balcarce"
-      }
-    },
-    {
-      "id": "91xbv7",
-      "titulo": "Implementan operativos con drones en la zona rural",
-      "copete": "El Ministerio de Seguridad bonaerense puso en marcha operativos de vigilancia con drones en el sector rural de Balcarce. La iniciativa se concretó tras un pedido del Comando de Prevención Rural local.",
-      "cuerpo": "El Ministerio de Seguridad de la provincia de Buenos Aires implementó operativos preventivos con un dron en el sector rural de Balcarce. Las acciones se concretaron a partir de un pedido formulado por integrantes del Comando de Prevención Rural local.\n\nDe las actividades participó el director provincial de Coordinación Municipal y Control Rural, Mauricio Rodríguez. Los vuelos de vigilancia se desarrollan tanto de día como de noche en diversos puntos del distrito.\n\nEstos recursos tecnológicos funcionan como complemento de las recorridas terrestres que efectúa la Patrulla Rural para ampliar la observación y reforzar la seguridad en el territorio.",
-      "guion": "Implementan operativos con drones en la zona rural",
-      "seccion": "Policiales",
-      "medios": [
-        "Ahora Balcarce"
-      ],
-      "enlace": "http://ahorabalcarce.com.ar/realizan-operativos-con-drones-en-la-zona-rural-de-balcarce/",
-      "fecha": "2026-10-27T22:13:34.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Ministerio de Seguridad bonaerense desplegó operativos con drones en Balcarce.",
-        "La medida respondió a una solicitud del Comando de Prevención Rural local.",
-        "Participó el funcionario provincial Mauricio Rodríguez.",
-        "Los vuelos de vigilancia se realizan de día y de noche."
-      ],
-      "seSabe": [
-        "El Ministerio de Seguridad de la provincia de Buenos Aires realizó operativos con drones en la zona rural de Balcarce.",
-        "La medida respondió a una solicitud del Comando de Prevención Rural.",
-        "Participó el director provincial de Coordinación Municipal y Control Rural, Mauricio Rodríguez.",
-        "Los vuelos se efectúan de día y de noche para complementar las recorridas policiales."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Ministerio de Seguridad bonaerense implementó operativos de vigilancia con drones en la zona rural de Balcarce tras un pedido del Comando de Prevención Rural.",
-      "etiquetas": [
-        "zona rural",
-        "seguridad",
-        "Comando de Prevención Rural",
-        "drones",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ahora Balcarce",
-          "enlace": "http://ahorabalcarce.com.ar/realizan-operativos-con-drones-en-la-zona-rural-de-balcarce/",
-          "fecha": "2026-10-27T22:13:34.000Z",
-          "oficial": false,
-          "aporte": "Informó la llegada del Ministerio de Seguridad bonaerense para realizar operativos con drones en el sector rural de Balcarce."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "implementan-operativos-con-drones-en-la-zona-rural",
-      "foto": {
-        "archivo": "fotos-notas/91xbv7-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "q9ncah",
-      "titulo": "Guillermo Michel cuestiona la venta de acciones de la empresa AySA",
-      "copete": "El diputado nacional criticó la transferencia de la firma estatal y advirtió que el monto de la operación resultó bajo en comparación con las ganancias anuales.",
-      "cuerpo": "El diputado nacional Guillermo Michel cuestionó la transferencia accionaria de la empresa prestataria de agua y saneamiento AySA llevada adelante por la administración central. Durante declaraciones radiales, el legislador del Frente Renovador sostuvo que la firma estatal resultó mal comercializada al detallar los montos de la operación financiera.\n\nEl dirigente indicó que, conforme al balance cerrado durante el año 2025, la utilidad operativa alcanzó unos 270 millones de dólares. En tanto, precisó que el Estado transfirió el 90 por ciento de los títulos por un total de 340 millones de dólares, lo cual permitiría recuperar la inversión en poco más de un año.\n\nComo alternativa al esquema actual, el parlamentario propuso aplicar el modelo de YPF para conservar el 51 por ciento accionario en manos estatales y lograr que el resto cotice en el mercado bursátil. Además, advirtió sobre la situación de los usuarios al señalar que el servicio comprende a unos 4 millones de habitantes distribuidos entre la Capital Federal y 26 partidos bonaerenses.",
-      "guion": "Guillermo Michel cuestiona la venta de acciones de la empresa AySA.",
-      "seccion": "Política",
-      "medios": [
-        "Noticias Argentinas (NA)",
-        "C5N",
-        "Minuto Uno"
-      ],
-      "enlace": "https://noticiasargentinas.com/politica/peronismo-cuestiono-la-privatizacion-de-aysa---fue-mal-vendida-_a6ae10d26bc8a73c74f229c15",
-      "fecha": "2026-10-27T22:13:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T22:22:05.574Z",
-      "relevancia": 21,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El diputado Guillermo Michel cuestionó la privatización de AySA.",
-        "Precisó que el 90 por ciento de las acciones se vendió en 340 millones de dólares.",
-        "Señaló que la utilidad operativa de 2025 fue de unos 270 millones de dólares.",
-        "Propuso mantener el control estatal al estilo YPF y cotizar en bolsa."
-      ],
-      "textoRedes": "El diputado Guillermo Michel cuestionó la venta de acciones de AySA y advirtió que el monto de la operación estuvo por debajo de las ganancias de la empresa.",
-      "etiquetas": [
-        "AySA",
-        "Guillermo Michel",
-        "privatización",
-        "Frente Renovador",
-        "Estado"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/peronismo-cuestiono-la-privatizacion-de-aysa---fue-mal-vendida-_a6ae10d26bc8a73c74f229c15",
-          "fecha": "2026-10-27T20:49:03.501Z",
-          "oficial": false,
-          "aporte": "Confirmó las declaraciones del diputado sobre la venta de AySA y su pertenencia al Frente Renovador."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/la-contundente-advertencia-guillermo-michel-aysa-esta-mal-vendida-n252723",
-          "fecha": "2026-10-27T22:14:00.000Z",
-          "oficial": false,
-          "aporte": "No aportó información relevante sobre el tema central de la nota."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/politica/guillermo-michel-cuestiono-la-privatizacion-aysa-fue-mal-vendida-n6338587",
-          "fecha": "2026-10-27T22:13:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló las cifras de la utilidad operativa de 2025, el monto de la venta accionaria, la propuesta del modelo YPF y el alcance de los usuarios."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/politica/por-que-aysa-fue-mal-vendida-las-inconsistencias-la-privatizacion-del-gobierno-n6338613",
-          "fecha": "2026-10-28T00:08:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/guillermo-michel-cuestiono-la-venta-aysa-pagaron-la-empresa-la-facturacion-tres-meses-n252778",
-          "fecha": "2026-10-28T14:54:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "guillermo-michel-cuestiona-la-venta-de-acciones-de-la-empresa-aysa",
-      "foto": {
-        "archivo": "fotos-notas/q9ncah.webp",
-        "credito": "Foto: C5N"
-      }
-    },
-    {
-      "id": "1df6339",
-      "titulo": "Flor Otero despide a su mamá Susana tras su fallecimiento",
-      "copete": "La cantante y su hermana Marisol compartieron emotivos mensajes en las redes sociales para despedir a su madre, quien padecía Alzheimer. La artista envió un mensaje de apoyo a quienes atraviesan situaciones similares.",
-      "cuerpo": "La cantante Flor Otero despidió públicamente a su madre, Susana, quien murió el pasado 25 de octubre tras una larga lucha contra el Alzheimer. La artista compartió en su cuenta de Instagram un carrusel de fotografías y videos junto a un texto en el que reflexionó sobre el valor del tiempo compartido con los seres queridos y aconsejó abrazar y besar con frecuencia.\n\nEn su mensaje, la intérprete también dedicó unas palabras de aliento a las familias que acompañan a pacientes con deterioros cognitivos y cerró su dedicatoria con una frase dedicada a su madre. Por su parte, su hermana Marisol Otero se sumó a los homenajes mediante una publicación donde agradeció el tiempo compartido y prometió honrar su memoria en cada proyecto artístico futuro.\n\nLa madre de la artista padecía la enfermedad desde el año 2020, según informaron los medios. La publicación generó numerosas muestras de afecto por parte de seguidores y colegas, entre las que se destacó el comentario de su pareja, Germán Tripel, quien reafirmó su acompañamiento en este difícil momento personal.",
-      "guion": "Flor Otero despide a su mamá Susana tras su fallecimiento.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Crónica",
-        "Radio Mitre"
-      ],
-      "enlace": "https://tn.com.ar/show/famosos/2026/10/27/la-angustia-de-flor-otero-por-la-muerte-de-su-mama-que-tenia-alzheimer-te-veo-en-las-mariposas/",
-      "fecha": "2026-10-27T22:09:22.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T17:32:19.713Z",
-      "relevancia": 26,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Flor Otero despidió a su mamá Susana, fallecida el 25 de octubre tras padecer Alzheimer.",
-        "La artista compartió un mensaje en redes sociales con reflexiones sobre el valor del tiempo en familia.",
-        "Su hermana Marisol Otero también la homenajeó con una publicación dedicada a su memoria.",
-        "La pareja de la cantante, Germán Tripel, le dejó muestras de apoyo en las plataformas digitales."
-      ],
-      "seSabe": [
-        "Susana, madre de Flor Otero, murió el 25 de octubre tras transitar una larga enfermedad vinculada al Alzheimer que padecía desde 2020.",
-        "Flor y su hermana Marisol compartieron mensajes de despedida en sus cuentas de Instagram.",
-        "Germán Tripel expresó públicamente su acompañamiento a la artista."
-      ],
-      "textoRedes": "Flor Otero despidió a su mamá Susana con un emotivo mensaje en las redes sociales tras su fallecimiento luego de transitar una larga enfermedad.",
-      "etiquetas": [
-        "Flor Otero",
-        "Susana",
-        "Marisol Otero",
-        "Alzheimer"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/show/famosos/2026/10/27/la-angustia-de-flor-otero-por-la-muerte-de-su-mama-que-tenia-alzheimer-te-veo-en-las-mariposas/",
-          "fecha": "2026-10-27T19:20:31.000Z",
-          "oficial": false,
-          "aporte": "Aportó las citas textuales completas del mensaje de despedida y las reacciones de los usuarios en las redes sociales."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/diarioshow/por-la-red/flor-otero-y-el-adios-a-su-mama-te-veo-en-las-mariposas/",
-          "fecha": "2026-10-28T15:29:08.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de la carta abierta compartida por Flor Otero y el mensaje de su hermana Marisol."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/espectaculos/el-desgarrador-posteo-de-flor-otero-por-la-muerte-de-su-mama-con-alzheimer-te-veo-en-las-mariposas/",
-          "fecha": "2026-10-27T22:09:22.000Z",
-          "oficial": false,
-          "aporte": "Agregó que la madre de la artista padecía Alzheimer desde el año 2020 y mencionó el comentario de su pareja."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "flor-otero-despide-a-su-mama-susana-tras-su-fallecimiento"
-    },
-    {
-      "id": "1a7f21a",
-      "titulo": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil",
-      "copete": "La entidad entregó elementos destinados a los establecimientos municipales para mejorar la comodidad de los niños que asisten diariamente.",
-      "cuerpo": "El Rotary Club Balcarce entregó equipamiento destinado a las Unidades de Desarrollo Infantil (UDIs) del distrito.\n\nLos elementos fueron recibidos por la secretaria de Desarrollo Social, Paola Moreno, y por la coordinadora de las UDIs, Claudia Etchepare.\n\nLa entrega estuvo encabezada por la presidenta de la institución intermediaria, Mariana Ridao, quien acudió acompañada por las integrantes Marita Pardo, Susana Scioli y Ana Cabrera de McCargo. Tras la recepción, Moreno agradeció el aporte solidario de la organización.",
-      "guion": "El Rotary Club Balcarce dona sillitas de comer a las Unidades de Desarrollo Infantil.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Ahora Balcarce"
-      ],
-      "enlace": "http://ahorabalcarce.com.ar/el-rotary-club-balcarce-dono-sillitas-de-comer-a-las-udis/",
-      "fecha": "2026-10-27T22:07:52.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-27T23:31:12.894Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Rotary Club Balcarce donó sillitas de comer destinadas a las Unidades de Desarrollo Infantil municipales para mejorar la comodidad de los niños.",
-      "etiquetas": [
-        "Rotary Club Balcarce",
-        "UDIs",
-        "Desarrollo Social",
-        "donación",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ahora Balcarce",
-          "enlace": "http://ahorabalcarce.com.ar/el-rotary-club-balcarce-dono-sillitas-de-comer-a-las-udis/",
-          "fecha": "2026-10-27T22:07:52.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre la donación de sillitas de comer del Rotary Club a las UDIs y los nombres de las funcionarias e integrantes presentes."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-rotary-club-balcarce-dona-sillitas-de-comer-a-las-unidades-de"
     }
   ],
   "secciones": [
+    "Balcarce",
     "Fútbol",
     "Automovilismo",
     "Argentina",
-    "Balcarce",
     "Política",
     "Cultura y agenda",
     "Agro",
     "Tecnología",
     "Economía",
     "Educación",
-    "Policiales",
     "Salud",
+    "Policiales",
     "Deportes"
   ],
   "temas": [
@@ -18093,11 +17258,11 @@
   "clima": {
     "ahora": {
       "temp": 12,
-      "sensacion": 11,
+      "sensacion": 12,
       "humedad": 99,
       "viento": 6,
       "rumbo": "SE",
-      "cielo": "Llovizna leve",
+      "cielo": "Parcialmente nublado",
       "esDeDia": true
     },
     "dias": [
@@ -18448,13 +17613,6 @@
     "diaDeLaSemana": "sábado",
     "tocaHoy": false
   },
-  "pendientes": [
-    {
-      "id": "1d6akxl",
-      "titulo": "El Gobierno municipal pidió una prórroga para presentar el…",
-      "seccion": "Política",
-      "motivo": "verificación baja: espera a una persona (visto al reescribir)"
-    }
-  ],
-  "esperandoCuerpo": 2
+  "pendientes": [],
+  "esperandoCuerpo": 3
 }
