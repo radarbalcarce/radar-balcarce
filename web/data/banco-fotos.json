@@ -48524,7 +48524,8 @@
    "corresponde": "si",
    "descripcion": "Armando Zavala con gorra de autoconvocados del campo levantando la mano en una manifestación"
   },
-  "huella": "593596d389808686"
+  "huella": "593596d389808686",
+  "ausenteDesde": "2026-10-29T18:04:51.153Z"
  },
  "1de0nto": {
   "archivo": "fotos-notas/1de0nto.jpg",
@@ -48560,7 +48561,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "89b9a91d0d65650f"
+  "huella": "89b9a91d0d65650f",
+  "ausenteDesde": "2026-10-29T18:04:51.153Z"
  },
  "1oitmyu": {
   "archivo": "fotos-notas/1oitmyu.jpg",
@@ -48584,7 +48586,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea cenital de las instalaciones de la planta de Bunge"
   },
-  "huella": "49191ddbd3c58c49"
+  "huella": "49191ddbd3c58c49",
+  "ausenteDesde": "2026-10-29T18:04:51.153Z"
  },
  "notlp4": {
   "archivo": "fotos-notas/notlp4.jpg",
@@ -49724,7 +49727,8 @@
    "corresponde": "si",
    "descripcion": "Una médica tomando de la mano a una adulta mayor en una residencia"
   },
-  "huella": "2a595951b1191919"
+  "huella": "2a595951b1191919",
+  "ausenteDesde": "2026-10-29T18:04:51.153Z"
  },
  "nzeo2k": {
   "intentado": true,
@@ -54068,6 +54072,53 @@
   "cuando": "2026-10-29T17:35:56.849Z",
   "intentos": 1,
   "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "zv94ul": {
+  "archivo": "fotos-notas/zv94ul.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+  "enlace": "https://www.radiogabal.com.ar/index.php/agro/un-fuerte-temporal-provoco-danos-en-cultivos-de-la-zona-de-dos-naciones",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Captura%20de%20pantalla%202026-10-29%20145155.png",
+  "razon": "Es la única opción disponible y muestra claramente el granizo y la lluvia sobre el camino rural, correspondiendo al hecho de la nota.",
+  "cuando": "2026-10-29T18:04:35.846Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista desde un vehículo de un camino rural inundado y cubierto de granizo bajo un cielo nublado."
+  },
+  "huella": "0717831c7fffbd7d"
+ },
+ "11s9ojn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T18:04:35.846Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1noo7lp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Museo de Arte Tigre celebra dos décadas de historia cultural",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T18:04:35.846Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

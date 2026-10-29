@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T17:36:24.894Z",
- "portada": 175,
+ "generado": "2026-10-29T18:04:51.252Z",
+ "portada": 179,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-29T17:36:27.033Z",
+  "generado": "2026-10-29T18:04:52.084Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,9 +124,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
      {
       "id": "90yhse",
@@ -144,9 +144,9 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1h0i8a7",
-      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
-      "seccion": "Salud"
+      "id": "zv94ul",
+      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+      "seccion": "Agro"
      }
     ]
    },
@@ -160,24 +160,24 @@
     "segundos": 49,
     "notas": [
      {
+      "id": "1h0i8a7",
+      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+      "seccion": "Salud"
+     },
+     {
       "id": "wh8hsf",
       "titulo": "Film de la UBA elige paisajes de Balcarce como escenario",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
       "seccion": "Argentina"
      },
      {
       "id": "19c5usk",
       "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1rphs2p",
-      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
-      "seccion": "Economía"
      }
     ]
    }
@@ -214,6 +214,12 @@
      "marcada": false
     },
     {
+     "id": "11s9ojn",
+     "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "1tejsa4",
      "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
      "seccion": "Deportes",
@@ -226,6 +232,12 @@
      "marcada": false
     },
     {
+     "id": "zv94ul",
+     "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+     "seccion": "Agro",
+     "marcada": false
+    },
+    {
      "id": "13z5ze5",
      "titulo": "La Liga Balcarceña suspende los partidos previstos para este jueves",
      "seccion": "Fútbol",
@@ -235,18 +247,6 @@
      "id": "no17hh",
      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "yvuj6i",
-     "titulo": "Carlos Tevez confirma a Lionel Messi y Juan Román Riquelme para su despedida",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1h0i8a7",
-     "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
-     "seccion": "Salud",
      "marcada": false
     }
    ],
