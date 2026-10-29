@@ -2613,9 +2613,7 @@
   "ausenteDesde": "2026-10-23T13:36:06.145Z"
  },
  "12rp30w": {
-  "archivo": "fotos-notas/12rp30w.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "Edgardo Ríos visita la Fiesta Nacional del Postre",
@@ -2624,7 +2622,8 @@
   "razon": "Es la única foto disponible, tiene buena nitidez, encuadre adecuado y no presenta marcas ni menores.",
   "cuando": "2026-09-29T18:01:52.111Z",
   "huella": "06060606060f0b27",
-  "ausenteDesde": "2026-10-22T07:31:29.783Z"
+  "intentado": true,
+  "borrada": true
  },
  "105bdce": {
   "archivo": "fotos-notas/105bdce.jpg",
@@ -2946,9 +2945,7 @@
   "borrada": true
  },
  "1vzdxxe": {
-  "archivo": "fotos-notas/1vzdxxe.jpg",
   "medio": "El Destape",
-  "credito": "Foto: El Destape",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Banco Central compra dólares pero las reservas caen",
@@ -2957,7 +2954,8 @@
   "razon": "La foto C muestra claramente el edificio del Banco Central con la bandera argentina sin marcas de agua ni menores reconocibles.",
   "cuando": "2026-09-30T00:01:45.851Z",
   "huella": "6d45d5868e92aaa2",
-  "ausenteDesde": "2026-10-22T07:31:29.783Z"
+  "intentado": true,
+  "borrada": true
  },
  "709xqq": {
   "archivo": "fotos-notas/709xqq.jpg",
@@ -26198,9 +26196,7 @@
   "fuentes": 2
  },
  "lty6ot": {
-  "archivo": "fotos-notas/lty6ot.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Corte Suprema define autoridades para la feria judicial de enero de 2027",
@@ -26220,7 +26216,8 @@
    "descripcion": "Fachada diurna del Palacio de Justicia en plano contrapicado"
   },
   "huella": "a68cb5555554d4d6",
-  "ausenteDesde": "2026-10-22T08:31:56.548Z"
+  "intentado": true,
+  "borrada": true
  },
  "phvgrd": {
   "archivo": "fotos-notas/phvgrd.jpg",
@@ -51469,7 +51466,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-29T03:02:27.629Z"
+  "cuando": "2026-10-29T09:05:18.087Z"
  },
  "wg76no": {
   "archivo": "fotos-notas/wg76no.jpg",
@@ -51494,7 +51491,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Amigos Unidos y River disputando la pelota en el campo de juego."
   },
-  "huella": "89193131263ea495"
+  "huella": "89193131263ea495",
+  "ausenteDesde": "2026-10-29T09:05:24.351Z"
  },
  "he8wdz": {
   "intentado": true,
@@ -51794,7 +51792,8 @@
    "corresponde": "si",
    "descripcion": "Festejo de jugadores de Platense abrazados"
   },
-  "huella": "554d45b1517171f9"
+  "huella": "554d45b1517171f9",
+  "ausenteDesde": "2026-10-29T09:05:24.351Z"
  },
  "na1wje": {
   "archivo": "fotos-notas/na1wje.jpg",
@@ -51967,5 +51966,263 @@
   "cuando": "2026-10-29T07:06:06.315Z",
   "intentos": 1,
   "fuentes": 10
+ },
+ "wrauae": {
+  "archivo": "fotos-notas/wrauae.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La oposición exige explicaciones al Gobierno por la salida de Flávio Bolsonaro",
+  "enlace": "https://www.elmarplatense.com/piden-interpelar-a-pablo-quirno-en-diputados-por-el-paso-de-flavio-bolsonaro-por-argentina",
+  "imagenOriginal": "https://n2.cdnartic.ar/_LQW4GOaH2_ytwrZQt3CRgHSVIw=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/10/pablo_quirno_1.webp",
+  "razon": "Es la mejor foto disponible que cumple con todos los requisitos editoriales y no tiene marcas de agua agregadas.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Funcionario en primer plano con una bandera de fondo"
+  },
+  "huella": "a66666666de5d414"
+ },
+ "d3444c": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Luciano Nakis confirma su trinomio para las elecciones de Independiente",
+  "razon": "Ninguna foto corresponde a la nota sobre Luciano Nakis; la B, C y D muestran a Sergio Agüero (otro tema), y la A tiene una marca superpuesta del medio Doble Amarilla.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "5h46bf": {
+  "archivo": "fotos-notas/5h46bf.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Investigan en la Justicia el ingreso al país de Flávio Bolsonaro",
+  "enlace": "https://www.lacapital.com.ar/politica/fuga-bolsonaro-la-justicia-argentina-ya-inicio-una-investigacion-n10289255.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/ae4cefb06ec6c3d4ec1ff7c4d3ebac71/adjuntos/203/imagenes/103/495/0103495263/1200x675/smart/flavio-bolsonaro.png",
+  "razon": "Es la única foto válida que corresponde a la temática, muestra claramente al protagonista sin marcas sobreimpresas, menores de edad, gráficos extraños ni defectos de archivo.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Flávio Bolsonaro serio de perfil con persona al fondo."
+  },
+  "huella": "130b0b1b1b1a1f1f"
+ },
+ "1oekd03": {
+  "archivo": "fotos-notas/1oekd03.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pitbull debuta en Argentina con un show en el Movistar Arena",
+  "enlace": "https://www.eldestapeweb.com/cultura/entradas-pitbull-argentina-2027-precios-fecha-cuando-toca-movistar-arena-20261028173149",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793213995129/pitbull-en-vivo-jpg..jpg?&cw=1600&ch=900",
+  "razon": "La foto A muestra claramente al artista cantando en vivo con buen encuadre y sin marcas de agua ni problemas.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pitbull cantando en el escenario con campera negra y fondo azul"
+  },
+  "huella": "636f6f67f3aaeae2"
+ },
+ "1smnofv": {
+  "archivo": "fotos-notas/1smnofv.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estrenan una nueva adaptación cinematográfica del clásico de Jane Austen",
+  "enlace": "https://www.eldestapeweb.com/cultura/sensatez-sentimiento-nueva-version-novela-jane-austen-2026102818259",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793218938635/s-s-fp-00050-r-jpg..jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto sin menores reconocibles y con buen encuadre para ilustrar la nota.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos mujeres mirando a través de una ventana con barrotes",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Actrices mirando por una ventana en una escena de película."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "e9c9c9e9e9c9c9d9"
+ },
+ "1llpmkf": {
+  "archivo": "fotos-notas/1llpmkf.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River aguarda por la recuperación de tres futbolistas para el Superclásico",
+  "enlace": "https://www.cronica.com.ar/depo/actualidad/river-llega-al-superclasico-con-tres-dudas-que-pasa-con-acuna-moreno-y-driussi/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1717/1717469/6ac3e6a6b1724_600_315!.jpg?s=2323ee94e8eb8fab5d6f568140654b2e&d=1793183056",
+  "razon": "La foto A muestra a un jugador de River con buen encuadre, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de River con campera roja",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fotografía de un jugador de River Plate con ropa de entrenamiento."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "316969b9b1316554"
+ },
+ "1dvi7ef": {
+  "archivo": "fotos-notas/1dvi7ef.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Malaspina anticipa cambios en el formato de la Primera División",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/malaspina-dio-pistas-sobre-el-futuro-de-la-primera-division-y-anticipo-una-temporada-diferente-se-escucho-a-la-gente-id769051.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/09/04/984575/cristian-malaspina_862x485.webp",
+  "razon": "La foto B muestra claramente a Cristian Malaspina con buena nitidez, sin marcas de agua añadidas, menores ni elementos gráficos de televisión.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cristian Malaspina en primer plano."
+  },
+  "huella": "10509091b0f6f0f2"
+ },
+ "14fwad7": {
+  "archivo": "fotos-notas/14fwad7.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River jugarán una nueva edición del Superclásico el domingo",
+  "enlace": "https://www.eldia.com/deportes/como-terminaron-los-ultimos-diez-cruces-deportes_1793257296",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793257984318.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto válida que corresponde al partido, tiene buena nitidez y no posee marcas de agua del medio ni involucra menores.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
+  },
+  "huella": "3e5392735772526a"
+ },
+ "nzpdc0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comienza en La Plata el segundo congreso internacional sobre Maradona",
+  "razon": "Ninguna de las fotos sirve: la A es una placa gráfica y la B muestra a Pedro Troglio en una conferencia de fútbol que no corresponde al congreso sobre Maradona.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "fezj7y": {
+  "archivo": "fotos-notas/fezj7y.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei inaugura proyectos mineros en Catamarca y defiende el rumbo económico",
+  "enlace": "https://tn.com.ar/videos/politica/2026/10/28/milei-encabezo-la-inauguracion-de-un-proyecto-minero-en-catamarca-y-evito-hablar-sobre-la-fuga-de-flavio-bolsonaro/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2FTNS328102026123134634614940.jpg%3F760377?auth=7b387b38b5d1c0bfa6ccdf10a24b5ce85423a293c5c6035fae690b6da83dd033&width=1023",
+  "razon": "Es la foto que mejor muestra a las autoridades y personal en el lugar, con excelente nitidez y sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei junto a funcionarios y operarios parados al aire libre frente a instalaciones industriales"
+  },
+  "huella": "acae26aa9aaaba6c"
+ },
+ "g8v6vw": {
+  "archivo": "fotos-notas/14fwad7.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River jugarán una nueva edición del Superclásico el domingo",
+  "enlace": "https://www.eldia.com/deportes/como-terminaron-los-ultimos-diez-cruces-deportes_1793257296",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793257984318.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto válida que corresponde al partido, tiene buena nitidez y no posee marcas de agua del medio ni involucra menores.",
+  "cuando": "2026-10-29T09:03:43.348Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
+  },
+  "huella": "3e5392735772526a"
  }
 }
