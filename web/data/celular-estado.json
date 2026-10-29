@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T12:08:14.636Z",
- "portada": 136,
+ "generado": "2026-10-29T12:39:08.758Z",
+ "portada": 140,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-29T12:08:15.196Z",
+  "generado": "2026-10-29T12:39:09.265Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,18 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "1u7fzx2",
+      "titulo": "A dos años del derrumbe en Villa Gesell recuerdan a las víctimas balcarceñas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "101j4vt",
+      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+      "seccion": "Deportes"
+     },
      {
       "id": "1l7ryr5",
       "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
@@ -106,16 +116,6 @@
       "id": "1jkbwyl",
       "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1x12myv",
-      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
-      "seccion": "Ciencia"
-     },
-     {
-      "id": "12l7i2z",
-      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,22 +126,22 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 48,
     "notas": [
+     {
+      "id": "1x12myv",
+      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
+      "seccion": "Ciencia"
+     },
+     {
+      "id": "12l7i2z",
+      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1q1zjvw",
       "titulo": "Veintitrés alumnos esperan transporte escolar rural",
       "seccion": "Educación"
-     },
-     {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "101j4vt",
-      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
-      "seccion": "Deportes"
      },
      {
       "id": "1nvngno",
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1k99k9x",
       "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
@@ -173,11 +178,6 @@
       "id": "n7y2s4",
       "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
       "seccion": "Economía"
-     },
-     {
-      "id": "wdurao",
-      "titulo": "Lali Esposito y Miranda presentan el disco BOM y estrenan el single Bailar o morir",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -185,6 +185,18 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "1u7fzx2",
+     "titulo": "A dos años del derrumbe en Villa Gesell recuerdan a las víctimas balcarceñas",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "101j4vt",
+     "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+     "seccion": "Deportes",
+     "marcada": false
+    },
     {
      "id": "1l7ryr5",
      "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
