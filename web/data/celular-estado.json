@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T12:39:08.758Z",
- "portada": 140,
+ "generado": "2026-10-29T13:08:27.840Z",
+ "portada": 147,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-29T12:39:09.265Z",
+  "generado": "2026-10-29T13:08:28.915Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-29T12:46:39.866Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,9 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
       "id": "1u7fzx2",
@@ -108,14 +108,14 @@
       "seccion": "Deportes"
      },
      {
+      "id": "no17hh",
+      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
+      "seccion": "Cultura y agenda"
+     },
+     {
       "id": "1l7ryr5",
       "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
       "seccion": "Educación"
-     },
-     {
-      "id": "1jkbwyl",
-      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "1tejsa4",
+      "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "ahxvwa",
+      "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1jkbwyl",
+      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
+      "seccion": "Fútbol"
+     },
      {
       "id": "1x12myv",
       "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
       "seccion": "Ciencia"
-     },
-     {
-      "id": "12l7i2z",
-      "titulo": "Martín Muñoz consolida su proyecto vitivinícola tras una carrera internacional en el polo",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
-     },
-     {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -157,33 +157,39 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
+     },
      {
       "id": "yfe1jz",
       "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
       "seccion": "Balcarce"
      },
      {
-      "id": "1k99k9x",
-      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
       "seccion": "Argentina"
      },
      {
       "id": "19c5usk",
       "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "n7y2s4",
-      "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
-      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
+   "hoy": [
+    {
+     "id": "n7y2s4",
+     "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
+     "cuando": "2026-10-29T12:36:01.734Z"
+    }
+   ],
    "cola": [
     {
      "id": "1u7fzx2",
@@ -198,20 +204,38 @@
      "marcada": false
     },
     {
+     "id": "1tejsa4",
+     "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "no17hh",
+     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "1l7ryr5",
      "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
      "seccion": "Educación",
      "marcada": false
     },
     {
-     "id": "n7y2s4",
-     "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
-     "seccion": "Economía",
+     "id": "ahxvwa",
+     "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1xr0jgj",
+     "titulo": "Gendarmería no logra confirmar la autenticidad de los audios de Spagnuolo",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-28T20:06:03.817Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-29T14:06:01.734Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

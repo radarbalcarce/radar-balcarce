@@ -1015,19 +1015,19 @@
   "2026-10-29": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 37,
+     "llamadas": 39,
      "errores": 9,
-     "entrada": 71617,
-     "salida": 35314,
+     "entrada": 77273,
+     "salida": 38134,
      "pensamiento": 0,
-     "total": 106931,
+     "total": 115407,
      "claves": {
-      "clasificacion": 37
+      "clasificacion": 39
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 28,
+       "ok": 30,
        "otro": 1
       }
      }
@@ -1068,36 +1068,37 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 31,
-     "errores": 10,
-     "entrada": 351681,
-     "salida": 5063,
+     "llamadas": 33,
+     "errores": 11,
+     "entrada": 354216,
+     "salida": 5317,
      "pensamiento": 0,
-     "total": 356744,
+     "total": 359533,
      "claves": {
-      "clasificacion": 31
+      "clasificacion": 33
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 21,
-       "otro": 2
+       "ok": 22,
+       "otro": 2,
+       "saturado": 1
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 10,
+     "llamadas": 11,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 11
      },
      "motivos": {
       "clasificacion": {
-       "ok": 10
+       "ok": 11
       }
      }
     },
@@ -1120,20 +1121,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 160,
+     "llamadas": 173,
      "errores": 40,
-     "entrada": 761025,
-     "salida": 135141,
+     "entrada": 821763,
+     "salida": 147246,
      "pensamiento": 0,
-     "total": 896166,
+     "total": 969009,
      "claves": {
-      "redaccion": 121,
+      "redaccion": 134,
       "respaldo": 39
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 39,
-       "ok": 81,
+       "ok": 94,
        "saturado": 1
       },
       "respaldo": {
@@ -1144,19 +1145,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 101,
+     "llamadas": 108,
      "errores": 23,
-     "entrada": 441326,
-     "salida": 34229,
+     "entrada": 477411,
+     "salida": 36877,
      "pensamiento": 0,
-     "total": 475555,
+     "total": 514288,
      "claves": {
-      "clasificacion": 101
+      "clasificacion": 108
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 78,
+       "ok": 85,
        "otro": 5
       }
      }
