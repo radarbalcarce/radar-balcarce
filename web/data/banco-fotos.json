@@ -43509,7 +43509,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de un galpón ferroviario largo con techo de chapa oxidada, rodeado de campos y con silos y edificios al fondo."
   },
-  "huella": "2ea958b64b2d92e3"
+  "huella": "2ea958b64b2d92e3",
+  "ausenteDesde": "2026-10-29T00:03:46.804Z"
  },
  "r0ihw6": {
   "intentado": true,
@@ -49311,7 +49312,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "03036b2c0d0d0d0d"
+  "huella": "03036b2c0d0d0d0d",
+  "ausenteDesde": "2026-10-29T00:03:46.804Z"
  },
  "v28iop": {
   "archivo": "fotos-notas/v28iop.jpg",
@@ -50385,7 +50387,8 @@
    "corresponde": "si",
    "descripcion": "Flávio Bolsonaro y acompañantes bajando del avión"
   },
-  "huella": "d6b01818f8787cec"
+  "huella": "d6b01818f8787cec",
+  "ausenteDesde": "2026-10-29T00:03:46.804Z"
  },
  "frkbns": {
   "archivo": "fotos-notas/frkbns.jpg",
@@ -51194,6 +51197,53 @@
   "cuando": "2026-10-28T23:33:19.994Z",
   "intentos": 1,
   "fuentes": 10,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1bu4h24": {
+  "archivo": "fotos-notas/1bu4h24.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diego Cifarelli asume un nuevo mandato al frente de la Industria Molinera",
+  "enlace": "https://www.lanacion.com.ar/economia/campo/por-septima-vez-reeligieron-a-diego-cifarelli-como-presidente-de-la-federacion-argentina-de-la-nid28102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/diego-cifarelli-presidente-de-X4ML2K5Z7VFU5K4GTTERXJZVBQ.jpeg?auth=a26d68eb4c34991255d264b8181b30acb5aa14faf67769c173d512aa4255601b&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única imagen completa y nítida que muestra al protagonista del hecho (Diego Cifarelli) en el contexto del evento, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T00:03:23.262Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Diego Cifarelli sonriendo frente a un fondo con el logo de la Federación de Acopiadores de Cereales."
+  },
+  "huella": "e0f1f2f0f3e8e9c8"
+ },
+ "1j3bjqu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Leandro Leunis renuncia a la Comisión Directiva de Racing en Avellaneda",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T00:03:23.262Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ywxty9": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Una argentina muere en el choque de trenes en Toledo y buscan a otro",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T00:03:23.262Z",
+  "intentos": 1,
+  "fuentes": 47,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }

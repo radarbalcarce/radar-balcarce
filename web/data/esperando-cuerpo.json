@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-28T23:33:35.058Z",
+ "generado": "2026-10-29T00:03:46.926Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,8 +15,8 @@
      "fecha": "2026-10-28T22:46:45.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 196 palabras",
    "maximo": 3
   },
   {
@@ -45,11 +45,6 @@
      "medio": "TN (Todo Noticias)",
      "enlace": "https://tn.com.ar/politica/2026/10/28/bullrich-reconocio-el-triunfo-de-lula-y-volvio-a-diferenciarse-de-milei-la-gente-decide-en-las-urnas-y-su-voluntad-se-respeta/",
      "fecha": "2026-10-28T18:00:35.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/economia-politica/bullrich-rompio-el-silencio-sobre-la-eleccion-en-brasil-reconocio-la-victoria-de-lula-pero-cuestiono-a-la-justicia/",
-     "fecha": "2026-10-28T20:09:13.325Z"
     },
     {
      "medio": "Página/12",
@@ -142,6 +137,11 @@
      "fecha": "2026-10-28T16:53:00.000Z"
     },
     {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/economia-politica/bullrich-rompio-el-silencio-sobre-la-eleccion-en-brasil-reconocio-la-victoria-de-lula-pero-cuestiono-a-la-justicia/",
+     "fecha": "2026-10-28T16:41:47.519Z"
+    },
+    {
      "medio": "El Destape",
      "enlace": "https://www.eldestapeweb.com/politica/bullrich-volvio-diferenciarse-milei-reconocio-triunfo-lula-gente-decide-urnas-voluntad-respeta-20261028134357",
      "fecha": "2026-10-28T16:43:57.893Z"
@@ -157,30 +157,30 @@
    "maximo": 5
   },
   {
-   "id": "1bu4h24",
-   "titulo": "Por séptima vez: reeligieron a Diego Cifarelli como presidente de la Federación Argentina de la Industria Molinera",
-   "copete": "Por unanimidad, Diego Cifarelli fue reelegido por séptima vez como presidente de la Federación Argentina de la Industria Molinera ( FAIM ) y comenzará su octavo período consecutivo al frente de la entidad. La decisión se tomó durante la 72a. Asamblea General Ordinaria de la…",
-   "seccion": "Agro",
-   "fecha": "2026-10-28T23:06:31.000Z",
+   "id": "1jdn9gp",
+   "titulo": "Nico Williams recordó la “ayuda” que recibió en la final del Mundial: “Si Molina no me empuja, no llego ni en mil vidas”",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-28T23:16:27.000Z",
    "fuentes": [
     {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/economia/campo/por-septima-vez-reeligieron-a-diego-cifarelli-como-presidente-de-la-federacion-argentina-de-la-nid28102026/",
-     "fecha": "2026-10-28T23:00:23.000Z"
+     "medio": "Doble Amarilla",
+     "enlace": "https://www.dobleamarilla.com.ar/selecciones/nico-williams-recordo-la--ayuda--que-recibio-en-la-final-del-mundial---si-molina-no-me-empuja--no-llego-ni-en-mil-vidas-_a6ae272ec09e418462802ae0c",
+     "fecha": "2026-10-28T22:34:38.044Z"
     },
     {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/campo/2026/10/28/diego-cifarelli-fue-reelecto-al-frente-de-la-federacion-argentina-de-la-industria-molinera/",
-     "fecha": "2026-10-28T23:06:31.000Z"
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/futbol-internacional/la-sorpresiva-revelacion-de-nico-williams-sobre-el-gol-de-ferran-torres-a-argentina-si-molina-no-me-empuja-no-llego-en-mil-vidas-id769105.html",
+     "fecha": "2026-10-28T23:29:47.000Z"
     },
     {
-     "medio": "Noticias Agropecuarias",
-     "enlace": "https://www.noticiasagropecuarias.com/2026/10/28/108195/",
-     "fecha": "2026-10-28T23:27:10.000Z"
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/mundial/nico-williams-le-agradecio-a-nahuel-molina-por-su-aporte-en-el-gol-de-la-final-del-mundial-2026",
+     "fecha": "2026-10-28T23:16:27.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "título o bajada: 1 problema (pasado): el título está en pasado: va en presente, como \"aprueba\" o \"gana\"",
+   "motivo": "cuerpo: 1 problema (antecedente): el cuerpo usa \"copa\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 160 palabras",
    "maximo": 3
   },
   {
@@ -308,14 +308,6 @@
    "fecha": "2026-10-27T22:17:13.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 4 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
-  },
-  {
-   "id": "19s99gt",
-   "titulo": "Quiénes cobrarán $656.751 de ANSES en noviembre por AUH y Tarjeta Alimentar",
-   "seccion": "Economía",
-   "fecha": "2026-10-28T16:00:00.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; sin material"
   }
  ]
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-28T23:33:35.058Z",
- "portada": 209,
+ "generado": "2026-10-29T00:03:46.926Z",
+ "portada": 201,
  "archivo": 500,
  "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-28T23:33:36.224Z",
+  "generado": "2026-10-29T00:03:47.793Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-28T23:36:38.621Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -155,10 +155,15 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "fwmzx2",
+      "titulo": "Docentes convocan a un paro por el crimen de una maestra en Corrientes",
+      "seccion": "Educación"
+     },
      {
       "id": "le5im8",
       "titulo": "Confirman la realización de la Estudiantina para el año 2027",
@@ -173,11 +178,6 @@
       "id": "l7z1jg",
       "titulo": "El INTA pide cautela ante el pronóstico de lluvias por El Niño",
       "seccion": "Agro"
-     },
-     {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
      }
     ]
    }
@@ -248,15 +248,15 @@
      "marcada": false
     },
     {
-     "id": "1k99k9x",
-     "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "edt3qr",
      "titulo": "Argentina cae por penales ante Ghana y se despide del Mundial Femenino Sub 17",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1k99k9x",
+     "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
