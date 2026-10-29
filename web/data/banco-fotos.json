@@ -45585,7 +45585,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "2c2828ac3dac7633"
+  "huella": "2c2828ac3dac7633",
+  "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "1yv8myb": {
   "archivo": "fotos-notas/1yv8myb.jpg",
@@ -46291,7 +46292,8 @@
    "corresponde": "si",
    "descripcion": "Billetes, una boleta de servicio eléctrico y una lámpara LED sobre una mesa."
   },
-  "huella": "0c5ec1045211856d"
+  "huella": "0c5ec1045211856d",
+  "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "el0m7z": {
   "archivo": "fotos-notas/el0m7z.jpg",
@@ -48856,7 +48858,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "595159d999d545a5"
+  "huella": "595159d999d545a5",
+  "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "1eg3jjp": {
   "archivo": "fotos-notas/1eg3jjp.jpg",
@@ -49188,7 +49191,8 @@
    "corresponde": "generica",
    "descripcion": "Adulto mayor caminando frente a una oficina de Anses"
   },
-  "huella": "276f12f7e6e8ecee"
+  "huella": "276f12f7e6e8ecee",
+  "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "13b0hlr": {
   "archivo": "fotos-notas/13b0hlr.jpg",
@@ -49249,7 +49253,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "3010303030383838"
+  "huella": "3010303030383838",
+  "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "1vatzqp": {
   "archivo": "fotos-notas/1vatzqp.jpg",
@@ -51560,8 +51565,7 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Amigos Unidos y River disputando la pelota en el campo de juego."
   },
-  "huella": "89193131263ea495",
-  "ausenteDesde": "2026-10-29T09:05:24.351Z"
+  "huella": "89193131263ea495"
  },
  "he8wdz": {
   "intentado": true,
@@ -52262,8 +52266,7 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
   },
-  "huella": "3e5392735772526a",
-  "ausenteDesde": "2026-10-29T10:04:47.441Z"
+  "huella": "3e5392735772526a"
  },
  "nzpdc0": {
   "intentado": true,
@@ -53793,5 +53796,61 @@
   "cuando": "2026-10-29T13:38:17.958Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "384d85": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cierra este jueves la inscripción para la carrera homenaje a Luis Vildoza",
+  "razon": "La única foto disponible corresponde a una carrera de atletismo (carrera a pie), mientras que la nota trata sobre una carrera de automovilismo, por lo que no ilustra el hecho.",
+  "cuando": "2026-10-29T14:15:49.568Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1896y57": {
+  "archivo": "fotos-notas/1896y57.jpg",
+  "medio": "El Tiempo (Colombia)",
+  "credito": "Foto: El Tiempo (Colombia)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Astrónomos descubren un candidato a planeta enano más allá de Plutón",
+  "enlace": "https://www.eltiempo.com/vida/ciencia/astronomos-detectan-un-nuevo-posible-planeta-enano-mas-alla-de-pluton-que-se-sabe-del-hallazgo-de-ed138-3597119",
+  "imagenOriginal": "https://imagenes2.eltiempo.com/files/og_thumbnail/uploads/2026/10/29/6ae3365ee526e.png",
+  "razon": "Muestra el mapa astronómico del candidato a planeta enano con claridad, sin marcas ni menores.",
+  "cuando": "2026-10-29T14:15:49.568Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mapa astronómico con la trayectoria del objeto espacial y zoom de su ubicación"
+  },
+  "huella": "961483a0205486a6"
+ },
+ "n981ci": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Martín Palermo expresa su deseo de que Boca gane todos sus torneos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-29T14:15:49.568Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "19qj4ij": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Riquelme Fillipi anota su primer gol para el Inter Miami",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-29T14:15:49.568Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

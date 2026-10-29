@@ -1015,169 +1015,172 @@
   "2026-10-29": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 42,
-     "errores": 9,
+     "llamadas": 44,
+     "errores": 11,
      "entrada": 84306,
      "salida": 41305,
      "pensamiento": 0,
      "total": 125611,
      "claves": {
-      "clasificacion": 42
+      "clasificacion": 44
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
        "ok": 33,
-       "otro": 1
+       "otro": 1,
+       "saturado": 2
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 9,
-     "errores": 3,
-     "entrada": 17902,
-     "salida": 17706,
+     "llamadas": 11,
+     "errores": 4,
+     "entrada": 21111,
+     "salida": 20778,
      "pensamiento": 0,
-     "total": 35608,
+     "total": 41889,
      "claves": {
-      "groq": 9
+      "groq": 11
      },
      "motivos": {
       "groq": {
-       "ok": 6,
-       "velocidad": 3
+       "ok": 7,
+       "velocidad": 4
       }
      }
     },
     "mistral-small-latest": {
-     "llamadas": 9,
-     "errores": 9,
+     "llamadas": 12,
+     "errores": 12,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 9
+      "mistral": 12
      },
      "motivos": {
       "mistral": {
-       "velocidad": 9
+       "velocidad": 12
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 36,
-     "errores": 11,
+     "llamadas": 38,
+     "errores": 13,
      "entrada": 397091,
      "salida": 5613,
      "pensamiento": 0,
      "total": 402704,
      "claves": {
-      "clasificacion": 36
+      "clasificacion": 38
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
        "ok": 25,
        "otro": 2,
-       "saturado": 1
+       "saturado": 3
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 12,
+     "llamadas": 13,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 12
+      "clasificacion": 13
      },
      "motivos": {
       "clasificacion": {
-       "ok": 12
+       "ok": 13
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 4,
-     "errores": 4,
+     "llamadas": 5,
+     "errores": 5,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 4
+      "groq": 5
      },
      "motivos": {
       "groq": {
-       "otro": 4
+       "otro": 5
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 182,
-     "errores": 40,
-     "entrada": 869091,
-     "salida": 156349,
+     "llamadas": 239,
+     "errores": 69,
+     "entrada": 1043314,
+     "salida": 186233,
      "pensamiento": 0,
-     "total": 1025440,
+     "total": 1229547,
      "claves": {
-      "redaccion": 143,
-      "respaldo": 39
+      "redaccion": 195,
+      "respaldo": 44
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 39,
-       "ok": 103,
-       "saturado": 1
+       "ok": 126,
+       "saturado": 29,
+       "otro": 1
       },
       "respaldo": {
-       "ok": 39
+       "ok": 44
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 117,
-     "errores": 24,
-     "entrada": 522682,
-     "salida": 40189,
+     "llamadas": 121,
+     "errores": 27,
+     "entrada": 526268,
+     "salida": 40438,
      "pensamiento": 0,
-     "total": 562871,
+     "total": 566706,
      "claves": {
-      "clasificacion": 117
+      "clasificacion": 121
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 93,
-       "otro": 6
+       "ok": 94,
+       "otro": 6,
+       "saturado": 3
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 50,
-     "errores": 27,
-     "entrada": 48225,
-     "salida": 3144,
+     "llamadas": 53,
+     "errores": 29,
+     "entrada": 50411,
+     "salida": 3357,
      "pensamiento": 0,
-     "total": 51369,
+     "total": 53768,
      "claves": {
-      "groq": 50
+      "groq": 53
      },
      "motivos": {
       "groq": {
        "otro": 13,
-       "ok": 23,
+       "ok": 24,
        "velocidad": 11,
-       "cupo-diario": 3
+       "cupo-diario": 5
       }
      }
     }

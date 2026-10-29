@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T13:43:31.604Z",
- "portada": 139,
+ "generado": "2026-10-29T14:17:40.270Z",
+ "portada": 157,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-29T13:43:32.404Z",
+  "generado": "2026-10-29T14:17:40.811Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-29T10:36:37.133Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-29T13:36:37.870Z"
    },
    {
     "nombre": "agenda",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 55,
+    "salio": "2026-10-29T13:36:37.870Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1u7fzx2",
@@ -103,19 +103,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "no17hh",
-      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "101j4vt",
       "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
       "seccion": "Deportes"
      },
      {
-      "id": "1h0i8a7",
-      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
-      "seccion": "Salud"
+      "id": "1l7ryr5",
+      "titulo": null,
+      "seccion": null
+     },
+     {
+      "id": "1jkbwyl",
+      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -126,12 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 52,
     "notas": [
      {
-      "id": "1jy9zz0",
-      "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
+      "id": "no17hh",
+      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1h0i8a7",
+      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+      "seccion": "Salud"
      },
      {
       "id": "1tejsa4",
@@ -139,14 +144,9 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1jkbwyl",
-      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
-      "seccion": "Argentina"
+      "id": "1x12myv",
+      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
+      "seccion": "Ciencia"
      }
     ]
    },
@@ -160,24 +160,24 @@
     "segundos": 50,
     "notas": [
      {
-      "id": "ahxvwa",
-      "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
+      "id": "1jy9zz0",
+      "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1k99k9x",
-      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
-      "seccion": "Argentina"
+      "id": "1q1zjvw",
+      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
+      "seccion": "Educación"
      },
      {
-      "id": "19c5usk",
-      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
-      "seccion": "Fútbol"
+      "id": "yfe1jz",
+      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
+      "seccion": "Balcarce"
      },
      {
-      "id": "1rphs2p",
-      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
-      "seccion": "Economía"
+      "id": "1rk2uai",
+      "titulo": "Ciclistas locales logran títulos en el Argentino de mountain bike",
+      "seccion": "Deportes"
      }
     ]
    }

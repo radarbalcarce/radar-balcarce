@@ -1,7 +1,24 @@
 {
- "generado": "2026-10-29T13:43:31.604Z",
+ "generado": "2026-10-29T14:17:40.270Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "alpm15",
+   "titulo": "Se lanzó reprogramación de la 22ª Fiesta Nacional del Postre",
+   "copete": "En la Sala de los intendentes, de la Comuna, se presentó este miércoles la reprogramación de la 22ª edición de la Fiesta Nacional del Postre que, como ya lo había anticipado ACCION5, se desarrollará durante el próximo fin de semana en el predio ferial de la Sociedad Rural…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-10-28T22:46:45.000Z",
+   "fuentes": [
+    {
+     "medio": "Acción 5 (Balcarce)",
+     "enlace": "https://accion5.com/se-lanzo-reprogramacion-de-la-22a-fiesta-nacional-del-postre/",
+     "fecha": "2026-10-28T22:46:45.000Z"
+    }
+   ],
+   "intentos": 3,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
   {
    "id": "l1jx9w",
    "titulo": "Bullrich, sobre la elección en Brasil: “La gente decide en las urnas y su voluntad se respeta\"",
@@ -140,57 +157,94 @@
    "maximo": 5
   },
   {
-   "id": "n981ci",
-   "titulo": "Martín Palermo y un guiño a Boca tras la clasificación de Platense: \"Quiero que sea campeón de todo\"",
-   "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-29T11:48:39.000Z",
+   "id": "1ap8aa5",
+   "titulo": "Santilli defendió la salida de Flávio Bolsonaro de Argentina: “No tenía impedimentos de Interpol”",
+   "copete": "El jefe de Gabinete aseguró que el senador brasileño cumplió con los requisitos migratorios para salir del país rumbo a Estados Unidos. El viaje generó cuestionamientos por la intervención del Gobierno argentino y abrió interrogantes sobre la coordinación del operativo.",
+   "seccion": "Argentina",
+   "fecha": "2026-10-29T13:35:56.000Z",
    "fuentes": [
     {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/boca-juniors/martin-palermo-y-un-guino-a-boca-tras-la-clasificacion-de-platense-quiero-que-sea-campeon-de-todo-id769144.html",
-     "fecha": "2026-10-29T11:26:37.000Z"
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1160159/politica/santilli-defendio-salida-flavio-bolsonaro-argentina-no-tenia-impedimentos-interpol.html",
+     "fecha": "2026-10-29T10:45:00.000Z"
     },
     {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/platense/palermo-boca-platense-final-copa-argentina-maradona_0_W253tjW30T.html",
-     "fecha": "2026-10-29T11:48:39.000Z"
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/politica/javier-milei-medidas-vivo-karina-milei-santilli-luis-caputo-viajan-rosario-impulsar-inversiones-rigi_0_m5fgelr1v3.html",
+     "fecha": "2026-10-29T11:35:09.000Z"
     },
     {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/deportes/quiero-que-boca-sea-campeon-todo-el-guino-palermo-que-ilusiona-platense-la-libertadores-n6339237",
-     "fecha": "2026-10-29T13:06:00.000Z"
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/politica/2026/10/29/santilli-justifico-la-salida-de-flavio-bolsonaro-desde-la-argentina-no-tenia-impedimentos-de-interpol/",
+     "fecha": "2026-10-29T13:35:56.000Z"
+    },
+    {
+     "medio": "El Cronista",
+     "enlace": "https://www.cronista.com/economia-politica/santilli-justifico-la-salida-de-flavio-bolsonaro-de-argentina-y-aseguro-no-tenia-impedimentos-de-interpol/",
+     "fecha": "2026-10-29T13:56:47.224Z"
+    },
+    {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/politica/diego-santilli-el-paso-flavio-bolsonaro-argentina-no-tenia-impedimentos-interpol-n1611364",
+     "fecha": "2026-10-29T13:54:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 5 problemas (forma, numero, nombre): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones queda",
+   "motivo": "título o bajada: 1 problema (copia): copia 14 palabras seguidas del original: decilo con otras palabras",
+   "maximo": 4
+  },
+  {
+   "id": "1sxyh0y",
+   "titulo": "River busca soluciones en el mediocampo ante las bajas de cara al Superclásico",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-29T12:17:37.000Z",
+   "fuentes": [
+    {
+     "medio": "El Eco de Tandil",
+     "enlace": "https://www.eleco.com.ar/deportes/river-busca-soluciones-en-el-mediocampo-ante-las-bajas-de-cara-al-superclasico",
+     "fecha": "2026-10-28T21:14:18.000Z"
+    },
+    {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/deportes/las-cuatro-bajas-confirmadas-boca-recibir-river-el-superclasico-n1611342",
+     "fecha": "2026-10-29T13:00:00.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/boca-juniors/la-bajas-de-boca-para-el-superclasico-con-river-id768823.html",
+     "fecha": "2026-10-29T12:17:37.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 3 problemas (antecedente): el copete usa 15, que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
   {
-   "id": "1fvq48q",
-   "titulo": "Pronóstico del 29 al 31 de octubre: tormentas fuertes en el NOA y temperaturas de hasta 34 °C",
-   "copete": "El Servicio Meteorológico Nacional (SMN) prevé un cambio en las condiciones del tiempo en la ciudad de Buenos Aires durante este jueves 29 de octubre. Después de una mañana parcialmente nublada, el pronóstico muestra posibilidad de lluvias por la tarde , con una temperatura…",
-   "seccion": "Argentina",
-   "fecha": "2026-10-29T00:29:28.000Z",
+   "id": "6k2oow",
+   "titulo": "Milei defendió al RIGI, agradeció a los gobernadores y cuestionó a la oposición",
+   "copete": "",
+   "seccion": "Política",
+   "fecha": "2026-10-28T16:07:00.000Z",
    "fuentes": [
     {
-     "medio": "Ruralnet",
-     "enlace": "https://ruralnet.com.ar/pronostico-29-31-octubre-tormentas-noa/",
-     "fecha": "2026-10-28T23:00:12.000Z"
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/milei-defendio-al-rigi--agradecio-a-los-gobernadores-y-cuestiono-a-la-oposicion-_a6ae1f6a0be9be2610e8dc341",
+     "fecha": "2026-10-28T14:45:16.707Z"
     },
     {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/sociedad/a-que-hora-llegan-las-tormentas-fuertes-a-buenos-aires-hoy-segun-el-smn-nid29102026/",
-     "fecha": "2026-10-29T13:22:13.000Z"
+     "medio": "Diario Popular",
+     "enlace": "https://www.diariopopular.com.ar/politica/milei-catamarca-defendio-al-rigi-agradecio-los-gobernadores-y-no-hablo-bolsonaro-n926666",
+     "fecha": "2026-10-28T16:07:00.000Z"
     },
     {
-     "medio": "Canal 26",
-     "enlace": "https://www.canal26.com/clima/2026/10/29/llegan-las-tormentas-a-buenos-aires-a-que-hora-llueve-cuando-mejora-el-tiempo-y-que-pasara-el-fin-de-semana/",
-     "fecha": "2026-10-29T00:29:28.000Z"
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/politica/karina-milei-les-agradecio-los-gobernadores-el-acompanamiento-y-defendio-el-rigi-demostro-resultados-extraordinarios-n6339274",
+     "fecha": "2026-10-29T13:56:00.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (sabado, pais, dia): va con las tildes y la eñe donde corresponden; sin esas oraciones quedan 209 ",
+   "motivo": "Gemini: Bad control character in string literal in JSON at position 1286 (line 1 column 1287)",
    "maximo": 3
   }
  ],
