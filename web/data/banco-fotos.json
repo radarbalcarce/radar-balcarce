@@ -51506,7 +51506,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Platense en el campo de juego mostrando frustración tras el partido."
   },
-  "huella": "103024206a92aa86"
+  "huella": "103024206a92aa86",
+  "ausenteDesde": "2026-10-29T21:33:22.228Z"
  },
  "wulfww": {
   "archivo": "fotos-notas/wulfww.jpg",
@@ -52568,7 +52569,8 @@
    "corresponde": "si",
    "descripcion": "Persona navegando en sitio web de Cyber Monday"
   },
-  "huella": "ed9595d5e8343622"
+  "huella": "ed9595d5e8343622",
+  "ausenteDesde": "2026-10-29T21:33:22.228Z"
  },
  "futbolpartidosliga20261030": {
   "intentado": true,
@@ -53824,7 +53826,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "5ab9696c699199d9"
+  "huella": "5ab9696c699199d9",
+  "ausenteDesde": "2026-10-29T21:33:22.228Z"
  },
  "12vpw67": {
   "intentado": true,
@@ -54303,5 +54306,77 @@
   "fuentes": 35,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "jo5fmd": {
+  "archivo": "fotos-notas/jo5fmd.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Adolfo García desarrolla una app con inteligencia artificial para detectar Alzheimer",
+  "enlace": "https://eldiariobalcarce.com.ar/un-neurocientifico-balcarceno-desarrollo-una-aplicacion-con-inteligencia-artificial-para-detectar-el-alzheimer-589",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-29-21-23-39Neurocientifico_balcarceño.jpg",
+  "razon": "Es la única imagen que muestra al protagonista de la nota (Adolfo García) de forma completa y nítida, permitiendo identificarlo claramente.",
+  "cuando": "2026-10-29T21:33:04.205Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Adolfo García, el protagonista de la nota, de medio cuerpo."
+  },
+  "huella": "330737535160e160"
+ },
+ "13vd8fc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T21:33:04.205Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1l6sgre": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mercado Pago supera revisiones técnicas del BCRA para ser banco",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T21:33:04.205Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "epbd9f": {
+  "archivo": "fotos-notas/1uz19h8.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense vence a Atlético Tucumán por penales y es finalista de la Copa Argentina",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160074/deportes/atletico-tucuman-cayo-penales-platense-quedo-fuera-copa-argentina.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/atletico-tucuman-cayo-penales-platense-quedo-fuera-copa-argentina-1160074-234919.jpeg",
+  "razon": "Es la única imagen completa que muestra la reacción de los jugadores de Platense, correspondiente al contexto de la nota, sin marcas de agua ni menores.",
+  "cuando": "2026-10-29T03:02:15.118Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Platense en el campo de juego mostrando frustración tras el partido."
+  },
+  "huella": "103024206a92aa86"
  }
 }

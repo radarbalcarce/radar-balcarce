@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T21:04:21.612Z",
- "portada": 198,
+ "generado": "2026-10-29T21:33:22.307Z",
+ "portada": 192,
  "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-29T21:04:22.377Z",
+  "generado": "2026-10-29T21:33:22.787Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "13vd8fc",
+      "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
+      "seccion": "Fútbol"
+     },
      {
       "id": "joipn0",
       "titulo": "Proyecto Disco organiza una fiesta de Halloween con premios millonarios",
@@ -173,11 +178,6 @@
       "id": "o6zwz5",
       "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
       "seccion": "Ciencia"
-     },
-     {
-      "id": "zv94ul",
-      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
-      "seccion": "Agro"
      }
     ]
    }
@@ -212,6 +212,12 @@
    ],
    "cola": [
     {
+     "id": "13vd8fc",
+     "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "dqa51l",
      "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
      "seccion": "Cultura y agenda",
@@ -230,12 +236,6 @@
      "marcada": false
     },
     {
-     "id": "o6zwz5",
-     "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
-     "seccion": "Ciencia",
-     "marcada": false
-    },
-    {
      "id": "nj3vcj",
      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
      "seccion": "Fútbol",
@@ -248,14 +248,14 @@
      "marcada": false
     },
     {
-     "id": "3zjeei",
-     "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
-     "seccion": "Automovilismo",
+     "id": "phjtkk",
+     "titulo": "El FMI acuerda cuatro medidas con el Gobierno para impulsar la economía",
+     "seccion": "Economía",
      "marcada": false
     },
     {
-     "id": "phjtkk",
-     "titulo": "El FMI acuerda cuatro medidas con el Gobierno para impulsar la economía",
+     "id": "1dd73iv",
+     "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
      "seccion": "Economía",
      "marcada": false
     }
