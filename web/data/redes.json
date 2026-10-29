@@ -6560,6 +6560,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "958948183577923"
+    },
+    "2026-10-28/podcast": {
+      "cuando": "2026-10-29T00:36:42.433Z",
+      "mediaId": "1818185882824858",
+      "nombre": "podcast",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [
+        "fwmzx2",
+        "le5im8",
+        "kua1e9",
+        "l7z1jg"
+      ],
+      "postId": "122116916643495512",
+      "permalink": "https://www.facebook.com/reel/1818185882824858/"
     }
   },
   "instagramFeed": {
@@ -9382,6 +9397,14 @@
       "nombre": "noticia2",
       "red": "instagram",
       "notaId": "12niewq"
+    },
+    "facebook/2026-10-28/podcast": {
+      "cuando": "2026-10-29T00:37:27.484Z",
+      "mediaId": "1422373082856956",
+      "nombre": "podcast",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "1864168464719699"
     }
   },
   "problemas": {
@@ -9392,6 +9415,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-27T15:52:22.448Z",
       "intentos": 21
+    },
+    "2026-10-28/podcast/instagram/reel": {
+      "pieza": "podcast",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-29T00:35:57.616Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -10133,6 +10164,15 @@
       "tiktok": {
         "ok": true,
         "id": "6ae28744cfdbbf6de4f178db",
+        "estado": "sending"
+      }
+    },
+    "2026-10-28/podcast": {
+      "cuando": "2026-10-29T00:35:54.224Z",
+      "nombre": "podcast",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae295497a72c9efac0aaecf",
         "estado": "sending"
       }
     }
