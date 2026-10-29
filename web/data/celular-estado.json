@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T18:04:51.252Z",
- "portada": 179,
+ "generado": "2026-10-29T18:33:56.348Z",
+ "portada": 192,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-29T18:04:52.084Z",
+  "generado": "2026-10-29T18:33:56.795Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,17 +126,12 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 53,
     "notas": [
      {
-      "id": "90yhse",
-      "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
+      "id": "no17hh",
+      "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "nj3vcj",
-      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
-      "seccion": "Fútbol"
      },
      {
       "id": "1tejsa4",
@@ -144,9 +139,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "zv94ul",
-      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
-      "seccion": "Agro"
+      "id": "1qq7gak",
+      "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
+      "seccion": "Educación"
+     },
+     {
+      "id": "o6zwz5",
+      "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
+      "seccion": "Ciencia"
      }
     ]
    },
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "zv94ul",
+      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+      "seccion": "Agro"
+     },
      {
       "id": "1h0i8a7",
       "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
@@ -170,14 +175,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1k99k9x",
-      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "19c5usk",
-      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
-      "seccion": "Fútbol"
+      "id": "1x12myv",
+      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
+      "seccion": "Ciencia"
      }
     ]
    }
@@ -202,15 +202,9 @@
    ],
    "cola": [
     {
-     "id": "90yhse",
-     "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
+     "id": "no17hh",
+     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "nj3vcj",
-     "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -232,21 +226,27 @@
      "marcada": false
     },
     {
+     "id": "o6zwz5",
+     "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
+     "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
      "id": "zv94ul",
      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
      "seccion": "Agro",
      "marcada": false
     },
     {
-     "id": "13z5ze5",
-     "titulo": "La Liga Balcarceña suspende los partidos previstos para este jueves",
-     "seccion": "Fútbol",
+     "id": "90yhse",
+     "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "no17hh",
-     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-     "seccion": "Cultura y agenda",
+     "id": "101j4vt",
+     "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+     "seccion": "Deportes",
      "marcada": false
     }
    ],

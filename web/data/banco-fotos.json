@@ -46712,7 +46712,8 @@
    "corresponde": "si",
    "descripcion": "Pelota Argentum Gambeta Derbi en primer plano con fondo temático"
   },
-  "huella": "7f3f33132b37231f"
+  "huella": "7f3f33132b37231f",
+  "ausenteDesde": "2026-10-29T18:33:56.266Z"
  },
  "1ivc8l0": {
   "archivo": "fotos-notas/1ivc8l0.jpg",
@@ -46761,7 +46762,8 @@
    "corresponde": "si",
    "descripcion": "Persona usando celular, calculadora y notebook en un escritorio"
   },
-  "huella": "e8d0e8e9f8f9c9f8"
+  "huella": "e8d0e8e9f8f9c9f8",
+  "ausenteDesde": "2026-10-29T18:33:56.266Z"
  },
  "zjn1re": {
   "archivo": "fotos-notas/zjn1re.jpg",
@@ -48500,7 +48502,8 @@
    "corresponde": "si",
    "descripcion": "Marcelo Agrelo con indumentaria del equipo en el Turismo Carretera"
   },
-  "huella": "d795d4d5d494783c"
+  "huella": "d795d4d5d494783c",
+  "ausenteDesde": "2026-10-29T18:33:56.266Z"
  },
  "evukr6": {
   "archivo": "fotos-notas/evukr6.jpg",
@@ -48611,7 +48614,8 @@
    "corresponde": "si",
    "descripcion": "Emprendedor mostrando rollos de filamento reciclado"
   },
-  "huella": "182f0f4d4df56571"
+  "huella": "182f0f4d4df56571",
+  "ausenteDesde": "2026-10-29T18:33:56.266Z"
  },
  "1nuq6ys": {
   "intentado": true,
@@ -53337,8 +53341,7 @@
    "corresponde": "si",
    "descripcion": "Funcionario hablando en un atril con banderas de Argentina y Estados Unidos de fondo."
   },
-  "huella": "595b4b5b6babe3e3",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "huella": "595b4b5b6babe3e3"
  },
  "zr277r": {
   "archivo": "fotos-notas/zr277r.jpg",
@@ -54119,6 +54122,28 @@
   "cuando": "2026-10-29T18:04:35.846Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "uk11m1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Balcarce organiza la Feria del Libro Independiente para noviembre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T18:33:32.892Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1pu5nsy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las rurales del sudeste debaten sobre sanidad y caminos",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-29T18:33:32.892Z",
+  "intentos": 1,
+  "fuentes": 1,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
