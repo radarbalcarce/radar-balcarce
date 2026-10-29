@@ -14275,9 +14275,7 @@
   "fuentes": 1
  },
  "1xc91gb": {
-  "archivo": "fotos-notas/1xc91gb.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei ratifica a Caputo y asegura contar con millonarios fondos",
@@ -14286,7 +14284,8 @@
   "razon": "Tiene excelente nitidez, encuadre limpio sin marcas superpuestas ni menores de edad, e ilustra perfectamente al personaje de la nota.",
   "cuando": "2026-10-12T14:32:05.838Z",
   "huella": "36383858dcfc5cbc",
-  "ausenteDesde": "2026-10-22T13:42:32.431Z"
+  "intentado": true,
+  "borrada": true
  },
  "xn5jch": {
   "medio": "Acción 5 (Balcarce)",
@@ -46378,7 +46377,8 @@
    "corresponde": "si",
    "descripcion": "Plantas de arroz en un campo al atardecer."
   },
-  "huella": "010101094b4d2148"
+  "huella": "010101094b4d2148",
+  "ausenteDesde": "2026-10-29T13:43:31.487Z"
  },
  "18oxsmf": {
   "intentado": true,
@@ -48042,7 +48042,8 @@
    "corresponde": "si",
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
-  "huella": "2b97b53be4f1f3d3"
+  "huella": "2b97b53be4f1f3d3",
+  "ausenteDesde": "2026-10-29T13:43:31.487Z"
  },
  "1so1px1": {
   "intentado": true,
@@ -48929,7 +48930,8 @@
    "corresponde": "si",
    "descripcion": "Jensen Huang y Mark Zuckerberg sentados en sillones conversando en un escenario"
   },
-  "huella": "0662626091515533"
+  "huella": "0662626091515533",
+  "ausenteDesde": "2026-10-29T13:43:31.487Z"
  },
  "1qxwho": {
   "archivo": "fotos-notas/1qxwho.jpg",
@@ -49283,7 +49285,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1d1e1adb751d0cae"
+  "huella": "1d1e1adb751d0cae",
+  "ausenteDesde": "2026-10-29T13:43:31.487Z"
  },
  "1lonqjh": {
   "archivo": "fotos-notas/1lonqjh.jpg",
@@ -51102,14 +51105,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1cc0xsp": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1cc0xsp.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Provincia adelanta el pago a los docentes para noviembre",
-  "razon": "La mejor foto era la de QZ Noticias (Mar del Plata), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-28T22:33:47.337Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/atencion-los-docentes-bonaerenses-cobraran-el-6-de-noviembre-los-salarios-de-octubre",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Docente%20argentino%20retira%20su%20salario.png",
+  "razon": "Muestra claramente a un docente utilizando un cajero automático sin marcas añadidas, menores ni problemas de archivo.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con guardapolvo docente operando un cajero automático"
+  },
+  "huella": "3258982828fa3a72"
  },
  "1o8bnus": {
   "intentado": true,
@@ -51211,15 +51228,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "wmipjx": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/wmipjx.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Rulli clasifica a Manchester City en la Carabao Cup",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-28T23:33:19.994Z",
-  "intentos": 1,
-  "fuentes": 10,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.tycsports.com/futbol-internacional/rullio-heroe-clasificacion-manchester-city-penales-id769102.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/28/1000658/rulli_1440x810.webp?v=1",
+  "razon": "Es la foto de mejor calidad, encuadre y nitidez que muestra claramente al protagonista de la noticia (Gerónimo Rulli) celebrando en el campo de juego, sin marcas de agua de medios ni menores.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gerónimo Rulli celebrando efusivamente de cuerpo entero"
+  },
+  "huella": "8c8ccdcc0d08cccd"
  },
  "1bu4h24": {
   "archivo": "fotos-notas/1bu4h24.jpg",
@@ -51247,15 +51277,28 @@
   "huella": "e0f1f2f0f3e8e9c8"
  },
  "1j3bjqu": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1j3bjqu.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Leandro Leunis renuncia a la Comisión Directiva de Racing en Avellaneda",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T00:03:23.262Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.ole.com.ar/racing/racing-comision-directiva-diego-milito-leandro-chino-leunis-renuncio_0_HTiovu5ypZ.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/28/wq0rOGCgg_2000x1500__1.jpg",
+  "razon": "Muestra claramente a Leandro Leunis junto a otras personas relacionadas al club en un encuadre limpio y sin marcas.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leandro Leunis posando junto a dos hombres"
+  },
+  "huella": "65757472323274c6"
  },
  "ywxty9": {
   "intentado": true,
@@ -51342,12 +51385,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El oficialismo no logra firmar dictamen del proyecto de propiedad privada en el Senado",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T01:32:58.343Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Ninguna de las fotos cumple con todos los requisitos sin marcas de agua o problemas de correspondencia directa con la nota sobre el dictamen en el Senado.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "intentos": 2,
+  "fuentes": 6
  },
  "144mul3": {
   "intentado": true,
@@ -51681,15 +51722,28 @@
   "ausenteDesde": "2026-10-29T06:02:35.246Z"
  },
  "cwvrnw": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/cwvrnw.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Premios Ídolo entrega galardones a creadores digitales en Buenos Aires",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T05:02:28.913Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lacapital.com.ar/zoom/premios-idolo-2026-los-rosarinos-compiten-la-gala-que-reconoce-creadores-contenido-n10289157.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/78070ce7226ce8fa32dbd6de64f821e4/adjuntos/203/imagenes/103/497/0103497036/1200x675/smart/image-2026-10-28t124859167.png",
+  "razon": "Es la foto que mejor ilustra el evento general de los premios en el escenario, con buena nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos conductores en el escenario de los Premios Ídolo junto a un atril y pantalla con jurados."
+  },
+  "huella": "3416d6f6e6a66a6a"
  },
  "1vwftc2": {
   "archivo": "fotos-notas/1vwftc2.jpg",
@@ -52266,7 +52320,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
   },
-  "huella": "3e5392735772526a"
+  "huella": "3e5392735772526a",
+  "ausenteDesde": "2026-10-29T13:43:31.487Z"
  },
  "ee5714": {
   "archivo": "fotos-notas/ee5714.jpg",
@@ -53633,6 +53688,109 @@
   "titulo": "La feria arteba celebra su trigésimo quinto aniversario en Buenos Aires",
   "razon": "Ambas fotos son idénticas y corresponden a un render o imagen generada por computadora (gráfica), por lo que ninguna es una fotografía real del evento.",
   "cuando": "2026-10-29T13:05:50.518Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1jy9zz0": {
+  "archivo": "fotos-notas/1jy9zz0.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/convocan-a-dirigentes-y-periodistas-deportivos-a-participar-de-la-organizacion-de-la-fiesta-del-deporte",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/enero/Fiesta_del_Deporte.jpeg",
+  "razon": "Es la única opción disponible y muestra el escenario y los premios de la Fiesta del Deporte, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de la mesa con los premios de la Fiesta del Deporte 2024, destacando el trofeo Fangio de Oro."
+  },
+  "huella": "c1115b636ae3e89c"
+ },
+ "1h0i8a7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+  "razon": "La mejor foto era la de Infórmese Primero (FM 104.9), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "4fbrl3": {
+  "archivo": "fotos-notas/4fbrl3.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pauny acumula 146 cheques rechazados y adeuda salarios en Córdoba",
+  "enlace": "https://www.iprofesional.com/negocios/467714-fabrica-de-tractores-acumula-cheques-rebotados-por-1000-millones-de-pesos",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/02/612292_landscape.jpg",
+  "razon": "Muestra un tractor Pauny con buen encuadre y nitidez, sin marcas de agua ni personas, adecuado para ilustrar la nota de economía.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tractor amarillo Pauny en primer plano en exteriores."
+  },
+  "huella": "f0f0f2b05ad8d878"
+ },
+ "1gxn481": {
+  "archivo": "fotos-notas/1gxn481.jpg",
+  "medio": "0223 (Mar del Plata)",
+  "credito": "Foto: 0223 (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto correrá el Gran Premio de México de Fórmula 1 y Antonelli buscará el título",
+  "enlace": "https://www.0223.com.ar/nota/2026-10-29-9-55-0-gran-premio-de-mexico-colapinto-por-la-recuperacion-antonelli-por-el-titulo-y-record",
+  "imagenOriginal": "https://pxcdn.0223.com.ar/f/102026/1793279178361.webp?&cw=600&ch=365",
+  "razon": "Muestra claramente a ambos protagonistas de la nota juntos y sin marcas de agua que afecten la imagen.",
+  "cuando": "2026-10-29T13:38:17.958Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Antonelli y Colapinto riendo sosteniendo micrófonos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Oscar Piastri y Franco Colapinto sonriendo y sosteniendo micrófonos en un evento de Fórmula 1."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "5ab9696c699199d9"
+ },
+ "12vpw67": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comienza el festival internacional de fotografía FOCUS en Mendoza",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-29T13:38:17.958Z",
   "intentos": 1,
   "fuentes": 2
  }

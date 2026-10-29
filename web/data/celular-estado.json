@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T13:08:27.840Z",
- "portada": 147,
+ "generado": "2026-10-29T13:43:31.604Z",
+ "portada": 139,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-29T13:08:28.915Z",
+  "generado": "2026-10-29T13:43:32.404Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
      {
       "id": "1u7fzx2",
@@ -103,19 +103,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "101j4vt",
-      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
-      "seccion": "Deportes"
-     },
-     {
       "id": "no17hh",
       "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1l7ryr5",
-      "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
-      "seccion": "Educación"
+      "id": "101j4vt",
+      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1h0i8a7",
+      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+      "seccion": "Salud"
      }
     ]
    },
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "1jy9zz0",
+      "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "1tejsa4",
       "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
       "seccion": "Deportes"
-     },
-     {
-      "id": "ahxvwa",
-      "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "1jkbwyl",
@@ -144,9 +144,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1x12myv",
-      "titulo": "Adolfo García crea una app basada en inteligencia artificial para detectar Alzheimer",
-      "seccion": "Ciencia"
+      "id": "1nvngno",
+      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1q1zjvw",
-      "titulo": "Veintitrés alumnos esperan transporte escolar rural",
-      "seccion": "Educación"
+      "id": "ahxvwa",
+      "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "yfe1jz",
-      "titulo": "Modifican las condiciones del Régimen de Zona Fría y Balcarce",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1nvngno",
-      "titulo": "Chocan dos trenes de alta velocidad en Toledo y reportan muertos",
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
       "seccion": "Argentina"
      },
      {
       "id": "19c5usk",
       "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1rphs2p",
+      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
+      "seccion": "Economía"
      }
     ]
    }
@@ -198,9 +198,27 @@
      "marcada": false
     },
     {
+     "id": "no17hh",
+     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "101j4vt",
      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
      "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1h0i8a7",
+     "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "1jy9zz0",
+     "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -210,27 +228,15 @@
      "marcada": false
     },
     {
-     "id": "no17hh",
-     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1l7ryr5",
-     "titulo": "Adelantan el pago de los haberes de octubre para los docentes bonaerenses",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "ahxvwa",
      "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "1xr0jgj",
-     "titulo": "Gendarmería no logra confirmar la autenticidad de los audios de Spagnuolo",
-     "seccion": "Argentina",
+     "id": "yvuj6i",
+     "titulo": "Carlos Tevez confirma a Lionel Messi y Juan Román Riquelme para su despedida",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
