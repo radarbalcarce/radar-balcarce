@@ -1,0 +1,60 @@
+name: Imágenes sueltas con IA
+
+# A mano (30/10/2026). Genera con el Worker de imágenes de Cloudflare (infra/imagenes-cloudflare/, SDXL, dentro de las neuronas gratis) una imagen por cada
+# escena que se le pase (separadas con ||) y las deja como adjunto de la corrida para elegir. Sirve para fondos de tapas y piezas especiales; las notas
+# automáticas usan web/scripts/ilustrar-notas.mjs. No escribe nada en el repositorio. Usa el secreto VIGILANTE_TOKEN (la contraseña del Worker).
+
+on:
+  workflow_dispatch:
+    inputs:
+      escenas:
+        description: 'Las escenas, en inglés, separadas con ||'
+        required: true
+      ancho:
+        description: 'Ancho (múltiplo de 8)'
+        default: '1024'
+      alto:
+        description: 'Alto (múltiplo de 8)'
+        default: '576'
+
+permissions:
+  contents: read
+
+jobs:
+  generar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      VIGILANTE_TOKEN: ${{ secrets.VIGILANTE_TOKEN }}
+      ESCENAS: ${{ inputs.escenas }}
+      ANCHO: ${{ inputs.ancho }}
+      ALTO: ${{ inputs.alto }}
+    steps:
+      - name: Generar
+        run: |
+          mkdir -p salida
+          BASE='Photorealistic documentary photograph, natural light, sharp detail, muted realistic colors, deserted scene, no people, no text'
+          NEGATIVO='text, letters, words, watermark, logo, signature, people, human, face, children, animals, cartoon, illustration, painting, 3d render, oversaturated'
+          n=0
+          echo "$ESCENAS" | sed 's/||/\n/g' | while IFS= read -r escena; do
+            escena=$(echo "$escena" | xargs)
+            [ -z "$escena" ] && continue
+            n=$((n + 1))
+            prompt="$escena. $BASE"
+            cuerpo=$(jq -cn --arg p "$prompt" --arg n "$NEGATIVO" --argjson w "$ANCHO" --argjson h "$ALTO" '{prompt:$p, modelo:"sdxl", ancho:$w, alto:$h, steps:20, negativo:$n}')
+            for intento in 1 2 3; do
+              code=$(curl -s -o "salida/escena-$n.jpg" -w '%{http_code}' -X POST 'https://radar-balcarce-imagenes.radarbalcarce.workers.dev/generar' \
+                -H "x-token: $VIGILANTE_TOKEN" -H 'content-type: application/json' --max-time 120 -d "$cuerpo")
+              if [ "$code" = "200" ]; then echo "[$n] ok, $(wc -c < "salida/escena-$n.jpg") bytes"; break; fi
+              echo "[$n] HTTP $code (intento $intento)"; rm -f "salida/escena-$n.jpg"; sleep 5
+            done
+            printf '%s|%s\n' "$n" "$prompt" >> salida/prompts.txt
+          done
+          ls -l salida
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: imagenes-sueltas
+          path: salida
+          retention-days: 7
+          if-no-files-found: error
