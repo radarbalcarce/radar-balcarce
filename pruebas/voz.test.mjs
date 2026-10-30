@@ -134,3 +134,18 @@ test('un cartel que ya tiene el mínimo no se toca', () => {
   assert.equal(c.length, 1);
   assert.equal(c[0].texto, 'Uno dos.');
 });
+
+// 30/10/2026 (Hernán, sobre el reel del Postre): la dirección se dice «Radar Balcarce punto com» pero en el subtítulo se escribe radarbalcarce.com,
+// en un solo cartel si es el cierre.
+test('el subtítulo escribe radarbalcarce.com, no «Radar Balcarce punto com», y el cierre queda en su propio cartel', () => {
+  const p = [
+    palabra('La', 0, 0.2), palabra('entrada', 0.2, 0.5), palabra('es', 0.5, 0.6), palabra('gratuita.', 0.6, 1, { finFrase: true }),
+    palabra('Radar', 1.2, 1.5), palabra('Balcarce', 1.5, 1.9), palabra('punto', 1.9, 2.1), palabra('com.', 2.1, 2.4, { finFrase: true }),
+  ];
+  const c = enCarteles(p, { max: 4, minimo: 2 });
+  assert.equal(c.at(-1).texto, 'radarbalcarce.com');
+  assert.equal(c.at(-1).desde, 1.2);
+  assert.equal(c.length, 2, 'la dirección no se pega al cartel anterior');
+  const dentro = enCarteles([palabra('Todo', 0, 0.2), palabra('en', 0.2, 0.3), palabra('Radar', 0.3, 0.5), palabra('Balcarce', 0.5, 0.8), palabra('punto', 0.8, 0.9), palabra('com.', 0.9, 1.1, { finFrase: true })]);
+  assert.equal(dentro.map((x) => x.texto).join(' '), 'Todo en radarbalcarce.com');
+});
