@@ -1143,11 +1143,6 @@
   "textos": 5,
   "numeradas": 17
  },
- "16qa6gn": {
-  "intentos": 2,
-  "ultimo": "2026-10-23T19:01:33.817Z",
-  "motivo": "con cuerpo"
- },
  "16tgva7": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -4061,6 +4056,22 @@
    "el cuerpo menciona \"sabado\" y la fuente no",
    "copia 13 palabras seguidas del original (\"los fundamentos de su presentacion realizada dentro de los plazos estipulados por el\"): decilo con",
    "el título nombra a \"marcos\", \"rojo\" y el cuerpo no los explica"
+  ]
+ },
+ "1messk8": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T19:03:58.289Z",
+  "motivo": "título o bajada: 3 problemas (forma, numero): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 3 problemas (forma, numero): el copete trae un escape"
+  ],
+  "falla": [
+   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el copete dice 0 y la fuente no lo dice",
+   "el copete dice 0 y la fuente no lo dice",
+   "copia 13 palabras seguidas del original (\"corte del postre gigante cuyas porciones se venderan a traves de bonos solidarios\"): decilo con ot"
   ]
  },
  "1meyx0g": {
