@@ -2833,9 +2833,9 @@
   "numeradas": 3
  },
  "1gm1ho2": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T07:01:42.718Z",
-  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
@@ -4484,6 +4484,13 @@
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
+ },
+ "1p3blhe": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1p6569g": {
   "intentos": 2,
@@ -6706,6 +6713,13 @@
    "título o bajada: 1 problema (nombre): el copete nombra a \"iguazuj\" y l"
   ]
  },
+ "5hmq87": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "5klkwb": {
   "intentos": 1,
   "ultimo": "2026-10-27T16:34:28.732Z",
@@ -8557,14 +8571,20 @@
   "numeradas": 14
  },
  "gs0v7l": {
-  "intentos": 2,
-  "ultimo": "2026-10-29T12:02:03.768Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3,
+  "intentos": 3,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "cuerpo: 2 problemas (promesa): el título nombra a \"gran\", \"premio\" y el cuerpo no los explica; sin esas oraciones quedan 321 palabras",
+  "textos": 9,
+  "numeradas": 15,
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"rodrguez\" y ",
-   "cuerpo: 1 problema (promesa): el título nombra a \"gran\", \"premio\" y el"
+   "cuerpo: 1 problema (promesa): el título nombra a \"gran\", \"premio\" y el",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 2 problemas (promesa): el título nombra a \"gran\", \"premio\" y e"
+  ],
+  "falla": [
+   "el título nombra a \"gran\", \"premio\" y el cuerpo no los explica",
+   "el título dice 1 y el cuerpo no lo explica"
   ]
  },
  "gtwrrj": {
@@ -8726,6 +8746,16 @@
    "título o bajada: 2 problemas (forma): el titulo trae letras rotas (una",
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ]
+ },
+ "i2y34b": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
   ]
  },
  "i3syjh": {
@@ -10126,6 +10156,13 @@
   "ultimo": "2026-10-23T22:01:46.034Z",
   "motivo": "con cuerpo"
  },
+ "ptlxl5": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "pusq7b": {
   "intentos": 1,
   "ultimo": "2026-10-29T01:01:22.593Z",
@@ -10534,20 +10571,14 @@
   "numeradas": 45
  },
  "rw6ytz": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T07:01:42.718Z",
-  "motivo": "título o bajada: 1 problema (tildes): el texto está escrito sin tildes (produccion, contraccion): va con las tildes y la eñe donde corresp",
+  "intentos": 2,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 5 problemas (nombre, promesa): el cuerpo nombra a \"agencia\" y ",
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes"
-  ],
-  "falla": [
-   "el cuerpo dice \"mas\" en vez de \"más\": \"El sector manufacturero pyme acumula catorce trimestres cons\"",
-   "copia 13 palabras seguidas del original (\"la caida de planes de pago vigentes siete de cada diez firmas afectadas\"): decilo con otras palabr",
-   "el texto está escrito sin tildes (produccion, contraccion, segun, Fundacion, tension): va con las tildes y la eñe donde corresponden",
-   "el título dice 12 y el cuerpo no lo explica"
   ]
  },
  "rwb9xf": {
@@ -11854,6 +11885,13 @@
   "motivos": [
    "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
   ]
+ },
+ "zjvnyx": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T08:02:16.152Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "zlom91": {
   "intentos": 1,
