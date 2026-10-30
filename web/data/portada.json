@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-30T15:40:28.000Z",
+  "generado": "2026-10-30T16:07:49.391Z",
   "notas": [
     {
       "id": "1y3axjf",
@@ -159,6 +159,7 @@
       "seccion": "Argentina",
       "medios": [
         "Noticias Argentinas (NA)",
+        "Ámbito",
         "Minuto Uno",
         "Los Andes (Mendoza)"
       ],
@@ -166,7 +167,7 @@
       "fecha": "2026-10-30T14:32:40.395Z",
       "sinFecha": false,
       "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 46,
+      "relevancia": 49,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -210,6 +211,13 @@
           "medio": "Los Andes (Mendoza)",
           "enlace": "https://www.losandes.com.ar/mundo/un-hecho-historico-el-papa-leon-xiv-voto-correo-las-elecciones-estados-unidos-n6012383",
           "fecha": "2026-10-30T14:33:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/mundo/leon-xiv-ejercio-su-derecho-y-voto-como-ciudadano-las-elecciones-eeuu-n6339729",
+          "fecha": "2026-10-30T16:03:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -423,11 +431,14 @@
       "guion": "Javier Milei recibe al papa León XIV en Aeroparque y evalúan la cadena nacional.",
       "seccion": "Política",
       "medios": [
-        "Clarín",
+        "La Nación",
         "TN (Todo Noticias)",
+        "Perfil",
+        "A24",
         "iProfesional",
         "Radio Mitre",
         "Canal 26",
+        "El Día",
         "C5N",
         "Los Andes (Mendoza)"
       ],
@@ -435,8 +446,13 @@
       "fecha": "2026-10-30T14:07:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 52,
+      "relevancia": 58,
       "local": false,
+      "muyContada": {
+        "medios": 9,
+        "porque": "9 medios",
+        "desde": "2026-10-30T16:05:49.563Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -509,6 +525,34 @@
           "medio": "Canal 26",
           "enlace": "https://www.canal26.com/politica/2026/10/30/la-visita-del-papa-a-la-argentina-javier-milei-recibira-a-leon-xiv-en-el-aeropuerto-y-evaluan-transmitir-el-encuentro-por-cadena-nacional/",
           "fecha": "2026-10-30T15:01:50.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/politica/el-secretario-de-culto-dijo-que-milei-recibira-al-papa-en-el-aeropuerto-y-hablo-de-una-cadena-nid30102026/",
+          "fecha": "2026-10-30T15:46:22.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/politica/el-secretario-de-culto-confirmo-que-milei-recibira-al-papa-leon-xiv-al-pie-del-avion-aVzLa8Z8ejqI",
+          "fecha": "2026-10-30T15:42:48.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/politica/milei-recibira-al-papa-leon-xiv-al-pie-del-avion-y-el-gobierno-evalua-transmitirlo-cadena-nacional-n1611823",
+          "fecha": "2026-10-30T15:58:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/milei-esperara-al-papa-leon-xiv-al-pie-del-avion-politica-y-economia_1793374750",
+          "fecha": "2026-10-30T15:39:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1148,7 +1192,7 @@
       "fecha": "2026-10-30T12:42:25.161Z",
       "sinFecha": false,
       "visto": "2026-10-30T14:32:34.721Z",
-      "relevancia": 90,
+      "relevancia": 80,
       "local": true,
       "deUnMedioDeAca": true,
       "publicadaPor": null,
@@ -1472,7 +1516,9 @@
       "guion": "Boca y River juegan el Superclásico con mil efectivos de seguridad.",
       "seccion": "Fútbol",
       "medios": [
+        "A24",
         "TyC Sports",
+        "Olé",
         "Doble Amarilla",
         "Clarín"
       ],
@@ -1480,7 +1526,7 @@
       "fecha": "2026-10-30T11:55:35.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 35,
+      "relevancia": 38,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1524,6 +1570,20 @@
           "medio": "Doble Amarilla",
           "enlace": "https://www.dobleamarilla.com.ar/liga-/asi-sera-el-operativo-policial-del-superclasico-entre-boca-y-river--mas-de-1000-efectivos-policiales-y-puertas-abiertas-desde-las-11-hs_a6ae4a12a0caa1b1462530640",
           "fecha": "2026-10-30T14:35:46.733Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/deportes/como-sera-el-operativo-seguridad-el-superclasico-boca-y-river-la-bombonera-n1611825",
+          "fecha": "2026-10-30T15:55:10.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/boca-juniors/operativo-seguridad-partido-superclasico-boca-river-mil-policias_0_PmvvJsrMLV.html",
+          "fecha": "2026-10-30T15:30:58.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -2186,6 +2246,7 @@
         "Radio Gabal (FM 104.1)",
         "LU9 Mar del Plata",
         "Agencia DIB",
+        "El Día",
         "La Tecla",
         "El Eco de Tandil",
         "Ámbito"
@@ -2194,10 +2255,10 @@
       "fecha": "2026-10-30T10:50:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T12:02:17.259Z",
-      "relevancia": 54,
+      "relevancia": 56,
       "local": false,
       "muyContada": {
-        "medios": 5,
+        "medios": 6,
         "porque": "5 medios en sus primeras 3 horas",
         "desde": "2026-10-30T14:01:44.796Z"
       },
@@ -2265,6 +2326,13 @@
           "medio": "LU9 Mar del Plata",
           "enlace": "https://www.lu9mardelplata.com.ar/la-provincia-habilito-a-cooperativas-electricas-a-generar-energia-renovable-para-sus-usuarios",
           "fecha": "2026-10-30T14:58:18.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/la-provincia-habilito-a-las-cooperativas-electricas-a-generar-energia-renovable-para-sus-usuarios-politica-y-economia_1793375672",
+          "fecha": "2026-10-30T15:54:32.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -2514,111 +2582,6 @@
       }
     },
     {
-      "id": "cg1pu2",
-      "titulo": "Barcelona apunta a Lisandro Martínez en medio de la crisis de Manchester United",
-      "copete": "El defensor argentino es seguido por el club catalán y por Atlético de Madrid. Su contrato en Inglaterra vence en 2027 y atraviesa un cruce con la dirigencia.",
-      "cuerpo": "El defensor argentino Lisandro Martínez aparece en el radar del Barcelona para reforzar el plantel de cara a 2027. La entidad catalana evalúa su contratación debido a sus condiciones técnicas y al delicado momento institucional que atraviesa el Manchester United, decimosexto en la Premier League con apenas un triunfo en ocho fechas y muy cerca de la zona de descenso. \n\nLa continuidad del zaguero en el fútbol inglés comenzó a debilitarse tras sus críticas públicas hacia la dirigencia. Luego de una derrota en la Champions League, el futbolista cuestionó la falta de inversión del director deportivo y recibió duras réplicas de los hinchas y de referentes históricos del club, como el exdelantero Wayne Rooney, quien le exigió mayor compromiso a fines de octubre. \n\nEl vínculo contractual del campeón del mundo con los Diablos Rojos finaliza a mediados de 2027 y hasta el momento no se registraron avances para una renovación. Ante este escenario, la institución británica evaluaría una venta en el próximo mercado para evitar su salida en condición de libre. \n\nAdemás del interés azulgrana, el Atlético de Madrid también sigue de cerca la situación del marcador central. El conjunto colchonero cuenta en su plantel con Cristian Romero, compañero de zaga del defensor en la Selección Argentina, lo que alimenta las especulaciones sobre una posible reunión de la dupla albirroja en el fútbol español.",
-      "guion": "Barcelona apunta a Lisandro Martínez en medio de la crisis de Manchester United.",
-      "seccion": "Fútbol",
-      "medios": [
-        "El Destape",
-        "TyC Sports",
-        "Olé",
-        "Doble Amarilla",
-        "Minuto Uno"
-      ],
-      "enlace": "https://www.dobleamarilla.com.ar/por-el-mundo/la-leyenda-de-manchester-united-que-liquido-a-lisandro-martinez_a6ae2e3c465ad849a4c39a935",
-      "fecha": "2026-10-30T10:28:39.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T12:31:57.284Z",
-      "relevancia": 33,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Barcelona y Atlético de Madrid siguen al defensor argentino.",
-        "Manchester United atraviesa una crisis deportiva en la Premier League.",
-        "El contrato del jugador finaliza a mediados de 2027 sin negociaciones para renovar.",
-        "El zaguero cuestionó públicamente la falta de inversión del club inglés."
-      ],
-      "seSabe": [
-        "Lisandro Martínez es pretendido por Barcelona y Atlético de Madrid.",
-        "Manchester United se encuentra decimosexto en la Premier League a un punto del descenso.",
-        "El contrato del defensor argentino vence a mediados de 2027.",
-        "El jugador criticó públicamente la gestión deportiva del club inglés."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó si habrá una oferta formal por parte de los clubes españoles en el próximo mercado de pases.",
-        "No se confirmó si Manchester United aceptará transferir al defensor en diciembre."
-      ],
-      "textoRedes": "El defensor argentino Lisandro Martínez es seguido por Barcelona y Atlético de Madrid en medio de su tensa relación con la dirigencia del Manchester United y la crisis deportiva del equipo inglés.",
-      "etiquetas": [
-        "Lisandro Martínez",
-        "Barcelona",
-        "Manchester United",
-        "Premier League",
-        "Atlético de Madrid",
-        "fútbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/por-el-mundo/la-leyenda-de-manchester-united-que-liquido-a-lisandro-martinez_a6ae2e3c465ad849a4c39a935",
-          "fecha": "2026-10-29T13:45:34.307Z",
-          "oficial": false,
-          "aporte": "Registró los cruces y críticas de la exgloria del club inglés hacia el defensor argentino."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/premier-league/lisandro-martinez-es-apuntado-por-barcelona-en-medio-de-la-crisis-de-manchester-united-id769383.html",
-          "fecha": "2026-10-30T12:08:36.000Z",
-          "oficial": false,
-          "aporte": "Detalló el interés de Barcelona, la situación contractual del jugador y sus declaraciones críticas hacia la dirigencia."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-internacional/espana/lisandro-martinez-barcelona-manchester-united-refuerzo_0_8hoEJh4ZQr.html",
-          "fecha": "2026-10-30T10:28:39.000Z",
-          "oficial": false,
-          "aporte": "Aportó la posición actual de Manchester United en la Premier League y el interés del Atlético de Madrid."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/chau-manchester-united-liquidaron-idolos-lisandro-martinez-esta-mira-otro-gigante-europa-2026103010371",
-          "fecha": "2026-10-30T13:37:01.349Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/la-crisis-manchester-united-puede-acercar-lisandro-martinez-un-gigante-espana-n6339695",
-          "fecha": "2026-10-30T13:50:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "67w1t",
-          "titulo": "Wayne Rooney cruza con dureza a Lisandro Martínez y al plantel del Manchester United",
-          "fecha": "2026-10-28T15:36:44.000Z",
-          "ruta": "/nota/wayne-rooney-cruza-con-dureza-a-lisandro-martinez-y-al-plantel-del-67w1t"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "barcelona-apunta-a-lisandro-martinez-en-medio-de-la-crisis-de",
-      "foto": {
-        "archivo": "fotos-notas/cg1pu2.jpg",
-        "credito": "Foto: TyC Sports"
-      }
-    },
-    {
       "id": "3i7b7w",
       "titulo": "Proponen cinco ideas de disfraces rápidos para festejar Halloween",
       "copete": "La celebración de Halloween reúne distintas propuestas para armar trajes sencillos en pocos minutos. Las tendencias de 2026 combinan personajes clásicos, referencias a series y opciones con ropa del placard.",
@@ -2682,6 +2645,289 @@
       "foto": {
         "archivo": "fotos-notas/3i7b7w.jpg",
         "credito": "Foto: TyC Sports"
+      }
+    },
+    {
+      "id": "bshfdc",
+      "titulo": "El Senado aprueba la reforma de la Ley de Salud Mental",
+      "copete": "La Cámara alta dio media sanción a los cambios en la normativa sanitaria y a un régimen de inversiones. La iniciativa pasó a Diputados.",
+      "cuerpo": "El Senado de la Nación aprobó este viernes la reforma de la Ley Nacional de Salud Mental 26.657, vigente desde 2010, y el Régimen de Incentivos para Inversiones Relevantes, conocido como RIIR. La iniciativa sanitaria obtuvo 42 votos afirmativos y 21 negativos durante la madrugada, tras un debate atravesado por cuestionamientos sobre el financiamiento provincial y los criterios de internación.\n\nEl proyecto modifica los requisitos para las internaciones involuntarias y reemplaza el concepto de riesgo cierto e inminente por el de riesgo grave para la vida o la integridad física. Asimismo, la normativa mantiene la prohibición de crear manicomios, incorpora a la ludopatía dentro de las adicciones y habilita las teleconsultas psiquiátricas.\n\nDurante la discusión parlamentaria, el oficialismo introdujo modificaciones para reunir los respaldos necesarios, exigiendo que la indicación de una internación involuntaria sea firmada por un médico y un psicólogo. Por su parte, el ministro de Salud de la Nación, Mario Lugones, celebró la media sanción y la definió como un avance para los pacientes y sus familias.\n\nEn contraposición, legisladores de bloques opositores y mandatarios provinciales advirtieron sobre la falta de partidas presupuestarias suficientes para afrontar las nuevas responsabilidades sanitarias en los distritos. En tanto, el régimen de incentivos para inversiones contempla proyectos productivos desde los 12 millones de dólares con beneficios fiscales para maquinaria y obras.\n\nAmbos proyectos giraron a la Cámara de Diputados para continuar con su tratamiento legislativo.",
+      "guion": "El Senado aprueba la reforma de la Ley de Salud Mental.",
+      "seccion": "Política",
+      "medios": [
+        "La Nación",
+        "Clarín",
+        "TN (Todo Noticias)",
+        "El Destape",
+        "A24",
+        "Crónica",
+        "Canal 26",
+        "Diario Popular",
+        "El Día",
+        "La Verdad",
+        "Infobrisas (Radio Brisas)",
+        "El Eco de Tandil",
+        "Ámbito",
+        "C5N",
+        "Minuto Uno",
+        "Los Andes (Mendoza)",
+        "elDiarioAR",
+        "Radio Mitre",
+        "El Cronista"
+      ],
+      "enlace": "https://radiomitre.cienradios.com/politica/el-senado-tratara-la-reforma-de-la-ley-de-salud-mental-y-un-regimen-de-incentivos-para-grandes-empresas/",
+      "fecha": "2026-10-30T09:38:14.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-30T16:05:49.563Z",
+      "relevancia": 51,
+      "local": false,
+      "muyContada": {
+        "medios": 17,
+        "porque": "17 medios",
+        "desde": "2026-10-30T16:05:49.563Z"
+      },
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El Senado aprobó la reforma de la Ley de Salud Mental con 42 votos a favor y 21 en contra.",
+        "La iniciativa modifica los criterios de internación involuntaria y prohíbe los manicomios.",
+        "La Cámara alta también dio media sanción al régimen de incentivos para inversiones desde los 12 millones de dólares.",
+        "Ambos proyectos fueron girados a la Cámara de Diputados."
+      ],
+      "seSabe": [
+        "El Senado aprobó la reforma de la Ley de Salud Mental con 42 votos afirmativos y 21 negativos.",
+        "La iniciativa modifica los criterios de internación involuntaria hacia el concepto de riesgo grave de daño.",
+        "Se aprobó el Régimen de Incentivos para Inversiones Relevantes para proyectos desde los 12 millones de dólares.",
+        "El ministro de Salud de la Nación, Mario Lugones, celebró la sanción de la medida."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó cuándo tratará la Cámara de Diputados las iniciativas con media sanción."
+      ],
+      "textoRedes": "El Senado aprobó la reforma de la Ley de Salud Mental y un régimen de incentivos para inversiones. Los proyectos pasaron a Diputados.",
+      "etiquetas": [
+        "Senado",
+        "Salud Mental",
+        "Inversiones",
+        "Diputados",
+        "Politica"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/politica/el-senado-tratara-la-reforma-de-la-ley-de-salud-mental-y-un-regimen-de-incentivos-para-grandes-empresas/",
+          "fecha": "2026-10-29T10:13:39.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/ley-de-salud-mental-cuales-son-los-cambios-aprobados-en-el-senado-nid30102026/",
+          "fecha": "2026-10-30T14:29:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/politica/senado-aprobo-reforma-ley-nacional-salud-mental-impulsada-gobierno_0_1FR3USonuI.html",
+          "fecha": "2026-10-30T04:28:26.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/politica/con-cambios-de-ultimo-momento-el-senado-debate-la-reforma-a-la-ley-de-salud-mental-nid29102026/",
+          "fecha": "2026-10-30T03:59:44.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/politica/2026/10/29/el-senado-trata-la-ley-de-salud-mental-y-un-proyecto-de-incentivo-de-inversiones-para-grandes-empresas/",
+          "fecha": "2026-10-30T15:42:10.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre el rechazo del ministro de Salud bonaerense, Nicolás Kreplak, a la reforma."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/politica/2026/10/30/el-senado-aprobo-la-reforma-de-salud-mental-las-concesiones-de-patricia-bullrich-para-conseguir-el-apoyo-de-los-aliados/",
+          "fecha": "2026-10-30T08:00:01.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/politica/2026/10/29/el-senado-tratara-la-ley-de-salud-mental-y-un-proyecto-de-incentivo-de-inversiones-para-grandes-empresas/",
+          "fecha": "2026-10-29T17:51:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/el-senado-aprobo-la-reforma-de-la-ley-de-salud-mental-segun-el-gobierno-la-deuda-con-el-cottolengo-nid30102026/",
+          "fecha": "2026-10-30T11:17:44.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/politica/senado-aprobo-tres-reformas-clave-fuertes-criticas-ajuste-impacto-fiscal-2026103083326",
+          "fecha": "2026-10-30T11:33:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló los posicionamientos de los bloques opositores y las críticas por la falta de recursos provinciales."
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/politica/el-senado-dio-media-sancion-al-regimen-incentivos-inversiones-los-us12-millones-n1611625",
+          "fecha": "2026-10-29T23:57:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/politica/el-senado-debate-la-reforma-la-ley-salud-mental-y-un-regimen-incentivos-grandes-inversiones-n1611504",
+          "fecha": "2026-10-29T18:52:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/lugones-celebro-la-media-sancion-de-la-reforma-de-salud-mental-un-avance-para-los-pacientes-y-sus-familias/",
+          "fecha": "2026-10-30T14:42:22.000Z",
+          "oficial": false,
+          "aporte": "Registró las declaraciones del ministro de Salud nacional, Mario Lugones."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/el-senado-aprobo-en-general-la-reforma-de-la-ley-de-salud-mental/",
+          "fecha": "2026-10-30T04:58:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/politica/2026/10/29/el-senado-debate-la-reforma-de-la-ley-de-salud-mental-los-puntos-claves-de-la-iniciativa-y-que-otros-proyectos-se-trataran-en-el-congreso/",
+          "fecha": "2026-10-30T09:51:52.000Z",
+          "oficial": false,
+          "aporte": "Aportó los detalles sobre los votos, los cambios en las internaciones y el régimen de inversiones RIIR."
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/politica/el-senado-aprobo-general-la-reforma-la-ley-salud-mental-n927022",
+          "fecha": "2026-10-30T12:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/el-senado-aprobo-los-cambios-a-la-ley-de-salud-mental-que-impulsa-el-gobierno-politica-y-economia_1793359212",
+          "fecha": "2026-10-30T11:20:12.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Verdad",
+          "enlace": "https://laverdadonline.com/el-senado-aprobo-una-reforma-de-la-ley-de-salud-mental/",
+          "fecha": "2026-10-30T15:23:20.000Z",
+          "oficial": false,
+          "aporte": "Precisó los cambios respecto a la ley anterior 26.657 y la intervención de profesionales."
+        },
+        {
+          "medio": "Infobrisas (Radio Brisas)",
+          "enlace": "https://www.infobrisas.com/noticias/2026/10/30/113172-reforma-de-la-ley-de-salud-mental-el-senado-aprobo-el-proyecto-con-42-votos-a-favor",
+          "fecha": "2026-10-30T10:34:25.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/politica/el-senado-aprobo-la-reforma-de-la-ley-de-salud-mental-y-el-proyecto-paso-a-diputados",
+          "fecha": "2026-10-30T11:51:57.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/politica/el-senado-aprobo-la-reforma-la-ley-salud-mental-y-el-proyecto-paso-diputados-n6339633",
+          "fecha": "2026-10-30T11:58:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/politica/tras-una-extensa-sesion-el-senado-le-dio-media-sancion-la-reforma-la-ley-salud-mental-n252967",
+          "fecha": "2026-10-30T03:55:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/politica/el-senado-dio-media-sancion-cambios-la-ley-salud-mental-todas-las-modificaciones-n6339654",
+          "fecha": "2026-10-30T13:30:51.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/el-senado-dio-luz-verde-la-reforma-la-ley-salud-mental-los-cambios-aprobados-n6012362",
+          "fecha": "2026-10-30T10:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/el-senado-debate-la-reforma-la-ley-salud-mental-reclamos-presupuestarios-n6012292",
+          "fecha": "2026-10-30T00:14:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "elDiarioAR",
+          "enlace": "https://www.eldiarioar.com/politica/senado-aprobo-general-reforma-ley-salud-mental-habilita-internaciones-involuntarias_1_13626441.html",
+          "fecha": "2026-10-30T09:38:14.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/sociedad/acuerdo-puntos-clave-senado-debate-hoy-proyecto-cambiar-polemica-ley-salud-mental_0_ScgzsohWTj.html",
+          "fecha": "2026-10-29T16:54:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/economia-politica/senado-el-oficialismo-busca-aprobar-el-nuevo-regimen-de-incentivos-para-pymes-y-salud-mental/",
+          "fecha": "2026-10-29T17:13:51.115Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/politica/el-senado-debate-la-reforma-salud-mental-y-un-nuevo-regimen-inversiones-n926838",
+          "fecha": "2026-10-29T20:01:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "tp23to",
+          "titulo": "El Senado debate la reforma de la ley de Salud Mental e internaciones",
+          "fecha": "2026-10-28T19:57:49.000Z",
+          "ruta": "/nota/el-senado-debate-la-reforma-de-la-ley-de-salud-mental-e-internaciones-tp23to"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron 19 medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-senado-aprueba-la-reforma-de-la-ley-de-salud-mental",
+      "foto": {
+        "archivo": "fotos-notas/bshfdc.jpg",
+        "credito": "Foto: Radio Mitre"
       }
     },
     {
@@ -3183,6 +3429,7 @@
       "medios": [
         "0223 (Mar del Plata)",
         "TN (Todo Noticias)",
+        "El Destape",
         "Perfil",
         "A24",
         "TyC Sports",
@@ -3213,8 +3460,8 @@
       "relevancia": 78,
       "local": false,
       "muyContada": {
-        "medios": 22,
-        "porque": "22 medios",
+        "medios": 23,
+        "porque": "23 medios",
         "desde": "2026-10-30T11:31:20.328Z"
       },
       "publicadaPor": null,
@@ -3484,6 +3731,20 @@
           "medio": "La Verdad",
           "enlace": "https://laverdadonline.com/el-emotivo-video-que-compartio-boca-en-un-nuevo-aniversario-del-nacimiento-de-maradona/",
           "fecha": "2026-10-30T14:53:02.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/10/30/el-emotivo-video-de-la-seleccion-argentina-para-diego-maradona-en-el-dia-de-su-cumpleanos-numero-66/",
+          "fecha": "2026-10-30T15:33:53.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/feliz-navidad-redes-recuerdan-diego-maradona-dia-cumpleanos-20261030105056",
+          "fecha": "2026-10-30T13:50:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3784,6 +4045,88 @@
         "sugeridoPorIA": null
       },
       "slug": "sancionan-a-estudiantes-con-una-multa-millonaria-por-la-presencia-de"
+    },
+    {
+      "id": "cvoeyu",
+      "titulo": "Martitegui se descompone en MasterChef Celebrity por nuez moscada",
+      "copete": "El jurado del reality de cocina advirtió sobre la peligrosidad de consumir ese condimento en exceso tras probar el plato de un participante. Migliore recibió el delantal gris.",
+      "cuerpo": "Durante una nueva emisión del reality culinario MasterChef Celebrity, conducido por Wanda Nara, el jurado dispuso un cambio imprevisto de canastas de ingredientes entre los participantes que modificó las preparaciones originales.\n\nAl probar la preparación, el chef Germán Martitegui expresó un malestar físico y alertó sobre la presencia excesiva de nuez moscada. \"No me siento bien... ¡Tiene mucha nuez moscada esto! Y es peligroso\", exclamó frente a sus compañeros, Maru Botana y Damián Betular, y a la conductora.\n\nAnte la consulta de Wanda Nara sobre las consecuencias de una posible intoxicación, Betular leyó los efectos asociados al consumo de grandes cantidades de ese condimento: alucinaciones, confusión, desorientación, taquicardia, ansiedad, somnolencia intensa y problemas cardiovasculares y neurológicos. Tras la advertencia, que el participante respondió con una broma sobre llamar al servicio de emergencias, el jurado realizó las devoluciones técnicas.\n\nBetular señaló que el apanado y la fritura estaban correctos, pero cuestionó la ubicación de la salsa, mientras que Botana criticó la textura del puré por presentar grumos. Debido al desempeño general de la noche, Migliore recibió el delantal gris y quedó entre los concursantes que deberán participar en la gala de última chance.",
+      "guion": "Martitegui se descompone en MasterChef Celebrity por nuez moscada.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "Los Andes (Mendoza)",
+        "La Nación"
+      ],
+      "enlace": "https://www.lanacion.com.ar/espectaculos/television/masterchef-celebrity-no-me-siento-bien-aseguro-martitegui-despues-de-probar-un-plato-con-exceso-de-nid30102026/",
+      "fecha": "2026-10-30T06:11:24.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-30T16:05:49.563Z",
+      "relevancia": 37,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Martitegui experimentó un malestar tras probar un plato con exceso de nuez moscada.",
+        "El jurado detalló que el consumo elevado de ese condimento puede causar alucinaciones y taquicardia.",
+        "Migliore recibió el delantal gris y competirá en la instancia de última chance.",
+        "La competencia culinaria incluyó un intercambio obligatorio de ingredientes entre los participantes."
+      ],
+      "seSabe": [
+        "Germán Martitegui advirtió sobre el peligro de un exceso de nuez moscada en el plato de Pablo Migliore.",
+        "Damián Betular enumeró los síntomas de la intoxicación con ese condimento, como alucinaciones y taquicardia.",
+        "Pablo Migliore recibió el delantal gris tras su participación en el programa.",
+        "La producción implementó un cambio de canastas de ingredientes entre los concursantes."
+      ],
+      "textoRedes": "Germán Martitegui se descompuso en MasterChef Celebrity al probar un plato con exceso de nuez moscada. El jurado advirtió sobre los riesgos del condimento y Pablo Migliore recibió el delantal gris tras la devolución.",
+      "etiquetas": [
+        "MasterChef Celebrity",
+        "Germán Martitegui",
+        "Pablo Migliore",
+        "Damián Betular",
+        "Wanda Nara"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/espectaculos/television/masterchef-celebrity-no-me-siento-bien-aseguro-martitegui-despues-de-probar-un-plato-con-exceso-de-nid30102026/",
+          "fecha": "2026-10-30T06:11:24.000Z",
+          "oficial": false,
+          "aporte": "Detalló el desarrollo del programa, las devoluciones completas del jurado y las reacciones de los participantes al cambio de reglas."
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/espectaculos/el-peligroso-ingrediente-un-plato-masterchef-celebrity-que-intoxico-un-jurado-alucinaciones-n6012380",
+          "fecha": "2026-10-30T15:18:00.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre los síntomas específicos de la intoxicación con nuez moscada y la broma final del participante."
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1pvg2no",
+          "titulo": "MasterChef Celebrity define nuevos participantes en el balcón",
+          "fecha": "2026-10-29T12:25:15.000Z",
+          "ruta": "/nota/masterchef-celebrity-define-nuevos-participantes-en-el-balcon-1pvg2no"
+        },
+        {
+          "id": "1qs74wq",
+          "titulo": "MasterChef Celebrity lidera el rating de la televisión abierta",
+          "fecha": "2026-10-29T11:51:00.000Z",
+          "ruta": "/nota/masterchef-celebrity-lidera-el-rating-de-la-television-abierta-1qs74wq"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "martitegui-se-descompone-en-masterchef-celebrity-por-nuez-moscada",
+      "foto": {
+        "archivo": "fotos-notas/cvoeyu.jpg",
+        "credito": "Foto: La Nación"
+      }
     },
     {
       "id": "1i24gau",
@@ -4333,33 +4676,29 @@
       "seccion": "Tecnología",
       "medios": [
         "La Nación",
-        "DW Español",
         "TN (Todo Noticias)",
         "El Cronista",
-        "Perfil",
-        "A24",
         "iProfesional",
         "Noticias Argentinas (NA)",
-        "El Día",
         "La Nueva",
-        "La Tecla",
         "iProUP",
         "Ámbito",
         "C5N",
         "Minuto Uno",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
-        "elDiarioAR"
+        "elDiarioAR",
+        "Perfil"
       ],
       "enlace": "https://www.iprofesional.com/criptomonedas/467872-binance-congela-us3000-millones-por-posible-hackeo-y-afirma-que-los-fondos-estan-seguros",
       "fecha": "2026-10-30T01:57:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T04:01:44.633Z",
-      "relevancia": 59,
+      "relevancia": 56,
       "local": false,
       "muyContada": {
-        "medios": 18,
-        "porque": "18 medios",
+        "medios": 14,
+        "porque": "14 medios",
         "desde": "2026-10-30T04:01:44.633Z"
       },
       "publicadaPor": null,
@@ -4867,6 +5206,13 @@
           "fecha": "2026-10-30T14:04:09.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/racing/racing-espino-saja-predio-tita_0_shC9w4Nw9T.html",
+          "fecha": "2026-10-30T15:59:22.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -4888,9 +5234,9 @@
       "guion": "La Noche de las Heladerías se realiza el miércoles 18 de noviembre.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Clarín",
         "Radio Mitre",
-        "La Nación"
+        "La Nación",
+        "Clarín"
       ],
       "enlace": "https://www.lanacion.com.ar/que-sale/vuelve-la-noche-de-las-heladerias-2026-cuando-es-como-sera-el-2x1-en-mas-de-500-locales-y-cual-es-el-nid29102026/",
       "fecha": "2026-10-30T01:23:42.000Z",
@@ -5038,6 +5384,81 @@
       }
     },
     {
+      "id": "vrm0v3",
+      "titulo": "Atlético Mineiro pierde el clásico contra Cruzeiro y enciende las alarmas",
+      "copete": "El conjunto dirigido por Eduardo Domínguez cayó por 1-0 con un tanto temprano de Kaio Jorge. Durante el encuentro, el equipo sufrió las lesiones del defensor Vitao y del mediocampista Reinier a pocas semanas de la final continental.",
+      "cuerpo": "Atlético Mineiro cayó por 1-0 frente a Cruzeiro en el estadio Arena MRV de Belo Horizonte, en una nueva edición del clásico del fútbol brasileño. El único tanto del encuentro llegó rápidamente a los tres minutos del primer tiempo, cuando Kaio Jorge recibió un centro desde la derecha y definió para vencer al arquero Gabriel Delfim. Con este resultado, Cruzeiro se ubicó en la tercera posición del Brasileirao con 57 unidades, mientras que el conjunto dirigido por Eduardo Domínguez se mantiene en la zona de clasificación a la Copa Sudamericana.\n\nAdemás del marcador adverso, el conjunto perdedor sufrió dos bajas de consideración que generan preocupación pensando en el próximo compromiso internacional. El primer caso involucró al defensor Vitao, de 18 años, quien protagonizó un fuerte choque en su rostro contra su propio arquero durante el segundo tiempo al intentar despejar una pelota parada. El zaguero quedó tendido en el césped, requirió asistencia médica inmediata y debió ser retirado en camilla para ser trasladado en ambulancia a un centro de salud, ingresando Léo Duarte en su reemplazo.\n\nMinutos más tarde, el mediocampista ofensivo Reinier sintió una molestia física que le impedía apoyar el pie con normalidad, por lo que pidió el cambio y fue sustituido por Caua Soares.\n\nEl conjunto brasileño se prepara para disputar la final de la Copa Sudamericana 2026 frente a Boca Juniors. El encuentro definitorio se llevará a cabo el próximo sábado 21 de noviembre en el estadio Metropolitano Roberto Meléndez de la ciudad colombiana de Barranquilla.",
+      "guion": "Atlético Mineiro pierde el clásico contra Cruzeiro y enciende las alarmas.",
+      "seccion": "Fútbol",
+      "medios": [
+        "Olé",
+        "Bolavip Argentina",
+        "Minuto Uno"
+      ],
+      "enlace": "https://bolavip.com/ar/futbolsudamericano/atento-boca-atletico-mineiro-perdio-el-clasico-contra-cruzeiro",
+      "fecha": "2026-10-30T00:40:26.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-30T16:05:49.563Z",
+      "relevancia": 35,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "Atlético Mineiro cayó 1-0 ante Cruzeiro en el clásico de Belo Horizonte con gol tempranero de Kaio Jorge.",
+        "El defensor Vitao sufrió un fuerte golpe en el rostro tras chocar con su arquero y fue trasladado en ambulancia.",
+        "El volante Reinier debió pedir el cambio por una molestia muscular durante la segunda mitad del encuentro.",
+        "El equipo brasileño disputará la final de la Copa Sudamericana frente a Boca Juniors el 21 de noviembre en Barranquilla."
+      ],
+      "noConfirmado": [
+        "El diagnóstico médico oficial de Vitao todavía no fue informado, aunque medios locales indicaron que podría tratarse de una lesión cervical.",
+        "El grado de la lesión muscular de Reinier está pendiente de estudios médicos para confirmar si se trata de un desgarro."
+      ],
+      "textoRedes": "Atlético Mineiro cayó 1-0 ante Cruzeiro en el clásico y encendió las alarmas por las lesiones del defensor Vitao y el volante Reinier. El equipo se prepara para disputar la final de la Copa Sudamericana frente a Boca Juniors el próximo 21 de noviembre en Barranquilla.",
+      "etiquetas": [
+        "Atlético Mineiro",
+        "Cruzeiro",
+        "Copa Sudamericana",
+        "Boca Juniors",
+        "Fútbol Brasileño",
+        "Eduardo Domínguez"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/futbolsudamericano/atento-boca-atletico-mineiro-perdio-el-clasico-contra-cruzeiro",
+          "fecha": "2026-10-30T00:34:22.000Z",
+          "oficial": false,
+          "aporte": "Aportó información sobre el desarrollo temprano del partido, la ubicación en la tabla y los detalles geográficos de la final."
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/atleticomineiro-boca-copasudamericana-cruzeiro-eduardodominguez-vitao-gabrieldelfim-reinier_0_okI3oYjGCI.html",
+          "fecha": "2026-10-30T00:40:26.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la edad de Vitao, los reemplazos tácticos realizados por el cuerpo técnico y la actuación de Lucas Romero."
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/atento-boca-atletico-mineiro-perdio-el-clasico-cruzeiro-y-se-le-lesionaron-dos-jugadores-n6339768",
+          "fecha": "2026-10-30T15:48:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló las lesiones de Vitao y Reinier, el traslado en ambulancia y la situación del equipo en el torneo local."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "atletico-mineiro-pierde-el-clasico-contra-cruzeiro-y-enciende-las",
+      "foto": {
+        "archivo": "fotos-notas/vrm0v3.jpg",
+        "credito": "Foto: Bolavip Argentina"
+      }
+    },
+    {
       "id": "repaso20261029noche",
       "propia": "repaso",
       "titulo": "El repaso de la noche en Radar Balcarce: Virginia Aparicio, peaje y fútbol femenino",
@@ -5120,6 +5541,7 @@
         "Clarín",
         "El Cronista",
         "El Destape",
+        "Perfil",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
@@ -5132,8 +5554,7 @@
         "La Capital (Rosario)",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
-        "A24",
-        "Perfil"
+        "A24"
       ],
       "enlace": "https://www.lanacion.com.ar/sociedad/a-que-hora-llegan-las-tormentas-fuertes-a-buenos-aires-hoy-segun-el-smn-nid29102026/",
       "fecha": "2026-10-30T00:24:27.000Z",
@@ -5482,6 +5903,13 @@
           "fecha": "2026-10-30T14:54:53.172Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/sociedad/alerta-amarilla-por-tormentas-en-el-amba-como-sigue-el-clima-este-viernes-30-de-octubre-a50-aVSfM6l6fmj0",
+          "fecha": "2026-10-30T15:42:40.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -5604,11 +6032,6 @@
       "visto": "2026-10-30T01:31:57.382Z",
       "relevancia": 54,
       "local": false,
-      "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
-        "desde": "2026-10-30T03:01:22.101Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -5757,13 +6180,14 @@
       "medios": [
         "TyC Sports",
         "Olé",
+        "0221",
         "Agencia DIB"
       ],
       "enlace": "https://www.ole.com.ar/futbol-femenino/seleccion-femenina-argentina-alemania-reinauguracion-estadio-unico-plata_0_6iJ8S3GjNF.html",
       "fecha": "2026-10-29T23:06:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T09:51:52.216Z",
-      "relevancia": 51,
+      "relevancia": 54,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5814,6 +6238,13 @@
           "fecha": "2026-10-30T01:08:08.000Z",
           "oficial": false,
           "aporte": "Detalló los datos del amistoso, la fecha, las declaraciones de los entrenadores Portanova y Wück, y el estado de las obras del estadio."
+        },
+        {
+          "medio": "0221",
+          "enlace": "https://www.0221.com.ar/la-seleccion-argentina-jugara-un-amistoso-contra-alemania-el-estadio-unico-la-plata-n136658",
+          "fecha": "2026-10-30T15:31:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -7050,7 +7481,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "la-legislatura-portena-aprueba-por-unanimidad-la-ley-turco-garcia"
+      "slug": "la-legislatura-portena-aprueba-por-unanimidad-la-ley-turco-garcia",
+      "foto": {
+        "archivo": "fotos-notas/qnhnn2.jpg",
+        "credito": "Foto: Canal 26"
+      }
     },
     {
       "id": "wycpwb",
@@ -7417,7 +7852,11 @@
         "porque": "Lo contaron 7 medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "pronosticos-y-polemicas-en-la-previa-del-superclasico"
+      "slug": "pronosticos-y-polemicas-en-la-previa-del-superclasico",
+      "foto": {
+        "archivo": "fotos-notas/125rbr9.jpg",
+        "credito": "Foto: A24"
+      }
     },
     {
       "id": "f5dapo",
@@ -8050,13 +8489,15 @@
       "medios": [
         "TyC Sports",
         "Radio Mitre",
-        "Ámbito"
+        "0221",
+        "Ámbito",
+        "Minuto Uno"
       ],
       "enlace": "https://www.ambito.com/deportes/la-particular-camiseta-que-uso-franco-colapinto-la-previa-del-gp-mexico-un-guino-los-locales-n6339497",
       "fecha": "2026-10-29T20:24:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T21:02:10.330Z",
-      "relevancia": 63,
+      "relevancia": 69,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8121,6 +8562,20 @@
           "medio": "La Nueva",
           "enlace": "https://www.lanueva.com/nota/2026-10-29-16-3-0-mitad-y-mitad-el-look-de-colapinto-antes-del-inicio-del-gran-premio-de-mexico",
           "fecha": "2026-10-29T20:26:52.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "0221",
+          "enlace": "https://www.0221.com.ar/deportes/franco-colapinto-llego-al-gran-premio-mexico-una-camiseta-que-causo-sensacion-n136659",
+          "fecha": "2026-10-30T15:47:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/franco-colapinto-se-puso-una-llamativa-remera-fusionada-y-causo-sensacion-el-gran-premio-mexico-n6339448",
+          "fecha": "2026-10-29T20:31:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -8724,6 +9179,7 @@
       "seccion": "Economía",
       "medios": [
         "iProfesional",
+        "Agroempresario",
         "iProUP",
         "La Capital (Rosario)"
       ],
@@ -8731,7 +9187,7 @@
       "fecha": "2026-10-29T20:20:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T21:02:10.330Z",
-      "relevancia": 35,
+      "relevancia": 38,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8815,6 +9271,13 @@
           "medio": "iProUP",
           "enlace": "https://www.iproup.com/finanzas/72757-cuanto-ganaron-los-usuarios-de-mercado-pago-en-2025",
           "fecha": "2026-10-30T14:08:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Agroempresario",
+          "enlace": "https://agroempresario.com/publicacion/123235/marcos-galperin-avanza-con-el-proyecto-de-convertir-mercado-pago-en-banco/",
+          "fecha": "2026-10-30T16:27:06.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -9309,84 +9772,6 @@
       "slug": "esteban-prol-reemplaza-a-antonio-grimau-en-la-obra-votemos"
     },
     {
-      "id": "1177jgc",
-      "titulo": "Conmebol advierte por estafas con entradas para las finales de Boca y Estudiantes",
-      "copete": "La entidad emitió un comunicado para alertar a los hinchas sobre agencias no autorizadas que ofrecen paquetes de viaje. Recordó cuáles son los canales oficiales y detalló los precios de los tickets.",
-      "cuerpo": "La Confederación Sudamericana de Fútbol emitió un comunicado oficial el jueves para advertir al público sobre la venta de paquetes de viaje y entradas no oficiales para las definiciones continentales. La entidad remarcó que desconoce la autenticidad de los tickets ofrecidos por agencias de turismo fuera de las plataformas autorizadas y señaló que la única empresa habilitada para comercializar paquetes con hospitalidad es Absolut Sport.\n\nPara la Copa Libertadores, Estudiantes se enfrentará a Palmeiras en Montevideo el 28 de noviembre. En este torneo, los precios de las ubicaciones se fijaron en 340 dólares para la Categoría 1, 250 dólares para la Categoría 2 y 95 dólares para la Categoría 3, que corresponde al sector exclusivo para los hinchas del club platense.\n\nPor su parte, Boca se medirá ante Atlético Mineiro en Barranquilla el 21 de noviembre por la Copa Sudamericana. En este caso, los valores de las entradas son de 250 dólares para la Categoría 1, 180 dólares para la Categoría 2 y 90 dólares para la Categoría 3, destinada a los simpatizantes de ambas instituciones finalistas.\n\nLa adquisición de los tickets se realiza de forma exclusiva a través de los sitios web http://sudamericana.eleventickets.com y https://libertadores.eleventickets.com/. Desde la organización indicaron que la fecha de inicio para la venta de la categoría exclusiva para los simpatizantes de los equipos finalistas será informada próximamente mediante los canales oficiales, tras coordinar los detalles con cada club.",
-      "guion": "Conmebol advierte por estafas con entradas para las finales de Boca y Estudiantes.",
-      "seccion": "Fútbol",
-      "medios": [
-        "TyC Sports",
-        "Olé",
-        "0221"
-      ],
-      "enlace": "https://www.ole.com.ar/futbol-internacional/america/alerta-conmebol-finales-estudiantes-boca_0_oZHaT51Yoc.html",
-      "fecha": "2026-10-29T19:41:49.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T15:35:26.720Z",
-      "relevancia": 35,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Conmebol alertó sobre la venta de entradas falsas a través de agencias no autorizadas.",
-        "Estudiantes jugará la final de la Libertadores en Montevideo el 28 de noviembre.",
-        "Boca disputará la final de la Sudamericana en Barranquilla el 21 de noviembre.",
-        "Absolut Sport es la única agencia oficial autorizada para comercializar paquetes."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó la fecha exacta en la que comenzará la venta de entradas de Categoría 3 para los hinchas de los clubes finalistas."
-      ],
-      "textoRedes": "La Conmebol emitió una advertencia por la venta de entradas falsas y paquetes turísticos no oficiales para las finales continentales de Boca y Estudiantes. La entidad detalló cuáles son las plataformas autorizadas y los precios de los tickets.",
-      "etiquetas": [
-        "Conmebol",
-        "Boca Juniors",
-        "Estudiantes de La Plata",
-        "Copa Libertadores",
-        "Copa Sudamericana",
-        "Entradas"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-internacional/america/alerta-conmebol-finales-estudiantes-boca_0_oZHaT51Yoc.html",
-          "fecha": "2026-10-29T17:21:26.000Z",
-          "oficial": false,
-          "aporte": "Aportó detalles sobre el comunicado de la Conmebol, las plataformas oficiales, la empresa habilitada Absolut Sport y los precios de las entradas."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/boca-juniors/atentos-boca-y-estudiantes-la-advertencia-de-conmebol-para-los-hinchas-de-los-finalistas-de-sudamericana-y-libertadores-id769266.html",
-          "fecha": "2026-10-29T19:41:49.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre el lanzamiento de la advertencia de la Conmebol ante posibles ventas de entradas falsas."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/deportes/la-advertencia-la-conmebol-los-hinchas-estudiantes-y-boca-posibles-estafas-n136656",
-          "fecha": "2026-10-30T15:22:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó las fechas y sedes confirmadas para las finales de Boca y Estudiantes, además de los precios generales."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1cpn1v6",
-          "titulo": "Conmebol rechaza el reclamo de Flamengo y ratifica a Estudiantes en la final",
-          "fecha": "2026-10-28T18:41:51.000Z",
-          "ruta": "/nota/conmebol-rechaza-el-reclamo-de-flamengo-y-ratifica-a-estudiantes-en-1cpn1v6"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "conmebol-advierte-por-estafas-con-entradas-para-las-finales-de-boca-y"
-    },
-    {
       "id": "84sohh",
       "titulo": "El Gobierno municipal pide una prórroga para presentar el Presupuesto 2027",
       "copete": "El Ejecutivo solicitó una extensión del plazo al Concejo Deliberante para elevar el cálculo de gastos y recursos. La medida busca contar con más tiempo ante la falta de definiciones sobre las cuentas provinciales.",
@@ -9731,6 +10116,13 @@
           "medio": "Minuto Uno",
           "enlace": "https://www.minutouno.com/deportes/se-viene-el-var-semiautomatico-el-futbol-argentino-cuando-sera-su-estreno-n6339508",
           "fecha": "2026-10-29T21:40:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/cambio-historico-el-futbol-argentino-asi-funcionara-el-var-semiautomatico-n6339759",
+          "fecha": "2026-10-30T15:31:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -10885,7 +11277,7 @@
       "fecha": "2026-10-29T17:50:47.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T20:01:23.785Z",
-      "relevancia": 35,
+      "relevancia": 27,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11184,7 +11576,7 @@
       "fecha": "2026-10-29T17:28:54.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T14:01:44.796Z",
-      "relevancia": 39,
+      "relevancia": 31,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11344,16 +11736,16 @@
       "guion": "El Museo de Arte Tigre celebra dos décadas de historia cultural.",
       "seccion": "Política",
       "medios": [
-        "Página/12",
-        "Canal 26",
         "Agencia DIB",
-        "Perfil"
+        "Página/12",
+        "Perfil",
+        "Canal 26"
       ],
       "enlace": "https://www.pagina12.com.ar/2026/10/29/julio-zamora-en-el-20-aniversario-del-mat-este-museo-es-el-lugar-mas-emblematico-de-tigre/",
       "fecha": "2026-10-29T17:20:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T18:01:58.768Z",
-      "relevancia": 42,
+      "relevancia": 38,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11586,7 +11978,11 @@
         "porque": "Lo contaron 8 medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "la-justicia-ordena-preservar-registros-de-la-salida-de-flavio"
+      "slug": "la-justicia-ordena-preservar-registros-de-la-salida-de-flavio",
+      "foto": {
+        "archivo": "fotos-notas/cj8n2f.jpg",
+        "credito": "Foto: Ámbito"
+      }
     },
     {
       "id": "1d9smgw",
@@ -11604,7 +12000,7 @@
       "fecha": "2026-10-29T17:13:04.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T00:31:14.234Z",
-      "relevancia": 37,
+      "relevancia": 29,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -11752,7 +12148,7 @@
       "fecha": "2026-10-29T17:05:46.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T18:01:58.768Z",
-      "relevancia": 64,
+      "relevancia": 56,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -13120,11 +13516,6 @@
       "visto": "2026-10-29T16:13:24.745Z",
       "relevancia": 52,
       "local": false,
-      "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
-        "desde": "2026-10-29T16:25:56.825Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -14796,7 +15187,6 @@
         "A24",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "La Verdad",
         "El Eco de Tandil",
         "Ámbito",
         "Minuto Uno",
@@ -14809,6 +15199,7 @@
         "Radio Mitre",
         "Canal 26",
         "La Brújula 24",
+        "La Verdad",
         "elDiarioAR",
         "Clarín"
       ],
@@ -15396,6 +15787,7 @@
         "TN (Todo Noticias)",
         "Noticias Argentinas (NA)",
         "El Marplatense",
+        "Agroempresario",
         "Ámbito",
         "C5N",
         "La Capital (Rosario)",
@@ -15408,7 +15800,7 @@
       "fecha": "2026-10-29T14:10:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T16:13:24.745Z",
-      "relevancia": 39,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -15502,6 +15894,13 @@
           "medio": "C5N",
           "enlace": "https://www.c5n.com/economia/luis-caputo-el-verdadero-costo-argentino-son-los-impuestos-y-las-regulaciones-no-el-tipo-cambio-n252884",
           "fecha": "2026-10-29T14:46:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Agroempresario",
+          "enlace": "https://agroempresario.com/publicacion/123154/luis-caputo-destaco-el-impacto-del-rigi-en-la-economia-argentina/",
+          "fecha": "2026-10-29T16:17:17.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -16359,8 +16758,8 @@
       "guion": "Extienden hasta el viernes 6 de noviembre la actualización del Renspa.",
       "seccion": "Agro",
       "medios": [
-        "SENASA",
         "Agroverdad",
+        "SENASA",
         "Infocampo"
       ],
       "enlace": "https://www.argentina.gob.ar/noticias/se-extiende-hasta-el-viernes-6-de-noviembre-la-actualizacion-de-datos-en-el-renspa",
@@ -17187,6 +17586,7 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "TN (Todo Noticias)",
+        "El Cronista",
         "Radio Mitre",
         "Los Andes (Mendoza)"
       ],
@@ -17194,7 +17594,7 @@
       "fecha": "2026-10-29T11:20:31.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T08:01:56.099Z",
-      "relevancia": 26,
+      "relevancia": 31,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -17252,6 +17652,13 @@
           "fecha": "2026-10-29T14:50:00.000Z",
           "oficial": false,
           "aporte": "Detalla el uso del laurel detrás de la puerta y sus pautas de conservación."
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/informacion-gral/colocar-una-hoja-de-laurel-debajo-de-un-plato-blanco-el-31-de-octubre-por-que-lo-recomiendan-y-como-hacerlo/",
+          "fecha": "2026-10-30T15:38:45.041Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -17341,7 +17748,6 @@
         "La Nación",
         "TN (Todo Noticias)",
         "El Destape",
-        "A24",
         "TyC Sports",
         "Olé",
         "Crónica",
@@ -17361,6 +17767,7 @@
         "La Gaceta (Tucumán)",
         "Clarín",
         "Perfil",
+        "A24",
         "La Nueva"
       ],
       "enlace": "https://www.infobae.com/deportes/2026/10/29/a-la-espera-de-messi-y-cristiano-ronaldo-los-nombres-de-la-primera-lista-de-confirmados-para-el-partido-despedida-de-tevez-en-la-bombonera/",
@@ -18889,9 +19296,9 @@
       "guion": "El INTA amplía la evaluación del bienestar animal en bovinos con nuevos protocolos.",
       "seccion": "Agro",
       "medios": [
-        "INTA",
         "Agrositio",
-        "Agroempresario"
+        "Agroempresario",
+        "INTA"
       ],
       "enlace": "https://www.argentina.gob.ar/noticias/el-inta-amplia-la-evaluacion-del-bienestar-animal-en-bovinos",
       "fecha": "2026-10-29T09:34:49.000Z",
@@ -19466,9 +19873,9 @@
   "clima": {
     "ahora": {
       "temp": 19,
-      "sensacion": 19,
+      "sensacion": 18,
       "humedad": 67,
-      "viento": 12,
+      "viento": 11,
       "rumbo": "E",
       "cielo": "Nublado",
       "esDeDia": true

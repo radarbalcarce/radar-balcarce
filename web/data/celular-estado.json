@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T15:40:28.000Z",
- "portada": 183,
+ "generado": "2026-10-30T16:07:49.391Z",
+ "portada": 184,
  "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-30T15:40:28.892Z",
+  "generado": "2026-10-30T16:07:50.386Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T13:36:34.918Z"
    },
    {
@@ -43,8 +43,8 @@
     "que": "Tu nota",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-10-30T15:36:38.010Z"
    },
    {
     "nombre": "noticia2",
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T13:36:34.918Z",
     "segundos": null,
     "notas": [
@@ -126,13 +126,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 51,
     "notas": [
-     {
-      "id": "1h3gaol",
-      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "1y3axjf",
       "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
@@ -142,6 +137,11 @@
       "id": "1mxjex4",
       "titulo": "ARBal incorpora un nuevo canal de atención digital",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1h3gaol",
+      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "c3w5sv",
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 44,
+    "segundos": 42,
     "notas": [
      {
       "id": "1k9g8vu",
@@ -175,9 +175,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1a150ug",
-      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-      "seccion": "Tecnología"
+      "id": "5hmq87",
+      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+      "seccion": "Economía"
      }
     ]
    }
@@ -205,12 +205,6 @@
      "id": "5mwkfs",
      "titulo": "Gestionan que los exámenes para conductores profesionales sean",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1h3gaol",
-     "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
-     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -244,8 +238,14 @@
      "marcada": false
     },
     {
-     "id": "1df38y1",
-     "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas",
+     "id": "1h3gaol",
+     "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "mcrhzc",
+     "titulo": "La Provincia promulga la ley que habilita a las cooperativas a generar energía renovable",
      "seccion": "Economía",
      "marcada": false
     }
