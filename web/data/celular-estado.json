@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T18:03:00.247Z",
- "portada": 176,
- "archivo": 494,
- "esperandoCuerpo": 50,
+ "generado": "2026-10-30T18:53:21.285Z",
+ "portada": 173,
+ "archivo": 485,
+ "esperandoCuerpo": 49,
  "redes": {
-  "generado": "2026-10-30T18:03:00.711Z",
+  "generado": "2026-10-30T18:53:21.773Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -99,7 +99,7 @@
     "notas": [
      {
       "id": "5mwkfs",
-      "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+      "titulo": "Gestionan que los conductores profesionales puedan rendir sus exámenes en la ciudad",
       "seccion": "Balcarce"
      },
      {
@@ -109,7 +109,7 @@
      },
      {
       "id": "dqa51l",
-      "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
+      "titulo": "Murió Patrick Stewart, el legendario capitán de Star Trek y Profesor X de X-Men",
       "seccion": "Cultura y agenda"
      },
      {
@@ -126,11 +126,11 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 53,
     "notas": [
      {
-      "id": "1y3axjf",
-      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
+      "id": "m75zbl",
+      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
       "seccion": "Deportes"
      },
      {
@@ -140,13 +140,13 @@
      },
      {
       "id": "14267ce",
-      "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
+      "titulo": "Conductas preventivas en la vía pública y en las viviendas",
       "seccion": "Balcarce"
      },
      {
-      "id": "c3w5sv",
-      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
-      "seccion": "Fútbol"
+      "id": "1s07l6f",
+      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,22 +157,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1s7htpl",
-      "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
+      "id": "1y3axjf",
+      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
       "seccion": "Deportes"
      },
      {
-      "id": "1epe8uw",
-      "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
-      "seccion": "Cultura y agenda"
+      "id": "tp23to",
+      "titulo": "El Senado debatirá la reforma de la Ley de Salud Mental, que habilita internaciones involuntarias",
+      "seccion": "Política"
      },
      {
-      "id": "1s07l6f",
-      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
-      "seccion": "Automovilismo"
+      "id": "c3w5sv",
+      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
+      "seccion": "Fútbol"
      },
      {
       "id": "1a150ug",
@@ -203,30 +203,23 @@
      "id": "1mxjex4",
      "titulo": "ARBal incorpora un nuevo canal de atención digital",
      "cuando": "2026-10-30T16:36:01.902Z"
+    },
+    {
+     "id": "1s7htpl",
+     "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
+     "cuando": "2026-10-30T18:36:03.185Z"
     }
    ],
    "cola": [
     {
      "id": "5mwkfs",
-     "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+     "titulo": "Gestionan que los conductores profesionales puedan rendir sus exámenes en la ciudad",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
      "id": "1y3axjf",
      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "1s7htpl",
-     "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "1k9g8vu",
-     "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
      "seccion": "Deportes",
      "marcada": false
     },
@@ -249,14 +242,20 @@
      "marcada": false
     },
     {
-     "id": "mcrhzc",
-     "titulo": "La Provincia promulga la ley que habilita a las cooperativas a generar energía renovable",
-     "seccion": "Economía",
+     "id": "1yi5w1z",
+     "titulo": "Javier Milei recibe al papa León XIV en Aeroparque y evalúan la cadena nacional",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1r3wtoi",
+     "titulo": "Boca y River juegan el Superclásico con mil efectivos de seguridad",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-30T18:06:01.902Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-30T20:06:03.185Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
