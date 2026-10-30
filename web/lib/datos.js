@@ -462,6 +462,8 @@ export const MAIL_REDACCION = 'redaccion@radarbalcarce.com';
 export const REDES_SOCIALES = {
   instagram: 'https://www.instagram.com/radarbalcarce',
   facebook: 'https://www.facebook.com/profile.php?id=61594865361170',
+  tiktok: 'https://www.tiktok.com/@radarbalcarce',
+  youtube: 'https://www.youtube.com/@radarbalcarce',
 };
 
 // ------------------------------------------------------------- secciones
