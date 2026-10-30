@@ -1,11 +1,26 @@
 {
-  "placa": {
-    "tipo": "efemeride",
-    "rotulo": "Fiesta Nacional del Postre",
-    "grande": "30·31·1",
-    "titulo": "Es este fin de semana, reprogramada",
-    "cuerpo": "Viernes 30 y sábado 31 de octubre, domingo 1° de noviembre. Sociedad Rural. Entrada libre y gratuita, con transporte desde el centro.",
-    "seccion": "Balcarce"
-  },
-  "guion": "Buen día, Balcarce. Este fin de semana vuelve la Fiesta Nacional del Postre. Se había postergado por el mal tiempo y ahora se hace el viernes 30 y el sábado 31 de octubre, y el domingo primero de noviembre, en el predio de la Sociedad Rural. Hay demostraciones de pasteleros y cocineros, degustaciones, shows y puestos de emprendedores. La entrada es libre y gratuita, y hay transporte desde el centro. Radar Balcarce punto com."
+  "rotulo": "Fiesta Nacional del Postre",
+  "placas": [
+    {
+      "foto": "fotos-notas/1h3b7f0.jpg",
+      "credito": "Foto: La Noticia 1 (edición anterior)",
+      "seccion": "Balcarce",
+      "titular": "Vuelve la Fiesta Nacional del Postre"
+    },
+    {
+      "foto": "fotos-notas/lwbp0b.jpg",
+      "credito": "Foto: Radio Mitre (edición anterior)",
+      "seccion": "Balcarce",
+      "titular": "Viernes 30, sábado 31 y domingo 1° en la Sociedad Rural",
+      "marca": "Se hace el viernes"
+    },
+    {
+      "foto": "fotos-notas/1h3b7f0.jpg",
+      "credito": "Foto: La Noticia 1 (edición anterior)",
+      "seccion": "Balcarce",
+      "titular": "Entrada libre y gratuita, con transporte desde el centro",
+      "marca": "La entrada es libre"
+    }
+  ],
+  "guion": "Buen día, Balcarce. Este fin de semana vuelve la Fiesta Nacional del Postre, que se había postergado por el mal tiempo. Se hace el viernes 30 y el sábado 31 de octubre, y el domingo primero de noviembre, en el predio de la Sociedad Rural. Hay demostraciones de pasteleros y cocineros, degustaciones, shows y puestos de emprendedores. La entrada es libre y gratuita, y hay transporte desde el centro. Radar Balcarce punto com."
 }
