@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T20:33:36.933Z",
- "portada": 199,
- "archivo": 500,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-30T21:05:41.682Z",
+ "portada": 196,
+ "archivo": 499,
+ "esperandoCuerpo": 22,
  "redes": {
-  "generado": "2026-10-30T20:33:37.380Z",
+  "generado": "2026-10-30T21:05:42.079Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T20:36:50.775Z"
    },
    {
     "nombre": "farmacia",
@@ -125,18 +125,18 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 50,
+    "salio": "2026-10-30T20:36:50.775Z",
+    "segundos": null,
     "notas": [
-     {
-      "id": "1messk8",
-      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "1y3axjf",
       "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1h3gaol",
+      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "14267ce",
@@ -144,9 +144,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "tp23to",
-      "titulo": "El Senado debatirá la reforma de la Ley de Salud Mental, que habilita internaciones involuntarias",
-      "seccion": "Política"
+      "id": "c3w5sv",
+      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
      {
       "id": "1qobb2a",
@@ -165,19 +165,19 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "xqokjo",
+      "titulo": "Alumnos de la Escuela N° 3 abren la Fiesta Nacional del Postre",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
      },
      {
-      "id": "c3w5sv",
-      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1s07l6f",
-      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
-      "seccion": "Automovilismo"
+      "id": "1a150ug",
+      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
+      "seccion": "Tecnología"
      }
     ]
    }
@@ -212,12 +212,6 @@
    ],
    "cola": [
     {
-     "id": "1messk8",
-     "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "1qobb2a",
      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
      "seccion": "Cultura y agenda",
@@ -230,9 +224,9 @@
      "marcada": false
     },
     {
-     "id": "1ol3gzw",
-     "titulo": "Marcelo Dalto recuerda su trabajo junto a Diego Maradona en la Selección",
-     "seccion": "Fútbol",
+     "id": "1messk8",
+     "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -256,6 +250,12 @@
     {
      "id": "9bos29",
      "titulo": "La Liga Balcarceña suspende los partidos de este viernes",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "como39",
+     "titulo": "La Selección argentina confirma las sedes para los amistosos de noviembre",
      "seccion": "Fútbol",
      "marcada": false
     }

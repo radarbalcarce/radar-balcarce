@@ -53510,12 +53510,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Enzo Fernández confirma su deseo de volver a River en el futuro",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T19:33:02.300Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 2,
+  "fuentes": 8,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ooa5pe": {
   "archivo": "fotos-notas/ooa5pe.jpg",
@@ -53724,12 +53723,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T22:03:18.227Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 2,
+  "fuentes": 5,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "lh8na0": {
   "archivo": "fotos-notas/lh8na0.jpg",
@@ -54063,12 +54061,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Banco Macro lanza un programa de recompra de acciones por hasta $160.000 millones",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T03:01:55.380Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "117li7s": {
   "archivo": "fotos-notas/117li7s.jpg",
@@ -56674,10 +56671,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "WhatsApp incorpora nuevas herramientas para los chats grupales",
-  "razon": "La mejor foto era la de A24, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-30T13:32:31.972Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "pp6h67": {
   "archivo": "fotos-notas/pp6h67.jpg",
@@ -56941,12 +56939,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El papa León XIV vota por correo en las elecciones de Estados Unidos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T17:33:26.411Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ocwksr": {
   "archivo": "fotos-notas/ocwksr.jpg",
@@ -56988,12 +56985,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Javier Milei recibe al papa León XIV en Aeroparque y evalúan la cadena nacional",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T18:52:30.101Z",
-  "intentos": 2,
-  "fuentes": 16,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 3,
+  "fuentes": 17,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "xgqvhl": {
   "archivo": "fotos-notas/xgqvhl.jpg",
@@ -57710,7 +57706,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:35.540Z",
-  "imagenOriginal": "https://media.tycsports.com/files/2026/09/23/990180/insua_1440x810.webp?v=1"
+  "imagenOriginal": "https://media.tycsports.com/files/2026/09/23/990180/insua_1440x810.webp?v=1",
+  "ausenteDesde": "2026-10-30T21:05:41.621Z"
  },
  "1uaedcl": {
   "archivo": "fotos-notas/1uaedcl.jpg",
@@ -58120,5 +58117,45 @@
   "intentos": 1,
   "fuentes": 14,
   "intentosPorCupo": 1
+ },
+ "phmmol": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Senado da media sanción a la reforma de la Ley de Salud Mental",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 1,
+  "fuentes": 28,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "va1w22": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River afronta múltiples bajas por lesión para el Superclásico ante Boca",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "gpghgh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Fallece el actor Patrick Stewart a los 86 años en Los Angeles",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 1,
+  "fuentes": 54,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "2rs9xh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River llega al Superclásico con tres bajas confirmadas y una duda",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-10-30T21:02:58.062Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  }
 }
