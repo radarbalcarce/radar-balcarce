@@ -936,11 +936,6 @@
    "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
   ]
  },
- "15n24pt": {
-  "intentos": 3,
-  "ultimo": "2026-10-23T12:44:12.221Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 396.000.000 y la fuente no lo dice"
- },
  "15q3x7r": {
   "intentos": 1,
   "ultimo": "2026-10-27T13:03:41.814Z",
@@ -2616,11 +2611,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1f59ye": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T12:44:12.221Z",
-  "motivo": "con cuerpo"
- },
  "1f6vexf": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -3057,6 +3047,13 @@
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
+ },
+ "1hm7pmc": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "1hmc6g3": {
   "intentos": 1,
@@ -4081,18 +4078,15 @@
   "numeradas": 3
  },
  "1mxjex4": {
-  "intentos": 2,
-  "ultimo": "2026-10-30T12:32:11.014Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-  "textos": 1,
+  "intentos": 3,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (exagera): el título dice \"habilita\" y nin",
    "cuerpo: 1 problema (promesa): el título dice 24 y el cuerpo no lo expl",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1mzn6lw": {
@@ -4627,11 +4621,6 @@
    "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no "
   ]
  },
- "1parmnt": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T12:44:12.221Z",
-  "motivo": "con cuerpo"
- },
  "1pb80n7": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -4836,11 +4825,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "1qr79y1": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T12:44:12.221Z",
-  "motivo": "con cuerpo"
  },
  "1qs74wq": {
   "intentos": 1,
@@ -5407,11 +5391,6 @@
   "textos": 4,
   "numeradas": 4
  },
- "1thp85o": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T12:44:12.221Z",
-  "motivo": "con cuerpo"
- },
  "1ti07j3": {
   "intentos": 1,
   "ultimo": "2026-10-27T07:01:40.386Z",
@@ -5829,6 +5808,18 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1vkdfzw": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "verificación baja: espera a una persona",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "verificación baja: espera a una persona"
+  ],
+  "baja": true,
+  "fuentes": 1
  },
  "1vkor44": {
   "intentos": 2,
@@ -6394,6 +6385,13 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 8
+ },
+ "2af33e": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "2bnvxg": {
   "intentos": 1,
@@ -7776,19 +7774,19 @@
   ]
  },
  "ard8kc": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T12:32:11.014Z",
+  "intentos": 2,
+  "ultimo": "2026-10-30T13:01:48.700Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 2,
   "numeradas": 5,
   "motivos": [
    "título o bajada: 2 problemas (largo, negacion): el titulo tiene 99 car",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 1 problema (promesa): el título nombra a \"iglesia\", \"leon\", \"x",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"hito historico\"",
-   "la fuente niega algo en el título y el texto nuevo no",
-   "copia 18 palabras seguidas del original (\"del papa leon xiv a la argentina el coordinador general de la actividad en…\"): decilo con otras pa"
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "arh9k1": {
@@ -9194,6 +9192,13 @@
   "textos": 3,
   "numeradas": 5
  },
+ "jgpxe2": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "jldj10": {
   "intentos": 1,
   "ultimo": "2026-10-28T18:01:51.395Z",
@@ -9624,6 +9629,13 @@
    "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d"
   ]
  },
+ "lw6603": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "lwbp0b": {
   "intentos": 1,
   "ultimo": "2026-10-25T04:01:13.953Z",
@@ -9834,6 +9846,13 @@
    "cuerpo: 2 problemas (numero, copia): el cuerpo dice 60 y la fuente no ",
    "cuerpo: 3 problemas (numero, relleno, promesa): el cuerpo dice 60 y la"
   ]
+ },
+ "mynw3q": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "n3h2g9": {
   "intentos": 1,
@@ -11677,19 +11696,18 @@
   ]
  },
  "wh5ifk": {
-  "intentos": 2,
-  "ultimo": "2026-10-30T12:32:11.014Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
+  "intentos": 3,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica; sin esas oraciones quedan 264 palabras",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
-   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y",
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
-   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
+   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el",
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y"
   ],
   "falla": [
-   "el titulo tiene 91 caracteres, el máximo es 90",
    "el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica"
   ]
  },
@@ -11907,6 +11925,13 @@
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
+ },
+ "y2fncp": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:01:48.700Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "y7sjfl": {
   "intentos": 1,

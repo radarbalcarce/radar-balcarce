@@ -1,29 +1,7 @@
 {
- "generado": "2026-10-30T12:35:25.712Z",
+ "generado": "2026-10-30T13:04:04.985Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "1mxjex4",
-   "titulo": "Arbal incorpora un nuevo canal de atención digital",
-   "copete": "La Agencia de Recaudación Balcarce (ARBal) pone a disposición de los contribuyentes un nuevo canal de atención mediante un chatbot, con el objetivo de facilitar el acceso a la información y mejorar la comunicación con los vecinos. Esta herramienta permite realizar consultas a…",
-   "seccion": "Balcarce",
-   "fecha": "2026-10-30T11:46:10.000Z",
-   "fuentes": [
-    {
-     "medio": "Municipalidad de Balcarce",
-     "enlace": "https://balcarce.gob.ar/2026/10/30/arbal-incorpora-un-nuevo-canal-de-atencion-digital/",
-     "fecha": "2026-10-30T11:46:10.000Z"
-    },
-    {
-     "medio": "Radio Gabal (FM 104.1)",
-     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/arbal-incorporo-un-chatbot-para-atender-consultas-de-los-contribuyentes-por-whatsapp-las-24-horas",
-     "fecha": "2026-10-30T12:07:31.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
-  },
   {
    "id": "1u7fzx2",
    "titulo": "A dos años del derrumbe del hotel de Villa Gesell: el recuerdo de los dos balcarceños que perdieron la vida",
@@ -106,7 +84,7 @@
     {
      "medio": "TyC Sports",
      "enlace": "https://www.tycsports.com/river-plate/la-liga-profesional-anuncio-que-river-se-bajo-de-la-conferencia-id769319.html",
-     "fecha": "2026-10-29T22:28:08.000Z"
+     "fecha": "2026-10-30T12:52:38.000Z"
     },
     {
      "medio": "TyC Sports",
@@ -216,41 +194,9 @@
      "fecha": "2026-10-29T17:28:54.000Z"
     }
    ],
-   "intentos": 1,
+   "intentos": 2,
    "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
    "maximo": 4
-  },
-  {
-   "id": "wh5ifk",
-   "titulo": "ARCA prorroga nuevamente la declaración jurada de Ganancias: cuál es la fecha límite",
-   "copete": "La Agencia de Recaudación y Control Aduanero volvió a modificar el calendario de Ganancias para personas humanas y sucesiones indivisas",
-   "seccion": "Economía",
-   "fecha": "2026-10-29T17:13:31.585Z",
-   "fuentes": [
-    {
-     "medio": "iProfesional",
-     "enlace": "https://www.iprofesional.com/impuestos/467821-arca-prorroga-nuevamente-la-declaracion-jurada-de-ganancias-cual-es-la-fecha-limite",
-     "fecha": "2026-10-29T16:18:00.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/economia-politica/es-oficial-la-nueva-prorroga-de-arca-para-presentar-la-declaracion-jurada-de-ganancias-hasta-cuando-hay-tiempo/",
-     "fecha": "2026-10-30T11:28:09.635Z"
-    },
-    {
-     "medio": "El Eco de Tandil",
-     "enlace": "https://www.eleco.com.ar/economia/arca-prorroga-la-declaracion-jurada-de-ganancias-y-aclara-el-alcance-del-tapon-fiscal",
-     "fecha": "2026-10-29T21:42:06.000Z"
-    },
-    {
-     "medio": "El Cronista",
-     "enlace": "https://www.cronista.com/economia-politica/arca-extendio-el-vencimiento-de-ganancias-cual-es-la-nueva-fecha/",
-     "fecha": "2026-10-29T17:13:31.585Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
-   "maximo": 3
   }
  ],
  "descartadas": [
@@ -277,6 +223,14 @@
    "fecha": "2026-10-29T23:00:46.000Z",
    "intentos": 5,
    "motivo": "agotó los 5 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
+  },
+  {
+   "id": "wh5ifk",
+   "titulo": "ARCA prorroga nuevamente la declaración jurada de Ganancias: cuál es la fecha límite",
+   "seccion": "Economía",
+   "fecha": "2026-10-29T17:13:31.585Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica; sin esas oraciones quedan 264 palabras"
   },
   {
    "id": "oux973",

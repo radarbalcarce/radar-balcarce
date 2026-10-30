@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T12:35:25.712Z",
- "portada": 142,
+ "generado": "2026-10-30T13:04:04.985Z",
+ "portada": 148,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-30T12:35:26.577Z",
+  "generado": "2026-10-30T13:04:05.608Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T12:36:43.333Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,9 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
      {
       "id": "5mwkfs",
@@ -103,19 +103,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "kbhupz",
-      "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "m75zbl",
-      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
+      "id": "mynw3q",
+      "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
       "seccion": "Deportes"
      },
      {
       "id": "dqa51l",
       "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1d2n6l3",
+      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
      {
-      "id": "1r52nca",
-      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
+      "id": "1mxjex4",
+      "titulo": "ARBal incorpora un nuevo canal de atención digital",
       "seccion": "Balcarce"
      },
      {
-      "id": "1d2n6l3",
-      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
-      "seccion": "Argentina"
+      "id": "m75zbl",
+      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
+      "seccion": "Deportes"
      },
      {
       "id": "1epe8uw",
@@ -157,17 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
      {
-      "id": "14267ce",
-      "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
+      "id": "1r52nca",
+      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
       "seccion": "Balcarce"
      },
      {
-      "id": "1dd73iv",
-      "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
-      "seccion": "Economía"
+      "id": "1a150ug",
+      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
+      "seccion": "Tecnología"
      },
      {
       "id": "1oxthyw",
@@ -175,9 +175,9 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1a150ug",
-      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-      "seccion": "Tecnología"
+      "id": "5hmq87",
+      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+      "seccion": "Economía"
      }
     ]
    }
@@ -188,6 +188,11 @@
      "id": "z5zzy3",
      "titulo": "Dictan una master class de taekwondo",
      "cuando": "2026-10-30T11:06:03.502Z"
+    },
+    {
+     "id": "kbhupz",
+     "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
+     "cuando": "2026-10-30T12:46:09.689Z"
     }
    ],
    "cola": [
@@ -198,15 +203,27 @@
      "marcada": false
     },
     {
+     "id": "1mxjex4",
+     "titulo": "ARBal incorpora un nuevo canal de atención digital",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "mynw3q",
+     "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
      "id": "1r52nca",
      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "kbhupz",
-     "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
-     "seccion": "Fútbol",
+     "id": "lw6603",
+     "titulo": "Modifican las reglas de tránsito bonaerenses y las avenidas tienen prioridad",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -226,16 +243,10 @@
      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
      "seccion": "Economía",
      "marcada": false
-    },
-    {
-     "id": "1df38y1",
-     "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-30T12:36:03.502Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-30T14:16:09.689Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
