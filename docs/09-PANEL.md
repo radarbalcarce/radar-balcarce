@@ -147,8 +147,8 @@ Generate new token (el panel tiene el enlace directo):
 arranca en **Hoy** (desde el 8/10, `hoy.js`): lo que espera tu toque, los
 borradores de la IA, las notas sin foto, cómo viene el día en las redes y las
 pistas con novedad, cada uno con un atajo. **Sin cuerpo ya no es una pestaña**:
-desde el 2/10 va adentro de Esperan. Desde **Más** se abren siete tarjetas
-(`MENU_MAS`): **Borradores**, **Fotos**, **Contactos**, **Pistas**,
+desde el 2/10 va adentro de Esperan. Desde **Más** se abren ocho tarjetas
+(`MENU_MAS`): **Escribir una nota** (30/10; también es un botón de Hoy: sección «Escribir una nota»), **Borradores**, **Fotos**, **Contactos**, **Pistas**,
 **Revisión**, **Fechas** y **Números**, cada una con su "← Más" para volver.
 Cómo se llegó a esto: "El panel reordenado" (2/10), al final.
 
@@ -194,6 +194,7 @@ confirme. Deshacer no pregunta.
 | `web/data/retiradas.json` | Sólo **saca** una nota (nunca agrega) | Volver a publicar una nota que se retiró a mano ahí |
 | `web/data/celular-llaves.json` | Las llaves públicas de los celulares | La primera vez que entra cada celular |
 | `web/data/notas-de-pistas.json` | Las notas propias que nacen de una pista (con motivo, cuándo y quién, `aprobadaParaRedes` y `paraElRepaso`) | "Publicar como nota propia" |
+| `web/data/notas-de-redaccion.json` y `web/public/fotos-notas/redaccion-*` | Las notas que escribe una persona desde la pestaña Escribir (con motivo, cuándo y quién) y sus fotos | "Publicar", editar, retirar y volver a publicar (sección «Escribir una nota») |
 | `web/data/pistas.json` | El estado y el resultado de cada pista | Cerrar, reabrir, archivar, marcar vista una novedad |
 | `web/data/contactos-celular.json` | Los contactos propios y las anotaciones, cifrados | Sumar un contacto, "Ya le mandé el mensaje", "Respondió" |
 | `web/data/efemerides-elegidas.json` | Lo elegido en Fechas | Aprobar, sacar o pedir cambios en el mes armado |
@@ -299,7 +300,7 @@ repositorio con la llave de cada persona, y lo sensible viaja cifrado.
 | `web/public/panel/cifrado.js` | Crea las llaves del celular y abre los sobres | `app.js` | La llave privada del navegador | — |
 | `web/public/panel/sw.js`, `manifest.webmanifest` | Lo que lo vuelve una app instalable | Chrome | — | — |
 | `web/public/panel/prueba.js`, `prueba-sobre.js` | El modo de prueba (`?demo`), con los mismos archivos que arma la web | `app.js` | — | — |
-| `web/public/panel/hoy.js`, `borradores.js`, `fotos.js`, `contactos.js`, `pistas.js`, `revision.js`, `fechas.js`, `numeros.js`, `redes-estado.js`, `recorrido.js` | Lo que arma cada pantalla: Hoy, Borradores, Fotos, Contactos, Pistas, Revisión, Fechas, Números, el estado red por red de la pestaña Redes y el recorrido de una nota | `app.js` | Lo que ya leyó `app.js` | — (lo guarda `app.js` por `github.js`) |
+| `web/public/panel/escribir.js`, `hoy.js`, `borradores.js`, `fotos.js`, `contactos.js`, `pistas.js`, `revision.js`, `fechas.js`, `numeros.js`, `redes-estado.js`, `recorrido.js` | Lo que arma cada pantalla: Escribir, Hoy, Borradores, Fotos, Contactos, Pistas, Revisión, Fechas, Números, el estado red por red de la pestaña Redes y el recorrido de una nota | `app.js` | Lo que ya leyó `app.js` | — (lo guarda `app.js` por `github.js`) |
 | `panel/celular-datos.mjs` | Qué decide el celular (`problemaDeDecision`, `leerDecisionesCelular`), qué necesita (`paraDecidir`, `notasParaEscribir`) y la papelera (`papeleraAlDia`, `paraLaPapelera`) | `generar-datos.mjs`, `celular.mjs` | — | — (funciones puras) |
 | `panel/cifrado.mjs` | Cierra los sobres para cada celular (`cerrar`, `cerrarSiCambio`, `cerrarCadaUno`, `leerLlaves`) | `generar-datos.mjs`, `celular.mjs` | `celular-llaves.json` | — |
 | `redes/previa.mjs` | Lo que sale hoy en las redes, para la pestaña Redes (`previaDelDia`) | `generar-datos.mjs` | La portada, el libro, el archivo | — (lo escribe `generar-datos.mjs` en `celular-estado.json`) |
@@ -466,6 +467,67 @@ PC (que estaba apagada). Ahora, en **Más → Contactos** (`web/public/panel/con
 - **Seguimiento: en qué quedó cada pista.** Cada pista lleva su **seguimiento** (cuándo se empezó, cada novedad de cobertura, que se escribió un borrador,
   la nota, cómo se cerró) y su **resultado**: *se confirmó*, *se desmintió o era falsa*, *sin novedades*, *salió como nota nuestra* o *la descartamos*, con un
   comentario opcional. Se ve en el detalle de la pista y en la lista ("En qué quedó: …"). Reabrir la pista conserva todo. Pruebas: `nota-de-pista.test.mjs`.
+
+## Escribir una nota (30/10/2026)
+
+*Escrito y probado sin red el 30/10; falta probarlo con una llave de verdad en un celular (la primera nota real).* Hernán pidió poder publicar notas
+propias directamente desde el panel: pegar título, bajada y cuerpo, sumar la foto de portada y las que van entre los párrafos, y firmar con su nombre.
+Es la pestaña **Escribir**: está en **Más → Escribir una nota** y, además, es el botón grande de arriba de **Hoy**.
+
+**A diferencia de "Hacer la nota" de una pista, acá no interviene la IA ni el verificador**: lo que se escribe es lo que sale, con la firma de quien
+escribe. Por eso el formulario recuerda arriba: *No publiques nombres ni fotos de menores ni de víctimas de delitos sexuales o violencia de género*
+(la responsabilidad es de quien escribe; no se bloquea nada, pero pregunta antes de publicar).
+
+### Paso a paso
+
+1. **Abrí Más → Escribir una nota** (o el botón de Hoy).
+2. **Título, bajada y cuerpo.** Pegá o escribí. Los párrafos se separan con **una línea en blanco**. El cuerpo tiene que tener **30 palabras o más** (el
+   mínimo contra un accidente; las notas automáticas piden 70). El título, mejor hasta 90 caracteres (en Google y WhatsApp se corta; el panel avisa).
+3. **Sección** (las catorce; por defecto Balcarce) y **Firma**: por defecto *Hernán Accomo*; el panel se acuerda de la última que usaste en ese celular. En la
+   web sale arriba como “Por Hernán Accomo” y al pie como “Por Hernán Accomo, de la redacción de Radar Balcarce”; en los datos para Google, el autor es esa persona.
+4. **Foto de portada** (opcional): la imagen grande de la nota y de la portada. Con **Epígrafe** (qué se ve) y **Crédito** (quién la sacó) opcionales. Sin
+   portada, la nota lleva la placa de la sección, como cualquier nota sin foto. Una portada sin crédito sale con “Foto: Radar Balcarce”.
+5. **Fotos dentro de la nota** (opcional, hasta 10), cada una con su epígrafe y crédito. Para ponerla **entre dos párrafos**: poné el cursor en el cuerpo donde
+   la querés y tocá **“Insertar foto N aquí”** (aparece debajo del cuerpo y en cada foto): escribe `[foto 1]` en una línea sola, con una línea en blanco
+   antes y después. También se puede escribir a mano (`[foto 2]`, mayúsculas o espacios de más no importan). Una foto **sin su marca va al final** de la nota. Si
+   se saca una foto, su marca desaparece y las que venían después se corren un lugar.
+6. **Vista previa**: muestra título, bajada, firma y el cuerpo con las fotos en su lugar, tal como saldría, y lista lo que falta. **Publicar** sube las fotos y
+   guarda la nota; sale en la web **en la próxima vuelta del motor (cada media hora)**. Al terminar ofrece **“Actualizar la web ahora”** si no querés esperar.
+
+### En qué tamaño van las fotos
+
+| Foto | Tamaño que conviene | Qué hace el panel solo |
+|---|---|---|
+| **Portada** | **Horizontal, 1600 × 900 px (16:9)**. Desde 1200 px de ancho se ve bien; menos de eso se ve chica y no la toma Google Discover | Si es más grande la achica a 1600 px de ancho (nunca agranda); respeta cómo sacaste la foto (vertical u horizontal); la guarda como JPEG de ~400 KB como máximo. **No la recorta**: la página la muestra en 16:9, así que una foto más alta queda recortada (la franja del medio, un poco más arriba que abajo); el recuadro punteado del panel muestra cómo va a quedar y avisa si se recorta mucho |
+| **Dentro de la nota** | Hasta **1200 px de ancho**, la proporción que tenga (horizontal queda mejor); se muestra **entera, sin recortar** | La achica a 1200 px de lado más largo y la guarda como JPEG de ~400 KB como máximo |
+
+Las fotos de un celular (4000 × 3000 y varios MB) se achican solas: no hace falta tocarlas antes. Una foto con una marca de agua o el nombre de otro medio no va
+(regla de siempre); la foto de una persona menor o de una víctima, tampoco.
+
+### Editar, retirar y las fotos
+
+- **Mis notas publicadas** (abajo, la más nueva primero): **Abrir en la web**, **Editar** y **Retirar**.
+- **Editar** carga el formulario con lo guardado; al guardar de nuevo se actualiza **la misma nota**: la dirección y la fecha **no cambian** (queda “Actualizado: …”
+  y la fecha de modificación en los datos para Google). Las fotos ya subidas se pueden dejar, reemplazar (sacar y sumar otra) o sacar.
+- **Retirar** pide el motivo y sólo marca la nota (`retirada`, con quién y cuándo): sale de la web en la próxima vuelta y su página deja de existir. **No se borra nada**
+  (ni el texto ni las fotos): una retirada se puede **Volver a publicar**.
+- Si se corta la conexión o falla GitHub, **no se pierde lo escrito**: el texto queda como borrador en el celular (se retoma al volver a abrir la pestaña; las fotos
+  hay que volver a elegirlas) y, si el error es después de subir las fotos, no se vuelven a subir.
+- **No sale sola a las redes** (decisión abierta en `PENDIENTES.md`, punto 16 de la sección 5).
+- Estas notas también aparecen en **Publicadas** (están en la portada), pero **editarlas o retirarlas se hace siempre desde «Mis notas publicadas»**: los botones de Publicadas escriben en `correcciones.json` y `celular-decisiones.json`, y la nota se vuelve a armar cada vuelta desde `notas-de-redaccion.json`.
+
+### Dónde queda cada cosa
+
+| Qué | Dónde |
+|---|---|
+| La nota | `web/data/notas-de-redaccion.json` (`{ "notas": { "<clave>": { titulo, copete, cuerpo, seccion, firma, portada, fotos, slug, cuando, por, motivo, editada?, editadaPor?, retirada? } } }`, una nota por renglón; sin `motivo`, `cuando` y `por` la web no la acepta). La clave (`r…`) la inventa el panel una vez y no cambia nunca; el id de la nota es `nr…` |
+| El cuerpo | Se guarda **como se escribió, con las marcas** `[foto N]`, para poder editarlo. La web arma el cuerpo sin marcas y las fotos con su lugar (`web/lib/notas-de-redaccion.js`: `partirCuerpo`, `notasDeRedaccion`) |
+| Las fotos | `web/public/fotos-notas/redaccion-<clave>-p-<token>.jpg` (portada) y `redaccion-<clave>-<n>-<token>.jpg` (de adentro): **todas en la misma carpeta, sin subcarpetas** (el sitio, el archivo permanente y la poda leen esa carpeta plana). El panel las sube **antes** de guardar la nota y la poda de fotos (`podarFotos`) nunca borra un archivo `redaccion-…` |
+| Cómo se dibuja | `web/components/cuerpo-con-fotos.js` (cada foto en una `<figure>` con su pie, con ancho y alto escritos y `loading="lazy"`), `web/lib/cuerpo-con-fotos.js` (el orden), `web/app/nota/[id]/page.js`, `quienEscribio` y `autorDeNota` (`web/components/metadatos.js`) |
+| Qué la lee | `web/scripts/generar-datos.mjs` (con las demás notas propias, relevancia 95, `como: 'publicada'`, sin fuentes: el pie es la línea de la firma sola) |
+| Qué NO toca | El motor no la escribe: no está en el `git add` de `actualizar.yml` ni en `ARCHIVOS_DEL_MOTOR` (la escribe sólo el celular, como `celular-decisiones.json`); cambiarla o sumar una foto obliga a recompilar el sitio (`hayQueRecompilar`). Los Workers de tareas no la leen |
+
+Pruebas: `notas-de-redaccion.test.mjs` (la web) y `escribir-panel.test.mjs` (el panel).
 
 ## La pausa general y «Actualizar la web ahora» (24/10/2026, regla 317)
 

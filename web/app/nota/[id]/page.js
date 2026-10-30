@@ -8,6 +8,7 @@ import Compartir from '@/components/compartir';
 import { CartelDelCanal } from '@/components/canales';
 import { enlace } from '@/lib/sitio';
 import CuerpoDeFutbol from '@/components/futbol';
+import CuerpoConFotos from '@/components/cuerpo-con-fotos';
 import FuentesDeLaNota from '@/components/verificacion';
 import { OG_COMUN, TARJETA_DEL_SITIO, tituloDeNota, titularDeNota } from '@/components/metadatos';
 import { FichaDeNota, Migas } from '@/components/ficha';
@@ -126,6 +127,8 @@ export default async function PaginaNota({ params }) {
 
         <h1>{n.titulo}</h1>
         {n.copete && <p className="copete">{n.copete}</p>}
+        {/* La firma de una nota escrita por una persona de la redacción (web/lib/notas-de-redaccion.js), también arriba, como en un diario. */}
+        {n.propia === 'redaccion' && n.autor && <p className="autor-de-la-nota" style={{ fontSize: 14, color: 'var(--suave)', margin: '4px 0 0' }}>Por <strong>{n.autor}</strong></p>}
 
         {/* La foto (28/09, CRITERIO-EDITORIAL.md, "Las fotos"): recortada,
             sin ningún nombre de medio pegado encima (el crédito va sólo acá,
@@ -136,6 +139,8 @@ export default async function PaginaNota({ params }) {
             placa de la sección"); las notas propias (el dólar, los repasos)
             no la llevan. */}
         {!n.foto && !n.propia && <PlacaSeccion seccion={n.seccion} chica />}
+        {/* Una nota de la redacción sin foto de portada también lleva la placa de su sección (a diferencia de las demás propias). */}
+        {!n.foto && n.propia === 'redaccion' && <PlacaSeccion seccion={n.seccion} chica />}
         {n.foto && (
           <figure style={{ margin: '20px 0 4px' }}>
             <img
@@ -159,7 +164,9 @@ export default async function PaginaNota({ params }) {
             /dolar. El cuerpo sigue siendo texto plano. */}
         {/* Las notas de fútbol (ingesta/futbol.mjs) se dibujan con tablas y escudos; el cuerpo en texto queda para las redes y los buscadores. */}
         {n.datosFutbol && <CuerpoDeFutbol tipo={n.tipoFutbol} datos={n.datosFutbol} />}
-        {n.cuerpo && !n.datosFutbol && parrafosConEnlaces(n.cuerpo, n.enlacesEnTexto).map((pedazos, i) => (
+        {/* Las notas de la redacción pueden llevar fotos entre los párrafos (lib/cuerpo-con-fotos.js): cada una en su <figure>, con su pie. */}
+        {n.cuerpo && !n.datosFutbol && n.fotosEnCuerpo?.length > 0 && <CuerpoConFotos nota={n} />}
+        {n.cuerpo && !n.datosFutbol && !(n.fotosEnCuerpo?.length > 0) && parrafosConEnlaces(n.cuerpo, n.enlacesEnTexto).map((pedazos, i) => (
           <p key={`${i}-${pedazos[0].texto.slice(0, 40)}`} style={{ fontSize: 16, lineHeight: 1.7, marginTop: 16, color: 'var(--texto)' }}>
             {pedazos.map((x, j) => (x.href
               ? <a key={j} href={x.href} style={{ color: 'var(--rojo)', fontWeight: 600 }} {...(x.externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{x.texto}</a>

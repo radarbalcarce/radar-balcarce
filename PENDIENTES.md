@@ -150,6 +150,7 @@ Las de más peso, con la recomendación. Cada módulo de la auditoría 2.0 tiene
 13. **Comercial**: seguir con `comercial/` o retirarlo; quién habla con comercios; avisos gratis a 3 o 4 comercios (H, sección 12).
 14. **Datos legales del medio** en "Quiénes somos" y una página pública de correcciones (D6 y D8 de `docs/auditoria-2-0/D-SEO.md`).
 15. Cuatro fuentes de España apagadas: **no se prenden** (Hernán: "no es necesario sumar fuentes de afuera"). Está decidido; se deja escrito para que nadie lo vuelva a preguntar.
+16. **Notas de la redacción (pestaña Escribir del panel, 30/10) hacia las redes**: hoy una nota que escribe una persona desde el celular sale sólo en la web; no va sola a Facebook, Instagram, TikTok ni YouTube, ni entra a los repasos (como las demás notas propias). Pregunta para los dos: ¿quieren un botón «mandar a redes» en la lista «Mis notas publicadas»? Recomendación: sí, con la misma pregunta de confirmación que ya tiene «Mandar también a las redes», y que Política y Policiales sigan esperando a una persona. Tampoco decidido: el crédito «Foto: Radar Balcarce» que se le pone solo a una portada sin crédito.
 
 ## 6. Bloqueado (y por qué)
 

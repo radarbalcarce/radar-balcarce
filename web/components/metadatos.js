@@ -93,7 +93,8 @@ export function quienEscribio(nota = {}) {
   // Las notas propias (la del dólar, la de cada podcast: lib/notas-propias.js)
   // no las redactó la IA ni son de una fuente: las arma el sitio con
   // plantilla, a partir de datos. Su firma la dice la nota (`firma`).
-  if (nota.propia) return { reescrita: false, revisada: false, propia: true };
+  // Una nota de la redacción (web/lib/notas-de-redaccion.js) la firma una persona: `persona` es su nombre.
+  if (nota.propia) return { reescrita: false, revisada: false, propia: true, ...(nota.propia === 'redaccion' && nota.autor ? { persona: String(nota.autor) } : {}) };
   // Lo corregido a mano en web/data/correcciones.json (conCorreccion,
   // lib/archivo.js) es "cargado o corregido por una persona"
   // (CRITERIO-EDITORIAL.md § 10). Si el cuerpo es el de la corrección, la
@@ -112,7 +113,9 @@ export function quienEscribio(nota = {}) {
  * (principiosDeNota, lib/datos-estructurados.js); la firma que ve el lector no cambió.
  */
 export function autorDeNota(nota = {}, base = '') {
-  const { reescrita, revisada, propia } = quienEscribio(nota);
+  const { reescrita, revisada, propia, persona } = quienEscribio(nota);
+  // Una nota que firma una persona de la redacción: el autor es esa persona (`Person`), no el sitio.
+  if (persona) return { '@type': 'Person', name: persona, url: `${base}/quienes-somos` };
   // El cuerpo lo escribió la redacción (web/data/correcciones.json): el
   // autor es el sitio, no el medio ni la IA.
   // `url`: la página donde se explica quién escribe (Google recomienda que el autor tenga una dirección propia).

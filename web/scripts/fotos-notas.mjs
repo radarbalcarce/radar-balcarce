@@ -325,7 +325,11 @@ export function podarFotos({
   // La ilustración fija de las notas de efemérides (14/10/2026) tampoco es de una nota del banco: nunca se poda.
   // Lo mismo las ilustraciones del clima (16/10/2026, web/lib/fondos-clima.js): clima-<estado>-<n>.jpg.
   const fija = (f) => /^(efemeride|clima)-[\w-]+\.jpg$/.test(f); // la base (efemeride-fondo.jpg) y la de cada día (efemeride-2026-10-14.jpg, web/scripts/foto-efemeride.mjs)
-  return { banco: bancoNuevo, borrar: enDisco.filter((f) => !vivas.has(f) && !delRepaso(f) && !fija(f)) };
+  // Las fotos de las notas que escribe una persona desde el celular (30/10/2026, web/lib/notas-de-redaccion.js) son redaccion-<nota>-….jpg y tampoco son
+  // del banco: no se podan nunca. El celular las sube ANTES de guardar la nota, y una vuelta que justo las vea sin su nota las borraría; quedan
+  // también si la nota se retira (se puede volver a publicar) o se cambia la foto (la vieja queda en el repositorio, ~300 KB).
+  const delPanel = (f) => f.startsWith('redaccion-');
+  return { banco: bancoNuevo, borrar: enDisco.filter((f) => !vivas.has(f) && !delRepaso(f) && !fija(f) && !delPanel(f)) };
 }
 
 /**
@@ -355,7 +359,7 @@ export const fotoConMenorPermitida = (nota, { activa = excepcionActiva() } = {})
 
 const nombreDelArchivo = (a) => String(a ?? '').split('/').pop();
 // Las imágenes que no son del banco: las de las notas propias (collage, foto libre, clima, efemérides).
-const DE_NOTA_PROPIA = /^(collage-|libre-|clima-|efemeride)/;
+const DE_NOTA_PROPIA = /^(collage-|libre-|clima-|efemeride|redaccion-)/;
 
 /**
  * La foto de una nota del ARCHIVO, al día con el banco (17/10/2026, regla 203). El archivo guardaba la foto de cada nota tal como salió y

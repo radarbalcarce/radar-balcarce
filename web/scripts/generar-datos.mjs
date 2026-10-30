@@ -107,6 +107,7 @@ import { anclasConfirmadas } from '../../ingesta/huellas-significado.mjs';
 import { traerF1, notasDeF1, comoF1Json } from '../../ingesta/f1.mjs';
 import { traerFutbol, notasDeFutbol, comoFutbolJson } from '../../ingesta/futbol.mjs';
 import { notasDePistas } from '../lib/notas-de-pistas.js';
+import { notasDeRedaccion, idsRetiradosDeRedaccion, sinLasFotosQueFaltan } from '../lib/notas-de-redaccion.js';
 import { SECCIONES_SUMADAS } from '../../ingesta/secciones-nuevas.mjs';
 import { minimoNacional, minimoAreasChicas, popularidadDe } from '../../ingesta/popularidad.mjs';
 
@@ -131,6 +132,9 @@ const HISTORIA_DOLAR = path.join(AQUI, '..', 'data', 'dolar-historia.json');
 const HISTORIA_CLIMA = path.join(AQUI, '..', 'data', 'clima-historia.json');
 // Las notas que nacieron de una pista y aprobó una persona desde el celular (3/10, web/lib/notas-de-pistas.js): las escribe el celular, ningún workflow las toca.
 const NOTAS_DE_PISTAS = path.join(AQUI, '..', 'data', 'notas-de-pistas.json');
+// Las notas que escribe una persona de la redacción desde el celular (30/10/2026, web/lib/notas-de-redaccion.js): sin IA ni verificador, con su firma y sus
+// fotos (web/public/fotos-notas/redaccion-*). Las escribe sólo el celular, ningún workflow las toca.
+const NOTAS_DE_REDACCION = path.join(AQUI, '..', 'data', 'notas-de-redaccion.json');
 // La Fórmula 1 (ingesta/f1.mjs, 3/10): calendario, resultado y campeonato de Jolpica, y cuándo salió cada nota.
 const F1_JSON = path.join(AQUI, '..', 'data', 'f1.json');
 // El fútbol (ingesta/futbol.mjs, 3/10): partidos, resultados y tablas de la Liga y las copas, de ESPN, y cuándo salió cada nota.
@@ -803,6 +807,8 @@ const enIngesta = new Map((ultima.notas ?? []).map((n) => [n.id, n]));
 // Una repetida que ya fue a las redes conserva su página: su enlace circula.
 const enLasRedes = idsEnRedes(leerJson(LIBRO_REDES, {}));
 const retiradas = new Set([...RETIRADAS_A_MANO, ...sacadasPorLaIA, ...[...repetidasFuera].filter((id) => !enLasRedes.has(id))]);
+// Y lo que una persona retiró desde la pestaña Escribir del celular (su entrada deja de armarse; acá se saca también del archivo).
+for (const id of idsRetiradosDeRedaccion(leerJson(NOTAS_DE_REDACCION, null))) retiradas.add(id);
 const corregidas = [];
 for (const a of archivoAnterior.notas ?? []) {
   const d = estado.decisiones[a.id];
@@ -923,8 +929,10 @@ const conPagina = new Map([
 const { notas: repasos, noSeArman } = notasDeRepasos(libroRedes, conPagina, { catalogo: TEMAS });
 for (const id of noSeArman) retiradas.add(id);
 // La regla de cuerpo vale también para lo propio (lib/cuerpo.js).
-const propias = [...notasDelDolar(historiaDolar), ...notasDelClima(historiaClima, libroRedes), ...notasDeEfemerides(leerJson(EFEMERIDES_PIEZAS, {}), libroRedes), ...notasF1, ...notasFutbol, ...notasDePistas(leerJson(NOTAS_DE_PISTAS, null)), ...repasos]
+const propias = [...notasDelDolar(historiaDolar), ...notasDelClima(historiaClima, libroRedes), ...notasDeEfemerides(leerJson(EFEMERIDES_PIEZAS, {}), libroRedes), ...notasF1, ...notasFutbol, ...notasDePistas(leerJson(NOTAS_DE_PISTAS, null)), ...repasos, ...notasDeRedaccion(leerJson(NOTAS_DE_REDACCION, null))]
   .map((n) => fijarSlug(n, direcciones))
+  // Una foto de la redacción que no está en el disco (ni en R2) no se muestra: nunca una imagen rota.
+  .map((n) => sinLasFotosQueFaltan(n, existeFoto))
   .filter((n) => tieneCuerpo(n));
 if (propias.length) console.log(`  notas propias: ${propias.map((n) => n.id).join(', ')}`);
 // La nota de cada repaso lleva un collage con las fotos de las notas que cuenta (1/10, web/scripts/collage.mjs).
@@ -1204,7 +1212,10 @@ const archivo = aligerarViejas(actualizarArchivo({
   // reescritura se cayó) tampoco quedan de la vez anterior en el archivo: el
   // `undefined` pisa lo viejo al mezclar y no se escribe.
   publicadas: [...corregidas, ...publicadas].map(sinPuntaje)
-    .map((n) => ({ ...Object.fromEntries(CAMPOS_EXTRA.map((k) => [k, undefined])), ...n })),
+    .map((n) => ({ ...Object.fromEntries(CAMPOS_EXTRA.map((k) => [k, undefined])), ...n }))
+    // Una nota de la redacción que se editó (se sacó la foto de portada, una foto de adentro o la marca "Actualizado") no arrastra lo viejo del archivo:
+    // el `undefined` pisa lo anterior al mezclar y no se escribe.
+    .map((n) => (n.propia === 'redaccion' ? { foto: undefined, fotosEnCuerpo: undefined, corregidaCuando: undefined, ...n } : n)),
   enPortada: new Set(vigentes.map((n) => n.id)),
   retiradas,
   enRedes: idsEnRedes(libroRedes),

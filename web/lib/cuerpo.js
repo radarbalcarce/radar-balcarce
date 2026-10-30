@@ -53,9 +53,16 @@ export function tieneRespaldo(nota) {
     || new Set(nota?.medios ?? []).size >= 2);
 }
 
+/**
+ * Lo que escribe una persona de la redacción desde el panel (propia: 'redaccion', web/lib/notas-de-redaccion.js) pide menos: 30 palabras, no 70.
+ * Es un mínimo contra el accidente (publicar algo vacío), no una regla de calidad: la nota la escribió una persona y se respeta.
+ */
+export const PALABRAS_MINIMAS_CUERPO_DE_REDACCION = 30;
+
 export function tieneCuerpo(nota) {
   const cuerpo = String(nota?.cuerpo ?? '').trim();
-  if (palabrasDe(cuerpo) < PALABRAS_MINIMAS_CUERPO) return false;
+  const minimo = nota?.propia === 'redaccion' ? PALABRAS_MINIMAS_CUERPO_DE_REDACCION : PALABRAS_MINIMAS_CUERPO;
+  if (palabrasDe(cuerpo) < minimo) return false;
   const copete = plano(nota?.copete);
   if (copete && plano(cuerpo) === copete) return false;
   if (copete.length >= 40 && plano(cuerpo).startsWith(copete.slice(0, 60))) return false;

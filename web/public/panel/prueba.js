@@ -74,6 +74,7 @@ export function clienteDePrueba() {
     'web/data/celular-decisiones.json': { notas: { e2: { estado: 'descartada', por: 'Prueba', cuando: hace(200), motivo: 'descartada desde el celular' } }, redes: {} },
     'web/data/correcciones.json': { notas: {} },
     'web/data/retiradas.json': { notas: {} },
+    'web/data/notas-de-redaccion.json': { notas: {} },
     // La pestaña Fechas: un par de días y de feriados de ejemplo.
     'web/data/efemerides-candidatas.json': {
       generado: hace(60), desde: '2026-10-05', dias: {

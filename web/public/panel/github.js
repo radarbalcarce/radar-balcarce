@@ -46,6 +46,7 @@ export const ARCHIVOS = {
   cambiosIA: 'web/data/correcciones-auditoria.json',
   pistas: 'web/data/pistas.json',
   notasDePistas: 'web/data/notas-de-pistas.json',
+  notasDeRedaccion: 'web/data/notas-de-redaccion.json',
   fotosManuales: 'web/data/fotos-manuales.json',
   contactosPublicos: 'ingesta/contactos-agenda.json',
   contactosCelular: 'web/data/contactos-celular.json',
@@ -90,6 +91,8 @@ export function formatear(ruta, json) {
   // Un día o un feriado por renglón: el historial dice qué se decidió cuándo.
   // Una nota de pista por renglón (3/10): el historial de git dice qué se publicó cuándo.
   if (ruta === ARCHIVOS.notasDePistas) return comoRenglones(json, ['notas']);
+  // Una nota de la redacción por renglón (30/10): el historial de git dice qué se publicó o se editó cuándo.
+  if (ruta === ARCHIVOS.notasDeRedaccion) return comoRenglones(json, ['notas']);
   // Una pista por renglón (2/10): el historial de git dice qué cambió cuándo.
   if (ruta === ARCHIVOS.pistas) return comoRenglones({ version: 1, ...json }, ['pistas']).replace('{"pistas"', '{"version":1,"pistas"');
   // Un contacto (o una anotación) por renglón, cada uno en su sobre cifrado (3/10).
@@ -298,6 +301,44 @@ export function conNotaDePista(json, id, { titulo, copete, cuerpo, seccion, fuen
   // `aprobadaParaRedes` (la decisión ya es de ella) y `paraElRepaso` (entra al próximo repaso; vale 12 horas: web/lib/notas-de-pistas.js).
   j.notas = { ...j.notas, [id]: { titulo, copete, cuerpo, seccion, fuentes, pista: id, motivo, cuando: hoyISO(), por, aprobadaParaRedes: true, paraElRepaso: true } };
   return j;
+}
+
+/**
+ * Una nota que escribió una persona de la redacción desde la pestaña Escribir (web/lib/notas-de-redaccion.js la lee). `entrada` ya trae motivo, cuándo y quién
+ * (panel/escribir.js, armarEntrada). Si la nota ya existía es una EDICIÓN: se queda con su dirección (`slug`), su fecha (`cuando`), quien la publicó (`por`) y,
+ * si estaba retirada, sigue retirada; lo que cambia queda en `editada` y `editadaPor`. La clave no cambia nunca.
+ */
+export function conNotaDeRedaccion(json, clave, entrada, { ahora = new Date() } = {}) {
+  const j = { notas: {}, ...json };
+  const antes = j.notas[clave];
+  const nueva = antes
+    ? {
+      ...entrada,
+      slug: antes.slug || entrada.slug,
+      cuando: antes.cuando,
+      por: antes.por,
+      motivo: antes.motivo || entrada.motivo,
+      editada: ahora.toISOString(),
+      editadaPor: entrada.por,
+      ...(antes.retirada ? { retirada: antes.retirada } : {}),
+    }
+    : entrada;
+  j.notas = { ...j.notas, [clave]: nueva };
+  return j;
+}
+
+/** Retirar una nota de la redacción: queda anotada con quién y por qué, y deja de armarse (no se borra nada: las fotos y el texto quedan). */
+export function conNotaDeRedaccionRetirada(json, clave, { por, motivo, ahora = new Date() }) {
+  const e = json?.notas?.[clave];
+  return e ? { ...json, notas: { ...json.notas, [clave]: { ...e, retirada: { cuando: ahora.toISOString(), por, motivo } } } } : json;
+}
+
+/** Volver a publicar una nota de la redacción retirada: le saca la marca `retirada` (con la misma dirección y la misma fecha). */
+export function conNotaDeRedaccionRepuesta(json, clave, { por, ahora = new Date() }) {
+  const e = json?.notas?.[clave];
+  if (!e) return json;
+  const { retirada, ...resto } = e;
+  return { ...json, notas: { ...json.notas, [clave]: { ...resto, editada: ahora.toISOString(), editadaPor: por } } };
 }
 
 /** Sacar de la web una nota de una pista: queda anotada con quién y por qué, y deja de armarse. */

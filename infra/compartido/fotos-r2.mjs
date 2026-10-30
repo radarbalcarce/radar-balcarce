@@ -96,12 +96,14 @@ export function fotosQueNecesitan(...listas) {
   const salida = [];
   for (const lista of listas) {
     for (const n of lista ?? []) {
-      const a = n?.foto?.archivo;
-      if (typeof a !== 'string' || !a.startsWith(PREFIJO_DE_FOTOS)) continue;
-      const nombre = nombreDeFoto(a);
-      if (vistos.has(nombre) || !sePuedeMoverAR2(nombre)) continue;
-      vistos.add(nombre);
-      salida.push(nombre);
+      // La foto de la nota y, si es una nota de la redacción (30/10/2026), las que lleva entre los párrafos (`fotosEnCuerpo`).
+      for (const a of [n?.foto?.archivo, ...(Array.isArray(n?.fotosEnCuerpo) ? n.fotosEnCuerpo.map((f) => f?.archivo) : [])]) {
+        if (typeof a !== 'string' || !a.startsWith(PREFIJO_DE_FOTOS)) continue;
+        const nombre = nombreDeFoto(a);
+        if (vistos.has(nombre) || !sePuedeMoverAR2(nombre)) continue;
+        vistos.add(nombre);
+        salida.push(nombre);
+      }
     }
   }
   return salida;

@@ -846,6 +846,7 @@ Google (`author`). Si la firma vuelve al renglón cerrado es una pregunta abiert
 | Cargada o corregida por una persona | "Revisada por la redacción · Fuentes (N)" |
 | El texto de la fuente, sin reescribir | "Texto de *medio* · Fuentes (N)" |
 | Propia (dólar, repaso) | Lo que dice la nota: "Nota de Radar Balcarce con datos de…" |
+| Escrita por una persona de la redacción desde la pestaña Escribir del panel (30/10/2026) | "Por Hernán Accomo, de la redacción de Radar Balcarce" (la firma que escribió la persona; también arriba, bajo la bajada) y, para Google, `author` es esa persona. No lleva "Fuentes (N)": sin fuentes, sólo la línea de la firma. Sin IA ni verificador: lo que se escribe es lo que sale, y no identificar a un menor ni a una víctima es responsabilidad de quien escribe (el formulario lo recuerda) |
 
 La explicación larga se ve sólo al abrir el desplegable. Nunca se dice "sin revisión
 humana", y el sitio nunca promete una revisión que no hubo. En las redes no se repite. El

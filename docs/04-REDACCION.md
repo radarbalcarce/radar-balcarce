@@ -458,6 +458,7 @@ cuerpo no se escribió a mano (`cuerpoAMano`); "revisada" si la publicó una per
 | Propia (el dólar, un repaso, el clima, "Un día como hoy") | Lo que dice la nota ("Nota de Radar Balcarce…") |
 | Propia que nace de una pista o de un mail de prensa, aprobada por una persona (paso 16) | "Nota de Radar Balcarce, escrita con IA a partir de lo que publicaron *medios* y revisada por la redacción" (`firmaDePista`, `web/lib/notas-de-pistas.js`) |
 | Propia de una pista que salió sola (paso 16) | "Nota de Radar Balcarce, escrita con IA a partir de lo que publicaron *medios* y controlada contra esas fuentes" |
+| Escrita por una persona desde la pestaña Escribir del panel (30/10/2026; `docs/09-PANEL.md`) | "Por *Nombre*, de la redacción de Radar Balcarce" (`firmaDeRedaccion`, `web/lib/notas-de-redaccion.js`; también arriba de la nota); el autor para Google es la persona (`Person`). Sin fuentes: una línea gris sola, sin "Fuentes (0)" |
 
 Al abrir el desplegable se ve la explicación larga. Nunca se dice "sin revisión
 humana". Criterio: `CRITERIO-EDITORIAL.md` § 10.

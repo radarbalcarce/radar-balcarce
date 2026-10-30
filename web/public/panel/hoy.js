@@ -91,6 +91,7 @@ export function htmlDeHoy(r, { esc, haceCuanto, horaEnBalcarce }) {
     ? `<p class="estado">✎ La IA está escribiendo ${r.enCurso.map((t) => `“${esc(t)}”`).join(', ')}.</p>` : '';
   const motor = r.motor ? `<p class="${r.motor.clase === 'mal' ? 'problemas' : 'estado'}">⚙ ${esc(r.motor.texto)}</p>` : '';
   return `<h1>Hoy, ${esc(r.fecha)}</h1>
+    <button type="button" class="boton principal ancho" data-pestana="escribir">✍ Escribir una nota</button>
     ${r.pausa ? htmlDelCartelDePausa(r.pausa, { esc, haceCuanto }) : ''}
     <p class="estado">${web}</p>${motor}${curso}
     ${r.necesitaToque.length ? `<h2>Necesita tu toque</h2>${r.necesitaToque.map((x) => fila(x, true)).join('')}` : ''}

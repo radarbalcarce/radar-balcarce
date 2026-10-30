@@ -10,7 +10,7 @@
 
 import {
   crearCliente, ARCHIVOS, seccionesDelPanel, ErrorDeGitHub, marcaNueva, corridaConMarca,
-  conDecision, sinDecision, conRedes, conCorreccion, conLlave, sinRetirada, haceCuanto, palabras, conEleccionDeDia, conDecisionDeFeriado, conDecisionDePieza, conPistaSinNovedad, conPistaEstado, conPistaResultado, conNotaDePista, conNotaDePistaRetirada, idDeNotaDePista, conFotoManual,
+  conDecision, sinDecision, conRedes, conCorreccion, conLlave, sinRetirada, haceCuanto, palabras, conEleccionDeDia, conDecisionDeFeriado, conDecisionDePieza, conPistaSinNovedad, conPistaEstado, conPistaResultado, conNotaDePista, conNotaDePistaRetirada, idDeNotaDePista, conFotoManual, conNotaDeRedaccion, conNotaDeRedaccionRetirada, conNotaDeRedaccionRepuesta,
 } from './github.js';
 import {
   ESTILOS, COLOR_DE_ESTILO, ROLES, etiquetaCorta, etiquetaLarga, semanas, borradorDe, rolDe, marcarEn, eleccionDeDia, estadoDelDia,
@@ -33,6 +33,11 @@ import {
 import {
   notasSinFoto, htmlDeFotos, htmlDeUnaNotaSinFoto, urlDeFotoValida, creditoDeFoto, motivoDeFoto, MOTIVOS_DE_FOTO,
 } from './fotos.js';
+import {
+  MEDIDAS, PLAN_DE_ACHIQUE, MAXIMO_DE_FOTOS, AUTOR_POR_DEFECTO, MINIMO_DE_PALABRAS, TITULO_RECOMENDADO, AVISO_DE_MENORES, medidasAchicadas, nombreDeFoto, rutaDelRepositorio, archivoDeLaWeb, tokenNuevo,
+  enlaceDeLaNota, insertarMarca, quitarFotoDelCuerpo, palabrasDelCuerpo, problemasDelFormulario, armarEntrada, formularioVacio, formularioDesdeLaEntrada, formularioDesdeElBorrador,
+  borradorDelFormulario, borradorTieneAlgo, autorDeLaFirma, htmlDelFormulario, htmlDeLaVistaPrevia, htmlDeMisNotas,
+} from './escribir.js';
 import { estadoPorRed, explicarFalloDeRed, problemasDeHoy, NOMBRE_DE_RED, NOMBRE_DE_PARTE } from './redes-estado.js';
 import {
   crearClienteDeLaNube, explicarErrorDeLaNube, datosDeHoyDeLaNube, htmlDeLaPausaEnMas, resumenDeVueltasDelMotor, PREGUNTA_DE_PAUSA, PREGUNTA_DE_REANUDAR, AVISOS_DE_LA_NUBE,
@@ -51,7 +56,7 @@ const COLOR = {
 const chip = (s) => (s ? `<span class="chip" style="background:var(--s-${COLOR[s] ?? 'pais'})">${esc(s)}</span>` : '');
 const GUARDADO = 'radar-panel';
 /** Los archivos del panel (los mismos que guarda sw.js): "Actualizar el panel" los vuelve a bajar. */
-const ARCHIVOS_DEL_PANEL = ['app.js', 'github.js', 'cifrado.js', 'textos.js', 'fechas.js', 'numeros.js', 'redes-estado.js', 'revision.js', 'pistas.js', 'contactos.js', 'fotos.js', 'hoy.js', 'borradores.js', 'recorrido.js', 'nube.js', 'index.html'].map((a) => `/panel/${a}`);
+const ARCHIVOS_DEL_PANEL = ['app.js', 'github.js', 'cifrado.js', 'textos.js', 'fechas.js', 'numeros.js', 'redes-estado.js', 'revision.js', 'pistas.js', 'contactos.js', 'fotos.js', 'escribir.js', 'hoy.js', 'borradores.js', 'recorrido.js', 'nube.js', 'index.html'].map((a) => `/panel/${a}`);
 const DEMO = new URLSearchParams(location.search).has('demo');
 const VOCES = { locutora: 'la locutora', locutor: 'el locutor' };
 const enlaceDeNota = (n) => `https://radarbalcarce.com/nota/${n.slug ? `${n.slug}-${n.id}` : n.id}`;
@@ -107,6 +112,8 @@ const E = {
   fechas: null, mesFechas: null, subfechas: 'piezas', pieza: null, dia: null, borrador: null, filtroEstilo: null, feriado: null,
   // Lo que se está haciendo en la nube sin trabar el panel (la IA escribiendo, una foto sumándose): { [id]: { clase, estado, … } }.
   trabajos: {}, tareas: {}, relojDeTareas: null, pistasLibro: null, pistaAbierta: null, banco: null, publicadasTodas: false, scrollLista: null, restaurar: null,
+  // La pestaña Escribir: lo ya publicado (web/data/notas-de-redaccion.json), la nota que se está escribiendo y si se está achicando una foto o publicando.
+  redaccion: null, escribir: null, escribirDeBorrador: false, escribirProcesando: '', escribirOcupado: false,
 };
 
 function aviso(texto, {
@@ -286,6 +293,7 @@ async function cargar({ archivo = false } = {}) {
   if (archivo) E.archivo = (await c.leer(ARCHIVOS.archivo)).json.notas ?? [];
   await cargarRevision();
   await cargarPistas();
+  await cargarRedaccion();
 }
 
 /** Los hallazgos de la auditoría con IA: un sobre cifrado por nota (ingesta/auditoria-ia.mjs). Si falla, la pestaña sigue sin ellos. */
@@ -391,6 +399,7 @@ function vistaLista() {
   else if (E.pestana === 'redes') vistaRedes();
   else if (E.pestana === 'contactos') vistaContactos();
   else if (E.pestana === 'pistas') vistaPistas();
+  else if (E.pestana === 'escribir') vistaEscribir();
   else if (E.pestana === 'revision') vistaRevision();
   else if (E.pestana === 'fechas') vistaFechas();
   else if (E.pestana === 'numeros') vistaNumeros();
@@ -708,6 +717,319 @@ async function sumarFoto(id, { url, credito, confirmo }) {
   }
   if (enUnaLista()) vistaLista();
 }
+
+// ------------------------------------------------------------------ la pestaña Escribir (escribir.js)
+//
+// Hernán (30/10/2026): "que en el panel yo pueda publicar notas directamente, donde tenga que solo pegar título, copete y cuerpo de la nota, además de subir
+// fotos para poner entre la nota, más la de portada y quién firma". Las fotos se achican acá, en el celular (lienzo → JPEG), se suben a
+// web/public/fotos-notas/ y la nota queda en web/data/notas-de-redaccion.json. El texto se guarda como borrador en este celular mientras se escribe.
+
+const BORRADOR_DE_NOTA = 'radar-panel-borrador-nota';
+const FIRMA_GUARDADA = 'radar-panel-firma';
+const leerLocal = (clave) => { try { return localStorage.getItem(clave); } catch { return null; } };
+const guardarLocal = (clave, valor) => { try { if (valor == null) localStorage.removeItem(clave); else localStorage.setItem(clave, valor); } catch { /* sin almacenamiento */ } };
+const firmaGuardada = () => leerLocal(FIRMA_GUARDADA) || AUTOR_POR_DEFECTO;
+
+/** Las notas de la redacción ya publicadas (web/data/notas-de-redaccion.json). Si no se puede leer, la lista queda vacía y el formulario sigue andando. */
+async function cargarRedaccion() {
+  try { E.redaccion = await leerSiHay(E.cliente, ARCHIVOS.notasDeRedaccion, { notas: {} }); } catch { E.redaccion = E.redaccion ?? { notas: {} }; }
+}
+
+/** El formulario con el que se abre la pestaña: el borrador que quedó en este celular, o uno vacío con la última firma. */
+function formularioInicial() {
+  try {
+    const b = JSON.parse(leerLocal(BORRADOR_DE_NOTA) ?? 'null');
+    if (borradorTieneAlgo(b)) return { f: formularioDesdeElBorrador(b, firmaGuardada()), deBorrador: true };
+  } catch { /* borrador roto: se ignora */ }
+  return { f: formularioVacio(firmaGuardada()), deBorrador: false };
+}
+
+let temporizadorDelBorrador = null;
+/** Guarda el texto en este celular (cada vez que se escribe, con una pausa corta). Lo que se edita de una nota ya publicada no: eso ya está en GitHub. */
+function guardarBorrador({ ya = false } = {}) {
+  clearTimeout(temporizadorDelBorrador);
+  const poner = () => {
+    const f = E.escribir;
+    if (!f || f.existente) return;
+    guardarLocal(BORRADOR_DE_NOTA, borradorTieneAlgo(f) ? JSON.stringify(borradorDelFormulario(f)) : null);
+  };
+  if (ya) poner(); else temporizadorDelBorrador = setTimeout(poner, 400);
+}
+
+function vistaEscribir() {
+  pestanas();
+  $('#recargar').hidden = false;
+  if (!E.redaccion) {
+    app.innerHTML = '<div class="girando"></div>';
+    cargarRedaccion().then(() => { if (E.pestana === 'escribir') vistaEscribir(); });
+    return;
+  }
+  if (!E.escribir) { const { f, deBorrador } = formularioInicial(); E.escribir = f; E.escribirDeBorrador = deBorrador; }
+  dibujarEscribir({ alPrincipio: true });
+}
+
+/** Dibuja la pestaña (o la vista previa). Conserva el lugar donde estaba la pantalla salvo que se pida otra cosa. */
+function dibujarEscribir({ alPrincipio = false } = {}) {
+  const f = E.escribir;
+  const y = window.scrollY;
+  if (f.vista) app.innerHTML = htmlDeLaVistaPrevia(f, { esc, chip });
+  else {
+    const borrador = E.escribirDeBorrador && !f.existente
+      ? '<div class="caja aviso-motivo"><p>Seguís con el borrador que quedó en este celular. Las fotos hay que volver a elegirlas.</p><button type="button" class="boton" data-accion="descartar-borrador-redaccion">Empezar de cero</button></div>' : '';
+    app.innerHTML = borrador + htmlDelFormulario(f, { esc, procesando: E.escribirProcesando ?? '' }) + htmlDeMisNotas(E.redaccion ?? { notas: {} }, { esc, chip, haceCuanto }) + queEs('escribir');
+  }
+  window.scrollTo(0, alPrincipio ? 0 : y);
+}
+
+/** Lee una foto del celular y la achica con un lienzo: JPEG de hasta `anchoMaximo` px, y que no pese más de MEDIDAS.bytesMaximos (baja la calidad, y si hace falta el tamaño). Respeta cómo se sacó la foto (EXIF). */
+async function achicarFoto(archivo, { anchoMaximo }) {
+  let origen;
+  try {
+    // 'from-image': el navegador la gira como se sacó (una foto vertical del celular viene "acostada" con la orientación escrita en el archivo).
+    origen = await createImageBitmap(archivo, { imageOrientation: 'from-image' });
+  } catch {
+    // Un navegador viejo: se lee como imagen (con un data:, el único origen de imágenes que deja la política del panel) y el propio navegador la gira.
+    const url = await new Promise((ok, mal) => { const l = new FileReader(); l.onload = () => ok(l.result); l.onerror = () => mal(l.error); l.readAsDataURL(archivo); });
+    origen = new Image();
+    origen.src = url;
+    await origen.decode();
+  }
+  const ancho0 = origen.naturalWidth || origen.width;
+  const alto0 = origen.naturalHeight || origen.height;
+  if (!ancho0 || !alto0) throw new Error('No se pudo leer la imagen.');
+  const base = medidasAchicadas({ ancho: ancho0, alto: alto0 }, anchoMaximo);
+  let mejor = null;
+  for (const paso of PLAN_DE_ACHIQUE) {
+    const ancho = Math.max(1, Math.round(base.ancho * paso.escala));
+    const alto = Math.max(1, Math.round(base.alto * paso.escala));
+    const lienzo = document.createElement('canvas');
+    lienzo.width = ancho;
+    lienzo.height = alto;
+    const c = lienzo.getContext('2d');
+    c.fillStyle = '#fff';
+    c.fillRect(0, 0, ancho, alto);
+    c.imageSmoothingQuality = 'high';
+    c.drawImage(origen, 0, 0, ancho, alto);
+    const blob = await new Promise((ok) => { lienzo.toBlob(ok, 'image/jpeg', paso.calidad); });
+    if (!blob) continue;
+    mejor = { blob, ancho, alto };
+    if (blob.size <= MEDIDAS.bytesMaximos) break;
+  }
+  origen.close?.();
+  if (!mejor) throw new Error('No pude achicar la foto.');
+  const base64 = await new Promise((ok, mal) => {
+    const l = new FileReader();
+    l.onload = () => ok(String(l.result).split(',')[1] ?? '');
+    l.onerror = () => mal(l.error);
+    l.readAsDataURL(mejor.blob);
+  });
+  return { base64, ancho: mejor.ancho, alto: mejor.alto, bytes: mejor.blob.size };
+}
+
+/** Las fotos elegidas en el celular: se achican una por una y quedan en el formulario (todavía sin subir). */
+async function elegirFotosParaLaNota(donde, archivos) {
+  const f = E.escribir;
+  if (!f || !archivos.length) return;
+  const lugares = donde === 'portada' ? 1 : MAXIMO_DE_FOTOS - f.fotos.length;
+  const lista = archivos.slice(0, Math.max(0, lugares));
+  if (archivos.length > lista.length) aviso(donde === 'portada' ? 'La portada es una sola foto: usé la primera.' : `Entran hasta ${MAXIMO_DE_FOTOS} fotos: sumé las primeras ${lista.length}.`, { ms: 8000 });
+  try {
+    for (let k = 0; k < lista.length; k += 1) {
+      E.escribirProcesando = donde === 'portada' ? 'Achicando la foto de portada…' : `Achicando la foto ${k + 1} de ${lista.length}…`;
+      dibujarEscribir();
+      const r = await achicarFoto(lista[k], { anchoMaximo: donde === 'portada' ? MEDIDAS.portada.ancho : MEDIDAS.interna.ancho });
+      const foto = { ...r, epigrafe: '', credito: '' };
+      if (donde === 'portada') f.portada = foto; else f.fotos.push(foto);
+    }
+  } catch (e) {
+    aviso(`No pude achicar esa foto (${e?.message ?? e}). Probá con otra.`, { ms: 9000 });
+  }
+  E.escribirProcesando = '';
+  dibujarEscribir();
+}
+
+const CAMPO_CON_PROBLEMA = { titulo: 'w-titulo', copete: 'w-copete', cuerpo: 'w-cuerpo', seccion: 'w-seccion', firma: 'w-firma', fotos: 'w-subir-interna' };
+
+/** Sube las fotos nuevas, guarda la nota y muestra qué pasó. Si algo falla, lo escrito (y las fotos ya achicadas) siguen en pantalla. */
+async function publicarRedaccion() {
+  const f = E.escribir;
+  if (!f || E.escribirOcupado) return;
+  const problemas = problemasDelFormulario(f);
+  if (problemas.length) {
+    if (!f.vista) {
+      aviso(`${problemas[0].texto}${problemas.length > 1 ? ` (y ${problemas.length - 1} cosa${problemas.length > 2 ? 's' : ''} más)` : ''}`, { ms: 9000 });
+      $(`#${CAMPO_CON_PROBLEMA[problemas[0].campo] ?? 'w-titulo'}`)?.scrollIntoView({ block: 'center' });
+    } else aviso('Hay cosas para arreglar antes de publicar: están arriba, en rojo.', { ms: 7000 });
+    return;
+  }
+  const r = await preguntar({
+    titulo: f.existente ? '¿Guardar los cambios?' : '¿Publicar la nota?',
+    texto: `${AVISO_DE_MENORES} Sale en la web en la próxima actualización (cada media hora), con la firma “Por ${autorDeLaFirma(f.firma)}”.`,
+    si: f.existente ? 'Sí, guardar' : 'Sí, publicar',
+  });
+  if (!r.ok) return;
+  E.escribirOcupado = true;
+  const por = E.nombre;
+  try {
+    const pendientes = [...(f.portada && f.portada.base64 && !f.portada.archivo ? [['portada', f.portada]] : []), ...f.fotos.filter((x) => x.base64 && !x.archivo).map((x) => ['interna', x])];
+    for (let k = 0; k < pendientes.length; k += 1) {
+      const [cual, foto] = pendientes[k];
+      app.innerHTML = `<div class="girando"></div><p class="vacio">Subiendo las fotos (${k + 1} de ${pendientes.length})…</p>`;
+      f.contador += 1;
+      const nombre = nombreDeFoto(f.clave, cual === 'portada' ? 'portada' : f.contador, tokenNuevo());
+      await E.cliente.subirArchivo(rutaDelRepositorio(nombre), foto.base64, `Panel del celular: ${por} sube una foto de una nota`);
+      // Queda anotada como subida: si después falla el guardado de la nota y se vuelve a intentar, no se sube dos veces.
+      foto.archivo = archivoDeLaWeb(nombre);
+    }
+    if ([f.portada, ...f.fotos].some((x) => x && !x.archivo)) throw new Error('Una foto no se pudo subir.');
+    app.innerHTML = '<div class="girando"></div><p class="vacio">Guardando la nota en GitHub…</p>';
+    const entrada = armarEntrada(f, { por });
+    const guardado = await E.cliente.guardar(ARCHIVOS.notasDeRedaccion, (j) => conNotaDeRedaccion(j, f.clave, entrada), `Panel del celular: ${por} ${f.existente ? 'edita' : 'publica'} una nota de la redacción`);
+    guardarLocal(FIRMA_GUARDADA, entrada.firma);
+    if (!f.existente) guardarLocal(BORRADOR_DE_NOTA, null);
+    E.redaccion = guardado;
+    const quedo = guardado.notas?.[f.clave] ?? entrada;
+    const { clave, existente: edicion } = f;
+    E.escribir = null;
+    E.escribirDeBorrador = false;
+    E.escribirOcupado = false;
+    vistaResultadoRedaccion({ clave, entrada: quedo, edicion });
+  } catch (e) {
+    E.escribirOcupado = false;
+    aviso(`No se pudo ${f.existente ? 'guardar' : 'publicar'}: ${explicarError(e)} Lo que escribiste sigue acá: probá de nuevo.`, { ms: 14000 });
+    dibujarEscribir();
+  }
+}
+
+/** Lo que se ve al publicar: qué pasó, cuándo se ve en la web y los pasos que siguen. */
+function vistaResultadoRedaccion({ clave, entrada, edicion }) {
+  $('#pestanas').hidden = true;
+  app.innerHTML = `<div class="resultado"><div class="resultado-icono">✓</div><h1>${edicion ? 'Cambios guardados' : 'La nota ya está en camino'}</h1>
+    <p>“${esc(entrada.titulo)}” quedó guardada en GitHub.</p>
+    <p class="estado"><strong>Aparece en la web en unos minutos</strong>: es la próxima vuelta del motor, que corre cada media hora. Si no querés esperar, tocá “Actualizar la web ahora”.</p>
+    <p class="estado">No sale sola a Facebook, Instagram ni a los videos: eso se decide aparte.</p></div>
+    <div class="botones">
+      <button type="button" class="boton principal" data-accion="actualizar-web">Actualizar la web ahora</button>
+      <a class="boton enlace-boton" href="${esc(enlaceDeLaNota(clave, entrada))}" target="_blank" rel="noopener">Abrir la nota (cuando salga) ↗</a>
+      <button type="button" class="boton" data-accion="escribir-otra">Escribir otra nota</button>
+      <button type="button" class="boton" data-pestana="escribir">Ver mis notas</button>
+    </div>`;
+  window.scrollTo(0, 0);
+}
+
+/** Retirar y volver a publicar una nota de la redacción: sólo cambia una marca en web/data/notas-de-redaccion.json (no se borra nada). */
+async function retirarORepornerRedaccion(clave, retirar) {
+  const e = E.redaccion?.notas?.[clave];
+  if (!e) return;
+  const r = retirar
+    ? await preguntar({ titulo: '¿Retirar la nota?', texto: 'Sale de la web en la próxima actualización. Queda guardada, con sus fotos, por si hay que volver a publicarla.', si: 'Sí, retirarla', conMotivo: '¿Por qué?' })
+    : await preguntar({ titulo: '¿Volver a publicarla?', texto: 'Vuelve a la web en la próxima actualización, con la misma dirección.', si: 'Sí, publicarla' });
+  if (!r.ok) return;
+  try {
+    E.redaccion = await E.cliente.guardar(ARCHIVOS.notasDeRedaccion, (j) => (retirar
+      ? conNotaDeRedaccionRetirada(j, clave, { por: E.nombre, motivo: r.texto })
+      : conNotaDeRedaccionRepuesta(j, clave, { por: E.nombre })), `Panel del celular: ${E.nombre} ${retirar ? 'retira' : 'vuelve a publicar'} una nota de la redacción`);
+    aviso(retirar ? 'Retirada: sale de la web en la próxima actualización.' : 'Vuelve a la web en la próxima actualización.', { conActualizar: true });
+  } catch (err) { aviso(explicarError(err), { ms: 9000 }); }
+  if (E.pestana === 'escribir' && E.escribir) dibujarEscribir();
+}
+
+const ACCIONES_DE_ESCRIBIR = new Set([
+  'insertar-foto', 'quitar-foto', 'quitar-portada', 'vista-previa-redaccion', 'seguir-editando', 'publicar-redaccion', 'editar-redaccion', 'retirar-redaccion', 'reponer-redaccion',
+  'cancelar-edicion', 'descartar-borrador-redaccion', 'escribir-otra',
+]);
+
+async function accionDeEscribir(accion, el) {
+  const f = E.escribir;
+  if (accion === 'publicar-redaccion') { publicarRedaccion(); return; }
+  if (accion === 'retirar-redaccion' || accion === 'reponer-redaccion') { retirarORepornerRedaccion(el.dataset.clave, accion === 'retirar-redaccion'); return; }
+  if (accion === 'editar-redaccion') {
+    const e = E.redaccion?.notas?.[el.dataset.clave];
+    if (!e) return;
+    if (f && !f.existente && borradorTieneAlgo(f)) {
+      guardarBorrador({ ya: true });
+      if (!(await preguntar({ titulo: '¿Editar esa nota?', texto: 'Tenés una nota a medio escribir. Queda guardada como borrador y la retomás cuando termines.', si: 'Sí, editar' })).ok) return;
+    }
+    E.escribir = formularioDesdeLaEntrada(el.dataset.clave, e);
+    E.escribirDeBorrador = false;
+    E.pestana = 'escribir';
+    dibujarEscribir({ alPrincipio: true });
+    return;
+  }
+  if (accion === 'cancelar-edicion' || accion === 'escribir-otra') {
+    E.escribir = null;
+    E.pestana = 'escribir';
+    vistaEscribir();
+    return;
+  }
+  if (!f) return;
+  if (accion === 'descartar-borrador-redaccion') {
+    if (!(await preguntar({ titulo: '¿Empezar de cero?', texto: 'Se borra el texto que quedó guardado en este celular.', si: 'Sí, borrarlo' })).ok) return;
+    guardarLocal(BORRADOR_DE_NOTA, null);
+    E.escribir = formularioVacio(firmaGuardada());
+    E.escribirDeBorrador = false;
+    dibujarEscribir({ alPrincipio: true });
+  } else if (accion === 'insertar-foto') {
+    const ta = $('#w-cuerpo');
+    if (!ta) return;
+    // Si nunca se tocó el cuerpo, la marca va al final; si se tocó, donde estaba el cursor.
+    const r = insertarMarca(ta.value, ta.dataset.tocado ? ta.selectionStart : ta.value.length, Number(el.dataset.n));
+    ta.value = r.texto;
+    f.cuerpo = r.texto;
+    ta.dataset.tocado = '1';
+    ta.focus();
+    ta.setSelectionRange(r.posicion, r.posicion);
+    contarEscribir();
+    guardarBorrador();
+  } else if (accion === 'quitar-foto') {
+    const i = Number(el.dataset.i);
+    f.fotos.splice(i, 1);
+    f.cuerpo = quitarFotoDelCuerpo(f.cuerpo, i + 1);
+    guardarBorrador();
+    dibujarEscribir();
+  } else if (accion === 'quitar-portada') {
+    f.portada = null;
+    dibujarEscribir();
+  } else if (accion === 'vista-previa-redaccion') {
+    f.vista = true;
+    dibujarEscribir({ alPrincipio: true });
+  } else if (accion === 'seguir-editando') {
+    f.vista = false;
+    dibujarEscribir({ alPrincipio: true });
+  }
+}
+
+/** Los contadores de debajo del título y del cuerpo. */
+function contarEscribir() {
+  const f = E.escribir;
+  if (!f) return;
+  const t = $('#w-c-titulo');
+  if (t) t.textContent = `${String(f.titulo).length} caracteres (conviene hasta ${TITULO_RECOMENDADO})`;
+  const c = $('#w-c-cuerpo');
+  if (c) { const p = palabrasDelCuerpo(f.cuerpo, f.fotos.length); c.textContent = `${p} palabras${p < MINIMO_DE_PALABRAS ? ` (hacen falta ${MINIMO_DE_PALABRAS})` : ''}`; }
+}
+
+// Lo que se escribe en el formulario va al estado (E.escribir) y, con una pausa, al borrador de este celular.
+document.addEventListener('input', (ev) => {
+  const el = ev.target.closest?.('[data-campo]');
+  if (!el || !E.escribir || E.pestana !== 'escribir') return;
+  const { campo, donde } = el.dataset;
+  const f = E.escribir;
+  if (donde === 'nota') f[campo] = el.value;
+  else { const foto = donde === 'portada' ? f.portada : f.fotos[Number(el.dataset.i)]; if (foto) foto[campo] = el.value; }
+  contarEscribir();
+  guardarBorrador();
+});
+// El cursor del cuerpo cuenta recién cuando se tocó el cuerpo (al tocarlo, escribir, o pasar el dedo): hasta entonces la marca va al final.
+for (const tipo of ['focusin', 'click', 'keyup', 'touchend']) document.addEventListener(tipo, (ev) => { if (ev.target?.id === 'w-cuerpo') ev.target.dataset.tocado = '1'; });
+// Las fotos que se eligen en el celular.
+document.addEventListener('change', async (ev) => {
+  const el = ev.target;
+  if (!el?.matches?.('input[type=file][data-subir]')) return;
+  const archivos = [...(el.files ?? [])];
+  el.value = '';
+  await elegirFotosParaLaNota(el.dataset.subir, archivos);
+});
 
 function vistaRedes() {
   const r = E.estadoCel?.redes;
@@ -1344,6 +1666,7 @@ async function guardarFechas(cambiarJson, mensaje, listo) {
  * [id, nombre, ícono, para qué sirve]. Cada una se abre desde "Más" y trae su botón para volver.
  */
 const MENU_MAS = [
+  ['escribir', 'Escribir una nota', '✍', 'Pegá título, bajada y cuerpo, sumá fotos y publicá una nota tuya, con tu firma.'],
   ['borradores', 'Borradores', '✎', 'Todo lo que se le pidió a la IA: lo que está para leer y lo que ya se resolvió.'],
   ['fotos', 'Fotos', '📷', 'Las notas de la portada sin foto, por qué no la tienen y dónde buscarle una.'],
   ['contactos', 'Contactos', '👥', 'Instituciones y personas a quienes pedirles fechas y eventos: escribirles y llevar quién respondió.'],
@@ -1794,6 +2117,7 @@ document.addEventListener('click', async (ev) => {
   const accion = el.dataset.accion;
   const por = E.nombre;
   const decision = (cambiar, mensaje) => [ARCHIVOS.decisiones, cambiar, `Panel del celular: ${por} ${mensaje}`];
+  if (ACCIONES_DE_ESCRIBIR.has(accion)) { accionDeEscribir(accion, el); return; }
   if (accion === 'cerrar-aviso') $('#aviso').hidden = true;
   else if (accion === 'investigar-pista') investigarPista();
   else if (accion === 'actualizar-panel') {
@@ -1995,6 +2319,8 @@ document.addEventListener('click', async (ev) => {
   } else if (accion === 'salir') {
     if (!(await preguntar({ titulo: '¿Salir de este celular?', texto: 'Se borran la llave y los datos de este celular. Para volver a entrar vas a necesitar una llave.', si: 'Sí, salir' })).ok) return;
     localStorage.removeItem(GUARDADO);
+    localStorage.removeItem(BORRADOR_DE_NOTA);
+    localStorage.removeItem(FIRMA_GUARDADA);
     indexedDB.deleteDatabase(GUARDADO);
     E.cliente = null;
     E.nubeCliente = null;
