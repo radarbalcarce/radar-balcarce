@@ -98,7 +98,8 @@ test('regla 324: con Gemini y Groq en 429 no se gastan los intentos de la nota y
   const notas = ['a1', 'a2', 'a3', 'a4', 'a5'].map((id) => notaDe(id));
   const { banco, cortadaPorCupo } = await elegirFotosNuevas(notas, { clave: 'g', claveRespaldo: 'q', fetchFn: r.fetchFn, ahora, prepararParaIA: null, huellaDe: null });
   assert.equal(cortadaPorCupo, true);
-  assert.equal(r.pedidos.gemini, 2, 'se probaron dos notas y se cortó: tres pedidos que no se gastaron');
+  // Desde el 30/10 (R40) cada nota prueba también el modelo barato de Gemini, que tiene su propio cupo gratis: dos pedidos por nota.
+  assert.equal(r.pedidos.gemini, 4, 'se probaron dos notas (con los dos modelos) y se cortó: tres notas que no gastaron nada');
   assert.deepEqual(Object.keys(banco).sort(), ['a1', 'a2']);
   assert.equal(banco.a1.intentos, 1, 'el intento no se gasta');
   assert.equal(banco.a1.intentosPorCupo, 1);

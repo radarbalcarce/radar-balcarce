@@ -42,7 +42,7 @@
 //   - Wikimedia: sólo si el título nombra a la persona, la foto no es de hace años para un hecho de hoy y la visión dice que corresponde.
 // Para que esto no necesite dependencias, lo que usa ffmpeg (achicar, la huella) se lo pasa quien llama.
 
-import { claveClasificacion, claveGroq, MODELO_DE_TEXTO } from '../reels/claves.mjs';
+import { claveClasificacion, claveGroq, MODELO_DE_TEXTO, MODELO_DE_TEXTO_BARATO } from '../reels/claves.mjs';
 import { conMedicion } from '../redes/uso-ia.mjs';
 import {
   excepcionActiva, esFuenteOficialParaMenores, menorEnActividadOficial, REGLA_FOTOS_MENORES,
@@ -439,6 +439,11 @@ async function visionGemini(texto, imagenes, { clave, fetchFn = fetch, modelo = 
     body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }),
     signal: AbortSignal.timeout(60_000),
   });
+  // R40 (30/10/2026): sin cupo del día con el modelo de siempre, el más barato con la misma clave, que tiene su propio cupo gratis (de 554 notas
+  // de tres días, 119 quedaron sin foto porque se acabó el cupo de las IA que las revisan).
+  if (res.status === 429 && modelo === MODELO_GEMINI && MODELO_DE_TEXTO_BARATO !== MODELO_GEMINI) {
+    return visionGemini(texto, imagenes, { clave, fetchFn, modelo: MODELO_DE_TEXTO_BARATO });
+  }
   if (!res.ok) throw await errorDeRespuesta(res);
   const j = await res.json();
   const t = j.candidates?.[0]?.content?.parts?.map((p) => p.text).join('') ?? '';

@@ -27,7 +27,9 @@
 // son los medios que contaron lo mismo y los ANTECEDENTES, notas que el sitio
 // ya publicó sobre el tema en los últimos 30 días (antecedentesDe).
 
-import { claveRedaccion, claveRespaldo, claveMistral, leerVariable, MODELO_DE_TEXTO } from './claves.mjs';
+import {
+  claveRedaccion, claveRespaldo, claveMistral, leerVariable, MODELO_DE_TEXTO, MODELO_DE_TEXTO_BARATO,
+} from './claves.mjs';
 import { pedirJsonAMistral } from './mistral.mjs';
 import {
   verificar, verificarExtras, resumirProblemas, depurarCuerpo, arreglarEscritura,
@@ -444,7 +446,7 @@ export function topeDiarioDelRespaldo(o) {
  * menos por nota. El 2.5 Flash-Lite (0,10 y 0,40) ya no se puede usar en cuentas nuevas (Google contesta 404). Lo cambia la variable
  * GEMINI_MODELO_BARATO (un nombre de modelo de Gemini); vacía, el 3.1 Flash-Lite.
  */
-export const MODELO_MAS_BARATO = 'gemini-3.1-flash-lite';
+export const MODELO_MAS_BARATO = MODELO_DE_TEXTO_BARATO;
 
 export function modeloMasBarato(o) {
   const v = String(leerVariable('GEMINI_MODELO_BARATO', o) ?? '').trim();

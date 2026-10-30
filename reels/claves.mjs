@@ -56,6 +56,10 @@ export function leerVariable(nombre, { env = process.env, archivo = path.join(RA
  *  seguido; si vuelve a fallar, es lo primero que se mira (CLAUDE.md). */
 export const MODELO_DE_TEXTO = 'gemini-flash-lite-latest';
 
+/** El modelo de texto más barato de Gemini que sigue abierto (R40, 30/10/2026): lo usa siempre la clave paga, y las gratis cuando se quedan
+ *  sin cupo con el de siempre (Google da un cupo gratis aparte por modelo). El 2.5 Flash-Lite ya no se puede usar en cuentas nuevas. */
+export const MODELO_DE_TEXTO_BARATO = 'gemini-3.1-flash-lite';
+
 export const claveRedaccion = (o) => leerVariable('GEMINI_API_KEY_REDACCION', o) ?? leerVariable('GEMINI_API_KEY', o);
 
 export const claveRedes = (o) => leerVariable('GEMINI_API_KEY_REDES', o);
