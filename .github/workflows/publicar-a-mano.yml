@@ -39,8 +39,11 @@ jobs:
       TZ: America/Argentina/Buenos_Aires
     steps:
       - name: Esperar
-        if: ${{ inputs.esperar > 0 }}
-        run: sleep $(( ${{ inputs.esperar }} > 300 ? 18000 : ${{ inputs.esperar }} * 60 ))
+        run: |
+          m=$(( ESPERA > 300 ? 300 : ESPERA ))
+          if [ "$m" -gt 0 ]; then echo "Espero $m minutos"; sleep $(( m * 60 )); fi
+        env:
+          ESPERA: ${{ inputs.esperar }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -54,10 +57,15 @@ jobs:
           run-id: ${{ inputs.corrida }}
           github-token: ${{ github.token }}
       - name: Publicar
-        run: node redes/publicar-a-mano.mjs ${REEL:+--reel=$REEL} ${NOTA:+--nota=$NOTA} ${DE_VERDAD:+--de-verdad}
+        run: |
+          args=()
+          [ -n "$REEL" ] && args+=("--reel=$REEL")
+          [ -n "$NOTA" ] && args+=("--nota=$NOTA")
+          [ "$DE_VERDAD_SI" = "true" ] && args+=("--de-verdad")
+          node redes/publicar-a-mano.mjs "${args[@]}"
         env:
           REEL: ${{ inputs.reel }}
           NOTA: ${{ inputs.nota }}
-          DE_VERDAD: ${{ inputs.de_verdad && 'si' || '' }}
+          DE_VERDAD_SI: ${{ inputs.de_verdad }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           SITIO: https://radarbalcarce.com
