@@ -283,7 +283,8 @@ test('la redacción anota CADA pedido (no sólo el último): la gratis sin cupo 
     ? falla(429, GEMINI_POR_DIA)
     : bien({ candidates: [{ content: { parts: [{ text: salida }] } }], usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, totalTokenCount: 15 } }));
   const dia = await conUsoPropio(() => reescribir(nota, { fetchFn, clavePropia: 'gratis', claveDePago: 'paga', claveDeRespaldo: null, claveDeMistral: null }));
-  assert.deepEqual(motivosDe(dia, 'redaccion', 'redaccion'), { 'cupo-diario': 1 });
+  // R40: la gratis sin cupo prueba también el modelo barato (otro cupo gratis): dos pedidos sin cupo anotados.
+  assert.deepEqual(motivosDe(dia, 'redaccion', 'redaccion'), { 'cupo-diario': 2 });
   assert.deepEqual(motivosDe(dia, 'redaccion', 'respaldo'), { ok: 1 });
 });
 

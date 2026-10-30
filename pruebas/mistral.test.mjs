@@ -311,7 +311,8 @@ test('redacción: el orden entero — Gemini de redacción, Gemini de respaldo (
   const { fn, llamados } = mundo({ gemini: falla(429), mistral: () => respuestaDe(JSON.stringify(SALIDA_DE_LA_NOTA)) });
   const r = await reescribir(NOTA, { ...DE_PRUEBA, fetchFn: fn, claveDePago: 'pago', claveDeRespaldo: 'clasif', claveDeMistral: 'm' });
   assert.equal(r.ia, 'mistral', 'si las tres de Gemini fallan, escribe Mistral');
-  assert.deepEqual(llamados.orden, ['gemini:g', 'gemini:pago', 'gemini:clasif', 'mistral']);
+  // Desde el 30/10 (R40) cada clave gratis sin cupo prueba también el modelo barato con su propio cupo, y la paga usa sólo el barato.
+  assert.deepEqual(llamados.orden, ['gemini:g', 'gemini:g', 'gemini:pago', 'gemini:clasif', 'gemini:clasif', 'mistral']);
 });
 
 test('redacción: un pedido mal armado (400) no se manda a Mistral, y sin su clave nada cambia', async () => {

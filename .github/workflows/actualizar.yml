@@ -142,6 +142,9 @@ jobs:
           MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}
 
           GEMINI_RESPALDO_TOPE_DIARIO: ${{ vars.GEMINI_RESPALDO_TOPE_DIARIO }}
+
+
+          GEMINI_MODELO_BARATO: ${{ vars.GEMINI_MODELO_BARATO }}
           # Sólo para contarle al panel del celular si las redes están prendidas
           # (celular-estado.json, 29/09). Acá no se publica nada en las redes.
           REDES_ACTIVAS: ${{ vars.REDES_ACTIVAS }}

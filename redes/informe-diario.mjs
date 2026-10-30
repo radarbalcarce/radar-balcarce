@@ -56,8 +56,9 @@ export const VENCIMIENTOS_DEL_INFORME = [
 ];
 /** Precio de REFERENCIA por millón de tokens, para decir cuánto costaría (lo gratis no se paga). Hasta el 30/10/2026 decía 0,10 y 0,40 (la lista
  *  vieja de «flash-lite») y el informe dijo menos de lo que se gastó: la factura de Google del 24 al 30/10 cobró US$ 5 por unos 1.000 pedidos
- *  de la clave paga (6,3 millones de tokens de entrada y 1,1 de salida), cinco veces más. Calibrado con esa factura (R40). */
-export const PRECIO_DE_REFERENCIA = { entrada: 0.50, salida: 2.00 };
+ *  de la clave paga. Ese día «gemini-flash-lite-latest» era el 3.5 Flash-Lite, que según la lista oficial cuesta 0,30 y 2,50 (R40); la paga
+ *  usa desde ese día el 3.1 Flash-Lite (0,25 y 1,50), así que esto es el techo. */
+export const PRECIO_DE_REFERENCIA = { entrada: 0.30, salida: 2.50 };
 
 export const LIMITES_DEL_INFORME = {
   notasPrincipales: 3,

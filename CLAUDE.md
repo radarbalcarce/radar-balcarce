@@ -149,7 +149,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
   `docs/DECISIONES.md`). **Cada pedido a una IA queda medido** en `web/data/uso-ia.json` (`redes/uso-ia.mjs`) por día, tarea y clave, con el motivo de cada fallo
   (`cupo-diario`, `velocidad`, `saturado`, `rechazada`, `otro`); el informe diario lo resume por clave. **Cupo de voz: 10 audios por
   día**; si se acaba, la pieza no sale (nunca con otra voz). Una clave rechazada
-  (401/402/403) no gasta los intentos de una nota. Texto: `gemini-flash-lite-latest`; voz:
+  (401/402/403) no gasta los intentos de una nota. Texto: `gemini-flash-lite-latest` (la paga, siempre el más barato: `gemini-3.1-flash-lite`, `GEMINI_MODELO_BARATO`, R40; tope de 30 pedidos por día, `GEMINI_RESPALDO_TOPE_DIARIO`); voz:
   `gemini-3.8-flash-tts`, dos voces propias que **vencen el 29/09/2027** (`CRITERIO-REDES.md` § 6).
 - **Una variable que el código lee tiene que llegar** (regla 311): GitHub sólo le pasa a un paso lo que el `env:` del workflow nombra;
   Workers Builds, sólo lo que carga `infra/motor-cloudflare/cargar-variables.mjs` (que a su vez la recibe de `motor-variables.yml`).

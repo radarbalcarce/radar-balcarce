@@ -387,10 +387,10 @@ export const TEMPERATURA_DE_LA_REDACCION = 0.3;
  *  (`?key=`): una dirección queda en registros y mensajes de error.
  *  `nombre` es de qué clave se trata (redaccion, respaldo, clasificacion): cada pedido que falla se anota con su motivo (cupo del día,
  *  velocidad, saturado…) en web/data/uso-ia.json (redes/uso-ia.mjs); el que sale bien lo anota quien llama, con sus tokens. */
-async function pedir({ prompt, entrada, clave, fetchFn, intentos, nombre = null }) {
+async function pedir({ prompt, entrada, clave, fetchFn, intentos, nombre = null, modelo = MODELO }) {
   let res;
   for (let i = 1; i <= intentos; i += 1) {
-    res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`, {
+    res = await fetchFn(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-goog-api-key': clave },
       body: JSON.stringify({
@@ -402,10 +402,10 @@ async function pedir({ prompt, entrada, clave, fetchFn, intentos, nombre = null 
       }),
       signal: AbortSignal.timeout(ESPERA_MAXIMA_GEMINI),
     }).catch((e) => {
-      anotarUsoIA({ tarea: 'redaccion', modelo: MODELO, clave: nombre, error: 'red' });
+      anotarUsoIA({ tarea: 'redaccion', modelo, clave: nombre, error: 'red' });
       throw e;
     });
-    if (!res.ok) await anotarFallaIA({ tarea: 'redaccion', modelo: MODELO, clave: nombre, res });
+    if (!res.ok) await anotarFallaIA({ tarea: 'redaccion', modelo, clave: nombre, res });
     // 503 es "el modelo está saturado en este instante", no un error nuestro:
     // vale la pena esperar un poco y reintentar antes de resignarse.
     if (res.status !== 503 || i === intentos) break;
@@ -435,6 +435,20 @@ export function topeDiarioDelRespaldo(o) {
   const v = leerVariable('GEMINI_RESPALDO_TOPE_DIARIO', o);
   const n = Number(v);
   return v !== null && v !== '' && Number.isInteger(n) && n >= 0 && n <= 2000 ? n : TOPE_DIARIO_DEL_RESPALDO;
+}
+
+/**
+ * R40 (30/10/2026, Hernán: «elegí el modelo más chico, que sea bueno, y ponelo como regla»): el modelo más barato de Gemini que sigue
+ * abierto. Lo usa SIEMPRE la clave paga, y las gratis cuando se quedan sin cupo con el de siempre (cada modelo tiene su cupo gratis aparte).
+ * El 30/10 el modelo de siempre (MODELO_DE_TEXTO, el «latest») era el 3.5 Flash-Lite (US$ 0,30 y 2,50 por millón) y el 3.1 Flash-Lite cuesta 0,25 y 1,50: un 30 %
+ * menos por nota. El 2.5 Flash-Lite (0,10 y 0,40) ya no se puede usar en cuentas nuevas (Google contesta 404). Lo cambia la variable
+ * GEMINI_MODELO_BARATO (un nombre de modelo de Gemini); vacía, el 3.1 Flash-Lite.
+ */
+export const MODELO_MAS_BARATO = 'gemini-3.1-flash-lite';
+
+export function modeloMasBarato(o) {
+  const v = String(leerVariable('GEMINI_MODELO_BARATO', o) ?? '').trim();
+  return /^gemini-[a-z0-9.-]{3,60}$/.test(v) ? v : MODELO_MAS_BARATO;
 }
 
 /** ¿Le queda cupo del día a la clave paga? Lo anotado en uso-ia.json (`archivoDeUso` en las pruebas). */
@@ -477,7 +491,7 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
 export async function reescribir(nota, {
   intentos = 3, fetchFn = fetch, correccion = null, pedido = null,
   clavePropia = claveRedaccion(), claveDePago = claveRespaldo(), claveDeRespaldo = leerVariable('GEMINI_API_KEY_CLASIFICACION'),
-  claveDeMistral = claveMistral(), respaldoDisponible = respaldoConCupo,
+  claveDeMistral = claveMistral(), respaldoDisponible = respaldoConCupo, modeloBarato = modeloMasBarato(),
 } = {}) {
   const primera = clavePropia;
   const segunda = claveDePago && claveDePago !== primera ? claveDePago : null;
@@ -507,15 +521,29 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
 
   let res;
   let usada = 'redaccion';
+  let modeloUsado = MODELO;
+  // Una clave gratis: el modelo de siempre y, si se quedó sin cupo del día (429), el barato con la MISMA clave: Google da un cupo
+  // gratis aparte por modelo (R40, 30/10/2026), así que es más cupo sin pagar nada.
+  const gratis = async (clave, nombre) => {
+    let r = await pedir({ prompt, entrada, clave, fetchFn, intentos, nombre });
+    modeloUsado = MODELO;
+    if (r?.status === 429 && modeloBarato && modeloBarato !== MODELO) {
+      r = await pedir({ prompt, entrada, clave, fetchFn, intentos, nombre, modelo: modeloBarato });
+      modeloUsado = modeloBarato;
+    }
+    return r;
+  };
   if (primera) {
-    res = await pedir({ prompt, entrada, clave: primera, fetchFn, intentos, nombre: 'redaccion' });
+    res = await gratis(primera, 'redaccion');
   }
   if ((!primera || probarOtraClave(res)) && segunda && pagaConCupo()) {
-    res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos, nombre: 'respaldo' });
+    // La paga, siempre con el modelo más barato (R40, Hernán: «que elijas el modelo más chico; ponelo como regla»).
+    res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos, nombre: 'respaldo', modelo: modeloBarato || MODELO });
+    modeloUsado = modeloBarato || MODELO;
     usada = 'respaldo';
   }
   if (probarOtraClave(res) && tercera) {
-    res = await pedir({ prompt, entrada, clave: tercera, fetchFn, intentos, nombre: 'clasificacion' });
+    res = await gratis(tercera, 'clasificacion');
     usada = 'clasificacion';
   }
   // Mistral (26/10/2026, plan gratis): el último respaldo, sólo si Gemini no pudo por culpa del servicio y hay clave.
@@ -545,7 +573,7 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
     }
     const j = await res.json();
     // Los tokens de la llamada (usageMetadata), por día: web/data/uso-ia.json (redes/uso-ia.mjs). Nunca frena la corrida.
-    anotarUsoIA({ tarea: 'redaccion', modelo: MODELO, clave: usada, respuesta: j });
+    anotarUsoIA({ tarea: 'redaccion', modelo: modeloUsado, clave: usada, respuesta: j });
     texto = j.candidates?.[0]?.content?.parts?.map((p) => p.text).join('') ?? '';
   }
   const salida = limpiarJson(texto);

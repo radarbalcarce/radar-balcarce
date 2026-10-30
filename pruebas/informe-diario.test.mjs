@@ -398,7 +398,7 @@ test('costo de la IA, audios del día, posteo de Facebook y anotaciones de GitHu
   const c = costoDeLaIA({ redaccion: { a: { llamadas: 2, errores: 1, entrada: 1e6, salida: 1e6, pensamiento: 0, total: 2e6 } }, lectura: { b: { llamadas: 1, errores: 0, entrada: 0, salida: 0, pensamiento: 0, total: 0 } } });
   assert.equal(c.llamadas, 3);
   assert.equal(c.errores, 1);
-  assert.ok(Math.abs(c.referencia - 2.5) < 1e-9, 'US$ 0,50 por millón de entrada + 2,00 por millón de salida (calibrado con la factura del 24 al 30/10, R40)');
+  assert.ok(Math.abs(c.referencia - 2.8) < 1e-9, 'US$ 0,30 por millón de entrada + 2,50 por millón de salida (el 3.5 Flash-Lite, R40)');
   assert.equal(audiosDelDia({ instagram: { '2026-10-15/a': {}, '2026-10-15/participa-nota': {}, '2026-10-14/b': {} } }, '2026-10-15'), 1, 'las fijas ya vienen grabadas y no gastan voz');
   assert.equal(enlaceDePosteoDeFacebook('123_456'), 'https://www.facebook.com/123/posts/456');
   assert.equal(enlaceDePosteoDeFacebook('suelto'), null);

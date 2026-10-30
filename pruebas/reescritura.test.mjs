@@ -120,6 +120,8 @@ test('si hay más de una fuente, se le manda cada una por separado, no sólo la 
 test('si la clave gratis dice "sin cupo" (429), reintenta con la de respaldo paga, nunca con la de voces (25/10)', async () => {
   const { fn, pedidos } = fetchFalso([
     { ok: false, status: 429, json: { error: 'sin cupo' } },
+    // R40: la gratis prueba también el modelo barato, con su propio cupo, antes de pasar a la paga.
+    { ok: false, status: 429, json: { error: 'sin cupo' } },
     respuestaOk('Título pagado', 'Copete.', 'Título pagado.'),
   ]);
   const r = await reescribir(
@@ -127,9 +129,11 @@ test('si la clave gratis dice "sin cupo" (429), reintenta con la de respaldo pag
     { fetchFn: fn },
   );
   assert.equal(r.titulo, 'Título pagado');
-  assert.equal(pedidos.length, 2);
+  assert.equal(pedidos.length, 3);
   assert.equal(pedidos[0].init.headers['x-goog-api-key'], 'clave-redaccion-de-prueba');
-  assert.equal(pedidos[1].init.headers['x-goog-api-key'], 'clave-respaldo-de-prueba');
+  assert.equal(pedidos[1].init.headers['x-goog-api-key'], 'clave-redaccion-de-prueba');
+  assert.match(pedidos[1].url, /gemini-3.1-flash-lite/);
+  assert.equal(pedidos[2].init.headers['x-goog-api-key'], 'clave-respaldo-de-prueba');
 });
 
 test('un error que no es de cupo no reintenta con la clave paga', async () => {

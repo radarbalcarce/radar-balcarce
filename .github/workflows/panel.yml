@@ -86,6 +86,9 @@ jobs:
           MISTRAL_TOPE_DIARIO: ${{ vars.MISTRAL_TOPE_DIARIO }}
 
           GEMINI_RESPALDO_TOPE_DIARIO: ${{ vars.GEMINI_RESPALDO_TOPE_DIARIO }}
+
+
+          GEMINI_MODELO_BARATO: ${{ vars.GEMINI_MODELO_BARATO }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
 
       # La foto que sumó una persona desde la pestaña Fotos (2/10): la baja, la achica y la anota en web/data/fotos-manuales.json.

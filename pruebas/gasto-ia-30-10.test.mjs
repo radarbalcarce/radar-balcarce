@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { reescribir, topeDiarioDelRespaldo, respaldoConCupo, TOPE_DIARIO_DEL_RESPALDO } from '../reels/reescritura.mjs';
+import { reescribir, topeDiarioDelRespaldo, respaldoConCupo, TOPE_DIARIO_DEL_RESPALDO, modeloMasBarato } from '../reels/reescritura.mjs';
 import { pedidosDeLaClaveHoy } from '../redes/uso-ia.mjs';
 import { repetidasAntesDeEscribir } from '../ingesta/repetidas-publicadas.mjs';
 import { PRECIO_DE_REFERENCIA } from '../redes/informe-diario.mjs';
@@ -50,13 +50,23 @@ const sinCupo = { ok: false, status: 429, json: async () => ({}), text: async ()
 
 test('con la paga en su tope, la redacción la saltea y pasa a la de clasificación; con cupo, la usa como siempre', async () => {
   const orden = [];
-  const fetchFn = async (_u, o) => { const k = o.headers['x-goog-api-key']; orden.push(k); return k === 'clasif' ? ok : sinCupo; };
-  const base = { intentos: 1, clavePropia: 'g', claveDePago: 'pago', claveDeRespaldo: 'clasif', claveDeMistral: null, fetchFn };
+  const modelo = (u) => String(u).match(/models\/([^:]+):/)[1];
+  const fetchFn = async (u, o) => { const k = o.headers['x-goog-api-key']; orden.push(`${k}:${modelo(u)}`); return k === 'clasif' ? ok : sinCupo; };
+  const base = { intentos: 1, clavePropia: 'g', claveDePago: 'pago', claveDeRespaldo: 'clasif', claveDeMistral: null, fetchFn, modeloBarato: 'gemini-3.1-flash-lite' };
   await reescribir(NOTA, { ...base, respaldoDisponible: () => false });
-  assert.deepEqual(orden, ['g', 'clasif'], 'sin cupo propio, la paga ni se toca');
+  assert.deepEqual(orden, ['g:gemini-flash-lite-latest', 'g:gemini-3.1-flash-lite', 'clasif:gemini-flash-lite-latest'], 'sin cupo propio, la paga ni se toca');
   orden.length = 0;
   await reescribir(NOTA, { ...base, respaldoDisponible: () => true });
-  assert.deepEqual(orden, ['g', 'pago', 'clasif']);
+  assert.deepEqual(orden, ['g:gemini-flash-lite-latest', 'g:gemini-3.1-flash-lite', 'pago:gemini-3.1-flash-lite', 'clasif:gemini-flash-lite-latest'],
+    'la gratis prueba el barato con su propio cupo, y la paga usa SIEMPRE el barato');
+});
+
+test('el modelo más barato: 3.1 Flash-Lite por defecto (el 2.5 ya no se puede usar), lo cambia GEMINI_MODELO_BARATO', () => {
+  const sin = { env: {}, archivo: path.join(os.tmpdir(), 'no-existe.env') };
+  assert.equal(modeloMasBarato(sin), 'gemini-3.1-flash-lite');
+  assert.equal(modeloMasBarato({ ...sin, env: { GEMINI_MODELO_BARATO: 'gemini-4-flash-lite' } }), 'gemini-4-flash-lite');
+  assert.equal(modeloMasBarato({ ...sin, env: { GEMINI_MODELO_BARATO: 'otra cosa' } }), 'gemini-3.1-flash-lite');
+  assert.match(leer('infra/motor-cloudflare/cargar-variables.mjs'), /'GEMINI_MODELO_BARATO'/);
 });
 
 test('la variable del tope llega al motor en Cloudflare y a los workflows que redactan', () => {
@@ -106,9 +116,9 @@ test('generar-datos no pide a la IA las que se unen a una publicada, y tampoco l
 
 // ------------------------------------------------------------------ el precio de verdad
 
-test('el precio de referencia del informe es el que cobró Google la semana del 24 al 30/10, no la lista vieja', () => {
-  assert.deepEqual(PRECIO_DE_REFERENCIA, { entrada: 0.50, salida: 2.00 });
+test('el precio de referencia del informe es el de la lista oficial del modelo que respondía (3.5 Flash-Lite), cerca de la factura del 24 al 30/10', () => {
+  assert.deepEqual(PRECIO_DE_REFERENCIA, { entrada: 0.30, salida: 2.50 });
   // 1.000 pedidos de 6.300 tokens de entrada y 1.100 de salida: unos US$ 5, lo de la factura.
   const costo = (1000 * 6300 * PRECIO_DE_REFERENCIA.entrada + 1000 * 1100 * PRECIO_DE_REFERENCIA.salida) / 1e6;
-  assert.ok(costo > 5 && costo < 6, `da ${costo}`);
+  assert.ok(costo > 4 && costo < 6, `da ${costo}`);
 });
