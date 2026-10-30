@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T02:02:36.865Z",
- "portada": 190,
- "archivo": 499,
- "esperandoCuerpo": 14,
+ "generado": "2026-10-30T03:02:02.315Z",
+ "portada": 176,
+ "archivo": 497,
+ "esperandoCuerpo": 16,
  "redes": {
-  "generado": "2026-10-30T02:02:37.370Z",
+  "generado": "2026-10-30T03:02:02.898Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-29T10:36:37.133Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-29T12:46:39.866Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,17 +33,17 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-29T13:36:37.870Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "agenda",
+    "nombre": "participa-nota",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "La agenda del fin de semana",
-    "voz": "locutora",
+    "que": "Tu nota",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-29T18:46:37.884Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-29T22:36:32.570Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-29T23:36:50.762Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-10-30T00:36:46.601Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,29 +93,29 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-29T13:36:37.870Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
     "notas": [
      {
-      "id": "1u7fzx2",
-      "titulo": "A dos años del derrumbe en Villa Gesell recuerdan a las víctimas balcarceñas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "101j4vt",
-      "titulo": "Daniel Villén visita el Club Social y Campo de Pato",
+      "id": "m75zbl",
+      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
       "seccion": "Deportes"
      },
      {
-      "id": "1l7ryr5",
-      "titulo": null,
-      "seccion": null
+      "id": "joipn0",
+      "titulo": "Proyecto Disco organiza una fiesta de Halloween con premios millonarios",
+      "seccion": "Balcarce"
      },
      {
-      "id": "1jkbwyl",
-      "titulo": "Matin los partidos de la Liga Balcarceña y define el arbitraje",
-      "seccion": "Fútbol"
+      "id": "1qq7gak",
+      "titulo": "Convocan a marchar en silencio por el crimen de Nancy Godoy",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1k99k9x",
+      "titulo": "Confirman una argentina muerta y buscan a otro en el choque de trenes en España",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -124,29 +124,29 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-29T18:46:37.884Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
     "notas": [
      {
-      "id": "90yhse",
-      "titulo": "Realizan la Feria del Libro Independiente de Balcarce en noviembre",
+      "id": "dqa51l",
+      "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "nj3vcj",
-      "titulo": "Suspenden la fecha de fútbol del jueves por las lluvias",
+      "id": "19c5usk",
+      "titulo": "Cristiano Ronaldo gana el BOAT y supera a Lionel Messi en la votación",
       "seccion": "Fútbol"
      },
      {
-      "id": "1tejsa4",
-      "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
-      "seccion": "Deportes"
+      "id": "1d2n6l3",
+      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
+      "seccion": "Argentina"
      },
      {
-      "id": "1h0i8a7",
-      "titulo": "Habilitan canales para solicitar la rehabilitación de pensiones por discapacidad",
-      "seccion": "Salud"
+      "id": "1rphs2p",
+      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
+      "seccion": "Economía"
      }
     ]
    },
@@ -155,68 +155,36 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-10-30T00:36:46.601Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 48,
     "notas": [
      {
-      "id": "o6zwz5",
-      "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
-      "seccion": "Ciencia"
+      "id": "1epe8uw",
+      "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "wycpwb",
-      "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
-      "seccion": "Economía"
+      "id": "1t6vp3x",
+      "titulo": "La UBA nombra Doctor Honoris Causa al papa León XIV",
+      "seccion": "Argentina"
      },
      {
-      "id": "13vd8fc",
-      "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
+      "id": "1jdn9gp",
+      "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
       "seccion": "Fútbol"
      },
      {
-      "id": "zv94ul",
-      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
-      "seccion": "Agro"
+      "id": "tp23to",
+      "titulo": "El Senado debate la reforma de la ley de Salud Mental e internaciones",
+      "seccion": "Salud"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "n7y2s4",
-     "titulo": "Oficializan el bono de hasta $70.000 y el aumento de ANSES",
-     "cuando": "2026-10-29T12:36:01.734Z"
-    },
-    {
-     "id": "1jy9zz0",
-     "titulo": "Convocan a referentes a organizar la próxima Fiesta del Deporte",
-     "cuando": "2026-10-29T14:36:00.882Z"
-    },
-    {
-     "id": "1v8hw3b",
-     "titulo": "Avanzan tareas viales en distintos sectores de la ciudad",
-     "cuando": "2026-10-29T16:36:03.360Z"
-    },
-    {
-     "id": "no17hh",
-     "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-     "cuando": "2026-10-29T18:36:04.353Z"
-    },
-    {
-     "id": "11s9ojn",
-     "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
-     "cuando": "2026-10-29T20:36:07.627Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
-    {
-     "id": "o6zwz5",
-     "titulo": "Virginia Aparicio apelará su exoneración del INTA y sigue",
-     "seccion": "Ciencia",
-     "marcada": false
-    },
     {
      "id": "dqa51l",
      "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
@@ -236,12 +204,6 @@
      "marcada": false
     },
     {
-     "id": "13vd8fc",
-     "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1s07l6f",
      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
      "seccion": "Automovilismo",
@@ -258,9 +220,21 @@
      "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
      "seccion": "Fútbol",
      "marcada": false
+    },
+    {
+     "id": "1ly4hzp",
+     "titulo": "El Gobierno aumenta los subsidios a los colectivos para evitar subas",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "b9hqor",
+     "titulo": "El Senado aprueba un régimen de incentivo para inversiones relevantes",
+     "seccion": "Economía",
+     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-29T22:06:07.627Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
