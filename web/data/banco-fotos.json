@@ -35222,9 +35222,7 @@
   "ausenteDesde": "2026-10-27T12:06:35.464Z"
  },
  "gnwnnf": {
-  "archivo": "fotos-notas/gnwnnf.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Colapinto finaliza 17 en la primera práctica en Estados Unidos",
@@ -35244,7 +35242,8 @@
    "descripcion": "Auto de Fórmula 1 circulando por la pista de perfil"
   },
   "huella": "d3527ebcb6ba07ff",
-  "ausenteDesde": "2026-10-23T23:01:47.346Z"
+  "intentado": true,
+  "borrada": true
  },
  "ilqwh3": {
   "intentado": true,
@@ -35432,9 +35431,7 @@
   "ausenteDesde": "2026-10-27T12:38:19.566Z"
  },
  "vge1ud": {
-  "archivo": "fotos-notas/vge1ud.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lionel Messi recibe el Premio Princesa de Asturias en España",
@@ -35466,7 +35463,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "c706030a60607030",
-  "ausenteDesde": "2026-10-23T23:01:47.346Z"
+  "intentado": true,
+  "borrada": true
  },
  "9h0icn": {
   "intentado": true,
@@ -53189,15 +53187,28 @@
   "ausenteDesde": "2026-10-29T16:30:36.460Z"
  },
  "n981ci": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Martín Palermo expresa su deseo de que Boca gane todos sus torneos",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-29T14:15:49.568Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/1llj2g7.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Martín Palermo palpita la final de la Copa Argentina y analiza a Boca",
+  "enlace": "https://www.ole.com.ar/platense/palermo-boca-platense-final-copa-argentina-maradona_0_W253tjW30T.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/29/3j6VKQQ29_2000x1500__1.jpg",
+  "razon": "Es una fotografía clara de Martín Palermo, con buen encuadre y sin marcas ni elementos no deseados.",
+  "cuando": "2026-10-30T12:34:12.064Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Martín Palermo de perfil en un estadio."
+  },
+  "huella": "273b191b4162c385"
  },
  "19qj4ij": {
   "intentado": true,
@@ -56446,12 +56457,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ARBal incorpora un nuevo canal de atención digital",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T19:04:25.007Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Ninguna de las imágenes es una fotografía real del hecho; todas son piezas gráficas o imágenes de stock.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 3,
+  "fuentes": 4
  },
  "jgpxe2": {
   "intentado": true,
@@ -56636,10 +56645,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T16:06:36.186Z",
-  "intentos": 3,
-  "fuentes": 1
+  "razon": "La única foto disponible muestra a un grupo de jóvenes que, por su apariencia, edad y contexto de torneo escolar, deben ser considerados menores de edad, lo cual impide su publicación según las políticas editoriales.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 4,
+  "fuentes": 2
  },
  "1qph0xq": {
   "archivo": "fotos-notas/1qph0xq.jpg",
@@ -57634,7 +57643,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:32.701Z",
-  "imagenOriginal": "https://tn.com.ar/resizer/v2/lula-da-silva-y-javier-milei-durante-la-cumbre-del-mercosur-celebrada-en-2025-en-buenos-aires-foto-reuters-RHNYCLXGUFHU7HEB53AWPTKXLQ.jpg?auth=a5549d0710074b5912e25e7c08168796a61b3a1228193bb0e87d7cca35058f9b&width=1023"
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/lula-da-silva-y-javier-milei-durante-la-cumbre-del-mercosur-celebrada-en-2025-en-buenos-aires-foto-reuters-RHNYCLXGUFHU7HEB53AWPTKXLQ.jpg?auth=a5549d0710074b5912e25e7c08168796a61b3a1228193bb0e87d7cca35058f9b&width=1023",
+  "ausenteDesde": "2026-10-30T23:05:32.574Z"
  },
  "1k2xynm": {
   "archivo": "fotos-notas/1k2xynm.jpg",
@@ -58208,7 +58218,8 @@
    "corresponde": "si",
    "descripcion": "Operadores trabajando frente a pantallas en una bolsa de valores."
   },
-  "huella": "6827072d0acacace"
+  "huella": "6827072d0acacace",
+  "ausenteDesde": "2026-10-30T23:05:32.574Z"
  },
  "1b0e7lc": {
   "archivo": "fotos-notas/1b0e7lc.jpg",
@@ -58454,7 +58465,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Mauro Icardi sonriendo."
   },
-  "huella": "0f4e04464d1d3313"
+  "huella": "0f4e04464d1d3313",
+  "ausenteDesde": "2026-10-30T23:05:32.574Z"
  },
  "1ohgde4": {
   "archivo": "fotos-notas/1ohgde4.jpg",
@@ -58502,7 +58514,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei caminando en un evento oficial."
   },
-  "huella": "17336363632363c3"
+  "huella": "17336363632363c3",
+  "ausenteDesde": "2026-10-30T23:05:32.574Z"
  },
  "1yirfii": {
   "intentado": true,
@@ -58580,5 +58593,149 @@
   "cuando": "2026-10-30T22:35:57.407Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "x2hlrk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Senado aprueba el marco regulatorio para el mercado de carbono",
+  "razon": "La única foto que muestra el hecho (A) tiene una marca de agua del medio, y las otras dos (B y C) son fotos genéricas que no corresponden al evento legislativo.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "im77nn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca y River definen sus formaciones para el Superclásico del domingo",
+  "razon": "Ambas imágenes son composiciones gráficas o montajes que no representan una fotografía de una escena real del hecho, por lo que no cumplen con los criterios editoriales.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "14rxmct": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Juana Viale conduce los programas de Mirtha Legrand el fin de semana",
+  "razon": "Ninguna de las fotos es apta: la A es una composición gráfica, la B tiene marca de agua del medio, la C es un retrato individual de Mirtha que no ilustra el hecho de la conducción de Juana, y la D es un retrato individual de Juana que tampoco ilustra el hecho.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "1ibv1cj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Disney+ actualiza el ranking de lo más visto en Argentina este viernes",
+  "razon": "La única imagen disponible es una captura de pantalla de la interfaz de la plataforma, lo cual se clasifica como gráfica.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "15nwqw0": {
+  "archivo": "fotos-notas/15nwqw0.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico por la fecha 15 del Torneo Clausura",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/boca-vs-river-por-el-superclasico-del-torneo-clausura-2026-dia-horario-tv-y-como-ver-online-nid30102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/en-el-ultimo-superclasico-disputado-en-abril-de-IMU6FJLLSZC3REMNY4IISRN6LA.JPG?auth=817f0ee1ec8b76076e829050f7997b6148415471daf3cbf2dacdb0084a2d3ef6&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía real de una jugada del Superclásico entre Boca y River, con excelente nitidez, sin marcas agregadas ni menores.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
+  },
+  "huella": "5d5a32d36557570b"
+ },
+ "r89x9o": {
+  "archivo": "fotos-notas/r89x9o.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere a los 70 años Carlos Rinke, el piloto veterano de Malvinas",
+  "enlace": "https://www.labrujula24.com/notas/2026/10/29/murio-carlos-rinke-heroe-de-malvinas-y-protagonista-del-historico-ataque-al-hms-coventry-n527914/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/10/descarga-3-1000x600.jpg",
+  "razon": "Es la única imagen de alta calidad que muestra al piloto en su entorno de trabajo sin marcas de agua, logos de medios ni elementos distractores.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Carlos Rinke subido a un avión de combate A-4 Skyhawk.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Piloto de la Fuerza Aérea Argentina de pie sobre un avión de combate a reacción."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "7470b07079b858eb"
+ },
+ "1jmw2h6": {
+  "archivo": "fotos-notas/1jmw2h6.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El tarotista de River anticipa un penal para Boca en el Superclásico",
+  "enlace": "https://www.ole.com.ar/boca-juniors/prediccion-astrologo-boca-river-superclasico-arbitraje-nicolas-ramirez_0_dZdFwTTHY5.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2025/11/12/uvEhsqXDS_2000x1500__1.jpg",
+  "razon": "Es la única imagen que ilustra directamente el tema del tarot sin ser una composición gráfica artificial, manteniendo la temática de la nota.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cartas de tarot sobre una mesa con una vela."
+  },
+  "huella": "002875740e4c6b8b"
+ },
+ "a6iv3y": {
+  "archivo": "fotos-notas/a6iv3y.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Habilitan la segunda tanda de entradas para la final de la Sudamericana",
+  "enlace": "https://www.tycsports.com/boca-juniors/se-agoto-la-primera-venta-de-entradas-para-la-final-de-la-sudamericana-entre-boca-y-atletico-mineiro-como-sigue-el-protocolo-id769089.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/09/24/990393/estadio-roberto-melendez_1440x810.webp",
+  "razon": "La imagen es una toma aérea clara del estadio donde se disputará la final, sin marcas de agua, sin personas y con buena calidad técnica.",
+  "cuando": "2026-10-30T23:02:41.317Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea del estadio donde se jugará la final de la Copa Sudamericana."
+  },
+  "huella": "32c778b187c6ccf4"
  }
 }

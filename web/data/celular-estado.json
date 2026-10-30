@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T22:38:19.099Z",
- "portada": 210,
- "archivo": 500,
- "esperandoCuerpo": 8,
+ "generado": "2026-10-30T23:05:32.686Z",
+ "portada": 204,
+ "archivo": 498,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-30T22:38:20.310Z",
+  "generado": "2026-10-30T23:05:33.322Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T22:36:52.780Z"
    },
    {
     "nombre": "clima-noche",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -224,18 +224,6 @@
      "marcada": false
     },
     {
-     "id": "1qobb2a",
-     "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1y3axjf",
-     "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "como39",
      "titulo": "La Selección argentina confirma las sedes para los amistosos de noviembre",
      "seccion": "Fútbol",
@@ -256,6 +244,18 @@
     {
      "id": "6ova04",
      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1c85gpi",
+     "titulo": "Emiliano Martínez revela secuelas permanentes en su mano tras el Mundial",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1k2xynm",
+     "titulo": "Martín Menem ratifica a Javier Milei como único candidato de LLA para 2027",
      "seccion": "Política",
      "marcada": false
     }

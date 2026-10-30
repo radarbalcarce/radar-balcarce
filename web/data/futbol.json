@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-30T22:38:16.580Z",
+ "consultado": "2026-10-30T23:05:24.309Z",
  "equipos": [
   "9739",
   "3",
@@ -612,8 +612,8 @@
     "id": "401841655",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "37'",
+    "estado": "entretiempo",
+    "minuto": "45'+3'",
     "local": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
@@ -622,7 +622,7 @@
     "visitante": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 1
+     "goles": 2
     },
     "penales": null,
     "goles": [
@@ -630,6 +630,12 @@
       "equipo": "visitante",
       "jugador": "Marcelo Torres",
       "minuto": "24'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Ignacio Fernández",
+      "minuto": "40'",
       "tipo": "gol"
      }
     ],
@@ -642,8 +648,8 @@
     "id": "401841653",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "37'",
+    "estado": "entretiempo",
+    "minuto": "45'+5'",
     "local": {
      "id": "10",
      "nombre": "Huracán",

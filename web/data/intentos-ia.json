@@ -246,6 +246,20 @@
   "textos": 2,
   "numeradas": 2
  },
+ "11h87ft": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:01:47.096Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 255 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa \"dabove\", qu",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "11hlrl8": {
   "intentos": 1,
   "ultimo": "2026-10-24T15:01:29.122Z",
@@ -1532,11 +1546,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4
- },
- "18x95um": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T23:01:35.766Z",
-  "motivo": "Gemini: HTTP 400 (clave redes): {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"User location is not supported for the API use.\",\n    \"status\": \"FAILED_PRECONDI"
  },
  "18xcjou": {
   "intentos": 1,
@@ -3383,6 +3392,13 @@
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
+ },
+ "1ibv1cj": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:01:47.096Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1icquoz": {
   "intentos": 1,
@@ -11984,6 +12000,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "vcum32": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:01:47.096Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"concejo\" y la fuente ",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida"
+  ],
+  "falla": [
+   "el copete nombra a \"municipalidad\" y la fuente no"
+  ]
+ },
  "vdmf9a": {
   "intentos": 1,
   "ultimo": "2026-10-27T22:22:20.415Z",
@@ -12343,16 +12373,13 @@
   "numeradas": 3
  },
  "x2hlrk": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T22:01:49.099Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no lo dice",
+  "intentos": 2,
+  "ultimo": "2026-10-30T23:01:47.096Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no "
-  ],
-  "falla": [
-   "el copete dice 3 y la fuente no lo dice"
   ]
  },
  "x2zben": {
