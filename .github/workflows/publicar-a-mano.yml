@@ -1,0 +1,63 @@
+name: Publicar a mano
+
+# Publica en Facebook e Instagram lo que pidió una persona (redes/publicar-a-mano.mjs): un reel armado con «Reel a mano» (su video se baja
+# de esa corrida) o el posteo con foto de una nota de la web. `esperar` deja pasar unos minutos antes de publicar, para escalonar varias
+# publicaciones. Sin «de verdad», sólo muestra lo que publicaría.
+
+on:
+  workflow_dispatch:
+    inputs:
+      reel:
+        description: 'El reel (nombre de reels/a-mano/, por ejemplo postre). Vacío si es un posteo'
+        type: string
+        default: ''
+      corrida:
+        description: 'El número de la corrida de «Reel a mano» que armó el video (sólo para un reel)'
+        type: string
+        default: ''
+      nota:
+        description: 'El id de la nota para el posteo con foto (por ejemplo nrpostre22). Vacío si es un reel'
+        type: string
+        default: ''
+      esperar:
+        description: 'Minutos de espera antes de publicar (0 a 300)'
+        type: number
+        default: 0
+      de_verdad:
+        description: 'Publicar de verdad (si no, sólo muestra lo que publicaría)'
+        type: boolean
+        default: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    permissions:
+      contents: read
+      actions: read
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - name: Esperar
+        if: ${{ inputs.esperar > 0 }}
+        run: sleep $(( ${{ inputs.esperar }} > 300 ? 18000 : ${{ inputs.esperar }} * 60 ))
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Bajar el video del reel
+        if: ${{ inputs.reel != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: reels-a-mano
+          path: reels/salida
+          run-id: ${{ inputs.corrida }}
+          github-token: ${{ github.token }}
+      - name: Publicar
+        run: node redes/publicar-a-mano.mjs ${REEL:+--reel=$REEL} ${NOTA:+--nota=$NOTA} ${DE_VERDAD:+--de-verdad}
+        env:
+          REEL: ${{ inputs.reel }}
+          NOTA: ${{ inputs.nota }}
+          DE_VERDAD: ${{ inputs.de_verdad && 'si' || '' }}
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          SITIO: https://radarbalcarce.com
