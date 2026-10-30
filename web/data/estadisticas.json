@@ -2942,6 +2942,53 @@
         "vistas": 90,
         "interacciones": 3
       }
+    },
+    {
+      "cuando": "2026-10-30T12:00:12.275Z",
+      "web": {
+        "u12": {
+          "visitas": 0,
+          "vistas": 0
+        },
+        "a12": {
+          "visitas": 196,
+          "vistas": 196
+        },
+        "u24": {
+          "visitas": 244,
+          "vistas": 244
+        },
+        "a24": {
+          "visitas": 160,
+          "vistas": 167
+        },
+        "top": [
+          {
+            "camino": "/nota/molinos-compra-grupo-ayudin-y-se-mete-en-el-negocio-de-limpieza-1bz2jlk",
+            "vistas": 15
+          },
+          {
+            "camino": "/nota/realizan-la-fiesta-de-la-luz-por-el-dia-de-las-iglesias-evangelicas-no17hh",
+            "vistas": 11
+          },
+          {
+            "camino": "/nota/oficializan-el-bono-de-hasta-70-000-y-el-aumento-de-anses-n7y2s4",
+            "vistas": 10
+          }
+        ]
+      },
+      "facebook": {
+        "seguidores": 110,
+        "vistas": 3457,
+        "interacciones": 24
+      },
+      "instagram": {
+        "seguidores": 12,
+        "publicaciones": 304,
+        "alcance": 1,
+        "vistas": 2,
+        "interacciones": 0
+      }
     }
   ],
   "dias": {
@@ -5554,7 +5601,10 @@
     },
     "2026-10-28": {
       "referentes": {
-        "directo": 100
+        "directo": 136,
+        "facebook.com": 27,
+        "google.com": 5,
+        "balcardev-web--carta-j4u16bb6.web.app": 1
       },
       "paises": {
         "FR": 132,
@@ -5598,8 +5648,8 @@
       "paginas": {
         "/": 3
       },
-      "visitas": 110,
-      "vistas": 120
+      "visitas": 150,
+      "vistas": 150
     },
     "2026-10-29": {
       "paises": {
@@ -5608,104 +5658,50 @@
         "AR": 10,
         "IE": 10
       },
-      "visitas": 100,
-      "vistas": 100,
+      "visitas": 235,
+      "vistas": 235,
       "referentes": {
-        "directo": 160,
-        "facebook.com": 20,
-        "google.com": 10
+        "directo": 180,
+        "facebook.com": 48,
+        "google.com": 6,
+        "bing.com": 1
       },
       "dispositivos": {
-        "desktop": 23,
-        "mobile": 2
+        "desktop": 200
       },
       "notas": {
-        "1bz2jlk": 14,
-        "no17hh": 11,
-        "n7y2s4": 10,
-        "1jy9zz0": 7,
-        "au2qyx": 7,
-        "1v8hw3b": 4,
-        "11s9ojn": 3,
-        "1h0i8a7": 2,
-        "1brovz8": 2,
-        "joipn0": 2,
-        "1784oso": 2,
-        "1dvcqvp": 2,
-        "2rt1r4": 2,
-        "1t6vp3x": 1,
-        "mk4k1r": 1,
-        "na1wje": 1,
-        "13el5q3": 1,
-        "1sxyh0y": 1,
-        "ztavbs": 1,
-        "13z5ze5": 1,
-        "1kz5p2j": 1,
-        "amwwsv": 1,
-        "14jqguf": 1,
-        "157uj0t": 1,
-        "1u1v1h3": 1,
-        "7pn1l7": 1,
-        "1jc8d8f": 1,
-        "o8eoy5": 1,
-        "1gscihf": 1,
-        "6k2oow": 1,
-        "1h4xiic": 1,
-        "fm6pp3": 1,
-        "1l7ryr5": 1,
-        "1n6cfs5": 1,
-        "zd81pg": 1,
-        "1i6u691": 1,
-        "90yhse": 1,
-        "nj3vcj": 1,
-        "1vwftc2": 1,
-        "16hkib8": 1,
-        "9cbw44": 1,
-        "1kyufg8": 1,
-        "npazulcervantino": 1,
-        "1agr6sy": 1,
-        "ywafgd": 1,
-        "he8wdz": 1,
-        "1h9faw0": 1,
-        "1dd73iv": 1,
-        "1xr0jgj": 1,
-        "84sohh": 1,
-        "tp23to": 1,
-        "blexqr": 1,
-        "1s07l6f": 1,
-        "1noo7lp": 1,
-        "cjrdj5": 1,
-        "gb2wra": 1,
-        "1yejdct": 1,
-        "wg76no": 1,
-        "3zjeei": 1,
-        "1yq5kxk": 1,
-        "1oxthyw": 1,
-        "phjtkk": 1,
-        "eke7ho": 1,
-        "141ym2g": 1,
-        "efemeride20261029": 1,
-        "dqa51l": 1,
-        "ahxvwa": 1,
-        "117li7s": 1,
-        "13vd8fc": 1,
-        "jo5fmd": 1,
-        "lbj7x5": 1,
-        "f5dapo": 1,
-        "11id4sd": 1,
-        "1e54aoz": 1,
-        "yvuj6i": 1,
-        "1ap8aa5": 1,
-        "1maz81v": 1,
-        "b5pzm5": 1,
-        "1chek2m": 1,
-        "ugat31": 1
+        "1bz2jlk": 20,
+        "no17hh": 20,
+        "w33on4": 10,
+        "nj3vcj": 10,
+        "1u7fzx2": 10,
+        "cwvrnw": 10,
+        "11s9ojn": 10,
+        "14m2qor": 10,
+        "1x3y3pd": 10,
+        "1brovz8": 10,
+        "7pn1l7": 10,
+        "1bdjadx": 10,
+        "au2qyx": 10,
+        "1uuz38u": 10
       },
       "paginas": {
-        "/": 9,
-        "/farmacias": 6,
-        "/clima": 5
+        "/": 10,
+        "/clima": 10
       }
+    },
+    "2026-10-30": {
+      "referentes": {
+        "directo": 25,
+        "facebook.com": 8,
+        "google.com": 1
+      },
+      "notas": {
+        "z5zzy3": 100
+      },
+      "paginas": {},
+      "visitas": 34,
+      "vistas": 34
     }
   }
 }
