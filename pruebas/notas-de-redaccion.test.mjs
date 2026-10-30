@@ -384,3 +384,31 @@ test('llega al sitio: es un archivo que escribe sólo el celular (no está en lo
   const imports = [...leer('web/lib/notas-de-redaccion.js').matchAll(/^import .* from '([^']+)'/gm)].map((m) => m[1]);
   assert.deepEqual(imports.sort(), ['./cuerpo.js', './notas-de-pistas.js']);
 });
+
+// 30/10: el pie de una nota de la redacción es el mismo de siempre ("Fuentes (N)" cerrado, con la firma adentro) y el cuerpo no lleva frases de más
+// como «La información fue difundida por…» (Hernán: «que esté siempre el mismo formato de fuente, no hay que agregar texto de más»).
+test('una nota de la redacción con fuentes las muestra en el desplegable de siempre; sin fuentes queda la firma sola', () => {
+  const base = { motivo: 'm', cuando: '2026-10-30T12:00:00Z', por: 'Hernán', titulo: 'Un título', copete: 'Una bajada', seccion: 'Balcarce', firma: 'Revisada por Hernán Accomo', cuerpo: Array.from({ length: 90 }, (_, i) => `palabra${i}`).join(' ') };
+  const ahora = new Date('2026-10-30T13:00:00Z');
+  const con = notasDeRedaccion({ notas: { rabc: { ...base, fuentes: [{ medio: 'Gacetilla de prensa de X' }, { medio: 'Canal 26', enlace: 'https://www.canal26.com/a' }, { medio: 'Canal 26', enlace: 'https://www.canal26.com/a' }, { medio: 'Roto', enlace: 'javascript:alert(1)' }, { medio: '' }] } } }, { ahora })[0];
+  assert.deepEqual(fuentesDeLaNota(con).map((f) => f.medio), ['Gacetilla de prensa de X', 'Canal 26', 'Roto']);
+  assert.equal(fuentesDeLaNota(con).find((f) => f.medio === 'Roto').enlace, null, 'sólo enlaces http(s)');
+  assert.equal(firmaCorta(con), 'Revisada por Hernán Accomo, de la redacción de Radar Balcarce');
+  const sin = notasDeRedaccion({ notas: { rabc: base } }, { ahora })[0];
+  assert.deepEqual(fuentesDeLaNota(sin), []);
+});
+
+test('las notas de prensa cargadas no cierran con «La información fue difundida…» y llevan su fuente', () => {
+  const j = JSON.parse(fs.readFileSync(path.join(RAIZ, 'web/data/notas-de-redaccion.json'), 'utf8'));
+  for (const [clave, e] of Object.entries(j.notas)) {
+    if (!/^r(oxidada|enduro|tapalque|paritaria|postre|desidia)/.test(clave)) continue;
+    assert.doesNotMatch(e.cuerpo, /La información (fue difundida|surge de)/, `${clave}: sin la frase de más al final`);
+    assert.ok(Array.isArray(e.fuentes) && e.fuentes.length > 0, `${clave}: lleva su fuente en el pie`);
+  }
+});
+
+test('la página muestra «Revisada por» en la firma de arriba sin repetir «Por»', () => {
+  const pagina = leer('web/app/nota/[id]/page.js');
+  assert.match(pagina, /Revisada por <strong>/);
+  assert.match(pagina, /<>Por <strong>\{n\.autor\}<\/strong><\/>/);
+});

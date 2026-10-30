@@ -150,6 +150,21 @@ export const autorDeLaEntrada = (e) => String(e?.firma ?? '').replace(/\s+/g, ' 
 export const REVISADA_POR = /^revisad[ao] por\s+/i;
 export const firmaDeRedaccion = (autor) => (REVISADA_POR.test(autor) ? `${autor}, de la redacción de Radar Balcarce` : `Por ${autor}, de la redacción de Radar Balcarce`);
 
+/**
+ * Las fuentes de la nota (opcionales): { medio, enlace? } hasta 6, sin repetir. Van al pie en el mismo desplegable "Fuentes (N)" que el resto de las notas
+ * (30/10, Hernán: el pie es siempre el mismo formato, sin frases de más adentro del cuerpo como «La información fue difundida por…»).
+ */
+export function fuentesDeLaEntrada(e) {
+  const vistos = new Set();
+  return (Array.isArray(e?.fuentes) ? e.fuentes : [])
+    .map((f) => ({
+      medio: String(f?.medio ?? '').replace(/\s+/g, ' ').trim().slice(0, 80),
+      enlace: /^https?:[/][/]/i.test(String(f?.enlace ?? '')) ? String(f.enlace).trim().slice(0, 500) : null,
+    }))
+    .filter((f) => f.medio && !vistos.has(f.enlace ?? f.medio) && vistos.add(f.enlace ?? f.medio))
+    .slice(0, 6);
+}
+
 /** Los ids de las notas de la redacción retiradas por una persona (generar-datos las saca del archivo: su página deja de existir). */
 export function idsRetiradosDeRedaccion(json) {
   const entradas = json && typeof json === 'object' ? Object.entries(json.notas ?? {}) : [];
@@ -213,10 +228,10 @@ export function notasDeRedaccion(json, { ahora = new Date() } = {}) {
       seccion: e.seccion,
       local: e.seccion === 'Balcarce',
       relevancia: RELEVANCIA_DE_REDACCION,
-      // Sin fuentes: la escribió una persona. Nada de "Fuentes (N)" vacío al pie (components/verificacion.js): queda la línea de la firma sola.
+      // Sin fuentes cargadas: la escribió una persona y queda la línea de la firma sola. Con `fuentes`, el pie es el de siempre: "Fuentes (N)" cerrado.
       medios: [],
       enlace: null,
-      fuentesConsultadas: [],
+      fuentesConsultadas: fuentesDeLaEntrada(e),
       fecha,
       sinFecha: false,
       visto: fecha,

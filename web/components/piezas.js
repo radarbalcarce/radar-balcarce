@@ -260,7 +260,7 @@ export function FechasDeLaNota({ nota }) {
   const actualizadoISO = actualizadaCuando(nota);
   return (
     <>
-      <span className="meta fecha-exacta">Publicado: <time dateTime={new Date(nota.fecha).toISOString()}>{publicado}</time></span>
+      <span className="meta fecha-exacta"><time dateTime={new Date(nota.fecha).toISOString()}>{publicado}</time></span>
       {actualizadoISO && (
         <span className="meta fecha-exacta fecha-actualizada">
           <span className="sep-fecha" aria-hidden="true">· </span>Actualizado: <time dateTime={actualizadoISO}>{fechaLarga(actualizadoISO)}</time>

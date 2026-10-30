@@ -57,7 +57,8 @@ test('una corrección a mano deja la fecha de su corrección en la nota, sin toc
 test('la página muestra "Publicado" siempre y "Actualizado" sólo cuando corresponde, en <time> con la fecha exacta', () => {
   const p = leer('web/components/piezas.js');
   assert.match(p, /export function FechasDeLaNota/);
-  assert.match(p, /Publicado: <time dateTime=\{new Date\(nota\.fecha\)\.toISOString\(\)\}>/);
+  // 30/10: sin la palabra "Publicado" (Hernán: la fecha va chica y discreta, como en los diarios).
+  assert.match(p, /<span className="meta fecha-exacta"><time dateTime=\{new Date\(nota\.fecha\)\.toISOString\(\)\}>/);
   assert.match(p, /actualizadoISO && \(/);
   assert.match(p, /Actualizado: <time dateTime=\{actualizadoISO\}>/);
   assert.match(leer('web/app/nota/[id]/page.js'), /<FechasDeLaNota nota=\{n\} \/>/);
