@@ -27857,9 +27857,7 @@
   "borrada": true
  },
  "1ujinbw": {
-  "archivo": "fotos-notas/1ujinbw.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Unidad en Defensa de la Abogacía gana dos bancas en el Consejo",
@@ -27880,7 +27878,8 @@
    "descripcion": "Vista general de una sala de reuniones con una mesa ovalada donde varios consejeros están sentados y levantando la mano para votar."
   },
   "huella": "031fe44d4663ebda",
-  "ausenteDesde": "2026-10-23T00:04:42.706Z"
+  "intentado": true,
+  "borrada": true
  },
  "2uhl1v": {
   "intentado": true,
@@ -31381,9 +31380,7 @@
   "ausenteDesde": "2026-10-26T14:13:24.051Z"
  },
  "bg0g55": {
-  "archivo": "fotos-notas/bg0g55.jpg",
   "medio": "Mi8 (Canal 8 Mar del Plata)",
-  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lanzan un concurso público para concesionar seis hoteles de Chapadmalal",
@@ -31415,7 +31412,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "2f1f59eaa266da53",
-  "ausenteDesde": "2026-10-23T00:04:42.706Z"
+  "intentado": true,
+  "borrada": true
  },
  "iarztc": {
   "archivo": "fotos-notas/iarztc.jpg",
@@ -33178,9 +33176,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1rvglqj": {
-  "archivo": "fotos-notas/1rvglqj.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lionel Messi recibe el Premio Princesa de Asturias de los Deportes en Oviedo",
@@ -33201,7 +33197,8 @@
    "descripcion": "Messi firmando una camiseta de la selección argentina rodeado de una multitud de fans."
   },
   "huella": "51593d371b3632b1",
-  "ausenteDesde": "2026-10-23T00:04:42.706Z"
+  "intentado": true,
+  "borrada": true
  },
  "t0olao": {
   "intentado": true,
@@ -47840,7 +47837,8 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi con camiseta negra de Inter Miami con los brazos abiertos"
   },
-  "huella": "83899af3e8b8b113"
+  "huella": "83899af3e8b8b113",
+  "ausenteDesde": "2026-10-30T00:33:00.567Z"
  },
  "oybhvi": {
   "intentado": true,
@@ -48323,7 +48321,8 @@
    "corresponde": "si",
    "descripcion": "Funcionario hablando en una conferencia o reunión oficial en el Congreso"
   },
-  "huella": "163a9799addacc7e"
+  "huella": "163a9799addacc7e",
+  "ausenteDesde": "2026-10-30T00:33:00.567Z"
  },
  "6ygxle": {
   "archivo": "fotos-notas/6ygxle.jpg",
@@ -48347,7 +48346,8 @@
    "corresponde": "si",
    "descripcion": "Auto clásico suspendido en el aire siendo desenterrado"
   },
-  "huella": "100392227cfb2715"
+  "huella": "100392227cfb2715",
+  "ausenteDesde": "2026-10-30T00:33:00.567Z"
  },
  "6exz4m": {
   "archivo": "fotos-notas/6exz4m.jpg",
@@ -52989,7 +52989,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "dfadb99a97d3f373"
+  "huella": "dfadb99a97d3f373",
+  "ausenteDesde": "2026-10-30T00:33:00.567Z"
  },
  "18xcjou": {
   "archivo": "fotos-notas/192nkn5.jpg",
@@ -54534,6 +54535,28 @@
   "cuando": "2026-10-30T00:02:31.693Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "ekdiye": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emilia Mernes celebra sus treinta años con una fiesta íntima y el estreno de un sencillo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T00:32:56.438Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ly4hzp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno aumenta los subsidios a los colectivos para evitar subas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T00:32:56.438Z",
+  "intentos": 1,
+  "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
