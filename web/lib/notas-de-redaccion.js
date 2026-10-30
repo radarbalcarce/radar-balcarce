@@ -146,7 +146,9 @@ export function motivoDeRechazo(e) {
 export const autorDeLaEntrada = (e) => String(e?.firma ?? '').replace(/\s+/g, ' ').trim().replace(/^por(?:\s+|$)/i, '').slice(0, 60).trim();
 
 /** La frase de la firma al pie de la nota (components/metadatos.js, firmaCorta): dice quién la escribió. */
-export const firmaDeRedaccion = (autor) => `Por ${autor}, de la redacción de Radar Balcarce`;
+// 30/10: una nota hecha de una gacetilla externa se firma «Revisada por Hernán Accomo»: lo que dice la firma no empieza con «Por».
+export const REVISADA_POR = /^revisad[ao] por\s+/i;
+export const firmaDeRedaccion = (autor) => (REVISADA_POR.test(autor) ? `${autor}, de la redacción de Radar Balcarce` : `Por ${autor}, de la redacción de Radar Balcarce`);
 
 /** Los ids de las notas de la redacción retiradas por una persona (generar-datos las saca del archivo: su página deja de existir). */
 export function idsRetiradosDeRedaccion(json) {

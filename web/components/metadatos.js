@@ -94,7 +94,7 @@ export function quienEscribio(nota = {}) {
   // no las redactó la IA ni son de una fuente: las arma el sitio con
   // plantilla, a partir de datos. Su firma la dice la nota (`firma`).
   // Una nota de la redacción (web/lib/notas-de-redaccion.js) la firma una persona: `persona` es su nombre.
-  if (nota.propia) return { reescrita: false, revisada: false, propia: true, ...(nota.propia === 'redaccion' && nota.autor ? { persona: String(nota.autor) } : {}) };
+  if (nota.propia) return { reescrita: false, revisada: false, propia: true, ...(nota.propia === 'redaccion' && nota.autor ? { persona: String(nota.autor).replace(/^revisad[ao] por\s+/i, '') } : {}) };
   // Lo corregido a mano en web/data/correcciones.json (conCorreccion,
   // lib/archivo.js) es "cargado o corregido por una persona"
   // (CRITERIO-EDITORIAL.md § 10). Si el cuerpo es el de la corrección, la

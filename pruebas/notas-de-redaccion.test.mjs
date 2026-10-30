@@ -260,6 +260,8 @@ test('la firma es la de la persona: se lee como "Por …" en la nota y es el aut
   assert.equal(autorDeLaEntrada({ firma: '  Por   Andrés  Gerace ' }), 'Andrés Gerace');
   assert.equal(una(ENTRADA({ firma: 'por Andrés Gerace' })).autor, 'Andrés Gerace');
   assert.equal(firmaDeRedaccion('Andrés Gerace'), 'Por Andrés Gerace, de la redacción de Radar Balcarce');
+  // una nota hecha de una gacetilla externa dice quién la revisó, sin «Por» adelante (30/10)
+  assert.equal(firmaDeRedaccion('Revisada por Hernán Accomo'), 'Revisada por Hernán Accomo, de la redacción de Radar Balcarce');
   // las otras notas propias no cambian
   assert.deepEqual(quienEscribio({ propia: 'dolar' }), { reescrita: false, revisada: false, propia: true });
   assert.deepEqual(quienEscribio({ propia: 'pista', autor: 'Fulano' }), { reescrita: false, revisada: false, propia: true }, 'sólo la de la redacción trae persona');
