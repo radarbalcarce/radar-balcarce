@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-30T23:05:24.309Z",
+ "consultado": "2026-10-30T23:37:45.102Z",
  "equipos": [
   "9739",
   "3",
@@ -612,12 +612,12 @@
     "id": "401841655",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "78'",
     "local": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "9",
@@ -637,6 +637,12 @@
       "jugador": "Ignacio Fernández",
       "minuto": "40'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Gabriel Alanís",
+      "minuto": "54'",
+      "tipo": "gol"
      }
     ],
     "estadio": "Ciudad de Río Cuarto Antonio Candini",
@@ -648,8 +654,8 @@
     "id": "401841653",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+5'",
+    "estado": "en-juego",
+    "minuto": "76'",
     "local": {
      "id": "10",
      "nombre": "Huracán",
@@ -658,10 +664,17 @@
     "visitante": {
      "id": "7767",
      "nombre": "Tigre",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Jerónimo Domina",
+      "minuto": "48'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Tomás Adolfo Ducó",
     "fase": null,
     "partidoDeLaSerie": null,

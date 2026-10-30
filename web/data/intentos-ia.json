@@ -247,17 +247,14 @@
   "numeradas": 2
  },
  "11h87ft": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T23:01:47.096Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 255 palabras",
-  "textos": 4,
-  "numeradas": 4,
+  "intentos": 2,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa \"dabove\", qu",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "11hlrl8": {
@@ -1912,6 +1909,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "1aqm4t1": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
+ },
  "1aqsope": {
   "intentos": 1,
   "ultimo": "2026-10-29T21:02:28.559Z",
@@ -2339,6 +2343,19 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 6
+ },
+ "1d4nj79": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 700 y la fuente no lo dice",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 700 y la fuente n"
+  ],
+  "falla": [
+   "el copete dice 700 y la fuente no lo dice"
+  ]
  },
  "1d6akxl": {
   "intentos": 1,
@@ -2985,19 +3002,16 @@
   ]
  },
  "1g9j0ho": {
-  "intentos": 2,
-  "ultimo": "2026-10-30T20:01:51.897Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo explica; sin esas oraciones quedan 283 palabras",
-  "textos": 7,
-  "numeradas": 7,
+  "intentos": 3,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 10,
   "motivos": [
    "cuerpo: 3 problemas (antecedente, relleno, promesa): el cuerpo usa 28,",
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl"
-  ],
-  "falla": [
-   "el título dice 15 y el cuerpo no lo explica"
   ]
  },
  "1g9tyya": {
@@ -6313,6 +6327,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "1w003rk": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 5
+ },
  "1w0s2b9": {
   "intentos": 1,
   "ultimo": "2026-10-27T22:22:20.415Z",
@@ -7437,6 +7458,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 15
+ },
+ "66ncj0": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
  },
  "66ydt1": {
   "intentos": 1,
@@ -12001,17 +12029,14 @@
   "numeradas": 3
  },
  "vcum32": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T23:01:47.096Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
+  "intentos": 2,
+  "ultimo": "2026-10-30T23:32:02.318Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (nombre): el cuerpo nombra a \"concejo\" y la fuente ",
    "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida"
-  ],
-  "falla": [
-   "el copete nombra a \"municipalidad\" y la fuente no"
   ]
  },
  "vdmf9a": {

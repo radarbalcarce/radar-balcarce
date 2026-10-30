@@ -51859,7 +51859,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-30T17:34:21.805Z"
+  "cuando": "2026-10-30T23:37:49.870Z"
  },
  "gbrd5s": {
   "archivo": "fotos-notas/gbrd5s.jpg",
@@ -53660,12 +53660,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T17:02:33.840Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Acción 5 (Balcarce) no se usa todavía.",
+  "cuando": "2026-10-30T23:35:26.681Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 3
  },
  "1l6sgre": {
   "archivo": "fotos-notas/1l6sgre.jpg",
@@ -53869,12 +53868,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Stefano Di Carlo explica el voto en contra de River al torneo de la AFA",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T17:33:26.411Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
+  "cuando": "2026-10-30T23:35:26.681Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 3,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "intentosPorCupo": 4
  },
  "ekdiye": {
   "intentado": true,
@@ -56393,7 +56391,8 @@
    "corresponde": "si",
    "descripcion": "Martín Palermo de perfil en un estadio."
   },
-  "huella": "273b191b4162c385"
+  "huella": "273b191b4162c385",
+  "ausenteDesde": "2026-10-30T23:37:51.571Z"
  },
  "egz5d0": {
   "archivo": "fotos-notas/egz5d0.jpg",
@@ -58108,7 +58107,8 @@
    "corresponde": "si",
    "descripcion": "Vista panorámica del interior del estadio San Siro/Giuseppe Meazza."
   },
-  "huella": "0f1f1c19270f0f1f"
+  "huella": "0f1f1c19270f0f1f",
+  "ausenteDesde": "2026-10-30T23:37:51.571Z"
  },
  "ta8g5x": {
   "intentado": true,
@@ -58142,14 +58142,40 @@
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "va1w22": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/va1w22.webp",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "River afronta múltiples bajas por lesión para el Superclásico ante Boca",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://bolavip.com/ar/river/las-4-bajas-que-tiene-river-por-lesion-para-enfrentar-a-boca-en-el-superclasico",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/09/16105110/Leonardo-Ponzio-1-1200x740.webp",
+  "razon": "La foto C es la única que muestra al protagonista en un contexto de entrenamiento, es de buena calidad y no presenta marcas de agua, menores ni elementos gráficos.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El director técnico de River en el campo de entrenamiento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El entrenador de River Plate, Marcelo Gallardo, con los brazos cruzados durante un entrenamiento."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "1919094129213171"
  },
  "gpghgh": {
   "intentado": true,
@@ -58379,15 +58405,28 @@
   "huella": "32313331f0b1f0f0"
  },
  "exat71": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/exat71.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Banco Provincia confirma los descuentos de Cuenta DNI para noviembre",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-30T22:05:00.673Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.eldia.com/la-ciudad/cuenta-dni-del-banco-provincia-los-descuentos-de-hoy-viernes-30-de-octubre-del-2026-la-ciudad_1793357509",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793357560355.webp?&cw=1200&ch=630",
+  "razon": "Es la imagen más limpia, sin elementos distractores, que ilustra correctamente el uso de la aplicación Cuenta DNI.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo un celular con la aplicación Cuenta DNI abierta."
+  },
+  "huella": "bf981b77eecf87b8"
  },
  "qgsuzv": {
   "archivo": "fotos-notas/qgsuzv.jpg",
@@ -58549,7 +58588,8 @@
    "corresponde": "si",
    "descripcion": "Operador trabajando en el piso de la Bolsa de Nueva York."
   },
-  "huella": "1a121a1e9b989a1c"
+  "huella": "1a121a1e9b989a1c",
+  "ausenteDesde": "2026-10-30T23:37:51.571Z"
  },
  "hsd2kz": {
   "archivo": "fotos-notas/hsd2kz.jpg",
@@ -58737,5 +58777,134 @@
    "descripcion": "Vista aérea del estadio donde se jugará la final de la Copa Sudamericana."
   },
   "huella": "32c778b187c6ccf4"
+ },
+ "11h87ft": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Tigre vence a Huracán en el inicio de la decimoquinta fecha",
+  "razon": "Todas las imágenes proporcionadas son gráficas (placas o capturas de pantalla) y no fotografías de una escena real, por lo que ninguna es apta para ilustrar la nota.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "vcum32": {
+  "archivo": "fotos-notas/vcum32.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario legaliza el funcionamiento de aplicaciones de transporte",
+  "enlace": "https://www.eleco.com.ar/nacionales/rosario-habilito-el-uso-de-uber-y-didi-con-nuevos-requisitos",
+  "imagenOriginal": "https://cdnartic.ar/VpGgCp4Xn1tewJmcJ8YPyOorSU0=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/rosario_2.webp",
+  "razon": "La foto B es la única que no presenta marcas de agua sobreimpresas por el medio, siendo apta para su publicación.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Interior de un vehículo con un celular usando una aplicación de navegación."
+  },
+  "huella": "c5c58b45a20b5b53"
+ },
+ "66ncj0": {
+  "archivo": "fotos-notas/66ncj0.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional emite alerta amarilla por tormentas en el AMBA",
+  "enlace": "https://tn.com.ar/sociedad/2026/10/30/granizo-actividad-electrica-y-fuertes-lluvias-los-videos-de-las-tormentas-en-el-amba/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2FTNS330102026065307117135915-1793354520.jpg?auth=66bab26b426a59e781a8bd51f307682cac99ae03392ed8903729cda91d80c4f7&width=1023",
+  "razon": "Es la única imagen que muestra una situación real y actual de tormenta en la vía pública sin ser una representación gráfica, stock o mapa meteorológico.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Imagen partida que muestra una calle con lluvia y una zona con granizo."
+  },
+  "huella": "1b3b1818b8783b31"
+ },
+ "1w003rk": {
+  "archivo": "fotos-notas/1w003rk.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "HBO confirma el elenco y la fecha de estreno de la serie de Harry Potter",
+  "enlace": "https://www.eldestapeweb.com/cultura/reparto-guia-harry-potter-temporada-1-serie-hbo-max-quien-quien-elenco-2026103094114",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793289729848/la-serie-de-harry-potter-en-hbo-jpg..jpg?&cw=1600&ch=900",
+  "razon": "Es una imagen de alta calidad, sin marcas de agua, que ilustra correctamente la temática de la serie de Harry Potter sin mostrar menores ni elementos gráficos.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Escena de banquete con personajes caracterizados al estilo de Harry Potter."
+  },
+  "huella": "a52d86a626a6572f"
+ },
+ "1aqm4t1": {
+  "archivo": "fotos-notas/1aqm4t1.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES aplica un aumento del 1,93 por ciento en los haberes de noviembre",
+  "enlace": "https://tn.com.ar/economia/2026/10/30/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-viernes-30-de-octubre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/anses-quienes-cobran-hoy-jubilaciones-auh-y-asignaciones-foto-anses-6UWKFVE4JJBWHIV6ZRC4QRILWQ.jpg?auth=063548cd4357d86a2a64efc9951285035199a5b405bb53558c97cb7c5f6822e7&width=1023",
+  "razon": "Es la única imagen que ilustra el organismo mencionado sin personas, sin marcas de agua y sin ser una composición gráfica o de stock.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada de una oficina de ANSES."
+  },
+  "huella": "3e3d3973e7ceda6a"
+ },
+ "1g9j0ho": {
+  "archivo": "fotos-notas/1g9j0ho.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Racing, Aldosivi, Sarmiento y Rosario Central juegan por el Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-racing-club-vs-aldosivi-fecha-15-id769109.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/29/1000762/racing-vs-aldosivi_862x485.webp",
+  "razon": "Es una fotografía real de un partido, sin marcas añadidas, sin menores y corresponde perfectamente a la sección de fútbol de la nota.",
+  "cuando": "2026-10-30T23:35:26.681Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en un partido de fútbol con público de fondo"
+  },
+  "huella": "6b7633a96839c877"
  }
 }
