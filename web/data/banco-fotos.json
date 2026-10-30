@@ -51577,7 +51577,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-29T22:33:51.460Z"
+  "cuando": "2026-10-30T05:02:29.384Z"
  },
  "wg76no": {
   "archivo": "fotos-notas/wg76no.jpg",
@@ -52580,7 +52580,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-29T22:33:50.812Z"
+  "cuando": "2026-10-30T05:02:29.027Z"
  },
  "gbrd5s": {
   "archivo": "fotos-notas/gbrd5s.jpg",
@@ -54691,6 +54691,38 @@
   "cuando": "2026-10-30T04:02:20.980Z",
   "intentos": 1,
   "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "txqang": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emiten alerta amarilla por tormentas y vientos fuertes en varias provincias",
+  "razon": "La mejor foto era la de La Nación, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-30T05:02:20.776Z",
+  "intentos": 1,
+  "fuentes": 14,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "fm6pp3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Difunden un método casero de horticultura para acelerar la cosecha en árboles",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T05:02:20.776Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "blexqr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Justicia rechaza el pedido de Christian von Wernich para ver al papa",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T05:02:20.776Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
