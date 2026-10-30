@@ -65,12 +65,13 @@ test('A-2: si falla Instagram (la que manda), Facebook se intenta igual y el pro
 });
 
 test('A-2: registrarProblema suma los intentos de las vueltas anteriores', () => {
+  const dia = new Date().toISOString().slice(0, 10); // la fecha de hoy: con una fija, a los pocos días el problema ya está podado
   const libro = libroNuevo();
-  registrarProblema(libro, '2026-10-24/x/facebook/reel', { pieza: 'x', red: 'facebook', parte: 'reel', error: 'e', intentos: 3 });
-  registrarProblema(libro, '2026-10-24/x/facebook/reel', { pieza: 'x', red: 'facebook', parte: 'reel', error: 'e', intentos: 3 });
-  assert.equal(libro.problemas['2026-10-24/x/facebook/reel'].intentos, 6);
-  registrarProblema(libro, '2026-10-24/y/facebook/reel', { pieza: 'y', red: 'facebook', parte: 'reel', error: 'e' });
-  assert.equal('intentos' in libro.problemas['2026-10-24/y/facebook/reel'], false, 'sin intentos informados no se inventa el campo');
+  registrarProblema(libro, `${dia}/x/facebook/reel`, { pieza: 'x', red: 'facebook', parte: 'reel', error: 'e', intentos: 3 });
+  registrarProblema(libro, `${dia}/x/facebook/reel`, { pieza: 'x', red: 'facebook', parte: 'reel', error: 'e', intentos: 3 });
+  assert.equal(libro.problemas[`${dia}/x/facebook/reel`].intentos, 6);
+  registrarProblema(libro, `${dia}/y/facebook/reel`, { pieza: 'y', red: 'facebook', parte: 'reel', error: 'e' });
+  assert.equal('intentos' in libro.problemas[`${dia}/y/facebook/reel`], false, 'sin intentos informados no se inventa el campo');
 });
 
 // ---------- A-3: Política y Policiales de acá con puntaje alto que esperan a una persona

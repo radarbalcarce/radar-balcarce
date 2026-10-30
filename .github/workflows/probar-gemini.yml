@@ -17,6 +17,7 @@ jobs:
       GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
       GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
       GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
+      GEMINI_API_KEY_RESPALDO: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
       MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
     steps:
       - uses: actions/checkout@v4

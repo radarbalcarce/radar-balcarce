@@ -105,7 +105,23 @@ for (const [nombre, variable] of CLAVES) {
   }
 }
 
-// Mistral (26/10/2026): el último respaldo gratis de texto. Sólo se mira la clave con la lista de modelos (no gasta ningún pedido).
+// La clave PAGA de respaldo de la redacción (30/10/2026: el contador la mostraba «rechazada»): un texto mínimo y el motivo que da Google, sin imprimir la clave.
+{
+  const clave = (process.env.GEMINI_API_KEY_RESPALDO ?? '').trim();
+  if (!clave) {
+    decir('[respaldo] sin clave cargada (GEMINI_API_KEY_RESPALDO)');
+  } else {
+    try {
+      const t = await pedir(`${BASE}/models/gemini-flash-lite-latest:generateContent`, clave, { contents: [{ parts: [{ text: 'Respondé sólo con la palabra: listo' }] }] });
+      decir(`[respaldo] texto (gemini-flash-lite-latest): HTTP ${t.estado} ${t.estado === 200 ? `«${String(t.json?.candidates?.[0]?.content?.parts?.[0]?.text ?? '').trim().slice(0, 30)}»` : limpiar(t.texto, clave)}`);
+    } catch (e) {
+      decir(`[respaldo] falló la prueba: ${limpiar(e?.message, clave)}`);
+    }
+  }
+}
+
+// Mistral (26/10/2026): el último respaldo gratis de texto. Lista de modelos y, desde el 30/10, UN pedido mínimo con los encabezados de límite
+// (el contador mostraba todos sus pedidos como «velocidad»: hay que ver qué límite es).
 {
   const clave = (process.env.MISTRAL_API_KEY ?? '').trim();
   if (!clave) {
@@ -114,6 +130,13 @@ for (const [nombre, variable] of CLAVES) {
     try {
       const r = await fetch('https://api.mistral.ai/v1/models', { headers: { authorization: `Bearer ${clave}` }, signal: AbortSignal.timeout(30_000) });
       decir(`[mistral] clave: HTTP ${r.status}${r.ok ? '' : ` · ${limpiar(await r.text(), clave)}`}`);
+      const c = await fetch('https://api.mistral.ai/v1/chat/completions', {
+        method: 'POST', headers: { authorization: `Bearer ${clave}`, 'content-type': 'application/json' },
+        body: JSON.stringify({ model: process.env.MISTRAL_MODELO || 'mistral-small-latest', max_tokens: 8, messages: [{ role: 'user', content: 'Respondé sólo con la palabra: listo' }] }),
+        signal: AbortSignal.timeout(30_000),
+      });
+      const limites = [...c.headers.entries()].filter(([k]) => /retry-after|ratelimit|limit/i.test(k)).map(([k, v]) => `${k}=${v}`).join(' · ');
+      decir(`[mistral] pedido mínimo: HTTP ${c.status}${c.ok ? '' : ` · ${limpiar(await c.text(), clave)}`}${limites ? ` · encabezados: ${limites}` : ''}`);
     } catch (e) {
       decir(`[mistral] falló la prueba: ${limpiar(e?.message, clave)}`);
     }
