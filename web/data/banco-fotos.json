@@ -19921,9 +19921,7 @@
   "borrada": true
  },
  "1yj43fy": {
-  "archivo": "fotos-notas/1yj43fy.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Aprevide sanciona a Sarmiento con dos partidos a puertas cerradas",
@@ -19955,7 +19953,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "cb0e1dc31d4d6743",
-  "ausenteDesde": "2026-10-23T20:32:31.136Z"
+  "intentado": true,
+  "borrada": true
  },
  "ht3zid": {
   "medio": "C5N",
@@ -20605,9 +20604,7 @@
   "ausenteDesde": "2026-10-23T21:27:53.586Z"
  },
  "bpb4fk": {
-  "archivo": "fotos-notas/bpb4fk.jpg",
   "medio": "iProfesional",
-  "credito": "Foto: iProfesional",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARBA habilita un plan de pagos con descuentos de hasta el 40 por ciento",
@@ -20627,7 +20624,8 @@
    "descripcion": "Fachada del edificio de ARBA"
   },
   "huella": "73e8e1cdd8a29838",
-  "ausenteDesde": "2026-10-23T20:32:31.136Z"
+  "intentado": true,
+  "borrada": true
  },
  "1qjgwiy": {
   "medio": "Radio Gabal (FM 104.1)",
@@ -50034,7 +50032,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:08.515Z",
-  "imagenOriginal": "https://tn.com.ar/resizer/v2/crecen-los-gestos-de-diferenciacion-de-la-jefa-de-bloque-del-lla-en-el-senado-patricia-bullrich-con-el-gobierno-foto-charly-diaz-azcue-comunicacion-senado-D3FRFDGRVVGDDPWQRAK7EEV2RA.JPG?auth=133a87aec64872bae5d0e71bc1b4cd463da2c9c3c4301b5732b2b85f87d60b50&width=1023"
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/crecen-los-gestos-de-diferenciacion-de-la-jefa-de-bloque-del-lla-en-el-senado-patricia-bullrich-con-el-gobierno-foto-charly-diaz-azcue-comunicacion-senado-D3FRFDGRVVGDDPWQRAK7EEV2RA.JPG?auth=133a87aec64872bae5d0e71bc1b4cd463da2c9c3c4301b5732b2b85f87d60b50&width=1023",
+  "ausenteDesde": "2026-10-30T20:33:36.856Z"
  },
  "12niewq": {
   "intentado": true,
@@ -50200,7 +50199,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:08.679Z",
-  "imagenOriginal": "https://www.canal26.com/resizer/v2/GOZYIYU7TFFLDDU6LHECLRVXKE.png?auth=6e3c5eabcf5cb4bb96a12c2db89b065eb9e886226687042de1943dc849646058&height=630&width=1200&quality=70&focal=609%2C274"
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/GOZYIYU7TFFLDDU6LHECLRVXKE.png?auth=6e3c5eabcf5cb4bb96a12c2db89b065eb9e886226687042de1943dc849646058&height=630&width=1200&quality=70&focal=609%2C274",
+  "ausenteDesde": "2026-10-30T20:33:36.856Z"
  },
  "19c5usk": {
   "archivo": "fotos-notas/19c5usk.jpg",
@@ -51580,7 +51580,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
   },
-  "huella": "3e5392735772526a"
+  "huella": "3e5392735772526a",
+  "ausenteDesde": "2026-10-30T20:33:36.856Z"
  },
  "nzpdc0": {
   "intentado": true,
@@ -58099,5 +58100,25 @@
    "descripcion": "Vista panorámica del interior del estadio San Siro/Giuseppe Meazza."
   },
   "huella": "0f1f1c19270f0f1f"
+ },
+ "ta8g5x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gabriele Minì termina 14° en la primera práctica del GP de México",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-10-30T20:33:05.831Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1
+ },
+ "avx0ko": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La decimoquinta fecha del Torneo Clausura 2026 continúa con varios partidos",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Clarín no se usa todavía.",
+  "cuando": "2026-10-30T20:33:05.831Z",
+  "intentos": 1,
+  "fuentes": 14,
+  "intentosPorCupo": 1
  }
 }
