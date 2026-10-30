@@ -450,11 +450,6 @@
   "textos": 2,
   "numeradas": 4
  },
- "131te0p": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "con cuerpo"
- },
  "136ouq7": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -1170,11 +1165,6 @@
    "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota"
   ]
  },
- "174prqh": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "con cuerpo"
- },
  "177e42l": {
   "intentos": 1,
   "ultimo": "2026-10-27T16:08:54.201Z",
@@ -1374,11 +1364,6 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"aca\", \"fe\" y el cuer"
   ]
  },
- "18lgv8x": {
-  "intentos": 3,
-  "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "título o bajada: 1 problema (antecedente): el copete usa 2, que sale de una nota anterior, como si fuera de hoy"
- },
  "18mf9im": {
   "intentos": 2,
   "ultimo": "2026-10-27T23:31:31.031Z",
@@ -1549,6 +1534,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 9
+ },
+ "197otww": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:31:45.337Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1999opw": {
   "intentos": 1,
@@ -2618,6 +2610,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1f734zt": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:31:45.337Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "1f76ep8": {
   "intentos": 1,
   "ultimo": "2026-10-25T11:31:05.154Z",
@@ -3516,11 +3515,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1jrajck": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "con cuerpo"
- },
  "1jrlx1": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -3950,11 +3944,6 @@
  "1m458c5": {
   "intentos": 1,
   "ultimo": "2026-10-23T22:01:46.034Z",
-  "motivo": "con cuerpo"
- },
- "1m4nm4s": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T13:32:24.119Z",
   "motivo": "con cuerpo"
  },
  "1m805wt": {
@@ -4815,6 +4804,13 @@
  "1qo8ovk": {
   "intentos": 1,
   "ultimo": "2026-10-29T03:01:19.600Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
+ "1qph0xq": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:31:45.337Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
@@ -7774,19 +7770,19 @@
   ]
  },
  "ard8kc": {
-  "intentos": 2,
-  "ultimo": "2026-10-30T13:01:48.700Z",
-  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "intentos": 3,
+  "ultimo": "2026-10-30T13:31:45.337Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el máximo es 90",
   "textos": 2,
   "numeradas": 5,
   "motivos": [
-   "título o bajada: 2 problemas (largo, negacion): el titulo tiene 99 car",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
    "cuerpo: 1 problema (promesa): el título nombra a \"iglesia\", \"leon\", \"x",
-   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no"
+   "el titulo tiene 99 caracteres, el máximo es 90"
   ]
  },
  "arh9k1": {
@@ -9139,6 +9135,16 @@
   "numeradas": 17,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e"
+  ]
+ },
+ "itupk2": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T13:31:45.337Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 14 palabras seguidas del original: d"
   ]
  },
  "iukc0m": {
@@ -11645,11 +11651,6 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título nombra a \"san\", \"juan\" y el cu"
   ]
- },
- "wdnrpx": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T13:32:24.119Z",
-  "motivo": "con cuerpo"
  },
  "wdurao": {
   "intentos": 2,

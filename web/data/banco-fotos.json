@@ -49804,7 +49804,8 @@
    "corresponde": "si",
    "descripcion": "Wanda Nara en el estudio de MasterChef Celebrity"
   },
-  "huella": "090b190beb317371"
+  "huella": "090b190beb317371",
+  "ausenteDesde": "2026-10-30T13:33:55.394Z"
  },
  "d0iw5e": {
   "intentado": true,
@@ -50073,7 +50074,8 @@
    "corresponde": "si",
    "descripcion": "Juan Román Riquelme y Ander Herrera mostrando el dorsal 21 de la camiseta de Boca"
   },
-  "huella": "c85563c235c76664"
+  "huella": "c85563c235c76664",
+  "ausenteDesde": "2026-10-30T13:33:55.394Z"
  },
  "16j1abo": {
   "archivo": "fotos-notas/16j1abo.jpg",
@@ -54417,15 +54419,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1kz5p2j": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1kz5p2j.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Alexander Zverev es el nuevo número uno del mundo del tenis",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T23:04:07.280Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.lanacion.com.ar/deportes/tenis/alexander-zverev-gano-en-viena-y-se-aseguro-ser-el-numero-1-del-mundo-desde-el-proximo-lunes-nid29102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/alexander-zverev-celebra-su-ascenso-al-primer-6A3QCSWNRVBNNLXQUN46UIVEFA.JPG?auth=d4bc9aff67d7dc2e8c490cec17c3cede4e06f467b62ee24741552032e54c6eec&width=1200&height=800&quality=70&smart=true",
+  "razon": "Muestra claramente al protagonista con el número uno sin marcas de agua ni personas extras molestando.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Alexander Zverev parado junto a una gran figura con el número 1"
+  },
+  "huella": "4ec40d0d0c8f0f37"
  },
  "sesoov": {
   "intentado": true,
@@ -54538,14 +54553,28 @@
   "huella": "0c8319c0c30322c0"
  },
  "b9hqor": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/b9hqor.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Senado aprueba un régimen de incentivo para inversiones relevantes",
-  "razon": "La única imagen disponible es una composición gráfica (diseño) y no una fotografía de la escena real, por lo que no cumple con los requisitos para ser elegida.",
-  "cuando": "2026-10-30T01:33:13.446Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.clarin.com/politica/senado-oficialismo-aprobo-regimen-incentivo-inversiones-12-millones-dolares_0_2t2BJD3Qk5.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/29/-w6C3pf36_2000x1500__1.jpg",
+  "razon": "Muestra claramente el recinto del Senado desde un plano general sin marcas ni menores.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del recinto del Senado en sesión"
+  },
+  "huella": "bdd44cd8ecc26c62"
  },
  "1uuz38u": {
   "archivo": "fotos-notas/13i41og.jpg",
@@ -54664,14 +54693,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1a150ug": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1a150ug.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-  "razon": "La mejor foto era la de iProfesional, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-30T04:02:20.980Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "enlace": "https://www.iprofesional.com/criptomonedas/467872-binance-congela-us3000-millones-por-posible-hackeo-y-afirma-que-los-fondos-estan-seguros",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2024/09/584054_landscape.jpg",
+  "razon": "Muestra claramente la plataforma de Binance en un teléfono y computadora sin marcas de agua de medios ni menores de edad.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo un teléfono con la app de Binance y una laptop de fondo"
+  },
+  "huella": "fbf9793333313367"
  },
  "gb2wra": {
   "intentado": true,
@@ -54874,14 +54917,28 @@
   "huella": "216d6c6266465691"
  },
  "1lckn0a": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lckn0a.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Racing aparta a Alfonso Espino del plantel tras una discusión con Saja",
-  "razon": "La única foto disponible tiene una marca de agua o logo superpuesto ('DOBLE AMARILLA') que impide su selección.",
-  "cuando": "2026-10-30T07:05:10.397Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.ole.com.ar/racing/espino-racing-saja-sancion-disciplinaria_0_RqUkev0Gf1.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/30/aG5XHDwzY_2000x1500__1.jpg",
+  "razon": "Es una fotografía clara de Alfonso Espino con la camiseta de Racing, sin marcas de agua ni menores, adecuada para la nota.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Alfonso Espino con la camiseta de Racing"
+  },
+  "huella": "1339496971511515"
  },
  "qcfbuy": {
   "archivo": "fotos-notas/qcfbuy.jpg",
@@ -56510,13 +56567,29 @@
   "huella": "991194181b3b6373"
  },
  "1r52nca": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1r52nca.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T12:03:59.164Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/el-municipio-dio-el-visto-bueno-al-proyecto-para-crear-un-banco-de-elementos-ortopedicos-208",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-30-11-49-44Captura.JPG",
+  "razon": "Es la única imagen completa y con buen encuadre que muestra la variedad de elementos ortopédicos (sillas de ruedas, andadores, muletas) que son el tema central de la nota, sin marcas de agua ni personas.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de un espacio con sillas de ruedas, andadores y muletas apilados contra una pared."
+  },
+  "huella": "212a3bb96d756a3b"
  },
  "1tozili": {
   "archivo": "fotos-notas/1tozili.jpg",
@@ -56543,13 +56616,28 @@
   "huella": "cccf6c4c96aaa707"
  },
  "5mwkfs": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/5mwkfs.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Gestionan que los exámenes para conductores profesionales sean",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T12:03:59.164Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/gestionan-que-los-conductores-profesionales-puedan-realizar-examenes-y-capacitaciones-en-balcarce",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/Licencia_de_Conducir.jpg",
+  "razon": "La foto B muestra claramente una licencia de conducir emitida en Balcarce, tiene excelente nitidez y cumple con todos los requisitos editoriales sin marcas ni menores.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Licencia Nacional de Conducir de Buenos Aires - Balcarce en mano"
+  },
+  "huella": "c0c8f0d0ccc0c8cc"
  },
  "kbhupz": {
   "intentado": true,
@@ -56691,13 +56779,28 @@
   "fuentes": 2
  },
  "14267ce": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T12:34:12.064Z",
-  "intentos": 1,
-  "fuentes": 1
+  "archivo": "fotos-notas/itupk2.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Defensa Civil emite recomendaciones ante la llegada de tormentas intensas",
+  "enlace": "https://puntonueve.com.ar/defensa-civil-difundio-recomendaciones-ante-la-llegada-de-tormentas-intensas/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/Nubes_tormenta.jpg",
+  "razon": "Es la única opción disponible, cumple con los requisitos y no tiene marcas ni problemas.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cielo nublado con nubes de tormenta sobre unos árboles"
+  },
+  "huella": "61f8585a906646d6"
  },
  "120msi1": {
   "archivo": "fotos-notas/120msi1.jpg",
@@ -57015,7 +57118,8 @@
    "corresponde": "si",
    "descripcion": "Natalia Oreiro y Marcela Morelo sonriendo juntas durante la grabación"
   },
-  "huella": "2a2a2b294353d3c3"
+  "huella": "2a2a2b294353d3c3",
+  "ausenteDesde": "2026-10-30T13:33:55.394Z"
  },
  "y2fncp": {
   "intentado": true,
@@ -57111,5 +57215,56 @@
    "descripcion": "Primer plano de perfil de Agustín Canapino con indumentaria del Turismo Carretera"
   },
   "huella": "9437796051d8988e"
+ },
+ "itupk2": {
+  "archivo": "fotos-notas/itupk2.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Defensa Civil emite recomendaciones ante la llegada de tormentas intensas",
+  "enlace": "https://puntonueve.com.ar/defensa-civil-difundio-recomendaciones-ante-la-llegada-de-tormentas-intensas/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/Nubes_tormenta.jpg",
+  "razon": "Es la única opción disponible, cumple con los requisitos y no tiene marcas ni problemas.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cielo nublado con nubes de tormenta sobre unos árboles"
+  },
+  "huella": "61f8585a906646d6"
+ },
+ "197otww": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1qph0xq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Javier Milei viaja a Neuquén para inaugurar un templo evangélico",
+  "razon": "Ninguna foto cumple con todos los requisitos: la A no corresponde a la nota (muestra a Patricia Bullrich y otra persona en el Senado), la B muestra un evento en un salón cerrado y no el templo evangélico mencionado, y la C incluye una multitud donde se reconocen menores en las primeras filas.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1f734zt": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "WhatsApp incorpora nuevas herramientas para los chats grupales",
+  "razon": "La mejor foto era la de A24, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-30T13:32:31.972Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
