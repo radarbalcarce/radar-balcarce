@@ -5,6 +5,8 @@
 //                                                    pie de reels/a-mano/postre.json (`pie`) y el aviso de la voz con IA
 //   node redes/publicar-a-mano.mjs --nota=nrpostre22 el posteo con foto de esa nota (la tarjeta de la web, la misma de los posteos de siempre)
 //                                                    en Facebook y su espejo en Instagram, con el texto de siempre (mensajeDeNota)
+//   --nota=<id> --enlace                             la nota como posteo con ENLACE en Facebook (la tarjeta de la nota, como una nota)
+//   --reel=<nombre> --historia                       el mismo video como HISTORIA en Instagram y en Facebook (no como reel)
 //
 // Sin «--de-verdad» sólo muestra lo que publicaría. No pasa por las reglas de qué sale solo (lo decidió una persona) pero sí por las de fondo:
 // nada en rojo, nada sin cuerpo. No anota en el libro de las redes: lo de a mano no cuenta para el cupo de posteos del día.
@@ -12,7 +14,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { crearCliente, sinToken } from './meta.mjs';
 import { PAGINA_DE_FACEBOOK } from './meta.mjs';
-import { mensajeDeNota, imagenDeNota, conCreditoDeFoto, quedaAfueraDeLasRedes, hashtagsDe } from './elegir.mjs';
+import {
+  mensajeDeNota, imagenDeNota, conCreditoDeFoto, quedaAfueraDeLasRedes, hashtagsDe, enlaceConOrigen,
+} from './elegir.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..');
 const SITIO = process.env.SITIO ?? 'https://radarbalcarce.com';
@@ -42,6 +46,13 @@ async function main() {
     const pie = pieDelReel(pieza);
     console.log(`Reel «${reel}» (${(video.length / 1e6).toFixed(1)} MB):\n${pie}\n`);
     if (!deVerdad) return;
+    if (process.argv.includes('--historia')) {
+      const hi = await api.publicarVideoEnInstagram({ video, tipo: 'STORIES' });
+      console.log(`  Historia en Instagram: ${hi.id}`);
+      const hf = await api.publicarVideoEnFacebook({ video, tipo: 'STORIES' });
+      console.log(`  Historia en Facebook:  ${hf.id}`);
+      return;
+    }
     const ig = await api.publicarVideoEnInstagram({ video, tipo: 'REELS', pie });
     console.log(`  Instagram: ${await api.enlaceDePublicacion({ id: ig.id, red: 'instagram' }) ?? ig.id}`);
     const fb = await api.publicarVideoEnFacebook({ video, tipo: 'REELS', pie });
@@ -53,6 +64,18 @@ async function main() {
   const nota = (portada.notas ?? []).find((n) => n.id === id);
   if (!nota) throw new Error(`La nota ${id} no está en la portada`);
   if (quedaAfueraDeLasRedes({ ...nota, propia: undefined })) throw new Error(`La nota ${id} no puede ir a las redes (roja o sin cuerpo)`);
+  if (process.argv.includes('--enlace')) {
+    const mensaje = mensajeDeNota(nota, SITIO, { fuente: 'facebook' });
+    const enlace = enlaceConOrigen(nota, SITIO, { fuente: 'facebook', campana: 'nota', contenido: nota.id });
+    console.log(`Nota con enlace en Facebook: ${enlace}
+
+${mensaje}
+`);
+    if (!deVerdad) return;
+    const r = await api.publicarEnFacebook({ mensaje, enlace });
+    console.log(`  Facebook:  ${r.id}`);
+    return;
+  }
   const facebook = conCreditoDeFoto(mensajeDeNota(nota, SITIO, { fuente: 'facebook' }), nota);
   const instagram = conCreditoDeFoto(mensajeDeNota(nota, SITIO, { fuente: 'instagram' }), nota);
   const imagenUrl = imagenDeNota(nota, SITIO);

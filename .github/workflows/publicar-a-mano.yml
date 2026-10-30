@@ -19,6 +19,11 @@ on:
         description: 'El id de la nota para el posteo con foto (por ejemplo nrpostre22). Vacío si es un reel'
         type: string
         default: ''
+      formato:
+        description: 'Cómo: «comun» (reel o posteo con foto), «historia» (el video como historia) o «enlace» (la nota con enlace en Facebook)'
+        type: choice
+        options: [comun, historia, enlace]
+        default: comun
       esperar:
         description: 'Minutos de espera antes de publicar (0 a 300)'
         type: number
@@ -61,11 +66,14 @@ jobs:
           args=()
           [ -n "$REEL" ] && args+=("--reel=$REEL")
           [ -n "$NOTA" ] && args+=("--nota=$NOTA")
+          [ "$FORMATO" = "historia" ] && args+=("--historia")
+          [ "$FORMATO" = "enlace" ] && args+=("--enlace")
           [ "$DE_VERDAD_SI" = "true" ] && args+=("--de-verdad")
           node redes/publicar-a-mano.mjs "${args[@]}"
         env:
           REEL: ${{ inputs.reel }}
           NOTA: ${{ inputs.nota }}
           DE_VERDAD_SI: ${{ inputs.de_verdad }}
+          FORMATO: ${{ inputs.formato }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           SITIO: https://radarbalcarce.com
