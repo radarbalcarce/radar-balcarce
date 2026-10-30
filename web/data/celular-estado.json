@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T14:36:02.068Z",
- "portada": 165,
+ "generado": "2026-10-30T15:09:19.279Z",
+ "portada": 175,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-30T14:36:03.282Z",
+  "generado": "2026-10-30T15:09:20.112Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T12:36:43.333Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu nota",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -126,22 +126,22 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 53,
     "notas": [
-     {
-      "id": "1mxjex4",
-      "titulo": "ARBal incorpora un nuevo canal de atención digital",
-      "seccion": "Balcarce"
-     },
      {
       "id": "1h3gaol",
       "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1s7htpl",
-      "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
+      "id": "1k9g8vu",
+      "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1mxjex4",
+      "titulo": "ARBal incorpora un nuevo canal de atención digital",
+      "seccion": "Balcarce"
      },
      {
       "id": "c3w5sv",
@@ -160,14 +160,14 @@
     "segundos": 49,
     "notas": [
      {
-      "id": "1r52nca",
-      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
+     },
+     {
+      "id": "14267ce",
+      "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
+      "seccion": "Balcarce"
      },
      {
       "id": "1epe8uw",
@@ -193,6 +193,11 @@
      "id": "kbhupz",
      "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
      "cuando": "2026-10-30T12:46:09.689Z"
+    },
+    {
+     "id": "1r52nca",
+     "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
+     "cuando": "2026-10-30T14:36:08.545Z"
     }
    ],
    "cola": [
@@ -203,21 +208,15 @@
      "marcada": false
     },
     {
-     "id": "1mxjex4",
-     "titulo": "ARBal incorpora un nuevo canal de atención digital",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "1h3gaol",
      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "1r52nca",
-     "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
-     "seccion": "Balcarce",
+     "id": "1k9g8vu",
+     "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -233,8 +232,8 @@
      "marcada": false
     },
     {
-     "id": "lw6603",
-     "titulo": "Modifican las reglas de tránsito bonaerenses y las avenidas tienen prioridad",
+     "id": "1mxjex4",
+     "titulo": "ARBal incorpora un nuevo canal de atención digital",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -243,10 +242,16 @@
      "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
      "seccion": "Balcarce",
      "marcada": false
+    },
+    {
+     "id": "c3w5sv",
+     "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
+     "seccion": "Fútbol",
+     "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-30T14:16:09.689Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-30T16:06:08.545Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
