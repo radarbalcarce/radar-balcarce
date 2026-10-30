@@ -127,8 +127,6 @@ export default async function PaginaNota({ params }) {
         {n.copete && <p className="copete">{n.copete}</p>}
         {/* La firma de una nota escrita por una persona de la redacción (web/lib/notas-de-redaccion.js), también arriba, como en un diario. */}
         {n.propia === 'redaccion' && n.autor && <p className="autor-de-la-nota" style={{ fontSize: 14, color: 'var(--suave)', margin: '4px 0 0' }}>{/^revisad[ao] por\s+/i.test(n.autor) ? <>Revisada por <strong>{n.autor.replace(/^revisad[ao] por\s+/i, '')}</strong></> : <>Por <strong>{n.autor}</strong></>}</p>}
-        {/* La fecha, chica y debajo de la firma como en los diarios (30/10, Hernán): sin la palabra "Publicado"; "Actualizado" (regla 253) sólo si una persona la corrigió después: se suma a la fecha única de la nota, no la reemplaza. */}
-        <p className="fecha-de-la-nota" data-pagefind-ignore=""><FechasDeLaNota nota={n} /></p>
 
         {/* La foto (28/09, CRITERIO-EDITORIAL.md, "Las fotos"): recortada,
             sin ningún nombre de medio pegado encima (el crédito va sólo acá,
@@ -195,6 +193,10 @@ export default async function PaginaNota({ params }) {
             claves, qué se sabe, qué falta confirmar, lo que aportó cada fuente y
             el nivel de verificación son de uso interno: se usan para escribir la
             nota y se ven en el panel, no acá (CRITERIO-EDITORIAL.md, sección 7). */}
+        {/* La fecha, chica, abajo de todo a la altura de las fuentes (30/10, Hernán: "tiene que ser abajo de todo a la altura de la fuente, no en
+            el medio de la nota"); arriba queda sólo «Hace…» de la chapa. Sin la palabra "Publicado"; "Actualizado" (regla 253) sólo si una persona
+            la corrigió después: se suma a la fecha única de la nota, no la reemplaza. */}
+        <p className="fecha-de-la-nota" data-pagefind-ignore=""><FechasDeLaNota nota={n} /></p>
         <FuentesDeLaNota nota={n} />
 
         {MOSTRAR_TEMAS && <TemasDeLaNota temas={n.temas} catalogo={temas} />}

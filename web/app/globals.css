@@ -464,8 +464,9 @@ main { padding: 24px 0 10px; }
 /* La fecha exacta de la nota, para quien la lee otro día (1/10). */
 .fecha-de-la-nota { margin: 8px 0 0; }
 .fecha-exacta { font-size: 13.5px; color: var(--suave, #6B6F6C); }
-/* En la nota la fecha va chica y discreta, debajo de la firma, sin mayúsculas ni letra separada (30/10, Hernán). */
-.fecha-de-la-nota { margin: 6px 0 0; }
+/* En la nota la fecha va chica y discreta, abajo de todo, arriba de «Fuentes», sin mayúsculas ni letra separada (30/10, Hernán). */
+.fecha-de-la-nota { margin: 26px 0 0; padding-top: 10px; border-top: 1px solid var(--linea); }
+.fecha-de-la-nota + .fuentes-nota, .fecha-de-la-nota + .firma-nota { margin-top: 0; border-top: 0; }
 .fecha-de-la-nota .fecha-exacta { font-size: 12.5px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--suave, #6B6F6C); opacity: .9; }
 .chapa-nota .punto { color: #C9C4B6; }
 
