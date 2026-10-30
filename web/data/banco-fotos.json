@@ -34142,9 +34142,7 @@
   "ausenteDesde": "2026-10-27T04:05:51.054Z"
  },
  "z8ktkl": {
-  "archivo": "fotos-notas/z8ktkl.jpg",
   "medio": "La Verdad",
-  "credito": "Foto: La Verdad",
   "licencia": null,
   "origen": "medio",
   "titulo": "Estudiantes gana por penales ante Flamengo y pasa a la final de la Libertadores",
@@ -34176,7 +34174,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "72369a1a1c5e5c19",
-  "ausenteDesde": "2026-10-23T11:19:09.463Z"
+  "intentado": true,
+  "borrada": true
  },
  "1vp56p5": {
   "archivo": "fotos-notas/1vp56p5.jpg",
@@ -47695,7 +47694,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de personas sentadas alrededor de una mesa de reuniones en una oficina."
   },
-  "huella": "c2d264440e0e0f0f"
+  "huella": "c2d264440e0e0f0f",
+  "ausenteDesde": "2026-10-30T11:37:28.691Z"
  },
  "sza072": {
   "intentado": true,
@@ -52940,7 +52940,8 @@
    "corresponde": "si",
    "descripcion": "Camino rural anegado por el agua"
   },
-  "huella": "cc0909515a8f0f41"
+  "huella": "cc0909515a8f0f41",
+  "ausenteDesde": "2026-10-30T11:37:28.691Z"
  },
  "2cd0hv": {
   "archivo": "fotos-notas/2cd0hv.jpg",
@@ -54565,15 +54566,28 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ly4hzp": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "El Gobierno aumenta los subsidios a los colectivos para evitar subas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T00:32:56.438Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/613sha.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno aumenta los subsidios a los colectivos y congela el boleto",
+  "enlace": "https://www.iprofesional.com/economia/467870-el-gobierno-aumentara-los-subsidios-a-los-colectivos-para-evitar-que-suba-el-boleto",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2025/09/602540_landscape.jpg",
+  "razon": "Es la única foto sin personas que muestra claramente un colectivo urbano, ideal para ilustrar la noticia sobre subsidios y tarifas.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Colectivo de la línea 151 detenido en una parada"
+  },
+  "huella": "0c8319c0c30322c0"
  },
  "b9hqor": {
   "intentado": true,
@@ -54586,15 +54600,40 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1uuz38u": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T01:33:13.446Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "archivo": "fotos-notas/13i41og.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Ciudad de Buenos Aires aprueba el primer cementerio y crematorio de mascotas",
+  "enlace": "https://radiomitre.cienradios.com/videos/la-ciudad-de-buenos-aires-tendra-un-cementerio-publico-y-crematorio-para-las-mascotas-donde-funcionara-y-como-es-el-servicio/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/MAUSOFZWI5F2TNBFZ5ZBQUW5JE.jpg?smart=true&auth=5de65fef3c0c891e84bc37c9a2426951a177b5d4027973e4843e1d5fb1a8aebf&width=1200&height=630",
+  "razon": "Es la única foto real que ilustra una concentración con mascotas sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gente paseando a sus perros en un parque",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Personas con perros en un evento al aire libre"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "958c8d9296564717"
  },
  "1ae2u4c": {
   "intentado": true,
@@ -56271,5 +56310,226 @@
   "intentos": 1,
   "fuentes": 12,
   "intentosPorCupo": 1
+ },
+ "fjn664": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Bitcoin cae por debajo de los u$s80.000 tras la investigación de Binance",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "intentos": 1,
+  "fuentes": 20,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
+ },
+ "36okj2": {
+  "archivo": "fotos-notas/36okj2.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mel Robbins analiza la tensión familiar por la expectativa de cambiar a los padres",
+  "enlace": "https://radiomitre.cienradios.com/sociedad/mel-robbins-especialista-en-desarrollo-personal-tus-padres-probablemente-no-han-ido-a-terapia-ni-quieren/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/PLUHJ4VDMRHSDBDQUAUQA3QMO4.jpg?smart=true&auth=64dab35b14a149f938151dcd982b54e982663f8c9520ea1e0ba2e4143f536f01&width=1200&height=630",
+  "razon": "La foto B muestra a Mel Robbins de manera clara, con buena nitidez y en un entorno natural sin marcas de agua ni elementos publicitarios.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mel Robbins sentada sonriendo a la cámara"
+  },
+  "huella": "66666c44417470f4"
+ },
+ "13i41og": {
+  "archivo": "fotos-notas/13i41og.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Ciudad de Buenos Aires aprueba el primer cementerio y crematorio de mascotas",
+  "enlace": "https://radiomitre.cienradios.com/videos/la-ciudad-de-buenos-aires-tendra-un-cementerio-publico-y-crematorio-para-las-mascotas-donde-funcionara-y-como-es-el-servicio/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/MAUSOFZWI5F2TNBFZ5ZBQUW5JE.jpg?smart=true&auth=5de65fef3c0c891e84bc37c9a2426951a177b5d4027973e4843e1d5fb1a8aebf&width=1200&height=630",
+  "razon": "Es la única foto real que ilustra una concentración con mascotas sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gente paseando a sus perros en un parque",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Personas con perros en un evento al aire libre"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "958c8d9296564717"
+ },
+ "613sha": {
+  "archivo": "fotos-notas/613sha.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno aumenta los subsidios a los colectivos y congela el boleto",
+  "enlace": "https://www.iprofesional.com/economia/467870-el-gobierno-aumentara-los-subsidios-a-los-colectivos-para-evitar-que-suba-el-boleto",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2025/09/602540_landscape.jpg",
+  "razon": "Es la única foto sin personas que muestra claramente un colectivo urbano, ideal para ilustrar la noticia sobre subsidios y tarifas.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Colectivo de la línea 151 detenido en una parada"
+  },
+  "huella": "0c8319c0c30322c0"
+ },
+ "1h73yyp": {
+  "archivo": "fotos-notas/1h73yyp.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aprueban el nuevo torneo de Primera División para 2027",
+  "enlace": "https://www.ole.com.ar/futbol-primera/river-unico-club-voto-nuevo-formato-futbol-argentino_0_8SI79cKuFd.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/08/17/GVkXyijSt5_2000x1500__1.jpg",
+  "razon": "Muestra claramente una reunión oficial sobre la Liga Profesional de Fútbol con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dirigentes sosteniendo un cuadro conmemorativo con plano limpio",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos directivos de la AFA sosteniendo una caja con el escudo de la selección argentina."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0287ba33ab929a86"
+ },
+ "e0cbh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "León XIV oficia misa en Luján y detallan los accesos y cortes de tránsito",
+  "razon": "Ninguna foto cumple con todos los requisitos editoriales: la foto A muestra menores reconocibles y la foto B tiene una marca de agua superpuesta de un medio en la esquina inferior izquierda.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1ormmkr": {
+  "archivo": "fotos-notas/1ormmkr.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emilia Mernes lanza el tema Bodypainting por sus 30 años",
+  "enlace": "https://tn.com.ar/musica/noticias/2026/10/30/emilia-mernes-presenta-bodypainting-una-cancion-que-marca-una-nueva-etapa-en-su-carrera/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-anuncio-de-su-nueva-era-fuente-instagramemiliamernes-OJVVTAD3KZCMDH5HZXD6BM7JLI.jpg?auth=c28d6c7ea867b38b9b6653e282bd99b6e291c5503bcdc0990e44402575830031&width=1023",
+  "razon": "La foto B muestra claramente a Emilia Mernes caracterizada para el lanzamiento de su tema, con excelente calidad y sin marcas ni menores.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Emilia Mernes posando con vestuario y fondo violeta para el lanzamiento"
+  },
+  "huella": "15112b6be969636b"
+ },
+ "1juxfz5": {
+  "archivo": "fotos-notas/1juxfz5.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca define la formación con dudas en ataque y el alta de Tomás Belmonte",
+  "enlace": "https://www.losandes.com.ar/deportes/los-dos-cambios-la-formacion-boca-que-prepara-el-vasco-arruabarrena-recibir-river-n6012130",
+  "imagenOriginal": "https://media.losandes.com.ar/p/3be57efa7d30dda227c2de86e48edd65/adjuntos/368/imagenes/100/761/0100761402/1200x675/smart/los-dos-cambios-la-formacion-boca-que-prepara-el-vasco-arruabarrena-recibir-river.png",
+  "razon": "Muestra a un grupo de jugadores de Boca en el entrenamiento, ideal para ilustrar la nota sobre la formación.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca entrenando juntos en el predio"
+  },
+  "huella": "33131b1eaaeada55"
+ },
+ "1v5zxll": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Anuncian los videojuegos gratis de PlayStation Plus para noviembre",
+  "razon": "Ninguna de las fotos sirve ya que ambas son gráficas o promocionales y no corresponden a una fotografía periodística real de la noticia.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "6k2oow": {
+  "archivo": "fotos-notas/6k2oow.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Karina Milei defiende el RIGI en Rosario y destaca el apoyo de gobernadores",
+  "enlace": "https://www.diariopopular.com.ar/politica/milei-catamarca-defendio-al-rigi-agradecio-los-gobernadores-y-no-hablo-bolsonaro-n926666",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/52eaf65d9eb3d85d89a2d9e56aa180d2/adjuntos/143/imagenes/008/262/0008262315/1200x675/smart/milei-catamarca.jpg",
+  "razon": "Es la mejor foto que corresponde a la nota, sin marcas de agua del medio, sin menores y con buena calidad.",
+  "cuando": "2026-10-30T11:34:37.074Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Karina Milei y Javier Milei rodeados de trabajadores con cascos"
+  },
+  "huella": "991194181b3b6373"
  }
 }

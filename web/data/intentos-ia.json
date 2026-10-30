@@ -500,6 +500,16 @@
   "textos": 4,
   "numeradas": 4
  },
+ "13i41og": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, e"
+  ]
+ },
  "13lwf8v": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -2968,6 +2978,16 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1h73yyp": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 10,
+  "motivos": [
+   "cuerpo: 3 problemas (forma, antecedente, repite): el cuerpo trae un es"
+  ]
+ },
  "1h8sxxo": {
   "intentos": 1,
   "ultimo": "2026-10-25T00:01:25.805Z",
@@ -4494,6 +4514,16 @@
    "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
   ]
  },
+ "1ormmkr": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 54 palabras seguidas del original: d"
+  ]
+ },
  "1ox858x": {
   "intentos": 1,
   "ultimo": "2026-10-30T07:01:42.718Z",
@@ -4570,11 +4600,6 @@
   "motivos": [
    "cuerpo: 4 problemas (nombre, relleno, copia): el cuerpo nombra a \"valo"
   ]
- },
- "1pd22ww": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:18:28.573Z",
-  "motivo": "con cuerpo"
  },
  "1pgbopp": {
   "intentos": 1,
@@ -4852,6 +4877,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1r56gqa": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 218 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel",
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 17 palabras seguidas del original (\"para la presentacion de la declaracion jurada del impuesto a las ganancias correspondiente al…\"): "
+  ]
+ },
  "1r72s4q": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:26:57.932Z",
@@ -4885,11 +4924,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "1rl7tnm": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:02:39.033Z",
-  "motivo": "con cuerpo"
  },
  "1roocg0": {
   "intentos": 1,
@@ -5165,11 +5199,6 @@
   "motivo": "con cuerpo",
   "textos": 0,
   "numeradas": 2
- },
- "1t2bs23": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:02:39.033Z",
-  "motivo": "con cuerpo"
  },
  "1t46jo0": {
   "intentos": 1,
@@ -5803,11 +5832,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "1vp56p5": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:18:28.573Z",
-  "motivo": "con cuerpo"
  },
  "1vpy6pn": {
   "intentos": 1,
@@ -6482,6 +6506,13 @@
   "textos": 2,
   "numeradas": 4
  },
+ "36okj2": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "384d85": {
   "intentos": 1,
   "ultimo": "2026-10-29T14:02:11.105Z",
@@ -6867,6 +6898,13 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"estado\" y la"
   ]
+ },
+ "613sha": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 10
  },
  "61ip9s": {
   "intentos": 1,
@@ -8156,11 +8194,11 @@
   ]
  },
  "dr2hke": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T11:01:33.878Z",
-  "motivo": "Gemini: Bad control character in string literal in JSON at position 1280 (line 1 column 1281)",
+  "intentos": 2,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "Gemini: Bad control character in string literal in JSON at position 1282 (line 1 column 1283)",
   "textos": 3,
-  "numeradas": 3,
+  "numeradas": 4,
   "motivos": [
    "Gemini: Bad control character in string literal in JSON at position 12"
   ]
@@ -8175,6 +8213,13 @@
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
    "cuerpo: 1 problema (numero): el cuerpo dice 12 y la fuente no lo dice;"
   ]
+ },
+ "e0cbh": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "e2viac": {
   "intentos": 1,
@@ -8488,6 +8533,13 @@
   "ultimo": "2026-10-27T13:03:41.814Z",
   "motivo": "con cuerpo",
   "textos": 3,
+  "numeradas": 3
+ },
+ "fjn664": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T11:31:42.590Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 3
  },
  "fm066p": {
@@ -9197,11 +9249,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 8
- },
- "kkgmg": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:18:28.573Z",
-  "motivo": "con cuerpo"
  },
  "kkha9e": {
   "intentos": 1,
@@ -11920,11 +11967,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "z8ktkl": {
-  "intentos": 1,
-  "ultimo": "2026-10-23T11:02:39.033Z",
-  "motivo": "con cuerpo"
  },
  "zbdsge": {
   "intentos": 5,

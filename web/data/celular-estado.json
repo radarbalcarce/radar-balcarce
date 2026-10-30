@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T11:03:23.238Z",
- "portada": 137,
+ "generado": "2026-10-30T11:37:28.778Z",
+ "portada": 134,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-30T11:03:23.780Z",
+  "generado": "2026-10-30T11:37:29.103Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,11 +95,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
-      "id": "z5zzy3",
-      "titulo": "Dictan una master class de taekwondo",
+      "id": "m75zbl",
+      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
       "seccion": "Deportes"
      },
      {
@@ -126,13 +126,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 47,
     "notas": [
-     {
-      "id": "m75zbl",
-      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
-      "seccion": "Deportes"
-     },
      {
       "id": "1epe8uw",
       "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
@@ -147,6 +142,11 @@
       "id": "14jqguf",
       "titulo": "Teo Gutiérrez pronostica que Boca gana la Copa Sudamericana",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "3zjeei",
+      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "1oxthyw",
@@ -165,8 +165,8 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1jdn9gp",
-      "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
+      "id": "1a19f94",
+      "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
       "seccion": "Fútbol"
      },
      {
@@ -175,20 +175,26 @@
       "seccion": "Tecnología"
      },
      {
-      "id": "3zjeei",
-      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
-      "seccion": "Automovilismo"
+      "id": "szj0w3",
+      "titulo": "Comienzan en Buenos Aires los Premios Ídolo 2026",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "z5zzy3",
      "titulo": "Dictan una master class de taekwondo",
-     "seccion": "Deportes",
+     "cuando": "2026-10-30T11:06:03.502Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "5hmq87",
+     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+     "seccion": "Economía",
      "marcada": false
     },
     {
@@ -196,16 +202,10 @@
      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
      "seccion": "Fútbol",
      "marcada": false
-    },
-    {
-     "id": "5hmq87",
-     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-29T22:06:07.627Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-30T12:36:03.502Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
