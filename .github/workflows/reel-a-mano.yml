@@ -1,0 +1,46 @@
+name: Reel a mano
+
+# Arma un reel con voz a partir de reels/a-mano/<nombre>.json (reels/a-mano.mjs). NO publica: deja el video para descargar
+# y una persona decide si lo sube. Gasta un audio del cupo de voz (GEMINI_API_KEY_REDES) por reel.
+
+on:
+  workflow_dispatch:
+    inputs:
+      cuales:
+        description: 'Qué reels, separados por coma (los nombres de reels/a-mano/, por ejemplo nancy,postre)'
+        type: string
+        required: true
+
+concurrency:
+  group: reel-a-mano
+  cancel-in-progress: false
+
+jobs:
+  armar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar
+        run: npm ci --no-audit --no-fund
+      - name: Armar los reels
+        run: node reels/a-mano.mjs "$CUALES"
+        env:
+          CUALES: ${{ inputs.cuales }}
+          GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+      - name: Dejar los videos para descargar
+        uses: actions/upload-artifact@v4
+        with:
+          name: reels-a-mano
+          path: |
+            reels/salida/*.mp4
+            reels/salida/*.png
+          if-no-files-found: error
+          retention-days: 7
