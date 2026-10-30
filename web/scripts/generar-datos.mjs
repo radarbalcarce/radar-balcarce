@@ -102,7 +102,7 @@ import {
   PAREJAS,
 } from '../lib/repetidas.js';
 import { diceEnVivo } from '../../ingesta/verificar.mjs';
-import { parejasConLoPublicado, conFuentesDeLasUnidas } from '../../ingesta/repetidas-publicadas.mjs';
+import { parejasConLoPublicado, conFuentesDeLasUnidas, repetidasAntesDeEscribir } from '../../ingesta/repetidas-publicadas.mjs';
 import { anclasConfirmadas } from '../../ingesta/huellas-significado.mjs';
 import { traerF1, notasDeF1, comoF1Json } from '../../ingesta/f1.mjs';
 import { traerFutbol, notasDeFutbol, comoFutbolJson } from '../../ingesta/futbol.mjs';
@@ -456,18 +456,33 @@ let anclasDeSignificado = anclasConfirmadas(leerJson(FICHAS, {}).repetidas?.sign
 // Si no estaba hecha, no se reescribe una nota que ya salió de las listas (más
 // de HORAS_EN_PORTADA): sería gastar cuota en una nota que nadie va a ver.
 let reescritas = {};
+// Las que no se le piden a la IA porque son la misma noticia que una ya publicada (R40): tampoco quedan «esperando cuerpo».
+let seUnenALaPublicada = new Set();
 const intentosAntes = leerJson(INTENTOS_IA, null);
 const intentos = podarIntentos(intentosAntes ?? {});
 // Cómo estaban al empezar, ya podados: al final se escriben sólo si cambiaron.
 const intentosAlEmpezar = JSON.stringify(intentos);
 {
   const previas = previasDeLaPortada([...(archivoAnterior.notas ?? []), ...(anterior.notas ?? [])]);
+  // R40 (30/10/2026, Hernán: «algo falla en tu lógica para armar las notas»): lo que es la misma noticia que una nota YA publicada no se le
+  // pide a la IA. Se iba a unir a la que ya estaba (más abajo, repetidasConOtraDireccion) y el texto se tiraba: de 1.375 notas escritas
+  // en diez días, 481 terminaron unidas a otra (el 35 % de los pedidos, lo que se comió la clave paga). Se mira con lo que ya se sabe
+  // antes de escribir: la comparación sin IA de la regla 171 (con el título y el resumen de la fuente, y las fuentes en común) y las
+  // parejas que la IA ya confirmó en otra vuelta. Sus medios se suman igual a la que ya estaba, como siempre.
+  seUnenALaPublicada = repetidasAntesDeEscribir((ultima.notas ?? []).filter((n) => !previas[n.id]), {
+    publicadas: [...(archivoAnterior.notas ?? []), ...(anterior.notas ?? [])],
+    yaSalieron,
+    confirmadas: [...conLaPublicadaPrimero(parejasConfirmadas, yaSalieron), ...anclasDeSignificado],
+    fecha: fechaReal,
+  });
+  if (seUnenALaPublicada.size) console.log(`  reescritura: ${seUnenALaPublicada.size} no se piden a la IA, son la misma noticia que una ya publicada (R40)`);
   // Lo que ya tiene el cuerpo escrito en correcciones.json no se le pide a
   // Gemini: sería gastar cupo en algo que después no se usa (27/09).
   const paraReescribir = (ultima.notas ?? [])
     .filter((n) => !CORRECCIONES.get(n.id)?.cuerpo)
     // Lo que ya se unió a otra nota no se escribe otra vez (regla 175): no va a salir con su dirección.
     .filter((n) => !UNIDAS_FIRMES.has(n.id))
+    .filter((n) => !seUnenALaPublicada.has(n.id))
     .filter((n) => {
       if (previas[n.id]) return true;
       const fecha = fechaReal(n);
@@ -666,6 +681,8 @@ function notaPublicada(n) {
   // cuerpo" y no aparece en ninguna lista, ni en el feed, el sitemap o las
   // redes (todo sale de acá). Lo que publicó una persona se respeta.
   if (!humana && !tieneCuerpo(corregida)) {
+    // La misma noticia que una ya publicada (R40): no se escribió a propósito; no espera nada.
+    if (seUnenALaPublicada.has(n.id)) return null;
     const hechos = intentos[n.id]?.intentos ?? 0;
     const agotada = hechos > 0 && hechos >= intentosMaximosPara((n.origenes ?? []).length) && intentos[n.id]?.motivo !== 'con cuerpo';
     if (vigenteEnPortada(corregida) && agotada) {

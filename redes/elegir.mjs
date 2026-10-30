@@ -9,12 +9,11 @@
 //
 //   · Sólo sale lo que YA está en la portada. Si el semáforo lo frenó, acá ni
 //     se ve, porque portada.json no lo trae.
-//   · Política y Policiales no salen solos a las redes. En la web sí, con el
-//     semáforo, pero en una red la nota viaja sin contexto y a un vecino lo
-//     nombra un titular. Para esas secciones decide una persona: desde el
-//     29/09, con el panel del celular ("también a Facebook e Instagram",
-//     `aprobadaParaRedes`). Lo que salió en la web porque lo aprobó una
-//     persona (era amarillo) tampoco va solo: sólo si lo marcó para las redes.
+//   · Política y Policiales salen solas a las redes como cualquier sección desde
+//     el 30/10/2026 (R40, Hernán; hasta ese día esperaban a una persona: la
+//     lista SECCIONES_QUE_ESPERAN_PERSONA quedó vacía). Lo rojo, nunca. Lo que
+//     salió en la web porque lo aprobó una persona (era amarillo) no va solo:
+//     sólo si lo marcó para las redes ("también a Facebook e Instagram").
 //   · Una nota se publica una sola vez por red. El libro lo garantiza.
 //   · Se espera un rato antes de publicar: el enlace tiene que existir en la
 //     web, o Facebook guarda una tarjeta de "página no encontrada".
@@ -167,7 +166,7 @@ export function vaAFacebookPorLoQueEs(n, reglas = REGLAS_FACEBOOK) {
   if (quedaAfueraDeLasRedes(n) || esNotaPropia(n)) return false;
   if (aprobadaParaLasRedes(n)) return true;
   // Lo de acá que cuentan tres medios de Balcarce o más (`muyContadaDeAca`, regla 198) no pide la relevancia mínima:
-  // es lo que más se lee del sitio. Política y Policiales siguen esperando a una persona (las secciones son las de `reglas`).
+  // es lo que más se lee del sitio. Las secciones que esperan a una persona son las de `reglas` (vacía desde el 30/10, R40).
   if (esperaAUnaPersona(n, reglas.seccionesQueEsperanPersona)) return false;
   if (esParaLasRedes(n)) return (n.relevancia ?? 0) >= reglas.relevanciaMinima || muyContadaDeAca(n);
   return esPopularParaRedes(n, reglas);
@@ -551,8 +550,8 @@ export function esParaLasRedes(nota) {
 
 /** ¿Puede ir en un repaso, sea de acá o de afuera? Es la base sola: nada de
  *  quedaAfueraDeLasRedes ni de esperaAUnaPersona. Lo que salió en la web porque
- *  lo aprobó una persona, sólo si también lo marcó para las redes (29/09); y
- *  nunca Política ni Policiales, ni marcadas: los podcasts no las llevan. El
+ *  lo aprobó una persona, sólo si también lo marcó para las redes (29/09).
+ *  Política y Policiales entran como cualquier sección desde el 30/10 (R40). El
  *  orden (Balcarce primero, después lo más contado) lo pone elegirParaPodcast. */
 export function sePuedeEnUnRepaso(nota) {
   return !quedaAfueraDeLasRedes(nota) && !esperaAUnaPersona(nota);

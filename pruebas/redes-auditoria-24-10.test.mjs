@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { primeraOracion, libroNuevo, anotarSinPosteos, porQueNoHayPosteo, elegirParaFacebook, esperanDecisionParaRedes } from '../redes/elegir.mjs';
+import { primeraOracion, libroNuevo, anotarSinPosteos, porQueNoHayPosteo, elegirParaFacebook, esperanDecisionParaRedes, REGLAS_FACEBOOK } from '../redes/elegir.mjs';
 import { publicarPiezas, registrarProblema } from '../redes/publicar-piezas.mjs';
 import { claveDePieza } from '../redes/piezas.mjs';
 import { revisarTexto } from '../redes/guiones.mjs';
@@ -76,7 +76,7 @@ test('A-2: registrarProblema suma los intentos de las vueltas anteriores', () =>
 
 // ---------- A-3: Política y Policiales de acá con puntaje alto que esperan a una persona
 
-test('A-3: se cuentan las de Política y Policiales de Balcarce con puntaje alto que no salen a redes', () => {
+test('A-3: el contador cuenta las secciones que esperan a una persona (la lista se pasa explícita) con puntaje alto que no salen a redes', () => {
   const hoy = '2026-10-24T09:00:00-03:00';
   const base = { fecha: hoy, publicadaCuando: hoy, local: true, relevancia: 88, cuerpo: 'x '.repeat(100) };
   const notas = [
@@ -85,10 +85,14 @@ test('A-3: se cuentan las de Política y Policiales de Balcarce con puntaje alto
     { ...base, id: 'c', seccion: 'Balcarce', titulo: 'Fiesta', alcance: 'local' },
     { ...base, id: 'd', seccion: 'Política', titulo: 'Poco puntaje', relevancia: 30 },
   ];
-  const lista = esperanDecisionParaRedes(notas, { dia: '2026-10-24' }).map((n) => n.id);
+  // El mecanismo: con una lista explícita, Política y Policiales se cuentan (la lista por defecto ya no las trae: R40).
+  const reglas = { ...REGLAS_FACEBOOK, seccionesQueEsperanPersona: ['Política', 'Policiales'] };
+  const lista = esperanDecisionParaRedes(notas, { dia: '2026-10-24', reglas }).map((n) => n.id);
   assert.ok(!lista.includes('c'), 'una de Balcarce común no cuenta');
   assert.ok(!lista.includes('d'), 'con poco puntaje no cuenta');
   assert.deepEqual(lista, ['a', 'b']);
+  // Desde el 30/10 (R40), con la lista por defecto, Política y Policiales salen solas: no se cuentan como esperando.
+  assert.deepEqual(esperanDecisionParaRedes(notas, { dia: '2026-10-24' }), [], 'por defecto no espera nada (R40)');
 });
 
 test('A-3: esperanDecisionParaRedes no incluye lo que una persona ya aprobó ni lo ya publicado', () => {

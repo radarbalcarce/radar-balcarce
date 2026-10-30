@@ -226,9 +226,10 @@ test('regla 198: y la primera candidata a Facebook, aunque tenga menos puntaje q
   });
   const [elegida] = elegirParaFacebook({ notas: [nota('alta', { relevancia: 99 }), nota('contada', { relevancia: 60, muyContadaDeAca: 4 })], libro: libroNuevo(), ahora });
   assert.equal(elegida?.id, 'contada');
-  // Política sigue esperando a una persona.
-  const politica = elegirParaFacebook({ notas: [nota('pol', { relevancia: 99, seccion: 'Política', muyContadaDeAca: 5 })], libro: libroNuevo(), ahora });
-  assert.equal(politica.length, 0);
+  // Lo que una persona aprobó sin marcarlo para las redes sigue esperando, aunque lo cuenten cinco medios de acá
+  // (desde el 30/10, R40, Política y Policiales ya no esperan: ver redes.test.mjs).
+  const aprobada = elegirParaFacebook({ notas: [nota('pol', { relevancia: 99, como: 'publicada', muyContadaDeAca: 5 })], libro: libroNuevo(), ahora });
+  assert.equal(aprobada.length, 0);
 });
 
 // ============================================================ 199 · lo que no es nota y las promociones

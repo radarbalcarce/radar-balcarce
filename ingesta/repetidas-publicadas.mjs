@@ -377,6 +377,31 @@ function parejasEntrePublicadas(lista, yaPublicadas, { ahora = Date.now(), horas
   return salida;
 }
 
+/**
+ * R40 (30/10/2026): de las notas que todavía no se escribieron, las que ya se sabe que son la misma noticia que una YA publicada
+ * (Set de ids). No se le piden a la IA: se iban a unir a la que ya estaba y el texto se tiraba (481 de 1.375 notas escritas en diez
+ * días). Se mira con lo que hay antes de escribir: las parejas que la IA ya confirmó en otra vuelta (`confirmadas`, [laPublicada,
+ * laNueva]) y esta misma comparación sin IA (parejasConLoPublicado) con el título y el resumen de la fuente y sus enlaces. Sólo
+ * cuenta si la otra ya salió: dos nuevas que se parecen se escriben como siempre (la unión de después decide cuál queda).
+ * `fecha` es la fecha de la nota que usa quien llama (la mediana de las fuentes, regla 327).
+ */
+export function repetidasAntesDeEscribir(nuevas = [], {
+  publicadas = [], yaSalieron = new Set(), confirmadas = [], fecha = (n) => n?.fecha, ahora = Date.now(),
+} = {}) {
+  const salida = new Set();
+  const sinSalir = nuevas.filter((n) => n?.id && !yaSalieron.has(n.id));
+  if (!sinSalir.length) return salida;
+  const ids = new Set(sinSalir.map((n) => n.id));
+  for (const [vieja, nueva] of confirmadas) if (ids.has(nueva) && yaSalieron.has(vieja)) salida.add(nueva);
+  const comoNota = (n) => ({
+    id: n.id, titulo: n.titulo, copete: n.resumenFuente ?? n.copete ?? '', fecha: fecha(n), local: !!n.local, deLaZona: !!n.deLaZona,
+    origenes: n.origenes, enlace: n.enlace, enlaceFeed: n.enlaceFeed,
+  });
+  const { parejas } = parejasConLoPublicado([...publicadas, ...sinSalir.map(comoNota)], { yaPublicadas: yaSalieron, ahora });
+  for (const [vieja, nueva] of parejas) if (yaSalieron.has(vieja) && ids.has(nueva)) salida.add(nueva);
+  return salida;
+}
+
 /** Las parejas [idDeLaQueYaEstaba, idDeLaNueva] con lo publicado y con las otras nuevas (sin lo retirado). */
 export const repetidasDeLoPublicado = (notas = [], opciones = {}) => parejasConLoPublicado(notas, opciones).parejas;
 

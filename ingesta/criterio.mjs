@@ -251,8 +251,10 @@ export const PUNTAJE = {
 };
 
 
-/** Secciones que no salen solas a ninguna red: las decide una persona. */
-export const SECCIONES_QUE_ESPERAN_PERSONA = ['Policiales', 'Política'];
+/** Secciones que no salen solas a ninguna red: las decide una persona. Vacía desde el 30/10/2026 (R40, Hernán: «las reglas de Policiales y
+ *  Política sacalas»): hasta ese día eran Política y Policiales. Lo rojo (un menor, una víctima) sigue sin salir nunca, y lo amarillo
+ *  sigue esperando a una persona como en la web. */
+export const SECCIONES_QUE_ESPERAN_PERSONA = [];
 
 /** Facebook: conservador a propósito (decisión del 21/09). */
 export const FACEBOOK = {

@@ -51,10 +51,11 @@ test('los medios del mismo dueño cuentan uno, y una nota "muy contada" cuenta l
   assert.equal(mediosDeLaNota({}), 0);
 });
 
-test('aunque lo cuenten todos: Política y Policiales esperan a una persona, y "dónde ver", "en vivo" o el pronóstico no son noticia', () => {
+test('aunque lo cuenten todos: Política y Policiales salen como cualquier sección (desde el 30/10, R40), lo aprobado sin marcar espera, y "dónde ver", "en vivo" o el pronóstico no son noticia', () => {
   const popular = (extra) => ({ ...LA_PLATA, id: 'x', medios: medios(12), seccion: 'Argentina', titulo: 'El Gobierno anunció un nuevo esquema para el transporte', ...extra });
   assert.equal(vaAFacebookPorLoQueEs(popular({})), true);
-  for (const seccion of ['Política', 'Policiales']) assert.equal(vaAFacebookPorLoQueEs(popular({ seccion })), false, seccion);
+  for (const seccion of ['Política', 'Policiales']) assert.equal(vaAFacebookPorLoQueEs(popular({ seccion })), true, `${seccion} sale sola (R40)`);
+  assert.equal(vaAFacebookPorLoQueEs(popular({ seccion: 'Política', como: 'publicada' })), false, 'lo que aprobó una persona sin marcarlo espera');
   for (const titulo of ['Dónde ver Estudiantes vs Boca en vivo', 'Alerta amarilla por tormentas en CABA', 'Cotización del dólar hoy']) {
     assert.equal(vaAFacebookPorLoQueEs(popular({ titulo })), false, titulo);
   }

@@ -40,7 +40,7 @@ import { traerTexto } from '../ingesta/articulo.mjs';
 import { armarFuentesParaLaIA, titularDeFuente } from '../ingesta/fuentes-para-la-ia.mjs';
 import { MEDIOS_OFICIALES } from '../ingesta/fuentes.mjs';
 import { palabrasDeTitular } from '../redes/elegir.mjs';
-import { anotarUsoIA, anotarFallaIA } from '../redes/uso-ia.mjs';
+import { anotarUsoIA, anotarFallaIA, pedidosDeLaClaveHoy } from '../redes/uso-ia.mjs';
 import { rutaDeNota } from '../web/lib/ruta.js';
 import { sinTildes } from '../web/lib/texto.js';
 import { tieneCuerpo, palabrasDe } from '../web/lib/cuerpo.js';
@@ -420,7 +420,27 @@ export const PEDIDO_MAXIMO = 400;
 /** Cuántos pedidos fueron a cada clave desde que arrancó el programa: la gratis
  *  ('redaccion'), la de respaldo paga ('respaldo') o la de clasificación. El registro de Actualizar la web lo
  *  muestra, para ver de un vistazo si se está gastando. */
-export const USO_DE_CLAVES = { redaccion: 0, respaldo: 0, clasificacion: 0, mistral: 0 };
+export const USO_DE_CLAVES = { redaccion: 0, respaldo: 0, clasificacion: 0, mistral: 0, respaldoSinCupo: 0 };
+
+/**
+ * R40 (30/10/2026, Hernán: «esos dólares eran sólo de respaldo, no se tenían que gastar en 2 días»): cuántos pedidos por día puede
+ * hacer la clave PAGA de respaldo, sumando todas las tareas (redes/uso-ia.mjs, clave 'respaldo'). Del 27 al 29/10 hizo unos 1.000 y
+ * se comió los US$ 5 del mes: la gratis se queda sin cupo todos los días a la tarde y la paga atendía todo lo que seguía. Con 30 por
+ * día son unos US$ 0,15 diarios (a lo que cobró Google esa semana). Lo cambia la variable GEMINI_RESPALDO_TOPE_DIARIO (0 la apaga).
+ * Al llegar al tope, la nota pasa a la clave de clasificación y a Mistral, y si tampoco pueden, espera a la vuelta siguiente.
+ */
+export const TOPE_DIARIO_DEL_RESPALDO = 30;
+
+export function topeDiarioDelRespaldo(o) {
+  const v = leerVariable('GEMINI_RESPALDO_TOPE_DIARIO', o);
+  const n = Number(v);
+  return v !== null && v !== '' && Number.isInteger(n) && n >= 0 && n <= 2000 ? n : TOPE_DIARIO_DEL_RESPALDO;
+}
+
+/** ¿Le queda cupo del día a la clave paga? Lo anotado en uso-ia.json (`archivoDeUso` en las pruebas). */
+export function respaldoConCupo({ tope = topeDiarioDelRespaldo(), ahora = new Date(), archivoDeUso = null } = {}) {
+  return pedidosDeLaClaveHoy('respaldo', { ahora, archivo: archivoDeUso }) < tope;
+}
 
 /** Una respuesta de Gemini que vale la pena reintentar con OTRA clave: sin cupo
  *  (429), saturado (5xx) o la clave rechazada o sin crédito (401, 402, 403). */
@@ -457,10 +477,12 @@ const probarOtraClave = (res) => !res || [401, 402, 403, 429].includes(res.statu
 export async function reescribir(nota, {
   intentos = 3, fetchFn = fetch, correccion = null, pedido = null,
   clavePropia = claveRedaccion(), claveDePago = claveRespaldo(), claveDeRespaldo = leerVariable('GEMINI_API_KEY_CLASIFICACION'),
-  claveDeMistral = claveMistral(),
+  claveDeMistral = claveMistral(), respaldoDisponible = respaldoConCupo,
 } = {}) {
   const primera = clavePropia;
   const segunda = claveDePago && claveDePago !== primera ? claveDePago : null;
+  // La paga, sólo mientras le quede su tope del día (R40); se mira recién cuando hace falta.
+  const pagaConCupo = () => { const ok = respaldoDisponible(); if (!ok) USO_DE_CLAVES.respaldoSinCupo += 1; return ok; };
   // La de clasificación, sólo si es otra clave distinta de las dos de arriba.
   const tercera = claveDeRespaldo && claveDeRespaldo !== primera && claveDeRespaldo !== segunda ? claveDeRespaldo : null;
   if (!primera && !segunda && !tercera && !claveDeMistral) throw new Error('falta GEMINI_API_KEY_REDACCION');
@@ -488,7 +510,7 @@ LARGO DEL CUERPO PARA ESTA NOTA: las fuentes te dan unas ${largo.material} palab
   if (primera) {
     res = await pedir({ prompt, entrada, clave: primera, fetchFn, intentos, nombre: 'redaccion' });
   }
-  if ((!primera || probarOtraClave(res)) && segunda) {
+  if ((!primera || probarOtraClave(res)) && segunda && pagaConCupo()) {
     res = await pedir({ prompt, entrada, clave: segunda, fetchFn, intentos, nombre: 'respaldo' });
     usada = 'respaldo';
   }
@@ -1584,7 +1606,7 @@ export async function reescribirAutomaticas(notas, {
       + `${cuenta.sinCuerpo} sin cuerpo que sirva, ${cuenta.rechazadas} rechazadas por el título o la bajada, ${cuenta.sinMaterial} sin material, `
       + `${cuenta.oraciones} oraciones sacadas, ${cuenta.agotadas} ya agotaron los ${maximoDeIntentos} intentos, `
       + `${cuenta.partesDescartadas} partes nuevas descartadas, ${cuenta.frenadas} frenadas por el semáforo`);
-    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.respaldo} con la de respaldo (paga), ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.mistral ? `, ${USO_DE_CLAVES.mistral} con Mistral (gratis, último respaldo)` : ''}`);
+    registro(`  claves de Gemini usadas: ${USO_DE_CLAVES.redaccion} con la de redacción, ${USO_DE_CLAVES.respaldo} con la de respaldo (paga), ${USO_DE_CLAVES.clasificacion} con la de clasificación (respaldo)${USO_DE_CLAVES.mistral ? `, ${USO_DE_CLAVES.mistral} con Mistral (gratis, último respaldo)` : ''}${USO_DE_CLAVES.respaldoSinCupo ? ` · la paga llegó a su tope del día (${topeDiarioDelRespaldo()}) y no se usó ${USO_DE_CLAVES.respaldoSinCupo} veces` : ''}`);
   }
   return resultado;
 }

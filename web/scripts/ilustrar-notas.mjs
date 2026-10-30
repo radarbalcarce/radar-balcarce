@@ -478,7 +478,9 @@ export function problemaDelPrompt(prompt, nota) {
 
 // ------------------------------------------------------------------ la red
 
-const MODELOS_DE_TEXTO = ['gemini-flash-lite-latest', 'gemini-flash-lite-latest', 'gemini-flash-latest', 'gemini-flash-latest'];
+// R40 (30/10/2026, Hernán: «siempre usá los modelos más chicos»): sólo flash-lite. El flash normal fallaba 9 de cada 10 veces (saturado o sin
+// cupo: 46 pedidos y 2 buenos el 29/10) y gastaba el cupo de la clave de clasificación, la misma que eligen las fotos de las notas.
+const MODELOS_DE_TEXTO = ['gemini-flash-lite-latest', 'gemini-flash-lite-latest'];
 const dormir = (ms) => new Promise((ok) => { setTimeout(ok, ms); });
 
 /**
@@ -504,7 +506,8 @@ async function pedirAGemini(partes, { clave, claves, nombres = ['clasificacion',
         const j = await r.json().catch(() => null);
         const t = (j?.candidates?.[0]?.content?.parts ?? []).map((p) => p?.text ?? '').join('').trim();
         if (r.status === 200 && t) return t;
-        if ([400, 401, 402, 403].includes(r.status)) break; // una clave rechazada no mejora insistiendo: la siguiente
+        // Una clave rechazada no mejora insistiendo, ni una sin cupo del día (429, R40): la siguiente. Sólo el 503 (saturado) se reintenta.
+        if ([400, 401, 402, 403, 429].includes(r.status)) break;
       } catch { ultimo = 'sin red'; }
       if (i < MODELOS_DE_TEXTO.length - 1) await esperar(4000 * (i + 1));
     }

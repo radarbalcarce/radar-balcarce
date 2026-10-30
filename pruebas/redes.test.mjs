@@ -9,9 +9,10 @@ import assert from 'node:assert/strict';
 import { crearCliente, ErrorMeta, sinToken } from '../redes/meta.mjs';
 import {
   elegirParaFacebook, mensajeDeNota, enlaceDeNota, imagenDeNota, conCreditoDeFoto, libroNuevo, anotar, yaPublicada, REGLAS_FACEBOOK,
-  temaParecido,
+  temaParecido, vaAFacebookPorLoQueEs,
 } from '../redes/elegir.mjs';
 import { horaAR, minutoDelDiaAR } from '../ingesta/zona.mjs';
+import { SECCIONES_QUE_ESPERAN_PERSONA } from '../ingesta/criterio.mjs';
 
 const TOKEN = 'TOKEN-SECRETO-123';
 
@@ -129,11 +130,23 @@ test('una nota fuerte y reciente se publica', () => {
   assert.equal(r.length, 1);
 });
 
-test('Política y Policiales no salen solas a las redes', () => {
-  // En la web las frena el semáforo; en una red viaja un titular sin contexto
-  // y a un vecino lo nombra. Para esas secciones decide una persona.
+test('lo rojo de Política o Policiales no sale a las redes, aunque lo cuenten de acá (R40: lo rojo, nunca)', () => {
+  // En la web lo frena el semáforo; una nota roja no va a ninguna red, sea de la sección que sea.
   for (const seccion of ['Política', 'Policiales']) {
-    assert.equal(elegirParaFacebook({ notas: [nota({ seccion })], ahora: AHORA }).length, 0, seccion);
+    assert.equal(elegirParaFacebook({ notas: [nota({ seccion, semaforo: 'rojo' })], ahora: AHORA }).length, 0, seccion);
+  }
+});
+
+test('R40 (30/10/2026): Política y Policiales salen solas a las redes como cualquier sección; lo rojo, nunca', () => {
+  const CUERPO = 'palabra '.repeat(80).trim();
+  assert.equal(SECCIONES_QUE_ESPERAN_PERSONA.length, 0, 'la lista de criterio.mjs quedó vacía (R40)');
+  for (const seccion of ['Política', 'Policiales']) {
+    const verde = nota({ seccion, semaforo: 'verde', cuerpo: CUERPO, relevancia: 90 });
+    assert.equal(vaAFacebookPorLoQueEs(verde), true, `${seccion} verde, de acá y con cuerpo, va a Facebook`);
+    assert.equal(sePuedeEnUnRepaso(verde), true, `${seccion} verde, de acá y con cuerpo, va a un repaso`);
+    const roja = { ...verde, semaforo: 'rojo' };
+    assert.equal(vaAFacebookPorLoQueEs(roja), false, `${seccion} roja no va a Facebook`);
+    assert.equal(sePuedeEnUnRepaso(roja), false, `${seccion} roja no va a un repaso`);
   }
 });
 
@@ -175,9 +188,9 @@ test('cinco por día como máximo: lo de acá va primero y lo de afuera sólo si
   const pocoContada = nota({ id: 'poco', local: false, seccion: 'Argentina', relevancia: 99, medios: ['A', 'B'], titulo: 'El Congreso tratará una ley sobre humedales la semana próxima' });
   const elegidas = elegirParaFacebook({ notas: [deAfuera, floja, buena, pocoContada], ahora: AHORA, reglas: { ...REGLAS_FACEBOOK, porCorrida: 3 } });
   assert.deepEqual(elegidas.map((n) => n.id), ['buenaDeAca', 'afuera'], 'Balcarce primero; después lo más contado; lo flojo de acá y lo poco contado de afuera, no');
-  // Política y Policiales siguen esperando a una persona, aunque sea lo de mayor puntaje.
-  const politica = nota({ id: 'pol', local: false, seccion: 'Política', relevancia: 99, medios: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], titulo: 'El Senado debate la reforma del régimen de zona fría esta semana' });
-  assert.equal(elegirParaFacebook({ notas: [politica], ahora: AHORA }).length, 0);
+  // Lo rojo no sale, aunque sea lo de mayor puntaje y lo cuenten nueve medios (desde el 30/10, R40, Política y Policiales sí salen como cualquier sección).
+  const roja = nota({ id: 'roja', local: false, seccion: 'Política', semaforo: 'rojo', relevancia: 99, medios: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'], titulo: 'El Senado debate la reforma del régimen de zona fría esta semana' });
+  assert.equal(elegirParaFacebook({ notas: [roja], ahora: AHORA }).length, 0);
 });
 
 test('hay un tope diario y un respiro entre posteos', () => {
@@ -397,14 +410,16 @@ test('las comillas del .env no forman parte de la clave', () => {
 
 const n = (id, titulo, seccion, relevancia, extra = {}) => ({ id, titulo, seccion, relevancia, local: true, semaforo: 'verde', ...extra });
 
-test('Política y Policiales no se arman solas en ninguna pieza', () => {
+test('Política y Policiales se arman solas en una pieza como cualquier sección; lo rojo, no (desde el 30/10, R40)', () => {
   const notas = [
     n('a', 'Petruccelli pidió informes sobre el programa', 'Política', 98),
     n('b', 'Detuvieron a un hombre por un robo en Balcarce', 'Policiales', 95),
     n('c', 'Kevin Gómez volvió a Balcarce como campeón', 'Balcarce', 90),
+    n('r', 'Un titular en rojo de Balcarce sobre la obra pública', 'Balcarce', 99, { semaforo: 'rojo' }),
   ];
-  assert.deepEqual(elegirParaPodcast(notas).map((x) => x.id), ['c']);
-  assert.equal(sePuedeSola(notas[0]), false);
+  assert.deepEqual(elegirParaPodcast(notas).map((x) => x.id).sort(), ['a', 'b', 'c'], 'lo rojo (r) no entra; Política y Policiales sí (R40)');
+  assert.equal(sePuedeSola(notas[0]), true);
+  assert.equal(sePuedeSola(notas[3]), false);
 });
 
 test('la misma noticia contada por dos medios no sale dos veces', () => {
@@ -434,13 +449,13 @@ test('el podcast repasa los titulares del día y no inventa nada', () => {
   const notas = [
     n('a', 'Kevin Gómez volvió a Balcarce como campeón.', 'Balcarce', 100),
     n('b', 'Ferroviarios ganó el Apertura y va por la final', 'Deportes', 95),
-    n('c', 'Petruccelli pidió informes sobre el programa', 'Política', 99),
+    n('c', 'Petruccelli pidió informes sobre el programa', 'Política', 99, { semaforo: 'rojo' }),
   ];
   const g = guionPodcast(notas, { fecha: new Date('2026-09-21T12:00:00-03:00') });
   assert.match(g, /lunes/);
   assert.match(g, /: Kevin Gómez volvió a Balcarce como campeón\./);
   assert.match(g, /: Ferroviarios ganó el Apertura y va por la final\./);
-  assert.ok(!g.includes('Petruccelli'), 'coló una nota de Política');
+  assert.ok(!g.includes('Petruccelli'), 'coló una nota roja');
 });
 
 test('con menos de dos noticias no hay podcast', () => {
@@ -514,14 +529,14 @@ test('los podcasts del día no repiten notas ni temas entre sí', () => {
   assert.ok(!tarde.some((n) => n.id === '2'), 'repitió el tema del autódromo en el segundo podcast');
 });
 
-test('nunca entra Política ni Policiales a un podcast, ni lo que está en rojo', () => {
+test('lo rojo nunca entra a un podcast; Política y Policiales sí, desde el 30/10 (R40)', () => {
   const r = elegirParaPodcast([
     nn('p', 'Concejo debate la ordenanza', 'Política', 99),
     nn('q', 'Choque en la ruta', 'Policiales', 98),
     nn('r', 'Algo sensible', 'Balcarce', 97, { semaforo: 'rojo' }),
     nn('s', 'Una nota común y corriente', 'Balcarce', 70),
   ], { cuantas: 4 });
-  assert.deepEqual(r.map((n) => n.id), ['s']);
+  assert.deepEqual(r.map((n) => n.id).sort(), ['p', 'q', 's'], 'lo rojo (r) no entra; Política (p) y Policiales (q) sí (R40)');
 });
 
 test('primeraOracion corta en el primer punto y descarta lo demasiado largo', () => {
@@ -612,16 +627,16 @@ test('los repasos: lo de Balcarce primero y después lo más contado, sin piso d
     afuera('f3', 'La cuenta corriente de la balanza de pagos cierra con superávit', 'Economía', 88),
     afuera('f4', 'Artista deja la ciudad y levanta una casa con doce parabrisas', 'Argentina', 73),
     afuera('f6', 'Elecciones en Chile: gana el candidato de la oposición por poco margen', 'Argentina', 96, 2),
-    afuera('f5', 'Luis Caputo califica a Kicillof como el anticristo', 'Política', 99),
+    { ...afuera('f5', 'Luis Caputo califica a Kicillof como el anticristo', 'Política', 99), semaforo: 'rojo' },
     nn('a', 'La Cooperativa anuncia un corte de luz para el miércoles', 'Balcarce', 100),
     nn('b', 'Pato Naranja gana por 99 a 12 y queda entre los cuatro mejores', 'Deportes', 90),
   ];
   const elegidas = elegirParaPodcast(notas, { cuantas: 4 });
   assert.deepEqual(elegidas.map((x) => x.id), ['a', 'b', 'f1', 'f2'], 'lo de acá primero, después lo más contado de secciones distintas');
-  assert.ok(!elegidas.some((x) => x.id === 'f5'), 'Política nunca, sea de donde sea');
+  assert.ok(!elegidas.some((x) => x.id === 'f5'), 'lo rojo nunca, sea de donde sea (f5 es roja; Política sola ya no la frena: R40)');
   assert.ok(!elegidas.some((x) => x.id === 'f6'), 'con 96 pero contada por 2 medios, va detrás de lo más contado');
   const noche = elegirParaPodcast(notas, { cuantas: 4, excluir: elegidas });
-  // El de la noche sigue con lo que queda: f3 y f4 (6 medios) antes que f6 (2); Política (f5) nunca.
+  // El de la noche sigue con lo que queda: f3 y f4 (6 medios) antes que f6 (2); lo rojo (f5) nunca.
   assert.deepEqual(noche.map((x) => x.id), ['f3', 'f4', 'f6'], 'el repaso de la noche no queda corto');
   // Lo de afuera que salió en la web porque lo aprobó una persona, sólo si lo marcó para las redes.
   assert.equal(sePuedeEnUnRepaso({ ...notas[0], como: 'publicada' }), false);

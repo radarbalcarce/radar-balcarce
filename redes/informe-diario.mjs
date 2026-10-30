@@ -54,8 +54,10 @@ export const VENCIMIENTOS_DEL_INFORME = [
   ...VENCIMIENTOS.map((v) => ({ fecha: v.fecha, que: v.clave === 'vence-dominio' ? 'el dominio radarbalcarce.com (se renueva en DonWeb)' : v.texto })),
   { fecha: '2027-09-29', que: 'las dos voces propias de Gemini (la locutora y el locutor; se crean de nuevo con «Crear voces»)' },
 ];
-/** Precio de lista de REFERENCIA de un modelo «flash-lite» por millón de tokens: sólo para decir cuánto costaría, NO es lo que se paga (hoy es gratis). */
-export const PRECIO_DE_REFERENCIA = { entrada: 0.10, salida: 0.40 };
+/** Precio de REFERENCIA por millón de tokens, para decir cuánto costaría (lo gratis no se paga). Hasta el 30/10/2026 decía 0,10 y 0,40 (la lista
+ *  vieja de «flash-lite») y el informe dijo menos de lo que se gastó: la factura de Google del 24 al 30/10 cobró US$ 5 por unos 1.000 pedidos
+ *  de la clave paga (6,3 millones de tokens de entrada y 1,1 de salida), cinco veces más. Calibrado con esa factura (R40). */
+export const PRECIO_DE_REFERENCIA = { entrada: 0.50, salida: 2.00 };
 
 export const LIMITES_DEL_INFORME = {
   notasPrincipales: 3,
@@ -672,7 +674,7 @@ export function seccionSalud({ momento, dia, ahora, datos, enVivo = null, redesA
     const porTarea = Object.entries(delDia).map(([tarea, modelos]) => `${tarea} ${num(sumar(Object.values(modelos).map((m) => m.llamadas)))}`).join(' · ');
     lineas.push({ t: `IA ${dia === diaAR(ahora) ? 'de hoy' : 'de ayer'}: ${plural(c.llamadas, 'llamada', 'llamadas')} (${porTarea}), ${plural(c.errores, 'con error', 'con error')}; ${num(c.total)} tokens (${num(c.entrada)} de entrada y ${num(c.salida + c.pensamiento)} de salida).` });
     lineas.push(...lineasDeUsoPorClave(delDia));
-    lineas.push({ t: `Costo: las claves de redactar, leer y voces son gratuitas; la de respaldo de redactar es paga (límite US$ 10 por mes, se ve en la facturación de Google). Sólo como referencia, a precio de lista valdría ${c.referencia < 0.01 ? 'menos de US$ 0,01' : `unos US$ ${c.referencia.toFixed(2).replace('.', ',')}`}; no es una factura.`, sub: true });
+    lineas.push({ t: `Costo: las claves de redactar, leer y voces son gratuitas; la de respaldo de redactar es paga (como mucho 30 pedidos por día desde el 30/10, variable GEMINI_RESPALDO_TOPE_DIARIO; lo cobrado se ve en la facturación de Google). Sólo como referencia, a precio de lista valdría ${c.referencia < 0.01 ? 'menos de US$ 0,01' : `unos US$ ${c.referencia.toFixed(2).replace('.', ',')}`}; no es una factura.`, sub: true });
     if (c.llamadas >= 8 && c.errores / c.llamadas > LIMITES_DEL_INFORME.errorDeIA) atencion.push({ nivel: 'media', t: `La IA falló en ${num(c.errores)} de ${num(c.llamadas)} llamadas (${Math.round((c.errores / c.llamadas) * 100)} %): puede ser una clave sin cupo o rechazada.` });
   } else {
     lineas.push({ t: `IA: no hay uso anotado para ${dia === diaAR(ahora) ? 'hoy' : 'ayer'} (web/data/uso-ia.json).`, sub: true });

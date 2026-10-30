@@ -215,9 +215,10 @@ Lo común a todas:
   Los pies de los reels llevan los dos fijos y uno del tipo de pieza (#Noticias, #Clima…). El espejo de Instagram lleva la foto de la nota, con el crédito en el texto del posteo.
 - **Qué va:** sólo **lo de Balcarce y lo más contado del país** (lo de afuera que cuentan cinco medios distintos o más; nada de otras ciudades que no sea eso). La barra es `FACEBOOK.mediosParaRedes` en la tabla de
   `CRITERIO-EDITORIAL.md`. Los repasos piden lo mismo para lo de afuera.
-- **Lo que decide una persona:** Política y Policiales, y lo que salió en la web porque lo
-  aprobó una persona, van a Facebook e Instagram **sólo si esa persona lo marca** desde el
-  panel del celular ("También a Facebook e Instagram").
+- **Lo que decide una persona:** lo que salió en la web porque lo
+  aprobó una persona va a Facebook e Instagram **sólo si esa persona lo marca** desde el
+  panel del celular ("También a Facebook e Instagram"). Política y Policiales salen solas
+  como cualquier sección desde el 30/10/2026 (R40, Hernán); lo rojo, nunca.
 - **Los reels (Instagram y Facebook) cierran el posteo con «Voz generada con inteligencia artificial.»** (8/10/2026; un aviso en
   texto, sin la etiqueta visual de Meta). Es de la voz, no de la nota: no cambia lo que sigue.
 - **No lleva:** la fuente, "Resumen hecho con IA" (quién escribió la nota se dice en la
@@ -288,8 +289,8 @@ Lo común a todas:
 2. **Nunca nombra la fuente del texto** (Infobae, Clarín, La Vanguardia, Puntonueve, Radio
    Gabal ni ningún otro medio): la atribución está en la nota de la web.
 3. **Nunca "en vivo" ni "minuto a minuto".**
-4. **Política y Policiales nunca salen solas.** En Facebook e Instagram, sólo si una
-   persona las marca desde el panel del celular; en los repasos, nunca.
+4. **Política y Policiales salen como cualquier sección** (desde el 30/10/2026, R40; hasta
+   ese día esperaban a una persona). Lo que está en rojo no sale nunca.
 5. **Nunca identifica a un menor ni a una víctima.**
 6. **Nunca dice "Resumen hecho con IA":** la firma de la nota está en la nota.
 7. **La dirección escrita es `radarbalcarce.com`; dicha, "Radar Balcarce punto com"** y

@@ -170,6 +170,20 @@ export function anotarUsoIA({ tarea, modelo, clave = null, respuesta = null, err
 }
 
 /**
+ * Cuántos pedidos hizo hoy (el día de Balcarce) una clave, sumando todas las tareas y modelos anotados (R40, 30/10/2026: el tope diario de
+ * la clave paga). Cuenta también los que fallaron: mejor pasarse de cuidadoso. En las pruebas, sin un archivo propio, da 0.
+ */
+export function pedidosDeLaClaveHoy(clave, { ahora = new Date(), archivo = null } = {}) {
+  if (!archivo && !seEscribe(null)) return 0;
+  const delDia = leerJson(archivo ?? archivoDeUsoPorDefecto(), { dias: {} })?.dias?.[diaAR(ahora)] ?? {};
+  let total = 0;
+  for (const modelos of Object.values(delDia)) {
+    for (const m of Object.values(modelos ?? {})) total += Number(m?.claves?.[clave]) || 0;
+  }
+  return total;
+}
+
+/**
  * En las pruebas (node --test) no se escribe en el repositorio salvo que la prueba diga a qué archivo
  * (la variable USO_IA_ARCHIVO también lo cambia: así lo prueban las pruebas de quien llama).
  */

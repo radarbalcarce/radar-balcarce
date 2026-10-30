@@ -27,6 +27,7 @@ const PORTADA = {
     nota('e', 'El Concejo aprueba el presupuesto del año que viene', 'Política', 95),
     nota('f', 'Detienen a un hombre por el robo de una moto en la ruta', 'Policiales', 90, { aprobadaParaRedes: hace(20) }),
     nota('g', 'Una nota de Balcarce de ayer que ya no es para Facebook', 'Balcarce', 91, { fecha: hace(20 * 60) }),
+    nota('h', 'Un titular en rojo sobre la obra pública del centro', 'Balcarce', 97, { semaforo: 'rojo' }),
   ],
 };
 const LIBRO = {
@@ -50,7 +51,7 @@ test('la previa del día: cada pieza con su hora, su voz y dónde está; lo que 
   assert.equal(momentoDePieza('10:00', 300, AHORA), 'cerrada');
 });
 
-test('qué cuenta cada repaso: lo que contó si salió; nada si ya no sale; si no, lo mismo que va a elegir el plan', () => {
+test('qué cuenta cada repaso: lo que contó si salió; nada si ya no sale; si no, lo mismo que va a elegir el plan (lo rojo no entra; desde el 30/10, R40, Política y Policiales sí)', () => {
   const p = previaDelDia({ portada: PORTADA, libro: LIBRO, ahora: AHORA });
   const porNombre = Object.fromEntries(p.repasos.map((r) => [r.nombre, r]));
   // El de la mañana (10:00) pasó su hora sin salir: hoy ya no sale.
@@ -64,7 +65,7 @@ test('qué cuenta cada repaso: lo que contó si salió; nada si ya no sale; si n
   const delPlan = repasosDelDia([...PORTADA.notas].sort((x, y) => y.relevancia - x.relevancia), { libro: LIBRO, fecha: AHORA });
   assert.deepEqual(porNombre.podcast.notas.map((n) => n.id), delPlan.podcast.notas.map((n) => n.id));
   assert.ok(porNombre.podcast.notas.length >= 2);
-  assert.ok(!porNombre.podcast.notas.some((n) => ['e', 'f'].includes(n.id)), 'ni Política ni Policiales en un repaso');
+  assert.ok(!porNombre.podcast.notas.some((n) => n.id === 'h'), 'lo rojo no entra en un repaso, aunque sea lo más puntuado');
   assert.ok(!porNombre.podcast.notas.some((n) => ['b', 'c'].includes(n.id)), 'la noche no repite lo que contó la tarde (29/09)');
   assert.ok(porNombre.podcast.segundos > 0);
 });
@@ -81,12 +82,13 @@ test('los tres repasos cuentan cuatro notas cada uno y ninguno repite (29/09, He
   for (const nombre of ['noticia1', 'noticia2', 'podcast']) assert.ok(r[nombre].segundos <= 55, `${nombre}: ${r[nombre].segundos} s`);
 });
 
-test('la cola de Facebook: lo que marcó una persona primero, sin lo que ya salió ni lo viejo; con las reglas para el celular', () => {
+test('la cola de Facebook: lo que marcó una persona primero, sin lo que ya salió ni lo viejo; con las reglas para el celular (desde el 30/10, R40, Política sale sola)', () => {
   const p = previaDelDia({ portada: PORTADA, libro: LIBRO, ahora: AHORA });
   const ids = p.facebook.cola.map((n) => n.id);
   assert.equal(ids[0], 'f', 'la marcada por una persona va primero, aunque sea Policiales');
   assert.equal(p.facebook.cola[0].marcada, true);
-  assert.ok(!ids.includes('e'), 'Política no va sola');
+  assert.ok(ids.includes('e'), 'Política de Balcarce con puntaje sale sola (R40)');
+  assert.ok(!ids.includes('h'), 'lo rojo no va sola, aunque sea de Balcarce y de los más puntuados');
   assert.ok(!ids.includes('g'), 'lo de hace más de 8 horas no sale');
   assert.deepEqual(p.facebook.hoy.map((n) => n.id), ['x']);
   assert.equal(p.facebook.cupo, 4);

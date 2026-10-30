@@ -256,13 +256,14 @@ const publicada = (o) => ({
   cuerpo: CUERPO, fecha: new Date(ahoraFb - 60 * 60e3).toISOString(), ...o,
 });
 
-test('Política y Policiales no van solas a Facebook; aprobadas desde el celular, sí (regla 78)', () => {
-  assert.deepEqual(elegirParaFacebook({ notas: [publicada()], ahora: ahoraFb }), []);
+test('desde el 30/10 (R40) Política y Policiales salen solas a Facebook como cualquier sección; aprobadas desde el celular, también; lo rojo, nunca (regla 78)', () => {
+  assert.equal(elegirParaFacebook({ notas: [publicada({ foto: { archivo: 'n.jpg' } })], ahora: ahoraFb }).length, 1, 'una Policiales de Balcarce con cuerpo y foto sale sola (R40)');
   const aprobada = publicada({ aprobadaParaRedes: new Date(ahoraFb - 30 * 60e3).toISOString() });
   assert.equal(elegirParaFacebook({ notas: [aprobada], ahora: ahoraFb }).length, 1);
   assert.ok(aprobadaParaLasRedes(aprobada));
-  // Aun aprobada para las redes, no va a los podcasts: no llevan Política ni Policiales.
-  assert.equal(sePuedeSola({ ...aprobada, semaforo: 'verde' }), false);
+  // Lo verde, aprobado o no, puede ir a un podcast; lo rojo no, aunque una persona lo haya marcado.
+  assert.equal(sePuedeSola({ ...aprobada, semaforo: 'verde' }), true);
+  assert.equal(sePuedeSola({ ...aprobada, semaforo: 'rojo' }), false);
 });
 
 test('lo que salió en la web porque lo aprobó una persona no va solo a las redes', () => {

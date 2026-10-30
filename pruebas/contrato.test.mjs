@@ -167,7 +167,7 @@ test('un duplicado de posteo: la misma nota publicada dos veces con ids distinto
   assert.equal(c.facebook.posteos.salieron, 6, 'los cuenta a los dos: es lo que hay en la página');
 });
 
-test('posteos: quedar corto sin candidatas es normal; quedar corto con candidatas es una falla', () => {
+test('posteos: quedar corto sin candidatas es normal (lo rojo no cuenta); quedar corto con candidatas es una falla', () => {
   const libro = libroCompleto('2026-09-23');
   for (const id of ['d', 'e']) { delete libro.facebook[`2026-09-23-${id}`]; delete libro.instagramFeed[`2026-09-23-${id}`]; }
   const nota = (id, relevancia, extra = {}) => ({
@@ -175,7 +175,7 @@ test('posteos: quedar corto sin candidatas es normal; quedar corto con candidata
     publicadaCuando: UTC('2026-09-23', '15:00'), fecha: UTC('2026-09-23', '15:00'), temas: [`tema-${id}`], ...extra,
   });
   const cierre = AR('2026-09-24', '00:10');
-  const sin = contratoDelDia({ libro, fecha: '2026-09-23', ahora: cierre, portada: { notas: [nota('x', 50), nota('p', 90, { seccion: 'Policiales' })] } });
+  const sin = contratoDelDia({ libro, fecha: '2026-09-23', ahora: cierre, portada: { notas: [nota('x', 50), nota('p', 90, { semaforo: 'rojo' })] } });
   assert.equal(sin.facebook.posteos.estado, 'cerrado');
   assert.equal(sin.facebook.posteos.explicacion, 'sin-candidatas');
   assert.equal(sin.facebook.completo, true, 'no es una falla');
@@ -200,17 +200,18 @@ test('posteos: a las 15:00 con 3 de 5 todavía está a tiempo (hasta las 22:00)'
   assert.equal(c.facebook.completo, true);
 });
 
-test('candidatas: no cuenta lo de Política y Policiales, lo repetido de tema ni lo que espera cuerpo', () => {
+test('candidatas: no cuenta lo rojo, lo repetido de tema ni lo que espera cuerpo; Política y Policiales sí cuentan (desde el 30/10, R40)', () => {
   const libro = { facebook: {} };
   const base = { relevancia: 90, seccion: 'Balcarce', local: true, cuerpo: 'palabra '.repeat(100), publicadaCuando: UTC('2026-09-23', '12:00'), temas: [] };
   const notas = [
     { id: '1', titulo: 'Reabre el autódromo Fangio con carreras', ...base },
     { id: '2', titulo: 'Reabre el autódromo Fangio con más carreras', ...base },
-    { id: '3', titulo: 'Un policial', ...base, seccion: 'Policiales' },
+    { id: '3', titulo: 'Un titular en rojo', ...base, semaforo: 'rojo' },
     { id: '4', titulo: 'Una nota sin cuerpo todavía', ...base, cuerpo: '', como: 'automatica' },
+    { id: '5', titulo: 'Detienen a un vecino por un robo en el centro', ...base, seccion: 'Policiales' },
   ];
   const r = candidatasSinPublicar({ portada: { notas }, libro, fecha: '2026-09-23' });
-  assert.deepEqual(r.map((n) => n.id), ['1'], 'la 2 es el mismo tema que la 1; la 3 espera a una persona');
+  assert.deepEqual(r.map((n) => n.id).sort(), ['1', '5'], 'la 2 es el mismo tema que la 1; la 3 es roja; la 4 espera cuerpo; la 5 (Policiales) cuenta (R40)');
 });
 
 test('un día sin reels por falla: 0 de 3, con los tres nombres y horas, y las historias de esos podcasts también', () => {

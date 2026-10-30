@@ -273,11 +273,15 @@ test('sin la dirección de Instagram, el repaso enlaza sólo a Facebook; sin nin
   assert.equal(r.redes.instagram, '');
 });
 
-test('un repaso con Política o Policiales, o con menos de dos notas con página, no se arma', () => {
+test('un repaso con algo rojo, o con menos de dos notas con página, no se arma (desde el 30/10, R40, Policiales sí)', () => {
   const [p] = podcastsDelLibro(LIBRO, { ahora: VIERNES_1107 });
+  const conRojo = new Map(POR_ID);
+  conRojo.set('ccc3', { ...NOTAS[2], semaforo: 'rojo' });
+  assert.equal(notaDeRepaso(p, conRojo), null);
+  // Una Policiales verde ya no frena el repaso (R40).
   const conPolicial = new Map(POR_ID);
   conPolicial.set('ccc3', { ...NOTAS[2], seccion: 'Policiales' });
-  assert.equal(notaDeRepaso(p, conPolicial), null);
+  assert.notEqual(notaDeRepaso(p, conPolicial), null, 'Policiales verde arma el repaso (R40)');
   assert.equal(notaDeRepaso(p, new Map([['aaa1', NOTAS[0]]])), null);
   // El que ya no se puede armar se informa, para sacarlo del archivo.
   const { notas, noSeArman } = notasDeRepasos(LIBRO, new Map([['aaa1', NOTAS[0]]]), { ahora: VIERNES_1107 });

@@ -20,11 +20,14 @@ test('la base deja afuera lo rojo, lo que espera cuerpo y las notas propias, sal
   assert.equal(quedaAfueraDeLasRedes(nota({ propia: 'pista', ...APROBADA })), false);
 });
 
-test('esperan a una persona Política, Policiales y lo amarillo que no se marcó para las redes', () => {
-  assert.equal(esperaAUnaPersona(nota({ seccion: 'Política' })), true);
-  assert.equal(esperaAUnaPersona(nota({ seccion: 'Policiales', ...APROBADA })), true, 'la sección espera igual');
+test('esperan a una persona lo amarillo que no se marcó para las redes; Política y Policiales ya no (desde el 30/10, R40), salvo que la lista se pase', () => {
+  assert.equal(esperaAUnaPersona(nota({ seccion: 'Política' })), false, 'R40: Política sale sola');
+  assert.equal(esperaAUnaPersona(nota({ seccion: 'Policiales', ...APROBADA })), false, 'R40: Policiales sale sola');
   assert.equal(esperaAUnaPersona(nota({ como: 'publicada' })), true);
   assert.equal(esperaAUnaPersona(nota({ como: 'publicada', ...APROBADA })), false);
+  // El mecanismo sigue frenando con una lista explícita.
+  assert.equal(esperaAUnaPersona(nota({ seccion: 'Política' }), ['Política', 'Policiales']), true);
+  assert.equal(esperaAUnaPersona(nota({ seccion: 'Policiales' }), ['Política', 'Policiales']), true);
 });
 
 test('cada puerta usa la base: nada rojo ni sin cuerpo en ningún formato; la pista aprobada va a un repaso pero no como posteo', () => {
@@ -38,5 +41,6 @@ test('cada puerta usa la base: nada rojo ni sin cuerpo en ningún formato; la pi
   assert.equal(vaAFacebookPorLoQueEs(pista), false);
   assert.equal(vaAFacebookPorLoQueEs(nota()), true);
   assert.equal(vaAFacebookPorLoQueEs(nota({ seccion: 'Política', ...APROBADA })), true, 'en los posteos manda la persona');
-  assert.equal(sePuedeEnUnRepaso(nota({ seccion: 'Política', ...APROBADA })), false, 'los repasos no llevan Política, ni marcada');
+  assert.equal(sePuedeEnUnRepaso(nota({ seccion: 'Política', ...APROBADA })), true, 'desde el 30/10 (R40) los repasos llevan Política, marcada o no');
+  assert.equal(sePuedeEnUnRepaso(nota({ como: 'publicada' })), false, 'lo que aprobó una persona sin marcarlo no va a un repaso');
 });

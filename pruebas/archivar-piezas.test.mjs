@@ -161,10 +161,11 @@ test('un archivo es de la pieza de nombre más largo que lo prefije', () => {
 
 // ------------------------------------------------------------------ lo que espera a una persona o está retirado
 
-test('no se archiva lo que espera a una persona, lo retirado ni lo que no se puede comprobar', () => {
+test('no se archiva lo rojo, lo retirado, lo que aprobó una persona sin marcarlo para las redes ni lo que no se puede comprobar (desde el 30/10, R40, Política y Policiales se archivan como cualquier sección)', () => {
   const notas = new Map([
     ['ok', { id: 'ok', seccion: 'Balcarce' }],
     ['rojo', { id: 'rojo', seccion: 'Balcarce', semaforo: 'rojo' }],
+    ['pol-roja', { id: 'pol-roja', seccion: 'Política', semaforo: 'rojo' }],
     ['pol', { id: 'pol', seccion: 'Política' }],
     ['poli', { id: 'poli', seccion: 'Policiales' }],
     ['pol-marcada', { id: 'pol-marcada', seccion: 'Política', aprobadaParaRedes: '2026-10-15T12:00:00Z' }],
@@ -178,16 +179,18 @@ test('no se archiva lo que espera a una persona, lo retirado ni lo que no se pue
   assert.equal(puede([]).ok, true, 'el clima y la farmacia no tienen notas');
   assert.equal(puede(['ok', 'rojo']).ok, false);
   assert.match(puede(['rojo']).motivo, /semaforo-rojo/);
-  assert.equal(puede(['pol']).ok, false);
-  assert.equal(puede(['poli']).ok, false);
-  assert.equal(puede(['ok', 'pol']).ok, false, 'una sola nota que espera deja afuera al podcast entero');
+  assert.equal(puede(['pol-roja']).ok, false, 'lo rojo no sale aunque sea de Política');
+  assert.equal(puede(['pol']).ok, true, 'desde el 30/10 (R40) Política sale sola, como cualquier sección');
+  assert.equal(puede(['poli']).ok, true, 'desde el 30/10 (R40) Policiales sale sola, como cualquier sección');
+  assert.equal(puede(['ok', 'aprobada']).ok, false, 'una sola nota que espera deja afuera al podcast entero');
   assert.equal(puede(['pol-marcada']).ok, true, 'si una persona la marcó para las redes, lo decidió ella');
   assert.equal(puede(['aprobada']).ok, false);
   assert.equal(puede(['aprobada-marcada']).ok, true);
   assert.equal(puede(['ret']).ok, false);
   assert.match(puede(['ret']).motivo, /retirada/);
   assert.equal(puede(['no-esta']).ok, false, 'sin datos de la nota no se puede comprobar: no se sube');
-  assert.equal(porQueEspera({ seccion: 'Política' }) !== null, true);
+  assert.equal(porQueEspera({ seccion: 'Política' }), null, 'desde el 30/10 (R40) Política no espera a una persona');
+  assert.equal(porQueEspera({ seccion: 'Política', como: 'publicada' }) !== null, true, 'lo que aprobó una persona sin marcarlo, sí espera');
 });
 
 test('lo retirado a mano y lo bloqueado o descartado en el celular cuentan como retirado', () => {

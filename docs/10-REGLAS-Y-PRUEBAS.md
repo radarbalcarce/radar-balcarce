@@ -1,6 +1,6 @@
 # 10 · Las reglas y las pruebas que las cuidan
 
-*25/10/2026. Son **39 reglas, de R1 a R39**, agrupadas por tema. Reemplazan a la lista numerada de la 1 a la 327, que quedó congelada en
+*25/10/2026. Son **40 reglas, de R1 a R40**, agrupadas por tema. Reemplazan a la lista numerada de la 1 a la 327, que quedó congelada en
 `docs/historico/REGLAS-1-A-327.md` (`docs/propuestas/LIMPIEZA-DE-DOCUMENTOS-25-10.md`, § 4). Si esto y el código no coinciden, manda el código.*
 
 ## Cómo se lee
@@ -69,6 +69,7 @@ como **R40** (y así). Si dos agentes suman una R a la vez, se renumera al unir.
 | R37 | Minutos | Los minutos de Workers Builds se cuentan del 11 al 10 y el presupuesto saltea vueltas sin dejar la web más de 3 horas sin armar. | 231, 312, 315 | `minutos-de-workers-builds`, `ciclo-de-facturacion` |
 | R38 | Vigilancia | Los avisos van por mail (WhatsApp de respaldo); el informe diario no inventa. | 80, 121, 168, 173, 176, 235, 318 | `vigilancia`, `avisar-por-mail`, `informe-diario`, `vigilante-cloudflare` |
 | R39 | Claves, pausa y dependencias | Las claves nunca van en un chat ni en el código, y toda variable que se lee tiene que llegar. La pausa general frena todo menos vigilancia, informe y respaldos. `ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node. Cada arreglo lleva su prueba. Cada pedido a una IA se anota en `web/data/uso-ia.json` con su clave y el motivo del fallo (`redes/uso-ia.mjs`). | 16, 18, 19, 170, 311, 317 | `variables-conectadas`, `pausa-general`, `panel-pausa`, `sintaxis-scripts`, `uso-ia` |
+| R40 | Gasto de IA y notas que se unen | La IA no escribe lo que es la misma noticia que una nota ya publicada (se iba a unir y el texto se tiraba: 481 de 1.375 en diez días). La clave paga de respaldo tiene un tope de pedidos por día (`GEMINI_RESPALDO_TOPE_DIARIO`, 30). El informe calcula el costo con el precio que cobró Google. Las ilustraciones usan sólo el modelo más chico. Política y Policiales salen solas a las redes como cualquier sección (30/10, Hernán); lo rojo, nunca. | — | `gasto-ia-30-10`, `redes` |
 
 ## Lo que la lista corta deja afuera a propósito
 

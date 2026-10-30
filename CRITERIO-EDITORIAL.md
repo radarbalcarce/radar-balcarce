@@ -269,10 +269,11 @@ perdidas en el octavo párrafo frenaban casi todo. Lo que escribe la IA **vuelve
 por el semáforo: si da rojo o amarillo, esa escritura no se usa. Se prefiere pasarse de
 cuidadoso: "violación de la ley" da rojo y "el menor de los males" da amarillo.
 
-**Política y Policiales.** En la web salen solas si el semáforo da verde. En las redes
-**siempre** esperan a una persona, que las marca desde el panel del celular: en una red
-la nota viaja sin contexto y a un vecino lo nombra un titular. Tampoco va sola a las
-redes una nota que salió en la web porque la aprobó una persona.
+**Política y Policiales.** En la web salen solas si el semáforo da verde, y desde el
+30/10/2026 también en las redes, como cualquier sección (R40, Hernán: «las reglas de
+Policiales y Política sacalas»; hasta ese día esperaban a una persona). Lo rojo (un menor,
+una víctima) no sale nunca. No va sola a las redes una nota que salió en la web porque la
+aprobó una persona (era amarilla), salvo que esa persona la marque.
 
 ## 4. Cómo se escribe una nota
 

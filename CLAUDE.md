@@ -45,15 +45,15 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(Las reglas vigentes son **R1 a R39**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
+(Las reglas vigentes son **R1 a R40**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
 cada R nombre pruebas que existan. La historia de cada número viejo, de la regla 1 a la 327, quedó congelada en `docs/historico/REGLAS-1-A-327.md`:
 quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (está en la R8). **Un arreglo nuevo se anota en la R que corresponde**
-(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R40.** Las citas "regla NNN" del código no se renumeran.)
+(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R41.** Las citas "regla NNN" del código no se renumeran.)
 
 - **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
   vigila (sigue los imports en cadena).
 - **Cuando se arregla algo que estuvo mal publicado, se escribe una prueba** con el caso
-  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R40 si es nueva).
+  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R41 si es nueva).
 - **El criterio editorial es uno solo: `CRITERIO-EDITORIAL.md`.** La IA lee su § 12 tal
   cual (`ingesta/prompt-editorial.mjs`; si falta, no escribe) y sus números están en
   `ingesta/criterio.mjs`, controlados contra su tabla. Lo de las redes, en
@@ -61,8 +61,8 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 - **Nunca identificar a un menor ni a una víctima** (el semáforo rojo; **no tocar esa
   lista sin preguntar**). **Nunca una marca de agua ni el nombre de otro medio pegado
   encima de una imagen**: el crédito va en la cita. **Lo que escribe la IA se verifica contra la
-  fuente. Cada nota dice quién la escribió. Política y Policiales esperan a una persona en
-  todas las piezas de redes.**
+  fuente. Cada nota dice quién la escribió.** Política y Policiales salen solas a las redes como cualquier sección desde el 30/10
+  (R40, Hernán); lo rojo, nunca.
 - **Las fotos** (regla 319, 24/10: **la foto de una nota con fuentes sale siempre de las fuentes de esa nota**; Wikimedia Commons no ilustra ninguna nota con fuentes, ni de personas ni de
   lugares ni de objetos: un nombre en el archivo no garantiza que la persona sea la de la noticia; Commons sólo por el lugar en las notas propias de F1 y fútbol; sin foto que sirva,
   placa): la de otro medio o de un organismo, sólo sin su marca (lo que estaba en

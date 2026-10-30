@@ -53,8 +53,8 @@ test('cada regla de docs/10 está dentro de una tabla, y la lista vieja quedó e
   }
   const vieja = leer('docs/historico/REGLAS-1-A-327.md');
   assert.match(vieja, /^\| 327 \|/m, 'docs/historico/REGLAS-1-A-327.md tiene que conservar la lista vieja hasta la 327');
-  assert.match(leer('CLAUDE.md'), /R1 a R39/, 'CLAUDE.md tiene que decir que las reglas vigentes son R1 a R39');
-  assert.doesNotMatch(leer('CLAUDE.md'), /la próxima regla es la \d+/, 'CLAUDE.md ya no lleva «la próxima regla»: un arreglo nuevo va en su R o como R40');
+  assert.match(leer('CLAUDE.md'), /R1 a R40/, 'CLAUDE.md tiene que decir que las reglas vigentes son R1 a R40');
+  assert.doesNotMatch(leer('CLAUDE.md'), /la próxima regla es la \d+/, 'CLAUDE.md ya no lleva «la próxima regla»: un arreglo nuevo va en su R o como R41');
 });
 
 test('la página del criterio en una página dice los números del código', () => {
