@@ -868,12 +868,14 @@ const motivoPocoContada = (medios, seccion, minimo, falla = null) => `${MOTIVO_P
  * cualquier nota.
  */
 export function semaforoDelTexto(textoCrudo, {
-  soloMenores = false, conMuerte = true, muerteDeUnFamoso = false,
+  soloMenores = false, conMuerte = true, muerteDeUnFamoso = false, muyContada = false,
 } = {}) {
   const texto = normalizar(String(textoCrudo ?? ''));
   if (!texto) return null;
   // Lo rojo se mira SIEMPRE sobre el texto completo, sin ninguna exención (regla 172).
   for (const p of REGLAS_SEMAFORO.rojo) {
+    // Con `muyContada` (MUY_CONTADA.medios medios o más) la violencia de género deja de ser roja (30/10/2026); lo demás de la lista, nunca.
+    if (muyContada && (REGLAS_SEMAFORO.rojoSeSueltaConMuchosMedios ?? []).includes(p)) continue;
     if (contiene(texto, p)) return { color: 'rojo', motivo: `tema sensible: "${p}"` };
   }
   // El amarillo se mira sobre el texto sin las pocas frases que no son lo que parecen ("El Niño" del clima, "cadáver de una ballena",
@@ -998,6 +1000,7 @@ function pareceDePromocion(nota) {
 function semaforo(nota, seccion, medios = cuantosMedios(nota)) {
   let sensible = semaforoDelTexto(`${nota.titulo} ${nota.cuerpo.slice(0, 600)}`, {
     conMuerte: laMuerteFrena(nota, seccion, medios), muerteDeUnFamoso: esMuerteDeFamosoEnPoliciales(nota, seccion),
+    muyContada: medios >= MUY_CONTADA.medios,
   });
   if (sensible?.color === 'rojo') return sensible;
   // 22/10/2026 (Hernán: «todas esas de Balcarce no se deben frenar; hay que borrar esos criterios viejos»): lo de acá ya no espera a una persona

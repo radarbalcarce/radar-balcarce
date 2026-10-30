@@ -276,3 +276,24 @@ test('la lista roja y la de "nunca" tienen la huella autorizada', async () => {
   assert.equal(huella(REGLAS_SEMAFORO.rojo), HUELLA_ROJO, `la lista roja cambió: la huella nueva es ${huella(REGLAS_SEMAFORO.rojo)} (${REGLAS_SEMAFORO.rojo.length} términos). No se toca sin preguntar.`);
   assert.equal(huella(REGLAS_SEMAFORO.nunca), HUELLA_NUNCA, `la lista de "nunca" cambió: la huella nueva es ${huella(REGLAS_SEMAFORO.nunca)} (${REGLAS_SEMAFORO.nunca.length} términos). No se toca sin preguntar.`);
 });
+
+// 30/10/2026 (Hernán, caso Nancy Godoy: «si dice violencia de género pero tiene más de 8 medios tampoco debe frenarse»): la violencia de género
+// deja de ser roja cuando la cuentan 8 medios o más. Lo demás de la lista roja (menores, abuso, delitos sexuales, suicidio, trata) sigue rojo con los medios que sean.
+test('la violencia de género muy contada (8 medios o más) no es roja; con pocos medios, sí', () => {
+  const titulo = 'Femicidio de una docente en Corrientes: detuvieron a un sospechoso';
+  assert.equal(semaforoDelTexto(titulo)?.color, 'rojo');
+  assert.equal(semaforoDelTexto(titulo, { muyContada: false })?.color, 'rojo');
+  assert.notEqual(semaforoDelTexto(titulo, { muyContada: true })?.color, 'rojo');
+  for (const p of REGLAS_SEMAFORO.rojoSeSueltaConMuchosMedios) {
+    assert.notEqual(semaforoDelTexto(`Caso de ${p} en el país`, { muyContada: true })?.color, 'rojo', p);
+  }
+});
+
+test('con muchos medios, el resto de la lista roja sigue frenando', () => {
+  const sueltas = new Set(REGLAS_SEMAFORO.rojoSeSueltaConMuchosMedios);
+  for (const p of REGLAS_SEMAFORO.rojo.filter((x) => !sueltas.has(x))) {
+    assert.equal(semaforoDelTexto(`Nota con ${p} en el titular`, { muyContada: true })?.color, 'rojo', p);
+  }
+  // un femicidio que además nombra a una menor o un abuso sexual sigue rojo
+  assert.equal(semaforoDelTexto('Femicidio: la víctima era una menor de edad', { muyContada: true })?.color, 'rojo');
+});

@@ -119,7 +119,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
 - **Lo de afuera se publica por popularidad, sin cupos ni topes** (reglas 215 y 260, Hernán 17/10), en seis
   líneas: Balcarce entra todo; lo nacional, con **3 medios** distintos (`MINIMO_NACIONAL`); en las áreas
   chicas (Tecnología e IA, Ciencia, Salud, Educación, Cultura, Agro y Automovilismo: regla 294), con **2** (`MINIMO_AREAS_CHICAS`); sin cupos ni
-  topes; lo muy contado (8 medios o más) va primero y **no se frena por palabras sensibles, la lista internacional ni "es del extranjero"** (reglas 288 y 292; el rojo,
+  topes; lo muy contado (8 medios o más) va primero y **no se frena por palabras sensibles, la lista internacional ni "es del extranjero"** (reglas 288 y 292; salvo la violencia de género con 8 medios o más, 30/10, el rojo,
   nunca); del extranjero, sólo con un argentino (`conArgentino`), y el fútbol de afuera sin argentinos, ni con 8 medios (regla 290); Policiales de afuera, sólo lo contado por 8 medios o más y la muerte de un famoso (regla 289). Los
   dos números se cambian con variables de GitHub, sin tocar código (`ingesta/popularidad.mjs`, `POPULARIDAD` en
   `ingesta/criterio.mjs`). Nunca con un solo medio. Lo que ya salió no se baja. Cómo cae todo se mide en

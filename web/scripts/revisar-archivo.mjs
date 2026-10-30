@@ -43,7 +43,8 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { leerJson } from '../../ingesta/json.mjs';
 import { diaAR } from '../../ingesta/zona.mjs';
-import { semaforoDelTexto } from '../../ingesta/ingesta.mjs';
+import { semaforoDelTexto, cuantosMedios } from '../../ingesta/ingesta.mjs';
+import { MUY_CONTADA } from '../../ingesta/criterio.mjs';
 import { REGLAS_SEMAFORO, FUENTES } from '../../ingesta/fuentes.mjs';
 import { porQueNoEsNota } from '../../ingesta/no-es-nota.mjs';
 import { arreglarEscritura } from '../../ingesta/verificar.mjs';
@@ -187,7 +188,7 @@ const textoDe = (n) => [n?.titulo, n?.copete, n?.cuerpo].filter(Boolean).join('\
  * propia: lo decide una persona. El rojo se retira siempre, también lo de una persona (lo que se mira es lo que está publicado).
  */
 export function motivoParaRetirar(n, { enRedes = false } = {}) {
-  const rojo = semaforoDelTexto(textoDe(n));
+  const rojo = semaforoDelTexto(textoDe(n), { muyContada: cuantosMedios(n) >= MUY_CONTADA.medios });
   if (rojo?.color === 'rojo') return { tipo: 'rojo', motivo: 'semáforo rojo: hoy no se publicaría', aUnaPersona: !!n.propia };
   if (esDeLoQueNuncaSePublica(n, REGLAS_SEMAFORO.nunca)) return { tipo: 'nunca', motivo: 'de lo que no se publica nunca (listas de sepelios)', aUnaPersona: !!n.propia };
   if (n.propia || esDeUnaPersona(n)) return null;

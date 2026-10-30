@@ -1674,6 +1674,12 @@ export const REGLAS_SEMAFORO = {
     'suicidarse', 'suicidaron', 'suicidada', 'feminicidio', 'feminicidios', 'abusos sexuales', 'abuso sexual infantil',
     'violaron a una', 'violaron a un', 'violó a una', 'violó a un', 'fue violada', 'fue violado', 'fueron violadas',
     'trata de personas con fines'],
+  // 30/10/2026 (Hernán: «si dice violencia de género pero tiene más de 8 medios tampoco debe frenarse: se ve que es un tema relevante a nivel
+  // país»): de la lista roja de arriba, SÓLO estas frases (la violencia de género) dejan de frenar cuando la cuentan MUY_CONTADA.medios medios
+  // o más. Los menores, el abuso y los delitos sexuales, la trata y el suicidio siguen siendo rojo siempre, con los medios que sean. La regla de
+  // la IA de no identificar a una víctima sigue igual.
+  rojoSeSueltaConMuchosMedios: ['violencia de género', 'violencia de genero', 'víctima de violencia', 'victima de violencia',
+    'femicidio', 'feminicidio', 'feminicidios'],
   // Espera aprobación.
   //
   // El 21/09 se sacaron de acá "concejo deliberante", "intendente", "gremio",

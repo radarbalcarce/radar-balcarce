@@ -531,7 +531,7 @@ const nuncaSePublica = (nota) => esDeLoQueNuncaSePublica(nota, REGLAS_SEMAFORO.n
  * la reescribió y el texto final ya no toca la lista roja, sí puede salir: lo que se mira es lo que se va a publicar.
  */
 const sigueRoja = (original, final) => original?.semaforo === 'rojo'
-  && semaforoDelTexto([final?.titulo, final?.copete, final?.cuerpo].filter(Boolean).join('\n'))?.color === 'rojo';
+  && semaforoDelTexto([final?.titulo, final?.copete, final?.cuerpo].filter(Boolean).join('\n'), { muyContada: contarMedios(original?.medios) >= MUY_CONTADA.medios })?.color === 'rojo';
 
 // Mismo criterio que el panel: sin decisión manda el semáforo (verde =
 // automática, rojo = bloqueada, el resto pendiente). Sólo lo publicado o
