@@ -23,6 +23,29 @@ export function paraLeer(texto) {
     .trim();
 }
 
+const DIRECCION_DICHA = ['radar', 'balcarce', 'punto', 'com'];
+const plana = (s) => String(s ?? '').toLowerCase().replace(/[^a-záéíóúñ]/g, '');
+
+/**
+ * La dirección se DICE «Radar Balcarce punto com», pero se ESCRIBE radarbalcarce.com (CRITERIO-REDES.md, regla 7): en el subtítulo las cuatro
+ * palabras pasan a ser una, «radarbalcarce.com», con los tiempos de la primera a la última (30/10/2026, Hernán: «queda medio raro»).
+ */
+export function conLaDireccionEscrita(palabras = []) {
+  const salida = [];
+  for (let i = 0; i < palabras.length; i += 1) {
+    const cuatro = palabras.slice(i, i + 4);
+    if (cuatro.length === 4 && cuatro.every((p, k) => plana(p.texto) === DIRECCION_DICHA[k])) {
+      const ultima = cuatro[3];
+      const cierre = String(ultima.texto).match(/[.,;:!?]+$/)?.[0] ?? '';
+      salida.push({ ...ultima, texto: `radarbalcarce.com${cierre === '.' ? '' : cierre}`, desde: cuatro[0].desde, direccion: true });
+      i += 3;
+    } else {
+      salida.push(palabras[i]);
+    }
+  }
+  return salida;
+}
+
 /** Arma un cartel a partir de su grupo de palabras. */
 function cartelDe(grupo) {
   return {
@@ -53,7 +76,7 @@ export function enCarteles(palabras, { max = 4, minimo = 2 } = {}) {
     if (grupo.length) grupos.push(grupo);
     grupo = [];
   };
-  for (const p of palabras) {
+  for (const p of conLaDireccionEscrita(palabras)) {
     grupo.push(p);
     // Corta al terminar una frase, o en una coma si ya hay suficientes
     // palabras, o cuando el cartel se llenó.
@@ -65,7 +88,8 @@ export function enCarteles(palabras, { max = 4, minimo = 2 } = {}) {
   // que sigue) en vez de quedar solo. De atrás para adelante, para que unir
   // uno no corra los índices de los que todavía faltan revisar.
   for (let i = grupos.length - 1; i >= 0; i -= 1) {
-    if (grupos[i].length >= minimo || grupos.length === 1) continue;
+    // La dirección sola sí queda en su cartel: es el cierre del video.
+    if (grupos[i].length >= minimo || grupos.length === 1 || grupos[i][0]?.direccion) continue;
     if (i > 0) grupos[i - 1] = [...grupos[i - 1], ...grupos[i]];
     else grupos[i + 1] = [...grupos[i], ...grupos[i + 1]];
     grupos.splice(i, 1);
