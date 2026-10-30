@@ -48141,7 +48141,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de fútbol siendo asistido por el cuerpo técnico al salir de la cancha."
   },
-  "huella": "5554991b939a9c9c"
+  "huella": "5554991b939a9c9c",
+  "ausenteDesde": "2026-10-30T01:33:24.020Z"
  },
  "7vti6o": {
   "intentado": true,
@@ -51534,8 +51535,7 @@
    "corresponde": "si",
    "descripcion": "Lionel Messi gambeteando rodeado de jugadores rivales"
   },
-  "huella": "d1511b1d199b2b4e",
-  "ausenteDesde": "2026-10-29T17:36:24.574Z"
+  "huella": "d1511b1d199b2b4e"
  },
  "szj0w3": {
   "archivo": "fotos-notas/szj0w3.jpg",
@@ -54555,6 +54555,38 @@
   "titulo": "El Gobierno aumenta los subsidios a los colectivos para evitar subas",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-30T00:32:56.438Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "b9hqor": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Senado aprueba un régimen de incentivo para inversiones relevantes",
+  "razon": "La única imagen disponible es una composición gráfica (diseño) y no una fotografía de la escena real, por lo que no cumple con los requisitos para ser elegida.",
+  "cuando": "2026-10-30T01:33:13.446Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1uuz38u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T01:33:13.446Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ae2u4c": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Corte acepta la demanda bonaerense contra la Nación por los subsidios al transporte",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T01:33:13.446Z",
   "intentos": 1,
   "fuentes": 4,
   "intentosPorCupo": 1,

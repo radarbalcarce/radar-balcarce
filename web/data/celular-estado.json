@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T00:33:00.683Z",
- "portada": 205,
+ "generado": "2026-10-30T01:33:24.163Z",
+ "portada": 199,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-30T00:33:01.214Z",
+  "generado": "2026-10-30T01:33:25.412Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -84,7 +84,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T00:36:46.601Z"
    }
   ],
   "repasos": [
@@ -156,8 +156,8 @@
     "hora": "21:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "salio": "2026-10-30T00:36:46.601Z",
+    "segundos": null,
     "notas": [
      {
       "id": "o6zwz5",
@@ -170,14 +170,14 @@
       "seccion": "Economía"
      },
      {
-      "id": "zv94ul",
-      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
-      "seccion": "Agro"
-     },
-     {
       "id": "13vd8fc",
       "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "zv94ul",
+      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+      "seccion": "Agro"
      }
     ]
    }
@@ -218,12 +218,6 @@
      "marcada": false
     },
     {
-     "id": "wycpwb",
-     "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "dqa51l",
      "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
      "seccion": "Cultura y agenda",
@@ -239,6 +233,12 @@
      "id": "zv94ul",
      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
      "seccion": "Agro",
+     "marcada": false
+    },
+    {
+     "id": "wycpwb",
+     "titulo": "Aumenta 0,86% el peaje en la Ruta 226 hacia Mar del Plata",
+     "seccion": "Economía",
      "marcada": false
     },
     {
