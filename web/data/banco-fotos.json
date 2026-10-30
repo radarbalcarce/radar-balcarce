@@ -54725,5 +54725,52 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1d9smgw": {
+  "archivo": "fotos-notas/1d9smgw.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Grupo Octubre compra Mandarina Contenidos y genera incertidumbre",
+  "enlace": "https://www.eldia.com/espectaculos/angel-de-brito-confeso-que-pasara-con-lam-tras-la-venta-de-mandarina-fin-de-una-etapa-espectaculos_1793287440",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793289119818.jpg?&cw=1200&ch=630",
+  "razon": "Es la única opción disponible y muestra a un protagonista del hecho (Grupo Octubre) con buena nitidez y encuadre.",
+  "cuando": "2026-10-30T06:02:31.499Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de un hombre de cabello rubio platino con suéter negro, sentado frente a un fondo con letras grandes."
+  },
+  "huella": "9d9d13df5b496555"
+ },
+ "1fh25x4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Marcela Morelo y Natalia Oreiro lanzan una nueva versión de Corazón salvaje",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T06:02:31.499Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1tm0g5b": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Leo Montero y Vero Lozano conducirán un ciclo en Olga en 2027",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T06:02:31.499Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }

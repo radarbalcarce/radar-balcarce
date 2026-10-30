@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-30T05:02:30.736Z",
+  "generado": "2026-10-30T06:02:41.358Z",
   "notas": [
     {
       "id": "1a150ug",
@@ -10,7 +10,6 @@
       "seccion": "Tecnología",
       "medios": [
         "La Nación",
-        "Clarín",
         "iProfesional",
         "Noticias Argentinas (NA)",
         "iProUP",
@@ -21,8 +20,13 @@
       "fecha": "2026-10-30T01:57:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T04:01:44.633Z",
-      "relevancia": 55,
+      "relevancia": 54,
       "local": false,
+      "muyContada": {
+        "medios": 6,
+        "porque": "5 medios en sus primeras 3 horas, de noche",
+        "desde": "2026-10-30T04:01:44.633Z"
+      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -914,14 +918,13 @@
       "medios": [
         "Agencia DIB",
         "TN (Todo Noticias)",
-        "El Día",
         "La Nueva"
       ],
       "enlace": "https://dib.com.ar/politica/la-corte-declaro-admisible-la-demanda-provincia-contra-nacion-los-subsidios-los-colectivos-n56928",
       "fecha": "2026-10-29T22:29:25.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T00:31:14.234Z",
-      "relevancia": 53,
+      "relevancia": 50,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1822,7 +1825,6 @@
         "Canal 26",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "El Día",
         "La Nueva",
         "La Brújula 24",
         "La Tecla",
@@ -1845,11 +1847,11 @@
       "fecha": "2026-10-29T20:21:51.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T21:02:10.330Z",
-      "relevancia": 88,
+      "relevancia": 81,
       "local": false,
       "muyContada": {
-        "medios": 25,
-        "porque": "25 medios",
+        "medios": 24,
+        "porque": "24 medios",
         "desde": "2026-10-29T21:02:10.330Z"
       },
       "publicadaPor": null,
@@ -2801,7 +2803,7 @@
       "fecha": "2026-10-29T19:34:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T20:01:23.785Z",
-      "relevancia": 57,
+      "relevancia": 50,
       "local": false,
       "muyContada": {
         "medios": 6,
@@ -2937,7 +2939,7 @@
       "fecha": "2026-10-29T19:27:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T21:02:10.330Z",
-      "relevancia": 63,
+      "relevancia": 56,
       "local": false,
       "muyContada": {
         "medios": 14,
@@ -3169,8 +3171,8 @@
       "medios": [
         "Olé",
         "Diario Popular",
-        "El Día",
-        "0221"
+        "0221",
+        "El Día"
       ],
       "enlace": "https://www.0221.com.ar/deportes/un-club-la-liga-amateur-platense-cobro-33-millones-ganarle-un-juicio-racing-carlos-alcaraz-n136593",
       "fecha": "2026-10-29T18:51:00.000Z",
@@ -3254,7 +3256,7 @@
       "fecha": "2026-10-29T18:44:01.232Z",
       "sinFecha": false,
       "visto": "2026-10-29T19:31:41.661Z",
-      "relevancia": 70,
+      "relevancia": 63,
       "local": false,
       "muyContada": {
         "medios": 6,
@@ -3755,7 +3757,7 @@
       "fecha": "2026-10-29T18:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T22:31:36.764Z",
-      "relevancia": 41,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3899,7 +3901,7 @@
       "fecha": "2026-10-29T17:52:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T18:01:58.768Z",
-      "relevancia": 84,
+      "relevancia": 77,
       "local": true,
       "deUnMedioDeAca": true,
       "publicadaPor": null,
@@ -4041,7 +4043,7 @@
       "fecha": "2026-10-29T17:43:39.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T18:01:58.768Z",
-      "relevancia": 79,
+      "relevancia": 72,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4242,7 +4244,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "grupo-octubre-compra-mandarina-contenidos-y-genera-incertidumbre"
+      "slug": "grupo-octubre-compra-mandarina-contenidos-y-genera-incertidumbre",
+      "foto": {
+        "archivo": "fotos-notas/1d9smgw.jpg",
+        "credito": "Foto: El Día"
+      }
     },
     {
       "id": "1fh25x4",
@@ -4450,7 +4456,7 @@
       "fecha": "2026-10-29T17:04:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T22:31:36.764Z",
-      "relevancia": 37,
+      "relevancia": 30,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -5159,6 +5165,13 @@
           "medio": "0221",
           "enlace": "https://www.0221.com.ar/la-plata/cientificos-la-plata-crearon-una-plataforma-conocer-todos-los-eclipses-solares-2200-n136577",
           "fecha": "2026-10-29T23:04:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/la-ciudad/crearon-una-plataforma-para-consultar-eclipses-la-ciudad_1793337117",
+          "fecha": "2026-10-30T05:11:57.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -6852,6 +6865,13 @@
           "fecha": "2026-10-29T19:04:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/espectaculos/juan-marcelo-adios-a-un-icono-de-la-musica-popular-de-los-70-espectaculos_1793338533",
+          "fecha": "2026-10-30T05:35:33.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -7258,6 +7278,7 @@
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Día",
         "Ámbito",
         "Clarín",
         "La Capital (Rosario)",
@@ -7268,11 +7289,11 @@
       "fecha": "2026-10-29T14:16:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T19:02:16.332Z",
-      "relevancia": 50,
+      "relevancia": 51,
       "local": false,
       "muyContada": {
-        "medios": 8,
-        "porque": "8 medios",
+        "medios": 9,
+        "porque": "9 medios",
         "desde": "2026-10-29T19:02:16.332Z"
       },
       "publicadaPor": null,
@@ -7380,6 +7401,13 @@
           "fecha": "2026-10-29T13:48:33.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/removido-un-juez-federal-por-mal-desempeno-politica-y-economia_1793335987",
+          "fecha": "2026-10-30T04:53:07.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -7388,91 +7416,6 @@
         "sugeridoPorIA": null
       },
       "slug": "destituyen-al-juez-federal-gaston-salmain-y-ordenan-su-detencion"
-    },
-    {
-      "id": "3ee4lj",
-      "titulo": "El transporte y los servicios aumentan un cinco por ciento en noviembre",
-      "copete": "El undécimo mes llega con subas en colectivos, prepagas, alquileres, colegios privados y telecomunicaciones en territorio bonaerense desde el domingo.",
-      "cuerpo": "El Ministerio de Transporte de la provincia de Buenos Aires oficializó un incremento del cinco por ciento en las tarifas de los colectivos que operan en La Plata, Berisso y Ensenada, con vigencia a partir del domingo primero de noviembre. El boleto mínimo para trayectos de hasta tres kilómetros con tarjeta SUBE registrada pasa de 1323,33 a 1389,73 pesos. El tramo de tres a seis kilómetros se ubica en 1532,10 pesos, el de seis a 12 kilómetros en 1710,33 pesos, el de 12 a 27 kilómetros llega a 2051,14 pesos y los viajes superiores a 27 kilómetros alcanzan los 2386,28 pesos.\n\nLos usuarios sin tarjeta SUBE nominada abonarán montos diferenciados desde 2779,46 hasta 4772,56 pesos, en tanto que los beneficiarios del Atributo Social pagarán pasajes reducidos entre 781,39 y 1341,70 pesos. La medida forma parte de una serie de actualizaciones previstas para el undécimo mes del año que alcanzan a diversos sectores de la economía.\n\nEn materia habitacional, los contratos de alquiler bajo actualización por inflación registrarán subas del 5,81 por ciento para los esquemas trimestrales, del 7,82 por ciento para los cuatrimestrales y del 12,95 por ciento para los semestrales. Por su parte, las empresas de medicina prepaga aplicarán incrementos diferenciados según la compañía, con topes de hasta el 2,88 por ciento en Sancor Salud, hasta el 2,75 por ciento en Omint, el 2,2 por ciento en Galeno y rangos de entre el 1,7 y el 2,2 por ciento en OSDE. Asimismo, la cuota de los afiliados voluntarios del IOMA ascenderá de 108.504 a 113.900 pesos.\n\nLos establecimientos educativos privados con subvención estatal sumarán una suba del tres por ciento en noviembre, con un tope de 230.450 pesos para el nivel secundario con menor aporte oficial. En telecomunicaciones, Movistar confirmó un ajuste del 2,6 por ciento, mientras que el servicio de agua potable y cloacas de AySA tendrá una variación estimada de entre el 1,5 y el 2 por ciento.",
-      "guion": "El transporte y los servicios aumentan un cinco por ciento en noviembre.",
-      "seccion": "Política",
-      "medios": [
-        "LU9 Mar del Plata",
-        "El Día",
-        "Agencia DIB"
-      ],
-      "enlace": "https://www.eldia.com/la-ciudad/confirman-las-nuevas-tarifas-de-micros-en-la-plata-todos-los-aumentos-que-se-activan-en-noviembre-la-ciudad_1793279160",
-      "fecha": "2026-10-29T14:10:48.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T16:13:24.745Z",
-      "relevancia": 41,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El boleto mínimo de colectivo en la región platense sube a 1389,73 pesos desde el domingo.",
-        "Los alquileres ajustados por inflación aumentarán entre un 5,81 y un 12,95 por ciento.",
-        "Las prepagas aplicarán incrementos de hasta el 2,88 por ciento según la entidad.",
-        "Las escuelas privadas con subvención estatal elevarán sus aranceles un tres por ciento."
-      ],
-      "seSabe": [
-        "El Ministerio de Transporte oficializó un incremento del 5 por ciento en los colectivos de La Plata, Berisso y Ensenada desde el 1 de noviembre.",
-        "El boleto mínimo con SUBE registrada costará 1389,73 pesos.",
-        "Los alquileres con actualización trimestral por inflación subirán 5,81 por ciento, los cuatrimestrales 7,82 por ciento y los semestrales 12,95 por ciento.",
-        "Las prepagas registrarán subas de hasta el 2,88 por ciento y el IOMA llevará su cuota voluntaria a 113.900 pesos.",
-        "Los colegios privados subvencionados aumentarán sus aranceles un 3 por ciento y Movistar aplicará una suba del 2,6 por ciento."
-      ],
-      "noConfirmado": [
-        "Todavía restaba la publicación de los cuadros tarifarios definitivos para las facturas de electricidad y gas."
-      ],
-      "textoRedes": "Noviembre llega con aumentos del cinco por ciento en colectivos de la región platense, además de subas en alquileres, prepagas, colegios privados y telecomunicaciones.",
-      "etiquetas": [
-        "transporte público",
-        "tarifas de colectivos",
-        "aumentos noviembre",
-        "alquileres",
-        "prepagas",
-        "educación privada"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/confirman-las-nuevas-tarifas-de-micros-en-la-plata-todos-los-aumentos-que-se-activan-en-noviembre-la-ciudad_1793279160",
-          "fecha": "2026-10-29T13:11:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los nuevos valores del boleto de colectivo por tramos, los aumentos de alquileres, prepagas, IOMA, educación privada y telecomunicaciones."
-        },
-        {
-          "medio": "LU9 Mar del Plata",
-          "enlace": "https://www.lu9mardelplata.com.ar/confirman-aumento-del-5-en-las-tarifas-de-colectivos-para-la-plata-y-el-gran-buenos-aires",
-          "fecha": "2026-10-29T14:41:29.000Z",
-          "oficial": false,
-          "aporte": "Aportó los componentes de la fórmula de actualización tarifaria del transporte y los rangos numéricos de jurisdicción de las líneas."
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/colectivos-confirman-las-subas-las-tarifas-la-plata-y-gran-buenos-aires-n56908",
-          "fecha": "2026-10-29T14:10:48.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la oficialización de las tarifas de micros y la fecha de aplicación desde el 1 de noviembre con un ajuste del 5 por ciento."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1ieq0nc",
-          "titulo": "Noviembre llega con aumentos en transporte, prepagas y servicios",
-          "fecha": "2026-10-27T17:40:00.000Z",
-          "ruta": "/nota/noviembre-llega-con-aumentos-en-transporte-prepagas-y-servicios-1ieq0nc"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-transporte-y-los-servicios-aumentan-un-cinco-por-ciento-en"
     },
     {
       "id": "11id4sd",
@@ -8709,95 +8652,6 @@
       "slug": "extienden-hasta-el-viernes-6-de-noviembre-la-actualizacion-del-renspa"
     },
     {
-      "id": "4fbrl3",
-      "titulo": "Pauny acumula 146 cheques rechazados y adeuda salarios en Córdoba",
-      "copete": "La fábrica de tractores atraviesa una severa crisis financiera con más de 1.000 millones de pesos en documentos impagos. La Unión Obrera Metalúrgica reclama los sueldos atrasados y el gremio rechazó una dispensa laboral dispuesta por la empresa.",
-      "cuerpo": "La fabricante de tractores Pauny atraviesa una grave crisis financiera y laboral en su planta de Las Varillas, en la provincia de Córdoba, donde acumula 146 cheques rechazados por un total de 1.028,4 millones de pesos debido a la falta de fondos. Los documentos impagos se registraron en apenas ocho jornadas hábiles entre el 13 y el 23 de octubre, según los registros oficiales del Banco Central.\n\nEn el plano salarial, la Unión Obrera Metalúrgica seccional San Francisco denunció que la compañía adeuda los sueldos correspondientes a la segunda quincena de septiembre y a la primera de octubre.\n\nEl conflicto se profundizó cuando la dirección empresaria comunicó una dispensa para que los operarios no concurrieran a sus puestos durante tres jornadas, una medida que los trabajadores desoyeron para mantenerse en estado de retención de tareas. Ante este escenario, la representación gremial solicitó una audiencia urgente ante la autoridad laboral provincial para exigir una propuesta de pago.\n\nEn paralelo, la compañía registra compromisos financieros con distintas entidades bancarias, donde el Banco Nación encabeza el listado de principales acreedores, seguido por el Banco de Córdoba, el BBVA y el Banco Provincia. Los inconvenientes financieros coinciden con un retroceso comercial que se refleja en una caída interanual del 28 por ciento en sus patentamientos entre enero y septiembre, en un contexto de mayor competencia de equipos importados y búsqueda de nuevos inversores.",
-      "guion": "Pauny acumula 146 cheques rechazados y adeuda salarios en Córdoba.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "Canal 26",
-        "Noticias Agropecuarias",
-        "iProfesional"
-      ],
-      "enlace": "https://www.iprofesional.com/negocios/467714-fabrica-de-tractores-acumula-cheques-rebotados-por-1000-millones-de-pesos",
-      "fecha": "2026-10-29T12:24:28.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T13:32:51.384Z",
-      "relevancia": 34,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Pauny acumula 146 cheques rechazados por 1.028,4 millones de pesos.",
-        "La UOM denuncia deudas salariales de dos quincenas en la planta cordobesa.",
-        "Los trabajadores rechazaron una dispensa laboral y mantienen la retención de tareas.",
-        "El Banco Nación figura como el principal acreedor bancario de la compañía."
-      ],
-      "seSabe": [
-        "Pauny registra 146 cheques rechazados por 1.028,4 millones de pesos entre el 13 y el 23 de octubre según el Banco Central.",
-        "La UOM seccional San Francisco reclama el pago de la segunda quincena de septiembre y la primera de octubre.",
-        "Los operarios desoyeron la dispensa empresaria para los días 28, 29 y 30 de octubre y se presentaron a trabajar.",
-        "El Banco Nación encabeza la lista de entidades acreedoras de la firma."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó oficialmente cuánto capital necesitaría la compañía para normalizar sus operaciones.",
-        "No se conoce un acuerdo cerrado con nuevos inversores."
-      ],
-      "textoRedes": "La fábrica de tractores Pauny acumula más de 1.000 millones de pesos en cheques rechazados y enfrenta reclamos gremiales por salarios adeudados en su planta cordobesa.",
-      "etiquetas": [
-        "Pauny",
-        "Las Varillas",
-        "cheques rechazados",
-        "UOM",
-        "tractores",
-        "crisis financiera"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/negocios/467714-fabrica-de-tractores-acumula-cheques-rebotados-por-1000-millones-de-pesos",
-          "fecha": "2026-10-28T17:20:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los plazos de los cheques rechazados, la deuda de las dos quincenas y la negativa de los operarios a acatar la dispensa laboral."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/campo/millones-en-cheques-rechazados-la-fabrica-de-tractores-pauny-enfrenta-reclamos-por-deudas-salariales-nid29102026/",
-          "fecha": "2026-10-29T12:24:28.000Z",
-          "oficial": false,
-          "aporte": "Precisó los reclamos gremiales sobre aportes patronales, cuotas alimentarias y la presentación formal ante el Ministerio de Trabajo."
-        },
-        {
-          "medio": "Noticias Agropecuarias",
-          "enlace": "https://www.noticiasagropecuarias.com/2026/10/29/pauny-acumula-cheques-rechazados-por-mas-de-1-000-millones-y-adeuda-salarios-a-sus-trabajadores/",
-          "fecha": "2026-10-29T13:04:25.000Z",
-          "oficial": false,
-          "aporte": "Aportó las cifras de caída en los patentamientos de la marca y el contexto de competencia con maquinaria importada."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/economia/2026/10/29/crisis-en-pauny-debe-mas-de-1000-millones-trabaja-solo-3-dias-por-semana-y-busca-inversores/",
-          "fecha": "2026-10-29T23:18:59.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "pauny-acumula-146-cheques-rechazados-y-adeuda-salarios-en-cordoba",
-      "foto": {
-        "archivo": "fotos-notas/4fbrl3.jpg",
-        "credito": "Foto: iProfesional"
-      }
-    },
-    {
       "id": "zr277r",
       "titulo": "Petruccelli pide revisar los desagües tras los anegamientos",
       "copete": "El concejal Gabriel Petruccelli presentó un proyecto en el deliberativo local para que el municipio inspeccione el sistema pluvial en la esquina de las calles 33 y 18 tras las recientes precipitaciones.",
@@ -9124,6 +8978,13 @@
           "medio": "Los Andes (Mendoza)",
           "enlace": "https://www.losandes.com.ar/politica/causa-andis-el-abogado-spagnuolo-cuestiono-los-audios-y-anticipo-un-pedido-nulidad-n6012355",
           "fecha": "2026-10-30T02:21:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/versiones-cruzadas-por-los-audios-de-spagnuolo-en-el-caso-andis-politica-y-economia_1793336107",
+          "fecha": "2026-10-30T04:55:07.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -9485,7 +9346,7 @@
       "fecha": "2026-10-29T10:51:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T13:02:00.270Z",
-      "relevancia": 77,
+      "relevancia": 69,
       "local": false,
       "muyContada": {
         "medios": 20,
@@ -10001,35 +9862,20 @@
       "guion": "Franco Colapinto palpita el Gran Premio de México de Fórmula 1.",
       "seccion": "Automovilismo",
       "medios": [
-        "Campeones",
         "TN (Todo Noticias)",
-        "El Destape",
         "A24",
-        "TyC Sports",
-        "Crónica",
         "QZ Noticias (Mar del Plata)",
-        "El Eco de Tandil",
-        "El Gráfico",
-        "Córdoba Competición",
-        "Ámbito",
         "Minuto Uno"
       ],
       "enlace": "https://tn.com.ar/deportes/formula-1/2026/10/29/franco-colapinto-recibio-un-regalo-especial-y-revelo-por-que-el-gp-de-mexico-es-una-de-sus-carreras-favoritas/",
       "fecha": "2026-10-29T10:14:44.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T12:31:24.713Z",
-      "relevancia": 78,
+      "relevancia": 54,
       "local": false,
-      "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
-        "desde": "2026-10-29T21:02:10.330Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
-      "temas": [
-        "autodromo"
-      ],
+      "temas": [],
       "como": "automatica",
       "claves": [
         "Franco Colapinto recibió una camiseta especial en la previa de la competencia en México.",
@@ -11713,8 +11559,8 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "0223 (Mar del Plata)",
-        "El Día",
-        "Infobrisas (Radio Brisas)"
+        "Infobrisas (Radio Brisas)",
+        "El Día"
       ],
       "enlace": "https://www.infobrisas.com/noticias/2026/10/28/113043-informe-sociolaboral-mas-empleo-informal-y-caida-del-trabajo-registrado-en-mar-del-plata",
       "fecha": "2026-10-29T02:50:00.000Z",
@@ -16901,6 +16747,7 @@
         "Clarín",
         "TN (Todo Noticias)",
         "A24",
+        "Crónica",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "Mi8 (Canal 8 Mar del Plata)",
@@ -16916,7 +16763,7 @@
       "fecha": "2026-10-28T19:57:49.000Z",
       "sinFecha": false,
       "visto": "2026-10-29T12:01:26.423Z",
-      "relevancia": 55,
+      "relevancia": 56,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -17149,6 +16996,13 @@
           "fecha": "2026-10-30T03:55:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/el-senado-aprobo-en-general-la-reforma-de-la-ley-de-salud-mental/",
+          "fecha": "2026-10-30T04:58:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -17246,8 +17100,8 @@
       "seccion": "Agro",
       "medios": [
         "INTA",
-        "Agrositio",
-        "Valor Carne"
+        "Valor Carne",
+        "Agrositio"
       ],
       "enlace": "https://www.argentina.gob.ar/noticias/mejoramiento-genetico-de-alfalfa-el-inta-presento-innovaciones-clave-para-sistemas",
       "fecha": "2026-10-28T19:45:42.000Z",
@@ -18755,1356 +18609,6 @@
         "sugeridoPorIA": null
       },
       "slug": "anuncian-los-videojuegos-gratis-de-playstation-plus-para-noviembre"
-    },
-    {
-      "id": "wb3wpx",
-      "titulo": "La Reserva Federal mantiene la tasa de interés entre 3,75% y 4%",
-      "copete": "La entidad monetaria estadounidense dejó los tipos sin cambios en una votación dividida. Dos miembros votaron a favor de un incremento y el mercado analiza los próximos pasos hacia diciembre.",
-      "cuerpo": "La Reserva Federal de Estados Unidos mantuvo las tasas de interés en el rango de 3,75% a 4% en una decisión tomada por el comité de política monetaria. El resultado de la votación fue de 10 a dos, con las disidencias de Beth Hammack y Lisa Cook, quienes reclamaron un incremento de los tipos en este encuentro.\n\nEl organismo señaló en su comunicado que la economía se expande a un ritmo fuerte y que la inflación anual se ubicó en el 3,7% durante septiembre, impulsada por costos energéticos. Frente a este escenario, la entidad eliminó referencias previas para justificar su postura y remarcó que aguardará la acumulación de mayor información para definir los pasos siguientes.\n\nEl mercado financiero analiza si la pausa adoptada será transitoria de cara a la próxima reunión prevista para diciembre. Analistas del sector privado indicaron que el nivel actual de la tasa repercute en el costo del financiamiento global y condiciona la colocación de deuda para los mercados emergentes, mientras los inversores evalúan la evolución del crédito internacional.",
-      "guion": "La Reserva Federal mantiene la tasa de interés entre 3,75% y 4%.",
-      "seccion": "Economía",
-      "medios": [
-        "Noticias Argentinas (NA)",
-        "Ámbito",
-        "El Cronista",
-        "iProfesional",
-        "Perfil"
-      ],
-      "enlace": "https://www.ambito.com/la-fed-decidio-mantener-las-tasas-interes-el-nivel-actual-linea-la-expectativa-del-mercado-n6338953",
-      "fecha": "2026-10-28T18:02:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T19:31:41.157Z",
-      "relevancia": 33,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Reserva Federal mantuvo las tasas de interés entre 3,75% y 4%.",
-        "La votación del comité reflejó dos disidencias a favor de un aumento.",
-        "La inflación anual en Estados Unidos alcanzó el 3,7% en septiembre.",
-        "El mercado evalúa el impacto del costo del crédito en los países emergentes."
-      ],
-      "seSabe": [
-        "La Reserva Federal mantuvo las tasas en el rango del 3,75% al 4%.",
-        "La votación en el comité fue de 10 a 2.",
-        "Beth Hammack y Lisa Cook votaron por subir los tipos.",
-        "La inflación anual de Estados Unidos se ubicó en el 3,7% en septiembre."
-      ],
-      "noConfirmado": [
-        "Todavía no se confirmó si habrá un nuevo aumento de tasas en la reunión de diciembre."
-      ],
-      "textoRedes": "La Reserva Federal mantuvo las tasas de interés entre 3,75% y 4% en una votación dividida. La decisión genera expectativas en los mercados internacionales sobre el costo del financiamiento global.",
-      "etiquetas": [
-        "Reserva Federal",
-        "tasas de interés",
-        "Estados Unidos",
-        "inflación",
-        "mercados financieros"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/la-fed-decidio-mantener-las-tasas-interes-el-nivel-actual-linea-la-expectativa-del-mercado-n6338953",
-          "fecha": "2026-10-28T18:02:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los votos disidentes de Lisa Cook y Beth Hammack, y los cambios en el comunicado oficial de la Fed."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/la-fed-mantuvo-la-tasa-sin-cambios-pero-admitio-que-la-inflacion-en-eeuu-aun-es-elevada/",
-          "fecha": "2026-10-28T18:19:32.514Z",
-          "oficial": false,
-          "aporte": "Informó sobre la cotización previa de Wall Street y el rendimiento de los bonos del Tesoro."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/economia/467717-la-fed-mantuvo-las-tasas-de-interes-pero-anticipo-que-la-inflacion-sigue-elevada",
-          "fecha": "2026-10-28T18:13:00.000Z",
-          "oficial": false,
-          "aporte": "Explicó el contexto del mercado financiero y el impacto del costo de financiamiento para los países emergentes."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/economia/la-reserva-federal-de-ee.uu.-decidio-no-modificar-las-tasas-de-interes-en-linea-con-la-expectativa-del-mercado-a1cTv7X6yUUF",
-          "fecha": "2026-10-28T21:00:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/economia/467726-por-que-el-mercado-palpita-una-suba-de-tasas-de-la-fed-antes-de-fin-de-ano",
-          "fecha": "2026-10-28T19:29:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/la-reserva-federal-decidio-mantener-las-tasas--como-esperaba-el-mercado_a6ae239c27a9cca030f96a31e",
-          "fecha": "2026-10-28T18:11:24.001Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/28/la-reserva-federal-de-eeuu-define-el-rumbo-de-la-tasa-de-interes-cual-es-la-expectativa-y-como-puede-impactar-en-la-argentina/",
-          "fecha": "2026-10-28T08:49:00.000Z",
-          "oficial": false,
-          "aporte": "Agregó referencias sobre la agenda de publicaciones económicas internacionales y el comportamiento del indicador de JP Morgan."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/28/la-reserva-federal-mantuvo-sin-cambios-la-tasa-de-interes-de-eeuu-como-puede-impactar-en-el-riesgo-pais-de-la-argentina/",
-          "fecha": "2026-10-28T18:58:16.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de la votación dividida, los datos de inflación y el impacto en el riesgo país argentino."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/reserva-federal-estados-unidos-mantuvo-cambios-tasa-interes-2026102819199",
-          "fecha": "2026-10-28T22:19:09.563Z",
-          "oficial": false,
-          "aporte": "Aportó el contexto sobre las expectativas de los operadores y las consecuencias para los mercados emergentes."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/internacionales/la-reserva-federal-de-estados-unidos-no-realizaron-cambios-en-la-tasa-de-interes-como-podria-impactar-en-el-riesgo-pais-de-argentina/",
-          "fecha": "2026-10-28T20:33:02.000Z",
-          "oficial": false,
-          "aporte": "Detalló las proyecciones de los analistas para la reunión del 8 y 9 de diciembre."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/a-una-semana-de-las-elecciones-legislativas--la-reserva-federal-decidira-el-rumbo-de-la-tasa-de-interes_a6ae111ebbc8a73c74f233e6e",
-          "fecha": "2026-10-28T09:31:00.000Z",
-          "oficial": false,
-          "aporte": "Mencionó las proyecciones de crecimiento del Producto Interno Bruto y las declaraciones del titular del organismo."
-        },
-        {
-          "medio": "iProUP",
-          "enlace": "https://www.iproup.com/finanzas/72710-fed-mantiene-las-tasas-sin-cambios-la-reaccion-de-bitcoin-y-los-mercados",
-          "fecha": "2026-10-28T20:00:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó el enfoque sobre la reacción de los mercados y las criptomonedas ante la medida del banco central."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/finanzas/bitcoin-cae-debajo-los-us80000-antes-la-decision-la-fed-y-la-pausa-las-compras-strategy-n6338281",
-          "fecha": "2026-10-28T21:45:00.000Z",
-          "oficial": false,
-          "aporte": "Informó la decisión sobre tasas de la Reserva Federal, la reacción del bitcoin, los datos de Galaxy Digital y los resultados financieros de Robinhood."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1f9mfdv",
-          "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
-          "fecha": "2026-10-27T14:52:53.000Z",
-          "ruta": "/nota/el-banco-central-publica-las-tasas-de-interes-de-los-plazos-fijos-1f9mfdv"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-reserva-federal-mantiene-la-tasa-de-interes-entre-3-75-y-4"
-    },
-    {
-      "id": "1ptsjr5",
-      "titulo": "Subastan una carta de Brian Jones para convocar a Charlie Watts",
-      "copete": "Un manuscrito de julio de 1962 en el que el fundador de los Rolling Stones invitaba al baterista a unirse al grupo saldrá a remate en Nueva York. La estimación alcanza los 80.000 dólares.",
-      "cuerpo": "Una carta manuscrita enviada en julio de 1962 por Brian Jones a Charlie Watts saldrá a subasta en Nueva York. El documento, hasta ahora desconocido, forma parte del remate Rock & Pop organizado por la casa Sotheby's y prevé una recaudación estimada entre los 70.000 y los 80.000 dólares.\n\nEn aquel momento, el fundador del grupo intentó convencer al baterista de abandonar su labor en la banda Alexis Korner's Blues Incorporated para sumarse al proyecto. En el mensaje, el autor destacó que la formación lograba un sonido muy compacto y detalló que los ensayos se desarrollaban los lunes, miércoles y viernes. La misiva incluyó una crítica lapidaria hacia el integrante que ocupaba el puesto en ese entonces, al señalar que resultaba pésimo, un apunte que según se estima apuntaba a Tony Chapman.\n\nLa posdata del manuscrito precisó los recursos musicales disponibles al comienzo de la agrupación, con dos guitarras a cargo de Jones y Keith Richards, la armónica de Mick Jagger y el piano de Ian Stewart, además de proyectar la futura incorporación de un bajo. El texto también indicó que la banda probó a otros músicos como Mick Avory antes de consolidar su alineación.\n\nWatts no aceptó la propuesta de manera inmediata, sino que se integró formalmente al grupo en enero de 1963, medio año más tarde de recibir la correspondencia. Aquella llegada marcó el inicio de una sociedad musical que se prolongó durante casi seis décadas, hasta el fallecimiento del baterista en agosto de 2021. Craig Inciardi, especialista en la materia de la casa rematadora, destacó que el documento posee un encanto personal innegable y refleja la determinación de los integrantes en su etapa inicial.",
-      "guion": "Subastan una carta de Brian Jones para convocar a Charlie Watts.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Diario Popular",
-        "Clarín"
-      ],
-      "enlace": "https://www.clarin.com/espectaculos/salio-luz-carta-inedita-brian-jones-sumar-charlie-watts-rolling-stones-baterista-pesimo_0_EH3ZTV90uw.html",
-      "fecha": "2026-10-28T17:58:02.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T02:01:12.901Z",
-      "relevancia": 26,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Una carta de julio de 1962 revela los intentos por reclutar a Charlie Watts.",
-        "El manuscrito saldrá a subasta en Nueva York con un valor estimado de hasta 80.000 dólares.",
-        "El fundador del grupo criticaba al baterista de entonces y detallaba la rutina de ensayos.",
-        "El músico se incorporó formalmente a la banda seis meses después de recibir la misiva."
-      ],
-      "seSabe": [
-        "El manuscrito fue escrito por Brian Jones en julio de 1962.",
-        "La pieza saldrá a subasta el 15 de diciembre por Sotheby's.",
-        "La tasación se ubica entre 70.000 y 80.000 dólares.",
-        "Charlie Watts se sumó al grupo en enero de 1963."
-      ],
-      "noConfirmado": [
-        "No existe certeza absoluta de que el baterista calificado como pésimo fuera Tony Chapman."
-      ],
-      "textoRedes": "Saldrá a subasta en Nueva York una carta inédita de 1962 en la que Brian Jones invitaba a Charlie Watts a unirse a los Rolling Stones. Su valor estimado alcanza los 80.000 dólares.",
-      "etiquetas": [
-        "Rolling Stones",
-        "Brian Jones",
-        "Charlie Watts",
-        "subasta",
-        "Sotheby's",
-        "música"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/espectaculos/salio-luz-carta-inedita-brian-jones-sumar-charlie-watts-rolling-stones-baterista-pesimo_0_EH3ZTV90uw.html",
-          "fecha": "2026-10-28T17:58:02.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre la subasta en Sotheby's, la estimación en dinero, el contenido textual de la carta y los datos de la formación inicial."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/espectaculos/nuestro-baterista-es-pesimo-la-carta-inedita-los-inicios-los-rolling-stones-n926701",
-          "fecha": "2026-10-29T01:01:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó información complementaria sobre la tasación del manuscrito y la cronología de la incorporación de Watts."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "subastan-una-carta-de-brian-jones-para-convocar-a-charlie-watts",
-      "foto": {
-        "archivo": "fotos-notas/1ptsjr5.jpg",
-        "credito": "Foto: Clarín"
-      }
-    },
-    {
-      "id": "mr670u",
-      "titulo": "Sobreseen a Aníbal Lotocki en tres causas por lesiones graves",
-      "copete": "El Tribunal Oral en lo Criminal y Correccional N.º 17 dictó el sobreseimiento del cirujano en tres expedientes. La decisión se basó en el tiempo transcurrido entre las intervenciones y el primer llamado a indagatoria, mientras que continúan otros procesos judiciales.",
-      "cuerpo": "La Justicia sobreseyó al cirujano Aníbal Lotocki en tres causas por lesiones graves iniciadas por pacientes que se sometieron a cirugías estéticas.\n\nLa resolución dictada por los jueces Pablo Vega, Julián López Casariego y Juan Giudice Bravo alcanza a las denunciantes Paola Auzmendi, Beatriz Berger y Julieta Cuadros Miranda. En el caso de Auzmendi, la intervención se realizó en septiembre de 2009; la de Berger, en septiembre de 2010; y la de Cuadros Miranda, en agosto de 2011.\n\nEl fallo se circunscribe exclusivamente a esos tres expedientes y no implica el cierre de todas las acusaciones contra el médico. Otras dos causas continúan bajo análisis judicial, por lo que su situación difiere de la de las pacientes incluidas en esta medida.\n\nEntre los expedientes que siguen en trámite se encuentran los correspondientes a Sandra Domínguez y Yésica Forti. En el caso de Forti, las operaciones se efectuaron en 2016, 2019 y 2021, mientras que Domínguez fue intervenida en distintas oportunidades entre 2009 y 2015. Sus situaciones procesales deberán resolverse por separado en el tribunal.",
-      "guion": "Sobreseen a Aníbal Lotocki en tres causas por lesiones graves.",
-      "seccion": "Salud",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Noticias Argentinas (NA)",
-        "El Marplatense",
-        "Ámbito",
-        "C5N",
-        "Los Andes (Mendoza)",
-        "La Nueva",
-        "A24",
-        "Radio Mitre",
-        "Página/12",
-        "Crónica",
-        "Perfil"
-      ],
-      "enlace": "https://noticiasargentinas.com/sociedad/sigue-el-juicio-contra-anibal-lotocki-por-las-lesiones-graves-a-pacientes_a6ae111e4bc8a73c74f233c36",
-      "fecha": "2026-10-28T17:54:04.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T20:02:24.859Z",
-      "relevancia": 42,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Justicia sobreseyó a Aníbal Lotocki en tres causas por lesiones graves.",
-        "El tribunal aplicó la medida por el tiempo transcurrido hasta el primer llamado a indagatoria.",
-        "La resolución beneficia a Paola Auzmendi, Beatriz Berger y Julieta Cuadros Miranda.",
-        "Continúan en trámite los expedientes correspondientes a Sandra Domínguez y Yésica Forti."
-      ],
-      "seSabe": [
-        "El Tribunal Oral en lo Criminal y Correccional N.º 17 sobreseyó a Aníbal Lotocki en tres causas por lesiones graves.",
-        "La medida fue dictada por los jueces Pablo Vega, Julián López Casariego y Juan Giudice Bravo.",
-        "Las pacientes beneficiadas por el fallo son Paola Auzmendi, Beatriz Berger y Julieta Cuadros Miranda.",
-        "Las intervenciones cuestionadas en esos tres expedientes se realizaron entre 2009 y 2011.",
-        "Las causas iniciadas por Sandra Domínguez y Yésica Forti continúan en trámite."
-      ],
-      "textoRedes": "La Justicia sobreseyó al cirujano Aníbal Lotocki en tres causas por lesiones graves de pacientes. La medida se basó en el tiempo transcurrido entre las intervenciones y el primer llamado a indagatoria, mientras otros expedientes continúan en trámite.",
-      "etiquetas": [
-        "Aníbal Lotocki",
-        "sobreseimiento",
-        "lesiones graves",
-        "Justicia"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/sociedad/sigue-el-juicio-contra-anibal-lotocki-por-las-lesiones-graves-a-pacientes_a6ae111e4bc8a73c74f233c36",
-          "fecha": "2026-10-27T21:12:23.820Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/nacionales/sigue-el-juicio-contra-el-medico-anibal-lotocki",
-          "fecha": "2026-10-27T21:42:51.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre las audiencias del juicio y las declaraciones previstas de las denunciantes y del acusado."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/show/famosos/2026/10/28/la-justicia-sobreseyo-al-cirujano-anibal-lotocki-en-tres-causas-por-lesiones-graves-a-pacientes/",
-          "fecha": "2026-10-28T16:38:01.000Z",
-          "oficial": false,
-          "aporte": "Confirmó los detalles sobre el tiempo transcurrido de una década entre las intervenciones y las actuaciones judiciales."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/sociedad/anibal-lotocki-fue-sobreseido-por-prescripcion-en-tres-denuncias-por-lesiones-graves-a-pacientes_a6ae22aa97a9cca030f955b66",
-          "fecha": "2026-10-28T17:54:04.000Z",
-          "oficial": false,
-          "aporte": "Aportó los nombres de los magistrados integrantes del Tribunal Oral en lo Criminal y Correccional N.º 17."
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-28-15-19-0-lotocki-fue-sobreseido-por-la-prescripcion-de-tres-denuncias-por-lesiones-graves-a-pacientes",
-          "fecha": "2026-10-28T18:54:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/policiales/la-justicia-sobreseyo-anibal-lotocki-tres-causas-lesiones-graves-n1611053",
-          "fecha": "2026-10-28T18:25:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la resolución del Tribunal sobre las tres denuncias vinculadas con intervenciones estéticas."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/policiales/la-justicia-sobreseyo-al-cirujano-anibal-lotocki-en-tres-causas-por-lesiones-graves-los-motivos-de-la-decision/",
-          "fecha": "2026-10-28T19:09:52.000Z",
-          "oficial": false,
-          "aporte": "Aportó los nombres de las tres pacientes sobreseídas, las fechas de sus cirugías y los detalles sobre los expedientes que continúan en trámite."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/informacion-general/la-justicia-sobreseyo-anibal-lotocki-tres-causas-lesiones-graves-n6338941",
-          "fecha": "2026-10-28T17:52:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó el sobreseimiento del cirujano en tres causas por lesiones graves."
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/policiales/sobreseyeron-anibal-lotocki-tres-denuncias-lesiones-graves-cirugias-esteticas-n6012126",
-          "fecha": "2026-10-28T19:19:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la decisión judicial respecto a las tres denuncias en cirugías estéticas."
-        },
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/28/anibal-lotocki-fue-sobreseido-en-tres-casos-por-lesiones-graves/",
-          "fecha": "2026-10-28T20:16:36.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/anibal-lotocki-fue-sobreseido-tras-la-prescripcion-de-tres-denuncias-por-lesiones-graves-a-pacientes",
-          "fecha": "2026-10-28T20:26:10.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/policiales/anibal-lotocki-fue-sobreseido-en-tres-causas-por-lesiones-graves-por-que-la-justicia-tomo-la-decision/",
-          "fecha": "2026-10-28T19:29:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/policiales/sobreseyeron-anibal-lotocki-tres-causas-operaciones-2009-y-2011-n926676",
-          "fecha": "2026-10-28T20:03:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/ratingcero/giro-judicial-el-caso-anibal-lotocki-fue-sobreseido-tres-causas-lesiones-graves-n252817",
-          "fecha": "2026-10-28T20:05:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/sociedad/la-justicia-sobreseyo-al-cirujano-lotocki-por-la-prescripcion-de-tres-causas-por-lesiones-graves-a-pacientes-ahmXE1B7XXT9",
-          "fecha": "2026-10-29T00:53:54.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 7 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "sobreseen-a-anibal-lotocki-en-tres-causas-por-lesiones-graves",
-      "foto": {
-        "archivo": "fotos-notas/mr670u-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "1m805wt",
-      "titulo": "La feria arteba celebra su trigésimo quinto aniversario en Buenos Aires",
-      "copete": "La feria de arte contemporáneo más importante del país se desarrollará en La Rural con el patrocinio de Udaondo Buenos Aires y Colección Pampa.",
-      "cuerpo": "A lo largo de su historia, el tradicional encuentro funcionó como un motor para fortalecer el coleccionismo, ampliar la circulación de las producciones visuales y acercar el arte contemporáneo a nuevos públicos. En esta oportunidad, la feria reunirá a galeristas, artistas, curadores y coleccionistas locales y regionales.\n\nEl desarrollo inmobiliario Udaondo Buenos Aires participará como sponsor y contará con un stand institucional en el predio, donde se presentarán un libro de la Colección Pampa y el proyecto editorial de ensayos Cuadernos Pampa. Por su parte, la colección impulsada por la Fundación Norma y Leo Werthein apoyará el programa de desarrollo profesional para propiciar la llegada de figuras de la región.\n\nAlejandro Furst, CEO de Landmark Developments, destacó que la presencia del desarrollo en la feria ratifica un compromiso fundacional orientado a integrar el arte con el diseño y la tecnología. En tanto, el presidente de la fundación y director ejecutivo de Colección Pampa, Alvaro Rufiner, señaló que acompañar a la feria expresa la responsabilidad de respaldar la creación y ampliar los espacios de difusión artística.\n\nAdemás, la agenda incluirá reuniones de bienvenida en el Espacio Udaondo junto a directores de museos y artistas, además del acompañamiento a una comitiva de profesionales y curadores que asistirán a las jornadas de exhibición.",
-      "guion": "La feria arteba celebra su trigésimo quinto aniversario en Buenos Aires.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "La Capital (Rosario)",
-        "La Gaceta (Tucumán)"
-      ],
-      "enlace": "https://www.lacapital.com.ar/novedades/con-el-respaldo-udaondo-buenos-aires-y-coleccion-pampa-arteba-celebra-35-anos-fomentando-el-arte-argentino-n10289199.html",
-      "fecha": "2026-10-28T17:52:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T13:02:00.270Z",
-      "relevancia": 18,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "seSabe": [
-        "El evento reunirá a la comunidad artística en el predio de La Rural de la Ciudad de Buenos Aires.",
-        "Udaondo Buenos Aires contará con un espacio propio para presentaciones editoriales.",
-        "Colección Pampa auspiciará el programa de desarrollo profesional para especialistas de la región."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "La feria de arte contemporáneo arteba celebra su trigésimo quinto aniversario del 30 de octubre al 1 de noviembre en La Rural con el respaldo de Udaondo Buenos Aires y Colección Pampa.",
-      "etiquetas": [
-        "arteba",
-        "arte contemporaneo",
-        "La Rural",
-        "Buenos Aires",
-        "exposicion"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Capital (Rosario)",
-          "enlace": "https://www.lacapital.com.ar/novedades/con-el-respaldo-udaondo-buenos-aires-y-coleccion-pampa-arteba-celebra-35-anos-fomentando-el-arte-argentino-n10289199.html",
-          "fecha": "2026-10-28T17:52:00.000Z",
-          "oficial": false,
-          "aporte": "Informó los detalles de la edición aniversario de arteba, las fechas, los sponsors y las declaraciones de los directivos."
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1160150/servicios-empresas/con-respaldo-udaondo-buenos-aires-coleccion-pampa-arteba-celebra-35-anos-fomentando-arte-argentino.html",
-          "fecha": "2026-10-29T09:55:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-feria-arteba-celebra-su-trigesimo-quinto-aniversario-en-buenos"
-    },
-    {
-      "id": "1yl1hli",
-      "titulo": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo",
-      "copete": "El espectáculo artístico se realizará el sábado 31 de octubre. Reúne danza, teatro y música en vivo con organización conjunta.",
-      "cuerpo": "La primera edición del espectáculo \"Varieté en el conventillo\" se llevará a cabo el sábado 31 de octubre en las instalaciones de la Sociedad Italiana. La propuesta cuenta con la organización conjunta de la institución anfitriona, la Asociación Dante Alighieri y Pas de Deux Estudio de Danza, junto con el acompañamiento de la Subsecretaría de Cultura.\n\nLas organizadoras Gricel Pérez y Claudia Bruno detallaron que la programación incluye teatro, danzas españolas e italianas, tango, improvisación y la actuación en vivo de la cantante Nora Giuliano. La jornada finalizará con un baile e incluirá un servicio de buffet a cargo del club anfitrión. Los impulsores buscan que el evento se expanda en el futuro para brindar un espacio anual a las colectividades locales.",
-      "guion": "La Sociedad Italiana recibe la primera edición de Varieté en el conventillo.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "http://www.informeseprimero.com.ar/2026/10/variete-en-el-conventillo-se-presentara_022505111.html",
-      "fecha": "2026-10-28T17:44:37.575Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T18:31:54.513Z",
-      "relevancia": 73,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "seSabe": [
-        "El evento \"Varieté en el conventillo\" se realizará el sábado 31 de octubre en la Sociedad Italiana.",
-        "Es organizado por la Sociedad Italiana, la Asociación Dante Alighieri y Pas de Deux Estudio de Danza.",
-        "Cuenta con el apoyo de la Subsecretaría de Cultura.",
-        "La programación incluye teatro, danzas españolas e italianas, tango, improvisación y el número musical de Nora Giuliano.",
-        "Habrá un baile de cierre y servicio de buffet."
-      ],
-      "textoRedes": "El sábado 31 de octubre se realizará la primera edición de Varieté en el conventillo en la Sociedad Italiana, con espectáculos de danza, teatro y música en vivo.",
-      "etiquetas": [
-        "Varieté en el conventillo",
-        "Sociedad Italiana",
-        "cultura",
-        "danza"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Infórmese Primero (FM 104.9)",
-          "enlace": "http://www.informeseprimero.com.ar/2026/10/variete-en-el-conventillo-se-presentara_022505111.html",
-          "fecha": "2026-10-28T17:44:37.575Z",
-          "oficial": false,
-          "aporte": "Informó la realización de la primera edición de 'Varieté en el conventillo', fecha, lugar, organizadores, artistas y detalles de la propuesta."
-        },
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/variete-en-el-conventillo-tendra-su-primera-edicion-en-la-sociedad-italiana/",
-          "fecha": "2026-10-28T19:44:26.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-sociedad-italiana-recibe-la-primera-edicion-de-variete-en-el"
-    },
-    {
-      "id": "edt3qr",
-      "titulo": "Argentina cae por penales ante Ghana y se despide del Mundial Femenino Sub 17",
-      "copete": "La Selección Argentina igualó 1-1 en el tiempo regular en Marruecos pero perdió 5-4 en la definición desde los doce pasos. La delantera Mercedes Diz marcó el tanto albiceleste.",
-      "cuerpo": "La Selección Argentina Femenina Sub 17 concluyó su histórica primera participación en el Mundial de la categoría tras caer el miércoles por 5-4 en la definición por penales frente a Ghana, luego de igualar 1-1 en el tiempo regular del encuentro disputado en el Complejo Mohammed VI de Rabat, en Marruecos.\n\nEl equipo africano se puso en ventaja a los 15 minutos del primer tiempo a través de Jessica Appiah, quien se convirtió en la gran figura del partido. En el complemento, Ghana sufrió la expulsión de Hajara Adam, situación que aprovechó la Albiceleste para llegar a la igualdad a cinco minutos del cierre del tiempo reglamentario mediante un cabezazo de Mercedes Diz.\n\nSin embargo, debido a la tecnología limitada con la que contaba el torneo en el país anfitrión, la jueza del partido determinó que el balón no cruzó completamente la línea de meta y la jugada generó controversia.\n\nSin tiempo suplementario, la serie se resolvió directamente desde los doce pasos, donde el seleccionado ghanés se mostró implacable al no errar ningún cobro. En el conjunto nacional convirtieron Mercedes Diz, Lola Conde, Agustina Maldonado y Julia Vinhas, en tanto que Oriana Gómez desvió su remate por encima del travesaño.\n\nCon esta caída en los octavos de final, el seleccionado nacional cerró su paso por la competencia orbital, a la cual había accedido tras superar la fase de grupos con un triunfo inicial ante Nueva Zelanda y una goleada frente a Marruecos, tras debutar con una derrota ante Alemania.",
-      "guion": "Argentina cae por penales ante Ghana y se despide del Mundial Femenino Sub 17.",
-      "seccion": "Fútbol",
-      "medios": [
-        "TyC Sports",
-        "Olé",
-        "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "Crónica",
-        "La Gaceta (Tucumán)",
-        "Infobae"
-      ],
-      "enlace": "https://www.ole.com.ar/futbol-femenino/seleccion-argentina-octavos-final-mundial-femenino-sub17_0_8XP6oQFt7N.html",
-      "fecha": "2026-10-28T17:43:41.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T21:31:50.964Z",
-      "relevancia": 52,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Argentina igualó 1-1 con Ghana en el tiempo regular por los octavos de final.",
-        "La delantera Mercedes Diz marcó el tanto del empate para el conjunto albiceleste.",
-        "La definición por penales favoreció al seleccionado africano por 5-4.",
-        "El torneo se disputó en Marruecos y marcó el debut argentino en la categoría."
-      ],
-      "seSabe": [
-        "Argentina empató 1-1 con Ghana en el tiempo reglamentario y perdió 5-4 por penales.",
-        "Jessica Appiah anotó el gol inicial para el seleccionado africano.",
-        "Mercedes Diz convirtió el tanto del empate para Argentina y suma siete goles en el torneo.",
-        "Hajara Adam fue expulsada en el segundo tiempo en el equipo ghanés."
-      ],
-      "noConfirmado": [
-        "No se pudo verificar con certeza si la pelota ingresó en su totalidad en la jugada sobre el final del partido debido a la tecnología limitada."
-      ],
-      "textoRedes": "La Selección Argentina Femenina Sub 17 cayó por penales 5-4 ante Ghana tras igualar 1-1 en el tiempo regular y quedó eliminada en el Mundial de Marruecos.",
-      "etiquetas": [
-        "Seleccion Argentina",
-        "Mundial Femenino Sub 17",
-        "Ghana",
-        "Mercedes Diz",
-        "Futbol Femenino"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-femenino/seleccion-argentina-octavos-final-mundial-femenino-sub17_0_8XP6oQFt7N.html",
-          "fecha": "2026-10-28T14:13:43.000Z",
-          "oficial": false,
-          "aporte": "Precisó que el encuentro se disputó en el Complejo Mohammed VI de Rabat."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/seleccion-argentina/no-entro-el-gol-que-reclamo-argentina-en-la-eliminacion-ante-ghana-del-mundial-sub-17-id769072.html",
-          "fecha": "2026-10-28T21:09:58.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la expulsión de Hajara Adam y el recorrido previo del seleccionado en el torneo."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-femenino/jugada-polemica-mundial-sub-17-femenino-seleccion-argentina-ghana-octavos-final-revision-var-gol_0_dioe9TR17t.html",
-          "fecha": "2026-10-28T18:11:34.000Z",
-          "oficial": false,
-          "aporte": "Detalló la jugada polémica sobre el final del tiempo regular y los penales convertidos."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-femenino/penales-argentina-ghana-mundial-sub-17-femenino_3_7KNtV9m0dh.html",
-          "fecha": "2026-10-28T17:43:41.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-femenino/1-1-mercedes-diz-ghana-mundial-sub-17_3_iyd9DiVZpz.html",
-          "fecha": "2026-10-28T17:37:55.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/argentina-quedo-eliminada-del-mundial-sub-17-femenino-caer-penales-ghana-n6338976",
-          "fecha": "2026-10-28T18:49:41.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/depo/seleccionargentina/la-seleccion-argentina-perdio-por-penales-ante-ghana-y-quedo-eliminada-del-mundial-femenino-sub-17/",
-          "fecha": "2026-10-28T22:33:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmación de la derrota por penales 5-4 y mención del uso de revisión en la jugada polémica."
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1160078/deportes/argentina-dio-batalla-hasta-final-pero-cayo-ante-ghana-penales-mundial-sub-17-femenino.html",
-          "fecha": "2026-10-28T19:59:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/deportes/mundial-sub-17-femenino-argentina-quedo-eliminada-ghana-octavos-final-marruecos-n6012165",
-          "fecha": "2026-10-28T22:57:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/deportes/2026/10/28/en-un-partido-electrizante-argentina-perdio-por-penales-con-ghana-y-quedo-eliminada-del-mundial-sub-17-femenino/",
-          "fecha": "2026-10-28T17:35:10.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "argentina-cae-por-penales-ante-ghana-y-se-despide-del-mundial"
-    },
-    {
-      "id": "wrauae",
-      "titulo": "La oposición exige explicaciones al Gobierno por la salida de Flávio Bolsonaro",
-      "copete": "Bloques opositores en el Congreso impulsan pedidos de interpelación a ministros y denuncian presunta complicidad oficial en el paso del político brasileño por territorio nacional con destino a Estados Unidos.",
-      "cuerpo": "Diputados y senadores de distintos espacios políticos exigen explicaciones al Poder Ejecutivo tras la salida del excandidato presidencial brasileño Flávio Bolsonaro a través del país. La Dirección Nacional de Migraciones confirmó que el dirigente ingresó el martes a las 22.50 por el puente internacional Tancredo Neves, en Misiones, junto a su esposa y sus dos hijas, con documentación hábil y sin impedimentos registrados.\n\nAnte esta situación, legisladores opositores cuestionaron la actuación del Gobierno y reclamaron responsabilidades institucionales. El diputado Pablo Juliano presentó un pedido de interpelación al canciller Pablo Quirno con 91 preguntas para determinar si el Estado facilitó el traslado, mientras que Maximiliano Ferraro solicitó citar también a la ministra de Seguridad, Alejandra Monteoliva. Por su parte, el bloque peronista en el Senado presiona para que el jefe de Gabinete, Diego Santilli, asista al recinto a brindar informes y responda sobre el episodio.\n\nEn paralelo, el diputado Esteban Paulón presentó una denuncia penal por presunto encubrimiento agravado contra el presidente Javier Milei, Quirno, Monteoliva y el asesor Santiago Caputo. Los proyectos legislativos deberán ser tratados en la Comisión de Asuntos Constitucionales de la Cámara baja para definir si avanzan hacia el recinto.",
-      "guion": "La oposición exige explicaciones al Gobierno por la salida de Flávio Bolsonaro.",
-      "seccion": "Política",
-      "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "La Nación",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "El Marplatense",
-        "Ámbito",
-        "C5N",
-        "La Capital (Rosario)",
-        "Los Andes (Mendoza)",
-        "Perfil",
-        "El Cronista",
-        "Letra P",
-        "La Nueva",
-        "La Brújula 24",
-        "Crónica"
-      ],
-      "enlace": "https://www.lanacion.com.ar/politica/diputados-la-oposicion-exige-al-gobierno-explicaciones-por-la-huida-de-bolsonaro-y-complica-el-nid28102026/",
-      "fecha": "2026-10-28T17:43:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T21:31:50.964Z",
-      "relevancia": 56,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La oposición reclama interpelaciones a ministros por el paso de Flávio Bolsonaro.",
-        "Migraciones confirmó el ingreso por Misiones y la salida en un vuelo privado.",
-        "Presentaron una denuncia penal contra funcionarios nacionales por encubrimiento.",
-        "El bloque peronista en el Senado presiona por la presencia del jefe de Gabinete."
-      ],
-      "noConfirmado": [
-        "Todavía no se definió si los pedidos de interpelación obtendrán dictamen en la comisión ni si serán aprobados en el recinto.",
-        "No se determinó oficialmente si existió participación o conocimiento previo de organismos nacionales en la salida del dirigente."
-      ],
-      "textoRedes": "Diputados y senadores opositores exigen explicaciones al Gobierno tras la confirmación oficial sobre el paso de Flávio Bolsonaro por Misiones y su posterior salida en un vuelo privado hacia Estados Unidos.",
-      "etiquetas": [
-        "Flávio Bolsonaro",
-        "Diputados",
-        "Congreso",
-        "Oposición",
-        "Migraciones"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/politica/diputados-la-oposicion-exige-al-gobierno-explicaciones-por-la-huida-de-bolsonaro-y-complica-el-nid28102026/",
-          "fecha": "2026-10-28T14:32:11.000Z",
-          "oficial": false,
-          "aporte": "Aportó los horarios del ingreso por Misiones y el impacto del caso en el debate de la ley Malvinas."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/28/la-oposicion-en-diputados-pidio-interpelar-a-quirno-monteoliva-y-santilli-por-la-fuga-de-flavio-bolsonaro-a-eeuu/",
-          "fecha": "2026-10-28T19:18:12.000Z",
-          "oficial": false,
-          "aporte": "Detalló los pedidos de interpelación de la oposición y las preguntas formuladas a los ministros."
-        },
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/28/por-la-fuga-de-flavio-bolsonaro-piden-que-pablo-quirno-de-explicaciones-en-el-congreso/",
-          "fecha": "2026-10-28T15:57:49.000Z",
-          "oficial": false,
-          "aporte": "Indicó el reclamo opositor sobre la utilización de recursos públicos y la participación de funcionarios."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/politica/467715-rol-del-gobierno-en-la-fuga-de-bolsonaro-agita-al-congreso-reclaman-a-quirno-y-santilli",
-          "fecha": "2026-10-28T17:43:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la presión en el Senado para interpelar al jefe de Gabinete y el rol de Migraciones."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/piden-interpelar-a-quirno-en-diputados-por-el-paso-de-flavio-bolsonaro-por-la-argentina_a6ae1ff69be9be2610e8f16eb",
-          "fecha": "2026-10-28T14:35:10.714Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/piden-interpelar-al-canciller-pablo-quirno-por-el-paso-de-bolsonaro-por-la-argentina-politica-y-economia_1793201220",
-          "fecha": "2026-10-28T16:34:00.000Z",
-          "oficial": false,
-          "aporte": "Consignó la solicitud de interpelación dirigida al canciller Pablo Quirno."
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/piden-interpelar-a-pablo-quirno-en-diputados-por-el-paso-de-flavio-bolsonaro-por-argentina",
-          "fecha": "2026-10-28T18:33:55.000Z",
-          "oficial": false,
-          "aporte": "Mencionó los requerimientos parlamentarios vinculados al paso del dirigente brasileño."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/politica/diputados-la-oposicion-exige-explicaciones-la-fuga-bolsonaro-n926672",
-          "fecha": "2026-10-28T19:27:00.000Z",
-          "oficial": false,
-          "aporte": "Refirió las exigencias de explicaciones formuladas desde la Cámara de Diputados."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/diputados-piden-que-pablo-quirno-explicaciones-la-fuga-flavio-bolsonaro-argentina-n252812",
-          "fecha": "2026-10-28T18:59:00.000Z",
-          "oficial": false,
-          "aporte": "Señaló los pedidos de informes sobre la actuación de la Cancillería."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/politica/piden-que-quirno-de-explicaciones-en-el-congreso-por-la-salida-de-flavio-bolsonaro-y-denuncian-a-milei-por-encubrimiento-aUUIS9M5OcTT",
-          "fecha": "2026-10-28T22:17:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/el-canciller-pablo-quirno--eclipsado-por-el-escandalo-bolsonaro_a6ae276f27a9cca030f9d5c34",
-          "fecha": "2026-10-28T22:32:07.874Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Letra P",
-          "enlace": "https://www.letrap.com.ar//congreso/fuga-flavio-bolsonaro-la-oposicion-presiona-que-santilli-quirno-y-monteoliva-den-explicaciones-n5427780",
-          "fecha": "2026-10-28T21:01:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/diputados-de-todos-los-bloques-opositores-exigen-al-gobierno-que-explique-su--complicidad--con-la-fuga-de-flavio-bolsonaro_a6ae276fa7a9cca030f9d5d05",
-          "fecha": "2026-10-28T23:06:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Capital (Rosario)",
-          "enlace": "https://www.lacapital.com.ar/politica/diputados-la-oposicion-pleno-exige-al-gobierno-que-explique-su-complicidad-la-fuga-bolsonaro-n10289286.html",
-          "fecha": "2026-10-28T23:53:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-28-21-4-0-la-oposicion-reclama-que-el-gobierno-explique-su-rol-en-la-fuga-de-bolsonaro-de-brasil",
-          "fecha": "2026-10-29T00:11:31.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/diputados-la-oposicion-exigen-al-gobierno-explicaciones-la-fuga-flavio-bolsonaro-n6339118",
-          "fecha": "2026-10-29T00:17:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/10/28/la-oposicion-exige-explicaciones-al-gobierno-por-la-salida-de-flavio-bolsonaro-n527816/",
-          "fecha": "2026-10-29T02:17:43.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infórmese Primero (FM 104.9)",
-          "enlace": "http://www.informeseprimero.com.ar/2026/10/diputados-la-oposicion-exige.html",
-          "fecha": "2026-10-29T02:52:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/diputados-la-oposicion-exigen-que-el-gobierno-explique-la-complicidad-la-fuga-flavio-bolsonaro-n6012183",
-          "fecha": "2026-10-29T10:06:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/el-canciller-pablo-quirno-eclipsado-por-el-escandalo-bolsonaro/",
-          "fecha": "2026-10-29T11:22:49.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/diputados-exigen-milei-reconozca-lula-presidente-20261028185839",
-          "fecha": "2026-10-28T21:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/diputados-exigen-al-gobierno-de-milei-que-explique-la-complicidad-en-la-fuga-de-flavio-bolsonaro/",
-          "fecha": "2026-10-29T11:49:59.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/economia-politica/fuga-de-flavio-bolsonaro-las-preguntas-que-la-oposicion-quiere-hacerle-al-gobierno/",
-          "fecha": "2026-10-28T23:17:08.978Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Letra P",
-          "enlace": "https://www.letrap.com.ar//congreso/presionado-patricia-bullrich-diego-santilli-dara-su-informe-el-senado-y-hablara-flavio-bolsonaro-n5427814",
-          "fecha": "2026-10-29T19:48:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 8 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-oposicion-exige-explicaciones-al-gobierno-por-la-salida-de-flavio",
-      "foto": {
-        "archivo": "fotos-notas/wrauae.jpg",
-        "credito": "Foto: El Marplatense"
-      }
-    },
-    {
-      "id": "330sg8",
-      "titulo": "Fallece un niño de dos años tras caer a una piscina",
-      "copete": "Un nene de dos años murió en el hospital municipal tras ser hallado en una pileta. Bomberos y policías asistieron en el traslado mientras le practicaban maniobras de reanimación.",
-      "cuerpo": "Un niño de dos años falleció el miércoles en Balcarce luego de ser encontrado en el interior de una piscina. Integrantes de bomberos voluntarios y personal policial acudieron al lugar del hecho para asistir en el traslado del menor hacia el centro de salud municipal, mientras le practicaban maniobras de reanimación cardiopulmonar. Pese a la asistencia recibida, el nene murió minutos después de ingresar al hospital municipal Felipe Fossati, desde donde se confirmó el deceso. La fiscalía que intervino en el caso comenzó una investigación para establecer las causales de la muerte, mientras que las autoridades no informaron mayores precisiones sobre las circunstancias del episodio.",
-      "guion": "Fallece un niño de dos años tras caer a una piscina",
-      "seccion": "Policiales",
-      "medios": [
-        "0223 (Mar del Plata)"
-      ],
-      "enlace": "https://www.0223.com.ar/nota/2026-10-28-14-34-0-consternacion-en-balcarce-fallecio-un-nino-de-dos-anos-tras-ser-encontrado-en-una-piscina",
-      "fecha": "2026-10-28T17:34:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T18:01:33.521Z",
-      "relevancia": 65,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Murió un niño de dos años tras ser hallado en una piscina.",
-        "Bomberos y policías intervinieron en el traslado al hospital.",
-        "La fiscalía inició una investigación sobre las causas del fallecimiento."
-      ],
-      "seSabe": [
-        "Un niño de dos años falleció en Balcarce el miércoles 28 de octubre.",
-        "El menor fue encontrado en una piscina y trasladado al hospital municipal Felipe Fossati.",
-        "Personal policial y bomberos voluntarios participaron de la asistencia y el traslado.",
-        "Se le practicaron maniobras de reanimación cardiopulmonar antes de su ingreso al centro de salud.",
-        "La fiscalía interviniente abrió una investigación para determinar lo sucedido."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Falleció un niño de dos años tras ser encontrado en una piscina en Balcarce. La fiscalía inició una investigación para determinar las causales de la muerte.",
-      "etiquetas": [
-        "Balcarce",
-        "Policiales",
-        "Hospital Fossati",
-        "Fiscalía",
-        "investigación"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "0223 (Mar del Plata)",
-          "enlace": "https://www.0223.com.ar/nota/2026-10-28-14-34-0-consternacion-en-balcarce-fallecio-un-nino-de-dos-anos-tras-ser-encontrado-en-una-piscina",
-          "fecha": "2026-10-28T17:34:00.000Z",
-          "oficial": false,
-          "aporte": "Informó el fallecimiento de un niño de dos años tras ser encontrado en una piscina en Balcarce y la intervención de la fiscalía y los bomberos."
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/balcarce-un-nino-dos-anos-murio-ahogado-caer-una-pileta-n56895",
-          "fecha": "2026-10-28T23:24:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre el fallecimiento del niño de dos años en Balcarce, la intervención de los servicios de emergencia y las estadísticas y recomendaciones de la Sociedad Argentina de Pediatría."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "owniql",
-          "titulo": "La Liga Balcarceña difunde el cronograma de la tercera fecha",
-          "fecha": "2026-10-27T22:33:53.284Z",
-          "ruta": "/nota/la-liga-balcarcena-difunde-el-cronograma-de-la-tercera-fecha-owniql"
-        },
-        {
-          "id": "124vuyb",
-          "titulo": "Se incendia un colectivo escolar en la Ruta 226",
-          "fecha": "2026-10-27T13:43:52.000Z",
-          "ruta": "/nota/se-incendia-un-colectivo-escolar-en-la-ruta-226-124vuyb"
-        },
-        {
-          "id": "a51w1",
-          "titulo": "La Liga Balcarceña jugará el sábado por el Superclásico",
-          "fecha": "2026-10-27T00:10:32.000Z",
-          "ruta": "/nota/la-liga-balcarcena-jugara-el-sabado-por-el-superclasico-a51w1"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "fallece-un-nino-de-dos-anos-tras-caer-a-una-piscina"
-    },
-    {
-      "id": "d3444c",
-      "titulo": "Luciano Nakis confirma su trinomio para las elecciones de Independiente",
-      "copete": "El candidato a presidente por la Lista Roja oficializó a sus acompañantes para los comicios del 13 de diciembre. Sergio Agüero detalló cuál será su función en el área comercial y deportiva si se imponen en las urnas.",
-      "cuerpo": "Luciano Nakis oficializó su trinomio de cara a las elecciones presidenciales que se realizarán el próximo domingo 13 de diciembre en Independiente. El postulante por la Lista Roja estará acompañado por Federico Di Pace y Daniel Bertoni en la fórmula para conducir a la institución de Avellaneda.\n\nEl ex delantero indicó que se encargará de conseguir nuevos recursos y gestionar el sponsoreo, aprovechando sus contactos con clubes del exterior como Atlético de Madrid y Manchester City para facilitar la llegada y venta de futbolistas.\n\nAsimismo, el ex deportista señaló que Damián Albil estará al frente del proyecto deportivo, aunque aclaró que las decisiones finales recaerán sobre el candidato a presidente. En cuanto al armado del plantel, mencionó la situación de Nicolás Tagliafico, quien actualmente tiene contrato vigente en el Olympique de Lyon.\n\nLos comicios se llevarán a cabo en la Sede Social situada en Avenida Mitre 470. Los socios habilitados elegirán al sucesor del actual mandatario, Néstor Grindetti, quien decidió no presentarse como representante del oficialismo.\n\nPor su parte, las demás agrupaciones definirán a sus autoridades con Enrique Sacco como candidato por el Movimiento Independiente Auténtico y Gastón Gaudio al frente de Independiente no duerme, este último con el respaldo público de Ricardo Bochini.",
-      "guion": "Luciano Nakis confirma su trinomio para las elecciones de Independiente.",
-      "seccion": "Política",
-      "medios": [
-        "El Destape",
-        "TyC Sports",
-        "Diario Popular",
-        "Doble Amarilla"
-      ],
-      "enlace": "https://www.dobleamarilla.com.ar/rosca/luciano-nakis-confirmo-su-trinomio-para-las-elecciones-en-independiente-y-hablo-sobre-el-rol-que-ocupara-aguero-en-la-lista_a6ae21216194055e000e74ca7",
-      "fecha": "2026-10-28T17:28:46.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T21:31:50.964Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Las elecciones en Independiente se realizarán el 13 de diciembre en la Sede Social de Avellaneda.",
-        "Luciano Nakis encabeza la Lista Roja acompañado por Federico Di Pace y Daniel Bertoni.",
-        "Sergio Agüero se encargará de la búsqueda de sponsors y recursos si su espacio gana los comicios.",
-        "Damián Albil estará a cargo del proyecto deportivo según los planes de la agrupación."
-      ],
-      "seSabe": [
-        "Las elecciones en el club serán el 13 de diciembre en la Sede Social de la Avenida Mitre 470.",
-        "El trinomio de la Lista Roja está compuesto por Luciano Nakis, Federico Di Pace y Daniel Bertoni.",
-        "Sergio Agüero integrará el espacio para gestionar recursos y sponsoreo internacional.",
-        "Damián Albil liderará el proyecto futbolístico bajo la conducción de Nakis.",
-        "Enrique Sacco y Gastón Gaudio son los otros candidatos que se presentarán a los comicios."
-      ],
-      "noConfirmado": [
-        "Todavía no se definieron posibles incorporaciones de futbolistas para el próximo mercado de pases.",
-        "No se confirmó la llegada de un director técnico para el plantel profesional tras las elecciones."
-      ],
-      "textoRedes": "Luciano Nakis oficializó su trinomio para las elecciones en Independiente que se realizarán el 13 de diciembre. Sergio Agüero detalló su rol en el área comercial y confirmó que Damián Albil se encargará del proyecto deportivo si se impone la Lista Roja.",
-      "etiquetas": [
-        "Independiente",
-        "Elecciones",
-        "Luciano Nakis",
-        "Sergio Agüero",
-        "Fútbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/rosca/luciano-nakis-confirmo-su-trinomio-para-las-elecciones-en-independiente-y-hablo-sobre-el-rol-que-ocupara-aguero-en-la-lista_a6ae21216194055e000e74ca7",
-          "fecha": "2026-10-28T15:45:36.955Z",
-          "oficial": false,
-          "aporte": "Informó la confirmación oficial del trinomio de la Lista Roja para las elecciones."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/sergio-aguero-rompio-silencio-rol-si-luciano-nakis-ganas-elecciones-independiente-2026102818155",
-          "fecha": "2026-10-28T21:15:05.123Z",
-          "oficial": false,
-          "aporte": "Detalló el rol institucional de Sergio Agüero, los planes de sponsoreo y la organización del área de fútbol con Damián Albil."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/independiente/agueero-revelo-su-plan-para-independiente-con-nakis-y-quien-manejaria-el-futbol-id769030.html",
-          "fecha": "2026-10-28T17:28:46.000Z",
-          "oficial": false,
-          "aporte": "Confirmó los nombres que integran el trinomio electoral de Luciano Nakis junto a Federico Di Pace y Daniel Bertoni."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/futbol/el-kun-aguero-hablo-su-rol-independiente-si-su-lista-gana-las-elecciones-n926686",
-          "fecha": "2026-10-28T22:06:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "luciano-nakis-confirma-su-trinomio-para-las-elecciones-de"
-    },
-    {
-      "id": "1rphs2p",
-      "titulo": "El Banco Provincia advierte que el sueldo se agota antes",
-      "copete": "Un informe oficial detalla que los trabajadores agotan sus ingresos en los primeros días del mes. La cifra trepa al 36% antes del décimo día.",
-      "cuerpo": "Un relevamiento elaborado por el Banco Provincia sobre más de 320 mil cuentas sueldo del sector privado detalla que el dinero de los haberes se agota cada vez más rápido durante el mes. El estudio compara los movimientos registrados en diciembre de 2023 con los de diciembre de 2025 y suma una medición actualizada correspondiente a julio de 2026.\n\nEn la comparación histórica, la proporción de trabajadores que se quedaron sin saldo salarial antes del día 10 pasó del 17,9% al 23,2%. La medición de julio de 2026 profundiza la tendencia, al registrar que la mitad del sueldo ya había sido utilizada a los cinco días de haber cobrado.\n\nAl llegar al décimo día de ese mes, el 36% de los trabajadores se había quedado sin dinero en su cuenta, mientras que el porcentaje trepó al 57% al llegar al día 20. El impacto varía según el nivel de ingresos: entre quienes perciben montos bajos, el 56% agotó sus recursos antes del día 10, y entre los sectores de ingresos altos esa situación afectó al 21%.\n\nEl presidente de la entidad bancaria, Juan Cuattromo, señaló que el ingreso dura menos a pesar de la retracción del consumo. El informe precisa que el salario real cayó un 4,3% entre julio de 2025 y julio de 2026, al tiempo que el consumo real realizado con tarjetas y Cuenta DNI retrocedió un 8,6% en el mismo período.",
-      "guion": "El Banco Provincia advierte que el sueldo se agota antes.",
-      "seccion": "Economía",
-      "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "La Nación",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "La Verdad",
-        "Mi8 (Canal 8 Mar del Plata)",
-        "Qué Digital",
-        "El Eco de Tandil",
-        "iProUP",
-        "C5N",
-        "Minuto Uno",
-        "Agencia DIB",
-        "Clarín",
-        "El Día",
-        "La Brújula 24",
-        "Infobae",
-        "Perfil"
-      ],
-      "enlace": "https://www.minutouno.com/economia/salarios-la-era-milei-uno-cada-cuatro-trabajadores-agota-sus-ingresos-antes-del-10-cada-mes-n6338844",
-      "fecha": "2026-10-28T17:15:40.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T19:31:41.157Z",
-      "relevancia": 51,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Banco Provincia analizó más de 320 mil cuentas sueldo del sector privado.",
-        "El 36% de los trabajadores se quedó sin saldo salarial al décimo día de julio de 2026.",
-        "El impacto fue mayor en los sectores de menores ingresos, donde el 56% agotó el sueldo antes del día 10.",
-        "El salario real cayó un 4,3% y el consumo real retrocedió un 8,6% entre julio de 2025 y julio de 2026."
-      ],
-      "seSabe": [
-        "El estudio del Banco Provincia abarca a más de 320 mil cuentas sueldo del sector privado.",
-        "El porcentaje de trabajadores sin saldo antes del día 10 subió del 17,9% al 23,2% entre diciembre de 2023 y diciembre de 2025.",
-        "En julio de 2026, el 36% de los trabajadores se quedó sin dinero al décimo día y el 57% al día 20.",
-        "El 56% de los trabajadores de ingresos bajos agotó su salario antes del día 10 en julio de 2026.",
-        "Juan Cuattromo afirmó que el ingreso de las familias dura cada vez menos."
-      ],
-      "textoRedes": "Un informe del Banco Provincia revela que el 36% de los trabajadores se queda sin saldo salarial antes del décimo día del mes.",
-      "etiquetas": [
-        "Banco Provincia",
-        "salarios",
-        "trabajadores",
-        "consumo",
-        "economia"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/economia/salarios-la-era-milei-uno-cada-cuatro-trabajadores-agota-sus-ingresos-antes-del-10-cada-mes-n6338844",
-          "fecha": "2026-10-28T15:35:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó el análisis completo del informe del Banco Provincia, los datos de cuentas sueldo, las comparaciones históricas y las declaraciones de Juan Cuattromo."
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/economia/uno-cada-tres-trabajadores-se-queda-dinero-antes-del-10-del-mes-n56878",
-          "fecha": "2026-10-28T17:15:40.000Z",
-          "oficial": false,
-          "aporte": "Aportó los porcentajes principales del relevamiento de julio de 2026 y la medición sobre los sectores de ingresos bajos."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/uno-de-cada-tres-trabajadores-se-queda-sin-dinero-antes-del-10-del-mes-politica-y-economia_1793212320",
-          "fecha": "2026-10-28T18:33:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/segun-el-banco-provincia-el-36-de-los-trabajadores-del-sector-privado-se-queda-sin-saldo-en-la-nid28102026/",
-          "fecha": "2026-10-28T20:25:32.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/10/28/segun-el-banco-provincia-mas-de-un-tercio-de-quienes-cobran-su-sueldo-en-el-sector-privado-se-queda-sin-saldo-el-dia-10-del-mes/",
-          "fecha": "2026-10-28T19:30:58.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/mas-de-un-tercio-de-los-empleados-con-salario-registrado-en-el-banco-provincia-se-queda-sin-dinero-al-dia-10-de-cada-mes_a6ae245937a9cca030f97fd93",
-          "fecha": "2026-10-28T19:47:47.567Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/economia/banco-provincia-36-empleados-privados-queda-saldo-caja-ahorro-dia-10-mes_0_rotJgMWMuG.html",
-          "fecha": "2026-10-28T18:06:48.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/duro-informe-desmiente-milei-57-trabajadores-agota-sueldo-antes-dia-20-2026102817593",
-          "fecha": "2026-10-28T20:59:03.042Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/economia/2026/10/28/segun-el-banco-provincia-mas-de-un-tercio-de-sus-clientes-con-salarios-privados-se-queda-sin-dinero-antes-del-10-del-mes/",
-          "fecha": "2026-10-28T17:35:09.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/sueldos-1-de-cada-3-trabajadores-se-queda-sin-dinero-antes-del-10-la-ciudad_1793253982",
-          "fecha": "2026-10-29T06:06:22.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/mas-la-mitad-los-empleados-sueldos-bajos-se-queda-plata-antes-del-dia-10-cada-mes-n252840",
-          "fecha": "2026-10-28T23:23:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/economia/el-sueldo-dura-cada-vez-menos-el-36-de-los-trabajadores-agoto-sus-ingresos-antes-del-dia-10",
-          "fecha": "2026-10-28T18:28:38.000Z",
-          "oficial": false,
-          "aporte": "Aportó las cifras generales del relevamiento, los porcentajes según segmentos de ingresos y la comparación histórica entre 2023 y 2025."
-        },
-        {
-          "medio": "Mi8 (Canal 8 Mar del Plata)",
-          "enlace": "https://mi8.com.ar/el-sueldo-dura-cada-vez-menos-un-estudio-muestra-que-el-36-de-los-trabajadores-agota-su-saldo-antes-del-dia-10/",
-          "fecha": "2026-10-28T19:21:31.000Z",
-          "oficial": false,
-          "aporte": "Aportó la definición técnica de cuenta analizada, el detalle de gastos fijos y la declaración del presidente del Banco Provincia."
-        },
-        {
-          "medio": "iProUP",
-          "enlace": "https://www.iproup.com/finanzas/72715-banco-provincia-explica-por-que-el-sueldo-dura-cada-vez-menos",
-          "fecha": "2026-10-28T21:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/economia/el-sueldo-dura-cada-vez-menos-y-seis-cada-10-personas-lo-gastan-antes-del-dia-20-n926677",
-          "fecha": "2026-10-28T22:14:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/10/28/el-sueldo-alcanza-cada-vez-menos-un-informe-muestra-cuanto-dura-el-dinero-de-los-trabajadores-en-el-banco-n527801/",
-          "fecha": "2026-10-28T22:52:41.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infórmese Primero (FM 104.9)",
-          "enlace": "http://www.informeseprimero.com.ar/2026/10/el-sueldo-dura-cada-vez-menos-y-seis-de.html",
-          "fecha": "2026-10-29T02:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/uno-de-cada-tres-trabajadores-se-queda-sin-dinero-antes-del-10-del-mes/",
-          "fecha": "2026-10-29T11:35:04.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Qué Digital",
-          "enlace": "https://quedigital.com.ar/sociedad/un-informe-bancario-revelo-que-para-1-de-cada-3-usuarios-el-sueldo-dura-10-dias/",
-          "fecha": "2026-10-29T11:38:40.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/nea/mas-de-un-tercio-de-los-empleados-con-salario-registrado-en-el-banco-provincia-se-queda-sin-dinero-al-dia-10-ahisw7Z3jZ8G",
-          "fecha": "2026-10-29T19:00:28.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-banco-provincia-advierte-que-el-sueldo-se-agota-antes"
-    },
-    {
-      "id": "cncjc",
-      "titulo": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre",
-      "copete": "La plataforma lanzó el primer tráiler de la nueva adaptación de la novela de Jane Austen. La miniserie cuenta con seis episodios y un elenco encabezado por Emma Corrin y Jack Lowden.",
-      "cuerpo": "Netflix estrenará el 3 de diciembre la nueva adaptación de Orgullo y prejuicio, una miniserie de seis episodios basada en la novela homónima de Jane Austen publicada en 1813. La plataforma presentó el primer adelanto audiovisual de la producción, que recrea la relación entre Elizabeth Bennet y el señor Darcy en la Inglaterra del siglo XIX.\n\nLa historia se centra en el vínculo entre los protagonistas, marcado por diferencias sociales, prejuicios personales y malentendidos que condicionan su trato mutuo. El proyecto cuenta con guion de Dolly Alderton y dirección de Euros Lyn. La trama profundiza en las preocupaciones de la familia Bennet respecto al matrimonio de las hijas, considerado una cuestión de seguridad y posición económica en aquel contexto.\n\nEl elenco principal está encabezado por Emma Corrin en el papel de Elizabeth Bennet y Jack Lowden como el señor Darcy. Olivia Colman interpreta a la señora Bennet y Rufus Sewell asume el rol del señor Bennet.\n\nEl reparto se completa con Freya Mavor como Jane Bennet, Jamie Demetriou como el señor Collins, Daryl McCormack como el señor Bingley y Louis Partridge como el señor Wickham. También participan Rhea Norwood como Lydia Bennet, Siena Kelly como Caroline Bingley, Fiona Shaw como Lady Catherine de Bourg, además de Hopey Parish y Hollie Avery en los papeles de Mary y Kitty Bennet, respectivamente.",
-      "guion": "Netflix estrena la serie Orgullo y prejuicio el 3 de diciembre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Ámbito",
-        "El Destape",
-        "Noticias Argentinas (NA)",
-        "Los Andes (Mendoza)",
-        "A24",
-        "La Nueva"
-      ],
-      "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
-      "fecha": "2026-10-28T17:11:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-28T19:31:41.157Z",
-      "relevancia": 39,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La miniserie de seis episodios se estrena el 3 de diciembre en Netflix.",
-        "La producción adapta la novela de Jane Austen publicada en 1813.",
-        "Emma Corrin y Jack Lowden interpretan a Elizabeth Bennet y al señor Darcy."
-      ],
-      "seSabe": [
-        "La miniserie consta de seis episodios.",
-        "El estreno será el 3 de diciembre de 2026 en Netflix.",
-        "Emma Corrin y Jack Lowden son los protagonistas principales."
-      ],
-      "textoRedes": "Netflix lanzó el tráiler de la nueva miniserie Orgullo y prejuicio. La producción basada en la obra de Jane Austen se estrena el 3 de diciembre con seis episodios y el protagonismo de Emma Corrin y Jack Lowden.",
-      "etiquetas": [
-        "Netflix",
-        "Orgullo y prejuicio",
-        "Emma Corrin",
-        "Jack Lowden",
-        "series"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/espectaculos/netflix-presento-el-trailer-la-nueva-version-orgullo-y-prejuicio-emma-corrin-y-jack-lowden-n6338911",
-          "fecha": "2026-10-28T17:11:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó la lista completa del elenco secundario, la guionista Dolly Alderton y el director Euros Lyn."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/trends/netflix-estrena-la-nueva-serie-orgullo-y-prejuicio-y-tan-solo-tiene-6-capitulos-n1611028",
-          "fecha": "2026-10-28T17:21:00.000Z",
-          "oficial": false,
-          "aporte": "Informó la fecha de estreno, la cantidad de episodios, los roles protagónicos y detalles generales de la trama."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/espectaculos/una-nueva-version-de--orgullo-y-prejuicio--llega-a-netflix--cuando-se-estrena_a6ae3424583a79a91f38a8eb3",
-          "fecha": "2026-10-29T13:09:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-29-14-5-0-una-nueva-version-de-orgullo-y-prejuicio-llega-a-netflix-cuando-se-estrena",
-          "fecha": "2026-10-29T17:07:43.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/espectaculos/asi-luce-la-nueva-serie-orgullo-y-prejuicio-netflix-este-es-el-primer-trailer-n6012222",
-          "fecha": "2026-10-29T17:05:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/atr/orgullo-prejuicio-tendra-nueva-miniserie-netflix-cuando-estrena-quienes-actuan-20261029203026",
-          "fecha": "2026-10-29T23:30:26.740Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "netflix-estrena-la-serie-orgullo-y-prejuicio-el-3-de-diciembre"
     }
   ],
   "secciones": [
@@ -20120,8 +18624,7 @@
     "Automovilismo",
     "Agro",
     "Educación",
-    "Salud",
-    "Policiales"
+    "Salud"
   ],
   "temas": [
     {
@@ -20130,14 +18633,14 @@
       "cuantas": 4
     },
     {
-      "nombre": "El autódromo",
-      "ranura": "autodromo",
-      "cuantas": 3
-    },
-    {
       "nombre": "Bomberos Voluntarios",
       "ranura": "bomberos",
       "cuantas": 3
+    },
+    {
+      "nombre": "El autódromo",
+      "ranura": "autodromo",
+      "cuantas": 2
     },
     {
       "nombre": "El Concejo Deliberante",
@@ -20152,10 +18655,10 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 10,
+      "temp": 9,
       "sensacion": 8,
       "humedad": 97,
-      "viento": 10,
+      "viento": 9,
       "rumbo": "NE",
       "cielo": "Despejado",
       "esDeDia": false
@@ -20503,5 +19006,5 @@
     "tocaHoy": false
   },
   "pendientes": [],
-  "esperandoCuerpo": 21
+  "esperandoCuerpo": 28
 }
