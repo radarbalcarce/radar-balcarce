@@ -19377,9 +19377,7 @@
   "borrada": true
  },
  "1c79rbp": {
-  "archivo": "fotos-notas/1c79rbp.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Estudiantes aprueba su balance y el presupuesto anual",
@@ -19411,7 +19409,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "7c5e7f7cafaea6c6",
-  "ausenteDesde": "2026-10-23T17:38:37.719Z"
+  "intentado": true,
+  "borrada": true
  },
  "6y60au": {
   "medio": "La Gaceta (Tucumán)",
@@ -34079,9 +34078,7 @@
   "ausenteDesde": "2026-10-27T12:38:19.566Z"
  },
  "bxpudb": {
-  "archivo": "fotos-notas/bxpudb.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei recibe a un funcionario de Estados Unidos en la Casa Rosada",
@@ -34101,7 +34098,8 @@
    "descripcion": "Javier Milei junto a funcionario estadounidense sosteniendo una placa dorada en la Casa Rosada"
   },
   "huella": "49590914150445c5",
-  "ausenteDesde": "2026-10-23T17:38:37.719Z"
+  "intentado": true,
+  "borrada": true
  },
  "1fc5z47": {
   "archivo": "fotos-notas/1fc5z47.jpg",
@@ -56471,10 +56469,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ARBal incorpora un nuevo canal de atención digital",
-  "razon": "La foto A es un gráfico publicitario (no es una fotografía) y la foto B es una imagen genérica de stock, por lo que ninguna cumple los requisitos para ser elegida.",
-  "cuando": "2026-10-30T17:02:33.840Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T18:02:36.011Z",
   "intentos": 2,
-  "fuentes": 3,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "jgpxe2": {
@@ -57124,10 +57123,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T17:02:33.840Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T18:02:36.011Z",
   "intentos": 2,
-  "fuentes": 1
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1a1koir": {
   "archivo": "fotos-notas/1a1koir.jpg",
@@ -57545,7 +57546,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica nocturna con rayos sobre un paisaje oscuro"
   },
-  "huella": "200e030f0f2d050d"
+  "huella": "200e030f0f2d050d",
+  "ausenteDesde": "2026-10-30T18:03:00.167Z"
  },
  "3ee4lj": {
   "intentado": true,

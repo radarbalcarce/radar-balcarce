@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T17:34:23.119Z",
- "portada": 178,
+ "generado": "2026-10-30T18:03:00.247Z",
+ "portada": 176,
  "archivo": 494,
- "esperandoCuerpo": 39,
+ "esperandoCuerpo": 50,
  "redes": {
-  "generado": "2026-10-30T17:34:24.023Z",
+  "generado": "2026-10-30T18:03:00.711Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 54,
     "notas": [
@@ -160,14 +160,9 @@
     "segundos": 52,
     "notas": [
      {
-      "id": "1k9g8vu",
-      "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
+      "id": "1s7htpl",
+      "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1a150ug",
-      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-      "seccion": "Tecnología"
      },
      {
       "id": "1epe8uw",
@@ -178,6 +173,11 @@
       "id": "1s07l6f",
       "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "1a150ug",
+      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
+      "seccion": "Tecnología"
      }
     ]
    }
@@ -219,14 +219,14 @@
      "marcada": false
     },
     {
-     "id": "1k9g8vu",
-     "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
+     "id": "1s7htpl",
+     "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "1s7htpl",
-     "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
+     "id": "1k9g8vu",
+     "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
      "seccion": "Deportes",
      "marcada": false
     },
@@ -240,6 +240,12 @@
      "id": "1h3gaol",
      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "mynw3q",
+     "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
