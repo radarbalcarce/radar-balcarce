@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-30T22:07:49.746Z",
+ "consultado": "2026-10-30T22:38:16.580Z",
  "equipos": [
   "9739",
   "3",
@@ -613,7 +613,7 @@
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "7'",
+    "minuto": "37'",
     "local": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
@@ -622,10 +622,17 @@
     "visitante": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Marcelo Torres",
+      "minuto": "24'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Ciudad de Río Cuarto Antonio Candini",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -636,7 +643,7 @@
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "7'",
+    "minuto": "37'",
     "local": {
      "id": "10",
      "nombre": "Huracán",
