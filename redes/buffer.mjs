@@ -81,11 +81,29 @@ export const CREAR = `mutation Crear($input: CreatePostInput!) {
   }
 }`;
 
+/** El largo máximo de un posteo de X (cada enlace cuenta 23, pero acá se corta por letras: más seguro). */
+export const LARGO_EN_X = 270;
+
+/**
+ * El texto para X (30/10/2026, R40): X acepta 280 caracteres. Va el primer párrafo (el titular) y, si entran, los hashtags del final; si no
+ * entra, se corta en una palabra con «…». Sin la dirección del sitio: X la cobra aparte y el video ya la dice.
+ */
+export function textoParaX(texto) {
+  const partes = String(texto ?? '').split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const titular = partes[0] ?? 'Radar Balcarce';
+  const tags = partes.filter((p) => /^(#\S+\s*)+$/.test(p)).at(-1) ?? '';
+  const conTags = `${titular}\n\n${tags}`;
+  const junto = tags && conTags.length <= LARGO_EN_X ? conTags : titular;
+  if (junto.length <= LARGO_EN_X) return junto;
+  const corte = junto.slice(0, LARGO_EN_X - 1);
+  return `${corte.slice(0, Math.max(corte.lastIndexOf(' '), 60)).trim()}…`;
+}
+
 /** Publica un video ya, en un canal. Devuelve { ok, id?, motivo? }. */
 export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}) {
   const input = {
     channelId: canal.id,
-    text: String(texto ?? '').slice(0, 2000),
+    text: esX(canal.servicio) ? textoParaX(texto) : String(texto ?? '').slice(0, 2000),
     schedulingType: 'automatic',
     needsApproval: false,
     mode: 'shareNow',
@@ -100,7 +118,11 @@ export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}
   return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
 }
 
-export const REDES_DE_BUFFER = ['tiktok', 'youtube'];
+/** ¿Es el canal de X? (Buffer lo llama «twitter»). */
+export const esX = (servicio) => ['twitter', 'x'].includes(String(servicio ?? '').toLowerCase());
+
+/** Las redes de Buffer: TikTok y YouTube desde el 25/10; X desde el 30/10/2026 (R40, Hernán: el plan gratis de Buffer tiene 3 canales). */
+export const REDES_DE_BUFFER = ['tiktok', 'youtube', 'twitter'];
 
 /**
  * A qué redes de Buffer va una pieza ya publicada en Meta (los dueños, 25/10: "en TikTok todos los reels que salen en Facebook y en YouTube
@@ -110,7 +132,7 @@ export const REDES_DE_BUFFER = ['tiktok', 'youtube'];
 export function redesParaBuffer(libro, clave) {
   const redes = [];
   if (libro?.reelsEnFacebook?.[clave] || libro?.facebookVideos?.[clave]?.tipo === 'REELS') redes.push('tiktok');
-  if (libro?.instagram?.[clave]?.tipo === 'REELS') redes.push('youtube');
+  if (libro?.instagram?.[clave]?.tipo === 'REELS') redes.push('youtube', 'twitter');
   return redes;
 }
 
@@ -123,7 +145,7 @@ export async function publicarReel({ url, texto, titulo, redes = REDES_DE_BUFFER
   const resultado = {};
   if (!c.ok) { for (const s of redes) resultado[s] = { ok: false, motivo: c.motivo }; return resultado; }
   for (const servicio of redes) {
-    const canal = c.canales.find((x) => x.servicio === servicio);
+    const canal = c.canales.find((x) => x.servicio === servicio || (esX(servicio) && esX(x.servicio)));
     resultado[servicio] = canal ? await publicarVideo({ canal, url, texto, titulo }, opciones) : { ok: false, motivo: `no hay un canal de ${servicio} conectado en Buffer` };
   }
   return resultado;

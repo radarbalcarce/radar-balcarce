@@ -464,6 +464,7 @@ export const REDES_SOCIALES = {
   facebook: 'https://www.facebook.com/profile.php?id=61594865361170',
   tiktok: 'https://www.tiktok.com/@radarbalcarce',
   youtube: 'https://www.youtube.com/@radarbalcarce',
+  x: 'https://x.com/RadarBalcarce',
 };
 
 // ------------------------------------------------------------- secciones

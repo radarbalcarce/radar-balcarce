@@ -197,6 +197,8 @@ export default function RaizLayout({ children }) {
               <a href={REDES_SOCIALES.tiktok} target="_blank" rel="noopener noreferrer me">TikTok</a>
               {' · '}
               <a href={REDES_SOCIALES.youtube} target="_blank" rel="noopener noreferrer me">YouTube</a>
+              {' · '}
+              <a href={REDES_SOCIALES.x} target="_blank" rel="noopener noreferrer me">X</a>
             </div>,
             <EnlacesDeCanales />,
             <div>

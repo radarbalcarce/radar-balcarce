@@ -1,11 +1,11 @@
 // TikTok y YouTube por Buffer (25/10/2026): en TikTok todos los reels que salen en Facebook, en YouTube todos los reels que salen en Instagram.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { redesParaBuffer, tituloParaYoutube, direccionDelVideo, metadatosDe } from '../redes/buffer.mjs';
+import { redesParaBuffer, tituloParaYoutube, direccionDelVideo, metadatosDe, textoParaX } from '../redes/buffer.mjs';
 
 test('a qué redes va cada pieza: TikTok si fue reel en Facebook, YouTube si fue reel en Instagram', () => {
   const c = '2026-10-26/noticia1';
-  assert.deepEqual(redesParaBuffer({ facebookVideos: { [c]: { tipo: 'REELS' } }, instagram: { [c]: { tipo: 'REELS' } } }, c), ['tiktok', 'youtube'], 'un repaso: a las dos');
+  assert.deepEqual(redesParaBuffer({ facebookVideos: { [c]: { tipo: 'REELS' } }, instagram: { [c]: { tipo: 'REELS' } } }, c), ['tiktok', 'youtube', 'twitter'], 'un repaso: a las tres (X desde el 30/10, R40)');
   const clima = '2026-10-26/clima-manana';
   assert.deepEqual(redesParaBuffer({ facebookVideos: { [clima]: { tipo: 'STORIES' } }, reelsEnFacebook: { [clima]: { tipo: 'REELS' } }, instagram: { [clima]: { tipo: 'STORIES' } } }, clima), ['tiktok'], 'el clima: historia en Instagram y reel en Facebook, sólo TikTok');
   assert.deepEqual(redesParaBuffer({ instagram: { x: { tipo: 'STORIES' } } }, 'x'), [], 'una historia sola no va a ninguna');
@@ -39,4 +39,10 @@ test('el Worker de tareas sirve el video a Buffer con GET, HEAD y por partes (26
   assert.equal((await parte.arrayBuffer()).byteLength, 100);
   assert.equal((await atender(new Request('https://t.example/video/abc123abc123/otro.mp4'), env)).status, 404);
   assert.equal((await atender(new Request('https://t.example/estado'), env)).status, 401, 'lo demás sigue pidiendo el token');
+});
+
+test('X (R40): el texto es el titular y los hashtags, 280 caracteres como mucho, sin la dirección', () => {
+  const pie = ['Vuelve la Fiesta del Postre', 'Más en radarbalcarce.com', '#Balcarce #RadarBalcarce'].join('\n\n');
+  assert.equal(textoParaX(pie), ['Vuelve la Fiesta del Postre', '#Balcarce #RadarBalcarce'].join('\n\n'));
+  assert.ok(textoParaX('palabra '.repeat(80)).length <= 270);
 });
