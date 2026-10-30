@@ -34501,9 +34501,7 @@
   "ausenteDesde": "2026-10-27T13:09:59.534Z"
  },
  "a315j7": {
-  "archivo": "fotos-notas/a315j7.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Comienza el juicio oral unificado por las causas Hotesur y Los Sauces",
@@ -34523,7 +34521,8 @@
    "descripcion": "Captura de pantalla de videollamada con múltiples participantes del juicio Hotesur y Los Sauces"
   },
   "huella": "b8b87415cfcd1c09",
-  "ausenteDesde": "2026-10-23T19:33:17.786Z"
+  "intentado": true,
+  "borrada": true
  },
  "16qa6gn": {
   "archivo": "fotos-notas/16qa6gn.jpg",
@@ -49816,7 +49815,8 @@
    "corresponde": "si",
    "descripcion": "El papa sonriendo sosteniendo una pelota de fútbol."
   },
-  "huella": "cfddd3d7d73f727b"
+  "huella": "cfddd3d7d73f727b",
+  "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "1q1zjvw": {
   "intentado": true,
@@ -49923,7 +49923,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico sonriente frente al arco con indumentaria azul y amarilla de Boca."
   },
-  "huella": "73773731303472ca"
+  "huella": "73773731303472ca",
+  "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "le5im8": {
   "intentado": true,
@@ -51565,7 +51566,8 @@
    "corresponde": "si",
    "descripcion": "Cristian Malaspina en primer plano."
   },
-  "huella": "10509091b0f6f0f2"
+  "huella": "10509091b0f6f0f2",
+  "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "14fwad7": {
   "archivo": "fotos-notas/14fwad7.jpg",
@@ -51622,7 +51624,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei junto a funcionarios y operarios parados al aire libre frente a instalaciones industriales"
   },
-  "huella": "acae26aa9aaaba6c"
+  "huella": "acae26aa9aaaba6c",
+  "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "g8v6vw": {
   "archivo": "fotos-notas/14fwad7.jpg",
@@ -52351,8 +52354,7 @@
    "corresponde": "si",
    "descripcion": "Adolfo García retratado al aire libre"
   },
-  "huella": "2707275363634365",
-  "ausenteDesde": "2026-10-30T07:07:59.558Z"
+  "huella": "2707275363634365"
  },
  "1l7ryr5": {
   "intentado": true,
@@ -57526,7 +57528,8 @@
    "corresponde": "si",
    "descripcion": "Lisandro Martínez jugando un partido con la camiseta titular del Manchester United."
   },
-  "huella": "d5673b2338ada973"
+  "huella": "d5673b2338ada973",
+  "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "gv4gxb": {
   "medio": "Diario La Vanguardia",
@@ -57587,5 +57590,64 @@
    "descripcion": "Marc Anthony en el escenario con el brazo levantado"
   },
   "huella": "2b392b3b3b292daf"
+ },
+ "146nzp3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Axel Kicillof y Carlos Sadir firman convenios de cooperación en Jujuy",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T19:36:39.866Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1n0ukpe": {
+  "archivo": "fotos-notas/1n0ukpe.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Juan Bodega destaca la identidad que la Fiesta Nacional del Postre brinda a Balcarce",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45226-juan-bodega-la-fiesta-del-postre-logro-identificar-a-balcarce-con-algo-propio/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66200.png",
+  "razon": "Es la única foto completa que muestra al protagonista de la nota, Juan Bodega, con buena nitidez y encuadre.",
+  "cuando": "2026-10-30T19:36:39.866Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Juan Bodega, con su logo en la campera, siendo entrevistado con un micrófono de radio.",
+   "detalle": "El logo 'Juan Bodega' y el cubo del micrófono 'LDR 94.9' son parte de la escena real, no marcas del medio."
+  },
+  "huella": "4464647571585931"
+ },
+ "6ova04": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T19:36:39.866Z",
+  "intentos": 1,
+  "fuentes": 12,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1ol3gzw": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Marcelo Dalto recuerda su trabajo junto a Diego Maradona en la Selección",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T19:36:39.866Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
 }
