@@ -132,7 +132,7 @@ for (const [nombre, variable] of CLAVES) {
       decir(`[mistral] clave: HTTP ${r.status}${r.ok ? '' : ` · ${limpiar(await r.text(), clave)}`}`);
       const c = await fetch('https://api.mistral.ai/v1/chat/completions', {
         method: 'POST', headers: { authorization: `Bearer ${clave}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ model: process.env.MISTRAL_MODELO || 'mistral-small-latest', max_tokens: 8, messages: [{ role: 'user', content: 'Respondé sólo con la palabra: listo' }] }),
+        body: JSON.stringify({ model: process.env.MISTRAL_MODELO || 'mistral-large-2512', max_tokens: 8, messages: [{ role: 'user', content: 'Respondé sólo con la palabra: listo' }] }),
         signal: AbortSignal.timeout(30_000),
       });
       const limites = [...c.headers.entries()].filter(([k]) => /retry-after|ratelimit|limit/i.test(k)).map(([k, v]) => `${k}=${v}`).join(' · ');

@@ -20,7 +20,9 @@
 //   · LO QUE ESCRIBE MISTRAL SE VERIFICA IGUAL que lo de Gemini: este módulo sólo trae texto; el verificador, el semáforo y los topes los
 //     pasa quien llama. Y queda anotado con qué modelo se escribió (uso-ia.json, intentos-ia.json y el registro).
 //
-// El modelo por defecto es mistral-small-latest (texto en castellano, JSON, contexto de sobra). Se cambia con MISTRAL_MODELO.
+// El modelo por defecto es mistral-large-2512 (30/10/2026, R40): en el plan gratis el «small» tiene un límite de 20.000 tokens por minuto y
+// cada nota pide unos 14.000 (la respuesta que reserva cuenta), así que casi todos los pedidos volvían 429; el «large» tiene 250.000 por
+// minuto en el mismo plan gratis (admin.mistral.ai → Límites). Se cambia con MISTRAL_MODELO.
 
 import { claveMistral, variableDeMistral } from './claves.mjs';
 import { anotarUsoIA, anotarFallaIA, archivoDeUsoPorDefecto } from '../redes/uso-ia.mjs';
@@ -30,7 +32,7 @@ import { diaAR } from '../ingesta/zona.mjs';
 export const URL_MISTRAL = 'https://api.mistral.ai/v1/chat/completions';
 
 /** El modelo de siempre. */
-export const MODELO_POR_DEFECTO = 'mistral-small-latest';
+export const MODELO_POR_DEFECTO = 'mistral-large-2512';
 
 /** Pedidos por día que se permite gastar (el plan gratis limita por minuto y por mes; esto cuida el mes). Cada intento cuenta. */
 export const TOPE_DIARIO = 400;

@@ -143,7 +143,7 @@ quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (
   (respaldo **pago** de la redacción, límite de US$ 10 por mes que pone una persona), `GEMINI_API_KEY_CLASIFICACION` (lectura con IA y fotos; tercer respaldo de la
   redacción), `GEMINI_API_KEY_REDES` (sólo las voces: **no escribe notas ni lee con IA**) y `GROQ_API_KEY` (respaldo de la lectura, las fotos y las auditorías; no
   redacta); aparte, `TAVILY_API_KEY` (búsqueda, sólo Pistas). **Opcional, `MISTRAL_API_KEY`** (26/10): el último respaldo de texto, gratis y el único que NO es de Google (plan «Experiment»
-  de la API de Mistral, `mistral-small-latest`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`).
+  de la API de Mistral, `mistral-large-2512`, límites por minuto y por mes; tope propio de 400 pedidos por día, variable `MISTRAL_TOPE_DIARIO`; `reels/mistral.mjs`).
   Las cadenas: **redacción** Gemini redacción → Gemini respaldo (paga) → Gemini clasificación → Mistral; **lectura** Gemini → Groq → Mistral; **auditorías** Groq → Mistral
   (la revisión del archivo, Groq → Gemini → Mistral); **fotos** Gemini → Groq; sin la clave de Mistral, todo como antes. **OpenRouter se retiró el 26/10** (fallaba el 97 %:
   `docs/DECISIONES.md`). **Cada pedido a una IA queda medido** en `web/data/uso-ia.json` (`redes/uso-ia.mjs`) por día, tarea y clave, con el motivo de cada fallo

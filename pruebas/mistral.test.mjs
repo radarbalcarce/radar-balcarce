@@ -34,14 +34,14 @@ function usoDeMentira(hechos = 0, dia = '2026-10-26') {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'mistral-uso-'));
   const archivo = path.join(dir, 'uso-ia.json');
   if (hechos) {
-    fs.writeFileSync(archivo, JSON.stringify({ dias: { [dia]: { redaccion: { 'mistral-small-latest': { llamadas: hechos, claves: { mistral: hechos } } } } } }));
+    fs.writeFileSync(archivo, JSON.stringify({ dias: { [dia]: { redaccion: { 'mistral-large-2512': { llamadas: hechos, claves: { mistral: hechos } } } } } }));
   }
   return archivo;
 }
 
 const respuestaDe = (contenido, extra = {}) => ({
   ok: true, status: 200, text: async () => '',
-  json: async () => ({ model: 'mistral-small-latest', choices: [{ message: { content: contenido }, finish_reason: 'stop' }], usage: { prompt_tokens: 10, completion_tokens: 5, total_tokens: 15 }, ...extra }),
+  json: async () => ({ model: 'mistral-large-2512', choices: [{ message: { content: contenido }, finish_reason: 'stop' }], usage: { prompt_tokens: 10, completion_tokens: 5, total_tokens: 15 }, ...extra }),
 });
 const falla = (status, cuerpo = '', cabezales = {}) => ({ ok: false, status, text: async () => cuerpo, json: async () => ({}), headers: { get: (n) => cabezales[n.toLowerCase()] ?? null } });
 
@@ -79,11 +79,11 @@ test('dentro de las pruebas, una clave del entorno de alguien no hace que se lla
   }
 });
 
-test('el modelo: mistral-small-latest, o el de MISTRAL_MODELO si tiene forma de nombre de modelo', () => {
-  assert.equal(MODELO_POR_DEFECTO, 'mistral-small-latest');
-  assert.equal(modeloDeMistral(NADA), 'mistral-small-latest');
+test('el modelo: mistral-large-2512, o el de MISTRAL_MODELO si tiene forma de nombre de modelo', () => {
+  assert.equal(MODELO_POR_DEFECTO, 'mistral-large-2512');
+  assert.equal(modeloDeMistral(NADA), 'mistral-large-2512');
   assert.equal(modeloDeMistral({ env: { MISTRAL_MODELO: ' open-mistral-nemo ' }, archivo: NADA.archivo }), 'open-mistral-nemo');
-  assert.equal(modeloDeMistral({ env: { MISTRAL_MODELO: 'algo raro; drop' }, archivo: NADA.archivo }), 'mistral-small-latest');
+  assert.equal(modeloDeMistral({ env: { MISTRAL_MODELO: 'algo raro; drop' }, archivo: NADA.archivo }), 'mistral-large-2512');
 });
 
 // ------------------------------------------------------------------------------------------------ el pedido
@@ -92,7 +92,7 @@ test('el pedido va con la clave en el encabezado (nunca en la dirección ni en e
   const { fn, pedidos } = mistralFalso([respuestaDe('{"ok":true}')]);
   const r = await pedirJsonAMistral(base({ tarea: 'lectura', prompt: 'hola', clave: 'mistral-secreta', fetchFn: fn, temperatura: 0, maxTokens: 1234 }));
   assert.deepEqual(JSON.parse(r.texto), { ok: true });
-  assert.equal(r.modelo, 'mistral-small-latest');
+  assert.equal(r.modelo, 'mistral-large-2512');
   assert.equal(r.respuesta.usage.total_tokens, 15);
   const p = pedidos[0];
   assert.equal(p.url, URL_MISTRAL);
@@ -101,7 +101,7 @@ test('el pedido va con la clave en el encabezado (nunca en la dirección ni en e
   assert.ok(!p.cuerpoTexto.includes('mistral-secreta'));
   assert.equal(p.headers.authorization, 'Bearer mistral-secreta');
   assert.equal(p.headers['content-type'], 'application/json');
-  assert.equal(p.cuerpo.model, 'mistral-small-latest');
+  assert.equal(p.cuerpo.model, 'mistral-large-2512');
   assert.deepEqual(p.cuerpo.response_format, { type: 'json_object' });
   assert.deepEqual(p.cuerpo.messages, [{ role: 'user', content: 'hola' }]);
   assert.equal(p.cuerpo.temperature, 0);
@@ -216,7 +216,7 @@ test('el contador: cada pedido se anota en uso-ia.json con la clave «mistral» 
   const archivo = usoDeMentira(0);
   const { fn } = mistralFalso([respuestaDe('{"ok":1}')]);
   await pedirJsonAMistral(base({ tarea: 'lectura', fetchFn: fn, archivoDeUso: archivo }));
-  const anotado = JSON.parse(fs.readFileSync(archivo, 'utf8')).dias['2026-10-26'].lectura['mistral-small-latest'];
+  const anotado = JSON.parse(fs.readFileSync(archivo, 'utf8')).dias['2026-10-26'].lectura['mistral-large-2512'];
   assert.equal(anotado.llamadas, 1);
   assert.equal(anotado.claves.mistral, 1);
   assert.equal(anotado.total, 15);
@@ -225,7 +225,7 @@ test('el contador: cada pedido se anota en uso-ia.json con la clave «mistral» 
   // Un pedido que falló también queda anotado (con su error): gastó cupo igual.
   const caido = mistralFalso([falla(503)]);
   await assert.rejects(() => pedirJsonAMistral(base({ tarea: 'lectura', fetchFn: caido.fn, archivoDeUso: archivo })));
-  const despues = JSON.parse(fs.readFileSync(archivo, 'utf8')).dias['2026-10-26'].lectura['mistral-small-latest'];
+  const despues = JSON.parse(fs.readFileSync(archivo, 'utf8')).dias['2026-10-26'].lectura['mistral-large-2512'];
   assert.equal(despues.llamadas, 2);
   assert.equal(despues.errores, 1);
 });
@@ -302,7 +302,7 @@ test('redacción: Gemini sin cupo (429), saturado (503) o con la clave rechazada
     assert.equal(r.deIA, true, `con Gemini en ${status}`);
     assert.equal(r.titulo, SALIDA_DE_LA_NOTA.titulo);
     assert.equal(r.ia, 'mistral');
-    assert.equal(r.modeloIA, 'mistral-small-latest');
+    assert.equal(r.modeloIA, 'mistral-large-2512');
     assert.equal(llamados.mistral, 1);
   }
 });
@@ -370,8 +370,8 @@ test('redacción de punta a punta: lo que escribe Mistral pasa por el verificado
   assert.equal(bien.r.n1.titulo, 'Reunión en el municipio por el agua');
   assert.equal(bien.r.n1.deIA, true);
   assert.equal(bien.intentos.n1.motivo, 'con cuerpo');
-  assert.equal(bien.intentos.n1.modelo, 'mistral-small-latest', 'queda anotado con qué modelo la escribió');
-  assert.ok(bien.registros.some((t) => t.includes('escrita con Mistral') && t.includes('mistral-small-latest')));
+  assert.equal(bien.intentos.n1.modelo, 'mistral-large-2512', 'queda anotado con qué modelo la escribió');
+  assert.ok(bien.registros.some((t) => t.includes('escrita con Mistral') && t.includes('mistral-large-2512')));
   assert.ok(bien.registros.some((t) => /con Mistral \(gratis, último respaldo\)/.test(t)), 'y el resumen de claves lo cuenta');
   assert.equal(USO_DE_CLAVES.mistral, antes + 1);
   // Un dato inventado por Mistral se descarta igual que si lo inventara Gemini: la verificación no se afloja.
@@ -405,7 +405,7 @@ test('lectura: Gemini y Groq fallan → Mistral, y la ficha queda marcada con ia
   assert.equal(r.cuenta.mistral, 1);
   assert.equal(r.cuenta.nuevas, 1);
   assert.equal(r.archivo.fichas.abc.ia, 'mistral');
-  assert.equal(r.archivo.fichas.abc.modelo, 'mistral-small-latest');
+  assert.equal(r.archivo.fichas.abc.modelo, 'mistral-large-2512');
   assert.equal(r.archivo.fichas.abc.ambito, 'balcarce');
   assert.deepEqual(llamados.orden, ['gemini', 'groq', 'mistral']);
   assert.ok(registros.some((t) => t.includes('Mistral')));
@@ -463,7 +463,7 @@ test('auditoría: Groq falla → Mistral lee el lote; las citas que no están en
   assert.equal(r.descartados, 1);
   assert.deepEqual(r.leidas, ['n1']);
   assert.deepEqual(r.fallas, []);
-  assert.deepEqual(r.mistral, ['mistral-small-latest']);
+  assert.deepEqual(r.mistral, ['mistral-large-2512']);
   assert.deepEqual(orden, ['groq', 'mistral']);
 });
 
@@ -522,7 +522,7 @@ test('el corredor de la auditoría (redes/auditar-notas.mjs) pasa la clave de Mi
   };
   const r = await correrAuditoria({ portada: { notas: [nota] }, estado: {}, llaves: [], clave: 'g', claveMistral: 'm', fetchFn: fn, dormir: sinEsperar, ahora: AHORA, archivoDeUso: usoDeMentira() });
   assert.deepEqual(r.leidas, ['n1']);
-  assert.deepEqual(r.mistral, ['mistral-small-latest']);
+  assert.deepEqual(r.mistral, ['mistral-large-2512']);
   assert.equal(r.openrouter, undefined, 'OpenRouter se retiró el 26/10/2026');
   assert.deepEqual(orden, ['groq', 'mistral']);
   const codigo = fs.readFileSync(new URL('../redes/auditar-notas.mjs', import.meta.url), 'utf8');
