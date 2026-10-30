@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-29T23:33:33.419Z",
- "portada": 208,
+ "generado": "2026-10-30T00:02:38.835Z",
+ "portada": 203,
  "archivo": 500,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-29T23:33:34.095Z",
+  "generado": "2026-10-30T00:02:39.421Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-29T23:36:50.762Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -155,9 +155,9 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
      {
       "id": "o6zwz5",
@@ -175,9 +175,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "joipn0",
-      "titulo": "Proyecto Disco organiza una fiesta de Halloween con premios millonarios",
-      "seccion": "Balcarce"
+      "id": "zv94ul",
+      "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+      "seccion": "Agro"
      }
     ]
    }
@@ -242,6 +242,12 @@
      "marcada": false
     },
     {
+     "id": "zv94ul",
+     "titulo": "Un temporal de lluvia y granizo afecta cultivos en la zona de Dos Naciones",
+     "seccion": "Agro",
+     "marcada": false
+    },
+    {
      "id": "1s07l6f",
      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
      "seccion": "Automovilismo",
@@ -251,12 +257,6 @@
      "id": "ooa5pe",
      "titulo": "Enzo Fernández descarta teorías conspirativas sobre la final del Mundial",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1d2n6l3",
-     "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],

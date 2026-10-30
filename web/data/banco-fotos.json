@@ -32099,9 +32099,7 @@
   "ausenteDesde": "2026-10-26T13:38:39.453Z"
  },
  "i0ei6b": {
-  "archivo": "fotos-notas/i0ei6b.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Christian Bragarnik analiza su rol en Vélez y Defensa y Justicia",
@@ -32121,7 +32119,8 @@
    "descripcion": "Christian Bragarnik en primer plano con saco azul"
   },
   "huella": "a0a08c8c8c881808",
-  "ausenteDesde": "2026-10-22T23:34:51.810Z"
+  "intentado": true,
+  "borrada": true
  },
  "1i9rlqx": {
   "intentado": true,
@@ -32685,9 +32684,7 @@
   "ausenteDesde": "2026-10-26T14:13:24.051Z"
  },
  "1w60w6s": {
-  "archivo": "fotos-notas/1w60w6s.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Servicio Meteorológico Nacional emite una alerta amarilla por tormentas en Buenos Aires",
@@ -32707,7 +32704,8 @@
    "descripcion": "Tormenta eléctrica sobre una ciudad con rayos cayendo entre nubes oscuras."
   },
   "huella": "d898b3c387e35395",
-  "ausenteDesde": "2026-10-22T23:34:51.810Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kwf4sd": {
   "archivo": "fotos-notas/1kwf4sd.jpg",
@@ -32847,9 +32845,7 @@
   "ausenteDesde": "2026-10-27T03:07:24.798Z"
  },
  "lerkpc": {
-  "archivo": "fotos-notas/lerkpc.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei admite que la inflación baja más lento por menor crecimiento",
@@ -32869,7 +32865,8 @@
    "descripcion": "Javier Milei hablando en un atril con fondo azul"
   },
   "huella": "01081414766464c4",
-  "ausenteDesde": "2026-10-22T23:34:51.810Z"
+  "intentado": true,
+  "borrada": true
  },
  "1rvrukc": {
   "archivo": "fotos-notas/1rvrukc.jpg",
@@ -54505,6 +54502,38 @@
   "cuando": "2026-10-29T23:33:25.235Z",
   "intentos": 1,
   "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "gm663d": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnastas locales clasifican al Torneo Nacional en Misiones",
+  "razon": "La única imagen disponible es un logo o marca de agua, no una fotografía del hecho.",
+  "cuando": "2026-10-30T00:02:31.693Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "w33on4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnasia felicita a Tapia por los recitales en La Plata",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T00:02:31.693Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "f5dapo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Stefano Di Carlo explica el voto en contra de River al torneo de la AFA",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T00:02:31.693Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  }
