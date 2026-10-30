@@ -3037,6 +3037,16 @@
   "ultimo": "2026-10-24T01:42:55.948Z",
   "motivo": "con cuerpo"
  },
+ "1hh0ha": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 8,
+  "motivos": [
+   "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
+  ]
+ },
  "1hl1ipd": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -4634,6 +4644,13 @@
   "textos": 7,
   "numeradas": 27
  },
+ "1pgr9m8": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1pidco9": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -5092,6 +5109,21 @@
   "ultimo": "2026-10-24T02:31:30.840Z",
   "motivo": "con cuerpo"
  },
+ "1s7htpl": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título dice 3 y el cuerpo no lo explica"
+  ]
+ },
  "1s88cvg": {
   "intentos": 4,
   "ultimo": "2026-10-27T21:31:39.847Z",
@@ -5519,10 +5551,10 @@
   "numeradas": 3
  },
  "1u1v1h3": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T16:13:36.477Z",
+  "intentos": 2,
+  "ultimo": "2026-10-30T14:02:09.715Z",
   "motivo": "con cuerpo",
-  "textos": 2,
+  "textos": 3,
   "numeradas": 3
  },
  "1u2i7kq": {
@@ -6674,11 +6706,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "3k9i41": {
-  "intentos": 3,
-  "ultimo": "2026-10-23T13:59:18.085Z",
-  "motivo": "con cuerpo"
- },
  "3ldov1": {
   "intentos": 1,
   "ultimo": "2026-10-28T19:31:55.392Z",
@@ -7145,6 +7172,13 @@
   "ultimo": "2026-10-27T21:31:39.847Z",
   "motivo": "con cuerpo",
   "textos": 1,
+  "numeradas": 2
+ },
+ "6smgc": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 2
  },
  "6vcept": {
@@ -7770,9 +7804,9 @@
   ]
  },
  "ard8kc": {
-  "intentos": 3,
-  "ultimo": "2026-10-30T13:31:45.337Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el máximo es 90",
+  "intentos": 4,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 5,
   "motivos": [
@@ -7780,9 +7814,6 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"iglesia\", \"leon\", \"x",
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
    "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el"
-  ],
-  "falla": [
-   "el titulo tiene 99 caracteres, el máximo es 90"
   ]
  },
  "arh9k1": {
@@ -10097,18 +10128,20 @@
   ]
  },
  "nxeoab": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T12:02:26.878Z",
-  "motivo": "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no lo dice",
-  "textos": 4,
-  "numeradas": 4,
+  "intentos": 2,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"sturzenegger\" y la fuente no; sin esas oraciones quedan 0 palabras",
+  "textos": 3,
+  "numeradas": 3,
   "motivos": [
-   "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no "
+   "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no ",
+   "cuerpo: 4 problemas (nombre, repite): el cuerpo nombra a \"sturzenegger"
   ],
   "falla": [
-   "el copete dice 3 y la fuente no lo dice",
-   "el cuerpo nombra a \"patricia\" y la fuente no",
-   "copia 21 palabras seguidas del original (\"tras una modificacion que extendio la estabilidad fiscal de 10 a 30 anos o…\"): decilo con otras pa"
+   "el cuerpo nombra a \"sturzenegger\" y la fuente no",
+   "el cuerpo nombra a \"union\" y la fuente no",
+   "el cuerpo nombra a \"civica\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "ny2fmm": {
@@ -10424,6 +10457,16 @@
   ],
   "falla": [
    "el título nombra a \"flamengo\", \"estudiantes\" y el cuerpo no los explica"
+  ]
+ },
+ "pp6h67": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T14:02:09.715Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 16,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
  "pr74vq": {

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T13:33:55.525Z",
- "portada": 152,
+ "generado": "2026-10-30T14:06:46.636Z",
+ "portada": 156,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-30T13:33:55.955Z",
+  "generado": "2026-10-30T14:06:47.358Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T10:36:39.179Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T13:36:34.918Z"
    },
    {
     "nombre": "participa-nota",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 54,
+    "salio": "2026-10-30T13:36:34.918Z",
+    "segundos": null,
     "notas": [
      {
       "id": "5mwkfs",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "1mxjex4",
@@ -139,14 +139,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1epe8uw",
-      "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "c3w5sv",
       "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1epe8uw",
+      "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -209,12 +209,6 @@
      "marcada": false
     },
     {
-     "id": "mynw3q",
-     "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "1r52nca",
      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
      "seccion": "Balcarce",
@@ -242,6 +236,12 @@
      "id": "c3w5sv",
      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "5hmq87",
+     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
