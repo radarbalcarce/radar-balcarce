@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-30T10:34:03.717Z",
+ "generado": "2026-10-30T11:03:23.238Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -55,6 +55,11 @@
      "medio": "Los Andes (Mendoza)",
      "enlace": "https://www.losandes.com.ar/deportes/en-la-previa-del-superclasico-river-plate-redoblo-la-apuesta-contra-afa-se-la-conferencia-previa-n6012316",
      "fecha": "2026-10-29T21:04:00.000Z"
+    },
+    {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/deportes/14399-river-no-se-presento-a-la-conferencia-previa-al-superclasico/",
+     "fecha": null
     },
     {
      "medio": "0223 (Mar del Plata)",
@@ -113,6 +118,11 @@
     },
     {
      "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/river/river-decidio-no-acudir-a-la-conferencia-de-prensa-previa-al-superclasico-contra-boca",
+     "fecha": "2026-10-29T20:11:16.000Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
      "enlace": "https://bolavip.com/ar/boca/boca-hoy-blanco-recuperado-la-posible-formacion-ante-river-y-mas",
      "fecha": "2026-10-29T15:15:51.000Z"
     },
@@ -120,11 +130,6 @@
      "medio": "Bolavip Argentina",
      "enlace": "https://bolavip.com/ar/futbolargentino/se-suspendio-la-conferencia-previa-al-superclasico-la-liga-profesional-lamenta-la-actitud-de-river",
      "fecha": "2026-10-29T21:50:55.000Z"
-    },
-    {
-     "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/river/river-decidio-no-acudir-a-la-conferencia-de-prensa-previa-al-superclasico-contra-boca",
-     "fecha": "2026-10-29T20:11:16.000Z"
     },
     {
      "medio": "El Gráfico",
@@ -145,16 +150,38 @@
      "medio": "Minuto Uno",
      "enlace": "https://www.minutouno.com/deportes/superclasico-que-se-suspendio-la-conferencia-prensa-previa-al-boca-vs-river-n6339531",
      "fecha": "2026-10-29T21:59:00.000Z"
-    },
-    {
-     "medio": "Diario La Vanguardia",
-     "enlace": "https://www.diariolavanguardia.com/deportes/14399-river-no-se-presento-a-la-conferencia-previa-al-superclasico/",
-     "fecha": null
     }
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
+  },
+  {
+   "id": "dr2hke",
+   "titulo": "Racing, ante un Aldosivi que se juega sus cartas",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-10-30T09:31:12.000Z",
+   "fuentes": [
+    {
+     "medio": "El Día",
+     "enlace": "https://www.eldia.com/deportes/racing-ante-un-aldosivi-que-se-juega-sus-cartas-deportes_1793340529",
+     "fecha": "2026-10-30T06:08:00.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/deportes/torneo-clausura--racing--ya-sin-chances-de-clasificar-a-los-playoffs--recibe-a-aldosivi-que-se-juega-la-permanencia_a6ae3421483a79a91f38a8c1b",
+     "fecha": "2026-10-30T09:31:12.000Z"
+    },
+    {
+     "medio": "El Marplatense",
+     "enlace": "https://www.elmarplatense.com/aldosivi-se-juega-la-permanencia-ante-racing-una-derrota-lo-condenara-al-descenso",
+     "fecha": "2026-10-30T11:00:04.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "Gemini: Bad control character in string literal in JSON at position 1280 (line 1 column 1281)",
+   "maximo": 3
   }
  ],
  "descartadas": [

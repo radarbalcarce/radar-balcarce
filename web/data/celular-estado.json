@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T10:34:03.717Z",
+ "generado": "2026-10-30T11:03:23.238Z",
  "portada": 137,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-30T10:34:04.587Z",
+  "generado": "2026-10-30T11:03:23.780Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -14,7 +14,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T10:36:39.179Z"
    },
    {
     "nombre": "efemeride",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
      {
       "id": "m75zbl",
@@ -144,8 +144,8 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1jdn9gp",
-      "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
+      "id": "14jqguf",
+      "titulo": "Teo Gutiérrez pronostica que Boca gana la Copa Sudamericana",
       "seccion": "Fútbol"
      }
     ]
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 50,
     "notas": [
      {
       "id": "1oxthyw",
@@ -165,8 +165,8 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1a19f94",
-      "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
+      "id": "1jdn9gp",
+      "titulo": "Nico Williams revela que el empujón de Molina resulta clave en la final",
       "seccion": "Fútbol"
      },
      {
@@ -175,9 +175,9 @@
       "seccion": "Tecnología"
      },
      {
-      "id": "phjtkk",
-      "titulo": "El FMI acuerda cuatro medidas con el Gobierno para impulsar la economía",
-      "seccion": "Economía"
+      "id": "3zjeei",
+      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -195,6 +195,12 @@
      "id": "c3w5sv",
      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "5hmq87",
+     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
