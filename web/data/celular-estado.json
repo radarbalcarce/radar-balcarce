@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T11:37:28.778Z",
- "portada": 134,
+ "generado": "2026-10-30T12:05:12.703Z",
+ "portada": 140,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-30T11:37:29.103Z",
+  "generado": "2026-10-30T12:05:13.529Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,8 +95,18 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "1r52nca",
+      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "kbhupz",
+      "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
+      "seccion": "Fútbol"
+     },
      {
       "id": "m75zbl",
       "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
@@ -106,16 +116,6 @@
       "id": "dqa51l",
       "titulo": "Muere el actor Patrick Stewart a los 86 años en Los Ángeles",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1d2n6l3",
-      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1dd73iv",
-      "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
-      "seccion": "Economía"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "5mwkfs",
+      "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1d2n6l3",
+      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
+      "seccion": "Argentina"
+     },
      {
       "id": "1epe8uw",
       "titulo": "Muere Juan Marcelo, la voz histórica del dúo Juan y Juan",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1xr0jgj",
-      "titulo": "Gendarmería no logra confirmar la autenticidad de los audios de Spagnuolo",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "14jqguf",
-      "titulo": "Teo Gutiérrez pronostica que Boca gana la Copa Sudamericana",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "3zjeei",
-      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
-      "seccion": "Automovilismo"
+      "id": "1dd73iv",
+      "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
+      "seccion": "Economía"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 47,
     "notas": [
      {
       "id": "1oxthyw",
@@ -165,8 +165,8 @@
       "seccion": "Argentina"
      },
      {
-      "id": "1a19f94",
-      "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
+      "id": "c3w5sv",
+      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
       "seccion": "Fútbol"
      },
      {
@@ -175,9 +175,9 @@
       "seccion": "Tecnología"
      },
      {
-      "id": "szj0w3",
-      "titulo": "Comienzan en Buenos Aires los Premios Ídolo 2026",
-      "seccion": "Cultura y agenda"
+      "id": "3zjeei",
+      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -192,15 +192,39 @@
    ],
    "cola": [
     {
-     "id": "5hmq87",
-     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
-     "seccion": "Economía",
+     "id": "1r52nca",
+     "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "kbhupz",
+     "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "5mwkfs",
+     "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
      "id": "c3w5sv",
      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "5hmq87",
+     "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1df38y1",
+     "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
