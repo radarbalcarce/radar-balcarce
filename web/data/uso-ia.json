@@ -1500,18 +1500,35 @@
    },
    "auditoria": {
     "openai/gpt-oss-20b": {
-     "llamadas": 5,
-     "errores": 0,
-     "entrada": 8396,
-     "salida": 6060,
+     "llamadas": 9,
+     "errores": 1,
+     "entrada": 13127,
+     "salida": 9145,
      "pensamiento": 0,
-     "total": 14456,
+     "total": 22272,
      "claves": {
-      "groq": 5
+      "groq": 9
      },
      "motivos": {
       "groq": {
-       "ok": 5
+       "ok": 8,
+       "otro": 1
+      }
+     }
+    },
+    "mistral-small-latest": {
+     "llamadas": 3,
+     "errores": 3,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "mistral": 3
+     },
+     "motivos": {
+      "mistral": {
+       "velocidad": 3
       }
      }
     }
