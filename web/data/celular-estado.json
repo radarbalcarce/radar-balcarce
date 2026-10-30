@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T21:57:10.965Z",
- "portada": 196,
- "archivo": 498,
- "esperandoCuerpo": 27,
+ "generado": "2026-10-30T22:07:54.452Z",
+ "portada": 208,
+ "archivo": 500,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-30T21:57:11.350Z",
+  "generado": "2026-10-30T22:07:54.883Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T20:36:50.775Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-30T20:36:50.775Z",
     "segundos": null,
     "notas": [
@@ -157,11 +157,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 49,
     "notas": [
      {
-      "id": "1qobb2a",
-      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "id": "1ox7bm8",
+      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "1messk8",
+      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
      },
      {
@@ -173,11 +178,6 @@
       "id": "1a150ug",
       "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
       "seccion": "Tecnología"
-     },
-     {
-      "id": "1ap8aa5",
-      "titulo": "Diego Santilli defiende la salida de Flávio Bolsonaro desde Argentina",
-      "seccion": "Política"
      }
     ]
    }
@@ -212,14 +212,20 @@
    ],
    "cola": [
     {
-     "id": "1qobb2a",
-     "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
-     "seccion": "Cultura y agenda",
+     "id": "1ox7bm8",
+     "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+     "seccion": "Policiales",
      "marcada": false
     },
     {
      "id": "1messk8",
      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1qobb2a",
+     "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -251,12 +257,6 @@
      "id": "1c85gpi",
      "titulo": "Emiliano Martínez revela secuelas permanentes en su mano tras el Mundial",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "6ova04",
-     "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-     "seccion": "Política",
      "marcada": false
     }
    ],
