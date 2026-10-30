@@ -324,6 +324,16 @@
    "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (votacio"
   ]
  },
+ "120msi1": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 17 y la fuente no"
+  ]
+ },
  "1244xgg": {
   "intentos": 1,
   "ultimo": "2026-10-27T14:19:21.475Z",
@@ -604,6 +614,13 @@
   "motivos": [
    "cuerpo: 3 problemas (relleno, repite, copia): el cuerpo tiene una fras"
   ]
+ },
+ "14267ce": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "142z1e5": {
   "intentos": 1,
@@ -2718,13 +2735,14 @@
   "numeradas": 4
  },
  "1flgfaq": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T12:02:26.878Z",
-  "motivo": "semáforo: necesita ojo humano: \"niño\", en lo que escribió la IA",
+  "intentos": 2,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 4,
   "motivos": [
-   "semáforo: necesita ojo humano: \"niño\", en lo que escribió la IA"
+   "semáforo: necesita ojo humano: \"niño\", en lo que escribió la IA",
+   "título o bajada: 3 problemas (numero, tilde): el titulo dice 60 y la f"
   ]
  },
  "1fnd7r6": {
@@ -3810,6 +3828,16 @@
   "textos": 5,
   "numeradas": 9
  },
+ "1llj2g7": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (pasado): el título está en pasado: va en "
+  ]
+ },
  "1llpglu": {
   "intentos": 1,
   "ultimo": "2026-10-23T14:32:29.118Z",
@@ -4053,17 +4081,18 @@
   "numeradas": 3
  },
  "1mxjex4": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T12:02:26.878Z",
-  "motivo": "título o bajada: 1 problema (exagera): el título dice \"habilita\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un",
+  "intentos": 2,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
   "textos": 1,
-  "numeradas": 1,
+  "numeradas": 2,
   "motivos": [
-   "título o bajada: 1 problema (exagera): el título dice \"habilita\" y nin"
+   "título o bajada: 1 problema (exagera): el título dice \"habilita\" y nin",
+   "cuerpo: 1 problema (promesa): el título dice 24 y el cuerpo no lo expl",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título dice \"habilita\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un proyecto o algo que se estudia, va \"pid"
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1mzn6lw": {
@@ -5225,6 +5254,13 @@
   "motivo": "con cuerpo",
   "textos": 0,
   "numeradas": 2
+ },
+ "1t3ega1": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "1t46jo0": {
   "intentos": 1,
@@ -7739,6 +7775,22 @@
    "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d"
   ]
  },
+ "ard8kc": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+  "textos": 2,
+  "numeradas": 5,
+  "motivos": [
+   "título o bajada: 2 problemas (largo, negacion): el titulo tiene 99 car",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"hito historico\"",
+   "la fuente niega algo en el título y el texto nuevo no",
+   "copia 18 palabras seguidas del original (\"del papa leon xiv a la argentina el coordinador general de la actividad en…\"): decilo con otras pa"
+  ]
+ },
  "arh9k1": {
   "intentos": 1,
   "ultimo": "2026-10-28T13:01:56.997Z",
@@ -8019,6 +8071,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "cg1pu2": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "cj8n2f": {
   "intentos": 3,
@@ -11123,6 +11182,13 @@
   "textos": 6,
   "numeradas": 8
  },
+ "u1r5oh": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 9
+ },
  "u2pkjm": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:02:15.887Z",
@@ -11246,6 +11312,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "uutosd": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 8
  },
  "uvqcg3": {
   "intentos": 3,
@@ -11423,6 +11496,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "vqr3ko": {
+  "intentos": 1,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "vqyd71": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -11597,16 +11677,19 @@
   ]
  },
  "wh5ifk": {
-  "intentos": 1,
-  "ultimo": "2026-10-30T12:02:26.878Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica; sin esas oraciones quedan 287 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-30T12:32:11.014Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y"
+   "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y",
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
+   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
   ],
   "falla": [
+   "el titulo tiene 91 caracteres, el máximo es 90",
    "el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica"
   ]
  },

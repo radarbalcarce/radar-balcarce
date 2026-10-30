@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-30T12:05:12.703Z",
+ "generado": "2026-10-30T12:35:25.712Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -13,10 +13,15 @@
      "medio": "Municipalidad de Balcarce",
      "enlace": "https://balcarce.gob.ar/2026/10/30/arbal-incorpora-un-nuevo-canal-de-atencion-digital/",
      "fecha": "2026-10-30T11:46:10.000Z"
+    },
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/arbal-incorporo-un-chatbot-para-atender-consultas-de-los-contribuyentes-por-whatsapp-las-24-horas",
+     "fecha": "2026-10-30T12:07:31.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (exagera): el título dice \"habilita\" y ninguna fuente dice que eso ya se decidió o se hizo: si es un pedido, un",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
    "maximo": 3
   },
   {
@@ -74,6 +79,11 @@
      "fecha": "2026-10-29T21:04:00.000Z"
     },
     {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/deportes/14399-river-no-se-presento-a-la-conferencia-previa-al-superclasico/",
+     "fecha": null
+    },
+    {
      "medio": "0223 (Mar del Plata)",
      "enlace": "https://www.0223.com.ar/nota/2026-10-29-18-57-0-river-se-bajo-de-la-conferencia-previa-al-superclasico-y-la-liga-apunto-lamentamos-la-actitud",
      "fecha": "2026-10-29T21:57:00.000Z"
@@ -124,9 +134,19 @@
      "fecha": "2026-10-29T22:39:00.000Z"
     },
     {
+     "medio": "La Brújula 24",
+     "enlace": "https://www.labrujula24.com/notas/2026/10/30/relacion-rota-la-afa-suspendio-la-conferencia-previa-al-superclasico-tras-la-negativa-de-river-n528041/",
+     "fecha": "2026-10-30T11:14:59.000Z"
+    },
+    {
      "medio": "Doble Amarilla",
      "enlace": "https://www.dobleamarilla.com.ar/liga-/el-duro-comunicado-de-la-liga-contra-river-por-el-faltazo-a-la-conferencia-previa-al-superclasico_a6ae3c02d16fea97ab62476d8",
      "fecha": "2026-10-29T21:59:46.441Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/river/river-decidio-no-acudir-a-la-conferencia-de-prensa-previa-al-superclasico-contra-boca",
+     "fecha": "2026-10-29T20:11:16.000Z"
     },
     {
      "medio": "Bolavip Argentina",
@@ -137,16 +157,6 @@
      "medio": "Bolavip Argentina",
      "enlace": "https://bolavip.com/ar/futbolargentino/se-suspendio-la-conferencia-previa-al-superclasico-la-liga-profesional-lamenta-la-actitud-de-river",
      "fecha": "2026-10-29T21:50:55.000Z"
-    },
-    {
-     "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/river/river-decidio-no-acudir-a-la-conferencia-de-prensa-previa-al-superclasico-contra-boca",
-     "fecha": "2026-10-29T20:11:16.000Z"
-    },
-    {
-     "medio": "El Gráfico",
-     "enlace": "https://www.elgrafico.com.ar/articulo/1038/103635/por-que-se-suspendio-la-conferencia-de-prensa-en-la-previa-del-boca---river",
-     "fecha": "2026-10-29T15:15:00.000Z"
     },
     {
      "medio": "Ámbito",
@@ -164,14 +174,9 @@
      "fecha": "2026-10-29T21:59:00.000Z"
     },
     {
-     "medio": "Diario La Vanguardia",
-     "enlace": "https://www.diariolavanguardia.com/deportes/14399-river-no-se-presento-a-la-conferencia-previa-al-superclasico/",
-     "fecha": null
-    },
-    {
-     "medio": "La Brújula 24",
-     "enlace": "https://www.labrujula24.com/notas/2026/10/30/relacion-rota-la-afa-suspendio-la-conferencia-previa-al-superclasico-tras-la-negativa-de-river-n528041/",
-     "fecha": "2026-10-30T11:14:59.000Z"
+     "medio": "El Gráfico",
+     "enlace": "https://www.elgrafico.com.ar/articulo/1038/103635/por-que-se-suspendio-la-conferencia-de-prensa-en-la-previa-del-boca---river",
+     "fecha": "2026-10-29T22:15:00.000Z"
     }
    ],
    "intentos": 1,
@@ -179,36 +184,41 @@
    "maximo": 5
   },
   {
-   "id": "nxeoab",
-   "titulo": "En una extensa sesión, el Senado le dio luz verde a Salud Mental, el RIIR y el mercado del carbono",
-   "copete": "Cerca de las 11 de la noche de ayer, el Senado le dio media sanción al marco regulatorio de los mercados de carbono en la Argentina . La iniciativa, elaborada por la senadora salteña Flavia Royón, obtuvo 59 votos afirmativos y pretende impulsar sistemas de compensación de…",
+   "id": "ard8kc",
+   "titulo": "El mensaje de la Iglesia en la previa a la visita de León XIV: “Nos propusimos no entrar en la grieta, queremos cuidarlo” - Video 2",
+   "copete": "En la previa de la visita del papa León XIV a la Argentina , el coordinador general de la actividad en el país, Raúl Pizarro, destacó: \"Nos propusimos no entrar en la grieta, queremos cuidar la figura del Papa\" . Pizarro es secretario general de la Conferencia Episcopal…",
    "seccion": "Política",
-   "fecha": "2026-10-30T03:22:00.000Z",
+   "fecha": "2026-10-29T17:28:54.000Z",
    "fuentes": [
     {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/politica/senado-sesion-salud-mental-nuevo-regimen-inversiones-diego-santilli-29-octubre-2026",
-     "fecha": "2026-10-30T00:03:00.000Z"
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/videos/politica/2026/10/29/el-mensaje-de-la-iglesia-en-la-previa-a-la-visita-de-leon-xiv-nos-propusimos-no-entrar-en-la-grieta-queremos-cuidarlo-video-2/",
+     "fecha": "2026-10-29T15:57:29.000Z"
     },
     {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/sociedad/negocio-verde-o-riesgo-ambiental-las-claves-de-la-ley-de-mercados-de-carbono-que-aprobo-el-senado-nid30102026/",
-     "fecha": "2026-10-30T11:58:14.000Z"
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/politica/2026/10/29/el-mensaje-de-la-iglesia-en-la-previa-a-la-visita-de-leon-xiv-nos-propusimos-no-entrar-en-la-grieta-queremos-cuidarlo/",
+     "fecha": "2026-10-29T21:41:35.000Z"
     },
     {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/politica/el-senado-dio-luz-verde-la-reforma-la-ley-salud-mental-los-cambios-aprobados-n6012362",
-     "fecha": "2026-10-30T10:35:00.000Z"
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/videos/politica/2026/10/29/el-mensaje-de-la-iglesia-en-la-previa-a-la-visita-de-leon-xiv-nos-propusimos-no-entrar-en-la-grieta-queremos-cuidarlo-video-3/",
+     "fecha": "2026-10-29T16:46:55.000Z"
     },
     {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/politica/el-senado-dio-luz-verde-una-ley-regular-los-mercados-carbono-argentina-n6012358",
-     "fecha": "2026-10-30T03:22:00.000Z"
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/politica/cuidar-al-papa-de-la-grieta-la-determinacion-de-la-iglesia/",
+     "fecha": "2026-10-30T11:45:00.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/politica/2026/10/29/la-iglesia-y-su-claro-mensaje-de-cara-a-la-visita-del-papa-leon-xiv-nos-propusimos-no-entrar-en-la-grieta-queremos-cuidarlo/",
+     "fecha": "2026-10-29T17:28:54.000Z"
     }
    ],
    "intentos": 1,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no lo dice",
-   "maximo": 3
+   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+   "maximo": 4
   },
   {
    "id": "wh5ifk",
@@ -238,8 +248,8 @@
      "fecha": "2026-10-29T17:13:31.585Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"arca\", \"ganancias\" y el cuerpo no los explica; sin esas oraciones quedan 287 palabras",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
    "maximo": 3
   }
  ],
@@ -253,20 +263,20 @@
    "motivo": "agotó los 3 intentos; cuerpo: 2 problemas (numero, copia): el cuerpo dice 70 y la fuente no lo dice; sin esas oraciones quedan 190 palabras"
   },
   {
+   "id": "v47uyr",
+   "titulo": "CORRESUR aplicó un incremento del 0,86% en las tarifas de los peajes",
+   "seccion": "Economía",
+   "fecha": "2026-10-29T23:10:12.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; sin material"
+  },
+  {
    "id": "1b2jsec",
    "titulo": "Murió Carlos Rinke, héroe de Malvinas: el \"Numeral de Hierro\" que nunca pudo dejar la Guerra",
    "seccion": "Argentina",
    "fecha": "2026-10-29T23:00:46.000Z",
    "intentos": 5,
    "motivo": "agotó los 5 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
-  },
-  {
-   "id": "19s99gt",
-   "titulo": "Quiénes cobrarán $656.751 de ANSES en noviembre por AUH y Tarjeta Alimentar",
-   "seccion": "Economía",
-   "fecha": "2026-10-29T12:27:38.696Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; sin material"
   },
   {
    "id": "oux973",

@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T12:05:12.703Z",
- "portada": 140,
+ "generado": "2026-10-30T12:35:25.712Z",
+ "portada": 142,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-10-30T12:05:13.529Z",
+  "generado": "2026-10-30T12:35:26.577Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -98,8 +98,8 @@
     "segundos": 55,
     "notas": [
      {
-      "id": "1r52nca",
-      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
+      "id": "5mwkfs",
+      "titulo": "Gestionan que los exámenes para conductores profesionales sean",
       "seccion": "Balcarce"
      },
      {
@@ -129,8 +129,8 @@
     "segundos": 52,
     "notas": [
      {
-      "id": "5mwkfs",
-      "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+      "id": "1r52nca",
+      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
       "seccion": "Balcarce"
      },
      {
@@ -144,9 +144,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1dd73iv",
-      "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
-      "seccion": "Economía"
+      "id": "c3w5sv",
+      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "14267ce",
+      "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1dd73iv",
+      "titulo": "Karina Milei encabeza en Rosario la primera ronda de negocios del RIGI",
+      "seccion": "Economía"
+     },
      {
       "id": "1oxthyw",
       "titulo": "Javier Milei felicita a Benjamin Netanyahu por los resultados en Israel",
       "seccion": "Argentina"
      },
      {
-      "id": "c3w5sv",
-      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
-      "seccion": "Fútbol"
-     },
-     {
       "id": "1a150ug",
       "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
       "seccion": "Tecnología"
-     },
-     {
-      "id": "3zjeei",
-      "titulo": "Comienza el asfaltado de la pista en el Autódromo de Buenos Aires",
-      "seccion": "Automovilismo"
      }
     ]
    }
@@ -192,6 +192,12 @@
    ],
    "cola": [
     {
+     "id": "5mwkfs",
+     "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1r52nca",
      "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
      "seccion": "Balcarce",
@@ -204,8 +210,8 @@
      "marcada": false
     },
     {
-     "id": "5mwkfs",
-     "titulo": "Gestionan que los exámenes para conductores profesionales sean",
+     "id": "14267ce",
+     "titulo": "Defensa Civil pide extremar recaudos ante tormentas severas",
      "seccion": "Balcarce",
      "marcada": false
     },
