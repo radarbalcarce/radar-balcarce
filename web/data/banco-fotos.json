@@ -49687,7 +49687,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de varias vacas en el campo"
   },
-  "huella": "072f978febda5a0a"
+  "huella": "072f978febda5a0a",
+  "ausenteDesde": "2026-10-30T02:02:36.804Z"
  },
  "7h21k3": {
   "archivo": "fotos-notas/7h21k3.jpg",
@@ -54587,6 +54588,53 @@
   "titulo": "La Corte acepta la demanda bonaerense contra la Nación por los subsidios al transporte",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
   "cuando": "2026-10-30T01:33:13.446Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "45kdhz": {
+  "archivo": "fotos-notas/45kdhz.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cristiano Ronaldo marca tres goles y alcanza los 985 en su carrera",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/cristiano-ronaldo-marco-un-hat-trick-tras-ganar-el-premio-boat-y-celebrarlo-en-sus-redes-nid29102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/cristiano-ronaldo-volvio-a-marcar-—por-QILI3QF6ABD3ZLBAIOV246T6JE.jpg?auth=0e878e9f8c0516d28c7a1568a73a4ba5375c9c4424f1b15dc505ac64ed0f6094&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única imagen completa y nítida que muestra a Cristiano Ronaldo celebrando, correspondiendo al hecho de la nota.",
+  "cuando": "2026-10-30T02:02:15.056Z",
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cristiano Ronaldo con la camiseta amarilla de Al-Nassr celebrando con los brazos extendidos en el campo de juego."
+  },
+  "huella": "2227c726242e2c33"
+ },
+ "bjkvmp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Vicente López lidera el ranking de municipios de la UBA",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T02:02:15.056Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+ },
+ "1bdjadx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ander Herrera palpita el Superclásico y llena de elogios a Ponzio",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T02:02:15.056Z",
   "intentos": 1,
   "fuentes": 4,
   "intentosPorCupo": 1,
