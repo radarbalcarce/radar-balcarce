@@ -53700,10 +53700,10 @@
   "origen": "ninguna",
   "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T21:33:04.205Z",
+  "cuando": "2026-10-30T17:02:33.840Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1l6sgre": {
@@ -53874,11 +53874,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "River define el equipo para visitar a Boca con dudas en el mediocampo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
-  "cuando": "2026-10-30T14:04:06.782Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T17:02:33.840Z",
   "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 2
+  "fuentes": 12,
+  "intentosPorCupo": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "zd81pg": {
   "intentado": true,
@@ -55070,10 +55071,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Selección Argentina femenina jugará ante Alemania en La Plata",
-  "razon": "Ninguna foto corresponde a la nota: la A muestra a una jugadora de Argentina contra Brasil, y B y C muestran una vista aérea nocturna de un estadio cerrado que no corresponde al Estadio Ciudad de La Plata.",
-  "cuando": "2026-10-30T09:55:19.277Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Ninguna foto corresponde al evento específico de la Selección Argentina femenina ante Alemania en La Plata: la A muestra a Argentina contra Brasil con otra camiseta, y las demás son tomas genéricas del Estadio Único.",
+  "cuando": "2026-10-30T17:02:33.840Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "gt3v6": {
   "archivo": "fotos-notas/gt3v6.jpg",
@@ -56499,10 +56500,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ARBal incorpora un nuevo canal de atención digital",
-  "razon": "La única foto disponible es una imagen gráfica (flyer) y no una fotografía de una escena real.",
-  "cuando": "2026-10-30T13:02:46.228Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "La foto A es un gráfico publicitario (no es una fotografía) y la foto B es una imagen genérica de stock, por lo que ninguna cumple los requisitos para ser elegida.",
+  "cuando": "2026-10-30T17:02:33.840Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "jgpxe2": {
   "intentado": true,
@@ -56694,13 +56696,28 @@
   "fuentes": 1
  },
  "1qph0xq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1qph0xq.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Javier Milei viaja a Neuquén para inaugurar un templo evangélico",
-  "razon": "Ninguna foto cumple con todos los requisitos: la A no corresponde a la nota (muestra a Patricia Bullrich y otra persona en el Senado), la B muestra un evento en un salón cerrado y no el templo evangélico mencionado, y la C incluye una multitud donde se reconocen menores en las primeras filas.",
-  "cuando": "2026-10-30T13:32:31.972Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://eleconomista.com.ar/politica/milei-viaja-neuquen-inaugurar-templo-evangelico-senadora-karina-desato-una-interna-n99344",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2026/10/6adf3be810721.jpg",
+  "razon": "Muestra claramente a Javier Milei en un evento con buena nitidez y sin menores ni marcas de agua.",
+  "cuando": "2026-10-30T17:02:33.840Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei sonriendo y saludando entre asistentes."
+  },
+  "huella": "1b07070bcb653c8b"
  },
  "1f734zt": {
   "intentado": true,
@@ -57075,11 +57092,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca y River juegan el Superclásico con mil efectivos de seguridad",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Clarín no se usa todavía.",
-  "cuando": "2026-10-30T15:07:09.243Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
+  "cuando": "2026-10-30T17:02:33.840Z",
   "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "fuentes": 6,
+  "intentosPorCupo": 2,
+  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "3i7b7w": {
   "archivo": "fotos-notas/3i7b7w.jpg",
@@ -57134,8 +57152,8 @@
   "origen": "ninguna",
   "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-10-30T15:38:08.470Z",
-  "intentos": 1,
+  "cuando": "2026-10-30T17:02:33.840Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "1a1koir": {
@@ -57385,7 +57403,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto del Senado con legisladores sentados en sus bancas."
   },
-  "huella": "4a5a5858bd11dbd4"
+  "huella": "4a5a5858bd11dbd4",
+  "ausenteDesde": "2026-10-30T17:03:05.814Z"
  },
  "cvoeyu": {
   "archivo": "fotos-notas/cvoeyu.jpg",
