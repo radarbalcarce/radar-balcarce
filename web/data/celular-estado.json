@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T19:36:58.262Z",
- "portada": 192,
+ "generado": "2026-10-30T20:04:50.966Z",
+ "portada": 201,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-30T19:36:58.972Z",
+  "generado": "2026-10-30T20:04:51.400Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,11 +126,42 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
      {
       "id": "m75zbl",
       "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "xqokjo",
+      "titulo": "Alumnos de la Escuela N° 3 abren la Fiesta Nacional del Postre",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "tp23to",
+      "titulo": "El Senado debatirá la reforma de la Ley de Salud Mental, que habilita internaciones involuntarias",
+      "seccion": "Política"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "1y3axjf",
+      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
       "seccion": "Deportes"
      },
      {
@@ -142,37 +173,6 @@
       "id": "14267ce",
       "titulo": "Conductas preventivas en la vía pública y en las viviendas",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1x12myv",
-      "titulo": "Un neurocientífico balcarceño desarrolla una app para detectar Alzheimer",
-      "seccion": "Ciencia"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 52,
-    "notas": [
-     {
-      "id": "1y3axjf",
-      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1n0ukpe",
-      "titulo": "Juan Bodega destaca la identidad que la Fiesta Nacional del Postre brinda a Balcarce",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1s07l6f",
-      "titulo": "Colapinto luce una camiseta especial y se prepara para el GP de México",
-      "seccion": "Automovilismo"
      },
      {
       "id": "c3w5sv",
@@ -212,8 +212,14 @@
    ],
    "cola": [
     {
-     "id": "5mwkfs",
-     "titulo": "Gestionan que los conductores profesionales puedan rendir sus exámenes en la ciudad",
+     "id": "1qobb2a",
+     "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "xqokjo",
+     "titulo": "Alumnos de la Escuela N° 3 abren la Fiesta Nacional del Postre",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -221,6 +227,12 @@
      "id": "1ol3gzw",
      "titulo": "Marcelo Dalto recuerda su trabajo junto a Diego Maradona en la Selección",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1messk8",
+     "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -245,18 +257,6 @@
      "id": "1h3gaol",
      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "mynw3q",
-     "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "ocwksr",
-     "titulo": "Emiliano Dibu Martínez revela una secuela permanente en su mano derecha tras el Mundial",
-     "seccion": "Deportes",
      "marcada": false
     }
    ],
