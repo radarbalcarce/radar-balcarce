@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T14:34:03.628Z",
- "portada": 133,
+ "generado": "2026-10-31T15:03:28.973Z",
+ "portada": 129,
  "archivo": 500,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-31T14:34:04.234Z",
+  "generado": "2026-10-31T15:03:30.088Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-31T12:36:29.727Z"
    },
    {
@@ -95,22 +95,22 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
-     {
-      "id": "1messk8",
-      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "r4bjyj",
-      "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-      "seccion": "Automovilismo"
-     },
      {
       "id": "z7i5op",
       "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "cpbebw",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "seccion": "Economía"
+     },
+     {
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "1ox7bm8",
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "cpbebw",
-      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-      "seccion": "Economía"
-     },
-     {
-      "id": "1qobb2a",
-      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "hz5evm",
-      "titulo": "El INTA exonera a Virginia Aparicio y le impide regresar a la Estación",
-      "seccion": "Ciencia"
-     },
      {
       "id": "vbb83b",
       "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
       "seccion": "Educación"
+     },
+     {
+      "id": "1d4nj79",
+      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1messk8",
+      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "10ibrn6",
+      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
+      "seccion": "Política"
      }
     ]
    },
@@ -160,24 +160,24 @@
     "segundos": 50,
     "notas": [
      {
-      "id": "1d4nj79",
-      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
+      "id": "197otww",
+      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
      },
      {
-      "id": "10ibrn6",
-      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
+      "id": "6ova04",
+      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
       "seccion": "Política"
+     },
+     {
+      "id": "5hmq87",
+      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+      "seccion": "Economía"
      },
      {
       "id": "1snkq1y",
       "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "1b0e7lc",
-      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -188,15 +188,14 @@
      "id": "10bkqp2",
      "titulo": "Franco Colapinto afronta la última práctica y la clasificación en México",
      "cuando": "2026-10-31T12:46:00.614Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "r4bjyj",
      "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
+     "cuando": "2026-10-31T14:36:00.530Z"
+    }
+   ],
+   "cola": [
     {
      "id": "z7i5op",
      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
@@ -210,15 +209,15 @@
      "marcada": false
     },
     {
-     "id": "hz5evm",
-     "titulo": "El INTA exonera a Virginia Aparicio y le impide regresar a la Estación",
-     "seccion": "Ciencia",
-     "marcada": false
-    },
-    {
      "id": "vbb83b",
      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "1n4xm9t",
+     "titulo": "El Manchester City recibe al Brighton por la Premier League",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -228,8 +227,8 @@
      "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-10-31T14:16:00.614Z",
+   "cupo": 3,
+   "proximoDesde": "2026-10-31T16:06:00.530Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
