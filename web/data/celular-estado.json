@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T12:04:20.920Z",
- "portada": 126,
+ "generado": "2026-10-31T12:35:10.441Z",
+ "portada": 130,
  "archivo": 500,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-10-31T12:04:21.357Z",
+  "generado": "2026-10-31T12:35:10.998Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 49,
     "notas": [
      {
       "id": "1qobb2a",
@@ -139,14 +139,14 @@
       "seccion": "Deportes"
      },
      {
+      "id": "1hy6wdw",
+      "titulo": "La Federación Agraria reelige a Andrea Sarnari como su presidenta",
+      "seccion": "Agro"
+     },
+     {
       "id": "10ibrn6",
       "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
       "seccion": "Política"
-     },
-     {
-      "id": "1a150ug",
-      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-      "seccion": "Tecnología"
      }
     ]
    },
@@ -157,34 +157,53 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "1r3uc04",
+      "titulo": "Destacan la genética de la raza Angus en la muestra de Primavera en Cañuelas",
+      "seccion": "Agro"
+     },
      {
       "id": "6ova04",
       "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
       "seccion": "Política"
      },
      {
+      "id": "1a150ug",
+      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
+      "seccion": "Tecnología"
+     },
+     {
       "id": "1df38y1",
       "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas para Edenor, Edesur y Metrogas",
       "seccion": "Economía"
-     },
-     {
-      "id": "ocwksr",
-      "titulo": "Emiliano Dibu Martínez revela una secuela permanente en su mano derecha tras el Mundial",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1b0e7lc",
-      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
-      "seccion": "Argentina"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "qo3xu1",
+     "titulo": "Paula Larroude y Mambrunense protagonizan la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "10bkqp2",
+     "titulo": "Franco Colapinto afronta la última práctica y la clasificación en México",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "1rxuorl",
+     "titulo": "Comienza la última fecha de la Primera Nacional para definir finalistas y descenso",
+     "seccion": "Fútbol",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-30T20:06:03.185Z",
    "porDia": 5,
