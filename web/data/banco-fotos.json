@@ -50879,7 +50879,8 @@
    "corresponde": "si",
    "descripcion": "Línea de producción de botellas de lavandina Ayudín en fábrica"
   },
-  "huella": "51b19f81fb2bad5e"
+  "huella": "51b19f81fb2bad5e",
+  "ausenteDesde": "2026-10-31T08:05:37.511Z"
  },
  "1hmc6g3": {
   "archivo": "fotos-notas/1hmc6g3.jpg",
@@ -52924,15 +52925,40 @@
   "fuentes": 1
  },
  "no17hh": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/no17hh.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-31T05:02:14.914Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.diariolavanguardia.com/noticias/45212-fiesta-de-la-luz-las-iglesias-evangelicas-celebraran-su-dia-con-musica-y-solidaridad/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66188.jpg",
+  "razon": "Es la única foto que muestra claramente el evento religioso al aire libre desde el público sin marcas de agua ni menores reconocibles en primer plano.",
+  "cuando": "2026-10-31T08:02:02.478Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas de espaldas levantando las manos al aire libre en un evento",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista de espaldas de una congregación al aire libre con las manos levantadas en oración."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "a58685c7da9d8c04"
  },
  "ahxvwa": {
   "archivo": "fotos-notas/ahxvwa.jpg",
@@ -55794,7 +55820,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:02.699Z",
-  "imagenOriginal": "https://media.tycsports.com/files/2026/10/28/1000443/milton-delgado-y-thiago-almada_1440x810.webp"
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/28/1000443/milton-delgado-y-thiago-almada_1440x810.webp",
+  "ausenteDesde": "2026-10-31T08:05:37.511Z"
  },
  "fjn664": {
   "intentado": true,
@@ -58565,11 +58592,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El empleo público nacional registra una baja de 75.260 puestos desde 2023",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Brújula 24 no se usa todavía.",
-  "cuando": "2026-10-31T03:03:12.789Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 3
+  "razon": "Ninguna foto cumple con todos los requisitos editoriales ya que ambas muestran multitudes con personas jóvenes o menores reconocibles y no corresponden directamente a la temática de la nota sobre empleo público.",
+  "cuando": "2026-10-31T08:02:02.478Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "5v0pia": {
   "archivo": "fotos-notas/5v0pia.jpg",
@@ -58646,15 +58672,42 @@
   "ausenteDesde": "2026-10-30T23:05:32.574Z"
  },
  "1yirfii": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1yirfii.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Lucas Silva se perfila como titular en River para el Superclásico",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-10-31T03:03:12.789Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 3,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.tycsports.com/river-plate/sin-anibal-moreno-la-formacion-de-river-que-se-perfila-para-jugar-contra-boca-id769426.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001216/river_862x485.webp?v=1",
+  "razon": "Es la única opción disponible y muestra a los jugadores de River Plate en el entrenamiento, correspondiendo al tema de la nota.",
+  "cuando": "2026-10-31T08:02:02.478Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de River Plate sentados en el césped durante un entrenamiento, con camisetas de práctica blancas y rojas.",
+   "detalle": "El logo 'DIRECTV' visible en las camisetas es un patrocinador del club y parte de la escena real, no una marca agregada por el medio.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de River entrenando en el campo de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0faf6d4d4d2ca5c7"
  },
  "1yumpcr": {
   "archivo": "fotos-notas/1yumpcr.jpg",
@@ -59768,7 +59821,8 @@
    "corresponde": "si",
    "descripcion": "Calle urbana iluminada y mojada por la lluvia nocturna."
   },
-  "huella": "0383939787978787"
+  "huella": "0383939787978787",
+  "ausenteDesde": "2026-10-31T08:05:37.511Z"
  },
  "1o1ei7p": {
   "intentado": true,
@@ -59826,5 +59880,38 @@
    "descripcion": "Hombre mayor utilizando un cajero automático"
   },
   "huella": "8ecccae8e95fcfec"
+ },
+ "f6g1gj": {
+  "archivo": "fotos-notas/f6g1gj.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central vence 2 a 1 a Sarmiento y trepa a la cima anual",
+  "enlace": "https://www.clarin.com/deportes/sarmiento-vs-rosario-central-vivo-torneo-clausura-2026-hora-juegan-formaciones-ver-vivo_0_0PInvO5Xup.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/31/Ohf_5Vh3O_2000x1500__1.jpg",
+  "razon": "Es la única foto de acción clara que corresponde al partido, sin marcas de agua, menores ni problemas de formato.",
+  "cuando": "2026-10-31T08:02:02.478Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Rosario Central gambeteando ante la marca de un rival de Sarmiento."
+  },
+  "huella": "4b2db54283ca4a03"
+ },
+ "1snkq1y": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-10-31T08:02:02.478Z",
+  "intentos": 1,
+  "fuentes": 11
  }
 }
