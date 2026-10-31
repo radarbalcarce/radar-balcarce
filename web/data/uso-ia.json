@@ -1647,18 +1647,18 @@
   "2026-10-31": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 39,
+     "llamadas": 40,
      "errores": 6,
-     "entrada": 77524,
-     "salida": 34286,
+     "entrada": 79896,
+     "salida": 35634,
      "pensamiento": 0,
-     "total": 111810,
+     "total": 115530,
      "claves": {
-      "clasificacion": 39
+      "clasificacion": 40
      },
      "motivos": {
       "clasificacion": {
-       "ok": 33,
+       "ok": 34,
        "cupo-diario": 6
       }
      }
@@ -1699,19 +1699,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 51,
+     "llamadas": 53,
      "errores": 9,
-     "entrada": 566026,
-     "salida": 4176,
+     "entrada": 602169,
+     "salida": 4326,
      "pensamiento": 0,
-     "total": 570202,
+     "total": 606495,
      "claves": {
-      "clasificacion": 51
+      "clasificacion": 53
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 42,
+       "ok": 44,
        "saturado": 1
       }
      }
@@ -1751,19 +1751,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 116,
+     "llamadas": 117,
      "errores": 15,
-     "entrada": 608447,
-     "salida": 109668,
+     "entrada": 616792,
+     "salida": 110903,
      "pensamiento": 0,
-     "total": 718115,
+     "total": 727695,
      "claves": {
-      "redaccion": 116
+      "redaccion": 117
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 15,
-       "ok": 101
+       "ok": 102
       }
      }
     },
@@ -1787,19 +1787,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 93,
+     "llamadas": 94,
      "errores": 23,
-     "entrada": 368413,
-     "salida": 28908,
+     "entrada": 377451,
+     "salida": 29696,
      "pensamiento": 0,
-     "total": 397321,
+     "total": 407147,
      "claves": {
-      "clasificacion": 93
+      "clasificacion": 94
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 20,
-       "ok": 70,
+       "ok": 71,
        "otro": 2,
        "saturado": 1
       }

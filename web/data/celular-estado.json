@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T15:33:35.372Z",
- "portada": 132,
- "archivo": 500,
+ "generado": "2026-10-31T16:02:34.360Z",
+ "portada": 130,
+ "archivo": 499,
  "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-31T15:33:35.845Z",
+  "generado": "2026-10-31T16:02:35.747Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,20 +93,20 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 49,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "z7i5op",
-      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1ox7bm8",
-      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
-      "seccion": "Policiales"
-     },
      {
       "id": "cpbebw",
       "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
@@ -116,22 +116,32 @@
       "id": "1qobb2a",
       "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
       "seccion": "Cultura y agenda"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 52,
-    "notas": [
+     },
+     {
+      "id": "1ox7bm8",
+      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+      "seccion": "Policiales"
+     },
      {
       "id": "vbb83b",
       "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
       "seccion": "Educación"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "z7i5op",
+      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+      "seccion": "Balcarce"
      },
      {
       "id": "1d4nj79",
@@ -147,37 +157,6 @@
       "id": "10ibrn6",
       "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
       "seccion": "Política"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 50,
-    "notas": [
-     {
-      "id": "197otww",
-      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "6ova04",
-      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-      "seccion": "Política"
-     },
-     {
-      "id": "5hmq87",
-      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
-      "seccion": "Economía"
-     },
-     {
-      "id": "1b0e7lc",
-      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -197,12 +176,6 @@
    ],
    "cola": [
     {
-     "id": "z7i5op",
-     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "cpbebw",
      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
      "seccion": "Economía",
@@ -212,6 +185,18 @@
      "id": "vbb83b",
      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "z7i5op",
+     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1yf87iz",
+     "titulo": "Chelsea vence 2 a 0 al Manchester United y Lisandro Martínez ve la roja",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
