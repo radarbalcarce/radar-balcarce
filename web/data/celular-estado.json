@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T12:35:10.441Z",
- "portada": 130,
+ "generado": "2026-10-31T13:03:44.167Z",
+ "portada": 127,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-31T12:35:10.998Z",
+  "generado": "2026-10-31T13:03:44.772Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-31T12:36:29.727Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,14 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
       "id": "1messk8",
       "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "z7i5op",
+      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+      "seccion": "Balcarce"
      },
      {
       "id": "1ox7bm8",
@@ -111,11 +116,6 @@
       "id": "1d4nj79",
       "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1nzzggy",
-      "titulo": "ANSES establece el cronograma de pagos de noviembre con cambios por asuetos",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
       "id": "1qobb2a",
@@ -134,14 +134,14 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "1nzzggy",
+      "titulo": "ANSES establece el cronograma de pagos de noviembre con cambios por asuetos",
+      "seccion": "Balcarce"
+     },
+     {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1hy6wdw",
-      "titulo": "La Federación Agraria reelige a Andrea Sarnari como su presidenta",
-      "seccion": "Agro"
      },
      {
       "id": "10ibrn6",
@@ -157,13 +157,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
-     {
-      "id": "1r3uc04",
-      "titulo": "Destacan la genética de la raza Angus en la muestra de Primavera en Cañuelas",
-      "seccion": "Agro"
-     },
      {
       "id": "6ova04",
       "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
@@ -175,26 +170,37 @@
       "seccion": "Tecnología"
      },
      {
-      "id": "1df38y1",
-      "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas para Edenor, Edesur y Metrogas",
-      "seccion": "Economía"
+      "id": "ocwksr",
+      "titulo": "Emiliano Dibu Martínez revela una secuela permanente en su mano derecha tras el Mundial",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1b0e7lc",
+      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
+      "seccion": "Argentina"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
+   "hoy": [
+    {
+     "id": "10bkqp2",
+     "titulo": "Franco Colapinto afronta la última práctica y la clasificación en México",
+     "cuando": "2026-10-31T12:46:00.614Z"
+    }
+   ],
    "cola": [
+    {
+     "id": "z7i5op",
+     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
     {
      "id": "qo3xu1",
      "titulo": "Paula Larroude y Mambrunense protagonizan la Fiesta Nacional del Postre",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "10bkqp2",
-     "titulo": "Franco Colapinto afronta la última práctica y la clasificación en México",
-     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -204,8 +210,8 @@
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-30T20:06:03.185Z",
+   "cupo": 4,
+   "proximoDesde": "2026-10-31T14:16:00.614Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

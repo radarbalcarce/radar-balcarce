@@ -50558,7 +50558,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Diego Cifarelli sonriendo frente a un fondo con el logo de la Federación de Acopiadores de Cereales."
   },
-  "huella": "e0f1f2f0f3e8e9c8"
+  "huella": "e0f1f2f0f3e8e9c8",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "1j3bjqu": {
   "archivo": "fotos-notas/1j3bjqu.jpg",
@@ -50618,7 +50619,8 @@
    "corresponde": "si",
    "descripcion": "Nico Williams cabeceando en el área ante la defensa argentina y el arquero"
   },
-  "huella": "2ed3eca8e9702d86"
+  "huella": "2ed3eca8e9702d86",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "8s2k9s": {
   "intentado": true,
@@ -50674,7 +50676,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:00.722Z",
-  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/patricia-bullrich-dialoga-con-el-radical-NBAL75OHPNAOLEJTNHZHCDRFIU.jpg?auth=1576b1cfb7fe7b323086a2e41203ee1e68ad3e9d28f3bd74aa19ef01d164bcf6&width=1200&height=800&quality=70&smart=true"
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/patricia-bullrich-dialoga-con-el-radical-NBAL75OHPNAOLEJTNHZHCDRFIU.jpg?auth=1576b1cfb7fe7b323086a2e41203ee1e68ad3e9d28f3bd74aa19ef01d164bcf6&width=1200&height=800&quality=70&smart=true",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "144mul3": {
   "archivo": "fotos-notas/144mul3.jpg",
@@ -57018,7 +57021,8 @@
    "corresponde": "si",
    "descripcion": "Lula da Silva sosteniendo un mazo y Javier Milei aplaudiendo frente a banderas."
   },
-  "huella": "d83a3aaaaaaaaacc"
+  "huella": "d83a3aaaaaaaaacc",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "1k9g8vu": {
   "intentado": true,
@@ -57982,7 +57986,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:56.856Z",
-  "imagenOriginal": "https://media.perfil.com/prod/images/hero/09ece087f877-mercados-2195902.webp"
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/09ece087f877-mercados-2195902.webp",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "kjiyj2": {
   "archivo": "fotos-notas/kjiyj2.jpg",
@@ -59189,7 +59194,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-31T07:03:27.014Z"
+  "cuando": "2026-10-31T13:03:40.977Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -59922,9 +59927,9 @@
   "origen": "ninguna",
   "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
   "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-31T10:02:15.065Z",
-  "intentos": 2,
-  "fuentes": 12
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "intentos": 3,
+  "fuentes": 14
  },
  "v11vak": {
   "archivo": "fotos-notas/v11vak.jpg",
@@ -60045,14 +60050,28 @@
   "huella": "3736666643434567"
  },
  "1rxuorl": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1rxuorl.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Comienza la última fecha de la Primera Nacional para definir finalistas y descenso",
-  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida según las reglas.",
-  "cuando": "2026-10-31T11:01:31.455Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: The service is currently unavailable."
+  "enlace": "https://www.eldia.com/deportes/se-definen-los-finalistas-y-un-descenso-deportes_1793424093",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793425215832.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto limpia sin marcas de agua, colages ni elementos gráficos agregados, manteniendo buena nitidez y enfoque en el jugador.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador con camiseta verde celebrando un gol con el puño apretado"
+  },
+  "huella": "3b2baee96bb3b39b"
  },
  "17m2olp": {
   "archivo": "fotos-notas/17m2olp.jpg",
@@ -60343,7 +60362,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "62632cace3c3051f"
+  "huella": "62632cace3c3051f",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "qo3xu1": {
   "intentado": true,
@@ -60434,7 +60454,8 @@
    "corresponde": "generica",
    "descripcion": "Primer plano del logo y el nombre de la empresa Binance."
   },
-  "huella": "030a183898c0291a"
+  "huella": "030a183898c0291a",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
  },
  "1wvkilh": {
   "archivo": "fotos-notas/1wvkilh.jpg",
@@ -60458,6 +60479,127 @@
    "corresponde": "si",
    "descripcion": "Javier Milei frente a un atril con banderas de España y Argentina"
   },
-  "huella": "1c3c2c3c6c5c6c6c"
+  "huella": "1c3c2c3c6c5c6c6c",
+  "ausenteDesde": "2026-10-31T13:03:44.082Z"
+ },
+ "z7i5op": {
+  "archivo": "fotos-notas/z7i5op.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/raul-cunqueiro-repaso-la-historia-de-blanco-y-negro-poder-conservarlo-es-un-orgullo",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Raul%20Cunqueiro.jpeg",
+  "razon": "Es la única foto disponible, corresponde a la nota y cumple con todos los requisitos sin marcas agregadas ni menores.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Raúl Cunqueiro parado frente a un fondo verde con el logo de Radio Gabal"
+  },
+  "huella": "0f07175747163e0b"
+ },
+ "hajmdh": {
+  "archivo": "fotos-notas/hajmdh.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta amarilla por tormentas y lluvias en ocho provincias",
+  "enlace": "https://radiomitre.cienradios.com/videos/una-fuerte-tormenta-llega-a-la-ciudad-de-buenos-aires-que-zonas-ya-fueron-afectadas-y-que-pasara-con-el-fin-de-semana/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/KYYAKQT2ERERLEAFG7GXXZ6HUI.png?smart=true&auth=414c8498721a6042e047315972e7e31b54e8c29d8f55e1d070da55136f50382c&width=1200&height=630",
+  "razon": "Es una fotografía nocturna real que ilustra perfectamente una tormenta eléctrica sobre una ciudad, sin marcas, menores ni problemas de stock.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rayo cayendo sobre la ciudad de noche"
+  },
+  "huella": "38383c3c2c0e4256"
+ },
+ "6pllp2": {
+  "archivo": "fotos-notas/6pllp2.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ARCA devolverá 9.377 millones a Enrique Piñeyro tras un fallo judicial",
+  "enlace": "https://www.cronista.com/economia-politica/enrique-pineyro-gano-un-juicio-contra-el-estado-y-donara-una-cifra-millonaria-al-garrahan/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/IIODJR3Q7BB4JM7UFZGSXNXUWQ.jpg?auth=32b74d502f006817ab8220ad401687c6861a8bcc1ce9eba85a2c00ad8cc2e2c8&height=630&width=1200&quality=70&smart=true",
+  "razon": "Muestra a Enrique Piñeyro con buena nitidez, sin marcas ni problemas, y corresponde perfectamente a la nota.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Enrique Piñeyro con camisa y corbata frente a una biblioteca"
+  },
+  "huella": "3705613171731233"
+ },
+ "yov4eb": {
+  "archivo": "fotos-notas/yov4eb.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Una encuesta nacional muestra pesimismo sobre la clase media ante una reelección",
+  "enlace": "https://laverdadonline.com/encuesta-6-de-cada-10-creen-que-si-milei-es-reelecto-no-habra-clase-media/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/10/2-encuesta-solo-si-hace-falta.webp",
+  "razon": "La foto B muestra a los tres principales actores políticos y cumple con todos los requisitos sin tener marcas de agua ni restricciones.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Kicillof, Milei y Massa sin marcas"
+  },
+  "huella": "1569696d496948cc"
+ },
+ "mjgjb2": {
+  "archivo": "fotos-notas/mjgjb2.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Oficializan la suba de tarifas de luz y gas para noviembre en el AMBA",
+  "enlace": "https://www.ambito.com/energia/oficial-vuelven-subir-las-tarifas-luz-y-gas-el-amba-n6339606",
+  "imagenOriginal": "https://media.ambito.com/p/c7beb28352168d4548c1b23ef10dc897/adjuntos/239/imagenes/043/483/0043483584/1200x675/3258x1963:3278x1983/luz-electricidad-subsidios-tarifas-gas.jpg",
+  "razon": "Es una foto clara, limpia de marcas y personas, que ilustra directamente los servicios de luz y gas mencionados en la nota.",
+  "cuando": "2026-10-31T13:02:22.707Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hornalla de gas encendida y una bombilla de luz."
+  },
+  "huella": "1b17a3836343cbc3"
  }
 }

@@ -1424,19 +1424,19 @@
   "numeradas": 3
  },
  "18ak0mp": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T12:31:18.781Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"superclasico\", \"bombonera\" y el cuerpo no los explica; sin esas oraciones quedan 286 palabras",
+  "intentos": 3,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
   "textos": 5,
-  "numeradas": 12,
+  "numeradas": 13,
   "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"superclasico\", \"bomb"
+   "cuerpo: 1 problema (promesa): el título nombra a \"superclasico\", \"bomb",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ],
   "falla": [
-   "el título nombra a \"superclasico\", \"bombonera\" y el cuerpo no los explica"
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "18bh1xz": {
@@ -7763,16 +7763,13 @@
   "numeradas": 12
  },
  "6pllp2": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T12:31:18.781Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 9.377.000.000 y el cuerpo no lo explica; sin esas oraciones quedan 244 palabras",
-  "textos": 3,
+  "intentos": 2,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 9.377.000.000 y el cuerpo"
-  ],
-  "falla": [
-   "el título dice 9.377.000.000 y el cuerpo no lo explica"
   ]
  },
  "6qracj": {
@@ -9622,6 +9619,13 @@
   "textos": 3,
   "numeradas": 4
  },
+ "hajmdh": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 23
+ },
  "hammap": {
   "intentos": 1,
   "ultimo": "2026-10-27T12:31:32.638Z",
@@ -10478,6 +10482,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 48
+ },
+ "mjgjb2": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 11
  },
  "mk4k1r": {
   "intentos": 2,
@@ -12879,6 +12890,13 @@
    "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"direc"
   ]
  },
+ "yov4eb": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
  "yqgn18": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:13:36.477Z",
@@ -13028,6 +13046,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "z7i5op": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T13:01:35.844Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
+  ]
  },
  "zbdsge": {
   "intentos": 5,
