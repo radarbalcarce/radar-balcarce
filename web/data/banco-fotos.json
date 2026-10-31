@@ -21411,9 +21411,7 @@
   "borrada": true
  },
  "10fktw1": {
-  "archivo": "fotos-notas/10fktw1.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Diego Cabrera advierte sobre la crisis alimentaria y la falta de pagos",
@@ -21445,7 +21443,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "d1531b703c717574",
-  "ausenteDesde": "2026-10-24T03:02:22.918Z"
+  "intentado": true,
+  "borrada": true
  },
  "2qoyht": {
   "medio": "Campeones",
@@ -31611,9 +31610,7 @@
   "ausenteDesde": "2026-10-27T03:36:32.650Z"
  },
  "g7h7b": {
-  "archivo": "fotos-notas/g7h7b.jpg",
   "medio": "Mi8 (Canal 8 Mar del Plata)",
-  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La confianza del consumidor sube un 0,81% en octubre",
@@ -31633,7 +31630,8 @@
    "descripcion": "Mujer caminando frente a vidriera con precios de calzado."
   },
   "huella": "ecececac2c2eaaa7",
-  "ausenteDesde": "2026-10-24T02:35:16.882Z"
+  "intentado": true,
+  "borrada": true
  },
  "11jjrxq": {
   "medio": "TyC Sports",
@@ -35501,9 +35499,7 @@
   "ausenteDesde": "2026-10-27T16:20:22.119Z"
  },
  "1hmio7x": {
-  "archivo": "fotos-notas/1hmio7x.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Gimnasia supera a Sarmiento por dos a cero y estira su invicto",
@@ -35524,7 +35520,8 @@
    "descripcion": "Jugador de Gimnasia celebrando con los brazos en alto."
   },
   "huella": "2301333694d86864",
-  "ausenteDesde": "2026-10-24T02:35:16.882Z"
+  "intentado": true,
+  "borrada": true
  },
  "rwln79": {
   "archivo": "fotos-notas/sscp8z.jpg",
@@ -50422,7 +50419,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:10.454Z",
-  "imagenOriginal": "https://www.argentina.gob.ar/sites/default/files/2026/10/mejoramiento_genetico_alfalfa_4.jpg"
+  "imagenOriginal": "https://www.argentina.gob.ar/sites/default/files/2026/10/mejoramiento_genetico_alfalfa_4.jpg",
+  "ausenteDesde": "2026-10-31T03:04:38.051Z"
  },
  "1f6vexf": {
   "intentado": true,
@@ -58525,11 +58523,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El empleo público nacional registra una baja de 75.260 puestos desde 2023",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
-  "cuando": "2026-10-31T00:33:36.235Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Brújula 24 no se usa todavía.",
+  "cuando": "2026-10-31T03:03:12.789Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "5v0pia": {
   "archivo": "fotos-notas/5v0pia.jpg",
@@ -58609,11 +58607,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lucas Silva se perfila como titular en River para el Superclásico",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-10-31T00:33:36.235Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-10-31T03:03:12.789Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3,
+  "errorGemini": "The operation was aborted due to timeout"
  },
  "1yumpcr": {
   "archivo": "fotos-notas/1yumpcr.jpg",
@@ -59043,14 +59042,40 @@
   "intentosPorCupo": 1
  },
  "5a449y": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Gimnasia visita a Estudiantes de Río Cuarto por el Torneo Clausura",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de 0221 no se usa todavía.",
+  "archivo": "fotos-notas/1e527x7.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
+  "enlace": "https://www.0221.com.ar/gimnasia/gimnasia-visita-estudiantes-rio-cuarto-el-torneo-clausura-n136679",
+  "imagenOriginal": "https://media.0221.com.ar/p/e1d908db3d6b3e3487d61c87040d4790/adjuntos/357/imagenes/100/302/0100302046/1200x630/775x357:795x377/festejo-gimnasia-estudiantes-rio-cuarto.png",
+  "razon": "Es la única imagen que no presenta marcas de agua sobreimpresas por el medio, mostrando el festejo de los jugadores de manera clara y profesional.",
   "cuando": "2026-10-31T01:33:17.098Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 2
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Gimnasia abrazados festejando un gol.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Gimnasia en camiseta blanca y azul celeste abrazados en un abrazo grupal celebrando en la cancha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "274b72d7e9eb2b6b"
  },
  "futbolresultadosliga20261030": {
   "intentado": true,
@@ -59374,5 +59399,65 @@
    "descripcion": "Victoria Villarruel de pie en el recinto del Senado."
   },
   "huella": "4e56465471717153"
+ },
+ "1edi0lj": {
+  "archivo": "fotos-notas/1edi0lj.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldosivi pierde ante Racing y desciende a la Primera Nacional",
+  "enlace": "https://www.cronica.com.ar/depo/ligaprofesional/aldosivi-se-juega-la-permanencia-ante-racing-por-el-torneo-clausura-2026-hora-y-donde-ver-en-vivo/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1727/1727851/6ae53d7e2ac9f_600_315!.jpg?s=0270b5133e13922e3b7ac17c88ed7c4c&d=1793410102",
+  "razon": "Es la única imagen que muestra una acción de juego clara, sin marcas de agua, sin menores reconocibles y con buena calidad técnica.",
+  "cuando": "2026-10-31T03:03:12.789Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Aldosivi disputando la pelota ante un rival de Racing."
+  },
+  "huella": "1e581a9a13121705"
+ },
+ "sw48on": {
+  "archivo": "fotos-notas/sw48on.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei cuestiona al periodismo y anuncia un nuevo libro",
+  "enlace": "https://www.eldestapeweb.com/politica/javier-milei-medidas-gobierno-vivo-ultimas-noticias-30-octubre-minuto-minuto-2026103073036",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793406709168.jpg?&cw=1600&ch=900",
+  "razon": "Es la imagen más limpia, con buen encuadre, sin marcas de agua, sin menores y que ilustra correctamente al protagonista de la nota.",
+  "cuando": "2026-10-31T03:03:12.789Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando frente a un atril.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Javier Milei hablando en un atril con micrófonos"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "13332b6969695969"
  }
 }

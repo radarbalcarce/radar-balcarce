@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T02:06:25.495Z",
- "portada": 196,
- "archivo": 500,
- "esperandoCuerpo": 6,
+ "generado": "2026-10-31T03:04:38.169Z",
+ "portada": 181,
+ "archivo": 499,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-10-31T02:06:26.061Z",
+  "generado": "2026-10-31T03:04:38.940Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-30T10:36:39.179Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-30T12:36:43.333Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,8 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-30T13:36:34.918Z"
-   },
-   {
-    "nombre": "participa-nota",
-    "tipo": "reel",
-    "hora": "12:00",
-    "que": "Tu nota",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-10-30T15:36:38.010Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +43,18 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-30T20:36:50.775Z"
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "utiles",
+    "tipo": "reel",
+    "hora": "17:00",
+    "que": "Los teléfonos útiles",
+    "voz": "locutor",
+    "ventana": 60,
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-10-30T22:36:52.780Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-10-30T23:36:32.182Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,75 +93,13 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-10-30T13:36:34.918Z",
-    "segundos": null,
-    "notas": [
-     {
-      "id": "5mwkfs",
-      "titulo": "Gestionan que los conductores profesionales puedan rendir sus exámenes en la ciudad",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "mynw3q",
-      "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "dqa51l",
-      "titulo": null,
-      "seccion": null
-     },
-     {
-      "id": "1d2n6l3",
-      "titulo": "Lula agradece el saludo de Macri y cuestiona a Javier Milei",
-      "seccion": "Argentina"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-30T20:36:50.775Z",
-    "segundos": null,
-    "notas": [
-     {
-      "id": "1y3axjf",
-      "titulo": "Ferroviarios recibe una jornada de partidos de básquet",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1h3gaol",
-      "titulo": "Dante Gebel festeja los 30 años de El Superclásico de la Juventud en Vélez",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "14267ce",
-      "titulo": "Conductas preventivas en la vía pública y en las viviendas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "c3w5sv",
-      "titulo": "Diego Maradona cumple 66 años del nacimiento que marcó al fútbol mundial",
-      "seccion": "Fútbol"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1qobb2a",
-      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "id": "1messk8",
+      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
      },
      {
@@ -180,36 +118,72 @@
       "seccion": "Política"
      }
     ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
+    "notas": [
+     {
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "m75zbl",
+      "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1a150ug",
+      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
+      "seccion": "Tecnología"
+     },
+     {
+      "id": "6ova04",
+      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+      "seccion": "Política"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 47,
+    "notas": [
+     {
+      "id": "197otww",
+      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1a19f94",
+      "titulo": "La AFA aprueba el VAR semiautomático y se estrena en diciembre",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1df38y1",
+      "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas para Edenor, Edesur y Metrogas",
+      "seccion": "Economía"
+     },
+     {
+      "id": "1oxthyw",
+      "titulo": "Javier Milei felicitó a Benjamin Netanyahu tras haberse impuesto en las elecciones de Israel",
+      "seccion": "Argentina"
+     }
+    ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "z5zzy3",
-     "titulo": "Dictan una master class de taekwondo",
-     "cuando": "2026-10-30T11:06:03.502Z"
-    },
-    {
-     "id": "kbhupz",
-     "titulo": "La Liga Balcarceña programa la tercera fecha del Clausura",
-     "cuando": "2026-10-30T12:46:09.689Z"
-    },
-    {
-     "id": "1r52nca",
-     "titulo": "Avanza el proyecto para crear un banco municipal de elementos ortopédicos",
-     "cuando": "2026-10-30T14:36:08.545Z"
-    },
-    {
-     "id": "1mxjex4",
-     "titulo": "ARBal incorpora un nuevo canal de atención digital",
-     "cuando": "2026-10-30T16:36:01.902Z"
-    },
-    {
-     "id": "1s7htpl",
-     "titulo": "Thiara López logra múltiples podios en el Open Internacional de Natación Paralímpica",
-     "cuando": "2026-10-30T18:36:03.185Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "1qobb2a",
@@ -227,12 +201,6 @@
      "id": "1d4nj79",
      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "10ibrn6",
-     "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
-     "seccion": "Política",
      "marcada": false
     },
     {
@@ -254,13 +222,19 @@
      "marcada": false
     },
     {
-     "id": "1e527x7",
-     "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
+     "id": "1edi0lj",
+     "titulo": "Aldosivi pierde ante Racing y desciende a la Primera Nacional",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1wtorgc",
+     "titulo": "La demanda de dólares alcanza los 3410 millones durante septiembre",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-30T20:06:03.185Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
