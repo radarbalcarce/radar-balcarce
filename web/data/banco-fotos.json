@@ -36224,9 +36224,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ww8f15": {
-  "archivo": "fotos-notas/1ww8f15.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Atlético Tucumán vence 1 a 0 a Tigre y sigue en la pelea",
@@ -36246,7 +36244,8 @@
    "descripcion": "Acción de juego entre jugadores de Atlético Tucumán y Tigre"
   },
   "huella": "aa8b2b852c2f5565",
-  "ausenteDesde": "2026-10-24T12:01:50.191Z"
+  "intentado": true,
+  "borrada": true
  },
  "10vefy4": {
   "medio": "Diario Popular",
@@ -51844,7 +51843,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-31T06:03:26.171Z"
+  "cuando": "2026-10-31T12:04:11.273Z"
  },
  "gbrd5s": {
   "archivo": "fotos-notas/gbrd5s.jpg",
@@ -56980,10 +56979,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Detrás de la Pasión llega al Festival de Cine de Mar del Plata",
-  "razon": "La mejor foto era la de LU9 Mar del Plata, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-30T14:34:21.321Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ninguna de las fotos cumple con todos los requisitos necesarios para ser publicada directamente.",
+  "cuando": "2026-10-31T12:02:32.620Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1hd2f2b": {
   "archivo": "fotos-notas/1hd2f2b.jpg",
@@ -57870,7 +57869,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:41.049Z",
-  "imagenOriginal": "https://www.infocampo.com.ar/wp-content/uploads/2020/05/Clima-Lluvia-1.jpg"
+  "imagenOriginal": "https://www.infocampo.com.ar/wp-content/uploads/2020/05/Clima-Lluvia-1.jpg",
+  "ausenteDesde": "2026-10-31T12:04:20.842Z"
  },
  "1f8v713": {
   "archivo": "fotos-notas/1f8v713.jpg",
@@ -60079,13 +60079,40 @@
   "ausenteDesde": "2026-10-31T11:32:30.094Z"
  },
  "3fyeyv": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3fyeyv.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "San Lorenzo visita a Vélez en un duelo clave por los playoffs",
-  "razon": "Ninguna de las fotos cumple con todas las condiciones para ser publicada directamente sin marcas de agua de medios nacionales, elementos gráficos de transmisión o por tratarse de partidos de otros equipos.",
-  "cuando": "2026-10-31T11:01:31.455Z",
-  "intentos": 1,
-  "fuentes": 13
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-velez-vs-san-lorenzo-fecha-15-id769326.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/25/999727/velez_1440x810.webp?v=5",
+  "razon": "Es la única foto fotográfica real que corresponde al partido, sin marcas de agua ajenas, menores ni gráficos institucionales.",
+  "cuando": "2026-10-31T12:02:32.620Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Vélez festejando un gol abrazados.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de San Lorenzo celebran un gol en el partido contra Vélez Sarsfield."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "7072233737a737b6"
  },
  "1jucn5w": {
   "archivo": "fotos-notas/1jucn5w.jpg",
@@ -60181,6 +60208,67 @@
    "corresponde": "si",
    "descripcion": "Atención presencial en una oficina de ANSES con un monitor de la entidad"
   },
-  "huella": "77e7575747cfaf2f"
+  "huella": "77e7575747cfaf2f",
+  "ausenteDesde": "2026-10-31T12:04:20.842Z"
+ },
+ "9z8ex7": {
+  "archivo": "fotos-notas/9z8ex7.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldosivi desciende a la Primera Nacional tras caer ante Racing",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/sanguinetti-tras-el-descenso-de-aldosivi-el-dolor-es-muy-grande-y-su-posible-continuidad-id769578.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/31/1001422/javier-sanguinetti_1440x810.webp",
+  "razon": "Es la única foto con excelente calidad, primer plano limpio y libre de marcas o problemas.",
+  "cuando": "2026-10-31T12:02:32.620Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un director técnico pensativo"
+  },
+  "huella": "1f1f272f2bcbeba7"
+ },
+ "1pkrpmr": {
+  "archivo": "fotos-notas/1pkrpmr.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Newell's y Unión juegan en Rosario por el Torneo Clausura 2026",
+  "enlace": "https://www.minutouno.com/deportes/newells-vs-union-el-torneo-clausura-2026-horario-formaciones-y-tv-n6339367",
+  "imagenOriginal": "https://media.minutouno.com/p/1c8584af6bf1139d9db7496bc1010f94/adjuntos/150/imagenes/043/310/0043310973/1200x675/smart/newells-union.jpeg",
+  "razon": "Es la única foto real de acción del partido, con buen encuadre y sin gráficos superpuestos.",
+  "cuando": "2026-10-31T12:02:32.620Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en un partido de fútbol",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Newell's y Unión disputando el balón en un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8e33b6737363692d"
  }
 }

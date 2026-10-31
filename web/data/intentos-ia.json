@@ -1416,6 +1416,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "18ak0mp": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T12:01:43.434Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 259 palabras",
+  "textos": 6,
+  "numeradas": 14,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "18bh1xz": {
   "intentos": 2,
   "ultimo": "2026-10-27T16:08:54.201Z",
@@ -3862,6 +3876,19 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
+ "1k2wgzy": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T12:01:43.434Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 190 palabras",
+  "textos": 9,
+  "numeradas": 11,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1k2xynm": {
   "intentos": 1,
   "ultimo": "2026-10-30T19:31:43.802Z",
@@ -4097,13 +4124,15 @@
   ]
  },
  "1liz0x8": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:31:15.001Z",
+  "intentos": 2,
+  "ultimo": "2026-10-31T12:01:43.434Z",
   "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 2 problemas (nombre): el titulo nombra a \"america\" y ",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"america\" y l",
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
   ],
   "falla": [
@@ -5053,17 +5082,14 @@
   ]
  },
  "1pkrpmr": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:31:15.001Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 250 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-31T12:01:43.434Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl",
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1pmrj5": {
@@ -5140,25 +5166,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 15
- },
- "1q9z2db": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T12:01:18.746Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo corto (68 palabras)",
-   "título o bajada: 3 problemas (forma, numero, nombre): el copete trae u",
-   "título o bajada: 1 problema (titulo): el título usa un adjetivo de gan"
-  ]
- },
- "1qaxnjd": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T12:01:18.746Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 4
  },
  "1qb0r2c": {
   "intentos": 1,
@@ -8176,6 +8183,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 6
+ },
+ "9z8ex7": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T12:01:43.434Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
  },
  "a3j2xy": {
   "intentos": 1,
@@ -13015,6 +13029,21 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "zrf0xv": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T12:01:43.434Z",
+  "motivo": "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 189 palabras",
+  "textos": 3,
+  "numeradas": 7,
+  "motivos": [
+   "cuerpo: 3 problemas (antecedente, relleno): el cuerpo usa \"tomas\", que",
+   "cuerpo: 2 problemas (numero, relleno): el cuerpo dice 40 y la fuente n"
+  ],
+  "falla": [
+   "el cuerpo dice 40 y la fuente no lo dice",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
  },
  "zsk58": {
   "intentos": 1,
