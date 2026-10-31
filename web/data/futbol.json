@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-31T20:03:34.663Z",
+ "consultado": "2026-10-31T20:33:31.622Z",
  "equipos": [
   "9739",
   "3",
@@ -775,7 +775,7 @@
     "competencia": "liga",
     "inicio": "2026-10-31T20:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "4'",
+    "minuto": "34'",
     "local": {
      "id": "17702",
      "nombre": "Deportivo Riestra",
@@ -784,10 +784,17 @@
     "visitante": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Valentín Fascendini",
+      "minuto": "25'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Guillermo Laza",
     "fase": null,
     "partidoDeLaSerie": null,

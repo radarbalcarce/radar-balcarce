@@ -37105,9 +37105,7 @@
   "ausenteDesde": "2026-10-27T13:36:15.463Z"
  },
  "l9ymzm": {
-  "archivo": "fotos-notas/l9ymzm.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto termina 15 en la tercera práctica en Estados Unidos",
@@ -37127,7 +37125,8 @@
    "descripcion": "El auto de Colapinto circulando por la pista de frente"
   },
   "huella": "003939c8cc86ac29",
-  "ausenteDesde": "2026-10-24T20:32:25.880Z"
+  "intentado": true,
+  "borrada": true
  },
  "1w1bqj1": {
   "archivo": "fotos-notas/1w1bqj1.jpg",
@@ -61071,7 +61070,8 @@
    "corresponde": "si",
    "descripcion": "El árbitro le muestra la tarjeta roja a Lisandro Martínez."
   },
-  "huella": "0c356bd6aeaeeec6"
+  "huella": "0c356bd6aeaeeec6",
+  "ausenteDesde": "2026-10-31T20:33:36.544Z"
  },
  "69tef9": {
   "archivo": "fotos-notas/69tef9.jpg",
@@ -61417,7 +61417,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1b3525cc8c8c94bc"
+  "huella": "1b3525cc8c8c94bc",
+  "ausenteDesde": "2026-10-31T20:33:36.544Z"
  },
  "rkjxue": {
   "archivo": "fotos-notas/rkjxue.jpg",
@@ -61870,5 +61871,194 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "0f8f8f06d5171703"
+ },
+ "k50ygu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Selección femenina jugará un amistoso contra Alemania en La Plata",
+  "razon": "La foto A tiene marca de agua del medio y la foto B es una toma genérica del estadio sin jugadoras.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "xhl255": {
+  "archivo": "fotos-notas/xhl255.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico en el estadio Alberto J. Armando",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-boca-juniors-vs-river-plate-fecha-15-id769458.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001292/boca-vs-river_1440x810.webp",
+  "razon": "Es la única foto real de acción del partido, sin marcas superpuestas, gráficos ni elementos de diseño.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en un partido de fútbol."
+  },
+  "huella": "8735133331342a6a"
+ },
+ "thn2a6": {
+  "archivo": "fotos-notas/thn2a6.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central vence 2 a 1 a Sarmiento y trepa a la cima anual",
+  "enlace": "https://bolavip.com/ar/futbolargentino/asi-quedaron-la-tabla-anual-y-los-cruces-del-torneo-clausura-tras-el-triunfo-de-rosario-central",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/30225923/Gaston-Avila-defensor-de-Rosario-Central-1200x740.webp",
+  "razon": "La foto A muestra claramente el festejo de los jugadores de Rosario Central con gran nitidez y sin marcas de agua ni menores reconocibles, siendo perfecta para ilustrar la nota.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central festejando un gol."
+  },
+  "huella": "174b0b0b0b5343cb"
+ },
+ "1nq43zw": {
+  "archivo": "fotos-notas/1nq43zw.webp",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia derrota a Estudiantes de Río Cuarto y clasifica a los playoffs",
+  "enlace": "https://laverdadonline.com/gimnasia-gano-clasifico-a-los-playoffs-del-torneo-clausura-y-suena-con-la-copa-libertadores/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/10/lobno.webp",
+  "razon": "Es la única foto sin marcas de agua de medios sobreimpresas, con buen encuadre y nitidez de la misma escena.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando levantando una cinta",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Gimnasia celebrando con la cinta del club"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0002725456546da8"
+ },
+ "1p8czyn": {
+  "archivo": "fotos-notas/1p8czyn.jpg",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldosivi pierde ante Racing y desciende a la Primera Nacional",
+  "enlace": "https://www.infobrisas.com/noticias/2026/10/30/113280-en-vivo-aldosivi-visita-a-racing-con-la-obligacion-de-ganar-para-seguir-en-primera",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/10/infobrisas/images/02/83/83/2838399_8dd034071c5e0932ad0000c58c7abc2109eb90d8f1dd17b701b417ad059c2716/lg.webp?_v=v3-129",
+  "razon": "Es la única foto que ilustra correctamente el partido sin marcas de agua superpuestas ni símbolos de reproducción de video.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador con camiseta amarilla y celeste controlando el balón en un partido de fútbol"
+  },
+  "huella": "1b141a9a1312150d"
+ },
+ "mvto9m": {
+  "archivo": "fotos-notas/mvto9m.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Belgrano juega el domingo ante Barracas Central por el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-belgrano-vs-barracas-central-fecha-15-id769506.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/16/996602/lisandro-lopez_862x485.webp?v=1",
+  "razon": "La foto A muestra a un jugador de Belgrano en pleno partido con buen encuadre y sin marcas añadidas, mientras que la B es un gráfico con el logo de Olé.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Belgrano de perfil con camiseta negra en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Belgrano corriendo en la cancha durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4a5551b131331819"
+ },
+ "1ys95c4": {
+  "archivo": "fotos-notas/1ys95c4.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flamengo acude al TAS para suspender la venta de entradas de la final",
+  "enlace": "https://www.tycsports.com/copa-libertadores/flamengo-insiste-ante-el-tas-por-la-serie-de-libertadores-con-estudiantes-id769473.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001260/marcos-rojo_1440x810.webp?v=1",
+  "razon": "Es una fotografía clara de un partido de fútbol que ilustra adecuadamente la temática, sin marcas agregadas, menores ni problemas técnicos.",
+  "cuando": "2026-10-31T20:32:35.103Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón en un partido de fútbol nocturno.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Flamengo con la camiseta 11 disputando el balón en una cancha de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "c10d565119b83b1b"
  }
 }

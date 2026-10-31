@@ -1,11 +1,11 @@
 {
- "generado": "2026-10-31T20:03:40.487Z",
+ "generado": "2026-10-31T20:33:36.607Z",
  "intentosMaximos": 3,
  "notas": [
   {
    "id": "1sgedwu",
    "titulo": "El Museo Fangio recibió la visita de integrantes de las Fuerzas Armadas provenientes de Tandil",
-   "copete": "En una jornada de reconocimiento y camaradería, representantes de las Fuerzas Armadas que sirvieron a la Patria durante el conflicto del Atlántico Sur visitaron el Museo del Automovilismo Juan Manuel Fangio. Durante el encuentro, se realizó un intercambio de presentes con el…",
+   "copete": "",
    "seccion": "Automovilismo",
    "fecha": "2026-10-31T20:01:43.930Z",
    "fuentes": [
@@ -15,8 +15,8 @@
      "fecha": null
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 2 problemas (nombre): el titulo nombra a \"malvinas\" y la fuente no",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
    "maximo": 3
   },
   {
@@ -40,17 +40,26 @@
    "intentos": 2,
    "motivo": "con cuerpo",
    "maximo": 3
+  },
+  {
+   "id": "16rizt6",
+   "titulo": "Completaron la reparación de casi 100 kilómetros de la ruta 226",
+   "copete": "Vialidad Nacional informó que fueron finalizados los trabajos de recuperación ejecutados por la empresa Corresur sobre las secciones Estación Hinojo, sobre la ruta nacional 226 (Subtramo Atlántico), y Uribelarrea , sobre la ruta nacional 205 (Subtramo Sur). Las tareas de puesta…",
+   "seccion": "Argentina",
+   "fecha": "2026-10-31T19:59:00.000Z",
+   "fuentes": [
+    {
+     "medio": "0223 (Mar del Plata)",
+     "enlace": "https://www.0223.com.ar/nota/2026-10-31-16-59-0-bacheo-repavimentacion-y-mas-repararon-casi-100-kilometros-de-la-ruta-226",
+     "fecha": "2026-10-31T19:59:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título dice 100 y el cuerpo no lo explica; sin esas oraciones quedan 132 palabras",
+   "maximo": 3
   }
  ],
  "descartadas": [
-  {
-   "id": "hz5evm",
-   "titulo": "Virginia Aparicio fue desvinculada de INTA y no podrá regresar",
-   "seccion": "Ciencia",
-   "fecha": "2026-10-31T14:00:32.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; cuerpo: 2 problemas (numero, copia): el cuerpo dice 2 y la fuente no lo dice; sin esas oraciones quedan 294 palabras"
-  },
   {
    "id": "k4m9lu",
    "titulo": "El TN avanza para realizar una fecha",
