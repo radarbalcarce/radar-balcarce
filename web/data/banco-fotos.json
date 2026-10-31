@@ -23114,9 +23114,7 @@
   "ausenteDesde": "2026-10-24T23:33:53.764Z"
  },
  "8sk5u6": {
-  "archivo": "fotos-notas/8sk5u6.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Salud pública ofrece mamografías gratis en Tucumán en octubre",
@@ -23136,7 +23134,8 @@
    "descripcion": "Una paciente realizándose una mamografía asistida por una profesional de la salud."
   },
   "huella": "041b93c783b72529",
-  "ausenteDesde": "2026-10-24T23:03:19.733Z"
+  "intentado": true,
+  "borrada": true
  },
  "11grheq": {
   "medio": "Olé",
@@ -37387,9 +37386,7 @@
   "huella": "f3d4307374f45971"
  },
  "m4riz4": {
-  "archivo": "fotos-notas/m4riz4.jpg",
   "medio": "Página/12",
-  "credito": "Foto: Página/12",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lula y Flávio Bolsonaro cruzan acusaciones en el último debate en Brasil",
@@ -37410,7 +37407,8 @@
    "descripcion": "Imagen dividida que muestra a Lula y a Flávio Bolsonaro durante el debate presidencial."
   },
   "huella": "6761676662576363",
-  "ausenteDesde": "2026-10-24T23:03:19.733Z"
+  "intentado": true,
+  "borrada": true
  },
  "vn1ufa": {
   "intentado": true,
@@ -52906,7 +52904,8 @@
    "corresponde": "si",
    "descripcion": "Tres hombres en un podio sosteniendo cheques de premio y una bolsa de regalo, con un fondo verde que indica 'Municipio MAIPU'."
   },
-  "huella": "536341b3390d6571"
+  "huella": "536341b3390d6571",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "4u8cd0": {
   "intentado": true,
@@ -55330,7 +55329,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "172e2cb929686839"
+  "huella": "172e2cb929686839",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "3bvpyr": {
   "archivo": "fotos-notas/3bvpyr.jpg",
@@ -55375,7 +55375,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:57.186Z",
-  "imagenOriginal": "https://media.0221.com.ar/p/c3d58d73c7d956a1c2e1929faccc3bd9/adjuntos/357/imagenes/100/301/0100301947/1200x630/smart/image.png"
+  "imagenOriginal": "https://media.0221.com.ar/p/c3d58d73c7d956a1c2e1929faccc3bd9/adjuntos/357/imagenes/100/301/0100301947/1200x630/smart/image.png",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "rn3ih8": {
   "archivo": "fotos-notas/rn3ih8.jpg",
@@ -57947,7 +57948,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:53.349Z",
-  "imagenOriginal": "https://media.minutouno.com/p/19b824926ac3305b6d316d692b7f4d8b/adjuntos/150/imagenes/043/704/0043704706/1200x675/smart/que-dijo-el-papa-leon-xiv-la-confirmacion-su-viaje-la-argentina.jpg"
+  "imagenOriginal": "https://media.minutouno.com/p/19b824926ac3305b6d316d692b7f4d8b/adjuntos/150/imagenes/043/704/0043704706/1200x675/smart/que-dijo-el-papa-leon-xiv-la-confirmacion-su-viaje-la-argentina.jpg",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "1p6569g": {
   "archivo": "fotos-notas/1p6569g.jpg",
@@ -58119,10 +58121,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-  "razon": "La única foto sin problemas de marca, menores o formato gráfico es la C, pero es exactamente igual a la B, y la B tiene un encuadre menos prolijo. Como la B tiene menor y la A es una placa gráfica, ninguna cumple con todos los requisitos para ser elegida.",
-  "cuando": "2026-10-31T21:32:25.815Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Diario La Vanguardia no se usa todavía.",
+  "cuando": "2026-10-31T23:02:49.978Z",
   "intentos": 4,
-  "fuentes": 7
+  "fuentes": 8,
+  "intentosPorCupo": 1
  },
  "tzfmdg": {
   "intentado": true,
@@ -58955,7 +58958,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea del estadio donde se jugará la final de la Copa Sudamericana."
   },
-  "huella": "32c778b187c6ccf4"
+  "huella": "32c778b187c6ccf4",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "11h87ft": {
   "archivo": "fotos-notas/11h87ft.jpg",
@@ -61418,8 +61422,7 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1b3525cc8c8c94bc",
-  "ausenteDesde": "2026-10-31T22:03:31.558Z"
+  "huella": "1b3525cc8c8c94bc"
  },
  "rkjxue": {
   "archivo": "fotos-notas/rkjxue.jpg",
@@ -61589,7 +61592,8 @@
    "corresponde": "si",
    "descripcion": "Logo de Binance sobre fondo digital azul con efecto de movimiento"
   },
-  "huella": "dbd38955df736bcd"
+  "huella": "dbd38955df736bcd",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "1euhlh3": {
   "archivo": "fotos-notas/1euhlh3.jpg",
@@ -62262,10 +62266,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
-  "razon": "Todas las opciones disponibles muestran a menores de edad reconocibles (juveniles de divisiones inferiores), lo cual incumple la política del medio de no publicar fotos de menores.",
-  "cuando": "2026-10-31T22:02:11.156Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-10-31T23:02:49.978Z",
   "intentos": 1,
-  "fuentes": 7
+  "fuentes": 8,
+  "intentosPorCupo": 1
  },
  "1sgedwu": {
   "archivo": "fotos-notas/1sgedwu.jpg",
@@ -62370,7 +62375,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón en un partido"
   },
-  "huella": "c3ca434551c9a725"
+  "huella": "c3ca434551c9a725",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "10gqeer": {
   "archivo": "fotos-notas/10gqeer.jpg",
@@ -62394,7 +62400,8 @@
    "corresponde": "si",
    "descripcion": "Diego Simeone dirigiendo durante el partido."
   },
-  "huella": "a332246664ece624"
+  "huella": "a332246664ece624",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "42wllz": {
   "intentado": true,
@@ -62475,6 +62482,112 @@
    "corresponde": "si",
    "descripcion": "Auto de carreras tomando una curva."
   },
-  "huella": "ab2903e76566e467"
+  "huella": "ab2903e76566e467",
+  "ausenteDesde": "2026-10-31T23:04:54.654Z"
+ },
+ "1btdkmk": {
+  "archivo": "fotos-notas/1btdkmk.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Elaboran el Postre Balcarce de 13 metros en la Fiesta Nacional",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/el-postre-balcarce-mas-largo-del-mundo-volvio-a-ser-protagonista-en-la-fnp-2026",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/POSTRE3.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no presenta marcas de agua, menores de edad ni elementos que impidan su publicación.",
+  "cuando": "2026-10-31T23:02:49.978Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Grupo de personas trabajando en la elaboración del Postre Balcarce de 13 metros en un evento al aire libre."
+  },
+  "huella": "d642ec5c5818fa1f"
+ },
+ "j9wvk7": {
+  "archivo": "fotos-notas/j9wvk7.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Libertad Avanza propone limitar el cobro de tasas en municipios bonaerenses",
+  "enlace": "https://www.eleco.com.ar/politica/la-libertad-avanza-busca-limitar-el-cobro-de-tasas-municipales-en-la-provincia",
+  "imagenOriginal": "https://cdnartic.ar/RC-_wQJmW7v_xLH0GDU3Aa0rpz4=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/03/sebastian_pareja.webp",
+  "razon": "Es la única foto que muestra a los protagonistas en un contexto de reunión política, sin marcas de agua, sin menores y con buena calidad. La segunda opinión (groq) descartó la de Diario La Vanguardia (un menor): se usa El Eco de Tandil.",
+  "cuando": "2026-10-31T23:02:49.978Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei entrando a un lugar.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Un hombre de traje azul camina por un pasillo rodeado de personas y periodistas."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "ff9fcfcd4d6dadb2"
+ },
+ "dq9pmu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Noviembre llega con aumentos en tarifas, transporte, prepagas y alquileres",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Canal 26 no se usa todavía.",
+  "cuando": "2026-10-31T23:02:49.978Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "1v3oanf": {
+  "archivo": "fotos-notas/1v3oanf.jpg",
+  "medio": "Mi8 (Canal 8 Mar del Plata)",
+  "credito": "Foto: Mi8 (Canal 8 Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pronostican un fin de semana con lluvias y viento en la región",
+  "enlace": "https://mi8.com.ar/lluvias-y-viento-del-oeste-asi-estara-el-clima-este-sabado-31-de-octubre-en-mar-del-plata/",
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2023/08/IMG-20230120-WA0039.jpg",
+  "razon": "La foto B ilustra correctamente el estado del tiempo en la costa, no tiene marcas de agua, no presenta menores y es una fotografía de una escena real.",
+  "cuando": "2026-10-31T23:02:49.978Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista panorámica de la costa y el mar bajo un cielo gris y nublado."
+  },
+  "huella": "01010101010e0707"
+ },
+ "f1parrilla2026r19": {
+  "archivo": "fotos-notas/libre-f1parrilla2026r19.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: Planet Labs, Inc. / Wikimedia Commons (CC BY-SA 4.0)",
+  "licencia": "CC BY-SA 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez,_June_4,_2018_SkySat.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez%2C_June_4%2C_2018_SkySat.jpg/1280px-Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez%2C_June_4%2C_2018_SkySat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Autódromo Hermanos Rodríguez, June 4, 2018 SkySat.jpg",
+  "cuando": "2026-10-31T23:04:52.778Z"
  }
 }

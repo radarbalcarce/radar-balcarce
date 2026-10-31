@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T22:36:06.522Z",
- "portada": 134,
+ "generado": "2026-10-31T23:04:54.748Z",
+ "portada": 142,
  "archivo": 500,
- "esperandoCuerpo": 0,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-31T22:36:07.557Z",
+  "generado": "2026-10-31T23:04:55.304Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "1x9aj17",
@@ -144,19 +144,19 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "u1eoal",
+      "titulo": "Lucenza lanza la segunda edición del programa Mujeres al Volante",
+      "seccion": "Educación"
+     },
+     {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
      },
      {
-      "id": "1cy5n9b",
-      "titulo": "Conmebol confirma el horario de la final de la Sudamericana entre Boca y Mineiro",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "6ova04",
-      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-      "seccion": "Política"
+      "id": "1sgedwu",
+      "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -206,12 +206,6 @@
      "id": "1aziot7",
      "titulo": "Godoy Cruz y Tristán Suárez jugarán la final por el primer ascenso",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "lzs8s4",
-     "titulo": "Binance cubre el noventa por ciento de las pérdidas por el hackeo",
-     "seccion": "Tecnología",
      "marcada": false
     }
    ],
