@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T16:02:34.360Z",
- "portada": 130,
- "archivo": 499,
- "esperandoCuerpo": 1,
+ "generado": "2026-10-31T16:33:48.027Z",
+ "portada": 129,
+ "archivo": 500,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-31T16:02:35.747Z",
+  "generado": "2026-10-31T16:33:48.830Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,13 +105,8 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 48,
     "notas": [
-     {
-      "id": "cpbebw",
-      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-      "seccion": "Economía"
-     },
      {
       "id": "1qobb2a",
       "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
@@ -123,9 +118,14 @@
       "seccion": "Policiales"
      },
      {
-      "id": "vbb83b",
-      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
-      "seccion": "Educación"
+      "id": "z7i5op",
+      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1d4nj79",
+      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -136,17 +136,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
      {
-      "id": "z7i5op",
-      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
-      "seccion": "Balcarce"
+      "id": "cpbebw",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "seccion": "Economía"
      },
      {
-      "id": "1d4nj79",
-      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
-      "seccion": "Deportes"
+      "id": "vbb83b",
+      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
+      "seccion": "Educación"
      },
      {
       "id": "1messk8",
@@ -154,9 +154,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "10ibrn6",
-      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
-      "seccion": "Política"
+      "id": "197otww",
+      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "seccion": "Deportes"
      }
     ]
    }
@@ -176,21 +176,15 @@
    ],
    "cola": [
     {
-     "id": "cpbebw",
-     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "vbb83b",
-     "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "z7i5op",
      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "cpbebw",
+     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+     "seccion": "Economía",
      "marcada": false
     },
     {

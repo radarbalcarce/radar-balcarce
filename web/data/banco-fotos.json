@@ -59186,7 +59186,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "274b72d7e9eb2b6b"
+  "huella": "274b72d7e9eb2b6b",
+  "ausenteDesde": "2026-10-31T16:33:47.893Z"
  },
  "futbolresultadosliga20261030": {
   "intentado": true,
@@ -60936,10 +60937,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes y Palmeiras juegan la final de la Copa Libertadores el 28 de noviembre",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de 0221 (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-10-31T15:32:30.673Z",
-  "intentos": 1,
-  "fuentes": 5
+  "razon": "Ninguna foto corresponde a la final de la Copa Libertadores entre Estudiantes y Palmeiras.",
+  "cuando": "2026-10-31T16:32:36.022Z",
+  "intentos": 2,
+  "fuentes": 22
  },
  "5kodrb": {
   "archivo": "fotos-notas/5kodrb.jpg",
@@ -61037,5 +61038,89 @@
    "descripcion": "El árbitro le muestra la tarjeta roja a Lisandro Martínez."
   },
   "huella": "0c356bd6aeaeeec6"
+ },
+ "69tef9": {
+  "archivo": "fotos-notas/69tef9.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Luciano Pereyra bromea con Mario Pergolini sobre los temas que cantará al Papa",
+  "enlace": "https://www.lanacion.com.ar/espectaculos/luciano-pereyra-se-cruzo-con-mario-pergolini-por-la-cancion-que-le-cantara-al-papa-leon-xiv-a-quien-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/luciano-pereyra-se-cruzo-con-mario-pergolini-por-QXXPTAYXLBD23DZAIXEATCOSTI.jpg?auth=97e8463f4aa1bfe7e92924c154727882d2ae83721c45fb1126106a5256484b8d&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto válida que muestra la interacción entre Luciano Pereyra y Mario Pergolini sin marcas de agua superpuestas ni montajes raros.",
+  "cuando": "2026-10-31T16:32:36.022Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Luciano Pereyra hablando con Mario Pergolini"
+  },
+  "huella": "593333333339393b"
+ },
+ "be41od": {
+  "archivo": "fotos-notas/be41od.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto finaliza 16 en la segunda práctica del GP de México",
+  "enlace": "https://www.lanacion.com.ar/deportes/el-look-con-el-que-franco-colapinto-se-robo-toda-la-atencion-en-su-llegada-al-gran-premio-de-mexico-nid29102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-look-con-el-que-franco-colapinto-se-robo-toda-FW5EEIDV2FBLBKVZRYHV5BECW4.jpg?auth=be957f72f0a7dc42833f1397a5d09ffc8b9d3f114474f794842dac19a8c4ebfb&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía nítida, de excelente encuadre, que muestra a Franco Colapinto en el evento sin marcas añadidas ni problemas de menores.",
+  "cuando": "2026-10-31T16:32:36.022Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto con gorra y remera del equipo"
+  },
+  "huella": "06060e0b0e061f47"
+ },
+ "tlp2gm": {
+  "archivo": "fotos-notas/tlp2gm.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES confirma un incremento del 1,93 por ciento en las jubilaciones",
+  "enlace": "https://tn.com.ar/economia/2026/10/30/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-viernes-30-de-octubre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/anses-quienes-cobran-hoy-jubilaciones-auh-y-asignaciones-foto-anses-6UWKFVE4JJBWHIV6ZRC4QRILWQ.jpg?auth=063548cd4357d86a2a64efc9951285035199a5b405bb53558c97cb7c5f6822e7&width=1023",
+  "razon": "Es la única foto que muestra claramente a jubilados haciendo fila en un banco, acorde al tema de la nota, sin menores, marcas de medios ni elementos gráficos o de stock. La segunda opinión (groq) descartó la de El Destape (parece una foto de stock): se usa TN (Todo Noticias).",
+  "cuando": "2026-10-31T16:32:36.022Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Frente de una oficina de ANSES",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Fachada de una oficina de ANSES con su letrero azul característico."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3e3d3973e7ceda6a"
  }
 }

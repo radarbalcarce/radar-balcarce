@@ -4319,13 +4319,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1mamx6j": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 32
- },
  "1maz81v": {
   "intentos": 1,
   "ultimo": "2026-10-29T22:32:02.347Z",
@@ -4586,6 +4579,20 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
+ },
+ "1nmb7wc": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T16:32:09.262Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 211 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
  },
  "1nn0utx": {
   "intentos": 1,
@@ -6514,13 +6521,6 @@
    "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
   ]
  },
- "1w688vu": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 17
- },
  "1wiu5wj": {
   "intentos": 1,
   "ultimo": "2026-10-27T21:31:39.847Z",
@@ -6895,13 +6895,6 @@
   "motivos": [
    "Gemini: Expected ',' or ']' after array element in JSON at position 10"
   ]
- },
- "1yxp5q5": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "1yybtvm": {
   "intentos": 1,
@@ -7663,6 +7656,13 @@
  "68piqz": {
   "intentos": 1,
   "ultimo": "2026-10-28T16:07:52.055Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
+ "69tef9": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T16:32:09.262Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
@@ -8546,17 +8546,14 @@
   ]
  },
  "be41od": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T12:31:18.781Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 1 y el cuerpo no lo explica; sin esas oraciones quedan 204 palabras",
-  "textos": 3,
-  "numeradas": 22,
+  "intentos": 2,
+  "ultimo": "2026-10-31T16:32:09.262Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 20,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 16 y el cuerpo no lo expl",
    "cuerpo: 1 problema (promesa): el título dice 1 y el cuerpo no lo expli"
-  ],
-  "falla": [
-   "el título dice 1 y el cuerpo no lo explica"
   ]
  },
  "begn2z": {
@@ -9787,13 +9784,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 6
- },
- "i9n7eh": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "icdsle": {
   "intentos": 1,
@@ -11644,13 +11634,6 @@
    "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
- "rvsn70": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 45
- },
  "rw6ytz": {
   "intentos": 2,
   "ultimo": "2026-10-30T08:02:16.152Z",
@@ -11917,6 +11900,13 @@
  "tktom9": {
   "intentos": 1,
   "ultimo": "2026-10-27T11:01:39.946Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
+ "tlp2gm": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T16:32:09.262Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
@@ -12632,13 +12622,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "wzkylt": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T16:32:00.306Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "x2hlrk": {
   "intentos": 2,
