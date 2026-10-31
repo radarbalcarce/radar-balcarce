@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T19:33:16.534Z",
- "portada": 141,
+ "generado": "2026-10-31T20:03:40.487Z",
+ "portada": 142,
  "archivo": 500,
  "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-31T19:33:16.861Z",
+  "generado": "2026-10-31T20:03:41.184Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "Los teléfonos útiles",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -105,7 +105,7 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 48,
     "notas": [
      {
       "id": "1ox7bm8",
@@ -113,8 +113,8 @@
       "seccion": "Policiales"
      },
      {
-      "id": "1qobb2a",
-      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "id": "1pa7ehp",
+      "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
       "seccion": "Cultura y agenda"
      },
      {
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
       "id": "197otww",
@@ -154,9 +154,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1wtorgc",
-      "titulo": "La demanda de dólares alcanza los 3410 millones durante septiembre",
-      "seccion": "Economía"
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -186,14 +186,14 @@
    ],
    "cola": [
     {
-     "id": "b7yw0o",
-     "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
+     "id": "1pa7ehp",
+     "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "1pa7ehp",
-     "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
+     "id": "b7yw0o",
+     "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -204,15 +204,15 @@
      "marcada": false
     },
     {
-     "id": "1yf87iz",
-     "titulo": "Chelsea vence 2 a 0 al Manchester United y Lisandro Martínez ve la roja",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1oo88r4",
      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1yf87iz",
+     "titulo": "Chelsea vence 2 a 0 al Manchester United y Lisandro Martínez ve la roja",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
