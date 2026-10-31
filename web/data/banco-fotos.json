@@ -50239,7 +50239,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de autoridades sentadas en una mesa de reuniones con banderas de Argentina y la provincia de Buenos Aires al fondo."
   },
-  "huella": "dd43cad8921362f0"
+  "huella": "dd43cad8921362f0",
+  "ausenteDesde": "2026-10-31T05:03:48.814Z"
  },
  "wb3wpx": {
   "archivo": "fotos-notas/wb3wpx.jpg",
@@ -52891,13 +52892,29 @@
   "ausenteDesde": "2026-10-29T19:33:22.261Z"
  },
  "1tejsa4": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú y Jimena Vivas sube al podio",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-29T13:05:50.518Z",
-  "intentos": 1,
-  "fuentes": 1
+  "archivo": "fotos-notas/1tejsa4.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mariano Barreiro gana la Carrera del Asado en Maipú",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/mariano-barreiro-se-quedo-con-el-triunfo-en-maipu",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/barreriro.jpeg",
+  "razon": "Es la única imagen que muestra el hecho de la nota (la premiación de la carrera) y no presenta marcas de agua del medio ni menores de edad.",
+  "cuando": "2026-10-31T05:02:14.914Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres en un podio sosteniendo cheques de premio y una bolsa de regalo, con un fondo verde que indica 'Municipio MAIPU'."
+  },
+  "huella": "536341b3390d6571"
  },
  "4u8cd0": {
   "intentado": true,
@@ -52912,10 +52929,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Realizan la Fiesta de la Luz por el Día de las Iglesias Evangélicas",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-29T13:05:50.518Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-10-31T05:02:14.914Z",
   "intentos": 1,
-  "fuentes": 1
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "ahxvwa": {
   "archivo": "fotos-notas/ahxvwa.jpg",
@@ -59509,7 +59528,8 @@
    "corresponde": "si",
    "descripcion": "Rayos sobre una ciudad al atardecer."
   },
-  "huella": "330bc3271d1d0413"
+  "huella": "330bc3271d1d0413",
+  "ausenteDesde": "2026-10-31T05:03:48.814Z"
  },
  "u927ef": {
   "archivo": "fotos-notas/u927ef.jpg",
@@ -59545,7 +59565,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "d371d6ce94a62e27"
+  "huella": "d371d6ce94a62e27",
+  "ausenteDesde": "2026-10-31T05:03:48.814Z"
  },
  "1jmtc8v": {
   "intentado": true,
@@ -59579,5 +59600,38 @@
    "descripcion": "Torre de perforación de YPF en Vaca Muerta."
   },
   "huella": "a0f8cbe3c64f3e96"
+ },
+ "tqu2s8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "PAMI permite consultar el estado de expedientes a través de su sitio web",
+  "razon": "Ambas imágenes son fotografías de stock genéricas que no ilustran el hecho específico de la consulta de expedientes en PAMI, por lo que no corresponden a la nota.",
+  "cuando": "2026-10-31T05:02:14.914Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1gwokle": {
+  "archivo": "fotos-notas/1gwokle.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Enólogos eligen los diez mejores vinos argentinos de la edición 2026",
+  "enlace": "https://tn.com.ar/cocina/vinos/2026/10/30/los-10-vinos-argentinos-elegidos-por-los-enologos-como-los-mejores-del-ano-cuales-son-y-de-donde-vienen/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/los-mejores-vinos-argentinos-de-2026-segun-los-propios-enologos-el-ranking-completo-foto-caminos-del-vino-NLUDVXUKVZAQHABKN23FGWSPY4.jpg?auth=ee6fb3fa65c972155bdd83115db435e70de8e91901b38cce46d794164cae11a1&width=1023",
+  "razon": "La foto A muestra una cata real, mientras que la B es una imagen de stock genérica.",
+  "cuando": "2026-10-31T05:02:14.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas en una cata de vinos sirviendo una copa."
+  },
+  "huella": "615111941334c3ac"
  }
 }

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-31T04:05:20.166Z",
+  "generado": "2026-10-31T05:03:48.931Z",
   "notas": [
     {
       "id": "13d5b6e",
@@ -905,6 +905,7 @@
         "Clarín",
         "Página/12",
         "Noticias Argentinas (NA)",
+        "El Día",
         "C5N",
         "Los Andes (Mendoza)"
       ],
@@ -912,7 +913,7 @@
       "fecha": "2026-10-30T21:49:38.000Z",
       "sinFecha": false,
       "visto": "2026-10-31T00:31:58.877Z",
-      "relevancia": 54,
+      "relevancia": 55,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -977,6 +978,13 @@
           "medio": "C5N",
           "enlace": "https://www.c5n.com/economia/los-argentinos-compraron-casi-us2900-millones-un-ano-las-elecciones-n253058",
           "fecha": "2026-10-31T01:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/se-acelera-la-demanda-de-dolares-compraron-u-s3-410-millones-politica-y-economia_1793418836",
+          "fecha": "2026-10-31T03:53:56.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1318,27 +1326,28 @@
         "Clarín",
         "TN (Todo Noticias)",
         "El Destape",
-        "Perfil",
         "A24",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
+        "El Día",
         "El Marplatense",
         "Ámbito",
         "C5N",
         "Los Andes (Mendoza)",
         "La Nación",
         "La Brújula 24",
+        "Perfil",
         "El Cronista"
       ],
       "enlace": "https://www.lanacion.com.ar/estados-unidos/que-revelo-la-septima-votacion-por-la-onu-y-como-quedo-posicionado-el-argentino-rafael-grossi-nid30102026/",
       "fecha": "2026-10-30T20:42:19.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T22:01:27.556Z",
-      "relevancia": 62,
+      "relevancia": 63,
       "local": false,
       "muyContada": {
-        "medios": 12,
-        "porque": "12 medios",
+        "medios": 13,
+        "porque": "13 medios",
         "desde": "2026-10-30T22:31:27.109Z"
       },
       "publicadaPor": null,
@@ -1465,6 +1474,13 @@
           "medio": "El Marplatense",
           "enlace": "https://www.elmarplatense.com/el-argentino-rafael-grossi-quedo-segundo-en-la-septima-votacion-para-secretario-general-de-la-onu",
           "fecha": "2026-10-30T23:45:04.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/rafael-grossi-logro-su-mejor-votacion-y-se-ilusiona-con-la-onu-politica-y-economia_1793418896",
+          "fecha": "2026-10-31T03:54:56.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1931,6 +1947,68 @@
       }
     },
     {
+      "id": "tqu2s8",
+      "titulo": "PAMI permite consultar el estado de expedientes a través de su sitio web",
+      "copete": "El organismo habilitó una herramienta digital para conocer la ubicación administrativa de los trámites presenciales. Los afiliados deben contar con el número de referencia y el año de inicio para realizar la búsqueda.",
+      "cuerpo": "El Programa de Atención Médica Integral dispone de una sección específica en su página oficial para que los afiliados verifiquen dónde se encuentra su expediente. Esta herramienta permite seguir el recorrido administrativo de gestiones iniciadas de forma presencial, diferenciándose de los números de trámite o reclamo que se obtienen mediante el servicio telefónico PAMI Escucha y Responde.\n\nPara acceder a la información, el usuario debe ingresar al sitio web del organismo y seleccionar la opción Consulta de Expediente. El sistema solicita completar dos datos obligatorios: el año en que se registró el trámite y el número de referencia. Es fundamental verificar que la información ingresada sea correcta antes de enviar el formulario para evitar errores en la búsqueda.\n\nLos expedientes se identifican mediante una estructura numérica de 16 dígitos, organizados en bloques separados por guiones. El organismo aclara que esta numeración es específica y no debe confundirse con otros códigos que aparecen en comprobantes o comunicaciones digitales. Si el afiliado posee únicamente un número de reclamo, no podrá utilizarlo en este buscador, ya que el sistema está diseñado exclusivamente para expedientes generados por gestiones presenciales.",
+      "guion": "PAMI permite consultar el estado de expedientes a través de su sitio web.",
+      "seccion": "Salud",
+      "medios": [
+        "El Destape",
+        "Perfil"
+      ],
+      "enlace": "https://www.eldestapeweb.com/sociedad/pami-consultar-expediente-online-paso-paso-20261030163845",
+      "fecha": "2026-10-30T19:38:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-31T05:01:12.548Z",
+      "relevancia": 37,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La consulta se realiza desde la página web oficial del PAMI.",
+        "Es necesario contar con el año y el número de referencia del expediente.",
+        "El formato del expediente tiene 16 dígitos separados por guiones.",
+        "La herramienta es exclusiva para trámites iniciados de manera presencial."
+      ],
+      "seSabe": [
+        "El PAMI cuenta con un buscador online para expedientes.",
+        "El sistema requiere el año y el número de referencia de 16 dígitos.",
+        "Los números de reclamo telefónico no sirven para esta consulta web."
+      ],
+      "textoRedes": "El PAMI habilitó una herramienta en su sitio web para que los afiliados puedan consultar el estado y la ubicación de sus expedientes. Para realizar la búsqueda es necesario contar con el número de referencia y el año de inicio del trámite.",
+      "etiquetas": [
+        "PAMI",
+        "Trámites",
+        "Expedientes",
+        "Gestión online"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/sociedad/pami-consultar-expediente-online-paso-paso-20261030163845",
+          "fecha": "2026-10-30T19:38:00.000Z",
+          "oficial": false,
+          "aporte": "Detalla el procedimiento paso a paso, la diferencia entre tipos de trámites y el formato numérico de los expedientes."
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/opinion/consultar-la-ia-a6yPi5U6BeQe",
+          "fecha": "2026-10-31T04:21:45.000Z",
+          "oficial": false,
+          "aporte": "Menciona la consulta de la IA, aunque no aporta información técnica sobre el sistema de expedientes del PAMI."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "pami-permite-consultar-el-estado-de-expedientes-a-traves-de-su-sitio"
+    },
+    {
       "id": "1qobb2a",
       "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
       "copete": "La pastelera ofreció una demostración de rolls de cardamomo durante la jornada del viernes en la Sociedad Rural. La actividad formó parte de la 22ª edición de la celebración local.",
@@ -2351,8 +2429,8 @@
       "medios": [
         "0223 (Mar del Plata)",
         "El Destape",
-        "El Día",
-        "Qué Digital"
+        "Qué Digital",
+        "El Día"
       ],
       "enlace": "https://www.eldia.com/la-ciudad/cuenta-dni-del-banco-provincia-los-descuentos-de-hoy-viernes-30-de-octubre-del-2026-la-ciudad_1793357509",
       "fecha": "2026-10-30T19:05:00.000Z",
@@ -2571,6 +2649,75 @@
       }
     },
     {
+      "id": "1gwokle",
+      "titulo": "Enólogos eligen los diez mejores vinos argentinos de la edición 2026",
+      "copete": "Profesionales de la industria vitivinícola seleccionaron las etiquetas destacadas durante el concurso The Winemakers. El certamen, que celebró su duodécima edición en Mendoza, premió a un Malbec como el mejor ejemplar del año.",
+      "cuerpo": "El encuentro, organizado por Caminos del Vino, reunió a 80 técnicos y representantes de 46 bodegas el viernes 23 de octubre en el Hualta Winery Hotel, ubicado en Mendoza. La competencia se caracteriza por una evaluación a ciegas donde los propios enólogos puntúan las creaciones de sus colegas mediante una aplicación digital, garantizando la transparencia del proceso. En esta oportunidad, el primer puesto fue para Contiempo Malbec Reserva 2021, de Contiempo Wines, que alcanzó 93,88 puntos y obtuvo la medalla Doble Oro. Su propietario, Fernando Losilla, fue reconocido además como Winemaker del Año, lo que le permitirá realizar una experiencia de capacitación en Francia.\n\nEl ranking, dominado mayoritariamente por etiquetas mendocinas, también incluyó al vino salteño Cab Five 2021, de Piattelli, en el octavo lugar. La lista de los diez mejores se integra además por Gran Reserva Malbec 2022, Alae 2021, Colombo Malbec Gualtallary 2021, Initium Gran Malbec 2020, Lui 20 Aniversario Blend de Tintas 2022 y Particular Malbec 2024.\n\nComo novedad, la edición 2026 incorporó distinciones regionales para destacar la diversidad productiva. Los galardones fueron para Bodega Bianchi en el Oasis Sur de Mendoza, Bodega Patritti en la Patagonia y Bodega Merced del Estero en San Juan. Por su parte, la mención especial Best Value, que premia la relación entre precio y calidad, fue otorgada a Colombo Malbec Gualtallary 2023. Según los organizadores, este certamen busca combinar el rigor técnico con la experiencia de quienes conocen profundamente el mercado y las preferencias de los consumidores.",
+      "guion": "Enólogos eligen los diez mejores vinos argentinos de la edición 2026.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "TN (Todo Noticias)",
+        "La Nación"
+      ],
+      "enlace": "https://tn.com.ar/cocina/vinos/2026/10/30/los-10-vinos-argentinos-elegidos-por-los-enologos-como-los-mejores-del-ano-cuales-son-y-de-donde-vienen/",
+      "fecha": "2026-10-30T18:24:03.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-31T05:01:12.548Z",
+      "relevancia": 37,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El concurso The Winemakers realizó su 12ª edición en Mendoza el 23 de octubre.",
+        "Los profesionales del sector evaluaron 46 etiquetas a ciegas mediante una aplicación.",
+        "Contiempo Malbec Reserva 2021 lideró el ranking con 93,88 puntos.",
+        "Se entregaron distinciones regionales para las zonas de Patagonia, San Juan y Oasis Sur.",
+        "El certamen busca acercar el criterio profesional a los consumidores finales."
+      ],
+      "seSabe": [
+        "El primer puesto fue para Contiempo Malbec Reserva 2021, de Contiempo Wines.",
+        "La evaluación se realizó a ciegas por 80 técnicos de la industria.",
+        "El evento tuvo lugar en el Hualta Winery Hotel, en Mendoza.",
+        "Fernando Losilla fue elegido como Winemaker del Año 2026."
+      ],
+      "textoRedes": "Enólogos argentinos eligieron los mejores vinos del año en la 12ª edición de The Winemakers. El primer puesto fue para Contiempo Malbec Reserva 2021, seguido por etiquetas de Doña Paula y Huentala Wines. El certamen destacó la calidad y diversidad de la producción nacional.",
+      "etiquetas": [
+        "Vinos",
+        "Argentina",
+        "Mendoza",
+        "The Winemakers",
+        "Malbec"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/cocina/vinos/2026/10/30/los-10-vinos-argentinos-elegidos-por-los-enologos-como-los-mejores-del-ano-cuales-son-y-de-donde-vienen/",
+          "fecha": "2026-10-30T18:24:03.000Z",
+          "oficial": false,
+          "aporte": "Detalló el ranking completo, los ganadores de las menciones especiales y los reconocimientos regionales."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/lifestyle/el-ranking-de-los-diez-mejores-vinos-argentinos-elegidos-por-enologos-nid30102026/",
+          "fecha": "2026-10-30T23:36:09.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la metodología de evaluación y la ubicación del evento en Mendoza."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "enologos-eligen-los-diez-mejores-vinos-argentinos-de-la-edicion-2026",
+      "foto": {
+        "archivo": "fotos-notas/1gwokle.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
+    },
+    {
       "id": "10ibrn6",
       "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
       "copete": "La Cancillería brasileña mantuvo un encuentro con la representante argentina en Brasilia para consultar sobre el traslado del senador hacia Estados Unidos. El Gobierno argentino desmintió que se haya tratado de un pedido formal de explicaciones.",
@@ -2608,7 +2755,7 @@
       "fecha": "2026-10-30T18:07:37.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T22:01:27.556Z",
-      "relevancia": 71,
+      "relevancia": 64,
       "local": false,
       "muyContada": {
         "medios": 23,
@@ -2890,6 +3037,13 @@
           "fecha": "2026-10-31T03:53:49.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/el-mundo/brasil-cito-a-la-encargada-de-negocios-de-la-embajada-argentina-por-la-huida-de-bosonaro-politica-y-economia_1793394046",
+          "fecha": "2026-10-31T04:02:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -3098,6 +3252,7 @@
         "Página/12",
         "Diario Popular",
         "Noticias Argentinas (NA)",
+        "El Día",
         "La Tecla",
         "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
@@ -3118,8 +3273,8 @@
       "relevancia": 61,
       "local": false,
       "muyContada": {
-        "medios": 17,
-        "porque": "17 medios",
+        "medios": 18,
+        "porque": "18 medios",
         "desde": "2026-10-30T19:31:28.881Z"
       },
       "publicadaPor": null,
@@ -3276,6 +3431,13 @@
           "medio": "Los Andes (Mendoza)",
           "enlace": "https://www.losandes.com.ar/politica/libra-un-organismo-anticorrupcion-busca-apelar-el-sobreseimiento-javier-milei-y-pidio-reabrir-la-causa-n6012432",
           "fecha": "2026-10-30T19:33:32.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/caso-libra-apelan-el-sobreseimiento-de-milei-y-los-demas-implicados-politica-y-economia_1793419136",
+          "fecha": "2026-10-31T03:58:56.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -3602,7 +3764,7 @@
       "fecha": "2026-10-30T17:02:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T19:31:28.881Z",
-      "relevancia": 49,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3837,7 +3999,7 @@
       "fecha": "2026-10-30T17:01:45.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T19:31:28.881Z",
-      "relevancia": 68,
+      "relevancia": 61,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -3916,167 +4078,6 @@
       }
     },
     {
-      "id": "5a449y",
-      "titulo": "Gimnasia visita a Estudiantes de Río Cuarto por el Torneo Clausura",
-      "copete": "El conjunto platense se enfrenta el viernes a las 19:00 en el Estadio Antonio Candini. El entrenador Ariel Pereyra confirmó que repetirá la formación titular que logró la victoria ante Sarmiento en la fecha anterior.",
-      "cuerpo": "Gimnasia y Estudiantes de Río Cuarto se miden el viernes 30 de octubre en el Estadio Antonio Candini. El compromiso, correspondiente a la decimoquinta jornada del Torneo Clausura, comenzará a las 19:00. El equipo visitante llega al encuentro con una racha positiva de dos triunfos y un empate en sus tres presentaciones más recientes, mientras que el local registra una victoria y dos caídas en el mismo periodo.\n\nEl director técnico de Gimnasia, Ariel Pereyra, decidió mantener la alineación que superó a Sarmiento de Junín en la fecha pasada. De esta manera, el once inicial del Lobo estará compuesto por Harlen Castillo en el arco; Alexis Steimbach, Pedro Silva Torrejón, Ignacio Miramón y Germán Conti en la defensa; Enzo Martínez, Mateo Seoane, Ignacio Fernández y Agustín Auzmendi en el mediocampo; junto a Marcelo Torres y Lucas Janson en la delantera.\n\nPor su parte, Estudiantes de Río Cuarto, dirigido por Rubén Forestello, saltará al campo de juego con un esquema táctico 3-5-2. La formación local contará con Lautaro Herrera; Gonzalo González, Fernando Rodríguez, Agustín Quiroga, Sergio Ojeda, Juan Antonini, Tomás González, Gabriel Alanís, Martín Garnerone, Ibrahim Hesar y Alejandro Cabrera. El conjunto cordobés viene de perder 1-2 frente a Barracas Central.\n\nTras este compromiso, ambos equipos ya tienen programada su próxima presentación para el domingo 8 de noviembre: Gimnasia se medirá ante Belgrano, mientras que Estudiantes de Río Cuarto hará lo propio frente a Rosario Central.",
-      "guion": "Gimnasia visita a Estudiantes de Río Cuarto por el Torneo Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Olé",
-        "0221",
-        "Bolavip Argentina",
-        "Clarín",
-        "La Nación",
-        "Perfil",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "Doble Amarilla",
-        "El Gráfico"
-      ],
-      "enlace": "https://www.0221.com.ar/gimnasia/la-decision-determinante-que-tomo-ariel-pereyra-enfrentar-estudiantes-rio-cuarto-n136608",
-      "fecha": "2026-10-30T17:00:56.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-31T00:01:30.524Z",
-      "relevancia": 29,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El partido se disputa este viernes 30 de octubre a las 19:00 en el Estadio Antonio Candini.",
-        "Ariel Pereyra confirmó que Gimnasia repetirá el equipo titular que venció a Sarmiento.",
-        "El Lobo busca sumar puntos clave para asegurar su clasificación a los playoffs del torneo.",
-        "Estudiantes de Río Cuarto llega tras una derrota ante Barracas Central por 1-2."
-      ],
-      "seSabe": [
-        "El encuentro corresponde a la fecha 15 del Torneo Clausura.",
-        "Gimnasia mantiene la misma formación inicial que en su último partido.",
-        "El historial favorece a Gimnasia con una victoria en el único cruce previo.",
-        "Ambos equipos volverán a jugar el domingo 8 de noviembre."
-      ],
-      "textoRedes": "Gimnasia visita a Estudiantes de Río Cuarto este viernes a las 19:00 por la fecha 15 del Torneo Clausura. El entrenador Ariel Pereyra confirmó que repetirá el equipo titular que viene de ganar ante Sarmiento.",
-      "etiquetas": [
-        "Gimnasia",
-        "Estudiantes de Río Cuarto",
-        "Torneo Clausura",
-        "Fútbol",
-        "Ariel Pereyra"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/gimnasia/la-decision-determinante-que-tomo-ariel-pereyra-enfrentar-estudiantes-rio-cuarto-n136608",
-          "fecha": "2026-10-29T20:08:00.000Z",
-          "oficial": false,
-          "aporte": "Confirma la decisión del entrenador de repetir el equipo titular y el contexto del club."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-primera/gol-gimnasia-estudiantes-rio-cuarto_3_tGts4OsLze.html",
-          "fecha": "2026-10-30T22:45:29.000Z",
-          "oficial": false,
-          "aporte": "Ratifica el resultado del enfrentamiento previo entre ambos clubes."
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/futbolargentino/alineaciones-de-estudiantes-de-rio-cuarto-y-gimnasia-para-el-duelo-de-la-fecha-15-del-torneo-clausura",
-          "fecha": "2026-10-30T17:00:56.000Z",
-          "oficial": false,
-          "aporte": "Detalla las formaciones probables, el historial, el estadio y el horario del encuentro."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/gimnasia/cuando-juega-gimnasia-el-torneo-clausura-2026-n130314",
-          "fecha": "2026-10-31T00:16:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/deportes/triunfos-vitales-de-tigre-en-el-duco-y-de-gimnasia-en-rio-cuarto-para-sumar-en-el-torneo-clausura-aPcvs6o0UVFD",
-          "fecha": "2026-10-31T00:32:14.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/gimnasia/gimnasia-visita-estudiantes-rio-cuarto-el-torneo-clausura-n136679",
-          "fecha": "2026-10-30T23:55:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló el desarrollo del juego, los goleadores, las expulsiones y la clasificación a las copas."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/deportes/gimnasia-gano--clasifico-a-los-playoffs-del-torneo-clausura-y-suena-con-la-copa-libertadores_a6ae5340545c3c55a7b5ef811",
-          "fecha": "2026-10-31T00:06:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la clasificación a los playoffs y las aspiraciones internacionales del equipo."
-        },
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/liga-/gimnasia-le-gano-a-estudiantes-de-rio-cuarto--clasifico-a-los-playoffs-y-suena-con-la-copa-libertadores_a6ae542611b0855ad6a2d4821",
-          "fecha": "2026-10-31T01:28:46.687Z",
-          "oficial": false,
-          "aporte": "Ratificó el resultado final y la clasificación a la siguiente instancia del torneo."
-        },
-        {
-          "medio": "El Gráfico",
-          "enlace": "https://www.elgrafico.com.ar/articulo/1038/103660/nacho-fernandez-le-dedico-su-gol-a-maradona-y-gimnasia-se-clasifico-a-playoffs-que-otra-competencia-aseguro",
-          "fecha": "2026-10-31T00:52:00.000Z",
-          "oficial": false,
-          "aporte": "Mencionó que el triunfo fue en condición de visitante y los puntos obtenidos fueron determinantes."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/deportes/gimnasia-gano-rio-cuarto-se-metio-los-playoffs-y-suena-la-libertadores-n927132",
-          "fecha": "2026-10-31T01:51:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/futbol-primera/gimnasia-estudiantes-rc-rio-cuarto-plata-fecha-quince-torneo-clausura-pata-pereyra-rube-forestello_0_XEK61yjBwo.html",
-          "fecha": "2026-10-30T21:33:18.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/deportes/estudiantes-rio-cuarto-vs-gimnasia-esgrima-plata-vivo-torneo-clausura-2026-hora-juegan-formaciones-ver-partido_0_t9EZexY1SR.html",
-          "fecha": "2026-10-30T19:10:46.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/deportes/futbol/gimnasia-vencio-a-estudiantes-de-rio-cuarto-y-saco-dos-boletos-a-los-playoffs-del-clausura-y-a-una-nid31102026/",
-          "fecha": "2026-10-31T03:16:25.000Z",
-          "oficial": false,
-          "aporte": "Aportó el contexto del homenaje a Maradona y las declaraciones del capitán sobre el partido."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "cjrdj5",
-          "titulo": "Estudiantes de Río Cuarto juega contra Gimnasia por el Torneo Clausura",
-          "fecha": "2026-10-29T14:57:01.000Z",
-          "ruta": "/nota/estudiantes-de-rio-cuarto-juega-contra-gimnasia-por-el-torneo-clausura-cjrdj5"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "gimnasia-visita-a-estudiantes-de-rio-cuarto-por-el-torneo-clausura",
-      "foto": {
-        "archivo": "fotos-notas/1e527x7.jpg",
-        "credito": "Foto: 0221"
-      }
-    },
-    {
       "id": "como39",
       "titulo": "La Selección argentina confirma las sedes para los amistosos de noviembre",
       "copete": "La AFA oficializó que el equipo nacional enfrentará a Uruguay en la Bombonera y a Costa Rica en el estadio Mario Alberto Kempes. Estos encuentros cerrarán el calendario internacional de 2026 y serán los primeros tras el retiro de Lionel Messi.",
@@ -4106,7 +4107,7 @@
       "fecha": "2026-10-30T16:54:09.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T19:31:28.881Z",
-      "relevancia": 80,
+      "relevancia": 73,
       "local": false,
       "muyContada": {
         "medios": 15,
@@ -4292,7 +4293,7 @@
       "fecha": "2026-10-30T16:42:44.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T19:31:28.881Z",
-      "relevancia": 41,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4358,6 +4359,7 @@
       "medios": [
         "TN (Todo Noticias)",
         "iProfesional",
+        "El Día",
         "El Marplatense",
         "El Eco de Tandil",
         "iProUP"
@@ -4366,7 +4368,7 @@
       "fecha": "2026-10-30T16:40:01.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T22:01:27.556Z",
-      "relevancia": 38,
+      "relevancia": 41,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4447,6 +4449,20 @@
           "fecha": "2026-10-30T21:20:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/tecno/2026/10/30/el-ceo-de-binance-explico-que-billetera-fue-hackeada-y-busco-llevar-tranquilidad-a-sus-clientes-cubriremos-todas-las-perdidas/",
+          "fecha": "2026-10-30T16:07:54.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/cubriremos-todas-las-perdidas-dijo-el-ceo-de-binance-tras-el-hackeo-politica-y-economia_1793419016",
+          "fecha": "2026-10-31T03:56:56.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -4466,6 +4482,132 @@
       "foto": {
         "archivo": "fotos-notas/hsd2kz.jpg",
         "credito": "Foto: TN (Todo Noticias)"
+      }
+    },
+    {
+      "id": "d4tgnj",
+      "titulo": "El riesgo país sube y los activos financieros argentinos cierran en baja",
+      "copete": "El indicador financiero superó los 760 puntos básicos en una jornada de retrocesos para bonos y acciones. La tendencia negativa se profundizó por el contexto internacional y la volatilidad regional tras el balotaje en Brasil.",
+      "cuerpo": "El riesgo país experimentó una marcada volatilidad durante el viernes, con mediciones que oscilaron entre los 762 y los 790 puntos básicos según distintas fuentes del mercado. Este incremento profundiza la tendencia alcista observada durante octubre, mes en el que el indicador elaborado por JP Morgan acumula un salto superior al 28%. La suba refleja las dificultades para reducir el costo de financiamiento externo en un escenario marcado por la incertidumbre económica y la aversión al riesgo internacional.\n\nLa caída de los títulos públicos en dólares se replicó en la Bolsa porteña y en las empresas argentinas que cotizan en Wall Street. El índice S&P Merval registró una baja del 1,9% durante la jornada, mientras que papeles como Transportadora Gas del Sur y Edenor sufrieron retrocesos del 6,2%. Este desempeño negativo se acopló al mal clima financiero en los Estados Unidos, donde los principales indicadores bursátiles también operaron en terreno negativo tras la presentación de balances corporativos y datos sobre el gasto en consumo personal.\n\nEl contexto regional también influyó en la plaza local. Tras el balotaje presidencial en Brasil, la corrección de la Bolsa de San Pablo y la depreciación del real generaron un efecto contagio que afectó a los activos argentinos, los cuales ya mostraban signos de vulnerabilidad. Ante este panorama, el Fondo Monetario Internacional recomendó al Gobierno nacional sostener la implementación de las políticas actuales, especialmente la acumulación de reservas y el fortalecimiento de la posición externa, como ejes fundamentales para mejorar la percepción de riesgo.\n\nEl 28 de octubre el riesgo país se ubicaba por debajo de los 750 puntos, mientras que el 29 de octubre había descendido a 741 unidades tras la aprobación de la tercera revisión del programa económico por parte del organismo internacional.",
+      "guion": "El riesgo país sube y los activos financieros argentinos cierran en baja.",
+      "seccion": "Economía",
+      "medios": [
+        "TN (Todo Noticias)",
+        "El Destape",
+        "Canal 26",
+        "Noticias Argentinas (NA)",
+        "El Día",
+        "C5N",
+        "Perfil"
+      ],
+      "enlace": "https://perfil.com/economia/el-riesgo-pais-supera-los-760-puntos-en-medio-de-una-caida-generalizada-de-activos-argentinos-apDFw7H0JVl2",
+      "fecha": "2026-10-30T16:30:17.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-30T19:31:28.881Z",
+      "relevancia": 48,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El riesgo país superó los 760 puntos básicos en una jornada de alta volatilidad.",
+        "Las acciones argentinas en Wall Street registraron caídas de hasta el 6,2%.",
+        "El FMI instó al Gobierno a mantener el plan económico para fortalecer la confianza.",
+        "La volatilidad regional y los datos económicos de Estados Unidos presionaron a los activos locales."
+      ],
+      "seSabe": [
+        "El riesgo país cerró la semana con una suba significativa, alcanzando niveles cercanos a los 790 puntos en algunas mediciones.",
+        "Las acciones de empresas argentinas en el exterior sufrieron caídas generalizadas, lideradas por el sector energético.",
+        "El dólar oficial se mantuvo en 1560 pesos en las pizarras del Banco Nación.",
+        "El FMI sugirió continuar con la acumulación de reservas para mejorar la calificación crediticia del país."
+      ],
+      "noConfirmado": [
+        "La cifra exacta de cierre del riesgo país varía según la fuente consultada debido a la dinámica de actualización constante del mercado."
+      ],
+      "textoRedes": "El riesgo país superó los 760 puntos básicos en una jornada de caídas para los bonos y acciones argentinas. El mercado local se vio afectado por la volatilidad regional y el contexto financiero internacional.",
+      "etiquetas": [
+        "Economía",
+        "Riesgo país",
+        "Mercado financiero",
+        "Acciones",
+        "Bonos",
+        "FMI"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/economia/el-riesgo-pais-supera-los-760-puntos-en-medio-de-una-caida-generalizada-de-activos-argentinos-apDFw7H0JVl2",
+          "fecha": "2026-10-30T16:30:17.000Z",
+          "oficial": false,
+          "aporte": "Confirmó el cierre negativo de bonos y acciones al finalizar la semana."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/10/30/las-acciones-argentinas-en-wall-street-caen-hasta-un-7-y-el-riesgo-pais-vuelve-a-superar-los-750-puntos/",
+          "fecha": "2026-10-30T19:22:19.000Z",
+          "oficial": false,
+          "aporte": "Informó los valores del riesgo país a media tarde y la recomendación del FMI."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/riesgo-pais-sube-762-puntos-caen-bonos-acciones-argentinas-20261030142549",
+          "fecha": "2026-10-30T17:25:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló el impacto mensual del riesgo país y la caída de los bonos en dólares."
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/economia/riesgo-pais-acciones-bonos-argentinos-viernes-30-octubre-2026",
+          "fecha": "2026-10-30T16:37:00.000Z",
+          "oficial": false,
+          "aporte": "Brindó los datos de cierre del riesgo país y las cotizaciones de los distintos tipos de dólar."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/economia/2026/10/30/el-riesgo-pais-volvio-a-superar-la-barrera-de-los-700-puntos-y-acumula-una-suba-del-28-en-octubre-2026/",
+          "fecha": "2026-10-30T22:35:02.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/el-riesgo-pais-trepa-mas-de-6---alcanza-un-nuevo-maximo-en-el-ano-y-queda-al-borde-de-los-800-puntos_a6ae4f36145c3c55a7b5b7c6d",
+          "fecha": "2026-10-30T20:09:17.714Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/el-riesgo-pais-quedo-al-borde-de-los-800-puntos-politica-y-economia_1793418776",
+          "fecha": "2026-10-31T03:52:56.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "1agr6sy",
+          "titulo": "Los bonos argentinos rebotan y el riesgo país se ubica debajo de 750 puntos",
+          "fecha": "2026-10-28T23:36:00.000Z",
+          "ruta": "/nota/los-bonos-argentinos-rebotan-y-el-riesgo-pais-se-ubica-debajo-de-750-1agr6sy"
+        },
+        {
+          "id": "1ox858x",
+          "titulo": "El riesgo país baja a 741 puntos tras la recomendación del FMI",
+          "fecha": "2026-10-29T21:30:49.533Z",
+          "ruta": "/nota/el-riesgo-pais-baja-a-741-puntos-tras-la-recomendacion-del-fmi-1ox858x"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-riesgo-pais-sube-y-los-activos-financieros-argentinos-cierran-en",
+      "foto": {
+        "archivo": "fotos-notas/d4tgnj.jpg",
+        "credito": "Foto: El Destape"
       }
     },
     {
@@ -5217,77 +5359,6 @@
       ]
     },
     {
-      "id": "1a1koir",
-      "titulo": "La Plata niega la demolición de la gruta del Bosque y detalla obras",
-      "copete": "El municipio desmintió las versiones de organizaciones ambientalistas sobre la destrucción del histórico espacio. Detallaron los trabajos de restauración y mejoras en el predio.",
-      "cuerpo": "La Municipalidad de La Plata desmintió las versiones difundidas por agrupaciones ambientalistas sobre una supuesta demolición de la histórica gruta del Paseo del Bosque y detalló las tareas de restauración que se llevan adelante en el predio. Desde la comuna aseguraron que los rumores son falsos y explicaron que los trabajos actuales se centran en la limpieza general mediante hidrolavadoras y en el arreglo de los huecos formados por el desgaste acumulado y actos de vandalismo.\n\nAdemás, indicaron que se efectuó una reparación puntual en el sector inferior debido a una fuga de agua en un conducto y se procedió al cierre de los antiguos sanitarios con el fin de proyectar nuevas instalaciones en otra zona. Las tareas incluyen la recuperación de los senderos con materiales reutilizados del mismo predio, la nivelación del terreno, la repotenciación del sistema eléctrico y la plantación de césped y nuevos ejemplares arbóreos.\n\nPor otra parte, el municipio llevó a cabo la demolición de estructuras gastronómicas que operaban con concesiones vencidas y retiró parrillas, juegos y mobiliario deteriorado para liberar espacio y reorganizar las áreas comunes. En contraposición, el Foro en Defensa del Árbol había manifestado su preocupación el último jueves mediante imágenes en las que denunciaba la destrucción parcial de la gruta, construida alrededor de 1910, así como la afectación de monumentos y árboles históricos del lugar.\n\nEstas intervenciones forman parte de un plan integral de puesta en valor del espacio público impulsado por la comuna, que ya contempló trabajos previos en diversas plazas y parques de la ciudad platense para optimizar las condiciones de circulación y uso recreativo.",
-      "guion": "La Plata niega la demolición de la gruta del Bosque y detalla obras.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Día",
-        "0221"
-      ],
-      "enlace": "https://www.eldia.com/la-ciudad/falsa-version-de-demolicion-de-la-gruta-del-bosque-que-obras-encaran-la-ciudad_1793369623",
-      "fecha": "2026-10-30T14:13:43.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T15:35:26.720Z",
-      "relevancia": 26,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Municipalidad de La Plata negó la demolición de la Gruta del Bosque.",
-        "El Foro en Defensa del Árbol había denunciado la destrucción de patrimonio histórico.",
-        "Los trabajos incluyen limpieza, reparaciones estructurales y nuevas instalaciones sanitarias.",
-        "Demolieron puestos gastronómicos con concesiones vencidas y retiraron mobiliario en mal estado."
-      ],
-      "seSabe": [
-        "La Municipalidad de La Plata calificó como falsas las versiones sobre la demolición de la gruta del Paseo del Bosque.",
-        "Se realizaron tareas de limpieza con hidrolavadoras y reparación de huecos estructurales.",
-        "El Foro en Defensa del Árbol denunció el jueves la destrucción de grutas, monumentos y árboles.",
-        "El municipio demolió puestos gastronómicos con concesiones vencidas y retiró parrillas deterioradas."
-      ],
-      "noConfirmado": [
-        "El alcance real de los daños denunciados por las organizaciones ambientalistas sobre el patrimonio histórico del predio."
-      ],
-      "textoRedes": "La Municipalidad de La Plata desmintió la demolición de la Gruta del Bosque y detalló las obras de restauración en el predio.",
-      "etiquetas": [
-        "La Plata",
-        "Paseo del Bosque",
-        "obras",
-        "patrimonio",
-        "Municipalidad de La Plata"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/falsa-version-de-demolicion-de-la-gruta-del-bosque-que-obras-encaran-la-ciudad_1793369623",
-          "fecha": "2026-10-30T14:13:43.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre la demolición de puestos gastronómicos con concesiones vencidas y el plan de recuperación de espacios públicos."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/la-plata/la-municipalidad-la-plata-niega-la-demolicion-la-gruta-del-bosque-y-avanza-la-restauracion-n136654",
-          "fecha": "2026-10-30T14:58:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló la postura del municipio, las tareas de limpieza y reparación en la gruta, y la denuncia previa del Foro en Defensa del Árbol."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-plata-niega-la-demolicion-de-la-gruta-del-bosque-y-detalla-obras",
-      "foto": {
-        "archivo": "fotos-notas/1a1koir.jpg",
-        "credito": "Foto: El Día"
-      }
-    },
-    {
       "id": "vcum32",
       "titulo": "Rosario legaliza el funcionamiento de aplicaciones de transporte",
       "copete": "La ciudad aprobó un marco regulatorio para Uber y DiDi. La normativa exige licencias profesionales, revisiones técnicas y registros obligatorios para los conductores y las empresas.",
@@ -5641,14 +5712,14 @@
         "La Nueva",
         "0221",
         "Doble Amarilla",
+        "Bolavip Argentina",
         "Córdoba Competición",
         "C5N",
         "Minuto Uno",
         "La Capital (Rosario)",
         "Los Andes (Mendoza)",
         "Perfil",
-        "La Gaceta (Tucumán)",
-        "Bolavip Argentina"
+        "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/formula-1-en-mexico-en-vivo-nid30102026/",
       "fecha": "2026-10-30T13:49:00.000Z",
@@ -6232,9 +6303,9 @@
       "guion": "Reinauguran el Estadio Único de La Plata con un amistoso de la selección.",
       "seccion": "Deportes",
       "medios": [
-        "El Día",
         "0221",
-        "Minuto Uno"
+        "Minuto Uno",
+        "El Día"
       ],
       "enlace": "https://www.eldia.com/deportes/el-estadio-unico-de-la-plata-se-reinaugura-al-otro-dia-de-la-final-estudiantes-vs-palmeiras-deportes_1793366280",
       "fecha": "2026-10-30T13:32:00.000Z",
@@ -6725,89 +6796,6 @@
       }
     },
     {
-      "id": "1w003rk",
-      "titulo": "HBO confirma el elenco y la fecha de estreno de la serie de Harry Potter",
-      "copete": "La producción llegará a la plataforma el 25 de diciembre de 2026. La primera temporada contará con ocho episodios basados en el primer libro de la saga.",
-      "cuerpo": "La nueva serie basada en el universo de Harry Potter tiene su estreno oficial programado para el 25 de diciembre de 2026. El proyecto, que contempla una década de desarrollo, adaptará cada libro de la saga en una temporada completa. Esta entrega inicial constará de ocho episodios centrados en La piedra filosofal.\n\nEl reparto principal estará encabezado por Dominic McLaughlin como Harry Potter, Arabella Stanton como Hermione Granger y Alastair Stout como Ron Weasley. El elenco se completa con figuras como John Lithgow, Janet McTeer, Paapa Essiedu y Nick Frost. Además, la cadena confirmó la incorporación de Leo Bill, Andrew Brooke, Laura Smyth, Daniel Fearn y David Threlfall. La producción cuenta con Francesca Gardiner como showrunner y Mark Mylod en la dirección.",
-      "guion": "HBO confirma el elenco y la fecha de estreno de la serie de Harry Potter.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Ámbito",
-        "El Destape",
-        "A24",
-        "Minuto Uno"
-      ],
-      "enlace": "https://www.minutouno.com/espectaculos/harry-potter-y-la-piedra-filosofal-nuevo-vistazo-la-serie-hbo-max-n6339344",
-      "fecha": "2026-10-30T12:41:14.745Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T23:31:44.113Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La serie se estrena el 25 de diciembre de 2026.",
-        "La primera temporada tendrá ocho episodios.",
-        "Dominic McLaughlin, Arabella Stanton y Alastair Stout son los protagonistas.",
-        "Francesca Gardiner y Mark Mylod lideran el equipo creativo."
-      ],
-      "textoRedes": "HBO anunció que la serie de Harry Potter se estrenará el 25 de diciembre de 2026. La primera temporada tendrá ocho episodios y ya cuenta con su elenco principal confirmado, incluyendo a los actores que interpretarán a Harry, Hermione y Ron.",
-      "etiquetas": [
-        "Harry Potter",
-        "HBO",
-        "Series"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/espectaculos/harry-potter-y-la-piedra-filosofal-nuevo-vistazo-la-serie-hbo-max-n6339344",
-          "fecha": "2026-10-29T16:10:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/reparto-guia-harry-potter-temporada-1-serie-hbo-max-quien-quien-elenco-2026103094114",
-          "fecha": "2026-10-30T12:41:14.745Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/espectaculos/harry-potter-y-la-piedra-filosofal-nuevo-vistazo-la-serie-n6339344",
-          "fecha": "2026-10-29T16:10:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/espectaculos/hbo-revelo-novedades-el-elenco-la-serie-harry-potter-n6339777",
-          "fecha": "2026-10-30T16:53:18.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/trends/hbo-revela-novedades-del-elenco-la-serie-harry-potter-y-la-piedra-filosofal-n1611860",
-          "fecha": "2026-10-30T17:15:28.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "hbo-confirma-el-elenco-y-la-fecha-de-estreno-de-la-serie-de-harry",
-      "foto": {
-        "archivo": "fotos-notas/1w003rk.jpg",
-        "credito": "Foto: El Destape"
-      }
-    },
-    {
       "id": "mynw3q",
       "titulo": "Sportivo Trabajo participa en la primera Expo Salud, Deporte y Tecnología",
       "copete": "La entidad aurinegra presentó sus propuestas de verano y disciplinas en el evento llevado a cabo en la Sociedad Española SM.",
@@ -6915,11 +6903,11 @@
       "guion": "Juana Viale conduce los programas de Mirtha Legrand el fin de semana.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Perfil",
         "Crónica",
         "Diario Popular",
         "Noticias Argentinas (NA)",
-        "La Nación"
+        "La Nación",
+        "Perfil"
       ],
       "enlace": "https://www.diariopopular.com.ar/espectaculos/los-invitados-los-programas-mirtha-legrand-y-juana-viale-n927012",
       "fecha": "2026-10-30T12:29:00.000Z",
@@ -8327,6 +8315,7 @@
       "seccion": "Argentina",
       "medios": [
         "El Día",
+        "0221",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Agencia DIB"
@@ -8335,7 +8324,7 @@
       "fecha": "2026-10-30T11:11:12.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 39,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8388,6 +8377,20 @@
           "fecha": "2026-10-30T14:45:03.000Z",
           "oficial": false,
           "aporte": "Detalló las situaciones particulares en rotondas, giros y cruces con calles de tierra."
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/la-ciudad/transito-rige-la-ley-que-fijo-precisiones-sobre-la-prioridad-de-paso-en-esquinas-informacion-general_1793362903",
+          "fecha": "2026-10-31T04:19:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "0221",
+          "enlace": "https://www.0221.com.ar/provincia/ya-rigen-las-normas-transito-que-cambian-las-prioridades-paso-avenidas-n136646",
+          "fecha": "2026-10-30T14:15:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -8604,318 +8607,6 @@
       "foto": {
         "archivo": "fotos-notas/120msi1.jpg",
         "credito": "Foto: Radio Mitre"
-      }
-    },
-    {
-      "id": "yhn2j5",
-      "titulo": "El Senado aprueba la reforma de la Ley Nacional de Salud Mental",
-      "copete": "La Cámara alta dio media sanción al proyecto con 42 votos afirmativos y 21 negativos. La iniciativa, que ahora deberá ser tratada en Diputados, modifica los criterios de internación involuntaria y garantiza asistencia financiera nacional a las provincias.",
-      "cuerpo": "El Senado de la Nación aprobó durante la madrugada del viernes 30 de octubre la reforma de la Ley Nacional de Salud Mental (26.657). La iniciativa, que obtuvo 42 votos a favor y 21 en contra, fue girada a la Cámara de Diputados para su revisión tras sufrir modificaciones en el recinto destinadas a lograr los consensos necesarios.\n\nAsimismo, se establece que dichas medidas deben contar con la firma de dos profesionales, uno de los cuales debe ser médico y el otro psicólogo. Ante la falta de especialistas en ciertas jurisdicciones, la norma autoriza la intervención mediante teleconsultas sincrónicas. El proyecto reafirma la prohibición de crear nuevos manicomios y define la internación como una instancia terapéutica excepcional, priorizando los abordajes ambulatorios.\n\nLa cuestión presupuestaria fue uno de los ejes del debate. El ministro de Salud de la Nación, Mario Lugones, celebró la media sanción y la calificó como un avance para los pacientes y sus familias.\n\nLa normativa vigente, sancionada en 2010, ha sido objeto de críticas por su falta de aplicación y desfinanciamiento. La reforma busca modernizar el sistema sanitario, incorporar el abordaje de adicciones no sustanciales como la ludopatía y establecer mecanismos de control judicial para evitar institucionalizaciones prolongadas, fijando un límite de 180 días para revisar cada caso.",
-      "guion": "El Senado aprueba la reforma de la Ley Nacional de Salud Mental.",
-      "seccion": "Política",
-      "medios": [
-        "Infórmese Primero (FM 104.9)",
-        "La Nación",
-        "TN (Todo Noticias)",
-        "El Destape",
-        "A24",
-        "Crónica",
-        "Canal 26",
-        "Diario Popular",
-        "El Día",
-        "La Verdad",
-        "El Marplatense",
-        "Infobrisas (Radio Brisas)",
-        "El Eco de Tandil",
-        "Ámbito",
-        "C5N",
-        "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
-        "Clarín",
-        "La Brújula 24",
-        "La Gaceta (Tucumán)",
-        "Agencia DIB",
-        "Radio Mitre"
-      ],
-      "enlace": "https://www.clarin.com/sociedad/acuerdo-puntos-clave-senado-debate-hoy-proyecto-cambiar-polemica-ley-salud-mental_0_ScgzsohWTj.html",
-      "fecha": "2026-10-30T10:35:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-31T01:32:05.096Z",
-      "relevancia": 53,
-      "local": false,
-      "muyContada": {
-        "medios": 20,
-        "porque": "20 medios",
-        "desde": "2026-10-31T01:32:05.096Z"
-      },
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La reforma fue aprobada con 42 votos a favor y 21 en contra.",
-        "Se reemplazó el criterio de riesgo cierto e inminente por el de riesgo grave.",
-        "Se exige la firma de un médico y un psicólogo para las internaciones.",
-        "El Estado nacional deberá financiar la implementación en las provincias.",
-        "El proyecto pasó a la Cámara de Diputados para su tratamiento."
-      ],
-      "seSabe": [
-        "La votación se realizó durante la madrugada del viernes 30 de octubre.",
-        "El proyecto mantiene la prohibición de crear nuevos manicomios.",
-        "Se habilita la teleconsulta psiquiátrica ante la falta de profesionales físicos.",
-        "La ley incluye el abordaje integral de adicciones como la ludopatía.",
-        "El proyecto ahora requiere la aprobación de la Cámara de Diputados."
-      ],
-      "noConfirmado": [
-        "El impacto real del financiamiento nacional en las arcas provinciales.",
-        "La postura definitiva que adoptará la Cámara de Diputados ante el texto aprobado."
-      ],
-      "textoRedes": "El Senado dio media sanción a la reforma de la Ley de Salud Mental. El proyecto, aprobado con 42 votos a favor, modifica los criterios de internación involuntaria, habilita la teleconsulta y garantiza financiamiento nacional para las provincias.",
-      "etiquetas": [
-        "Salud Mental",
-        "Senado de la Nación",
-        "Ley 26.657",
-        "Salud pública",
-        "Internaciones",
-        "Política nacional"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/sociedad/acuerdo-puntos-clave-senado-debate-hoy-proyecto-cambiar-polemica-ley-salud-mental_0_ScgzsohWTj.html",
-          "fecha": "2026-10-29T16:54:03.000Z",
-          "oficial": false,
-          "aporte": "Explicó las modificaciones en las incumbencias profesionales y el cambio de criterio de riesgo."
-        },
-        {
-          "medio": "Infórmese Primero (FM 104.9)",
-          "enlace": "http://www.informeseprimero.com.ar/2026/10/el-senado-aprobo-la-reforma-de-la-ley.html",
-          "fecha": "2026-10-30T12:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/politica/con-cambios-de-ultimo-momento-el-senado-debate-la-reforma-a-la-ley-de-salud-mental-nid29102026/",
-          "fecha": "2026-10-30T03:59:44.000Z",
-          "oficial": false,
-          "aporte": "Detalló el resultado de la votación, los votos negativos del kirchnerismo y los cambios en el recinto."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/29/el-senado-trata-la-ley-de-salud-mental-y-un-proyecto-de-incentivo-de-inversiones-para-grandes-empresas/",
-          "fecha": "2026-10-30T15:42:10.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/30/el-senado-aprobo-la-reforma-de-salud-mental-las-concesiones-de-patricia-bullrich-para-conseguir-el-apoyo-de-los-aliados/",
-          "fecha": "2026-10-30T08:00:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/ley-de-salud-mental-cuales-son-los-cambios-aprobados-en-el-senado-nid30102026/",
-          "fecha": "2026-10-30T14:29:07.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/el-senado-aprobo-la-reforma-de-la-ley-de-salud-mental-segun-el-gobierno-la-deuda-con-el-cottolengo-nid30102026/",
-          "fecha": "2026-10-30T11:17:44.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/el-senado-aprobo-la-reforma-la-ley-salud-mental-que-cambia-las-internaciones-involuntarias-n1611702",
-          "fecha": "2026-10-30T09:45:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/el-senado-dio-media-sancion-al-regimen-incentivos-inversiones-los-us12-millones-n1611625",
-          "fecha": "2026-10-29T23:57:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/lugones-celebro-la-media-sancion-de-la-reforma-de-salud-mental-un-avance-para-los-pacientes-y-sus-familias/",
-          "fecha": "2026-10-30T14:42:22.000Z",
-          "oficial": false,
-          "aporte": "Recogió la declaración del ministro de Salud, Mario Lugones, sobre el avance de la reforma."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/10/29/el-senado-debate-la-reforma-de-la-ley-de-salud-mental-los-puntos-claves-de-la-iniciativa-y-que-otros-proyectos-se-trataran-en-el-congreso/",
-          "fecha": "2026-10-30T09:51:52.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la creación del Régimen de Incentivos para Inversiones Relevantes aprobado en la misma sesión."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/politica/el-senado-aprobo-general-la-reforma-la-ley-salud-mental-n927022",
-          "fecha": "2026-10-30T12:35:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/el-senado-aprobo-los-cambios-a-la-ley-de-salud-mental-que-impulsa-el-gobierno-politica-y-economia_1793359212",
-          "fecha": "2026-10-30T11:20:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Verdad",
-          "enlace": "https://laverdadonline.com/el-senado-aprobo-una-reforma-de-la-ley-de-salud-mental/",
-          "fecha": "2026-10-30T15:23:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/el-senado-dio-media-sancion-a-la-reforma-de-salud-mental-que-cambios-propone",
-          "fecha": "2026-10-30T16:30:03.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/10/30/113229-lugones-dijo-que-los-cambios-en-salud-mental-son-un-avance-para-los-pacientes-y-sus-familias",
-          "fecha": "2026-10-30T16:41:13.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/10/30/113172-reforma-de-la-ley-de-salud-mental-el-senado-aprobo-el-proyecto-con-42-votos-a-favor",
-          "fecha": "2026-10-30T10:34:25.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/politica/el-senado-aprobo-la-reforma-de-la-ley-de-salud-mental-y-el-proyecto-paso-a-diputados",
-          "fecha": "2026-10-30T11:51:57.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/el-senado-aprobo-la-reforma-la-ley-salud-mental-y-el-proyecto-paso-diputados-n6339633",
-          "fecha": "2026-10-30T11:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/tras-una-extensa-sesion-el-senado-le-dio-media-sancion-la-reforma-la-ley-salud-mental-n252967",
-          "fecha": "2026-10-30T03:55:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/politica/el-senado-dio-media-sancion-cambios-la-ley-salud-mental-todas-las-modificaciones-n6339654",
-          "fecha": "2026-10-30T13:30:51.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1160269/politica/senado-aprobo-reforma-ley-salud-mental-cuales-son-cambios-falta-para-sancion.html",
-          "fecha": "2026-10-30T06:47:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/el-senado-dio-luz-verde-la-reforma-la-ley-salud-mental-los-cambios-aprobados-n6012362",
-          "fecha": "2026-10-30T10:35:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "elDiarioAR",
-          "enlace": "https://www.eldiarioar.com/politica/senado-aprobo-general-reforma-ley-salud-mental-habilita-internaciones-involuntarias_1_13626441.html",
-          "fecha": "2026-10-30T09:38:14.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/politica/senado-aprobo-reforma-ley-nacional-salud-mental-impulsada-gobierno_0_1FR3USonuI.html",
-          "fecha": "2026-10-30T04:28:26.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/el-senado-aprobo-en-general-la-reforma-de-la-ley-de-salud-mental/",
-          "fecha": "2026-10-30T04:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/10/30/el-senado-aprobo-la-reforma-de-la-ley-de-salud-mental-cuales-son-los-principales-cambios-n527981/",
-          "fecha": "2026-10-30T09:09:58.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/economia/el-senado-aprobo-una-reforma-la-ley-salud-mental-que-cambia-respecto-la-norma-vigente-2010-n56944",
-          "fecha": "2026-10-30T12:38:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/el-senado-aprobo-una-reforma-la-ley-salud-mental-que-cambia-respecto-la-norma-vigente-2010-n56944",
-          "fecha": "2026-10-30T12:38:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/el-senado-aprobo-la-ley-de-salud-mental-que-cambios-incluye-la-normativa-y-que-pasa-con-la-internacion-involuntaria/",
-          "fecha": "2026-10-30T16:30:40.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/nicolas-kreplak-lanzo-dura-advertencia-reforma-ley-salud-mental-20261030141723",
-          "fecha": "2026-10-30T17:17:23.351Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1999opw",
-          "titulo": "El oficialismo no logra firmar dictamen del proyecto de propiedad privada en el Senado",
-          "fecha": "2026-10-28T22:36:06.625Z",
-          "ruta": "/nota/el-oficialismo-no-logra-firmar-dictamen-del-proyecto-de-propiedad-1999opw"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 22 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-senado-aprueba-la-reforma-de-la-ley-nacional-de-salud-mental",
-      "foto": {
-        "archivo": "fotos-notas/yhn2j5.jpg",
-        "credito": "Foto: Infórmese Primero (FM 104.9)"
       }
     },
     {
@@ -9339,10 +9030,10 @@
         "El Destape",
         "A24",
         "Noticias Argentinas (NA)",
-        "El Día",
         "iProUP",
         "La Capital (Rosario)",
         "Ámbito",
+        "El Día",
         "El Cronista"
       ],
       "enlace": "https://puntonueve.com.ar/anses-confirmo-el-calendario-de-pagos-de-noviembre-2026-cuando-cobran-jubilados-auh-y-pensionados/",
@@ -10302,7 +9993,7 @@
       "fecha": "2026-10-30T06:43:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T08:01:56.099Z",
-      "relevancia": 60,
+      "relevancia": 52,
       "local": false,
       "muyContada": {
         "medios": 10,
@@ -10483,9 +10174,9 @@
       "guion": "Sancionan a Estudiantes con una multa millonaria por la presencia de Verón.",
       "seccion": "Fútbol",
       "medios": [
-        "El Día",
         "0221",
         "Clarín",
+        "El Día",
         "El Gráfico",
         "Perfil"
       ],
@@ -10667,18 +10358,14 @@
       "guion": "Racing recibe a Aldosivi en el inicio de la fecha del Torneo Clausura.",
       "seccion": "Fútbol",
       "medios": [
-        "TyC Sports",
         "Olé",
-        "Canal 26",
-        "El Día",
-        "Infobrisas (Radio Brisas)",
-        "Bolavip Argentina"
+        "El Día"
       ],
       "enlace": "https://www.eldia.com/deportes/racing-ante-un-aldosivi-que-se-juega-sus-cartas-deportes_1793340529",
       "fecha": "2026-10-30T06:08:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T12:02:17.259Z",
-      "relevancia": 49,
+      "relevancia": 26,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10981,11 +10668,6 @@
       "visto": "2026-10-30T07:01:20.902Z",
       "relevancia": 48,
       "local": false,
-      "muyContada": {
-        "medios": 13,
-        "porque": "13 medios",
-        "desde": "2026-10-30T14:01:44.796Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -11146,6 +10828,13 @@
           "medio": "Canal 26",
           "enlace": "https://www.canal26.com/politica/2026/10/30/el-gobierno-le-respondio-a-mauricio-macri-y-expuso-que-impide-cerrar-un-acuerdo-electoral-para-2027/",
           "fecha": "2026-10-30T21:13:06.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/politica-y-economia/macri-no-se-avanzo-nada-en-el-acuerdo-politica-y-economia_1793418956",
+          "fecha": "2026-10-31T03:55:56.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -11928,6 +11617,7 @@
       "guion": "El Senado aprueba el marco regulatorio para el mercado de carbono.",
       "seccion": "Economía",
       "medios": [
+        "La Nación",
         "Noticias Argentinas (NA)",
         "Noticias Agropecuarias"
       ],
@@ -11935,7 +11625,7 @@
       "fecha": "2026-10-30T01:38:19.805Z",
       "sinFecha": false,
       "visto": "2026-10-30T23:01:30.841Z",
-      "relevancia": 20,
+      "relevancia": 31,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -12480,10 +12170,10 @@
       "guion": "Emiten alerta amarilla por tormentas y vientos fuertes en varias provincias.",
       "seccion": "Argentina",
       "medios": [
-        "La Nación",
         "Agrofy News",
         "Ruralnet",
         "TN (Todo Noticias)",
+        "La Nación",
         "Clarín",
         "El Destape",
         "Crónica",
@@ -13059,199 +12749,6 @@
       "slug": "detras-de-la-pasion-llega-al-festival-de-cine-de-mar-del-plata"
     },
     {
-      "id": "b9hqor",
-      "titulo": "El Senado aprueba un régimen de incentivo para inversiones relevantes",
-      "copete": "La iniciativa obtuvo 60 votos a favor y dos en contra en la Cámara alta. El proyecto impulsado por el radicalismo contempla beneficios fiscales por 30 años para emprendimientos productivos superiores a los 12 millones de dólares.",
-      "cuerpo": "El Senado aprobó un proyecto que establece el Régimen de Incentivo para Inversiones Relevantes, con el propósito de otorgar beneficios impositivos a proyectos productivos de mediana escala. La iniciativa impulsada por el radicalismo recibió media sanción en el recinto con 60 votos a favor y dos en contra, emitidos por los legisladores santacruceños, y ahora deberá ser analizada por la Cámara de Diputados para convertirse en ley.\n\nEl autor del proyecto, el senador Eduardo Vischi, explicó durante su exposición que la normativa busca cubrir el espacio existente entre otros regímenes vigentes para promover el desarrollo industrial y las economías regionales. El esquema exige una inversión productiva mínima de 12 millones de dólares, la cual debe concretarse durante los primeros dos años desde la vigencia de la norma, y excluye los activos financieros, las inversiones de cartera, los bienes de cambio y los automóviles.\n\nEntre los beneficios previstos figuran la amortización acelerada en el Impuesto a las Ganancias y la devolución anticipada de los créditos fiscales del Impuesto al Valor Agregado, junto con una estabilidad normativa tributaria que se extenderá durante 30 años tras la promulgación. Como excepción al monto mínimo, la normativa contempla sistemas de riego, bienes de alta eficiencia energética, mallas antigranizo y semovientes.\n\nPara acceder al esquema, las empresas interesadas deben presentar un plan de inversión con detalles sobre el cronograma, la producción estimada, las proyecciones de exportación y la creación de empleo. Asimismo, la normativa exige que las firmas destinen al menos un 20 por ciento del presupuesto para proveedores a la contratación local, siempre que exista oferta en condiciones de mercado en cuanto a precio y calidad, mientras que la autoridad de aplicación dispondrá de un plazo de hasta 90 días hábiles para evaluar cada solicitud.\n\nDurante el debate en la cámara, el jefe del bloque Justicialista, José Mayans, cuestionó que las medidas resulten insuficientes frente a la situación económica actual, y el senador Jorge Capitanich advirtió sobre las asimetrías fiscales entre los distintos regímenes de promoción.",
-      "guion": "El Senado aprueba un régimen de incentivo para inversiones relevantes.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "El Destape",
-        "Diario Popular",
-        "Noticias Argentinas (NA)",
-        "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "elDiarioAR",
-        "El Cronista",
-        "Clarín",
-        "Crónica",
-        "La Nueva",
-        "Radio Mitre"
-      ],
-      "enlace": "https://www.cronista.com/economia-politica/que-es-el-regimen-de-incentivo-para-inversiones-relevantes-que-busca-aprobar-el-gobierno/",
-      "fecha": "2026-10-29T23:21:26.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T01:31:57.382Z",
-      "relevancia": 46,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Cámara alta dio media sanción a la iniciativa con 60 votos a favor y 2 en contra.",
-        "El proyecto exige un desembolso mínimo de 12 millones de dólares en inversiones productivas.",
-        "La normativa otorga estabilidad tributaria por un plazo de 30 años.",
-        "Las empresas deben comprometer al menos un 20 por ciento de contratación de proveedores nacionales."
-      ],
-      "seSabe": [
-        "El proyecto obtuvo 60 votos a favor y dos en contra en el Senado.",
-        "La iniciativa fue impulsada por el senador radical Eduardo Vischi.",
-        "La normativa establece un piso de 12 millones de dólares para acceder a los beneficios fiscales.",
-        "El texto contempla una estabilidad tributaria de 30 años para los emprendimientos alcanzados."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó la fecha exacta en la que la Cámara de Diputados tratará el proyecto para su sanción definitiva."
-      ],
-      "textoRedes": "El Senado dio media sanción a un proyecto que crea un régimen de incentivo para inversiones productivas mayores a 12 millones de dólares con beneficios fiscales por 30 años.",
-      "etiquetas": [
-        "Senado",
-        "Inversiones",
-        "Economía",
-        "Impuestos",
-        "Congreso"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/economia-politica/que-es-el-regimen-de-incentivo-para-inversiones-relevantes-que-busca-aprobar-el-gobierno/",
-          "fecha": "2026-10-29T16:29:47.618Z",
-          "oficial": false,
-          "aporte": "Aportó precisiones sobre el alcance del régimen para empresas que superan los umbrales de la categoría de mediana empresa."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/politica/senado-oficialismo-aprobo-regimen-incentivo-inversiones-12-millones-dolares_0_2t2BJD3Qk5.html",
-          "fecha": "2026-10-29T23:21:26.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre los votos obtenidos, los plazos de los incentivos fiscales, los montos mínimos de inversión y las declaraciones de los legisladores."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/el-senado-dio-media-sancion-al-regimen-incentivos-inversiones-los-us12-millones-n1611625",
-          "fecha": "2026-10-29T23:57:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó datos sobre los votos negativos de los senadores santacruceños y el contexto de la sesión legislativa."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/el-senado-le-dio-media-sancion-al-regimen-para-medianas-empresas-con-inversiones-de-mas-de-us12-millones/",
-          "fecha": "2026-10-30T00:31:41.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/politica/el-senado-dio-media-sancion-al-regimen-incentivo-inversiones-relevantes-n926838",
-          "fecha": "2026-10-29T20:01:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó información sobre la búsqueda de acuerdos del oficialismo con los bloques dialoguistas y las declaraciones de Patricia Bullrich."
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-29-21-49-0-el-senado-aprobo-un-regimen-para-seguir-apuntalando-las-inversiones",
-          "fecha": "2026-10-30T01:09:31.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/javier-milei-medidas-gobierno-vivo-ultimas-noticias-29-octubre-minuto-minuto-2026102965656",
-          "fecha": "2026-10-29T09:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/senado-aprueba-un-regimen-para-medianas-empresas-que-inviertan-mas-de-us-12-millones_a6ae3a87383a79a91f3917fce",
-          "fecha": "2026-10-29T23:55:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/economia/el-senado-aprobo-un-regimen-incentivo-medianas-empresas-que-inviertan-mas-us12-millones-n6339587",
-          "fecha": "2026-10-30T02:31:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/senado-aprueba-un-regimen-medianas-empresas-que-inviertan-mas-us12-millones-n6012354",
-          "fecha": "2026-10-30T01:49:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/politica/senado-comenzo-la-sesion-en-la-que-se-trataran-cambios-a-la-ley-de-salud-mental-y-un-nuevo-regimen-nid29102026/",
-          "fecha": "2026-10-30T00:53:59.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/el-senado-aprobo-el-regimen-de-incentivos-para-inversiones-relevantes-pasara-a-diputados/",
-          "fecha": "2026-10-30T03:17:56.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/senado-aprobo-un-regimen-medianas-empresas-que-inviertan-mas-us12-millones-n6012354",
-          "fecha": "2026-10-30T01:49:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "elDiarioAR",
-          "enlace": "https://www.eldiarioar.com/politica/senado-le-dio-luz-verde-regimen-medianas-empresas-inviertan-us-12-millones_1_13626528.html",
-          "fecha": "2026-10-30T09:57:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/senado-sesion-salud-mental-nuevo-regimen-inversiones-diego-santilli-29-octubre-2026",
-          "fecha": "2026-10-29T17:49:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/negocio-verde-o-riesgo-ambiental-las-claves-de-la-ley-de-mercados-de-carbono-que-aprobo-el-senado-nid30102026/",
-          "fecha": "2026-10-30T11:58:14.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/el-senado-dio-luz-verde-una-ley-regular-los-mercados-carbono-argentina-n6012358",
-          "fecha": "2026-10-30T03:22:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/senado-aprobo-tres-reformas-clave-fuertes-criticas-ajuste-impacto-fiscal-2026103083326",
-          "fecha": "2026-10-30T11:33:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-senado-aprueba-un-regimen-de-incentivo-para-inversiones-relevantes",
-      "foto": {
-        "archivo": "fotos-notas/b9hqor.jpg",
-        "credito": "Foto: Clarín"
-      }
-    },
-    {
       "id": "1xrpgau",
       "titulo": "Muere Mabel Velasco, una de las creadoras de los imperialitos platenses",
       "copete": "Falleció una de las creadoras de los tradicionales dulces platenses. El legado continúa en manos de sus descendientes.",
@@ -13316,118 +12813,6 @@
       "foto": {
         "archivo": "fotos-notas/1xrpgau.jpg",
         "credito": "Foto: 0221"
-      }
-    },
-    {
-      "id": "1uuz38u",
-      "titulo": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires",
-      "copete": "La Legislatura sancionó por unanimidad la creación de servicios estatales para perros y gatos en Chacarita. Habrá gratuidad para sectores vulnerables y organizaciones protectoras.",
-      "cuerpo": "La Legislatura de la Ciudad de Buenos Aires aprobó por unanimidad la creación de un cementerio y un servicio de cremación públicos para perros y gatos, que funcionarán en el predio del Cementerio de Chacarita. La medida obtuvo 56 votos afirmativos durante la sesión ordinaria y busca ofrecer alternativas frente a los costos de las prestaciones privadas, que pueden alcanzar o superar los 350.000 pesos según los paquetes disponibles. El proyecto fue impulsado por los legisladores Graciela Ocaña y Emmanuel Ferrario.\n\nEn la ciudad hay más de 860.000 perros y gatos en hogares, y la falta de espacios adecuados genera enterramientos improvisados en espacios públicos que pueden representar riesgos sanitarios. El nuevo establecimiento deberá utilizar tecnologías no contaminantes y asegurar una gestión correcta de los residuos. La cremación será optativa, salvo en circunstancias que comprometan la sanidad.\n\nEl esquema aprobado prevé el cobro de un canon, pero establece la gratuidad total para organizaciones civiles de protección animal, animales sin responsable hallados en la vía pública y personas en situación de vulnerabilidad social que residan en el distrito. Además, el servicio de cremación contará con un espacio de memoria para realizar actos de despedida y depositar cenizas, a diferencia de la modalidad colectiva que ofrece actualmente el Instituto de Zoonosis Luis Pasteur.\n\nEn paralelo, la norma establece la incorporación obligatoria de contenidos sobre empatía, tenencia responsable, prevención del maltrato y cuidados veterinarios en establecimientos educativos, desde el nivel inicial hasta el secundario.",
-      "guion": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Agencia DIB",
-        "La Nación",
-        "El Destape",
-        "Canal 26",
-        "Diario Popular",
-        "Minuto Uno",
-        "Radio Mitre"
-      ],
-      "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-crematorio-publicos-para-perros-y-gatos-nid29102026/",
-      "fecha": "2026-10-29T22:43:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T01:31:57.382Z",
-      "relevancia": 40,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La Legislatura aprobó la creación del cementerio y crematorio públicos para mascotas con 56 votos.",
-        "Las nuevas instalaciones funcionarán en el predio del Cementerio de Chacarita.",
-        "El servicio será gratuito para rescatistas, personas vulnerables y animales sin dueño conocido.",
-        "Se incorporarán contenidos sobre cuidado y derechos de los animales en los colegios."
-      ],
-      "seSabe": [
-        "La iniciativa legislativa obtuvo 56 votos afirmativos en la Legislatura.",
-        "El cementerio y el crematorio públicos funcionarán en el Cementerio de Chacarita.",
-        "El Instituto de Zoonosis Luis Pasteur realiza actualmente unas 600 cremaciones colectivas mensuales de forma gratuita.",
-        "Los servicios incluirán exenciones de pago para sectores vulnerables y organizaciones protectoras."
-      ],
-      "noConfirmado": [
-        "Todavía no se informó la fecha exacta de puesta en marcha de los nuevos servicios estatales en Chacarita."
-      ],
-      "textoRedes": "La Legislatura aprobó la creación del cementerio y crematorio públicos para perros y gatos en Chacarita, con gratuidad para sectores vulnerables y organizaciones protectoras.",
-      "etiquetas": [
-        "Legislatura porteña",
-        "mascotas",
-        "cementerio de animales",
-        "crematorio",
-        "Chacarita",
-        "protección animal"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-crematorio-publicos-para-perros-y-gatos-nid29102026/",
-          "fecha": "2026-10-29T20:40:54.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre el proyecto, las tecnologías no contaminantes, los costos de los servicios privados y la comparación con el Instituto Pasteur."
-        },
-        {
-          "medio": "Diario Popular",
-          "enlace": "https://www.diariopopular.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-un-crematorio-publicos-mascotas-n926847",
-          "fecha": "2026-10-29T22:43:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó los impulsores del proyecto y la aprobación unánime en la Legislatura."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/historico-caba-aprueban-el-primer-cementerio-y-crematorio-publico-mascotas-n6339588",
-          "fecha": "2026-10-30T01:21:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó precisiones sobre el bloque de los legisladores impulsores y el enfoque de higiene urbana."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/videos/la-ciudad-de-buenos-aires-tendra-un-cementerio-publico-y-crematorio-para-las-mascotas-donde-funcionara-y-como-es-el-servicio/",
-          "fecha": "2026-10-30T10:40:14.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/general/2026/10/30/la-ciudad-aprobo-un-cementerio-publico-para-perros-y-gatos-donde-funcionara-y-como-sera-el-servicio/",
-          "fecha": "2026-10-30T14:40:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/sociedad/ciudad-tendra-rincon-donde-despedir-mascotas-nuevo-cementerio-animales-20261030163154",
-          "fecha": "2026-10-30T19:31:54.105Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/cementerio-y-crematorio-publico-mascotas-caba-alcances-un-modelo-seguir-n56960",
-          "fecha": "2026-10-30T21:13:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "aprueban-cementerio-y-crematorio-publicos-de-mascotas-en-buenos-aires",
-      "foto": {
-        "archivo": "fotos-notas/13i41og.jpg",
-        "credito": "Foto: Radio Mitre"
       }
     },
     {
@@ -14643,6 +14028,113 @@
       }
     },
     {
+      "id": "1uuz38u",
+      "titulo": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires",
+      "copete": "La Legislatura sancionó por unanimidad la creación de servicios estatales para perros y gatos en Chacarita. Habrá gratuidad para sectores vulnerables y organizaciones protectoras.",
+      "cuerpo": "La Legislatura de la Ciudad de Buenos Aires aprobó por unanimidad la creación de un cementerio y un servicio de cremación públicos para perros y gatos, que funcionarán en el predio del Cementerio de Chacarita. La medida obtuvo 56 votos afirmativos durante la sesión ordinaria y busca ofrecer alternativas frente a los costos de las prestaciones privadas, que pueden alcanzar o superar los 350.000 pesos según los paquetes disponibles. El proyecto fue impulsado por los legisladores Graciela Ocaña y Emmanuel Ferrario.\n\nEn la ciudad hay más de 860.000 perros y gatos en hogares, y la falta de espacios adecuados genera enterramientos improvisados en espacios públicos que pueden representar riesgos sanitarios. El nuevo establecimiento deberá utilizar tecnologías no contaminantes y asegurar una gestión correcta de los residuos. La cremación será optativa, salvo en circunstancias que comprometan la sanidad.\n\nEl esquema aprobado prevé el cobro de un canon, pero establece la gratuidad total para organizaciones civiles de protección animal, animales sin responsable hallados en la vía pública y personas en situación de vulnerabilidad social que residan en el distrito. Además, el servicio de cremación contará con un espacio de memoria para realizar actos de despedida y depositar cenizas, a diferencia de la modalidad colectiva que ofrece actualmente el Instituto de Zoonosis Luis Pasteur.\n\nEn paralelo, la norma establece la incorporación obligatoria de contenidos sobre empatía, tenencia responsable, prevención del maltrato y cuidados veterinarios en establecimientos educativos, desde el nivel inicial hasta el secundario.",
+      "guion": "Aprueban cementerio y crematorio públicos de mascotas en Buenos Aires.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "La Nación",
+        "Canal 26"
+      ],
+      "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-crematorio-publicos-para-perros-y-gatos-nid29102026/",
+      "fecha": "2026-10-29T20:40:54.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-30T01:31:57.382Z",
+      "relevancia": 26,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La Legislatura aprobó la creación del cementerio y crematorio públicos para mascotas con 56 votos.",
+        "Las nuevas instalaciones funcionarán en el predio del Cementerio de Chacarita.",
+        "El servicio será gratuito para rescatistas, personas vulnerables y animales sin dueño conocido.",
+        "Se incorporarán contenidos sobre cuidado y derechos de los animales en los colegios."
+      ],
+      "seSabe": [
+        "La iniciativa legislativa obtuvo 56 votos afirmativos en la Legislatura.",
+        "El cementerio y el crematorio públicos funcionarán en el Cementerio de Chacarita.",
+        "El Instituto de Zoonosis Luis Pasteur realiza actualmente unas 600 cremaciones colectivas mensuales de forma gratuita.",
+        "Los servicios incluirán exenciones de pago para sectores vulnerables y organizaciones protectoras."
+      ],
+      "noConfirmado": [
+        "Todavía no se informó la fecha exacta de puesta en marcha de los nuevos servicios estatales en Chacarita."
+      ],
+      "textoRedes": "La Legislatura aprobó la creación del cementerio y crematorio públicos para perros y gatos en Chacarita, con gratuidad para sectores vulnerables y organizaciones protectoras.",
+      "etiquetas": [
+        "Legislatura porteña",
+        "mascotas",
+        "cementerio de animales",
+        "crematorio",
+        "Chacarita",
+        "protección animal"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-crematorio-publicos-para-perros-y-gatos-nid29102026/",
+          "fecha": "2026-10-29T20:40:54.000Z",
+          "oficial": false,
+          "aporte": "Aportó los detalles sobre el proyecto, las tecnologías no contaminantes, los costos de los servicios privados y la comparación con el Instituto Pasteur."
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/sociedad/la-ciudad-tendra-un-cementerio-y-un-crematorio-publicos-mascotas-n926847",
+          "fecha": "2026-10-29T22:43:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó los impulsores del proyecto y la aprobación unánime en la Legislatura."
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/sociedad/historico-caba-aprueban-el-primer-cementerio-y-crematorio-publico-mascotas-n6339588",
+          "fecha": "2026-10-30T01:21:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó precisiones sobre el bloque de los legisladores impulsores y el enfoque de higiene urbana."
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/videos/la-ciudad-de-buenos-aires-tendra-un-cementerio-publico-y-crematorio-para-las-mascotas-donde-funcionara-y-como-es-el-servicio/",
+          "fecha": "2026-10-30T10:40:14.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/general/2026/10/30/la-ciudad-aprobo-un-cementerio-publico-para-perros-y-gatos-donde-funcionara-y-como-sera-el-servicio/",
+          "fecha": "2026-10-30T14:40:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/sociedad/ciudad-tendra-rincon-donde-despedir-mascotas-nuevo-cementerio-animales-20261030163154",
+          "fecha": "2026-10-30T19:31:54.105Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Agencia DIB",
+          "enlace": "https://dib.com.ar/sociedad/cementerio-y-crematorio-publico-mascotas-caba-alcances-un-modelo-seguir-n56960",
+          "fecha": "2026-10-30T21:13:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "aprueban-cementerio-y-crematorio-publicos-de-mascotas-en-buenos-aires",
+      "foto": {
+        "archivo": "fotos-notas/13i41og.jpg",
+        "credito": "Foto: Radio Mitre"
+      }
+    },
+    {
       "id": "gpghgh",
       "titulo": "Fallece el actor Patrick Stewart a los 86 años en Los Angeles",
       "copete": "El intérprete británico, recordado por sus papeles en X-Men y Star Trek, formaba parte del elenco de la próxima película de Avengers. Su participación estaba confirmada para el estreno previsto en diciembre.",
@@ -15198,95 +14690,6 @@
       "foto": {
         "archivo": "fotos-notas/1lou7ey.jpg",
         "credito": "Foto: El Día"
-      }
-    },
-    {
-      "id": "1ohv0ib",
-      "titulo": "Intendentes del MDF ceden desdoblamiento para apoyar a Kicillof",
-      "copete": "Jefes comunales del Movimiento Derecho al Futuro respaldaron la estrategia de elecciones concurrentes para potenciar la candidatura presidencial del gobernador bonaerense.",
-      "cuerpo": "El gobernador de la provincia de Buenos Aires, Axel Kicillof, encabezó el jueves una cumbre en el Salón Francés de la Gobernación con unos 40 intendentes del Movimiento Derecho al Futuro (MDF) para analizar el escenario electoral de cara a los comicios de 2027. Durante el encuentro, los jefes comunales acordaron ceder en su preferencia por el desdoblamiento y manifestaron su disposición a respaldar una elección concurrente que potencie la estrategia presidencial del mandatario.\n\nEl sostenimiento de las Primarias Abiertas, Simultáneas y Obligatorias (PASO) constituyó otro de los ejes centrales del debate. Tanto el Gobernador como los alcaldes coincidieron en señalar que las primarias resultan herramientas fundamentales para dirimir internas y alcanzar consensos, aunque advirtieron que la definición final dependerá de lo que ocurra a nivel nacional con los proyectos que impulsa la administración de Javier Milei.\n\nAsimismo, los jefes territoriales ratificaron su demanda para que avance el proyecto que habilita las reelecciones indefinidas en los municipios, una iniciativa que continúa trabada en el Senado provincial entre resistencias legislativas. En la cumbre también participaron funcionarios del gabinete provincial como Andrés Larroque y Gabriel Katopodis, quienes reforzaron la necesidad de consolidar la unidad del espacio político.",
-      "guion": "Intendentes del MDF ceden desdoblamiento para apoyar a Kicillof.",
-      "seccion": "Política",
-      "medios": [
-        "La Tecla",
-        "Ámbito",
-        "Letra P",
-        "El Día"
-      ],
-      "enlace": "https://www.letrap.com.ar//politica/intendentes-del-mdf-ceden-el-desdoblamiento-favorecer-kicillof-su-estrategia-nacional-n5427767",
-      "fecha": "2026-10-29T20:29:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T07:01:20.902Z",
-      "relevancia": 32,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Kicillof analizó el escenario electoral con unos 40 intendentes del MDF en La Plata.",
-        "Los jefes comunales aceptaron ir a elecciones concurrentes para respaldar la postulación presidencial.",
-        "El espacio político ratificó su respaldo a las PASO como herramienta para dirimir internas.",
-        "Los alcaldes insistieron en su reclamo para destrabar el proyecto de reelecciones indefinidas."
-      ],
-      "seSabe": [
-        "Axel Kicillof se reunió el jueves 29 de octubre de 2026 con intendentes en el Salón Francés de la Gobernación.",
-        "Los jefes comunales del MDF avalaron la estrategia de elecciones concurrentes para 2027.",
-        "El sector político reclama mantener las PASO en territorio bonaerense.",
-        "Los alcaldes volvieron a pedir la habilitación de las reelecciones indefinidas en los municipios."
-      ],
-      "noConfirmado": [
-        "Todavía no se definieron los detalles operativos sobre la convivencia de la Boleta Única de Papel nacional con el sistema provincial.",
-        "No se confirmó si la Legislatura aprobará el proyecto sobre reelecciones municipales."
-      ],
-      "textoRedes": "Intendentes del Movimiento Derecho al Futuro acordaron apoyar elecciones concurrentes en 2027 para respaldar la estrategia presidencial de Axel Kicillof y reclamaron mantener las PASO.",
-      "etiquetas": [
-        "Axel Kicillof",
-        "elecciones 2027",
-        "MDF",
-        "intendentes",
-        "PASO",
-        "provincia de Buenos Aires"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Letra P",
-          "enlace": "https://www.letrap.com.ar//politica/intendentes-del-mdf-ceden-el-desdoblamiento-favorecer-kicillof-su-estrategia-nacional-n5427767",
-          "fecha": "2026-10-29T16:38:00.000Z",
-          "oficial": false,
-          "aporte": "Informó que los intendentes del MDF ceden el desdoblamiento para apoyar la estrategia nacional de Kicillof."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/kicillof-con-intendentes-paso-sin-desdoblamiento-politica-y-economia_1793336407",
-          "fecha": "2026-10-30T05:00:00.000Z",
-          "oficial": false,
-          "aporte": "Explicó que el peronismo bonaerense considera las PASO un insumo clave para resolver candidaturas e internas."
-        },
-        {
-          "medio": "La Tecla",
-          "enlace": "https://www.latecla.info/170795-kicillof-reune-a-su-tropa-de-intendentes-con-las-elecciones-en-el-horizonte",
-          "fecha": "2026-10-29T20:29:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó detalles sobre la reunión en el Salón Francés de la Gobernación, los nombres de los intendentes presentes y la postura sobre las PASO."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/cumbre-axel-kicillof-intendentes-del-mdf-paso-reeleccion-intendentes-y-criticas-javier-milei-n6339571",
-          "fecha": "2026-10-30T00:45:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló las críticas al gobierno nacional y la insistencia de los jefes comunales por la reelección indefinida."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "intendentes-del-mdf-ceden-desdoblamiento-para-apoyar-a-kicillof",
-      "foto": {
-        "archivo": "fotos-notas/1ohv0ib.jpg",
-        "credito": "Foto: Letra P"
       }
     },
     {
@@ -17617,7 +17020,7 @@
       "slug": "el-repaso-de-la-tarde-en-radar-balcarce-feria-del-libro-lluvias-y",
       "foto": {
         "archivo": "fotos-notas/collage-repaso20261029tarde.jpg",
-        "credito": "Fotos: Diario La Vanguardia y Infórmese Primero (FM 104.9)"
+        "credito": "Fotos: Diario La Vanguardia, Infórmese Primero (FM 104.9) y Radio Gabal (FM 104.1)"
       }
     },
     {
@@ -18019,13 +17422,14 @@
         "QZ Noticias (Mar del Plata)",
         "Mi8 (Canal 8 Mar del Plata)",
         "Perfil",
-        "La Nueva"
+        "La Nueva",
+        "Agencia DIB"
       ],
       "enlace": "https://noticiasargentinas.com/politica/el-senado-debatira-la-reforma-de-la-ley-de-salud-mental--que-habilita-internaciones-involuntarias_a6ae245867a9cca030f97fb7e",
       "fecha": "2026-10-29T17:58:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T18:51:52.884Z",
-      "relevancia": 33,
+      "relevancia": 35,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -18071,6 +17475,20 @@
           "medio": "La Nueva",
           "enlace": "https://www.lanueva.com/nota/2026-10-29-16-27-0-en-vivo-el-senado-debate-la-reforma-de-la-ley-de-salud-mental-que-habilita-las-internaciones-involuntarias",
           "fecha": "2026-10-29T19:59:12.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Agencia DIB",
+          "enlace": "https://dib.com.ar/economia/el-senado-aprobo-una-reforma-la-ley-salud-mental-que-cambia-respecto-la-norma-vigente-2010-n56944",
+          "fecha": "2026-10-30T12:38:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Agencia DIB",
+          "enlace": "https://dib.com.ar/sociedad/el-senado-aprobo-una-reforma-la-ley-salud-mental-que-cambia-respecto-la-norma-vigente-2010-n56944",
+          "fecha": "2026-10-30T12:38:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -18457,67 +17875,6 @@
       }
     },
     {
-      "id": "1noo7lp",
-      "titulo": "Julio Zamora en el 20° aniversario del MAT: “Este museo es el lugar más emblemático de Tigre”",
-      "copete": "El intendente encabezó la celebración y reafirmó el compromiso de la gestión en pos de fortalecer el icónico espacio local. En el evento, se realizó la entrega de reconocimientos a Amanda Zocchi de Ubieto; como así también a personalidades que conformaron la colección…",
-      "cuerpo": "El intendente de Tigre, Julio Zamora, encabezó la celebración por el vigésimo aniversario del Museo de Arte Tigre en el histórico edificio situado a la vera del río Luján. Durante el acto oficial, el jefe comunal remarcó que la pinacoteca constituye el sitio más representativo de la ciudad y valoró el trabajo continuo de mantenimiento y obras en las instalaciones.\n\nEn la ceremonia estuvieron presentes la secretaria de Educación y Promoción Social, Gisela Zamora, y la directora general y artística de la institución, Graciela Arbolave. La velada incluyó la proyección de un material audiovisual sobre la trayectoria del centro cultural y la bendición inicial a cargo del padre Cote Quijano de la parroquia Inmaculada Concepción.\n\nPosteriormente, las autoridades entregaron distinciones a personalidades destacadas por su vinculación con el establecimiento, entre ellas Amanda Zocchi de Ubieto, Sonia Decker y la titular de la AAMAT, Telma Castro, además de homenajear a los trabajadores con dos décadas de antigüedad en el organismo. El cierre artístico estuvo a cargo de la soprano Sara Fleming junto al pianista Matías Chapiro.\n\nInaugurado en 2006 bajo la administración del entonces intendente Ricardo Ubieto, el espacio funciona en el antiguo inmueble del Tigre Club, construido a principios del siglo pasado.",
-      "guion": "Julio Zamora en el 20° aniversario del MAT: “Este museo es el lugar más emblemático de Tigre”.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Agencia DIB",
-        "Página/12",
-        "Perfil",
-        "Canal 26"
-      ],
-      "enlace": "https://www.pagina12.com.ar/2026/10/29/julio-zamora-en-el-20-aniversario-del-mat-este-museo-es-el-lugar-mas-emblematico-de-tigre/",
-      "fecha": "2026-10-29T17:20:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T18:01:58.768Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "fuentesConsultadas": [
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/29/julio-zamora-en-el-20-aniversario-del-mat-este-museo-es-el-lugar-mas-emblematico-de-tigre/",
-          "fecha": "2026-10-29T16:34:57.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/estilo-vida/el-museo-arte-tigre-cumplio-20-anos-aportando-cultura-al-municipio-n56912",
-          "fecha": "2026-10-29T17:20:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/comercial/el-museo-de-arte-tigre-celebro-sus-20-anos-julio-zamora-destaco-su-valor-cultural-ahYLx2c43pJK",
-          "fecha": "2026-10-29T17:43:31.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/10/29/julio-zamora-en-el-20-aniversario-del-mat-este-museo-es-el-lugar-mas-emblematico-de-tigre/",
-          "fecha": "2026-10-29T18:11:52.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "slug": "el-museo-de-arte-tigre-celebra-dos-decadas-de-historia-cultural",
-      "corregidaCuando": "2026-10-30T00:00:00.000Z",
-      "corregidaAMano": true,
-      "foto": {
-        "archivo": "fotos-notas/1noo7lp.jpg",
-        "credito": "Foto: Agencia DIB"
-      }
-    },
-    {
       "id": "1h73yyp",
       "titulo": "Aprueban el nuevo torneo de Primera División para 2027",
       "copete": "La Liga Profesional aprobó por mayoría el cambio de formato para 2027 y 2028. El campeonato mantendrá 30 equipos, eliminará las zonas y se jugará con torneos Apertura y Clausura definidos por playoffs. River fue el único club que votó en contra.",
@@ -18548,7 +17905,6 @@
         "Los Andes (Mendoza)",
         "Perfil",
         "La Nueva",
-        "El Gráfico",
         "0223 (Mar del Plata)",
         "La Brújula 24",
         "A24",
@@ -19269,458 +18625,6 @@
         "archivo": "fotos-notas/1tm0g5b.jpg",
         "credito": "Foto: C5N"
       }
-    },
-    {
-      "id": "1oxthyw",
-      "titulo": "Javier Milei felicitó a Benjamin Netanyahu tras haberse impuesto en las elecciones de Israel",
-      "copete": "",
-      "cuerpo": "El presidente Javier Milei felicitó el jueves a su par de Israel, Benjamin Netanyahu, tras conocerse los resultados de las elecciones legislativas en ese país. A través de un mensaje publicado en su cuenta de la red social X, el mandatario destacó la fortaleza del liderazgo de su aliado y ratificó que la Argentina e Israel continuarán como socios estratégicos frente a quienes desafían los valores occidentales.\n\nEl saludo del jefe de Estado se difundió luego de que concluyera el recuento de votos que posicionó al partido Likud, liderado por Netanyahu, como la fuerza con mayor cantidad de sufragios individuales. Con el cierre del escrutinio, el bloque oficialista alcanzó 53 escaños en la Knéset, el Parlamento israelí compuesto por 120 bancas.\n\nA pesar de la victoria del Likud, que obtuvo 27 bancas, ninguna de las principales coaliciones logró alcanzar la mayoría absoluta de 61 escaños necesaria para formar gobierno de manera directa. Este escenario de paridad obligará a abrir una ronda de negociaciones políticas para definir las alianzas parlamentarias que permitan la continuidad del primer ministro en el poder.\n\nPor su parte, la Comisión Electoral especificó que los resultados oficiales definitivos se anunciarán el próximo miércoles 4 de noviembre, jornada en la que se llevará a cabo una revisión adicional sobre la integridad del proceso electoral. Si las negociaciones partidarias no logran conformar una mayoría viable en el Congreso, el país podría enfrentarse a la convocatoria de nuevos comicios a principios del año próximo, según advirtieron distintos analistas internacionales tras los comicios generales desarrollados el martes.",
-      "guion": "Javier Milei felicitó a Benjamin Netanyahu tras haberse impuesto en las elecciones de Israel.",
-      "seccion": "Argentina",
-      "medios": [
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Página/12",
-        "A24",
-        "Noticias Argentinas (NA)",
-        "Infobrisas (Radio Brisas)",
-        "Ámbito",
-        "C5N",
-        "Los Andes (Mendoza)",
-        "Clarín",
-        "Canal 26",
-        "iProfesional",
-        "Radio Mitre",
-        "La Nueva",
-        "Perfil",
-        "El Día",
-        "Crónica"
-      ],
-      "enlace": "https://www.c5n.com/politica/javier-milei-felicito-benjamin-netanyahu-haberse-impuesto-las-elecciones-israel-n252902",
-      "fecha": "2026-10-29T16:56:54.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T17:33:05.536Z",
-      "relevancia": 45,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "fuentesConsultadas": [
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/politica/javier-milei-felicito-benjamin-netanyahu-haberse-impuesto-las-elecciones-israel-n252902",
-          "fecha": "2026-10-29T16:40:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/internacional/2026/10/29/con-el-91-del-escrutinio-el-bloque-de-netanyahu-se-mantiene-como-el-mas-votado-en-israel-pero-sin-mayoria-para-gobernar/",
-          "fecha": "2026-10-29T20:24:54.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/10/29/milei-felicito-a-netanyahu-por-el-resultado-electoral-en-israel-y-ratifico-la-alianza-estrategica-entre-ambos-paises/",
-          "fecha": "2026-10-29T19:22:53.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/saludo-milei-netnayahu-pese-mala-eleccion-felicitaciones-querido-amigo-202610291437",
-          "fecha": "2026-10-29T17:03:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/internacionales/pese-ganar-elecciones-netanyahu-no-puede-formar-gobierno-acusa-fraude-partidos-arabes-2026102912150",
-          "fecha": "2026-10-29T15:15:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/29/milei-felicito-a-netanyahu-por-un-triunfo-que-todavia-no-se-concreto/",
-          "fecha": "2026-10-30T03:01:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/politica/milei-felicito-netanyahu-el-resultado-electoral-y-ratifico-la-alianza-la-argentina-e-israel-n1611480",
-          "fecha": "2026-10-29T17:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/-querido-amigo---netanyahu-le-agradecio-a-milei-sus-felicitaciones-por-las-elecciones-legislativas-_a6ae39b7083a79a91f38ff31a",
-          "fecha": "2026-10-29T19:40:30.891Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/politica/milei-felicita-a-netanyahu-por-su--gran-eleccion---aunque-todavia-no-tiene-mayoria-para-formar-gobierno_a6ae372d183a79a91f38d72d8",
-          "fecha": "2026-10-29T16:34:56.985Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/10/29/113112-milei-felicito-a-netanyahu-has-demostrado-la-fortaleza-de-tu-liderazgo",
-          "fecha": "2026-10-29T17:09:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/benjamin-netanyahu-agradecio-javier-milei-su-felicitacion-y-lo-llamo-su-querido-amigo-n6339514",
-          "fecha": "2026-10-29T21:47:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/politica/javier-milei-felicito-benjamin-netanyahu-la-eleccion-pese-la-falta-mayoria-gobernar-israel-n6339400",
-          "fecha": "2026-10-29T17:10:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/milei-felicito-netanyahu-su-gran-eleccion-pero-todavia-no-tiene-mayoria-gobernar-n6012275",
-          "fecha": "2026-10-29T17:53:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/politica/javier-milei-felicito-benjamin-netanyahu-resultados-eleccion-israel-vez-demostrado-fortaleza-liderazgo_0_8uCh4m2bVq.html",
-          "fecha": "2026-10-29T16:57:38.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/10/29/milei-felicito-a-netanyahu-por-las-elecciones-en-israel-mientras-mantiene-silencio-ante-el-triunfo-de-lula-en-brasil-felicitaciones-querido-amigo/",
-          "fecha": "2026-10-29T16:52:51.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/politica/467834-milei-felicito-a-netanyahu-por-las-elecciones-en-israel-seguiremos-siendo-aliados",
-          "fecha": "2026-10-29T18:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/internacionales/javier-milei-felicito-a-benjamin-netanyahu-por-las-elecciones-en-israel-pese-a-que-no-alcanzo-la-mayoria-para-gobernar/",
-          "fecha": "2026-10-29T19:55:27.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/politica/javier-milei-felicito-a-benjamin-netanyahu-el-resultado-en-las-elecciones-en-israel-una-vez-mas-has-demostrado-la-fortaleza-de-tu-liderazgo/",
-          "fecha": "2026-10-29T19:46:11.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nueva",
-          "enlace": "https://www.lanueva.com/nota/2026-10-29-16-30-0-milei-felicita-a-netanyahu-por-su-gran-eleccion-aunque-todavia-no-tiene-mayoria-para-formar-gobierno",
-          "fecha": "2026-10-29T19:59:12.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/mas-perfil/rdc-javier-milei-felicito-a-benjamin-netanyahu-tras-las-elecciones-en-israel-atBTS2B3sKM9",
-          "fecha": "2026-10-29T20:02:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/el-mundo/milei-felicito-a-netanyahu-tras-las-elecciones-pese-a-no-formar-gobierno-en-israel-el-mundo_1793306533",
-          "fecha": "2026-10-29T20:42:13.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/politica/milei-felicito-a-netanyahu-por-el-resultado-electoral-y-hubo-respuesta-gracias-querido-amigo/",
-          "fecha": "2026-10-29T21:40:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/internacional/nos-robaron-netanyahu-dinamita-la-eleccion-en-israel-aeLw97Q25UzK",
-          "fecha": "2026-10-30T13:01:49.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "slug": "javier-milei-felicita-a-benjamin-netanyahu-por-los-resultados-en",
-      "corregidaCuando": "2026-10-30T00:00:00.000Z",
-      "corregidaAMano": true,
-      "foto": {
-        "archivo": "fotos-notas/1oxthyw.jpg",
-        "credito": "Foto: La Nación"
-      }
-    },
-    {
-      "id": "1aqsope",
-      "titulo": "Científicos de La Plata lanzan una plataforma interactiva de eclipses solares",
-      "copete": "Investigadores del CONICET y la UNLP desarrollaron un sitio web para calcular eclipses solares entre 1951 y 2200. La herramienta permite consultar datos detallados de visibilidad y anticipa un fenómeno anular para febrero.",
-      "cuerpo": "El trabajo estuvo a cargo de los especialistas Romina Di Sisto y Eduardo Fernández Lajús, quienes integran el Instituto de Astrofísica de La Plata (IALP). Los científicos transformaron un código numérico de investigación en un recurso accesible para la comunidad.\n\nEl sitio web reúne alrededor de 500 eclipses solares registrados entre 1951 y 2200, aunque Fernández Lajús detalló en Radio Brisas que ampliaron el sistema para abarcar un período desde el año -1999 hasta el 3000.\n\nLos usuarios pueden buscar los fenómenos mediante listados o seleccionar un punto en un mapa interactivo e ingresar coordenadas manuales.\n\nLa iniciativa surgió a partir del eclipse solar total del 14 de diciembre de 2020 en la localidad rionegrina de Valcheta, donde los autores colaboraron en estudios sobre la radiación solar y la atmósfera.\n\nAdemás de la plataforma general, los especialistas prepararon un apartado específico para el eclipse solar anular previsto para el 6 de febrero de 2027.\n\nLa herramienta se encuentra disponible para su consulta pública a través del sitio web oficial del equipo científico.",
-      "guion": "Científicos de La Plata lanzan una plataforma interactiva de eclipses solares.",
-      "seccion": "Ciencia",
-      "medios": [
-        "0221",
-        "Infobrisas (Radio Brisas)",
-        "El Día"
-      ],
-      "enlace": "https://www.eldia.com/la-ciudad/cientificos-de-la-plata-crearon-una-herramienta-para-calcular-eclipses-solares-hasta-el-ano-2200-la-ciudad_1793290200",
-      "fecha": "2026-10-29T16:51:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T21:02:10.330Z",
-      "relevancia": 29,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Investigadores del CONICET y la UNLP crearon una plataforma interactiva de eclipses solares.",
-        "El sistema permite calcular fenómenos ocurridos y futuros entre 1951 y 2200, con una ampliación que abarca desde el año -1999 hasta el 3000.",
-        "La herramienta ofrece datos de horarios, coordenadas y porcentaje de visibilidad desde cualquier punto geográfico.",
-        "Los autores destacaron un próximo eclipse anular que se observará el 6 de febrero de 2027 en la costa atlántica."
-      ],
-      "seSabe": [
-        "La plataforma interactiva fue desarrollada por los investigadores Romina Di Sisto y Eduardo Fernández Lajús.",
-        "El recurso incluye cerca de 500 eclipses solares entre 1951 y 2200 y puede consultarse en el sitio del equipo científico.",
-        "El próximo 6 de febrero de 2027 se registrará un eclipse solar anular con visibilidad en la costa atlántica."
-      ],
-      "noConfirmado": [
-        "Todavía no se detallaron los alcances completos de la ampliación del código para los 5000 años mencionados por el investigador."
-      ],
-      "textoRedes": "Investigadores del CONICET y la UNLP crearon una plataforma interactiva para calcular eclipses solares y anticipan un fenómeno anular para febrero.",
-      "etiquetas": [
-        "CONICET",
-        "UNLP",
-        "eclipses solares",
-        "astronomia",
-        "La Plata"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/cientificos-de-la-plata-crearon-una-herramienta-para-calcular-eclipses-solares-hasta-el-ano-2200-la-ciudad_1793290200",
-          "fecha": "2026-10-29T16:51:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre el desarrollo de la plataforma interactiva del CONICET y la UNLP, sus creadores y las funciones geográficas."
-        },
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/10/29/113148-cientificos-crearon-una-plataforma-para-conocer-eclipses-del-pasado-y-del-futuro",
-          "fecha": "2026-10-29T20:43:41.000Z",
-          "oficial": false,
-          "aporte": "Aportó las declaraciones radiales sobre la ampliación del código informático para un período de 5000 años y precisiones del eclipse de 2027."
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/la-plata/cientificos-la-plata-crearon-una-plataforma-conocer-todos-los-eclipses-solares-2200-n136577",
-          "fecha": "2026-10-29T23:04:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/crearon-una-plataforma-para-consultar-eclipses-la-ciudad_1793337117",
-          "fecha": "2026-10-30T05:11:57.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "cientificos-de-la-plata-lanzan-una-plataforma-interactiva-de-eclipses",
-      "foto": {
-        "archivo": "fotos-notas/1aqsope.jpg",
-        "credito": "Foto: El Día"
-      }
-    },
-    {
-      "id": "iv52j3",
-      "titulo": "River busca ante Boca su clasificación a los playoffs del Torneo Clausura",
-      "copete": "El equipo dirigido por Leonardo Ponzio enfrenta el domingo al Xeneize en la Bombonera. Un triunfo le garantiza el pase a la siguiente fase del campeonato local y mantiene sus aspiraciones para la Copa Libertadores 2027.",
-      "cuerpo": "River afronta una instancia decisiva en la temporada con dos objetivos claros: asegurar su lugar en los playoffs del Torneo Clausura y mantener vivas sus chances de clasificar a la Copa Libertadores 2027. El conjunto de Núñez, que suma 23 unidades y se ubica cuarto en la Zona B, necesita sumar puntos en el Superclásico del domingo para sellar su boleto a la siguiente fase del certamen doméstico. Si el equipo logra vencer a Boca en la Bombonera, alcanzará los 26 puntos y se clasificará automáticamente a los octavos de final, independientemente de lo que ocurra en la última jornada ante Aldosivi. En caso de empatar o perder, la clasificación dependerá de una combinación de resultados de otros encuentros.\n\nEn paralelo, el Millonario mantiene expectativas de acceder a la próxima edición de la Copa Libertadores a través de la Tabla Anual, donde actualmente ocupa el séptimo puesto con 52 puntos. Para lograr este objetivo sin depender de ganar el Clausura, el club debe ganar los dos partidos que le restan y aguardar que otros competidores directos, como Independiente Rivadavia, Instituto, Vélez y Rosario Central, no sumen la cantidad de puntos necesaria para superarlo. El panorama podría simplificarse si alguno de los equipos que se encuentran por encima en la tabla obtiene el título del Clausura o si Boca se consagra en la Copa Sudamericana, liberando así un cupo adicional para la clasificación internacional.\n\nAmbos planteles llegan al compromiso con bajas obligadas en el mediocampo debido a lesiones, lo que obligó a los cuerpos técnicos a evaluar variantes tácticas en los días previos al duelo.",
-      "guion": "River busca ante Boca su clasificación a los playoffs del Torneo Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "El Destape",
-        "Olé",
-        "Doble Amarilla"
-      ],
-      "enlace": "https://www.eldestapeweb.com/deportes/necesita-river-clasificar-copa-libertadores-2027-clave-superclasico-20261029125027",
-      "fecha": "2026-10-29T16:45:45.413Z",
-      "sinFecha": false,
-      "visto": "2026-10-31T01:32:05.096Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "noConfirmado": [
-        "La posibilidad de clasificar a la Libertadores 2027 mediante la Tabla Anual, que depende de múltiples resultados ajenos.",
-        "La formación definitiva de ambos equipos debido a las bajas por lesiones."
-      ],
-      "etiquetas": [
-        "River Plate",
-        "Boca Juniors",
-        "Torneo Clausura",
-        "Copa Libertadores 2027",
-        "Superclásico",
-        "Fútbol argentino"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/necesita-river-clasificar-copa-libertadores-2027-clave-superclasico-20261029125027",
-          "fecha": "2026-10-29T15:50:27.541Z",
-          "oficial": false,
-          "aporte": "Contextualiza la importancia del Superclásico en las aspiraciones internacionales del club."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/river-plate/necesita-river-clasificar-playoffs-clausura-superclasico-boca_0_xkwy6nyrrF.html",
-          "fecha": "2026-10-30T18:05:25.000Z",
-          "oficial": false,
-          "aporte": "Explica el escenario de River en el Torneo Clausura y qué resultados necesita para entrar a playoffs."
-        },
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/river/river-hace-numeros-que-necesita-para-clasificar-a-la-copa-libertadores-por-la-tabla-anual",
-          "fecha": "2026-10-30T11:08:04.000Z",
-          "oficial": false,
-          "aporte": "Detalla la situación de River en la Tabla Anual y los puntos necesarios para clasificar a la Libertadores."
-        },
-        {
-          "medio": "Doble Amarilla",
-          "enlace": "https://www.dobleamarilla.com.ar/liga-/superclasico--los-resultados-que-necesita-boca-ante-river-para-meterse-en-la-libertadores-2027_a6ae0ee72f517e41b4255aa1a",
-          "fecha": "2026-10-29T16:45:45.413Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1sxyh0y",
-          "titulo": "Boca y River afrontan bajas clave en el mediocampo para el Superclásico",
-          "fecha": "2026-10-29T12:17:37.000Z",
-          "ruta": "/nota/boca-y-river-afrontan-bajas-clave-en-el-mediocampo-para-el-1sxyh0y"
-        },
-        {
-          "id": "1dvcqvp",
-          "titulo": "Boca define su clasificación a la Copa Libertadores frente a River en el Superclásico",
-          "fecha": "2026-10-29T07:02:36.000Z",
-          "ruta": "/nota/boca-define-su-clasificacion-a-la-copa-libertadores-frente-a-river-en-1dvcqvp"
-        },
-        {
-          "id": "1rnepbr",
-          "titulo": "Pronostican lluvias para el Superclásico entre Boca y River el domingo",
-          "fecha": "2026-10-29T15:35:00.000Z",
-          "ruta": "/nota/pronostican-lluvias-para-el-superclasico-entre-boca-y-river-el-domingo-1rnepbr"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "river-busca-ante-boca-su-clasificacion-a-los-playoffs-del-torneo",
-      "foto": {
-        "archivo": "fotos-notas/iv52j3.jpg",
-        "credito": "Foto: Bolavip Argentina"
-      }
-    },
-    {
-      "id": "1gm1ho2",
-      "titulo": "Pauny suspende personal y acumula millonarias deudas en Las Varillas",
-      "copete": "La fábrica cordobesa de tractores atraviesa una severa crisis financiera con millonarios cheques rechazados y atrasos en los pagos. La Unión Obrera Metalúrgica rechazó una suspensión temporal dispuesta por la dirección.",
-      "cuerpo": "La fábrica de tractores Pauny atraviesa una severa crisis financiera en la localidad cordobesa de Las Varillas, marcada por una caída en las ventas, deudas millonarias y problemas con el pago de haberes que afectan a unos 500 trabajadores. Los registros de la Central de Deudores del Banco Central indican que la compañía acumuló 146 cheques rechazados por 1.028,4 millones de pesos entre el 13 y el 23 de octubre.\n\nLa deuda bancaria total alcanzaba los 30.817 millones de pesos según los registros de agosto, con el Banco Nación como principal acreedor al concentrar 21.587,9 millones. A este escenario se suman atrasos en los salarios correspondientes a la segunda quincena de septiembre y la primera de octubre, además de irregularidades en los aportes jubilatorios y las obligaciones sindicales.\n\nAnte este panorama, la conducción empresaria dispuso una suspensión de actividades durante tres días, medida que fue rechazada por la Unión Obrera Metalúrgica. El gremio exigió que los operarios se presentaran en sus puestos y solicitó la intervención formal de la Secretaría de Trabajo de Córdoba para destrabar el conflicto.\n\nLa caída en la comercialización se refleja en los datos del sector: en los primeros nueve meses del año se patentaron 316 unidades de la marca, lo que representa una baja del 28 por ciento en comparación con las 439 unidades registradas durante el mismo período del año anterior. La compañía mantiene conversaciones con posibles inversores para incorporar capital y reactivar la producción.",
-      "guion": "Pauny suspende personal y acumula millonarias deudas en Las Varillas.",
-      "seccion": "Agro",
-      "medios": [
-        "El Destape",
-        "Minuto Uno"
-      ],
-      "enlace": "https://www.minutouno.com/economia/pauny-entro-crisis-caida-ventas-y-apertura-importaciones-n6339360",
-      "fecha": "2026-10-29T16:45:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T08:01:56.099Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La fábrica acumula deudas bancarias superiores a los 30.800 millones de pesos.",
-        "Se registraron 146 cheques rechazados por más de 1.000 millones de pesos.",
-        "La Unión Obrera Metalúrgica rechazó una suspensión temporal y pidió la intervención laboral.",
-        "Las ventas de la marca cayeron un 28 por ciento en los primeros nueve meses del año."
-      ],
-      "seSabe": [
-        "Pauny opera en la localidad cordobesa de Las Varillas.",
-        "La deuda con el Banco Nación asciende a 21.587,9 millones de pesos.",
-        "La Unión Obrera Metalúrgica solicitó una audiencia ante la Secretaría de Trabajo de Córdoba.",
-        "La venta de tractores de la marca bajó a 316 unidades en los primeros nueve meses de 2026."
-      ],
-      "textoRedes": "La fábrica de tractores Pauny atraviesa una severa crisis financiera con millonarios cheques rechazados, caída en las ventas y atrasos salariales que afectan a unos 500 trabajadores en Córdoba. La Unión Obrera Metalúrgica intervino ante la Secretaría de Trabajo.",
-      "etiquetas": [
-        "Pauny",
-        "Las Varillas",
-        "maquinaria agrícola",
-        "crisis",
-        "Unión Obrera Metalúrgica",
-        "Banco Central"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/economia/pauny-entro-crisis-caida-ventas-y-apertura-importaciones-n6339360",
-          "fecha": "2026-10-29T16:45:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó los datos de patentamientos de la Asociación de Concesionarios de Automotores de la República Argentina sobre la caída en las ventas."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/crisis-pauny-suspende-500-trabajadores-acumula-deudas-millonarias-20261029151539",
-          "fecha": "2026-10-29T18:15:39.565Z",
-          "oficial": false,
-          "aporte": "Aportó los detalles sobre las deudas bancarias, los cheques rechazados, la situación de los trabajadores y el conflicto con la Unión Obrera Metalúrgica."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "pauny-suspende-personal-y-acumula-millonarias-deudas-en-las-varillas"
     }
   ],
   "secciones": [
@@ -19733,11 +18637,11 @@
     "Agro",
     "Deportes",
     "Policiales",
+    "Salud",
     "Balcarce",
     "Tecnología",
     "Automovilismo",
-    "Ciencia",
-    "Salud"
+    "Ciencia"
   ],
   "temas": [
     {
@@ -19768,10 +18672,10 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 13,
+      "temp": 12,
       "sensacion": 11,
-      "humedad": 96,
-      "viento": 13,
+      "humedad": 98,
+      "viento": 12,
       "rumbo": "NE",
       "cielo": "Nublado",
       "esDeDia": false
@@ -20156,5 +19060,5 @@
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 8
+  "esperandoCuerpo": 7
 }
