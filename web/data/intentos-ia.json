@@ -2213,6 +2213,13 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1cea0pz": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T07:01:46.645Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 9
+ },
  "1cg4h7t": {
   "intentos": 1,
   "ultimo": "2026-10-27T10:01:47.185Z",
@@ -4608,6 +4615,16 @@
   "textos": 5,
   "numeradas": 7
  },
+ "1o1ei7p": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T07:01:46.645Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl"
+  ]
+ },
  "1o20hna": {
   "intentos": 1,
   "ultimo": "2026-10-27T14:19:21.475Z",
@@ -5535,6 +5552,20 @@
   "textos": 4,
   "numeradas": 7
  },
+ "1snkq1y": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T07:01:46.645Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 101 palabras",
+  "textos": 6,
+  "numeradas": 7,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1so1px1": {
   "intentos": 1,
   "ultimo": "2026-10-28T05:01:47.331Z",
@@ -6461,16 +6492,6 @@
    "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
   ]
  },
- "1ww8f15": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T07:01:19.138Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
  "1x12myv": {
   "intentos": 2,
   "ultimo": "2026-10-30T19:31:43.802Z",
@@ -6527,16 +6548,6 @@
   "numeradas": 1,
   "motivos": [
    "título o bajada: 2 problemas (forma): el titulo trae letras rotas (una"
-  ]
- },
- "1xee7y1": {
-  "intentos": 2,
-  "ultimo": "2026-10-24T06:19:39.192Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "Gemini: Bad control character in string literal in JSON at position 13"
   ]
  },
  "1xjjw8o": {
@@ -8101,16 +8112,6 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
- "a4m4zi": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T06:19:39.192Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 18,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d"
-  ]
- },
  "a4rmv5": {
   "intentos": 1,
   "ultimo": "2026-10-28T17:03:29.942Z",
@@ -8314,6 +8315,13 @@
   "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 14
+ },
+ "ax9oby": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T07:01:46.645Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
  },
  "b19s77": {
   "intentos": 1,
@@ -9341,6 +9349,13 @@
   "motivos": [
    "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: d"
   ]
+ },
+ "gtefy1": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T07:01:46.645Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "gtwrrj": {
   "intentos": 1,

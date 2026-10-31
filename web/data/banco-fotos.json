@@ -51052,7 +51052,8 @@
    "corresponde": "si",
    "descripcion": "Tres hombres con traje posan frente a un fondo verde."
   },
-  "huella": "0f2b2f6bcbeb6bb2"
+  "huella": "0f2b2f6bcbeb6bb2",
+  "ausenteDesde": "2026-10-31T07:03:30.258Z"
  },
  "au2qyx": {
   "archivo": "fotos-notas/au2qyx.jpg",
@@ -53434,14 +53435,40 @@
   "huella": "0717831c7fffbd7d"
  },
  "11s9ojn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/11s9ojn.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-10-31T04:02:32.792Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 2
+  "enlace": "https://www.qznoticias.com/la-region/tras-la-suspension-de-este-ano-por-incidentes-balcarce-confirmo-la-vuelta-de-la-estudiantina-en-2027",
+  "imagenOriginal": "https://n2.cdnartic.ar/dBYhhr7ZH_Dr8AAQWqosn7iPwxk=/1200x630/smart/filters:format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/10/balcarce_2.webp",
+  "razon": "Es la única foto válida que cumple con todos los requisitos sin marcas ni menores.",
+  "cuando": "2026-10-31T07:02:20.129Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión de adultos en una oficina gubernamental.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Tres adultos sentados en una mesa de reuniones en una oficina."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9c9486868e9e3ddc"
  },
  "1noo7lp": {
   "archivo": "fotos-notas/1noo7lp.jpg",
@@ -59097,7 +59124,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-31T00:04:19.392Z"
+  "cuando": "2026-10-31T07:03:27.014Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -59394,7 +59421,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto del Senado con los legisladores en sus bancas."
   },
-  "huella": "555545cd332755b3"
+  "huella": "555545cd332755b3",
+  "ausenteDesde": "2026-10-31T07:03:30.258Z"
  },
  "iv52j3": {
   "archivo": "fotos-notas/iv52j3.jpg",
@@ -59654,7 +59682,8 @@
    "corresponde": "si",
    "descripcion": "Axel Kicillof y Carlos Sadir posando juntos frente a banderas oficiales."
   },
-  "huella": "353d7d243c343430"
+  "huella": "353d7d243c343430",
+  "ausenteDesde": "2026-10-31T07:03:30.258Z"
  },
  "1o4okdz": {
   "archivo": "fotos-notas/1o4okdz.jpg",
@@ -59678,7 +59707,8 @@
    "corresponde": "si",
    "descripcion": "Cartel de ARCA en una oficina de atención con personal trabajando"
   },
-  "huella": "29518b8baa868fbc"
+  "huella": "29518b8baa868fbc",
+  "ausenteDesde": "2026-10-31T07:03:30.258Z"
  },
  "1tshzdo": {
   "archivo": "fotos-notas/1tshzdo.jpg",
@@ -59715,5 +59745,86 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "1830385dd19fbd19"
+ },
+ "1cea0pz": {
+  "archivo": "fotos-notas/1cea0pz.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta amarilla por tormentas y lluvias en ocho provincias",
+  "enlace": "https://tn.com.ar/clima/alertas/2026/10/31/hay-alerta-amarilla-por-lluvias-para-este-sabado-31-de-octubre-en-santa-cruz-las-zonas-afectadas/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-servicio-metereologico-nacional-anuncia-alertas-por-lluvias-imagen-ilustrativa-generada-con-ia-NYN6JKFC3NGIZBXFPOC3D4WT3A.jpeg?auth=ea6006acba1198a80c9af5513ee25a0a0285e62354bb8fca0e4bfe2dbc5e351b&width=1023",
+  "razon": "Ilustra perfectamente una tormenta nocturna en la ciudad con buena nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-31T07:02:20.129Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Calle urbana iluminada y mojada por la lluvia nocturna."
+  },
+  "huella": "0383939787978787"
+ },
+ "1o1ei7p": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes y otros partidos animan la fecha 15 del Torneo Clausura",
+  "razon": "La única foto disponible es una imagen gráfica (diseño de cruce de equipos) y no una fotografía real del evento.",
+  "cuando": "2026-10-31T07:02:20.129Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "gtefy1": {
+  "archivo": "fotos-notas/gtefy1.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Detallan el calendario lunar de noviembre de 2026 con sus fases",
+  "enlace": "https://www.eldestapeweb.com/atr/calendario-lunar-noviembre-2026-cuando-luna-llena-luna-nueva-cuarto-creciente-cuarto-menguante-20261030164951",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/012026/1767278177269.jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto disponible, corresponde perfectamente al tema del calendario lunar y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-10-31T07:02:20.129Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fases lunares sobre fondo negro"
+  },
+  "huella": "00002b2b2baa0000"
+ },
+ "ax9oby": {
+  "archivo": "fotos-notas/ax9oby.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La ANSES confirma el bono de 70.000 pesos y un aumento para jubilados",
+  "enlace": "https://www.cronista.com/economia-politica/anses-confirmo-el-bono-de-70000-para-noviembre-pero-vendra-con-retraso-cuando-lo-cobraran-los-jubilados-con-la-minima/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/RXHLXHGNKNBFBC427CQ52MGKDM.jpg?auth=a0873635bdb82c345b39983105517aaf1f25d4e7ea710c1664ad34dd8ec2505e&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto B muestra a un jubilado operando un cajero automático, lo cual se relaciona directamente con el cobro de haberes y bonos de la ANSES, y no es de stock.",
+  "cuando": "2026-10-31T07:02:20.129Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre mayor utilizando un cajero automático"
+  },
+  "huella": "8ecccae8e95fcfec"
  }
 }
