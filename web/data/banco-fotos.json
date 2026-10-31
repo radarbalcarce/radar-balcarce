@@ -50321,7 +50321,8 @@
    "corresponde": "si",
    "descripcion": "Sergio Massa y Luis Caputo sentados en una mesa de reuniones con banderas al fondo."
   },
-  "huella": "9dcb96b313121010"
+  "huella": "9dcb96b313121010",
+  "ausenteDesde": "2026-10-31T10:31:58.500Z"
  },
  "1xvssy4": {
   "intentado": true,
@@ -50672,7 +50673,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:02.839Z",
-  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/01/610511_landscape.jpg"
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/01/610511_landscape.jpg",
+  "ausenteDesde": "2026-10-31T10:31:58.500Z"
  },
  "1czq9i1": {
   "archivo": "fotos-notas/2t91wl.jpg",
@@ -55746,7 +55748,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:55:00.468Z",
-  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793312849063.jpg?&cw=1600&ch=900"
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793312849063.jpg?&cw=1600&ch=900",
+  "ausenteDesde": "2026-10-31T10:31:58.500Z"
  },
  "z78jdb": {
   "archivo": "fotos-notas/z78jdb.jpg",
@@ -59938,5 +59941,89 @@
   "cuando": "2026-10-31T10:02:15.065Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1ktx07k": {
+  "archivo": "fotos-notas/1ktx07k.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Programan misas en cementerios de Quilmes, Berazategui y Varela",
+  "enlace": "https://www.eldia.com/quilmes/misas-especiales-en-quilmes-y-berazategui-por-el-dia-de-los-fieles-difuntos-quilmes_1793377320",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793378588827.jpg?&cw=1200&ch=630",
+  "razon": "Muestra un cementerio de forma clara, sin marcas ni personas, ideal para ilustrar la nota sobre misas en cementerios.",
+  "cuando": "2026-10-31T10:31:37.391Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de un cementerio con nichos y pasillos."
+  },
+  "huella": "1d1b133333275b9f"
+ },
+ "969a5w": {
+  "archivo": "fotos-notas/969a5w.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Senado bonaerense debate el proyecto para regular las aplicaciones de delivery",
+  "enlace": "https://dib.com.ar/sociedad/la-provincia-busca-apurar-la-ley-regular-las-aplicaciones-delivery-n56948",
+  "imagenOriginal": "https://media.dib.com.ar/p/46b1421a66b518bdbd6d4d14ecda5834/adjuntos/377/imagenes/100/059/0100059968/1200x675/637x431:657x451/trabajador-delivery.jpg",
+  "razon": "Es la única foto que corresponde a la temática, muestra claramente a un repartidor en la calle y no tiene marcas de agua ni problemas.",
+  "cuando": "2026-10-31T10:31:37.391Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Repartidor con mochila térmica y bicicleta en la calle de noche"
+  },
+  "huella": "644f1a1eb7b7b7fb"
+ },
+ "12hvrq8": {
+  "archivo": "fotos-notas/12hvrq8.webp",
+  "medio": "Punto Noticias",
+  "credito": "Foto: Punto Noticias",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno ratifica el bono de 70 mil pesos y sigue congelado",
+  "enlace": "https://puntonoticias.com/el-bono-de-70-000-para-jubilados-perdio-el-70-de-su-poder-adquisitivo-tras-32-meses-congelado/",
+  "imagenOriginal": "https://puntonoticias.com/wp-content/uploads/2025/05/Jubilados-marcha.webp",
+  "razon": "Es la única foto que ilustra directamente la protesta por el bono de 70 mil pesos con un cartel alusivo frente al Congreso, sin marcas de agua ni menores.",
+  "cuando": "2026-10-31T10:31:37.391Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Manifestación de jubilados frente al Congreso con cartel sobre el bono de 70 mil",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Manifestantes frente al Congreso de la Nación sosteniendo carteles que exigen el bono de 70.000 pesos."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3736666643434567"
  }
 }

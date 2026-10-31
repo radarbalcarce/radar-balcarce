@@ -1,6 +1,58 @@
 {
-  "generado": "2026-10-31T10:03:14.201Z",
+  "generado": "2026-10-31T10:31:58.604Z",
   "notas": [
+    {
+      "id": "clima20261031",
+      "propia": "clima",
+      "titulo": "Clima en Balcarce: 82% de probabilidad de lluvia, con mínima de 12° y máxima de 21°",
+      "copete": "El pronóstico de este sábado 31 de octubre para Balcarce marca una mínima de 12° y máxima de 21°, con llovizna leve.",
+      "cuerpo": "En Balcarce, a las 07:31 hay 13° y el cielo está nublado; la sensación térmica es de 12°; el viento sopla del E a 13 km/h; la humedad es del 94%. Son los datos de Open-Meteo de ese momento.\n\nPara todo el sábado 31, el pronóstico marca una mínima de 12° y máxima de 21° y llovizna leve. La probabilidad de lluvia es del 82%. El viento llegaría a 20 km/h.\n\nPara los días que siguen, el pronóstico dice: el domingo 1, mínima de 13° y máxima de 23°, con 43% de probabilidad de lluvia; el lunes 2, mínima de 10° y máxima de 24°, con 24% de probabilidad de lluvia; el martes 3, mínima de 8° y máxima de 21°, con 33% de probabilidad de lluvia.\n\nEl clima se actualiza a lo largo del día: los valores de ahora, hora por hora, están en la página del clima de Radar Balcarce.",
+      "guion": null,
+      "seccion": "Balcarce",
+      "local": true,
+      "relevancia": 58,
+      "medios": [
+        "Open-Meteo"
+      ],
+      "enlace": "https://open-meteo.com",
+      "fuentesConsultadas": [
+        {
+          "medio": "Open-Meteo",
+          "enlace": "https://open-meteo.com"
+        }
+      ],
+      "foto": {
+        "archivo": "fotos-notas/clima-lluvia-1.jpg",
+        "credito": "Ilustración generada con IA (Cloudflare Workers AI)"
+      },
+      "fecha": "2026-10-31T10:31:54.807Z",
+      "sinFecha": false,
+      "visto": "2026-10-31T10:31:54.807Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-10-31T10:31:54.807Z",
+      "temas": [],
+      "etiquetas": [
+        "clima",
+        "pronóstico",
+        "Balcarce",
+        "tiempo"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de Open-Meteo a las 07:31.",
+      "enlacesEnTexto": [
+        {
+          "texto": "página del clima de Radar Balcarce",
+          "href": "/clima"
+        }
+      ],
+      "destacados": [
+        {
+          "texto": "Ver el clima de ahora",
+          "href": "/clima"
+        }
+      ],
+      "slug": "clima-en-balcarce-82-de-probabilidad-de-lluvia-con-minima-de-12-y"
+    },
     {
       "id": "13d5b6e",
       "titulo": "La Fiesta Nacional del Postre continúa el sábado en la Sociedad Rural",
@@ -134,7 +186,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "abal-medina-y-olivera-publican-un-libro-con-debates-del-peronismo"
+      "slug": "abal-medina-y-olivera-publican-un-libro-con-debates-del-peronismo",
+      "foto": {
+        "archivo": "fotos-notas/1jmtc8v-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "1snkq1y",
@@ -516,7 +572,7 @@
       "fecha": "2026-10-30T23:50:38.600Z",
       "sinFecha": false,
       "visto": "2026-10-31T03:02:13.883Z",
-      "relevancia": 41,
+      "relevancia": 33,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2131,7 +2187,11 @@
         "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "estudiantes-y-otros-partidos-animan-la-fecha-15-del-torneo-clausura"
+      "slug": "estudiantes-y-otros-partidos-animan-la-fecha-15-del-torneo-clausura",
+      "foto": {
+        "archivo": "fotos-notas/1o1ei7p-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "aitgf5",
@@ -2281,7 +2341,11 @@
         "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "pami-permite-consultar-el-estado-de-expedientes-a-traves-de-su-sitio"
+      "slug": "pami-permite-consultar-el-estado-de-expedientes-a-traves-de-su-sitio",
+      "foto": {
+        "archivo": "fotos-notas/tqu2s8-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "1qobb2a",
@@ -2862,7 +2926,11 @@
         "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
         "sugeridoPorIA": null
       },
-      "slug": "alumnos-de-la-escuela-n-3-abren-la-fiesta-nacional-del-postre"
+      "slug": "alumnos-de-la-escuela-n-3-abren-la-fiesta-nacional-del-postre",
+      "foto": {
+        "archivo": "fotos-notas/xqokjo-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "repaso20261030tarde",
@@ -2939,14 +3007,14 @@
       "guion": "Enólogos eligen los diez mejores vinos argentinos de la edición 2026.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "TN (Todo Noticias)",
-        "La Nación"
+        "La Nación",
+        "TN (Todo Noticias)"
       ],
       "enlace": "https://tn.com.ar/cocina/vinos/2026/10/30/los-10-vinos-argentinos-elegidos-por-los-enologos-como-los-mejores-del-ano-cuales-son-y-de-donde-vienen/",
       "fecha": "2026-10-30T18:24:03.000Z",
       "sinFecha": false,
       "visto": "2026-10-31T05:01:12.548Z",
-      "relevancia": 30,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4670,6 +4738,72 @@
       }
     },
     {
+      "id": "1ktx07k",
+      "titulo": "Programan misas en cementerios de Quilmes, Berazategui y Varela",
+      "copete": "La Diócesis de Quilmes anunció el cronograma de ceremonias religiosas que se llevarán a cabo en tres cementerios municipales de la región con motivo de la conmemoración litúrgica.",
+      "cuerpo": "La Diócesis de Quilmes difundió el cronograma de misas y responsos previstos para el lunes 2 de noviembre en los cementerios municipales de la zona sur bonaerense. Las celebraciones litúrgicas contarán con la participación de los obispos Eduardo Redondo y Carlos Tissera.\n\nEn el Cementerio Municipal de Quilmes, situado en la calle La Guarda 1050 de la localidad de Ezpeleta, las ceremonias se realizarán a las 10, 12 y 15. La primera de ellas estará a cargo del obispo Eduardo Redondo.\n\nPor su parte, en el predio de Berazategui ubicado en Nicolás Milazzo 368 en Ranelagh, los oficios religiosos se programaron para las 9, 11, 14.30 y 16, estando la misa de las 14.30 también presidida por Redondo.\n\nEn tanto, en el Cementerio Municipal de Florencio Varela, localizado en Esteban Pisani 2348, las actividades se desarrollarán a las 10, 12, 14 y 16. La ceremonia de las 14 será oficiada por el obispo Carlos Tissera. Las autoridades eclesiásticas convocaron a los vecinos a sumarse a las actividades litúrgicas dedicadas al recuerdo de los difuntos.",
+      "guion": "Programan misas en cementerios de Quilmes, Berazategui y Varela.",
+      "seccion": "Cultura y agenda",
+      "medios": [
+        "Crónica",
+        "El Día"
+      ],
+      "enlace": "https://www.eldia.com/quilmes/misas-especiales-en-quilmes-y-berazategui-por-el-dia-de-los-fieles-difuntos-quilmes_1793377320",
+      "fecha": "2026-10-30T16:43:28.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-31T10:31:11.863Z",
+      "relevancia": 36,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La Diócesis de Quilmes difundió las actividades para el lunes 2 de noviembre",
+        "Habrá ceremonias religiosas en los cementerios de Quilmes, Berazategui y Florencio Varela",
+        "Los obispos Eduardo Redondo y Carlos Tissera presidirán las distintas misas"
+      ],
+      "seSabe": [
+        "La Diócesis de Quilmes organizó misas y responsos para el lunes 2 de noviembre",
+        "Participarán los obispos Eduardo Redondo y Carlos Tissera",
+        "Habrá ceremonias en los cementerios de Quilmes, Berazategui y Florencio Varela con horarios específicos"
+      ],
+      "etiquetas": [
+        "Día de los Fieles Difuntos",
+        "Diócesis de Quilmes",
+        "Quilmes",
+        "Berazategui",
+        "Florencio Varela",
+        "cementerios municipales"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/quilmes/misas-especiales-en-quilmes-y-berazategui-por-el-dia-de-los-fieles-difuntos-quilmes_1793377320",
+          "fecha": "2026-10-30T16:43:28.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre los operativos de tránsito y la concurrencia masiva a los predios religiosos."
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/fmq/noticias-locales/dia-de-los-fieles-difuntos-cuando-seran-las-misas-en-los-cementerios-de-quilmes-y-la-region/",
+          "fecha": "2026-10-31T09:00:00.000Z",
+          "oficial": false,
+          "aporte": "Detalló el cronograma de misas, los horarios, las direcciones y los obispos que participan."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "programan-misas-en-cementerios-de-quilmes-berazategui-y-varela",
+      "foto": {
+        "archivo": "fotos-notas/1ktx07k.jpg",
+        "credito": "Foto: El Día"
+      }
+    },
+    {
       "id": "18k1gjb",
       "titulo": "El IPCVA promociona la carne vacuna argentina en la ciudad de Nanjing",
       "copete": "El Instituto de Promoción de la Carne Vacuna Argentina desarrolla acciones en China para incentivar el consumo y generar oportunidades comerciales. La estrategia incluye una campaña gastronómica y capacitaciones en formación profesional antes de la feria CIIE.",
@@ -5189,8 +5323,7 @@
       "seccion": "Deportes",
       "medios": [
         "Infórmese Primero (FM 104.9)",
-        "Municipalidad de Balcarce",
-        "Diario La Vanguardia"
+        "Municipalidad de Balcarce"
       ],
       "enlace": "https://balcarce.gob.ar/2026/10/30/sabado-a-puro-basquet-2/",
       "fecha": "2026-10-30T15:02:29.000Z",
@@ -6133,18 +6266,17 @@
         "Los Andes (Mendoza)",
         "La Brújula 24",
         "La Gaceta (Tucumán)",
-        "Perfil",
         "La Nueva"
       ],
       "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/formula-1-en-mexico-en-vivo-nid30102026/",
       "fecha": "2026-10-30T13:49:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T20:31:30.136Z",
-      "relevancia": 93,
+      "relevancia": 92,
       "local": false,
       "muyContada": {
-        "medios": 20,
-        "porque": "20 medios",
+        "medios": 19,
+        "porque": "19 medios",
         "desde": "2026-10-30T23:31:44.113Z"
       },
       "publicadaPor": null,
@@ -7264,7 +7396,11 @@
         "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
         "sugeridoPorIA": null
       },
-      "slug": "sportivo-trabajo-participa-en-la-primera-expo-salud-deporte-y"
+      "slug": "sportivo-trabajo-participa-en-la-primera-expo-salud-deporte-y",
+      "foto": {
+        "archivo": "fotos-notas/mynw3q-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "efemeride20261030",
@@ -7397,7 +7533,7 @@
       "fecha": "2026-10-30T12:29:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T22:01:27.556Z",
-      "relevancia": 45,
+      "relevancia": 37,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -7462,7 +7598,11 @@
         "porque": "Lo contaron cuatro medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "juana-viale-conduce-los-programas-de-mirtha-legrand-el-fin-de-semana"
+      "slug": "juana-viale-conduce-los-programas-de-mirtha-legrand-el-fin-de-semana",
+      "foto": {
+        "archivo": "fotos-notas/14rxmct-ia.jpg",
+        "credito": "Ilustración generada con IA"
+      }
     },
     {
       "id": "os13wr",
@@ -7966,6 +8106,119 @@
       "foto": {
         "archivo": "fotos-notas/1nwhb5k.jpg",
         "credito": "Foto: Perfil"
+      }
+    },
+    {
+      "id": "12hvrq8",
+      "titulo": "El Gobierno ratifica el bono de 70 mil pesos y sigue congelado",
+      "copete": "El Poder Ejecutivo oficializó mediante un decreto la continuidad del refuerzo previsional de hasta 70.000 pesos para noviembre. La asistencia económica acumula 32 meses sin modificaciones frente al aumento de la inflación.",
+      "cuerpo": "El Gobierno nacional ratificó por medio del Decreto 1296/2026 la permanencia del pago extraordinario destinado a los sectores previsionales de menores recursos. El beneficio económico continuará vigente durante noviembre para jubilados, pensionados, titulares de la Pensión Universal para el Adulto Mayor y beneficiarios de pensiones no contributivas.\n\nSin embargo, el refuerzo se mantiene inamovible desde marzo de 2024. Los datos oficiales exponen que el monto extra acumuló 32 meses consecutivos sin modificaciones frente al avance inflacionario. El incremento general de precios superó el 159 por ciento en ese período, lo que generó un desplome estimado en el 70 por ciento de la capacidad real de compra del adicional.\n\nPara recuperar el valor adquisitivo que tenía al momento de su lanzamiento, la suma debería trepar hasta los 231.253 pesos. Esa brecha implica que cada jubilado deja de percibir 161.253 pesos mensuales por la falta de actualización del refuerzo estatal. Además, el proyecto de Presupuesto contempla que la asistencia permanezca sin incrementos durante todo el año próximo.\n\nCon la actualización del haber base fijada en 444.158,46 pesos para el undécimo mes del año, el bono de 70.000 pesos pasó a representar el 15,8 por ciento del total percibido. De esta manera, quienes cobran la prestación mínima y reciben el adicional completo perciben un ingreso bruto total de 514.158,46 pesos.\n\nDiferentes entidades vinculadas al ámbito previsional advierten que los ingresos del sector continúan ubicándose cerca o por debajo de la Canasta Básica Total. Por su parte, el asesor Fernando Viera sostuvo que la finalidad oficial sería permitir la licuación gradual del refuerzo hasta su desaparición.",
+      "guion": "El Gobierno ratifica el bono de 70 mil pesos y sigue congelado.",
+      "seccion": "Economía",
+      "medios": [
+        "Diario Popular",
+        "Noticias Argentinas (NA)",
+        "La Verdad",
+        "QZ Noticias (Mar del Plata)",
+        "Punto Noticias",
+        "C5N",
+        "elDiarioAR"
+      ],
+      "enlace": "https://www.c5n.com/economia/el-gobierno-confirmo-el-bono-jubilados-noviembre-y-el-monto-sigue-congelado-70-mil-cuando-se-cobra-n252863",
+      "fecha": "2026-10-30T12:00:05.000Z",
+      "sinFecha": false,
+      "visto": "2026-10-31T10:31:11.863Z",
+      "relevancia": 40,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El Gobierno oficializó la continuidad del bono previsional mediante el Decreto 1296/2026.",
+        "El refuerzo monetario acumula 32 meses sin modificaciones y perdió el 70 por ciento de su valor.",
+        "El haber mínimo se ubica en 444.158,46 pesos y alcanza un total bruto de 514.158,46 pesos con el adicional.",
+        "El proyecto de Presupuesto contempla mantener la suma congelada durante el transcurso del próximo año."
+      ],
+      "seSabe": [
+        "El Decreto 1296/2026 oficializó la continuidad del refuerzo previsional para noviembre.",
+        "El monto máximo del bono se mantiene en 70.000 pesos desde marzo de 2024.",
+        "La inflación acumulada en el período superó el 159 por ciento según registros del INDEC.",
+        "El haber previsional mínimo se sitúa en 444.158,46 pesos.",
+        "El Gobierno proyectó destinar 3,9 billones de pesos para sostener los pagos."
+      ],
+      "noConfirmado": [
+        "Todavía resta la confirmación oficial mediante la normativa correspondiente para el pago del bono durante enero de 2027.",
+        "El futuro definitivo del refuerzo más allá de los anuncios presupuestarios previstos para el año próximo."
+      ],
+      "textoRedes": "El Gobierno ratificó mediante decreto la continuidad del bono previsional de hasta 70.000 pesos para noviembre. El refuerzo acumula 32 meses sin aumentos y perdió capacidad de compra frente a la inflación.",
+      "etiquetas": [
+        "jubilados",
+        "bono",
+        "ANSES",
+        "Gobierno nacional",
+        "economia"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/economia/el-gobierno-confirmo-el-bono-jubilados-noviembre-y-el-monto-sigue-congelado-70-mil-cuando-se-cobra-n252863",
+          "fecha": "2026-10-29T11:18:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó los detalles legales del Decreto 1296/2026 y los grupos de beneficiarios alcanzados por la medida."
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/economia/el-bono-70000-jubilados-seguira-congelado-2027-ya-perdio-el-70-su-poder-adquisitivo-n927021",
+          "fecha": "2026-10-30T12:12:00.000Z",
+          "oficial": false,
+          "aporte": "Aportó los cálculos sobre la pérdida del 70 por ciento del valor real, el monto necesario para equipararlo y la proyección presupuestaria."
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/el-bono-de--70-000-para-jubilados-perdio-el-70--de-su-poder-adquisitivo-tras-32-meses-congelado_a6ae3b76183a79a91f392e42c",
+          "fecha": "2026-10-30T10:00:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Verdad",
+          "enlace": "https://laverdadonline.com/el-bono-de-70-000-para-jubilados-perdio-el-70-de-su-poder-adquisitivo-tras-32-meses-congelado/",
+          "fecha": "2026-10-30T15:24:16.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "QZ Noticias (Mar del Plata)",
+          "enlace": "https://www.qznoticias.com/el-pais/el-bono-para-jubilados-perdio-el-70-de-su-poder-adquisitivo-tras-mas-de-dos-anos-sin-actualizacion",
+          "fecha": "2026-10-30T12:00:05.000Z",
+          "oficial": false,
+          "aporte": "Aportó el relevamiento sobre la situación de los haberes frente a los valores de la Canasta Básica Total."
+        },
+        {
+          "medio": "Punto Noticias",
+          "enlace": "https://puntonoticias.com/el-bono-de-70-000-para-jubilados-perdio-el-70-de-su-poder-adquisitivo-tras-32-meses-congelado/",
+          "fecha": "2026-10-30T12:01:46.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "elDiarioAR",
+          "enlace": "https://www.eldiarioar.com/economia/bono-70-000-jubilados-perdio-70-adquisitivo-32-meses-congelado_1_13626780.html",
+          "fecha": "2026-10-30T10:48:59.000Z",
+          "oficial": false,
+          "aporte": "Aportó el porcentaje de la inflación acumulada según los registros estadísticos del INDEC."
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron cuatro medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-gobierno-ratifica-el-bono-de-70-mil-pesos-y-sigue-congelado",
+      "foto": {
+        "archivo": "fotos-notas/12hvrq8.webp",
+        "credito": "Foto: Punto Noticias"
       }
     },
     {
@@ -8566,13 +8819,14 @@
       "guion": "Duplican la tarifa de los peajes en las rutas 205 y 226.",
       "seccion": "Economía",
       "medios": [
+        "Canal 26",
         "La Verdad"
       ],
       "enlace": "https://laverdadonline.com/aumentaron-un-100-los-peajes-en-estaciones-de-las-rutas-205-y-226/",
       "fecha": "2026-10-30T11:24:50.000Z",
       "sinFecha": false,
       "visto": "2026-10-31T09:01:00.885Z",
-      "relevancia": 22,
+      "relevancia": 36,
       "local": false,
       "deLaZona": true,
       "publicadaPor": null,
@@ -8593,9 +8847,6 @@
         "Las autopistas Riccheri y Ezeiza-Cañuelas aplicaron una suba trimestral del 0,86%.",
         "El pago manual duplicará el valor de la tarifa TelePASE."
       ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
       "textoRedes": "Aumentaron un 100% los peajes en las estaciones de Uribelarrea en la ruta 205 e Hinojo en la 226. La suba fue aprobada por Vialidad Nacional tras finalizar las obras iniciales.",
       "etiquetas": [
         "peajes",
@@ -8612,6 +8863,13 @@
           "fecha": "2026-10-30T11:24:50.000Z",
           "oficial": false,
           "aporte": "Informó el aumento del 100% en las rutas 205 y 226, los detalles de CORRSUR y los incrementos trimestrales."
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/economia/2026/10/31/nuevo-aumento-de-peajes-en-buenos-aires-las-2-rutas-donde-las-tarifas-subieron-mas-del-100/",
+          "fecha": "2026-10-31T10:00:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -8629,8 +8887,8 @@
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
       "slug": "duplican-la-tarifa-de-los-peajes-en-las-rutas-205-y-226",
@@ -8656,7 +8914,7 @@
       "fecha": "2026-10-30T11:20:00.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T12:02:17.259Z",
-      "relevancia": 42,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -8998,7 +9256,7 @@
       "fecha": "2026-10-30T10:36:49.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T12:31:57.284Z",
-      "relevancia": 42,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -9236,7 +9494,7 @@
       "fecha": "2026-10-30T10:15:05.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T23:01:30.841Z",
-      "relevancia": 30,
+      "relevancia": 22,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -9302,7 +9560,7 @@
       "fecha": "2026-10-30T10:13:46.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 30,
+      "relevancia": 22,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -9465,7 +9723,7 @@
       "fecha": "2026-10-30T10:08:38.000Z",
       "sinFecha": false,
       "visto": "2026-10-30T22:01:27.556Z",
-      "relevancia": 42,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10025,6 +10283,13 @@
           "aporte": null
         },
         {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/todos-los-aumentos-que-llegan-en-noviembre-cuanto-subiran-la-luz-el-gas-el-transporte-la-prepagas-y-nid30102026/",
+          "fecha": "2026-10-30T18:37:27.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
           "medio": "TN (Todo Noticias)",
           "enlace": "https://tn.com.ar/economia/2026/10/30/el-gobierno-aplico-nuevos-aumentos-en-las-tarifas-de-luz-y-gas-como-quedan-en-noviembre-y-quienes-mantienen-un-descuento-extra/",
           "fecha": "2026-10-30T11:21:30.000Z",
@@ -10070,6 +10335,13 @@
           "medio": "Canal 26",
           "enlace": "https://www.canal26.com/economia/2026/10/30/aumentan-la-luz-y-el-gas-en-noviembre-cuanto-subiran-las-tarifas-y-quienes-conservaran-los-descuentos/",
           "fecha": "2026-10-30T14:50:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/economia/luz-gas-agua-transporte-y-colegios-todos-los-aumentos-que-llegan-noviembre-n927166",
+          "fecha": "2026-10-31T10:20:00.000Z",
           "oficial": false,
           "aporte": null
         },
@@ -12436,7 +12708,6 @@
         "TN (Todo Noticias)",
         "La Nación",
         "El Destape",
-        "Crónica",
         "Noticias Argentinas (NA)",
         "0221",
         "La Tecla",
@@ -12450,6 +12721,7 @@
         "Radio Mitre",
         "Clarín",
         "Perfil",
+        "Crónica",
         "La Gaceta (Tucumán)",
         "El Cronista"
       ],
@@ -13075,237 +13347,10 @@
         "archivo": "fotos-notas/1xrpgau.jpg",
         "credito": "Foto: 0221"
       }
-    },
-    {
-      "id": "sesoov",
-      "titulo": "N5 gana el Premio a la Innovación con Impacto 2026 del Banco Nación",
-      "copete": "La plataforma tecnológica creada por Julián Colombo y Lucas Tettamanti se impuso entre 550 postulantes. Recibirá 15.000 dólares, mentorías y vinculación comercial.",
-      "cuerpo": "La plataforma tecnológica N5 ganó la tercera edición del Premio a la Innovación con Impacto 2026, un certamen organizado por la Fundación Banco Nación y Endeavor Argentina que alcanzó su mayor convocatoria histórica con 550 startups inscriptas. El anuncio se conoció el jueves en el Salón de Mármol de la sede central del Banco de la Nación Argentina.\n\nFundada por Julián Colombo y Lucas Tettamanti, la startup ganadora desarrolla una herramienta que permite a bancos y aseguradoras modernizar sus sistemas sin reemplazar su infraestructura previa. Funciona como una capa de integración que incorpora inteligencia artificial y módulos de negocio. La compañía opera en 18 países y trabaja con firmas como Santander, Mastercard e Itaú.\n\nEl premio otorga 15.000 dólares para reinvertir en el proyecto, mentorías estratégicas de la red Endeavor y acceso a oportunidades de vinculación comercial con el Banco Nación. Del certamen participaron ocho finalistas divididas en las categorías de fintech, empleabilidad y agtech, las cuales presentaron sus desarrollos ante un jurado de referentes del sector empresario y financiero.\n\nDurante el encuentro, la directora ejecutiva de Endeavor Argentina, María Julia Bearzi, destacó que el país cuenta con emprendedores capaces de resolver problemas reales mediante la tecnología. Por su parte, la directora ejecutiva de la Fundación Banco Nación, Mariana Galante, valoró el crecimiento de las propuestas presentadas en cada edición del concurso.",
-      "guion": "N5 gana el Premio a la Innovación con Impacto 2026 del Banco Nación.",
-      "seccion": "Tecnología",
-      "medios": [
-        "Página/12",
-        "Radio Mitre",
-        "0221",
-        "El Eco de Tandil",
-        "Ámbito",
-        "Los Andes (Mendoza)",
-        "Crónica",
-        "iProfesional",
-        "La Gaceta (Tucumán)",
-        "El Cronista"
-      ],
-      "enlace": "https://www.ambito.com/negocios/n5-gano-el-premio-la-innovacion-impacto-2026-la-fundacion-banco-nacion-y-endeavor-argentina-n6339507",
-      "fecha": "2026-10-29T22:23:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-29T23:01:32.642Z",
-      "relevancia": 45,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "N5 ganó la tercera edición del Premio a la Innovación con Impacto 2026.",
-        "El certamen reunió a un récord de 550 startups inscriptas en todo el país.",
-        "La empresa ganadora recibirá 15.000 dólares y mentorías estratégicas de Endeavor.",
-        "Ocho finalistas presentaron sus proyectos ante un jurado en la sede central del Banco Nación."
-      ],
-      "seSabe": [
-        "N5 es la ganadora del galardón organizado por la Fundación Banco Nación y Endeavor Argentina.",
-        "La convocatoria superó las 550 postulaciones, la cifra más alta desde el inicio del premio.",
-        "La plataforma fundada por Julián Colombo y Lucas Tettamanti opera en 18 países.",
-        "El jurado evaluó a ocho finalistas en las categorías de fintech, empleabilidad y agtech."
-      ],
-      "textoRedes": "N5 ganó el Premio a la Innovación con Impacto 2026 del Banco Nación y Endeavor. La plataforma tecnológica se impuso entre 550 postulantes y recibirá 15.000 dólares y mentorías.",
-      "etiquetas": [
-        "N5",
-        "Premio a la Innovación con Impacto",
-        "Endeavor Argentina",
-        "Tecnologia",
-        "Fintech",
-        "Startups"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/negocios/n5-gano-el-premio-la-innovacion-impacto-2026-la-fundacion-banco-nacion-y-endeavor-argentina-n6339507",
-          "fecha": "2026-10-29T21:09:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la ceremonia de premiación y las declaraciones institucionales de Endeavor y el Banco Nación."
-        },
-        {
-          "medio": "Crónica",
-          "enlace": "https://www.cronica.com.ar/sociedad/n5-gano-el-premio-a-la-innovacion-con-impacto-2026-de-la-fundacion-banco-nacion-y-endeavor-argentina/",
-          "fecha": "2026-10-29T22:40:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los detalles de la premiación, los montos, los creadores de N5 y las categorías finalistas."
-        },
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/tecnologia/467863-n5-gano-premio-a-la-innovacion-con-impacto-2026-de-fundacion-banco-nacion-y-endeavor",
-          "fecha": "2026-10-29T22:23:00.000Z",
-          "oficial": false,
-          "aporte": "Aportó información institucional sobre la historia y el alcance global de la red Endeavor."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/n5-gano-el-premio-a-la-innovacion-con-impacto-2026-de-la-fundacion-banco-nacion-y-endeavor-argentina/",
-          "fecha": "2026-10-30T00:03:44.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/n5-gano-el-premio-la-innovacion-impacto-2026-550-startups-argentinas-n136644",
-          "fecha": "2026-10-30T13:09:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/empresas-y-negocios/una-startup-argentina-gano-el-premio-innovacion-la-fundacion-banco-nacion-y-endeavor-argentina-n6012371",
-          "fecha": "2026-10-30T13:02:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Página/12",
-          "enlace": "https://www.pagina12.com.ar/2026/10/30/n5-gano-el-premio-a-la-innovacion-con-impacto-2026-de-la-fundacion-banco-nacion-y-endeavor-argentina/",
-          "fecha": "2026-10-30T13:48:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/interes-general/n5-gano-el-premio-a-la-innovacion-con-impacto-2026-de-la-fundacion-banco-nacion-y-endeavor-argentina",
-          "fecha": "2026-10-30T13:14:54.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1160312/sociedad/entre-550-startups-n5-gano-premio-innovacion-2026-banco-nacion-endeavor-argentina.html",
-          "fecha": "2026-10-30T11:07:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/protagonistas/n5-gano-el-premio-a-la-innovacion-con-impacto-2026-de-la-fundacion-banco-nacion-y-endeavor-argentina/",
-          "fecha": "2026-10-30T18:59:26.059Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "n5-gana-el-premio-a-la-innovacion-con-impacto-2026-del-banco-nacion",
-      "foto": {
-        "archivo": "fotos-notas/sesoov.jpg",
-        "credito": "Foto: Ámbito"
-      }
-    },
-    {
-      "id": "14xlc1s",
-      "titulo": "Comienza el debate en el Senado bonaerense para regular a las apps de delivery",
-      "copete": "El Senado bonaerense comenzó el análisis del proyecto oficial para regular las aplicaciones de delivery y transporte. La iniciativa contempla la creación de un registro obligatorio para las empresas y seguros para los trabajadores.",
-      "cuerpo": "El Senado bonaerense inició el debate del proyecto de ley enviado por el Ejecutivo provincial para establecer un marco regulatorio al trabajo mediante plataformas digitales de delivery y transporte. El tratamiento comenzó en la comisión de Trabajo y Legislación Social de la Cámara Alta, encabezada por la senadora María Rosa Martínez, con la participación de funcionarios provinciales, dirigentes gremiales y repartidores.\n\nLa iniciativa, denominada Plan Integral para el Trabajo mediante Plataformas Digitales, abarca a empresas como Rappi, PedidosYa, Uber, Cabify y Didi. Durante el encuentro, la asesora Lilia Alonso y la jefa de Gabinete Cecilia Cecchini expusieron los lineamientos por parte del Ministerio de Trabajo, mientras que referentes sindicales plantearon diversas problemáticas del sector y respaldaron la apertura del debate legislativo.\n\nEl texto oficial establece la creación de un Registro de Trabajo Mediante Plataformas Digitales de inscripción obligatoria para las compañías, las cuales deberán informar datos sobre sus trabajadores, condiciones de contratación y horas laboradas. A su vez, la incorporación de los repartidores y choferes será voluntaria a través de un aplicativo móvil desarrollado por el Estado provincial.\n\nLa propuesta también contempla la contratación obligatoria de seguros de accidentes personales a cargo de las empresas, la habilitación de paradores con servicios básicos en articulación con los municipios y herramientas de emergencia sanitaria y de seguridad. El oficialismo busca emitir dictamen en los próximos días para acelerar su tratamiento antes de que finalice el año legislativo.\n\nPor el momento, la normativa continúa en discusión y todavía no se encuentra vigente en el territorio provincial.",
-      "guion": "Comienza el debate en el Senado bonaerense para regular a las apps de delivery.",
-      "seccion": "Política",
-      "medios": [
-        "0221",
-        "El Marplatense",
-        "El Día",
-        "Agencia DIB"
-      ],
-      "enlace": "https://www.0221.com.ar/provincia/comienza-el-debate-regular-los-trabajadores-app-delivery-la-provincia-buenos-aires-n136536",
-      "fecha": "2026-10-29T22:04:21.000Z",
-      "sinFecha": false,
-      "visto": "2026-10-30T15:02:48.120Z",
-      "relevancia": 32,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Senado bonaerense comenzó a debatir la regulación de aplicaciones de delivery y transporte.",
-        "La propuesta incluye un registro obligatorio de empresas y seguros obligatorios para los trabajadores.",
-        "Participaron funcionarios del Ministerio de Trabajo, legisladores y representantes gremiales.",
-        "El oficialismo busca emitir dictamen y aprobar la iniciativa antes de finalizar el período legislativo."
-      ],
-      "seSabe": [
-        "El Senado bonaerense inició el debate sobre la regulación de las aplicaciones de delivery y transporte.",
-        "La iniciativa abarca a plataformas como Rappi, PedidosYa, Uber, Cabify y Didi.",
-        "El proyecto prevé un registro obligatorio para las empresas y seguros de accidentes a cargo de las firmas.",
-        "La normativa incluye la creación de paradores de descanso y una aplicación móvil estatal con herramientas de seguridad."
-      ],
-      "noConfirmado": [
-        "Todavía no se emitió dictamen en comisión ni se aprobó la ley en el recinto legislativo.",
-        "No se confirmó la fecha exacta de la sanción definitiva de la norma."
-      ],
-      "textoRedes": "El Senado bonaerense debate un proyecto para regular las aplicaciones de delivery y transporte con un registro obligatorio para empresas y seguros para repartidores.",
-      "etiquetas": [
-        "Senado bonaerense",
-        "delivery",
-        "aplicaciones",
-        "trabajo",
-        "regulación"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "0221",
-          "enlace": "https://www.0221.com.ar/provincia/comienza-el-debate-regular-los-trabajadores-app-delivery-la-provincia-buenos-aires-n136536",
-          "fecha": "2026-10-29T10:39:00.000Z",
-          "oficial": false,
-          "aporte": "Informó el horario de inicio del debate, la vinculación con la aplicación MiPBA y los detalles de los seguros y paradores."
-        },
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/sociedad/la-provincia-busca-apurar-la-ley-regular-las-aplicaciones-delivery-n56948",
-          "fecha": "2026-10-30T14:31:41.000Z",
-          "oficial": false,
-          "aporte": "Señaló la intención del oficialismo de acelerar el tratamiento y la participación de la jefa de Gabinete Cecilia Cecchini."
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/la-provincia-avanza-con-una-ley-para-regular-las-aplicaciones-de-delivery",
-          "fecha": "2026-10-30T15:01:17.000Z",
-          "oficial": false,
-          "aporte": "Indicó que la normativa alcanzaría a trabajadores de distintos municipios, incluida Mar del Plata, y su estado parlamentario actual."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/ley-uber-comenzo-el-debate-en-la-provincia-para-regular-las-aplicaciones-de-delivery-y-transporte-politica-y-economia_1793311461",
-          "fecha": "2026-10-29T22:04:21.000Z",
-          "oficial": false,
-          "aporte": "Aportó detalles sobre los participantes del encuentro, los sindicatos presentes y los antecedentes legislativos de 2022."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/la-provincia-busca-apurar-la-ley-para-regular-las-aplicaciones-de-delivery-politica-y-economia-la-ciudad_1793378280",
-          "fecha": "2026-10-30T16:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "comienza-el-debate-en-el-senado-bonaerense-para-regular-a-las-apps-de",
-      "foto": {
-        "archivo": "fotos-notas/14xlc1s.jpg",
-        "credito": "Foto: El Día"
-      }
     }
   ],
   "secciones": [
+    "Balcarce",
     "Cultura y agenda",
     "Fútbol",
     "Política",
@@ -13316,7 +13361,6 @@
     "Deportes",
     "Policiales",
     "Salud",
-    "Balcarce",
     "Tecnología",
     "Automovilismo",
     "Ciencia"
@@ -13342,8 +13386,8 @@
     "ahora": {
       "temp": 13,
       "sensacion": 12,
-      "humedad": 96,
-      "viento": 11,
+      "humedad": 94,
+      "viento": 13,
       "rumbo": "E",
       "cielo": "Nublado",
       "esDeDia": true
@@ -13728,5 +13772,5 @@
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 4
+  "esperandoCuerpo": 3
 }
