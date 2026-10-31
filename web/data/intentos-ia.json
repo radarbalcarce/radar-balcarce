@@ -207,6 +207,13 @@
    "cuerpo: 3 problemas (nombre, repite): el cuerpo nombra a \"noticias\" y "
   ]
  },
+ "117qpmn": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "11cewnr": {
   "intentos": 2,
   "ultimo": "2026-10-25T01:31:47.609Z",
@@ -619,6 +626,16 @@
   "numeradas": 5,
   "motivos": [
    "cuerpo: 2 problemas (promesa): el título nombra a \"balon\", \"oro\" y el "
+  ]
+ },
+ "13qn962": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 46 palabras seguidas del original: d"
   ]
  },
  "13thdhp": {
@@ -1262,6 +1279,13 @@
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
+ },
+ "17d5cdt": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "17f0k0j": {
   "intentos": 2,
@@ -2042,6 +2066,22 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 14
+ },
+ "1b5fgot": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no lo dice",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 2.026 y el cuerpo no lo e",
+   "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no "
+  ],
+  "falla": [
+   "el copete dice 2 y la fuente no lo dice",
+   "el cuerpo nombra a \"intendencia\" y la fuente no",
+   "copia 15 palabras seguidas del original (\"a raiz de los episodios de violencia registrados durante el desarrollo de las actividades…\"): deci"
+  ]
  },
  "1b6ebp6": {
   "intentos": 1,
@@ -5718,6 +5758,13 @@
   "textos": 7,
   "numeradas": 13
  },
+ "1ssnxp3": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1sst0xl": {
   "intentos": 1,
   "ultimo": "2026-10-25T02:01:57.637Z",
@@ -6462,13 +6509,6 @@
   "motivos": [
    "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d"
   ]
- },
- "1vxdqss": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T14:01:34.251Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2
  },
  "1w003rk": {
   "intentos": 1,
@@ -8755,6 +8795,16 @@
   "textos": 7,
   "numeradas": 8
  },
+ "ckmtn": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 2 problemas (forma, numero): el copete trae un escape"
+  ]
+ },
  "cktva4": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -9736,6 +9786,23 @@
    "título o bajada: 2 problemas (forma): el titulo trae letras rotas (una",
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ]
+ },
+ "hz5evm": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "título o bajada: 6 problemas (forma, numero): el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 2 problemas (copia, tildes): copia 25 palabras seguidas del or",
+   "título o bajada: 6 problemas (forma, numero): el titulo trae un escape"
+  ],
+  "falla": [
+   "el titulo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el titulo dice 0 y la fuente no lo dice",
+   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el copete dice 0 y la fuente no lo dice"
   ]
  },
  "i2y34b": {
@@ -12237,6 +12304,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "vbb83b": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T14:02:59.718Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "vbos36": {
   "intentos": 1,

@@ -24287,9 +24287,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1tqjmvm": {
-  "archivo": "fotos-notas/1tqjmvm.jpg",
   "medio": "La Capital (Rosario)",
-  "credito": "Foto: La Capital (Rosario)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Newell's vence 2 a 1 a Central Córdoba en Rosario por el Torneo Clausura",
@@ -24321,7 +24319,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "2e2bc6d7c4540f0f",
-  "ausenteDesde": "2026-10-24T14:02:32.621Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kfwbd5": {
   "archivo": "fotos-notas/1kfwbd5.jpg",
@@ -50810,7 +50809,8 @@
    "corresponde": "si",
    "descripcion": "Dos mujeres posando frente al banner de los Premios Ídolo."
   },
-  "huella": "b632545233313333"
+  "huella": "b632545233313333",
+  "ausenteDesde": "2026-10-31T14:05:11.265Z"
  },
  "f1horarios2026r19": {
   "archivo": "fotos-notas/libre-f1horarios2026r19.jpg",
@@ -50821,7 +50821,8 @@
   "enlace": "https://commons.wikimedia.org/wiki/File:Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg",
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg/1280px-Nationwide_Series_at_Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Nationwide Series at Autódromo Hermanos Rodríguez 2008.jpg",
-  "cuando": "2026-10-29T03:02:26.664Z"
+  "cuando": "2026-10-29T03:02:26.664Z",
+  "ausenteDesde": "2026-10-31T14:05:11.265Z"
  },
  "futbolresultadoscopaargentina20261028": {
   "intentado": true,
@@ -50937,7 +50938,8 @@
    "descripcion": "Teo Gutiérrez sentado en una silla, con el pelo teñido de rubio, durante una entrevista.",
    "detalle": "Se lee la palabra 'muchos' superpuesta en la imagen, pero no es un logo de medio."
   },
-  "huella": "fed8c2908289e961"
+  "huella": "fed8c2908289e961",
+  "ausenteDesde": "2026-10-31T14:05:11.265Z"
  },
  "1chek2m": {
   "archivo": "fotos-notas/1chek2m.jpg",
@@ -53745,11 +53747,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Acción 5 (Balcarce) no se usa todavía.",
-  "cuando": "2026-10-31T04:02:32.792Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 4
+  "razon": "La única foto disponible muestra jugadoras menores de edad reconocibles, por lo que no puede ser publicada.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "intentos": 2,
+  "fuentes": 1
  },
  "1l6sgre": {
   "archivo": "fotos-notas/1l6sgre.jpg",
@@ -59928,9 +59929,9 @@
   "origen": "ninguna",
   "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
   "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-31T13:02:22.707Z",
-  "intentos": 3,
-  "fuentes": 14
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "intentos": 4,
+  "fuentes": 36
  },
  "v11vak": {
   "archivo": "fotos-notas/v11vak.jpg",
@@ -60645,5 +60646,158 @@
    "descripcion": "Cosechadora trabajando en un campo de trigo"
   },
   "huella": "1333500c1d591852"
+ },
+ "117qpmn": {
+  "archivo": "fotos-notas/117qpmn.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Zona VI de CARBAP cuestiona medidas del Senasa y el uso de fondos viales",
+  "enlace": "https://puntonueve.com.ar/rurales-del-sudeste-los-entes-sanitarios-son-eso-y-no-ramos-generales/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/sudeste.jpg.jpeg",
+  "razon": "Es la única opción disponible, cumple con todos los criterios editoriales y no presenta marcas ni menores.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión de productores agropecuarios alrededor de una mesa en salón."
+  },
+  "huella": "3991d8ce161edcf0"
+ },
+ "vbb83b": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
+  "razon": "La única foto disponible muestra a una multitud de jóvenes estudiantes y adolescentes reconocibles en las tribunas y en el campo, por lo que contiene menores y jóvenes y no cumple con la política del medio de no publicar rostros de menores.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "ckmtn": {
+  "archivo": "fotos-notas/ckmtn.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Juan Carlos Pallarols muestra el cáliz destinado al papa León XIV",
+  "enlace": "https://dib.com.ar/sociedad/pallarols-presento-el-caliz-que-le-va-entregar-al-papa-leon-xiv-n56970",
+  "imagenOriginal": "https://media.dib.com.ar/p/7efd3833f9049d04e3e13f85b89bd5cb/adjuntos/377/imagenes/100/060/0100060009/1200x675/smart/caliz-pallarols-leonxiv.jpg",
+  "razon": "Ambas fotos muestran el cáliz y la patena en su estuche, pero la foto A tiene un encuadre completo de la pieza sin cortar la base.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cáliz y patena destinados al papa dentro de su estuche",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un cáliz de oro y plata y una patena con escudos heráldicos dentro de una caja forrada de terciopelo rojo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9199999892113123"
+ },
+ "17d5cdt": {
+  "archivo": "fotos-notas/17d5cdt.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Plata es sede de la segunda edición de la Agenda Ambiental",
+  "enlace": "https://laverdadonline.com/kicillof-participo-de-la-2-edicion-de-la-agenda-ambiental-latinoamericana/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/10/1536-1024-2.webp",
+  "razon": "Es la foto más limpia, con buen encuadre y nitidez, enfocada en el evento sin aglomeraciones ni marcas superpuestas.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Kicillof hablando en el atril con banderas y cortinas rojas de fondo"
+  },
+  "huella": "7070686c5c5c1c1d"
+ },
+ "1ssnxp3": {
+  "archivo": "fotos-notas/1ssnxp3.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kicillof se muestra dispuesto a ir a una PASO con Cristina o Massa",
+  "enlace": "https://perfil.com/politica/axel-kicillof-reunio-a-intendentes-y-se-mostro-dispuesto-a-competir-en-las-paso-contra-cristina-kirchner-y-sergio-massa-aTguu4J5mZLF",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/0b7f8284561c-proyecto-nuevo-2025-06-12t122906-11-8-34-2026-10-31t021902852.webp",
+  "razon": "La foto B muestra claramente a Axel Kicillof en una reunión de trabajo institucional con excelente nitidez y sin marcas de agua ni elementos descartables.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof sentado en una mesa de reunión con funcionarios",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Axel Kicillof sentado en una mesa de reuniones con otros funcionarios."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b3b31313170f2f0f"
+ },
+ "13qn962": {
+  "archivo": "fotos-notas/13qn962.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lula analiza invitar a Milei y a Trump a su asunción en Brasilia",
+  "enlace": "https://www.clarin.com/politica/fuga-bolsonaro-brasil-aseguran-lula-invitara-milei-trump-asuncion-brasilia_0_bQ0EpzJeBq.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/30/AABvN8WqA_2000x1500__1.jpg",
+  "razon": "Es la única imagen disponible que incluye a los tres protagonistas de la nota (Lula, Milei y Trump) juntos en un fotomontaje adecuado y sin problemas.",
+  "cuando": "2026-10-31T14:04:08.184Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fotomontaje con los rostros de Milei, Lula y Trump"
+  },
+  "huella": "6d2bc78c8e2eae16"
  }
 }

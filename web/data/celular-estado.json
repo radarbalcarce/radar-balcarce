@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T13:33:08.937Z",
- "portada": 128,
+ "generado": "2026-10-31T14:05:11.569Z",
+ "portada": 131,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-10-31T13:33:09.475Z",
+  "generado": "2026-10-31T14:05:13.365Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-31T10:36:31.499Z"
    },
    {
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
      {
       "id": "1messk8",
@@ -113,9 +113,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "cpbebw",
-      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-      "seccion": "Economía"
+      "id": "1ox7bm8",
+      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+      "seccion": "Policiales"
      }
     ]
    },
@@ -129,24 +129,24 @@
     "segundos": 50,
     "notas": [
      {
+      "id": "cpbebw",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "seccion": "Economía"
+     },
+     {
       "id": "1qobb2a",
       "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1ox7bm8",
-      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
-      "seccion": "Policiales"
+      "id": "vbb83b",
+      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
+      "seccion": "Educación"
      },
      {
       "id": "1d4nj79",
       "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
-     },
-     {
-      "id": "10ibrn6",
-      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
-      "seccion": "Política"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 46,
     "notas": [
      {
       "id": "197otww",
@@ -165,8 +165,8 @@
       "seccion": "Deportes"
      },
      {
-      "id": "6ova04",
-      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+      "id": "10ibrn6",
+      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
       "seccion": "Política"
      },
      {
@@ -175,9 +175,9 @@
       "seccion": "Argentina"
      },
      {
-      "id": "5hmq87",
-      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
-      "seccion": "Economía"
+      "id": "1snkq1y",
+      "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -210,9 +210,9 @@
      "marcada": false
     },
     {
-     "id": "qo3xu1",
-     "titulo": "Paula Larroude y Mambrunense protagonizan la Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
+     "id": "vbb83b",
+     "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
+     "seccion": "Educación",
      "marcada": false
     }
    ],
