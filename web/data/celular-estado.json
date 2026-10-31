@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T18:34:04.084Z",
- "portada": 133,
+ "generado": "2026-10-31T19:04:13.787Z",
+ "portada": 139,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-10-31T18:34:04.400Z",
+  "generado": "2026-10-31T19:04:14.142Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -113,14 +113,14 @@
       "seccion": "Policiales"
      },
      {
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
       "id": "1d4nj79",
       "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
-     },
-     {
-      "id": "cpbebw",
-      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-      "seccion": "Economía"
      },
      {
       "id": "1n0ukpe",
@@ -136,7 +136,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 49,
     "notas": [
      {
       "id": "197otww",
@@ -149,14 +149,14 @@
       "seccion": "Política"
      },
      {
-      "id": "5hmq87",
-      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
-      "seccion": "Economía"
+      "id": "fx345l",
+      "titulo": "Racing le gana 2 a 1 a Aldosivi y lo condena al descenso en Avellaneda",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1b0e7lc",
-      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
-      "seccion": "Argentina"
+      "id": "1wtorgc",
+      "titulo": "La demanda de dólares alcanza los 3410 millones durante septiembre",
+      "seccion": "Economía"
      }
     ]
    }
@@ -177,6 +177,11 @@
      "id": "z7i5op",
      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
      "cuando": "2026-10-31T16:36:03.415Z"
+    },
+    {
+     "id": "cpbebw",
+     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+     "cuando": "2026-10-31T18:36:03.744Z"
     }
    ],
    "cola": [
@@ -187,9 +192,15 @@
      "marcada": false
     },
     {
-     "id": "cpbebw",
-     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-     "seccion": "Economía",
+     "id": "1pa7ehp",
+     "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "mlnw2g",
+     "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -211,8 +222,8 @@
      "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-10-31T18:06:03.415Z",
+   "cupo": 1,
+   "proximoDesde": "2026-10-31T20:06:03.744Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
