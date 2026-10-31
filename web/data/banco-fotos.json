@@ -55667,7 +55667,8 @@
    "corresponde": "si",
    "descripcion": "Moneda física de Ethereum sobre gráficos y números financieros"
   },
-  "huella": "0d0613939383c7e0"
+  "huella": "0d0613939383c7e0",
+  "ausenteDesde": "2026-10-31T18:03:17.489Z"
  },
  "1p3blhe": {
   "archivo": "fotos-notas/1p3blhe.jpg",
@@ -61290,7 +61291,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Ryo Hirakawa ajustándose el casco con los colores de Haas"
   },
-  "huella": "2a375919b9ad6ded"
+  "huella": "2a375919b9ad6ded",
+  "ausenteDesde": "2026-10-31T18:03:17.489Z"
  },
  "9e2ta": {
   "archivo": "fotos-notas/9e2ta.jpg",
@@ -61350,7 +61352,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "53337636a2a7e76d"
+  "huella": "53337636a2a7e76d",
+  "ausenteDesde": "2026-10-31T18:03:17.489Z"
  },
  "1enzf9": {
   "archivo": "fotos-notas/1enzf9.jpg",
@@ -61374,6 +61377,67 @@
    "corresponde": "si",
    "descripcion": "Fachada iluminada con proyecciones y decoración cultural."
   },
-  "huella": "1a1a57159f9bb69c"
+  "huella": "1a1a57159f9bb69c",
+  "ausenteDesde": "2026-10-31T18:03:17.489Z"
+ },
+ "1b1s3k6": {
+  "archivo": "fotos-notas/1b1s3k6.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kimi Antonelli busca consagrarse en el Gran Premio de México",
+  "enlace": "https://www.tycsports.com/automovilismo/que-necesita-kimi-antonelli-para-ser-campeon-de-la-formula-1-en-mexico-op-id769516.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001313/kimi-antonelli-rudy-carezzevoligetty-images_1440x810.webp",
+  "razon": "La foto A muestra claramente a Kimi Antonelli festejando con buen encuadre y sin marcas de agua ni restricciones. La segunda opinión (groq) descartó la de TyC Sports (un menor): se usa TyC Sports.",
+  "cuando": "2026-10-31T18:02:58.241Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Un monoplaza de Fórmula 1 en pista",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un monoplaza de Fórmula 1 de Mercedes con el número 12 en la pista."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "1b3525cc8c8c94bc"
+ },
+ "rkjxue": {
+  "archivo": "fotos-notas/rkjxue.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto finaliza decimosexto en la segunda práctica libre en México",
+  "enlace": "https://www.tycsports.com/automovilismo/f1-hora-y-donde-ver-en-vivo-la-practica-libre-de-colapinto-en-el-gp-de-mexico-id769159.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/25/999538/franco-colapinto-en-el-gp-de-estados-unidos-photo-by-stefano-facchinalessio-morgesenurphoto-via-getty-images_1440x810.webp?v=1",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y contenido, sin marcas ni menores.",
+  "cuando": "2026-10-31T18:02:58.241Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Un monoplaza de Fórmula 1 en plena pista de carreras."
+  },
+  "huella": "0aaebcb8b5a641fe"
  }
 }

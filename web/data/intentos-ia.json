@@ -2010,6 +2010,13 @@
   "textos": 6,
   "numeradas": 13
  },
+ "1b1s3k6": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T18:02:20.908Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
  "1b2jsec": {
   "intentos": 5,
   "ultimo": "2026-10-30T00:31:24.942Z",
@@ -3113,6 +3120,20 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "1gf52r7": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T18:02:20.908Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "1gfq21m": {
   "intentos": 1,
@@ -4557,6 +4578,19 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1ndljiq": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T18:02:20.908Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la fuente no",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
+  ],
+  "falla": [
+   "el copete nombra a \"nunez\" y la fuente no"
+  ]
  },
  "1ngpm0t": {
   "intentos": 1,
@@ -11607,19 +11641,14 @@
   "numeradas": 2
  },
  "rkjxue": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:32:48.326Z",
-  "motivo": "cuerpo: 3 problemas (numero, repite, promesa): el cuerpo dice 4,304 y la fuente no lo dice; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-31T18:02:20.908Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
    "cuerpo: 3 problemas (numero, repite, promesa): el cuerpo dice 4,304 y "
-  ],
-  "falla": [
-   "el cuerpo dice 4,304 y la fuente no lo dice",
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título nombra a \"gran\", \"premio\" y el cuerpo no los explica"
   ]
  },
  "rkup26": {
@@ -13324,17 +13353,22 @@
   ]
  },
  "zxtu4e": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:32:48.326Z",
-  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 219 palabras",
+  "intentos": 2,
+  "ultimo": "2026-10-31T18:02:20.908Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 2 problemas (nombre): el copete nombra a \"turismo\" y ",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique",
+   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que"
   ],
   "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"sabado\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "zygvkf": {
