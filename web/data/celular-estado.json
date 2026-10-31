@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T21:34:54.638Z",
- "portada": 136,
+ "generado": "2026-10-31T22:03:31.631Z",
+ "portada": 147,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-10-31T21:34:55.008Z",
+  "generado": "2026-10-31T22:03:32.008Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-31T20:08:23.018Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-10-31T20:08:23.018Z",
     "segundos": null,
     "notas": [
@@ -136,27 +136,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "1x9aj17",
+      "titulo": "Mambrunense cierra las clases de cocina en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1sgedwu",
+      "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
       "seccion": "Deportes"
      },
      {
-      "id": "1cy5n9b",
-      "titulo": "Conmebol confirma el horario de la final de la Sudamericana entre Boca y Mineiro",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "6ova04",
-      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-      "seccion": "Política"
-     },
-     {
-      "id": "1oo88r4",
-      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
-      "seccion": "Argentina"
+      "id": "15hbmuo",
+      "titulo": "Las claves legales para dividir una vivienda tras una separación de pareja",
+      "seccion": "Balcarce"
      }
     ]
    }
@@ -197,15 +197,15 @@
      "marcada": false
     },
     {
-     "id": "1oo88r4",
-     "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
-     "seccion": "Argentina",
+     "id": "2vltvs",
+     "titulo": "Chelsea le gana 2 a 0 al Manchester United con expulsión de Lisandro Martínez",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "14z5lkf",
-     "titulo": "El Banco Nación registra una baja del 55,4% en refinanciaciones",
-     "seccion": "Economía",
+     "id": "1oo88r4",
+     "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
