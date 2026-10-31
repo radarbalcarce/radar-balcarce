@@ -4634,6 +4634,16 @@
    "Gemini: Expected ',' or ']' after array element in JSON at position 87"
   ]
  },
+ "1o4okdz": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T06:01:55.277Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
+  ]
+ },
  "1o59q8j": {
   "intentos": 1,
   "ultimo": "2026-10-24T13:31:46.216Z",
@@ -5300,6 +5310,13 @@
   "textos": 2,
   "numeradas": 3
  },
+ "1rh3ku5": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T06:01:55.277Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 6
+ },
  "1rk2uai": {
   "intentos": 1,
   "ultimo": "2026-10-29T11:02:59.442Z",
@@ -5858,6 +5875,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 4
+ },
+ "1tshzdo": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T06:01:55.277Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
  },
  "1twt8rb": {
   "intentos": 1,
@@ -6514,13 +6538,6 @@
   "motivos": [
    "Gemini: Bad control character in string literal in JSON at position 13"
   ]
- },
- "1xezweo": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T05:58:21.113Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "1xjjw8o": {
   "intentos": 1,
@@ -9964,13 +9981,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "l3nb78": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T05:31:20.809Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 17
- },
  "l7z1jg": {
   "intentos": 1,
   "ultimo": "2026-10-28T16:37:44.523Z",
@@ -10751,22 +10761,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
- },
- "olt0q0": {
-  "intentos": 5,
-  "ultimo": "2026-10-24T05:58:21.113Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica; sin esas oraciones quedan 233 pala",
-  "textos": 3,
-  "numeradas": 20,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\",",
-   "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"justicia\", \"javier\","
-  ],
-  "falla": [
-   "el título nombra a \"justicia\", \"javier\", \"karina\", \"milei\", \"libra\" y el cuerpo no los explica"
-  ]
  },
  "olxzkr": {
   "intentos": 4,
@@ -12014,13 +12008,6 @@
   "textos": 3,
   "numeradas": 5
  },
- "v9i832": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T05:58:21.113Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "v9mo2e": {
   "intentos": 1,
   "ultimo": "2026-10-28T16:37:44.523Z",
@@ -12853,13 +12840,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "z7gynb": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T05:31:20.809Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "zbdsge": {
   "intentos": 5,
