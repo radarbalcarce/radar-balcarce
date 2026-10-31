@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-31T00:04:17.489Z",
+ "consultado": "2026-10-31T00:34:23.275Z",
  "equipos": [
   "9739",
   "3",
@@ -690,8 +690,8 @@
     "id": "401841648",
     "competencia": "liga",
     "inicio": "2026-10-31T00:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "20'",
     "local": {
      "id": "15",
      "nombre": "Racing Club",
@@ -713,12 +713,12 @@
     "id": "401841647",
     "competencia": "liga",
     "inicio": "2026-10-31T00:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "19'",
     "local": {
      "id": "10158",
      "nombre": "Sarmiento (Junín)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "17",
@@ -726,7 +726,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Manuel Garcia",
+      "minuto": "5'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Eva Perón",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1140,56 +1147,7 @@
     "torneo": "semifinals"
    }
   ],
-  "sudamericana": [
-   {
-    "id": "401913957",
-    "competencia": "sudamericana",
-    "inicio": "2026-10-21T00:30:00.000Z",
-    "estado": "final",
-    "minuto": "90'+7'",
-    "local": {
-     "id": "3454",
-     "nombre": "Vasco da Gama",
-     "goles": 1
-    },
-    "visitante": {
-     "id": "5",
-     "nombre": "Boca Juniors",
-     "goles": 3
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Lautaro Di Lollo",
-      "minuto": "4'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Miguel Merentiel",
-      "minuto": "34'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "José Luis Rodríguez",
-      "minuto": "66'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Leandro Paredes",
-      "minuto": "88'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Estadio do Maracana",
-    "fase": "Semifinals",
-    "partidoDeLaSerie": 2,
-    "torneo": "semifinals"
-   }
-  ]
+  "sudamericana": []
  },
  "diasTraidos": {
   "liga": {
