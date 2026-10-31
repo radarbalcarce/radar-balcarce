@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T13:03:44.167Z",
- "portada": 127,
+ "generado": "2026-10-31T13:33:08.937Z",
+ "portada": 128,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-31T13:03:44.772Z",
+  "generado": "2026-10-31T13:33:09.475Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
     "notas": [
      {
       "id": "1messk8",
@@ -103,19 +103,19 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "r4bjyj",
+      "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
+      "seccion": "Automovilismo"
+     },
+     {
       "id": "z7i5op",
       "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
       "seccion": "Balcarce"
      },
      {
-      "id": "1ox7bm8",
-      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "1d4nj79",
-      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
-      "seccion": "Deportes"
+      "id": "cpbebw",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "seccion": "Economía"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 50,
     "notas": [
      {
       "id": "1qobb2a",
@@ -134,13 +134,13 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1nzzggy",
-      "titulo": "ANSES establece el cronograma de pagos de noviembre con cambios por asuetos",
-      "seccion": "Balcarce"
+      "id": "1ox7bm8",
+      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+      "seccion": "Policiales"
      },
      {
-      "id": "197otww",
-      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "id": "1d4nj79",
+      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
      },
      {
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "197otww",
+      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "seccion": "Deportes"
+     },
      {
       "id": "6ova04",
       "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
       "seccion": "Política"
      },
      {
-      "id": "1a150ug",
-      "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
-      "seccion": "Tecnología"
-     },
-     {
-      "id": "ocwksr",
-      "titulo": "Emiliano Dibu Martínez revela una secuela permanente en su mano derecha tras el Mundial",
-      "seccion": "Deportes"
-     },
-     {
       "id": "1b0e7lc",
       "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
       "seccion": "Argentina"
+     },
+     {
+      "id": "5hmq87",
+      "titulo": "El Gobierno posterga hasta diciembre la suba del impuesto a los combustibles",
+      "seccion": "Economía"
      }
     ]
    }
@@ -192,21 +192,27 @@
    ],
    "cola": [
     {
+     "id": "r4bjyj",
+     "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "z7i5op",
      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "qo3xu1",
-     "titulo": "Paula Larroude y Mambrunense protagonizan la Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
+     "id": "cpbebw",
+     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+     "seccion": "Economía",
      "marcada": false
     },
     {
-     "id": "1rxuorl",
-     "titulo": "Comienza la última fecha de la Primera Nacional para definir finalistas y descenso",
-     "seccion": "Fútbol",
+     "id": "qo3xu1",
+     "titulo": "Paula Larroude y Mambrunense protagonizan la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
