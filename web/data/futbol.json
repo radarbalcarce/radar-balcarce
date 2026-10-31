@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-31T21:01:45.344Z",
+ "consultado": "2026-10-31T21:34:49.223Z",
  "equipos": [
   "9739",
   "3",
@@ -774,8 +774,8 @@
     "id": "401841656",
     "competencia": "liga",
     "inicio": "2026-10-31T20:00:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+1'",
+    "estado": "en-juego",
+    "minuto": "77'",
     "local": {
      "id": "17702",
      "nombre": "Deportivo Riestra",
@@ -784,7 +784,7 @@
     "visitante": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",
-     "goles": 1
+     "goles": 3
     },
     "penales": null,
     "goles": [
@@ -792,6 +792,18 @@
       "equipo": "visitante",
       "jugador": "Valentín Fascendini",
       "minuto": "25'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Mateo Caceres",
+      "minuto": "68'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Agustín Álvarez Martínez",
+      "minuto": "73'",
       "tipo": "gol"
      }
     ],
@@ -1658,7 +1670,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-31T19:33:11.203Z",
+ "tablaCuando": "2026-10-31T21:34:49.223Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

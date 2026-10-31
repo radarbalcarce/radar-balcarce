@@ -52662,7 +52662,8 @@
    "corresponde": "si",
    "descripcion": "Calle inundada con agua de lluvia en movimiento"
   },
-  "huella": "9c4b0281a60f43a6"
+  "huella": "9c4b0281a60f43a6",
+  "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "1xr0jgj": {
   "archivo": "fotos-notas/1xr0jgj.jpg",
@@ -53693,7 +53694,8 @@
    "corresponde": "si",
    "descripcion": "Monoplazas de Fórmula 1 circulando en pista"
   },
-  "huella": "8a3a6ecddddcc98f"
+  "huella": "8a3a6ecddddcc98f",
+  "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "dqa51l": {
   "archivo": "fotos-notas/dqa51l.jpg",
@@ -55368,7 +55370,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:53.657Z",
-  "imagenOriginal": "https://cdnartic.ar/ndozj5WZPtChtdZMotsDwFDcWBI=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/anibal_moreno.jpg"
+  "imagenOriginal": "https://cdnartic.ar/ndozj5WZPtChtdZMotsDwFDcWBI=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/anibal_moreno.jpg",
+  "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "z2mbh9": {
   "archivo": "fotos-notas/z2mbh9.jpg",
@@ -58118,10 +58121,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-  "razon": "Ninguna foto cumple con todas las condiciones para ser publicada libre de marcas, menores o formato gráfico.",
-  "cuando": "2026-10-31T17:03:09.330Z",
-  "intentos": 3,
-  "fuentes": 6
+  "razon": "La única foto sin problemas de marca, menores o formato gráfico es la C, pero es exactamente igual a la B, y la B tiene un encuadre menos prolijo. Como la B tiene menor y la A es una placa gráfica, ninguna cumple con todos los requisitos para ser elegida.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "intentos": 4,
+  "fuentes": 7
  },
  "tzfmdg": {
   "intentado": true,
@@ -61417,8 +61420,7 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1b3525cc8c8c94bc",
-  "ausenteDesde": "2026-10-31T20:33:36.544Z"
+  "huella": "1b3525cc8c8c94bc"
  },
  "rkjxue": {
   "archivo": "fotos-notas/rkjxue.jpg",
@@ -61587,7 +61589,8 @@
    "corresponde": "si",
    "descripcion": "Logo de Binance sobre fondo digital azul con efecto de movimiento"
   },
-  "huella": "dbd38955df736bcd"
+  "huella": "dbd38955df736bcd",
+  "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "1euhlh3": {
   "archivo": "fotos-notas/1euhlh3.jpg",
@@ -61870,7 +61873,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0f8f8f06d5171703"
+  "huella": "0f8f8f06d5171703",
+  "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "k50ygu": {
   "intentado": true,
@@ -62064,5 +62068,137 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "c10d565119b83b1b"
+ },
+ "1aziot7": {
+  "archivo": "fotos-notas/1aziot7.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Godoy Cruz y Tristán Suárez jugarán la final por el primer ascenso",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-quedo-conformada-la-final-de-la-primera-nacional-2026-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/godoy-cruz-podria-volver-a-primera-justamente-un-XIXX66G2GJFSBLMMMNSXV7VALM.JPG?auth=4986a2b1d783d6c7983ef28a57d0eefbe4d214cbab5cbb84304d68c6510bdb5b&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto de calidad que corresponde al evento, tiene buen encuadre de un jugador celebrando, no tiene marcas de agua superpuestas ni menores reconocibles.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador celebrando un gol en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Godoy Cruz celebrando en el campo de juego durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ad4dd1a88c19889c"
+ },
+ "1rxt24a": {
+  "archivo": "fotos-notas/1rxt24a.jpg",
+  "medio": "Campeones",
+  "credito": "Foto: Campeones",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Facundo Aldrighetti domina y se queda con la pole en General Roca",
+  "enlace": "https://campeones.com.ar/top-race-aldrighetti-sigue-bien-arriba-y-conquista-la-pole-en-roca/",
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/aldrighetti-top-race-roca.png",
+  "razon": "La foto B muestra claramente al auto de Facundo Aldrighetti en pista con excelente nitidez y encuadre, sin marcas ni personas.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carrera en pista, toma lateral de alta calidad"
+  },
+  "huella": "544e4b30a2eac000"
+ },
+ "2vltvs": {
+  "archivo": "fotos-notas/2vltvs.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Chelsea le gana 2 a 0 al Manchester United con expulsión de Lisandro Martínez",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/31/la-mala-tarde-de-lisandro-martinez-en-la-derrota-del-manchester-united-ante-chelsea-cometio-un-penal-y-se-fue-expulsado/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-14-20865734dc7f1793456733838-1793456907.jpg?auth=1993ff93a3bb6efffa18760660b4425d57bf43078853df072e66e7d720a1471b&width=1023",
+  "razon": "Es la única foto que muestra claramente el momento exacto de la expulsión de Lisandro Martínez con el árbitro mostrando la tarjeta roja, sin marcas añadidas ni menores reconocibles en primer plano.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Árbitro sacando tarjeta roja a Lisandro Martínez"
+  },
+  "huella": "0d08235ad4eeaeec"
+ },
+ "1lvl2z3": {
+  "archivo": "fotos-notas/1lvl2z3.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Jennifer Lawrence vuelve a Los juegos del hambre: cuándo se estrena",
+  "enlace": "https://www.tycsports.com/gaming/jennifer-lawrence-vuelve-a-los-juegos-del-hambre-cuando-se-estrena-en-argentina-la-nueva-pelicula-de-la-saga-id769222.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/29/1000942/jennifer-lawrence-vuelve-a-los-juegos-del-hambre-cuando-se-estrena-en-argentina-la-nueva-pelicula-de-la-saga_1440x810.webp",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y muestra claramente a Jennifer Lawrence en su personaje para la nota.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jennifer Lawrence como Katniss Everdeen en Los juegos del hambre"
+  },
+  "huella": "2c2a292a2c34b6f6"
+ },
+ "1ukc011": {
+  "archivo": "fotos-notas/1ukc011.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta amarilla por tormentas y lluvias en varias provincias",
+  "enlace": "https://radiomitre.cienradios.com/clima/alerta-amarilla-por-tormentas-severas-este-sabado-cuando-se-larga-con-todo-y-cuales-seran-las-zonas-mas-afectadas-segun-el-smn/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/SVBHZJOOLVGAZMADXYBC2QSBUA.jpg?smart=true&auth=75b218ca1aefe64249b2ffb1a62c818f3221cca9ff40684738916d0ef12a5c8f&width=1200&height=630",
+  "razon": "Es la foto más adecuada para ilustrar la alerta meteorológica al mostrar claramente la ciudad con lluvia y un paraguas en primer plano, sin marcas ni menores.",
+  "cuando": "2026-10-31T21:32:25.815Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Calle urbana con lluvia y paraguas en primer plano"
+  },
+  "huella": "dbdb199b2f9d6c2c"
  }
 }
