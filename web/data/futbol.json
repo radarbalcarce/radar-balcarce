@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-31T23:04:42.487Z",
+ "consultado": "2026-10-31T23:54:32.615Z",
  "equipos": [
   "9739",
   "3",
@@ -816,8 +816,8 @@
     "id": "401841646",
     "competencia": "liga",
     "inicio": "2026-10-31T22:15:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+4'",
+    "estado": "en-juego",
+    "minuto": "79'",
     "local": {
      "id": "21",
      "nombre": "Vélez Sarsfield",
@@ -1448,19 +1448,32 @@
      },
      {
       "posicion": 13,
-      "id": "17702",
-      "equipo": "Deportivo Riestra",
-      "pj": 14,
-      "g": 2,
-      "e": 6,
-      "p": 6,
-      "gf": 10,
-      "gc": 14,
-      "dif": -4,
+      "id": "19",
+      "equipo": "Talleres (Córdoba)",
+      "pj": 15,
+      "g": 3,
+      "e": 3,
+      "p": 9,
+      "gf": 16,
+      "gc": 22,
+      "dif": -6,
       "pts": 12
      },
      {
       "posicion": 14,
+      "id": "17702",
+      "equipo": "Deportivo Riestra",
+      "pj": 15,
+      "g": 2,
+      "e": 6,
+      "p": 7,
+      "gf": 10,
+      "gc": 17,
+      "dif": -7,
+      "pts": 12
+     },
+     {
+      "posicion": 15,
       "id": "11989",
       "equipo": "Central Córdoba (Santiago del Estero)",
       "pj": 14,
@@ -1471,19 +1484,6 @@
       "gc": 23,
       "dif": -12,
       "pts": 10
-     },
-     {
-      "posicion": 15,
-      "id": "19",
-      "equipo": "Talleres (Córdoba)",
-      "pj": 14,
-      "g": 2,
-      "e": 3,
-      "p": 9,
-      "gf": 13,
-      "gc": 22,
-      "dif": -9,
-      "pts": 9
      }
     ]
    },
@@ -1689,7 +1689,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-31T21:34:49.223Z",
+ "tablaCuando": "2026-10-31T23:54:32.615Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

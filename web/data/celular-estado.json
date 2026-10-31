@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T23:04:54.748Z",
- "portada": 142,
+ "generado": "2026-10-31T23:54:35.900Z",
+ "portada": 143,
  "archivo": 500,
- "esperandoCuerpo": 1,
+ "esperandoCuerpo": 0,
  "redes": {
-  "generado": "2026-10-31T23:04:55.304Z",
+  "generado": "2026-10-31T23:54:37.008Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -136,22 +136,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 48,
     "notas": [
+     {
+      "id": "1nacmhw",
+      "titulo": "La Escuela Primaria Nº 10 presenta su proyecto de huerta escolar",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1rmd8nx",
+      "titulo": "Recuerdan a las víctimas balcarceñas del derrumbe en Villa Gesell",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1x9aj17",
       "titulo": "Mambrunense cierra las clases de cocina en la Fiesta del Postre",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "u1eoal",
-      "titulo": "Lucenza lanza la segunda edición del programa Mujeres al Volante",
-      "seccion": "Educación"
-     },
-     {
-      "id": "197otww",
-      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
-      "seccion": "Deportes"
      },
      {
       "id": "1sgedwu",
@@ -191,6 +191,12 @@
    ],
    "cola": [
     {
+     "id": "1rmd8nx",
+     "titulo": "Recuerdan a las víctimas balcarceñas del derrumbe en Villa Gesell",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "mlnw2g",
      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
      "seccion": "Automovilismo",
@@ -203,9 +209,9 @@
      "marcada": false
     },
     {
-     "id": "1aziot7",
-     "titulo": "Godoy Cruz y Tristán Suárez jugarán la final por el primer ascenso",
-     "seccion": "Fútbol",
+     "id": "1k5g3x0",
+     "titulo": "Marco Rubio niega participación de Estados Unidos en la salida de Flávio Bolsonaro",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
