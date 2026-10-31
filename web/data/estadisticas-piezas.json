@@ -2,68 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "instagram/historia/17954013945269253",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "noticia2",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T18:16:41.959Z",
-   "medida": "2026-10-14T06:30:16.923Z",
-   "metricas": {}
-  },
-  {
-   "clave": "instagram/historia/18073945130741352",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "farmacia",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T22:05:12.686Z",
-   "medida": "2026-10-14T10:30:18.740Z",
-   "metricas": {}
-  },
-  {
-   "clave": "instagram/historia/18115395185108975",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "clima-noche",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T23:06:08.746Z",
-   "medida": "2026-10-14T11:30:18.102Z",
-   "metricas": {}
-  },
-  {
-   "clave": "facebook/posteo/1254237411116171_122111054541495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "3xm1ge",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T11:45:23.948Z",
-   "medida": "2026-10-14T12:00:24.124Z",
-   "metricas": {
-    "post_media_view": 9,
-    "post_total_media_view_unique": 4,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
-   "clave": "instagram/foto/18102380171219703",
-   "red": "instagram",
-   "parte": "foto",
-   "pieza": "3xm1ge",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T11:45:37.706Z",
-   "medida": "2026-10-14T12:00:24.124Z",
-   "metricas": {
-    "reach": 1,
-    "views": 4,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0
-   }
-  },
-  {
    "clave": "instagram/reel/18109097318337441",
    "red": "instagram",
    "parte": "reel",
@@ -10459,6 +10397,87 @@
     "comments": 0,
     "shares": 0,
     "saved": 0
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122117438511495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "1s7htpl",
+   "dia": "2026-10-30",
+   "cuando": "2026-10-30T18:36:03.185Z",
+   "medida": "2026-10-31T21:00:12.174Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 8,
+    "post_total_media_view_unique": 3,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/18029666525857594",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "1s7htpl",
+   "dia": "2026-10-30",
+   "cuando": "2026-10-30T18:36:13.071Z",
+   "medida": "2026-10-31T21:00:12.174Z",
+   "v": 2,
+   "metricas": {
+    "reach": 3,
+    "views": 10,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/2592181764635189",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "noticia2",
+   "dia": "2026-10-30",
+   "cuando": "2026-10-30T18:36:57.709Z",
+   "medida": "2026-10-31T21:00:12.174Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 241,
+    "fb_reels_total_plays": 253,
+    "post_video_avg_time_watched": 1314,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 0
+   }
+  },
+  {
+   "clave": "facebook/historia/1869890520863716",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "noticia2",
+   "dia": "2026-10-30",
+   "cuando": "2026-10-30T18:37:33.343Z",
+   "medida": "2026-10-31T21:00:12.174Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "instagram/reel/18099741737432338",
+   "red": "instagram",
+   "parte": "reel",
+   "pieza": "noticia2",
+   "dia": "2026-10-30",
+   "cuando": "2026-10-30T20:36:50.775Z",
+   "medida": "2026-10-31T21:00:12.174Z",
+   "v": 2,
+   "metricas": {
+    "reach": 24,
+    "views": 31,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 0
    }
   }
  ]
