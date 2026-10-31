@@ -21810,9 +21810,7 @@
   "borrada": true
  },
  "1irbt94": {
-  "archivo": "fotos-notas/1irbt94.jpg",
   "medio": "Infobae",
-  "credito": "Foto: Infobae",
   "licencia": null,
   "origen": "medio",
   "titulo": "Jimena Confessore despide con una emotiva carta al meteorólogo Fernando Confessore",
@@ -21832,7 +21830,8 @@
    "descripcion": "Fernando Confessore y Jimena Confessore sonriendo al aire libre."
   },
   "huella": "e86c6c6c6c6c5efc",
-  "ausenteDesde": "2026-10-24T01:44:59.197Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kfwd2m": {
   "intentado": true,
@@ -21844,9 +21843,7 @@
   "fuentes": 2
  },
  "1izs5zv": {
-  "archivo": "fotos-notas/1izs5zv.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lula cruza a Bolsonaro con Milei en el primer debate presidencial",
@@ -21866,7 +21863,8 @@
    "descripcion": "Lula señalando a Bolsonaro en el debate"
   },
   "huella": "434969425e565813",
-  "ausenteDesde": "2026-10-24T01:44:59.197Z"
+  "intentado": true,
+  "borrada": true
  },
  "hiemrm": {
   "archivo": "fotos-notas/hiemrm.jpg",
@@ -53508,14 +53506,28 @@
   "imagenOriginal": "https://media.minutouno.com/p/cb8a15a68d604a946b27d120a233c2a4/adjuntos/150/imagenes/043/737/0043737935/haloween-gratis-caba-2.jpg"
  },
  "s485pw": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/s485pw.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Enzo Fernández confirma su deseo de volver a River en el futuro",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 2,
-  "fuentes": 8,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.cronica.com.ar/depo/actualidad/enzo-fernandez-hablo-de-todo-su-vuelta-a-river-el-superclasico-y-la-selecc/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1727/1727219/6ae38f264ed04_600_315!.jpg?s=779f875fc301a1683b45b82e836ba486&d=1793315786",
+  "razon": "Es la mejor imagen, con buena nitidez, encuadre limpio y sin marcas de agua ni elementos que impidan su publicación.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Enzo Fernández saludando a la tribuna con los brazos en alto."
+  },
+  "huella": "bd3494e69b961e0b"
  },
  "ooa5pe": {
   "archivo": "fotos-notas/ooa5pe.jpg",
@@ -53724,11 +53736,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gimnasia Rítmica Balcarce consigue podios en la final provincial",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 2,
-  "fuentes": 5,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "Todas las fotos disponibles muestran a menores de edad claramente identificables, lo cual contraviene la política editorial de Radar Balcarce.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "intentos": 3,
+  "fuentes": 5
  },
  "lh8na0": {
   "archivo": "fotos-notas/lh8na0.jpg",
@@ -54058,14 +54069,28 @@
   "imagenOriginal": "https://media.tycsports.com/files/2026/10/29/1001021/ander-herrera_1440x810.webp?v=1"
  },
  "1utxp49": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1utxp49.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Banco Macro lanza un programa de recompra de acciones por hasta $160.000 millones",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://perfil.com/economia/banco-macro-anuncio-la-recompra-de-acciones-por-hasta-160.000-millones-aBFdA2y7K3BV",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/e016f361ca39-torre-banco-macro-2317784.webp",
+  "razon": "Es la imagen más representativa y de mejor calidad técnica que ilustra la sede corporativa del banco sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Torre corporativa de Banco Macro al atardecer."
+  },
+  "huella": "797b737f4f88b830"
  },
  "117li7s": {
   "archivo": "fotos-notas/117li7s.jpg",
@@ -55651,7 +55676,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico concentrado durante un partido en la cancha."
   },
-  "huella": "212446626ad2f2b6"
+  "huella": "212446626ad2f2b6",
+  "ausenteDesde": "2026-10-31T02:06:25.382Z"
  },
  "12wmapc": {
   "archivo": "fotos-notas/12wmapc.jpg",
@@ -56671,11 +56697,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "WhatsApp incorpora nuevas herramientas para los chats grupales",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "La imagen A es una pieza gráfica explicativa y la imagen B es una foto de stock, por lo que ninguna cumple con los criterios de ser una fotografía de una escena real.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "intentos": 3,
+  "fuentes": 3
  },
  "pp6h67": {
   "archivo": "fotos-notas/pp6h67.jpg",
@@ -58107,15 +58132,28 @@
   "ausenteDesde": "2026-10-30T23:37:51.571Z"
  },
  "ta8g5x": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ta8g5x.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Gabriele Minì termina 14° en la primera práctica del GP de México",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-10-30T21:55:20.298Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.lagaceta.com.ar/nota/1160335/deportes/gp-mexico-formula-1-en-vivo-colapinto-no-estara-fp1-debutara-segunda-sesion.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/30/gp-mexico-f1-franco-colapinto-termino-16-segunda-practica-libre-1160335-201207.jpg",
+  "razon": "Es la mejor imagen de acción del auto en pista, sin marcas de agua, sin menores y con excelente nitidez.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carreras en pista con el número 43."
+  },
+  "huella": "5610311574665a96"
  },
  "avx0ko": {
   "intentado": true,
@@ -58171,17 +58209,32 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1919094129213171"
+  "huella": "1919094129213171",
+  "ausenteDesde": "2026-10-31T02:06:25.382Z"
  },
  "gpghgh": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/gpghgh.jpg",
+  "medio": "FayerWayer",
+  "credito": "Foto: FayerWayer",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Fallece el actor Patrick Stewart a los 86 años en Los Angeles",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 1,
-  "fuentes": 54,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.fayerwayer.com/entretenimiento/2026/10/29/muere-patrick-stewart-capitan-picard-de-star-trek-y-profesor-x-en-x-men/",
+  "imagenOriginal": "https://www.fayerwayer.com/resizer/v2/XRKVEWFE4JBZJG27EEZPEUIWNE.jpg?smart=true&auth=11ae878a9f2381d609c15ccefa4e705a0a8d47f81fbdaaaf102207f754604346&width=1200&height=630",
+  "razon": "Es la mejor imagen disponible, con buena calidad, sin marcas de agua, sin menores y centrada en el actor.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Patrick Stewart en un evento de Star Trek."
+  },
+  "huella": "2f072f0f4d454465"
  },
  "2rs9xh": {
   "intentado": true,
@@ -58463,10 +58516,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Escuela Primaria Nº 10 presenta su proyecto de huerta escolar",
-  "razon": "La única foto disponible muestra a varios menores de edad claramente identificables, lo cual incumple la política de publicación del medio.",
-  "cuando": "2026-10-30T22:35:57.407Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Radio Gabal (FM 104.1) (un menor): no se elige ninguna.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "intentos": 2,
+  "fuentes": 5
  },
  "13mlb2f": {
   "intentado": true,
@@ -58615,11 +58668,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno utiliza inteligencia artificial para analizar y modificar leyes",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
-  "cuando": "2026-10-30T22:35:57.407Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1
+  "razon": "La foto A es un collage que incluye una captura de pantalla, por lo que se considera grafica. La foto B es una imagen de stock o retrato genérico que no ilustra el hecho específico de la nota.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "riwmcp": {
   "intentado": true,
@@ -58640,13 +58692,28 @@
   "fuentes": 3
  },
  "im77nn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/im77nn.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca y River definen sus formaciones para el Superclásico del domingo",
-  "razon": "Ambas imágenes son composiciones gráficas o montajes que no representan una fotografía de una escena real del hecho, por lo que no cumplen con los criterios editoriales.",
-  "cuando": "2026-10-30T23:02:41.317Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://bolavip.com/ar/river/ponzio-no-tiene-dudas-y-arma-la-formacion-de-river-para-el-superclasico",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/30104446/Leonardo-Ponzio-8-1200x740.webp",
+  "razon": "Es la imagen más clara, profesional y representativa de los protagonistas de la nota, sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico de River con los brazos cruzados en el campo de entrenamiento."
+  },
+  "huella": "3e3b32b5f1aab271"
  },
  "14rxmct": {
   "intentado": true,
@@ -59223,7 +59290,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de plantas de maíz en un campo bajo un cielo despejado."
   },
-  "huella": "c0c8c8d8b4b71736"
+  "huella": "c0c8c8d8b4b71736",
+  "ausenteDesde": "2026-10-31T02:06:25.382Z"
  },
  "1p5bf1w": {
   "intentado": true,
@@ -59282,5 +59350,29 @@
    "descripcion": "Primer plano del director técnico de River Plate en el banco de suplentes."
   },
   "huella": "e9e96968dcdcdad8"
+ },
+ "1soufdh": {
+  "archivo": "fotos-notas/1soufdh.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Victoria Villarruel lanza un programa de créditos a tasa cero en el Senado",
+  "enlace": "https://tn.com.ar/politica/2026/10/30/villarruel-lanzo-un-programa-de-alivio-financiero-para-los-trabajadores-del-senado-y-marco-otra-diferencia-con-milei/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/victoria-villarruel-vicepresidenta-de-la-nacion-fotos-charly-diaz-azcue-comunicacion-senado--XDQ4UJEFZ5CSRPCJVHT3NJGKJM.JPG?auth=27853ca4199acda7f1329ca3a95240bd7aa6eac5ee8d9a73bab77ba163697c78&width=1023",
+  "razon": "Es la única foto que muestra a la protagonista en el recinto, sin marcas de agua, sin elementos distractores y con buena calidad técnica.",
+  "cuando": "2026-10-31T02:01:49.239Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Victoria Villarruel de pie en el recinto del Senado."
+  },
+  "huella": "4e56465471717153"
  }
 }
