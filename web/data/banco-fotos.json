@@ -51847,7 +51847,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-10-31T12:04:11.273Z"
+  "cuando": "2026-10-31T18:34:00.811Z"
  },
  "gbrd5s": {
   "archivo": "fotos-notas/gbrd5s.jpg",
@@ -52463,7 +52463,8 @@
    "corresponde": "si",
    "descripcion": "Personas y periodistas en la entrada de la Agencia Nacional de Discapacidad"
   },
-  "huella": "cb9c9c088c92f0f4"
+  "huella": "cb9c9c088c92f0f4",
+  "ausenteDesde": "2026-10-31T18:34:04.028Z"
  },
  "n7y2s4": {
   "archivo": "fotos-notas/n7y2s4.jpg",
@@ -57967,7 +57968,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:56.432Z",
-  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/detalles-nuevo-formato-liga-profesional-se-definiria-hoy-comite-ejecutivo-1159998-105736.jpg"
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/detalles-nuevo-formato-liga-profesional-se-definiria-hoy-comite-ejecutivo-1159998-105736.jpg",
+  "ausenteDesde": "2026-10-31T18:34:04.028Z"
  },
  "kuwqxi": {
   "archivo": "fotos-notas/kuwqxi.jpg",
@@ -61228,10 +61230,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Manchester City recibe a Brighton por la Premier League",
-  "razon": "Ninguna foto sirve: la A es un gráfico, la B tiene un botón de reproducción superpuesto y la C es una captura de pantalla de transmisión televisiva con zócalo y logo.",
-  "cuando": "2026-10-31T17:03:09.330Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Ninguna foto cumple con los requisitos: la A es gráfica, la B y la C tienen marcas de medios y la D muestra a un jugador que no corresponde a este partido.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "dbup6y": {
   "archivo": "fotos-notas/dbup6y.jpg",
@@ -61439,5 +61441,92 @@
    "descripcion": "Un monoplaza de Fórmula 1 en plena pista de carreras."
   },
   "huella": "0aaebcb8b5a641fe"
+ },
+ "b7yw0o": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
+  "razon": "La única foto disponible incluye menores reconocibles y jóvenes, por lo que no puede ser seleccionada según las reglas editoriales.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1gf52r7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Proyecto Disco celebra Halloween con Papi Champ y premios en efectivo",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad y no tiene marcas ni menores.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1ndljiq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River afronta el Superclásico con 19 cambios respecto al año pasado",
+  "razon": "Ninguna foto sirve: la A es un fotomontaje gráfico con múltiples imágenes y textos de años, y la B tiene marca de agua superpuesta del medio Noticias Argentinas.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "ct4pl1": {
+  "archivo": "fotos-notas/ct4pl1.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico con un operativo de mil policías",
+  "enlace": "https://www.tycsports.com/river-plate/asi-sera-el-operativo-de-seguridad-para-el-superclasico-entre-boca-y-river-id769377.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001149/un-control-de-la-policia-de-la-ciudad-antes-de-un-superclasico-en-la-bombonera_1440x810.webp",
+  "razon": "Es la única foto que ilustra directamente el operativo policial mencionado en el título de la nota, con excelente nitidez y sin marcas ni menores.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Efectivos de seguridad haciendo fila frente a la Bombonera para el operativo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Personal de seguridad en uniforme rojo frente al estadio La Bombonera."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "7d79dc94f0f11235"
+ },
+ "1mwg56f": {
+  "archivo": "fotos-notas/1mwg56f.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Avanza la construcción del parque solar de Las Lomitas en Formosa",
+  "enlace": "https://www.eldestapeweb.com/informacion-general/avanza-construccion-parque-solar-lomitas-abastecera-25-mil-hogares-formosa-2026103115130",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793195676108.webp?&cw=1600&ch=900",
+  "razon": "Muestra claramente el parque solar sin personas y con excelente calidad de imagen.",
+  "cuando": "2026-10-31T18:32:58.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Paneles solares instalados en el campo bajo un cielo nublado."
+  },
+  "huella": "260fa50689493f0f"
  }
 }
