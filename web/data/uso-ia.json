@@ -1647,18 +1647,18 @@
   "2026-10-31": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 21,
+     "llamadas": 22,
      "errores": 6,
-     "entrada": 36494,
-     "salida": 16451,
+     "entrada": 38563,
+     "salida": 17175,
      "pensamiento": 0,
-     "total": 52945,
+     "total": 55738,
      "claves": {
-      "clasificacion": 21
+      "clasificacion": 22
      },
      "motivos": {
       "clasificacion": {
-       "ok": 15,
+       "ok": 16,
        "cupo-diario": 6
       }
      }
@@ -1699,19 +1699,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 24,
+     "llamadas": 27,
      "errores": 9,
-     "entrada": 208757,
-     "salida": 1712,
+     "entrada": 248077,
+     "salida": 1971,
      "pensamiento": 0,
-     "total": 210469,
+     "total": 250048,
      "claves": {
-      "clasificacion": 24
+      "clasificacion": 27
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 15,
+       "ok": 18,
        "saturado": 1
       }
      }
@@ -1751,19 +1751,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 40,
+     "llamadas": 46,
      "errores": 15,
-     "entrada": 144280,
-     "salida": 26750,
+     "entrada": 178343,
+     "salida": 33973,
      "pensamiento": 0,
-     "total": 171030,
+     "total": 212316,
      "claves": {
-      "redaccion": 40
+      "redaccion": 46
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 15,
-       "ok": 25
+       "ok": 31
       }
      }
     },
@@ -1787,19 +1787,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 46,
+     "llamadas": 48,
      "errores": 22,
-     "entrada": 122183,
-     "salida": 9573,
+     "entrada": 133791,
+     "salida": 10440,
      "pensamiento": 0,
-     "total": 131756,
+     "total": 144231,
      "claves": {
-      "clasificacion": 46
+      "clasificacion": 48
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 20,
-       "ok": 24,
+       "ok": 26,
        "otro": 1,
        "saturado": 1
       }

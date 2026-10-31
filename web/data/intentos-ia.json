@@ -2315,6 +2315,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "1cy5n9b": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T11:31:15.001Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 6
+ },
  "1czq9i1": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -3497,6 +3504,13 @@
    "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el"
   ]
  },
+ "1ipto8d": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T11:31:15.001Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1ipxvu6": {
   "intentos": 1,
   "ultimo": "2026-10-29T12:33:41.270Z",
@@ -4080,6 +4094,20 @@
    "cuerpo: 4 problemas (antecedente, nombre, repite, promesa): el cuerpo ",
    "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
    "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
+  ]
+ },
+ "1liz0x8": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T11:31:15.001Z",
+  "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 2 problemas (nombre): el titulo nombra a \"america\" y ",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique"
+  ],
+  "falla": [
+   "el título empieza con una etiqueta y dos puntos (\"Halloween:\"): tiene que empezar por el hecho"
   ]
  },
  "1lle5y2": {
@@ -5022,6 +5050,20 @@
   "numeradas": 6,
   "motivos": [
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
+  ]
+ },
+ "1pkrpmr": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T11:31:15.001Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 250 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1pmrj5": {
@@ -10111,13 +10153,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
- },
- "lnaikw": {
-  "intentos": 1,
-  "ultimo": "2026-10-24T11:31:24.681Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 20
  },
  "loqdh6": {
   "intentos": 1,
