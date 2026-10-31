@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T20:33:36.607Z",
- "portada": 137,
- "archivo": 500,
- "esperandoCuerpo": 3,
+ "generado": "2026-10-31T21:01:51.209Z",
+ "portada": 133,
+ "archivo": 499,
+ "esperandoCuerpo": 12,
  "redes": {
-  "generado": "2026-10-31T20:33:36.919Z",
+  "generado": "2026-10-31T21:01:51.579Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "Los teléfonos útiles",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -136,13 +136,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
-     {
-      "id": "1pa7ehp",
-      "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "197otww",
       "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
@@ -152,6 +147,11 @@
       "id": "6ova04",
       "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
       "seccion": "Política"
+     },
+     {
+      "id": "1cy5n9b",
+      "titulo": "Conmebol confirma el horario de la final de la Sudamericana entre Boca y Mineiro",
+      "seccion": "Fútbol"
      },
      {
       "id": "1oo88r4",
@@ -182,21 +182,14 @@
      "id": "cpbebw",
      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
      "cuando": "2026-10-31T18:36:03.744Z"
-    }
-   ],
-   "cola": [
+    },
     {
      "id": "1pa7ehp",
      "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "b7yw0o",
-     "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
+     "cuando": "2026-10-31T20:36:01.666Z"
+    }
+   ],
+   "cola": [
     {
      "id": "mlnw2g",
      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
@@ -222,8 +215,8 @@
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-10-31T20:06:03.744Z",
+   "cupo": 0,
+   "proximoDesde": "2026-10-31T22:06:01.666Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
