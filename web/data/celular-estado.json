@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T14:05:11.569Z",
- "portada": 131,
+ "generado": "2026-10-31T14:34:03.628Z",
+ "portada": 133,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 1,
  "redes": {
-  "generado": "2026-10-31T14:05:13.365Z",
+  "generado": "2026-10-31T14:34:04.234Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -139,14 +139,14 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "hz5evm",
+      "titulo": "El INTA exonera a Virginia Aparicio y le impide regresar a la Estación",
+      "seccion": "Ciencia"
+     },
+     {
       "id": "vbb83b",
       "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
       "seccion": "Educación"
-     },
-     {
-      "id": "1d4nj79",
-      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
-      "seccion": "Deportes"
      }
     ]
    },
@@ -157,11 +157,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 46,
+    "segundos": 50,
     "notas": [
      {
-      "id": "197otww",
-      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "id": "1d4nj79",
+      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
      },
      {
@@ -170,14 +170,14 @@
       "seccion": "Política"
      },
      {
-      "id": "1b0e7lc",
-      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
-      "seccion": "Argentina"
-     },
-     {
       "id": "1snkq1y",
       "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "1b0e7lc",
+      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -210,9 +210,21 @@
      "marcada": false
     },
     {
+     "id": "hz5evm",
+     "titulo": "El INTA exonera a Virginia Aparicio y le impide regresar a la Estación",
+     "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
      "id": "vbb83b",
      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "17d5cdt",
+     "titulo": "La Plata es sede de la segunda edición de la Agenda Ambiental",
+     "seccion": "Política",
      "marcada": false
     }
    ],

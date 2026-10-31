@@ -52572,7 +52572,8 @@
    "corresponde": "si",
    "descripcion": "Carlos Tevez jugando un partido en el Manchester City disputando el balón"
   },
-  "huella": "2a66054747526b26"
+  "huella": "2a66054747526b26",
+  "ausenteDesde": "2026-10-31T14:34:03.547Z"
  },
  "1izrlqm": {
   "archivo": "fotos-notas/1izrlqm.jpg",
@@ -55791,7 +55792,8 @@
    "corresponde": "si",
    "descripcion": "Dos hombres sentados a la mesa con una pantalla de fondo que dice Macro Private Bank"
   },
-  "huella": "1303038d0b2a620d"
+  "huella": "1303038d0b2a620d",
+  "ausenteDesde": "2026-10-31T14:34:03.547Z"
  },
  "16hkib8": {
   "intentado": true,
@@ -60606,22 +60608,64 @@
   "huella": "1b17a3836343cbc3"
  },
  "r4bjyj": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/r4bjyj.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-31T13:31:48.936Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/emerson-fittipaldi-visitara-el-museo-fangio-244",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-31-13-12-21Fundacion_Fangio.jpg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad y no presenta marcas ni menores.",
+  "cuando": "2026-10-31T14:33:09.079Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Emerson Fittipaldi y otras personas posando con un cuadro de Juan Manuel Fangio en el museo"
+  },
+  "huella": "1256568ececcf474"
  },
  "cpbebw": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/cpbebw.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-10-31T13:31:48.936Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "https://eldiariobalcarce.com.ar/encuentros-estrategicos-en-brasil-de-empresa-balcarcena-para-afianzar-su-expansion-regional-512",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-10-31-13-6-22oviedo_2.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, muestra a los empresarios en la gira comercial y no tiene marcas ni menores.",
+  "cuando": "2026-10-31T14:33:09.079Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuatro hombres parados al aire libre frente a una planta industrial en Brasil.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Grupo de cuatro hombres posando frente a una planta industrial con el logo de Altaria."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ca4b4993d3ecedec"
  },
  "5534py": {
   "archivo": "fotos-notas/5534py.jpg",
@@ -60669,7 +60713,8 @@
    "corresponde": "si",
    "descripcion": "Reunión de productores agropecuarios alrededor de una mesa en salón."
   },
-  "huella": "3991d8ce161edcf0"
+  "huella": "3991d8ce161edcf0",
+  "ausenteDesde": "2026-10-31T14:34:03.547Z"
  },
  "vbb83b": {
   "intentado": true,
@@ -60799,5 +60844,38 @@
    "descripcion": "Fotomontaje con los rostros de Milei, Lula y Trump"
   },
   "huella": "6d2bc78c8e2eae16"
+ },
+ "hz5evm": {
+  "archivo": "fotos-notas/hz5evm.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INTA exonera a Virginia Aparicio y le impide regresar a la Estación",
+  "enlace": "https://puntonueve.com.ar/virginia-aparicio-fue-desvinculada-de-inta-y-no-podra-regresar/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/10/WhatsApp-Image-2026-10-15-at-20.38.16-e1792107546725.jpeg",
+  "razon": "Es la única foto disponible, corresponde perfectamente a la nota y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-10-31T14:33:09.079Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio hablando con un micrófono frente a un atril con el logo del HCD Balcarce"
+  },
+  "huella": "2c21302333e320f2"
+ },
+ "1b5fgot": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Suspenden la Estudiantina en Balcarce para este año y el próximo",
+  "razon": "La única foto disponible muestra a una multitud donde hay jóvenes y posibles menores reconocibles, por lo que no cumple con la política de menores del medio.",
+  "cuando": "2026-10-31T14:33:09.079Z",
+  "intentos": 1,
+  "fuentes": 1
  }
 }
