@@ -50401,7 +50401,8 @@
    "corresponde": "si",
    "descripcion": "Persona con guardapolvo docente operando un cajero automático"
   },
-  "huella": "3258982828fa3a72"
+  "huella": "3258982828fa3a72",
+  "ausenteDesde": "2026-10-31T11:02:03.769Z"
  },
  "1o8bnus": {
   "archivo": "fotos-notas/1o8bnus.jpg",
@@ -50448,7 +50449,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
   },
-  "huella": "060107f2af0f9c83"
+  "huella": "060107f2af0f9c83",
+  "ausenteDesde": "2026-10-31T11:02:03.769Z"
  },
  "1muatd7": {
   "intentado": true,
@@ -51219,7 +51221,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Bad Luck Brian, meme clásico de internet."
   },
-  "huella": "000e0f0d0f0f0f0f"
+  "huella": "000e0f0d0f0f0f0f",
+  "ausenteDesde": "2026-10-31T11:02:03.769Z"
  },
  "1x3y3pd": {
   "archivo": "fotos-notas/1x3y3pd.jpg",
@@ -51243,7 +51246,8 @@
    "corresponde": "si",
    "descripcion": "Trabajadora de espaldas observando un yacimiento petrolero al atardecer"
   },
-  "huella": "0f3e5b4f5dcfc9cf"
+  "huella": "0f3e5b4f5dcfc9cf",
+  "ausenteDesde": "2026-10-31T11:02:03.769Z"
  },
  "ywafgd": {
   "intentado": true,
@@ -59988,7 +59992,8 @@
    "corresponde": "si",
    "descripcion": "Repartidor con mochila térmica y bicicleta en la calle de noche"
   },
-  "huella": "644f1a1eb7b7b7fb"
+  "huella": "644f1a1eb7b7b7fb",
+  "ausenteDesde": "2026-10-31T11:02:03.769Z"
  },
  "12hvrq8": {
   "archivo": "fotos-notas/12hvrq8.webp",
@@ -60025,5 +60030,108 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "3736666643434567"
+ },
+ "1rxuorl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comienza la última fecha de la Primera Nacional para definir finalistas y descenso",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida según las reglas.",
+  "cuando": "2026-10-31T11:01:31.455Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: The service is currently unavailable."
+ },
+ "17m2olp": {
+  "archivo": "fotos-notas/17m2olp.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central vence 2 a 1 a Sarmiento con dos tantos de Gastón Ávila",
+  "enlace": "https://www.ole.com.ar/rosario-central/gaston-avila-doblete-sarmiento-dijo-central-goleador_0_11PHz5JmMi.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/31/6JwDAj3uJ_2000x1500__1.jpg",
+  "razon": "Es la única foto que corresponde al evento, muestra claramente a los jugadores celebrando, no tiene marcas de agua agregadas, no es gráfica ni de archivo y no incluye menores.",
+  "cuando": "2026-10-31T11:01:31.455Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Rosario Central celebrando un gol",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Rosario Central celebran un gol durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "99a7e5cc39390919"
+ },
+ "3fyeyv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "San Lorenzo visita a Vélez en un duelo clave por los playoffs",
+  "razon": "Ninguna de las fotos cumple con todas las condiciones para ser publicada directamente sin marcas de agua de medios nacionales, elementos gráficos de transmisión o por tratarse de partidos de otros equipos.",
+  "cuando": "2026-10-31T11:01:31.455Z",
+  "intentos": 1,
+  "fuentes": 13
+ },
+ "1jucn5w": {
+  "archivo": "fotos-notas/1jucn5w.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Netflix estrena Quasimodo el alma de París el 27 de noviembre",
+  "enlace": "https://www.lanueva.com/nota/2026-10-31-7-31-0-quasimodo-el-alma-de-paris-la-clasica-historia-parisina-llega-a-netflix",
+  "imagenOriginal": "https://pxcdn.lanueva.com/102026/1793442780787.jpg?&cw=600&ch=365",
+  "razon": "La foto B ilustra correctamente la serie de Netflix y no tiene marcas de agua superpuestas.",
+  "cuando": "2026-10-31T11:01:31.455Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Promocion de la serie con personajes frente a la catedral"
+  },
+  "huella": "624264ccccc8c0c2"
+ },
+ "1segwoo": {
+  "archivo": "fotos-notas/1segwoo.jpg",
+  "medio": "Infocampo",
+  "credito": "Foto: Infocampo",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Investigan el potencial de la mostaza india para frenar malezas y hongos",
+  "enlace": "https://www.infocampo.com.ar/una-biofumigacion-natural-investigan-el-potencial-de-la-mostaza-india-para-frenar-malezas-y-hongos/",
+  "imagenOriginal": "https://www.infocampo.com.ar/wp-content/uploads/2026/10/universidad-lomas.jpg",
+  "razon": "Es la única foto adecuada que muestra claramente el cultivo de mostaza india en un entorno identificable.",
+  "cuando": "2026-10-31T11:01:31.455Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantas de mostaza india en flor con un silo al fondo."
+  },
+  "huella": "f2f6b5968446be56"
  }
 }
