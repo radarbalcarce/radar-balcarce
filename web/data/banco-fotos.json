@@ -53420,12 +53420,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Balcarce confirma el regreso de la Estudiantina para 2027",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-29T18:04:35.846Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
+  "cuando": "2026-10-31T04:02:32.792Z",
   "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "fuentes": 6,
+  "intentosPorCupo": 2
  },
  "1noo7lp": {
   "archivo": "fotos-notas/1noo7lp.jpg",
@@ -53664,10 +53663,10 @@
   "origen": "ninguna",
   "titulo": "San Agustín golea a San Lorenzo en el fútbol femenino",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Acción 5 (Balcarce) no se usa todavía.",
-  "cuando": "2026-10-30T23:35:26.681Z",
+  "cuando": "2026-10-31T04:02:32.792Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "1l6sgre": {
   "archivo": "fotos-notas/1l6sgre.jpg",
@@ -54138,12 +54137,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Recomiendan fórmulas caseras con bicarbonato y vinagre para limpiar",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on output tokens p (Gemini: HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.)",
-  "cuando": "2026-10-30T04:02:20.980Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
+  "razon": "Ambas imágenes son de stock y no corresponden al hecho específico de la nota, sino que son ilustraciones genéricas de productos de limpieza.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "txqang": {
   "archivo": "fotos-notas/uutosd.jpg",
@@ -55892,10 +55889,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "León XIV oficia misa en Luján y detallan los accesos y cortes de tránsito",
-  "razon": "Ninguna foto cumple con todos los requisitos editoriales: la foto A muestra menores reconocibles y la foto B tiene una marca de agua superpuesta de un medio en la esquina inferior izquierda.",
-  "cuando": "2026-10-30T11:34:37.074Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "La foto A y C muestran menores de edad, y la foto B es una captura de pantalla con marca de agua, por lo que ninguna cumple con los criterios de publicación.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1ormmkr": {
   "archivo": "fotos-notas/1ormmkr.jpg",
@@ -55943,7 +55940,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca entrenando juntos en el predio"
   },
-  "huella": "33131b1eaaeada55"
+  "huella": "33131b1eaaeada55",
+  "ausenteDesde": "2026-10-31T04:05:20.086Z"
  },
  "1v5zxll": {
   "intentado": true,
@@ -57008,11 +57006,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Javier Milei recibe al papa León XIV en Aeroparque y evalúan la cadena nacional",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 3,
+  "razon": "La segunda opinión (gemini, porque la nota habla de chicos o de categorías juveniles) descartó la de Radio Mitre (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "intentos": 4,
   "fuentes": 17,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "xgqvhl": {
   "archivo": "fotos-notas/xgqvhl.jpg",
@@ -58712,7 +58710,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico de River con los brazos cruzados en el campo de entrenamiento."
   },
-  "huella": "3e3b32b5f1aab271"
+  "huella": "3e3b32b5f1aab271",
+  "ausenteDesde": "2026-10-31T04:05:20.086Z"
  },
  "14rxmct": {
   "intentado": true,
@@ -59186,7 +59185,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de personas mayores en una fila."
   },
-  "huella": "79aa6a44446c2c4c"
+  "huella": "79aa6a44446c2c4c",
+  "ausenteDesde": "2026-10-31T04:05:20.086Z"
  },
  "13d5b6e": {
   "intentado": true,
@@ -59231,7 +59231,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "274b72d7e9eb2b6b"
+  "huella": "274b72d7e9eb2b6b",
+  "ausenteDesde": "2026-10-31T04:05:20.086Z"
  },
  "1lt0ov5": {
   "archivo": "fotos-notas/1lt0ov5.jpg",
@@ -59319,14 +59320,40 @@
   "ausenteDesde": "2026-10-31T02:06:25.382Z"
  },
  "1p5bf1w": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1p5bf1w.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Newman vence a Alumni y es el primer finalista del Top 14 de la URBA",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-10-31T01:33:17.098Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1
+  "enlace": "https://www.lanacion.com.ar/deportes/rugby/newman-alumni-semifinal-del-top-14-el-campeon-record-y-el-ganador-de-2024-definen-el-primer-nid30102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/tomas-bivort-y-alejandro-urtubey-son-los-LD4ZJ2ZOCRCAVHGI3ISO252L34.jpg?auth=56f30632a509fb912c30fa8ecc4d0f006ebd72f528d6101abf3364f8f1d1a0c1&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor opción disponible, ya que muestra a los protagonistas del partido sin marcas de agua, sin menores de edad y con buena calidad.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos jugadores de rugby posando con pelotas en una cancha.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Dos jugadores de rugby, uno de Alumni y otro de Newman, posan sosteniendo el balón en el campo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3d15367a2b0c2c6c"
  },
  "yhn2j5": {
   "archivo": "fotos-notas/yhn2j5.jpg",
@@ -59459,5 +59486,98 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "13332b6969695969"
+ },
+ "umawxn": {
+  "archivo": "fotos-notas/umawxn.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El SMN emite alerta amarilla por tormentas fuertes en diez provincias",
+  "enlace": "https://tn.com.ar/clima/alertas/2026/10/31/hay-alerta-amarilla-por-tormentas-para-este-sabado-31-de-octubre-en-san-luis-las-zonas-afectadas/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-servicio-metereologico-nacional-anuncia-alertas-por-tormentas-imagen-ilustrativa-generada-con-ia-JFODQ7CD4BCRTGP3HITGVIX5UU.jpeg?auth=a6a3332dbe3983e56b9188422881553ed030fa7e57a81bab8fb4b555edaf0cdb&width=1023",
+  "razon": "Es la imagen más adecuada, ya que ilustra el fenómeno meteorológico de tormentas fuertes de manera clara, sin personas, sin marcas de agua y sin ser una pieza gráfica o de stock.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rayos sobre una ciudad al atardecer."
+  },
+  "huella": "330bc3271d1d0413"
+ },
+ "u927ef": {
+  "archivo": "fotos-notas/u927ef.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
+  "enlace": "https://www.ole.com.ar/futbol-primera/gimnasia-estudiantes-rc-rio-cuarto-plata-fecha-quince-torneo-clausura-pata-pereyra-rube-forestello_0_XEK61yjBwo.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/30/HcvpJ69yI_2000x1500__1.jpg",
+  "razon": "Es la mejor imagen de acción, muestra el festejo de los jugadores, tiene buena calidad y no presenta marcas de agua, menores ni elementos gráficos.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Gimnasia festejando un gol.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Gimnasia celebran un gol durante el partido."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "d371d6ce94a62e27"
+ },
+ "1jmtc8v": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Abal Medina y Olivera publican un libro con debates del peronismo",
+  "razon": "Ambas imágenes son gráficas (tapas de libro o recortes de diseño) y no fotografías de una escena real, por lo que ninguna es apta para ilustrar la nota.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "136p1vd": {
+  "archivo": "fotos-notas/136p1vd.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "YPF solicita el RIGI para invertir 8.729 millones en Vaca Muerta",
+  "enlace": "https://www.iprofesional.com/energia/467972-ypf-presenta-un-nuevo-rigi-para-vaca-muerta-por-us8729-millones",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/01/610510_landscape.jpg",
+  "razon": "Es la imagen más limpia, sin marcas de agua, sin personas y representa adecuadamente la actividad de YPF en Vaca Muerta.",
+  "cuando": "2026-10-31T04:02:32.792Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Torre de perforación de YPF en Vaca Muerta."
+  },
+  "huella": "a0f8cbe3c64f3e96"
  }
 }

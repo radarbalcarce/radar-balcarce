@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T03:04:38.169Z",
- "portada": 181,
- "archivo": 499,
- "esperandoCuerpo": 7,
+ "generado": "2026-10-31T04:05:20.166Z",
+ "portada": 174,
+ "archivo": 500,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-10-31T03:04:38.940Z",
+  "generado": "2026-10-31T04:05:20.530Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
     "notas": [
      {
       "id": "1messk8",
       "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1nzzggy",
+      "titulo": "ANSES establece el cronograma de pagos de noviembre con cambios por asuetos",
+      "seccion": "Balcarce"
      },
      {
       "id": "1ox7bm8",
@@ -111,11 +116,6 @@
       "id": "1d4nj79",
       "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
-     },
-     {
-      "id": "10ibrn6",
-      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
-      "seccion": "Política"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
       "id": "1qobb2a",
@@ -139,14 +139,14 @@
       "seccion": "Deportes"
      },
      {
+      "id": "10ibrn6",
+      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
+      "seccion": "Política"
+     },
+     {
       "id": "1a150ug",
       "titulo": "Binance congela u$s3.000 millones e investiga un posible hackeo",
       "seccion": "Tecnología"
-     },
-     {
-      "id": "6ova04",
-      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-      "seccion": "Política"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 51,
     "notas": [
      {
       "id": "197otww",
@@ -170,14 +170,14 @@
       "seccion": "Fútbol"
      },
      {
+      "id": "6ova04",
+      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+      "seccion": "Política"
+     },
+     {
       "id": "1df38y1",
       "titulo": "El Gobierno oficializa aumentos en las tarifas de luz y gas para Edenor, Edesur y Metrogas",
       "seccion": "Economía"
-     },
-     {
-      "id": "1oxthyw",
-      "titulo": "Javier Milei felicitó a Benjamin Netanyahu tras haberse impuesto en las elecciones de Israel",
-      "seccion": "Argentina"
      }
     ]
    }
@@ -185,12 +185,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "1qobb2a",
-     "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
     {
      "id": "1ox7bm8",
      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
@@ -210,27 +204,27 @@
      "marcada": false
     },
     {
-     "id": "1idvu20",
-     "titulo": "Renuncia el subsecretario de Ciencia y Tecnología tras denunciar maltratos",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
      "id": "1b0e7lc",
      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "1edi0lj",
-     "titulo": "Aldosivi pierde ante Racing y desciende a la Primera Nacional",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1wtorgc",
      "titulo": "La demanda de dólares alcanza los 3410 millones durante septiembre",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "136p1vd",
+     "titulo": "YPF solicita el RIGI para invertir 8.729 millones en Vaca Muerta",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "sw48on",
+     "titulo": "Javier Milei cuestiona al periodismo y anuncia un nuevo libro",
+     "seccion": "Política",
      "marcada": false
     }
    ],
