@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-31T16:33:48.027Z",
- "portada": 129,
+ "generado": "2026-10-31T17:04:02.599Z",
+ "portada": 137,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 0,
  "redes": {
-  "generado": "2026-10-31T16:33:48.830Z",
+  "generado": "2026-10-31T17:04:03.229Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,21 +105,21 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "1qobb2a",
-      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
-      "seccion": "Cultura y agenda"
-     },
      {
       "id": "1ox7bm8",
       "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
       "seccion": "Policiales"
      },
      {
-      "id": "z7i5op",
-      "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "74225p",
+      "titulo": "Inician los preparativos para el verano en el Polideportivo Municipal",
       "seccion": "Balcarce"
      },
      {
@@ -144,14 +144,14 @@
       "seccion": "Economía"
      },
      {
-      "id": "vbb83b",
-      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
-      "seccion": "Educación"
-     },
-     {
       "id": "1messk8",
       "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "vbb83b",
+      "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
+      "seccion": "Educación"
      },
      {
       "id": "197otww",
@@ -172,12 +172,17 @@
      "id": "r4bjyj",
      "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
      "cuando": "2026-10-31T14:36:00.530Z"
+    },
+    {
+     "id": "z7i5op",
+     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+     "cuando": "2026-10-31T16:36:03.415Z"
     }
    ],
    "cola": [
     {
-     "id": "z7i5op",
-     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
+     "id": "74225p",
+     "titulo": "Inician los preparativos para el verano en el Polideportivo Municipal",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -206,8 +211,8 @@
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-10-31T16:06:00.530Z",
+   "cupo": 2,
+   "proximoDesde": "2026-10-31T18:06:03.415Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
