@@ -36748,9 +36748,7 @@
   "ausenteDesde": "2026-10-27T15:43:51.711Z"
  },
  "11hlrl8": {
-  "archivo": "fotos-notas/11hlrl8.jpg",
   "medio": "Diario Popular",
-  "credito": "Foto: Diario Popular",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lula da Silva y Flávio Bolsonaro debaten antes del balotaje",
@@ -36770,7 +36768,8 @@
    "descripcion": "Flávio Bolsonaro y Lula da Silva durante la presentación"
   },
   "huella": "80c80ac6cdc886c6",
-  "ausenteDesde": "2026-10-24T15:32:31.043Z"
+  "intentado": true,
+  "borrada": true
  },
  "vx2jre": {
   "archivo": "fotos-notas/vx2jre.jpg",
@@ -59925,9 +59924,9 @@
   "origen": "ninguna",
   "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
   "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-31T14:04:08.184Z",
-  "intentos": 4,
-  "fuentes": 36
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "intentos": 5,
+  "fuentes": 42
  },
  "v11vak": {
   "archivo": "fotos-notas/v11vak.jpg",
@@ -60714,10 +60713,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Jefatura Distrital suspende la Estudiantina para 2026 y 2027",
-  "razon": "La única foto disponible muestra a una multitud de jóvenes estudiantes y adolescentes reconocibles en las tribunas y en el campo, por lo que contiene menores y jóvenes y no cumple con la política del medio de no publicar rostros de menores.",
-  "cuando": "2026-10-31T14:04:08.184Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ambas fotos muestran una gran cantidad de jóvenes y estudiantes reconocibles en un evento escolar o estudiantil, por lo que se aplica la restricción de menores y jóvenes identificables en una nota sobre la suspensión de la Estudiantina.",
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "ckmtn": {
   "archivo": "fotos-notas/ckmtn.jpg",
@@ -60861,7 +60860,8 @@
    "corresponde": "si",
    "descripcion": "Virginia Aparicio hablando con un micrófono frente a un atril con el logo del HCD Balcarce"
   },
-  "huella": "2c21302333e320f2"
+  "huella": "2c21302333e320f2",
+  "ausenteDesde": "2026-10-31T15:33:35.306Z"
  },
  "1b5fgot": {
   "intentado": true,
@@ -60927,6 +60927,88 @@
    "corresponde": "si",
    "descripcion": "Persona navegando la app Cuenta DNI en un celular con descuentos visibles"
   },
-  "huella": "161a39bf96dfcbe7"
+  "huella": "161a39bf96dfcbe7",
+  "ausenteDesde": "2026-10-31T15:33:35.306Z"
+ },
+ "1sk6fxr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes y Palmeiras juegan la final de la Copa Libertadores el 28 de noviembre",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de 0221 (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "5kodrb": {
+  "archivo": "fotos-notas/5kodrb.jpg",
+  "medio": "Córdoba Competición",
+  "credito": "Foto: Córdoba Competición",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Vitar domina la primera práctica en Concordia",
+  "enlace": "https://cordobacompeticion.com/nacionales/tn/en-concordia-el-primer-entrenamiento-de-clase-2-fue-de-vitar/",
+  "imagenOriginal": "https://i0.wp.com/cordobacompeticion.com/wp-content/uploads/2026/10/1793459133_6ae603bdd567c.jpg?resize=660%2C330&ssl=1",
+  "razon": "La foto B muestra al auto con mejor nitidez y encuadre en la pista, sin marcas de agua ni personas.",
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carreras en pista con alambrado y vegetación de fondo"
+  },
+  "huella": "69250732694cf53b"
+ },
+ "rsrc08": {
+  "archivo": "fotos-notas/rsrc08.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el domingo el Superclásico en La Bombonera",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160294/deportes/se-viene-superclasico-bombonera-arbitro-formaciones-todo-lo-se-juegan-boca-river.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/30/clsico-boca-river-se-enfrentaran-domingo-15-bombonera-1160294-095505.jpg",
+  "razon": "Es una fotografía de acción nítida, tomada en el partido y sin marcas de agua ni gráficos superpuestos.",
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en el campo de juego"
+  },
+  "huella": "d6cdec9586ec4322"
+ },
+ "ny91fr": {
+  "archivo": "fotos-notas/ny91fr.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Julio Bocca recibe un premio internacional y el Ballet del Colón gana otro",
+  "enlace": "https://www.clarin.com/espectaculos/julio-bocca-suma-nuevo-reconocimiento-internacional-ballet-estable-colon-gano-premio-maria-guerrero_0_Jx24meNJGE.html",
+  "imagenOriginal": "https://www.clarin.com/img/2025/08/08/11OTRffVL_2000x1500__1.jpg",
+  "razon": "La foto A muestra claramente el momento de los premios en el escenario sin marcas superpuestas, mientras que la B tiene el logo de la agencia NA.",
+  "cuando": "2026-10-31T15:32:30.673Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Julio Bocca y el ballet en el escenario recibiendo aplausos."
+  },
+  "huella": "10000046daa2a2a2"
  }
 }
