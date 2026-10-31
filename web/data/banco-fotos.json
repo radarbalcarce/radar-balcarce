@@ -52757,7 +52757,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "2443a2a12f262672"
+  "huella": "2443a2a12f262672",
+  "ausenteDesde": "2026-10-31T17:38:21.567Z"
  },
  "1cidz7o": {
   "archivo": "fotos-notas/1cidz7o.jpg",
@@ -55690,7 +55691,8 @@
    "corresponde": "si",
    "descripcion": "Tres hombres con traje posando frente a un fondo verde."
   },
-  "huella": "af29a96d69a9a9e9"
+  "huella": "af29a96d69a9a9e9",
+  "ausenteDesde": "2026-10-31T17:38:21.567Z"
  },
  "19k9be0": {
   "archivo": "fotos-notas/19k9be0.jpg",
@@ -55725,7 +55727,8 @@
    "corresponde": "si",
    "descripcion": "Bovino marrón y blanco pastando en un campo verde"
   },
-  "huella": "47656c7c697062cc"
+  "huella": "47656c7c697062cc",
+  "ausenteDesde": "2026-10-31T17:38:21.567Z"
  },
  "1dvcqvp": {
   "archivo": "fotos-notas/1dvcqvp.jpg",
@@ -59922,13 +59925,40 @@
   "huella": "4b2db54283ca4a03"
  },
  "1snkq1y": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Deportivo Riestra recibe a Talleres y Estudiantes juega ante Instituto",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-31T15:32:30.673Z",
-  "intentos": 5,
-  "fuentes": 42
+  "archivo": "fotos-notas/faski2.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes e Instituto juegan este sábado por el Torneo Clausura",
+  "enlace": "https://www.eldia.com/deportes/el-pincha-por-un-triunfo-recibe-al-sorprendente-instituto-deportes_1793424813",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793425196726.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto de una jugada real del partido entre Estudiantes e Instituto, sin marcas de agua de medios, sin menores y con buena calidad.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Estudiantes e Instituto en jugada de partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes e Instituto disputando el balón durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "53337636a2a7e76d"
  },
  "v11vak": {
   "archivo": "fotos-notas/v11vak.jpg",
@@ -60936,10 +60966,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes y Palmeiras juegan la final de la Copa Libertadores el 28 de noviembre",
-  "razon": "Ninguna foto corresponde a la final de la Copa Libertadores entre Estudiantes y Palmeiras.",
-  "cuando": "2026-10-31T16:32:36.022Z",
-  "intentos": 2,
-  "fuentes": 22
+  "razon": "Ninguna de las fotos corresponde al partido mencionado entre Estudiantes y Palmeiras o tienen marcas de agua de medios.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "intentos": 3,
+  "fuentes": 25
  },
  "5kodrb": {
   "archivo": "fotos-notas/5kodrb.jpg",
@@ -61237,5 +61267,113 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "0b8679797159787d"
+ },
+ "mlnw2g": {
+  "archivo": "fotos-notas/mlnw2g.jpg",
+  "medio": "Motorsport",
+  "credito": "Foto: Motorsport",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
+  "enlace": "https://es.motorsport.com/f1/news/ocon-no-correra--mexico-haas-anuncia-hirakawa-sin-explicar-motivos/10870155/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=es",
+  "imagenOriginal": "https://cdn-6.motorsport.com/images/amp/68VwR8V2/s6/esteban-ocon-haas-f1-team.jpg",
+  "razon": "Es la mejor foto de retrato de Ryo Hirakawa con buena nitidez, encuadre cerrado y sin marcas de agua ni menores.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Ryo Hirakawa ajustándose el casco con los colores de Haas"
+  },
+  "huella": "2a375919b9ad6ded"
+ },
+ "9e2ta": {
+  "archivo": "fotos-notas/9e2ta.jpg",
+  "medio": "Campeones",
+  "credito": "Foto: Campeones",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Julián Santero domina la última práctica de la Clase 3 en Concordia",
+  "enlace": "https://campeones.com.ar/tn-en-concordia-santero-domino-el-ultimo-ensayo-de-la-clase-3/",
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/Santero-TN-2026.jpg",
+  "razon": "La foto A muestra con claridad el auto de Julián Santero en plena pista sin marcas de agua de los medios ni personas.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de competición número 1 en una curva del circuito"
+  },
+  "huella": "22ace2d1d0d0feff"
+ },
+ "faski2": {
+  "archivo": "fotos-notas/faski2.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes e Instituto juegan este sábado por el Torneo Clausura",
+  "enlace": "https://www.eldia.com/deportes/el-pincha-por-un-triunfo-recibe-al-sorprendente-instituto-deportes_1793424813",
+  "imagenOriginal": "https://cdn1.eldia.com/102026/1793425196726.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto de una jugada real del partido entre Estudiantes e Instituto, sin marcas de agua de medios, sin menores y con buena calidad.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Estudiantes e Instituto en jugada de partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes e Instituto disputando el balón durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "53337636a2a7e76d"
+ },
+ "1enzf9": {
+  "archivo": "fotos-notas/1enzf9.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Buenos Aires organiza actividades culturales y recreativas para el fin de semana",
+  "enlace": "https://www.eldestapeweb.com/sociedad/halloween-buenos-aires-uno-uno-imperdibles-disfrutar-fin-semana-20261030184355",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1793309529815.jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos y no tiene marcas ni menores.",
+  "cuando": "2026-10-31T17:35:35.953Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada iluminada con proyecciones y decoración cultural."
+  },
+  "huella": "1a1a57159f9bb69c"
  }
 }

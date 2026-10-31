@@ -2764,6 +2764,13 @@
    "cuerpo: 6 problemas (antecedente, nombre): el cuerpo usa \"pedro\", que "
   ]
  },
+ "1enzf9": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "1eop5eb": {
   "intentos": 2,
   "ultimo": "2026-10-25T16:31:49.212Z",
@@ -3083,6 +3090,21 @@
   "motivos": [
    "sin material",
    "cuerpo: 1 problema (copia): copia 28 palabras seguidas del original: d"
+  ]
+ },
+ "1gd4n3n": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nueva\" y la fuente no; sin esas oraciones quedan 192 palabras",
+  "textos": 5,
+  "numeradas": 12,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 108 caracteres, e",
+   "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nueva\" y la "
+  ],
+  "falla": [
+   "el cuerpo nombra a \"nueva\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1getnqt": {
@@ -8184,6 +8206,16 @@
   "textos": 2,
   "numeradas": 3
  },
+ "9e2ta": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 2 problemas (nombre): el copete nombra a \"turismo\" y "
+  ]
+ },
  "9f05t8": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -9323,6 +9355,13 @@
   "motivos": [
    "cuerpo: 4 problemas (forma, numero, promesa): el cuerpo trae letras ro"
   ]
+ },
+ "faski2": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 7
  },
  "fdonpz": {
   "intentos": 1,
@@ -10534,6 +10573,13 @@
    "cuerpo: 4 problemas (numero, tilde, copia, tildes): el cuerpo dice 90 "
   ]
  },
+ "mlnw2g": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 9
+ },
  "mmyfrg": {
   "intentos": 1,
   "ultimo": "2026-10-27T14:19:21.475Z",
@@ -11559,6 +11605,22 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "rkjxue": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "cuerpo: 3 problemas (numero, repite, promesa): el cuerpo dice 4,304 y la fuente no lo dice; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (tildes): el texto está escrito sin tildes",
+   "cuerpo: 3 problemas (numero, repite, promesa): el cuerpo dice 4,304 y "
+  ],
+  "falla": [
+   "el cuerpo dice 4,304 y la fuente no lo dice",
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título nombra a \"gran\", \"premio\" y el cuerpo no los explica"
+  ]
  },
  "rkup26": {
   "intentos": 1,
@@ -13259,6 +13321,20 @@
   "falla": [
    "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
    "el título dice 14 y el cuerpo no lo explica"
+  ]
+ },
+ "zxtu4e": {
+  "intentos": 1,
+  "ultimo": "2026-10-31T17:32:48.326Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 219 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 2 problemas (nombre): el copete nombra a \"turismo\" y ",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "zygvkf": {
