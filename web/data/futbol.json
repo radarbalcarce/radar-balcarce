@@ -1,5 +1,5 @@
 {
- "consultado": "2026-10-30T23:37:45.102Z",
+ "consultado": "2026-10-31T00:04:17.489Z",
  "equipos": [
   "9739",
   "3",
@@ -612,8 +612,8 @@
     "id": "401841655",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "78'",
+    "estado": "final",
+    "minuto": "90'+6'",
     "local": {
      "id": "19685",
      "nombre": "Estudiantes de Río Cuarto",
@@ -654,8 +654,8 @@
     "id": "401841653",
     "competencia": "liga",
     "inicio": "2026-10-30T22:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "76'",
+    "estado": "final",
+    "minuto": "90'+8'",
     "local": {
      "id": "10",
      "nombre": "Huracán",
@@ -664,7 +664,7 @@
     "visitante": {
      "id": "7767",
      "nombre": "Tigre",
-     "goles": 1
+     "goles": 2
     },
     "penales": null,
     "goles": [
@@ -672,6 +672,12 @@
       "equipo": "visitante",
       "jugador": "Jerónimo Domina",
       "minuto": "48'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Tiago Serrago",
+      "minuto": "90'+7'",
       "tipo": "gol"
      }
     ],
@@ -1487,14 +1493,14 @@
       "posicion": 3,
       "id": "9",
       "equipo": "Gimnasia La Plata",
-      "pj": 14,
-      "g": 7,
+      "pj": 15,
+      "g": 8,
       "e": 4,
       "p": 3,
-      "gf": 21,
-      "gc": 18,
-      "dif": 3,
-      "pts": 25
+      "gf": 23,
+      "gc": 19,
+      "dif": 4,
+      "pts": 28
      },
      {
       "posicion": 4,
@@ -1552,13 +1558,13 @@
       "posicion": 8,
       "id": "10",
       "equipo": "Huracán",
-      "pj": 14,
+      "pj": 15,
       "g": 5,
       "e": 4,
-      "p": 5,
+      "p": 6,
       "gf": 12,
-      "gc": 14,
-      "dif": -2,
+      "gc": 16,
+      "dif": -4,
       "pts": 19
      },
      {
@@ -1589,6 +1595,19 @@
      },
      {
       "posicion": 11,
+      "id": "7767",
+      "equipo": "Tigre",
+      "pj": 15,
+      "g": 4,
+      "e": 4,
+      "p": 7,
+      "gf": 15,
+      "gc": 16,
+      "dif": -1,
+      "pts": 16
+     },
+     {
+      "posicion": 12,
       "id": "235",
       "equipo": "Banfield",
       "pj": 14,
@@ -1599,19 +1618,6 @@
       "gc": 20,
       "dif": -5,
       "pts": 14
-     },
-     {
-      "posicion": 12,
-      "id": "7767",
-      "equipo": "Tigre",
-      "pj": 14,
-      "g": 3,
-      "e": 4,
-      "p": 7,
-      "gf": 13,
-      "gc": 16,
-      "dif": -3,
-      "pts": 13
      },
      {
       "posicion": 13,
@@ -1643,20 +1649,20 @@
       "posicion": 15,
       "id": "19685",
       "equipo": "Estudiantes de Río Cuarto",
-      "pj": 14,
+      "pj": 15,
       "g": 2,
       "e": 3,
-      "p": 9,
-      "gf": 9,
-      "gc": 19,
-      "dif": -10,
+      "p": 10,
+      "gf": 10,
+      "gc": 21,
+      "dif": -11,
       "pts": 9
      }
     ]
    }
   ]
  },
- "tablaCuando": "2026-10-30T22:07:49.746Z",
+ "tablaCuando": "2026-10-31T00:04:17.489Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
@@ -1681,6 +1687,7 @@
   "futbolpartidoscopaargentina20261028": "2026-10-27T12:38:11.595Z",
   "futboltablaliga20261023": "2026-10-28T00:02:23.228Z",
   "futbolresultadoscopaargentina20261028": "2026-10-29T03:02:25.169Z",
-  "futbolpartidosliga20261030": "2026-10-29T10:04:39.374Z"
+  "futbolpartidosliga20261030": "2026-10-29T10:04:39.374Z",
+  "futbolresultadosliga20261030": "2026-10-31T00:04:18.372Z"
  }
 }

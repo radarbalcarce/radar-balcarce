@@ -1,10 +1,10 @@
 {
- "generado": "2026-10-30T23:37:51.682Z",
- "portada": 201,
- "archivo": 499,
- "esperandoCuerpo": 8,
+ "generado": "2026-10-31T00:04:21.335Z",
+ "portada": 202,
+ "archivo": 500,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-10-30T23:37:52.442Z",
+  "generado": "2026-10-31T00:04:22.516Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-10-30T23:36:32.182Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -109,8 +109,8 @@
      },
      {
       "id": "dqa51l",
-      "titulo": "Murió Patrick Stewart, el legendario capitán de Star Trek y Profesor X de X-Men",
-      "seccion": "Cultura y agenda"
+      "titulo": null,
+      "seccion": null
      },
      {
       "id": "1d2n6l3",
@@ -155,13 +155,13 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
      {
-      "id": "1messk8",
-      "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
       "seccion": "Cultura y agenda"
      },
      {
@@ -170,8 +170,8 @@
       "seccion": "Policiales"
      },
      {
-      "id": "197otww",
-      "titulo": "La Escuela Municipal de Vóley realiza un nuevo torneo Grand Prix",
+      "id": "1d4nj79",
+      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
       "seccion": "Deportes"
      },
      {
@@ -212,12 +212,6 @@
    ],
    "cola": [
     {
-     "id": "1messk8",
-     "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "1qobb2a",
      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
      "seccion": "Cultura y agenda",
@@ -227,6 +221,18 @@
      "id": "1ox7bm8",
      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
      "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "1d4nj79",
+     "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1messk8",
+     "titulo": "Comienza la 22ª edición de la Fiesta Nacional del Postre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -242,20 +248,14 @@
      "marcada": false
     },
     {
-     "id": "6ova04",
-     "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "1c85gpi",
-     "titulo": "Emiliano Martínez revela secuelas permanentes en su mano tras el Mundial",
+     "id": "1ykr12q",
+     "titulo": "Harry Kane gana el Balón de Oro 2026 con una ventaja mínima sobre Mbappé",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "1k2xynm",
-     "titulo": "Martín Menem ratifica a Javier Milei como único candidato de LLA para 2027",
+     "id": "6ova04",
+     "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
      "seccion": "Política",
      "marcada": false
     }
