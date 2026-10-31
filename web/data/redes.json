@@ -1458,6 +1458,15 @@
       ],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/z7i5op.jpg"
+    },
+    "cpbebw": {
+      "cuando": "2026-10-31T18:36:03.744Z",
+      "postId": "1254237411116171_122117894973495512",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "enlace": "https://radarbalcarce.com/nota/empresas-de-balcarce-realizan-una-gira-comercial-en-brasil-cpbebw",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/cpbebw.jpg"
     }
   },
   "instagram": {
@@ -7061,6 +7070,21 @@
       ],
       "postId": "122117841201495512",
       "permalink": "https://www.facebook.com/reel/2672210759915756/"
+    },
+    "2026-10-31/noticia2": {
+      "cuando": "2026-10-31T18:37:26.879Z",
+      "mediaId": "1772653120469290",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "1ox7bm8",
+      "notaIds": [
+        "1ox7bm8",
+        "1qobb2a",
+        "1d4nj79",
+        "cpbebw"
+      ],
+      "postId": "122117895477495512",
+      "permalink": "https://www.facebook.com/reel/1772653120469290/"
     }
   },
   "instagramFeed": {
@@ -8079,6 +8103,12 @@
       "mediaId": "17956126533289144",
       "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
       "enlace": "https://radarbalcarce.com/nota/raul-cunqueiro-repasa-la-historia-de-blanco-y-negro-z7i5op"
+    },
+    "cpbebw": {
+      "cuando": "2026-10-31T18:36:12.357Z",
+      "mediaId": "18646100878027909",
+      "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
+      "enlace": "https://radarbalcarce.com/nota/empresas-de-balcarce-realizan-una-gira-comercial-en-brasil-cpbebw"
     }
   },
   "historiasDeReels": {
@@ -10119,6 +10149,14 @@
       "red": "facebook",
       "notaId": "1messk8",
       "postId": "2186647395278666"
+    },
+    "facebook/2026-10-31/noticia2": {
+      "cuando": "2026-10-31T18:38:05.480Z",
+      "mediaId": "1163288036380631",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "1ox7bm8",
+      "postId": "1422421713399669"
     }
   },
   "problemas": {
@@ -10129,6 +10167,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-31T15:47:42.942Z",
       "intentos": 21
+    },
+    "2026-10-31/noticia2/instagram/reel": {
+      "pieza": "noticia2",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-10-31T18:36:15.736Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -11167,6 +11213,15 @@
       "tiktok": {
         "ok": true,
         "id": "6ae5ef4737c1acd2a0af9e39",
+        "estado": "sending"
+      }
+    },
+    "2026-10-31/noticia2": {
+      "cuando": "2026-10-31T18:35:54.898Z",
+      "nombre": "noticia2",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae6358ecf3a3112f3b9d857",
         "estado": "sending"
       }
     }
