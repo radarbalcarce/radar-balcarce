@@ -1,5 +1,8 @@
 {
-  "avisos": {},
+  "avisos": {
+    "falta-instagram-reel:noticia1": "2026-10-31T18:00:13.194Z",
+    "falta-instagram-historia:noticia1": "2026-10-31T18:00:13.194Z"
+  },
   "importantes": {
     "avisadas": {
       "w7ghgv": {
@@ -34,11 +37,24 @@
     "ultimo": "2026-10-31T00:30:12.503Z"
   },
   "redes": {
-    "hasta": "2026-10-31T14:36:10.517Z"
+    "hasta": "2026-10-31T16:36:22.886Z"
   },
   "ultimaMedicion": "2026-10-31/9",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-30",
   "ultimoInforme": "2026-10-01",
-  "abiertos": []
+  "abiertos": [
+    {
+      "clave": "falta-instagram-reel:noticia1",
+      "nivel": "alta",
+      "texto": "Instagram: no salió el reel de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-10-31T18:00:13.194Z"
+    },
+    {
+      "clave": "falta-instagram-historia:noticia1",
+      "nivel": "media",
+      "texto": "Instagram: no salió la historia de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-10-31T18:00:13.194Z"
+    }
+  ]
 }
