@@ -22404,9 +22404,7 @@
   "fuentes": 1
  },
  "lop291": {
-  "archivo": "fotos-notas/lop291.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Telefe lidera la audiencia del fin de semana en la televisión",
@@ -22426,7 +22424,8 @@
    "descripcion": "Cuatro personas en el estudio de televisión de MasterChef"
   },
   "huella": "3511527667a3a3b2",
-  "ausenteDesde": "2026-10-24T22:32:34.989Z"
+  "intentado": true,
+  "borrada": true
  },
  "19ojs9v": {
   "medio": "TN (Todo Noticias)",
@@ -52976,7 +52975,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de atletas corriendo en la maratón bajo un arco de llegada."
   },
-  "huella": "8f8f7399b5b1b7f7"
+  "huella": "8f8f7399b5b1b7f7",
+  "ausenteDesde": "2026-10-31T22:36:06.375Z"
  },
  "b5pzm5": {
   "archivo": "fotos-notas/b5pzm5.jpg",
@@ -55399,7 +55399,8 @@
    "corresponde": "si",
    "descripcion": "Vacas pastando en un campo verde con árboles al fondo"
   },
-  "huella": "3365676777bab429"
+  "huella": "3365676777bab429",
+  "ausenteDesde": "2026-10-31T22:36:06.375Z"
  },
  "zjvnyx": {
   "intentado": true,
@@ -55999,7 +56000,8 @@
    "corresponde": "si",
    "descripcion": "Emilia Mernes posando con vestuario y fondo violeta para el lanzamiento"
   },
-  "huella": "15112b6be969636b"
+  "huella": "15112b6be969636b",
+  "ausenteDesde": "2026-10-31T22:36:06.375Z"
  },
  "1juxfz5": {
   "archivo": "fotos-notas/1juxfz5.jpg",
@@ -61231,10 +61233,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Manchester City recibe a Brighton por la Premier League",
-  "razon": "Ninguna foto cumple con los requisitos: la A es gráfica, la B y la C tienen marcas de medios y la D muestra a un jugador que no corresponde a este partido.",
-  "cuando": "2026-10-31T18:32:58.792Z",
-  "intentos": 2,
-  "fuentes": 4
+  "razon": "Ninguna de las imágenes es apta: la A y la C son gráficas (flyers) y la B es una captura de pantalla de un video con un botón de reproducción superpuesto.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "intentos": 3,
+  "fuentes": 6
  },
  "dbup6y": {
   "archivo": "fotos-notas/dbup6y.jpg",
@@ -61587,8 +61589,7 @@
    "corresponde": "si",
    "descripcion": "Logo de Binance sobre fondo digital azul con efecto de movimiento"
   },
-  "huella": "dbd38955df736bcd",
-  "ausenteDesde": "2026-10-31T21:34:54.567Z"
+  "huella": "dbd38955df736bcd"
  },
  "1euhlh3": {
   "archivo": "fotos-notas/1euhlh3.jpg",
@@ -62337,5 +62338,143 @@
    "descripcion": "Jugador del Atlético de Madrid celebrando un gol."
   },
   "huella": "eeae2e3175999a13"
+ },
+ "exokac": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+  "razon": "La foto A es una captura de pantalla de una transmisión televisiva y la foto B tiene una marca de agua sobreimpresa por la agencia de noticias.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "mt1wy8": {
+  "archivo": "fotos-notas/mt1wy8.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico el domingo en La Bombonera",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/cuando-juega-boca-vs-river-por-el-superclasico-del-torneo-clausura-2026-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/boca-recibe-a-river-en-la-bombonera-este-domingo-5N7RY5HZMZHL5JP4IUWCQ4VATY.JPG?auth=a531cc41d1a828a673060bef470c588f630c57244aab94ec64157f619fc1f9ad&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto de partido disponible que no tiene marcas de reproducción de video superpuestas y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en un partido"
+  },
+  "huella": "c3ca434551c9a725"
+ },
+ "10gqeer": {
+  "archivo": "fotos-notas/10gqeer.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Atlético de Madrid vence a Levante y Diego Simeone iguala un récord",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/31/levante-vs-atletico-madrid-en-vivo-por-la-fecha-11-de-la-liga-de-espana-hora-donde-ver-y-formaciones/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/soccer-football-laliga-levante-v-atletico-madrid-estadi-ciutat-de-valencia-valencia-spain-october-31-2026-atletico-madrid-coach-diego-simeone-reacts-reuterspablo-morano-FSRHV7337CTCUSZHSQHH4UXCOA.mU52?auth=999871dcb432236f782546bd974bcde36d03b82e9f44ba152b435517e4f50a80&width=1023",
+  "razon": "La foto B muestra claramente al protagonista de la nota (Simeone) en el contexto del partido, sin marcas de agua, sin menores reconocibles y con buena calidad.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Diego Simeone dirigiendo durante el partido."
+  },
+  "huella": "a332246664ece624"
+ },
+ "42wllz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rituales de Feng Shui para renovar energías y atraer abundancia en noviembre",
+  "razon": "La mejor foto era la de TN (Todo Noticias), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "q5lpx1": {
+  "archivo": "fotos-notas/q5lpx1.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno define los detalles finales para la visita del papa León XIV",
+  "enlace": "https://www.eleco.com.ar/nacionales/el-gobierno-palpita-la-llegada-del-papa-y-ultima-detalles-de-la-agenda",
+  "imagenOriginal": "https://cdnartic.ar/ESiVWSTJJUER0c8-Uk3ir8gmlRQ=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/10/papa_8.webp",
+  "razon": "Es la única foto que muestra claramente al Papa de la nota sin marcas de agua sobreimpuestas y sin menores reconocibles.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saludando con las manos levantadas"
+  },
+  "huella": "49494d494d757571"
+ },
+ "1chrqym": {
+  "archivo": "fotos-notas/1chrqym.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
+  "enlace": "https://tn.com.ar/politica/2026/10/31/javier-milei-viaja-a-neuquen-para-inaugurar-una-iglesia-evangelica-con-la-presencia-del-gobernador-rolando-figueroa/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/javier-milei-viaja-a-neuquen-para-inaugurar-una-iglesia-evangelica-con-la-presencia-del-gobernador-rolando-figueroa-foto-presidencia-WIUUUKRLSBFBDH5W2KWX3SRLSM.jpg?auth=b4e8be7755f6ca2c6ef56c4baf6dce9af9aeea60a10955cd6761ecf2cb2f88d9&width=1023",
+  "razon": "Muestra a Javier Milei dando un discurso en un auditorio con buena nitidez y sin marcas de agua ni menores.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei hablando en un atril con fondo de cortinados"
+  },
+  "huella": "323261223169484c"
+ },
+ "cpswpz": {
+  "archivo": "fotos-notas/cpswpz.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto finaliza duodécimo en la clasificación del GP de México",
+  "enlace": "https://www.labrujula24.com/notas/2026/10/31/colapinto-vuelve-a-la-pista-en-mexico-los-horarios-de-la-practica-y-la-clasificacion-de-este-sabado-n528190/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/10/colapo-8-1000x600.jpg",
+  "razon": "Es la mejor imagen del auto en pista, sin marcas de agua, sin personas y con buena nitidez.",
+  "cuando": "2026-10-31T22:32:58.702Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carreras tomando una curva."
+  },
+  "huella": "ab2903e76566e467"
  }
 }
