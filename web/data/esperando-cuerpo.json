@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-01T00:03:21.856Z",
+ "generado": "2026-11-01T00:33:33.661Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -22,11 +22,11 @@
     {
      "medio": "0221",
      "enlace": "https://www.0221.com.ar/estudiantes/estudiantes-juega-instituto-el-torneo-clausura-n136726",
-     "fecha": "2026-10-31T23:41:00.000Z"
+     "fecha": "2026-11-01T00:14:00.000Z"
     }
    ],
-   "intentos": 0,
-   "motivo": "",
+   "intentos": 1,
+   "motivo": "cuerpo: 2 problemas (antecedente, promesa): el cuerpo usa \"cordoba\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 254 palabras",
    "maximo": 3
   },
   {
@@ -67,12 +67,20 @@
      "fecha": "2026-10-31T19:01:00.000Z"
     }
    ],
-   "intentos": 0,
-   "motivo": "",
+   "intentos": 1,
+   "motivo": "cuerpo: 3 problemas (numero, fecha, nombre): el cuerpo dice 1 y la fuente no lo dice; sin esas oraciones quedan 150 palabras",
    "maximo": 4
   }
  ],
  "descartadas": [
+  {
+   "id": "hz5evm",
+   "titulo": "Virginia Aparicio fue desvinculada de INTA y no podrá regresar",
+   "seccion": "Ciencia",
+   "fecha": "2026-10-31T14:00:32.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo: 2 problemas (numero, copia): el cuerpo dice 2 y la fuente no lo dice; sin esas oraciones quedan 294 palabras"
+  },
   {
    "id": "k4m9lu",
    "titulo": "El TN avanza para realizar una fecha",
