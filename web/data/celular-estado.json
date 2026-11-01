@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T13:03:02.866Z",
- "portada": 74,
+ "generado": "2026-11-01T13:32:26.875Z",
+ "portada": 68,
  "archivo": 500,
  "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-01T13:03:03.305Z",
+  "generado": "2026-11-01T13:32:27.369Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -85,7 +85,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
       "id": "lq0upc",
@@ -98,39 +98,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "vyry2k",
-      "titulo": "Las iglesias evangélicas celebran el Día de las Iglesias con una jornada solidaria",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "qz7l9a",
-      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
-      "seccion": "Deportes"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
-     {
-      "id": "lmyi7o",
-      "titulo": "El Torneo Clausura completa su tercera fecha con triunfos de los líderes",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "15hbmuo",
-      "titulo": "Las claves legales para dividir una vivienda tras una separación de pareja",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "al4nhx",
-      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
+      "id": "5euqdj",
+      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
       "seccion": "Automovilismo"
      },
      {
@@ -141,23 +110,23 @@
     ]
    },
    {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
     "momento": "antes",
     "salio": null,
     "segundos": 53,
     "notas": [
      {
-      "id": "6jn3n5",
-      "titulo": "Emiten alertas por tormentas y lluvias en Buenos Aires y otras provincias",
-      "seccion": "Argentina"
-     },
-     {
       "id": "mlnw2g",
       "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "exokac",
+      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+      "seccion": "Argentina"
      },
      {
       "id": "2vltvs",
@@ -168,6 +137,37 @@
       "id": "14z5lkf",
       "titulo": "El Banco Nación registra una baja del 55,4% en refinanciaciones",
       "seccion": "Economía"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "fjtb5",
+      "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "a3w48y",
+      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+      "seccion": "Política"
+     },
+     {
+      "id": "zvodb",
+      "titulo": "Aumentan las tarifas del transporte público en el AMBA",
+      "seccion": "Economía"
+     },
+     {
+      "id": "xb5kj9",
+      "titulo": "Definen el operativo de seguridad y accesos en Recoleta por el papa León XIV",
+      "seccion": "Argentina"
      }
     ]
    }
