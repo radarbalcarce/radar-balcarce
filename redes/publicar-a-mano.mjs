@@ -25,10 +25,22 @@ export const AVISO_DE_VOZ = 'Voz generada con inteligencia artificial.';
 
 const arg = (nombre) => process.argv.find((a) => a.startsWith(`--${nombre}=`))?.split('=').slice(1).join('=') ?? null;
 
-/** El pie de un reel a mano: su texto, el aviso de la voz y los hashtags fijos (más los del archivo, si trae). */
+/** El pie de un reel a mano: su texto, el aviso de la voz (salvo `sinVoz`: un video propio, mudo, 1/11/2026) y los hashtags fijos (más los del archivo, si trae). */
 export function pieDelReel(pieza) {
   const tags = ['#Balcarce', '#RadarBalcarce', ...(pieza.hashtags ?? []).map((t) => `#${String(t).replace(/^#/, '')}`)];
-  return [String(pieza.pie ?? '').trim(), AVISO_DE_VOZ, [...new Set(tags)].slice(0, 5).join(' ')].filter(Boolean).join('\n\n');
+  return [String(pieza.pie ?? '').trim(), pieza.sinVoz ? '' : AVISO_DE_VOZ, [...new Set(tags)].slice(0, 5).join(' ')].filter(Boolean).join('\n\n');
+}
+
+/**
+ * El video de un reel a mano: el que armó «Reel a mano» (reels/salida/reel-<nombre>.mp4, bajado de esa corrida) o, si no está, un video
+ * propio guardado en el repositorio junto al archivo de la pieza (`video` en el JSON, 1/11/2026: el reel de Halloween, hecho con un video de
+ * Hernán, sin voz).
+ */
+export function archivoDelVideo(reel, pieza, raiz = RAIZ) {
+  const armado = path.join(raiz, 'reels', 'salida', `reel-${reel}.mp4`);
+  if (fs.existsSync(armado)) return armado;
+  if (pieza.video) return path.join(raiz, 'reels', 'a-mano', path.basename(String(pieza.video)));
+  return armado;
 }
 
 async function main() {
@@ -42,7 +54,7 @@ async function main() {
 
   if (reel) {
     const pieza = JSON.parse(fs.readFileSync(path.join(RAIZ, 'reels', 'a-mano', `${reel}.json`), 'utf8'));
-    const video = fs.readFileSync(path.join(RAIZ, 'reels', 'salida', `reel-${reel}.mp4`));
+    const video = fs.readFileSync(archivoDelVideo(reel, pieza));
     const pie = pieDelReel(pieza);
     console.log(`Reel «${reel}» (${(video.length / 1e6).toFixed(1)} MB):\n${pie}\n`);
     if (!deVerdad) return;

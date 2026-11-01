@@ -53,8 +53,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      # Sin `corrida`, el video es uno propio guardado en reels/a-mano/ (`video` en el JSON de la pieza; redes/publicar-a-mano.mjs).
       - name: Bajar el video del reel
-        if: ${{ inputs.reel != '' }}
+        if: ${{ inputs.reel != '' && inputs.corrida != '' }}
         uses: actions/download-artifact@v4
         with:
           name: reels-a-mano
