@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T23:03:25.406Z",
+ "consultado": "2026-11-01T23:37:35.560Z",
  "equipos": [
   "9739",
   "3",
@@ -954,8 +954,8 @@
     "id": "401841645",
     "competencia": "liga",
     "inicio": "2026-11-01T21:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "70'",
+    "estado": "final",
+    "minuto": "90'+8'",
     "local": {
      "id": "4",
      "nombre": "Belgrano (Córdoba)",
@@ -964,7 +964,7 @@
     "visitante": {
      "id": "10060",
      "nombre": "Barracas Central",
-     "goles": 0
+     "goles": 2
     },
     "penales": null,
     "goles": [
@@ -979,6 +979,18 @@
       "jugador": "Lucas Passerini",
       "minuto": "48'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Esteban Rolón",
+      "minuto": "80'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Nicolás De Martini",
+      "minuto": "90'+6'",
+      "tipo": "gol"
      }
     ],
     "estadio": "El Gigante de Alberdi",
@@ -990,12 +1002,12 @@
     "id": "401841650",
     "competencia": "liga",
     "inicio": "2026-11-01T21:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "70'",
+    "estado": "final",
+    "minuto": "90'+6'",
     "local": {
      "id": "14",
      "nombre": "Newell's Old Boys",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "20",
@@ -1009,6 +1021,12 @@
       "jugador": "Juan Ludueña",
       "minuto": "59'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Ignacio Isla",
+      "minuto": "76'",
+      "tipo": "en contra"
      }
     ],
     "estadio": "Marcelo Bielsa",
