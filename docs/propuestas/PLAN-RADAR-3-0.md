@@ -219,6 +219,73 @@ Se escribe en una sesión con ustedes, en este orden:
 3. **Lo que nunca**: inventar, agregar lo que ninguna fuente dice, copiar oraciones de una fuente, adjetivar, "en las últimas horas",
    "según trascendió", identificar menores o víctimas, listas de sepelios.
 
+4. **Lo que siempre**: decir de dónde sale cada dato en la ficha, señalar lo que las fuentes contradicen entre sí, el contexto local
+   cuando lo hay.
+5. **Prueba con 20 historias reales** del día: se muestran la nota de hoy y la nueva, lado a lado, y ustedes eligen. Se ajusta y recién
+   ahí se aprueba.
+
+El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no toca código.
+
+## 5. Lo que se tira (lista explícita)
+
+El semáforo y sus listas; los cuatro mecanismos de repetidas; las notas automáticas de F1, fútbol, dólar y clima; Next.js y la compilación; `web/data/*.json` y los commits cada media hora; las tarjetas en R2;
+el presupuesto de minutos; las cuatro claves gratis con sus respaldos (Groq, Mistral); la medición de uso por clave; el banco de fotos
+y los otros tres caminos de fotos; el contrato del día; la revisión del archivo con IA; la auditoría con IA de lo publicado (la
+verificación de 3.5 la reemplaza); los workflows de GitHub (los 48); la pausa general (la reemplaza un botón en Telegram: «pará
+todo»); 37.000 líneas de documentación (queda un `REGLAS.md` por módulo y `docs/DECISIONES.md`); las 327 reglas y las 40.
+
+Lo que **queda** porque es patrimonio: las fuentes, la estética (colores, placas, animaciones, voces), las efemérides («Un día como hoy», reel y nota; Hernán, 1/11), el panel del celular, las
+notas propias ya publicadas, el archivo de notas (se migra a D1 con su dirección para no perder lo que Google ya indexó), la cuenta de
+Meta y Buffer, y los casos de las pruebas viejas como lista de control.
+
+## 6. Costos
+
+| Qué | Hoy | 3.0 |
+|---|---|---|
+| Cloudflare (Workers, D1, R2, Workers AI, Email, caché) | gratis | gratis (los límites del plan gratis alcanzan de sobra para este volumen) |
+| IA de texto | gratis con fallas, respaldo pago US$ 10/mes | una clave paga, estimado US$ 3 a 8/mes, con tope |
+| Voces | US$ 10/mes | igual |
+| Tavily (búsqueda para notas propias) | gratis (cupo) | igual |
+| Telegram | — | gratis |
+| Buffer (TikTok, YouTube, X) | gratis | igual |
+| GitHub | gratis, repo público | sólo el código; privado cuando ustedes quieran |
+
+## 7. Orden y tiempos
+
+Cada etapa termina con algo que ustedes ven y aprueban. Nada llega a producción sin ese OK. Lo viejo sigue andando hasta el corte.
+
+| Etapa | Qué | Trabajo | Qué ven ustedes |
+|---|---|---|---|
+| A | Aprobar este plan y las preguntas de la sección 9; escribir el `PERFIL.md`; crear la clave paga y el bot de Telegram | esta semana | este documento corregido |
+| B | El núcleo (3.1 a 3.7) escribiendo en D1 sin publicar todavía (no hay etapa en sombra: sección 10); la sesión del prompt | 3 a 4 días de sesiones | las 20 historias lado a lado; un listado diario de qué habría salido y por qué |
+| C | El sitio nuevo (3.8) con el archivo migrado, en una dirección de prueba; el **corte** a radarbalcarce.com | 2 a 3 días + 1 de corte | el sitio de prueba en el celular; el día del corte, el sitio quieto unas horas |
+| D | Redes (3.9): piezas, una carpeta por red, mockups, prendido de a una red | 2 a 3 días | los mockups de cada red |
+| E | Redacción propia (3.10): Telegram, gacetillas, agenda | 2 a 3 días | la primera nota pedida por audio |
+| F | Valor agregado (3.6) completo, fotos libres, lugares de avisos, pedido a AdSense, apagado de GitHub | 2 a 3 días | notas con datos y gráficos |
+
+En total, unas tres semanas de trabajo repartidas como se pueda. La B es la que decide: si lo que sale en sombra no les gusta, se
+ajusta ahí, sin tocar lo que está publicado.
+
+## 8. Lo que necesito de ustedes
+
+1. La clave paga de Gemini con US$ 20 de crédito y un tope mensual puesto en la consola de Google (la pegan ustedes en Cloudflare; yo
+   les digo dónde).
+2. Crear el bot de Telegram (5 minutos desde el celular, los guío) y pegar su clave en Cloudflare.
+3. Activar Email Routing en Cloudflare para `redaccion@radarbalcarce.com` (lo hago yo con la cuenta; ustedes confirman).
+4. El `PERFIL.md`: dos párrafos de quiénes son y qué línea tiene el medio. Puede ser un audio y lo paso a texto.
+5. Las respuestas de la sección 9.
+
+## 9. Preguntas abiertas
+
+1. **¿Tope de notas nacionales por día** (por ejemplo 40) o sin tope, como hoy?
+2. **¿Cuántas notas por día quieren en redes** en cada una? La tabla de 3.9 es una propuesta; corríjanla.
+3. **El reel como historia:** ¿automático (historia aparte, sin sumar vistas al reel) o a mano desde la app con aviso por Telegram (suma
+   vistas)?
+4. **Las notas viejas:** ¿se migran todas (quedan con su dirección, Google no pierde nada) o sólo las últimas semanas? Recomiendo todas.
+5. **Telegram** para hablar con el sistema (gratis, con audio, sin límites) en vez de WhatsApp, que cobra por mensaje y es más trabado.
+   ¿De acuerdo?
+6. **Clima y farmacia:** ¿quedan como cuadrito fijo en la portada (sí recomiendo) o se sacan?
+
 ## 10. Lo que Hernán decidió el 31/10 y el 1/11 (manda sobre lo de arriba)
 
 - **Plan aprobado. Sin etapa en sombra**: se construye y se corta; el sitio puede estar apagado unos días. Las redes no paran.
@@ -245,12 +312,6 @@ Se escribe en una sesión con ustedes, en este orden:
 - **Publicidad**: AdSense ya (Hernán tiene monotributo) y espacios propios; cuando no hay anunciante, avisos de los proyectos propios
   (6 apps, sehace.com, BalcarDev.online).
 - **Enlaces**: cada nota tiene un enlace corto propio (`radarbalcarce.com/n/…`) y es el que va a las redes.
-4. **Lo que siempre**: decir de dónde sale cada dato en la ficha, señalar lo que las fuentes contradicen entre sí, el contexto local
-   cuando lo hay.
-5. **Prueba con 20 historias reales** del día: se muestran la nota de hoy y la nueva, lado a lado, y ustedes eligen. Se ajusta y recién
-   ahí se aprueba.
-
-El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no toca código.
 
 **Sumado el 1/11 a la tarde** (a partir de la nota de Halloween, la primera crónica propia con fotos y video de Hernán):
 
@@ -286,63 +347,50 @@ El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no
   (GitHub como radarbalcarce); el otro Chrome de Windows tiene la cuenta personal de Hernán (ahí quedó a medio crear una propiedad de
   Google Analytics que NO hay que aceptar: se rehace con radarbalcarce@gmail.com, pendiente).
 
-## 5. Lo que se tira (lista explícita)
+**Sumado el 1/11 a la noche** (Hernán, al ver el mapa de la 3.0, `docs/propuestas/MAPA-RADAR-3-0-01-11.html`):
 
-El semáforo y sus listas; los cuatro mecanismos de repetidas; las notas automáticas de F1, fútbol, dólar y clima; las efemérides (se
-puede volver a hacer después, a pedido); Next.js y la compilación; `web/data/*.json` y los commits cada media hora; las tarjetas en R2;
-el presupuesto de minutos; las cuatro claves gratis con sus respaldos (Groq, Mistral); la medición de uso por clave; el banco de fotos
-y los otros tres caminos de fotos; el contrato del día; la revisión del archivo con IA; la auditoría con IA de lo publicado (la
-verificación de 3.5 la reemplaza); los workflows de GitHub (los 48); la pausa general (la reemplaza un botón en Telegram: «pará
-todo»); 37.000 líneas de documentación (queda un `REGLAS.md` por módulo y `docs/DECISIONES.md`); las 327 reglas y las 40.
+- **Efemérides: siguen como hoy**, con su reel y su nota de «Un día como hoy» (se saca de la lista de la sección 5). A lo sumo se mejoran
+  los temas, para que sean más del interés de la gente, si hace falta; pero la idea es que siga.
+- **Clave paga de Gemini:** Hernán le carga el monto el 2/11 (pendiente suyo). Queda **un solo tope de gasto**, el que él pone en la consola
+  de Google (US$ 20 de crédito); el autofreno de `nucleo/REGLAS.md` se alinea a ese mismo número y avisa por Telegram al 80 %.
+- **Claves y recursos sin uso: se borran todos** y se cuida de ahí en más: claves de IA que no se usen, tokens, variables, Workers, KV y R2
+  sin uso, en Google, Cloudflare y GitHub. Queda una sola lista de qué clave vive dónde y para qué (amplía la «limpieza total»).
+- **Redes: hay que armar el cronograma de todas** (Facebook, Instagram, TikTok, YouTube, X, Threads y el canal de Telegram): qué pieza,
+  cuántas por día, a qué hora y por qué camino sale. Hay un borrador más abajo, para ajustar. **YouTube, por API directa** (gratis, el cupo
+  diario alcanza para 1 o 2 Shorts). **TikTok y X siguen con Buffer** mientras no haya vía directa (TikTok exige una revisión de la app
+  antes de publicar directo: se pide en la etapa D). Threads, cuando esté configurado.
+- **Canal público de Telegram:** se suma como red. Cada nota de Balcarce con su enlace, publicada por el mismo bot, sin algoritmo en el
+  medio. Un canal de WhatsApp para lectores no tiene API: queda para compartir a mano, si se quiere.
+- **Recomendaciones del mapa, aceptadas** («todo lo que sea para sumar, mejor»): (a) un segundo camino de aviso, por mail de Cloudflare,
+  sólo para «el bot de Telegram no responde»; (b) copia diaria de D1 a R2 con 30 días guardados; (c) D1 guarda el motivo de cada decisión
+  de selección (entró, no entró, por qué) para seguir regulando con la estadística como hoy; (d) la vista previa por Telegram también para lo
+  automático que la IA marca `no_publicar` o deja en duda, con botones publicar y descartar; (e) Cloudflare Web Analytics (sin cookies)
+  además de Google Analytics; (f) cada nota propia sobre un negocio o institución deja su contacto cargado en la agenda del medio;
+  (g) las redes se prenden de a una, con una semana de números cada una y un número escrito que decide si la red se queda; (h) una lista
+  de control escrita para el día del corte (redirecciones, sitemap en Search Console, RSS en la misma dirección, enlaces cortos en las redes).
+- **Las preguntas de la sección 9**, a hoy: 1 respondida (100 por día); 2 pendiente del cronograma; 3 (el reel como historia) sin respuesta;
+  4, 5 y 6 respondidas.
 
-Lo que **queda** porque es patrimonio: las fuentes, la estética (colores, placas, animaciones, voces), el panel del celular, las
-notas propias ya publicadas, el archivo de notas (se migra a D1 con su dirección para no perder lo que Google ya indexó), la cuenta de
-Meta y Buffer, y los casos de las pruebas viejas como lista de control.
+**Borrador del cronograma de todas las redes** (1/11; parte de las horas de hoy en `redes/piezas-del-dia.mjs` y de la sección 10; es para
+que Hernán lo corrija, no está decidido). «Buffer» es el puente mientras no haya vía directa; «API» es publicación directa.
 
-## 6. Costos
+| Hora | Pieza | Facebook | Instagram | TikTok | YouTube | X y Threads | Canal de Telegram |
+|---|---|---|---|---|---|---|---|
+| 7:00 | El clima de la mañana (reel con voz) + nota del clima | reel | reel + historia | Buffer | Short, API | imagen del clima + enlace a la nota | texto + imagen + enlace |
+| 8:00 (feriados) | El feriado (reel) | reel | reel | Buffer | Short, API | imagen + enlace | texto + enlace |
+| 9:00 | Un día como hoy (reel + nota) | reel | reel + historia | Buffer | Short, API | imagen + enlace a la nota | texto + enlace |
+| 10:00 | El repaso de la mañana (3 noticias, al menos 1 de Balcarce) | reel | reel + historia | Buffer | Short, API | 3 titulares con sus enlaces | 3 titulares con enlaces |
+| 12:00 | Lun a vie: Participá / Tu evento / Tu reclamo / Tu nota; jue: Qué hacer el fin de semana | reel | reel | — | — | sólo la agenda del jueves, con enlace | sólo la agenda |
+| 15:00 | El repaso de la tarde | reel | reel + historia | Buffer | Short, API | 3 titulares con enlaces | 3 titulares con enlaces |
+| 17:00 (sáb.) | Teléfonos útiles | reel | reel | — | — | — | texto |
+| 19:00 | Farmacia de turno | reel | historia | — | — | texto | texto |
+| 20:00 | El clima de la noche | reel | reel + historia | Buffer | Short, API | imagen + enlace | texto + imagen |
+| 21:00 | El repaso del día | reel | reel + historia | Buffer | Short, API | 3 titulares con enlaces | 3 titulares con enlaces |
+| 8:00 a 22:00, cada 90 min como mínimo | Posteos de notas: 5 de Balcarce + 5 nacionales (máx. 3 por sección) | posteo con foto y enlace | espejo sólo si lo quieren | — | — | cada nota de Balcarce y lo más contado, con enlace (10 a 15 por día) | — |
+| Al publicarse | Cada nota de Balcarce | — | historia con la tarjeta (texto corto, enlace de la bio) | — | — | texto + enlace | texto + enlace (es la red donde el enlace llega entero) |
+| Cuando hay | Carrusel: nota con 3 fotos propias o más | varias fotos | hasta 20 fotos | modo foto, Buffer | — | hasta 4 fotos | álbum |
+| Cuando Hernán lo pide | Nota propia: según los botones «Todo», «Posteo e historia», «Sólo la web» | según botón | según botón | según botón | según botón | según botón | sí, siempre que salga a la web |
 
-| Qué | Hoy | 3.0 |
-|---|---|---|
-| Cloudflare (Workers, D1, R2, Workers AI, Email, caché) | gratis | gratis (los límites del plan gratis alcanzan de sobra para este volumen) |
-| IA de texto | gratis con fallas, respaldo pago US$ 10/mes | una clave paga, estimado US$ 3 a 8/mes, con tope |
-| Voces | US$ 10/mes | igual |
-| Tavily (búsqueda para notas propias) | gratis (cupo) | igual |
-| Telegram | — | gratis |
-| Buffer (TikTok, YouTube, X) | gratis | igual |
-| GitHub | gratis, repo público | sólo el código; privado cuando ustedes quieran |
-
-## 7. Orden y tiempos
-
-Cada etapa termina con algo que ustedes ven y aprueban. Nada llega a producción sin ese OK. Lo viejo sigue andando hasta el corte.
-
-| Etapa | Qué | Trabajo | Qué ven ustedes |
-|---|---|---|---|
-| A | Aprobar este plan y las preguntas de la sección 9; escribir el `PERFIL.md`; crear la clave paga y el bot de Telegram | esta semana | este documento corregido |
-| B | El núcleo (3.1 a 3.7) corriendo **en sombra**: lee, agrupa, elige y redacta en D1 sin publicar; la sesión del prompt | 3 a 4 días de sesiones | las 20 historias lado a lado; un listado diario de qué habría salido y por qué |
-| C | El sitio nuevo (3.8) con el archivo migrado, en una dirección de prueba; el **corte** a radarbalcarce.com | 2 a 3 días + 1 de corte | el sitio de prueba en el celular; el día del corte, el sitio quieto unas horas |
-| D | Redes (3.9): piezas, una carpeta por red, mockups, prendido de a una red | 2 a 3 días | los mockups de cada red |
-| E | Redacción propia (3.10): Telegram, gacetillas, agenda | 2 a 3 días | la primera nota pedida por audio |
-| F | Valor agregado (3.6) completo, fotos libres, lugares de avisos, pedido a AdSense, apagado de GitHub | 2 a 3 días | notas con datos y gráficos |
-
-En total, unas tres semanas de trabajo repartidas como se pueda. La B es la que decide: si lo que sale en sombra no les gusta, se
-ajusta ahí, sin tocar lo que está publicado.
-
-## 8. Lo que necesito de ustedes
-
-1. La clave paga de Gemini con US$ 20 de crédito y un tope mensual puesto en la consola de Google (la pegan ustedes en Cloudflare; yo
-   les digo dónde).
-2. Crear el bot de Telegram (5 minutos desde el celular, los guío) y pegar su clave en Cloudflare.
-3. Activar Email Routing en Cloudflare para `redaccion@radarbalcarce.com` (lo hago yo con la cuenta; ustedes confirman).
-4. El `PERFIL.md`: dos párrafos de quiénes son y qué línea tiene el medio. Puede ser un audio y lo paso a texto.
-5. Las respuestas de la sección 9.
-
-## 9. Preguntas abiertas
-
-1. **¿Tope de notas nacionales por día** (por ejemplo 40) o sin tope, como hoy?
-2. **¿Cuántas notas por día quieren en redes** en cada una? La tabla de 3.9 es una propuesta; corríjanla.
-3. **El reel como historia:** ¿automático (historia aparte, sin sumar vistas al reel) o a mano desde la app con aviso por Telegram (suma
-   vistas)?
-4. **Las notas viejas:** ¿se migran todas (quedan con su dirección, Google no pierde nada) o sólo las últimas semanas? Recomiendo todas.
-5. **Telegram** para hablar con el sistema (gratis, con audio, sin límites) en vez de WhatsApp, que cobra por mensaje y es más trabado.
-   ¿De acuerdo?
-6. **Clima y farmacia:** ¿quedan como cuadrito fijo en la portada (sí recomiendo) o se sacan?
+Con eso el día tiene 6 reels con voz (2 clima, 3 repasos, 1 efeméride; más el feriado cuando toca), 10 posteos en Facebook, y en X,
+Threads y el canal de Telegram todas las notas de Balcarce. Lo que hay que mirar del cupo: 6 a 8 Shorts por día entran en el cupo gratis
+de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir antes de prometer 10 a 15 por día.

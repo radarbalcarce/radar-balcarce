@@ -1,0 +1,480 @@
+<title>Mapa de Radar 3.0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna de lectura (72ch) con figuras que se desbordan a lo ancho dentro de su propio scroll */
+:root{
+  --papel:#f6f4ef; --tinta:#1b1b1d; --gris:#5c5a55; --linea:#d9d4ca; --caja:#ffffff;
+  --rojo:#B91C1C; --rojo-suave:#fbeaea;
+  --hecho:#1f7a4d; --curso:#b45309; --pend:#6b6964; --prop:#2b5ea7;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#16171a; --tinta:#ebe8e1; --gris:#a7a39b; --linea:#34363b; --caja:#1f2024;
+    --rojo:#e5484d; --rojo-suave:#3a1d1f;
+    --hecho:#4cc38a; --curso:#f0a83c; --pend:#9c9a94; --prop:#7fb0ff; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#16171a; --tinta:#ebe8e1; --gris:#a7a39b; --linea:#34363b; --caja:#1f2024;
+  --rojo:#e5484d; --rojo-suave:#3a1d1f;
+  --hecho:#4cc38a; --curso:#f0a83c; --pend:#9c9a94; --prop:#7fb0ff; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+main{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:2.3rem;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.5rem;font-weight:700;margin-top:48px;padding-top:14px;border-top:3px solid var(--tinta)}
+h3{font-size:1.1rem;font-weight:700}
+p{max-width:72ch;margin:.5em 0}
+.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rojo);font-weight:600}
+header{padding-block:40px 8px;border-bottom:1px solid var(--linea)}
+header p{color:var(--gris)}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px;font-size:.82rem;color:var(--gris)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.hecho{color:var(--hecho)} .curso{color:var(--curso)} .pend{color:var(--pend)} .prop{color:var(--prop)}
+figure{margin:20px 0 0}
+.scroll{overflow-x:auto;border:1px solid var(--linea);background:var(--caja);border-radius:6px;padding:8px}
+.scroll svg{display:block;height:auto;max-width:none}
+figcaption{font-size:.85rem;color:var(--gris);margin-top:8px;max-width:72ch}
+svg text{font-family:var(--cuerpo)}
+.svg-caja{fill:var(--caja);stroke:currentColor;stroke-width:1.1}
+.svg-grupo{fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:4 4;opacity:.7}
+.svg-ar{fill:none;stroke:currentColor;stroke-width:1.2}
+.svg-t{font-size:12px;font-weight:600;fill:currentColor}
+.svg-s{font-size:10px;fill:var(--gris)}
+.svg-e{font-size:10px;fill:var(--gris);font-style:italic}
+.svg-rojo{stroke:var(--rojo)}
+.svg-rojo-t{fill:var(--rojo)}
+.areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:18px}
+.area{background:var(--caja);border:1px solid var(--linea);border-radius:6px;padding:14px 16px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.area header{padding:0;border:0;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.area .corre{font-size:.78rem;color:var(--gris)}
+.area ul{margin:0;padding-left:18px;font-size:.9rem}
+.area li{margin:3px 0}
+.area li .chip{vertical-align:middle;margin-left:4px;font-size:.62rem;padding:0 6px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:720px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--linea)}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);font-weight:600}
+td:first-child{font-weight:600;white-space:nowrap}
+.tabla{overflow-x:auto;border:1px solid var(--linea);border-radius:6px;background:var(--caja)}
+.etapas{display:grid;gap:0;margin-top:18px;border-top:1px solid var(--linea)}
+.etapa{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--linea)}
+.etapa .letra{font-family:var(--display);font-size:1.6rem;font-weight:700;line-height:1;color:var(--rojo)}
+.etapa p{margin:2px 0 0;font-size:.9rem;color:var(--gris)}
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:18px}
+.lista{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.lista li{background:var(--caja);border:1px solid var(--linea);border-left:4px solid var(--rojo);border-radius:4px;padding:10px 14px;font-size:.92rem;min-width:0}
+.lista li b{display:block;margin-bottom:2px}
+.lista.huecos li{border-left-color:var(--curso)}
+.nota{background:var(--rojo-suave);border-radius:6px;padding:12px 16px;margin-top:18px;font-size:.92rem}
+.nota b{color:var(--rojo)}
+.piezas{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px}
+.pieza{border:1px solid var(--linea);border-radius:6px;padding:10px 12px;background:var(--caja);font-size:.88rem;min-width:0}
+.pieza b{display:block;font-family:var(--display);font-size:1.05rem}
+.pieza span{color:var(--gris)}
+footer{margin-top:48px;font-size:.8rem;color:var(--gris);border-top:1px solid var(--linea);padding-top:12px}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+
+<main>
+<header>
+  <div class="eyebrow">Radar Balcarce · plan 3.0 · 1 de noviembre de 2026, actualizado a la noche</div>
+  <h1>Mapa de Radar 3.0</h1>
+  <p>Cómo queda armado todo según <code>docs/propuestas/PLAN-RADAR-3-0.md</code> y las decisiones de la sección 10: cada módulo, dónde corre, qué sale a cada red, qué pasa por Telegram, en qué etapa está cada cosa, qué le falta al plan y qué conviene mejorar antes de construir.</p>
+  <div class="leyenda">
+    <span class="chip hecho">Hecho</span>
+    <span class="chip curso">En curso</span>
+    <span class="chip pend">Pendiente</span>
+    <span class="chip prop">Propuesto, sin decidir</span>
+    <span>Hoy lo único construido en <code>v3/</code> es el bot de Telegram.</span>
+  </div>
+</header>
+
+<h2>1. El flujo de punta a punta</h2>
+<p>Una historia entra por las fuentes, el núcleo la convierte en una nota verificada y la guarda en la base. Desde ahí la leen el sitio y las redes. Las personas entran por abajo, por Telegram, y por ahí también salen los avisos.</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 1180 450" width="1180" role="img" aria-label="Flujo de Radar 3.0: fuentes, núcleo con ocho pasos, base D1 y R2, sitio por Worker, piezas de redes a seis redes, redacción propia por Telegram y vigilancia que avisa por Telegram">
+<defs>
+  <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+  <marker id="flr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--rojo)"/></marker>
+</defs>
+
+<!-- Fuentes -->
+<rect class="svg-caja" x="20" y="80" width="130" height="50" rx="3"/>
+<text class="svg-t" x="85" y="100" text-anchor="middle">Fuentes</text>
+<text class="svg-s" x="85" y="116" text-anchor="middle">fuentes.json · 95 feeds hoy</text>
+<path class="svg-ar" d="M150,105 H195" marker-end="url(#fl)"/>
+
+<!-- Núcleo -->
+<rect class="svg-grupo" x="180" y="40" width="520" height="225" rx="6"/>
+<text class="svg-t" x="192" y="60">Núcleo · un Worker de Cloudflare, corre cada 15 min</text>
+
+<rect class="svg-caja" x="195" y="80" width="100" height="50" rx="3"/>
+<text class="svg-t" x="245" y="100" text-anchor="middle">Leer</text>
+<text class="svg-s" x="245" y="116" text-anchor="middle">10 s por fuente</text>
+<path class="svg-ar" d="M295,105 H320" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="320" y="80" width="100" height="50" rx="3"/>
+<text class="svg-t" x="370" y="100" text-anchor="middle">Huella</text>
+<text class="svg-s" x="370" y="116" text-anchor="middle">Workers AI</text>
+<path class="svg-ar" d="M420,105 H445" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="445" y="80" width="100" height="50" rx="3"/>
+<text class="svg-t" x="495" y="100" text-anchor="middle">Agrupar</text>
+<text class="svg-s" x="495" y="116" text-anchor="middle">IA chica en la duda</text>
+<path class="svg-ar" d="M545,105 H570" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="570" y="80" width="100" height="50" rx="3"/>
+<text class="svg-t" x="620" y="100" text-anchor="middle">Elegir</text>
+<text class="svg-s" x="620" y="116" text-anchor="middle">Balcarce todo · país 3 medios</text>
+
+<path class="svg-ar" d="M620,130 V160 H245 V190" marker-end="url(#fl)"/>
+<text class="svg-e" x="432" y="155" text-anchor="middle">historias elegidas (tope 100 nacionales por día)</text>
+
+<rect class="svg-caja" x="195" y="190" width="100" height="50" rx="3"/>
+<text class="svg-t" x="245" y="210" text-anchor="middle">Redactar</text>
+<text class="svg-s" x="245" y="226" text-anchor="middle">Gemini pago · PERFIL.md</text>
+<path class="svg-ar" d="M295,215 H320" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="320" y="190" width="100" height="50" rx="3"/>
+<text class="svg-t" x="370" y="210" text-anchor="middle">Verificar</text>
+<text class="svg-s" x="370" y="226" text-anchor="middle">máx. 3 pedidos</text>
+<path class="svg-ar" d="M420,215 H445" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="445" y="190" width="100" height="50" rx="3"/>
+<text class="svg-t" x="495" y="210" text-anchor="middle">Valor agregado</text>
+<text class="svg-s" x="495" y="226" text-anchor="middle">lo arma el programa</text>
+<path class="svg-ar" d="M545,215 H570" marker-end="url(#fl)"/>
+
+<rect class="svg-caja" x="570" y="190" width="100" height="50" rx="3"/>
+<text class="svg-t" x="620" y="210" text-anchor="middle">Foto</text>
+<text class="svg-s" x="620" y="226" text-anchor="middle">fuente · libre · ilustración</text>
+<path class="svg-ar" d="M670,215 H740" marker-end="url(#fl)"/>
+<text class="svg-e" x="705" y="208" text-anchor="middle">guarda</text>
+
+<!-- Datos -->
+<rect class="svg-caja" x="740" y="165" width="120" height="100" rx="3"/>
+<text class="svg-t" x="800" y="195" text-anchor="middle">Datos</text>
+<text class="svg-s" x="800" y="213" text-anchor="middle">D1: leídas, grupos,</text>
+<text class="svg-s" x="800" y="226" text-anchor="middle">notas, fotos</text>
+<text class="svg-s" x="800" y="244" text-anchor="middle">R2: fotos y videos</text>
+
+<!-- Sitio -->
+<path class="svg-ar" d="M860,185 H880 V95 H900" marker-end="url(#fl)"/>
+<text class="svg-e" x="889" y="138" text-anchor="middle" transform="rotate(-90 889 138)">lee</text>
+<rect class="svg-caja" x="900" y="60" width="140" height="70" rx="3"/>
+<text class="svg-t" x="970" y="83" text-anchor="middle">Sitio</text>
+<text class="svg-s" x="970" y="99" text-anchor="middle">Worker arma cada página</text>
+<text class="svg-s" x="970" y="113" text-anchor="middle">caché · /n/… cortos · SEO</text>
+<path class="svg-ar" d="M1040,95 H1068" marker-end="url(#fl)"/>
+<rect class="svg-caja" x="1070" y="70" width="92" height="50" rx="3"/>
+<text class="svg-t" x="1116" y="90" text-anchor="middle">Lectores</text>
+<text class="svg-s" x="1116" y="106" text-anchor="middle">botón Compartir</text>
+
+<!-- Redes -->
+<path class="svg-ar" d="M860,205 H900" marker-end="url(#fl)"/>
+<rect class="svg-caja" x="900" y="175" width="140" height="70" rx="3"/>
+<text class="svg-t" x="970" y="198" text-anchor="middle">Redes · piezas</text>
+<text class="svg-s" x="970" y="214" text-anchor="middle">imagen, placa, reel con voz,</text>
+<text class="svg-s" x="970" y="228" text-anchor="middle">carrusel, infografía</text>
+
+<path class="svg-ar" d="M1040,210 H1055 V164 H1068" marker-end="url(#fl)"/>
+<path class="svg-ar" d="M1055,200 H1068" marker-end="url(#fl)"/>
+<path class="svg-ar" d="M1055,210 V236 H1068" marker-end="url(#fl)"/>
+<path class="svg-ar" d="M1055,236 V272 H1068" marker-end="url(#fl)"/>
+<path class="svg-ar" d="M1055,272 V308 H1068" marker-end="url(#fl)"/>
+<path class="svg-ar" d="M1055,308 V344 H1068" marker-end="url(#fl)"/>
+<rect class="svg-caja" x="1070" y="150" width="92" height="28" rx="3"/><text class="svg-t" x="1116" y="169" text-anchor="middle">Facebook</text>
+<rect class="svg-caja" x="1070" y="186" width="92" height="28" rx="3"/><text class="svg-t" x="1116" y="205" text-anchor="middle">Instagram</text>
+<rect class="svg-caja" x="1070" y="222" width="92" height="28" rx="3"/><text class="svg-t" x="1116" y="241" text-anchor="middle">TikTok</text>
+<rect class="svg-caja" x="1070" y="258" width="92" height="28" rx="3"/><text class="svg-t" x="1116" y="277" text-anchor="middle">YouTube</text>
+<rect class="svg-caja" x="1070" y="294" width="92" height="28" rx="3" stroke-dasharray="3 3"/><text class="svg-t" x="1116" y="313" text-anchor="middle">X</text>
+<rect class="svg-caja" x="1070" y="330" width="92" height="28" rx="3" stroke-dasharray="3 3"/><text class="svg-t" x="1116" y="349" text-anchor="middle">Threads</text>
+<path class="svg-ar" d="M1055,344 V380 H1068" marker-end="url(#fl)"/>
+<rect class="svg-caja" x="1070" y="366" width="92" height="28" rx="3"/><text class="svg-t" x="1116" y="385" text-anchor="middle">Canal Telegram</text>
+<text class="svg-e" x="1116" y="408" text-anchor="middle">punteado: en propuesta</text>
+
+<!-- Personas -->
+<rect class="svg-caja svg-rojo" x="20" y="340" width="420" height="60" rx="3"/>
+<text class="svg-t svg-rojo-t" x="32" y="362">Redacción propia · personas</text>
+<text class="svg-s" x="32" y="378">Telegram @radarbalcarce_bot (Hernán) · gacetillas a redaccion@ · agenda · /admin con Google</text>
+<text class="svg-s" x="32" y="391">notas propias, «armala», «agregá a la agenda», «pará todo», corregir o sacar una nota</text>
+<path class="svg-ar svg-rojo" d="M440,370 H800 V265" marker-end="url(#flr)"/>
+<text class="svg-e" x="620" y="364" text-anchor="middle">escribe notas propias y correcciones en D1; la vista previa es un enlace privado del sitio</text>
+
+<!-- Vigilancia -->
+<rect class="svg-caja" x="900" y="340" width="140" height="60" rx="3"/>
+<text class="svg-t" x="970" y="363" text-anchor="middle">Vigilancia</text>
+<text class="svg-s" x="970" y="379" text-anchor="middle">Worker: mira que todo corra</text>
+<text class="svg-s" x="970" y="392" text-anchor="middle">informes 8:00 y 20:00</text>
+<path class="svg-ar svg-rojo" d="M970,400 V428 H230 V402" marker-end="url(#flr)"/>
+<text class="svg-e" x="600" y="422" text-anchor="middle">avisos por Telegram: núcleo, nota publicada, cada reel, error de una red, sitio caído, gasto de IA; si el bot no responde, mail</text>
+</svg>
+</div>
+<figcaption>Todo corre en Workers de Cloudflare. Desaparecen Next.js, la compilación, los archivos <code>web/data/*.json</code>, los commits cada media hora y los 48 workflows de GitHub: queda uno solo, para desplegar a mano.</figcaption>
+</figure>
+
+<h2>2. Los módulos, área por área</h2>
+<p>Cada carpeta de <code>v3/</code> es un módulo con su <code>REGLAS.md</code>, su programa y sus pruebas, sin dependencias ni imports fuera de <code>v3/</code>. El estado es el de hoy.</p>
+<div class="areas">
+
+<section class="area">
+  <header><h3>nucleo/</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">Worker de Cloudflare · cada 15 min · etapa B</div>
+  <ul>
+    <li>Fuentes: una sola lista con alcance (Balcarce, zona, provincia, país), peso y si es oficial</li>
+    <li>Leer, huella de significado, agrupar repetidas (reemplaza los 4 mecanismos de la 2.0)</li>
+    <li>Elegir: Balcarce entra todo; país con 3 medios, áreas chicas con 2; sin semáforo</li>
+    <li>Redactar y verificar con Gemini pago; prompt en <code>REDACCION.md</code>, línea en <code>PERFIL.md</code> <span class="chip curso">borrador</span></li>
+    <li>Fotos: de la fuente, libre confirmada por visión, o ilustración con Workers AI</li>
+    <li>Frenos legales que quedan: menores y víctimas, listas de sepelios</li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>Datos</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">D1 y R2 de Cloudflare</div>
+  <ul>
+    <li>D1: noticias leídas, grupos, notas, fotos; el archivo entero migra con sus direcciones</li>
+    <li>R2: fotos y videos</li>
+    <li>Se terminan los JSON del repo y los commits «Datos de la portada»</li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>sitio/</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">Worker de Cloudflare · etapa C</div>
+  <ul>
+    <li>Arma cada página al pedirla leyendo D1, con caché; sin tope de archivos</li>
+    <li>SEO, buscador, archivo, enlaces cortos <code>/n/…</code></li>
+    <li>Cuadros fijos en la tapa: clima, farmacia, dólar</li>
+    <li>Botón Compartir: tarjeta más enlace (Web Share), directos a WhatsApp, Facebook, X y Telegram</li>
+    <li>Lugares para avisos: AdSense y espacios propios</li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>redes/</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">Worker · etapa D · una carpeta por red</div>
+  <ul>
+    <li><code>piezas/</code>: placa, imagen de nota, reel con voz, carrusel, infografía</li>
+    <li><code>facebook/</code> e <code>instagram/</code> por API de Meta <span class="chip hecho">API ya en uso</span></li>
+    <li><code>youtube/</code> por API directa <span class="chip hecho">Decidido 1/11</span></li>
+    <li><code>tiktok/</code> y <code>x/</code> con Buffer hasta tener vía directa <span class="chip hecho">Decidido 1/11</span></li>
+    <li><code>threads/</code> cuando esté configurado <span class="chip prop">en propuesta</span></li>
+    <li><code>telegram/</code>: canal público, cada nota de Balcarce con enlace <span class="chip hecho">Decidido 1/11</span></li>
+    <li>Cronograma de todas las redes: borrador en la sección 10 del plan, para que Hernán lo corrija</li>
+    <li>Un solo interruptor de redes (hoy hay dos)</li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>redaccion/</h3><span class="chip curso">En curso</span></header>
+  <div class="corre">Workers · etapas A y E</div>
+  <ul>
+    <li><code>telegram/</code>: bot <code>@radarbalcarce_bot</code>, Worker <code>radar-telegram</code>, KV, webhook revisado cada 15 min <span class="chip hecho">Hecho</span></li>
+    <li>Notas propias de punta a punta con vista previa y botones de redes <span class="chip pend">Pendiente</span></li>
+    <li><code>gacetillas/</code>: mails a <code>redaccion@radarbalcarce.com</code> → borrador → OK <span class="chip pend">Pendiente</span></li>
+    <li><code>agenda/</code>: municipio más gacetillas, con página y cuadro en la tapa <span class="chip pend">Pendiente</span></li>
+    <li><code>clima/</code>: una nota por día con el reel del clima <span class="chip pend">Pendiente</span></li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>Administración</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">Telegram (Hernán) y /admin con login de Google</div>
+  <ul>
+    <li>Telegram: pedir una nota, aprobar, «pará todo» (reemplaza la pausa general)</li>
+    <li>/admin: ver qué espera, corregir o sacar una nota, cambiar una foto, números</li>
+    <li>Colaboradores escriben pero no publican <span class="chip prop">permisos sin detalle</span></li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>vigilancia/</h3><span class="chip pend">Pendiente</span></header>
+  <div class="corre">Worker · etapa F</div>
+  <ul>
+    <li>Mira que cada Worker corra y que el sitio responda</li>
+    <li>Informe corto a las 8:00 y a las 20:00 por Telegram (los mails largos se tiran)</li>
+    <li>Aviso de gasto de IA</li>
+  </ul>
+</section>
+
+<section class="area">
+  <header><h3>docs/ y despliegue</h3><span class="chip curso">En curso</span></header>
+  <div class="corre">GitHub, sólo para guardar el código y desplegar a mano</div>
+  <ul>
+    <li>Un documento por módulo, el plan y <code>DECISIONES.md</code>; se tiran las 37.000 líneas viejas</li>
+    <li>Workflow «Radar 3.0: desplegar»; nada corre en Actions</li>
+    <li>Limpieza total de Workers, variables, KV y R2 sin uso, y de todas las claves y tokens que no se usen; una sola lista de qué clave vive dónde <span class="chip hecho">Decidido 1/11</span></li>
+    <li>Copia diaria de D1 a R2, 30 días guardados <span class="chip hecho">Decidido 1/11</span></li>
+  </ul>
+</section>
+
+</div>
+
+<h2>3. Las redes y los canales</h2>
+<p>Qué va a cada red, cómo se publica y en qué estado está la decisión. Las cantidades de Facebook y los reels son las de la sección 10; el resto son las cifras de la propuesta, para ajustar.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Red o canal</th><th>Qué sale</th><th>Cuánto por día</th><th>Cómo se publica</th><th>Estado</th></tr></thead>
+<tbody>
+<tr><td>Facebook</td><td>Posteo con foto entera y enlace; reels; historias</td><td>5 de Balcarce + 5 nacionales (máx. 3 por sección); reels y historias según piezas</td><td>API de Meta, ya en uso</td><td><span class="chip hecho">Decidido</span></td></tr>
+<tr><td>Instagram</td><td>Reels con voz; historias (imagen de cada nota de Balcarce y cada reel); espejo de Facebook sólo si lo quieren; carrusel hasta 20 fotos</td><td>Propuesta: 1–2 reels, 4–6 historias</td><td>API de Meta, ya en uso. Historias sin enlace clickeable por API</td><td><span class="chip prop">Cifras por ajustar</span></td></tr>
+<tr><td>TikTok</td><td>Los mismos reels; modo foto para el carrusel</td><td>6 reels (los del día)</td><td>Buffer hasta que TikTok apruebe la app para publicar directo (se pide en la etapa D)</td><td><span class="chip hecho">Decidido 1/11</span></td></tr>
+<tr><td>YouTube</td><td>Reels como Shorts, con enlace en la descripción</td><td>6 Shorts (los del día)</td><td>API directa, gratis; el cupo diario alcanza</td><td><span class="chip hecho">Decidido 1/11</span></td></tr>
+<tr><td>X</td><td>Cada nota de Balcarce y lo más contado, con enlace; carrusel hasta 4 fotos</td><td>10–15</td><td>Buffer mientras no haya vía directa; medir el tope mensual de la cuenta gratuita</td><td><span class="chip hecho">Decidido 1/11</span></td></tr>
+<tr><td>Threads</td><td>Igual que X</td><td>10–15</td><td>Cuando esté configurado; «sin apuro»</td><td><span class="chip prop">Propuesto</span></td></tr>
+<tr><td>Telegram (bot)</td><td>Gestión: notas propias, aprobaciones, avisos e informes a Hernán. También destino del botón Compartir</td><td>—</td><td>Bot <code>@radarbalcarce_bot</code></td><td><span class="chip hecho">Bot hecho</span></td></tr>
+<tr><td>Telegram (canal público)</td><td>Cada nota de Balcarce con su enlace, los repasos con sus 3 titulares, clima y farmacia en texto</td><td>Todas las de Balcarce</td><td>El mismo bot publica en el canal</td><td><span class="chip hecho">Decidido 1/11</span></td></tr>
+<tr><td>WhatsApp</td><td>Canal alternativo de avisos de vigilancia; destino del botón Compartir y de los estados</td><td>—</td><td>Los avisos pasan a Telegram</td><td><span class="chip pend">Secundario</span></td></tr>
+<tr><td>Buffer</td><td>Herramienta, no red: puente gratis a TikTok, YouTube y X</td><td>—</td><td>Workflow «Buffer (TikTok y YouTube)», de la 2.0</td><td><span class="chip curso">Sigue mientras no haya vía directa</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="nota"><b>Falta armar el cronograma de todas las redes</b> (Hernán, 1/11): qué pieza, cuántas, a qué hora y por qué camino. Hay un borrador en la sección 10 del plan, armado con las horas de hoy, para que lo corrija. <b>Quedan afuera a conciencia:</b> un canal de WhatsApp para lectores (sin API, sólo a mano), Pinterest, LinkedIn y un boletín por mail.</div>
+
+<h2>4. Las piezas</h2>
+<p>Lo que se fabrica una vez y después se reparte a las redes que lo permitan.</p>
+<div class="piezas">
+  <div class="pieza"><b>Imagen de nota</b><span>Foto más título, cuadrada y vertical. Base de posteos e historias.</span></div>
+  <div class="pieza"><b>Reel con voz</b><span>40–60 s; 3 podcasts de 3 noticias (al menos 1 de Balcarce), 2 del clima, 1 efeméride. Las efemérides siguen como hoy, con su nota; a lo sumo, mejores temas.</span></div>
+  <div class="pieza"><b>Reel con video propio</b><span>Sin sonido, título, firma y placa final de papel. Hoy a mano; en la 3.0, desde Telegram.</span></div>
+  <div class="pieza"><b>Historias</b><span>Cada reel y cada nota de Balcarce.</span></div>
+  <div class="pieza"><b>Carrusel</b><span>Notas con 3 fotos propias o más. IG hasta 20, X hasta 4, TikTok modo foto.</span></div>
+  <div class="pieza"><b>Infografía</b><span>Los gráficos de la nota salen también como imagen para redes.</span></div>
+  <div class="pieza"><b>Clima</b><span>Una nota por día junto al reel, más el cuadro fijo de la tapa.</span></div>
+  <div class="pieza"><b>F1 y fútbol</b><span>F1: previa, horarios y resultado del lunes con Colapinto. Fútbol: sólo por popularidad.</span></div>
+</div>
+
+<h2>5. Lo que pasa por Telegram</h2>
+<p>Es el camino de las notas propias, como la de Nancy o la de Halloween. Hoy se hace a mano con tres workflows; en la 3.0 es una conversación con el bot.</p>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 980 300" width="980" role="img" aria-label="Flujo de una nota propia por Telegram: Hernán manda material, el bot transcribe e investiga, redacta con el perfil, muestra una vista previa, Hernán da el ok, se publica, y tres botones deciden qué va a las redes">
+<defs><marker id="fl2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+
+<rect class="svg-caja svg-rojo" x="20" y="60" width="130" height="60" rx="3"/>
+<text class="svg-t svg-rojo-t" x="85" y="83" text-anchor="middle">Hernán manda</text>
+<text class="svg-s" x="85" y="99" text-anchor="middle">texto, audio, fotos</text>
+<text class="svg-s" x="85" y="112" text-anchor="middle">o video al bot</text>
+<path class="svg-ar" d="M150,90 H178" marker-end="url(#fl2)"/>
+
+<rect class="svg-caja" x="180" y="60" width="130" height="60" rx="3"/>
+<text class="svg-t" x="245" y="83" text-anchor="middle">Transcribe e investiga</text>
+<text class="svg-s" x="245" y="99" text-anchor="middle">Tavily más las notas</text>
+<text class="svg-s" x="245" y="112" text-anchor="middle">anteriores de Radar</text>
+<path class="svg-ar" d="M310,90 H338" marker-end="url(#fl2)"/>
+
+<rect class="svg-caja" x="340" y="60" width="130" height="60" rx="3"/>
+<text class="svg-t" x="405" y="83" text-anchor="middle">Redacta</text>
+<text class="svg-s" x="405" y="99" text-anchor="middle">con PERFIL.md</text>
+<text class="svg-s" x="405" y="112" text-anchor="middle">foto e infografía</text>
+<path class="svg-ar" d="M470,90 H498" marker-end="url(#fl2)"/>
+
+<rect class="svg-caja" x="500" y="60" width="130" height="60" rx="3"/>
+<text class="svg-t" x="565" y="83" text-anchor="middle">Vista previa</text>
+<text class="svg-s" x="565" y="99" text-anchor="middle">enlace privado, igual</text>
+<text class="svg-s" x="565" y="112" text-anchor="middle">a como va a quedar</text>
+<path class="svg-ar" d="M630,90 H658" marker-end="url(#fl2)"/>
+<text class="svg-e" x="644" y="80" text-anchor="middle">«ok»</text>
+
+<rect class="svg-caja" x="660" y="60" width="130" height="60" rx="3"/>
+<text class="svg-t" x="725" y="83" text-anchor="middle">Publica en la web</text>
+<text class="svg-s" x="725" y="99" text-anchor="middle">firma «Hernán Accomo»</text>
+<text class="svg-s" x="725" y="112" text-anchor="middle">«publicá directo» salta la vista</text>
+<path class="svg-ar" d="M790,90 H818" marker-end="url(#fl2)"/>
+
+<rect class="svg-caja svg-rojo" x="820" y="60" width="140" height="60" rx="3"/>
+<text class="svg-t svg-rojo-t" x="890" y="83" text-anchor="middle">Botones de redes</text>
+<text class="svg-s" x="890" y="99" text-anchor="middle">tres opciones;</text>
+<text class="svg-s" x="890" y="112" text-anchor="middle">sin respuesta en 1 h, la del medio</text>
+
+<path class="svg-ar" d="M890,120 V150 H560 V178" marker-end="url(#fl2)"/>
+<path class="svg-ar" d="M890,150 V178" marker-end="url(#fl2)"/>
+<path class="svg-ar" d="M890,150 H725 V178" marker-end="url(#fl2)"/>
+
+<rect class="svg-caja" x="480" y="180" width="160" height="100" rx="3"/>
+<text class="svg-t" x="560" y="202" text-anchor="middle">Todo</text>
+<text class="svg-s" x="560" y="220" text-anchor="middle">posteo con foto en todas las redes</text>
+<text class="svg-s" x="560" y="234" text-anchor="middle">historia con la tarjeta</text>
+<text class="svg-s" x="560" y="248" text-anchor="middle">reel con voz: muestra el guion,</text>
+<text class="svg-s" x="560" y="262" text-anchor="middle">se corrige por audio, sale con «ok»</text>
+
+<rect class="svg-caja" x="650" y="180" width="150" height="100" rx="3"/>
+<text class="svg-t" x="725" y="202" text-anchor="middle">Posteo e historia</text>
+<text class="svg-s" x="725" y="220" text-anchor="middle">lo que sale solo si</text>
+<text class="svg-s" x="725" y="234" text-anchor="middle">Hernán no contesta en 1 h</text>
+<text class="svg-s" x="725" y="248" text-anchor="middle">sin reel</text>
+
+<rect class="svg-caja" x="810" y="180" width="150" height="100" rx="3"/>
+<text class="svg-t" x="885" y="202" text-anchor="middle">Sólo la web</text>
+<text class="svg-s" x="885" y="220" text-anchor="middle">nada a las redes</text>
+
+<text class="svg-e" x="20" y="200">Por el mismo circuito entran:</text>
+<text class="svg-s" x="20" y="218">· gacetillas a redaccion@ («armala» → borrador → OK; remitente conocido entra solo)</text>
+<text class="svg-s" x="20" y="234">· «agregá a la agenda …»</text>
+<text class="svg-s" x="20" y="250">· «pará todo» y volver a arrancar</text>
+<text class="svg-s" x="20" y="266">· pedir una nota sobre algo (lo que hoy es la pestaña Pedir del panel)</text>
+</svg>
+</div>
+<figcaption>Un solo dueño: Hernán. Andrés y otros, cuando se decida. Nada sale a las redes sin un «ok», salvo la opción del medio pasada una hora.</figcaption>
+</figure>
+
+<h2>6. Las etapas</h2>
+<div class="etapas">
+  <div class="etapa"><div class="letra">A</div><div><b>Arrancar</b><p>Aprobar el plan, escribir PERFIL.md, crear la clave paga y el bot de Telegram. El bot está hecho y conectado; PERFIL.md tiene borrador; Hernán carga el monto de la clave paga el 2/11.</p></div><span class="chip curso">En curso</span></div>
+  <div class="etapa"><div class="letra">B</div><div><b>Núcleo</b><p>Fuentes, leer, agrupar, elegir, redactar, verificar, foto. Más la sesión del prompt con 20 historias y la calibración de la huella con 200 pares. 3 a 4 días. Sin etapa en sombra: el núcleo escribe en D1 sin publicar hasta el corte.</p></div><span class="chip pend">Pendiente</span></div>
+  <div class="etapa"><div class="letra">C</div><div><b>Sitio</b><p>Worker, archivo migrado, dirección de prueba, corte a radarbalcarce.com, /admin.</p></div><span class="chip pend">Pendiente</span></div>
+  <div class="etapa"><div class="letra">D</div><div><b>Redes</b><p>Piezas, una carpeta por red, mockups de cada formato, prendido de a una red.</p></div><span class="chip pend">Pendiente</span></div>
+  <div class="etapa"><div class="letra">E</div><div><b>Redacción propia</b><p>Telegram completo con botones, gacetillas, agenda.</p></div><span class="chip pend">Pendiente</span></div>
+  <div class="etapa"><div class="letra">F</div><div><b>Cierre</b><p>Valor agregado completo, fotos libres, lugares de avisos, AdSense, apagado de GitHub, vigilancia.</p></div><span class="chip pend">Pendiente</span></div>
+</div>
+<p style="color:var(--gris);font-size:.9rem">Unas tres semanas en total, según el plan. Sin etapa en sombra: se construye y se corta; el sitio puede estar apagado unos días y las redes no paran.</p>
+
+<h2>7. Qué le faltaba al plan y qué se decidió</h2>
+<p>Hernán vio este mapa el 1/11 a la noche y decidió sobre casi todo. Lo cerrado quedó en la sección 10 del plan; acá queda marcado qué se resolvió y qué sigue abierto.</p>
+<div class="dos">
+<div>
+<h3>Huecos y contradicciones del plan</h3>
+<ul class="lista huecos" style="margin-top:10px">
+  <li><b>Efemérides <span class="chip hecho">Resuelto</span></b>Siguen como hoy, con su reel y su nota. Se sacaron de «lo que se tira». A lo sumo, temas más del interés de la gente.</li>
+  <li><b>«En sombra» sí o no <span class="chip hecho">Resuelto</span></b>No hay etapa en sombra; la fila B del plan ya lo dice. La sesión del prompt con 20 historias es el único ensayo.</li>
+  <li><b>Dos topes de gasto de IA <span class="chip hecho">Resuelto</span></b>Queda uno: el de la consola de Google. El autofreno del núcleo se alinea a ese número y avisa por Telegram al 80 %.</li>
+  <li><b>La clave paga <span class="chip curso">Hernán, 2/11</span></b>Le carga el monto mañana. Sin eso no arranca la etapa B.</li>
+  <li><b>TikTok, YouTube, X y Threads <span class="chip hecho">Resuelto</span></b>YouTube por API. TikTok y X con Buffer mientras tanto. Threads cuando esté configurado. Falta el cronograma de todas, que Hernán pidió armar.</li>
+  <li><b>Historias con enlace</b>La API de Meta no pone enlace clickeable en una historia. El plan lo deja en «si la API deja»; conviene asumir que no y diseñar la historia con el texto corto y el enlace de la bio.</li>
+  <li><b>Reel como historia</b>Pregunta abierta 3 del plan: historia automática aparte (no suma vistas al reel) o aviso por Telegram para compartirlo a mano (suma). Sin respuesta.</li>
+  <li><b>Pistas</b>El 3.0 no las nombra. Hoy son pegar un enlace o un tuit para que se siga. Decir que «mirá esto» al bot es la pista, y que termina en una nota propia o en nada.</li>
+  <li><b>Cuántas por red</b>Sólo Facebook tiene cifra decidida (5 + 5). Instagram, TikTok, YouTube, X y Threads siguen en propuesta.</li>
+  <li><b>El documento <span class="chip hecho">Resuelto</span></b>La sección 10 ya está al final del plan y la sección 4 tiene de vuelta sus puntos 4 y 5.</li>
+  <li><b>Permisos de /admin</b>«Colaboradores escriben, no publican» sin detalle de qué ven y qué tocan.</li>
+  <li><b>Fotos de Commons migradas</b>«Se arreglan donde se pueda» sin método: cuántas son, quién decide, qué pasa con las que no.</li>
+</ul>
+</div>
+<div>
+<h3>Recomendaciones <span class="chip hecho">Todas aceptadas el 1/11</span></h3>
+<ul class="lista" style="margin-top:10px">
+  <li><b>Un canal público de Telegram y un canal de WhatsApp</b>Cuesta cero: el bot ya existe y publicar en un canal de Telegram es un pedido más. Es la única red donde el lector recibe cada nota de Balcarce con enlace y sin algoritmo. El canal de WhatsApp no tiene API y queda para compartir a mano.</li>
+  <li><b>Vía directa a YouTube primero, TikTok después</b>YouTube tiene API gratuita con cupo diario que alcanza para 1 o 2 Shorts. TikTok exige una revisión de la app antes de publicar directo: pedirla en la etapa D y seguir con Buffer mientras tanto. X tiene API gratuita con un tope mensual chico: alcanza para Balcarce, no para 10 a 15 por día; medir antes de prometer.</li>
+  <li><b>Un segundo camino de aviso cuando el bot se cae</b>Telegram es a la vez la herramienta de gestión y el canal de alarma. Si el Worker del bot falla, nadie se entera. La vigilancia tendría que avisar por otro lado (mail por Cloudflare o WhatsApp) sólo para «el bot no responde».</li>
+  <li><b>Copia diaria de D1 a R2</b>El plan pone todo en D1 y no dice nada de respaldo. Un volcado por día a R2, con 30 días guardados, es barato y es lo que salva el archivo si una migración sale mal.</li>
+  <li><b>Guardar el motivo de cada decisión</b>La 2.0 mide por qué entró o no cada historia y Hernán regula con eso cada semana. La 3.0 dice «se regula con estadística» pero no dice que D1 guarde el motivo. Ponerlo como columna desde el día uno.</li>
+  <li><b>Vista previa también para lo automático dudoso</b>El enlace privado de la nota propia sirve igual para lo que la IA marca <code>no_publicar</code> o duda: un mensaje al bot con el enlace y dos botones, publicar o descartar.</li>
+  <li><b>Estadísticas sin cookies</b>Además de Google Analytics (pendiente), Cloudflare Web Analytics es gratis, no pide cartel de cookies y alcanza para el informe de las 8 y las 20. Analytics queda para AdSense y Search Console.</li>
+  <li><b>Agenda de comercios dentro del bot</b>Lo de Pinocho se repite: cada nota propia sobre un negocio o institución debería dejar su contacto cargado (Instagram, WhatsApp) para avisarle cuando sale. Es la semilla del mapa comercial sin construirlo ahora.</li>
+  <li><b>Fijar el orden de prendido de las redes</b>Facebook e Instagram ya andan; después YouTube, TikTok, X, Threads, de a una y con una semana de mirar números cada una, como dice la etapa D. Dejar escrito qué número decide si una red se queda.</li>
+  <li><b>Una lista de control del corte</b>El día del corte a radarbalcarce.com: redirecciones de todas las direcciones viejas, sitemap nuevo en Search Console, el feed RSS en la misma dirección, las redes apuntando a los enlaces cortos, la pausa de la 2.0 prendida. Escribirla ahora, no ese día.</li>
+</ul>
+</div>
+</div>
+
+<footer>Hecho el 1/11/2026 a partir del plan y de <code>v3/</code>; actualizado esa noche con las decisiones de Hernán. Si el plan y esta página no coinciden, manda el plan y se corrige esta página.</footer>
+</main>
