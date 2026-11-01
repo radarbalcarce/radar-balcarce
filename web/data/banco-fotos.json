@@ -37804,9 +37804,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "v1so1i": {
-  "archivo": "fotos-notas/v1so1i.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lula y Flávio Bolsonaro cierran sus campañas de cara al balotaje",
@@ -37828,7 +37826,8 @@
    "detalle": "Se observan carteles de campaña en el fondo (Flávio, Lula) que son parte de la escena real, pero no se detecta marca de agua ni logo superpuesto por el medio."
   },
   "huella": "9cd95879b2914d59",
-  "ausenteDesde": "2026-10-25T20:36:27.534Z"
+  "intentado": true,
+  "borrada": true
  },
  "de0frz": {
   "intentado": true,
@@ -39302,9 +39301,7 @@
   "borrada": true
  },
  "10ymrrf": {
-  "archivo": "fotos-notas/10ymrrf.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Alpine rechaza los dichos de Jeremy Clarkson contra Franco Colapinto",
@@ -39336,7 +39333,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "30333772b253c95d",
-  "ausenteDesde": "2026-10-25T21:01:55.111Z"
+  "intentado": true,
+  "borrada": true
  },
  "1dcdral": {
   "medio": "El Día",
@@ -54043,7 +54041,8 @@
    "corresponde": "si",
    "descripcion": "Cristiano Ronaldo con la camiseta amarilla de Al-Nassr celebrando con los brazos extendidos en el campo de juego."
   },
-  "huella": "2227c726242e2c33"
+  "huella": "2227c726242e2c33",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "bjkvmp": {
   "archivo": "fotos-notas/bjkvmp.jpg",
@@ -57898,7 +57897,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:42.501Z",
-  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/261029-TC2000-Iribarne-1.jpg"
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/261029-TC2000-Iribarne-1.jpg",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "1177jgc": {
   "archivo": "fotos-notas/1177jgc.jpg",
@@ -63941,10 +63941,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Belgrano recibe a Barracas Central por el Torneo Clausura",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-11-01T18:02:53.269Z",
-  "intentos": 2,
-  "fuentes": 10
+  "razon": "Ninguna foto corresponde al partido entre Belgrano y Barracas Central, ya que muestran otros equipos (Platense, Central Córdoba) o son placas gráficas genéricas de enfrentamientos distintos.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "intentos": 3,
+  "fuentes": 11
  },
  "n1l0p4": {
   "archivo": "fotos-notas/n1l0p4.jpg",
@@ -65108,7 +65108,8 @@
    "corresponde": "generica",
    "descripcion": "Collage con jugadores de Boca y River de perfil"
   },
-  "huella": "45e2b038ba7373b3"
+  "huella": "45e2b038ba7373b3",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "16myge3": {
   "archivo": "fotos-notas/d4errd.jpg",
@@ -65241,7 +65242,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca festejando un gol abrazados en la cancha"
   },
-  "huella": "f629b8d2b19d8e9a"
+  "huella": "f629b8d2b19d8e9a",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "e1z4iv": {
   "archivo": "fotos-notas/e1z4iv.jpg",
@@ -65313,7 +65315,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei y un alto dignatario eclesiástico en un encuentro"
   },
-  "huella": "3c3c2c4e462e2eae"
+  "huella": "3c3c2c4e462e2eae",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "lt07ea": {
   "archivo": "fotos-notas/lt07ea.jpg",
@@ -65337,7 +65340,8 @@
    "corresponde": "si",
    "descripcion": "Rodolfo Arruabarrena sonriendo sentado en el banco de suplentes"
   },
-  "huella": "635b4b0d0dcc4ccc"
+  "huella": "635b4b0d0dcc4ccc",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "1we22fg": {
   "archivo": "fotos-notas/1we22fg.jpg",
@@ -65361,7 +65365,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón durante el Superclásico"
   },
-  "huella": "c3ca434551c9a725"
+  "huella": "c3ca434551c9a725",
+  "ausenteDesde": "2026-11-01T21:03:30.036Z"
  },
  "1gjjdy7": {
   "archivo": "fotos-notas/1gjjdy7.jpg",
@@ -65386,5 +65391,179 @@
    "descripcion": "Jugadores disputando un balón en un partido de la liga inglesa."
   },
   "huella": "69144e85b586721f"
+ },
+ "ptf7ku": {
+  "archivo": "fotos-notas/ptf7ku.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45240-jardineria-una-experiencia-de-aprendizaje-e-inspiracion/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66247.png",
+  "razon": "Es la única foto disponible, cumple con los requisitos y muestra a personas adultas en una salida educativa de jardinería sin marcas de agua ni menores.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas adultas participando de una actividad educativa al aire libre entre plantas y flores",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Una guía explica plantas a un grupo de mujeres adultas en un jardín botánico."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9e184c6150521a16"
+ },
+ "1tq7ovb": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Amigos Unidos vence a Los Patos en el torneo Clausura femenino",
+  "razon": "La unica imagen proporcionada es el logotipo del medio y no corresponde a una fotografia del hecho deportivo.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1chx0lr": {
+  "archivo": "fotos-notas/1chx0lr.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gonzalo Montiel ve la roja y deja a River con nueve en el Superclásico",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/01/patada-expulsion-y-provocacion-la-picante-actitud-de-gonzalo-montiel-con-los-hinchas-de-boca-en-el-final-del-superclasico/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/https%3A%2F%2Fthumbs.vodgc.net%2F1-419-f7a9eb26510e1793562774662-1793562998.jpg?auth=15b2390a76502dc564951dde53931ea2f25097e5782940b4c2275b3fbe9ba5dc&width=1023",
+  "razon": "Es la única foto profesional que muestra claramente al árbitro sacando la tarjeta roja en el partido, sin marcas añadidas, gráficos ni menores.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El árbitro muestra la tarjeta roja a Gonzalo Montiel en el Superclásico"
+  },
+  "huella": "471b1992787a595e"
+ },
+ "1cprhmw": {
+  "archivo": "fotos-notas/1cprhmw.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca derrota 1 a 0 a River en el Superclásico con gol de Di Lollo",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-quedo-el-historial-entre-boca-y-river-tras-el-triunfo-del-xeneize-en-el-superclasico-nid01112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/lautaro-di-lollo-anoto-de-cabeza-el-1-a-0-que-A537USGADRGJFMDW2CB74D5ONM.JPG?auth=2d7aa89ee5b116a23885b4a9c2d9169dcd94f474f348ba9cd8ac26b70e7e6724&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto C muestra claramente al goleador Di Lollo festejando en primer plano con gran nitidez y sin marcas ni menores.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Di Lollo celebrando el gol en solitario con euforia"
+  },
+  "huella": "ad899396b1e9cbab"
+ },
+ "8039du": {
+  "archivo": "fotos-notas/8039du.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca vence 1 a 0 a River en La Bombonera y lidera la tabla anual",
+  "enlace": "https://www.lacapital.com.ar/ovacion/la-pelea-la-tabla-anual-central-hara-fuerza-river-el-superclasico-boca-n10289814.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/c4754f812a85dd0625a8f0e22671aa9d/adjuntos/203/imagenes/103/504/0103504889/derbi.jpg",
+  "razon": "Es una excelente foto de acción del partido, sin marcas agregadas, sin menores reconocibles y con gran nitidez y encuadre.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando la pelota en el suelo"
+  },
+  "huella": "dc4ace93d3d3e5e6"
+ },
+ "5akjfh": {
+  "archivo": "fotos-notas/5akjfh.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Racing confirma la lesión de Adrián Martínez y se pierde el cierre del año",
+  "enlace": "https://www.tycsports.com/racing-club/racing-confirmacion-lesion-adrian-maravilla-martinez-victoria-aldosivi-ausencia-barracas-central-id769722.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1001768/maravilla-lesionado-en-el-triunfo-de-racing-ante-aldosivi_1440x810.webp?v=1",
+  "razon": "La foto A muestra claramente a Adrián Martínez sufriendo una molestia o lesión en pleno partido, ilustrando perfectamente la nota.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Adrián Martínez con expresión de dolor en un partido de Racing"
+  },
+  "huella": "a424262627252705"
+ },
+ "1iqitbb": {
+  "archivo": "fotos-notas/1iqitbb.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Hallan restos de un ciervo extinguido hace 30 mil años en San Pedro",
+  "enlace": "https://www.clarin.com/sociedad/descubren-restos-especie-extinguida-ciervo-vivio-hace-30-mil-anos_0_4RRXKOXym5.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/10/30/IenivAjn3_2000x1500__1.jpg",
+  "razon": "Muestra directamente los restos fósiles hallados, cumpliendo perfectamente con la temática de la nota sin marcas ni problemas.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Restos fósiles incrustados en la tierra con una mano señalando."
+  },
+  "huella": "65cac5cd859c8a4a"
+ },
+ "1y6ripj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Iglesias evangélicas realizan la Fiesta de la Luz",
+  "razon": "La única foto disponible no corresponde al evento mencionado en la nota, sino a una vista aérea de la Plaza Libertad de Balcarce con el monumento.",
+  "cuando": "2026-11-01T21:02:34.260Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }

@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T20:36:09.457Z",
+ "consultado": "2026-11-01T21:03:25.684Z",
  "equipos": [
   "9739",
   "3",
@@ -1355,6 +1355,19 @@
      },
      {
       "posicion": 2,
+      "id": "5",
+      "equipo": "Boca Juniors",
+      "pj": 15,
+      "g": 8,
+      "e": 6,
+      "p": 1,
+      "gf": 23,
+      "gc": 14,
+      "dif": 9,
+      "pts": 30
+     },
+     {
+      "posicion": 3,
       "id": "21",
       "equipo": "Vélez Sarsfield",
       "pj": 15,
@@ -1365,19 +1378,6 @@
       "gc": 15,
       "dif": 10,
       "pts": 28
-     },
-     {
-      "posicion": 3,
-      "id": "5",
-      "equipo": "Boca Juniors",
-      "pj": 14,
-      "g": 7,
-      "e": 6,
-      "p": 1,
-      "gf": 22,
-      "gc": 14,
-      "dif": 8,
-      "pts": 27
      },
      {
       "posicion": 4,
@@ -1583,13 +1583,13 @@
       "posicion": 4,
       "id": "16",
       "equipo": "River Plate",
-      "pj": 14,
+      "pj": 15,
       "g": 7,
       "e": 2,
-      "p": 5,
+      "p": 6,
       "gf": 19,
-      "gc": 13,
-      "dif": 6,
+      "gc": 14,
+      "dif": 5,
       "pts": 23
      },
      {
@@ -1739,7 +1739,7 @@
    }
   ]
  },
- "tablaCuando": "2026-11-01T19:32:28.672Z",
+ "tablaCuando": "2026-11-01T21:03:25.684Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T20:36:19.097Z",
- "portada": 96,
+ "generado": "2026-11-01T21:03:30.116Z",
+ "portada": 99,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-01T20:36:19.514Z",
+  "generado": "2026-11-01T21:03:30.480Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -139,14 +139,14 @@
       "seccion": "Agro"
      },
      {
-      "id": "qz7l9a",
-      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
-      "seccion": "Deportes"
-     },
-     {
       "id": "5euqdj",
       "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "ucd67q",
+      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -167,25 +167,18 @@
      "id": "11fke2d",
      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
      "cuando": "2026-11-01T18:36:02.094Z"
-    }
-   ],
-   "cola": [
-    {
-     "id": "1sgedwu",
-     "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "19mge3x",
-     "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
-     "seccion": "Balcarce",
-     "marcada": false
     },
     {
      "id": "mkw4t0",
      "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
-     "seccion": "Fútbol",
+     "cuando": "2026-11-01T20:36:01.926Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "19mge3x",
+     "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -195,21 +188,15 @@
      "marcada": false
     },
     {
+     "id": "1cprhmw",
+     "titulo": "Boca derrota 1 a 0 a River en el Superclásico con gol de Di Lollo",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "4mq1wo",
      "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1bcuezn",
-     "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1u60y5j",
-     "titulo": "El papa León XIV pide nuevas iniciativas de paz y destaca la tregua en Ucrania",
-     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -217,10 +204,16 @@
      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
      "seccion": "Argentina",
      "marcada": false
+    },
+    {
+     "id": "1bcuezn",
+     "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
+     "seccion": "Fútbol",
+     "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-11-01T20:06:02.094Z",
+   "cupo": 1,
+   "proximoDesde": "2026-11-01T22:06:01.926Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
