@@ -23380,9 +23380,7 @@
   "borrada": true
  },
  "1ro9hjs": {
-  "archivo": "fotos-notas/1ro9hjs.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Huawei inaugura su primera tienda autorizada en Unicenter Shopping",
@@ -23402,7 +23400,8 @@
    "descripcion": "Vista general de la fachada y el ingreso a la nueva tienda Huawei en Unicenter con gran cantidad de gente"
   },
   "huella": "0f0f0f0f1d79b09c",
-  "ausenteDesde": "2026-10-25T06:03:58.583Z"
+  "intentado": true,
+  "borrada": true
  },
  "ybejfk": {
   "medio": "La Tecla",
@@ -53648,7 +53647,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:50.032Z",
-  "imagenOriginal": "https://media.c5n.com/p/0bb875e36e1c31b2c899a32cc8e1abad/adjuntos/326/imagenes/000/336/0000336545/1200x675/smart/lula-milei.jpeg"
+  "imagenOriginal": "https://media.c5n.com/p/0bb875e36e1c31b2c899a32cc8e1abad/adjuntos/326/imagenes/000/336/0000336545/1200x675/smart/lula-milei.jpeg",
+  "ausenteDesde": "2026-11-01T06:05:29.647Z"
  },
  "1s07l6f": {
   "archivo": "fotos-notas/1i2ew4g.jpg",
@@ -54797,7 +54797,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de mujer llorando con sonrisa forzada en ambiente cinematográfico"
   },
-  "huella": "2b0a4f4c4ccccae3"
+  "huella": "2b0a4f4c4ccccae3",
+  "ausenteDesde": "2026-11-01T06:05:29.647Z"
  },
  "z5zzy3": {
   "intentado": true,
@@ -57043,14 +57044,28 @@
   "fuentes": 2
  },
  "mgku32": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/mgku32.webp",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El papa León XIV vota por correo en las elecciones de Estados Unidos",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-01T00:01:47.489Z",
-  "intentos": 3,
-  "fuentes": 12,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.losandes.com.ar/mundo/un-hecho-historico-el-papa-leon-xiv-voto-correo-las-elecciones-estados-unidos-n6012383",
+  "imagenOriginal": "https://media.losandes.com.ar/p/7a4fbab6ffe68a9fc7533db8fbae0db4/adjuntos/368/imagenes/100/750/0100750938/1200x675/smart/papa-leon-xiv.webp",
+  "razon": "Es la única imagen que muestra al protagonista de forma clara, sin marcas de agua, sin menores y sin elementos distractores, cumpliendo con los criterios de calidad y pertinencia.",
+  "cuando": "2026-11-01T06:04:18.106Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa hablando frente a micrófonos con fondo institucional."
+  },
+  "huella": "06260a2a22820a02"
  },
  "ocwksr": {
   "archivo": "fotos-notas/ocwksr.jpg",
@@ -61253,14 +61268,28 @@
   "huella": "90f7fdf6ae9d2c07"
  },
  "d8zkg2": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/d8zkg2.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Manchester City recibe a Brighton por la Premier League",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-01T00:01:47.489Z",
-  "intentos": 4,
-  "fuentes": 10,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/10/31/manchester-city-vs-brighton-en-vivo-por-la-fecha-9-de-la-premier-league-hora-donde-ver-y-formaciones/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/soccer-football-premier-league-manchester-city-v-brighton-hove-albion-etihad-stadium-manchester-britain-october-31-2026-general-view-outside-the-stadium-before-the-match-reutersphil-noble-editorial-use-only-no-use-with-unauthorized-audio-video-data-fixture-lists-clubleague-logos-or-live-services-online-in-match-use-limited-to-120-images-no-video-emulation-no-use-in-betting-games-or-single-clubleagueplayer-publications-please-contact-your-account-representative-for-further-details-U4FX6RT2NMYGPGJDXGT2ST6PXM.m1PY?auth=5b44d4618ad3767703b4582076e5d0fadd8cf24ec2b331ad8950cb28ab550b1c&width=1023",
+  "razon": "Es la única imagen que muestra el estadio de forma clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin personas, siendo ideal para ilustrar la previa del partido.",
+  "cuando": "2026-11-01T06:04:18.106Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del Etihad Stadium con el escudo del Manchester City."
+  },
+  "huella": "070f07080b4c1515"
  },
  "dbup6y": {
   "archivo": "fotos-notas/dbup6y.jpg",
@@ -63224,5 +63253,23 @@
    "descripcion": "Dos hombres en trajes saludan desde atriles con el cartel 'PASSAGLIA 2027' frente a un edificio con cúpula."
   },
   "huella": "0001038594ccc4a2"
+ },
+ "duz0tz": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La AFA reprograma el calendario de la Primera Nacional por la visita papal",
+  "razon": "La foto A es genérica y no ilustra el hecho, mientras que las fotos B y C son idénticas y presentan una composición gráfica (montaje de dos imágenes distintas) que no corresponde a una fotografía de una escena real.",
+  "cuando": "2026-11-01T06:04:18.106Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "12ojqxj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Identifican en Neuquén una nueva especie de dinosaurio carnívoro",
+  "razon": "La mejor foto era la de QZ Noticias (Mar del Plata), pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-01T06:04:18.106Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }
