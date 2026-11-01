@@ -4249,6 +4249,14 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-11-01/efemeride": {
+      "cuando": "2026-11-01T12:36:33.426Z",
+      "mediaId": "18099642365559203",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": []
     }
   },
   "facebookVideos": {
@@ -7154,6 +7162,15 @@
       "notaId": null,
       "notaIds": [],
       "postId": "3140835339452828"
+    },
+    "2026-11-01/efemeride": {
+      "cuando": "2026-11-01T12:37:16.777Z",
+      "mediaId": "1433673128979116",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [],
+      "postId": "122118390885495512"
     }
   },
   "instagramFeed": {
@@ -10254,6 +10271,21 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1114872424463161"
+    },
+    "instagram/2026-11-01/efemeride": {
+      "cuando": "2026-11-01T12:37:05.512Z",
+      "mediaId": "18112091948185231",
+      "nombre": "efemeride",
+      "red": "instagram",
+      "notaId": null
+    },
+    "facebook/2026-11-01/efemeride": {
+      "cuando": "2026-11-01T12:37:46.227Z",
+      "mediaId": "1412128763961253",
+      "nombre": "efemeride",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "2104422990445159"
     }
   },
   "problemas": {
@@ -10819,15 +10851,15 @@
     "2026-11-01": {
       "motivo": "sin-candidatas",
       "posteosDeHoy": 0,
-      "notasMiradas": 76,
+      "notasMiradas": 71,
       "descartes": {
-        "tema-repetido": 8,
-        "no-va-a-redes": 55,
-        "muy-vieja": 10,
+        "no-va-a-redes": 49,
+        "tema-repetido": 10,
+        "muy-vieja": 9,
         "ya-en-un-repaso": 1,
         "ya-publicada": 2
       },
-      "cuando": "2026-11-01T12:05:55.203Z"
+      "cuando": "2026-11-01T12:35:55.026Z"
     }
   },
   "buffer": {
@@ -11370,6 +11402,25 @@
         "ok": true,
         "id": "6ae7165f1ee172cd6defd7f1",
         "estado": "sending"
+      }
+    },
+    "2026-11-01/efemeride": {
+      "cuando": "2026-11-01T12:35:54.122Z",
+      "nombre": "efemeride",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae7329bab019b90875b9d45",
+        "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6ae732a6f0984eef3365766b",
+        "estado": "sent"
+      },
+      "twitter": {
+        "ok": true,
+        "id": "6ae732a9f0984eef336576c0",
+        "estado": "sent"
       }
     }
   }
