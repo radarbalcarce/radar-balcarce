@@ -1932,18 +1932,18 @@
   "2026-11-01": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 61,
+     "llamadas": 64,
      "errores": 8,
-     "entrada": 125588,
-     "salida": 55252,
+     "entrada": 132962,
+     "salida": 58762,
      "pensamiento": 0,
-     "total": 180840,
+     "total": 191724,
      "claves": {
-      "clasificacion": 61
+      "clasificacion": 64
      },
      "motivos": {
       "clasificacion": {
-       "ok": 53,
+       "ok": 56,
        "cupo-diario": 6,
        "otro": 2
       }
@@ -1986,37 +1986,37 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 81,
+     "llamadas": 84,
      "errores": 11,
-     "entrada": 824770,
-     "salida": 13751,
+     "entrada": 858755,
+     "salida": 14313,
      "pensamiento": 0,
-     "total": 838521,
+     "total": 873068,
      "claves": {
-      "clasificacion": 81
+      "clasificacion": 84
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 70,
+       "ok": 73,
        "otro": 2,
        "saturado": 1
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 20,
+     "llamadas": 21,
      "errores": 1,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 21
      },
      "motivos": {
       "clasificacion": {
-       "ok": 19,
+       "ok": 20,
        "otro": 1
       }
      }
@@ -2040,19 +2040,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 232,
+     "llamadas": 244,
      "errores": 34,
-     "entrada": 1220938,
-     "salida": 215482,
+     "entrada": 1292553,
+     "salida": 228956,
      "pensamiento": 0,
-     "total": 1436420,
+     "total": 1521509,
      "claves": {
-      "redaccion": 232
+      "redaccion": 244
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 198,
+       "ok": 210,
        "otro": 5,
        "saturado": 6
       }
@@ -2098,19 +2098,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 133,
+     "llamadas": 139,
      "errores": 15,
-     "entrada": 705151,
-     "salida": 56246,
+     "entrada": 734401,
+     "salida": 58484,
      "pensamiento": 0,
-     "total": 771586,
+     "total": 803074,
      "claves": {
-      "clasificacion": 133
+      "clasificacion": 139
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 12,
-       "ok": 118,
+       "ok": 124,
        "velocidad": 1,
        "saturado": 1,
        "otro": 1
