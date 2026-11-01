@@ -1932,18 +1932,18 @@
   "2026-11-01": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 13,
+     "llamadas": 15,
      "errores": 6,
-     "entrada": 17058,
-     "salida": 8104,
+     "entrada": 21768,
+     "salida": 9886,
      "pensamiento": 0,
-     "total": 25162,
+     "total": 31654,
      "claves": {
-      "clasificacion": 13
+      "clasificacion": 15
      },
      "motivos": {
       "clasificacion": {
-       "ok": 7,
+       "ok": 9,
        "cupo-diario": 6
       }
      }
@@ -1984,19 +1984,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 18,
+     "llamadas": 20,
      "errores": 8,
-     "entrada": 141110,
-     "salida": 3732,
+     "entrada": 174619,
+     "salida": 3954,
      "pensamiento": 0,
-     "total": 144842,
+     "total": 178573,
      "claves": {
-      "clasificacion": 18
+      "clasificacion": 20
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 10
+       "ok": 12
       }
      }
     },
