@@ -1,9 +1,9 @@
 {
   "avisos": {
-    "instagram-copias": "2026-11-01T15:00:13.043Z",
-    "archivo-r2-fallo": "2026-11-01T18:00:12.408Z",
+    "instagram-copias": "2026-11-01T21:00:13.709Z",
     "falta-instagram-reel:noticia1": "2026-11-01T18:00:12.408Z",
-    "falta-instagram-historia:noticia1": "2026-11-01T18:00:12.408Z"
+    "falta-instagram-historia:noticia1": "2026-11-01T18:00:12.408Z",
+    "falta-instagram-historia:noticia2": "2026-11-01T21:00:13.709Z"
   },
   "importantes": {
     "avisadas": {
@@ -30,24 +30,18 @@
   "pendientes": {
     "avisados": [
       "doggn2",
-      "ulpr9e"
+      "15zhl1o"
     ],
-    "ultimo": "2026-11-01T15:00:13.043Z"
+    "ultimo": "2026-11-01T21:00:13.709Z"
   },
   "redes": {
-    "hasta": "2026-11-01T16:36:13.014Z"
+    "hasta": "2026-11-01T20:36:15.720Z"
   },
   "ultimaMedicion": "2026-11-01/9",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-10-31",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
-    {
-      "clave": "archivo-r2-fallo",
-      "nivel": "alta",
-      "texto": "La última corrida del archivo permanente salió mal: 1 objeto(s) no se pudieron subir o borrar. El sitio se publica igual, pero lo que está por salir puede no estar guardado y lo retirado puede no haberse borrado de R2. Mirá el paso \"Archivar las notas por salir (R2)\" del workflow \"Actualizar la web\" en GitHub Actions.",
-      "desde": "2026-11-01T18:00:12.408Z"
-    },
     {
       "clave": "instagram-copias",
       "nivel": "alta",
@@ -65,6 +59,12 @@
       "nivel": "media",
       "texto": "Instagram: no salió la historia de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
       "desde": "2026-11-01T18:00:12.408Z"
+    },
+    {
+      "clave": "falta-instagram-historia:noticia2",
+      "nivel": "alta",
+      "texto": "Instagram: no salió la historia de podcast tarde (su reel sí salió y la historia no se reintenta). Mirá el registro de \"Redes\": las historias de Meta aceptan hasta 60 segundos.",
+      "desde": "2026-11-01T21:00:13.709Z"
     }
   ]
 }
