@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T21:33:21.567Z",
- "portada": 87,
- "archivo": 500,
- "esperandoCuerpo": 8,
+ "generado": "2026-11-01T22:09:47.578Z",
+ "portada": 85,
+ "archivo": 499,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-01T21:33:21.979Z",
+  "generado": "2026-11-01T22:09:47.904Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-01T19:36:36.285Z"
    },
    {
@@ -53,7 +53,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-01T19:36:36.285Z",
     "segundos": null,
     "notas": [
@@ -126,12 +126,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 48,
     "notas": [
      {
-      "id": "19mge3x",
-      "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
-      "seccion": "Balcarce"
+      "id": "8unkfp",
+      "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "al4nhx",
@@ -139,8 +139,8 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "ucd67q",
-      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
       "seccion": "Argentina"
      },
      {
@@ -176,9 +176,9 @@
    ],
    "cola": [
     {
-     "id": "19mge3x",
-     "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
-     "seccion": "Balcarce",
+     "id": "8unkfp",
+     "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -188,27 +188,27 @@
      "marcada": false
     },
     {
-     "id": "1rpk5d1",
-     "titulo": "Rodolfo D'Onofrio cuestiona al arbitraje en el Superclásico",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "4mq1wo",
      "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "89822l",
-     "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
-     "seccion": "Economía",
+     "id": "1rpk5d1",
+     "titulo": "Rodolfo D'Onofrio cuestiona al arbitraje en el Superclásico",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
      "id": "ucd67q",
      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "89822l",
+     "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
+     "seccion": "Economía",
      "marcada": false
     },
     {

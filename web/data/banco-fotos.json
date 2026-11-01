@@ -62424,7 +62424,8 @@
    "corresponde": "si",
    "descripcion": "Jugador del Atlético de Madrid celebrando un gol."
   },
-  "huella": "eeae2e3175999a13"
+  "huella": "eeae2e3175999a13",
+  "ausenteDesde": "2026-11-01T22:09:47.504Z"
  },
  "exokac": {
   "archivo": "fotos-notas/exokac.jpg",
@@ -63267,7 +63268,8 @@
    "corresponde": "si",
    "descripcion": "Dos futbolistas disputando la pelota en el césped durante un partido."
   },
-  "huella": "46145da969a94d6b"
+  "huella": "46145da969a94d6b",
+  "ausenteDesde": "2026-11-01T22:09:47.504Z"
  },
  "5euqdj": {
   "archivo": "fotos-notas/5euqdj.jpg",
@@ -65484,7 +65486,8 @@
    "corresponde": "si",
    "descripcion": "Di Lollo celebrando el gol en solitario con euforia"
   },
-  "huella": "ad899396b1e9cbab"
+  "huella": "ad899396b1e9cbab",
+  "ausenteDesde": "2026-11-01T22:09:47.504Z"
  },
  "8039du": {
   "archivo": "fotos-notas/8039du.jpg",
@@ -65598,7 +65601,8 @@
    "corresponde": "si",
    "descripcion": "Festejo de los jugadores de Boca."
   },
-  "huella": "b3d5b3a3e9c95cd6"
+  "huella": "b3d5b3a3e9c95cd6",
+  "ausenteDesde": "2026-11-01T22:09:47.504Z"
  },
  "1rpk5d1": {
   "archivo": "fotos-notas/1rpk5d1.jpg",
@@ -65680,5 +65684,63 @@
   "cuando": "2026-11-01T21:32:38.909Z",
   "intentos": 1,
   "fuentes": 5
+ },
+ "8unkfp": {
+  "archivo": "fotos-notas/8unkfp.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/rocio-espinillo-la-madrina-de-la-fiesta-del-postre-nuevamente-presente-en-la-22-edicion-del-evento",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/noviembre/Rocio_Esp3.jpg",
+  "razon": "Es la única imagen completa que muestra a la protagonista de la nota en plena acción de pastelería, con buen encuadre y sin marcas de agua ni menores.",
+  "cuando": "2026-11-01T22:06:36.431Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mujer con delantal de pastelería trabajando en una mesa con ingredientes y postres."
+  },
+  "huella": "9e8e9c24925163e4"
+ },
+ "vqyoy3": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
+  "razon": "Ninguna de las fotos cumple con todos los requisitos sin problemas (A tiene marca de agua y B no corresponde al hecho de la iluminación de monumentos porteños).",
+  "cuando": "2026-11-01T22:06:36.431Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1kqftvf": {
+  "archivo": "fotos-notas/1kqftvf.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca le gana uno a cero a River y lidera la tabla anual",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/01/el-superclasico-tambien-se-vive-en-las-redes-sociales-los-mejores-memes-el-partido-entre-boca-y-river-por-el-torneo-clausura/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-superclasico-tambien-se-vive-en-las-redes-sociales-los-mejores-memes-el-partido-entre-boca-y-river-por-el-torneo-clausura-foto-reuters-y-x-6XF3IMVAVJCTRCXC2TXSRYFQPY.jpg?auth=f6ef343c5a4512e6480bc2ae50dcb5e6b877ca42711995128761ecf7e0ce4a9e&width=1023",
+  "razon": "Es la única foto fotográfica real que corresponde directamente al partido de fútbol entre Boca y River, con buena nitidez y sin marcas de agua, menores ni gráficos agregados.",
+  "cuando": "2026-11-01T22:06:36.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando un partido de fútbol."
+  },
+  "huella": "79d9594beacddfbf"
  }
 }
