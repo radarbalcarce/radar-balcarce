@@ -62,14 +62,13 @@ jobs:
 
       # El JSON va por un pipe directo a wrangler: el valor no se imprime nunca. Vacío = no se carga y el Worker conserva el que tenía.
       - name: Cargar el token del bot
-        if: env.QUE == 'telegram' && env.TELEGRAM_TOKEN != ''
+        if: env.QUE == 'telegram'
         working-directory: v3/redaccion/telegram
-        run: node -e "process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))" | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-
-      - name: Avisar si falta el token
-        if: env.QUE == 'telegram' && env.TELEGRAM_TOKEN == ''
-        run: echo "TELEGRAM_TOKEN no está en GitHub Secrets. El Worker quedó subido pero no se conecta hasta que una persona pegue el token (REGLAS.md)."
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ]; then
+            echo "TELEGRAM_TOKEN no está en GitHub Secrets. El Worker quedó subido pero no se conecta hasta que una persona pegue el token (REGLAS.md)."
+            exit 0
+          fi
+          node -e 'process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
