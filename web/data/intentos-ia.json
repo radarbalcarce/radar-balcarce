@@ -2827,13 +2827,6 @@
   "textos": 1,
   "numeradas": 2
  },
- "1f76ep8": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T11:31:05.154Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5
- },
  "1f8v713": {
   "intentos": 1,
   "ultimo": "2026-10-30T19:31:43.802Z",
@@ -7669,6 +7662,20 @@
   "textos": 4,
   "numeradas": 13
  },
+ "6azwmc": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T11:31:16.146Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 252 palabras",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 19 palabras seguidas del original (\"en una nueva edicion del superclasico del futbol argentino el encuentro correspondiente a la…\"): d"
+  ]
+ },
  "6cuttf": {
   "intentos": 1,
   "ultimo": "2026-10-28T21:32:03.521Z",
@@ -9230,17 +9237,6 @@
   "textos": 4,
   "numeradas": 15
  },
- "euinjx": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T11:31:05.154Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 14,
-  "motivos": [
-   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl",
-   "cuerpo: 3 problemas (repite, promesa): el cuerpo repite el copete en v"
-  ]
- },
  "evukr6": {
   "intentos": 1,
   "ultimo": "2026-10-27T21:31:39.847Z",
@@ -10270,24 +10266,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "kull4p": {
-  "intentos": 5,
-  "ultimo": "2026-10-25T11:31:05.154Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la fuente no",
-  "textos": 7,
-  "numeradas": 9,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la ",
-   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r",
-   "título o bajada: 1 problema (nombre): el copete nombra a \"nunez\" y la "
-  ],
-  "falla": [
-   "el copete nombra a \"nunez\" y la fuente no",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el título dice 14 y el cuerpo no lo explica"
-  ]
- },
  "kuwqxi": {
   "intentos": 1,
   "ultimo": "2026-10-29T17:03:20.654Z",
@@ -10412,6 +10390,13 @@
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
    "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el"
   ]
+ },
+ "lq0upc": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T11:31:16.146Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "lqnqti": {
   "intentos": 1,
@@ -12474,6 +12459,23 @@
    "cuerpo: 1 problema (fecha): el cuerpo menciona \"lunes\" y la fuente no;"
   ]
  },
+ "wbexh1": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T11:31:16.146Z",
+  "motivo": "título o bajada: 1 problema (numero): el copete dice 40 y la fuente no lo dice",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "título o bajada: 1 problema (numero): el copete dice 40 y la fuente no"
+  ],
+  "falla": [
+   "el copete dice 40 y la fuente no lo dice",
+   "el cuerpo dice 40 y la fuente no lo dice",
+   "el cuerpo dice 2.000 y la fuente no lo dice",
+   "el título nombra a \"river\", \"boca\" y el cuerpo no los explica"
+  ]
+ },
  "wboe1p": {
   "intentos": 1,
   "ultimo": "2026-10-30T20:01:51.897Z",
@@ -12644,6 +12646,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "x1v1ef": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T11:31:16.146Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 7
  },
  "x2hlrk": {
   "intentos": 2,
