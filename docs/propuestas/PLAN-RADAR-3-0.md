@@ -270,6 +270,11 @@ El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no
   escribir código de rutina, revisar) las hagan modelos chicos. Regla de trabajo para toda la 3.0: subagentes con `haiku` para búsquedas y
   mediciones y `sonnet` para código y revisión; el grande, para las decisiones y lo delicado. Si hace falta, un *workflow* de construcción
   que reparta las tareas así (el usuario lo pide con «usá un workflow»).
+- **Compartir desde cada nota (sitio 3.0, pedido de Hernán del 1/11):** un botón «Compartir» que abre la hoja de compartir del celular
+  (Web Share API, `navigator.share` con `files`) con **la tarjeta de la nota como imagen más el enlace**, para que la gente la suba a sus
+  historias de Instagram y TikTok, estados de WhatsApp, etc. (Instagram y TikTok no tienen enlace web de «compartir»: sólo entran por esa
+  hoja, y reciben imagen, no enlace); en la PC cae a «copiar enlace». Al lado, los directos que sí existen: WhatsApp, Facebook, X y Telegram,
+  más «copiar enlace». Sin íconos sueltos de Instagram ni TikTok. Se mide con el parámetro de origen de cada enlace (UTM) como hoy.
 - **Cuentas, para que no vuelva a pasar (1/11):** el `gh` de la PC quedó logueado como `radarbalcarce` (con permiso `workflow`) y el
   repositorio empuja sólo con esa cuenta; nada con `balcar-dev` ni con `hacheaccomo`. El Chrome de Radar es el tercero de los conectados
   (GitHub como radarbalcarce); el otro Chrome de Windows tiene la cuenta personal de Hernán (ahí quedó a medio crear una propiedad de
