@@ -57050,9 +57050,9 @@
   "origen": "ninguna",
   "titulo": "El papa León XIV vota por correo en las elecciones de Estados Unidos",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-10-30T21:02:58.062Z",
-  "intentos": 2,
-  "fuentes": 4,
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 3,
+  "fuentes": 12,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ocwksr": {
@@ -61244,10 +61244,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Manchester City recibe a Brighton por la Premier League",
-  "razon": "Ninguna de las imágenes es apta: la A y la C son gráficas (flyers) y la B es una captura de pantalla de un video con un botón de reproducción superpuesto.",
-  "cuando": "2026-10-31T22:32:58.702Z",
-  "intentos": 3,
-  "fuentes": 6
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 4,
+  "fuentes": 10,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "dbup6y": {
   "archivo": "fotos-notas/dbup6y.jpg",
@@ -61764,10 +61765,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca y River afinan sus formaciones para disputar el Superclásico",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
-  "cuando": "2026-10-31T19:32:08.098Z",
-  "intentos": 1,
-  "fuentes": 4
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 2,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "qbo76i": {
   "intentado": true,
@@ -62356,10 +62358,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
-  "razon": "La foto A es una captura de pantalla de una transmisión televisiva y la foto B tiene una marca de agua sobreimpresa por la agencia de noticias.",
-  "cuando": "2026-10-31T22:32:58.702Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 2,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "mt1wy8": {
   "archivo": "fotos-notas/mt1wy8.jpg",
@@ -62819,5 +62822,35 @@
    "descripcion": "Esteban Ocon con indumentaria de Haas junto a una integrante del equipo."
   },
   "huella": "180898b081d595c7"
+ },
+ "xspppd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Javier Milei inaugura un templo evangélico en la ciudad de Neuquén",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 1,
+  "fuentes": 13,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "1wmzer6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "ANSES paga un bono de 70.000 pesos y aumenta los haberes en noviembre",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "u0p8o0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emiten alertas amarillas por tormentas en Mendoza y el AMBA",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-01T00:01:47.489Z",
+  "intentos": 1,
+  "fuentes": 15,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  }
 }
