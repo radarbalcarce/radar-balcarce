@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T17:38:19.271Z",
- "portada": 82,
+ "generado": "2026-11-01T18:04:13.854Z",
+ "portada": 87,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-11-01T17:38:19.750Z",
+  "generado": "2026-11-01T18:04:14.170Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,10 +93,15 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1preq",
+      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1ewmn8c",
       "titulo": "Marcela Legarreta y los Nuevos Cocineritos abren la Fiesta Nacional del Postre",
@@ -108,14 +113,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "al4nhx",
-      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "ucd67q",
-      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
-      "seccion": "Argentina"
+      "id": "28qoem",
+      "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
+      "seccion": "Agro"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 55,
     "notas": [
      {
       "id": "11fke2d",
@@ -134,19 +134,19 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "mlnw2g",
-      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
-      "seccion": "Automovilismo"
+      "id": "vyry2k",
+      "titulo": "Las iglesias evangélicas celebran el Día de las Iglesias con una jornada solidaria",
+      "seccion": "Balcarce"
      },
      {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
-      "seccion": "Política"
+      "id": "1qwgpj",
+      "titulo": "Registran granizo y lluvias intensas en la zona rural",
+      "seccion": "Agro"
      },
      {
-      "id": "1c47hrh",
-      "titulo": "Un cerdo causa un choque múltiple entre cuatro autos en la autopista Buenos Aires-La Plata",
-      "seccion": "Policiales"
+      "id": "qz7l9a",
+      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
+      "seccion": "Deportes"
      }
     ]
    }

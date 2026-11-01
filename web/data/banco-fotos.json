@@ -53566,7 +53566,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:43.542Z",
-  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2023/08/WhatsApp-Image-2023-08-26-at-10.22.39-1.jpeg"
+  "imagenOriginal": "https://mi8.com.ar/wp-content/uploads/2023/08/WhatsApp-Image-2023-08-26-at-10.22.39-1.jpeg",
+  "ausenteDesde": "2026-11-01T18:04:13.787Z"
  },
  "wfxnpc": {
   "intentado": true,
@@ -53782,7 +53783,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:45.746Z",
-  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/261029-TPista-Rafaela.jpeg"
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/261029-TPista-Rafaela.jpeg",
+  "ausenteDesde": "2026-11-01T18:04:13.787Z"
  },
  "1kz5p2j": {
   "archivo": "fotos-notas/1kz5p2j.jpg",
@@ -57551,7 +57553,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre futbolistas de Boca y River"
   },
-  "huella": "5b49584948d994a9"
+  "huella": "5b49584948d994a9",
+  "ausenteDesde": "2026-11-01T18:04:13.787Z"
  },
  "cj8n2f": {
   "archivo": "fotos-notas/cj8n2f.jpg",
@@ -62496,11 +62499,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Rituales de Feng Shui para renovar energías y atraer abundancia en noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-11-01T02:02:43.353Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
+  "cuando": "2026-11-01T18:02:53.269Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "q5lpx1": {
   "archivo": "fotos-notas/q5lpx1.jpg",
@@ -63444,13 +63447,40 @@
   "intentosPorCupo": 3
  },
  "ipq35m": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Estudiantes empata ante Instituto y queda sin chances en el Torneo Clausura",
-  "razon": "Ninguna foto cumple con todos los requisitos: A y B son fotos genéricas de un balón, C muestra jugadores de otro partido (Huracán vs Barracas Central), y D tiene una marca de agua superpuesta del medio Doble Amarilla.",
-  "cuando": "2026-11-01T08:01:56.114Z",
-  "intentos": 1,
-  "fuentes": 4
+  "archivo": "fotos-notas/1t1hare.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes empata 3 a 3 con Instituto por el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-instituto-fecha-15-id769346.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/31/1001729/estudiantes-se-repuso-de-un-0-3-con-uno-menos_1440x810.webp",
+  "razon": "Es una fotografía nítida, de buena calidad y encuadre que muestra el festejo de un partido, sin marcas de agua agregadas ni menores.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores celebrando un gol en el campo de juego.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes de La Plata celebran un gol durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "731bb92d29a92d1d"
  },
  "w8foef": {
   "archivo": "fotos-notas/w8foef.jpg",
@@ -63768,10 +63798,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Las iglesias evangélicas celebran el Día de las Iglesias con una jornada solidaria",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Diario La Vanguardia (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-11-01T13:02:27.449Z",
-  "intentos": 1,
-  "fuentes": 4
+  "razon": "Ninguna de las fotos corresponde al hecho de las iglesias evangélicas celebrando el Día de las Iglesias con una jornada solidaria; las opciones A y D muestran una toma aérea genérica de la plaza principal de Balcarce, la B muestra personas de espaldas sin relación clara con el evento y la C muestra ",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "intentos": 2,
+  "fuentes": 5
  },
  "11ujsil": {
   "intentado": true,
@@ -63907,10 +63937,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Belgrano recibe a Barracas Central por el Torneo Clausura",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota); la de El Día (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-11-01T14:03:46.886Z",
-  "intentos": 1,
-  "fuentes": 9
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TyC Sports (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "intentos": 2,
+  "fuentes": 10
  },
  "n1l0p4": {
   "archivo": "fotos-notas/n1l0p4.jpg",
@@ -64695,5 +64725,116 @@
    "descripcion": "Primer plano de una mujer mayor maquillada enfocando la zona de los labios"
   },
   "huella": "37b7b73336363ebc"
+ },
+ "1qwgpj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Registran granizo y lluvias intensas en la zona rural",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "ka8vq5": {
+  "archivo": "fotos-notas/ka8vq5.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River disputan una nueva edición del Superclásico en La Bombonera",
+  "enlace": "https://www.lanacion.com.ar/deportes/gana-boca-o-river-la-prediccion-de-un-tarotista-sobre-el-superclasico-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/la-prediccion-de-un-tarotista-sobre-el-HBSMVAQEPNC5BCYCSMIFVF4MWQ.jpg?auth=aac2e9b179b235c054343b51d66141cdc695575db33a849095342339c159b53f&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto que ilustra correctamente el Superclásico con jugadores de ambos equipos sin elementos extraños ni marcas sobreimpresas.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de River y Boca celebrando"
+  },
+  "huella": "a329612f5952163d"
+ },
+ "1ijhndu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Aníbal Moreno queda descartado en River para enfrentar a Boca",
+  "razon": "Ninguna foto corresponde a la nota: la A muestra a un miembro del cuerpo técnico (presumiblemente Marcelo Escudero o similar), mientras que la B y la C muestran a un jugador con tatuajes y camiseta alternativa de River que no es Aníbal Moreno.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "1t1hare": {
+  "archivo": "fotos-notas/1t1hare.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes empata 3 a 3 con Instituto por el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-estudiantes-vs-instituto-fecha-15-id769346.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/31/1001729/estudiantes-se-repuso-de-un-0-3-con-uno-menos_1440x810.webp",
+  "razon": "Es una fotografía nítida, de buena calidad y encuadre que muestra el festejo de un partido, sin marcas de agua agregadas ni menores.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores celebrando un gol en el campo de juego.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes de La Plata celebran un gol durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "731bb92d29a92d1d"
+ },
+ "1preq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+  "razon": "La mejor foto era la de Puntonueve (FM 100.9), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "28qoem": {
+  "archivo": "fotos-notas/28qoem.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/inta-efectivizo-la-exoneracion-de-virginia-aparicio-la-despojo-de-su-oficina-y-de-la-eea-balcarce",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Virginia%20Aparicio.jpg",
+  "razon": "La foto A muestra claramente a la investigadora Virginia Aparicio mencionada en la nota, con buena nitidez y sin marcas ni problemas.",
+  "cuando": "2026-11-01T18:02:53.269Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio hablando en una conferencia o panel con auriculares y micrófono"
+  },
+  "huella": "0404048747476764"
  }
 }
