@@ -364,13 +364,6 @@
    "título o bajada: 1 problema (lugar): el título pone Balcarce y la nota"
   ]
  },
- "125cdkx": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T17:31:37.482Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
- },
  "125rbr9": {
   "intentos": 1,
   "ultimo": "2026-10-30T15:03:15.372Z",
@@ -1322,6 +1315,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "181j9oz": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "181uud7": {
   "intentos": 4,
   "ultimo": "2026-10-28T08:02:05.536Z",
@@ -1927,6 +1927,16 @@
   "textos": 2,
   "numeradas": 3
  },
+ "1b0plcb": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 2.026 y el cuerpo no lo e"
+  ]
+ },
  "1b0ty7b": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:32:40.550Z",
@@ -2126,6 +2136,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1c47hrh": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 10
  },
  "1c4t8zx": {
   "intentos": 2,
@@ -2721,6 +2738,13 @@
   "textos": 5,
   "numeradas": 15
  },
+ "1ewmn8c": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "1eyw6y8": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -2885,19 +2909,14 @@
   "numeradas": 4
  },
  "1fqpogt": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T17:03:27.964Z",
-  "motivo": "cuerpo: 3 problemas (forma, nombre, repite): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones queda",
+  "intentos": 2,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 8,
   "motivos": [
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
    "cuerpo: 3 problemas (forma, nombre, repite): el cuerpo trae un escape "
-  ],
-  "falla": [
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el cuerpo nombra a \"sep\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1fvq48q": {
@@ -4662,13 +4681,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1o2uiov": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T17:31:37.482Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 5
- },
  "1o4foi6": {
   "intentos": 3,
   "ultimo": "2026-10-27T04:02:20.664Z",
@@ -5203,6 +5215,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 7
+ },
+ "1qmg5i0": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "1qmlfo0": {
   "intentos": 1,
@@ -6400,6 +6419,23 @@
   "numeradas": 21,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
+  ]
+ },
+ "1we22fg": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "cuerpo: 8 problemas (nombre, antecedente, relleno, repite): el cuerpo nombra a \"alberto\" y la fuente no; sin esas oraciones quedan 225 palabras",
+  "textos": 7,
+  "numeradas": 8,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, relleno, repite): el cuerpo nombra a \"alb",
+   "cuerpo: 8 problemas (nombre, antecedente, relleno, repite): el cuerpo "
+  ],
+  "falla": [
+   "el cuerpo nombra a \"alberto\" y la fuente no",
+   "el cuerpo usa \"autodromo\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"hermanos\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"rodriguez\", que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "1wiu5wj": {
@@ -13021,17 +13057,20 @@
   "numeradas": 4
  },
  "yvutej": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T17:03:27.964Z",
-  "motivo": "cuerpo: 2 problemas (copia, tildes): copia 19 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 260 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-01T17:32:43.337Z",
+  "motivo": "cuerpo: 3 problemas (repite, copia, tildes): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 135 palabras",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "cuerpo: 6 problemas (nombre, fecha, copia, tildes): el cuerpo nombra a",
-   "cuerpo: 2 problemas (copia, tildes): copia 19 palabras seguidas del or"
+   "cuerpo: 2 problemas (copia, tildes): copia 19 palabras seguidas del or",
+   "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"turismo\" y la fuente",
+   "cuerpo: 3 problemas (repite, copia, tildes): el cuerpo repite el copet"
   ],
   "falla": [
-   "copia 19 palabras seguidas del original (\"de la undecima y anteultima fecha de la temporada el piloto mendocino del equipo…\"): decilo con ot",
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 19 palabras seguidas del original (\"la mas veloz de la undecima y anteultima fecha de la temporada el piloto…\"): decilo con otras pala",
    "el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden"
   ]
  },
