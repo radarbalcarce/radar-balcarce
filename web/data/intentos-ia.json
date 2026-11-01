@@ -1541,6 +1541,20 @@
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"club\" y la fuente no"
   ]
  },
+ "18prhjk": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T07:01:38.456Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 289 palabras",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"perfi",
+   "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 24 palabras seguidas del original (\"unas 758 000 personas vendieron un total de u s425 millones desde la flexibilizacion…\"): decilo co"
+  ]
+ },
  "18pvagd": {
   "intentos": 3,
   "ultimo": "2026-10-27T23:31:31.031Z",
@@ -2506,6 +2520,13 @@
  "1df6339": {
   "intentos": 1,
   "ultimo": "2026-10-28T17:32:52.339Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
+ "1dg1g9r": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T07:01:38.456Z",
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
@@ -5077,10 +5098,10 @@
   "numeradas": 4
  },
  "1p5bkzu": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T20:01:54.125Z",
+  "intentos": 2,
+  "ultimo": "2026-11-01T07:01:38.456Z",
   "motivo": "con cuerpo",
-  "textos": 3,
+  "textos": 4,
   "numeradas": 4
  },
  "1p6569g": {
@@ -8399,14 +8420,15 @@
   ]
  },
  "a3w48y": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T06:01:23.164Z",
-  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-11-01T07:01:38.456Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (cita): el cuerpo pone entre comillas algo que la f",
-   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
+   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t",
+   "cuerpo: 6 problemas (numero, relleno, copia): el cuerpo dice 30 y la f"
   ]
  },
  "a4rmv5": {
@@ -9676,6 +9698,13 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
+ "g65uym": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T07:01:38.456Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 19
+ },
  "g8jls1": {
   "intentos": 1,
   "ultimo": "2026-10-28T03:01:41.368Z",
@@ -10174,17 +10203,13 @@
   "numeradas": 1
  },
  "j6mikq": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T06:01:23.164Z",
-  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+  "intentos": 2,
+  "ultimo": "2026-11-01T07:01:38.456Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
-  ],
-  "falla": [
-   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo tiene una frase de relleno sin dato: \"consolidando\""
   ]
  },
  "j9wvk7": {
@@ -10698,6 +10723,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 8
+ },
+ "mci3rv": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T07:01:38.456Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "mcrhzc": {
   "intentos": 1,

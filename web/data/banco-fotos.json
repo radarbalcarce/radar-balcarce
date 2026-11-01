@@ -53323,7 +53323,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:53.786Z",
-  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcrqHsm6nHrxCsFUYM-u3uVjyRvrj4VnmGx9aAOUhRNUIUUZ-bEilY3rOUpZCFXEGX8XrS3NwoVn-1w8tUcdxcBo_MS7VjTxdIj732LgtPtfmUK1mWlq7Fh9sQA9Uxdih0Sh6iD4sMxrvgqv3Auql6SYnEs-5C4G6jLxa9bTg-4z56kEuDAFvZq818zTw/w640-h428/lluvia.jpg"
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcrqHsm6nHrxCsFUYM-u3uVjyRvrj4VnmGx9aAOUhRNUIUUZ-bEilY3rOUpZCFXEGX8XrS3NwoVn-1w8tUcdxcBo_MS7VjTxdIj732LgtPtfmUK1mWlq7Fh9sQA9Uxdih0Sh6iD4sMxrvgqv3Auql6SYnEs-5C4G6jLxa9bTg-4z56kEuDAFvZq818zTw/w640-h428/lluvia.jpg",
+  "ausenteDesde": "2026-11-01T07:02:55.310Z"
  },
  "1v8hw3b": {
   "archivo": "fotos-notas/q0z4qj.jpg",
@@ -61955,8 +61956,7 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0f8f8f06d5171703",
-  "ausenteDesde": "2026-10-31T21:34:54.567Z"
+  "huella": "0f8f8f06d5171703"
  },
  "k50ygu": {
   "intentado": true,
@@ -63200,13 +63200,28 @@
   "huella": "9d4ddd65416189c2"
  },
  "1nvpv7e": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1nvpv7e.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Torneo Clausura 2026 disputa la decimoquinta fecha con partidos clave",
-  "razon": "Todas las imágenes presentan marcas de agua sobreimpresas por los medios, son capturas de pantalla de transmisiones (gráficas) o contienen elementos de interfaz de video que impiden su uso.",
-  "cuando": "2026-11-01T02:02:43.353Z",
-  "intentos": 1,
-  "fuentes": 6
+  "enlace": "https://www.a24.com/deportes/superclasico-como-esta-el-historial-boca-y-river-n1611876",
+  "imagenOriginal": "https://media.a24.com/p/7c38f4895f47276174dbee5ad7bea361/adjuntos/296/imagenes/009/841/0009841105/1200x675/smart/imagenes-notas-a24-2026-10-30t142742791.png",
+  "razon": "Es la única foto de acción clara, sin marcas agregadas, sin menores, nítida y correspondiente a la nota.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos futbolistas disputando la pelota en el césped durante un partido."
+  },
+  "huella": "46145da969a94d6b"
  },
  "5euqdj": {
   "intentado": true,
@@ -63271,5 +63286,108 @@
   "cuando": "2026-11-01T06:04:18.106Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "a3w48y": {
+  "archivo": "fotos-notas/a3w48y.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/morena-beltran-se-quejo-por-los-insultos-de-hinchas-de-estudiantes-no-se-puede-trabajar-nid01112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/morena-beltran-reclamo-respeto-tras-recibir-Y5MCJUJFHNHZLFHJF4AWPUBYVU.jpg?auth=5312ca74f297353a8b405217e24248ed82298a63cc1a864980093450d19cc815&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto adecuada que muestra a Morena Beltrán de cerca en el estadio sin marcas agregadas, menores ni problemas de calidad.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Selfie de Morena Beltrán en la tribuna del estadio con asientos azules",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Selfie de una mujer rubia en las gradas de un estadio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "cececa86b3363c3c"
+ },
+ "g65uym": {
+  "archivo": "fotos-notas/g65uym.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico en La Bombonera por el Clausura",
+  "enlace": "https://bolavip.com/ar/boca/medio-equipo-nuevo-asi-formo-boca-en-el-ultimo-superclasico-en-la-bombonera",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/10/31100258/Boca-Juniors-2-1200x740.webp",
+  "razon": "Es la foto con mejor encuadre y nitidez, muestra claramente a los jugadores celebrando en La Bombonera sin marcas de agua ni elementos gráficos.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca festejando en la cancha"
+  },
+  "huella": "9fbd94a27050b06d"
+ },
+ "mci3rv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Detallan un truco casero para limpiar la freidora de aire",
+  "razon": "Ninguna foto sirve para ilustrar la nota ya que la imagen proporcionada es un dibujo que no corresponde al tema de la freidora de aire.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1dg1g9r": {
+  "archivo": "fotos-notas/1dg1g9r.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Vicente López encabeza el ranking de gestión urbana de la UBA",
+  "enlace": "https://perfil.com/sociedad/vicente-lopez-y-tres-de-febrero-son-los-mejores-distritos-para-vivir-aRQYi8O3OgQp",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/36baa2e499b2-01112026vicentelopezcedocg.webp",
+  "razon": "La foto A muestra la misma escena urbana sin la marca de agua que tiene la foto B.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de Vicente López junto al río con edificios de fondo"
+  },
+  "huella": "787c73616c1d5dd9"
+ },
+ "j6mikq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Emilia Mernes estrena Bodypainting y responde a las críticas",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
+  "cuando": "2026-11-01T07:02:17.482Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
  }
 }
