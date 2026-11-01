@@ -62318,11 +62318,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-01T00:32:38.435Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-01T04:01:57.886Z",
   "intentos": 1,
-  "fuentes": 11,
-  "intentosPorCupo": 2
+  "fuentes": 16,
+  "intentosPorCupo": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1sgedwu": {
   "archivo": "fotos-notas/1sgedwu.jpg",
@@ -62617,11 +62618,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Noviembre llega con aumentos en tarifas, transporte, prepagas y alquileres",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-01T00:32:38.435Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-01T04:01:57.886Z",
   "intentos": 1,
   "fuentes": 11,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1v3oanf": {
   "archivo": "fotos-notas/1v3oanf.jpg",
@@ -63198,5 +63200,30 @@
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1
+ },
+ "14mbldk": {
+  "archivo": "fotos-notas/14mbldk.jpg",
+  "medio": "Letra P",
+  "credito": "Foto: Letra P",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los hermanos Passaglia lanzan su campaña presidencial en San Nicolás",
+  "enlace": "https://www.letrap.com.ar//politica/manuel-y-santiago-passaglia-lanzaron-su-campana-presidencial-criticas-javier-milei-y-al-kirchnerismo-n5427881",
+  "imagenOriginal": "https://media.letrap.com.ar/p/aca7d5ccb0185817b417448d3c0ebd28/adjuntos/349/imagenes/100/201/0100201999/1200x630/smart/unknown-4.jpeg",
+  "razon": "Es la única imagen de la lista, muestra claramente a los candidatos en el acto de lanzamiento y no presenta marcas de agua ni menores.",
+  "cuando": "2026-11-01T04:01:57.886Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos hombres en trajes saludan desde atriles con el cartel 'PASSAGLIA 2027' frente a un edificio con cúpula."
+  },
+  "huella": "0001038594ccc4a2"
  }
 }
