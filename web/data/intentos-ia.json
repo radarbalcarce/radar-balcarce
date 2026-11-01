@@ -402,13 +402,6 @@
    "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
   ]
  },
- "12kpedr": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 21
- },
  "12l7i2z": {
   "intentos": 1,
   "ultimo": "2026-10-28T17:03:29.942Z",
@@ -749,13 +742,6 @@
   "motivos": [
    "cuerpo: 1 problema (copia): copia 19 palabras seguidas del original: d"
   ]
- },
- "14f8xgk": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "14fwad7": {
   "intentos": 2,
@@ -1239,16 +1225,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "17f0k0j": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 50,
-  "motivos": [
-   "Gemini: la respuesta no trae título"
-  ]
  },
  "17hlbx0": {
   "intentos": 1,
@@ -2703,16 +2679,6 @@
   "textos": 1,
   "numeradas": 2
  },
- "1eop5eb": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
-  ]
- },
  "1epe8uw": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:13:36.477Z",
@@ -4035,6 +4001,20 @@
   "textos": 5,
   "numeradas": 6
  },
+ "1le5agn": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:32:51.097Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 204 palabras",
+  "textos": 5,
+  "numeradas": 9,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
+ },
  "1liz0x8": {
   "intentos": 3,
   "ultimo": "2026-10-31T12:31:18.781Z",
@@ -4513,6 +4493,13 @@
   "motivos": [
    "cuerpo: 2 problemas (relleno, copia): el cuerpo tiene una frase de rel"
   ]
+ },
+ "1nm1r17": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:32:51.097Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 6
  },
  "1nmb7wc": {
   "intentos": 2,
@@ -6924,13 +6911,6 @@
   "textos": 2,
   "numeradas": 4
  },
- "2of31o": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "2rs9xh": {
   "intentos": 1,
   "ultimo": "2026-10-30T20:31:46.288Z",
@@ -7897,6 +7877,13 @@
   "motivos": [
    "título o bajada: 1 problema (nombre): el copete nombra a \"division\" y "
   ]
+ },
+ "7mjpj1": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:32:51.097Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 8
  },
  "7mq63d": {
   "intentos": 1,
@@ -10309,6 +10296,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "krdezb": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:32:51.097Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "krz5as": {
   "intentos": 1,
   "ultimo": "2026-10-26T12:02:11.561Z",
@@ -10374,13 +10368,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
- },
- "l9dohc": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 8
  },
  "lbj7x5": {
   "intentos": 1,
@@ -10719,13 +10706,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 4
- },
- "muohzi": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:31:49.212Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "mvto9m": {
   "intentos": 1,
@@ -13071,6 +13051,22 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 4
+ },
+ "yvutej": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:32:51.097Z",
+  "motivo": "cuerpo: 6 problemas (nombre, fecha, copia, tildes): el cuerpo nombra a \"turismo\" y la fuente no; sin esas oraciones quedan 120 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 6 problemas (nombre, fecha, copia, tildes): el cuerpo nombra a"
+  ],
+  "falla": [
+   "el cuerpo nombra a \"turismo\" y la fuente no",
+   "el cuerpo nombra a \"nacional\" y la fuente no",
+   "el cuerpo menciona \"sabado\" y la fuente no",
+   "el cuerpo menciona \"octubre\" y la fuente no"
+  ]
  },
  "ywafgd": {
   "intentos": 1,
