@@ -1496,6 +1496,15 @@
       ],
       "como": "foto",
       "fotoAlPublicar": "fotos-notas/f6043u.jpg"
+    },
+    "11fke2d": {
+      "cuando": "2026-11-01T18:36:02.094Z",
+      "postId": "1254237411116171_122118466263495512",
+      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+      "enlace": "https://radarbalcarce.com/nota/lujan-amadeo-repasa-su-camino-en-la-musica-tropical-y-anticipa-nuevos-11fke2d",
+      "temas": [],
+      "como": "foto",
+      "fotoAlPublicar": "fotos-notas/11fke2d.jpg"
     }
   },
   "instagram": {
@@ -7206,6 +7215,21 @@
       ],
       "postId": "122118402843495512",
       "permalink": "https://www.facebook.com/reel/1551101143448960/"
+    },
+    "2026-11-01/noticia2": {
+      "cuando": "2026-11-01T18:37:41.757Z",
+      "mediaId": "1637932127711219",
+      "nombre": "noticia2",
+      "tipo": "REELS",
+      "notaId": "1preq",
+      "notaIds": [
+        "1preq",
+        "1ewmn8c",
+        "1b31p4i",
+        "28qoem"
+      ],
+      "postId": "122118466719495512",
+      "permalink": "https://www.facebook.com/reel/1637932127711219/"
     }
   },
   "instagramFeed": {
@@ -8248,6 +8272,12 @@
       "mediaId": "18414890722080393",
       "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
       "enlace": "https://radarbalcarce.com/nota/amigos-unidos-y-ferroviarios-ganan-en-la-tercera-fecha-del-clausura-f6043u"
+    },
+    "11fke2d": {
+      "cuando": "2026-11-01T18:36:14.370Z",
+      "mediaId": "17916872652470360",
+      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+      "enlace": "https://radarbalcarce.com/nota/lujan-amadeo-repasa-su-camino-en-la-musica-tropical-y-anticipa-nuevos-11fke2d"
     }
   },
   "historiasDeReels": {
@@ -10341,6 +10371,14 @@
       "red": "facebook",
       "notaId": "lq0upc",
       "postId": "1880470242936661"
+    },
+    "facebook/2026-11-01/noticia2": {
+      "cuando": "2026-11-01T18:38:32.292Z",
+      "mediaId": "28640748318958150",
+      "nombre": "noticia2",
+      "red": "facebook",
+      "notaId": "1preq",
+      "postId": "1123539296937024"
     }
   },
   "problemas": {
@@ -10359,6 +10397,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-11-01T15:48:02.643Z",
       "intentos": 21
+    },
+    "2026-11-01/noticia2/instagram/reel": {
+      "pieza": "noticia2",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-11-01T18:36:22.873Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -11492,6 +11538,15 @@
       "tiktok": {
         "ok": true,
         "id": "6ae7409ef0984eef33699009",
+        "estado": "sending"
+      }
+    },
+    "2026-11-01/noticia2": {
+      "cuando": "2026-11-01T18:35:53.987Z",
+      "nombre": "noticia2",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae78729411773964795399f",
         "estado": "sending"
       }
     }
