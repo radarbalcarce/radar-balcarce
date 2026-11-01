@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T02:03:53.304Z",
- "portada": 125,
+ "generado": "2026-11-01T03:03:34.785Z",
+ "portada": 118,
  "archivo": 500,
- "esperandoCuerpo": 2,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-01T02:03:53.733Z",
+  "generado": "2026-11-01T03:03:35.272Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-31T10:36:31.499Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-10-31T12:36:29.727Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -43,17 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-10-31T20:08:23.018Z"
-   },
-   {
-    "nombre": "utiles",
-    "tipo": "reel",
-    "hora": "17:00",
-    "que": "Los teléfonos útiles",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +53,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +63,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,8 +73,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-11-01T00:36:35.211Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,39 +83,60 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "lmyi7o",
+      "titulo": "El Torneo Clausura completa su tercera fecha con triunfos de los líderes",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "1qobb2a",
+      "titulo": "Lulo Kazimirczyk presenta pastelería nórdica en la Fiesta del Postre",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "u1eoal",
+      "titulo": "Lucenza lanza la segunda edición del programa Mujeres al Volante",
+      "seccion": "Educación"
+     },
+     {
+      "id": "15hbmuo",
+      "titulo": "Las claves legales para dividir una vivienda tras una separación de pareja",
+      "seccion": "Balcarce"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-10-31T20:08:23.018Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
     "notas": [
      {
-      "id": "1ox7bm8",
-      "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
-      "seccion": "Policiales"
+      "id": "1b31p4i",
+      "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1d4nj79",
-      "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
+      "id": "qz7l9a",
+      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
       "seccion": "Deportes"
      },
      {
-      "id": "1n0ukpe",
-      "titulo": "Juan Bodega destaca la identidad que la Fiesta Nacional del Postre brinda a Balcarce",
-      "seccion": "Balcarce"
+      "id": "al4nhx",
+      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "10ibrn6",
-      "titulo": "Brasil convoca a la encargada de negocios argentina por la salida de Flávio Bolsonaro",
-      "seccion": "Política"
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -134,61 +145,35 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-11-01T00:36:35.211Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
     "notas": [
      {
-      "id": "1nacmhw",
-      "titulo": "La Escuela Primaria Nº 10 presenta su proyecto de huerta escolar",
-      "seccion": "Educación"
+      "id": "6ova04",
+      "titulo": "La PIA apela el sobreseimiento de los hermanos Milei en la causa $LIBRA",
+      "seccion": "Política"
      },
      {
-      "id": "1rmd8nx",
-      "titulo": "Recuerdan a las víctimas balcarceñas del derrumbe en Villa Gesell",
-      "seccion": "Balcarce"
+      "id": "fx345l",
+      "titulo": "Racing le gana 2 a 1 a Aldosivi y lo condena al descenso en Avellaneda",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1x9aj17",
-      "titulo": "Mambrunense cierra las clases de cocina en la Fiesta del Postre",
-      "seccion": "Cultura y agenda"
+      "id": "1b0e7lc",
+      "titulo": "Rafael Grossi logra su mejor desempeño en la votación para la ONU",
+      "seccion": "Argentina"
      },
      {
-      "id": "1sgedwu",
-      "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
+      "id": "mlnw2g",
+      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
       "seccion": "Automovilismo"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "10bkqp2",
-     "titulo": "Franco Colapinto afronta la última práctica y la clasificación en México",
-     "cuando": "2026-10-31T12:46:00.614Z"
-    },
-    {
-     "id": "r4bjyj",
-     "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-     "cuando": "2026-10-31T14:36:00.530Z"
-    },
-    {
-     "id": "z7i5op",
-     "titulo": "Raúl Cunqueiro repasa la historia de Blanco y Negro",
-     "cuando": "2026-10-31T16:36:03.415Z"
-    },
-    {
-     "id": "cpbebw",
-     "titulo": "Empresas de Balcarce realizan una gira comercial en Brasil",
-     "cuando": "2026-10-31T18:36:03.744Z"
-    },
-    {
-     "id": "1pa7ehp",
-     "titulo": "Paula Larroude presenta sabores patagónicos en la Fiesta del Postre",
-     "cuando": "2026-10-31T20:36:01.666Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "lmyi7o",
@@ -197,15 +182,9 @@
      "marcada": false
     },
     {
-     "id": "1rmd8nx",
-     "titulo": "Recuerdan a las víctimas balcarceñas del derrumbe en Villa Gesell",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1oo88r4",
-     "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
-     "seccion": "Argentina",
+     "id": "fjtb5",
+     "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -215,7 +194,7 @@
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-10-31T22:06:01.666Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,

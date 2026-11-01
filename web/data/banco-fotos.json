@@ -23182,9 +23182,7 @@
   "borrada": true
  },
  "2rqepx": {
-  "archivo": "fotos-notas/2rqepx.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "Menonne no descarta un candidato de La Cámpora para 2027",
@@ -23204,7 +23202,8 @@
    "descripcion": "Retrato de un hombre adulto con micrófono."
   },
   "huella": "b5b5b5b5b5b4f4e4",
-  "ausenteDesde": "2026-10-25T02:04:05.138Z"
+  "intentado": true,
+  "borrada": true
  },
  "18qkpo0": {
   "intentado": true,
@@ -23406,9 +23405,7 @@
   "ausenteDesde": "2026-10-25T06:03:58.583Z"
  },
  "ybejfk": {
-  "archivo": "fotos-notas/ybejfk.jpg",
   "medio": "La Tecla",
-  "credito": "Foto: La Tecla",
   "licencia": null,
   "origen": "medio",
   "titulo": "Intendentes bonaerenses debaten con industriales en Ezeiza",
@@ -23428,7 +23425,8 @@
    "descripcion": "Intendentes y funcionarios parados frente a la entrada del parque industrial en Ezeiza."
   },
   "huella": "280360527045ddc7",
-  "ausenteDesde": "2026-10-25T02:04:05.138Z"
+  "intentado": true,
+  "borrada": true
  },
  "cx9y9d": {
   "medio": "Bolavip Argentina",
@@ -24845,9 +24843,7 @@
   "ausenteDesde": "2026-10-25T12:02:03.720Z"
  },
  "1toth9e": {
-  "archivo": "fotos-notas/1toth9e.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Diego Maradona debuta en Primera con Argentinos Juniors",
@@ -24867,7 +24863,8 @@
    "descripcion": "Diego Maradona gambeteando con la camiseta de Argentinos Juniors."
   },
   "huella": "73b2e2d3ebea9a9b",
-  "ausenteDesde": "2026-10-25T02:04:05.138Z"
+  "intentado": true,
+  "borrada": true
  },
  "cg0vyu": {
   "intentado": true,
@@ -53374,7 +53371,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:51.039Z",
-  "imagenOriginal": "https://cdnartic.ar/SVEURH71DC2VGmXEiUhC6EvhyKE=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/07/peaje_la_vasconia_6.webp"
+  "imagenOriginal": "https://cdnartic.ar/SVEURH71DC2VGmXEiUhC6EvhyKE=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/07/peaje_la_vasconia_6.webp",
+  "ausenteDesde": "2026-11-01T03:03:34.693Z"
  },
  "1oxthyw": {
   "archivo": "fotos-notas/1oxthyw.jpg",
@@ -56469,7 +56467,8 @@
    "corresponde": "si",
    "descripcion": "León Gieco tocando la guitarra y Álvaro García Linera en un retrato"
   },
-  "huella": "672721212929a9c1"
+  "huella": "672721212929a9c1",
+  "ausenteDesde": "2026-11-01T03:03:34.693Z"
  },
  "1llj2g7": {
   "archivo": "fotos-notas/1llj2g7.jpg",
@@ -57932,7 +57931,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:51.379Z",
-  "imagenOriginal": "https://media.dib.com.ar/p/1937b1f177abc3869a0ca236b9313554/adjuntos/377/imagenes/100/051/0100051536/1200x675/smart/inti-protesta.jfif"
+  "imagenOriginal": "https://media.dib.com.ar/p/1937b1f177abc3869a0ca236b9313554/adjuntos/377/imagenes/100/051/0100051536/1200x675/smart/inti-protesta.jfif",
+  "ausenteDesde": "2026-11-01T03:03:34.693Z"
  },
  "um6cvc": {
   "archivo": "fotos-notas/um6cvc.jpg",
@@ -61724,7 +61724,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego en el partido entre Milan e Inter en San Siro"
   },
-  "huella": "a496869625676263"
+  "huella": "a496869625676263",
+  "ausenteDesde": "2026-11-01T03:03:34.693Z"
  },
  "1oo88r4": {
   "archivo": "fotos-notas/1oo88r4.jpg",
@@ -63056,7 +63057,8 @@
    "corresponde": "si",
    "descripcion": "Mapa satelital de cobertura nubosa y tormentas sobre Argentina."
   },
-  "huella": "96a2a3a1c2e3c1e1"
+  "huella": "96a2a3a1c2e3c1e1",
+  "ausenteDesde": "2026-11-01T03:03:34.693Z"
  },
  "a08xt5": {
   "archivo": "fotos-notas/a08xt5.jpg",
@@ -63175,5 +63177,26 @@
   "cuando": "2026-11-01T02:02:43.353Z",
   "intentos": 1,
   "fuentes": 6
+ },
+ "5euqdj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-01T03:03:19.678Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1nv0ui": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Feng Shui propone rituales con agua para renovar energías en noviembre",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
+  "cuando": "2026-11-01T03:03:19.678Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
  }
 }
