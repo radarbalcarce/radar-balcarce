@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T19:32:33.507Z",
- "portada": 91,
+ "generado": "2026-11-01T20:01:39.297Z",
+ "portada": 85,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 12,
  "redes": {
-  "generado": "2026-11-01T19:32:33.959Z",
+  "generado": "2026-11-01T20:01:39.588Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -44,7 +44,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-01T19:36:36.285Z"
    },
    {
     "nombre": "farmacia",
@@ -94,18 +94,18 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 53,
+    "salio": "2026-11-01T19:36:36.285Z",
+    "segundos": null,
     "notas": [
-     {
-      "id": "19mge3x",
-      "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
-      "seccion": "Balcarce"
-     },
      {
       "id": "1ewmn8c",
       "titulo": "Marcela Legarreta y los Nuevos Cocineritos abren la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1preq",
+      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+      "seccion": "Balcarce"
      },
      {
       "id": "1b31p4i",
@@ -129,8 +129,8 @@
     "segundos": 52,
     "notas": [
      {
-      "id": "1preq",
-      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+      "id": "19mge3x",
+      "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
       "seccion": "Balcarce"
      },
      {
@@ -195,6 +195,12 @@
      "marcada": false
     },
     {
+     "id": "4mq1wo",
+     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "1bcuezn",
      "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
      "seccion": "Fútbol",
@@ -204,12 +210,6 @@
      "id": "1u60y5j",
      "titulo": "El papa León XIV pide nuevas iniciativas de paz y destaca la tregua en Ucrania",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "4mq1wo",
-     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
