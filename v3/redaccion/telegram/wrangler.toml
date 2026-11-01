@@ -1,0 +1,17 @@
+# El bot de Telegram de Radar 3.0 (ver worker.mjs y REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (.github/workflows/v3-desplegar.yml).
+name = "radar-telegram"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+# La dirección https://radar-telegram.radarbalcarce.workers.dev es la que se le registra a Telegram (DIRECCION en worker.mjs).
+workers_dev = true
+
+[triggers]
+# Cada 15 minutos revisa que Telegram siga apuntando a este Worker; si no, lo registra. No cuesta nada si ya está bien.
+crons = ["*/15 * * * *"]
+
+# Quién es el dueño del bot y cuándo se revisó el webhook. El workflow crea el KV si no existe y reemplaza el marcador.
+[[kv_namespaces]]
+binding = "ESTADO"
+id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+# Secreto TELEGRAM_TOKEN: lo carga el workflow desde GitHub Secrets, o una persona en el panel de Cloudflare. Nunca acá.

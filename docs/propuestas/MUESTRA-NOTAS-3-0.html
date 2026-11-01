@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muestra: dos notas Radar 3.0</title>
+<style>
+  :root { --tinta:#14161A; --tinta-suave:#22262B; --papel:#fff; --texto:#3B403C; --gris:#F3F4F6; --linea:#E5E7EB;
+          --balcarce:#B91C1C; --futbol:#7C3AED; --marca:#1D4ED8; }
+  * { box-sizing:border-box }
+  body { margin:0; background:#ECEEF1; color:var(--texto); font:17px/1.55 Georgia, 'Times New Roman', serif }
+  .aviso { background:var(--tinta); color:#fff; padding:14px 16px; font:14px/1.5 system-ui, sans-serif }
+  .aviso b { color:#FCD34D }
+  article { background:var(--papel); max-width:720px; margin:20px auto; padding:22px 16px 32px }
+  .seccion { font:700 13px/1 system-ui, sans-serif; letter-spacing:.08em; text-transform:uppercase }
+  .seccion.balcarce { color:var(--balcarce) } .seccion.futbol { color:var(--futbol) }
+  h1 { font-size:30px; line-height:1.15; color:var(--tinta); margin:8px 0 10px; letter-spacing:-.01em }
+  .copete { font-size:19px; color:var(--tinta-suave); margin:0 0 14px }
+  figure { margin:0 -16px 16px } figure .foto { background:linear-gradient(135deg,#CBD5E1,#94A3B8); aspect-ratio:16/9; display:grid; place-items:center; color:#1E293B; font:14px system-ui, sans-serif }
+  figcaption { font:13px system-ui, sans-serif; color:#6B7280; padding:6px 16px 0 }
+  p { margin:0 0 14px }
+  .bloque { border:1px solid var(--linea); border-radius:10px; padding:14px 16px; margin:20px 0; font-family:system-ui, sans-serif; font-size:15px; position:relative; background:var(--papel) }
+  .bloque h2 { font:700 15px/1.2 system-ui, sans-serif; margin:0 0 10px; color:var(--tinta); text-transform:uppercase; letter-spacing:.06em }
+  .etq { position:absolute; top:-9px; right:12px; background:#FEF3C7; color:#92400E; font:600 10px/1 system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; padding:4px 7px; border-radius:999px }
+  .dos-lineas { background:var(--gris); border:none; font-size:16px; color:var(--tinta) }
+  .datos dl { display:grid; grid-template-columns:auto 1fr; gap:6px 14px; margin:0 }
+  .datos dt { color:#6B7280; font-weight:600 } .datos dd { margin:0; color:var(--tinta) }
+  .crono ol { list-style:none; margin:0; padding:0 0 0 18px; border-left:3px solid var(--futbol) }
+  .crono li { position:relative; padding:0 0 12px 12px } .crono li::before { content:''; position:absolute; left:-21px; top:6px; width:11px; height:11px; border-radius:50%; background:var(--futbol); border:2px solid #fff }
+  .crono b { display:block; color:var(--tinta) } .crono .hoy::before { background:#111 }
+  .cifras { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; text-align:center }
+  .cifras div { background:var(--gris); border-radius:8px; padding:12px 6px }
+  .cifras strong { display:block; font-size:34px; line-height:1; color:var(--futbol); margin-bottom:6px } .cifras small { font-size:12px; color:#4B5563; line-height:1.3; display:block }
+  .flujo { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:12px; font-size:13px } .flujo span { background:#EDE9FE; color:#4C1D95; border-radius:6px; padding:6px 8px } .flujo i { color:#9CA3AF }
+  .fuentes ul { margin:0; padding:0; list-style:none } .fuentes li { padding:8px 0; border-top:1px solid var(--linea) } .fuentes li:first-child { border-top:0 }
+  .fuentes b { color:var(--tinta) } .fuentes a { color:var(--marca); text-decoration:none; font-size:13px } .oficial { background:#DCFCE7; color:#166534; font-size:11px; padding:2px 6px; border-radius:4px; margin-left:6px; font-weight:600 }
+  .contexto { border-left:4px solid var(--marca) }
+  .antes a { display:block; color:var(--marca); text-decoration:none; padding:6px 0; border-top:1px solid var(--linea) } .antes a:first-of-type { border-top:0 }
+  .falta ul { margin:0; padding-left:18px }
+  .firma { font:14px system-ui, sans-serif; color:#6B7280; border-top:1px solid var(--linea); padding-top:12px; margin-top:24px }
+  .explica { background:#fff; max-width:720px; margin:20px auto 40px; padding:20px 16px; font:15px/1.55 system-ui, sans-serif; border-radius:10px }
+  .explica h2 { font-size:18px; color:var(--tinta); margin:0 0 10px } .explica table { width:100%; border-collapse:collapse; font-size:14px } .explica td, .explica th { text-align:left; padding:7px 6px; border-top:1px solid var(--linea); vertical-align:top } .explica th { color:#6B7280; font-weight:600 }
+  @media (max-width:420px){ .cifras strong{font-size:28px} h1{font-size:26px} }
+</style>
+</head>
+<body>
+
+<div class="aviso">
+  <b>Muestra, no publicada.</b> Dos notas reales de esta semana, escritas de nuevo como las escribiría Radar 3.0. Los recuadros con etiqueta amarilla los arma el <b>programa</b> con la ficha que la IA saca de las fuentes; la IA no los redacta y no puede inventar nada ahí. Las fotos son un lugar gris para no copiar la de otro medio en esta prueba.
+</div>
+
+<!-- ============ NOTA 1: BALCARCE ============ -->
+<article>
+  <div class="seccion balcarce">Balcarce</div>
+  <h1>Balcarce gestiona que los camioneros rindan acá los exámenes para la licencia profesional</h1>
+  <p class="copete">La Secretaría de Gobierno se reunió con el Sindicato de Camioneros de Mar del Plata y ofreció espacios municipales para las evaluaciones y las capacitaciones. La propuesta está en una etapa inicial.</p>
+
+  <figure><div class="foto">Foto elegida de las fuentes (la mejor de las 5, revisada por IA de visión)</div><figcaption>Foto: Radio Gabal (FM 104.1)</figcaption></figure>
+
+  <div class="bloque dos-lineas"><span class="etq">armado por programa</span>
+    <h2>En dos líneas</h2>
+    El municipio quiere que los conductores profesionales de Balcarce no tengan que viajar a Mar del Plata para rendir los exámenes de la licencia. Ya habló con el gremio y espera la respuesta de las autoridades que deben autorizarlo.
+  </div>
+
+  <p>La Municipalidad de Balcarce inició gestiones para que los exámenes y las capacitaciones que necesitan los conductores profesionales para tramitar su licencia se tomen en la ciudad. Hoy ese trámite obliga a viajar a Mar del Plata.</p>
+  <p>El secretario de Gobierno, Ricardo Stoppani, se reunió con representantes de la conducción regional del Sindicato de Camioneros de Mar del Plata para evaluar la propuesta. El municipio ofreció espacios e infraestructura propios para las evaluaciones y las charlas, y aclaró que no busca un fin económico sino facilitar el trámite a los transportistas locales.</p>
+  <p>Según la comuna, el beneficio para los conductores sería menos tiempo de viaje y menos gastos. Las conversaciones están en una etapa inicial: falta la respuesta de las autoridades competentes para saber si la propuesta es viable.</p>
+
+  <div class="bloque datos"><span class="etq">armado por programa</span>
+    <h2>Los datos</h2>
+    <dl>
+      <dt>Quién gestiona</dt><dd>Secretaría de Gobierno (Ricardo Stoppani)</dd>
+      <dt>Con quién</dt><dd>Conducción regional del Sindicato de Camioneros de Mar del Plata</dd>
+      <dt>Qué ofrece el municipio</dt><dd>Espacios e infraestructura para exámenes y charlas, sin fin económico</dd>
+      <dt>Para quién</dt><dd>Conductores profesionales del distrito</dd>
+      <dt>Estado</dt><dd>Etapa inicial; esperan la respuesta de las autoridades competentes</dd>
+    </dl>
+  </div>
+
+  <div class="bloque contexto"><span class="etq">tabla fija de Radar</span>
+    <h2>Contexto local</h2>
+    Mar del Plata queda a unos 65 kilómetros de Balcarce por la ruta 226: para un conductor profesional, rendir allá significa hoy una mañana entera entre el viaje de ida y el de vuelta.
+  </div>
+
+  <div class="bloque falta"><span class="etq">armado por programa</span>
+    <h2>Qué falta saber</h2>
+    <ul>
+      <li>Qué autoridad debe autorizar que los exámenes se tomen en Balcarce, y cuándo respondería.</li>
+      <li>En qué lugar de la ciudad se harían y con qué frecuencia.</li>
+    </ul>
+  </div>
+
+  <div class="bloque fuentes"><span class="etq">armado por programa</span>
+    <h2>Qué dicen las fuentes (5)</h2>
+    <ul>
+      <li><b>Municipalidad de Balcarce</b><span class="oficial">oficial</span><br>Detalló las gestiones de la Secretaría de Gobierno y el ofrecimiento de espacios municipales. <a href="https://balcarce.gob.ar/2026/10/30/el-municipio-gestiona-que-los-examenes-para-conductores-profesionales-se-realicen-en-balcarce/">Leer</a></li>
+      <li><b>Puntonueve (FM 100.9)</b><br>Reprodujo la información oficial y remarcó el ahorro de tiempo y gastos para los transportistas. <a href="https://puntonueve.com.ar/balcarce-busca-que-los-conductores-profesionales-puedan-realizar-sus-examenes-y-capacitaciones-en-la-ciudad/">Leer</a></li>
+      <li><b>Radio Gabal (FM 104.1)</b> · <a href="https://www.radiogabal.com.ar/index.php/comunidad/gestionan-que-los-conductores-profesionales-puedan-realizar-examenes-y-capacitaciones-en-balcarce">Leer</a></li>
+      <li><b>Diario La Vanguardia</b> · <a href="https://www.diariolavanguardia.com/noticias/45220-balcarce-busca-que-los-camioneros-puedan-realizar-los-examenes-y-capacitaciones-para-sus-licencias-en-la-ciudad/">Leer</a></li>
+      <li><b>Infórmese Primero (FM 104.9)</b> · <a href="http://www.informeseprimero.com.ar/2026/10/buscan-que-los-conductores.html">Leer</a></li>
+    </ul>
+  </div>
+
+  <div class="firma">Redacción Radar Balcarce · Escrita con IA a partir de 5 fuentes y verificada contra ellas · 30 de octubre de 2026</div>
+</article>
+
+<!-- ============ NOTA 2: FÚTBOL ============ -->
+<article>
+  <div class="seccion futbol">Fútbol</div>
+  <h1>El fútbol argentino tendrá VAR semiautomático: debuta el 12 de diciembre en la final del Clausura</h1>
+  <p class="copete">La AFA aprobó la tecnología que detecta solo las posiciones adelantadas. Se estrena en el Estadio Único de La Plata y llegará a todas las canchas de Primera en la segunda mitad de 2027.</p>
+
+  <figure><div class="foto">Foto elegida de las fuentes (una cancha o la sala del VAR; nunca la misma que otra nota viva)</div><figcaption>Foto: TyC Sports</figcaption></figure>
+
+  <div class="bloque dos-lineas"><span class="etq">armado por programa</span>
+    <h2>En dos líneas</h2>
+    El Comité Ejecutivo de la AFA aprobó el VAR semiautomático para el fuera de juego. Se prueba en la final del Torneo Clausura, el 12 de diciembre, y se instala en todas las canchas durante el segundo semestre de 2027.
+  </div>
+
+  <p>El Comité Ejecutivo de la Asociación del Fútbol Argentino aprobó la incorporación del VAR semiautomático, una tecnología que detecta las posiciones adelantadas y avisa a los árbitros de video en segundos. Lo confirmó Cristian Malaspina, secretario general de la AFA y presidente de Argentinos Juniors, tras una reunión en las oficinas de la Liga Profesional.</p>
+  <p>El estreno será el 12 de diciembre, en la final del Torneo Clausura, en el Estadio Único de La Plata. Los dirigentes evalúan usarlo también en la final de la Copa Argentina y en la Recopa de Campeones de enero. La implementación en todas las canchas de Primera quedó para el segundo semestre de 2027, por las adaptaciones que exige cada estadio.</p>
+  <p>El sistema combina una docena de cámaras que siguen la pelota, un sensor dentro del balón que registra cada toque y un programa que rastrea 29 puntos del cuerpo de cada jugador. Con esos datos, la inteligencia artificial detecta el fuera de juego y envía una alerta a la sala de video; la decisión final sigue siendo de los árbitros. Antes de la aprobación, la AFA había analizado propuestas de Hawk-Eye, proveedora de la FIFA y la UEFA, y de Genius.</p>
+
+  <div class="bloque"><span class="etq">armado por programa</span>
+    <h2>Cómo funciona</h2>
+    <div class="cifras">
+      <div><strong>12</strong><small>cámaras dedicadas a seguir la pelota</small></div>
+      <div><strong>29</strong><small>puntos del cuerpo rastreados en cada jugador</small></div>
+      <div><strong>1</strong><small>sensor dentro de la pelota que registra cada toque</small></div>
+    </div>
+    <div class="flujo"><span>Cámaras + sensor</span><i>→</i><span>La IA detecta el adelantado</span><i>→</i><span>Alerta a la sala de video</span><i>→</i><span>El árbitro decide</span></div>
+  </div>
+
+  <div class="bloque crono"><span class="etq">armado por programa</span>
+    <h2>Cronología</h2>
+    <ol>
+      <li class="hoy"><b>29 de octubre de 2026</b>El Comité Ejecutivo de la AFA aprueba el sistema.</li>
+      <li><b>12 de diciembre de 2026</b>Debut en la final del Torneo Clausura, Estadio Único de La Plata.</li>
+      <li><b>Enero de 2027</b>Recopa de Campeones y final de la Copa Argentina: en evaluación.</li>
+      <li><b>Segundo semestre de 2027</b>Instalación en todas las canchas de Primera.</li>
+    </ol>
+  </div>
+
+  <div class="bloque contexto"><span class="etq">de las fuentes</span>
+    <h2>Contexto</h2>
+    La tecnología ya se usa en la Champions League y en los Mundiales. Argentina la había evaluado meses atrás con dos proveedores: Hawk-Eye, que trabaja con la FIFA y la UEFA, y Genius.
+  </div>
+
+  <div class="bloque falta"><span class="etq">armado por programa</span>
+    <h2>Qué falta saber</h2>
+    <ul>
+      <li>Qué proveedor eligió la AFA y cuánto cuesta el sistema.</li>
+      <li>Si llegará también a la Primera Nacional.</li>
+    </ul>
+  </div>
+
+  <div class="bloque antes"><span class="etq">armado por programa</span>
+    <h2>Más del Torneo Clausura en Radar</h2>
+    <a href="#">Boca y River juegan el Superclásico por la fecha 15 del Torneo Clausura</a>
+    <a href="#">Comienza la fecha 15 del Torneo Clausura con cuatro partidos este viernes</a>
+  </div>
+
+  <div class="bloque fuentes"><span class="etq">armado por programa</span>
+    <h2>Qué dicen las fuentes (22 medios)</h2>
+    <ul>
+      <li><b>El Destape</b><br>Confirmó la aprobación, con declaraciones de Malaspina y el detalle técnico del sistema. <a href="https://www.eldestapeweb.com/deportes/var-offside-semiautomatico-llega-futbol-argentino-2027-funciona-2026102914540">Leer</a></li>
+      <li><b>Olé</b><br>Fecha y sede exacta del estreno en la final del Clausura. <a href="https://www.ole.com.ar/futbol-primera/innovaciones-futbol-argentino-reunion-afa-lpf-cristian-malaspina-dijo-var-semiautomatico-cambio-formato-promociones_0_9PWtcwlqTt.html">Leer</a></li>
+      <li><b>0221</b><br>La aprobación se formalizó en el Comité Ejecutivo; la AFA había evaluado a Hawk-Eye y Genius. <a href="https://www.0221.com.ar/deportes/la-afa-aprobo-el-var-semiautomatico-el-futbol-argentino-y-habra-prueba-piloto-cuando-se-implementara-n136605">Leer</a></li>
+      <li><b>Los Andes</b><br>Los 29 puntos corporales por jugador y el cronograma de expansión. <a href="https://www.losandes.com.ar/deportes/var-semiautomatico-el-futbol-argentino-cuando-se-estrena-y-como-funciona-n6012297">Leer</a></li>
+      <li><b>La Capital (Rosario)</b><br>Las gestiones para adelantarlo a la Copa Argentina y la Recopa. <a href="https://www.lacapital.com.ar/ovacion/var-semiautomatico-argentina-preparan-su-estreno-la-final-del-clausura-n10289446.html">Leer</a></li>
+      <li><b>Radio Mitre</b><br>Los plazos para instalarlo en todas las canchas en el segundo semestre de 2027. <a href="https://radiomitre.cienradios.com/deportes/asi-es-el-nuevo-var-semiautomatico-en-argentina-como-funciona-y-cuando-se-estrenara/">Leer</a></li>
+      <li style="color:#6B7280">También lo contaron TN, TyC Sports, Clarín, Crónica, NA, Doble Amarilla, El Día, QZ Noticias, El Economista, C5N, Minuto Uno, Diario Popular, Perfil, Canal 26, El Marplatense y Ámbito.</li>
+    </ul>
+  </div>
+
+  <div class="firma">Redacción Radar Balcarce · Escrita con IA a partir de 22 medios y verificada contra ellos · 29 de octubre de 2026</div>
+</article>
+
+<div class="explica">
+  <h2>Qué hay de nuevo acá y qué le hace al SEO</h2>
+  <table>
+    <tr><th>Bloque</th><th>De dónde sale</th><th>Para qué sirve</th></tr>
+    <tr><td><b>En dos líneas</b></td><td>La ficha (qué pasó + qué sigue)</td><td>Es lo que Google muestra como fragmento destacado y lo que lee el que entra desde el celular y se va en 10 segundos.</td></tr>
+    <tr><td><b>Los datos</b></td><td>Los campos de la ficha (quién, con quién, qué, estado)</td><td>Texto propio que ningún otro medio tiene así; se marca como datos estructurados para Google.</td></tr>
+    <tr><td><b>Cómo funciona / cifras</b></td><td>Los números de la ficha, dibujados por programa</td><td>Hace la nota visual sin inventar un dato; es lo que se comparte.</td></tr>
+    <tr><td><b>Cronología</b></td><td>Las fechas de la ficha</td><td>Ordena una historia que las fuentes cuentan desordenada; Google premia la estructura.</td></tr>
+    <tr><td><b>Contexto</b></td><td>Una tabla fija de Radar (distancias, nombres, antecedentes) o un dato que trae alguna fuente</td><td>Valor que no está en la mayoría de las notas originales. Nunca de la memoria de la IA.</td></tr>
+    <tr><td><b>Qué falta saber</b></td><td>Lo que la ficha marca como no respondido</td><td>Honestidad con el lector y gancho para la nota siguiente (que se enlaza acá).</td></tr>
+    <tr><td><b>Más en Radar</b></td><td>Notas vivas del mismo tema</td><td>Enlaces internos: Google entiende que Radar sigue el tema y el lector se queda más.</td></tr>
+    <tr><td><b>Qué dicen las fuentes</b></td><td>Una frase por medio, de la ficha, con enlace</td><td>Transparencia, y Google ve una síntesis original en vez de la copia número 23 de la misma nota.</td></tr>
+  </table>
+  <p style="margin-top:14px">Lo que no se ve pero está: título propio (no el de la fuente), texto 100 % reescrito y verificado, una sola nota por hecho (hoy el VAR tiene 22 notas iguales en internet: la de Radar es distinta), foto con texto alternativo descriptivo, fecha de publicación y de modificación reales, y la firma que dice que la escribió una IA con revisión humana (lo que Google pide declarar).</p>
+</div>
+</body>
+</html>

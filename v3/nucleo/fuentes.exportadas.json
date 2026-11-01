@@ -1,0 +1,1542 @@
+{
+  "generado": "2026-11-01T04:34:31.797Z",
+  "origen": "ingesta/fuentes.mjs (sistema viejo), exportado tal cual",
+  "fuentes": [
+    {
+      "id": "newsbalcarce",
+      "nombre": "News Balcarce",
+      "medio": "News Balcarce (FM 91.7)",
+      "url": "https://newsbalcarce.com.ar/?feed=rss2",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 30,
+      "nota": "Trae texto completo e imagen. El /feed clásico devuelve 404.",
+      "temas": [
+        "actualidad",
+        "política",
+        "policiales",
+        "educación",
+        "deportes"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "puntonueve",
+      "nombre": "Puntonueve",
+      "medio": "Puntonueve (FM 100.9)",
+      "url": "https://puntonueve.com.ar/feed",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 30,
+      "nota": "Solo resumen y sin imagen, pero es el más rápido en avisar.",
+      "temas": [
+        "actualidad",
+        "alertas"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "informeseprimero",
+      "nombre": "Infórmese Primero",
+      "medio": "Infórmese Primero (FM 104.9)",
+      "url": "http://feeds.feedburner.com/informeseprimero",
+      "tipo": "atom",
+      "alcance": "local",
+      "peso": 30,
+      "nota": "Blogger vía FeedBurner. Texto completo, imagen y autor.",
+      "temas": [
+        "ciudad",
+        "policiales",
+        "tránsito",
+        "deportes",
+        "opinión"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "gabal-comunidad",
+      "nombre": "Radio Gabal · Comunidad",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/comunidad?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 28,
+      "seccion": "Balcarce",
+      "temas": [
+        "comunidad"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "gabal-policiales",
+      "nombre": "Radio Gabal · Policiales",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/policiales?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 28,
+      "seccion": "Policiales",
+      "temas": [
+        "policiales"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "gabal-politica",
+      "nombre": "Radio Gabal · Política",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/politica?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 28,
+      "seccion": "Política",
+      "temas": [
+        "política"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "gabal-deportes",
+      "nombre": "Radio Gabal · Deportes",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/deportes?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 26,
+      "seccion": "Deportes",
+      "temas": [
+        "deportes"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "gabal-agro",
+      "nombre": "Radio Gabal · Agro",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/agro?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 26,
+      "seccion": "Agro",
+      "temas": [
+        "agro"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "municipio",
+      "nombre": "Municipalidad de Balcarce",
+      "medio": "Municipalidad de Balcarce",
+      "url": "https://balcarce.gob.ar/feed/",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 24,
+      "oficial": true,
+      "nota": "Fuente oficial: se cita como comunicado, nunca como nota propia.",
+      "temas": [
+        "oficial",
+        "obras",
+        "salud",
+        "agenda"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "eldiario",
+      "nombre": "El Diario Balcarce",
+      "medio": "El Diario Balcarce",
+      "url": "https://eldiariobalcarce.com.ar/",
+      "base": "https://eldiariobalcarce.com.ar",
+      "tipo": "scrape",
+      "alcance": "local",
+      "peso": 28,
+      "nota": "Sin feed: se lee la portada. Su sección Rural no la cubre nadie más.",
+      "temas": [
+        "actualidad",
+        "rural",
+        "deportes",
+        "policiales"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "accion5",
+      "nombre": "Acción 5",
+      "medio": "Acción 5 (Balcarce)",
+      "url": "https://accion5.com/feed/",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 28,
+      "temas": [
+        "deportes",
+        "liga",
+        "automovilismo",
+        "ajedrez"
+      ],
+      "nota": "Medio de deportes de Balcarce (30/09). Es el que más escribe de la Liga Balcarceña: 16 de las 55 notas más recientes de Google Noticias sobre la Liga.",
+      "grupo": "balcarce"
+    },
+    {
+      "id": "ahorabalcarce",
+      "nombre": "Ahora Balcarce",
+      "medio": "Ahora Balcarce",
+      "url": "http://ahorabalcarce.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 28,
+      "temas": [
+        "balcarce",
+        "local"
+      ],
+      "nota": "Portal digital de Balcarce (5/10, Hernán: \"se están leyendo todos los medios conocidos de Balcarce?\"). Feed de WordPress con notas de la semana. No estaba en la lista.",
+      "grupo": "balcarce"
+    },
+    {
+      "id": "lavanguardia",
+      "nombre": "La Vanguardia",
+      "medio": "Diario La Vanguardia",
+      "url": "https://www.diariolavanguardia.com/",
+      "base": "https://www.diariolavanguardia.com",
+      "patronEnlace": {},
+      "tipo": "scrape",
+      "alcance": "local",
+      "peso": 28,
+      "nota": "Sin feed: se lee la portada. Único de los siete con sección Campo y Salud propias.",
+      "temas": [
+        "actualidad",
+        "deportes",
+        "campo",
+        "salud",
+        "zonales"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "concejo-deliberante-balcarce",
+      "nombre": "Concejo Deliberante de Balcarce",
+      "medio": "Concejo Deliberante de Balcarce",
+      "url": "https://concejodeliberantebalcarce.gob.ar/feed/",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 24,
+      "oficial": true,
+      "nota": "Alta 15/10/2026. Fuente oficial: sesiones, ordenanzas y comunicados del HCD. Anda: 10 notas, 8 nombran Balcarce.",
+      "temas": [
+        "oficial",
+        "política",
+        "concejo"
+      ],
+      "grupo": "balcarce"
+    },
+    {
+      "id": "fca-unmdp",
+      "grupo": "balcarce",
+      "nombre": "Facultad de Ciencias Agrarias (UNMdP)",
+      "medio": "Facultad de Ciencias Agrarias (UNMdP)",
+      "url": "https://fca.mdp.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "local",
+      "peso": 24,
+      "oficial": true,
+      "nota": "Alta 15/10/2026. La Facultad funciona en Balcarce (ruta 226), junto al INTA. Publica poco: la última nota era del 30/09.",
+      "temas": [
+        "oficial",
+        "agro",
+        "universidad"
+      ]
+    },
+    {
+      "id": "infobae",
+      "nombre": "Infobae",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 8,
+      "temas": [
+        "nacionales",
+        "general"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanacion",
+      "nombre": "La Nación",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 8,
+      "temas": [
+        "nacionales",
+        "general"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "clarin",
+      "grupo": "nacional",
+      "nombre": "Clarín · Lo último",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/lo-ultimo/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 8,
+      "temas": [
+        "nacionales",
+        "general"
+      ]
+    },
+    {
+      "id": "ole",
+      "activa": false,
+      "nota": "apagada 15/10/2026: fuera de la lista elegida",
+      "grupo": "nacional",
+      "nombre": "Olé",
+      "medio": "Olé",
+      "url": "https://www.ole.com.ar/rss/ultimas-noticias/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Fútbol",
+      "peso": 8,
+      "temas": [
+        "deportes",
+        "fútbol"
+      ]
+    },
+    {
+      "id": "clarin-deportes",
+      "grupo": "nacional",
+      "nombre": "Clarín · Deportes",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/deportes/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Deportes",
+      "peso": 7,
+      "temas": [
+        "deportes"
+      ]
+    },
+    {
+      "id": "sendero",
+      "activa": false,
+      "ciudad": "varias ciudades del sudeste",
+      "nombre": "Sendero Regional",
+      "medio": "Sendero Regional",
+      "url": "https://senderomultimedios.com.ar/feed",
+      "tipo": "rss",
+      "alcance": "region",
+      "peso": 10,
+      "temas": [
+        "región",
+        "agro",
+        "policiales",
+        "política"
+      ],
+      "nota": "Cubre Necochea, Lobería, San Cayetano, Balcarce y Tandil. Fue la primera fuente de región que funcionó; después se sumaron 0223 y La Noticia 1. La Capital MdP y El Retrato de Hoy siguen sin probarse bien (devolvían 403).",
+      "grupo": "nacional"
+    },
+    {
+      "id": "0223",
+      "ciudad": "Mar del Plata",
+      "nombre": "0223",
+      "medio": "0223 (Mar del Plata)",
+      "url": "https://www.0223.com.ar/rss",
+      "tipo": "rss",
+      "alcance": "region",
+      "peso": 12,
+      "temas": [
+        "región",
+        "mar del plata",
+        "rutas"
+      ],
+      "nota": "El medio de afuera que más nombra a Balcarce (autódromo, ruta 226, sudeste). ~150 notas por día: sin filtro taparía todo. /rss/pages/home.xml viene vacío; /rss anda.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "eleco",
+      "activa": false,
+      "grupo": "nacional",
+      "ciudad": "Tandil",
+      "nombre": "El Eco de Tandil",
+      "medio": "El Eco de Tandil",
+      "url": "https://articapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "region",
+      "peso": 12,
+      "temas": [
+        "región",
+        "tandil",
+        "rutas"
+      ],
+      "nota": "Tandil y la ruta 226 Tandil–Balcarce. El feed lo publica la plataforma de El Eco (el link rel=alternate de su portada)."
+    },
+    {
+      "id": "lu9",
+      "grupo": "nacional",
+      "ciudad": "Mar del Plata",
+      "nombre": "LU9 Mar del Plata",
+      "medio": "LU9 Mar del Plata",
+      "url": "https://lu9mardelplataapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "region",
+      "peso": 12,
+      "temas": [
+        "región",
+        "mar del plata"
+      ],
+      "nota": "Radio de Mar del Plata con entrevistas propias (el 25/09, a Reino por el autódromo). Misma plataforma que El Eco."
+    },
+    {
+      "id": "qznoticias",
+      "activa": false,
+      "grupo": "nacional",
+      "ciudad": "Mar del Plata",
+      "nombre": "QZ Noticias",
+      "medio": "QZ Noticias (Mar del Plata)",
+      "url": "https://qznoticiasapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "region",
+      "peso": 12,
+      "temas": [
+        "región",
+        "mar del plata",
+        "gremiales"
+      ],
+      "nota": "El 25/09 trajo el acuerdo salarial STM–Municipio de Balcarce, que no publicó ningún medio local."
+    },
+    {
+      "id": "ecosdiarios",
+      "activa": false,
+      "grupo": "nacional",
+      "ciudad": "Necochea",
+      "nombre": "Ecos Diarios",
+      "medio": "Ecos Diarios (Necochea)",
+      "url": "https://ecosdiariosapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "region",
+      "peso": 11,
+      "temas": [
+        "región",
+        "necochea",
+        "lobería"
+      ],
+      "nota": "El que más cubre Lobería. El dominio viejo (ecosdiariosweb.com.ar) corta la conexión."
+    },
+    {
+      "id": "dib",
+      "ciudad": "La Plata",
+      "nombre": "Agencia DIB",
+      "medio": "Agencia DIB",
+      "url": "https://dib.com.ar/rss/pages/home.xml",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "peso": 12,
+      "temas": [
+        "provincia",
+        "interior bonaerense"
+      ],
+      "nota": "Agencia de noticias del interior bonaerense; la levantan decenas de diarios. Sólo lo que nombra a Balcarce o toca la zona: con dos por vuelta entraba \"Edición impresa del día\" y la sección Provincia no sale sola.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanoticia1",
+      "activa": false,
+      "grupo": "nacional",
+      "ciudad": "provincia de Buenos Aires",
+      "nombre": "La Noticia 1",
+      "medio": "La Noticia 1",
+      "url": "https://lanoticia1apiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "peso": 11,
+      "temas": [
+        "provincia"
+      ],
+      "nota": "Interior bonaerense. La URL vieja (/rss) no andaba; el feed real es el de la plataforma de El Eco."
+    },
+    {
+      "id": "diputadosbsas",
+      "activa": false,
+      "ciudad": "La Plata",
+      "nombre": "Diputados Bonaerenses",
+      "medio": "Diputados Bonaerenses",
+      "url": "https://diputadosbsas.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "peso": 11,
+      "temas": [
+        "legislatura",
+        "política provincial"
+      ],
+      "nota": "Legislatura bonaerense. Sólo entra cuando nombra a Balcarce (proyectos, legisladores de la sección).",
+      "grupo": "nacional"
+    },
+    {
+      "id": "gba",
+      "activa": false,
+      "ciudad": "La Plata",
+      "nombre": "Gobierno de la Provincia",
+      "medio": "Gobierno de la Provincia de Buenos Aires",
+      "url": "https://www.gba.gob.ar/rss.xml",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "peso": 14,
+      "oficial": true,
+      "temas": [
+        "oficial",
+        "provincia"
+      ],
+      "nota": "Sólo trae discursos del gobernador. Es oficial: lo que dice Balcarce en el título o toca la zona sale solo; lo demás, sólo si lo cuentan otros medios (el cruce).",
+      "grupo": "nacional"
+    },
+    {
+      "id": "loberia2261",
+      "activa": false,
+      "ciudad": "Lobería",
+      "nombre": "2261 Lobería",
+      "medio": "2261 – Noticias de Lobería",
+      "url": "https://www.2261.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "region",
+      "peso": 10,
+      "temas": [
+        "región",
+        "lobería",
+        "rural"
+      ],
+      "nota": "Partido vecino. Una por vuelta: obras, rutas, sociedades rurales.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "ayacuchoaldia",
+      "activa": false,
+      "ciudad": "Ayacucho",
+      "nombre": "Ayacucho al Día",
+      "medio": "Ayacucho al Día",
+      "url": "https://ayacuchoaldia.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "region",
+      "peso": 10,
+      "temas": [
+        "región",
+        "ayacucho"
+      ],
+      "nota": "Partido vecino, pero mezcla notas de toda la provincia: sólo lo que nombra a Balcarce o toca la zona.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "argenpapa",
+      "ciudad": "nacional (especializada en papa)",
+      "nombre": "Argenpapa",
+      "medio": "Argenpapa",
+      "url": "https://www.argenpapa.com.ar/noticias/argentina/",
+      "base": "https://www.argenpapa.com.ar",
+      "patronEnlace": {},
+      "tipo": "scrape",
+      "alcance": "region",
+      "seccion": "Agro",
+      "prefijoTitulo": "Argentina:",
+      "peso": 16,
+      "temas": [
+        "agro",
+        "papa"
+      ],
+      "nota": "Balcarce es capital nacional de la papa y nadie de la zona cubre el negocio (precios, semilla, industria, importaciones). Sin feed: se lee la sección Argentina.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "campeones",
+      "nombre": "Campeones",
+      "medio": "Campeones",
+      "url": "https://www.campeones.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Automovilismo",
+      "peso": 12,
+      "temas": [
+        "automovilismo"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "motorsport-f1",
+      "nombre": "Motorsport · Fórmula 1",
+      "medio": "Motorsport",
+      "url": "https://es.motorsport.com/rss/f1/news/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 15,
+      "temas": [
+        "automovilismo",
+        "formula 1"
+      ],
+      "nota": "F1 en castellano, todos los días. Lo que no cubre nadie en la zona.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "motorsport-motos",
+      "nombre": "Motorsport · MotoGP",
+      "medio": "Motorsport",
+      "url": "https://es.motorsport.com/rss/motogp/news/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 14,
+      "temas": [
+        "automovilismo",
+        "motociclismo"
+      ],
+      "nota": "MotoGP. Poco volumen a propósito: es para no tener sólo autos.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanacion-deportes",
+      "nombre": "La Nación · Deportes",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/deportes/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 16,
+      "temas": [
+        "deportes"
+      ],
+      "nota": "Para rugby, tenis, hockey y atletismo: lo que Olé no cubre porque va todo a fútbol.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "ambito",
+      "activa": false,
+      "nombre": "Ámbito",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/ultimas-noticias.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 15,
+      "temas": [
+        "economia",
+        "pais"
+      ],
+      "nota": "Economía y últimas noticias. Es la sección que más le pega al bolsillo.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "minutouno",
+      "activa": false,
+      "nota": "apagada 15/10/2026: fuera de la lista elegida",
+      "nombre": "Minuto Uno",
+      "medio": "Minuto Uno",
+      "url": "https://www.minutouno.com/rss/pages/home.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 13,
+      "temas": [
+        "pais",
+        "espectaculos"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanacion-economia",
+      "nombre": "La Nación · Economía",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/economia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "peso": 15,
+      "seccion": "Economía",
+      "temas": [
+        "economia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-tecno",
+      "nombre": "Infobae · Tecnología",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/tecno/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 14,
+      "temas": [
+        "tecnologia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "clarin-tecno",
+      "grupo": "nacional",
+      "nombre": "Clarín · Tecnología",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/tecnologia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 14,
+      "temas": [
+        "tecnologia"
+      ]
+    },
+    {
+      "id": "ambito-tecno",
+      "nombre": "Ámbito · Tecnología",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/tecnologia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 13,
+      "temas": [
+        "tecnologia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-economia",
+      "nombre": "Infobae · Economía",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/economia/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Economía",
+      "peso": 14,
+      "temas": [
+        "economia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "clarin-economia",
+      "grupo": "nacional",
+      "nombre": "Clarín · Economía",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/economia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Economía",
+      "peso": 14,
+      "temas": [
+        "economia"
+      ]
+    },
+    {
+      "id": "ambito-economia",
+      "activa": false,
+      "nota": "apagada 15/10/2026: fuera de la lista elegida",
+      "nombre": "Ámbito · Economía",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/economia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Economía",
+      "peso": 14,
+      "temas": [
+        "economia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-politica",
+      "nombre": "Infobae · Política",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/politica/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Política",
+      "peso": 13,
+      "temas": [
+        "politica"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "clarin-politica",
+      "grupo": "nacional",
+      "nombre": "Clarín · Política",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/politica/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Política",
+      "peso": 13,
+      "temas": [
+        "politica"
+      ]
+    },
+    {
+      "id": "lanacion-politica",
+      "nombre": "La Nación · Política",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/politica/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Política",
+      "peso": 13,
+      "temas": [
+        "politica"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-teleshow",
+      "activa": false,
+      "nombre": "Infobae · Teleshow",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/teleshow/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Cultura y agenda",
+      "peso": 12,
+      "temas": [
+        "espectaculos",
+        "popular"
+      ],
+      "nota": "Farándula, música y televisión: 36 notas por día, con el texto completo.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-cultura",
+      "nombre": "Infobae · Cultura",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/cultura/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Cultura y agenda",
+      "peso": 13,
+      "temas": [
+        "cultura",
+        "libros",
+        "teatro"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "ambito-espectaculos",
+      "nombre": "Ámbito · Espectáculos",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/espectaculos.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Cultura y agenda",
+      "peso": 12,
+      "temas": [
+        "espectaculos",
+        "cine",
+        "series"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "minutouno-espectaculos",
+      "activa": false,
+      "nombre": "Minuto Uno · Espectáculos",
+      "medio": "Minuto Uno",
+      "url": "https://www.minutouno.com/rss/pages/espectaculos.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Cultura y agenda",
+      "peso": 12,
+      "temas": [
+        "espectaculos",
+        "popular"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanacion-cultura",
+      "nombre": "La Nación · Cultura",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/cultura/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Cultura y agenda",
+      "peso": 13,
+      "temas": [
+        "cultura",
+        "arte",
+        "libros"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "lanacion-tecnologia",
+      "nota": "Apagada el 15/10/2026 (fuera de la lista elegida); vuelve el 17/10 (regla 215): tecnología es una de las áreas donde suele haber poco. Probada: 21 notas, unas 3 por día.",
+      "nombre": "La Nación · Tecnología",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/tecnologia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 14,
+      "temas": [
+        "tecnologia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "hipertextual",
+      "activa": false,
+      "nombre": "Hipertextual",
+      "medio": "Hipertextual",
+      "url": "https://hipertextual.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 11,
+      "temas": [
+        "tecnologia",
+        "ciencia"
+      ],
+      "nota": "Medio de tecnología en castellano (no es argentino). Con el texto completo.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "xataka",
+      "activa": false,
+      "nombre": "Xataka",
+      "medio": "Xataka",
+      "url": "https://www.xataka.com/feedburner.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 11,
+      "temas": [
+        "tecnologia",
+        "ia"
+      ],
+      "nota": "Medio de tecnología en castellano (no es argentino). La edición argentina (xataka.com.ar/feed) da 404.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "elpais-ciencia",
+      "activa": false,
+      "nombre": "El País · Ciencia",
+      "medio": "El País",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "Madrid",
+      "peso": 12,
+      "temas": [
+        "ciencia"
+      ],
+      "nota": "Probada 17/10/2026: 40 notas, la última de hace horas. Medio de España.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "elpais-tecnologia",
+      "activa": false,
+      "nombre": "El País · Tecnología",
+      "medio": "El País",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "ciudad": "Madrid",
+      "peso": 12,
+      "temas": [
+        "tecnologia",
+        "ia"
+      ],
+      "nota": "Probada 17/10/2026: 21 notas, la última de ayer. Medio de España.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "muyinteresante",
+      "activa": false,
+      "nombre": "Muy Interesante",
+      "medio": "Muy Interesante",
+      "url": "https://www.muyinteresante.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "Madrid",
+      "peso": 11,
+      "temas": [
+        "ciencia"
+      ],
+      "nota": "Probada 17/10/2026: 20 notas, unas 6 por día; trae también notas de compras y ofertas (la IA las saca). Medio de España.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "fayerwayer",
+      "nombre": "FayerWayer",
+      "medio": "FayerWayer",
+      "url": "https://www.fayerwayer.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 11,
+      "temas": [
+        "tecnologia",
+        "ia"
+      ],
+      "nota": "Tecnología, IA, robots y espacio en castellano latinoamericano (Chile). Probado el 1/10: 36 notas, la última de hace minutos.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "agenciacyta",
+      "activa": false,
+      "nombre": "Agencia CyTA",
+      "medio": "Agencia CyTA",
+      "url": "https://www.agenciacyta.org.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "peso": 12,
+      "temas": [
+        "tecnologia",
+        "ciencia"
+      ],
+      "nota": "Ciencia argentina (Fundación Instituto Leloir). Sale poco (unas pocas notas por mes): suma, no alcanza sola.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "perfil-ciencia",
+      "nombre": "Perfil · Ciencia",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/ciencia",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "peso": 12,
+      "temas": [
+        "ciencia"
+      ],
+      "nota": "Alta 17/10/2026. Ciencia en castellano: 70 notas, unas 3 por día. El título de la nota decide si de verdad es ciencia.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "jgm-ciencia",
+      "activa": false,
+      "nombre": "Secretaría de Innovación, Ciencia y Tecnología",
+      "medio": "Secretaría de Innovación, Ciencia y Tecnología",
+      "url": "https://www.argentina.gob.ar/jefatura/innovacion-ciencia-y-tecnologia/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "tecnologia"
+      ],
+      "nota": "Alta 17/10/2026. Organismo público (sin la marca oficial a propósito). 12 notas, una cada dos días.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "conae",
+      "activa": false,
+      "nombre": "CONAE",
+      "medio": "CONAE",
+      "url": "https://www.argentina.gob.ar/ciencia/conae/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "espacio"
+      ],
+      "nota": "Alta 17/10/2026. Comisión Nacional de Actividades Espaciales: satélites y espacio. Publica poco (3 notas en tres semanas).",
+      "grupo": "nacional"
+    },
+    {
+      "id": "inti",
+      "activa": false,
+      "nombre": "INTI",
+      "medio": "INTI",
+      "url": "https://www.argentina.gob.ar/inti/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "tecnologia"
+      ],
+      "nota": "Alta 17/10/2026. Instituto Nacional de Tecnología Industrial. 6 notas en tres semanas.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-salud",
+      "nombre": "Infobae · Salud",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/salud/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Salud",
+      "peso": 12,
+      "temas": [
+        "salud"
+      ],
+      "nota": "Alta 17/10/2026. Salud: 100 notas, unas 20 por día. Se le cree la sección sólo si el título habla de salud.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "perfil-salud",
+      "nombre": "Perfil · Salud",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/salud",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Salud",
+      "peso": 12,
+      "temas": [
+        "salud"
+      ],
+      "nota": "Alta 17/10/2026. Salud: 70 notas, una por día.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "anmat",
+      "activa": false,
+      "nombre": "ANMAT",
+      "medio": "ANMAT",
+      "url": "https://www.argentina.gob.ar/anmat/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Salud",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "salud"
+      ],
+      "nota": "Alta 17/10/2026. Medicamentos, alimentos y productos médicos. Organismo público (sin la marca oficial a propósito). 14 notas en un mes.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-educacion",
+      "nombre": "Infobae · Educación",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/educacion/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "peso": 12,
+      "temas": [
+        "educacion"
+      ],
+      "nota": "Alta 17/10/2026. Educación: 100 notas en un mes. Trae también notas de empleo y empresas: se le cree la sección sólo si el título habla de educación.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "perfil-educacion",
+      "nombre": "Perfil · Educación",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/educacion",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "peso": 12,
+      "temas": [
+        "educacion"
+      ],
+      "nota": "Alta 17/10/2026. Educación: 70 notas, unas 3 por semana.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unlp",
+      "nombre": "Universidad Nacional de La Plata",
+      "medio": "Universidad Nacional de La Plata",
+      "url": "https://unlp.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "seccion": "Educación",
+      "ciudad": "La Plata",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 17/10/2026. Universidad pública bonaerense: 3 notas por día entre extensión, ciencia y gestión. Sin la marca oficial a propósito.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unr",
+      "nombre": "Universidad Nacional de Rosario",
+      "medio": "Universidad Nacional de Rosario",
+      "url": "https://unr.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "ciudad": "Rosario",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 17/10/2026. Una nota por día.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unicen",
+      "nombre": "UNICEN",
+      "medio": "UNICEN",
+      "url": "https://www.unicen.edu.ar/noticias/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "ciudad": "Tandil",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 17/10/2026. Universidad del Centro de la provincia (Tandil, Olavarría, Azul): 12 notas en una semana.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "uncuyo",
+      "nombre": "Universidad Nacional de Cuyo",
+      "medio": "Universidad Nacional de Cuyo",
+      "url": "https://www.uncuyo.edu.ar/prensa/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "ciudad": "Mendoza",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 17/10/2026. 20 notas en dos semanas.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "itsitio",
+      "nombre": "IT Sitio",
+      "medio": "IT Sitio",
+      "url": "https://www.itsitio.com/ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Tecnología",
+      "ciudad": "CABA",
+      "peso": 11,
+      "temas": [
+        "tecnologia"
+      ],
+      "nota": "Alta 17/10/2026. Tecnología y empresas de tecnología de Argentina: unas 4 por día.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "senasa",
+      "nombre": "SENASA",
+      "medio": "SENASA",
+      "url": "https://www.argentina.gob.ar/senasa/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "agro"
+      ],
+      "nota": "Alta 17/10/2026. Sanidad animal y vegetal. Organismo público (sin la marca oficial a propósito, como INTA). 15 notas en diez días.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "clarin-rural",
+      "grupo": "nacional",
+      "nombre": "Clarín · Rural",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/rural/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "campo"
+      ]
+    },
+    {
+      "id": "infocampo",
+      "nombre": "Infocampo",
+      "medio": "Infocampo",
+      "url": "https://www.infocampo.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "granos",
+        "carne"
+      ],
+      "nota": "Con el texto completo. También publica cotizaciones (\"Euro blue hoy\"): las frena la regla de cotización.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "bichosdecampo",
+      "activa": false,
+      "nombre": "Bichos de Campo",
+      "medio": "Bichos de Campo",
+      "url": "https://bichosdecampo.com/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "productores"
+      ],
+      "nota": "Con el texto completo.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "inta",
+      "nombre": "INTA · Noticias",
+      "medio": "INTA",
+      "url": "https://www.argentina.gob.ar/inta/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "inta"
+      ],
+      "nota": "Organismo público, una o dos notas por día. Sin la marca oficial a propósito: con oficial saldría solo sin que lo cuente ningún otro medio.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "perfil-economia",
+      "nombre": "Perfil · Economía",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/economia",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Economía",
+      "peso": 13,
+      "temas": [
+        "economia"
+      ],
+      "grupo": "nacional"
+    },
+    {
+      "id": "infobae-ciencia",
+      "nombre": "Infobae · Ciencia",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/america/ciencia-america/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "peso": 12,
+      "temas": [
+        "ciencia"
+      ],
+      "nota": "Alta 26/10/2026. Ciencia de Infobae (100 notas, 46 en 7 días): descubrimientos, espacio, paleontología, salud. Es el mismo medio que Infobae: no suma un medio, pero deja que su ciencia llegue al cruce. Se le cree la sección si el título habla de ciencia.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "dw-ciencia",
+      "nombre": "DW Español · Ciencia y Tecnología",
+      "medio": "DW Español",
+      "url": "https://rss.dw.com/xml/rss-sp-cyt",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "Bonn",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "tecnologia"
+      ],
+      "nota": "Alta 26/10/2026. Deutsche Welle en castellano, ciencia y tecnología: 7 notas en 7 días. Medio de Alemania, no de España.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "eltiempo-ciencia",
+      "nombre": "El Tiempo · Ciencia",
+      "medio": "El Tiempo (Colombia)",
+      "url": "https://www.eltiempo.com/rss/vida_ciencia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "Bogotá",
+      "peso": 12,
+      "temas": [
+        "ciencia"
+      ],
+      "nota": "Alta 26/10/2026. Diario de Colombia, sección Vida y ciencia: 9 notas en 7 días, casi todas descubrimientos que también cuentan Infobae o Perfil.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "exactas-uba",
+      "nombre": "Exactas UBA",
+      "medio": "Facultad de Ciencias Exactas y Naturales (UBA)",
+      "url": "https://exactas.uba.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "universidad"
+      ],
+      "nota": "Alta 26/10/2026. Divulgación científica argentina (Exactas UBA): 2 notas en 7 días. Publica poco; suma sólo si otro medio cuenta lo mismo.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "mongabay-latam",
+      "nombre": "Mongabay Latam",
+      "medio": "Mongabay Latam",
+      "url": "https://es.mongabay.com/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Ciencia",
+      "ciudad": "Lima",
+      "peso": 12,
+      "temas": [
+        "ciencia",
+        "ambiente"
+      ],
+      "nota": "Alta 26/10/2026. Ciencia y conservación de América Latina: 30 notas en 7 días. Trae también política ambiental: el título tiene que hablar de ciencia para que se le crea la sección.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "agrofy-news",
+      "nombre": "Agrofy News",
+      "medio": "Agrofy News",
+      "url": "https://news.agrofy.com.ar/rss.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "ciudad": "CABA",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "granos",
+        "carne"
+      ],
+      "nota": "Alta 26/10/2026. Noticias del campo argentino: 30 notas en 7 días, 12 en las últimas 24 horas.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "agroverdad",
+      "nombre": "Agroverdad",
+      "medio": "Agroverdad",
+      "url": "https://www.agroverdad.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "ciudad": "Córdoba",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "granos"
+      ],
+      "nota": "Alta 26/10/2026. Mercados y cultivos: 10 notas en 7 días, 4 en 24 horas.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "valorcarne",
+      "nombre": "Valor Carne",
+      "medio": "Valor Carne",
+      "url": "https://www.valorcarne.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Agro",
+      "ciudad": "Buenos Aires",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "carne",
+        "hacienda"
+      ],
+      "nota": "Alta 26/10/2026. Ganadería y mercado de la carne (Cañuelas, exportaciones): 10 notas en 7 días. Zona de cría y engorde de Balcarce.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "ruralnet",
+      "nombre": "Ruralnet",
+      "medio": "Ruralnet",
+      "url": "https://www.ruralnet.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "ciudad": "Rosario",
+      "peso": 12,
+      "temas": [
+        "agro",
+        "granos",
+        "clima"
+      ],
+      "nota": "Alta 26/10/2026. Granos, clima y economía del campo: 10 notas en 7 días y 10 en 24 horas. Sin sección fija a propósito: mezcla notas de economía general (Vaca Muerta, exportaciones) que no son de Agro; la sección la deciden las palabras.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unmdp",
+      "grupo": "nacional",
+      "nombre": "Universidad Nacional de Mar del Plata",
+      "medio": "Universidad Nacional de Mar del Plata",
+      "url": "https://www.mdp.edu.ar/index.php/noticias-de-la-universidad?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "seccion": "Educación",
+      "ciudad": "Mar del Plata",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 26/10/2026. La universidad de la que depende la Facultad de Ciencias Agrarias de Balcarce: 12 notas en 7 días. Sin la marca oficial a propósito. Alcance provincial y no regional a propósito: las \"de la zona\" son sólo medios de Tandil y Mar del Plata (prueba de la lista elegida)."
+    },
+    {
+      "id": "unq",
+      "nombre": "Universidad Nacional de Quilmes",
+      "medio": "Universidad Nacional de Quilmes",
+      "url": "https://www.unq.edu.ar/noticias/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "seccion": "Educación",
+      "ciudad": "Quilmes",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 26/10/2026. Universidad bonaerense: 10 notas en 7 días, 6 en 24 horas.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unlam",
+      "nombre": "Universidad Nacional de La Matanza",
+      "medio": "Universidad Nacional de La Matanza",
+      "url": "https://www.unlam.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "seccion": "Educación",
+      "ciudad": "San Justo",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 26/10/2026. Universidad bonaerense: 9 notas en 7 días.",
+      "grupo": "nacional"
+    },
+    {
+      "id": "unsa",
+      "nombre": "Universidad Nacional de Salta",
+      "medio": "Universidad Nacional de Salta",
+      "url": "https://www.unsa.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "seccion": "Educación",
+      "ciudad": "Salta",
+      "peso": 12,
+      "temas": [
+        "educacion",
+        "universidad"
+      ],
+      "nota": "Alta 26/10/2026. 10 notas en 7 días.",
+      "grupo": "nacional"
+    }
+  ]
+}
