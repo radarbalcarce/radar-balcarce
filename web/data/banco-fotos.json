@@ -53981,7 +53981,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "958c8d9296564717"
+  "huella": "958c8d9296564717",
+  "ausenteDesde": "2026-11-01T20:36:19.011Z"
  },
  "1ae2u4c": {
   "archivo": "fotos-notas/1ae2u4c.jpg",
@@ -54066,7 +54067,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea panorámica de la costa y edificios de Vicente López"
   },
-  "huella": "78787b704c1d59d9"
+  "huella": "78787b704c1d59d9",
+  "ausenteDesde": "2026-11-01T20:36:19.011Z"
  },
  "1bdjadx": {
   "archivo": "fotos-notas/1bdjadx.jpg",
@@ -58326,7 +58328,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Patrick Stewart en un evento de Star Trek."
   },
-  "huella": "2f072f0f4d454465"
+  "huella": "2f072f0f4d454465",
+  "ausenteDesde": "2026-11-01T20:36:19.011Z"
  },
  "2rs9xh": {
   "intentado": true,
@@ -59207,7 +59210,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-01T14:04:47.530Z"
+  "cuando": "2026-11-01T20:36:15.957Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -62501,11 +62504,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Rituales de Feng Shui para renovar energías y atraer abundancia en noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
-  "cuando": "2026-11-01T18:02:53.269Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 2
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de TN (Todo Noticias) (parece una foto de stock); la de La Gaceta (Tucumán) (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "q5lpx1": {
   "archivo": "fotos-notas/q5lpx1.jpg",
@@ -64734,8 +64736,8 @@
   "origen": "ninguna",
   "titulo": "Registran granizo y lluvias intensas en la zona rural",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-11-01T19:32:14.271Z",
-  "intentos": 2,
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "ka8vq5": {
@@ -65109,13 +65111,28 @@
   "huella": "45e2b038ba7373b3"
  },
  "16myge3": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Milei invita a Villarruel y gobernadores a recibir al papa León XIV",
-  "razon": "Ninguna de las fotos corresponde al hecho mencionado en la nota, ya que muestran otros eventos o contextos distintos al reencuentro institucional.",
-  "cuando": "2026-11-01T19:04:06.432Z",
-  "intentos": 1,
-  "fuentes": 6
+  "archivo": "fotos-notas/d4errd.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei convoca a gobernadores y legisladores para recibir al papa León XIV",
+  "enlace": "https://www.infobae.com/politica/2026/11/01/satisfaccion-en-el-vaticano-javier-milei-convoco-a-la-clase-politica-a-la-recepcion-oficial-a-leon-xiv-en-el-palacio-libertad/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/FINBGODTJ5FAJDROUKSB5E7774.jpg?auth=7d23eb84adb97aa4305e04692f7f9c56f5ff006a643355176c907d23f019dc8b&smart=true&width=1200&height=630&quality=85",
+  "razon": "La foto A muestra claramente el encuentro de perfil con buena nitidez y encuadre, sin marcas ni menores.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y un alto dignatario eclesiástico en un encuentro"
+  },
+  "huella": "3c3c2c4e462e2eae"
  },
  "wg9b9i": {
   "archivo": "fotos-notas/wg9b9i.jpg",
@@ -65192,5 +65209,182 @@
   "cuando": "2026-11-01T19:32:14.271Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "yag2by": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca y River juegan el Superclásico por la decimoquinta fecha",
+  "razon": "Ninguna foto cumple con todos los requisitos sin marcas agregadas o símbolos de reproducción superpuestos.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "intentos": 1,
+  "fuentes": 10
+ },
+ "j6h1yj": {
+  "archivo": "fotos-notas/j6h1yj.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca le gana a River en el superclásico y queda a un paso de un nuevo título",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/boca-vs-river-en-vivo-nid01112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/boca-se-quedo-con-el-ZCZZRW5TFJBURAFQSEL35HTRZM.JPG?auth=a35ce18e3fdf38b789d2b9c7a5a343b95668768978d0329532c55a9d3094dbb1&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es la foto más clara del festejo del equipo ganador del superclásico, sin marcas ni gráficas.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca festejando un gol abrazados en la cancha"
+  },
+  "huella": "f629b8d2b19d8e9a"
+ },
+ "e1z4iv": {
+  "archivo": "fotos-notas/e1z4iv.jpg",
+  "medio": "Campeones",
+  "credito": "Foto: Campeones",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nereo Queijeiro gana en General Roca y se acerca a la cima del Top Race",
+  "enlace": "https://campeones.com.ar/top-race-queijeiro-gana-el-sprint-en-roca-y-no-se-baja-de-la-pelea/",
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/10/queijeiro-top-race-roca.jpg",
+  "razon": "Es la mejor foto que ilustra el festejo del ganador sin personas de fondo ni marcas agregadas por el medio.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Nereo Queijeiro posando con el cartel de 1er puesto de sprint frente a un fondo institucional"
+  },
+  "huella": "5454524a8d8fcc4f"
+ },
+ "1df7mwd": {
+  "archivo": "fotos-notas/1df7mwd.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River le gana a Boca en el futsal y define la serie",
+  "enlace": "https://www.tycsports.com/river-plate/el-superclasico-antes-del-superclasico-river-vencio-a-boca-en-el-futsal-id769723.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1001772/superclasico-futsal_1440x810.webp?v=1",
+  "razon": "Muestra claramente una jugada del partido de futsal entre River y Boca con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego en el partido de futsal entre River y Boca."
+  },
+  "huella": "e167a2869cacb9b1"
+ },
+ "d4errd": {
+  "archivo": "fotos-notas/d4errd.jpg",
+  "medio": "Infobae",
+  "credito": "Foto: Infobae",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei convoca a gobernadores y legisladores para recibir al papa León XIV",
+  "enlace": "https://www.infobae.com/politica/2026/11/01/satisfaccion-en-el-vaticano-javier-milei-convoco-a-la-clase-politica-a-la-recepcion-oficial-a-leon-xiv-en-el-palacio-libertad/",
+  "imagenOriginal": "https://www.infobae.com/resizer/v2/FINBGODTJ5FAJDROUKSB5E7774.jpg?auth=7d23eb84adb97aa4305e04692f7f9c56f5ff006a643355176c907d23f019dc8b&smart=true&width=1200&height=630&quality=85",
+  "razon": "La foto A muestra claramente el encuentro de perfil con buena nitidez y encuadre, sin marcas ni menores.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y un alto dignatario eclesiástico en un encuentro"
+  },
+  "huella": "3c3c2c4e462e2eae"
+ },
+ "lt07ea": {
+  "archivo": "fotos-notas/lt07ea.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Arruabarrena dirige su décimo Superclásico y Boca busca una marca histórica ante River",
+  "enlace": "https://www.tycsports.com/boca-juniors/la-racha-en-clasicos-que-intentara-estirar-el-boca-de-arruabarrena-contra-river-id769418.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/21/997978/rodolfo-arruabarrena_1440x810.webp",
+  "razon": "La foto B muestra claramente al director técnico Rodolfo Arruabarrena en primer plano y con buena nitidez, sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rodolfo Arruabarrena sonriendo sentado en el banco de suplentes"
+  },
+  "huella": "635b4b0d0dcc4ccc"
+ },
+ "1we22fg": {
+  "archivo": "fotos-notas/1we22fg.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca le gana 1 a 0 a River en el Superclásico del Torneo Clausura",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/tv-y-streaming-del-domingo-boca-vs-river-messi-en-inter-miami-colapinto-en-la-formula-1-ligas-de-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-ultimo-superclasico-se-disputo-en-abril-pasado-5N7RY5HZMZHL5JP4IUWCQ4VATY.JPG?auth=a531cc41d1a828a673060bef470c588f630c57244aab94ec64157f619fc1f9ad&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía nítida, de excelente encuadre, que muestra una jugada real del Superclásico sin marcas agregadas, menores ni problemas de archivo o stock.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón durante el Superclásico"
+  },
+  "huella": "c3ca434551c9a725"
+ },
+ "1gjjdy7": {
+  "archivo": "fotos-notas/1gjjdy7.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Arsenal vence a Liverpool y trepa a la cima de la liga inglesa",
+  "enlace": "https://www.ole.com.ar/futbol-internacional/inglaterra/manchester-city-envivo-premier-league-enzo-fernandez_0_3fJrSzp8gr.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/31/Peai-kouo_2000x1500__1.jpg",
+  "razon": "Es la única foto de acción clara del partido de la Premier League sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-01T20:32:46.380Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón en un partido de la liga inglesa."
+  },
+  "huella": "69144e85b586721f"
  }
 }

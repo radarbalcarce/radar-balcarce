@@ -2454,6 +2454,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1df7mwd": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "1dg1g9r": {
   "intentos": 1,
   "ultimo": "2026-11-01T07:01:38.456Z",
@@ -3082,6 +3089,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "1gjjdy7": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 7,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
+  ]
  },
  "1gm1ho2": {
   "intentos": 2,
@@ -6484,19 +6501,16 @@
   ]
  },
  "1we22fg": {
-  "intentos": 3,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 228 palabras",
-  "textos": 5,
-  "numeradas": 7,
+  "intentos": 4,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
   "motivos": [
-   "cuerpo: 8 problemas (nombre, antecedente, relleno, repite): el cuerpo ",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
    "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
-   "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice;"
-  ],
-  "falla": [
-   "el cuerpo dice 40 y la fuente no lo dice"
+   "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice;",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ]
  },
  "1wiu5wj": {
@@ -8772,6 +8786,21 @@
   "textos": 4,
   "numeradas": 28
  },
+ "butjuy": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "cuerpo: 2 problemas (antecedente, relleno): el cuerpo usa \"nunez\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 157 palabras",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 4 problemas (antecedente, tilde, relleno, tildes): el cuerpo u",
+   "cuerpo: 2 problemas (antecedente, relleno): el cuerpo usa \"nunez\", que"
+  ],
+  "falla": [
+   "el cuerpo usa \"nunez\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "bvcva5": {
   "intentos": 1,
   "ultimo": "2026-10-26T12:32:13.768Z",
@@ -8998,20 +9027,14 @@
   ]
  },
  "d4errd": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:31:47.214Z",
-  "motivo": "cuerpo: 6 problemas (antecedente, nombre, numero): el cuerpo usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 122 pa",
+  "intentos": 2,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 3 problemas (antecedente, nombre, copia): el cuerpo usa \"ciuda",
    "cuerpo: 6 problemas (antecedente, nombre, numero): el cuerpo usa \"ciud"
-  ],
-  "falla": [
-   "el cuerpo usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo nombra a \"autonoma\" y la fuente no",
-   "el cuerpo dice 18 y la fuente no lo dice",
-   "el cuerpo usa 30, que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "d4tgnj": {
@@ -9163,6 +9186,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "e1z4iv": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+  ]
  },
  "e2viac": {
   "intentos": 1,
@@ -9985,17 +10018,6 @@
    "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
   ]
  },
- "i3z8vw": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T20:32:00.463Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 3 problemas (numero, relleno, copia): el cuerpo dice 5 y la fu",
-   "título o bajada: 1 problema (numero): el copete dice 5 y la fuente no "
-  ]
- },
  "i3ze96": {
   "intentos": 1,
   "ultimo": "2026-10-29T07:03:12.770Z",
@@ -10154,6 +10176,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "j6h1yj": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 27
  },
  "j6mikq": {
   "intentos": 2,
@@ -10587,6 +10616,13 @@
   ],
   "baja": true,
   "fuentes": 1
+ },
+ "lt07ea": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 5
  },
  "lvcrbq": {
   "intentos": 1,
@@ -12986,18 +13022,14 @@
   "numeradas": 2
  },
  "yag2by": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T19:02:50.780Z",
-  "motivo": "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nunez\" y la fuente no; sin esas oraciones quedan 130 palabras",
-  "textos": 4,
-  "numeradas": 11,
+  "intentos": 2,
+  "ultimo": "2026-11-01T20:31:38.035Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 10,
   "motivos": [
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
    "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nunez\" y la "
-  ],
-  "falla": [
-   "el cuerpo nombra a \"nunez\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "yb0soh": {
