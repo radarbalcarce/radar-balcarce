@@ -227,6 +227,16 @@
    "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
   ]
  },
+ "11f4s3g": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 19,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
  "11f64xi": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:52:12.994Z",
@@ -1164,6 +1174,13 @@
   "textos": 4,
   "numeradas": 5
  },
+ "16myge3": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6
+ },
  "16rizt6": {
   "intentos": 3,
   "ultimo": "2026-10-31T22:01:29.106Z",
@@ -2025,6 +2042,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 47
+ },
+ "1bcuezn": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 7
  },
  "1bdbhe": {
   "intentos": 3,
@@ -5088,6 +5112,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1phgymz": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 11,
+  "numeradas": 16
+ },
  "1pidco9": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -6007,6 +6038,13 @@
   "textos": 6,
   "numeradas": 11
  },
+ "1tnk8f8": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
+ },
  "1toeb2v": {
   "intentos": 1,
   "ultimo": "2026-10-29T10:31:31.354Z",
@@ -6466,21 +6504,19 @@
   ]
  },
  "1we22fg": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T18:01:41.067Z",
-  "motivo": "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y la fuente no; sin esas oraciones quedan 220 palabras",
-  "textos": 7,
-  "numeradas": 9,
+  "intentos": 3,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 228 palabras",
+  "textos": 5,
+  "numeradas": 7,
   "motivos": [
-   "cuerpo: 3 problemas (nombre, relleno, repite): el cuerpo nombra a \"alb",
    "cuerpo: 8 problemas (nombre, antecedente, relleno, repite): el cuerpo ",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y "
+   "cuerpo: 3 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
+   "cuerpo: 1 problema (numero): el cuerpo dice 40 y la fuente no lo dice;"
   ],
   "falla": [
-   "el cuerpo nombra a \"alberto\" y la fuente no",
-   "el cuerpo nombra a \"ribera\" y la fuente no",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+   "el cuerpo dice 40 y la fuente no lo dice"
   ]
  },
  "1wiu5wj": {
@@ -7406,6 +7442,13 @@
    "Gemini: Expected ',' or ']' after array element in JSON at position 32"
   ]
  },
+ "4r08x7": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 22
+ },
  "4s2qte": {
   "intentos": 1,
   "ultimo": "2026-10-29T21:32:04.639Z",
@@ -8021,6 +8064,13 @@
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
+ },
+ "89822l": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
  },
  "8ang76": {
   "intentos": 1,
@@ -9316,6 +9366,23 @@
    "título o bajada: 1 problema (numero): el copete dice 93 y la fuente no",
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
    "título o bajada: 2 problemas (largo, titulo): el titulo tiene 110 cara"
+  ]
+ },
+ "ewwq08": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "cuerpo: 7 problemas (numero, copia, tildes): el cuerpo dice 50.000.000 y la fuente no lo dice; sin esas oraciones quedan 100 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 4 problemas (forma, numero, nombre): el cuerpo trae un escape ",
+   "cuerpo: 7 problemas (numero, copia, tildes): el cuerpo dice 50.000.000"
+  ],
+  "falla": [
+   "el cuerpo dice 50.000.000 y la fuente no lo dice",
+   "el cuerpo dice 2.000 y la fuente no lo dice",
+   "el cuerpo dice 80 y la fuente no lo dice",
+   "el cuerpo dice 20.000 y la fuente no lo dice"
   ]
  },
  "exat71": {
@@ -12589,6 +12656,16 @@
    "título o bajada: 4 problemas (antecedente): el titulo usa \"liga\", que "
   ]
  },
+ "wg9b9i": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 5 y la fuente no "
+  ]
+ },
  "wgr6up": {
   "intentos": 3,
   "ultimo": "2026-10-28T08:02:05.536Z",
@@ -12914,6 +12991,21 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "yag2by": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:02:50.780Z",
+  "motivo": "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nunez\" y la fuente no; sin esas oraciones quedan 130 palabras",
+  "textos": 4,
+  "numeradas": 11,
+  "motivos": [
+   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
+   "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"nunez\" y la "
+  ],
+  "falla": [
+   "el cuerpo nombra a \"nunez\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
+  ]
  },
  "yb0soh": {
   "intentos": 1,

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T18:35:05.138Z",
- "portada": 85,
+ "generado": "2026-11-01T19:07:53.136Z",
+ "portada": 90,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-01T18:35:05.424Z",
+  "generado": "2026-11-01T19:07:54.127Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 54,
+    "segundos": 48,
     "notas": [
      {
       "id": "1ewmn8c",
@@ -103,19 +103,19 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1preq",
-      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "1b31p4i",
       "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
       "seccion": "Fútbol"
      },
      {
-      "id": "28qoem",
-      "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
-      "seccion": "Agro"
+      "id": "1preq",
+      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "al4nhx",
+      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
-      "id": "11fke2d",
-      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
-      "seccion": "Cultura y agenda"
+      "id": "mkw4t0",
+      "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
+      "seccion": "Fútbol"
      },
      {
-      "id": "1qwgpj",
-      "titulo": "Registran granizo y lluvias intensas en la zona rural",
-      "seccion": "Agro"
+      "id": "mlnw2g",
+      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "15hbmuo",
-      "titulo": "Las claves legales para dividir una vivienda tras una separación de pareja",
-      "seccion": "Balcarce"
+      "id": "ucd67q",
+      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
+      "seccion": "Argentina"
      },
      {
-      "id": "qz7l9a",
-      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
-      "seccion": "Deportes"
+      "id": "a3w48y",
+      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+      "seccion": "Política"
      }
     ]
    }
@@ -162,6 +162,11 @@
      "id": "f6043u",
      "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
      "cuando": "2026-11-01T16:36:00.514Z"
+    },
+    {
+     "id": "11fke2d",
+     "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+     "cuando": "2026-11-01T18:36:02.094Z"
     }
    ],
    "cola": [
@@ -172,21 +177,21 @@
      "marcada": false
     },
     {
-     "id": "11fke2d",
-     "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "4mq1wo",
      "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "ucd67q",
-     "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
-     "seccion": "Argentina",
+     "id": "mkw4t0",
+     "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1bcuezn",
+     "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -202,14 +207,20 @@
      "marcada": false
     },
     {
-     "id": "mkw4t0",
-     "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
+     "id": "ucd67q",
+     "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "11f4s3g",
+     "titulo": "Boca le gana 1 a 0 a River en el Superclásico",
      "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-11-01T18:06:00.514Z",
+   "cupo": 2,
+   "proximoDesde": "2026-11-01T20:06:02.094Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
