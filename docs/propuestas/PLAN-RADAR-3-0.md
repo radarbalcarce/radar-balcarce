@@ -260,8 +260,20 @@ El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no
   página armada, igual a como se vería publicada, sin estar publicada; con «ok» sale. Mismo circuito para las gacetillas.
 - **Reel con video propio:** un video corto de Hernán (sin sonido, con el título, la firma y la placa final de papel) como reel e historia,
   armado por el sistema; el 1/11 se hizo a mano con `reels/placa.mjs` + ffmpeg (capa con título y firma sobre el video, placa final).
-- **Agenda de comercios e instituciones que avisan:** contactos como el Maxikiosco Pinocho (Instagram, WhatsApp) en la agenda del
-  medio, para pedirles que avisen cuando organizan algo; se charla junto con el mapa comercial (`comercial/`), después de la mudanza.
+- **Agenda de comercios e instituciones que avisan:** contactos como el Maxikiosco Pinocho (Instagram @pinocho2kiosco, WhatsApp) en la
+  agenda del medio, para pedirles que avisen cuando organizan algo; se charla junto con el mapa comercial (`comercial/`), después de la
+  mudanza. Primer paso concreto: escribirle al Pinocho por Instagram con la nota y el reel, y agradecerle.
+- **Todas las redes para cada pieza:** el reel, la historia y el posteo de una nota propia tienen que salir en Facebook, Instagram y en el
+  resto (TikTok, YouTube Shorts, X, Threads) sin pasos a mano; hoy sólo Facebook e Instagram salen por la API, TikTok y YouTube van por
+  Buffer (workflow «Buffer (TikTok y YouTube)») y X y Threads están en propuesta (`docs/propuestas/`). Cada red, su módulo en `v3/redes/`.
+- **Ahorrar tokens al construir:** Hernán pide que el modelo grande sólo orqueste y decida, y que las tareas mecánicas (buscar, exportar,
+  escribir código de rutina, revisar) las hagan modelos chicos. Regla de trabajo para toda la 3.0: subagentes con `haiku` para búsquedas y
+  mediciones y `sonnet` para código y revisión; el grande, para las decisiones y lo delicado. Si hace falta, un *workflow* de construcción
+  que reparta las tareas así (el usuario lo pide con «usá un workflow»).
+- **Cuentas, para que no vuelva a pasar (1/11):** el `gh` de la PC quedó logueado como `radarbalcarce` (con permiso `workflow`) y el
+  repositorio empuja sólo con esa cuenta; nada con `balcar-dev` ni con `hacheaccomo`. El Chrome de Radar es el tercero de los conectados
+  (GitHub como radarbalcarce); el otro Chrome de Windows tiene la cuenta personal de Hernán (ahí quedó a medio crear una propiedad de
+  Google Analytics que NO hay que aceptar: se rehace con radarbalcarce@gmail.com, pendiente).
 
 ## 5. Lo que se tira (lista explícita)
 
