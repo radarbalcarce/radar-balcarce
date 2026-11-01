@@ -23634,9 +23634,7 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1put3ro": {
-  "archivo": "fotos-notas/1put3ro.jpg",
   "medio": "El Eco de Tandil",
-  "credito": "Foto: El Eco de Tandil",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Justicia ordena a FATE pagar 1.200 millones en sueldos",
@@ -23656,7 +23654,8 @@
    "descripcion": "Vista aérea de la planta de FATE con su cartel principal y los techos de la fábrica"
   },
   "huella": "cedc615f664e75cc",
-  "ausenteDesde": "2026-10-25T04:02:30.907Z"
+  "intentado": true,
+  "borrada": true
  },
  "z9lw4j": {
   "intentado": true,
@@ -35560,9 +35559,7 @@
   "ausenteDesde": "2026-10-27T04:05:51.054Z"
  },
  "11ubrm7": {
-  "archivo": "fotos-notas/11ubrm7.jpg",
   "medio": "Página/12",
-  "credito": "Foto: Página/12",
   "licencia": null,
   "origen": "medio",
   "titulo": "Identifican los restos de ocho desaparecidos en el excentro clandestino La Perla",
@@ -35594,7 +35591,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "e2e8a80a9aac3cf6",
-  "ausenteDesde": "2026-10-25T04:02:30.907Z"
+  "intentado": true,
+  "borrada": true
  },
  "junk0o": {
   "intentado": true,
@@ -62898,11 +62896,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ANSES paga un bono de 70.000 pesos y aumenta los haberes en noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Ámbito no se usa todavía.",
-  "cuando": "2026-11-01T02:02:43.353Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-01T05:02:19.388Z",
   "intentos": 1,
   "fuentes": 7,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "u0p8o0": {
   "intentado": true,
@@ -63184,11 +63183,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-01T03:03:19.678Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de Clarín no se usa todavía.",
+  "cuando": "2026-11-01T05:02:19.388Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1nv0ui": {
