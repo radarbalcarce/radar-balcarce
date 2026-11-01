@@ -1,7 +1,24 @@
 {
- "generado": "2026-11-01T22:09:47.578Z",
+ "generado": "2026-11-01T23:03:29.260Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "14framj",
+   "titulo": "Chef Salé cerró la Fiesta Nacional del Postre con una preparación al aire libre",
+   "copete": "El cocinero e influencer Valentín Galdón Ritvo compartió su estilo de cocina al fuego con la elaboración de una torta vasca y contó con la ayuda de pequeños asistentes durante la última presentación gastronómica del evento.",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-01T22:46:07.000Z",
+   "fuentes": [
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/chef-sale-cerro-la-fiesta-nacional-del-postre-con-una-preparacion-al-aire-libre",
+     "fecha": "2026-11-01T22:46:07.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 2 problemas (forma): el titulo dice \"en vivo\" y el sitio no hace coberturas en vivo",
+   "maximo": 3
+  },
   {
    "id": "1c47hrh",
    "titulo": "Un chancho se cruzó en plena Autopista La Plata-Buenos Aires y generó un choque con cuatro autos",
@@ -101,17 +118,12 @@
    "titulo": "Se confirmó la lesión de Maravilla Martínez: se pierde el útlimo partido de Racing en el año",
    "copete": "",
    "seccion": "Fútbol",
-   "fecha": "2026-11-01T15:06:43.000Z",
+   "fecha": "2026-11-01T16:37:14.000Z",
    "fuentes": [
     {
      "medio": "TyC Sports",
      "enlace": "https://www.tycsports.com/racing-club/racing-confirmacion-lesion-adrian-maravilla-martinez-victoria-aldosivi-ausencia-barracas-central-id769722.html",
      "fecha": "2026-11-01T15:06:43.000Z"
-    },
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/racing-club/por-que-salieron-maravilla-martinez-y-cambeses-en-racing-vs-aldosivi-id769545.html",
-     "fecha": "2026-10-31T03:22:59.000Z"
     },
     {
      "medio": "Olé",
@@ -181,6 +193,33 @@
    "maximo": 5
   },
   {
+   "id": "1xpt53u",
+   "titulo": "Leonardo Ponzio confirmó la lista de citados de River para el Superclásico: Aníbal Moreno fue descartado por lesión",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-01T00:09:04.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/deportes/futbol/2026/10/31/leonardo-ponzio-confirmo-la-lista-de-citados-de-river-para-el-superclasico-anibal-moreno-fue-descartado-por-lesion/",
+     "fecha": "2026-10-31T23:57:18.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/river-plate/dura-baja-en-river-anibal-moreno-quedo-descartado-ante-boca-id769681.html",
+     "fecha": "2026-11-01T00:09:04.000Z"
+    },
+    {
+     "medio": "La Brújula 24",
+     "enlace": "https://www.labrujula24.com/notas/2026/10/31/dura-baja-en-river-anibal-moreno-quedo-descartado-ante-boca-n528295/",
+     "fecha": "2026-11-01T00:35:00.000Z"
+    }
+   ],
+   "intentos": 2,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
    "id": "1e05fh7",
    "titulo": "Platense informó la sanción que recibió de CONMEBOL por los incidentes ante Fluminense: millonaria multa sin clausura del estadio",
    "copete": "",
@@ -211,7 +250,7 @@
    "id": "fm6pp3",
    "titulo": "Mariluz del Campo, jardinera de “La granja de mis sueños”: “Si le insertas un clavo a un árbol frutal, empezará a dar frutos muy rápido porque le da estrés”",
    "copete": "Mariluz del Campo , de la cuenta de TikTok La granja de mis sueños (@lagranjademissue1), compartió un método casero que podría permitir que un árbol frutal produzca flores y frutos más rápido: introducir un clavo en su tronco . La explicación se basa en provocar estrés en la…",
-   "seccion": "Agro",
+   "seccion": "Cultura y agenda",
    "fecha": "2026-10-31T15:20:50.000Z",
    "fuentes": [
     {
@@ -236,6 +275,14 @@
   }
  ],
  "descartadas": [
+  {
+   "id": "kiw420",
+   "titulo": "Atletismo Maximiliano Moreno y Karina Lupo se quedaron con la carrera homenaje a Luis Vildoza",
+   "seccion": "Deportes",
+   "fecha": "2026-11-01T22:35:54.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica; sin esas oraciones quedan 106 palabras"
+  },
   {
    "id": "yvutej",
    "titulo": "TN en Concordia: Tomás Vitar tiene la “pole” para la Final de Clase 2",

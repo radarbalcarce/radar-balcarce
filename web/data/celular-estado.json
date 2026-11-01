@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T22:33:47.617Z",
- "portada": 87,
+ "generado": "2026-11-01T23:03:29.260Z",
+ "portada": 86,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-01T22:33:47.946Z",
+  "generado": "2026-11-01T23:03:29.608Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-01T22:36:59.568Z"
    },
    {
     "nombre": "clima-noche",
@@ -63,7 +63,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -129,8 +129,8 @@
     "segundos": 48,
     "notas": [
      {
-      "id": "8unkfp",
-      "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
+      "id": "b7yw0o",
+      "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
      },
      {
@@ -172,18 +172,17 @@
      "id": "mkw4t0",
      "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
      "cuando": "2026-11-01T20:36:01.926Z"
+    },
+    {
+     "id": "8unkfp",
+     "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
+     "cuando": "2026-11-01T22:36:02.474Z"
     }
    ],
    "cola": [
     {
-     "id": "8unkfp",
-     "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "6uoqxh",
-     "titulo": "Antonelli gana su primer título de Fórmula 1 en México y Colapinto termina octavo",
+     "id": "i1nal0",
+     "titulo": "Kimi Antonelli se consagra campeón de la Fórmula 1 y Colapinto termina octavo",
      "seccion": "Automovilismo",
      "marcada": false
     },
@@ -194,21 +193,15 @@
      "marcada": false
     },
     {
-     "id": "4mq1wo",
-     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1rpk5d1",
      "titulo": "Rodolfo D'Onofrio cuestiona al arbitraje en el Superclásico",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "ucd67q",
-     "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
-     "seccion": "Argentina",
+     "id": "10br6of",
+     "titulo": "Boca derrota a River por uno a cero y se clasifica a la Copa Libertadores",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -218,14 +211,14 @@
      "marcada": false
     },
     {
-     "id": "10br6of",
-     "titulo": "Boca derrota a River por uno a cero y se clasifica a la Copa Libertadores",
+     "id": "1bcuezn",
+     "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
      "seccion": "Fútbol",
      "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-11-01T22:06:01.926Z",
+   "cupo": 0,
+   "proximoDesde": "2026-11-02T00:06:02.474Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

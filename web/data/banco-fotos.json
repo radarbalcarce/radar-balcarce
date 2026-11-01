@@ -29202,9 +29202,7 @@
   "ausenteDesde": "2026-10-26T08:05:49.250Z"
  },
  "ncynjk": {
-  "archivo": "fotos-notas/ncynjk.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Francisco Cerúndolo avanza a los cuartos de final en el ATP de Bruselas",
@@ -29225,7 +29223,8 @@
    "descripcion": "Francisco Cerúndolo celebrando con el puño en alto durante un partido de tenis."
   },
   "huella": "a66e095d0dc98f24",
-  "ausenteDesde": "2026-10-25T23:02:13.164Z"
+  "intentado": true,
+  "borrada": true
  },
  "bbatvv": {
   "medio": "C5N",
@@ -57386,7 +57385,8 @@
    "corresponde": "si",
    "descripcion": "Foto grupal de la conferencia previa al Superclásico con dirigentes y jugadores"
   },
-  "huella": "1e1f5a6c6656d393"
+  "huella": "1e1f5a6c6656d393",
+  "ausenteDesde": "2026-11-01T23:03:29.171Z"
  },
  "y1vv1d": {
   "archivo": "fotos-notas/y1vv1d.jpg",
@@ -65783,7 +65783,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "252d293937676f67"
+  "huella": "252d293937676f67",
+  "ausenteDesde": "2026-11-01T23:03:29.171Z"
  },
  "wbfxi2": {
   "archivo": "fotos-notas/wbfxi2.webp",
@@ -65868,5 +65869,65 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "i1nal0": {
+  "archivo": "fotos-notas/i1nal0.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Kimi Antonelli se consagra campeón de la Fórmula 1 y Colapinto termina octavo",
+  "enlace": "https://www.cronista.com/deportes/kimi-antonelli-se-corono-en-mexico-campeon-por-primera-vez-de-la-formula-1-colapinto-termino-octavo/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/O3BFG6THERERZKSN23N2P7D52M.jpg?auth=84c11847130c4008eeac3687a35cbc71030fff32622af81b59c21d87a7573715&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la imagen más limpia, de alta calidad, que muestra al protagonista del hecho (Kimi Antonelli) en un momento de celebración, sin marcas de agua, sin menores y sin elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-01T23:02:42.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 de Mercedes en pista",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un monoplaza de Fórmula 1 de Mercedes corriendo en la pista."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "2d7ab99dbc99b883"
+ },
+ "1b6ba01": {
+  "archivo": "fotos-notas/1b6ba01.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Cyber Monday 2026 comienza el lunes con ofertas en diversos rubros",
+  "enlace": "https://www.pagina12.com.ar/2026/11/01/cyber-monday-2026-cuando-es-y-cuales-son-los-descuentos-que-hay/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/HFU73HTDQNGAJHGOE4WQ6NYHGI.jpg?smart=true&auth=59068eefc3666ffbb844901f5c99545bedf54fd42e0da1993ac0a27d186dbef0&width=1200&height=630",
+  "razon": "Es la única imagen que muestra el sitio web real del evento Cyber Monday 2026, sin ser una foto de stock genérica de personas comprando online.",
+  "cuando": "2026-11-01T23:02:42.431Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Captura de pantalla de la web oficial del Cyber Monday 2026."
+  },
+  "huella": "c2932f3f4c0d9757"
  }
 }

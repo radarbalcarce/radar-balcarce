@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T22:33:44.452Z",
+ "consultado": "2026-11-01T23:03:25.406Z",
  "equipos": [
   "9739",
   "3",
@@ -954,12 +954,12 @@
     "id": "401841645",
     "competencia": "liga",
     "inicio": "2026-11-01T21:30:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+4'",
+    "estado": "en-juego",
+    "minuto": "70'",
     "local": {
      "id": "4",
      "nombre": "Belgrano (Córdoba)",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "10060",
@@ -973,6 +973,12 @@
       "jugador": "Lucas Passerini",
       "minuto": "27'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Lucas Passerini",
+      "minuto": "48'",
+      "tipo": "gol"
      }
     ],
     "estadio": "El Gigante de Alberdi",
@@ -984,8 +990,8 @@
     "id": "401841650",
     "competencia": "liga",
     "inicio": "2026-11-01T21:30:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "70'",
     "local": {
      "id": "14",
      "nombre": "Newell's Old Boys",
@@ -994,10 +1000,17 @@
     "visitante": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Juan Ludueña",
+      "minuto": "59'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Marcelo Bielsa",
     "fase": null,
     "partidoDeLaSerie": null,

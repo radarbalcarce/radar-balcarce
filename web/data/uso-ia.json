@@ -1932,36 +1932,36 @@
   "2026-11-01": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 67,
-     "errores": 9,
+     "llamadas": 68,
+     "errores": 10,
      "entrada": 138206,
      "salida": 61193,
      "pensamiento": 0,
      "total": 199399,
      "claves": {
-      "clasificacion": 67
+      "clasificacion": 68
      },
      "motivos": {
       "clasificacion": {
        "ok": 58,
-       "cupo-diario": 6,
+       "cupo-diario": 7,
        "otro": 3
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 9,
+     "llamadas": 10,
      "errores": 3,
-     "entrada": 15700,
-     "salida": 14455,
+     "entrada": 18828,
+     "salida": 17527,
      "pensamiento": 0,
-     "total": 30155,
+     "total": 36355,
      "claves": {
-      "groq": 9
+      "groq": 10
      },
      "motivos": {
       "groq": {
-       "ok": 6,
+       "ok": 7,
        "velocidad": 1,
        "rechazada": 2
       }
@@ -1986,19 +1986,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 89,
-     "errores": 13,
-     "entrada": 889689,
-     "salida": 14604,
+     "llamadas": 91,
+     "errores": 14,
+     "entrada": 891716,
+     "salida": 14800,
      "pensamiento": 0,
-     "total": 904293,
+     "total": 906516,
      "claves": {
-      "clasificacion": 89
+      "clasificacion": 91
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 9,
-       "ok": 76,
+       "cupo-diario": 10,
+       "ok": 77,
        "otro": 2,
        "saturado": 2
       }
@@ -2040,18 +2040,18 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 254,
-     "errores": 34,
+     "llamadas": 258,
+     "errores": 38,
      "entrada": 1351077,
      "salida": 239696,
      "pensamiento": 0,
      "total": 1590773,
      "claves": {
-      "redaccion": 254
+      "redaccion": 258
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 23,
+       "cupo-diario": 27,
        "ok": 220,
        "otro": 5,
        "saturado": 6
@@ -2059,20 +2059,20 @@
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 54,
-     "errores": 40,
-     "entrada": 80647,
-     "salida": 15113,
+     "llamadas": 60,
+     "errores": 42,
+     "entrada": 103454,
+     "salida": 18868,
      "pensamiento": 0,
-     "total": 95760,
+     "total": 122322,
      "claves": {
-      "redaccion": 45,
+      "redaccion": 51,
       "respaldo": 9
      },
      "motivos": {
       "redaccion": {
-       "ok": 14,
-       "saturado": 31
+       "ok": 18,
+       "saturado": 33
       },
       "respaldo": {
        "rechazada": 9
@@ -2098,18 +2098,18 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 148,
-     "errores": 20,
+     "llamadas": 150,
+     "errores": 22,
      "entrada": 762026,
      "salida": 60607,
      "pensamiento": 0,
      "total": 832822,
      "claves": {
-      "clasificacion": 148
+      "clasificacion": 150
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 16,
+       "cupo-diario": 18,
        "ok": 128,
        "velocidad": 1,
        "saturado": 1,
@@ -2118,36 +2118,36 @@
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 17,
+     "llamadas": 19,
      "errores": 10,
-     "entrada": 48210,
-     "salida": 4022,
+     "entrada": 64265,
+     "salida": 5342,
      "pensamiento": 0,
-     "total": 52232,
+     "total": 69607,
      "claves": {
-      "clasificacion": 17
+      "clasificacion": 19
      },
      "motivos": {
       "clasificacion": {
        "saturado": 10,
-       "ok": 7
+       "ok": 9
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 50,
+     "llamadas": 51,
      "errores": 15,
-     "entrada": 60792,
-     "salida": 4175,
+     "entrada": 61890,
+     "salida": 4266,
      "pensamiento": 0,
-     "total": 64967,
+     "total": 66156,
      "claves": {
-      "groq": 50
+      "groq": 51
      },
      "motivos": {
       "groq": {
        "cupo-diario": 5,
-       "ok": 35,
+       "ok": 36,
        "otro": 4,
        "velocidad": 6
       }
