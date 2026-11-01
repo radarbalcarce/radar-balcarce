@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T01:04:03.711Z",
+ "consultado": "2026-11-01T01:32:20.536Z",
  "equipos": [
   "9739",
   "3",
@@ -864,8 +864,8 @@
     "id": "401841654",
     "competencia": "liga",
     "inicio": "2026-11-01T00:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "32'",
+    "estado": "entretiempo",
+    "minuto": "45'+3'",
     "local": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
@@ -1320,14 +1320,14 @@
       "posicion": 2,
       "id": "21",
       "equipo": "Vélez Sarsfield",
-      "pj": 14,
+      "pj": 15,
       "g": 7,
-      "e": 6,
+      "e": 7,
       "p": 1,
-      "gf": 23,
-      "gc": 13,
+      "gf": 25,
+      "gc": 15,
       "dif": 10,
-      "pts": 27
+      "pts": 28
      },
      {
       "posicion": 3,
@@ -1411,14 +1411,14 @@
       "posicion": 9,
       "id": "18",
       "equipo": "San Lorenzo",
-      "pj": 14,
+      "pj": 15,
       "g": 5,
-      "e": 3,
+      "e": 4,
       "p": 6,
-      "gf": 7,
-      "gc": 12,
+      "gf": 9,
+      "gc": 14,
       "dif": -5,
-      "pts": 18
+      "pts": 19
      },
      {
       "posicion": 10,
@@ -1702,7 +1702,7 @@
    }
   ]
  },
- "tablaCuando": "2026-10-31T23:54:32.615Z",
+ "tablaCuando": "2026-11-01T01:32:20.536Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
