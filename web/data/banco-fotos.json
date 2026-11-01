@@ -53396,7 +53396,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:50.326Z",
-  "imagenOriginal": "https://www.canal26.com/resizer/v2/6O5FM2NUUBC4FP4RFAW33JOX5I.jpg?auth=f612ce2b5acff96830d9974c38b98ea4349c6107ea8778ee478618cccb6aa4e4&height=630&width=1200&quality=70&smart=true"
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/6O5FM2NUUBC4FP4RFAW33JOX5I.jpg?auth=f612ce2b5acff96830d9974c38b98ea4349c6107ea8778ee478618cccb6aa4e4&height=630&width=1200&quality=70&smart=true",
+  "ausenteDesde": "2026-11-01T11:02:48.709Z"
  },
  "zv94ul": {
   "archivo": "fotos-notas/zv94ul.jpg",
@@ -54694,7 +54695,8 @@
    "corresponde": "si",
    "descripcion": "Edificio institucional con marquesina de AFIP"
   },
-  "huella": "4f4f9e5e7afabab2"
+  "huella": "4f4f9e5e7afabab2",
+  "ausenteDesde": "2026-11-01T11:02:48.709Z"
  },
  "1siiv9i": {
   "medio": "TN (Todo Noticias)",
@@ -63407,10 +63409,10 @@
   "origen": "ninguna",
   "titulo": "Emilia Mernes estrena Bodypainting y responde a las críticas",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Minuto Uno no se usa todavía.",
-  "cuando": "2026-11-01T09:01:18.112Z",
+  "cuando": "2026-11-01T11:01:42.447Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "ipq35m": {
   "intentado": true,
@@ -63523,5 +63525,48 @@
   "cuando": "2026-11-01T10:31:47.940Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1i15zne": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Plata ofrece actividades artísticas y deportivas",
+  "razon": "Ninguna de las fotos corresponde a la nota sobre actividades artísticas y deportivas en La Plata; una es una ilustración gráfica y la otra es de un partido de fútbol profesional.",
+  "cuando": "2026-11-01T11:01:42.447Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "la respuesta no es JSON"
+ },
+ "8g5woc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Eduardo Costantini recibe la Medalla Sorolla en Nueva York",
+  "razon": "Ninguna foto cumple con todos los requisitos, ya que la única que corresponde a la nota tiene una marca de agua superpuesta del medio.",
+  "cuando": "2026-11-01T11:01:42.447Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "18prhjk": {
+  "archivo": "fotos-notas/18prhjk.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La demanda de dólares alcanza los u$s2.896 millones en septiembre",
+  "enlace": "https://www.c5n.com/economia/los-argentinos-compraron-casi-us2900-millones-un-ano-las-elecciones-n253058",
+  "imagenOriginal": "https://media.c5n.com/p/38e49effae585ae257535f80bd0a917e/adjuntos/326/imagenes/000/336/0000336439/1200x675/smart/dolar-suba.jpg",
+  "razon": "Es la única foto sin marcas, menores, gráficos ni problemas de calidad que ilustra adecuadamente el tema económico.",
+  "cuando": "2026-11-01T11:01:42.447Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Billetes de cien dólares con gráfico financiero de fondo"
+  },
+  "huella": "b147d3110821b1ab"
  }
 }
