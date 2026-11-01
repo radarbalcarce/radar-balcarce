@@ -252,6 +252,17 @@ Se escribe en una sesión con ustedes, en este orden:
 
 El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no toca código.
 
+**Sumado el 1/11 a la tarde** (a partir de la nota de Halloween, la primera crónica propia con fotos y video de Hernán):
+
+- **Carrusel** como pieza de redes: una nota con 3 fotos propias o más sale como posteo con todas las fotos (Instagram hasta 20,
+  Facebook varias fotos, X hasta 4, TikTok modo foto), la portada primero. Hoy el sistema publica una sola foto por posteo.
+- **Vista previa por Telegram:** una nota que Hernán manda por el bot (texto, audio, fotos, video) vuelve como un enlace privado a la
+  página armada, igual a como se vería publicada, sin estar publicada; con «ok» sale. Mismo circuito para las gacetillas.
+- **Reel con video propio:** un video corto de Hernán (sin sonido, con el título, la firma y la placa final de papel) como reel e historia,
+  armado por el sistema; el 1/11 se hizo a mano con `reels/placa.mjs` + ffmpeg (capa con título y firma sobre el video, placa final).
+- **Agenda de comercios e instituciones que avisan:** contactos como el Maxikiosco Pinocho (Instagram, WhatsApp) en la agenda del
+  medio, para pedirles que avisen cuando organizan algo; se charla junto con el mapa comercial (`comercial/`), después de la mudanza.
+
 ## 5. Lo que se tira (lista explícita)
 
 El semáforo y sus listas; los cuatro mecanismos de repetidas; las notas automáticas de F1, fútbol, dólar y clima; las efemérides (se
