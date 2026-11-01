@@ -25304,9 +25304,7 @@
   "borrada": true
  },
  "1mvszry": {
-  "archivo": "fotos-notas/1mvszry.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Abre el puesto de merchandising de BTS en La Plata",
@@ -25338,7 +25336,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "552d271158d5d694",
-  "ausenteDesde": "2026-10-25T17:03:02.792Z"
+  "intentado": true,
+  "borrada": true
  },
  "ou35y3": {
   "intentado": true,
@@ -28085,9 +28084,7 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1fl3kia": {
-  "archivo": "fotos-notas/1fl3kia.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Un rayo mata a cuatro yeguas de polo en San Isidro",
@@ -28107,7 +28104,8 @@
    "descripcion": "Yeguas de polo muertas en el campo bajo la lluvia con una persona corriendo"
   },
   "huella": "004c8696d5d71f1f",
-  "ausenteDesde": "2026-10-25T17:03:02.792Z"
+  "intentado": true,
+  "borrada": true
  },
  "1vvngo6": {
   "archivo": "fotos-notas/1vvngo6.jpg",
@@ -39403,9 +39401,7 @@
   "ausenteDesde": "2026-10-28T03:04:53.455Z"
  },
  "12kpedr": {
-  "archivo": "fotos-notas/12kpedr.jpg",
   "medio": "La Verdad",
-  "credito": "Foto: La Verdad",
   "licencia": null,
   "origen": "medio",
   "titulo": "Brasil define su próximo presidente en el balotaje entre Lula da Silva y Flávio Bolsonaro",
@@ -39437,7 +39433,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "898d8c8e8c868686",
-  "ausenteDesde": "2026-10-25T17:03:02.792Z"
+  "intentado": true,
+  "borrada": true
  },
  "14f8xgk": {
   "intentado": true,
@@ -39450,9 +39447,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "muohzi": {
-  "archivo": "fotos-notas/muohzi.jpg",
   "medio": "La Capital (Rosario)",
-  "credito": "Foto: La Capital (Rosario)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei pide quemar en la hoguera a periodistas y recibe cruces",
@@ -39472,7 +39467,8 @@
    "descripcion": "Javier Milei hablando en un atril frente a un cartel de Fundación Faro"
   },
   "huella": "3939393131381c14",
-  "ausenteDesde": "2026-10-25T17:03:02.792Z"
+  "intentado": true,
+  "borrada": true
  },
  "17f0k0j": {
   "archivo": "fotos-notas/17f0k0j.jpg",
@@ -64503,7 +64499,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista de frente"
   },
-  "huella": "bb306aececdad2d2"
+  "huella": "bb306aececdad2d2",
+  "ausenteDesde": "2026-11-01T17:12:13.257Z"
  },
  "1nm1r17": {
   "archivo": "fotos-notas/1nm1r17.jpg",
@@ -64528,5 +64525,54 @@
    "descripcion": "Jugadores disputando la pelota en el partido"
   },
   "huella": "c3ca434551c9a725"
+ },
+ "1le5agn": {
+  "archivo": "fotos-notas/1le5agn.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca y River juegan el Superclásico en La Bombonera por el Clausura",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/01/boca-river-cual-es-la-diferencia-en-el-historial-y-que-racha-podria-repetirse-despues-de-35-anos/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/boca-domina-el-historial-en-el-superclasico-foto-dyn-KNRX32M5PVG45FSTE6IE7W74MU.jpg?auth=1bd66ccbe19aea2f6f4d2f648101909c78831cdd796a259857785acec7db10f4&width=1023",
+  "razon": "Es una fotografía real del Superclásico que corresponde exactamente a la nota y no presenta marcas de agua superpuestas ni menores.",
+  "cuando": "2026-11-01T17:09:59.418Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en un partido entre Boca y River"
+  },
+  "huella": "e6343575772b2a89"
+ },
+ "12n9862": {
+  "archivo": "fotos-notas/12n9862.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto largará undécimo en el Gran Premio de México",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/11/01/franco-colapinto-largara-12-en-el-gp-de-mexico-con-el-objetivo-de-volver-a-sumar-puntos-en-la-formula-1/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/franco-colapinto-en-el-gp-de-mexico-foto-efe-G374JQEK4FE6DCDMLPLLU2RXCU.jpg?auth=efd7c46eae021aaac2943b62245eccbb14d6b2dce99050fb98a34876331a7dea&width=1023",
+  "razon": "Es la única imagen completa que muestra el auto de Colapinto en pista, con buen encuadre y nitidez, sin marcas de agua ni menores.",
+  "cuando": "2026-11-01T17:09:59.418Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista cenital del auto de Fórmula 1 de Franco Colapinto (Alfa Romeo) en la pista."
+  },
+  "huella": "f6cd2aec8accc0a8"
  }
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T16:34:04.904Z",
- "portada": 83,
+ "generado": "2026-11-01T17:12:13.341Z",
+ "portada": 79,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-01T16:34:05.428Z",
+  "generado": "2026-11-01T17:12:13.865Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,11 +95,11 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
      {
-      "id": "f6043u",
-      "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
+      "id": "1b31p4i",
+      "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
       "seccion": "Fútbol"
      },
      {
@@ -126,13 +126,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
-     {
-      "id": "1b31p4i",
-      "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
-      "seccion": "Fútbol"
-     },
      {
       "id": "lq0upc",
       "titulo": "La Fiesta Nacional del Postre cierra su vigésima segunda edición",
@@ -147,6 +142,11 @@
       "id": "1chrqym",
       "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
       "seccion": "Política"
+     },
+     {
+      "id": "exokac",
+      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -157,6 +157,11 @@
      "id": "4iit0x",
      "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
      "cuando": "2026-11-01T14:36:02.679Z"
+    },
+    {
+     "id": "f6043u",
+     "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
+     "cuando": "2026-11-01T16:36:00.514Z"
     }
    ],
    "cola": [
@@ -164,12 +169,6 @@
      "id": "1sgedwu",
      "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
      "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "f6043u",
-     "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -185,26 +184,14 @@
      "marcada": false
     },
     {
-     "id": "n1l0p4",
-     "titulo": "Atlético Tucumán y Argentinos Juniors juegan el lunes por el Clausura",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "ucd67q",
      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
      "seccion": "Argentina",
      "marcada": false
-    },
-    {
-     "id": "w8foef",
-     "titulo": "Aumentan alquileres, prepagas, transporte y colegios en noviembre",
-     "seccion": "Economía",
-     "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-11-01T16:06:02.679Z",
+   "cupo": 3,
+   "proximoDesde": "2026-11-01T18:06:00.514Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
