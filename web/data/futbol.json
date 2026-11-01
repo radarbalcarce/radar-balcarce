@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T00:33:31.643Z",
+ "consultado": "2026-11-01T01:04:03.711Z",
  "equipos": [
   "9739",
   "3",
@@ -865,7 +865,7 @@
     "competencia": "liga",
     "inicio": "2026-11-01T00:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "2'",
+    "minuto": "32'",
     "local": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
@@ -874,10 +874,17 @@
     "visitante": {
      "id": "2975",
      "nombre": "Instituto (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Facundo Suárez",
+      "minuto": "3'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Jorge Luis Hirschi",
     "fase": null,
     "partidoDeLaSerie": null,

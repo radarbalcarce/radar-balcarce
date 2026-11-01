@@ -1005,8 +1005,8 @@
   "numeradas": 1
  },
  "15jfqvv": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T00:31:37.118Z",
+  "intentos": 2,
+  "ultimo": "2026-11-01T01:01:46.869Z",
   "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 3,
   "numeradas": 3,
@@ -1889,13 +1889,6 @@
   "textos": 6,
   "numeradas": 14
  },
- "1amudby": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T01:01:57.912Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "1aogfll": {
   "intentos": 1,
   "ultimo": "2026-10-25T18:02:00.589Z",
@@ -2037,6 +2030,13 @@
   "falla": [
    "la fuente niega algo en el título y el texto nuevo no"
   ]
+ },
+ "1b31p4i": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1b57x9g": {
   "intentos": 1,
@@ -2637,6 +2637,13 @@
   "textos": 4,
   "numeradas": 4
  },
+ "1e4a4ao": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "1e527x7": {
   "intentos": 1,
   "ultimo": "2026-10-31T01:32:13.566Z",
@@ -2753,16 +2760,6 @@
   "numeradas": 2,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 28 palabras seguidas del original: d"
-  ]
- },
- "1ektjdh": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T01:01:57.912Z",
-  "motivo": "con cuerpo",
-  "textos": 5,
-  "numeradas": 6,
-  "motivos": [
-   "cuerpo: 6 problemas (antecedente, nombre): el cuerpo usa \"pedro\", que "
   ]
  },
  "1enzf9": {
@@ -4160,19 +4157,6 @@
   "textos": 5,
   "numeradas": 6
  },
- "1li6hwr": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T01:01:57.912Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 2 problemas (tildes, promesa): el texto está escrito sin tilde",
-   "cuerpo: 4 problemas (antecedente, nombre, repite, promesa): el cuerpo ",
-   "título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que",
-   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
-  ]
- },
  "1liz0x8": {
   "intentos": 3,
   "ultimo": "2026-10-31T12:31:18.781Z",
@@ -4762,19 +4746,19 @@
   "numeradas": 10
  },
  "1nvpv7e": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T00:31:37.118Z",
-  "motivo": "cuerpo: 3 problemas (numero, fecha, nombre): el cuerpo dice 1 y la fuente no lo dice; sin esas oraciones quedan 150 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "cuerpo: 2 problemas (numero, fecha): el cuerpo dice 1 y la fuente no lo dice; sin esas oraciones quedan 175 palabras",
   "textos": 2,
   "numeradas": 6,
   "motivos": [
    "cuerpo: 6 problemas (numero, fecha, nombre, antecedente, relleno): el ",
-   "cuerpo: 3 problemas (numero, fecha, nombre): el cuerpo dice 1 y la fue"
+   "cuerpo: 3 problemas (numero, fecha, nombre): el cuerpo dice 1 y la fue",
+   "cuerpo: 2 problemas (numero, fecha): el cuerpo dice 1 y la fuente no l"
   ],
   "falla": [
    "el cuerpo dice 1 y la fuente no lo dice",
-   "el cuerpo menciona \"noviembre\" y la fuente no",
-   "el cuerpo nombra a \"tyc\" y la fuente no"
+   "el cuerpo menciona \"noviembre\" y la fuente no"
   ]
  },
  "1nwhb5k": {
@@ -11711,6 +11695,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "qz7l9a": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "r0ihw6": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -11955,6 +11946,16 @@
   "numeradas": 7,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: d"
+  ]
+ },
+ "s1kli5": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 22 palabras seguidas del original: d"
   ]
  },
  "s485pw": {
@@ -12314,6 +12315,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "ufix2m": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T01:01:46.869Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 12
  },
  "ufz0ks": {
   "intentos": 1,
