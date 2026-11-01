@@ -1,6 +1,9 @@
 {
   "avisos": {
-    "instagram-copias": "2026-11-01T15:00:13.043Z"
+    "instagram-copias": "2026-11-01T15:00:13.043Z",
+    "archivo-r2-fallo": "2026-11-01T18:00:12.408Z",
+    "falta-instagram-reel:noticia1": "2026-11-01T18:00:12.408Z",
+    "falta-instagram-historia:noticia1": "2026-11-01T18:00:12.408Z"
   },
   "importantes": {
     "avisadas": {
@@ -32,7 +35,7 @@
     "ultimo": "2026-11-01T15:00:13.043Z"
   },
   "redes": {
-    "hasta": "2026-11-01T14:36:17.704Z"
+    "hasta": "2026-11-01T16:36:13.014Z"
   },
   "ultimaMedicion": "2026-11-01/9",
   "ultimoResumen": "2026-10-01",
@@ -40,10 +43,28 @@
   "ultimoInforme": "2026-10-01",
   "abiertos": [
     {
+      "clave": "archivo-r2-fallo",
+      "nivel": "alta",
+      "texto": "La última corrida del archivo permanente salió mal: 1 objeto(s) no se pudieron subir o borrar. El sitio se publica igual, pero lo que está por salir puede no estar guardado y lo retirado puede no haberse borrado de R2. Mirá el paso \"Archivar las notas por salir (R2)\" del workflow \"Actualizar la web\" en GitHub Actions.",
+      "desde": "2026-11-01T18:00:12.408Z"
+    },
+    {
       "clave": "instagram-copias",
       "nivel": "alta",
       "texto": "Instagram tiene publicaciones repetidas: \"Halloween copó la plaza Libertad: un kiosco, un camión con personajes de terror y cientos \" (2 copias). Dejá una y borrá las demás a mano desde el celular: el sistema no puede borrarlas.",
       "desde": "2026-11-01T15:00:13.043Z"
+    },
+    {
+      "clave": "falta-instagram-reel:noticia1",
+      "nivel": "alta",
+      "texto": "Instagram: no salió el reel de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-11-01T18:00:12.408Z"
+    },
+    {
+      "clave": "falta-instagram-historia:noticia1",
+      "nivel": "media",
+      "texto": "Instagram: no salió la historia de podcast mañana de las 10:00, y ya se cerró su ventana. Si ese día no había notas para contar, es normal.",
+      "desde": "2026-11-01T18:00:12.408Z"
     }
   ]
 }

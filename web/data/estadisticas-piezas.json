@@ -2,31 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "instagram/historia/18203658994377039",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "farmacia",
-   "dia": "2026-10-14",
-   "cuando": "2026-10-14T22:06:26.968Z",
-   "medida": "2026-10-15T10:30:18.220Z",
-   "metricas": {}
-  },
-  {
-   "clave": "facebook/posteo/1254237411116171_122111534451495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "5biv0y",
-   "dia": "2026-10-14",
-   "cuando": "2026-10-14T11:04:40.468Z",
-   "medida": "2026-10-15T11:28:30.559Z",
-   "metricas": {
-    "post_media_view": 3,
-    "post_total_media_view_unique": 2,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
    "clave": "instagram/foto/18124544794925644",
    "red": "instagram",
    "parte": "foto",
@@ -10479,6 +10454,40 @@
     "views": 31,
     "replies": 0,
     "shares": 0
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122117873529495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "z7i5op",
+   "dia": "2026-10-31",
+   "cuando": "2026-10-31T16:36:03.415Z",
+   "medida": "2026-11-01T18:00:12.408Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 7,
+    "post_total_media_view_unique": 5,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/17956126533289144",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "z7i5op",
+   "dia": "2026-10-31",
+   "cuando": "2026-10-31T16:36:22.886Z",
+   "medida": "2026-11-01T18:00:12.408Z",
+   "v": 2,
+   "metricas": {
+    "reach": 13,
+    "views": 22,
+    "likes": 1,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
    }
   }
  ]
