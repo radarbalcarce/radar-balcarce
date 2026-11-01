@@ -1932,18 +1932,18 @@
   "2026-11-01": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 20,
+     "llamadas": 21,
      "errores": 6,
-     "entrada": 32950,
-     "salida": 14648,
+     "entrada": 35648,
+     "salida": 16089,
      "pensamiento": 0,
-     "total": 47598,
+     "total": 51737,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 21
      },
      "motivos": {
       "clasificacion": {
-       "ok": 14,
+       "ok": 15,
        "cupo-diario": 6
       }
      }
@@ -1984,19 +1984,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 29,
+     "llamadas": 32,
      "errores": 8,
-     "entrada": 278454,
-     "salida": 4816,
+     "entrada": 313889,
+     "salida": 5247,
      "pensamiento": 0,
-     "total": 283270,
+     "total": 319136,
      "claves": {
-      "clasificacion": 29
+      "clasificacion": 32
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 21
+       "ok": 24
       }
      }
     },
@@ -2035,19 +2035,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 53,
+     "llamadas": 59,
      "errores": 23,
-     "entrada": 162134,
-     "salida": 32775,
+     "entrada": 202227,
+     "salida": 39398,
      "pensamiento": 0,
-     "total": 194909,
+     "total": 241625,
      "claves": {
-      "redaccion": 53
+      "redaccion": 59
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 30
+       "ok": 36
       }
      }
     },
@@ -2091,19 +2091,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 34,
+     "llamadas": 38,
      "errores": 12,
-     "entrada": 128566,
-     "salida": 9839,
+     "entrada": 147026,
+     "salida": 12134,
      "pensamiento": 0,
-     "total": 138405,
+     "total": 169349,
      "claves": {
-      "clasificacion": 34
+      "clasificacion": 38
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 12,
-       "ok": 22
+       "ok": 26
       }
      }
     },
