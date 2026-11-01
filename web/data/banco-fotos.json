@@ -23694,9 +23694,7 @@
   "borrada": true
  },
  "16qr80l": {
-  "archivo": "fotos-notas/16qr80l.jpg",
   "medio": "LU9 Mar del Plata",
-  "credito": "Foto: LU9 Mar del Plata",
   "licencia": null,
   "origen": "medio",
   "titulo": "Nicolás Vázquez revela detalles de su llamada con Sylvester Stallone",
@@ -23716,7 +23714,8 @@
    "descripcion": "Nicolás Vázquez hablando en una entrevista"
   },
   "huella": "98989898de0cded7",
-  "ausenteDesde": "2026-10-25T01:34:07.181Z"
+  "intentado": true,
+  "borrada": true
  },
  "flz5f9": {
   "medio": "El Día",
@@ -54895,7 +54894,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:52.117Z",
-  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001162/estudiantes-de-rio-cuarto-vs-gimasia_1440x810.webp"
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/30/1001162/estudiantes-de-rio-cuarto-vs-gimasia_1440x810.webp",
+  "ausenteDesde": "2026-11-01T02:03:53.219Z"
  },
  "e97loe": {
   "archivo": "fotos-notas/e97loe.jpg",
@@ -54919,7 +54919,8 @@
    "corresponde": "si",
    "descripcion": "El papa León XIV saludando a la multitud"
   },
-  "huella": "6272723038dbdacf"
+  "huella": "6272723038dbdacf",
+  "ausenteDesde": "2026-11-01T02:03:53.219Z"
  },
  "1epe8uw": {
   "archivo": "fotos-notas/1epe8uw.jpg",
@@ -54943,7 +54944,8 @@
    "corresponde": "si",
    "descripcion": "Juan Marcelo con camisa a rayas y vitral de fondo"
   },
-  "huella": "94b3aaabf3ababf8"
+  "huella": "94b3aaabf3ababf8",
+  "ausenteDesde": "2026-11-01T02:03:53.219Z"
  },
  "o53hxl": {
   "archivo": "fotos-notas/o53hxl.jpg",
@@ -61722,8 +61724,7 @@
    "corresponde": "si",
    "descripcion": "Acción de juego en el partido entre Milan e Inter en San Siro"
   },
-  "huella": "a496869625676263",
-  "ausenteDesde": "2026-11-01T01:04:08.562Z"
+  "huella": "a496869625676263"
  },
  "1oo88r4": {
   "archivo": "fotos-notas/1oo88r4.jpg",
@@ -61841,7 +61842,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Franco Colapinto con casco dentro del auto"
   },
-  "huella": "071b0814162c0a03"
+  "huella": "071b0814162c0a03",
+  "ausenteDesde": "2026-11-01T02:03:53.219Z"
  },
  "x17gbl": {
   "archivo": "fotos-notas/x17gbl.jpg",
@@ -62471,10 +62473,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Rituales de Feng Shui para renovar energías y atraer abundancia en noviembre",
-  "razon": "La mejor foto era la de TN (Todo Noticias), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-10-31T22:32:58.702Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-11-01T02:02:43.353Z",
   "intentos": 1,
-  "fuentes": 3
+  "fuentes": 4,
+  "intentosPorCupo": 1
  },
  "q5lpx1": {
   "archivo": "fotos-notas/q5lpx1.jpg",
@@ -62892,11 +62895,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ANSES paga un bono de 70.000 pesos y aumenta los haberes en noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
-  "cuando": "2026-11-01T01:02:27.825Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Ámbito no se usa todavía.",
+  "cuando": "2026-11-01T02:02:43.353Z",
   "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1
+  "fuentes": 7,
+  "intentosPorCupo": 2
  },
  "u0p8o0": {
   "intentado": true,
@@ -63054,5 +63057,123 @@
    "descripcion": "Mapa satelital de cobertura nubosa y tormentas sobre Argentina."
   },
   "huella": "96a2a3a1c2e3c1e1"
+ },
+ "a08xt5": {
+  "archivo": "fotos-notas/a08xt5.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes cae 3 a 2 ante Instituto en el Estadio UNO",
+  "enlace": "https://www.ole.com.ar/estudiantes/estudiantes-instituto-torneo-clausura-vivo-directo-online-minuto-minuto_0_UD8kUR4EI5.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/01/JOVseQEkH_2000x1500__1.jpg",
+  "razon": "Es la imagen con mejor encuadre, nitidez y acción de juego, sin marcas de agua ni elementos que impidan su publicación.",
+  "cuando": "2026-11-01T02:02:43.353Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Instituto disputando la pelota con uno de Estudiantes.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes (blanco) e Instituto (morado) disputando el balón en el aire."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2d48ac5f1e1c5f73"
+ },
+ "lmyi7o": {
+  "archivo": "fotos-notas/lmyi7o.jpg",
+  "medio": "Acción 5 (Balcarce)",
+  "credito": "Foto: Acción 5 (Balcarce)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Torneo Clausura completa su tercera fecha con triunfos de los líderes",
+  "enlace": "https://accion5.com/clausura-san-agustin-doblego-a-agrarias-au-bajo-a-los-patos-y-golearon-ferro-y-san-manuel/",
+  "imagenOriginal": "https://accion5.com/wp-content/uploads/2026/10/DSC_0825.jpg",
+  "razon": "Es la única imagen completa que muestra a los jugadores celebrando, lo cual ilustra adecuadamente el triunfo mencionado en la nota, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-11-01T02:02:43.353Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de fútbol con camiseta a rayas rojas y verdes celebrando en el campo de juego."
+  },
+  "huella": "34f656a8b8b438a9"
+ },
+ "agdudm": {
+  "archivo": "fotos-notas/agdudm.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Vélez y San Lorenzo empatan 2-2 en un duelo clave por el Torneo Clausura",
+  "enlace": "https://www.diariopopular.com.ar/futbol/velez-y-san-lorenzo-repartieron-puntos-liniers-n927219",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/8386b0f981647d1a706004f001823ba5/adjuntos/143/imagenes/008/262/0008262814/1200x675/smart/san-lorenzo-velez.jpg",
+  "razon": "Es la mejor imagen de acción del partido, con buen encuadre, sin marcas de agua, sin menores reconocibles y sin elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-01T02:02:43.353Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Disputa de balón entre un jugador de San Lorenzo y uno de Vélez."
+  },
+  "huella": "9c94a7c5e7e75727"
+ },
+ "q9p54v": {
+  "archivo": "fotos-notas/q9p54v.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Iglesia difunde el spot oficial por la visita del Papa León XIV",
+  "enlace": "https://www.minutouno.com/sociedad/el-papa-leon-xiv-ya-tiene-spot-oficial-su-visita-la-argentina-n6340141",
+  "imagenOriginal": "https://media.minutouno.com/p/310bfe2216c9244fcb35661fde229218/adjuntos/150/imagenes/043/736/0043736076/1200x675/smart/papa-leon.jpg",
+  "razon": "Es la única imagen que muestra al Papa en un contexto claro de su visita (en el papamóvil) sin marcas de agua, sin ser una captura de pantalla y sin elementos que impidan su uso editorial.",
+  "cuando": "2026-11-01T02:02:43.353Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV saludando desde el papamóvil."
+  },
+  "huella": "9d4ddd65416189c2"
+ },
+ "1nvpv7e": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Torneo Clausura 2026 disputa la decimoquinta fecha con partidos clave",
+  "razon": "Todas las imágenes presentan marcas de agua sobreimpresas por los medios, son capturas de pantalla de transmisiones (gráficas) o contienen elementos de interfaz de video que impiden su uso.",
+  "cuando": "2026-11-01T02:02:43.353Z",
+  "intentos": 1,
+  "fuentes": 6
  }
 }

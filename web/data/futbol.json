@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T01:32:20.536Z",
+ "consultado": "2026-11-01T02:03:47.748Z",
  "equipos": [
   "9739",
   "3",
@@ -864,17 +864,17 @@
     "id": "401841654",
     "competencia": "liga",
     "inicio": "2026-11-01T00:30:00.000Z",
-    "estado": "entretiempo",
-    "minuto": "45'+3'",
+    "estado": "en-juego",
+    "minuto": "71'",
     "local": {
      "id": "8",
      "nombre": "Estudiantes de La Plata",
-     "goles": 0
+     "goles": 2
     },
     "visitante": {
      "id": "2975",
      "nombre": "Instituto (Córdoba)",
-     "goles": 1
+     "goles": 3
     },
     "penales": null,
     "goles": [
@@ -882,6 +882,30 @@
       "equipo": "visitante",
       "jugador": "Facundo Suárez",
       "minuto": "3'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Leonel Mosevich",
+      "minuto": "48'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Jhon Córdoba",
+      "minuto": "52'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Guido Carrillo",
+      "minuto": "58'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Tiago Palacios",
+      "minuto": "65'",
       "tipo": "gol"
      }
     ],
