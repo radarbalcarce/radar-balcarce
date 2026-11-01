@@ -53566,7 +53566,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:49.077Z",
-  "imagenOriginal": "https://media.tycsports.com/files/2026/10/29/1000947/enzo-fernandez-y-lionel-messi_1440x810.webp?v=1"
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/29/1000947/enzo-fernandez-y-lionel-messi_1440x810.webp?v=1",
+  "ausenteDesde": "2026-11-01T13:03:02.713Z"
  },
  "joipn0": {
   "intentado": true,
@@ -54267,7 +54268,8 @@
    "corresponde": "si",
    "descripcion": "Natalia Oreiro y Marcela Morelo sonriendo juntas durante la grabación"
   },
-  "huella": "2a2a2b294353d3c3"
+  "huella": "2a2a2b294353d3c3",
+  "ausenteDesde": "2026-11-01T13:03:02.713Z"
  },
  "1tm0g5b": {
   "archivo": "fotos-notas/1tm0g5b.jpg",
@@ -54612,7 +54614,8 @@
    "corresponde": "si",
    "descripcion": "Operario trabajando en una planta industrial metalúrgica"
   },
-  "huella": "939389d143616d2d"
+  "huella": "939389d143616d2d",
+  "ausenteDesde": "2026-11-01T13:03:02.713Z"
  },
  "1i2ew4g": {
   "archivo": "fotos-notas/1i2ew4g.jpg",
@@ -62879,13 +62882,28 @@
   "huella": "114447474e6e443e"
  },
  "734p1n": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/734p1n.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Rodolfo Arruabarrena dirige su décimo Superclásico como entrenador de Boca",
-  "razon": "Ambas imágenes son composiciones gráficas que incluyen múltiples fotos o recortes, lo cual las invalida según las reglas de selección.",
-  "cuando": "2026-10-31T23:53:29.638Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.tycsports.com/boca-juniors/la-racha-en-clasicos-que-intentara-estirar-el-boca-de-arruabarrena-contra-river-id769418.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/21/997978/rodolfo-arruabarrena_1440x810.webp",
+  "razon": "Es la única foto clara y nítida de Rodolfo Arruabarrena como entrenador, sin marcas agregadas ni elementos complejos de la escena.",
+  "cuando": "2026-11-01T13:02:27.449Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Rodolfo Arruabarrena sentado en el banco de suplentes."
+  },
+  "huella": "635b4b0d0dcc4ccc"
  },
  "l97ncr": {
   "archivo": "fotos-notas/l97ncr.jpg",
@@ -63724,5 +63742,23 @@
    "descripcion": "Colectivos de la línea 59 circulando por una avenida con pasajeros y peatones esperando."
   },
   "huella": "42cace2fb5a2ba11"
+ },
+ "1b2qz8n": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Recomiendan cuidados caseros y alimentos adecuados para aliviar las aftas",
+  "razon": "La mejor foto era la de Radio Mitre, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-01T13:02:27.449Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "vyry2k": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Las iglesias evangélicas celebran el Día de las Iglesias con una jornada solidaria",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Diario La Vanguardia (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-01T13:02:27.449Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }
