@@ -6480,6 +6480,16 @@
   "textos": 3,
   "numeradas": 11
  },
+ "1wl6wav": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (numero, nombre, repite): el cuerpo dice 800 y la "
+  ]
+ },
  "1wmzer6": {
   "intentos": 1,
   "ultimo": "2026-10-31T23:52:14.695Z",
@@ -7708,6 +7718,13 @@
   "textos": 5,
   "numeradas": 54
  },
+ "6jn3n5": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 19
+ },
  "6k2oow": {
   "intentos": 2,
   "ultimo": "2026-10-29T16:26:57.932Z",
@@ -7980,13 +7997,21 @@
   ]
  },
  "8g5woc": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T10:01:17.138Z",
-  "motivo": "sin material",
-  "textos": 0,
+  "intentos": 2,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "título o bajada: 2 problemas (nombre, relleno): el copete nombra a \"unidos\" y la fuente no",
+  "textos": 1,
   "numeradas": 2,
   "motivos": [
-   "sin material"
+   "sin material",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"unidos\" y la",
+   "título o bajada: 2 problemas (nombre, relleno): el copete nombra a \"un"
+  ],
+  "falla": [
+   "el copete nombra a \"unidos\" y la fuente no",
+   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo dice 2.000 y la fuente no lo dice",
+   "el cuerpo dice 2.000 y la fuente no lo dice"
   ]
  },
  "8iblha": {
@@ -9532,6 +9557,13 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
+ "g8wa2d": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "gb2owk": {
   "intentos": 1,
   "ultimo": "2026-10-26T07:01:33.282Z",
@@ -10376,21 +10408,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "loqdh6": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T10:31:01.534Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el máximo es 90",
-  "textos": 8,
-  "numeradas": 20,
-  "motivos": [
-   "título o bajada: 1 problema (sensacionalista): usa \"castigo\", que pres",
-   "título o bajada: 1 problema (largo): el titulo tiene 96 caracteres, el"
-  ],
-  "falla": [
-   "el titulo tiene 96 caracteres, el máximo es 90",
-   "el título nombra a \"gran\", \"unidos\" y el cuerpo no los explica"
-  ]
  },
  "lpx515": {
   "intentos": 1,
@@ -12440,6 +12457,13 @@
    "cuerpo: 1 problema (promesa): el título dice 75 y el cuerpo no lo expl"
   ]
  },
+ "w8foef": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "w8nrxb": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -12791,6 +12815,13 @@
    "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (miercol",
    "título o bajada: 1 problema (largo): el titulo tiene 107 caracteres, e"
   ]
+ },
+ "xy4a7u": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T10:31:13.719Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "xykgwb": {
   "intentos": 3,

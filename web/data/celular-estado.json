@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T10:01:29.310Z",
- "portada": 72,
+ "generado": "2026-11-01T10:32:24.676Z",
+ "portada": 76,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-01T10:01:29.768Z",
+  "generado": "2026-11-01T10:32:24.979Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -147,7 +147,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
      {
       "id": "fx345l",
@@ -155,18 +155,18 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1k5g3x0",
-      "titulo": "Marco Rubio niega participación de Estados Unidos en la salida de Flávio Bolsonaro",
-      "seccion": "Argentina"
-     },
-     {
       "id": "mlnw2g",
       "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
       "seccion": "Automovilismo"
      },
      {
-      "id": "136p1vd",
-      "titulo": "YPF solicita el RIGI para invertir 8.729 millones en Vaca Muerta",
+      "id": "exokac",
+      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "14z5lkf",
+      "titulo": "El Banco Nación registra una baja del 55,4% en refinanciaciones",
       "seccion": "Economía"
      }
     ]
@@ -174,7 +174,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "6jn3n5",
+     "titulo": "Emiten alertas por tormentas y lluvias en Buenos Aires y otras provincias",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-31T22:06:01.666Z",
    "porDia": 5,
