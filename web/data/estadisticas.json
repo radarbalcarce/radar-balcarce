@@ -3099,6 +3099,53 @@
         "vistas": 127,
         "interacciones": 1
       }
+    },
+    {
+      "cuando": "2026-11-01T12:00:12.020Z",
+      "web": {
+        "u12": {
+          "visitas": 40,
+          "vistas": 40
+        },
+        "a12": {
+          "visitas": 131,
+          "vistas": 134
+        },
+        "u24": {
+          "visitas": 210,
+          "vistas": 210
+        },
+        "a24": {
+          "visitas": 218,
+          "vistas": 269
+        },
+        "top": [
+          {
+            "camino": "/nota/franco-colapinto-afronta-la-ultima-practica-y-la-clasificacion-en-10bkqp2",
+            "vistas": 30
+          },
+          {
+            "camino": "/nota/emerson-fittipaldi-visitara-el-museo-fangio-en-noviembre-r4bjyj",
+            "vistas": 20
+          },
+          {
+            "camino": "/nota/avanza-la-cosecha-de-trigo-en-el-norte-con-rindes-altos-5534py",
+            "vistas": 10
+          }
+        ]
+      },
+      "facebook": {
+        "seguidores": 117,
+        "vistas": 6501,
+        "interacciones": 56
+      },
+      "instagram": {
+        "seguidores": 13,
+        "publicaciones": 324,
+        "alcance": 2,
+        "vistas": 8,
+        "interacciones": 0
+      }
     }
   ],
   "dias": {
@@ -6144,22 +6191,19 @@
         1,
         15,
         8,
-        0,
-        0,
-        0
+        13,
+        4,
+        6
       ],
       "visitas": 152,
       "vistas": 157,
       "dispositivos": {
-        "desktop": 114,
+        "desktop": 137,
         "mobile": 43
       },
       "referentes": {
-        "directo": 90,
-        "facebook.com": 55,
-        "google.com": 5,
-        "youtube.com": 1,
-        "instagram.com": 1
+        "directo": 100,
+        "facebook.com": 100
       },
       "notas": {
         "10bkqp2": 15,
@@ -6246,6 +6290,45 @@
       "paginas": {
         "/": 7,
         "/seccion/cultura": 2
+      }
+    },
+    "2026-11-01": {
+      "horas": [
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        6,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "paises": {
+        "FR": 13,
+        "US": 6
+      },
+      "dispositivos": {
+        "desktop": 19
+      },
+      "referentes": {
+        "directo": 13,
+        "facebook.com": 6
       }
     }
   }

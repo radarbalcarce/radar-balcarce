@@ -2,38 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "instagram/foto/18338551669275483",
-   "red": "instagram",
-   "parte": "foto",
-   "pieza": "1dun8ft",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T15:09:27.892Z",
-   "medida": "2026-10-14T15:30:23.321Z",
-   "metricas": {
-    "reach": 2,
-    "views": 6,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0
-   }
-  },
-  {
-   "clave": "facebook/posteo/1254237411116171_122111177349495512",
-   "red": "facebook",
-   "parte": "posteo",
-   "pieza": "uestws",
-   "dia": "2026-10-13",
-   "cuando": "2026-10-13T16:40:16.100Z",
-   "medida": "2026-10-14T17:00:29.269Z",
-   "metricas": {
-    "post_media_view": 4,
-    "post_total_media_view_unique": 3,
-    "post_clicks": 0,
-    "post_reactions_by_type_total": 0
-   }
-  },
-  {
    "clave": "instagram/foto/17905427067356863",
    "red": "instagram",
    "parte": "foto",
@@ -10460,6 +10428,34 @@
    "v": 2,
    "metricas": {},
    "pocas": true
+  },
+  {
+   "clave": "facebook/historia/1795049441792242",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "clima-manana",
+   "dia": "2026-10-31",
+   "cuando": "2026-10-31T10:36:39.883Z",
+   "medida": "2026-11-01T12:00:12.020Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/reel/2802073616853576",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "clima-manana",
+   "dia": "2026-10-31",
+   "cuando": "2026-10-31T10:36:48.515Z",
+   "medida": "2026-11-01T12:00:12.020Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 1110,
+    "fb_reels_total_plays": 1199,
+    "post_video_avg_time_watched": 3713,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 9
+   }
   }
  ]
 }
