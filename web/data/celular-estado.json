@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T14:33:16.732Z",
- "portada": 73,
+ "generado": "2026-11-01T15:04:43.511Z",
+ "portada": 75,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-01T14:33:17.198Z",
+  "generado": "2026-11-01T15:04:44.528Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-01T12:36:33.426Z"
    },
    {
@@ -88,9 +88,9 @@
     "segundos": 52,
     "notas": [
      {
-      "id": "4iit0x",
-      "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
-      "seccion": "Deportes"
+      "id": "11fke2d",
+      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "1b31p4i",
@@ -98,14 +98,14 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "lq0upc",
-      "titulo": "La Fiesta Nacional del Postre cierra su vigésima segunda edición",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "al4nhx",
       "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -119,9 +119,9 @@
     "segundos": 54,
     "notas": [
      {
-      "id": "1oo88r4",
-      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
-      "seccion": "Argentina"
+      "id": "lq0upc",
+      "titulo": "La Fiesta Nacional del Postre cierra su vigésima segunda edición",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "mlnw2g",
@@ -129,14 +129,14 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "2vltvs",
-      "titulo": "Chelsea le gana 2 a 0 al Manchester United con expulsión de Lisandro Martínez",
-      "seccion": "Fútbol"
+      "id": "exokac",
+      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+      "seccion": "Argentina"
      },
      {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
-      "seccion": "Política"
+      "id": "fjtb5",
+      "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
+      "seccion": "Fútbol"
      }
     ]
    },
@@ -147,17 +147,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
-      "id": "exokac",
-      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
-      "seccion": "Argentina"
+      "id": "2vltvs",
+      "titulo": "Chelsea le gana 2 a 0 al Manchester United con expulsión de Lisandro Martínez",
+      "seccion": "Fútbol"
      },
      {
-      "id": "fjtb5",
-      "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
-      "seccion": "Fútbol"
+      "id": "a3w48y",
+      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+      "seccion": "Política"
      },
      {
       "id": "14z5lkf",
@@ -165,20 +165,38 @@
       "seccion": "Economía"
      },
      {
-      "id": "1chrqym",
-      "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
-      "seccion": "Política"
+      "id": "1liz0x8",
+      "titulo": "Halloween conmemora su origen milenario y la tradición de la Noche de Brujas",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "4iit0x",
      "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
-     "seccion": "Deportes",
+     "cuando": "2026-11-01T14:36:02.679Z"
+    }
+   ],
+   "cola": [
+    {
+     "id": "1sgedwu",
+     "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "11fke2d",
+     "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "n1l0p4",
+     "titulo": "Atlético Tucumán y Argentinos Juniors juegan el lunes por el Clausura",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -188,14 +206,14 @@
      "marcada": false
     },
     {
-     "id": "n1l0p4",
-     "titulo": "Atlético Tucumán y Argentinos Juniors juegan el lunes por el Clausura",
-     "seccion": "Fútbol",
+     "id": "w8foef",
+     "titulo": "Aumentan alquileres, prepagas, transporte y colegios en noviembre",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-10-31T22:06:01.666Z",
+   "cupo": 4,
+   "proximoDesde": "2026-11-01T16:06:02.679Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

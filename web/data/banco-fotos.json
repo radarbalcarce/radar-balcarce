@@ -25026,9 +25026,7 @@
   "borrada": true
  },
  "1hffzpn": {
-  "archivo": "fotos-notas/1hffzpn.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Línea H extiende su horario por los shows de Iron Maiden en Huracán",
@@ -25060,7 +25058,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "cddbddde9dde9cad",
-  "ausenteDesde": "2026-10-25T15:03:34.519Z"
+  "intentado": true,
+  "borrada": true
  },
  "1mnymch": {
   "intentado": true,
@@ -26337,9 +26336,7 @@
   "borrada": true
  },
  "1twqib0": {
-  "archivo": "fotos-notas/1twqib0.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Julián Álvarez marca y Atlético de Madrid empata con Stuttgart",
@@ -26359,7 +26356,8 @@
    "descripcion": "Julián Álvarez celebrando un gol con sus compañeros del Atlético de Madrid"
   },
   "huella": "3545c1417155d1d1",
-  "ausenteDesde": "2026-10-25T15:03:34.519Z"
+  "intentado": true,
+  "borrada": true
  },
  "yyturq": {
   "medio": "C5N",
@@ -39049,9 +39047,7 @@
   "borrada": true
  },
  "7g8022": {
-  "archivo": "fotos-notas/7g8022.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Colapinto finaliza decimocuarto en la clasificación y penaliza en Austin",
@@ -39071,7 +39067,8 @@
    "descripcion": "Monoplaza tomando una curva junto al piano rojo y blanco"
   },
   "huella": "1ef1a1b28103073c",
-  "ausenteDesde": "2026-10-25T15:03:34.519Z"
+  "intentado": true,
+  "borrada": true
  },
  "o5xodv": {
   "intentado": true,
@@ -52439,7 +52436,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto del Senado con legisladores durante una sesión"
   },
-  "huella": "2f9a3d061d609cd6"
+  "huella": "2f9a3d061d609cd6",
+  "ausenteDesde": "2026-11-01T15:04:43.281Z"
  },
  "8towux": {
   "archivo": "fotos-notas/8towux.jpg",
@@ -53409,7 +53407,8 @@
    "corresponde": "si",
    "descripcion": "Vista desde un vehículo de un camino rural inundado y cubierto de granizo bajo un cielo nublado."
   },
-  "huella": "0717831c7fffbd7d"
+  "huella": "0717831c7fffbd7d",
+  "ausenteDesde": "2026-11-01T15:04:43.281Z"
  },
  "11s9ojn": {
   "archivo": "fotos-notas/11s9ojn.jpg",
@@ -53783,7 +53782,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:45.306Z",
-  "imagenOriginal": "https://media.tycsports.com/files/2026/06/25/962796/var-semiautomatico_1440x810.webp"
+  "imagenOriginal": "https://media.tycsports.com/files/2026/06/25/962796/var-semiautomatico_1440x810.webp",
+  "ausenteDesde": "2026-11-01T15:04:43.281Z"
  },
  "bwfemk": {
   "archivo": "fotos-notas/bwfemk.jpg",
@@ -63215,7 +63215,8 @@
    "corresponde": "si",
    "descripcion": "Disputa de balón entre un jugador de San Lorenzo y uno de Vélez."
   },
-  "huella": "9c94a7c5e7e75727"
+  "huella": "9c94a7c5e7e75727",
+  "ausenteDesde": "2026-11-01T15:04:43.281Z"
  },
  "q9p54v": {
   "archivo": "fotos-notas/q9p54v.jpg",
@@ -63949,13 +63950,28 @@
   "huella": "96ba95959585e5a7"
  },
  "nw20l7": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/nw20l7.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Nicolás Ramírez arbitra el Superclásico entre Boca y River",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos sin tener marcas de agua o marcas de medios agregadas.",
-  "cuando": "2026-11-01T14:03:46.886Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/tv-y-streaming-del-domingo-boca-vs-river-messi-en-inter-miami-colapinto-en-la-formula-1-ligas-de-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-ultimo-superclasico-se-disputo-en-abril-pasado-5N7RY5HZMZHL5JP4IUWCQ4VATY.JPG?auth=a531cc41d1a828a673060bef470c588f630c57244aab94ec64157f619fc1f9ad&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto E ilustra correctamente el partido actual entre Boca y River, muestra una jugada clara con el árbitro de fondo y no tiene marcas agregadas ni menores.",
+  "cuando": "2026-11-01T15:04:08.629Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando el balón con el árbitro de fondo"
+  },
+  "huella": "c3ca434551c9a725"
  },
  "1p7kl5o": {
   "archivo": "fotos-notas/1p7kl5o.jpg",
@@ -64050,5 +64066,89 @@
    "descripcion": "Vista aérea de la costa de Vicente López al atardecer"
   },
   "huella": "787c73616c1d5dd9"
+ },
+ "11fke2d": {
+  "archivo": "fotos-notas/11fke2d.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/lujan-amadeo-en-fm-1049-la-musica-es-mi.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghIy2t9aJtrUSoJbipIQqHKxyeK8oMSEeRpvfMjy8GGJcDeBD-Zo0UGkFwu0ecNzi0HhkpLOdzfKRK80pFw31q7pHcg152r0kSp78Q7CD0R7awmA4_5RYmsVjTZrxOig7zmxNjtyl2vrmV1Hftdn80WbZAHYWjflNlMCUtZuz6dfB-fl2kMBQaxObhUIk/w640-h480/Lujan%20Amadeo%20-%20Foto%20de%20Informese%20Primero.jpg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad y corresponde exactamente a la protagonista de la nota.",
+  "cuando": "2026-11-01T15:04:08.629Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Luján Amadeo sentada frente a un panel acústico de estudio",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Mujer adulta sonriendo sentada frente a paneles acústicos de estudio"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b3644449abad25b5"
+ },
+ "1u60y5j": {
+  "archivo": "fotos-notas/1u60y5j.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV pide nuevas iniciativas de paz y destaca la tregua en Ucrania",
+  "enlace": "https://www.clarin.com/mundo/semana-llegada-argentina-papa-clamo-paz-ucrania-pidio-fomentar-voluntad-dialogo_0_NvVQexLw19.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/01/8B-ZIuafl_2000x1500__1.jpg",
+  "razon": "La foto A muestra claramente al Papa León XIV saludando junto a otro eclesiástico, tiene excelente nitidez y encuadre, y no posee marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-01T15:04:08.629Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saludando con la mano levantada junto a un cardenal."
+  },
+  "huella": "383bd3938d252333"
+ },
+ "1e05fh7": {
+  "archivo": "fotos-notas/1e05fh7.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Platense recibe una multa de 195.000 dólares de Conmebol",
+  "enlace": "https://www.tycsports.com/copa-libertadores/la-sancion-de-conmebol-a-platense-tras-los-graves-incidentes-contra-fluminense-id769720.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1001765/platense-fluminense_1440x810.webp",
+  "razon": "La foto B muestra claramente el incidente con la policía sin marcas de agua superpuestas ni menores reconocibles, a diferencia de la A que tiene marca y la C que carece de ella pero la B ofrece mejor encuadre.",
+  "cuando": "2026-11-01T15:04:08.629Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hinchas enfrentándose a la policía en la cancha"
+  },
+  "huella": "0f1557de96144e5a"
  }
 }

@@ -234,18 +234,14 @@
   "numeradas": 2
  },
  "11fke2d": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"lujon\" y la fuente no",
+  "intentos": 2,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 4 problemas (forma, numero): el titulo trae un escape",
    "título o bajada: 1 problema (nombre): el copete nombra a \"lujon\" y la "
-  ],
-  "falla": [
-   "el copete nombra a \"lujon\" y la fuente no",
-   "copia 15 palabras seguidas del original (\"destaco el acompanamiento de la profesora nora dimuro con quien estudio durante dos anos…\"): decil"
   ]
  },
  "11h87ft": {
@@ -1693,16 +1689,6 @@
    "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
   ]
  },
- "19j43n6": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T15:01:53.053Z",
-  "motivo": "con cuerpo",
-  "textos": 8,
-  "numeradas": 12,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
  "19k9be0": {
   "intentos": 1,
   "ultimo": "2026-10-30T07:01:42.718Z",
@@ -2615,6 +2601,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
+ },
+ "1e05fh7": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
  },
  "1e4a4ao": {
   "intentos": 1,
@@ -4165,18 +4158,20 @@
   ]
  },
  "1lpwpom": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y la fuente no; sin esas oraciones quedan 229 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y la fuente no; sin esas oraciones quedan 226 palabras",
   "textos": 5,
   "numeradas": 15,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y "
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y ",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y "
   ],
   "falla": [
    "el cuerpo nombra a \"alberto\" y la fuente no",
-   "el título nombra a \"superclasico\", \"bombonera\" y el cuerpo no los explica"
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "1lt0ov5": {
@@ -6089,19 +6084,14 @@
   "numeradas": 16
  },
  "1u60y5j": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "cuerpo: 3 problemas (tilde, copia, tildes): el cuerpo dice \"mas\" en vez de \"más\": \"El papa Leon XIV reclamo que la tregua acordada para asistir\"; sin esas oraci",
+  "intentos": 2,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (forma): el copete trae letras rotas (letr",
    "cuerpo: 3 problemas (tilde, copia, tildes): el cuerpo dice \"mas\" en ve"
-  ],
-  "falla": [
-   "el cuerpo dice \"mas\" en vez de \"más\": \"El papa Leon XIV reclamo que la tregua acordada para asistir\"",
-   "copia 24 palabras seguidas del original (\"la pausa mas prolongada en los combates a lo largo de la linea del…\"): decilo con otras palabras",
-   "el texto está escrito sin tildes (poblacion, declaracion, proximo, accion, habian): va con las tildes y la eñe donde corresponden"
   ]
  },
  "1u66a5z": {
@@ -10298,6 +10288,20 @@
   "textos": 3,
   "numeradas": 3
  },
+ "kgxuk7": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+  "textos": 4,
+  "numeradas": 47,
+  "motivos": [
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
+  ],
+  "falla": [
+   "el copete tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "kjiyj2": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:13:36.477Z",
@@ -10691,15 +10695,20 @@
   ]
  },
  "mpzvx9": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T14:31:28.146Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 2804 (line 30 column 13)",
+  "intentos": 3,
+  "ultimo": "2026-11-01T15:03:04.062Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
-   "título o bajada: 2 problemas (antecedente): el copete usa \"nunez\", que",
    "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que ",
-   "Gemini: Expected ',' or ']' after array element in JSON at position 28"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 28",
+   "título o bajada: 1 problema (antecedente): el copete usa \"clausura\", q",
+   "título o bajada: 1 problema (antecedente): el copete usa \"nunez\", que "
+  ],
+  "falla": [
+   "el copete usa \"nunez\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "mr670u": {
@@ -11752,16 +11761,6 @@
   "textos": 4,
   "numeradas": 5
  },
- "ruqrmq": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T15:01:53.053Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
-  ]
- },
  "rv3bjc": {
   "intentos": 4,
   "ultimo": "2026-10-26T09:16:18.129Z",
@@ -11939,23 +11938,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "sohq68": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T15:01:53.053Z",
-  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
-   "cuerpo: 3 problemas (nombre, repite, copia): el cuerpo nombra a \"asoci",
-   "cuerpo: 4 problemas (numero, relleno): el cuerpo dice 13 y la fuente n",
-   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
-  ],
-  "falla": [
-   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo repite el copete en vez de desarrollarlo"
-  ]
  },
  "squxbf": {
   "intentos": 2,
@@ -12509,17 +12491,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 12
- },
- "w6rmgj": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T15:01:53.053Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "Gemini: No number after minus sign in JSON at position 3286 (line 22 c",
-   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"rodrobi\" y "
-  ]
  },
  "w7ghgv": {
   "intentos": 1,
