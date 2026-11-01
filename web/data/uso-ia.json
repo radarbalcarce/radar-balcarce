@@ -2143,6 +2143,24 @@
       }
      }
     }
+   },
+   "ilustraciones": {
+    "gemini-flash-lite-latest": {
+     "llamadas": 4,
+     "errores": 0,
+     "entrada": 5752,
+     "salida": 283,
+     "pensamiento": 0,
+     "total": 6035,
+     "claves": {
+      "clasificacion": 4
+     },
+     "motivos": {
+      "clasificacion": {
+       "ok": 4
+      }
+     }
+    }
    }
   }
  }
