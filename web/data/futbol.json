@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-01T18:04:09.068Z",
+ "consultado": "2026-11-01T18:34:59.746Z",
  "equipos": [
   "9739",
   "3",
@@ -925,11 +925,11 @@
     "competencia": "liga",
     "inicio": "2026-11-01T18:00:00.000Z",
     "estado": "en-juego",
-    "minuto": "3'",
+    "minuto": "34'",
     "local": {
      "id": "5",
      "nombre": "Boca Juniors",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "16",
@@ -937,7 +937,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Lautaro Di Lollo",
+      "minuto": "27'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Alberto José Armando (La Bombonera)",
     "fase": null,
     "partidoDeLaSerie": null,

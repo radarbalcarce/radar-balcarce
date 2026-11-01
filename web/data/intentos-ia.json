@@ -201,13 +201,18 @@
   ]
  },
  "117qpmn": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T18:01:41.067Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3304 (line 25 column 13)",
+  "intentos": 3,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
-   "Gemini: Expected ',' or ']' after array element in JSON at position 33"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 33",
+   "cuerpo: 1 problema (copia): copia 18 palabras seguidas del original: d",
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+  ],
+  "falla": [
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "11dmdy8": {
@@ -3277,6 +3282,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "1htsdei": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 15
  },
  "1hvxmxn": {
   "intentos": 4,
@@ -8141,17 +8153,6 @@
   "textos": 1,
   "numeradas": 1
  },
- "8zp46n": {
-  "intentos": 3,
-  "ultimo": "2026-10-25T18:31:33.643Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 25,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ]
- },
  "90yhse": {
   "intentos": 2,
   "ultimo": "2026-10-29T16:26:57.932Z",
@@ -9161,6 +9162,13 @@
    "cuerpo: 1 problema (copia): copia 26 palabras seguidas del original: d"
   ]
  },
+ "ea5pwb": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "edt3qr": {
   "intentos": 1,
   "ultimo": "2026-10-28T21:32:03.521Z",
@@ -9197,6 +9205,16 @@
   "numeradas": 1,
   "motivos": [
    "título o bajada: 6 problemas (forma, numero, nombre): el titulo trae u"
+  ]
+ },
+ "ehh858": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
   ]
  },
  "ejau5j": {
@@ -10295,18 +10313,19 @@
   ]
  },
  "kiw420": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T18:01:41.067Z",
-  "motivo": "cuerpo: 2 problemas (copia, promesa): copia 14 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 75 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 76 palabras",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
-   "cuerpo: 2 problemas (copia, promesa): copia 14 palabras seguidas del o"
+   "cuerpo: 2 problemas (copia, promesa): copia 14 palabras seguidas del o",
+   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ],
   "falla": [
-   "copia 14 palabras seguidas del original (\"reunio a atletas locales para recordar la trayectoria del reconocido profesor de educacion fisica\"",
-   "el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica"
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "kjiyj2": {
@@ -10673,6 +10692,13 @@
    "cuerpo: 4 problemas (numero, tilde, copia, tildes): el cuerpo dice 90 "
   ]
  },
+ "mkw4t0": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 7,
+  "numeradas": 14
+ },
  "mlnw2g": {
   "intentos": 3,
   "ultimo": "2026-10-31T19:01:45.606Z",
@@ -10876,18 +10902,14 @@
   "numeradas": 14
  },
  "nal0uy": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T18:01:41.067Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 185 palabras",
-  "textos": 5,
-  "numeradas": 76,
+  "intentos": 2,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 28,
   "motivos": [
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
    "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "el título nombra a \"superclasico\", \"bombonera\" y el cuerpo no los explica"
   ]
  },
  "naqpjb": {
@@ -11358,19 +11380,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "q0a45j": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T18:31:33.643Z",
-  "motivo": "verificación baja: espera a una persona",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "verificación baja: espera a una persona"
-  ],
-  "baja": true,
-  "fuentes": 1
  },
  "q0xoll": {
   "intentos": 3,
@@ -11970,6 +11979,13 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
+ },
+ "tbsimo": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T18:32:28.307Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "tcea63": {
   "intentos": 1,
