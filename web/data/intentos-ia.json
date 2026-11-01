@@ -1345,6 +1345,13 @@
    "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu"
   ]
  },
+ "17y7def": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:31:47.214Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "17zxvyy": {
   "intentos": 1,
   "ultimo": "2026-10-28T07:53:11.084Z",
@@ -1677,6 +1684,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
+ },
+ "19mge3x": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:31:47.214Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "19o2az": {
   "intentos": 2,
@@ -2089,19 +2103,6 @@
   "numeradas": 2,
   "motivos": [
    "sin material"
-  ]
- },
- "1bi7nme": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T19:31:32.946Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo explica; sin esas oraciones quedan 264 palabras",
-  "textos": 6,
-  "numeradas": 19,
-  "motivos": [
-   "cuerpo: 1 problema (promesa): el título dice 21 y el cuerpo no lo expl"
-  ],
-  "falla": [
-   "el título dice 21 y el cuerpo no lo explica"
   ]
  },
  "1biaymm": {
@@ -3518,13 +3519,6 @@
   "textos": 1,
   "numeradas": 2
  },
- "1is9y1g": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T19:31:32.946Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "1ivc0ij": {
   "intentos": 1,
   "ultimo": "2026-10-30T09:52:41.728Z",
@@ -4664,13 +4658,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "1nv8h62": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T19:31:32.946Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 6
- },
  "1nvngno": {
   "intentos": 1,
   "ultimo": "2026-10-28T12:02:15.887Z",
@@ -5326,13 +5313,6 @@
  "1qtryg8": {
   "intentos": 1,
   "ultimo": "2026-10-28T11:31:33.204Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
- },
- "1qtse9x": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T19:31:32.946Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
@@ -7632,6 +7612,13 @@
   "textos": 3,
   "numeradas": 4
  },
+ "5y0c9e": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:31:47.214Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
  "5yvhw3": {
   "intentos": 1,
   "ultimo": "2026-10-27T10:31:24.136Z",
@@ -9010,6 +8997,23 @@
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
   ]
  },
+ "d4errd": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T19:31:47.214Z",
+  "motivo": "cuerpo: 6 problemas (antecedente, nombre, numero): el cuerpo usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 122 pa",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (antecedente, nombre, copia): el cuerpo usa \"ciuda",
+   "cuerpo: 6 problemas (antecedente, nombre, numero): el cuerpo usa \"ciud"
+  ],
+  "falla": [
+   "el cuerpo usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo nombra a \"autonoma\" y la fuente no",
+   "el cuerpo dice 18 y la fuente no lo dice",
+   "el cuerpo usa 30, que sale de una nota anterior, como si fuera de hoy"
+  ]
+ },
  "d4tgnj": {
   "intentos": 1,
   "ultimo": "2026-10-30T19:31:43.802Z",
@@ -9141,17 +9145,6 @@
   "numeradas": 4,
   "motivos": [
    "Gemini: Bad control character in string literal in JSON at position 12"
-  ]
- },
- "dri7vy": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T19:31:32.946Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
-   "cuerpo: 1 problema (numero): el cuerpo dice 12 y la fuente no lo dice;"
   ]
  },
  "duz0tz": {
@@ -10380,19 +10373,19 @@
   ]
  },
  "kiw420": {
-  "intentos": 2,
-  "ultimo": "2026-11-01T18:32:28.307Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 76 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-01T19:31:47.214Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica; sin esas oraciones quedan 106 palabras",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
-   "cuerpo: 2 problemas (copia, promesa): copia 14 palabras seguidas del o",
-   "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", qu",
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
+   "cuerpo: 2 problemas (antecedente, copia): el cuerpo usa \"domingo\", que",
+   "cuerpo: 1 problema (promesa): el título nombra a \"luis\", \"vildoza\" y e"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "el título nombra a \"luis\", \"vildoza\" y el cuerpo no los explica"
   ]
  },
  "kjiyj2": {

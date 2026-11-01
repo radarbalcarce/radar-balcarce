@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T19:07:53.136Z",
- "portada": 90,
+ "generado": "2026-11-01T19:32:33.507Z",
+ "portada": 91,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-01T19:07:54.127Z",
+  "generado": "2026-11-01T19:32:33.959Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,8 +95,13 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 48,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "19mge3x",
+      "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1ewmn8c",
       "titulo": "Marcela Legarreta y los Nuevos Cocineritos abren la Fiesta Nacional del Postre",
@@ -108,14 +113,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1preq",
-      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "al4nhx",
-      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
-      "seccion": "Automovilismo"
+      "id": "28qoem",
+      "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
+      "seccion": "Agro"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "mkw4t0",
-      "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
-      "seccion": "Fútbol"
+      "id": "1preq",
+      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
+      "seccion": "Balcarce"
      },
      {
-      "id": "mlnw2g",
-      "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
+      "id": "1qwgpj",
+      "titulo": "Registran granizo y lluvias intensas en la zona rural",
+      "seccion": "Agro"
+     },
+     {
+      "id": "qz7l9a",
+      "titulo": "Alexander Zverev alcanza el primer puesto del ranking mundial de tenis",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "al4nhx",
+      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "ucd67q",
-      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
-      "seccion": "Política"
      }
     ]
    }
@@ -177,15 +177,21 @@
      "marcada": false
     },
     {
-     "id": "4mq1wo",
-     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
-     "seccion": "Fútbol",
+     "id": "19mge3x",
+     "titulo": "La Fiesta de la Luz junta donaciones para el Hospital",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
      "id": "mkw4t0",
      "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "krdezb",
+     "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -201,21 +207,15 @@
      "marcada": false
     },
     {
-     "id": "krdezb",
-     "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
-     "seccion": "Argentina",
+     "id": "4mq1wo",
+     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
      "id": "ucd67q",
      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "11f4s3g",
-     "titulo": "Boca le gana 1 a 0 a River en el Superclásico",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],
