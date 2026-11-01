@@ -38711,9 +38711,7 @@
   "ausenteDesde": "2026-10-27T19:04:25.514Z"
  },
  "b19s77": {
-  "archivo": "fotos-notas/b19s77.jpg",
   "medio": "LU9 Mar del Plata",
-  "credito": "Foto: LU9 Mar del Plata",
   "licencia": null,
   "origen": "medio",
   "titulo": "Alpine rechaza dichos de Jeremy Clarkson y respalda a Franco Colapinto",
@@ -38733,7 +38731,8 @@
    "descripcion": "Franco Colapinto sentado dentro de un monoplaza Alpine con casco"
   },
   "huella": "c77d0f8607234b0b",
-  "ausenteDesde": "2026-10-25T12:31:42.773Z"
+  "intentado": true,
+  "borrada": true
  },
  "2hfek1": {
   "archivo": "fotos-notas/2hfek1.jpg",
@@ -54278,7 +54277,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:47.912Z",
-  "imagenOriginal": "https://media.c5n.com/p/6dbaf608e3cb5fd801b5953d731425d1/adjuntos/326/imagenes/000/405/0000405315/1200x675/smart/leo-montero-y-vero-lozano.jpg"
+  "imagenOriginal": "https://media.c5n.com/p/6dbaf608e3cb5fd801b5953d731425d1/adjuntos/326/imagenes/000/405/0000405315/1200x675/smart/leo-montero-y-vero-lozano.jpg",
+  "ausenteDesde": "2026-11-01T12:31:56.498Z"
  },
  "1aew24v": {
   "archivo": "fotos-notas/1aew24v.jpg",
@@ -60419,13 +60419,28 @@
   "fuentes": 1
  },
  "1liz0x8": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1liz0x8.jpg",
+  "medio": "La Capital (Rosario)",
+  "credito": "Foto: La Capital (Rosario)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Halloween conmemora su origen milenario y la tradición de la Noche de Brujas",
-  "razon": "No hay ninguna foto disponible sin marca de agua, menores o de stock que cumpla con los requisitos.",
-  "cuando": "2026-10-31T20:02:28.097Z",
-  "intentos": 3,
-  "fuentes": 6
+  "enlace": "https://www.lacapital.com.ar/informacion-general/halloween-cual-es-el-origen-esta-fiesta-y-que-es-el-trick-or-treat-n10289616.html",
+  "imagenOriginal": "https://media.lacapital.com.ar/p/e47896b677c9fa25707d0baa2310f70b/adjuntos/203/imagenes/101/133/0101133363/1200x675/smart/halloween.jpg",
+  "razon": "Es la mejor foto que ilustra la temática de Halloween de manera clara, sin marcas de agua, menores reconocibles ni problemas de contenido.",
+  "cuando": "2026-11-01T12:31:31.373Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos calabazas talladas iluminadas sobre hojas secas"
+  },
+  "huella": "7a2f0f0f0f0e0913"
  },
  "10bkqp2": {
   "archivo": "fotos-notas/10bkqp2.jpg",
@@ -63028,10 +63043,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
-  "razon": "La única imagen provista no corresponde al hecho de la nota (la instalación de una pantalla en Balcarce), sino que es una fotografía de un partido de fútbol profesional entre River y Boca.",
-  "cuando": "2026-11-01T01:02:27.825Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ninguna de las fotos corresponde a la nota, ya que muestran un partido profesional de fútbol entre River y Boca en un estadio en lugar de la proyección en pantalla gigante en la Fiesta del Postre en Balcarce.",
+  "cuando": "2026-11-01T12:31:31.373Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "s1kli5": {
   "archivo": "fotos-notas/s1kli5.jpg",
@@ -63659,7 +63674,8 @@
    "corresponde": "si",
    "descripcion": "Marco Rubio en conferencia con bandera de Estados Unidos de fondo"
   },
-  "huella": "1c0c8c9a8acbcf43"
+  "huella": "1c0c8c9a8acbcf43",
+  "ausenteDesde": "2026-11-01T12:31:56.498Z"
  },
  "1kvhopy": {
   "archivo": "fotos-notas/1kvhopy.jpg",
@@ -63684,5 +63700,29 @@
    "descripcion": "Tormenta eléctrica con múltiples rayos sobre la ciudad"
   },
   "huella": "3fbdbdb9b17165e7"
+ },
+ "zvodb": {
+  "archivo": "fotos-notas/zvodb.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aumentan las tarifas del transporte público en el AMBA",
+  "enlace": "https://www.diariopopular.com.ar/economia/aumento-el-boleto-colectivo-las-nuevas-tarifas-este-domingo-1-noviembre-n927303",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/af1fb75f381ab89c81ee40f9f46e2fb2/adjuntos/143/imagenes/008/199/0008199347/1200x675/smart/colectivos31denerojpg.jpg",
+  "razon": "Es la única foto que cumple con todos los requisitos editoriales: ilustra correctamente el transporte público del AMBA, tiene buena calidad y nitidez, no posee marcas de agua añadidas, ni menores de edad, ni es de archivo, gráfica o de stock.",
+  "cuando": "2026-11-01T12:31:31.373Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Colectivos de la línea 59 circulando por una avenida con pasajeros y peatones esperando."
+  },
+  "huella": "42cace2fb5a2ba11"
  }
 }
