@@ -9,7 +9,9 @@ hora lee unos 125 feeds de unos 75 medios (la cuenta exacta, en `FUENTES.md`), j
 noticia contada por varios, decide qué publicar, lo escribe con IA, lo verifica contra
 las fuentes, arma el sitio y lo sube, sin nadie despierto; varias veces por día publica
 en Facebook e Instagram con voz. Los usuarios son Hernán y Andrés (no programan):
-escribir siempre en castellano rioplatense, claro y sin voseo forzado.
+escribir siempre en castellano rioplatense, claro y sin voseo forzado. **Ahorrar tokens es regla (Hernán, 1/11/2026):** el modelo
+grande sólo orquesta y decide; lo mecánico (buscar, medir, exportar, código de rutina, revisar) va a subagentes chicos (`haiku`, `sonnet`),
+y lo que se pueda resolver con un script o un workflow se automatiza en vez de hacerlo a mano con el modelo.
 
 ## Cómo está armado
 

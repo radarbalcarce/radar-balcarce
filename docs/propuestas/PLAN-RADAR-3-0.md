@@ -270,6 +270,12 @@ El prompt vive en `nucleo/REDACCION.md`, lo leen la IA y ustedes, y cambiarlo no
   escribir código de rutina, revisar) las hagan modelos chicos. Regla de trabajo para toda la 3.0: subagentes con `haiku` para búsquedas y
   mediciones y `sonnet` para código y revisión; el grande, para las decisiones y lo delicado. Si hace falta, un *workflow* de construcción
   que reparta las tareas así (el usuario lo pide con «usá un workflow»).
+- **Las notas propias (Nancy, Halloween) en la 3.0, de punta a punta:** Hernán manda por Telegram texto, audio, fotos o video; el bot
+  devuelve la vista previa; con «ok» la nota sale a la web en el momento (sin esperar la vuelta de media hora). Acto seguido el bot pregunta
+  **qué hacer en redes, con botones:** «Todo» (posteo con foto en todas las redes + historia con la tarjeta + reel con voz), «Posteo e
+  historia», «Sólo la web». Si elige reel con voz, el bot le muestra el guion propuesto y lo cambia con lo que él diga por audio («sin lo del
+  tránsito»); nada sale hasta su «ok». Lo que no conteste en una hora: posteo e historia (lo seguro), sin reel. Así no vuelve a pasar lo
+  del 1/11: un reel con voz publicado con un guion que él quería cambiar, por un camino a mano de varios pasos.
 - **Compartir desde cada nota (sitio 3.0, pedido de Hernán del 1/11):** un botón «Compartir» que abre la hoja de compartir del celular
   (Web Share API, `navigator.share` con `files`) con **la tarjeta de la nota como imagen más el enlace**, para que la gente la suba a sus
   historias de Instagram y TikTok, estados de WhatsApp, etc. (Instagram y TikTok no tienen enlace web de «compartir»: sólo entran por esa
