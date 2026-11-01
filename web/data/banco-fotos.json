@@ -38928,9 +38928,7 @@
   "ausenteDesde": "2026-10-27T23:34:04.493Z"
  },
  "1i5a8ln": {
-  "archivo": "fotos-notas/1i5a8ln.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "Desarrollo Social inicia la entrega mensual de mercadería",
@@ -38950,7 +38948,8 @@
    "descripcion": "Persona armando una bolsa con mercadería y alimentos sobre una mesa"
   },
   "huella": "70e1c9d924242898",
-  "ausenteDesde": "2026-10-25T14:31:57.444Z"
+  "intentado": true,
+  "borrada": true
  },
  "z79t7q": {
   "archivo": "fotos-notas/z79t7q.jpg",
@@ -39026,9 +39025,7 @@
   "errorGemini": "la respuesta no es JSON"
  },
  "uhfldh": {
-  "archivo": "fotos-notas/uhfldh.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Defensa y Justicia le gana 2 a 1 a Talleres por el Torneo Clausura",
@@ -39048,7 +39045,8 @@
    "descripcion": "Jugador de Defensa y Justicia festejando un gol."
   },
   "huella": "b365bdbc9e9cb6e6",
-  "ausenteDesde": "2026-10-25T14:31:57.444Z"
+  "intentado": true,
+  "borrada": true
  },
  "7g8022": {
   "archivo": "fotos-notas/7g8022.jpg",
@@ -39085,9 +39083,7 @@
   "fuentes": 6
  },
  "14h6kc8": {
-  "archivo": "fotos-notas/14h6kc8.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "San Lorenzo y Newell's empatan cero a cero por el Clausura",
@@ -39107,7 +39103,8 @@
    "descripcion": "Estadio de San Lorenzo vacío de noche"
   },
   "huella": "c8f8e0e0e0e21717",
-  "ausenteDesde": "2026-10-25T14:31:57.444Z"
+  "intentado": true,
+  "borrada": true
  },
  "w6rmgj": {
   "archivo": "fotos-notas/w6rmgj.jpg",
@@ -53603,7 +53600,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:46.864Z",
-  "imagenOriginal": "https://media.a24.com/p/367c556e9f647825f4e8d4cec62035cd/adjuntos/296/imagenes/009/840/0009840477/1200x675/smart/marcelo-tinelli-ar-lol-s3.jpg"
+  "imagenOriginal": "https://media.a24.com/p/367c556e9f647825f4e8d4cec62035cd/adjuntos/296/imagenes/009/840/0009840477/1200x675/smart/marcelo-tinelli-ar-lol-s3.jpg",
+  "ausenteDesde": "2026-11-01T14:33:16.644Z"
  },
  "1urrt86": {
   "intentado": true,
@@ -57018,10 +57016,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Natación Racing gana el Torneo Aniversario de Necochea",
-  "razon": "Ninguna foto sirve porque ambas muestran menores de edad reconocibles, regla que Radar Balcarce no puede publicar.",
-  "cuando": "2026-10-31T10:02:15.065Z",
-  "intentos": 4,
-  "fuentes": 3
+  "razon": "Ninguna foto puede ser elegida porque en ambas aparecen menores de edad reconocibles.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "intentos": 5,
+  "fuentes": 4
  },
  "4xfnf8": {
   "intentado": true,
@@ -59156,10 +59154,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Taekwondistas de la Sociedad Italiana logran 16 podios en Mar Chiquita",
-  "razon": "Todas las fotos disponibles muestran a menores de edad claramente identificables, por lo que no pueden ser publicadas según la política editorial.",
-  "cuando": "2026-10-31T00:03:34.853Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ninguna foto puede ser elegida porque en ambas aparecen menores de edad reconocibles, lo cual infringe la política del medio.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "3btjtu": {
   "intentado": true,
@@ -62351,10 +62349,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de La Nación (un menor); la de La Nación (un menor): no se elige ninguna.",
-  "cuando": "2026-11-01T13:31:45.598Z",
-  "intentos": 3,
-  "fuentes": 17
+  "razon": "Todas las fotos muestran menores reconocibles o gráficos de televisión.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "intentos": 4,
+  "fuentes": 18
  },
  "1sgedwu": {
   "archivo": "fotos-notas/1sgedwu.jpg",
@@ -63573,13 +63571,28 @@
   "errorGemini": "la respuesta no es JSON"
  },
  "8g5woc": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/8g5woc.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Eduardo Costantini recibe la Medalla Sorolla en Nueva York",
-  "razon": "Ninguna foto cumple con todos los requisitos, ya que la única que corresponde a la nota tiene una marca de agua superpuesta del medio.",
-  "cuando": "2026-11-01T11:01:42.447Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.clarin.com/cultura/eduardo-costantini-premiado-nueva-york-fotos-gala_0_q8qGg9OcCi.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/01/8GGv_ltgJ_2000x1500__1.jpg",
+  "razon": "La foto B muestra claramente al homenajeado Eduardo Costantini junto a otras personas en el evento, sin marcas de agua de medios sobreimpresas y con excelente calidad.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Eduardo Costantini posando junto a otras personas en el evento"
+  },
+  "huella": "0b0b2b6a4c494d86"
  },
  "18prhjk": {
   "archivo": "fotos-notas/18prhjk.jpg",
@@ -63966,6 +63979,76 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Talleres festejando un gol en la cancha"
   },
-  "huella": "a525b7222daa6c6a"
+  "huella": "a525b7222daa6c6a",
+  "ausenteDesde": "2026-11-01T14:33:16.644Z"
+ },
+ "4iit0x": {
+  "archivo": "fotos-notas/4iit0x.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/kiara-ponce-la-historia-de-una-nina-que.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7M9qhI97ZHg6gA_NgudjuWltiDKlWpIOzhT7hBOdNIhPRw-XijKhrspPvaL-QA2-NL_aNet6isimgUfJiwqJ_aAK-Dvqzrx1qGE5aZF9XJFXA4WssmATCxSz0CoDi-IheqAWR17SHQnIGz1DayRPa6zhjVKXm53Xvb726rfXZzt5WMAWJ_kd2JEbsInY/w640-h480/Kiara%20Ponce%20-%20Foto%20de%20Informese%20Primero.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, muestra a la deportista y no tiene marcas ni menores.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Kiara Ponce posando con una gran copa y medallas colgando al cuello",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Karateca sonriente sosteniendo un trofeo y medallas de campeón absoluta."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "4db6b64575b43c69"
+ },
+ "k1k0sl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Binance habilita los retiros tras un ciberataque de 6.000 millones",
+  "razon": "La mejor foto era la de iProfesional, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "6czbod": {
+  "archivo": "fotos-notas/6czbod.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Vicente López, Tres de Febrero y Escobar lideran el índice de la UBA",
+  "enlace": "https://perfil.com/sociedad/vicente-lopez-y-tres-de-febrero-son-los-mejores-distritos-para-vivir-aRQYi8O3OgQp",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/36baa2e499b2-01112026vicentelopezcedocg.webp",
+  "razon": "Es la única foto limpia y sin marcas que ilustra correctamente el partido de Vicente López, mostrando una vista panorámica de la zona costera de la ciudad.",
+  "cuando": "2026-11-01T14:32:13.109Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de la costa de Vicente López al atardecer"
+  },
+  "huella": "787c73616c1d5dd9"
  }
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T14:04:49.913Z",
- "portada": 75,
+ "generado": "2026-11-01T14:33:16.732Z",
+ "portada": 73,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-01T14:04:50.414Z",
+  "generado": "2026-11-01T14:33:17.198Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -85,12 +85,12 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
-      "id": "lq0upc",
-      "titulo": "La Fiesta Nacional del Postre cierra su vigésima segunda edición",
-      "seccion": "Cultura y agenda"
+      "id": "4iit0x",
+      "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
+      "seccion": "Deportes"
      },
      {
       "id": "1b31p4i",
@@ -98,14 +98,14 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "5euqdj",
-      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
-      "seccion": "Automovilismo"
+      "id": "lq0upc",
+      "titulo": "La Fiesta Nacional del Postre cierra su vigésima segunda edición",
+      "seccion": "Cultura y agenda"
      },
      {
-      "id": "1oo88r4",
-      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
-      "seccion": "Argentina"
+      "id": "al4nhx",
+      "titulo": "Lewis Hamilton logra la pole en México y Franco Colapinto largará 12°",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -116,17 +116,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+      "seccion": "Argentina"
+     },
      {
       "id": "mlnw2g",
       "titulo": "Ryo Hirakawa reemplaza a Esteban Ocon en Haas para el Gran Premio de México",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "exokac",
-      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
-      "seccion": "Argentina"
      },
      {
       "id": "2vltvs",
@@ -147,8 +147,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "exokac",
+      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
+      "seccion": "Argentina"
+     },
      {
       "id": "fjtb5",
       "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
@@ -160,21 +165,35 @@
       "seccion": "Economía"
      },
      {
-      "id": "cmz7am",
-      "titulo": "Guillermo Michel pide a la AGN auditar la privatización de AySA",
+      "id": "1chrqym",
+      "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
       "seccion": "Política"
-     },
-     {
-      "id": "dhs9g6",
-      "titulo": "Entgan los premios Martín Fierro Federal 2026 en San Luis",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "4iit0x",
+     "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "nw20l7",
+     "titulo": "Nicolás Ramírez arbitra el Superclásico entre Boca y River",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "n1l0p4",
+     "titulo": "Atlético Tucumán y Argentinos Juniors juegan el lunes por el Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-10-31T22:06:01.666Z",
    "porDia": 5,
