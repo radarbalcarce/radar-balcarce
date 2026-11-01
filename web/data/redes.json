@@ -7171,6 +7171,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122118390885495512"
+    },
+    "2026-11-01/noticia1": {
+      "cuando": "2026-11-01T13:36:50.876Z",
+      "mediaId": "1551101143448960",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "lq0upc",
+      "notaIds": [
+        "lq0upc",
+        "1b31p4i",
+        "vyry2k",
+        "qz7l9a"
+      ],
+      "postId": "122118402843495512",
+      "permalink": "https://www.facebook.com/reel/1551101143448960/"
     }
   },
   "instagramFeed": {
@@ -10286,6 +10301,14 @@
       "red": "facebook",
       "notaId": null,
       "postId": "2104422990445159"
+    },
+    "facebook/2026-11-01/noticia1": {
+      "cuando": "2026-11-01T13:37:33.082Z",
+      "mediaId": "1129647070057803",
+      "nombre": "noticia1",
+      "red": "facebook",
+      "notaId": "lq0upc",
+      "postId": "1880470242936661"
     }
   },
   "problemas": {
@@ -10296,6 +10319,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-10-31T15:47:42.942Z",
       "intentos": 21
+    },
+    "2026-11-01/noticia1/instagram/reel": {
+      "pieza": "noticia1",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-11-01T13:36:02.756Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -10851,15 +10882,15 @@
     "2026-11-01": {
       "motivo": "sin-candidatas",
       "posteosDeHoy": 0,
-      "notasMiradas": 74,
+      "notasMiradas": 68,
       "descartes": {
+        "no-va-a-redes": 49,
         "ya-en-un-repaso": 1,
-        "no-va-a-redes": 52,
-        "tema-repetido": 7,
-        "muy-vieja": 12,
+        "tema-repetido": 6,
+        "muy-vieja": 10,
         "ya-publicada": 2
       },
-      "cuando": "2026-11-01T13:05:57.654Z"
+      "cuando": "2026-11-01T13:35:55.526Z"
     }
   },
   "buffer": {
@@ -11421,6 +11452,15 @@
         "ok": true,
         "id": "6ae732a9f0984eef336576c0",
         "estado": "sent"
+      }
+    },
+    "2026-11-01/noticia1": {
+      "cuando": "2026-11-01T13:35:54.579Z",
+      "nombre": "noticia1",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae7409ef0984eef33699009",
+        "estado": "sending"
       }
     }
   }
