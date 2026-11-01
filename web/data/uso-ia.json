@@ -1932,18 +1932,18 @@
   "2026-11-01": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
+     "llamadas": 12,
      "errores": 6,
-     "entrada": 10603,
-     "salida": 5235,
+     "entrada": 14707,
+     "salida": 7055,
      "pensamiento": 0,
-     "total": 15838,
+     "total": 21762,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 12
      },
      "motivos": {
       "clasificacion": {
-       "ok": 4,
+       "ok": 6,
        "cupo-diario": 6
       }
      }
@@ -1984,35 +1984,35 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 12,
+     "llamadas": 15,
      "errores": 8,
-     "entrada": 66834,
-     "salida": 1489,
+     "entrada": 106943,
+     "salida": 3412,
      "pensamiento": 0,
-     "total": 68323,
+     "total": 110355,
      "claves": {
-      "clasificacion": 12
+      "clasificacion": 15
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 4
+       "ok": 7
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 1,
+     "llamadas": 2,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 1
+      "clasificacion": 2
      },
      "motivos": {
       "clasificacion": {
-       "ok": 1
+       "ok": 2
       }
      }
     },
@@ -2035,19 +2035,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 35,
+     "llamadas": 36,
      "errores": 23,
-     "entrada": 65569,
-     "salida": 14034,
+     "entrada": 70246,
+     "salida": 14869,
      "pensamiento": 0,
-     "total": 79603,
+     "total": 85115,
      "claves": {
-      "redaccion": 35
+      "redaccion": 36
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 12
+       "ok": 13
       }
      }
     },
@@ -2091,19 +2091,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 18,
+     "llamadas": 20,
      "errores": 12,
-     "entrada": 34816,
-     "salida": 2748,
+     "entrada": 44184,
+     "salida": 3511,
      "pensamiento": 0,
-     "total": 37564,
+     "total": 47695,
      "claves": {
-      "clasificacion": 18
+      "clasificacion": 20
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 12,
-       "ok": 6
+       "ok": 8
       }
      }
     },

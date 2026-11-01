@@ -59223,7 +59223,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-01T01:32:22.913Z"
+  "cuando": "2026-11-01T08:02:08.155Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -61956,7 +61956,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0f8f8f06d5171703"
+  "huella": "0f8f8f06d5171703",
+  "ausenteDesde": "2026-11-01T08:02:10.904Z"
  },
  "k50ygu": {
   "intentado": true,
@@ -63224,15 +63225,28 @@
   "huella": "46145da969a94d6b"
  },
  "5euqdj": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/5euqdj.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de Clarín no se usa todavía.",
-  "cuando": "2026-11-01T05:02:19.388Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/liam-lawson-fue-descalificado-largara-ultimo-en-el-gp-de-ciudad-de-mexico-y-beneficia-a-franco-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-neozelandes-liam-lawson-de-racing-bulls-fue-NWGRVWF54ZE3TBGX3IGYRNDTZI.JPG?auth=3cd0995f475d08b963233db9bd79f084432728de7fd54d6315c7958672893c6d&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra un auto de Fórmula 1 en pista, ideal para la temática de automovilismo de la nota, sin marcas de agua ni menores.",
+  "cuando": "2026-11-01T08:01:56.114Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 circulando por una curva del circuito"
+  },
+  "huella": "8030a08791846319"
  },
  "1nv0ui": {
   "intentado": true,
@@ -63345,7 +63359,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca festejando en la cancha"
   },
-  "huella": "9fbd94a27050b06d"
+  "huella": "9fbd94a27050b06d",
+  "ausenteDesde": "2026-11-01T08:02:10.904Z"
  },
  "mci3rv": {
   "intentado": true,
@@ -63378,7 +63393,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de Vicente López junto al río con edificios de fondo"
   },
-  "huella": "787c73616c1d5dd9"
+  "huella": "787c73616c1d5dd9",
+  "ausenteDesde": "2026-11-01T08:02:10.904Z"
  },
  "j6mikq": {
   "intentado": true,
@@ -63389,5 +63405,14 @@
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1
+ },
+ "ipq35m": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes empata ante Instituto y queda sin chances en el Torneo Clausura",
+  "razon": "Ninguna foto cumple con todos los requisitos: A y B son fotos genéricas de un balón, C muestra jugadores de otro partido (Huracán vs Barracas Central), y D tiene una marca de agua superpuesta del medio Doble Amarilla.",
+  "cuando": "2026-11-01T08:01:56.114Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }
