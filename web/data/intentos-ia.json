@@ -176,13 +176,6 @@
   "textos": 1,
   "numeradas": 2
  },
- "10ymrrf": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:01:40.784Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4
- },
  "10zzney": {
   "intentos": 1,
   "ultimo": "2026-10-30T15:35:39.736Z",
@@ -2320,6 +2313,16 @@
   "textos": 1,
   "numeradas": 3
  },
+ "1d1gihu": {
+  "intentos": 1,
+  "ultimo": "2026-11-01T16:02:04.735Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (antecedente, copia): el cuerpo usa \"torneo\", que "
+  ]
+ },
  "1d2as5f": {
   "intentos": 1,
   "ultimo": "2026-10-26T12:47:51.263Z",
@@ -2398,16 +2401,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 9
- },
- "1dcdral": {
-  "intentos": 2,
-  "ultimo": "2026-10-25T16:01:40.784Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 12,
-  "motivos": [
-   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
-  ]
  },
  "1dd73iv": {
   "intentos": 1,
@@ -5281,13 +5274,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1qvc0lm": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:01:40.784Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "1qvp15a": {
   "intentos": 1,
   "ultimo": "2026-10-28T03:01:41.368Z",
@@ -6608,13 +6594,6 @@
    "título o bajada: 2 problemas (forma): el titulo trae letras rotas (una"
   ]
  },
- "1xjjw8o": {
-  "intentos": 1,
-  "ultimo": "2026-10-25T16:01:40.784Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "1xjv5xx": {
   "intentos": 1,
   "ultimo": "2026-10-27T11:31:25.575Z",
@@ -7358,9 +7337,9 @@
   ]
  },
  "4mq1wo": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T15:31:48.775Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3281 (line 29 column 8)",
+  "intentos": 2,
+  "ultimo": "2026-11-01T16:02:04.735Z",
+  "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5,
   "motivos": [
@@ -9492,11 +9471,11 @@
   "numeradas": 15
  },
  "fm6pp3": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T22:32:02.347Z",
+  "intentos": 2,
+  "ultimo": "2026-11-01T16:02:04.735Z",
   "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
+  "textos": 3,
+  "numeradas": 3
  },
  "fnh3qb": {
   "intentos": 1,
@@ -11220,17 +11199,13 @@
   "numeradas": 19
  },
  "p73qq6": {
-  "intentos": 1,
-  "ultimo": "2026-11-01T14:02:26.815Z",
-  "motivo": "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"nunez\" y la fuente no; sin esas oraciones quedan 132 palabras",
-  "textos": 2,
-  "numeradas": 5,
+  "intentos": 2,
+  "ultimo": "2026-11-01T16:02:04.735Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 6,
   "motivos": [
    "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"nunez\" y la"
-  ],
-  "falla": [
-   "el cuerpo nombra a \"nunez\" y la fuente no",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "pahghw": {

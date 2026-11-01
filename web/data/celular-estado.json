@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T15:33:58.380Z",
- "portada": 79,
- "archivo": 500,
- "esperandoCuerpo": 5,
+ "generado": "2026-11-01T16:03:11.494Z",
+ "portada": 82,
+ "archivo": 498,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-01T15:33:58.998Z",
+  "generado": "2026-11-01T16:03:12.103Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -83,9 +83,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 55,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
     "notas": [
      {
       "id": "11fke2d",
@@ -110,13 +120,13 @@
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 48,
     "notas": [
      {
       "id": "1b31p4i",
@@ -134,40 +144,9 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "exokac",
-      "titulo": "El Gobierno presenta su reclamo ante el Tribunal del Mar por Malvinas",
-      "seccion": "Argentina"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 50,
-    "notas": [
-     {
-      "id": "fjtb5",
-      "titulo": "River clasifica a la final de la Messi Cup tras eliminar a Atlético de Madrid",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+      "id": "1chrqym",
+      "titulo": "Javier Milei inaugura un auditorio evangélico en la ciudad de Neuquén",
       "seccion": "Política"
-     },
-     {
-      "id": "14z5lkf",
-      "titulo": "El Banco Nación registra una baja del 55,4% en refinanciaciones",
-      "seccion": "Economía"
-     },
-     {
-      "id": "1liz0x8",
-      "titulo": "Halloween conmemora su origen milenario y la tradición de la Noche de Brujas",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -182,20 +161,26 @@
    ],
    "cola": [
     {
-     "id": "1sgedwu",
-     "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
      "id": "11fke2d",
      "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
+     "id": "1sgedwu",
+     "titulo": "Integrantes de las Fuerzas Armadas visitan el Museo Fangio",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "f6043u",
      "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "4mq1wo",
+     "titulo": "Boca y River juegan el Superclásico con banderazo previo en Núñez",
      "seccion": "Fútbol",
      "marcada": false
     },
