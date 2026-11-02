@@ -59396,7 +59396,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b397dfd79ab22066"
+  "huella": "b397dfd79ab22066",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "1dv6dq2": {
   "archivo": "fotos-notas/1dv6dq2.jpg",
@@ -60128,7 +60129,8 @@
    "corresponde": "si",
    "descripcion": "Jugador con camiseta verde celebrando un gol con el puño apretado"
   },
-  "huella": "3b2baee96bb3b39b"
+  "huella": "3b2baee96bb3b39b",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "17m2olp": {
   "archivo": "fotos-notas/17m2olp.jpg",
@@ -60201,7 +60203,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "7072233737a737b6"
+  "huella": "7072233737a737b6",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "1jucn5w": {
   "archivo": "fotos-notas/1jucn5w.jpg",
@@ -60457,7 +60460,8 @@
    "corresponde": "si",
    "descripcion": "Dos calabazas talladas iluminadas sobre hojas secas"
   },
-  "huella": "7a2f0f0f0f0e0913"
+  "huella": "7a2f0f0f0f0e0913",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "10bkqp2": {
   "archivo": "fotos-notas/10bkqp2.jpg",
@@ -60505,7 +60509,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Tigre celebrando en ronda, sin marcas"
   },
-  "huella": "2d6c5296e5a5e478"
+  "huella": "2d6c5296e5a5e478",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "1lxghef": {
   "archivo": "fotos-notas/1lxghef.jpg",
@@ -60895,7 +60900,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b3b31313170f2f0f"
+  "huella": "b3b31313170f2f0f",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "13qn962": {
   "archivo": "fotos-notas/13qn962.jpg",
@@ -63798,7 +63804,8 @@
    "corresponde": "si",
    "descripcion": "Tormenta eléctrica con múltiples rayos sobre la ciudad"
   },
-  "huella": "3fbdbdb9b17165e7"
+  "huella": "3fbdbdb9b17165e7",
+  "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "zvodb": {
   "archivo": "fotos-notas/zvodb.jpg",
@@ -70405,6 +70412,53 @@
   "cuando": "2026-11-02T22:34:49.975Z",
   "intentos": 1,
   "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "8exydd": {
+  "archivo": "fotos-notas/8exydd.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Comienza la segunda edición del programa Mujeres al Volante",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45232-esta-en-marcha-la-segunda-edicion-de-mujeres-al-volante-en-balcarce/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66233.jpg",
+  "razon": "Es la única opción disponible, muestra el interior del vehículo y las manos de una mujer al volante, correspondiendo al tema de la nota, sin marcas de agua ni menores visibles.",
+  "cuando": "2026-11-02T23:42:42.359Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista desde el interior de un vehículo mostrando las manos de una mujer con esmalte rojo sobre el volante y la palancas de control."
+  },
+  "huella": "2333719c0e377bda"
+ },
+ "1bk49lc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Quilmes Rock 2027 confirma su grilla de artistas y fechas",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-02T23:42:42.359Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "11mcbid": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca inicia la venta de entradas para la final de la Copa Sudamericana",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-02T23:42:42.359Z",
+  "intentos": 1,
+  "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }

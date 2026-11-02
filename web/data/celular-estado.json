@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T22:35:21.914Z",
- "portada": 163,
+ "generado": "2026-11-02T23:43:15.013Z",
+ "portada": 167,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T22:35:22.922Z",
+  "generado": "2026-11-02T23:43:15.462Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -64,7 +64,7 @@
     "voz": "locutor",
     "ventana": 300,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T22:36:35.920Z"
    },
    {
     "nombre": "clima-noche",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -230,12 +230,6 @@
      "marcada": false
     },
     {
-     "id": "voie14",
-     "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "j75wry",
      "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
      "seccion": "Ciencia",
@@ -254,9 +248,15 @@
      "marcada": false
     },
     {
-     "id": "sdmfkk",
-     "titulo": "La UBA subastará prendas de deportistas para equipar el Hospital de Clínicas",
-     "seccion": "Argentina",
+     "id": "v7iwd7",
+     "titulo": "El riesgo país se acerca a 800 puntos y caen las acciones",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "xwuqrt",
+     "titulo": "Sergio Massa se reúne con el estratega digital de Lula da Silva",
+     "seccion": "Política",
      "marcada": false
     }
    ],
