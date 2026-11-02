@@ -5652,13 +5652,15 @@
   "numeradas": 6
  },
  "1rk1wrz": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T03:01:24.637Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\" y el cuerpo no los explica; sin esas oraciones quedan 296 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\" y el cuerpo no los explica; sin esas oraciones quedan 268 palabras",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 1 problema (antecedente): el cuerpo usa \"domingo\", que sale de",
+   "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\"",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
    "cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\""
   ],
   "falla": [
@@ -7857,6 +7859,13 @@
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"turismo\" y la fuente"
   ]
  },
+ "5mhteb": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
+ },
  "5mwkfs": {
   "intentos": 1,
   "ultimo": "2026-10-30T12:02:26.878Z",
@@ -9457,6 +9466,13 @@
    "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 72 y la fuente n"
   ]
  },
+ "dkrlse": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "dmhrvc": {
   "intentos": 1,
   "ultimo": "2026-11-01T23:31:44.011Z",
@@ -9618,6 +9634,20 @@
   "falla": [
    "la fuente niega algo en el título y el texto nuevo no",
    "copia 14 palabras seguidas del original (\"comenzo el partido en el banco de suplentes e ingreso en el segundo tiempo\"): decilo con otras pal"
+  ]
+ },
+ "ef91td": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 254 palabras",
+  "textos": 7,
+  "numeradas": 17,
+  "motivos": [
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y ",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "egz5d0": {
@@ -10957,6 +10987,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "lp1ekj": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
  },
  "lpx515": {
   "intentos": 1,
@@ -13117,6 +13154,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "wbtci1": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T04:01:31.722Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (titulo): el título empieza con una etique"
+  ]
  },
  "wbtjsb": {
   "intentos": 1,

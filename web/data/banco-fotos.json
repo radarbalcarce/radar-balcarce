@@ -55043,7 +55043,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b3a9e93133338a6a"
+  "huella": "b3a9e93133338a6a",
+  "ausenteDesde": "2026-11-02T04:03:38.951Z"
  },
  "1j4a396": {
   "archivo": "fotos-notas/1j4a396.jpg",
@@ -55860,7 +55861,8 @@
    "corresponde": "si",
    "descripcion": "Mel Robbins sentada sonriendo a la cámara"
   },
-  "huella": "66666c44417470f4"
+  "huella": "66666c44417470f4",
+  "ausenteDesde": "2026-11-02T04:03:38.951Z"
  },
  "13i41og": {
   "archivo": "fotos-notas/13i41og.jpg",
@@ -56339,7 +56341,8 @@
    "corresponde": "si",
    "descripcion": "Diego Maradona con auriculares sonriendo y señalando con los pulgares"
   },
-  "huella": "1809091f1b3b2727"
+  "huella": "1809091f1b3b2727",
+  "ausenteDesde": "2026-11-02T04:03:38.951Z"
  },
  "cg1pu2": {
   "archivo": "fotos-notas/cg1pu2.jpg",
@@ -66286,11 +66289,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-11-02T03:01:46.001Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "razon": "Ninguna foto sirve porque las imágenes muestran la detención de un menor de edad con la cara reconocible o de perfil identificable, lo cual viola la política de no publicar fotos de menores.",
+  "cuando": "2026-11-02T04:03:01.009Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1xkmx44": {
   "archivo": "fotos-notas/1xkmx44.jpg",
@@ -66905,5 +66907,71 @@
    "descripcion": "Stefano Di Carlo hablando en una conferencia de prensa con el logo de River de fondo."
   },
   "huella": "d0d87030e8c9c9c9"
+ },
+ "dkrlse": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Karina Mazzocco y Edith Hermida destacan en la gala de MasterChef Celebrity",
+  "razon": "Ambas imágenes son capturas de pantalla de una transmisión televisiva, lo cual las invalida según las reglas establecidas.",
+  "cuando": "2026-11-02T04:03:01.009Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "lp1ekj": {
+  "archivo": "fotos-notas/lp1ekj.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River reclama un penal no sancionado por el VAR en el Superclásico",
+  "enlace": "https://www.tycsports.com/river-plate/roja-leandro-paredes-y-penal-nicolas-otamendi-jugadas-que-pidio-todo-river-ante-boca-id769775.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1001901/nicolas-ramirez-boca-river_1440x810.webp?v=1",
+  "razon": "Es la única imagen que muestra claramente la acción de juego sin marcas de agua, elementos gráficos sobreimpresos ni ser una captura de pantalla.",
+  "cuando": "2026-11-02T04:03:01.009Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de River reclamando al árbitro durante el partido."
+  },
+  "huella": "8c525c2e265656ac"
+ },
+ "5mhteb": {
+  "archivo": "fotos-notas/5mhteb.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El dólar oficial abre la semana a 1.560 pesos en el Banco Nación",
+  "enlace": "https://www.lanacion.com.ar/economia/dolar/a-cuanto-abre-el-dolar-el-lunes-2-de-noviembre-nid31102026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/a-cuanto-abre-el-dolar-el-lunes-2-de-2PKGQIKZFRC5DNV5AWHJTAJM7Y.jpg?auth=3a1f8af0d3878b01d6e12134f43c8c8f51dfd5d06262fa04e9e6a6f2a49aaa3b&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B es la única que no presenta marcas de agua, no es una composición gráfica y es una fotografía directa de billetes, siendo la más adecuada para ilustrar la nota económica.",
+  "cuando": "2026-11-02T04:03:01.009Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Primer plano de billetes de cien dólares sobre un teclado."
+  },
+  "huella": "363f57ad795caaea"
+ },
+ "wbtci1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ocho equipos aseguran su lugar en los octavos de final del Torneo Clausura",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Minuto Uno (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-11-02T04:03:01.009Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }
