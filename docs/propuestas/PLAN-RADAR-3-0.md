@@ -556,3 +556,22 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - **Qué cobran los demás:** no hay tarifas públicas de medios de Balcarce ni de la zona; sólo pauta oficial a medios grandes (millones por
   mes), que no compara. La escalera está abajo de todo a propósito. Para saberlo de verdad: pedir presupuesto como cliente a tres o cuatro
   medios de Balcarce por WhatsApp (pendiente, si Hernán quiere). Detalle en `PUBLICIDAD-PRIMER-COMERCIO.md` § 2 ter.
+
+**Sumado el 2/11 a la noche** (Hernán; cierra la publicidad y reemplaza la cuarta y la quinta parte):
+
+- **Publicidad, cerrado.** La bienvenida (nota + reel con voz + historia) es una sola vez y para todo comercio que se suma; no se cobra
+  aparte. **Lo que se vende por mes** son los climas auspiciados, las historias con sus promociones y el aviso. **Cinco planes:** $ 5.000,
+  $ 10.000, $ 20.000, $ 30.000 y $ 50.000, con climas 0 / 2 / 3 / 4 / 6 (promoción hasta diciembre de 2026: 4 / 5 / 6 / 8 / 10), historias
+  4 / 6 / 8 / 10 / 12, posteos con foto en los dos de arriba, y aviso rotativo en 1 / 2 / 3 / 3 lugares y fijo en el de $ 50.000. Tabla y
+  razones en `PUBLICIDAD-PRIMER-COMERCIO.md` § 2; `PUBLICIDAD.md` actualizado. Las preguntas para la nota se hicieron más amenas y **sin
+  pedirle al comercio una promoción para lectores de Radar** (Hernán: «eso hay que sacarlo»). El kit es una hoja sin capturas (Hernán:
+  «queda una imagen pegada arriba de la otra»), con el ícono del sitio, «nos gustaría trabajar con ustedes», la bienvenida, la tabla y
+  los lugares.
+- **Para la 3.0, lo que esto obliga a construir:** (a) **cuatro espacios de aviso**: uno fijo (entre el clima y las notas principales, en
+  la portada; se vende a uno solo por mes) y tres rotativos (después de las postales, la columna del costado, el pie de cada nota) que se
+  reparten por igual entre los que pagan, por carga de página; (b) **el calendario de climas**: cada reel y nota del clima lleva un solo
+  auspiciante, reservado por fecha y en orden de llegada, con lista de espera; la pieza dice «El clima de hoy llega con X» y la nota del
+  clima lo muestra; (c) en `/admin`, una pestaña de avisos y auspicios: cargar el comercio, el plan, desde y hasta, el calendario de
+  climas, las historias y posteos pendientes de ese mes; (d) **los avisos de afuera** (AdSense), si alguna vez se prenden, en espacios
+  propios (dentro de la nota entre el tercer y el cuarto párrafo, y al final de las secciones), nunca en los cuatro locales ni rotando con
+  ellos. Hernán quiere ver después, en la 3.0, exactamente dónde queda cada espacio en el celular y en la computadora.

@@ -61,11 +61,20 @@ la PC, que se retiró sin haberse usado.
   patrocinio** (Hernán, 2/11/2026: «innecesario»); el aviso, en cambio, siempre dice que
   lo es. Lo que se escribe sobre un anunciante **en las noticias** sigue el mismo
   criterio que sobre cualquier otro: un aviso no cambia una noticia.
-- **Los precios** (2/11/2026): tres combos, **$ 5.000 (la nota), $ 10.000 (nota + aviso) y
-  $ 30.000 (auspicio)** por mes, de promoción hasta diciembre de 2026, en
-  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md` § 2; el media kit es el PDF
+- **Los precios** (2/11/2026, cerrados a la noche): **cinco planes, $ 5.000, $ 10.000, $ 20.000,
+  $ 30.000 y $ 50.000 por mes**; lo que crece es cuántos climas auspician (0, 2, 3, 4 y 6; con la
+  promoción hasta diciembre de 2026: 4, 5, 6, 8 y 10), cuántas historias con sus promociones
+  (4 a 12) y dónde va el aviso (rotativo en 1, 2 o 3 lugares; fijo en el de $ 50.000). **La
+  bienvenida es para todos y una sola vez**: la nota sobre el emprendimiento, el reel con voz y la
+  historia. **Cada clima lleva un solo auspiciante**, por calendario y en orden de llegada. Tabla y
+  razones en `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md` § 2. El media kit es una hoja, el PDF
   `docs/propuestas/MEDIA-KIT-2026-11.pdf`, que arma `node scripts/media-kit.mjs` desde la plantilla
-  de `docs/propuestas/media-kit/` (con un JSON de comercio, arma el kit personalizado de ese comercio). **Sin números de audiencia** en nada que se
+  de `docs/propuestas/media-kit/` (con un JSON de comercio, arma el de ese comercio); las preguntas
+  para la nota, en `docs/propuestas/PREGUNTAS-ESTANDAR.pdf`.
+- **Los lugares** (2/11/2026): uno **fijo**, entre el clima y las noticias principales, y **tres
+  rotativos** (después de las postales, la columna del costado, el pie de cada nota) repartidos por
+  igual entre los que pagan. Hoy existen tres (`apertura`, `clima`, `pie`); el cuarto y la rotación
+  van en la 3.0. Los avisos de afuera (AdSense), si se prenden, en espacios propios, nunca mezclados. **Sin números de audiencia** en nada que se
   mande (Hernán, 2/11). Se pauta con la 3.0. Cada comercio tiene su ficha en
   `docs/propuestas/anunciantes/`.
 - **El auspiciante nunca habla por la voz sin que se sepa:** la mención dice

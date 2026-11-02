@@ -3,8 +3,8 @@
 //   node scripts/media-kit.mjs                                         → el kit genérico, docs/propuestas/MEDIA-KIT-2026-11.pdf
 //   node scripts/media-kit.mjs docs/propuestas/anunciantes/sweet-candy-bar.json   → el kit de ese comercio, al lado del JSON
 //
-// El JSON de un comercio lleva: nombre, iniciales, avisoTexto, notaTitulo y, opcional, para (una línea para ese comercio).
-// Es una sola hoja (Hernán, 2/11): la plantilla es docs/propuestas/media-kit/plantilla.html.
+// El JSON de un comercio lleva: nombre, notaTitulo y, opcional, para (una línea para ese comercio).
+// Es una sola hoja sin capturas (Hernán, 2/11): la plantilla es docs/propuestas/media-kit/plantilla.html.
 // Necesita Chrome instalado (lo usa sin ventana, con un perfil descartable). Sin dependencias.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -19,10 +19,7 @@ const fuentes = join(raiz, 'web', 'public', 'fuentes');
 const CHROME = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', '/usr/bin/google-chrome', '/usr/bin/chromium'];
 
-const GENERICO = {
-  nombre: 'Tu comercio', iniciales: 'Tu logo', avisoTexto: 'Lo que hacés, en una línea, con tu WhatsApp o tu Instagram',
-  para: '',
-};
+const GENERICO = { nombre: 'tu comercio', para: '' };
 
 function base64(ruta, tipo) { return `data:${tipo};base64,${readFileSync(ruta).toString('base64')}`; }
 
@@ -34,15 +31,15 @@ export function armarHtml(datos) {
     : '';
   const valores = {
     TITULO_EXTRA: d.notaTitulo ? ` · ${d.nombre}` : '',
-    PARA: para,
+    INTRO: para || "<p>Somos de acá y queremos que los comercios de Balcarce estén en Radar: por eso los precios son bajos, y cada comercio que se suma tiene su lugar en el diario, en las redes y en la voz.</p>",
     FUENTE_SERIF: base64(join(fuentes, 'source-serif-4-latin.woff2'), 'font/woff2'),
     FUENTE_SANS: base64(join(fuentes, 'inter-latin.woff2'), 'font/woff2'),
-    CAPTURA_CEL: base64(join(carpeta, 'portada-celular.jpg'), 'image/jpeg'),
-    CAPTURA_PC: base64(join(carpeta, 'portada-escritorio.jpg'), 'image/jpeg'),
-    NOMBRE: d.nombre, INICIALES: d.iniciales, AVISO_TEXTO: d.avisoTexto,
+    ICONO: base64(join(raiz, 'web', 'public', 'icon-512.png'), 'image/png'),
+    NOMBRE: d.nombre,
+    NOMBRE_O_VOS: d.notaTitulo ? d.nombre : 'vos',
   };
   // Primero entra el bloque «para», que trae sus propias marcas; después, los valores.
-  html = html.replace('{{PARA}}', valores.PARA);
+  html = html.replace('{{INTRO}}', valores.INTRO);
   return html.replace(/\{\{([A-Z_]+)\}\}/g, (_, clave) => {
     if (!(clave in valores)) throw new Error(`La plantilla pide {{${clave}}} y no lo tengo`);
     return valores[clave];

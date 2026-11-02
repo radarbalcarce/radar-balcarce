@@ -16,20 +16,28 @@
 
 ## 2. Los combos (Hernán, 2/11, versión definitiva: $ 5.000, $ 10.000 y $ 30.000; promoción hasta diciembre de 2026)
 
-**Lo vigente** (la escalera que Claude propuso el 2/11 a la tarde con las indicaciones de Hernán, que estaba «perdido» y pidió que se
-decidiera; se corrige número por número, no de concepto). **Todas las opciones incluyen** la nota sobre el emprendimiento, el reel con voz
-y la historia sobre esa nota, y el aviso con su contacto en el sitio durante el mes. Lo que crece es cuántas promociones suyas publicamos
-y cuántas veces auspician el clima:
+**Lo vigente (2/11 a la noche, cerrado con Hernán).** La bienvenida es una sola vez y para todos: cuando un comercio se suma, la nota
+sobre el emprendimiento, el reel con voz y la historia sobre esa nota; no se cobra aparte. **Lo que se vende por mes** son los climas
+auspiciados (lo distintivo), las historias con sus promociones y el aviso en el sitio. Cinco planes:
 
-| | **Nota · $ 5.000** | **Nota + clima · $ 10.000** | **Auspicio · $ 30.000** | **Banner fijo · $ 50.000** |
-|---|---|---|---|---|
-| Historias con una promoción que ellos manden | 1 por mes | 1 por semana | 2 por semana | 15 en el mes |
-| Posteos con su promoción | — | — | 1 por mes | 2 por mes |
-| Su nombre en la voz del clima | — | 1 vez por semana | 2 veces por semana | 15 veces en el mes |
-| Aviso rotativo | en 1 lugar | en 1 lugar | en los 3 lugares | fijo junto al clima + rotativo en los otros 2 |
+| Por mes | $ 5.000 | $ 10.000 | $ 20.000 | $ 30.000 | $ 50.000 |
+|---|---|---|---|---|---|
+| Climas auspiciados (su nombre en la voz) | — | 2 | 3 | 4 | 6 |
+| Con la promoción hasta diciembre de 2026 | 4 | 5 | 6 | 8 | 10 |
+| Historias con sus promociones | 4 | 6 | 8 | 10 | 12 |
+| Posteos con foto en Facebook e Instagram | — | — | — | 2 | 4 |
+| Aviso en el sitio, con su contacto | rotativo, 1 lugar | rotativo, 2 lugares | rotativo, 3 lugares | rotativo, 3 lugares | fijo, más los 3 rotativos |
 
-**Promoción hasta diciembre de 2026: «Nota + clima» a $ 5.000** en vez de $ 10.000, para cualquiera (no hay «primer comercio»). Es lo que se
-le vende a Sweet Candy Bar. Lo de $ 15.000 se sacó.
+**Por qué esos números:** hay 60 climas por mes (mañana y noche); cada clima lleva **un solo auspiciante**, se reserva por calendario en
+orden de llegada y, si se llena, lista de espera: nadie pierde lo que compró ni se le hace menos porque otro compró más (miedo de
+Hernán, 2/11). Con la promoción, un cliente de cada plan suma 33 climas; sin promoción, 15. Cuando los climas se llenen, sube el precio
+del clima. La promoción se dice en una sola frase («hasta diciembre, más climas») para que en 2027 volver a la tabla no parezca una
+traición. **Los lugares del aviso**: uno **fijo** (entre el clima y las noticias principales; se vende a uno solo por mes) y **tres
+rotativos** (después de las postales, en la columna del costado y al pie de cada nota), que se reparten por igual entre todos los que
+pagan, por carga de página. El de 1 lugar va al pie de las notas; el de 2 suma el de después de las postales; el de 3 suma la columna.
+**Los avisos de afuera** (AdSense, si algún día se prenden) van en espacios propios (dentro de la nota, entre el tercer y el cuarto párrafo,
+y al final de las secciones), nunca mezclados ni rotando con los locales. Hoy el sitio tiene tres lugares (`avisos.json`); el cuarto, la
+rotación y el calendario de climas entran en la 3.0 (o antes, si Hernán pide el cambio chico en la 2.0). Lo de $ 15.000 se sacó.
 
 ## 2 ter. Qué cobran los demás (investigación del 2/11, sin tocar archivos)
 
