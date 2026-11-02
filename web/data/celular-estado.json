@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T17:46:44.602Z",
- "portada": 131,
+ "generado": "2026-11-02T18:05:14.676Z",
+ "portada": 123,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-02T17:46:45.658Z",
+  "generado": "2026-11-02T18:05:15.182Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 53,
     "notas": [
@@ -165,11 +165,6 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "ptf7ku",
-      "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "1ehv38o",
       "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
       "seccion": "Política"
@@ -178,6 +173,11 @@
       "id": "156rfnc",
       "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "89822l",
+      "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
+      "seccion": "Economía"
      }
     ]
    }
@@ -243,15 +243,15 @@
      "marcada": false
     },
     {
-     "id": "1gvg0gy",
-     "titulo": "Pity Álvarez se descompone en los tribunales y declara por Zoom",
-     "seccion": "Policiales",
-     "marcada": false
-    },
-    {
      "id": "eyokn0",
      "titulo": "Quince estados de Estados Unidos apoyan a los demandantes en el juicio por YPF",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "8mp5fu",
+     "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
