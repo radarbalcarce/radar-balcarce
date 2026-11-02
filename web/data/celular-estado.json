@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T15:39:05.497Z",
- "portada": 106,
+ "generado": "2026-11-02T16:09:00.195Z",
+ "portada": 108,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-02T15:39:06.747Z",
+  "generado": "2026-11-02T16:09:00.449Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T15:08:24.475Z"
    },
    {
@@ -43,8 +43,8 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
-    "salio": null
+    "momento": "cerrada",
+    "salio": "2026-11-02T15:36:42.750Z"
    },
    {
     "nombre": "noticia2",
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T15:08:24.475Z",
     "segundos": null,
     "notas": [
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 48,
     "notas": [
      {
       "id": "sclfp3",
@@ -134,19 +134,19 @@
       "seccion": "Salud"
      },
      {
-      "id": "gcl4t2",
-      "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
-      "seccion": "Economía"
+      "id": "voie14",
+      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "ptf7ku",
+      "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "1ktheso",
       "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "cwdhlo",
-      "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
-      "seccion": "Policiales"
      }
     ]
    },
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "brwvwb",
+      "titulo": "La Municipalidad recupera un galpón ferroviario para eventos",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1ehv38o",
       "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
@@ -173,11 +178,6 @@
       "id": "8mp5fu",
       "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
       "seccion": "Argentina"
-     },
-     {
-      "id": "89822l",
-      "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
-      "seccion": "Economía"
      }
     ]
    }
@@ -208,9 +208,9 @@
      "marcada": false
     },
     {
-     "id": "gcl4t2",
-     "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
-     "seccion": "Economía",
+     "id": "voie14",
+     "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -226,15 +226,21 @@
      "marcada": false
     },
     {
-     "id": "1qggjq3",
-     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
-     "seccion": "Política",
+     "id": "asjx6k",
+     "titulo": "El Gobierno enfrenta un vencimiento de US$ 800 millones con el Fondo Monetario",
+     "seccion": "Economía",
      "marcada": false
     },
     {
      "id": "1yipx6w",
      "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1qggjq3",
+     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
+     "seccion": "Política",
      "marcada": false
     },
     {

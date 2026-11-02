@@ -57,19 +57,19 @@
   "numeradas": 4
  },
  "108x7zb": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T15:37:30.314Z",
+  "intentos": 2,
+  "ultimo": "2026-11-02T16:06:30.126Z",
   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida",
+   "cuerpo: 2 problemas (copia, promesa): copia 19 palabras seguidas del o",
    "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida"
   ],
   "falla": [
-   "el copete nombra a \"municipalidad\" y la fuente no",
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 21 palabras seguidas del original (\"el retiro de ramas secas quebradas o enfermas ademas de la preparacion de aquellos…\"): decilo con "
+   "el copete nombra a \"municipalidad\" y la fuente no"
   ]
  },
  "1099rtb": {
@@ -569,6 +569,13 @@
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, e"
   ]
+ },
+ "13inwuj": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
  },
  "13iqry0": {
   "intentos": 1,
@@ -3672,6 +3679,13 @@
   "textos": 1,
   "numeradas": 3
  },
+ "1jcaj7v": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "1jclmlr": {
   "intentos": 3,
   "ultimo": "2026-10-28T10:31:23.389Z",
@@ -4008,6 +4022,16 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 5
+ },
+ "1ky6b0y": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 3132 (line 1 column 3133)",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "Gemini: Expected ',' or ']' after array element in JSON at position 31"
+  ]
  },
  "1kyd8ky": {
   "intentos": 1,
@@ -5216,6 +5240,16 @@
   "textos": 4,
   "numeradas": 11
  },
+ "1q5luoa": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
+  ]
+ },
  "1qbhiyg": {
   "intentos": 1,
   "ultimo": "2026-10-28T06:01:40.462Z",
@@ -5699,17 +5733,18 @@
   "numeradas": 4
  },
  "1se4dwx": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T15:37:30.314Z",
-  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo explica; sin esas oraciones quedan 150 palabras",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli",
-   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v",
+   "cuerpo: 2 problemas (promesa): el título nombra a \"municipal\", \"basque",
+   "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
   ],
   "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
    "el título dice 3 y el cuerpo no lo explica"
   ]
  },
@@ -6411,6 +6446,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1vdxfk4": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "1vfhba3": {
   "intentos": 1,
@@ -9694,19 +9736,16 @@
   "numeradas": 3
  },
  "eyokn0": {
-  "intentos": 3,
-  "ultimo": "2026-11-02T15:37:30.314Z",
-  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 123 caracteres, el máximo es 90",
-  "textos": 3,
-  "numeradas": 3,
+  "intentos": 4,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 6,
   "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el",
    "cuerpo: 2 problemas (copia, promesa): copia 24 palabras seguidas del o",
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
-   "título o bajada: 1 problema (largo): el titulo tiene 123 caracteres, e"
-  ],
-  "falla": [
-   "el titulo tiene 123 caracteres, el máximo es 90"
+   "título o bajada: 1 problema (largo): el titulo tiene 123 caracteres, e",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique"
   ]
  },
  "ezjka6": {
@@ -11866,6 +11905,20 @@
   "textos": 8,
   "numeradas": 9
  },
+ "q9wlq": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y la fuente no",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y "
+  ],
+  "falla": [
+   "el copete nombra a \"justicia\" y la fuente no"
+  ]
+ },
  "qb6ymx": {
   "intentos": 1,
   "ultimo": "2026-10-27T19:02:02.893Z",
@@ -12264,6 +12317,16 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 8
+ },
+ "sdmfkk": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 1 problema (nombre): el cuerpo nombra a \"emiliano\" y la fuente"
+  ]
  },
  "sdvfpg": {
   "intentos": 1,
@@ -12746,6 +12809,18 @@
   "textos": 2,
   "numeradas": 2
  },
+ "v7nz5c": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "verificación baja: espera a una persona",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "verificación baja: espera a una persona"
+  ],
+  "baja": true,
+  "fuentes": 1
+ },
  "v7w1d1": {
   "intentos": 1,
   "ultimo": "2026-10-27T20:21:57.157Z",
@@ -12836,6 +12911,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "voie14": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T16:06:30.126Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "vqr3ko": {
   "intentos": 1,
