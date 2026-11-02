@@ -30,7 +30,8 @@
 //     cambia en el día. Serían redundantes.
 //
 // LAS PUERTAS (25/10/2026: una base y una puerta por formato, sin reglas repetidas):
-//   · la base, para todo: quedaAfueraDeLasRedes (lo rojo, lo que espera cuerpo, las notas propias salvo la de una pista aprobada)
+//   · la base, para todo: quedaAfueraDeLasRedes (lo rojo, lo que espera cuerpo, las notas propias salvo la de una pista aprobada,
+//     y la compuerta de tono de redes/tono.mjs: la muerte de un chico, un suicidio, un chico grave; R41)
 //     y esperaAUnaPersona (Política y Policiales, y lo que la web publicó porque lo aprobó una persona sin marcarlo para las redes);
 //   · posteo de Facebook (y su espejo en Instagram): vaAFacebookPorLoQueEs. Lo marcado por una persona pasa; si no, lo de Balcarce
 //     (esParaLasRedes) con la relevancia mínima o muy contado de acá, o lo de afuera muy contado (esPopularParaRedes). Ninguna nota
@@ -45,6 +46,7 @@ import { sinTildes } from '../web/lib/texto.js';
 import { esperaCuerpo } from '../web/lib/cuerpo.js';
 import { noEsNoticiaAunqueLaCuentenTodos } from '../ingesta/muy-contada.mjs';
 import { mediosDeLaNota } from './medios-contados.mjs';
+import { esTragediaParaRedes } from './tono.mjs';
 import { enlaceCorto, hayEnlacesCortos } from './enlaces-cortos.mjs';
 import { esperaFotoDefinitiva } from './foto-cambiada.mjs';
 import {
@@ -134,10 +136,12 @@ export const loAproboUnaPersona = (n) => n?.como === 'publicada';
 /**
  * LA BASE de todas las puertas: lo que no va solo a ninguna red, en ningún formato. Lo rojo, lo que espera
  * cuerpo (una nota de dos renglones) y las notas propias del sitio, salvo la de una pista que una persona
- * aprobó para las redes (notaDePistaParaLosRepasos; los posteos de Facebook no llevan ni ésa).
+ * aprobó para las redes (notaDePistaParaLosRepasos; los posteos de Facebook no llevan ni ésa). Y, desde el 2/11/2026 (R41, Hernán), la
+ * compuerta de tono (redes/tono.mjs): la muerte de un menor o un bebé, un suicidio o un chico grave por un accidente no van a ningún
+ * repaso, posteo ni historia, aunque una persona la haya marcado para las redes. La web no cambia.
  */
 export function quedaAfueraDeLasRedes(n) {
-  return !n || n.semaforo === 'rojo' || esperaCuerpo(n) || (esNotaPropia(n) && !notaDePistaParaLosRepasos(n));
+  return !n || n.semaforo === 'rojo' || esperaCuerpo(n) || (esNotaPropia(n) && !notaDePistaParaLosRepasos(n)) || esTragediaParaRedes(n);
 }
 
 /**

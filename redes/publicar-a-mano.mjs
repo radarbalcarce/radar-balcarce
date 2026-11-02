@@ -75,7 +75,7 @@ async function main() {
   const portada = JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'portada.json'), 'utf8'));
   const nota = (portada.notas ?? []).find((n) => n.id === id);
   if (!nota) throw new Error(`La nota ${id} no está en la portada`);
-  if (quedaAfueraDeLasRedes({ ...nota, propia: undefined })) throw new Error(`La nota ${id} no puede ir a las redes (roja o sin cuerpo)`);
+  if (quedaAfueraDeLasRedes({ ...nota, propia: undefined })) throw new Error(`La nota ${id} no puede ir a las redes (roja, sin cuerpo o de tono: R41)`);
   if (process.argv.includes('--enlace')) {
     const mensaje = mensajeDeNota(nota, SITIO, { fuente: 'facebook' });
     const enlace = enlaceConOrigen(nota, SITIO, { fuente: 'facebook', campana: 'nota', contenido: nota.id });

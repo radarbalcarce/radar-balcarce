@@ -575,3 +575,30 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   climas, las historias y posteos pendientes de ese mes; (d) **los avisos de afuera** (AdSense), si alguna vez se prenden, en espacios
   propios (dentro de la nota entre el tercer y el cuarto párrafo, y al final de las secciones), nunca en los cuatro locales ni rotando con
   ellos. Hernán quiere ver después, en la 3.0, exactamente dónde queda cada espacio en el celular y en la computadora.
+
+**Sumado el 2/11 a la noche, segunda parte** (Hernán aprobó el kit: «quedó espectacular»):
+
+- **El media kit y las preguntas estándar son el referente.** Hernán quiere pedirlos por Telegram (o el panel): «armame un media kit y
+  preguntas para X Instagram». **Se puede, en la 3.0, sin claves nuevas ni otra IA:** (1) el bot recibe el enlace; (2) el Worker lee el perfil
+  público por la **API de Meta («Business Discovery»)**, que con nuestro mismo `META_TOKEN` devuelve biografía, seguidores, cantidad de
+  publicaciones y los últimos posteos con sus textos, fechas y me gusta de cualquier cuenta de empresa o creador (Sweet Candy Bar lo es:
+  «Producto/servicio»); si la cuenta es personal, el bot avisa y se hace a mano desde el Chrome de Radar; (3) **Gemini** (la clave de
+  redacción, con las reglas de `PERFIL.md` y la ficha estándar como plantilla) escribe la ficha: quiénes son, qué fotos pedir, el título
+  tentativo de la nota, el texto del aviso y las diez preguntas personalizadas; (4) la ficha queda en D1 y el kit y las preguntas se arman
+  con **las mismas plantillas HTML de hoy** (`docs/propuestas/media-kit/`), y el PDF lo hace **Browser Rendering de Cloudflare** (un Chrome
+  sin ventana en la nube; tiene una franja gratis de minutos por día que alcanza para esto: se confirma al armar, y si no, el bot manda el
+  enlace a la hoja en la web y el PDF se baja desde el celular); (5) el bot devuelve los dos PDF y el borrador del mensaje de WhatsApp.
+  **No hace falta la API de Anthropic** (más cara y no suma nada acá) ni una IA que busque en internet (Tavily queda para las pistas).
+  Las fotos no se bajan de Instagram: se le piden al comercio. Va como pieza de la etapa E (redacción propia). Mientras tanto, se pide por
+  este chat y se hace en la PC.
+- **Gemini, cómo lo va a dejar Hernán:** todo en la cuenta de Radar Balcarce, **dos claves pagas** (una para las voces, otra para la
+  redacción, US$ 5 cada una) y **la clave gratis para la redacción** sigue. Pide que el código **se imponga un límite** para que la paga de
+  redacción no se gaste «como si nada» (pasó el 30/10). **Hoy ya existen esos frenos** y se conservan en la 3.0: `GEMINI_RESPALDO_TOPE_DIARIO`
+  (30 pedidos por día a la clave paga de texto, `reels/claves.mjs`), el modelo siempre más barato (`GEMINI_MODELO_BARATO`, R40) y el **cupo de
+  voz de 10 audios por día**. Dos cosas que conviene que Hernán sepa al cargar: (1) Google no deja «cargar US$ 5»: cobra a fin de mes lo que
+  se usó, con una tarjeta; el «presupuesto» de la consola **sólo avisa, no frena**: el freno de verdad es el tope del código; (2) una clave
+  por proyecto de Google Cloud, con el nombre de para qué es (`radar-voces`, `radar-redaccion`), así la factura dice cuánto gastó cada una.
+  Con el núcleo nuevo (dos pedidos por nota publicada, cero por nota no publicada) el gasto esperado es de centavos por día.
+- **Compuerta de tono para redes: Hernán dijo «sí, hacelo».** Se hace ya en la 2.0 (`esTragediaParaRedes` en `redes/elegir.mjs`,
+  prueba `pruebas/tono-redes.test.mjs` con el caso real 8s2k9s, regla 4.10 de `CRITERIO-REDES.md`, **R41** en `docs/10-REGLAS-Y-PRUEBAS.md`)
+  y pasa igual a la 3.0. La web no cambia; el rojo no se toca. El orden «lo bueno antes que lo trágico» queda para la 3.0.

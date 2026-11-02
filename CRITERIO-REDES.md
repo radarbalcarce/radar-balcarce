@@ -186,7 +186,7 @@ Lo común a todas:
   primero y, si no alcanza, lo más contado del día** (cuántos medios lo cuentan), sin
   piso de puntaje ni tope de notas de afuera (25/10: "el repaso tiene que tener noticias").
   Nada que ya haya salido como posteo.
-- **No lleva nunca:** Política ni Policiales, nada en rojo, las notas propias del sitio,
+- **No lleva nunca:** nada en rojo (Política y Policiales sí entran, como cualquier sección, desde el 30/10: R40), lo de la compuerta de tono (§ 4, punto 11), las notas propias del sitio,
   la fuente de ninguna nota, ni nombres de víctimas o menores.
 - **Cómo se ve** (17/10, regla 209): el video sigue a la voz. Arranca con la primera nota,
   que es la más fuerte, en grande; mientras la voz cuenta cada nota se ve **su foto** (la de
@@ -303,6 +303,10 @@ Lo común a todas:
 9. **Sin exclamaciones, sin "increíble", sin opinión y sin humor en lo serio.**
 10. **El mismo día y la misma pieza dan el mismo texto**, y días distintos suenan
     distinto.
+11. **Compuerta de tono (2/11/2026, Hernán).** Ningún repaso, posteo ni historia lleva la muerte de un menor o un bebé, un suicidio ni un chico grave
+    por un accidente, un ahogo o una agresión, aunque sea de Balcarce, muy leído o lo haya marcado una persona (`esTragediaParaRedes`,
+    `redes/tono.mjs`, dentro de `quedaAfueraDeLasRedes`; R41). La web no cambia: la nota sigue publicada. Caso real: «Un niño de dos años muere
+    tras caer a una pileta» (28/10, relevancia 90) abrió el repaso de las 21; Hernán: «no quiero que salga en primera tapa de nuestras redes».
 
 ### Cosas que muerden (redes)
 

@@ -47,15 +47,15 @@ vigilancia y el panel del celular andan con la PC apagada.**
 
 ## Reglas que no se negocian
 
-(Las reglas vigentes son **R1 a R40**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
+(Las reglas vigentes son **R1 a R41**, en `docs/10-REGLAS-Y-PRUEBAS.md`, cada una con las pruebas que la cuidan; una prueba controla que
 cada R nombre pruebas que existan. La historia de cada número viejo, de la regla 1 a la 327, quedó congelada en `docs/historico/REGLAS-1-A-327.md`:
 quien lea "regla 293" en un comentario la encuentra por la columna «absorbe» (está en la R8). **Un arreglo nuevo se anota en la R que corresponde**
-(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R41.** Las citas "regla NNN" del código no se renumeran.)
+(sumando su número o su prueba a la fila) **o, si es de verdad nuevo, como R42.** Las citas "regla NNN" del código no se renumeran.)
 
 - **`ingesta/`, `panel/` y `redes/` no importan nada de afuera de Node.** Una prueba lo
   vigila (sigue los imports en cadena).
 - **Cuando se arregla algo que estuvo mal publicado, se escribe una prueba** con el caso
-  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R41 si es nueva).
+  real y se anota en la regla que corresponde de `docs/10-REGLAS-Y-PRUEBAS.md` (o como R42 si es nueva).
 - **El criterio editorial es uno solo: `CRITERIO-EDITORIAL.md`.** La IA lee su § 12 tal
   cual (`ingesta/prompt-editorial.mjs`; si falta, no escribe) y sus números están en
   `ingesta/criterio.mjs`, controlados contra su tabla. Lo de las redes, en
