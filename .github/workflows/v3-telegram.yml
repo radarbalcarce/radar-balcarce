@@ -1,0 +1,76 @@
+name: "Radar 3.0: Telegram"
+
+# Claude le habla a Hernán por el bot @radarbalcarce_bot y lee lo que contesta (texto y audios transcriptos). SÓLO A MANO.
+#
+#   decir   manda al dueño del bot los mensajes del archivo (bloques separados por una línea «---»)
+#   leer    baja lo que contestó el dueño, transcribe los audios con Groq y lo guarda en v3/redaccion/telegram/entrada/AAAA-MM-DD.md
+#
+# Secretos de GitHub (los pega una persona, nunca en un chat): TELEGRAM_TOKEN y GROQ_API_KEY. Detalle: v3/redaccion/telegram/REGLAS.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      accion:
+        description: 'Qué hacer'
+        type: choice
+        options: [decir, leer]
+        default: leer
+      archivo:
+        description: 'Para «decir»: el archivo con los mensajes'
+        type: string
+        default: v3/redaccion/telegram/mensajes/perfil-preguntas.md
+      desde:
+        description: 'Para «leer»: desde cuándo (fecha ISO, por ejemplo 2026-11-02T00:00:00Z). Vacío = últimos 7 días'
+        type: string
+        default: ''
+
+permissions:
+  contents: write # para guardar lo leído en entrada/
+
+concurrency:
+  group: v3-telegram
+  cancel-in-progress: false
+
+jobs:
+  telegram:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      ACCION: ${{ inputs.accion }}
+      ARCHIVO: ${{ inputs.archivo }}
+      DESDE: ${{ inputs.desde }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Decir
+        if: env.ACCION == 'decir'
+        run: node v3/redaccion/telegram/herramientas.mjs decir "$ARCHIVO"
+
+      - name: Leer
+        if: env.ACCION == 'leer'
+        run: node v3/redaccion/telegram/herramientas.mjs leer "$DESDE"
+
+      - name: Guardar lo leído
+        if: env.ACCION == 'leer'
+        run: |
+          git config user.name "Radar Balcarce"
+          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
+          git config user.email "272334999+balcar-dev@users.noreply.github.com"
+          git add v3/redaccion/telegram/entrada/
+          if git diff --cached --quiet; then
+            echo "Sin mensajes nuevos."
+            exit 0
+          fi
+          git commit -m "Telegram · lo que contestó Hernán · $(date '+%d/%m %H:%M')"
+          for intento in 1 2 3; do
+            git pull --rebase -q && git push && break
+            sleep 5
+          done
+          git fetch -q origin main
+          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir lo leído después de tres intentos"; exit 1; }

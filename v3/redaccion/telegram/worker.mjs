@@ -9,6 +9,11 @@
 // Cómo se conecta: cada 15 minutos (cron) mira si Telegram tiene registrada nuestra dirección (getWebhookInfo) y, si no, la registra
 // (setWebhook) con una contraseña derivada del token. Telegram manda cada mensaje a POST /telegram con esa contraseña en una cabecera:
 // lo que llega sin ella se ignora. Nadie tiene que correr nada a mano, y si el token cambia, se vuelve a conectar solo.
+//
+// Dos puertas más, para que Claude (desde GitHub Actions) hable con el dueño; las dos piden la misma contraseña derivada del token en la
+// cabecera x-radar-contrasena (herramientas.mjs la calcula y nunca la imprime):
+//   POST /decir     {textos:[…]} manda mensajes al dueño, en orden.
+//   GET  /entrada   lo que el dueño escribió (texto, audio, foto) desde cierta fecha; los audios van como file_id y se transcriben afuera.
 
 const API = 'https://api.telegram.org';
 
@@ -20,6 +25,8 @@ export default {
     const url = new URL(pedido.url);
     if (pedido.method === 'POST' && url.pathname === '/telegram') return recibir(pedido, env, ctx);
     if (url.pathname === '/salud') return salud(env);
+    if (pedido.method === 'POST' && url.pathname === '/decir') return decir(pedido, env);
+    if (pedido.method === 'GET' && url.pathname === '/entrada') return entrada(pedido, env, url);
     return new Response('Radar Balcarce · bot de Telegram', { headers: { 'content-type': 'text/plain; charset=utf-8' } });
   },
 
@@ -39,8 +46,12 @@ async function recibir(pedido, env, ctx) {
   try { actualizacion = await pedido.json(); } catch { return new Response('ok'); }
 
   const dueno = await env.ESTADO.get('dueno', 'json');
-  const { respuesta, nuevoDueno } = decidir(actualizacion, dueno, new Date());
+  const { respuesta, nuevoDueno, entrada: lo } = decidir(actualizacion, dueno, new Date());
   if (nuevoDueno) ctx.waitUntil(env.ESTADO.put('dueno', JSON.stringify(nuevoDueno)));
+  // Lo que escribió el dueño queda guardado para que Claude lo lea; si el KV falla, igual se le contesta.
+  if (lo) {
+    try { await env.ESTADO.put(claveDeEntrada(lo), JSON.stringify(lo), { expirationTtl: TTL_ENTRADA }); } catch (e) { console.error(`entrada: ${e.message}`); }
+  }
   if (respuesta) ctx.waitUntil(enviar(env.TELEGRAM_TOKEN, respuesta.chat, respuesta.texto));
   // A Telegram siempre se le contesta 200 enseguida: si no, reintenta el mismo mensaje una y otra vez.
   return new Response('ok');
@@ -73,7 +84,7 @@ export function decidir(actualizacion, dueno, ahora = new Date()) {
     r = `Conectado. Dueño: ${dueno.nombre}${dueno.usuario ? ` (@${dueno.usuario})` : ''}, desde el ${fechaCorta(dueno.desde)}. Etapa A: sólo contesto; las notas por audio llegan en la etapa E.`;
   } else if (m.voice || m.audio) {
     const seg = m.voice?.duration ?? m.audio?.duration ?? 0;
-    r = `Recibí tu audio de ${seg} segundos. Todavía no sé transcribirlo ni investigar: eso llega en la etapa E. No lo pierdo de vista.`;
+    r = `Recibí tu audio de ${seg} segundos. Lo leo y sigo.`;
   } else if (m.photo) {
     r = 'Recibí la foto. Todavía no sé hacer una nota con ella: eso llega en la etapa E.';
   } else if (texto.startsWith('/')) {
@@ -83,7 +94,117 @@ export function decidir(actualizacion, dueno, ahora = new Date()) {
   } else {
     r = 'Recibido.';
   }
-  return { respuesta: { chat, texto: r }, nuevoDueno };
+  return { respuesta: { chat, texto: r }, nuevoDueno, entrada: entradaDe(m, ahora) };
+}
+
+// ------------------------------------------------------------------------------------------------------------ lo que escribe el dueño
+
+const TTL_ENTRADA = 90 * 24 * 3600;
+const LARGO_DE_UN_MENSAJE = 4096;
+
+/** Un mensaje del dueño, como se guarda en el KV. Función pura. */
+export function entradaDe(m, ahora = new Date()) {
+  const audio = m.voice ?? m.audio;
+  const foto = Array.isArray(m.photo) && m.photo.length ? [...m.photo].sort((a, b) => (a.file_size ?? 0) - (b.file_size ?? 0)).at(-1) : null;
+  const tipo = audio ? 'audio' : foto ? 'foto' : m.text ? 'texto' : 'otro';
+  const texto = (m.text ?? m.caption ?? '').trim();
+  const cuando = Number.isFinite(m.date) ? new Date(m.date * 1000).toISOString() : ahora.toISOString();
+  const e = { cuando, message_id: m.message_id ?? 0, tipo };
+  if (texto) e.texto = texto;
+  const fileId = audio?.file_id ?? foto?.file_id;
+  if (fileId) e.file_id = fileId;
+  if (audio?.duration != null) e.duracion = audio.duration;
+  const antes = (m.reply_to_message?.text ?? m.reply_to_message?.caption ?? '').trim();
+  if (antes) e.respuesta_a = antes.slice(0, 200);
+  return e;
+}
+
+/** `entrada:<ISO>:<message_id>`: se puede ordenar por fecha con un `list`. */
+export function claveDeEntrada(e) {
+  return `entrada:${e.cuando}:${e.message_id}`;
+}
+
+/** Parte un texto largo en pedazos de hasta `max` caracteres: por párrafos; si un párrafo solo no entra, por líneas y, al final, a la fuerza. */
+export function partirTexto(texto, max = LARGO_DE_UN_MENSAJE) {
+  if (texto.length <= max) return [texto];
+  const trozos = [];
+  let actual = '';
+  const vaciar = () => { if (actual) trozos.push(actual); actual = ''; };
+  const aLaFuerza = (t) => { for (let i = 0; i < t.length; i += max) trozos.push(t.slice(i, i + max)); };
+  for (const parrafo of texto.split('\n\n')) {
+    if (parrafo.length > max) {
+      vaciar();
+      let linea = '';
+      for (const l of parrafo.split('\n')) {
+        if (l.length > max) { if (linea) trozos.push(linea); linea = ''; aLaFuerza(l); continue; }
+        if (linea && linea.length + 1 + l.length > max) { trozos.push(linea); linea = ''; }
+        linea = linea ? `${linea}\n${l}` : l;
+      }
+      actual = linea;
+      continue;
+    }
+    if (actual && actual.length + 2 + parrafo.length > max) vaciar();
+    actual = actual ? `${actual}\n\n${parrafo}` : parrafo;
+  }
+  vaciar();
+  return trozos;
+}
+
+async function autorizado(pedido, env) {
+  if (!env.TELEGRAM_TOKEN) return new Response('sin token', { status: 503 });
+  const esperada = await contrasenaDelWebhook(env.TELEGRAM_TOKEN);
+  const recibida = pedido.headers.get('x-radar-contrasena') ?? '';
+  let dif = esperada.length ^ recibida.length;
+  for (let i = 0; i < esperada.length; i++) dif |= esperada.charCodeAt(i) ^ (recibida.charCodeAt(i) || 0);
+  return dif === 0 ? null : new Response('no', { status: 403 });
+}
+
+const json = (cuerpo, status = 200) => new Response(JSON.stringify(cuerpo), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
+
+/** POST /decir {textos:[…]} o {texto}: manda cada texto al dueño, en orden. */
+async function decir(pedido, env) {
+  const no = await autorizado(pedido, env);
+  if (no) return no;
+  let cuerpo;
+  try { cuerpo = await pedido.json(); } catch { return json({ error: 'JSON inválido' }, 400); }
+  const textos = (Array.isArray(cuerpo?.textos) ? cuerpo.textos : [cuerpo?.texto]).filter((t) => typeof t === 'string' && t.trim());
+  if (!textos.length) return json({ error: 'sin textos' }, 400);
+  if (textos.length > 50) return json({ error: 'demasiados textos (máximo 50 por pedido)' }, 400);
+  const dueno = await env.ESTADO.get('dueno', 'json');
+  if (!dueno?.chat) return new Response('sin dueño', { status: 404 });
+  let enviados = 0;
+  for (const texto of textos) {
+    for (const trozo of partirTexto(texto.trim())) {
+      const r = await enviar(env.TELEGRAM_TOKEN, dueno.chat, trozo);
+      if (!r?.ok) return json({ enviados, error: r?.description ?? 'Telegram no contestó' }, 502);
+      enviados++;
+    }
+  }
+  return json({ enviados });
+}
+
+/** GET /entrada?desde=<ISO>: lo que escribió el dueño desde esa fecha (sin `desde`, los últimos 7 días), en orden. Nunca el token ni el chat. */
+async function entrada(pedido, env, url) {
+  const no = await autorizado(pedido, env);
+  if (no) return no;
+  const pedida = url.searchParams.get('desde');
+  const limite = pedida ? new Date(pedida) : new Date(Date.now() - 7 * 24 * 3600 * 1000);
+  if (Number.isNaN(limite.getTime())) return json({ error: 'desde inválido' }, 400);
+  const desde = limite.toISOString();
+  const nombres = [];
+  let cursor;
+  do {
+    const l = await env.ESTADO.list({ prefix: 'entrada:', cursor });
+    for (const k of l.keys) if (k.name.slice('entrada:'.length) >= desde) nombres.push(k.name);
+    cursor = l.list_complete ? undefined : l.cursor;
+  } while (cursor);
+  const mensajes = [];
+  for (const n of nombres.slice(0, 500)) {
+    const e = await env.ESTADO.get(n, 'json');
+    if (e && e.cuando >= desde) mensajes.push(e);
+  }
+  mensajes.sort((a, b) => (a.cuando < b.cuando ? -1 : a.cuando > b.cuando ? 1 : a.message_id - b.message_id));
+  return json({ mensajes });
 }
 
 // ------------------------------------------------------------------------------------------------------------ conectar el webhook
@@ -130,7 +251,7 @@ function enviar(token, chat, texto) {
 }
 
 /** La contraseña que Telegram manda en cada mensaje: derivada del token, así no hace falta un segundo secreto. */
-async function contrasenaDelWebhook(token) {
+export async function contrasenaDelWebhook(token) {
   const bytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`radar-telegram:${token}`));
   return [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, '0')).join('').slice(0, 40);
 }

@@ -21,9 +21,22 @@ de avisos y a la pestaña «pedir una nota» del panel viejo.
 | Primer mensaje | Que quedó como dueño y que todavía no escribe notas |
 | `/start`, «hola» | Que está conectado |
 | `/estado` | Dueño, desde cuándo, qué etapa corre |
-| Un audio | Cuántos segundos recibió y que la transcripción llega en la etapa E |
+| Un audio | «Recibí tu audio de N segundos. Lo leo y sigo.» (se guarda; lo transcribe la herramienta `leer`) |
 | Una foto | Que la recibió y que la nota con foto llega en la etapa E |
 | Otra cosa | «Anotado» |
+
+## Claude habla con Hernán por el bot (2/11/2026)
+
+- Todo lo que escribe el dueño (texto, audio, foto) se guarda en el KV `ESTADO` como `entrada:<ISO>:<message_id>`, 90 días: tipo, texto, `file_id`,
+  duración y a qué mensaje contestaba. Si el KV falla, igual se le contesta.
+- `POST /decir` `{textos:[…]}` manda mensajes al dueño en orden (texto plano; lo que pasa de 4.096 caracteres se parte por párrafos). `GET /entrada?desde=<ISO>`
+  devuelve lo que escribió el dueño (sin `desde`, los últimos 7 días). Las dos piden la cabecera `x-radar-contrasena` (la derivada del token, 403 si falta) y
+  nunca devuelven el token ni el chat. Sin dueño, `/decir` da 404.
+- `herramientas.mjs`: `decir <archivo.md>` (bloques separados por una línea `---`) y `leer [desde]` (baja el audio, lo transcribe con Groq `whisper-large-v3` y
+  escribe `entrada/AAAA-MM-DD.md`, un archivo por día argentino; los ids ya leídos quedan en `entrada/AAAA-MM-DD.json`; el audio no se guarda). Sin `GROQ_API_KEY`
+  el audio queda «[audio sin transcribir, N s]».
+- Se usa desde el workflow «Radar 3.0: Telegram» (a mano; secretos `TELEGRAM_TOKEN` y `GROQ_API_KEY`). `leer` commitea `entrada/`. Después de tocar el
+  Worker hay que volver a correr «Radar 3.0: desplegar» con `telegram`.
 
 ## Qué va a hacer (por etapa, según `docs/propuestas/PLAN-RADAR-3-0.md`)
 
@@ -53,5 +66,5 @@ En GitHub: Settings → Secrets and variables → Actions → New repository sec
 
 ## Pruebas
 
-`node --test v3/redaccion/telegram/` (sin red): quién queda como dueño, qué se contesta a cada cosa, que a un extraño no se le contesta nada
+`node --test "v3/**/*.test.mjs"` (sin red): quién queda como dueño, qué se contesta a cada cosa, que a un extraño no se le contesta nada
 más que «privado».
