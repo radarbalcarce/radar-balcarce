@@ -625,3 +625,14 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   maquetas para que elija (ver [[feedback-cambios-visibles-del-sitio]]: la portada se propone antes de cambiarla).
 - **Todo tiene que quedar guardado y armado para arrancar la 3.0 «ya, en lo inmediato»**: lo que falta de Hernán es sólo la clave paga (está
   en eso) y la charla de `PERFIL.md`.
+
+**Sumado el 2/11 a la noche, cuarta parte** (hecho esa noche):
+
+- **Claude le habla a Hernán por el bot, y lee lo que contesta.** El Worker `radar-telegram` tiene dos puertas nuevas con la misma
+  contraseña derivada del token (`POST /decir`, `GET /entrada`), la herramienta `v3/redaccion/telegram/herramientas.mjs` (`decir <archivo.md>`
+  manda un bloque por línea `---`; `leer [desde]` baja los audios, los transcribe con Groq Whisper y escribe `v3/redaccion/telegram/entrada/
+  AAAA-MM-DD.md`) y el workflow «Radar 3.0: Telegram» (`v3-telegram.yml`, acciones `decir` y `leer`; `leer` commitea las transcripciones).
+  Es la etapa E adelantada en su parte más simple. **Las diez preguntas del perfil de la IA** se mandaron el 2/11 a las 18:00 (archivo
+  `mensajes/perfil-preguntas.md`); Hernán contesta por audio, de a una. Para leerlas: correr «Radar 3.0: Telegram» con `leer` y abrir el
+  `.md` del día; con eso se escribe `nucleo/PERFIL.md` y se le muestra a Hernán antes de que la IA lo use.
+- **La publicidad de Radar** (reel sin voz) queda como está por ahora: Hernán la vio y «después vemos qué hacemos con el tema publicitario».
