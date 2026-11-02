@@ -32629,9 +32629,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "3vccru": {
-  "archivo": "fotos-notas/3vccru.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El dólar oficial alcanza su valor máximo del año tras una nueva suba",
@@ -32651,7 +32649,8 @@
    "descripcion": "Persona sosteniendo dólares frente a un cartel LED de cotización cambiaria."
   },
   "huella": "59495b194d3b1d5d",
-  "ausenteDesde": "2026-10-26T11:03:56.428Z"
+  "intentado": true,
+  "borrada": true
  },
  "q80h27": {
   "archivo": "fotos-notas/q80h27.jpg",
@@ -41219,9 +41218,7 @@
   "ausenteDesde": "2026-10-27T05:02:17.769Z"
  },
  "lpxwwu": {
-  "archivo": "fotos-notas/lpxwwu.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "El oficialismo busca acuerdos para firmar el dictamen del Presupuesto",
@@ -41241,7 +41238,8 @@
    "descripcion": "Javier Milei sonriendo en un atril"
   },
   "huella": "655757571f1e1b39",
-  "ausenteDesde": "2026-10-26T11:03:56.428Z"
+  "intentado": true,
+  "borrada": true
  },
  "3p6jq": {
   "intentado": true,
@@ -41254,9 +41252,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ernddj": {
-  "archivo": "fotos-notas/1ernddj.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "Aldosivi derrota 1 a 0 a Belgrano y continúa en la pelea por la permanencia",
@@ -41276,7 +41272,8 @@
    "descripcion": "Jugador en acción durante el partido."
   },
   "huella": "27f3d1d55553733b",
-  "ausenteDesde": "2026-10-26T11:03:56.428Z"
+  "intentado": true,
+  "borrada": true
  },
  "1d8gjsf": {
   "intentado": true,
@@ -41313,9 +41310,7 @@
   "ausenteDesde": "2026-10-28T04:03:28.449Z"
  },
  "1kssii7": {
-  "archivo": "fotos-notas/1kssii7.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lula da Silva gana el balotaje en Brasil y logra la reelección",
@@ -41335,7 +41330,8 @@
    "descripcion": "Bolsonaro y Lula gesticulando en un estudio de televisión"
   },
   "huella": "87c486ce8ec68686",
-  "ausenteDesde": "2026-10-26T11:03:56.428Z"
+  "intentado": true,
+  "borrada": true
  },
  "1pmrj5": {
   "archivo": "fotos-notas/1pmrj5.jpg",
@@ -62673,7 +62669,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "169c597357171757"
+  "huella": "169c597357171757",
+  "ausenteDesde": "2026-11-02T11:33:36.031Z"
  },
  "1v3oanf": {
   "archivo": "fotos-notas/1v3oanf.jpg",
@@ -62697,7 +62694,8 @@
    "corresponde": "si",
    "descripcion": "Vista panorámica de la costa y el mar bajo un cielo gris y nublado."
   },
-  "huella": "01010101010e0707"
+  "huella": "01010101010e0707",
+  "ausenteDesde": "2026-11-02T11:33:36.031Z"
  },
  "f1parrilla2026r19": {
   "archivo": "fotos-notas/libre-f1parrilla2026r19.jpg",
@@ -67437,7 +67435,8 @@
    "corresponde": "si",
    "descripcion": "Fachada de una oficina de ANSES con un inserto circular de dinero"
   },
-  "huella": "51c1c1f1f363a3e6"
+  "huella": "51c1c1f1f363a3e6",
+  "ausenteDesde": "2026-11-02T11:33:36.031Z"
  },
  "153in3t": {
   "archivo": "fotos-notas/153in3t.jpg",
@@ -67486,5 +67485,147 @@
    "descripcion": "Primer plano de mano introduciendo un sobre o boleta en una urna."
   },
   "huella": "d2d6de8e0e0d9959"
+ },
+ "7pci65": {
+  "archivo": "fotos-notas/7pci65.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/virginia-aparicio-ira-hoy-por-ultima-vez-al-inta-balcarce-para-retirar-sus-pertenencias",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/octubre/Aparicio_Polemica.png",
+  "razon": "Es la única foto disponible, corresponde a la nota y cumple con todos los requisitos editoriales sin marcas ni menores.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Virginia Aparicio hablando frente a un micrófono"
+  },
+  "huella": "e6b6b776fb7b5ada"
+ },
+ "dxqp1u": {
+  "archivo": "fotos-notas/dxqp1u.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno designa a Walter Fabián Agüero al frente del Centro Nacional de Ciberseguridad",
+  "enlace": "https://radiomitre.cienradios.com/politica/el-gobierno-designo-a-walter-fabian-aguero-como-nuevo-director-ejecutivo-del-centro-nacional-de-ciberseguridad/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/SGTEWDUY2VF67MPKI5Z3LQKLNY.png?smart=true&auth=ca34245c96e7a17f7f2ce5d6afbfd783b84a65770d482e4f5cea19f8061ba9a7&width=1200&height=630",
+  "razon": "Es la única fotografía real y directa del funcionario designado que ilustra adecuadamente la noticia sin ser gráfica ni tener marcas.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Walter Fabián Agüero"
+  },
+  "huella": "980cb99991333175"
+ },
+ "lfdxin": {
+  "archivo": "fotos-notas/lfdxin.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Posicionan la planta de jade y la pachira para atraer prosperidad",
+  "enlace": "https://tn.com.ar/sociedad/2026/11/01/donde-ubicar-una-planta-de-jade-para-atraer-dinero-y-crecimiento-economico-en-noviembre-2026-segun-el-feng-shui/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/donde-ubicar-una-planta-de-jade-para-atraer-dinero-y-crecimiento-economico-en-noviembre-2026-segun-el-feng-shui-foto-adobe-stock-L7OETRTORBBQLE3FYMSXF2RTEA.jpg?auth=8624b8fb2977331adf4a0d3815e97fbb7f6599da689ac0622e95f33ae8a6f202&width=1023",
+  "razon": "Muestra claramente una planta de jade en maceta, ideal para ilustrar la nota sobre prosperidad.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Planta de jade en maceta blanca frente a una ventana"
+  },
+  "huella": "262642a6aeaa2d67"
+ },
+ "1r1vjpb": {
+  "archivo": "fotos-notas/1r1vjpb.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto correrá el Gran Premio de Brasil de Fórmula 1",
+  "enlace": "https://www.tycsports.com/automovilismo/f1-los-horarios-y-el-cronograma-completo-del-gp-de-brasil-id769803.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/11/994978/colapinto-en-el-gp-de-singapur-photo-by-james-suttonlat-images_1440x810.webp",
+  "razon": "Muestra claramente un monoplaza de Fórmula 1 en competencia con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de Fórmula 1 en plena curva en pista"
+  },
+  "huella": "d2d3c4a6b3646241"
+ },
+ "mrleoh": {
+  "archivo": "fotos-notas/mrleoh.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno oficializa los feriados por la visita del papa León XIV",
+  "enlace": "https://www.ambito.com/el-lunes-9-noviembre-sera-feriado-nacional-la-visita-del-papa-leon-xiv-n6325473",
+  "imagenOriginal": "https://media.ambito.com/p/52c10bc05124668d779a3a84a5bb04ba/adjuntos/239/imagenes/043/657/0043657068/1200x675/684x274:704x294/leon-xiv.jpg",
+  "razon": "Es la mejor foto disponible que ilustra la temática del papa León XIV de manera clara, con buena nitidez y sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saludando frente a una multitud.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa Francisco saludando a una multitud con su vestimenta blanca."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "7467454557333393"
+ },
+ "1kmj3tr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Advierten sobre los riesgos de clavar objetos en árboles frutales",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-11-02T11:32:13.731Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1
  }
 }

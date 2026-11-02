@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T11:03:56.098Z",
- "portada": 90,
+ "generado": "2026-11-02T11:33:36.154Z",
+ "portada": 92,
  "archivo": 500,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T11:03:56.463Z",
+  "generado": "2026-11-02T11:33:36.528Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
      {
       "id": "v7e3ft",
@@ -103,14 +103,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "7pci65",
+      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
+      "seccion": "Ciencia"
+     },
+     {
       "id": "1lxv4y",
       "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
       "seccion": "Política"
-     },
-     {
-      "id": "1p1u4ev",
-      "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
-      "seccion": "Tecnología"
      },
      {
       "id": "ptf7ku",
@@ -165,36 +165,36 @@
       "seccion": "Argentina"
      },
      {
+      "id": "1ehv38o",
+      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
+      "seccion": "Política"
+     },
+     {
       "id": "cwdhlo",
       "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
       "seccion": "Policiales"
      },
      {
-      "id": "16myge3",
-      "titulo": "Milei invita a Villarruel y gobernadores a recibir al papa León XIV",
-      "seccion": "Política"
-     },
-     {
-      "id": "1sncujq",
-      "titulo": "Anses confirma aumento y detalla el calendario de pagos de noviembre",
+      "id": "181j9oz",
+      "titulo": "Anses modifica el calendario de pagos de noviembre por los feriados",
       "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [],
-   "cola": [
+   "hoy": [
     {
      "id": "1p1u4ev",
      "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
-     "seccion": "Tecnología",
-     "marcada": false
-    },
+     "cuando": "2026-11-02T11:06:01.521Z"
+    }
+   ],
+   "cola": [
     {
-     "id": "1sncujq",
-     "titulo": "Anses confirma aumento y detalla el calendario de pagos de noviembre",
-     "seccion": "Economía",
+     "id": "7pci65",
+     "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
+     "seccion": "Ciencia",
      "marcada": false
     },
     {
@@ -204,8 +204,8 @@
      "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-11-02T00:06:02.474Z",
+   "cupo": 4,
+   "proximoDesde": "2026-11-02T12:36:01.521Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
