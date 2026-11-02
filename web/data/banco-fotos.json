@@ -30578,9 +30578,7 @@
   "fuentes": 1
  },
  "1e2ajtw": {
-  "archivo": "fotos-notas/1e2ajtw.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Conmemoran la festividad de San Juan Pablo II con rezos y su tradicional oración",
@@ -30600,7 +30598,8 @@
    "descripcion": "Retrato de Juan Pablo II saludando"
   },
   "huella": "9c9e9a969e9c9c8c",
-  "ausenteDesde": "2026-10-26T13:09:56.651Z"
+  "intentado": true,
+  "borrada": true
  },
  "wmfa75": {
   "medio": "Radio Mitre",
@@ -30627,9 +30626,7 @@
   "borrada": true
  },
  "16rsqsc": {
-  "archivo": "fotos-notas/16rsqsc.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei ratifica el reclamo por Malvinas y advierte a las empresas",
@@ -30649,7 +30646,8 @@
    "descripcion": "Javier Milei hablando en un atril con fondo de mármol verde de la ONU"
   },
   "huella": "4eadcc8c8d6d646c",
-  "ausenteDesde": "2026-10-26T13:09:56.651Z"
+  "intentado": true,
+  "borrada": true
  },
  "s0tjjb": {
   "archivo": "fotos-notas/s0tjjb.jpg",
@@ -32802,9 +32800,7 @@
   "borrada": true
  },
  "voif0z": {
-  "archivo": "fotos-notas/voif0z.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Cicinho postula a Atlético Mineiro como favorito ante Boca",
@@ -32824,7 +32820,8 @@
    "descripcion": "Cicinho festejando un gol con el Real Madrid"
   },
   "huella": "df3b190d3d315849",
-  "ausenteDesde": "2026-10-26T13:09:56.651Z"
+  "intentado": true,
+  "borrada": true
  },
  "1m615hw": {
   "intentado": true,
@@ -56227,7 +56224,8 @@
    "corresponde": "si",
    "descripcion": "Cielo nublado con nubes de tormenta sobre unos árboles"
   },
-  "huella": "61f8585a906646d6"
+  "huella": "61f8585a906646d6",
+  "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "120msi1": {
   "archivo": "fotos-notas/120msi1.jpg",
@@ -59813,7 +59811,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1830385dd19fbd19"
+  "huella": "1830385dd19fbd19",
+  "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "1cea0pz": {
   "archivo": "fotos-notas/1cea0pz.jpg",
@@ -66777,7 +66776,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "6939acc24e4e4f56"
+  "huella": "6939acc24e4e4f56",
+  "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "r3fs89": {
   "archivo": "fotos-notas/r3fs89.jpg",
@@ -68179,7 +68179,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "176313d3c3c3c5c4"
+  "huella": "176313d3c3c3c5c4",
+  "ausenteDesde": "2026-11-02T13:33:41.404Z"
  },
  "1kel7ih": {
   "archivo": "fotos-notas/1kel7ih.jpg",
@@ -68204,5 +68205,89 @@
    "descripcion": "Milei hablando en un atril en la iglesia Jesús es Rey"
   },
   "huella": "080828060c4e2f2a"
+ },
+ "17myir": {
+  "archivo": "fotos-notas/17myir.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Juan Andrés Solar y Maximiliano Moreno ganan la carrera Luis Vildoza",
+  "enlace": "http://www.informeseprimero.com.ar/2026/10/todo-listo-para-la-carrera-homenaje.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5FtUoYAV4BZe-4J2hUSXnmNda-htnQJ2PV7njqsIbXLFtMeA_NIVdkGdNR8PSa7LkkFGzZPmErLJ1eCzw_4Hp1Aj-fY-nD6pFPPKzVgxUSMI54KqkxLIk1a7Y1XwKC-sl06CBr9b6gzhGAF2xlz30OR9bduDZs09736Fyxirx7_MQykVWRL5KiKMOFFo/w640-h360/carrera%20luis%20vildoza.jpg",
+  "razon": "Muestra claramente el inicio de la carrera Luis Vildoza sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-02T13:32:30.222Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Atletas largando la carrera de la Asociación Atletica Balcarce",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Corredores de la carrera Luis Vildoza cruzando bajo el arco inflable de la meta."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ce878d1dab632d04"
+ },
+ "1ilcmsv": {
+  "archivo": "fotos-notas/1ilcmsv.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El agro liquida US$ 2.880 millones en octubre y alcanza el mayor registro en 25 años",
+  "enlace": "https://www.clarin.com/rural/mejor-ultimos-25-anos-agro-ingreso-us-2880-millones-octubre-va-ano-liquido-us-25100-millones_0_Jt653Gl30P.html",
+  "imagenOriginal": "https://www.clarin.com/img/2025/09/24/bMrx07gQA_2000x1500__1.jpg",
+  "razon": "Muestra un buque cerealero en un puerto, ilustrando adecuadamente la liquidación de exportaciones del agro sin personas ni marcas agregadas.",
+  "cuando": "2026-11-02T13:32:30.222Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Buque carguero amarrado junto a instalaciones portuarias y cintas transportadoras de grano"
+  },
+  "huella": "02055d6555ecf8fc"
+ },
+ "128h8r6": {
+  "archivo": "fotos-notas/128h8r6.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Utilizan tenedores en macetas y bolsas en el limpiaparabrisas",
+  "enlace": "https://tn.com.ar/sociedad/2026/11/02/poner-una-bolsa-de-plastico-en-el-limpiaparabrisas-del-auto-para-que-sirve-y-por-que-lo-recomiendan/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/cual-es-el-beneficio-que-tiene-hacer-esto-con-tu-vehiculo-imagen-ilustrativa-genera-con-ia-WFQQX6GWOBBC7J4V6CHCOWUV2U.jpg?auth=e21821d47bddb7da226a7c7e95de0f9654206b38956f1d8d0cc5506d9f6609c4&width=1023",
+  "razon": "Ilustra claramente el truco casero mencionado en el título sobre el limpiaparabrisas sin marcas ni menores.",
+  "cuando": "2026-11-02T13:32:30.222Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Bolsa de plástico colocada en el limpiaparabrisas de un auto"
+  },
+  "huella": "97a38f27928bc37c"
  }
 }

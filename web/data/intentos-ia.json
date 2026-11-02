@@ -382,18 +382,14 @@
   "numeradas": 9
  },
  "128h8r6": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T13:03:47.407Z",
-  "motivo": "título o bajada: 1 problema (titulo): el título empieza con una etiqueta y dos puntos: tiene que empezar por el hecho",
+  "intentos": 2,
+  "ultimo": "2026-11-02T13:31:54.872Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (numero): el copete dice 2 y la fuente no ",
    "título o bajada: 1 problema (titulo): el título empieza con una etique"
-  ],
-  "falla": [
-   "el título empieza con una etiqueta y dos puntos (\"Trucos caseros:\"): tiene que empezar por el hecho",
-   "el cuerpo dice 2 y la fuente no lo dice"
   ]
  },
  "129tmj4": {
@@ -1293,8 +1289,8 @@
   ]
  },
  "17f0f1r": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T13:03:47.407Z",
+  "intentos": 2,
+  "ultimo": "2026-11-02T13:31:54.872Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 1,
@@ -1336,6 +1332,13 @@
   "motivo": "con cuerpo",
   "textos": 8,
   "numeradas": 10
+ },
+ "17myir": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T13:31:54.872Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "17oiioq": {
   "intentos": 3,
@@ -3460,6 +3463,13 @@
   "motivos": [
    "título o bajada: 1 problema (pasado): el título está en pasado: va en "
   ]
+ },
+ "1ilcmsv": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T13:31:54.872Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "1imzt7r": {
   "intentos": 1,
@@ -6595,22 +6605,22 @@
   "numeradas": 4
  },
  "1wthc7z": {
-  "intentos": 3,
-  "ultimo": "2026-11-02T13:03:47.407Z",
-  "motivo": "cuerpo: 5 problemas (nombre, numero, relleno, promesa): el cuerpo nombra a \"derez\" y la fuente no; sin esas oraciones quedan 182 palabras",
+  "intentos": 4,
+  "ultimo": "2026-11-02T13:31:54.872Z",
+  "motivo": "cuerpo: 6 problemas (numero, nombre, copia, promesa): el cuerpo dice 40 y la fuente no lo dice; sin esas oraciones quedan 165 palabras",
   "textos": 5,
   "numeradas": 8,
   "motivos": [
-   "cuerpo: 1 problema (copia): copia 40 palabras seguidas del original: d",
-   "cuerpo: 4 problemas (nombre, promesa): el cuerpo nombra a \"santiago\" y",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
-   "cuerpo: 5 problemas (nombre, numero, relleno, promesa): el cuerpo nomb"
+   "cuerpo: 5 problemas (nombre, numero, relleno, promesa): el cuerpo nomb",
+   "cuerpo: 3 problemas (nombre, copia): el cuerpo nombra a \"santiago\" y l",
+   "cuerpo: 6 problemas (numero, nombre, copia, promesa): el cuerpo dice 4"
   ],
   "falla": [
-   "el cuerpo nombra a \"derez\" y la fuente no",
    "el cuerpo dice 40 y la fuente no lo dice",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el título dice 1 y el cuerpo no lo explica"
+   "el cuerpo nombra a \"santiago\" y la fuente no",
+   "el cuerpo nombra a \"estero\" y la fuente no",
+   "copia 20 palabras seguidas del original (\"frente a lanus en el estadio ciudad de lanus nestor diaz perez en uno…\"): decilo con otras palabra"
   ]
  },
  "1wtorgc": {
