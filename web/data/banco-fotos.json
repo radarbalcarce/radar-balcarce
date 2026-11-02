@@ -57848,7 +57848,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:39.662Z",
-  "imagenOriginal": "https://media.c5n.com/p/1fb737100d05954eb4d007218706bb33/adjuntos/326/imagenes/000/405/0000405464/1200x675/smart/futbol-argentino.jpg"
+  "imagenOriginal": "https://media.c5n.com/p/1fb737100d05954eb4d007218706bb33/adjuntos/326/imagenes/000/405/0000405464/1200x675/smart/futbol-argentino.jpg",
+  "ausenteDesde": "2026-11-02T12:24:08.550Z"
  },
  "1nzzggy": {
   "archivo": "fotos-notas/1nzzggy.jpg",
@@ -61498,10 +61499,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Comienza la segunda jornada de la Fiesta Nacional del Postre",
-  "razon": "La única foto disponible incluye menores reconocibles y jóvenes, por lo que no puede ser seleccionada según las reglas editoriales.",
-  "cuando": "2026-10-31T18:32:58.792Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Diario Balcarce (un menor): no se elige ninguna.",
+  "cuando": "2026-11-02T12:22:45.640Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1gf52r7": {
   "intentado": true,
@@ -63884,7 +63885,8 @@
    "corresponde": "si",
    "descripcion": "El papa saludando con la mano en alto."
   },
-  "huella": "6f5b1d5d593b3f3f"
+  "huella": "6f5b1d5d593b3f3f",
+  "ausenteDesde": "2026-11-02T12:24:08.550Z"
  },
  "1a85k0i": {
   "archivo": "fotos-notas/1a85k0i.jpg",
@@ -65454,13 +65456,40 @@
   "huella": "9e184c6150521a16"
  },
  "1tq7ovb": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Amigos Unidos vence a Los Patos en el torneo Clausura femenino",
-  "razon": "La unica imagen proporcionada es el logotipo del medio y no corresponde a una fotografia del hecho deportivo.",
-  "cuando": "2026-11-01T21:02:34.260Z",
-  "intentos": 1,
-  "fuentes": 1
+  "archivo": "fotos-notas/fv9ojy.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amigos Unidos derrota 2 a 1 a Los Patos FC en el torneo Clausura",
+  "enlace": "https://eldiariobalcarce.com.ar/amigos-unidos-freno-la-marcha-de-los-patos-fc-299",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-02-12-5-42Partido_1_.jpeg",
+  "razon": "Es la única foto disponible, corresponde perfectamente al partido mencionado y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-11-02T12:22:45.640Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón aéreo en un partido de fútbol en cancha de césped.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol disputando el balón en un partido al aire libre."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "ac3c360c8ca6928c"
  },
  "1chx0lr": {
   "archivo": "fotos-notas/1chx0lr.jpg",
@@ -67693,7 +67722,8 @@
    "corresponde": "si",
    "descripcion": "Mujer sentada frente a una mesa con una laptop en un espacio interior"
   },
-  "huella": "46465256574949c9"
+  "huella": "46465256574949c9",
+  "ausenteDesde": "2026-11-02T12:24:08.550Z"
  },
  "gn5bbf": {
   "archivo": "fotos-notas/gn5bbf.jpg",
@@ -67820,5 +67850,89 @@
    "descripcion": "Auto de Fórmula 1 en plena curva tomado desde un plano bajo en pista."
   },
   "huella": "042121a1d123070f"
+ },
+ "fv9ojy": {
+  "archivo": "fotos-notas/fv9ojy.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amigos Unidos derrota 2 a 1 a Los Patos FC en el torneo Clausura",
+  "enlace": "https://eldiariobalcarce.com.ar/amigos-unidos-freno-la-marcha-de-los-patos-fc-299",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-02-12-5-42Partido_1_.jpeg",
+  "razon": "Es la única foto disponible, corresponde perfectamente al partido mencionado y cumple con todos los requisitos de calidad y política del medio.",
+  "cuando": "2026-11-02T12:22:45.640Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón aéreo en un partido de fútbol en cancha de césped.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol disputando el balón en un partido al aire libre."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "ac3c360c8ca6928c"
+ },
+ "35ee8s": {
+  "archivo": "fotos-notas/35ee8s.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las consultoras privadas proyectan una inflación de entre el 1,8% y el 2% para octubre",
+  "enlace": "https://eleconomista.com.ar/economia/shock-inflacion-octubre-consultoras-anticipan-dato-podria-complicar-planes-milei-n99382",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2026/09/6aa7eb91433b0.png",
+  "razon": "Ilustra la nota de economía mostrando a una persona comprando en un supermercado con buena calidad y sin marcas superpuestas.",
+  "cuando": "2026-11-02T12:22:45.640Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Persona eligiendo verduras en la sección de verdulería de un supermercado."
+  },
+  "huella": "0f4f1d8f55066727"
+ },
+ "ujc5yz": {
+  "archivo": "fotos-notas/ujc5yz.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca derrota 1 a 0 a River en una nueva edición del Superclásico",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/01/donde-escuchar-el-superclasico-entre-boca-y-river-en-vivo-por-el-torneo-clausura-2026/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/donde-se-puede-escuchar-el-superclasico-foto-rodrigo-vallereuters-EH3LJ33IK5HVXD67NMOYPMEMDE.jpg?auth=08e4d4417623148e3e759fac1430a3d4461936c6ecb6a7de68b8f0ce89b54e9a&width=1023",
+  "razon": "Es una fotografía clara y limpia de una jugada del Superclásico entre Boca y River, sin marcas agregadas, menores ni elementos gráficos.",
+  "cuando": "2026-11-02T12:22:45.640Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca y River disputando el balón en el Superclásico"
+  },
+  "huella": "3a41b17949d8c9c9"
  }
 }
