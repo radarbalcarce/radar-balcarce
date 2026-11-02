@@ -64,7 +64,7 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
   si toca un freno legal.
 - **Pedido 2, la verificación.** Otra llamada, con el texto escrito y las fuentes: «marcá cada oración que diga algo que ninguna fuente
   dice». Si marca una, se saca esa oración; si marca más de dos, la nota se reescribe una vez (pedido 1 de nuevo); si vuelve a fallar,
-  no sale y se avisa. Nunca más de 3 pedidos por historia.
+  no sale y se avisa. Nunca más de 4 pedidos de texto por historia (redactar, verificar, reescribir, verificar; lo normal son 2).
 - El **largo** lo da el material: una fuente corta, 120 a 180 palabras; tres o más fuentes, 250 a 400; una historia con muchos datos,
   hasta 550. Nunca relleno.
 - **Firma:** «Redacción Radar Balcarce», con la leyenda «escrita con IA a partir de N fuentes y verificada contra ellas». Las notas que
@@ -84,7 +84,7 @@ En este orden, y se para en la primera que sirve:
 
 1. **Una foto de las fuentes** de esta historia: la más grande que no sea logo ni placa. Una IA de visión contesta tres cosas: ¿tiene
    marca de agua o nombre de otro medio? ¿muestra a un menor o a una víctima? ¿es de esta noticia o de archivo? Con un «sí» en las dos
-   primeras, se descarta. Crédito del medio en el epígrafe, siempre.
+   primeras, o si no tiene relación con la noticia, se descarta; la de archivo sirve. Crédito del medio en el epígrafe, siempre.
 2. **Una foto libre** (Wikimedia Commons u Openverse) buscada por el nombre de la persona o el lugar, **sólo si la visión confirma** que
    es esa persona o ese lugar.
 3. **Una ilustración** generada (Workers AI), con «Ilustración: Radar Balcarce» en el epígrafe.

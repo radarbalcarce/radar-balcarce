@@ -1,0 +1,924 @@
+{
+  "fuentes": [
+    {
+      "id": "newsbalcarce",
+      "nombre": "News Balcarce",
+      "medio": "News Balcarce (FM 91.7)",
+      "url": "https://newsbalcarce.com.ar/?feed=rss2",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "puntonueve",
+      "nombre": "Puntonueve",
+      "medio": "Puntonueve (FM 100.9)",
+      "url": "https://puntonueve.com.ar/feed",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "informeseprimero",
+      "nombre": "Infórmese Primero",
+      "medio": "Infórmese Primero (FM 104.9)",
+      "url": "http://feeds.feedburner.com/informeseprimero",
+      "tipo": "atom",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "gabal-comunidad",
+      "nombre": "Radio Gabal · Comunidad",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/comunidad?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "gabal-policiales",
+      "nombre": "Radio Gabal · Policiales",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/policiales?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "gabal-politica",
+      "nombre": "Radio Gabal · Política",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/politica?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "gabal-deportes",
+      "nombre": "Radio Gabal · Deportes",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/deportes?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "gabal-agro",
+      "nombre": "Radio Gabal · Agro",
+      "medio": "Radio Gabal (FM 104.1)",
+      "url": "https://www.radiogabal.com.ar/index.php/agro?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "municipio",
+      "nombre": "Municipalidad de Balcarce",
+      "medio": "Municipalidad de Balcarce",
+      "url": "https://balcarce.gob.ar/feed/",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "accion5",
+      "nombre": "Acción 5",
+      "medio": "Acción 5 (Balcarce)",
+      "url": "https://accion5.com/feed/",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ahorabalcarce",
+      "nombre": "Ahora Balcarce",
+      "medio": "Ahora Balcarce",
+      "url": "http://ahorabalcarce.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "concejo-deliberante-balcarce",
+      "nombre": "Concejo Deliberante de Balcarce",
+      "medio": "Concejo Deliberante de Balcarce",
+      "url": "https://concejodeliberantebalcarce.gob.ar/feed/",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "fca-unmdp",
+      "nombre": "Facultad de Ciencias Agrarias (UNMdP)",
+      "medio": "Facultad de Ciencias Agrarias (UNMdP)",
+      "url": "https://fca.mdp.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "balcarce",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "infobae",
+      "nombre": "Infobae",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion",
+      "nombre": "La Nación",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "clarin",
+      "nombre": "Clarín · Lo último",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/lo-ultimo/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ole",
+      "nombre": "Olé",
+      "medio": "Olé",
+      "url": "https://www.ole.com.ar/rss/ultimas-noticias/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "clarin-deportes",
+      "nombre": "Clarín · Deportes",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/deportes/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "sendero",
+      "nombre": "Sendero Regional",
+      "medio": "Sendero Regional",
+      "url": "https://senderomultimedios.com.ar/feed",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "0223",
+      "nombre": "0223",
+      "medio": "0223 (Mar del Plata)",
+      "url": "https://www.0223.com.ar/rss",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "eleco",
+      "nombre": "El Eco de Tandil",
+      "medio": "El Eco de Tandil",
+      "url": "https://articapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "lu9",
+      "nombre": "LU9 Mar del Plata",
+      "medio": "LU9 Mar del Plata",
+      "url": "https://lu9mardelplataapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "qznoticias",
+      "nombre": "QZ Noticias",
+      "medio": "QZ Noticias (Mar del Plata)",
+      "url": "https://qznoticiasapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "ecosdiarios",
+      "nombre": "Ecos Diarios",
+      "medio": "Ecos Diarios (Necochea)",
+      "url": "https://ecosdiariosapiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "dib",
+      "nombre": "Agencia DIB",
+      "medio": "Agencia DIB",
+      "url": "https://dib.com.ar/rss/pages/home.xml",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanoticia1",
+      "nombre": "La Noticia 1",
+      "medio": "La Noticia 1",
+      "url": "https://lanoticia1apiv3.eleco.com.ar/feed-notes",
+      "tipo": "atom",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "diputadosbsas",
+      "nombre": "Diputados Bonaerenses",
+      "medio": "Diputados Bonaerenses",
+      "url": "https://diputadosbsas.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "gba",
+      "nombre": "Gobierno de la Provincia",
+      "medio": "Gobierno de la Provincia de Buenos Aires",
+      "url": "https://www.gba.gob.ar/rss.xml",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": true,
+      "activa": false
+    },
+    {
+      "id": "loberia2261",
+      "nombre": "2261 Lobería",
+      "medio": "2261 – Noticias de Lobería",
+      "url": "https://www.2261.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "ayacuchoaldia",
+      "nombre": "Ayacucho al Día",
+      "medio": "Ayacucho al Día",
+      "url": "https://ayacuchoaldia.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "campeones",
+      "nombre": "Campeones",
+      "medio": "Campeones",
+      "url": "https://www.campeones.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "motorsport-f1",
+      "nombre": "Motorsport · Fórmula 1",
+      "medio": "Motorsport",
+      "url": "https://es.motorsport.com/rss/f1/news/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "motorsport-motos",
+      "nombre": "Motorsport · MotoGP",
+      "medio": "Motorsport",
+      "url": "https://es.motorsport.com/rss/motogp/news/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-deportes",
+      "nombre": "La Nación · Deportes",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/deportes/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ambito",
+      "nombre": "Ámbito",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/ultimas-noticias.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "minutouno",
+      "nombre": "Minuto Uno",
+      "medio": "Minuto Uno",
+      "url": "https://www.minutouno.com/rss/pages/home.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "lanacion-economia",
+      "nombre": "La Nación · Economía",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/economia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "infobae-tecno",
+      "nombre": "Infobae · Tecnología",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/tecno/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "clarin-tecno",
+      "nombre": "Clarín · Tecnología",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/tecnologia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ambito-tecno",
+      "nombre": "Ámbito · Tecnología",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/tecnologia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "infobae-economia",
+      "nombre": "Infobae · Economía",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/economia/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "clarin-economia",
+      "nombre": "Clarín · Economía",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/economia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ambito-economia",
+      "nombre": "Ámbito · Economía",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/economia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "infobae-politica",
+      "nombre": "Infobae · Política",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/politica/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "clarin-politica",
+      "nombre": "Clarín · Política",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/politica/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-politica",
+      "nombre": "La Nación · Política",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/politica/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "infobae-teleshow",
+      "nombre": "Infobae · Teleshow",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/teleshow/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "infobae-cultura",
+      "nombre": "Infobae · Cultura",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/cultura/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ambito-espectaculos",
+      "nombre": "Ámbito · Espectáculos",
+      "medio": "Ámbito",
+      "url": "https://www.ambito.com/rss/pages/espectaculos.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "minutouno-espectaculos",
+      "nombre": "Minuto Uno · Espectáculos",
+      "medio": "Minuto Uno",
+      "url": "https://www.minutouno.com/rss/pages/espectaculos.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "lanacion-cultura",
+      "nombre": "La Nación · Cultura",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/cultura/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-tecnologia",
+      "nombre": "La Nación · Tecnología",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/tecnologia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "hipertextual",
+      "nombre": "Hipertextual",
+      "medio": "Hipertextual",
+      "url": "https://hipertextual.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "xataka",
+      "nombre": "Xataka",
+      "medio": "Xataka",
+      "url": "https://www.xataka.com/feedburner.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "elpais-ciencia",
+      "nombre": "El País · Ciencia",
+      "medio": "El País",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "elpais-tecnologia",
+      "nombre": "El País · Tecnología",
+      "medio": "El País",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "muyinteresante",
+      "nombre": "Muy Interesante",
+      "medio": "Muy Interesante",
+      "url": "https://www.muyinteresante.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "fayerwayer",
+      "nombre": "FayerWayer",
+      "medio": "FayerWayer",
+      "url": "https://www.fayerwayer.com/feed",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "agenciacyta",
+      "nombre": "Agencia CyTA",
+      "medio": "Agencia CyTA",
+      "url": "https://www.agenciacyta.org.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "perfil-ciencia",
+      "nombre": "Perfil · Ciencia",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/ciencia",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "jgm-ciencia",
+      "nombre": "Secretaría de Innovación, Ciencia y Tecnología",
+      "medio": "Secretaría de Innovación, Ciencia y Tecnología",
+      "url": "https://www.argentina.gob.ar/jefatura/innovacion-ciencia-y-tecnologia/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": false
+    },
+    {
+      "id": "conae",
+      "nombre": "CONAE",
+      "medio": "CONAE",
+      "url": "https://www.argentina.gob.ar/ciencia/conae/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": false
+    },
+    {
+      "id": "inti",
+      "nombre": "INTI",
+      "medio": "INTI",
+      "url": "https://www.argentina.gob.ar/inti/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": false
+    },
+    {
+      "id": "infobae-salud",
+      "nombre": "Infobae · Salud",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/salud/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-salud",
+      "nombre": "Perfil · Salud",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/salud",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "anmat",
+      "nombre": "ANMAT",
+      "medio": "ANMAT",
+      "url": "https://www.argentina.gob.ar/anmat/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": false
+    },
+    {
+      "id": "infobae-educacion",
+      "nombre": "Infobae · Educación",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/educacion/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-educacion",
+      "nombre": "Perfil · Educación",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/educacion",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "unlp",
+      "nombre": "Universidad Nacional de La Plata",
+      "medio": "Universidad Nacional de La Plata",
+      "url": "https://unlp.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "unr",
+      "nombre": "Universidad Nacional de Rosario",
+      "medio": "Universidad Nacional de Rosario",
+      "url": "https://unr.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "unicen",
+      "nombre": "UNICEN",
+      "medio": "UNICEN",
+      "url": "https://www.unicen.edu.ar/noticias/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "uncuyo",
+      "nombre": "Universidad Nacional de Cuyo",
+      "medio": "Universidad Nacional de Cuyo",
+      "url": "https://www.uncuyo.edu.ar/prensa/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "itsitio",
+      "nombre": "IT Sitio",
+      "medio": "IT Sitio",
+      "url": "https://www.itsitio.com/ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "senasa",
+      "nombre": "SENASA",
+      "medio": "SENASA",
+      "url": "https://www.argentina.gob.ar/senasa/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "clarin-rural",
+      "nombre": "Clarín · Rural",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/rural/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "infocampo",
+      "nombre": "Infocampo",
+      "medio": "Infocampo",
+      "url": "https://www.infocampo.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "bichosdecampo",
+      "nombre": "Bichos de Campo",
+      "medio": "Bichos de Campo",
+      "url": "https://bichosdecampo.com/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": false
+    },
+    {
+      "id": "inta",
+      "nombre": "INTA · Noticias",
+      "medio": "INTA",
+      "url": "https://www.argentina.gob.ar/inta/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "perfil-economia",
+      "nombre": "Perfil · Economía",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/economia",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "infobae-ciencia",
+      "nombre": "Infobae · Ciencia",
+      "medio": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/category/america/ciencia-america/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "dw-ciencia",
+      "nombre": "DW Español · Ciencia y Tecnología",
+      "medio": "DW Español",
+      "url": "https://rss.dw.com/xml/rss-sp-cyt",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "eltiempo-ciencia",
+      "nombre": "El Tiempo · Ciencia",
+      "medio": "El Tiempo (Colombia)",
+      "url": "https://www.eltiempo.com/rss/vida_ciencia.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "exactas-uba",
+      "nombre": "Exactas UBA",
+      "medio": "Facultad de Ciencias Exactas y Naturales (UBA)",
+      "url": "https://exactas.uba.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "mongabay-latam",
+      "nombre": "Mongabay Latam",
+      "medio": "Mongabay Latam",
+      "url": "https://es.mongabay.com/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "agrofy-news",
+      "nombre": "Agrofy News",
+      "medio": "Agrofy News",
+      "url": "https://news.agrofy.com.ar/rss.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "agroverdad",
+      "nombre": "Agroverdad",
+      "medio": "Agroverdad",
+      "url": "https://www.agroverdad.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "valorcarne",
+      "nombre": "Valor Carne",
+      "medio": "Valor Carne",
+      "url": "https://www.valorcarne.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "ruralnet",
+      "nombre": "Ruralnet",
+      "medio": "Ruralnet",
+      "url": "https://www.ruralnet.com.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "unmdp",
+      "nombre": "Universidad Nacional de Mar del Plata",
+      "medio": "Universidad Nacional de Mar del Plata",
+      "url": "https://www.mdp.edu.ar/index.php/noticias-de-la-universidad?format=feed&type=rss",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "unq",
+      "nombre": "Universidad Nacional de Quilmes",
+      "medio": "Universidad Nacional de Quilmes",
+      "url": "https://www.unq.edu.ar/noticias/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "unlam",
+      "nombre": "Universidad Nacional de La Matanza",
+      "medio": "Universidad Nacional de La Matanza",
+      "url": "https://www.unlam.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "provincia",
+      "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "unsa",
+      "nombre": "Universidad Nacional de Salta",
+      "medio": "Universidad Nacional de Salta",
+      "url": "https://www.unsa.edu.ar/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": true,
+      "activa": true
+    }
+  ]
+}
