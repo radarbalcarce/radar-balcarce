@@ -4,9 +4,12 @@
 name: Huella de las claves de IA
 on:
   workflow_dispatch:
+permissions:
+  contents: read
+
 jobs:
   huella:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 3
     env:
       GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}

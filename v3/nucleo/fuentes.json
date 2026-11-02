@@ -919,6 +919,31 @@
       "alcance": "pais",
       "oficial": true,
       "activa": true
+    },
+    {
+      "id": "eldiario",
+      "nombre": "El Diario Balcarce",
+      "medio": "El Diario Balcarce",
+      "url": "https://eldiariobalcarce.com.ar/",
+      "tipo": "portada",
+      "base": "https://eldiariobalcarce.com.ar",
+      "patron": "<a[^>]+href=[\"']([^\"']*\\/[a-z0-9][a-z0-9-]{12,}-\\d+)[\"'][^>]*>([\\s\\S]*?)<\\/a>",
+      "cuerpo": "<div class=\"single-post\">",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lavanguardia",
+      "nombre": "La Vanguardia",
+      "medio": "Diario La Vanguardia",
+      "url": "https://www.diariolavanguardia.com/",
+      "tipo": "portada",
+      "base": "https://www.diariolavanguardia.com",
+      "patron": "<a[^>]+href=[\"']([^\"']*\\/(?:noticias|deportes)\\/\\d+-[a-z0-9-]+\\/?)[\"'][^>]*>([\\s\\S]*?)<\\/a>",
+      "alcance": "balcarce",
+      "oficial": false,
+      "activa": true
     }
   ]
 }

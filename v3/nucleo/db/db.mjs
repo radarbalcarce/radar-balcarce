@@ -193,3 +193,63 @@ export async function resumenDelDia(env, dia) {
   for (const f of lista(no)) noSalen[f.motivo || 'sin-motivo'] = f.n;
   return { dia, total: items.length, items, noSalen };
 }
+
+// ---------------------------------------------------------------------------------------------- lo que usa el worker (etapa B)
+
+// Ids de los artículos leídos desde `desdeISO`: una sola consulta por vuelta, para no bajar dos veces el mismo enlace.
+export async function idsRecientes(env, desdeISO) {
+  const r = await env.DB.prepare('SELECT id FROM articulos WHERE leido >= ?').bind(desdeISO).all();
+  return new Set(lista(r).map((f) => f.id));
+}
+
+// Igual que contarNacionalesHoy, pero por un rango de `actualizada` (el día de Balcarce no es el día UTC).
+export async function contarNacionalesEntre(env, desdeISO, hastaISO) {
+  const f = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM historias WHERE estado IN ('elegida','redactada') AND motivo IN ('nacional-3','area-chica-2') AND actualizada >= ? AND actualizada < ?",
+  ).bind(desdeISO, hastaISO).first();
+  return (f && f.n) || 0;
+}
+
+// Igual que resumenDelDia, por rango. Cada item trae cuántos medios la cuentan y si la nota quedó frenada (no_publicar).
+export async function resumenEntre(env, desdeISO, hastaISO) {
+  const sale = await env.DB.prepare(
+    `SELECT h.id, h.titulo AS historia, n.titulo AS nota, h.motivo, h.seccion, h.medios, n.no_publicar
+     FROM historias h LEFT JOIN notas n ON n.id = h.nota_id
+     WHERE h.estado IN ('elegida','redactada') AND h.actualizada >= ? AND h.actualizada < ? ORDER BY h.actualizada`,
+  ).bind(desdeISO, hastaISO).all();
+  const no = await env.DB.prepare(
+    "SELECT motivo, COUNT(*) AS n FROM historias WHERE estado IN ('no_sale','no_publicar') AND actualizada >= ? AND actualizada < ? GROUP BY motivo",
+  ).bind(desdeISO, hastaISO).all();
+  const items = lista(sale).map((f) => ({
+    id: f.id, titulo: f.nota || f.historia, motivo: f.motivo, seccion: f.seccion, medios: analizar(f.medios, []).length, conNota: !!f.nota,
+  }));
+  const noSalen = {};
+  for (const f of lista(no)) noSalen[f.motivo || 'sin-motivo'] = f.n;
+  return { desde: desdeISO, hasta: hastaISO, total: items.length, items, noSalen };
+}
+
+// Las notas creadas en el rango, ya con sus campos JSON leídos (para /notas y la comparación lado a lado).
+export async function notasEntre(env, desdeISO, hastaISO) {
+  const r = await env.DB.prepare('SELECT * FROM notas WHERE creada >= ? AND creada < ? ORDER BY creada').bind(desdeISO, hastaISO).all();
+  return lista(r).map((f) => ({
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, bajada: f.bajada, cuerpo: analizar(f.cuerpo, []), seccion: f.seccion,
+    enDosLineas: f.en_dos_lineas, ficha: analizar(f.ficha, null), noPublicar: analizar(f.no_publicar, null), verificacion: analizar(f.verificacion, null),
+    foto: analizar(f.foto, null), fuentes: analizar(f.fuentes, []), fechaHecho: f.fecha_hecho, firma: f.firma, pedidos: f.pedidos, estado: f.estado,
+  }));
+}
+
+// Para /salud: cuántos artículos, historias y notas hubo en el rango y cuándo anduvo bien por última vez cada fuente.
+export async function contarEntre(env, desdeISO, hastaISO) {
+  const c = async (sql) => ((await env.DB.prepare(sql).bind(desdeISO, hastaISO).first()) || {}).n || 0;
+  return {
+    articulos: await c('SELECT COUNT(*) AS n FROM articulos WHERE leido >= ? AND leido < ? AND historia_id IS NOT NULL'),
+    historias: await c('SELECT COUNT(*) AS n FROM historias WHERE creada >= ? AND creada < ?'),
+    notasBorrador: await c("SELECT COUNT(*) AS n FROM notas WHERE creada >= ? AND creada < ? AND estado = 'borrador' AND no_publicar IS NULL"),
+    notasFrenadas: await c("SELECT COUNT(*) AS n FROM notas WHERE creada >= ? AND creada < ? AND no_publicar IS NOT NULL"),
+  };
+}
+
+export async function estadoDeFuentes(env) {
+  const r = await env.DB.prepare('SELECT fuente_id, ultimo_ok, ultima_falla, fallas_seguidas, avisada FROM fuentes_estado').bind().all();
+  return lista(r);
+}

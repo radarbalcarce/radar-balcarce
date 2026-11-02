@@ -1,6 +1,6 @@
 // Cargar y validar la lista de fuentes (fuentes.json). Ver REGLAS.md §1 y CONTRATO.md.
 const ALCANCES = ['balcarce', 'zona', 'provincia', 'pais'];
-const TIPOS = ['rss', 'atom'];
+const TIPOS = ['rss', 'atom', 'portada'];
 
 // json: el objeto ya parseado ({ fuentes: [...] } o directamente el arreglo) o el texto JSON.
 // Devuelve sólo las activas. Tira Error con todos los problemas juntos si algo está mal armado.
@@ -21,6 +21,12 @@ export function cargarFuentes(json) {
     if (typeof f.oficial !== 'boolean') problemas.push(`${donde}: oficial tiene que ser true o false`);
     if (typeof f.activa !== 'boolean') problemas.push(`${donde}: activa tiene que ser true o false`);
     try { new URL(f.url); } catch { problemas.push(`${donde}: url inválida`); }
+    if (f.tipo === 'portada') {
+      // sin feed: se lee la portada. `patron` es una regex (como texto) con el enlace en el grupo 1 y el HTML del título en el grupo 2.
+      try { new URL(f.base); } catch { problemas.push(`${donde}: una portada necesita base (url)`); }
+      try { new RegExp(f.patron); } catch { problemas.push(`${donde}: una portada necesita patron (regex válida)`); }
+      if (f.cuerpo !== undefined) { try { new RegExp(f.cuerpo); } catch { problemas.push(`${donde}: cuerpo no es una regex válida`); } }
+    }
     if (ids.has(f.id)) problemas.push(`${donde}: id repetido`);
     ids.add(f.id);
   }

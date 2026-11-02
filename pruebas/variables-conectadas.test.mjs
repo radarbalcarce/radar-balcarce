@@ -48,12 +48,14 @@ function pasadasPorWorkflows() {
   }
   return s;
 }
-/** Lo que traen los wrangler.toml de infra/ (bindings y [vars]). */
+/** Lo que traen los wrangler.toml de infra/ y de los Workers de Radar 3.0 (v3/nucleo, v3/redaccion/telegram): bindings y [vars]. */
 function pasadasPorWrangler() {
   const s = new Set();
-  for (const d of fs.readdirSync(path.join(RAIZ, 'infra'), { withFileTypes: true }).filter((e) => e.isDirectory())) {
-    for (const f of fs.readdirSync(path.join(RAIZ, 'infra', d.name)).filter((x) => /\.toml(\.parte)?$/.test(x))) {
-      const t = leer(`infra/${d.name}/${f}`);
+  const carpetas = fs.readdirSync(path.join(RAIZ, 'infra'), { withFileTypes: true }).filter((e) => e.isDirectory()).map((d) => `infra/${d.name}`);
+  carpetas.push('v3/nucleo', 'v3/redaccion/telegram');
+  for (const dir of carpetas) {
+    for (const f of fs.readdirSync(path.join(RAIZ, dir)).filter((x) => /\.toml(\.parte)?$/.test(x))) {
+      const t = leer(`${dir}/${f}`);
       for (const m of t.matchAll(/binding\s*=\s*"([A-Z][A-Z0-9_]+)"/g)) s.add(m[1]);
       for (const m of t.matchAll(/^([A-Z][A-Z0-9_]{2,})\s*=/gm)) s.add(m[1]);
     }

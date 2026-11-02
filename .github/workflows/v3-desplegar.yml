@@ -4,9 +4,11 @@ name: "Radar 3.0: desplegar"
 # otros nombres. Se van sumando acá a medida que existen (plan: docs/propuestas/PLAN-RADAR-3-0.md).
 #
 #   telegram   v3/redaccion/telegram/   el bot @radarbalcarce_bot (Worker radar-telegram)
+#   nucleo     v3/nucleo/               el núcleo: leer, agrupar, elegir, redactar (Worker radar-nucleo, base D1 radar-nucleo, Workers AI)
 #
 # Secretos de GitHub que usa (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID (los de siempre) y
-# TELEGRAM_TOKEN (el de BotFather). Un secreto vacío no se carga: el Worker conserva el que ya tenía.
+# TELEGRAM_TOKEN (el de BotFather); el núcleo suma GEMINI_API_KEY_RESPALDO (la clave PAGA de Gemini, que se carga en el Worker como GEMINI_API_KEY).
+# Un secreto vacío no se carga: el Worker conserva el que ya tenía.
 
 on:
   workflow_dispatch:
@@ -14,7 +16,7 @@ on:
       que:
         description: 'Qué subir'
         type: choice
-        options: [telegram]
+        options: [telegram, nucleo]
         default: telegram
 
 permissions:
@@ -72,3 +74,40 @@ jobs:
             exit 0
           fi
           node -e 'process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
+
+      # ------------------------------------------------------------------ nucleo
+      - name: Buscar (o crear) la base D1 del núcleo
+        if: env.QUE == 'nucleo'
+        working-directory: v3/nucleo
+        run: |
+          NOMBRE="radar-nucleo"
+          buscar() {
+            npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name===process.argv[1]);process.stdout.write(x?x.uuid:'')})" "$NOMBRE"
+          }
+          ID=$(buscar)
+          if [ -z "$ID" ]; then npx --yes wrangler@4.139.0 d1 create "$NOMBRE"; ID=$(buscar); fi
+          test -n "$ID" || { echo "No se pudo encontrar ni crear la base D1"; exit 1; }
+          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+
+      # Las tablas son CREATE ... IF NOT EXISTS: correrlo de nuevo no rompe ni borra nada.
+      - name: Armar las tablas del núcleo
+        if: env.QUE == 'nucleo'
+        working-directory: v3/nucleo
+        run: npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=db/schema.sql
+
+      - name: Subir el núcleo
+        if: env.QUE == 'nucleo'
+        working-directory: v3/nucleo
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
+
+      # Los dos secretos van por un pipe directo a wrangler: no se imprimen nunca. Los vacíos no se cargan.
+      - name: Cargar las claves del núcleo
+        if: env.QUE == 'nucleo'
+        working-directory: v3/nucleo
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          [ -n "$GEMINI_API_KEY" ] || echo "GEMINI_API_KEY_RESPALDO no está en GitHub Secrets: el núcleo lee y agrupa pero no redacta."
+          [ -n "$TELEGRAM_TOKEN" ] || echo "TELEGRAM_TOKEN no está en GitHub Secrets: el núcleo no puede avisar por Telegram."
+          node -e 'const s={};for(const k of ["GEMINI_API_KEY","TELEGRAM_TOKEN"])if(process.env[k])s[k]=process.env[k];if(!Object.keys(s).length)process.exit(3);process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml || echo "Ningún secreto para cargar."

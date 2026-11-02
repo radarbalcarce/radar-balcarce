@@ -1,0 +1,42 @@
+# El núcleo de Radar 3.0 (ver worker.mjs, nucleo.mjs y REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (opción nucleo).
+name = "radar-nucleo"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+# fotos.mjs usa Buffer para pasar las imágenes a base64.
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[triggers]
+# Cada 15 minutos la vuelta (leer, agrupar, elegir, redactar); a las 00:30 UTC (21:30 de Balcarce) el resumen del día por Telegram.
+crons = ["*/15 * * * *", "30 0 * * *"]
+
+# Workers AI: las huellas de significado (@cf/baai/bge-m3).
+[ai]
+binding = "AI"
+
+# La base. El workflow la crea si no existe y reemplaza el marcador.
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-nucleo"
+database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+# Los .md (PERFIL, REDACCION) entran al bundle como texto.
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
+
+[limits]
+cpu_ms = 300000
+
+[vars]
+GEMINI_MODELO = "gemini-3.1-flash-lite"
+NUCLEO_TOPE_DIARIO = "150"
+NUCLEO_REDACTAR_POR_VUELTA = "6"
+
+# Secretos GEMINI_API_KEY y TELEGRAM_TOKEN: los carga el workflow desde GitHub Secrets. Nunca acá.
+
+# Enlace directo al bot (para el resumen por Telegram): un Worker no puede llamar a otro de la misma cuenta por workers.dev.
+[[services]]
+binding = "TELEGRAM"
+service = "radar-telegram"

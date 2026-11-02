@@ -10,7 +10,13 @@ Escrito el 1/11/2026 con las decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (
   `pais`), si es **oficial** (municipio, concejo, organismos), y `activa`. Nada más.
 - Se parte de las 95 fuentes del sistema viejo (`fuentes.exportadas.json`, 15 de Balcarce y 80 del país; 69 activas). Se limpian al
   armar el lector: lo que no aportó nada en 30 días se apaga, y Hernán decide si se borra.
-- Una fuente que falla 3 días seguidos se marca y se avisa por Telegram una vez; no se insiste cada vuelta.
+- Una fuente que falla 3 días seguidos se marca y se avisa por Telegram una vez; no se insiste cada vuelta. (Una fuente que nunca anduvo bien se
+  avisa después de un día entero de fallas, no por un tropiezo.)
+- **Dos medios de Balcarce no tienen feed** (El Diario Balcarce y Diario La Vanguardia): se leen entrando a la **portada** (tipo `portada`). Se sacan los
+  enlaces de la portada con un patrón escrito en `fuentes.json`, se descartan los que ya están guardados y de los nuevos se baja la página, de a **15
+  por vuelta** como mucho. De la página salen el texto, la imagen y la fecha de publicación (`article:published_time`; si no trae zona horaria es hora de
+  Balcarce; si no trae fecha, se toma como recién leído). Una página que no llega queda para la próxima vuelta; una de más de 36 horas no entra, pero se
+  guarda sin agrupar para no bajarla otra vez. Los sepelios de El Diario no se cuelan en el texto (se toma el cuerpo de la nota, no el bloque más largo).
 
 ## 2. Leer
 

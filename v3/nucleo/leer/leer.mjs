@@ -1,6 +1,6 @@
-// Una fuente -> sus artículos nuevos. Nunca tira: devuelve { articulos, error }.
-import { parsearFeed } from './rss.mjs';
-import { textoDePagina, imagenesDePagina } from './pagina.mjs';
+// Una fuente -> sus artículos nuevos (feed RSS/Atom o portada). Nunca tira: devuelve { articulos, viejos, error }.
+import { parsearFeed, htmlATexto } from './rss.mjs';
+import { textoDePagina, imagenesDePagina, fechaDePagina, descripcionDePagina } from './pagina.mjs';
 
 export const USER_AGENT = 'RadarBalcarce/3.0 (+https://radarbalcarce.com)';
 const TOPE_MS = 10_000;
@@ -65,9 +65,88 @@ function comoFecha(ahora) {
   return Number.isNaN(d.getTime()) ? new Date() : d;
 }
 
-export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ahora, timeoutMs = TOPE_MS } = {}) {
+export const MAX_PAGINAS_DE_PORTADA = 15;
+const TITULO_MIN = 25;
+const TITULO_MAX = 140;
+
+// Los enlaces de una portada. `patron` (regex como texto): grupo 1 = enlace, grupo 2 = el HTML de adentro (de ahí sale el título; si trae un
+// <h2>, el título real es ese). Mismas reglas que el sistema viejo (parsearScrape): un título de 25 a 140 caracteres y cada enlace una vez.
+export function enlacesDePortada(html, fuente) {
+  const re = new RegExp(fuente.patron, 'gi');
+  const base = fuente.base || fuente.url;
+  const vistos = new Set();
+  const salida = [];
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    let url;
+    try { url = normalizarUrl(new URL(m[1].trim(), base).toString()); } catch { continue; }
+    const h2 = (m[2] || '').match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+    const titulo = htmlATexto(h2 ? h2[1] : m[2] || '').replace(/\s+/g, ' ').trim();
+    if (titulo.length < TITULO_MIN || titulo.length > TITULO_MAX || vistos.has(url)) continue;
+    vistos.add(url);
+    salida.push({ url, titulo });
+  }
+  return salida;
+}
+
+// `conocidos(ids) → Set de ids` (puede ser async) o un Set: los que ya están guardados no se vuelven a bajar.
+async function filtrarConocidos(lista, conocidos) {
+  if (!conocidos || !lista.length) return lista;
+  const ids = lista.map((a) => a.id);
+  const sabidos = typeof conocidos === 'function' ? await conocidos(ids) : conocidos;
+  return lista.filter((a) => !sabidos.has(a.id));
+}
+
+async function leerPortada(fuente, { ahoraD, fetchFn, timeoutMs, conocidos }) {
+  const leido = ahoraD.toISOString();
+  const html = await bajar(fuente.url, fetchFn, timeoutMs);
+  const enlaces = enlacesDePortada(html, fuente);
+  if (!enlaces.length) throw new Error('la portada no trae ningún enlace de nota (¿cambió el sitio?)');
+  const candidatos = [];
+  for (const e of enlaces) candidatos.push({ ...e, id: await idDeUrl(e.url) });
+  const nuevos = (await filtrarConocidos(candidatos, conocidos)).slice(0, MAX_PAGINAS_DE_PORTADA);
+
+  const limite = ahoraD.getTime() - HORAS_MAXIMAS * 3600_000;
+  const articulos = [];
+  const viejos = [];
+  await Promise.all(nuevos.map(async (c) => {
+    let pagina;
+    try { pagina = await bajar(c.url, fetchFn, timeoutMs); } catch { return; } // no llegó: queda para la próxima vuelta
+    // sin fecha en la página se toma como recién leído
+    const fecha = fechaDePagina(pagina) || leido;
+    const a = {
+      id: c.id,
+      url: c.url,
+      fuenteId: fuente.id,
+      medio: fuente.medio,
+      alcance: fuente.alcance,
+      oficial: !!fuente.oficial,
+      titulo: c.titulo,
+      bajada: descripcionDePagina(pagina),
+      texto: recortar(textoDePagina(pagina, { desde: fuente.cuerpo })),
+      fecha,
+      leido,
+      imagenes: imagenesDePagina(pagina),
+    };
+    (new Date(fecha).getTime() < limite ? viejos : articulos).push(a);
+  }));
+  // en el orden de la portada
+  const orden = new Map(candidatos.map((c, i) => [c.id, i]));
+  const porOrden = (x, y) => orden.get(x.id) - orden.get(y.id);
+  return { articulos: articulos.sort(porOrden), viejos: viejos.sort(porOrden) };
+}
+
+/**
+ * Devuelve { articulos, viejos, error }. `viejos` son páginas de portada con más de 36 horas: el worker las guarda sin agrupar para no bajarlas
+ * otra vez en cada vuelta. `conocidos` (opcional): ver filtrarConocidos.
+ */
+export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ahora, timeoutMs = TOPE_MS, conocidos } = {}) {
   try {
     const ahoraD = comoFecha(ahora);
+    if (fuente.tipo === 'portada') {
+      const r = await leerPortada(fuente, { ahoraD, fetchFn, timeoutMs, conocidos });
+      return { ...r, error: null };
+    }
     const leido = ahoraD.toISOString();
     const xml = await bajar(fuente.url, fetchFn, timeoutMs);
     const items = parsearFeed(xml);
@@ -75,7 +154,7 @@ export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ah
 
     const limite = ahoraD.getTime() - HORAS_MAXIMAS * 3600_000;
     const vistos = new Set();
-    const articulos = [];
+    let articulos = [];
     for (const it of items) {
       const url = normalizarUrl(it.url);
       if (vistos.has(url)) continue;
@@ -98,6 +177,7 @@ export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ah
         imagenes: it.imagenes,
       });
     }
+    articulos = await filtrarConocidos(articulos, conocidos);
 
     // Si el feed no trae el texto, se baja la página una sola vez por artículo.
     const cortos = articulos.filter((a) => a.texto.length < MIN_TEXTO).slice(0, MAX_PAGINAS_POR_FUENTE);
@@ -111,8 +191,8 @@ export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ah
       } catch { /* la página no llegó: queda el texto del feed */ }
     }));
 
-    return { articulos, error: null };
+    return { articulos, viejos: [], error: null };
   } catch (e) {
-    return { articulos: [], error: String((e && e.message) || e) };
+    return { articulos: [], viejos: [], error: String((e && e.message) || e) };
   }
 }
