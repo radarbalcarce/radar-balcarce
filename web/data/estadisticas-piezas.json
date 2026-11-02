@@ -2,51 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "instagram/foto/17961682464217980",
-   "red": "instagram",
-   "parte": "foto",
-   "pieza": "1fi9fiz",
-   "dia": "2026-10-14",
-   "cuando": "2026-10-14T17:45:42.652Z",
-   "medida": "2026-10-15T18:01:57.245Z",
-   "metricas": {
-    "reach": 0,
-    "views": 2,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0
-   }
-  },
-  {
-   "clave": "instagram/reel/18146587420566741",
-   "red": "instagram",
-   "parte": "reel",
-   "pieza": "noticia2",
-   "dia": "2026-10-14",
-   "cuando": "2026-10-14T18:06:39.981Z",
-   "medida": "2026-10-15T18:31:08.006Z",
-   "metricas": {
-    "reach": 1,
-    "views": 3,
-    "likes": 0,
-    "comments": 0,
-    "shares": 0,
-    "saved": 0,
-    "total_interactions": 0
-   }
-  },
-  {
-   "clave": "instagram/historia/18118152383068698",
-   "red": "instagram",
-   "parte": "historia",
-   "pieza": "clima-manana",
-   "dia": "2026-10-15",
-   "cuando": "2026-10-15T10:05:33.436Z",
-   "medida": "2026-10-15T22:30:57.544Z",
-   "metricas": {}
-  },
-  {
    "clave": "instagram/reel/17987212871882064",
    "red": "instagram",
    "parte": "reel",
@@ -10500,6 +10455,50 @@
    "metricas": {
     "reach": 99,
     "views": 124,
+    "replies": 0,
+    "shares": 0
+   }
+  },
+  {
+   "clave": "facebook/historia/1900625320924187",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "clima-manana",
+   "dia": "2026-11-01",
+   "cuando": "2026-11-01T10:37:11.516Z",
+   "medida": "2026-11-02T12:00:12.899Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/reel/1111254178545439",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "clima-manana",
+   "dia": "2026-11-01",
+   "cuando": "2026-11-01T10:37:18.817Z",
+   "medida": "2026-11-02T12:00:12.899Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 2177,
+    "fb_reels_total_plays": 2450,
+    "post_video_avg_time_watched": 5221,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 19
+   }
+  },
+  {
+   "clave": "instagram/historia/18146518774577563",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "farmacia",
+   "dia": "2026-11-01",
+   "cuando": "2026-11-01T22:36:59.568Z",
+   "medida": "2026-11-02T12:00:12.899Z",
+   "v": 2,
+   "metricas": {
+    "reach": 44,
+    "views": 58,
     "replies": 0,
     "shares": 0
    }
