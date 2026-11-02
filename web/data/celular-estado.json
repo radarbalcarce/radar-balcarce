@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T20:11:07.103Z",
- "portada": 134,
+ "generado": "2026-11-02T20:35:41.114Z",
+ "portada": 150,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-02T20:11:07.436Z",
+  "generado": "2026-11-02T20:35:41.832Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -157,26 +157,26 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "plz9wk",
+      "titulo": "Esteban Reino propone realizar la Estudiantina a puerta cerrada este año",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1tlgl2r",
       "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
       "seccion": "Deportes"
      },
      {
-      "id": "ccpclt",
-      "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
-      "seccion": "Balcarce"
+      "id": "fcz7oa",
+      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "1ehv38o",
-      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
-      "seccion": "Política"
-     },
-     {
-      "id": "156rfnc",
-      "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
+      "id": "1tq7ovb",
+      "titulo": "Amigos Unidos vence a Los Patos en el torneo Clausura femenino",
       "seccion": "Fútbol"
      }
     ]
@@ -212,24 +212,6 @@
    ],
    "cola": [
     {
-     "id": "1tlgl2r",
-     "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "ccpclt",
-     "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "l8eclr",
-     "titulo": "Cortan el suministro eléctrico en Balcarce el martes por tareas en redes",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "plz9wk",
      "titulo": "Esteban Reino propone realizar la Estudiantina a puerta cerrada este año",
      "seccion": "Balcarce",
@@ -248,6 +230,12 @@
      "marcada": false
     },
     {
+     "id": "1tlgl2r",
+     "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
      "id": "sdmfkk",
      "titulo": "La UBA subastará prendas de deportistas para equipar el Hospital de Clínicas",
      "seccion": "Argentina",
@@ -257,6 +245,18 @@
      "id": "1jcaj7v",
      "titulo": "Socios de Adecoagro compran las tierras del grupo Benetton",
      "seccion": "Agro",
+     "marcada": false
+    },
+    {
+     "id": "eyokn0",
+     "titulo": "Quince estados de Estados Unidos apoyan a los demandantes en el juicio por YPF",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "8mp5fu",
+     "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
