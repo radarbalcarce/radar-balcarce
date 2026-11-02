@@ -1,7 +1,7 @@
 # Quiénes somos
 
 *Lo lee la IA antes de escribir, elegir o verificar cualquier nota. Escrito con las palabras de Hernán (audios del 31/10, 1/11 y la entrevista
-por Telegram del 2/11/2026) y el tono de su nota sobre Nancy Godoy. Versión para que Hernán apruebe; cuando diga que sí, pasa tal cual al sistema.*
+por Telegram del 2/11/2026) y el tono de su nota sobre Nancy Godoy. **Aprobado por Hernán el 2/11/2026 («perfecto el perfil»)**: es el que lee la IA.*
 
 ## El medio
 
