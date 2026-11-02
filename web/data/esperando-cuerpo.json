@@ -1,7 +1,29 @@
 {
- "generado": "2026-11-02T06:03:11.903Z",
+ "generado": "2026-11-02T07:02:17.274Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1nfx86s",
+   "titulo": "Yankelevich festejó su primer triunfo en TC2000, con el «1-2-3» de Toyota Gazoo Racing",
+   "copete": "Con una sólida y contundente conducción sobre el Toyota Corolla Cross tuvo el joven Valentín Yankelevich que en el autódromo de General Roca festejó por primera vez un triunfo en Turismo Competición 2000, en donde se sumó este año para competir con la escuadra Toyota Gazoo…",
+   "seccion": "Automovilismo",
+   "fecha": "2026-11-01T16:59:04.000Z",
+   "fuentes": [
+    {
+     "medio": "Campeones",
+     "enlace": "https://campeones.com.ar/yankelevich-festejo-su-primer-triunfo-en-tc2000-en-el-1-2-3-de-toyota-gazoo-racing/",
+     "fecha": "2026-11-01T16:59:04.000Z"
+    },
+    {
+     "medio": "Córdoba Competición",
+     "enlace": "https://cordobacompeticion.com/nacionales/tc2000/yankelevich-y-un-triunfo-sonado/",
+     "fecha": "2026-11-01T20:29:15.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 2 problemas (fecha, copia): el cuerpo menciona \"octubre\" y la fuente no; sin esas oraciones quedan 218 palabras",
+   "maximo": 3
+  },
   {
    "id": "1c47hrh",
    "titulo": "Un chancho se cruzó en plena Autopista La Plata-Buenos Aires y generó un choque con cuatro autos",
@@ -35,11 +57,6 @@
      "fecha": "2026-10-31T21:17:00.000Z"
     },
     {
-     "medio": "El Día",
-     "enlace": "https://www.eldia.com/policiales/una-chancha-se-cruzo-en-la-autopista-la-plata-y-provoco-un-choque-multiple-policiales_1793470770",
-     "fecha": "2026-10-31T18:19:30.000Z"
-    },
-    {
      "medio": "0223 (Mar del Plata)",
      "enlace": "https://www.0223.com.ar/nota/2026-10-31-17-55-0-se-cruzo-un-chancho-y-provoco-un-choque-en-cadena-entre-cuatro-autos",
      "fecha": "2026-10-31T20:55:00.000Z"
@@ -63,38 +80,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 5
-  },
-  {
-   "id": "1e4a4ao",
-   "titulo": "Hackearon al Corinthians y anunciaron a Lionel Messi como refuerzo",
-   "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-10-31T18:30:17.000Z",
-   "fuentes": [
-    {
-     "medio": "Olé",
-     "enlace": "https://www.ole.com.ar/futbol-internacional/america/corinthians-messi-lionel-refuerzo-hackeo_0_5V1HQzwnOu.html",
-     "fecha": "2026-10-31T16:36:52.000Z"
-    },
-    {
-     "medio": "TN (Todo Noticias)",
-     "enlace": "https://tn.com.ar/deportes/futbol/2026/10/31/sorpresa-en-brasil-hackearon-el-sitio-web-de-corinthians-y-anunciaron-a-lionel-messi-como-refuerzo/",
-     "fecha": "2026-10-31T18:30:17.000Z"
-    },
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/futbol-de-brasil/hackearon-a-un-equipo-brasileno-y-anunciaron-a-messi-como-refuerzo-id769626.html",
-     "fecha": "2026-10-31T19:10:37.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/deportes/hackeo-al-corinthians-anunciaron-el-falso-fichaje-lionel-messi-y-provocaron-revuelo-brasil-n253111",
-     "fecha": "2026-11-01T00:51:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
   },
   {
    "id": "1ep2nce",
@@ -129,7 +114,7 @@
      "fecha": "2026-11-01T15:30:52.907Z"
     }
    ],
-   "intentos": 1,
+   "intentos": 2,
    "motivo": "título o bajada: 1 problema (copia): copia 13 palabras seguidas del original: decilo con otras palabras",
    "maximo": 4
   },
@@ -288,6 +273,14 @@
    "fecha": "2026-11-02T01:47:00.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (promesa): el título nombra a \"liga\", \"profesional\" y el cuerpo no los explica; sin esas oraciones quedan 269 palabras"
+  },
+  {
+   "id": "bhevd3",
+   "titulo": "Crisis en el sector yerbatero: \"Hoy el productor trabaja a pérdida y para fundirse\"",
+   "seccion": "Agro",
+   "fecha": "2026-11-01T12:25:12.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)"
   }
  ]
 }
