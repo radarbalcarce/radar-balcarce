@@ -522,3 +522,20 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   `CRITERIO-REDES.md` como regla nueva con la prueba del caso real (nota 8s2k9s). **Se puede hacer ya en la 2.0** (`sePuedeEnUnRepaso` y el
   orden de `elegirParaPodcast`, `redes/elegir.mjs`) y pasa igual a la 3.0. Tono general que pide Hernán: serio pero simpático, «de centro
   o centro-derecha», un medio donde también se festejan cosas; va al `PERFIL.md`.
+
+**Sumado el 2/11, cuarta parte** (Hernán, a la tarde, después del segundo media kit):
+
+- **Publicidad, combos definitivos:** **$ 5.000 «Nota»** (la nota sobre el emprendimiento, el reel con voz y la historia sobre esa nota,
+  y un posteo por mes con una promoción de ellos), **$ 10.000 «Nota + aviso»** (lo anterior, dos historias por semana con sus promociones
+  y el aviso rotativo en el sitio todo el mes, en el lugar que Radar decida; es el que se espera que más usen) y **$ 30.000 «Auspicio»**
+  (lo anterior, historias todas las semanas, el aviso en los tres lugares y el auspicio del clima dos veces en el mes, con el nombre en la
+  voz). El de $ 15.000 se sacó. **No hay «primer comercio»: son precios de promoción hasta diciembre de 2026 para cualquiera.** Más
+  adelante se mide qué clima (mañana o noche) se ve más, para saber cuál vender y si hacen falta otros combos.
+- **Las cuatro piezas estándar de publicidad** (Hernán, 2/11), todas hechas: (1) el **media kit genérico**, PDF
+  (`docs/propuestas/MEDIA-KIT-2026-11.pdf`); (2) el **media kit personalizado** a partir de las redes del comercio (un JSON por comercio en
+  `docs/propuestas/anunciantes/`, y `node scripts/media-kit.mjs <json>` arma el PDF con una cuarta página: cómo quedaría su nota, el reel
+  y qué le pedimos); (3) **las preguntas estándar y la lista de material** (logo, fotos sin chicos, datos, promoción:
+  `PUBLICIDAD-PRIMER-COMERCIO.md` § 3 y § 4); (4) **las preguntas personalizadas** cuando se conocen sus redes (en la ficha de cada
+  comercio, § 5). La plantilla vive en `docs/propuestas/media-kit/` (`plantilla.html`, `pagina-personal.html`, las dos capturas): el
+  aviso se dibuja adentro de la captura real de la portada, con el nombre del comercio. En la 3.0, la página `/publicidad` sale de la
+  misma plantilla y el bot arma el kit personalizado cuando Hernán le manda un enlace.

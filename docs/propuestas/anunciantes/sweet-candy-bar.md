@@ -51,7 +51,25 @@ Balcarce (Caracol Juguetería en Halloween), que hacen desde cumpleaños infanti
 cuestionario (`../PUBLICIDAD-PRIMER-COMERCIO.md`, § 4): quiénes están detrás, desde cuándo, cómo arrancaron, qué es lo que más piden,
 una anécdota, cuánto antes hay que reservar, hasta dónde van, la promoción para lectores de Radar y el contacto.
 
-## 5. Para mandarles (cuando la 3.0 esté por salir)
+## 5. Las preguntas, personalizadas (las diez estándar, con lo que ya sabemos de ellos)
 
-El media kit (`../MEDIA-KIT-2026-11.html`), la lista de lo que necesitamos (§ 3 del documento de combos) y el cuestionario, por
-WhatsApp, con la aclaración de que pueden responder por audio. Propuesta de lanzamiento: Destacado al precio de Presencia el primer mes.
+1. ¿Quiénes están detrás de Sweet Candy Bar? ¿Cómo se llaman y qué hacían antes de los carros?
+2. ¿Cuándo arrancaron y cómo fue el primer evento?
+3. Vemos carros de golosinas y de pochoclos, panchos, helados, crepes, cascada de chocolate y de cheddar. ¿Qué es lo que más les piden?
+   ¿Hay algo nuevo que todavía no mostraron?
+4. ¿Qué los hace distintos de otros servicios para fiestas de Balcarce?
+5. ¿Cómo es un evento de ustedes, de principio a fin? ¿Cuánta gente atienden?
+6. Estuvieron en el Halloween de Caracol Juguetería: ¿qué otros comercios o lugares los convocan? ¿Hacen eventos de empresas o de
+   escuelas, además de cumpleaños y comuniones?
+7. ¿Hasta dónde van? ¿Trabajan en la zona, fuera de Balcarce?
+8. ¿Con cuánto tiempo hay que reservar, y cómo se arma un presupuesto (por cantidad de chicos, por carro, por horas)?
+9. Una fiesta que recuerden especialmente, o una anécdota.
+10. ¿Cómo los contacta la gente (WhatsApp, Instagram) y qué promoción le hacen a quien llega por Radar Balcarce?
+
+Responden por audio de WhatsApp o por escrito, como les quede más cómodo.
+
+## 6. Qué mandarles
+
+El media kit personalizado (`sweet-candy-bar-media-kit.pdf`, armado con `node scripts/media-kit.mjs docs/propuestas/anunciantes/sweet-candy-bar.json`
+desde `sweet-candy-bar.json`), la lista de material (§ 2 de esta ficha: logo, fotos sin chicos, WhatsApp) y las preguntas del § 5.
+Precios de promoción hasta diciembre de 2026.

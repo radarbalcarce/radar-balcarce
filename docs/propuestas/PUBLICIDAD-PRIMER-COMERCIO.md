@@ -14,7 +14,23 @@
   escritorio y la mayoría de Francia y Estados Unidos: parece tráfico de robots. Argentina es cerca del 12 %. Facebook tiene 120
   seguidores e Instagram 142 (1/11). Cuando estén limpios, van al media kit.
 
-## 2. Los tres combos (precio por mes, sin permanencia, por transferencia)
+## 2. Los combos (Hernán, 2/11, versión definitiva: $ 5.000, $ 10.000 y $ 30.000; promoción hasta diciembre de 2026)
+
+**Lo vigente** (reemplaza la tabla de abajo, que queda como historia de cómo se llegó):
+
+| | **Nota · $ 5.000** | **Nota + aviso · $ 10.000** (el que esperamos que más usen) | **Auspicio · $ 30.000** |
+|---|---|---|---|
+| La nota en Radar sobre el emprendimiento, con sus fotos y su contacto | sí | sí | sí |
+| Reel con voz e historia sobre esa nota | sí | sí | sí |
+| Posteo con una promoción de ellos (reel o historia) | 1 por mes | — | — |
+| Historias con sus promociones | — | 2 por semana | todas las semanas, las que necesiten |
+| Aviso en el sitio, rotativo, en el lugar que mejor rinda (lo decide Radar) | — | todo el mes | en los tres lugares |
+| Auspicio del clima (su nombre en la voz de los reels del clima y en la nota, mañana y noche) | — | — | 2 veces en el mes |
+
+No hay «primer comercio» ni oferta especial: **precios de promoción hasta diciembre de 2026, para cualquiera que quiera auspiciar**.
+Lo de $ 15.000 se sacó. Más adelante se mide qué clima (mañana o noche) se ve más, para saber cuál vender mejor y si hacen falta otros combos.
+
+## 2 bis. Cómo se llegó (versión de la mañana del 2/11, reemplazada)
 
 El análisis del precio: $ 5.000 son unos pocos dólares, muy por debajo de cualquier aviso de radio o de otro medio de la zona; es un
 precio para que el comercio diga que sí sin pensarlo y para que nosotros aprendamos a vender. El salto a $ 10.000 compra el mejor lugar

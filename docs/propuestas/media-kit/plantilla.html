@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar Balcarce · Publicidad{{TITULO_EXTRA}}</title>
+<style>
+  @font-face { font-family: "Source Serif 4"; font-weight: 600 900; src: url("{{FUENTE_SERIF}}") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 400 700; src: url("{{FUENTE_SANS}}") format("woff2"); }
+  :root { --tinta: #14161A; --papel: #FFFFFF; --crema: #F4F1EA; --linea: #E4DFD2; --suave: #6B6F6C; --texto: #3B403C; --rojo: #C7381C; --rojo-oscuro: #9C2B15; }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #d9d6cf; color: var(--tinta); font: 11pt/1.5 "Inter", system-ui, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pagina { width: 210mm; height: 297mm; margin: 0 auto; background: var(--papel); padding: 20mm 18mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+  .pagina:last-child { page-break-after: auto; break-after: auto; }
+  @media screen { .pagina { margin: 12px auto; box-shadow: 0 2px 12px rgba(0,0,0,.15); } }
+  .serif, h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; letter-spacing: -0.012em; }
+  h1 { font-size: 34pt; line-height: 1.05; margin: 0; font-weight: 800; }
+  h2 { font-size: 22pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 800; }
+  h3 { font-size: 13pt; margin: 0; font-weight: 700; }
+  p { margin: 0 0 3mm; color: var(--texto); }
+  .sobre { font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; color: var(--rojo); font-weight: 700; margin-bottom: 3mm; }
+  .marca { font-family: "Source Serif 4", serif; font-weight: 800; line-height: 1; }
+  .marca span { color: var(--rojo); }
+  .pie { position: absolute; left: 18mm; right: 18mm; bottom: 11mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: var(--suave); border-top: 1px solid var(--linea); padding-top: 2.5mm; }
+
+  /* Portada */
+  .portada { padding: 0; background: var(--crema); }
+  .portada .rojo { background: var(--rojo); color: #fff; height: 150mm; padding: 22mm 18mm; position: relative; }
+  .portada .rojo .marca { font-size: 50pt; color: #fff; }
+  .portada .rojo .marca span { color: #ffd9d0; }
+  .portada .rojo h1 { color: #fff; position: absolute; left: 18mm; bottom: 18mm; max-width: 160mm; }
+  .portada .abajo { padding: 16mm 18mm 0; }
+  .portada .abajo p.intro { font-size: 13.5pt; line-height: 1.5; color: var(--tinta); max-width: 165mm; }
+  .portada .para { margin-top: 10mm; border-left: 3px solid var(--rojo); padding-left: 5mm; }
+  .portada .para .serif { font-size: 20pt; font-weight: 800; }
+  .portada .para p { margin: 1mm 0 0; }
+
+  /* Dónde */
+  .donde { display: grid; grid-template-columns: 58mm 1fr; gap: 10mm; align-items: start; margin-top: 6mm; }
+  .marco { position: relative; overflow: hidden; border-radius: 3mm; border: 1px solid var(--linea); background: #fff; }
+  .marco img { position: absolute; display: block; }
+  .marco.cel { width: 58mm; height: 86mm; }
+  .marco.cel img { width: 58mm; left: 0; top: 0; }
+  .marco.pc { width: 100%; height: 76mm; }
+  .marco.pc img { width: 252mm; left: -158mm; top: -30mm; }
+  .mock { position: absolute; background: var(--crema); border: 1px solid var(--linea); border-radius: 1.5mm; display: flex; align-items: center; gap: 2.2mm; padding: 1.6mm 2.4mm; box-shadow: 0 0 0 1.5px var(--rojo); }
+  .mock .logo { flex: none; width: 7mm; height: 7mm; border-radius: 50%; background: var(--tinta); color: #fff; font-family: "Source Serif 4", serif; font-weight: 800; font-size: 6.5pt; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1; }
+  .mock .t { min-width: 0; }
+  .mock .t b { display: block; font-size: 7.4pt; color: var(--tinta); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mock .t span { display: block; font-size: 6.4pt; color: var(--texto); line-height: 1.25; }
+  .marco.cel .mock { left: 2.5mm; right: 2.5mm; top: 53.5%; }
+  .marco.pc .mock { left: 8mm; width: 55.5mm; top: 46mm; }
+  .etiqueta { position: absolute; background: var(--rojo); color: #fff; font-size: 7.5pt; font-weight: 700; padding: 1mm 2.2mm; border-radius: 1mm; }
+  .marco.cel .etiqueta { left: 2.5mm; top: 49%; }
+  .marco.pc .etiqueta { left: 8mm; top: 41.5mm; }
+  .leyenda { font-size: 9pt; color: var(--suave); margin-top: 2mm; line-height: 1.4; }
+  .lugares { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+  .lugares div { border-top: 2.5px solid var(--rojo); padding-top: 2.5mm; font-size: 9.5pt; color: var(--texto); }
+  .lugares b { display: block; color: var(--tinta); font-family: "Source Serif 4", serif; font-size: 12pt; margin-bottom: 1mm; }
+  .voz { margin-top: 7mm; background: var(--tinta); color: #fff; border-radius: 3mm; padding: 5mm 6mm; display: grid; grid-template-columns: auto 1fr; gap: 5mm; align-items: center; }
+  .voz .ic { width: 12mm; height: 12mm; border-radius: 50%; background: var(--rojo); display: flex; align-items: center; justify-content: center; }
+  .voz p { color: #e9e6df; margin: 0; font-size: 10pt; }
+  .voz b { color: #fff; font-family: "Source Serif 4", serif; font-size: 13pt; display: block; margin-bottom: 1mm; }
+
+  /* Combos */
+  .promo { display: inline-block; background: var(--rojo); color: #fff; font-size: 9pt; font-weight: 700; padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: .04em; margin-bottom: 4mm; }
+  .combos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+  .combo { border: 1px solid var(--linea); border-radius: 3mm; padding: 6mm 5mm 5mm; background: var(--papel); position: relative; }
+  .combo.destacado { border: 2px solid var(--rojo); background: #fffaf8; }
+  .combo .cinta { position: absolute; top: -3.2mm; left: 5mm; background: var(--rojo); color: #fff; font-size: 7.5pt; font-weight: 700; padding: .8mm 2.5mm; border-radius: 1mm; }
+  .combo h3 { font-size: 14pt; }
+  .combo .precio { font-family: "Source Serif 4", serif; font-size: 22pt; font-weight: 800; margin: 1.5mm 0 3.5mm; line-height: 1; white-space: nowrap; }
+  .combo .precio small { font-family: "Inter", sans-serif; font-size: 8pt; font-weight: 400; color: var(--suave); }
+  .combo ul { margin: 0; padding-left: 4.2mm; font-size: 9.6pt; color: var(--texto); }
+  .combo li { margin: 1.4mm 0; }
+  .combo li.mas { color: var(--suave); font-style: italic; list-style: none; margin-left: -4.2mm; }
+  .arrancar { margin-top: 8mm; display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .arrancar .caja { background: var(--crema); border-radius: 3mm; padding: 5mm 6mm; }
+  .arrancar b.grande { font-family: "Source Serif 4", serif; font-size: 15pt; display: block; margin-bottom: 1.5mm; }
+  .arrancar p { margin: 0; font-size: 10pt; }
+
+  /* Personalizado */
+  .nota-mock { border: 1px solid var(--linea); border-radius: 3mm; overflow: hidden; margin-top: 5mm; }
+  .nota-mock .foto { height: 54mm; background: linear-gradient(135deg, #f3dde0, #e9d7f2 50%, #fbe8c8); display: flex; align-items: flex-end; padding: 4mm; }
+  .nota-mock .foto span { background: rgba(20,22,26,.8); color: #fff; font-size: 8pt; padding: 1mm 2.5mm; border-radius: 1mm; }
+  .nota-mock .cuerpo { padding: 5mm 6mm 6mm; }
+  .nota-mock .seccion { display: inline-block; background: #B91C1C; color: #fff; font-size: 7.5pt; font-weight: 700; padding: .6mm 2mm; border-radius: 1mm; letter-spacing: .06em; }
+  .nota-mock h3 { font-size: 17pt; line-height: 1.15; margin: 2.5mm 0 2mm; }
+  .nota-mock p { font-size: 10pt; margin: 0; }
+  .plus { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .plus div { background: var(--crema); border-radius: 3mm; padding: 4.5mm 5mm; font-size: 9.8pt; color: var(--texto); }
+  .plus b { display: block; font-family: "Source Serif 4", serif; font-size: 12.5pt; color: var(--tinta); margin-bottom: 1.5mm; }
+</style>
+</head>
+<body>
+
+<section class="pagina portada">
+  <div class="rojo">
+    <div class="marca">Radar <span>Balcarce</span></div>
+    <h1>Publicidad para comercios de Balcarce</h1>
+  </div>
+  <div class="abajo">
+    <p class="intro">El medio digital de Balcarce. Noticias de la ciudad y la zona, el clima, la farmacia de turno y la agenda, todo el día en <b>radarbalcarce.com</b> y en Facebook, Instagram, TikTok, YouTube, X, Threads y Telegram, con reels y voz propia.</p>
+    {{PARA}}
+  </div>
+  <div class="pie"><span>Noviembre de 2026</span><span>radarbalcarce.com</span></div>
+</section>
+
+<section class="pagina">
+  <div class="sobre">Dónde aparece</div>
+  <h2>{{NOMBRE}}, en el sitio y en la voz</h2>
+  <p>Así se vería tu aviso en la portada, con tu logo y el enlace a tu WhatsApp o tu Instagram. Rota con los otros comercios que acompañan a Radar.</p>
+  <div class="donde">
+    <div>
+      <div class="marco cel">
+        <img src="{{CAPTURA_CEL}}" alt="La portada en el celular">
+        <div class="etiqueta">Tu aviso</div>
+        <div class="mock"><div class="logo">{{INICIALES}}</div><div class="t"><b>{{NOMBRE}}</b><span>{{AVISO_TEXTO}}</span></div></div>
+      </div>
+      <div class="leyenda">En el celular: justo debajo del clima, antes de la primera noticia.</div>
+    </div>
+    <div>
+      <div class="marco pc">
+        <img src="{{CAPTURA_PC}}" alt="La portada en la computadora">
+        <div class="etiqueta">Tu aviso</div>
+        <div class="mock"><div class="logo">{{INICIALES}}</div><div class="t"><b>{{NOMBRE}}</b><span>{{AVISO_TEXTO}}</span></div></div>
+      </div>
+      <div class="leyenda">En la computadora: en la columna del clima y la farmacia, lo que la gente mira todos los días.</div>
+    </div>
+  </div>
+  <div class="lugares">
+    <div><b>Junto al clima</b>El lugar más visto del sitio, el primero en el celular.</div>
+    <div><b>En la portada</b>Entre las noticias del día, después de las postales.</div>
+    <div><b>Al pie</b>En todas las páginas, abajo de cada nota.</div>
+  </div>
+  <div class="voz">
+    <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v13"/><path d="M8 10a4 4 0 0 0 8 0"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M9 21h6"/><path d="M12 17v4"/></svg></div>
+    <p><b>También con voz</b>Los reels y la nota del clima salen todos los días a la mañana y a la noche, y son lo más visto. Auspiciar el clima es que tu nombre esté en la voz: <i>«El clima de hoy llega con {{NOMBRE}}»</i>.</p>
+  </div>
+  <div class="pie"><span>Radar Balcarce · Publicidad</span><span>2</span></div>
+</section>
+
+<section class="pagina">
+  <div class="sobre">Qué incluye</div>
+  <h2>Tres formas de acompañar a Radar</h2>
+  <div class="promo">Precios de promoción hasta diciembre de 2026</div>
+  <div class="combos">
+    <div class="combo">
+      <h3>Nota</h3>
+      <div class="precio">$ 5.000 <small>por mes</small></div>
+      <ul>
+        <li><b>Una nota en Radar sobre tu emprendimiento</b>: quiénes son, qué hacen, con tus fotos y tu contacto</li>
+        <li><b>Reel con voz e historia</b> sobre esa nota, en nuestras redes</li>
+        <li>Un posteo por mes con una promoción tuya, como reel o historia</li>
+      </ul>
+    </div>
+    <div class="combo destacado">
+      <div class="cinta">El más elegido</div>
+      <h3>Nota + aviso</h3>
+      <div class="precio">$ 10.000 <small>por mes</small></div>
+      <ul>
+        <li class="mas">Todo lo de Nota, más:</li>
+        <li><b>Dos historias por semana</b> con tus promociones</li>
+        <li><b>Tu aviso en el sitio todo el mes</b>, rotando en el lugar que mejor rinda</li>
+      </ul>
+    </div>
+    <div class="combo">
+      <h3>Auspicio</h3>
+      <div class="precio">$ 30.000 <small>por mes</small></div>
+      <ul>
+        <li class="mas">Todo lo de Nota + aviso, más:</li>
+        <li><b>Auspicio del clima dos veces en el mes</b>: tu nombre en la voz de los reels del clima y en la nota, mañana y noche</li>
+        <li>Historias con tus promociones todas las semanas, las que necesites</li>
+        <li>Tu aviso en los tres lugares del sitio</li>
+      </ul>
+    </div>
+  </div>
+  <div class="arrancar">
+    <div class="caja">
+      <b class="grande">Cómo arrancar</b>
+      <p>Un mensaje por WhatsApp alcanza. Te pedimos el logo, unas fotos y los datos del comercio, y nosotros armamos todo. Se paga por transferencia, mes a mes, y te avisamos con el enlace de cada cosa que sale.</p>
+    </div>
+    <div class="caja">
+      <b class="grande">WhatsApp 2266 51-1612</b>
+      <p>Hernán Accomo · Radar Balcarce<br>radarbalcarce.com · @radarbalcarce</p>
+    </div>
+  </div>
+  <div class="pie"><span>Radar Balcarce · Publicidad</span><span>3</span></div>
+</section>
+
+{{PAGINA_PERSONAL}}
+
+</body>
+</html>

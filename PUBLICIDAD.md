@@ -61,10 +61,11 @@ la PC, que se retiró sin haberse usado.
   patrocinio** (Hernán, 2/11/2026: «innecesario»); el aviso, en cambio, siempre dice que
   lo es. Lo que se escribe sobre un anunciante **en las noticias** sigue el mismo
   criterio que sobre cualquier otro: un aviso no cambia una noticia.
-- **Los precios** (2/11/2026): tres combos, $ 5.000, $ 10.000 y $ 15.000 por mes, en
-  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`; el media kit es el PDF
-  `docs/propuestas/MEDIA-KIT-2026-11.pdf` (se arma desde el `.html` de al lado con Chrome sin
-  ventana; capturas en `docs/propuestas/media-kit/`). **Sin números de audiencia** en nada que se
+- **Los precios** (2/11/2026): tres combos, **$ 5.000 (la nota), $ 10.000 (nota + aviso) y
+  $ 30.000 (auspicio)** por mes, de promoción hasta diciembre de 2026, en
+  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md` § 2; el media kit es el PDF
+  `docs/propuestas/MEDIA-KIT-2026-11.pdf`, que arma `node scripts/media-kit.mjs` desde la plantilla
+  de `docs/propuestas/media-kit/` (con un JSON de comercio, arma el kit personalizado de ese comercio). **Sin números de audiencia** en nada que se
   mande (Hernán, 2/11). Se pauta con la 3.0. Cada comercio tiene su ficha en
   `docs/propuestas/anunciantes/`.
 - **El auspiciante nunca habla por la voz sin que se sepa:** la mención dice
