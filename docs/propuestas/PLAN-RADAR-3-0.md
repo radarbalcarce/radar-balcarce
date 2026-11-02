@@ -648,3 +648,12 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   socio en BalcarDev; las notas que Hernán arma son suyas y llevan su firma), Balcarce (se arma con lo que llega), los proyectos propios
   (igual que cualquier anunciante) y Radar como persona. **Pendiente: que Hernán lo apruebe** o corrija; recién entonces lo usa la IA. Los
   saludos de las voces siguen sin decidir (pregunta 6).
+
+**Sumado el 2/11 a la noche, sexta parte** (Hernán, al mandar la propuesta a Sweet Candy Bar):
+
+- **El clima auspiciado, completo:** la voz dice «El clima de hoy llega con [comercio]; los encontrás en Instagram como [@cuenta]», y la
+  placa del reel, la nota del clima y el texto de la historia y del posteo llevan «Auspicia: [comercio] · [@cuenta]», con la red social
+  explícita. Va al módulo del clima de `redes/piezas/` y al calendario de auspicios (sección 10, cuarta parte del 2/11 a la noche).
+- **Instagram como espejo de Facebook (para decidir en el cronograma de redes):** en Facebook el clima queda como reel, fijo; en Instagram sale
+  como historia y se va a las 24 horas. Hernán cree que Facebook funciona mejor y que Instagram debería replicarlo (los reels como reels, no
+  sólo historia). Se decide con el borrador del cronograma, con una semana de números de cada red.

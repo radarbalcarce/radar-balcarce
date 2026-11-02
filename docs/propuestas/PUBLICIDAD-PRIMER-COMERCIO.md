@@ -28,8 +28,11 @@ auspiciados (lo distintivo), las historias con sus promociones y el aviso en el 
 | Posteos con foto en Facebook e Instagram | — | — | — | 2 | 4 |
 | Aviso en el sitio, con su contacto | rotativo, 1 lugar | rotativo, 2 lugares | rotativo, 3 lugares | rotativo, 3 lugares | fijo, más los 3 rotativos |
 
-**Cómo se ve un clima auspiciado** (Hernán, 2/11): la voz dice «El clima de hoy llega con [comercio]» y abajo, en la placa del reel y en la
-nota del clima, queda «Auspicia: [comercio]» con su nombre o su logo. Las respuestas al cuestionario se piden **por WhatsApp**, para que Hernán
+**Cómo se ve un clima auspiciado** (Hernán, 2/11): la voz dice «El clima de hoy llega con [comercio]; los encontrás en Instagram como
+[@cuenta]» y abajo, en la placa del reel, en la nota del clima y en el texto de la historia y del posteo, queda «Auspicia: [comercio] ·
+[@cuenta]» con su nombre o su logo **y su red social explícita**. En Facebook el clima es un reel y queda fijo; en Instagram sale como
+historia (24 horas). Hernán piensa que Instagram debería ser **un espejo de Facebook** (los mismos reels como reels, porque Facebook funciona
+mejor): se decide con el cronograma de redes de la 3.0. Las respuestas al cuestionario se piden **por WhatsApp**, para que Hernán
 pueda reenviar los audios a Claude.
 
 **Por qué esos números:** hay 60 climas por mes (mañana y noche); cada clima lleva **un solo auspiciante**, se reserva por calendario en
