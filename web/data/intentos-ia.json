@@ -56,6 +56,22 @@
   "textos": 3,
   "numeradas": 4
  },
+ "108x7zb": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 24 palabras seguidas del original: d",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"municipalida"
+  ],
+  "falla": [
+   "el copete nombra a \"municipalidad\" y la fuente no",
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "copia 21 palabras seguidas del original (\"el retiro de ramas secas quebradas o enfermas ademas de la preparacion de aquellos…\"): decilo con "
+  ]
+ },
  "1099rtb": {
   "intentos": 2,
   "ultimo": "2026-10-27T17:02:59.140Z",
@@ -5682,6 +5698,21 @@
   "textos": 4,
   "numeradas": 4
  },
+ "1se4dwx": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli",
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+  ],
+  "falla": [
+   "el cuerpo repite el copete en vez de desarrollarlo",
+   "el título dice 3 y el cuerpo no lo explica"
+  ]
+ },
  "1segwoo": {
   "intentos": 1,
   "ultimo": "2026-10-31T11:01:09.845Z",
@@ -8752,6 +8783,13 @@
   "textos": 4,
   "numeradas": 4
  },
+ "asjx6k": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "au2qyx": {
   "intentos": 2,
   "ultimo": "2026-10-29T01:01:22.593Z",
@@ -9656,20 +9694,19 @@
   "numeradas": 3
  },
  "eyokn0": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T15:04:02.098Z",
-  "motivo": "cuerpo: 2 problemas (copia, promesa): copia 24 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 187 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 123 caracteres, el máximo es 90",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
-   "título o bajada: 1 problema (largo): el titulo tiene 98 caracteres, el",
-   "cuerpo: 2 problemas (copia, promesa): copia 17 palabras seguidas del o",
    "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el",
-   "cuerpo: 2 problemas (copia, promesa): copia 24 palabras seguidas del o"
+   "cuerpo: 2 problemas (copia, promesa): copia 24 palabras seguidas del o",
+   "título o bajada: 1 problema (titulo): el título empieza con una etique",
+   "título o bajada: 1 problema (largo): el titulo tiene 123 caracteres, e"
   ],
   "falla": [
-   "copia 24 palabras seguidas del original (\"estados unidos presento un escrito ante la corte suprema para respaldar el pedido de…\"): decilo co",
-   "el título nombra a \"ee\", \"uu\" y el cuerpo no los explica"
+   "el titulo tiene 123 caracteres, el máximo es 90"
   ]
  },
  "ezjka6": {
@@ -10153,6 +10190,13 @@
    "cuerpo: 4 problemas (forma, antecedente, numero, relleno): el cuerpo t"
   ]
  },
+ "hfqwq1": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3
+ },
  "hizo5d": {
   "intentos": 1,
   "ultimo": "2026-10-27T03:03:07.061Z",
@@ -10344,6 +10388,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
+ },
+ "ipa9e4": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (titulo): el título empieza con una etique"
+  ]
  },
  "ipq35m": {
   "intentos": 1,
@@ -12260,18 +12314,14 @@
   ]
  },
  "shyq3f": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T15:04:02.098Z",
-  "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-02T15:37:30.314Z",
+  "motivo": "con cuerpo",
   "textos": 7,
   "numeradas": 13,
   "motivos": [
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re",
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo",
-   "copia 22 palabras seguidas del original (\"desde las 19 00 en el estadio norberto tomaghello de florencio varela el encuentro…\"): decilo con "
   ]
  },
  "si5xga": {

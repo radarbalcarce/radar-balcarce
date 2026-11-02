@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T15:08:01.417Z",
- "portada": 104,
+ "generado": "2026-11-02T15:39:05.497Z",
+ "portada": 106,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T15:08:02.019Z",
+  "generado": "2026-11-02T15:39:06.747Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T15:08:24.475Z"
    },
    {
     "nombre": "participa-noticias",
@@ -94,28 +94,28 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 55,
+    "salio": "2026-11-02T15:08:24.475Z",
+    "segundos": null,
     "notas": [
-     {
-      "id": "sclfp3",
-      "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-      "seccion": "Salud"
-     },
      {
       "id": "1xd0of",
       "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
       "seccion": "Fútbol"
      },
      {
-      "id": "gcl4t2",
-      "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
-      "seccion": "Economía"
-     },
-     {
       "id": "1lxv4y",
       "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
       "seccion": "Política"
+     },
+     {
+      "id": "7pci65",
+      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
+      "seccion": "Ciencia"
+     },
+     {
+      "id": "krdezb",
+      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -126,12 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 50,
     "notas": [
      {
-      "id": "7pci65",
-      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
-      "seccion": "Ciencia"
+      "id": "sclfp3",
+      "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
+      "seccion": "Salud"
+     },
+     {
+      "id": "gcl4t2",
+      "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
+      "seccion": "Economía"
      },
      {
       "id": "1ktheso",
@@ -139,14 +144,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "krdezb",
-      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1ehv38o",
-      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
-      "seccion": "Política"
+      "id": "cwdhlo",
+      "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
+      "seccion": "Policiales"
      }
     ]
    },
@@ -157,8 +157,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "1ehv38o",
+      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
+      "seccion": "Política"
+     },
      {
       "id": "156rfnc",
       "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
@@ -168,11 +173,6 @@
       "id": "8mp5fu",
       "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
       "seccion": "Argentina"
-     },
-     {
-      "id": "1wd8l9e",
-      "titulo": "Estados Unidos define su futuro político en las elecciones de medio término",
-      "seccion": "Política"
      },
      {
       "id": "89822l",
@@ -226,15 +226,21 @@
      "marcada": false
     },
     {
+     "id": "1qggjq3",
+     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
      "id": "1yipx6w",
      "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "1qggjq3",
-     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
-     "seccion": "Política",
+     "id": "shyq3f",
+     "titulo": "Defensa y Justicia e Independiente juegan en Florencio Varela",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],

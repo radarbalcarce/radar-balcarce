@@ -56995,7 +56995,8 @@
    "corresponde": "si",
    "descripcion": "El Papa hablando frente a micrófonos con fondo institucional."
   },
-  "huella": "06260a2a22820a02"
+  "huella": "06260a2a22820a02",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
  },
  "ocwksr": {
   "archivo": "fotos-notas/ocwksr.jpg",
@@ -57031,7 +57032,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "707070210d0e8eac"
+  "huella": "707070210d0e8eac",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
  },
  "1yi5w1z": {
   "intentado": true,
@@ -58465,7 +58467,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de una represa con gran caudal de agua."
   },
-  "huella": "71b0c71fc5928984"
+  "huella": "71b0c71fc5928984",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
  },
  "1iy5vil": {
   "archivo": "fotos-notas/1iy5vil.jpg",
@@ -66910,13 +66913,28 @@
   "huella": "d0d87030e8c9c9c9"
  },
  "dkrlse": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/dkrlse.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Karina Mazzocco y Edith Hermida destacan en la gala de MasterChef Celebrity",
-  "razon": "Todas las imágenes son capturas de pantalla de una transmisión televisiva, lo cual las invalida según las reglas establecidas.",
-  "cuando": "2026-11-02T06:02:23.863Z",
-  "intentos": 2,
-  "fuentes": 4
+  "enlace": "https://www.cronica.com.ar/diarioshow/farandula/masterchef-celebrity-quienes-ganaron-las-medallas-y-quien-se-llevo-el-delantal-negro/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1728/1728533/6ae8138523e20_600_315!.jpg?s=1ba83d377fb4cd5fece3219a91a2b8a0&d=1793594584",
+  "razon": "Muestra claramente a Edith y Karina en primer plano sin elementos distractores molestos y sin marcas de medios.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plano medio de Edith Hermida y Karina Mazzocco en MasterChef Celebrity."
+  },
+  "huella": "4d4d4d4d49696949"
  },
  "lp1ekj": {
   "archivo": "fotos-notas/lp1ekj.jpg",
@@ -68004,14 +68022,40 @@
   "huella": "114848d293c5c9cb"
  },
  "1xd0of": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1xd0of.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de QZ Noticias (Mar del Plata) no se usa todavía.",
-  "cuando": "2026-11-02T14:32:33.415Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1
+  "enlace": "https://www.qznoticias.com/deportes/deportivo-norte-elimino-a-quilmes-y-quedo-a-dos-partidos-del-ascenso",
+  "imagenOriginal": "https://n2.cdnartic.ar/ySXWvxSggYIGyELkpCiJwF3Pfm8=/1200x630/filters:focal(850x669:1192x1011):format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/11/deportivo_norte.webp",
+  "razon": "Es la foto más nítida del plantel completo celebrando la clasificación, sin marcas de agua ni menores reconocibles en primer plano.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantel de Deportivo Norte posando y festejando en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Foto de equipo de fútbol posando en el césped tras un partido."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8d54666915166a87"
  },
  "brwvwb": {
   "archivo": "fotos-notas/brwvwb.jpg",
@@ -68083,7 +68127,8 @@
    "corresponde": "si",
    "descripcion": "Un trabajador rural caminando entre ganado en un campo despejado"
   },
-  "huella": "0080a5b49e9b96bb"
+  "huella": "0080a5b49e9b96bb",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
  },
  "1hhw2ky": {
   "intentado": true,
@@ -68331,8 +68376,8 @@
   "origen": "ninguna",
   "titulo": "Finaliza la vigesimosegunda edición de la Fiesta Nacional del Postre",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-11-02T14:07:46.445Z",
-  "intentos": 1,
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "intentos": 2,
   "fuentes": 1
  },
  "16zzpr8": {
@@ -68802,7 +68847,8 @@
    "corresponde": "generica",
    "descripcion": "Tribuna de Boca colmada con papelitos cayendo y pantalla gigante de fondo."
   },
-  "huella": "c6e7c76137a3a98d"
+  "huella": "c6e7c76137a3a98d",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
  },
  "35t213": {
   "archivo": "fotos-notas/35t213.jpg",
@@ -68826,6 +68872,103 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota en el campo de juego"
   },
-  "huella": "3dc99b9313313939"
+  "huella": "3dc99b9313313939",
+  "ausenteDesde": "2026-11-02T15:39:05.243Z"
+ },
+ "ipa9e4": {
+  "archivo": "fotos-notas/ipa9e4.jpg",
+  "medio": "Canal 26",
+  "credito": "Foto: Canal 26",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Varían las tasas de los plazos fijos y pagan hasta el 24 por ciento anual",
+  "enlace": "https://www.canal26.com/economia/2026/11/02/plazo-fijo-cuanto-ganas-con-1-millon-en-30-dias-y-que-banco-paga-mas-en-noviembre/",
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/DQXT4L7QXZADZKFJEJXIB5D5VY.jpg?auth=b43d4736a0301d1c9f9ba5080b18cbb1559eddc77da3a75edc0ec00c7eb6199d&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto A muestra billetes argentinos de alta denominación claramente relacionados con ahorros y plazos fijos, sin marcas de agua ni personas, cumpliendo con todos los requisitos.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mano sosteniendo billetes argentinos de diez mil pesos"
+  },
+  "huella": "194ba77753130705"
+ },
+ "shyq3f": {
+  "archivo": "fotos-notas/shyq3f.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Defensa y Justicia e Independiente juegan en Florencio Varela",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-defensa-y-justicia-vs-independiente-fecha-15-id769669.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/18/997223/maxi-meza_1440x810.webp?v=1",
+  "razon": "Es la única foto que corresponde exactamente al partido de Independiente, muestra claramente a un jugador celebrando, no tiene marcas agregadas, menores ni es gráfica.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Independiente festejando un gol en la cancha"
+  },
+  "huella": "7952b359d9dada99"
+ },
+ "hfqwq1": {
+  "archivo": "fotos-notas/hfqwq1.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca gana el Superclásico y se acerca a la cuádruple corona",
+  "enlace": "https://www.lanueva.com/nota/2026-11-2-9-1-0-con-la-cuadruple-corona-en-la-mira-asi-sigue-la-actividad-para-boca-tras-el-triunfo-en-el-superclasico",
+  "imagenOriginal": "https://pxcdn.lanueva.com/112026/1793621097537.jpg?&cw=600&ch=365",
+  "razon": "La foto B muestra correctamente a los jugadores de Boca sin marcas superpuestas y con buena calidad.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca festejando en la cancha de medio cuerpo"
+  },
+  "huella": "c112aaa8c6aaaaaa"
+ },
+ "asjx6k": {
+  "archivo": "fotos-notas/asjx6k.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno enfrenta un vencimiento de US$ 800 millones con el Fondo Monetario",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160684/economia/gobierno-enfrenta-vencimiento-us800-millones-fmi-analiza-comprar-dolares-al-banco-central.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/09/1157310_202610082057140000001.jpg",
+  "razon": "Es la única foto sin marca de agua, menor de edad, retoques gráficos excesivos o elementos de stock que cumple con los criterios de calidad y temática.",
+  "cuando": "2026-11-02T15:38:16.865Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del Banco Central de la República Argentina"
+  },
+  "huella": "0371296b4dc5a2a2"
  }
 }
