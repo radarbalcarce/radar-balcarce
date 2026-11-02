@@ -1,0 +1,22 @@
+# Huella de las claves de IA: imprime, por cada clave de Gemini guardada en GitHub, sólo sus últimos 4 caracteres, que es lo mismo que
+# muestra la lista de claves de Google AI Studio («...Qs2A»). Sirve para saber en qué proyecto de Google vive cada clave sin ver la clave.
+# Nunca imprime la clave entera (GitHub además la enmascara). Lo corre una persona a mano. (2/11/2026)
+name: Huella de las claves de IA
+on:
+  workflow_dispatch:
+jobs:
+  huella:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      GEMINI_API_KEY_REDACCION: ${{ secrets.GEMINI_API_KEY_REDACCION }}
+      GEMINI_API_KEY_RESPALDO: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
+      GEMINI_API_KEY_CLASIFICACION: ${{ secrets.GEMINI_API_KEY_CLASIFICACION }}
+      GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+    steps:
+      - name: Últimos 4 caracteres de cada clave
+        run: |
+          for n in GEMINI_API_KEY_REDACCION GEMINI_API_KEY_RESPALDO GEMINI_API_KEY_CLASIFICACION GEMINI_API_KEY_REDES; do
+            v="${!n}"
+            if [ -z "$v" ]; then echo "$n: (vacía)"; else echo "$n: largo ${#v}, termina en ...${v: -4}"; fi
+          done
