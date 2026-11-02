@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-02T00:05:48.331Z",
+ "consultado": "2026-11-02T00:32:17.134Z",
  "equipos": [
   "9739",
   "3",
@@ -1039,7 +1039,7 @@
     "competencia": "liga",
     "inicio": "2026-11-01T23:45:00.000Z",
     "estado": "en-juego",
-    "minuto": "20'",
+    "minuto": "45'+2'",
     "local": {
      "id": "12",
      "nombre": "Lanús",
@@ -1245,65 +1245,7 @@
     "torneo": "semifinals"
    }
   ],
-  "libertadores": [
-   {
-    "id": "401912521",
-    "competencia": "libertadores",
-    "inicio": "2026-10-23T00:30:00.000Z",
-    "estado": "final",
-    "minuto": "95'",
-    "local": {
-     "id": "819",
-     "nombre": "Flamengo",
-     "goles": 0
-    },
-    "visitante": {
-     "id": "8",
-     "nombre": "Estudiantes de La Plata",
-     "goles": 0
-    },
-    "penales": {
-     "local": 2,
-     "visitante": 3
-    },
-    "goles": [
-     {
-      "equipo": "local",
-      "jugador": "Giorgian de Arrascaeta",
-      "minuto": "91'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "José Sosa",
-      "minuto": "92'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Eros Mancuso",
-      "minuto": "97'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Léo Pereira",
-      "minuto": "97'",
-      "tipo": "de penal"
-     },
-     {
-      "equipo": "visitante",
-      "jugador": "Tiago Palacios",
-      "minuto": "98'",
-      "tipo": "de penal"
-     }
-    ],
-    "estadio": "Estadio do Maracana",
-    "fase": "Semifinals",
-    "partidoDeLaSerie": 2,
-    "torneo": "semifinals"
-   }
-  ],
+  "libertadores": [],
   "sudamericana": []
  },
  "diasTraidos": {

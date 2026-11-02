@@ -39226,9 +39226,7 @@
   "ausenteDesde": "2026-10-27T23:34:04.493Z"
  },
  "dfa2po": {
-  "archivo": "fotos-notas/dfa2po.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "River recibe a Racing por el Torneo Clausura con dos variantes en defensa",
@@ -39248,7 +39246,8 @@
    "descripcion": "Director técnico o integrante del cuerpo técnico de River señalando hacia arriba"
   },
   "huella": "97966507c5454444",
-  "ausenteDesde": "2026-10-26T00:31:43.684Z"
+  "intentado": true,
+  "borrada": true
  },
  "squxbf": {
   "archivo": "fotos-notas/squxbf.jpg",
@@ -63958,13 +63957,40 @@
   "huella": "c942372696b4afae"
  },
  "3kymrn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3kymrn.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Belgrano recibe a Barracas Central por el Torneo Clausura",
-  "razon": "Ninguna foto corresponde al partido entre Belgrano y Barracas Central, ya que muestran otros equipos (Platense, Central Córdoba) o son placas gráficas genéricas de enfrentamientos distintos.",
-  "cuando": "2026-11-01T21:02:34.260Z",
-  "intentos": 3,
-  "fuentes": 11
+  "enlace": "https://www.clarin.com/deportes/belgrano-cordoba-vs-barracas-central-torneo-clausura-2026-vivo-hora-juegan-formaciones-ver-partido_0_MqVKBNnrD4.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/01/Y6CYh9c3dC_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra una acción de juego real del partido mencionado, sin marcas de agua, elementos gráficos o menores.",
+  "cuando": "2026-11-02T00:31:48.268Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un balón en un partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Belgrano y Barracas Central disputando el balón en una acción de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "15950b1372183535"
  },
  "n1l0p4": {
   "archivo": "fotos-notas/n1l0p4.jpg",
@@ -66160,7 +66186,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "456eb692162c2444"
+  "huella": "456eb692162c2444",
+  "ausenteDesde": "2026-11-02T00:32:19.295Z"
  },
  "1j4cbps": {
   "archivo": "fotos-notas/1j4cbps.jpg",
@@ -66298,7 +66325,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre un jugador de Boca y uno de River."
   },
-  "huella": "c3ca434551c9a725"
+  "huella": "c3ca434551c9a725",
+  "ausenteDesde": "2026-11-02T00:32:19.295Z"
  },
  "5fdanm": {
   "archivo": "fotos-notas/5fdanm.jpg",
@@ -66322,7 +66350,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca Juniors celebrando en el campo de juego."
   },
-  "huella": "61f90df92f8aa94a"
+  "huella": "61f90df92f8aa94a",
+  "ausenteDesde": "2026-11-02T00:32:19.295Z"
  },
  "1460y4k": {
   "archivo": "fotos-notas/1460y4k.jpg",
@@ -66370,7 +66399,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista."
   },
-  "huella": "691cdcae9bac18de"
+  "huella": "691cdcae9bac18de",
+  "ausenteDesde": "2026-11-02T00:32:19.295Z"
  },
  "3mdpyf": {
   "intentado": true,
@@ -66380,6 +66410,16 @@
   "cuando": "2026-11-02T00:03:55.950Z",
   "intentos": 1,
   "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1oeiue6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Belgrano y Barracas Central empatan 2 a 2 en un final con polémica",
+  "razon": "La única imagen disponible es una captura de pantalla de televisión (gráfica) con marca de agua del medio, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-11-02T00:31:48.268Z",
+  "intentos": 1,
+  "fuentes": 5,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
