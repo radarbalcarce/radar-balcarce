@@ -58343,7 +58343,8 @@
    "corresponde": "si",
    "descripcion": "Dos mujeres con remeras de Lucenza posan sonrientes frente a un micro de la empresa."
   },
-  "huella": "3e1fafda359bc9b6"
+  "huella": "3e1fafda359bc9b6",
+  "ausenteDesde": "2026-11-02T21:34:02.748Z"
  },
  "18yvm4g": {
   "archivo": "fotos-notas/18yvm4g.jpg",
@@ -60355,7 +60356,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "8e33b6737363692d"
+  "huella": "8e33b6737363692d",
+  "ausenteDesde": "2026-11-02T21:34:02.748Z"
  },
  "1r3uc04": {
   "archivo": "fotos-notas/1r3uc04.jpg",
@@ -70283,5 +70285,94 @@
    "descripcion": "Corderos a la estaca cocinándose al fuego."
   },
   "huella": "f5d3d54c4e8a8552"
+ },
+ "hjwjy8": {
+  "archivo": "fotos-notas/hjwjy8.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La película balcarceña La noche que nunca termina compite en México",
+  "enlace": "https://eldiariobalcarce.com.ar/la-noche-que-nunca-termina-fue-seleccionada-para-competir-en-un-festival-internacional-de-mexico-506",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-02-21-30-44La_Noche_que_nunca_termina__1_.jpeg",
+  "razon": "Es la única imagen disponible, cumple con los requisitos de calidad y no presenta marcas, menores ni elementos que impidan su publicación.",
+  "cuando": "2026-11-02T21:33:07.680Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Una mujer con ropa manchada sosteniendo una tijera de podar grande, representando una escena de la película."
+  },
+  "huella": "f8d8f810362c4c6d"
+ },
+ "zlcuqf": {
+  "archivo": "fotos-notas/zlcuqf.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Manuel, Amigos Unidos y San Agustín lideran el fútbol femenino local",
+  "enlace": "https://eldiariobalcarce.com.ar/san-manuel-amigos-unidos-y-san-agustin-lideran-sus-grupos-152",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-02-21-28-7fut_fem_fecha_3.jpg",
+  "razon": "La foto A muestra una acción de juego clara, sin marcas de agua y con jugadoras adultas, siendo ideal para ilustrar la nota.",
+  "cuando": "2026-11-02T21:33:07.680Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadoras de fútbol femenino disputando un partido en una cancha de césped.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadoras de fútbol femenino en acción sobre un campo de césped."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3019119caa5aa95e"
+ },
+ "1kwuqra": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
+  "razon": "La única imagen disponible es un flyer promocional y no una fotografía de un hecho real, por lo que se clasifica como gráfica.",
+  "cuando": "2026-11-02T21:33:07.680Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1o0lmqb": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Javier Milei recibe un reconocimiento por el Plan de Alfabetización",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Verdad no se usa todavía.",
+  "cuando": "2026-11-02T21:33:07.680Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "1p9q75l": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Universidad Nacional de Mar del Plata organiza un corredor artístico",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Punto Noticias no se usa todavía.",
+  "cuando": "2026-11-02T21:33:07.680Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1
  }
 }

@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-02T21:03:21.571Z",
+ "generado": "2026-11-02T21:34:02.907Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -75,6 +75,16 @@
      "fecha": "2026-11-02T20:51:30.000Z"
     },
     {
+     "medio": "La Brújula 24",
+     "enlace": "https://www.labrujula24.com/notas/2026/11/02/publican-el-padron-provisorio-para-las-elecciones-2027-donde-consultar-n528639/",
+     "fecha": "2026-11-02T21:20:35.000Z"
+    },
+    {
+     "medio": "La Tecla",
+     "enlace": "https://www.latecla.info/170866-la-camara-electoral-habilito-el-padron-provisorio-para-las-elecciones-2027",
+     "fecha": "2026-11-02T19:00:00.000Z"
+    },
+    {
      "medio": "QZ Noticias (Mar del Plata)",
      "enlace": "https://www.qznoticias.com/el-pais/ya-se-puede-consultar-el-padron-provisorio-para-las-elecciones-de-2027-como-verificar-los-datos",
      "fecha": "2026-11-01T17:32:37.000Z"
@@ -123,11 +133,6 @@
      "medio": "C5N",
      "enlace": "https://www.c5n.com/politica/elecciones-2027-como-consultar-el-padron-electoral-provisorio-n253221",
      "fecha": "2026-11-02T17:08:00.000Z"
-    },
-    {
-     "medio": "La Tecla",
-     "enlace": "https://www.latecla.info/170866-la-camara-electoral-habilito-el-padron-provisorio-para-las-elecciones-2027",
-     "fecha": "2026-11-02T19:00:00.000Z"
     },
     {
      "medio": "Infobae",
@@ -204,30 +209,8 @@
      "fecha": "2026-11-02T21:00:01.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 244 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "1ifdg1a",
-   "titulo": "Cómo saber si alguien espía su WhatsApp y los pasos para recuperarlo",
-   "copete": "Una cuenta de WhatsApp intervenida puede exponer conversaciones, fotografías, documentos y contactos, además de servir para enviar estafas desde una identidad conocida. Saber si alguien espía su WhatsApp y recuperar el control de la cuenta exige revisar señales concretas, cerrar…",
-   "seccion": "Tecnología",
-   "fecha": "2026-11-01T23:23:12.000Z",
-   "fuentes": [
-    {
-     "medio": "Infobae",
-     "enlace": "https://www.infobae.com/tecno/2026/11/01/como-saber-si-alguien-espia-su-whatsapp-y-los-pasos-para-recuperarlo/",
-     "fecha": "2026-11-01T23:23:12.000Z"
-    },
-    {
-     "medio": "La Capital (Rosario)",
-     "enlace": "https://www.lacapital.com.ar/informacion-general/como-saber-si-alguien-espia-tu-whatsapp-y-como-recuperarlo-n10290034.html",
-     "fecha": "2026-11-02T17:20:00.000Z"
-    }
-   ],
    "intentos": 2,
-   "motivo": "sin material",
+   "motivo": "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo explica; sin esas oraciones quedan 257 palabras",
    "maximo": 3
   },
   {
@@ -289,14 +272,6 @@
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
   },
   {
-   "id": "8qigr8",
-   "titulo": "Así queda el mundial de F1 tras México: puntos y posiciones; ¡ya hay campeón!",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-02T03:24:33.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 2 problemas (antecedente, nombre): el copete usa \"franco\", que sale de una nota anterior, como si fuera de hoy"
-  },
-  {
    "id": "17f0f1r",
    "titulo": "Curso de Posgrado: GESTIÓN AMBIENTAL DE PAISAJES RURALES",
    "seccion": "Educación",
@@ -311,6 +286,14 @@
    "fecha": "2026-11-02T16:05:41.283Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\""
+  },
+  {
+   "id": "1ifdg1a",
+   "titulo": "Cómo saber si alguien espía su WhatsApp y los pasos para recuperarlo",
+   "seccion": "Tecnología",
+   "fecha": "2026-11-01T23:23:12.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; sin material"
   }
  ]
 }
