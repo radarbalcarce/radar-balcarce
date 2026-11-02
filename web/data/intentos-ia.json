@@ -4618,19 +4618,19 @@
   ]
  },
  "1nfx86s": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T08:01:43.169Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 251 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-02T09:01:43.621Z",
+  "motivo": "título o bajada: 1 problema (forma): el copete trae letras rotas (letras que no son del castellano en \"dìcima\"): texto mal escrito, se vu",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
-   "cuerpo: 3 problemas (antecedente, fecha): el cuerpo usa \"domingo\", que",
-   "cuerpo: 2 problemas (fecha, copia): el cuerpo menciona \"octubre\" y la ",
    "cuerpo: 2 problemas (promesa): el título dice 1 y el cuerpo no lo expl",
-   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d"
+   "cuerpo: 1 problema (copia): copia 16 palabras seguidas del original: d",
+   "cuerpo: 3 problemas (promesa): el título dice 1 y el cuerpo no lo expl",
+   "título o bajada: 1 problema (forma): el copete trae letras rotas (letr"
   ],
   "falla": [
-   "copia 16 palabras seguidas del original (\"valentin yankelevich consiguio su primera victoria en el tc2000 tras imponerse en la final…\"): dec"
+   "el copete trae letras rotas (letras que no son del castellano en \"dìcima\"): texto mal escrito, se vuelve a pedir"
   ]
  },
  "1ngpm0t": {
@@ -11925,18 +11925,14 @@
   ]
  },
  "r36y0": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T08:01:43.169Z",
-  "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 195 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-02T09:01:43.621Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "cuerpo: 2 problemas (nombre, repite): el cuerpo nombra a \"alberto\" y l",
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
-  ],
-  "falla": [
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "r3fs89": {
