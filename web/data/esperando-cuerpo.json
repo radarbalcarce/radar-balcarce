@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-02T19:04:02.709Z",
+ "generado": "2026-11-02T20:11:07.103Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -65,9 +65,24 @@
      "fecha": "2026-11-02T14:54:50.000Z"
     },
     {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/padron-electoral-2027--como-consultar-donde-voto-y-hasta-cuando-se-puede-reclamar_a6ae8e426fd3588a0f5cb4e8a",
+     "fecha": "2026-11-02T19:31:20.178Z"
+    },
+    {
      "medio": "El Día",
      "enlace": "https://www.eldia.com/politica-y-economia/publicaron-el-padron-electoral-para-las-elecciones-2027-politica-y-economia_1793633863",
      "fecha": "2026-11-02T15:37:00.000Z"
+    },
+    {
+     "medio": "La Nueva",
+     "enlace": "https://www.lanueva.com/nota/2026-11-2-16-27-0-donde-voto-la-camara-electoral-habilito-el-padron-electoral-provisorio-para-las-elecciones-2027",
+     "fecha": "2026-11-02T19:49:27.000Z"
+    },
+    {
+     "medio": "La Tecla",
+     "enlace": "https://www.latecla.info/170866-la-camara-electoral-habilito-el-padron-provisorio-para-las-elecciones-2027",
+     "fecha": "2026-11-02T19:00:00.000Z"
     },
     {
      "medio": "QZ Noticias (Mar del Plata)",
@@ -137,8 +152,8 @@
      "fecha": "2026-11-02T14:23:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"franco\", que sale de una nota anterior, como si fuera de hoy",
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (antecedente): el cuerpo usa \"franco\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 67 palabras",
    "maximo": 3
   },
   {
@@ -182,6 +197,85 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 4
+  },
+  {
+   "id": "b80rfg",
+   "titulo": "Sur Finanzas: allanaron dos bancos vinculados a las operaciones de Ariel Vallejo, cercano a Chiqui Tapia",
+   "copete": "Son las sedes del Industrial y el Hipotecario, en el centro porteño. La justicia fue a buscar documentación sobre el respaldo financiero que las entidades le daban a Vallejo",
+   "seccion": "Argentina",
+   "fecha": "2026-11-02T18:45:07.557Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/politica/sur-finanzas-allanaron-bancos-vinculados-operaciones-ariel-vallejo-cercano-chiqui-tapia_0_OVMOyD67cL.html",
+     "fecha": "2026-11-02T17:00:04.000Z"
+    },
+    {
+     "medio": "iProfesional",
+     "enlace": "https://www.iprofesional.com/legales/468109-allanaron-dos-bancos-por-la-causa-contra-ariel-vallejo-el-financista-vinculado-a-tapia",
+     "fecha": "2026-11-02T19:04:00.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/politica/judiciales/sur-finanzas--allanaron-dos-bancos-en-el-marco-de-la-investigacion-contra-ariel-vallejo_a6ae8d2d9fd3588a0f5ca58f7",
+     "fecha": "2026-11-02T18:45:07.557Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (promesa): el título dice 2 y el cuerpo no lo explica; sin esas oraciones quedan 251 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "17zse91",
+   "titulo": "Independiente Rivadavia vs. Banfield, por el Torneo Clausura 2026: horario, árbitro y TV",
+   "copete": "Cuándo y dónde ver el partido entre Independiente Riv. (M) y Banfield por el Torneo Clausura 2026 . El encuentro se jugará a las 21:15 en el estadio Bautista Gargantini de Mendoza. En esta nota encontrás horario, canal de TV, datos del partido y toda la información para no…",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-02T12:49:18.000Z",
+   "fuentes": [
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/futbol-primera/independiente-rivadavia-vs-banfield-partido-torneo-clausura-2026-dia-horario-arbitro-tv_0_GVWgmrLWbv.html",
+     "fecha": "2026-11-01T13:34:08.000Z"
+    },
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/deportes/independiente-rivadavia-vs-banfield-vivo-hora-formaciones-ver-partido-torneo-clausura-2026_0_NR3goukpRm.html",
+     "fecha": "2026-11-02T16:27:34.000Z"
+    },
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/deportes/futbol/2026/11/02/independiente-rivadavia-vs-banfield-en-vivo-por-la-fase-de-grupos-de-la-liga-profesional-hora-donde-ver-y-formaciones/",
+     "fecha": "2026-11-02T19:29:28.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/river-plate/river-necesita-que-independiente-rivadavia-no-le-gane-a-banfield-id769848.html",
+     "fecha": "2026-11-02T12:49:18.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-independiente-riv-m-vs-banfield-fecha-15-id769686.html",
+     "fecha": "2026-11-02T17:57:10.000Z"
+    },
+    {
+     "medio": "Canal 26",
+     "enlace": "https://www.canal26.com/futbol/liga-profesional-de-futbol/independiente-riv-m-vs-banfield-dia-horario-canal-de-tv-y-como-ver-el-partido-del-torneo-clausura-2026/",
+     "fecha": "2026-11-02T00:00:18.000Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/futbolargentino/independiente-rivadavia-vs-banfield-horario-y-donde-ver-en-vivo-y-online-en-argentina-por-la-fecha-15-del-torneo-clausura",
+     "fecha": "2026-11-02T16:21:14.000Z"
+    },
+    {
+     "medio": "Los Andes (Mendoza)",
+     "enlace": "https://www.losandes.com.ar/deportes/independiente-rivadavia-recibe-banfield-la-obligacion-ganar-hora-probables-formaciones-y-donde-ver-el-partido-n6012616",
+     "fecha": "2026-11-02T02:42:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 213 palabras",
+   "maximo": 5
   },
   {
    "id": "5akjfh",
@@ -248,14 +342,6 @@
    "fecha": "2026-11-02T12:49:08.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; sin material"
-  },
-  {
-   "id": "q9wlq",
-   "titulo": "Citan a declaración a dos profesionales de la salud por la muerte de Claribel Medina",
-   "seccion": "Policiales",
-   "fecha": "2026-11-02T16:05:41.283Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\""
   }
  ]
 }

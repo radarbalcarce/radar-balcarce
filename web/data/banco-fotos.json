@@ -41459,9 +41459,7 @@
   "ausenteDesde": "2026-10-28T03:04:53.455Z"
  },
  "1covbx8": {
-  "archivo": "fotos-notas/1covbx8.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Antonelli gana en Estados Unidos pero la F1 define su campeonato en México",
@@ -41493,7 +41491,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "0b084e4e160f0b4c",
-  "ausenteDesde": "2026-10-26T19:32:31.594Z"
+  "intentado": true,
+  "borrada": true
  },
  "2rtl95": {
   "archivo": "fotos-notas/2rtl95.jpg",
@@ -58053,7 +58052,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "8087970f0e262236"
+  "huella": "8087970f0e262236",
+  "ausenteDesde": "2026-11-02T20:11:07.025Z"
  },
  "1him5bj": {
   "intentado": true,
@@ -60749,7 +60749,8 @@
    "corresponde": "si",
    "descripcion": "Cosechadora trabajando en un campo de trigo"
   },
-  "huella": "1333500c1d591852"
+  "huella": "1333500c1d591852",
+  "ausenteDesde": "2026-11-02T20:11:07.025Z"
  },
  "117qpmn": {
   "archivo": "fotos-notas/117qpmn.jpg",
@@ -60903,7 +60904,8 @@
    "corresponde": "si",
    "descripcion": "Fotomontaje con los rostros de Milei, Lula y Trump"
   },
-  "huella": "6d2bc78c8e2eae16"
+  "huella": "6d2bc78c8e2eae16",
+  "ausenteDesde": "2026-11-02T20:11:07.025Z"
  },
  "hz5evm": {
   "archivo": "fotos-notas/hz5evm.jpg",
@@ -68830,10 +68832,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-  "razon": "No hay ninguna foto disponible que cumpla con todos los requisitos editoriales sin mostrar menores de edad reconocibles o tratarse de imágenes de stock.",
-  "cuando": "2026-11-02T18:03:07.308Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-02T20:07:30.718Z",
   "intentos": 3,
-  "fuentes": 11
+  "fuentes": 14,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1nk1y8y": {
   "archivo": "fotos-notas/1nk1y8y.jpg",
@@ -69898,5 +69902,144 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "87e7eeedc4c5c383"
+ },
+ "v7iwd7": {
+  "archivo": "fotos-notas/v7iwd7.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país se acerca a 800 puntos y caen las acciones",
+  "enlace": "https://tn.com.ar/economia/2026/11/02/el-riesgo-pais-se-acerca-a-800-puntos-y-las-acciones-argentinas-en-wall-street-caen-en-medio-de-la-tension-internacional/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-riesgo-pais-se-acerca-a-800-puntos-y-las-acciones-argentinas-en-wall-street-caen-en-medio-de-la-tension-internacional-foto-reutersbrendan-mcdermidfile-photo-ONDBSMKHFVBM3ILNE73IYIO3NY?auth=8ec9e1ef3e422b4695e161ac00691217ce9e8ea90d9d0353271cf7f31cdad4c7&width=1023",
+  "razon": "Es la única foto sin marcas agregadas, sin menores y con buena calidad que ilustra adecuadamente la temática económica.",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Traders en la bolsa de valores con pantallas de Goldman Sachs y Citadel de fondo."
+  },
+  "huella": "69eb735b52495511"
+ },
+ "f1peg5": {
+  "archivo": "fotos-notas/f1peg5.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Definen los cruces y el formato del Reducido de la Primera Nacional",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-quedo-el-reducido-de-la-primera-nacional-2026-por-el-segundo-ascenso-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/deportivo-moron-y-ciudad-de-bolivar-que-se-JOZHIQQ2SNFEPE2CRJZ7MALJGI.jpg?auth=056592deb92ded281c084260677bc3058859ae287095a0bbece579fbb63df06f&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única fotografía real de un partido del torneo que no tiene marca de agua de otro medio ni es un gráfico.",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando un partido de fútbol profesional.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol en acción durante un partido de Primera Nacional."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "95b5d6d7d5b21449"
+ },
+ "1lpqfxl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Milei recibe al enviado de Estados Unidos para combatir el antisemitismo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "158a7ej": {
+  "archivo": "fotos-notas/158a7ej.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Crece un 35% la costa argentina con condiciones para bacterias peligrosas",
+  "enlace": "https://www.elmarplatense.com/advierten-que-aumento-un-35-la-extension-de-la-costa-argentina-donde-pueden-proliferar-bacterias-peligrosas",
+  "imagenOriginal": "https://n2.cdnartic.ar/g4HQXenu8oYjzapjnNyAiSU8cVE=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/11/costa.webp",
+  "razon": "La foto B es una toma limpia de la costa sin personas ni marcas, ideal para ilustrar la nota sobre condiciones en la playa.",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Paisaje de costa argentina con mar y arena"
+  },
+  "huella": "0703070303030507"
+ },
+ "17v3n8i": {
+  "archivo": "fotos-notas/17v3n8i.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina gana dos medallas de bronce en Dakar 2026",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160711/deportes/con-tucumano-juan-bautista-maris-argentina-gano-medalla-bronce-juegos-olimpicos-juventud.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/02/bronce-juan-bautista-maris-fue-protagonista-lo-largo-todo-recorrido-pumas-7s-jjoo-juventud-1160711-161123.jpg",
+  "razon": "La foto C muestra una jugada clara del deporte de la nota, sin marcas ni menores reconocibles.",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de rugby pateando la pelota en pleno partido"
+  },
+  "huella": "a998b89490e6b413"
+ },
+ "1rq9xuk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Servicio Meteorológico Nacional anticipa más lluvias para el verano",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Marplatense (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1o2n8xm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes inicia la venta de entradas para la final de la Copa Libertadores",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-11-02T20:07:30.718Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
  }
 }
