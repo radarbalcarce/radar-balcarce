@@ -394,3 +394,54 @@ que Hernán lo corrija, no está decidido). «Buffer» es el puente mientras no 
 Con eso el día tiene 6 reels con voz (2 clima, 3 repasos, 1 efeméride; más el feriado cuando toca), 10 posteos en Facebook, y en X,
 Threads y el canal de Telegram todas las notas de Balcarce. Lo que hay que mirar del cupo: 6 a 8 Shorts por día entran en el cupo gratis
 de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir antes de prometer 10 a 15 por día.
+
+**Sumado el 1/11 a la noche, segunda parte** (preguntas de Hernán al leer lo anterior):
+
+- **Sí, cada red se arma por formato.** El `REGLAS.md` de cada red (3.9) dice qué formato lleva cada pieza. La grilla de partida, para
+  corregir, es la tabla «Formatos por red» de abajo. Carrusel, reel, historia y posteo no son todo lo que existe: también hay álbum, hilo,
+  lista de reproducción, pestaña Comunidad, encuesta y mensaje fijado, y la tabla dice cuáles se usan y cuáles no, a conciencia.
+- **Otras redes, para decidir** (ninguna está decidida): **Bluesky** es la que recomiendo sumar, porque su API es gratis y simple, recibe el
+  mismo texto que X y Threads, y no tiene algoritmo en el medio (un módulo `bluesky/` chico). **Los repasos como podcast de audio** (un RSS en
+  el sitio que Spotify, Apple y YouTube Music leen solos; los audios ya existen, cuesta casi nada). **Google News y Discover** no son una red,
+  pero pueden traer más lectores que todas juntas: se ve en la auditoría SEO (`docs/seo/`). Quedan afuera a conciencia: LinkedIn, Pinterest,
+  Mastodon, el boletín por mail y el canal de WhatsApp para lectores (sin API: sólo a mano, si alguien quiere compartir ahí).
+- **YouTube por API, cómo se gestiona** (resumen; el paso a paso para personas va a `docs/11-OPERACION.md` cuando llegue la etapa D):
+  en Google Cloud, con `radarbalcarce@gmail.com`, un proyecto con la **YouTube Data API v3** habilitada, una pantalla de consentimiento y un
+  cliente OAuth; la cuenta dueña del canal autoriza **una sola vez**, en el Chrome de Radar, y el permiso de larga duración (*refresh token*)
+  queda como secreto del Worker de redes, nunca en un chat ni en el código. Tres cosas que muerden y hay que confirmar al armar: (1) la app
+  tiene que estar «En producción», no «En prueba», porque en prueba el permiso vence a los 7 días; (2) un proyecto nuevo sin la auditoría de
+  cumplimiento de YouTube sube los videos **como privados**: hay que pedir esa auditoría (un formulario, gratis) o los Shorts no se ven;
+  (3) el cupo gratis es de 10.000 unidades por día y cada subida gasta 1.600: **6 Shorts por día es el techo**; el día de feriado son 7 y no
+  entra, así que se pide más cupo (formulario, gratis) o el feriado no va a YouTube. Las listas de reproducción (Clima, Repasos, Un día como
+  hoy) se arman con la misma API y casi no gastan.
+- **Modelos chicos para cada tarea: está registrado**, en dos planos. (a) **Al construir**, la regla de arriba de esta misma sección
+  («Ahorrar tokens al construir») y la de `CLAUDE.md`: el modelo grande orquesta y decide; `haiku` busca y mide, `sonnet` escribe el código de
+  rutina y revisa. (b) **En producción**, qué IA hace cada tarea estaba repartido por la sección 3; queda junto en la tabla «Qué modelo hace qué»
+  de abajo, y los respaldos se deciden en la limpieza de claves (ninguna clave sin un uso escrito en esa tabla sobrevive).
+- **El push con la cuenta equivocada** (nota de Hernán): pasa porque en la PC conviven varios proyectos y cuentas; con la 3.0 la PC queda sólo
+  con Radar Balcarce. Mientras tanto, el arreglo del 1/11 en el repositorio alcanza (los commits y pushes salen como `radarbalcarce`).
+
+**Formatos por red** (borrador del 1/11, para corregir; «sí» es automático, «a mano» lo hace una persona desde la app, «no» queda afuera):
+
+| Red | Posteo (foto + enlace) | Reel / video | Historia | Carrusel / álbum | Otros formatos de la red |
+|---|---|---|---|---|---|
+| Facebook | sí, 10 por día | sí, los 6 del día | sí: el reel del día y la tarjeta de cada nota de Balcarce | álbum con las fotos propias (3 o más) | video largo, evento, encuesta, Live, grupos: **no** (los grupos de Balcarce, a mano si se quiere) |
+| Instagram | espejo de Facebook sólo si lo quieren | sí, los 6 | sí: con el sticker de enlace a la nota | hasta 20 fotos | destacados (Clima, Farmacia, Agenda): a mano una vez; Live, Notas, «Colaborador» con un comercio en una nota propia: a mano |
+| TikTok | no existe | sí, los 6 (Buffer) | no | modo foto con música (Buffer) | — |
+| YouTube | no existe | sí, como Shorts (API; techo 6 por día) | no | no | listas de reproducción por pieza: sí (API); pestaña Comunidad (texto + imagen): después, si suma; video largo: no |
+| X | tuit con enlace (la tarjeta la arma X) | sí, el reel adjunto | no | hasta 4 fotos | hilo: el repaso como 1 tuit + 3 respuestas; artículos: no |
+| Threads | texto con enlace | sí | no | sí | igual que X; sin apuro |
+| Bluesky (si se suma) | texto con enlace | sí (video corto) | no | hasta 4 fotos | hilo igual que X |
+| Canal de Telegram | texto + enlace (vista previa entera) | sí, el reel | no | álbum | mensaje fijado con el clima y la farmacia del día; encuesta («¿qué te interesa?»): a definir |
+
+**Qué modelo hace qué en la 3.0** (producción; junta lo que la sección 3 dice en cada paso):
+
+| Tarea | Modelo | Dónde corre | Costo |
+|---|---|---|---|
+| Huella de significado de cada noticia (3.2) | un modelo de *embeddings* de Workers AI | Cloudflare | gratis |
+| Leer, agrupar, decidir, redactar y verificar (3.4 y 3.5) | `gemini-3.1-flash-lite` o el liviano pago del momento, con la clave paga y **un solo tope** | Google, desde el Worker | unos pocos dólares por mes |
+| Ilustración cuando no hay foto (3.7) | un modelo de imagen de Workers AI, marcada «Ilustración» | Cloudflare | gratis |
+| Voz de los reels (3.9) | `gemini-3.8-flash-tts`, las dos voces propias (vencen el 29/09/2027) | Google | US$ 10 por mes de tope |
+| Respaldos cuando Gemini falla | se decide en la limpieza de claves; hoy existen Groq y Mistral gratis | — | gratis |
+| Construir la 3.0 (Claude Code) | el grande orquesta y decide; `haiku` busca y mide; `sonnet` código de rutina y revisión | la PC | tokens de la suscripción |
+
