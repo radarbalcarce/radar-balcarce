@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T04:03:39.057Z",
+ "generado": "2026-11-02T05:03:05.857Z",
  "portada": 101,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T04:03:39.498Z",
+  "generado": "2026-11-02T05:03:06.767Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "5euqdj",
+      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "ucd67q",
       "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
@@ -142,11 +147,6 @@
       "id": "10br6of",
       "titulo": "Boca derrota a River por uno a cero y se clasifica a la Copa Libertadores",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "89822l",
-      "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
-      "seccion": "Economía"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 50,
     "notas": [
      {
       "id": "krdezb",
@@ -175,9 +175,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "k1k0sl",
-      "titulo": "Binance habilita los retiros tras un ciberataque de 6.000 millones",
-      "seccion": "Tecnología"
+      "id": "89822l",
+      "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
+      "seccion": "Economía"
      }
     ]
    }
@@ -186,15 +186,21 @@
    "hoy": [],
    "cola": [
     {
+     "id": "1jlw2jb",
+     "titulo": "Maximiliano Moreno y Karina Lupo ganan la carrera homenaje a Luis Vildoza",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
      "id": "1lxv4y",
      "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
      "seccion": "Política",
      "marcada": false
     },
     {
-     "id": "1jlw2jb",
-     "titulo": "Maximiliano Moreno y Karina Lupo ganan la carrera homenaje a Luis Vildoza",
-     "seccion": "Deportes",
+     "id": "1p1u4ev",
+     "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
+     "seccion": "Tecnología",
      "marcada": false
     },
     {
@@ -204,26 +210,8 @@
      "marcada": false
     },
     {
-     "id": "8tz62w",
-     "titulo": "Rescatan a tres turistas canadienses tras un incendio en su velero",
-     "seccion": "Policiales",
-     "marcada": false
-    },
-    {
      "id": "ve8uzo",
      "titulo": "Stefano Di Carlo cuestiona el arbitraje tras la derrota de River ante Boca",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "vqyoy3",
-     "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "pjoomq",
-     "titulo": "Leonardo Ponzio cuestiona el arbitraje tras la derrota de River ante Boca",
      "seccion": "Fútbol",
      "marcada": false
     },
