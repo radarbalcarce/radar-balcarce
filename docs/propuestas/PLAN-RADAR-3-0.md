@@ -539,3 +539,20 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   comercio, § 5). La plantilla vive en `docs/propuestas/media-kit/` (`plantilla.html`, `pagina-personal.html`, las dos capturas): el
   aviso se dibuja adentro de la captura real de la portada, con el nombre del comercio. En la 3.0, la página `/publicidad` sale de la
   misma plantilla y el bot arma el kit personalizado cuando Hernán le manda un enlace.
+
+**Sumado el 2/11, quinta parte** (Hernán, a la tarde; corrige la cuarta parte):
+
+- **Publicidad, la escalera definitiva de cuatro** (Hernán pidió que Claude la decidiera: «estoy perdido»; se corrige número por número):
+  todas incluyen la nota, el reel con voz y la historia sobre la nota, y el aviso con su contacto en el sitio; crecen las promociones suyas
+  y las veces que auspician el clima. **Nota $ 5.000** (1 historia al mes, aviso en 1 lugar); **Nota + clima $ 10.000** (1 historia por
+  semana, clima 1 vez por semana, aviso en 1 lugar; **promoción hasta diciembre de 2026: $ 5.000**, para cualquiera); **Auspicio $ 30.000**
+  (2 historias por semana, 1 posteo al mes, clima 2 veces por semana, aviso en los 3 lugares); **Banner fijo $ 50.000** (aviso fijo junto al
+  clima y rotativo en los otros 2, 15 historias y 2 posteos, clima 15 veces). `PUBLICIDAD-PRIMER-COMERCIO.md` § 2.
+- **El media kit es una sola hoja** (Hernán: «lindo, prolijo, con nuestro logo y color, pintoresco»): cabecera roja con la marca y un sello
+  redondo, la captura del celular inclinada con cintas como las postales del sitio y el aviso del comercio dibujado adentro, «todas las
+  opciones incluyen», las cuatro cajas, y para un comercio una línea con el título tentativo de su nota. `docs/propuestas/media-kit/plantilla.html`
+  y `node scripts/media-kit.mjs [json]`. Las preguntas y el material pedido van aparte, en PDF (`docs/propuestas/PREGUNTAS-ESTANDAR.pdf` y
+  `anunciantes/<comercio>-preguntas.pdf`), porque Hernán no puede bajar `.md` desde el celular.
+- **Qué cobran los demás:** no hay tarifas públicas de medios de Balcarce ni de la zona; sólo pauta oficial a medios grandes (millones por
+  mes), que no compara. La escalera está abajo de todo a propósito. Para saberlo de verdad: pedir presupuesto como cliente a tres o cuatro
+  medios de Balcarce por WhatsApp (pendiente, si Hernán quiere). Detalle en `PUBLICIDAD-PRIMER-COMERCIO.md` § 2 ter.

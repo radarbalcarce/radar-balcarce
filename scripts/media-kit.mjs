@@ -3,7 +3,8 @@
 //   node scripts/media-kit.mjs                                         → el kit genérico, docs/propuestas/MEDIA-KIT-2026-11.pdf
 //   node scripts/media-kit.mjs docs/propuestas/anunciantes/sweet-candy-bar.json   → el kit de ese comercio, al lado del JSON
 //
-// El JSON de un comercio lleva: nombre, iniciales, avisoTexto, notaTitulo, notaBajada, fotoSugerida, reel, pedido, personalIntro.
+// El JSON de un comercio lleva: nombre, iniciales, avisoTexto, notaTitulo y, opcional, para (una línea para ese comercio).
+// Es una sola hoja (Hernán, 2/11): la plantilla es docs/propuestas/media-kit/plantilla.html.
 // Necesita Chrome instalado (lo usa sin ventana, con un perfil descartable). Sin dependencias.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -28,24 +29,20 @@ function base64(ruta, tipo) { return `data:${tipo};base64,${readFileSync(ruta).t
 export function armarHtml(datos) {
   const d = { ...GENERICO, ...datos };
   let html = readFileSync(join(carpeta, 'plantilla.html'), 'utf8');
-  const personal = d.notaTitulo ? readFileSync(join(carpeta, 'pagina-personal.html'), 'utf8') : '';
   const para = d.notaTitulo
-    ? `<div class="para"><div class="serif">Propuesta para ${d.nombre}</div><p>${d.para || 'Armada a partir de lo que ya muestran en sus redes. Todo lo que diga la nota lo confirmamos con ustedes antes de publicar.'}</p></div>`
+    ? `<div class="para"><div class="serif">Para ${d.nombre}</div><p>Tu nota, como la pensamos: <b>«${d.notaTitulo}»</b>. ${d.para || 'Armada con lo que ya muestran en sus redes; todo lo que diga la confirmamos con ustedes antes de publicar.'}</p></div>`
     : '';
   const valores = {
     TITULO_EXTRA: d.notaTitulo ? ` · ${d.nombre}` : '',
     PARA: para,
-    PAGINA_PERSONAL: personal,
     FUENTE_SERIF: base64(join(fuentes, 'source-serif-4-latin.woff2'), 'font/woff2'),
     FUENTE_SANS: base64(join(fuentes, 'inter-latin.woff2'), 'font/woff2'),
     CAPTURA_CEL: base64(join(carpeta, 'portada-celular.jpg'), 'image/jpeg'),
     CAPTURA_PC: base64(join(carpeta, 'portada-escritorio.jpg'), 'image/jpeg'),
     NOMBRE: d.nombre, INICIALES: d.iniciales, AVISO_TEXTO: d.avisoTexto,
-    NOTA_TITULO: d.notaTitulo || '', NOTA_BAJADA: d.notaBajada || '', FOTO_SUGERIDA: d.fotoSugerida || '',
-    REEL: d.reel || '', PEDIDO: d.pedido || '', PERSONAL_INTRO: d.personalIntro || '',
   };
-  // Primero entran los bloques (la página personal y el «para»), que traen sus propias marcas; después, los valores.
-  html = html.replace('{{PAGINA_PERSONAL}}', valores.PAGINA_PERSONAL).replace('{{PARA}}', valores.PARA);
+  // Primero entra el bloque «para», que trae sus propias marcas; después, los valores.
+  html = html.replace('{{PARA}}', valores.PARA);
   return html.replace(/\{\{([A-Z_]+)\}\}/g, (_, clave) => {
     if (!(clave in valores)) throw new Error(`La plantilla pide {{${clave}}} y no lo tengo`);
     return valores[clave];

@@ -16,19 +16,32 @@
 
 ## 2. Los combos (Hernán, 2/11, versión definitiva: $ 5.000, $ 10.000 y $ 30.000; promoción hasta diciembre de 2026)
 
-**Lo vigente** (reemplaza la tabla de abajo, que queda como historia de cómo se llegó):
+**Lo vigente** (la escalera que Claude propuso el 2/11 a la tarde con las indicaciones de Hernán, que estaba «perdido» y pidió que se
+decidiera; se corrige número por número, no de concepto). **Todas las opciones incluyen** la nota sobre el emprendimiento, el reel con voz
+y la historia sobre esa nota, y el aviso con su contacto en el sitio durante el mes. Lo que crece es cuántas promociones suyas publicamos
+y cuántas veces auspician el clima:
 
-| | **Nota · $ 5.000** | **Nota + aviso · $ 10.000** (el que esperamos que más usen) | **Auspicio · $ 30.000** |
-|---|---|---|---|
-| La nota en Radar sobre el emprendimiento, con sus fotos y su contacto | sí | sí | sí |
-| Reel con voz e historia sobre esa nota | sí | sí | sí |
-| Posteo con una promoción de ellos (reel o historia) | 1 por mes | — | — |
-| Historias con sus promociones | — | 2 por semana | todas las semanas, las que necesiten |
-| Aviso en el sitio, rotativo, en el lugar que mejor rinda (lo decide Radar) | — | todo el mes | en los tres lugares |
-| Auspicio del clima (su nombre en la voz de los reels del clima y en la nota, mañana y noche) | — | — | 2 veces en el mes |
+| | **Nota · $ 5.000** | **Nota + clima · $ 10.000** | **Auspicio · $ 30.000** | **Banner fijo · $ 50.000** |
+|---|---|---|---|---|
+| Historias con una promoción que ellos manden | 1 por mes | 1 por semana | 2 por semana | 15 en el mes |
+| Posteos con su promoción | — | — | 1 por mes | 2 por mes |
+| Su nombre en la voz del clima | — | 1 vez por semana | 2 veces por semana | 15 veces en el mes |
+| Aviso rotativo | en 1 lugar | en 1 lugar | en los 3 lugares | fijo junto al clima + rotativo en los otros 2 |
 
-No hay «primer comercio» ni oferta especial: **precios de promoción hasta diciembre de 2026, para cualquiera que quiera auspiciar**.
-Lo de $ 15.000 se sacó. Más adelante se mide qué clima (mañana o noche) se ve más, para saber cuál vender mejor y si hacen falta otros combos.
+**Promoción hasta diciembre de 2026: «Nota + clima» a $ 5.000** en vez de $ 10.000, para cualquiera (no hay «primer comercio»). Es lo que se
+le vende a Sweet Candy Bar. Lo de $ 15.000 se sacó.
+
+## 2 ter. Qué cobran los demás (investigación del 2/11, sin tocar archivos)
+
+No hay ninguna tarifa pública de medios de Balcarce (Punto Nueve, La Vanguardia, El Diario, las FM) ni de Tandil, Necochea, Mar del
+Plata, Azul u Olavarría: cotizan por WhatsApp. Lo único con montos es la pauta oficial a medios grandes, que no compara: la Municipalidad
+de Bahía Blanca le paga a La Nueva unos $ 13 millones por mes por banner y espacio fijo (boletín oficial, septiembre 2026) y a una radio
+chica con banner unos $ 4 millones. La pauta oficial de Balcarce no aparece en el boletín (se puede pedir por acceso a la información
+pública). Referencias orientativas, no de Balcarce: un posteo promocionado en Facebook o Instagram arranca en unos $ 1.500 por día; un
+banner mensual en un medio digital de pueblo chico suele estar entre $ 30.000 y $ 150.000 (conocimiento general de Claude, sin fuente
+verificable). **Conclusión:** los precios de la escalera están abajo de todo eso a propósito; el banner fijo de $ 50.000 queda dentro del
+rango, $ 100.000 sería alto para un comercio de Balcarce hoy. **Para saber de verdad** hay un solo camino: pedir presupuesto como cliente a
+tres o cuatro medios de Balcarce por WhatsApp (pendiente, si Hernán quiere).
 
 ## 2 bis. Cómo se llegó (versión de la mañana del 2/11, reemplazada)
 
