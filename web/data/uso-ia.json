@@ -2491,35 +2491,35 @@
    },
    "auditoria": {
     "openai/gpt-oss-20b": {
-     "llamadas": 34,
-     "errores": 3,
+     "llamadas": 35,
+     "errores": 4,
      "entrada": 53145,
      "salida": 27111,
      "pensamiento": 0,
      "total": 80256,
      "claves": {
-      "groq": 34
+      "groq": 35
      },
      "motivos": {
       "groq": {
        "ok": 31,
-       "otro": 3
+       "otro": 4
       }
      }
     },
     "mistral-large-2512": {
-     "llamadas": 3,
-     "errores": 3,
+     "llamadas": 4,
+     "errores": 4,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 3
+      "mistral": 4
      },
      "motivos": {
       "mistral": {
-       "rechazada": 3
+       "rechazada": 4
       }
      }
     }
