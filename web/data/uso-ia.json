@@ -2452,38 +2452,38 @@
    },
    "ilustraciones": {
     "gemini-flash-lite-latest": {
-     "llamadas": 36,
-     "errores": 11,
-     "entrada": 35950,
-     "salida": 1749,
+     "llamadas": 43,
+     "errores": 15,
+     "entrada": 40264,
+     "salida": 1963,
      "pensamiento": 0,
-     "total": 37699,
+     "total": 42227,
      "claves": {
-      "clasificacion": 36
+      "clasificacion": 43
      },
      "motivos": {
       "clasificacion": {
-       "ok": 25,
+       "ok": 28,
        "otro": 8,
-       "cupo-diario": 3
+       "cupo-diario": 7
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 11,
-     "errores": 5,
-     "entrada": 9936,
-     "salida": 477,
+     "llamadas": 15,
+     "errores": 7,
+     "entrada": 13248,
+     "salida": 630,
      "pensamiento": 0,
-     "total": 10413,
+     "total": 13878,
      "claves": {
-      "groq": 11
+      "groq": 15
      },
      "motivos": {
       "groq": {
-       "ok": 6,
+       "ok": 8,
        "velocidad": 3,
-       "cupo-diario": 2
+       "cupo-diario": 4
       }
      }
     }
