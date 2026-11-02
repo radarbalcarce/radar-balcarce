@@ -54567,7 +54567,8 @@
    "corresponde": "si",
    "descripcion": "Playero cargando combustible en una estación de servicio con cartel de precios"
   },
-  "huella": "6c7c6c68c91a7a66"
+  "huella": "6c7c6c68c91a7a66",
+  "ausenteDesde": "2026-11-02T03:02:15.495Z"
  },
  "61ip9s": {
   "archivo": "fotos-notas/61ip9s.jpg",
@@ -59236,7 +59237,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-01T20:36:15.957Z"
+  "cuando": "2026-11-02T03:02:14.447Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -66160,7 +66161,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca festejando un gol en el campo de juego."
   },
-  "huella": "1255ea7a4ccacb96"
+  "huella": "1255ea7a4ccacb96",
+  "ausenteDesde": "2026-11-02T03:02:15.495Z"
  },
  "dmhrvc": {
   "archivo": "fotos-notas/dmhrvc.jpg",
@@ -66228,8 +66230,8 @@
   "origen": "ninguna",
   "titulo": "Finaliza la Fiesta Nacional del Postre tras tres jornadas de actividades",
   "razon": "sin fotos para comparar",
-  "cuando": "2026-11-02T01:32:03.143Z",
-  "intentos": 2,
+  "cuando": "2026-11-02T03:01:46.001Z",
+  "intentos": 3,
   "fuentes": 1
  },
  "m3o00s": {
@@ -66284,10 +66286,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
-  "razon": "Ambas fotos muestran a una persona que, por el contexto de la nota sobre la detención de un adolescente, debe ser considerada menor de edad, lo cual impide su publicación según las normas editoriales.",
-  "cuando": "2026-11-02T00:03:55.950Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-11-02T03:01:46.001Z",
   "intentos": 1,
-  "fuentes": 2
+  "fuentes": 3,
+  "intentosPorCupo": 1
  },
  "1xkmx44": {
   "archivo": "fotos-notas/1xkmx44.jpg",
@@ -66585,13 +66588,28 @@
   "ausenteDesde": "2026-11-02T01:32:43.529Z"
  },
  "kef3ub": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Franco Colapinto asciende al séptimo puesto en el Gran Premio de México",
-  "razon": "La foto A tiene una marca de agua sobreimpresa del medio y la foto B no corresponde al protagonista de la nota (es otro piloto).",
-  "cuando": "2026-11-02T01:32:03.143Z",
-  "intentos": 1,
-  "fuentes": 2
+  "archivo": "fotos-notas/13iqry0.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto larga 11° en el Gran Premio de México de Fórmula 1",
+  "enlace": "https://www.tycsports.com/automovilismo/como-hizo-franco-colapinto-para-enterarse-resultado-superclasico-pleno-gp-de-mexico-id769813.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1002028/franco-colapinto-alpine_1440x810.webp?v=1",
+  "razon": "La foto C muestra el auto de competición en pista, lo cual es ideal para ilustrar la nota sobre la largada, sin marcas de agua ni personas.",
+  "cuando": "2026-11-02T02:02:48.436Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en pista durante la competencia."
+  },
+  "huella": "beeb89ad25263309"
  },
  "1b73j19": {
   "archivo": "fotos-notas/1b73j19.jpg",
@@ -66683,7 +66701,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista durante la competencia."
   },
-  "huella": "beeb89ad25263309"
+  "huella": "beeb89ad25263309",
+  "ausenteDesde": "2026-11-02T03:02:15.495Z"
  },
  "7vaigo": {
   "archivo": "fotos-notas/7vaigo.jpg",
@@ -66803,7 +66822,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b5736a48ca4d4d4c"
+  "huella": "b5736a48ca4d4d4c",
+  "ausenteDesde": "2026-11-02T03:02:15.495Z"
  },
  "hantyl": {
   "archivo": "fotos-notas/hantyl.jpg",
@@ -66852,5 +66872,38 @@
    "descripcion": "Jugadores de Boca Juniors celebrando un gol."
   },
   "huella": "6486646864642e2a"
+ },
+ "1vfwv5k": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Sancionan a Franco Colapinto y Pierre Gasly tras el Gran Premio de México",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de TN (Todo Noticias) (un menor); la de Radio Mitre (un menor): no se elige ninguna.",
+  "cuando": "2026-11-02T03:01:46.001Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "ve8uzo": {
+  "archivo": "fotos-notas/ve8uzo.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Stefano Di Carlo cuestiona el arbitraje tras la derrota de River ante Boca",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/el-descargo-de-stefano-di-carlo-tras-la-derrota-de-river-ante-boca-en-el-superclasico-nid01112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/stefano-di-carlo-presidente-de-EXCZVTIXNBBAVD4X5EBM54BH2A.jpeg?auth=1e82ed1aa7297e7830e261a0a28f75f153178d02ea4aabd83ed201d7310ac3c9&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única imagen que muestra a Stefano Di Carlo en una conferencia de prensa clara, sin marcas de agua, sin elementos gráficos sobreimpresos y con buena calidad.",
+  "cuando": "2026-11-02T03:01:46.001Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Stefano Di Carlo hablando en una conferencia de prensa con el logo de River de fondo."
+  },
+  "huella": "d0d87030e8c9c9c9"
  }
 }

@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T02:04:16.846Z",
- "portada": 98,
+ "generado": "2026-11-02T03:02:15.597Z",
+ "portada": 97,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-02T02:04:17.616Z",
+  "generado": "2026-11-02T03:02:16.246Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-11-01T10:36:35.742Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-11-01T12:36:33.426Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,17 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "participa-noticias",
+    "tipo": "reel",
+    "hora": "12:00",
+    "que": "Participá: mandanos noticias",
+    "voz": "locutora",
+    "ventana": 60,
+    "momento": "antes",
     "salio": null
    },
    {
@@ -43,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-11-01T19:36:36.285Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -53,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-11-01T22:36:59.568Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -63,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-11-02T00:36:36.723Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -83,39 +93,60 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "1lxv4y",
+      "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
+      "seccion": "Política"
+     },
+     {
+      "id": "ptf7ku",
+      "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "15hbmuo",
+      "titulo": "Las claves legales para dividir una vivienda tras una separación de pareja",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "5euqdj",
+      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
+      "seccion": "Automovilismo"
+     }
+    ]
    },
    {
     "nombre": "noticia2",
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-11-01T19:36:36.285Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
     "notas": [
      {
-      "id": "1ewmn8c",
-      "titulo": "Marcela Legarreta y los Nuevos Cocineritos abren la Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
+      "id": "1oo88r4",
+      "titulo": "Muere la histórica locutora Marcela Giorgi a los 61 años",
+      "seccion": "Argentina"
      },
      {
-      "id": "1preq",
-      "titulo": "Comercios debhen incluir la Línea 148 en tickets y facturas",
-      "seccion": "Balcarce"
+      "id": "a3w48y",
+      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
+      "seccion": "Política"
      },
      {
-      "id": "1b31p4i",
-      "titulo": "Instalan una pantalla gigante para ver el Superclásico en la Fiesta del Postre",
+      "id": "10br6of",
+      "titulo": "Boca derrota a River por uno a cero y se clasifica a la Copa Libertadores",
       "seccion": "Fútbol"
      },
      {
-      "id": "28qoem",
-      "titulo": "El INTA efectiviza la exoneración de la investigadora Virginia Aparicio",
-      "seccion": "Agro"
+      "id": "k1k0sl",
+      "titulo": "Binance habilita los retiros tras un ciberataque de 6.000 millones",
+      "seccion": "Tecnología"
      }
     ]
    },
@@ -124,61 +155,35 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-11-02T00:36:36.723Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
-      "id": "1jlw2jb",
-      "titulo": "Maximiliano Moreno y Karina Lupo ganan la carrera homenaje a Luis Vildoza",
-      "seccion": "Deportes"
+      "id": "ucd67q",
+      "titulo": "Karina Milei y Jorge Macri supervisan obras para la misa de León XIV",
+      "seccion": "Argentina"
      },
      {
-      "id": "fq3j3n",
-      "titulo": "Amigos Unidos, San Manuel y San Agustín lideran el fútbol femenino local",
+      "id": "16myge3",
+      "titulo": "Milei invita a Villarruel y gobernadores a recibir al papa León XIV",
+      "seccion": "Política"
+     },
+     {
+      "id": "1xkmx44",
+      "titulo": "Arruabarrena minimiza las quejas de River tras el triunfo de Boca",
       "seccion": "Fútbol"
      },
      {
-      "id": "14framj",
-      "titulo": "Valentín Galdón Ritvo finaliza la Fiesta Nacional del Postre",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1qwgpj",
-      "titulo": "Registran granizo y lluvias intensas en la zona rural",
-      "seccion": "Agro"
+      "id": "zvodb",
+      "titulo": "Aumentan las tarifas del transporte público en el AMBA",
+      "seccion": "Economía"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "4iit0x",
-     "titulo": "La karateca balcarceña Kiara Ponce repasa su trayectoria deportiva",
-     "cuando": "2026-11-01T14:36:02.679Z"
-    },
-    {
-     "id": "f6043u",
-     "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
-     "cuando": "2026-11-01T16:36:00.514Z"
-    },
-    {
-     "id": "11fke2d",
-     "titulo": "Luján Amadeo repasa su camino en la música tropical y anticipa nuevos proyectos",
-     "cuando": "2026-11-01T18:36:02.094Z"
-    },
-    {
-     "id": "mkw4t0",
-     "titulo": "Boca y River empatan sin goles en La Bombonera con un expulsado",
-     "cuando": "2026-11-01T20:36:01.926Z"
-    },
-    {
-     "id": "8unkfp",
-     "titulo": "Rocío Espinillo encabeza una clase de pastelería en la Fiesta del Postre",
-     "cuando": "2026-11-01T22:36:02.474Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "1lxv4y",
@@ -193,8 +198,8 @@
      "marcada": false
     },
     {
-     "id": "i1nal0",
-     "titulo": "Kimi Antonelli se consagra campeón de la Fórmula 1 y Colapinto termina octavo",
+     "id": "kef3ub",
+     "titulo": "Franco Colapinto asciende al séptimo puesto en el Gran Premio de México",
      "seccion": "Automovilismo",
      "marcada": false
     },
@@ -211,6 +216,12 @@
      "marcada": false
     },
     {
+     "id": "ve8uzo",
+     "titulo": "Stefano Di Carlo cuestiona el arbitraje tras la derrota de River ante Boca",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "vqyoy3",
      "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
      "seccion": "Argentina",
@@ -221,15 +232,9 @@
      "titulo": "Rodolfo D'Onofrio cuestiona al arbitraje en el Superclásico",
      "seccion": "Fútbol",
      "marcada": false
-    },
-    {
-     "id": "pjoomq",
-     "titulo": "Leonardo Ponzio cuestiona el arbitraje tras la derrota de River ante Boca",
-     "seccion": "Fútbol",
-     "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-11-02T00:06:02.474Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
