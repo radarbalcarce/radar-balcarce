@@ -77,9 +77,10 @@ async function transcribir(m) {
     if (!info?.ok) throw new Error(`getFile: ${info?.description ?? 'sin respuesta'}`);
     const bajada = await fetch(`https://api.telegram.org/file/bot${token}/${info.result.file_path}`);
     if (!bajada.ok) throw new Error(`descarga del audio: ${bajada.status}`);
-    const audio = await bajada.blob();
+    // Telegram guarda la voz como Ogg Opus con extensión .oga, que Groq no reconoce: se manda como .ogg (2/11).
+    const audio = new Blob([await bajada.arrayBuffer()], { type: 'audio/ogg' });
     const form = new FormData();
-    form.append('file', audio, path.basename(info.result.file_path) || 'audio.ogg');
+    form.append('file', audio, 'audio.ogg');
     form.append('model', 'whisper-large-v3');
     form.append('language', 'es');
     form.append('response_format', 'json');
