@@ -2230,18 +2230,18 @@
   "2026-11-02": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 11,
+     "llamadas": 12,
      "errores": 6,
-     "entrada": 11308,
-     "salida": 5009,
+     "entrada": 13632,
+     "salida": 6108,
      "pensamiento": 0,
-     "total": 16317,
+     "total": 19740,
      "claves": {
-      "clasificacion": 11
+      "clasificacion": 12
      },
      "motivos": {
       "clasificacion": {
-       "ok": 5,
+       "ok": 6,
        "cupo-diario": 6
       }
      }
@@ -2265,19 +2265,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 16,
+     "llamadas": 19,
      "errores": 10,
-     "entrada": 75072,
-     "salida": 1289,
+     "entrada": 105327,
+     "salida": 1402,
      "pensamiento": 0,
-     "total": 76361,
+     "total": 106729,
      "claves": {
-      "clasificacion": 16
+      "clasificacion": 19
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 6
+       "ok": 9
       }
      }
     },
@@ -2316,19 +2316,19 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 44,
+     "llamadas": 45,
      "errores": 29,
-     "entrada": 86024,
-     "salida": 15980,
+     "entrada": 93195,
+     "salida": 17492,
      "pensamiento": 0,
-     "total": 102004,
+     "total": 110687,
      "claves": {
-      "redaccion": 44
+      "redaccion": 45
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 29,
-       "ok": 15
+       "ok": 16
       }
      }
     },
@@ -2351,19 +2351,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 26,
+     "llamadas": 27,
      "errores": 20,
-     "entrada": 35893,
-     "salida": 2986,
+     "entrada": 40585,
+     "salida": 3355,
      "pensamiento": 0,
-     "total": 38879,
+     "total": 43940,
      "claves": {
-      "clasificacion": 26
+      "clasificacion": 27
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 20,
-       "ok": 6
+       "ok": 7
       }
      }
     },
