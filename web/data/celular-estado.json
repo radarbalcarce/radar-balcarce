@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T18:33:46.063Z",
- "portada": 133,
+ "generado": "2026-11-02T19:04:02.709Z",
+ "portada": 135,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-02T18:33:46.390Z",
+  "generado": "2026-11-02T19:04:03.046Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -54,7 +54,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T18:36:57.147Z"
    },
    {
     "nombre": "farmacia",
@@ -125,8 +125,8 @@
     "hora": "15:00",
     "voz": "locutora",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 46,
+    "salio": "2026-11-02T18:36:57.147Z",
+    "segundos": null,
     "notas": [
      {
       "id": "n8it0h",
@@ -134,14 +134,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "17muzmq",
+      "titulo": "Convocan a una caravana hacia el INTA Balcarce en apoyo a Virginia Aparicio",
+      "seccion": "Política"
+     },
+     {
       "id": "3jhnaf",
       "titulo": "Laura Bondar y Franco Coria llegan a la final del Pre Cosquín",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "fcz7oa",
-      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
-      "seccion": "Automovilismo"
      },
      {
       "id": "1ktheso",
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 45,
     "notas": [
+     {
+      "id": "1tlgl2r",
+      "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
+      "seccion": "Deportes"
+     },
      {
       "id": "ccpclt",
       "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
       "seccion": "Balcarce"
      },
      {
-      "id": "ptf7ku",
-      "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
-      "seccion": "Cultura y agenda"
+      "id": "fcz7oa",
+      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
+      "seccion": "Automovilismo"
      },
      {
       "id": "1ehv38o",
       "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
       "seccion": "Política"
-     },
-     {
-      "id": "156rfnc",
-      "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
-      "seccion": "Fútbol"
      }
     ]
    }
@@ -203,13 +203,18 @@
      "id": "sclfp3",
      "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
      "cuando": "2026-11-02T16:36:00.701Z"
+    },
+    {
+     "id": "n8it0h",
+     "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
+     "cuando": "2026-11-02T18:36:02.092Z"
     }
    ],
    "cola": [
     {
-     "id": "n8it0h",
-     "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
-     "seccion": "Balcarce",
+     "id": "1tlgl2r",
+     "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
@@ -231,6 +236,12 @@
      "marcada": false
     },
     {
+     "id": "1u2bbai",
+     "titulo": "Juana Benítez confirma la Estudiantina 2027 y anticipa un nuevo formato",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "voie14",
      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
      "seccion": "Balcarce",
@@ -247,16 +258,10 @@
      "titulo": "Quince estados de Estados Unidos apoyan a los demandantes en el juicio por YPF",
      "seccion": "Economía",
      "marcada": false
-    },
-    {
-     "id": "1nfx86s",
-     "titulo": "Valentín Yankelevich gana su primera carrera en el TC2000 en Río Negro",
-     "seccion": "Automovilismo",
-     "marcada": false
     }
    ],
-   "cupo": 1,
-   "proximoDesde": "2026-11-02T18:06:00.701Z",
+   "cupo": 0,
+   "proximoDesde": "2026-11-02T20:06:02.092Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,

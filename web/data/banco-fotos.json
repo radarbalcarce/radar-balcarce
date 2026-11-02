@@ -57664,7 +57664,8 @@
    "descripcion": "Retrato de Juan Bodega, con su logo en la campera, siendo entrevistado con un micrófono de radio.",
    "detalle": "El logo 'Juan Bodega' y el cubo del micrófono 'LDR 94.9' son parte de la escena real, no marcas del medio."
   },
-  "huella": "4464647571585931"
+  "huella": "4464647571585931",
+  "ausenteDesde": "2026-11-02T19:04:02.640Z"
  },
  "6ova04": {
   "archivo": "fotos-notas/6ova04.jpg",
@@ -58526,7 +58527,8 @@
    "corresponde": "si",
    "descripcion": "Retrato del subsecretario de Ciencia y Tecnología."
   },
-  "huella": "32313331f0b1f0f0"
+  "huella": "32313331f0b1f0f0",
+  "ausenteDesde": "2026-11-02T19:04:02.640Z"
  },
  "exat71": {
   "archivo": "fotos-notas/exat71.webp",
@@ -58550,7 +58552,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo un celular con la aplicación Cuenta DNI abierta."
   },
-  "huella": "bf981b77eecf87b8"
+  "huella": "bf981b77eecf87b8",
+  "ausenteDesde": "2026-11-02T19:04:02.640Z"
  },
  "qgsuzv": {
   "archivo": "fotos-notas/qgsuzv.jpg",
@@ -69381,10 +69384,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Noviembre suma varios días sin atención bancaria en el país",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos para ilustrar la nota sobre falta de atención bancaria de forma adecuada y limpia de marcas o problemas de contenido.",
-  "cuando": "2026-11-02T17:04:50.138Z",
-  "intentos": 1,
-  "fuentes": 4
+  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua o sin problemas de correspondencia y contenido.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "intentos": 2,
+  "fuentes": 7
  },
  "222bza": {
   "archivo": "fotos-notas/222bza.jpg",
@@ -69563,21 +69566,34 @@
   "origen": "ninguna",
   "titulo": "Boca vence a River y los medios internacionales reflejan el superclásico",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
-  "cuando": "2026-11-02T17:40:36.926Z",
+  "cuando": "2026-11-02T19:02:15.210Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "3jhnaf": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3jhnaf.jpg",
+  "medio": "Puntonueve (FM 100.9)",
+  "credito": "Foto: Puntonueve (FM 100.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Laura Bondar y Franco Coria llegan a la final del Pre Cosquín",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-02T17:40:36.926Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://puntonueve.com.ar/laura-bondar-y-franco-coria-clasificaron-a-la-final-nacional-para-llegar-al-festival-de-cosquin/",
+  "imagenOriginal": "https://puntonueve.com.ar/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-02-at-11.18.42-AM.jpeg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y contenido sin marcas ni menores.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Laura Bondar y Franco Coria actuando en el escenario del Pre Cosquín"
+  },
+  "huella": "2323233b4dc9486e"
  },
  "1u2bbai": {
   "intentado": true,
@@ -69795,5 +69811,92 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "2496368a64232b27"
+ },
+ "fp5729": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Concejal pide controles viales por maniobras peligrosas de ciclistas",
+  "razon": "La única foto disponible no corresponde al hecho de la nota, ya que muestra a un hombre adulto hablando frente a un micrófono y no aborda la problemática vial de los ciclistas.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1lmrvxs": {
+  "archivo": "fotos-notas/1lmrvxs.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Hache y Yellowrose se unen para competir en Tortugas y Palermo",
+  "enlace": "https://radiomitre.cienradios.com/deportes/la-hache-y-yellowrose-unen-fuerzas-para-competir-en-la-final-de-los-abiertos-de-tortugas-y-palermo/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/CODVZSIM3JAYZOLHL3U3PJWLGQ.png?smart=true&auth=f82fe18faacd8953e0b08aa96fe77e94545958d7c39f75747fee8c0aa033dfc9&width=1200&height=630",
+  "razon": "La foto B muestra claramente a los jugadores de polo en acción con buena calidad y sin marcas de agua agregadas por el medio.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Yellowrose a caballo en primer plano."
+  },
+  "huella": "0001c3a6d7cd9972"
+ },
+ "1tlgl2r": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
+  "razon": "No hay ninguna foto elegible porque todas contienen menores de edad reconocibles.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "2mivab": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El dólar oficial sube 5 pesos y alcanza el valor del blue",
+  "razon": "La mejor foto era la de TN (Todo Noticias), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "intentos": 1,
+  "fuentes": 25
+ },
+ "1ox7bm8": {
+  "archivo": "fotos-notas/1ox7bm8.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "SUTEBA Balcarce denuncia agresiones contra autoridades educativas",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45228-suteba-balcarce-denuncio-un-episodio-de-violencia-contra-docentes-y-pidio-garantizar-la-seguridad-en-las-escuelas/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66202.png",
+  "razon": "La foto C muestra claramente a las autoridades educativas de SUTEBA Balcarce en conferencia de prensa, ilustrando de manera precisa y formal la denuncia realizada.",
+  "cuando": "2026-11-02T19:02:15.210Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Autoridades educativas de SUTEBA Balcarce sentadas en conferencia de prensa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Cuatro personas sentadas en una mesa con documentos y banderas sindicales al fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "87e7eeedc4c5c383"
  }
 }
