@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T13:33:41.501Z",
- "portada": 97,
+ "generado": "2026-11-02T14:12:08.153Z",
+ "portada": 104,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-02T13:33:41.936Z",
+  "generado": "2026-11-02T14:12:08.674Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T10:36:54.265Z"
    },
    {
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T13:38:41.648Z"
    },
    {
     "nombre": "noticia1",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
      {
       "id": "1xd0of",
@@ -103,8 +103,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "v7e3ft",
-      "titulo": "Habilitan el padrón provisorio para las elecciones nacionales de 2027",
+      "id": "n8it0h",
+      "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
       "seccion": "Balcarce"
      },
      {
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
       "id": "brwvwb",
@@ -165,14 +165,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
-      "seccion": "Política"
-     },
-     {
       "id": "cwdhlo",
       "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
       "seccion": "Policiales"
+     },
+     {
+      "id": "ac9g31",
+      "titulo": "Javier Milei defiende a Santiago Maratea tras su cruce con la China Ansa en la TV",
+      "seccion": "Política"
      },
      {
       "id": "156rfnc",
@@ -197,6 +197,12 @@
    ],
    "cola": [
     {
+     "id": "n8it0h",
+     "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "l8eclr",
      "titulo": "Cortan el suministro eléctrico en Balcarce el martes por tareas en redes",
      "seccion": "Balcarce",
@@ -206,6 +212,12 @@
      "id": "7pci65",
      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
      "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
+     "id": "1nfx86s",
+     "titulo": "Valentín Yankelevich gana su primera carrera en el TC2000 en Río Negro",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
