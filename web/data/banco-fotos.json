@@ -69579,11 +69579,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca vence a River y los medios internacionales reflejan el superclásico",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
-  "cuando": "2026-11-02T19:02:15.210Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 2
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de Bolavip Argentina (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-11-02T21:02:30.167Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "3jhnaf": {
   "archivo": "fotos-notas/3jhnaf.jpg",
@@ -69831,10 +69830,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Concejal pide controles viales por maniobras peligrosas de ciclistas",
-  "razon": "La única foto disponible no corresponde al hecho de la nota, ya que muestra a un hombre adulto hablando frente a un micrófono y no aborda la problemática vial de los ciclistas.",
-  "cuando": "2026-11-02T19:02:15.210Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ninguna de las fotos corresponde a la nota, ya que ambas muestran a una persona hablando en una entrevista o conferencia, lo cual no ilustra el hecho de los controles viales o las maniobras de ciclistas.",
+  "cuando": "2026-11-02T21:02:30.167Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1lmrvxs": {
   "archivo": "fotos-notas/1lmrvxs.jpg",
@@ -70260,5 +70259,29 @@
   "cuando": "2026-11-02T20:33:53.995Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "1i24cq9": {
+  "archivo": "fotos-notas/1i24cq9.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mar de Cobo celebra la 19.ª Fiesta Provincial del Cordero Costero",
+  "enlace": "https://www.lanacion.com.ar/que-sale/fiesta-del-cordero-costero-2026-en-mar-de-cobo-cuando-es-que-comer-y-que-artistas-se-presentan-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/gentilezafiesta-del-cordero-OPYXRQ2DVVCS7KL3XJVHIM5JOY.jpeg?auth=ea4dfaa7204bdfd3734f8a8c549e489bfb003d6efdb672960bb08d6fb762bd29&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra el elemento central del evento (el cordero) sin personas, cumpliendo con los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-02T21:02:30.167Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Corderos a la estaca cocinándose al fuego."
+  },
+  "huella": "f5d3d54c4e8a8552"
  }
 }

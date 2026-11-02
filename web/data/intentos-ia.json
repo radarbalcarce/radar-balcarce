@@ -1864,6 +1864,21 @@
   "textos": 6,
   "numeradas": 8
  },
+ "19xiq2": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T21:01:54.360Z",
+  "motivo": "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 244 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, promesa): el cuerpo nombra a \"santiago\" y",
+   "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
+  ],
+  "falla": [
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el título dice 15 y el cuerpo no lo explica"
+  ]
+ },
  "1a150ug": {
   "intentos": 1,
   "ultimo": "2026-10-30T04:01:59.215Z",
@@ -3621,8 +3636,8 @@
   "numeradas": 2
  },
  "1ifdg1a": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T20:31:54.719Z",
+  "intentos": 2,
+  "ultimo": "2026-11-02T21:01:54.360Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -4321,13 +4336,14 @@
   "numeradas": 4
  },
  "1ln3l9x": {
-  "intentos": 1,
-  "ultimo": "2026-11-02T20:31:54.719Z",
-  "motivo": "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)",
+  "intentos": 2,
+  "ultimo": "2026-11-02T21:01:54.360Z",
+  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
-   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
+   "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t",
+   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
   ]
  },
  "1lo59nl": {
@@ -8716,17 +8732,22 @@
   "numeradas": 2
  },
  "8qigr8": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T20:03:32.686Z",
-  "motivo": "cuerpo: 1 problema (antecedente): el cuerpo usa \"franco\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 67 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-02T21:01:54.360Z",
+  "motivo": "título o bajada: 2 problemas (antecedente, nombre): el copete usa \"franco\", que sale de una nota anterior, como si fuera de hoy",
   "textos": 0,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (antecedente): el copete usa \"franco\", que",
-   "cuerpo: 1 problema (antecedente): el cuerpo usa \"franco\", que sale de "
+   "cuerpo: 1 problema (antecedente): el cuerpo usa \"franco\", que sale de ",
+   "título o bajada: 1 problema (antecedente): el copete usa \"franco\", que",
+   "título o bajada: 2 problemas (antecedente, nombre): el copete usa \"fra"
   ],
   "falla": [
-   "el cuerpo usa \"franco\", que sale de una nota anterior, como si fuera de hoy"
+   "el copete usa \"franco\", que sale de una nota anterior, como si fuera de hoy",
+   "el copete nombra a \"rosas\" y la fuente no",
+   "el cuerpo usa \"franco\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa 4, que sale de una nota anterior, como si fuera de hoy"
   ]
  },
  "8rowed": {

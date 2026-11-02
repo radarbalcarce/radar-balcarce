@@ -2230,18 +2230,18 @@
   "2026-11-02": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 56,
+     "llamadas": 58,
      "errores": 11,
-     "entrada": 107894,
-     "salida": 47366,
+     "entrada": 113357,
+     "salida": 49951,
      "pensamiento": 0,
-     "total": 155260,
+     "total": 163308,
      "claves": {
-      "clasificacion": 56
+      "clasificacion": 58
      },
      "motivos": {
       "clasificacion": {
-       "ok": 45,
+       "ok": 47,
        "cupo-diario": 8,
        "otro": 2,
        "saturado": 1
@@ -2267,90 +2267,90 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 76,
-     "errores": 16,
-     "entrada": 695633,
-     "salida": 7143,
+     "llamadas": 79,
+     "errores": 17,
+     "entrada": 731529,
+     "salida": 7190,
      "pensamiento": 0,
-     "total": 702776,
+     "total": 738719,
      "claves": {
-      "clasificacion": 76
+      "clasificacion": 79
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 13,
-       "ok": 60,
+       "cupo-diario": 14,
+       "ok": 62,
        "saturado": 3
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 20,
+     "llamadas": 21,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 21
      },
      "motivos": {
       "clasificacion": {
-       "ok": 20
+       "ok": 21
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 7,
-     "errores": 7,
+     "llamadas": 8,
+     "errores": 8,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 7
+      "groq": 8
      },
      "motivos": {
       "groq": {
-       "otro": 7
+       "otro": 8
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 276,
-     "errores": 49,
-     "entrada": 1295178,
-     "salida": 240061,
+     "llamadas": 281,
+     "errores": 52,
+     "entrada": 1302518,
+     "salida": 241351,
      "pensamiento": 0,
-     "total": 1535239,
+     "total": 1543869,
      "claves": {
-      "redaccion": 276
+      "redaccion": 281
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 42,
-       "ok": 227,
+       "cupo-diario": 45,
+       "ok": 229,
        "velocidad": 2,
        "saturado": 5
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 48,
+     "llamadas": 51,
      "errores": 5,
-     "entrada": 254355,
-     "salida": 47672,
+     "entrada": 270433,
+     "salida": 50768,
      "pensamiento": 0,
-     "total": 302027,
+     "total": 321201,
      "claves": {
-      "redaccion": 47,
+      "redaccion": 50,
       "respaldo": 1
      },
      "motivos": {
       "redaccion": {
-       "ok": 43,
+       "ok": 46,
        "saturado": 4
       },
       "respaldo": {
@@ -2377,55 +2377,55 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 168,
-     "errores": 39,
-     "entrada": 651803,
-     "salida": 49877,
+     "llamadas": 171,
+     "errores": 41,
+     "entrada": 655382,
+     "salida": 50177,
      "pensamiento": 0,
-     "total": 701680,
+     "total": 705559,
      "claves": {
-      "clasificacion": 168
+      "clasificacion": 171
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 31,
-       "ok": 129,
+       "cupo-diario": 33,
+       "ok": 130,
        "otro": 5,
        "saturado": 3
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 31,
+     "llamadas": 33,
      "errores": 2,
-     "entrada": 167783,
-     "salida": 13779,
+     "entrada": 174942,
+     "salida": 14304,
      "pensamiento": 0,
-     "total": 181562,
+     "total": 189246,
      "claves": {
-      "clasificacion": 31
+      "clasificacion": 33
      },
      "motivos": {
       "clasificacion": {
-       "ok": 29,
+       "ok": 31,
        "otro": 1,
        "saturado": 1
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 51,
+     "llamadas": 52,
      "errores": 16,
-     "entrada": 55072,
-     "salida": 3917,
+     "entrada": 57189,
+     "salida": 4013,
      "pensamiento": 0,
-     "total": 58989,
+     "total": 61202,
      "claves": {
-      "groq": 51
+      "groq": 52
      },
      "motivos": {
       "groq": {
-       "ok": 35,
+       "ok": 36,
        "cupo-diario": 9,
        "velocidad": 6,
        "otro": 1
