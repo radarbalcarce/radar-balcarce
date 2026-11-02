@@ -445,3 +445,24 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 | Respaldos cuando Gemini falla | se decide en la limpieza de claves; hoy existen Groq y Mistral gratis | — | gratis |
 | Construir la 3.0 (Claude Code) | el grande orquesta y decide; `haiku` busca y mide; `sonnet` código de rutina y revisión | la PC | tokens de la suscripción |
 
+**Sumado el 2/11** (Hernán, a la mañana):
+
+- **Publicidad: aparece el primer comercio local** que quiere pautar. La política general está en `PUBLICIDAD.md`; la aplicación a
+  este caso (paquete de lanzamiento de unos $ 5.000 por mes con aviso, nota rotulada «Emprendedores de Balcarce · espacio
+  patrocinado», historia con voz y un plus de marketing básico; cuestionario estándar de 10 preguntas; qué pedirles; media kit de una
+  carilla sin cifras de audiencia hasta limpiarlas de robots) está en `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`. **En la 3.0** el
+  módulo de avisos vive en D1: imagen, enlace, fechas, **rotación** (ningún comercio compra un lugar fijo: Hernán), cuántas veces se
+  mostró y se tocó cada aviso, pestaña en `/admin` para cargarlos y ver los números, página `/publicidad` con el media kit, y la serie
+  «Emprendedores de Balcarce» como tipo de nota con su rótulo. El mix de avisos locales, de los emprendimientos propios y, si algún día
+  se abre, de una red publicitaria, se decide con los números de los primeros meses.
+- **YouTube por API, los tiempos:** la auditoría de cumplimiento y el pedido de más cupo tardan de una a varias semanas y pueden pedir
+  aclaraciones; no frenan nada. Se piden apenas se crea el proyecto, **se sigue con Buffer mientras tanto** y se cambia cuando aprueben;
+  si no aprueban, YouTube se queda en Buffer y listo (Hernán, 2/11).
+- **Formatos compartidos entre redes:** `redes/piezas/` arma cada pieza una sola vez y cada red toma la que le sirve. El reel vertical
+  (9:16, con voz) es el mismo para Facebook, Instagram, TikTok, Shorts, X, Threads, Bluesky y el canal de Telegram; la imagen de nota
+  cuadrada (1:1) sirve para el posteo de Facebook e Instagram y para X, Threads, Bluesky y Telegram; la vertical (9:16, sin voz) es la
+  historia y la tarjeta; el carrusel son las mismas fotos achicadas al tamaño de cada red (20 en Instagram, 4 en X y Bluesky, álbum en
+  Facebook y Telegram). La tabla «Formatos por red» de arriba dice qué toma cada una.
+- **Bluesky y Threads:** Hernán crea las cuentas (Bluesky nueva; Threads ya existe con la cuenta de Instagram) con `radarbalcarce@gmail.com`.
+  Para publicar hacen falta: en Bluesky, una «contraseña de aplicación» generada en la configuración de la cuenta; en Threads, el permiso
+  de la misma app de Meta. Van como secretos del Worker de redes, nunca en el chat.
