@@ -20,3 +20,18 @@ jobs:
             v="${!n}"
             if [ -z "$v" ]; then echo "$n: (vacía)"; else echo "$n: largo ${#v}, termina en ...${v: -4}"; fi
           done
+      # Prueba mínima de saldo (2/11): un pedido de texto de una palabra con cada clave (centésimos de centavo) y la lista de voces
+      # propias del proyecto de la clave de voces (gratis). Imprime sólo el código HTTP y los identificadores de voz.
+      - name: Saldo y voces
+        run: |
+          for n in GEMINI_API_KEY_REDACCION GEMINI_API_KEY_RESPALDO GEMINI_API_KEY_REDES; do
+            v="${!n}"; [ -z "$v" ] && continue
+            c=$(curl -s -o /tmp/r.json -w '%{http_code}' -H "x-goog-api-key: $v" -H 'content-type: application/json' \
+              -d '{"contents":[{"parts":[{"text":"Decí sólo: ok"}]}],"generationConfig":{"maxOutputTokens":5}}' \
+              https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent)
+            echo "$n texto: HTTP $c $(grep -o '"message": *"[^"]*"' /tmp/r.json | head -1)"
+          done
+          c=$(curl -s -o /tmp/v.json -w '%{http_code}' -H "x-goog-api-key: $GEMINI_API_KEY_REDES" \
+            'https://generativelanguage.googleapis.com/v1beta/voices?page_size=100')
+          echo "Voces del proyecto de la clave de voces: HTTP $c"
+          grep -o '"id": *"voice_[a-z0-9]*"' /tmp/v.json || grep -o '"name": *"voices/[^"]*"' /tmp/v.json || head -c 300 /tmp/v.json
