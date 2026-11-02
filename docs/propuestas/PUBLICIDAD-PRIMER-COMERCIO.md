@@ -31,12 +31,11 @@ dos o tres vendidos; **lo que no se hace es regalar el espacio del clima**, que 
 | **Historia con voz** sobre la nota, en Facebook e Instagram | — | sí | sí |
 | Posteos con una promoción que ellos manden | — | 1 por mes | 2 por mes |
 | **«El clima de hoy, con [comercio]»**: mención con voz en los dos reels diarios del clima y en la nota del clima | — | — | sí, el mes entero |
-| Nombre, dirección y enlace en la guía de comercios del sitio (3.0) | sí | sí | sí |
-| Los números del mes (cuántos vieron y tocaron el aviso; 3.0) | — | sí | sí |
 
-**Lanzamiento (propuesta, decidir):** los **primeros tres comercios** llevan «Destacado» al precio de «Presencia» ($ 5.000) el primer
-mes, y de ahí en más pagan lo que elijan. Así el primero, que ya está preguntando, se lleva aviso en el mejor lugar, nota e historia con
-voz por $ 5.000, que es lo que Hernán tenía en la cabeza.
+**Lanzamiento (Hernán, 2/11):** el **primer comercio** lleva «Destacado» **más la mención en el clima** de «Auspicio» por $ 5.000 el
+primer mes: aviso junto al clima, la nota, la historia con voz y su nombre en la voz del clima mañana y noche. Después paga lo que
+elija. **Números, ninguno**: ni de audiencia en el media kit ni «los números del mes» al anunciante («sería medio lamentable mostrar
+nuestros números»); cuando la 3.0 los mida bien, se vuelve a pensar.
 
 Lo que **no** se ofrece, a conciencia (Hernán, 2/11): servicios de marketing para el comercio (revisar sus redes, hacerle imágenes).
 Nos quedamos con lo nuestro: la web y nuestras redes.
@@ -71,12 +70,31 @@ audio o video con el dueño, si se anima.
 
 ## 5. El media kit
 
-Está en `docs/propuestas/MEDIA-KIT-2026-11.html`: una carilla con qué es Radar Balcarce, qué publica por día, dónde aparece el
-anunciante, los tres combos, el lanzamiento, las reglas y el contacto (WhatsApp 2266 51-1612; **probar que `publicidad@radarbalcarce.com`
-llegue** antes de ponerlo). Sin cifras de audiencia hasta que estén limpias (§ 1). Se abre en el navegador y se imprime a PDF para
-mandarlo por WhatsApp. En la 3.0 es la página `/publicidad`.
+Es el PDF `docs/propuestas/MEDIA-KIT-2026-11.pdf` (tres carillas, se arma desde `MEDIA-KIT-2026-11.html` con Chrome sin ventana;
+las capturas del sitio, en `docs/propuestas/media-kit/`). Lo que Hernán pidió el 2/11 después de ver la primera versión: la marca y la
+impronta del sitio (tipografías y colores de la web), **capturas reales de la portada con el lugar del aviso marcado** (celular y
+computadora), las redes nombradas **una sola vez**, los combos sin decir «tres», **el mejor al precio más bajo** como oferta de
+lanzamiento, **sin cifras**, y sin nada que no esté decidido (reglas de rubros, «espacio publicitario», permanencia, guía de comercios).
+Es el **kit genérico**; para cada comercio se arma uno a partir de su ficha (§ 6). En la 3.0 es la página `/publicidad`.
 
-## 6. Qué falta decidir
+## 6. La ficha estándar del anunciante (Hernán, 2/11: «te paso el link y vos investigás»)
+
+Hernán manda el enlace del Instagram (o la página, o el Facebook) del comercio, por acá o, en la 3.0, por Telegram. Claude mira lo
+público desde el Chrome de Radar (nunca otro) y deja en `docs/propuestas/anunciantes/<comercio>.md` una ficha con cinco partes:
+
+1. **Quiénes son**: qué hacen, dónde, desde cuándo si se ve, seguidores, cada cuánto publican y qué (reels, fotos, texto), qué otras redes
+   o página tienen, qué marca tienen (logo, colores, cartel).
+2. **Qué fotos pedirles**: las cinco o seis mejores que se ven en su perfil, descritas, para que manden las originales (no se bajan de
+   Instagram). **Nunca una foto con la cara de un chico** en lo nuestro, aunque ellos la publiquen; en la nota no se nombra a ningún chico.
+3. **El aviso**: nombre, texto de una línea, enlace, y la mención de voz si es Auspicio.
+4. **La prenota**: título y bajada tentativos y lo que ya se puede contar porque es público; lo demás sale del cuestionario.
+5. **Qué mandarles**: media kit, lista de material y cuestionario.
+
+La primera: `anunciantes/sweet-candy-bar.md`. Cuando la 3.0 esté, el bot de Telegram puede recibir el enlace y devolver la ficha (es un
+pedido más a la IA, como la nota propia); mientras tanto se hace en la PC, por el chat. **Marketing para el comercio, no**: la ficha es
+para armar lo nuestro (aviso, nota, piezas), no para devolverles consejos.
+
+## 7. Qué falta decidir
 
 1. Si el lanzamiento es para los primeros tres comercios o sólo para el primero (§ 2).
 2. El nombre del comercio que preguntó, para mandarle el media kit y la lista del § 3 cuando la 3.0 esté por salir.

@@ -483,3 +483,42 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   las cuentas son los de hoy. **No hay que sacar nada todavía**: la limpieza de claves y recursos se hace en el corte, con la lista.
   Lo que no necesita la clave y arranca primero: el esqueleto de `v3/` (núcleo, sitio, redes, redacción, vigilancia), el esquema de D1,
   la lectura de fuentes, la huella con Workers AI y su calibración con 200 pares.
+
+**Sumado el 2/11, tercera parte** (Hernán, a lo largo del día; relevamiento de las reglas de voz y de tapa hecho ese día):
+
+- **Publicidad, lo que cambió después de ver el primer media kit:** el kit es un PDF con la marca del sitio y capturas reales de la
+  portada con el lugar del aviso marcado; las redes se nombran una sola vez; **sin cifras de audiencia ni «números del mes» al
+  anunciante**; nada que no esté decidido (rubros vedados, rótulo «espacio publicitario», patrocinio en Política y Policiales: se evalúa
+  si llega, `PUBLICIDAD.md` corregido). **Lanzamiento: el primer comercio lleva Destacado más la mención en la voz del clima por $ 5.000 el
+  primer mes.** La **ficha estándar del anunciante** (Hernán manda el enlace, Claude mira lo público desde el Chrome de Radar y deja la
+  ficha con quiénes son, qué fotos pedir, el aviso, la prenota y qué mandarles) está en `PUBLICIDAD-PRIMER-COMERCIO.md` § 6; la primera,
+  **Sweet Candy Bar** (`docs/propuestas/anunciantes/sweet-candy-bar.md`). En la 3.0 el bot de Telegram recibe el enlace y devuelve la ficha.
+- **Guía comercial: hay que armarla**, como parte relevante de Radar (Hernán, 2/11). Hoy no existe (`comercial/` está dormido y vacío de
+  datos). En la 3.0: cada anunciante entra solo; los demás comercios, por carga desde el admin o desde la ficha; con rubro, dirección,
+  horarios, WhatsApp y foto; página `/comercios` y un bloque en la nota propia sobre un comercio. Se decide cuándo en el orden de etapas.
+- **Autopublicidad:** en algún momento, una campaña propia («Radar Balcarce está abierto a publicidad, precios muy económicos») en la web,
+  las redes y la voz, con el media kit genérico como respuesta estándar. Se arma después del primer comercio, con lo aprendido.
+- **Redes en la 3.0, lo que Hernán pide (2/11):** estandarizar todo, **mejor calidad visual**, más dinámico y más convocante. En particular
+  las piezas de **Participá** (hoy tres: Tu evento, Tu reclamo, Tu nota; más Participá general): tienen que invitar de verdad a que la
+  gente mande su novedad, su reclamo o lo que vio en la calle, con ejemplos nuestros («vieron esto en la calle, nos lo mandaron, hicimos
+  la nota»), y ser más que tres si hace falta. El canal de entrada es WhatsApp y, en la 3.0, el bot.
+- **Las voces, lo que hay hoy** (relevamiento del 2/11 sobre `CRITERIO-REDES.md`, `redes/guiones.mjs`, `reels/plan.mjs`): la regla «de
+  corrido, como una sola transmisión del día» **nunca se escribió**; lo que existe y se cumple es «saludo por franja con memoria» (8/10 y
+  regla 301): la primera pieza de cada franja (mañana, tarde, noche) saluda según la hora real, las que salen dentro de los 150 minutos
+  siguientes empiezan con un puente o un gancho de continuidad, y todas cierran con el deseo de la franja y la misma firma. Por eso a las
+  7 saluda, a las 9 no, a las 10 vuelve a saludar (pasaron 180 minutos), a las 15 «buenas tardes», a las 19 saluda, a las 20 y 21 no. Hay
+  dos bancos de saludos duplicados (feriado y Participá) y una línea vieja en `CRITERIO-REDES.md` § 3 («No lleva nunca: Política ni
+  Policiales») que contradice la R40. **Para decidir, Hernán:** (a) dejar el saludo por franja como está, o (b) saludar sólo en la primera
+  pieza de la mañana y en la primera de la noche y que el resto del día sea continuidad. En la 3.0, un solo banco de saludos y puentes en
+  `redes/piezas/`, y la decisión escrita en el `REGLAS.md` de voz.
+- **Qué no va a la tapa de las redes (la muerte de un chico en el repaso):** el caso es real: la nota «Un niño de dos años muere tras caer
+  a una pileta» (28/10, de Balcarce, 1 medio) **abrió** el repaso de las 21 de ese día (Instagram, reel DfD5bAYgSx-). Pasó porque hoy
+  **no existe ningún filtro de tono para redes**: a redes sólo no va lo rojo, lo sin cuerpo y lo propio; el amarillo (niño, bebé, murió) se
+  suelta entero para lo de Balcarce (regla 291) y el repaso ordena por Balcarce primero y relevancia, sin mirar de qué se trata. Tampoco
+  hay preferencia por lo que la gente festeja (una detención, un logro). **Propuesta, para que Hernán diga sí:** una compuerta de tono
+  **sólo para redes** (la web no cambia; el rojo no se toca): no entra a ningún repaso, posteo ni historia la muerte de un menor o un bebé,
+  ni un accidente o una enfermedad con un chico muerto o grave, ni un suicidio, ni una tragedia familiar de acá; y en el orden del repaso,
+  lo de Balcarce que es bueno o resuelto (detuvieron, recuperaron, inauguraron, ganaron, se hizo) va antes que lo trágico. Se escribe en
+  `CRITERIO-REDES.md` como regla nueva con la prueba del caso real (nota 8s2k9s). **Se puede hacer ya en la 2.0** (`sePuedeEnUnRepaso` y el
+  orden de `elegirParaPodcast`, `redes/elegir.mjs`) y pasa igual a la 3.0. Tono general que pide Hernán: serio pero simpático, «de centro
+  o centro-derecha», un medio donde también se festejan cosas; va al `PERFIL.md`.

@@ -49,10 +49,12 @@ la PC, que se retiró sin haberse usado.
 - Quietos: no parpadean, no se expanden, no persiguen el scroll.
 - Grises y con letra chica. **Nunca el rojo de la marca**: si el aviso se ve igual
   que una nota, la gente deja de distinguir qué es qué.
-- Dicen "Espacio publicitario" arriba, siempre.
-- Texto y un logo, no imágenes pesadas.
-- Nunca: ventanas emergentes, videos que arrancan solos, avisos de apuestas o de
-  préstamos.
+- Texto y un logo, no imágenes pesadas (en la 3.0, imagen chica y enlace).
+- Nunca: ventanas emergentes ni videos que arrancan solos.
+- **Lo que no está decidido, se evalúa cuando llegue** (Hernán, 2/11/2026): el rótulo
+  «Espacio publicitario», qué rubros no se aceptan (apuestas, préstamos) y si Política y
+  Policiales llevan patrocinio **no son reglas**: «somos un medio local, no tenemos mucho
+  impedimento con ese tipo de cuestiones»; si llega un aviso así, se mira ese caso.
 - **La nota «Emprendedores de Balcarce»** que acompaña a un anunciante es una nota de
   redacción firmada por Hernán: cuenta quiénes son y qué hacen, con lo que ellos dicen
   entre comillas y como dicho por ellos, sin inventar nada. **Va sin rótulo de
@@ -60,9 +62,11 @@ la PC, que se retiró sin haberse usado.
   lo es. Lo que se escribe sobre un anunciante **en las noticias** sigue el mismo
   criterio que sobre cualquier otro: un aviso no cambia una noticia.
 - **Los precios** (2/11/2026): tres combos, $ 5.000, $ 10.000 y $ 15.000 por mes, en
-  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`; el media kit, en
-  `docs/propuestas/MEDIA-KIT-2026-11.html`. Se pauta con la 3.0.
-- **Política y Policiales no llevan patrocinio** de nadie.
+  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`; el media kit es el PDF
+  `docs/propuestas/MEDIA-KIT-2026-11.pdf` (se arma desde el `.html` de al lado con Chrome sin
+  ventana; capturas en `docs/propuestas/media-kit/`). **Sin números de audiencia** en nada que se
+  mande (Hernán, 2/11). Se pauta con la 3.0. Cada comercio tiene su ficha en
+  `docs/propuestas/anunciantes/`.
 - **El auspiciante nunca habla por la voz sin que se sepa:** la mención dice
   "gracias a" o "presentado por"; no simula ser una noticia.
 
