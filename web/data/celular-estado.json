@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T14:33:27.315Z",
- "portada": 102,
+ "generado": "2026-11-02T15:08:01.417Z",
+ "portada": 104,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-02T14:33:27.734Z",
+  "generado": "2026-11-02T15:08:02.019Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T13:38:41.648Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Participá: mandanos noticias",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
+     {
+      "id": "sclfp3",
+      "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
+      "seccion": "Salud"
+     },
      {
       "id": "1xd0of",
       "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
       "seccion": "Fútbol"
      },
      {
+      "id": "gcl4t2",
+      "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
+      "seccion": "Economía"
+     },
+     {
       "id": "1lxv4y",
       "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
       "seccion": "Política"
-     },
-     {
-      "id": "7pci65",
-      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
-      "seccion": "Ciencia"
-     },
-     {
-      "id": "krdezb",
-      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "7pci65",
+      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
+      "seccion": "Ciencia"
+     },
      {
       "id": "1ktheso",
       "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
       "seccion": "Fútbol"
      },
      {
-      "id": "1r4zfpu",
-      "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
-      "seccion": "Tecnología"
+      "id": "krdezb",
+      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
+      "seccion": "Argentina"
      },
      {
       "id": "1ehv38o",
       "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
       "seccion": "Política"
-     },
-     {
-      "id": "1yipx6w",
-      "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
      {
       "id": "156rfnc",
@@ -165,8 +165,8 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "vqyoy3",
-      "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
+      "id": "8mp5fu",
+      "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
       "seccion": "Argentina"
      },
      {
@@ -193,9 +193,32 @@
      "id": "1vxh5r",
      "titulo": "Atlético San Agustín supera a FC Agrarias y lidera su grupo",
      "cuando": "2026-11-02T12:46:08.717Z"
+    },
+    {
+     "id": "1r4zfpu",
+     "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
+     "cuando": "2026-11-02T14:36:10.342Z"
     }
    ],
    "cola": [
+    {
+     "id": "sclfp3",
+     "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "gcl4t2",
+     "titulo": "Noviembre registra cinco jornadas consecutivas sin atención en los bancos",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "8mp5fu",
+     "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
+     "seccion": "Argentina",
+     "marcada": false
+    },
     {
      "id": "1nfx86s",
      "titulo": "Valentín Yankelevich gana su primera carrera en el TC2000 en Río Negro",
@@ -203,9 +226,9 @@
      "marcada": false
     },
     {
-     "id": "1r4zfpu",
-     "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
-     "seccion": "Tecnología",
+     "id": "1yipx6w",
+     "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -213,16 +236,10 @@
      "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
      "seccion": "Política",
      "marcada": false
-    },
-    {
-     "id": "1yipx6w",
-     "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
-     "seccion": "Argentina",
-     "marcada": false
     }
    ],
-   "cupo": 3,
-   "proximoDesde": "2026-11-02T14:16:08.717Z",
+   "cupo": 2,
+   "proximoDesde": "2026-11-02T16:06:10.342Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
