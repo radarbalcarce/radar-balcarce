@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-02T00:32:17.134Z",
+ "consultado": "2026-11-02T01:02:55.367Z",
  "equipos": [
   "9739",
   "3",
@@ -1039,11 +1039,11 @@
     "competencia": "liga",
     "inicio": "2026-11-01T23:45:00.000Z",
     "estado": "en-juego",
-    "minuto": "45'+2'",
+    "minuto": "55'",
     "local": {
      "id": "12",
      "nombre": "Lanús",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "11972",
@@ -1051,7 +1051,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Gonzalo Lobos",
+      "minuto": "45'+4'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Ciudad de Lanús",
     "fase": null,
     "partidoDeLaSerie": null,
