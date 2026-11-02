@@ -602,3 +602,26 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - **Compuerta de tono para redes: Hernán dijo «sí, hacelo».** Se hace ya en la 2.0 (`esTragediaParaRedes` en `redes/elegir.mjs`,
   prueba `pruebas/tono-redes.test.mjs` con el caso real 8s2k9s, regla 4.10 de `CRITERIO-REDES.md`, **R41** en `docs/10-REGLAS-Y-PRUEBAS.md`)
   y pasa igual a la 3.0. La web no cambia; el rojo no se toca. El orden «lo bueno antes que lo trágico» queda para la 3.0.
+
+**Sumado el 2/11 a la noche, tercera parte** (Hernán, al cerrar el día):
+
+- **Gemini, cómo carga Hernán:** ya probó que Google le deja **cargar saldo prepago** (US$ 10 o 20) y la API gasta de ahí, no cobra lo que
+  quiere; con eso el tope de gasto es el saldo. Los topes del código quedan igual (30 pedidos por día a la clave paga de redacción, porque
+  la gratis debería alcanzar; y un tope de voz cuando la clave de voces sea paga). **Excepción a mano:** si Hernán pide por Telegram «este
+  audio igual hacelo», o es una nota propia suya o una pieza de un auspiciante, se hace aunque esté fuera del tope de audios del día: los
+  topes frenan lo automático, no lo que pide una persona. **Los primeros días después de la 3.0 se mira el gasto juntos** por el chat
+  (redacción y audios) y se ajustan los números. Sobre las voces: una clave nueva en el **mismo proyecto de Google** conserva las dos
+  voces propias; un proyecto nuevo las pierde (Voice Design no las repite). Hernán no sabe con qué cuenta hizo el proyecto de voces; si no
+  es la de Radar, no importa: se le carga saldo a esa y listo.
+- **Publicidad de Radar (autopromoción):** se arma primero **la animación sola, sin voz** (para no gastar cupo), con la estética del sitio y los
+  precios visibles y detallados; Hernán la ve y después se suma la voz. El texto, **más ameno, como el del media kit**: invita a los
+  comercios de forma económica, «queremos que participen todos». Lo mismo para **las tres piezas de Participá** (Tu evento, Tu reclamo, Tu
+  nota): buscarles un gancho, pensarlas más virales, en distintos tonos, para que la gente se sume a contar sus eventos y lo que ve.
+- **Guía comercial, otra vez:** retomar en algún momento el mapa comercial que se había armado (datos de Google y de «millones de lados»),
+  como servicio de Radar: comercios, turismo, alojamientos (Airbnb), indexados y con la invitación a participar en el medio («es un ida y
+  vuelta»). Se trabaja aparte, después del corte. Los auspiciantes son para financiar en parte el medio, no una ganancia.
+- **La tapa y las listas de notas:** Hernán la ve «media anticuada»; quiere analizar con modelos chicos cómo modernizarla y que las notas en
+  lista lleven más foto y se vean mejor. Entra en la etapa C (el sitio por Worker): antes de dibujar, una propuesta con dos o tres
+  maquetas para que elija (ver [[feedback-cambios-visibles-del-sitio]]: la portada se propone antes de cambiarla).
+- **Todo tiene que quedar guardado y armado para arrancar la 3.0 «ya, en lo inmediato»**: lo que falta de Hernán es sólo la clave paga (está
+  en eso) y la charla de `PERFIL.md`.
