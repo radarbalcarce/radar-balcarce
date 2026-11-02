@@ -121,7 +121,20 @@ computadora), las redes nombradas **una sola vez**, los combos sin decir «tres�
 lanzamiento, **sin cifras**, y sin nada que no esté decidido (reglas de rubros, «espacio publicitario», permanencia, guía de comercios).
 Es el **kit genérico**; para cada comercio se arma uno a partir de su ficha (§ 6). En la 3.0 es la página `/publicidad`.
 
-## 6. La ficha estándar del anunciante (Hernán, 2/11: «te paso el link y vos investigás»)
+## 6. El proceso regular (Hernán, 2/11, cerrado) y la ficha del anunciante
+
+Cada vez que un comercio pregunta, es siempre lo mismo:
+
+1. **Hernán le pasa a Claude** el Instagram (o la red o los datos que tenga) del comercio y, si hay, la consulta textual.
+2. **Claude devuelve tres cosas**: la respuesta para mandar (a partir de `media-kit/mensaje-generico.md`, ajustada a la consulta), el **media kit
+   personalizado** (`node scripts/media-kit.mjs docs/propuestas/anunciantes/<comercio>.json`) y las **preguntas personalizadas** en PDF, más la
+   ficha del § 6 bis.
+3. **Hernán manda** el mensaje con los dos PDF, por donde escribieron. Las respuestas llegan por WhatsApp y Hernán le reenvía los audios a Claude.
+4. Con las respuestas, Claude arma la nota (de redacción, firmada por Hernán), y el aviso y el calendario de climas entran cuando la 3.0 esté.
+
+Las piezas genéricas (media kit, preguntas y mensaje) son el referente; se mejoran cuando algo se aprende de un caso.
+
+### 6 bis. La ficha estándar del anunciante («te paso el link y vos investigás»)
 
 Hernán manda el enlace del Instagram (o la página, o el Facebook) del comercio, por acá o, en la 3.0, por Telegram. Claude mira lo
 público desde el Chrome de Radar (nunca otro) y deja en `docs/propuestas/anunciantes/<comercio>.md` una ficha con cinco partes:
