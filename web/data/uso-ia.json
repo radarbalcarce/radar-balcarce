@@ -2431,18 +2431,36 @@
    },
    "ilustraciones": {
     "gemini-flash-lite-latest": {
-     "llamadas": 13,
-     "errores": 0,
+     "llamadas": 21,
+     "errores": 8,
      "entrada": 18694,
      "salida": 893,
      "pensamiento": 0,
      "total": 19587,
      "claves": {
-      "clasificacion": 13
+      "clasificacion": 21
      },
      "motivos": {
       "clasificacion": {
-       "ok": 13
+       "ok": 13,
+       "otro": 8
+      }
+     }
+    },
+    "qwen/qwen3.8-27b": {
+     "llamadas": 8,
+     "errores": 3,
+     "entrada": 8280,
+     "salida": 398,
+     "pensamiento": 0,
+     "total": 8678,
+     "claves": {
+      "groq": 8
+     },
+     "motivos": {
+      "groq": {
+       "ok": 5,
+       "velocidad": 3
       }
      }
     }
