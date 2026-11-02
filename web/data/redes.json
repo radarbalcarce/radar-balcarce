@@ -4368,6 +4368,14 @@
       "tipo": "STORIES",
       "notaId": null,
       "notaIds": []
+    },
+    "2026-11-02/efemeride": {
+      "cuando": "2026-11-02T13:38:41.648Z",
+      "mediaId": "17935806255143118",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": []
     }
   },
   "facebookVideos": {
@@ -7354,6 +7362,21 @@
       "notaId": null,
       "notaIds": [],
       "postId": "122118635511495512"
+    },
+    "2026-11-02/noticia1": {
+      "cuando": "2026-11-02T13:37:11.552Z",
+      "mediaId": "2138256033468589",
+      "nombre": "noticia1",
+      "tipo": "REELS",
+      "notaId": "v7e3ft",
+      "notaIds": [
+        "v7e3ft",
+        "1xd0of",
+        "7pci65",
+        "1lxv4y"
+      ],
+      "postId": "122118651225495512",
+      "permalink": "https://www.facebook.com/reel/2138256033468589/"
     }
   },
   "instagramFeed": {
@@ -10550,6 +10573,21 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1586168056614494"
+    },
+    "facebook/2026-11-02/noticia1": {
+      "cuando": "2026-11-02T13:37:51.109Z",
+      "mediaId": "1082790348089385",
+      "nombre": "noticia1",
+      "red": "facebook",
+      "notaId": "v7e3ft",
+      "postId": "3273585539505619"
+    },
+    "instagram/2026-11-02/efemeride": {
+      "cuando": "2026-11-02T13:39:13.016Z",
+      "mediaId": "18099897521395799",
+      "nombre": "efemeride",
+      "red": "instagram",
+      "notaId": null
     }
   },
   "problemas": {
@@ -10577,13 +10615,13 @@
       "cuando": "2026-11-01T19:35:59.550Z",
       "intentos": 3
     },
-    "2026-11-02/efemeride/instagram/reel": {
-      "pieza": "efemeride",
+    "2026-11-02/noticia1/instagram/reel": {
+      "pieza": "noticia1",
       "red": "instagram",
       "parte": "reel",
       "error": "La subida del video falló (400) Request processing failed",
-      "cuando": "2026-11-02T13:06:05.798Z",
-      "intentos": 3
+      "cuando": "2026-11-02T13:36:00.269Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -11791,11 +11829,30 @@
       }
     },
     "2026-11-02/efemeride": {
-      "cuando": "2026-11-02T12:35:54.345Z",
+      "cuando": "2026-11-02T13:35:54.209Z",
       "nombre": "efemeride",
       "tiktok": {
         "ok": true,
         "id": "6ae8840bbf0a4c296caea730",
+        "estado": "sending"
+      },
+      "youtube": {
+        "ok": true,
+        "id": "6ae89282c5c4672c3e787f6e",
+        "estado": "sending"
+      },
+      "twitter": {
+        "ok": true,
+        "id": "6ae8928d386d2d7c13426727",
+        "estado": "sent"
+      }
+    },
+    "2026-11-02/noticia1": {
+      "cuando": "2026-11-02T13:35:54.209Z",
+      "nombre": "noticia1",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae89230bf0a4c296cb4ba77",
         "estado": "sending"
       }
     }
