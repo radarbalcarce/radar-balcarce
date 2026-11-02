@@ -40789,9 +40789,7 @@
   "fuentes": 5
  },
  "1eb1pk1": {
-  "archivo": "fotos-notas/1eb1pk1.jpg",
   "medio": "El Destape",
-  "credito": "Foto: El Destape",
   "licencia": null,
   "origen": "medio",
   "titulo": "La UCR repudia las agresiones de Javier Milei al periodismo",
@@ -40811,7 +40809,8 @@
    "descripcion": "Javier Milei hablando en un atril con la leyenda Argentina Week"
   },
   "huella": "6f4317139797878f",
-  "ausenteDesde": "2026-10-26T18:32:33.331Z"
+  "intentado": true,
+  "borrada": true
  },
  "11t01rk": {
   "archivo": "fotos-notas/11t01rk.jpg",
@@ -57638,7 +57637,8 @@
   "origen": "manual",
   "por": "Claude (revisión de fotos con ",
   "cuando": "2026-10-30T19:54:32.082Z",
-  "imagenOriginal": "https://media.ambito.com/p/9f42634af3056275c984107d8d5b8a8e/adjuntos/239/imagenes/043/739/0043739936/1200x675/smart/kicillof-sadir.jpg"
+  "imagenOriginal": "https://media.ambito.com/p/9f42634af3056275c984107d8d5b8a8e/adjuntos/239/imagenes/043/739/0043739936/1200x675/smart/kicillof-sadir.jpg",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "1n0ukpe": {
   "archivo": "fotos-notas/1n0ukpe.jpg",
@@ -59735,7 +59735,8 @@
    "corresponde": "si",
    "descripcion": "Personas en una cata de vinos sirviendo una copa."
   },
-  "huella": "615111941334c3ac"
+  "huella": "615111941334c3ac",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "1rh3ku5": {
   "archivo": "fotos-notas/1rh3ku5.jpg",
@@ -61073,7 +61074,8 @@
    "corresponde": "si",
    "descripcion": "Julio Bocca y el ballet en el escenario recibiendo aplausos."
   },
-  "huella": "10000046daa2a2a2"
+  "huella": "10000046daa2a2a2",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "1yf87iz": {
   "archivo": "fotos-notas/1yf87iz.jpg",
@@ -61589,7 +61591,8 @@
    "corresponde": "si",
    "descripcion": "Paneles solares instalados en el campo bajo un cielo nublado."
   },
-  "huella": "260fa50689493f0f"
+  "huella": "260fa50689493f0f",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "1pa7ehp": {
   "archivo": "fotos-notas/1pa7ehp.jpg",
@@ -66292,10 +66295,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
-  "razon": "Ninguna foto sirve porque las imágenes muestran la detención de un menor de edad con la cara reconocible o de perfil identificable, lo cual viola la política de no publicar fotos de menores.",
-  "cuando": "2026-11-02T04:03:01.009Z",
-  "intentos": 2,
-  "fuentes": 3
+  "razon": "Todas las fotos disponibles muestran a un menor de edad esposado sobre un techo, lo cual incumplica la política del medio de no publicar rostros de menores reconocibles.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "intentos": 3,
+  "fuentes": 4
  },
  "1xkmx44": {
   "archivo": "fotos-notas/1xkmx44.jpg",
@@ -69362,7 +69365,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del papa León XIV saludando con la mano."
   },
-  "huella": "a5a527272e1b1949"
+  "huella": "a5a527272e1b1949",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "57r91r": {
   "intentado": true,
@@ -69606,7 +69610,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando sonriente a la cámara"
   },
-  "huella": "a5a527272e1b1949"
+  "huella": "a5a527272e1b1949",
+  "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "gpe8ph": {
   "archivo": "fotos-notas/gpe8ph.jpg",
@@ -69688,5 +69693,107 @@
   "cuando": "2026-11-02T18:03:07.308Z",
   "intentos": 1,
   "fuentes": 2
+ },
+ "fcz7oa": {
+  "archivo": "fotos-notas/fcz7oa.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45250-carli-sobre-la-polemica-con-mazzacane-no-tenemos-problemas-con-nadie-pero-si-la-fundacion-fangio-tiene-que-estar-afuera-estamos-afuera/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66268.png",
+  "razon": "Es la única foto disponible, cumple con los requisitos y no tiene marcas añadidas ni menores.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Carli hablando en un estudio de radio"
+  },
+  "huella": "1b3333336969d8b4"
+ },
+ "plz9wk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Esteban Reino propone realizar la Estudiantina a puerta cerrada este año",
+  "razon": "La foto muestra jóvenes y personas que podrían ser menores en las gradas, y no cumple con los criterios de exclusión.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "ec4jzo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "MasterChef Celebrity cambia su horario en Telefe por partidos de fútbol",
+  "razon": "La única foto disponible es una captura de pantalla de televisión con marcas de canal, por lo que no cumple con los requisitos para ser publicada.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "18n3bk3": {
+  "archivo": "fotos-notas/18n3bk3.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Disney Plus anuncia los estrenos y el ranking de series en noviembre",
+  "enlace": "https://www.clarin.com/espectaculos/que-ver-en-disney-hoy-las-10-series-y-peliculas-que-lideran-el-ranking-este-lunes-2-de-noviembre-de-2026-en-argentina_0_EhG14wx9ju.html",
+  "imagenOriginal": "https://www.clarin.com/img/2024/06/25/-PrGfUk29_2000x1500__1.jpg",
+  "razon": "La foto A muestra claramente el logo de la plataforma Disney Plus en un televisor, ideal para ilustrar los estrenos.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pantalla de televisor con el logo de Disney Plus y marcas asociadas"
+  },
+  "huella": "ff9c87170e2b03f8"
+ },
+ "12y2vxk": {
+  "archivo": "fotos-notas/12y2vxk.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia asegura la localía en los octavos de final del Torneo Clausura",
+  "enlace": "https://www.eldia.com/deportes/con-la-derrota-de-river-gimnasia-se-aseguro-la-localia-en-octavos-de-playoffs-deportes_1793572762",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793573264624.webp?&cw=1200&ch=630",
+  "razon": "La foto A muestra al equipo completo de Gimnasia posando con buena calidad y sin marcas de medios, ideal para ilustrar la nota sobre la localía.",
+  "cuando": "2026-11-02T18:32:52.914Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantel de Gimnasia posando para la foto oficial",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Plantel de Gimnasia y Esgrima La Plata posando en el campo de juego antes de un partido."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "2496368a64232b27"
  }
 }

@@ -505,6 +505,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "12y2vxk": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "1302ycq": {
   "intentos": 1,
   "ultimo": "2026-10-28T18:01:51.395Z",
@@ -1533,6 +1540,13 @@
    "cuerpo: 5 problemas (nombre, relleno): el cuerpo nombra a \"major\" y la",
    "título o bajada: 2 problemas (nombre): el copete nombra a \"major\" y la"
   ]
+ },
+ "18n3bk3": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
  },
  "18oagwz": {
   "intentos": 1,
@@ -9722,6 +9736,13 @@
   "textos": 4,
   "numeradas": 5
  },
+ "ec4jzo": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 2
+ },
  "edt3qr": {
   "intentos": 1,
   "ultimo": "2026-10-28T21:32:03.521Z",
@@ -9992,6 +10013,13 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 7
+ },
+ "fcz7oa": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "fd9hbq": {
   "intentos": 1,
@@ -11909,6 +11937,19 @@
    "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"nunez\" y la"
   ]
  },
+ "pd8g54": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "verificación baja: espera a una persona",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "verificación baja: espera a una persona"
+  ],
+  "baja": true,
+  "fuentes": 1
+ },
  "phjtkk": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:13:36.477Z",
@@ -11949,6 +11990,13 @@
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 100 caracteres, e"
   ]
+ },
+ "plz9wk": {
+  "intentos": 1,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "pm0ssq": {
   "intentos": 1,
@@ -12102,21 +12150,20 @@
   "numeradas": 9
  },
  "q9wlq": {
-  "intentos": 2,
-  "ultimo": "2026-11-02T17:33:13.082Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y la fuente no",
+  "intentos": 3,
+  "ultimo": "2026-11-02T18:31:59.276Z",
+  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
    "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y ",
-   "título o bajada: 1 problema (relleno): el copete tiene una frase de re",
-   "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y "
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
   ],
   "falla": [
-   "el copete nombra a \"justicia\" y la fuente no",
-   "el cuerpo nombra a \"justicia\" y la fuente no",
-   "el título nombra a \"claribel\", \"medina\" y el cuerpo no los explica"
+   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+   "el cuerpo nombra a \"justicia\" y la fuente no"
   ]
  },
  "qb6ymx": {
