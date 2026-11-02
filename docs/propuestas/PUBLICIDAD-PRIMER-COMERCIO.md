@@ -28,6 +28,10 @@ auspiciados (lo distintivo), las historias con sus promociones y el aviso en el 
 | Posteos con foto en Facebook e Instagram | — | — | — | 2 | 4 |
 | Aviso en el sitio, con su contacto | rotativo, 1 lugar | rotativo, 2 lugares | rotativo, 3 lugares | rotativo, 3 lugares | fijo, más los 3 rotativos |
 
+**Cómo se ve un clima auspiciado** (Hernán, 2/11): la voz dice «El clima de hoy llega con [comercio]» y abajo, en la placa del reel y en la
+nota del clima, queda «Auspicia: [comercio]» con su nombre o su logo. Las respuestas al cuestionario se piden **por WhatsApp**, para que Hernán
+pueda reenviar los audios a Claude.
+
 **Por qué esos números:** hay 60 climas por mes (mañana y noche); cada clima lleva **un solo auspiciante**, se reserva por calendario en
 orden de llegada y, si se llena, lista de espera: nadie pierde lo que compró ni se le hace menos porque otro compró más (miedo de
 Hernán, 2/11). Con la promoción, un cliente de cada plan suma 33 climas; sin promoción, 15. Cuando los climas se llenen, sube el precio
