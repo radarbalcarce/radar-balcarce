@@ -657,3 +657,15 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - **Instagram como espejo de Facebook (para decidir en el cronograma de redes):** en Facebook el clima queda como reel, fijo; en Instagram sale
   como historia y se va a las 24 horas. Hernán cree que Facebook funciona mejor y que Instagram debería replicarlo (los reels como reels, no
   sólo historia). Se decide con el borrador del cronograma, con una semana de números de cada red.
+
+**Sumado el 2/11 a la noche, séptima parte** (las claves de Gemini, verificadas):
+
+- **Dónde vive cada clave** (AI Studio en la cuenta de Radar + workflow «Huella de las claves de IA», que imprime sólo los últimos 4
+  caracteres): `GEMINI_API_KEY_RESPALDO` (…Lgsg) en **Default Gemini Project**; `GEMINI_API_KEY_REDES` (…8K9Q) **no está en Default**: vive
+  en **RadarBalcarce** (gen-lang-client-0746672113), donde están las dos voces propias; `GEMINI_API_KEY_REDACCION` y
+  `GEMINI_API_KEY_CLASIFICACION` son **la misma clave** (…HcEg), de otro proyecto (probablemente **RadarGratis**, que AI Studio marca
+  «Suspendido»). En Default hay una clave «Gemini API Key» (…Qs2A, 2/10) que no está en GitHub. RadarBalcarce y RadarGratis se importaron a
+  la vista de AI Studio el 2/11 (no se veían). RadarBalcarce figura «Sin créditos»: ahí se cargan (Proyectos → RadarBalcarce → Comprar
+  créditos) y las voces siguen iguales.
+- **Para la limpieza de claves de la 3.0:** unificar REDACCION y CLASIFICACION (hoy duplicadas), borrar …Qs2A si nadie la usa, decidir qué
+  hacer con RadarGratis (suspendido) y con el proyecto Default, y dejar escrito qué clave vive en qué proyecto (esta lista).
