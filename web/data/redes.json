@@ -7336,6 +7336,15 @@
       "notaId": null,
       "notaIds": [],
       "postId": "2101214000757417"
+    },
+    "2026-11-02/efemeride": {
+      "cuando": "2026-11-02T12:36:47.181Z",
+      "mediaId": "1655465212614651",
+      "nombre": "efemeride",
+      "tipo": "REELS",
+      "notaId": null,
+      "notaIds": [],
+      "postId": "122118635511495512"
     }
   },
   "instagramFeed": {
@@ -10518,6 +10527,14 @@
       "red": "facebook",
       "notaId": null,
       "postId": "1767854634272187"
+    },
+    "facebook/2026-11-02/efemeride": {
+      "cuando": "2026-11-02T12:37:30.042Z",
+      "mediaId": "4393886194257673",
+      "nombre": "efemeride",
+      "red": "facebook",
+      "notaId": null,
+      "postId": "1586168056614494"
     }
   },
   "problemas": {
@@ -10544,6 +10561,14 @@
       "error": "La subida del video falló (400) Request processing failed",
       "cuando": "2026-11-01T19:35:59.550Z",
       "intentos": 3
+    },
+    "2026-11-02/efemeride/instagram/reel": {
+      "pieza": "efemeride",
+      "red": "instagram",
+      "parte": "reel",
+      "error": "La subida del video falló (400) Request processing failed",
+      "cuando": "2026-11-02T12:36:04.926Z",
+      "intentos": 1
     }
   },
   "facebookFoto": {
@@ -11747,6 +11772,15 @@
       "tiktok": {
         "ok": true,
         "id": "6ae86800796ca84be0cfd3c9",
+        "estado": "sending"
+      }
+    },
+    "2026-11-02/efemeride": {
+      "cuando": "2026-11-02T12:35:54.345Z",
+      "nombre": "efemeride",
+      "tiktok": {
+        "ok": true,
+        "id": "6ae8840bbf0a4c296caea730",
         "estado": "sending"
       }
     }
