@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T11:33:36.154Z",
- "portada": 92,
+ "generado": "2026-11-02T12:18:28.794Z",
+ "portada": 95,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-02T11:33:36.528Z",
+  "generado": "2026-11-02T12:18:29.149Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 52,
     "notas": [
      {
-      "id": "5euqdj",
-      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
+      "id": "1ktheso",
+      "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "plph73",
+      "titulo": "Franco Colapinto recibe una sanción y pierde los puntos en México",
       "seccion": "Automovilismo"
      },
      {
-      "id": "1j4cbps",
-      "titulo": "El Servicio Meteorológico Nacional anuncia lluvias y tormentas para el domingo",
+      "id": "krdezb",
+      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
       "seccion": "Argentina"
      },
      {
       "id": "a3w48y",
       "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
       "seccion": "Política"
-     },
-     {
-      "id": "156rfnc",
-      "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
-      "seccion": "Fútbol"
      }
     ]
    },
@@ -160,14 +160,9 @@
     "segundos": 50,
     "notas": [
      {
-      "id": "krdezb",
-      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
-      "seccion": "Argentina"
-     },
-     {
-      "id": "1ehv38o",
-      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
-      "seccion": "Política"
+      "id": "156rfnc",
+      "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
+      "seccion": "Fútbol"
      },
      {
       "id": "cwdhlo",
@@ -175,9 +170,14 @@
       "seccion": "Policiales"
      },
      {
-      "id": "181j9oz",
-      "titulo": "Anses modifica el calendario de pagos de noviembre por los feriados",
-      "seccion": "Economía"
+      "id": "1ehv38o",
+      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
+      "seccion": "Política"
+     },
+     {
+      "id": "vqyoy3",
+      "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -192,9 +192,27 @@
    ],
    "cola": [
     {
+     "id": "1vxh5r",
+     "titulo": "Atlético San Agustín supera a FC Agrarias y lidera su grupo",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "7pci65",
      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
      "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
+     "id": "1qggjq3",
+     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1r4zfpu",
+     "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
+     "seccion": "Tecnología",
      "marcada": false
     },
     {
