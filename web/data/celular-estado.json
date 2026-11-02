@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T21:34:02.907Z",
- "portada": 153,
+ "generado": "2026-11-02T22:35:21.914Z",
+ "portada": 163,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-02T21:34:03.809Z",
+  "generado": "2026-11-02T22:35:22.922Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T18:36:57.147Z"
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,7 +124,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-02T18:36:57.147Z",
     "segundos": null,
     "notas": [
@@ -170,14 +170,14 @@
       "seccion": "Educación"
      },
      {
+      "id": "j75wry",
+      "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
+      "seccion": "Ciencia"
+     },
+     {
       "id": "1tlgl2r",
       "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
       "seccion": "Deportes"
-     },
-     {
-      "id": "fcz7oa",
-      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
-      "seccion": "Automovilismo"
      }
     ]
    }
@@ -236,27 +236,27 @@
      "marcada": false
     },
     {
+     "id": "j75wry",
+     "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
+     "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
      "id": "1tlgl2r",
      "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "sdmfkk",
-     "titulo": "La UBA subastará prendas de deportistas para equipar el Hospital de Clínicas",
+     "id": "10f66es",
+     "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "17v3n8i",
-     "titulo": "Argentina gana dos medallas de bronce en Dakar 2026",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "1jcaj7v",
-     "titulo": "Socios de Adecoagro compran las tierras del grupo Benetton",
-     "seccion": "Agro",
+     "id": "sdmfkk",
+     "titulo": "La UBA subastará prendas de deportistas para equipar el Hospital de Clínicas",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
