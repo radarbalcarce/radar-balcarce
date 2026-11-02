@@ -636,3 +636,15 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   `mensajes/perfil-preguntas.md`); Hernán contesta por audio, de a una. Para leerlas: correr «Radar 3.0: Telegram» con `leer` y abrir el
   `.md` del día; con eso se escribe `nucleo/PERFIL.md` y se le muestra a Hernán antes de que la IA lo use.
 - **La publicidad de Radar** (reel sin voz) queda como está por ahora: Hernán la vio y «después vemos qué hacemos con el tema publicitario».
+
+**Sumado el 2/11 a la noche, quinta parte** (la entrevista del perfil, hecha):
+
+- **Hernán contestó las diez preguntas por audio** (18:07 a 18:19; transcripciones en `v3/redaccion/telegram/entrada/2026-11-02.md`, hechas por
+  el workflow «Radar 3.0: Telegram» con Groq Whisper; la primera corrida falló porque Telegram manda `.oga` y Groq no lo acepta: ahora va como
+  `.ogg`). Con eso y el borrador se escribió **`v3/nucleo/PERFIL.md`**, la primera versión completa: el medio (participación ciudadana, lo que
+  no es estatal no se cubre y Radar sí; sin lucro, sostenerse solo), la postura (pluralidad, centro o centro-derecha dicho, positivos, control
+  ciudadano sin funcionario amigo, pro diversidad), lo que no hacemos (chismes, malicia, rectificar enseguida, nada forzado por SEO), el
+  tono (de vos, ameno y correcto, sin chabacanería), las voces (que varíen, guiños costumbristas), quién escribe (Radar es de Hernán; Andrés
+  socio en BalcarDev; las notas que Hernán arma son suyas y llevan su firma), Balcarce (se arma con lo que llega), los proyectos propios
+  (igual que cualquier anunciante) y Radar como persona. **Pendiente: que Hernán lo apruebe** o corrija; recién entonces lo usa la IA. Los
+  saludos de las voces siguen sin decidir (pregunta 6).
