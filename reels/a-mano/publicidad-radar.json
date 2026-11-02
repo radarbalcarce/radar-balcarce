@@ -1,0 +1,61 @@
+{
+  "sinVoz": true,
+  "nombre": "publicidad-radar",
+  "icono": "web/public/icon-512.png",
+  "pie": "¿Tenés un comercio en Balcarce? Contalo en Radar. La bienvenida es para todos: una nota sobre tu emprendimiento, un reel con voz y una historia, sin cobrar aparte. Planes por mes desde $ 5.000. Escribinos por WhatsApp al 2266 51-1612 o en radarbalcarce.com",
+  "hashtags": ["Comercios"],
+  "escenas": [
+    {
+      "tipo": "marca",
+      "duracion": 3,
+      "titulo": "Radar Balcarce",
+      "subtitulo": "El medio digital de Balcarce"
+    },
+    {
+      "tipo": "pregunta",
+      "duracion": 5,
+      "rotulo": "Para los comercios",
+      "pregunta": "¿Tenés un comercio en Balcarce?",
+      "respuesta": "Contalo en Radar."
+    },
+    {
+      "tipo": "lista",
+      "duracion": 7,
+      "rotulo": "Bienvenida",
+      "titulo": "La bienvenida, para todos",
+      "items": ["Una nota sobre tu emprendimiento", "Un reel con voz", "Una historia"],
+      "cierre": "No se cobra aparte"
+    },
+    {
+      "tipo": "planes",
+      "duracion": 10,
+      "rotulo": "Publicidad en Radar",
+      "titulo": "Planes por mes",
+      "nota": ["Climas con tu nombre: en promoción", "hasta diciembre de 2026"],
+      "planes": [
+        { "precio": "$ 5.000", "climas": 4, "historias": 4, "aviso": "rotativo", "lugares": 1 },
+        { "precio": "$ 10.000", "climas": 5, "historias": 6, "aviso": "rotativo", "lugares": 2 },
+        { "precio": "$ 20.000", "climas": 6, "historias": 8, "aviso": "rotativo", "lugares": 3 },
+        { "precio": "$ 30.000", "climas": 8, "historias": 10, "aviso": "rotativo", "lugares": 3 },
+        { "precio": "$ 50.000", "climas": 10, "historias": 12, "aviso": "fijo" }
+      ]
+    },
+    {
+      "tipo": "clima",
+      "duracion": 5,
+      "rotulo": "El clima de Radar",
+      "titulo": "Tu nombre en el clima",
+      "cita": "“El clima de hoy llega con tu comercio”",
+      "bajada": "Lo que más mira la gente, todos los días"
+    },
+    {
+      "tipo": "cierre",
+      "duracion": 5,
+      "rotulo": "Sumate",
+      "titulo": "Sumá tu comercio a Radar",
+      "etiqueta": "Escribinos por WhatsApp",
+      "numero": "2266 51-1612",
+      "sitio": "radarbalcarce.com"
+    }
+  ]
+}
