@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T10:32:22.750Z",
- "portada": 87,
+ "generado": "2026-11-02T11:03:56.098Z",
+ "portada": 90,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T10:32:23.087Z",
+  "generado": "2026-11-02T11:03:56.463Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -14,7 +14,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T10:36:54.265Z"
    },
    {
     "nombre": "efemeride",
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "v7e3ft",
+      "titulo": "Habilitan el padrón provisorio para las elecciones nacionales de 2027",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1lxv4y",
       "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
@@ -111,11 +116,6 @@
       "id": "ptf7ku",
       "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "5euqdj",
-      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
-      "seccion": "Automovilismo"
      }
     ]
    },
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 47,
     "notas": [
+     {
+      "id": "5euqdj",
+      "titulo": "Liam Lawson es descalificado y Franco Colapinto gana una posición en México",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "1j4cbps",
       "titulo": "El Servicio Meteorológico Nacional anuncia lluvias y tormentas para el domingo",
@@ -142,11 +147,6 @@
       "id": "156rfnc",
       "titulo": "Lautaro Di Lollo marca para Boca tras la expulsión de Martínez Quarta",
       "seccion": "Fútbol"
-     },
-     {
-      "id": "zvodb",
-      "titulo": "Aumentan las tarifas del transporte público en el AMBA",
-      "seccion": "Economía"
      }
     ]
    },
@@ -165,19 +165,19 @@
       "seccion": "Argentina"
      },
      {
+      "id": "cwdhlo",
+      "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
+      "seccion": "Policiales"
+     },
+     {
       "id": "16myge3",
       "titulo": "Milei invita a Villarruel y gobernadores a recibir al papa León XIV",
       "seccion": "Política"
      },
      {
-      "id": "1xkmx44",
-      "titulo": "Arruabarrena minimiza las quejas de River tras el triunfo de Boca",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1b0plcb",
-      "titulo": "Entregar los Martín Fierro Federal 2026 a la radio y la televisión",
-      "seccion": "Cultura y agenda"
+      "id": "1sncujq",
+      "titulo": "Anses confirma aumento y detalla el calendario de pagos de noviembre",
+      "seccion": "Economía"
      }
     ]
    }
@@ -189,6 +189,18 @@
      "id": "1p1u4ev",
      "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
      "seccion": "Tecnología",
+     "marcada": false
+    },
+    {
+     "id": "1sncujq",
+     "titulo": "Anses confirma aumento y detalla el calendario de pagos de noviembre",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "cwdhlo",
+     "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
+     "seccion": "Policiales",
      "marcada": false
     }
    ],
