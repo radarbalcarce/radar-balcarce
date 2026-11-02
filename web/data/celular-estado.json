@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-01T23:37:39.604Z",
- "portada": 96,
+ "generado": "2026-11-02T00:05:51.322Z",
+ "portada": 98,
  "archivo": 500,
  "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-01T23:37:39.904Z",
+  "generado": "2026-11-02T00:05:51.923Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -124,7 +124,7 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 53,
     "notas": [
@@ -132,6 +132,11 @@
       "id": "1jlw2jb",
       "titulo": "Maximiliano Moreno y Karina Lupo ganan la carrera homenaje a Luis Vildoza",
       "seccion": "Deportes"
+     },
+     {
+      "id": "1lxv4y",
+      "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
+      "seccion": "Política"
      },
      {
       "id": "fq3j3n",
@@ -142,11 +147,6 @@
       "id": "14framj",
       "titulo": "Valentín Galdón Ritvo finaliza la Fiesta Nacional del Postre",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1qwgpj",
-      "titulo": "Registran granizo y lluvias intensas en la zona rural",
-      "seccion": "Agro"
      }
     ]
    }
@@ -187,39 +187,45 @@
      "marcada": false
     },
     {
+     "id": "1lxv4y",
+     "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
      "id": "i1nal0",
      "titulo": "Kimi Antonelli se consagra campeón de la Fórmula 1 y Colapinto termina octavo",
      "seccion": "Automovilismo",
      "marcada": false
     },
     {
-     "id": "1rpk5d1",
-     "titulo": "Rodolfo D'Onofrio cuestiona al arbitraje en el Superclásico",
+     "id": "wbfxi2",
+     "titulo": "Nicolás Otamendi cuestiona a la AFA y al arbitraje tras la derrota de River",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "10br6of",
-     "titulo": "Boca derrota a River por uno a cero y se clasifica a la Copa Libertadores",
+     "id": "8tz62w",
+     "titulo": "Rescatan a tres turistas canadienses tras un incendio en su velero",
+     "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "1460y4k",
+     "titulo": "Alvarado pierde ante Sportivo Las Parejas pero clasifica a cuartos de final",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "1bcuezn",
-     "titulo": "Boca despliega paraguas y chicanas a River en el Superclásico",
+     "id": "pjoomq",
+     "titulo": "Leonardo Ponzio cuestiona el arbitraje tras la derrota de River ante Boca",
      "seccion": "Fútbol",
      "marcada": false
     },
     {
-     "id": "17e2ys4",
-     "titulo": "Boca gana el Superclásico y Vélez empata ante San Lorenzo",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "dmhrvc",
-     "titulo": "Newell's y Unión empatan uno a uno por la decimoquinta fecha",
-     "seccion": "Fútbol",
+     "id": "vqyoy3",
+     "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
