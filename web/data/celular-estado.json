@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T12:34:55.794Z",
- "portada": 94,
+ "generado": "2026-11-02T13:09:23.096Z",
+ "portada": 96,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-02T12:34:56.544Z",
+  "generado": "2026-11-02T13:09:23.469Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,19 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 49,
     "notas": [
      {
-      "id": "v7e3ft",
-      "titulo": "Habilitan el padrón provisorio para las elecciones nacionales de 2027",
-      "seccion": "Balcarce"
-     },
-     {
       "id": "1xd0of",
       "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "v7e3ft",
+      "titulo": "Habilitan el padrón provisorio para las elecciones nacionales de 2027",
+      "seccion": "Balcarce"
      },
      {
       "id": "7pci65",
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "l8eclr",
+      "titulo": "Cortan el suministro eléctrico en Balcarce el martes por tareas en redes",
+      "seccion": "Balcarce"
+     },
      {
       "id": "ptf7ku",
       "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
@@ -142,11 +147,6 @@
       "id": "krdezb",
       "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
       "seccion": "Argentina"
-     },
-     {
-      "id": "a3w48y",
-      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
-      "seccion": "Política"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "brwvwb",
+      "titulo": "La Municipalidad recupera un galpón ferroviario para eventos",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1ktheso",
       "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
       "seccion": "Fútbol"
      },
      {
-      "id": "cwdhlo",
-      "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "1ehv38o",
-      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
+      "id": "a3w48y",
+      "titulo": "Morena Beltrán frena su labor por agravios de plateístas",
       "seccion": "Política"
      },
      {
-      "id": "vqyoy3",
-      "titulo": "Iluminan monumentos porteños por la visita del papa León XIV",
-      "seccion": "Argentina"
+      "id": "cwdhlo",
+      "titulo": "Comienza el juicio contra Alvite por la muerte de un motociclista en La Plata",
+      "seccion": "Policiales"
      }
     ]
    }
@@ -188,25 +188,24 @@
      "id": "1p1u4ev",
      "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
      "cuando": "2026-11-02T11:06:01.521Z"
+    },
+    {
+     "id": "1vxh5r",
+     "titulo": "Atlético San Agustín supera a FC Agrarias y lidera su grupo",
+     "cuando": "2026-11-02T12:46:08.717Z"
     }
    ],
    "cola": [
     {
-     "id": "1vxh5r",
-     "titulo": "Atlético San Agustín supera a FC Agrarias y lidera su grupo",
-     "seccion": "Fútbol",
+     "id": "l8eclr",
+     "titulo": "Cortan el suministro eléctrico en Balcarce el martes por tareas en redes",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
      "id": "7pci65",
      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
      "seccion": "Ciencia",
-     "marcada": false
-    },
-    {
-     "id": "1qggjq3",
-     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
-     "seccion": "Política",
      "marcada": false
     },
     {
@@ -220,10 +219,16 @@
      "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
      "seccion": "Tecnología",
      "marcada": false
+    },
+    {
+     "id": "1qggjq3",
+     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
+     "seccion": "Política",
+     "marcada": false
     }
    ],
-   "cupo": 4,
-   "proximoDesde": "2026-11-02T12:36:01.521Z",
+   "cupo": 3,
+   "proximoDesde": "2026-11-02T14:16:08.717Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
