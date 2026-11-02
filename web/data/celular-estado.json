@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T16:09:00.195Z",
- "portada": 108,
+ "generado": "2026-11-02T17:06:26.004Z",
+ "portada": 119,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-02T16:09:00.449Z",
+  "generado": "2026-11-02T17:06:26.719Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 52,
     "notas": [
-     {
-      "id": "sclfp3",
-      "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-      "seccion": "Salud"
-     },
      {
       "id": "voie14",
       "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
       "seccion": "Balcarce"
      },
      {
-      "id": "ptf7ku",
-      "titulo": "Alumnos de jardinería realizan una salida educativa en Sierra de los Padres",
-      "seccion": "Cultura y agenda"
-     },
-     {
       "id": "1ktheso",
       "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
       "seccion": "Fútbol"
+     },
+     {
+      "id": "153in3t",
+      "titulo": "Alpine lamenta las sanciones a Franco Colapinto y Pierre Gasly en México",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "1ehv38o",
+      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
+      "seccion": "Política"
      }
     ]
    },
@@ -157,17 +157,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 50,
     "notas": [
      {
-      "id": "brwvwb",
-      "titulo": "La Municipalidad recupera un galpón ferroviario para eventos",
+      "id": "ccpclt",
+      "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1ehv38o",
-      "titulo": "Javier Milei viaja a Madrid para participar de la Cumbre Iberoamericana",
-      "seccion": "Política"
      },
      {
       "id": "156rfnc",
@@ -175,9 +170,14 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "8mp5fu",
-      "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
-      "seccion": "Argentina"
+      "id": "1wd8l9e",
+      "titulo": "Estados Unidos define su futuro político en las elecciones de medio término",
+      "seccion": "Política"
+     },
+     {
+      "id": "89822l",
+      "titulo": "Gladys La Bomba Tucumana cierra su local de empanadas en Recoleta",
+      "seccion": "Economía"
      }
     ]
    }
@@ -198,18 +198,29 @@
      "id": "1r4zfpu",
      "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
      "cuando": "2026-11-02T14:36:10.342Z"
+    },
+    {
+     "id": "sclfp3",
+     "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
+     "cuando": "2026-11-02T16:36:00.701Z"
     }
    ],
    "cola": [
     {
-     "id": "sclfp3",
-     "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-     "seccion": "Salud",
+     "id": "voie14",
+     "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "voie14",
-     "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+     "id": "ccpclt",
+     "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "l8eclr",
+     "titulo": "Cortan el suministro eléctrico en Balcarce el martes por tareas en redes",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -220,9 +231,21 @@
      "marcada": false
     },
     {
+     "id": "eyokn0",
+     "titulo": "Quince estados de Estados Unidos apoyan a los demandantes en el juicio por YPF",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
      "id": "1nfx86s",
      "titulo": "Valentín Yankelevich gana su primera carrera en el TC2000 en Río Negro",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "144sz5h",
+     "titulo": "Pedro Sánchez advierte que España no se gobierna desde Buenos Aires",
+     "seccion": "Política",
      "marcada": false
     },
     {
@@ -230,28 +253,10 @@
      "titulo": "El Gobierno enfrenta un vencimiento de US$ 800 millones con el Fondo Monetario",
      "seccion": "Economía",
      "marcada": false
-    },
-    {
-     "id": "1yipx6w",
-     "titulo": "Una marplatense muere en un choque frontal en una ruta de Nueva Zelanda",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1qggjq3",
-     "titulo": "El Gobierno actualiza subsidios a colectivos del AMBA y pagará $38.840 millones",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "shyq3f",
-     "titulo": "Defensa y Justicia e Independiente juegan en Florencio Varela",
-     "seccion": "Fútbol",
-     "marcada": false
     }
    ],
-   "cupo": 2,
-   "proximoDesde": "2026-11-02T16:06:10.342Z",
+   "cupo": 1,
+   "proximoDesde": "2026-11-02T18:06:00.701Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
