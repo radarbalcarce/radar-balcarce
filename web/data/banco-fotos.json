@@ -59471,7 +59471,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "3d15367a2b0c2c6c"
+  "huella": "3d15367a2b0c2c6c",
+  "ausenteDesde": "2026-11-02T12:34:55.631Z"
  },
  "yhn2j5": {
   "archivo": "fotos-notas/yhn2j5.jpg",
@@ -67885,7 +67886,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "ac3c360c8ca6928c"
+  "huella": "ac3c360c8ca6928c",
+  "ausenteDesde": "2026-11-02T12:34:55.631Z"
  },
  "35ee8s": {
   "archivo": "fotos-notas/35ee8s.jpg",
@@ -67933,6 +67935,50 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Boca y River disputando el balón en el Superclásico"
   },
-  "huella": "3a41b17949d8c9c9"
+  "huella": "3a41b17949d8c9c9",
+  "ausenteDesde": "2026-11-02T12:34:55.631Z"
+ },
+ "k0gz3v": {
+  "archivo": "fotos-notas/k0gz3v.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno fija el salario mínimo en 398.800 pesos",
+  "enlace": "https://www.eleco.com.ar/economia/el-gobierno-decreto-el-nuevo-salario-minimo-en-398800-pesos",
+  "imagenOriginal": "https://cdnartic.ar/qQ9XwiIipXgYIo3NytBsIjTTxMQ=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/05/salario.png",
+  "razon": "Es una foto genérica de dinero y billetera que ilustra perfectamente el tema económico del salario mínimo, sin marcas añadidas, menores ni problemas de stock.",
+  "cuando": "2026-11-02T12:33:00.409Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Manos sacando billetes de una billetera de cuero."
+  },
+  "huella": "ab9b9d8f9d93d2d8"
+ },
+ "67i2z0": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca vence 1 a 0 a River en el Superclásico por el Torneo Clausura",
+  "razon": "La única foto disponible tiene una marca de agua superpuesta (logo 'ca') en la esquina inferior izquierda, por lo que no puede ser elegida.",
+  "cuando": "2026-11-02T12:33:00.409Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "errorGemini": "The operation was aborted due to timeout"
+ },
+ "1xd0of": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
+  "razon": "Ambas fotos muestran menores reconocibles en la tribuna y no cumplen con la política del medio.",
+  "cuando": "2026-11-02T12:33:00.409Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
