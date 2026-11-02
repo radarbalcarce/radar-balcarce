@@ -51,10 +51,17 @@ la PC, que se retiró sin haberse usado.
   que una nota, la gente deja de distinguir qué es qué.
 - Dicen "Espacio publicitario" arriba, siempre.
 - Texto y un logo, no imágenes pesadas.
-- Nunca: ventanas emergentes, videos que arrancan solos, publinotas sin aclarar
-  que lo son, avisos de apuestas o de préstamos.
-- **Un aviso no compra una nota.** Lo que se escribe sobre un anunciante sigue el
-  mismo criterio que sobre cualquier otro.
+- Nunca: ventanas emergentes, videos que arrancan solos, avisos de apuestas o de
+  préstamos.
+- **La nota «Emprendedores de Balcarce»** que acompaña a un anunciante es una nota de
+  redacción firmada por Hernán: cuenta quiénes son y qué hacen, con lo que ellos dicen
+  entre comillas y como dicho por ellos, sin inventar nada. **Va sin rótulo de
+  patrocinio** (Hernán, 2/11/2026: «innecesario»); el aviso, en cambio, siempre dice que
+  lo es. Lo que se escribe sobre un anunciante **en las noticias** sigue el mismo
+  criterio que sobre cualquier otro: un aviso no cambia una noticia.
+- **Los precios** (2/11/2026): tres combos, $ 5.000, $ 10.000 y $ 15.000 por mes, en
+  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`; el media kit, en
+  `docs/propuestas/MEDIA-KIT-2026-11.html`. Se pauta con la 3.0.
 - **Política y Policiales no llevan patrocinio** de nadie.
 - **El auspiciante nunca habla por la voz sin que se sepa:** la mención dice
   "gracias a" o "presentado por"; no simula ser una noticia.

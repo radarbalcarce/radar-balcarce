@@ -466,3 +466,20 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - **Bluesky y Threads:** Hernán crea las cuentas (Bluesky nueva; Threads ya existe con la cuenta de Instagram) con `radarbalcarce@gmail.com`.
   Para publicar hacen falta: en Bluesky, una «contraseña de aplicación» generada en la configuración de la cuenta; en Threads, el permiso
   de la misma app de Meta. Van como secretos del Worker de redes, nunca en el chat.
+
+**Sumado el 2/11, segunda parte** (Hernán, al leer la propuesta de publicidad):
+
+- **Publicidad, decidido:** tres combos por mes, **$ 5.000 (Presencia), $ 10.000 (Destacado) y $ 15.000 (Auspicio)**, en
+  `docs/propuestas/PUBLICIDAD-PRIMER-COMERCIO.md`, con el media kit de una carilla en `docs/propuestas/MEDIA-KIT-2026-11.html` (en la 3.0 es
+  la página `/publicidad`). La nota «Emprendedores de Balcarce» **va sin rótulo de patrocinio** (Hernán: «innecesario»; `PUBLICIDAD.md`
+  cambiado ese día); el cuestionario se manda por WhatsApp y se responde por audio o por escrito. **No se ofrece marketing al comercio**
+  (revisar sus redes, hacerle imágenes): «no nos metamos en algo que no vamos a poder abarcar». **Se pauta con la 3.0**, no se toca la 2.0.
+  Propuesta pendiente: los primeros tres comercios llevan Destacado al precio de Presencia el primer mes.
+- **Arrancar ya con los cambios profundos** (Hernán, 2/11). Qué falta de su lado y qué no: para la **etapa B** sólo la **clave paga con
+  monto** (la carga el 2/11) y **una charla de una hora para `PERFIL.md`** (el borrador está en `docs/propuestas/PERFIL-BORRADOR.md`; se
+  puede hacer por audio de Telegram, de a una pregunta). Nada más traba la B. Para las etapas **C y D**, cuando lleguen: la cuenta de
+  **Bluesky** (la crea Hernán), el permiso de **Threads** y la revisión de la app de **TikTok** (lo prepara Claude, lo aprueba Hernán en el
+  Chrome de Radar), el proyecto de **YouTube** (ídem) y corregir el **cronograma**. Para el corte (**F**): nada que comprar; el dominio y
+  las cuentas son los de hoy. **No hay que sacar nada todavía**: la limpieza de claves y recursos se hace en el corte, con la lista.
+  Lo que no necesita la clave y arranca primero: el esqueleto de `v3/` (núcleo, sitio, redes, redacción, vigilancia), el esquema de D1,
+  la lectura de fuentes, la huella con Workers AI y su calibración con 200 pares.
