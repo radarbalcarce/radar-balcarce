@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T12:07:20.844Z",
- "portada": 139,
+ "generado": "2026-11-03T12:35:10.306Z",
+ "portada": 142,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-03T12:07:21.330Z",
+  "generado": "2026-11-03T12:35:10.710Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "ccpclt",
-      "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
+      "id": "1tqe7zq",
+      "titulo": "El CEF Nº 119 Oscar Cardozo celebra sus 25 años",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1faalls",
+      "titulo": "Facundo Cerone deja de ser el director técnico de Sportivo Trabajo Mitre",
+      "seccion": "Fútbol"
      },
      {
       "id": "hjwjy8",
@@ -111,11 +116,6 @@
       "id": "fcz7oa",
       "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1vdxfk4",
-      "titulo": "La Libertad Avanza pide cambios en las tasas de los municipios",
-      "seccion": "Política"
      }
     ]
    },
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 47,
     "notas": [
      {
-      "id": "voie14",
-      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+      "id": "1c9pdog",
+      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
       "seccion": "Balcarce"
      },
      {
-      "id": "xv1osq",
-      "titulo": "Lourdes Kazimurczyk presenta pastelería nórdica en la Fiesta del Postre",
-      "seccion": "Cultura y agenda"
+      "id": "18ol7p3",
+      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
+      "seccion": "Política"
      },
      {
       "id": "sqcelu",
@@ -157,22 +157,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
-      "id": "plz9wk",
-      "titulo": "Esteban Reino propone realizar la Estudiantina a puerta cerrada este año",
+      "id": "ccpclt",
+      "titulo": "Una rotura en una cañería troncal afecta el suministro de agua",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1vdxfk4",
+      "titulo": "La Libertad Avanza pide cambios en las tasas de los municipios",
+      "seccion": "Política"
      },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
       "seccion": "Deportes"
-     },
-     {
-      "id": "nae13g",
-      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
-      "seccion": "Política"
      },
      {
       "id": "10f66es",
@@ -185,6 +185,30 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "1tqe7zq",
+     "titulo": "El CEF Nº 119 Oscar Cardozo celebra sus 25 años",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1c9pdog",
+     "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1faalls",
+     "titulo": "Facundo Cerone deja de ser el director técnico de Sportivo Trabajo Mitre",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "15sbl5n",
+     "titulo": "Muere Jesús de Miguel, futbolista de Tenerife, tras un choque",
+     "seccion": "Deportes",
+     "marcada": false
+    },
     {
      "id": "10kt3fe",
      "titulo": "Estados Unidos vota en las elecciones de mitad de mandato",
