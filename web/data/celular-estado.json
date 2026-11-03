@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T13:33:46.803Z",
- "portada": 138,
+ "generado": "2026-11-03T14:11:57.543Z",
+ "portada": 156,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-03T13:33:47.430Z",
+  "generado": "2026-11-03T14:11:58.237Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-03T10:36:39.086Z"
    },
    {
@@ -34,7 +34,7 @@
     "voz": "locutor",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-03T13:46:55.159Z"
    },
    {
     "nombre": "participa-evento",
@@ -94,8 +94,8 @@
     "hora": "10:00",
     "voz": "locutor",
     "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "salio": "2026-11-03T13:46:55.159Z",
+    "segundos": null,
     "notas": [
      {
       "id": "1tqe7zq",
@@ -113,9 +113,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "nae13g",
-      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
-      "seccion": "Política"
+      "id": "fcz7oa",
+      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 48,
     "notas": [
      {
-      "id": "1c9pdog",
-      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
+      "id": "1s6bcl6",
+      "titulo": "Anuncian cinco días consecutivos sin atención en los bancos",
       "seccion": "Balcarce"
      },
      {
-      "id": "10f66es",
-      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
-      "seccion": "Argentina"
+      "id": "18ol7p3",
+      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
+      "seccion": "Política"
      },
      {
-      "id": "v7iwd7",
-      "titulo": "El riesgo país se acerca a 800 puntos y caen las acciones",
-      "seccion": "Economía"
+      "id": "sqcelu",
+      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
+      "seccion": "Deportes"
      },
      {
-      "id": "1jcaj7v",
-      "titulo": "Socios de Adecoagro compran las tierras del grupo Benetton",
-      "seccion": "Agro"
+      "id": "epb4w8",
+      "titulo": "La Escuela Municipal de básquetbol avanza en los Play Off de la Liga",
+      "seccion": "Educación"
      }
     ]
    },
@@ -157,26 +157,26 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 51,
     "notas": [
      {
-      "id": "voie14",
-      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+      "id": "1c9pdog",
+      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
       "seccion": "Balcarce"
      },
      {
-      "id": "xwuqrt",
-      "titulo": "Sergio Massa se reúne con el estratega digital de Lula da Silva",
+      "id": "1vdxfk4",
+      "titulo": "La Libertad Avanza pide cambios en las tasas de los municipios",
       "seccion": "Política"
      },
      {
-      "id": "153in3t",
-      "titulo": "Alpine lamenta las sanciones a Franco Colapinto y Pierre Gasly en México",
-      "seccion": "Automovilismo"
+      "id": "bhyj9r",
+      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
+      "seccion": "Deportes"
      },
      {
-      "id": "8mp5fu",
-      "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
+      "id": "10f66es",
+      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
       "seccion": "Argentina"
      }
     ]
@@ -198,6 +198,12 @@
      "marcada": false
     },
     {
+     "id": "1s6bcl6",
+     "titulo": "Anuncian cinco días consecutivos sin atención en los bancos",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1c9pdog",
      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
      "seccion": "Balcarce",
@@ -207,6 +213,18 @@
      "id": "1faalls",
      "titulo": "Facundo Cerone deja de ser el director técnico de Sportivo Trabajo Mitre",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "17s2nca",
+     "titulo": "Kristalina Georgieva elogia el ajuste fiscal de la Argentina y pide frenar el populismo",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "2j408z",
+     "titulo": "Sandra Pettovello descarta mensajes políficos en la visita del papa León XIV",
+     "seccion": "Política",
      "marcada": false
     },
     {

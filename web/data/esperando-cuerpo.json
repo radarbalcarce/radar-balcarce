@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-03T13:33:46.803Z",
+ "generado": "2026-11-03T14:11:57.543Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -68,11 +68,6 @@
      "medio": "El Economista",
      "enlace": "https://eleconomista.com.ar/politica/milei-vuelve-espana-pedro-sanchez-lanza-una-explosiva-declaracion-horas-su-llegada-n99395",
      "fecha": "2026-11-02T16:19:00.000Z"
-    },
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/politica/nueva-reunion-la-mesa-politica-del-gobierno-antes-del-viaje-javier-milei-espana-n253268",
-     "fecha": "2026-11-03T02:41:00.000Z"
     },
     {
      "medio": "C5N",
@@ -212,6 +207,33 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 4
+  },
+  {
+   "id": "1o83u2p",
+   "titulo": "Margarita en Vivo suma una tercera fecha en el Campo Argentino de Polo: cuándo salen a la venta las entradas",
+   "copete": "Margarita en Vivo anunció una tercera y última fecha en el Campo Argentino de Polo para el próximo 19 de diciembre. Después de agotar rápidamente la función del 17 y sumar una segunda presentación para el 18, el espectáculo de Cris Morena agrega una nueva oportunidad para que el…",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-02T22:56:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/que-sale/margarita-en-vivo-suma-una-tercera-fecha-en-el-campo-argentino-de-polo-cuando-salen-a-la-venta-las-nid02112026/",
+     "fecha": "2026-11-02T20:04:09.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/cultura/nueva-fecha-entradas-margarita-campo-argentino-polo-2026-fecha-cuando-show-2026113104942",
+     "fecha": "2026-11-03T13:49:00.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/margarita-suma-una-tercera-y-ultima-fecha-en-el-campo-argentino-de-polo-cuando-y-donde-comprar-las-entradas/",
+     "fecha": "2026-11-02T22:56:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 2 problemas (forma): el titulo dice \"en vivo\" y el sitio no hace coberturas en vivo",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -238,6 +260,14 @@
    "fecha": "2026-11-02T11:58:31.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
+  },
+  {
+   "id": "q9wlq",
+   "titulo": "Citan a declaración a dos profesionales de la salud por la muerte de Claribel Medina",
+   "seccion": "Policiales",
+   "fecha": "2026-11-02T16:05:41.283Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\""
   },
   {
    "id": "17f0f1r",
