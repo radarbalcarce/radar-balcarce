@@ -91,6 +91,14 @@ En este orden, y se para en la primera que sirve:
 1. **Una foto de las fuentes** de esta historia: la más grande que no sea logo ni placa. Una IA de visión contesta tres cosas: ¿tiene
    marca de agua o nombre de otro medio? ¿muestra a un menor o a una víctima? ¿es de esta noticia o de archivo? Con un «sí» en las dos
    primeras, o si no tiene relación con la noticia, se descarta; la de archivo sirve. Crédito del medio en el epígrafe, siempre.
+   **Cómo se busca (3/11, caso «falleció un jugador», 6 fuentes y sin foto):** (a) se prueban las imágenes que el lector guardó (feed y, si bajó la página,
+   `og:image`), con las medidas que declara la dirección cuando el feed no las trae (`medidasDeUrl`: `_2000x1500_`, `/1200x675/`, `?width=`) y una miniatura de
+   WordPress (`-300x200.jpg`) vuelve a su original; (b) si ninguna sirve, se bajan las páginas de las fuentes (hasta 6) y se miran su `og:image` y
+   `twitter:image` (un feed con el texto completo nunca bajaba la página); (c) la visión mira hasta **6** candidatas y corta apenas una sirve; dos fallos
+   seguidos de Gemini cortan la búsqueda. Si no hay foto, `verificacion.fotoMotivo` dice por qué (`sin-candidatas`, `chicas`, `logo-o-forma`, `error-descarga`,
+   `todas-con-marca`, `todas-con-menor-o-victima`, `todas-descartadas`, `error-vision`) junto con `fotoIntentos` y `fotoIntentada`.
+   **Reintento:** una vez por vuelta, hasta 5 notas publicadas en las últimas 24 h sin foto vuelven a buscarla (45 minutos entre intentos, 4 en total).
+   **Pendiente:** los pasos 2 (foto libre confirmada por la visión) y 3 (ilustración con Workers AI) de esta lista todavía no están hechos.
 2. **Una foto libre** (Wikimedia Commons u Openverse) buscada por el nombre de la persona o el lugar, **sólo si la visión confirma** que
    es esa persona o ese lugar.
 3. **Una ilustración** generada (Workers AI), con «Ilustración: Radar Balcarce» en el epígrafe.

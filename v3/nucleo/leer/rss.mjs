@@ -73,9 +73,33 @@ function entero(v) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
+// Las medidas que la propia dirección de la imagen declara, para cuando el feed no las trae (el 3/11 el 17 % de las imágenes de los feeds venían sin
+// ancho ni alto: Olé, Ámbito, DIB, Motorsport... y quedaban últimas en la fila de candidatas). Devuelve { ancho, alto } (cada uno puede ser null).
+// Formas que entiende: ?width=1023&height=683, ?cw=600&ch=365, ?w=800&h=600, /w640-h480/ (Blogger), /1200x675/ o _2000x1500_ (Clarín, Olé, Ámbito, DIB).
+export function medidasDeUrl(url) {
+  const nada = { ancho: null, alto: null };
+  let u;
+  try { u = new URL(String(url)); } catch { return nada; }
+  const q = u.searchParams;
+  const num = (v) => { const n = parseInt(v, 10); return Number.isFinite(n) && n >= 50 && n <= 12000 ? n : null; };
+  for (const [a, b] of [['width', 'height'], ['cw', 'ch'], ['w', 'h']]) {
+    const ancho = num(q.get(a));
+    if (ancho) return { ancho, alto: num(q.get(b)) };
+  }
+  const blogger = /\/w(\d{3,4})-h(\d{3,4})(?:-[a-z0-9-]*)?\//i.exec(u.pathname);
+  if (blogger) return { ancho: num(blogger[1]), alto: num(blogger[2]) };
+  const camino = /(?:^|[^\d])(\d{3,4})x(\d{3,4})(?!\d)/.exec(u.pathname);
+  if (camino) return { ancho: num(camino[1]), alto: num(camino[2]) };
+  return nada;
+}
+
 function imagen(url, ancho, alto) {
   if (!url || !/^https?:\/\//i.test(url)) return null;
-  return { url, ancho: entero(ancho), alto: entero(alto) };
+  const a = entero(ancho);
+  const h = entero(alto);
+  if (a && h) return { url, ancho: a, alto: h };
+  const m = medidasDeUrl(url);
+  return { url, ancho: a ?? m.ancho, alto: h ?? (a ? null : m.alto) };
 }
 
 function imagenesDe(bloque, html) {

@@ -455,3 +455,58 @@ test('/salud muestra de cada fuente con falla el motivo (ultimaFalla, a lo sumo 
   const salud2 = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
   assert.ok(salud2.fuentes.conFalla.find((f) => f.id === 'caida').ultimaFalla.length <= 120);
 });
+
+test('las notas publicadas sin foto se reintentan (hasta 5 por vuelta, 24 h, 45 minutos entre intentos) y se guarda el motivo', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_PUBLICA: 'si' });
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  const primeras = filas(env, "SELECT id, historia_id FROM notas WHERE estado = 'publicada'");
+  assert.equal(primeras.length, 3);
+  // las tres quedan sin foto y sin marcas; sus fuentes ahora traen una imagen que sirve
+  env.DB.sqlite.exec("UPDATE notas SET foto = NULL, verificacion = '{}'");
+  for (const p of primeras) env.DB.sqlite.prepare('UPDATE articulos SET imagenes = ? WHERE historia_id = ?').run(JSON.stringify([{ url: 'https://img.test/nueva.png', ancho: 1200, alto: 800 }]), p.historia_id);
+
+  const r2 = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.deepEqual(r2.errores, []);
+  assert.ok(r2.fotosReintentadas >= 3 && r2.fotosEncontradas >= 3, `reintentadas ${r2.fotosReintentadas}, encontradas ${r2.fotosEncontradas}`);
+  for (const p of primeras) {
+    const f = filas(env, 'SELECT foto, verificacion FROM notas WHERE id = ?', p.id)[0];
+    assert.equal(JSON.parse(f.foto).url, 'https://img.test/nueva.png');
+    assert.match(JSON.parse(f.foto).credito, /^Foto: /);
+    const v = JSON.parse(f.verificacion);
+    assert.equal(v.fotoIntentos, 1);
+    assert.equal(v.fotoMotivo, undefined);
+  }
+
+  // si después no hay imagen en ningún lado: queda el motivo y los intentos; 15 minutos después no se vuelve a probar (hay que esperar 45)
+  const una = primeras[0];
+  env.DB.sqlite.exec(`UPDATE notas SET foto = NULL WHERE id = '${una.id}'`);
+  // (las páginas de esa fuente no existen: el mundo falso contesta 404)
+  env.DB.sqlite.exec(`UPDATE articulos SET imagenes = '[]', url = 'https://sinfoto.test/' || id WHERE historia_id = '${una.historia_id}'`);
+  const masUna = (min) => new Date(Date.parse(AHORA) + min * 60_000).toISOString();
+  await n.vuelta(env, { fetch: m.fetch, ahora: masUna(60), azar: semilla(3) });
+  let v = JSON.parse(filas(env, 'SELECT verificacion FROM notas WHERE id = ?', una.id)[0].verificacion);
+  assert.deepEqual([v.fotoMotivo, v.fotoIntentos], ['sin-candidatas', 2]);
+  await n.vuelta(env, { fetch: m.fetch, ahora: masUna(75), azar: semilla(4) });
+  v = JSON.parse(filas(env, 'SELECT verificacion FROM notas WHERE id = ?', una.id)[0].verificacion);
+  assert.equal(v.fotoIntentos, 2, 'a los 15 minutos del último intento no se vuelve a probar');
+  // pasados 45 minutos sí, y a los 4 intentos se deja de probar
+  await n.vuelta(env, { fetch: m.fetch, ahora: masUna(125), azar: semilla(5) });
+  await n.vuelta(env, { fetch: m.fetch, ahora: masUna(185), azar: semilla(6) });
+  await n.vuelta(env, { fetch: m.fetch, ahora: masUna(245), azar: semilla(7) });
+  v = JSON.parse(filas(env, 'SELECT verificacion FROM notas WHERE id = ?', una.id)[0].verificacion);
+  assert.equal(v.fotoIntentos, 4);
+});
+
+test('una nota sin foto de más de 24 h, o una que no es del núcleo (sin historia), no se reintenta', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_PUBLICA: 'si' });
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  const hid = filas(env, 'SELECT historia_id FROM notas LIMIT 1')[0].historia_id;
+  await db.guardarNota(env, { id: 'vieja02', historiaId: hid, creada: '2026-10-31T22:00:00Z', titulo: 'vieja', cuerpo: ['a'], estado: 'publicada' });
+  await db.guardarNota(env, { id: 'propia1', historiaId: 'redaccion-propia1', creada: AHORA, titulo: 'propia', cuerpo: ['a'], estado: 'publicada' });
+  const lista = await db.notasPublicadasSinFoto(env, new Date(Date.parse(AHORA) - 24 * 3600_000).toISOString());
+  assert.ok(!lista.some((x) => x.id === 'vieja02' || x.id === 'propia1'));
+});

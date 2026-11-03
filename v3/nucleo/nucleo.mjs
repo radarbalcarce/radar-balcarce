@@ -9,7 +9,7 @@ import { agrupar, textoParaDuda } from './agrupar/agrupar.mjs';
 import { elegir } from './elegir/elegir.mjs';
 import { crearGemini } from './redactar/gemini.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
-import { elegirFoto } from './fotos/fotos.mjs';
+import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 
@@ -23,6 +23,10 @@ const MAX_ARTICULOS_POR_VUELTA = 100; // tope de seguridad: D1 y subpedidos de u
 const ERRORES_SEGUIDOS_DE_HUELLA = 5; // si Workers AI no contesta 5 veces seguidas, se corta el agrupado de esta vuelta
 const FALLOS_POR_HISTORIA = 3; // después de 3 vueltas fallando al redactar una historia, se la da por no redactable
 const LARGO_DE_MENSAJE = 3500;
+const FOTOS_REINTENTADAS_POR_VUELTA = 5; // notas publicadas sin foto a las que se les vuelve a buscar una por vuelta (REGLAS § 7)
+const HORAS_PARA_REINTENTAR_FOTO = 24; // sólo las publicadas en las últimas 24 h
+const MAX_INTENTOS_DE_FOTO = 4; // contando el de la redacción
+const MINUTOS_ENTRE_INTENTOS_DE_FOTO = 45;
 const HORAS_PARA_REDACTAR = 48; // una historia elegida que no se alcanzó a redactar en este plazo ya es vieja
 
 // Precio estimado de Gemini 3.1 Flash-Lite, en US$ por millón de tokens. SE CONFIRMAN CON LA LISTA DE PRECIOS DE GOOGLE: si cambian, se
@@ -53,6 +57,12 @@ const numero = (v, defecto) => {
 };
 
 const usd = (n) => `US$ ${n.toFixed(2).replace('.', ',')}`;
+
+/** La marca de la foto en `verificacion` (la tabla no tiene columna para esto): por qué no hay (`fotoMotivo`, ver MOTIVOS_SIN_FOTO), cuántos intentos y cuándo fue el último. Con foto, se borra el motivo. */
+export function conMotivoDeFoto(verificacion, motivo, intentos, ahoraISO) {
+  const { fotoMotivo, ...resto } = verificacion || {};
+  return { ...resto, ...(motivo ? { fotoMotivo: motivo } : {}), fotoIntentos: intentos, fotoIntentada: ahoraISO };
+}
 
 function idDeNota(azar = Math.random) {
   let s = '';
@@ -154,7 +164,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false,
+      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -269,6 +279,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (e) redactar
     await redactarPendientes(env, c, gem, r, error);
 
+    // (e2) a las notas ya publicadas sin foto se les vuelve a buscar (hasta 5 por vuelta, las de las últimas 24 h)
+    if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await reintentarFotos(env, c, gem, r, error);
+
     // (f) con NUCLEO_PUBLICA = si, los borradores bien hechos de las últimas 24 h que quedaron sin publicar (el arranque, o una vuelta que falló a medias)
     if (publica(env)) {
       try { r.publicadasPendientes = await db.publicarBorradores(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString(), c.ahoraISO); } catch (e) { error('publicar pendientes', e); }
@@ -320,10 +333,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         const nota = await verificarYReescribir(historia, arts, { gemini: geminiTexto, perfil, redaccion });
         if (!nota.noPublicar) {
           try {
-            nota.foto = await elegirFoto(nota, arts, { gemini: geminiFoto, fetch: c.fetchFn });
+            const f = await elegirFotoConMotivo(nota, arts, { gemini: geminiFoto, fetch: c.fetchFn });
+            nota.foto = f.foto;
+            if (!f.foto) nota.verificacion = conMotivoDeFoto(nota.verificacion, f.motivo, 1, c.ahoraISO);
           } catch (e) {
             if (e.message === 'tope-diario') throw e;
             error(`foto de ${h.id}`, e); // sin foto la nota igual se guarda
+            nota.verificacion = conMotivoDeFoto(nota.verificacion, 'error-vision', 1, c.ahoraISO);
           }
         }
         const sale = publica(env) && !nota.noPublicar;
@@ -344,6 +360,38 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
             r.noSalen['error-redaccion'] = (r.noSalen['error-redaccion'] || 0) + 1;
           }
         } catch (e2) { error(`anotar fallo de ${h.id}`, e2); }
+      }
+    }
+  }
+
+  // Vuelve a buscarles foto a las notas publicadas sin foto (las de las últimas 24 h; hasta 5 por vuelta, con 45 minutos entre intentos y 4 intentos en total).
+  // Las fuentes de la historia pueden haber crecido desde que se escribió la nota, y la página de una fuente que no se había mirado ahora sí se mira.
+  async function reintentarFotos(env, c, gem, r, error) {
+    let sinFoto;
+    try { sinFoto = await db.notasPublicadasSinFoto(env, new Date(c.ahora.getTime() - HORAS_PARA_REINTENTAR_FOTO * HORA).toISOString()); } catch (e) { error('notas sin foto', e); return; }
+    const hace = c.ahora.getTime() - MINUTOS_ENTRE_INTENTOS_DE_FOTO * 60_000;
+    const toca = sinFoto
+      .filter((n) => (n.verificacion.fotoIntentos || 0) < MAX_INTENTOS_DE_FOTO && !(n.verificacion.fotoIntentada && new Date(n.verificacion.fotoIntentada).getTime() > hace))
+      .sort((x, y) => (x.verificacion.fotoIntentos || 0) - (y.verificacion.fotoIntentos || 0)) // las que menos se probaron primero (el orden es estable: adentro, las más nuevas)
+      .slice(0, FOTOS_REINTENTADAS_POR_VUELTA);
+    if (!toca.length) return;
+    const geminiFoto = gem.para('foto');
+    for (const n of toca) {
+      try {
+        const arts = await db.articulosDeHistoria(env, n.historiaId);
+        if (!arts.length) continue;
+        const f = await elegirFotoConMotivo({ titulo: n.titulo, ficha: n.ficha }, arts, { gemini: geminiFoto, fetch: c.fetchFn });
+        r.fotosReintentadas += 1;
+        const intentos = (n.verificacion.fotoIntentos || 0) + 1;
+        if (f.foto) {
+          await db.ponerFotoDeNota(env, n.id, f.foto, conMotivoDeFoto(n.verificacion, null, intentos, c.ahoraISO));
+          r.fotosEncontradas += 1;
+        } else {
+          await db.ponerFotoDeNota(env, n.id, null, conMotivoDeFoto(n.verificacion, f.motivo, intentos, c.ahoraISO));
+        }
+      } catch (e) {
+        if (e.message === 'tope-diario') { r.topeDiario = true; break; }
+        error(`reintentar foto de ${n.id}`, e);
       }
     }
   }

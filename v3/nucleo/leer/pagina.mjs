@@ -1,5 +1,5 @@
 // Texto principal e imágenes de una página HTML (para cuando el feed no trae el texto).
-import { htmlATexto, decodificarEntidades } from './rss.mjs';
+import { htmlATexto, decodificarEntidades, medidasDeUrl } from './rss.mjs';
 
 function limpiar(html) {
   return String(html)
@@ -98,10 +98,11 @@ export function imagenesDePagina(html) {
   const salida = [];
   const og = valor('og:image') || valor('og:image:url') || valor('og:image:secure_url');
   if (og && /^https?:\/\//i.test(og)) {
-    salida.push({ url: og, ancho: entero(valor('og:image:width')), alto: entero(valor('og:image:height')) });
+    const m = medidasDeUrl(og);
+    salida.push({ url: og, ancho: entero(valor('og:image:width')) ?? m.ancho, alto: entero(valor('og:image:height')) ?? m.alto });
   }
   const tw = valor('twitter:image') || valor('twitter:image:src');
-  if (tw && /^https?:\/\//i.test(tw) && tw !== og) salida.push({ url: tw, ancho: null, alto: null });
+  if (tw && /^https?:\/\//i.test(tw) && tw !== og) { const m = medidasDeUrl(tw); salida.push({ url: tw, ancho: m.ancho, alto: m.alto }); }
   return salida;
 }
 
