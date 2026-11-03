@@ -75,31 +75,7 @@ jobs:
         if: env.ACCION == 'retirar'
         working-directory: v3/nucleo
         run: |
-          echo "$NOTA" | grep -Eq '^[a-z0-9]{3,30}
-          git config user.name "Radar Balcarce"
-          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
-          git config user.email "272334999+balcar-dev@users.noreply.github.com"
-          if [ "$ACCION" = "calibrar" ]; then
-            # salida/ está en el .gitignore: el informe se agrega a la fuerza
-            git add -f v3/nucleo/scripts/salida/calibracion-*.md
-            git add v3/nucleo/agrupar/umbrales.json
-            mensaje="Radar 3.0 · calibración de umbrales"
-          else
-            git add v3/nucleo/comparaciones/
-            mensaje="Radar 3.0 · comparación del núcleo con el sistema viejo"
-          fi
-          if git diff --cached --quiet; then
-            echo "Sin cambios para guardar."
-            exit 0
-          fi
-          git commit -m "$mensaje · $(date '+%d/%m %H:%M')"
-          for intento in 1 2 3; do
-            git pull --rebase -q && git push && break
-            sleep 5
-          done
-          git fetch -q origin main
-          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir el resultado después de tres intentos"; exit 1; }
- || { echo "Id de nota inválido"; exit 1; }
+          echo "$NOTA" | grep -Eq '^[a-z0-9]{3,30}$' || { echo "Id de nota inválido"; exit 1; }
           test -n "$MOTIVO" || { echo "Falta el motivo"; exit 1; }
           buscar() {
             npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})"
