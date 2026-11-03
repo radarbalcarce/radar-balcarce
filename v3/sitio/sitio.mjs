@@ -1,11 +1,14 @@
 // El sitio de Radar 3.0: recibe un pedido, arma la página con lo que hay en la base y la guarda unos minutos en la caché.
 // Ver REGLAS.md. `cache` se inyecta (en Cloudflare es `caches.default`; en las pruebas, un Map).
 import * as consultas from './db/consultas.mjs';
-import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota } from './util.mjs';
+import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota, partesEnBalcarce } from './util.mjs';
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
 import { leerClima, leerFarmacia } from './datos-del-dia.mjs';
+import { crearPublicidad } from './vistas/avisos.mjs';
+import { configDe, adsTxt } from './vistas/consentimiento.mjs';
+import { paginaDeTexto, paginaDePublicidad, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
 import { sitemapIndice, sitemapDelMes, rss, robots } from './vistas/xml.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
@@ -16,6 +19,9 @@ export const CACHE = {
   mapa: [600, 3600],
   rss: [300, 600],
   robots: [3600, 86400],
+  texto: [300, 3600],
+  // Con avisos locales cargados, las páginas se rearman seguido para que roten.
+  conAvisos: [60, 300],
 };
 
 const HTML = 'text/html; charset=utf-8';
@@ -73,6 +79,7 @@ export function origenViejo(env) {
 export function esRutaPropia(pathname) {
   const ruta = pathname.replace(/\/+$/, '') || '/';
   return ruta === '/' || ruta === '/robots.txt' || ruta === '/buscar' || ruta === '/sitemap.xml' || ruta === '/rss.xml' || ruta === '/feed.xml'
+    || ruta === '/ads.txt' || RUTAS_DE_TEXTO.includes(ruta.slice(1))
     || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta);
 }
 
@@ -115,14 +122,30 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     const ruta = url.pathname.replace(/\/+$/, '') || '/';
     const indexar = String(env.INDEXAR || 'no').toLowerCase() === 'si';
     // El clima y la farmacia se piden en paralelo con la base; si fallan, la página lo dice (null).
+    const config = configDe(env);
+    const cfBeacon = /^[a-f0-9]{32}$/i.test(String(env.CF_BEACON ?? '').trim()) ? String(env.CF_BEACON).trim() : null;
     const contextoDelDia = async () => {
       const reloj = ahora();
-      const [clima, farmacia] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj })]);
-      return { ahora: reloj, clima, farmacia };
+      const p = partesEnBalcarce(reloj);
+      const hoy = `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`;
+      const [clima, farmacia, avisos] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj }), consultas.avisosActivos(env, hoy).catch(() => [])]);
+      return { ahora: reloj, clima, farmacia, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
     };
     const fijar = (notas) => { const p = consultas.fijarSlugs(env, notas).catch(() => 0); if (ctx?.waitUntil) ctx.waitUntil(p); return p; };
 
     if (ruta === '/robots.txt') return { r: respuesta(robots(indexar), { tipo: 'text/plain; charset=utf-8', cache: CACHE.robots }), cachear: true };
+
+    if (ruta === '/ads.txt') {
+      const texto = adsTxt(config);
+      if (!texto) return { r: noEncontrada() };
+      return { r: respuesta(texto, { tipo: 'text/plain; charset=utf-8', cache: CACHE.robots }), cachear: true };
+    }
+
+    if (RUTAS_DE_TEXTO.includes(ruta.slice(1))) {
+      const contexto = await contextoDelDia();
+      const html = ruta === '/publicidad' ? paginaDePublicidad({ indexar, contexto }) : paginaDeTexto(ruta.slice(1), { indexar, contexto });
+      return { r: respuesta(html, { cache: contexto.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.texto, indexar }), cachear: true };
+    }
 
     if (ruta === '/') {
       const dia = contextoDelDia();
@@ -162,7 +185,8 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
-      return { r: respuesta(paginaDeNota(nota, { indexar, contexto: await contextoDelDia() }), { cache: CACHE.nota, indexar }), cachear: true };
+      const contextoNota = await contextoDelDia();
+      return { r: respuesta(paginaDeNota(nota, { indexar, contexto: contextoNota }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar }), cachear: true };
     }
 
     if (ruta === '/buscar') {

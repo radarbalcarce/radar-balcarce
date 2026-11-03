@@ -9,6 +9,9 @@ const PUBLICADA = `COALESCE(s.publicada_en, n.creada)`;
 /** Una fila de la base → la nota que usan las vistas (JSON leído; slug, fecha y origen con su valor de reserva). */
 export function aNota(f) {
   if (!f) return null;
+  const crudaFoto = jsonONull(f.foto);
+  const extra = jsonONull(f.s_extra) || {};
+  const fotos = Array.isArray(crudaFoto) ? crudaFoto : Array.isArray(extra.fotos) ? extra.fotos : Array.isArray(crudaFoto?.fotos) ? crudaFoto.fotos : [];
   return {
     id: f.id,
     titulo: f.titulo || '',
@@ -17,7 +20,8 @@ export function aNota(f) {
     seccion: f.seccion || 'Argentina',
     enDosLineas: f.en_dos_lineas || '',
     ficha: jsonONull(f.ficha),
-    foto: jsonONull(f.foto),
+    foto: Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto,
+    fotos,
     fuentes: jsonONull(f.fuentes) || [],
     fechaHecho: f.fecha_hecho || null,
     firma: f.firma || '',
@@ -25,7 +29,7 @@ export function aNota(f) {
     slugFijado: !!f.s_slug,
     publicada: f.s_publicada || f.creada,
     origen: f.s_origen || 'nucleo',
-    extra: jsonONull(f.s_extra) || {},
+    extra,
   };
 }
 
@@ -82,4 +86,14 @@ export async function fijarSlugs(env, notas, origen = 'nucleo') {
   if (!sin.length) return 0;
   await env.DB.batch(sin.map((n) => env.DB.prepare('INSERT OR IGNORE INTO sitio_notas (id, slug, publicada_en, origen) VALUES (?, ?, ?, ?)').bind(n.id, n.slug, n.publicada, origen)));
   return sin.length;
+}
+
+/** Los avisos locales activos hoy (hoy = AAAA-MM-DD en hora de Balcarce). Si la tabla todavía no existe, no hay avisos. */
+export async function avisosActivos(env, hoy) {
+  let r;
+  try {
+    r = await env.DB.prepare("SELECT id, comercio, texto, imagen, enlace, plan, lugares, desde, hasta FROM avisos WHERE activo = 1 AND (desde IS NULL OR desde = '' OR desde <= ?) AND (hasta IS NULL OR hasta = '' OR hasta >= ?) ORDER BY id").bind(hoy, hoy).all();
+  } catch { return []; }
+  const validos = ['fijo', 'postales', 'columna', 'pie'];
+  return (r.results || []).map((a) => ({ ...a, lugares: (Array.isArray(jsonONull(a.lugares)) ? jsonONull(a.lugares) : []).filter((l) => validos.includes(l)) })).filter((a) => a.lugares.length);
 }

@@ -59,7 +59,7 @@ test('una ruta que el nuevo no maneja se pide al viejo y vuelve tal cual (status
 });
 
 test('las rutas del viejo de la lista del corte (panel, clima, íconos, mapa de noticias…) salen del viejo; /panel/ conserva la barra final', async () => {
-  const rutas = ['/panel/', '/panel/app.js', '/clima', '/dolar', '/agenda', '/hoy', '/contacto', '/quienes-somos', '/politica-de-privacidad', '/llms.txt', '/agentes/notas.json',
+  const rutas = ['/panel/', '/panel/app.js', '/clima', '/dolar', '/agenda', '/hoy', '/llms.txt', '/agentes/notas.json',
     '/compartir/abc', '/escudos/river.png', '/tema/dolar', '/tablas/liga', '/googleabc123.txt', '/manifest.webmanifest', '/icon-192.png', '/sitemap-news.xml', '/seccion/futbol/feed.xml'];
   const { ir, pedidos } = conViejo(Object.fromEntries(rutas.map((x) => [x, () => new Response(`viejo:${x}`, { status: 200 })])));
   for (const x of rutas) {

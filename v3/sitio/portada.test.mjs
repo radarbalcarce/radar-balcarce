@@ -98,7 +98,7 @@ test('la portada: principal grande con foto y crédito, tres titulares, grilla c
   assert.match(h, /<div class="placa" style="--pc:var\(--s-cultura\)"[^>]*><b>Radar<i>Balcarce<\/i><\/b><em>Cultura<\/em>/);
   assert.match(h, /Lo último de Balcarce/);
   assert.equal((h.match(/<h1/g) || []).length, 1, 'un solo h1');
-  assert.ok(h.indexOf('Más de hoy') > h.indexOf('data-aviso="rotativo-3"'));
+  assert.ok(h.indexOf('data-aviso="pie"') > h.indexOf('Más de hoy'), 'el pie va al final');
 });
 
 test('la portada: Balcarce primero aunque la nota de afuera sea más nueva', async () => {
@@ -131,9 +131,9 @@ test('la portada vacía no se rompe y los cuatro lugares de aviso están (uno fi
   const { sqlite, env: e2 } = baseDePrueba();
   nota(sqlite, 'una');
   const lleno = await (await ir(sitioCon(traerFalso()), e2, '/')).text();
-  for (const k of ['fijo', 'rotativo-1', 'rotativo-2', 'rotativo-3']) assert.equal((lleno.match(new RegExp(`data-aviso="${k}"`, 'g')) || []).length, 1, k);
+  for (const k of ['fijo', 'postales', 'columna', 'pie']) assert.equal((lleno.match(new RegExp(`data-aviso="${k}"`, 'g')) || []).length, 1, k);
   assert.ok(lleno.indexOf('data-aviso="fijo"') < lleno.indexOf('class="hero"'));
-  assert.ok(lleno.indexOf('data-aviso="rotativo-1"') < lleno.indexOf('class="con-lado"'));
+  assert.ok(lleno.indexOf('data-aviso="postales"') < lleno.indexOf('class="con-lado"'));
   assert.match(lleno, /wa\.me\/5492266511612/);
   assert.match(lleno, /2266 51-1612/);
 });

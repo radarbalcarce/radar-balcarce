@@ -21,5 +21,13 @@ bucket_name = "radar-fotos"
 [vars]
 # "si" desde el corte (radarbalcarce.com apunta a este Worker): se indexa, con canonical https://radarbalcarce.com. Con "no": noindex en todo y robots.txt cerrado.
 INDEXAR = "si"
+# Cloudflare Web Analytics (sin cookies): el token público del sitio de Web Analytics que ya existe en la cuenta. Vacío = sin medición.
+CF_BEACON = "63fea16828ce46988d62382b0fbabf60"
+# AdSense y Google Analytics, APAGADOS. Con valor aparece el aviso de cookies, el script (sólo si el lector acepta) y /ads.txt. Formatos: ca-pub-1234567890123456 y G-XXXXXXXXXX.
+ADSENSE_CLIENTE = ""
+GA_ID = ""
+# Los bloques de AdSense (números de bloque que da el panel de AdSense al crear cada unidad): dentro de la nota y al final de las secciones.
+ADSENSE_SLOT_NOTA = ""
+ADSENSE_SLOT_SECCION = ""
 # El sitio viejo, que sigue publicándose: lo que este sitio no maneja (panel, farmacias, clima, íconos…) y las notas que no están en la base se piden ahí. Nunca radarbalcarce.com (bucle). Vacío = sin respaldo.
 ORIGEN_VIEJO = "https://radar-balcarce.pages.dev"

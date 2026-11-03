@@ -28,7 +28,7 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/nota\/se-inauguro-la-nueva-sala-del-hospital-abc1234">/);
   assert.match(h, /"@type":"NewsArticle"/);
   assert.match(h, /data-aviso="fijo"/);
-  assert.match(h, /data-aviso="rotativo-3"/);
+  assert.match(h, /data-aviso="pie"/);
   assert.equal((h.match(/<script/g) || []).length - (h.match(/<script type="application\/ld\+json"/g) || []).length, 1, 'el único JavaScript es el del menú');
   assert.match(h, /<script>document\.documentElement\.className\+=' js'/);
   assert.ok(!/name="robots"/.test(h), 'con INDEXAR=si se indexa');

@@ -92,22 +92,21 @@ export function paginaDePortada(notas, { indexar, contexto = {} } = {}) {
   let cuerpo;
   if (!p.principal) {
     cuerpo = `${cuadroDelDia(contexto)}
-${lugarFijo()}
+${lugarFijo(contexto)}
 <h1>Radar Balcarce</h1>
 <p class="sinnada">Todavía no hay notas publicadas.</p>
-${lugarRotativo(1)}${lugarRotativo(2)}${lugarRotativo(3)}`;
+${lugarRotativo(contexto, 'postales')}`;
   } else {
     cuerpo = `${cuadroDelDia(contexto)}
-${lugarFijo()}
+${lugarFijo(contexto)}
 <div class="portal mt"><div>${destacada(p.principal, ahora)}</div>${p.laterales.length ? `<div class="lat3">${p.laterales.map((n) => titularLateral(n, ahora)).join('')}</div>` : ''}</div>
 ${p.grilla.length ? `<h2 class="sec-t">Más noticias</h2><div class="grid3">${p.grilla.map((n) => tarjeta(n, ahora)).join('')}</div>` : ''}
-${lugarRotativo(1)}
+${lugarRotativo(contexto, 'postales')}
 <div class="con-lado">
 <div>${p.ultimaHora.length ? `<h2 class="sec-t">Última hora</h2>${lista(p.ultimaHora, ahora)}` : ''}</div>
-<aside class="lado" aria-label="Lateral">${lugarRotativo(2)}${masLeidas(p.lateral)}</aside>
+<aside class="lado" aria-label="Lateral">${lugarRotativo(contexto, 'columna')}${masLeidas(p.lateral)}</aside>
 </div>
 <div class="mt">${participa()}</div>
-${lugarRotativo(3)}
 ${p.masDeHoy.length ? `<div class="mt"><h2 class="sec-t">Más de hoy</h2>${lista(p.masDeHoy, ahora)}</div>` : ''}`;
   }
   return pagina({ titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto, imagen: p.principal && tieneFoto(p.principal) ? urlSegura(p.principal.foto.url) : undefined });

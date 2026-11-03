@@ -2,6 +2,8 @@
 // El único JavaScript del sitio es el del botón del menú en el celular (sin él, el menú se ve abierto).
 import { BASE, NOMBRE, SECCIONES, esc } from '../util.mjs';
 import { barraSuperior } from './dia.mjs';
+import { guionDeConsentimiento, avisoDeCookies, cambiarCookies } from './consentimiento.mjs';
+import { lugarRotativo } from './avisos.mjs';
 
 const FUENTES = 'https://radarbalcarce.com/fuentes';
 const LATIN = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122';
@@ -132,6 +134,41 @@ footer.pie .logo{color:#fff;font-size:22px}
 footer.pie p{margin:0}
 footer.pie a{text-decoration:underline}
 .sinnada{padding:20px 0}
+/* Avisos: el alto se reserva siempre para que nada se mueva al cargar. Horizontales 4:1 (recomendado 1200x300), columna 6:5 (600x500). */
+.aviso{margin:18px 0}
+.aviso .rotulo,.anuncio .rotulo{display:block;margin-bottom:3px;font:600 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+.aviso-caja{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;min-height:90px;padding:10px 14px;background:var(--papel);border:1px solid var(--linea);border-radius:10px;text-align:center;overflow:hidden}
+.aviso.con-imagen .aviso-caja{padding:0;border:0;background:none;min-height:0}
+.aviso.con-imagen img{width:100%;max-width:728px;aspect-ratio:4/1;object-fit:cover;border-radius:10px;margin:0 auto}
+.aviso-columna .aviso-caja{min-height:250px}
+.aviso-columna.con-imagen img{aspect-ratio:6/5;max-width:300px}
+.aviso-nombre{font:700 18px var(--serif);color:var(--tinta)}
+.aviso-texto{font-size:14px;color:var(--suave)}
+.aviso-propio .aviso-caja{border-style:dashed;font:600 15px var(--sans);color:var(--tinta)}
+.aviso-propio .aviso-caja:hover{text-decoration:underline}
+.anuncio{display:none;min-height:280px;margin:22px 0;overflow:hidden}
+.ads-ok .anuncio{display:block}
+.anuncio:has(ins[data-ad-status="unfilled"]){display:none}
+.ck{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--tinta);color:var(--crema);font-size:13px;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+.ck[hidden]{display:none}
+.ck p{margin:0;flex:1 1 320px}
+.ck a{text-decoration:underline}
+.ck-botones{display:flex;gap:8px}
+.ck button{padding:8px 14px;border-radius:999px;border:1.5px solid var(--crema);background:none;color:var(--crema);font:600 13px var(--sans);cursor:pointer}
+.ck button.ck-si{background:var(--ambar);border-color:var(--ambar);color:var(--tinta)}
+button.enlace{background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}
+.texto{max-width:720px;margin:0 auto;font-size:17px;line-height:1.65}
+.texto h2{margin:28px 0 8px;font:800 24px/1.2 var(--serif);color:var(--tinta)}
+.texto h3{margin:20px 0 6px;font:700 19px var(--serif);color:var(--tinta)}
+.texto a{text-decoration:underline;color:var(--rojo)}
+.texto ul{padding-left:22px}
+.tabla-planes{overflow-x:auto}
+.tabla-planes table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;min-width:620px}
+.tabla-planes th,.tabla-planes td{padding:9px 10px;border-bottom:1px solid var(--linea);text-align:center}
+.tabla-planes th:first-child,.tabla-planes td:first-child{text-align:left;font-weight:600}
+.tabla-planes th{font:800 15px var(--serif);background:var(--papel)}
+.tabla-planes th small{display:block;font:400 11px var(--sans);color:var(--suave)}
+.esquema{max-width:560px;margin:14px auto}
 @media(min-width:760px){
  .logo{font-size:38px}
  form.buscar{order:0;flex:0 1 300px}
@@ -195,6 +232,8 @@ ${canonico}
 ${og}
 <meta name="twitter:card" content="${p.imagen ? 'summary_large_image' : 'summary'}">
 <style>${ESTILOS}</style>
+${p.contexto?.cfBeacon ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify({ token: p.contexto.cfBeacon })}'></script>` : ''}
+${guionDeConsentimiento(p.contexto?.config)}
 ${(p.datos || []).map(jsonLd).join('\n')}
 </head>
 <body>
@@ -208,9 +247,12 @@ ${menu()}
 <main class="ancho" id="contenido">
 ${p.cuerpo}
 </main>
+${p.sinAvisos ? '' : `<div class="ancho">${lugarRotativo(p.contexto, 'pie')}</div>`}
 <footer class="pie"><div class="ancho"><div class="logo">Radar <span>Balcarce</span></div>
 <p>Noticias de Balcarce y la zona, todo el día. Medio digital automático: escritas con ayuda de IA, verificadas contra las fuentes; cada nota dice quién la escribió y de qué fuentes sale.</p>
-<p><a href="/rss.xml">RSS</a> · Balcarce, Buenos Aires</p></div></footer>
+<p><a href="/quienes-somos">Quiénes somos</a> · <a href="/como-trabajamos">Cómo trabajamos</a> · <a href="/contacto">Contacto</a> · <a href="/publicidad">Publicidad</a> · <a href="/politica-de-privacidad">Política de privacidad</a></p>
+<p><a href="/rss.xml">RSS</a> · Balcarce, Buenos Aires${cambiarCookies(p.contexto?.config)}</p></div></footer>
+${avisoDeCookies(p.contexto?.config)}
 ${GUION_DEL_MENU}
 </body>
 </html>`;

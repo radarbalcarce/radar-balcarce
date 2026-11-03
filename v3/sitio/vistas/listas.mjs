@@ -1,7 +1,7 @@
 // Las páginas que son listas de notas: las secciones y la búsqueda (la portada está en portada.mjs).
 import { esc } from '../util.mjs';
 import { pagina, colorDe } from './base.mjs';
-import { lugarFijo, lugarRotativo } from './avisos.mjs';
+import { lugarFijo, bloqueAdsense } from './avisos.mjs';
 import { paginaDePortada, filaDeLista } from './portada.mjs';
 
 const lista = (notas, ahora) => `<ul class="lista">${notas.map((n) => filaDeLista(n, ahora)).join('')}</ul>`;
@@ -14,11 +14,11 @@ export function paginaDeSeccion(seccion, notas, { pagina: p, totalPaginas, index
   const navegacion = totalPaginas > 1
     ? `<nav class="paginas" aria-label="Páginas">${p > 1 ? `<a rel="prev" href="${enlace(p - 1)}">Más nuevas</a>` : '<span></span>'}<span>Página ${p} de ${totalPaginas}</span>${p < totalPaginas ? `<a rel="next" href="${enlace(p + 1)}">Más viejas</a>` : '<span></span>'}</nav>`
     : '';
-  const cuerpo = `${lugarFijo()}
+  const cuerpo = `${lugarFijo(contexto)}
 <h1 style="border-left:8px solid ${colorDe(seccion.ranura)};padding-left:10px">${esc(seccion.nombre)}</h1>
 ${notas.length ? lista(notas, contexto?.ahora) : '<p>Todavía no hay notas en esta sección.</p>'}
 ${navegacion}
-${lugarRotativo(2)}`;
+${seccion.nombre === 'Policiales' ? '' : bloqueAdsense(contexto, 'seccion')}`;
   return pagina({
     titulo: p > 1 ? `${seccion.nombre}, página ${p}` : seccion.nombre,
     descripcion: `Las últimas noticias de ${seccion.nombre} en Radar Balcarce.`,

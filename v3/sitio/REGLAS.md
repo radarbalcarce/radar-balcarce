@@ -81,3 +81,12 @@ El `wrangler.toml` lleva `global_fetch_strictly_public` (sin eso, pedirle a otro
 **Cómo se deshace.** `sacar` en el mismo workflow (un minuto): saca las dos rutas del sitio y devuelve las del archivo viejo (`--archivo=notas,fotos`, `ninguna`…). El dominio vuelve al sitio viejo.
 A mano: Cloudflare → Workers → `radar-sitio` → Domains & Routes → borrar las dos rutas. Las notas que el núcleo publicó mientras tanto quedan en la base, pero el sitio viejo no las muestra.
 Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.test.mjs` (el script con una API falsa).
+
+## 9. Páginas de texto, avisos, AdSense y medición (3/11)
+
+- **Páginas propias:** `/quienes-somos`, `/como-trabajamos`, `/contacto`, `/politica-de-privacidad` y `/publicidad` (`vistas/paginas.mjs`), enlazadas en el pie. La firma de las notas con IA lleva el enlace «Cómo trabajamos».
+- **Avisos locales:** tabla `avisos` (`db/schema-sitio.sql`); cuatro lugares (`fijo`, `postales`, `columna`, `pie`, en `vistas/avisos.mjs`); uno al azar por lugar y por armado de página, sin repetir comercio en la misma página; sin avisos, el propio «Tu comercio acá» que lleva a `/publicidad`. Con avisos cargados, portada, secciones y notas duran 5 minutos en caché. Se cargan con `scripts/cargar-aviso.mjs`; manual en `docs/propuestas/MANUAL-AVISOS-3-0.md`.
+- **AdSense y Google Analytics, apagados:** variables `ADSENSE_CLIENTE`, `ADSENSE_SLOT_NOTA`, `ADSENSE_SLOT_SECCION` y `GA_ID`. Con alguna aparece el aviso de cookies (cookie propia `radar_cookies`, 6 meses) y Google se carga sólo si el lector aceptó. Con `ADSENSE_CLIENTE`: `/ads.txt` y los bloques (nota, entre el 3.º y el 4.º párrafo, nunca en Policiales; final de las secciones). Sin variables no existe nada de eso.
+- **Cloudflare Web Analytics:** `CF_BEACON` (token público); el script va en el `<head>` de todas las páginas y no depende de las cookies.
+- **Fotos de la nota:** además de la de portada, las de `nota.fotos` (o `extra.fotos`) se reparten entre párrafos con su epígrafe y crédito.
+- Pruebas: `avisos.test.mjs`.

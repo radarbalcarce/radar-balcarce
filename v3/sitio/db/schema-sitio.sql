@@ -10,3 +10,18 @@ CREATE TABLE IF NOT EXISTS sitio_notas (
 );
 CREATE INDEX IF NOT EXISTS idx_sitio_notas_publicada ON sitio_notas (publicada_en);
 CREATE INDEX IF NOT EXISTS idx_notas_estado_seccion ON notas (estado, seccion);
+
+-- Los avisos locales (comercios que pautan). Se cargan con scripts/cargar-aviso.mjs; ver docs/propuestas/MANUAL-AVISOS-3-0.md.
+CREATE TABLE IF NOT EXISTS avisos (
+  id TEXT PRIMARY KEY,             -- corto y sin espacios (ej. sweet-candy-bar)
+  comercio TEXT NOT NULL,          -- el nombre del comercio
+  texto TEXT,                      -- una línea (si no hay imagen, es lo que se ve)
+  imagen TEXT,                     -- dirección https de la imagen del aviso (o /fotos-notas/…), opcional
+  enlace TEXT,                     -- a dónde lleva (https), opcional
+  plan TEXT,                       -- 5000 | 10000 | 20000 | 30000 | 50000 | libre
+  lugares TEXT NOT NULL DEFAULT '[]',  -- JSON: 'fijo' | 'postales' | 'columna' | 'pie'
+  desde TEXT,                      -- AAAA-MM-DD (inclusive), vacío = ya
+  hasta TEXT,                      -- AAAA-MM-DD (inclusive), vacío = sin fin
+  activo INTEGER NOT NULL DEFAULT 1
+);
+CREATE INDEX IF NOT EXISTS idx_avisos_activo ON avisos (activo, desde, hasta);

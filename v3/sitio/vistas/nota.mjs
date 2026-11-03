@@ -1,13 +1,20 @@
 // La página de una nota. Todo sale de la base; los bloques de valor agregado, de la ficha (REGLAS del núcleo § 6), sólo cuando hay con qué.
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
 import { pagina, colorDe } from './base.mjs';
-import { lugarFijo, lugarRotativo } from './avisos.mjs';
+import { lugarFijo, bloqueAdsense } from './avisos.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
 const lleno = (x) => typeof x === 'string' && x.trim() !== '';
 
 /** La frase de la firma: dice quién escribió la nota. */
+/** La firma en HTML: en las notas escritas con IA suma el enlace a «Cómo trabajamos». */
+export function firmaHtml(n) {
+  const f = (n.firma || '').trim();
+  const conIA = n.origen !== 'redaccion' && (!f || f === FIRMA_IA || /\bIA\b/.test(f));
+  return `${esc(firmaDe(n))}${conIA ? ' · <a href="/como-trabajamos">Cómo trabajamos</a>' : ''}`;
+}
+
 export function firmaDe(n) {
   const f = (n.firma || '').trim();
   const fuentes = (n.fuentes || []).length;
@@ -57,15 +64,32 @@ function figura(f) {
   return `<figure><img src="${esc(url)}" alt="${esc(f.alt || '')}"${medidas} loading="lazy" decoding="async">${leyenda ? `<figcaption>${esc(leyenda)}</figcaption>` : ''}</figure>`;
 }
 
-/** El cuerpo en párrafos, con las fotos de adentro (notas de la redacción) donde van. */
-function cuerpoHtml(n, parrafos) {
-  const fotos = Array.isArray(n.extra?.fotosEnCuerpo) ? n.extra.fotosEnCuerpo : [];
+/** Las fotos de una nota además de la de portada (nota.fotos, si es una lista), sin repetir la de portada y sólo con dirección válida. */
+export function fotosExtra(n) {
+  const portada = n.foto && urlSegura(n.foto.url) ? n.foto.url : null;
+  const lista = Array.isArray(n.fotos) ? n.fotos : [];
+  const vistas = new Set(portada ? [portada] : []);
+  return lista.filter((f) => f && urlSegura(f.url) && !vistas.has(f.url) && vistas.add(f.url));
+}
+
+/**
+ * El cuerpo en párrafos con las fotos de adentro y, si la nota tiene al menos cuatro párrafos, un bloque de AdSense entre el tercero y el cuarto.
+ * Las fotos de adentro de las notas de la redacción traen su lugar (despuesDe); las demás (nota.fotos) se reparten parejo entre los párrafos.
+ */
+function cuerpoHtml(n, parrafos, contexto) {
+  const fijas = Array.isArray(n.extra?.fotosEnCuerpo) ? n.extra.fotosEnCuerpo : [];
+  const fotos = fijas.length ? fijas : fotosExtra(n).map((f, i, todas) => ({ ...f, despuesDe: Math.max(1, Math.round(((i + 1) * parrafos.length) / (todas.length + 1))) }));
+  const sinAnuncio = n.seccion === 'Policiales';
   const salida = [];
   const colocar = (despuesDe) => { for (const f of fotos) if ((f.despuesDe ?? parrafos.length) === despuesDe) salida.push(figura(f)); };
   colocar(0);
-  parrafos.forEach((p, i) => { salida.push(`<p>${esc(p)}</p>`); colocar(i + 1); });
+  parrafos.forEach((p, i) => {
+    salida.push(`<p>${esc(p)}</p>`);
+    colocar(i + 1);
+    if (i === 2 && parrafos.length >= 4 && !sinAnuncio) salida.push(bloqueAdsense(contexto, 'nota'));
+  });
   for (const f of fotos) if ((f.despuesDe ?? 0) > parrafos.length) salida.push(figura(f));
-  return salida.join('\n');
+  return salida.filter(Boolean).join('\n');
 }
 
 function fuentesHtml(fuentes) {
@@ -110,7 +134,7 @@ export function paginaDeNota(n, { indexar, contexto }) {
   const ranura = ranuraDe(n.seccion);
   const foto = n.foto && urlSegura(n.foto.url) ? n.foto : null;
   const cuerpo = `<article class="nota">
-${lugarFijo()}
+${lugarFijo(contexto)}
 <a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
@@ -118,14 +142,11 @@ ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
 ${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito }) : ''}
 <div class="cuerpo">
-${cuerpoHtml(n, parrafos)}
+${cuerpoHtml(n, parrafos, contexto)}
 </div>
-${lugarRotativo(1)}
 ${bloquesDeFicha(n.ficha)}
-<p class="firma">${esc(firmaDe(n))}</p>
+<p class="firma">${firmaHtml(n)}</p>
 ${fuentesHtml(n.fuentes || [])}
-${lugarRotativo(2)}
-${lugarRotativo(3)}
 </article>`;
   return pagina({
     titulo: n.titulo,
