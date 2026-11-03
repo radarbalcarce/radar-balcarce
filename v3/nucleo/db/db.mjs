@@ -302,7 +302,7 @@ export async function podar(env, ahoraISO = new Date().toISOString()) {
 // redacción (Telegram, media kit) no son del núcleo y no se tocan. Devuelve lo que hace falta para volver a buscarles foto.
 export async function notasPublicadasSinFoto(env, desdeISO, limite = 40) {
   const r = await env.DB.prepare(
-    "SELECT id, historia_id, creada, titulo, ficha, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND (foto IS NULL OR foto = 'null') AND creada >= ? AND historia_id IN (SELECT id FROM historias) ORDER BY creada DESC LIMIT ?",
+    "SELECT id, historia_id, creada, titulo, ficha, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND (foto IS NULL OR foto = 'null') AND id NOT LIKE 'clima-%' AND creada >= ? AND historia_id IN (SELECT id FROM historias) ORDER BY creada DESC LIMIT ?",
   ).bind(desdeISO, limite).all();
   return lista(r).map((f) => ({
     id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, ficha: analizar(f.ficha, null), verificacion: analizar(f.verificacion, null) || {},
@@ -313,4 +313,15 @@ export async function notasPublicadasSinFoto(env, desdeISO, limite = 40) {
 export async function ponerFotoDeNota(env, id, foto, verificacion) {
   await env.DB.prepare("UPDATE notas SET foto = ?, verificacion = ? WHERE id = ? AND (foto IS NULL OR foto = 'null')")
     .bind(json(foto), json(verificacion), id).run();
+}
+
+// Una nota por id, con sus campos JSON leídos (null si no existe). La usa la nota del clima para saber si ya salió hoy y qué pronóstico tenía.
+export async function notaCompleta(env, id) {
+  const f = await env.DB.prepare('SELECT * FROM notas WHERE id = ?').bind(id).first();
+  if (!f) return null;
+  return {
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, bajada: f.bajada, cuerpo: analizar(f.cuerpo, []), seccion: f.seccion,
+    enDosLineas: f.en_dos_lineas, ficha: analizar(f.ficha, null), noPublicar: analizar(f.no_publicar, null), verificacion: analizar(f.verificacion, null),
+    foto: analizar(f.foto, null), fuentes: analizar(f.fuentes, []), fechaHecho: f.fecha_hecho, firma: f.firma, pedidos: f.pedidos, estado: f.estado,
+  };
 }

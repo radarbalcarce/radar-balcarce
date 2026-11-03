@@ -141,3 +141,33 @@ Variable de `v3/nucleo/wrangler.toml`, `"no"` por defecto. **La cambia una perso
 Otra regla de esta vuelta: cada fuente con falla guarda en `fuentes_estado.ultima_falla` cuándo y por qué (el texto del error, 90 caracteres) y `/salud`
 lo muestra como `ultimaFalla` (120 caracteres como mucho). Los feeds tienen dos relojes: 10 s para que el sitio responda y 25 s para bajar el cuerpo,
 hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).
+
+## 12. La nota diaria del clima (`clima/clima.mjs`, 3/11/2026, aprobada por Hernán)
+
+- **Una nota por día**, id `clima-AAAA-MM-DD` (una fila en `notas` y su historia con motivo `clima`). Sale en la **primera vuelta desde las 7:30** (hora de Balcarce); si a
+  las 12:00 todavía no salió (Open-Meteo caído toda la mañana), ese día no sale: no se publica a la tarde un pronóstico de la mañana. Vueltas siguientes: no hace nada.
+- **A las 19:00** (entre las 19:00 y las 22:00, una sola vez) se pide el pronóstico de nuevo y se compara con el que guardó la nota (`verificacion.resumen`). Si cambió de
+  forma importante se **actualiza la misma nota** (mismo id, misma dirección, `creada` intacta: no rejuvenece) y arriba va un párrafo «Actualización de las 19: …». Cambia de
+  forma importante si, **para Balcarce**: (a) mañana o pasado la lluvia aparece o desaparece; (b) la máxima de mañana o pasado se mueve **4° o más**; (c) se suma o se va una
+  tormenta; (d) aparece una ráfaga de **60 km/h o más**; (e) para lo que queda de hoy (desde las 19) aparece o desaparece lluvia o tormenta. Open-Meteo **no trae alertas
+  oficiales**: la tormenta y la ráfaga fuerte son lo más cercano; las alertas del SMN las lee la gente en smn.gob.ar/alertas (la nota lo dice siempre). Si no cambió, la
+  nota queda igual y se anota `revisada19`.
+- **Datos:** un solo pedido a Open-Meteo con cinco coordenadas (Balcarce, Mar del Plata, Miramar, Necochea, Tandil; las mismas del sitio, copiadas), por hora y por día,
+  3 días. Con eso el código arma un **resumen numérico cerrado** (máxima, mínima, probabilidad y milímetros de lluvia, ventanas de lluvia —horas con ≥ 0,2 mm o ≥ 70 % de
+  probabilidad, juntando las separadas por una hora—, viento y ráfagas, tormenta, y las diferencias de la costa y la sierra con Balcarce). Los números salen sólo de ahí.
+- **Redacción:** la **plantilla** (código puro) siempre se arma primero: título «Cómo viene el martes en Balcarce: lluvia de 15 a 19 y máxima de 20°», bajada, cinco
+  párrafos (Balcarce hoy con el consejo «llevá paraguas de 15 a 19», temperatura contra la costa y la sierra, dónde y a qué hora llueve, viento, los dos días que siguen) y el
+  cierre fijo con `radarbalcarce.com/clima` y `smn.gob.ar/alertas`. Después **Gemini** (la misma clave, modelo y contador del núcleo; tarea `clima` en `uso_ia`) reescribe con
+  mejor prosa **a partir del resumen** (pedido 1) y el **verificador de `redactar/verificar.mjs`** lo revisa con el resumen como única fuente (pedido 2). Además el código
+  controla que **todo número del texto esté en el resumen** (o sea una diferencia suya). Sale la plantilla, sin error, si: no hay clave, se llegó al **tope diario** o al **freno
+  mensual** (en esos casos ni se llama), Gemini falla, el JSON no cumple (título que no empieza con «Cómo viene», 4 o 5 párrafos, sin direcciones web ni emojis), hay un número
+  que no está en el resumen o el verificador marca más de 2 oraciones sin respaldo. Cada nota guarda `verificacion.redactor` (`gemini` o `plantilla`) y `motivoPlantilla`.
+  Costo: 2 pedidos por edición (0 si sale la plantilla), como mucho 4 por día.
+- **Firma** «Radar Balcarce», sección Balcarce, fuente «Open-Meteo». **Sin foto** (`foto = null`; la búsqueda de fotos la salta por el id `clima-%`): el sitio pone la placa o una
+  ilustración (ver abajo).
+- **Marcas para el sitio** (en `ficha`, que el sitio ya lee): `ficha.marca = { tipo: 'clima-diario', fecha: 'AAAA-MM-DD' }` (cómo reconocer la nota), `ficha.indexar = false`
+  (el clima diario iba con `noindex` en el sitio viejo; el núcleo no tiene hoy una columna ni un campo propio de «no indexar»: la marca es ésta y el sitio decide),
+  `ficha.estadoDelCielo` (despejado, parcialmente-nublado, nublado, lluvia, tormenta, niebla, viento, frio o calor: los nombres de las ilustraciones `clima-<estado>-<n>.jpg` del
+  sitio viejo) y `ficha.actualizadaEn` (ISO, sólo si se actualizó a las 19).
+- **El resultado de la vuelta** trae `clima`: `null` (no tocaba), `{ accion: 'salio' | 'actualizo' | 'sin-cambios' | 'error', redactor, motivoPlantilla, … }`.
+- Con `NUCLEO_PUBLICA = no` queda en borrador como todas. Pruebas: `clima/clima.test.mjs` (horarios, resumen, plantilla, decisión de actualizar, Gemini y sus fallos, la vuelta entera).

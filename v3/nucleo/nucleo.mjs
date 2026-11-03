@@ -11,6 +11,7 @@ import { crearGemini } from './redactar/gemini.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
 import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
+import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 
 // ---------------------------------------------------------------------------------------------- constantes
@@ -164,7 +165,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false,
+      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, fotosReintentadas: 0, fotosEncontradas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false, clima: null,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -287,8 +288,84 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       try { r.publicadasPendientes = await db.publicarBorradores(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString(), c.ahoraISO); } catch (e) { error('publicar pendientes', e); }
     }
 
+    // (g) la nota diaria del clima (REGLAS § 12): sale a las 7:30 y a las 19:00 se actualiza si el pronóstico cambió mucho
+    await climaDelDia(env, c, gem, r, error);
+
     try { await db.anotarFuente(env, '_vuelta', true, null, c.ahoraISO); } catch (e) { error('anotar vuelta', e); }
     return r;
+  }
+
+  // La nota del clima de la región. Una por día (id `clima-AAAA-MM-DD`); la actualización de las 19 reescribe la MISMA fila: no cambia id, `creada` ni la
+  // dirección (el sitio fija el slug la primera vez). Si Gemini no se puede usar (sin clave, tope diario o freno mensual) o falla, sale la plantilla.
+  async function climaDelDia(env, c, gem, r, error) {
+    try {
+      const { dia, minutos } = horaLocal(c.ahora);
+      const id = idDeLaNota(dia);
+      const nota = await db.notaCompleta(env, id);
+      const toca = queToca(c.ahora, nota);
+      if (!toca) return;
+
+      // ¿Se puede usar Gemini? Mismo freno mensual y mismo tope diario que la redacción; si no, plantilla (no cuesta nada).
+      let geminiClima = null;
+      if (gem.hayClave && gem.estado.pedidosHoy + 2 <= gem.estado.topeDiario) {
+        let gastoMes = 0;
+        try { gastoMes = costoEstimado(await db.usoDelMes(env, dia.slice(0, 7))); } catch (e) { error('uso del mes (clima)', e); }
+        if (gastoMes < FRENO_MENSUAL_USD) geminiClima = gem.para('clima');
+      }
+
+      const desdeHora = toca === 'salir' ? Math.floor(minutos / 60) : 19;
+      const resumen = await traerPronostico(c.fetchFn, { desdeHora, ahora: c.ahora });
+
+      if (toca === 'revisar') {
+        const viejo = nota.verificacion && nota.verificacion.resumen;
+        const cambio = viejo ? comparar(viejo, resumen) : { importante: false, motivos: [] };
+        if (!cambio.importante) {
+          await db.guardarNota(env, { ...nota, verificacion: { ...nota.verificacion, revisada19: true, revisadaEn: c.ahoraISO } }, c.ahoraISO);
+          r.clima = { accion: 'sin-cambios' };
+          return;
+        }
+        const escrita = await redactarNotaDelClima(resumen, { gemini: geminiClima, edicion: 'tarde' });
+        const cuerpo = [parrafoDeActualizacion(cambio.motivos), ...escrita.cuerpo];
+        await db.guardarNota(env, armarNota({ id, dia, nota, resumen, escrita, cuerpo, ahoraISO: c.ahoraISO, env, edicion: 'tarde', cambio }), c.ahoraISO);
+        r.clima = { accion: 'actualizo', redactor: escrita.redactor, motivos: cambio.motivos.map((m) => m.tipo), motivoPlantilla: escrita.motivoPlantilla };
+        return;
+      }
+
+      const escrita = await redactarNotaDelClima(resumen, { gemini: geminiClima, edicion: 'manana' });
+      const n = armarNota({ id, dia, nota: null, resumen, escrita, cuerpo: escrita.cuerpo, ahoraISO: c.ahoraISO, env, edicion: 'manana' });
+      await db.guardarHistoria(env, {
+        id, creada: c.ahoraISO, fechaHecho: c.ahoraISO, huella: null, titulo: n.titulo, medios: [FUENTE_CLIMA.medio], alcances: ['balcarce'],
+        articulos: [], estado: 'redactada', motivo: 'clima', seccion: 'Balcarce', notaId: id,
+      }, c.ahoraISO);
+      await db.guardarNota(env, n, c.ahoraISO);
+      if (n.estado === 'publicada') await db.marcarPublicadaEn(env, [id], c.ahoraISO);
+      r.clima = { accion: 'salio', redactor: escrita.redactor, motivoPlantilla: escrita.motivoPlantilla, estado: n.estado };
+    } catch (e) {
+      r.clima = { accion: 'error', error: String((e && e.message) || e).slice(0, 120) };
+      error('nota del clima', e);
+    }
+  }
+
+  function armarNota({ id, dia, nota, resumen, escrita, cuerpo, ahoraISO, env, edicion, cambio = null }) {
+    return {
+      id, historiaId: id, creada: nota ? nota.creada : ahoraISO,
+      titulo: escrita.titulo, bajada: escrita.bajada, cuerpo, seccion: 'Balcarce', enDosLineas: escrita.enDosLineas,
+      ficha: {
+        que: 'Pronóstico del tiempo de hoy y los próximos dos días', quien: FIRMA_CLIMA, donde: 'Balcarce, la costa y la sierra', cuando: dia,
+        numeros: [], cronologia: [], faltaSaber: [],
+        marca: { tipo: TIPO_DE_NOTA, fecha: dia }, indexar: false, estadoDelCielo: estadoDelDia(resumen),
+        actualizadaEn: edicion === 'tarde' ? ahoraISO : null,
+      },
+      noPublicar: null,
+      verificacion: {
+        tipo: TIPO_DE_NOTA, resumen, redactor: escrita.redactor, motivoPlantilla: escrita.motivoPlantilla, oracionesQuitadas: escrita.oracionesQuitadas,
+        revisada19: edicion === 'tarde', actualizadaEn: edicion === 'tarde' ? ahoraISO : null,
+        cambios: cambio ? cambio.motivos : (nota && nota.verificacion && nota.verificacion.cambios) || [],
+      },
+      foto: null, fuentes: [FUENTE_CLIMA], fechaHecho: nota ? nota.fechaHecho : ahoraISO, firma: FIRMA_CLIMA,
+      pedidos: (nota ? nota.pedidos : 0) + escrita.pedidos,
+      estado: nota ? nota.estado : (publica(env) ? 'publicada' : 'borrador'),
+    };
   }
 
   async function redactarPendientes(env, c, gem, r, error) {
