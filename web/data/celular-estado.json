@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T02:05:04.473Z",
- "portada": 166,
+ "generado": "2026-11-03T03:03:37.362Z",
+ "portada": 155,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-03T02:05:05.048Z",
+  "generado": "2026-11-03T03:03:37.756Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-11-02T10:36:54.265Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-11-02T13:38:41.648Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-11-02T15:08:24.475Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-noticias",
+    "nombre": "participa-evento",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Participá: mandanos noticias",
-    "voz": "locutora",
+    "que": "Tu evento o emprendimiento",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-11-02T15:36:42.750Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,8 +53,8 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-11-02T18:36:57.147Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "farmacia",
@@ -63,8 +63,8 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
-    "salio": "2026-11-02T22:36:35.920Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "clima-noche",
@@ -73,8 +73,8 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
-    "salio": "2026-11-02T23:36:31.584Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "podcast",
@@ -83,8 +83,8 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
-    "salio": "2026-11-03T00:46:33.046Z"
+    "momento": "antes",
+    "salio": null
    }
   ],
   "repasos": [
@@ -93,28 +93,28 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-11-02T15:08:24.475Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
     "notas": [
      {
-      "id": "1xd0of",
-      "titulo": "Deportivo Norte clasifica a las semifinales de la Región Pampeana Sur",
-      "seccion": "Fútbol"
+      "id": "voie14",
+      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+      "seccion": "Balcarce"
      },
      {
-      "id": "1lxv4y",
-      "titulo": "Reino cuestiona la decisión judicial tras la detención de un adolescente",
+      "id": "hjwjy8",
+      "titulo": "La película balcarceña La noche que nunca termina compite en México",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "nae13g",
+      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
       "seccion": "Política"
      },
      {
-      "id": "7pci65",
-      "titulo": "Virginia Aparicio retira hoy sus pertenencias del INTA Balcarce",
-      "seccion": "Ciencia"
-     },
-     {
-      "id": "krdezb",
-      "titulo": "Asisten a 15 turistas con síntomas de intoxicación en Ezeiza",
+      "id": "10f66es",
+      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
       "seccion": "Argentina"
      }
     ]
@@ -124,29 +124,29 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "cerrada",
-    "salio": "2026-11-02T18:36:57.147Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 47,
     "notas": [
      {
-      "id": "n8it0h",
-      "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
+      "id": "plz9wk",
+      "titulo": "Esteban Reino propone realizar la Estudiantina a puerta cerrada este año",
       "seccion": "Balcarce"
      },
      {
-      "id": "17muzmq",
-      "titulo": "Convocan a una caravana hacia el INTA Balcarce en apoyo a Virginia Aparicio",
+      "id": "v7iwd7",
+      "titulo": "El riesgo país se acerca a 800 puntos y caen las acciones",
+      "seccion": "Economía"
+     },
+     {
+      "id": "xwuqrt",
+      "titulo": "Sergio Massa se reúne con el estratega digital de Lula da Silva",
       "seccion": "Política"
      },
      {
-      "id": "3jhnaf",
-      "titulo": "Laura Bondar y Franco Coria llegan a la final del Pre Cosquín",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "1ktheso",
-      "titulo": "La Liga Profesional difunde los audios del VAR del Superclásico",
-      "seccion": "Fútbol"
+      "id": "n3hvrz",
+      "titulo": "Pity Álvarez declara en el juicio por el homicidio de Cristian Díaz",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -155,61 +155,35 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "en-hora",
-    "salio": "2026-11-03T00:46:33.046Z",
-    "segundos": null,
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
     "notas": [
      {
-      "id": "fp5729",
-      "titulo": "Concejal pide controles viales por maniobras peligrosas de ciclistas",
-      "seccion": "Balcarce"
+      "id": "144sz5h",
+      "titulo": "Pedro Sánchez advierte que España no se gobierna desde Buenos Aires",
+      "seccion": "Política"
      },
      {
-      "id": "j75wry",
-      "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
-      "seccion": "Ciencia"
+      "id": "153in3t",
+      "titulo": "Alpine lamenta las sanciones a Franco Colapinto y Pierre Gasly en México",
+      "seccion": "Automovilismo"
      },
      {
-      "id": "1kwuqra",
-      "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
-      "seccion": "Educación"
+      "id": "8mp5fu",
+      "titulo": "Jubilados de la Ciudad viajan gratis en subte con el DNI",
+      "seccion": "Argentina"
      },
      {
-      "id": "1tlgl2r",
-      "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
-      "seccion": "Deportes"
+      "id": "1jcaj7v",
+      "titulo": "Socios de Adecoagro compran las tierras del grupo Benetton",
+      "seccion": "Agro"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "1p1u4ev",
-     "titulo": "Finaliza el curso de desarrollo de videojuegos en el Centro Universitario",
-     "cuando": "2026-11-02T11:06:01.521Z"
-    },
-    {
-     "id": "1vxh5r",
-     "titulo": "Atlético San Agustín supera a FC Agrarias y lidera su grupo",
-     "cuando": "2026-11-02T12:46:08.717Z"
-    },
-    {
-     "id": "1r4zfpu",
-     "titulo": "Comienza el Cyber Monday con miles de ofertas y financiación",
-     "cuando": "2026-11-02T14:36:10.342Z"
-    },
-    {
-     "id": "sclfp3",
-     "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-     "cuando": "2026-11-02T16:36:00.701Z"
-    },
-    {
-     "id": "n8it0h",
-     "titulo": "La Cámpora Balcarce llega a las 50 jornadas solidarias en instituciones",
-     "cuando": "2026-11-02T18:36:02.092Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
     {
      "id": "fp5729",
@@ -230,6 +204,12 @@
      "marcada": false
     },
     {
+     "id": "1bk49lc",
+     "titulo": "El Quilmes Rock 2027 confirma su grilla de artistas y fechas",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "10f66es",
      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
      "seccion": "Argentina",
@@ -242,25 +222,19 @@
      "marcada": false
     },
     {
-     "id": "xwuqrt",
-     "titulo": "Sergio Massa se reúne con el estratega digital de Lula da Silva",
+     "id": "1o0lmqb",
+     "titulo": "Javier Milei recibe un reconocimiento por el Plan de Alfabetización",
      "seccion": "Política",
      "marcada": false
     },
     {
-     "id": "1bk49lc",
-     "titulo": "El Quilmes Rock 2027 confirma su grilla de artistas y fechas",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1lmrvxs",
-     "titulo": "La Hache y Yellowrose se unen para competir en Tortugas y Palermo",
-     "seccion": "Deportes",
+     "id": "my1d4w",
+     "titulo": "El PRO refuerza su armado territorial y posterga alianzas con el oficialismo",
+     "seccion": "Política",
      "marcada": false
     }
    ],
-   "cupo": 0,
+   "cupo": 5,
    "proximoDesde": "2026-11-02T20:06:02.092Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
