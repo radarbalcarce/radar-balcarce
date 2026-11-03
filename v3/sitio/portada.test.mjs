@@ -176,7 +176,7 @@ test('clima con un fetch falso: temperatura, cielo, hoy y mañana, viento y lluv
   const h = await (await ir(sitioCon(traer), env, '/')).text();
   assert.ok(traer.pedidos.some((u) => u === CLIMA_URL), 'pide a Open-Meteo con la ubicación de Balcarce');
   assert.match(CLIMA_URL, /latitude=-37\.846&longitude=-58\.255/);
-  assert.match(h, /<span class="k">Balcarce ahora<\/span><div class="big"><strong>16°<\/strong><span>Nublado<\/span><\/div>/);
+  assert.match(h, /<div class="big"><strong>16°<\/strong><span>Nublado<\/span><\/div>/);
   assert.match(h, /Hoy 12° \/ 25° · lluvia 18% · viento 9 km\/h S/);
   assert.match(h, /Mañana 8° \/ 22° · chaparrones/);
 });
@@ -189,7 +189,7 @@ test('clima caído: el cuadro dice «Clima no disponible» y la página sale igu
   const h = await r.text();
   assert.match(h, /Clima no disponible/);
   assert.ok(!/16°/.test(h));
-  assert.match(h, /Farmacia de turno/);
+  assert.match(h, /De turno ahora/);
 });
 
 test('clima con respuesta rara o error HTTP: tampoco se inventa nada', async () => {
@@ -227,14 +227,14 @@ test('farmacia de turno desde el Colegio (cronograma + dirección), con el fetch
   const { sqlite, env } = baseDePrueba();
   nota(sqlite, 'x1');
   const h = await (await ir(sitioCon(traerFalso()), env, '/')).text();
-  assert.match(h, /<span class="k">Farmacia de turno<\/span><strong>Norte<\/strong><div class="sm">Calle 15 esquina 8<br>Tel\. 42-4656<\/div>/);
+  assert.match(h, /<span class="k">De turno ahora<\/span>[^]*<p class="far"><strong>Norte<\/strong><span>Calle 15 esquina 8<\/span><span>Tel\. 42-4656<\/span><\/p>/);
 });
 
 test('farmacia caída: el cuadro manda al Colegio de Farmacéuticos, no inventa', async () => {
   const { sqlite, env } = baseDePrueba();
   nota(sqlite, 'x1');
   const h = await (await ir(sitioCon(traerFalso({ fallas: ['colbalcarce'] })), env, '/')).text();
-  assert.match(h, /href="[/]farmacias"[^]*No pudimos leer el turno de hoy[^]*Colegio de Farmacéuticos/);
+  assert.match(h, /No pudimos leer el turno de hoy[^]*Colegio de Farmacéuticos/);
   assert.ok(!/Farmacia Norte/.test(h));
 });
 
@@ -285,12 +285,19 @@ test('la tira: tres tarjetas que llevan a /clima, /farmacias y /dolar, con ícon
   nota(sqlite, 'x1');
   const traer = traerFalso();
   const h = await (await ir(sitioCon(traer), env, '/')).text();
-  for (const r of ['/clima', '/farmacias', '/dolar']) assert.match(h, new RegExp(`<a class="tj tj-[a-z]+" href="${r}">`), r);
+  for (const r of ['/clima', '/farmacias', '/dolar']) assert.match(h, new RegExp(`<a class="sol-mas" href="${r}">Ver m`), r);
+  assert.equal((h.match(/<input class="sol-r" type="radio" name="sol"/g) || []).length, 3, 'tres solapas');
+  assert.match(h, /<input class="sol-r" type="radio" name="sol" id="sol-clima" checked>/, 'Clima por defecto');
+  assert.equal((h.match(/ checked>/g) || []).length, 1);
+  assert.match(h, /<span>Clima<\/span>[^]*<span>Farmacia<\/span>[^]*<span>Dólar<\/span>/);
+  assert.equal((h.match(/class="sol-ic" viewBox="0 0 24 24" width="22" height="22"/g) || []).length, 3, 'íconos del mismo tamaño');
+  assert.ok(!/class="tj /.test(h), 'ya no hay tarjetas grandes');
   assert.match(h, /class="ic-nube"/, 'nublado: ícono de nube');
-  assert.match(h, /class="ic-cruz"/);
+  assert.match(h, /class="tab-cruz"/);
+  assert.match(h, /#sol-clima:checked~\.sol-paneles \.sol-p-clima/, 'funciona sin JavaScript');
   assert.match(h, /@media\(prefers-reduced-motion:reduce\)/);
   assert.match(h, /\.logo:hover,\.logo:active,\.logo:focus-visible\{color:var\(--rojo\)\}/);
-  assert.match(h, /Oficial: el de los bancos\. Blue: el informal\./);
+  assert.match(h, /<span class="dn">Oficial<\/span>[^]*<span class="dn">Blue<\/span>/);
 });
 
 test('dólar: oficial y blue desde DolarApi; sube/baja sólo con el valor de ayer; caído = null', async () => {
@@ -316,4 +323,101 @@ test('AdSense: la etiqueta de verificación sale en el head sólo con ADSENSE_CL
     const sin = await (await ir(sitioCon(traerFalso()), { ...env, ADSENSE_CLIENTE: malo }, '/')).text();
     assert.ok(!sin.includes('google-adsense-account'), `«${malo}» no es válido`);
   }
+});
+
+test('dólar: oficial y blue son casas distintas aunque la venta coincida (3/11: los dos $1.565); cada una con su compra', () => {
+  const j = [
+    { casa: 'oficial', compra: 1515, venta: 1565, fechaActualizacion: '2026-11-03T10:00:00.000Z' },
+    { casa: 'blue', compra: 1545, venta: 1565, fechaActualizacion: '2026-11-03T12:57:00.000Z' },
+    { casa: 'bolsa', compra: 1556.2, venta: 1579.9 },
+  ];
+  const d = aDolar(j);
+  assert.deepEqual([d.oficial.compra, d.oficial.venta], [1515, 1565]);
+  assert.deepEqual([d.blue.compra, d.blue.venta], [1545, 1565]);
+  assert.equal(d.blue.fecha, '2026-11-03T12:57:00.000Z');
+  // El orden de la respuesta no cambia quién es quién, y la bolsa nunca se confunde con el blue.
+  const d2 = aDolar([j[2], j[1], j[0]]);
+  assert.equal(d2.oficial.compra, 1515);
+  assert.equal(d2.blue.compra, 1545);
+  assert.equal(aDolar([j[0], j[2]]).blue, null);
+});
+
+// ---------- Las páginas del día: /clima, /farmacias y /dolar ----------
+
+test('/clima, /farmacias y /dolar las arma este sitio (no el viejo): título, canónico, caché corta y su dato', async () => {
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const sitio = sitioCon(traerFalso());
+  const c = await ir(sitio, env, '/clima');
+  assert.equal(c.status, 200);
+  assert.match(c.headers.get('cache-control'), /max-age=60, s-maxage=300/);
+  const hc = await c.text();
+  assert.match(hc, /<title>El clima en Balcarce hoy y los próximos días \| Radar Balcarce<\/title>/);
+  assert.match(hc, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/clima">/);
+  assert.match(hc, /<strong>16°<\/strong>/);
+  assert.match(hc, /Hoy<\/td>[^]*12° \/ 25°[^]*18%/);
+  assert.match(hc, /Mañana<\/td>[^]*8° \/ 22°[^]*60%/);
+
+  const f = await (await ir(sitio, env, '/farmacias')).text();
+  assert.match(f, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/farmacias">/);
+  assert.match(f, /<h3>Norte<\/h3>/);
+  assert.match(f, /Calle 15 esquina 8/);
+  assert.match(f, /<a class="enlace" href="tel:\+542266424656">42-4656<\/a>/);
+  assert.match(f, /https:\/\/www\.google\.com\/maps\/search\/\?api=1&amp;query=Calle%2015%20esquina%208%2C%20Balcarce%2C%20Buenos%20Aires/);
+  assert.match(f, /hasta las 8:30 del martes 3 de noviembre/);
+
+  const d = await (await ir(sitio, env, '/dolar')).text();
+  assert.match(d, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/dolar">/);
+  assert.match(d, /Oficial<\/td><td class="num">–<\/td><td class="num">\$1\.500<\/td>/, 'sin compra en el dato falso: guion, no inventa');
+  assert.match(d, /Blue<\/td>[^]*\$1\.530/);
+  assert.match(d, /2 de noviembre, 12:00/);
+  assert.match(d, /Oficial:<\/strong> el que se vende en los bancos\. <strong>Blue:<\/strong> el informal/);
+
+});
+
+test('/dolar muestra compra y venta de cada casa por separado', async () => {
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const traer = async (u) => {
+    if (String(u).startsWith('https://dolarapi.com/')) return new Response(JSON.stringify([{ casa: 'oficial', compra: 1515, venta: 1565, fechaActualizacion: '2026-11-03T10:00:00.000Z' }, { casa: 'blue', compra: 1545, venta: 1565, fechaActualizacion: '2026-11-03T12:57:00.000Z' }]), { status: 200 });
+    throw new Error('sin red');
+  };
+  const d = await (await ir(sitioCon(traer), env, '/dolar')).text();
+  assert.match(d, /Oficial<\/td><td class="num">\$1\.515<\/td><td class="num">\$1\.565<\/td>/);
+  assert.match(d, /Blue<\/td><td class="num">\$1\.545<\/td><td class="num">\$1\.565<\/td>/);
+  const tapa = await (await ir(sitioCon(traer), env, '/')).text();
+  assert.match(tapa, /compra \$1\.515/);
+  assert.match(tapa, /compra \$1\.545/);
+});
+
+test('las tres páginas con todo caído dicen que no hay dato, sin inventar, y siguen con estado 200', async () => {
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const sitio = sitioCon(async () => { throw new Error('sin red'); });
+  for (const [ruta, texto] of [['/clima', /No pudimos leer el pronóstico/], ['/farmacias', /No pudimos leer el turno de hoy/], ['/dolar', /No pudimos leer la cotización/]]) {
+    const r = await ir(sitio, env, ruta);
+    assert.equal(r.status, 200, ruta);
+    assert.match(await r.text(), texto, ruta);
+  }
+});
+
+test('enlaceDeTelefono: fijo de Balcarce, celular con 15 y sin teléfono', async () => {
+  const { enlaceDeTelefono } = await import('./vistas/paginas-del-dia.mjs');
+  assert.equal(enlaceDeTelefono('42-4301'), 'tel:+542266424301');
+  assert.equal(enlaceDeTelefono('15-512345'), 'tel:+5492266512345');
+  assert.equal(enlaceDeTelefono(''), null);
+  assert.equal(enlaceDeTelefono(null), null);
+});
+
+test('el pronóstico trae siete días y la página los lista con su nombre', async () => {
+  const j = { current: OPEN_METEO.current, daily: { time: ['2026-11-02', '2026-11-03', '2026-11-04', '2026-11-05'], temperature_2m_max: [25, 22, 20, 19], temperature_2m_min: [12, 8, 7, 6], weather_code: [3, 81, 0, 61], precipitation_probability_max: [18, 60, 0, 70] } };
+  const c = aClima(j);
+  assert.equal(c.dias.length, 4);
+  assert.equal(c.dias[2].fecha, '2026-11-04');
+  assert.match(CLIMA_URL, /forecast_days=7/);
+  assert.match(CLIMA_URL, /daily=time,/);
+  const { paginaClima } = await import('./vistas/paginas-del-dia.mjs');
+  const h = paginaClima({ indexar: true, contexto: { ahora: AHORA, clima: c } });
+  assert.match(h, /Miércoles 4<\/td>/);
+  assert.match(h, /Jueves 5<\/td>/);
 });

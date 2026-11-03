@@ -41,17 +41,17 @@ test('lo que el sitio nuevo sirve NUNCA se le pide al viejo', async () => {
 
 test('una ruta que el nuevo no maneja se pide al viejo y vuelve tal cual (status, encabezados útiles, cuerpo), sin cookies', async () => {
   const { ir, pedidos } = conViejo({
-    '/farmacias': () => new Response('<h1>Farmacias</h1>', { status: 200, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=0', 'set-cookie': 'a=b', 'content-security-policy': "default-src 'self'", 'x-raro': '1' } }),
+    '/agenda': () => new Response('<h1>Agenda</h1>', { status: 200, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=0', 'set-cookie': 'a=b', 'content-security-policy': "default-src 'self'", 'x-raro': '1' } }),
   });
-  const r = await ir('/farmacias?dia=hoy', { cabeceras: { cookie: 'secreto=1', 'accept-language': 'es-AR' } });
+  const r = await ir('/agenda?dia=hoy', { cabeceras: { cookie: 'secreto=1', 'accept-language': 'es-AR' } });
   assert.equal(r.status, 200);
-  assert.equal(await r.text(), '<h1>Farmacias</h1>');
+  assert.equal(await r.text(), '<h1>Agenda</h1>');
   assert.equal(r.headers.get('content-type'), 'text/html; charset=utf-8');
   assert.equal(r.headers.get('content-security-policy'), "default-src 'self'");
   assert.equal(r.headers.get('set-cookie'), null, 'sin cookies');
   assert.equal(r.headers.get('x-raro'), null, 'sólo los encabezados de la lista');
   assert.equal(pedidos.length, 1);
-  assert.equal(pedidos[0].url, `${VIEJO}/farmacias?dia=hoy`, 'el pedido va a pages.dev, no a radarbalcarce.com');
+  assert.equal(pedidos[0].url, `${VIEJO}/agenda?dia=hoy`, 'el pedido va a pages.dev, no a radarbalcarce.com');
   assert.equal(pedidos[0].opciones.headers.get('cookie'), null, 'la cookie del lector no sale');
   assert.equal(pedidos[0].opciones.headers.get('accept-language'), 'es-AR');
   assert.equal(pedidos[0].opciones.headers.get('x-radar-respaldo'), '1');
@@ -59,7 +59,7 @@ test('una ruta que el nuevo no maneja se pide al viejo y vuelve tal cual (status
 });
 
 test('las rutas del viejo de la lista del corte (panel, clima, íconos, mapa de noticias…) salen del viejo; /panel/ conserva la barra final', async () => {
-  const rutas = ['/panel/', '/panel/app.js', '/clima', '/dolar', '/agenda', '/hoy', '/llms.txt', '/agentes/notas.json',
+  const rutas = ['/panel/', '/panel/app.js', '/agenda', '/hoy', '/llms.txt', '/agentes/notas.json',
     '/compartir/abc', '/escudos/river.png', '/tema/dolar', '/tablas/liga', '/googleabc123.txt', '/manifest.webmanifest', '/icon-192.png', '/sitemap-news.xml', '/seccion/futbol/feed.xml'];
   const { ir, pedidos } = conViejo(Object.fromEntries(rutas.map((x) => [x, () => new Response(`viejo:${x}`, { status: 200 })])));
   for (const x of rutas) {
@@ -98,13 +98,13 @@ test('si el viejo también da 404: el 404 propio; si el viejo se cae o da 5xx: 5
   assert.equal(r404.status, 404);
   assert.match(await r404.text(), /<html|<!doctype/i, 'es la página 404 del sitio nuevo');
   const caido = conViejo({}, { falla: true });
-  const r502 = await caido.ir('/farmacias');
+  const r502 = await caido.ir('/agenda');
   assert.equal(r502.status, 502);
   assert.equal(r502.headers.get('cache-control'), 'no-store');
-  const e5 = conViejo({ '/farmacias': () => new Response('boom', { status: 503 }) });
-  assert.equal((await e5.ir('/farmacias')).status, 502);
+  const e5 = conViejo({ '/agenda': () => new Response('boom', { status: 503 }) });
+  assert.equal((await e5.ir('/agenda')).status, 502);
   const sin = conViejo();
-  const r = await sin.ir('/farmacias', { e: { ...sin.env, ORIGEN_VIEJO: '' } });
+  const r = await sin.ir('/agenda', { e: { ...sin.env, ORIGEN_VIEJO: '' } });
   assert.equal(r.status, 404);
   assert.equal(sin.pedidos.length, 0);
 });
@@ -115,22 +115,22 @@ test('nunca se pide a radarbalcarce.com (bucle) ni se encadena: origenViejo lo r
   assert.equal(origenViejo({ ORIGEN_VIEJO: 'no es una url' }), null);
   assert.equal(origenViejo({ ORIGEN_VIEJO: 'ftp://x.example' }), null);
   assert.equal(origenViejo({ ORIGEN_VIEJO: `${VIEJO}/` }), VIEJO);
-  const { ir, pedidos } = conViejo({ '/farmacias': () => new Response('x', { status: 200 }) });
-  const r = await ir('/farmacias', { cabeceras: { 'x-radar-respaldo': '1' } });
+  const { ir, pedidos } = conViejo({ '/agenda': () => new Response('x', { status: 200 }) });
+  const r = await ir('/agenda', { cabeceras: { 'x-radar-respaldo': '1' } });
   assert.equal(r.status, 404);
   assert.equal(pedidos.length, 0);
-  const malo = await ir('/farmacias', { e: { ...(await conViejo()).env, ORIGEN_VIEJO: 'https://radarbalcarce.com' } });
+  const malo = await ir('/agenda', { e: { ...(await conViejo()).env, ORIGEN_VIEJO: 'https://radarbalcarce.com' } });
   assert.equal(malo.status, 404);
 });
 
 test('sólo GET y HEAD: POST, PUT y DELETE dan 405 y no salen hacia el viejo; HEAD va como HEAD y vuelve sin cuerpo', async () => {
-  const { ir, pedidos } = conViejo({ '/farmacias': () => new Response('<h1>F</h1>', { status: 200, headers: { 'content-type': 'text/html' } }) });
+  const { ir, pedidos } = conViejo({ '/agenda': () => new Response('<h1>F</h1>', { status: 200, headers: { 'content-type': 'text/html' } }) });
   for (const metodo of ['POST', 'PUT', 'DELETE']) {
-    const r = await ir('/farmacias', { metodo });
+    const r = await ir('/agenda', { metodo });
     assert.equal(r.status, 405, metodo);
   }
   assert.equal(pedidos.length, 0);
-  const h = await ir('/farmacias', { metodo: 'HEAD' });
+  const h = await ir('/agenda', { metodo: 'HEAD' });
   assert.equal(h.status, 200);
   assert.equal(await h.text(), '');
   assert.equal(pedidos[0].opciones.method, 'HEAD');
@@ -138,14 +138,14 @@ test('sólo GET y HEAD: POST, PUT y DELETE dan 405 y no salen hacia el viejo; HE
 
 test('las redirecciones del viejo se devuelven sin seguirlas, con la dirección de acá', async () => {
   const { ir } = conViejo({
-    '/farmacias/': () => new Response(null, { status: 308, headers: { location: `${VIEJO}/farmacias` } }),
-    '/clima/': () => new Response(null, { status: 301, headers: { location: '/clima' } }),
+    '/agenda/': () => new Response(null, { status: 308, headers: { location: `${VIEJO}/agenda` } }),
+    '/hoy/': () => new Response(null, { status: 301, headers: { location: '/hoy' } }),
   });
-  const a = await ir('/farmacias/');
+  const a = await ir('/agenda/');
   assert.equal(a.status, 308);
-  assert.equal(a.headers.get('location'), 'https://radarbalcarce.com/farmacias');
-  const b = await ir('/clima/');
-  assert.equal(b.headers.get('location'), '/clima');
+  assert.equal(a.headers.get('location'), 'https://radarbalcarce.com/agenda');
+  const b = await ir('/hoy/');
+  assert.equal(b.headers.get('location'), '/hoy');
 });
 
 test('las fotos: si R2 no la tiene, se prueba en el viejo; si R2 la tiene, no se pide al viejo', async () => {

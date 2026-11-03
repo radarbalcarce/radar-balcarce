@@ -30,8 +30,8 @@ async function pedirTexto(traer, url) {
 
 export const CLIMA_URL = 'https://api.open-meteo.com/v1/forecast?latitude=-37.846&longitude=-58.255'
   + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,is_day'
-  + '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'
-  + '&timezone=America%2FArgentina%2FBuenos_Aires&forecast_days=2&wind_speed_unit=kmh';
+  + '&daily=time,temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'
+  + '&timezone=America%2FArgentina%2FBuenos_Aires&forecast_days=7&wind_speed_unit=kmh';
 
 const CIELOS = {
   0: 'Despejado', 1: 'Mayormente despejado', 2: 'Parcialmente nublado', 3: 'Nublado', 45: 'Niebla', 48: 'Niebla con escarcha',
@@ -55,7 +55,10 @@ export function aClima(j) {
   const dia = (i) => (Number.isFinite(d.temperature_2m_max[i]) && Number.isFinite(d.temperature_2m_min?.[i])
     ? { max: entero(d.temperature_2m_max[i]), min: entero(d.temperature_2m_min[i]), lluvia: entero(d.precipitation_probability_max?.[i]), cielo: cieloDe(d.weather_code?.[i]) }
     : null);
+  const dias = [];
+  for (let i = 0; i < Math.min(7, d.temperature_2m_max.length); i += 1) { const x = dia(i); if (x && typeof d.time?.[i] === 'string') dias.push({ fecha: d.time[i], ...x }); }
   return {
+    dias,
     ahora: { temp: entero(c.temperature_2m), cielo: cieloDe(c.weather_code), viento: entero(c.wind_speed_10m), rumbo: rumboDe(c.wind_direction_10m), esDeDia: c.is_day !== 0 },
     hoy: dia(0),
     manana: dia(1),
@@ -175,6 +178,8 @@ export async function leerFarmacia({ traer, cache = null, ahora = new Date() }) 
 export const DOLAR_URL = 'https://dolarapi.com/v1/dolares';
 const esPositivo = (n) => typeof n === 'number' && Number.isFinite(n) && n > 0;
 
+const isoONull = (x) => { const t = new Date(x); return Number.isNaN(t.getTime()) ? null : t.toISOString(); };
+
 /** La respuesta de DolarApi → { oficial: { venta }, blue: { venta }, fecha } o null si no trae el oficial. */
 export function aDolar(j) {
   if (!Array.isArray(j)) return null;
@@ -183,7 +188,9 @@ export function aDolar(j) {
   if (!o) return null;
   const b = de('blue');
   const f = new Date(o.fechaActualizacion);
-  return { oficial: { venta: o.venta }, blue: b ? { venta: b.venta } : null, fecha: Number.isNaN(f.getTime()) ? null : f.toISOString() };
+  // Cada casa con SU compra y SU venta (en la práctica pueden coincidir: el 3/11/2026 las dos ventas eran $1.565; DolarApi las devuelve así).
+  const cat = (c) => ({ compra: esPositivo(c.compra) ? c.compra : null, venta: c.venta, fecha: isoONull(c.fechaActualizacion) });
+  return { oficial: cat(o), blue: b ? cat(b) : null, fecha: Number.isNaN(f.getTime()) ? null : f.toISOString() };
 }
 
 /** «sube», «baja» o «igual» (con 0,5 % de margen para no marcar ruido); null si no hay con qué comparar. */

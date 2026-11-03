@@ -9,6 +9,7 @@ import { leerClima, leerFarmacia, leerDolar } from './datos-del-dia.mjs';
 import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
+import { paginaClima, paginaFarmacias, paginaDolar } from './vistas/paginas-del-dia.mjs';
 import { sitemapIndice, sitemapDelMes, rss, robots } from './vistas/xml.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
@@ -20,6 +21,8 @@ export const CACHE = {
   rss: [300, 600],
   robots: [3600, 86400],
   texto: [300, 3600],
+  // Clima, farmacia y dólar cambian seguido: caché corta.
+  dia: [60, 300],
   // Con avisos locales cargados, las páginas se rearman seguido para que roten.
   conAvisos: [60, 300],
 };
@@ -79,7 +82,7 @@ export function origenViejo(env) {
 export function esRutaPropia(pathname) {
   const ruta = pathname.replace(/\/+$/, '') || '/';
   return ruta === '/' || ruta === '/robots.txt' || ruta === '/buscar' || ruta === '/sitemap.xml' || ruta === '/rss.xml' || ruta === '/feed.xml'
-    || ruta === '/ads.txt' || RUTAS_DE_TEXTO.includes(ruta.slice(1))
+    || ruta === '/ads.txt' || ruta === '/clima' || ruta === '/farmacias' || ruta === '/dolar' || RUTAS_DE_TEXTO.includes(ruta.slice(1))
     || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta);
 }
 
@@ -148,6 +151,12 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const contexto = await contextoDelDia();
       const html = paginaDeTexto(ruta.slice(1), { indexar, contexto });
       return { r: respuesta(html, { cache: contexto.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.texto, indexar }), cachear: true };
+    }
+
+    const DEL_DIA = { '/clima': paginaClima, '/farmacias': paginaFarmacias, '/dolar': paginaDolar };
+    if (DEL_DIA[ruta]) {
+      const contexto = await contextoDelDia();
+      return { r: respuesta(DEL_DIA[ruta]({ indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: true };
     }
 
     if (ruta === '/') {
