@@ -46,18 +46,39 @@ jobs:
         run: node --test "v3/**/*.test.mjs"
 
       # ------------------------------------------------------------------ telegram
-      - name: Buscar (o crear) el KV del bot
+      # El bot usa su KV (estado, dueño) y la base D1 del núcleo (las notas propias). Cada marcador se reemplaza en su línea.
+      - name: Buscar (o crear) el KV y la base del bot
         if: env.QUE == 'telegram'
         working-directory: v3/redaccion/telegram
         run: |
           TITULO="radar-telegram-ESTADO"
-          buscar() {
+          buscar_kv() {
             npx --yes wrangler@4.139.0 kv namespace list | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.title===process.argv[1]);process.stdout.write(x?x.id:'')})" "$TITULO"
           }
-          ID=$(buscar)
-          if [ -z "$ID" ]; then npx --yes wrangler@4.139.0 kv namespace create "$TITULO"; ID=$(buscar); fi
-          test -n "$ID" || { echo "No se pudo encontrar ni crear el KV"; exit 1; }
-          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+          KV=$(buscar_kv)
+          if [ -z "$KV" ]; then npx --yes wrangler@4.139.0 kv namespace create "$TITULO"; KV=$(buscar_kv); fi
+          test -n "$KV" || { echo "No se pudo encontrar ni crear el KV"; exit 1; }
+          NOMBRE="radar-nucleo"
+          buscar_db() {
+            npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name===process.argv[1]);process.stdout.write(x?x.uuid:'')})" "$NOMBRE"
+          }
+          DB=$(buscar_db)
+          if [ -z "$DB" ]; then npx --yes wrangler@4.139.0 d1 create "$NOMBRE"; DB=$(buscar_db); fi
+          test -n "$DB" || { echo "No se pudo encontrar ni crear la base"; exit 1; }
+          sed -e "/^id = /s/REEMPLAZADO_POR_EL_WORKFLOW/$KV/" -e "/^database_id = /s/REEMPLAZADO_POR_EL_WORKFLOW/$DB/" wrangler.toml > wrangler.generado.toml
+          ! grep -q REEMPLAZADO_POR_EL_WORKFLOW wrangler.generado.toml || { echo "Quedó un marcador sin reemplazar"; exit 1; }
+
+      # Las tablas del núcleo y las columnas de la redacción propia. Cada ALTER va solo: si la columna ya existe, se sigue.
+      - name: Esquema de la base para el bot
+        if: env.QUE == 'telegram'
+        working-directory: v3/redaccion/telegram
+        run: |
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../../nucleo/db/schema.sql
+          grep -E '^(ALTER|CREATE)' schema-redaccion.sql | while IFS= read -r sql; do
+            salida=$(npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --command="$sql" 2>&1) || {
+              echo "$salida" | grep -qi "duplicate column" && echo "Ya estaba: $sql" || { echo "$salida"; exit 1; }
+            }
+          done
 
       - name: Subir el bot
         if: env.QUE == 'telegram'
@@ -65,18 +86,14 @@ jobs:
         run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
 
       # El JSON va por un pipe directo a wrangler: el valor no se imprime nunca. Vacío = no se carga y el Worker conserva el que tenía.
-      - name: Cargar el token del bot
+      - name: Cargar los secretos del bot
         if: env.QUE == 'telegram'
         working-directory: v3/redaccion/telegram
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_RESPALDO }}
         run: |
-          if [ -z "$TELEGRAM_TOKEN" ]; then
-            echo "TELEGRAM_TOKEN no está en GitHub Secrets. El Worker quedó subido pero no se conecta hasta que una persona pegue el token (REGLAS.md)."
-            exit 0
-          fi
-          node -e 'process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
-
+          node -e 'const o={};for(const k of ["TELEGRAM_TOKEN","GEMINI_API_KEY"]) if(process.env[k]) o[k]=process.env[k]; process.stdout.write(JSON.stringify(o))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
       # ------------------------------------------------------------------ nucleo
       - name: Buscar (o crear) la base D1 del núcleo
         if: env.QUE == 'nucleo'
