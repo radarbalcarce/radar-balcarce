@@ -356,13 +356,6 @@
    "título o bajada: 1 problema (numero): el copete dice 17 y la fuente no"
   ]
  },
- "1244xgg": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
- },
  "124vuyb": {
   "intentos": 1,
   "ultimo": "2026-10-27T15:36:03.205Z",
@@ -1102,13 +1095,6 @@
   "textos": 6,
   "numeradas": 7
  },
- "15uzzdh": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2
- },
  "15zhl1o": {
   "intentos": 1,
   "ultimo": "2026-11-01T18:01:41.067Z",
@@ -1321,6 +1307,16 @@
   "textos": 2,
   "numeradas": 3
  },
+ "17cxx4j": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 3 problemas (nombre, copia): el cuerpo nombra a \"precios\" y la"
+  ]
+ },
  "17d5cdt": {
   "intentos": 1,
   "ultimo": "2026-10-31T14:02:59.718Z",
@@ -1497,8 +1493,8 @@
   "numeradas": 3
  },
  "189jjt0": {
-  "intentos": 2,
-  "ultimo": "2026-11-03T14:02:23.071Z",
+  "intentos": 3,
+  "ultimo": "2026-11-03T14:35:07.909Z",
   "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
   "textos": 2,
   "numeradas": 3,
@@ -1589,22 +1585,27 @@
   "textos": 2,
   "numeradas": 2
  },
+ "18o13hv": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
+  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 100 y la fuente no lo dice; sin esas oraciones quedan 93 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez",
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 100 y la fuente "
+  ],
+  "falla": [
+   "el cuerpo dice 100 y la fuente no lo dice",
+   "el título nombra a \"unidos\", \"que\" y el cuerpo no los explica"
+  ]
+ },
  "18ol7p3": {
   "intentos": 1,
   "ultimo": "2026-11-03T12:31:43.859Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "18oxsmf": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (promesa): el título nombra a \"masterchef\", \"celebr"
-  ]
  },
  "18prhjk": {
   "intentos": 2,
@@ -2206,13 +2207,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 2
- },
- "1bjpyzt": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
  },
  "1bk49lc": {
   "intentos": 1,
@@ -4868,13 +4862,6 @@
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl"
   ]
  },
- "1o20hna": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "1o2n8xm": {
   "intentos": 1,
   "ultimo": "2026-11-02T20:03:32.686Z",
@@ -4920,8 +4907,8 @@
   ]
  },
  "1o83u2p": {
-  "intentos": 1,
-  "ultimo": "2026-11-03T14:02:23.071Z",
+  "intentos": 2,
+  "ultimo": "2026-11-03T14:35:07.909Z",
   "motivo": "título o bajada: 2 problemas (forma): el titulo dice \"en vivo\" y el sitio no hace coberturas en vivo",
   "textos": 3,
   "numeradas": 3,
@@ -5543,8 +5530,8 @@
   ]
  },
  "1r2hbym": {
-  "intentos": 1,
-  "ultimo": "2026-11-03T11:31:27.273Z",
+  "intentos": 2,
+  "ultimo": "2026-11-03T14:35:07.909Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
@@ -5768,13 +5755,6 @@
    "cuerpo: 2 problemas (antecedente, relleno): el cuerpo usa \"miercoles\",",
    "semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (t"
   ]
- },
- "1ry3jqk": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 8
  },
  "1rycwh2": {
   "intentos": 1,
@@ -7245,6 +7225,21 @@
   "textos": 4,
   "numeradas": 6
  },
+ "1yv5m5l": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
+  "motivo": "cuerpo: 2 problemas (copia, promesa): copia 22 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 318 palabras",
+  "textos": 6,
+  "numeradas": 12,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
+   "cuerpo: 2 problemas (copia, promesa): copia 22 palabras seguidas del o"
+  ],
+  "falla": [
+   "copia 22 palabras seguidas del original (\"no hay palabras mis condolencias y mucha fuerza para toda su familia y sus…\"): decilo con otras pa",
+   "el título nombra a \"messi\", \"miguel\" y el cuerpo no los explica"
+  ]
+ },
  "1yzm10q": {
   "intentos": 1,
   "ultimo": "2026-10-27T19:02:02.893Z",
@@ -7748,13 +7743,6 @@
   "textos": 3,
   "numeradas": 3
  },
- "595o7d": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
- },
  "5a449y": {
   "intentos": 1,
   "ultimo": "2026-10-31T00:01:43.974Z",
@@ -8114,13 +8102,6 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 9.377.000.000 y el cuerpo"
   ]
- },
- "6qracj": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "6qzen": {
   "intentos": 1,
@@ -8740,13 +8721,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 5
- },
- "ag4xz4": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4
  },
  "agdudm": {
   "intentos": 1,
@@ -9722,16 +9696,6 @@
    "cuerpo: 4 problemas (antecedente): el cuerpo usa \"torneo\", que sale de"
   ]
  },
- "el0m7z": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 5,
-  "motivos": [
-   "Gemini: Expected ',' or ']' after array element in JSON at position 35"
-  ]
- },
  "emxuu9": {
   "intentos": 1,
   "ultimo": "2026-10-29T16:13:36.477Z",
@@ -10339,6 +10303,13 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "hceg3p": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
  },
  "hd8nd0": {
   "intentos": 1,
@@ -11285,16 +11256,6 @@
    "cuerpo: 2 problemas (relleno, promesa): el cuerpo tiene una frase de r"
   ]
  },
- "mmyfrg": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 6,
-  "motivos": [
-   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (prohibi"
-  ]
- },
  "mn911r": {
   "intentos": 1,
   "ultimo": "2026-11-02T20:31:54.719Z",
@@ -11596,6 +11557,13 @@
  "notlp4": {
   "intentos": 1,
   "ultimo": "2026-10-28T06:01:40.462Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
+ "nsw0ux": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
@@ -12724,6 +12692,16 @@
   "textos": 1,
   "numeradas": 1
  },
+ "u87tx3": {
+  "intentos": 1,
+  "ultimo": "2026-11-03T14:35:07.909Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "cuerpo: 2 problemas (promesa): el título nombra a \"copa\", \"libertadore"
+  ]
+ },
  "u927ef": {
   "intentos": 1,
   "ultimo": "2026-10-31T04:01:41.670Z",
@@ -12830,18 +12808,6 @@
   "textos": 7,
   "numeradas": 8
  },
- "uvqcg3": {
-  "intentos": 3,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (título, bajada o texto para redes)",
-  "textos": 3,
-  "numeradas": 4,
-  "motivos": [
-   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t",
-   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
-   "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
-  ]
- },
  "uynkoa": {
   "intentos": 1,
   "ultimo": "2026-10-30T20:01:51.897Z",
@@ -12867,13 +12833,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
- },
- "v28iop": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "v47uyr": {
   "intentos": 3,
@@ -13495,13 +13454,6 @@
   "textos": 4,
   "numeradas": 4
  },
- "xtuqwu": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2
- },
  "xv1osq": {
   "intentos": 1,
   "ultimo": "2026-11-02T22:31:52.193Z",
@@ -13662,13 +13614,6 @@
    "cuerpo: 3 problemas (nombre, relleno, repite): el cuerpo nombra a \"dir"
   ]
  },
- "yrntqu": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
- },
  "ysgzoi": {
   "intentos": 1,
   "ultimo": "2026-10-27T20:21:57.157Z",
@@ -13749,13 +13694,6 @@
   "textos": 5,
   "numeradas": 18
  },
- "yzmx1q": {
-  "intentos": 1,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "z2mbh9": {
   "intentos": 1,
   "ultimo": "2026-10-29T21:32:04.639Z",
@@ -13833,16 +13771,6 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3
- },
- "zjfey4": {
-  "intentos": 2,
-  "ultimo": "2026-10-27T14:19:21.475Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d"
-  ]
  },
  "zjn1re": {
   "intentos": 1,
