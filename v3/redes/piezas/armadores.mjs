@@ -120,7 +120,8 @@ export function armarClima(clima, { auspicio = null, fecha = null, ...opciones }
 
 // ------------------------------------------------------------------ 4 a 6. el repaso (máximo 3 notas)
 
-const esDeBalcarce = (n) => n.seccion === 'Balcarce';
+// De Balcarce: la sección, o la marca `deBalcarce` que pone el plan (una nota de Balcarce puede estar en Cultura, Educación…: la reconoce el núcleo por su motivo, no por la sección).
+const esDeBalcarce = (n) => n.seccion === 'Balcarce' || n.deBalcarce === true;
 
 /**
  * El repaso de la mañana, la tarde o la noche, **con las placas de hoy** (`reels/escenas/repaso.mjs`: la lista como tapa, una placa por nota con su foto, su
@@ -131,7 +132,7 @@ export function armarRepaso(notas, { fecha = '', ...opciones } = {}) {
   const lista = (notas ?? []).filter((n) => n?.titulo && n.seccion);
   if (lista.length < REPASO.minNotas) throw new Error(`repaso: hacen falta al menos ${REPASO.minNotas} notas`);
   const elegidas = [...lista.filter(esDeBalcarce), ...lista.filter((n) => !esDeBalcarce(n))].slice(0, REPASO.maxNotas);
-  if (REPASO.minDeBalcarce > elegidas.filter(esDeBalcarce).length) throw new Error('repaso: tiene que haber al menos una nota de Balcarce');
+  if (!opciones.sinBalcarce && REPASO.minDeBalcarce > elegidas.filter(esDeBalcarce).length) throw new Error('repaso: tiene que haber al menos una nota de Balcarce');
   const momento = opciones.momento ?? (Number.isFinite(opciones.hora) ? momentoDe(opciones.hora) : 'manana');
   const titulo = MOMENTOS_DEL_REPASO[momento] ?? MOMENTOS_DEL_REPASO.manana;
   const saludo = saludoPara(opciones);

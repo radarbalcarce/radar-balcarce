@@ -47,7 +47,7 @@ export function armarDelPlan(item, { dia, ahora = new Date(), clima = null, farm
     case 'participa':
       return armarParticipa(item.variante, op);
     case 'repaso':
-      return armarRepaso(item.datos?.notas ?? [], { fecha: fechaLarga(ahora), momento: item.momento, ...op });
+      return armarRepaso(item.datos?.notas ?? [], { fecha: fechaLarga(ahora), momento: item.momento, sinBalcarce: item.datos?.sinBalcarce === true, ...op });
     default:
       throw new Error(`no conozco el armador «${item.arma}»`);
   }
@@ -103,6 +103,9 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datos });
       const huella = huellaDeLaPieza(pieza);
       Object.assign(informe, { huella, guion: pieza.guion });
+      if (item.datos?.sinBalcarce) informe.aviso = 'sin notas de Balcarce en la ventana: el repaso salió con las más contadas';
+      const sinFoto = (item.datos?.notas ?? []).filter((n) => !n.foto).length;
+      if (sinFoto) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}${sinFoto} nota(s) sin foto van con la placa de su sección`;
 
       const base = path.join(carpeta, item.id);
       // ENSAYO sin clave de voz propia (GEMINI_API_KEY_REDES_V3): el video sale MUDO, con subtítulos estimados, para no gastar el cupo de la clave del sistema viejo.

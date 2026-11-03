@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import { PIEZAS_DEL_DIA, piezasQueTocan, bloqueDeLaHora, bloqueDe, accionesDe, minutoDe } from './piezas-del-dia.mjs';
 import { planear, notasDelRepaso, auspicioDelDia, lineasDeLasPiezas, topeDeVoz } from './piezas-plan.mjs';
 import { crearRedes } from './redes.mjs';
+import { armarRepaso } from './piezas/armadores.mjs';
 import { contrasenaDelWebhook } from './redes.mjs';
 import { baseDePrueba, guardarNota } from './ayuda-pruebas.mjs';
 
@@ -56,12 +57,13 @@ test('bloques y acciones: mañana 5 a 11, tarde 12 a 18, noche 19 a 4; el reel v
 
 test('el repaso: Balcarce primero (hasta 2), completa con lo más contado, sin tragedias, sin foto ni repetidas del mismo día; sin Balcarce o con menos de 2, no hay repaso', () => {
   const n = (id, extra = {}) => ({ id, titulo: id, bajada: 'b', enDosLineas: '', seccion: 'Balcarce', motivo: 'balcarce', medios: 1, publicada: hace(30), noPublicar: null, foto: { url: 'https://x/y.jpg', credito: 'c' }, ...extra });
-  const nac = (id, medios) => n(id, { seccion: 'Política', motivo: 'popular', medios });
+  const nac = (id, medios, extra = {}) => n(id, { seccion: 'Política', motivo: 'popular', medios, ...extra });
   const r = notasDelRepaso([n('L1'), n('L2', { publicada: hace(10) }), n('L3'), nac('N6', 6), nac('N9', 9), nac('N3', 3)], { ahora: AHORA });
   assert.deepEqual(r.map((x) => x.id), ['L2', 'L1', 'N9']);
-  assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8)], { ahora: AHORA }), []); // sin Balcarce
+  assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8), nac('N7', 7)], { ahora: AHORA }).map((x) => x.id), ['N9', 'N8', 'N7']); // sin Balcarce: sale con lo más contado
   assert.deepEqual(notasDelRepaso([n('L1')], { ahora: AHORA }), []); // una sola
-  assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { foto: null }), n('L3', { titulo: 'Muere un niño de 3 años' })], { ahora: AHORA }), []); // sin foto y tragedia
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { foto: null }), n('L3', { titulo: 'Muere un niño de 3 años' })], { ahora: AHORA }).map((x) => x.id), ['L1', 'L2']); // la de Balcarce sin foto entra (placa); la tragedia no
+  assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8, { foto: null })], { ahora: AHORA }), []); // lo de afuera sin foto no
   assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), n('L3')], { ahora: AHORA, yaUsadas: ['L1'] }).map((x) => x.id), ['L2', 'L3']);
   assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { noPublicar: { motivo: 'menor' } })], { ahora: AHORA }), []); // lo que frenó la ley nunca
 });
@@ -218,4 +220,31 @@ test('el esquema de las piezas existe en schema-redes.sql y es idempotente', () 
   const sql = fs.readFileSync(new URL('./schema-redes.sql', import.meta.url), 'utf8');
   assert.match(sql, /CREATE TABLE IF NOT EXISTS piezas/);
   assert.match(sql, /CREATE UNIQUE INDEX IF NOT EXISTS uq_piezas_dia/);
+});
+
+test('caso real 3/11: notas de Balcarce en otras secciones (Cultura, Política) y sin foto entran al repaso, marcadas de Balcarce; el repaso sale sin fallar', async () => {
+  const t = baseDePrueba();
+  guardarNota(t.sqlite, { id: 'club111', titulo: 'El Club de Leones organiza un torneo de burako', seccion: 'Cultura', motivo: 'balcarce', creada: hace(60), estado: 'borrador', foto: null });
+  guardarNota(t.sqlite, { id: 'obras22', titulo: 'Gustavo Torres detalló el avance de las obras', seccion: 'Política', motivo: 'balcarce', creada: hace(90), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'cordon3', titulo: 'La Municipalidad realiza obras de cordón cuneta', seccion: 'Balcarce', motivo: 'balcarce', creada: hace(120), estado: 'borrador', foto: null });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const repaso = p.piezas.find((x) => x.id === 'noticia1');
+  assert.ok(repaso, 'el repaso tiene que reservarse');
+  assert.equal(repaso.datos.sinBalcarce, false);
+  assert.ok(repaso.datos.notas.every((x) => x.deBalcarce === true));
+  assert.equal(repaso.datos.notas.length, 3);
+  const pieza = armarRepaso(repaso.datos.notas, { momento: 'manana', hora: 10, sinBalcarce: repaso.datos.sinBalcarce }); // antes: «tiene que haber al menos una nota de Balcarce»
+  assert.equal(pieza.escenas.filter((e) => e.tipo === 'placa-nota').length, 3);
+  assert.ok(pieza.escenas.some((e) => e.tipo === 'placa-nota' && !e.datos.foto)); // alguna va con la placa
+});
+
+test('si de verdad no hay ninguna nota de Balcarce, el repaso sale con las más contadas y el plan lo anota', async () => {
+  const t = baseDePrueba();
+  for (const [id, m] of [['n1', 9], ['n2', 7], ['n3', 6]]) guardarNota(t.sqlite, { id, titulo: `Titular ${id}`, seccion: 'Política', motivo: 'popular', medios: Array.from({ length: m }, (_, i) => `m${i}`), creada: hace(60), estado: 'borrador' });
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const repaso = p.piezas.find((x) => x.id === 'noticia1');
+  assert.equal(repaso.datos.sinBalcarce, true);
+  assert.deepEqual(repaso.datos.notasIds, ['n1', 'n2', 'n3']);
+  assert.equal(armarRepaso(repaso.datos.notas, { momento: 'manana', hora: 10, sinBalcarce: true }).escenas.length, 4);
+  assert.throws(() => armarRepaso(repaso.datos.notas, { momento: 'manana', hora: 10 }), /al menos una nota de Balcarce/);
 });
