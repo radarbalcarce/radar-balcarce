@@ -6,6 +6,7 @@ name: "Radar 3.0: núcleo"
 #              v3/nucleo/agrupar/umbrales.json y guarda el informe en v3/nucleo/scripts/salida/calibracion-AAAA-MM-DD.md
 #   comparar   baja los borradores del día del Worker radar-nucleo y los pone lado a lado con las notas del sistema viejo
 #              (v3/nucleo/comparaciones/comparar-AAAA-MM-DD.json)
+#   retirar    saca una nota del sitio (estado «retirada», con su motivo); el id es lo que va al final de la dirección, sin la «n»
 #
 # Secretos de GitHub (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID (calibrar), TELEGRAM_TOKEN (comparar).
 
@@ -15,8 +16,16 @@ on:
       accion:
         description: 'Qué hacer'
         type: choice
-        options: [calibrar, comparar]
+        options: [calibrar, comparar, retirar]
         default: comparar
+      nota:
+        description: 'Para «retirar»: el id de la nota (lo último de la dirección, por ejemplo 67zuqsi)'
+        type: string
+        default: ''
+      motivo:
+        description: 'Para «retirar»: por qué se saca'
+        type: string
+        default: ''
       dia:
         description: 'Para «comparar»: el día (AAAA-MM-DD, hora de Balcarce). Vacío = hoy'
         type: string
@@ -40,6 +49,8 @@ jobs:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       ACCION: ${{ inputs.accion }}
       DIA: ${{ inputs.dia }}
+      NOTA: ${{ inputs.nota }}
+      MOTIVO: ${{ inputs.motivo }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -59,7 +70,48 @@ jobs:
             node v3/nucleo/scripts/comparar.mjs
           fi
 
+      # Saca una nota del sitio: el sitio sólo muestra las publicadas. Las páginas en caché se renuevan solas en menos de una hora.
+      - name: Retirar una nota
+        if: env.ACCION == 'retirar'
+        working-directory: v3/nucleo
+        run: |
+          echo "$NOTA" | grep -Eq '^[a-z0-9]{3,30}
+          git config user.name "Radar Balcarce"
+          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
+          git config user.email "272334999+balcar-dev@users.noreply.github.com"
+          if [ "$ACCION" = "calibrar" ]; then
+            # salida/ está en el .gitignore: el informe se agrega a la fuerza
+            git add -f v3/nucleo/scripts/salida/calibracion-*.md
+            git add v3/nucleo/agrupar/umbrales.json
+            mensaje="Radar 3.0 · calibración de umbrales"
+          else
+            git add v3/nucleo/comparaciones/
+            mensaje="Radar 3.0 · comparación del núcleo con el sistema viejo"
+          fi
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+            exit 0
+          fi
+          git commit -m "$mensaje · $(date '+%d/%m %H:%M')"
+          for intento in 1 2 3; do
+            git pull --rebase -q && git push && break
+            sleep 5
+          done
+          git fetch -q origin main
+          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir el resultado después de tres intentos"; exit 1; }
+ || { echo "Id de nota inválido"; exit 1; }
+          test -n "$MOTIVO" || { echo "Falta el motivo"; exit 1; }
+          buscar() {
+            npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})"
+          }
+          ID=$(buscar); test -n "$ID" || { echo "No está la base"; exit 1; }
+          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+          M=$(printf "%s" "$MOTIVO" | sed "s/'/''/g")
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --command="UPDATE notas SET estado = 'retirada', no_publicar = json_object('motivo', '$M', 'cuando', datetime('now')) WHERE id = '$NOTA'"
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --command="SELECT id, estado, titulo FROM notas WHERE id = '$NOTA'"
+
       - name: Guardar el resultado
+        if: env.ACCION != 'retirar'
         run: |
           git config user.name "Radar Balcarce"
           # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).

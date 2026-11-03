@@ -13,6 +13,8 @@ const LOCALIDADES = [
 const RE_LOCAL = new RegExp(String.raw`\b(${LOCALIDADES.join('|')})\b`);
 
 const RE_HOROSCOPO = /\b(horoscopo|loteria|quiniela|quini ?6|loto|brinco|sorteo|sorteos|cotizacion del (dolar|euro|real)|dolar (hoy|blue hoy)|cotizacion hoy)\b/;
+// Las efemérides de otros medios no salen nunca (Hernán, 3/11: «eso no va nunca»): Radar hace las suyas, «Un día como hoy».
+const RE_EFEMERIDES = /\b(efemerides?|un dia como hoy|santoral|santo del dia|hoy se celebra el dia|dia internacional de)\b/;
 
 // Países y lugares de afuera. Lista corta y conservadora: sólo descarta si el TÍTULO nombra uno de estos
 // y ni el título ni la primera oración tienen una palabra argentina.
@@ -84,6 +86,7 @@ export function elegir(historia, articulos, {
 
   const titulos = normalizarTexto(titulosDe(historia, articulos).join(' | '));
   if (RE_HOROSCOPO.test(titulos)) return no('horoscopo-loteria-cotizacion');
+  if (RE_EFEMERIDES.test(titulos)) return no('efemerides-ajenas');
 
   const balcarce = esDeBalcarce(historia, articulos);
   const zona = !balcarce && esDeLaZona(historia, articulos);

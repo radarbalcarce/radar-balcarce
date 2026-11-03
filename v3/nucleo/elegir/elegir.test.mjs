@@ -104,3 +104,12 @@ test('vieja: más de 24 h afuera, 36 h si es de Balcarce', () => {
   assert.equal(elegir(hist(b[0].titulo, { fechaHecho: hace(30) }), b, opc()).sale, true);
   assert.deepEqual(elegir(hist(b[0].titulo, { fechaHecho: hace(40) }), b, opc()), { sale: false, motivo: 'vieja' });
 });
+
+test('las efemérides de otros medios no salen nunca, ni de Balcarce (caso real 3/11: «Efemérides del 3 de noviembre», Radio Gabal)', () => {
+  for (const t of ['Efemérides del 3 de noviembre: un repaso por hitos históricos', 'Un día como hoy nacía Juan Manuel Fangio', 'Santoral: qué santo se celebra hoy']) {
+    const a = [art('Radio Gabal (FM 104.1)', t, { alcance: 'balcarce' })];
+    assert.deepEqual(elegir(hist(t), a, opc()), { sale: false, motivo: 'efemerides-ajenas' }, t);
+  }
+  const ok = 'Balcarce celebra el aniversario del Club Ferroviarios';
+  assert.equal(elegir(hist(ok), [art('Radio Gabal (FM 104.1)', ok, { alcance: 'balcarce' })], opc()).sale, true);
+});
