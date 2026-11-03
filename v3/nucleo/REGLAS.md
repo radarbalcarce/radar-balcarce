@@ -146,7 +146,11 @@ hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).
 
 - **Una nota por día**, id `clima-AAAA-MM-DD` (una fila en `notas` y su historia con motivo `clima`). Sale en la **primera vuelta desde las 7:30** (hora de Balcarce); si a
   las 12:00 todavía no salió (Open-Meteo caído toda la mañana), ese día no sale: no se publica a la tarde un pronóstico de la mañana. Vueltas siguientes: no hace nada.
-- **A las 19:00** (entre las 19:00 y las 22:00, una sola vez) se pide el pronóstico de nuevo y se compara con el que guardó la nota (`verificacion.resumen`). Si cambió de
+- **No hay actualización de las 19** (Hernán, 3/11): la nota sale **una sola vez por día, a la mañana**, y no se toca más. El código de la revisión sigue escrito pero apagado
+  (`REVISION_DE_LAS_19 = false` en `clima.mjs`; `queToca` nunca devuelve `'revisar'`). Lo que sigue, hasta «Datos», describe esa revisión apagada. En el sitio, la nota del día va en la
+  tapa y en la sección Balcarce como una nota más (sólo la de hoy; las de días anteriores quedan con su página pero fuera de las listas) y lleva al final «Mirá el clima de hoy en video»,
+  con Facebook e Instagram.
+- _(apagado)_ **A las 19:00** (entre las 19:00 y las 22:00, una sola vez) se pide el pronóstico de nuevo y se compara con el que guardó la nota (`verificacion.resumen`). Si cambió de
   forma importante se **actualiza la misma nota** (mismo id, misma dirección, `creada` intacta: no rejuvenece) y arriba va un párrafo «Actualización de las 19: …». Cambia de
   forma importante si, **para Balcarce**: (a) mañana o pasado la lluvia aparece o desaparece; (b) la máxima de mañana o pasado se mueve **4° o más**; (c) se suma o se va una
   tormenta; (d) aparece una ráfaga de **60 km/h o más**; (e) para lo que queda de hoy (desde las 19) aparece o desaparece lluvia o tormenta. Open-Meteo **no trae alertas
@@ -168,6 +172,6 @@ hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).
 - **Marcas para el sitio** (en `ficha`, que el sitio ya lee): `ficha.marca = { tipo: 'clima-diario', fecha: 'AAAA-MM-DD' }` (cómo reconocer la nota), `ficha.indexar = false`
   (el clima diario iba con `noindex` en el sitio viejo; el núcleo no tiene hoy una columna ni un campo propio de «no indexar»: la marca es ésta y el sitio decide),
   `ficha.estadoDelCielo` (despejado, parcialmente-nublado, nublado, lluvia, tormenta, niebla, viento, frio o calor: los nombres de las ilustraciones `clima-<estado>-<n>.jpg` del
-  sitio viejo) y `ficha.actualizadaEn` (ISO, sólo si se actualizó a las 19).
+  sitio viejo) y `ficha.actualizadaEn` (ISO, sólo con la revisión de las 19, hoy apagada: siempre `null`).
 - **El resultado de la vuelta** trae `clima`: `null` (no tocaba), `{ accion: 'salio' | 'actualizo' | 'sin-cambios' | 'error', redactor, motivoPlantilla, … }`.
 - Con `NUCLEO_PUBLICA = no` queda en borrador como todas. Pruebas: `clima/clima.test.mjs` (horarios, resumen, plantilla, decisión de actualizar, Gemini y sus fallos, la vuelta entera).

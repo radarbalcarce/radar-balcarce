@@ -7,6 +7,8 @@ const DESDE = `FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id WHERE n.estad
 const PUBLICADA = `COALESCE(s.publicada_en, n.creada)`;
 /** Las notas de servicio (la del clima, la del dólar, el media kit…) tienen su página pero no van como noticia en la tapa, las secciones ni los feeds: llevan `ficha.marca` o son el media kit. */
 const SIN_SERVICIO = `AND n.id != 'mediakit' AND (n.ficha IS NULL OR n.ficha NOT LIKE '%"marca":%')`;
+/** Igual, pero deja pasar la nota del clima del día (`clima-AAAA-MM-DD` de `climaDe`): va en la tapa y en Balcarce como una nota más, sólo la de hoy; las de días anteriores y el media kit quedan fuera. */
+const servicioSin = (climaDe) => (climaDe && /^\d{4}-\d{2}-\d{2}$/.test(climaDe) ? `AND n.id != 'mediakit' AND (n.ficha IS NULL OR n.ficha NOT LIKE '%"marca":%' OR n.id = 'clima-${climaDe}')` : SIN_SERVICIO);
 
 /** Una fila de la base → la nota que usan las vistas (JSON leído; slug, fecha y origen con su valor de reserva). */
 export function aNota(f) {
@@ -41,15 +43,15 @@ export async function notaPorId(env, id) {
 }
 
 /** Las notas de una sección (o de todas, con ranura null), de la más nueva a la más vieja. `conFoto` deja sólo las que tienen foto; `despues` (ISO), sólo las publicadas desde ese momento. */
-export async function listar(env, { seccion = null, limite = 10, desde = 0, conFoto = false, despues = null, conServicio = false } = {}) {
-  const donde = [seccion ? 'AND n.seccion IN (?, ?)' : '', despues ? `AND ${PUBLICADA} >= ?` : '', conFoto ? "AND n.foto IS NOT NULL AND n.foto != 'null'" : '', conServicio ? '' : SIN_SERVICIO].join(' ');
+export async function listar(env, { seccion = null, limite = 10, desde = 0, conFoto = false, despues = null, conServicio = false, climaDe = null } = {}) {
+  const donde = [seccion ? 'AND n.seccion IN (?, ?)' : '', despues ? `AND ${PUBLICADA} >= ?` : '', conFoto ? "AND n.foto IS NOT NULL AND n.foto != 'null'" : '', conServicio ? '' : servicioSin(climaDe)].join(' ');
   const params = [...(seccion ? [seccion, ...aliasesDe(seccion)] : []), ...(despues ? [despues] : [])];
   const r = await env.DB.prepare(`SELECT ${CAMPOS} ${DESDE} ${donde} ORDER BY ${PUBLICADA} DESC LIMIT ? OFFSET ?`).bind(...params, limite, desde).all();
   return (r.results || []).map(aNota);
 }
 
-export async function contar(env, { seccion = null, conServicio = false } = {}) {
-  const donde = (seccion ? 'AND n.seccion IN (?, ?)' : '') + (conServicio ? '' : ` ${SIN_SERVICIO}`);
+export async function contar(env, { seccion = null, conServicio = false, climaDe = null } = {}) {
+  const donde = (seccion ? 'AND n.seccion IN (?, ?)' : '') + (conServicio ? '' : ` ${servicioSin(climaDe)}`);
   const params = seccion ? [seccion, ...aliasesDe(seccion)] : [];
   const f = await env.DB.prepare(`SELECT COUNT(*) AS n ${DESDE} ${donde}`).bind(...params).first();
   return f?.n || 0;

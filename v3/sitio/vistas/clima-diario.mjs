@@ -47,3 +47,14 @@ export function actualizadaHtml(n) {
   const p = partesEnBalcarce(t);
   return ` · <span class="actualizada">Actualizada a las ${String(p.hora).padStart(2, '0')}:${String(p.minuto).padStart(2, '0')}</span>`;
 }
+
+const FACEBOOK_RADAR = 'https://www.facebook.com/profile.php?id=61594865361170';
+const INSTAGRAM_RADAR = 'https://www.instagram.com/radarbalcarce/';
+/** Al final de la nota del clima: «Mirá el clima de hoy en video» con Facebook e Instagram (las páginas del medio; el reel de la mañana es lo último que publican). Si la ficha trae `reels.facebook` / `reels.instagram` (https), va directo al reel. '' si no es la del clima. */
+export function enlacesDelVideoHtml(n) {
+  if (!esClimaDiario(n)) return '';
+  const https = (u) => (typeof u === 'string' && /^https:\/\/[^\s"<>]+$/.test(u) ? u : null);
+  const fb = https(n.ficha?.reels?.facebook) || FACEBOOK_RADAR;
+  const ig = https(n.ficha?.reels?.instagram) || INSTAGRAM_RADAR;
+  return `<p class="clima-video">Mirá el clima de hoy en video: <a class="enlace" href="${fb}" rel="noopener">en Facebook</a> · <a class="enlace" href="${ig}" rel="noopener">en Instagram</a></p>`;
+}

@@ -1,7 +1,7 @@
 // La nota diaria del clima de la región (REGLAS § 12). Todo lo de acá se prueba sin red: el pedido a Open-Meteo y Gemini se inyectan.
 //
 //   traerPronostico(fetch, { desdeHora }) → resumen numérico cerrado (aResumen)
-//   queToca(ahora, nota)                   → 'salir' | 'revisar' | null  (7:30 sale, 19:00 revisa; hora de Balcarce)
+//   queToca(ahora, nota)                   → 'salir' | 'revisar' | null  (7:30 sale; la revisión de las 19 está apagada)
 //   comparar(viejo, nuevo)                 → { importante, motivos: [{ tipo, texto }] }
 //   plantilla(resumen, { edicion })        → { titulo, bajada, cuerpo, enDosLineas }  (sólo código, sin IA)
 //   redactarNotaDelClima(resumen, { gemini, edicion }) → { titulo, bajada, cuerpo, enDosLineas, redactor, motivoPlantilla, pedidos }
@@ -26,6 +26,8 @@ export const URL_PRONOSTICO = 'https://api.open-meteo.com/v1/forecast?latitude='
 
 export const HORA_DE_SALIDA = 7 * 60 + 30; // 7:30 de Balcarce
 export const HORA_LIMITE_DE_SALIDA = 12 * 60; // pasado el mediodía sin nota, ese día no sale (no se publica a la tarde un pronóstico de la mañana)
+/** Hernán (3/11): la nota sale UNA vez por día, a la mañana. La actualización de las 19 queda escrita pero apagada: con `true` vuelve. */
+export const REVISION_DE_LAS_19 = false;
 export const HORA_DE_REVISION = 19 * 60; // 19:00
 export const HORA_LIMITE_DE_REVISION = 22 * 60;
 export const DIFERENCIA_DE_MAXIMA = 4; // °C
@@ -56,12 +58,12 @@ export const fechaLarga = (fecha) => { const d = new Date(`${fecha}T12:00:00Z`);
 /**
  * Qué toca hacer en esta vuelta. `nota` es la del día (o null).
  *  - sin nota de hoy, entre 7:30 y 12:00 → 'salir'
- *  - con nota de hoy, entre 19:00 y 22:00, y todavía no revisada → 'revisar'
+ *  - con nota de hoy, entre 19:00 y 22:00, y todavía no revisada → 'revisar' (sólo si REVISION_DE_LAS_19; apagada: nunca)
  */
 export function queToca(ahora, nota) {
   const { minutos } = horaLocal(ahora);
   if (!nota) return minutos >= HORA_DE_SALIDA && minutos < HORA_LIMITE_DE_SALIDA ? 'salir' : null;
-  if (minutos >= HORA_DE_REVISION && minutos < HORA_LIMITE_DE_REVISION && !(nota.verificacion && nota.verificacion.revisada19)) return 'revisar';
+  if (REVISION_DE_LAS_19 && minutos >= HORA_DE_REVISION && minutos < HORA_LIMITE_DE_REVISION && !(nota.verificacion && nota.verificacion.revisada19)) return 'revisar';
   return null;
 }
 

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
   LUGARES, CIERRE, aResumen, ventanasDeLluvia, horaLocal, queToca, plantilla, comparar, numerosNoPermitidos, redactarNotaDelClima,
-  estadoDelDia, parrafoDeActualizacion, frase,
+  estadoDelDia, parrafoDeActualizacion, frase, REVISION_DE_LAS_19,
 } from './clima.mjs';
 import { crearNucleo } from '../nucleo.mjs';
 
@@ -70,14 +70,10 @@ test('la hora de Balcarce es UTC-3 y la nota sale a las 7:30, no antes', () => {
   assert.equal(queToca('2026-11-03T15:00:00Z', null), null, 'pasado el mediodía sin nota, ese día no sale');
 });
 
-test('con la nota del día: a las 19:00 se revisa una sola vez; antes y después, nada', () => {
+test('con la nota del día no se hace nada más: la actualización de las 19 está apagada (una sola nota por día, a la mañana)', () => {
+  assert.equal(REVISION_DE_LAS_19, false);
   const nota = { verificacion: { revisada19: false } };
-  assert.equal(queToca('2026-11-03T21:59:00Z', nota), null); // 18:59
-  assert.equal(queToca('2026-11-03T22:00:00Z', nota), 'revisar');
-  assert.equal(queToca('2026-11-04T00:59:00Z', nota), 'revisar'); // 21:59
-  assert.equal(queToca('2026-11-04T01:00:00Z', nota), null); // 22:00
-  assert.equal(queToca('2026-11-03T22:00:00Z', { verificacion: { revisada19: true } }), null);
-  assert.equal(queToca('2026-11-03T12:00:00Z', nota), null);
+  for (const hora of ['2026-11-03T21:59:00Z', '2026-11-03T22:00:00Z', '2026-11-04T00:59:00Z', '2026-11-04T01:00:00Z', '2026-11-03T12:00:00Z']) assert.equal(queToca(hora, nota), null, hora);
 });
 
 // ------------------------------------------------------------------ el resumen y la plantilla
@@ -374,52 +370,21 @@ test('NUCLEO_PUBLICA = no: la nota del clima queda en borrador como todas', { sk
   assert.equal(notas(env)[0].estado, 'borrador');
 });
 
-test('19:00 sin cambios importantes: la nota queda igual y se anota que se revisó (una sola vez)', { skip: sinSqlite }, async () => {
+test('a las 19:00 no se pide el pronóstico ni se toca la nota: sale una sola vez por día', { skip: sinSqlite }, async () => {
   const env = envDe();
   const m = mundo();
   const n = nucleo();
   await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T10:30:00Z' });
   const antes = notas(env)[0];
-  m.pronostico = abierto({ lluvia: { Balcarce: [[15, 16, 17, 18]], 'Mar del Plata': [[18, 19]], Tandil: [[14, 15, 16, 17, 18, 19]] }, max: { Balcarce: [21, 20, 22], 'Mar del Plata': [14, 15, 16], Miramar: [14, 15, 16], Necochea: [13, 14, 15], Tandil: [21, 20, 22] } });
-  const r = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T22:00:00Z' });
-  assert.equal(r.clima.accion, 'sin-cambios');
-  const despues = notas(env)[0];
-  assert.equal(despues.titulo, antes.titulo);
-  assert.equal(despues.cuerpo, antes.cuerpo);
-  assert.equal(despues.creada, antes.creada);
-  assert.equal(JSON.parse(despues.verificacion).revisada19, true);
   const pedidos = m.openMeteo;
-  const otra = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T22:15:00Z' });
-  assert.equal(otra.clima, null);
-  assert.equal(m.openMeteo, pedidos);
-});
-
-test('19:00 con un cambio importante: se actualiza la MISMA nota (mismo id y fecha de salida), con el párrafo de actualización arriba', { skip: sinSqlite }, async () => {
-  const env = envDe();
-  const m = mundo();
-  const n = nucleo();
-  await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T10:30:00Z' });
-  const antes = notas(env)[0];
   m.pronostico = abierto({ lluvia: { Balcarce: [[15, 16, 17, 18], [5, 6, 7, 8]], 'Mar del Plata': [[18, 19]], Tandil: [[14, 15, 16, 17, 18, 19]] } });
   const r = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T22:00:00Z' });
-  assert.equal(r.clima.accion, 'actualizo');
-  assert.deepEqual(r.clima.motivos, ['lluvia']);
-  const todas = notas(env);
-  assert.equal(todas.length, 1);
-  const despues = todas[0];
-  assert.equal(despues.id, antes.id);
-  assert.equal(despues.creada, antes.creada, 'la fecha de salida no rejuvenece');
-  assert.equal(despues.estado, 'publicada');
-  const cuerpo = JSON.parse(despues.cuerpo);
-  assert.match(cuerpo[0], /^Actualización de las 19: el miércoles ahora se espera lluvia de 5 a 9/);
-  assert.equal(cuerpo.at(-1), CIERRE);
-  const ficha = JSON.parse(despues.ficha);
-  assert.equal(ficha.actualizadaEn, '2026-11-03T22:00:00.000Z');
-  assert.deepEqual(ficha.marca, { tipo: 'clima-diario', fecha: '2026-11-03' });
-  assert.equal(JSON.parse(despues.verificacion).revisada19, true);
-  assert.equal(env.DB.sqlite.prepare('SELECT COUNT(*) AS n FROM historias WHERE id = ?').get('clima-2026-11-03').n, 1);
-  const otra = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T22:15:00Z' });
-  assert.equal(otra.clima, null);
+  assert.equal(r.clima, null);
+  assert.equal(m.openMeteo, pedidos);
+  const despues = notas(env);
+  assert.equal(despues.length, 1);
+  assert.equal(despues[0].cuerpo, antes.cuerpo);
+  assert.equal(JSON.parse(despues[0].ficha).actualizadaEn, null);
 });
 
 test('si no salió la nota de la mañana, a las 19:00 no se publica una nueva', { skip: sinSqlite }, async () => {

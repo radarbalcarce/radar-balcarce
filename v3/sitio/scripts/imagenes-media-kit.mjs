@@ -63,7 +63,7 @@ export const LAMINAS = [
   { archivo: 'mediakit-clima.png', alto: 700, html: `<div class="lamina" style="height:700px"><h2>El clima de hoy llega con tu comercio</h2>
 <div class="caja rojo"><div class="cita">«El clima de hoy llega con tu comercio»</div><p style="margin-top:12px">Eso dice la voz al empezar el reel del clima, y en el video una franja muestra tu comercio y tu Instagram. Y en el diario, un recuadro con tu nombre arriba de la nota del clima y de la página /clima.</p></div>
 <div class="fila" style="grid-template-columns:1fr 1fr">
-<div class="caja"><b class="t">Lo más visto</b><p>La nota del clima sale a las 7:30 y se actualiza a las 19 si cambia el pronóstico; el reel, todos los días.</p></div>
+<div class="caja"><b class="t">Lo más visto</b><p>La nota del clima sale a las 7:30; el reel, todos los días.</p></div>
 <div class="caja"><b class="t">Un solo auspiciante</b><p>Cada día lleva un solo comercio, por calendario y por orden de llegada.</p></div></div></div>` },
   { archivo: 'mediakit-donde.png', alto: 733, html: `<div class="lamina" style="height:733px"><h2>Dónde se ve tu aviso y cómo arrancar</h2>
 <div class="fila" style="grid-template-columns:1fr 1fr">

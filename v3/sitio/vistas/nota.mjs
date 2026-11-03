@@ -2,7 +2,7 @@
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
 import { pagina, colorDe } from './base.mjs';
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
-import { esClimaDiario, fotoDelClima, actualizadaHtml } from './clima-diario.mjs';
+import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -148,6 +148,7 @@ ${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, a
 <div class="cuerpo">
 ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
 </div>
+${enlacesDelVideoHtml(n)}
 ${bloquesDeFicha(n.ficha)}
 <p class="firma">${firmaHtml(n)}</p>
 ${fuentesHtml(n.fuentes || [])}

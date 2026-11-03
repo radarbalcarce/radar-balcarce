@@ -150,6 +150,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const rutaNotaClima = notaClima ? await consultas.notaPorId(env, `clima-${hoy}`).then((n) => (n ? rutaDeNota(n) : null)).catch(() => null) : null;
       return { ahora: reloj, rutaNotaClima, clima, farmacia, dolar, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
     };
+    const hoyEnBalcarce = () => { const p = partesEnBalcarce(ahora()); return `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`; };
     const fijar = (notas) => { const p = consultas.fijarSlugs(env, notas).catch(() => 0); if (ctx?.waitUntil) ctx.waitUntil(p); return p; };
 
     if (ruta === '/robots.txt') return { r: respuesta(robots(indexar), { tipo: 'text/plain; charset=utf-8', cache: CACHE.robots }), cachear: true };
@@ -267,9 +268,9 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     if (ruta === '/') {
       const dia = contextoDelDia({ notaClima: true });
       const reciente = new Date(ahora().getTime() - PORTADA.horas * 3600 * 1000).toISOString();
-      let notas = await consultas.listar(env, { limite: 60, despues: reciente });
+      let notas = await consultas.listar(env, { limite: 60, despues: reciente, climaDe: hoyEnBalcarce() });
       // Si en las últimas 36 horas salieron muy pocas, la portada no queda pelada: se completa con las últimas publicadas.
-      if (notas.length < PORTADA.minimoDeNotas) notas = await consultas.listar(env, { limite: 30 });
+      if (notas.length < PORTADA.minimoDeNotas) notas = await consultas.listar(env, { limite: 30, climaDe: hoyEnBalcarce() });
       await fijar(notas);
       return { r: respuesta(paginaDePortada(notas, { indexar, contexto: await dia }), { cache: CACHE.portada, indexar }), cachear: true };
     }
@@ -282,10 +283,10 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const pag = crudo == null ? 1 : Number(crudo);
       if (!Number.isInteger(pag) || pag < 1 || pag > 10000) return { r: noEncontrada() };
       const dia = contextoDelDia();
-      const total = await consultas.contar(env, { seccion: seccion.nombre });
+      const total = await consultas.contar(env, { seccion: seccion.nombre, climaDe: hoyEnBalcarce() });
       const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
       if (pag > totalPaginas) return { r: noEncontrada() };
-      const notas = await consultas.listar(env, { seccion: seccion.nombre, limite: POR_PAGINA, desde: (pag - 1) * POR_PAGINA });
+      const notas = await consultas.listar(env, { seccion: seccion.nombre, limite: POR_PAGINA, desde: (pag - 1) * POR_PAGINA, climaDe: hoyEnBalcarce() });
       await fijar(notas);
       return { r: respuesta(paginaDeSeccion(seccion, notas, { pagina: pag, totalPaginas, indexar, contexto: await dia }), { cache: CACHE.seccion, indexar }), cachear: true };
     }

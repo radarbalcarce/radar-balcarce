@@ -224,17 +224,29 @@ test('la ilustración: una variante por fecha (siempre la misma), sólo si falta
   assert.equal(actualizadaHtml({ id: 'x', ficha: { actualizadaEn: '2026-11-03T22:00:00.000Z' } }), '');
 });
 
-test('notas de servicio (clima con marca, media kit): tienen página pero no van en la tapa, las secciones, el RSS ni el mapa de noticias; la tapa y /clima enlazan la del clima de hoy', async () => {
+test('notas de servicio: la del clima de HOY va en la tapa y en Balcarce; la de ayer y el media kit, nunca en las listas; el RSS (es noindex), sitemap-news, /hoy y el feed de sección sin servicio', async () => {
   const { sqlite, env } = baseDePrueba();
   notaClima(sqlite, { seccion: 'Balcarce' });
+  notaClima(sqlite, { id: 'clima-2026-11-02', titulo: 'El clima de ayer en Balcarce', ficha: JSON.stringify({ ...FICHA_CLIMA, marca: { tipo: 'clima-diario', fecha: '2026-11-02' } }), seccion: 'Balcarce', creada: '2026-11-02T10:30:00.000Z' });
   insertarNota(sqlite, { id: 'mediakit', titulo: 'Publicitá en Radar Balcarce', seccion: 'Balcarce', creada: '2026-11-03T10:00:00.000Z' });
   insertarNota(sqlite, { id: 'real1', titulo: 'Noticia de verdad', seccion: 'Balcarce', creada: '2026-11-03T09:00:00.000Z' });
-  for (const ruta of ['/', '/seccion/balcarce', '/rss.xml', '/sitemap-news.xml', '/seccion/balcarce/feed.xml', '/hoy']) {
-    const h = (await (await ir(env, ruta)).text()).replace(/<a class="sol-mas"[^>]*>La nota de hoy.*?<\/a>/g, '');
-    assert.doesNotMatch(h, /clima-2026-11-03/, ruta);
+  const quitarEnlace = (h) => h.replace(/<a class="sol-mas"[^>]*>La nota de hoy.*?<\/a>/g, '');
+  for (const ruta of ['/', '/seccion/balcarce']) {
+    const h = quitarEnlace(await (await ir(env, ruta)).text());
+    assert.match(h, /clima-2026-11-03/, ruta);
+    assert.doesNotMatch(h, /clima-2026-11-02/, ruta);
+    assert.doesNotMatch(h, /mediakit/, ruta);
+  }
+  for (const ruta of ['/rss.xml', '/sitemap-news.xml', '/seccion/balcarce/feed.xml', '/hoy']) {
+    const h = quitarEnlace(await (await ir(env, ruta)).text());
+    assert.doesNotMatch(h, /clima-2026-1/, ruta);
     assert.doesNotMatch(h, /mediakit/, ruta);
   }
   assert.match(await (await ir(env, '/')).text(), /Noticia de verdad/);
+  const nota = await (await ir(env, '/nota/el-clima-de-hoy-en-balcarce-clima-2026-11-03')).text();
+  assert.match(nota, /Mirá el clima de hoy en video/);
+  assert.match(nota, /href="https:\/\/www\.facebook\.com\/[^"]+"/);
+  assert.match(nota, /href="https:\/\/www\.instagram\.com\/radarbalcarce\/"/);
   assert.equal((await ir(env, '/nota/el-clima-de-hoy-en-balcarce-clima-2026-11-03')).status, 200, 'la página sigue');
   const tapa = await (await ir(env, '/')).text();
   // la tapa y /clima enlazan la nota de hoy (la tapa del dia-completo trae el clima porque `traerCon` responde)
