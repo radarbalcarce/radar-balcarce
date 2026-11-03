@@ -711,3 +711,21 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - Siguen abiertas las 17 preguntas del mensaje del 3/11 (música, saludos, Instagram espejo, carrusel de 10, auspicio del clima, Bluesky,
   imagen 4:5, zona segura y firma, largo del clima, TikTok/YouTube por Buffer, publicidad sin precios, «Tu foto del día», X, carpeta de
   música, AdSense, fuentes locales) más tres de los mockups (firma tapada, fotos con chicos de lejos en Halloween, número de WhatsApp).
+
+**EL CORTE: 3/11/2026** (Hernán: «Corre el corte!»). radarbalcarce.com lo sirve `radar-sitio` (rutas `radarbalcarce.com/*` y
+`www.radarbalcarce.com/*`; las del archivo viejo se sacaron). Lo que el sitio nuevo no tiene (panel del celular, dólar, agenda, etc.) y las
+notas que el sistema viejo sigue escribiendo se piden a `radar-balcarce.pages.dev`. El núcleo publica (`NUCLEO_PUBLICA = si`). Vuelta atrás:
+workflow «Radar 3.0: corte» con `sacar`. Las redes de hoy siguen saliendo del sistema viejo; las de la 3.0, en ensayo.
+
+**Respuestas de Hernán a las preguntas de redes (3/11):**
+
+- Fotos de Halloween con chicos de lejos: van. WhatsApp: sigue el 2266 51-1612. La firma tapada: se corrige (zona segura). **Las notas
+  propias no dicen «Nota propia»: llevan la sección que les corresponde, como cualquier nota.**
+- 1 Música: revisar si suma para la viralidad; si va, muy baja; se puede usar una app o servicio de música con licencia. 2 Saludos: sólo
+  la primera de la mañana y la primera de la noche. 3 Instagram espejo: sí (Facebook 10 posteos: 5 de Balcarce y 5 nacionales; Instagram
+  espeja los 5 de Balcarce). 4 Carrusel: 10 como tope, 3 a 8 en la práctica. 5 Efeméride: sólo la principal en el video. 6 Auspicio del
+  clima: **al inicio**, «el clima de hoy lo auspicia…». 7 Bluesky: Hernán crea la cuenta. 8 Imagen 4:5 única: sí. 9 Zona segura: sí.
+  10 Largo del clima: 15 a 20 s (+4 con auspicio). 11 TikTok y YouTube: revisar si ya se pueden pedir las revisiones. 12 Publicidad en
+  redes: el jueves; idea de una nota propia con el media kit y los precios, distinta del resto. 13 Participá con fotos de la gente: después
+  del jueves (ojo: las fotos de Hernán van con su crédito, no como si fueran de un usuario). 14 X: 5 por día. 15 Música: la carpeta la arma
+  Claude. 16 AdSense: «arma todo». 17 Fuentes locales: Hernán investiga.
