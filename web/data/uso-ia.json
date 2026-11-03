@@ -2529,35 +2529,36 @@
   "2026-11-03": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 31,
-     "errores": 8,
-     "entrada": 57419,
-     "salida": 26844,
+     "llamadas": 35,
+     "errores": 10,
+     "entrada": 63331,
+     "salida": 29745,
      "pensamiento": 0,
-     "total": 84263,
+     "total": 93076,
      "claves": {
-      "clasificacion": 31
+      "clasificacion": 35
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 23
+       "ok": 25,
+       "otro": 2
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 8,
+     "llamadas": 10,
      "errores": 1,
-     "entrada": 17095,
-     "salida": 12011,
+     "entrada": 22486,
+     "salida": 17916,
      "pensamiento": 0,
-     "total": 29106,
+     "total": 40402,
      "claves": {
-      "groq": 8
+      "groq": 10
      },
      "motivos": {
       "groq": {
-       "ok": 7,
+       "ok": 9,
        "velocidad": 1
       }
      }
@@ -2581,19 +2582,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 41,
+     "llamadas": 44,
      "errores": 13,
-     "entrada": 377872,
-     "salida": 3503,
+     "entrada": 421203,
+     "salida": 3838,
      "pensamiento": 0,
-     "total": 381375,
+     "total": 425041,
      "claves": {
-      "clasificacion": 41
+      "clasificacion": 44
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 28,
+       "ok": 31,
        "saturado": 3
       }
      }
@@ -2615,39 +2616,39 @@
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 7,
+     "llamadas": 8,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 7
+      "clasificacion": 8
      },
      "motivos": {
       "clasificacion": {
-       "ok": 7
+       "ok": 8
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 130,
-     "errores": 34,
-     "entrada": 562279,
-     "salida": 102942,
+     "llamadas": 153,
+     "errores": 35,
+     "entrada": 692455,
+     "salida": 125426,
      "pensamiento": 0,
-     "total": 665221,
+     "total": 817881,
      "claves": {
-      "redaccion": 130
+      "redaccion": 153
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 96,
+       "ok": 118,
        "otro": 2,
-       "saturado": 9
+       "saturado": 10
       }
      }
     },
@@ -2676,20 +2677,20 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 129,
-     "errores": 45,
-     "entrada": 464221,
-     "salida": 35051,
+     "llamadas": 139,
+     "errores": 46,
+     "entrada": 510768,
+     "salida": 38266,
      "pensamiento": 0,
-     "total": 499272,
+     "total": 549034,
      "claves": {
-      "clasificacion": 129
+      "clasificacion": 139
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 41,
-       "ok": 84,
-       "otro": 1,
+       "ok": 93,
+       "otro": 2,
        "saturado": 3
       }
      }
@@ -2713,19 +2714,19 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 47,
-     "errores": 24,
-     "entrada": 37299,
-     "salida": 2435,
+     "llamadas": 49,
+     "errores": 25,
+     "entrada": 39416,
+     "salida": 2534,
      "pensamiento": 0,
-     "total": 39734,
+     "total": 41950,
      "claves": {
-      "groq": 47
+      "groq": 49
      },
      "motivos": {
       "groq": {
-       "cupo-diario": 17,
-       "ok": 23,
+       "cupo-diario": 18,
+       "ok": 24,
        "saturado": 5,
        "otro": 1,
        "velocidad": 1
@@ -2754,18 +2755,18 @@
    },
    "auditoria": {
     "openai/gpt-oss-20b": {
-     "llamadas": 15,
+     "llamadas": 12,
      "errores": 0,
-     "entrada": 24199,
-     "salida": 17103,
+     "entrada": 19459,
+     "salida": 14886,
      "pensamiento": 0,
-     "total": 41302,
+     "total": 34345,
      "claves": {
-      "groq": 15
+      "groq": 12
      },
      "motivos": {
       "groq": {
-       "ok": 15
+       "ok": 12
       }
      }
     }
