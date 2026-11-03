@@ -682,3 +682,22 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   (artifact https://claude.ai/artifact/JDhSoev8ZoaW1GSR85x3Rv; `v3/nucleo/comparaciones/`).
 - **Falta:** la portada elegida; quién pasa los borradores a «publicada» (interruptor del núcleo, el día del corte); el archivo viejo
   de R2 (más de 500 notas) y las fotos viejas a R2; Infobae falla desde Cloudflare (a investigar); redes (etapa D); el corte de dominio.
+
+**Sumado el 3/11** (Hernán, a la mañana, después de ver las notas lado a lado: «me encantan cómo están escritas»):
+
+- **OK al corte**: «hacé todo, mandale». Las preguntas, todas juntas al final. Después se revisa módulo por módulo (cada red, animaciones,
+  fuentes, secciones, clima y farmacia, Telegram, SEO, analíticas).
+- **«Qué falta saber» selectivo**: la IA lo completa sólo cuando aporta (máximo 3); el sitio lo muestra sólo en notas escritas con esa regla
+  (`faltaSaberSelectivo`). La fuente al lado de cada cifra no se muestra.
+- **Varias fotos por nota**, sobre todo en gacetillas y notas propias: el sitio y el bot tienen que dejar lugar (pendiente).
+- **Manual de publicidad en vivo**: con la 3.0 en el dominio, un documento con capturas reales de dónde va cada aviso, cuáles rotan, cuál
+  es fijo y dónde irían los de AdSense.
+- **AdSense** (investigación en `docs/propuestas/INVESTIGACION-3-0-11-2026.md`): no prohíbe la IA pero rechaza contenido «apenas retocado»;
+  pedir el alta con el sitio nuevo indexado, páginas «Cómo trabajamos», Quiénes somos, Contacto y Privacidad completas, y la velocidad en
+  verde. Ingreso realista al principio, US$ 100 a 200 por mes: para Hernán cubriría los gastos de herramientas. Las notas propias
+  (Halloween, Nancy, gacetillas) son el contenido original que más suma: hacer más.
+- **Meta de seguidores: 1.000 en Facebook y 1.000 en Instagram**; TikTok también tiene llegada. Si entra plata, invertir parte en
+  publicidad paga del propio Radar en Facebook e Instagram para Balcarce.
+- **Otras ideas a evaluar** (de la investigación): newsletter diaria con lugar patrocinado, canal de WhatsApp, página de datos útiles y
+  teléfonos de urgencia, encuesta semanal, botón «Mandanos información», página `/publicidad` con el media kit, RSS propio (ya existe:
+  `/feed.xml` y `/rss.xml`), informe diario y semanal de analíticas con decisiones, investigación semanal de otros medios.
