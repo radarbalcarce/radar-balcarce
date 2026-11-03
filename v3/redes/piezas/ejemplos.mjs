@@ -4,6 +4,7 @@
 //   node v3/redes/piezas/ejemplos.mjs clima repaso         sólo esos
 //   node v3/redes/piezas/ejemplos.mjs --sin-video          sólo las imágenes de cada escena y las fijas (rápido, para mirar el diseño)
 //   node v3/redes/piezas/ejemplos.mjs --sin-red            el clima sale de web/data/portada.json en vez de Open-Meteo
+//   node v3/redes/piezas/ejemplos.mjs --sin-subtitulos     sin los subtítulos estimados (por defecto los videos llevan los de hoy, con tiempos aproximados: todavía no hay voz)
 //
 // Deja todo en docs/propuestas/redes-3-0/videos/ (los mp4 no se versionan: la carpeta está en .gitignore), con el guion de cada pieza en `guiones.json`.
 // Las notas salen de `web/data/portada.json` (y la nota propia, de `web/data/notas-de-redaccion.json`); el clima, de Open-Meteo para Balcarce.
@@ -14,7 +15,7 @@ import { promisify } from 'node:util';
 import {
   armarClima, armarRepaso, armarEfemeride, armarNotaReel, armarNotaPropia, armarHistoriaDeNota, armarPosteo, armarCarrusel, armarFarmacia, armarParticipa, armarEnlace,
 } from './armadores.mjs';
-import { armarEscenaDeVideo, imagenesDeLasEscenas, armarVideo, resolverFotos, renderizarImagen } from './render.mjs';
+import { armarEscenaDeVideo, imagenesDeLasEscenas, armarVideo, resolverFotos, renderizarImagen, subtitulosEstimados } from './render.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const SALIDA = path.join(RAIZ, 'docs', 'propuestas', 'redes-3-0', 'videos');
@@ -24,6 +25,7 @@ const correr = promisify(execFile);
 const argumentos = process.argv.slice(2);
 const SIN_VIDEO = argumentos.includes('--sin-video');
 const SIN_RED = argumentos.includes('--sin-red');
+const SIN_SUBTITULOS = argumentos.includes('--sin-subtitulos');
 const pedidas = argumentos.filter((a) => !a.startsWith('--'));
 
 // ------------------------------------------------------------------ datos reales
@@ -112,19 +114,21 @@ const fechaLarga = (d = new Date()) => {
 const clima = await climaDeBalcarce();
 const efemerides = leer('efemerides-piezas.json').dias['2026-11-03'];
 const hoyFarmacia = portada.farmacias.proximos.find((d) => d.fecha === '2026-11-03') ?? portada.farmacias.proximos[0];
+const HOY = '2026-11-03';
 const AUSPICIO = { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' };
 
 const EJEMPLOS = {
-  clima: () => armarClima(clima, { fecha: fechaLarga(), hora: 7, primeraDelBloque: true }),
-  'clima-auspiciado': () => armarClima(clima, { fecha: fechaLarga(), hora: 7, primeraDelBloque: true, auspicio: AUSPICIO }),
+  clima: () => armarClima(clima, { fecha: HOY, hora: 7, primeraDelBloque: true }),
+  'clima-auspiciado': () => armarClima(clima, { fecha: HOY, hora: 7, primeraDelBloque: true, auspicio: AUSPICIO }),
   repaso: () => armarRepaso([desdePortada('fp5729'), desdePortada('222bza'), desdePortada('i98sn8')], { fecha: fechaLarga(), hora: 10, primeraDelBloque: false, momento: 'manana' }),
-  efemeride: () => armarEfemeride(efemerides, { dia: '3 de noviembre', tambien: efemerides.ademas[2], hora: 9 }),
+  efemeride: () => armarEfemeride(efemerides, { fecha: HOY, anioActual: 2026, tambien: efemerides.ademas[2], hora: 9 }),
   'nota-balcarce': () => armarNotaReel(desdePortada('8exydd'), { hora: 13 }),
   'nota-propia': () => armarNotaPropia(notaPropia(), { hora: 16 }),
+  'nota-propia-1foto': () => armarNotaPropia({ ...notaPropia(), portada: null, fotos: [notaPropia().portada] }, { hora: 16 }),
   'historia-nota': () => armarHistoriaDeNota(desdePortada('fp5729')),
   posteo: () => armarPosteo(desdePortada('222bza')),
   carrusel: () => armarCarrusel(notaPropia()),
-  farmacia: () => armarFarmacia(hoyFarmacia.detalle, { hora: 19, primeraDelBloque: true }),
+  farmacia: () => armarFarmacia(hoyFarmacia.detalle, { fecha: HOY, hora: 19, primeraDelBloque: true }),
   participa: () => armarParticipa('noticia', { hora: 12 }),
   enlace: () => armarEnlace(desdePortada('voie14')),
 };
@@ -157,7 +161,7 @@ for (const nombre of nombres) {
     const imgs = await imagenesDeLasEscenas(escena, path.join(SALIDA, `${nombre}-escenas`));
     let real = null;
     if (!SIN_VIDEO) {
-      const r = await armarVideo(escena, path.join(SALIDA, `${nombre}.mp4`));
+      const r = await armarVideo(escena, path.join(SALIDA, `${nombre}.mp4`), { subtitulos: SIN_SUBTITULOS ? null : subtitulosEstimados(pieza) });
       real = await duracionReal(r.mp4);
     }
     resumen.push({ nombre, tipo: 'mp4', declarada: pieza.duracion, real, escenas: imgs.length });

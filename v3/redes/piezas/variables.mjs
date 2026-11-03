@@ -24,57 +24,52 @@ export const WHATSAPP = '2266 51-1612';
 export const FIRMA_DE_REDACCION = 'Redacción Radar Balcarce';
 export const FIRMA_DE_HERNAN = 'Hernán Accomo';
 
-// ------------------------------------------------------------------ zona segura y letra (§ 1.2 y 3.2)
-export const ZONA_ARRIBA = 270;
-export const ZONA_ABAJO = 670;
-export const ZONA_DERECHA = 190;
-export const ZONA_IZQUIERDA = 80;
-/** La caja del texto crítico: titulares, cifras, auspicio, llamados. Nada de texto fuera de ella en un video vertical. */
+// ------------------------------------------------------------------ zona segura (relajada el 3/11: se usa la pantalla como la de hoy)
+// Hernán (3/11): «muy comprimido, todo para arriba… más visual, aunque Facebook tape algún texto». Las piezas de video usan las escenas de hoy tal cual
+// (`reels/escenas/`, `reels/placa.mjs`): margen de 72 px, contenido hasta la fila 1440, la raya y la firma en la 1478 y los subtítulos en la 1660. Lo único que
+// se vigila es que nada importante quede en los ~250 px de abajo (el texto del posteo y la música tapan esa franja); la barra roja de avance sí queda ahí.
+export const ZONA_ARRIBA = 250;
+export const ZONA_ABAJO = 250;
+export const ZONA_DERECHA = 72;
+export const ZONA_IZQUIERDA = 72;
+/** Hasta dónde puede llegar un texto importante en un video vertical (1920 − 250). */
+export const TEXTO_HASTA_Y = VIDEO_ALTO - ZONA_ABAJO;
+/** La caja del texto: de margen a margen y de la zona de arriba a la de abajo. */
 export const CAJA_TEXTO = congelar({
-  xMin: ZONA_IZQUIERDA, xMax: VIDEO_ANCHO - ZONA_DERECHA, yMin: ZONA_ARRIBA, yMax: VIDEO_ALTO - ZONA_ABAJO,
+  xMin: ZONA_IZQUIERDA, xMax: VIDEO_ANCHO - ZONA_DERECHA, yMin: ZONA_ARRIBA, yMax: TEXTO_HASTA_Y,
 });
 export const ANCHO_UTIL = CAJA_TEXTO.xMax - CAJA_TEXTO.xMin;
-/** La fila de la firma «Radar Balcarce · radarbalcarce.com»: la raya y la línea de base. Es lo último que hay en la pieza: debajo no hay texto. */
-export const FIRMA_RAYA_Y = 1150;
-export const FIRMA_BASE_Y = 1216;
-/** Hasta dónde llega el contenido (arriba de la raya de la firma, con aire). */
-export const CONTENIDO_HASTA = 1110;
-/** La franja del auspicio, siempre arriba de la raya de la firma. */
-export const FRANJA_AUSPICIO = congelar({ y: 1000, alto: 120 });
-export const LETRA_TITULAR_MIN = 64;
-export const LETRA_SUBTITULO = 52;
-export const LETRA_TEXTO_MIN = 40;
-export const LETRA_RASGO_GRANDE = congelar({ min: 220, max: 320 });
+/** La fila de la firma «Radar Balcarce · radarbalcarce.com» de las placas de hoy: la raya y la línea de base. Ya queda arriba del texto del posteo: no se sube. */
+export const FIRMA_RAYA_Y = 1478;
+export const FIRMA_BASE_Y = 1544;
+/** Donde van los subtítulos de hoy (el centro de la línea). */
+export const SUBTITULOS_Y = 1660;
+/** La franja del auspicio del clima: ámbar, de una línea, entre la firma de la placa y los subtítulos (no rompe nada del diseño de hoy). */
+export const FRANJA_AUSPICIO = congelar({ y: 1568, alto: 54 });
 export const TITULAR_MAX_CARACTERES = 90;
 export const GANCHO_MAX_PALABRAS = 8;
 export const GANCHO_SEGUNDOS = 3;
-export const ENTRADA_ANIMADA_SEGUNDOS = 0.7;
-/** Cuánto antes de que termine una escena empieza a entrar la siguiente (se funden). */
-export const FUNDIDO_SEGUNDOS = 0.35;
 
-// ------------------------------------------------------------------ duraciones y escenas (§ 3.3; objetivo y máximo en segundos)
+// ------------------------------------------------------------------ duraciones y escenas (objetivo y máximo en segundos)
 export const HISTORIA_MAX_SEGUNDOS = 58;
 export const CLIMA = congelar({
-  escenas: congelar([3, 6, 5, 4]), // ahora, comentario del día, los datos, cierre
-  segundos: 18, minimo: 15, maximo: 20, // Hernán 3/11: 15 a 20 s
-  auspicioExtra: 4, // Hernán 3/11: +4 con auspicio, y el auspicio va AL INICIO
-  franjaDesde: 3, // la franja «Auspicia: comercio · @cuenta» queda fija desde el segundo 3
+  segundos: 18, minimo: 15, maximo: 20, // Hernán 3/11: 15 a 20 s; la escena es la de hoy, entera
+  auspicioExtra: 4, // Hernán 3/11: +4 con auspicio, y el auspicio se dice AL INICIO del guion
+  franjaDesde: 3, // la franja «Auspicia · comercio · @cuenta» queda fija desde el segundo 3
 });
+/** Máximo 3 notas (Hernán 3/11). Una escena de 9 s por nota (la primera arranca con la lista como tapa) y la lista de cierre de 3 s: con 3 notas, 30 s. */
 export const REPASO = congelar({
-  maxNotas: 3, minNotas: 2, minDeBalcarce: 1, // Hernán 3/11: máximo 3
-  apertura: 3, porNota: 8, cierre: 3, objetivo: 30, maximo: 38,
+  maxNotas: 3, minNotas: 2, minDeBalcarce: 1, porNota: 9, cierre: 3, objetivo: 30, maximo: 38,
 });
-export const EFEMERIDE = congelar({
-  escenas: congelar([4, 6, 5]), // el año, el hecho, el «También»: ~15 s, a prueba una semana (Hernán 3/11)
-  segundos: 15, maximo: 20, principalesEnVideo: 1,
-});
-export const FARMACIA = congelar({ escenas: congelar([3, 7, 4]), segundos: 14, minimo: 6, maximo: 20 });
-export const NOTA_REEL = congelar({ escenas: congelar([3, 8, 9, 5]), segundos: 25, maximo: 35 });
-export const NOTA_PROPIA = congelar({
-  portada: 3, cierre: 5, segundosPorFoto: congelar({ min: 4.5, max: 9 }), fotosMax: 5, segundos: 35, maximo: 45,
-});
+/** La efeméride de hoy, versión corta (un hecho y un «Y además»): la misma escena, ~15 s, a prueba una semana (Hernán 3/11). */
+export const EFEMERIDE = congelar({ segundos: 15, maximo: 20, principalesEnVideo: 1, ademasEnVideo: 1 });
+export const FARMACIA = congelar({ segundos: 14, minimo: 6, maximo: 20 });
+/** Una nota como reel: tres placas de las del repaso (la foto y el titular, y dos hechos), ~25 s. */
+export const NOTA_REEL = congelar({ escenas: congelar([8, 8.5, 8.5]), segundos: 25, maximo: 35 });
+/** La nota propia, como la de Halloween: una placa por foto (de 1 a 3). Con una dura 14 s, con dos 22 y con tres 30. */
+export const NOTA_PROPIA = congelar({ fotosMin: 1, fotosMax: 3, segundosSegunFotos: congelar({ 1: 14, 2: 22, 3: 30 }), maximo: 35 });
 export const HISTORIA_DE_NOTA = congelar({ segundos: 6 }); // se ve ~5 s por pantalla (sin confirmar)
-export const PARTICIPA = congelar({ escenas: congelar([4, 7, 5, 2]), segundos: 18, maximo: 25 });
+export const PARTICIPA = congelar({ segundos: 18, maximo: 25 });
 export const PLACA_FINAL_SEGUNDOS = 3;
 
 // ------------------------------------------------------------------ voz y música (§ 3.4)

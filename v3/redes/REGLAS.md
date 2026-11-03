@@ -75,3 +75,22 @@ el id que devolvió Meta, el error y el texto del posteo. No se borra nada.
 
 `node --test "v3/redes/**/*.test.mjs"`: la elección (horario, espaciado, cupos, tono, sin foto), el texto, el cliente de Meta con un Meta de mentira, la vuelta entera con una base de
 SQLite en memoria (simulado y real) y la puerta HTTP. Sin red.
+
+## 10. Qué comparte cada red
+
+*Hernán, 3/11. Quién sale igual y quién cambia algo. Los posteos van en Facebook e Instagram (Instagram espeja los de Balcarce); lo que no existe en una red va en «—». Los detalles de cada red están en
+`docs/propuestas/REDES-3-0-FORMATOS.md` § 2 y en `docs/redes/FORMATOS-POR-RED.md`; las piezas, en `v3/redes/piezas/REGLAS.md`.*
+
+| Pieza | Facebook | Instagram | TikTok | YouTube Shorts | X | Threads | Bluesky | Canal de Telegram |
+|---|---|---|---|---|---|---|---|---|
+| **Reel** (mp4 9:16, con voz) | **igual** en todas las que siguen: el mismo mp4 1080 × 1920 | igual | igual, sin farmacia, útiles ni agenda; marcar «contenido con IA»; la firma de abajo puede chocar con su regla de no poner marcas (primera prueba a mano) | igual (6 por día como techo; no van el repaso de la tarde ni el clima de la noche) | video adjunto (sólo si aceptan gastar) | video adjunto | video adjunto | video con pie de hasta 1.024 caracteres |
+| *Lo que cambia en el texto* | enlace tocable a la nota del repaso; `#Balcarce #RadarBalcarce` + 1 | **sin enlace: «link en la bio»**; mismos hashtags | «link en la bio»; hasta 5 hashtags | título «pieza · Radar Balcarce»; la dirección dicha, no se toca; hasta 3 hashtags | 280 caracteres, titular + hashtags, sin enlace (con enlace cuesta 13 veces más) | 500 caracteres, 1 sola etiqueta de tema | 300 caracteres; enlace y hashtags declarados como «facetas» | enlace con vista previa |
+| **Historia** (6 a 60 s) | sí, el mismo video (recortado a 58 s si hace falta) | sí, el mismo | — | — | — | — | — | — |
+| *Lo que cambia* | sin pegatina de enlace (la API no la tiene): el enlace va en la bio de la página | ídem: «Nota completa: link en la bio» | | | | | | |
+| **Posteo 4:5** (1080 × 1350, en oscuro) | sí, la misma imagen; texto con enlace tocable (`radarbalcarce.com/r/f/id`) y crédito | sí, la **misma imagen**, sólo las notas de Balcarce (espejo); texto sin enlace, «link en la bio»; hasta 5 hashtags | — | — | — (usa la imagen de enlace) | — (usa la imagen de enlace) | — (usa la imagen de enlace) | la misma imagen como foto, pie de hasta 1.024 con el enlace |
+| **Carrusel** (3 a 10 láminas 4:5) | álbum con las mismas láminas | carrusel, hasta 10 | modo foto (con música cuando haya) | — | hasta 4 fotos | hasta 10 (la API admite 20) | hasta 4 fotos | álbum de 2 a 10 |
+| *Lo que cambia* | | un carrusel de Instagram no es video con voz: sólo se usa si Hernán lo pide para una nota propia | | | corta a las 4 primeras | | corta a las 4 primeras | |
+| **Imagen de enlace** (1080 × 565) | — (la tarjeta la arma Facebook con la nota) | — | — | — | sí, con el titular y **sin enlace por defecto** | sí: texto con el enlace (la tarjeta sólo existe en posteos de texto) | sí, con el enlace y su tarjeta | — (la vista previa del enlace) |
+
+Lo que **no cambia nunca**: el aviso «Voz generada con inteligencia artificial.» en todo lo que habla, la sección de la nota en su color, el crédito de la foto en el pie, nada rojo ni de menores, y **ninguna pieza sale sin pasar por la
+compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el espejo de cada posteo de Facebook.

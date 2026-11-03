@@ -1,15 +1,15 @@
-// Pruebas de las piezas de redes (Radar 3.0, etapa D): los armadores (escenas, duraciones, guion, saludos, sección, auspicio, máximo de notas) y el dibujo (zona segura).
-// Sin red, sin archivos, sin resvg: todo con datos de mentira.
+// Pruebas de las piezas de redes (Radar 3.0, etapa D): los armadores (escenas, duraciones, guion, saludos, sección, auspicio, máximo de notas) y el dibujo con las escenas
+// de hoy (zona segura relajada: sólo se vigila lo de abajo). Sin red, sin archivos, sin ffmpeg: todo con datos de mentira.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   ARMADORES, armarClima, armarRepaso, armarEfemeride, armarNotaReel, armarNotaPropia, armarHistoriaDeNota, armarPosteo, armarCarrusel, armarFarmacia, armarParticipa,
   armarEnlace, comentarioDelDia, VARIANTES_DE_PARTICIPA,
 } from './armadores.mjs';
-import { escenaComoSvg, imagenComoSvg, franjaDeAuspicio } from './escenas.mjs';
+import { escenaDeVideo, imagenComoSvg, franjaDeAuspicio, placaDeNota } from './escenas.mjs';
 import { anchoAproximado } from '../../../reels/placa.mjs';
 import {
-  CAJA_TEXTO, FIRMA_BASE_Y, FIRMA_RAYA_Y, FRANJA_AUSPICIO, CLIMA, REPASO, EFEMERIDE, NOTA_REEL, NOTA_PROPIA, CARRUSEL_MAX_INSTAGRAM, MUSICA, SALUDOS, AVISO_DE_IA_TEXTO,
+  CAJA_TEXTO, TEXTO_HASTA_Y, FIRMA_RAYA_Y, FRANJA_AUSPICIO, CLIMA, REPASO, EFEMERIDE, NOTA_REEL, NOTA_PROPIA, CARRUSEL_MAX_INSTAGRAM, MUSICA, SALUDOS, AVISO_DE_IA_TEXTO,
 } from './variables.mjs';
 import {
   saludoDe, momentoDe, contarPalabras, presupuestoDeVoz, hablarCuenta, hablarNumero, direccionHablada, ganchoDe, acortarPalabras, primeraFrase,
@@ -20,11 +20,13 @@ import {
 const CLIMA_DE_PRUEBA = {
   ahora: { temp: 16, sensacion: 17, viento: 4, rumbo: 'SE', cielo: 'Parcialmente nublado', esDeDia: true },
   dias: [
-    { dia: 'mar', max: 23, min: 9, lluvia: 55, viento: 15, cielo: 'Chaparrones' },
-    { dia: 'mié', max: 21, min: 12, lluvia: 84, viento: 22, cielo: 'Llovizna intensa' },
+    { fecha: '2026-11-03', dia: 'mar', max: 23, min: 9, lluvia: 55, viento: 15, cielo: 'Chaparrones' },
+    { fecha: '2026-11-04', dia: 'mié', max: 21, min: 12, lluvia: 84, viento: 22, cielo: 'Llovizna intensa' },
+    { fecha: '2026-11-05', dia: 'jue', max: 24, min: 10, lluvia: 37, viento: 20, cielo: 'Llovizna leve' },
   ],
 };
 const AUSPICIO = { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' };
+const HOY = '2026-11-03';
 const foto = (n = 1) => ({ url: `https://ejemplo.test/foto${n}.jpg`, credito: 'Foto: Diario de prueba', alt: 'una foto', ancho: 1600, alto: 900 });
 const nota = (extra = {}) => ({
   id: 'abc1234',
@@ -53,16 +55,18 @@ const FARMACIAS = [{ nombre: 'SANTA INÉS', direccion: 'Calle 17 N° 537', telef
 
 /** Una pieza de cada clase para recorrerlas todas. */
 const TODAS = () => ({
-  clima: armarClima(CLIMA_DE_PRUEBA, { fecha: 'Martes 3 de noviembre', hora: 7, primeraDelBloque: true }),
-  'clima-auspiciado': armarClima(CLIMA_DE_PRUEBA, { fecha: 'Martes 3 de noviembre', hora: 7, primeraDelBloque: true, auspicio: AUSPICIO }),
-  'clima-noche': armarClima(CLIMA_DE_PRUEBA, { fecha: 'Martes 3 de noviembre', hora: 20, primeraDelBloque: true }),
+  clima: armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7, primeraDelBloque: true }),
+  'clima-auspiciado': armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7, primeraDelBloque: true, auspicio: AUSPICIO }),
+  'clima-noche': armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 20, primeraDelBloque: true }),
   repaso: armarRepaso([nota({ id: 'a' }), nacional(1), nacional(2, 'Salud')], { hora: 10, fecha: 'Martes 3 de noviembre' }),
-  efemeride: armarEfemeride(EFEMERIDE_DE_PRUEBA, { dia: '3 de noviembre', anioActual: 2026, hora: 9 }),
+  efemeride: armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, anioActual: 2026, hora: 9 }),
   'nota-reel': armarNotaReel(nota(), { hora: 13 }),
   'nota-reel-nacional': armarNotaReel(nacional(7), { hora: 13 }),
   'nota-propia': armarNotaPropia(propia(), { hora: 16 }),
+  'nota-propia-2fotos': armarNotaPropia(propia({ fotos: [foto(1)] }), { hora: 16 }),
+  'nota-propia-1foto': armarNotaPropia(propia({ portada: null, fotos: [foto(1)] }), { hora: 16 }),
   'historia-nota': armarHistoriaDeNota(nota()),
-  farmacia: armarFarmacia(FARMACIAS, { hora: 19, primeraDelBloque: true }),
+  farmacia: armarFarmacia(FARMACIAS, { fecha: HOY, hora: 19, primeraDelBloque: true }),
   ...Object.fromEntries(Object.keys(VARIANTES_DE_PARTICIPA).map((v) => [`participa-${v}`, armarParticipa(v, { hora: 12 })])),
 });
 
@@ -75,24 +79,21 @@ test('todas las piezas de video: forma, duración, guion dentro del presupuesto 
     assert.ok(p.escenas.length >= 1 && p.escenas.every((e) => e.tipo && e.duracion > 0), `${nombre}: escenas`);
     const suma = p.escenas.reduce((s, e) => s + e.duracion, 0);
     assert.ok(Math.abs(suma - p.duracion) < 0.01, `${nombre}: la duración es la suma de las escenas`);
-    // Ninguna pasa de 40 s, salvo la nota propia (45); el tope duro de las historias de Meta es 58.
-    assert.ok(p.duracion <= (nombre === 'nota-propia' ? NOTA_PROPIA.maximo : 40), `${nombre}: ${p.duracion} s`);
+    assert.ok(p.duracion <= (nombre.startsWith('nota-propia') ? NOTA_PROPIA.maximo : 40), `${nombre}: ${p.duracion} s`);
     assert.ok(p.duracion <= 58);
     if (p.guion) {
       assert.ok(contarPalabras(p.guion) <= presupuestoDeVoz(p.duracion), `${nombre}: ${contarPalabras(p.guion)} palabras para ${p.duracion} s (entran ${presupuestoDeVoz(p.duracion)})`);
       assert.equal(p.aviso, AVISO_DE_IA_TEXTO, `${nombre}: aviso de IA`);
       assert.ok(p.voz === 'locutora' || p.voz === 'locutor', `${nombre}: quién habla`);
-      // La voz no se adelanta a las escenas: a medida que avanzan, las palabras acumuladas no pasan de lo que se alcanza a decir (con 8 de margen: la voz fluye
-      // de una escena a la siguiente; cuando haya audio de verdad, las duraciones se ajustan a lo que mide).
+      // La voz no se adelanta a las escenas (con 10 de margen: la voz fluye de una placa a la siguiente; con audio de verdad, los tiempos son los de la voz).
       let palabrasHasta = 0; let segundosHasta = 0;
       for (const e of p.escenas) {
         palabrasHasta += contarPalabras(e.voz); segundosHasta += e.duracion;
-        assert.ok(palabrasHasta <= Math.floor(segundosHasta * 2.5) + 8, `${nombre}/${e.tipo}: voz de más (${palabrasHasta} palabras en ${segundosHasta} s)`);
+        assert.ok(palabrasHasta <= Math.floor(segundosHasta * 2.5) + 10, `${nombre}/${e.tipo}: voz de más (${palabrasHasta} palabras en ${segundosHasta} s)`);
       }
     } else {
       assert.equal(p.aviso, null); assert.equal(p.voz, null);
     }
-    // La música: no se pone ahora, pero queda el lugar, a −18 dB bajo la voz.
     assert.equal(p.musica.activa, false);
     assert.equal(p.musica.dbBajoLaVoz, MUSICA.dbBajoLaVoz);
     assert.equal(MUSICA.dbBajoLaVoz, -18);
@@ -121,30 +122,39 @@ test('el saludo: sólo la primera pieza de la mañana y la primera de la noche',
 
 test('el guion saluda o no según la hora y si es la primera del bloque, en todas las piezas', () => {
   const con = [armarClima(CLIMA_DE_PRUEBA, { hora: 7, primeraDelBloque: true }), armarRepaso([nota(), nacional(1)], { hora: 10, primeraDelBloque: true }),
-    armarEfemeride(EFEMERIDE_DE_PRUEBA, { hora: 9, primeraDelBloque: true }), armarNotaReel(nota(), { hora: 8, primeraDelBloque: true }), armarFarmacia(FARMACIAS, { hora: 19, primeraDelBloque: true }),
-    armarParticipa('noticia', { hora: 7, primeraDelBloque: true }), armarNotaPropia(propia(), { hora: 7, primeraDelBloque: true })];
-  for (const p of con) { assert.equal(p.saludo, p.guion.startsWith(SALUDOS.manana) || p.guion.startsWith(SALUDOS.noche) ? p.saludo : 'x', p.id); assert.ok(p.saludo, `${p.id} tendría que saludar`); assert.ok(p.guion.includes(p.saludo), p.id); }
+    armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, hora: 9, primeraDelBloque: true }), armarNotaReel(nota(), { hora: 8, primeraDelBloque: true }),
+    armarFarmacia(FARMACIAS, { fecha: HOY, hora: 19, primeraDelBloque: true }), armarParticipa('noticia', { hora: 7, primeraDelBloque: true }), armarNotaPropia(propia(), { hora: 7, primeraDelBloque: true })];
+  for (const p of con) { assert.ok(p.saludo, `${p.id} tendría que saludar`); assert.ok(p.guion.startsWith(p.saludo), p.id); }
   const sin = [armarClima(CLIMA_DE_PRUEBA, { hora: 7, primeraDelBloque: false }), armarRepaso([nota(), nacional(1)], { hora: 15, primeraDelBloque: true }),
-    armarEfemeride(EFEMERIDE_DE_PRUEBA, { hora: 9 }), armarNotaReel(nota(), { hora: 13, primeraDelBloque: true }), armarFarmacia(FARMACIAS, { hora: 19 }), armarParticipa('noticia', { hora: 12, primeraDelBloque: true }),
-    armarNotaPropia(propia(), { hora: 16, primeraDelBloque: true })];
+    armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, hora: 9 }), armarNotaReel(nota(), { hora: 13, primeraDelBloque: true }), armarFarmacia(FARMACIAS, { fecha: HOY, hora: 19 }),
+    armarParticipa('noticia', { hora: 12, primeraDelBloque: true }), armarNotaPropia(propia(), { hora: 16, primeraDelBloque: true })];
   for (const p of sin) { assert.equal(p.saludo, null, p.id); assert.ok(!/Buen día|Buenas noches/.test(p.guion), `${p.id}: no tendría que saludar`); }
-  // Un saludo ya resuelto por quien llama también vale.
   assert.ok(armarClima(CLIMA_DE_PRUEBA, { saludo: 'Hola, Balcarce.' }).guion.startsWith('Hola, Balcarce.'));
 });
 
 // ------------------------------------------------------------------ clima
 
-test('clima: de 15 a 20 s, cuatro escenas, números del día y cierre según la hora', () => {
-  const p = armarClima(CLIMA_DE_PRUEBA, { fecha: 'Martes', hora: 7, primeraDelBloque: true });
-  assert.deepEqual(p.escenas.map((e) => e.tipo), ['clima-ahora', 'clima-comentario', 'clima-datos', 'clima-cierre']);
+test('clima: la escena de hoy entera, de 15 a 20 s, números del día y cierre según la hora', () => {
+  const p = armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7, primeraDelBloque: true });
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['clima']);
+  assert.equal(p.escenas[0].datos.momento, 'manana');
+  assert.equal(p.escenas[0].datos.fecha, HOY);
   assert.ok(p.duracion >= CLIMA.minimo && p.duracion <= CLIMA.maximo, `${p.duracion}`);
   assert.equal(p.franja, null); assert.equal(p.auspicio, null); assert.equal(p.voz, 'locutora');
   assert.match(p.guion, /16 grados/); assert.match(p.guion, /máxima de 23/); assert.match(p.guion, /mínima de 9/); assert.match(p.guion, /Que tengan un buen día/);
-  assert.equal(p.escenas[2].datos.titulo, 'Hoy');
-  const noche = armarClima(CLIMA_DE_PRUEBA, { hora: 20, primeraDelBloque: true });
-  assert.equal(noche.escenas[2].datos.titulo, 'Mañana');
+  const noche = armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 20, primeraDelBloque: true });
+  assert.equal(noche.escenas[0].datos.momento, 'noche');
   assert.match(noche.guion, /máxima de 21/); assert.match(noche.guion, /Que descansen/); assert.match(noche.guion, /Buenas noches/);
   assert.throws(() => armarClima({}), /clima/);
+  assert.throws(() => armarClima({ ...CLIMA_DE_PRUEBA, dias: [{ dia: 'mar', max: 1, min: 0 }] }), /fecha/);
+});
+
+test('clima: se dibuja con la escena de hoy (los datos del día, el cielo y los días que siguen)', () => {
+  const svg = escenaDeVideo(armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7 })).cuadro(9, 18);
+  assert.match(svg, /HOY EN BALCARCE|Hoy en Balcarce/i);
+  assert.match(svg, /Martes 3 de noviembre/);
+  assert.match(svg, /Parcialmente nublado/);
+  assert.match(svg, /Radar/);
 });
 
 test('el comentario del día elige lo que importa', () => {
@@ -155,83 +165,93 @@ test('el comentario del día elige lo que importa', () => {
   assert.equal(comentarioDelDia({ max: 20, min: 10, lluvia: 0 }).titulo, 'Un buen día');
 });
 
-test('clima auspiciado: la mención va AL INICIO, +4 s, y la franja queda fija desde el segundo 3', () => {
-  const base = armarClima(CLIMA_DE_PRUEBA, { hora: 7, primeraDelBloque: true });
-  const p = armarClima(CLIMA_DE_PRUEBA, { hora: 7, primeraDelBloque: true, auspicio: AUSPICIO });
-  assert.equal(p.escenas[0].tipo, 'clima-auspicio', 'la primera escena es la del auspicio');
-  assert.deepEqual(p.escenas.slice(1).map((e) => e.tipo), base.escenas.map((e) => e.tipo));
+test('clima auspiciado: la mención va AL INICIO del guion, +4 s, y la franja ámbar queda fija desde el segundo 3 sin romper la escena de hoy', () => {
+  const base = armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7, primeraDelBloque: true });
+  const p = armarClima(CLIMA_DE_PRUEBA, { fecha: HOY, hora: 7, primeraDelBloque: true, auspicio: AUSPICIO });
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['clima'], 'la misma escena de hoy');
+  assert.deepEqual(p.escenas[0].datos, base.escenas[0].datos);
   assert.equal(p.duracion, base.duracion + CLIMA.auspicioExtra);
   assert.ok(p.duracion <= CLIMA.maximo + CLIMA.auspicioExtra, `${p.duracion}`);
-  assert.deepEqual(p.franja, { desde: 3, texto: 'Auspicia: Sweet Candy Bar · @_sweet.candy.bar' });
-  // La voz lo dice al principio (después del saludo, antes del tiempo) y dice la cuenta como se habla.
+  assert.equal(p.franja.desde, 3);
+  assert.equal(p.franja.texto, 'Auspicia · Sweet Candy Bar · @_sweet.candy.bar');
   assert.match(p.guion, /^Buen día, Balcarce\. El clima de hoy lo auspicia Sweet Candy Bar\./);
   assert.match(p.guion, /arroba sweet candy bar/);
   assert.ok(p.guion.indexOf('auspicia') < p.guion.indexOf('16 grados'));
   assert.equal(p.id, 'clima-auspiciado');
-  // La franja se ve desde el 3 y no antes, arriba de la raya de la firma.
+  // La franja se ve desde el 3 y no antes; queda entre la firma de la placa y los subtítulos, y no toca nada de lo de hoy.
+  const escena = escenaDeVideo(p);
   assert.equal(franjaDeAuspicio(p.franja, 2.9), '');
-  const f = franjaDeAuspicio(p.franja, 4.5);
-  assert.match(f, /Auspicia: Sweet Candy Bar · @_sweet\.candy\.bar/);
-  assert.ok(FRANJA_AUSPICIO.y + FRANJA_AUSPICIO.alto < FIRMA_RAYA_Y);
+  assert.equal(escena.cuadro(2.9, p.duracion), escenaDeVideo(base).cuadro(2.9, base.duracion), 'antes del segundo 3 es exactamente la escena de hoy');
+  const conFranja = escena.cuadro(5, p.duracion);
+  assert.match(conFranja, /Sweet Candy Bar/); assert.match(conFranja, /@_sweet\.candy\.bar/);
+  assert.ok(FRANJA_AUSPICIO.y > FIRMA_RAYA_Y + 66, 'abajo de la firma de la placa');
+  assert.ok(FRANJA_AUSPICIO.y + FRANJA_AUSPICIO.alto < 1625, 'arriba de los subtítulos');
+  assert.ok(FRANJA_AUSPICIO.y + FRANJA_AUSPICIO.alto <= TEXTO_HASTA_Y);
 });
 
 // ------------------------------------------------------------------ repaso
 
-test('repaso: máximo 3 notas, lo de Balcarce primero, 30 s con tres', () => {
+test('repaso: máximo 3 notas, lo de Balcarce primero, 30 s con tres, con las placas de hoy', () => {
   const lista = [nacional(1), nacional(2), nota({ id: 'b1' }), nacional(3), nota({ id: 'b2', titulo: 'Otra nota de Balcarce' })];
   const p = armarRepaso(lista, { hora: 10 });
-  const notas = p.escenas.filter((e) => e.tipo === 'repaso-nota');
+  const notas = p.escenas.filter((e) => e.tipo === 'placa-nota');
   assert.equal(notas.length, REPASO.maxNotas);
   assert.deepEqual(notas.map((e) => e.datos.seccion), ['Balcarce', 'Balcarce', 'Política'], 'Balcarce primero');
   assert.equal(p.duracion, REPASO.objetivo);
   assert.ok(p.duracion <= REPASO.maximo);
-  assert.deepEqual(p.escenas.map((e) => e.tipo), ['repaso-apertura', 'repaso-nota', 'repaso-nota', 'repaso-nota', 'repaso-cierre']);
-  assert.equal(p.escenas.at(-1).datos.titulares.length, 3);
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['placa-nota', 'placa-nota', 'placa-nota', 'placa-lista']);
+  assert.equal(p.escenas.at(-1).datos.notas.length, 3);
   assert.match(p.guion, /Todo en Radar Balcarce punto com/);
-  // 5, 8 o 20 notas: siempre 3.
-  assert.equal(armarRepaso(Array.from({ length: 20 }, (_, i) => (i === 0 ? nota() : nacional(i))), {}).escenas.filter((e) => e.tipo === 'repaso-nota').length, 3);
+  assert.equal(armarRepaso(Array.from({ length: 20 }, (_, i) => (i === 0 ? nota() : nacional(i))), {}).escenas.filter((e) => e.tipo === 'placa-nota').length, 3);
 });
 
 test('repaso: con dos notas dura menos; sin una de Balcarce o con una sola nota no se arma', () => {
   const p = armarRepaso([nota(), nacional(1)], {});
-  assert.equal(p.escenas.filter((e) => e.tipo === 'repaso-nota').length, 2);
-  assert.equal(p.duracion, REPASO.apertura + 2 * REPASO.porNota + REPASO.cierre);
+  assert.equal(p.escenas.filter((e) => e.tipo === 'placa-nota').length, 2);
+  assert.equal(p.duracion, 2 * REPASO.porNota + REPASO.cierre);
   assert.throws(() => armarRepaso([nacional(1), nacional(2), nacional(3)], {}), /Balcarce/);
   assert.throws(() => armarRepaso([nota()], {}), /al menos/);
 });
 
-test('repaso: la franja del momento y la voz alternan según la hora', () => {
-  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 10 }).escenas[0].datos.titulo, 'Repaso de la mañana');
-  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 15 }).escenas[0].datos.titulo, 'Repaso de la tarde');
-  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 21 }).escenas[0].datos.titulo, 'Repaso de la noche');
+test('repaso: el rótulo del momento y la voz según la hora; se dibuja con la lista de tapa y una placa por nota', () => {
+  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 10 }).escenas[0].datos.rotulo, 'Repaso de la mañana');
+  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 15 }).escenas[0].datos.rotulo, 'Repaso de la tarde');
+  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 21 }).escenas[0].datos.rotulo, 'Repaso de la noche');
+  assert.equal(armarRepaso([nota(), nacional(1)], { hora: 15 }).voz, 'locutora');
+  const p = armarRepaso([nota(), nacional(1), nacional(2, 'Salud')], { hora: 10, fecha: 'Martes 3 de noviembre' });
+  const e = escenaDeVideo(p);
+  assert.match(e.cuadro(0, p.duracion), /Audio · 30 s/, 'el cuadro 0 es la lista (la tapa)');
+  assert.match(e.cuadro(5, p.duracion), /1 de 3/);
+  assert.match(e.cuadro(14, p.duracion), /2 de 3/);
+  assert.match(e.cuadro(23, p.duracion), /3 de 3/);
+  assert.equal(e.stills().length, 4);
 });
 
 // ------------------------------------------------------------------ efeméride
 
-test('efeméride corta: el hecho y un solo «También», unos 15 s, sin repetir las otras', () => {
-  const p = armarEfemeride(EFEMERIDE_DE_PRUEBA, { dia: '3 de noviembre', anioActual: 2026 });
-  assert.deepEqual(p.escenas.map((e) => e.tipo), ['efemeride-anio', 'efemeride-hecho', 'efemeride-tambien']);
+test('efeméride corta: la escena de hoy con el hecho y un solo «Y además», unos 15 s', () => {
+  const p = armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, anioActual: 2026 });
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['efemeride']);
   assert.equal(p.duracion, EFEMERIDE.segundos);
   assert.ok(p.duracion <= EFEMERIDE.maximo);
-  assert.equal(p.escenas[0].datos.hace, 156);
-  assert.equal(p.escenas.filter((e) => e.tipo === 'efemeride-tambien').length, 1);
+  assert.equal(p.escenas[0].datos.ademas.length, 1);
   assert.match(p.guion, /1870/); assert.match(p.guion, /También, en 1950/); assert.ok(!/1903/.test(p.guion), 'sólo un «También»');
-  assert.match(p.escenas[2].datos.texto, /^Argentina ganó/);
-  const otra = armarEfemeride(EFEMERIDE_DE_PRUEBA, { tambien: EFEMERIDE_DE_PRUEBA.ademas[1], anioActual: 2026 });
-  assert.match(otra.guion, /1903/);
-  assert.throws(() => armarEfemeride({}, {}), /principal/);
-  // Una imagen de archivo o ilustración, si la hay, viaja en la escena del hecho.
-  assert.deepEqual(armarEfemeride(EFEMERIDE_DE_PRUEBA, { imagen: { url: 'https://x.test/a.jpg', credito: 'Wikimedia Commons' } }).escenas[1].datos.imagen.credito, 'Wikimedia Commons');
+  assert.match(p.escenas[0].datos.ademas[0].texto, /^Argentina ganó/);
+  assert.match(armarEfemeride(EFEMERIDE_DE_PRUEBA, { fecha: HOY, tambien: EFEMERIDE_DE_PRUEBA.ademas[1] }).guion, /1903/);
+  assert.throws(() => armarEfemeride({}, { fecha: HOY }), /principal/);
+  assert.throws(() => armarEfemeride(EFEMERIDE_DE_PRUEBA, {}), /fecha/);
+  const svg = escenaDeVideo(p).cuadro(8, p.duracion);
+  assert.match(svg, /Día del Artista Plástico/); assert.match(svg, /Y ADEMÁS/);
 });
 
 // ------------------------------------------------------------------ notas
 
-test('nota (reel): unos 25 s, el titular, dos escenas de hecho con foto y el cierre', () => {
+test('nota (reel): unos 25 s, tres placas del repaso de hoy (titular con foto y dos hechos) y el cierre dicho', () => {
   const p = armarNotaReel(nota(), {});
-  assert.deepEqual(p.escenas.map((e) => e.tipo), ['nota-titular', 'nota-hecho', 'nota-hecho', 'nota-cierre']);
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['placa-nota', 'placa-nota', 'placa-nota']);
   assert.equal(p.duracion, NOTA_REEL.segundos);
   assert.ok(p.duracion <= NOTA_REEL.maximo);
-  assert.equal(p.escenas[0].datos.seccion, 'Balcarce');
+  assert.ok(p.escenas.every((e) => e.datos.seccion === 'Balcarce' && e.datos.n === 3));
   assert.match(p.guion, /La nota completa, en Radar Balcarce punto com/);
   assert.equal(armarNotaReel(nacional(3), {}).escenas[0].datos.seccion, 'Política', 'sirve para una nacional con el color de su sección');
   assert.throws(() => armarNotaReel({ titulo: 'x', seccion: 'Balcarce', bajada: 'Una frase.', cuerpo: [] }, {}), /frases/);
@@ -243,46 +263,55 @@ test('el gancho de la voz es corto y los títulos largos se acortan en pantalla'
   assert.equal(ganchoDe('Halloween en la plaza: un kiosco convocó a cientos de vecinos disfrazados'), 'Halloween en la plaza.');
   assert.equal(ganchoDe('Un título corto'), 'Un título corto.');
   const largo = nota({ titulo: 'Un título larguísimo que sigue y sigue y no termina nunca porque quien lo escribió se olvidó de ponerle punto final a tiempo' });
-  const p = armarNotaReel(largo, {});
-  assert.ok(p.escenas[0].datos.titulo.length <= 90, 'el titular en pantalla no pasa de 90 caracteres');
+  assert.ok(armarNotaReel(largo, {}).escenas[0].datos.titulo.length <= 90, 'el titular en pantalla no pasa de 90 caracteres');
+  assert.ok(armarNotaPropia(propia({ titulo: largo.titulo }), {}).escenas[0].datos.titulo.length <= 80);
 });
 
-test('nota propia: lleva la sección que le corresponde, nunca «Nota propia», y la firma de Hernán', () => {
+test('nota propia: la sección que le corresponde, nunca «Nota propia», y la firma de Hernán en cada placa', () => {
   const p = armarNotaPropia(propia({ seccion: 'Cultura y agenda' }), {});
   for (const e of p.escenas) {
     assert.equal(e.datos.seccion, 'Cultura y agenda', e.tipo);
+    assert.equal(e.datos.firma, 'Hernán Accomo');
     assert.ok(!/nota propia/i.test(JSON.stringify(e.datos)), `${e.tipo}: no dice «Nota propia»`);
   }
   assert.ok(!/nota propia/i.test(p.guion));
   assert.equal(p.seccion, 'Cultura y agenda');
   assert.equal(p.firma, 'Hernán Accomo');
-  assert.ok(p.escenas.some((e) => /Hernán Accomo/.test(JSON.stringify(e.datos))));
   assert.equal(p.requiereOkDeHernan, true);
   assert.throws(() => armarNotaPropia(propia({ seccion: 'Nota propia' }), {}), /Nota propia/);
   assert.throws(() => armarNotaPropia({ ...propia(), seccion: undefined }, {}), /sección/);
-  // La firma de redacción no pisa la de Hernán.
   assert.equal(armarNotaPropia(propia({ firma: 'Redacción Radar Balcarce' }), {}).firma, 'Hernán Accomo');
+  // La firma va en la fila del crédito de la placa, dentro del grupo del crédito (así se mueve con él).
+  const svg = placaDeNota(p.escenas[0].datos);
+  assert.match(svg, /<g id="rp-credito">[\s\S]*Por Hernán Accomo[\s\S]*<\/g>/);
+  assert.ok(!/Nota propia/i.test(svg));
 });
 
-test('nota propia: 35 s como máximo 45, una escena por foto (hasta 5), portada y cierre', () => {
-  const p = armarNotaPropia(propia(), {});
-  assert.equal(p.escenas[0].tipo, 'propia-portada'); assert.equal(p.escenas.at(-1).tipo, 'propia-cierre');
-  assert.equal(p.escenas.filter((e) => e.tipo === 'propia-foto').length, 4);
-  assert.ok(p.duracion <= NOTA_PROPIA.maximo && p.duracion >= 20, `${p.duracion}`);
-  const siete = armarNotaPropia(propia({ fotos: Array.from({ length: 7 }, (_, n) => foto(n)) }), {});
-  assert.equal(siete.escenas.filter((e) => e.tipo === 'propia-foto').length, NOTA_PROPIA.fotosMax);
+test('nota propia: de 1 a 3 fotos, una placa por foto, 14 / 22 / 30 s', () => {
+  const tres = armarNotaPropia(propia(), {});
+  assert.equal(tres.escenas.length, 3); assert.equal(tres.duracion, 30);
+  assert.ok(tres.escenas.every((e) => e.tipo === 'placa-nota'));
+  assert.match(tres.guion, /La nota completa, con todas las fotos, en Radar Balcarce punto com/);
+  const dos = armarNotaPropia(propia({ fotos: [foto(1)] }), {});
+  assert.equal(dos.escenas.length, 2); assert.equal(dos.duracion, 22);
+  const una = armarNotaPropia(propia({ portada: null, fotos: [foto(1)] }), {});
+  assert.equal(una.escenas.length, 1); assert.equal(una.duracion, 14);
+  const siete = armarNotaPropia(propia({ fotos: Array.from({ length: 7 }, (_, n) => foto(n + 10)) }), {});
+  assert.equal(siete.escenas.length, NOTA_PROPIA.fotosMax, 'nunca más de 3');
   assert.ok(siete.duracion <= NOTA_PROPIA.maximo);
-  const una = armarNotaPropia(propia({ fotos: [foto(1)] }), {});
-  assert.equal(una.escenas.filter((e) => e.tipo === 'propia-foto').length, 1);
   assert.throws(() => armarNotaPropia(propia({ fotos: [], foto: null, portada: null }), {}), /foto/);
+  assert.equal(escenaDeVideo(tres).stills().length, 3);
 });
 
 // ------------------------------------------------------------------ historia, posteo, carrusel, enlace
 
-test('historia de nota: animada, sin voz, de unos 6 s y sin pasar de 58', () => {
+test('historia de nota: la placa de nota con su entrada animada, sin voz, de unos 6 s y sin pasar de 58', () => {
   const p = armarHistoriaDeNota(nota());
   assert.equal(p.tipo, 'video'); assert.equal(p.guion, ''); assert.ok(p.duracion > 0 && p.duracion <= 58);
   assert.equal(p.escenas[0].datos.seccion, 'Balcarce');
+  const svg = escenaDeVideo(p).cuadro(4, p.duracion);
+  assert.match(svg, /Link en la bio/); assert.match(svg, /BALCARCE|Balcarce/);
+  assert.ok(!/1 de 1/.test(svg));
 });
 
 test('posteo 4:5 y enlace 1,91:1: una sola imagen del tamaño de cada red, sin foto no va', () => {
@@ -311,25 +340,31 @@ test('carrusel: de 3 a 10 láminas del mismo tamaño, la portada primero y la ú
 
 // ------------------------------------------------------------------ farmacia y Participá
 
-test('farmacia: 14 s, sin «N°», con el nombre y la dirección dichos', () => {
-  const p = armarFarmacia(FARMACIAS, {});
+test('farmacia: 14 s, la escena de hoy, sin «N°», con el nombre y la dirección dichos', () => {
+  const p = armarFarmacia(FARMACIAS, { fecha: HOY });
   assert.equal(p.duracion, 14);
-  assert.deepEqual(p.escenas.map((e) => e.tipo), ['farmacia-nombre', 'farmacia-direccion', 'farmacia-cierre']);
+  assert.deepEqual(p.escenas.map((e) => e.tipo), ['farmacia']);
   assert.ok(!/N°|Nº/.test(p.guion) && !/N°|Nº/.test(JSON.stringify(p.escenas)), 'sin «N°»');
   assert.match(p.guion, /Santa Inés y Del Patio/); assert.match(p.guion, /Calle 17, 537/); assert.match(p.guion, /Avenida 39, 793/); assert.match(p.guion, /Guardá el dato/);
   assert.equal(direccionHablada('Calle 17 N° 537'), 'Calle 17, 537');
-  assert.throws(() => armarFarmacia([], {}), /farmacia/);
+  assert.throws(() => armarFarmacia([], { fecha: HOY }), /farmacia/);
+  assert.throws(() => armarFarmacia(FARMACIAS, {}), /fecha/);
+  const svg = escenaDeVideo(p).cuadro(6, 14);
+  assert.match(svg, /Santa Inés/); assert.match(svg, /Calle 17, 537/); assert.match(svg, /42-4301/); assert.match(svg, /De turno hasta mañana a las 8:30/);
 });
 
-test('Participá: 18 s en cinco variantes, con el WhatsApp dicho dígito por dígito', () => {
+test('Participá: 18 s, la escena de hoy, cinco variantes (cuatro de hoy y una nueva), con el WhatsApp dicho dígito por dígito', () => {
   for (const v of Object.keys(VARIANTES_DE_PARTICIPA)) {
     const p = armarParticipa(v, {});
     assert.equal(p.duracion, 18, v);
+    assert.deepEqual(p.escenas.map((e) => e.tipo), ['participa']);
     assert.match(p.guion, /2 2 6 6, 5 1, 1 6 1 2/, v);
-    assert.equal(p.escenas[2].datos.numero, '2266 51-1612');
-    assert.equal(p.escenas[1].datos.chips.length, 3);
+    assert.equal(p.escenas[0].datos.numero, '2266 51-1612');
+    const svg = escenaDeVideo(p).cuadro(8, 18);
+    assert.match(svg, /2266 51-1612/, v); assert.match(svg, /redaccion@radarbalcarce\.com/, v);
   }
   assert.equal(Object.keys(VARIANTES_DE_PARTICIPA).length, 5);
+  assert.equal(VARIANTES_DE_PARTICIPA.noticia.pregunta, '¿Viste algo que tendría que ser noticia?', 'la de hoy');
   assert.throws(() => armarParticipa('inventada'), /variante/);
 });
 
@@ -342,7 +377,7 @@ test('las ayudas de la voz', () => {
   assert.equal(primeraFrase('Primera oración. Segunda oración.'), 'Primera oración.');
 });
 
-// ------------------------------------------------------------------ zona segura: el dibujo
+// ------------------------------------------------------------------ zona segura (relajada): sólo lo de abajo
 
 /** Los textos de un SVG con su posición y tamaño. */
 function textosDe(svg) {
@@ -350,54 +385,52 @@ function textosDe(svg) {
   for (const m of svg.matchAll(/<text\b([^>]*)>([\s\S]*?)<\/text>/g)) {
     const a = (k) => m[1].match(new RegExp(`\\b${k}="([^"]*)"`))?.[1];
     const contenido = m[2].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
-    salida.push({
-      x: Number(a('x')), y: Number(a('y')), tam: Number(a('font-size')), ancla: a('text-anchor') ?? 'start', familia: a('font-family') ?? '', texto: contenido,
-    });
+    salida.push({ x: Number(a('x')), y: Number(a('y')), tam: Number(a('font-size')), ancla: a('text-anchor') ?? 'start', familia: a('font-family') ?? '', texto: contenido });
   }
   return salida;
 }
 
-test('zona segura: ningún texto de un video vertical sale de la caja (x 80 a 890, y 270 a la fila de la firma), ni en el medio ni al final de cada escena', () => {
+test('zona segura: ningún texto de un video vertical queda en los ~250 px de abajo (el texto del posteo y la música), en ningún momento de ninguna escena', () => {
   const violaciones = [];
   for (const [nombre, p] of Object.entries(TODAS())) {
-    for (const e of p.escenas) {
-      for (const t of [0.4, 1.2, e.duracion + 2]) {
-        for (const x of textosDe(escenaComoSvg(e, t, {}))) {
-          const donde = `${nombre}/${e.tipo}@${t}: «${x.texto.slice(0, 30)}»`;
-          if (x.y > FIRMA_BASE_Y) violaciones.push(`${donde}: y ${x.y} más abajo de la fila de la firma (${FIRMA_BASE_Y})`);
-          if (x.y - x.tam * 0.8 < CAJA_TEXTO.yMin - 1) violaciones.push(`${donde}: arriba de la zona libre (y ${x.y}, tam ${x.tam})`);
-          const ancho = anchoAproximado(x.texto, x.tam, /Serif/i.test(x.familia) ? 'serif' : 'sans') * 0.93;
-          const desde = x.ancla === 'start' ? x.x : x.ancla === 'end' ? x.x - ancho : x.x - ancho / 2;
-          if (desde < CAJA_TEXTO.xMin - 2) violaciones.push(`${donde}: se sale por la izquierda (${Math.round(desde)})`);
-          if (desde + ancho > CAJA_TEXTO.xMax + 2) violaciones.push(`${donde}: se sale por la derecha, donde van los botones (${Math.round(desde + ancho)})`);
-        }
+    const e = escenaDeVideo(p);
+    for (const t of [0, 0.5, 1.5, 3.5, 6, 10, p.duracion - 0.5]) {
+      for (const x of textosDe(e.cuadro(t, p.duracion))) {
+        if (x.y > TEXTO_HASTA_Y) violaciones.push(`${nombre}@${t}: «${x.texto.slice(0, 30)}» en la fila ${x.y} (el límite es ${TEXTO_HASTA_Y})`);
       }
     }
   }
   assert.deepEqual([...new Set(violaciones)], []);
 });
 
-test('zona segura: la firma y la dirección están en una sola fila, la última, a la altura de la caja y no de los botones', () => {
-  assert.ok(FIRMA_BASE_Y <= CAJA_TEXTO.yMax, 'la firma está adentro de la caja de texto crítico');
-  assert.ok(FIRMA_BASE_Y < 1920 - 670, 'y arriba del borde de abajo de la zona segura (fila 1250)');
-  const svg = escenaComoSvg(TODAS().clima.escenas[0], 5, {});
-  const abajo = textosDe(svg).filter((x) => x.y >= FIRMA_RAYA_Y);
-  assert.ok(abajo.length >= 2);
-  assert.ok(abajo.some((x) => /radarbalcarce\.com/.test(x.texto)) && abajo.some((x) => /Radar/.test(x.texto)));
-  assert.ok(Math.max(...textosDe(svg).map((x) => x.y)) <= FIRMA_BASE_Y, 'debajo de la firma no hay nada');
-});
-
-test('zona segura: con el auspicio, la franja y el contenido de cada escena no se pisan', () => {
-  const p = armarClima(CLIMA_DE_PRUEBA, { hora: 7, primeraDelBloque: true, auspicio: AUSPICIO });
-  for (const e of p.escenas.filter((x) => x.tipo !== 'clima-auspicio')) {
-    const svg = escenaComoSvg(e, e.duracion + 2, {});
-    const bajos = textosDe(svg).filter((x) => x.y < FIRMA_RAYA_Y).map((x) => x.y);
-    assert.ok(Math.max(...bajos) < FRANJA_AUSPICIO.y, `${e.tipo}: el contenido llega a ${Math.max(...bajos)} y la franja empieza en ${FRANJA_AUSPICIO.y}`);
+test('zona segura: la firma y la dirección son las de hoy, arriba del texto del posteo (no se suben ni se comprimen), y nada se pisa con ellas', () => {
+  assert.equal(FIRMA_RAYA_Y, 1478);
+  assert.ok(FIRMA_RAYA_Y + 66 < TEXTO_HASTA_Y, 'la firma ya queda arriba de la franja que tapa el posteo');
+  for (const nombre of ['clima', 'repaso', 'efemeride', 'farmacia', 'participa-noticia', 'nota-propia']) {
+    const p = TODAS()[nombre];
+    const textos = textosDe(escenaDeVideo(p).cuadro(Math.min(9, p.duracion - 1), p.duracion));
+    assert.ok(textos.some((x) => /radarbalcarce\.com/.test(x.texto) && x.y >= FIRMA_RAYA_Y), `${nombre}: la dirección`);
+    // Lo que no es la firma ni el auspicio termina arriba de la raya.
+    const contenido = textos.filter((x) => x.y < FIRMA_RAYA_Y - 5);
+    assert.ok(contenido.length > 3, nombre);
   }
 });
 
-test('las escenas pasan por el dibujo sin errores con tiempos de entrada y finales, también sin foto', () => {
+test('zona segura: la caja relajada es la de hoy (margen de 72 px) y la franja del auspicio cabe adentro', () => {
+  assert.equal(CAJA_TEXTO.xMin, 72); assert.equal(CAJA_TEXTO.xMax, 1008);
+  assert.equal(CAJA_TEXTO.yMax, 1670);
+  const svg = franjaDeAuspicio({ desde: 3, comercio: 'Una cervecería artesanal con un nombre larguísimo SRL', cuenta: '@una_cuenta_muy_larga_de_instagram' }, 5);
+  for (const x of textosDe(svg)) {
+    const ancho = anchoAproximado(x.texto, x.tam, 'sans') * 0.93;
+    assert.ok(x.x + ancho <= CAJA_TEXTO.xMax + 2, `la franja se achica para entrar (${Math.round(x.x + ancho)})`);
+  }
+});
+
+test('las piezas de video se dibujan sin errores con tiempos de entrada y finales, también sin foto', () => {
   for (const [nombre, p] of Object.entries(TODAS())) {
-    for (const e of p.escenas) for (const t of [0, 0.1, 0.5, 1, 2, e.duracion]) assert.match(escenaComoSvg(e, t, {}), /^<svg [\s\S]*<\/svg>$/, `${nombre}/${e.tipo}@${t}`);
+    const e = escenaDeVideo(p);
+    assert.ok(e.total > 0 && e.stills().length >= 1, nombre);
+    for (const t of [0, 0.1, 0.5, 1, 2, p.duracion - 0.1]) assert.match(e.cuadro(t, p.duracion), /^<svg [\s\S]*<\/svg>$/, `${nombre}@${t}`);
+    assert.ok(e.linea(p.duracion).length > 0, nombre);
   }
 });

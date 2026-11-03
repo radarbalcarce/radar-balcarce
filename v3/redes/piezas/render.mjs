@@ -5,24 +5,21 @@
 // la voz y la música después: `armarVideo(escena, destino, { voz, musica })` con la ruta de la voz (wav/mp3 que dejó el TTS) y, cuando haya pista con licencia,
 // la de la música, que entra a −18 dB (MUSICA.dbBajoLaVoz), con 0,5 s de entrada y 1 s de salida. Las imágenes fijas (posteo, carrusel, enlace) salen en PNG.
 //
-// Esto SÍ tiene dependencias (resvg y ffmpeg, las del repositorio): por eso vive aparte de los armadores, que no importan nada.
+// Esto SÍ tiene dependencias (resvg y ffmpeg, las del repositorio): por eso vive aparte de los armadores.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { ANCHO, ALTO, aPng } from '../../../reels/placa.mjs';
-import { FPS, lineaDeTiempo, renderizarLinea } from '../../../reels/animacion.mjs';
-import { easeInOut } from '../../../reels/escenas/comun.mjs';
-import { dibujarEscena, franjaDeAuspicio, imagenComoSvg } from './escenas.mjs';
-import {
-  FUNDIDO_SEGUNDOS, MUSICA, VIDEO_AUDIO_HZ, VIDEO_AUDIO_KBPS, VIDEO_CUADROS,
-} from './variables.mjs';
+import { renderizarLinea } from '../../../reels/animacion.mjs';
+import { armarAss } from '../../../reels/reel.mjs';
+import { enCarteles } from '../../../reels/voz.mjs';
+import { escenaDeVideo, imagenComoSvg } from './escenas.mjs';
+import { MUSICA, PALABRAS_POR_SEGUNDO, VIDEO_AUDIO_HZ, VIDEO_AUDIO_KBPS, VIDEO_CUADROS } from './variables.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 const correr = promisify(execFile);
-/** Hasta cuándo (segundos desde que empieza una escena) todavía se mueve algo: se dibuja un cuadro nuevo en cada tic. */
-const ENTRADA_HASTA = 2.6;
 
 // ------------------------------------------------------------------ las fotos: de una ruta o una URL a un data URI con su tamaño
 
@@ -77,15 +74,9 @@ export async function resolverFotos(pieza, opciones = {}) {
   return resolver(pieza);
 }
 
-/** El ícono de la marca como data URI (lo usan los cierres y las firmas de nota propia). */
-export function iconoDeLaMarca() {
-  const archivo = path.join(RAIZ, 'web', 'public', 'icon-512.png');
-  return fs.existsSync(archivo) ? `data:image/png;base64,${fs.readFileSync(archivo).toString('base64')}` : null;
-}
+// ------------------------------------------------------------------ el video: las escenas de hoy (escenas.mjs)
 
-// ------------------------------------------------------------------ el video como una escena para el motor
-
-/** Cuándo empieza y termina cada escena y cuánto dura el video. */
+/** Cuándo empieza y termina cada escena de la pieza y cuánto dura el video. */
 export function cronograma(pieza) {
   let desde = 0;
   const escenas = pieza.escenas.map((e) => {
@@ -97,55 +88,48 @@ export function cronograma(pieza) {
 }
 
 /**
- * La pieza de video como una escena para el motor: `cuadro(t)` es el SVG del segundo `t`. Cada escena (menos la primera) empieza `FUNDIDO_SEGUNDOS` antes de su hora,
- * debajo de la que se va, que se aclara hasta irse; cada cosa entra con su propia animación. La franja del auspicio (si hay) se dibuja arriba de todo desde su segundo.
+ * La pieza de video como una escena para el motor (`escenaDeVideo`, escenas.mjs): las escenas de hoy tal cual, con la franja del auspicio encima si la lleva.
+ * `cuadro(t)` es el SVG del segundo `t`; `linea(duracion)`, qué cuadros dibujar; `stills()`, qué segundos mirar como imagen.
  */
-export function armarEscenaDeVideo(pieza, { icono = iconoDeLaMarca() } = {}) {
-  if (pieza.tipo !== 'video') throw new Error('armarEscenaDeVideo: la pieza no es un video');
-  const { escenas, total } = cronograma(pieza);
-  const contexto = { icono };
-  return {
-    fps: FPS,
-    total,
-    escenas,
-    cuadro(t0) {
-      const t = t0 === 0 ? Math.min(1.8, escenas[0].hasta - 0.1) : t0; // el cuadro 0 es la portada del reel: la primera escena ya compuesta
-      const capas = [];
-      escenas.forEach((e, i) => {
-        const empieza = i === 0 ? 0 : e.desde - FUNDIDO_SEGUNDOS;
-        if (t < empieza || t >= e.hasta) return;
-        const sale = Math.max(0, t - (e.hasta - FUNDIDO_SEGUNDOS)) / FUNDIDO_SEGUNDOS;
-        const g = dibujarEscena(e, t - empieza, contexto);
-        capas.push(sale > 0 && i < escenas.length - 1 ? `<g opacity="${(1 - easeInOut(sale)).toFixed(3)}">${g}</g>` : g);
-      });
-      if (pieza.franja) capas.push(franjaDeAuspicio(pieza.franja, t));
-      return `<svg xmlns="http://www.w3.org/2000/svg" width="${ANCHO}" height="${ALTO}" viewBox="0 0 ${ANCHO} ${ALTO}">${capas.join('\n')}</svg>`;
-    },
-    /** La imagen de una escena ya entera y quieta (lo que se ve justo antes de que empiece a irse). */
-    cuadroDeEscena(i) {
-      const e = escenas[i];
-      return this.cuadro(e.hasta - FUNDIDO_SEGUNDOS - 0.05);
-    },
-    /** Los tramos donde conviene un cuadro nuevo en cada tic: las entradas de cada escena, el fundido de salida y la entrada de la franja. */
-    intensos() {
-      const tramos = escenas.flatMap((e, i) => [[(i === 0 ? 0 : e.desde - FUNDIDO_SEGUNDOS), (i === 0 ? 0 : e.desde - FUNDIDO_SEGUNDOS) + ENTRADA_HASTA], [e.hasta - FUNDIDO_SEGUNDOS, e.hasta]]);
-      if (pieza.franja) tramos.push([pieza.franja.desde, pieza.franja.desde + 1.4]);
-      return tramos;
-    },
-  };
+export function armarEscenaDeVideo(pieza) {
+  return escenaDeVideo(pieza);
 }
 
-/** La imagen fija de cada escena, en `<carpeta>/escena-N-tipo.png` (para mirar el diseño sin armar el video). */
+/** Una imagen fija de cada escena (con lo que entró ya a la vista) en `<carpeta>/escena-N-nombre.png`, para mirar el diseño sin armar el video. */
 export async function imagenesDeLasEscenas(escena, carpeta) {
   fs.rmSync(carpeta, { recursive: true, force: true });
   fs.mkdirSync(carpeta, { recursive: true });
   const archivos = [];
-  for (const [i, e] of escena.escenas.entries()) {
-    const archivo = path.join(carpeta, `escena-${i + 1}-${e.tipo}.png`);
-    await aPng(escena.cuadroDeEscena(i), archivo);
+  for (const [i, st] of escena.stills().entries()) {
+    const archivo = path.join(carpeta, `escena-${i + 1}-${st.nombre}.png`);
+    await aPng(escena.cuadro(st.t, escena.total), archivo);
     archivos.push(archivo);
   }
   return archivos;
+}
+
+// ------------------------------------------------------------------ los subtítulos de ejemplo (sin la voz de verdad)
+
+/**
+ * Los subtítulos de hoy (Inter 64, centrados en la fila 1660, la palabra que se dice en ámbar) con tiempos ESTIMADOS: las palabras de cada escena repartidas a
+ * 2,5 por segundo desde que empieza. Sirven para ver cómo queda la pantalla con el formato de hoy; cuando haya audio, los tiempos son los de la voz
+ * (`reels/alinear.mjs`) y esto no se usa.
+ */
+export function subtitulosEstimados(pieza) {
+  const palabras = [];
+  let desde = 0;
+  for (const e of pieza.escenas) {
+    const dichas = String(e.voz ?? '').split(/\s+/).filter(Boolean);
+    const hasta = desde + e.duracion;
+    let t = desde + (palabras.length ? 0 : 0.4);
+    for (const texto of dichas) {
+      const fin = Math.min(hasta, t + 1 / PALABRAS_POR_SEGUNDO);
+      palabras.push({ texto, desde: Number(t.toFixed(3)), hasta: Number(fin.toFixed(3)), finFrase: /[.!?]["»”)]*$/.test(texto) });
+      t = fin;
+    }
+    desde = hasta;
+  }
+  return palabras.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null;
 }
 
 // ------------------------------------------------------------------ el audio: silencio, y el lugar de la voz y la música
@@ -175,17 +159,23 @@ export function planDeAudio(total, { voz = null, musica = null } = {}) {
 }
 
 /**
- * Arma el mp4: los cuadros (resvg, en paralelo), la barra roja de avance de siempre y la pista de audio (silencio, o `voz` y `musica` si se pasan).
- * 1080 × 1920, 30 cuadros por segundo, H.264, AAC a 48 kHz, +faststart.
+ * Arma el mp4: los cuadros (resvg, en paralelo; sólo los distintos, `escena.linea`), la barra roja de avance de siempre y la pista de audio (silencio, o `voz` y `musica` si
+ * se pasan). Con `subtitulos` (el texto de un .ass, `subtitulosEstimados`) los quema como los de hoy. 1080 × 1920, 30 cuadros por segundo, H.264, AAC a 48 kHz, +faststart.
  */
-export async function armarVideo(escena, destino, { voz = null, musica = null, trabajo = fs.mkdtempSync(path.join(os.tmpdir(), 'pieza-')) } = {}) {
+export async function armarVideo(escena, destino, { voz = null, musica = null, subtitulos = null, trabajo = fs.mkdtempSync(path.join(os.tmpdir(), 'pieza-')) } = {}) {
   const total = escena.total;
-  const linea = lineaDeTiempo(total, { intensos: escena.intensos(), cadaLentos: 2 });
-  const { secuencia, n, cuadros } = await renderizarLinea(escena, trabajo, 'pz-', { duracion: total, linea });
+  const { secuencia, n, cuadros } = await renderizarLinea(escena, trabajo, 'pz-', { duracion: total, linea: escena.linea(total) });
   const ffmpeg = (await import('ffmpeg-static')).default;
   fs.mkdirSync(path.dirname(destino), { recursive: true });
   const audio = planDeAudio(total, { voz, musica });
-  const grafo = [`[0:v]scale=${ANCHO}:${ALTO},setsar=1[b]`, `[b][1:v]overlay=x='-w+w*t/${total.toFixed(2)}':y=H-h:eof_action=pass,format=yuv420p[v]`];
+  // Los subtítulos: el .ass y las tipografías van en la carpeta de trabajo, con rutas relativas (el filtro parte «D:» por los dos puntos).
+  let filtroDeSubtitulos = '';
+  if (subtitulos) {
+    fs.writeFileSync(path.join(trabajo, 'subtitulos.ass'), subtitulos, 'utf8');
+    fs.cpSync(path.join(RAIZ, 'reels', 'marca', 'fuentes'), path.join(trabajo, 'fuentes'), { recursive: true });
+    filtroDeSubtitulos = ',subtitles=subtitulos.ass:fontsdir=fuentes';
+  }
+  const grafo = [`[0:v]scale=${ANCHO}:${ALTO},setsar=1[b]`, `[b][1:v]overlay=x='-w+w*t/${total.toFixed(2)}':y=H-h:eof_action=pass${filtroDeSubtitulos},format=yuv420p[v]`];
   if (audio.filtro) grafo.push(audio.filtro);
   await correr(ffmpeg, [
     '-y', '-framerate', String(VIDEO_CUADROS), '-i', path.basename(secuencia),
@@ -214,13 +204,13 @@ export async function renderizarImagen(escenaDeImagen, ancho, destino) {
  * Renderiza cualquier pieza armada (video, imagen o carrusel) en `carpeta` y devuelve qué dejó. Las fotos que vengan por `ruta` o `url` se cargan antes.
  * Video: `<id>.mp4` y `<id>-escenas/escena-N-tipo.png`. Imagen: `<id>.png`. Carrusel: `<id>-N.png`.
  */
-export async function renderizarPieza(piezaArmada, carpeta, { nombre = piezaArmada.id, voz = null, musica = null, fetch } = {}) {
+export async function renderizarPieza(piezaArmada, carpeta, { nombre = piezaArmada.id, voz = null, musica = null, subtitulos = false, fetch } = {}) {
   const pieza = await resolverFotos(piezaArmada, { fetch });
   fs.mkdirSync(carpeta, { recursive: true });
   if (pieza.tipo === 'video') {
     const escena = armarEscenaDeVideo(pieza);
     const imagenes = await imagenesDeLasEscenas(escena, path.join(carpeta, `${nombre}-escenas`));
-    const r = await armarVideo(escena, path.join(carpeta, `${nombre}.mp4`), { voz, musica });
+    const r = await armarVideo(escena, path.join(carpeta, `${nombre}.mp4`), { voz, musica, subtitulos: subtitulos ? subtitulosEstimados(pieza) : null });
     return { tipo: 'video', archivos: [r.mp4], escenas: imagenes, duracion: r.duracion, cuadros: r.cuadros };
   }
   if (pieza.tipo === 'carrusel') {
