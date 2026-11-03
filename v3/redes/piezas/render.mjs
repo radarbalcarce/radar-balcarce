@@ -38,6 +38,24 @@ export function medirImagen(b) {
   return {};
 }
 
+/** Quién pide las fotos: un nombre propio y honesto, nunca el de un navegador. */
+export const USER_AGENT = 'RadarBalcarceBot/1.0 (+https://radarbalcarce.com)';
+
+/** Dónde buscar la foto, en orden: la copia propia (`copia`, si la nota la trae: el depósito del sitio, /fotos-notas/…) y después la dirección original. */
+export const direccionesDeLaFoto = (f) => [f.copia, f.url].filter((u) => typeof u === 'string' && /^https?:\/\//i.test(u));
+
+async function bajarFoto(f, pedir) {
+  let ultimo = null;
+  for (const u of direccionesDeLaFoto(f)) {
+    try {
+      const r = await pedir(u, { headers: { 'user-agent': USER_AGENT, accept: 'image/*' }, signal: AbortSignal.timeout(20_000) });
+      if (!r.ok) throw new Error(`no pude bajar la foto ${u}: ${r.status}`);
+      return r;
+    } catch (e) { ultimo = e; }
+  }
+  throw ultimo ?? new Error('la foto no tiene dirección');
+}
+
 async function cargarFoto(f, { fetch: pedir = globalThis.fetch } = {}) {
   let bytes;
   let tipo = 'image/jpeg';
@@ -46,8 +64,7 @@ async function cargarFoto(f, { fetch: pedir = globalThis.fetch } = {}) {
     bytes = fs.readFileSync(ruta);
     tipo = TIPOS[path.extname(ruta).toLowerCase()] ?? tipo;
   } else {
-    const r = await pedir(f.url);
-    if (!r.ok) throw new Error(`no pude bajar la foto ${f.url}: ${r.status}`);
+    const r = await bajarFoto(f, pedir);
     bytes = Buffer.from(await r.arrayBuffer());
     tipo = r.headers?.get?.('content-type')?.split(';')[0] || tipo;
   }
@@ -56,14 +73,18 @@ async function cargarFoto(f, { fetch: pedir = globalThis.fetch } = {}) {
 
 /** Una copia de la pieza con cada foto (`foto`, `imagen`, láminas…) ya bajada como data URI: las que traen `ruta` o `url` se cargan; las que ya traen `datos`, quedan. */
 export async function resolverFotos(pieza, opciones = {}) {
+  const { alFallar = null } = opciones;
   const cache = new Map();
   const resolver = async (v) => {
     if (Array.isArray(v)) return Promise.all(v.map(resolver));
     if (v && typeof v === 'object') {
       if ((v.ruta || v.url) && !v.datos && ('credito' in v || 'ruta' in v || 'url' in v) && !('titulo' in v)) {
         const clave = v.ruta ?? v.url;
-        if (!cache.has(clave)) cache.set(clave, cargarFoto(v, opciones));
-        return { ...(await cache.get(clave)), epigrafe: v.epigrafe ?? null, credito: v.credito };
+        if (!cache.has(clave)) cache.set(clave, cargarFoto(v, opciones).catch((e) => ({ fallo: e })));
+        const cargada = await cache.get(clave);
+        // Una foto que no baja NUNCA tumba la pieza: esa nota va con la placa de su sección (sin foto) y se anota.
+        if (cargada.fallo) { alFallar?.(v, cargada.fallo); return null; }
+        return { ...cargada, epigrafe: v.epigrafe ?? null, credito: v.credito };
       }
       const salida = {};
       for (const [k, x] of Object.entries(v)) salida[k] = await resolver(x);

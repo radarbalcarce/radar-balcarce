@@ -27,6 +27,17 @@ export function frases(texto) {
   return t.match(/.+?(?:[.!?](?=\s+[A-ZÁÉÍÓÚÑ¿¡"«])|$)/g)?.map((f) => f.trim()).filter(Boolean) ?? [];
 }
 
+// Palabras que no pueden quedar colgando al final de un recorte («…candidato presidencial en.»).
+const COLGANTES = new Set(['a', 'al', 'ante', 'bajo', 'con', 'contra', 'de', 'del', 'desde', 'durante', 'en', 'entre', 'hacia', 'hasta', 'para', 'por', 'según', 'sin', 'sobre', 'tras', 'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'y', 'e', 'o', 'u', 'ni', 'que', 'como', 'su', 'sus', 'mi', 'tu', 'más', 'muy', 'pero', 'cuando', 'donde']);
+
+/** Saca del final las palabras que no pueden cerrar una frase (preposiciones, artículos, conjunciones) y los signos que quedan colgados. */
+export function sinColgantes(texto) {
+  let p = palabras(String(texto).replace(/[,;:\s.…]+$/, ''));
+  const limpia = (w) => w.toLowerCase().replace(/[,;:.…]+$/, '');
+  while (p.length > 1 && COLGANTES.has(limpia(p.at(-1)))) p = p.slice(0, -1);
+  return p.join(' ').replace(/[,;:\s.…]+$/, '');
+}
+
 /** Corta a `max` palabras: si ya entra, queda igual; si no, corta en una coma o en la palabra y cierra con punto. */
 export function acortarPalabras(texto, max) {
   const t = limpiar(texto);
@@ -35,7 +46,7 @@ export function acortarPalabras(texto, max) {
   let corte = p.slice(0, max).join(' ');
   const coma = corte.lastIndexOf(',');
   if (coma > corte.length * 0.55) corte = corte.slice(0, coma);
-  return `${corte.replace(/[,;:\s]+$/, '')}.`;
+  return `${sinColgantes(corte)}.`;
 }
 
 /** Corta a `max` caracteres en el límite de una palabra, con puntos suspensivos si hizo falta (para lo que se lee en pantalla). */
@@ -44,7 +55,7 @@ export function acortarCaracteres(texto, max) {
   if (t.length <= max) return t;
   const corte = t.slice(0, max - 1);
   const ultimo = corte.lastIndexOf(' ');
-  return `${(ultimo > max * 0.5 ? corte.slice(0, ultimo) : corte).replace(/[,;:\s.]+$/, '')}…`;
+  return `${sinColgantes(ultimo > max * 0.5 ? corte.slice(0, ultimo) : corte)}…`;
 }
 
 export const tituloEnPantalla = (titulo) => acortarCaracteres(titulo, TITULAR_MAX_CARACTERES);

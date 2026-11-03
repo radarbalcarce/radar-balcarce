@@ -1,6 +1,9 @@
 // Lo único de las redes que habla con D1. Todas las funciones reciben `env` (con env.DB) primero.
 import { slugDe } from './texto.mjs';
 
+/** Las notas propias de servicio (clima del día, media kit y las que vengan con `ficha.marca`) no van a las redes: ni en un posteo ni en un repaso. */
+export const esNotaDeServicio = (n) => n?.id === 'mediakit' || !!n?.ficha?.marca;
+
 const lista = (r) => (r && r.results) || [];
 const analizar = (s, def) => { try { return s ? JSON.parse(s) : def; } catch { return def; } };
 
@@ -12,12 +15,12 @@ const analizar = (s, def) => { try { return s ? JSON.parse(s) : def; } catch { r
 export async function notasParaRedes(env, { desdeISO, conBorradores = false }) {
   const estados = conBorradores ? "('publicada', 'borrador')" : "('publicada')";
   const r = await env.DB.prepare(
-    `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada,
+    `SELECT n.id, n.titulo, n.bajada, n.en_dos_lineas, n.seccion, n.foto, n.no_publicar, n.creada, n.ficha, n.historia_id,
             s.slug AS s_slug, s.publicada_en AS s_publicada, h.motivo, h.medios
      FROM notas n
      JOIN historias h ON h.id = n.historia_id
      LEFT JOIN sitio_notas s ON s.id = n.id
-     WHERE n.estado IN ${estados} AND COALESCE(s.publicada_en, n.creada) >= ? AND (s.origen IS NULL OR s.origen = 'nucleo')
+     WHERE n.estado IN ${estados} AND n.historia_id IS NOT NULL AND n.historia_id <> '' AND COALESCE(s.publicada_en, n.creada) >= ? AND (s.origen IS NULL OR s.origen = 'nucleo')
      ORDER BY COALESCE(s.publicada_en, n.creada) DESC`,
   ).bind(desdeISO).all();
   return lista(r).map((f) => ({
@@ -28,6 +31,7 @@ export async function notasParaRedes(env, { desdeISO, conBorradores = false }) {
     seccion: f.seccion || '',
     foto: analizar(f.foto, null),
     noPublicar: analizar(f.no_publicar, null),
+    deServicio: esNotaDeServicio({ id: f.id, ficha: analizar(f.ficha, null) }),
     slug: f.s_slug || slugDe(f.titulo),
     publicada: f.s_publicada || f.creada,
     motivo: f.motivo || '',

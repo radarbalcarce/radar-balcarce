@@ -121,6 +121,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
 
       const subtitulos = mudo ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
       const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos });
+      if (r.fotosQueNoBajaron?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}fotos que no bajaron (van con la placa): ${r.fotosQueNoBajaron.join(' | ')}`;
       const acciones = accionesConTexto(pieza, item);
       informe.texto = acciones[0]?.pie || textoDePieza(pieza, item, 'facebook');
       informe.archivos = mudo ? [`${item.id}.mp4`, `${item.id}.json`] : [`${item.id}.mp4`, `${item.id}.mp3`, `${item.id}.json`];
@@ -178,8 +179,10 @@ export async function dependenciasReales(env = process.env) {
     subtitulosEstimados,
     subtitulos: (palabras) => (palabras?.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null),
     async renderizar(pieza, destino, { voz, subtitulos }) {
-      const lista = await resolverFotos(pieza);
-      return armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
+      const fotosQueNoBajaron = [];
+      const lista = await resolverFotos(pieza, { alFallar: (f, e) => fotosQueNoBajaron.push(`${f.url ?? f.ruta}: ${String(e.message).slice(0, 120)}`) });
+      const r = await armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
+      return { ...r, fotosQueNoBajaron };
     },
     clienteMeta: () => crearCliente({ token: env.META_TOKEN, paginaId: env.META_PAGE_ID || PAGINA_DE_FACEBOOK }),
   };

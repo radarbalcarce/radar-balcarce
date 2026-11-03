@@ -317,3 +317,25 @@ test('los datos de afuera: Open-Meteo se convierte a lo que pide el clima, la ef
   assert.equal(await leerFarmaciaDeTurno({ leerDelSitio: async () => { throw new Error('x'); } }), null);
   assert.match(fechaLarga(new Date('2026-11-03T15:00:00Z')), /^Martes,? 3 de noviembre$/);
 });
+
+test('una foto que no baja (403) NUNCA tumba la pieza: va con la placa y se anota; antes de la original prueba la copia propia, con un User-Agent honesto', async () => {
+  const { resolverFotos, direccionesDeLaFoto, USER_AGENT } = await import('./render.mjs');
+  assert.match(USER_AGENT, /^RadarBalcarceBot\//);
+  assert.doesNotMatch(USER_AGENT, /Mozilla|Chrome|Safari/);
+  assert.deepEqual(direccionesDeLaFoto({ copia: 'https://radarbalcarce.com/fotos-notas/a.jpg', url: 'https://media.dib.com.ar/a.jpg' }), ['https://radarbalcarce.com/fotos-notas/a.jpg', 'https://media.dib.com.ar/a.jpg']);
+  const pedidos = [];
+  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
+  const fetchFalso = async (u, init) => {
+    pedidos.push({ u, ua: init.headers['user-agent'] });
+    if (u.includes('dib.com.ar')) return { ok: false, status: 403 };
+    return { ok: true, status: 200, headers: { get: () => 'image/png' }, arrayBuffer: async () => png };
+  };
+  const fallos = [];
+  const pieza = { escenas: [{ datos: { foto: { url: 'https://media.dib.com.ar/a.jpg', credito: 'DIB' } } }, { datos: { foto: { url: 'https://media.dib.com.ar/b.jpg', copia: 'https://radarbalcarce.com/fotos-notas/b.jpg', credito: 'DIB' } } }] };
+  const r = await resolverFotos(pieza, { fetch: fetchFalso, alFallar: (f, e) => fallos.push([f.url, e.message]) });
+  assert.equal(r.escenas[0].datos.foto, null); // 403: placa
+  assert.match(fallos[0][1], /403/);
+  assert.ok(r.escenas[1].datos.foto.datos.startsWith('data:image/png')); // la copia propia bajó
+  assert.ok(pedidos.every((p) => /^RadarBalcarceBot\//.test(p.ua)));
+  assert.deepEqual(pedidos.filter((p) => p.u.endsWith('/b.jpg')).map((p) => p.u), ['https://radarbalcarce.com/fotos-notas/b.jpg']); // con la copia propia no hace falta ir a la original
+});

@@ -434,3 +434,16 @@ test('las piezas de video se dibujan sin errores con tiempos de entrada y finale
     assert.ok(e.linea(p.duracion).length > 0, nombre);
   }
 });
+
+test('el recorte del guion cae en un límite natural: nunca «en.», «de.», «la.» al final (caso real 3/11)', async () => {
+  const { acortarPalabras, acortarCaracteres, sinColgantes } = await import('./voz.mjs');
+  const titulo = 'El partido libertario presentará un candidato presidencial en el acto de este sábado';
+  const corto = acortarPalabras(titulo, 8);
+  assert.equal(corto, 'El partido libertario presentará un candidato presidencial.');
+  assert.doesNotMatch(corto, /\b(en|de|la|el|un|y)\.$/);
+  assert.equal(sinColgantes('el intendente anunció obras de la'), 'el intendente anunció obras');
+  assert.equal(sinColgantes('Balcarce, con'), 'Balcarce');
+  assert.equal(acortarPalabras('Corta y entera', 10), 'Corta y entera');
+  const largo = acortarCaracteres('Presentará un candidato presidencial en el acto de este sábado en Balcarce con todo', 56);
+  assert.doesNotMatch(largo, /\b(en|de|la|el|con)…$/);
+});

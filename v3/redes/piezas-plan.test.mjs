@@ -248,3 +248,21 @@ test('si de verdad no hay ninguna nota de Balcarce, el repaso sale con las más 
   assert.equal(armarRepaso(repaso.datos.notas, { momento: 'manana', hora: 10, sinBalcarce: true }).escenas.length, 4);
   assert.throws(() => armarRepaso(repaso.datos.notas, { momento: 'manana', hora: 10 }), /al menos una nota de Balcarce/);
 });
+
+test('las notas de servicio (clima del día con ficha.marca, media kit, o sin historia) no entran al repaso ni a los posteos', async () => {
+  const t = baseDePrueba();
+  guardarNota(t.sqlite, { id: 'clima-d', titulo: 'Cómo viene el martes en Balcarce: máxima de 21 grados', seccion: 'Balcarce', motivo: 'balcarce', creada: hace(10), estado: 'borrador' });
+  t.sqlite.prepare('UPDATE notas SET ficha = ? WHERE id = ?').run(JSON.stringify({ marca: { tipo: 'clima-diario', fecha: DIA } }), 'clima-d');
+  guardarNota(t.sqlite, { id: 'mediakit', titulo: 'Publicidad en Radar Balcarce', seccion: 'Balcarce', motivo: 'balcarce', creada: hace(20), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'real111', titulo: 'Abre la feria del libro', creada: hace(30), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'real222', titulo: 'Arreglan la calle 17', creada: hace(40), estado: 'borrador' });
+  t.sqlite.prepare("INSERT INTO notas (id, historia_id, creada, titulo, seccion, foto, estado) VALUES ('sinhist', '', ?, 'Nota sin historia', 'Balcarce', ?, 'borrador')").run(hace(5), JSON.stringify({ url: 'https://x/y.jpg' }));
+  const { notasParaRedes } = await import('./db.mjs');
+  const todas = await notasParaRedes({ DB: t.DB }, { desdeISO: hace(600), conBorradores: true });
+  assert.ok(!todas.some((n) => n.id === 'sinhist'));
+  assert.deepEqual(todas.filter((n) => n.deServicio).map((n) => n.id).sort(), ['clima-d', 'mediakit']);
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  assert.deepEqual(p.piezas.find((x) => x.id === 'noticia1').datos.notasIds.sort(), ['real111', 'real222']);
+  const { motivoDeExclusion } = await import('./elegir.mjs');
+  assert.equal(motivoDeExclusion(todas.find((n) => n.id === 'clima-d'), { ahora: AHORA }), 'de-servicio');
+});

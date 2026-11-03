@@ -55,6 +55,7 @@ export function tieneFoto(nota) {
 /** Por qué una nota NO va (o null si va). Primera razón que corta. Sirve a la elección y al informe del día. */
 export function motivoDeExclusion(nota, { ahora, reglas = REGLAS } = {}) {
   if (nota.noPublicar) return 'no-publicar';
+  if (nota.deServicio || nota.id === 'mediakit') return 'de-servicio';
   if (esTragediaParaRedes({ titulo: nota.titulo, bajada: nota.bajada, resumen: nota.enDosLineas })) return 'tono';
   if (!tieneFoto(nota)) return 'sin-foto';
   if (!tipoDeNota(nota, reglas)) return 'no-es-de-redes';
