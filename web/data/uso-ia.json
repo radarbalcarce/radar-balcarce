@@ -2529,35 +2529,35 @@
   "2026-11-03": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 7,
-     "errores": 5,
+     "llamadas": 9,
+     "errores": 7,
      "entrada": 5290,
      "salida": 2789,
      "pensamiento": 0,
      "total": 8079,
      "claves": {
-      "clasificacion": 7
+      "clasificacion": 9
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 5,
+       "cupo-diario": 7,
        "ok": 2
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 5,
+     "llamadas": 7,
      "errores": 1,
-     "entrada": 9895,
-     "salida": 7656,
+     "entrada": 14781,
+     "salida": 10812,
      "pensamiento": 0,
-     "total": 17551,
+     "total": 25593,
      "claves": {
-      "groq": 5
+      "groq": 7
      },
      "motivos": {
       "groq": {
-       "ok": 4,
+       "ok": 6,
        "velocidad": 1
       }
      }
@@ -2581,123 +2581,130 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 6,
-     "errores": 6,
+     "llamadas": 8,
+     "errores": 8,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 6
+      "clasificacion": 8
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 6
+       "cupo-diario": 8
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 3,
-     "errores": 3,
+     "llamadas": 4,
+     "errores": 4,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 3
+      "groq": 4
      },
      "motivos": {
       "groq": {
-       "otro": 3
+       "otro": 4
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 16,
-     "errores": 16,
+     "llamadas": 21,
+     "errores": 21,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "redaccion": 16
+      "redaccion": 21
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 16
+       "cupo-diario": 21
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 16,
-     "errores": 0,
-     "entrada": 93453,
-     "salida": 18842,
+     "llamadas": 32,
+     "errores": 13,
+     "entrada": 115491,
+     "salida": 22625,
      "pensamiento": 0,
-     "total": 112295,
+     "total": 138116,
      "claves": {
-      "redaccion": 16
+      "redaccion": 29,
+      "respaldo": 3
      },
      "motivos": {
       "redaccion": {
-       "ok": 16
+       "ok": 16,
+       "saturado": 11,
+       "otro": 2
+      },
+      "respaldo": {
+       "ok": 3
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 30,
-     "errores": 28,
+     "llamadas": 33,
+     "errores": 31,
      "entrada": 20460,
      "salida": 1773,
      "pensamiento": 0,
      "total": 22233,
      "claves": {
-      "clasificacion": 30
+      "clasificacion": 33
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 28,
+       "cupo-diario": 31,
        "ok": 2
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 28,
-     "errores": 2,
+     "llamadas": 31,
+     "errores": 5,
      "entrada": 159476,
      "salida": 13157,
      "pensamiento": 0,
      "total": 172633,
      "claves": {
-      "clasificacion": 28
+      "clasificacion": 31
      },
      "motivos": {
       "clasificacion": {
        "ok": 26,
-       "saturado": 1,
+       "saturado": 4,
        "otro": 1
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 9,
-     "errores": 4,
-     "entrada": 8532,
-     "salida": 464,
+     "llamadas": 13,
+     "errores": 7,
+     "entrada": 10709,
+     "salida": 603,
      "pensamiento": 0,
-     "total": 8996,
+     "total": 11312,
      "claves": {
-      "groq": 9
+      "groq": 13
      },
      "motivos": {
       "groq": {
-       "cupo-diario": 3,
-       "ok": 5,
-       "saturado": 1
+       "cupo-diario": 5,
+       "ok": 6,
+       "saturado": 1,
+       "otro": 1
       }
      }
     }

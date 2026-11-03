@@ -33322,9 +33322,7 @@
   "huella": "0f87a9a7a68d2d61"
  },
  "9ztiub": {
-  "archivo": "fotos-notas/9ztiub.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno nacional jerarquiza a los técnicos en emergencias sanitarias",
@@ -33344,7 +33342,8 @@
    "descripcion": "Técnico en emergencias sanitarias asistiendo a un paciente en una ambulancia"
   },
   "huella": "706464c6e6ecacb4",
-  "ausenteDesde": "2026-10-27T06:03:00.357Z"
+  "intentado": true,
+  "borrada": true
  },
  "1qr79y1": {
   "archivo": "fotos-notas/1qr79y1.jpg",
@@ -33371,9 +33370,7 @@
   "huella": "3c58556e6e2e27a7"
  },
  "1thp85o": {
-  "archivo": "fotos-notas/1thp85o.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Postergas la visita de Gabriel Katopodis a Balcarce",
@@ -33393,7 +33390,8 @@
    "descripcion": "Gabriel Katopodis en primer plano con una bandera argentina de fondo"
   },
   "huella": "7161217168c8c9cd",
-  "ausenteDesde": "2026-10-27T06:03:00.357Z"
+  "intentado": true,
+  "borrada": true
  },
  "1f59ye": {
   "medio": "Radio Gabal (FM 104.1)",
@@ -61174,7 +61172,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "15b5b540b0e13344"
+  "huella": "15b5b540b0e13344",
+  "ausenteDesde": "2026-11-03T06:05:09.306Z"
  },
  "174tjt": {
   "archivo": "fotos-notas/174tjt.jpg",
@@ -65398,7 +65397,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando un balón en un partido de la liga inglesa."
   },
-  "huella": "69144e85b586721f"
+  "huella": "69144e85b586721f",
+  "ausenteDesde": "2026-11-03T06:05:09.306Z"
  },
  "ptf7ku": {
   "archivo": "fotos-notas/ptf7ku.jpg",
@@ -71436,7 +71436,8 @@
    "corresponde": "si",
    "descripcion": "El Capitolio de Estados Unidos visto a través de banderas estadounidenses."
   },
-  "huella": "1796171513130b9b"
+  "huella": "1796171513130b9b",
+  "ausenteDesde": "2026-11-03T06:05:09.306Z"
  },
  "jv7jrk": {
   "intentado": true,
@@ -71447,5 +71448,37 @@
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1
+ },
+ "1kftll4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cae el empleo registrado y aumenta la informalidad tras la reforma laboral",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-11-03T06:04:35.290Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1uk9cf8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Investigan gastos de la AFA en vuelos privados y yates de lujo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T06:04:35.290Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1gkxvxj": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Iglesia difunde el spot oficial por la visita del papa León XIV",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T06:04:35.290Z",
+  "intentos": 1,
+  "fuentes": 21,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
