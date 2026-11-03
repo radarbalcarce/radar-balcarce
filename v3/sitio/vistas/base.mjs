@@ -169,6 +169,26 @@ position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-b
 .pdia .ficha p{margin:2px 0}
 .pdia a.enlace{color:var(--rojo);text-decoration:underline}
 .pdia .nota-chica{font-size:14px;color:var(--suave)}
+.pdia{max-width:760px}
+.pdia .evs{list-style:none;margin:0 0 6px;padding:0}
+.pdia .evs li{border-bottom:1px solid var(--linea)}
+.pdia .evs a{display:block;padding:10px 0}
+.pdia .evs strong{display:block;font:700 18px/1.25 var(--serif);color:var(--tinta)}
+.pdia .evs span{font-size:14px;color:var(--suave)}
+.pdia .evs a:hover strong{text-decoration:underline}
+.pdia .botones{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.pdia .boton{display:inline-block;padding:9px 14px;border:1.5px solid var(--tinta);border-radius:999px;font:600 14px var(--sans);color:var(--tinta)}
+.pdia .boton.rojo{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.pdia .aviso{margin:0 0 14px;padding:10px 14px;border-left:4px solid var(--ambar);background:var(--papel);color:var(--tinta)}
+.pdia dl.datos{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:14px 0}
+.pdia dl.datos dt{font-weight:600;color:var(--tinta)}
+.pdia dl.datos dd{margin:0}
+.pdia pre.copiable{white-space:pre-wrap;margin:0 0 8px;padding:12px 14px;border:1px solid var(--linea);background:var(--papel);font:400 15px/1.5 var(--sans);color:var(--texto)}
+.pdia .tel{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.pdia .tel a,.pdia .tel div{display:block;padding:10px 12px;border:1px solid var(--linea);background:var(--papel);color:var(--tinta)}
+.pdia .tel b{display:block;font-size:14px}
+.pdia .tel span{font:700 17px var(--serif);font-variant-numeric:tabular-nums}
+.pdia .escudo{width:22px;height:22px;vertical-align:middle;margin-right:6px}
 .pdia{--g-temp:#C2410C;--g-lluvia:#2B7FD0;--g-eje:#5C6068;--g-grilla:#E4DFD2;--g-fondo:#FFFFFF}
 .pdia .grafico{margin:0;padding:10px 8px 6px;border:1px solid var(--linea);border-radius:12px;background:var(--g-fondo)}
 .pdia .grafico-horas{display:block;width:100%;height:auto;max-width:640px;margin:0 auto}

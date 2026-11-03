@@ -31,3 +31,5 @@ ADSENSE_SLOT_NOTA = ""
 ADSENSE_SLOT_SECCION = ""
 # El sitio viejo, que sigue publicándose: lo que este sitio no maneja (panel, farmacias, clima, íconos…) y las notas que no están en la base se piden ahí. Nunca radarbalcarce.com (bucle). Vacío = sin respaldo.
 ORIGEN_VIEJO = "https://radar-balcarce.pages.dev"
+# La red de seguridad: lo que este sitio no maneja se pide al sitio viejo. Con "no" se apaga (404 propio) y el sitio viejo se puede apagar. Por defecto todavía "si".
+RESPALDO_VIEJO = "si"

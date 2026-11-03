@@ -72,8 +72,8 @@ test('un borrador (y una retirada) no se ven: 404 en la nota, no aparecen en sec
   insertarNota(sqlite, { id: 'borr1', titulo: 'Borrador secreto', estado: 'borrador' });
   insertarNota(sqlite, { id: 'retir1', titulo: 'Retirada secreta', estado: 'retirada' });
   insertarNota(sqlite, { id: 'pub1', titulo: 'Publicada visible' });
-  assert.equal((await ir(env, '/nota/borrador-secreto-borr1')).status, 404);
-  assert.equal((await ir(env, '/nota/retirada-secreta-retir1')).status, 404);
+  assert.equal((await ir(env, '/nota/borrador-secreto-borr1')).status, 410, 'una nota sin publicar es como una que no existe');
+  assert.equal((await ir(env, '/nota/retirada-secreta-retir1')).status, 410);
   for (const ruta of ['/', '/seccion/balcarce', '/rss.xml', '/sitemap-2026-11.xml', '/buscar?q=secret', '/buscar?q=Publicada']) {
     const t = await texto(await ir(env, ruta));
     assert.ok(!t.includes('Borrador secreto') && !t.includes('Retirada secreta'), `${ruta} muestra algo que no está publicado`);
@@ -85,7 +85,7 @@ test('404 para ids que no existen, rutas raras y secciones inexistentes (con noi
   const { env } = baseDePrueba();
   for (const ruta of ['/nota/no-existe-zzz999', '/nota/', '/seccion/nada', '/algo/raro', '/sitemap-2030-01.xml', '/nota/x-%E0%A4%A']) {
     const r = await ir(env, ruta);
-    assert.equal(r.status, 404, ruta);
+    assert.equal(r.status, ruta === '/nota/no-existe-zzz999' ? 410 : 404, ruta);
     assert.match(r.headers.get('x-robots-tag') || '', /noindex/);
   }
 });

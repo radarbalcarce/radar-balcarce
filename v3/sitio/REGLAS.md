@@ -90,3 +90,16 @@ Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.tes
 - **Cloudflare Web Analytics:** `CF_BEACON` (token público); el script va en el `<head>` de todas las páginas y no depende de las cookies.
 - **Fotos de la nota:** además de la de portada, las de `nota.fotos` (o `extra.fotos`) se reparten entre párrafos con su epígrafe y crédito.
 - Pruebas: `avisos.test.mjs`.
+
+## 10. El cierre del sitio viejo (3/11)
+
+**Objetivo:** que `radar-balcarce.pages.dev` no sirva nada y se pueda apagar. Todo lo que servía pasó a este Worker.
+
+- **Páginas nuevas** (`vistas/cierre.mjs`): `/agenda` y cada evento (`/agenda/<nombre>-muniNNNN`, con `.ics`, datos para Google, la fiesta suspendida avisada), `/hoy`, `/util` (teléfonos), `/tablas` con `/tablas/liga-profesional` y `/tablas/formula-1`, `/compartir` (no se indexa) y la página «ya no está» (410).
+- **La agenda** sale **sólo del municipio** (API de balcarce.gob.ar, `agenda.mjs`), se lee en el momento y se guarda 30 minutos en la caché. Si no contesta, la agenda lo dice y no se guarda; la página de un evento da 503 (no 410). Un evento que ya terminó da 410 (la API sólo trae lo que viene). Los suspendidos a mano están en `AGENDA_SUSPENDIDOS` (`agenda.mjs`, con motivo, cuándo y quién); `eventos.mjs` es copia de `web/lib/eventos.js`. Las fichas de eventos ya no guardan nada: no hay lista de eventos pasados.
+- **Las tablas** se piden en el momento a ESPN y Jolpica (`tablas.mjs`), una hora de caché; sin respuesta, la página lo dice.
+- **Para máquinas:** `/llms.txt`, `/agentes/{ultimas,indice,servicios}.json` (CORS abierto, no se indexan), `/sitemap-news.xml` (48 horas), `/sitemap-paginas.xml` (páginas fijas, secciones y eventos; entra en `/sitemap.xml`), `/seccion/<x>/feed.xml`. El `robots.txt` pide no entrar a `/panel/`.
+- **Direcciones del viejo que se conservan:** `/sitemap-index.xml` y `/sitemap-notas/AAAA-MM/sitemap.xml` (301 a los mapas de acá), `/seccion/<x>-<n>` (301 a `?pagina=n`), `/seccion/servicios` y `/seccion/pais` (301), y las notas que el viejo había unido a otra o retirado (`redirecciones-viejas.mjs`, generado por `scripts/generar-redirecciones.mjs` desde `web/public/_redirects`; 301 a la nota que quedó o a su sección). Una nota que no está en la base ni en esa tabla da **410** con una búsqueda con las palabras del titular: **nunca se le pide al viejo**. Las tarjetas `/…/opengraph-image` dan 404 (la foto de cada página va en su `og:image`). `/tema/…` da 410.
+- **Archivos fijos** (`estaticos.mjs`): el panel del celular (`/panel/`, con su CSP propia y `noindex`), los escudos, los videos de `/compartir`, los íconos, el manifiesto y el archivo de verificación de Google salen del depósito R2 `radar-fotos` con clave `estaticos/<misma ruta>`. Los sube el workflow «Radar 3.0: desplegar» (opción sitio) desde `web/public/`. Si el depósito no tiene uno, cae al viejo (o 404 propio si `RESPALDO_VIEJO = "no"`).
+- **`RESPALDO_VIEJO`** (`wrangler.toml`, hoy `"si"`): con `"no"`, nada sale hacia el sitio viejo: lo que nadie maneja y las fotos que R2 no tiene dan 404 propio. Con `"si"`, sólo van allá las rutas que nadie maneja y los archivos que el depósito no tiene todavía.
+- Pruebas: `cierre.test.mjs` (incluye el inventario: ninguna ruta del viejo sale hacia él) y `corte.test.mjs`.

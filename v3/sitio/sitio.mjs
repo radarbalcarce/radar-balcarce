@@ -11,7 +11,14 @@ import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
 import { paginaClima, paginaFarmacias, paginaDolar } from './vistas/paginas-del-dia.mjs';
-import { sitemapIndice, sitemapDelMes, rss, robots } from './vistas/xml.mjs';
+import { sitemapIndice, sitemapDelMes, sitemapDePaginas, rss, robots } from './vistas/xml.mjs';
+import { servirEstatico } from './estaticos.mjs';
+import { leerAgenda, eventoDeRuta } from './agenda.mjs';
+import { icsDeEvento } from './eventos.mjs';
+import { leerLiga, leerCampeonatoF1 } from './tablas.mjs';
+import { paginaAgenda, paginaDeEvento, paginaHoy, paginaUtil, paginaTablas, paginaLiga, paginaF1, paginaCompartir, paginaYaNoEsta } from './vistas/cierre.mjs';
+import { ultimasJson, indiceJson, serviciosJson, llmsTxt, sitemapNoticias } from './vistas/agentes.mjs';
+import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
 export const CACHE = {
@@ -70,6 +77,8 @@ const SIN_RESPUESTA = () => new Response('El sitio viejo no responde. Probá de 
 
 /** El origen del sitio viejo, o null si no está o si apuntaría a radarbalcarce.com (que sería un bucle: acá mismo). */
 export function origenViejo(env) {
+  // RESPALDO_VIEJO = "no" apaga la red de seguridad: todo lo que no es de acá da el 404 propio (el sitio viejo ya se puede apagar).
+  if (String(env?.RESPALDO_VIEJO ?? 'si').trim().toLowerCase() === 'no') return null;
   const crudo = String(env?.ORIGEN_VIEJO ?? '').trim();
   if (!crudo) return null;
   let u;
@@ -84,7 +93,12 @@ export function esRutaPropia(pathname) {
   const ruta = pathname.replace(/\/+$/, '') || '/';
   return ruta === '/' || ruta === '/robots.txt' || ruta === '/buscar' || ruta === '/sitemap.xml' || ruta === '/rss.xml' || ruta === '/feed.xml'
     || ruta === '/ads.txt' || ruta === '/clima' || ruta === '/farmacias' || ruta === '/dolar' || RUTAS_DE_TEXTO.includes(ruta.slice(1))
-    || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta);
+    || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+(?:-\d+)?$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta)
+    // Lo que servía el sitio viejo y ahora es de acá (el cierre, REGLAS.md § 10).
+    || ruta === '/hoy' || ruta === '/util' || ruta === '/tablas' || ruta === '/tablas/liga-profesional' || ruta === '/tablas/formula-1' || ruta === '/compartir'
+    || ruta === '/agenda' || /^\/agenda\/[^/]+(?:\/evento\.ics)?$/.test(ruta) || ruta === '/llms.txt' || /^\/agentes\/(?:ultimas|indice|servicios)\.json$/.test(ruta)
+    || ruta === '/sitemap-news.xml' || ruta === '/sitemap-paginas.xml' || ruta === '/sitemap-index.xml' || /^\/sitemap-notas\/\d{4}-\d{2}\/sitemap\.xml$/.test(ruta)
+    || /^\/seccion\/[a-z]+\/feed\.xml$/.test(ruta) || /^\/tema\/[^/]+$/.test(ruta) || /(?:^|\/)opengraph-image$/.test(ruta);
 }
 
 /**
@@ -163,6 +177,92 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       return { r: respuesta(DEL_DIA[ruta]({ indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: true };
     }
 
+    // ------------------------------------------------ lo que era del sitio viejo (el cierre, REGLAS.md § 10)
+    let m;
+    const gone = (que, buscar = '') => ({ r: respuesta(paginaYaNoEsta({ que, buscar }), { estado: 410, indexar: false }) });
+    const redirigir = (a, segundos = CACHE.nota[1]) => ({ r: new Response(null, { status: 301, headers: { location: a, 'cache-control': `public, max-age=${segundos}` } }), cachear: true });
+
+    if (ruta === '/sitemap-index.xml') return redirigir('/sitemap.xml');
+    m = /^\/sitemap-notas\/(\d{4}-\d{2})\/sitemap\.xml$/.exec(ruta);
+    if (m) return redirigir(`/sitemap-${m[1]}.xml`);
+    if (/(?:^|\/)opengraph-image$/.test(ruta)) return { r: noEncontrada() };
+    if (/^\/tema\/[^/]+$/.test(ruta)) return gone('Ese tema');
+
+    if (ruta === '/llms.txt') return { r: respuesta(llmsTxt(), { tipo: 'text/plain; charset=utf-8', cache: CACHE.texto }), cachear: true };
+    if (ruta === '/util') return { r: respuesta(paginaUtil({ indexar, contexto: await contextoDelDia() }), { cache: CACHE.texto, indexar }), cachear: true };
+    if (ruta === '/compartir') return { r: respuesta(paginaCompartir({ contexto: await contextoDelDia() }), { cache: CACHE.texto, indexar: false }), cachear: true };
+
+    if (ruta === '/agenda') {
+      const [contexto, ag] = await Promise.all([contextoDelDia(), leerAgenda({ traer, cache })]);
+      return { r: respuesta(paginaAgenda(ag.eventos, { ok: ag.ok, indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: ag.ok };
+    }
+
+    m = /^\/agenda\/([^/]+?)(\/evento\.ics)?$/.exec(ruta);
+    if (m) {
+      let parte;
+      try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
+      const ag = await leerAgenda({ traer, cache });
+      if (!ag.ok) return { r: respuesta('La agenda del municipio no responde. Probá de nuevo en un rato.', { tipo: 'text/plain; charset=utf-8', estado: 503, indexar: false }) };
+      const e = eventoDeRuta(ag.eventos, parte);
+      if (!e) return gone('Ese evento');
+      if (!m[2] && `/agenda/${parte}` !== e.ruta) return redirigir(e.ruta, 3600);
+      if (m[2]) {
+        const ics = icsDeEvento(e, { url: BASE + e.ruta, ahora: ahora().getTime() });
+        if (!ics) return { r: noEncontrada() };
+        return { r: respuesta(ics, { tipo: 'text/calendar; charset=utf-8', cache: CACHE.dia, indexar: false }), cachear: true };
+      }
+      const contexto = await contextoDelDia();
+      return { r: respuesta(paginaDeEvento(e, { eventos: ag.eventos, indexar, contexto }), { cache: CACHE.dia, indexar: indexar && !e.retirado }), cachear: true };
+    }
+
+    if (ruta === '/hoy') {
+      const despues = new Date(ahora().getTime() - 48 * 3600 * 1000).toISOString();
+      const [contexto, notas, ag] = await Promise.all([contextoDelDia(), consultas.listar(env, { limite: 120, despues }), leerAgenda({ traer, cache })]);
+      return { r: respuesta(paginaHoy(notas, ag.eventos, { indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: true };
+    }
+
+    if (ruta === '/tablas' || ruta === '/tablas/liga-profesional' || ruta === '/tablas/formula-1') {
+      const contexto = await contextoDelDia();
+      let html;
+      if (ruta === '/tablas') { const [liga, f1] = await Promise.all([leerLiga({ traer, cache }), leerCampeonatoF1({ traer, cache })]); html = paginaTablas(liga, f1, { indexar, contexto }); }
+      else if (ruta === '/tablas/liga-profesional') html = paginaLiga(await leerLiga({ traer, cache }), { indexar, contexto });
+      else html = paginaF1(await leerCampeonatoF1({ traer, cache }), { indexar, contexto });
+      return { r: respuesta(html, { cache: CACHE.dia, indexar }), cachear: true };
+    }
+
+    m = /^\/agentes\/(ultimas|indice|servicios)\.json$/.exec(ruta);
+    if (m) {
+      const reloj = ahora();
+      let json;
+      if (m[1] === 'ultimas') json = ultimasJson(await consultas.listar(env, { limite: 60 }), reloj);
+      else if (m[1] === 'indice') json = indiceJson(await consultas.listar(env, { limite: 1000 }), reloj);
+      else { const [c, ag] = await Promise.all([contextoDelDia(), leerAgenda({ traer, cache })]); json = serviciosJson({ farmacia: c.farmacia, clima: c.clima, eventos: ag.eventos }, reloj); }
+      return { r: respuesta(json, { tipo: 'application/json; charset=utf-8', cache: CACHE.rss, indexar: false, cabeceras: { 'access-control-allow-origin': '*' } }), cachear: true };
+    }
+
+    if (ruta === '/sitemap-news.xml') {
+      const despues = new Date(ahora().getTime() - 48 * 3600 * 1000).toISOString();
+      return { r: respuesta(sitemapNoticias(await consultas.listar(env, { limite: 300, despues }), ahora()), { tipo: XML, cache: CACHE.rss, indexar: true }), cachear: true };
+    }
+    if (ruta === '/sitemap-paginas.xml') {
+      const ag = await leerAgenda({ traer, cache });
+      return { r: respuesta(sitemapDePaginas(ag.eventos.filter((e) => !e.retirado).map((e) => e.ruta)), { tipo: XML, cache: CACHE.mapa, indexar: true }), cachear: true };
+    }
+
+    m = /^\/seccion\/([a-z]+)\/feed\.xml$/.exec(ruta);
+    if (m) {
+      const seccion = seccionDeRanura(m[1]);
+      if (!seccion) return { r: noEncontrada() };
+      const notas = await consultas.listar(env, { seccion: seccion.nombre, limite: 30 });
+      return { r: respuesta(rss(notas, { titulo: `Radar Balcarce · ${seccion.nombre}`, enlace: `${BASE}/seccion/${seccion.ranura}`, descripcion: `Las últimas notas de ${seccion.nombre} en Radar Balcarce.` }), { tipo: 'application/rss+xml; charset=utf-8', cache: CACHE.rss, indexar: true }), cachear: true };
+    }
+
+    // Las páginas de sección que el sitio viejo numeraba (/seccion/balcarce-2) y las secciones renombradas: a la dirección de hoy.
+    m = /^\/seccion\/([a-z]+)-(\d+)$/.exec(ruta);
+    if (m) return redirigir(Number(m[2]) <= 1 ? `/seccion/${m[1]}` : `/seccion/${m[1]}?pagina=${Number(m[2])}`);
+    m = /^\/seccion\/([a-z]+)$/.exec(ruta);
+    if (m && Object.hasOwn(SECCIONES_VIEJAS, m[1])) return redirigir(SECCIONES_VIEJAS[m[1]]);
+
     if (ruta === '/') {
       const dia = contextoDelDia();
       const reciente = new Date(ahora().getTime() - PORTADA.horas * 3600 * 1000).toISOString();
@@ -173,10 +273,10 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       return { r: respuesta(paginaDePortada(notas, { indexar, contexto: await dia }), { cache: CACHE.portada, indexar }), cachear: true };
     }
 
-    let m = /^\/seccion\/([a-z]+)$/.exec(ruta);
+    m = /^\/seccion\/([a-z]+)$/.exec(ruta);
     if (m) {
       const seccion = seccionDeRanura(m[1]);
-      if (!seccion) return { r: noEncontrada(), alViejo: true };
+      if (!seccion) return { r: noEncontrada() };
       const crudo = url.searchParams.get('pagina');
       const pag = crudo == null ? 1 : Number(crudo);
       if (!Number.isInteger(pag) || pag < 1 || pag > 10000) return { r: noEncontrada() };
@@ -194,10 +294,15 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       let parte;
       try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
       const id = idDeRuta(parte);
-      // Una nota que no está en la base puede ser del sistema viejo (que sigue publicando hasta que se apague): se prueba allá.
-      if (!/^[a-z0-9]{2,40}$/i.test(id) && !/^[a-z]+-\d{4}-\d{2}-\d{2}$/i.test(id)) return { r: noEncontrada(), alViejo: true };
+      const palabras = parte.slice(0, Math.max(0, parte.length - id.length - 1)).split('-').filter((w) => w.length > 2).slice(0, 4).join(' ');
+      // Una nota que no está en la base (una unida a otra o retirada por el sistema viejo, o una dirección mal escrita) nunca se pide al sitio viejo:
+      // si el sistema viejo la había unido a otra o mandado a su sección, va ahí (301); si no, «ya no está» (410) con una búsqueda con las palabras del titular.
+      if (!/^[a-z0-9]{2,40}$/i.test(id) && !/^[a-z]+-\d{4}-\d{2}-\d{2}$/i.test(id)) return gone('Esa nota', palabras);
       const nota = await consultas.notaPorId(env, id);
-      if (!nota) return { r: noEncontrada(), alViejo: true };
+      if (!nota) {
+        const nueva = Object.hasOwn(NOTAS_VIEJAS, id) ? NOTAS_VIEJAS[id] : null;
+        return nueva ? redirigir(nueva) : gone('Esa nota', palabras);
+      }
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
@@ -246,6 +351,10 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
         // Si el depósito no la tiene, la foto puede estar todavía en el sitio viejo.
         return propia.status === 404 ? alViejo(pedido, env, traer, () => propia) : propia;
       }
+      if (url.pathname === '/panel') return new Response(null, { status: 301, headers: { location: '/panel/', 'cache-control': 'public, max-age=3600' } });
+      const fijo = await servirEstatico(pedido, env, url.pathname);
+      // Si el depósito todavía no tiene el archivo (antes de subirlo), el sitio viejo lo tiene; con RESPALDO_VIEJO = "no", 404 propio.
+      if (fijo) return fijo.status === 404 ? alViejo(pedido, env, traer, () => fijo) : fijo;
       if (!esRutaPropia(url.pathname)) return alViejo(pedido, env, traer, () => noEncontrada());
       const clave = new Request(url.toString(), { method: 'GET' });
       const usaCache = cache && url.pathname !== '/buscar';

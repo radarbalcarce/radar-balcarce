@@ -182,6 +182,22 @@ jobs:
         run: |
           npx --yes wrangler@4.139.0 r2 bucket list | grep -q "radar-fotos" || npx --yes wrangler@4.139.0 r2 bucket create radar-fotos
 
+      # Los archivos fijos del sitio viejo que ahora sirve este Worker (v3/sitio/estaticos.mjs): el panel del celular, los escudos, los videos de /compartir, los íconos,
+      # el manifiesto y la verificación de Google. Salen de web/public/ y van a radar-fotos con la clave estaticos/<misma ruta>. Se pueden subir cuantas veces haga falta.
+      - name: Subir los archivos fijos (panel, escudos, íconos) a radar-fotos
+        if: env.QUE == 'sitio'
+        run: |
+          subir() { npx --yes wrangler@4.139.0 r2 object put "radar-fotos/estaticos/$1" --file "web/public/$1" --content-type "$2" --cache-control "public, max-age=300" --remote; }
+          for f in web/public/panel/*; do
+            n="panel/$(basename "$f")"
+            case "$n" in *.html) t=text/html;; *.js) t=text/javascript;; *.webmanifest) t=application/manifest+json;; *) t=application/octet-stream;; esac
+            subir "$n" "$t"
+          done
+          for f in web/public/escudos/*.png; do subir "escudos/$(basename "$f")" image/png; done
+          for f in web/public/compartir/*.mp4; do subir "compartir/$(basename "$f")" video/mp4; done
+          subir icon-192.png image/png; subir icon-512.png image/png; subir apple-touch-icon.png image/png; subir favicon.ico image/vnd.microsoft.icon
+          subir manifest.webmanifest application/manifest+json; subir 0776b1b28b613625cba478a97201b517.txt text/plain
+
       - name: Subir el sitio
         if: env.QUE == 'sitio'
         working-directory: v3/sitio
