@@ -244,7 +244,7 @@ export async function dependenciasReales(env = process.env) {
     // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de tareas en /video/<huella>/<archivo>.mp4.
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
-      await r2.guardar(`listos/${huella}/${nombre}`, fs.readFileSync(archivo), 'video/mp4');
+      await r2.guardar(`listos/${huella}/${nombre}`, typeof archivo === 'string' ? fs.readFileSync(archivo) : archivo, 'video/mp4'); // llega el mp4 ya en memoria (o, si no, su ruta)
       return `https://radar-balcarce-tareas.radarbalcarce.workers.dev/video/${encodeURIComponent(huella)}/${encodeURIComponent(nombre)}`;
     },
     // Todo reel de 3.0 habla con voz generada: TikTok lo marca como «contenido con IA» (REGLAS § 10).
