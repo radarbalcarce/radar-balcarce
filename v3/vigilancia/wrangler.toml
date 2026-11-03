@@ -1,0 +1,42 @@
+# La vigilancia de Radar 3.0 (ver worker.mjs y REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (opción vigilancia).
+name = "radar-vigilancia"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+# 0 11 y 0 23 UTC = las 8:00 y las 20:00 de Balcarce (informes); cada 30 minutos el chequeo.
+crons = ["0 11 * * *", "0 23 * * *", "*/30 * * * *"]
+
+# Qué avisó y qué problemas están abiertos. El workflow crea el KV si no existe y reemplaza el marcador.
+[[kv_namespaces]]
+binding = "ESTADO"
+id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+# Enlaces directos a los otros Workers (un Worker no puede llamar a otro de la misma cuenta por workers.dev).
+[[services]]
+binding = "NUCLEO"
+service = "radar-nucleo"
+
+[[services]]
+binding = "TELEGRAM"
+service = "radar-telegram"
+
+# El sitio (etapa C): sumar este enlace cuando radar-sitio exista y tenga GET /salud. Sin él la vigilancia no mira el sitio.
+# Si se descomenta antes de que el Worker esté subido, el despliegue falla.
+# [[services]]
+# binding = "SITIO"
+# service = "radar-sitio"
+
+# Mail al dueño si el bot de Telegram no responde. REQUIERE Email Routing activo en la zona del dominio (Cloudflare → Email → Email Routing)
+# y radarbalcarce@gmail.com verificada como dirección de destino. Si falta, el Worker sigue andando y anota en el log que no pudo mandar el mail.
+[[send_email]]
+name = "EMAIL"
+destination_address = "radarbalcarce@gmail.com"
+
+[vars]
+# Desde qué dirección sale el mail (tiene que ser de un dominio con Email Routing).
+MAIL_DE = "vigilancia@radarbalcarce.com"
+MAIL_PARA = "radarbalcarce@gmail.com"
+
+# Secreto TELEGRAM_TOKEN: lo carga el workflow desde GitHub Secrets. Nunca acá.

@@ -1,6 +1,6 @@
 # El bot de Telegram de Radar 3.0 (ver worker.mjs y REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (.github/workflows/v3-desplegar.yml).
 name = "radar-telegram"
-main = "worker.mjs"
+main = "principal.mjs"
 compatibility_date = "2026-10-01"
 # La dirección https://radar-telegram.radarbalcarce.workers.dev es la que se le registra a Telegram (DIRECCION en worker.mjs).
 workers_dev = true
@@ -14,4 +14,21 @@ crons = ["*/15 * * * *"]
 binding = "ESTADO"
 id = "REEMPLAZADO_POR_EL_WORKFLOW"
 
-# Secreto TELEGRAM_TOKEN: lo carga el workflow desde GitHub Secrets, o una persona en el panel de Cloudflare. Nunca acá.
+# La base D1 del núcleo: ahí se guardan las notas propias (tabla notas, origen redaccion). El workflow la busca (o la crea) y reemplaza el marcador.
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-nucleo"
+database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+# PERFIL.md y REDACCION.md (los que lee la IA) entran al bundle como texto.
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
+
+[vars]
+GEMINI_MODELO = "gemini-3.1-flash-lite"
+
+# Opcional, cuando exista el bucket R2 de fotos: [[r2_buckets]] binding = "FOTOS". Sin él, la foto de una nota propia queda como referencia de Telegram (pendiente).
+
+# Secretos TELEGRAM_TOKEN y GEMINI_API_KEY: lo carga el workflow desde GitHub Secrets, o una persona en el panel de Cloudflare. Nunca acá.

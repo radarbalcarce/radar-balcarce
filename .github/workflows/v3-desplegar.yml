@@ -5,6 +5,8 @@ name: "Radar 3.0: desplegar"
 #
 #   telegram   v3/redaccion/telegram/   el bot @radarbalcarce_bot (Worker radar-telegram)
 #   nucleo     v3/nucleo/               el núcleo: leer, agrupar, elegir, redactar (Worker radar-nucleo, base D1 radar-nucleo, Workers AI)
+#   sitio      v3/sitio/                el sitio (Worker radar-sitio, la misma base D1 radar-nucleo; aplica las tablas del núcleo y del sitio)
+#   migrar     v3/sitio/scripts/        pasa las notas del sistema viejo a la base (genera los .sql desde web/data/ y los corre; se puede repetir)
 #
 # Secretos de GitHub que usa (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID (los de siempre) y
 # TELEGRAM_TOKEN (el de BotFather); el núcleo suma GEMINI_API_KEY_RESPALDO (la clave PAGA de Gemini, que se carga en el Worker como GEMINI_API_KEY).
@@ -16,7 +18,7 @@ on:
       que:
         description: 'Qué subir'
         type: choice
-        options: [telegram, nucleo]
+        options: [telegram, nucleo, sitio, migrar, vigilancia]
         default: telegram
 
 permissions:
@@ -111,3 +113,71 @@ jobs:
           [ -n "$GEMINI_API_KEY" ] || echo "GEMINI_API_KEY_RESPALDO no está en GitHub Secrets: el núcleo lee y agrupa pero no redacta."
           [ -n "$TELEGRAM_TOKEN" ] || echo "TELEGRAM_TOKEN no está en GitHub Secrets: el núcleo no puede avisar por Telegram."
           node -e 'const s={};for(const k of ["GEMINI_API_KEY","TELEGRAM_TOKEN"])if(process.env[k])s[k]=process.env[k];if(!Object.keys(s).length)process.exit(3);process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml || echo "Ningún secreto para cargar."
+
+      # ------------------------------------------------------------------ sitio y migrar (comparten la base D1 del núcleo)
+      - name: Buscar la base D1 del núcleo (para el sitio)
+        if: env.QUE == 'sitio' || env.QUE == 'migrar'
+        working-directory: v3/sitio
+        run: |
+          NOMBRE="radar-nucleo"
+          buscar() {
+            npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name===process.argv[1]);process.stdout.write(x?x.uuid:'')})" "$NOMBRE"
+          }
+          ID=$(buscar)
+          if [ -z "$ID" ]; then npx --yes wrangler@4.139.0 d1 create "$NOMBRE"; ID=$(buscar); fi
+          test -n "$ID" || { echo "No se pudo encontrar ni crear la base D1"; exit 1; }
+          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+
+      # Primero las tablas del núcleo y después las del sitio. Las dos son CREATE ... IF NOT EXISTS: repetirlo no rompe ni borra nada.
+      - name: Armar las tablas (núcleo y sitio)
+        if: env.QUE == 'sitio' || env.QUE == 'migrar'
+        working-directory: v3/sitio
+        run: |
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../nucleo/db/schema.sql
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=db/schema-sitio.sql
+
+      - name: Subir el sitio
+        if: env.QUE == 'sitio'
+        working-directory: v3/sitio
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
+
+      # Los .sql son INSERT OR IGNORE en tandas de 100 notas: se puede correr cuantas veces haga falta, no pisa lo que ya está.
+      - name: Generar y correr la migración del archivo viejo
+        if: env.QUE == 'migrar'
+        working-directory: v3/sitio
+        run: |
+          node scripts/migrar.mjs
+          for f in scripts/salida/migracion-*.sql; do
+            echo "Corriendo $f"
+            npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file="$f"
+          done
+
+      # ------------------------------------------------------------------ vigilancia
+      # Requiere que radar-nucleo y radar-telegram ya estén subidos (los enlaces de servicio fallan si no existen).
+      - name: Buscar (o crear) el KV de la vigilancia
+        if: env.QUE == 'vigilancia'
+        working-directory: v3/vigilancia
+        run: |
+          TITULO="radar-vigilancia-ESTADO"
+          buscar() {
+            npx --yes wrangler@4.139.0 kv namespace list | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.title===process.argv[1]);process.stdout.write(x?x.id:'')})" "$TITULO"
+          }
+          ID=$(buscar)
+          if [ -z "$ID" ]; then npx --yes wrangler@4.139.0 kv namespace create "$TITULO"; ID=$(buscar); fi
+          test -n "$ID" || { echo "No se pudo encontrar ni crear el KV"; exit 1; }
+          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+
+      - name: Subir la vigilancia
+        if: env.QUE == 'vigilancia'
+        working-directory: v3/vigilancia
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
+
+      # El único secreto es TELEGRAM_TOKEN. Va por pipe: no se imprime. Vacío = no se carga.
+      - name: Cargar el token en la vigilancia
+        if: env.QUE == 'vigilancia'
+        working-directory: v3/vigilancia
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ]; then echo "TELEGRAM_TOKEN no está en GitHub Secrets"; exit 0; fi
+          node -e 'process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml

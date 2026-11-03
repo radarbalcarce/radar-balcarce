@@ -25,15 +25,26 @@ test('a otro chat se le dice que el bot es privado y no se guarda nada', () => {
   assert.equal(entrada, undefined);
 });
 
-test('el dueño: /estado, audio, foto, texto suelto y un comando desconocido', () => {
+test('el dueño: /estado, comandos y saludo se contestan; texto, audio y foto son material de la nota', () => {
   const dueno = { chat: 111, nombre: 'Hernán Accomo', usuario: 'hernan', desde: ahora.toISOString() };
-  const r = (extra) => decidir(mensaje(extra), dueno, ahora).respuesta.texto;
-  assert.match(r({ text: '/estado' }), /Dueño: Hernán Accomo \(@hernan\), desde el 1\/11/);
-  assert.match(r({ voice: { duration: 42 } }), /audio de 42 segundos\. Lo leo y sigo\./);
-  assert.match(r({ photo: [{ file_id: 'x' }] }), /Recibí la foto/);
-  assert.match(r({ text: 'che, mirá esto' }), /Anotado/);
-  assert.match(r({ text: '/loquesea' }), /entiendo \/estado/);
-  assert.match(r({ text: 'hola' }), /Conectado y escuchando/);
+  const d = (extra) => decidir(mensaje(extra), dueno, ahora);
+  assert.match(d({ text: '/estado' }).respuesta.texto, /Dueño: Hernán Accomo \(@hernan\), desde el 1\/11/);
+  assert.match(d({ text: '/loquesea' }).respuesta.texto, /Entiendo \/nota/);
+  assert.match(d({ text: 'hola' }).respuesta.texto, /Conectado y escuchando/);
+  for (const extra of [{ text: 'che, mirá esto' }, { voice: { duration: 42, file_id: 'x' } }, { photo: [{ file_id: 'x' }] }, { text: '/nota' }, { text: '/cancelar' }]) {
+    const r = d(extra);
+    assert.equal(r.accion, 'nota');
+    assert.equal(r.respuesta, undefined);
+    assert.ok(r.entrada);
+  }
+});
+
+test('un botón sólo cuenta si lo apretó el dueño', () => {
+  const dueno = { chat: 111, nombre: 'H', desde: ahora.toISOString() };
+  const cb = (chat) => ({ callback_query: { id: 'c', data: 'redes:x:todo', message: { chat: { id: chat }, message_id: 5 } } });
+  assert.equal(decidir(cb(111), dueno, ahora).accion, 'nota');
+  assert.deepEqual(decidir(cb(222), dueno, ahora), {});
+  assert.deepEqual(decidir(cb(111), null, ahora), {});
 });
 
 test('una actualización sin mensaje no hace nada', () => {
@@ -50,6 +61,7 @@ const kv = (inicial = {}) => {
     datos,
     async get(k, tipo) { const v = datos.get(k); return v == null ? null : tipo === 'json' ? JSON.parse(v) : v; },
     async put(k, v) { datos.set(k, String(v)); },
+    async delete(k) { datos.delete(k); },
     async list({ prefix = '' } = {}) { return { keys: [...datos.keys()].filter((k) => k.startsWith(prefix)).sort().map((name) => ({ name })), list_complete: true }; },
   };
 };
@@ -119,7 +131,9 @@ test('el dueño manda un audio: queda guardado con file_id y duración, y se le 
     assert.equal(e.file_id, 'AUDIO1');
     assert.equal(e.duracion, 42);
     assert.equal(e.respuesta_a.length, 200);
-    assert.match(falso.llamadas[0].cuerpo.text, /Recibí tu audio de 42 segundos\. Lo leo y sigo\./);
+    // Es material de la nota: se guarda para armarla (nota-propia.mjs) y se contesta «Recibido».
+    assert.match(falso.llamadas[0].cuerpo.text, /Recibido, mandá más o decí «armala»/);
+    assert.ok([...env.ESTADO.datos.keys()].some((k) => k.startsWith('mat:')));
   } finally { falso.restaurar(); }
 });
 

@@ -1,6 +1,6 @@
 # Telegram: las reglas
 
-*Módulo `v3/redaccion/telegram/`. Bot `@radarbalcarce_bot`. Worker `radar-telegram`. Última revisión: 1/11/2026.*
+*Módulo `v3/redaccion/telegram/`. Bot `@radarbalcarce_bot`. Worker `radar-telegram`. Última revisión: 2/11/2026 (etapa E).*
 
 ## Qué es
 
@@ -14,16 +14,51 @@ de avisos y a la pestaña «pedir una nota» del panel viejo.
 - Para cambiar de dueño se borra la clave `dueno` del KV `ESTADO` (panel de Cloudflare) y el próximo que escriba queda como dueño.
 - Andrés u otra persona entran cuando se decida; hoy lo maneja Hernán solo (decisión del 1/11).
 
-## Qué hace hoy (etapa A)
+## Qué hace hoy
 
 | Le mandan | Contesta |
 |---|---|
-| Primer mensaje | Que quedó como dueño y que todavía no escribe notas |
+| Primer mensaje | Que quedó como dueño |
 | `/start`, «hola» | Que está conectado |
-| `/estado` | Dueño, desde cuándo, qué etapa corre |
-| Un audio | «Recibí tu audio de N segundos. Lo leo y sigo.» (se guarda; lo transcribe la herramienta `leer`) |
-| Una foto | Que la recibió y que la nota con foto llega en la etapa E |
-| Otra cosa | «Anotado» |
+| `/estado` | Dueño, desde cuándo y cómo se arma una nota |
+| Texto, audio, foto o un enlace | «Recibido, mandá más o decí "armala"» (y lo guarda para la nota) |
+| «armala» o `/nota` | Arma la nota y muestra la vista previa |
+| `/cancelar` | Descarta lo que se venía juntando o la vista previa |
+| Un video o un sticker | Que todavía no los sabe leer |
+
+## La nota propia por Telegram (etapa E, 2/11/2026)
+
+Es el camino de las notas firmadas por Hernán (la de Nancy, la de Halloween), de punta a punta y sin la PC.
+
+1. **Contás.** Mandás por el bot lo que quieras: texto, uno o varios audios, fotos y/o un enlace, en los mensajes que haga falta. Todo lo que llega con
+   menos de 10 minutos entre un mensaje y el siguiente es el mismo pedido. Cada mensaje se contesta «Recibido, mandá más o decí "armala"» (un álbum
+   de fotos, una sola vez). Hasta 8 audios por nota.
+2. **«Armala»** (o `/nota`). El bot transcribe los audios, baja el texto del enlace (si el enlace no se puede leer, sigue sin él y se lo avisa a la IA)
+   y escribe la nota con el perfil y las reglas de redacción, como nota propia: firmada «Hernán Accomo», con tu postura cuando lo que contaste la
+   tiene, cerrando con una idea fuerte, y sin inventar nada que no esté en lo que mandaste o en el enlace. Tarda alrededor de un minuto. Con fotos
+   solas, sin nada de texto o audio, no arma.
+3. **Vista previa.** Te manda título, bajada, cuerpo, sección y qué foto usaría (la primera que mandaste; sin fotos saldría la placa). Contestás:
+   - **«ok»** (también «dale», «publicala», «sí»…): se publica. Sólo cuenta si el mensaje es *nada más* que eso: «ok pero sacá lo del tránsito» es una corrección.
+   - **«no»** o `/cancelar`: se descarta.
+   - **Cualquier otro texto o audio**: es una corrección. Rehace la nota con tu pedido, a partir de lo anterior y del material original, y vuelve a mostrar
+     la vista previa. Una foto sola pasa a ser la de portada (sin gastar IA).
+   La vista previa espera 24 horas. Si mandás material nuevo sin contestarla, se toma como corrección: para empezar de cero, `/cancelar`.
+4. **«ok» publica.** La nota se guarda en la base (`notas`: estado `publicada`, origen `redaccion`, firma «Hernán Accomo») y el bot te da el enlace
+   `radarbalcarce.com/nota/<título>-<código>`. **Todavía no hay corte:** el enlace se va a ver cuando el sitio nuevo esté en línea. La foto se sube al
+   bucket de fotos si existe; si no, queda anotada como pendiente (la referencia de Telegram) hasta que haya dónde guardarla.
+5. **Redes.** Enseguida te pregunta con tres botones: **Todo** (posteo con foto en todas las redes, historia con la tarjeta y reel con voz), **Posteo e
+   historia**, **Sólo la web**. Si no contestás en 1 hora, queda **Sólo la web** y te avisa. También podés escribir la opción. Las redes de la 3.0 todavía no
+   existen: por ahora sólo se anota la elección en la nota (columna `redes`).
+
+Límites y cuidados: contesta **sólo a Hernán** (a cualquier otro chat le dice que el bot es privado y no guarda ni gasta nada); **20 pedidos de IA por
+día** para este flujo (con el tope cumplido no arma ni corrige, pero lo que mandaste queda guardado y una vista previa ya hecha se puede publicar);
+la clave de Gemini y el token nunca se escriben en ningún mensaje ni registro. Si algo falla, el bot lo cuenta sin datos secretos y lo que mandaste sigue guardado.
+
+Técnico, corto: el estado del pedido vive en el KV `ESTADO` (`mat:…` por cada mensaje, `pedido` con la fase `vista` o `redes`); las notas, en la base D1
+`radar-nucleo` (columnas `origen`, `slug`, `publicada_en`, `redes`, que suma `schema-redaccion.sql`); el código del flujo, en `nota-propia.mjs`; el Worker
+arranca por `principal.mjs`, que le trae PERFIL.md y REDACCION.md. Hace falta el secreto `GEMINI_API_KEY` (el workflow lo carga desde
+`GEMINI_API_KEY_RESPALDO`). Cuando también escribís para contestarle a Claude (la entrevista por Telegram), esos mensajes se juntan como material de nota:
+si pasa, `/cancelar` y listo.
 
 ## Claude habla con Hernán por el bot (2/11/2026)
 
@@ -43,8 +78,8 @@ de avisos y a la pestaña «pedir una nota» del panel viejo.
 - **B (núcleo):** un mensaje por vuelta de prueba: «hoy habría publicado N notas: …». Avisos de error del núcleo.
 - **C (sitio):** aviso cuando una nota sale, con su enlace corto; aviso si el sitio no responde.
 - **D (redes):** aviso de cada reel publicado con el enlace, para compartirlo como historia a mano; errores de cada red.
-- **E (redacción propia):** audio o foto → transcribe → investiga → borrador → lo manda por acá → «sí» publica / «no» descarta /
-  texto corrige. Gacetillas y mails: resumen → «armala» → borrador → OK. Agenda: «agregá a la agenda …».
+- **E (redacción propia):** la nota propia por Telegram ya está (arriba). Falta: investigar en internet, gacetillas y mails (resumen → «armala» →
+  borrador → OK) y la agenda («agregá a la agenda …»).
 - **F (vigilancia):** informe de las 8 y de las 20 con visitas del sitio y números de las redes; aviso de gasto de IA.
 
 ## Cómo se conecta (técnico, corto)
@@ -66,5 +101,5 @@ En GitHub: Settings → Secrets and variables → Actions → New repository sec
 
 ## Pruebas
 
-`node --test "v3/**/*.test.mjs"` (sin red): quién queda como dueño, qué se contesta a cada cosa, que a un extraño no se le contesta nada
-más que «privado».
+`node --test "v3/**/*.test.mjs"` (sin red; la base es SQLite en memoria): quién queda como dueño, qué se contesta a cada cosa, que a un extraño no se le contesta nada
+más que «privado»; `nota-propia.test.mjs` cubre juntar mensajes, «armala» con audio y foto, correcciones, el «ok» a D1, los botones de redes y su valor por defecto, «no», el tope y los errores.

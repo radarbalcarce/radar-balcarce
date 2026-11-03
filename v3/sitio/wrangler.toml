@@ -1,0 +1,15 @@
+# El sitio de Radar 3.0 (ver REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (opción sitio).
+name = "radar-sitio"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# La misma base que el núcleo. El workflow la busca por nombre y reemplaza el marcador.
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-nucleo"
+database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+[vars]
+# "no" mientras viva en workers.dev (noindex en todo); "si" el día del corte.
+INDEXAR = "no"
