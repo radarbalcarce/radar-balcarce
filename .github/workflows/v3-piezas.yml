@@ -1,0 +1,95 @@
+name: "Radar 3.0: piezas de redes"
+
+# Arma las piezas de video del día de Radar 3.0 (clima, clima auspiciado, repasos, farmacia, efeméride, Participá) con la voz de siempre y, si las redes de 3.0 están prendidas,
+# las publica en Instagram y Facebook (reel e historia). Dibujar (resvg) y juntar (ffmpeg) no entra en un Worker: por eso corre acá. Quién decide QUÉ toca es el Worker
+# `radar-redes` (POST /piezas/plan: horarios, notas de la base, comercio del clima, cupo de voz); este workflow sólo ejecuta y le cuenta cómo salió. Reglas: v3/redes/REGLAS.md.
+#
+# ENSAYO por defecto: con la variable REDES_ACTIVAS del Worker radar-redes en «no» arma todo, guarda los videos como adjunto de la corrida y en la base (tabla `piezas`, con lo que
+# HABRÍA publicado y cuándo) y NO llama a Meta. El interruptor es el mismo que el de los posteos (wrangler.toml de v3/redes): prenderlo es subir «redes» con REDES_ACTIVAS = «si».
+#
+# Corre una vez por hora de 7:07 a 23:07 de Balcarce (las ventanas de las piezas son de una hora o más, así que no hace falta más; menos corridas = menos minutos si el repositorio pasa a privado).
+# A mano: Actions → «Radar 3.0: piezas de redes» → Run workflow. `solo` ensaya esas piezas (por ejemplo clima-manana,noticia1) aunque no toquen ahora; `ahora` ensaya a otra hora
+# (ISO, por ejemplo 2026-11-03T13:00:00Z). Las dos sólo valen con las redes apagadas.
+#
+# Secretos de GitHub (los pega una persona, nunca en un chat): TELEGRAM_TOKEN (de ahí sale la contraseña con el Worker), GEMINI_API_KEY_REDES (la voz), META_TOKEN (sólo para publicar de
+# verdad) y, opcional, GEMINI_API_KEY_REDES_V3: una clave de voz aparte para el ensayo, para no gastar el cupo de la clave que usa el sistema viejo.
+# Variables de GitHub (opcionales): V3_AUDIOS_POR_DIA (cupo de audios del día en esta corrida; por defecto 10), V3_REDES_URL (la dirección del Worker).
+
+on:
+  schedule:
+    - cron: '7 10-23,0-2 * * *'
+  workflow_dispatch:
+    inputs:
+      solo:
+        description: 'Ensayar sólo estas piezas, separadas por coma (clima-manana, clima-noche, farmacia, efemeride, participa-noticias, participa-evento, participa-reclamos, participa-nota, noticia1, noticia2, podcast). Vacío = lo que toca ahora'
+        type: string
+        default: ''
+      ahora:
+        description: 'Ensayar a otra hora (ISO UTC, por ejemplo 2026-11-03T13:00:00Z). Vacío = ahora'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-piezas
+  cancel-in-progress: false
+
+jobs:
+  piezas:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      TZ: America/Argentina/Buenos_Aires
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar
+        run: npm ci --no-audit --no-fund
+
+      # La memoria de voces: un mismo texto con la misma voz se pide UNA vez al día; si la pieza se rearma (falló ffmpeg, Meta contestó con error) se reusa el audio y no se gasta cupo.
+      - name: Restaurar la memoria de voces
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ github.run_id }}
+          restore-keys: |
+            voz-v3-
+
+      - name: Armar las piezas que tocan
+        run: node v3/redes/piezas/correr.mjs
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
+          GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES_V3 }}
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          REDES_URL: ${{ vars.V3_REDES_URL }}
+          AUDIOS_POR_DIA: ${{ vars.V3_AUDIOS_POR_DIA }}
+          VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
+          SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
+          SOLO: ${{ inputs.solo }}
+          AHORA: ${{ inputs.ahora }}
+
+      - name: Guardar la memoria de voces
+        if: always() && hashFiles('.cache/voz-v3/*.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/voz-v3
+          key: voz-v3-${{ hashFiles('.cache/voz-v3/*.json') }}
+
+      # El resultado del ensayo: los videos con voz y el registro de lo que habría publicado. El de verdad (publicado) queda también en Meta.
+      - name: Dejar las piezas para ver
+        if: always() && hashFiles('salida-piezas/registro.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: piezas-v3
+          path: |
+            salida-piezas/*.mp4
+            salida-piezas/*.json
+          if-no-files-found: ignore
+          retention-days: 7

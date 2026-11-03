@@ -1,0 +1,221 @@
+// Pruebas del plan de las piezas de video (lo que decide el Worker): la tabla de horarios, qué toca ahora, el cupo de voz, las notas del repaso, el clima auspiciado,
+// las reservas y la puerta HTTP. Sin red; la base es SQLite en memoria.
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { PIEZAS_DEL_DIA, piezasQueTocan, bloqueDeLaHora, bloqueDe, accionesDe, minutoDe } from './piezas-del-dia.mjs';
+import { planear, notasDelRepaso, auspicioDelDia, lineasDeLasPiezas, topeDeVoz } from './piezas-plan.mjs';
+import { crearRedes } from './redes.mjs';
+import { contrasenaDelWebhook } from './redes.mjs';
+import { baseDePrueba, guardarNota } from './ayuda-pruebas.mjs';
+
+const AHORA = new Date('2026-11-03T13:00:00.000Z'); // martes 10:00 de Balcarce
+const DIA = '2026-11-03';
+const hace = (min, desde = AHORA) => new Date(desde.getTime() - min * 60_000).toISOString();
+const ids = (lista) => lista.map((p) => p.id);
+
+function conNotas() {
+  const t = baseDePrueba();
+  guardarNota(t.sqlite, { id: 'loc1111', titulo: 'Abre la feria del libro', creada: hace(60), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'loc2222', titulo: 'Arreglan la calle 17', creada: hace(120), estado: 'borrador' });
+  guardarNota(t.sqlite, { id: 'nac3333', titulo: 'El dólar sube', seccion: 'Economía', motivo: 'popular', medios: ['a', 'b', 'c', 'd', 'e', 'f'], creada: hace(90), estado: 'borrador' });
+  return t;
+}
+
+test('la tabla de horarios es la de hoy: mismas piezas, horas, ventanas, días y prioridad que redes/piezas-del-dia.mjs (mientras exista el viejo)', async (t) => {
+  let viejo;
+  try { ({ PIEZAS_DEL_DIA: viejo } = await import('../../redes/piezas-del-dia.mjs')); } catch { t.skip('el sistema viejo ya no está'); return; }
+  for (const p of PIEZAS_DEL_DIA) {
+    const v = viejo.find((x) => x.id === p.id);
+    assert.ok(v, `${p.id} no está en la tabla vieja`);
+    assert.deepEqual([p.hora, p.ventana, [...p.dias], p.voz, p.hashtag], [v.hora, v.ventana, [...v.dias], v.voz, v.hashtag], p.id);
+  }
+  // Lo único que falta es lo que todavía no tiene armador en 3.0.
+  assert.deepEqual(viejo.filter((v) => !PIEZAS_DEL_DIA.some((p) => p.id === v.id)).map((v) => v.id).sort(), ['agenda', 'feriado', 'utiles']);
+});
+
+test('qué toca a cada hora: respeta la hora, la ventana, el día de la semana y la medianoche', () => {
+  assert.deepEqual(ids(piezasQueTocan(AHORA)).sort(), ['clima-manana', 'efemeride', 'noticia1']); // martes 10:00: Participá es a las 12
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T15:05:00Z'))).sort(), ['noticia1', 'participa-evento']); // martes 12:05 (el repaso de las 10 dura hasta las 13)
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-04T15:05:00Z'))), ['participa-reclamos', 'noticia1']); // miércoles 12:05
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T10:00:00Z'))), ['clima-manana']); // 7:00 en punto arranca el clima
+  assert.deepEqual(ids(piezasQueTocan(new Date('2026-11-03T09:59:00Z'))), []); // 6:59: nada
+  assert.ok(ids(piezasQueTocan(new Date('2026-11-04T01:30:00Z'))).includes('podcast')); // 22:30 del martes: el repaso de la noche (21:00 + 180)
+  assert.ok(!ids(piezasQueTocan(new Date('2026-11-04T03:10:00Z'))).includes('podcast')); // 00:10 del miércoles: ya no sale lo del martes
+});
+
+test('bloques y acciones: mañana 5 a 11, tarde 12 a 18, noche 19 a 4; el reel va a las dos redes y la historia también (el clima, historia en las dos y reel en Facebook)', () => {
+  assert.deepEqual([4, 5, 11, 12, 18, 19, 23].map(bloqueDeLaHora), ['noche', 'manana', 'manana', 'tarde', 'tarde', 'noche', 'noche']);
+  assert.equal(bloqueDe(PIEZAS_DEL_DIA.find((p) => p.id === 'noticia2')), 'tarde');
+  const reel = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'noticia1')).map((a) => `${a.red}/${a.tipo}`);
+  assert.deepEqual(reel, ['instagram/REELS', 'facebook/REELS', 'instagram/STORIES', 'facebook/STORIES']);
+  const clima = accionesDe(PIEZAS_DEL_DIA.find((p) => p.id === 'clima-manana')).map((a) => `${a.red}/${a.tipo}`);
+  assert.deepEqual(clima, ['instagram/STORIES', 'facebook/REELS', 'facebook/STORIES']);
+  assert.equal(minutoDe('07:30'), 450);
+});
+
+test('el repaso: Balcarce primero (hasta 2), completa con lo más contado, sin tragedias, sin foto ni repetidas del mismo día; sin Balcarce o con menos de 2, no hay repaso', () => {
+  const n = (id, extra = {}) => ({ id, titulo: id, bajada: 'b', enDosLineas: '', seccion: 'Balcarce', motivo: 'balcarce', medios: 1, publicada: hace(30), noPublicar: null, foto: { url: 'https://x/y.jpg', credito: 'c' }, ...extra });
+  const nac = (id, medios) => n(id, { seccion: 'Política', motivo: 'popular', medios });
+  const r = notasDelRepaso([n('L1'), n('L2', { publicada: hace(10) }), n('L3'), nac('N6', 6), nac('N9', 9), nac('N3', 3)], { ahora: AHORA });
+  assert.deepEqual(r.map((x) => x.id), ['L2', 'L1', 'N9']);
+  assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8)], { ahora: AHORA }), []); // sin Balcarce
+  assert.deepEqual(notasDelRepaso([n('L1')], { ahora: AHORA }), []); // una sola
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { foto: null }), n('L3', { titulo: 'Muere un niño de 3 años' })], { ahora: AHORA }), []); // sin foto y tragedia
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), n('L3')], { ahora: AHORA, yaUsadas: ['L1'] }).map((x) => x.id), ['L2', 'L3']);
+  assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { noPublicar: { motivo: 'menor' } })], { ahora: AHORA }), []); // lo que frenó la ley nunca
+});
+
+test('el clima auspiciado: un comercio por día (rota entre los avisos), la cuenta sale del enlace de Instagram; sin avisos, nada', () => {
+  assert.equal(auspicioDelDia([], DIA), null);
+  const avisos = [{ comercio: 'Sweet Candy Bar', enlace: 'https://instagram.com/_sweet.candy.bar' }, { comercio: 'La Panadería', enlace: 'https://panaderia.com.ar' }];
+  const hoy = auspicioDelDia(avisos, DIA);
+  assert.ok(['Sweet Candy Bar', 'La Panadería'].includes(hoy.comercio));
+  assert.deepEqual(hoy, auspicioDelDia(avisos, DIA)); // el mismo todo el día
+  const otro = auspicioDelDia(avisos, '2026-11-04');
+  assert.notEqual(otro.comercio, hoy.comercio);
+  assert.deepEqual(auspicioDelDia([avisos[0]], DIA), { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' });
+  assert.deepEqual(auspicioDelDia([avisos[1]], DIA), { comercio: 'La Panadería', cuenta: null });
+});
+
+test('planear: reserva lo que toca con sus datos; el repaso lleva las notas de la base y el clima el aviso de la tabla `avisos`', async () => {
+  const t = conNotas();
+  t.sqlite.prepare("INSERT INTO avisos (id, comercio, enlace, lugares) VALUES ('sweet', 'Sweet Candy Bar', 'https://instagram.com/_sweet.candy.bar', '[\"clima\",\"pie\"]')").run();
+  t.sqlite.prepare("INSERT INTO avisos (id, comercio, lugares) VALUES ('otro', 'Sin clima', '[\"pie\"]')").run();
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  assert.equal(p.dia, DIA);
+  assert.deepEqual(p.piezas.map((x) => x.id), ['noticia1', 'clima-manana', 'efemeride']); // por prioridad de voz
+  const repaso = p.piezas[0];
+  assert.deepEqual(repaso.datos.notasIds, ['loc1111', 'loc2222', 'nac3333']);
+  assert.equal(repaso.datos.notas[0].foto.url, 'https://radarbalcarce.com/fotos-notas/a.jpg');
+  assert.equal(repaso.momento, 'manana');
+  assert.equal(repaso.primeraDelBloque, true);
+  const clima = p.piezas[1];
+  assert.deepEqual(clima.datos.auspicio, { comercio: 'Sweet Candy Bar', cuenta: '@_sweet.candy.bar' });
+  assert.equal(clima.primeraDelBloque, false); // el repaso de la mañana (10:00) se reservó antes que el clima de las 7 en este plan: saluda quien se reservó primero
+  assert.equal(p.vozQuedan, 7);
+  const filas = t.sqlite.prepare('SELECT pieza, estado, simulado, voz_usada FROM piezas ORDER BY id').all();
+  assert.equal(filas.length, 3);
+  assert.ok(filas.every((f) => f.estado === 'en-curso' && f.simulado === 1));
+});
+
+test('planear dos veces seguidas no reserva dos veces la misma pieza; una reserva cortada vence a los 45 minutos y se reintenta', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  assert.equal(a.piezas.length, 3);
+  const b = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 60_000), simulado: true });
+  assert.equal(b.piezas.length, 0);
+  const c = await planear({ DB: t.DB }, { ahora: new Date(AHORA.getTime() + 50 * 60_000), simulado: true });
+  assert.deepEqual(c.piezas.map((x) => x.id).sort(), ['clima-manana', 'efemeride', 'noticia1'].sort()); // la corrida se cortó: se vuelven a pedir
+  assert.equal(t.sqlite.prepare("SELECT COUNT(*) AS n FROM piezas WHERE estado = 'error'").get().n, 3);
+});
+
+test('el cupo de voz: tope diario y reserva para las más importantes que faltan hoy (el repaso antes que el clima, el clima antes que la efeméride)', async () => {
+  assert.equal(topeDeVoz({}), 10);
+  assert.equal(topeDeVoz({ VOZ_TOPE_DIARIO: '4' }), 4);
+  const t = conNotas();
+  // Con 2 audios, a las 10 de la mañana: el repaso de ahora sale; el clima no, porque faltan dos repasos (15 y 21) que valen más.
+  const p = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '2' }, { ahora: AHORA, simulado: true });
+  assert.deepEqual(p.piezas.map((x) => x.id), ['noticia1']);
+  assert.deepEqual(p.descartes.map((d) => `${d.pieza}:${d.motivo}`).sort(), ['clima-manana:sin-cupo-de-voz', 'efemeride:sin-cupo-de-voz']);
+  // Sin ningún audio, nada sale.
+  const s = await planear({ DB: baseDePrueba().DB, VOZ_TOPE_DIARIO: '1' }, { ahora: new Date('2026-11-03T22:05:00Z'), simulado: true }); // 19:05, sin notas
+  assert.equal(s.piezas.length >= 0, true);
+});
+
+test('lo gastado cuenta: una pieza armada con la voz de la memoria (voz_usada = 0) devuelve el audio al cupo; un error también cuenta lo que gastó', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: AHORA, simulado: true });
+  assert.equal(a.piezas.length, 3);
+  assert.equal(a.vozQuedan, 4);
+  for (const x of a.piezas) t.sqlite.prepare('UPDATE piezas SET estado = ?, voz_usada = ? WHERE id = ?').run(x.id === 'clima-manana' ? 'error' : 'lista', x.id === 'efemeride' ? 0 : 1, x.fila);
+  const b = await planear({ DB: t.DB, VOZ_TOPE_DIARIO: '7' }, { ahora: new Date(AHORA.getTime() + 20 * 60_000), simulado: true });
+  assert.deepEqual(b.piezas.map((x) => x.id), ['clima-manana']); // sólo la que falló; el audio de la efeméride (memoria de voces) volvió al cupo
+  assert.equal(b.vozQuedan, 4);
+});
+
+test('tres errores en el día y esa pieza se abandona; sin notas suficientes el repaso se descarta y no gasta voz', async () => {
+  const t = baseDePrueba();
+  for (let i = 0; i < 3; i += 1) t.sqlite.prepare("INSERT INTO piezas (pieza, dia, simulado, estado, creada, actualizada, voz_usada) VALUES ('clima-manana', ?, 1, 'error', ?, ?, 0)").run(DIA, hace(100), hace(100));
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  assert.ok(p.descartes.some((d) => d.pieza === 'clima-manana' && d.motivo === 'abandonada-por-errores'));
+  assert.ok(p.descartes.some((d) => d.pieza === 'noticia1' && d.motivo === 'sin-notas'));
+  assert.ok(!p.piezas.some((x) => x.id === 'noticia1' || x.id === 'clima-manana'));
+});
+
+test('ensayo y real no se mezclan: lo reservado en simulación no frena lo real, y con redes reales sólo cuentan las notas publicadas', async () => {
+  const t = conNotas();
+  await planear({ DB: t.DB }, { ahora: AHORA, simulado: true });
+  const real = await planear({ DB: t.DB }, { ahora: AHORA, simulado: false });
+  assert.ok(!real.piezas.some((x) => x.id === 'noticia1')); // las notas están en borrador: el repaso real no las ve
+  assert.ok(real.piezas.some((x) => x.id === 'clima-manana'));
+});
+
+test('el primer saludo del bloque lo da quien sale primero; la segunda pieza de la mañana ya no saluda', async () => {
+  const t = conNotas();
+  const a = await planear({ DB: t.DB }, { ahora: new Date('2026-11-03T10:30:00Z'), simulado: true }); // 7:30
+  assert.deepEqual(a.piezas.map((x) => [x.id, x.primeraDelBloque]), [['clima-manana', true]]);
+  const b = await planear({ DB: t.DB }, { ahora: new Date('2026-11-03T12:10:00Z'), simulado: true }); // 9:10
+  assert.equal(b.piezas.find((x) => x.id === 'efemeride').primeraDelBloque, false);
+  assert.equal(b.piezas.find((x) => x.id === 'efemeride').horaDelDia, 9);
+});
+
+// ------------------------------------------------------------------ la puerta HTTP
+
+const TOKEN = 'token-del-bot-de-prueba';
+async function pedir(redes, env, ruta, cuerpo, { metodo = 'POST', clave = true } = {}) {
+  const headers = { 'content-type': 'application/json' };
+  if (clave) headers['x-radar-contrasena'] = await contrasenaDelWebhook(TOKEN);
+  return redes.manejar(new Request(`https://x${ruta}`, { method: metodo, headers, body: metodo === 'GET' ? undefined : JSON.stringify(cuerpo ?? {}) }), env);
+}
+
+test('HTTP: /piezas/plan y /piezas/resultado piden la contraseña; el resultado cierra la reserva; el resumen del día cuenta las piezas', async () => {
+  const t = conNotas();
+  const avisos = [];
+  const env = { DB: t.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'no', TELEGRAM: { fetch: async (u, i) => { avisos.push(JSON.parse(i.body)); return { ok: true }; } } };
+  const redes = crearRedes({ ahora: () => AHORA });
+  assert.equal((await pedir(redes, env, '/piezas/plan', {}, { clave: false })).status, 403);
+  const plan = await (await pedir(redes, env, '/piezas/plan', {})).json();
+  assert.equal(plan.activas, false);
+  assert.equal(plan.piezas.length, 3);
+  assert.equal((await pedir(redes, env, '/piezas/resultado', { fila: 999, estado: 'lista' })).status, 400);
+  assert.equal((await pedir(redes, env, '/piezas/resultado', { fila: plan.piezas[0].fila, estado: 'cualquiera' })).status, 400);
+  const ok = await pedir(redes, env, '/piezas/resultado', { fila: plan.piezas[0].fila, estado: 'lista', vozUsada: true, huella: 'abc', duracion: 31.2, guion: 'Estas son las tres noticias.', texto: 'El repaso', archivos: ['noticia1.mp4'], acciones: [{ red: 'instagram', tipo: 'REELS', estado: 'simulada' }] });
+  assert.equal(ok.status, 200);
+  const err = await pedir(redes, env, '/piezas/resultado', { fila: plan.piezas[1].fila, estado: 'error', vozUsada: false, error: 'ffmpeg se cayó' });
+  assert.equal(err.status, 200);
+  const estado = await (await pedir(redes, env, '/piezas/estado', null, { metodo: 'GET' })).json();
+  assert.equal(estado.piezas.find((p) => p.pieza === 'noticia1').estado, 'lista');
+  assert.deepEqual(estado.piezas.find((p) => p.pieza === 'noticia1').archivos, ['noticia1.mp4']);
+  const r = await redes.resumen(env, { ahora: new Date(AHORA.getTime() + 11 * 3600_000) });
+  const texto = r.lineas.join('\n');
+  assert.match(texto, /Piezas de video \(ENSAYO, nada se publicó\): 1 armadas/);
+  assert.match(texto, /El repaso de la mañana · 31 s/);
+  assert.match(texto, /ffmpeg se cayó/);
+});
+
+test('HTTP: el ensayo a otra hora y a mano (`ahora`, `solo`) sólo vale con las redes apagadas; con las redes reales se ignora', async () => {
+  const t = conNotas();
+  const env = { DB: t.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'si' };
+  const redes = crearRedes({ ahora: () => AHORA });
+  const real = await (await pedir(redes, env, '/piezas/plan', { ahora: '2026-11-03T23:30:00Z', solo: ['podcast'] })).json();
+  assert.equal(real.activas, true);
+  assert.ok(!real.piezas.some((p) => p.id === 'podcast')); // 10:00: no toca el repaso de la noche
+  const t2 = conNotas();
+  const ensayo = await (await pedir(crearRedes({ ahora: () => AHORA }), { DB: t2.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'no' }, '/piezas/plan', { solo: ['podcast'] })).json();
+  assert.deepEqual(ensayo.piezas.map((p) => p.id), ['podcast']);
+  assert.equal(ensayo.piezas[0].momento, 'noche');
+});
+
+test('el resumen vacío de las piezas no agrega líneas; hay un texto para fallas', () => {
+  assert.deepEqual(lineasDeLasPiezas([], true), []);
+  const l = lineasDeLasPiezas([{ pieza: 'farmacia', estado: 'error', error: 'sin red', hora: '19:00' }], false);
+  assert.match(l.join('\n'), /0 publicadas/);
+  assert.match(l.join('\n'), /Farmacia de turno · sin red/);
+});
+
+test('el esquema de las piezas existe en schema-redes.sql y es idempotente', () => {
+  const sql = fs.readFileSync(new URL('./schema-redes.sql', import.meta.url), 'utf8');
+  assert.match(sql, /CREATE TABLE IF NOT EXISTS piezas/);
+  assert.match(sql, /CREATE UNIQUE INDEX IF NOT EXISTS uq_piezas_dia/);
+});

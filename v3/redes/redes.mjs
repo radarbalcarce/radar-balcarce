@@ -11,6 +11,8 @@ import { publicarEnFacebook } from './facebook/publicar.mjs';
 import { publicarEnInstagram } from './instagram/publicar.mjs';
 import { crearCliente, ErrorMeta, PAGINA_DE_FACEBOOK, sinToken } from './meta.mjs';
 import * as db from './db.mjs';
+import * as dbp from './piezas-db.mjs';
+import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -144,7 +146,9 @@ export function crearRedes(deps = {}) {
       lineas.push(`Fallaron ${errores.length} intentos:`);
       for (const h of errores.slice(0, 5)) lineas.push(`• ${hora(h.cuando)} · ${h.red} · ${h.error ?? 'sin detalle'}`);
     }
-    if (!fb.length && !ig.length && !errores.length) lineas.push('No hubo nada que publicar (ninguna nota con foto, sin tono triste, de Balcarce o muy contada).');
+    const piezas = await dbp.piezasDelDia(env, dia, simulado).catch(() => []);
+    lineas.push(...lineasDeLasPiezas(piezas, simulado));
+    if (!fb.length && !ig.length && !errores.length && !piezas.length) lineas.push('No hubo nada que publicar (ninguna nota con foto, sin tono triste, de Balcarce o muy contada).');
     const salio = await decirPorTelegram(env, lineas.join('\n'), fetchFn);
     return { dia, simulado, facebook: fb.length, instagram: ig.length, errores: errores.length, avisado: salio, lineas };
   }
@@ -180,6 +184,30 @@ export function crearRedes(deps = {}) {
         if (!Number.isNaN(d.getTime())) opciones.ahora = d;
       }
       return json(url.pathname === '/vuelta' ? await vuelta(env, opciones) : await resumen(env, opciones));
+    }
+    // Las piezas de video: el programa de GitHub Actions (v3/redes/piezas/correr.mjs) pide el plan, arma las piezas con la voz y cuenta cómo salió. Mismo candado que /vuelta.
+    if (pedido.method === 'POST' && (url.pathname === '/piezas/plan' || url.pathname === '/piezas/resultado')) {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      let cuerpo = {};
+      try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
+      if (url.pathname === '/piezas/resultado') {
+        const r = await registrarResultado(env, cuerpo, { ahora: reloj() });
+        return json(r, r.error ? 400 : 200);
+      }
+      const simulado = !redesActivas(env);
+      const opciones = { simulado };
+      if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
+      if (!opciones.ahora) opciones.ahora = reloj();
+      if (Array.isArray(cuerpo?.solo) && cuerpo.solo.length && simulado) opciones.solo = cuerpo.solo.map(String);
+      return json({ activas: !simulado, ...(await planear(env, opciones)) });
+    }
+    if (pedido.method === 'GET' && url.pathname === '/piezas/estado') {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      const ahora = reloj();
+      const dia = url.searchParams.get('dia') || diaDeBalcarce(ahora);
+      return json({ dia, simulado: !redesActivas(env), piezas: await dbp.piezasDelDia(env, dia, !redesActivas(env)) });
     }
     return json({ error: 'no encontrado' }, 404);
   }

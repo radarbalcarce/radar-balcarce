@@ -1,7 +1,7 @@
 # Las piezas animadas de redes: las reglas
 
 *Módulo `v3/redes/piezas/` (Radar 3.0, etapa D). Arma, como datos, cada pieza de las redes y la dibuja con el motor de siempre (resvg + ffmpeg). **No publica nada, no pide la voz y
-no usa claves.** Escrito el 3/11/2026 con `docs/propuestas/REDES-3-0-FORMATOS.md` y las respuestas de Hernán del 3/11 (`PLAN-RADAR-3-0.md`, sección 10); **rehecho ese mismo día después
+no usa claves** (eso lo hace `correr.mjs`, que arma estas piezas en GitHub Actions con la voz y las publica o las deja en ensayo: `../REGLAS.md` § 11). Escrito el 3/11/2026 con `docs/propuestas/REDES-3-0-FORMATOS.md` y las respuestas de Hernán del 3/11 (`PLAN-RADAR-3-0.md`, sección 10); **rehecho ese mismo día después
 de que Hernán viera los primeros ejemplos** («muy comprimido, todo para arriba; mucho mejor la que está hoy, el formato de hoy; más visual, aunque Facebook tape algún texto»): los
 videos usan **las escenas de hoy tal cual** (`reels/escenas/`, `reels/placa.mjs`, `reels/animacion.mjs`) y este módulo sólo suma lo nuevo. Si el programa hace otra cosa que
 esto, el programa está mal. Los números están todos en `variables.mjs`.*

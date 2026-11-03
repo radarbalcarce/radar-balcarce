@@ -1,7 +1,6 @@
 # Las redes: las reglas
 
-*Módulo `v3/redes/` (Worker `radar-redes`). Hoy hace una sola cosa: **publicar las notas del sitio en Facebook, con su espejo en Instagram**. Los reels con voz,
-las placas, las historias, X, Threads, TikTok, YouTube y el canal de Telegram vienen después (etapa D, segunda parte); hasta el corte siguen saliendo por el sistema
+*Módulo `v3/redes/` (Worker `radar-redes`). Hace dos cosas: **publicar las notas del sitio en Facebook, con su espejo en Instagram** (§ 1 a 9) y **armar y publicar las piezas de video con voz** (§ 11, en ensayo). X, Threads, TikTok, YouTube y el canal de Telegram vienen después (etapa D, segunda parte); hasta el corte siguen saliendo por el sistema
 viejo. Escrito el 3/11/2026 con las decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.9 y sección 10). Si el programa hace otra cosa que esto, el programa está mal.*
 
 Cada red tiene su propio `REGLAS.md` con el detalle: `facebook/REGLAS.md` e `instagram/REGLAS.md`. Acá va lo que comparten.
@@ -94,3 +93,26 @@ SQLite en memoria (simulado y real) y la puerta HTTP. Sin red.
 
 Lo que **no cambia nunca**: el aviso «Voz generada con inteligencia artificial.» en todo lo que habla, la sección de la nota en su color, el crédito de la foto en el pie, nada rojo ni de menores, y **ninguna pieza sale sin pasar por la
 compuerta de tono** (R41). Todo lo que va a Instagram es video con voz, salvo el espejo de cada posteo de Facebook.
+
+## 11. Las piezas de video (reels e historias con voz): armadas en ensayo
+
+*Qué sale, a qué hora y con qué dibujo: `piezas/REGLAS.md` (el dibujo es el de hoy) y la tabla de horarios `piezas-del-dia.mjs` (los de hoy). Este apartado es sólo cómo se arman y se publican.*
+
+**Quién hace qué.** El Worker `radar-redes` **decide**; GitHub Actions **dibuja y habla** (resvg y ffmpeg no corren en un Worker; el repositorio es público y los minutos son gratis). Los dos hablan por HTTP con la misma contraseña que el bot (derivada de `TELEGRAM_TOKEN`):
+
+1. El workflow «Radar 3.0: piezas de redes» (`v3-piezas.yml`, una vez por hora de 7:07 a 23:07, o a mano) corre `piezas/correr.mjs`.
+2. `POST /piezas/plan` al Worker: mira la tabla de horarios (hora, ventana, día de la semana), **reserva** en la tabla `piezas` lo que toca y le arma los datos que salen de la base: las notas del repaso (Balcarce primero, hasta 2; lo demás, lo más contado; 3 en total, con foto, sin tono triste, sin lo que frenó la ley y sin repetir las de un repaso anterior del día) y el comercio del clima (tabla `avisos`, lugar `clima`; uno por día, rotando; la cuenta de Instagram sale del enlace; sin aviso, clima normal).
+3. El programa junta lo que no está en la base (clima de Open-Meteo, farmacia de turno del sitio del Colegio, efeméride de `web/data/efemerides-piezas.json`), arma la pieza, **pide la voz** (la locutora o el locutor propios, `CRITERIO-REDES.md` § 6), dibuja el video con la voz y los subtítulos de la voz y le cuenta el resultado al Worker (`POST /piezas/resultado`).
+4. **Ensayo** (`REDES_ACTIVAS` en «no», el mismo interruptor que los posteos): el mp4, el mp3 y un `.json` por pieza quedan como adjunto de la corrida (7 días) y la fila de `piezas` queda en «lista» con el guion, el texto del posteo, los archivos y **lo que se habría publicado** (red, reel o historia; la hora está en la fila). **No se llama nunca a Meta.** El resumen de las 22:05 cuenta las piezas armadas y las fallas. **Real** («si»): reel e historia en Instagram y Facebook (el clima y la farmacia: historia en Instagram, y reel e historia en Facebook), con el mismo mp4.
+
+**Reglas que no cambian.**
+- **Cupo de voz: 10 audios por día** (`VOZ_TOPE_DIARIO` en el Worker lo cambia). El Worker no reserva una pieza si dejaría sin audio a otra más importante que falta hoy (el repaso antes que el clima y la farmacia, esos antes que la efeméride, todos antes que Participá). Un audio de la memoria de voces no gasta cupo. Si Google dice que se acabó el del día, la pieza queda en «sin-cupo» y **no sale**: nunca con otra voz.
+- Cada pieza sale **una sola vez por día y por modo** (índice único). Si falla, se reintenta en la corrida siguiente, hasta 3 errores; si falta un dato de afuera («sin-datos»: el clima no responde, no hay efeméride preparada) tampoco gasta voz y se reintenta mientras dure su ventana. Una reserva que no vuelve en 45 minutos se da por cortada.
+- **Ensayo sin voz:** mientras `REDES_ACTIVAS` sea «no» y no exista el secreto `GEMINI_API_KEY_REDES_V3`, las piezas se dibujan MUDAS (subtítulos estimados del guion; el `.json` dice «sin voz: ensayo») para no gastar el cupo de la clave del sistema viejo. Con `_V3` hablan; en real, con `GEMINI_API_KEY_REDES`.
+- Ensayo y real no se mezclan (cupos y reservas por separado), y `solo`/`ahora` sólo valen con las redes apagadas.
+- El texto del posteo: nombre de la pieza, lo que cuenta, «Voz generada con inteligencia artificial.», `#Balcarce #RadarBalcarce` y el tema; Facebook con `radarbalcarce.com`, Instagram con «link en la bio». Nunca la fuente ni `.com.ar`.
+- Si la voz dura más que el video, la última escena se estira para no cortarla (los tiempos finos de cada placa contra la voz: pendiente).
+- **Todavía no tienen armador en 3.0** (no salen en ensayo; las sigue haciendo el sistema viejo): agenda del fin de semana, teléfonos útiles, feriado y avisos de clima por helada, granizo o viento.
+
+**Secretos y variables.** GitHub: `TELEGRAM_TOKEN`, `GEMINI_API_KEY_REDES`, `META_TOKEN`; opcional `GEMINI_API_KEY_REDES_V3` (una clave de voz aparte para el ensayo: con la misma clave del sistema viejo, los dos gastan el mismo cupo de Google); variables `V3_AUDIOS_POR_DIA`, `V3_REDES_URL`. Worker: `REDES_ACTIVAS`, `VOZ_TOPE_DIARIO` (opcional).
+**Cómo se prueba:** `node --test "v3/redes/**/*.test.mjs"` (el plan con la base en memoria; el programa de punta a punta contra el Worker de verdad, con una voz, un dibujo y un Meta de mentira).

@@ -1,0 +1,197 @@
+// El programa que arma las piezas de video del día (Radar 3.0, etapa D). Corre en GitHub Actions (workflow «Radar 3.0: piezas de redes», v3-piezas.yml), porque dibujar (resvg) y
+// juntar (ffmpeg) no entra en un Worker. NO decide qué toca: se lo pide al Worker `radar-redes` (POST /piezas/plan, que lo saca de la tabla de horarios y de la base del núcleo y
+// lo reserva), y después le cuenta cómo salió (POST /piezas/resultado). Para cada pieza del plan:
+//   1. junta los datos que no están en la base (clima, farmacia, efeméride) y la arma (armadores.mjs);
+//   2. pide la voz a Gemini (la de hoy, CRITERIO-REDES.md § 6; cupo 10 audios por día; si no hay cupo, la pieza NO sale, nunca con otra voz);
+//   3. dibuja el video con la voz y los subtítulos de la voz (render.mjs);
+//   4. ENSAYO (REDES_ACTIVAS «no» en el Worker): sin GEMINI_API_KEY_REDES_V3 el video sale MUDO (subtítulos estimados, el .json dice «sin voz: ensayo»); guarda el mp4 y el registro de lo que HABRÍA publicado y cuándo, y NO llama a Meta. REAL («si»): publica reel e historia en las dos redes.
+// Ninguna clave va en el código: GEMINI_API_KEY_REDES (o GEMINI_API_KEY_REDES_V3), META_TOKEN y TELEGRAM_TOKEN llegan por el entorno desde GitHub Secrets.
+//
+//   node v3/redes/piezas/correr.mjs                 lo que toca ahora
+//   SOLO=clima-manana,noticia1 node …/correr.mjs    ensayar esas piezas a mano (sólo con las redes apagadas; no mira el horario pero sí el cupo de voz)
+//   AHORA=2026-11-03T13:00:00Z node …/correr.mjs    ensayar a otra hora (sólo con las redes apagadas)
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { pathToFileURL } from 'node:url';
+import {
+  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa,
+} from './armadores.mjs';
+import { efemerideDelDia, fechaLarga, leerClima, leerFarmaciaDeTurno } from './datos.mjs';
+import { accionesConTexto, publicarPieza, simularPublicacion, textoDePieza } from './publicar.mjs';
+import { contrasenaDelWebhook } from '../redes.mjs';
+
+const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
+export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
+
+/** Falta un dato de afuera (el clima no responde, no hay farmacia ni efeméride preparada): la pieza no sale ahora y se vuelve a intentar. */
+export class SinDatos extends Error {}
+/** No hay cupo de voz (Google dice que se acabó el del día): la pieza no sale, nunca con otra voz. El cupo propio de 10 lo cuida el Worker al hacer el plan: cada pieza que llega ya tiene su audio reservado. */
+export class SinCupo extends Error {}
+
+const hash = (t) => crypto.createHash('sha256').update(t).digest('hex').slice(0, 24);
+
+/** La pieza armada (datos puros) de una entrada del plan. Tira `SinDatos` si falta algo de afuera. */
+export function armarDelPlan(item, { dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null }) {
+  const op = { hora: item.horaDelDia, primeraDelBloque: item.primeraDelBloque };
+  switch (item.arma) {
+    case 'clima':
+      if (!clima) throw new SinDatos('no hay clima (Open-Meteo no respondió)');
+      return armarClima(clima, { auspicio: item.datos?.auspicio ?? null, fecha: dia, momento: item.id === 'clima-noche' ? 'noche' : 'manana', ...op });
+    case 'farmacia':
+      if (!farmacia) throw new SinDatos('no hay farmacia de turno para hoy');
+      return armarFarmacia(farmacia.farmacias, { fecha: farmacia.fecha, ...op });
+    case 'efemeride':
+      if (!efemeride) throw new SinDatos(`no hay efeméride preparada para ${dia}`);
+      return armarEfemeride(efemeride, { fecha: dia, anioActual: Number(dia.slice(0, 4)), ...op });
+    case 'participa':
+      return armarParticipa(item.variante, op);
+    case 'repaso':
+      return armarRepaso(item.datos?.notas ?? [], { fecha: fechaLarga(ahora), momento: item.momento, ...op });
+    default:
+      throw new Error(`no conozco el armador «${item.arma}»`);
+  }
+}
+
+/** La misma pieza con la última escena más larga si la voz de verdad dura más que el video (para no cortarla). Los tiempos finos de las placas contra la voz: pendiente (REGLAS.md). */
+export function ajustarALaVoz(pieza, segundosDeVoz) {
+  const falta = segundosDeVoz + 0.8 - pieza.duracion;
+  if (!(falta > 0)) return pieza;
+  const escenas = pieza.escenas.map((e, i) => (i === pieza.escenas.length - 1 ? { ...e, duracion: Number((e.duracion + falta).toFixed(2)) } : e));
+  return { ...pieza, escenas, duracion: Number((pieza.duracion + falta).toFixed(2)) };
+}
+
+/** El resumen de lo que hay que mirar para saber si dos corridas armaron lo mismo (el guion, las escenas sin las fotos bajadas). */
+export const huellaDeLaPieza = (pieza) => hash(JSON.stringify([pieza.id, pieza.guion, pieza.escenas.map((e) => [e.tipo, e.duracion, e.datos?.titulo ?? null])]));
+
+async function pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn }) {
+  const r = await fetchFn(`${url}${ruta}`, { method: 'POST', headers: { 'content-type': 'application/json', 'x-radar-contrasena': contrasena }, body: JSON.stringify(cuerpo) });
+  if (!r.ok) throw new Error(`${ruta}: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
+  return r.json();
+}
+
+/**
+ * Una corrida completa. Todo lo de afuera entra por `deps` (en las pruebas son de mentira; `dependenciasReales` arma las de verdad).
+ * @param {object} o  { env, ahora, carpeta, deps: { fetchFn, leerClima, leerFarmacia, leerEfemerides, decir, renderizar, subtitulos, clienteMeta, log } }
+ */
+export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
+  const log = deps.log ?? console.log;
+  const url = (env.REDES_URL || DIRECCION_DE_LAS_REDES).replace(/\/$/, '');
+  if (!env.TELEGRAM_TOKEN) throw new Error('falta TELEGRAM_TOKEN (la contraseña entre el programa y el Worker de redes se deriva de ahí)');
+  const contrasena = await contrasenaDelWebhook(env.TELEGRAM_TOKEN);
+  const llamar = (ruta, cuerpo) => pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn: deps.fetchFn });
+
+  const solo = String(env.SOLO ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+  const plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}) });
+  const reloj = env.AHORA && !plan.activas ? new Date(env.AHORA) : ahora;
+  log(`plan ${plan.dia}: ${plan.piezas.length} piezas, voz ${plan.vozQuedan}/${plan.vozTope}, ${plan.activas ? 'REAL' : 'ENSAYO (no se publica)'}${plan.descartes.length ? `; descartadas: ${plan.descartes.map((d) => `${d.pieza} (${d.motivo})`).join(', ')}` : ''}`);
+  const salida = { dia: plan.dia, activas: plan.activas, piezas: [], descartes: plan.descartes };
+  if (!plan.piezas.length) return salida;
+
+  fs.mkdirSync(carpeta, { recursive: true });
+  // Los datos de afuera se piden una sola vez por corrida, y sólo si alguna pieza los necesita.
+  const necesita = (arma) => plan.piezas.some((p) => p.arma === arma);
+  const datos = {
+    clima: necesita('clima') ? await deps.leerClima() : null,
+    farmacia: necesita('farmacia') ? await deps.leerFarmacia() : null,
+    efemeride: necesita('efemeride') ? efemerideDelDia(await deps.leerEfemerides(), plan.dia) : null,
+  };
+
+  for (const item of plan.piezas) {
+    const informe = { pieza: item.id, fila: item.fila, estado: 'error', vozUsada: false };
+    try {
+      let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datos });
+      const huella = huellaDeLaPieza(pieza);
+      Object.assign(informe, { huella, guion: pieza.guion });
+
+      const base = path.join(carpeta, item.id);
+      // ENSAYO sin clave de voz propia (GEMINI_API_KEY_REDES_V3): el video sale MUDO, con subtítulos estimados, para no gastar el cupo de la clave del sistema viejo.
+      const mudo = !plan.activas && !env.GEMINI_API_KEY_REDES_V3;
+      let voz = null;
+      if (mudo) informe.sinVoz = 'sin voz: ensayo';
+      else {
+        voz = await deps.decir(pieza.guion, `${base}.mp3`, { voz: pieza.voz, pieza: item.id, bloque: item.bloque, activas: plan.activas });
+        informe.vozUsada = !voz.deLaMemoria;
+        pieza = ajustarALaVoz(pieza, voz.duracion);
+      }
+      informe.duracion = pieza.duracion;
+
+      const subtitulos = mudo ? deps.subtitulosEstimados(pieza) : deps.subtitulos(voz.palabras);
+      const r = await deps.renderizar(pieza, `${base}.mp4`, { voz: voz?.archivo ?? null, subtitulos });
+      const acciones = accionesConTexto(pieza, item);
+      informe.texto = acciones[0]?.pie || textoDePieza(pieza, item, 'facebook');
+      informe.archivos = mudo ? [`${item.id}.mp4`, `${item.id}.json`] : [`${item.id}.mp4`, `${item.id}.mp3`, `${item.id}.json`];
+
+      if (plan.activas) {
+        const cliente = deps.clienteMeta();
+        const mp4 = fs.readFileSync(r.mp4);
+        informe.acciones = await publicarPieza({ cliente, mp4, acciones, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
+        const buenas = informe.acciones.filter((a) => a.estado === 'ok').length;
+        informe.estado = buenas ? 'publicada' : 'error';
+        if (!buenas) informe.error = `Meta rechazó todo: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error}`).join(' | ').slice(0, 400)}`;
+      } else {
+        informe.acciones = simularPublicacion(acciones);
+        informe.estado = 'lista';
+      }
+      fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
+      log(`${item.id}: ${informe.estado} · ${pieza.duracion} s · voz ${informe.vozUsada ? 'nueva' : 'de la memoria'}`);
+    } catch (e) {
+      informe.estado = e instanceof SinDatos ? 'sin-datos' : (e instanceof SinCupo || e?.sinCupo) ? 'sin-cupo' : 'error';
+      informe.error = String(e?.message ?? e).slice(0, 500);
+      log(`${item.id}: ${informe.estado} · ${informe.error}`);
+    }
+    salida.piezas.push(informe);
+    try { await llamar('/piezas/resultado', informe); } catch (e) { log(`${item.id}: no pude contarle al Worker cómo salió (${e.message})`); informe.sinAnotar = true; }
+  }
+  fs.writeFileSync(path.join(carpeta, 'registro.json'), JSON.stringify(salida, null, 2));
+  return salida;
+}
+
+/** Las dependencias de verdad (dibujo, voz, Meta, Open-Meteo, el sitio de farmacias). Se cargan acá y no arriba para que las pruebas no necesiten resvg, ffmpeg ni claves. */
+export async function dependenciasReales(env = process.env) {
+  const { decirGemini } = await import('../../../reels/voz-gemini.mjs');
+  const { VOCES, INDICACIONES, componerIndicacion } = await import('../../../redes/prompt-redes.mjs');
+  const { paraLeer, enCarteles } = await import('../../../reels/voz.mjs');
+  const { armarAss } = await import('../../../reels/reel.mjs');
+  const { SinCupoDeVoz } = await import('../../../reels/cupo-voz.mjs');
+  const { crearCliente, PAGINA_DE_FACEBOOK } = await import('../../../redes/meta.mjs');
+  const { resolverFotos, armarEscenaDeVideo, armarVideo, subtitulosEstimados } = await import('./render.mjs');
+  const { leerFarmacia } = await import('../../sitio/datos-del-dia.mjs');
+  return {
+    fetchFn: fetch,
+    leerClima: () => leerClima({}),
+    leerFarmacia: () => leerFarmaciaDeTurno({ leerDelSitio: leerFarmacia }),
+    leerEfemerides: async () => JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-piezas.json'), 'utf8')),
+    async decir(guion, destino, { voz, pieza, bloque, activas }) {
+      // En ensayo con clave aparte (_V3) habla con ésa; en real, con GEMINI_API_KEY_REDES, como hoy.
+      if (!activas && env.GEMINI_API_KEY_REDES_V3) process.env.GEMINI_API_KEY_REDES = env.GEMINI_API_KEY_REDES_V3;
+      try {
+        return await decirGemini(paraLeer(guion), destino, { voz: VOCES[voz], indicacion: componerIndicacion(INDICACIONES[bloque]), pieza });
+      } catch (e) {
+        if (e instanceof SinCupoDeVoz || /cupo del d[ií]a/i.test(String(e?.message))) { const s = new SinCupo(e.message); s.sinCupo = true; throw s; }
+        throw e;
+      }
+    },
+    subtitulosEstimados,
+    subtitulos: (palabras) => (palabras?.length ? armarAss(enCarteles(palabras, { max: 4, minimo: 2 })) : null),
+    async renderizar(pieza, destino, { voz, subtitulos }) {
+      const lista = await resolverFotos(pieza);
+      return armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
+    },
+    clienteMeta: () => crearCliente({ token: env.META_TOKEN, paginaId: env.META_PAGE_ID || PAGINA_DE_FACEBOOK }),
+  };
+}
+
+const esElPrograma = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (esElPrograma) {
+  const carpeta = path.resolve(process.env.SALIDA_PIEZAS || path.join(RAIZ, 'salida-piezas'));
+  try {
+    const r = await correr({ env: process.env, carpeta, deps: await dependenciasReales(process.env) });
+    const malas = r.piezas.filter((p) => p.estado === 'error');
+    console.log(`listo: ${r.piezas.length} piezas${malas.length ? `, ${malas.length} con error` : ''}`);
+    if (malas.length && malas.length === r.piezas.length) process.exitCode = 1;
+  } catch (e) {
+    console.error(`piezas: ${e.stack || e}`);
+    process.exitCode = 1;
+  }
+}
