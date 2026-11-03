@@ -40703,12 +40703,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Andrea Kimi Antonelli se consagra campeón mundial de Fórmula 1 en México",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-03T08:01:11.650Z",
-  "intentos": 1,
-  "fuentes": 10,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "razon": "Ninguna de las fotos corresponde al hecho de la nota, ya que tratan sobre fútbol argentino (Liga Profesional) en lugar de automovilismo de Fórmula 1.",
+  "cuando": "2026-11-03T09:02:24.349Z",
+  "intentos": 2,
+  "fuentes": 10
  },
  "1eb1pk1": {
   "medio": "El Destape",
@@ -68817,11 +68815,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-11-03T07:02:21.632Z",
-  "intentos": 3,
-  "fuentes": 19,
-  "intentosPorCupo": 2
+  "razon": "Ninguna foto cumple con todos los requisitos sin tener menores reconocibles, marcas de agua o ser material gráfico institucional.",
+  "cuando": "2026-11-03T09:02:24.349Z",
+  "intentos": 4,
+  "fuentes": 19
  },
  "1nk1y8y": {
   "archivo": "fotos-notas/1nk1y8y.jpg",
@@ -70420,14 +70417,40 @@
   "huella": "0f0f555515858e96"
  },
  "1p9q75l": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1p9q75l.jpg",
+  "medio": "Punto Noticias",
+  "credito": "Foto: Punto Noticias",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Universidad Nacional de Mar del Plata organiza un corredor artístico",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Punto Noticias no se usa todavía.",
-  "cuando": "2026-11-03T07:02:21.632Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 2
+  "enlace": "https://puntonoticias.com/comienza-el-corredor-artistico-unmdp-con-mas-de-140-propuestas/",
+  "imagenOriginal": "https://puntonoticias.com/wp-content/uploads/2026/11/Biassone-corredor.webp",
+  "razon": "Es la única opción disponible, corresponde a la presentación del corredor artístico de la UNMDP, tiene buena nitidez y no presenta marcas de agua, menores ni problemas gráficos.",
+  "cuando": "2026-11-03T09:02:24.349Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Conferencia de prensa o presentación sobre el Corredor Artístico de la UNMDP con dos mujeres sentadas a una mesa y público de espaldas.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Presentación del Corredor Artístico UNMDP con panelistas en una mesa y público asistente."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "c24f6f4f8e6d1604"
  },
  "1cvi4gt": {
   "archivo": "fotos-notas/1cvi4gt.jpg",
@@ -71260,7 +71283,8 @@
    "corresponde": "si",
    "descripcion": "Persona consultando un padrón electoral pegado en una pared."
   },
-  "huella": "3d3535e3d13195a5"
+  "huella": "3d3535e3d13195a5",
+  "ausenteDesde": "2026-11-03T09:03:03.004Z"
  },
  "1z04hy": {
   "archivo": "fotos-notas/1z04hy.jpg",
@@ -71476,7 +71500,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "ccccae8cacac8cbc"
+  "huella": "ccccae8cacac8cbc",
+  "ausenteDesde": "2026-11-03T09:03:03.004Z"
  },
  "rmesn7": {
   "archivo": "fotos-notas/rmesn7.jpg",
@@ -71662,5 +71687,53 @@
    "descripcion": "Martín Menem en el recinto de la Cámara de Diputados."
   },
   "huella": "a624aca920229989"
+ },
+ "1khfyp8": {
+  "archivo": "fotos-notas/1khfyp8.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Revelan el informe arbitral de Nicolás Ramírez por las rojas en el Superclásico",
+  "enlace": "https://www.tycsports.com/river-plate/una-por-una-cuatro-rojas-montiel-boca-superclasico-id769794.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1001966/gonzalo-montiel_1440x810.webp",
+  "razon": "Es la única foto nítida que corresponde al hecho del arbitraje en el Superclásico, sin marcas agregadas, menores ni problemas técnicos.",
+  "cuando": "2026-11-03T09:02:24.349Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El árbitro Nicolás Ramírez hablando con un jugador en pleno partido."
+  },
+  "huella": "2d2df5e5e3e7a2a2"
+ },
+ "aawl2g": {
+  "archivo": "fotos-notas/aawl2g.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los bancos ofrecen créditos hipotecarios UVA y analizan opciones de compra en CABA",
+  "enlace": "https://tn.com.ar/economia/propiedades/2026/11/03/creditos-hipotecarios-todas-las-variables-que-hay-que-revisar-antes-de-pedir-un-prestamo/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/creditos-hipotecarios-todas-las-variables-que-hay-que-revisar-antes-de-pedir-un-prestamo-foto-tn-C3FV5GCTW5HR3M2UAOS4FTYUHY.jpg?auth=35da6e3234f24e4a7caaa9d11563b5797aab6808808d3b7603bdb8fc8e6ebc0f&width=1023",
+  "razon": "La foto A ilustra claramente la compra de una vivienda con un llavero en forma de casa, mientras que la B tiene aspecto de stock genérico.",
+  "cuando": "2026-11-03T09:02:24.349Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mano sosteniendo unas llaves con llavero en forma de casa frente a un departamento."
+  },
+  "huella": "3604954dad151541"
  }
 }
