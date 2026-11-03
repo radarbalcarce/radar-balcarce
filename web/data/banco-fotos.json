@@ -43022,9 +43022,7 @@
   "fuentes": 4
  },
  "yi7bfk": {
-  "archivo": "fotos-notas/yi7bfk.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Harry Kane gana el Balón de Oro 2026 y Messi termina quinto",
@@ -43044,7 +43042,8 @@
    "descripcion": "Harry Kane sonriente sosteniendo el Balón de Oro en el escenario"
   },
   "huella": "c1650505040c1818",
-  "ausenteDesde": "2026-10-27T10:04:10.856Z"
+  "intentado": true,
+  "borrada": true
  },
  "l09uyq": {
   "archivo": "fotos-notas/l09uyq.jpg",
@@ -43106,9 +43105,7 @@
   "fuentes": 1
  },
  "1cifnsd": {
-  "archivo": "fotos-notas/1cifnsd.jpg",
   "medio": "Página/12",
-  "credito": "Foto: Página/12",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Ciudad inicia cortes y desvíos por la visita de León XIV",
@@ -43128,7 +43125,8 @@
    "descripcion": "Grúas de gran porte trabajando en la vía pública para los preparativos"
   },
   "huella": "1717370e078f06a0",
-  "ausenteDesde": "2026-10-27T10:04:10.856Z"
+  "intentado": true,
+  "borrada": true
  },
  "1t4bx3o": {
   "intentado": true,
@@ -66903,7 +66901,8 @@
    "corresponde": "si",
    "descripcion": "Stefano Di Carlo hablando en una conferencia de prensa con el logo de River de fondo."
   },
-  "huella": "d0d87030e8c9c9c9"
+  "huella": "d0d87030e8c9c9c9",
+  "ausenteDesde": "2026-11-03T10:11:45.295Z"
  },
  "dkrlse": {
   "archivo": "fotos-notas/dkrlse.jpg",
@@ -71259,7 +71258,8 @@
    "corresponde": "si",
    "descripcion": "El árbitro mostrando una tarjeta roja en pleno partido."
   },
-  "huella": "23238d6b6a5b7a4a"
+  "huella": "23238d6b6a5b7a4a",
+  "ausenteDesde": "2026-11-03T10:11:45.295Z"
  },
  "tsw1li": {
   "archivo": "fotos-notas/tsw1li.jpg",
@@ -71314,7 +71314,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-03T03:03:36.462Z"
+  "cuando": "2026-11-03T10:11:10.955Z"
  },
  "13jnhna": {
   "archivo": "fotos-notas/13jnhna.jpg",
@@ -71365,10 +71365,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ANSES confirma los montos de la AUH y la Tarjeta Alimentar para noviembre",
-  "razon": "Todas las imágenes presentan menores de edad reconocibles, lo cual contraviene la política editorial de Radar Balcarce.",
-  "cuando": "2026-11-03T04:02:54.588Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Destape no se usa todavía.",
+  "cuando": "2026-11-03T10:08:37.781Z",
   "intentos": 1,
-  "fuentes": 4
+  "fuentes": 7,
+  "intentosPorCupo": 1
  },
  "nae13g": {
   "archivo": "fotos-notas/nae13g.jpg",
@@ -71710,7 +71711,8 @@
    "corresponde": "si",
    "descripcion": "El árbitro Nicolás Ramírez hablando con un jugador en pleno partido."
   },
-  "huella": "2d2df5e5e3e7a2a2"
+  "huella": "2d2df5e5e3e7a2a2",
+  "ausenteDesde": "2026-11-03T10:11:45.295Z"
  },
  "aawl2g": {
   "archivo": "fotos-notas/aawl2g.jpg",
@@ -71735,5 +71737,111 @@
    "descripcion": "Mano sosteniendo unas llaves con llavero en forma de casa frente a un departamento."
   },
   "huella": "3604954dad151541"
+ },
+ "12axsze": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Federación de Acopiadores habilita sin cargo plantas para operar con VISEC",
+  "razon": "La mejor foto era la de Agrositio, pero no se puede usar (marca de agua u otro medio) (Marca de agua de 'Agrositio' visible en el centro de la imagen.), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-03T10:08:37.781Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1px4kxq": {
+  "archivo": "fotos-notas/1px4kxq.webp",
+  "medio": "Ruralnet",
+  "credito": "Foto: Ruralnet",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El esquema de cuotas de China altera el negocio exportador de carne",
+  "enlace": "https://ruralnet.com.ar/exportaciones-carne-vacuna-cuotas-china/",
+  "imagenOriginal": "https://ruralnet.com.ar/wp-content/uploads/2026/11/demostracion-corte-carne-ruralnet.webp",
+  "razon": "Muestra claramente el proceso de exportación de carne con excelente nitidez y sin marcas ni menores.",
+  "cuando": "2026-11-03T10:08:37.781Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operarios con indumentaria blanca cortando y procesando cortes de carne vacuna en una planta frigorífica"
+  },
+  "huella": "b22cefc2b9c8fad7"
+ },
+ "njqnw7": {
+  "archivo": "fotos-notas/njqnw7.jpg",
+  "medio": "Mongabay Latam",
+  "credito": "Foto: Mongabay Latam",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Implementan corredores biológicos con plantas nativas en campos bonaerenses",
+  "enlace": "https://es.mongabay.com/2026/11/plantas-nativas-corredores-biologicos-claves-para-regreso-animales-insectos-beneficos-campo-argentina/",
+  "imagenOriginal": "https://imgs.mongabay.com/wp-content/uploads/sites/25/2026/10/31225934/WhatsApp-Image-2026-06-08-at-23.06.14.jpeg",
+  "razon": "La foto A muestra claramente el sector con plantas nativas y cartel identificatorio, sin marcas de agua ni personas, siendo ligeramente más amplia que la B.",
+  "cuando": "2026-11-03T10:08:37.781Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantas nativas con flores amarillas y un cartel indicador en el campo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Campo con plantas nativas amarillas y una estaca amarilla con etiqueta identificativa."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "ca0e0e4b4966d2d6"
+ },
+ "12nps7q": {
+  "archivo": "fotos-notas/12nps7q.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Una marplatense muere en un choque en Nueva Zelanda y lanzan colectas solidarias",
+  "enlace": "https://tn.com.ar/policiales/2026/11/01/tragedia-en-nueva-zelanda-una-argentina-de-37-anos-murio-tras-chocar-contra-un-camion/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/ayelen-amarilla-foto-gentileza-la-capital-6LZERLFGNRF6TKHDBF4ZPO2SIQ.PNG?auth=6da4dfec4cb78c1613c8982f4095fc795e2b97d21d1c561acf375c3e4eecec08&width=1023",
+  "razon": "Es la foto más nítida y con mejor encuadre que ilustra a la persona mencionada en la nota, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-03T10:08:37.781Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de la joven sonriente con un mono en el hombro en una zona selvática.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Una joven sonríe con un mono sobre el hombro en un entorno de selva."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "ced7dfd4d55bf9d9"
  }
 }

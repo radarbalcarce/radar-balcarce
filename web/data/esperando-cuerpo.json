@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-03T09:03:03.126Z",
+ "generado": "2026-11-03T10:11:45.369Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -48,6 +48,45 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 4
+  },
+  {
+   "id": "sgq4v5",
+   "titulo": "Tiene 20 años, es hijo del empresario Fabio Calcaterra y creó una plataforma para combatir la venta informal de papa",
+   "copete": "Santino Calcaterra creó Alagro junto a los fundadores de la fintech Alprestamo. Conecta de forma digital a productores de papa con compradores. La comercialización informal de esa hortaliza ronda en 60%",
+   "seccion": "Agro",
+   "fecha": "2026-11-03T09:00:07.000Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/economia/20-anos-hijo-empresario-fabio-calcaterra-creo-plataforma-combatir-venta-informal-papa_0_mpYAEHKueV.html",
+     "fecha": "2026-11-03T09:00:07.000Z"
+    }
+   ],
+   "intentos": 0,
+   "motivo": "",
+   "maximo": 3
+  },
+  {
+   "id": "ewyf4j",
+   "titulo": "Más de 50 productos argentinos ocupan los primeros puestos como exportadores mundiales",
+   "copete": "En 2025, Argentina consolidó y mejoró su posición como exportador mundial en productos como aceite de girasol, yerba mate, porotos, soja, preparaciones de durazno, maíz, y carne vacuna, entre otros.",
+   "seccion": "Agro",
+   "fecha": "2026-11-02T13:03:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1160693/economia/mas-50-productos-argentinos-ocupan-primeros-puestos-como-exportadores-mundiales.html",
+     "fecha": "2026-11-02T13:03:00.000Z"
+    },
+    {
+     "medio": "Agrositio",
+     "enlace": "https://www.agrositio.com.ar/noticia/249160-mas-de-50-productos-argentinos-ocupan-los-primeros-puestos-como-exportadores-mundiales.html",
+     "fecha": "2026-11-02T20:39:12.000Z"
+    }
+   ],
+   "intentos": 0,
+   "motivo": "",
+   "maximo": 3
   }
  ],
  "descartadas": [
@@ -74,6 +113,14 @@
    "fecha": "2026-11-02T11:58:31.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
+  },
+  {
+   "id": "q9wlq",
+   "titulo": "Citan a declaración a dos profesionales de la salud por la muerte de Claribel Medina",
+   "seccion": "Policiales",
+   "fecha": "2026-11-02T16:05:41.283Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\""
   },
   {
    "id": "17f0f1r",
