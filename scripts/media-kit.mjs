@@ -4,7 +4,7 @@
 //   node scripts/media-kit.mjs docs/propuestas/anunciantes/sweet-candy-bar.json   → el kit de ese comercio, al lado del JSON
 //
 // El JSON de un comercio lleva: nombre, notaTitulo y, opcional, para (una línea para ese comercio).
-// Es una sola hoja sin capturas (Hernán, 2/11): la plantilla es docs/propuestas/media-kit/plantilla.html.
+// Son tres hojas: la de los planes y, desde el 3/11, dos con capturas reales de dónde se ve el aviso (láminas de v3/sitio/scripts/imagenes-media-kit.mjs): la plantilla es docs/propuestas/media-kit/plantilla.html.
 // Necesita Chrome instalado (lo usa sin ventana, con un perfil descartable). Sin dependencias.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -35,6 +35,8 @@ export function armarHtml(datos) {
     FUENTE_SERIF: base64(join(fuentes, 'source-serif-4-latin.woff2'), 'font/woff2'),
     FUENTE_SANS: base64(join(fuentes, 'inter-latin.woff2'), 'font/woff2'),
     ICONO: base64(join(raiz, 'web', 'public', 'icon-512.png'), 'image/png'),
+    LAMINA_TAPA: base64(join(raiz, 'v3', 'sitio', 'media-kit', 'mediakit-lugares-tapa.png'), 'image/png'),
+    LAMINA_PAGINAS: base64(join(raiz, 'v3', 'sitio', 'media-kit', 'mediakit-lugares-paginas.png'), 'image/png'),
     NOMBRE: d.nombre,
     NOMBRE_O_VOS: d.notaTitulo ? d.nombre : 'vos',
   };

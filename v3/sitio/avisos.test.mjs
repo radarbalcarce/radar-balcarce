@@ -198,7 +198,7 @@ test('/publicidad ya no tiene precios: redirige (301) a la nota del media kit', 
   assert.equal(RUTA_MEDIA_KIT, `/nota/${SLUG}-${ID}`);
 });
 
-test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada por Hernán, con precios, sin 2027', async () => {
+test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada por Hernán, sin precios, sin 2027', async () => {
   const { sqlite, env } = baseDePrueba();
   sqlite.exec(readFileSync(new URL('../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8')); // las columnas que suma el bot de Telegram (ya están en la base de verdad)
   sqlite.exec(sqlDeLaNota());
@@ -213,14 +213,15 @@ test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada po
   assert.equal(r.status, 200);
   const h = await r.text();
   assert.match(h, /<h1>Publicitá en Radar Balcarce/);
-  for (const t of ['\\$ 5\\.000', '\\$ 50\\.000', 'noviembre y diciembre de 2026', '2266 51-1612', 'clima auspiciado']) assert.match(h, new RegExp(t), t);
+  for (const t of ['noviembre y diciembre de 2026', '2266 51-1612', 'clima auspiciado', 'por WhatsApp', 'arriba de la nota diaria del clima']) assert.match(h, new RegExp(t), t);
+  assert.ok(!/\$ ?\d/.test(JSON.stringify(NOTA)) && !/\$ ?\d/.test(textoParaLeer()), 'la nota pública no lleva precios');
   assert.match(h, /<p class="firma">Por Hernán Accomo, de la redacción de Radar Balcarce<\/p>/);
   assert.ok(!/2027/.test(JSON.stringify(NOTA)) && !/2027/.test(textoParaLeer()), 'no promete nada para 2027');
   assert.match(h, /Espacio N2/, 'en la nota sin comercio fijo hay un solo aviso local, al pie');
   assert.ok(!h.includes('data-lugar="N1"'));
-  assert.equal((h.match(/<figure>/g) || []).length, 4, 'la portada y tres láminas adentro');
+  assert.equal((h.match(/<figure>/g) || []).length, 6, 'la portada y cinco láminas adentro');
   assert.match(h, /fotos-notas\/mediakit-portada\.png/);
-  assert.ok(h.indexOf('mediakit-bienvenida') < h.indexOf('mediakit-clima') && h.indexOf('mediakit-clima') < h.indexOf('mediakit-donde'));
+  assert.ok(h.indexOf('mediakit-bienvenida') < h.indexOf('mediakit-clima') && h.indexOf('mediakit-clima') < h.indexOf('mediakit-lugares-tapa') && h.indexOf('mediakit-lugares-tapa') < h.indexOf('mediakit-lugares-paginas') && h.indexOf('mediakit-lugares-paginas') < h.indexOf('mediakit-donde'));
   assert.ok(!/\$ ?\d/.test(JSON.stringify([FOTO_DE_PORTADA, FOTOS_EN_CUERPO])), 'las imágenes no llevan precios');
 });
 
