@@ -2230,124 +2230,124 @@
   "2026-11-02": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 70,
-     "errores": 21,
+     "llamadas": 74,
+     "errores": 25,
      "entrada": 119253,
      "salida": 52833,
      "pensamiento": 0,
      "total": 172086,
      "claves": {
-      "clasificacion": 70
+      "clasificacion": 74
      },
      "motivos": {
       "clasificacion": {
        "ok": 49,
-       "cupo-diario": 18,
+       "cupo-diario": 22,
        "otro": 2,
        "saturado": 1
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 21,
-     "errores": 6,
-     "entrada": 41017,
-     "salida": 33158,
+     "llamadas": 25,
+     "errores": 8,
+     "entrada": 46401,
+     "salida": 38409,
      "pensamiento": 0,
-     "total": 74175,
+     "total": 84810,
      "claves": {
-      "groq": 21
+      "groq": 25
      },
      "motivos": {
       "groq": {
-       "ok": 15,
-       "velocidad": 6
+       "ok": 17,
+       "velocidad": 8
       }
      }
     },
     "mistral-large-2512": {
-     "llamadas": 3,
-     "errores": 3,
+     "llamadas": 4,
+     "errores": 4,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 3
+      "mistral": 4
      },
      "motivos": {
       "mistral": {
-       "rechazada": 3
+       "rechazada": 4
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 85,
-     "errores": 23,
+     "llamadas": 87,
+     "errores": 25,
      "entrada": 731529,
      "salida": 7190,
      "pensamiento": 0,
      "total": 738719,
      "claves": {
-      "clasificacion": 85
+      "clasificacion": 87
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 20,
+       "cupo-diario": 22,
        "ok": 62,
        "saturado": 3
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 24,
+     "llamadas": 25,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 24
+      "clasificacion": 25
      },
      "motivos": {
       "clasificacion": {
-       "ok": 24
+       "ok": 25
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 11,
-     "errores": 11,
+     "llamadas": 12,
+     "errores": 12,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 11
+      "groq": 12
      },
      "motivos": {
       "groq": {
-       "otro": 11
+       "otro": 12
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 338,
-     "errores": 108,
+     "llamadas": 345,
+     "errores": 115,
      "entrada": 1307271,
      "salida": 242317,
      "pensamiento": 0,
      "total": 1549588,
      "claves": {
-      "redaccion": 338
+      "redaccion": 345
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 101,
+       "cupo-diario": 108,
        "ok": 230,
        "velocidad": 2,
        "saturado": 5
@@ -2355,25 +2355,25 @@
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 168,
-     "errores": 68,
-     "entrada": 586716,
-     "salida": 109264,
+     "llamadas": 196,
+     "errores": 89,
+     "entrada": 635239,
+     "salida": 117073,
      "pensamiento": 0,
-     "total": 695980,
+     "total": 752312,
      "claves": {
-      "redaccion": 147,
-      "respaldo": 21
+      "redaccion": 168,
+      "respaldo": 28
      },
      "motivos": {
       "redaccion": {
        "ok": 80,
-       "saturado": 65,
+       "saturado": 86,
        "otro": 2
       },
       "respaldo": {
        "rechazada": 1,
-       "ok": 20
+       "ok": 27
       }
      }
     },
@@ -2396,18 +2396,18 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 181,
-     "errores": 51,
+     "llamadas": 184,
+     "errores": 54,
      "entrada": 655382,
      "salida": 50177,
      "pensamiento": 0,
      "total": 705559,
      "claves": {
-      "clasificacion": 181
+      "clasificacion": 184
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 43,
+       "cupo-diario": 46,
        "ok": 130,
        "otro": 5,
        "saturado": 3
@@ -2415,37 +2415,37 @@
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 43,
-     "errores": 7,
+     "llamadas": 46,
+     "errores": 10,
      "entrada": 190594,
      "salida": 15459,
      "pensamiento": 0,
      "total": 206053,
      "claves": {
-      "clasificacion": 43
+      "clasificacion": 46
      },
      "motivos": {
       "clasificacion": {
        "ok": 36,
        "otro": 1,
-       "saturado": 6
+       "saturado": 9
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 60,
-     "errores": 22,
-     "entrada": 61479,
-     "salida": 4286,
+     "llamadas": 63,
+     "errores": 24,
+     "entrada": 66481,
+     "salida": 4519,
      "pensamiento": 0,
-     "total": 65765,
+     "total": 71000,
      "claves": {
-      "groq": 60
+      "groq": 63
      },
      "motivos": {
       "groq": {
-       "ok": 38,
-       "cupo-diario": 14,
+       "ok": 39,
+       "cupo-diario": 16,
        "velocidad": 7,
        "otro": 1
       }

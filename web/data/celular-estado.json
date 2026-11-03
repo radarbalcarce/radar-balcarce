@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-02T23:43:15.013Z",
- "portada": 167,
- "archivo": 500,
+ "generado": "2026-11-03T00:05:03.051Z",
+ "portada": 166,
+ "archivo": 499,
  "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-02T23:43:15.462Z",
+  "generado": "2026-11-03T00:05:03.468Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -74,7 +74,7 @@
     "voz": "locutora",
     "ventana": 240,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-02T23:36:31.584Z"
    },
    {
     "nombre": "podcast",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -155,9 +155,9 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
      {
       "id": "fp5729",
@@ -165,14 +165,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1kwuqra",
-      "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
-      "seccion": "Educación"
-     },
-     {
       "id": "j75wry",
       "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
       "seccion": "Ciencia"
+     },
+     {
+      "id": "1kwuqra",
+      "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
+      "seccion": "Educación"
      },
      {
       "id": "1tlgl2r",
@@ -218,12 +218,6 @@
      "marcada": false
     },
     {
-     "id": "1kwuqra",
-     "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "hjwjy8",
      "titulo": "La película balcarceña La noche que nunca termina compite en México",
      "seccion": "Cultura y agenda",
@@ -233,6 +227,12 @@
      "id": "j75wry",
      "titulo": "APINTA rechaza la exoneración de la investigadora Virginia Aparicio",
      "seccion": "Ciencia",
+     "marcada": false
+    },
+    {
+     "id": "1kwuqra",
+     "titulo": "La Escuela Secundaria 8 organiza un concurso fotográfico para estudiantes",
+     "seccion": "Educación",
      "marcada": false
     },
     {

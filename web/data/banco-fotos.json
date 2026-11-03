@@ -70461,5 +70461,52 @@
   "fuentes": 4,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "yl3lny": {
+  "archivo": "fotos-notas/yl3lny.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Mesa de Enlace participa de un encuentro con el papa León XIV en la UCA",
+  "enlace": "https://www.lanacion.com.ar/economia/campo/la-mesa-de-enlace-participara-de-un-encuentro-con-leon-xiv-junto-a-sindicalistas-y-empresarios-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-papa-leon-L37YEUGJMVAEHGORYNGFH3N36E.jpg?auth=33bed8ee6237ac84ab19d341c4afbd3e47a884a128ceb0ce78788a325135c3ec&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto de La Nación ofrece un encuadre más completo y digno del Papa, mientras que la de Clarín es un primer plano excesivo que recorta la cabeza y no ilustra bien el contexto del encuentro.",
+  "cuando": "2026-11-03T00:04:17.835Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV de pie, sonriendo, con un encuadre medio que muestra su vestimenta y parte del entorno."
+  },
+  "huella": "276765430707470f"
+ },
+ "vrkmep": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La recaudación tributaria nacional crece por cuarto mes consecutivo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T00:04:17.835Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "qdsdup": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Independiente empata 1-1 ante Defensa y Justicia en Florencio Varela",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T00:04:17.835Z",
+  "intentos": 1,
+  "fuentes": 12,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
