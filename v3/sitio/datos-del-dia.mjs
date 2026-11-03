@@ -30,7 +30,8 @@ async function pedirTexto(traer, url) {
 
 export const CLIMA_URL = 'https://api.open-meteo.com/v1/forecast?latitude=-37.846&longitude=-58.255'
   + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,is_day'
-  + '&daily=time,temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'
+  + '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'
+  + '&hourly=temperature_2m,precipitation_probability&forecast_hours=48'
   + '&timezone=America%2FArgentina%2FBuenos_Aires&forecast_days=7&wind_speed_unit=kmh';
 
 const CIELOS = {
@@ -47,6 +48,19 @@ export const rumboDe = (grados) => (Number.isFinite(grados) ? RUMBOS[Math.round(
 
 const entero = (x) => (Number.isFinite(x) ? Math.round(x) : null);
 
+/** Las próximas horas (hasta 48) de la respuesta de Open-Meteo: [{ t: 'AAAA-MM-DDTHH:00', temp, lluvia }]. Vacío si no vienen. */
+export function horasDe(h) {
+  if (!h || !Array.isArray(h.time) || !Array.isArray(h.temperature_2m)) return [];
+  const horas = [];
+  for (let i = 0; i < Math.min(48, h.time.length); i += 1) {
+    const temp = h.temperature_2m[i];
+    if (typeof h.time[i] !== 'string' || !Number.isFinite(temp)) continue;
+    const ll = h.precipitation_probability?.[i];
+    horas.push({ t: h.time[i], temp: Math.round(temp * 10) / 10, lluvia: Number.isFinite(ll) ? Math.min(100, Math.max(0, Math.round(ll))) : null });
+  }
+  return horas;
+}
+
 /** La respuesta de Open-Meteo → { ahora, hoy, manana }, o null si no tiene lo mínimo. */
 export function aClima(j) {
   const c = j?.current;
@@ -59,6 +73,7 @@ export function aClima(j) {
   for (let i = 0; i < Math.min(7, d.temperature_2m_max.length); i += 1) { const x = dia(i); if (x && typeof d.time?.[i] === 'string') dias.push({ fecha: d.time[i], ...x }); }
   return {
     dias,
+    horas: horasDe(j.hourly),
     ahora: { temp: entero(c.temperature_2m), cielo: cieloDe(c.weather_code), viento: entero(c.wind_speed_10m), rumbo: rumboDe(c.wind_direction_10m), esDeDia: c.is_day !== 0 },
     hoy: dia(0),
     manana: dia(1),
@@ -69,6 +84,43 @@ export function aClima(j) {
 export async function leerClima({ traer, cache = null }) {
   try {
     return await conCache(cache, 'clima', 1800, async () => aClima(JSON.parse(await pedirTexto(traer, CLIMA_URL))));
+  } catch { return null; }
+}
+
+// ---------- La región ----------
+// Una sola llamada a Open-Meteo con varias coordenadas (responde una lista, en el mismo orden). Balcarce va primero, para comparar.
+// Otamendi y San Agustín no se pidieron: el buscador de Open-Meteo no los resuelve y no se inventan coordenadas.
+
+export const LUGARES_DE_LA_REGION = [
+  { nombre: 'Balcarce', lat: -37.846, lon: -58.255 },
+  { nombre: 'Mar del Plata', lat: -38.0055, lon: -57.5426 },
+  { nombre: 'Mar Chiquita', lat: -37.7458, lon: -57.4311 },
+  { nombre: 'Miramar', lat: -38.2716, lon: -57.8389 },
+  { nombre: 'Tandil', lat: -37.3217, lon: -59.1332 },
+  { nombre: 'Necochea', lat: -38.5545, lon: -58.7396 },
+];
+
+export const REGION_URL = 'https://api.open-meteo.com/v1/forecast?latitude=' + LUGARES_DE_LA_REGION.map((l) => l.lat).join(',')
+  + '&longitude=' + LUGARES_DE_LA_REGION.map((l) => l.lon).join(',')
+  + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,is_day'
+  + '&timezone=America%2FArgentina%2FBuenos_Aires&wind_speed_unit=kmh';
+
+/** La lista de Open-Meteo → { lugares: [{ nombre, temp, cielo, viento, rumbo }] }; salta los lugares sin dato. null si no queda ninguno aparte de Balcarce. */
+export function aRegion(j, lugares = LUGARES_DE_LA_REGION) {
+  const lista = Array.isArray(j) ? j : [j];
+  const salida = [];
+  lugares.forEach((l, i) => {
+    const c = lista[i]?.current;
+    if (!c || !Number.isFinite(c.temperature_2m)) return;
+    salida.push({ nombre: l.nombre, temp: entero(c.temperature_2m), cielo: cieloDe(c.weather_code), viento: entero(c.wind_speed_10m), rumbo: rumboDe(c.wind_direction_10m), esDeDia: c.is_day !== 0 });
+  });
+  return salida.length >= 2 ? { lugares: salida } : null;
+}
+
+/** Las condiciones de ahora en Balcarce y alrededores, o null. Caché de 15 minutos. */
+export async function leerRegion({ traer, cache = null }) {
+  try {
+    return await conCache(cache, 'region', 900, async () => aRegion(JSON.parse(await pedirTexto(traer, REGION_URL))));
   } catch { return null; }
 }
 

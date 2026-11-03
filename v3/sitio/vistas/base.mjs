@@ -169,6 +169,28 @@ position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-b
 .pdia .ficha p{margin:2px 0}
 .pdia a.enlace{color:var(--rojo);text-decoration:underline}
 .pdia .nota-chica{font-size:14px;color:var(--suave)}
+.pdia{--g-temp:#C2410C;--g-lluvia:#2B7FD0;--g-eje:#5C6068;--g-grilla:#E4DFD2;--g-fondo:#FFFFFF}
+.pdia .grafico{margin:0;padding:10px 8px 6px;border:1px solid var(--linea);border-radius:12px;background:var(--g-fondo)}
+.pdia .grafico-horas{display:block;width:100%;height:auto;max-width:640px;margin:0 auto}
+.g-grilla{stroke:var(--g-grilla);stroke-width:1}
+.g-dia{stroke:var(--g-eje);stroke-width:1;stroke-dasharray:3 3;opacity:.6}
+.g-barra{fill:var(--g-lluvia);opacity:.45}
+.g-linea{fill:none;stroke:var(--g-temp);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.g-punto{fill:var(--g-fondo);stroke:var(--g-temp);stroke-width:2}
+.g-ahora{fill:var(--g-temp);stroke:var(--g-fondo);stroke-width:2}
+.g-txt{font:600 13px var(--sans);fill:var(--g-eje)}
+.g-txt.g-t,.g-txt.g-r{fill:var(--g-temp)}.g-txt.g-l{fill:var(--g-lluvia)}.g-txt.g-d{font-weight:800}
+.g-halo{font-weight:800;font-size:14px;paint-order:stroke;stroke:var(--g-fondo);stroke-width:3px}
+.pdia .leyenda{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0;padding:0;list-style:none;font-size:13px;color:var(--g-eje)}
+@media(max-width:520px){.pdia .tabla th,.pdia .tabla td{padding:8px 6px}.pdia .tabla.dias th:nth-child(2),.pdia .tabla.dias td:nth-child(2){display:none}}
+.pdia .leyenda i{display:inline-block;width:14px;height:4px;margin-right:6px;vertical-align:middle;border-radius:2px;background:var(--g-temp)}
+.pdia .leyenda i.ll{height:10px;background:var(--g-lluvia);opacity:.55}
+.pdia .smn{margin:0 0 14px;padding:12px 14px;border:1px solid var(--linea);border-left:4px solid var(--ambar);border-radius:12px;background:#fff}
+.pdia .smn h3{margin:0 0 4px;font:800 17px var(--serif);color:var(--tinta)}
+.pdia .smn p{margin:2px 0;font-size:15px}
+.pdia .region td small{display:block;color:var(--suave);font-size:12.5px}
+.pdia .region tr.aca td{font-weight:700;background:var(--crema)}
+@media(prefers-color-scheme:dark){.pdia{--g-temp:#FF9A6B;--g-lluvia:#6AB0F5;--g-eje:#B9BEC7;--g-grilla:#343A43;--g-fondo:#1D2127}}
 .hero img,.hero .placa{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px}.hero img{background:#ddd}
 img.fotopropia{object-fit:contain!important;background:#14161A!important}
 .hero h1{margin:12px 0 8px;font:800 30px/1.1 var(--serif);letter-spacing:-.015em;color:var(--tinta)}

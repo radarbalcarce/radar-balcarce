@@ -415,7 +415,8 @@ test('el pronóstico trae siete días y la página los lista con su nombre', asy
   assert.equal(c.dias.length, 4);
   assert.equal(c.dias[2].fecha, '2026-11-04');
   assert.match(CLIMA_URL, /forecast_days=7/);
-  assert.match(CLIMA_URL, /daily=time,/);
+  assert.match(CLIMA_URL, /daily=temperature_2m_max,/);
+  assert.ok(!new URL(CLIMA_URL).searchParams.get('daily').split(',').includes('time'), 'Open-Meteo rechaza «time» como variable diaria (la fecha viene sola)');
   const { paginaClima } = await import('./vistas/paginas-del-dia.mjs');
   const h = paginaClima({ indexar: true, contexto: { ahora: AHORA, clima: c } });
   assert.match(h, /Miércoles 4<\/td>/);

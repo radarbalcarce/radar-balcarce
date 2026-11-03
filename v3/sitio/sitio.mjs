@@ -5,7 +5,7 @@ import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota, partesEnBalcar
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
-import { leerClima, leerFarmacia, leerDolar } from './datos-del-dia.mjs';
+import { leerClima, leerFarmacia, leerDolar, leerRegion } from './datos-del-dia.mjs';
 import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
@@ -156,6 +156,8 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     const DEL_DIA = { '/clima': paginaClima, '/farmacias': paginaFarmacias, '/dolar': paginaDolar };
     if (DEL_DIA[ruta]) {
       const contexto = await contextoDelDia();
+      // La región se pide sólo para /clima (una llamada con varias coordenadas); si falla, la página sigue sin ese bloque.
+      if (ruta === '/clima') contexto.region = await leerRegion({ traer, cache });
       return { r: respuesta(DEL_DIA[ruta]({ indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: true };
     }
 

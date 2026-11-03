@@ -3,6 +3,7 @@
 import { esc, partesEnBalcarce } from '../util.mjs';
 import { pagina } from './base.mjs';
 import { iconoDeClima } from './dia.mjs';
+import { graficoHoras, resumenDeHoras } from './grafico-horas.mjs';
 
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -20,6 +21,30 @@ const envolver = (cuerpo) => `<div class="pdia">${cuerpo}</div>`;
 
 // ---------------------------------------------------------------- /clima
 
+// Las alertas del SMN no se leen por código: su API (ws1.smn.gob.ar) pide una clave y bloquea los pedidos sin ella, así que no se la esquiva.
+// Se manda a la página oficial, que es donde está la alerta vigente para la zona.
+export const SMN_ALERTAS = 'https://www.smn.gob.ar/alertas';
+export const SMN_RADAR = 'https://www.smn.gob.ar/radar';
+
+const bloqueSmn = () => `<div class="smn"><h3>Alertas y radar del Servicio Meteorológico Nacional</h3>
+<p>Si hay una alerta amarilla, naranja o roja por tormentas, viento o temperaturas extremas para esta zona, la publica el SMN. <a class="enlace" href="${SMN_ALERTAS}" rel="noopener">Ver alertas vigentes</a> · <a class="enlace" href="${SMN_RADAR}" rel="noopener">Ver el radar</a></p></div>`;
+
+function bloqueGrafico(horas) {
+  const svg = graficoHoras(horas);
+  if (!svg) return '';
+  return `<h2>Las próximas horas</h2>
+<figure class="grafico">${svg}<ul class="leyenda"><li><i></i>Temperatura (°C)</li><li><i class="ll"></i>Probabilidad de lluvia (%)</li></ul></figure>
+<p class="nota-chica">${esc(resumenDeHoras(horas))}</p>`;
+}
+
+function bloqueRegion(region) {
+  if (!region?.lugares?.length) return '';
+  const filas = region.lugares.map((l, i) => `<tr${i === 0 ? ' class="aca"' : ''}><td>${esc(l.nombre)}<small>${esc(l.cielo)}</small></td><td>${iconoDeClima(l.cielo, l.esDeDia, 28)}</td><td class="num">${grados(l.temp)}</td><td class="num">${l.viento != null ? `${l.viento} km/h${l.rumbo ? ` ${esc(l.rumbo)}` : ''}` : '–'}</td></tr>`).join('');
+  return `<h2>Cómo está la región</h2>
+<table class="tabla region"><thead><tr><th>Lugar</th><th><span class="sr">Cielo</span></th><th class="num">Ahora</th><th class="num">Viento</th></tr></thead><tbody>${filas}</tbody></table>
+<p class="nota-chica">Condiciones de ahora en Balcarce y localidades cercanas, según Open-Meteo.</p>`;
+}
+
 export function paginaClima({ indexar, contexto = {} } = {}) {
   const clima = contexto.clima;
   let cuerpo;
@@ -36,8 +61,11 @@ export function paginaClima({ indexar, contexto = {} } = {}) {
     cuerpo = `<h1>El clima en Balcarce</h1>
 <p class="bajada">Cómo está el tiempo ahora y cómo viene la semana.</p>
 <div class="ahora">${iconoDeClima(ahora.cielo, ahora.esDeDia, 64)}<div><strong>${grados(ahora.temp)}</strong><p>${esc(ahora.cielo)}${viento ? ` · ${viento}` : ''}</p></div></div>
+${bloqueSmn()}
+${bloqueGrafico(clima.horas)}
+${bloqueRegion(contexto.region)}
 <h2>Los próximos días</h2>
-<table class="tabla"><thead><tr><th>Día</th><th><span class="sr">Cielo</span></th><th>Cielo</th><th class="num">Mín / máx</th><th class="num">Lluvia</th></tr></thead><tbody>${filas}</tbody></table>
+<table class="tabla dias"><thead><tr><th>Día</th><th><span class="sr">Cielo</span></th><th>Cielo</th><th class="num">Mín / máx</th><th class="num">Lluvia</th></tr></thead><tbody>${filas}</tbody></table>
 <p class="nota-chica">Pronóstico de Open-Meteo para Balcarce. «Lluvia» es la probabilidad de que llueva en el día.</p>`;
   }
   return pagina({
