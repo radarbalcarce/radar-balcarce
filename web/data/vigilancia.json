@@ -1,9 +1,6 @@
 {
   "avisos": {
-    "instagram-copias": "2026-11-03T00:00:15.260Z",
-    "clave-GEMINI_API_KEY_REDACCION": "2026-11-03T00:00:15.260Z",
-    "clave-GEMINI_API_KEY_REDES": "2026-11-03T00:00:15.260Z",
-    "clave-GEMINI_API_KEY_CLASIFICACION": "2026-11-03T00:00:15.260Z"
+    "instagram-copias": "2026-11-03T00:00:15.260Z"
   },
   "importantes": {
     "avisadas": {
@@ -21,39 +18,21 @@
   },
   "pendientes": {
     "avisados": [
-      "j75wry",
+      "pd8g54",
       "doggn2",
       "v7nz5c",
       "15zhl1o"
     ],
-    "ultimo": "2026-11-02T18:00:14.549Z"
+    "ultimo": "2026-11-03T00:30:12.043Z"
   },
   "redes": {
-    "hasta": "2026-11-02T18:38:42.128Z"
+    "hasta": "2026-11-02T23:36:58.419Z"
   },
   "ultimaMedicion": "2026-11-02/21",
   "ultimoResumen": "2026-10-01",
   "ultimoCierre": "2026-11-01",
   "ultimoInforme": "2026-10-01",
   "abiertos": [
-    {
-      "clave": "clave-GEMINI_API_KEY_REDACCION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDACCION (redactar las notas) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDACCION (nunca en un…",
-      "desde": "2026-11-03T00:00:15.260Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_REDES",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_REDES (las voces de las redes) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions → GEMINI_API_KEY_REDES (nunca en un chat).",
-      "desde": "2026-11-03T00:00:15.260Z"
-    },
-    {
-      "clave": "clave-GEMINI_API_KEY_CLASIFICACION",
-      "nivel": "alta",
-      "texto": "La clave GEMINI_API_KEY_CLASIFICACION (la lectura con IA y las fotos) no anda: Google contesta 400 (\"User location is not supported for the API use.\"). Entrá a Google AI Studio (radarbalcarce@gmail.com), fijate si la clave o su proyecto están suspendidos o sin crédito y, si hace falta, creá una clave nueva y pegala en GitHub → Settings → Secrets and variables → Actions →…",
-      "desde": "2026-11-03T00:00:15.260Z"
-    },
     {
       "clave": "instagram-copias",
       "nivel": "alta",
