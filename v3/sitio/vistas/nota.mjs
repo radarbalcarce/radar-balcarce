@@ -40,8 +40,12 @@ export function bloquesDeFicha(ficha) {
     partes.push(`<section class="bloque" id="cifras"><h2>Cifras</h2><ul class="cifras">${cifras.map((c) =>
       `<li><b>${esc(c.valor)} ${esc(c.unidad)}</b>${lleno(c.que) ? esc(c.que) : ''}</li>`).join('')}</ul></section>`);
   }
-  // «Qué falta saber» y la fuente al lado de cada cifra no se muestran (Hernán, 3/11: «no aportan»). Quedan en la ficha, para la IA y la
-  // verificación; las fuentes de la nota siguen en el desplegable «Fuentes (N)».
+  // La fuente al lado de cada cifra no se muestra (Hernán, 3/11: «no aporta»; las fuentes siguen en «Fuentes (N)»). «Qué falta saber»
+  // sale sólo en las notas escritas con la regla de «sólo cuando aporta» (`faltaSaberSelectivo`, 3/11) y si la IA dejó algo.
+  const falta = ficha.faltaSaberSelectivo ? (Array.isArray(ficha.faltaSaber) ? ficha.faltaSaber : []).filter(lleno).slice(0, 3) : [];
+  if (falta.length) {
+    partes.push(`<section class="bloque" id="que-falta-saber"><h2>Qué falta saber</h2><ul>${falta.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`);
+  }
   return partes.join('\n');
 }
 

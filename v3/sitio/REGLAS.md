@@ -24,10 +24,9 @@ guarda cada página armada unos minutos en la caché de Cloudflare.
 - **Para buscadores y lectores de feeds:** `/sitemap.xml` (índice) y un mapa por mes (`/sitemap-2026-11.xml`), `/rss.xml`, `/robots.txt`.
 - **Avisos:** hay un lugar fijo y tres rotativos, vacíos y marcados en el HTML. Los datos de los avisos vienen después.
 
-## 3. Mientras viva en workers.dev
+## 3. Indexar (`INDEXAR`)
 
-La variable `INDEXAR` vale `no`: todas las páginas llevan `noindex` y `robots.txt` pide que no entre nadie. Se pone en `si` el día del corte,
-cuando `radarbalcarce.com` apunte al Worker. Las direcciones canónicas ya dicen `https://radarbalcarce.com/…`.
+Con `INDEXAR = "no"` (workers.dev, antes del corte) todas las páginas llevan `noindex` y `robots.txt` pide que no entre nadie. Desde el corte vale `si`. Las direcciones canónicas ya dicen `https://radarbalcarce.com/…`.
 
 ## 4. El archivo viejo
 
@@ -61,3 +60,24 @@ mapas, RSS, redirecciones de dirección y la migración con cinco notas reales. 
 - **Directorio de direcciones:** nombres de tres palabras o más con «de la» («San José de la Plaza») no se reconocen en la página del Colegio y salen sin dirección (el sistema viejo las completa con La Vanguardia y una lista a mano).
 - **Página de farmacias propia** (`/farmacias`, con los próximos días): no existe todavía; mientras tanto el cuadro enlaza al Colegio sólo cuando no puede leer el turno.
 - **Lo más leído:** sin datos de lecturas; la columna lateral muestra lo último de Balcarce.
+
+## 8. El corte (radarbalcarce.com pasa a este Worker)
+
+**Qué hace.** Dos rutas de Workers (`radarbalcarce.com/*` y `www.radarbalcarce.com/*` → `radar-sitio`) hacen que el dominio lo sirva este Worker. Las pone y las saca
+`scripts/corte.mjs` (API de Cloudflare, workflow «Radar 3.0: corte»: `ver` | `poner` | `sacar`), no el `wrangler.toml`: subir el Worker de nuevo nunca pone ni saca una ruta.
+Al poner, también saca las rutas del archivo viejo (`/nota/*` y `/fotos-notas/*` de `radar-balcarce-archivo`) y anota cuáles había. No toca ninguna otra ruta (p. ej. `/r/*`).
+Primero pone las del sitio y recién después saca las del archivo; si una ruta del sitio ya es de otro Worker, no hace nada.
+
+**El respaldo al sitio viejo.** El sistema viejo sigue publicándose en `https://radar-balcarce.pages.dev` (variable `ORIGEN_VIEJO`; sin ella o apuntando a radarbalcarce.com no hay respaldo).
+Todo lo que este sitio no maneja se le pide allá y vuelve tal cual (estado, encabezados útiles, cuerpo; sin cookies; redirecciones sin seguir; caché corta de 60 s):
+`/panel/…`, `/farmacias`, `/clima`, `/dolar`, `/agenda`, `/hoy`, `/llms.txt`, `/agentes/…`, `/compartir/…`, `/escudos/…`, `/tema/…`, `/tablas/…`, el `.txt` de verificación, el manifiesto, los íconos,
+`/sitemap-news.xml`… También las **notas que no están en la base** y las **fotos** que R2 no tiene. Lo que este sitio sí sirve (`/`, `/seccion/<x>`, `/nota/…` de la base, `/buscar`, los mapas, `/rss.xml`, `/feed.xml`, `/robots.txt`, `/fotos-notas/` de R2) **nunca** se pide al viejo.
+Sólo GET y HEAD. Si el viejo también da 404, el 404 de acá; si no responde o da 5xx, un 502 que no se guarda. El pedido va a `pages.dev` (nunca a radarbalcarce.com) y lleva `x-radar-respaldo`: un pedido con ese encabezado no se reenvía, así no hay bucles.
+El `wrangler.toml` lleva `global_fetch_strictly_public` (sin eso, pedirle a otro sitio de Cloudflare desde acá da error 1019).
+
+**También.** `/feed.xml` (la dirección del RSS viejo) sirve el mismo RSS que `/rss.xml`. `www.radarbalcarce.com/<ruta>` da 301 a `https://radarbalcarce.com/<ruta>` (con la consulta); http → https lo hace Cloudflare.
+`INDEXAR = "si"`: sin `noindex`, el `robots.txt` abierto y los mapas con `https://radarbalcarce.com`. El núcleo, con `NUCLEO_PUBLICA = "si"`, publica solo.
+
+**Cómo se deshace.** `sacar` en el mismo workflow (un minuto): saca las dos rutas del sitio y devuelve las del archivo viejo (`--archivo=notas,fotos`, `ninguna`…). El dominio vuelve al sitio viejo.
+A mano: Cloudflare → Workers → `radar-sitio` → Domains & Routes → borrar las dos rutas. Las notas que el núcleo publicó mientras tanto quedan en la base, pero el sitio viejo no las muestra.
+Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.test.mjs` (el script con una API falsa).

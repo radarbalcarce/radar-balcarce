@@ -95,7 +95,9 @@ export function validar(r) {
         que: String(f.que ?? ''), quien: String(f.quien ?? ''), donde: String(f.donde ?? ''), cuando: String(f.cuando ?? ''),
         numeros: Array.isArray(f.numeros) ? f.numeros : [],
         cronologia: Array.isArray(f.cronologia) ? f.cronologia : [],
-        faltaSaber: Array.isArray(f.faltaSaber) ? f.faltaSaber : [],
+        faltaSaber: Array.isArray(f.faltaSaber) ? f.faltaSaber.slice(0, 3) : [],
+        // Marca de que «falta saber» se pidió con la regla de sólo cuando aporta (3/11): el sitio lo muestra únicamente así.
+        faltaSaberSelectivo: true,
       },
       noPublicar: noPublicar ? { motivo: String(noPublicar.motivo).trim() } : null,
     },

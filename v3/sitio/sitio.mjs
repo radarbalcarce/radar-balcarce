@@ -1,7 +1,7 @@
 // El sitio de Radar 3.0: recibe un pedido, arma la página con lo que hay en la base y la guarda unos minutos en la caché.
 // Ver REGLAS.md. `cache` se inyecta (en Cloudflare es `caches.default`; en las pruebas, un Map).
 import * as consultas from './db/consultas.mjs';
-import { POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota } from './util.mjs';
+import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota } from './util.mjs';
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
@@ -49,6 +49,61 @@ async function archivoEstatico(pedido, env, prefijo, nombre) {
   return new Response(pedido.method === 'HEAD' ? null : objeto.body, { status: 200, headers: cabeceras });
 }
 
+// ---------------------------------------------------------------- El respaldo al sitio viejo (el corte, REGLAS.md § 8)
+// Lo que este sitio no maneja se le pide al sitio viejo (variable ORIGEN_VIEJO, hoy https://radar-balcarce.pages.dev) y se devuelve tal cual.
+const HEADER_DE_RESPALDO = 'x-radar-respaldo';
+// Los únicos encabezados del viejo que se devuelven: nada de cookies ni de lo que ponga Cloudflare del otro lado.
+const CABECERAS_DEL_VIEJO = ['content-type', 'content-language', 'content-disposition', 'cache-control', 'etag', 'last-modified', 'location', 'link', 'x-robots-tag',
+  'content-security-policy', 'x-content-type-options', 'x-frame-options', 'referrer-policy', 'permissions-policy', 'cross-origin-opener-policy', 'cross-origin-resource-policy', 'access-control-allow-origin'];
+const CABECERAS_AL_VIEJO = ['accept', 'accept-language', 'user-agent', 'if-none-match', 'if-modified-since', 'range'];
+const SIN_RESPUESTA = () => new Response('El sitio viejo no responde. Probá de nuevo en un rato.', { status: 502, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });
+
+/** El origen del sitio viejo, o null si no está o si apuntaría a radarbalcarce.com (que sería un bucle: acá mismo). */
+export function origenViejo(env) {
+  const crudo = String(env?.ORIGEN_VIEJO ?? '').trim();
+  if (!crudo) return null;
+  let u;
+  try { u = new URL(crudo); } catch { return null; }
+  if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+  if (u.hostname === 'radarbalcarce.com' || u.hostname.endsWith('.radarbalcarce.com')) return null;
+  return u.origin;
+}
+
+/** ¿Esta dirección la maneja este sitio? Todo lo demás es del viejo. */
+export function esRutaPropia(pathname) {
+  const ruta = pathname.replace(/\/+$/, '') || '/';
+  return ruta === '/' || ruta === '/robots.txt' || ruta === '/buscar' || ruta === '/sitemap.xml' || ruta === '/rss.xml' || ruta === '/feed.xml'
+    || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta);
+}
+
+/**
+ * Pide al sitio viejo lo mismo que se pidió acá. Sólo GET y HEAD. Si el viejo no está configurado o da 404, devuelve `propia()` (el 404 de acá).
+ * Nunca manda cookies, nunca se llama dos veces seguidas (encabezado x-radar-respaldo) ni apunta a radarbalcarce.com.
+ */
+async function alViejo(pedido, env, traer, propia) {
+  const origen = origenViejo(env);
+  if (!origen || pedido.headers.get(HEADER_DE_RESPALDO)) return propia();
+  const url = new URL(pedido.url);
+  const enviados = new Headers({ [HEADER_DE_RESPALDO]: '1' });
+  for (const n of CABECERAS_AL_VIEJO) { const v = pedido.headers.get(n); if (v) enviados.set(n, v); }
+  let r;
+  try {
+    r = await traer(origen + url.pathname + url.search, {
+      method: pedido.method, headers: enviados, redirect: 'manual',
+      cf: { cacheTtl: 60, cacheTtlByStatus: { '200-299': 60, '301-308': 60, '404': 30, '500-599': 0 } },
+    });
+  } catch { return SIN_RESPUESTA(); }
+  if (r.status === 404 || r.status === 410) return propia();
+  if (r.status >= 500) return SIN_RESPUESTA();
+  const h = new Headers();
+  for (const n of CABECERAS_DEL_VIEJO) { const v = r.headers.get(n); if (v) h.set(n, v); }
+  const lugar = h.get('location');
+  if (lugar && lugar.startsWith(origen)) h.set('location', url.origin + lugar.slice(origen.length));
+  if (!h.has('cache-control')) h.set('cache-control', 'public, max-age=60');
+  const sinCuerpo = pedido.method === 'HEAD' || r.status === 204 || r.status === 304 || (r.status >= 300 && r.status < 400);
+  return new Response(sinCuerpo ? null : r.body, { status: r.status, headers: h });
+}
+
 const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), { estado: 404, indexar: false });
 
 /**
@@ -82,7 +137,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     let m = /^\/seccion\/([a-z]+)$/.exec(ruta);
     if (m) {
       const seccion = seccionDeRanura(m[1]);
-      if (!seccion) return { r: noEncontrada() };
+      if (!seccion) return { r: noEncontrada(), alViejo: true };
       const crudo = url.searchParams.get('pagina');
       const pag = crudo == null ? 1 : Number(crudo);
       if (!Number.isInteger(pag) || pag < 1 || pag > 10000) return { r: noEncontrada() };
@@ -100,9 +155,10 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       let parte;
       try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
       const id = idDeRuta(parte);
-      if (!/^[a-z0-9]{2,40}$/i.test(id)) return { r: noEncontrada() };
+      // Una nota que no está en la base puede ser del sistema viejo (que sigue publicando hasta que se apague): se prueba allá.
+      if (!/^[a-z0-9]{2,40}$/i.test(id)) return { r: noEncontrada(), alViejo: true };
       const nota = await consultas.notaPorId(env, id);
-      if (!nota) return { r: noEncontrada() };
+      if (!nota) return { r: noEncontrada(), alViejo: true };
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
@@ -127,7 +183,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       return { r: respuesta(sitemapDelMes(notas), { tipo: XML, cache: CACHE.mapa, indexar: true }), cachear: true };
     }
 
-    if (ruta === '/rss.xml') {
+    if (ruta === '/rss.xml' || ruta === '/feed.xml') {
       const notas = await consultas.listar(env, { limite: 30 });
       return { r: respuesta(rss(notas), { tipo: 'application/rss+xml; charset=utf-8', cache: CACHE.rss, indexar: true }), cachear: true };
     }
@@ -138,20 +194,26 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
   return {
     async manejar(pedido, env, ctx, { cache = typeof caches !== 'undefined' ? caches.default : null } = {}) {
       if (pedido.method !== 'GET' && pedido.method !== 'HEAD') return new Response('Método no permitido', { status: 405, headers: { allow: 'GET, HEAD' } });
-      const estatico = /^\/(fotos-notas|fuentes)\/([^/]+)$/.exec(new URL(pedido.url).pathname);
+      const url = new URL(pedido.url);
+      // www.radarbalcarce.com redirige a radarbalcarce.com con la misma ruta (http → https lo hace Cloudflare).
+      if (url.hostname === 'www.radarbalcarce.com') return new Response(null, { status: 301, headers: { location: BASE + url.pathname + url.search, 'cache-control': 'public, max-age=3600' } });
+      const estatico = /^\/(fotos-notas|fuentes)\/([^/]+)$/.exec(url.pathname);
       if (estatico) {
         let nombre = estatico[2];
         try { nombre = decodeURIComponent(nombre); } catch { /* queda como vino y no pasa la validación */ }
-        return archivoEstatico(pedido, env, estatico[1], nombre);
+        const propia = await archivoEstatico(pedido, env, estatico[1], nombre);
+        // Si el depósito no la tiene, la foto puede estar todavía en el sitio viejo.
+        return propia.status === 404 ? alViejo(pedido, env, traer, () => propia) : propia;
       }
-      const clave = new Request(new URL(pedido.url).toString(), { method: 'GET' });
-      const url = new URL(pedido.url);
+      if (!esRutaPropia(url.pathname)) return alViejo(pedido, env, traer, () => noEncontrada());
+      const clave = new Request(url.toString(), { method: 'GET' });
       const usaCache = cache && url.pathname !== '/buscar';
       if (usaCache) {
         const guardada = await cache.match(clave);
         if (guardada) return guardada;
       }
-      const { r, cachear } = await armar(pedido, env, ctx, cache);
+      const { r, cachear, alViejo: probarViejo } = await armar(pedido, env, ctx, cache);
+      if (probarViejo) return alViejo(pedido, env, traer, () => r);
       if (usaCache && cachear && r.status === 200) {
         const copia = r.clone();
         const guardar = cache.put(clave, copia);

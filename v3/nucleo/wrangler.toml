@@ -34,7 +34,7 @@ GEMINI_MODELO = "gemini-3.1-flash-lite"
 NUCLEO_TOPE_DIARIO = "150"
 NUCLEO_REDACTAR_POR_VUELTA = "6"
 # Interruptor de publicar (REGLAS § 11): "no" deja las notas en borrador; "si" las publica. Lo cambia una persona el día del corte.
-NUCLEO_PUBLICA = "no"
+NUCLEO_PUBLICA = "si"
 
 # Secretos GEMINI_API_KEY y TELEGRAM_TOKEN: los carga el workflow desde GitHub Secrets. Nunca acá.
 

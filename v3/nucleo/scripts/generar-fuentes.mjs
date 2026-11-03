@@ -52,6 +52,15 @@ export const APAGAR = {
   'perfil-ciencia': 'perfil.com/feed/ciencia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
   'perfil-salud': 'perfil.com/feed/salud devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
   'perfil-economia': 'perfil.com/feed/economia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
+  'infobae': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-tecno': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-economia': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-politica': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-cultura': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-salud': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-educacion': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'infobae-ciencia': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  unlam: 'unlam.edu.ar bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026). Se respeta el bloqueo.',
 };
 // ENCENDER: estaban apagadas en el sistema viejo y hoy responden XML con novedades de ese mismo día.
 export const ENCENDER = {
@@ -60,12 +69,15 @@ export const ENCENDER = {
   loberia2261: 'Lobería: responde XML con notas del 2/11/2026.',
   ayacuchoaldia: 'Ayacucho (zona): responde XML con notas del 2/11/2026.',
   sendero: 'Sendero Multimedios (zona): responde XML con notas del 2/11/2026.',
+  ole: 'Olé: responde XML con notas del 3/11/2026; Fútbol tenía pocos medios de deportes (3/11/2026).',
+  agenciacyta: 'Agencia CTyS (ciencia argentina): responde XML, publica cada tanto (último ítem 23/10/2026); suma un medio de ciencia propio (3/11/2026).',
 };
 // NOTAS: fuentes que siguen activas pero con una aclaración.
 export const NOTAS = {
-  infobae: 'La dirección es la vigente (la de su página de RSS) y desde una PC responde 200 y XML. Si el Worker las ve fallar, mirar el error exacto: no se cambia el User-Agent ni se esquiva un bloqueo.',
-  newsbalcarce: 'El feed (?feed=rss2) es el correcto pero el último ítem es del 25/10/2026: el medio publica poco o dejó de publicar.',
-  ahorabalcarce: 'El feed (/feed/) es el correcto pero el último ítem es del 27/10/2026: el medio publica poco o dejó de publicar.',
+  newsbalcarce: 'El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026.',
+  ahorabalcarce: 'Sigue en http://ahorabalcarce.com.ar/feed/ (el https no conecta); el último ítem es del 27/10/2026: publica poco. Se deja activa.',
+  'concejo-deliberante-balcarce': 'Feed vivo; publica poco (último ítem 27/10/2026, antes 14/10).',
+  accion5: 'Feed vivo (último ítem 1/11/2026); publica de a rachas.',
 };
 // SUMAR: feeds públicos nuevos (alcance 'pais', salvo que diga otra cosa). Todos devuelven 200 y XML.
 export const SUMAR = [
@@ -79,8 +91,14 @@ export const SUMAR = [
   { id: 'perfil-politica', nombre: 'Perfil · Política', medio: 'Perfil', url: 'https://www.perfil.com/feed/politica' },
   { id: 'perfil-sociedad', nombre: 'Perfil · Sociedad', medio: 'Perfil', url: 'https://www.perfil.com/feed/sociedad' },
   { id: 'perfil-tecnologia', nombre: 'Perfil · Tecnología', medio: 'Perfil', url: 'https://www.perfil.com/feed/tecnologia' },
+  { id: 'minsalud', nombre: 'Ministerio de Salud de la Nación', medio: 'Ministerio de Salud de la Nación', url: 'https://www.argentina.gob.ar/salud/noticias/rss', oficial: true },
+  { id: 'capital-humano', nombre: 'Capital Humano (Educación)', medio: 'Ministerio de Capital Humano', url: 'https://www.argentina.gob.ar/capital-humano/noticias/rss', oficial: true },
+  { id: 'lanacion-educacion', nombre: 'La Nación · Educación', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/educacion/' },
+  { id: 'clarin-cultura', nombre: 'Clarín · Cultura', medio: 'Clarín', url: 'https://www.clarin.com/rss/cultura/' },
+  { id: 'eldiarioar', nombre: 'elDiarioAR', medio: 'elDiarioAR', url: 'https://www.eldiarioar.com/rss/' },
+  { id: 'cenital', nombre: 'Cenital', medio: 'Cenital', url: 'https://cenital.com/feed/' },
   { id: 'perfil-deportes', nombre: 'Perfil · Deportes', medio: 'Perfil', url: 'https://www.perfil.com/feed/deportes' },
-].map((f) => ({ ...f, tipo: 'rss', alcance: 'pais', oficial: false, activa: true }));
+].map((f) => ({ ...f, tipo: 'rss', alcance: 'pais', activa: true })).map((f) => ({ oficial: false, ...f }));
 
 export function convertir(vieja) {
   let alcance;

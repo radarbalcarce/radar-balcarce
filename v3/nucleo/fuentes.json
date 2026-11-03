@@ -9,7 +9,7 @@
       "alcance": "balcarce",
       "oficial": false,
       "activa": true,
-      "nota": "El feed (?feed=rss2) es el correcto pero el último ítem es del 25/10/2026: el medio publica poco o dejó de publicar."
+      "nota": "El feed (?feed=rss2) es el correcto y está vivo (ítem del 3/11/2026 01:53), pero publica de a rachas: el anterior es del 25/10/2026."
     },
     {
       "id": "puntonueve",
@@ -99,7 +99,8 @@
       "tipo": "rss",
       "alcance": "balcarce",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "nota": "Feed vivo (último ítem 1/11/2026); publica de a rachas."
     },
     {
       "id": "ahorabalcarce",
@@ -110,7 +111,7 @@
       "alcance": "balcarce",
       "oficial": false,
       "activa": true,
-      "nota": "El feed (/feed/) es el correcto pero el último ítem es del 27/10/2026: el medio publica poco o dejó de publicar."
+      "nota": "Sigue en http://ahorabalcarce.com.ar/feed/ (el https no conecta); el último ítem es del 27/10/2026: publica poco. Se deja activa."
     },
     {
       "id": "concejo-deliberante-balcarce",
@@ -120,7 +121,8 @@
       "tipo": "rss",
       "alcance": "balcarce",
       "oficial": true,
-      "activa": true
+      "activa": true,
+      "nota": "Feed vivo; publica poco (último ítem 27/10/2026, antes 14/10)."
     },
     {
       "id": "fca-unmdp",
@@ -140,8 +142,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true,
-      "nota": "La dirección es la vigente (la de su página de RSS) y desde una PC responde 200 y XML. Si el Worker las ve fallar, mirar el error exacto: no se cambia el User-Agent ni se esquiva un bloqueo."
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "lanacion",
@@ -171,7 +173,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Olé: responde XML con notas del 3/11/2026; Fútbol tenía pocos medios de deportes (3/11/2026)."
     },
     {
       "id": "clarin-deportes",
@@ -385,7 +388,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "clarin-tecno",
@@ -415,7 +419,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "clarin-economia",
@@ -446,7 +451,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "clarin-politica",
@@ -486,7 +492,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "ambito-espectaculos",
@@ -596,7 +603,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Agencia CTyS (ciencia argentina): responde XML, publica cada tanto (último ítem 23/10/2026); suma un medio de ciencia propio (3/11/2026)."
     },
     {
       "id": "perfil-ciencia",
@@ -647,7 +655,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "perfil-salud",
@@ -678,7 +687,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "perfil-educacion",
@@ -809,7 +819,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo."
     },
     {
       "id": "dw-ciencia",
@@ -919,7 +930,8 @@
       "tipo": "rss",
       "alcance": "provincia",
       "oficial": true,
-      "activa": true
+      "activa": false,
+      "nota": "unlam.edu.ar bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026). Se respeta el bloqueo."
     },
     {
       "id": "unsa",
@@ -932,113 +944,173 @@
       "activa": true
     },
     {
+      "oficial": false,
       "id": "tn",
       "nombre": "TN",
       "medio": "TN",
       "url": "https://tn.com.ar/arc/outboundfeeds/rss/?outputType=xml",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "tn-sociedad",
       "nombre": "TN · Sociedad",
       "medio": "TN",
       "url": "https://tn.com.ar/arc/outboundfeeds/rss/category/sociedad/?outputType=xml",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "cronista",
       "nombre": "El Cronista",
       "medio": "El Cronista",
       "url": "https://www.cronista.com/files/rss/news.xml",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "lanacion-sociedad",
       "nombre": "La Nación · Sociedad",
       "medio": "La Nación",
       "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/sociedad/",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "lanacion-ciencia",
       "nombre": "La Nación · Ciencia",
       "medio": "La Nación",
       "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "lanacion-salud",
       "nombre": "La Nación · Salud",
       "medio": "La Nación",
       "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/salud/",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "clarin-sociedad",
       "nombre": "Clarín · Sociedad",
       "medio": "Clarín",
       "url": "https://www.clarin.com/rss/sociedad/",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "perfil-politica",
       "nombre": "Perfil · Política",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/politica",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "perfil-sociedad",
       "nombre": "Perfil · Sociedad",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/sociedad",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": false,
       "id": "perfil-tecnologia",
       "nombre": "Perfil · Tecnología",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/tecnologia",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {
+      "oficial": true,
+      "id": "minsalud",
+      "nombre": "Ministerio de Salud de la Nación",
+      "medio": "Ministerio de Salud de la Nación",
+      "url": "https://www.argentina.gob.ar/salud/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": true,
+      "id": "capital-humano",
+      "nombre": "Capital Humano (Educación)",
+      "medio": "Ministerio de Capital Humano",
+      "url": "https://www.argentina.gob.ar/capital-humano/noticias/rss",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "lanacion-educacion",
+      "nombre": "La Nación · Educación",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/educacion/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "clarin-cultura",
+      "nombre": "Clarín · Cultura",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/cultura/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "eldiarioar",
+      "nombre": "elDiarioAR",
+      "medio": "elDiarioAR",
+      "url": "https://www.eldiarioar.com/rss/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
+      "id": "cenital",
+      "nombre": "Cenital",
+      "medio": "Cenital",
+      "url": "https://cenital.com/feed/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "activa": true
+    },
+    {
+      "oficial": false,
       "id": "perfil-deportes",
       "nombre": "Perfil · Deportes",
       "medio": "Perfil",
       "url": "https://www.perfil.com/feed/deportes",
       "tipo": "rss",
       "alcance": "pais",
-      "oficial": false,
       "activa": true
     },
     {

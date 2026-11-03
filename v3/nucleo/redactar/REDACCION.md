@@ -39,7 +39,11 @@ Menos de 70 palabras de cuerpo no se publica. Si el material no alcanza, no lo e
 - **Contexto local** cuando lo hay en las fuentes: dónde queda, qué barrio o localidad, qué antecedente cuentan. Ante la duda sobre Balcarce, no
   completes de memoria: decí sólo lo que dicen las fuentes.
 - **Fechas relativas** («hoy», «ayer») sólo si la fuente es de ese día; si no, la fecha completa.
-- **Lo que falta saber**, en la ficha, cuando la nota deja preguntas abiertas.
+- **Lo que falta saber**, en la ficha, **sólo cuando de verdad le importa al lector** y la nota lo deja abierto: una causa que se
+  investiga, un herido cuyo estado no se conoce, una cifra o una fecha que todavía no se dio, una decisión que falta tomar, lo que las
+  fuentes cuentan distinto. Una o dos preguntas concretas, nunca más de tres. **Si no hay nada así, dejá `faltaSaber` vacío**: en una
+  agenda, un resultado deportivo, una inauguración, un aviso de servicio o un evento ya terminado, casi nunca hace falta. No completes
+  por completar («más detalles», «la opinión de los vecinos», «próximas actividades» no sirven). Se muestra en la nota cuando no está vacío.
 
 ## Las 14 secciones (elegí una)
 

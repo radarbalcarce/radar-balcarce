@@ -1,0 +1,129 @@
+name: "Radar 3.0: corte"
+
+# EL CORTE: que radarbalcarce.com lo sirva el sitio nuevo (Worker radar-sitio) en lugar del viejo. SÓLO A MANO. Guía: docs/11-OPERACION.md, tarea
+# «Radar 3.0: corte y vuelta atrás», y v3/sitio/REGLAS.md, § 8. No sube ningún Worker: eso lo hace «Radar 3.0: desplegar» (opción sitio), ANTES.
+#
+#   ver     lista todas las rutas de Workers de radarbalcarce.com y dice si el corte está puesto. No cambia nada.
+#   poner   pone radarbalcarce.com/* y www.radarbalcarce.com/* → radar-sitio y saca las rutas del archivo viejo (/nota/* y /fotos-notas/*),
+#           anotando cuáles había (línea ARCHIVO_HABIA del resumen). Después mira el sitio; si no da bien, vuelve atrás solo.
+#           Hay que tildar «confirmo» (es el cambio que ve el lector).
+#   sacar   LA VUELTA ATRÁS (un minuto): saca las dos rutas del sitio y devuelve las del archivo (las que dice «devolver_archivo»).
+#
+# Hace falta (los pega una persona, nunca en un chat):
+#   secreto  CLOUDFLARE_API_TOKEN   con «Zone → Workers Routes: Edit» y «Zone → Zone: Read» (o la variable CLOUDFLARE_ZONE_ID)
+#   secreto  CLOUDFLARE_ACCOUNT_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      accion:
+        description: 'Qué hacer'
+        type: choice
+        options: [ver, poner, sacar]
+        default: ver
+      confirmo:
+        description: 'Sólo para poner: confirmo que el sitio nuevo ya está subido (opción sitio de «Radar 3.0: desplegar») y que quiero el corte'
+        type: boolean
+        default: false
+      devolver_archivo:
+        description: 'Sólo para sacar: qué rutas del archivo viejo se devuelven (notas,fotos | notas | fotos | ninguna). Lo que dijo ARCHIVO_HABIA al poner'
+        type: string
+        default: 'notas,fotos'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-corte
+  cancel-in-progress: false
+
+jobs:
+  corte:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+      ACCION: ${{ inputs.accion }}
+      CONFIRMO: ${{ inputs.confirmo }}
+      DEVOLVER: ${{ inputs.devolver_archivo }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pruebas del sitio y del corte
+        run: node --test "v3/sitio/*.test.mjs"
+
+      - name: Poner el corte requiere confirmación
+        if: ${{ env.ACCION == 'poner' && env.CONFIRMO != 'true' }}
+        run: |
+          echo "Para poner el corte hay que tildar «confirmo». No se hizo nada." | tee -a "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      - name: Ver las rutas
+        if: ${{ env.ACCION == 'ver' }}
+        run: |
+          set -o pipefail
+          node v3/sitio/scripts/corte.mjs ver | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: PONER EL CORTE
+        id: poner
+        if: ${{ env.ACCION == 'poner' && env.CONFIRMO == 'true' }}
+        run: |
+          set -o pipefail
+          node v3/sitio/scripts/corte.mjs poner | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # Con el corte puesto, radarbalcarce.com tiene que dar el sitio nuevo; si no, se vuelve atrás solo (mejor el sitio viejo que uno roto).
+      # Cloudflare tarda unos segundos en repartir una ruta nueva: hasta tres intentos.
+      - name: Mirar radarbalcarce.com con el corte puesto
+        id: mirar
+        if: ${{ steps.poner.outcome == 'success' }}
+        run: |
+          sleep 20
+          for intento in 1 2 3; do
+            ok=1
+            codigo=$(curl -s -o /tmp/portada.html -w '%{http_code}' https://radarbalcarce.com/ || echo 000)
+            [ "$codigo" = "200" ] || ok=0
+            grep -q 'radarbalcarce.com' /tmp/portada.html || ok=0
+            curl -s https://radarbalcarce.com/robots.txt | grep -q 'Sitemap: https://radarbalcarce.com/sitemap.xml' || ok=0
+            curl -s https://radarbalcarce.com/feed.xml | grep -q '<rss' || ok=0
+            [ "$(curl -s -o /dev/null -w '%{http_code}' https://radarbalcarce.com/sitemap.xml)" = "200" ] || ok=0
+            destino=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' https://www.radarbalcarce.com/seccion/balcarce || true)
+            echo "intento $intento: portada=$codigo ok=$ok www: $destino"
+            [ "$ok" = "1" ] && { echo "El sitio nuevo responde bien: portada, robots.txt, feed.xml y sitemap.xml." >> "$GITHUB_STEP_SUMMARY"; exit 0; }
+            [ $intento -lt 3 ] && sleep 30
+          done
+          exit 1
+
+      - name: El sitio no dio bien - volver atrás solo
+        if: ${{ failure() && steps.mirar.outcome == 'failure' }}
+        run: |
+          set -o pipefail
+          node v3/sitio/scripts/corte.mjs sacar --archivo="${ARCHIVO_HABIA:-notas,fotos}" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "**Se volvió atrás solo porque radarbalcarce.com no pasó las comprobaciones.** El sitio viejo responde como antes." >> "$GITHUB_STEP_SUMMARY"
+        env:
+          ARCHIVO_HABIA: ${{ steps.poner.outputs.archivo_habia == 'ninguna' && 'ninguna' || (steps.poner.outputs.archivo_habia || 'notas,fotos') }}
+
+      - name: LA VUELTA ATRÁS - sacar el corte
+        if: ${{ env.ACCION == 'sacar' }}
+        run: |
+          set -o pipefail
+          node v3/sitio/scripts/corte.mjs sacar --archivo="$DEVOLVER" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Cómo quedó
+        if: ${{ always() && env.ACCION != 'ver' }}
+        continue-on-error: true
+        run: |
+          {
+            echo ""
+            echo "### Cómo quedó"
+            node v3/sitio/scripts/corte.mjs ver || echo "(no se pudieron leer las rutas: ¿el token tiene 'Workers Routes: Edit'?)"
+            echo ""
+            echo "- Vuelta atrás en un minuto: correr este workflow con **accion = sacar** (o Cloudflare → Workers → radar-sitio → Settings → Domains & Routes → borrar las dos rutas)."
+          } >> "$GITHUB_STEP_SUMMARY"

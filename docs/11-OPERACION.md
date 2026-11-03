@@ -347,6 +347,23 @@ completo de cómo se hizo el 22 y 23/10). Los Workers **no se suben solos**: cad
 
 No hay datos que devolver: la verdad está en `web/data/` del repositorio; la nube sólo guarda memoria que se rearma sola y contadores.
 
+## 5 quater. Radar 3.0: corte y vuelta atrás
+
+*Para el día en que `radarbalcarce.com` pase a mostrar el sitio nuevo (Radar 3.0). Detalle técnico: `v3/sitio/REGLAS.md`, § 8.*
+
+**Antes de empezar:** el sitio nuevo tiene que estar subido con los últimos cambios (GitHub → Actions → **Radar 3.0: desplegar** → `sitio`; y `nucleo` si cambió) y las notas viejas ya migradas.
+El token de Cloudflare tiene que tener «Zone → Workers Routes: Edit» y «Zone → Zone: Read».
+
+- **Mirar cómo está:** GitHub → Actions → **Radar 3.0: corte** → Run workflow → `accion` = **ver**. Lista las rutas y dice si el corte está puesto. No cambia nada.
+- **Hacer el corte:** el mismo workflow con `accion` = **poner** y **confirmo** tildado. Pone el sitio nuevo en `radarbalcarce.com` y `www`, saca las rutas del archivo
+  viejo y **anota cuáles había** (en el resumen, la línea `ARCHIVO_HABIA=…`: copiala). Después mira la portada, el robots.txt, el feed y el mapa del sitio; si algo no da, **vuelve atrás solo**.
+  Lo que el sitio nuevo no tiene (panel, farmacias, clima, dólar, agenda…) se lo pide al sitio viejo, que sigue andando.
+- **Mirar a mano después** (con otro navegador o el celular): `radarbalcarce.com`, una nota de hoy, una nota de hace una semana, `/panel/`, `/farmacias`, `/feed.xml` y `www.radarbalcarce.com` (tiene que mandar a `radarbalcarce.com`).
+- **La vuelta atrás (un minuto):** el mismo workflow con `accion` = **sacar**, y en `devolver_archivo` lo que dijo `ARCHIVO_HABIA` (`notas,fotos` si no te acordás). Saca el sitio nuevo y vuelve todo como estaba.
+  Si el workflow no anda: Cloudflare → Workers → `radar-sitio` → Settings → Domains & Routes → borrar `radarbalcarce.com/*` y `www.radarbalcarce.com/*`, y en `radar-balcarce-archivo` volver a poner `radarbalcarce.com/nota/*`.
+- **Para frenar de golpe lo que se publica** (sin sacar el corte): la pausa general (tarea 5 bis) o `NUCLEO_PUBLICA` = `no` en el núcleo.
+- **Sólo lo hace una persona:** el token de Cloudflare con el permiso de rutas. Un cambio de DNS o de «dominio propio» de Pages no hace falta.
+
 ## 6. Publicar una pieza a mano
 
 Para una historia fija que no salió (clima, farmacia) o para probar:

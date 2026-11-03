@@ -3,6 +3,9 @@ name = "radar-sitio"
 main = "worker.mjs"
 compatibility_date = "2026-10-01"
 workers_dev = true
+# El respaldo al sitio viejo (ORIGEN_VIEJO, en radar-balcarce.pages.dev) es un pedido a otro sitio de Cloudflare: sin esta bandera, desde workers.dev da error 1019
+# (lo mismo que pasó con el archivo, infra/archivo-cloudflare/wrangler.toml, 23/10).
+compatibility_flags = ["global_fetch_strictly_public"]
 
 # La misma base que el núcleo. El workflow la busca por nombre y reemplaza el marcador.
 [[d1_databases]]
@@ -16,5 +19,7 @@ binding = "FOTOS"
 bucket_name = "radar-fotos"
 
 [vars]
-# "no" mientras viva en workers.dev (noindex en todo); "si" el día del corte.
-INDEXAR = "no"
+# "si" desde el corte (radarbalcarce.com apunta a este Worker): se indexa, con canonical https://radarbalcarce.com. Con "no": noindex en todo y robots.txt cerrado.
+INDEXAR = "si"
+# El sitio viejo, que sigue publicándose: lo que este sitio no maneja (panel, farmacias, clima, íconos…) y las notas que no están en la base se piden ahí. Nunca radarbalcarce.com (bucle). Vacío = sin respaldo.
+ORIGEN_VIEJO = "https://radar-balcarce.pages.dev"
