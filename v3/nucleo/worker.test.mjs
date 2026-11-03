@@ -145,7 +145,7 @@ test('partirEnMensajes: hasta 3.500 caracteres, sin cortar líneas', () => {
 
 test('el costo estimado usa los precios por millón de tokens', () => {
   assert.equal(costoEstimado({ tokensEntrada: 1_000_000, tokensSalida: 1_000_000 }), 0.5);
-  assert.equal(FRENO_MENSUAL_USD, 15);
+  assert.equal(FRENO_MENSUAL_USD, 7); // Hernán, 3/11: texto y voces por debajo de US$ 10
 });
 
 // ------------------------------------------------------------------ la vuelta

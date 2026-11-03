@@ -109,7 +109,7 @@ instante; las redes la toman de ahí. El núcleo no sabe nada del sitio ni de la
 
 2 pedidos de texto a la clave paga (3 si hubo reescritura), 1 a 3 pedidos de visión (gratis o centavos), huellas gratis. Lo que no se
 publica cuesta **cero** pedidos de texto. Tope mensual en la clave: lo pone Hernán en Google; el núcleo además se frena solo si pasa
-los US$ 15 en el mes y avisa.
+los US$ 7 en el mes y avisa (Hernán, 3/11: texto y voces juntos, menos de US$ 10).
 
 ## 10. Pruebas
 

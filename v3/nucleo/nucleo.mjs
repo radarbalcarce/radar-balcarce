@@ -29,7 +29,7 @@ const HORAS_PARA_REDACTAR = 48; // una historia elegida que no se alcanzó a red
 // cambian acá y sólo acá. Es una estimación para frenar a tiempo, no la factura.
 export const PRECIO_ENTRADA_POR_MILLON = 0.10;
 export const PRECIO_SALIDA_POR_MILLON = 0.40;
-export const FRENO_MENSUAL_USD = 15;
+export const FRENO_MENSUAL_USD = 7; // Hernán, 3/11: texto y voces juntos por debajo de US$ 10 por mes (las voces son ~US$ 2)
 
 export const costoEstimado = ({ tokensEntrada = 0, tokensSalida = 0 }) =>
   (tokensEntrada / 1e6) * PRECIO_ENTRADA_POR_MILLON + (tokensSalida / 1e6) * PRECIO_SALIDA_POR_MILLON;
