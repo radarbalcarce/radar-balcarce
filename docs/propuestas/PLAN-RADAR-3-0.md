@@ -669,3 +669,16 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
   créditos) y las voces siguen iguales.
 - **Para la limpieza de claves de la 3.0:** unificar REDACCION y CLASIFICACION (hoy duplicadas), borrar …Qs2A si nadie la usa, decidir qué
   hacer con RadarGratis (suspendido) y con el proyecto Default, y dejar escrito qué clave vive en qué proyecto (esta lista).
+
+**Estado de la construcción, 3/11 madrugada** (Hernán: «no pares hasta terminar»):
+
+- **En Cloudflare y andando:** `radar-nucleo` (vuelta cada 15 min, 81 fuentes activas, base D1 `radar-nucleo`, Workers AI para huellas,
+  sólo clave paga con tope 150/día; resumen 21:30 por Telegram; no publica), `radar-telegram` (además de lo de antes: nota propia por
+  texto/audio/foto/enlace → «armala» → vista previa → «ok» guarda publicada → botones de redes), `radar-sitio` (en
+  radar-sitio.radarbalcarce.workers.dev, `noindex`; nota, sección, buscar, sitemap, RSS; las 500 notas del sitio viejo migradas con su
+  misma dirección; portada provisoria hasta que Hernán elija), `radar-vigilancia` (chequeo cada 30 min, informes 8 y 20).
+- **Calibrado el agrupado** con 184 pares del sistema viejo (`unir` 0,79, `duda` 0,70; informe en `v3/nucleo/scripts/salida/`).
+- **Para elegir, Hernán:** la tapa (`docs/propuestas/tapa-3-0/`: A Diario, B Tarjetas, C Revista) y las 20 notas lado a lado
+  (artifact https://claude.ai/artifact/JDhSoev8ZoaW1GSR85x3Rv; `v3/nucleo/comparaciones/`).
+- **Falta:** la portada elegida; quién pasa los borradores a «publicada» (interruptor del núcleo, el día del corte); el archivo viejo
+  de R2 (más de 500 notas) y las fotos viejas a R2; Infobae falla desde Cloudflare (a investigar); redes (etapa D); el corte de dominio.
