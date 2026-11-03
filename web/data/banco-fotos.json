@@ -61862,7 +61862,8 @@
    "corresponde": "si",
    "descripcion": "Auto de TC2000 número 5 de Valentín Yankelevich circulando por la pista en General Roca."
   },
-  "huella": "60686edaeec4d0ab"
+  "huella": "60686edaeec4d0ab",
+  "ausenteDesde": "2026-11-03T07:04:27.064Z"
  },
  "14cnssm": {
   "archivo": "fotos-notas/14cnssm.jpg",
@@ -62874,7 +62875,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Rodolfo Arruabarrena sentado en el banco de suplentes."
   },
-  "huella": "635b4b0d0dcc4ccc"
+  "huella": "635b4b0d0dcc4ccc",
+  "ausenteDesde": "2026-11-03T07:04:27.064Z"
  },
  "l97ncr": {
   "archivo": "fotos-notas/l97ncr.jpg",
@@ -68798,12 +68800,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-02T20:07:30.718Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-11-03T07:02:21.632Z",
   "intentos": 3,
-  "fuentes": 14,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "fuentes": 19,
+  "intentosPorCupo": 2
  },
  "1nk1y8y": {
   "archivo": "fotos-notas/1nk1y8y.jpg",
@@ -69847,10 +69848,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
-  "razon": "No hay ninguna foto elegible porque todas contienen menores de edad reconocibles.",
-  "cuando": "2026-11-02T19:02:15.210Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ambas fotos presentan menores de edad claramente identificables, lo cual impide su publicación según las políticas editoriales.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "2mivab": {
   "intentado": true,
@@ -69958,15 +69959,28 @@
   "huella": "95b5d6d7d5b21449"
  },
  "1lpqfxl": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lpqfxl.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Milei recibe al enviado de Estados Unidos para combatir el antisemitismo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-02T20:07:30.718Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://perfil.com/politica/a-un-dia-de-la-eleccion-en-ee.uu.-milei-recibio-a-un-enviado-de-trump-aKPPk9W1mUMg",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/51390c48631f-whatsapp-image-2026-11-02-at-1459.webp",
+  "razon": "Es la única foto que muestra el hecho completo, sin marcas de agua sobreimpresas, sin menores y con una composición clara y profesional.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión en una mesa larga con una motosierra sobre la mesa."
+  },
+  "huella": "564a48ba93b0880d"
  },
  "158a7ej": {
   "archivo": "fotos-notas/158a7ej.jpg",
@@ -70339,24 +70353,50 @@
   "fuentes": 1
  },
  "1o0lmqb": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1o0lmqb.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Javier Milei recibe un reconocimiento por el Plan de Alfabetización",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Verdad no se usa todavía.",
-  "cuando": "2026-11-03T05:02:05.899Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 2
+  "enlace": "https://laverdadonline.com/el-presidente-se-reunio-con-argentinos-por-la-educacion-y-recibio-un-reconocimiento/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/11/2-educacion.avif",
+  "razon": "Es la imagen con mejor calidad, sin marcas de agua sobreimpresas y que ilustra correctamente el hecho.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei en una reunión de mesa larga con funcionarios.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Javier Milei sentado en una mesa de reuniones en la Casa Rosada con un grupo de personas."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0f0f555515858e96"
  },
  "1p9q75l": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Universidad Nacional de Mar del Plata organiza un corredor artístico",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Punto Noticias no se usa todavía.",
-  "cuando": "2026-11-02T21:33:07.680Z",
+  "cuando": "2026-11-03T07:02:21.632Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "1cvi4gt": {
   "archivo": "fotos-notas/1cvi4gt.jpg",
@@ -70462,15 +70502,28 @@
   "huella": "276765430707470f"
  },
  "vrkmep": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/vrkmep.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La recaudación tributaria nacional crece por cuarto mes consecutivo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-03T05:02:05.899Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 2,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.lanacion.com.ar/economia/la-recaudacion-tributaria-crecio-07-en-octubre-y-acumulo-cuatro-meses-sin-caidas-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/arca-informo-que-la-recaudacion-impositiva-de-K7FXSNY5TRAAHP3BYL636QM2DI.jpg?auth=2359b2db85b62d422dc8ed05471a384144a087766dca9fb79aabf1b152937d84&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B es una fotografía real de la fachada de la institución, sin marcas de agua, sin menores y sin ser una composición gráfica.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cartel institucional de ARCA en la fachada de un edificio."
+  },
+  "huella": "0f3f0d40200a2103"
  },
  "qdsdup": {
   "archivo": "fotos-notas/qdsdup.jpg",
@@ -70732,15 +70785,28 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1lgfhjg": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1lgfhjg.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Fiorentina vence a Sassuolo y sale de la zona de descenso en Italia",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-03T01:32:06.291Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.ole.com.ar/futbol-internacional/mastantuono-sassuolo-fiorentina-serie-fecha-9-minuto-vivo-dia-hora-ver_0_vbtxjlgBvU.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/02/d2YZ2EQj0_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra al protagonista de forma clara, con buena calidad, sin marcas de agua, sin elementos gráficos sobreimpresos y sin personas ajenas al hecho que distraigan.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un jugador de la Fiorentina celebrando un gol."
+  },
+  "huella": "9bb21d0f268e9a8b"
  },
  "i98sn8": {
   "archivo": "fotos-notas/i98sn8.jpg",
@@ -71440,14 +71506,40 @@
   "ausenteDesde": "2026-11-03T06:05:09.306Z"
  },
  "jv7jrk": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/jv7jrk.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Torneo Clausura completa la decimoquinta fecha y define la última jornada",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Diario Popular no se usa todavía.",
-  "cuando": "2026-11-03T05:02:05.899Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "enlace": "https://www.diariopopular.com.ar/futbol/el-torneo-clausura-cierra-la-fecha-15-cuatro-partidos-clave-la-clasificacion-los-playoffs-n927426",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/8d7c031c88643b7a7be5a657309c6d47/adjuntos/143/imagenes/008/263/0008263026/1200x675/smart/argentinos-juniors.png",
+  "razon": "Es la única imagen que muestra una escena real de un partido de fútbol, sin marcas de agua, sin ser una placa gráfica y sin elementos de stock.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de fútbol celebrando un gol en el campo de juego.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Jugadores de fútbol celebrando un gol en un estadio de noche."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "f94a6b6accd8d8bd"
  },
  "1kftll4": {
   "intentado": true,
@@ -71480,5 +71572,38 @@
   "fuentes": 21,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1kmj0um": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Negra Vernaci sube al balcón en la última gala de MasterChef Celebrity",
+  "razon": "Ambas imágenes son capturas de pantalla de una transmisión televisiva, lo cual las clasifica como gráficas y no fotografías de una escena real.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1grohf": {
+  "archivo": "fotos-notas/1grohf.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno negocia con aliados para aprobar el Presupuesto 2027",
+  "enlace": "https://tn.com.ar/politica/2026/11/01/el-gobierno-negocia-con-sus-aliados-para-avanzar-con-el-presupuesto-2027-y-enfrenta-reclamos-por-impuestos-universidades-y-obras/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/martin-menem-presidente-de-la-camara-de-diputados-foto-camara-de-diputadosgustavo-molfino-5MST3S4H6RGGFBH4SCH7REL62U.jpg?auth=40462e305dd296cf3321a6cf5699b3e2cf676d3e8fa4f2284753ebd3f27138b3&width=1023",
+  "razon": "Es la única imagen que muestra al protagonista en el recinto sin marcas de agua, sin menores y con buena calidad técnica.",
+  "cuando": "2026-11-03T07:02:21.632Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Martín Menem en el recinto de la Cámara de Diputados."
+  },
+  "huella": "a624aca920229989"
  }
 }
