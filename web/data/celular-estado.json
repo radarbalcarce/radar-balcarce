@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T15:53:46.519Z",
- "portada": 166,
+ "generado": "2026-11-03T16:46:15.165Z",
+ "portada": 162,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-03T15:53:47.116Z",
+  "generado": "2026-11-03T16:46:15.526Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-03T13:46:55.159Z"
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu evento o emprendimiento",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-03T15:36:42.344Z"
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": "2026-11-03T13:46:55.159Z",
     "segundos": null,
     "notas": [
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 48,
     "notas": [
      {
       "id": "bhyj9r",
@@ -134,14 +134,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "voie14",
-      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
+      "id": "1c9pdog",
+      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
       "seccion": "Balcarce"
      },
      {
-      "id": "18ol7p3",
-      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
-      "seccion": "Política"
+      "id": "13pnh44",
+      "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
+      "seccion": "Automovilismo"
      },
      {
       "id": "epb4w8",
@@ -157,11 +157,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
      {
-      "id": "1c9pdog",
-      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
+      "id": "voie14",
+      "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
       "seccion": "Balcarce"
      },
      {
@@ -170,14 +170,14 @@
       "seccion": "Deportes"
      },
      {
-      "id": "nae13g",
-      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
-      "seccion": "Política"
+      "id": "1l573lx",
+      "titulo": "Avanza la causa por la muerte de Claribel Medina",
+      "seccion": "Policiales"
      },
      {
-      "id": "10f66es",
-      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
-      "seccion": "Argentina"
+      "id": "18ol7p3",
+      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
+      "seccion": "Política"
      }
     ]
    }
@@ -227,21 +227,21 @@
      "marcada": false
     },
     {
-     "id": "1tqe7zq",
-     "titulo": "El CEF Nº 119 Oscar Cardozo celebra sus 25 años",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "2ljtc7",
-     "titulo": "El Senado bonaerense debate la creación de la empresa pública de medicamentos",
-     "seccion": "Política",
+     "id": "18o13hv",
+     "titulo": "Amigos Unidos organiza el encuentro Que ruede la redonda",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
      "id": "17s2nca",
      "titulo": "Kristalina Georgieva elogia el ajuste fiscal de la Argentina y pide frenar el populismo",
      "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "2j408z",
+     "titulo": "Sandra Pettovello descarta mensajes políficos en la visita del papa León XIV",
+     "seccion": "Política",
      "marcada": false
     }
    ],
