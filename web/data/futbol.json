@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-03T00:56:14.525Z",
+ "consultado": "2026-11-03T01:34:08.152Z",
  "equipos": [
   "9739",
   "3",
@@ -1039,7 +1039,7 @@
     "competencia": "liga",
     "inicio": "2026-11-03T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "40'",
+    "minuto": "61'",
     "local": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
@@ -1048,7 +1048,7 @@
     "visitante": {
      "id": "3",
      "nombre": "Argentinos Juniors",
-     "goles": 1
+     "goles": 2
     },
     "penales": null,
     "goles": [
@@ -1057,6 +1057,12 @@
       "jugador": "Matías Giménez",
       "minuto": "30'",
       "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Clever Ferreira",
+      "minuto": "43'",
+      "tipo": "en contra"
      }
     ],
     "estadio": "Monumental Presidente José Fierro",
@@ -1069,16 +1075,16 @@
     "competencia": "liga",
     "inicio": "2026-11-03T00:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "40'",
+    "minuto": "56'",
     "local": {
      "id": "9744",
      "nombre": "Independiente Rivadavia",
-     "goles": 2
+     "goles": 3
     },
     "visitante": {
      "id": "235",
      "nombre": "Banfield",
-     "goles": 2
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -1101,10 +1107,10 @@
       "tipo": "gol"
      },
      {
-      "equipo": "visitante",
-      "jugador": "Lautaro Gómez",
-      "minuto": "37'",
-      "tipo": "gol"
+      "equipo": "local",
+      "jugador": "Santiago Daniele",
+      "minuto": "45'",
+      "tipo": "en contra"
      }
     ],
     "estadio": "Bautista Gargantini",

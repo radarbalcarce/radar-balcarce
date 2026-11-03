@@ -42234,9 +42234,7 @@
   "borrada": true
  },
  "1j0tzft": {
-  "archivo": "fotos-notas/1j0tzft.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca le gana a Independiente con un gol agónico de Herrera",
@@ -42256,7 +42254,8 @@
    "descripcion": "Herrera festejando un gol con los brazos abiertos en el partido contra Independiente"
   },
   "huella": "6b6d13ab2b2babab",
-  "ausenteDesde": "2026-10-27T01:01:50.110Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ogsmzm": {
   "medio": "TN (Todo Noticias)",
@@ -60842,7 +60841,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "9199999892113123"
+  "huella": "9199999892113123",
+  "ausenteDesde": "2026-11-03T01:34:10.276Z"
  },
  "17d5cdt": {
   "archivo": "fotos-notas/17d5cdt.jpg",
@@ -60987,7 +60987,8 @@
    "corresponde": "si",
    "descripcion": "Fachada y cartel principal del Banco de la Nación Argentina"
   },
-  "huella": "f0480e27a8555555"
+  "huella": "f0480e27a8555555",
+  "ausenteDesde": "2026-11-03T01:34:10.276Z"
  },
  "1n4xm9t": {
   "intentado": true,
@@ -61326,7 +61327,8 @@
    "corresponde": "si",
    "descripcion": "Fachada del Etihad Stadium con el escudo del Manchester City."
   },
-  "huella": "070f07080b4c1515"
+  "huella": "070f07080b4c1515",
+  "ausenteDesde": "2026-11-03T01:34:10.276Z"
  },
  "dbup6y": {
   "archivo": "fotos-notas/dbup6y.jpg",
@@ -64916,7 +64918,8 @@
    "corresponde": "si",
    "descripcion": "Virginia Aparicio hablando en una conferencia o panel con auriculares y micrófono"
   },
-  "huella": "0404048747476764"
+  "huella": "0404048747476764",
+  "ausenteDesde": "2026-11-03T01:34:10.276Z"
  },
  "mkw4t0": {
   "archivo": "fotos-notas/mkw4t0.jpg",
@@ -67832,8 +67835,7 @@
    "corresponde": "si",
    "descripcion": "Mujer sentada frente a una mesa con una laptop en un espacio interior"
   },
-  "huella": "46465256574949c9",
-  "ausenteDesde": "2026-11-02T12:24:08.550Z"
+  "huella": "46465256574949c9"
  },
  "gn5bbf": {
   "archivo": "fotos-notas/gn5bbf.jpg",
@@ -70669,7 +70671,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV saludando."
   },
-  "huella": "e47212527672e266"
+  "huella": "e47212527672e266",
+  "ausenteDesde": "2026-11-03T01:34:10.276Z"
  },
  "1a3fmok": {
   "archivo": "fotos-notas/1a3fmok.jpg",
@@ -70694,5 +70697,70 @@
    "descripcion": "Edificio de la Universidad Nacional de Mar del Plata."
   },
   "huella": "511c565bd75bf9d9"
+ },
+ "162lj09": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Gobierno confirma dos cadenas nacionales por la visita del papa León XIV",
+  "razon": "Ninguna de las fotos cumple con los criterios: la A es un plano cerrado de un funcionario que no es el protagonista, la B contiene menores de edad claramente identificables, y la C es una composición gráfica de dos personas que no ilustra el hecho de manera natural.",
+  "cuando": "2026-11-03T01:32:06.291Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "19dguz7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Independiente Rivadavia vence a Banfield y complica las aspiraciones de River",
+  "razon": "Ninguna de las imágenes cumple con los requisitos: la mayoría son capturas de pantalla con marcas de agua de canales de televisión, y las que no, presentan elementos gráficos sobreimpresos o no corresponden al evento mencionado.",
+  "cuando": "2026-11-03T01:32:06.291Z",
+  "intentos": 1,
+  "fuentes": 23
+ },
+ "87ocqe": {
+  "archivo": "fotos-notas/87ocqe.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Más de 100 mascotas participan de un desfile temático en La Plata",
+  "enlace": "https://www.0221.com.ar/la-plata/mas-100-mascotas-la-plata-participaron-del-desfile-halloween-plaza-azcuenaga-n136806",
+  "imagenOriginal": "https://media.0221.com.ar/p/4ac8063a56a90e623afc2d584c90ee1f/adjuntos/357/imagenes/100/254/0100254567/1200x630/560x508:580x528/desfile-mascotas-la-plata-halloween.jpeg",
+  "razon": "Es la única imagen que muestra claramente a una de las mascotas participantes del desfile, con un encuadre limpio y sin personas reconocibles.",
+  "cuando": "2026-11-03T01:32:06.291Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un perro chihuahua vestido con una capa floral caminando sobre una alfombra roja."
+  },
+  "huella": "9424563210216067"
+ },
+ "1djsjec": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El papa León XIV celebra una misa en Luján el miércoles 11 de noviembre",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T01:32:06.291Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1lgfhjg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Fiorentina vence a Sassuolo y sale de la zona de descenso en Italia",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-03T01:32:06.291Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
