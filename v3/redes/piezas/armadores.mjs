@@ -290,7 +290,7 @@ function imagenFija(id, ancho, alto, tipoDeEscena, datos, extra = {}) {
 export function armarPosteo(nota) {
   exigirNota(nota, 'posteo');
   if (!nota.foto) throw new Error('posteo: sin foto no va');
-  return imagenFija('posteo-4x5', IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, 'posteo', { seccion: nota.seccion, titulo: tituloEnPantalla(nota.titulo), foto: fotoDe(nota.foto) }, { notaId: nota.id ?? null });
+  return imagenFija('posteo-4x5', IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, 'posteo', { seccion: nota.seccion, titulo: String(nota.titulo ?? '').replace(/\s+/g, ' ').trim(), bajada: nota.enDosLineas || nota.bajada || '', fecha: nota.fechaCorta ?? '', foto: fotoDe(nota.foto) }, { notaId: nota.id ?? null });
 }
 
 /** La imagen de enlace de X, Threads y Bluesky (1080 × 565). */

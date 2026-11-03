@@ -20,7 +20,16 @@ database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
 binding = "TELEGRAM"
 service = "radar-telegram"
 
+# Las placas de los posteos (las dibuja el workflow «Radar 3.0: piezas de redes» y las sube acá; el Worker las sirve en /placa/<nombre> y Meta las baja).
+[[r2_buckets]]
+binding = "PLACAS"
+bucket_name = "radar-render"
+
 [vars]
+# «no» frena SÓLO los posteos de notas (Facebook + espejo de Instagram); los reels y las historias siguen.
+POSTEOS_ACTIVOS = "si"
+# «si»: el posteo sale con la placa de la marca (foto arriba, rótulo, título, bajada), nunca con la foto sola; una nota sin placa dibujada espera.
+POSTEOS_CON_PLACA = "si"
 # «no» = simula (elige, arma el texto, lo anota con simulado = 1 y no llama a Meta). «si» = publica de verdad. La prende una persona.
 REDES_ACTIVAS = "si"
 # El espejo de cada posteo de Facebook en el feed de Instagram (foto entera, sin enlace). «no» lo apaga.

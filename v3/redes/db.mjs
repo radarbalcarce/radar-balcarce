@@ -82,3 +82,14 @@ export async function vencerEnviando(env, { red, dia, simulado, antesDeISO }) {
 export async function ultimaPublicacion(env) {
   return (await env.DB.prepare('SELECT red, nota_id, cuando, estado, simulado, error FROM publicaciones ORDER BY id DESC LIMIT 1').first()) ?? null;
 }
+
+/** Repetir una nota a mano: lo ya publicado de esa nota en esa red pasa a «reemplazada» (deja de ocupar el lugar único), para poder subir la nueva. Devuelve cuántas filas movió. */
+export async function reemplazarAnteriores(env, { red, notaId }) {
+  const r = await env.DB.prepare("UPDATE publicaciones SET estado = 'reemplazada' WHERE red = ? AND nota_id = ? AND simulado = 0 AND estado IN ('ok', 'enviando')").bind(red, notaId).run();
+  return r?.meta?.changes ?? 0;
+}
+
+/** Si la repetición falló, lo que estaba publicado vuelve a contar como publicado (la nota no se vuelve a elegir sola). */
+export async function restaurarAnteriores(env, { red, notaId }) {
+  await env.DB.prepare("UPDATE publicaciones SET estado = 'ok' WHERE id = (SELECT MAX(id) FROM publicaciones WHERE red = ? AND nota_id = ? AND simulado = 0 AND estado = 'reemplazada' AND id_meta IS NOT NULL)").bind(red, notaId).run();
+}

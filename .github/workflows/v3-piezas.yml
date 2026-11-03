@@ -28,6 +28,10 @@ on:
         description: 'Ensayar sólo estas piezas, separadas por coma (clima-manana, clima-noche, farmacia, utiles, agenda, feriado, aviso-helada, aviso-granizo, aviso-viento, efemeride, participa-noticias, participa-evento, participa-reclamos, participa-nota, noticia1, noticia2, podcast). Vacío = lo que toca ahora'
         type: string
         default: ''
+      repetir:
+        description: 'VOLVER A PUBLICAR una nota (su id, por ejemplo ls3twi6) en Facebook e Instagram con la placa nueva, sin borrar el posteo anterior. Dibuja la placa si falta. Vacío = nada. Sólo corre este paso'
+        type: string
+        default: ''
       ahora:
         description: 'Ensayar a otra hora (ISO UTC, por ejemplo 2026-11-03T13:00:00Z). Vacío = ahora'
         type: string
@@ -65,7 +69,22 @@ jobs:
           restore-keys: |
             voz-v3-
 
+      # Las placas de los posteos de notas (foto arriba, rótulo de la sección, título y bajada): se dibujan acá (resvg) y se suben a R2; el Worker las publica y Meta las baja de su dirección.
+      # Con `repetir` además vuelve a publicar esa nota (POST /posteos/repetir) y los demás pasos no corren.
+      - name: Dibujar las placas de los posteos
+        continue-on-error: ${{ inputs.repetir == '' }}
+        run: node v3/redes/piezas/posteos.mjs
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_RENDER: ${{ vars.R2_RENDER }}
+          REDES_URL: ${{ vars.V3_REDES_URL }}
+          REPETIR: ${{ inputs.repetir }}
+
       - name: Armar las piezas que tocan
+        if: inputs.repetir == ''
         run: node v3/redes/piezas/correr.mjs
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -86,7 +105,7 @@ jobs:
 
       # Bluesky y Threads: las notas que ya salieron en Facebook, como enlace (título + enlace + imagen 1,91:1). Sigue aunque las piezas hayan fallado; sin secretos no publica.
       - name: Publicar los enlaces (Bluesky y Threads)
-        if: always()
+        if: always() && inputs.repetir == ''
         continue-on-error: true
         run: node v3/redes/piezas/enlaces.mjs
         env:

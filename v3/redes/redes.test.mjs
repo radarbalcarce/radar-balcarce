@@ -26,7 +26,7 @@ function armar({ env = {}, reglasMeta = META, ahora = AHORA } = {}) {
   const meta = metaDeMentira(reglasMeta);
   const avisos = [];
   const telegram = { fetch: async (url, init) => { avisos.push({ url, headers: init.headers, ...JSON.parse(init.body) }); return { ok: true }; } };
-  const entorno = { DB: base.DB, TELEGRAM_TOKEN: TOKEN_TG, TELEGRAM: telegram, ...env };
+  const entorno = { DB: base.DB, TELEGRAM_TOKEN: TOKEN_TG, TELEGRAM: telegram, POSTEOS_CON_PLACA: 'no', ...env };
   const redes = crearRedes({
     ahora: () => ahora,
     fetchFn: meta.fetchFn,

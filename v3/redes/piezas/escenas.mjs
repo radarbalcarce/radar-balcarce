@@ -29,6 +29,8 @@ import {
   ANCHO_UTIL, FRANJA_AUSPICIO, DIRECCION_DEL_SITIO, WHATSAPP, IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, IMAGEN_ENLACE, CAJA_TEXTO,
 } from './variables.mjs';
 import { acortarCaracteres } from './voz.mjs';
+import { repartirTexto, INSTAGRAM, PAPEL as PAPEL_TARJETA, GRIS as GRIS_TARJETA, INTERLINEA_BAJADA, anchoParaTexto, altoParaTexto, colorDe as colorDeTarjeta } from '../../../web/lib/tarjeta-diseno.js';
+import { bajadaConcreta } from './bajada.mjs';
 
 const X0 = CAJA_TEXTO.xMin;
 const TINTA = COLORES.tinta;
@@ -109,7 +111,37 @@ const pieClaro = (y) => `<rect x="${MARGEN_F}" y="${y}" width="${ANCHO_F}" heigh
   <text x="${MARGEN_F}" y="${y + 66}" font-family="${DISPLAY}" font-size="44" font-weight="900" letter-spacing="-0.5" fill="#FFFFFF">Radar <tspan fill="${NARANJA}">Balcarce</tspan></text>
   ${texto(DIRECCION_DEL_SITIO, IMAGEN_FEED_ANCHO - MARGEN_F, y + 60, { tam: 30, peso: 600, color: '#CFCBC2', ancla: 'end' })}`;
 
+/**
+ * El posteo de feed 4:5 (1080 × 1350), CLARO, el de siempre (3/11, Hernán: «como antes», con la placa que nos identifica): la foto arriba a todo el ancho con el rótulo de la
+ * sección en una pastilla de su color, la franja de color, el título en serif, la bajada concreta (sin «…», ver bajada.mjs) y el pie con «Radar Balcarce» y la fecha.
+ * Las medidas y las cuentas son las de web/lib/tarjeta-diseno.js (INSTAGRAM): el texto entre las filas 135 y 1215, que es lo que no recorta la grilla del perfil.
+ */
 function posteo(d) {
+  const I = INSTAGRAM;
+  const color = colorDeTarjeta(d.seccion);
+  const titulo = String(d.titulo ?? 'Lo que pasa en Balcarce');
+  const r = repartirTexto({ titulo }, 'conFoto');
+  const ancho = anchoParaTexto('conFoto');
+  const yTitulo = I.foto + I.franja + 44;
+  const inter = Math.round(r.tamTitulo * 1.06);
+  const t1 = yTitulo + Math.round(r.tamTitulo * 0.86);
+  const finTitulo = yTitulo + r.altoTitulo;
+  const sobra = altoParaTexto('conFoto') - r.altoTitulo - 22;
+  const baj = bajadaConcreta(d.bajada, { ancho, maxRenglones: Math.min(3, Math.floor(sobra / (30 * INTERLINEA_BAJADA))), tam: 30 });
+  const interBajada = Math.round(baj.tam * INTERLINEA_BAJADA);
+  const lineasBajada = baj.texto ? envolverAncho(baj.texto, baj.tam, ancho * 0.96, 'sans') : [];
+  const yRaya = IMAGEN_FEED_ALTO - I.abajo - I.pie;
+  const pill = d.seccion ? pastilla(d.seccion, { x: I.margen, y: I.arriba, color, tam: 26 }) : { svg: '' };
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `${fotoEnCaja(d.foto, 0, 0, IMAGEN_FEED_ANCHO, I.foto, { radio: 0 })}${pill.svg}
+  <rect x="0" y="${I.foto}" width="${IMAGEN_FEED_ANCHO}" height="${I.franja}" fill="${color}"/>
+  ${renglones(envolverAncho(titulo, r.tamTitulo, ancho * 0.96, 'serif'), { x: I.margen, y: t1, tam: r.tamTitulo, interlinea: inter, espaciado: -1.5 })}
+  ${lineasBajada.length ? renglones(lineasBajada, { x: I.margen, y: finTitulo + 22 + Math.round(baj.tam * 0.95), tam: baj.tam, interlinea: interBajada, familia: TEXTO, peso: 400, color: GRIS_TARJETA }) : ''}
+  <rect x="${I.margen}" y="${yRaya}" width="${ANCHO_F}" height="3" fill="${TINTA}"/>
+  <text x="${I.margen}" y="${yRaya + 56}" font-family="${DISPLAY}" font-size="40" font-weight="900" letter-spacing="-0.4" fill="${TINTA}">Radar <tspan fill="${ROJO}" dx="10">Balcarce</tspan></text>
+  ${texto(d.fecha ? `${d.fecha} · ${DIRECCION_DEL_SITIO}` : DIRECCION_DEL_SITIO, IMAGEN_FEED_ANCHO - I.margen, yRaya + 54, { tam: 25, peso: 400, color: GRIS_TARJETA, ancla: 'end' })}`);
+}
+
+function posteoOscuro(d) {
   const color = colorDeSeccion(d.seccion);
   const pill = pastilla(d.seccion, { x: MARGEN_F, y: MARGEN_F, color });
   const q = titular(d.titulo, { y: 190 + 540 + 50 + 70, escalones: [{ tam: 80, max: 3 }, { tam: 70, max: 3 }, { tam: 64, max: 4 }], color: '#FFFFFF', ancho: ANCHO_F, x: MARGEN_F });

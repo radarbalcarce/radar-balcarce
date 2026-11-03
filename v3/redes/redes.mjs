@@ -5,7 +5,8 @@
 //   REDES_ACTIVAS = «no» (por defecto): simula. Elige, arma el texto, lo anota en `publicaciones` con simulado = 1 y NO llama a Meta.
 //   Secretos: META_TOKEN (para publicar de verdad) y TELEGRAM_TOKEN (para avisar). Binding DB (D1) y TELEGRAM (service binding a radar-telegram).
 
-import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia } from './elegir.mjs';
+import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia, motivoDeExclusion, tipoDeNota } from './elegir.mjs';
+import { conPlaca, nombreDePlaca, claveR2DePlaca, urlDePlaca, bajadaDeLaPlaca, PREFIJO_DE_PLACAS, NOMBRE_VALIDO, DIRECCION_DE_LAS_REDES } from './placa-clave.mjs';
 import { textoFacebook, textoInstagram, SITIO } from './texto.mjs';
 import { publicarEnFacebook } from './facebook/publicar.mjs';
 import { publicarEnInstagram } from './instagram/publicar.mjs';
@@ -31,6 +32,11 @@ const json = (cuerpo, status = 200) => new Response(JSON.stringify(cuerpo), { st
 
 /** REDES_ACTIVAS: sólo «si» (o «sí») prende las redes de verdad. Cualquier otra cosa, o nada, simula. */
 export const redesActivas = (env) => /^s[ií]$/i.test(String(env?.REDES_ACTIVAS ?? '').trim());
+/** POSTEOS_ACTIVOS = no frena SÓLO los posteos de notas (Facebook y el espejo de Instagram); los reels y las historias siguen. Por defecto, activos. */
+export const posteosActivos = (env) => !/^no$/i.test(String(env?.POSTEOS_ACTIVOS ?? 'si').trim());
+/** POSTEOS_CON_PLACA (por defecto «si»): el posteo sale con la placa de la marca, nunca con la foto sola. Una nota sin placa dibujada espera a que el programa de GitHub la dibuje. */
+export const posteosConPlaca = (env) => !/^no$/i.test(String(env?.POSTEOS_CON_PLACA ?? 'si').trim());
+const baseDeLasPlacas = (env) => env?.URL_DE_REDES || DIRECCION_DE_LAS_REDES;
 const espejoActivo = (env) => !/^no$/i.test(String(env?.INSTAGRAM_ESPEJO ?? 'si').trim());
 
 const primeraLinea = (t) => String(t ?? '').split('\n')[0].trim();
@@ -103,13 +109,36 @@ export function crearRedes(deps = {}) {
     }
   }
 
+  /** Los nombres de las placas que ya están dibujadas en R2 (una sola lectura de la lista). */
+  async function placasDibujadas(env) {
+    const nombres = new Set();
+    let cursor;
+    do {
+      const r = await env.PLACAS.list({ prefix: PREFIJO_DE_PLACAS, cursor });
+      for (const o of r.objects ?? []) nombres.add(o.key.slice(PREFIJO_DE_PLACAS.length));
+      cursor = r.truncated ? r.cursor : undefined;
+    } while (cursor);
+    return nombres;
+  }
+
+  /** Las notas con la placa en lugar de la foto; las que todavía no tienen placa dibujada no entran (esperan). Sin el depósito, ninguna entra. */
+  async function notasConLaPlaca(env, notas) {
+    if (!env.PLACAS?.list) return [];
+    const hay = await placasDibujadas(env);
+    const base = baseDeLasPlacas(env);
+    return notas.filter((n) => n.foto?.url && hay.has(nombreDePlaca(n))).map((n) => conPlaca(n, base));
+  }
+
   /** Una vuelta: a lo sumo un posteo de Facebook y un espejo de Instagram. */
   async function vuelta(env, { ahora = reloj() } = {}) {
     const simulado = !redesActivas(env);
     const dia = diaDeBalcarce(ahora);
-    const notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString(), conBorradores: simulado });
+    if (!posteosActivos(env)) return { simulado, dia, notasMiradas: 0, facebook: null, instagram: null, motivo: 'posteos-apagados' };
+    let notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString(), conBorradores: simulado });
+    const miradas = notas.length;
+    if (!simulado && posteosConPlaca(env)) notas = await notasConLaPlaca(env, notas);
     let hechas = await db.publicacionesDelDia(env, dia, simulado);
-    const resultado = { simulado, dia, notasMiradas: notas.length, facebook: null, instagram: null, motivo: null };
+    const resultado = { simulado, dia, notasMiradas: miradas, conPlaca: notas.length, facebook: null, instagram: null, motivo: null };
 
     const dec = elegirParaFacebook({ notas, hechas, ahora });
     if (dec.nota) {
@@ -125,6 +154,46 @@ export function crearRedes(deps = {}) {
       if (esp.nota) resultado.instagram = await publicarUna(env, { red: 'instagram', nota: esp.nota, tipo: esp.tipo, simulado, ahora, hechas });
     }
     return resultado;
+  }
+
+  /** Las notas que podrían salir hoy en Facebook (por si toca), con el nombre de su placa y si ya está dibujada. */
+  async function candidatas(env, { ahora = reloj(), id = null } = {}) {
+    if (id) {
+      const una = (await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 7 * 24 * 3600 * 1000).toISOString(), conBorradores: false })).find((n) => n.id === id);
+      const hay1 = env.PLACAS?.list ? await placasDibujadas(env) : new Set();
+      const n = una && una.foto?.url ? una : null;
+      return { dia: diaDeBalcarce(ahora), activos: posteosActivos(env), notas: n ? [{ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay1.has(nombreDePlaca(n)) }] : [] };
+    }
+    const notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString(), conBorradores: false });
+    const hechas = await db.publicacionesDelDia(env, diaDeBalcarce(ahora), false);
+    const salieron = new Set(hechas.filter((h) => h.red === 'facebook' && h.estado !== 'error').map((h) => h.notaId));
+    const hay = env.PLACAS?.list ? await placasDibujadas(env) : new Set();
+    const lista = notas.filter((n) => !salieron.has(n.id) && !motivoDeExclusion(n, { ahora })).slice(0, 30)
+      .map((n) => ({ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay.has(nombreDePlaca(n)) }));
+    return { dia: diaDeBalcarce(ahora), activos: posteosActivos(env), notas: lista };
+  }
+
+  /** Vuelve a publicar una nota (a mano) con su placa. La placa tiene que estar dibujada: si no, 409 con el nombre que falta. */
+  async function repetir(env, { id, redes = ['facebook', 'instagram'] } = {}, { ahora = reloj() } = {}) {
+    if (!id || !/^[A-Za-z0-9_-]{1,40}$/.test(String(id))) return { error: 'falta el id de la nota', status: 400 };
+    if (!redesActivas(env)) return { error: 'las redes están en simulación (REDES_ACTIVAS no es «si»): no se repite nada', status: 409 };
+    if (!env.PLACAS?.head) return { error: 'el Worker no tiene el depósito de placas (PLACAS)', status: 503 };
+    const notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 7 * 24 * 3600 * 1000).toISOString(), conBorradores: false });
+    const nota = notas.find((n) => n.id === id);
+    if (!nota) return { error: 'no encuentro esa nota entre las publicadas de los últimos 7 días', status: 404 };
+    if (!nota.foto?.url) return { error: 'la nota no tiene foto', status: 409 };
+    const nombre = nombreDePlaca(nota);
+    if (!(await env.PLACAS.head(claveR2DePlaca(nombre)))) return { error: 'sin-placa', nombre, status: 409, ayuda: 'dibujarla con el workflow «Radar 3.0: piezas de redes» (campo repetir)' };
+    const conLaPlaca = conPlaca(nota, baseDeLasPlacas(env));
+    const tipo = tipoDeNota(nota) ?? 'local';
+    const salida = { id, nombre, placa: urlDePlaca(nota, baseDeLasPlacas(env)), redes: {} };
+    for (const red of redes.filter((r) => r === 'facebook' || r === 'instagram')) {
+      await db.reemplazarAnteriores(env, { red, notaId: id });
+      const r = await publicarUna(env, { red, nota: conLaPlaca, tipo, simulado: false, ahora, hechas: [] });
+      if (!r.ok) await db.restaurarAnteriores(env, { red, notaId: id });
+      salida.redes[red] = r.ok ? { ok: true, idMeta: r.idMeta } : { ok: false, error: r.error ?? r.omitida };
+    }
+    return salida;
   }
 
   /** El resumen del día por Telegram: qué se publicó (o qué se habría publicado) y qué falló. */
@@ -176,7 +245,7 @@ export function crearRedes(deps = {}) {
       const ultima = await db.ultimaPublicacion(env).catch(() => null);
       return json({
         ok: true, activas: redesActivas(env), espejoEnInstagram: espejoActivo(env), ahora: ahora.toISOString(), dia: diaDeBalcarce(ahora), minutoDelDia: minutoDelDia(ahora),
-        ultima, claves: { meta: !!env.META_TOKEN, telegram: !!env.TELEGRAM_TOKEN },
+        ultima, posteosActivos: posteosActivos(env), conPlaca: posteosConPlaca(env), claves: { meta: !!env.META_TOKEN, telegram: !!env.TELEGRAM_TOKEN },
       });
     }
     if (pedido.method === 'POST' && (url.pathname === '/vuelta' || url.pathname === '/resumen')) {
@@ -224,6 +293,31 @@ export function crearRedes(deps = {}) {
       if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
       return json({ activas: !simulado, ...(await planearEnlaces(env, opciones)) });
     }
+    // La placa dibujada, para que Meta la baje (pública): placas/<id>-<huella>.jpg en el depósito R2.
+    if (pedido.method === 'GET' && url.pathname.startsWith('/placa/')) {
+      const nombre = decodeURIComponent(url.pathname.slice('/placa/'.length));
+      if (!NOMBRE_VALIDO.test(nombre) || !env.PLACAS?.get) return json({ error: 'no encontrado' }, 404);
+      const objeto = await env.PLACAS.get(claveR2DePlaca(nombre));
+      if (!objeto) return json({ error: 'no encontrado' }, 404);
+      return new Response(objeto.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'public, max-age=31536000, immutable' } });
+    }
+    // Qué placas hay que dibujar: las notas que hoy podrían salir a Facebook (el programa de GitHub las dibuja y las sube a R2).
+    if (pedido.method === 'POST' && url.pathname === '/posteos/candidatas') {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      let cuerpo = {};
+      try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
+      return json(await candidatas(env, { id: cuerpo?.id ? String(cuerpo.id) : null }));
+    }
+    // Volver a publicar UNA nota a mano, con su placa: POST /posteos/repetir {"id": "ls3twi6", "redes": ["facebook", "instagram"]}. Salta el «una vez por red».
+    if (pedido.method === 'POST' && url.pathname === '/posteos/repetir') {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      let cuerpo = {};
+      try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
+      const r = await repetir(env, cuerpo);
+      return json(r, r.error ? (r.status ?? 400) : 200);
+    }
     if (pedido.method === 'GET' && url.pathname === '/piezas/estado') {
       const no = await autorizado(pedido, env);
       if (no) return no;
@@ -239,7 +333,7 @@ export function crearRedes(deps = {}) {
     return vuelta(env);
   }
 
-  return { vuelta, resumen, manejar, programado, publicarUna };
+  return { vuelta, resumen, manejar, programado, publicarUna, repetir, candidatas };
 }
 
 export { rangoDelDia };
