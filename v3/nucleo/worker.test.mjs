@@ -17,7 +17,9 @@ const sinSqlite = !DatabaseSync && 'este Node no trae node:sqlite';
 
 const aca = dirname(fileURLToPath(import.meta.url));
 const leer = (...r) => readFileSync(join(aca, ...r), 'utf8');
-const umbrales = JSON.parse(leer('agrupar', 'umbrales.json'));
+// Umbrales fijos de prueba: los vectores de juguete de estas pruebas están pensados para estos números, no para los calibrados
+// de producción (agrupar/umbrales.json cambia con cada calibración).
+const umbrales = { ...JSON.parse(leer('agrupar', 'umbrales.json')), unir: 0.86, duda: 0.78 };
 const fuentesReales = JSON.parse(leer('fuentes.json')).fuentes;
 const TOKEN = 'token-de-prueba';
 const AHORA = '2026-11-02T23:00:00Z'; // 20:00 en Balcarce
