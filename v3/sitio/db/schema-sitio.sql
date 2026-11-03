@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS avisos (
   imagen TEXT,                     -- dirección https de la imagen del aviso (o /fotos-notas/…), opcional
   enlace TEXT,                     -- a dónde lleva (https), opcional
   plan TEXT,                       -- 5000 | 10000 | 20000 | 30000 | 50000 | libre
-  lugares TEXT NOT NULL DEFAULT '[]',  -- JSON: 'fijo' | 'postales' | 'columna' | 'pie'
+  lugares TEXT NOT NULL DEFAULT '[]',  -- JSON: 'fijo' | 'postales' | 'columna' | 'pie' | 'clima'
   desde TEXT,                      -- AAAA-MM-DD (inclusive), vacío = ya
   hasta TEXT,                      -- AAAA-MM-DD (inclusive), vacío = sin fin
   activo INTEGER NOT NULL DEFAULT 1

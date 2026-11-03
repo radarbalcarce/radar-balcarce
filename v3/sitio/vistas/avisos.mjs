@@ -8,7 +8,7 @@
 // Los avisos salen de la tabla `avisos` (db/schema-sitio.sql). Si en un lugar no hay ninguno, sale un aviso propio que lleva a la nota del media kit (sin precios).
 import { esc, urlSegura } from '../util.mjs';
 
-export const LUGARES = ['fijo', 'postales', 'columna', 'pie'];
+export const LUGARES = ['fijo', 'postales', 'columna', 'pie', 'clima'];
 export const TEXTO_PROPIO = '¿Querés publicitar en el diario y en las redes?';
 export const WHATSAPP_AVISOS = `https://wa.me/5492266511612?text=${encodeURIComponent('Hola, quiero publicitar en Radar Balcarce')}`;
 /** La nota de Radar que cuenta cómo anunciar (sin precios en el aviso). `/publicidad` redirige acá. */
@@ -26,6 +26,7 @@ export const NOMBRES_DE_LUGARES = {
   S1: { tipo: 'fijo', pagina: 'Secciones', donde: 'Fijo, arriba de la lista' },
   S2: { tipo: 'pie', pagina: 'Secciones', donde: 'Pie de página' },
   P1: { tipo: 'pie', pagina: 'Las demás (contacto, búsqueda…)', donde: 'Pie de página' },
+  C1: { tipo: 'clima', pagina: 'Clima', donde: 'Auspicio del clima: nota diaria y /clima' },
 };
 
 /** La imagen de un aviso: https, o una ruta propia del sitio (/fotos-notas/…). */
@@ -33,8 +34,26 @@ export const urlDeImagen = (u) => urlSegura(u) || (/^\/[A-Za-z0-9][A-Za-z0-9/_.-
 
 const rotulo = '<span class="rotulo">Publicidad</span>';
 
+/** El recuadro del auspicio del clima: «El clima de hoy llega con [Comercio]», con su logo, su texto y su enlace (su red social), marcado «Publicidad». Sin comercio, el aviso propio corto. */
+export function avisoDelClima(a, nombre = '') {
+  const dl = nombre ? ` data-lugar="${esc(nombre)}"` : '';
+  if (!a) {
+    return `<aside class="aviso aviso-clima aviso-propio" data-aviso="clima"${dl} data-aviso-propio="1">${rotulo}<div class="aviso-caja"><span>¿Querés que el clima llegue con tu comercio? Escribinos al WhatsApp <a href="${WHATSAPP_AVISOS}" rel="noopener">2266 51-1612</a> o <a href="${RUTA_PUBLICIDAD}">mirá cómo</a>.</span></div></aside>`;
+  }
+  const imagen = urlDeImagen(a.imagen);
+  const enlace = urlSegura(a.enlace);
+  const logo = imagen ? `<img src="${esc(imagen)}" alt="${esc(a.comercio)}" loading="lazy" decoding="async">` : '';
+  const texto = `<span class="clima-con">El clima de hoy llega con</span><strong class="aviso-nombre">${esc(a.comercio)}</strong>${a.texto ? `<span class="aviso-texto">${esc(a.texto)}</span>` : ''}${enlace ? '<span class="clima-ir">Visitá su página →</span>' : ''}`;
+  const dentro = `${logo}<span class="clima-txt">${texto}</span>`;
+  const caja = enlace
+    ? `<a class="aviso-caja" href="${esc(enlace)}" target="_blank" rel="sponsored noopener">${dentro}</a>`
+    : `<div class="aviso-caja">${dentro}</div>`;
+  return `<aside class="aviso aviso-clima${imagen ? ' con-logo' : ''}" data-aviso="clima"${dl} data-anunciante="${esc(a.id)}">${rotulo}${caja}</aside>`;
+}
+
 /** Un aviso cargado, o el propio si `a` es null. */
 export function avisoHtml(lugar, a, nombre = '') {
+  if (lugar === 'clima') return avisoDelClima(a, nombre);
   const clase = `aviso aviso-${lugar}`;
   const dl = nombre ? ` data-lugar="${esc(nombre)}"` : '';
   if (!a) {

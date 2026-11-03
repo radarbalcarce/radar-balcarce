@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-export const LUGARES = ['fijo', 'postales', 'columna', 'pie'];
+export const LUGARES = ['fijo', 'postales', 'columna', 'pie', 'clima'];
 export const PLANES = ['5000', '10000', '20000', '30000', '50000', 'libre'];
 // Qué lugares incluye cada plan (PUBLICIDAD-PRIMER-COMERCIO.md § 2). Es una guía: un aviso "libre" puede llevar cualquiera.
 export const LUGARES_DEL_PLAN = { 5000: ['pie'], 10000: ['pie', 'postales'], 20000: ['pie', 'postales', 'columna'], 30000: ['pie', 'postales', 'columna'], 50000: ['fijo', 'pie', 'postales', 'columna'] };
@@ -40,7 +40,7 @@ export function validar(a) {
   const plan = String(a.plan ?? 'libre').trim();
   if (!PLANES.includes(plan)) errores.push(`«plan» tiene que ser uno de: ${PLANES.join(', ')}.`);
   const lugares = Array.isArray(a.lugares) ? [...new Set(a.lugares.map(String))] : (plan in LUGARES_DEL_PLAN ? LUGARES_DEL_PLAN[plan] : []);
-  if (!lugares.length) errores.push('Faltan «lugares» (fijo, postales, columna, pie).');
+  if (!lugares.length) errores.push('Faltan «lugares» (fijo, postales, columna, pie, clima).');
   for (const l of lugares) if (!LUGARES.includes(l)) errores.push(`Lugar desconocido: «${l}».`);
   const desde = String(a.desde ?? '').trim();
   const hasta = String(a.hasta ?? '').trim();

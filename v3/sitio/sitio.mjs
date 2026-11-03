@@ -5,7 +5,8 @@ import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota, partesEnBalcar
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
-import { leerClima, leerFarmacia, leerDolar, leerRegion } from './datos-del-dia.mjs';
+import { noSeIndexa } from './vistas/clima-diario.mjs';
+import { leerClima, leerFarmacia, leerDolar, leerRegion, leerHistoriaDolar } from './datos-del-dia.mjs';
 import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
@@ -158,6 +159,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const contexto = await contextoDelDia();
       // La región se pide sólo para /clima (una llamada con varias coordenadas); si falla, la página sigue sin ese bloque.
       if (ruta === '/clima') contexto.region = await leerRegion({ traer, cache });
+      if (ruta === '/dolar') contexto.historiaDolar = await leerHistoriaDolar({ traer, cache });
       return { r: respuesta(DEL_DIA[ruta]({ indexar, contexto }), { cache: CACHE.dia, indexar }), cachear: true };
     }
 
@@ -193,14 +195,15 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
       const id = idDeRuta(parte);
       // Una nota que no está en la base puede ser del sistema viejo (que sigue publicando hasta que se apague): se prueba allá.
-      if (!/^[a-z0-9]{2,40}$/i.test(id)) return { r: noEncontrada(), alViejo: true };
+      if (!/^[a-z0-9]{2,40}$/i.test(id) && !/^[a-z]+-\d{4}-\d{2}-\d{2}$/i.test(id)) return { r: noEncontrada(), alViejo: true };
       const nota = await consultas.notaPorId(env, id);
       if (!nota) return { r: noEncontrada(), alViejo: true };
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
       const contextoNota = await contextoDelDia();
-      return { r: respuesta(paginaDeNota(nota, { indexar, contexto: contextoNota }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar }), cachear: true };
+      const indexarNota = indexar && !noSeIndexa(nota);
+      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
     }
 
     if (ruta === '/buscar') {

@@ -29,8 +29,8 @@ async function pedirTexto(traer, url) {
 // ---------- Clima ----------
 
 export const CLIMA_URL = 'https://api.open-meteo.com/v1/forecast?latitude=-37.846&longitude=-58.255'
-  + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,is_day'
-  + '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'
+  + '&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m,is_day,relative_humidity_2m,apparent_temperature,surface_pressure,wind_gusts_10m,precipitation'
+  + '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max,precipitation_sum,uv_index_max,sunrise,sunset,wind_speed_10m_max'
   + '&hourly=temperature_2m,precipitation_probability&forecast_hours=48'
   + '&timezone=America%2FArgentina%2FBuenos_Aires&forecast_days=7&wind_speed_unit=kmh';
 
@@ -47,6 +47,9 @@ const RUMBOS = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
 export const rumboDe = (grados) => (Number.isFinite(grados) ? RUMBOS[Math.round((((grados % 360) + 360) % 360) / 45) % 8] : '');
 
 const entero = (x) => (Number.isFinite(x) ? Math.round(x) : null);
+const decimal = (x) => (Number.isFinite(x) ? Math.round(x * 10) / 10 : null);
+/** 'AAAA-MM-DDTHH:MM' → 'HH:MM', o null. */
+export const horaDe = (t) => (typeof t === 'string' && /T\d\d:\d\d/.test(t) ? t.slice(11, 16) : null);
 
 /** Las próximas horas (hasta 48) de la respuesta de Open-Meteo: [{ t: 'AAAA-MM-DDTHH:00', temp, lluvia }]. Vacío si no vienen. */
 export function horasDe(h) {
@@ -67,14 +70,20 @@ export function aClima(j) {
   const d = j?.daily;
   if (!c || !d || !Number.isFinite(c.temperature_2m) || !Array.isArray(d.temperature_2m_max) || d.temperature_2m_max.length < 1) return null;
   const dia = (i) => (Number.isFinite(d.temperature_2m_max[i]) && Number.isFinite(d.temperature_2m_min?.[i])
-    ? { max: entero(d.temperature_2m_max[i]), min: entero(d.temperature_2m_min[i]), lluvia: entero(d.precipitation_probability_max?.[i]), cielo: cieloDe(d.weather_code?.[i]) }
+    ? { max: entero(d.temperature_2m_max[i]), min: entero(d.temperature_2m_min[i]), lluvia: entero(d.precipitation_probability_max?.[i]), cielo: cieloDe(d.weather_code?.[i]), mm: decimal(d.precipitation_sum?.[i]), uv: decimal(d.uv_index_max?.[i]), vientoMax: entero(d.wind_speed_10m_max?.[i]) }
     : null);
   const dias = [];
   for (let i = 0; i < Math.min(7, d.temperature_2m_max.length); i += 1) { const x = dia(i); if (x && typeof d.time?.[i] === 'string') dias.push({ fecha: d.time[i], ...x }); }
   return {
     dias,
     horas: horasDe(j.hourly),
-    ahora: { temp: entero(c.temperature_2m), cielo: cieloDe(c.weather_code), viento: entero(c.wind_speed_10m), rumbo: rumboDe(c.wind_direction_10m), esDeDia: c.is_day !== 0 },
+    ahora: {
+      temp: entero(c.temperature_2m), cielo: cieloDe(c.weather_code), viento: entero(c.wind_speed_10m), rumbo: rumboDe(c.wind_direction_10m), esDeDia: c.is_day !== 0,
+      grados: Number.isFinite(c.wind_direction_10m) ? Math.round(c.wind_direction_10m) : null,
+      sensacion: entero(c.apparent_temperature), humedad: entero(c.relative_humidity_2m), presion: entero(c.surface_pressure), rafaga: entero(c.wind_gusts_10m),
+      uv: decimal(d.uv_index_max?.[0]), mm: decimal(c.precipitation),
+    },
+    sol: horaDe(d.sunrise?.[0]) && horaDe(d.sunset?.[0]) ? { sale: horaDe(d.sunrise[0]), pone: horaDe(d.sunset[0]) } : null,
     hoy: dia(0),
     manana: dia(1),
   };
@@ -178,7 +187,7 @@ export function parsearCronograma(texto = '') {
   let anterior = 0;
   let m;
   while ((m = re.exec(texto)) !== null) {
-    const farmacias = m[3].trim().split(/\s+-\s+/).map((s) => s.trim()).filter((s) => s.length > 2);
+    const farmacias = m[3].trim().split(/\s*-\s+|\s+-\s*/).map((s) => s.trim()).filter((s) => s.length > 2);
     if (!farmacias.length || !mes) continue;
     const dia = Number(m[2]);
     if (dia < anterior) { if (mes === 12) { mes = 1; anio += 1; } else mes += 1; }
@@ -204,14 +213,16 @@ export function turnoDeHoy(textoCronograma, textoDirectorio, ahora = new Date())
   const turno = parsearCronograma(textoCronograma).find((t) => t.fecha === fecha);
   if (!turno) return null;
   const dir = parsearDirectorio(textoDirectorio);
-  return {
-    fecha,
-    farmacias: turno.farmacias.map((n) => {
-      const hallada = clavesDe(n).map((k) => dir[k]).find(Boolean);
-      return { nombre: hallada?.nombre ? titulo(hallada.nombre) : titulo(n), direccion: hallada?.direccion || null, telefono: hallada?.telefono || null };
-    }),
-  };
+  const completar = (nombres) => nombres.map((n) => {
+    const hallada = clavesDe(n).map((k) => dir[k]).find(Boolean);
+    return { nombre: hallada?.nombre ? titulo(hallada.nombre) : titulo(n), direccion: hallada?.direccion || null, telefono: hallada?.telefono || null };
+  });
+  // Los días que siguen, hasta una semana, con lo que traiga el cronograma del mes (el Colegio publica el mes entero).
+  const proximos = parsearCronograma(textoCronograma).filter((t) => t.fecha > fecha).slice(0, DIAS_DE_CRONOGRAMA).map((t) => ({ fecha: t.fecha, farmacias: completar(t.farmacias) }));
+  return { fecha, farmacias: completar(turno.farmacias), proximos };
 }
+
+const DIAS_DE_CRONOGRAMA = 7;
 
 /** La farmacia de turno, o null si el Colegio no responde o no trae el día de hoy. Caché de 1 hora (por turno: la clave lleva la fecha). */
 export async function leerFarmacia({ traer, cache = null, ahora = new Date() }) {
@@ -242,7 +253,35 @@ export function aDolar(j) {
   const f = new Date(o.fechaActualizacion);
   // Cada casa con SU compra y SU venta (en la práctica pueden coincidir: el 3/11/2026 las dos ventas eran $1.565; DolarApi las devuelve así).
   const cat = (c) => ({ compra: esPositivo(c.compra) ? c.compra : null, venta: c.venta, fecha: isoONull(c.fechaActualizacion) });
-  return { oficial: cat(o), blue: b ? cat(b) : null, fecha: Number.isNaN(f.getTime()) ? null : f.toISOString() };
+  // Las demás casas (MEP, contado con liqui, tarjeta, mayorista, cripto), en el orden en que se muestran.
+  const otras = ['bolsa', 'contadoconliqui', 'tarjeta', 'mayorista', 'cripto'].map((casa) => { const c = de(casa); return c ? { casa, ...cat(c) } : null; }).filter(Boolean);
+  const brecha = b ? { pesos: Math.round((b.venta - o.venta) * 100) / 100, porcentaje: Math.round(((b.venta - o.venta) / o.venta) * 1000) / 10 } : null;
+  return { oficial: cat(o), blue: b ? cat(b) : null, otras, brecha, fecha: Number.isNaN(f.getTime()) ? null : f.toISOString() };
+}
+
+// El histórico (ArgentinaDatos, sin clave): una fila por día desde hace años; se guardan los últimos 45 días de oficial y blue.
+export const HISTORIA_URL = (casa) => `https://api.argentinadatos.com/v1/cotizaciones/dolares/${casa}`;
+const DIAS_DE_HISTORIA = 45;
+
+/** La lista de ArgentinaDatos → [{ f: 'AAAA-MM-DD', v: venta }] de los últimos días, o [] si no sirve. */
+export function aHistoria(j, dias = DIAS_DE_HISTORIA) {
+  if (!Array.isArray(j)) return [];
+  return j.filter((x) => x && typeof x.fecha === 'string' && esPositivo(x.venta)).slice(-dias).map((x) => ({ f: x.fecha, v: x.venta }));
+}
+
+/** El histórico de oficial y blue para el gráfico de /dolar, o null si no responde. Caché de 6 horas. */
+export async function leerHistoriaDolar({ traer, cache = null }) {
+  try {
+    return await conCache(cache, 'dolar-historia', 21600, async () => {
+      const pedir = async (casa) => {
+        const r = await traer(HISTORIA_URL(casa), { signal: AbortSignal.timeout(6000), headers: { accept: 'application/json' } });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return aHistoria(JSON.parse(await r.text()));
+      };
+      const [oficial, blue] = await Promise.all([pedir('oficial').catch(() => []), pedir('blue').catch(() => [])]);
+      return oficial.length >= 5 || blue.length >= 5 ? { oficial, blue } : null;
+    });
+  } catch { return null; }
 }
 
 /** «sube», «baja» o «igual» (con 0,5 % de margen para no marcar ruido); null si no hay con qué comparar. */

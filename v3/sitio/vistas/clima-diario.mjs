@@ -1,0 +1,47 @@
+// La nota diaria del clima (la publica el núcleo, id `clima-AAAA-MM-DD`): se reconoce por `ficha.marca.tipo === 'clima-diario'`.
+// En el sitio: va con noindex y fuera de los mapas (`ficha.indexar === false`), lleva la ilustración del estado del cielo (hecha con IA, siempre declarada),
+// el recuadro del auspicio (lugar C1) y, si se actualizó, «Actualizada a las 19:00». La fecha de salida sigue siendo la de creación.
+import { BASE, partesEnBalcarce } from '../util.mjs';
+
+export const ESTADOS_DEL_CIELO = ['despejado', 'parcialmente-nublado', 'nublado', 'lluvia', 'tormenta', 'niebla', 'viento', 'frio', 'calor'];
+export const VARIANTES_POR_ESTADO = 3;
+export const CREDITO_ILUSTRACION = 'Ilustración generada con IA';
+
+export const esClimaDiario = (n) => n?.ficha?.marca?.tipo === 'clima-diario';
+/** Una nota que se muestra pero no se indexa ni entra en los mapas ni en el RSS. */
+export const noSeIndexa = (n) => n?.ficha?.indexar === false;
+
+/** Cuántos días pasaron desde 1970 hasta 'AAAA-MM-DD' (para elegir la variante sin azar, como el sitio viejo). */
+export function numeroDeDia(dia) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dia ?? ''));
+  return m ? Math.floor(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) / 86_400_000) : 0;
+}
+
+/** La fecha de la nota del clima: la del id (`clima-AAAA-MM-DD`) o, si no, la de creación en Balcarce. */
+function diaDeLaNota(n) {
+  const delId = /^clima-(\d{4}-\d{2}-\d{2})$/.exec(String(n.id ?? ''));
+  if (delId) return delId[1];
+  const t = new Date(n.publicada || n.creada);
+  if (Number.isNaN(t.getTime())) return '';
+  const p = partesEnBalcarce(t);
+  return `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`;
+}
+
+/** El nombre del archivo que le toca al estado ese día: siempre el mismo para la misma fecha y uno distinto cada día seguido. */
+export const archivoDeIlustracion = (estado, dia) => `clima-${estado}-${(numeroDeDia(dia) % VARIANTES_POR_ESTADO) + 1}.jpg`;
+
+/** La foto de la nota del clima si no trae una: la ilustración de su estado del cielo, con su epígrafe de IA. null si no corresponde. */
+export function fotoDelClima(n) {
+  if (!esClimaDiario(n) || (n.foto && n.foto.url)) return null;
+  const estado = n.ficha?.estadoDelCielo;
+  if (!ESTADOS_DEL_CIELO.includes(estado)) return null;
+  return { url: `${BASE}/fotos-notas/${archivoDeIlustracion(estado, diaDeLaNota(n))}`, alt: `Ilustración del estado del tiempo: ${estado.replace('-', ' ')}`, credito: CREDITO_ILUSTRACION, ancho: 1024, alto: 576 };
+}
+
+/** « · Actualizada a las 19:00» (hora de Balcarce) si la ficha trae `actualizadaEn`; si no, ''. */
+export function actualizadaHtml(n) {
+  const t = new Date(n?.ficha?.actualizadaEn ?? '');
+  if (!esClimaDiario(n) || Number.isNaN(t.getTime())) return '';
+  const p = partesEnBalcarce(t);
+  return ` · <span class="actualizada">Actualizada a las ${String(p.hora).padStart(2, '0')}:${String(p.minuto).padStart(2, '0')}</span>`;
+}

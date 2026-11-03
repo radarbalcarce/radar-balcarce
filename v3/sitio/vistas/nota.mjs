@@ -1,7 +1,8 @@
 // La página de una nota. Todo sale de la base; los bloques de valor agregado, de la ficha (REGLAS del núcleo § 6), sólo cuando hay con qué.
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
 import { pagina, colorDe } from './base.mjs';
-import { lugarFijo, bloqueAdsense } from './avisos.mjs';
+import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
+import { esClimaDiario, fotoDelClima, actualizadaHtml } from './clima-diario.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
 
@@ -132,7 +133,7 @@ export function paginaDeNota(n, { indexar, contexto }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
-  const foto = n.foto && urlSegura(n.foto.url) ? n.foto : null;
+  const foto = n.foto && urlSegura(n.foto.url) ? n.foto : fotoDelClima(n);
   // En una nota hay un solo aviso local: arriba (N1) si hay un comercio fijo cargado; si no, al pie (N2). El de AdSense (A1) va en el medio.
   const conFijo = !!contexto?.publicidad?.hayFijo;
   const arriba = conFijo ? lugarFijo(contexto, 'N1') : '';
@@ -141,11 +142,11 @@ ${arriba}
 <a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
-<p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time></p>
+<p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time>${actualizadaHtml(n)}</p>
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
 ${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito }) : ''}
 <div class="cuerpo">
-${cuerpoHtml(n, parrafos, contexto)}
+${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
 </div>
 ${bloquesDeFicha(n.ficha)}
 <p class="firma">${firmaHtml(n)}</p>

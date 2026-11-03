@@ -235,5 +235,7 @@ test('los nombres de los lugares: data-lugar en cada página; en una nota hay un
   assert.deepEqual(nombres(await html(e, '/contacto')), ['P1']);
   sqlite.prepare('INSERT INTO avisos (id, comercio, texto, plan, lugares, activo) VALUES (?,?,?,?,?,1)').run('fijo1', 'Comercio fijo', 'Texto', '50000', JSON.stringify(['fijo', 'pie']));
   assert.deepEqual(nombres(await html(e, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')), ['N1', 'A1'], 'con comercio fijo: arriba y AdSense en el medio, sin pie');
-  assert.deepEqual(Object.keys(NOMBRES_DE_LUGARES), ['T1', 'T2', 'T3', 'T4', 'N1', 'N2', 'S1', 'S2', 'P1']);
+  assert.deepEqual(Object.keys(NOMBRES_DE_LUGARES), ['T1', 'T2', 'T3', 'T4', 'N1', 'N2', 'S1', 'S2', 'P1', 'C1']);
+  assert.equal(NOMBRES_DE_LUGARES.C1.tipo, 'clima');
+  assert.equal(NOMBRES_DE_LUGARES.C1.donde, 'Auspicio del clima: nota diaria y /clima');
 });

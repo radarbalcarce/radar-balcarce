@@ -214,8 +214,8 @@ test('clima en caché: la segunda vez no vuelve a pedir; un fallo no se guarda',
 
 test('aClima: redondea y traduce; rumboDe', () => {
   const c = aClima(OPEN_METEO);
-  assert.deepEqual(c.ahora, { temp: 16, cielo: 'Nublado', viento: 9, rumbo: 'S', esDeDia: true });
-  assert.deepEqual(c.manana, { max: 22, min: 8, lluvia: 60, cielo: 'Chaparrones' });
+  assert.deepEqual({ t: c.ahora.temp, c: c.ahora.cielo, v: c.ahora.viento, r: c.ahora.rumbo, d: c.ahora.esDeDia }, { t: 16, c: 'Nublado', v: 9, r: 'S', d: true });
+  assert.deepEqual({ max: c.manana.max, min: c.manana.min, lluvia: c.manana.lluvia, cielo: c.manana.cielo }, { max: 22, min: 8, lluvia: 60, cielo: 'Chaparrones' });
   assert.equal(rumboDe(0), 'N');
   assert.equal(rumboDe(225), 'SO');
   assert.equal(rumboDe(359), 'N');
@@ -354,24 +354,26 @@ test('/clima, /farmacias y /dolar las arma este sitio (no el viejo): título, ca
   const hc = await c.text();
   assert.match(hc, /<title>El clima en Balcarce hoy y los próximos días \| Radar Balcarce<\/title>/);
   assert.match(hc, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/clima">/);
-  assert.match(hc, /<strong>16°<\/strong>/);
-  assert.match(hc, /Hoy<\/td>[^]*12° \/ 25°[^]*18%/);
-  assert.match(hc, /Mañana<\/td>[^]*8° \/ 22°[^]*60%/);
+  assert.match(hc, /<strong class="hc-temp">16°<\/strong>/);
+  assert.match(hc, /dc-n">Hoy<\/span>[^]*<b>12°<\/b>[^]*<b>25°<\/b>[^]*18%/);
+  assert.match(hc, /dc-n">Mañana<\/span>[^]*<b>8°<\/b>[^]*<b>22°<\/b>[^]*60%/);
 
   const f = await (await ir(sitio, env, '/farmacias')).text();
   assert.match(f, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/farmacias">/);
-  assert.match(f, /<h3>Norte<\/h3>/);
+  assert.match(f, /<h2>Norte<\/h2>/);
   assert.match(f, /Calle 15 esquina 8/);
-  assert.match(f, /<a class="enlace" href="tel:\+542266424656">42-4656<\/a>/);
+  assert.match(f, /<a class="boton boton-llamar" href="tel:\+542266424656">[^]*Llamar al 42-4656<\/a>/);
   assert.match(f, /https:\/\/www\.google\.com\/maps\/search\/\?api=1&amp;query=Calle%2015%20esquina%208%2C%20Balcarce%2C%20Buenos%20Aires/);
   assert.match(f, /hasta las 8:30 del martes 3 de noviembre/);
 
   const d = await (await ir(sitio, env, '/dolar')).text();
   assert.match(d, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/dolar">/);
-  assert.match(d, /Oficial<\/td><td class="num">–<\/td><td class="num">\$1\.500<\/td>/, 'sin compra en el dato falso: guion, no inventa');
-  assert.match(d, /Blue<\/td>[^]*\$1\.530/);
+  assert.match(d, /Dólar oficial<\/span>[^]*<small>Compra<\/small><strong>–<\/strong>[^]*<small>Venta<\/small><strong>\$1\.500<\/strong>/, 'sin compra en el dato falso: guion, no inventa');
+  assert.match(d, /Dólar blue<\/span>[^]*\$1\.530/);
   assert.match(d, /2 de noviembre, 12:00/);
-  assert.match(d, /Oficial:<\/strong> el que se vende en los bancos\. <strong>Blue:<\/strong> el informal/);
+  assert.match(d, /<dt>Oficial<\/dt><dd>El que publican los bancos/);
+  assert.match(d, /<dt>Blue<\/dt><dd>El dólar informal/);
+  assert.match(d, /Cómo leerlo/);
 
 });
 
@@ -383,8 +385,8 @@ test('/dolar muestra compra y venta de cada casa por separado', async () => {
     throw new Error('sin red');
   };
   const d = await (await ir(sitioCon(traer), env, '/dolar')).text();
-  assert.match(d, /Oficial<\/td><td class="num">\$1\.515<\/td><td class="num">\$1\.565<\/td>/);
-  assert.match(d, /Blue<\/td><td class="num">\$1\.545<\/td><td class="num">\$1\.565<\/td>/);
+  assert.match(d, /Dólar oficial<\/span>[^]*<small>Compra<\/small><strong>\$1\.515<\/strong>[^]*<small>Venta<\/small><strong>\$1\.565<\/strong>/);
+  assert.match(d, /Dólar blue<\/span>[^]*<small>Compra<\/small><strong>\$1\.545<\/strong>[^]*<small>Venta<\/small><strong>\$1\.565<\/strong>/);
   const tapa = await (await ir(sitioCon(traer), env, '/')).text();
   assert.match(tapa, /compra \$1\.515/);
   assert.match(tapa, /compra \$1\.545/);
@@ -419,8 +421,8 @@ test('el pronóstico trae siete días y la página los lista con su nombre', asy
   assert.ok(!new URL(CLIMA_URL).searchParams.get('daily').split(',').includes('time'), 'Open-Meteo rechaza «time» como variable diaria (la fecha viene sola)');
   const { paginaClima } = await import('./vistas/paginas-del-dia.mjs');
   const h = paginaClima({ indexar: true, contexto: { ahora: AHORA, clima: c } });
-  assert.match(h, /Miércoles 4<\/td>/);
-  assert.match(h, /Jueves 5<\/td>/);
+  assert.match(h, /dc-n">Miércoles<\/span><span class="dc-f">4 de noviembre/);
+  assert.match(h, /dc-n">Jueves<\/span><span class="dc-f">5 de noviembre/);
 });
 
 // ---------- Colores, fotos y lugar de las solapas (arreglos del 3/11) ----------
@@ -438,7 +440,8 @@ test('las páginas del día y las solapas: fuera de @media dark sólo hay colore
   const reglas = css.split('\n').filter((l) => /^\.(sol|pdia)\b|^#sol-|^\.sol-/.test(l));
   assert.ok(reglas.length > 20);
   for (const l of reglas) assert.ok(!/#1D2127|#14161A|#17293F|#000\b/i.test(l), `fondo oscuro fijo en: ${l.slice(0, 80)}`);
-  assert.match(css, /\.pdia \.ahora\{[^}]*background:#fff/);
+  assert.match(css, /\.pdia \.dia-clima\{[^}]*background:var\(--pd-f\);color:var\(--pd-t\)/, 'cada tarjeta fija fondo y texto juntos, con variables');
+  assert.match(ESTILOS, /prefers-color-scheme:dark\)\{\.pdia\{--pd-f:#1D2127;--pd-t:#F1EEE6/, 'el modo oscuro cambia las dos variables a la vez');
   // Y las páginas del día no tienen modo oscuro propio: el sitio es claro siempre y el texto es oscuro.
   assert.ok(!/\.pdia[^\n]*prefers-color-scheme/.test(ESTILOS));
 });
@@ -461,6 +464,10 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   assert.match(ESTILOS, /\.hero img,\.hero \.placa\{[^}]*aspect-ratio:16\/9/);
   assert.match(ESTILOS, /\.card img,\.card \.placa\{[^}]*aspect-ratio:16\/9/);
   assert.match(ESTILOS, /img\.fotopropia\{object-fit:contain!important/);
+  // El recuadro mide lo que mide la imagen: sin `height:auto` el atributo height de la etiqueta la estiraba (en el celular, casi cuadrada, con franjas negras).
+  assert.match(ESTILOS, /\.hero img,\.hero \.placa\{[^}]*height:auto/);
+  assert.match(ESTILOS, /\.card img,\.card \.placa\{[^}]*height:auto/);
+  assert.match(ESTILOS, /\.hero img\.fotopropia,\.card img\.fotopropia\{height:auto;aspect-ratio:auto\}/);
   const { imagenODePlaca } = await import('./vistas/portada.mjs');
   const propia = imagenODePlaca({ foto: { url: 'https://radarbalcarce.com/fotos-notas/media-kit-portada.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
   assert.match(propia, /^<img class="fotopropia" /);

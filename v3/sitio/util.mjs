@@ -37,7 +37,12 @@ export function slugDe(titulo = '') {
 
 export const rutaDeNota = (n) => `/nota/${n.slug}-${n.id}`;
 /** Lo que llegó después de /nota/ → el id (lo que va después del último guion). */
-export const idDeRuta = (parte = '') => String(parte).slice(String(parte).lastIndexOf('-') + 1);
+// Los ids de las notas diarias llevan guiones (`clima-2026-11-03`): se reconocen por su forma <palabra>-AAAA-MM-DD; el resto, por el último guion.
+export const idDeRuta = (parte = '') => {
+  const p = String(parte);
+  const diaria = /-([a-z]+-\d{4}-\d{2}-\d{2})$/i.exec(p);
+  return diaria ? diaria[1] : p.slice(p.lastIndexOf('-') + 1);
+};
 
 /** Cuerpo guardado (JSON de párrafos, o texto con líneas en blanco) → lista de párrafos. */
 export function parrafosDe(cuerpo) {

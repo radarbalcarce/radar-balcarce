@@ -94,6 +94,6 @@ export async function avisosActivos(env, hoy) {
   try {
     r = await env.DB.prepare("SELECT id, comercio, texto, imagen, enlace, plan, lugares, desde, hasta FROM avisos WHERE activo = 1 AND (desde IS NULL OR desde = '' OR desde <= ?) AND (hasta IS NULL OR hasta = '' OR hasta >= ?) ORDER BY id").bind(hoy, hoy).all();
   } catch { return []; }
-  const validos = ['fijo', 'postales', 'columna', 'pie'];
+  const validos = ['fijo', 'postales', 'columna', 'pie', 'clima'];
   return (r.results || []).map((a) => ({ ...a, lugares: (Array.isArray(jsonONull(a.lugares)) ? jsonONull(a.lugares) : []).filter((l) => validos.includes(l)) })).filter((a) => a.lugares.length);
 }
