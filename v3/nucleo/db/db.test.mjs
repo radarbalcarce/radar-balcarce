@@ -152,7 +152,7 @@ test('schema.sql corre en SQLite y las consultas de db.mjs funcionan de verdad',
     let params = [];
     const s = {
       bind(...p) { params = p; return s; },
-      async run() { sqlite.prepare(sql).run(...params); return { success: true }; },
+      async run() { const r = sqlite.prepare(sql).run(...params); return { success: true, meta: { changes: Number(r.changes) } }; },
       async all() { return { results: sqlite.prepare(sql).all(...params) }; },
       async first() { return sqlite.prepare(sql).get(...params) ?? null; },
       exec() { sqlite.prepare(sql).run(...params); },
@@ -183,4 +183,37 @@ test('schema.sql corre en SQLite y las consultas de db.mjs funcionan de verdad',
   await db.anotarFuente(env, 'f1', false, 'x', '2026-10-26T00:00:00Z');
   assert.equal((await db.fuentesParaAvisar(env, '2026-11-02T00:00:00Z')).length, 1);
   await db.anotarDuda(env, 'a1', 'h1', false);
+});
+
+test('podar borra lo viejo sin nota, conserva historias con nota y dudas recientes', { skip: !DatabaseSync && 'este Node no trae node:sqlite' }, async () => {
+  const sqlite = new DatabaseSync(':memory:');
+  sqlite.exec(readFileSync(new URL('./schema.sql', import.meta.url), 'utf8'));
+  const prep = (sql) => {
+    let params = [];
+    const s = { bind(...p) { params = p; return s; }, async run() { const r = sqlite.prepare(sql).run(...params); return { success: true, meta: { changes: Number(r.changes) } }; } };
+    return s;
+  };
+  const env = { DB: { prepare: prep } };
+  const ahora = '2026-11-20T12:00:00Z';
+  const vieja = '2026-11-01T00:00:00Z'; // 19 días
+  const nueva = '2026-11-15T00:00:00Z'; // 5 días
+  const ins = (t, cols, vals) => sqlite.prepare(`INSERT INTO ${t} (${cols}) VALUES (${vals.map(() => '?').join(',')})`).run(...vals);
+  ins('historias', 'id, creada, fecha_hecho, estado, nota_id', ['h-nota', vieja, vieja, 'elegida', 'n1']);
+  ins('historias', 'id, creada, fecha_hecho, estado', ['h-nosale', vieja, vieja, 'no_sale']);
+  ins('historias', 'id, creada, fecha_hecho, estado', ['h-nosale-nueva', nueva, nueva, 'no_sale']);
+  ins('historias', 'id, creada, fecha_hecho, estado', ['h-viva-vieja', vieja, vieja, 'viva']);
+  ins('notas', 'id, historia_id, creada', ['n2', 'h-viva-vieja', vieja]);
+  for (const [id, leido, h] of [['a-nota', vieja, 'h-nota'], ['a-nosale', vieja, 'h-nosale'], ['a-suelto', vieja, null], ['a-nuevo', nueva, null], ['a-vivavieja', vieja, 'h-viva-vieja']]) {
+    ins('articulos', 'id, url, leido, historia_id', [id, 'https://x/' + id, leido, h]);
+  }
+  ins('dudas', 'a_id, b_id, cuando, respuesta', ['a', 'b', '2026-10-01T00:00:00Z', 1]);
+  ins('dudas', 'a_id, b_id, cuando, respuesta', ['a', 'c', '2026-11-10T00:00:00Z', 0]);
+
+  const r = await db.podar(env, ahora);
+  assert.deepEqual(r, { articulos: 2, historias: 1, dudas: 1 });
+  const ids = (t) => sqlite.prepare(`SELECT id FROM ${t} ORDER BY id`).all().map((f) => f.id);
+  assert.deepEqual(ids('articulos'), ['a-nota', 'a-nuevo', 'a-vivavieja']);
+  assert.deepEqual(ids('historias'), ['h-nosale-nueva', 'h-nota', 'h-viva-vieja']);
+  assert.equal(sqlite.prepare('SELECT COUNT(*) AS n FROM dudas').get().n, 1);
+  assert.deepEqual(await db.podar(env, ahora), { articulos: 0, historias: 0, dudas: 0 });
 });

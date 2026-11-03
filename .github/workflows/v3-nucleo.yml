@@ -1,0 +1,86 @@
+name: "Radar 3.0: núcleo"
+
+# Herramientas del núcleo de Radar 3.0. SÓLO A MANO.
+#
+#   calibrar   arma ~200 pares reales del sistema viejo, mide los umbrales de «unir» y «duda» con Workers AI (bge-m3), actualiza
+#              v3/nucleo/agrupar/umbrales.json y guarda el informe en v3/nucleo/scripts/salida/calibracion-AAAA-MM-DD.md
+#   comparar   baja los borradores del día del Worker radar-nucleo y los pone lado a lado con las notas del sistema viejo
+#              (v3/nucleo/comparaciones/comparar-AAAA-MM-DD.json)
+#
+# Secretos de GitHub (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID (calibrar), TELEGRAM_TOKEN (comparar).
+
+on:
+  workflow_dispatch:
+    inputs:
+      accion:
+        description: 'Qué hacer'
+        type: choice
+        options: [calibrar, comparar]
+        default: comparar
+      dia:
+        description: 'Para «comparar»: el día (AAAA-MM-DD, hora de Balcarce). Vacío = hoy'
+        type: string
+        default: ''
+
+permissions:
+  contents: write # para guardar el informe y la comparación
+
+concurrency:
+  group: v3-nucleo
+  cancel-in-progress: false
+
+jobs:
+  nucleo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      ACCION: ${{ inputs.accion }}
+      DIA: ${{ inputs.dia }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Calibrar
+        if: env.ACCION == 'calibrar'
+        run: node v3/nucleo/scripts/calibrar.mjs --escribir
+
+      - name: Comparar
+        if: env.ACCION == 'comparar'
+        run: |
+          if [ -n "$DIA" ]; then
+            node v3/nucleo/scripts/comparar.mjs "--dia=$DIA"
+          else
+            node v3/nucleo/scripts/comparar.mjs
+          fi
+
+      - name: Guardar el resultado
+        run: |
+          git config user.name "Radar Balcarce"
+          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
+          git config user.email "272334999+balcar-dev@users.noreply.github.com"
+          if [ "$ACCION" = "calibrar" ]; then
+            # salida/ está en el .gitignore: el informe se agrega a la fuerza
+            git add -f v3/nucleo/scripts/salida/calibracion-*.md
+            git add v3/nucleo/agrupar/umbrales.json
+            mensaje="Radar 3.0 · calibración de umbrales"
+          else
+            git add v3/nucleo/comparaciones/
+            mensaje="Radar 3.0 · comparación del núcleo con el sistema viejo"
+          fi
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+            exit 0
+          fi
+          git commit -m "$mensaje · $(date '+%d/%m %H:%M')"
+          for intento in 1 2 3; do
+            git pull --rebase -q && git push && break
+            sleep 5
+          done
+          git fetch -q origin main
+          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir el resultado después de tres intentos"; exit 1; }

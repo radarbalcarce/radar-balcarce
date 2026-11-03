@@ -8,7 +8,8 @@
       "tipo": "rss",
       "alcance": "balcarce",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "nota": "El feed (?feed=rss2) es el correcto pero el último ítem es del 25/10/2026: el medio publica poco o dejó de publicar."
     },
     {
       "id": "puntonueve",
@@ -108,7 +109,8 @@
       "tipo": "rss",
       "alcance": "balcarce",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "nota": "El feed (/feed/) es el correcto pero el último ítem es del 27/10/2026: el medio publica poco o dejó de publicar."
     },
     {
       "id": "concejo-deliberante-balcarce",
@@ -138,7 +140,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": true,
+      "nota": "La dirección es la vigente (la de su página de RSS) y desde una PC responde 200 y XML. Si el Worker las ve fallar, mirar el error exacto: no se cambia el User-Agent ni se esquiva un bloqueo."
     },
     {
       "id": "lanacion",
@@ -188,7 +191,8 @@
       "tipo": "rss",
       "alcance": "provincia",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Sendero Multimedios (zona): responde XML con notas del 2/11/2026."
     },
     {
       "id": "0223",
@@ -288,7 +292,8 @@
       "tipo": "rss",
       "alcance": "provincia",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Lobería: responde XML con notas del 2/11/2026."
     },
     {
       "id": "ayacuchoaldia",
@@ -298,7 +303,8 @@
       "tipo": "rss",
       "alcance": "provincia",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Ayacucho (zona): responde XML con notas del 2/11/2026."
     },
     {
       "id": "campeones",
@@ -348,7 +354,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Responde XML con noticias del 2/11/2026."
     },
     {
       "id": "minutouno",
@@ -428,7 +435,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": false
+      "activa": true,
+      "nota": "Responde XML con noticias del 2/11/2026."
     },
     {
       "id": "infobae-politica",
@@ -598,7 +606,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "perfil.com/feed/ciencia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed."
     },
     {
       "id": "jgm-ciencia",
@@ -648,7 +657,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "perfil.com/feed/salud devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed."
     },
     {
       "id": "anmat",
@@ -788,7 +798,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "perfil.com/feed/economia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed."
     },
     {
       "id": "infobae-ciencia",
@@ -918,6 +929,116 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": true,
+      "activa": true
+    },
+    {
+      "id": "tn",
+      "nombre": "TN",
+      "medio": "TN",
+      "url": "https://tn.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "tn-sociedad",
+      "nombre": "TN · Sociedad",
+      "medio": "TN",
+      "url": "https://tn.com.ar/arc/outboundfeeds/rss/category/sociedad/?outputType=xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "cronista",
+      "nombre": "El Cronista",
+      "medio": "El Cronista",
+      "url": "https://www.cronista.com/files/rss/news.xml",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-sociedad",
+      "nombre": "La Nación · Sociedad",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/sociedad/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-ciencia",
+      "nombre": "La Nación · Ciencia",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "lanacion-salud",
+      "nombre": "La Nación · Salud",
+      "medio": "La Nación",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/salud/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "clarin-sociedad",
+      "nombre": "Clarín · Sociedad",
+      "medio": "Clarín",
+      "url": "https://www.clarin.com/rss/sociedad/",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-politica",
+      "nombre": "Perfil · Política",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/politica",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-sociedad",
+      "nombre": "Perfil · Sociedad",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/sociedad",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-tecnologia",
+      "nombre": "Perfil · Tecnología",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/tecnologia",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
+      "activa": true
+    },
+    {
+      "id": "perfil-deportes",
+      "nombre": "Perfil · Deportes",
+      "medio": "Perfil",
+      "url": "https://www.perfil.com/feed/deportes",
+      "tipo": "rss",
+      "alcance": "pais",
+      "oficial": false,
       "activa": true
     },
     {

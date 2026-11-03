@@ -253,3 +253,22 @@ export async function estadoDeFuentes(env) {
   const r = await env.DB.prepare('SELECT fuente_id, ultimo_ok, ultima_falla, fallas_seguidas, avisada FROM fuentes_estado').bind().all();
   return lista(r);
 }
+
+// Limpieza diaria (REGLAS § 8): fuera los artículos de más de 14 días que no son de una historia con nota, las historias `no_sale` de más de 14 días
+// (sin nota) y las dudas de más de 30. Una historia con nota (nota_id o una fila en notas) y sus artículos se conservan.
+// Devuelve cuántas filas borró de cada tabla (null si la base no lo informa).
+export async function podar(env, ahoraISO = new Date().toISOString()) {
+  const ms = new Date(ahoraISO).getTime();
+  if (Number.isNaN(ms)) throw new Error('podar: fecha inválida');
+  const hace = (dias) => new Date(ms - dias * 86400000).toISOString();
+  const con = 'SELECT id FROM historias WHERE nota_id IS NOT NULL OR id IN (SELECT historia_id FROM notas)';
+  const cambios = (r) => (r && r.meta && typeof r.meta.changes === 'number' ? r.meta.changes : null);
+  const articulos = await env.DB.prepare(
+    `DELETE FROM articulos WHERE leido < ? AND (historia_id IS NULL OR historia_id NOT IN (${con}))`,
+  ).bind(hace(14)).run();
+  const historias = await env.DB.prepare(
+    `DELETE FROM historias WHERE estado = 'no_sale' AND creada < ? AND id NOT IN (${con})`,
+  ).bind(hace(14)).run();
+  const dudas = await env.DB.prepare('DELETE FROM dudas WHERE cuando < ?').bind(hace(30)).run();
+  return { articulos: cambios(articulos), historias: cambios(historias), dudas: cambios(dudas) };
+}

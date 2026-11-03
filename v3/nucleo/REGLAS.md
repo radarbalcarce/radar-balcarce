@@ -115,3 +115,5 @@ los US$ 15 en el mes y avisa.
 
 Cada regla de arriba tiene una prueba con un caso real (`*.test.mjs`, sin red). Cuando algo sale mal publicado, se suma el caso acá
 y en la prueba, no una regla nueva.
+
+- **Limpieza diaria** (con el resumen de las 21:30, `podar` en `db/db.mjs`): se borran los artículos de más de 14 días que no son de una historia con nota, las historias `no_sale` de más de 14 días y las dudas de más de 30; si falla, el resumen sigue.

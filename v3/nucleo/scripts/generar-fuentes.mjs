@@ -46,6 +46,42 @@ export const PORTADAS = [
   },
 ];
 
+// Cambios del 2/11/2026 sobre la lista exportada, verificados con curl y el User-Agent honesto del lector (RadarBalcarce/3.0).
+// APAGAR: la dirección responde 404 (Perfil las quitó; su página de RSS ya no las lista bien) -> activa:false con `nota`.
+export const APAGAR = {
+  'perfil-ciencia': 'perfil.com/feed/ciencia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
+  'perfil-salud': 'perfil.com/feed/salud devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
+  'perfil-economia': 'perfil.com/feed/economia devuelve 404 (verificado 2/11/2026); Perfil ya no publica ese feed.',
+};
+// ENCENDER: estaban apagadas en el sistema viejo y hoy responden XML con novedades de ese mismo día.
+export const ENCENDER = {
+  ambito: 'Responde XML con noticias del 2/11/2026.',
+  'ambito-economia': 'Responde XML con noticias del 2/11/2026.',
+  loberia2261: 'Lobería: responde XML con notas del 2/11/2026.',
+  ayacuchoaldia: 'Ayacucho (zona): responde XML con notas del 2/11/2026.',
+  sendero: 'Sendero Multimedios (zona): responde XML con notas del 2/11/2026.',
+};
+// NOTAS: fuentes que siguen activas pero con una aclaración.
+export const NOTAS = {
+  infobae: 'La dirección es la vigente (la de su página de RSS) y desde una PC responde 200 y XML. Si el Worker las ve fallar, mirar el error exacto: no se cambia el User-Agent ni se esquiva un bloqueo.',
+  newsbalcarce: 'El feed (?feed=rss2) es el correcto pero el último ítem es del 25/10/2026: el medio publica poco o dejó de publicar.',
+  ahorabalcarce: 'El feed (/feed/) es el correcto pero el último ítem es del 27/10/2026: el medio publica poco o dejó de publicar.',
+};
+// SUMAR: feeds públicos nuevos (alcance 'pais', salvo que diga otra cosa). Todos devuelven 200 y XML.
+export const SUMAR = [
+  { id: 'tn', nombre: 'TN', medio: 'TN', url: 'https://tn.com.ar/arc/outboundfeeds/rss/?outputType=xml' },
+  { id: 'tn-sociedad', nombre: 'TN · Sociedad', medio: 'TN', url: 'https://tn.com.ar/arc/outboundfeeds/rss/category/sociedad/?outputType=xml' },
+  { id: 'cronista', nombre: 'El Cronista', medio: 'El Cronista', url: 'https://www.cronista.com/files/rss/news.xml' },
+  { id: 'lanacion-sociedad', nombre: 'La Nación · Sociedad', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/sociedad/' },
+  { id: 'lanacion-ciencia', nombre: 'La Nación · Ciencia', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/ciencia/' },
+  { id: 'lanacion-salud', nombre: 'La Nación · Salud', medio: 'La Nación', url: 'https://www.lanacion.com.ar/arc/outboundfeeds/rss/category/salud/' },
+  { id: 'clarin-sociedad', nombre: 'Clarín · Sociedad', medio: 'Clarín', url: 'https://www.clarin.com/rss/sociedad/' },
+  { id: 'perfil-politica', nombre: 'Perfil · Política', medio: 'Perfil', url: 'https://www.perfil.com/feed/politica' },
+  { id: 'perfil-sociedad', nombre: 'Perfil · Sociedad', medio: 'Perfil', url: 'https://www.perfil.com/feed/sociedad' },
+  { id: 'perfil-tecnologia', nombre: 'Perfil · Tecnología', medio: 'Perfil', url: 'https://www.perfil.com/feed/tecnologia' },
+  { id: 'perfil-deportes', nombre: 'Perfil · Deportes', medio: 'Perfil', url: 'https://www.perfil.com/feed/deportes' },
+].map((f) => ({ ...f, tipo: 'rss', alcance: 'pais', oficial: false, activa: true }));
+
 export function convertir(vieja) {
   let alcance;
   if (vieja.alcance === 'local' || vieja.grupo === 'balcarce') alcance = 'balcarce';
@@ -73,7 +109,14 @@ export function generar() {
   const fuentes = [];
   for (const f of exportado.fuentes) {
     if (f.tipo !== 'rss' && f.tipo !== 'atom') { sinFeed.push(f.id); continue; }
-    fuentes.push(convertir(f));
+    const c = convertir(f);
+    if (APAGAR[f.id]) { c.activa = false; c.nota = APAGAR[f.id]; }
+    else if (ENCENDER[f.id]) { c.activa = true; c.nota = ENCENDER[f.id]; }
+    if (NOTAS[f.id]) c.nota = NOTAS[f.id];
+    fuentes.push(c);
+  }
+  for (const n of SUMAR) {
+    if (!fuentes.some((f) => f.id === n.id)) fuentes.push({ ...n });
   }
   for (const p of PORTADAS) {
     const antes = fuentes.findIndex((f) => f.id === p.id);

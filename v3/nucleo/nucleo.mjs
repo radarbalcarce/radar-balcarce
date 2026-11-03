@@ -363,6 +363,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       lineas.push(`Fuentes que fallan hace 3 días o más: ${falladas.map((f) => nombreDeFuente.get(f.fuente_id) || f.fuente_id).join(', ')}.`);
     }
 
+    // Limpieza diaria de la base (REGLAS § 8). Si falla, el resumen sigue.
+    try { await db.podar(env, c.ahoraISO); } catch (e) { console.error(`podar: ${e.message}`); }
+
     const mensajes = partirEnMensajes(lineas);
     const enviado = await decirPorTelegram(env, mensajes, c.fetchFn);
     if (enviado) {
