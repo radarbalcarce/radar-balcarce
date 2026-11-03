@@ -153,6 +153,14 @@ jobs:
           npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../nucleo/db/schema.sql
           npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=db/schema-sitio.sql
 
+      # La nota del media kit (adonde lleva /publicidad). Se puede correr siempre: no duplica ni cambia la fecha de salida.
+      - name: Nota del media kit
+        if: env.QUE == 'sitio'
+        working-directory: v3/sitio
+        run: |
+          node scripts/nota-media-kit.mjs
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=scripts/salida/nota-media-kit.sql
+
       # El sitio sirve las fotos y las tipografías desde este depósito: tiene que existir antes de subirlo.
       - name: Crear el depósito de fotos (radar-fotos) si no existe
         if: env.QUE == 'sitio' || env.QUE == 'migrar'

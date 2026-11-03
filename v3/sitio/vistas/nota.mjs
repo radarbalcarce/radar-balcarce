@@ -133,8 +133,11 @@ export function paginaDeNota(n, { indexar, contexto }) {
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
   const foto = n.foto && urlSegura(n.foto.url) ? n.foto : null;
+  // En una nota hay un solo aviso local: arriba (N1) si hay un comercio fijo cargado; si no, al pie (N2). El de AdSense (A1) va en el medio.
+  const conFijo = !!contexto?.publicidad?.hayFijo;
+  const arriba = conFijo ? lugarFijo(contexto, 'N1') : '';
   const cuerpo = `<article class="nota">
-${lugarFijo(contexto)}
+${arriba}
 <a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
@@ -157,6 +160,7 @@ ${fuentesHtml(n.fuentes || [])}
     imagen: foto?.url,
     contexto,
     tipo: 'article',
+    lugarPie: conFijo ? null : 'N2',
     datos: [datosEstructurados(n, { parrafos, canonico, indexar })],
   });
 }

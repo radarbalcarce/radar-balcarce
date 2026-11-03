@@ -27,8 +27,8 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /<a href="https:\/\/a\.example\/1" rel="noopener nofollow">Diario A<\/a>/);
   assert.match(h, /<link rel="canonical" href="https:\/\/radarbalcarce\.com\/nota\/se-inauguro-la-nueva-sala-del-hospital-abc1234">/);
   assert.match(h, /"@type":"NewsArticle"/);
-  assert.match(h, /data-aviso="fijo"/);
-  assert.match(h, /data-aviso="pie"/);
+  assert.match(h, /data-aviso="pie" data-lugar="N2"/, 'en la nota, un solo aviso local: al pie si no hay comercio fijo');
+  assert.ok(!h.includes('data-aviso="fijo"'));
   assert.equal((h.match(/<script/g) || []).length - (h.match(/<script type="application\/ld\+json"/g) || []).length, 1, 'el único JavaScript es el del menú');
   assert.match(h, /<script>document\.documentElement\.className\+=' js'/);
   assert.ok(!/name="robots"/.test(h), 'con INDEXAR=si se indexa');

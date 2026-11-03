@@ -1,6 +1,6 @@
 // La portada: la tapa A «Diario» (docs/propuestas/tapa-3-0/a-diario.html) armada con las notas de la base.
-// Orden: cuadro de clima y farmacia, aviso fijo, la principal con tres titulares al costado, una grilla con fotos, aviso 1,
-// «Última hora» con la columna lateral (aviso 2 y lo último de Balcarce), la invitación a WhatsApp, aviso 3 y «Más de hoy».
+// Orden: cuadro de clima y farmacia, aviso fijo T1, la principal con tres titulares al costado, una grilla con fotos, aviso T2,
+// «Última hora» con la columna lateral (aviso T3 y lo último de Balcarce), la invitación a WhatsApp, aviso T4 (el pie) y «Más de hoy».
 import { esc, rutaDeNota, ranuraDe, urlSegura, hace, normalizarSeccion } from '../util.mjs';
 import { pagina, colorDe, rotuloDe } from './base.mjs';
 import { lugarFijo, lugarRotativo } from './avisos.mjs';
@@ -92,22 +92,22 @@ export function paginaDePortada(notas, { indexar, contexto = {} } = {}) {
   let cuerpo;
   if (!p.principal) {
     cuerpo = `${cuadroDelDia(contexto)}
-${lugarFijo(contexto)}
+${lugarFijo(contexto, 'T1')}
 <h1>Radar Balcarce</h1>
 <p class="sinnada">Todavía no hay notas publicadas.</p>
-${lugarRotativo(contexto, 'postales')}`;
+${lugarRotativo(contexto, 'postales', 'T2')}`;
   } else {
     cuerpo = `${cuadroDelDia(contexto)}
-${lugarFijo(contexto)}
+${lugarFijo(contexto, 'T1')}
 <div class="portal mt"><div>${destacada(p.principal, ahora)}</div>${p.laterales.length ? `<div class="lat3">${p.laterales.map((n) => titularLateral(n, ahora)).join('')}</div>` : ''}</div>
 ${p.grilla.length ? `<h2 class="sec-t">Más noticias</h2><div class="grid3">${p.grilla.map((n) => tarjeta(n, ahora)).join('')}</div>` : ''}
-${lugarRotativo(contexto, 'postales')}
+${lugarRotativo(contexto, 'postales', 'T2')}
 <div class="con-lado">
 <div>${p.ultimaHora.length ? `<h2 class="sec-t">Última hora</h2>${lista(p.ultimaHora, ahora)}` : ''}</div>
-<aside class="lado" aria-label="Lateral">${lugarRotativo(contexto, 'columna')}${masLeidas(p.lateral)}</aside>
+<aside class="lado" aria-label="Lateral">${lugarRotativo(contexto, 'columna', 'T3')}${masLeidas(p.lateral)}</aside>
 </div>
 <div class="mt">${participa()}</div>
 ${p.masDeHoy.length ? `<div class="mt"><h2 class="sec-t">Más de hoy</h2>${lista(p.masDeHoy, ahora)}</div>` : ''}`;
   }
-  return pagina({ titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto, imagen: p.principal && tieneFoto(p.principal) ? urlSegura(p.principal.foto.url) : undefined });
+  return pagina({ lugarPie: 'T4', titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto, imagen: p.principal && tieneFoto(p.principal) ? urlSegura(p.principal.foto.url) : undefined });
 }

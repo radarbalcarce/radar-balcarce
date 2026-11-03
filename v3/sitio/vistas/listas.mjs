@@ -14,12 +14,13 @@ export function paginaDeSeccion(seccion, notas, { pagina: p, totalPaginas, index
   const navegacion = totalPaginas > 1
     ? `<nav class="paginas" aria-label="Páginas">${p > 1 ? `<a rel="prev" href="${enlace(p - 1)}">Más nuevas</a>` : '<span></span>'}<span>Página ${p} de ${totalPaginas}</span>${p < totalPaginas ? `<a rel="next" href="${enlace(p + 1)}">Más viejas</a>` : '<span></span>'}</nav>`
     : '';
-  const cuerpo = `${lugarFijo(contexto)}
+  const cuerpo = `${lugarFijo(contexto, 'S1')}
 <h1 style="border-left:8px solid ${colorDe(seccion.ranura)};padding-left:10px">${esc(seccion.nombre)}</h1>
 ${notas.length ? lista(notas, contexto?.ahora) : '<p>Todavía no hay notas en esta sección.</p>'}
 ${navegacion}
 ${seccion.nombre === 'Policiales' ? '' : bloqueAdsense(contexto, 'seccion')}`;
   return pagina({
+    lugarPie: 'S2',
     titulo: p > 1 ? `${seccion.nombre}, página ${p}` : seccion.nombre,
     descripcion: `Las últimas noticias de ${seccion.nombre} en Radar Balcarce.`,
     canonico: enlace(p),

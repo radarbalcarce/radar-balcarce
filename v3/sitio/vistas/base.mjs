@@ -146,6 +146,7 @@ footer.pie a{text-decoration:underline}
 .aviso-texto{font-size:14px;color:var(--suave)}
 .aviso-propio .aviso-caja{border-style:dashed;font:600 15px var(--sans);color:var(--tinta)}
 .aviso-propio .aviso-caja:hover{text-decoration:underline}
+.aviso-espacio{font:500 11px var(--sans);color:var(--suave)}
 .anuncio{display:none;min-height:280px;margin:22px 0;overflow:hidden}
 .ads-ok .anuncio{display:block}
 .anuncio:has(ins[data-ad-status="unfilled"]){display:none}
@@ -247,7 +248,7 @@ ${menu()}
 <main class="ancho" id="contenido">
 ${p.cuerpo}
 </main>
-${p.sinAvisos ? '' : `<div class="ancho">${lugarRotativo(p.contexto, 'pie')}</div>`}
+${p.lugarPie === null ? '' : `<div class="ancho">${lugarRotativo(p.contexto, 'pie', p.lugarPie || 'P1')}</div>`}
 <footer class="pie"><div class="ancho"><div class="logo">Radar <span>Balcarce</span></div>
 <p>Noticias de Balcarce y la zona, todo el día. Medio digital automático: escritas con ayuda de IA, verificadas contra las fuentes; cada nota dice quién la escribió y de qué fuentes sale.</p>
 <p><a href="/quienes-somos">Quiénes somos</a> · <a href="/como-trabajamos">Cómo trabajamos</a> · <a href="/contacto">Contacto</a> · <a href="/publicidad">Publicidad</a> · <a href="/politica-de-privacidad">Política de privacidad</a></p>

@@ -6,9 +6,9 @@ import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
 import { leerClima, leerFarmacia } from './datos-del-dia.mjs';
-import { crearPublicidad } from './vistas/avisos.mjs';
+import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
-import { paginaDeTexto, paginaDePublicidad, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
+import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
 import { sitemapIndice, sitemapDelMes, rss, robots } from './vistas/xml.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
@@ -141,9 +141,12 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       return { r: respuesta(texto, { tipo: 'text/plain; charset=utf-8', cache: CACHE.robots }), cachear: true };
     }
 
+    // /publicidad no tiene precios ni tabla: lleva a la nota del media kit (Hernán, 3/11).
+    if (ruta === '/publicidad') return { r: new Response(null, { status: 301, headers: { location: RUTA_MEDIA_KIT, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
+
     if (RUTAS_DE_TEXTO.includes(ruta.slice(1))) {
       const contexto = await contextoDelDia();
-      const html = ruta === '/publicidad' ? paginaDePublicidad({ indexar, contexto }) : paginaDeTexto(ruta.slice(1), { indexar, contexto });
+      const html = paginaDeTexto(ruta.slice(1), { indexar, contexto });
       return { r: respuesta(html, { cache: contexto.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.texto, indexar }), cachear: true };
     }
 

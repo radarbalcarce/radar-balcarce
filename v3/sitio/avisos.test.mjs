@@ -1,8 +1,10 @@
 // Avisos locales, AdSense apagado/prendido, aviso de cookies, medición de Cloudflare, páginas de texto y fotos de la nota. Sin red.
 import { test } from 'node:test';
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { crearSitio } from './sitio.mjs';
-import { crearPublicidad } from './vistas/avisos.mjs';
+import { crearPublicidad, RUTA_MEDIA_KIT, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
+import { sqlDeLaNota, NOTA, ID, SLUG, textoParaLeer } from './scripts/nota-media-kit.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { sqlDeAviso, sqlParaSacar, validar } from './scripts/cargar-aviso.mjs';
 import { baseDePrueba, insertarNota } from './ayuda-pruebas.mjs';
@@ -73,7 +75,7 @@ test('Cloudflare Web Analytics: con CF_BEACON va el script en el <head> de todas
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite);
   const e = { ...env, CF_BEACON: '63fea16828ce46988d62382b0fbabf60' };
-  for (const ruta of ['/', '/seccion/balcarce', '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234', '/contacto', '/publicidad']) {
+  for (const ruta of ['/', '/seccion/balcarce', '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234', '/contacto', '/quienes-somos']) {
     const h = await html(e, ruta);
     const cab = h.slice(0, h.indexOf('</head>'));
     assert.ok(cab.includes(`<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"63fea16828ce46988d62382b0fbabf60"}'></script>`), ruta);
@@ -88,9 +90,11 @@ test('avisos locales: el activo del día sale con el rótulo «Publicidad» y su
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite);
   const sinAvisos = await html(env, '/');
-  assert.equal((sinAvisos.match(/data-aviso-propio="1"/g) || []).length, 4, 'los cuatro lugares con el aviso propio');
-  assert.match(sinAvisos, /Tu comercio acá · desde \$ 5\.000 por mes/);
-  assert.match(sinAvisos, /href="\/publicidad"/);
+  assert.equal((sinAvisos.match(/data-aviso-propio="1"/g) || []).length, 4, 'los cuatro lugares de la tapa con el aviso propio');
+  for (const t of ['T1', 'T2', 'T3', 'T4']) assert.match(sinAvisos, new RegExp(`data-lugar="${t}"[^>]*data-aviso-propio="1">.*?Espacio ${t}<`), t);
+  assert.match(sinAvisos, />Tu comercio acá<small/);
+  assert.ok(!/$ 5.000/.test(sinAvisos.slice(sinAvisos.indexOf('<main'))), 'el aviso propio no lleva precios');
+  assert.ok(sinAvisos.includes(`href="${RUTA_MEDIA_KIT}"`), 'el aviso propio lleva a la nota del media kit');
   const poner = (id, lugares, desde, hasta, activo = 1) => sqlite.prepare('INSERT INTO avisos (id, comercio, texto, enlace, plan, lugares, desde, hasta, activo) VALUES (?,?,?,?,?,?,?,?,?)')
     .run(id, `Comercio ${id}`, `Texto ${id}`, `https://${id}.example/`, 'libre', JSON.stringify(lugares), desde, hasta, activo);
   poner('fijo1', ['fijo'], '2026-11-01', '2026-11-30');
@@ -99,11 +103,11 @@ test('avisos locales: el activo del día sale con el rótulo «Publicidad» y su
   poner('futuro', ['pie'], '2026-12-01', null);
   poner('apagado', ['pie'], null, null, 0);
   const h = await html(env, '/');
-  assert.match(h, /data-aviso="fijo" data-anunciante="fijo1"/);
+  assert.match(h, /data-aviso="fijo" data-lugar="T1" data-anunciante="fijo1"/);
   assert.match(h, /<span class="rotulo">Publicidad<\/span><a class="aviso-caja" href="https:\/\/fijo1\.example\/" target="_blank" rel="sponsored noopener">/);
-  assert.match(h, /data-aviso="pie" data-anunciante="pie1"/);
-  assert.match(h, /data-aviso="columna" data-anunciante="pie1"/);
-  assert.match(h, /data-aviso="postales" data-aviso-propio="1"/, 'sin aviso de postales, el propio');
+  assert.match(h, /data-aviso="pie" data-lugar="T4" data-anunciante="pie1"/);
+  assert.match(h, /data-aviso="columna" data-lugar="T3" data-anunciante="pie1"/);
+  assert.match(h, /data-aviso="postales" data-lugar="T2" data-aviso-propio="1"/, 'sin aviso de postales, el propio');
   for (const x of ['vencido', 'futuro', 'apagado']) assert.ok(!h.includes(`data-anunciante="${x}"`), x);
   const r = await ir(env, '/');
   assert.match(r.headers.get('cache-control'), /s-maxage=300/);
@@ -153,9 +157,7 @@ test('las páginas de texto existen en el sitio nuevo, se indexan y dicen lo que
   assert.match(contacto, /2266 51-1612/); assert.match(contacto, /https:\/\/wa\.me\/5492266511612/); assert.match(contacto, /contacto@radarbalcarce\.com/); assert.match(contacto, /@radarbalcarce/);
   const priv = await q('/politica-de-privacidad');
   for (const t of ['Cloudflare', 'Google AdSense', 'Google Analytics', 'Ley 25\\.326', 'borremos', 'radar_cookies']) assert.match(priv, new RegExp(t), t);
-  const pub = await q('/publicidad');
-  for (const t of ['\\$ 5\\.000', '\\$ 50\\.000', 'Climas auspiciados', 'bienvenida', 'wa\\.me/5492266511612', '<svg']) assert.match(pub, new RegExp(t), t);
-  for (const x of [quienes, como, contacto, priv, pub]) {
+  for (const x of [quienes, como, contacto, priv]) {
     assert.ok(!/name="robots"/.test(x));
     for (const enlace of ['/quienes-somos', '/como-trabajamos', '/contacto', '/politica-de-privacidad', '/publicidad']) assert.ok(x.includes(`href="${enlace}"`), `pie con ${enlace}`);
   }
@@ -184,4 +186,48 @@ test('la nota muestra todas sus fotos: la de portada arriba y las demás entre p
   const ordenes = ['portada', 'P1.', 'uno.jpg', 'P2.', 'P3.', 'dos.jpg', 'P4.'].map((t) => h.indexOf(t.endsWith('.jpg') ? `fotos.example/${t}` : t === 'portada' ? 'fotos.example/portada' : `<p>${t}</p>`));
   assert.deepEqual([...ordenes].sort((a, b) => a - b), ordenes, 'las fotos van intercaladas entre párrafos, en orden');
   assert.equal(((await html(env, '/nota/una-foto-solo001')).match(/<figure>/g) || []).length, 1);
+});
+
+test('/publicidad ya no tiene precios: redirige (301) a la nota del media kit', async () => {
+  const { env } = baseDePrueba();
+  const r = await ir(env, '/publicidad');
+  assert.equal(r.status, 301);
+  assert.equal(r.headers.get('location'), RUTA_MEDIA_KIT);
+  assert.equal(RUTA_MEDIA_KIT, `/nota/${SLUG}-${ID}`);
+});
+
+test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada por Hernán, con precios, sin 2027', async () => {
+  const { sqlite, env } = baseDePrueba();
+  sqlite.exec(readFileSync(new URL('../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8')); // las columnas que suma el bot de Telegram (ya están en la base de verdad)
+  sqlite.exec(sqlDeLaNota());
+  sqlite.exec(sqlDeLaNota());
+  assert.equal(sqlite.prepare("SELECT COUNT(*) AS n FROM notas WHERE id = 'mediakit'").get().n, 1, 'correrlo de nuevo no duplica');
+  const s = sqlite.prepare('SELECT * FROM sitio_notas WHERE id = ?').get(ID);
+  assert.equal(s.slug, SLUG); assert.equal(s.origen, 'redaccion');
+  const f = sqlite.prepare('SELECT * FROM notas WHERE id = ?').get(ID);
+  assert.equal(f.estado, 'publicada'); assert.equal(f.origen, 'redaccion'); assert.equal(f.historia_id, 'redaccion-mediakit'); assert.equal(f.seccion, 'Balcarce');
+  assert.equal(s.publicada_en, f.creada);
+  const r = await ir(env, RUTA_MEDIA_KIT);
+  assert.equal(r.status, 200);
+  const h = await r.text();
+  assert.match(h, /<h1>Publicitá en Radar Balcarce/);
+  for (const t of ['\\$ 5\\.000', '\\$ 50\\.000', 'noviembre y diciembre de 2026', '2266 51-1612', 'clima auspiciado']) assert.match(h, new RegExp(t), t);
+  assert.match(h, /<p class="firma">Por Hernán Accomo, de la redacción de Radar Balcarce<\/p>/);
+  assert.ok(!/2027/.test(JSON.stringify(NOTA)) && !/2027/.test(textoParaLeer()), 'no promete nada para 2027');
+  assert.match(h, /Espacio N2/, 'en la nota sin comercio fijo hay un solo aviso local, al pie');
+  assert.ok(!h.includes('data-lugar="N1"'));
+});
+
+test('los nombres de los lugares: data-lugar en cada página; en una nota hay un solo aviso local (arriba si hay fijo, si no al pie) y AdSense en el medio', async () => {
+  const { sqlite, env } = baseDePrueba();
+  insertarNota(sqlite, { cuerpo: CUATRO });
+  const e = { ...env, ADSENSE_CLIENTE: PUB };
+  const nombres = (h) => [...h.matchAll(/data-lugar="([A-Z]\d)"/g)].map((m) => m[1]);
+  assert.deepEqual(nombres(await html(e, '/')), ['T1', 'T2', 'T3', 'T4']);
+  assert.deepEqual(nombres(await html(e, '/seccion/balcarce')), ['S1', 'A2', 'S2']);
+  assert.deepEqual(nombres(await html(e, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')), ['A1', 'N2']);
+  assert.deepEqual(nombres(await html(e, '/contacto')), ['P1']);
+  sqlite.prepare('INSERT INTO avisos (id, comercio, texto, plan, lugares, activo) VALUES (?,?,?,?,?,1)').run('fijo1', 'Comercio fijo', 'Texto', '50000', JSON.stringify(['fijo', 'pie']));
+  assert.deepEqual(nombres(await html(e, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')), ['N1', 'A1'], 'con comercio fijo: arriba y AdSense en el medio, sin pie');
+  assert.deepEqual(Object.keys(NOMBRES_DE_LUGARES), ['T1', 'T2', 'T3', 'T4', 'N1', 'N2', 'S1', 'S2', 'P1']);
 });
