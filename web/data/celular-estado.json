@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T19:35:07.698Z",
- "portada": 188,
+ "generado": "2026-11-03T20:08:17.567Z",
+ "portada": 181,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-03T19:35:08.107Z",
+  "generado": "2026-11-03T20:08:17.850Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,8 +126,13 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "17vsjrz",
+      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
@@ -137,11 +142,6 @@
       "id": "tne9sk",
       "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
      },
      {
       "id": "voie14",
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 48,
     "notas": [
      {
-      "id": "222bza",
-      "titulo": "Gustavo Torres repasa las obras viales y anuncia proyectos",
-      "seccion": "Balcarce"
+      "id": "g6dtuw",
+      "titulo": "Caputo anuncia la suspensión de embargos y créditos para la industria",
+      "seccion": "Economía"
      },
      {
-      "id": "sqcelu",
-      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
-      "seccion": "Deportes"
+      "id": "nae13g",
+      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
+      "seccion": "Política"
      },
      {
-      "id": "epb4w8",
-      "titulo": "La Escuela Municipal de básquetbol avanza en los Play Off de la Liga",
-      "seccion": "Educación"
+      "id": "10f66es",
+      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
+      "seccion": "Argentina"
      },
      {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
+      "id": "1jcaj7v",
+      "titulo": "Socios de Adecoagro compran las tierras del grupo Benetton",
+      "seccion": "Agro"
      }
     ]
    }
@@ -197,6 +197,12 @@
    ],
    "cola": [
     {
+     "id": "17vsjrz",
+     "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "bhyj9r",
      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
      "seccion": "Deportes",
@@ -215,18 +221,6 @@
      "marcada": false
     },
     {
-     "id": "17vsjrz",
-     "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "g6dtuw",
-     "titulo": "Caputo anuncia la suspensión de embargos y créditos para la industria",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "atpuq1",
      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
      "seccion": "Balcarce",
@@ -242,6 +236,12 @@
      "id": "1yv5m5l",
      "titulo": "Lionel Messi lamenta el fallecimiento de Jesús de Miguel",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "g6dtuw",
+     "titulo": "Caputo anuncia la suspensión de embargos y créditos para la industria",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
