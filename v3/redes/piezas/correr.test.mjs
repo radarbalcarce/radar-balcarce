@@ -319,7 +319,7 @@ test('los datos de afuera: Open-Meteo se convierte a lo que pide el clima, la ef
 });
 
 test('una foto que no baja (403) NUNCA tumba la pieza: va con la placa y se anota; antes de la original prueba la copia propia, con un User-Agent honesto', async () => {
-  const { resolverFotos, direccionesDeLaFoto, USER_AGENT } = await import('./render.mjs');
+  const { resolverFotos, direccionesDeLaFoto, USER_AGENT } = await import('./fotos.mjs');
   assert.match(USER_AGENT, /^RadarBalcarceBot\//);
   assert.doesNotMatch(USER_AGENT, /Mozilla|Chrome|Safari/);
   assert.deepEqual(direccionesDeLaFoto({ copia: 'https://radarbalcarce.com/fotos-notas/a.jpg', url: 'https://media.dib.com.ar/a.jpg' }), ['https://radarbalcarce.com/fotos-notas/a.jpg', 'https://media.dib.com.ar/a.jpg']);
