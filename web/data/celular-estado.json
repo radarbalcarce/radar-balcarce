@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T12:35:10.306Z",
- "portada": 142,
+ "generado": "2026-11-03T13:07:00.740Z",
+ "portada": 145,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 4,
  "redes": {
-  "generado": "2026-11-03T12:35:10.710Z",
+  "generado": "2026-11-03T13:07:01.276Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -24,7 +24,7 @@
     "voz": "locutora",
     "ventana": 180,
     "momento": "en-hora",
-    "salio": null
+    "salio": "2026-11-03T12:36:55.743Z"
    },
    {
     "nombre": "noticia1",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 52,
     "notas": [
@@ -183,7 +183,13 @@
    }
   ],
   "facebook": {
-   "hoy": [],
+   "hoy": [
+    {
+     "id": "10kt3fe",
+     "titulo": "Estados Unidos vota en las elecciones de mitad de mandato",
+     "cuando": "2026-11-03T12:36:02.217Z"
+    }
+   ],
    "cola": [
     {
      "id": "1tqe7zq",
@@ -208,16 +214,10 @@
      "titulo": "Muere Jesús de Miguel, futbolista de Tenerife, tras un choque",
      "seccion": "Deportes",
      "marcada": false
-    },
-    {
-     "id": "10kt3fe",
-     "titulo": "Estados Unidos vota en las elecciones de mitad de mandato",
-     "seccion": "Argentina",
-     "marcada": false
     }
    ],
-   "cupo": 5,
-   "proximoDesde": "2026-11-02T20:06:02.092Z",
+   "cupo": 4,
+   "proximoDesde": "2026-11-03T14:06:02.217Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
    "edadMaximaHoras": 8,
