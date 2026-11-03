@@ -107,6 +107,28 @@ export async function guardarNota(env, n, ahora = new Date().toISOString()) {
   ]);
 }
 
+// Interruptor NUCLEO_PUBLICA = si (REGLAS § 11). `publicada_en` existe en la base compartida (la agrega el esquema de la redacción); si la
+// columna no está, se ignora: el sitio ordena por `sitio_notas.publicada_en` o, si no hay, por `creada`.
+export async function marcarPublicadaEn(env, ids, ahora = new Date().toISOString()) {
+  if (!ids.length) return;
+  try {
+    await env.DB.batch(ids.map((id) => env.DB.prepare('UPDATE notas SET publicada_en = ? WHERE id = ? AND publicada_en IS NULL').bind(ahora, id)));
+  } catch { /* sin la columna: no pasa nada */ }
+}
+
+// Pasa a publicadas los borradores del núcleo creados desde `desdeISO` que están bien (con título y cuerpo, sin freno legal ni de verificación).
+// Devuelve cuántos pasó.
+export async function publicarBorradores(env, desdeISO, ahora = new Date().toISOString()) {
+  const r = await env.DB.prepare(
+    "SELECT id FROM notas WHERE estado = 'borrador' AND no_publicar IS NULL AND titulo IS NOT NULL AND titulo <> '' AND cuerpo IS NOT NULL AND creada >= ? AND historia_id IN (SELECT id FROM historias)",
+  ).bind(desdeISO).all();
+  const ids = lista(r).map((f) => f.id);
+  if (!ids.length) return 0;
+  await env.DB.batch(ids.map((id) => env.DB.prepare("UPDATE notas SET estado = 'publicada' WHERE id = ? AND estado = 'borrador'").bind(id)));
+  await marcarPublicadaEn(env, ids, ahora);
+  return ids.length;
+}
+
 // Historias elegidas que todavía no tienen nota.
 export async function historiasParaRedactar(env, limite = 10) {
   const r = await env.DB.prepare(
@@ -154,10 +176,12 @@ export async function anotarFuente(env, fuenteId, ok, error = null, ahora = new 
        ON CONFLICT(fuente_id) DO UPDATE SET ultimo_ok = excluded.ultimo_ok, fallas_seguidas = 0, avisada = 0`,
     ).bind(fuenteId, ahora).run();
   } else {
+    // ultima_falla guarda cuándo y por qué (el texto del error, recortado): sin eso no se sabe qué le pasa a una fuente.
+    const falla = error ? `${ahora} ${String(error).replace(/s+/g, ' ').slice(0, 90)}` : ahora;
     await env.DB.prepare(
       `INSERT INTO fuentes_estado (fuente_id, ultima_falla, fallas_seguidas, avisada) VALUES (?, ?, 1, 0)
        ON CONFLICT(fuente_id) DO UPDATE SET ultima_falla = excluded.ultima_falla, fallas_seguidas = fallas_seguidas + 1`,
-    ).bind(fuenteId, ahora).run();
+    ).bind(fuenteId, falla).run();
   }
 }
 

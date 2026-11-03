@@ -117,3 +117,19 @@ Cada regla de arriba tiene una prueba con un caso real (`*.test.mjs`, sin red). 
 y en la prueba, no una regla nueva.
 
 - **Limpieza diaria** (con el resumen de las 21:30, `podar` en `db/db.mjs`): se borran los artículos de más de 14 días que no son de una historia con nota, las historias `no_sale` de más de 14 días y las dudas de más de 30; si falla, el resumen sigue.
+
+## 11. El interruptor de publicar (`NUCLEO_PUBLICA`)
+
+Variable de `v3/nucleo/wrangler.toml`, `"no"` por defecto. **La cambia una persona el día del corte**, nadie más (ni un workflow ni una IA).
+
+- **`"no"`**: todo como antes. Las notas quedan `estado = 'borrador'`, el sitio no las muestra, el resumen de las 21:30 dice «hoy habría publicado N notas».
+- **`"si"`**: cada nota que el núcleo termina (verificada y sin `noPublicar`) se guarda `estado = 'publicada'` (con `publicada_en` si la base tiene esa
+  columna). Una nota frenada (`noPublicar`: menor, víctima, verificación) sigue en borrador, siempre. Además, **una vez por vuelta** se pasan a publicadas
+  los borradores del núcleo de las últimas 24 h que estén bien (título y cuerpo, sin freno): sirve para el arranque, y no repite nada porque lo ya
+  publicado deja de ser borrador. El resumen dice «hoy publicó N notas». El slug lo fija el sitio la primera vez que la muestra (`sitio_notas`).
+- `/salud` dice `publicando: true|false`.
+- Apagarlo (`"no"`) no despublica nada: lo ya publicado se retira a mano.
+
+Otra regla de esta vuelta: cada fuente con falla guarda en `fuentes_estado.ultima_falla` cuándo y por qué (el texto del error, 90 caracteres) y `/salud`
+lo muestra como `ultimaFalla` (120 caracteres como mucho). Los feeds tienen dos relojes: 10 s para que el sitio responda y 25 s para bajar el cuerpo,
+hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).

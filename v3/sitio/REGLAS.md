@@ -31,8 +31,17 @@ cuando `radarbalcarce.com` apunte al Worker. Las direcciones canónicas ya dicen
 
 Todas las notas del sistema viejo (el sitio de hoy, su archivo y las de la redacción) se pasan a la base con **su misma dirección**, para que
 Google no pierda nada. Se marcan `origen = 'viejo'`; las del núcleo, `'nucleo'`; las que escribe una persona desde Telegram o el panel, `'redaccion'`.
-Las fotos viejas se siguen pidiendo a `radarbalcarce.com/fotos-notas/…` (hay que dejarlas en pie o moverlas a R2 antes de apagar el sitio de hoy).
 La migración es de a pocas notas por archivo `.sql`, con `INSERT OR IGNORE`: correrla de nuevo no duplica ni pisa nada.
+
+**El archivo permanente de R2** (`radar-archivo`, ~1.500 páginas ya dibujadas) no se migra leyendo el HTML: los datos enteros de esas mismas notas siguen
+en `web/data/historico/AAAA-MM.json`, y de ahí sale `scripts/migrar-archivo.mjs` (`archivo-NNN.sql`). Con credenciales de Cloudflare además baja `manifiesto.json`
+del depósito viejo y, si hubiera una nota que el manifiesto tiene y el histórico no, la arma leyendo su página (`notaDesdeHtml`, con la dirección canónica; pierde las fuentes).
+No se migran las retiradas, las unidas a otra por la revisión, ni las que nunca tuvieron cuerpo (eran `noindex`).
+
+**Las fotos viejas** se piden a `https://radarbalcarce.com/fotos-notas/…`; el día del corte ese dominio es este Worker, que las sirve desde el depósito R2 `radar-fotos`
+(binding `FOTOS`, claves `fotos-notas/<archivo>`), con caché larga (el navegador una semana, Cloudflare un mes). Lo mismo `/fuentes/<archivo>` (tipografías, un año).
+`scripts/copiar-fotos.mjs` las sube desde `web/public/fotos-notas/` y `web/public/fuentes/`, y rescata del depósito viejo las que piden las notas y el repositorio no tiene.
+Las fotos de las notas **nuevas** del núcleo siguen guardando la URL del medio de origen (no se copian a `radar-fotos`); queda para después.
 
 ## 5. Cuánto dura cada cosa en caché
 

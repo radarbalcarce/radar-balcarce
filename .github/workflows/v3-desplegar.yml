@@ -18,7 +18,7 @@ on:
       que:
         description: 'Qué subir'
         type: choice
-        options: [telegram, nucleo, sitio, migrar, vigilancia]
+        options: [telegram, nucleo, sitio, migrar, vigilancia, redes]
         default: telegram
 
 permissions:
@@ -31,7 +31,7 @@ concurrency:
 jobs:
   subir:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 45
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -153,6 +153,13 @@ jobs:
           npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../nucleo/db/schema.sql
           npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=db/schema-sitio.sql
 
+      # El sitio sirve las fotos y las tipografías desde este depósito: tiene que existir antes de subirlo.
+      - name: Crear el depósito de fotos (radar-fotos) si no existe
+        if: env.QUE == 'sitio' || env.QUE == 'migrar'
+        working-directory: v3/sitio
+        run: |
+          npx --yes wrangler@4.139.0 r2 bucket list | grep -q "radar-fotos" || npx --yes wrangler@4.139.0 r2 bucket create radar-fotos
+
       - name: Subir el sitio
         if: env.QUE == 'sitio'
         working-directory: v3/sitio
@@ -165,6 +172,22 @@ jobs:
         run: |
           node scripts/migrar.mjs
           for f in scripts/salida/migracion-*.sql; do
+            echo "Corriendo $f"
+            npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file="$f"
+          done
+
+      # Fotos y tipografías al depósito (~1.450 archivos). Salta lo que ya está; si falla alguna, se corre de nuevo.
+      - name: Copiar las fotos y tipografías a radar-fotos
+        if: env.QUE == 'migrar'
+        run: node v3/sitio/scripts/copiar-fotos.mjs
+
+      # El archivo permanente (~2.400 notas más), en tandas con INSERT OR IGNORE: se puede repetir sin duplicar.
+      - name: Generar y correr la migración del archivo permanente
+        if: env.QUE == 'migrar'
+        working-directory: v3/sitio
+        run: |
+          node scripts/migrar-archivo.mjs
+          for f in scripts/salida/archivo-*.sql; do
             echo "Corriendo $f"
             npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file="$f"
           done
@@ -198,3 +221,40 @@ jobs:
         run: |
           if [ -z "$TELEGRAM_TOKEN" ]; then echo "TELEGRAM_TOKEN no está en GitHub Secrets"; exit 0; fi
           node -e 'process.stdout.write(JSON.stringify({ TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN }))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml
+
+      # ------------------------------------------------------------------ redes
+      # Requiere que radar-telegram ya esté subido (enlace de servicio). Usa la misma base D1 del núcleo. REDES_ACTIVAS = "no": simula.
+      - name: Buscar la base D1 del núcleo (para las redes)
+        if: env.QUE == 'redes'
+        working-directory: v3/redes
+        run: |
+          NOMBRE="radar-nucleo"
+          buscar() {
+            npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name===process.argv[1]);process.stdout.write(x?x.uuid:'')})" "$NOMBRE"
+          }
+          ID=$(buscar)
+          test -n "$ID" || { echo "No está la base D1 del núcleo: subir primero el núcleo"; exit 1; }
+          sed "s/REEMPLAZADO_POR_EL_WORKFLOW/$ID/" wrangler.toml > wrangler.generado.toml
+
+      - name: Armar las tablas (núcleo, sitio y redes)
+        if: env.QUE == 'redes'
+        working-directory: v3/redes
+        run: |
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../nucleo/db/schema.sql
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=../sitio/db/schema-sitio.sql
+          npx --yes wrangler@4.139.0 d1 execute radar-nucleo --remote --config wrangler.generado.toml --file=schema-redes.sql
+
+      - name: Subir las redes
+        if: env.QUE == 'redes'
+        working-directory: v3/redes
+        run: npx --yes wrangler@4.139.0 deploy --config wrangler.generado.toml --keep-vars
+
+      # Los secretos van por un pipe directo a wrangler: no se imprimen nunca. Los vacíos no se cargan.
+      - name: Cargar las claves de las redes
+        if: env.QUE == 'redes'
+        working-directory: v3/redes
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          node -e 'const s={};for(const k of ["META_TOKEN","TELEGRAM_TOKEN"])if(process.env[k])s[k]=process.env[k];process.stdout.write(JSON.stringify(s))' | npx --yes wrangler@4.139.0 secret bulk --config wrangler.generado.toml

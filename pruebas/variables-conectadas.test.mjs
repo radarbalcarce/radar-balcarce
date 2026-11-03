@@ -52,7 +52,7 @@ function pasadasPorWorkflows() {
 function pasadasPorWrangler() {
   const s = new Set();
   const carpetas = fs.readdirSync(path.join(RAIZ, 'infra'), { withFileTypes: true }).filter((e) => e.isDirectory()).map((d) => `infra/${d.name}`);
-  carpetas.push('v3/nucleo', 'v3/redaccion/telegram', 'v3/sitio', 'v3/vigilancia');
+  carpetas.push('v3/nucleo', 'v3/redaccion/telegram', 'v3/sitio', 'v3/vigilancia', 'v3/redes');
   for (const dir of carpetas) {
     for (const f of fs.readdirSync(path.join(RAIZ, dir)).filter((x) => /\.toml(\.parte)?$/.test(x))) {
       const t = leer(`${dir}/${f}`);

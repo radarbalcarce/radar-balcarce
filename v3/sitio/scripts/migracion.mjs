@@ -96,7 +96,7 @@ export function sqlDeFilas({ nota, sitio }) {
  * Todas las notas viejas → archivos .sql en tandas. Se repite por id: gana la primera que aparece (pasale primero la más fresca).
  * Devuelve { archivos: [{ nombre, sql, notas }], migradas, saltadas: [{ id, motivo }], repetidas }.
  */
-export function generarSql(notas, { porArchivo = 100 } = {}) {
+export function generarSql(notas, { porArchivo = 100, prefijo = 'migracion' } = {}) {
   const vistos = new Set();
   const filas = [];
   const saltadas = [];
@@ -112,7 +112,7 @@ export function generarSql(notas, { porArchivo = 100 } = {}) {
   for (let i = 0; i < filas.length; i += porArchivo) {
     const tanda = filas.slice(i, i + porArchivo);
     const numero = String(archivos.length + 1).padStart(3, '0');
-    archivos.push({ nombre: `migracion-${numero}.sql`, notas: tanda.length, sql: `-- Tanda ${numero}: ${tanda.length} notas viejas (INSERT OR IGNORE: se puede repetir)\n${tanda.map(sqlDeFilas).join('\n')}` });
+    archivos.push({ nombre: `${prefijo}-${numero}.sql`, notas: tanda.length, sql: `-- Tanda ${numero}: ${tanda.length} notas viejas (INSERT OR IGNORE: se puede repetir)\n${tanda.map(sqlDeFilas).join('\n')}` });
   }
   return { archivos, migradas: filas.length, saltadas, repetidas };
 }

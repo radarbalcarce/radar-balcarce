@@ -1,0 +1,32 @@
+# Las redes de Radar 3.0 (ver worker.mjs, redes.mjs y REGLAS.md). Lo sube el workflow «Radar 3.0: desplegar» (opción redes).
+name = "radar-redes"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+# Cada 15 minutos de 8:00 a 21:45 de Balcarce (11:00 a 00:45 UTC) y a las 22:00 (01:00 UTC): elegir.mjs corta lo que cae fuera de 8:00 a 22:00.
+# El resumen del día por Telegram a las 22:05 (01:05 UTC).
+crons = ["*/15 0,11-23 * * *", "0 1 * * *", "5 1 * * *"]
+
+# La misma base D1 del núcleo y del sitio: lee las notas publicadas y anota en `publicaciones`. El workflow la crea si no existe y reemplaza el marcador.
+[[d1_databases]]
+binding = "DB"
+database_name = "radar-nucleo"
+database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
+
+# Enlace directo al bot (un Worker no puede llamar a otro de la misma cuenta por workers.dev).
+[[services]]
+binding = "TELEGRAM"
+service = "radar-telegram"
+
+[vars]
+# «no» = simula (elige, arma el texto, lo anota con simulado = 1 y no llama a Meta). «si» = publica de verdad. La prende una persona.
+REDES_ACTIVAS = "no"
+# El espejo de cada posteo de Facebook en el feed de Instagram (foto entera, sin enlace). «no» lo apaga.
+INSTAGRAM_ESPEJO = "si"
+SITIO = "https://radarbalcarce.com"
+
+# Secretos META_TOKEN y TELEGRAM_TOKEN: los carga el workflow desde GitHub Secrets. Nunca acá.
+# PAGINA_DE_FACEBOOK (opcional): si no está, se usa la página «Radar Balcarce» (1254237411116171).
+PAGINA_DE_FACEBOOK = "1254237411116171"

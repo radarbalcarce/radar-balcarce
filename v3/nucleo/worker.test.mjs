@@ -392,3 +392,66 @@ test('/salud abre sin clave y no muestra secretos; /notas, /vuelta y /resumen pi
   const rs = await n.manejar(pedido('/resumen', { method: 'POST', headers }), env, deps);
   assert.equal((await rs.json()).enviado, true);
 });
+
+// ------------------------------------------------------------------ el interruptor de publicar (NUCLEO_PUBLICA)
+
+test('NUCLEO_PUBLICA = no (por defecto): todo queda en borrador, /salud dice que no publica y el resumen habla de «habría publicado»', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  assert.equal(r.publicadas, 0);
+  assert.equal(r.publicadasPendientes, 0);
+  assert.equal(filas(env, "SELECT * FROM notas WHERE estado = 'publicada'").length, 0);
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.equal(salud.publicando, false);
+});
+
+test('NUCLEO_PUBLICA = si: las notas terminadas salen publicadas (no las frenadas), los borradores de 24 h se arrancan una vez y el resumen dice «publicó»', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_PUBLICA: 'no' });
+  const m = mundo();
+  const n = nucleo();
+  // antes del corte: 3 borradores
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  assert.equal(filas(env, "SELECT * FROM notas WHERE estado = 'borrador'").length, 3);
+  // un borrador frenado y uno de hace dos días no deben publicarse
+  const hid = filas(env, 'SELECT historia_id FROM notas LIMIT 1')[0].historia_id;
+  await db.guardarNota(env, { id: 'frenada', historiaId: hid, creada: '2026-11-02T22:00:00Z', titulo: 'x', cuerpo: ['a'], noPublicar: { motivo: 'menor' }, estado: 'borrador' });
+  await db.guardarNota(env, { id: 'vieja01', historiaId: hid, creada: '2026-10-31T22:00:00Z', titulo: 'vieja', cuerpo: ['a'], estado: 'borrador' });
+
+  // el día del corte
+  env.NUCLEO_PUBLICA = 'si';
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.deepEqual(r.errores, []);
+  assert.equal(r.publicadas, 3, 'las que redactó en esta vuelta salen publicadas');
+  assert.equal(r.publicadasPendientes, 3, 'los 3 borradores de antes pasaron a publicados');
+  const publicadas = filas(env, "SELECT id FROM notas WHERE estado = 'publicada'").map((f) => f.id);
+  assert.equal(publicadas.length, 6);
+  assert.ok(!publicadas.includes('frenada') && !publicadas.includes('vieja01'));
+  assert.equal(filas(env, "SELECT estado FROM notas WHERE id = 'frenada'")[0].estado, 'borrador');
+  // una vuelta más: el arranque no se repite
+  const r3 = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(3) });
+  assert.equal(r3.publicadasPendientes, 0);
+
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.equal(salud.publicando, true);
+
+  m.telegram.length = 0;
+  await n.resumen(env, { fetch: m.fetch, ahora: '2026-11-03T00:30:00Z' });
+  assert.match(m.telegram[0].cuerpo.textos[0], /^Radar 3\.0: hoy publicó \d+ notas/);
+  assert.doesNotMatch(m.telegram[0].cuerpo.textos[0], /habría/);
+});
+
+test('/salud muestra de cada fuente con falla el motivo (ultimaFalla, a lo sumo 120 caracteres) y ningún secreto', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(5) });
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  const caida = salud.fuentes.conFalla.find((f) => f.id === 'caida');
+  assert.match(caida.ultimaFalla, /HTTP 500$/);
+  assert.ok(caida.ultimaFalla.length <= 120);
+  await db.anotarFuente(env, 'caida', false, 'x'.repeat(500), AHORA);
+  const salud2 = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.ok(salud2.fuentes.conFalla.find((f) => f.id === 'caida').ultimaFalla.length <= 120);
+});

@@ -325,3 +325,52 @@ test('portada sin enlaces o que no llega: error, nunca excepción', async () => 
 test('cargarFuentes valida las portadas: base y patron', () => {
   assert.throws(() => cargarFuentes({ fuentes: [{ ...eldiario, base: undefined, patron: '(' }] }), /necesita base[\s\S]*patron/);
 });
+
+// ------------------------------------------------------------------ feeds grandes (Infobae desde Cloudflare)
+
+const feedGrande = (n) => `<?xml version="1.0"?><rss version="2.0"><channel><title>x</title>${Array.from({ length: n }, (_, i) =>
+  `<item><title>Nota número ${i}</title><link>https://grande.test/n${i}</link><pubDate>${new Date(Date.now() - 3600_000).toUTCString()}</pubDate><description>${'texto '.repeat(120)}</description></item>`).join('')}</channel></rss>`;
+const respConCuerpo = (cuerpo, trozo = 64 * 1024) => {
+  const bytes = new TextEncoder().encode(cuerpo);
+  let i = 0;
+  const body = new ReadableStream({ pull(c) { if (i >= bytes.length) c.close(); else { c.enqueue(bytes.slice(i, i + trozo)); i += trozo; } } });
+  return new Response(body, { status: 200 });
+};
+
+test('un feed de más de 1 MB entra entero y sólo se leen los primeros 80 ítems', async () => {
+  const xml = feedGrande(120);
+  assert.ok(xml.length > 100_000);
+  const r = await leerFuente(fuente, { fetch: async () => respConCuerpo(xml) });
+  assert.equal(r.error, null);
+  assert.equal(r.articulos.length, 80);
+  assert.equal(r.articulos[0].titulo, 'Nota número 0');
+});
+
+test('un feed enorme se corta en bytes y queda con los ítems completos', async () => {
+  const xml = feedGrande(4000); // varios MB
+  assert.ok(xml.length > 2_000_000);
+  const r = await leerFuente(fuente, { fetch: async () => respConCuerpo(xml) });
+  assert.equal(r.error, null);
+  assert.equal(r.articulos.length, 80);
+});
+
+test('el cuerpo de un feed tiene más tiempo que la respuesta; si igual no llega, el error dice en qué fase', async () => {
+  // responde enseguida pero el cuerpo tarda 30 ms con un tope de respuesta de 20 ms (cuerpo: 50 ms)
+  const lento = (ms) => async (url, { signal }) => {
+    const body = new ReadableStream({
+      async pull(c) {
+        await new Promise((ok, mal) => { const t = setTimeout(ok, ms); signal.addEventListener('abort', () => { clearTimeout(t); mal(new Error('abortado')); }); });
+        c.enqueue(new TextEncoder().encode(feedGrande(2))); c.close();
+      },
+    });
+    return new Response(body, { status: 200 });
+  };
+  const bien = await leerFuente(fuente, { fetch: lento(30), timeoutMs: 20 });
+  assert.equal(bien.error, null, 'el cuerpo llega dentro de 2,5 veces el tope');
+  assert.equal(bien.articulos.length, 2);
+  const mal = await leerFuente(fuente, { fetch: lento(200), timeoutMs: 20 });
+  assert.match(mal.error, /^tiempo agotado bajando el cuerpo \(0 s\)/);
+  // sin respuesta: la otra fase
+  const sin = await leerFuente(fuente, { fetch: (url, { signal }) => new Promise((_, mal2) => signal.addEventListener('abort', () => mal2(new Error('x')))), timeoutMs: 20 });
+  assert.match(sin.error, /^tiempo agotado esperando la respuesta/);
+});

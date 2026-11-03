@@ -27,6 +27,26 @@ function respuesta(cuerpo, { tipo = HTML, estado = 200, cache = null, indexar = 
   return new Response(cuerpo, { status: estado, headers: h });
 }
 
+const TIPOS_DE_ARCHIVO = { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', gif: 'image/gif', avif: 'image/avif', svg: 'image/svg+xml', woff2: 'font/woff2', woff: 'font/woff', css: 'text/css; charset=utf-8' };
+const NOMBRE_DE_ARCHIVO = /^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/;
+
+/** /fotos-notas/<archivo> y /fuentes/<archivo>, desde el depósito R2 `radar-fotos` (binding FOTOS). Caché larga; 404 si no está o no hay binding. */
+async function archivoEstatico(pedido, env, prefijo, nombre) {
+  if (!env.FOTOS || !NOMBRE_DE_ARCHIVO.test(nombre) || nombre.includes('..')) return respuesta('No encontrada', { tipo: 'text/plain; charset=utf-8', estado: 404, indexar: false });
+  let objeto;
+  try { objeto = await env.FOTOS.get(`${prefijo}/${nombre}`); } catch { return respuesta('Error del depósito', { tipo: 'text/plain; charset=utf-8', estado: 502, indexar: false }); }
+  if (!objeto) return respuesta('No encontrada', { tipo: 'text/plain; charset=utf-8', estado: 404, indexar: false });
+  const etag = objeto.httpEtag ?? (objeto.etag ? `"${objeto.etag}"` : null);
+  const cabeceras = {
+    'content-type': objeto.httpMetadata?.contentType || TIPOS_DE_ARCHIVO[nombre.split('.').pop().toLowerCase()] || 'application/octet-stream',
+    'cache-control': prefijo === 'fuentes' ? 'public, max-age=31536000, immutable' : 'public, max-age=604800, s-maxage=2592000',
+    'x-content-type-options': 'nosniff',
+    ...(etag ? { etag } : {}),
+  };
+  if (etag && pedido.headers.get('if-none-match') === etag) return new Response(null, { status: 304, headers: cabeceras });
+  return new Response(pedido.method === 'HEAD' ? null : objeto.body, { status: 200, headers: cabeceras });
+}
+
 const noEncontrada = (indexar) => respuesta(paginaNoEncontrada(), { estado: 404, indexar: false });
 
 export function crearSitio() {
@@ -102,6 +122,12 @@ export function crearSitio() {
   return {
     async manejar(pedido, env, ctx, { cache = typeof caches !== 'undefined' ? caches.default : null } = {}) {
       if (pedido.method !== 'GET' && pedido.method !== 'HEAD') return new Response('Método no permitido', { status: 405, headers: { allow: 'GET, HEAD' } });
+      const estatico = /^\/(fotos-notas|fuentes)\/([^/]+)$/.exec(new URL(pedido.url).pathname);
+      if (estatico) {
+        let nombre = estatico[2];
+        try { nombre = decodeURIComponent(nombre); } catch { /* queda como vino y no pasa la validación */ }
+        return archivoEstatico(pedido, env, estatico[1], nombre);
+      }
       const clave = new Request(new URL(pedido.url).toString(), { method: 'GET' });
       const url = new URL(pedido.url);
       const usaCache = cache && url.pathname !== '/buscar';

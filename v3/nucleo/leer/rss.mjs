@@ -136,12 +136,12 @@ function recortarBajada(texto) {
   return punto > 120 ? corte.slice(0, punto + 1) : corte.replace(/\s+\S*$/, '') + '…';
 }
 
-export function parsearFeed(xml) {
+export function parsearFeed(xml, { max = Infinity } = {}) {
   if (!xml || typeof xml !== 'string') return [];
   const items = [];
   const re = /<(item|entry)\b[^>]*>([\s\S]*?)<\/\1\s*>/gi;
   let m;
-  while ((m = re.exec(xml))) {
+  while ((m = re.exec(xml)) && items.length < max) {
     const b = m[2];
     const url = urlDe(b);
     const titulo = htmlATexto(comoHtml(b, 'title') || '').replace(/\s+/g, ' ').trim();

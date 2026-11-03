@@ -117,6 +117,9 @@ export function partirEnMensajes(lineas, max = LARGO_DE_MENSAJE) {
  * recursos: { fuentes (las activas, ya validadas), perfil, redaccion, umbrales }
  * deps (todo opcional, para pruebas): { fetch, ahora (Date|ISO), azar }
  */
+// El interruptor: sólo "si" publica; cualquier otra cosa (o nada) deja todo en borrador. Lo cambia una persona el día del corte.
+export const publica = (env) => /^s*s[ií]s*$/i.test(String((env && env.NUCLEO_PUBLICA) || 'no'));
+
 export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
   const nombreDeFuente = new Map(fuentes.map((f) => [f.id, f.nombre]));
 
@@ -151,7 +154,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const c = contexto(env, deps);
     const r = {
       cuando: c.ahoraISO, fuentesLeidas: 0, fuentesConError: [], articulosNuevos: 0, articulosPospuestos: 0, historiasNuevas: 0, unidas: 0, dudas: 0,
-      elegidas: 0, noSalen: {}, redactadas: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false,
+      elegidas: 0, noSalen: {}, redactadas: 0, publicadas: 0, publicadasPendientes: 0, frenadasPorLey: 0, errores: [], sinClaveGemini: false, topeDiario: false, frenoMensual: false,
     };
     const error = (donde, e) => {
       const msg = `${donde}: ${String((e && e.message) || e).slice(0, 200)}`;
@@ -260,6 +263,11 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (e) redactar
     await redactarPendientes(env, c, gem, r, error);
 
+    // (f) con NUCLEO_PUBLICA = si, los borradores bien hechos de las últimas 24 h que quedaron sin publicar (el arranque, o una vuelta que falló a medias)
+    if (publica(env)) {
+      try { r.publicadasPendientes = await db.publicarBorradores(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString(), c.ahoraISO); } catch (e) { error('publicar pendientes', e); }
+    }
+
     try { await db.anotarFuente(env, '_vuelta', true, null, c.ahoraISO); } catch (e) { error('anotar vuelta', e); }
     return r;
   }
@@ -312,7 +320,10 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
             error(`foto de ${h.id}`, e); // sin foto la nota igual se guarda
           }
         }
-        await db.guardarNota(env, { ...nota, id: idDeNota(c.azar), historiaId: h.id, creada: c.ahoraISO, estado: 'borrador' }, c.ahoraISO);
+        const sale = publica(env) && !nota.noPublicar;
+        const idNota = idDeNota(c.azar);
+        await db.guardarNota(env, { ...nota, id: idNota, historiaId: h.id, creada: c.ahoraISO, estado: sale ? 'publicada' : 'borrador' }, c.ahoraISO);
+        if (sale) { await db.marcarPublicadaEn(env, [idNota], c.ahoraISO); r.publicadas += 1; }
         hechas += 1;
         if (nota.noPublicar) r.frenadasPorLey += 1; else r.redactadas += 1;
       } catch (e) {
@@ -346,7 +357,11 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const falladas = falladasTodas.filter((f) => f.ultimo_ok || f.fallas_seguidas >= 96);
 
     const salen = res.items;
-    const lineas = [`Radar 3.0 (prueba): hoy habría publicado ${salen.length} ${salen.length === 1 ? 'nota' : 'notas'}`];
+    const publicando = publica(env);
+    const cuantas = publicando ? salen.filter((i) => i.conNota).length : salen.length;
+    const lineas = [publicando
+      ? `Radar 3.0: hoy publicó ${cuantas} ${cuantas === 1 ? 'nota' : 'notas'}`
+      : `Radar 3.0 (prueba): hoy habría publicado ${cuantas} ${cuantas === 1 ? 'nota' : 'notas'}`];
     for (const i of salen) {
       lineas.push(`· [${i.seccion || 'sin sección'}] ${i.titulo || '(sin título)'} (${i.motivo || 'sin motivo'}, ${i.medios} ${i.medios === 1 ? 'medio' : 'medios'}${i.conNota ? '' : ', sin redactar'})`);
     }
@@ -402,7 +417,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       dia: c.dia,
       ultimaVuelta: ultima ? ultima.ultimo_ok : null,
       hoy,
-      fuentes: { activas: fuentes.length, conFalla: reales.filter((e) => e.fallas_seguidas > 0).map((e) => ({ id: e.fuente_id, fallasSeguidas: e.fallas_seguidas, ultimoOk: e.ultimo_ok })) },
+      publicando: publica(env),
+      fuentes: {
+        activas: fuentes.length,
+        // ultimaFalla: cuándo y por qué (texto del error, ya recortado al guardarse; acá otra vez a 120 por las dudas). Sin secretos: son códigos HTTP y mensajes de red.
+        conFalla: reales.filter((e) => e.fallas_seguidas > 0).map((e) => ({ id: e.fuente_id, fallasSeguidas: e.fallas_seguidas, ultimoOk: e.ultimo_ok, ultimaFalla: e.ultima_falla ? String(e.ultima_falla).slice(0, 120) : null })),
+      },
       uso: {
         hoy: usoHoy,
         mes: { ...usoMes, gastoEstimadoUsd: Number(costoEstimado(usoMes).toFixed(4)), frenoUsd: FRENO_MENSUAL_USD },

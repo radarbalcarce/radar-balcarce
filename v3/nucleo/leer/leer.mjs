@@ -8,6 +8,10 @@ const HORAS_MAXIMAS = 36;
 const MAX_TEXTO = 6000;
 const MIN_TEXTO = 400;
 const MAX_PAGINAS_POR_FUENTE = 10;
+const MAX_BYTES_FEED = 1_500_000; // un feed de 1 MB (Infobae) entra entero; más que esto se corta en el último ítem completo
+const MAX_BYTES_PAGINA = 2_000_000;
+const MAX_ITEMS_POR_FEED = 80;
+const FACTOR_CUERPO_FEED = 2.5; // el cuerpo de un feed puede tardar 2,5 veces lo que se espera la respuesta (10 s -> 25 s)
 
 // Sin utm_*, sin fbclid/gclid, sin #, host en minúscula.
 export function normalizarUrl(url) {
@@ -37,9 +41,14 @@ function recortar(texto) {
   return (espacio > MAX_TEXTO - 200 ? corte.slice(0, espacio) : corte).trim();
 }
 
-async function bajar(url, fetchFn, timeoutMs) {
+// Dos relojes: `timeoutMs` para tener la respuesta (los encabezados) y `cuerpoMs` para bajar el cuerpo. Un feed grande (Infobae, ~1 MB) tarda más en llegar
+// que en responder, y desde Cloudflare más que desde una PC. `maxBytes` corta el cuerpo (un feed cortado se queda con los ítems completos).
+async function bajar(url, fetchFn, timeoutMs, { cuerpoMs = timeoutMs, maxBytes = MAX_BYTES_PAGINA, comoFeed = false } = {}) {
   const control = new AbortController();
-  const reloj = setTimeout(() => control.abort(), timeoutMs);
+  let fase = 'esperando la respuesta';
+  let limiteMs = timeoutMs;
+  let reloj = setTimeout(() => control.abort(), timeoutMs);
+  let bytes = 0;
   try {
     const r = await fetchFn(url, {
       signal: control.signal,
@@ -50,9 +59,37 @@ async function bajar(url, fetchFn, timeoutMs) {
       },
     });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return await r.text();
+    clearTimeout(reloj);
+    fase = 'bajando el cuerpo';
+    limiteMs = cuerpoMs;
+    reloj = setTimeout(() => control.abort(), cuerpoMs);
+    let texto;
+    if (r.body && typeof r.body.getReader === 'function') {
+      const lector = r.body.getReader();
+      const decodificador = new TextDecoder('utf-8');
+      let partes = '';
+      let cortado = false;
+      for (;;) {
+        const { done, value } = await lector.read();
+        if (done) break;
+        bytes += value.byteLength;
+        partes += decodificador.decode(value, { stream: true });
+        if (bytes > maxBytes) { cortado = true; try { await lector.cancel(); } catch { /* ya está */ } break; }
+      }
+      partes += decodificador.decode();
+      texto = partes;
+      if (cortado && comoFeed) {
+        // sólo los ítems completos: se corta después del último cierre
+        const ultimo = Math.max(texto.lastIndexOf('</item>'), texto.lastIndexOf('</entry>'));
+        if (ultimo > 0) texto = texto.slice(0, ultimo + (texto.startsWith('</entry>', ultimo) ? 8 : 7));
+      }
+    } else {
+      texto = await r.text();
+      if (texto.length > maxBytes) texto = texto.slice(0, maxBytes);
+    }
+    return texto;
   } catch (e) {
-    if (control.signal.aborted) throw new Error(`tiempo agotado (${Math.round(timeoutMs / 1000)} s)`);
+    if (control.signal.aborted) throw new Error(`tiempo agotado ${fase} (${Math.round(limiteMs / 1000)} s${bytes ? `, ${Math.round(bytes / 1024)} KB` : ''})`);
     throw e;
   } finally {
     clearTimeout(reloj);
@@ -148,8 +185,8 @@ export async function leerFuente(fuente, { fetch: fetchFn = globalThis.fetch, ah
       return { ...r, error: null };
     }
     const leido = ahoraD.toISOString();
-    const xml = await bajar(fuente.url, fetchFn, timeoutMs);
-    const items = parsearFeed(xml);
+    const xml = await bajar(fuente.url, fetchFn, timeoutMs, { cuerpoMs: timeoutMs * FACTOR_CUERPO_FEED, maxBytes: MAX_BYTES_FEED, comoFeed: true });
+    const items = parsearFeed(xml, { max: MAX_ITEMS_POR_FEED });
     if (!items.length && !/<(rss|feed|rdf)\b/i.test(xml)) throw new Error('la respuesta no es un feed RSS ni Atom');
 
     const limite = ahoraD.getTime() - HORAS_MAXIMAS * 3600_000;

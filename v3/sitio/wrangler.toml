@@ -10,6 +10,11 @@ binding = "DB"
 database_name = "radar-nucleo"
 database_id = "REEMPLAZADO_POR_EL_WORKFLOW"
 
+# Las fotos de las notas viejas (/fotos-notas/*) y las tipografías (/fuentes/*): se copian con scripts/copiar-fotos.mjs. El workflow crea el depósito si no existe.
+[[r2_buckets]]
+binding = "FOTOS"
+bucket_name = "radar-fotos"
+
 [vars]
 # "no" mientras viva en workers.dev (noindex en todo); "si" el día del corte.
 INDEXAR = "no"
