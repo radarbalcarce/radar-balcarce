@@ -3,8 +3,8 @@ import { test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { crearSitio } from './sitio.mjs';
-import { crearPublicidad, RUTA_MEDIA_KIT, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
-import { sqlDeLaNota, NOTA, ID, SLUG, textoParaLeer } from './scripts/nota-media-kit.mjs';
+import { crearPublicidad, RUTA_MEDIA_KIT, RUTA_PUBLICIDAD, NOMBRES_DE_LUGARES } from './vistas/avisos.mjs';
+import { sqlDeLaNota, NOTA, ID, SLUG, textoParaLeer, FOTO_DE_PORTADA, FOTOS_EN_CUERPO } from './scripts/nota-media-kit.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { sqlDeAviso, sqlParaSacar, validar } from './scripts/cargar-aviso.mjs';
 import { baseDePrueba, insertarNota } from './ayuda-pruebas.mjs';
@@ -92,9 +92,9 @@ test('avisos locales: el activo del día sale con el rótulo «Publicidad» y su
   const sinAvisos = await html(env, '/');
   assert.equal((sinAvisos.match(/data-aviso-propio="1"/g) || []).length, 4, 'los cuatro lugares de la tapa con el aviso propio');
   for (const t of ['T1', 'T2', 'T3', 'T4']) assert.match(sinAvisos, new RegExp(`data-lugar="${t}"[^>]*data-aviso-propio="1">.*?Espacio ${t}<`), t);
-  assert.match(sinAvisos, />Tu comercio acá<small/);
+  assert.match(sinAvisos, /Querés publicitar en el diario y en las redes\?[\s\S]*href="\/publicidad"[\s\S]*wa\.me\/5492266511612\?text=Hola%2C%20quiero%20publicitar%20en%20Radar%20Balcarce[\s\S]*<small/);
   assert.ok(!/$ 5.000/.test(sinAvisos.slice(sinAvisos.indexOf('<main'))), 'el aviso propio no lleva precios');
-  assert.ok(sinAvisos.includes(`href="${RUTA_MEDIA_KIT}"`), 'el aviso propio lleva a la nota del media kit');
+  assert.ok(sinAvisos.includes(`href="${RUTA_PUBLICIDAD}"`) && RUTA_PUBLICIDAD === "/publicidad", "el aviso propio lleva a /publicidad (que redirige a la nota del media kit)");
   const poner = (id, lugares, desde, hasta, activo = 1) => sqlite.prepare('INSERT INTO avisos (id, comercio, texto, enlace, plan, lugares, desde, hasta, activo) VALUES (?,?,?,?,?,?,?,?,?)')
     .run(id, `Comercio ${id}`, `Texto ${id}`, `https://${id}.example/`, 'libre', JSON.stringify(lugares), desde, hasta, activo);
   poner('fijo1', ['fijo'], '2026-11-01', '2026-11-30');
@@ -216,6 +216,10 @@ test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada po
   assert.ok(!/2027/.test(JSON.stringify(NOTA)) && !/2027/.test(textoParaLeer()), 'no promete nada para 2027');
   assert.match(h, /Espacio N2/, 'en la nota sin comercio fijo hay un solo aviso local, al pie');
   assert.ok(!h.includes('data-lugar="N1"'));
+  assert.equal((h.match(/<figure>/g) || []).length, 4, 'la portada y tres láminas adentro');
+  assert.match(h, /fotos-notas\/mediakit-portada\.png/);
+  assert.ok(h.indexOf('mediakit-bienvenida') < h.indexOf('mediakit-clima') && h.indexOf('mediakit-clima') < h.indexOf('mediakit-donde'));
+  assert.ok(!/\$ ?\d/.test(JSON.stringify([FOTO_DE_PORTADA, FOTOS_EN_CUERPO])), 'las imágenes no llevan precios');
 });
 
 test('los nombres de los lugares: data-lugar en cada página; en una nota hay un solo aviso local (arriba si hay fijo, si no al pie) y AdSense en el medio', async () => {

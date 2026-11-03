@@ -9,8 +9,10 @@
 import { esc, urlSegura } from '../util.mjs';
 
 export const LUGARES = ['fijo', 'postales', 'columna', 'pie'];
-export const TEXTO_PROPIO = 'Tu comercio acá';
+export const TEXTO_PROPIO = '¿Querés publicitar en el diario y en las redes?';
+export const WHATSAPP_AVISOS = `https://wa.me/5492266511612?text=${encodeURIComponent('Hola, quiero publicitar en Radar Balcarce')}`;
 /** La nota de Radar que cuenta cómo anunciar (sin precios en el aviso). `/publicidad` redirige acá. */
+export const RUTA_PUBLICIDAD = '/publicidad';
 export const RUTA_MEDIA_KIT = '/nota/publicita-en-radar-balcarce-mediakit';
 
 /** Los nombres de los lugares: nombre → { tipo (lo que se guarda en la base), página, dónde }. */
@@ -36,7 +38,11 @@ export function avisoHtml(lugar, a, nombre = '') {
   const clase = `aviso aviso-${lugar}`;
   const dl = nombre ? ` data-lugar="${esc(nombre)}"` : '';
   if (!a) {
-    return `<aside class="${clase} aviso-propio" data-aviso="${lugar}"${dl} data-aviso-propio="1">${rotulo}<a class="aviso-caja" href="${RUTA_MEDIA_KIT}">${esc(TEXTO_PROPIO)}${nombre ? `<small class="aviso-espacio">Espacio ${esc(nombre)}</small>` : ''}</a></aside>`;
+    // Dos enlaces (no se puede anidar un <a> en otro): «clic acá» a la nota del media kit y el WhatsApp. En los lugares chicos sale la versión corta.
+    const espacio = nombre ? `<small class="aviso-espacio">Espacio ${esc(nombre)}</small>` : '';
+    const largo = `<span class="propio-largo">${esc(TEXTO_PROPIO)} <a href="${RUTA_PUBLICIDAD}">Hacé clic acá</a> o escribinos al WhatsApp <a href="${WHATSAPP_AVISOS}" rel="noopener">2266 51-1612</a></span>`;
+    const corto = `<span class="propio-corto">¿Querés publicitar acá? <a href="${RUTA_PUBLICIDAD}">Clic acá</a> o <a href="${WHATSAPP_AVISOS}" rel="noopener">WhatsApp 2266 51-1612</a></span>`;
+    return `<aside class="${clase} aviso-propio" data-aviso="${lugar}"${dl} data-aviso-propio="1">${rotulo}<div class="aviso-caja">${largo}${corto}${espacio}</div></aside>`;
   }
   const imagen = urlDeImagen(a.imagen);
   const enlace = urlSegura(a.enlace);

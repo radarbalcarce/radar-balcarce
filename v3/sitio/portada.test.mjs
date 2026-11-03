@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { crearSitio } from './sitio.mjs';
 import { armarPortada, PORTADA } from './vistas/portada.mjs';
-import { aClima, parsearCronograma, parsearDirectorio, fechaDeTurno, turnoDeHoy, leerClima, leerFarmacia, rumboDe, CLIMA_URL } from './datos-del-dia.mjs';
+import { aClima, parsearCronograma, parsearDirectorio, fechaDeTurno, turnoDeHoy, leerClima, leerFarmacia, rumboDe, CLIMA_URL, leerDolar, tendenciaDe, aDolar } from './datos-del-dia.mjs';
 import { fechaDelDia, hace } from './util.mjs';
 import { baseDePrueba, cacheDePrueba, insertarNota } from './ayuda-pruebas.mjs';
 
@@ -25,6 +25,7 @@ function traerFalso({ fallas = [] } = {}) {
     if (fallas.some((x) => String(url).includes(x))) throw new Error('sin red');
     const u = String(url);
     if (u.startsWith('https://api.open-meteo.com/')) return new Response(JSON.stringify(OPEN_METEO), { status: 200 });
+    if (u.startsWith('https://dolarapi.com/')) return new Response(JSON.stringify([{ casa: 'oficial', venta: 1500, fechaActualizacion: '2026-11-02T15:00:00Z' }, { casa: 'blue', venta: 1530, fechaActualizacion: '2026-11-02T15:00:00Z' }]), { status: 200 });
     if (u.endsWith('/farmacias-de-balcarce')) return new Response(DIRECTORIO, { status: 200 });
     if (u.startsWith('https://www.colbalcarce.com/')) return new Response(COLEGIO, { status: 200 });
     return new Response('no', { status: 404 });
@@ -233,7 +234,7 @@ test('farmacia caída: el cuadro manda al Colegio de Farmacéuticos, no inventa'
   const { sqlite, env } = baseDePrueba();
   nota(sqlite, 'x1');
   const h = await (await ir(sitioCon(traerFalso({ fallas: ['colbalcarce'] })), env, '/')).text();
-  assert.match(h, /No pudimos leer el turno de hoy[^]*href="https:\/\/www\.colbalcarce\.com\/"/);
+  assert.match(h, /href="[/]farmacias"[^]*No pudimos leer el turno de hoy[^]*Colegio de Farmacéuticos/);
   assert.ok(!/Farmacia Norte/.test(h));
 });
 
@@ -275,4 +276,44 @@ test('fechaDelDia y hace', () => {
   assert.equal(hace(hs(3), AHORA), 'hace 3 h');
   assert.equal(hace(hs(50), AHORA), 'hace 2 d');
   assert.equal(hace('no es fecha', AHORA), '');
+});
+
+// ---------- La tira del día: clima, farmacia y dólar ----------
+
+test('la tira: tres tarjetas que llevan a /clima, /farmacias y /dolar, con íconos animados y el dólar explicado', async () => {
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const traer = traerFalso();
+  const h = await (await ir(sitioCon(traer), env, '/')).text();
+  for (const r of ['/clima', '/farmacias', '/dolar']) assert.match(h, new RegExp(`<a class="tj tj-[a-z]+" href="${r}">`), r);
+  assert.match(h, /class="ic-nube"/, 'nublado: ícono de nube');
+  assert.match(h, /class="ic-cruz"/);
+  assert.match(h, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(h, /\.logo:hover,\.logo:active,\.logo:focus-visible\{color:var\(--rojo\)\}/);
+  assert.match(h, /Oficial: el de los bancos\. Blue: el informal\./);
+});
+
+test('dólar: oficial y blue desde DolarApi; sube/baja sólo con el valor de ayer; caído = null', async () => {
+  const j = [{ casa: 'oficial', venta: 1500, fechaActualizacion: '2026-11-02T15:00:00Z' }, { casa: 'blue', venta: 1530, fechaActualizacion: '2026-11-02T15:00:00Z' }];
+  const traer = async () => new Response(JSON.stringify(j), { status: 200 });
+  const d = await leerDolar({ traer, ahora: AHORA });
+  assert.equal(d.oficial.venta, 1500);
+  assert.equal(d.oficial.tendencia, null, 'sin caché no hay con qué comparar');
+  assert.equal(await leerDolar({ traer: async () => new Response('x', { status: 500 }) }), null);
+  assert.equal(tendenciaDe(1600, 1500), 'sube');
+  assert.equal(tendenciaDe(1400, 1500), 'baja');
+  assert.equal(tendenciaDe(1502, 1500), 'igual');
+  assert.equal(tendenciaDe(1500, null), null);
+  assert.equal(aDolar([{ casa: 'blue', venta: 1 }]), null);
+});
+
+test('AdSense: la etiqueta de verificación sale en el head sólo con ADSENSE_CLIENTE válido, sin esperar el consentimiento', async () => {
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const con = await (await ir(sitioCon(traerFalso()), { ...env, ADSENSE_CLIENTE: 'ca-pub-2759023791445864' }, '/')).text();
+  assert.match(con.slice(0, con.indexOf('</head>')), /<meta name="google-adsense-account" content="ca-pub-2759023791445864">/);
+  for (const malo of ['', 'cualquier cosa', 'ca-pub-12']) {
+    const sin = await (await ir(sitioCon(traerFalso()), { ...env, ADSENSE_CLIENTE: malo }, '/')).text();
+    assert.ok(!sin.includes('google-adsense-account'), `«${malo}» no es válido`);
+  }
 });

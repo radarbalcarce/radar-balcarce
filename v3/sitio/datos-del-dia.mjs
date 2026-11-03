@@ -167,3 +167,59 @@ export async function leerFarmacia({ traer, cache = null, ahora = new Date() }) 
     });
   } catch { return null; }
 }
+
+// ---------- Dólar ----------
+// DolarApi.com (gratis, sin clave): oficial y blue. No trae la variación contra el día anterior, así que se guarda en la caché el primer valor visto cada día
+// y se compara con el de ayer. Si no hay valor de ayer, no se dice si subió o bajó (nunca se inventa).
+
+export const DOLAR_URL = 'https://dolarapi.com/v1/dolares';
+const esPositivo = (n) => typeof n === 'number' && Number.isFinite(n) && n > 0;
+
+/** La respuesta de DolarApi → { oficial: { venta }, blue: { venta }, fecha } o null si no trae el oficial. */
+export function aDolar(j) {
+  if (!Array.isArray(j)) return null;
+  const de = (casa) => j.find((c) => c && c.casa === casa && esPositivo(c.venta));
+  const o = de('oficial');
+  if (!o) return null;
+  const b = de('blue');
+  const f = new Date(o.fechaActualizacion);
+  return { oficial: { venta: o.venta }, blue: b ? { venta: b.venta } : null, fecha: Number.isNaN(f.getTime()) ? null : f.toISOString() };
+}
+
+/** «sube», «baja» o «igual» (con 0,5 % de margen para no marcar ruido); null si no hay con qué comparar. */
+export function tendenciaDe(actual, previo) {
+  if (!esPositivo(actual) || !esPositivo(previo)) return null;
+  const dif = (actual - previo) / previo;
+  if (Math.abs(dif) < 0.005) return 'igual';
+  return dif > 0 ? 'sube' : 'baja';
+}
+
+const diaDeBalcarce = (fecha, desplazar = 0) => {
+  const p = partesEnBalcarce(fecha);
+  const d = new Date(Date.UTC(p.anio, p.mes - 1, p.dia + desplazar));
+  return d.toISOString().slice(0, 10);
+};
+
+/** El dólar oficial y blue con su tendencia contra ayer, o null si DolarApi no responde. Caché de 10 minutos. */
+export async function leerDolar({ traer, cache = null, ahora = new Date() }) {
+  try {
+    const actual = await conCache(cache, 'dolar', 600, async () => aDolar(JSON.parse(await pedirTexto(traer, DOLAR_URL))));
+    if (!actual) return null;
+    let ayer = null;
+    if (cache) {
+      try {
+        const claveHoy = new Request(`https://radar-sitio.cache/dolar-dia-${diaDeBalcarce(ahora)}`);
+        if (!(await cache.match(claveHoy))) {
+          await cache.put(claveHoy, new Response(JSON.stringify({ oficial: actual.oficial.venta, blue: actual.blue?.venta ?? null }), { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=259200' } }));
+        }
+        const g = await cache.match(new Request(`https://radar-sitio.cache/dolar-dia-${diaDeBalcarce(ahora, -1)}`));
+        if (g) ayer = await g.json();
+      } catch { /* sin comparación */ }
+    }
+    return {
+      ...actual,
+      oficial: { ...actual.oficial, tendencia: tendenciaDe(actual.oficial.venta, ayer?.oficial) },
+      blue: actual.blue ? { ...actual.blue, tendencia: tendenciaDe(actual.blue.venta, ayer?.blue) } : null,
+    };
+  } catch { return null; }
+}

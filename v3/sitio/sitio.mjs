@@ -5,7 +5,7 @@ import { BASE, POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota, partesEnBalcar
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
 import { PORTADA } from './vistas/portada.mjs';
-import { leerClima, leerFarmacia } from './datos-del-dia.mjs';
+import { leerClima, leerFarmacia, leerDolar } from './datos-del-dia.mjs';
 import { crearPublicidad, RUTA_MEDIA_KIT } from './vistas/avisos.mjs';
 import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
@@ -128,8 +128,8 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const reloj = ahora();
       const p = partesEnBalcarce(reloj);
       const hoy = `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`;
-      const [clima, farmacia, avisos] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj }), consultas.avisosActivos(env, hoy).catch(() => [])]);
-      return { ahora: reloj, clima, farmacia, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
+      const [clima, farmacia, dolar, avisos] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj }), leerDolar({ traer, cache, ahora: reloj }), consultas.avisosActivos(env, hoy).catch(() => [])]);
+      return { ahora: reloj, clima, farmacia, dolar, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
     };
     const fijar = (notas) => { const p = consultas.fijarSlugs(env, notas).catch(() => 0); if (ctx?.waitUntil) ctx.waitUntil(p); return p; };
 

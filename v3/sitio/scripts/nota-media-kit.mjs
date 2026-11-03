@@ -10,6 +10,15 @@ export const ID = 'mediakit';
 export const SLUG = 'publicita-en-radar-balcarce';
 export const FIRMA = 'Hernán Accomo';
 
+// Las imágenes de la nota (las dibuja scripts/imagenes-media-kit.mjs, sin precios; el workflow «sitio» las sube a R2 y el sitio las sirve en /fotos-notas/).
+const URL_FOTOS = 'https://radarbalcarce.com/fotos-notas/';
+export const FOTO_DE_PORTADA = { url: `${URL_FOTOS}mediakit-portada.png`, alt: 'Radar Balcarce: publicidad para comercios de Balcarce, noviembre y diciembre de 2026', credito: 'Radar Balcarce', ancho: 1200, alto: 630 };
+export const FOTOS_EN_CUERPO = [
+  { url: `${URL_FOTOS}mediakit-bienvenida.png`, alt: 'La bienvenida para todos los comercios: una nota, un reel con voz y una historia', ancho: 1200, alto: 700, despuesDe: 3 },
+  { url: `${URL_FOTOS}mediakit-clima.png`, alt: 'El clima de hoy llega con tu comercio: la voz lo dice cada vez que lee el clima', ancho: 1200, alto: 700, despuesDe: 4 },
+  { url: `${URL_FOTOS}mediakit-donde.png`, alt: 'Dónde se ve tu aviso en el sitio y en las redes, y cómo arrancar', ancho: 1200, alto: 733, despuesDe: 12 },
+];
+
 export const NOTA = {
   titulo: 'Publicitá en Radar Balcarce: los planes de noviembre y diciembre de 2026',
   bajada: 'Queremos que los comercios de Balcarce estén en Radar. Te contamos qué ofrecemos, cuánto cuesta y cómo arrancar; los precios de promoción valen hasta fin de año.',
@@ -43,11 +52,11 @@ export function sqlDeLaNota() {
   const verificacion = JSON.stringify({ oracionesQuitadas: [], reescrita: false, propia: true });
   return `-- La nota del media kit (v3/sitio/scripts/nota-media-kit.mjs). Se puede correr más de una vez: actualiza el texto y no cambia la fecha.
 INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, en_dos_lineas, ficha, no_publicar, verificacion, foto, fuentes, fecha_hecho, firma, pedidos, estado, origen, slug, publicada_en, redes)
-VALUES (${q(ID)}, ${q('redaccion-' + ID)}, ${AHORA}, ${q(n.titulo)}, ${q(n.bajada)}, ${q(JSON.stringify(n.cuerpo))}, ${q(n.seccion)}, ${q(n.enDosLineas)}, ${q(JSON.stringify(n.ficha))}, NULL, ${q(verificacion)}, NULL, '[]', ${AHORA}, ${q(FIRMA)}, 0, 'publicada', 'redaccion', ${q(SLUG)}, ${AHORA}, ${q(redes)})
-ON CONFLICT(id) DO UPDATE SET titulo = excluded.titulo, bajada = excluded.bajada, cuerpo = excluded.cuerpo, en_dos_lineas = excluded.en_dos_lineas, ficha = excluded.ficha, firma = excluded.firma, estado = 'publicada';
-INSERT INTO sitio_notas (id, slug, publicada_en, origen)
-VALUES (${q(ID)}, ${q(SLUG)}, (SELECT creada FROM notas WHERE id = ${q(ID)}), 'redaccion')
-ON CONFLICT(id) DO UPDATE SET slug = excluded.slug, origen = 'redaccion';
+VALUES (${q(ID)}, ${q('redaccion-' + ID)}, ${AHORA}, ${q(n.titulo)}, ${q(n.bajada)}, ${q(JSON.stringify(n.cuerpo))}, ${q(n.seccion)}, ${q(n.enDosLineas)}, ${q(JSON.stringify(n.ficha))}, NULL, ${q(verificacion)}, ${q(JSON.stringify(FOTO_DE_PORTADA))}, '[]', ${AHORA}, ${q(FIRMA)}, 0, 'publicada', 'redaccion', ${q(SLUG)}, ${AHORA}, ${q(redes)})
+ON CONFLICT(id) DO UPDATE SET titulo = excluded.titulo, bajada = excluded.bajada, cuerpo = excluded.cuerpo, en_dos_lineas = excluded.en_dos_lineas, ficha = excluded.ficha, foto = excluded.foto, firma = excluded.firma, estado = 'publicada';
+INSERT INTO sitio_notas (id, slug, publicada_en, origen, extra)
+VALUES (${q(ID)}, ${q(SLUG)}, (SELECT creada FROM notas WHERE id = ${q(ID)}), 'redaccion', ${q(JSON.stringify({ fotosEnCuerpo: FOTOS_EN_CUERPO }))})
+ON CONFLICT(id) DO UPDATE SET slug = excluded.slug, origen = 'redaccion', extra = excluded.extra;
 `;
 }
 
@@ -56,7 +65,7 @@ export function textoParaLeer() {
   const n = NOTA;
   return `# Nota del media kit (para leer)
 
-*Esta es la nota que reemplaza a la página \`/publicidad\` (que ahora redirige acá) y a la que lleva el aviso «Tu comercio acá». Sección ${n.seccion}, firma «${FIRMA}», sin foto (en la tapa y en las listas sale la placa de Balcarce; si querés una foto de portada, se carga después). Dirección: \`radarbalcarce.com/nota/${SLUG}-${ID}\`. El texto sale de \`v3/sitio/scripts/nota-media-kit.mjs\`: si querés cambiar algo, se cambia ahí y se vuelve a correr el SQL.*
+*Esta es la nota que reemplaza a la página \`/publicidad\` (que ahora redirige acá) y a la que lleva el aviso «Tu comercio acá». Sección ${n.seccion}, firma «${FIRMA}», con una imagen de portada y tres láminas adentro (sin precios; se dibujan con \`scripts/imagenes-media-kit.mjs\`). Dirección: \`radarbalcarce.com/nota/${SLUG}-${ID}\`. El texto sale de \`v3/sitio/scripts/nota-media-kit.mjs\`: si querés cambiar algo, se cambia ahí y se vuelve a correr el SQL.*
 
 ---
 
