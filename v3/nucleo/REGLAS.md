@@ -81,7 +81,7 @@ Automovilismo, Agro, Economía, Ciencia, Cultura, Tecnología y Argentina. Lo de
 
 De la ficha salen, sólo cuando hay con qué: **Los datos** (campos de la ficha), **Cronología** (3 fechas o más), **Cifras** (números con
 unidad), **Contexto** (de una tabla fija de Radar: distancias, nombres de lugares, antecedentes; o un dato que trae una fuente, con
-quién lo dice), **Qué falta saber** y **Más en Radar** (historias vivas del mismo tema, por huella). «En dos líneas» va siempre.
+quién lo dice) y **Más en Radar** (historias vivas del mismo tema, por huella). «En dos líneas» va siempre.
 «Qué dicen las fuentes» **no existe** (decisión del 1/11): queda el desplegable «Fuentes (N)» con nombre y enlace.
 
 ## 7. Fotos

@@ -38,13 +38,10 @@ export function bloquesDeFicha(ficha) {
   const cifras = (Array.isArray(ficha.numeros) ? ficha.numeros : []).filter((c) => c && lleno(String(c.valor ?? '')) && lleno(c.unidad));
   if (cifras.length) {
     partes.push(`<section class="bloque" id="cifras"><h2>Cifras</h2><ul class="cifras">${cifras.map((c) =>
-      `<li><b>${esc(c.valor)} ${esc(c.unidad)}</b>${lleno(c.que) ? esc(c.que) : ''}${lleno(c.fuente) ? ` <small>(${esc(c.fuente)})</small>` : ''}</li>`).join('')}</ul></section>`);
+      `<li><b>${esc(c.valor)} ${esc(c.unidad)}</b>${lleno(c.que) ? esc(c.que) : ''}</li>`).join('')}</ul></section>`);
   }
-
-  const falta = (Array.isArray(ficha.faltaSaber) ? ficha.faltaSaber : []).filter(lleno);
-  if (falta.length) {
-    partes.push(`<section class="bloque" id="que-falta-saber"><h2>Qué falta saber</h2><ul>${falta.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`);
-  }
+  // «Qué falta saber» y la fuente al lado de cada cifra no se muestran (Hernán, 3/11: «no aportan»). Quedan en la ficha, para la IA y la
+  // verificación; las fuentes de la nota siguen en el desplegable «Fuentes (N)».
   return partes.join('\n');
 }
 

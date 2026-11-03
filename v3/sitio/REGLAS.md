@@ -12,7 +12,7 @@ guarda cada página armada unos minutos en la caché de Cloudflare.
 
 - **Sólo notas publicadas.** Una nota en `borrador` o `retirada` no existe para el sitio: da 404 aunque se conozca su dirección.
 - **La nota** (`/nota/<titular-en-guiones>-<id>`): título, bajada, «En dos líneas», foto con su crédito, cuerpo, los bloques que salen de la
-  ficha **sólo cuando hay con qué** (Los datos, Cronología —3 fechas o más—, Cifras, Qué falta saber), la firma (quién la escribió, siempre),
+  ficha **sólo cuando hay con qué** (Los datos, Cronología —3 fechas o más—, Cifras sin la fuente al lado; «Qué falta saber» no se muestra: Hernán, 3/11), la firma (quién la escribió, siempre),
   la fecha, y un desplegable **cerrado** «Fuentes (N)» con el nombre de cada medio y su enlace. No hay análisis ni «qué dicen las fuentes».
 - **La dirección es una sola y no cambia.** Lo que cuenta es el id del final. Si llega la dirección con un titular distinto (o sólo el id), se
   redirige a la verdadera. El titular de la dirección se fija la primera vez que la nota se muestra y queda guardado.

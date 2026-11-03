@@ -34,14 +34,15 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.ok(!/name="robots"/.test(h), 'con INDEXAR=si se indexa');
 });
 
-test('sin ficha no hay bloques; con ficha salen Los datos, Cronología, Cifras y Qué falta saber', async () => {
+test('sin ficha no hay bloques; con ficha salen Los datos, Cronología y Cifras; «Qué falta saber» no se muestra (Hernán, 3/11)', async () => {
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite, { id: 'sinficha', titulo: 'Nota sin ficha' });
   insertarNota(sqlite, { id: 'conficha', titulo: 'Nota con ficha', ficha: JSON.stringify(FICHA_COMPLETA) });
   const sin = await texto(await ir(env, '/nota/nota-sin-ficha-sinficha'));
   assert.ok(!/class="bloque"/.test(sin));
   const con = await texto(await ir(env, '/nota/nota-con-ficha-conficha'));
-  for (const t of ['Los datos', 'Cronología', 'Cifras', 'Qué falta saber']) assert.match(con, new RegExp(`<h2>${t}</h2>`));
+  for (const t of ['Los datos', 'Cronología', 'Cifras']) assert.match(con, new RegExp(`<h2>${t}</h2>`));
+  assert.doesNotMatch(con, /Qué falta saber/);
   assert.match(con, /12 camas/);
   assert.match(con, /<li><strong>2025:<\/strong> Se frenó/);
 });
