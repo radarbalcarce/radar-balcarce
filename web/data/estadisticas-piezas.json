@@ -2,151 +2,6 @@
  "version": 1,
  "medidas": [
   {
-   "clave": "facebook/historia/1127117920261162",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "clima-noche",
-   "dia": "2026-10-09",
-   "cuando": "2026-10-09T23:06:34.917Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {},
-   "sinPosteo": true
-  },
-  {
-   "clave": "facebook/reel/1666671188355809",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "clima-noche",
-   "dia": "2026-10-09",
-   "cuando": "2026-10-09T23:06:43.169Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {
-    "blue_reels_play_count": 3,
-    "fb_reels_total_plays": 4,
-    "post_video_avg_time_watched": 5189,
-    "post_video_social_actions": 0,
-    "post_video_likes_by_reaction_type": 1
-   }
-  },
-  {
-   "clave": "facebook/reel/2286179775571749",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "podcast",
-   "dia": "2026-10-09",
-   "cuando": "2026-10-10T00:06:50.708Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {
-    "blue_reels_play_count": 8,
-    "fb_reels_total_plays": 8,
-    "post_video_avg_time_watched": 1727,
-    "post_video_social_actions": 0,
-    "post_video_likes_by_reaction_type": 1
-   }
-  },
-  {
-   "clave": "facebook/historia/1096428886430223",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "podcast",
-   "dia": "2026-10-09",
-   "cuando": "2026-10-10T00:07:41.828Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {},
-   "sinPosteo": true
-  },
-  {
-   "clave": "facebook/historia/1486136873326663",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "clima-manana",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T10:05:01.796Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {},
-   "sinPosteo": true
-  },
-  {
-   "clave": "facebook/reel/1614858403553177",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "clima-manana",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T10:05:35.095Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {
-    "blue_reels_play_count": 443,
-    "fb_reels_total_plays": 473,
-    "post_video_avg_time_watched": 2507,
-    "post_video_social_actions": 0,
-    "post_video_likes_by_reaction_type": 3
-   }
-  },
-  {
-   "clave": "facebook/reel/1651896269915019",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "efemeride",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T12:06:21.339Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {
-    "blue_reels_play_count": 238,
-    "fb_reels_total_plays": 256,
-    "post_video_avg_time_watched": 2406,
-    "post_video_social_actions": 0,
-    "post_video_likes_by_reaction_type": 3
-   }
-  },
-  {
-   "clave": "facebook/historia/29399336342985364",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "efemeride",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T12:06:49.304Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {},
-   "sinPosteo": true
-  },
-  {
-   "clave": "facebook/reel/1904250564082931",
-   "red": "facebook",
-   "parte": "reel",
-   "pieza": "noticia1",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T13:07:21.538Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {
-    "blue_reels_play_count": 4,
-    "fb_reels_total_plays": 5,
-    "post_video_avg_time_watched": 1468,
-    "post_video_social_actions": 0,
-    "post_video_likes_by_reaction_type": 1
-   }
-  },
-  {
-   "clave": "facebook/historia/1808144626995829",
-   "red": "facebook",
-   "parte": "historia",
-   "pieza": "noticia1",
-   "dia": "2026-10-10",
-   "cuando": "2026-10-10T13:08:00.579Z",
-   "medida": "2026-10-17T03:30:24.510Z",
-   "v": 2,
-   "metricas": {},
-   "sinPosteo": true
-  },
-  {
    "clave": "facebook/reel/2149368369283226",
    "red": "facebook",
    "parte": "reel",
@@ -10551,6 +10406,165 @@
    "metricas": {
     "reach": 24,
     "views": 26,
+    "replies": 0,
+    "shares": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/1655465212614651",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "efemeride",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T12:36:47.181Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 249,
+    "fb_reels_total_plays": 261,
+    "post_video_avg_time_watched": 1964,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 0
+   }
+  },
+  {
+   "clave": "facebook/historia/4393886194257673",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "efemeride",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T12:37:30.042Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122118638289495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "1vxh5r",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T12:46:08.717Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 6,
+    "post_total_media_view_unique": 4,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/17967024386982225",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "1vxh5r",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T12:46:25.173Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "reach": 18,
+    "views": 33,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "facebook/reel/2138256033468589",
+   "red": "facebook",
+   "parte": "reel",
+   "pieza": "noticia1",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T13:37:11.552Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "blue_reels_play_count": 529,
+    "fb_reels_total_plays": 560,
+    "post_video_avg_time_watched": 1821,
+    "post_video_social_actions": 0,
+    "post_video_likes_by_reaction_type": 1
+   }
+  },
+  {
+   "clave": "facebook/historia/1082790348089385",
+   "red": "facebook",
+   "parte": "historia",
+   "pieza": "noticia1",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T13:37:51.109Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {}
+  },
+  {
+   "clave": "instagram/reel/17935806255143118",
+   "red": "instagram",
+   "parte": "reel",
+   "pieza": "efemeride",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T13:38:41.648Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "reach": 22,
+    "views": 27,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 0
+   }
+  },
+  {
+   "clave": "facebook/posteo/1254237411116171_122118661935495512",
+   "red": "facebook",
+   "parte": "posteo",
+   "pieza": "1r4zfpu",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T14:36:10.342Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "post_media_view": 8,
+    "post_total_media_view_unique": 6,
+    "post_clicks": 0,
+    "post_reactions_by_type_total": 0
+   }
+  },
+  {
+   "clave": "instagram/foto/17976916107153647",
+   "red": "instagram",
+   "parte": "foto",
+   "pieza": "1r4zfpu",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-02T14:36:28.190Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "reach": 10,
+    "views": 24,
+    "likes": 0,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0
+   }
+  },
+  {
+   "clave": "instagram/historia/18112846616175191",
+   "red": "instagram",
+   "parte": "historia",
+   "pieza": "podcast",
+   "dia": "2026-11-02",
+   "cuando": "2026-11-03T00:47:03.993Z",
+   "medida": "2026-11-03T15:00:12.369Z",
+   "v": 2,
+   "metricas": {
+    "reach": 19,
+    "views": 22,
     "replies": 0,
     "shares": 0
    }
