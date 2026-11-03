@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-03T00:05:00.650Z",
+ "consultado": "2026-11-03T00:56:14.525Z",
  "equipos": [
   "9739",
   "3",
@@ -69,36 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841643",
-    "competencia": "liga",
-    "inicio": "2026-10-24T00:15:00.000Z",
-    "estado": "final",
-    "minuto": "90'+5'",
-    "local": {
-     "id": "7767",
-     "nombre": "Tigre",
-     "goles": 0
-    },
-    "visitante": {
-     "id": "9785",
-     "nombre": "Atlético Tucumán",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Ramiro Ruiz Rodriguez",
-      "minuto": "72'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "Monumental de Victoria (José Dellagiovanna)",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841641",
     "competencia": "liga",
@@ -1068,8 +1038,8 @@
     "id": "401841644",
     "competencia": "liga",
     "inicio": "2026-11-03T00:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "40'",
     "local": {
      "id": "9785",
      "nombre": "Atlético Tucumán",
@@ -1078,10 +1048,17 @@
     "visitante": {
      "id": "3",
      "nombre": "Argentinos Juniors",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Matías Giménez",
+      "minuto": "30'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Monumental Presidente José Fierro",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1091,20 +1068,45 @@
     "id": "401841652",
     "competencia": "liga",
     "inicio": "2026-11-03T00:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "40'",
     "local": {
      "id": "9744",
      "nombre": "Independiente Rivadavia",
-     "goles": 0
+     "goles": 2
     },
     "visitante": {
      "id": "235",
      "nombre": "Banfield",
-     "goles": 0
+     "goles": 2
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Santiago Daniele",
+      "minuto": "9'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "José Florentín",
+      "minuto": "11'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "José Florentín",
+      "minuto": "15'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Lautaro Gómez",
+      "minuto": "37'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Bautista Gargantini",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1324,14 +1326,14 @@
       "posicion": 4,
       "id": "8950",
       "equipo": "Defensa y Justicia",
-      "pj": 14,
+      "pj": 15,
       "g": 8,
-      "e": 3,
+      "e": 4,
       "p": 3,
-      "gf": 20,
-      "gc": 13,
+      "gf": 21,
+      "gc": 14,
       "dif": 7,
-      "pts": 27
+      "pts": 28
      },
      {
       "posicion": 5,
@@ -1376,14 +1378,14 @@
       "posicion": 8,
       "id": "11",
       "equipo": "Independiente",
-      "pj": 14,
+      "pj": 15,
       "g": 5,
-      "e": 4,
+      "e": 5,
       "p": 5,
-      "gf": 12,
-      "gc": 14,
+      "gf": 13,
+      "gc": 15,
       "dif": -2,
-      "pts": 19
+      "pts": 20
      },
      {
       "posicion": 9,
@@ -1413,6 +1415,19 @@
      },
      {
       "posicion": 11,
+      "id": "7764",
+      "equipo": "Platense",
+      "pj": 15,
+      "g": 4,
+      "e": 5,
+      "p": 6,
+      "gf": 16,
+      "gc": 20,
+      "dif": -4,
+      "pts": 17
+     },
+     {
+      "posicion": 12,
       "id": "8",
       "equipo": "Estudiantes de La Plata",
       "pj": 15,
@@ -1423,19 +1438,6 @@
       "gc": 21,
       "dif": -1,
       "pts": 15
-     },
-     {
-      "posicion": 12,
-      "id": "7764",
-      "equipo": "Platense",
-      "pj": 14,
-      "g": 3,
-      "e": 5,
-      "p": 6,
-      "gf": 14,
-      "gc": 20,
-      "dif": -6,
-      "pts": 14
      },
      {
       "posicion": 13,
@@ -1467,13 +1469,13 @@
       "posicion": 15,
       "id": "11989",
       "equipo": "Central Córdoba (Santiago del Estero)",
-      "pj": 14,
+      "pj": 15,
       "g": 2,
       "e": 4,
-      "p": 8,
+      "p": 9,
       "gf": 11,
-      "gc": 23,
-      "dif": -12,
+      "gc": 25,
+      "dif": -14,
       "pts": 10
      }
     ]
@@ -1680,7 +1682,7 @@
    }
   ]
  },
- "tablaCuando": "2026-11-02T22:35:16.422Z",
+ "tablaCuando": "2026-11-03T00:56:14.525Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",
