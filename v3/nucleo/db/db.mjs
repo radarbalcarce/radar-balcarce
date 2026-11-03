@@ -230,7 +230,8 @@ export async function resumenEntre(env, desdeISO, hastaISO) {
 
 // Las notas creadas en el rango, ya con sus campos JSON leídos (para /notas y la comparación lado a lado).
 export async function notasEntre(env, desdeISO, hastaISO) {
-  const r = await env.DB.prepare('SELECT * FROM notas WHERE creada >= ? AND creada < ? ORDER BY creada').bind(desdeISO, hastaISO).all();
+  // Sólo las que escribió el núcleo (tienen historia): en la misma base viven también las notas viejas migradas y las de Telegram (3/11).
+  const r = await env.DB.prepare('SELECT * FROM notas WHERE creada >= ? AND creada < ? AND historia_id IN (SELECT id FROM historias) ORDER BY creada').bind(desdeISO, hastaISO).all();
   return lista(r).map((f) => ({
     id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, bajada: f.bajada, cuerpo: analizar(f.cuerpo, []), seccion: f.seccion,
     enDosLineas: f.en_dos_lineas, ficha: analizar(f.ficha, null), noPublicar: analizar(f.no_publicar, null), verificacion: analizar(f.verificacion, null),
