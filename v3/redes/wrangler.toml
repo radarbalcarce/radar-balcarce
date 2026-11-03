@@ -26,7 +26,7 @@ REDES_ACTIVAS = "no"
 # El espejo de cada posteo de Facebook en el feed de Instagram (foto entera, sin enlace). «no» lo apaga.
 INSTAGRAM_ESPEJO = "si"
 # Opcional: el cupo de audios del día para las piezas de video (por defecto 10, el de la clave gratis).
-# VOZ_TOPE_DIARIO = "10"
+VOZ_TOPE_DIARIO = "10"
 SITIO = "https://radarbalcarce.com"
 
 # Secretos META_TOKEN y TELEGRAM_TOKEN: los carga el workflow desde GitHub Secrets. Nunca acá.
