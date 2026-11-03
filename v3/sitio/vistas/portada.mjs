@@ -49,7 +49,8 @@ const cuando = (n, ahora) => `<span class="hora">· <time datetime="${esc(n.publ
 export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = false } = {}) {
   const url = tieneFoto(n) ? urlSegura(n.foto.url) : null;
   if (url) {
-    return `<img src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
+    const propia = /\/fotos-notas\//.test(url) ? ' class="fotopropia"' : '';
+    return `<img${propia} src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
   }
   return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><b>Radar<i>Balcarce</i></b><em>${esc(nombreDe(n))}</em></div>`;
 }
@@ -97,9 +98,9 @@ ${lugarFijo(contexto, 'T1')}
 <p class="sinnada">Todavía no hay notas publicadas.</p>
 ${lugarRotativo(contexto, 'postales', 'T2')}`;
   } else {
-    cuerpo = `${cuadroDelDia(contexto)}
-${lugarFijo(contexto, 'T1')}
-<div class="portal mt"><div>${destacada(p.principal, ahora)}</div>${p.laterales.length ? `<div class="lat3">${p.laterales.map((n) => titularLateral(n, ahora)).join('')}</div>` : ''}</div>
+    cuerpo = `<div class="cabeza">${cuadroDelDia(contexto)}
+<div class="cab-ad">${lugarFijo(contexto, 'T1')}</div>
+<div class="cab-hero">${destacada(p.principal, ahora)}</div>${p.laterales.length ? `<div class="lat3">${p.laterales.map((n) => titularLateral(n, ahora)).join('')}</div>` : ''}</div>
 ${p.grilla.length ? `<h2 class="sec-t">Más noticias</h2><div class="grid3">${p.grilla.map((n) => tarjeta(n, ahora)).join('')}</div>` : ''}
 ${lugarRotativo(contexto, 'postales', 'T2')}
 <div class="con-lado">

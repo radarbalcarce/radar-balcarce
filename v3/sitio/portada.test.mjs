@@ -421,3 +421,48 @@ test('el pronóstico trae siete días y la página los lista con su nombre', asy
   assert.match(h, /Miércoles 4<\/td>/);
   assert.match(h, /Jueves 5<\/td>/);
 });
+
+// ---------- Colores, fotos y lugar de las solapas (arreglos del 3/11) ----------
+
+test('las páginas del día y las solapas: fuera de @media dark sólo hay colores claros del sitio (nada de fondos oscuros fijos)', async () => {
+  const { ESTILOS } = await import('./vistas/base.mjs');
+  // Se sacan los bloques @media (prefers-color-scheme:dark){...} (hasta el cierre balanceado).
+  let css = ESTILOS;
+  for (let i = css.indexOf('@media(prefers-color-scheme:dark){'); i >= 0; i = css.indexOf('@media(prefers-color-scheme:dark){')) {
+    let n = 0; let j = css.indexOf('{', i);
+    for (; j < css.length; j += 1) { if (css[j] === '{') n += 1; else if (css[j] === '}') { n -= 1; if (n === 0) break; } }
+    css = css.slice(0, i) + css.slice(j + 1);
+  }
+  assert.ok(!css.includes('prefers-color-scheme:dark'));
+  const reglas = css.split('\n').filter((l) => /^\.(sol|pdia)\b|^#sol-|^\.sol-/.test(l));
+  assert.ok(reglas.length > 20);
+  for (const l of reglas) assert.ok(!/#1D2127|#14161A|#17293F|#000\b/i.test(l), `fondo oscuro fijo en: ${l.slice(0, 80)}`);
+  assert.match(css, /\.pdia \.ahora\{[^}]*background:#fff/);
+  // Y las páginas del día no tienen modo oscuro propio: el sitio es claro siempre y el texto es oscuro.
+  assert.ok(!/\.pdia[^\n]*prefers-color-scheme/.test(ESTILOS));
+});
+
+test('la cabeza de la tapa es una sola grilla: un solo juego de radios y las solapas van a la columna derecha desde 980 px', async () => {
+  const { ESTILOS } = await import('./vistas/base.mjs');
+  const { sqlite, env } = baseDePrueba();
+  nota(sqlite, 'x1');
+  const h = await (await ir(sitioCon(traerFalso()), env, '/')).text();
+  assert.equal((h.match(/id="sol-clima"/g) || []).length, 1, 'sin ids repetidos');
+  assert.match(h, /<div class="cabeza"><section class="sol"[^]*<div class="cab-ad">[^]*<div class="cab-hero"><article class="hero">/);
+  assert.match(ESTILOS, /@media\(min-width:980px\)\{\s*\.cabeza\{[^}]*grid-template-areas:"ad ad" "hero tira" "hero lat"/);
+  assert.match(ESTILOS, /\.cabeza\{[^}]*grid-template-areas:"tira" "ad" "hero" "lat"/, 'en el celular, arriba como antes');
+  assert.match(ESTILOS, /\.tab-billete\{[^}]*ic-moneda/);
+  assert.match(ESTILOS, /prefers-reduced-motion:reduce\)\{[^}]*\.tab-billete/);
+});
+
+test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las fotos propias de Radar (/fotos-notas/) se ven enteras', async () => {
+  const { ESTILOS } = await import('./vistas/base.mjs');
+  assert.match(ESTILOS, /\.hero img,\.hero \.placa\{[^}]*aspect-ratio:16\/9/);
+  assert.match(ESTILOS, /\.card img,\.card \.placa\{[^}]*aspect-ratio:16\/9/);
+  assert.match(ESTILOS, /img\.fotopropia\{object-fit:contain!important/);
+  const { imagenODePlaca } = await import('./vistas/portada.mjs');
+  const propia = imagenODePlaca({ foto: { url: 'https://radarbalcarce.com/fotos-notas/media-kit-portada.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
+  assert.match(propia, /^<img class="fotopropia" /);
+  const ajena = imagenODePlaca({ foto: { url: 'https://otro.example/a.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
+  assert.ok(!/fotopropia/.test(ajena));
+});
