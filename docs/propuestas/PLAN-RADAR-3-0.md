@@ -729,3 +729,15 @@ workflow «Radar 3.0: corte» con `sacar`. Las redes de hoy siguen saliendo del 
   redes: el jueves; idea de una nota propia con el media kit y los precios, distinta del resto. 13 Participá con fotos de la gente: después
   del jueves (ojo: las fotos de Hernán van con su crédito, no como si fueran de un usuario). 14 X: 5 por día. 15 Música: la carpeta la arma
   Claude. 16 AdSense: «arma todo». 17 Fuentes locales: Hernán investiga.
+
+**Sumado el 3/11 a la tarde (estado de la construcción).** Publicado y verificado en vivo: tapa con solapas de clima, farmacia y dólar (al
+costado en la PC); /clima (ahora, 48 h, 7 días, región, enlaces del SMN: su API pide clave y su radar está bloqueado), /farmacias (turnos de
+la semana del Colegio), /dolar (siete cotizaciones, brecha, 45 días); nota diaria del clima (núcleo, 7:30, se actualiza a las 19 si cambia;
+ilustración por estado del cielo, sin indexar, auspicio C1); avisos con nombre (T1-T4, N1-N2, S1-S2, P1, C1, A1-A3 de Google, A3 abajo en
+la tapa); media kit con capturas de los espacios (la nota pública sin precios; el PDF con precios); Google Analytics (G-9HK0GXEMH7) y
+AdSense (ca-pub-2759023791445864, en revisión de Google); fotos que faltaban (páginas de las fuentes, 6 candidatas, reintento); nada se
+sirve ya del sitio viejo salvo la red de seguridad `RESPALDO_VIEJO` (sigue en «si» porque las redes viejas enlazan notas del motor viejo);
+redes 3.0 en ensayo (Worker radar-redes + workflow «Radar 3.0: piezas», mudas sin la clave GEMINI_API_KEY_REDES_V3); Telegram con
+/retirar, /corregir, /ultimas, /pendientes y /ayuda. Falta: unos días de ensayo de redes, pasar redes a real y apagar las viejas, apagar
+la red de seguridad y el sistema viejo, el informe semanal de redes y web, y las piezas que el 3.0 todavía no hace (agenda, útiles,
+feriado, avisos de clima).
