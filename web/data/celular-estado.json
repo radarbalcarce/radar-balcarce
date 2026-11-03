@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T11:33:12.097Z",
- "portada": 137,
+ "generado": "2026-11-03T12:07:20.844Z",
+ "portada": 139,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-03T11:33:12.528Z",
+  "generado": "2026-11-03T12:07:21.330Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -184,7 +184,14 @@
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "10kt3fe",
+     "titulo": "Estados Unidos vota en las elecciones de mitad de mandato",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-11-02T20:06:02.092Z",
    "porDia": 5,
