@@ -40703,10 +40703,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Andrea Kimi Antonelli se consagra campeón mundial de Fórmula 1 en México",
-  "razon": "Ninguna de las fotos corresponde al hecho de la nota, ya que tratan sobre fútbol argentino (Liga Profesional) en lugar de automovilismo de Fórmula 1.",
-  "cuando": "2026-11-03T09:02:24.349Z",
-  "intentos": 2,
-  "fuentes": 10
+  "razon": "Ninguna de las fotos corresponde al hecho mencionado en la nota (Fórmula 1 y Andrea Kimi Antonelli), ya que muestran contenido de fútbol argentino, automovilismo de otra categoría o son gráficas institucionales.",
+  "cuando": "2026-11-03T10:32:17.701Z",
+  "intentos": 3,
+  "fuentes": 14
  },
  "1eb1pk1": {
   "medio": "El Destape",
@@ -43222,9 +43222,7 @@
   "ausenteDesde": "2026-10-28T23:05:10.624Z"
  },
  "v2jdch": {
-  "archivo": "fotos-notas/v2jdch.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Liga Profesional evalúa eliminar las zonas para el torneo de 2027",
@@ -43244,7 +43242,8 @@
    "descripcion": "Claudio Tapia sentado en la mesa de la reunión institucional"
   },
   "huella": "154647f5e5d71716",
-  "ausenteDesde": "2026-10-27T10:33:30.836Z"
+  "intentado": true,
+  "borrada": true
  },
  "fp2ndp": {
   "archivo": "fotos-notas/fp2ndp.jpg",
@@ -62801,7 +62800,8 @@
    "corresponde": "si",
    "descripcion": "Pablo Quirno y Marco Rubio posando juntos frente a banderas."
   },
-  "huella": "6162020014149600"
+  "huella": "6162020014149600",
+  "ausenteDesde": "2026-11-03T10:34:02.003Z"
  },
  "cmz7am": {
   "archivo": "fotos-notas/cmz7am.jpg",
@@ -70988,14 +70988,40 @@
   "huella": "2f2f2f2b3abab373"
  },
  "jnztmb": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/jnztmb.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca, Rosario Central y Argentinos definen la Tabla Anual el sábado 7",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
-  "cuando": "2026-11-03T02:03:49.902Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "enlace": "https://www.cronica.com.ar/depo/actualidad/dia-y-horario-confirmados-para-definir-el-campeon-de-la-tabla-anual/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1728/1728733/6ae8bf043b3ed_600_315!.png?s=ba6ad2caeea11d9afae09ea54b858a7a&d=1793675910",
+  "razon": "Es la única foto que muestra claramente a jugadores profesionales de los equipos mencionados en un festejo de partido, sin marcas de agua, menores de edad, gráficos ni formato stock.",
+  "cuando": "2026-11-03T10:32:17.701Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres jugadores abrazados sonriendo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Boca Juniors y Rosario Central posando juntos en el campo de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "333c6b69e9e9d54c"
  },
  "1gkdsuy": {
   "archivo": "fotos-notas/1gkdsuy.jpg",
@@ -71353,13 +71379,28 @@
   "huella": "2243636376312d5e"
  },
  "j5utve": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/j5utve.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Franco Colapinto compite el próximo fin de semana en el Gran Premio de Brasil",
-  "razon": "Ambas fotos presentan marcas de agua sobreimpresas por los medios, lo cual incumple las reglas de selección.",
-  "cuando": "2026-11-03T04:02:54.588Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.lagaceta.com.ar/nota/1160787/deportes/colapinto-gp-brasil-2026-horarios-fin-semana-donde-ver-formula-1-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/03/mal-momento-colapinto-quiere-revertir-mala-racha-acumula-ultimas-carreras-1160787-070350.jpg",
+  "razon": "La foto C muestra al auto en pista con excelente nitidez y sin marcas de agua agregadas por el medio.",
+  "cuando": "2026-11-03T10:32:17.701Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de F2 en plena velocidad sobre el asfalto"
+  },
+  "huella": "c2d0c3cb1a78c38e"
  },
  "1jab14p": {
   "intentado": true,
@@ -71842,6 +71883,41 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "ced7dfd4d55bf9d9"
+  "huella": "ced7dfd4d55bf9d9",
+  "ausenteDesde": "2026-11-03T10:34:02.003Z"
+ },
+ "sgq4v5": {
+  "archivo": "fotos-notas/sgq4v5.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Crean una plataforma digital para combatir la venta informal de papa",
+  "enlace": "https://www.clarin.com/economia/20-anos-hijo-empresario-fabio-calcaterra-creo-plataforma-combatir-venta-informal-papa_0_mpYAEHKueV.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/02/AZ8CSVNRH_2000x1500__1.jpg",
+  "razon": "Es la única opción disponible, corresponde perfectamente a la temática de la plataforma digital para la venta de papa y cumple con todos los criterios de calidad.",
+  "cuando": "2026-11-03T10:32:17.701Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hombre de espaldas utilizando una laptop que muestra una plataforma digital agrícola en pantalla"
+  },
+  "huella": "98383871d1c1c1c1"
+ },
+ "1t7huhy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Paro docente y nodocente paraliza facultades y colegios de la UNLP",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
+  "cuando": "2026-11-03T10:32:17.701Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1
  }
 }
