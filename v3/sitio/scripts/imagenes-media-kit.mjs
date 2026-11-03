@@ -26,10 +26,10 @@ const CSS = `
 *{box-sizing:border-box}
 html,body{margin:0;width:1200px;background:var(--crema);color:var(--tinta);font:22px/1.45 "Inter",system-ui,sans-serif}
 .serif{font-family:"Source Serif 4",Georgia,serif;letter-spacing:-.012em}
-.lamina{width:1200px;padding:56px 64px;display:flex;flex-direction:column;gap:28px}
+.lamina{width:1200px;padding:56px 64px;background:#fff;border:3px solid #D6CFBF;display:flex;flex-direction:column;gap:28px}
 .marca{display:flex;align-items:center;gap:28px}
 .marca img{width:110px;height:110px;border-radius:26px;box-shadow:0 8px 22px rgba(156,43,21,.28)}
-.marca b{display:block;font:800 72px/1 "Source Serif 4",serif}.marca b span{color:var(--rojo)}
+.marca b{display:block;font:800 72px/1 "Source Serif 4",serif}.marca b span{color:var(--rojo)}.oscura .marca b span{color:#E3684D}
 .marca p{margin:8px 0 0;font-size:23px;color:var(--texto);max-width:820px}
 .banda{background:var(--rojo);color:#fff;padding:18px 64px;margin:0 -64px;display:flex;justify-content:space-between;align-items:baseline;gap:20px}
 .banda b{font:800 36px "Source Serif 4",serif}.banda span{font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:#ffd9d0;font-weight:700}
@@ -43,13 +43,14 @@ h2{margin:0;font:800 46px/1.12 "Source Serif 4",serif}
 .cita{font:800 44px/1.2 "Source Serif 4",serif;color:var(--rojo)}
 .pie{background:var(--tinta);color:#fff;margin:0 -64px -56px;padding:24px 64px;display:flex;justify-content:space-between;align-items:center;gap:30px}
 .pie b{display:block;font:800 36px/1 "Source Serif 4",serif;margin-bottom:6px}.pie span{font-size:20px;color:#cfc9bc}.pie .der{text-align:right}
+.oscura{background:linear-gradient(135deg,#1B3A4B 0%,#14161A 70%);color:#F4F1EA;border-color:#14161A}.oscura .marca p{color:#CFC9BC}
 `;
 
 const MARCA = `<div class="marca"><img src="${ICONO}" alt=""><div><b>Radar <span>Balcarce</span></b><p>El medio digital de Balcarce: noticias, clima, farmacia de turno y agenda, todo el día en el sitio y en las redes, con voz propia.</p></div></div>`;
 const PIE = '<div class="pie"><div><b>WhatsApp 2266 51-1612</b><span>Hernán Accomo · Radar Balcarce</span></div><div class="der"><b>radarbalcarce.com</b><span>@radarbalcarce en todas las redes</span></div></div>';
 
 export const LAMINAS = [
-  { archivo: 'mediakit-portada.png', alto: 630, html: `<div class="lamina" style="height:630px;justify-content:space-between">${MARCA}
+  { archivo: 'mediakit-portada.png', alto: 630, html: `<div class="lamina oscura" style="height:630px;justify-content:space-between">${MARCA}
 <div><h2 style="font-size:60px">Tu comercio, en el diario<br>de Balcarce y en las redes</h2></div>
 <div class="banda" style="margin-bottom:-56px"><b>Publicidad para comercios de Balcarce</b><span>Noviembre y diciembre de 2026</span></div></div>` },
   { archivo: 'mediakit-bienvenida.png', alto: 700, html: `<div class="lamina" style="height:700px"><h2>La bienvenida es para todos</h2>

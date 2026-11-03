@@ -4,7 +4,7 @@
 //   columna   en la portada, la columna del costado
 //   pie       al pie de todas las páginas
 // Cada lugar de cada página tiene además un NOMBRE corto para ubicarse (docs/propuestas/MANUAL-AVISOS-3-0.md): T1 a T4 en la tapa, N1 y N2 en las notas,
-// S1 y S2 en las secciones, P1 en las demás páginas y, de AdSense, A1 (dentro de la nota) y A2 (al final de la sección). Sale como `data-lugar`.
+// S1 y S2 en las secciones, P1 en las demás páginas y, de AdSense, A1 (dentro de la nota), A2 (al final de la sección) y A3 (tapa, abajo, después de «Participá»; Hernán, 3/11). Sale como `data-lugar`.
 // Los avisos salen de la tabla `avisos` (db/schema-sitio.sql). Si en un lugar no hay ninguno, sale un aviso propio que lleva a la nota del media kit (sin precios).
 import { esc, urlSegura } from '../util.mjs';
 
@@ -90,5 +90,5 @@ export function bloqueAdsense(contexto, tipo) {
   const c = contexto?.publicidad?.adsense;
   if (!c?.cliente) return '';
   const slot = tipo === 'nota' ? c.slotNota : c.slotSeccion;
-  return `<div class="anuncio anuncio-${tipo}" data-adsense="${tipo}" data-lugar="${tipo === 'nota' ? 'A1' : 'A2'}">${rotulo}<ins class="adsbygoogle" style="display:block" data-ad-client="${esc(c.cliente)}"${slot ? ` data-ad-slot="${esc(slot)}"` : ''} data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
+  return `<div class="anuncio anuncio-${tipo}" data-adsense="${tipo}" data-lugar="${{ nota: 'A1', seccion: 'A2', tapa: 'A3' }[tipo] || 'A2'}">${rotulo}<ins class="adsbygoogle" style="display:block" data-ad-client="${esc(c.cliente)}"${slot ? ` data-ad-slot="${esc(slot)}"` : ''} data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
 }

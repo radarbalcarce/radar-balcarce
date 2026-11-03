@@ -12,11 +12,11 @@ export const FIRMA = 'Hernán Accomo';
 
 // Las imágenes de la nota (las dibuja scripts/imagenes-media-kit.mjs, sin precios; el workflow «sitio» las sube a R2 y el sitio las sirve en /fotos-notas/).
 const URL_FOTOS = 'https://radarbalcarce.com/fotos-notas/';
-export const FOTO_DE_PORTADA = { url: `${URL_FOTOS}mediakit-portada.png`, alt: 'Radar Balcarce: publicidad para comercios de Balcarce, noviembre y diciembre de 2026', credito: 'Radar Balcarce', ancho: 1200, alto: 630 };
+export const FOTO_DE_PORTADA = { url: `${URL_FOTOS}mediakit-portada.png?v=2`, alt: 'Radar Balcarce: publicidad para comercios de Balcarce, noviembre y diciembre de 2026', credito: 'Radar Balcarce', ancho: 1200, alto: 630 };
 export const FOTOS_EN_CUERPO = [
-  { url: `${URL_FOTOS}mediakit-bienvenida.png`, alt: 'La bienvenida para todos los comercios: una nota, un reel con voz y una historia', ancho: 1200, alto: 700, despuesDe: 3 },
-  { url: `${URL_FOTOS}mediakit-clima.png`, alt: 'El clima de hoy llega con tu comercio: la voz lo dice cada vez que lee el clima', ancho: 1200, alto: 700, despuesDe: 4 },
-  { url: `${URL_FOTOS}mediakit-donde.png`, alt: 'Dónde se ve tu aviso en el sitio y en las redes, y cómo arrancar', ancho: 1200, alto: 733, despuesDe: 12 },
+  { url: `${URL_FOTOS}mediakit-bienvenida.png?v=2`, alt: 'La bienvenida para todos los comercios: una nota, un reel con voz y una historia', ancho: 1200, alto: 700, despuesDe: 3 },
+  { url: `${URL_FOTOS}mediakit-clima.png?v=2`, alt: 'El clima de hoy llega con tu comercio: la voz lo dice cada vez que lee el clima', ancho: 1200, alto: 700, despuesDe: 4 },
+  { url: `${URL_FOTOS}mediakit-donde.png?v=2`, alt: 'Dónde se ve tu aviso en el sitio y en las redes, y cómo arrancar', ancho: 1200, alto: 733, despuesDe: 12 },
 ];
 
 export const NOTA = {

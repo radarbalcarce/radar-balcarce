@@ -60,7 +60,9 @@ test('el bloque de AdSense no va en notas de menos de cuatro párrafos ni en Pol
   const sec = await html(e, '/seccion/balcarce');
   assert.ok(sec.indexOf('data-adsense="seccion"') > sec.lastIndexOf('class="fila"'));
   assert.ok(!(await html(e, '/seccion/policiales')).includes('data-adsense'));
-  assert.ok(!(await html(e, '/')).includes('data-adsense'), 'la portada no lleva AdSense');
+  const tapa = await html(e, '/');
+  assert.equal(tapa.split('data-adsense=').length - 1, 1, 'la portada lleva un solo bloque de AdSense');
+  assert.ok(tapa.indexOf('data-lugar="A3"') > tapa.indexOf('class="part"'), 'el de la portada va abajo, después de Participá');
   assert.ok(!(await html(env, '/seccion/balcarce')).includes('data-adsense'));
 });
 
@@ -227,7 +229,7 @@ test('los nombres de los lugares: data-lugar en cada página; en una nota hay un
   insertarNota(sqlite, { cuerpo: CUATRO });
   const e = { ...env, ADSENSE_CLIENTE: PUB };
   const nombres = (h) => [...h.matchAll(/data-lugar="([A-Z]\d)"/g)].map((m) => m[1]);
-  assert.deepEqual(nombres(await html(e, '/')), ['T1', 'T2', 'T3', 'T4']);
+  assert.deepEqual(nombres(await html(e, '/')), ['T1', 'T2', 'T3', 'A3', 'T4']);
   assert.deepEqual(nombres(await html(e, '/seccion/balcarce')), ['S1', 'A2', 'S2']);
   assert.deepEqual(nombres(await html(e, '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234')), ['A1', 'N2']);
   assert.deepEqual(nombres(await html(e, '/contacto')), ['P1']);

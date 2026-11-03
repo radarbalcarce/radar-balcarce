@@ -3,7 +3,7 @@
 // «Última hora» con la columna lateral (aviso T3 y lo último de Balcarce), la invitación a WhatsApp, aviso T4 (el pie) y «Más de hoy».
 import { esc, rutaDeNota, ranuraDe, urlSegura, hace, normalizarSeccion } from '../util.mjs';
 import { pagina, colorDe, rotuloDe } from './base.mjs';
-import { lugarFijo, lugarRotativo } from './avisos.mjs';
+import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { cuadroDelDia } from './dia.mjs';
 
 export const PORTADA = { horas: 36, minimoDeNotas: 8, laterales: 3, grilla: 6, ultimaHora: 12, masDeHoy: 8, lateralDeBalcarce: 6 };
@@ -107,6 +107,7 @@ ${lugarRotativo(contexto, 'postales', 'T2')}
 <aside class="lado" aria-label="Lateral">${lugarRotativo(contexto, 'columna', 'T3')}${masLeidas(p.lateral)}</aside>
 </div>
 <div class="mt">${participa()}</div>
+${bloqueAdsense(contexto, 'tapa')}
 ${p.masDeHoy.length ? `<div class="mt"><h2 class="sec-t">Más de hoy</h2>${lista(p.masDeHoy, ahora)}</div>` : ''}`;
   }
   return pagina({ lugarPie: 'T4', titulo: 'Radar Balcarce, las noticias de Balcarce y la zona', sinSufijo: true, descripcion, canonico: '/', indexar, cuerpo, contexto, imagen: p.principal && tieneFoto(p.principal) ? urlSegura(p.principal.foto.url) : undefined });
