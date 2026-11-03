@@ -244,7 +244,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         }
         // Lo que ya salió no se baja (elegida, redactada) ni lo frenado por ley (no_publicar) se vuelve a decidir.
         if (!['elegida', 'redactada', 'no_publicar'].includes(h.estado)) {
-          const d = elegir(h, arts, { nacionalesHoy, ahora: c.ahora });
+          // Cuánto de afuera entra: lo fija wrangler.toml (opción B de Hernán, 3/11: 5 medios, 3 en las áreas chicas, 40 por día); sin variable, lo de REGLAS § 4.
+          const d = elegir(h, arts, {
+            nacionalesHoy, ahora: c.ahora,
+            minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3),
+            minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
+            topeNacional: numero(env.NUCLEO_TOPE_NACIONAL, 100),
+          });
           h.estado = d.sale ? 'elegida' : 'no_sale';
           h.motivo = d.motivo;
           if (d.sale) {

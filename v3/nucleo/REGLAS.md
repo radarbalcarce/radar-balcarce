@@ -55,7 +55,7 @@ Y no sale, aunque cumpla, si:
 - Es horóscopo, lotería, cotización del día o un sorteo comercial.
 - Ya hay una historia viva del mismo hecho (eso lo resuelve el punto 3; si falla y se descubre después, se unen y la nueva redirige).
 
-Tope de **100 nacionales por día** (decisión del 1/11); si se llena, entran las más contadas. Balcarce nunca tiene tope. Lo que ya salió
+Tope de **40 nacionales por día** y **5 medios** (3 en las áreas chicas) desde el 3/11 (opción B de Hernán; variables `NUCLEO_TOPE_NACIONAL`, `NUCLEO_MINIMO_NACIONAL`, `NUCLEO_MINIMO_AREAS_CHICAS` de `wrangler.toml`; antes 100 y 3); si se llena, entran las más contadas. Balcarce nunca tiene tope. Lo que ya salió
 no se baja. Cada decisión queda anotada (`motivo`), para que `¿por qué no salió?` tenga respuesta sin adivinar.
 
 La **sección** la decide la IA al redactar, entre catorce: Balcarce, Política, Policiales, Educación, Salud, Fútbol, Deportes,
