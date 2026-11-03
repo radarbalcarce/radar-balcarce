@@ -231,10 +231,9 @@ test('repaso: el rótulo del momento y la voz según la hora; se dibuja con la l
   assert.equal(armarRepaso([nota(), nacional(1)], { hora: 15 }).voz, 'locutora');
   const p = armarRepaso([nota(), nacional(1), nacional(2, 'Salud')], { hora: 10, fecha: 'Martes 3 de noviembre' });
   const e = escenaDeVideo(p);
-  assert.match(e.cuadro(0, p.duracion), /Audio · 30 s/, 'el cuadro 0 es la lista (la tapa)');
-  assert.match(e.cuadro(5, p.duracion), /1 de 3/);
-  assert.match(e.cuadro(14, p.duracion), /2 de 3/);
-  assert.match(e.cuadro(23, p.duracion), /3 de 3/);
+  assert.match(e.cuadro(0, p.duracion), /Tres noticias para empezar el día[^]*Martes 3 de noviembre/, 'el cuadro 0 es la lista (la tapa) con las tres noticias');
+  const apagadas = (t) => (e.cuadro(t, p.duracion).match(/<g opacity="0.35">/g) ?? []).length;
+  assert.deepEqual([apagadas(0), apagadas(5), apagadas(14), apagadas(23), apagadas(p.duracion - 0.1)], [0, 2, 2, 2, 0], 'una noticia resaltada mientras se lee; todas parejas al principio y al final');
   assert.equal(e.stills().length, 4);
 });
 
@@ -465,3 +464,67 @@ test('Buffer: TikTok marca el reel como contenido con IA cuando se lo pide (todo
   assert.equal(metadatosDe('tiktok', { titulo: 'x' }).tiktok.isAiGenerated, false);
   assert.equal(metadatosDe('youtube', { titulo: 'El repaso del día', ia: true }).youtube.title, 'El repaso del día');
 });
+
+// ------------------------------------------------------------------ el repaso con la lista y la noticia que se lee resaltada (3/11)
+
+test('repaso: tramosDelRepaso y focoDeLaLista: una noticia resaltada por vez, sincronizada con las escenas ajustadas a la voz; el saludo y el cierre sin resaltar', async () => {
+  const { tramosDelRepaso, focoDeLaLista, listaResaltada } = await import('./escenas.mjs');
+  const { ajustarALaVoz } = await import('./correr.mjs');
+  const p = ajustarALaVoz(armarRepaso([nota({ id: 'b1' }), nacional(1), nacional(2)], { hora: 10 }), 24);
+  assert.equal(p.duracion, 25.5);
+  const { tramos, cierre, total } = tramosDelRepaso(p.escenas);
+  assert.equal(tramos.length, 3);
+  assert.equal(total, 25.5);
+  assert.ok(tramos[0].desde > 0, 'la primera noticia empieza después del saludo');
+  assert.ok(tramos[0].desde < 4, String(tramos[0].desde));
+  assert.equal(tramos[0].hasta, tramos[1].desde);
+  assert.equal(tramos[1].hasta, tramos[2].desde);
+  assert.equal(tramos[2].hasta, cierre);
+  assert.ok(total - cierre >= 1.5 && total - cierre <= 6, 'el cierre es lo que dice la lista + 1,5 s');
+  // Sincronía: en el medio de cada tramo sólo esa noticia está a pleno y resaltada.
+  for (const r of tramos) {
+    const f = focoDeLaLista((r.desde + r.hasta) / 2, tramos);
+    assert.deepEqual(f.map((x) => x.h), tramos.map((o) => (o.i === r.i ? 1 : 0)));
+    assert.deepEqual(f.map((x) => x.o), tramos.map((o) => (o.i === r.i ? 1 : 0.35)));
+  }
+  // Al principio (el saludo) y al final (el cierre) están todas iguales y a pleno.
+  for (const t of [0, total - 0.2]) assert.deepEqual(focoDeLaLista(t, tramos), tramos.map(() => ({ o: 1, h: 0 })));
+  // En una transición se cruzan suavemente: ninguna opacidad sale de [0,35; 1] y los resaltados suman como mucho 1.
+  for (let t = tramos[1].desde - 0.3; t <= tramos[1].desde + 0.3; t += 0.02) {
+    const f = focoDeLaLista(t, tramos);
+    assert.ok(f.every((x) => x.o >= 0.35 && x.o <= 1));
+    assert.ok(f.reduce((a, x) => a + x.h, 0) <= 1.0001);
+  }
+  // El dibujo: las tres notas, la resaltada con su borde y las otras apagadas; nada importante pasa de la fila 1440.
+  const lista = p.escenas.at(-1).datos;
+  const notas = p.escenas.filter((e) => e.tipo === 'placa-nota').map((e) => ({ seccion: e.datos.seccion, titulo: e.datos.titulo, foto: null }));
+  const svg = listaResaltada({ titulo: lista.titulo, momento: lista.momento, fecha: lista.fecha, notas }, focoDeLaLista(tramos[1].desde + 1, tramos));
+  assert.equal((svg.match(/<g opacity="/g) ?? []).length, 3);
+  assert.equal((svg.match(/<g opacity="1">/g) ?? []).length, 1);
+  assert.equal((svg.match(/<g opacity="0.35">/g) ?? []).length, 2);
+  for (const m of svg.matchAll(/<rect x="72" y="(\d+)" width="936" height="(\d{3})"/g)) assert.ok(Number(m[1]) + Number(m[2]) <= 1440, 'las tarjetas quedan arriba de la firma');
+  assert.match(svg, /radarbalcarce\.com/);
+});
+
+test('repaso: escenaDeVideo usa la lista resaltada (con y sin fotos), dibuja cuadros distintos al cambiar de noticia y sus imágenes de muestra caen dentro del video', () => {
+  const p = ajustarALaVozDePrueba(armarRepaso([nota({ id: 'b1' }), nacional(1), nacional(2)], { hora: 10 }), 24);
+  const esc = escenaDeVideo(p);
+  assert.equal(esc.total, 25.5);
+  const [a, b] = [esc.cuadro(2, esc.total), esc.cuadro(10, esc.total)];
+  assert.notEqual(a, b);
+  assert.ok(esc.stills().length === 4 && esc.stills().every((s) => s.t >= 0 && s.t < esc.total));
+  const linea = esc.linea(esc.total);
+  assert.equal(linea.reduce((s, c) => s + c.ticks, 0), Math.ceil(esc.total * 30) + 1);
+});
+
+function ajustarALaVozDePrueba(pieza, voz) {
+  const pesos = pieza.escenas.map((e) => Math.max(1, contarPalabras(e.voz ?? '')));
+  const suma = pesos.reduce((a, b) => a + b, 0);
+  let usado = 0;
+  const escenas = pieza.escenas.map((e, i) => {
+    const duracion = i === pieza.escenas.length - 1 ? Number((voz + 1.5 - usado).toFixed(2)) : Number(((voz * pesos[i]) / suma).toFixed(2));
+    usado += duracion;
+    return { ...e, duracion };
+  });
+  return { ...pieza, escenas, duracion: Number((voz + 1.5).toFixed(2)) };
+}

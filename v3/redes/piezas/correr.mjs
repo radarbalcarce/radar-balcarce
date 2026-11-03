@@ -26,6 +26,8 @@ import {
 } from './publicar.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
 import { diaDeBalcarce } from '../elegir.mjs';
+import { contarPalabras } from './voz.mjs';
+import { CIERRE_DESPUES_DE_LA_VOZ } from './variables.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
@@ -73,12 +75,24 @@ export function armarDelPlan(item, {
   }
 }
 
-/** La misma pieza con la última escena más larga si la voz de verdad dura más que el video (para no cortarla). Los tiempos finos de las placas contra la voz: pendiente (REGLAS.md). */
+/**
+ * La misma pieza con la duración que sale de la VOZ de verdad (Hernán, 3/11: «el audio termina antes que la animación»): el video dura la voz + `CIERRE_DESPUES_DE_LA_VOZ` (1,5 s),
+ * nunca menos que la voz y nunca más de 2 s de silencio al final. La voz se reparte entre las escenas según las palabras que dice cada una (las que no dicen nada cuentan como una
+ * palabra): si la voz es más corta que lo previsto, las escenas se acortan; si es más larga, se estiran. El cierre se suma a la última. Vale para todas las piezas con voz.
+ */
 export function ajustarALaVoz(pieza, segundosDeVoz) {
-  const falta = segundosDeVoz + 0.8 - pieza.duracion;
-  if (!(falta > 0)) return pieza;
-  const escenas = pieza.escenas.map((e, i) => (i === pieza.escenas.length - 1 ? { ...e, duracion: Number((e.duracion + falta).toFixed(2)) } : e));
-  return { ...pieza, escenas, duracion: Number((pieza.duracion + falta).toFixed(2)) };
+  if (!(segundosDeVoz > 0) || !pieza.escenas?.length) return pieza;
+  const pesos = pieza.escenas.map((e) => Math.max(1, contarPalabras(e.voz ?? '')));
+  const suma = pesos.reduce((a, b) => a + b, 0);
+  const total = Number((segundosDeVoz + CIERRE_DESPUES_DE_LA_VOZ).toFixed(2));
+  let usado = 0;
+  const escenas = pieza.escenas.map((e, i) => {
+    const ultima = i === pieza.escenas.length - 1;
+    const duracion = ultima ? Number((total - usado).toFixed(2)) : Number(((segundosDeVoz * pesos[i]) / suma).toFixed(2));
+    usado += duracion;
+    return { ...e, duracion };
+  });
+  return { ...pieza, escenas, duracion: total };
 }
 
 /** El resumen de lo que hay que mirar para saber si dos corridas armaron lo mismo (el guion, las escenas sin las fotos bajadas). */

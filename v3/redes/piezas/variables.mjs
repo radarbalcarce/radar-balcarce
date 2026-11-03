@@ -49,6 +49,10 @@ export const FRANJA_AUSPICIO = congelar({ y: 1568, alto: 54 });
 export const TITULAR_MAX_CARACTERES = 90;
 export const GANCHO_MAX_PALABRAS = 8;
 export const GANCHO_SEGUNDOS = 3;
+/** Hernán (3/11): «el audio termina antes que la animación». El video dura la voz real + este cierre (nunca menos que la voz, nunca más de 2 s de silencio al final). */
+export const CIERRE_DESPUES_DE_LA_VOZ = 1.5;
+/** El repaso con la lista y la noticia resaltada: cuánto antes de que la voz llegue a la noticia empieza el cambio, cuánto dura, y con qué opacidad quedan las demás. */
+export const RESALTADO = congelar({ antes: 0.15, dur: 0.35, atenuada: 0.35 });
 
 // ------------------------------------------------------------------ duraciones y escenas (objetivo y máximo en segundos)
 export const HISTORIA_MAX_SEGUNDOS = 58;

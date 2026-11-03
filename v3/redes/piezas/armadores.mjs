@@ -149,6 +149,7 @@ export function armarRepaso(notas, { fecha = '', ...opciones } = {}) {
       const voz = partesQueEntran([conPunto(nota.titulo), ...frases(nota.bajada ?? '').slice(0, 1)], cap);
       return escena('placa-nota', REPASO.porNota, {
         rotulo: titulo, i, n, titulo: tituloEnPantalla(nota.titulo), seccion: nota.seccion, foto: fotoDe(nota.foto), marca: i === 0 ? null : nota.titulo,
+        ...(i === 0 ? { palabrasDeApertura: contarPalabras(apertura) } : {}), // el resaltado de la lista arranca cuando la voz llega a la primera noticia, no con el saludo
       }, i === 0 ? unir(apertura, voz) : voz);
     }),
     escena('placa-lista', REPASO.cierre, {

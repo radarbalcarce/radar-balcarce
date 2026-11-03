@@ -16,6 +16,7 @@
 // `ancho` y `alto`; sin `datos` se dibuja el recuadro de la sección (así las pruebas no necesitan archivos).
 import {
   ANCHO, ALTO, COLORES, COLOR_SECCION, colorDeSeccion, DISPLAY, TEXTO, esc, repartir, envolverAncho, anchoAproximado, renglones as renglonesDePlaca, rotulo, placaRepaso,
+  encabezadoDelRepaso, lienzo as lienzoDePlaca, pie as pieDePlaca, renglones as renglonesDeLista,
 } from '../../../reels/placa.mjs';
 import { escenaDeClima } from '../../../reels/escenas/clima.mjs';
 import { escenaDeEfemeride } from '../../../reels/escenas/fechas.mjs';
@@ -23,10 +24,10 @@ import { escenaDeFarmacia, escenaDeParticipa, escenaDeUtiles, escenaDeAgenda } f
 import { escenaDeFeriado } from '../../../reels/escenas/fechas.mjs';
 import { placaDeNotaDelRepaso, escenaDelRepaso, FOTO } from '../../../reels/escenas/repaso.mjs';
 import { tipoDeEfemeride, tipoDeFeriado } from '../../../reels/escenas/del-plan.mjs';
-import { partirSvg, placaEn, lineaDeTiempo, FPS } from '../../../reels/animacion.mjs';
+import { partirSvg, placaEn, lineaDeTiempo, suave, FPS } from '../../../reels/animacion.mjs';
 import { MAIL_REDACCION } from '../../../redes/participa.mjs';
 import {
-  ANCHO_UTIL, FRANJA_AUSPICIO, DIRECCION_DEL_SITIO, WHATSAPP, IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, IMAGEN_ENLACE, CAJA_TEXTO,
+  ANCHO_UTIL, FRANJA_AUSPICIO, DIRECCION_DEL_SITIO, WHATSAPP, IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, IMAGEN_ENLACE, CAJA_TEXTO, RESALTADO,
 } from './variables.mjs';
 import { acortarCaracteres } from './voz.mjs';
 import { repartirTexto, INSTAGRAM, PAPEL as PAPEL_TARJETA, GRIS as GRIS_TARJETA, INTERLINEA_BAJADA, anchoParaTexto, altoParaTexto, colorDe as colorDeTarjeta } from '../../../web/lib/tarjeta-diseno.js';
@@ -241,6 +242,107 @@ export function franjaDeAuspicio(franja, t) {
   <text x="${X0 + 30}" y="${y + alto / 2 + tam * 0.36}" font-family="${TEXTO}" font-size="${tam}" font-weight="700" fill="${TINTA}"><tspan font-weight="800" letter-spacing="3" fill="#8A5A00">AUSPICIA</tspan><tspan dx="16">${esc(comercio)}</tspan>${cuenta ? `<tspan dx="16" font-weight="500" fill="${GRIS}">${esc(cuenta)}</tspan>` : ''}</text></g>`;
 }
 
+// ------------------------------------------------------------------ el repaso: la lista de las noticias con la que se está leyendo resaltada
+
+/**
+ * Cuándo está resaltada cada noticia del repaso (Hernán, 3/11: que vuelva el listado y se resalte la que la voz está leyendo). Sale de las escenas ya ajustadas a la voz real
+ * (`ajustarALaVoz` reparte la voz entre las escenas según las palabras de cada una): la noticia i va desde que empieza su escena (la primera, después del saludo:
+ * `palabrasDeApertura`) hasta que empieza la siguiente; la escena de cierre (la lista sola) no resalta ninguna. Devuelve { tramos: [{ i, desde, hasta }], cierre, total }.
+ */
+export function tramosDelRepaso(escenas) {
+  const tramos = [];
+  let t = 0;
+  let cierre = null;
+  for (const e of escenas) {
+    if (e.tipo === 'placa-nota') {
+      let desde = t;
+      const palabras = String(e.voz ?? '').split(/\s+/).filter(Boolean).length;
+      if (e.datos?.palabrasDeApertura && palabras > e.datos.palabrasDeApertura) desde += e.duracion * (e.datos.palabrasDeApertura / palabras);
+      tramos.push({ i: tramos.length, desde: Number(desde.toFixed(3)), hasta: Number((t + e.duracion).toFixed(3)) });
+    } else if (cierre === null) cierre = t;
+    t += e.duracion;
+  }
+  return { tramos, cierre: cierre ?? t, total: Number(t.toFixed(3)) };
+}
+
+/**
+ * Cómo se ve cada fila de la lista en el segundo `t`: { o, h } por noticia, `o` la opacidad (1 a pleno, `RESALTADO.atenuada` apagada) y `h` el resaltado (0 a 1: la tarjeta de color).
+ * Antes de la primera noticia y en el cierre están todas a pleno y sin resaltar; entre una y otra el cambio es suave (`RESALTADO.dur`, empezando `RESALTADO.antes` antes).
+ */
+export function focoDeLaLista(t, tramos) {
+  const { antes, dur, atenuada } = RESALTADO;
+  const sube = (desde) => suave((t - (desde - antes)) / dur);
+  const s = tramos.map((r) => Math.min(sube(r.desde), 1 - sube(r.hasta)));
+  const neutro = Math.max(0, 1 - s.reduce((a, b) => a + b, 0));
+  return s.map((h) => ({ o: Number((atenuada + (1 - atenuada) * Math.min(1, neutro + h)).toFixed(3)), h: Number(h.toFixed(3)) }));
+}
+
+/**
+ * La lista del repaso con la noticia que se lee resaltada: una tarjeta por noticia (su foto cuadrada a la izquierda, la sección en su color y el titular), la actual con el fondo y el
+ * borde de su sección y las demás atenuadas. `foco` es lo que devuelve `focoDeLaLista`. Todo entre las filas 250 y 1440 (la zona segura de hoy) y con la firma de siempre.
+ */
+export function listaResaltada({ titulo, momento, fecha, notas }, foco) {
+  const n = notas.length;
+  const enc = repartir(encabezadoDelRepaso(momento, n), [{ tam: 64, max: 1 }, { tam: 56, max: 2 }, { tam: 50, max: 2 }], ANCHO_UTIL);
+  const interEnc = Math.round(enc.tam * 1.02);
+  const yEnc = 304 + 34 + Math.round(enc.tam * 0.9);
+  const finEnc = yEnc + (enc.lineas.length - 1) * interEnc;
+  const top = finEnc + (fecha ? 96 : 52);
+  const hueco = 22;
+  const alto = Math.min(380, Math.floor((1440 - top - hueco * (n - 1)) / n));
+  const lado = alto - 56;
+  const xFoto = X0 + 28;
+  const xT = xFoto + lado + 30;
+  const anchoT = CAJA_TEXTO.xMax - 28 - xT;
+  const inter = (tam) => Math.round(tam * 1.08);
+  const filas = notas.map((nota, k) => {
+    const y = top + k * (alto + hueco);
+    const { o, h } = foco[k] ?? { o: 1, h: 0 };
+    const color = colorDeSeccion(nota.seccion);
+    const disponible = lado - 38 - 8 - (nota.foto?.credito ? 26 : 0);
+    let tam = 50;
+    let lineas = envolverAncho(nota.titulo, tam, anchoT * 0.96, 'serif');
+    while (tam > 30 && lineas.length * inter(tam) > disponible) { tam -= 4; lineas = envolverAncho(nota.titulo, tam, anchoT * 0.96, 'serif'); }
+    const foto = nota.foto?.datos
+      ? `<clipPath id="lr${k}"><rect x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" rx="20"/></clipPath><g clip-path="url(#lr${k})"><image href="${nota.foto.datos}" x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" preserveAspectRatio="xMidYMid slice"/></g>`
+      : `<rect x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" rx="20" fill="${color}"/><text x="${xFoto + lado / 2}" y="${y + 28 + lado / 2 + 62}" font-family="${DISPLAY}" font-size="180" font-weight="900" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.9">${k + 1}</text>`;
+    const credito = nota.foto?.datos && nota.foto.credito ? texto(acortarCaracteres(nota.foto.credito, 48), xT, y + alto - 24, { tam: 20, peso: 500, color: GRIS }) : '';
+    return `<g opacity="${o}">
+  <rect x="${X0}" y="${y}" width="${ANCHO_UTIL}" height="${alto}" rx="30" fill="${COLORES.papel}" stroke="${COLORES.linea}" stroke-width="2"/>
+  <rect x="${X0}" y="${y}" width="${ANCHO_UTIL}" height="${alto}" rx="30" fill="${color}" fill-opacity="${(0.13 * h).toFixed(3)}" stroke="${color}" stroke-opacity="${h}" stroke-width="6"/>
+  ${foto}
+  ${rotulo(nota.seccion, { x: xT, y: y + 28 + 24, color, tam: 22 })}
+  ${renglones(lineas, { x: xT, y: y + 28 + 38 + Math.round(tam * 0.85), tam, interlinea: inter(tam), peso: 700, espaciado: -0.5 })}
+  ${credito}</g>`;
+  }).join('\n');
+  return lienzoDePlaca(`
+  ${rotulo(titulo, { y: 304, color: ROJO })}
+  ${renglones(enc.lineas, { y: yEnc, tam: enc.tam, interlinea: interEnc, espaciado: -1.5 })}
+  ${fecha ? `<text x="${X0}" y="${finEnc + 54}" font-family="${TEXTO}" font-size="30" font-weight="500" fill="${GRIS}">${esc(fecha)}</text>` : ''}
+  ${filas}
+  ${pieDePlaca()}`);
+}
+
+/** El repaso en video: la lista de las noticias, una resaltada mientras la voz la lee (`tramosDelRepaso`, `focoDeLaLista`). Las fotos son las de las placas de nota. */
+function escenaDeLaLista(escenas) {
+  const { tramos, total } = tramosDelRepaso(escenas);
+  const notas = escenas.filter((e) => e.tipo === 'placa-nota').map((e) => ({ seccion: e.datos.seccion, titulo: e.datos.titulo, foto: e.datos.foto }));
+  const lista = escenas.find((e) => e.tipo === 'placa-lista')?.datos ?? {};
+  const base = { titulo: lista.titulo ?? escenas[0].datos.rotulo, momento: lista.momento ?? 'tarde', fecha: lista.fecha ?? '', notas };
+  const { antes, dur } = RESALTADO;
+  const intensos = tramos.flatMap((r) => [[r.desde, r.desde], [r.hasta, r.hasta]]).map(([a]) => [Math.max(0, a - antes - 0.03), a - antes + dur + 0.03]);
+  return {
+    fps: FPS,
+    total,
+    cuadro: (t) => listaResaltada(base, focoDeLaLista(t, tramos)),
+    linea: (d) => lineaDeTiempo(d, { intensos }),
+    stills: () => [
+      ...tramos.map((r) => ({ nombre: `leyendo-${r.i + 1}`, t: Number(Math.min(total - 0.1, r.desde + (r.hasta - r.desde) * 0.5).toFixed(2)) })),
+      { nombre: 'cierre', t: Number(Math.max(0, total - 0.3).toFixed(2)) },
+    ],
+  };
+}
+
 // ------------------------------------------------------------------ el video: las escenas de hoy, juntas
 
 const intensoSiempre = (d) => lineaDeTiempo(d, { intensos: [[0, d]] });
@@ -315,12 +417,16 @@ export function escenaDeVideo(pieza) {
   if (pieza.tipo !== 'video') throw new Error('escenaDeVideo: la pieza no es un video');
   const tipos = pieza.escenas.map((e) => e.tipo);
   let base;
-  if (tipos.every((t) => t === 'placa-nota' || t === 'placa-lista')) base = escenaDeSecuencia(pieza.escenas);
+  const repaso = tipos.includes('placa-lista') && tipos.filter((t) => t === 'placa-nota').length >= 2;
+  if (repaso && tipos.every((t) => t === 'placa-nota' || t === 'placa-lista')) base = escenaDeLaLista(pieza.escenas);
+  else if (tipos.every((t) => t === 'placa-nota' || t === 'placa-lista')) base = escenaDeSecuencia(pieza.escenas);
   else if (tipos.length === 1 && tipos[0] === 'placa-historia') base = escenaDeLaHistoria(pieza.escenas[0]);
   else if (tipos.length === 1) base = escenaUnica(pieza.escenas[0]);
   else throw new Error(`no sé juntar las escenas ${tipos.join(', ')}`);
+  // Con la duración que sale de la voz (ajustarALaVoz) la pieza puede ser más corta que lo previsto: ninguna imagen de muestra cae después del final.
+  const dentro = (st) => ({ ...st, t: Number(Math.max(0, Math.min(base.total - 0.1, st.t)).toFixed(2)) });
   const franja = pieza.franja ?? null;
-  if (!franja) return base;
+  if (!franja) return { ...base, stills: () => base.stills().map(dentro) };
   return {
     ...base,
     cuadro: (t, d) => {
@@ -330,7 +436,7 @@ export function escenaDeVideo(pieza) {
     },
     // Hay movimiento todo el clima (el cielo): un cuadro nuevo en cada tic, y la franja entra dentro de eso.
     linea: intensoSiempre,
-    stills: () => [...base.stills(), { nombre: 'con-franja', t: Math.max(franja.desde + 1, Math.min(base.total - 1, 10)) }],
+    stills: () => [...base.stills(), { nombre: 'con-franja', t: Math.max(franja.desde + 1, Math.min(base.total - 1, 10)) }].map(dentro),
   };
 }
 

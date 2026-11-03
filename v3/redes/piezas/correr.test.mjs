@@ -133,12 +133,12 @@ test('el clima auspiciado: el comercio de la tabla `avisos` abre el guion y va e
   assert.equal(pieza.id, 'clima-auspiciado');
   assert.match(pieza.guion, /El clima de hoy lo auspicia Sweet Candy Bar\. En Instagram, arroba _?sweet candy bar\./);
   assert.equal(pieza.franja.texto, 'Auspicia · Sweet Candy Bar · @_sweet.candy.bar');
-  assert.equal(pieza.duracion, 22);
+  assert.equal(pieza.duracion, 13.5, 'la voz de prueba dura 12 s: el video, 12 + 1,5');
   const sin = armar({ ahora: MARTES_10 });
   await correr({ env: sin.env, ahora: MARTES_10, carpeta: sin.carpeta, deps: sin.deps });
   const normal = sin.dibujadas.find((d) => d.pieza.id.startsWith('clima')).pieza;
   assert.equal(normal.id, 'clima');
-  assert.equal(normal.duracion, 18);
+  assert.equal(normal.duracion, 13.5);
 });
 
 test('REAL: publica reel e historia en las dos redes con el mismo mp4, el texto con el aviso de la voz con IA y sin el token', async () => {
@@ -258,14 +258,37 @@ test('armarDelPlan: cada pieza con sus datos; si falta el dato de afuera, SinDat
   assert.throws(() => armarDelPlan({ ...op, arma: 'nada' }, { dia: DIA }), /no conozco el armador/);
 });
 
-test('ajustarALaVoz: si la voz dura más que el video, la última escena se estira para no cortarla; si entra, queda igual', () => {
+test('ajustarALaVoz: el video dura la voz + 1,5 s (nunca menos que la voz, nunca más de 2 s de silencio): se acorta si la voz es corta y se estira si es larga', () => {
   const pieza = armarDelPlan({ id: 'participa-nota', arma: 'participa', variante: 'nota', horaDelDia: 12, primeraDelBloque: false, datos: {} }, { dia: DIA });
-  assert.equal(ajustarALaVoz(pieza, 15), pieza);
+  assert.equal(pieza.duracion, 18);
+  const corta = ajustarALaVoz(pieza, 11);
+  assert.equal(corta.duracion, 12.5);
+  assert.equal(corta.escenas.at(-1).duracion, 12.5);
   const larga = ajustarALaVoz(pieza, 20);
-  assert.equal(larga.duracion, 20.8);
-  assert.equal(larga.escenas.at(-1).duracion, 20.8);
+  assert.equal(larga.duracion, 21.5);
   assert.equal(pieza.duracion, 18); // no toca la original
+  assert.equal(ajustarALaVoz(pieza, 0), pieza, 'sin duración de voz no hay qué ajustar');
   assert.notEqual(huellaDeLaPieza(pieza), huellaDeLaPieza(armarDelPlan({ id: 'participa-noticias', arma: 'participa', variante: 'noticia', horaDelDia: 12, primeraDelBloque: false, datos: {} }, { dia: DIA })));
+});
+
+test('ajustarALaVoz en TODAS las piezas con voz: dura voz + 1,5 s y la suma de las escenas es la duración', () => {
+  const clima = armarDelPlan({ id: 'clima-manana', arma: 'clima', horaDelDia: 7, primeraDelBloque: true, datos: {} }, { dia: DIA, clima: CLIMA });
+  const rep = armarDelPlan({ id: 'repaso-manana', arma: 'repaso', horaDelDia: 10, primeraDelBloque: false, momento: 'manana', datos: { notas: [{ id: 'a', titulo: 'Una nota de Balcarce con bastante texto', seccion: 'Balcarce', bajada: 'Cuenta algo importante para el pueblo. Y algo más.' }, { id: 'b', titulo: 'Otra nota del país', seccion: 'Política', bajada: 'Dicen cosas.' }, { id: 'c', titulo: 'Una tercera nota nacional', seccion: 'Economía', bajada: 'Suben cosas.' }] } }, { dia: DIA });
+  for (const p of [clima, rep]) {
+    for (const voz of [9.3, 17, 31.4]) {
+      const r = ajustarALaVoz(p, voz);
+      assert.equal(r.duracion, Number((voz + 1.5).toFixed(2)));
+      assert.ok(Math.abs(r.escenas.reduce((a, e) => a + e.duracion, 0) - r.duracion) < 0.011, 'las escenas suman la duración');
+      assert.ok(r.escenas.every((e) => e.duracion > 0));
+    }
+  }
+  // El repaso reparte la voz según las palabras: la escena que dice más dura más, y la lista de cierre sólo lo que dice «Todo en Radar Balcarce punto com» + el cierre.
+  const r = ajustarALaVoz(rep, 24);
+  const nota1 = r.escenas[0];
+  const cierre = r.escenas.at(-1);
+  assert.equal(cierre.tipo, 'placa-lista');
+  assert.ok(nota1.duracion > r.escenas[1].duracion, 'la primera lleva el saludo y la apertura');
+  assert.ok(cierre.duracion >= 1.5 && cierre.duracion < 6, String(cierre.duracion));
 });
 
 test('el texto del posteo: título, qué cuenta, el aviso de la voz con IA, hashtags fijos y el tema; Instagram sin enlace; el repaso lista sus notas', () => {
