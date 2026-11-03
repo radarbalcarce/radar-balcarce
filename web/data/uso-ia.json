@@ -2529,19 +2529,19 @@
   "2026-11-03": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
+     "llamadas": 11,
      "errores": 8,
-     "entrada": 5290,
-     "salida": 2789,
+     "entrada": 7249,
+     "salida": 3501,
      "pensamiento": 0,
-     "total": 8079,
+     "total": 10750,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 11
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 8,
-       "ok": 2
+       "ok": 3
       }
      }
     },
@@ -2581,18 +2581,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
+     "llamadas": 13,
      "errores": 10,
-     "entrada": 0,
-     "salida": 0,
+     "entrada": 47949,
+     "salida": 908,
      "pensamiento": 0,
-     "total": 0,
+     "total": 48857,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 13
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 10
+       "cupo-diario": 10,
+       "ok": 3
       }
      }
     },
@@ -2655,19 +2656,20 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 43,
-     "errores": 41,
-     "entrada": 20460,
-     "salida": 1773,
+     "llamadas": 49,
+     "errores": 42,
+     "entrada": 47196,
+     "salida": 3847,
      "pensamiento": 0,
-     "total": 22233,
+     "total": 51043,
      "claves": {
-      "clasificacion": 43
+      "clasificacion": 49
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 41,
-       "ok": 2
+       "ok": 7,
+       "otro": 1
       }
      }
     },
@@ -2690,19 +2692,19 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 18,
-     "errores": 9,
-     "entrada": 15009,
-     "salida": 885,
+     "llamadas": 20,
+     "errores": 10,
+     "entrada": 16100,
+     "salida": 981,
      "pensamiento": 0,
-     "total": 15894,
+     "total": 17081,
      "claves": {
-      "groq": 18
+      "groq": 20
      },
      "motivos": {
       "groq": {
-       "cupo-diario": 5,
-       "ok": 9,
+       "cupo-diario": 6,
+       "ok": 10,
        "saturado": 2,
        "otro": 1,
        "velocidad": 1
