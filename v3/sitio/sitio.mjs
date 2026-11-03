@@ -4,6 +4,8 @@ import * as consultas from './db/consultas.mjs';
 import { POR_PAGINA, seccionDeRanura, idDeRuta, rutaDeNota } from './util.mjs';
 import { paginaDeNota } from './vistas/nota.mjs';
 import { paginaDePortada, paginaDeSeccion, paginaDeBusqueda, paginaNoEncontrada } from './vistas/listas.mjs';
+import { PORTADA } from './vistas/portada.mjs';
+import { leerClima, leerFarmacia } from './datos-del-dia.mjs';
 import { sitemapIndice, sitemapDelMes, rss, robots } from './vistas/xml.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
@@ -47,56 +49,70 @@ async function archivoEstatico(pedido, env, prefijo, nombre) {
   return new Response(pedido.method === 'HEAD' ? null : objeto.body, { status: 200, headers: cabeceras });
 }
 
-const noEncontrada = (indexar) => respuesta(paginaNoEncontrada(), { estado: 404, indexar: false });
+const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), { estado: 404, indexar: false });
 
-export function crearSitio() {
-  async function armar(pedido, env, ctx) {
+/**
+ * `traer`: el fetch para el clima y la farmacia (en las pruebas, uno falso). `ahora`: el reloj (en las pruebas, fijo).
+ */
+export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = () => new Date() } = {}) {
+  async function armar(pedido, env, ctx, cache) {
     const url = new URL(pedido.url);
     const ruta = url.pathname.replace(/\/+$/, '') || '/';
     const indexar = String(env.INDEXAR || 'no').toLowerCase() === 'si';
+    // El clima y la farmacia se piden en paralelo con la base; si fallan, la página lo dice (null).
+    const contextoDelDia = async () => {
+      const reloj = ahora();
+      const [clima, farmacia] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj })]);
+      return { ahora: reloj, clima, farmacia };
+    };
     const fijar = (notas) => { const p = consultas.fijarSlugs(env, notas).catch(() => 0); if (ctx?.waitUntil) ctx.waitUntil(p); return p; };
 
     if (ruta === '/robots.txt') return { r: respuesta(robots(indexar), { tipo: 'text/plain; charset=utf-8', cache: CACHE.robots }), cachear: true };
 
     if (ruta === '/') {
-      const notas = await consultas.listar(env, { limite: 20, conFoto: true });
+      const dia = contextoDelDia();
+      const reciente = new Date(ahora().getTime() - PORTADA.horas * 3600 * 1000).toISOString();
+      let notas = await consultas.listar(env, { limite: 60, despues: reciente });
+      // Si en las últimas 36 horas salieron muy pocas, la portada no queda pelada: se completa con las últimas publicadas.
+      if (notas.length < PORTADA.minimoDeNotas) notas = await consultas.listar(env, { limite: 30 });
       await fijar(notas);
-      return { r: respuesta(paginaDePortada(notas, { indexar }), { cache: CACHE.portada, indexar }), cachear: true };
+      return { r: respuesta(paginaDePortada(notas, { indexar, contexto: await dia }), { cache: CACHE.portada, indexar }), cachear: true };
     }
 
     let m = /^\/seccion\/([a-z]+)$/.exec(ruta);
     if (m) {
       const seccion = seccionDeRanura(m[1]);
-      if (!seccion) return { r: noEncontrada(indexar) };
+      if (!seccion) return { r: noEncontrada() };
       const crudo = url.searchParams.get('pagina');
       const pag = crudo == null ? 1 : Number(crudo);
-      if (!Number.isInteger(pag) || pag < 1 || pag > 10000) return { r: noEncontrada(indexar) };
+      if (!Number.isInteger(pag) || pag < 1 || pag > 10000) return { r: noEncontrada() };
+      const dia = contextoDelDia();
       const total = await consultas.contar(env, { seccion: seccion.nombre });
       const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
-      if (pag > totalPaginas) return { r: noEncontrada(indexar) };
+      if (pag > totalPaginas) return { r: noEncontrada() };
       const notas = await consultas.listar(env, { seccion: seccion.nombre, limite: POR_PAGINA, desde: (pag - 1) * POR_PAGINA });
       await fijar(notas);
-      return { r: respuesta(paginaDeSeccion(seccion, notas, { pagina: pag, totalPaginas, indexar }), { cache: CACHE.seccion, indexar }), cachear: true };
+      return { r: respuesta(paginaDeSeccion(seccion, notas, { pagina: pag, totalPaginas, indexar, contexto: await dia }), { cache: CACHE.seccion, indexar }), cachear: true };
     }
 
     m = /^\/nota\/([^/]+)$/.exec(ruta);
     if (m) {
       let parte;
-      try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada(indexar) }; }
+      try { parte = decodeURIComponent(m[1]); } catch { return { r: noEncontrada() }; }
       const id = idDeRuta(parte);
-      if (!/^[a-z0-9]{2,40}$/i.test(id)) return { r: noEncontrada(indexar) };
+      if (!/^[a-z0-9]{2,40}$/i.test(id)) return { r: noEncontrada() };
       const nota = await consultas.notaPorId(env, id);
-      if (!nota) return { r: noEncontrada(indexar) };
+      if (!nota) return { r: noEncontrada() };
       await fijar([nota]);
       const buena = rutaDeNota(nota);
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
-      return { r: respuesta(paginaDeNota(nota, { indexar }), { cache: CACHE.nota, indexar }), cachear: true };
+      return { r: respuesta(paginaDeNota(nota, { indexar, contexto: await contextoDelDia() }), { cache: CACHE.nota, indexar }), cachear: true };
     }
 
     if (ruta === '/buscar') {
       const q = (url.searchParams.get('q') || '').trim().slice(0, 80);
       const notas = q.length >= 2 ? await consultas.buscar(env, q) : [];
-      return { r: respuesta(paginaDeBusqueda(q, notas), { indexar: false }) };
+      return { r: respuesta(paginaDeBusqueda(q, notas, { contexto: await contextoDelDia() }), { indexar: false }) };
     }
 
     if (ruta === '/sitemap.xml') {
@@ -107,7 +123,7 @@ export function crearSitio() {
     m = /^\/sitemap-(\d{4}-(?:0[1-9]|1[0-2]))\.xml$/.exec(ruta);
     if (m) {
       const notas = await consultas.notasDelMes(env, m[1]);
-      if (!notas.length) return { r: noEncontrada(indexar) };
+      if (!notas.length) return { r: noEncontrada() };
       return { r: respuesta(sitemapDelMes(notas), { tipo: XML, cache: CACHE.mapa, indexar: true }), cachear: true };
     }
 
@@ -116,7 +132,7 @@ export function crearSitio() {
       return { r: respuesta(rss(notas), { tipo: 'application/rss+xml; charset=utf-8', cache: CACHE.rss, indexar: true }), cachear: true };
     }
 
-    return { r: noEncontrada(indexar) };
+    return { r: noEncontrada() };
   }
 
   return {
@@ -135,7 +151,7 @@ export function crearSitio() {
         const guardada = await cache.match(clave);
         if (guardada) return guardada;
       }
-      const { r, cachear } = await armar(pedido, env, ctx);
+      const { r, cachear } = await armar(pedido, env, ctx, cache);
       if (usaCache && cachear && r.status === 200) {
         const copia = r.clone();
         const guardar = cache.put(clave, copia);

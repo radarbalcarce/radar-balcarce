@@ -103,7 +103,7 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   };
 }
 
-export function paginaDeNota(n, { indexar }) {
+export function paginaDeNota(n, { indexar, contexto }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
@@ -133,6 +133,7 @@ ${lugarRotativo(3)}
     indexar,
     cuerpo,
     imagen: foto?.url,
+    contexto,
     tipo: 'article',
     datos: [datosEstructurados(n, { parrafos, canonico, indexar })],
   });

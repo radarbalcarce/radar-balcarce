@@ -7,7 +7,7 @@ import { listarClaves } from './scripts/wrangler.mjs';
 import { crearSitio } from './sitio.mjs';
 import { baseDePrueba } from './ayuda-pruebas.mjs';
 
-const sitio = crearSitio();
+const sitio = crearSitio({ traer: async () => { throw new Error("sin red"); }, ahora: () => new Date("2026-11-02T21:00:00.000Z") });
 const ir = (env, ruta, init) => sitio.manejar(new Request(`https://radar-sitio.example${ruta}`, init), env, null, { cache: null });
 
 // Una nota del histórico mensual (web/data/historico/2026-10.json), con la forma real: aligerada (sin análisis) y con fuentes {medio, enlace}.

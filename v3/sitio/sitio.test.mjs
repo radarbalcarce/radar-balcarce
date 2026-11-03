@@ -5,7 +5,7 @@ import { bloquesDeFicha, firmaDe } from './vistas/nota.mjs';
 import { slugDe, idDeRuta } from './util.mjs';
 import { baseDePrueba, cacheDePrueba, insertarNota, FICHA_COMPLETA } from './ayuda-pruebas.mjs';
 
-const sitio = crearSitio();
+const sitio = crearSitio({ traer: async () => { throw new Error("sin red"); }, ahora: () => new Date("2026-11-02T21:00:00.000Z") });
 const ir = (env, ruta, cache = null, ctx = null) => sitio.manejar(new Request(`https://radar-sitio.example${ruta}`), env, ctx, { cache });
 const texto = async (r) => r.text();
 
@@ -29,7 +29,8 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /"@type":"NewsArticle"/);
   assert.match(h, /data-aviso="fijo"/);
   assert.match(h, /data-aviso="rotativo-3"/);
-  assert.ok(!/<script(?![^>]*ld\+json)/.test(h), 'sin JavaScript');
+  assert.equal((h.match(/<script/g) || []).length - (h.match(/<script type="application\/ld\+json"/g) || []).length, 1, 'el único JavaScript es el del menú');
+  assert.match(h, /<script>document\.documentElement\.className\+=' js'/);
   assert.ok(!/name="robots"/.test(h), 'con INDEXAR=si se indexa');
 });
 
@@ -125,15 +126,6 @@ test('la sección Cultura junta el nombre viejo «Cultura y agenda»', async () 
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite, { id: 'cul1', titulo: 'Obra de teatro', seccion: 'Cultura y agenda' });
   assert.match(await texto(await ir(env, '/seccion/cultura')), /Obra de teatro/);
-});
-
-test('la portada provisoria muestra las últimas notas con foto', async () => {
-  const { sqlite, env } = baseDePrueba();
-  insertarNota(sqlite, { id: 'confoto', titulo: 'Con foto' });
-  insertarNota(sqlite, { id: 'sinfoto', titulo: 'Sin foto', foto: null });
-  const h = await texto(await ir(env, '/'));
-  assert.match(h, /Con foto/);
-  assert.ok(!/Sin foto/.test(h));
 });
 
 test('mapas: índice por mes y mapa del mes con direcciones canónicas; mes inválido o vacío es 404', async () => {

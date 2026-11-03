@@ -74,3 +74,31 @@ export const palabras = (t) => String(t ?? '').trim().split(/\s+/).filter(Boolea
 
 /** Escapa XML. */
 export const xml = esc;
+
+const DIAS_DE_LA_SEMANA = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+/** Año, mes (1 a 12), día, hora, minuto y día de la semana (0 = domingo) en hora de Balcarce, sea cual sea la zona del servidor. */
+export function partesEnBalcarce(fecha = new Date()) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: ZONA, year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hourCycle: 'h23', weekday: 'short' })
+    .formatToParts(fecha).map((x) => [x.type, x.value]));
+  return { anio: Number(p.year), mes: Number(p.month), dia: Number(p.day), hora: Number(p.hour) % 24, minuto: Number(p.minute), diaSemana: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday) };
+}
+
+/** «Lunes 2 de noviembre de 2026», en hora de Balcarce. */
+export function fechaDelDia(fecha = new Date()) {
+  const p = partesEnBalcarce(fecha);
+  const t = `${DIAS_DE_LA_SEMANA[p.diaSemana]} ${p.dia} de ${MESES[p.mes - 1]} de ${p.anio}`;
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+/** «hace 12 min», «hace 3 h», «hace 2 d» (y «recién» si pasó menos de un minuto). */
+export function hace(iso, ahora = new Date()) {
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return '';
+  const min = Math.floor((ahora.getTime() - t) / 60000);
+  if (min < 1) return 'recién';
+  if (min < 60) return `hace ${min} min`;
+  if (min < 60 * 24) return `hace ${Math.floor(min / 60)} h`;
+  return `hace ${Math.floor(min / 1440)} d`;
+}

@@ -5,7 +5,7 @@ import { generarSql, filasDeNotaVieja, motivoDeSalto } from './scripts/migracion
 import { crearSitio } from './sitio.mjs';
 import { baseDePrueba } from './ayuda-pruebas.mjs';
 
-const sitio = crearSitio();
+const sitio = crearSitio({ traer: async () => { throw new Error("sin red"); }, ahora: () => new Date("2026-11-02T21:00:00.000Z") });
 const ir = (env, ruta) => sitio.manejar(new Request(`https://radar-sitio.example${ruta}`), env, null, { cache: null });
 
 // Cinco notas reales del archivo viejo, elegidas entre las más leídas de web/data/estadisticas.json (cuerpo recortado).

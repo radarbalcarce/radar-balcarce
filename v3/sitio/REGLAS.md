@@ -17,7 +17,9 @@ guarda cada página armada unos minutos en la caché de Cloudflare.
 - **La dirección es una sola y no cambia.** Lo que cuenta es el id del final. Si llega la dirección con un titular distinto (o sólo el id), se
   redirige a la verdadera. El titular de la dirección se fija la primera vez que la nota se muestra y queda guardado.
 - **Las secciones** (`/seccion/<seccion>`, 10 por página, `?pagina=2`): las mismas catorce de siempre.
-- **La portada** (`/`) es **provisoria**: las últimas notas con foto. La definitiva la elige Hernán entre las maquetas de `docs/propuestas/tapa-3-0/`.
+- **La portada** (`/`) es la tapa A «Diario» que eligió Hernán (maqueta en `docs/propuestas/tapa-3-0/a-diario.html`): cuadro de clima y farmacia de turno, aviso fijo, la nota principal con tres titulares al costado, una grilla de 6 con fotos, aviso rotativo 1, «Última hora» (12) con la columna lateral (aviso rotativo 2 y «Lo último de Balcarce»: todavía no hay datos de lecturas para «Lo más leído»), la invitación a escribir por WhatsApp (2266 51-1612), aviso rotativo 3 y «Más de hoy» (8). Salen las notas de las **últimas 36 horas** (si hay menos de 8, se completa con las últimas 30 publicadas). **Balcarce primero**: la principal, los titulares y la grilla toman antes las de Balcarce; la principal y la grilla piden foto. Sin foto, placa con el color de la sección. Lo reparte `armarPortada` (`vistas/portada.mjs`).
+- **Encabezado, menú y pie** son los mismos en todas las páginas (`vistas/base.mjs`): barra superior con fecha, clima y farmacia, logo, buscador, menú de 14 secciones (en el celular se abre con un botón; sin JavaScript queda a la vista) y pie. El único JavaScript del sitio es el del botón del menú.
+- **Clima y farmacia** (`datos-del-dia.mjs`): el clima sale de Open-Meteo (Balcarce, −37,846 / −58,255) y se guarda 30 minutos en la caché de Cloudflare; la farmacia de turno sale del Colegio de Farmacéuticos (`colbalcarce.com`: cronograma del mes y direcciones, el mismo camino del sistema viejo) y se guarda una hora; el turno cambia a las 8:30. Si algo falla, el cuadro dice «Clima no disponible» o manda al Colegio: nunca se inventa. Cada pedido espera como mucho 2,5 segundos.
 - **Buscar** (`/buscar?q=`): busca las palabras en título y bajada. No se indexa.
 - **Para buscadores y lectores de feeds:** `/sitemap.xml` (índice) y un mapa por mes (`/sitemap-2026-11.xml`), `/rss.xml`, `/robots.txt`.
 - **Avisos:** hay un lugar fijo y tres rotativos, vacíos y marcados en el HTML. Los datos de los avisos vienen después.
@@ -45,10 +47,17 @@ Las fotos de las notas **nuevas** del núcleo siguen guardando la URL del medio 
 
 ## 5. Cuánto dura cada cosa en caché
 
-Portada y secciones: 5 minutos. Notas: 1 hora (una corrección tarda hasta una hora en verse, salvo que se purgue). Mapas del sitio: 1 hora. RSS: 10 minutos.
+Portada y secciones: 5 minutos (el clima y la farmacia dentro de la página se ven con esa demora más la de su propia caché). Notas: 1 hora (una corrección tarda hasta una hora en verse, salvo que se purgue). Mapas del sitio: 1 hora. RSS: 10 minutos.
 Búsquedas y errores: nada.
 
 ## 6. Pruebas
 
 `node --test "v3/sitio/*.test.mjs"` (sin red, con SQLite en memoria): la nota con y sin bloques, 404, borradores ocultos, sección paginada,
-mapas, RSS, redirecciones de dirección y la migración con cinco notas reales.
+mapas, RSS, redirecciones de dirección y la migración con cinco notas reales. Más `portada.test.mjs`: el reparto de la portada, Balcarce primero, los cuatro avisos, el encabezado compartido, el clima y la farmacia con un fetch falso y su caída.
+
+## 7. Pendientes del clima y la farmacia
+
+- **Farmacia sin cruce de fuentes.** El sistema viejo cruza el cronograma del Colegio con La Vanguardia y Radio Gabal, completa el turno de hoy si el Colegio no lo trae y avisa discrepancias. El sitio nuevo lee sólo el Colegio: si no trae el día, el cuadro dice que no pudo leerlo. Falta decidir si se suma el cruce.
+- **Directorio de direcciones:** nombres de tres palabras o más con «de la» («San José de la Plaza») no se reconocen en la página del Colegio y salen sin dirección (el sistema viejo las completa con La Vanguardia y una lista a mano).
+- **Página de farmacias propia** (`/farmacias`, con los próximos días): no existe todavía; mientras tanto el cuadro enlaza al Colegio sólo cuando no puede leer el turno.
+- **Lo más leído:** sin datos de lecturas; la columna lateral muestra lo último de Balcarce.

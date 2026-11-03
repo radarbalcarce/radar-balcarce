@@ -34,10 +34,10 @@ export async function notaPorId(env, id) {
   return aNota(f);
 }
 
-/** Las notas de una sección (o de todas, con ranura null), de la más nueva a la más vieja. `conFoto` deja sólo las que tienen foto. */
-export async function listar(env, { seccion = null, limite = 10, desde = 0, conFoto = false } = {}) {
-  const donde = [seccion ? 'AND n.seccion IN (?, ?)' : '', conFoto ? "AND n.foto IS NOT NULL AND n.foto != 'null'" : ''].join(' ');
-  const params = seccion ? [seccion, ...aliasesDe(seccion)] : [];
+/** Las notas de una sección (o de todas, con ranura null), de la más nueva a la más vieja. `conFoto` deja sólo las que tienen foto; `despues` (ISO), sólo las publicadas desde ese momento. */
+export async function listar(env, { seccion = null, limite = 10, desde = 0, conFoto = false, despues = null } = {}) {
+  const donde = [seccion ? 'AND n.seccion IN (?, ?)' : '', despues ? `AND ${PUBLICADA} >= ?` : '', conFoto ? "AND n.foto IS NOT NULL AND n.foto != 'null'" : ''].join(' ');
+  const params = [...(seccion ? [seccion, ...aliasesDe(seccion)] : []), ...(despues ? [despues] : [])];
   const r = await env.DB.prepare(`SELECT ${CAMPOS} ${DESDE} ${donde} ORDER BY ${PUBLICADA} DESC LIMIT ? OFFSET ?`).bind(...params, limite, desde).all();
   return (r.results || []).map(aNota);
 }
