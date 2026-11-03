@@ -701,3 +701,13 @@ de YouTube; en X, la cuenta gratuita tiene un tope mensual que hay que medir ant
 - **Otras ideas a evaluar** (de la investigación): newsletter diaria con lugar patrocinado, canal de WhatsApp, página de datos útiles y
   teléfonos de urgencia, encuesta semanal, botón «Mandanos información», página `/publicidad` con el media kit, RSS propio (ya existe:
   `/feed.xml` y `/rss.xml`), informe diario y semanal de analíticas con decisiones, investigación semanal de otros medios.
+
+**Sumado el 3/11, mockups de redes** (Hernán vio los 20 mockups de `docs/propuestas/redes-3-0/`: «me gusta»):
+
+- **Todas las piezas con una animación breve** (entrada de cada escena, como las escenas animadas de hoy), no placas quietas.
+- **Efeméride corta (un hecho y un «También», ~15 s): a prueba una semana** y se compara el alcance con las anteriores (vistas, tiempo de
+  visualización, compartidos). Se arman **con antelación, todo el mes** (ya se arman el 20), y se busca sumar **imágenes o un video
+  representativo** del hecho (archivo con licencia libre o ilustración; nunca foto de un menor ni de una víctima).
+- Siguen abiertas las 17 preguntas del mensaje del 3/11 (música, saludos, Instagram espejo, carrusel de 10, auspicio del clima, Bluesky,
+  imagen 4:5, zona segura y firma, largo del clima, TikTok/YouTube por Buffer, publicidad sin precios, «Tu foto del día», X, carpeta de
+  música, AdSense, fuentes locales) más tres de los mockups (firma tapada, fotos con chicos de lejos en Halloween, número de WhatsApp).
