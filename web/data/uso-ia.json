@@ -2715,6 +2715,25 @@
       }
      }
     }
+   },
+   "ilustraciones": {
+    "gemini-flash-lite-latest": {
+     "llamadas": 13,
+     "errores": 1,
+     "entrada": 17256,
+     "salida": 864,
+     "pensamiento": 0,
+     "total": 18120,
+     "claves": {
+      "clasificacion": 13
+     },
+     "motivos": {
+      "clasificacion": {
+       "ok": 12,
+       "otro": 1
+      }
+     }
+    }
    }
   }
  }
