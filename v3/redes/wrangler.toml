@@ -22,7 +22,7 @@ service = "radar-telegram"
 
 [vars]
 # «no» = simula (elige, arma el texto, lo anota con simulado = 1 y no llama a Meta). «si» = publica de verdad. La prende una persona.
-REDES_ACTIVAS = "no"
+REDES_ACTIVAS = "si"
 # El espejo de cada posteo de Facebook en el feed de Instagram (foto entera, sin enlace). «no» lo apaga.
 INSTAGRAM_ESPEJO = "si"
 # Opcional: el cupo de audios del día para las piezas de video (por defecto 10, el de la clave gratis).
