@@ -21,6 +21,7 @@
 import { crearGemini } from '../../nucleo/redactar/gemini.mjs';
 import { anotarUso } from '../../nucleo/db/db.mjs';
 import { procesar, vencerPreguntaDeRedes, TOPE_PEDIDOS_IA } from './nota-propia.mjs';
+import { procesarAdmin, hayAccionEnCurso, COMANDOS as COMANDOS_ADMIN } from './administrar.mjs';
 
 const API = 'https://api.telegram.org';
 
@@ -59,7 +60,12 @@ async function recibir(pedido, env, ctx, textos) {
   try { actualizacion = await pedido.json(); } catch { return new Response('ok'); }
 
   const dueno = await env.ESTADO.get('dueno', 'json');
-  const { respuesta, nuevoDueno, entrada: lo, accion } = decidir(actualizacion, dueno, new Date());
+  const decidido = decidir(actualizacion, dueno, new Date());
+  const { respuesta, nuevoDueno, entrada: lo } = decidido;
+  let { accion } = decidido;
+  // Un «sí», un «no» o un cambio mientras hay un /retirar o /corregir en curso le toca a administrar.mjs (salvo /nota y lo que no es texto).
+  const t = actualizacion?.message?.text;
+  if (accion === 'nota' && typeof t === 'string' && !/^\/nota\b/i.test(t.trim()) && (await hayAccionEnCurso(env.ESTADO))) accion = 'admin';
   if (nuevoDueno) ctx.waitUntil(env.ESTADO.put('dueno', JSON.stringify(nuevoDueno)));
   // Lo que escribió el dueño queda guardado para que Claude lo lea; si el KV falla, igual se le contesta.
   if (lo) {
@@ -68,6 +74,7 @@ async function recibir(pedido, env, ctx, textos) {
   if (respuesta) ctx.waitUntil(enviar(env.TELEGRAM_TOKEN, respuesta.chat, respuesta.texto));
   // La nota propia: armarla lleva un rato (audios, enlace, IA), así que se hace después de contestarle 200 a Telegram.
   if (accion === 'nota') ctx.waitUntil(procesar(depDe(env, dueno.chat, textos), actualizacion));
+  if (accion === 'admin') ctx.waitUntil(procesarAdmin(depDe(env, dueno.chat, textos), actualizacion));
   // A Telegram siempre se le contesta 200 enseguida: si no, reintenta el mismo mensaje una y otra vez.
   return new Response('ok');
 }
@@ -101,11 +108,13 @@ export function decidir(actualizacion, dueno, ahora = new Date()) {
   } else if (comando === '/start' || /^hola\b/i.test(texto)) {
     r = `Hola, ${nombre.split(' ')[0]}. Conectado y escuchando. Para una nota: mandame el material y decí «armala».`;
   } else if (comando === '/estado') {
-    r = `Conectado. Dueño: ${dueno.nombre}${dueno.usuario ? ` (@${dueno.usuario})` : ''}, desde el ${fechaCorta(dueno.desde)}. Armo notas propias: mandame texto, audios, fotos o un enlace y decí «armala» (o /nota). /cancelar descarta.`;
+    r = `Conectado. Dueño: ${dueno.nombre}${dueno.usuario ? ` (@${dueno.usuario})` : ''}, desde el ${fechaCorta(dueno.desde)}. Armo notas propias: mandame texto, audios, fotos o un enlace y decí «armala» (o /nota). /cancelar descarta. /ayuda muestra todo lo que sé hacer.`;
   } else if (comando === '/nota' || comando === '/cancelar') {
     return { accion: 'nota', entrada: entradaDe(m, ahora) };
+  } else if (COMANDOS_ADMIN.includes(comando)) {
+    return { accion: 'admin', entrada: entradaDe(m, ahora) };
   } else if (texto.startsWith('/')) {
-    r = 'Entiendo /nota (armar la nota con lo que mandaste), /cancelar y /estado.';
+    r = 'Ese comando no lo conozco. Escribí /ayuda y te muestro todo lo que sé hacer.';
   } else {
     // Texto, audio, foto o enlace: es material para una nota (o la respuesta a una vista previa). Lo atiende nota-propia.mjs.
     return { accion: 'nota', entrada: entradaDe(m, ahora) };

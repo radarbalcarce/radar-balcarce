@@ -94,6 +94,18 @@ En GitHub: Settings → Secrets and variables → Actions → New repository sec
 «Radar 3.0: desplegar» con `telegram`. O en Cloudflare: Workers → radar-telegram → Settings → Variables and Secrets → Add → Secret
 `TELEGRAM_TOKEN`. Nunca en un chat, nunca en el código.
 
+## Administrar lo publicado (reemplaza al panel del celular viejo)
+
+Código en `administrar.mjs`, pruebas en `administrar.test.mjs`. Sólo el dueño; nunca usa IA; escribe directo en la tabla `notas` de la D1 (las consultas están en el bot, no importa nada del núcleo).
+
+- `/ultimas`: las 10 últimas publicadas (estado `publicada`, sin `no_publicar`), con título corto y enlace. `/pendientes`: borradores (estado `borrador`) con su id.
+- `/retirar <enlace o id> <motivo>`: muestra el título y pide «sí». Con el «sí», `estado = retirada` y `no_publicar = {motivo, cuando, por: "Hernán (Telegram)"}`. Sin motivo no avanza.
+- `/corregir <enlace o id>`: muestra título y bajada y acepta `título: …`, `bajada: …` o `cuerpo: reemplazá "X" por "Y"` (reemplazo literal, sólo la primera vez que aparece). Muestra antes y después y pide «sí».
+  Cada corrección se anota en `ficha.correcciones[]` con `cuando`, `campo`, `antes`, `despues`, `por` (y `parrafo_antes` si fue en el cuerpo): el texto original no se pierde. A una nota retirada no se la corrige.
+- El id es lo último de la dirección: se prueba la parte final más larga que exista (`la-escuela-67zuqsi` → `67zuqsi`; `clima-2026-11-03` queda entero).
+- Lo que está esperando un «sí» vive en el KV, clave `accion`, 10 minutos. Mientras exista, un «sí», «no» o cambio le toca a administrar (salvo `/nota`); «no» o `/cancelar` lo descartan.
+- `/ayuda` lista todo; un comando desconocido manda a `/ayuda`.
+
 ## Salud
 
 `GET https://radar-telegram.radarbalcarce.workers.dev/salud` dice si tiene token, si el webhook está registrado y quién es el dueño

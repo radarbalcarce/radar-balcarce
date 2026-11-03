@@ -29,7 +29,7 @@ test('el dueño: /estado, comandos y saludo se contestan; texto, audio y foto so
   const dueno = { chat: 111, nombre: 'Hernán Accomo', usuario: 'hernan', desde: ahora.toISOString() };
   const d = (extra) => decidir(mensaje(extra), dueno, ahora);
   assert.match(d({ text: '/estado' }).respuesta.texto, /Dueño: Hernán Accomo \(@hernan\), desde el 1\/11/);
-  assert.match(d({ text: '/loquesea' }).respuesta.texto, /Entiendo \/nota/);
+  assert.match(d({ text: '/loquesea' }).respuesta.texto, /\/ayuda/);
   assert.match(d({ text: 'hola' }).respuesta.texto, /Conectado y escuchando/);
   for (const extra of [{ text: 'che, mirá esto' }, { voice: { duration: 42, file_id: 'x' } }, { photo: [{ file_id: 'x' }] }, { text: '/nota' }, { text: '/cancelar' }]) {
     const r = d(extra);
