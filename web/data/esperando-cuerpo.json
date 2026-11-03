@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-03T03:03:37.362Z",
+ "generado": "2026-11-03T04:04:33.179Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -33,11 +33,6 @@
      "medio": "Crónica",
      "enlace": "https://www.cronica.com.ar/politica/elecciones-presidenciales-2027-habilitan-el-padron-electoral-provisorio-como-consultar-los-datos-para-votar/",
      "fecha": "2026-11-02T16:43:01.000Z"
-    },
-    {
-     "medio": "Radio Mitre",
-     "enlace": "https://radiomitre.cienradios.com/sociedad/publicaron-el-padron-provisorio-para-las-elecciones-2027-como-y-donde-consultarlo/",
-     "fecha": "2026-11-02T14:53:29.000Z"
     },
     {
      "medio": "Canal 26",
@@ -154,8 +149,8 @@
      "fecha": "2026-11-02T20:45:00.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"domingo\", que sale de una nota anterior, como si fuera de hoy",
+   "intentos": 2,
+   "motivo": "cuerpo: 4 problemas (antecedente, numero): el cuerpo usa 0, que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 160 palabras",
    "maximo": 3
   },
   {
@@ -215,6 +210,14 @@
    "fecha": "2026-11-02T11:58:31.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa \"sabado\", que sale de una nota anterior, como si fuera de hoy"
+  },
+  {
+   "id": "q9wlq",
+   "titulo": "Citan a declaración a dos profesionales de la salud por la muerte de Claribel Medina",
+   "seccion": "Policiales",
+   "fecha": "2026-11-02T16:05:41.283Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\""
   },
   {
    "id": "17f0f1r",

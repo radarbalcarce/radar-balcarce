@@ -2529,34 +2529,35 @@
   "2026-11-03": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 2,
-     "errores": 2,
-     "entrada": 0,
-     "salida": 0,
+     "llamadas": 5,
+     "errores": 4,
+     "entrada": 2776,
+     "salida": 1420,
      "pensamiento": 0,
-     "total": 0,
+     "total": 4196,
      "claves": {
-      "clasificacion": 2
+      "clasificacion": 5
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 2
+       "cupo-diario": 4,
+       "ok": 1
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 2,
+     "llamadas": 4,
      "errores": 1,
-     "entrada": 3063,
-     "salida": 2819,
+     "entrada": 7967,
+     "salida": 6701,
      "pensamiento": 0,
-     "total": 5882,
+     "total": 14668,
      "claves": {
-      "groq": 2
+      "groq": 4
      },
      "motivos": {
       "groq": {
-       "ok": 1,
+       "ok": 3,
        "velocidad": 1
       }
      }
@@ -2580,6 +2581,22 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
+     "llamadas": 4,
+     "errores": 4,
+     "entrada": 0,
+     "salida": 0,
+     "pensamiento": 0,
+     "total": 0,
+     "claves": {
+      "clasificacion": 4
+     },
+     "motivos": {
+      "clasificacion": {
+       "cupo-diario": 4
+      }
+     }
+    },
+    "openai/gpt-oss-20b": {
      "llamadas": 2,
      "errores": 2,
      "entrada": 0,
@@ -2587,112 +2604,98 @@
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 2
-     },
-     "motivos": {
-      "clasificacion": {
-       "cupo-diario": 2
-      }
-     }
-    },
-    "openai/gpt-oss-20b": {
-     "llamadas": 1,
-     "errores": 1,
-     "entrada": 0,
-     "salida": 0,
-     "pensamiento": 0,
-     "total": 0,
-     "claves": {
-      "groq": 1
+      "groq": 2
      },
      "motivos": {
       "groq": {
-       "otro": 1
+       "otro": 2
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 8,
-     "errores": 8,
+     "llamadas": 12,
+     "errores": 12,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "redaccion": 8
+      "redaccion": 12
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 8
+       "cupo-diario": 12
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 8,
+     "llamadas": 12,
      "errores": 0,
-     "entrada": 45526,
-     "salida": 9099,
+     "entrada": 66949,
+     "salida": 14211,
      "pensamiento": 0,
-     "total": 54625,
+     "total": 81160,
      "claves": {
-      "redaccion": 8
+      "redaccion": 12
      },
      "motivos": {
       "redaccion": {
-       "ok": 8
+       "ok": 12
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
-     "errores": 10,
-     "entrada": 0,
-     "salida": 0,
+     "llamadas": 20,
+     "errores": 18,
+     "entrada": 20460,
+     "salida": 1773,
      "pensamiento": 0,
-     "total": 0,
+     "total": 22233,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 20
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 10
+       "cupo-diario": 18,
+       "ok": 2
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 10,
+     "llamadas": 18,
      "errores": 1,
-     "entrada": 50979,
-     "salida": 4205,
+     "entrada": 100676,
+     "salida": 8260,
      "pensamiento": 0,
-     "total": 55184,
+     "total": 108936,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 18
      },
      "motivos": {
       "clasificacion": {
-       "ok": 9,
+       "ok": 17,
        "saturado": 1
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 1,
+     "llamadas": 5,
      "errores": 1,
-     "entrada": 0,
-     "salida": 0,
+     "entrada": 6413,
+     "salida": 373,
      "pensamiento": 0,
-     "total": 0,
+     "total": 6786,
      "claves": {
-      "groq": 1
+      "groq": 5
      },
      "motivos": {
       "groq": {
-       "cupo-diario": 1
+       "cupo-diario": 1,
+       "ok": 4
       }
      }
     }
