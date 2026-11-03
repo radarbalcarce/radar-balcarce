@@ -15,7 +15,7 @@ import {
   IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA,
 } from './variables.mjs';
 import {
-  acortarPalabras, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
+  acortarPalabras, conPunto, contarPalabras, direccionHablada, frases, ganchoDe, hablarCuenta, hablarNumero, momentoDe, nombrePropio, partesQueEntran, presupuestoDeVoz,
   primeraFrase, saludoDe, tituloEnPantalla, topeDeVoz, acortarCaracteres,
 } from './voz.mjs';
 import { PIEZAS_PARTICIPA } from '../../../redes/participa.mjs';
@@ -146,7 +146,7 @@ export function armarRepaso(notas, { fecha = '', ...opciones } = {}) {
   const escenas = [
     ...elegidas.map((nota, i) => {
       const cap = i === 0 ? Math.max(8, tope - contarPalabras(apertura)) : tope;
-      const voz = partesQueEntran([nota.titulo, ...frases(nota.bajada ?? '').slice(0, 1)], cap);
+      const voz = partesQueEntran([conPunto(nota.titulo), ...frases(nota.bajada ?? '').slice(0, 1)], cap);
       return escena('placa-nota', REPASO.porNota, {
         rotulo: titulo, i, n, titulo: tituloEnPantalla(nota.titulo), seccion: nota.seccion, foto: fotoDe(nota.foto), marca: i === 0 ? null : nota.titulo,
       }, i === 0 ? unir(apertura, voz) : voz);

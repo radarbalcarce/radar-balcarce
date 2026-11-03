@@ -2,6 +2,17 @@
 // Sólo corre con REDES_ACTIVAS en «si»; en ensayo se arma el mismo texto y se anota lo que se HABRÍA publicado. Puro salvo `publicarPieza`, que recibe el cliente.
 import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
 import { accionesDe } from '../piezas-del-dia.mjs';
+import { ponerOrigen, SITIO } from '../texto.mjs';
+
+/**
+ * El clima, los avisos de clima y la farmacia, cuando salen como reel en Facebook, llevan el enlace a SU página del sitio (/clima, /farmacias) con su origen, no un «Todo en radarbalcarce.com»
+ * suelto (regla 210 del sistema viejo, 17/10/2026: a las 19 y las 20 casi nadie llegaba a la web desde esas piezas). Instagram, sin enlaces.
+ */
+const SERVICIOS_CON_PAGINA = {
+  clima: { camino: '/clima', frase: 'El pronóstico de toda la semana, acá' },
+  aviso: { camino: '/clima', frase: 'El pronóstico de toda la semana, acá' },
+  farmacia: { camino: '/farmacias', frase: 'Las farmacias de turno de toda la semana, con dirección, acá' },
+};
 
 const limpiar = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 
@@ -24,7 +35,10 @@ export function textoDePieza(pieza, item, red) {
   if (item.arma === 'repaso') lineas.push(...(item.datos.notas ?? []).slice(0, 3).map((n, i) => `${i + 1}. ${limpiar(n.titulo)}`));
   else lineas.push(resumenDelGuion(pieza.guion));
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
-  lineas.push('', red === 'instagram' ? 'Todo en Radar Balcarce: link en la bio.' : `Todo en ${DIRECCION_DEL_SITIO}`);
+  const servicio = SERVICIOS_CON_PAGINA[item.arma];
+  if (red === 'instagram') lineas.push('', 'Todo en Radar Balcarce: link en la bio.');
+  else if (servicio) lineas.push('', `${servicio.frase}: ${ponerOrigen(`${SITIO}${servicio.camino}`, { fuente: 'facebook', campana: 'servicio', contenido: item.id ?? item.arma })}`);
+  else lineas.push('', `Todo en ${DIRECCION_DEL_SITIO}`);
   if (pieza.aviso) lineas.push('', pieza.aviso || AVISO_DE_IA_TEXTO);
   lineas.push('', `${HASHTAGS_FIJOS} #${item.hashtag}`);
   return lineas.join('\n');

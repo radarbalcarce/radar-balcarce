@@ -68,9 +68,9 @@ export function tituloParaYoutube(titulo) {
 }
 
 /** Lo que va en `metadata` según la red. */
-export function metadatosDe(servicio, { titulo } = {}) {
+export function metadatosDe(servicio, { titulo, ia = false } = {}) {
   if (servicio === 'youtube') return { youtube: { title: tituloParaYoutube(titulo), privacy: 'public', categoryId: CATEGORIA_DE_YOUTUBE, madeForKids: false, notifySubscribers: true } };
-  if (servicio === 'tiktok') return { tiktok: { isAiGenerated: false } };
+  if (servicio === 'tiktok') return { tiktok: { isAiGenerated: ia === true } }; // `ia`: el reel habla con voz generada (Radar 3.0 lo marca; el sistema viejo no lo pasa y queda en false)
   return null;
 }
 
@@ -100,7 +100,7 @@ export function textoParaX(texto) {
 }
 
 /** Publica un video ya, en un canal. Devuelve { ok, id?, motivo? }. */
-export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}) {
+export async function publicarVideo({ canal, url, texto, titulo, ia = false }, opciones = {}) {
   const input = {
     channelId: canal.id,
     text: esX(canal.servicio) ? textoParaX(texto) : String(texto ?? '').slice(0, 2000),
@@ -109,7 +109,7 @@ export async function publicarVideo({ canal, url, texto, titulo }, opciones = {}
     mode: 'shareNow',
     assets: [{ video: { url } }],
   };
-  const metadata = metadatosDe(canal.servicio, { titulo });
+  const metadata = metadatosDe(canal.servicio, { titulo, ia });
   if (metadata) input.metadata = metadata;
   const r = await pedir(CREAR, { input }, opciones);
   if (!r.ok) return { ok: false, motivo: r.motivo };
@@ -139,14 +139,14 @@ export function redesParaBuffer(libro, clave) {
 /**
  * Manda un video a las redes de Buffer pedidas (por defecto, TikTok y YouTube). Devuelve { [servicio]: { ok, id?, motivo? } }; sin clave, {}.
  */
-export async function publicarReel({ url, texto, titulo, redes = REDES_DE_BUFFER }, opciones = {}) {
+export async function publicarReel({ url, texto, titulo, redes = REDES_DE_BUFFER, ia = false }, opciones = {}) {
   if (!hayBuffer(opciones.env ?? process.env)) return {};
   const c = await canales(opciones);
   const resultado = {};
   if (!c.ok) { for (const s of redes) resultado[s] = { ok: false, motivo: c.motivo }; return resultado; }
   for (const servicio of redes) {
     const canal = c.canales.find((x) => x.servicio === servicio || (esX(servicio) && esX(x.servicio)));
-    resultado[servicio] = canal ? await publicarVideo({ canal, url, texto, titulo }, opciones) : { ok: false, motivo: `no hay un canal de ${servicio} conectado en Buffer` };
+    resultado[servicio] = canal ? await publicarVideo({ canal, url, texto, titulo, ia }, opciones) : { ok: false, motivo: `no hay un canal de ${servicio} conectado en Buffer` };
   }
   return resultado;
 }

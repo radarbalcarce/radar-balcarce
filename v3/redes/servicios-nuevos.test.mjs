@@ -146,13 +146,15 @@ test('la cotización del dólar y las notas de servicio no van a ninguna red: ni
 
 // ------------------------------------------------------------------ Buffer: TikTok, YouTube Shorts y X
 
-test('Buffer: TikTok y X sin farmacia, útiles ni agenda; YouTube sin el repaso de la tarde ni el clima de la noche y hasta 6 por día; los avisos no', () => {
+test('Buffer: TikTok y X sin farmacia, útiles ni agenda; YouTube sólo los reels de Instagram (como el viejo: sin clima ni farmacia) y hasta 6 por día; los avisos no', () => {
   const de = (id, o) => redesDeBuffer(ID(id), o);
   assert.deepEqual(de('noticia1'), ['tiktok', 'youtube', 'twitter']);
-  assert.deepEqual(de('noticia2'), ['tiktok', 'twitter']);
+  assert.deepEqual(de('noticia2'), ['tiktok', 'youtube', 'twitter']);
   assert.deepEqual(de('clima-noche'), ['tiktok', 'twitter']);
-  assert.deepEqual(de('farmacia'), ['youtube']);
+  assert.deepEqual(de('farmacia'), []);
   assert.deepEqual(de('utiles'), ['youtube']);
+  assert.deepEqual(de('clima-manana'), ['tiktok', 'twitter']);
+  assert.deepEqual(de('efemeride'), ['tiktok', 'youtube', 'twitter']);
   assert.deepEqual(de('agenda'), ['youtube']);
   assert.deepEqual(de('aviso-helada'), []);
   assert.deepEqual(de('noticia1', { youtubeHoy: TOPE_YOUTUBE_POR_DIA }), ['tiktok', 'twitter']);

@@ -85,7 +85,7 @@ const SIN_PASAR_A_PROPOSITO = {
   'apagados de emergencia: sin la variable todo anda como siempre, y se pueden crear a mano en el Worker o en el panel (docs/08-INFRAESTRUCTURA.md)': [
     'FACEBOOK_COMO_FOTO', 'REELS_ESCENAS', 'REELS_ANIMADOS', 'MEMORIA_DE_ACA', 'CRUCE_COHERENTE', 'HECHO_PRINCIPAL', 'INGESTA_PERMITIR_VACIA', 'ARCHIVO_PERMITIR_BAJA',
     'TARJETAS_SIN_CACHE', 'TARJETAS_CACHE', 'META_PAGE_ID', 'ARCHIVO_ESTADO_URL', 'ARCHIVO_URL', 'AVISOS_URL', 'CLOUDFLARE_SITE_TAG',
-    'ESTADO_DEL_VIGILANTE', 'MOTOR_SIN_TOPE', 'MOTOR_REPOSITORIO', 'TAREAS_R2', 'R2_MOTOR',
+    'ESTADO_DEL_VIGILANTE', 'URL_DE_REDES', 'MOTOR_SIN_TOPE', 'MOTOR_REPOSITORIO', 'TAREAS_R2', 'R2_MOTOR',
   ],
   'son de un Worker y se ponen en su panel de Cloudflare (no son de GitHub)': [
     'ARCHIVO', 'MOTOR', 'AVISOS', 'ESTADO', 'MEMORIA',

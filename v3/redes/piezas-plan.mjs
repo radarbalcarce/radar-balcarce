@@ -5,7 +5,7 @@
 import { redesDeBuffer } from './piezas-del-dia.mjs';
 import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloqueDeLaHora, relojDeBalcarce } from './piezas-del-dia.mjs';
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
-import { notasParaRedes } from './db.mjs';
+import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
 
 export const REGLAS_PIEZAS = Object.freeze({
@@ -87,6 +87,17 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const porSalirHoy = (p) => hayDato(p) && piezasDeHoy(ahora).some((x) => x.id === p.id) && !filas.some((f) => f.pieza === p.id && cuentanComoHecha.has(f.estado)) && minuto < Math.min(1440, minutoDe(p.hora) + p.ventana);
 
   const notasDeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).flatMap((f) => f.notas ?? []);
+  // Una nota sale en UN formato (Hernán, 23/10: «la misma nota como posteo y en los resúmenes aburre»): lo que ya salió como posteo de Facebook hoy o ayer y lo que contó un repaso de ayer no entra en un repaso.
+  const ayer = diaDeBalcarce(new Date(ahora.getTime() - 24 * 3600_000));
+  const yaContadas = [];
+  if (pendientes.some((p) => p.arma === 'repaso')) {
+    for (const d of [dia, ayer]) {
+      const posteos = await publicacionesDelDia(env, d, simulado).catch(() => []);
+      for (const h of posteos) if (h.red === 'facebook' && ['ok', 'enviando', 'simulado'].includes(h.estado)) yaContadas.push(h.notaId);
+    }
+    const deAyer = await dbp.piezasDelDia(env, ayer, simulado).catch(() => []);
+    for (const f of deAyer) if (cuentanComoHecha.has(f.estado)) yaContadas.push(...(f.notas ?? []));
+  }
   let notasCargadas = null;
   const salen = [];
   // Cuántos YouTube Shorts ya se dieron hoy (el tope es 6): las filas armadas o publicadas que llevan la acción de YouTube.
@@ -100,7 +111,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     let auspicio = null;
     if (p.arma === 'repaso') {
       notasCargadas ??= await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - reglas.edadDeLasNotasHoras * 3600_000).toISOString(), conBorradores: simulado });
-      const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...salen.flatMap((s) => s.datos.notasIds ?? [])], reglas });
+      const elegidas = notasDelRepaso(notasCargadas, { ahora, yaUsadas: [...notasDeHoy, ...yaContadas, ...salen.flatMap((s) => s.datos.notasIds ?? [])], reglas });
       if (!elegidas.length) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
       datos = { notas: elegidas.map(paraElArmador), notasIds: elegidas.map((n) => n.id), sinBalcarce: !elegidas.some((n) => tipoDeNota(n) === 'local') };
       notas = datos.notasIds;

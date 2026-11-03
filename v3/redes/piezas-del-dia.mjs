@@ -87,7 +87,6 @@ export const REDES_DE_BUFFER = Object.freeze(['tiktok', 'youtube', 'twitter']);
 export const TOPE_YOUTUBE_POR_DIA = 6;
 
 const SIN_TIKTOK = new Set(['farmacia', 'utiles', 'agenda']); // lo muy de acá y de servicio no le sirve a TikTok
-const SIN_YOUTUBE = new Set(['noticia2', 'clima-noche']);      // no van el repaso de la tarde ni el clima de la noche
 
 /**
  * A qué canales de Buffer va una pieza de video, con el mismo mp4 de Facebook: TikTok y X, todo menos farmacia, útiles y agenda; YouTube Shorts, todo menos el repaso de la tarde y el
@@ -98,7 +97,7 @@ export function redesDeBuffer(pieza, { youtubeHoy = 0 } = {}) {
   if (!pieza || pieza.arma === 'aviso') return [];
   const redes = [];
   if (!SIN_TIKTOK.has(pieza.id)) redes.push('tiktok');
-  if (!SIN_YOUTUBE.has(pieza.id) && youtubeHoy < TOPE_YOUTUBE_POR_DIA) redes.push('youtube');
+  if (pieza.formato !== 'historia' && youtubeHoy < TOPE_YOUTUBE_POR_DIA) redes.push('youtube');
   if (!SIN_TIKTOK.has(pieza.id)) redes.push('twitter');
   return redes;
 }

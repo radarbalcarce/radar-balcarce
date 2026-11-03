@@ -129,6 +129,16 @@ export function crearRedes(deps = {}) {
     return notas.filter((n) => n.foto?.url && hay.has(nombreDePlaca(n))).map((n) => conPlaca(n, base));
   }
 
+  /** Los ids de las notas que contó un repaso hoy o ayer (en curso, listo o publicado): una nota sale en UN formato, no como posteo y además en un resumen (Hernán, 23/10). */
+  async function notasEnRepasos(env, { ahora, simulado }) {
+    const ids = new Set();
+    for (const dia of [diaDeBalcarce(ahora), diaDeBalcarce(new Date(ahora.getTime() - 24 * 3600 * 1000))]) {
+      const filas = await dbp.piezasDelDia(env, dia, simulado).catch(() => []);
+      for (const f of filas) if (['en-curso', 'lista', 'publicada'].includes(f.estado)) for (const id of f.notas ?? []) ids.add(id);
+    }
+    return [...ids];
+  }
+
   /** Una vuelta: a lo sumo un posteo de Facebook y un espejo de Instagram. */
   async function vuelta(env, { ahora = reloj() } = {}) {
     const simulado = !redesActivas(env);
@@ -140,7 +150,7 @@ export function crearRedes(deps = {}) {
     let hechas = await db.publicacionesDelDia(env, dia, simulado);
     const resultado = { simulado, dia, notasMiradas: miradas, conPlaca: notas.length, facebook: null, instagram: null, motivo: null };
 
-    const dec = elegirParaFacebook({ notas, hechas, ahora });
+    const dec = elegirParaFacebook({ notas, hechas, enRepasos: await notasEnRepasos(env, { ahora, simulado }), ahora });
     if (dec.nota) {
       resultado.facebook = await publicarUna(env, { red: 'facebook', nota: dec.nota, tipo: dec.tipo, simulado, ahora, hechas });
       hechas = await db.publicacionesDelDia(env, dia, simulado);

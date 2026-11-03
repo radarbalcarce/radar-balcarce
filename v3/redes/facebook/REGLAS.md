@@ -32,7 +32,7 @@
 - Las **dos líneas** son las que escribió el núcleo (`enDosLineas`); si no hay, la bajada; si repiten el título, no se ponen. Si pasan de 280 caracteres, se cortan en una oración entera.
 - La frase que antecede al enlace cambia de una nota a otra (siempre la misma para la misma nota) para que la página no suene a plantilla: «Leé la nota completa:», «Toda la nota acá:»,
   «Seguí leyendo en Radar Balcarce:», «La nota completa, en Radar Balcarce:». El enlace es a **nuestra** nota, nunca a la fuente.
-- Los hashtags son **siempre los dos fijos**, en ese orden.
+- Los hashtags (como el sistema viejo, regla 281): **los dos fijos primero** y después hasta 3 de la nota (sus etiquetas o, si no trae, el tema de su sección), sin repetir. Igual en Instagram.
 - El **crédito de la foto** va al final («Foto: …»; una ilustración se dice ilustración).
 
 ## Cómo publica

@@ -12,7 +12,7 @@ import {
   CAJA_TEXTO, TEXTO_HASTA_Y, FIRMA_RAYA_Y, FRANJA_AUSPICIO, CLIMA, REPASO, EFEMERIDE, NOTA_REEL, NOTA_PROPIA, CARRUSEL_MAX_INSTAGRAM, MUSICA, SALUDOS, AVISO_DE_IA_TEXTO,
 } from './variables.mjs';
 import {
-  saludoDe, momentoDe, contarPalabras, presupuestoDeVoz, hablarCuenta, hablarNumero, direccionHablada, ganchoDe, acortarPalabras, primeraFrase,
+  saludoDe, momentoDe, contarPalabras, presupuestoDeVoz, hablarCuenta, hablarNumero, direccionHablada, ganchoDe, acortarPalabras, primeraFrase, conPunto,
 } from './voz.mjs';
 
 // ------------------------------------------------------------------ datos de mentira
@@ -203,6 +203,17 @@ test('repaso: máximo 3 notas, lo de Balcarce primero, 30 s con tres, con las pl
   assert.equal(p.escenas.at(-1).datos.notas.length, 3);
   assert.match(p.guion, /Todo en Radar Balcarce punto com/);
   assert.equal(armarRepaso(Array.from({ length: 20 }, (_, i) => (i === 0 ? nota() : nacional(i))), {}).escenas.filter((e) => e.tipo === 'placa-nota').length, 3);
+});
+
+test('repaso: cada titular se dice con su punto, para que la voz no los lea de corrido (ensayo del 3/11: «…Día de la Tradición El personal no docente…»)', () => {
+  const sinPunto = (extra) => nota({ titulo: 'San Agustín celebrará el Día de la Tradición', bajada: '', ...extra });
+  const p = armarRepaso([sinPunto({ id: 'a' }), nacional(1), nacional(2)], { hora: 10 });
+  assert.match(p.guion, /Tradición\. /, p.guion);
+  for (const e of p.escenas.filter((x) => x.tipo === 'placa-nota')) assert.match(e.voz, /[.!?…:]$/, e.voz);
+  assert.equal(conPunto('Un titular sin punto'), 'Un titular sin punto.');
+  assert.equal(conPunto('¿Qué pasó en la plaza?'), '¿Qué pasó en la plaza?');
+  assert.equal(conPunto('Un titular con puntos suspensivos…'), 'Un titular con puntos suspensivos…');
+  assert.equal(conPunto('  '), '');
 });
 
 test('repaso: con dos notas dura menos; sin una de Balcarce o con una sola nota no se arma', () => {
@@ -446,4 +457,11 @@ test('el recorte del guion cae en un límite natural: nunca «en.», «de.», «
   assert.equal(acortarPalabras('Corta y entera', 10), 'Corta y entera');
   const largo = acortarCaracteres('Presentará un candidato presidencial en el acto de este sábado en Balcarce con todo', 56);
   assert.doesNotMatch(largo, /\b(en|de|la|el|con)…$/);
+});
+
+test('Buffer: TikTok marca el reel como contenido con IA cuando se lo pide (todo reel de 3.0 habla con voz generada); sin pedirlo queda como en el sistema viejo', async () => {
+  const { metadatosDe } = await import('../../../redes/buffer.mjs');
+  assert.equal(metadatosDe('tiktok', { titulo: 'x', ia: true }).tiktok.isAiGenerated, true);
+  assert.equal(metadatosDe('tiktok', { titulo: 'x' }).tiktok.isAiGenerated, false);
+  assert.equal(metadatosDe('youtube', { titulo: 'El repaso del día', ia: true }).youtube.title, 'El repaso del día');
 });

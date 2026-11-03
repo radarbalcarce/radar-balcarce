@@ -273,7 +273,10 @@ test('el texto del posteo: título, qué cuenta, el aviso de la voz con IA, hash
   const fb = textoDePieza(clima, { nombre: 'El clima de la mañana', hashtag: 'Clima', arma: 'clima', datos: {} }, 'facebook');
   assert.match(fb, /^El clima de la mañana\n\n/);
   assert.match(fb, /auspicia Sweet Candy Bar \(@_sweet\.candy\.bar\)\./);
-  assert.match(fb, /Todo en radarbalcarce\.com/);
+  // El clima en Facebook lleva el enlace a su página con el origen (regla 210 del sistema viejo), no un «Todo en…» suelto.
+  assert.match(fb, /El pronóstico de toda la semana, acá: https:\/\/radarbalcarce\.com\/clima\?utm_source=facebook&utm_medium=social&utm_campaign=servicio&utm_content=clima/);
+  const otra = textoDePieza(clima, { nombre: 'Un día como hoy', hashtag: 'UnDíaComoHoy', arma: 'efemeride', datos: {} }, 'facebook');
+  assert.match(otra, /Todo en radarbalcarce\.com/);
   assert.match(fb, /Voz generada con inteligencia artificial\./);
   assert.match(fb, /#Balcarce #RadarBalcarce #Clima$/);
   assert.doesNotMatch(fb, /\.com\.ar|resumen hecho con IA/);

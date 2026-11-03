@@ -74,6 +74,15 @@ export function ganchoDe(titulo, max = GANCHO_MAX_PALABRAS) {
   return acortarPalabras(t, max);
 }
 
+/**
+ * Un titular dicho en voz alta: con punto al final si no tiene ningún signo que cierre. Los titulares casi nunca llevan punto y, pegados uno tras otro en el guion, la voz los lee de corrido
+ * («…el Día de la Tradición El personal no docente…»: se vio en el ensayo del 3/11). Un titular que ya termina en ?, !, … o dos puntos queda como está.
+ */
+export function conPunto(titulo) {
+  const t = limpiar(titulo);
+  return !t || /[.!?…:]$/.test(t) ? t : `${t}.`;
+}
+
 /** Junta partes (oraciones enteras) mientras entren en `max` palabras; si ni la primera entra, la corta. */
 export function partesQueEntran(partes, max) {
   const limpias = partes.map(limpiar).filter(Boolean);

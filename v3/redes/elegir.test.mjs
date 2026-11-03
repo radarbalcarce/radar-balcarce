@@ -207,3 +207,45 @@ test('los números de las reglas son los del plan (5 + 5, 90 minutos, de 8 a 22,
   assert.equal(REGLAS.hastaMinuto, 1320);
   assert.equal(REGLAS.porSeccionNacional, 3);
 });
+
+// ------------------------------------------------------------------ lo que el sistema viejo cuidaba y 3.0 no (auditoría del 3/11)
+
+test('las listas de sepelios no salen nunca a una red, aunque sean de Balcarce y tengan foto', () => {
+  for (const titulo of ['Servicios de sepelios del jueves', 'Necrológicas de Balcarce', 'Participan su fallecimiento: Juan Pérez (q.e.p.d.)', 'Servicio fúnebre y cochería']) {
+    const r = elegirParaFacebook({ notas: [nota({ titulo })], ahora: AHORA });
+    assert.equal(r.nota, null, titulo);
+    assert.equal(r.descartes.sepelios, 1, titulo);
+  }
+  // La noticia de una muerte NO es una lista de sepelios.
+  assert.ok(elegirParaFacebook({ notas: [nota({ titulo: 'Murió el histórico dirigente del club y el pueblo lo despide' })], ahora: AHORA }).nota);
+});
+
+test('lo nacional que no es noticia (dónde ver, en vivo, pronóstico, horóscopo) no sale como «lo más contado»; lo de Balcarce con esas palabras sigue su camino', () => {
+  for (const titulo of ['Dónde ver Boca vs River', 'Boca-River en vivo: minuto a minuto', 'Pronóstico del tiempo para el fin de semana', 'Horóscopo de hoy']) {
+    const r = elegirParaFacebook({ notas: [nacional({ titulo, medios: 12 })], ahora: AHORA });
+    assert.equal(r.nota, null, titulo);
+    assert.equal(r.descartes['no-es-noticia'], 1, titulo);
+  }
+  assert.ok(elegirParaFacebook({ notas: [nota({ titulo: 'Dónde ver el partido de Ferroviarios en vivo desde el Estadio Municipal' })], ahora: AHORA }).nota);
+  assert.ok(elegirParaFacebook({ notas: [nacional({ titulo: 'El Gobierno anunció un nuevo plan de obras públicas', medios: 6 })], ahora: AHORA }).nota);
+});
+
+test('un tema, una vez por día: si ya salió un posteo de la reapertura del autódromo, otro del mismo tema espera', () => {
+  const salio = hecha({ notaId: 'viejo', tipo: 'local', cuando: hace(200), texto: ['Reabre el Autódromo Juan Manuel Fangio', 'Las dos líneas.'].join(String.fromCharCode(10, 10)) });
+  const mismo = nota({ titulo: 'La reapertura del autódromo Fangio convocó a miles de fanáticos' });
+  const otro = nota({ titulo: 'Inauguraron la biblioteca popular del barrio', publicada: hace(40) });
+  const r = elegirParaFacebook({ notas: [mismo, otro], hechas: [salio], ahora: AHORA });
+  assert.equal(r.nota.id, otro.id);
+  assert.equal(r.descartes['tema-repetido'], 1);
+  assert.equal(elegirParaFacebook({ notas: [mismo], hechas: [salio], ahora: AHORA }).nota, null);
+  // Sin posteos con título, o de otros temas, no frena nada.
+  assert.ok(elegirParaFacebook({ notas: [mismo], hechas: [hecha({ notaId: 'x', cuando: hace(200) })], ahora: AHORA }).nota);
+});
+
+test('una nota sale en UN formato: la que ya contó un repaso no va como posteo (Hernán, 23/10)', () => {
+  const contada = nota({ titulo: 'Entregaron los premios del certamen de poesía' });
+  const otra = nota({ titulo: 'Se renovó la iluminación de la plaza principal', publicada: hace(40) });
+  const r = elegirParaFacebook({ notas: [contada, otra], enRepasos: [contada.id], ahora: AHORA });
+  assert.equal(r.nota.id, otra.id);
+  assert.equal(r.descartes['ya-en-un-repaso'], 1);
+});

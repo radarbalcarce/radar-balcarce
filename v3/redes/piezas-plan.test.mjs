@@ -269,3 +269,28 @@ test('las notas de servicio (clima del día con ficha.marca, media kit, o sin hi
   const { motivoDeExclusion } = await import('./elegir.mjs');
   assert.equal(motivoDeExclusion(todas.find((n) => n.id === 'clima-d'), { ahora: AHORA }), 'de-servicio');
 });
+
+test('una nota sale en UN formato: lo que ya salió como posteo de Facebook hoy o ayer no entra en un repaso (Hernán, 23/10)', async () => {
+  const t = conNotas();
+  // loc1111 salió como posteo hoy; nac3333 salió como posteo ayer (simulado, como el plan).
+  t.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', 'loc1111', 'Balcarce', 'local', ?, ?, 'simulado', 1, 'Abre la feria del libro')").run(hace(30), DIA);
+  t.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', 'nac3333', 'Economía', 'nacional', ?, '2026-11-02', 'simulado', 1, 'El dólar sube')").run(hace(600));
+  const p = await planear({ DB: t.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.equal(p.piezas.length, 0, 'queda una sola nota de Balcarce y ninguna de afuera: no alcanza para un repaso');
+  assert.deepEqual(p.descartes.map((d) => d.motivo), ['sin-notas']);
+  // Sin los posteos, el repaso sale con las tres.
+  const t2 = conNotas();
+  const q = await planear({ DB: t2.DB }, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.deepEqual(q.piezas[0].datos.notasIds, ['loc1111', 'loc2222', 'nac3333']);
+});
+
+test('el posteo no repite lo que contó un repaso de hoy: la vuelta le pasa a la elección las notas de los repasos', async () => {
+  const t = conNotas();
+  const env = { DB: t.DB, REDES_ACTIVAS: 'no', INSTAGRAM_ESPEJO: 'no' };
+  const p = await planear(env, { ahora: AHORA, simulado: true, solo: ['noticia1'] });
+  assert.equal(p.piezas.length, 1);
+  const redes = crearRedes({ ahora: () => AHORA });
+  const r = await redes.vuelta(env, { ahora: AHORA });
+  assert.equal(r.facebook, null, 'las tres notas ya las contó el repaso');
+  assert.equal(r.descartes['ya-en-un-repaso'], 3);
+});

@@ -3,6 +3,7 @@
 
 import { esTragediaParaRedes } from './tono.mjs';
 
+
 export const REGLAS = {
   localesPorDia: 5,          // de Balcarce
   nacionalesPorDia: 5,       // lo más contado del país
@@ -59,19 +60,59 @@ export function tieneFoto(nota) {
  */
 export const esCotizacionDelDia = (titulo = '') => /\b(cotizaci[oó]n (?:del|de) (?:d[oó]lar|euro|real)|d[oó]lar (?:hoy|blue hoy|oficial hoy)|a cu[aá]nto (?:cotiza|cierra|abre|est[aá]) (?:el )?d[oó]lar)\b/i.test(String(titulo));
 
+const sinTildes = (t = '') => String(t ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+/**
+ * Las listas de sepelios y los avisos fúnebres no salen nunca, ni en la web ni en una red (Hernán, 27/09 y 8/10; `REGLAS_SEMAFORO.nunca` del sistema viejo). Sólo el título: la noticia de una
+ * muerte NO es esto. Es una segunda llave: el núcleo ya las frena, pero un posteo no se deshace.
+ */
+const SEPELIOS = /\b(sepelios?|inhumaci[o]n(?:es)?|necrologicas?|obituarios?|q\.?e\.?p\.?d|participan? (?:su|el) fallecimiento|servicios? funebres?|cocheria)\b/;
+export const esListaDeSepelios = (titulo = '') => SEPELIOS.test(sinTildes(titulo));
+
+/**
+ * Lo que cuentan muchos medios pero no es una noticia (dónde ver, el «en vivo», las entradas, el pronóstico, el horóscopo, las alertas del tiempo): no sale como lo «más contado del país»
+ * (`noEsNoticiaAunqueLaCuentenTodos` de ingesta/muy-contada.mjs del sistema viejo, regla 280). Sólo para lo nacional: una nota de Balcarce con esas palabras sigue su camino.
+ */
+const NO_ES_NOTICIA = /\b(donde ver|por donde ver|como ver|a que hora juega|a que hora juegan|a que hora y donde|a que hora es|en que canal|que canal (pasa|transmite)|tv en vivo|formaciones|la formacion|formacion (de|confirmada|titular|probable)|en vivo|minuto a minuto|en directo|cuando vuelve a jugar|cuando juega|cuando se juega|venta de entradas|entradas a la venta|a la venta las entradas|como comprar (las )?entradas|horoscopo|quiniela|pronostico (del tiempo|extendido|para)|el tiempo en|como estara el (tiempo|clima)|clima en|clima hoy|alerta (amarilla|naranja|roja))\b/;
+export const noEsNoticiaAunqueLaCuentenTodos = (titulo = '') => NO_ES_NOTICIA.test(sinTildes(titulo));
+
 /** Por qué una nota NO va (o null si va). Primera razón que corta. Sirve a la elección y al informe del día. */
 export function motivoDeExclusion(nota, { ahora, reglas = REGLAS } = {}) {
   if (nota.noPublicar) return 'no-publicar';
+  if (esListaDeSepelios(nota.titulo)) return 'sepelios';
   if (nota.deServicio || nota.id === 'mediakit' || esCotizacionDelDia(nota.titulo)) return 'de-servicio';
   if (esTragediaParaRedes({ titulo: nota.titulo, bajada: nota.bajada, resumen: nota.enDosLineas })) return 'tono';
   if (!tieneFoto(nota)) return 'sin-foto';
-  if (!tipoDeNota(nota, reglas)) return 'no-es-de-redes';
+  const tipo = tipoDeNota(nota, reglas);
+  if (!tipo) return 'no-es-de-redes';
+  if (tipo === 'nacional' && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
   const edad = (new Date(ahora) - new Date(nota.publicada)) / 3600_000;
   if (!(edad <= reglas.edadMaximaHoras)) return 'vieja';
   return null;
 }
 
 // ------------------------------------------------------------------------------------------------ lo ya hecho
+
+// ------------------------------------------------------------------------------------------------ un tema, una vez por día
+
+// Palabras de cinco letras o más que no dicen de qué trata una nota (están en cualquier titular de acá). Es la lista de `palabrasDeTitular` de redes/elegir.mjs del sistema viejo.
+const VACIAS = new Set([
+  'balcarce', 'balcarceno', 'balcarcena', 'balcarcenos', 'balcarcenas', 'municipio', 'municipal', 'municipalidad', 'provincia', 'provincial', 'ciudad', 'partido', 'argentina', 'argentino', 'nacional',
+  'gobierno', 'vecinos', 'nuevo', 'nueva', 'nuevos', 'nuevas', 'sobre', 'desde', 'hasta', 'entre', 'durante', 'luego', 'antes', 'despues', 'cuando', 'donde', 'todos', 'todas', 'tiene', 'tienen',
+  'puede', 'pueden', 'hacer', 'parte', 'semana', 'fecha', 'jornada', 'local', 'locales', 'saber', 'tenes', 'otros', 'otras', 'primer', 'primera', 'segundo', 'segunda', 'grande', 'grandes',
+  'sigue', 'siguen', 'vuelve', 'vuelven', 'llega', 'llegan', 'realizo', 'realizara', 'plata', 'aires',
+]);
+const palabrasDeTitular = (titulo = '') => new Set(sinTildes(titulo).split(/[^a-z0-9]+/).filter((w) => w.length >= 5 && !VACIAS.has(w)));
+
+/**
+ * ¿Dos titulares son del mismo tema? Comparten dos palabras que dicen algo, o una sola si tiene ocho letras o más («autodromo», «reapertura»). Es `temaParecido` del sistema viejo sin los temas
+ * de la nota (acá no los hay): el 24/09 salieron tres posteos de la reapertura del autódromo en cuatro horas y para quien sigue la página es la misma noticia tres veces.
+ */
+export function mismoTema(tituloA, tituloB) {
+  const A = palabrasDeTitular(tituloA);
+  const compartidas = [...palabrasDeTitular(tituloB)].filter((w) => A.has(w));
+  return compartidas.length >= 2 || compartidas.some((w) => w.length >= 8);
+}
 
 const CUENTAN = new Set(['ok', 'enviando', 'simulado']);
 const cuenta = (h) => CUENTAN.has(h.estado);
@@ -84,10 +125,11 @@ export const hechasDe = (hechas, red) => hechas.filter((h) => h.red === red && c
 /**
  * La nota que va ahora a Facebook, o por qué no hay ninguna.
  * @param {object[]} notas   publicadas: { id, titulo, bajada, enDosLineas, seccion, foto, noPublicar, slug, publicada, motivo, medios }
- * @param {object[]} hechas  lo de HOY (día de Balcarce): { red, notaId, seccion, tipo, cuando, estado: 'ok'|'enviando'|'simulado'|'error' }
+ * @param {object[]} hechas  lo de HOY (día de Balcarce): { red, notaId, seccion, tipo, cuando, estado: 'ok'|'enviando'|'simulado'|'error', texto }
+ * @param {string[]} enRepasos  los ids de las notas que ya contó un repaso (de hoy y de ayer): una nota sale en UN formato (Hernán, 23/10), no como posteo y además en un resumen
  * @returns {{ nota: object|null, tipo?: string, motivo?: string, descartes?: object }}
  */
-export function elegirParaFacebook({ notas, hechas = [], ahora = new Date(), reglas = REGLAS }) {
+export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora = new Date(), reglas = REGLAS }) {
   const minuto = minutoDelDia(ahora);
   if (minuto < reglas.desdeMinuto || minuto > reglas.hastaMinuto) return { nota: null, motivo: 'fuera-de-horario' };
 
@@ -103,6 +145,9 @@ export function elegirParaFacebook({ notas, hechas = [], ahora = new Date(), reg
   if (ultimo !== undefined && (new Date(ahora).getTime() - ultimo) / MINUTO < reglas.minutosEntre) return { nota: null, motivo: 'esperando-intervalo' };
 
   const yaSalieron = new Set(fb.map((h) => h.notaId));
+  const contadas = new Set(enRepasos);
+  // Los titulares con los que salieron los posteos de hoy (la primera línea del texto), para no repetir un tema el mismo día.
+  const titularesDeHoy = fb.map((h) => String(h.texto ?? '').split('\n')[0].trim()).filter(Boolean);
   const fallos = new Map();
   for (const h of hechas) if (h.red === 'facebook' && h.estado === 'error') fallos.set(h.notaId, (fallos.get(h.notaId) || 0) + 1);
   const porSeccion = new Map();
@@ -114,8 +159,10 @@ export function elegirParaFacebook({ notas, hechas = [], ahora = new Date(), reg
   for (const n of notas) {
     if (yaSalieron.has(n.id)) { sumar('ya-salio'); continue; }
     if ((fallos.get(n.id) || 0) >= reglas.erroresPorNota) { sumar('fallo-dos-veces'); continue; }
+    if (contadas.has(n.id)) { sumar('ya-en-un-repaso'); continue; }
     const m = motivoDeExclusion(n, { ahora, reglas });
     if (m) { sumar(m); continue; }
+    if (titularesDeHoy.some((t) => mismoTema(t, n.titulo))) { sumar('tema-repetido'); continue; }
     const tipo = tipoDeNota(n, reglas);
     if (tipo === 'local' && locales >= reglas.localesPorDia) { sumar('cupo-locales'); continue; }
     if (tipo === 'nacional') {

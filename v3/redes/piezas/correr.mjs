@@ -247,7 +247,8 @@ export async function dependenciasReales(env = process.env) {
       await r2.guardar(`listos/${huella}/${nombre}`, fs.readFileSync(archivo), 'video/mp4');
       return `https://radar-balcarce-tareas.radarbalcarce.workers.dev/video/${encodeURIComponent(huella)}/${encodeURIComponent(nombre)}`;
     },
-    publicarEnBuffer: (o) => publicarReel(o, { env, fetchFn: fetch }),
+    // Todo reel de 3.0 habla con voz generada: TikTok lo marca como «contenido con IA» (REGLAS § 10).
+    publicarEnBuffer: (o) => publicarReel({ ...o, ia: true }, { env, fetchFn: fetch }),
     clienteMeta: () => crearCliente({ token: env.META_TOKEN, paginaId: env.META_PAGE_ID || PAGINA_DE_FACEBOOK }),
   };
 }

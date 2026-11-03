@@ -1,7 +1,7 @@
 // Pruebas del texto de los posteos: título, dos líneas, enlace, hashtags fijos y crédito. Sin red.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { textoFacebook, textoInstagram, enlaceDeNota, slugDe, dosLineas, fraseDelEnlace, lineaDeCredito } from './texto.mjs';
+import { textoFacebook, textoInstagram, enlaceDeNota, hashtagsDe, ponerOrigen, slugDe, dosLineas, fraseDelEnlace, lineaDeCredito } from './texto.mjs';
 import { slugDe as slugDelSitio } from '../sitio/util.mjs';
 
 const NOTA = {
@@ -25,9 +25,22 @@ test('Facebook: título + dos líneas + enlace + #Balcarce #RadarBalcarce + cré
   assert.equal(partes.length, 5);
   assert.equal(partes[0], NOTA.titulo);
   assert.equal(partes[1], NOTA.enDosLineas);
-  assert.ok(partes[2].endsWith(enlaceDeNota(NOTA)), partes[2]);
+  assert.ok(partes[2].includes(enlaceDeNota(NOTA)), partes[2]);
   assert.equal(partes[3], '#Balcarce #RadarBalcarce');
   assert.equal(partes[4], 'Foto: Club Ferroviarios');
+});
+
+test('el enlace de Facebook lleva el origen (UTM) como en el sistema viejo: sin eso las visitas no dicen qué red las trajo', () => {
+  const enlace = textoFacebook(NOTA).split('\n\n')[2].split(' ').pop();
+  const u = new URL(enlace);
+  assert.equal(u.origin + u.pathname, enlaceDeNota(NOTA));
+  assert.equal(u.searchParams.get('utm_source'), 'facebook');
+  assert.equal(u.searchParams.get('utm_medium'), 'social');
+  assert.equal(u.searchParams.get('utm_campaign'), 'posteo');
+  assert.equal(u.searchParams.get('utm_content'), 'k3j9x2a');
+  assert.ok(!/utm_/.test(textoInstagram(NOTA)), 'en Instagram nunca hay enlace');
+  assert.equal(ponerOrigen('https://radarbalcarce.com/clima', { fuente: 'Facebook', campana: 'servicio', contenido: 'clima-noche' }), 'https://radarbalcarce.com/clima?utm_source=facebook&utm_medium=social&utm_campaign=servicio&utm_content=clima-noche');
+  assert.equal(ponerOrigen('https://radarbalcarce.com/clima', {}), 'https://radarbalcarce.com/clima', 'sin red o sin campaña, el enlace queda como está');
 });
 
 test('Instagram: igual pero sin enlace, con «link en la bio»', () => {
@@ -61,4 +74,13 @@ test('la frase del enlace es siempre la misma para la misma nota y nunca nombra 
   const frases = new Set(Array.from({ length: 40 }, (_, i) => fraseDelEnlace(`id${i}`)));
   assert.ok(frases.size > 1);
   for (const t of [textoFacebook(NOTA), textoInstagram(NOTA)]) assert.ok(!/resumen hecho con ia|\.com\.ar|fuente:/i.test(t));
+});
+
+test('hashtags como el viejo (regla 281): los dos fijos y hasta 3 de la nota (etiquetas o tema de la sección), sin repetir, en Facebook e Instagram', () => {
+  assert.equal(hashtagsDe({ seccion: 'Balcarce' }), '#Balcarce #RadarBalcarce', 'Balcarce no suma tema');
+  assert.equal(hashtagsDe({ seccion: 'Política' }), '#Balcarce #RadarBalcarce #Política');
+  assert.equal(hashtagsDe({ seccion: 'Política', etiquetas: ['obras públicas', 'Balcarce', 'Concejo', 'Plaza', 'Cuarta'] }), '#Balcarce #RadarBalcarce #ObrasPúblicas #Concejo #Plaza');
+  const n = { ...NOTA, seccion: 'Deportes' };
+  assert.ok(textoFacebook(n).includes('#Balcarce #RadarBalcarce #Deportes'));
+  assert.ok(textoInstagram(n).includes('#Balcarce #RadarBalcarce #Deportes'));
 });
