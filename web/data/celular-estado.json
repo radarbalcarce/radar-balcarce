@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T21:35:57.935Z",
- "portada": 196,
+ "generado": "2026-11-03T22:08:52.580Z",
+ "portada": 192,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-03T21:35:58.363Z",
+  "generado": "2026-11-03T22:08:53.306Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,31 +124,10 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "bhyj9r",
-      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "pygu17",
-      "titulo": "Melisa Grave representa a Balcarce como voluntaria en la visita papal",
-      "seccion": "Balcarce"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "podcast",
@@ -160,24 +139,24 @@
     "segundos": 50,
     "notas": [
      {
+      "id": "bhyj9r",
+      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "seccion": "Cultura y agenda"
+     },
+     {
       "id": "voie14",
       "titulo": "Avanzan obras viales y tareas de mantenimiento en la ciudad",
       "seccion": "Balcarce"
      },
      {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "18ol7p3",
-      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
-      "seccion": "Política"
-     },
-     {
-      "id": "sqcelu",
-      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
-      "seccion": "Deportes"
+      "id": "g6dtuw",
+      "titulo": "Caputo anuncia la suspensión de embargos y créditos para la industria",
+      "seccion": "Economía"
      }
     ]
    }
@@ -197,9 +176,9 @@
    ],
    "cola": [
     {
-     "id": "17vsjrz",
-     "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-     "seccion": "Automovilismo",
+     "id": "ud9uv9",
+     "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -215,20 +194,8 @@
      "marcada": false
     },
     {
-     "id": "ud9uv9",
-     "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "atpuq1",
      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "pygu17",
-     "titulo": "Melisa Grave representa a Balcarce como voluntaria en la visita papal",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -242,6 +209,18 @@
      "id": "1ut1ham",
      "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "29yhm1",
+     "titulo": "Aldosivi y River juegan el jueves en Mar del Plata con público visitante",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "69gc7w",
+     "titulo": "Patricia Bullrich respalda las medidas de Luis Caputo para las pymes",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
