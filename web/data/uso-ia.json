@@ -2529,35 +2529,35 @@
   "2026-11-03": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 5,
-     "errores": 4,
-     "entrada": 2776,
-     "salida": 1420,
+     "llamadas": 7,
+     "errores": 5,
+     "entrada": 5290,
+     "salida": 2789,
      "pensamiento": 0,
-     "total": 4196,
+     "total": 8079,
      "claves": {
-      "clasificacion": 5
+      "clasificacion": 7
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 4,
-       "ok": 1
+       "cupo-diario": 5,
+       "ok": 2
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 4,
+     "llamadas": 5,
      "errores": 1,
-     "entrada": 7967,
-     "salida": 6701,
+     "entrada": 9895,
+     "salida": 7656,
      "pensamiento": 0,
-     "total": 14668,
+     "total": 17551,
      "claves": {
-      "groq": 4
+      "groq": 5
      },
      "motivos": {
       "groq": {
-       "ok": 3,
+       "ok": 4,
        "velocidad": 1
       }
      }
@@ -2581,121 +2581,123 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 4,
-     "errores": 4,
+     "llamadas": 6,
+     "errores": 6,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 4
+      "clasificacion": 6
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 4
+       "cupo-diario": 6
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 2,
-     "errores": 2,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 2
+      "groq": 3
      },
      "motivos": {
       "groq": {
-       "otro": 2
+       "otro": 3
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 12,
-     "errores": 12,
+     "llamadas": 16,
+     "errores": 16,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "redaccion": 12
+      "redaccion": 16
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 12
+       "cupo-diario": 16
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 12,
+     "llamadas": 16,
      "errores": 0,
-     "entrada": 66949,
-     "salida": 14211,
+     "entrada": 93453,
+     "salida": 18842,
      "pensamiento": 0,
-     "total": 81160,
+     "total": 112295,
      "claves": {
-      "redaccion": 12
+      "redaccion": 16
      },
      "motivos": {
       "redaccion": {
-       "ok": 12
+       "ok": 16
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 20,
-     "errores": 18,
+     "llamadas": 30,
+     "errores": 28,
      "entrada": 20460,
      "salida": 1773,
      "pensamiento": 0,
      "total": 22233,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 30
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 18,
+       "cupo-diario": 28,
        "ok": 2
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 18,
-     "errores": 1,
-     "entrada": 100676,
-     "salida": 8260,
+     "llamadas": 28,
+     "errores": 2,
+     "entrada": 159476,
+     "salida": 13157,
      "pensamiento": 0,
-     "total": 108936,
+     "total": 172633,
      "claves": {
-      "clasificacion": 18
+      "clasificacion": 28
      },
      "motivos": {
       "clasificacion": {
-       "ok": 17,
-       "saturado": 1
+       "ok": 26,
+       "saturado": 1,
+       "otro": 1
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 5,
-     "errores": 1,
-     "entrada": 6413,
-     "salida": 373,
+     "llamadas": 9,
+     "errores": 4,
+     "entrada": 8532,
+     "salida": 464,
      "pensamiento": 0,
-     "total": 6786,
+     "total": 8996,
      "claves": {
-      "groq": 5
+      "groq": 9
      },
      "motivos": {
       "groq": {
-       "cupo-diario": 1,
-       "ok": 4
+       "cupo-diario": 3,
+       "ok": 5,
+       "saturado": 1
       }
      }
     }
