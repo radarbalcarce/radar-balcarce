@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T16:46:15.165Z",
- "portada": 162,
+ "generado": "2026-11-03T18:36:46.311Z",
+ "portada": 171,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-11-03T16:46:15.526Z",
+  "generado": "2026-11-03T18:36:47.087Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -124,9 +124,9 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 48,
+    "segundos": 53,
     "notas": [
      {
       "id": "bhyj9r",
@@ -134,19 +134,19 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1c9pdog",
-      "titulo": "El Club de Leones realiza un torneo de burako a beneficio",
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "v7xzja",
+      "titulo": "Panebianco destaca la expectativa en Balcarce por la visita del papa León XIV",
       "seccion": "Balcarce"
      },
      {
-      "id": "13pnh44",
-      "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "epb4w8",
-      "titulo": "La Escuela Municipal de básquetbol avanza en los Play Off de la Liga",
-      "seccion": "Educación"
+      "id": "g6dtuw",
+      "titulo": "Caputo anuncia la suspensión de embargos y créditos para la industria",
+      "seccion": "Economía"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
      {
       "id": "voie14",
@@ -165,19 +165,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "sqcelu",
-      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "18ol7p3",
-      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
+      "id": "nae13g",
+      "titulo": "Cristina Kirchner condiciona una posible candidatura presidencial a 2027",
       "seccion": "Política"
+     },
+     {
+      "id": "ud9uv9",
+      "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "10f66es",
+      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -203,21 +203,21 @@
      "marcada": false
     },
     {
-     "id": "atpuq1",
-     "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
-     "seccion": "Balcarce",
+     "id": "tne9sk",
+     "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "hceg3p",
-     "titulo": "La Libertad Avanza rechaza modificar la ley de reelecciones en la provincia",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "1yv5m5l",
-     "titulo": "Lionel Messi lamenta el fallecimiento de Jesús de Miguel",
+     "id": "ud9uv9",
+     "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "v7xzja",
+     "titulo": "Panebianco destaca la expectativa en Balcarce por la visita del papa León XIV",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -227,21 +227,21 @@
      "marcada": false
     },
     {
-     "id": "18o13hv",
-     "titulo": "Amigos Unidos organiza el encuentro Que ruede la redonda",
+     "id": "atpuq1",
+     "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1ut1ham",
+     "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1yv5m5l",
+     "titulo": "Lionel Messi lamenta el fallecimiento de Jesús de Miguel",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "17s2nca",
-     "titulo": "Kristalina Georgieva elogia el ajuste fiscal de la Argentina y pide frenar el populismo",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "2j408z",
-     "titulo": "Sandra Pettovello descarta mensajes políficos en la visita del papa León XIV",
-     "seccion": "Política",
      "marcada": false
     }
    ],
