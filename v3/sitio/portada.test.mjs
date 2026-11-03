@@ -96,7 +96,7 @@ test('la portada: principal grande con foto y crédito, tres titulares, grilla c
   assert.equal((h.match(/class="card"/g) || []).length, 6);
   assert.match(h, /<h2 class="sec-t">Última hora<\/h2>/);
   assert.match(h, /<li><a class="fila"[^>]*>(<img [^>]*>|<div class="placa")/);
-  assert.match(h, /<div class="placa" style="--pc:var\(--s-cultura\)"[^>]*><b>Radar<i>Balcarce<\/i><\/b><em>Cultura<\/em>/);
+  assert.match(h, /<div class="placa" style="--pc:var\(--s-cultura\)"[^>]*><em>Cultura<\/em><strong>[^<]+<\/strong><b>Radar<i>Balcarce<\/i><\/b>/);
   assert.match(h, /Lo último de Balcarce/);
   assert.equal((h.match(/<h1/g) || []).length, 1, 'un solo h1');
   assert.ok(h.indexOf('data-aviso="pie"') > h.indexOf('Más de hoy'), 'el pie va al final');

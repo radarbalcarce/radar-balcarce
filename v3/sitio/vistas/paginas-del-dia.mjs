@@ -137,6 +137,7 @@ export function paginaClima({ indexar, contexto = {} } = {}) {
 <p class="bajada">Cómo está el tiempo ahora, hora por hora y cómo viene la semana.</p>
 ${lugarRotativo(contexto, 'clima', 'C1')}
 ${bloqueAhora(clima, contexto)}
+${contexto.rutaNotaClima ? `<p class="nota-chica"><a class="enlace" href="${esc(contexto.rutaNotaClima)}">La nota de hoy →</a></p>` : ''}
 ${bloqueGrafico(clima.horas)}
 ${bloqueSemana(clima, hoyFecha)}
 ${bloqueRegion(contexto.region)}

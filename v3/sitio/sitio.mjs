@@ -142,12 +142,13 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     // El clima y la farmacia se piden en paralelo con la base; si fallan, la página lo dice (null).
     const config = configDe(env);
     const cfBeacon = /^[a-f0-9]{32}$/i.test(String(env.CF_BEACON ?? '').trim()) ? String(env.CF_BEACON).trim() : null;
-    const contextoDelDia = async () => {
+    const contextoDelDia = async ({ notaClima = false } = {}) => {
       const reloj = ahora();
       const p = partesEnBalcarce(reloj);
       const hoy = `${p.anio}-${String(p.mes).padStart(2, '0')}-${String(p.dia).padStart(2, '0')}`;
       const [clima, farmacia, dolar, avisos] = await Promise.all([leerClima({ traer, cache }), leerFarmacia({ traer, cache, ahora: reloj }), leerDolar({ traer, cache, ahora: reloj }), consultas.avisosActivos(env, hoy).catch(() => [])]);
-      return { ahora: reloj, clima, farmacia, dolar, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
+      const rutaNotaClima = notaClima ? await consultas.notaPorId(env, `clima-${hoy}`).then((n) => (n ? rutaDeNota(n) : null)).catch(() => null) : null;
+      return { ahora: reloj, rutaNotaClima, clima, farmacia, dolar, config, cfBeacon, publicidad: crearPublicidad(avisos, { adsense: config?.adsense ?? null }) };
     };
     const fijar = (notas) => { const p = consultas.fijarSlugs(env, notas).catch(() => 0); if (ctx?.waitUntil) ctx.waitUntil(p); return p; };
 
@@ -170,7 +171,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
 
     const DEL_DIA = { '/clima': paginaClima, '/farmacias': paginaFarmacias, '/dolar': paginaDolar };
     if (DEL_DIA[ruta]) {
-      const contexto = await contextoDelDia();
+      const contexto = await contextoDelDia({ notaClima: ruta === '/clima' });
       // La región se pide sólo para /clima (una llamada con varias coordenadas); si falla, la página sigue sin ese bloque.
       if (ruta === '/clima') contexto.region = await leerRegion({ traer, cache });
       if (ruta === '/dolar') contexto.historiaDolar = await leerHistoriaDolar({ traer, cache });
@@ -264,7 +265,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     if (m && Object.hasOwn(SECCIONES_VIEJAS, m[1])) return redirigir(SECCIONES_VIEJAS[m[1]]);
 
     if (ruta === '/') {
-      const dia = contextoDelDia();
+      const dia = contextoDelDia({ notaClima: true });
       const reciente = new Date(ahora().getTime() - PORTADA.horas * 3600 * 1000).toISOString();
       let notas = await consultas.listar(env, { limite: 60, despues: reciente });
       // Si en las últimas 36 horas salieron muy pocas, la portada no queda pelada: se completa con las últimas publicadas.

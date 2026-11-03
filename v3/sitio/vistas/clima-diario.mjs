@@ -8,6 +8,8 @@ export const VARIANTES_POR_ESTADO = 3;
 export const CREDITO_ILUSTRACION = 'Ilustración generada con IA';
 
 export const esClimaDiario = (n) => n?.ficha?.marca?.tipo === 'clima-diario';
+/** Nota de servicio (clima, dólar… con `ficha.marca`; el media kit): con página propia, pero nunca como noticia en tapa, listas ni feeds. */
+export const esDeServicio = (n) => !!n?.ficha?.marca || n?.id === 'mediakit';
 /** Una nota que se muestra pero no se indexa ni entra en los mapas ni en el RSS. */
 export const noSeIndexa = (n) => n?.ficha?.indexar === false;
 

@@ -52,7 +52,7 @@ export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = fa
     const propia = /\/fotos-notas\//.test(url) ? ' class="fotopropia"' : '';
     return `<img${propia} src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;
   }
-  return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><b>Radar<i>Balcarce</i></b><em>${esc(nombreDe(n))}</em></div>`;
+  return `<div class="placa" style="--pc:${colorDe(ranuraDe(n.seccion))}" aria-hidden="true"><em>${esc(nombreDe(n))}</em><strong>${esc(recorte(n.titulo, 120))}</strong><b>Radar<i>Balcarce</i></b></div>`;
 }
 
 const recorte = (t, max) => {

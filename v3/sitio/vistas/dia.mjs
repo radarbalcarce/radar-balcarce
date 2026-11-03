@@ -56,14 +56,15 @@ const pesos = (n) => '$' + Math.round(n).toLocaleString('es-AR');
 const PALABRA = { sube: 'subió', baja: 'bajó', igual: 'sin cambios' };
 const verMas = (href, texto = 'Ver más') => '<a class="sol-mas" href="' + href + '">' + texto + ' <span aria-hidden="true">→</span></a>';
 
-function panelClima(clima) {
+function panelClima(clima, contexto = {}) {
   if (!clima) return '<p class="sm">Clima no disponible por ahora.</p>' + verMas('/clima');
   const { ahora, hoy, manana } = clima;
   const viento = ahora.viento != null ? 'viento ' + ahora.viento + ' km/h' + (ahora.rumbo ? ' ' + esc(ahora.rumbo) : '') : '';
   const lineaHoy = hoy ? ['Hoy ' + grados(hoy.min) + ' / ' + grados(hoy.max), hoy.lluvia != null ? 'lluvia ' + hoy.lluvia + '%' : '', viento].filter(Boolean).join(' · ') : '';
   const lineaManana = manana ? 'Mañana ' + grados(manana.min) + ' / ' + grados(manana.max) + ' · ' + String(manana.cielo).toLowerCase() : '';
   return '<div class="sol-cab">' + iconoDeClima(ahora.cielo, ahora.esDeDia, 38) + '<div class="big"><strong>' + grados(ahora.temp) + '</strong><span>' + esc(ahora.cielo) + '</span></div>' + verMas('/clima') + '</div>'
-    + '<p class="sm">' + [lineaHoy, lineaManana].filter(Boolean).map(esc).join('<br>') + '</p>';
+    + '<p class="sm">' + [lineaHoy, lineaManana].filter(Boolean).map(esc).join('<br>') + '</p>'
+    + (contexto.rutaNotaClima ? verMas(contexto.rutaNotaClima, 'La nota de hoy') : '');
 }
 
 function panelFarmacia(farmacia) {
@@ -91,7 +92,7 @@ export function cuadroDelDia(contexto = {}) {
   const radios = SOLAPAS.map(([id], i) => '<input class="sol-r" type="radio" name="sol" id="sol-' + id + '"' + (i === 0 ? ' checked' : '') + '>').join('');
   const tabs = SOLAPAS.map(([id, nombre]) => '<label class="sol-t sol-t-' + id + '" id="sol-l-' + id + '" for="sol-' + id + '">' + ICONO_TAB[id] + '<span>' + nombre + '</span></label>').join('');
   const datos = { clima: contexto.clima, farmacia: contexto.farmacia, dolar: contexto.dolar };
-  const paneles = SOLAPAS.map(([id, , armar]) => '<div class="sol-p sol-p-' + id + '" id="sol-p-' + id + '" role="group" aria-labelledby="sol-l-' + id + '">' + armar(datos[id]) + '</div>').join('');
+  const paneles = SOLAPAS.map(([id, , armar]) => '<div class="sol-p sol-p-' + id + '" id="sol-p-' + id + '" role="group" aria-labelledby="sol-l-' + id + '">' + armar(datos[id], contexto) + '</div>').join('');
   return '<section class="sol" role="group" aria-label="Clima, farmacia de turno y dólar">' + radios
     + '<div class="sol-tabs">' + tabs + '</div><div class="sol-paneles">' + paneles + '</div></section>';
 }

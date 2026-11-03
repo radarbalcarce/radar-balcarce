@@ -81,10 +81,11 @@ details.fuentes a{text-decoration:underline}
 .aviso{margin:18px 0;min-height:0}
 .aviso:empty{margin:0}
 /* Placa: lo que sale cuando la nota no tiene foto. */
-.placa{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--pc),#14161A);color:#fff;font-family:var(--serif);text-align:center;border-radius:10px}
-.placa b{font-size:20px;font-weight:800}
-.placa i{font-style:normal;opacity:.75;margin-left:3px}
-.placa em{font:600 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.placa{--pt:clamp(15px,2.4vw,24px);position:relative;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:8px;width:100%;aspect-ratio:16/9;padding:14px 16px 12px 20px;overflow:hidden;background:#FAF8F3;color:#14161A;border:1px solid #E4DFD2;border-left:8px solid var(--pc);font-family:var(--serif);border-radius:10px}
+.placa em{flex:0 0 auto;max-width:100%;padding:3px 9px;border-radius:4px;background:var(--pc);color:#fff;font:700 11px/1.3 var(--sans);font-style:normal;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.placa strong{flex:1 1 auto;min-height:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;font:800 var(--pt)/1.18 var(--serif);letter-spacing:-.01em;text-align:left;overflow-wrap:anywhere}
+.placa b{flex:0 0 auto;font:800 13px/1 var(--serif);color:#14161A}
+.placa i{font-style:normal;color:#C7381C;margin-left:3px}
 /* Portada */
 .sol{--a:#2B7FD0;--sol-fondo:#fff;--sol-borde:var(--linea);--sol-suave:var(--suave);--sol-sube:#B42318;--sol-baja:#15803D;--sol-igual:#5C6068;
 position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-borde);border-radius:12px;background:var(--sol-fondo);overflow:hidden;color:var(--tinta)}
@@ -314,6 +315,7 @@ position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-b
 @media(prefers-reduced-motion:reduce){.pdia .hc-icono,.pdia .farm-cruz-p,.pdia .dolar-moneda{animation:none!important}.pdia .flecha-viento{transition:none}}
 @media(prefers-color-scheme:dark){.pdia{--pd-f:#1D2127;--pd-t:#F1EEE6;--pd-b:#343A43;--pd-s:#B9BEC7;--pd-a:#262B33;--pd-tile:rgba(255,255,255,.07);--pd-sube:#FF8A7A;--pd-baja:#6EE7A0;--pd-acc:#6AB0F5}
 .pdia .t-sol{--h1:#3A3118;--h2:#23262B}.pdia .t-nube{--h1:#2B3239;--h2:#1F2429}.pdia .t-lluvia{--h1:#223244;--h2:#1B232C}.pdia .t-noche{--h1:#1A2238;--h2:#161B27}}
+.hero .placa{--pt:clamp(20px,3.4vw,30px);padding:20px 22px 16px 26px;border-left-width:12px}
 .hero img,.hero .placa{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px}.hero img{background:#ddd}
 img.fotopropia{object-fit:contain!important;background:#14161A!important}
 .hero img.fotopropia,.card img.fotopropia{height:auto;aspect-ratio:auto}
@@ -327,6 +329,8 @@ img.fotopropia{object-fit:contain!important;background:#14161A!important}
 .sec-t::after{content:"";flex:1;height:2px;background:var(--tinta)}
 .grid3{display:grid;grid-template-columns:1fr;gap:20px}
 .card{display:block}
+.card .placa{--pt:clamp(15px,2vw,19px)}
+.card .placa strong{-webkit-line-clamp:5;line-clamp:5}
 .card img,.card .placa{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px}.card img{background:#ddd}
 .card h3{margin:9px 0 4px;font:700 20px/1.2 var(--serif);color:var(--tinta)}
 .card p{margin:0;font-size:14px;color:var(--suave)}
@@ -334,8 +338,9 @@ img.fotopropia{object-fit:contain!important;background:#14161A!important}
 .lista li{border-top:1px solid var(--linea)}
 .lista li>a.fila{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:14px 0;align-items:start}
 .lista img,.lista .placa{width:104px;height:104px;aspect-ratio:1;object-fit:cover;border-radius:8px}.lista img{background:#ddd}
-.lista .placa b{font-size:13px}
-.lista .placa em{display:none}
+.lista .placa{--pt:12px;padding:8px 8px 7px 11px;gap:4px;border-left-width:5px}
+.lista .placa strong{-webkit-line-clamp:5;line-clamp:5;line-height:1.15}
+.lista .placa em,.lista .placa b{display:none}
 .lista h2,.lista h3{margin:2px 0 4px;font:700 17px/1.22 var(--serif);color:var(--tinta)}
 .lista p{display:none;margin:0;font-size:14px;color:var(--suave)}
 .lado .aviso{margin-top:0}
