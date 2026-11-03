@@ -70,6 +70,11 @@ export const NOTA_REEL = congelar({ escenas: congelar([8, 8.5, 8.5]), segundos: 
 export const NOTA_PROPIA = congelar({ fotosMin: 1, fotosMax: 3, segundosSegunFotos: congelar({ 1: 14, 2: 22, 3: 30 }), maximo: 35 });
 export const HISTORIA_DE_NOTA = congelar({ segundos: 6 }); // se ve ~5 s por pantalla (sin confirmar)
 export const PARTICIPA = congelar({ segundos: 18, maximo: 25 });
+/** Las piezas de servicio que el sistema viejo hacía y 3.0 suma el 3/11: la escena es la de hoy. La voz alarga la última escena si hace falta (`ajustarALaVoz`). */
+export const AGENDA = congelar({ segundos: 16, maximo: 25, eventosMax: 4, diasAdelante: 4 });
+export const UTILES = congelar({ segundos: 20, maximo: 30 });
+export const FERIADO = congelar({ segundos: 18, maximo: 25 });
+export const AVISO_DE_CLIMA = congelar({ segundos: 15, maximo: 22 });
 export const PLACA_FINAL_SEGUNDOS = 3;
 
 // ------------------------------------------------------------------ voz y música (§ 3.4)

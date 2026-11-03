@@ -52,10 +52,17 @@ export function tieneFoto(nota) {
   return typeof u === 'string' && /^https:\/\//i.test(u) && !nota.foto?.pendiente;
 }
 
+/**
+ * ¿El título es la cotización del día del dólar, del euro o del real («dólar hoy», «a cuánto cotiza el dólar», «cotización del dólar»)? Es una nota de servicio: nunca sale a las redes, ni como
+ * posteo, ni en un repaso, ni como reel o historia (Hernán, 3/11). La del propio medio ya viene marcada (`deServicio`, `ficha.marca`); esto cubre la que llegue escrita desde una fuente.
+ * «El dólar sube tras la reunión con el FMI» NO es cotización del día: es una noticia y sale como cualquier otra.
+ */
+export const esCotizacionDelDia = (titulo = '') => /\b(cotizaci[oó]n (?:del|de) (?:d[oó]lar|euro|real)|d[oó]lar (?:hoy|blue hoy|oficial hoy)|a cu[aá]nto (?:cotiza|cierra|abre|est[aá]) (?:el )?d[oó]lar)\b/i.test(String(titulo));
+
 /** Por qué una nota NO va (o null si va). Primera razón que corta. Sirve a la elección y al informe del día. */
 export function motivoDeExclusion(nota, { ahora, reglas = REGLAS } = {}) {
   if (nota.noPublicar) return 'no-publicar';
-  if (nota.deServicio || nota.id === 'mediakit') return 'de-servicio';
+  if (nota.deServicio || nota.id === 'mediakit' || esCotizacionDelDia(nota.titulo)) return 'de-servicio';
   if (esTragediaParaRedes({ titulo: nota.titulo, bajada: nota.bajada, resumen: nota.enDosLineas })) return 'tono';
   if (!tieneFoto(nota)) return 'sin-foto';
   if (!tipoDeNota(nota, reglas)) return 'no-es-de-redes';

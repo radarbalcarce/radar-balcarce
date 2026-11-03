@@ -19,9 +19,10 @@ import {
 } from '../../../reels/placa.mjs';
 import { escenaDeClima } from '../../../reels/escenas/clima.mjs';
 import { escenaDeEfemeride } from '../../../reels/escenas/fechas.mjs';
-import { escenaDeFarmacia, escenaDeParticipa } from '../../../reels/escenas/servicios.mjs';
+import { escenaDeFarmacia, escenaDeParticipa, escenaDeUtiles, escenaDeAgenda } from '../../../reels/escenas/servicios.mjs';
+import { escenaDeFeriado } from '../../../reels/escenas/fechas.mjs';
 import { placaDeNotaDelRepaso, escenaDelRepaso, FOTO } from '../../../reels/escenas/repaso.mjs';
-import { tipoDeEfemeride } from '../../../reels/escenas/del-plan.mjs';
+import { tipoDeEfemeride, tipoDeFeriado } from '../../../reels/escenas/del-plan.mjs';
 import { partirSvg, placaEn, lineaDeTiempo, FPS } from '../../../reels/animacion.mjs';
 import { MAIL_REDACCION } from '../../../redes/participa.mjs';
 import {
@@ -223,6 +224,15 @@ function escenaUnica(e) {
       stills: [{ nombre: 'anio', t: 1.2 }, { nombre: 'completa', t: 8 }],
     }),
     farmacia: () => ({ escena: escenaDeFarmacia({ fecha: d.fecha, farmacias: d.farmacias, hasta: d.hasta }), stills: [{ nombre: 'completa', t: 6 }] }),
+    utiles: () => ({ escena: escenaDeUtiles({ pantallas: d.pantallas }), stills: [{ nombre: 'pantalla-1', t: 4 }, { nombre: 'pantalla-2', t: Math.max(6, total - 3) }] }),
+    agenda: () => ({ escena: escenaDeAgenda({ eventos: d.eventos, titulo: d.titulo }), stills: [{ nombre: 'completa', t: 6 }] }),
+    feriado: () => {
+      const tipo = tipoDeFeriado(d.feriado);
+      // El año grande es el del hecho histórico que se cuenta; un decreto (el número 1103/2026) no lleva año.
+      const anio = tipo === 'decreto' ? null : (String(d.texto ?? '').match(/\b(1[0-9]{3}|20[0-9]{2})\b/) ?? [])[1] ?? null;
+      return { escena: escenaDeFeriado({ fecha: d.fecha, feriado: d.feriado, dato: { anio, texto: d.texto }, tipo }), stills: [{ nombre: 'calendario', t: 2 }, { nombre: 'completa', t: 8 }] };
+    },
+    aviso: () => ({ escena: escenaDeClima({ momento: 'aviso', clima: d.clima, fecha: d.fecha, aviso: d.aviso }), stills: [{ nombre: 'aviso', t: 4 }, { nombre: 'completa', t: 9 }] }),
     participa: () => ({
       escena: escenaDeParticipa({ p: d.p, color: COLOR_SECCION[d.seccion] ?? COLOR_SECCION.Balcarce, numero: d.numero ?? WHATSAPP, mail: MAIL_REDACCION }),
       stills: [{ nombre: 'completa', t: 8 }],

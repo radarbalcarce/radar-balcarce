@@ -1,6 +1,9 @@
 // De dónde salen los datos de las piezas que NO están en la base: el clima (Open-Meteo), la farmacia de turno (la lee el sitio del Colegio de Farmacéuticos) y la efeméride del día
-// (web/data/efemerides-piezas.json, la que se prepara una semana por vez). Todo recibe lo que necesita (traer, leer) para probarse sin red. Si un dato no está, devuelve null:
+// (web/data/efemerides-piezas.json, la que se prepara una semana por vez), y desde el 3/11 la agenda del municipio, el feriado (web/data/feriados-piezas.json) y los avisos de clima. Todo recibe lo que necesita (traer, leer) para probarse sin red. Si un dato no está, devuelve null:
 // la pieza no sale (nunca se inventa un dato) y se vuelve a intentar en la corrida siguiente, mientras dure su ventana.
+
+import { avisosDelClima } from '../../../ingesta/alertas.mjs';
+import { proximos, nombreDeEvento } from '../../sitio/eventos.mjs';
 
 const CODIGOS = {
   0: 'Despejado', 1: 'Mayormente despejado', 2: 'Parcialmente nublado', 3: 'Nublado', 45: 'Niebla', 48: 'Niebla', 51: 'Llovizna leve', 53: 'Llovizna', 55: 'Llovizna intensa',
@@ -26,6 +29,7 @@ export function aClimaDePieza(j) {
     lluvia: d.precipitation_probability_max?.[i] ?? 0,
     viento: Math.round(d.wind_speed_10m_max?.[i] ?? 0),
     cielo: CODIGOS[d.weather_code?.[i]] ?? '',
+    codigo: d.weather_code?.[i] ?? null, // el código crudo: el aviso de granizo lo necesita (96 y 99)
   })).filter((x) => Number.isFinite(x.max) && Number.isFinite(x.min));
   if (!dias.length) return null;
   return {
@@ -65,4 +69,60 @@ export function efemerideDelDia(efemerides, dia) {
 export function fechaLarga(ahora = new Date()) {
   const t = new Date(ahora).toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'America/Argentina/Buenos_Aires' });
   return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+// ------------------------------------------------------------------ el aviso de clima
+
+/**
+ * El aviso de clima de hoy, si hay uno GRAVE de los tres que se avisan (helada fuerte, granizo, viento de 60 km/h o más), con el nombre de la pieza (`aviso-helada`…), o null.
+ * Los umbrales son los de siempre (ingesta/alertas.mjs): un aviso que salta todas las semanas deja de mirarse. Un «posible helada» o un calor extremo no se avisa con una historia.
+ */
+export function avisoDelClima(clima, ahora = new Date()) {
+  const a = avisosDelClima(clima, { ahora }).find((x) => x.gravedad === 'alta' && ['helada', 'granizo', 'viento'].includes(x.tipo));
+  return a ? { ...a, nombre: `aviso-${a.tipo}` } : null;
+}
+
+// ------------------------------------------------------------------ la agenda del fin de semana
+
+const DIAS_DE_LA_SEMANA = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+
+/**
+ * Los eventos de los próximos días como los dibuja la escena de la agenda: [{ nombre, cuando: 'sábado 20:30', lugar }]. `eventos` son los de `leerAgenda` (v3/sitio/agenda.mjs): ya sin
+ * lo suspendido ni lo retirado. Sólo los que empiezan hoy o dentro de `dias` días (hora de Balcarce); sin eventos devuelve [] y la pieza no sale.
+ */
+export function eventosParaLaAgenda(eventos = [], { ahora = new Date(), dias = 4, maximo = 4 } = {}) {
+  const hoy = new Date(new Date(ahora).getTime() - 3 * 3600_000).toISOString().slice(0, 10);
+  const tope = new Date(Date.parse(`${hoy}T12:00:00Z`) + dias * 86400_000).toISOString().slice(0, 10);
+  const vivos = proximos(eventos, new Date(ahora).getTime());
+  return vivos.map((e) => {
+    const m = String(e.desde ?? '').match(/^(\d{4}-\d{2}-\d{2})(?:[T ](\d{2}):(\d{2}))?/);
+    if (!m || m[1] < hoy || m[1] > tope) return null;
+    const dia = DIAS_DE_LA_SEMANA[new Date(`${m[1]}T12:00:00Z`).getUTCDay()];
+    return { nombre: nombreDeEvento(e.nombre), lugar: nombreDeEvento(e.lugar ?? ''), cuando: m[2] && !e.todoElDia ? `${dia} ${m[2]}:${m[3]}` : dia, orden: m[1] };
+  }).filter(Boolean).sort((a, b) => a.orden.localeCompare(b.orden)).slice(0, maximo).map(({ orden, ...e }) => e);
+}
+
+// ------------------------------------------------------------------ el feriado
+
+/**
+ * El feriado de ese día (AAAA-MM-DD) o null. `feriados` es web/data/feriados-piezas.json y `elegidas` web/data/efemerides-elegidas.json (el panel puede haber pedido «cambiar» ese feriado).
+ * Sin datos verificados (sin `datos`) no sale: «por definir» no se publica.
+ */
+export function feriadoDelDia(feriados, dia, elegidas = null) {
+  const f = (feriados?.feriados ?? []).find((x) => x.fecha === dia);
+  if (!f?.nombre || !(f.datos ?? []).length) return null;
+  if (elegidas?.feriados?.[dia]?.estado === 'cambiar') return null;
+  return f;
+}
+
+/** Los datos que se cuentan del feriado: el primero y, si hay lugar, el segundo. */
+export function datosDelFeriado(f, maximo = 260) {
+  const textos = (f?.datos ?? []).map((d) => String(d.texto ?? '').trim()).filter(Boolean);
+  const salida = [];
+  for (const t of textos) {
+    if ([...salida, t].join(' ').length > maximo && salida.length) break;
+    salida.push(t);
+    if (salida.length === 2) break;
+  }
+  return salida;
 }

@@ -15,11 +15,17 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
-  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa,
+  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso,
 } from './armadores.mjs';
-import { efemerideDelDia, fechaLarga, leerClima, leerFarmaciaDeTurno } from './datos.mjs';
-import { accionesConTexto, publicarPieza, simularPublicacion, textoDePieza } from './publicar.mjs';
+import {
+  avisoDelClima, datosDelFeriado, efemerideDelDia, eventosParaLaAgenda, fechaLarga, feriadoDelDia, leerClima, leerFarmaciaDeTurno,
+} from './datos.mjs';
+import { condicionalesQueTocan } from '../piezas-del-dia.mjs';
+import {
+  accionesConTexto, publicarPieza, publicarPorBuffer, simularBuffer, simularPublicacion, textoDePieza,
+} from './publicar.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
+import { diaDeBalcarce } from '../elegir.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
@@ -32,7 +38,9 @@ export class SinCupo extends Error {}
 const hash = (t) => crypto.createHash('sha256').update(t).digest('hex').slice(0, 24);
 
 /** La pieza armada (datos puros) de una entrada del plan. Tira `SinDatos` si falta algo de afuera. */
-export function armarDelPlan(item, { dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null }) {
+export function armarDelPlan(item, {
+  dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null, agenda = null, feriado = null, aviso = null,
+}) {
   const op = { hora: item.horaDelDia, primeraDelBloque: item.primeraDelBloque };
   switch (item.arma) {
     case 'clima':
@@ -46,6 +54,18 @@ export function armarDelPlan(item, { dia, ahora = new Date(), clima = null, farm
       return armarEfemeride(efemeride, { fecha: dia, anioActual: Number(dia.slice(0, 4)), ...op });
     case 'participa':
       return armarParticipa(item.variante, op);
+    case 'agenda':
+      if (!agenda?.length) throw new SinDatos('no hay eventos en la agenda de los próximos días');
+      return armarAgenda(agenda, op);
+    case 'utiles':
+      return armarUtiles(op);
+    case 'feriado':
+      if (!feriado) throw new SinDatos(`hoy (${dia}) no hay un feriado con datos verificados`);
+      return armarFeriado({ ...feriado, fecha: dia }, { datos: datosDelFeriado(feriado, 220), ...op });
+    case 'aviso':
+      if (!clima) throw new SinDatos('no hay clima (Open-Meteo no respondió)');
+      if (!aviso || aviso.nombre !== item.id) throw new SinDatos(`ya no hay un ${item.id} para dar`);
+      return armarAviso(aviso, clima, { fecha: dia, ...op });
     case 'repaso':
       return armarRepaso(item.datos?.notas ?? [], { fecha: fechaLarga(ahora), momento: item.momento, sinBalcarce: item.datos?.sinBalcarce === true, ...op });
     default:
@@ -82,7 +102,27 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
   const llamar = (ruta, cuerpo) => pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn: deps.fetchFn });
 
   const solo = String(env.SOLO ?? '').split(',').map((s) => s.trim()).filter(Boolean);
-  const plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}) });
+  // Las piezas condicionales (feriado, agenda, avisos de clima) sólo se piden si hay algo para contar: se mira ANTES de pedir el plan, para no reservarles lugar en el cupo de voz de balde.
+  const cuando = env.AHORA ? new Date(env.AHORA) : ahora;
+  const diaDeHoy = diaDeBalcarce(cuando);
+  const queMirar = condicionalesQueTocan(cuando, solo);
+  const previos = { clima: null, agenda: null, feriado: null, aviso: null };
+  const conDatos = [];
+  if (queMirar.some((p) => p.arma === 'aviso')) {
+    previos.clima = await deps.leerClima();
+    previos.aviso = previos.clima ? avisoDelClima(previos.clima, cuando) : null;
+    if (previos.aviso && queMirar.some((p) => p.id === previos.aviso.nombre)) conDatos.push(previos.aviso.nombre);
+  }
+  if (queMirar.some((p) => p.id === 'agenda') && deps.leerAgenda) {
+    previos.agenda = eventosParaLaAgenda(await deps.leerAgenda(), { ahora: cuando });
+    if (previos.agenda.length) conDatos.push('agenda');
+  }
+  if (queMirar.some((p) => p.id === 'feriado') && deps.leerFeriados) {
+    const { feriados, elegidas } = await deps.leerFeriados();
+    previos.feriado = feriadoDelDia(feriados, diaDeHoy, elegidas);
+    if (previos.feriado) conDatos.push('feriado');
+  }
+  const plan = await llamar('/piezas/plan', { ...(env.AHORA ? { ahora: env.AHORA } : {}), ...(solo.length ? { solo } : {}), conDatos });
   const reloj = env.AHORA && !plan.activas ? new Date(env.AHORA) : ahora;
   log(`plan ${plan.dia}: ${plan.piezas.length} piezas, voz ${plan.vozQuedan}/${plan.vozTope}, ${plan.activas ? 'REAL' : 'ENSAYO (no se publica)'}${plan.descartes.length ? `; descartadas: ${plan.descartes.map((d) => `${d.pieza} (${d.motivo})`).join(', ')}` : ''}`);
   const salida = { dia: plan.dia, activas: plan.activas, piezas: [], descartes: plan.descartes };
@@ -92,7 +132,10 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
   // Los datos de afuera se piden una sola vez por corrida, y sólo si alguna pieza los necesita.
   const necesita = (arma) => plan.piezas.some((p) => p.arma === arma);
   const datos = {
-    clima: necesita('clima') ? await deps.leerClima() : null,
+    clima: previos.clima ?? (necesita('clima') || necesita('aviso') ? await deps.leerClima() : null),
+    agenda: previos.agenda ?? (necesita('agenda') && deps.leerAgenda ? eventosParaLaAgenda(await deps.leerAgenda(), { ahora: reloj }) : null),
+    feriado: previos.feriado ?? (necesita('feriado') && deps.leerFeriados ? (({ feriados, elegidas }) => feriadoDelDia(feriados, plan.dia, elegidas))(await deps.leerFeriados()) : null),
+    aviso: previos.aviso ?? null,
     farmacia: necesita('farmacia') ? await deps.leerFarmacia() : null,
     efemeride: necesita('efemeride') ? efemerideDelDia(await deps.leerEfemerides(), plan.dia) : null,
   };
@@ -130,11 +173,17 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         const cliente = deps.clienteMeta();
         const mp4 = fs.readFileSync(r.mp4);
         informe.acciones = await publicarPieza({ cliente, mp4, acciones, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
-        const buenas = informe.acciones.filter((a) => a.estado === 'ok').length;
+        const buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte
+        if (item.buffer?.length) {
+          if (deps.subirVideo && deps.publicarEnBuffer && env.BUFFER_API_KEY) {
+            const huella = `${plan.dia}-${item.id}-${item.fila}`;
+            informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, subirVideo: deps.subirVideo, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
+          } else informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}sin BUFFER_API_KEY: no sale en TikTok, YouTube ni X`;
+        }
         informe.estado = buenas ? 'publicada' : 'error';
         if (!buenas) informe.error = `Meta rechazó todo: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error}`).join(' | ').slice(0, 400)}`;
       } else {
-        informe.acciones = simularPublicacion(acciones);
+        informe.acciones = [...simularPublicacion(acciones), ...simularBuffer(item)];
         informe.estado = 'lista';
       }
       fs.writeFileSync(`${base}.json`, JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, guionAlineado: voz?.palabras?.length ?? 0 }, null, 2));
@@ -161,10 +210,18 @@ export async function dependenciasReales(env = process.env) {
   const { crearCliente, PAGINA_DE_FACEBOOK } = await import('../../../redes/meta.mjs');
   const { resolverFotos, armarEscenaDeVideo, armarVideo, subtitulosEstimados } = await import('./render.mjs');
   const { leerFarmacia } = await import('../../sitio/datos-del-dia.mjs');
+  const { leerAgenda } = await import('../../sitio/agenda.mjs');
+  const { publicarReel } = await import('../../../redes/buffer.mjs');
+  const { clienteR2 } = await import('../../../infra/compartido/r2-s3.mjs');
   return {
     fetchFn: fetch,
     leerClima: () => leerClima({}),
     leerFarmacia: () => leerFarmaciaDeTurno({ leerDelSitio: leerFarmacia }),
+    leerAgenda: async () => (await leerAgenda({ traer: fetch })).eventos,
+    leerFeriados: async () => ({
+      feriados: JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'feriados-piezas.json'), 'utf8')),
+      elegidas: (() => { try { return JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-elegidas.json'), 'utf8')); } catch { return null; } })(),
+    }),
     leerEfemerides: async () => JSON.parse(fs.readFileSync(path.join(RAIZ, 'web', 'data', 'efemerides-piezas.json'), 'utf8')),
     async decir(guion, destino, { voz, pieza, bloque, activas }) {
       // En ensayo con clave aparte (_V3) habla con ésa; en real, con GEMINI_API_KEY_REDES, como hoy.
@@ -184,6 +241,13 @@ export async function dependenciasReales(env = process.env) {
       const r = await armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
       return { ...r, fotosQueNoBajaron };
     },
+    // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de tareas en /video/<huella>/<archivo>.mp4.
+    subirVideo: async (archivo, { huella, nombre }) => {
+      const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
+      await r2.guardar(`listos/${huella}/${nombre}`, fs.readFileSync(archivo), 'video/mp4');
+      return `https://radar-balcarce-tareas.radarbalcarce.workers.dev/video/${encodeURIComponent(huella)}/${encodeURIComponent(nombre)}`;
+    },
+    publicarEnBuffer: (o) => publicarReel(o, { env, fetchFn: fetch }),
     clienteMeta: () => crearCliente({ token: env.META_TOKEN, paginaId: env.META_PAGE_ID || PAGINA_DE_FACEBOOK }),
   };
 }

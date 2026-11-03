@@ -13,6 +13,7 @@ import { crearCliente, ErrorMeta, PAGINA_DE_FACEBOOK, sinToken } from './meta.mj
 import * as db from './db.mjs';
 import * as dbp from './piezas-db.mjs';
 import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mjs';
+import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -146,6 +147,11 @@ export function crearRedes(deps = {}) {
       lineas.push(`Fallaron ${errores.length} intentos:`);
       for (const h of errores.slice(0, 5)) lineas.push(`• ${hora(h.cuando)} · ${h.red} · ${h.error ?? 'sin detalle'}`);
     }
+    for (const [red, nombre] of [['bluesky', 'Bluesky'], ['threads', 'Threads']]) {
+      const hechas = buenas.filter((h) => h.red === red);
+      const falladas = errores.filter((h) => h.red === red);
+      if (hechas.length || falladas.length) lineas.push(`${nombre}: ${simulado ? 'habría publicado' : 'publicó'} ${hechas.length}${falladas.length ? ` (fallaron ${falladas.length}: ${falladas[0].error ?? 'sin detalle'})` : ''}.`);
+    }
     const piezas = await dbp.piezasDelDia(env, dia, simulado).catch(() => []);
     lineas.push(...lineasDeLasPiezas(piezas, simulado));
     if (!fb.length && !ig.length && !errores.length && !piezas.length) lineas.push('No hubo nada que publicar (ninguna nota con foto, sin tono triste, de Balcarce o muy contada).');
@@ -200,7 +206,23 @@ export function crearRedes(deps = {}) {
       if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
       if (!opciones.ahora) opciones.ahora = reloj();
       if (Array.isArray(cuerpo?.solo) && cuerpo.solo.length && simulado) opciones.solo = cuerpo.solo.map(String);
+      if (Array.isArray(cuerpo?.conDatos)) opciones.conDatos = cuerpo.conDatos.map(String);
       return json({ activas: !simulado, ...(await planear(env, opciones)) });
+    }
+    // Bluesky y Threads: el programa de GitHub Actions (v3/redes/piezas/enlaces.mjs) pide qué notas toca publicar, dibuja la imagen de enlace, llama a las APIs y cuenta cómo salió.
+    if (pedido.method === 'POST' && (url.pathname === '/enlaces/plan' || url.pathname === '/enlaces/resultado')) {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      let cuerpo = {};
+      try { cuerpo = await pedido.json(); } catch { /* sin cuerpo */ }
+      if (url.pathname === '/enlaces/resultado') {
+        const r = await registrarEnlace(env, cuerpo);
+        return json(r, r.error ? 400 : 200);
+      }
+      const simulado = !redesActivas(env);
+      const opciones = { simulado, redes: Array.isArray(cuerpo?.redes) ? cuerpo.redes.map(String) : [], ahora: reloj() };
+      if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
+      return json({ activas: !simulado, ...(await planearEnlaces(env, opciones)) });
     }
     if (pedido.method === 'GET' && url.pathname === '/piezas/estado') {
       const no = await autorizado(pedido, env);

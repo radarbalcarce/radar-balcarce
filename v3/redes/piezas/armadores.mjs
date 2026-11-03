@@ -11,7 +11,7 @@
 // Todo es puro (sin red, sin archivos, sin hora del sistema): la hora y si es la primera del bloque las pasa quien llama (`opciones.hora`,
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
-  AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
+  AGENDA, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
   IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA,
 } from './variables.mjs';
 import {
@@ -19,6 +19,7 @@ import {
   primeraFrase, saludoDe, tituloEnPantalla, topeDeVoz, acortarCaracteres,
 } from './voz.mjs';
 import { PIEZAS_PARTICIPA } from '../../../redes/participa.mjs';
+import { pantallasDeUtiles, queDiceLaVoz } from '../../../ingesta/utiles.mjs';
 
 // ------------------------------------------------------------------ lo común
 
@@ -371,8 +372,82 @@ export function armarParticipa(variante = 'noticia', opciones = {}) {
   ], { voz: opciones.voz ?? 'locutor', saludo, extra: { variante } });
 }
 
+// ------------------------------------------------------------------ 15 a 18. las piezas de servicio que 3.0 suma el 3/11 (agenda, útiles, feriado, aviso de clima)
+
+/** «a, b y c». */
+const enLista = (xs) => (xs.length <= 1 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} y ${xs.at(-1)}`);
+
+/** «sábado 20:30» → «el sábado a las 20 y 30» (como se dice); sin hora, «el sábado». */
+export function cuandoHablado(cuando = '') {
+  const m = String(cuando).match(/^(\S+)\s+(\d{1,2}):(\d{2})$/);
+  if (!m) return `el ${String(cuando).trim()}`;
+  const hora = Number(m[2]);
+  return `el ${m[1]} a las ${hora}${m[3] === '00' ? '' : ` y ${Number(m[3])}`}`;
+}
+
+/**
+ * La agenda del fin de semana (jueves al mediodía, sólo si hay eventos): **la escena de hoy** (una tarjeta por evento con el día, la hora y el lugar). `eventos`:
+ * [{ nombre, cuando: 'sábado 20:30', lugar }] (`eventosParaLaAgenda`, datos.mjs); hasta 4. La voz cuenta cuántas actividades hay y la primera.
+ */
+export function armarAgenda(eventos, opciones = {}) {
+  const lista = (eventos ?? []).filter((e) => e?.nombre).slice(0, AGENDA.eventosMax);
+  if (!lista.length) throw new Error('agenda: no hay eventos');
+  const saludo = saludoPara(opciones);
+  const cuantas = lista.length === 1 ? 'una actividad' : `${lista.length} actividades`;
+  const primero = lista[0];
+  const voz = unir(
+    saludo, `Estos días hay ${cuantas} en Balcarce.`,
+    `${primero.nombre}, ${cuandoHablado(primero.cuando)}${primero.lugar ? `, en ${primero.lugar}` : ''}.`,
+    'La agenda completa está en Radar Balcarce punto com.',
+  );
+  return video('agenda', [escena('agenda', AGENDA.segundos, { eventos: lista, titulo: 'Este fin de semana' }, voz)], { voz: opciones.voz ?? 'locutora', saludo, extra: { seccion: 'Cultura y agenda' } });
+}
+
+/** Los teléfonos útiles (los sábados a la tarde): **la escena de hoy**, dos pantallas con un número por contacto (`pantallasDeUtiles`, ingesta/utiles.mjs). La voz dice qué hay, no los números. */
+export function armarUtiles(opciones = {}) {
+  const pantallas = opciones.pantallas ?? pantallasDeUtiles();
+  const saludo = saludoPara(opciones);
+  const voz = unir(
+    saludo, 'Te dejamos los teléfonos que sirve tener a mano.', `Están los de ${enLista(queDiceLaVoz(pantallas))}.`,
+    'Guardalos ahora, que después te olvidás.', 'Los encontrás todos en Radar Balcarce punto com.',
+  );
+  return video('utiles', [escena('utiles', UTILES.segundos, { pantallas }, voz)], { voz: opciones.voz ?? 'locutor', saludo, extra: { seccion: 'Balcarce' } });
+}
+
+/**
+ * El feriado (los días de feriado a la mañana): **la escena de hoy** (la hoja del calendario que pasa de un día al otro, el nombre y el dato histórico). `feriado`: { fecha, nombre, tipo,
+ * alcance }; `datos`: los textos verificados que se cuentan (`datosDelFeriado`, datos.mjs: hasta dos). Nada se inventa: sin datos no sale.
+ */
+export function armarFeriado(feriado, { datos = [], ...opciones } = {}) {
+  if (!feriado?.nombre || !esFechaIso(feriado.fecha)) throw new Error('feriado: faltan el nombre o la fecha (AAAA-MM-DD)');
+  if (!datos.length) throw new Error('feriado: sin datos verificados no sale');
+  const saludo = saludoPara(opciones);
+  const apertura = feriado.alcance && feriado.alcance !== 'nacional' ? `Hoy es feriado en ${feriado.alcance}.` : `Hoy es feriado: ${feriado.nombre}.`;
+  const cuento = partesQueEntran(datos.flatMap((d) => frases(d)), presupuestoDeVoz(FERIADO.segundos) - contarPalabras(saludo ?? '') - contarPalabras(apertura) - 6);
+  const voz = unir(saludo, apertura, cuento, 'Que tengan un buen feriado.');
+  return video('feriado', [escena('feriado', FERIADO.segundos, { fecha: feriado.fecha, feriado: { nombre: feriado.nombre, tipo: feriado.tipo, alcance: feriado.alcance ?? 'nacional' }, texto: datos[0] }, voz)], {
+    voz: opciones.voz ?? 'locutora', saludo, extra: { color: 'Feriados' },
+  });
+}
+
+/**
+ * El aviso de clima (helada fuerte, granizo o viento fuerte): una historia con voz de unos 15 s con **la escena de hoy del clima en modo aviso** (el recuadro del aviso arriba, los días
+ * que siguen abajo). `aviso`: { tipo, titulo, texto, dia } (`avisoDelClima`, datos.mjs); `clima` el de `portada.json`. Sin saludo: un aviso va directo al punto.
+ */
+export function armarAviso(aviso, clima, { fecha = null, ...opciones } = {}) {
+  if (!aviso?.tipo || !aviso?.titulo) throw new Error('aviso: falta el aviso');
+  if (!clima?.ahora || !clima?.dias?.length) throw new Error('aviso: faltan los datos del tiempo');
+  const hoy = fecha ?? clima.dias[0].fecha;
+  if (!esFechaIso(hoy)) throw new Error('aviso: falta la fecha de hoy (AAAA-MM-DD)');
+  const voz = unir(`${aviso.titulo}.`, aviso.texto, 'Radar Balcarce.');
+  return video(`aviso-${aviso.tipo}`, [
+    escena('aviso', AVISO_DE_CLIMA.segundos, { aviso: { tipo: aviso.tipo, titulo: aviso.titulo, texto: aviso.texto, dia: aviso.dia }, clima: { ahora: clima.ahora, dias: clima.dias }, fecha: hoy }, voz),
+  ], { voz: opciones.voz ?? 'locutora', saludo: null, extra: { seccion: 'Clima', tipoDeAviso: aviso.tipo } });
+}
+
 /** Todos los armadores por nombre (lo que usa el ejemplo y quien conecte la publicación). */
 export const ARMADORES = Object.freeze({
   clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'historia-nota': armarHistoriaDeNota,
   posteo: armarPosteo, carrusel: armarCarrusel, farmacia: armarFarmacia, participa: armarParticipa, enlace: armarEnlace,
+  agenda: armarAgenda, utiles: armarUtiles, feriado: armarFeriado, aviso: armarAviso,
 });

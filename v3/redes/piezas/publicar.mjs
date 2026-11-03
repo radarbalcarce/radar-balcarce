@@ -55,3 +55,43 @@ export async function publicarPieza({ cliente, mp4, acciones, sinToken = (t) => 
 
 /** En ensayo: lo mismo, sin llamar a nadie. */
 export const simularPublicacion = (acciones) => acciones.map((a) => ({ red: a.red, tipo: a.tipo, estado: 'simulada' }));
+
+// ------------------------------------------------------------------ Buffer: TikTok, YouTube Shorts y X
+
+/**
+ * El texto que se manda a Buffer para cada canal (el mismo reel de Facebook): TikTok, con «link en la bio» (hasta 5 hashtags); YouTube, con la dirección del sitio (en la descripción sí se
+ * lee); X, el nombre de la pieza y lo que cuenta, más los hashtags, sin enlace (con enlace cuesta 13 veces más): `textoParaX` de redes/buffer.mjs lo corta a 270.
+ */
+export function textoParaBuffer(pieza, item, red) {
+  if (red === 'tiktok') return textoDePieza(pieza, item, 'instagram');
+  if (red === 'youtube') return textoDePieza(pieza, item, 'facebook');
+  const cuenta = item.arma === 'repaso' ? (item.datos.notas ?? []).slice(0, 3).map((n) => limpiar(n.titulo)).join(' · ') : resumenDelGuion(pieza.guion, 150);
+  return `${item.nombre}: ${cuenta}\n\n${HASHTAGS_FIJOS} #${item.hashtag}`;
+}
+
+/** Lo que se hace en Buffer de una pieza: una acción por canal. */
+export const accionesDeBuffer = (item) => (item.buffer ?? []).map((red) => ({ red, tipo: 'VIDEO' }));
+
+/**
+ * Sube el mp4 al depósito público del render y se lo pasa a Buffer, que pide una dirección pública (no recibe el archivo). `subirVideo(archivo, { huella, nombre })` devuelve la dirección;
+ * `publicarEnBuffer({ url, texto, titulo, redes })` es `publicarReel` de redes/buffer.mjs (devuelve { [canal]: { ok, id?, motivo? } }, sin tirar). Sigue aunque un canal falle.
+ * @returns {Promise<{ red, tipo, estado: 'ok'|'error', id?, error? }[]>}
+ */
+export async function publicarPorBuffer({ pieza, item, mp4, huella, subirVideo, publicarEnBuffer, sinSecreto = (t) => t }) {
+  const redes = (item.buffer ?? []);
+  if (!redes.length) return [];
+  let url;
+  try { url = await subirVideo(mp4, { huella, nombre: `${item.id}.mp4` }); } catch (e) {
+    return redes.map((red) => ({ red, tipo: 'VIDEO', estado: 'error', error: sinSecreto(`no se pudo subir el video para Buffer: ${String(e?.message ?? e)}`).slice(0, 300) }));
+  }
+  const salida = [];
+  for (const red of redes) {
+    const r = (await publicarEnBuffer({ url, texto: textoParaBuffer(pieza, item, red), titulo: item.nombre, redes: [red] }))[red]
+      ?? { ok: false, motivo: 'Buffer no contestó por ese canal' };
+    salida.push(r.ok ? { red, tipo: 'VIDEO', estado: 'ok', id: r.id ?? null } : { red, tipo: 'VIDEO', estado: 'error', error: sinSecreto(String(r.motivo ?? 'sin detalle')).slice(0, 300) });
+  }
+  return salida;
+}
+
+/** En ensayo: lo mismo, sin subir ni llamar a nadie. */
+export const simularBuffer = (item) => accionesDeBuffer(item).map((a) => ({ ...a, estado: 'simulada' }));

@@ -13,7 +13,11 @@ name: "Radar 3.0: piezas de redes"
 #
 # Secretos de GitHub (los pega una persona, nunca en un chat): TELEGRAM_TOKEN (de ahí sale la contraseña con el Worker), GEMINI_API_KEY_REDES (la voz), META_TOKEN (sólo para publicar de
 # verdad) y, opcional, GEMINI_API_KEY_REDES_V3: una clave de voz aparte para el ensayo, para no gastar el cupo de la clave que usa el sistema viejo.
-# Variables de GitHub (opcionales): V3_AUDIOS_POR_DIA (cupo de audios del día en esta corrida; por defecto 10), V3_REDES_URL (la dirección del Worker).
+# Para TikTok, YouTube Shorts y X (por Buffer, como hacía el sistema viejo): BUFFER_API_KEY, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY y CLOUDFLARE_ACCOUNT_ID (ya están en GitHub; el video se sube
+# a R2 y Buffer lo lee por la ruta /video del Worker radar-balcarce-tareas, que tiene que seguir en pie). Para Bluesky y Threads (segundo paso, «enlaces»): BLUESKY_APP_PASSWORD,
+# THREADS_TOKEN y THREADS_USER_ID; sin ellos esas redes no publican. Reglas: v3/redes/REGLAS.md § 12.
+# Variables de GitHub (opcionales): V3_AUDIOS_POR_DIA, V3_REDES_URL, BLUESKY_HANDLE (por defecto radarbalcarce.bsky.social), R2_RENDER (el bucket de los videos; el mismo del sistema viejo).
+# (las dos primeras:) V3_AUDIOS_POR_DIA (cupo de audios del día en esta corrida; por defecto 10), V3_REDES_URL (la dirección del Worker).
 
 on:
   schedule:
@@ -21,7 +25,7 @@ on:
   workflow_dispatch:
     inputs:
       solo:
-        description: 'Ensayar sólo estas piezas, separadas por coma (clima-manana, clima-noche, farmacia, efemeride, participa-noticias, participa-evento, participa-reclamos, participa-nota, noticia1, noticia2, podcast). Vacío = lo que toca ahora'
+        description: 'Ensayar sólo estas piezas, separadas por coma (clima-manana, clima-noche, farmacia, utiles, agenda, feriado, aviso-helada, aviso-granizo, aviso-viento, efemeride, participa-noticias, participa-evento, participa-reclamos, participa-nota, noticia1, noticia2, podcast). Vacío = lo que toca ahora'
         type: string
         default: ''
       ahora:
@@ -68,11 +72,31 @@ jobs:
           GEMINI_API_KEY_REDES: ${{ secrets.GEMINI_API_KEY_REDES }}
           GEMINI_API_KEY_REDES_V3: ${{ secrets.GEMINI_API_KEY_REDES_V3 }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_RENDER: ${{ vars.R2_RENDER }}
           REDES_URL: ${{ vars.V3_REDES_URL }}
           AUDIOS_POR_DIA: ${{ vars.V3_AUDIOS_POR_DIA }}
           VOZ_CACHE: ${{ github.workspace }}/.cache/voz-v3
           SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
           SOLO: ${{ inputs.solo }}
+          AHORA: ${{ inputs.ahora }}
+
+      # Bluesky y Threads: las notas que ya salieron en Facebook, como enlace (título + enlace + imagen 1,91:1). Sigue aunque las piezas hayan fallado; sin secretos no publica.
+      - name: Publicar los enlaces (Bluesky y Threads)
+        if: always()
+        continue-on-error: true
+        run: node v3/redes/piezas/enlaces.mjs
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          REDES_URL: ${{ vars.V3_REDES_URL }}
+          SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
           AHORA: ${{ inputs.ahora }}
 
       - name: Guardar la memoria de voces
@@ -84,7 +108,7 @@ jobs:
 
       # El resultado del ensayo: los videos con voz y el registro de lo que habría publicado. El de verdad (publicado) queda también en Meta.
       - name: Dejar las piezas para ver
-        if: always() && hashFiles('salida-piezas/registro.json') != ''
+        if: always() && hashFiles('salida-piezas/*.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: piezas-v3

@@ -2,7 +2,8 @@
 // de D1 (las notas del repaso, el comercio que auspicia el clima). NO dibuja, NO pide la voz y NO publica: eso lo hace el programa de v3/redes/piezas/correr.mjs en GitHub Actions
 // (resvg + ffmpeg no corren en un Worker), que pide este plan y después cuenta cómo salió. Reglas en palabras de persona: REGLAS.md, «Las piezas de video».
 
-import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, relojDeBalcarce } from './piezas-del-dia.mjs';
+import { redesDeBuffer } from './piezas-del-dia.mjs';
+import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloqueDeLaHora, relojDeBalcarce } from './piezas-del-dia.mjs';
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { notasParaRedes } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
@@ -57,15 +58,17 @@ const hablaEnElBloque = (f) => cuentanComoHecha.has(f.estado);
 /**
  * Lo que toca ahora. Devuelve { dia, simulado, vozQuedan, piezas: [{ fila, id, nombre, arma, variante, momento, formato, hora, horaDelDia, voz, primeraDelBloque, datos }], descartes: [{ pieza, motivo }] }.
  * Cada pieza de `piezas` ya quedó reservada ('en-curso') en la base: si el programa no vuelve en 45 minutos, la reserva vence y se reintenta.
- * @param {object} o  { ahora, simulado, solo? (lista de ids para ensayar a mano, ignora el horario pero no el cupo ni las reservas) }
+ * @param {object} o  { ahora, simulado, solo? (lista de ids para ensayar a mano, ignora el horario pero no el cupo ni las reservas), conDatos? (ids de las piezas condicionales —feriado, agenda, avisos de clima— que el programa vio que tienen algo para contar: sin eso no entran) }
  */
-export async function planear(env, { ahora = new Date(), simulado = true, solo = null, reglas = REGLAS_PIEZAS } = {}) {
+export async function planear(env, { ahora = new Date(), simulado = true, solo = null, conDatos = [], reglas = REGLAS_PIEZAS } = {}) {
   const dia = diaDeBalcarce(ahora);
   const ahoraISO = ahora.toISOString();
   await dbp.vencerReservas(env, { dia, simulado, antesDeISO: new Date(ahora.getTime() - reglas.reservaVenceMinutos * 60_000).toISOString(), ahoraISO });
   const filas = await dbp.piezasDelDia(env, dia, simulado);
 
-  const candidatas = solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora);
+  // Una pieza condicional (feriado, agenda, avisos de clima) sólo cuenta si el programa dijo que hay algo para contar; si no, ni se reserva ni le guarda lugar en el cupo de voz a las demás.
+  const hayDato = (p) => !p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id));
+  const candidatas = (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora)).filter(hayDato);
   const descartes = [];
   const pendientes = [];
   for (const p of candidatas) {
@@ -81,11 +84,13 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const tope = topeDeVoz(env);
   let usados = filas.reduce((s, f) => s + (f.vozUsada ? 1 : 0), 0);
   const { minuto } = relojDeBalcarce(ahora);
-  const porSalirHoy = (p) => piezasDeHoy(ahora).some((x) => x.id === p.id) && !filas.some((f) => f.pieza === p.id && cuentanComoHecha.has(f.estado)) && minuto < Math.min(1440, minutoDe(p.hora) + p.ventana);
+  const porSalirHoy = (p) => hayDato(p) && piezasDeHoy(ahora).some((x) => x.id === p.id) && !filas.some((f) => f.pieza === p.id && cuentanComoHecha.has(f.estado)) && minuto < Math.min(1440, minutoDe(p.hora) + p.ventana);
 
   const notasDeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).flatMap((f) => f.notas ?? []);
   let notasCargadas = null;
   const salen = [];
+  // Cuántos YouTube Shorts ya se dieron hoy (el tope es 6): las filas armadas o publicadas que llevan la acción de YouTube.
+  let youtubeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).reduce((s, f) => s + ((f.acciones ?? []).some((a) => a.red === 'youtube' && a.estado !== 'error') ? 1 : 0), 0);
   for (const p of pendientes) {
     const reservar = PIEZAS_DEL_DIA.filter((x) => x.voz < p.voz && porSalirHoy(x) && !salen.some((s) => s.id === x.id)).length;
     if (tope - usados - reservar <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
@@ -104,12 +109,16 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
       datos = { auspicio };
     }
 
-    const bloque = bloqueDe(p);
-    const otraHablo = filas.some((f) => f.bloque === bloque && hablaEnElBloque(f)) || salen.some((s) => s.bloque === bloque);
-    const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque, simulado, ahoraISO, notas, auspicio });
+    // Un aviso de clima sale cuando se lo detecta, no a su hora: habla con el estilo del momento en que sale y, como no saluda, no cuenta como la pieza que "ya habló" del bloque.
+    const bloque = p.arma === 'aviso' ? bloqueDeLaHora(Math.floor(minuto / 60)) : bloqueDe(p);
+    const saluda = p.arma !== 'aviso';
+    const otraHablo = filas.some((f) => f.bloque === bloque && hablaEnElBloque(f)) || salen.some((s) => s.bloque === bloque && s.saluda);
+    const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque: saluda ? bloque : null, simulado, ahoraISO, notas, auspicio });
     if (!fila) continue;
     usados += 1;
-    salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: Math.floor(minutoDe(p.hora) / 60), bloque, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
+    const buffer = redesDeBuffer(p, { youtubeHoy });
+    if (buffer.includes('youtube')) youtubeHoy += 1;
+    salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
   }
   return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes };
 }

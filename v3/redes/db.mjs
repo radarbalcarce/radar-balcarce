@@ -72,6 +72,12 @@ export async function cerrarIntento(env, id, { estado, idMeta = null, error = nu
   await env.DB.prepare('UPDATE publicaciones SET estado = ?, id_meta = ?, error = ? WHERE id = ?').bind(estado, idMeta, error, id).run();
 }
 
+/** Un posteo que quedó en 'enviando' (la corrida que lo mandaba se cortó) se da por fallado: deja de bloquear la nota y se puede reintentar. */
+export async function vencerEnviando(env, { red, dia, simulado, antesDeISO }) {
+  await env.DB.prepare("UPDATE publicaciones SET estado = 'error', error = 'la corrida se cortó antes de terminar' WHERE red = ? AND dia = ? AND simulado = ? AND estado = 'enviando' AND cuando < ?")
+    .bind(red, dia, simulado ? 1 : 0, antesDeISO).run();
+}
+
 /** La última fila de todas (para /salud). */
 export async function ultimaPublicacion(env) {
   return (await env.DB.prepare('SELECT red, nota_id, cuando, estado, simulado, error FROM publicaciones ORDER BY id DESC LIMIT 1').first()) ?? null;
