@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T11:34:33.954Z",
- "portada": 143,
+ "generado": "2026-11-04T12:06:05.391Z",
+ "portada": 126,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-04T11:34:34.369Z",
+  "generado": "2026-11-04T12:06:05.904Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,8 +95,13 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 52,
     "notas": [
+     {
+      "id": "17vhzp2",
+      "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "17vsjrz",
       "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
@@ -106,11 +111,6 @@
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
       "seccion": "Deportes"
-     },
-     {
-      "id": "sm5hhw",
-      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "atpuq1",
@@ -126,11 +126,11 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 48,
     "notas": [
      {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "id": "sm5hhw",
+      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
       "seccion": "Cultura y agenda"
      },
      {
@@ -144,9 +144,9 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
+      "id": "r4aec2",
+      "titulo": "CAME apoya la suspensión de embargos de ARCA y pide ampliar los pagos",
+      "seccion": "Economía"
      }
     ]
    },
@@ -157,27 +157,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
      {
-      "id": "9s46rr",
-      "titulo": "La Escuela República Argentina avanza con su proyecto ambiental por Malvinas",
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "qen8gi",
-      "titulo": "Adhesión dispar en la Facultad de Ciencias Agrarias por el paro de FATUN",
-      "seccion": "Educación"
+      "id": "ivy0k6",
+      "titulo": "Nicolás Ramírez no dirige en la fecha 16 del Torneo Clausura",
+      "seccion": "Fútbol"
      },
      {
-      "id": "uv66oi",
-      "titulo": "Mirian Casco gana el Premio Nacional L’Oréal-UNESCO 2026",
-      "seccion": "Ciencia"
+      "id": "nsw0ux",
+      "titulo": "Metalfor pide el concurso preventivo de acreedores",
+      "seccion": "Agro"
      },
      {
-      "id": "18ol7p3",
-      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
-      "seccion": "Política"
+      "id": "1g9f3pp",
+      "titulo": "El Gobierno nacional implementa cambios en el transporte por la visita papal",
+      "seccion": "Argentina"
      }
     ]
    }
@@ -185,6 +185,12 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "17vhzp2",
+     "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
     {
      "id": "sm5hhw",
      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",

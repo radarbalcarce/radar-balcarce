@@ -39638,16 +39638,15 @@
   "huella": "000010c0e3fc6fe2"
  },
  "f1resultado2026r18": {
-  "archivo": "fotos-notas/libre-f1resultado2026r18.jpg",
   "medio": "Wikimedia Commons",
-  "credito": "Foto: Larry D. Moore / Wikimedia Commons (CC BY 4.0)",
   "licencia": "CC BY 4.0",
   "origen": "libre",
   "enlace": "https://commons.wikimedia.org/wiki/File:Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg",
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg/1280px-Cirque_du_Soleil_at_Circuit_of_the_Americas_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Cirque du Soleil at Circuit of the Americas 2015.jpg",
   "cuando": "2026-10-25T23:02:12.142Z",
-  "ausenteDesde": "2026-10-28T12:05:14.242Z"
+  "intentado": true,
+  "borrada": true
  },
  "1i3yqk": {
   "archivo": "fotos-notas/1i3yqk.jpg",
@@ -40105,9 +40104,7 @@
   "fuentes": 1
  },
  "1kk1sil": {
-  "archivo": "fotos-notas/1kk1sil.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Santiago Amadeo analiza el presente deportivo de Amigos Unidos",
@@ -40127,7 +40124,8 @@
    "descripcion": "Santiago Amadeo sosteniendo una camiseta de Amigos Unidos en el estudio de Radio Gabal"
   },
   "huella": "392f2f870f035646",
-  "ausenteDesde": "2026-10-28T12:05:14.242Z"
+  "intentado": true,
+  "borrada": true
  },
  "ns2jue": {
   "archivo": "fotos-notas/ns2jue.jpg",
@@ -40180,9 +40178,7 @@
   "ausenteDesde": "2026-10-28T13:39:57.272Z"
  },
  "8rb54u": {
-  "archivo": "fotos-notas/8rb54u.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Aníbal Moreno sale lesionado en River y duda para el Superclásico",
@@ -40214,7 +40210,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "77592d09a6868e1f",
-  "ausenteDesde": "2026-10-28T12:05:14.242Z"
+  "intentado": true,
+  "borrada": true
  },
  "10vughh": {
   "medio": "La Nación",
@@ -44817,9 +44814,7 @@
   "borrada": true
  },
  "1t5lyeu": {
-  "archivo": "fotos-notas/1t5lyeu.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "AySA analiza un aumento del 22,6% en las tarifas y avanza su privatización",
@@ -44839,7 +44834,8 @@
    "descripcion": "Instalaciones y letrero exterior de AySA"
   },
   "huella": "362ebe3f7f0e8fcb",
-  "ausenteDesde": "2026-10-28T12:05:14.242Z"
+  "intentado": true,
+  "borrada": true
  },
  "cktva4": {
   "archivo": "fotos-notas/cktva4.jpg",
@@ -67867,7 +67863,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "ac3c360c8ca6928c"
+  "huella": "ac3c360c8ca6928c",
+  "ausenteDesde": "2026-11-04T12:06:05.285Z"
  },
  "35ee8s": {
   "archivo": "fotos-notas/35ee8s.jpg",
@@ -69288,7 +69285,8 @@
    "corresponde": "si",
    "descripcion": "Máximo Kirchner y Cristina Fernández de Kirchner."
   },
-  "huella": "d6d2c2c63362e6e2"
+  "huella": "d6d2c2c63362e6e2",
+  "ausenteDesde": "2026-11-04T12:06:05.285Z"
  },
  "1acgwwy": {
   "archivo": "fotos-notas/1acgwwy.jpg",
@@ -71511,7 +71509,8 @@
    "corresponde": "si",
    "descripcion": "Un sacerdote dando declaraciones a la prensa."
   },
-  "huella": "b8989cac8c4c462f"
+  "huella": "b8989cac8c4c462f",
+  "ausenteDesde": "2026-11-04T12:06:05.285Z"
  },
  "enh8i2": {
   "archivo": "fotos-notas/enh8i2.jpg",
@@ -74362,7 +74361,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre un jugador de River y uno de Aldosivi."
   },
-  "huella": "22530d8a2e212124"
+  "huella": "22530d8a2e212124",
+  "ausenteDesde": "2026-11-04T12:06:05.285Z"
  },
  "ssbztk": {
   "archivo": "fotos-notas/ssbztk.jpg",
@@ -75215,11 +75215,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gremios universitarios de Mar del Plata realizan protestas y paros",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-11-04T07:02:25.160Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
+  "cuando": "2026-11-04T12:04:37.035Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "43y0ae": {
   "archivo": "fotos-notas/43y0ae.jpg",
@@ -76153,11 +76153,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alpine apela la sanción impuesta a Franco Colapinto en México",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T10:31:50.880Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
+  "cuando": "2026-11-04T12:04:37.035Z",
   "intentos": 2,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "fuentes": 5,
+  "intentosPorCupo": 1
  },
  "f197cq": {
   "archivo": "fotos-notas/f197cq.jpg",
@@ -77181,5 +77181,132 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "c0e8aa29192b2b03"
+ },
+ "17vhzp2": {
+  "archivo": "fotos-notas/17vhzp2.jpg",
+  "medio": "El Diario Balcarce",
+  "credito": "Foto: El Diario Balcarce",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
+  "enlace": "https://eldiariobalcarce.com.ar/mario-gianotti-condujo-el-ii-congreso-internacional-sobre-maradona-29",
+  "imagenOriginal": "http://imagenes.eldiariobalcarce.com.ar/2026-11-04-11-58-49Mario_Gianotti_principal.jpg",
+  "razon": "Es la única foto disponible, corresponde perfectamente al evento, tiene buena calidad y no presenta marcas, menores ni problemas.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mario Gianotti y otras personas en una mesa durante el Congreso Internacional sobre Maradona",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Panel de cuatro hombres sentados en una mesa con libros de Maradona durante un evento."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b2b2b2a333333034"
+ },
+ "rg0nx8": {
+  "archivo": "fotos-notas/rg0nx8.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La ANMAT prohíbe el uso y la venta de un sistema de aspiración y camisolines",
+  "enlace": "https://www.cronica.com.ar/sociedad/anmat-prohibio-varios-insumos-medicos-por-considerarlos-peligrosos-para-la-salud/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1729/1729495/6aeafcfbf0ec0_600_315!.jpg?s=358789a74fcf2d0d810d40de8401a384&d=1793761200",
+  "razon": "La foto A muestra claramente el uso del dispositivo médico prohibido, sin marcas de agua ni personas menores, mientras que la B tiene la marca del medio y es una foto genérica de una habitación de hospital.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un procedimiento médico utilizando un sistema de aspiración."
+  },
+  "huella": "864dc8e8a0c09408"
+ },
+ "1jz6iqp": {
+  "archivo": "fotos-notas/1jz6iqp.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Roberto Baradel gana las elecciones de la CTA de los Trabajadores",
+  "enlace": "https://www.latecla.info/170916-baradel-gano-la-cta-y-kicillof-suma-un-aliado-en-la-conduccion-del-sindicalismo-nacional",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/217499_3.jpg",
+  "razon": "La foto B muestra claramente a Roberto Baradel en el evento, con mejor enfoque en la situación principal.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Roberto Baradel saludando a otros dirigentes sentados en una mesa."
+  },
+  "huella": "5fde5fab276e1e2f"
+ },
+ "1vbid4h": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lanzan una aplicación gratuita para orientarse sin internet en Luján",
+  "razon": "La mejor foto era la de LU9 Mar del Plata, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "1cmd3jr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La SIDE abre su primer concurso público para incorporar nuevos agentes",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Cronista no se usa todavía.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "g9kh4f": {
+  "archivo": "fotos-notas/g9kh4f.jpg",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Libertad Avanza rechaza la reelección indefinida de intendentes en la Provincia",
+  "enlace": "https://www.infobrisas.com/noticias/2026/11/03/113562-sebastian-pareja-ratifico-que-la-libertad-avanza-no-apoyara-las-reelecciones-indefinidas-de-los-intendentes",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/10/infobrisas/images/02/79/55/2795595_cdfc09cb9b951624f28d1f9663239d2013ece95531e87921222a0f9d93230691/lg.webp?_v=v3-129",
+  "razon": "La foto B muestra claramente a los referentes políticos en el contexto de la nota, con buena nitidez, encuadre y sin marcas añadidas ni menores.",
+  "cuando": "2026-11-04T12:04:37.035Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos referentes políticos en una entrevista con micrófono"
+  },
+  "huella": "3c3e5c5eeeaaa666"
  }
 }
