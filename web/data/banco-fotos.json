@@ -70799,13 +70799,28 @@
   "huella": "511c565bd75bf9d9"
  },
  "162lj09": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/162lj09.jpg",
+  "medio": "Canal 26",
+  "credito": "Foto: Canal 26",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Gobierno confirma dos cadenas nacionales por la visita del papa León XIV",
-  "razon": "Ninguna de las fotos cumple con los criterios: la A es un plano cerrado de un funcionario que no es el protagonista, la B contiene menores de edad claramente identificables, y la C es una composición gráfica de dos personas que no ilustra el hecho de manera natural.",
-  "cuando": "2026-11-03T01:32:06.291Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.canal26.com/politica/2026/11/04/visita-del-papa-leon-xiv-a-la-argentina-el-gobierno-confirmo-dos-cadenas-nacionales-y-anuncio-cuando-seran/",
+  "imagenOriginal": "https://www.canal26.com/resizer/v2/XUZF7MFRJBHATMZX6Q7TRWNARE.jpg?auth=baadea04a26ba65cc8e8cecb7c0ce9093c3fbdd0476d9139e8518ceb2832b833&height=630&width=1200&quality=70&focal=629%2C296",
+  "razon": "Es la foto más clara y representativa del encuentro entre el presidente y el papa, con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato oficial del papa León XIV junto a Javier Milei sonriendo"
+  },
+  "huella": "0d4d5558d8d89898"
  },
  "19dguz7": {
   "intentado": true,
@@ -70842,15 +70857,28 @@
   "huella": "9424563210216067"
  },
  "1djsjec": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "El papa León XIV celebra una misa en Luján el miércoles 11 de noviembre",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-03T01:32:06.291Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/2c4snd.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina para una visita oficial de cuatro días",
+  "enlace": "https://www.lanacion.com.ar/sociedad/visita-del-papa-leon-xiv-a-la-argentina-feriados-agenda-cronograma-misas-y-todo-lo-que-hay-que-saber-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-papa-leon-xiv-estara-del-domingo-8-al-CJCSRAD4ARHC7COPIDYUXKJF5A.JPG?auth=ca016ab8cbc3edd8ab132c24f81ca1227b3e06b09373a9b866e17462ebbc7018&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor foto que cumple con todos los requisitos: muestra claramente al Papa León XIV, tiene excelente nitidez y encuadre, sin marcas añadidas ni menores reconocibles.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del Papa León XIV saludando sonriente."
+  },
+  "huella": "a5a527272e1b1949"
  },
  "1lgfhjg": {
   "archivo": "fotos-notas/1lgfhjg.jpg",
@@ -71607,11 +71635,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Popstars define a las ocho finalistas que compiten por integrar Chapeaux",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-03T20:31:52.505Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de La Nación (un menor); la de Crónica (es un flyer, un afiche o una captura de pantalla, no una foto): no se elige ninguna.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "intentos": 3,
+  "fuentes": 12
  },
  "1atch6u": {
   "archivo": "fotos-notas/1atch6u.jpg",
@@ -71676,14 +71703,28 @@
   "ausenteDesde": "2026-11-03T11:33:11.999Z"
  },
  "1kftll4": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1kftll4.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cae el empleo registrado y aumenta la informalidad tras la reforma laboral",
-  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
-  "cuando": "2026-11-03T06:04:35.290Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.eleco.com.ar/nacionales/cayo-el-empleo-registrado-luego-de-la-reforma-laboral-y-sturzenegger-cuestiono-a-los-empresarios",
+  "imagenOriginal": "https://cdnartic.ar/J4jDjyq3VZ-l4wc8ZCibjyXide8=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/03/sturzenegger.webp",
+  "razon": "Es la única foto fotográfica que corresponde al tema de la nota, no tiene marcas de agua agregadas, menores ni es gráfica o stock.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Funcionario caminando frente a la Casa Rosada"
+  },
+  "huella": "2969494949696963"
  },
  "1uk9cf8": {
   "archivo": "fotos-notas/1uk9cf8.jpg",
@@ -71738,11 +71779,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Negra Vernaci sube al balcón en la última gala de MasterChef Celebrity",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-03T20:31:52.505Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "Ninguna foto muestra a La Negra Vernaci en el balcón, ya que todas corresponden a participantes cocinando en las estaciones principales del estudio.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "intentos": 3,
+  "fuentes": 4
  },
  "1grohf": {
   "archivo": "fotos-notas/1grohf.jpg",
@@ -73724,10 +73764,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
-  "razon": "Ninguna foto sirve: la A incluye a una menor reconocida y la B es una pieza gráfica (flyer).",
-  "cuando": "2026-11-04T08:02:37.284Z",
-  "intentos": 2,
-  "fuentes": 3
+  "razon": "Ninguna foto cumple con todos los requisitos: la A tiene una menor reconocida, la B es un flyer gráfico y la C tiene una multitud donde se pueden reconocer menores.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "intentos": 3,
+  "fuentes": 4
  },
  "5e6533": {
   "intentado": true,
@@ -74552,7 +74592,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Melisa Grave, voluntaria balcarceña."
   },
-  "huella": "8c9c8c90b4b4b4b4"
+  "huella": "8c9c8c90b4b4b4b4",
+  "ausenteDesde": "2026-11-04T09:04:18.854Z"
  },
  "d8c1c8": {
   "intentado": true,
@@ -75258,10 +75299,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
-  "razon": "La única foto disponible muestra a un grupo de jóvenes donde varios parecen ser menores de 18 años, por lo que no cumple con la política de publicación del medio.",
-  "cuando": "2026-11-03T23:32:47.251Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La unica foto disponible muestra menores de edad reconoscibles, por lo que no se puede publicar segun las politicas del medio.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1hm4t97": {
   "archivo": "fotos-notas/1hm4t97.jpg",
@@ -75838,7 +75879,8 @@
    "corresponde": "si",
    "descripcion": "Persona cruzando una calle bajo la lluvia con paraguas."
   },
-  "huella": "0307434313111013"
+  "huella": "0307434313111013",
+  "ausenteDesde": "2026-11-04T09:04:18.854Z"
  },
  "y2dvsa": {
   "archivo": "fotos-notas/y2dvsa.jpg",
@@ -76676,7 +76718,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "25b6b11b4e4d4f31"
+  "huella": "25b6b11b4e4d4f31",
+  "ausenteDesde": "2026-11-04T09:04:18.854Z"
  },
  "1k0qik2": {
   "archivo": "fotos-notas/1k0qik2.jpg",
@@ -76700,7 +76743,8 @@
    "corresponde": "si",
    "descripcion": "Donald Trump hablando frente a un atril con el obelisco de Washington de fondo"
   },
-  "huella": "0b098b0b057333b1"
+  "huella": "0b098b0b057333b1",
+  "ausenteDesde": "2026-11-04T09:04:18.854Z"
  },
  "5yfwmh": {
   "archivo": "fotos-notas/5yfwmh.jpg",
@@ -76749,5 +76793,86 @@
    "descripcion": "Fachada y entrada de una oficina de ANSES."
   },
   "huella": "5706190a42e2e3e3"
+ },
+ "1w4xm1f": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gimnasia cobra un bono adicional a los socios por el Día del Club",
+  "razon": "Todas las fotos muestran menores de edad reconocibles o marcas de agua del medio.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1en3vm4": {
+  "archivo": "fotos-notas/1en3vm4.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El gobierno bonaerense impulsa modificar la ley que limita mandatos",
+  "enlace": "https://www.eleco.com.ar/politica/reelecciones-indefinidas-de-intendentes-el-gobierno-de-kicillof-uso-como-ejemplo-a-lunghi",
+  "imagenOriginal": "https://cdnartic.ar/0ExH_D_1dcFZKPlDJ83L9FQ3BGQ=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2025/04/lunghi_kicillof_maquinaria.jpeg",
+  "razon": "Es la única foto de la lista que muestra claramente una reunión institucional y de gobierno relacionada con el tema, con buena calidad y sin marcas ni menores.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof y otro funcionario sentados en una oficina firmando documentos."
+  },
+  "huella": "0e5e4646a60e2e4e"
+ },
+ "2c4snd": {
+  "archivo": "fotos-notas/2c4snd.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina para una visita oficial de cuatro días",
+  "enlace": "https://www.lanacion.com.ar/sociedad/visita-del-papa-leon-xiv-a-la-argentina-feriados-agenda-cronograma-misas-y-todo-lo-que-hay-que-saber-nid02112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-papa-leon-xiv-estara-del-domingo-8-al-CJCSRAD4ARHC7COPIDYUXKJF5A.JPG?auth=ca016ab8cbc3edd8ab132c24f81ca1227b3e06b09373a9b866e17462ebbc7018&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor foto que cumple con todos los requisitos: muestra claramente al Papa León XIV, tiene excelente nitidez y encuadre, sin marcas añadidas ni menores reconocibles.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del Papa León XIV saludando sonriente."
+  },
+  "huella": "a5a527272e1b1949"
+ },
+ "sbrv6y": {
+  "archivo": "fotos-notas/sbrv6y.jpg",
+  "medio": "INTA",
+  "credito": "Foto: INTA",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INTA difunde recomendaciones para detectar el mal de la tela en yerbales",
+  "enlace": "https://www.argentina.gob.ar/noticias/mal-de-la-tela-claves-para-detectar-la-enfermedad-en-los-yerbales",
+  "imagenOriginal": "https://www.argentina.gob.ar/sites/default/files/2026/10/mal_de_la_tela_2.jpg",
+  "razon": "La foto A muestra claramente los síntomas del mal de la tela en una planta de yerba mate y cumple con todos los requisitos editoriales.",
+  "cuando": "2026-11-04T09:02:37.765Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Rama de yerba mate afectada por el mal de la tela con hojas secas y brotes nuevos"
+  },
+  "huella": "923315941daa8acb"
  }
 }
