@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T20:36:40.513Z",
- "portada": 172,
+ "generado": "2026-11-04T21:39:01.133Z",
+ "portada": 192,
  "archivo": 500,
- "esperandoCuerpo": 10,
+ "esperandoCuerpo": 14,
  "redes": {
-  "generado": "2026-11-04T20:36:40.930Z",
+  "generado": "2026-11-04T21:39:01.634Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,39 +105,13 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 52,
     "notas": [
      {
       "id": "1a8mq4a",
       "titulo": "Benetton vende más de 900 mil hectáreas e involucra a Balcarce",
       "seccion": "Agro"
      },
-     {
-      "id": "100bnjr",
-      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "c3bdgi",
-      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-      "seccion": "Política"
-     },
-     {
-      "id": "19fvza4",
-      "titulo": "La Escuela Técnica 1 organiza la muestra EduTecno para fines de noviembre",
-      "seccion": "Educación"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
      {
       "id": "1hnsyf",
       "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
@@ -149,6 +123,27 @@
       "seccion": "Salud"
      },
      {
+      "id": "hbt308",
+      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
+      "seccion": "Policiales"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
+    "notas": [
+     {
+      "id": "1pm4shu",
+      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "seccion": "Deportes"
+     },
+     {
       "id": "1y43ge4",
       "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
       "seccion": "Fútbol"
@@ -157,6 +152,11 @@
       "id": "xrlaa0",
       "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "17vsjrz",
+      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -165,33 +165,9 @@
    "hoy": [],
    "cola": [
     {
-     "id": "100bnjr",
-     "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
      "id": "1hnsyf",
      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "c3bdgi",
-     "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "19fvza4",
-     "titulo": "La Escuela Técnica 1 organiza la muestra EduTecno para fines de noviembre",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
-     "id": "108600q",
-     "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
-     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -201,15 +177,39 @@
      "marcada": false
     },
     {
+     "id": "1pm4shu",
+     "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "108600q",
+     "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "100bnjr",
+     "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
      "id": "m4e9zn",
      "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "1pm4shu",
-     "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
-     "seccion": "Deportes",
+     "id": "hbt308",
+     "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
+     "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "1y43ge4",
+     "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
