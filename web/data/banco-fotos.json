@@ -41499,9 +41499,7 @@
   "fuentes": 1
  },
  "pr74vq": {
-  "archivo": "fotos-notas/pr74vq.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Agrarias vence a Racing y lidera la Zona C",
@@ -41533,7 +41531,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "5d39e97989a88815",
-  "ausenteDesde": "2026-10-28T18:34:15.865Z"
+  "intentado": true,
+  "borrada": true
  },
  "1fnnob0": {
   "medio": "El Destape",
@@ -41814,9 +41813,7 @@
   "huella": "ce878d1dab632d04"
  },
  "e8g0n0": {
-  "archivo": "fotos-notas/e8g0n0.webp",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARCA prorroga la vigencia del Fondo de Asistencia Laboral hasta diciembre",
@@ -41836,7 +41833,8 @@
    "descripcion": "Cartel institucional de ARCA con una persona caminando de fondo."
   },
   "huella": "fb735b5b7bab377f",
-  "ausenteDesde": "2026-10-28T18:34:15.865Z"
+  "intentado": true,
+  "borrada": true
  },
  "asvox4": {
   "intentado": true,
@@ -43790,9 +43788,7 @@
   "ausenteDesde": "2026-10-28T19:33:36.652Z"
  },
  "1oi4av9": {
-  "archivo": "fotos-notas/1oi4av9.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "ANSES oficializa los aumentos y las reglas de suspensión para las PNC",
@@ -43812,7 +43808,8 @@
    "descripcion": "Atención presencial a jubilados en una oficina de ANSES"
   },
   "huella": "19196a2a0e86c6ee",
-  "ausenteDesde": "2026-10-28T18:34:15.865Z"
+  "intentado": true,
+  "borrada": true
  },
  "136ouq7": {
   "intentado": true,
@@ -46992,9 +46989,7 @@
   "borrada": true
  },
  "1vg00g": {
-  "archivo": "fotos-notas/1vg00g.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas y granizo en Buenos Aires",
@@ -47014,7 +47009,8 @@
    "descripcion": "Paisaje nocturno con rayos cayendo sobre una ciudad bajo una tormenta"
   },
   "huella": "c140a0581d1e4950",
-  "ausenteDesde": "2026-10-28T18:34:15.865Z"
+  "intentado": true,
+  "borrada": true
  },
  "1onz526": {
   "archivo": "fotos-notas/1onz526.jpg",
@@ -69565,8 +69561,7 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando sonriente a la cámara"
   },
-  "huella": "a5a527272e1b1949",
-  "ausenteDesde": "2026-11-02T18:33:45.962Z"
+  "huella": "a5a527272e1b1949"
  },
  "gpe8ph": {
   "archivo": "fotos-notas/gpe8ph.jpg",
@@ -71379,7 +71374,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-04T12:35:12.119Z"
+  "cuando": "2026-11-04T18:43:28.737Z"
  },
  "13jnhna": {
   "archivo": "fotos-notas/13jnhna.jpg",
@@ -78559,7 +78554,8 @@
    "corresponde": "si",
    "descripcion": "Cartel institucional de ANSES de cerca"
   },
-  "huella": "2c37243b513a96ac"
+  "huella": "2c37243b513a96ac",
+  "ausenteDesde": "2026-11-04T18:43:31.127Z"
  },
  "w4auik": {
   "archivo": "fotos-notas/w4auik.jpg",
@@ -78908,7 +78904,8 @@
    "corresponde": "si",
    "descripcion": "Fachada del Ministerio de Economía en Argentina."
   },
-  "huella": "8e9696969694b4b6"
+  "huella": "8e9696969694b4b6",
+  "ausenteDesde": "2026-11-04T18:43:31.127Z"
  },
  "cn2m07": {
   "archivo": "fotos-notas/cn2m07.jpg",
@@ -79053,5 +79050,27 @@
   },
   "huella": "2c20332333e328f2",
   "ausenteDesde": "2026-11-04T18:04:01.400Z"
+ },
+ "c3bdgi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Libertad Avanza presentará candidato propio a intendente",
+  "razon": "Segunda opinión no disponible (la primera IA describe gente joven; gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again lat): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
+  "cuando": "2026-11-04T18:42:50.476Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "108600q": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T18:42:50.476Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
