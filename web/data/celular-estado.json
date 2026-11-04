@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T02:05:06.712Z",
- "portada": 197,
+ "generado": "2026-11-04T03:08:15.705Z",
+ "portada": 185,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-04T02:05:07.382Z",
+  "generado": "2026-11-04T03:08:16.427Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,8 +13,8 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
-    "salio": "2026-11-03T10:36:39.086Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "efemeride",
@@ -23,8 +23,8 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-11-03T12:36:55.743Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia1",
@@ -33,18 +33,18 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": "2026-11-03T13:46:55.159Z"
+    "momento": "antes",
+    "salio": null
    },
    {
-    "nombre": "participa-evento",
+    "nombre": "participa-reclamos",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu evento o emprendimiento",
-    "voz": "locutor",
+    "que": "Tu reclamo",
+    "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
-    "salio": "2026-11-03T15:36:42.344Z"
+    "momento": "antes",
+    "salio": null
    },
    {
     "nombre": "noticia2",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,56 +93,10 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
-    "salio": "2026-11-03T13:46:55.159Z",
-    "segundos": null,
-    "notas": [
-     {
-      "id": "1tqe7zq",
-      "titulo": "El CEF Nº 119 Oscar Cardozo celebra sus 25 años",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1faalls",
-      "titulo": "Facundo Cerone deja de ser el director técnico de Sportivo Trabajo Mitre",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "hjwjy8",
-      "titulo": "La película balcarceña La noche que nunca termina compite en México",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "fcz7oa",
-      "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
-      "seccion": "Automovilismo"
-     }
-    ]
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null,
     "segundos": 52,
     "notas": [
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
-     },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
@@ -157,40 +111,84 @@
       "id": "atpuq1",
       "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "ud9uv9",
+      "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
+      "seccion": "Fútbol"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "1ut1ham",
+      "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "9s46rr",
+      "titulo": "La Escuela República Argentina avanza con su proyecto ambiental por Malvinas",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "uh7nfo",
+      "titulo": "Muere el futbolista Jesús de Miguel tras un choque en el fútbol español",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "10f66es",
+      "titulo": "Muere un turista argentino tras un accidente de ala delta en Brasil",
+      "seccion": "Argentina"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "m3nbc3",
+      "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "v7iwd7",
+      "titulo": "El riesgo país se acerca a 800 puntos y caen las acciones",
+      "seccion": "Economía"
+     },
+     {
+      "id": "ivy0k6",
+      "titulo": "Nicolás Ramírez no dirige en la fecha 16 del Torneo Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "sdmfkk",
+      "titulo": "La UBA subastará prendas de deportistas para equipar el Hospital de Clínicas",
+      "seccion": "Argentina"
      }
     ]
    }
   ],
   "facebook": {
-   "hoy": [
-    {
-     "id": "10kt3fe",
-     "titulo": "Estados Unidos vota en las elecciones de mitad de mandato",
-     "cuando": "2026-11-03T12:36:02.217Z"
-    },
-    {
-     "id": "1s6bcl6",
-     "titulo": "Anuncian cinco días consecutivos sin atención en los bancos",
-     "cuando": "2026-11-03T14:36:05.155Z"
-    }
-   ],
+   "hoy": [],
    "cola": [
-    {
-     "id": "m3nbc3",
-     "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
     {
      "id": "1s9wj02",
      "titulo": "Organizan una caravana desde Mar del Plata hacia el INTA Balcarce",
      "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "50dygc",
-     "titulo": "Alexis Mac Allister desmiente rumores sobre la final del Mundial 2026",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -200,19 +198,19 @@
      "marcada": false
     },
     {
-     "id": "1hm4t97",
-     "titulo": "El Gobierno retira del proyecto de ley el cobro de Ganancias a los CEDEAR",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
      "id": "cffcxh",
      "titulo": "Estudiantes y docentes convocan a una marcha de velas hacia Tribunales",
      "seccion": "Política",
      "marcada": false
+    },
+    {
+     "id": "etkbda",
+     "titulo": "Kicillof y Máximo Kirchner se reúnen antes de la cumbre del PJ bonaerense",
+     "seccion": "Política",
+     "marcada": false
     }
    ],
-   "cupo": 3,
+   "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,
    "minutosEntrePosteos": 90,
