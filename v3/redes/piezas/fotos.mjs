@@ -37,6 +37,15 @@ async function bajarFoto(f, pedir) {
   throw ultimo ?? new Error('la foto no tiene dirección');
 }
 
+async function aJpeg(bytes) {
+  const { default: ffmpeg } = await import('ffmpeg-static').catch(() => ({ default: null }));
+  if (!ffmpeg) throw new Error('formato de imagen que no se puede dibujar (sin ffmpeg para convertirla)');
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync(ffmpeg, ['-loglevel', 'error', '-i', 'pipe:0', '-frames:v', '1', '-q:v', '3', '-f', 'image2', '-c:v', 'mjpeg', 'pipe:1'], { input: bytes, maxBuffer: 50 * 1024 * 1024 });
+  if (r.status !== 0 || !r.stdout?.length) throw new Error('formato de imagen que no se puede dibujar');
+  return r.stdout;
+}
+
 async function cargarFoto(f, { fetch: pedir = globalThis.fetch } = {}) {
   let bytes;
   let tipo = 'image/jpeg';
@@ -49,6 +58,11 @@ async function cargarFoto(f, { fetch: pedir = globalThis.fetch } = {}) {
     bytes = Buffer.from(await r.arrayBuffer());
     tipo = r.headers?.get?.('content-type')?.split(';')[0] || tipo;
   }
+  // El dibujo sólo entiende JPEG y PNG: una WebP o AVIF (Ámbito, por ejemplo) salía como un recuadro vacío (repaso de la noche, 3/11).
+  // Se pasa a JPEG con ffmpeg; si no se puede, la foto «no bajó» y la nota va con su número y su color.
+  const esJpeg = bytes[0] === 0xFF && bytes[1] === 0xD8;
+  const esPng = bytes[0] === 0x89 && bytes[1] === 0x50;
+  if (!esJpeg && !esPng) { bytes = await aJpeg(bytes); tipo = 'image/jpeg'; }
   return { ...f, datos: `data:${tipo};base64,${bytes.toString('base64')}`, ...medirImagen(bytes) };
 }
 
