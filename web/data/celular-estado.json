@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T12:36:13.247Z",
- "portada": 142,
+ "generado": "2026-11-04T13:12:50.626Z",
+ "portada": 150,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-04T12:36:13.879Z",
+  "generado": "2026-11-04T13:12:51.314Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 52,
     "notas": [
@@ -126,11 +126,11 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 52,
     "notas": [
      {
-      "id": "sm5hhw",
-      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
+      "id": "1uffaqq",
+      "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
       "seccion": "Cultura y agenda"
      },
      {
@@ -144,9 +144,9 @@
       "seccion": "Política"
      },
      {
-      "id": "18o13hv",
-      "titulo": "Amigos Unidos organiza el encuentro Que ruede la redonda",
-      "seccion": "Fútbol"
+      "id": "1l573lx",
+      "titulo": "Avanza la causa por la muerte de Claribel Medina",
+      "seccion": "Policiales"
      }
     ]
    },
@@ -157,17 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 46,
     "notas": [
      {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "id": "sm5hhw",
+      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
+      "id": "1u1ie4p",
+      "titulo": "Reclaman controles ante ruidos y picadas de motos",
+      "seccion": "Balcarce"
      },
      {
       "id": "qen8gi",
@@ -192,8 +192,20 @@
      "marcada": false
     },
     {
+     "id": "1uffaqq",
+     "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "sm5hhw",
      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "g22f55",
+     "titulo": "Muere Daniel Bifulco, exintegrante de Los Jaimitos en Videomatch",
      "seccion": "Cultura y agenda",
      "marcada": false
     }
