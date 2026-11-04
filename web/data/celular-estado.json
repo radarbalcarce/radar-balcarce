@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T14:41:19.179Z",
- "portada": 147,
+ "generado": "2026-11-04T15:11:33.443Z",
+ "portada": 151,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-11-04T14:41:19.577Z",
+  "generado": "2026-11-04T15:11:34.100Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu reclamo",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 52,
+    "segundos": 51,
     "notas": [
+     {
+      "id": "1a8mq4a",
+      "titulo": "Benetton vende más de 900 mil hectáreas e involucra a Balcarce",
+      "seccion": "Agro"
+     },
+     {
+      "id": "17vsjrz",
+      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
+      "seccion": "Automovilismo"
+     },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
       "seccion": "Deportes"
      },
      {
-      "id": "xrlaa0",
-      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
+      "id": "9tijad",
+      "titulo": "Actualizan las multas viales en la provincia y suben los montos",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1uffaqq",
-      "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "f197cq",
-      "titulo": "Ridao analiza una alianza electoral entre la UCR, el PRO y La Libertad Avanza",
-      "seccion": "Política"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "1uffaqq",
+      "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
+      "seccion": "Cultura y agenda"
+     },
      {
       "id": "atpuq1",
       "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
       "seccion": "Balcarce"
      },
      {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
-      "seccion": "Cultura y agenda"
+      "id": "f197cq",
+      "titulo": "Ridao analiza una alianza electoral entre la UCR, el PRO y La Libertad Avanza",
+      "seccion": "Política"
      },
      {
       "id": "1l573lx",
       "titulo": "Avanza la causa por la muerte de Claribel Medina",
       "seccion": "Policiales"
-     },
-     {
-      "id": "13pnh44",
-      "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
-      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,11 +157,16 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 47,
     "notas": [
      {
-      "id": "m3nbc3",
-      "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "xrlaa0",
+      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
       "seccion": "Balcarce"
      },
      {
@@ -173,11 +178,6 @@
       "id": "uv66oi",
       "titulo": "Mirian Casco gana el Premio Nacional L’Oréal-UNESCO 2026",
       "seccion": "Ciencia"
-     },
-     {
-      "id": "18ol7p3",
-      "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
-      "seccion": "Política"
      }
     ]
    }
@@ -186,8 +186,20 @@
    "hoy": [],
    "cola": [
     {
+     "id": "9tijad",
+     "titulo": "Actualizan las multas viales en la provincia y suben los montos",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "1uffaqq",
      "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "17vhzp2",
+     "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
@@ -195,6 +207,12 @@
      "id": "g22f55",
      "titulo": "Muere Daniel Bifulco, exintegrante de Los Jaimitos en Videomatch",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "cvkrc1",
+     "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
+     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -213,18 +231,6 @@
      "id": "rg0nx8",
      "titulo": "La ANMAT prohíbe el uso y la venta de un sistema de aspiración y camisolines",
      "seccion": "Salud",
-     "marcada": false
-    },
-    {
-     "id": "ycp6wf",
-     "titulo": "El Gobierno posterga hasta fines de diciembre la licitación del Belgrano Cargas",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "age0rp",
-     "titulo": "El papa León XIV pide oraciones antes de iniciar su gira por Sudamérica",
-     "seccion": "Argentina",
      "marcada": false
     }
    ],

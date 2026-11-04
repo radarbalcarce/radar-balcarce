@@ -1880,11 +1880,11 @@
   "numeradas": 3
  },
  "1a8mq4a": {
-  "intentos": 1,
-  "ultimo": "2026-11-03T21:31:41.789Z",
+  "intentos": 2,
+  "ultimo": "2026-11-04T15:02:37.670Z",
   "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 11
+  "textos": 3,
+  "numeradas": 15
  },
  "1acgwwy": {
   "intentos": 1,
@@ -6690,6 +6690,22 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1xhywbt": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "cuerpo: 3 problemas (nombre, copia, promesa): el cuerpo nombra a \"afa\" y la fuente no; sin esas oraciones quedan 244 palabras",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 2 problemas (nombre, promesa): el cuerpo nombra a \"alberto\" y ",
+   "cuerpo: 3 problemas (nombre, copia, promesa): el cuerpo nombra a \"afa\""
+  ],
+  "falla": [
+   "el cuerpo nombra a \"afa\" y la fuente no",
+   "copia 16 palabras seguidas del original (\"la etapa regular del segundo certamen de la temporada en la maxima categoria del…\"): decilo con ot",
+   "el título dice 16 y el cuerpo no lo explica"
+  ]
+ },
  "1xispdo": {
   "intentos": 1,
   "ultimo": "2026-11-04T01:02:19.306Z",
@@ -7262,6 +7278,21 @@
   "textos": 2,
   "numeradas": 3
  },
+ "3frnm0": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "cuerpo: 2 problemas (antecedente): el cuerpo usa \"administracion\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 101 palabras",
+  "textos": 1,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 2 problemas (antecedente): el copete usa \"administrac",
+   "cuerpo: 2 problemas (antecedente): el cuerpo usa \"administracion\", que"
+  ],
+  "falla": [
+   "el cuerpo usa \"administracion\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo usa \"seguridad\", que sale de una nota anterior, como si fuera de hoy"
+  ]
+ },
  "3fyeyv": {
   "intentos": 1,
   "ultimo": "2026-10-31T11:01:09.845Z",
@@ -7534,6 +7565,20 @@
   "numeradas": 5,
   "motivos": [
    "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
+ },
+ "5gbgao": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 74 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 13 palabras seguidas del original: d",
+   "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
+  ],
+  "falla": [
+   "copia 15 palabras seguidas del original (\"transitan habitualmente por la zona de calles 47 y 24 manifestaron su preocupacion por…\"): decilo "
   ]
  },
  "5h46bf": {
@@ -8322,6 +8367,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "9tijad": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1
+ },
  "9u8s96": {
   "intentos": 1,
   "ultimo": "2026-10-30T07:01:42.718Z",
@@ -8949,17 +9001,14 @@
   "numeradas": 21
  },
  "cvkrc1": {
-  "intentos": 1,
-  "ultimo": "2026-11-04T14:32:37.591Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"castro\", \"roma\" y el cuerpo no los explica; sin esas oraciones quedan 193 palabras",
-  "textos": 6,
-  "numeradas": 6,
+  "intentos": 2,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "con cuerpo",
+  "textos": 9,
+  "numeradas": 10,
   "motivos": [
    "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d",
    "cuerpo: 1 problema (promesa): el título nombra a \"castro\", \"roma\" y el"
-  ],
-  "falla": [
-   "el título nombra a \"castro\", \"roma\" y el cuerpo no los explica"
   ]
  },
  "cvoeyu": {
@@ -12750,6 +12799,16 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 16
+ },
+ "w6p4h": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T15:02:37.670Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, promesa): el cuerpo repite el copete en v"
+  ]
  },
  "w8foef": {
   "intentos": 1,
