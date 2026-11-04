@@ -41785,9 +41785,7 @@
   "fuentes": 2
  },
  "1jwbwgc": {
-  "archivo": "fotos-notas/1jwbwgc.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Carlos Jornet asume la presidencia de la SIP y advierte sobre amenazas a la prensa",
@@ -41807,7 +41805,8 @@
    "descripcion": "Carlos Jornet hablando en el estrado durante la sesion de clausura de la SIP"
   },
   "huella": "1f3b66ec9a8b9e91",
-  "ausenteDesde": "2026-10-28T10:33:30.518Z"
+  "intentado": true,
+  "borrada": true
  },
  "1fezvyn": {
   "intentado": true,
@@ -47682,9 +47681,7 @@
   "borrada": true
  },
  "70bt5o": {
-  "archivo": "fotos-notas/70bt5o.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "Milei llega a Catamarca para inaugurar una planta de litio y reunirse con Jalil",
@@ -47704,7 +47701,8 @@
    "descripcion": "Javier Milei saludando a un trabajador en una sala de control"
   },
   "huella": "fd6e6ea9a9c34667",
-  "ausenteDesde": "2026-10-28T10:33:30.518Z"
+  "intentado": true,
+  "borrada": true
  },
  "1t0bf8r": {
   "archivo": "fotos-notas/1t0bf8r.jpg",
@@ -68391,7 +68389,8 @@
    "corresponde": "si",
    "descripcion": "Collage de rostros de dirigentes políticos argentinos"
   },
-  "huella": "47d593979593d3d3"
+  "huella": "47d593979593d3d3",
+  "ausenteDesde": "2026-11-04T11:03:56.884Z"
  },
  "1nfx86s": {
   "archivo": "fotos-notas/1nfx86s.jpg",
@@ -71100,7 +71099,8 @@
    "corresponde": "si",
    "descripcion": "Fotograma de una serie o película con dos actrices en una escena iluminada."
   },
-  "huella": "1715252527060606"
+  "huella": "1715252527060606",
+  "ausenteDesde": "2026-11-04T11:03:56.884Z"
  },
  "j75wry": {
   "archivo": "fotos-notas/j75wry.jpg",
@@ -74606,10 +74606,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes y docentes convocan a una marcha de velas hacia Tribunales",
-  "razon": "Ninguna de las fotos cumple con todas las condiciones requeridas sin presentar marcas de medio, menores o ser de otra temática.",
-  "cuando": "2026-11-04T07:02:25.160Z",
-  "intentos": 2,
-  "fuentes": 9
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Destape (no corresponde a la nota): no se elige ninguna.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 3,
+  "fuentes": 10
  },
  "kvuifd": {
   "archivo": "fotos-notas/kvuifd.jpg",
@@ -75284,14 +75284,40 @@
   "huella": "b23217339615550f"
  },
  "18uqqw5": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/18uqqw5.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La AFA define los precios y la venta de entradas para Argentina vs. Uruguay",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
-  "cuando": "2026-11-04T07:02:25.160Z",
-  "intentos": 1,
-  "fuentes": 11,
-  "intentosPorCupo": 3
+  "enlace": "https://www.lagaceta.com.ar/nota/1160920/deportes/argentina-vs-uruguay-cuanto-cuestan-entradas-cuando-salen-venta-donde-comprarlas.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/03/scaloni-dt-seleccion-1160920-194720.jpg",
+  "razon": "La IA había preferido la de TyC Sports, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa La Gaceta (Tucumán) en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Lionel Scaloni sonriendo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Perfil de un hombre adulto, probablemente un entrenador, vistiendo una campera de la selección argentina."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3523666726322925"
  },
  "m3nbc3": {
   "intentado": true,
@@ -76874,5 +76900,122 @@
    "descripcion": "Rama de yerba mate afectada por el mal de la tela con hojas secas y brotes nuevos"
   },
   "huella": "923315941daa8acb"
+ },
+ "gb0gw4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Recomiendan limpiar la parrilla con papel aluminio antes del asado",
+  "razon": "La mejor foto era la de Canal 26, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1lp567x": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Conmemoran ochenta años de la entrada en vigor de la Constitución de la UNESCO",
+  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua o por tratarse de imágenes de stock/genéricas no aptas.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "w111vq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Liga Profesional organizará una conferencia conjunta con Boca, Argentinos y Central",
+  "razon": "La mejor foto era la de Noticias Argentinas (NA), pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "13x2srq": {
+  "archivo": "fotos-notas/13x2srq.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Etcheverry derrota a Andrey Rublev y avanza en el Masters de París",
+  "enlace": "https://www.lanacion.com.ar/deportes/tenis/tomas-etcheverry-corto-una-profunda-racha-de-caidas-y-celebro-en-el-masters-1000-de-paris-nid03112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/tomas-etcheverry-logro-una-valiosa-victoria-en-su-GYU24ART5BGWHD5PUDYUWIYHV4.jpg?auth=cccf9a495c5d0160744b660a44409c8d5cedf062cbe8afe5085b8ed2f5a08d20&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto más nítida, muestra claramente al tenista festejando y no tiene marcas añadidas ni menores reconocibles.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tomás Etcheverry celebrando en la cancha con público de fondo"
+  },
+  "huella": "0b4e548628151a98"
+ },
+ "9371ly": {
+  "archivo": "fotos-notas/9371ly.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cuenta DNI detalla los descuentos y beneficios vigentes para noviembre",
+  "enlace": "https://www.cronica.com.ar/sociedad/cuenta-dni-confirmo-cuales-son-los-descuentos-que-se-pueden-aprovechar-durante-noviembre/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1373/1373751/697280a00e257_600_315!.jpg?s=014708ef4400c22cc26e48c0d9000db1&d=1793722231",
+  "razon": "Es la única opción que corresponde directamente a la temática de Cuenta DNI sin mostrar menores de edad ni marcas de agua de medios.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo un celular con la aplicación Cuenta DNI abierta"
+  },
+  "huella": "393c39ad26263333"
+ },
+ "1f2nz12": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Crece la importación de maquinaria agrícola usada en el país",
+  "razon": "La foto de La Capital (Rosario) ya se usó o se sacó (ya ilustra \"Axel Kicillof firma convenios de cooperación con el gobernador Carlos Sadir\", que es de otro tema) y no hay otra para comparar.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "17l6pue": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Colapinto acumula 22 penalizaciones y figura décimo en el ranking de daños de la Fórmula 1",
+  "razon": "La única foto disponible es una captura de pantalla y muestra a Jack Doohan en lugar de Franco Colapinto.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "wc7rbw": {
+  "archivo": "fotos-notas/wc7rbw.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES detalla los descuentos en supermercados y farmacias",
+  "enlace": "https://www.a24.com/previsional/anses-relanzo-beneficios-jubilados-la-lista-completa-supermercados-y-farmacias-descuento-n1612714",
+  "imagenOriginal": "https://media.a24.com/p/b42f917174c86f32a2f1ad01fa842595/adjuntos/296/imagenes/009/842/0009842500/1200x675/smart/jubilados-supermercados.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y temática sin marcas de agua ni menores.",
+  "cuando": "2026-11-04T11:02:47.842Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas mayores comprando en un supermercado frente a una góndola"
+  },
+  "huella": "2f243829ac528092"
  }
 }
