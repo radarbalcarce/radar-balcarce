@@ -74554,11 +74554,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes y docentes convocan a una marcha de velas hacia Tribunales",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-04T00:03:13.382Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1
+  "razon": "Ninguna de las fotos cumple con todas las condiciones requeridas sin presentar marcas de medio, menores o ser de otra temática.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "intentos": 2,
+  "fuentes": 9
  },
  "kvuifd": {
   "archivo": "fotos-notas/kvuifd.jpg",
@@ -74634,13 +74633,28 @@
   "huella": "89890814a4cdad2c"
  },
  "1xtzjos": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1xtzjos.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Binance sufre el mayor robo de criptomonedas tras un ataque informático",
-  "razon": "Ambas imágenes son ilustraciones digitales o composiciones gráficas, por lo que ninguna es una fotografía de una escena real.",
-  "cuando": "2026-11-03T21:33:28.127Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://perfil.com/actualidad/binance-revelo-como-fue-el-hackeo-de-us-6.300-millones-una-falsa-entrevista-laboral-a-un-empleado-aJLhh2p2FXre",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/6d19a4a8f4ba-binance-1587839.jpg",
+  "razon": "Es la imagen más clara y profesional que representa la marca Binance sin ser una ilustración digital o una captura de pantalla, cumpliendo con todos los criterios de calidad.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de una moneda física de criptomoneda con el logo de Binance de fondo."
+  },
+  "huella": "001010117c24c888"
  },
  "1a8mq4a": {
   "archivo": "fotos-notas/1a8mq4a.jpg",
@@ -75137,11 +75151,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gremios universitarios de Mar del Plata realizan protestas y paros",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-11-04T01:03:22.512Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Puntonueve (FM 100.9) no se usa todavía.",
+  "cuando": "2026-11-04T07:02:25.160Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "43y0ae": {
   "archivo": "fotos-notas/43y0ae.jpg",
@@ -75207,11 +75221,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La AFA define los precios y la venta de entradas para Argentina vs. Uruguay",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-04T01:32:18.786Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
+  "cuando": "2026-11-04T07:02:25.160Z",
   "intentos": 1,
-  "fuentes": 10,
-  "intentosPorCupo": 2
+  "fuentes": 11,
+  "intentosPorCupo": 3
  },
  "m3nbc3": {
   "intentado": true,
@@ -75540,10 +75554,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Franco Colapinto se prepara para competir en el Gran Premio de Brasil",
-  "razon": "Ninguna de las fotos corresponde a la nota, ya que ambas muestran a otro piloto (Jack Doohan) y no a Franco Colapinto.",
-  "cuando": "2026-11-04T01:03:22.512Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ninguna de las fotos corresponde a Franco Colapinto; todas muestran a otro piloto (Jack Doohan), por lo que no son aptas para la nota.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1e1s6dg": {
   "archivo": "fotos-notas/1e1s6dg.jpg",
@@ -75769,23 +75783,34 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gabriele Minì participa en la primera práctica libre del GP de Brasil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T02:04:19.958Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Ninguna foto sirve: la A es un fotomontaje/gráfica con dos imágenes recortadas y la B contiene imágenes múltiples que no corresponden a una sola toma limpia del hecho.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1di4w24": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "El Servicio Meteorológico Nacional anticipa lluvias y descenso de temperatura",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T02:04:19.958Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/m4tryq.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional anticipa tormentas para el AMBA",
+  "enlace": "https://www.ambito.com/informacion-general/siguen-las-lluvias-el-amba-cuando-vuelven-las-tormentas-y-como-estara-el-resto-la-semana-n6340782",
+  "imagenOriginal": "https://media.ambito.com/p/f74266a549102b8527166ee9a3ec41b9/adjuntos/239/imagenes/043/554/0043554196/1200x675/1618x958:1638x978/lluvia.jpg",
+  "razon": "Es la única imagen que ilustra el hecho de manera clara, sin marcas de agua, sin menores y con buena calidad técnica.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona cruzando una calle bajo la lluvia con paraguas."
+  },
+  "huella": "0307434313111013"
  },
  "y2dvsa": {
   "archivo": "fotos-notas/y2dvsa.jpg",
@@ -75912,12 +75937,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El verde salvia y el blanco marcan la tendencia decorativa para la Navidad 2026",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T03:05:48.192Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Ambas imágenes son fotografías de stock genéricas que no corresponden a un hecho periodístico específico en Balcarce, por lo que ninguna es adecuada para ilustrar la nota.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "jq6txh": {
   "archivo": "fotos-notas/jq6txh.jpg",
@@ -76407,7 +76430,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de River y Aldosivi disputando el balón en el partido"
   },
-  "huella": "c49b9b1b3a13b332"
+  "huella": "c49b9b1b3a13b332",
+  "ausenteDesde": "2026-11-04T07:04:19.003Z"
  },
  "14504kg": {
   "intentado": true,
@@ -76441,7 +76465,8 @@
    "corresponde": "si",
    "descripcion": "Collage con retratos de dos deportistas: un futbolista y un piloto de automovilismo."
   },
-  "huella": "2233333323233334"
+  "huella": "2233333323233334",
+  "ausenteDesde": "2026-11-04T07:04:19.003Z"
  },
  "kogril": {
   "archivo": "fotos-notas/kogril.jpg",
@@ -76466,7 +76491,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei hablando en un atril con fondo morado."
   },
-  "huella": "27115d55d3939999"
+  "huella": "27115d55d3939999",
+  "ausenteDesde": "2026-11-04T07:04:19.003Z"
  },
  "pv6tdl": {
   "intentado": true,
@@ -76500,5 +76526,89 @@
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Jos%C3%A9-Mar%C3%ADa-Minella-Stadium_present.JPG/1280px-Jos%C3%A9-Mar%C3%ADa-Minella-Stadium_present.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:José-María-Minella-Stadium present.JPG",
   "cuando": "2026-11-04T06:11:22.479Z"
+ },
+ "lheq9q": {
+  "archivo": "fotos-notas/lheq9q.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River define el equipo para visitar a Aldosivi con bajas obligadas",
+  "enlace": "https://www.tycsports.com/river-plate/el-dilema-de-ponzio-con-el-cinco-de-river-para-enfrentar-a-aldosivi-id770104.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/03/1002435/river_416x234.webp?v=1",
+  "razon": "Es la única imagen que muestra a los jugadores en acción de entrenamiento, sin marcas de agua, sin menores y con buena calidad. La segunda opinión (groq) descartó la de Los Andes (Mendoza) (un menor): se usa TyC Sports.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Camisetas de River colgadas en vestuario.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Camisetas de River Plate colgadas en el vestuario con los nombres de los jugadores."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "93b292da49cbdbdb"
+ },
+ "1y603ig": {
+  "archivo": "fotos-notas/1y603ig.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ATE anuncia un paro a la japonesa en aeropuertos para el viernes 6",
+  "enlace": "https://www.eldia.com/politica-y-economia/un-paro-a-la-japonesa-en-ezeiza-y-aeroparque-demoraria-los-vuelos-politica-y-economia_1793768954",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793769267010.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto que muestra el lugar del hecho (aeropuerto) sin marcas de agua, sin menores identificables y sin ser una imagen de archivo o gráfica.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de un aeropuerto con aviones en pista."
+  },
+  "huella": "010008a2c8450408"
+ },
+ "m4tryq": {
+  "archivo": "fotos-notas/m4tryq.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional anticipa tormentas para el AMBA",
+  "enlace": "https://www.ambito.com/informacion-general/siguen-las-lluvias-el-amba-cuando-vuelven-las-tormentas-y-como-estara-el-resto-la-semana-n6340782",
+  "imagenOriginal": "https://media.ambito.com/p/f74266a549102b8527166ee9a3ec41b9/adjuntos/239/imagenes/043/554/0043554196/1200x675/1618x958:1638x978/lluvia.jpg",
+  "razon": "Es la única imagen que ilustra el hecho de manera clara, sin marcas de agua, sin menores y con buena calidad técnica.",
+  "cuando": "2026-11-04T07:02:25.160Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona cruzando una calle bajo la lluvia con paraguas."
+  },
+  "huella": "0307434313111013"
  }
 }
