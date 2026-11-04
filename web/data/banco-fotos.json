@@ -45320,9 +45320,7 @@
   "borrada": true
  },
  "1nso2dt": {
-  "archivo": "fotos-notas/1nso2dt.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Anses actualiza haberes y modifica el calendario de pagos de noviembre",
@@ -45342,7 +45340,8 @@
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
   "huella": "2b97b53be4f1f3d3",
-  "ausenteDesde": "2026-10-28T05:03:02.297Z"
+  "intentado": true,
+  "borrada": true
  },
  "1qe910f": {
   "intentado": true,
@@ -67745,7 +67744,8 @@
    "corresponde": "si",
    "descripcion": "Personas abordando un colectivo de la línea 520 en una parada."
   },
-  "huella": "1131a991230a9111"
+  "huella": "1131a991230a9111",
+  "ausenteDesde": "2026-11-04T05:05:37.216Z"
  },
  "1qggjq3": {
   "archivo": "fotos-notas/1qggjq3.jpg",
@@ -71736,7 +71736,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando junto a otras autoridades eclesiásticas."
   },
-  "huella": "a88945471f0f0f0e"
+  "huella": "a88945471f0f0f0e",
+  "ausenteDesde": "2026-11-04T05:05:37.216Z"
  },
  "1kmj0um": {
   "intentado": true,
@@ -71904,7 +71905,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "ca0e0e4b4966d2d6"
+  "huella": "ca0e0e4b4966d2d6",
+  "ausenteDesde": "2026-11-04T05:05:37.216Z"
  },
  "12nps7q": {
   "archivo": "fotos-notas/12nps7q.jpg",
@@ -75170,14 +75172,40 @@
   "huella": "0f792d8e64d4cbf0"
  },
  "163ilyy": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/163ilyy.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Selección femenina reinaugura el Estadio Único de La Plata en noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-04T01:32:18.786Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 2
+  "enlace": "https://www.eldia.com/deportes/tapia-mostro-los-ultimos-avances-para-el-reestreno-del-estadio-unico-de-la-plata-deportes_1793740259",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793740302468.webp?&cw=1200&ch=630",
+  "razon": "Las tres fotos son idénticas en contenido y calidad, por lo que se elige la primera de la lista por ser la opción original disponible.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista del campo de juego y las tribunas del Estadio Único de La Plata.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista de las tribunas vacías del Estadio Único de La Plata"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "b23217339615550f"
  },
  "18uqqw5": {
   "intentado": true,
@@ -75692,15 +75720,28 @@
   "huella": "c7878f225c969636"
  },
  "etkbda": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/etkbda.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Kicillof y Máximo Kirchner se reúnen antes de la cumbre del PJ bonaerense",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T02:04:19.958Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://perfil.com/politica/kicillof-y-maximo-kirchner-tuvieron-un-encuentro-sorpresivo-a5FEN9w7HDUe",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/f98cb81cf982-axel-kicillof-y-maximo-kirchner-2317850.webp",
+  "razon": "Es la foto con mejor encuadre, nitidez y calidad, mostrando a ambos protagonistas de forma clara y sin elementos distractores ni marcas de agua.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Axel Kicillof y Máximo Kirchner sonriendo en un acto."
+  },
+  "huella": "5c79797971391d1d"
  },
  "1n4cm9": {
   "archivo": "fotos-notas/1n4cm9.jpg",
@@ -76069,7 +76110,8 @@
    "corresponde": "si",
    "descripcion": "Lali Espósito y Pedro Rosemblat celebrando con la libreta de casamiento."
   },
-  "huella": "c3d1515353713333"
+  "huella": "c3d1515353713333",
+  "ausenteDesde": "2026-11-04T05:05:37.216Z"
  },
  "9wv69u": {
   "intentado": true,
@@ -76138,6 +76180,211 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista"
   },
-  "huella": "d2d2c3cb18f1c39e"
+  "huella": "d2d2c3cb18f1c39e",
+  "ausenteDesde": "2026-11-04T05:05:37.216Z"
+ },
+ "9ec3jb": {
+  "archivo": "fotos-notas/9ec3jb.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Diego Ramos queda eliminado de MasterChef Celebrity en la gala de ñoquis",
+  "enlace": "https://radiomitre.cienradios.com/espectaculos/masterchef-celebrity-que-participante-quedo-eliminado-este-martes-3-de-noviembre/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/LJVJ4GBFRNFRFNC7W7BQ4LHKKA.jpg?smart=true&auth=df157ef2eb3a686053c02caa66bf066d04e7bf23f55d9ecfe79ab66ada0e9e24&width=1200&height=630",
+  "razon": "Es la foto que mejor ilustra el momento de la eliminación de Diego Ramos, con buena nitidez, sin marcas de agua sobreimpresas y sin menores.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Diego Ramos en el momento de su eliminación."
+  },
+  "huella": "941b4a0a8e2f6be7"
+ },
+ "kj8ssn": {
+  "archivo": "fotos-notas/kj8ssn.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Investigan la muerte del futbolista Jesús de Miguel tras un choque",
+  "enlace": "https://www.elmarplatense.com/la-policia-espanola-investiga-la-muerte-del-futbolista-jesus-de-miguel",
+  "imagenOriginal": "https://n2.cdnartic.ar/he2obvBTVklRw3KPwNoDv92YWhA=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/11/jesus_de_miguel.webp",
+  "razon": "Es la única imagen que muestra el hecho (el choque) de manera clara, sin marcas de agua, sin elementos gráficos, sin menores y con buena calidad.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un futbolista con pechera de entrenamiento."
+  },
+  "huella": "29a14a1a3ede5e5c"
+ },
+ "12tzjt9": {
+  "archivo": "fotos-notas/12tzjt9.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La visita del papa León XIV dispara los precios de alquileres en Luján",
+  "enlace": "https://www.ambito.com/real-estate/efecto-leon-xiv-los-alquileres-lujan-llegan-us6000-noche-la-visita-del-papa-n6338891",
+  "imagenOriginal": "https://media.ambito.com/p/64aa139de4bdc8ab8b02aa67b73a1056/adjuntos/239/imagenes/043/735/0043735197/1200x675/825x801:845x821/lujan-propiedades-papa.png",
+  "razon": "Es la imagen que mejor ilustra el entorno de Luján con buena calidad, sin marcas de agua, sin menores y sin ser una imagen de stock o gráfica.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista desde una terraza con muebles de exterior hacia la Basílica de Luján."
+  },
+  "huella": "00808317b31b09b7"
+ },
+ "q8hi08": {
+  "archivo": "fotos-notas/q8hi08.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El SMN emite alertas naranja y amarilla por tormentas severas en el país",
+  "enlace": "https://www.cronista.com/informacion-gral/se-aproximan-fuertes-tormentas-el-martes-3-de-noviembre-alertan-por-la-llegada-de-lluvias-y-rafagas-intensas-de-viento-en-buenos-aires/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/OKO7FAMM7FDMPGW6O6EI22UBEQ.jpg?auth=b8f97d60faab90b3d462c47e172532186edee1f7dd9c04e360761f571c93f4d6&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es una excelente fotografía nocturna de rayos sobre una ciudad, sin personas, marcas de agua ni problemas de menores, ideal para ilustrar una nota de tormentas severas.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tormenta eléctrica nocturna sobre una ciudad con múltiples rayos"
+  },
+  "huella": "171f1f1e1d66455b"
+ },
+ "17f727c": {
+  "archivo": "fotos-notas/17f727c.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los bancos cierran varias jornadas en noviembre por el Día del Bancario",
+  "enlace": "https://www.ambito.com/informacion-general/el-viernes-6-noviembre-es-el-dia-del-bancario-pero-no-habra-bancos-6-dias-argentina-n6338944",
+  "imagenOriginal": "https://media.ambito.com/p/98b3c49ba10156bb989ed44ad342f95d/adjuntos/239/imagenes/043/735/0043735430/1200x675/963x341:983x361/dia-del-bancario-1500-x-1000.png",
+  "razon": "Es la única imagen que muestra una escena real de trabajo bancario sin ser una foto de stock genérica, cumpliendo con los criterios de calidad y pertinencia.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Empleado bancario atendiendo a clientes en una sucursal."
+  },
+  "huella": "094989a96d5db5a4"
+ },
+ "1r3g3l1": {
+  "archivo": "fotos-notas/1r3g3l1.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Disney Plus y Pluto TV renuevan sus catálogos con estrenos en noviembre",
+  "enlace": "https://www.eldestapeweb.com/cultura/estrenos-disney-plus-noviembre-2026-series-peliculas-llegan-2026112151924",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793643095401/visionquest-marvel-disney-jpg..jpg?&cw=1600&ch=900",
+  "razon": "Es la única imagen que ilustra de manera general y representativa el catálogo de la plataforma mencionada en la nota, sin mostrar personas específicas ni ser una captura de una escena de ficción. La segunda opinión (groq) descartó la de Clarín (un menor): se usa El Destape.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Escena de una serie o película con dos hombres adultos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Escena de una película con dos hombres adultos, uno con barba blanca y otro rubio, en un momento de tensión."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0307076370111517"
+ },
+ "re2t72": {
+  "archivo": "fotos-notas/re2t72.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El SMN emite alertas naranja y amarilla por tormentas en 15 provincias",
+  "enlace": "https://www.labrujula24.com/notas/2026/11/02/alerta-amarilla-por-tormentas-para-el-martes-cuando-se-espera-el-periodo-de-mayor-inestabilidad-n528652/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/06/clima-lluvia-2026-1000x600.jpg",
+  "razon": "La IA había preferido la de Ruralnet, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa La Brújula 24 en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Persona en bicicleta bajo la lluvia en una calle urbana."
+  },
+  "huella": "577f673627a76767"
+ },
+ "1rk205s": {
+  "archivo": "fotos-notas/1rk205s.jpg",
+  "medio": "elDiarioAR",
+  "credito": "Foto: elDiarioAR",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Implementan corredores de plantas nativas para controlar plagas agrícolas",
+  "enlace": "https://www.eldiarioar.com/blog/relatos-ambientales/plantas-nativas-corredores-biologicos-claves-regreso-animales-e-insectos-beneficos-campo-argentina_132_13632767.html",
+  "imagenOriginal": "https://static.eldiario.es/clip/9bda8681-1b83-4c32-a584-63f2db1f0395_facebook-aspect-ratio-1200-675_default_0.jpg",
+  "razon": "Ambas fotos son idénticas, pero la opción A es la primera disponible y cumple con todos los criterios de calidad y ausencia de marcas.",
+  "cuando": "2026-11-04T05:03:00.698Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Planta nativa con un cartel identificatorio en un campo."
+  },
+  "huella": "d90f0f4bc9cbb3b3"
  }
 }
