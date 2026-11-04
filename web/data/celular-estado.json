@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T15:11:33.443Z",
- "portada": 151,
+ "generado": "2026-11-04T15:44:01.394Z",
+ "portada": 160,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-04T15:11:34.100Z",
+  "generado": "2026-11-04T15:44:02.362Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,12 +95,17 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
      {
       "id": "1a8mq4a",
       "titulo": "Benetton vende más de 900 mil hectáreas e involucra a Balcarce",
       "seccion": "Agro"
+     },
+     {
+      "id": "1y43ge4",
+      "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
+      "seccion": "Fútbol"
      },
      {
       "id": "17vsjrz",
@@ -111,11 +116,6 @@
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
       "seccion": "Deportes"
-     },
-     {
-      "id": "9tijad",
-      "titulo": "Actualizan las multas viales en la provincia y suben los montos",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,17 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 53,
     "notas": [
+     {
+      "id": "9tijad",
+      "titulo": "Actualizan las multas viales en la provincia y suben los montos",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1uffaqq",
       "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "atpuq1",
-      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
-      "seccion": "Balcarce"
      },
      {
       "id": "f197cq",
@@ -157,17 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 54,
     "notas": [
+     {
+      "id": "5gbgao",
+      "titulo": "Vecinos reclaman limpieza de pastizales en calles 47 y 24",
+      "seccion": "Balcarce"
+     },
      {
       "id": "tne9sk",
       "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
       "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "xrlaa0",
-      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
-      "seccion": "Balcarce"
      },
      {
       "id": "qen8gi",
@@ -186,8 +186,20 @@
    "hoy": [],
    "cola": [
     {
+     "id": "1y43ge4",
+     "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "9tijad",
      "titulo": "Actualizan las multas viales en la provincia y suben los montos",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "5gbgao",
+     "titulo": "Vecinos reclaman limpieza de pastizales en calles 47 y 24",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -204,33 +216,21 @@
      "marcada": false
     },
     {
-     "id": "g22f55",
-     "titulo": "Muere Daniel Bifulco, exintegrante de Los Jaimitos en Videomatch",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "cvkrc1",
      "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
      "seccion": "Argentina",
      "marcada": false
     },
     {
+     "id": "g22f55",
+     "titulo": "Muere Daniel Bifulco, exintegrante de Los Jaimitos en Videomatch",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
      "id": "hho8o4",
      "titulo": "Cristina Kirchner celebra la derrota de Trump con un mensaje en red social",
      "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "12i9q6f",
-     "titulo": "El Gobierno autoriza el derribo de aeronaves hostiles por la visita del papa León XIV",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "rg0nx8",
-     "titulo": "La ANMAT prohíbe el uso y la venta de un sistema de aspiración y camisolines",
-     "seccion": "Salud",
      "marcada": false
     }
    ],
