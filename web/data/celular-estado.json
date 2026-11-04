@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T09:04:18.949Z",
- "portada": 148,
- "archivo": 497,
- "esperandoCuerpo": 5,
+ "generado": "2026-11-04T10:33:11.688Z",
+ "portada": 131,
+ "archivo": 498,
+ "esperandoCuerpo": 22,
  "redes": {
-  "generado": "2026-11-04T09:04:19.459Z",
+  "generado": "2026-11-04T10:33:12.240Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,13 +95,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 53,
     "notas": [
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
-     },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
@@ -116,6 +111,11 @@
       "id": "f197cq",
       "titulo": "Ridao analiza una alianza electoral entre la UCR, el PRO y La Libertad Avanza",
       "seccion": "Política"
+     },
+     {
+      "id": "atpuq1",
+      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
+      "seccion": "Balcarce"
      }
     ]
    },
@@ -126,17 +126,12 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 50,
     "notas": [
      {
-      "id": "atpuq1",
-      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
+      "id": "1ut1ham",
+      "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "9s46rr",
-      "titulo": "La Escuela República Argentina avanza con su proyecto ambiental por Malvinas",
-      "seccion": "Cultura y agenda"
      },
      {
       "id": "18o13hv",
@@ -144,9 +139,14 @@
       "seccion": "Fútbol"
      },
      {
-      "id": "1l573lx",
-      "titulo": "Avanza la causa por la muerte de Claribel Medina",
-      "seccion": "Policiales"
+      "id": "9s46rr",
+      "titulo": "La Escuela República Argentina avanza con su proyecto ambiental por Malvinas",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "13pnh44",
+      "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,12 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 46,
     "notas": [
      {
-      "id": "1ut1ham",
-      "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
+      "id": "m3nbc3",
+      "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1l573lx",
+      "titulo": "Avanza la causa por la muerte de Claribel Medina",
+      "seccion": "Policiales"
      },
      {
       "id": "qen8gi",
@@ -173,11 +178,6 @@
       "id": "18ol7p3",
       "titulo": "Balcarce financia con fondos propios los gastos en seguridad ante falta de actualización",
       "seccion": "Política"
-     },
-     {
-      "id": "sqcelu",
-      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
-      "seccion": "Deportes"
      }
     ]
    }
@@ -185,12 +185,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "etkbda",
-     "titulo": "Kicillof y Máximo Kirchner se reúnen antes de la cumbre del PJ bonaerense",
-     "seccion": "Política",
-     "marcada": false
-    },
     {
      "id": "1eyhy51",
      "titulo": "El Servicio Meteorológico Nacional emite alertas por tormentas severas",

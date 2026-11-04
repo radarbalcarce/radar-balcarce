@@ -47017,9 +47017,7 @@
   "ausenteDesde": "2026-10-30T12:35:25.559Z"
  },
  "17zxvyy": {
-  "archivo": "fotos-notas/17zxvyy.jpg",
   "medio": "Infobrisas (Radio Brisas)",
-  "credito": "Foto: Infobrisas (Radio Brisas)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas en la costa bonaerense y Santa Cruz",
@@ -47039,7 +47037,8 @@
    "descripcion": "Costa con fuerte oleaje frente a la ciudad en día nublado"
   },
   "huella": "00206041104c884b",
-  "ausenteDesde": "2026-10-28T10:02:57.953Z"
+  "intentado": true,
+  "borrada": true
  },
  "1vg00g": {
   "archivo": "fotos-notas/1vg00g.jpg",
@@ -47443,9 +47442,7 @@
   "ausenteDesde": "2026-10-29T17:05:19.047Z"
  },
  "1dtp4dh": {
-  "archivo": "fotos-notas/1dtp4dh.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Argentinos Juniors vence 1 a 0 a Independiente Rivadavia",
@@ -47465,7 +47462,8 @@
    "descripcion": "Jugadores festejando un gol en el campo de juego"
   },
   "huella": "4d46525215553565",
-  "ausenteDesde": "2026-10-28T10:02:57.953Z"
+  "intentado": true,
+  "borrada": true
  },
  "13cfw86": {
   "archivo": "fotos-notas/13cfw86.jpg",
@@ -47660,9 +47658,7 @@
   "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "1eg3jjp": {
-  "archivo": "fotos-notas/1eg3jjp.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas, ráfagas y granizo",
@@ -47682,7 +47678,8 @@
    "descripcion": "Nube de tipo shelf cloud o rollo de tormenta sobre la ciudad"
   },
   "huella": "c3878e51f1515853",
-  "ausenteDesde": "2026-10-28T10:02:57.953Z"
+  "intentado": true,
+  "borrada": true
  },
  "70bt5o": {
   "archivo": "fotos-notas/70bt5o.jpg",
@@ -68780,11 +68777,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno nacional incorpora la vacuna hexavalente al calendario desde 2028",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-11-03T14:41:28.338Z",
-  "intentos": 4,
-  "fuentes": 21,
-  "intentosPorCupo": 1
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 5,
+  "fuentes": 23,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1nk1y8y": {
   "archivo": "fotos-notas/1nk1y8y.jpg",
@@ -70535,12 +70532,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca inicia la venta de entradas para la final de la Copa Sudamericana",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-02T23:42:42.359Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
+  "fuentes": 13,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "yl3lny": {
   "archivo": "fotos-notas/yl3lny.jpg",
@@ -70672,8 +70668,8 @@
   "origen": "ninguna",
   "titulo": "El veterinario Carlos Gutiérrez explica cómo interpretar el lenguaje felino",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-03T20:31:52.505Z",
-  "intentos": 3,
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 4,
   "fuentes": 5,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -72427,8 +72423,8 @@
   "origen": "ninguna",
   "titulo": "Colapinto pierde los puntos en la Fórmula 1 por una sanción",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-03T20:31:52.505Z",
-  "intentos": 2,
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 3,
   "fuentes": 2,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -73400,10 +73396,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Xiaomi lanza en el país la serie Redmi Note 17 con tres modelos",
-  "razon": "La mejor foto era la de La Nación, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-03T15:48:56.138Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "13pnh44": {
   "intentado": true,
@@ -74398,11 +74395,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Nico Paz destaca la influencia de Lionel Messi en su crecimiento futbolístico",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-03T20:04:22.777Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
   "fuentes": 5,
-  "intentosPorCupo": 1
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "164ggcl": {
   "archivo": "fotos-notas/136uut7.jpg",
@@ -74599,10 +74596,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El CyberMonday alcanza 5 millones de visitas en su jornada inicial",
-  "razon": "Todas las imágenes presentan problemas: la A tiene marca de agua, la B y la C son imágenes gráficas o de stock generadas por computadora, no fotografías de una escena real.",
-  "cuando": "2026-11-03T21:33:28.127Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
+  "fuentes": 5,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "cffcxh": {
   "intentado": true,
@@ -75083,11 +75081,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lionel Messi define la elección del Balón de Oro al Joven Talento 2026",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Radio Mitre no se usa todavía.",
-  "cuando": "2026-11-04T08:02:37.284Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 2
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "tg87zv": {
   "intentado": true,
@@ -76131,10 +76129,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Alpine apela la sanción impuesta a Franco Colapinto en México",
-  "razon": "La única foto disponible presenta una marca de agua sobreimpresa por el medio en la parte inferior izquierda, lo que impide su selección según las reglas establecidas.",
-  "cuando": "2026-11-04T04:04:06.653Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T10:31:50.880Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "f197cq": {
   "archivo": "fotos-notas/f197cq.jpg",
@@ -76849,7 +76848,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del Papa León XIV saludando sonriente."
   },
-  "huella": "a5a527272e1b1949"
+  "huella": "a5a527272e1b1949",
+  "ausenteDesde": "2026-11-04T10:33:11.589Z"
  },
  "sbrv6y": {
   "archivo": "fotos-notas/sbrv6y.jpg",

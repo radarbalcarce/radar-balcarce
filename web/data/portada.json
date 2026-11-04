@@ -1,6 +1,58 @@
 {
-  "generado": "2026-11-04T09:04:18.949Z",
+  "generado": "2026-11-04T10:33:11.688Z",
   "notas": [
+    {
+      "id": "clima20261104",
+      "propia": "clima",
+      "titulo": "Clima en Balcarce: 83% de probabilidad de lluvia, con mínima de 12° y máxima de 20°",
+      "copete": "El pronóstico de este miércoles 4 de noviembre para Balcarce marca una mínima de 12° y máxima de 20°, con llovizna.",
+      "cuerpo": "En Balcarce, a las 07:33 hay 14° y el cielo está llovizna leve; la sensación térmica es de 14°; el viento sopla del NO a 6 km/h; la humedad es del 99%. Son los datos de Open-Meteo de ese momento.\n\nPara todo el miércoles 4, el pronóstico marca una mínima de 12° y máxima de 20° y llovizna. La probabilidad de lluvia es del 83%. El viento llegaría a 23 km/h.\n\nPara los días que siguen, el pronóstico dice: el jueves 5, mínima de 10° y máxima de 24°, con 20% de probabilidad de lluvia; el viernes 6, mínima de 9° y máxima de 20°, con 87% de probabilidad de lluvia; el sábado 7, mínima de 6° y máxima de 15°.\n\nEl clima se actualiza a lo largo del día: los valores de ahora, hora por hora, están en la página del clima de Radar Balcarce.",
+      "guion": null,
+      "seccion": "Balcarce",
+      "local": true,
+      "relevancia": 58,
+      "medios": [
+        "Open-Meteo"
+      ],
+      "enlace": "https://open-meteo.com",
+      "fuentesConsultadas": [
+        {
+          "medio": "Open-Meteo",
+          "enlace": "https://open-meteo.com"
+        }
+      ],
+      "foto": {
+        "archivo": "fotos-notas/clima-lluvia-2.jpg",
+        "credito": "Ilustración generada con IA (Cloudflare Workers AI)"
+      },
+      "fecha": "2026-11-04T10:33:04.585Z",
+      "sinFecha": false,
+      "visto": "2026-11-04T10:33:04.585Z",
+      "publicadaPor": null,
+      "publicadaCuando": "2026-11-04T10:33:04.585Z",
+      "temas": [],
+      "etiquetas": [
+        "clima",
+        "pronóstico",
+        "Balcarce",
+        "tiempo"
+      ],
+      "como": "automatica",
+      "firma": "Nota de Radar Balcarce armada con los datos de Open-Meteo a las 07:33.",
+      "enlacesEnTexto": [
+        {
+          "texto": "página del clima de Radar Balcarce",
+          "href": "/clima"
+        }
+      ],
+      "destacados": [
+        {
+          "texto": "Ver el clima de ahora",
+          "href": "/clima"
+        }
+      ],
+      "slug": "clima-en-balcarce-83-de-probabilidad-de-lluvia-con-minima-de-12-y"
+    },
     {
       "id": "futbolpartidosliga20261105",
       "propia": "futbol",
@@ -509,6 +561,27 @@
           "fecha": "2026-11-04T06:00:00.493Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/clima/alertas/2026/11/04/alerta-naranja-por-tormentas-para-este-miercoles-4-de-noviembre-en-resistencia-chaco/",
+          "fecha": "2026-11-04T09:01:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/clima/alertas/2026/11/04/alerta-naranja-por-tormentas-para-este-miercoles-4-de-noviembre-en-posadas-misiones/",
+          "fecha": "2026-11-04T09:00:41.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1160957/sociedad/renovaron-alerta-amarilla-lluvias-tormentas-para-tucuman.html",
+          "fecha": "2026-11-04T06:35:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -530,20 +603,20 @@
       "guion": "Kicillof y Máximo Kirchner se reúnen antes de la cumbre del PJ bonaerense.",
       "seccion": "Política",
       "medios": [
-        "Clarín",
         "TN (Todo Noticias)",
-        "El Destape",
         "Perfil",
         "Página/12",
         "El Día",
         "La Tecla",
-        "Letra P"
+        "Clarín",
+        "Letra P",
+        "El Destape"
       ],
       "enlace": "https://www.clarin.com/politica/sorpresivo-encuentro-kicillof-maximo-kirchner-horas-nueva-cumbre-pj-bonaerense_0_LLpVL9m44Y.html",
       "fecha": "2026-11-04T01:18:32.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T02:02:04.797Z",
-      "relevancia": 56,
+      "relevancia": 51,
       "local": false,
       "muyContada": {
         "medios": 7,
@@ -724,13 +797,14 @@
       "seccion": "Automovilismo",
       "medios": [
         "Noticias Argentinas (NA)",
-        "La Nueva"
+        "La Nueva",
+        "La Brújula 24"
       ],
       "enlace": "https://noticiasargentinas.com/deportes/alpine-apelara-por-la-sancion-a-colapinto--el-antecedente-que-podria-jugarle-a-favor_a6aea8228362d45b1b5e1b82d",
       "fecha": "2026-11-04T00:54:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T04:01:49.795Z",
-      "relevancia": 59,
+      "relevancia": 70,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -749,8 +823,7 @@
         "La FIA suele cerrar los expedientes una vez decididas las sanciones."
       ],
       "noConfirmado": [
-        "Todavía no se informó si la FIA aceptará el recurso de revisión presentado por la escudería.",
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+        "Todavía no se informó si la FIA aceptará el recurso de revisión presentado por la escudería."
       ],
       "textoRedes": "La escudería Alpine presentó una apelación formal ante la FIA para intentar revertir la sanción de diez segundos aplicada a Franco Colapinto en el Gran Premio de México, la cual lo dejó fuera de la zona de puntos.",
       "etiquetas": [
@@ -773,6 +846,13 @@
           "fecha": "2026-11-04T03:33:42.000Z",
           "oficial": false,
           "aporte": "Aporta el antecedente del caso de Pierre Gasly en Mónaco como referencia de éxito en la apelación."
+        },
+        {
+          "medio": "La Brújula 24",
+          "enlace": "https://www.labrujula24.com/notas/2026/11/04/alpine-apelara-la-sancion-a-colapinto-y-buscara-recuperar-los-puntos-perdidos-en-mexico-n528827/",
+          "fecha": "2026-11-04T09:11:46.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -790,8 +870,8 @@
         }
       ],
       "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
         "sugeridoPorIA": null
       },
       "slug": "alpine-apela-la-sancion-impuesta-a-franco-colapinto-en-mexico"
@@ -889,7 +969,7 @@
       "fecha": "2026-11-03T23:23:51.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T01:02:08.791Z",
-      "relevancia": 49,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -978,9 +1058,9 @@
       "guion": "Alpine prepara un recurso para revertir la sanción a Franco Colapinto.",
       "seccion": "Automovilismo",
       "medios": [
-        "El Destape",
         "TyC Sports",
-        "El Marplatense"
+        "El Marplatense",
+        "El Destape"
       ],
       "enlace": "https://www.tycsports.com/automovilismo/ultima-bala-que-prepara-alpine-para-revertir-sancion-franco-colapinto-mexico-id770245.html",
       "fecha": "2026-11-03T23:16:20.000Z",
@@ -1071,8 +1151,8 @@
       "guion": "Ángel de Brito comunica que LAM emitirá programas repetidos por decisión del canal.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "El Destape",
-        "Radio Mitre"
+        "Radio Mitre",
+        "El Destape"
       ],
       "enlace": "https://radiomitre.cienradios.com/espectaculos/la-bronca-de-angel-de-brito-por-una-decision-de-america-que-afecta-a-lam/",
       "fecha": "2026-11-03T23:05:55.000Z",
@@ -1140,11 +1220,11 @@
       "guion": "El argentino Alberto Zaltzberg pierde la elección a alcalde en Aventura.",
       "seccion": "Argentina",
       "medios": [
-        "La Brújula 24",
         "Ámbito",
         "Diario Popular",
-        "El Destape",
+        "La Brújula 24",
         "Noticias Argentinas (NA)",
+        "El Destape",
         "Minuto Uno"
       ],
       "enlace": "https://www.ambito.com/mundo/un-argentino-busca-convertirse-alcalde-una-ciudad-florida-las-elecciones-eeuu-n6341114",
@@ -1242,8 +1322,8 @@
       "guion": "Talleres golea 8 a 1 a Argentinos Juniors en la Copa Proyección.",
       "seccion": "Fútbol",
       "medios": [
-        "Olé",
-        "El Gráfico"
+        "El Gráfico",
+        "Olé"
       ],
       "enlace": "https://www.ole.com.ar/talleres/talleresdecordoba-copaproyeccion-torneoclausura-argentinosjuniors_0_i1F1jRGRh7.html",
       "fecha": "2026-11-03T22:34:32.000Z",
@@ -1307,94 +1387,6 @@
       "slug": "talleres-golea-8-a-1-a-argentinos-juniors-en-la-copa-proyeccion"
     },
     {
-      "id": "okhea9",
-      "titulo": "Metrodelegados liberan molinetes el miércoles en la Línea A del subte",
-      "copete": "La protesta se desarrollará desde las 8:00 en la estación San Pedrito. El gremio reclama por descuentos salariales que consideran ilegales y advierte que podría profundizar el plan de lucha próximamente.",
-      "cuerpo": "La Asociación Gremial de Trabajadores del Subterráneo y Premetro (AGTSYP) llevará adelante una jornada de protesta el miércoles 4 de noviembre. La medida consiste en la liberación de los molinetes en la estación San Pedrito, cabecera de la Línea A, a partir de las 8:00 horas. Según informaron desde el sindicato, la acción responde a reiteradas irregularidades en la liquidación de haberes y descuentos salariales que califican como indebidos por parte de la empresa concesionaria, Emova.\n\nLos trabajadores sostienen que la compañía mantiene una postura persecutoria y extorsiva, desoyendo fallos judiciales previos que ordenaban el cese de las quitas económicas. En un comunicado oficial, los representantes gremiales enfatizaron que el salario tiene carácter alimentario y denunciaron que la firma carece de fundamentos legales para privar al personal de sus ingresos.\n\nEsta medida de fuerza se suma a un escenario de tensión en el transporte porteño. El gremio advirtió que no descarta incrementar la intensidad de sus acciones en los próximos días, lo cual podría derivar en afectaciones directas al servicio si no se regulariza la situación de los sueldos. Ante este panorama, se recomienda a los usuarios habituales de la Línea A prever posibles demoras o congestiones en la estación durante la mañana del miércoles. Por el momento, no se informó sobre nuevas instancias de diálogo entre las partes involucradas para destrabar el conflicto salarial que mantiene en alerta a los trabajadores del sector.",
-      "guion": "Metrodelegados liberan molinetes el miércoles en la Línea A del subte.",
-      "seccion": "Política",
-      "medios": [
-        "El Destape",
-        "Noticias Argentinas (NA)",
-        "Minuto Uno",
-        "Ámbito"
-      ],
-      "enlace": "https://www.eldestapeweb.com/politica/paro-subtes-metrodelegados-definen-medidas-fuerza-conflicto-salarial-2026112131246",
-      "fecha": "2026-11-03T22:34:05.088Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T23:01:19.294Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La protesta será el miércoles 4 de noviembre desde las 8:00.",
-        "La liberación de molinetes ocurrirá en la estación San Pedrito de la Línea A.",
-        "El gremio denuncia descuentos salariales ilegales por parte de Emova.",
-        "Los trabajadores advierten que podrían profundizar las medidas en los próximos días."
-      ],
-      "seSabe": [
-        "La medida de fuerza fue confirmada por la AGTSYP para este miércoles 4 de noviembre.",
-        "La protesta se realizará en la estación San Pedrito de la Línea A a partir de las 8:00.",
-        "El sindicato reclama por descuentos en los haberes de los trabajadores.",
-        "La empresa concesionaria del servicio es Emova."
-      ],
-      "noConfirmado": [
-        "No se informó si habrá instancias de negociación entre el gremio y la empresa para evitar la profundización de las medidas."
-      ],
-      "textoRedes": "Los metrodelegados liberarán los molinetes este miércoles 4 de noviembre desde las 8:00 en la estación San Pedrito de la Línea A. La medida responde a reclamos por descuentos salariales y el gremio advierte que podría profundizar el plan de lucha en los próximos días.",
-      "etiquetas": [
-        "Subte",
-        "Metrodelegados",
-        "Línea A",
-        "Transporte",
-        "Conflicto laboral",
-        "Emova"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/politica/paro-subtes-metrodelegados-definen-medidas-fuerza-conflicto-salarial-2026112131246",
-          "fecha": "2026-11-02T16:12:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los motivos gremiales, la fecha, hora y lugar de la protesta, además de los antecedentes del conflicto."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/sociedad/subte--los-metrodelegados-liberaran-los-molinetes-este-miercoles-en-la-estacion-san-pedrito-de-la-linea-a_a6aea5fd1362d45b1b5e04e8a",
-          "fecha": "2026-11-03T22:34:05.088Z",
-          "oficial": false,
-          "aporte": "Ratificó la realización de la liberación de molinetes en la estación San Pedrito para el miércoles."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/subtes-metrodelegados-liberan-molinetes-este-miercoles-la-estacion-san-pedrito-la-linea-a-n6341193",
-          "fecha": "2026-11-03T22:49:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la medida de fuerza, el rol de la empresa Emova y las advertencias sobre posibles demoras para los usuarios."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/informacion-general/trabajadores-del-subte-liberaran-los-accesos-una-estacion-la-linea-reclamo-descuentos-salariales-n6341199",
-          "fecha": "2026-11-03T23:23:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "metrodelegados-liberan-molinetes-el-miercoles-en-la-linea-a-del-subte",
-      "foto": {
-        "archivo": "fotos-notas/okhea9.jpg",
-        "credito": "Foto: El Destape"
-      }
-    },
-    {
       "id": "ivy0k6",
       "titulo": "Nicolás Ramírez no dirige en la fecha 16 del Torneo Clausura",
       "copete": "La Asociación del Fútbol Argentino confirmó que el árbitro pidió licencia por una cirugía programada. Su ausencia ocurre tras las críticas recibidas por su desempeño en el Superclásico entre Boca y River.",
@@ -1402,12 +1394,10 @@
       "guion": "Nicolás Ramírez no dirige en la fecha 16 del Torneo Clausura.",
       "seccion": "Fútbol",
       "medios": [
-        "Clarín",
         "La Nación",
         "TN (Todo Noticias)",
         "Perfil",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
@@ -1416,6 +1406,8 @@
         "Doble Amarilla",
         "Bolavip Argentina",
         "El Gráfico",
+        "Olé",
+        "Clarín",
         "Los Andes (Mendoza)",
         "La Gaceta (Tucumán)",
         "A24",
@@ -1427,7 +1419,7 @@
       "fecha": "2026-11-03T22:27:34.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T23:01:19.294Z",
-      "relevancia": 66,
+      "relevancia": 59,
       "local": false,
       "muyContada": {
         "medios": 17,
@@ -1741,65 +1733,6 @@
       }
     },
     {
-      "id": "nlmxg9",
-      "titulo": "Gremios universitarios de Mar del Plata realizan protestas y paros",
-      "copete": "Trabajadores no docentes y docentes de la Universidad Nacional de Mar del Plata iniciaron medidas de fuerza. Reclaman la inclusión del financiamiento universitario en el Presupuesto Nacional 2027 ante la pérdida salarial.",
-      "cuerpo": "Los trabajadores no docentes de la Universidad Nacional de Mar del Plata (UNMdP), nucleados en APU, llevaron adelante el martes un paro de actividades por 24 horas y una toma simbólica del Rectorado. La medida afectó a más de 900 empleados que cumplen tareas de mantenimiento, seguridad e higiene en la institución.\n\nVictoria Schadwill, secretaria adjunta de APU, explicó que el sector enfrenta una caída del 33% en su poder adquisitivo. Según la dirigente, esta situación económica dificulta el sustento familiar y afecta la salud mental de los trabajadores. El gremio advirtió que, de no incorporarse la Ley de Financiamiento Universitario al Presupuesto Nacional 2027, la universidad podría no abrir sus puertas el próximo año.\n\nEl plan de lucha continuará con nuevos paros de APU previstos para el jueves 12 y el lunes 16 de noviembre. Por su parte, la Agremiación Docente Universitaria Marplatense (ADUM) confirmó un cese total de tareas para el martes 17 y el jueves 19 de noviembre, sumando actividades callejeras para el miércoles 18.",
-      "guion": "Gremios universitarios de Mar del Plata realizan protestas y paros.",
-      "seccion": "Educación",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/nueva-jornada-de-protesta-en-la-universidad-nacional-de-mar-del-plata-por-el-financiamiento-universitario/",
-      "fecha": "2026-11-03T22:07:04.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T23:01:19.294Z",
-      "relevancia": 49,
-      "local": false,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Los trabajadores no docentes realizaron un paro de 24 horas y una toma simbólica.",
-        "El sector gremial reporta una pérdida del 33% en el poder adquisitivo.",
-        "Exigen la inclusión del financiamiento universitario en el Presupuesto Nacional 2027.",
-        "APU y ADUM anunciaron un cronograma de paros para noviembre."
-      ],
-      "seSabe": [
-        "Los trabajadores no docentes realizaron una toma simbólica del Rectorado este martes.",
-        "APU confirmó paros para el 12 y 16 de noviembre.",
-        "ADUM realizará un paro total el 17 y 19 de noviembre, con acciones callejeras el 18.",
-        "La secretaria adjunta de APU, Victoria Schadwill, cifró la pérdida salarial en un 33%."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Gremios docentes y no docentes de la Universidad Nacional de Mar del Plata iniciaron un plan de lucha con paros y tomas. Reclaman la inclusión del financiamiento universitario en el Presupuesto Nacional 2027 ante la caída del poder adquisitivo.",
-      "etiquetas": [
-        "Universidad Nacional de Mar del Plata",
-        "Paro docente",
-        "Presupuesto 2027",
-        "Financiamiento universitario"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/nueva-jornada-de-protesta-en-la-universidad-nacional-de-mar-del-plata-por-el-financiamiento-universitario/",
-          "fecha": "2026-11-03T22:07:04.000Z",
-          "oficial": false,
-          "aporte": "Detalló las medidas de fuerza, los reclamos salariales y el cronograma de paros de los gremios universitarios."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "gremios-universitarios-de-mar-del-plata-realizan-protestas-y-paros"
-    },
-    {
       "id": "9s46rr",
       "titulo": "La Escuela República Argentina avanza con su proyecto ambiental por Malvinas",
       "copete": "La institución educativa busca plantar 649 árboles en Balcarce para homenajear a los soldados caídos en la guerra. La iniciativa, que comenzó en 2024, tiene una duración prevista de ocho años y contempla nuevas acciones para 2027.",
@@ -1813,7 +1746,7 @@
       "fecha": "2026-11-03T21:35:29.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T22:31:21.100Z",
-      "relevancia": 74,
+      "relevancia": 67,
       "local": true,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1886,7 +1819,7 @@
       "fecha": "2026-11-03T21:31:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T23:01:19.294Z",
-      "relevancia": 38,
+      "relevancia": 31,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2028,8 +1961,7 @@
       "guion": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa.",
       "seccion": "Balcarce",
       "medios": [
-        "Radio Gabal (FM 104.1)",
-        "Puntonueve (FM 100.9)"
+        "Radio Gabal (FM 104.1)"
       ],
       "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/jovenes-de-balcarce-participaran-como-voluntarios-en-la-visita-del-papa-al-pais",
       "fecha": "2026-11-03T21:16:54.000Z",
@@ -2085,8 +2017,8 @@
       "guion": "Binance repone el 98% de los activos tras el hackeo y habilita más retiros.",
       "seccion": "Tecnología",
       "medios": [
-        "iProfesional",
         "iProUP",
+        "iProfesional",
         "Ámbito"
       ],
       "enlace": "https://www.iproup.com/economia-digital/72845-binance-recupero-el-98-del-hackeo-de-us6-300-m-y-anuncio-mas-retiros",
@@ -2151,6 +2083,13 @@
           "fecha": "2026-11-03T21:11:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/economia-digital/72841-binance-entradas-netas-us2300-millones-tras-hackeo-noviembre-2026",
+          "fecha": "2026-11-04T11:12:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -2179,7 +2118,7 @@
       "fecha": "2026-11-03T21:04:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T02:02:04.797Z",
-      "relevancia": 55,
+      "relevancia": 48,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2237,6 +2176,165 @@
       "slug": "gabriele-mini-participa-en-la-primera-practica-libre-del-gp-de-brasil"
     },
     {
+      "id": "18uqqw5",
+      "titulo": "La AFA define los precios y la venta de entradas para Argentina vs. Uruguay",
+      "copete": "La Selección Argentina enfrentará a Uruguay el viernes 13 de noviembre en La Bombonera. La venta de tickets comienza el miércoles a través de la plataforma Deportick con valores que parten desde los 95.000 pesos.",
+      "cuerpo": "La Asociación del Fútbol Argentino confirmó los detalles para el amistoso que el seleccionado nacional disputará frente a Uruguay el próximo viernes 13 de noviembre en el estadio de Boca Juniors. Este encuentro marcará el inicio de la actividad del equipo tras el retiro de Lionel Messi y forma parte de la fecha FIFA de noviembre. La venta de entradas se realizará exclusivamente de forma online mediante el sitio web Deportick a partir del miércoles 4 de noviembre desde las 16:00.\n\nLos valores establecidos por la entidad son: 95.000 pesos para la popular general y 19.000 pesos para menores de hasta 10 años en ese mismo sector. En cuanto a las plateas, los precios varían según la ubicación: la platea alta cuesta 140.000 pesos, el sector visitante 160.000 pesos, las plateas medias C, D y M tienen un valor de 180.000 pesos, mientras que la platea baja L y las medias A y B se fijaron en 220.000 pesos. La entrada preferencial alcanza los 290.000 pesos. Según informó la AFA, estos costos resultan inferiores a los aplicados en amistosos anteriores disputados en el país.\n\nUn requisito fundamental para los compradores es el canje presencial de los tickets digitales por entradas físicas. Este procedimiento se llevará a cabo en las boleterías del estadio de Huracán entre el martes 10 y el jueves 12 de noviembre, en el horario de 9:00 a 15:00. Para retirar los boletos, los asistentes deberán presentar el código de canje, la tarjeta utilizada en la transacción y el DNI físico del titular. Las personas con discapacidad deben gestionar su acceso directamente en la plataforma Deportick durante la venta general, ya que no podrán ingresar al estadio sin haber realizado este trámite previo.",
+      "guion": "La AFA define los precios y la venta de entradas para Argentina vs. Uruguay.",
+      "seccion": "Fútbol",
+      "medios": [
+        "TN (Todo Noticias)",
+        "Perfil",
+        "TyC Sports",
+        "Crónica",
+        "Radio Mitre",
+        "Noticias Argentinas (NA)",
+        "Doble Amarilla",
+        "El Destape",
+        "La Nueva",
+        "La Gaceta (Tucumán)"
+      ],
+      "enlace": "https://www.lagaceta.com.ar/nota/1160920/deportes/argentina-vs-uruguay-cuanto-cuestan-entradas-cuando-salen-venta-donde-comprarlas.html",
+      "fecha": "2026-11-03T21:00:00.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-03T23:01:19.294Z",
+      "relevancia": 69,
+      "local": false,
+      "muyContada": {
+        "medios": 9,
+        "porque": "9 medios",
+        "desde": "2026-11-03T23:01:19.294Z"
+      },
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La venta de entradas comienza el miércoles 4 de noviembre a las 16:00 por Deportick.",
+        "El partido se jugará el viernes 13 de noviembre en La Bombonera.",
+        "El canje de tickets físicos es obligatorio en el estadio de Huracán.",
+        "Los precios de las plateas presentan una reducción respecto a encuentros anteriores."
+      ],
+      "seSabe": [
+        "La venta de entradas es exclusivamente online a través de la plataforma Deportick.",
+        "El canje de entradas físicas se realizará del 10 al 12 de noviembre en Huracán.",
+        "Las personas con discapacidad deben gestionar su ingreso durante la venta general.",
+        "Los menores de tres años en adelante deben abonar el valor completo de la platea."
+      ],
+      "noConfirmado": [
+        "El horario exacto del inicio del partido entre Argentina y Uruguay aún no fue confirmado."
+      ],
+      "textoRedes": "La AFA oficializó la venta de entradas para el amistoso entre Argentina y Uruguay del 13 de noviembre en La Bombonera. Los tickets se podrán adquirir desde este miércoles a las 16:00 por Deportick, con precios desde 95.000 pesos y canje presencial obligatorio.",
+      "etiquetas": [
+        "Selección Argentina",
+        "Uruguay",
+        "AFA",
+        "La Bombonera",
+        "Deportick",
+        "Entradas",
+        "Fútbol"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1160920/deportes/argentina-vs-uruguay-cuanto-cuestan-entradas-cuando-salen-venta-donde-comprarlas.html",
+          "fecha": "2026-11-03T19:47:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la reducción de costos en plateas en comparación con el partido de despedida de Messi."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/03/entradas-para-argentina-vs-uruguay-en-la-bombonera-precios-cuando-salen-a-la-venta-y-como-comprarlas/",
+          "fecha": "2026-11-03T21:00:51.000Z",
+          "oficial": false,
+          "aporte": "Informó que los menores de tres años en adelante deben abonar el valor completo de la platea."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/deportes/afa-oficializo-precios-entradas-amistoso-seleccion-argentina-uruguay-202611319130",
+          "fecha": "2026-11-03T22:01:30.686Z",
+          "oficial": false,
+          "aporte": "Detalló los precios de todas las categorías, el proceso de compra y los requisitos para el canje presencial."
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/seleccion-argentina/entradas-de-argentina-vs-uruguay-cuando-se-venden-precios-y-donde-comprar-id770220.html",
+          "fecha": "2026-11-03T20:47:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/depo/seleccionargentina/afa-anuncio-cuando-comienza-la-venta-de-entradas-para-el-amistoso-entre-la-seleccion-argentina-y-uruguay-precios-y-como-comprar/",
+          "fecha": "2026-11-03T21:08:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/argentina-vs--uruguay--precios-y-como-sacar-las-entradas-para-el-amistoso-en-la-bombonera-_a6aea4e67362d45b1b5defd23",
+          "fecha": "2026-11-03T21:00:00.000Z",
+          "oficial": false,
+          "aporte": "Especificó el valor del sector visitante y el procedimiento para personas con discapacidad."
+        },
+        {
+          "medio": "La Nueva",
+          "enlace": "https://www.lanueva.com/nota/2026-11-3-18-55-0-el-efecto-messi-la-afa-bajo-los-precios-para-el-partido-argentina-uruguay",
+          "fecha": "2026-11-03T22:52:25.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/seleccion-argentina/2026/11/03/entradas-para-argentina-vs-uruguay-en-la-bombonera-precios-cuando-salen-a-la-venta-y-como-comprarlas/",
+          "fecha": "2026-11-03T20:56:22.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/selecciones/afa-confirmo-el-precio-de-las-entradas-para-el-amistoso-entre-argentina-uruguay--cuanto-cuestan-y-cuando-salen-a-la-venta_a6aea67b1c5b4d02690d59d1c",
+          "fecha": "2026-11-03T23:28:41.182Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/deportes/la-afa-confirmo-cuando-saldran-a-la-venta-las-entradas-para-argentina-vs-uruguay-en-la-bombonera-cuanto-salen-y-como-comprar/",
+          "fecha": "2026-11-04T00:34:02.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/deportes/entradas-argentina-vs-uruguay-en-la-bombonera-precios-y-como-comprar-ajjyM4z2geeQ",
+          "fecha": "2026-11-04T01:42:32.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "antecedentes": [
+        {
+          "id": "11mcbid",
+          "titulo": "Boca inicia la venta de entradas para la final de la Copa Sudamericana",
+          "fecha": "2026-11-02T22:42:44.000Z",
+          "ruta": "/nota/boca-inicia-la-venta-de-entradas-para-la-final-de-la-copa-sudamericana-11mcbid"
+        },
+        {
+          "id": "1o2n8xm",
+          "titulo": "Estudiantes inicia la venta de entradas para la final de la Copa Libertadores",
+          "fecha": "2026-11-02T12:01:00.000Z",
+          "ruta": "/nota/estudiantes-inicia-la-venta-de-entradas-para-la-final-de-la-copa-1o2n8xm"
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron seis medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "la-afa-define-los-precios-y-la-venta-de-entradas-para-argentina-vs"
+    },
+    {
       "id": "cffcxh",
       "titulo": "Estudiantes y docentes convocan a una marcha de velas hacia Tribunales",
       "copete": "La movilización se realizará el miércoles 4 de noviembre para exigir el cumplimiento de la Ley de Financiamiento Universitario. La jornada incluirá una clase pública frente al Palacio de Justicia tras el paro nacional de trabajadores nodocentes realizado el martes.",
@@ -2246,11 +2344,11 @@
       "medios": [
         "TN (Todo Noticias)",
         "La Nación",
-        "El Destape",
         "Perfil",
         "Página/12",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
+        "El Destape",
         "C5N",
         "Agencia DIB"
       ],
@@ -2358,86 +2456,6 @@
         "sugeridoPorIA": null
       },
       "slug": "estudiantes-y-docentes-convocan-a-una-marcha-de-velas-hacia-tribunales"
-    },
-    {
-      "id": "1zjqgi",
-      "titulo": "El Banco Central suma dos jornadas sin comprar dólares en el mercado oficial",
-      "copete": "La autoridad monetaria no logró adquirir divisas el martes y las reservas brutas descendieron u$s148 millones. El dólar mayorista alcanzó un nuevo máximo histórico nominal al cerrar en $1.551.",
-      "cuerpo": "Esta inactividad, sumada a la ausencia de compras en tres de las cinco ruedas previas, marca un cambio de tendencia respecto a octubre, mes en el que la entidad había acumulado adquisiciones por u$s1.395 millones.\n\nEl stock de reservas internacionales brutas retrocedió u$s148 millones y finalizó la jornada en u$s50.293 millones. Esta caída se explicó principalmente por factores externos de valuación: el oro registró una baja del 1%, con un impacto negativo estimado en u$s75 millones, mientras que la depreciación del yuan y del yen frente al dólar estadounidense también influyó en el resultado. Por su parte, el dólar mayorista avanzó $5,50 y alcanzó un máximo histórico nominal de $1.551, acumulando una suba de $17 en las dos primeras ruedas de noviembre.\n\nLa situación generó un debate entre especialistas sobre la estrategia de acumulación de reservas. Mientras algunos analistas sostienen que el Central debe aprovechar la oferta actual para construir un colchón financiero ante los vencimientos de deuda previstos para 2027, otros advierten sobre el costo de esta política para el crédito interno y la actividad económica. Hacia el último bimestre del año, el mercado espera que la liquidación de la cosecha de trigo y los ingresos energéticos contribuyan a recomponer la oferta de divisas, aunque estos flujos deberán convivir con las necesidades de cobertura privada y los compromisos de deuda del Tesoro.",
-      "guion": "El Banco Central suma dos jornadas sin comprar dólares en el mercado oficial.",
-      "seccion": "Economía",
-      "medios": [
-        "El Cronista",
-        "Ámbito",
-        "C5N"
-      ],
-      "enlace": "https://www.cronista.com/finanzas-mercados/en-pleno-debate-por-la-acumulacion-de-reservas-el-bcra-no-compro-dolares/",
-      "fecha": "2026-11-03T20:49:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T03:01:35.683Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El BCRA acumula dos días sin compras en el mercado oficial.",
-        "Las reservas brutas bajaron a u$s50.293 millones por factores de valuación.",
-        "El dólar mayorista alcanzó un máximo histórico de $1.551.",
-        "Especialistas debaten el impacto de la acumulación de divisas en el crédito interno."
-      ],
-      "seSabe": [
-        "El BCRA no compró dólares el lunes 2 y el martes 3 de noviembre.",
-        "Las reservas brutas cayeron u$s148 millones el martes.",
-        "El dólar mayorista cerró a $1.551.",
-        "Las compras acumuladas en 2026 suman u$s15.963 millones."
-      ],
-      "noConfirmado": [
-        "No existe información oficial sobre el plan del BCRA para las próximas semanas.",
-        "Persisten las dudas sobre si el BCRA podrá retomar las compras sin presionar el tipo de cambio."
-      ],
-      "textoRedes": "El Banco Central completó dos jornadas sin comprar dólares en el mercado oficial. Las reservas brutas cayeron u$s148 millones y el dólar mayorista alcanzó un nuevo máximo histórico nominal de $1.551.",
-      "etiquetas": [
-        "Banco Central",
-        "dólar",
-        "reservas",
-        "economía",
-        "mercado cambiario"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/finanzas-mercados/en-pleno-debate-por-la-acumulacion-de-reservas-el-bcra-no-compro-dolares/",
-          "fecha": "2026-11-02T21:05:43.640Z",
-          "oficial": false,
-          "aporte": "Presentó el debate técnico en la City sobre la acumulación de reservas y su impacto en el crédito."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/finanzas/el-bcra-no-compro-dolares-5-las-ultimas-7-ruedas-y-las-reservas-bajaron-us148-millones-n6341129",
-          "fecha": "2026-11-03T20:49:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los factores de valuación externos que afectaron las reservas y el movimiento del dólar mayorista."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/economia/el-banco-central-no-logra-sumar-dolares-las-reservas-cayeron-us148-millones-n253366",
-          "fecha": "2026-11-03T22:57:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la inactividad compradora y los datos de la caída de reservas por valuación del oro."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-banco-central-suma-dos-jornadas-sin-comprar-dolares-en-el-mercado",
-      "foto": {
-        "archivo": "fotos-notas/1zjqgi.jpg",
-        "credito": "Foto: El Cronista"
-      }
     },
     {
       "id": "esekbh",
@@ -2571,6 +2589,157 @@
         "sugeridoPorIA": null
       },
       "slug": "finalizan-obras-de-infraestructura-en-la-escuela-secundaria-n-37-de"
+    },
+    {
+      "id": "kvuifd",
+      "titulo": "El Gobierno propone gravar la venta de CEDEARs con el Impuesto a las Ganancias",
+      "copete": "La medida forma parte del proyecto de Ley de Competitividad Financiera enviado al Congreso. El tributo del 15% alcanzaría a las operaciones realizadas con certificados adquiridos a partir del 31 de octubre de 2026.",
+      "cuerpo": "El Poder Ejecutivo presentó ante el Congreso el proyecto de Ley de Competitividad Financiera, que incluye una modificación impositiva sobre los Certificados de Depósito Argentinos (CEDEARs). La iniciativa busca eliminar la exención actual del Impuesto a las Ganancias para la compraventa de estos instrumentos, los cuales permiten invertir en acciones de empresas extranjeras desde el mercado local. De aprobarse la normativa, las operaciones con estos certificados quedarían gravadas con una alícuota del 15% sobre el resultado obtenido.\n\nEl cambio propuesto establece un criterio de transparencia fiscal para equiparar el tratamiento impositivo de los CEDEARs con el de las acciones adquiridas directamente en el exterior. Según el texto enviado por el Gobierno, la medida rige para los certificados adquiridos a partir del 31 de octubre de 2026. En consecuencia, las tenencias compradas con anterioridad a esa fecha mantendrían su condición actual y no quedarían alcanzadas por el nuevo gravamen. El impuesto se aplicaría sobre la ganancia neta de la operación de venta y no sobre el valor total de la inversión.\n\nEl proyecto, que cuenta con las firmas del presidente Javier Milei y varios ministros, justifica la reforma como una forma de corregir distorsiones en el sistema tributario y desincentivar la canalización del ahorro local hacia activos externos. Además de esta modificación, el paquete legislativo de 240 artículos propone cambios en la negociación de plazos fijos, la creación de un sistema federal de garantías para créditos y nuevas regulaciones para fondos comunes y sociedades de ahorro. La implementación definitiva de estos cambios depende de la sanción parlamentaria y de la posterior reglamentación que defina los aspectos técnicos para determinar los resultados de las operaciones.",
+      "guion": "El Gobierno propone gravar la venta de CEDEARs con el Impuesto a las Ganancias.",
+      "seccion": "Economía",
+      "medios": [
+        "La Nación",
+        "Clarín",
+        "iProfesional",
+        "Ámbito"
+      ],
+      "enlace": "https://www.iprofesional.com/impuestos/468226-el-gobierno-presento-proyecto-para-alcanzar-con-ganancias-a-la-venta-de-cedears",
+      "fecha": "2026-11-03T20:10:44.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-03T21:31:26.594Z",
+      "relevancia": 42,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "La iniciativa propone gravar la compraventa de CEDEARs con una alícuota del 15%.",
+        "La medida alcanza a los certificados adquiridos desde el 31 de octubre de 2026.",
+        "Las tenencias previas a esa fecha mantienen la exención actual del tributo.",
+        "El proyecto forma parte de una reforma integral del mercado de capitales."
+      ],
+      "seSabe": [
+        "El Gobierno presentó el proyecto de Ley de Competitividad Financiera el 2 de noviembre.",
+        "La propuesta busca equiparar el tratamiento impositivo de los CEDEARs con las acciones extranjeras directas.",
+        "El impuesto se aplicaría sobre la ganancia de la operación y no sobre el capital total.",
+        "La medida requiere la aprobación del Congreso para entrar en vigencia."
+      ],
+      "noConfirmado": [
+        "La fecha exacta en la que el Congreso tratará el proyecto de ley.",
+        "El impacto final que la medida tendrá sobre el volumen de operaciones en el mercado financiero local."
+      ],
+      "textoRedes": "El Gobierno presentó un proyecto de ley para gravar la compraventa de CEDEARs con el Impuesto a las Ganancias. La medida, que propone una alícuota del 15%, alcanzaría a los certificados adquiridos a partir del 31 de octubre de 2026.",
+      "etiquetas": [
+        "Economía",
+        "Impuesto a las Ganancias",
+        "CEDEARs",
+        "Mercado de capitales",
+        "Congreso"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "iProfesional",
+          "enlace": "https://www.iprofesional.com/impuestos/468226-el-gobierno-presento-proyecto-para-alcanzar-con-ganancias-a-la-venta-de-cedears",
+          "fecha": "2026-11-03T19:53:00.000Z",
+          "oficial": false,
+          "aporte": "Precisa la alícuota del 15% y el objetivo de transparencia fiscal."
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/el-gobierno-impulsa-una-reforma-clave-del-mercado-de-capitales-que-incluye-cobrar-ganancias-por-la-nid03112026/",
+          "fecha": "2026-11-03T20:52:37.000Z",
+          "oficial": false,
+          "aporte": "Detalla el alcance temporal de la medida y los otros ejes del proyecto de ley."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/gobierno-busca-cobrar-ganancias-inviertan-acciones-empresas-extranjeras-cambia-ahorristas_0_9oa7iXNEdc.html",
+          "fecha": "2026-11-03T20:10:44.000Z",
+          "oficial": false,
+          "aporte": "Explica el funcionamiento del impuesto sobre la ganancia y la opinión de especialistas."
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/cedears-el-gobierno-busca-cobrar-un-15-ganancias-quienes-inviertan-acciones-empresas-extranjeras-n6341153",
+          "fecha": "2026-11-03T21:12:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/finanzas/72858-el-gobierno-quiere-cobrar-ganancias-por-la-venta-de-cedear",
+          "fecha": "2026-11-03T21:00:00.000Z",
+          "oficial": false,
+          "aporte": "Informó sobre la intención inicial del Gobierno respecto a los CEDEARs."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/11/03/el-gobierno-envio-al-congreso-un-proyecto-que-proponia-cobrar-ganancias-por-la-venta-de-cedears-y-luego-decidio-retirarlo/",
+          "fecha": "2026-11-03T22:55:14.000Z",
+          "oficial": false,
+          "aporte": "Detalló el envío del proyecto, el retiro del artículo sobre CEDEARs y los cambios en plazos fijos y garantías."
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/alerta-cedear-el-gobierno-propone-un-cambio-impositivo-que-puede-encarecer-las-inversiones-en-acciones-del-exterior/",
+          "fecha": "2026-11-03T23:27:42.996Z",
+          "oficial": false,
+          "aporte": "Explicó el mecanismo de transparencia fiscal y la fecha de corte del 31 de octubre de 2026."
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/finanzas/72863-el-gobierno-da-marcha-atras-y-niega-que-quiera-cobrar-ganancias-via-cedear",
+          "fecha": "2026-11-03T22:30:00.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la marcha atrás del Ejecutivo sobre el cobro del impuesto."
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/economia/cedears-el-gobierno-quiso-cobrar-ganancias-a-los-ahorristas-pero-tuvo-que-dar-marcha-atras-aQghc9t5IrMj",
+          "fecha": "2026-11-03T22:26:04.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Canal 26",
+          "enlace": "https://www.canal26.com/economia/2026/11/04/el-gobierno-dio-marcha-atras-con-el-proyecto-de-ley-que-proponia-cobrar-ganancias-por-la-venta-de-cedear/",
+          "fecha": "2026-11-04T00:08:41.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/ganancias-en-cedears--el-gobierno-aclaro-que-dara-marcha-atras-con-la-iniciativa-dispuesta-en-la--ley-de-competitividad-financiera-_a6aea5d7a362d45b1b5e03150",
+          "fecha": "2026-11-03T23:05:00.769Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/cedears-y-ganancias-que-pasara-las-inversiones-actuales-y-como-impactaria-el-impuesto-del-15-n6341148",
+          "fecha": "2026-11-03T21:36:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/economia/el-gobierno-dio-marcha-atras-y-confirmo-que-las-inversiones-cedears-no-pagaran-impuesto-las-ganancias-n6012900",
+          "fecha": "2026-11-03T22:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-gobierno-propone-gravar-la-venta-de-cedears-con-el-impuesto-a-las",
+      "foto": {
+        "archivo": "fotos-notas/kvuifd.jpg",
+        "credito": "Foto: La Nación"
+      }
     },
     {
       "id": "1wdo82h",
@@ -2851,8 +3020,8 @@
       "seccion": "Fútbol",
       "medios": [
         "TN (Todo Noticias)",
-        "El Destape",
         "TyC Sports",
+        "El Destape",
         "Olé"
       ],
       "enlace": "https://www.eldestapeweb.com/deportes/tiene-increible-parecido-nico-paz-hijo-campeon-river-juega-sarmiento-202611314584",
@@ -2949,11 +3118,11 @@
       "guion": "Binance sufre el mayor robo de criptomonedas tras un ataque informático.",
       "seccion": "Tecnología",
       "medios": [
-        "Clarín",
         "TN (Todo Noticias)",
         "Perfil",
         "El Cronista",
-        "C5N"
+        "C5N",
+        "Clarín"
       ],
       "enlace": "https://tn.com.ar/tecno/novedades/2026/11/03/hackeo-a-binance-una-falsa-entrevista-laboral-y-la-descarga-de-un-archivo-dieron-inicio-al-robo-cripto-mas-grande-de-la-historia/",
       "fecha": "2026-11-03T19:14:16.000Z",
@@ -3230,13 +3399,13 @@
       "seccion": "Fútbol",
       "medios": [
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
         "El Eco de Tandil",
         "Doble Amarilla",
         "Bolavip Argentina",
+        "Olé",
         "La Gaceta (Tucumán)",
         "Diario Popular"
       ],
@@ -3985,13 +4154,13 @@
       "guion": "Gonzalo Belloso anuncia que no buscará la reelección en Rosario Central.",
       "seccion": "Fútbol",
       "medios": [
-        "El Destape",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "El Día",
         "Doble Amarilla",
         "Clarín",
+        "El Destape",
+        "Olé",
         "La Capital (Rosario)"
       ],
       "enlace": "https://www.eldestapeweb.com/deportes/chau-rosario-central-sorpresivo-anuncio-presidente-gonzalo-belloso-ultima-hora-202611314184",
@@ -4109,94 +4278,6 @@
       }
     },
     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "copete": "La institución exhibirá el miércoles en el Museo Fangio los dos prototipos eléctricos que competirán en Junín. Los alumnos participarán del certamen nacional entre el 6 y el 8 de noviembre.",
-      "cuerpo": "La Escuela de Educación Secundaria Técnica N.º 1 “Lucas Kraglievich” realizará la presentación oficial de los autos que representarán a la institución en el Desafío ECO 2026. El encuentro tendrá lugar el miércoles 4 de noviembre, a las 11, en las instalaciones del Museo del Automovilismo Juan Manuel Fangio. Durante la jornada, los asistentes podrán observar los dos vehículos eléctricos, numerados como 52 y 155, diseñados y construidos por los estudiantes.\n\nEsta actividad sirve como preparación para la competencia nacional que se desarrollará en la ciudad de Junín durante los días 6, 7 y 8 de noviembre. En dicha instancia, el equipo, integrado por alumnos de sexto año, medirá el rendimiento de sus prototipos frente a instituciones educativas de todo el país.",
-      "guion": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026.",
-      "seccion": "Automovilismo",
-      "medios": [
-        "Puntonueve (FM 100.9)",
-        "Radio Gabal (FM 104.1)"
-      ],
-      "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/desafio-eco-2026-la-escuela-tecnica-presentara-sus-vehiculos-en-el-museo-fangio",
-      "fecha": "2026-11-03T17:22:56.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T19:01:55.733Z",
-      "relevancia": 87,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "autodromo",
-        "fangio"
-      ],
-      "como": "automatica",
-      "claves": [
-        "La presentación será el miércoles 4 de noviembre a las 11 en el Museo Fangio.",
-        "La escuela competirá con dos vehículos eléctricos, identificados con los números 52 y 155.",
-        "El certamen nacional se llevará a cabo en Junín del 6 al 8 de noviembre.",
-        "El equipo está conformado por alumnos de sexto año de la institución."
-      ],
-      "seSabe": [
-        "La E.E.S.T. N.º 1 exhibirá sus dos prototipos en el Museo Fangio.",
-        "La competencia nacional tendrá lugar en la ciudad de Junín.",
-        "Los vehículos participantes llevan los números 52 y 155."
-      ],
-      "textoRedes": "La Escuela Técnica N.º 1 presenta este miércoles a las 11 en el Museo Fangio los dos vehículos eléctricos con los que participará del Desafío ECO 2026. La competencia nacional se desarrollará en Junín del 6 al 8 de noviembre.",
-      "etiquetas": [
-        "Escuela Técnica",
-        "Desafío ECO",
-        "Museo Fangio",
-        "Automovilismo",
-        "Educación",
-        "Junín"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Gabal (FM 104.1)",
-          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/desafio-eco-2026-la-escuela-tecnica-presentara-sus-vehiculos-en-el-museo-fangio",
-          "fecha": "2026-11-03T17:22:56.000Z",
-          "oficial": false,
-          "aporte": "Detalla la fecha, hora y lugar de la presentación, además de los números de los vehículos y las fechas de la competencia en Junín."
-        },
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/la-escuela-tecnica-presentara-los-dos-autos-electricos-con-los-que-competira-en-el-desafio-eco-ypf-2026/",
-          "fecha": "2026-11-03T19:12:40.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "r4bjyj",
-          "titulo": "Emerson Fittipaldi visitará el Museo Fangio en noviembre",
-          "fecha": "2026-10-31T13:12:21.000Z",
-          "ruta": "/nota/emerson-fittipaldi-visitara-el-museo-fangio-en-noviembre-r4bjyj"
-        },
-        {
-          "id": "13pnh44",
-          "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
-          "fecha": "2026-11-03T16:39:36.233Z",
-          "ruta": "/nota/la-tecnica-n-1-competira-con-dos-autos-en-el-desafio-eco-de-junin-13pnh44"
-        },
-        {
-          "id": "fcz7oa",
-          "titulo": "Carli ratifica la postura de la Fundación Fangio sobre el autódromo",
-          "fecha": "2026-11-02T18:31:49.670Z",
-          "ruta": "/nota/carli-ratifica-la-postura-de-la-fundacion-fangio-sobre-el-autodromo-fcz7oa"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-escuela-tecnica-presenta-sus-vehiculos-para-el-desafio-eco-2026"
-    },
-    {
       "id": "1g9f3pp",
       "titulo": "El Gobierno nacional implementa cambios en el transporte por la visita papal",
       "copete": "El operativo especial regirá del 8 al 11 de noviembre para facilitar la movilidad de los fieles. Incluye frecuencias de día hábil en trenes y colectivos, servicios ferroviarios nocturnos y restricciones en aeropuertos comerciales.",
@@ -4206,15 +4287,15 @@
       "medios": [
         "TN (Todo Noticias)",
         "La Nación",
-        "El Destape",
         "Perfil",
         "Página/12",
-        "iProfesional",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "Noticias Argentinas (NA)",
+        "El Destape",
         "El Cronista",
+        "iProfesional",
         "A24",
         "C5N",
         "Diario Popular"
@@ -4518,11 +4599,10 @@
       "guion": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas.",
       "seccion": "Fútbol",
       "medios": [
+        "Diario La Vanguardia",
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
@@ -4538,9 +4618,11 @@
         "Bolavip Argentina",
         "El Economista",
         "0223 (Mar del Plata)",
+        "El Destape",
         "Perfil",
         "Clarín",
         "A24",
+        "Olé",
         "Diario Popular",
         "La Nueva",
         "El Gráfico",
@@ -4556,11 +4638,11 @@
       "fecha": "2026-11-03T16:46:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T18:31:48.432Z",
-      "relevancia": 87,
+      "relevancia": 81,
       "local": false,
       "muyContada": {
-        "medios": 28,
-        "porque": "28 medios",
+        "medios": 29,
+        "porque": "29 medios",
         "desde": "2026-11-03T18:31:48.432Z"
       },
       "publicadaPor": null,
@@ -5000,6 +5082,13 @@
           "fecha": "2026-11-04T08:00:04.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/deportes/14415-seleccion-scaloni-dio-la-lista-de-convocados-con-algunas-sorpresas/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": null
         }
       ],
       "verificacion": {
@@ -5125,74 +5214,6 @@
         "archivo": "fotos-notas/69gc7w.jpg",
         "credito": "Foto: Clarín"
       }
-    },
-    {
-      "id": "9wv69u",
-      "titulo": "Rituales de Feng Shui con agua, sal y arroz para atraer abundancia en noviembre",
-      "copete": "La filosofía oriental propone dos prácticas simbólicas para renovar las energías del hogar durante el cierre del año. Los especialistas sugieren ubicaciones estratégicas y el mantenimiento constante de los recipientes para favorecer la prosperidad.",
-      "cuerpo": "Con el inicio de noviembre, el Feng Shui sugiere realizar gestos simbólicos en el hogar para renovar energías y buscar nuevas oportunidades antes de finalizar el año. Una de las propuestas consiste en utilizar un vaso de vidrio transparente con agua y sal gruesa. Según esta tradición, la sal representa la limpieza, el agua simboliza la fluidez y el recipiente transparente alude a la claridad de objetivos. Se recomienda situar este objeto en el sector sureste de la propiedad, una zona vinculada al crecimiento económico. Es necesario evitar colocarlo en baños o sobre hornallas de cocina debido a la humedad y los cambios de temperatura, y el contenido debe renovarse cada una o dos semanas.\n\nOtra alternativa difundida por esta filosofía es el uso de un vaso con arroz crudo y seco. Este elemento se asocia con el sustento, la fertilidad y la estabilidad familiar. En este caso, el lugar sugerido es el recibidor, cerca de la puerta principal, considerada la boca del Chi por donde ingresa la energía vital. Al igual que con el ritual anterior, el sector sureste de la vivienda también resulta una opción válida para atraer prosperidad. Los especialistas enfatizan que, para cualquier variante, es indispensable mantener el entorno ordenado, iluminado y despejado de objetos innecesarios, ya que el desorden entorpece la circulación de la energía.\n\nPara ambos casos, se requiere utilizar recipientes de vidrio limpios y en buen estado. Es fundamental supervisar el estado del contenido periódicamente y reemplazarlo si se observa evaporación, suciedad, humedad o cambios de color. Estas prácticas se presentan como acciones simbólicas para acompañar las metas personales y el bienestar familiar durante el tramo final del año.",
-      "guion": "Rituales de Feng Shui con agua, sal y arroz para atraer abundancia en noviembre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Radio Mitre",
-        "La Nación"
-      ],
-      "enlace": "https://radiomitre.cienradios.com/curiosidades/el-ritual-del-vaso-con-agua-y-sal-para-noviembre-donde-ubicarlo-para-atraer-abundancia-segun-el-feng-shui/",
-      "fecha": "2026-11-03T16:40:29.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T03:01:35.683Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El Feng Shui propone rituales con agua y sal o con arroz para atraer abundancia.",
-        "El sector sureste de la vivienda es la ubicación recomendada para ambos elementos.",
-        "El arroz debe colocarse crudo y seco en un vaso de vidrio transparente.",
-        "El orden y la limpieza del entorno son esenciales para el éxito de las prácticas.",
-        "Los contenidos deben renovarse ante cualquier signo de deterioro o suciedad."
-      ],
-      "textoRedes": "El Feng Shui propone rituales con agua, sal y arroz para atraer abundancia y renovar energías en noviembre. Conocé cuáles son los lugares estratégicos de la casa donde deben ubicarse los recipientes y cómo mantenerlos para favorecer la prosperidad.",
-      "etiquetas": [
-        "Feng Shui",
-        "noviembre",
-        "abundancia",
-        "rituales",
-        "hogar",
-        "energías"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/curiosidades/el-ritual-del-vaso-con-agua-y-sal-para-noviembre-donde-ubicarlo-para-atraer-abundancia-segun-el-feng-shui/",
-          "fecha": "2026-11-02T21:17:27.000Z",
-          "oficial": false,
-          "aporte": "Detalla el ritual de agua y sal, su simbolismo y las restricciones de ubicación en el hogar."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/lifestyle/el-lugar-estrategico-en-el-que-hay-que-colocar-un-vaso-con-arroz-en-noviembre-para-atraer-abundancia-nid03112026/",
-          "fecha": "2026-11-04T00:22:00.000Z",
-          "oficial": false,
-          "aporte": "Refuerza el significado del arroz en la cultura china y la relevancia del orden en el espacio físico."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/sociedad/2026/11/03/donde-hay-que-poner-un-vaso-con-arroz-en-noviembre-de-2026-para-atraer-abundancia-al-hogar-segun-el-feng-shui/",
-          "fecha": "2026-11-03T16:40:29.000Z",
-          "oficial": false,
-          "aporte": "Explica el ritual del arroz, su significado de abundancia y la importancia del recibidor como entrada de energía."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "rituales-de-feng-shui-con-agua-sal-y-arroz-para-atraer-abundancia-en"
     },
     {
       "id": "13pnh44",
@@ -5324,8 +5345,8 @@
       "guion": "Inauguran una muestra artística de la escuela El Principito en el MUHBA.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Puntonueve (FM 100.9)",
-        "Infórmese Primero (FM 104.9)"
+        "Infórmese Primero (FM 104.9)",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/11/la-escuela-de-educacion-artistica-el.html",
       "fecha": "2026-11-03T16:38:21.963Z",
@@ -5391,14 +5412,14 @@
       "guion": "Muere en Australia el exjugador de rugby cordobés Fernando Villarnovo.",
       "seccion": "Deportes",
       "medios": [
-        "Clarín",
         "La Nación",
         "TN (Todo Noticias)",
         "TyC Sports",
         "Radio Mitre",
         "Ámbito",
         "C5N",
-        "La Gaceta (Tucumán)"
+        "La Gaceta (Tucumán)",
+        "Clarín"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160866/deportes/conmocion-rugby-argentino-muerte-ex-jugador-nano-villarnovo-australia.html",
       "fecha": "2026-11-03T15:50:53.000Z",
@@ -5649,9 +5670,9 @@
       "guion": "Gimnasia cobra un bono adicional a los socios por el Día del Club.",
       "seccion": "Fútbol",
       "medios": [
-        "Olé",
         "Doble Amarilla",
-        "0221"
+        "0221",
+        "Olé"
       ],
       "enlace": "https://www.0221.com.ar/gimnasia/gimnasia-anuncio-el-dia-del-club-los-proximos-dos-partidos-cuanto-deberan-pagar-los-socios-n136842",
       "fecha": "2026-11-03T15:33:59.850Z",
@@ -5813,9 +5834,9 @@
       "guion": "San Agustín realiza el acto central por el Día de la Tradición.",
       "seccion": "Balcarce",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Municipalidad de Balcarce"
+        "Municipalidad de Balcarce",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "https://balcarce.gob.ar/2026/11/03/san-agustin-se-viste-de-tradicion-para-celebrar-nuestra-identidad/",
       "fecha": "2026-11-03T15:21:59.000Z",
@@ -6352,10 +6373,7 @@
         "El Diario Balcarce",
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
-        "iProfesional",
         "Noticias Argentinas (NA)",
-        "El Día",
         "La Tecla",
         "La Verdad",
         "QZ Noticias (Mar del Plata)",
@@ -6367,6 +6385,7 @@
         "Agrositio",
         "iProUP",
         "El Economista",
+        "Noticias Agropecuarias",
         "Ámbito",
         "Clarín",
         "La Brújula 24",
@@ -6379,23 +6398,22 @@
         "La Gaceta (Tucumán)",
         "Radio Mitre",
         "Canal 26",
-        "Diario Popular",
         "Minuto Uno",
-        "Los Andes (Mendoza)",
-        "Noticias Agropecuarias",
+        "iProfesional",
         "La Capital (Rosario)",
         "elDiarioAR",
-        "0221"
+        "0221",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160854/economia/came-respaldo-suspension-embargos-arca-pero-pidio-ampliar-plan-pagos-48-cuotas.html",
       "fecha": "2026-11-03T14:59:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T22:01:55.764Z",
-      "relevancia": 69,
+      "relevancia": 68,
       "local": false,
       "muyContada": {
-        "medios": 34,
-        "porque": "34 medios",
+        "medios": 31,
+        "porque": "31 medios",
         "desde": "2026-11-04T06:02:45.364Z"
       },
       "publicadaPor": null,
@@ -7249,9 +7267,9 @@
       "guion": "River depende exclusivamente del Torneo Clausura para jugar la Libertadores.",
       "seccion": "Fútbol",
       "medios": [
-        "Clarín",
         "TyC Sports",
-        "A24"
+        "A24",
+        "Clarín"
       ],
       "enlace": "https://www.tycsports.com/river-plate/la-unica-bala-que-le-queda-a-river-para-jugar-la-copa-libertadores-2027-id770081.html",
       "fecha": "2026-11-03T14:26:35.000Z",
@@ -7353,15 +7371,14 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
         "El Marplatense",
         "Doble Amarilla",
         "C5N",
+        "Olé",
         "Canal 26",
         "La Gaceta (Tucumán)",
         "Perfil",
@@ -7369,13 +7386,14 @@
         "La Brújula 24",
         "Clarín",
         "A24",
-        "Minuto Uno"
+        "Minuto Uno",
+        "El Destape"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160826/deportes/emotivo-mensaje-lionel-messi-tras-muerte-jesus-miguel-futbolista-tenerife.html",
       "fecha": "2026-11-03T14:26:07.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T15:41:08.038Z",
-      "relevancia": 76,
+      "relevancia": 68,
       "local": false,
       "muyContada": {
         "medios": 16,
@@ -7677,32 +7695,17 @@
       "guion": "Aldosivi y River juegan el jueves en Mar del Plata con público visitante.",
       "seccion": "Fútbol",
       "medios": [
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Perfil",
-        "TyC Sports",
-        "Olé",
-        "Crónica",
-        "Radio Mitre",
-        "Noticias Argentinas (NA)",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Infobrisas (Radio Brisas)",
-        "Doble Amarilla",
-        "La Nueva",
-        "La Gaceta (Tucumán)"
+        "Olé"
       ],
       "enlace": "https://www.elmarplatense.com/aldosivi-river-operativo-de-seguridad-apertura-de-puertas-y-precios-de-las-entradas",
       "fecha": "2026-11-03T14:00:15.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T18:31:48.432Z",
-      "relevancia": 73,
+      "relevancia": 38,
       "local": false,
-      "muyContada": {
-        "medios": 11,
-        "porque": "11 medios",
-        "desde": "2026-11-03T22:31:21.100Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -8058,84 +8061,6 @@
       "slug": "la-revista-del-cervantes-llega-al-teatro-radio-city-de-mar-del-plata"
     },
     {
-      "id": "1en3vm4",
-      "titulo": "El gobierno bonaerense impulsa modificar la ley que limita mandatos",
-      "copete": "La gestión de Axel Kicillof busca eliminar el tope a los mandatos de los jefes comunales. La iniciativa genera fuertes cruces en el peronismo y el rechazo de la oposición.",
-      "cuerpo": "El debate por la vuelta de las reelecciones indefinidas de los intendentes en la provincia de Buenos Aires genera tensiones políticas y cruces entre distintos espacios partidarios. El funcionario provincial argumentó que en las democracias desarrolladas no existen restricciones de este tipo para los gobiernos municipales y utilizó como ejemplo los casos de los jefes comunales Mario Secco y Miguel Lunghi.\n\nActualmente, ochenta y dos intendentes se encuentran impedidos de postularse a un nuevo mandato en los comicios del año próximo. La discusión legislativa enfrenta resistencia dentro del propio oficialismo y de la oposición. El Frente Renovador advirtió que no votará modificaciones a una norma de autoría compartida con el vidalismo, mientras que La Cámpora reclama una discusión más amplia que incluya el calendario electoral y la cobertura de cuatro vacantes en la Suprema Corte.\n\nLa disputa interna escaló cuando Secco cuestionó duramente a Sergio Massa por su postura contraria a la iniciativa. Por su parte, la diputada nacional Marina Salzmann respondió que los dirigentes tuvieron cuatro años para construir una sucesión. En paralelo, los referentes de La Libertad Avanza, como el diputado nacional Sebastián Pareja y el jefe de Gabinete nacional Diego Santilli, ratificaron que su espacio rechaza la modificación de la ley.",
-      "guion": "El gobierno bonaerense impulsa modificar la ley que limita mandatos.",
-      "seccion": "Política",
-      "medios": [
-        "El Día",
-        "Infobrisas (Radio Brisas)",
-        "El Eco de Tandil"
-      ],
-      "enlace": "https://www.eleco.com.ar/politica/reelecciones-indefinidas-de-intendentes-el-gobierno-de-kicillof-uso-como-ejemplo-a-lunghi",
-      "fecha": "2026-11-03T13:40:37.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T09:01:47.688Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El gobierno bonaerense busca eliminar el límite a los mandatos de los jefes comunales.",
-        "Ochenta y dos intendentes no podrán competir en los comicios del próximo año con la norma actual.",
-        "La oposición de La Libertad Avanza, el PRO y sectores del peronismo rechazan la iniciativa."
-      ],
-      "seSabe": [
-        "Carlos Bianco calificó la normativa actual como proscriptiva y puso como ejemplo a Mario Secco y Miguel Lunghi.",
-        "Ochenta y dos intendentes están impedidos de buscar un nuevo mandato en 2027.",
-        "Sebastián Pareja y Diego Santilli ratificaron que La Libertad Avanza no apoyará las reelecciones indefinidas."
-      ],
-      "noConfirmado": [
-        "Todavía no se alcanzan los consensos necesarios en la Legislatura para avanzar con el proyecto de la senadora Ayelén Durán."
-      ],
-      "textoRedes": "El debate por las reelecciones indefinidas de los intendentes genera tensiones y cruces en la Provincia ante la iniciativa del Ejecutivo de modificar la ley actual.",
-      "etiquetas": [
-        "reelecciones indefinidas",
-        "intendentes",
-        "Axel Kicillof",
-        "Carlos Bianco",
-        "La Libertad Avanza",
-        "legislatura bonaerense"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/politica/reelecciones-indefinidas-de-intendentes-el-gobierno-de-kicillof-uso-como-ejemplo-a-lunghi",
-          "fecha": "2026-11-02T17:30:08.000Z",
-          "oficial": false,
-          "aporte": "Aportó los dichos de Carlos Bianco sobre la ley proscriptiva y la cifra de ochenta y dos intendentes afectados."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/politica-y-economia/mas-cruces-y-revuelo-por-las-reelecciones-indefinidas-de-intendentes-politica-y-economia_1793769074",
-          "fecha": "2026-11-04T05:11:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los cruces internos en el peronismo y las declaraciones de Mario Secco y Marina Salzmann."
-        },
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/11/03/113562-sebastian-pareja-ratifico-que-la-libertad-avanza-no-apoyara-las-reelecciones-indefinidas-de-los-intendentes",
-          "fecha": "2026-11-03T13:40:37.000Z",
-          "oficial": false,
-          "aporte": "Ratificó la negativa de La Libertad Avanza a través de las declaraciones de Sebastián Pareja."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-gobierno-bonaerense-impulsa-modificar-la-ley-que-limita-mandatos",
-      "foto": {
-        "archivo": "fotos-notas/1en3vm4.jpg",
-        "credito": "Foto: El Eco de Tandil"
-      }
-    },
-    {
       "id": "repaso20261103manana",
       "propia": "repaso",
       "titulo": "El repaso de la mañana en Radar Balcarce, martes 3",
@@ -8210,17 +8135,18 @@
       "guion": "Anuncian cinco días consecutivos sin atención en los bancos.",
       "seccion": "Balcarce",
       "medios": [
-        "Puntonueve (FM 100.9)",
+        "Radio Mitre",
         "Canal 26",
+        "Radio Gabal (FM 104.1)",
+        "Puntonueve (FM 100.9)",
         "A24"
       ],
       "enlace": "https://puntonueve.com.ar/bancos-habra-cinco-dias-consecutivos-sin-atencion-presencial-en-noviembre-y-dudas-por-el-miercoles-11-en-buenos-aires/",
       "fecha": "2026-11-03T13:37:10.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T14:01:46.283Z",
-      "relevancia": 86,
+      "relevancia": 92,
       "local": true,
-      "deUnMedioDeAca": true,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -8271,6 +8197,20 @@
           "fecha": "2026-11-03T16:52:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Radio Mitre",
+          "enlace": "https://radiomitre.cienradios.com/sociedad/los-bancos-cerraran-por-cinco-dias-consecutivos-en-que-jornadas-no-habra-atencion-y-cuales-son-los-motivos/",
+          "fecha": "2026-11-03T15:17:37.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Radio Gabal (FM 104.1)",
+          "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/noviembre-tendra-6-dias-consecutivos-sin-bancos-los-motivos",
+          "fecha": "2026-11-02T14:33:01.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -8313,9 +8253,9 @@
       "seccion": "Deportes",
       "medios": [
         "TyC Sports",
-        "Olé",
         "QZ Noticias (Mar del Plata)",
-        "El Marplatense"
+        "El Marplatense",
+        "Olé"
       ],
       "enlace": "https://www.qznoticias.com/deportes/penarol-se-hizo-fuerte-en-la-banda-y-derroto-a-olimpico",
       "fecha": "2026-11-03T13:30:16.000Z",
@@ -8397,13 +8337,13 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "El Día",
-        "La Brújula 24",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
         "Agencia DIB",
-        "0221"
+        "0221",
+        "La Brújula 24"
       ],
       "enlace": "https://www.elmarplatense.com/la-provincia-busca-avanzar-con-la-produccion-estatal-de-medicamentos",
       "fecha": "2026-11-03T13:30:03.000Z",
@@ -8532,13 +8472,15 @@
       "seccion": "Agro",
       "medios": [
         "La Nación",
-        "Clarín",
+        "Infocampo",
         "Agrofy News",
         "Agroverdad",
         "TN (Todo Noticias)",
+        "Noticias Agropecuarias",
+        "Perfil",
+        "Clarín",
         "El Destape",
         "iProfesional",
-        "Perfil",
         "Ámbito",
         "Minuto Uno",
         "La Capital (Rosario)"
@@ -8547,11 +8489,11 @@
       "fecha": "2026-11-03T13:29:17.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T14:33:40.964Z",
-      "relevancia": 60,
+      "relevancia": 62,
       "local": false,
       "muyContada": {
-        "medios": 10,
-        "porque": "10 medios",
+        "medios": 12,
+        "porque": "12 medios",
         "desde": "2026-11-03T18:31:48.432Z"
       },
       "publicadaPor": null,
@@ -8663,6 +8605,20 @@
           "medio": "iProfesional",
           "enlace": "https://www.iprofesional.com/index.php/negocios/468198-metalfor-concurso-preventivo-y-deuda-millonaria-puso-en-alerta-a-empleados-y-clientes",
           "fecha": "2026-11-03T15:16:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/metalfor-otra-empresa-de-maquinaria-en-crisis-se-presento-en-concurso-de-acreedores/",
+          "fecha": "2026-11-03T14:51:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Agropecuarias",
+          "enlace": "https://www.noticiasagropecuarias.com/2026/11/04/siguen-los-problemas-para-metalfor-y-pauny-concurso-preventivo-y-toma-de-la-fabrica/",
+          "fecha": "2026-11-04T10:29:24.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -8948,9 +8904,7 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "Página/12",
-        "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
         "El Marplatense",
@@ -8963,7 +8917,9 @@
         "La Nueva",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)",
-        "Letra P"
+        "Canal 26",
+        "Letra P",
+        "El Destape"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160832/economia/kristalina-georgieva-destaco-argentina-disciplina-fiscal-hay-cortarle-cabeza-al-populismo.html",
       "fecha": "2026-11-03T13:01:13.000Z",
@@ -9244,8 +9200,8 @@
       "guion": "Molfino propone reactivar dos plantas industriales de Lácteos Verónica.",
       "seccion": "Agro",
       "medios": [
-        "iProfesional",
         "Agroempresario",
+        "iProfesional",
         "Ámbito"
       ],
       "enlace": "https://www.iprofesional.com/negocios/468169-duena-de-molfino-y-la-paulina-busca-reactivar-lacteos-veronica",
@@ -9404,9 +9360,9 @@
       "guion": "Molinos Florencia paga 607.000 pesos por tonelada en el primer remate de trigo.",
       "seccion": "Agro",
       "medios": [
-        "Clarín",
         "Agrofy News",
         "Agroempresario",
+        "Clarín",
         "Ruralnet"
       ],
       "enlace": "https://news.agrofy.com.ar/noticia/216920/pagaron-607000-tonelada-primer-trigo-cosecha-lo-compro-vino",
@@ -9533,8 +9489,8 @@
       "guion": "Atlético Tucumán define el futuro de Julio Falcioni tras el último partido.",
       "seccion": "Fútbol",
       "medios": [
-        "Olé",
         "Doble Amarilla",
+        "Olé",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.ole.com.ar/atletico-tucuman/falcioni-rumores-salida-atletico-tucuman-derrota-frente-argentinos-juniors_0_tN7HnIztQT.html",
@@ -9934,9 +9890,10 @@
       "seccion": "Argentina",
       "medios": [
         "TN (Todo Noticias)",
-        "El Destape",
+        "Noticias Argentinas (NA)",
         "La Nueva",
         "El Marplatense",
+        "El Destape",
         "Ámbito",
         "Agencia DIB",
         "Perfil",
@@ -9948,11 +9905,11 @@
       "fecha": "2026-11-03T12:21:08.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T19:01:55.733Z",
-      "relevancia": 61,
+      "relevancia": 62,
       "local": false,
       "muyContada": {
-        "medios": 10,
-        "porque": "10 medios",
+        "medios": 11,
+        "porque": "11 medios",
         "desde": "2026-11-03T19:01:55.733Z"
       },
       "publicadaPor": null,
@@ -10082,9 +10039,9 @@
       "guion": "Boca, Argentinos y Central definen el título de Campeón de Liga.",
       "seccion": "Fútbol",
       "medios": [
-        "Olé",
         "Noticias Argentinas (NA)",
         "El Gráfico",
+        "Olé",
         "La Nueva",
         "La Capital (Rosario)"
       ],
@@ -10953,7 +10910,6 @@
       "guion": "El Trece busca nueva conductora para sus noches de los sábados en 2027.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Perfil",
         "Crónica",
         "Noticias Argentinas (NA)",
         "El Día",
@@ -10966,11 +10922,11 @@
       "fecha": "2026-11-03T11:33:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T19:01:55.733Z",
-      "relevancia": 52,
+      "relevancia": 50,
       "local": false,
       "muyContada": {
-        "medios": 8,
-        "porque": "8 medios",
+        "medios": 7,
+        "porque": "4 medios en sus primeras 3 horas, de noche",
         "desde": "2026-11-03T23:31:23.389Z"
       },
       "publicadaPor": null,
@@ -11543,127 +11499,6 @@
       "slug": "el-clima-de-hoy-en-balcarce-minima-de-9-y-maxima-de-23"
     },
     {
-      "id": "icbv3a",
-      "titulo": "ANSES oficializa el aumento del 1,93 por ciento y el bono para jubilados",
-      "copete": "El organismo previsional confirmó la actualización de los haberes para noviembre y el pago de un refuerzo de hasta 70.000 pesos. El cronograma de cobros se reprogramó por feriados.",
-      "cuerpo": "La Administración Nacional de la Seguridad Social confirmó que las jubilaciones, pensiones y asignaciones tendrán una actualización mensual del 1,93 por ciento, calculada mediante el mecanismo de movilidad que toma como referencia el índice inflacionario de septiembre difundido por el Instituto Nacional de Estadística y Censos. Con esta modificación, el haber mínimo previsional se ubica en 444.158,46 pesos durante noviembre. A ese importe se le añade un bono extraordinario de hasta 70.000 pesos, por lo que los beneficiarios que perciben la escala más baja recibirán un total conjunto de 514.158,46 pesos.\n\nEl refuerzo previsional se liquida de manera automática junto con los haberes habituales. Quienes cobran montos superiores a la mínima acceden a un adicional proporcional hasta completar el tope establecido, mientras que los ingresos que superan ese límite no perciben el extra. Por su parte, la Pensión Universal para el Adulto Mayor llega a 425.326,77 pesos totales y las Pensiones No Contributivas por Invalidez y Vejez alcanzan los 380.910,92 pesos computando el bono. En tanto, la Asignación Universal por Hijo se posiciona en 159.611 pesos y la versión por discapacidad asciende a 519.704 pesos.\n\nEl esquema de acreditación sufrió modificaciones a raíz del fin de semana largo y los feriados previstos por la visita del papa León XIV, que incluye el cese de actividades bancarias. Las acreditaciones para quienes perciben el haber mínimo comenzarán el miércoles 11 de noviembre de acuerdo con la terminación del documento nacional de identidad, extendiéndose hasta el 20 de noviembre. Los titulares con ingresos superiores cobrarán en la última semana del mes, entre el 24 y el 30 de noviembre.",
-      "guion": "ANSES oficializa el aumento del 1,93 por ciento y el bono para jubilados.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "El Destape",
-        "Noticias Argentinas (NA)",
-        "El Cronista"
-      ],
-      "enlace": "https://www.eldestapeweb.com/sociedad/fechas-de-cobro-anses-quienes-cobran-hoy-jubilaciones-pensiones-y-auh-este-lunes-2-de-noviembre-2026112700",
-      "fecha": "2026-11-03T10:27:38.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T08:01:42.057Z",
-      "relevancia": 34,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Los haberes previsionales registran un incremento del 1,93 por ciento en noviembre.",
-        "El haber mínimo se ubica en 444.158,46 pesos y se complementa con un bono de hasta 70.000 pesos.",
-        "El cronograma de pagos comienza el miércoles 11 de noviembre debido al feriado de la visita papal."
-      ],
-      "seSabe": [
-        "El aumento mensual es del 1,93 por ciento basado en la inflación de septiembre del INDEC.",
-        "El bono extraordinario alcanza un tope de 70.000 pesos para los ingresos más bajos.",
-        "Los pagos con haberes mínimos se programaron a partir del miércoles 11 de noviembre según el DNI."
-      ],
-      "noConfirmado": [
-        "No se informaron variaciones futuras para los montos del bono extraordinario más allá de noviembre."
-      ],
-      "textoRedes": "La ANSES confirmó un aumento del 1,93 por ciento y un bono de hasta 70.000 pesos para jubilados en noviembre. El cronograma de pagos comenzará el miércoles 11 debido a los feriados.",
-      "etiquetas": [
-        "ANSES",
-        "jubilados",
-        "aumento",
-        "bono",
-        "calendario de pagos",
-        "noviembre 2026"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/sociedad/fechas-de-cobro-anses-quienes-cobran-hoy-jubilaciones-pensiones-y-auh-este-lunes-2-de-noviembre-2026112700",
-          "fecha": "2026-11-02T14:56:09.856Z",
-          "oficial": false,
-          "aporte": "Reportó que las acreditaciones se encuentran temporalmente pausadas sin pagos por terminación de DNI."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/calendario-de-jubilaciones-de-la-anses-cuando-cobro-en-noviembre-2026-con-el-bono-oficial-y-el-nid28102026/",
-          "fecha": "2026-11-03T10:27:57.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/de-cuanto-es-el-bono-de-noviembre-2026-para-jubilados-y-a-quienes-les-corresponde-nid29102026/",
-          "fecha": "2026-11-03T10:27:38.000Z",
-          "oficial": false,
-          "aporte": "Precisó los detalles de la fórmula de movilidad atada a la inflación y los requisitos para iniciar trámites previsionales."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/quienes-jubilados-anses-cobran-bono-70-000-noviembre-2026-2026113104835",
-          "fecha": "2026-11-03T13:48:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los montos actualizados de jubilaciones, pensiones y asignaciones junto con el cálculo del bono proporcional."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/anses--quienes-cobran-este-lunes-2-de-noviembre_a6ae8bc153c94ad381c65396e",
-          "fecha": "2026-11-02T16:45:00.000Z",
-          "oficial": false,
-          "aporte": "Indicó las fechas de cobro para la Prestación por Desempleo Plan 2 y la extensión de prestaciones de octubre."
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/informacion-general/anses-depositara-514158-noviembre-2026-quienes-les-corresponde-y-cuando-lo-cobran-n6340512",
-          "fecha": "2026-11-02T21:00:00.000Z",
-          "oficial": false,
-          "aporte": "Informó la modificación del calendario de pagos debido a los feriados por la visita papal y las fechas por DNI."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/informacion-gral/se-confirmo-el-bono-para-jubilados-cuanto-cobran-y-a-partir-de-que-fecha-les-llega-el-deposito/",
-          "fecha": "2026-11-03T15:26:30.835Z",
-          "oficial": false,
-          "aporte": "Confirmó los valores totales para la jubilación mínima y la PUAM con el incremento aplicado."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1jab14p",
-          "titulo": "ANSES confirma los montos de la AUH y la Tarjeta Alimentar para noviembre",
-          "fecha": "2026-11-02T14:14:43.565Z",
-          "ruta": "/nota/anses-confirma-los-montos-de-la-auh-y-la-tarjeta-alimentar-para-1jab14p"
-        },
-        {
-          "id": "r159rf",
-          "titulo": "Anses inicia el pago de jubilaciones tras los feriados por la visita papal",
-          "fecha": "2026-11-02T13:40:22.172Z",
-          "ruta": "/nota/anses-inicia-el-pago-de-jubilaciones-tras-los-feriados-por-la-visita-r159rf"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cinco medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "anses-oficializa-el-aumento-del-1-93-por-ciento-y-el-bono-para",
-      "foto": {
-        "archivo": "fotos-notas/icbv3a.jpg",
-        "credito": "Foto: Ámbito"
-      }
-    },
-    {
       "id": "17f727c",
       "titulo": "Los bancos cierran varias jornadas en noviembre por el Día del Bancario",
       "copete": "El sistema financiero tendrá interrupciones en la atención presencial debido a la celebración del sector y los feriados decretados por la visita del papa León XIV. La actividad se verá afectada de forma distinta según la jurisdicción.",
@@ -11749,85 +11584,6 @@
       }
     },
     {
-      "id": "1r3g3l1",
-      "titulo": "Disney Plus y Pluto TV renuevan sus catálogos con estrenos en noviembre",
-      "copete": "Las plataformas de streaming incorporan nuevas series, películas y especiales durante el mes. El calendario incluye finales de temporada, producciones originales y la transmisión de eventos deportivos destacados.",
-      "cuerpo": "Disney Plus actualiza su oferta con diversos títulos a lo largo de noviembre. El 4 de noviembre llegan La emperatriz divorciada, la segunda temporada de Todo Vale y cortos de Ariel. El 10 de noviembre se estrena el final de temporada de VisionQuest junto a Entre pasos, mientras que el 11 de noviembre se suma la temporada 18 de It's Always Sunny In Philadelphia. El 20 de noviembre se incorpora la tercera temporada de Percy Jackson y el 27 de noviembre el especial Mickey: mi pobre angelito. Además, la plataforma mantiene emisiones semanales: Phony los martes, Temporada de amor los miércoles, y The Kardashians junto a Scrubs los jueves.\n\nPor su parte, Pluto TV presenta una programación temática y deportiva. Durante todo el mes, el servicio dedica espacios al Mes del Crimen y al Mes del K-Drama con diversas series y películas. En cuanto a los eventos en vivo, la plataforma emitirá el Pre-Show de UFC los días 7, 14 y 21 de noviembre. El cierre del mes contará con la transmisión de la final de la Conmebol Libertadores 2026, que enfrentará a Palmeiras contra Estudiantes de La Plata el 28 de noviembre.\n\nLa oferta de Disney Plus se complementa con un ranking diario de contenidos más vistos en Argentina, el cual permite a los usuarios identificar las tendencias de consumo. Esta lista, que se renueva constantemente, incluye tanto lanzamientos recientes como producciones clásicas que recuperan popularidad. Por otro lado, Pluto TV suma a su grilla lanzamientos como la octava temporada de The King of Queens y la serie La Niñera, además de ciclos documentales y especiales de cine. Ambas plataformas buscan diversificar sus propuestas para atraer a diferentes tipos de audiencias mediante contenidos originales, deportivos y de ficción.",
-      "guion": "Disney Plus y Pluto TV renuevan sus catálogos con estrenos en noviembre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Destape",
-        "Clarín"
-      ],
-      "enlace": "https://www.eldestapeweb.com/cultura/estrenos-disney-plus-noviembre-2026-series-peliculas-llegan-2026112151924",
-      "fecha": "2026-11-03T10:15:03.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T05:01:39.952Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Disney Plus estrena series originales y finales de temporada durante noviembre.",
-        "La plataforma mantiene emisiones semanales de títulos como The Kardashians y Scrubs.",
-        "Pluto TV transmite la final de la Conmebol Libertadores el 28 de noviembre.",
-        "La grilla de Pluto TV incluye especiales de UFC y ciclos temáticos mensuales."
-      ],
-      "textoRedes": "Noviembre llega con novedades en el streaming. Disney Plus estrena nuevas temporadas y series originales, mientras que Pluto TV prepara la transmisión de la final de la Conmebol Libertadores y especiales de UFC durante todo el mes.",
-      "etiquetas": [
-        "Disney Plus",
-        "Pluto TV",
-        "Streaming",
-        "Estrenos",
-        "Series",
-        "Películas",
-        "Noviembre 2026"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/estrenos-disney-plus-noviembre-2026-series-peliculas-llegan-2026112151924",
-          "fecha": "2026-11-02T18:19:24.332Z",
-          "oficial": false,
-          "aporte": "Detalla el calendario de estrenos y emisiones semanales de Disney Plus para noviembre."
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/estrenos-pluto-tv-noviembre-2026-ver-peliculas-series-gratis-nuevas-producciones-llegan-202611314720",
-          "fecha": "2026-11-03T17:07:20.229Z",
-          "oficial": false,
-          "aporte": "Informa sobre la programación de Pluto TV, incluyendo eventos deportivos y ciclos temáticos."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/espectaculos/que-ver-en-disney-hoy-las-10-series-y-peliculas-que-lideran-el-ranking-este-martes-3-de-noviembre-de-2026-en-argentina_0_hpKx8ckkKL.html",
-          "fecha": "2026-11-03T10:15:03.000Z",
-          "oficial": false,
-          "aporte": "Explica la dinámica del ranking diario de contenidos más vistos en Disney Plus Argentina."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1gkdsuy",
-          "titulo": "Prime Video anuncia los estrenos de series y películas para noviembre",
-          "fecha": "2026-11-02T11:57:00.000Z",
-          "ruta": "/nota/prime-video-anuncia-los-estrenos-de-series-y-peliculas-para-noviembre-1gkdsuy"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "disney-plus-y-pluto-tv-renuevan-sus-catalogos-con-estrenos-en",
-      "foto": {
-        "archivo": "fotos-notas/1r3g3l1.jpg",
-        "credito": "Foto: El Destape"
-      }
-    },
-    {
       "id": "re2t72",
       "titulo": "El SMN emite alertas naranja y amarilla por tormentas en 15 provincias",
       "copete": "El Servicio Meteorológico Nacional advirtió por condiciones climáticas severas para el martes 3 de noviembre. El fenómeno incluye ráfagas de hasta 100 km/h, caída de granizo y abundantes precipitaciones en gran parte del territorio nacional.",
@@ -11838,14 +11594,14 @@
         "Agrofy News",
         "Ruralnet",
         "TN (Todo Noticias)",
-        "La Nación",
-        "Clarín",
+        "Perfil",
         "Crónica",
         "La Brújula 24",
         "Los Andes (Mendoza)",
         "El Cronista",
         "La Gaceta (Tucumán)",
         "C5N",
+        "Clarín",
         "Canal 26"
       ],
       "enlace": "https://www.labrujula24.com/notas/2026/11/02/alerta-amarilla-por-tormentas-para-el-martes-cuando-se-espera-el-periodo-de-mayor-inestabilidad-n528652/",
@@ -12213,7 +11969,7 @@
       "fecha": "2026-11-03T09:41:31.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T04:01:49.795Z",
-      "relevancia": 38,
+      "relevancia": 30,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -13247,10 +13003,10 @@
       "medios": [
         "La Nación",
         "TyC Sports",
-        "Olé",
         "Doble Amarilla",
         "El Economista",
-        "El Gráfico"
+        "El Gráfico",
+        "Olé"
       ],
       "enlace": "https://www.ole.com.ar/futbol-primera/clasificados-hoy-cruces-clausura-2026_0_QEDx1G6ixw.html",
       "fecha": "2026-11-03T02:58:54.000Z",
@@ -13364,7 +13120,6 @@
       "medios": [
         "La Nación",
         "TyC Sports",
-        "Olé",
         "Radio Mitre",
         "El Día",
         "QZ Noticias (Mar del Plata)",
@@ -13372,10 +13127,11 @@
         "Doble Amarilla",
         "Bolavip Argentina",
         "El Economista",
-        "0221",
+        "Olé",
         "Clarín",
         "Crónica",
         "0223 (Mar del Plata)",
+        "0221",
         "El Gráfico"
       ],
       "enlace": "https://bolavip.com/ar/futbolargentino/afa-confirmo-los-dias-y-horarios-para-la-fecha-16-del-torneo-clausura-2026-cuando-juegan-boca-y-river",
@@ -13756,13 +13512,13 @@
       "seccion": "Política",
       "medios": [
         "LU9 Mar del Plata",
-        "Clarín",
         "Noticias Argentinas (NA)",
         "QZ Noticias (Mar del Plata)",
         "El Marplatense",
         "El Eco de Tandil",
         "Minuto Uno",
         "Perfil",
+        "Clarín",
         "Radio Mitre",
         "La Gaceta (Tucumán)",
         "Los Andes (Mendoza)"
@@ -13926,20 +13682,16 @@
       "guion": "Popstars define a las ocho finalistas que compiten por integrar Chapeaux.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "Perfil",
         "Crónica",
         "A24",
         "Minuto Uno",
-        "C5N",
-        "Clarín"
+        "La Nación"
       ],
       "enlace": "https://www.a24.com/primiciasya/popstars-ya-tiene-sus-ocho-finalistas-quienes-son-las-participantes-que-suenan-integrar-chapeaux-n1612631",
       "fecha": "2026-11-03T01:40:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-03T05:01:37.034Z",
-      "relevancia": 40,
+      "relevancia": 34,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -14140,104 +13892,118 @@
       }
     },
     {
-      "id": "wo1ueg",
-      "titulo": "Independiente busca su lugar en los playoffs y la Copa Sudamericana 2027",
-      "copete": "El equipo de Avellaneda afronta la última fecha del Torneo Clausura con la obligación de ganar ante Deportivo Riestra. El resultado definirá su continuidad en el certamen local y sus posibilidades matemáticas de acceder a una competencia internacional.",
-      "cuerpo": "Independiente llega a la última jornada de la fase regular del Torneo Clausura 2026 con dos objetivos claros. El conjunto dirigido por Jadson Viera se enfrentará a Deportivo Riestra el viernes 6 de noviembre a las 19.00 en Avellaneda, buscando asegurar su lugar en los playoffs del torneo local y mantener sus aspiraciones de clasificar a la Copa Sudamericana 2027.\n\nEn el ámbito local, el equipo ocupa el octavo puesto de la Zona A con 20 puntos. Si logra una victoria frente a Riestra, Independiente garantizará su clasificación a la siguiente instancia sin depender de otros resultados. En caso de empatar o perder, su continuidad dependerá de que San Lorenzo y Unión no sumen de a tres en sus respectivos encuentros. Por otro lado, la situación en la tabla anual es más compleja. Con 44 unidades, el club se ubica decimotercero, a cinco puntos de Lanús, que posee el último boleto provisional para la Sudamericana. Para alcanzar ese cupo, el equipo necesita ganar su partido y aguardar una combinación de resultados que incluya la liberación de plazas por parte de otros clubes que logren títulos continentales o locales.\n\nLa clasificación internacional representa un ingreso económico clave para las finanzas del club, que informó un pasivo de 52.114 millones de pesos en su último balance. Sin embargo, un eventual regreso a las copas está condicionado por una sanción de la Conmebol, derivada de incidentes ocurridos en agosto de 2025. Esta medida impone al club la disputa de siete partidos como local a puertas cerradas y otros siete como visitante sin público, lo que limitaría la recaudación por entradas en caso de lograr el objetivo deportivo.",
-      "guion": "Independiente busca su lugar en los playoffs y la Copa Sudamericana 2027.",
-      "seccion": "Fútbol",
+      "id": "i98sn8",
+      "titulo": "Llega a la Argentina el primer autotest de VIH de venta libre",
+      "copete": "El dispositivo permite obtener resultados en menos de 40 minutos mediante una muestra de saliva. Estará disponible en farmacias y plataformas digitales a mediados de noviembre con un valor de 27.500 pesos.",
+      "cuerpo": "A mediados de noviembre, el mercado local incorporará el OraQuick HIV Self-Test, el primer autotest de venta libre para la detección de anticuerpos contra los virus VIH-1 y VIH-2. El dispositivo, distribuido por el laboratorio Richmond mediante un acuerdo con la firma estadounidense OraSure Technologies, permite que el usuario realice la prueba de manera confidencial en su hogar utilizando una muestra de fluido oral, evitando el uso de agujas. Para obtener el resultado, se debe pasar un hisopo por la parte exterior de las encías, introducirlo en un vial con solución reveladora y aguardar entre veinte y cuarenta minutos. Según los datos técnicos, el test alcanza una sensibilidad y especificidad superiores al 99% cuando se utiliza de forma correcta.\n\nEl producto, que cuenta con aprobación de la FDA y ha sido implementado en más de 60 países, busca reducir la detección tardía de la infección. En la Argentina, se estima que 140.000 personas viven con VIH, de las cuales un 13% desconoce su diagnóstico. Además, cerca de la mitad de los nuevos casos se detectan en estadios avanzados. Especialistas en infectología advirtieron que esta herramienta es de tamizaje y no reemplaza al diagnóstico médico: cualquier resultado reactivo debe confirmarse obligatoriamente mediante estudios de laboratorio en un centro de salud. Asimismo, un resultado no reactivo solo es concluyente si han transcurrido al menos tres meses desde la última situación de posible exposición al virus.\n\nEl autotest se comercializará en farmacias y a través de la plataforma de comercio electrónico MiTest. El Programa Nacional de VIH analiza incluirlo dentro de su oferta de servicios gratuitos, mientras que el Estado, las obras sociales y las prepagas mantienen la cobertura de los tratamientos médicos actuales.",
+      "guion": "Llega a la Argentina el primer autotest de VIH de venta libre.",
+      "seccion": "Salud",
+      "seccionAntes": "Argentina",
       "medios": [
-        "El Destape",
-        "TyC Sports",
-        "El Economista",
-        "Clarín"
+        "La Nación",
+        "El Día",
+        "La Tecla",
+        "La Brújula 24",
+        "Perfil",
+        "La Gaceta (Tucumán)",
+        "El Destape"
       ],
-      "enlace": "https://www.eldestapeweb.com/deportes/necesita-independiente-clasificar-playoffs-copa-sudamericana-2027-2026112143840",
-      "fecha": "2026-11-03T01:35:48.000Z",
+      "enlace": "https://www.lanacion.com.ar/sociedad/donde-conseguirlo-llega-a-la-argentina-el-primer-autotest-de-vih-con-resultado-en-20-minutos-y-de-nid02112026/",
+      "fecha": "2026-11-03T01:30:48.000Z",
       "sinFecha": false,
-      "visto": "2026-11-04T01:31:28.352Z",
-      "relevancia": 30,
+      "visto": "2026-11-03T02:01:38.033Z",
+      "relevancia": 40,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
       "como": "automatica",
       "claves": [
-        "Independiente recibe a Deportivo Riestra el viernes 6 de noviembre a las 19.00.",
-        "Una victoria asegura el pase a los playoffs del Torneo Clausura.",
-        "El equipo necesita ganar y esperar resultados ajenos para aspirar a la Copa Sudamericana 2027.",
-        "Una sanción vigente de Conmebol condiciona la recaudación por partidos internacionales."
+        "El autotest detecta VIH-1 y VIH-2 mediante una muestra de saliva.",
+        "El resultado se obtiene en un plazo de 20 a 40 minutos.",
+        "Cuesta 27.500 pesos y se consigue en farmacias o vía online.",
+        "Un resultado positivo requiere confirmación mediante análisis de sangre.",
+        "El dispositivo es una herramienta complementaria al sistema de salud."
       ],
       "seSabe": [
-        "Independiente suma 44 puntos en la tabla anual y 20 en la Zona A del Clausura.",
-        "El club debe cumplir una sanción de Conmebol que incluye partidos a puertas cerradas.",
-        "El partido contra Deportivo Riestra se disputa el viernes 6 de noviembre en Avellaneda."
+        "El producto estará disponible a mediados de noviembre.",
+        "El precio de venta al público será de 27.500 pesos.",
+        "El test utiliza una muestra de fluido oral en lugar de sangre.",
+        "El laboratorio Richmond es el encargado de la distribución local."
       ],
       "noConfirmado": [
-        "Los montos exactos de los premios económicos para la Copa Sudamericana 2027 aún deben ser ratificados.",
-        "La posibilidad de una reducción en la sanción impuesta por Conmebol no ha sido confirmada."
+        "Todavía no se informó la fecha exacta de llegada a las góndolas de todas las farmacias del país.",
+        "El Programa Nacional de VIH aún evalúa su inclusión definitiva en la oferta de servicios gratuitos."
       ],
-      "textoRedes": "Independiente define su futuro: el viernes recibe a Deportivo Riestra con la obligación de ganar para clasificar a los playoffs del Clausura y mantener sus chances de ingresar a la Copa Sudamericana 2027.",
+      "textoRedes": "Llega a la Argentina el primer autotest de VIH de venta libre. El dispositivo permite conocer el resultado en 40 minutos mediante una muestra de saliva y estará disponible en farmacias y plataformas digitales a mediados de noviembre por 27.500 pesos.",
       "etiquetas": [
-        "Independiente",
-        "Torneo Clausura",
-        "Copa Sudamericana",
-        "Fútbol argentino",
-        "Playoffs"
+        "Salud",
+        "VIH",
+        "Autotest",
+        "Laboratorio Richmond",
+        "Prevención",
+        "Diagnóstico"
       ],
       "fuentesConsultadas": [
         {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/necesita-independiente-clasificar-playoffs-copa-sudamericana-2027-2026112143840",
-          "fecha": "2026-11-02T17:38:40.826Z",
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/donde-conseguirlo-llega-a-la-argentina-el-primer-autotest-de-vih-con-resultado-en-20-minutos-y-de-nid02112026/",
+          "fecha": "2026-11-03T01:30:48.000Z",
+          "oficial": false,
+          "aporte": "Detalló el funcionamiento técnico, los datos epidemiológicos nacionales y la postura de especialistas sobre la detección tardía."
+        },
+        {
+          "medio": "La Brújula 24",
+          "enlace": "https://www.labrujula24.com/notas/2026/11/02/llega-a-la-argentina-el-primer-autotest-de-vih-de-venta-libre-n528675/",
+          "fecha": "2026-11-03T01:55:37.000Z",
+          "oficial": false,
+          "aporte": "Confirmó la aprobación de ANMAT y la disponibilidad a través de la plataforma de comercio electrónico MiTest."
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/sociedad/lanzan-en-argentina-el-primer-autotest-para-detectar-el-vih-usando-saliva-sin-tener-que-pincharse-as1D82X3fRUU",
+          "fecha": "2026-11-03T08:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/informacion-general/lanzan-un-autotest-de-vih-que-permite-detectar-el-virus-con-una-muestra-de-saliva-informacion-general_1793706420",
+          "fecha": "2026-11-03T12:11:50.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Tecla",
+          "enlace": "https://www.latecla.info/170887-llega-el-primer-autotest-de-vih-con-saliva",
+          "fecha": "2026-11-03T12:59:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1160823/sociedad/autotest-vih-saliva-guia-sobre-como-funciona-cuanto-cuesta-donde-se-consigue.html",
+          "fecha": "2026-11-03T10:27:00.000Z",
           "oficial": false,
           "aporte": null
         },
         {
           "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/deportes/necesita-independiente-entrar-copa-sudamericana-empatar-defensa-justicia-2026113144019",
-          "fecha": "2026-11-03T17:40:19.725Z",
-          "oficial": false,
-          "aporte": "Explica las condiciones matemáticas necesarias para clasificar a los playoffs y a la Sudamericana."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/san-lorenzo/que-necesita-san-lorenzo-para-clasificar-a-los-playoffs-del-torneo-clausura-id770070.html",
-          "fecha": "2026-11-03T01:35:48.000Z",
+          "enlace": "https://www.eldestapeweb.com/sociedad/llega-argentina-primer-autotest-vih-funciona-cuando-estara-disponible-2026113121922",
+          "fecha": "2026-11-03T15:19:22.758Z",
           "oficial": false,
           "aporte": null
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/independiente/independiente-liga-profesional-playoffs-torneo-clausura-tabla-anual-copa-sudamericana-id770060.html",
-          "fecha": "2026-11-03T00:51:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Economista",
-          "enlace": "https://eleconomista.com.ar/deportes/independiente-clasificacion-copa-sudamericana-2027-premios-deudas-n98979",
-          "fecha": "2026-11-03T13:15:00.000Z",
-          "oficial": false,
-          "aporte": "Detalla la situación en la tabla anual, los premios económicos y la sanción de Conmebol."
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/deportes/calculadora-ultima-fecha-juega-equipo-necesita-quedarse-tabla-anual-acceder-playoffs_0_Tcx0icm0JN.html",
-          "fecha": "2026-11-03T13:24:44.000Z",
-          "oficial": false,
-          "aporte": "Brinda la posición actual de Independiente en la Zona A y el cronograma de la última fecha."
         }
       ],
       "verificacion": {
         "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
+        "porque": "Lo contaron dos medios independientes.",
         "sugeridoPorIA": null
       },
-      "slug": "independiente-busca-su-lugar-en-los-playoffs-y-la-copa-sudamericana",
+      "slug": "llega-a-la-argentina-el-primer-autotest-de-vih-de-venta-libre",
       "foto": {
-        "archivo": "fotos-notas/wo1ueg.jpg",
-        "credito": "Foto: TyC Sports"
+        "archivo": "fotos-notas/i98sn8.jpg",
+        "credito": "Foto: La Nación"
       }
     },
     {
@@ -14305,250 +14071,6 @@
         "sugeridoPorIA": null
       },
       "slug": "guardan-un-billete-de-dolar-en-la-funda-del-celular-como-ritual"
-    },
-    {
-      "id": "sqcelu",
-      "titulo": "Social Pato cae en su debut por la Reválida del Regional",
-      "copete": "El conjunto balcarceño perdió sus encuentros de Primera e intermedia ante Santa Rosa Rugby Club en La Pampa. El equipo se prepara ahora para la final de la Copa Sponsor que disputará el próximo sábado en Mar del Plata.",
-      "cuerpo": "El Club Social y Campo de Pato inició su participación en la Reválida Regional B-C con resultados adversos en su visita a Santa Rosa Rugby Club, en la provincia de La Pampa. En la categoría intermedia, el equipo local cayó por 36 a 14, mientras que en Primera división el marcador final fue de 36 a 22 a favor de los pampeanos. Según informó la institución, el extenso viaje y las condiciones climáticas dificultaron el desempeño de la delegación.\n\nLa competencia, que también integra Estudiantes de Olavarría, continuará para el equipo balcarceño el sábado 14 de noviembre, cuando reciba a los olavarrienses en su cancha. Paralelamente, Social Pato afrontará la final del Torneo Desarrollo por la Copa Sponsor, organizada por la Unión de Rugby de Mar del Plata.",
-      "guion": "Social Pato cae en su debut por la Reválida del Regional.",
-      "seccion": "Deportes",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14411-debut-con-derrota-para-los-locales-en-la-revalida-del-regional/",
-      "fecha": "2026-11-03T00:52:23.952Z",
-      "sinFecha": true,
-      "visto": "2026-11-03T00:52:23.952Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Social Pato cayó en su debut por la Reválida Regional ante Santa Rosa Rugby en La Pampa. El equipo balcarceño ya piensa en la final de la Copa Sponsor que disputará el próximo sábado en Mar del Plata frente a Camarones Azul de Pinamar.",
-      "etiquetas": [
-        "Rugby",
-        "Social Pato",
-        "Balcarce",
-        "Deportes",
-        "Reválida Regional",
-        "Copa Sponsor"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14411-debut-con-derrota-para-los-locales-en-la-revalida-del-regional/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló los resultados de los partidos en La Pampa, las dificultades del viaje y la agenda de los próximos compromisos deportivos."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "social-pato-cae-en-su-debut-por-la-revalida-del-regional",
-      "foto": {
-        "archivo": "fotos-notas/sqcelu-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "epb4w8",
-      "titulo": "La Escuela Municipal de básquetbol avanza en los Play Off de la Liga",
-      "copete": "Los equipos de cadetes, infantiles y juveniles de la Escuela Municipal obtuvieron victorias en la última jornada de la Liga Marplatense. Los cadetes clasificaron a la final, mientras que los infantiles accedieron a las semifinales del certamen.",
-      "cuerpo": "Las divisiones menores de la Escuela Municipal de básquetbol, que dependen de la Subsecretaría de Deportes y Recreación local, completaron una destacada actuación en los Play Off de la Liga Marplatense. El equipo de cadetes aseguró su lugar en la final tras superar a Sudamérica de Miramar por 55 a 39, cerrando la serie con un marcador global de 2-0. El conjunto balcarceño disputará el primer partido de la serie decisiva el lunes frente a Kimberley de Mar del Plata.\n\nPor su parte, la categoría infantiles alcanzó las semifinales luego de vencer a Unión de Mar del Plata por 51 a 48 en un encuentro ajustado. Ahora, el equipo deberá enfrentar a Sporting de Mar del Plata para intentar acceder a la final. En tanto, los juveniles iniciaron la llave que define las posiciones del noveno al duodécimo puesto con un triunfo por 65 a 52 ante Peñarol de Mar del Plata. La revancha de este cruce se llevará a cabo el próximo fin de semana en territorio marplatense.",
-      "guion": "La Escuela Municipal de básquetbol avanza en los Play Off de la Liga.",
-      "seccion": "Educación",
-      "seccionAntes": "Deportes",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/deportes/14409-buena-tarea-de-la-escuela-municipal/",
-      "fecha": "2026-11-03T00:52:23.952Z",
-      "sinFecha": true,
-      "visto": "2026-11-03T00:52:23.952Z",
-      "relevancia": 59,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Los cadetes clasificaron a la final tras vencer a Sudamérica de Miramar.",
-        "El primer partido de la final de cadetes será contra Kimberley.",
-        "Los infantiles avanzaron a semifinales al superar a Unión de Mar del Plata.",
-        "Los juveniles ganaron el primer duelo ante Peñarol por el noveno puesto."
-      ],
-      "seSabe": [
-        "Los cadetes jugarán la final contra Kimberley de Mar del Plata.",
-        "Los infantiles se medirán ante Sporting de Mar del Plata en semifinales.",
-        "La Escuela Municipal destacó el compromiso y el crecimiento de los deportistas durante la temporada."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "La Escuela Municipal de básquetbol tuvo un gran fin de semana en la Liga Marplatense. Los cadetes clasificaron a la final, los infantiles avanzaron a semifinales y los juveniles ganaron su primer partido por la definición de puestos.",
-      "etiquetas": [
-        "Básquetbol",
-        "Escuela Municipal",
-        "Deportes",
-        "Liga Marplatense",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/deportes/14409-buena-tarea-de-la-escuela-municipal/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló los resultados de las tres categorías y los próximos cruces en la Liga Marplatense."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-escuela-municipal-de-basquetbol-avanza-en-los-play-off-de-la-liga",
-      "foto": {
-        "archivo": "fotos-notas/epb4w8-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "162lj09",
-      "titulo": "El Gobierno confirma dos cadenas nacionales por la visita del papa León XIV",
-      "copete": "El canciller Pablo Quirno finalizó los preparativos logísticos con la delegación del Vaticano. El presidente Javier Milei participará de los actos oficiales y de la misa central que se realizará el lunes 9 en Palermo.",
-      "cuerpo": "El Gobierno nacional y las autoridades de la Iglesia concluyeron el lunes la coordinación logística para la visita del papa León XIV, que comenzará el domingo 8 de noviembre. El canciller Pablo Quirno encabezó el último encuentro operativo en el Palacio San Martín junto a la avanzada del Vaticano para definir aspectos de seguridad, traslados y comunicación. Durante la jornada, se ratificó que el cronograma de actividades del Pontífice se mantiene sin cambios, a pesar de las dudas previas vinculadas a su estado de salud.\n\nLa agenda oficial contempla dos transmisiones por cadena nacional. La primera será el domingo 8 a las 18.30, durante el encuentro protocolar entre el presidente Javier Milei y el Papa en el Palacio Libertad. La segunda se emitirá el lunes 9 a las 11.30, momento en el que se transmitirá la misa central que León XIV oficiará frente al Monumento de los Españoles, en el barrio porteño de Palermo. El Presidente recibirá al Pontífice en el Aeroparque Jorge Newbery y mantendrá una reunión privada en la Casa Rosada antes de los actos públicos.\n\nAl encuentro en el Palacio Libertad fueron invitados la vicepresidenta Victoria Villarruel, los 23 gobernadores, legisladores nacionales, jueces de la Corte Suprema y representantes de diversos sectores sociales y empresariales. Respecto a la participación de los expresidentes, el canciller indicó que aún no fueron incluidos en la nómina de invitados. Para la ceremonia religiosa del lunes, los organizadores establecieron una lista de elementos prohibidos que incluye armas, objetos punzocortantes, pirotecnia y bebidas alcohólicas. Tras su paso por Buenos Aires, el Papa tiene previsto visitar el Cottolengo Don Orione, una unidad penitenciaria, la Universidad Católica Argentina y realizar celebraciones en Córdoba y Luján.",
-      "guion": "El Gobierno confirma dos cadenas nacionales por la visita del papa León XIV.",
-      "seccion": "Política",
-      "medios": [
-        "Clarín",
-        "TN (Todo Noticias)",
-        "Radio Mitre",
-        "Canal 26",
-        "Agencia DIB",
-        "Perfil",
-        "Minuto Uno",
-        "Los Andes (Mendoza)"
-      ],
-      "enlace": "https://dib.com.ar/politica/el-gobierno-afina-los-detalles-la-visita-del-papa-milei-estara-una-las-misas-n57012",
-      "fecha": "2026-11-03T00:41:34.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T01:31:16.250Z",
-      "relevancia": 43,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El papa León XIV llegará al país el domingo 8 de noviembre.",
-        "Habrá cadena nacional el domingo a las 18.30 y el lunes a las 11.30.",
-        "Milei recibirá al Pontífice en Aeroparque y participará de la misa en Palermo.",
-        "Villarruel, gobernadores y legisladores asistirán al acto en el Palacio Libertad."
-      ],
-      "noConfirmado": [
-        "La posible asistencia de expresidentes al encuentro en el Palacio Libertad sigue sin definirse.",
-        "El contenido de los discursos que pronunciará el Papa durante su estadía en el país."
-      ],
-      "textoRedes": "El Gobierno confirmó que habrá dos cadenas nacionales por la visita del papa León XIV. La primera será el domingo 8 durante el encuentro en el Palacio Libertad y la segunda el lunes 9 para la misa en Palermo. El presidente Milei participará de los actos oficiales.",
-      "etiquetas": [
-        "Papa León XIV",
-        "Javier Milei",
-        "Pablo Quirno",
-        "Cadena nacional",
-        "Visita papal",
-        "Política nacional"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Agencia DIB",
-          "enlace": "https://dib.com.ar/politica/el-gobierno-afina-los-detalles-la-visita-del-papa-milei-estara-una-las-misas-n57012",
-          "fecha": "2026-11-02T22:18:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la presencia de Milei en la misa y los detalles de la reunión operativa en el Palacio San Martín."
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/sociedad/visita-del-papa-habra-dos-cadenas-nacionales-y-villarruel-estara-en-el-encuentro-con-milei-aI7hI7w3q0HX",
-          "fecha": "2026-11-03T00:41:34.000Z",
-          "oficial": false,
-          "aporte": "Detalló el cronograma de cadenas nacionales, la lista de elementos prohibidos y la confirmación de la agenda."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/sociedad/habra-dos-cadenas-nacionales-la-visita-del-papa-leon-xiv-la-argentina-cuando-hablara-javier-milei-n6340723",
-          "fecha": "2026-11-03T00:59:00.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre los invitados al Palacio Libertad y el contexto histórico de la visita."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/politica/2026/11/03/el-gobierno-confirmo-que-habra-dos-cadenas-nacionales-durante-la-visita-del-papa-leon-xiv-cuando-seran/",
-          "fecha": "2026-11-03T23:06:10.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/politica/gobierno-confirmo-cadenas-nacionales-visita-papa-leon-xiv-pais_0_rYNqvPU9kP.html",
-          "fecha": "2026-11-04T01:07:48.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/politica/2026/11/04/visita-del-papa-leon-xiv-a-la-argentina-el-gobierno-confirmo-dos-cadenas-nacionales-y-anuncio-cuando-seran/",
-          "fecha": "2026-11-04T01:03:52.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/se-confirmaron-los-dias-y-horarios-de-las-cadenas-nacionales-durante-la-visita-del-papa-leon-xiv/",
-          "fecha": "2026-11-04T02:55:15.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/politica/el-gobierno-confirmo-dos-cadenas-nacionales-la-visita-leon-xiv-cuando-se-transmitiran-n6012915",
-          "fecha": "2026-11-04T00:42:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "o68ssi",
-          "titulo": "El Gobierno y el Vaticano ajustan los detalles finales para la visita papal",
-          "fecha": "2026-11-02T12:00:08.000Z",
-          "ruta": "/nota/el-gobierno-y-el-vaticano-ajustan-los-detalles-finales-para-la-visita-o68ssi"
-        },
-        {
-          "id": "1kel7ih",
-          "titulo": "Milei inaugura un templo evangélico en Neuquén y destaca la próxima visita papal",
-          "fecha": "2026-11-01T13:21:00.000Z",
-          "ruta": "/nota/milei-inaugura-un-templo-evangelico-en-neuquen-y-destaca-la-proxima-1kel7ih"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-gobierno-confirma-dos-cadenas-nacionales-por-la-visita-del-papa",
-      "foto": {
-        "archivo": "fotos-notas/162lj09.jpg",
-        "credito": "Foto: Canal 26"
-      }
     },
     {
       "id": "repaso20261102noche",
@@ -14699,90 +14221,6 @@
       "foto": {
         "archivo": "fotos-notas/1b0h7us.jpg",
         "credito": "Foto: La Nueva"
-      }
-    },
-    {
-      "id": "13jisdp",
-      "titulo": "Airbag confirma su sexto show en River para el 11 de diciembre",
-      "copete": "La banda reprogramó la función que había sido cancelada en octubre por la visita del papa León XIV. Las entradas ya se encuentran disponibles a través de la plataforma oficial All Access.",
-      "cuerpo": "El grupo de rock Airbag, integrado por los hermanos Patricio, Guido y Gastón Sardelli, oficializó su regreso al Estadio Más Monumental para el viernes 11 de diciembre. La presentación se enmarca en la gira internacional 'El Club de la Pelea 2026' y funcionará como cierre de año para la banda tras la cancelación del recital que estaba previsto para fines de octubre. Según informaron los músicos, aquella suspensión respondió a las disposiciones de seguridad e infraestructura exigidas por las autoridades de la Ciudad de Buenos Aires ante la visita del papa León XIV, quien permanecerá en el país entre el 8 y el 11 de noviembre.\n\nPara acceder a los tickets, la organización estableció dos instancias. La preventa exclusiva para clientes del Banco BBVA comenzó el lunes 2 de noviembre a las 14 hs, permitiendo el pago en seis cuotas sin interés con tarjetas Visa. Por su parte, la venta general se habilitó el martes 3 de noviembre a las 14 hs mediante la plataforma All Access, aceptando todos los medios de pago y manteniendo el beneficio de cuotas para los usuarios de la entidad bancaria mencionada.\n\nEste fenómeno de convocatoria se suma a un recorrido anual que incluyó más de veinte conciertos en siete países, con localidades agotadas en ciudades de Argentina, Chile, Paraguay, España, Uruguay y Perú. El éxito de la gira se apoya en la repercusión de su octavo álbum de estudio, 'El Club de la Pelea I', que superó los 300 millones de reproducciones en plataformas digitales.",
-      "guion": "Airbag confirma su sexto show en River para el 11 de diciembre.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Destape",
-        "La Gaceta (Tucumán)",
-        "C5N",
-        "Minuto Uno"
-      ],
-      "enlace": "https://www.eldestapeweb.com/cultura/nuevas-entradas-airbag-river-2026-precios-fechas-cuando-toca-202611216541",
-      "fecha": "2026-11-03T00:00:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T22:01:55.764Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El show se realizará el viernes 11 de diciembre en el Estadio Más Monumental.",
-        "La fecha original de octubre fue cancelada por la visita del papa León XIV.",
-        "La venta general de entradas comenzó el martes 3 de noviembre a las 14 hs.",
-        "Los tickets se adquieren a través de la plataforma oficial All Access.",
-        "La banda suma diez estadios colmados en Buenos Aires en los últimos 18 meses."
-      ],
-      "seSabe": [
-        "La banda confirmó la nueva fecha para el 11 de diciembre.",
-        "La cancelación previa se debió a las medidas de seguridad por la visita papal.",
-        "La venta general inició el martes 3 de noviembre a las 14 hs.",
-        "El show forma parte de la gira 'El Club de la Pelea 2026'."
-      ],
-      "textoRedes": "Airbag confirmó su sexto show en el Estadio River Plate para el viernes 11 de diciembre. La fecha reprograma el recital cancelado en octubre por la visita del papa León XIV. Las entradas ya están disponibles a través de la plataforma All Access.",
-      "etiquetas": [
-        "Airbag",
-        "River Plate",
-        "Recitales",
-        "Música"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/nuevas-entradas-airbag-river-2026-precios-fechas-cuando-toca-202611216541",
-          "fecha": "2026-11-02T19:05:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los horarios de preventa y venta general, además de los beneficios con tarjetas BBVA."
-        },
-        {
-          "medio": "C5N",
-          "enlace": "https://www.c5n.com/ratingcero/airbag-reprogramo-su-show-river-cuando-sera-y-como-comprar-las-entradas-n253337",
-          "fecha": "2026-11-03T20:58:12.000Z",
-          "oficial": false,
-          "aporte": "Explicó que la cancelación de octubre se debió a las disposiciones de seguridad por la visita del papa León XIV."
-        },
-        {
-          "medio": "La Gaceta (Tucumán)",
-          "enlace": "https://www.lagaceta.com.ar/nota/1160896/espectaculos/airbag-anuncio-sexto-river-para-este-2026-cuando-sera-como-conseguir-entradas-para-show.html",
-          "fecha": "2026-11-03T17:32:00.000Z",
-          "oficial": false,
-          "aporte": "Contextualizó la cifra de diez estadios en Buenos Aires en los últimos 18 meses."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/espectaculos/airbag-river-cuando-sera-el-recital-reprogramado-y-como-comprar-las-entradas-n6341166",
-          "fecha": "2026-11-03T22:18:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "airbag-confirma-su-sexto-show-en-river-para-el-11-de-diciembre",
-      "foto": {
-        "archivo": "fotos-notas/13jisdp.jpg",
-        "credito": "Foto: El Destape"
       }
     },
     {
@@ -15153,8 +14591,8 @@
       "guion": "El Quilmes Rock 2027 confirma su grilla de artistas y fechas.",
       "seccion": "Cultura y agenda",
       "medios": [
-        "Clarín",
         "Página/12",
+        "Clarín",
         "Ámbito",
         "Perfil",
         "Minuto Uno",
@@ -15165,7 +14603,7 @@
       "fecha": "2026-11-02T23:00:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-02T23:31:25.615Z",
-      "relevancia": 40,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -15441,7 +14879,6 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
-        "Clarín",
         "Perfil",
         "Radio Mitre"
       ],
@@ -15533,9 +14970,9 @@
       "seccion": "Fútbol",
       "medios": [
         "TyC Sports",
-        "Olé",
         "Radio Mitre",
         "Doble Amarilla",
+        "Olé",
         "El Gráfico",
         "C5N",
         "Los Andes (Mendoza)",
@@ -15672,746 +15109,21 @@
         "sugeridoPorIA": null
       },
       "slug": "boca-inicia-la-venta-de-entradas-para-la-final-de-la-copa-sudamericana"
-    },
-    {
-      "id": "yl3lny",
-      "titulo": "La Mesa de Enlace participa de un encuentro con el papa León XIV en la UCA",
-      "copete": "La convocatoria se realizará el lunes 9 de noviembre en Buenos Aires durante la visita del Pontífice. El sector agropecuario compartirá el espacio con dirigentes sindicales, empresarios y movimientos sociales para debatir desafíos productivos y económicos.",
-      "cuerpo": "La Mesa de Enlace, integrada por la Sociedad Rural Argentina, Confederaciones Rurales Argentinas, Federación Agraria Argentina y Coninagro, confirmó su asistencia a la reunión con el papa León XIV. El evento, titulado Encuentro con el Mundo del Trabajo, tendrá lugar el lunes 9 de noviembre a las 16.10 en el auditorio San Juan Pablo II de la Universidad Católica Argentina, ubicada en Puerto Madero.\n\nLa actividad forma parte de la agenda oficial del Pontífice durante su estadía en el país, programada entre el 8 y el 11 de noviembre. Según informaron las entidades rurales, la invitación busca integrar la perspectiva del agro en espacios de diálogo sobre los retos sociales, económicos y productivos de la Argentina. Se espera la presencia de aproximadamente 1000 asistentes, entre los que se incluyen referentes de sindicatos, organizaciones sociales, universidades y el sector empresarial. El programa prevé que el Papa escuche tres testimonios y luego dirija un mensaje a los participantes.\n\nAdemás de la representación sectorial de la Mesa de Enlace, el presidente de la Sociedad Rural Argentina, Nicolás Pino, recibió una invitación para concurrir como integrante del Grupo de los Seis, espacio que agrupa a las principales cámaras empresarias del país. Por su parte, sectores de la CGT y del empresariado trabajan en la elaboración de un documento conjunto sobre la situación nacional con el objetivo de entregárselo al Pontífice durante la jornada.\n\nLa visita de León XIV marcará el regreso de un Papa a la Argentina tras casi cuatro décadas, siendo la última vez la llegada de Juan Pablo II en 1987. Tras su paso por Buenos Aires, el Pontífice continuará sus actividades en Córdoba y concluirá su viaje el miércoles 11 de noviembre con una misa en la Basílica de Nuestra Señora de Luján.",
-      "guion": "La Mesa de Enlace participa de un encuentro con el papa León XIV en la UCA.",
-      "seccion": "Agro",
-      "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "Radio Mitre",
-        "Agroempresario",
-        "Infocampo",
-        "Clarín",
-        "Noticias Agropecuarias"
-      ],
-      "enlace": "https://www.clarin.com/rural/mesa-enlace-participara-encuentro-papa-leon-xiv-empresarios-sindicalistas-argentina_0_qMbmo1MmCo.html",
-      "fecha": "2026-11-02T22:23:54.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-02T23:31:25.615Z",
-      "relevancia": 41,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El encuentro será el lunes 9 de noviembre en la UCA, Puerto Madero.",
-        "Participarán la Mesa de Enlace, sindicatos, empresarios y movimientos sociales.",
-        "La actividad se denomina Encuentro con el Mundo del Trabajo y recibirá a 1000 personas.",
-        "El papa León XIV visitará el país entre el 8 y el 11 de noviembre."
-      ],
-      "seSabe": [
-        "La Mesa de Enlace fue convocada oficialmente a la reunión con el Papa.",
-        "El evento se desarrollará en el auditorio San Juan Pablo II de la UCA.",
-        "Nicolás Pino asistirá en representación de la SRA y del Grupo de los Seis.",
-        "La agenda del Pontífice incluye actividades en Buenos Aires, Córdoba y Luján."
-      ],
-      "textoRedes": "La Mesa de Enlace participará de un encuentro con el papa León XIV el próximo lunes 9 de noviembre en la UCA. La reunión, que forma parte de la visita del Pontífice al país, reunirá a sectores empresariales, sindicales y sociales para debatir sobre la realidad nacional.",
-      "etiquetas": [
-        "Mesa de Enlace",
-        "Papa León XIV",
-        "UCA",
-        "Agro",
-        "Visita papal",
-        "Economía"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Clarín",
-          "enlace": "https://www.clarin.com/rural/mesa-enlace-participara-encuentro-papa-leon-xiv-empresarios-sindicalistas-argentina_0_qMbmo1MmCo.html",
-          "fecha": "2026-11-02T22:23:54.000Z",
-          "oficial": false,
-          "aporte": "Confirma la invitación a las entidades del campo y el carácter multisectorial de la reunión."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/campo/la-mesa-de-enlace-participara-de-un-encuentro-con-leon-xiv-junto-a-sindicalistas-y-empresarios-nid02112026/",
-          "fecha": "2026-11-02T22:24:19.000Z",
-          "oficial": false,
-          "aporte": "Detalla la composición de la Mesa de Enlace, el horario, el lugar específico del encuentro y la agenda completa del Papa."
-        },
-        {
-          "medio": "Noticias Agropecuarias",
-          "enlace": "https://www.noticiasagropecuarias.com/2026/11/03/el-papa-leon-xiv-recibira-a-la-comision-de-enlace-en-la-uca/",
-          "fecha": "2026-11-03T11:58:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/campo/2026/11/03/la-mesa-de-enlace-de-campo-participara-del-encuentro-con-el-papa-leon-xiv-en-la-uca/",
-          "fecha": "2026-11-03T12:06:26.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/sociedad/la-mesa-de-enlace-del-campo-sera-parte-del-encuentro-multisectorial-con-el-papa-leon-xiv/",
-          "fecha": "2026-11-03T16:09:01.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Agroempresario",
-          "enlace": "https://agroempresario.com/publicacion/123327/la-mesa-de-enlace-participara-del-encuentro-de-leon-xiv-con-el-trabajo/",
-          "fecha": "2026-11-03T16:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infocampo",
-          "enlace": "https://www.infocampo.com.ar/la-visita-del-papa-tendra-presencia-del-campo-la-mesa-de-enlace-estara-en-una-reunion-con-leon-xiv/",
-          "fecha": "2026-11-02T21:50:49.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-mesa-de-enlace-participa-de-un-encuentro-con-el-papa-leon-xiv-en",
-      "foto": {
-        "archivo": "fotos-notas/yl3lny.jpg",
-        "credito": "Foto: La Nación"
-      }
-    },
-    {
-      "id": "1fbx3qx",
-      "titulo": "El veterinario Carlos Gutiérrez explica cómo interpretar el lenguaje felino",
-      "copete": "El especialista detalla que los gestos y posturas de los gatos revelan su estado de ánimo y nivel de confianza. Observar estas conductas cotidianas permite fortalecer el vínculo con la mascota y detectar posibles problemas de salud a tiempo.",
-      "cuerpo": "Los gatos comunican sus emociones mediante movimientos corporales y rutinas sin emitir sonidos. Según el veterinario Carlos Gutiérrez, prestar atención a estas señales resulta fundamental para garantizar un entorno saludable y estrechar la relación con el animal. Un indicador positivo es el acercamiento voluntario, especialmente cuando el gato mantiene la cola erguida, lo cual representa una intención de saludo y paz. Si además el felino curva la punta de la cola, demuestra curiosidad por su entorno.\n\nEl descanso también funciona como un termómetro de la confianza. Cuando el animal elige dormir cerca de su cuidador o amasa objetos a su lado, manifiesta sentirse seguro, ya que el sueño es un momento de vulnerabilidad. No obstante, el profesional advierte que cada ejemplar posee una personalidad distinta: algunos prefieren el contacto físico constante, mientras otros eligen mantener cierta distancia. Es importante respetar estas inclinaciones naturales sin forzar interacciones que el animal no busque.\n\nLa observación de los patrones habituales permite identificar anomalías. Gutiérrez señala que si un gato interrumpe de forma repentina sus actividades de juego o exploración, los dueños deben prestar atención, puesto que esa alteración podría señalar un problema de salud. Ante cambios persistentes en su comportamiento, lo recomendable es realizar una consulta veterinaria preventiva para descartar complicaciones. Asimismo, conductas como los zoomies, donde el gato corre y salta con intensidad, son normales siempre que ocurran dentro de los parámetros esperados. Conocer las dinámicas particulares de cada mascota es la herramienta más eficaz para asegurar una vida plena y tranquila en el hogar.",
-      "guion": "El veterinario Carlos Gutiérrez explica cómo interpretar el lenguaje felino.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "TN (Todo Noticias)",
-        "La Nación",
-        "Radio Mitre"
-      ],
-      "enlace": "https://www.lanacion.com.ar/lifestyle/mascotas/carlos-gutierrez-veterinario-cuando-un-gato-se-acerca-con-la-cola-levantada-es-un-signo-de-que-viene-nid02112026/",
-      "fecha": "2026-11-02T22:06:24.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T00:52:23.952Z",
-      "relevancia": 22,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La cola levantada indica una actitud receptiva y amistosa.",
-        "El descanso cerca del dueño simboliza un alto grado de confianza.",
-        "Los cambios en la rutina habitual requieren atención veterinaria.",
-        "Cada gato gestiona su espacio y afecto de manera individual."
-      ],
-      "seSabe": [
-        "La cola levantada es una señal de saludo y paz, según el veterinario Carlos Gutiérrez.",
-        "El descanso próximo al cuidador refleja que el gato se siente seguro.",
-        "Los zoomies son episodios de actividad intensa considerados habituales en los felinos.",
-        "La falta de interés por el juego o la exploración puede ser un indicio de malestar físico."
-      ],
-      "textoRedes": "El veterinario Carlos Gutiérrez explica cómo interpretar el lenguaje corporal de los gatos. Desde el significado de la cola levantada hasta la importancia de observar cambios en su rutina, el especialista brinda claves para fortalecer el vínculo y cuidar su bienestar.",
-      "etiquetas": [
-        "Mascotas",
-        "Gatos",
-        "Veterinaria",
-        "Comportamiento animal",
-        "Carlos Gutiérrez"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/lifestyle/mascotas/carlos-gutierrez-veterinario-cuando-un-gato-se-acerca-con-la-cola-levantada-es-un-signo-de-que-viene-nid02112026/",
-          "fecha": "2026-11-02T22:06:24.000Z",
-          "oficial": false,
-          "aporte": "Detalla el significado de la cola levantada, la importancia del descanso y la necesidad de observar cambios en la rutina para la salud felina."
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/curiosidades/carlos-gutierrez-veterinario-sobra-las-mascotas-cuando-se-acercan-con-la-cola-levantada-eso-es-un-signo-inequivoco-de-que-vienen-en-son-de-paz-de-que-vienen-por-ejemplo-a-saludarte/",
-          "fecha": "2026-11-02T23:16:23.000Z",
-          "oficial": false,
-          "aporte": "Complementa la información sobre la personalidad individual de los gatos y los episodios de actividad intensa conocidos como zoomies."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/sociedad/2026/11/03/carlos-gutierrez-veterinario-cuando-un-gato-se-acerca-con-la-cola-levantada-es-un-signo-de-que-viene-en-son-de-paz/",
-          "fecha": "2026-11-03T13:54:58.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/curiosidades/carlos-gutierrez-veterinario-sobre-los-gatos-cuando-se-acerca-con-la-cola-levantada-es-un-signo-de-que-viene-en-son-de-paz/",
-          "fecha": "2026-11-03T18:36:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/curiosidades/carlos-gutierrez-veterinario-cuando-un-gato-se-acerca-con-la-cola-levantada-es-un-signo-de-que-viene-en-son-de-paz/",
-          "fecha": "2026-11-03T20:16:38.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-veterinario-carlos-gutierrez-explica-como-interpretar-el-lenguaje",
-      "foto": {
-        "archivo": "fotos-notas/1fbx3qx-ia.jpg",
-        "credito": "Ilustración generada con IA"
-      }
-    },
-    {
-      "id": "1yffqlm",
-      "titulo": "Boca recupera a Adam Bareiro y Tomás Aranda de cara a la definición",
-      "copete": "El delantero y el juvenil recibieron el alta médica y volvieron a entrenarse a la par del plantel. Ambos apuntan a sumar minutos en la semifinal de la Copa Argentina.",
-      "cuerpo": "El plantel de Boca sumó dos regresos clave en el predio de Ezeiza con las altas médicas del delantero Adam Bareiro y del juvenil Tomás Aranda. Ambos futbolistas volvieron a trabajar junto a sus compañeros y se preparan para el tramo final de la temporada bajo las órdenes del director técnico Rodolfo Arruabarrena.\n\nEl caso de Tomás Aranda generó gran expectativa debido a que el mediocampista de 19 años debió ser intervenido quirúrgicamente el 27 de agosto por una fractura de peroné. Tras una rehabilitación que sorprendió por sus rápidos avances, el juvenil completó trabajos de campo y podría integrar la nómina de convocados para el partido del próximo sábado 7 de noviembre frente a Defensa y Justicia en la Bombonera, por la última fecha del torneo Clausura.\n\nCuando se encontraba en etapa de recuperación, el atacante paraguayo padeció una hernia de disco lumbar que derivó en una operación realizada a principios de septiembre. Tras acelerar los plazos previstos, volvió a realizar ejercicios con pelota de manera parcial.\n\nEl cuerpo técnico planea llevar a Bareiro de manera gradual según su evolución diaria, con el objetivo principal de que pueda sumar minutos el sábado 14 de noviembre en la semifinal de la Copa Argentina frente a Banfield. Además, ambos jugadores se ilusionan con integrar la delegación que viajará a Colombia para disputar la final de la Copa Sudamericana contra Atlético Mineiro, programada para el 21 de noviembre en la ciudad de Barranquilla.",
-      "guion": "Boca recupera a Adam Bareiro y Tomás Aranda de cara a la definición.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Olé",
-        "Noticias Argentinas (NA)",
-        "Bolavip Argentina"
-      ],
-      "enlace": "https://bolavip.com/ar/boca/adam-bareiro-recibio-el-alta-medica-y-esta-cerca-de-volver-a-jugar-en-boca-todos-los-detalles",
-      "fecha": "2026-11-02T22:04:27.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T18:31:48.432Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Adam Bareiro y Tomás Aranda recibieron el alta médica y se entrenan a la par del plantel.",
-        "Aranda fue operado en agosto por una fractura de peroné y apunta al partido ante Defensa y Justicia.",
-        "Bareiro superó una lesión muscular y una operación de columna realizada a principios de septiembre.",
-        "El cuerpo técnico apunta a que el delantero paraguayo reaparezca en la semifinal de la Copa Argentina frente a Banfield."
-      ],
-      "seSabe": [
-        "Adam Bareiro y Tomás Aranda recibieron el alta médica en el predio de Ezeiza.",
-        "Aranda sufrió una fractura de peroné el 27 de agosto y Bareiro fue operado de una hernia de disco a principios de septiembre.",
-        "Boca se medirá ante Defensa y Justicia el sábado 7 de noviembre a las 17.30 en la Bombonera.",
-        "La semifinal de la Copa Argentina ante Banfield se disputará el 14 de noviembre."
-      ],
-      "noConfirmado": [
-        "Todavía resta definir si Aranda concentrará para el encuentro del sábado y cómo responderá la zona lumbar de Bareiro en los próximos entrenamientos."
-      ],
-      "textoRedes": "Boca recuperó a Adam Bareiro y Tomás Aranda, quienes recibieron el alta médica y volvieron a entrenarse con el plantel de cara a la definición de la temporada.",
-      "etiquetas": [
-        "Boca Juniors",
-        "Adam Bareiro",
-        "Tomás Aranda",
-        "Copa Argentina",
-        "Copa Sudamericana",
-        "Fútbol"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Bolavip Argentina",
-          "enlace": "https://bolavip.com/ar/boca/adam-bareiro-recibio-el-alta-medica-y-esta-cerca-de-volver-a-jugar-en-boca-todos-los-detalles",
-          "fecha": "2026-11-02T20:58:41.000Z",
-          "oficial": false,
-          "aporte": "Aportó datos sobre la llegada de Bareiro a la institución y sus estadísticas en la temporada."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/boca-juniors/aranda-bareiro-alta-boca_3_BGBjIZIydx.html",
-          "fecha": "2026-11-03T02:42:20.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/boca-juniors/boca-tomasaranda-adambareiro-copaargentina-banfield-copasudamericana-atleticomineiro-barranquilla-rodolfoarruabarrena-bocapredio-superclasico-defensayjusticia_0_BKJuP0ps5Z.html",
-          "fecha": "2026-11-02T22:04:27.000Z",
-          "oficial": false,
-          "aporte": "Detalló las fechas de las operaciones de ambos jugadores, los partidos próximos y el calendario de definiciones del club."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/deportes/boca-recupera-a-dos-piezas-clave--bareiro-y-aranda-entrenan-de-cara-a-las-definiciones_a6aea09f4362d45b1b5d9a644",
-          "fecha": "2026-11-03T16:43:16.317Z",
-          "oficial": false,
-          "aporte": "Confirmó las declaraciones del cuerpo técnico sobre la integración de Aranda para el partido ante Defensa y Justicia."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "boca-recupera-a-adam-bareiro-y-tomas-aranda-de-cara-a-la-definicion",
-      "foto": {
-        "archivo": "fotos-notas/1yffqlm.webp",
-        "credito": "Foto: Bolavip Argentina"
-      }
-    },
-    {
-      "id": "bk0199",
-      "titulo": "Muere un futbolista en un accidente vial tras consagrarse campeón en Santa Fe",
-      "copete": "Bruno Ponti, jugador del Club Atlético Chañarense, falleció durante la madrugada del lunes al volcar su vehículo en la ruta provincial 93. El deportista había celebrado la obtención del Torneo Clausura pocas horas antes del siniestro.",
-      "cuerpo": "Bruno Ponti, futbolista de 24 años, murió el lunes 2 de noviembre de 2026 en un accidente de tránsito ocurrido sobre la ruta provincial 93, en Santa Fe. El joven, que integraba el plantel del Club Atlético Chañarense, perdió la vida tras un vuelco en el tramo que conecta las localidades de Chañar Ladeado y Berabevú.\n\nEl siniestro se produjo alrededor de las 4.30 de la madrugada, cuando el Chevrolet Corsa que conducía el deportista despistó y volcó por motivos que aún son materia de investigación. Ponti viajaba solo y falleció en el lugar del impacto, donde su cuerpo fue hallado sobre la banquina por los equipos de emergencia. En el operativo trabajaron efectivos policiales y Bomberos Voluntarios de Berabevú, mientras el tránsito permaneció asistido durante las primeras horas de la mañana.\n\nLa tragedia ocurrió pocas horas después de que el futbolista celebrara la obtención del Torneo Clausura de la Liga Interprovincial. El domingo 1 de noviembre, Chañarense se había consagrado campeón tras superar por penales a Independiente, su clásico rival. Ponti, apodado por sus compañeros como el \"Búfalo\", tenía una trayectoria en la institución, donde se había formado desde joven.\n\nTras conocerse la noticia, el club publicó un mensaje en sus redes sociales para despedir al jugador, destacando su compromiso, humildad y el vínculo afectivo que mantenía con la entidad. La institución resaltó que el deportista pudo disfrutar de uno de los días más felices de su vida junto a sus compañeros y su gente antes del accidente. La muerte del joven generó una profunda conmoción en la comunidad de Chañar Ladeado, donde familiares, amigos e hinchas expresaron sus condolencias.",
-      "guion": "Muere un futbolista en un accidente vial tras consagrarse campeón en Santa Fe.",
-      "seccion": "Policiales",
-      "medios": [
-        "TN (Todo Noticias)",
-        "Radio Mitre",
-        "A24",
-        "Canal 26",
-        "Minuto Uno"
-      ],
-      "enlace": "https://radiomitre.cienradios.com/deportes/murio-un-futbolista-en-un-accidente-en-la-ruta-horas-despues-de-haber-salido-campeon-en-santa-fe/",
-      "fecha": "2026-11-02T21:55:53.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-02T22:31:34.797Z",
-      "relevancia": 34,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Bruno Ponti murió en un vuelco sobre la ruta provincial 93.",
-        "El accidente ocurrió el lunes a las 4.30, horas después de un festejo deportivo.",
-        "El futbolista era el único ocupante del vehículo involucrado.",
-        "Chañarense había ganado el Torneo Clausura el domingo 1 de noviembre."
-      ],
-      "seSabe": [
-        "Bruno Ponti falleció en el lugar del accidente tras volcar su Chevrolet Corsa.",
-        "El siniestro ocurrió en la ruta provincial 93, entre Chañar Ladeado y Berabevú.",
-        "El futbolista había ganado el campeonato de la Liga Interprovincial el domingo.",
-        "El club Chañarense confirmó el deceso a través de sus canales oficiales."
-      ],
-      "noConfirmado": [
-        "Las causas específicas que provocaron el despiste y vuelco del vehículo todavía son objeto de investigación."
-      ],
-      "textoRedes": "Murió Bruno Ponti, futbolista del Club Atlético Chañarense, en un accidente de tránsito en la ruta provincial 93. El deportista falleció durante la madrugada del lunes, pocas horas después de haber ganado el Torneo Clausura con su equipo.",
-      "etiquetas": [
-        "Santa Fe",
-        "accidente de tránsito",
-        "fútbol",
-        "Chañarense",
-        "Bruno Ponti"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/deportes/murio-un-futbolista-en-un-accidente-en-la-ruta-horas-despues-de-haber-salido-campeon-en-santa-fe/",
-          "fecha": "2026-11-02T21:48:28.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/02/tragedia-en-santa-fe-murio-un-futbolista-en-un-accidente-en-la-ruta-horas-despues-de-haber-salido-campeon-con-su-equipo/",
-          "fecha": "2026-11-02T22:16:52.000Z",
-          "oficial": false,
-          "aporte": "Detalló la edad del futbolista, el modelo del vehículo y el horario del accidente."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/deportes/conmocion-murio-el-futbolista-bruno-ponti-sufrir-un-accidente-la-ruta-n1612598",
-          "fecha": "2026-11-02T21:55:53.000Z",
-          "oficial": false,
-          "aporte": "Ratificó que el jugador era el único ocupante y el lugar donde fue hallado el cuerpo."
-        },
-        {
-          "medio": "Canal 26",
-          "enlace": "https://www.canal26.com/deportes/2026/11/02/conmocion-en-el-futbol-de-santa-fe-murio-un-jugador-de-chanarense-en-un-accidente-horas-despues-de-salir-campeon/",
-          "fecha": "2026-11-02T22:10:08.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la participación de Bomberos Voluntarios y el contexto del torneo regional ganado."
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/tragico-final-festejo-santa-fe-murio-un-futbolista-la-ruta-salir-campeon-n6340765",
-          "fecha": "2026-11-03T00:36:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/02/quien-era-bruno-ponti-el-futbolista-que-murio-en-un-accidente-de-auto-horas-despues-de-salir-campeon-con-su-equipo/",
-          "fecha": "2026-11-03T01:51:43.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Minuto Uno",
-          "enlace": "https://www.minutouno.com/deportes/desgarrador-posteo-del-club-donde-jugaba-bruno-ponti-el-futbolista-que-murio-este-lunes-te-vimos-nacer-n6340771",
-          "fecha": "2026-11-03T00:54:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "muere-un-futbolista-en-un-accidente-vial-tras-consagrarse-campeon-en"
-    },
-    {
-      "id": "vrkmep",
-      "titulo": "La recaudación tributaria nacional crece por cuarto mes consecutivo",
-      "copete": "Los ingresos fiscales alcanzaron los $21,6 billones en octubre. El resultado representa una mejora real del 0,7% frente a la inflación, impulsado principalmente por el desempeño del impuesto a las Ganancias y los derechos de exportación.",
-      "cuerpo": "La recaudación tributaria nacional registró en octubre un incremento nominal del 33,7% interanual, alcanzando un total de $21,6 billones. Al descontar el efecto de la inflación, que se estima en torno al 32,8%, los ingresos fiscales marcaron una mejora real del 0,7%, según datos del Instituto Argentino de Análisis Fiscal (IARAF) y la Agencia de Recaudación y Control Aduanero (ARCA). Este resultado consolida el cuarto mes consecutivo sin caídas en términos reales.\n\nEl desempeño de los tributos fue dispar. El impuesto a las Ganancias fue uno de los principales motores, al recaudar $5,08 billones, lo que representa un aumento nominal del 55,1%. ARCA atribuyó este crecimiento a mayores anticipos de sociedades y personas humanas, además de cambios en las retenciones impositivas. Por su parte, los derechos de exportación experimentaron un salto nominal del 238,4%, sumando $870.052 millones. Este incremento se explica por una baja base de comparación respecto a 2025 y mejores precios internacionales en productos del complejo sojero, cerealero e hidrocarburos.\n\nEn contraste, el IVA neto recaudó $7,03 billones con una suba nominal del 21,8%, aunque su componente aduanero retrocedió un 4,9%. Según el IARAF, el IVA neto de devoluciones registró una caída real del 8,2% interanual. Asimismo, los derechos de importación cayeron un 9,6% nominal, reflejando una desaceleración en el comercio exterior. Los recursos de la seguridad social, en tanto, sumaron $5,03 billones con un alza nominal del 33,8%, impulsados por la mejora en la remuneración bruta promedio. En los primeros diez meses del año, la recaudación acumuló $196 billones, con un incremento nominal del 29,8% frente al mismo período del año anterior.",
-      "guion": "La recaudación tributaria nacional crece por cuarto mes consecutivo.",
-      "seccion": "Economía",
-      "medios": [
-        "La Nación",
-        "TN (Todo Noticias)",
-        "Noticias Argentinas (NA)",
-        "El Eco de Tandil",
-        "El Cronista",
-        "iProfesional",
-        "Ámbito"
-      ],
-      "enlace": "https://www.iprofesional.com/impuestos/468126-la-recaudacion-tributaria-crecio-por-encima-de-la-inflacion-pese-a-otra-baja-del-iva",
-      "fecha": "2026-11-02T21:40:00.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T00:01:25.590Z",
-      "relevancia": 40,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La recaudación total de octubre alcanzó los $21,6 billones.",
-        "El resultado representa una suba real del 0,7% interanual.",
-        "Ganancias y derechos de exportación fueron los tributos de mejor desempeño.",
-        "El IVA aduanero y los derechos de importación mostraron variaciones negativas.",
-        "Es el cuarto mes consecutivo de crecimiento real en los ingresos fiscales."
-      ],
-      "seSabe": [
-        "Los ingresos tributarios totales de octubre fueron de $21,6 billones.",
-        "La recaudación creció un 33,7% nominal interanual.",
-        "El IARAF estimó una mejora real del 0,7% tras descontar la inflación.",
-        "El impuesto a las Ganancias subió un 55,1% nominal.",
-        "Los derechos de exportación aumentaron un 238,4% nominal.",
-        "El IVA aduanero registró una caída nominal del 4,9%."
-      ],
-      "textoRedes": "La recaudación tributaria nacional alcanzó los $21,6 billones en octubre. El dato marca el cuarto mes consecutivo de crecimiento real, con una suba del 0,7% por encima de la inflación, impulsado principalmente por el impuesto a las Ganancias y los derechos de exportación.",
-      "etiquetas": [
-        "Economía",
-        "Recaudación",
-        "ARCA",
-        "Impuestos",
-        "Ganancias",
-        "IVA",
-        "Inflación"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "iProfesional",
-          "enlace": "https://www.iprofesional.com/impuestos/468126-la-recaudacion-tributaria-crecio-por-encima-de-la-inflacion-pese-a-otra-baja-del-iva",
-          "fecha": "2026-11-02T21:40:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló las cifras de recaudación por impuesto y las causas técnicas de las variaciones."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/la-recaudacion-tributaria-crecio-07-en-octubre-y-acumulo-cuatro-meses-sin-caidas-nid02112026/",
-          "fecha": "2026-11-02T22:13:12.000Z",
-          "oficial": false,
-          "aporte": "Brindó precisiones sobre el impacto de la inflación y las declaraciones de analistas económicos."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/11/02/la-recaudacion-tributaria-crecio-en-octubre-y-volvio-a-quedar-por-encima-de-la-inflacion/",
-          "fecha": "2026-11-02T23:28:48.000Z",
-          "oficial": false,
-          "aporte": "Explicó las razones del desempeño dispar entre el IVA impositivo y el aduanero."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/economia-politica/la-recaudacion-crecio-mas-que-la-inflacion-en-octubre-que-sectores-la-impulsaron/",
-          "fecha": "2026-11-02T22:31:00.283Z",
-          "oficial": false,
-          "aporte": "Aportó el análisis del IARAF sobre la caída real acumulada en el año."
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/la-recaudacion-tributaria-crecio-33-7--interanual-en-octubre-y-supero-la-inflacion-por-segundo-mes-seguido_a6ae9d7c3362d45b1b5d774c4",
-          "fecha": "2026-11-03T12:34:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Eco de Tandil",
-          "enlace": "https://www.eleco.com.ar/economia/la-recaudacion-tributaria-crecio-un-337-interanual-en-octubre",
-          "fecha": "2026-11-03T14:04:24.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/la-recaudacion-octubre-registro-una-leve-suba-real-pese-una-nueva-caida-del-iva-n6340700",
-          "fecha": "2026-11-02T21:14:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-recaudacion-tributaria-nacional-crece-por-cuarto-mes-consecutivo",
-      "foto": {
-        "archivo": "fotos-notas/vrkmep.jpg",
-        "credito": "Foto: La Nación"
-      }
-    },
-    {
-      "id": "hjwjy8",
-      "titulo": "La película balcarceña La noche que nunca termina compite en México",
-      "copete": "El largometraje local fue seleccionado para integrar la Competencia Iberoamericana del Feratum Festival. La producción continúa su recorrido internacional tras su última presentación en la ciudad.",
-      "cuerpo": "La producción cinematográfica balcarceña La noche que nunca termina alcanzó una nueva distinción internacional al quedar seleccionada para la Selección Oficial del Feratum Festival, en México. El film formará parte de la Competencia Iberoamericana, un espacio que convoca a diversos proyectos de distintos países. Los realizadores celebraron la noticia en sus redes sociales, donde agradecieron al festival por la elección entre numerosas propuestas y destacaron la calidad de los trabajos que integran la competencia.\n\nEste reconocimiento consolida el camino de la obra en el circuito internacional de cine fantástico y de terror. La película, que ya cuenta con un recorrido fuera del país, tuvo su última función en Balcarce el viernes 30 de octubre en La Casa del Fondo. A partir de este momento, el equipo continuará con su agenda de exhibiciones en festivales especializados.",
-      "guion": "La película balcarceña La noche que nunca termina compite en México.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/la-noche-que-nunca-termina-fue-seleccionada-para-competir-en-un-festival-internacional-de-mexico-506",
-      "fecha": "2026-11-02T21:30:44.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-02T21:31:43.304Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "La película fue seleccionada para el Feratum Festival en México.",
-        "El film participa en la Competencia Iberoamericana.",
-        "La obra pertenece al género de cine fantástico y de terror.",
-        "La última proyección local se realizó el 30 de octubre."
-      ],
-      "seSabe": [
-        "La película fue seleccionada para la Competencia Iberoamericana del Feratum Festival.",
-        "El equipo realizador confirmó la noticia mediante sus redes sociales.",
-        "La última función en Balcarce tuvo lugar el viernes 30 de octubre en La Casa del Fondo."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "La producción balcarceña La noche que nunca termina fue seleccionada para competir en la sección Iberoamericana del Feratum Festival en México. El film continúa su recorrido internacional tras su última función en la ciudad el pasado 30 de octubre.",
-      "etiquetas": [
-        "Cultura",
-        "Cine",
-        "Balcarce",
-        "Feratum Festival",
-        "La noche que nunca termina"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/la-noche-que-nunca-termina-fue-seleccionada-para-competir-en-un-festival-internacional-de-mexico-506",
-          "fecha": "2026-11-02T21:30:44.000Z",
-          "oficial": false,
-          "aporte": "Informó la selección del film en el festival mexicano, la categoría de competencia y la fecha de la última función local."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "la-pelicula-balcarcena-la-noche-que-nunca-termina-compite-en-mexico",
-      "foto": {
-        "archivo": "fotos-notas/hjwjy8.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
-      "id": "zlcuqf",
-      "titulo": "San Manuel, Amigos Unidos y San Agustín lideran el Clausura femenino",
-      "copete": "Se completó la tercera fecha del torneo organizado por la Liga Balcarceña de Fútbol. La jornada se destacó por la ausencia de empates en los seis encuentros disputados y un total de 22 goles convertidos.",
-      "cuerpo": "La tercera fecha del certamen femenino Clausura, que disputa la Copa 75º Aniversario Bomberos Voluntarios de Balcarce y la Challenger Alejandro Cucho Mascareño, finalizó con resultados definidos en todos los estadios. La jornada registró un total de 22 goles y dejó a Atlético San Manuel, Amigos Unidos y Atlético San Agustín como los punteros de sus respectivas zonas.\n\nEn el estadio Antonio Cerono, Amigos Unidos superó a Los Patos FC por 2 a 1, mientras que en la cancha del Club Teléfonos, San Lorenzo venció a Racing FC por el mismo marcador. Por su parte, Atlético San Agustín logró una amplia victoria por 8 a 1 frente a FC Agrarias en el estadio Juan Carlos Gentile. En otros resultados, Atlético San Manuel derrotó a Deportivo Los Pinos por 2 a 1, Boca Juniors se impuso ante Sportivo Trabajo Mitre por 3 a 0 y Ferroviarios superó a River Balcarce por 1 a 0.\n\nTras estos resultados, las posiciones quedaron encabezadas por Atlético San Manuel en la Zona A, Amigos Unidos en la Zona B y Atlético San Agustín en la Zona C. La Liga Balcarceña de Fútbol confirmó que la cuarta fecha del torneo se desarrollará el próximo fin de semana. Los encuentros programados incluyen los cruces entre Sportivo Trabajo Mitre ante Atlético San Manuel, Boca Juniors frente a Deportivo Los Pinos, Amigos Unidos contra Ferroviarios, River Balcarce ante Los Patos FC, Atlético San Agustín frente a Racing FC y San Lorenzo contra FC Agrarias.\n\nEn paralelo, la categoría Sub 15 disputó su tercera jornada con triunfos de Los Patos FC sobre Atlético San Agustín y de Racing FC ante Atlético San Manuel, quedando pendiente el duelo entre Ferroviarios y Boca Juniors.",
-      "guion": "San Manuel, Amigos Unidos y San Agustín lideran el Clausura femenino.",
-      "seccion": "Fútbol",
-      "medios": [
-        "El Diario Balcarce"
-      ],
-      "enlace": "https://eldiariobalcarce.com.ar/san-manuel-amigos-unidos-y-san-agustin-lideran-sus-grupos-152",
-      "fecha": "2026-11-02T21:28:07.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T00:02:03.653Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Se disputaron seis partidos correspondientes a la tercera fecha del torneo Clausura.",
-        "No se registraron empates en ninguno de los encuentros de la jornada.",
-        "San Manuel, Amigos Unidos y San Agustín lideran las tablas de posiciones.",
-        "La cuarta fecha del certamen se jugará el próximo fin de semana."
-      ],
-      "seSabe": [
-        "El torneo es organizado por la Liga Balcarceña de Fútbol.",
-        "Se anotaron 22 goles en la tercera fecha del campeonato.",
-        "La categoría Sub 15 también cumplió con su tercera jornada de competencia."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Se completó la tercera fecha del torneo Clausura femenino de la Liga Balcarceña de Fútbol. San Manuel, Amigos Unidos y San Agustín lideran sus zonas tras una jornada sin empates y con 22 goles convertidos en los distintos estadios de la ciudad.",
-      "etiquetas": [
-        "Fútbol",
-        "Liga Balcarceña",
-        "Torneo Clausura",
-        "Deportes",
-        "Balcarce"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Diario Balcarce",
-          "enlace": "https://eldiariobalcarce.com.ar/san-manuel-amigos-unidos-y-san-agustin-lideran-sus-grupos-152",
-          "fecha": "2026-11-02T21:28:07.000Z",
-          "oficial": false,
-          "aporte": "Detalla los resultados de los seis partidos, las posiciones de los grupos y la programación de la próxima fecha."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "fv9ojy",
-          "titulo": "Amigos Unidos vence a Los Patos FC en el estadio Antonio Cerono",
-          "fecha": "2026-11-02T12:05:41.000Z",
-          "ruta": "/nota/amigos-unidos-vence-a-los-patos-fc-en-el-estadio-antonio-cerono-fv9ojy"
-        },
-        {
-          "id": "f6043u",
-          "titulo": "Amigos Unidos y Ferroviarios ganan en la tercera fecha del Clausura",
-          "fecha": "2026-11-01T15:02:26.000Z",
-          "ruta": "/nota/amigos-unidos-y-ferroviarios-ganan-en-la-tercera-fecha-del-clausura-f6043u"
-        },
-        {
-          "id": "7amn8l",
-          "titulo": "Amigos Unidos golea y empatan Ferroviarios y Los Patos",
-          "fecha": "2026-10-27T12:05:32.000Z",
-          "ruta": "/nota/amigos-unidos-golea-y-empatan-ferroviarios-y-los-patos-7amn8l"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "san-manuel-amigos-unidos-y-san-agustin-lideran-el-clausura-femenino",
-      "foto": {
-        "archivo": "fotos-notas/zlcuqf.jpg",
-        "credito": "Foto: El Diario Balcarce"
-      }
-    },
-    {
-      "id": "1wo5kz0",
-      "titulo": "Argentina debuta con triunfos en el Mundial de Pádel de Doha",
-      "copete": "Los seleccionados masculino y femenino superaron a Australia y Chile por 3-0 en el inicio del certamen. Los equipos nacionales comenzaron la fase de grupos con victorias contundentes en Qatar.",
-      "cuerpo": "El seleccionado argentino de pádel inició su participación en el Mundial de Doha con resultados positivos en ambas ramas. En el Khalifa International Tennis and Squash Complex, el equipo masculino, defensor del título obtenido en 2024, superó a Australia por 3-0. Por su parte, el conjunto femenino, subcampeón de la edición anterior, derrotó a Chile con el mismo marcador sin ceder sets en ninguno de los enfrentamientos.\n\nEn la serie masculina, Franco Stupaczuk y Federico Chingotto abrieron el marcador, seguidos por las victorias de Leandro Augsburger junto a Martín Di Nenno, y la dupla conformada por Gonzalo Alfonso y Maximiliano Arce. En el equipo femenino, los puntos fueron obtenidos por Virginia Riera y Julieta Bidahorria, Martina Fassio y Claudia Jensen, y finalmente Aranzazu Osoro junto a Victoria Vílchez. Los referentes Agustín Tapia y Delfina Brea no formaron parte de los partidos iniciales, permitiendo a los cuerpos técnicos rotar el plantel.\n\nArgentina integra el Grupo A en varones, junto a Países Bajos y Francia, mientras que las mujeres lideran el Grupo B, que comparten con Francia y Bélgica. La fase inicial se desarrolla con 16 seleccionados por categoría, buscando los dos mejores de cada zona el pase a los cuartos de final. La actividad continuará el martes 3 de noviembre: el equipo femenino se medirá ante Bélgica a las 8, mientras que los varones jugarán frente a Países Bajos a las 12. El torneo, que reparte 1,2 millones de euros en premios, concluirá el sábado 7 de noviembre con la disputa de las finales.",
-      "guion": "Argentina debuta con triunfos en el Mundial de Pádel de Doha.",
-      "seccion": "Deportes",
-      "medios": [
-        "TyC Sports",
-        "Olé",
-        "Los Andes (Mendoza)"
-      ],
-      "enlace": "https://www.tycsports.com/padel/en-doha-argentina-gano-sus-dos-primeros-partidos-del-mundial-id770041.html",
-      "fecha": "2026-11-02T21:12:48.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-03T00:52:23.952Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Argentina ganó sus dos series iniciales por 3-0.",
-        "El certamen se juega en Doha hasta el 7 de noviembre.",
-        "Los seleccionados nacionales lideran sus respectivos grupos.",
-        "La segunda fecha de la fase inicial se disputa este martes."
-      ],
-      "seSabe": [
-        "El seleccionado masculino venció a Australia y el femenino a Chile, ambos por 3-0.",
-        "Agustín Tapia y Delfina Brea no participaron en los encuentros de debut.",
-        "La competencia se desarrolla en el Khalifa International Tennis and Squash Complex.",
-        "La fase de grupos termina el miércoles 4 y las finales se juegan el sábado 7."
-      ],
-      "textoRedes": "Argentina comenzó con éxito su camino en el Mundial de Pádel de Doha. Tanto el seleccionado masculino como el femenino debutaron con victorias por 3-0 frente a Australia y Chile, respectivamente, y se preparan para la segunda fecha de la fase de grupos este martes.",
-      "etiquetas": [
-        "Mundial de Pádel",
-        "Argentina",
-        "Doha",
-        "Pádel"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/padel/en-doha-argentina-gano-sus-dos-primeros-partidos-del-mundial-id770041.html",
-          "fecha": "2026-11-02T21:10:08.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre la cantidad de seleccionados participantes y el monto total de los premios en juego."
-        },
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/padel/mundialdepadel-doha-argentina-australia-francostupaczuk-federicochingotto-leoaugsburger-claudiajensen-chile_0_42jgpjFjke.html",
-          "fecha": "2026-11-02T21:12:48.000Z",
-          "oficial": false,
-          "aporte": "Detalló los resultados de los partidos, los integrantes de las parejas y el cronograma de los próximos encuentros."
-        },
-        {
-          "medio": "Los Andes (Mendoza)",
-          "enlace": "https://www.losandes.com.ar/deportes/mundial-padel-argentina-arranco-dos-goleadas-doha-y-defendio-su-chapa-candidata-al-titulo-n6012765",
-          "fecha": "2026-11-03T00:44:00.000Z",
-          "oficial": false,
-          "aporte": "Confirmó la ausencia de Tapia y Brea en el debut y los tiempos de juego de algunas parejas."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron tres medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "argentina-debuta-con-triunfos-en-el-mundial-de-padel-de-doha",
-      "foto": {
-        "archivo": "fotos-notas/1wo5kz0.jpg",
-        "credito": "Foto: Los Andes (Mendoza)"
-      }
     }
   ],
   "secciones": [
+    "Balcarce",
     "Fútbol",
     "Argentina",
     "Política",
     "Cultura y agenda",
     "Automovilismo",
-    "Educación",
     "Deportes",
     "Salud",
-    "Balcarce",
     "Tecnología",
-    "Economía",
     "Policiales",
+    "Educación",
+    "Economía",
     "Agro",
     "Ciencia"
   ],
@@ -16429,12 +15141,12 @@
   ],
   "clima": {
     "ahora": {
-      "temp": 13,
-      "sensacion": 13,
+      "temp": 14,
+      "sensacion": 14,
       "humedad": 99,
-      "viento": 7,
-      "rumbo": "NE",
-      "cielo": "Nublado",
+      "viento": 6,
+      "rumbo": "NO",
+      "cielo": "Llovizna leve",
       "esDeDia": true
     },
     "dias": [
@@ -16782,7 +15494,25 @@
       "titulo": null,
       "seccion": "Policiales",
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
+    },
+    {
+      "id": "1975r10",
+      "titulo": "Fútbol Arranca la segunda rueda del Clausura del Oficial",
+      "seccion": "Fútbol",
+      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
+    },
+    {
+      "id": "1x24i49",
+      "titulo": "Hóckey Valiosa victoria de Social Pato",
+      "seccion": "Deportes",
+      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
+    },
+    {
+      "id": "1jwfi8f",
+      "titulo": "Taekwondo Buena tarea de taekwondistas locales en Mar…",
+      "seccion": "Balcarce",
+      "motivo": "de un medio de acá sin nombrar Balcarce ni la zona: espera la lectura con IA"
     }
   ],
-  "esperandoCuerpo": 5
+  "esperandoCuerpo": 22
 }
