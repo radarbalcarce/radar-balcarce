@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T22:35:30.164Z",
- "portada": 188,
+ "generado": "2026-11-04T23:05:27.549Z",
+ "portada": 212,
  "archivo": 500,
- "esperandoCuerpo": 10,
+ "esperandoCuerpo": 12,
  "redes": {
-  "generado": "2026-11-04T22:35:30.622Z",
+  "generado": "2026-11-04T23:05:28.357Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -115,7 +115,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
      {
       "id": "1a8mq4a",
@@ -123,8 +123,8 @@
       "seccion": "Agro"
      },
      {
-      "id": "uvwp3s",
-      "titulo": "Un incendio en un departamento de calles 21 y 12 causa daños totales",
+      "id": "74b2wn",
+      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
       "seccion": "Policiales"
      },
      {
@@ -144,8 +144,8 @@
    "hoy": [],
    "cola": [
     {
-     "id": "uvwp3s",
-     "titulo": "Un incendio en un departamento de calles 21 y 12 causa daños totales",
+     "id": "74b2wn",
+     "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
      "seccion": "Policiales",
      "marcada": false
     },
@@ -153,6 +153,12 @@
      "id": "1hnsyf",
      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
      "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "108600q",
+     "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -168,18 +174,6 @@
      "marcada": false
     },
     {
-     "id": "108600q",
-     "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "74b2wn",
-     "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
-     "seccion": "Policiales",
-     "marcada": false
-    },
-    {
      "id": "100bnjr",
      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
      "seccion": "Deportes",
@@ -189,6 +183,12 @@
      "id": "m4e9zn",
      "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
      "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "hbt308",
+     "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
+     "seccion": "Policiales",
      "marcada": false
     }
    ],
