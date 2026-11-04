@@ -67023,7 +67023,8 @@
    "corresponde": "si",
    "descripcion": "Personas votando en una mesa electoral con un cartel de 'VOTE'."
   },
-  "huella": "868e8aca8e9e1e0e"
+  "huella": "868e8aca8e9e1e0e",
+  "ausenteDesde": "2026-11-04T02:05:06.599Z"
  },
  "ef91td": {
   "archivo": "fotos-notas/ef91td.webp",
@@ -67267,7 +67268,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "a6aee2e6a86168f3"
+  "huella": "a6aee2e6a86168f3",
+  "ausenteDesde": "2026-11-04T02:05:06.599Z"
  },
  "1ktheso": {
   "archivo": "fotos-notas/1ktheso.jpg",
@@ -75687,5 +75689,64 @@
    "descripcion": "Dos jugadores de Independiente celebrando."
   },
   "huella": "c7878f225c969636"
+ },
+ "etkbda": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Kicillof y Máximo Kirchner se reúnen antes de la cumbre del PJ bonaerense",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T02:04:19.958Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1n4cm9": {
+  "archivo": "fotos-notas/1n4cm9.jpg",
+  "medio": "La Brújula 24",
+  "credito": "Foto: La Brújula 24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El argentino Alberto Zaltzberg pierde la elección a alcalde en Aventura",
+  "enlace": "https://www.labrujula24.com/notas/2026/11/03/como-le-fue-al-argentino-que-buscaba-ser-electo-alcalde-en-una-ciudad-de-florida-n528818/",
+  "imagenOriginal": "https://www.labrujula24.com/wp-content/uploads/2026/11/eeuu-1000x600.jpg",
+  "razon": "Es la única opción que ilustra el hecho (elecciones) con un encuadre completo, sin marcas de agua de otros medios ni menores de edad reconocibles.",
+  "cuando": "2026-11-04T02:04:19.958Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de una fila de votantes frente a un puesto de votación temprana con un cartel de 'VOTE'.",
+   "detalle": "Los logos visibles (I am Election Ready) pertenecen a la carpa de la escena real, no son marcas del medio."
+  },
+  "huella": "d0a9cb1234b4e4f0"
+ },
+ "1st4lpo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Gabriele Minì participa en la primera práctica libre del GP de Brasil",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T02:04:19.958Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1di4w24": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Servicio Meteorológico Nacional anticipa lluvias y descenso de temperatura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T02:04:19.958Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
