@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T21:39:01.133Z",
- "portada": 192,
+ "generado": "2026-11-04T22:08:26.839Z",
+ "portada": 195,
  "archivo": 500,
- "esperandoCuerpo": 14,
+ "esperandoCuerpo": 11,
  "redes": {
-  "generado": "2026-11-04T21:39:01.634Z",
+  "generado": "2026-11-04T22:08:27.305Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,17 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
+    "salio": null,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
     "salio": null,
     "segundos": 52,
     "notas": [
@@ -126,37 +136,6 @@
       "id": "hbt308",
       "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
       "seccion": "Policiales"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "1pm4shu",
-      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1y43ge4",
-      "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "xrlaa0",
-      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
      }
     ]
    }
