@@ -42681,9 +42681,7 @@
   "ausenteDesde": "2026-10-29T02:01:59.253Z"
  },
  "1sq6xx6": {
-  "archivo": "fotos-notas/1sq6xx6.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Evacuan una escuela y vecinos en Caballito por un escape de gas",
@@ -42715,7 +42713,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "da90d595585818b6",
-  "ausenteDesde": "2026-10-28T07:55:29.315Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ti07j3": {
   "archivo": "fotos-notas/1ti07j3.jpg",
@@ -58966,7 +58965,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-04T01:05:22.461Z"
+  "cuando": "2026-11-04T08:04:29.893Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -72445,10 +72444,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Boca, Argentinos y Central definen el título de Campeón de Liga",
-  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua, formato gráfico o menor.",
-  "cuando": "2026-11-03T12:32:50.389Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua, gráficos o formato de placa.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "intentos": 2,
+  "fuentes": 7
  },
  "ifxwgg": {
   "archivo": "fotos-notas/ifxwgg.jpg",
@@ -73221,11 +73220,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-11-04T00:03:13.382Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 2
+  "razon": "Ninguna de las fotos sirve: la A es una pieza gráfica (invitación) y la B incluye menores reconocibles en el público.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "ycpj88": {
   "archivo": "fotos-notas/ycpj88.jpg",
@@ -73726,10 +73724,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La vigesimosegunda Fiesta Nacional del Postre reúne a más de diez mil personas",
-  "razon": "La única foto disponible incluye a una menor de edad reconocible, por lo que no puede ser publicada.",
-  "cuando": "2026-11-03T18:35:11.962Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ninguna foto sirve: la A incluye a una menor reconocida y la B es una pieza gráfica (flyer).",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "5e6533": {
   "intentado": true,
@@ -73858,14 +73856,28 @@
   "huella": "41a031e3c3436371"
  },
  "vhmr3i": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/vhmr3i.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Peñarol vence a Olímpico por 87 a 74 en la Liga Nacional de Básquet",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-03T20:31:52.505Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.qznoticias.com/deportes/penarol-se-hizo-fuerte-en-la-banda-y-derroto-a-olimpico",
+  "imagenOriginal": "https://n2.cdnartic.ar/0zImPC8M8kZ6ULdQoLTxkPdNhkg=/1200x630/smart/filters:format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/11/penarol_olimpico_lnb_1.webp",
+  "razon": "Es la única foto de la selección que corresponde al partido, tiene excelente nitidez y encuadre, y ninguna marca de agua ni problemas con menores.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Peñarol lanzando al aro defendido por jugadores de Olímpico"
+  },
+  "huella": "b2204a47876537d5"
  },
  "e3lp2q": {
   "archivo": "fotos-notas/e3lp2q.jpg",
@@ -73958,7 +73970,8 @@
    "corresponde": "si",
    "descripcion": "Frente del rectorado con manifestantes y carteles."
   },
-  "huella": "2666613233808cd5"
+  "huella": "2666613233808cd5",
+  "ausenteDesde": "2026-11-04T08:04:33.257Z"
  },
  "50dygc": {
   "archivo": "fotos-notas/50dygc.jpg",
@@ -74908,14 +74921,28 @@
   "huella": "2667a5a78adac484"
  },
  "ygs6h": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ygs6h.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "River depende exclusivamente del Torneo Clausura para jugar la Libertadores",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de A24 no se usa todavía.",
-  "cuando": "2026-11-03T22:05:49.164Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "enlace": "https://www.clarin.com/deportes/unica-alternativa-queda-river-jugar-copa-libertadores-2027-balance-leo-ponzio-dt_0_jJ5QfFLPkd.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/03/9pP0P1wPx_2000x1500__1.jpg",
+  "razon": "Es la mejor foto institucional que ilustra el momento del equipo sin marcas de agua ni menores.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuerpo técnico de River preocupado en el banco de suplentes."
+  },
+  "huella": "4c6c4aced2c3c2c3"
  },
  "9s46rr": {
   "archivo": "fotos-notas/9s46rr.jpg",
@@ -75015,11 +75042,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Lionel Messi define la elección del Balón de Oro al Joven Talento 2026",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
-  "cuando": "2026-11-03T22:33:20.044Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Radio Mitre no se usa todavía.",
+  "cuando": "2026-11-04T08:02:37.284Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "tg87zv": {
   "intentado": true,
@@ -75667,7 +75694,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "4949495d6d17778e"
+  "huella": "4949495d6d17778e",
+  "ausenteDesde": "2026-11-04T08:04:33.257Z"
  },
  "1sgqnrb": {
   "archivo": "fotos-notas/1sgqnrb.jpg",
@@ -75834,7 +75862,8 @@
    "corresponde": "si",
    "descripcion": "Retrato formal de un hombre con traje sobre fondo neutro."
   },
-  "huella": "332b2f2727236dcc"
+  "huella": "332b2f2727236dcc",
+  "ausenteDesde": "2026-11-04T08:04:33.257Z"
  },
  "7wa68k": {
   "archivo": "fotos-notas/7wa68k.jpg",
@@ -76561,7 +76590,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "93b292da49cbdbdb"
+  "huella": "93b292da49cbdbdb",
+  "ausenteDesde": "2026-11-04T08:04:33.257Z"
  },
  "1y603ig": {
   "archivo": "fotos-notas/1y603ig.jpg",
@@ -76609,6 +76639,115 @@
    "corresponde": "si",
    "descripcion": "Persona cruzando una calle bajo la lluvia con paraguas."
   },
-  "huella": "0307434313111013"
+  "huella": "0307434313111013",
+  "ausenteDesde": "2026-11-04T08:04:33.257Z"
+ },
+ "14ycd92": {
+  "archivo": "fotos-notas/14ycd92.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos y Rosario Central definen el título de la Tabla Anual",
+  "enlace": "https://www.tycsports.com/boca-juniors/la-ventaja-que-tiene-boca-sobre-argentinos-y-rosario-central-para-ser-campeon-de-la-anual-id770086.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/09/994423/miguel-merentiel-boca_1440x810.webp?v=1",
+  "razon": "Es la única foto de acción o retrato deportivo que cumple con todos los requisitos: corresponde a la nota, no tiene marcas agregadas por el medio, no aparecen menores y su calidad de imagen es nítida.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Futbolista de Boca Juniors festejando con el pulgar arriba",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Boca Juniors haciendo el gesto de pulgar arriba en la cancha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "25b6b11b4e4d4f31"
+ },
+ "1k0qik2": {
+  "archivo": "fotos-notas/1k0qik2.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estados Unidos vota en unas legislativas clave para el futuro de Trump",
+  "enlace": "https://www.c5n.com/mundo/donald-trump-califico-las-elecciones-este-martes-como-las-mas-importantes-la-historia-eeuu-n253249",
+  "imagenOriginal": "https://media.c5n.com/p/890fd1c0c2a4dd99d987be19b77f7a3e/adjuntos/326/imagenes/000/405/0000405855/1200x675/smart/trump-cierre-campana-washington.jpg",
+  "razon": "Es la única foto que corresponde perfectamente a Donald Trump y muestra una escena política clara sin problemas de marcas, menores o gráficos.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Donald Trump hablando frente a un atril con el obelisco de Washington de fondo"
+  },
+  "huella": "0b098b0b057333b1"
+ },
+ "5yfwmh": {
+  "archivo": "fotos-notas/5yfwmh.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "José Luis Gioia recibe el alta tras sufrir un ACV isquémico en pleno rodaje",
+  "enlace": "https://www.minutouno.com/espectaculos/jose-luis-gioia-sufrio-un-acv-mientras-grababa-la-segunda-temporada-la-serie-menem-n6340732",
+  "imagenOriginal": "https://media.minutouno.com/p/083933a13c937731436961763c953f23/adjuntos/150/imagenes/043/743/0043743743/jose-luis-gioia.jpg",
+  "razon": "Es una foto clara, de excelente calidad, que muestra a José Luis Gioia sin marcas añadidas ni problemas.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de José Luis Gioia sonriendo con saco bordo y camisa blanca"
+  },
+  "huella": "0b3111716d4dcccc"
+ },
+ "icbv3a": {
+  "archivo": "fotos-notas/icbv3a.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES oficializa el aumento del 1,93 por ciento y el bono para jubilados",
+  "enlace": "https://www.ambito.com/informacion-general/anses-depositara-514158-noviembre-2026-quienes-les-corresponde-y-cuando-lo-cobran-n6340512",
+  "imagenOriginal": "https://media.ambito.com/p/faac4728345c7a9a80f16c16e30e2f00/adjuntos/239/imagenes/043/708/0043708567/1200x675/736x253:756x273/anses-2.png",
+  "razon": "La IA había preferido la de El Destape, pero no se puede usar (parece una foto de stock): se usa Ámbito en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-04T08:02:37.284Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada y entrada de una oficina de ANSES."
+  },
+  "huella": "5706190a42e2e3e3"
  }
 }
