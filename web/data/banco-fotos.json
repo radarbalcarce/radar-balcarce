@@ -41628,9 +41628,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "f51e8j": {
-  "archivo": "fotos-notas/f51e8j.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "Kicillof define el triunfo de Lula como una derrota para Milei",
@@ -41650,7 +41648,8 @@
    "descripcion": "Lula y Kicillof abrazados y sonriendo mirando a cámara."
   },
   "huella": "0939316960666664",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "intentado": true,
+  "borrada": true
  },
  "pl8yzi": {
   "medio": "Noticias Agropecuarias",
@@ -41711,9 +41710,7 @@
   "intentosPorCupo": 1
  },
  "1m9npby": {
-  "archivo": "fotos-notas/1m9npby.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Estiman un fuerte repunte de la demanda mundial de alimentos hacia 2035",
@@ -41733,7 +41730,8 @@
    "descripcion": "Vista aérea de una cosechadora y un tractor con tolva trabajando en un campo cultivado."
   },
   "huella": "8b36b974b2d7ed47",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "intentado": true,
+  "borrada": true
  },
  "1fyorld": {
   "intentado": true,
@@ -41918,9 +41916,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1d404ja": {
-  "archivo": "fotos-notas/1d404ja.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Caen las acciones y los bonos argentinos tras la victoria de Lula",
@@ -41940,7 +41936,8 @@
    "descripcion": "Operadores bursátiles trabajando en la bolsa de valores con pantallas de cotizaciones de fondo."
   },
   "huella": "69eb735b52495511",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "intentado": true,
+  "borrada": true
  },
  "tcea63": {
   "archivo": "fotos-notas/tcea63.jpg",
@@ -48655,9 +48652,7 @@
   "fuentes": 2
  },
  "70pmv4": {
-  "archivo": "fotos-notas/70pmv4.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto compite en el Gran Premio de México de Fórmula 1",
@@ -48677,7 +48672,8 @@
    "descripcion": "Auto de Fórmula 1 en los boxes durante el Gran Premio de México"
   },
   "huella": "0c2e3a4a144971f0",
-  "ausenteDesde": "2026-10-28T18:04:00.403Z"
+  "intentado": true,
+  "borrada": true
  },
  "arh9k1": {
   "archivo": "fotos-notas/arh9k1.jpg",
@@ -69678,7 +69674,8 @@
    "corresponde": "si",
    "descripcion": "Carli hablando en un estudio de radio"
   },
-  "huella": "1b3333336969d8b4"
+  "huella": "1b3333336969d8b4",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "plz9wk": {
   "intentado": true,
@@ -69824,11 +69821,12 @@
  "1tlgl2r": {
   "intentado": true,
   "origen": "ninguna",
-  "titulo": "Club Top Serrano gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
-  "razon": "Ambas fotos muestran menores reconocibles y Radar Balcarce no publica fotos de menores, por lo que ninguna puede ser elegida.",
-  "cuando": "2026-11-03T13:32:39.760Z",
-  "intentos": 3,
-  "fuentes": 3
+  "titulo": "Club Top Serrano de Balcarce gana cuatro títulos en la Liga Provincial de Tenis de Mesa",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 4,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "2mivab": {
   "intentado": true,
@@ -70647,9 +70645,9 @@
   "origen": "ninguna",
   "titulo": "El veterinario Carlos Gutiérrez explica cómo interpretar el lenguaje felino",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T10:31:50.880Z",
-  "intentos": 4,
-  "fuentes": 5,
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 5,
+  "fuentes": 6,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1wo5kz0": {
@@ -73249,10 +73247,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
-  "razon": "Ninguna de las fotos sirve: la A es una pieza gráfica (invitación) y la B incluye menores reconocibles en el público.",
-  "cuando": "2026-11-04T08:02:37.284Z",
-  "intentos": 2,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 3,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ycpj88": {
   "archivo": "fotos-notas/ycpj88.jpg",
@@ -74220,7 +74219,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de una torre de perforación en Vaca Muerta."
   },
-  "huella": "82859703169fc1cb"
+  "huella": "82859703169fc1cb",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "1nexhk": {
   "archivo": "fotos-notas/1nexhk.jpg",
@@ -74606,11 +74606,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Estudiantes y docentes convocan a una marcha de velas hacia Tribunales",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-04T15:06:55.518Z",
-  "intentos": 3,
-  "fuentes": 15,
-  "intentosPorCupo": 1
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 4,
+  "fuentes": 16,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "kvuifd": {
   "archivo": "fotos-notas/kvuifd.jpg",
@@ -75082,8 +75082,8 @@
   "origen": "ninguna",
   "titulo": "Lionel Messi define la elección del Balón de Oro al Joven Talento 2026",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T10:31:50.880Z",
-  "intentos": 2,
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 3,
   "fuentes": 4,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -75589,7 +75589,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de la investigadora al aire libre."
   },
-  "huella": "74c78625e5e4e4c4"
+  "huella": "74c78625e5e4e4c4",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "11vqr6m": {
   "archivo": "fotos-notas/11vqr6m.jpg",
@@ -75664,10 +75665,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Franco Colapinto se prepara para competir en el Gran Premio de Brasil",
-  "razon": "Ninguna de las fotos muestra a Franco Colapinto, sino a Jack Doohan con indumentaria de Alpine.",
-  "cuando": "2026-11-04T15:06:55.518Z",
-  "intentos": 3,
-  "fuentes": 5
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 4,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1e1s6dg": {
   "archivo": "fotos-notas/1e1s6dg.jpg",
@@ -76858,10 +76860,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gimnasia cobra un bono adicional a los socios por el Día del Club",
-  "razon": "Todas las fotos muestran menores de edad reconocibles o marcas de agua del medio.",
-  "cuando": "2026-11-04T09:02:37.765Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 2,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1en3vm4": {
   "archivo": "fotos-notas/1en3vm4.jpg",
@@ -77586,11 +77589,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Buscan voluntarios en Villa Meliquina con alojamiento incluido",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
-  "cuando": "2026-11-04T15:06:55.518Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 2
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1wj0hxj": {
   "archivo": "fotos-notas/1wj0hxj.jpg",
@@ -78182,10 +78185,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La AFA define los árbitros y los detalles para la definición del torneo",
-  "razon": "La única foto disponible es una imagen gráfica de diseño con tabla de posiciones y signos de interrogación.",
-  "cuando": "2026-11-04T14:37:29.507Z",
-  "intentos": 1,
-  "fuentes": 5
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 2,
+  "fuentes": 7,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1i27p6y": {
   "intentado": true,
@@ -78251,12 +78255,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Bancos pagan tasas de hasta el 24 por ciento en plazos fijos a 30 días",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T14:37:29.507Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-04T18:02:16.657Z",
+  "intentos": 2,
   "fuentes": 5,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "9tijad": {
   "intentado": true,
@@ -78880,7 +78883,8 @@
    "corresponde": "si",
    "descripcion": "Tractor en un campo embarrado bajo una tormenta con rayos"
   },
-  "huella": "efbf3fbd8c0d8746"
+  "huella": "efbf3fbd8c0d8746",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "1e8zio1": {
   "archivo": "fotos-notas/1e8zio1.jpg",
@@ -78987,7 +78991,8 @@
    "corresponde": "si",
    "descripcion": "Retrato formal de primer plano del protagonista con traje."
   },
-  "huella": "302c6c6e46266bc4"
+  "huella": "302c6c6e46266bc4",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "c5tscl": {
   "archivo": "fotos-notas/c5tscl.jpg",
@@ -79046,6 +79051,7 @@
    "corresponde": "si",
    "descripcion": "Virginia Aparicio hablando con un micrófono frente a un fondo del HCD Balcarce"
   },
-  "huella": "2c20332333e328f2"
+  "huella": "2c20332333e328f2",
+  "ausenteDesde": "2026-11-04T18:04:01.400Z"
  }
 }

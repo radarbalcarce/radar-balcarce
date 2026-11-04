@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T17:42:32.385Z",
- "portada": 175,
- "archivo": 500,
- "esperandoCuerpo": 7,
+ "generado": "2026-11-04T18:04:01.632Z",
+ "portada": 161,
+ "archivo": 496,
+ "esperandoCuerpo": 33,
  "redes": {
-  "generado": "2026-11-04T17:42:32.798Z",
+  "generado": "2026-11-04T18:04:03.113Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 54,
     "notas": [
@@ -123,9 +123,9 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
+      "id": "bhyj9r",
+      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -136,13 +136,8 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 48,
     "notas": [
-     {
-      "id": "bhyj9r",
-      "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
-      "seccion": "Deportes"
-     },
      {
       "id": "17vhzp2",
       "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
@@ -157,6 +152,11 @@
       "id": "f197cq",
       "titulo": "Ridao analiza una alianza electoral entre la UCR, el PRO y La Libertad Avanza",
       "seccion": "Política"
+     },
+     {
+      "id": "18o13hv",
+      "titulo": "Amigos Unidos organiza el encuentro Que ruede la redonda",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -183,21 +183,9 @@
      "marcada": false
     },
     {
-     "id": "uxr1he",
-     "titulo": "River pide a la AFA que el árbitro Nicolás Ramírez no lo dirija más",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "g22f55",
      "titulo": "Muere Daniel Bifulco, exintegrante de Los Jaimitos en Videomatch",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "12hvegr",
-     "titulo": "Kicillof presenta el operativo por la visita del papa León XIV a Luján",
-     "seccion": "Política",
      "marcada": false
     },
     {
@@ -210,6 +198,18 @@
      "id": "cvkrc1",
      "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "age0rp",
+     "titulo": "El papa León XIV pide oraciones antes de iniciar su gira por Sudamérica",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "12hvegr",
+     "titulo": "Kicillof presenta el operativo por la visita del papa León XIV a Luján",
+     "seccion": "Política",
      "marcada": false
     }
    ],
