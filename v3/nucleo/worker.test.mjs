@@ -324,8 +324,10 @@ test('el resumen arma el texto, llama a /decir con la contraseña y avisa las fu
   assert.equal(headers['x-radar-contrasena'], await contrasenaDelWebhook(TOKEN));
   const texto = cuerpo.textos.join('\n');
   assert.match(cuerpo.textos[0], /^Radar 3\.0 \(prueba\): hoy habría publicado \d+ notas/);
-  assert.match(texto, /· \[Balcarce\] .+ \(balcarce, \d+ medios?\)/);
-  assert.match(texto, /\(nacional-3, 3 medios, sin redactar\)/);
+  // Sólo números, sin la lista de notas (Hernán, 3/11).
+  assert.match(texto, /De Balcarce y la zona: \d+ · del país: \d+/);
+  assert.match(texto, /Por sección: .*Balcarce \d+/);
+  assert.doesNotMatch(texto, /^· \[/m);
   assert.match(texto, /Gasto estimado en Gemini: hoy US\$ \d+,\d\d \(\d+ pedidos\), en el mes US\$ \d+,\d\d/);
   assert.match(texto, /No salieron: .*extranjero-sin-argentino 1/);
   assert.match(texto, /Fuentes que fallan hace 3 días o más: Medio Caído/);

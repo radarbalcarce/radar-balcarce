@@ -493,9 +493,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const lineas = [publicando
       ? `Radar 3.0: hoy publicó ${cuantas} ${cuantas === 1 ? 'nota' : 'notas'}`
       : `Radar 3.0 (prueba): hoy habría publicado ${cuantas} ${cuantas === 1 ? 'nota' : 'notas'}`];
-    for (const i of salen) {
-      lineas.push(`· [${i.seccion || 'sin sección'}] ${i.titulo || '(sin título)'} (${i.motivo || 'sin motivo'}, ${i.medios} ${i.medios === 1 ? 'medio' : 'medios'}${i.conNota ? '' : ', sin redactar'})`);
-    }
+    // Sólo números, nunca la lista de notas (Hernán, 3/11: «el bot no me tiene que pasar todas las noticias, sólo estadísticas»).
+    const contar = (clave) => Object.entries(salen.reduce((m, i) => { const k = clave(i); m[k] = (m[k] || 0) + 1; return m; }, {})).sort((x, y) => y[1] - x[1]);
+    const deAca = salen.filter((i) => i.motivo === 'balcarce' || i.motivo === 'zona').length;
+    lineas.push(`De Balcarce y la zona: ${deAca} · del país: ${salen.length - deAca}`);
+    lineas.push(`Por sección: ${contar((i) => i.seccion || 'sin sección').map(([s, n]) => `${s} ${n}`).join(', ') || 'ninguna'}`);
+    const sinRedactar = salen.filter((i) => !i.conNota).length;
+    if (sinRedactar) lineas.push(`Elegidas sin redactar todavía: ${sinRedactar}`);
     const pedidosHoy = usoHoy.reduce((s, f) => s + f.pedidos, 0);
     const gastoHoy = costoEstimado({
       tokensEntrada: usoHoy.reduce((s, f) => s + f.tokens_entrada, 0),
