@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T15:44:01.394Z",
- "portada": 160,
+ "generado": "2026-11-04T16:12:29.694Z",
+ "portada": 163,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-04T15:44:02.362Z",
+  "generado": "2026-11-04T16:12:30.177Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu reclamo",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,9 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 49,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
     "notas": [
      {
       "id": "1a8mq4a",
@@ -120,13 +130,13 @@
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 54,
     "notas": [
      {
       "id": "9tijad",
@@ -134,8 +144,8 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1uffaqq",
-      "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
       "seccion": "Cultura y agenda"
      },
      {
@@ -147,37 +157,6 @@
       "id": "1l573lx",
       "titulo": "Avanza la causa por la muerte de Claribel Medina",
       "seccion": "Policiales"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "5gbgao",
-      "titulo": "Vecinos reclaman limpieza de pastizales en calles 47 y 24",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "qen8gi",
-      "titulo": "Adhesión dispar en la Facultad de Ciencias Agrarias por el paro de FATUN",
-      "seccion": "Educación"
-     },
-     {
-      "id": "uv66oi",
-      "titulo": "Mirian Casco gana el Premio Nacional L’Oréal-UNESCO 2026",
-      "seccion": "Ciencia"
      }
     ]
    }
@@ -204,21 +183,9 @@
      "marcada": false
     },
     {
-     "id": "1uffaqq",
-     "titulo": "Rotary Club Balcarce Cerrito organiza un asado de bienvenida",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "17vhzp2",
      "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "cvkrc1",
-     "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
-     "seccion": "Argentina",
      "marcada": false
     },
     {
@@ -230,6 +197,18 @@
     {
      "id": "hho8o4",
      "titulo": "Cristina Kirchner celebra la derrota de Trump con un mensaje en red social",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "12hvegr",
+     "titulo": "Kicillof presenta el operativo por la visita del papa León XIV a Luján",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "12i9q6f",
+     "titulo": "El Gobierno autoriza el derribo de aeronaves hostiles por la visita del papa León XIV",
      "seccion": "Política",
      "marcada": false
     }
