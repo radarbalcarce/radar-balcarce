@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-03T23:34:00.083Z",
- "portada": 211,
+ "generado": "2026-11-04T00:04:40.220Z",
+ "portada": 204,
  "archivo": 500,
- "esperandoCuerpo": 3,
+ "esperandoCuerpo": 2,
  "redes": {
-  "generado": "2026-11-03T23:34:00.589Z",
+  "generado": "2026-11-04T00:04:40.571Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -134,15 +134,10 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 52,
     "notas": [
-     {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
-     },
      {
       "id": "bhyj9r",
       "titulo": "Cuatro equipos de Social Pato clasifican a las finales del Interclubes",
@@ -154,9 +149,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "m3nbc3",
-      "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
+      "id": "atpuq1",
+      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "13pnh44",
+      "titulo": "La Técnica N° 1 competirá con dos autos en el Desafío Eco de Junín",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -176,18 +176,6 @@
    ],
    "cola": [
     {
-     "id": "ud9uv9",
-     "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "17vsjrz",
-     "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
      "id": "tne9sk",
      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
      "seccion": "Cultura y agenda",
@@ -206,9 +194,9 @@
      "marcada": false
     },
     {
-     "id": "pygu17",
-     "titulo": "Melisa Grave representa a Balcarce como voluntaria en la visita papal",
-     "seccion": "Balcarce",
+     "id": "ud9uv9",
+     "titulo": "Scaloni presenta la primera lista de la Selección sin Messi con sorpresas",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -218,8 +206,20 @@
      "marcada": false
     },
     {
+     "id": "50dygc",
+     "titulo": "Alexis Mac Allister desmiente rumores sobre la final del Mundial 2026",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
      "id": "1g9f3pp",
      "titulo": "El Gobierno nacional implementa cambios en el transporte por la visita papal",
+     "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "1sxqovu",
+     "titulo": "Artistas repudian el ataque a mujeres trans en los lagos de Palermo",
      "seccion": "Argentina",
      "marcada": false
     }
