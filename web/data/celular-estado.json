@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T19:09:06.357Z",
- "portada": 175,
+ "generado": "2026-11-04T20:36:40.513Z",
+ "portada": 172,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 10,
  "redes": {
-  "generado": "2026-11-04T19:09:06.682Z",
+  "generado": "2026-11-04T20:36:40.930Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,7 +105,7 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 51,
     "notas": [
      {
       "id": "1a8mq4a",
@@ -113,19 +113,19 @@
       "seccion": "Agro"
      },
      {
-      "id": "1hnsyf",
-      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
+      "id": "100bnjr",
+      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
       "seccion": "Deportes"
-     },
-     {
-      "id": "ywp9x3",
-      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-      "seccion": "Salud"
      },
      {
       "id": "c3bdgi",
       "titulo": "La Libertad Avanza presentará candidato propio a intendente",
       "seccion": "Política"
+     },
+     {
+      "id": "19fvza4",
+      "titulo": "La Escuela Técnica 1 organiza la muestra EduTecno para fines de noviembre",
+      "seccion": "Educación"
      }
     ]
    },
@@ -136,17 +136,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
-      "id": "100bnjr",
-      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
+      "id": "1hnsyf",
+      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
       "seccion": "Deportes"
      },
      {
-      "id": "19fvza4",
-      "titulo": "La Escuela Técnica 1 organiza la muestra EduTecno para fines de noviembre",
-      "seccion": "Educación"
+      "id": "ywp9x3",
+      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+      "seccion": "Salud"
      },
      {
       "id": "1y43ge4",
@@ -165,32 +165,14 @@
    "hoy": [],
    "cola": [
     {
-     "id": "1hnsyf",
-     "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "ywp9x3",
-     "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-     "seccion": "Salud",
-     "marcada": false
-    },
-    {
      "id": "100bnjr",
      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
      "seccion": "Deportes",
      "marcada": false
     },
     {
-     "id": "m4e9zn",
-     "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "1pm4shu",
-     "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+     "id": "1hnsyf",
+     "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
      "seccion": "Deportes",
      "marcada": false
     },
@@ -210,6 +192,24 @@
      "id": "108600q",
      "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
      "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "ywp9x3",
+     "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+     "seccion": "Salud",
+     "marcada": false
+    },
+    {
+     "id": "m4e9zn",
+     "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1pm4shu",
+     "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+     "seccion": "Deportes",
      "marcada": false
     }
    ],
