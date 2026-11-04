@@ -70525,7 +70525,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV de pie, sonriendo, con un encuadre medio que muestra su vestimenta y parte del entorno."
   },
-  "huella": "276765430707470f"
+  "huella": "276765430707470f",
+  "ausenteDesde": "2026-11-04T22:35:30.063Z"
  },
  "vrkmep": {
   "archivo": "fotos-notas/vrkmep.jpg",
@@ -70917,7 +70918,8 @@
    "corresponde": "si",
    "descripcion": "Mano de una persona utilizando la aplicación Cuenta DNI en un teléfono móvil."
   },
-  "huella": "161a39bf96dfcbe7"
+  "huella": "161a39bf96dfcbe7",
+  "ausenteDesde": "2026-11-04T22:35:30.063Z"
  },
  "1kzdzz1": {
   "archivo": "fotos-notas/1kzdzz1.jpg",
@@ -74171,7 +74173,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1313113170797131"
+  "huella": "1313113170797131",
+  "ausenteDesde": "2026-11-04T22:35:30.063Z"
  },
  "13shw9c": {
   "archivo": "fotos-notas/13shw9c.jpg",
@@ -74660,8 +74663,7 @@
    "corresponde": "si",
    "descripcion": "Javier Milei saludando a Santiago Abascal en un evento."
   },
-  "huella": "3d3d1c27aeae0e16",
-  "ausenteDesde": "2026-11-03T22:08:52.477Z"
+  "huella": "3d3d1c27aeae0e16"
  },
  "1dq7pxg": {
   "archivo": "fotos-notas/1dq7pxg.jpg",
@@ -79072,15 +79074,40 @@
   "intentosPorCupo": 2
  },
  "108600q": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/108600q.jpg",
+  "medio": "Motorsport",
+  "credito": "Foto: Motorsport",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Colapinto estrena indumentaria especial en el Gran Premio de Brasil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T18:42:50.476Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://es.motorsport.com/f1/news/colapinto-gasly-monos-amarillos-brasil/10871525/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=es",
+  "imagenOriginal": "https://cdn-8.motorsport.com/images/amp/2Qedljv2/s6/franco-colapinto-alpine-2.jpg",
+  "razon": "Es la imagen con mejor encuadre, nitidez y sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-11-04T22:33:21.282Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto posando con su indumentaria especial frente a neumáticos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto de pie con el mono de carreras de Alpine BWT frente a una pared de neumáticos."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "e06acecc4c0ece8c"
  },
  "15wu1hm": {
   "archivo": "fotos-notas/15wu1hm.jpg",
@@ -79192,19 +79219,23 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
-  "razon": "La única foto disponible muestra a un grupo de jugadoras que, por su apariencia, son menores de edad, lo cual incumple la política de publicación del medio.",
-  "cuando": "2026-11-04T19:07:38.864Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-11-04T22:33:21.282Z",
   "intentos": 1,
-  "fuentes": 1
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "The operation was aborted due to timeout"
  },
  "1hnsyf": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-  "razon": "La única foto disponible muestra a un menor de edad en brazos de uno de los ciclistas en el podio, lo cual incumple la política de publicación de Radar Balcarce.",
-  "cuando": "2026-11-04T19:07:38.864Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T22:33:21.282Z",
   "intentos": 1,
-  "fuentes": 1
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1pm4shu": {
   "archivo": "fotos-notas/1pm4shu.jpg",
@@ -79802,7 +79833,8 @@
    "corresponde": "si",
    "descripcion": "Preparativos de escenario y cortes de tránsito en una avenida."
   },
-  "huella": "8e8de9ae4a6398c9"
+  "huella": "8e8de9ae4a6398c9",
+  "ausenteDesde": "2026-11-04T22:35:30.063Z"
  },
  "b6pjp9": {
   "archivo": "fotos-notas/b6pjp9.jpg",
@@ -79918,5 +79950,62 @@
    "descripcion": "Ala delta volando sobre una zona costera con montañas."
   },
   "huella": "1f0f0f8b370f8302"
+ },
+ "1xejl5p": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Una vecina de Balcarce colabora en la organización de la visita del Papa",
+  "razon": "La foto de El Diario Balcarce ya se usó o se sacó (ya ilustra \"Melisa Grave representa a Balcarce como voluntaria en la visita papal\", que es de otro tema) y no hay otra para comparar.",
+  "cuando": "2026-11-04T22:33:21.282Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "igfg75": {
+  "archivo": "fotos-notas/igfg75.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Renuncia una exministra a Argentinos por la Educación tras reunión con Milei",
+  "enlace": "https://www.clarin.com/politica/reunion-milei-renuncio-integrante-comite-argentinos-educacion-insalvable-discrepancia-etica-politica_0_1DKdWxskCH.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/04/cbtuu5Lo3_2000x1500__1.jpg",
+  "razon": "Es la única imagen disponible, tiene buena calidad, nitidez y corresponde al contexto de la nota sin presentar marcas de agua, menores ni elementos gráficos.",
+  "cuando": "2026-11-04T22:33:21.282Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de la exministra Soledad Acuña hablando en un evento con fondo azul."
+  },
+  "huella": "09133030346c6c6e"
+ },
+ "18ifcuy": {
+  "archivo": "fotos-notas/18ifcuy.jpg",
+  "medio": "Campeones",
+  "credito": "Foto: Campeones",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El TC2000 regresa al autódromo de Olavarría tras dos décadas de ausencia",
+  "enlace": "https://campeones.com.ar/el-tc2000-vuelve-a-olavarria-tras-20-anos/",
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/11/IMG_0406.png",
+  "razon": "Ambas fotos son idénticas, pero la opción A es la primera disponible y cumple con todos los criterios de calidad y pertinencia sin marcas ni elementos no deseados.",
+  "cuando": "2026-11-04T22:33:21.282Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea del autódromo de Olavarría con público en los alrededores."
+  },
+  "huella": "1c2400956d0ca030"
  }
 }

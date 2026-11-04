@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-04T22:08:26.839Z",
- "portada": 195,
+ "generado": "2026-11-04T22:35:30.164Z",
+ "portada": 188,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 10,
  "redes": {
-  "generado": "2026-11-04T22:08:27.305Z",
+  "generado": "2026-11-04T22:35:30.622Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -123,6 +123,11 @@
       "seccion": "Agro"
      },
      {
+      "id": "uvwp3s",
+      "titulo": "Un incendio en un departamento de calles 21 y 12 causa daños totales",
+      "seccion": "Policiales"
+     },
+     {
       "id": "1hnsyf",
       "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
       "seccion": "Deportes"
@@ -131,11 +136,6 @@
       "id": "ywp9x3",
       "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
       "seccion": "Salud"
-     },
-     {
-      "id": "hbt308",
-      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
-      "seccion": "Policiales"
      }
     ]
    }
@@ -143,6 +143,12 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "uvwp3s",
+     "titulo": "Un incendio en un departamento de calles 21 y 12 causa daños totales",
+     "seccion": "Policiales",
+     "marcada": false
+    },
     {
      "id": "1hnsyf",
      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
@@ -168,6 +174,12 @@
      "marcada": false
     },
     {
+     "id": "74b2wn",
+     "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
+     "seccion": "Policiales",
+     "marcada": false
+    },
+    {
      "id": "100bnjr",
      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
      "seccion": "Deportes",
@@ -177,18 +189,6 @@
      "id": "m4e9zn",
      "titulo": "Campo de Pato gana por penales y avanza en el torneo de hockey",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "hbt308",
-     "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
-     "seccion": "Policiales",
-     "marcada": false
-    },
-    {
-     "id": "1y43ge4",
-     "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],
