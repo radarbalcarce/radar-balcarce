@@ -68351,7 +68351,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1f1e1e2ecebaf5ae"
+  "huella": "1f1e1e2ecebaf5ae",
+  "ausenteDesde": "2026-11-04T13:36:33.697Z"
  },
  "16zzpr8": {
   "archivo": "fotos-notas/16zzpr8.jpg",
@@ -69080,7 +69081,8 @@
    "corresponde": "si",
    "descripcion": "Torre de YPF y bandera ondeando de día"
   },
-  "huella": "1b1c1e19191d1d19"
+  "huella": "1b1c1e19191d1d19",
+  "ausenteDesde": "2026-11-04T13:36:33.697Z"
  },
  "13inwuj": {
   "archivo": "fotos-notas/13inwuj.jpg",
@@ -69533,7 +69535,8 @@
    "corresponde": "si",
    "descripcion": "Laura Bondar y Franco Coria actuando en el escenario del Pre Cosquín"
   },
-  "huella": "2323233b4dc9486e"
+  "huella": "2323233b4dc9486e",
+  "ausenteDesde": "2026-11-04T13:36:33.697Z"
  },
  "1u2bbai": {
   "archivo": "fotos-notas/fuxzeq.jpg",
@@ -74081,7 +74084,8 @@
    "corresponde": "si",
    "descripcion": "Fachada de una oficina de ANSES con una persona caminando frente a la entrada."
   },
-  "huella": "4fcd86694d4dc9c8"
+  "huella": "4fcd86694d4dc9c8",
+  "ausenteDesde": "2026-11-04T13:36:33.697Z"
  },
  "15uyad": {
   "archivo": "fotos-notas/15uyad.jpg",
@@ -74138,7 +74142,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de fútbol con la camiseta del Atlético de Madrid."
   },
-  "huella": "86a627678b8d8b8a"
+  "huella": "86a627678b8d8b8a",
+  "ausenteDesde": "2026-11-04T13:36:33.697Z"
  },
  "1yffqlm": {
   "archivo": "fotos-notas/1yffqlm.webp",
@@ -76927,10 +76932,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Liga Profesional organizará una conferencia conjunta con Boca, Argentinos y Central",
-  "razon": "La mejor foto era la de Noticias Argentinas (NA), pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-04T11:02:47.842Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "La mejor foto era la de La Verdad, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "intentos": 2,
+  "fuentes": 10
  },
  "13x2srq": {
   "archivo": "fotos-notas/13x2srq.jpg",
@@ -77119,15 +77124,28 @@
   "ausenteDesde": "2026-11-04T13:12:50.502Z"
  },
  "1u8n6i5": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1u8n6i5.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Atlético Mineiro alista un equipo alternativo ante una racha negativa",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T11:32:35.025Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.tycsports.com/futbol-de-brasil/la-fuerte-decision-de-eduardo-dominguez-en-atletico-mineiro-a-17-dias-de-la-final-con-boca-id770261.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/21/998214/eduardo-dominguez-atletico-mineiro_1440x810.webp",
+  "razon": "La foto B muestra al director técnico dando indicaciones en un estadio con tribunas vacías, cumpliendo perfectamente con el contexto del equipo alternativo y sin marcas de agua ni menores.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico gesticulando en un estadio con plateas celestes de fondo"
+  },
+  "huella": "6637ad33307376f1"
  },
  "caexvo": {
   "archivo": "fotos-notas/caexvo.jpg",
@@ -77661,5 +77679,165 @@
   "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "The operation was aborted due to timeout"
+ },
+ "7v5wvs": {
+  "archivo": "fotos-notas/7v5wvs.jpg",
+  "medio": "Agrositio",
+  "credito": "Foto: Agrositio",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Advierten sobre el ingreso de delegados sindicales a los establecimientos rurales",
+  "enlace": "https://www.agrositio.com.ar/noticia/249188-cra-advierte-a-los-productores-agropecuarios-sobre-el-acuerdo-uatre-visec.html",
+  "imagenOriginal": "https://www.agrositio.com.ar/imagenesweb/contenidos/og_249188_40792529.jpg",
+  "razon": "Es la única foto disponible y cumple con todos los requisitos para ilustrar la nota sobre establecimientos rurales.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Entrada de un establecimiento rural con un tranquera de madera"
+  },
+  "huella": "05df75d6caf5f539"
+ },
+ "nzkwug": {
+  "archivo": "fotos-notas/nzkwug.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los Pumas confirman el equipo con cuatro tucumanos titulares ante Irlanda",
+  "enlace": "https://www.elmarplatense.com/los-pumas-tienen-formacion-confirmada-para-enfrentar-a-irlanda-en-dublin",
+  "imagenOriginal": "https://n2.cdnartic.ar/qA3u30V11d3zmmYbaJA557s7oEc=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/11/a_5.webp",
+  "razon": "Muestra a los jugadores de Los Pumas en entrenamiento con buen encuadre y nitidez, sin marcas de agua ni menores.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Los Pumas entrenando juntos en la cancha"
+  },
+  "huella": "141f1c1129a9a9c9"
+ },
+ "1vu7yl": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River confirma la continuidad de Leonardo Ponzio hasta el final del Torneo Clausura",
+  "razon": "Ninguna de las fotos corresponde al hecho de la nota, ya que las tres muestran a Eduardo Domínguez (u otro director técnico/contexto) y no a Leonardo Ponzio, además de haber duplicados.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "pznbp3": {
+  "archivo": "fotos-notas/pznbp3.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Senado debate este miércoles la nueva ley de Discapacidad",
+  "enlace": "https://tn.com.ar/politica/2026/11/04/el-senado-acelera-el-debate-por-la-ley-de-discapacidad-y-el-oficialismo-busca-conseguir-el-dictamen-antes-de-la-llegada-del-papa/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/plenario-de-las-comisiones-de-presupuesto-y-hacienda-y-de-poblacion-y-desarrollo-humano-del-senado-trataran-la-nueva-ley-de-discapacidad-foto-gabriel-cano-comunicacion-senado-PLVBPVELP5G5JOU6ZJ3NE5MFTA.jpg?auth=a41880c30e730f493871c7c44c0fd0f92218aad6cc4296694b95c41027bb3f2e&width=1023",
+  "razon": "Muestra claramente el debate en el Senado, tiene buena nitidez y no presenta marcas de agua, menores ni problemas de formato.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Senadores en una reunión de comisión en el Congreso"
+  },
+  "huella": "9b51531d5796a707"
+ },
+ "n4p36q": {
+  "archivo": "fotos-notas/n4p36q.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Comienzan las elecciones estudiantiles en las 17 facultades de la UNLP",
+  "enlace": "https://www.eldia.com/la-ciudad/arrancan-las-elecciones-estudiantiles-en-la-unlp-la-ciudad_1793750235",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793795961624.jpeg?&cw=1200&ch=630",
+  "razon": "Muestra claramente el ambiente de las elecciones estudiantiles en una facultad con mesas y cartelería, sin marcas de agua ni menores reconocibles.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Hall de facultad colmado de cartelería política y mesas de votación estudiantil",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Estudiantes en un pasillo de facultad con mesas de votación y carteles de listas estudiantiles."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9a86ec2d93a9499a"
+ },
+ "6ww41r": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Investigan una agresión grupal contra mujeres trans en los Bosques de Palermo",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "intentos": 1,
+  "fuentes": 15,
+  "intentosPorCupo": 1
+ },
+ "16viegg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Lanzan el nuevo sabor de helado Maní Split para la Noche de las Heladerías",
+  "razon": "La mejor foto era la de Canal 26, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1v0kfcs": {
+  "archivo": "fotos-notas/1v0kfcs.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pampa Energía invierte u$s2.700 millones para construir una planta de fertilizantes",
+  "enlace": "https://www.iprofesional.com/energia/468229-pampa-energia-inicia-la-construccion-de-su-planta-de-fertilizantes-por-us2-700-millones",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/11/629044_landscape.jpg",
+  "razon": "Muestra una planta de Pampa Energía con buen encuadre y sin marcas ni personas.",
+  "cuando": "2026-11-04T13:34:40.571Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Planta industrial de Pampa Energía"
+  },
+  "huella": "041223a3c30d1d79"
  }
 }
