@@ -69025,7 +69025,8 @@
    "corresponde": "si",
    "descripcion": "Dos deportistas sosteniendo camisetas de básquet firmadas."
   },
-  "huella": "181292c331179292"
+  "huella": "181292c331179292",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "1jcaj7v": {
   "archivo": "fotos-notas/1jcaj7v.jpg",
@@ -69183,7 +69184,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "3c12163071716564"
+  "huella": "3c12163071716564",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "s89cfv": {
   "intentado": true,
@@ -70000,7 +70002,8 @@
    "corresponde": "si",
    "descripcion": "Paisaje de costa argentina con mar y arena"
   },
-  "huella": "0703070303030507"
+  "huella": "0703070303030507",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "17v3n8i": {
   "archivo": "fotos-notas/17v3n8i.jpg",
@@ -70202,7 +70205,8 @@
    "corresponde": "si",
    "descripcion": "Varios autos nacionales exhibidos en un concesionario."
   },
-  "huella": "53c7b5a5d7ede8e4"
+  "huella": "53c7b5a5d7ede8e4",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "n3hvrz": {
   "archivo": "fotos-notas/n3hvrz.jpg",
@@ -71383,7 +71387,8 @@
    "corresponde": "si",
    "descripcion": "Un costillar de asado sobre una tabla de madera con un fogón de fondo."
   },
-  "huella": "2f4b63d9e4faff39"
+  "huella": "2f4b63d9e4faff39",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "futboltablaliga20261030": {
   "intentado": true,
@@ -75324,10 +75329,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
-  "razon": "La unica foto disponible muestra menores de edad reconoscibles, por lo que no se puede publicar segun las politicas del medio.",
-  "cuando": "2026-11-04T09:02:37.765Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T14:37:29.507Z",
   "intentos": 2,
-  "fuentes": 2
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1hm4t97": {
   "archivo": "fotos-notas/1hm4t97.jpg",
@@ -77878,11 +77885,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Investigan una agresión grupal contra mujeres trans en los Bosques de Palermo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
-  "cuando": "2026-11-04T13:34:40.571Z",
-  "intentos": 1,
-  "fuentes": 15,
-  "intentosPorCupo": 1
+  "razon": "Ninguna de las fotos cumple con los requisitos: las fotos A, B y C corresponden a un político (Jorge Macri) y no a la nota; las fotos D y E tienen marcas de agua de medios; y las fotos F y G son capturas múltiples de baja calidad o no muestran claramente el hecho de forma adecuada.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "intentos": 2,
+  "fuentes": 15
  },
  "16viegg": {
   "intentado": true,
@@ -77963,7 +77969,8 @@
    "corresponde": "si",
    "descripcion": "El equipo de River Plate posando para la formación inicial"
   },
-  "huella": "4946a4a6445ab015"
+  "huella": "4946a4a6445ab015",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "g3d68h": {
   "archivo": "fotos-notas/g3d68h.jpg",
@@ -78047,7 +78054,8 @@
    "corresponde": "si",
    "descripcion": "Vista exterior del Capitolio de los Estados Unidos"
   },
-  "huella": "000908193919190f"
+  "huella": "000908193919190f",
+  "ausenteDesde": "2026-11-04T14:41:19.068Z"
  },
  "13b73og": {
   "archivo": "fotos-notas/13b73og.jpg",
@@ -78072,5 +78080,155 @@
    "descripcion": "Mano apoyando un DNI argentino en el lector de un molinete de subte"
   },
   "huella": "333a75757b7d3d3e"
+ },
+ "hho8o4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Cristina Kirchner celebra la derrota de Trump con un mensaje en red social",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "160ugu9": {
+  "archivo": "fotos-notas/160ugu9.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La ANSES otorga un aumento del 1,93 por ciento y un bono de hasta 70.000 pesos",
+  "enlace": "https://www.eldestapeweb.com/economia/quienes-jubilados-anses-cobran-bono-70-000-noviembre-2026-2026113104835",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793707633992.jpg?&cw=1600&ch=900",
+  "razon": "Es la única foto válida que ilustra claramente el tema de jubilaciones y aumentos con una pareja de adultos mayores contando dinero, sin marcas de agua de medios ni problemas de stock o gráficos.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pareja de adultos mayores contando billetes en un parque"
+  },
+  "huella": "93c343c9809b9182"
+ },
+ "jww27y": {
+  "archivo": "fotos-notas/jww27y.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aldosivi recibe a River y Gimnasia a Belgrano por el Clausura",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/river-vs-aldosivi-por-el-torneo-clausura-2026-dia-horario-tv-y-como-ver-online-nid03112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/en-el-ultimo-partido-entre-river-y-aldosivi-por-SVBDSDUWYNC5LCIJXB76S47YXI.JPG?auth=7a270a64fb3f6c845a10ca57f24975df985be599d6b619b54ef030cb8746b778&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto fotográfica real que corresponde al partido entre Aldosivi y River, sin marcas agregadas ni gráficos.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Aldosivi y River disputando el balón en un partido nocturno",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de River Plate y Gimnasia y Esgrima La Plata disputando el balón en una cancha de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4f174b494342190f"
+ },
+ "jv6v7i": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La AFA define los árbitros y los detalles para la definición del torneo",
+  "razon": "La única foto disponible es una imagen gráfica de diseño con tabla de posiciones y signos de interrogación.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "intentos": 1,
+  "fuentes": 5
+ },
+ "1i27p6y": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Matías Soulé anota un gol para Roma en la caída ante Manchester United",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1iz2zry": {
+  "archivo": "fotos-notas/1iz2zry.jpg",
+  "medio": "iProfesional",
+  "credito": "Foto: iProfesional",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país supera los 800 puntos y el dólar sube a $1.570",
+  "enlace": "https://www.iprofesional.com/finanzas/468206-bonos-argentinos-caen-y-el-riesgo-pais-se-mantiene-en-804-puntos",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/assets.iprofesional.com/assets/jpg/2026/07/621853_landscape.jpg",
+  "razon": "La foto B muestra una escena bursátil real y clara que ilustra bien la nota económica, sin marcas agregadas.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores trabajando en la bolsa de valores"
+  },
+  "huella": "99dcad4be14b36b6"
+ },
+ "1nhee3k": {
+  "archivo": "fotos-notas/1nhee3k.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estados Unidos realiza las elecciones de mitad de mandato",
+  "enlace": "https://www.lanacion.com.ar/estados-unidos/a-que-hora-se-conocen-los-resultados-de-las-elecciones-en-estados-unidos-hoy-nid03112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-candidato-democrata-al-congreso-por-california-AT5HVLDWTFBURPKFLNM2IV3OHU.JPG?auth=d7dfb96c2a50e4ae7f7d4ba9d2108163946ca67f4b87c3aaab9b32c70f1c908f&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es una fotografía clara y representativa del proceso electoral con ciudadanos votando en las urnas sin personas menores reconocibles.",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas votando en cabinas con la leyenda I Voted"
+  },
+  "huella": "37158da787e7cdcd"
+ },
+ "zw8lpi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Bancos pagan tasas de hasta el 24 por ciento en plazos fijos a 30 días",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-04T14:37:29.507Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }

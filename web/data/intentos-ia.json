@@ -1097,6 +1097,13 @@
   "textos": 5,
   "numeradas": 8
  },
+ "160ugu9": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5
+ },
  "162lj09": {
   "intentos": 1,
   "ultimo": "2026-11-03T01:31:28.953Z",
@@ -1140,13 +1147,6 @@
   ],
   "baja": true,
   "fuentes": 1
- },
- "166k37n": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "166m1lj": {
   "intentos": 1,
@@ -3340,6 +3340,16 @@
   "textos": 2,
   "numeradas": 2
  },
+ "1i27p6y": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 5,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"inglaterra\" "
+  ]
+ },
  "1i2ew4g": {
   "intentos": 1,
   "ultimo": "2026-10-30T01:32:07.608Z",
@@ -3516,6 +3526,13 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título nombra a \"primera\", \"division\""
   ]
+ },
+ "1iz2zry": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 8
  },
  "1iz9m04": {
   "intentos": 1,
@@ -4407,19 +4424,6 @@
    "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de re"
   ]
  },
- "1mqndzx": {
-  "intentos": 3,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "Gemini: Expected ',' or ']' after array element in JSON at position 81",
-   "cuerpo: 1 problema (promesa): el título dice 75 y el cuerpo no lo expl",
-   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 30 y la fuente n",
-   "cuerpo: 1 problema (promesa): el título dice 75 y el cuerpo no lo expl"
-  ]
- },
  "1muatd7": {
   "intentos": 1,
   "ultimo": "2026-10-28T22:31:56.359Z",
@@ -4560,6 +4564,13 @@
    "cuerpo: 3 problemas (promesa): el título dice 1 y el cuerpo no lo expl",
    "título o bajada: 1 problema (forma): el copete trae letras rotas (letr"
   ]
+ },
+ "1nhee3k": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 19
  },
  "1nk1y8y": {
   "intentos": 1,
@@ -7885,13 +7896,6 @@
   "textos": 3,
   "numeradas": 5
  },
- "79n3bx": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "7g88kz": {
   "intentos": 1,
   "ultimo": "2026-11-03T22:02:16.979Z",
@@ -8944,6 +8948,20 @@
   "textos": 7,
   "numeradas": 21
  },
+ "cvkrc1": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"castro\", \"roma\" y el cuerpo no los explica; sin esas oraciones quedan 193 palabras",
+  "textos": 6,
+  "numeradas": 6,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"castro\", \"roma\" y el"
+  ],
+  "falla": [
+   "el título nombra a \"castro\", \"roma\" y el cuerpo no los explica"
+  ]
+ },
  "cvoeyu": {
   "intentos": 2,
   "ultimo": "2026-10-30T16:06:01.079Z",
@@ -9231,13 +9249,6 @@
   "motivos": [
    "cuerpo: 2 problemas (cita): el cuerpo pone entre comillas algo que la "
   ]
- },
- "e2zs9v": {
-  "intentos": 2,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
  },
  "e3lp2q": {
   "intentos": 1,
@@ -9966,16 +9977,6 @@
   "baja": true,
   "fuentes": 1
  },
- "h8jxu4": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2,
-  "motivos": [
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
- },
  "h8r1d8": {
   "intentos": 1,
   "ultimo": "2026-11-02T00:02:00.721Z",
@@ -10029,17 +10030,14 @@
   "numeradas": 3
  },
  "hho8o4": {
-  "intentos": 1,
-  "ultimo": "2026-11-04T14:03:15.186Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"ee\", \"uu\" y el cuerpo no los explica; sin esas oraciones quedan 213 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
   "textos": 5,
-  "numeradas": 9,
+  "numeradas": 10,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 99 caracteres, el",
    "cuerpo: 1 problema (promesa): el título nombra a \"ee\", \"uu\" y el cuerp"
-  ],
-  "falla": [
-   "el título nombra a \"ee\", \"uu\" y el cuerpo no los explica"
   ]
  },
  "hjwjy8": {
@@ -10412,6 +10410,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "jv6v7i": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 5
+ },
  "jv7jrk": {
   "intentos": 3,
   "ultimo": "2026-11-03T05:01:45.045Z",
@@ -10430,6 +10435,13 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 9
+ },
+ "jww27y": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 7
  },
  "k0cb5m": {
   "intentos": 1,
@@ -11298,13 +11310,6 @@
   "motivo": "con cuerpo",
   "textos": 5,
   "numeradas": 5
- },
- "o4b1ca": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 6
  },
  "o53hxl": {
   "intentos": 1,
@@ -13342,29 +13347,19 @@
    "cuerpo: 3 problemas (nombre, relleno, repite): el cuerpo nombra a \"dir"
   ]
  },
- "ysp6oo": {
-  "intentos": 1,
-  "ultimo": "2026-10-28T14:33:06.435Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1,
-  "motivos": [
-   "cuerpo: 1 problema (copia): copia 15 palabras seguidas del original: d"
-  ]
- },
  "yt1451": {
-  "intentos": 1,
-  "ultimo": "2026-11-04T14:03:15.186Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título dice 5 y el cuerpo no lo explica; sin esas oraciones quedan 217 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "verificación baja: espera a una persona",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 1 problema (copia): copia 18 palabras seguidas del or",
-   "cuerpo: 1 problema (promesa): el título dice 5 y el cuerpo no lo expli"
+   "cuerpo: 1 problema (promesa): el título dice 5 y el cuerpo no lo expli",
+   "verificación baja: espera a una persona"
   ],
-  "falla": [
-   "el título dice 5 y el cuerpo no lo explica"
-  ]
+  "baja": true,
+  "fuentes": 1
  },
  "yu0lcu": {
   "intentos": 1,
@@ -13560,6 +13555,16 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "zw8lpi": {
+  "intentos": 1,
+  "ultimo": "2026-11-04T14:32:37.591Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
+  "motivos": [
+   "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e"
+  ]
  },
  "zxtu4e": {
   "intentos": 3,
