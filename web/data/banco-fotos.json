@@ -58987,7 +58987,7 @@
   "intentado": true,
   "origen": "libre",
   "razon": "no hubo una foto libre buena",
-  "cuando": "2026-11-03T18:36:43.400Z"
+  "cuando": "2026-11-04T01:05:22.461Z"
  },
  "tyuhmo": {
   "archivo": "fotos-notas/tyuhmo.jpg",
@@ -66173,7 +66173,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de San Lorenzo en posesión de la pelota durante un partido."
   },
-  "huella": "9a8b9d351aba1a9a"
+  "huella": "9a8b9d351aba1a9a",
+  "ausenteDesde": "2026-11-04T01:05:24.434Z"
  },
  "h8r1d8": {
   "archivo": "fotos-notas/h8r1d8.jpg",
@@ -66651,7 +66652,8 @@
    "corresponde": "si",
    "descripcion": "Dos hombres dándose un apretón de manos frente a banderas."
   },
-  "huella": "94959bc88ee6c682"
+  "huella": "94959bc88ee6c682",
+  "ausenteDesde": "2026-11-04T01:05:24.434Z"
  },
  "1ehv38o": {
   "archivo": "fotos-notas/1ehv38o.jpg",
@@ -67591,7 +67593,8 @@
    "corresponde": "si",
    "descripcion": "Planta de jade en maceta blanca frente a una ventana"
   },
-  "huella": "262642a6aeaa2d67"
+  "huella": "262642a6aeaa2d67",
+  "ausenteDesde": "2026-11-04T01:05:24.434Z"
  },
  "1r1vjpb": {
   "archivo": "fotos-notas/1r1vjpb.jpg",
@@ -70190,7 +70193,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico en el banco de suplentes"
   },
-  "huella": "b8048c4d25393528"
+  "huella": "b8048c4d25393528",
+  "ausenteDesde": "2026-11-04T01:05:24.434Z"
  },
  "mn911r": {
   "archivo": "fotos-notas/mn911r.jpg",
@@ -75132,11 +75136,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Gremios universitarios de Mar del Plata realizan protestas y paros",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-11-03T23:04:50.410Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
+  "cuando": "2026-11-04T01:03:22.512Z",
   "intentos": 1,
   "fuentes": 1,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "43y0ae": {
   "archivo": "fotos-notas/43y0ae.jpg",
@@ -75237,7 +75241,8 @@
    "corresponde": "si",
    "descripcion": "El presidente Javier Milei junto a Luis Caputo y otro funcionario."
   },
-  "huella": "d6f2b2b2b2b215a7"
+  "huella": "d6f2b2b2b2b215a7",
+  "ausenteDesde": "2026-11-04T01:05:24.434Z"
  },
  "10ampng": {
   "archivo": "fotos-notas/10ampng.webp",
@@ -75424,5 +75429,201 @@
    "descripcion": "Fito Páez tocando la guitarra en un escenario."
   },
   "huella": "2e2e4e579f96b61e"
+ },
+ "1s9wj02": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Organizan una caravana desde Mar del Plata hacia el INTA Balcarce",
+  "razon": "La única foto provista no corresponde al hecho de la caravana, sino que es un retrato de una persona.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "11vqr6m": {
+  "archivo": "fotos-notas/11vqr6m.jpg",
+  "medio": "La Nueva",
+  "credito": "Foto: La Nueva",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La oposición cuestiona la suspensión de embargos a las pymes",
+  "enlace": "https://www.lanueva.com/nota/2026-11-3-21-20-0-suspension-de-embargos-a-las-pymes-el-peronismo-dice-que-las-medidas-llegaron-tarde",
+  "imagenOriginal": "https://pxcdn.lanueva.com/112026/1793753369931.jpg?&cw=600&ch=365",
+  "razon": "La foto A tiene una marca de agua sobreimpresa por el medio, mientras que la foto B es una imagen limpia que ilustra el contexto político de la nota.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos funcionarios caminando en un entorno exterior."
+  },
+  "huella": "89eca5a2aaaaab8b"
+ },
+ "1clg9h9": {
+  "archivo": "fotos-notas/1clg9h9.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Alpine prepara un recurso para revertir la sanción a Franco Colapinto",
+  "enlace": "https://www.tycsports.com/automovilismo/ultima-bala-que-prepara-alpine-para-revertir-sancion-franco-colapinto-mexico-id770245.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/23/998899/franco-colapinto_1440x810.webp?v=1",
+  "razon": "La foto A es la única que no presenta marcas de agua sobreimpresas por el medio, siendo una imagen limpia y adecuada para la nota.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto vistiendo indumentaria del equipo Alpine.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Colapinto sonriendo con la indumentaria del equipo Alpine F1."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "04040406e3c3e3d3"
+ },
+ "1xispdo": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Talleres golea 8 a 1 a Argentinos Juniors en la Copa Proyección",
+  "razon": "La única imagen disponible presenta una marca de agua sobreimpresa en la parte inferior que identifica al club, lo cual incumple los criterios de selección establecidos.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1tr4roa": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto se prepara para competir en el Gran Premio de Brasil",
+  "razon": "Ninguna de las fotos corresponde a la nota, ya que ambas muestran a otro piloto (Jack Doohan) y no a Franco Colapinto.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1e1s6dg": {
+  "archivo": "fotos-notas/1e1s6dg.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La obra Baraka llega al Multiteatro con un elenco de cuatro protagonistas",
+  "enlace": "https://www.cronica.com.ar/diarioshow/farandula/baraka-vuelve-con-uncampi-portaluppi-ramos-y-ajaka-y-su-baraka-una-historia-sobre-la-amistad/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1729/1729315/6aea2ce025e20_600_315!.jpg?s=993dabfa883c26a8379ce8bb2ecc8f10&d=1793732500",
+  "razon": "Ambas fotos son idénticas y de buena calidad, por lo que se elige la primera opción disponible que cumple con todos los criterios.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Foto promocional de los protagonistas de la obra Baraka."
+  },
+  "huella": "063535ccdcc4c5a4"
+ },
+ "1g2le0c": {
+  "archivo": "fotos-notas/1g2le0c.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El grupo Benetton vende sus 900 mil hectáreas en Argentina",
+  "enlace": "https://www.eleco.com.ar/campo/la-familia-benetton-vendio-sus-empresas-agropecuarias-a-directivos-de-adecoagro",
+  "imagenOriginal": "https://cdnartic.ar/2J80hRn_-yoFb0rjhsP23WS4vE8=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/11/adecoagro.webp",
+  "razon": "Es la mejor imagen aérea del complejo productivo, sin marcas de agua, sin personas y con buena calidad.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de instalaciones agroindustriales."
+  },
+  "huella": "dfff792a229d3839"
+ },
+ "u1wkk": {
+  "archivo": "fotos-notas/u1wkk.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Toyota presenta los dos papamóviles para la visita de León XIV al país",
+  "enlace": "https://www.eldestapeweb.com/sociedad/papamovil-hecho-argentina-usara-papa-leon-xiv-visita-pais-2026113154520",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793729284211/papamovil-toyota-jpg..jpg?&cw=1600&ch=900",
+  "razon": "La foto B muestra claramente el objeto de la nota (el vehículo) y a los involucrados en la presentación, sin marcas de agua ni elementos distractores, mientras que la foto A es un montaje gráfico con una persona ajena al hecho principal.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres posando frente a un vehículo Toyota en un evento de presentación."
+  },
+  "huella": "292f155273698db2"
+ },
+ "7ltp3h": {
+  "archivo": "fotos-notas/7ltp3h.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Liga Profesional confirma la programación de la última fecha del torneo",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/arbitros-fecha-16-torneo-clausura-definicion--id770242.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/03/1002645/hernan-mastrangelo-sebastian-zunino-pablo-dovalo_862x485.webp",
+  "razon": "Es la única opción disponible y muestra a los árbitros de la Liga Profesional, correspondiendo al tema de la nota.",
+  "cuando": "2026-11-04T01:03:22.512Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage de tres árbitros de fútbol con sus respectivas indumentarias oficiales.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage de tres árbitros de fútbol en pleno ejercicio de su labor."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4949495d6d17778e"
  }
 }
