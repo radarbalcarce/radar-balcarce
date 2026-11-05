@@ -42284,9 +42284,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "6eooir": {
-  "archivo": "fotos-notas/6eooir.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Índice de Confianza en el Gobierno sube un 0,9 por ciento en octubre",
@@ -42307,7 +42305,8 @@
    "descripcion": "El presidente de la Nación hablando en un atril con traje de etiqueta."
   },
   "huella": "2f2b0f5b9b8b839b",
-  "ausenteDesde": "2026-10-29T02:01:59.253Z"
+  "intentado": true,
+  "borrada": true
  },
  "1c0e1o9": {
   "intentado": true,
@@ -42617,9 +42616,7 @@
   "ausenteDesde": "2026-10-29T03:02:29.030Z"
  },
  "1lms91p": {
-  "archivo": "fotos-notas/1lms91p.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno firma un acuerdo para combatir el contrabando online",
@@ -42639,7 +42636,8 @@
    "descripcion": "Funcionarios reunidos en una mesa de conferencia participando de un acuerdo."
   },
   "huella": "6327ab4bcd2c2156",
-  "ausenteDesde": "2026-10-29T02:01:59.253Z"
+  "intentado": true,
+  "borrada": true
  },
  "1sq6xx6": {
   "medio": "TN (Todo Noticias)",
@@ -48886,9 +48884,7 @@
   "borrada": true
  },
  "2t91wl": {
-  "archivo": "fotos-notas/2t91wl.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "Flávio Bolsonaro llega a Estados Unidos tras su derrota electoral en Brasil",
@@ -48908,7 +48904,8 @@
    "descripcion": "Flávio Bolsonaro saludando entre una multitud con remera amarilla."
   },
   "huella": "3591555c28ecbdbf",
-  "ausenteDesde": "2026-10-29T02:01:59.253Z"
+  "intentado": true,
+  "borrada": true
  },
  "1jp7qfd": {
   "intentado": true,
@@ -72643,7 +72640,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de personas posando con un certificado en un auditorio."
   },
-  "huella": "fc9494c9b9baca8c"
+  "huella": "fc9494c9b9baca8c",
+  "ausenteDesde": "2026-11-05T02:08:08.332Z"
  },
  "1udhf81": {
   "archivo": "fotos-notas/1udhf81.jpg",
@@ -80118,24 +80116,51 @@
   "intentosPorCupo": 1
  },
  "w4g8p": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/w4g8p.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Cumbre Iberoamericana respalda el reclamo argentino por Malvinas",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-11-04T23:04:39.712Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 1
+  "enlace": "https://tn.com.ar/internacional/2026/11/04/los-22-paises-reunidos-en-la-cumbre-iberoamericana-respaldaron-el-reclamo-argentino-de-soberania-sobre-las-islas-malvinas/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-canciller-argentino-pablo-quirno-estuvo-presente-en-la-inauguracion-de-la-cumbre-iberoamericana-en-madrid-foto-x-pabloquirno-GVQRH54YUBGMHNVI5FG7BNGFYY.jpg?auth=47cd98279fdeea6fabbcae2b25fab4c821c90db314d659cb675d700d649b5227&width=1023",
+  "razon": "Es la mejor imagen disponible, con buena nitidez, encuadre correcto del evento y sin marcas de agua, menores ni elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-05T02:06:53.858Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Foto grupal de ministros en la Cumbre Iberoamericana.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Ministros de Relaciones Exteriores de la Comunidad Iberoamericana posando para foto oficial en Madrid."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8eaa07075d93c580"
  },
  "zwgimn": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Franco Colapinto conduce un Renault 6 de fanáticos argentinos en San Pablo",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T02:06:53.858Z",
   "intentos": 1,
   "fuentes": 2,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "e5aqv2": {
   "intentado": true,
@@ -80151,11 +80176,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Juan Sebastián Verón elige a Boca como el mejor equipo del fútbol argentino",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T02:06:53.858Z",
   "intentos": 1,
-  "fuentes": 5,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "fuentes": 6,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "qz6fxn": {
   "intentado": true,
@@ -80549,7 +80575,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei y Santiago Abascal posando juntos."
   },
-  "huella": "707474f4d4d8e0ec"
+  "huella": "707474f4d4d8e0ec",
+  "ausenteDesde": "2026-11-05T02:08:08.332Z"
  },
  "fe3mym": {
   "archivo": "fotos-notas/fe3mym.jpg",
@@ -80609,7 +80636,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "0d4d55d8d8b8985c"
+  "huella": "0d4d55d8d8b8985c",
+  "ausenteDesde": "2026-11-05T02:08:08.332Z"
  },
  "1ggsj9j": {
   "intentado": true,
@@ -80642,7 +80670,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea panorámica de un aeropuerto con aviones en plataforma."
   },
-  "huella": "010008a2c8450408"
+  "huella": "010008a2c8450408",
+  "ausenteDesde": "2026-11-05T02:08:08.332Z"
  },
  "i50u2g": {
   "archivo": "fotos-notas/i50u2g.jpg",
@@ -80691,5 +80720,77 @@
    "descripcion": "El Papa León XIV hablando frente a un micrófono."
   },
   "huella": "9c9c9dbdbc8c8da5"
+ },
+ "1oa3efu": {
+  "archivo": "fotos-notas/1oa3efu.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nico Paz marca un gol y homenajea a Jesús de Miguel en la goleada del Como",
+  "enlace": "https://www.minutouno.com/deportes/golazo-nico-paz-la-champions-league-el-zurdazo-el-3-0-parcial-como-lens-n6341644",
+  "imagenOriginal": "https://media.minutouno.com/p/11972a2aefdb3c1af946cb3e0a9d5d8d/adjuntos/150/imagenes/043/748/0043748597/1200x675/smart/nico-paz-2.jpg",
+  "razon": "Es la imagen más limpia, con buen encuadre, sin marcas de agua, sin menores y que ilustra perfectamente el momento del festejo del jugador.",
+  "cuando": "2026-11-05T02:06:53.858Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Nico Paz festejando un gol con la camiseta del Como."
+  },
+  "huella": "181f0f8d4de3a484"
+ },
+ "1mwfio6": {
+  "archivo": "fotos-notas/1mwfio6.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno confirma dos cadenas nacionales por la visita del papa León XIV",
+  "enlace": "https://tn.com.ar/politica/2026/11/03/el-gobierno-confirmo-que-habra-dos-cadenas-nacionales-durante-la-visita-del-papa-leon-xiv-cuando-seran/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/el-discurso-de-javier-milei-y-el-papa-leon-xiv-sera-uno-de-los-dos-eventos-que-se-transmitira-por-cadena-nacional-foto-afpvatican-mediamario-tomassetti-WWPY7JJWUVG2XOPYXENLXJ2XPE.jpg?auth=42ee0c310e4688875a025281b905e5867f1e856079b49d8a822237fe2e371662&width=1023",
+  "razon": "Es la única imagen que muestra a los protagonistas del hecho (el Papa y el Presidente) en un contexto formal, sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-05T02:06:53.858Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Presidente Milei junto al Papa León XIV en una reunión formal."
+  },
+  "huella": "ccc4c5c2c2e36b6b"
+ },
+ "49t6e5": {
+  "archivo": "fotos-notas/49t6e5.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Entregan los kits para los voluntarios de la visita del papa León XIV",
+  "enlace": "https://www.eldestapeweb.com/sociedad/traen-kits-voluntariado-visita-papa-leon-xiv-2026113141237",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793714373498.webp?&cw=1600&ch=900",
+  "razon": "La foto A muestra claramente el hecho sin personas, cumpliendo con todos los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-05T02:06:53.858Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gran cantidad de kits para voluntarios organizados en un salón."
+  },
+  "huella": "262064170f1cf0a0"
  }
 }
