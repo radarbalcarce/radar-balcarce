@@ -437,6 +437,9 @@ button.enlace{background:none;border:0;padding:0;color:inherit;font:inherit;text
 
 // Las secciones en el menú; «Tecnología» se lee «Tecnología e IA».
 const ROTULO = { Tecnología: 'Tecnología e IA' };
+/** La imagen propia del medio (1200 × 630) para las vistas previas de lo que no tiene foto propia. */
+export const IMAGEN_DEL_MEDIO = `${BASE}/og-default.png`;
+
 export const rotuloDe = (nombre) => ROTULO[nombre] || nombre;
 
 export const colorDe = (ranura) => `var(--s-${ranura})`;
@@ -459,9 +462,11 @@ export function pagina(p) {
   const titulo = p.sinSufijo ? p.titulo : `${p.titulo} | ${NOMBRE}`;
   const robots = p.indexar && !p.noindex ? '' : '<meta name="robots" content="noindex,nofollow">';
   const canonico = p.canonico ? `<link rel="canonical" href="${esc(BASE + p.canonico)}">` : '';
+  const imagen = p.imagen || IMAGEN_DEL_MEDIO;
   const og = [
     ['og:site_name', NOMBRE], ['og:locale', 'es_AR'], ['og:type', p.tipo || 'website'], ['og:title', p.titulo],
-    p.descripcion ? ['og:description', p.descripcion] : null, p.canonico ? ['og:url', BASE + p.canonico] : null, p.imagen ? ['og:image', p.imagen] : null,
+    p.descripcion ? ['og:description', p.descripcion] : null, p.canonico ? ['og:url', BASE + p.canonico] : null, ['og:image', imagen],
+    imagen === IMAGEN_DEL_MEDIO ? ['og:image:width', '1200'] : null, imagen === IMAGEN_DEL_MEDIO ? ['og:image:height', '630'] : null,
   ].filter(Boolean).map(([k, v]) => `<meta property="${k}" content="${esc(v)}">`).join('\n');
   return `<!doctype html>
 <html lang="es-AR">
@@ -474,7 +479,8 @@ ${robots}
 ${canonico}
 <link rel="alternate" type="application/rss+xml" title="${NOMBRE}" href="/rss.xml">
 ${og}
-<meta name="twitter:card" content="${p.imagen ? 'summary_large_image' : 'summary'}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${esc(imagen)}">
 <style>${ESTILOS}</style>
 ${p.contexto?.cfBeacon ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify({ token: p.contexto.cfBeacon })}'></script>` : ''}
 ${p.contexto?.config?.adsense?.cliente ? `<meta name="google-adsense-account" content="${esc(p.contexto.config.adsense.cliente)}">` : ''}

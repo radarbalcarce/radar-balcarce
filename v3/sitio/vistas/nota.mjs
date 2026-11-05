@@ -1,6 +1,6 @@
 // La página de una nota. Todo sale de la base; los bloques de valor agregado, de la ficha (REGLAS del núcleo § 6), sólo cuando hay con qué.
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
-import { pagina, colorDe } from './base.mjs';
+import { pagina, colorDe, IMAGEN_DEL_MEDIO } from './base.mjs';
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
@@ -161,7 +161,7 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
     inLanguage: 'es-AR',
     isAccessibleForFree: true,
     articleSection: n.seccion,
-    ...(foto ? { image: [foto.url] } : {}),
+    image: [foto ? foto.url : IMAGEN_DEL_MEDIO],
     wordCount: palabras(parrafos.join(' ')),
     author: persona ? { '@type': 'Person', name: persona } : { '@type': 'Organization', name: NOMBRE, url: `${BASE}/quienes-somos` },
     publisher: { '@type': 'NewsMediaOrganization', name: NOMBRE, url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/icon-512.png`, width: 512, height: 512 } },
