@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T18:05:06.046Z",
- "portada": 97,
- "archivo": 498,
- "esperandoCuerpo": 90,
+ "generado": "2026-11-05T18:34:15.307Z",
+ "portada": 99,
+ "archivo": 500,
+ "esperandoCuerpo": 86,
  "redes": {
-  "generado": "2026-11-05T18:05:06.389Z",
+  "generado": "2026-11-05T18:34:15.774Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,27 +105,27 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 55,
+    "segundos": 49,
     "notas": [
+     {
+      "id": "x4bwtx",
+      "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
+      "seccion": "Educación"
+     },
      {
       "id": "1a0h4cn",
       "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
       "seccion": "Balcarce"
      },
      {
-      "id": "14llvsv",
-      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
-      "seccion": "Educación"
+      "id": "yko3zc",
+      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
+      "seccion": "Automovilismo"
      },
      {
       "id": "74b2wn",
       "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
       "seccion": "Policiales"
-     },
-     {
-      "id": "1pm4shu",
-      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
-      "seccion": "Deportes"
      }
     ]
    },
@@ -136,27 +136,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 54,
     "notas": [
      {
-      "id": "100bnjr",
-      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
+      "id": "14llvsv",
+      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1llnb6t",
+      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1pm4shu",
+      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
       "seccion": "Deportes"
      },
      {
       "id": "ywp9x3",
       "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
       "seccion": "Salud"
-     },
-     {
-      "id": "1syf5mi",
-      "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "hbt308",
-      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
-      "seccion": "Policiales"
      }
     ]
    }
@@ -165,8 +165,26 @@
    "hoy": [],
    "cola": [
     {
+     "id": "x4bwtx",
+     "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "1a0h4cn",
      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "yko3zc",
+     "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "1llnb6t",
+     "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
      "seccion": "Balcarce",
      "marcada": false
     },

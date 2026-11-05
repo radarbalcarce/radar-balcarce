@@ -45317,9 +45317,7 @@
   "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "10l9k07": {
-  "archivo": "fotos-notas/10l9k07.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca y River estrenan la nueva pelota Argentum Gambeta Derbi",
@@ -45339,7 +45337,8 @@
    "descripcion": "Pelota Argentum Gambeta Derbi en primer plano con fondo temático"
   },
   "huella": "7f3f33132b37231f",
-  "ausenteDesde": "2026-10-29T18:33:56.266Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ivc8l0": {
   "medio": "La Gaceta (Tucumán)",
@@ -45366,9 +45365,7 @@
   "borrada": true
  },
  "1f9mfdv": {
-  "archivo": "fotos-notas/1f9mfdv.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Banco Central publica las tasas de interés de los plazos fijos",
@@ -45388,7 +45385,8 @@
    "descripcion": "Persona usando celular, calculadora y notebook en un escritorio"
   },
   "huella": "e8d0e8e9f8f9c9f8",
-  "ausenteDesde": "2026-10-29T18:33:56.266Z"
+  "intentado": true,
+  "borrada": true
  },
  "zjn1re": {
   "medio": "La Nación",
@@ -47121,9 +47119,7 @@
   "ausenteDesde": "2026-10-29T19:04:50.741Z"
  },
  "ysgzoi": {
-  "archivo": "fotos-notas/ysgzoi.jpg",
   "medio": "Campeones",
-  "credito": "Foto: Campeones",
   "licencia": null,
   "origen": "medio",
   "titulo": "Marcelo Agrelo se desvincula del Trotta Racing en el Turismo Carretera",
@@ -47143,7 +47139,8 @@
    "descripcion": "Marcelo Agrelo con indumentaria del equipo en el Turismo Carretera"
   },
   "huella": "d795d4d5d494783c",
-  "ausenteDesde": "2026-10-29T18:33:56.266Z"
+  "intentado": true,
+  "borrada": true
  },
  "evukr6": {
   "medio": "Clarín",
@@ -47230,9 +47227,7 @@
   "borrada": true
  },
  "notlp4": {
-  "archivo": "fotos-notas/notlp4.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emprendedor argentino recicla botellas para impresoras 3D",
@@ -47252,7 +47247,8 @@
    "descripcion": "Emprendedor mostrando rollos de filamento reciclado"
   },
   "huella": "182f0f4d4df56571",
-  "ausenteDesde": "2026-10-29T18:33:56.266Z"
+  "intentado": true,
+  "borrada": true
  },
  "1nuq6ys": {
   "intentado": true,
@@ -82115,5 +82111,51 @@
    "detalle": "El logo de 'Lider 90.9' está en el micrófono, que es parte de la escena real, no una marca agregada por el medio."
   },
   "huella": "5b733333332b2a6a"
+ },
+ "yko3zc": {
+  "archivo": "fotos-notas/yko3zc.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/preparativos-y-visitas-de-lujo-el-museo-fangio-se-prepara-para-celebrar-sus-40-anos",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/noviembre/Museo_Fangio.jpeg",
+  "razon": "Es la única opción disponible y muestra el edificio del Museo Fangio, que es el lugar central de la nota.",
+  "cuando": "2026-11-05T18:33:26.028Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada exterior del edificio del Museo Fangio con cielo despejado."
+  },
+  "huella": "a9a5af905c685054"
+ },
+ "1llnb6t": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T18:33:26.028Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "x4bwtx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de News Balcarce (FM 91.7) no se usa todavía.",
+  "cuando": "2026-11-05T18:33:26.028Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1
  }
 }
