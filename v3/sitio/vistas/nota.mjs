@@ -71,7 +71,9 @@ function figura(f) {
   if (!url) return '';
   const medidas = f.ancho && f.alto ? ` width="${Number(f.ancho)}" height="${Number(f.alto)}"` : '';
   const leyenda = f.leyenda || f.credito || '';
-  return `<figure><img src="${esc(url)}" alt="${esc(f.alt || '')}"${medidas} loading="lazy" decoding="async">${leyenda ? `<figcaption>${esc(leyenda)}</figcaption>` : ''}</figure>`;
+  // La foto principal se pide ya (es lo más grande que se ve primero: auditoría del 5/11); las de adentro, cuando se acercan.
+  const carga = f.principal ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
+  return `<figure><img src="${esc(url)}" alt="${esc(f.alt || '')}"${medidas} ${carga}>${leyenda ? `<figcaption>${esc(leyenda)}</figcaption>` : ''}</figure>`;
 }
 
 /** Las fotos de una nota además de la de portada (nota.fotos, si es una lista), sin repetir la de portada y sólo con dirección válida. */
@@ -184,7 +186,7 @@ ${arriba}
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 <p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
-${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito }) : ''}
+${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true }) : ''}
 <div class="cuerpo">
 ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
 </div>

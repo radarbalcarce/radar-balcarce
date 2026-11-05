@@ -87,9 +87,10 @@ export async function mesesConNotas(env) {
 }
 
 export async function notasDelMes(env, mes) {
-  const r = await env.DB.prepare(`SELECT n.id, n.titulo, n.seccion, s.slug AS s_slug, ${PUBLICADA} AS publicada ${DESDE} AND substr(${PUBLICADA}, 1, 7) = ? ORDER BY ${PUBLICADA} DESC`)
+  const r = await env.DB.prepare(`SELECT n.id, n.titulo, n.seccion, n.ficha, s.slug AS s_slug, ${PUBLICADA} AS publicada ${DESDE} AND substr(${PUBLICADA}, 1, 7) = ? ORDER BY ${PUBLICADA} DESC`)
     .bind(mes).all();
-  return (r.results || []).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada }));
+  // Las que no se indexan (la nota diaria del clima, por ejemplo) no van al mapa: antes se colaban porque no se traía la ficha (auditoría del 5/11).
+  return (r.results || []).filter((f) => jsonONull(f.ficha)?.indexar !== false).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada }));
 }
 
 /** Fija el titular de la dirección (y la fecha) de las notas que todavía no lo tienen: se hace una vez y no cambia más. */
