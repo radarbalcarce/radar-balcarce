@@ -50513,9 +50513,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "9cbw44": {
-  "archivo": "fotos-notas/9cbw44.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "Realizan la tercera edición de los Premios Ídolo Argentina en Buenos Aires",
@@ -50536,7 +50534,8 @@
    "descripcion": "Primer plano de una mano sosteniendo el trofeo de los Premios Ídolo Argentina frente al logo del evento."
   },
   "huella": "4343614b43435440",
-  "ausenteDesde": "2026-10-29T10:34:46.999Z"
+  "intentado": true,
+  "borrada": true
  },
  "1dzeve0": {
   "medio": "La Gaceta (Tucumán)",
@@ -75133,7 +75132,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Jesús de Miguel celebrando un gol."
   },
-  "huella": "49ad8d178e0f8c9c"
+  "huella": "49ad8d178e0f8c9c",
+  "ausenteDesde": "2026-11-05T10:37:29.775Z"
  },
  "7i0mso": {
   "intentado": true,
@@ -76412,7 +76412,8 @@
    "corresponde": "si",
    "descripcion": "Vista desde una terraza con muebles de exterior hacia la Basílica de Luján."
   },
-  "huella": "00808317b31b09b7"
+  "huella": "00808317b31b09b7",
+  "ausenteDesde": "2026-11-05T10:37:29.775Z"
  },
  "q8hi08": {
   "archivo": "fotos-notas/q8hi08.jpg",
@@ -81304,7 +81305,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego entre dos futbolistas profesionales durante un partido."
   },
-  "huella": "4c49c7252787870f"
+  "huella": "4c49c7252787870f",
+  "ausenteDesde": "2026-11-05T10:37:29.775Z"
  },
  "1r24pjl": {
   "archivo": "fotos-notas/1r24pjl.jpg",
@@ -81352,8 +81354,7 @@
    "corresponde": "si",
    "descripcion": "Personas caminando bajo la lluvia en una esquina urbana con carteles de calle."
   },
-  "huella": "0b77fff71ec25a56",
-  "ausenteDesde": "2026-11-05T08:03:41.843Z"
+  "huella": "0b77fff71ec25a56"
  },
  "14anwoe": {
   "archivo": "fotos-notas/14anwoe.jpg",
@@ -81722,7 +81723,8 @@
    "corresponde": "si",
    "descripcion": "Monoplaza de Fórmula 1 en la pista"
   },
-  "huella": "c2d0c3cb1a78c38e"
+  "huella": "c2d0c3cb1a78c38e",
+  "ausenteDesde": "2026-11-05T10:37:29.775Z"
  },
  "171sv7h": {
   "archivo": "fotos-notas/171sv7h.webp",
@@ -81758,7 +81760,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "09331112154fab13"
+  "huella": "09331112154fab13",
+  "ausenteDesde": "2026-11-05T10:37:29.775Z"
  },
  "1blo64k": {
   "archivo": "fotos-notas/1blo64k.jpg",
@@ -81808,5 +81811,52 @@
    "descripcion": "Primer plano de una mano sosteniendo un celular que muestra la interfaz de la aplicación Cuenta DNI."
   },
   "huella": "13a3835305050c2e"
+ },
+ "1wphsfy": {
+  "archivo": "fotos-notas/1wphsfy.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161130/mundo/javier-milei-equiparo-al-socialismo-fascismo-tuvo-frio-saludo-pedro-sanchez-madrid.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/05/saludo-momento-cruce-entre-javier-milei-pedro-sanchez-afp-1161130-071744.jpg",
+  "razon": "Es la única imagen que muestra el contexto completo del saludo entre los líderes, sin recortes que impidan identificar el hecho.",
+  "cuando": "2026-11-05T10:36:41.517Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei y Pedro Sánchez saludan a un tercer líder en un acto oficial."
+  },
+  "huella": "c4d4d4bab8b6ecbc"
+ },
+ "1th33uc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La UBA realiza la marcha de las velas para exigir financiamiento",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T10:36:41.517Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "h7cuyv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Se disputa la última fecha de la fase regular del Torneo Clausura 2026",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T10:36:41.517Z",
+  "intentos": 1,
+  "fuentes": 20,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
