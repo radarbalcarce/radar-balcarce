@@ -162,8 +162,8 @@
   "numeradas": 1
  },
  "116imqk": {
-  "intentos": 2,
-  "ultimo": "2026-11-05T11:02:32.207Z",
+  "intentos": 3,
+  "ultimo": "2026-11-05T11:32:00.063Z",
   "motivo": "sin material",
   "textos": 0,
   "numeradas": 2,
@@ -1093,6 +1093,13 @@
    "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d",
    "Gemini: Expected ',' or ']' after array element in JSON at position 41"
   ]
+ },
+ "15t806q": {
+  "intentos": 1,
+  "ultimo": "2026-11-05T11:32:00.063Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 14
  },
  "15uyad": {
   "intentos": 1,
@@ -3990,6 +3997,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "1l2znd2": {
+  "intentos": 1,
+  "ultimo": "2026-11-05T11:32:00.063Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4
+ },
  "1l573lx": {
   "intentos": 1,
   "ultimo": "2026-11-03T16:40:18.530Z",
@@ -4003,13 +4017,6 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 6
- },
- "1l7ryr5": {
-  "intentos": 1,
-  "ultimo": "2026-10-29T11:31:45.453Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
  },
  "1lckn0a": {
   "intentos": 1,
@@ -7642,6 +7649,16 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 8
+ },
+ "7okww": {
+  "intentos": 1,
+  "ultimo": "2026-11-05T11:32:00.063Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 4 problemas (fecha, nombre, copia, promesa): el cuerpo mencion"
+  ]
  },
  "7pci65": {
   "intentos": 1,

@@ -45051,9 +45051,7 @@
   "fuentes": 2
  },
  "1bjpyzt": {
-  "archivo": "fotos-notas/1bjpyzt.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "River enciende la guardia alta antes del Superclásico por los arbitrajes",
@@ -45073,7 +45071,8 @@
    "descripcion": "Director técnico con remera blanca y campera oscura en el estadio"
   },
   "huella": "60cc5e1d6f7fbd0d",
-  "ausenteDesde": "2026-10-29T11:06:39.254Z"
+  "intentado": true,
+  "borrada": true
  },
  "mbax9x": {
   "medio": "Crónica",
@@ -51287,9 +51286,7 @@
   "ausenteDesde": "2026-11-01T01:04:08.562Z"
  },
  "gbrd5s": {
-  "archivo": "fotos-notas/gbrd5s.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Platense gana por penales a Atlético Tucumán y llega a la final de la Copa Argentina",
@@ -51309,7 +51306,8 @@
    "descripcion": "Festejo de jugadores de Platense abrazados"
   },
   "huella": "156d66b1f1797159",
-  "ausenteDesde": "2026-10-29T11:06:39.254Z"
+  "intentado": true,
+  "borrada": true
  },
  "1dh34ud": {
   "archivo": "fotos-notas/1dh34ud.jpg",
@@ -51337,9 +51335,7 @@
   "ausenteDesde": "2026-10-31T01:34:49.077Z"
  },
  "ca537u": {
-  "archivo": "fotos-notas/ca537u.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Senado excluye el tratado de Patentes impulsado por Estados Unidos",
@@ -51359,7 +51355,8 @@
    "descripcion": "Senadores votando levantando la mano en el recinto"
   },
   "huella": "15d5a95969494c7b",
-  "ausenteDesde": "2026-10-29T11:06:39.254Z"
+  "intentado": true,
+  "borrada": true
  },
  "xqfz4h": {
   "archivo": "fotos-notas/xqfz4h.jpg",
@@ -73438,7 +73435,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "c8313337337364c4"
+  "huella": "c8313337337364c4",
+  "ausenteDesde": "2026-11-05T11:34:54.123Z"
  },
  "1xvcvgy": {
   "archivo": "fotos-notas/1xvcvgy.jpg",
@@ -76731,7 +76729,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de un aeropuerto con aviones en pista."
   },
-  "huella": "010008a2c8450408"
+  "huella": "010008a2c8450408",
+  "ausenteDesde": "2026-11-05T11:34:54.123Z"
  },
  "m4tryq": {
   "archivo": "fotos-notas/m4tryq.jpg",
@@ -81167,7 +81166,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "893929ac2c262f22"
+  "huella": "893929ac2c262f22",
+  "ausenteDesde": "2026-11-05T11:34:54.123Z"
  },
  "1favj63": {
   "archivo": "fotos-notas/1favj63.jpg",
@@ -81939,6 +81939,28 @@
   "cuando": "2026-11-05T11:04:44.617Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1l2znd2": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Kicillof y Máximo Kirchner sellan una tregua en el PJ bonaerense",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T11:33:57.595Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "15t806q": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La UBA realiza la Marcha de las Velas para exigir financiamiento universitario",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T11:33:57.595Z",
+  "intentos": 1,
+  "fuentes": 14,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
