@@ -202,7 +202,7 @@ test('con INDEXAR = si el robots.txt y los mapas apuntan a https://radarbalcarce
   for (const ruta of ['/', '/seccion/balcarce', '/nota/se-inauguro-la-nueva-sala-del-hospital-abc1234']) {
     const r = await ir(ruta);
     assert.equal(r.headers.get('x-robots-tag'), null, ruta);
-    assert.doesNotMatch(await r.text(), /name="robots"/, ruta);
+    assert.doesNotMatch(await r.text(), /name="robots" content="noindex/, ruta);
   }
 });
 

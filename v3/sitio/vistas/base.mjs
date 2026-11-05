@@ -22,6 +22,9 @@ body{margin:0;background:var(--crema);color:var(--texto);font:400 16px/1.5 var(-
 a{color:inherit;text-decoration:none}
 .migas{margin:0 0 8px;font-size:13px;color:var(--suave)}
 .migas a:hover{text-decoration:underline}
+.saltar{position:absolute;left:-9999px;top:8px;z-index:100}
+.saltar:focus{left:8px;padding:12px 16px;border-radius:8px;background:#fff;color:var(--tinta);font:600 15px var(--sans);box-shadow:0 2px 10px rgba(0,0,0,.35)}
+main:focus{outline:none}
 img{display:block;max-width:100%}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
 .top a:focus-visible,.pie a:focus-visible,.part a:focus-visible,.top button:focus-visible{outline-color:#fff}
@@ -412,6 +415,17 @@ button.enlace{background:none;border:0;padding:0;color:inherit;font:inherit;text
 .tabla-planes th{font:800 15px var(--serif);background:var(--papel)}
 .tabla-planes th small{display:block;font:400 11px var(--sans);color:var(--suave)}
 .esquema{max-width:560px;margin:14px auto}
+/* Toques de 44 px como mínimo en el celular (auditoría del 5/11, hallazgo 7), sin cambiar el aspecto: más relleno donde se puede y, en lo chico que está pegado a otra cosa, una zona de toque invisible. */
+@media(max-width:759px),(pointer:coarse){
+#mb,form.buscar button,form.buscar input{min-height:44px}
+details.fuentes summary{display:flex;align-items:center;min-height:44px}
+details.fuentes li a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+footer.pie p a,footer.pie button.enlace{display:inline-block;padding:13px 6px}
+.ck button{min-height:44px;padding:8px 16px}
+.ck a{display:inline-block;padding:13px 4px}
+a.etiqueta,.migas a{position:relative}
+a.etiqueta::after,.migas a::after{content:"";position:absolute;left:-6px;right:-6px;top:-12px;bottom:-12px}
+}
 @media(min-width:980px){
 .cabeza{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);grid-template-areas:"ad ad" "hero tira" "hero lat" "hero .";grid-template-rows:auto auto auto 1fr;column-gap:28px}
 .cabeza>.sol{margin-bottom:6px}}
@@ -487,7 +501,8 @@ export const jsonLd = (obj) => `<script type="application/ld+json">${JSON.string
  */
 export function pagina(p) {
   const titulo = p.sinSufijo ? p.titulo : `${p.titulo} | ${NOMBRE}`;
-  const robots = p.indexar && !p.noindex ? '' : '<meta name="robots" content="noindex,nofollow">';
+  // Las notas indexables piden fotos grandes en Google Discover y en los resultados (max-image-preview:large).
+  const robots = p.indexar && !p.noindex ? (p.tipo === 'article' ? '<meta name="robots" content="max-image-preview:large">' : '') : '<meta name="robots" content="noindex,nofollow">';
   const canonico = p.canonico ? `<link rel="canonical" href="${esc(BASE + p.canonico)}">` : '';
   const imagen = p.imagen || IMAGEN_DEL_MEDIO;
   const og = [
@@ -515,6 +530,7 @@ ${guionDeConsentimiento(p.contexto?.config)}
 ${[...(p.canonico === '/' || p.datosDelSitio ? datosDelSitio() : []), ...(p.datos || [])].map(jsonLd).join('\n')}
 </head>
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 ${barraSuperior(p.contexto)}
 <header class="cab"><div class="ancho">
 <a class="logo" href="/">Radar <span>Balcarce</span><small>Noticias de Balcarce y la zona</small></a>
@@ -522,7 +538,7 @@ ${barraSuperior(p.contexto)}
 <form class="buscar" action="/buscar" method="get" role="search"><input type="search" name="q" value="${esc(p.q || '')}" placeholder="Buscar en Radar" aria-label="Buscar"><button type="submit">Buscar</button></form>
 </div></header>
 ${menu()}
-<main class="ancho" id="contenido">
+<main class="ancho" id="contenido" tabindex="-1">
 ${p.cuerpo}
 </main>
 ${p.lugarPie === null ? '' : `<div class="ancho">${lugarRotativo(p.contexto, 'pie', p.lugarPie || 'P1')}</div>`}

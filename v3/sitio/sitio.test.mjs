@@ -33,7 +33,7 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.ok(!h.includes('data-aviso="fijo"'));
   assert.equal((h.match(/<script/g) || []).length - (h.match(/<script type="application\/ld\+json"/g) || []).length, 1, 'el único JavaScript es el del menú');
   assert.match(h, /<script>document\.documentElement\.className\+=' js'/);
-  assert.ok(!/name="robots"/.test(h), 'con INDEXAR=si se indexa');
+  assert.ok(!/name="robots" content="noindex/.test(h), 'con INDEXAR=si se indexa');
 });
 
 test('sin ficha no hay bloques; con ficha salen Los datos, Cronología y Cifras; «Qué falta saber» no se muestra (Hernán, 3/11)', async () => {

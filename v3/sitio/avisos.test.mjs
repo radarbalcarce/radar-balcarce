@@ -160,7 +160,7 @@ test('las páginas de texto existen en el sitio nuevo, se indexan y dicen lo que
   const priv = await q('/politica-de-privacidad');
   for (const t of ['Cloudflare', 'Google AdSense', 'Google Analytics', 'Ley 25\\.326', 'borremos', 'radar_cookies']) assert.match(priv, new RegExp(t), t);
   for (const x of [quienes, como, contacto, priv]) {
-    assert.ok(!/name="robots"/.test(x));
+    assert.ok(!/name="robots" content="noindex/.test(x));
     for (const enlace of ['/quienes-somos', '/como-trabajamos', '/contacto', '/politica-de-privacidad', '/publicidad']) assert.ok(x.includes(`href="${enlace}"`), `pie con ${enlace}`);
   }
 });
