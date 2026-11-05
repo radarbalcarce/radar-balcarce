@@ -42746,9 +42746,7 @@
   "fuentes": 1
  },
  "h5u4rr": {
-  "archivo": "fotos-notas/h5u4rr.jpg",
   "medio": "Universidad Nacional de La Plata",
-  "credito": "Foto: Universidad Nacional de La Plata",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Universidad Nacional de La Plata se suma a la Red Universitaria",
@@ -42768,12 +42766,11 @@
    "descripcion": "Tres personas reunidas alrededor de una mesa de madera en una oficina institucional"
   },
   "huella": "4e4c74796d6f6c4c",
-  "ausenteDesde": "2026-10-29T00:32:39.684Z"
+  "intentado": true,
+  "borrada": true
  },
  "10h3qsy": {
-  "archivo": "fotos-notas/10h3qsy.jpg",
   "medio": "Minuto Uno",
-  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
   "titulo": "Atlético Tucumán y Platense juegan el miércoles la semifinal de la Copa Argentina en Salta",
@@ -42805,7 +42802,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "67abad8995ab494e",
-  "ausenteDesde": "2026-10-29T00:32:39.684Z"
+  "intentado": true,
+  "borrada": true
  },
  "biq8s1": {
   "intentado": true,
@@ -71408,7 +71406,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "2243636376312d5e"
+  "huella": "2243636376312d5e",
+  "ausenteDesde": "2026-11-05T00:34:02.503Z"
  },
  "j5utve": {
   "archivo": "fotos-notas/j5utve.jpg",
@@ -72067,7 +72066,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando un balón en un partido"
   },
-  "huella": "599944174b937353"
+  "huella": "599944174b937353",
+  "ausenteDesde": "2026-11-05T00:34:02.503Z"
  },
  "q1sabz": {
   "archivo": "fotos-notas/q1sabz.jpg",
@@ -74104,7 +74104,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo billetes de 10.000 pesos, se observa un reloj en la muñeca."
   },
-  "huella": "cf8bdbcf8d9bdc78"
+  "huella": "cf8bdbcf8d9bdc78",
+  "ausenteDesde": "2026-11-05T00:34:02.503Z"
  },
  "tpu8ha": {
   "intentado": true,
@@ -80293,5 +80294,155 @@
   "intentos": 1,
   "fuentes": 3,
   "intentosPorCupo": 1
+ },
+ "qh82gn": {
+  "archivo": "fotos-notas/qh82gn.webp",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La SIDE recibe más de 40.000 solicitudes de ingreso en 24 horas",
+  "enlace": "https://www.infobrisas.com/noticias/2026/11/04/113748-reportan-mas-de-40000-solicitudes-para-integrar-la-side",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/11/infobrisas/images/02/84/53/2845304_3624fdb85522479d12baf44d70664c1db3d09b8465c094e8ec55650a24328589/lg.webp?_v=v3-129",
+  "razon": "Es la única imagen disponible, cumple con los criterios de calidad, no presenta marcas de agua, menores ni elementos gráficos ajenos a la escena.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos funcionarios frente a un cartel del Centro Nacional de Antiterrorismo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Dos hombres en traje de pie frente a un fondo con el logo del Centro Nacional de Antiterrorismo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "afc8d7c3d1c3d1c3"
+ },
+ "1ki8ptl": {
+  "archivo": "fotos-notas/1ki8ptl.jpg",
+  "medio": "0223 (Mar del Plata)",
+  "credito": "Foto: 0223 (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Retiran una película española del Festival de Cine de Mar del Plata",
+  "enlace": "https://www.0223.com.ar/nota/2026-11-4-20-30-0-una-pelicula-se-retira-del-festival-de-cine-en-rechazo-a-un-bloque-de-cine-contemporaneo-israeli",
+  "imagenOriginal": "https://pxcdn.0223.com.ar/f/112026/1793834628998.jpg?&cw=600&ch=365",
+  "razon": "La foto B es una imagen de producción de la película, sin marcas de agua de medios, mientras que la foto A contiene una marca de agua sobreimpresa por el medio.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Escena de rodaje con claqueta y dos personas abrazadas."
+  },
+  "huella": "5f7f5a30b0b06763"
+ },
+ "1668yzv": {
+  "archivo": "fotos-notas/1668yzv.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Investigan al arquero Jesús Owono tras la muerte de Jesús de Miguel",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/tras-la-muerte-de-un-jugador-espanol-un-argentino-defendio-al-arquero-implicado-jamas-tendria-nid04112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/lautaro-spatz-jugador-argentino-del-fc-FNJQH2C6ZVCB5O4T7I2IOIGAIU.jpg?auth=fabe61284262387cdc7c17737b8230480061c458e3467338479e9bcaf5805208&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor opción disponible: muestra al protagonista de la nota en un contexto deportivo real, sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de fútbol corriendo en una cancha."
+  },
+  "huella": "f4260e73346e6f67"
+ },
+ "jzcd3v": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "ANSES confirma el nuevo monto y el calendario de pagos de la PUAM",
+  "razon": "Ambas imágenes son de stock, por lo que ninguna es adecuada para ilustrar una nota periodística local.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "1lvn6ts": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Popstars finaliza y confirma a las cinco integrantes de la banda Chapeaux",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 22,
+  "intentosPorCupo": 1
+ },
+ "xm5xzv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pluto TV suma estrenos y Disney+ actualiza su ranking de contenidos",
+  "razon": "La foto A no corresponde al tema de la nota (es una escena de una serie, no sobre el servicio de streaming en sí) y la foto B es una imagen gráfica de una pantalla, por lo que ninguna es adecuada.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "13d6i82": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto corre el Gran Premio de Brasil en el circuito de Interlagos",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Gaceta (Tucumán) no se usa todavía.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 10,
+  "intentosPorCupo": 1
+ },
+ "6am5ze": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Apple lanza las versiones beta de iOS 27.3 y watchOS 27.3 con IA",
+  "razon": "La única imagen disponible es una pieza gráfica corporativa, por lo que no cumple con los criterios de selección al ser considerada gráfica.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "2f6rbx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca define el título de la Tabla Anual ante Defensa y Justicia",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "intentosPorCupo": 1
+ },
+ "exw14t": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Colapinto figura décimo en el Campeonato de Destructores de la F1",
+  "razon": "La única foto disponible muestra a Franco Colapinto con indumentaria del equipo Alpine, lo cual no corresponde a la nota que trata sobre su desempeño en Williams Racing, por lo que la información visual es incorrecta.",
+  "cuando": "2026-11-05T00:32:29.228Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }
