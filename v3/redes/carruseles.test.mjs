@@ -8,6 +8,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { armarCarruselSemana, armarCarruselFinde, armarCarrusel } from './piezas/armadores.mjs';
 import { imagenComoSvg } from './piezas/escenas.mjs';
+import { creditoConPrefijo, lineaDeCredito } from './texto.mjs';
 import { textoDeCarrusel, accionesDeCarrusel, nombreDeLamina, publicarCarrusel } from './piezas/publicar.mjs';
 import { correr } from './piezas/correr.mjs';
 import { PIEZAS_DEL_DIA, accionesDe, piezasQueTocan, condicionalesQueTocan } from './piezas-del-dia.mjs';
@@ -450,4 +451,16 @@ test('el carrusel de una nota propia sale una sola vez y con el enlace de la not
   assert.match(fb[2], /\/nota\/slug-fijo-prop001|\/nota\/la-feria-del-libro-en-fotos-prop001/);
   const otra = await correr({ env: t.env, ahora: new Date(MARTES_10.getTime() + 3600_000), carpeta: t.carpeta, deps: t.deps });
   assert.ok(!otra.piezas.some((p) => p.pieza === 'carrusel-nota-prop001'));
+});
+
+test('el crédito de la lámina no duplica el prefijo: «Foto: Foto: X» nunca (caso La Vanguardia, 5/11)', () => {
+  for (const c of ['Foto: Diario La Vanguardia', 'Foto de Diario La Vanguardia', 'Fotografía: Diario La Vanguardia', 'Imagen: Diario La Vanguardia']) {
+    const semana = armarCarruselSemana([{ id: 'a', titulo: 'Inauguraron el nuevo gimnasio municipal', seccion: 'Balcarce', foto: { ...foto(1), credito: c, datos: 'data:image/jpeg;base64,AAAA' } }, { id: 'b', titulo: 'Concierto de la banda municipal', seccion: 'Cultura y agenda', foto: null }], { desde: '2026-11-02', hasta: '2026-11-08' });
+    const svg = imagenComoSvg(semana.escenas[1]);
+    assert.ok(svg.includes('Diario La Vanguardia'), c);
+    assert.ok(!/(Foto|Imagen)[^<]{0,12}(Foto|Imagen)/i.test(svg.replace(/data:image[^"]*/g, '')), `sin prefijo repetido con «${c}»`);
+    assert.equal(lineaDeCredito({ foto: { credito: c } }), c);
+  }
+  assert.equal(creditoConPrefijo('Diario La Vanguardia'), 'Foto: Diario La Vanguardia');
+  assert.equal(creditoConPrefijo(''), '');
 });

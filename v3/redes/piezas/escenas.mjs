@@ -32,6 +32,7 @@ import {
 import { acortarCaracteres } from './voz.mjs';
 import { repartirTexto, INSTAGRAM, PAPEL as PAPEL_TARJETA, GRIS as GRIS_TARJETA, INTERLINEA_BAJADA, anchoParaTexto, altoParaTexto, colorDe as colorDeTarjeta } from '../../../web/lib/tarjeta-diseno.js';
 import { bajadaConcreta } from './bajada.mjs';
+import { creditoConPrefijo } from '../texto.mjs';
 
 const X0 = CAJA_TEXTO.xMin;
 const TINTA = COLORES.tinta;
@@ -183,7 +184,7 @@ function carruselFoto(d, { cierre = false } = {}) {
 const pieDeLamina = (d, { credito: foto = null } = {}) => {
   const I = INSTAGRAM;
   const yRaya = IMAGEN_FEED_ALTO - I.abajo - I.pie;
-  const cred = foto?.credito ? texto(`Foto: ${acortarCaracteres(foto.credito, 58)}`, MARGEN_F, yRaya - 22, { tam: 25, peso: 500, color: GRIS_TARJETA }) : '';
+  const cred = creditoConPrefijo(foto?.credito) ? texto(acortarCaracteres(creditoConPrefijo(foto.credito), 58), MARGEN_F, yRaya - 22, { tam: 25, peso: 500, color: GRIS_TARJETA }) : '';
   return `${cred}<rect x="${MARGEN_F}" y="${yRaya}" width="${ANCHO_F}" height="3" fill="${TINTA}"/>
   <text x="${MARGEN_F}" y="${yRaya + 56}" font-family="${DISPLAY}" font-size="40" font-weight="900" letter-spacing="-0.4" fill="${TINTA}">Radar <tspan fill="${ROJO}" dx="10">Balcarce</tspan></text>
   ${texto(`${d.n} / ${d.de}`, IMAGEN_FEED_ANCHO - MARGEN_F, yRaya + 54, { tam: 28, peso: 700, color: GRIS_TARJETA, ancla: 'end' })}`;

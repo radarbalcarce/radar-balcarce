@@ -106,9 +106,14 @@ export function dosLineas(nota) {
 
 /** El crédito de la foto, al final del texto: la foto va entera y sin nombres pegados encima, así que el crédito se dice acá. */
 export function lineaDeCredito(nota) {
-  const credito = limpiar(nota.foto?.credito);
-  if (!credito) return '';
-  return /^(foto|ilustraci)/i.test(credito) ? credito : `Foto: ${credito}`;
+  return creditoConPrefijo(nota.foto?.credito);
+}
+
+/** «Foto: X» sin duplicar nunca el prefijo: si ya trae «Foto:», «Foto de», «Fotografía:», «Imagen:» o es una ilustración, queda como está. Sin crédito, ''. */
+export function creditoConPrefijo(credito) {
+  const c = limpiar(credito);
+  if (!c) return '';
+  return /^(foto|ilustraci|imagen)/i.test(c) ? c : `Foto: ${c}`;
 }
 
 function armar(partes) {
