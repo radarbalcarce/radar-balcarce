@@ -536,3 +536,12 @@ test('el clima no dice dos veces la lluvia: si el comentario ya habló de ella, 
   const tranquilo = armarClima({ ...CLIMA_DE_PRUEBA, dias: [{ ...CLIMA_DE_PRUEBA.dias[0], lluvia: 10 }, ...CLIMA_DE_PRUEBA.dias.slice(1)] }, { fecha: HOY, hora: 7, primeraDelBloque: true }).guion;
   assert.match(tranquilo, /Lluvia: 10 por ciento/);
 });
+
+test('el texto del repaso lleva el enlace de cada noticia en Facebook y YouTube, y en Instagram sólo los títulos (Hernán, 5/11)', async () => {
+  const { textoDePieza, textoParaBuffer } = await import('./publicar.mjs');
+  const item = { nombre: 'Lo más leído', hashtag: 'Repaso', arma: 'repaso', datos: { notas: [{ id: 'a1', titulo: 'Una nota' }, { id: 'b2', titulo: 'Otra nota' }, { id: 'c3', titulo: 'Tercera' }] } };
+  const fb = textoDePieza({ guion: 'x' }, item, 'facebook');
+  assert.equal((fb.match(/https:\/\/radarbalcarce\.com\/nota\//g) ?? []).length, 3, fb);
+  assert.match(textoParaBuffer({ guion: 'x' }, item, 'youtube'), /nota\/otra-nota-b2\?utm_source=youtube/);
+  assert.doesNotMatch(textoDePieza({ guion: 'x' }, item, 'instagram'), /nota\//);
+});

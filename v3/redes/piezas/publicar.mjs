@@ -2,7 +2,7 @@
 // Sólo corre con REDES_ACTIVAS en «si»; en ensayo se arma el mismo texto y se anota lo que se HABRÍA publicado. Puro salvo `publicarPieza`, que recibe el cliente.
 import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
 import { accionesDe } from '../piezas-del-dia.mjs';
-import { ponerOrigen, SITIO } from '../texto.mjs';
+import { ponerOrigen, enlaceDeNota, SITIO } from '../texto.mjs';
 
 /**
  * El clima, los avisos de clima y la farmacia, cuando salen como reel en Facebook, llevan el enlace a SU página del sitio (/clima, /farmacias) con su origen, no un «Todo en radarbalcarce.com»
@@ -32,7 +32,13 @@ export function resumenDelGuion(guion, max = 260) {
  */
 export function textoDePieza(pieza, item, red) {
   const lineas = [item.nombre, ''];
-  if (item.arma === 'repaso') lineas.push(...(item.datos.notas ?? []).slice(0, 3).map((n, i) => `${i + 1}. ${limpiar(n.titulo)}`));
+  // En Facebook y YouTube cada noticia del repaso lleva su enlace (Hernán, 5/11); Instagram no abre enlaces: ahí van sólo los títulos.
+  if (item.arma === 'repaso') {
+    for (const [i, n] of (item.datos.notas ?? []).slice(0, 3).entries()) {
+      lineas.push(`${i + 1}. ${limpiar(n.titulo)}`);
+      if (red !== 'instagram' && n.id) lineas.push(ponerOrigen(enlaceDeNota(n), { fuente: red === 'youtube' ? 'youtube' : 'facebook', campana: 'repaso', contenido: n.id }));
+    }
+  }
   else lineas.push(resumenDelGuion(pieza.guion));
   if (pieza.auspicio) lineas.push('', `El clima de hoy lo auspicia ${pieza.auspicio.comercio}${pieza.auspicio.cuenta ? ` (${pieza.auspicio.cuenta})` : ''}.`);
   const servicio = SERVICIOS_CON_PAGINA[item.arma];
@@ -78,7 +84,7 @@ export const simularPublicacion = (acciones) => acciones.map((a) => ({ red: a.re
  */
 export function textoParaBuffer(pieza, item, red) {
   if (red === 'tiktok') return textoDePieza(pieza, item, 'instagram');
-  if (red === 'youtube') return textoDePieza(pieza, item, 'facebook');
+  if (red === 'youtube') return textoDePieza(pieza, item, 'youtube');
   const cuenta = item.arma === 'repaso' ? (item.datos.notas ?? []).slice(0, 3).map((n) => limpiar(n.titulo)).join(' · ') : resumenDelGuion(pieza.guion, 150);
   return `${item.nombre}: ${cuenta}\n\n${HASHTAGS_FIJOS} #${item.hashtag}`;
 }
