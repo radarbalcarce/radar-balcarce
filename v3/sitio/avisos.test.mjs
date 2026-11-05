@@ -202,6 +202,15 @@ test('/publicidad ya no tiene precios: redirige (301) a la nota del media kit', 
   assert.equal(RUTA_MEDIA_KIT, `/nota/${SLUG}-${ID}`);
 });
 
+test('direcciones mal escritas: /farmacia, /rss y /media-kit redirigen (301) a la buena', async () => {
+  const { env } = baseDePrueba();
+  for (const [mala, buena] of [['/farmacia', '/farmacias'], ['/rss', '/rss.xml'], ['/media-kit', RUTA_MEDIA_KIT]]) {
+    const r = await ir(env, mala);
+    assert.equal(r.status, 301, mala);
+    assert.equal(r.headers.get('location'), buena, mala);
+  }
+});
+
 test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada por Hernán, sin precios, sin 2027', async () => {
   const { sqlite, env } = baseDePrueba();
   sqlite.exec(readFileSync(new URL('../redaccion/telegram/schema-redaccion.sql', import.meta.url), 'utf8')); // las columnas que suma el bot de Telegram (ya están en la base de verdad)

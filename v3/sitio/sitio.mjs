@@ -98,7 +98,7 @@ export function esRutaPropia(pathname) {
     || ruta === '/ads.txt' || ruta === '/clima' || ruta === '/farmacias' || ruta === '/dolar' || RUTAS_DE_TEXTO.includes(ruta.slice(1))
     || /^\/sitemap-\d{4}-(?:0[1-9]|1[0-2])\.xml$/.test(ruta) || /^\/seccion\/[a-z]+(?:-\d+)?$/.test(ruta) || /^\/nota\/[^/]+$/.test(ruta)
     // Lo que servía el sitio viejo y ahora es de acá (el cierre, REGLAS.md § 10).
-    || ruta === '/hoy' || ruta === '/util' || ruta === '/tablas' || ruta === '/tablas/liga-profesional' || ruta === '/tablas/formula-1' || ruta === '/compartir'
+    || ruta === '/farmacia' || ruta === '/rss' || ruta === '/media-kit' || ruta === '/hoy' || ruta === '/util' || ruta === '/tablas' || ruta === '/tablas/liga-profesional' || ruta === '/tablas/formula-1' || ruta === '/compartir'
     || ruta === '/agenda' || /^\/agenda\/[^/]+(?:\/evento\.ics)?$/.test(ruta) || ruta === '/llms.txt' || /^\/agentes\/(?:ultimas|indice|servicios)\.json$/.test(ruta)
     || ruta === '/sitemap-news.xml' || ruta === '/sitemap-paginas.xml' || ruta === '/sitemap-index.xml' || /^\/sitemap-notas\/\d{4}-\d{2}\/sitemap\.xml$/.test(ruta)
     || /^\/seccion\/[a-z]+\/feed\.xml$/.test(ruta) || /^\/tema\/[^/]+$/.test(ruta) || /(?:^|\/)opengraph-image$/.test(ruta);
@@ -275,6 +275,10 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     const gone = (que, buscar = '') => ({ r: respuesta(paginaYaNoEsta({ que, buscar }), { estado: 410, indexar: false }) });
     const redirigir = (a, segundos = CACHE.nota[1]) => ({ r: new Response(null, { status: 301, headers: { location: a, 'cache-control': `public, max-age=${segundos}` } }), cachear: true });
 
+    // Direcciones que la gente escribe o comparte mal (auditoría 5/11): llevan a la buena.
+    if (ruta === '/farmacia') return redirigir('/farmacias');
+    if (ruta === '/rss') return redirigir('/rss.xml');
+    if (ruta === '/media-kit') return redirigir(RUTA_MEDIA_KIT);
     if (ruta === '/sitemap-index.xml') return redirigir('/sitemap.xml');
     m = /^\/sitemap-notas\/(\d{4}-\d{2})\/sitemap\.xml$/.exec(ruta);
     if (m) return redirigir(`/sitemap-${m[1]}.xml`);
