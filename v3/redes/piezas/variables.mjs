@@ -43,7 +43,7 @@ export const ANCHO_UTIL = CAJA_TEXTO.xMax - CAJA_TEXTO.xMin;
 export const FIRMA_RAYA_Y = 1478;
 export const FIRMA_BASE_Y = 1544;
 /** Donde van los subtítulos de hoy (el centro de la línea). */
-export const SUBTITULOS_Y = 1660;
+export const SUBTITULOS_Y = 1620;
 /** La franja del auspicio del clima: ámbar, de una línea, entre la firma de la placa y los subtítulos (no rompe nada del diseño de hoy). */
 export const FRANJA_AUSPICIO = congelar({ y: 1568, alto: 54 });
 export const TITULAR_MAX_CARACTERES = 90;
