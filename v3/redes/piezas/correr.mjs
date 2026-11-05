@@ -194,7 +194,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         if (item.buffer?.length) {
           if (deps.subirVideo && deps.publicarEnBuffer && env.BUFFER_API_KEY) {
             const huella = `${plan.dia}-${item.id}-${item.fila}`;
-            informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, subirVideo: deps.subirVideo, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
+            informe.acciones.push(...await publicarPorBuffer({ pieza, item, mp4, huella, duracion: pieza.duracion, subirVideo: deps.subirVideo, publicarEnBuffer: deps.publicarEnBuffer, sinSecreto: (t) => String(t).split(env.BUFFER_API_KEY).join('[clave]') }));
           } else informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}sin BUFFER_API_KEY: no sale en TikTok, YouTube ni X`;
         }
         informe.estado = buenas ? 'publicada' : 'error';

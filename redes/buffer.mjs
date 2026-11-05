@@ -118,6 +118,46 @@ export async function publicarVideo({ canal, url, texto, titulo, ia = false }, o
   return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
 }
 
+/**
+ * Publica UNA imagen ya, en un canal (5/11/2026, Hernán: «en todas las redes sale todo»). La forma sale de la documentación de Buffer (developers.buffer.com, «Create Image Post» y
+ * «Hosting Media»): `assets` es una lista ordenada y cada entrada lleva exactamente una de `image`, `video` o `document`, o sea `assets: [{ image: { url } }]`, igual que el video de arriba.
+ * La imagen tiene que estar en una dirección pública que siga abierta hasta que Buffer la baje. NO probado todavía contra el canal de X de verdad (se prueba con el primer posteo real).
+ * Sin metadatos (X no los pide). Devuelve { ok, id?, motivo? }.
+ */
+export async function publicarImagen({ canal, url, texto }, opciones = {}) {
+  const input = {
+    channelId: canal.id,
+    text: String(texto ?? '').slice(0, esX(canal.servicio) ? 280 : 2000),
+    schedulingType: 'automatic',
+    needsApproval: false,
+    mode: 'shareNow',
+    assets: [{ image: { url } }],
+  };
+  const r = await pedir(CREAR, { input }, opciones);
+  if (!r.ok) return { ok: false, motivo: r.motivo };
+  const c = r.datos?.createPost;
+  if (c?.post?.id) return { ok: true, id: c.post.id, estado: c.post.status ?? null };
+  return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
+}
+
+/** Sólo X por ahora (TikTok modo foto no está confirmado en la API de Buffer: PENDIENTES-3-0.md). Interruptor BUFFER_IMAGENES: «no» lo apaga. */
+export const REDES_DE_BUFFER_PARA_IMAGENES = ['twitter'];
+export const imagenesPorBufferActivas = (env = process.env) => !/^no$/i.test(String(env?.BUFFER_IMAGENES ?? 'si').trim());
+
+/** Manda una imagen a las redes de Buffer pedidas (por defecto X). Devuelve { [servicio]: { ok, id?, motivo? } }; sin clave o con el interruptor en «no», {}. */
+export async function publicarFoto({ url, texto, redes = REDES_DE_BUFFER_PARA_IMAGENES }, opciones = {}) {
+  const env = opciones.env ?? process.env;
+  if (!hayBuffer(env) || !imagenesPorBufferActivas(env)) return {};
+  const c = await canales(opciones);
+  const resultado = {};
+  if (!c.ok) { for (const s of redes) resultado[s] = { ok: false, motivo: c.motivo }; return resultado; }
+  for (const servicio of redes) {
+    const canal = c.canales.find((x) => x.servicio === servicio || (esX(servicio) && esX(x.servicio)));
+    resultado[servicio] = canal ? await publicarImagen({ canal, url, texto }, opciones) : { ok: false, motivo: `no hay un canal de ${servicio} conectado en Buffer` };
+  }
+  return resultado;
+}
+
 /** ¿Es el canal de X? (Buffer lo llama «twitter»). */
 export const esX = (servicio) => ['twitter', 'x'].includes(String(servicio ?? '').toLowerCase());
 

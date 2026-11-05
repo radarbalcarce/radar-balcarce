@@ -2,7 +2,7 @@
 // de D1 (las notas del repaso, el comercio que auspicia el clima). NO dibuja, NO pide la voz y NO publica: eso lo hace el programa de v3/redes/piezas/correr.mjs en GitHub Actions
 // (resvg + ffmpeg no corren en un Worker), que pide este plan y después cuenta cómo salió. Reglas en palabras de persona: REGLAS.md, «Las piezas de video».
 
-import { redesDeBuffer } from './piezas-del-dia.mjs';
+import { redesDeBuffer, topeDeYoutube } from './piezas-del-dia.mjs';
 import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloqueDeLaHora, relojDeBalcarce } from './piezas-del-dia.mjs';
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
@@ -100,8 +100,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   }
   let notasCargadas = null;
   const salen = [];
-  // Cuántos YouTube Shorts ya se dieron hoy (el tope es 6): las filas armadas o publicadas que llevan la acción de YouTube.
-  let youtubeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).reduce((s, f) => s + ((f.acciones ?? []).some((a) => a.red === 'youtube' && a.estado !== 'error') ? 1 : 0), 0);
+  // Cuántos YouTube Shorts ya se dieron hoy (el tope es TOPE_YOUTUBE_POR_DIA, 12 por defecto): las filas armadas o publicadas que llevan la acción de YouTube.
+  let youtubeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).reduce((s, f) => s + ((f.acciones ?? []).some((a) => a.red === 'youtube' && a.estado !== 'error' && a.estado !== 'omitida') ? 1 : 0), 0);
   for (const p of pendientes) {
     const reservar = PIEZAS_DEL_DIA.filter((x) => x.voz < p.voz && porSalirHoy(x) && !salen.some((s) => s.id === x.id)).length;
     if (tope - usados - reservar <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
@@ -127,7 +127,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque: saluda ? bloque : null, simulado, ahoraISO, notas, auspicio });
     if (!fila) continue;
     usados += 1;
-    const buffer = redesDeBuffer(p, { youtubeHoy });
+    const buffer = redesDeBuffer(p, { youtubeHoy, tope: topeDeYoutube(env) });
     if (buffer.includes('youtube')) youtubeHoy += 1;
     salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
   }

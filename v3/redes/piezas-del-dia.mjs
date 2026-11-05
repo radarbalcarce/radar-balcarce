@@ -83,21 +83,27 @@ export function accionesDe(pieza) {
 
 /** Los canales de Buffer (el plan gratis tiene 3): TikTok, YouTube Shorts y X (Buffer lo llama «twitter»). */
 export const REDES_DE_BUFFER = Object.freeze(['tiktok', 'youtube', 'twitter']);
-/** YouTube Shorts: como mucho 6 por día (docs/propuestas/REDES-3-0-FORMATOS.md § 2). */
-export const TOPE_YOUTUBE_POR_DIA = 6;
+/** YouTube Shorts: como mucho 12 por día (Hernán, 5/11: «sale todo y medimos una semana»). Se cambia con la variable TOPE_YOUTUBE_POR_DIA del Worker (`topeDeYoutube`). */
+export const TOPE_YOUTUBE_POR_DIA = 12;
+/** Un Short dura hasta 60 s (YouTube los admite más largos, pero sólo los de 60 s o menos se cuentan como Short con seguridad). */
+export const MAXIMO_DE_UN_SHORT_SEG = 60;
 
-const SIN_TIKTOK = new Set(['farmacia', 'utiles', 'agenda']); // lo muy de acá y de servicio no le sirve a TikTok
+/** El tope diario de Shorts: la variable si es un número entero de 0 a 50; si no, el de siempre. */
+export function topeDeYoutube(env) {
+  const n = Number(String(env?.TOPE_YOUTUBE_POR_DIA ?? '').trim());
+  return Number.isInteger(n) && n >= 0 && n <= 50 && String(env?.TOPE_YOUTUBE_POR_DIA ?? '').trim() !== '' ? n : TOPE_YOUTUBE_POR_DIA;
+}
 
 /**
- * A qué canales de Buffer va una pieza de video, con el mismo mp4 de Facebook: TikTok y X, todo menos farmacia, útiles y agenda; YouTube Shorts, todo menos el repaso de la tarde y el
- * clima de la noche y con tope de 6 por día (`youtubeHoy` = cuántos ya se dieron). Los avisos de clima (historias de servicio, de acá) no salen por Buffer. Sólo reels: las
- * piezas de imagen (posteo, carrusel, enlace) no pasan por acá.
+ * A qué canales de Buffer va una pieza de video, con el mismo mp4 de Facebook (Hernán, 5/11: «en todas las redes sale todo el material que se genere y la red lo permita, así medimos una
+ * semana qué sirve y después recortamos»): TikTok, YouTube Shorts y X reciben TODAS (reels, historias, clima, farmacia, útiles, agenda y también los avisos de clima: no hay razón técnica
+ * para dejarlos afuera, es el mismo mp4 y Buffer lo lee igual). Lo único que frena es el tope diario de YouTube (`youtubeHoy` = cuántos ya se dieron, `tope` = hasta cuántos) y, ya con el video
+ * hecho, que dure más de 60 s (eso lo mira `publicarPorBuffer`). Sólo videos: las piezas de imagen (posteo, carrusel, enlace) no pasan por acá.
  */
-export function redesDeBuffer(pieza, { youtubeHoy = 0 } = {}) {
-  if (!pieza || pieza.arma === 'aviso') return [];
-  const redes = [];
-  if (!SIN_TIKTOK.has(pieza.id)) redes.push('tiktok');
-  if (pieza.formato !== 'historia' && youtubeHoy < TOPE_YOUTUBE_POR_DIA) redes.push('youtube');
-  if (!SIN_TIKTOK.has(pieza.id)) redes.push('twitter');
+export function redesDeBuffer(pieza, { youtubeHoy = 0, tope = TOPE_YOUTUBE_POR_DIA } = {}) {
+  if (!pieza) return [];
+  const redes = ['tiktok'];
+  if (youtubeHoy < tope) redes.push('youtube');
+  redes.push('twitter');
   return redes;
 }

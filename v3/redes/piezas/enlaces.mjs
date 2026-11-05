@@ -1,4 +1,4 @@
-// Bluesky y Threads de Radar 3.0 (lado de GitHub Actions). Pide al Worker `radar-redes` qué notas toca publicar (POST /enlaces/plan: las que ya salieron en Facebook hoy), dibuja la imagen de
+// Bluesky, Threads y X (por Buffer, con la placa 4:5) de Radar 3.0 (lado de GitHub Actions). Pide al Worker `radar-redes` qué notas toca publicar (POST /enlaces/plan: las que ya salieron en Facebook hoy), dibuja la imagen de
 // enlace 1,91:1 de la nota (la que ya existe: `armarEnlace`, resvg), llama a la API oficial de cada red y le cuenta cómo salió (POST /enlaces/resultado). Reglas: v3/redes/REGLAS.md § 12.
 //
 // Secretos (los pega una persona, nunca en un chat ni en el código): BLUESKY_APP_PASSWORD (+ la variable BLUESKY_HANDLE, por defecto radarbalcarce.bsky.social), THREADS_TOKEN y THREADS_USER_ID.
@@ -22,6 +22,7 @@ export function redesConCredenciales(env = {}) {
   const redes = [];
   if (env.BLUESKY_APP_PASSWORD) redes.push('bluesky');
   if (env.THREADS_TOKEN && env.THREADS_USER_ID) redes.push('threads');
+  if (env.BUFFER_API_KEY && !/^no$/i.test(String(env.BUFFER_IMAGENES ?? 'si').trim())) redes.push('x'); // X por Buffer; BUFFER_IMAGENES=no lo apaga
   return redes;
 }
 
@@ -41,7 +42,7 @@ export async function correrEnlaces({ env = {}, ahora = new Date(), carpeta, dep
 
   const redes = redesConCredenciales(env);
   const plan = await llamar('/enlaces/plan', { redes, ...(env.AHORA ? { ahora: env.AHORA } : {}) });
-  const salida = { dia: plan.dia, activas: plan.activas, sinCredenciales: plan.activas ? ['bluesky', 'threads'].filter((r) => !redes.includes(r)) : [], posteos: [] };
+  const salida = { dia: plan.dia, activas: plan.activas, sinCredenciales: plan.activas ? ['bluesky', 'threads', 'x'].filter((r) => !redes.includes(r)) : [], posteos: [] };
   log(`enlaces ${plan.dia}: ${plan.items.length} posteos, ${plan.activas ? 'REAL' : 'ENSAYO (no se publica)'}${salida.sinCredenciales.length ? `; sin secretos (no publica): ${salida.sinCredenciales.join(', ')}` : ''}`);
   if (!plan.items.length) { guardar(carpeta, salida); return salida; }
 
@@ -72,12 +73,17 @@ export async function correrEnlaces({ env = {}, ahora = new Date(), carpeta, dep
         bluesky ??= deps.clienteBluesky();
         const r = await bluesky.publicarEnlace({ texto: item.texto, enlace: item.enlace, titulo: item.nota.titulo, descripcion: descripcionDeTarjeta(item.nota), imagen });
         await cuenta('ok', { idExterno: r.uri });
+      } else if (item.red === 'x') {
+        // La imagen es la placa 4:5 que ya está pública en el Worker (item.imagen); Buffer la baja de ahí.
+        const r = (await deps.publicarImagenEnBuffer({ url: item.imagen, texto: item.texto, redes: ['twitter'] }))?.twitter ?? { ok: false, motivo: 'Buffer no contestó por X' };
+        if (!r.ok) throw new Error(`Buffer/X: ${r.motivo ?? 'sin detalle'}`);
+        await cuenta('ok', { idExterno: r.id });
       } else {
         const r = await deps.clienteThreads().publicarEnlace({ texto: item.texto, enlace: item.enlace });
         await cuenta('ok', { idExterno: r.id });
       }
     } catch (e) {
-      const limpio = sinSecretos(String(e?.message ?? e), [env.BLUESKY_APP_PASSWORD, env.THREADS_TOKEN]).slice(0, 400);
+      const limpio = sinSecretos(String(e?.message ?? e), [env.BLUESKY_APP_PASSWORD, env.THREADS_TOKEN, env.BUFFER_API_KEY]).slice(0, 400);
       await cuenta('error', { error: limpio });
     }
     log(`${item.red} ${item.nota.id}: ${informe.estado}${informe.error ? ` · ${informe.error}` : ''}`);
@@ -120,6 +126,7 @@ export async function dependenciasReales(env = process.env) {
     },
     clienteBluesky: () => crearClienteBluesky({ handle: env.BLUESKY_HANDLE || HANDLE_BLUESKY, password: env.BLUESKY_APP_PASSWORD }),
     clienteThreads: () => crearClienteThreads({ token: env.THREADS_TOKEN, userId: env.THREADS_USER_ID }),
+    publicarImagenEnBuffer: async (o) => (await import('../../../redes/buffer.mjs')).publicarFoto(o, { env, fetchFn: fetch }),
   };
 }
 

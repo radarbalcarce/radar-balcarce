@@ -9,11 +9,27 @@ import { notasParaRedes, publicacionesDelDia, anotarIntento, cerrarIntento, venc
 import { textoDeBluesky } from './bluesky.mjs';
 import { textoDeThreads } from './threads.mjs';
 import { enlaceDeNota, SITIO } from './texto.mjs';
+import { textoDeX, xConEnlace } from './x.mjs';
+import { nombreDePlaca, urlDePlaca, PREFIJO_DE_PLACAS, DIRECCION_DE_LAS_REDES } from './placa-clave.mjs';
 
-export const REDES_DE_ENLACE = Object.freeze(['bluesky', 'threads']);
+// «x»: X por Buffer, con la placa 4:5 del posteo de Facebook (v3/redes/x.mjs). Es la única que NO usa la imagen de enlace: su imagen ya está dibujada y pública.
+export const REDES_DE_ENLACE = Object.freeze(['bluesky', 'threads', 'x']);
 export const REGLAS_ENLACES = Object.freeze({ porRedYCorrida: 3, horasDespuesDeFacebook: 12, erroresPorNota: 2, enviandoVenceMinutos: 45 });
 
-const textoDe = { bluesky: textoDeBluesky, threads: textoDeThreads };
+const textoDe = { bluesky: textoDeBluesky, threads: textoDeThreads, x: (nota, sitio, env) => textoDeX(nota, { conEnlace: xConEnlace(env), sitio }) };
+
+/** Los nombres de las placas ya dibujadas en R2 (una sola lectura de la lista); sin el depósito, null. */
+async function placasDibujadas(env) {
+  if (!env?.PLACAS?.list) return null;
+  const nombres = new Set();
+  let cursor;
+  do {
+    const r = await env.PLACAS.list({ prefix: PREFIJO_DE_PLACAS, cursor });
+    for (const o of r.objects ?? []) nombres.add(o.key.slice(PREFIJO_DE_PLACAS.length));
+    cursor = r.truncated ? r.cursor : undefined;
+  } while (cursor);
+  return nombres;
+}
 
 /**
  * Lo que toca publicar ahora en Bluesky y Threads.
@@ -30,6 +46,8 @@ export async function planearEnlaces(env, { ahora = new Date(), simulado = true,
   const items = [];
   if (!enFacebook.length || !quienes.length) return { dia, simulado, items };
 
+  const conPlacas = quienes.includes('x') ? await placasDibujadas(env) : null;
+  const baseDePlacas = env?.URL_DE_REDES || DIRECCION_DE_LAS_REDES;
   const notas = new Map((await notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 48 * 3600_000).toISOString(), conBorradores: simulado })).map((n) => [n.id, n]));
   for (const red of quienes) {
     const yaEstan = new Set(hechasDe(hechas, red).map((h) => h.notaId));
@@ -41,11 +59,13 @@ export async function planearEnlaces(env, { ahora = new Date(), simulado = true,
       if (yaEstan.has(f.notaId) || (fallos.get(f.notaId) || 0) >= reglas.erroresPorNota) continue;
       const nota = notas.get(f.notaId);
       if (!nota?.foto?.url) continue; // la imagen de enlace necesita la foto (las de Facebook ya la tienen)
-      const texto = textoDe[red](nota, sitio);
+      // X lleva la placa: si todavía no está dibujada (o el Worker no ve el depósito, en real), espera a la corrida siguiente. En ensayo se anota igual.
+      if (red === 'x' && !simulado && !(conPlacas && conPlacas.has(nombreDePlaca(nota)))) continue;
+      const texto = textoDe[red](nota, sitio, env);
       const id = await anotarIntento(env, { red, notaId: nota.id, seccion: nota.seccion, tipo: f.tipo, cuando: ahoraISO, dia, estado: simulado ? 'simulado' : 'enviando', simulado, texto });
       if (!id) continue; // otra corrida la tomó primero
       items.push({
-        id, red, simulado, enlace: enlaceDeNota(nota, sitio), texto,
+        id, red, simulado, enlace: enlaceDeNota(nota, sitio), texto, ...(red === 'x' ? { imagen: urlDePlaca(nota, baseDePlacas) } : {}),
         nota: { id: nota.id, titulo: nota.titulo, bajada: nota.bajada, enDosLineas: nota.enDosLineas, seccion: nota.seccion, foto: nota.foto, slug: nota.slug },
       });
       n += 1;
@@ -59,7 +79,7 @@ export async function registrarEnlace(env, cuerpo) {
   const id = Number(cuerpo?.id);
   if (!Number.isInteger(id) || id <= 0) return { error: 'falta el id' };
   if (cuerpo?.estado !== 'ok' && cuerpo?.estado !== 'error') return { error: `estado desconocido: ${cuerpo?.estado}` };
-  const fila = await env.DB.prepare("SELECT id, red FROM publicaciones WHERE id = ? AND red IN ('bluesky', 'threads')").bind(id).first();
+  const fila = await env.DB.prepare("SELECT id, red FROM publicaciones WHERE id = ? AND red IN ('bluesky', 'threads', 'x')").bind(id).first();
   if (!fila) return { error: 'no existe esa fila' };
   await cerrarIntento(env, id, { estado: cuerpo.estado, idMeta: cuerpo.idExterno ? String(cuerpo.idExterno).slice(0, 300) : null, error: cuerpo.error ? String(cuerpo.error).slice(0, 500) : null });
   return { ok: true };

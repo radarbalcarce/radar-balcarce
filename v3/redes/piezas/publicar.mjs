@@ -1,7 +1,7 @@
 // El texto de cada pieza de video en Facebook e Instagram y la publicación (reel y historia) con el cliente de Meta de siempre (redes/meta.mjs: sube el mp4 directo, en dos pasos).
 // Sólo corre con REDES_ACTIVAS en «si»; en ensayo se arma el mismo texto y se anota lo que se HABRÍA publicado. Puro salvo `publicarPieza`, que recibe el cliente.
 import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
-import { accionesDe } from '../piezas-del-dia.mjs';
+import { accionesDe, MAXIMO_DE_UN_SHORT_SEG } from '../piezas-del-dia.mjs';
 import { ponerOrigen, enlaceDeNota, SITIO } from '../texto.mjs';
 
 /**
@@ -97,14 +97,19 @@ export const accionesDeBuffer = (item) => (item.buffer ?? []).map((red) => ({ re
  * `publicarEnBuffer({ url, texto, titulo, redes })` es `publicarReel` de redes/buffer.mjs (devuelve { [canal]: { ok, id?, motivo? } }, sin tirar). Sigue aunque un canal falle.
  * @returns {Promise<{ red, tipo, estado: 'ok'|'error', id?, error? }[]>}
  */
-export async function publicarPorBuffer({ pieza, item, mp4, huella, subirVideo, publicarEnBuffer, sinSecreto = (t) => t }) {
-  const redes = (item.buffer ?? []);
-  if (!redes.length) return [];
+export async function publicarPorBuffer({ pieza, item, mp4, huella, duracion = null, subirVideo, publicarEnBuffer, sinSecreto = (t) => t }) {
+  const todas = (item.buffer ?? []);
+  if (!todas.length) return [];
+  // Un Short dura hasta 60 s: si el video es más largo, YouTube queda afuera (anotado como «omitida», no cuenta para el tope del día) y los demás canales salen igual.
+  const largo = duracion != null && duracion > MAXIMO_DE_UN_SHORT_SEG;
+  const redes = largo ? todas.filter((r) => r !== 'youtube') : todas;
+  const omitidas = largo && todas.includes('youtube') ? [{ red: 'youtube', tipo: 'VIDEO', estado: 'omitida', error: `dura ${Math.round(duracion)} s: un Short no pasa de 60 s` }] : [];
+  if (!redes.length) return omitidas;
   let url;
   try { url = await subirVideo(mp4, { huella, nombre: `${item.id}.mp4` }); } catch (e) {
-    return redes.map((red) => ({ red, tipo: 'VIDEO', estado: 'error', error: sinSecreto(`no se pudo subir el video para Buffer: ${String(e?.message ?? e)}`).slice(0, 300) }));
+    return [...redes.map((red) => ({ red, tipo: 'VIDEO', estado: 'error', error: sinSecreto(`no se pudo subir el video para Buffer: ${String(e?.message ?? e)}`).slice(0, 300) })), ...omitidas];
   }
-  const salida = [];
+  const salida = [...omitidas];
   for (const red of redes) {
     const r = (await publicarEnBuffer({ url, texto: textoParaBuffer(pieza, item, red), titulo: item.nombre, redes: [red] }))[red]
       ?? { ok: false, motivo: 'Buffer no contestó por ese canal' };

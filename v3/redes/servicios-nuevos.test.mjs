@@ -8,7 +8,7 @@ import path from 'node:path';
 import { armarAgenda, armarUtiles, armarFeriado, armarAviso, cuandoHablado } from './piezas/armadores.mjs';
 import { escenaDeVideo } from './piezas/escenas.mjs';
 import { avisoDelClima, datosDelFeriado, eventosParaLaAgenda, feriadoDelDia, aClimaDePieza } from './piezas/datos.mjs';
-import { PIEZAS_DEL_DIA, condicionalesQueTocan, redesDeBuffer, TOPE_YOUTUBE_POR_DIA } from './piezas-del-dia.mjs';
+import { PIEZAS_DEL_DIA, condicionalesQueTocan, redesDeBuffer, TOPE_YOUTUBE_POR_DIA, topeDeYoutube } from './piezas-del-dia.mjs';
 import { planear } from './piezas-plan.mjs';
 import { correr } from './piezas/correr.mjs';
 import { correrEnlaces, redesConCredenciales } from './piezas/enlaces.mjs';
@@ -19,6 +19,9 @@ import { textoDeThreads, crearClienteThreads, MAXIMO_THREADS } from './threads.m
 import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 import { crearRedes, contrasenaDelWebhook } from './redes.mjs';
 import { baseDePrueba, guardarNota } from './ayuda-pruebas.mjs';
+import { textoDeX, xConEnlace } from './x.mjs';
+import { nombreDePlaca } from './placa-clave.mjs';
+import { publicarFoto, REDES_DE_BUFFER_PARA_IMAGENES, imagenesPorBufferActivas } from '../../redes/buffer.mjs';
 
 const TOKEN = 'token-del-bot-de-prueba';
 const ID = (p) => PIEZAS_DEL_DIA.find((x) => x.id === p);
@@ -111,8 +114,8 @@ test('el plan: las condicionales (feriado, agenda, avisos) sólo entran si el pr
   assert.equal(aviso.horaDelDia, 12);
   assert.equal(aviso.primeraDelBloque, true);
   assert.equal(aviso.saluda, false);
-  assert.deepEqual(aviso.buffer, []); // los avisos no van por Buffer
-  assert.deepEqual(con.piezas.find((p) => p.id === 'agenda').buffer, ['youtube']);
+  assert.deepEqual(aviso.buffer, ['tiktok', 'youtube', 'twitter']); // desde el 5/11 todo video sale por Buffer, avisos incluidos
+  assert.deepEqual(con.piezas.find((p) => p.id === 'agenda').buffer, ['tiktok', 'youtube', 'twitter']);
   // «solo» (ensayo a mano) las pide aunque no haya datos: después sale «sin-datos».
   const solo = await planear({ DB: baseDePrueba().DB }, { ahora: jueves, simulado: true, solo: ['aviso-helada'] });
   assert.deepEqual(solo.piezas.map((p) => p.id), ['aviso-helada']);
@@ -146,19 +149,35 @@ test('la cotización del dólar y las notas de servicio no van a ninguna red: ni
 
 // ------------------------------------------------------------------ Buffer: TikTok, YouTube Shorts y X
 
-test('Buffer: TikTok y X sin farmacia, útiles ni agenda; YouTube sólo los reels de Instagram (como el viejo: sin clima ni farmacia) y hasta 6 por día; los avisos no', () => {
+test('Buffer (5/11): TODA pieza de video sale por TikTok, YouTube Shorts y X (historias, clima, farmacia, útiles, agenda y avisos incluidos); YouTube con tope de 12 por día que se cambia con una variable', () => {
   const de = (id, o) => redesDeBuffer(ID(id), o);
-  assert.deepEqual(de('noticia1'), ['tiktok', 'youtube', 'twitter']);
-  assert.deepEqual(de('noticia2'), ['tiktok', 'youtube', 'twitter']);
-  assert.deepEqual(de('clima-noche'), ['tiktok', 'twitter']);
-  assert.deepEqual(de('farmacia'), []);
-  assert.deepEqual(de('utiles'), ['youtube']);
-  assert.deepEqual(de('clima-manana'), ['tiktok', 'twitter']);
-  assert.deepEqual(de('efemeride'), ['tiktok', 'youtube', 'twitter']);
-  assert.deepEqual(de('agenda'), ['youtube']);
-  assert.deepEqual(de('aviso-helada'), []);
+  const todas = ['tiktok', 'youtube', 'twitter'];
+  for (const id of ['noticia1', 'noticia2', 'podcast', 'clima-manana', 'clima-noche', 'farmacia', 'utiles', 'agenda', 'feriado', 'efemeride', 'aviso-helada', 'aviso-granizo', 'aviso-viento', 'participa-nota']) assert.deepEqual(de(id), todas, id);
   assert.deepEqual(de('noticia1', { youtubeHoy: TOPE_YOUTUBE_POR_DIA }), ['tiktok', 'twitter']);
-  assert.equal(TOPE_YOUTUBE_POR_DIA, 6);
+  assert.deepEqual(de('noticia1', { youtubeHoy: TOPE_YOUTUBE_POR_DIA - 1 }), todas);
+  assert.deepEqual(de('noticia1', { youtubeHoy: 3, tope: 3 }), ['tiktok', 'twitter']);
+  assert.deepEqual(redesDeBuffer(null), []);
+  assert.equal(TOPE_YOUTUBE_POR_DIA, 12);
+  assert.equal(topeDeYoutube({}), 12);
+  assert.equal(topeDeYoutube({ TOPE_YOUTUBE_POR_DIA: '8' }), 8);
+  assert.equal(topeDeYoutube({ TOPE_YOUTUBE_POR_DIA: ' 0 ' }), 0);
+  assert.equal(topeDeYoutube({ TOPE_YOUTUBE_POR_DIA: 'mucho' }), 12);
+  assert.equal(topeDeYoutube({ TOPE_YOUTUBE_POR_DIA: '999' }), 12);
+  assert.equal(topeDeYoutube({ TOPE_YOUTUBE_POR_DIA: '' }), 12);
+});
+
+test('Buffer (5/11): un video de más de 60 s no va a YouTube (queda «omitida» y no gasta el tope) pero sale en TikTok y X', async () => {
+  const item = { id: 'noticia1', nombre: 'El repaso', arma: 'repaso', hashtag: 'Noticias', datos: { notas: [] }, buffer: ['tiktok', 'youtube', 'twitter'] };
+  const pedidos = [];
+  const comun = { pieza: { guion: 'Hola.' }, item, mp4: 'x', huella: 'h', subirVideo: async () => 'https://publico/v.mp4', publicarEnBuffer: async (o) => { pedidos.push(o.redes[0]); return { [o.redes[0]]: { ok: true, id: 'b' } }; } };
+  const largo = await publicarPorBuffer({ ...comun, duracion: 75 });
+  assert.deepEqual(largo.map((a) => `${a.red}/${a.estado}`), ['youtube/omitida', 'tiktok/ok', 'twitter/ok']);
+  assert.match(largo[0].error, /75 s/);
+  assert.deepEqual(pedidos, ['tiktok', 'twitter']);
+  const justo = await publicarPorBuffer({ ...comun, duracion: 60 });
+  assert.deepEqual(justo.map((a) => a.red), ['tiktok', 'youtube', 'twitter']);
+  const sinDato = await publicarPorBuffer({ ...comun });
+  assert.equal(sinDato.length, 3);
 });
 
 test('Buffer: el texto de cada canal (TikTok con «link en la bio», YouTube con el sitio, X corto y sin enlace)', () => {
@@ -220,13 +239,13 @@ function armarCorrida({ ahora, activas = false, clima = CLIMA_FRIO, agenda = [],
   return { ...base, deps, llamadas, carpeta, filas: () => base.sqlite.prepare('SELECT pieza, estado, acciones FROM piezas ORDER BY id').all() };
 }
 
-test('un aviso de helada: el programa lo ve ANTES de pedir el plan, sale como historia con voz y NO va por Buffer; sin aviso, ni se reserva', async () => {
+test('un aviso de helada: el programa lo ve ANTES de pedir el plan, sale como historia con voz y TAMBIÉN va por Buffer (5/11: sale todo); sin aviso, ni se reserva', async () => {
   const ahora = new Date('2026-07-10T22:00:00Z'); // viernes 19:00 en Balcarce
   const con = armarCorrida({ ahora, clima: CLIMA_FRIO });
   const r = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x' }, ahora, carpeta: con.carpeta, deps: con.deps });
   assert.ok(r.piezas.some((p) => p.pieza === 'aviso-helada' && p.estado === 'lista'), JSON.stringify(r.piezas.map((p) => [p.pieza, p.estado])));
   const a = r.piezas.find((p) => p.pieza === 'aviso-helada');
-  assert.ok(a.acciones.every((x) => ['instagram', 'facebook'].includes(x.red)));
+  assert.deepEqual(a.acciones.filter((x) => !['instagram', 'facebook'].includes(x.red)).map((x) => `${x.red}/${x.estado}`), ['tiktok/simulada', 'youtube/simulada', 'twitter/simulada']);
   const sin = armarCorrida({ ahora, clima: { ...CLIMA_FRIO, dias: CLIMA_FRIO.dias.map((d) => ({ ...d, min: 5 })) } });
   const r2 = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x' }, ahora, carpeta: sin.carpeta, deps: sin.deps });
   assert.ok(!r2.piezas.some((p) => p.pieza.startsWith('aviso-')));
@@ -385,7 +404,7 @@ function armarEnlaces({ activas = false } = {}) {
 test('Bluesky y Threads (Worker): las notas que ya salieron en Facebook, la más vieja primero, una vez por red; real sólo las redes con secretos', async () => {
   const t = armarEnlaces();
   const plan = await planearEnlaces(t.env, { ahora: t.ahora, simulado: true });
-  assert.deepEqual(plan.items.map((i) => `${i.red}/${i.nota.id}`), ['bluesky/loc2222', 'bluesky/loc1111', 'threads/loc2222', 'threads/loc1111']);
+  assert.deepEqual(plan.items.map((i) => `${i.red}/${i.nota.id}`), ['bluesky/loc2222', 'bluesky/loc1111', 'threads/loc2222', 'threads/loc1111', 'x/loc2222', 'x/loc1111']);
   assert.match(plan.items[0].texto, /radarbalcarce\.com\/nota\//);
   assert.ok(plan.items.every((i) => i.simulado));
   const otra = await planearEnlaces(t.env, { ahora: t.ahora, simulado: true });
@@ -430,7 +449,7 @@ test('Bluesky y Threads (programa): ensayo deja el texto y la imagen y no llama 
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'enlaces-'));
   const r = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN }, ahora: ensayo.ahora, carpeta, deps: deps(ensayo) });
   assert.equal(r.activas, false);
-  assert.equal(r.posteos.length, 4);
+  assert.equal(r.posteos.length, 6);
   assert.ok(r.posteos.every((p) => p.estado === 'simulado'));
   assert.equal(llamadas.bluesky.length + llamadas.threads.length, 0);
   assert.ok(fs.existsSync(path.join(carpeta, 'enlaces', 'bluesky-loc1111.json')));
@@ -455,7 +474,7 @@ test('Bluesky y Threads (programa): ensayo deja el texto y la imagen y no llama 
   const parcial = montar(true);
   const r3 = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN, BLUESKY_APP_PASSWORD: 'bp' }, ahora: parcial.ahora, carpeta: fs.mkdtempSync(path.join(os.tmpdir(), 'enlaces-')), deps: deps(parcial) });
   assert.deepEqual([...new Set(r3.posteos.map((p) => p.red))], ['bluesky']);
-  assert.deepEqual(r3.sinCredenciales, ['threads']);
+  assert.deepEqual(r3.sinCredenciales, ['threads', 'x']);
 });
 
 test('la contraseña entre el programa y el Worker es la misma para los enlaces', async () => {
@@ -465,4 +484,132 @@ test('la contraseña entre el programa y el Worker es la misma para los enlaces'
   assert.equal(sin.status, 403);
   const con = await redes.manejar(new Request('https://x/enlaces/plan', { method: 'POST', headers: { 'x-radar-contrasena': await contrasenaDelWebhook(TOKEN) }, body: '{}' }), t.env);
   assert.equal(con.status, 200);
+});
+
+// ------------------------------------------------------------------ X por Buffer con la placa de la nota (5/11)
+
+test('X: el texto es el titular y los hashtags, sin enlace por defecto; con X_CON_ENLACE lleva el enlace con su origen; siempre entra en 270', () => {
+  const nota = { id: 'abc123', titulo: 'Abre la feria del libro en la plaza', seccion: 'Cultura y agenda', slug: 'abre-la-feria', etiquetas: ['Libros', 'Feria'] };
+  const sin = textoDeX(nota);
+  assert.equal(sin, 'Abre la feria del libro en la plaza\n\n#Balcarce #RadarBalcarce #Libros');
+  assert.doesNotMatch(sin, /https?:|radarbalcarce\.com/);
+  const con = textoDeX(nota, { conEnlace: true });
+  assert.match(con, /^Abre la feria del libro en la plaza\n\nhttps:\/\/radarbalcarce\.com\/nota\/abre-la-feria-abc123\?utm_source=x&/);
+  assert.match(con, /#Balcarce #RadarBalcarce #Libros$/);
+  const largo = textoDeX({ ...nota, titulo: 'Un titular larguísimo '.repeat(30) }, { conEnlace: true });
+  // El enlace cuenta 23 en X, venga como venga; el resto se cuenta por letras.
+  assert.ok(largo.replace(/https:\/\/\S+/, 'x'.repeat(23)).length <= 270, String(largo.length));
+  assert.match(largo, /…\n\n/);
+  assert.ok(textoDeX({ ...nota, titulo: 'Un titular larguísimo '.repeat(30) }).length <= 270);
+  assert.equal(xConEnlace({}), false);
+  assert.equal(xConEnlace({ X_CON_ENLACE: 'si' }), true);
+  assert.equal(xConEnlace({ X_CON_ENLACE: 'no' }), false);
+});
+
+test('Buffer: publicarImagen manda assets [{ image: { url } }], sin metadatos, a modo «ahora»; sin clave o con BUFFER_IMAGENES=no no hace nada; el error no deja la clave', async () => {
+  const pedidos = [];
+  const fetchFn = async (url, init) => {
+    const cuerpo = JSON.parse(init.body);
+    pedidos.push(cuerpo);
+    if (/organizations/.test(cuerpo.query) && !/channels/.test(cuerpo.query)) return { ok: true, status: 200, json: async () => ({ data: { account: { organizations: [{ id: 'o1', name: 'Radar' }] } } }) };
+    if (/channels\(/.test(cuerpo.query)) return { ok: true, status: 200, json: async () => ({ data: { channels: [{ id: 'cX', name: 'radarbalcarce', displayName: 'Radar', service: 'twitter' }, { id: 'cT', name: 't', displayName: 't', service: 'tiktok' }] } }) };
+    return { ok: true, status: 200, json: async () => ({ data: { createPost: { post: { id: 'p1', status: 'sent' } } } }) };
+  };
+  const env = { BUFFER_API_KEY: 'buf-secreto' };
+  const r = await publicarFoto({ url: 'https://radar-redes/placa/a-12345678.jpg', texto: 'Titular\n\n#Balcarce' }, { env, fetchFn });
+  assert.deepEqual(r, { twitter: { ok: true, id: 'p1', estado: 'sent' } });
+  const crear = pedidos.find((p) => /createPost/.test(p.query));
+  assert.deepEqual(crear.variables.input.assets, [{ image: { url: 'https://radar-redes/placa/a-12345678.jpg' } }]);
+  assert.equal(crear.variables.input.channelId, 'cX');
+  assert.equal(crear.variables.input.mode, 'shareNow');
+  assert.equal(crear.variables.input.metadata, undefined);
+  assert.ok(!JSON.stringify(crear.variables.input).includes('video'));
+  // TikTok no recibe imágenes (modo foto sin confirmar en la API de Buffer): por defecto sólo X.
+  assert.deepEqual(REDES_DE_BUFFER_PARA_IMAGENES, ['twitter']);
+  // Interruptor y clave.
+  const n = pedidos.length;
+  assert.deepEqual(await publicarFoto({ url: 'u', texto: 't' }, { env: { BUFFER_API_KEY: 'k', BUFFER_IMAGENES: 'no' }, fetchFn }), {});
+  assert.deepEqual(await publicarFoto({ url: 'u', texto: 't' }, { env: {}, fetchFn }), {});
+  assert.equal(pedidos.length, n);
+  assert.equal(imagenesPorBufferActivas({ BUFFER_IMAGENES: 'No' }), false);
+  assert.equal(imagenesPorBufferActivas({}), true);
+  // Un rechazo de Buffer vuelve como motivo, sin la clave.
+  const malo = async () => ({ ok: false, status: 401, json: async () => ({ errors: [{ message: 'clave buf-secreto mala' }] }) });
+  const e = await publicarFoto({ url: 'u', texto: 't' }, { env, fetchFn: malo });
+  assert.equal(e.twitter.ok, false);
+  assert.ok(!e.twitter.motivo.includes('buf-secreto'));
+  // Sin canal de X conectado.
+  const sinX = async (url, init) => { const c = JSON.parse(init.body); return /channels\(/.test(c.query) ? { ok: true, status: 200, json: async () => ({ data: { channels: [] } }) } : { ok: true, status: 200, json: async () => ({ data: { account: { organizations: [{ id: 'o1' }] } } }) }; };
+  assert.match((await publicarFoto({ url: 'u', texto: 't' }, { env, fetchFn: sinX })).twitter.motivo, /no hay un canal de twitter/);
+});
+
+function placasDe(t, ids) {
+  return {
+    list: async () => ({
+      objects: ids.map((id) => {
+        const f = t.sqlite.prepare('SELECT titulo, seccion, foto, en_dos_lineas, bajada FROM notas WHERE id = ?').get(id);
+        return { key: `placas/${nombreDePlaca({ id, titulo: f.titulo, bajada: f.bajada, enDosLineas: f.en_dos_lineas, seccion: f.seccion, foto: JSON.parse(f.foto) })}` };
+      }),
+      truncated: false,
+    }),
+  };
+}
+
+test('X (Worker): lleva la placa 4:5 de la nota; en real sólo si la placa ya está dibujada en R2; con X_CON_ENLACE agrega el enlace', async () => {
+  const montar = (extra = {}) => { const t = armarEnlaces({ activas: true }); return { ...t, env: { ...t.env, ...extra } }; };
+  // Sin el depósito de placas, en real no sale.
+  const sinPlacas = montar();
+  assert.equal((await planearEnlaces(sinPlacas.env, { ahora: sinPlacas.ahora, simulado: false, redes: ['x'] })).items.length, 0);
+  // Con una sola placa dibujada: sólo esa nota.
+  const t = montar();
+  t.env.PLACAS = placasDe(t, ['loc1111']);
+  const plan = await planearEnlaces(t.env, { ahora: t.ahora, simulado: false, redes: ['x'] });
+  assert.deepEqual(plan.items.map((i) => `${i.red}/${i.nota.id}`), ['x/loc1111']);
+  assert.match(plan.items[0].imagen, /^https:\/\/radar-redes\.radarbalcarce\.workers\.dev\/placa\/loc1111-[0-9a-f]{8}\.jpg$/);
+  assert.match(plan.items[0].texto, /^Abre la feria del libro\n\n#Balcarce #RadarBalcarce/);
+  assert.doesNotMatch(plan.items[0].texto, /https?:/);
+  assert.deepEqual(await registrarEnlace(t.env, { id: plan.items[0].id, estado: 'ok', idExterno: 'buf1' }), { ok: true });
+  // Con el interruptor, el texto lleva el enlace.
+  const c = montar({ X_CON_ENLACE: 'si', URL_DE_REDES: 'https://otro.example' });
+  c.env.PLACAS = placasDe(c, ['loc2222']);
+  const pc = await planearEnlaces(c.env, { ahora: c.ahora, simulado: false, redes: ['x'] });
+  assert.match(pc.items[0].texto, /https:\/\/radarbalcarce\.com\/nota\/.*-loc2222\?utm_source=x/);
+  assert.match(pc.items[0].imagen, /^https:\/\/otro\.example\/placa\//);
+});
+
+test('X (programa): redesConCredenciales suma X con BUFFER_API_KEY; real publica la imagen por Buffer y cuenta cómo salió; el error no deja la clave; ensayo no llama a nadie', async () => {
+  assert.deepEqual(redesConCredenciales({ BUFFER_API_KEY: 'k' }), ['x']);
+  assert.deepEqual(redesConCredenciales({ BUFFER_API_KEY: 'k', BUFFER_IMAGENES: 'no' }), []);
+  assert.deepEqual(redesConCredenciales({ BUFFER_API_KEY: 'k', BUFFER_IMAGENES: '' }), ['x']);
+  const llamadas = [];
+  const montar = (activas) => {
+    const t = armarEnlaces({ activas });
+    const redes = crearRedes({ ahora: () => t.ahora });
+    t.env.PLACAS = placasDe(t, ['loc1111', 'loc2222']);
+    return { ...t, redes };
+  };
+  const deps = (w, falla = false) => ({
+    fetchFn: (url, init) => w.redes.manejar(new Request(url, init), w.env),
+    imagenDeEnlace: async () => ({ bytes: new Uint8Array([1]), mime: 'image/jpeg' }),
+    publicarImagenEnBuffer: async (o) => { llamadas.push(o); return { twitter: falla ? { ok: false, motivo: 'Buffer rechazó buf-secreto' } : { ok: true, id: `b${llamadas.length}` } }; },
+    log: () => {},
+  });
+  const ensayo = montar(false);
+  const r = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN }, ahora: ensayo.ahora, carpeta: fs.mkdtempSync(path.join(os.tmpdir(), 'x-')), deps: deps(ensayo) });
+  assert.equal(llamadas.length, 0);
+  assert.ok(r.posteos.filter((p) => p.red === 'x').every((p) => p.estado === 'simulado'));
+
+  const real = montar(true);
+  const r2 = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN, BUFFER_API_KEY: 'buf-secreto' }, ahora: real.ahora, carpeta: fs.mkdtempSync(path.join(os.tmpdir(), 'x-')), deps: deps(real) });
+  assert.deepEqual(r2.posteos.map((p) => `${p.red}/${p.estado}`), ['x/ok', 'x/ok']);
+  assert.equal(llamadas.length, 2);
+  assert.match(llamadas[0].url, /\/placa\/loc2222-[0-9a-f]{8}\.jpg$/);
+  assert.deepEqual(llamadas[0].redes, ['twitter']);
+  assert.deepEqual(r2.sinCredenciales, ['bluesky', 'threads']);
+  assert.deepEqual(real.sqlite.prepare("SELECT estado, id_meta FROM publicaciones WHERE red = 'x' ORDER BY id").all().map((f) => `${f.estado}/${f.id_meta}`), ['ok/b1', 'ok/b2']);
+
+  const mala = montar(true);
+  const r3 = await correrEnlaces({ env: { TELEGRAM_TOKEN: TOKEN, BUFFER_API_KEY: 'buf-secreto' }, ahora: mala.ahora, carpeta: fs.mkdtempSync(path.join(os.tmpdir(), 'x-')), deps: deps(mala, true) });
+  assert.ok(r3.posteos.every((p) => p.estado === 'error'));
+  assert.ok(!JSON.stringify(r3).includes('buf-secreto'));
 });

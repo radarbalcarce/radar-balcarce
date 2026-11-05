@@ -104,7 +104,7 @@ jobs:
           AHORA: ${{ inputs.ahora }}
 
       # Bluesky y Threads: las notas que ya salieron en Facebook, como enlace (título + enlace + imagen 1,91:1). Sigue aunque las piezas hayan fallado; sin secretos no publica.
-      - name: Publicar los enlaces (Bluesky y Threads)
+      - name: Publicar los enlaces (Bluesky, Threads y X)
         if: always() && inputs.repetir == ''
         continue-on-error: true
         run: node v3/redes/piezas/enlaces.mjs
@@ -114,6 +114,8 @@ jobs:
           BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
           THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_IMAGENES: ${{ vars.BUFFER_IMAGENES }}
           REDES_URL: ${{ vars.V3_REDES_URL }}
           SALIDA_PIEZAS: ${{ github.workspace }}/salida-piezas
           AHORA: ${{ inputs.ahora }}
