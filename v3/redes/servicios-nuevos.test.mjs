@@ -627,3 +627,17 @@ test('Threads: si el número de la cuenta cargado no existe, reintenta con la cu
   assert.equal(r.id, 'c1');
   assert.deepEqual(llamadas.map((u) => u.split('/v1.0/')[1]), ['99999/threads', 'me/threads', 'me/threads_publish']);
 });
+
+test('el aviso de helada: el número del texto y el del recuadro «Mínima prevista» salen del mismo día (la mínima de la madrugada que viene)', () => {
+  const a = avisoDelClima(CLIMA_FRIO, new Date('2026-07-10T22:00:00Z')); // viernes 19:00 en Balcarce
+  assert.equal(a.tipo, 'helada');
+  assert.equal(a.dia, '2026-07-11');
+  assert.match(a.texto, /-3° de mínima/);
+  const p = armarAviso(a, CLIMA_FRIO, { fecha: '2026-07-10', hora: 7 });
+  const e = escenaDeVideo(p);
+  const svg = e.cuadro(5, e.total);
+  const textos = [...svg.matchAll(/>([^<]*)</g)].map((m) => m[1]);
+  assert.ok(textos.includes('-3°'), 'el recuadro dice la mínima del aviso (-3°)');
+  assert.ok(!textos.includes('1°'), 'no la mínima de hoy (1°)');
+  assert.ok(textos.includes('8°'), 'y la máxima de ese mismo día');
+});
