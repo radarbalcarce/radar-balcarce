@@ -1,0 +1,260 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mockup de las redes de Radar Balcarce</title>
+<style>
+:root{--papel:#FAF8F3;--tinta:#14161A;--gris:#474C55;--linea:#D9D4C7;--rojo:#C7381C;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--papel);color:var(--tinta);font:15px/1.5 Inter,system-ui,Segoe UI,Arial,sans-serif}
+header{padding:32px 24px 8px;max-width:1280px;margin:auto}h1{font:900 34px/1.1 'Source Serif 4',Georgia,serif;margin:0 0 6px}h1 b{color:var(--rojo)}
+h2{font:900 26px/1.2 'Source Serif 4',Georgia,serif;margin:44px 0 8px;border-top:3px solid var(--tinta);padding-top:14px}h3{font:700 20px 'Source Serif 4',Georgia,serif;margin:0 0 4px}
+main{max-width:1280px;margin:auto;padding:0 24px 60px}nav{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}nav a{padding:4px 10px;border:1px solid var(--linea);border-radius:99px;text-decoration:none;color:var(--tinta);background:var(--card);font-size:13px}
+.baj,.chico{color:var(--gris);margin:0 0 12px;max-width:900px}.bloque{margin:28px 0}.fila{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.card{margin:0;background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:10px;max-width:100%}.thumbs{display:flex;flex-wrap:wrap;gap:8px}.th{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--gris)}
+.th img{width:150px;height:auto;border-radius:8px;border:1px solid var(--linea);display:block}.card.ancha .th img{width:128px}.card.ancha{flex:1 1 100%}.card:not(.ancha) .th img{width:190px}
+figcaption{font-size:13px;margin-top:8px;max-width:520px}.med{color:var(--gris)}.hor{color:var(--rojo);font-weight:600}.red{color:var(--gris)}
+.sw{display:inline-block;color:#fff;padding:6px 10px;border-radius:8px;margin:3px;font-weight:700;font-size:13px}.sw small{display:block;font-weight:400;opacity:.85;font-size:10px}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:13px}th,td{border:1px solid var(--linea);padding:5px 8px;text-align:left;vertical-align:top}th{background:#efe9da}.no{color:#b00020;font-weight:700}.nota td{background:#faf1e6}
+.mx{display:block;overflow-x:auto}
+.grupo{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}.tel{width:300px;background:#fff;border:8px solid #1b1b1b;border-radius:28px;overflow:hidden}.barra{background:#1b1b1b;color:#fff;font-size:11px;padding:2px 10px 6px;text-align:center}
+.post{padding:0 0 8px}.cab{display:flex;gap:8px;align-items:center;padding:8px 10px;font-size:13px}.cab i{width:26px;height:26px;border-radius:50%;background:var(--rojo);display:block}.post img{width:100%;display:block}
+pre{white-space:pre-wrap;word-break:break-word;font:12px/1.4 Inter,system-ui,sans-serif;margin:8px 10px;color:#222}.story{background:#000}.story img{width:100%;display:block}.album{display:grid;grid-template-columns:1fr 1fr;gap:2px}.album img{width:100%}
+.tarj{background:#e8e8e8;color:#555;padding:40px 12px;text-align:center;font-size:12px}
+.falta li{margin:10px 0}.falta b{display:block}code{background:#efe9da;padding:0 4px;border-radius:4px}
+@media (prefers-color-scheme:dark){:root{--papel:#14161A;--tinta:#FAF8F3;--gris:#b9bec6;--linea:#3a3f47;--card:#1d2026}th{background:#2a2e36}code{background:#2a2e36}.nota td{background:#2b2620}}
+</style></head><body>
+<header><h1>Radar <b>Balcarce</b> · las redes en un solo lugar</h1>
+<p class="baj">Mockup generado el 5/11/2026 con las funciones reales de <code>v3/redes/piezas/</code> (armadores + escenas + resvg), los horarios de <code>piezas-del-dia.mjs</code> y los textos reales de cada red. Cada imagen es un cuadro de la pieza (los videos se ven quietos, sin subtítulos ni barra de avance). No publica nada.</p>
+<nav><a href="#horario">Horario del día</a><a href="#matriz">Qué sale en cada red</a><a href="#catalogo">Catálogo por pieza</a><a href="#redes">Por red</a><a href="#red-facebook">Facebook</a><a href="#red-instagram">Instagram</a><a href="#red-tiktok">TikTok</a><a href="#red-youtube">YouTube Shorts</a><a href="#red-x">X</a><a href="#red-bluesky">Bluesky</a><a href="#red-threads">Threads</a><a href="#falta">Lo que falta o se podría mejorar</a></nav></header>
+<main>
+<h2 id="colores">Colores por sección y tipografía</h2><p class="baj">Source Serif 4 (titulares) e Inter (resto); logo escrito «Radar <span style="color:var(--rojo)">Balcarce</span>» en la firma de cada placa; fondo papel #FAF8F3, tinta #14161A, rojo de marca #C7381C.</p><div><span class="sw" style="background:#B91C1C">Balcarce<small>#B91C1C</small></span><span class="sw" style="background:#3730A3">Política<small>#3730A3</small></span><span class="sw" style="background:#831843">Policiales<small>#831843</small></span><span class="sw" style="background:#1D4BE0">Educación<small>#1D4BE0</small></span><span class="sw" style="background:#004E5C">Salud<small>#004E5C</small></span><span class="sw" style="background:#772E9E">Ciencia<small>#772E9E</small></span><span class="sw" style="background:#7C3AED">Fútbol<small>#7C3AED</small></span><span class="sw" style="background:#0F766E">Deportes<small>#0F766E</small></span><span class="sw" style="background:#B45309">Automovilismo<small>#B45309</small></span><span class="sw" style="background:#5A6B0A">Agro<small>#5A6B0A</small></span><span class="sw" style="background:#9D2C8F">Cultura y agenda<small>#9D2C8F</small></span><span class="sw" style="background:#4B5563">Argentina<small>#4B5563</small></span><span class="sw" style="background:#4B5563">Región<small>#4B5563</small></span><span class="sw" style="background:#4A5D8F">Clima<small>#4A5D8F</small></span><span class="sw" style="background:#13804A">Farmacias<small>#13804A</small></span><span class="sw" style="background:#8A6500">Economía<small>#8A6500</small></span><span class="sw" style="background:#0B6FB8">Tecnología<small>#0B6FB8</small></span><span class="sw" style="background:#1E3A6E">Feriados<small>#1E3A6E</small></span><span class="sw" style="background:#0F5132">WhatsApp<small>#0F5132</small></span></div>
+<h2 id="horario">A qué hora sale cada pieza (hora de Balcarce)</h2><table><thead><tr><th>Desde</th><th>Hasta (ventana)</th><th>Pieza</th><th>Formato</th><th>Días</th><th>Prioridad de voz</th></tr></thead><tbody><tr><td>07:00</td><td>11:00</td><td>El clima de la mañana</td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>07:00</td><td>22:00</td><td>Aviso de helada <small>(si hay datos)</small></td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>07:00</td><td>22:00</td><td>Aviso de granizo <small>(si hay datos)</small></td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>07:00</td><td>22:00</td><td>Aviso de viento <small>(si hay datos)</small></td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>08:00</td><td>12:00</td><td>El feriado <small>(si hay datos)</small></td><td>reel</td><td>todos los días</td><td>3</td></tr><tr><td>08:00</td><td>22:00</td><td>Las fotos de la nota</td><td>carrusel</td><td>todos los días</td><td>—</td></tr><tr><td>09:00</td><td>12:00</td><td>Un día como hoy</td><td>reel</td><td>todos los días</td><td>3</td></tr><tr><td>10:00</td><td>13:00</td><td>El repaso de la mañana</td><td>repaso</td><td>todos los días</td><td>1</td></tr><tr><td>11:00</td><td>14:00</td><td>La semana en Balcarce</td><td>carrusel</td><td>dom</td><td>—</td></tr><tr><td>12:00</td><td>13:00</td><td>Qué hacer este fin de semana <em>(pausada)</em> <small>(si hay datos)</small></td><td>reel</td><td>jue</td><td>4</td></tr><tr><td>12:00</td><td>13:00</td><td>Participá con noticias</td><td>reel</td><td>lun</td><td>4</td></tr><tr><td>12:00</td><td>13:00</td><td>Tu evento o emprendimiento</td><td>reel</td><td>mar</td><td>4</td></tr><tr><td>12:00</td><td>13:00</td><td>Tu reclamo</td><td>reel</td><td>mié</td><td>4</td></tr><tr><td>12:00</td><td>13:00</td><td>Tu nota</td><td>reel</td><td>vie</td><td>4</td></tr><tr><td>15:00</td><td>19:00</td><td>El repaso de la tarde</td><td>repaso</td><td>todos los días</td><td>1</td></tr><tr><td>17:00</td><td>18:00</td><td>Teléfonos útiles</td><td>reel</td><td>sáb</td><td>4</td></tr><tr><td>18:00</td><td>20:00</td><td>El finde en Balcarce <em>(pausada)</em> <small>(si hay datos)</small></td><td>carrusel</td><td>jue</td><td>—</td></tr><tr><td>19:00</td><td>24:00</td><td>Farmacia de turno</td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>20:00</td><td>24:00</td><td>El clima de la noche</td><td>historia</td><td>todos los días</td><td>2</td></tr><tr><td>21:00</td><td>24:00</td><td>El repaso del día</td><td>repaso</td><td>todos los días</td><td>1</td></tr></tbody></table>
+<p class="chico">Además: posteos de notas cada 15 minutos entre 8:00 y 22:00 (mínimo 90 minutos entre uno y otro, hasta 10 por día).</p>
+<h2 id="matriz">Qué recibe cada red</h2><table class="mx"><thead><tr><th>Pieza</th><th>facebook</th><th>instagram</th><th>tiktok</th><th>youtube</th><th>x</th><th>bluesky</th><th>threads</th></tr></thead><tbody><tr><td>El clima de la mañana</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El clima de la noche</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Farmacia de turno</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El feriado</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Qué hacer este fin de semana</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Teléfonos útiles</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>La semana en Balcarce</td><td>album</td><td>carrusel</td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El finde en Balcarce</td><td>album</td><td>carrusel</td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Las fotos de la nota</td><td>album</td><td>carrusel</td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Aviso de helada</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Aviso de granizo</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Aviso de viento</td><td>reels + stories</td><td>stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Un día como hoy</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Participá con noticias</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Tu evento o emprendimiento</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Tu reclamo</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>Tu nota</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El repaso de la mañana</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El repaso de la tarde</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr><tr><td>El repaso del día</td><td>reels + stories</td><td>reels + stories</td><td>video</td><td>video</td><td>video</td><td><span class="no">no</span></td><td><span class="no">no</span></td></tr>
+<tr class="nota"><td>Posteo de una nota (≤ 10/día, 8:00–22:00)</td><td>placa 4:5 + texto</td><td>espejo (Balcarce)</td><td><span class="no">no</span></td><td><span class="no">no</span></td><td>placa 4:5, sin enlace</td><td>tarjeta 1080×565 + enlace</td><td>texto + enlace (sin imagen propia)</td></tr></tbody></table>
+<h2 id="catalogo">Catálogo por pieza y estilo</h2><section class="bloque" id="clima"><h3>El clima (mañana y noche), auspiciado y los 7 cielos</h3><p class="baj">Una sola escena con ilustración según el cielo; de noche la misma con luna. El auspicio agrega la franja ámbar desde el segundo 3 y alarga el video a 22 s.</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/clima-manana-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>El clima de la mañana</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">07:00–11:00 · todos los días · voz prioridad 2</span><br><span class="red">Sale en: IG stories · FB reels · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/clima-noche-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>El clima de la noche</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">20:00–24:00 · todos los días · voz prioridad 2</span><br><span class="red">Sale en: IG stories · FB reels · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/clima-auspiciado-con-franja.jpg" alt="con-franja" loading="lazy"><span>con-franja</span></div></div>
+  <figcaption><b>Clima auspiciado (franja ámbar)</b><br><span class="med">1080×1920 (9:16) video · 22 s</span><br><span class="hor">07:00–11:00 · todos los días · voz prioridad 2</span></figcaption>
+</figure>
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/cielo-despejado.jpg" alt="despejado" loading="lazy"><span>despejado</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-despejado-noche.jpg" alt="despejado-noche" loading="lazy"><span>despejado-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-parcial.jpg" alt="parcial" loading="lazy"><span>parcial</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-parcial-noche.jpg" alt="parcial-noche" loading="lazy"><span>parcial-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-nublado.jpg" alt="nublado" loading="lazy"><span>nublado</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-nublado-noche.jpg" alt="nublado-noche" loading="lazy"><span>nublado-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-llovizna.jpg" alt="llovizna" loading="lazy"><span>llovizna</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-llovizna-noche.jpg" alt="llovizna-noche" loading="lazy"><span>llovizna-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-lluvia.jpg" alt="lluvia" loading="lazy"><span>lluvia</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-lluvia-noche.jpg" alt="lluvia-noche" loading="lazy"><span>lluvia-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-tormenta.jpg" alt="tormenta" loading="lazy"><span>tormenta</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-tormenta-noche.jpg" alt="tormenta-noche" loading="lazy"><span>tormenta-noche</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-niebla.jpg" alt="niebla" loading="lazy"><span>niebla</span></div><div class="th"><img class="" src="mockup-redes/img/cielo-niebla-noche.jpg" alt="niebla-noche" loading="lazy"><span>niebla-noche</span></div></div>
+  <figcaption><b>Los 14 cielos (7 de día y 7 de noche)</b><br><span class="med">misma escena, paleta e ilustración distintas</span></figcaption>
+</figure></div></section><section class="bloque" id="avisos"><h3>Avisos de clima (helada, granizo, viento)</h3><p class="baj">Historia con voz de 15 s; sólo si hay un aviso grave. Sin hora fija: de 7:00 a 22:00, una vez al día cada tipo. (Los números del ejemplo son inventados: el recuadro «mínima prevista» muestra el clima de hoy.)</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/aviso-helada-aviso.jpg" alt="aviso" loading="lazy"><span>aviso</span></div></div>
+  <figcaption><b>Aviso de helada</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">07:00–22:00 · todos los días · voz prioridad 2 · condicional</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/aviso-granizo-aviso.jpg" alt="aviso" loading="lazy"><span>aviso</span></div></div>
+  <figcaption><b>Aviso de granizo</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">07:00–22:00 · todos los días · voz prioridad 2 · condicional</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/aviso-viento-aviso.jpg" alt="aviso" loading="lazy"><span>aviso</span></div></div>
+  <figcaption><b>Aviso de viento</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">07:00–22:00 · todos los días · voz prioridad 2 · condicional</span></figcaption>
+</figure></div></section><section class="bloque" id="farmacia"><h3>Farmacia de turno</h3><p class="baj">Cruz verde que late, una ficha por farmacia (hasta 3) y la franja «De turno hasta mañana a las 8:30».</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/farmacia-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>Farmacia de turno (1 farmacia, dato real de hoy)</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">19:00–24:00 · todos los días · voz prioridad 2</span><br><span class="red">Sale en: IG stories · FB reels · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/farmacia-3-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>Con 3 farmacias (datos de ejemplo)</b><br><span class="med">1080×1920 (9:16) video</span></figcaption>
+</figure></div></section><section class="bloque" id="efemeride"><h3>Un día como hoy: 7 estilos por tipo de hecho</h3><p class="baj">El estilo cambia según el tema (`tipoDeEfemeride`): patria, historia, deporte, cultura, campo, Balcarce y ciencia. Ejemplos tomados de `efemerides-piezas.json`.</p><div class="fila">
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/efemeride-patria.jpg" alt="patria" loading="lazy"><span>patria</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-historia.jpg" alt="historia" loading="lazy"><span>historia</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-deporte.jpg" alt="deporte" loading="lazy"><span>deporte</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-cultura.jpg" alt="cultura" loading="lazy"><span>cultura</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-campo.jpg" alt="campo" loading="lazy"><span>campo</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-balcarce.jpg" alt="balcarce" loading="lazy"><span>balcarce</span></div><div class="th"><img class="" src="mockup-redes/img/efemeride-ciencia.jpg" alt="ciencia" loading="lazy"><span>ciencia</span></div></div>
+  <figcaption><b>Efeméride</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">09:00–12:00 · todos los días · voz prioridad 3</span><br><span class="red">Sale en: IG reels · FB reels · IG stories · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure></div></section><section class="bloque" id="feriado"><h3>El feriado: 5 estilos</h3><p class="baj">Hoja de calendario que pasa de un día al otro, nombre y un dato histórico verificado. Sólo sale si hay feriado y datos.</p><div class="fila">
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/feriado-trasladable.jpg" alt="trasladable · Día del Respeto a la Diversidad Cultural" loading="lazy"><span>trasladable · Día del Respeto a la Diversidad Cultural</span></div><div class="th"><img class="" src="mockup-redes/img/feriado-decreto.jpg" alt="decreto · Feriado por la visita del papa León XIV" loading="lazy"><span>decreto · Feriado por la visita del papa León XIV</span></div><div class="th"><img class="" src="mockup-redes/img/feriado-religioso.jpg" alt="religioso · Día de la Inmaculada Concepción de María" loading="lazy"><span>religioso · Día de la Inmaculada Concepción de María</span></div><div class="th"><img class="" src="mockup-redes/img/feriado-patrio.jpg" alt="patrio · Año nuevo" loading="lazy"><span>patrio · Año nuevo</span></div><div class="th"><img class="" src="mockup-redes/img/feriado-carnaval.jpg" alt="carnaval · Carnaval" loading="lazy"><span>carnaval · Carnaval</span></div></div>
+  <figcaption><b>Feriado (trasladable · decreto · religioso · patrio · carnaval)</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">08:00–12:00 · todos los días · voz prioridad 3 · condicional</span></figcaption>
+</figure></div></section><section class="bloque" id="participa"><h3>Participá: 4 variantes en la tabla + «encuesta» sin día</h3><p class="baj">Pregunta grande, franja verde de WhatsApp con el número, mail y dos pies. Lunes noticias, martes evento, miércoles reclamo, viernes nota.</p><div class="fila">
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/participa-noticia.jpg" alt="noticia" loading="lazy"><span>noticia</span></div><div class="th"><img class="" src="mockup-redes/img/participa-evento.jpg" alt="evento" loading="lazy"><span>evento</span></div><div class="th"><img class="" src="mockup-redes/img/participa-reclamo.jpg" alt="reclamo" loading="lazy"><span>reclamo</span></div><div class="th"><img class="" src="mockup-redes/img/participa-nota.jpg" alt="nota" loading="lazy"><span>nota</span></div><div class="th"><img class="" src="mockup-redes/img/participa-encuesta.jpg" alt="encuesta" loading="lazy"><span>encuesta</span></div></div>
+  <figcaption><b>Participá (noticia · evento · reclamo · nota · encuesta)</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">12:00–13:00 · lun · voz prioridad 4</span></figcaption>
+</figure></div></section><section class="bloque" id="repaso"><h3>Los tres repasos (mañana, tarde, noche)</h3><p class="baj">Lista de 3 titulares (al menos uno de Balcarce) con la noticia que se lee resaltada y el cierre con la lista entera. Se muestra la noticia 1 resaltada y el cierre.</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/repaso-manana-leyendo-1.jpg" alt="leyendo-1" loading="lazy"><span>leyendo-1</span></div><div class="th"><img class="" src="mockup-redes/img/repaso-manana-cierre.jpg" alt="cierre" loading="lazy"><span>cierre</span></div></div>
+  <figcaption><b>El repaso de la mañana</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">10:00–13:00 · todos los días · voz prioridad 1</span><br><span class="red">Sale en: IG reels · FB reels · IG stories · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="leyendo-1" loading="lazy"><span>leyendo-1</span></div><div class="th"><img class="" src="mockup-redes/img/repaso-tarde-cierre.jpg" alt="cierre" loading="lazy"><span>cierre</span></div></div>
+  <figcaption><b>El repaso de la tarde</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">15:00–19:00 · todos los días · voz prioridad 1</span><br><span class="red">Sale en: IG reels · FB reels · IG stories · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/repaso-noche-leyendo-1.jpg" alt="leyendo-1" loading="lazy"><span>leyendo-1</span></div><div class="th"><img class="" src="mockup-redes/img/repaso-noche-cierre.jpg" alt="cierre" loading="lazy"><span>cierre</span></div></div>
+  <figcaption><b>El repaso del día</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">21:00–24:00 · todos los días · voz prioridad 1</span><br><span class="red">Sale en: IG reels · FB reels · IG stories · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure></div></section><section class="bloque" id="servicio"><h3>Teléfonos útiles y agenda del fin de semana</h3><p class="baj">Útiles: sábados 17:00, dos pantallas. Agenda: jueves 12:00 (hoy PAUSADA; los eventos del ejemplo son inventados).</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/utiles-pantalla-1.jpg" alt="pantalla-1" loading="lazy"><span>pantalla-1</span></div><div class="th"><img class="" src="mockup-redes/img/utiles-pantalla-2.jpg" alt="pantalla-2" loading="lazy"><span>pantalla-2</span></div></div>
+  <figcaption><b>Teléfonos útiles</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">17:00–18:00 · sáb · voz prioridad 4</span><br><span class="red">Sale en: IG reels · FB reels · IG stories · FB stories · TikTok · YouTube · X (video Buffer)</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/agenda-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>Qué hacer este fin de semana</b><br><span class="med">1080×1920 (9:16) video</span><br><span class="hor">12:00–13:00 · jue · voz prioridad 4 · condicional · <em>PAUSADA</em></span></figcaption>
+</figure></div></section><section class="bloque" id="notas-video"><h3>Notas en video: nota de Balcarce, nota propia e historia de nota</h3><p class="baj">Armadores listos pero SIN fila en la tabla del día: se disparan por nota (ver «Lo que falta»). Nota propia: «Por Hernán Accomo», con la sección que le toca. Historia: 6 s sin voz, «Link en la bio».</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/nota-reel-nota-1.jpg" alt="nota-1" loading="lazy"><span>nota-1</span></div><div class="th"><img class="" src="mockup-redes/img/nota-reel-nota-2.jpg" alt="nota-2" loading="lazy"><span>nota-2</span></div><div class="th"><img class="" src="mockup-redes/img/nota-reel-nota-3.jpg" alt="nota-3" loading="lazy"><span>nota-3</span></div></div>
+  <figcaption><b>Nota de Balcarce (reel, 25 s)</b><br><span class="med">1080×1920 (9:16) video</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/nota-propia-nota-1.jpg" alt="nota-1" loading="lazy"><span>nota-1</span></div><div class="th"><img class="" src="mockup-redes/img/nota-propia-nota-2.jpg" alt="nota-2" loading="lazy"><span>nota-2</span></div><div class="th"><img class="" src="mockup-redes/img/nota-propia-nota-3.jpg" alt="nota-3" loading="lazy"><span>nota-3</span></div></div>
+  <figcaption><b>Nota propia (reel, 14 a 30 s según fotos)</b><br><span class="med">1080×1920 (9:16) video</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/historia-nota-completa.jpg" alt="completa" loading="lazy"><span>completa</span></div></div>
+  <figcaption><b>Historia de una nota (6 s, sin voz)</b><br><span class="med">1080×1920 (9:16) video</span></figcaption>
+</figure></div></section><section class="bloque" id="posteo"><h3>Posteo de feed 4:5 por sección (los colores de COLOR_SECCION)</h3><p class="baj">Foto entera, rótulo de sección en su color, titular, bajada y firma. La misma imagen va a Facebook, Instagram y X.</p><div class="fila">
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/posteo-balcarce.jpg" alt="Balcarce" loading="lazy"><span>Balcarce</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-poltica.jpg" alt="Política" loading="lazy"><span>Política</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-ftbol.jpg" alt="Fútbol" loading="lazy"><span>Fútbol</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-deportes.jpg" alt="Deportes" loading="lazy"><span>Deportes</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-automovilismo.jpg" alt="Automovilismo" loading="lazy"><span>Automovilismo</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-agro.jpg" alt="Agro" loading="lazy"><span>Agro</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-economa.jpg" alt="Economía" loading="lazy"><span>Economía</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-culturayagenda.jpg" alt="Cultura y agenda" loading="lazy"><span>Cultura y agenda</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-tecnologa.jpg" alt="Tecnología" loading="lazy"><span>Tecnología</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-salud.jpg" alt="Salud" loading="lazy"><span>Salud</span></div><div class="th"><img class="" src="mockup-redes/img/posteo-argentina.jpg" alt="Argentina" loading="lazy"><span>Argentina</span></div></div>
+  <figcaption><b>Posteo de nota</b><br><span class="med">1080×1350 (4:5)</span></figcaption>
+</figure></div></section><section class="bloque" id="enlace"><h3>Imagen de enlace (tarjeta)</h3><p class="baj">Pensada para X, Threads y Bluesky. Hoy X usa la placa 4:5 y Bluesky esta tarjeta; Threads usa texto con tarjeta propia.</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/enlace-1.jpg" alt="enlace" loading="lazy"><span>enlace</span></div></div>
+  <figcaption><b>Tarjeta de enlace</b><br><span class="med">1080×565 (1,91:1)</span></figcaption>
+</figure></div></section><section class="bloque" id="carruseles"><h3>Carruseles: de una nota propia, la semana y el finde</h3><p class="baj">Facebook: álbum. Instagram: carrusel (hasta 10). Sin voz. La nota propia sale al publicarse la nota (3 fotos o más); la semana, domingos 11:00; el finde, jueves 18:00 (pausado).</p><div class="fila">
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/carrusel-nota-1.jpg" alt="carrusel-portada" loading="lazy"><span>carrusel-portada</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-nota-2.jpg" alt="carrusel-foto" loading="lazy"><span>carrusel-foto</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-nota-3.jpg" alt="carrusel-foto" loading="lazy"><span>carrusel-foto</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-nota-4.jpg" alt="carrusel-cierre" loading="lazy"><span>carrusel-cierre</span></div></div>
+  <figcaption><b>Las fotos de la nota</b><br><span class="med">1080×1350 (4:5) por lámina</span><br><span class="hor">08:00–22:00 · todos los días · voz sin voz</span><br><span class="red">Sale en: IG carrusel · FB album</span></figcaption>
+</figure>
+<figure class="card ancha">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-1.jpg" alt="lamina-portada" loading="lazy"><span>lamina-portada</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-2.jpg" alt="lamina-nota" loading="lazy"><span>lamina-nota</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-3.jpg" alt="lamina-nota" loading="lazy"><span>lamina-nota</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-4.jpg" alt="lamina-nota" loading="lazy"><span>lamina-nota</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-5.jpg" alt="lamina-nota" loading="lazy"><span>lamina-nota</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-6.jpg" alt="lamina-nota" loading="lazy"><span>lamina-nota</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-semana-7.jpg" alt="lamina-cierre" loading="lazy"><span>lamina-cierre</span></div></div>
+  <figcaption><b>La semana en Balcarce</b><br><span class="med">1080×1350 (4:5) por lámina</span><br><span class="hor">11:00–14:00 · dom · voz sin voz</span><br><span class="red">Sale en: IG carrusel · FB album</span></figcaption>
+</figure>
+<figure class="card v">
+  <div class="thumbs"><div class="th"><img class="" src="mockup-redes/img/carrusel-finde-1.jpg" alt="lamina-portada" loading="lazy"><span>lamina-portada</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-finde-2.jpg" alt="lamina-eventos" loading="lazy"><span>lamina-eventos</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-finde-3.jpg" alt="lamina-eventos" loading="lazy"><span>lamina-eventos</span></div><div class="th"><img class="" src="mockup-redes/img/carrusel-finde-4.jpg" alt="lamina-cierre" loading="lazy"><span>lamina-cierre</span></div></div>
+  <figcaption><b>El finde en Balcarce</b><br><span class="med">1080×1350 (4:5) por lámina</span><br><span class="hor">18:00–20:00 · jue · voz sin voz · condicional · <em>PAUSADA</em></span><br><span class="red">Sale en: IG carrusel · FB album</span></figcaption>
+</figure></div></section>
+<h2 id="redes">Cada red, con su texto real</h2><p class="baj">Los textos salen de las funciones reales (<code>textoFacebook</code>, <code>textoInstagram</code>, <code>textoDeX</code>, <code>textoDeBluesky</code>, <code>textoDeThreads</code>, <code>textoDePieza</code>, <code>textoParaBuffer</code>) con una nota de Balcarce de hoy.</p><section class="red" id="red-facebook"><h3>Facebook</h3><div class="grupo">
+    <div class="tel"><div class="barra">Facebook · posteo con placa 4:5</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce</b></div><img class="" src="mockup-redes/img/posteo-balcarce.jpg" alt="posteo" loading="lazy"><pre>Napaleofú contará con una autobomba para emergencias
+
+La Municipalidad y Bomberos Voluntarios firmaron un convenio para incorporar un camión equipado en la localidad. El acuerdo contempla capacitación al personal y la entrega de dos terrenos.
+
+Leé la nota completa: https://radarbalcarce.com/nota/napaleofu-contara-con-una-autobomba-para-emergencias-81mpvn?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=posteo&amp;utm_content=81mpvn
+
+#Balcarce #RadarBalcarce
+
+Foto: Diario La Vanguardia</pre></div></div>
+    <div class="tel"><div class="barra">Facebook · reel 9:16 (el clima)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce</b></div><img class="" src="mockup-redes/img/clima-manana-completa.jpg" alt="clima-manana" loading="lazy"><pre>El clima de la mañana
+
+Buen día, Balcarce. Ahora hay 23 grados, despejado. Un día tranquilo para salir. Hoy: máxima de 23, mínima de 11. Lluvia: 6 por ciento. Que tengan un buen día.
+
+El pronóstico de toda la semana, acá: https://radarbalcarce.com/clima?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=servicio&amp;utm_content=clima-manana
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Clima</pre></div></div>
+    <div class="tel"><div class="barra">Facebook · reel (repaso, con enlace por noticia)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce</b></div><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="repaso-tarde" loading="lazy"><pre>El repaso de la tarde
+
+1. Napaleofú contará con una autobomba para emergencias
+https://radarbalcarce.com/nota/napaleofu-contara-con-una-autobomba-para-emergencias-81mpvn?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=81mpvn
+2. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana
+https://radarbalcarce.com/nota/javier-milei-y-pedro-sanchez-se-saludan-en-la-cumbre-iberoamericana-1wphsfy?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=1wphsfy
+3. El Gobierno confirma la segunda edición del Argentina Week en Nueva York
+https://radarbalcarce.com/nota/el-gobierno-confirma-la-segunda-edicion-del-argentina-week-en-nueva-1858pwy?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=1858pwy
+
+Todo en radarbalcarce.com
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Noticias</pre></div></div>
+    <div class="tel"><div class="barra">Facebook · historia (el mismo mp4, hasta 58 s)</div><div class="story"><img class="" src="mockup-redes/img/farmacia-completa.jpg" alt="farmacia" loading="lazy"></div></div>
+    <div class="tel"><div class="barra">Facebook · álbum (carruseles)</div><div class="album"><img class="" src="mockup-redes/img/carrusel-semana-1.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-semana-2.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-semana-3.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-semana-4.jpg" alt="lámina" loading="lazy"></div><pre>La semana en Balcarce
+
+1. …
+
+Todo en radarbalcarce.com: https://radarbalcarce.com/?utm_source=facebook…
+
+#Balcarce #RadarBalcarce #LaSemana</pre></div>
+  </div></section><section class="red" id="red-instagram"><h3>Instagram</h3><div class="grupo">
+    <div class="tel"><div class="barra">Instagram · espejo del posteo de Balcarce (sin enlace)</div><div class="post"><div class="cab"><i></i><b>radarbalcarce</b></div><img class="" src="mockup-redes/img/posteo-balcarce.jpg" alt="posteo" loading="lazy"><pre>Napaleofú contará con una autobomba para emergencias
+
+La Municipalidad y Bomberos Voluntarios firmaron un convenio para incorporar un camión equipado en la localidad. El acuerdo contempla capacitación al personal y la entrega de dos terrenos.
+
+La nota completa, en radarbalcarce.com (link en la bio)
+
+#Balcarce #RadarBalcarce
+
+Foto: Diario La Vanguardia</pre></div></div>
+    <div class="tel"><div class="barra">Instagram · reel (repaso: sólo títulos)</div><div class="post"><div class="cab"><i></i><b>radarbalcarce</b></div><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="repaso-tarde" loading="lazy"><pre>El repaso de la tarde
+
+1. Napaleofú contará con una autobomba para emergencias
+2. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana
+3. El Gobierno confirma la segunda edición del Argentina Week en Nueva York
+
+Todo en Radar Balcarce: link en la bio.
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Noticias</pre></div></div>
+    <div class="tel"><div class="barra">Instagram · historia (clima, farmacia, repasos, etc.)</div><div class="story"><img class="" src="mockup-redes/img/clima-manana-completa.jpg" alt="clima-manana" loading="lazy"></div></div>
+    <div class="tel"><div class="barra">Instagram · carrusel</div><div class="album"><img class="" src="mockup-redes/img/carrusel-nota-1.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-nota-2.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-nota-3.jpg" alt="lámina" loading="lazy"><img class="" src="mockup-redes/img/carrusel-nota-4.jpg" alt="lámina" loading="lazy"></div><pre>Carrusel hasta 10 láminas. «La nota completa: link en la bio.»</pre></div>
+  </div></section><section class="red" id="red-tiktok"><h3>TikTok</h3><div class="grupo">
+    <div class="tel"><div class="barra">TikTok · el mismo reel, «link en la bio» (hasta 5 hashtags, marcado «contenido con IA»)</div><div class="post"><div class="cab"><i></i><b>radarbalcarce</b></div><img class="" src="mockup-redes/img/clima-manana-completa.jpg" alt="clima-manana" loading="lazy"><pre>El clima de la mañana
+
+Buen día, Balcarce. Ahora hay 23 grados, despejado. Un día tranquilo para salir. Hoy: máxima de 23, mínima de 11. Lluvia: 6 por ciento. Que tengan un buen día.
+
+Todo en Radar Balcarce: link en la bio.
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Clima</pre></div></div>
+    <div class="tel"><div class="barra">TikTok · repaso</div><div class="post"><div class="cab"><i></i><b>radarbalcarce</b></div><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="repaso-tarde" loading="lazy"><pre>El repaso de la tarde
+
+1. Napaleofú contará con una autobomba para emergencias
+2. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana
+3. El Gobierno confirma la segunda edición del Argentina Week en Nueva York
+
+Todo en Radar Balcarce: link en la bio.
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Noticias</pre></div></div>
+  </div><p class="chico">Reciben todo el video (clima, farmacia, útiles, avisos…), sin carruseles ni modo foto.</p></section><section class="red" id="red-youtube"><h3>YouTube Shorts</h3><div class="grupo">
+    <div class="tel"><div class="barra">YouTube Shorts · descripción con la dirección del sitio (tope 12/día)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce</b></div><img class="" src="mockup-redes/img/clima-manana-completa.jpg" alt="clima-manana" loading="lazy"><pre>El clima de la mañana
+
+Buen día, Balcarce. Ahora hay 23 grados, despejado. Un día tranquilo para salir. Hoy: máxima de 23, mínima de 11. Lluvia: 6 por ciento. Que tengan un buen día.
+
+El pronóstico de toda la semana, acá: https://radarbalcarce.com/clima?utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=servicio&amp;utm_content=clima-manana
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Clima</pre></div></div>
+    <div class="tel"><div class="barra">YouTube Shorts · repaso con enlaces por noticia</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce</b></div><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="repaso-tarde" loading="lazy"><pre>El repaso de la tarde
+
+1. Napaleofú contará con una autobomba para emergencias
+https://radarbalcarce.com/nota/napaleofu-contara-con-una-autobomba-para-emergencias-81mpvn?utm_source=youtube&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=81mpvn
+2. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana
+https://radarbalcarce.com/nota/javier-milei-y-pedro-sanchez-se-saludan-en-la-cumbre-iberoamericana-1wphsfy?utm_source=youtube&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=1wphsfy
+3. El Gobierno confirma la segunda edición del Argentina Week en Nueva York
+https://radarbalcarce.com/nota/el-gobierno-confirma-la-segunda-edicion-del-argentina-week-en-nueva-1858pwy?utm_source=youtube&amp;utm_medium=social&amp;utm_campaign=repaso&amp;utm_content=1858pwy
+
+Todo en radarbalcarce.com
+
+Voz generada con inteligencia artificial.
+
+#Balcarce #RadarBalcarce #Noticias</pre></div></div>
+  </div></section><section class="red" id="red-x"><h3>X</h3><div class="grupo">
+    <div class="tel"><div class="barra">X · placa 4:5 + titular + hashtags (sin enlace por defecto)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce @radarbalcarce</b></div><img class="" src="mockup-redes/img/posteo-balcarce.jpg" alt="posteo" loading="lazy"><pre>Napaleofú contará con una autobomba para emergencias
+
+#Balcarce #RadarBalcarce</pre></div></div>
+    <div class="tel"><div class="barra">X · video por Buffer (repaso: 3 titulares, hasta 270 caracteres)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce @radarbalcarce</b></div><img class="" src="mockup-redes/img/repaso-tarde-leyendo-1.jpg" alt="repaso-tarde" loading="lazy"><pre>El repaso de la tarde: Napaleofú contará con una autobomba para emergencias · Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana · El Gobierno confirma la segunda edición del Argentina Week en Nueva York
+
+#Balcarce #RadarBalcarce #Noticias</pre></div></div>
+  </div></section><section class="red" id="red-bluesky"><h3>Bluesky</h3><div class="grupo"><div class="tel"><div class="barra">Bluesky · enlace con tarjeta 1080×565 (hasta 300 grafemas)</div><div class="post"><div class="cab"><i></i><b>Radar Balcarce @radarbalcarce.bsky.social</b></div><img class="" src="mockup-redes/img/enlace-1.jpg" alt="tarjeta" loading="lazy"><pre>Napaleofú contará con una autobomba para emergencias
+
+https://radarbalcarce.com/nota/napaleofu-contara-con-una-autobomba-para-emergencias-81mpvn
+
+#Balcarce #RadarBalcarce
+Foto: Diario La Vanguardia</pre></div></div></div><p class="chico">Sin video ni piezas de servicio. Hernán todavía tiene que crear la cuenta.</p></section><section class="red" id="red-threads"><h3>Threads</h3><div class="grupo"><div class="tel"><div class="barra">Threads · texto + enlace tocable (hasta 500, una sola etiqueta)</div><div class="post"><div class="cab"><i></i><b>radarbalcarce</b></div><div class="tarj">tarjeta de enlace que arma Threads con la foto de la nota</div><pre>Napaleofú contará con una autobomba para emergencias
+
+https://radarbalcarce.com/nota/napaleofu-contara-con-una-autobomba-para-emergencias-81mpvn
+
+#Balcarce
+Foto: Diario La Vanguardia</pre></div></div></div><p class="chico">La API no deja imagen propia junto a la tarjeta de enlace. Falta el permiso/programa.</p></section>
+<h2 id="falta">Lo que falta o se podría mejorar</h2><ol class="falta"><li><b>Carruseles sólo en Facebook e Instagram</b><code>redesDeBuffer</code> y <code>enlaces.mjs</code> sólo mandan video o nota. «La semana», «El finde» y «Las fotos de la nota» no tienen versión para TikTok (modo foto), X (hasta 4 imágenes), Threads (hasta 10) ni Bluesky (hasta 4), aunque Hernán pidió «todo el material en todas las redes».</li><li><b>Bluesky y Threads no reciben nada de servicio</b>Sólo reciben enlaces a notas (3 por corrida). Clima, farmacia, efeméride, feriado, repasos y avisos no tienen versión de imagen/texto para ellas, ni para X salvo el video por Buffer. Falta una «tarjeta de servicio» 1080×565 o 4:5 estática (clima, farmacia, efeméride).</li><li><b>Efeméride, feriado, clima, farmacia y útiles son sólo video vertical</b>No hay versión 4:5 para el feed de Facebook/Instagram ni para carrusel: un posteo de feed con el clima del día o la farmacia de turno ocuparía los huecos de la tarde y permitiría reciclar el diseño existente.</li><li><b>Hay armadores sin fila en la tabla del día</b>Nota de Balcarce en reel, nota propia en reel e historia de una nota existen en <code>armadores.mjs</code> pero no figuran en <code>PIEZAS_DEL_DIA</code> (sin hora, sin prioridad de voz, sin hashtag). Hay que definir quién las dispara y cuándo.</li><li><b>Participá «encuesta» no tiene día</b>La variante «¿Qué querés que contemos?» está dibujada pero ninguna fila de la tabla la usa; sábado y domingo no tienen Participá y el jueves a las 12:00 no sale nada porque la agenda está pausada.</li><li><b>Agenda y finde pausados</b><code>agenda</code> y <code>carrusel-finde</code> están con <code>pausada: true</code> hasta tener los eventos al día: el jueves queda sin pieza de mediodía ni de tarde.</li><li><b>Un solo diseño de posteo para todas las secciones</b>Las 11 secciones sólo cambian el color del rótulo. No hay variante sin foto (el posteo «sin foto no va»), ni versión «dato/cifra», ni cita, ni urgente. En la muestra faltan Policiales, Educación y Ciencia (hoy no hay nota con foto en esas secciones; sus colores existen en COLOR_SECCION).</li><li><b>Agujero horario</b>Entre las 10:00 y las 15:00 y entre las 15:00 y las 19:00 sólo salen Participá (4 días) y los útiles (sábado 17:00); a las 7:00 se juntan clima y los tres avisos, y de 19:00 a 21:00 hay tres piezas con voz. Se podrían repartir los reels de servicio.</li><li><b>Crédito doble en las láminas</b>En el carrusel de la semana la lámina muestra «Foto: Foto: Diario La Vanguardia»: el crédito de <code>portada.json</code> ya trae «Foto:» y la lámina lo vuelve a anteponer (<code>lineaDeCredito</code> sí lo evita en el texto).</li><li><b>Inconsistencia en el ejemplo de avisos</b>El aviso de helada muestra abajo «mínima prevista 11°» (el clima de hoy) mientras el texto dice −3°: el recuadro no sale del aviso sino del día. Conviene que la escena use la mínima del aviso.</li><li><b>Canal de Telegram sin programa</b>No hay armador ni fila para el canal: podría reusar el mismo mp4 y los textos de Facebook (clima y farmacia fijados).</li><li><b>Lo que este mockup no muestra</b>Los subtítulos con la palabra resaltada, la barra roja de avance, el audio y la animación (se ve un cuadro quieto por escena); en ejemplos de feriados, efemérides y agenda se usaron datos reales o de ejemplo según se indica. Las historias de Instagram/Facebook son el mismo mp4 que el reel (no hay diseño propio de historia salvo la historia de nota).</li></ol>
+</main></body></html>

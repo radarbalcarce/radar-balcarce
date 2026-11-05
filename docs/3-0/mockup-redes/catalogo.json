@@ -1,0 +1,600 @@
+{
+ "clima-manana": {
+  "tipo": "video",
+  "id": "clima",
+  "duracion": 18,
+  "voz": "locutora",
+  "saludo": "Buen día, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buen día, Balcarce. Ahora hay 23 grados, despejado. Un día tranquilo para salir. Hoy: máxima de 23, mínima de 11. Lluvia: 6 por ciento. Que tengan un buen día.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/clima-manana-completa.jpg"
+   }
+  ]
+ },
+ "clima-noche": {
+  "tipo": "video",
+  "id": "clima",
+  "duracion": 18,
+  "voz": "locutora",
+  "saludo": "Buenas noches, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buenas noches, Balcarce. Ahora hay 23 grados, despejado. Hay 91 por ciento de probabilidad de lluvia: llevá paraguas. Mañana: máxima de 19, mínima de 11. Que descansen.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/clima-noche-completa.jpg"
+   }
+  ]
+ },
+ "clima-auspiciado": {
+  "tipo": "video",
+  "id": "clima-auspiciado",
+  "duracion": 22,
+  "voz": "locutora",
+  "saludo": "Buen día, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buen día, Balcarce. El clima de hoy lo auspicia Sweet Candy Bar. En Instagram, arroba sweet candy bar. Ahora hay 23 grados, despejado. Un día tranquilo para salir. Hoy: máxima de 23, mínima de 11. Lluvia: 6 por ciento. Que tengan un buen día.",
+  "franja": {
+   "desde": 3,
+   "texto": "Auspicia · Sweet Candy Bar · @_sweet.candy.bar",
+   "comercio": "Sweet Candy Bar",
+   "cuenta": "@_sweet.candy.bar"
+  },
+  "imagenes": [
+   {
+    "nombre": "con-franja",
+    "src": "img/clima-auspiciado-con-franja.jpg"
+   }
+  ]
+ },
+ "clima-cielos": {
+  "tipo": "cielos",
+  "imagenes": [
+   {
+    "nombre": "despejado",
+    "src": "img/cielo-despejado.jpg"
+   },
+   {
+    "nombre": "despejado-noche",
+    "src": "img/cielo-despejado-noche.jpg"
+   },
+   {
+    "nombre": "parcial",
+    "src": "img/cielo-parcial.jpg"
+   },
+   {
+    "nombre": "parcial-noche",
+    "src": "img/cielo-parcial-noche.jpg"
+   },
+   {
+    "nombre": "nublado",
+    "src": "img/cielo-nublado.jpg"
+   },
+   {
+    "nombre": "nublado-noche",
+    "src": "img/cielo-nublado-noche.jpg"
+   },
+   {
+    "nombre": "llovizna",
+    "src": "img/cielo-llovizna.jpg"
+   },
+   {
+    "nombre": "llovizna-noche",
+    "src": "img/cielo-llovizna-noche.jpg"
+   },
+   {
+    "nombre": "lluvia",
+    "src": "img/cielo-lluvia.jpg"
+   },
+   {
+    "nombre": "lluvia-noche",
+    "src": "img/cielo-lluvia-noche.jpg"
+   },
+   {
+    "nombre": "tormenta",
+    "src": "img/cielo-tormenta.jpg"
+   },
+   {
+    "nombre": "tormenta-noche",
+    "src": "img/cielo-tormenta-noche.jpg"
+   },
+   {
+    "nombre": "niebla",
+    "src": "img/cielo-niebla.jpg"
+   },
+   {
+    "nombre": "niebla-noche",
+    "src": "img/cielo-niebla-noche.jpg"
+   }
+  ]
+ },
+ "aviso-helada": {
+  "tipo": "video",
+  "id": "aviso-helada",
+  "duracion": 15,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Helada fuerte esta noche. Se esperan -3° de mínima esta noche en Balcarce. Cubrí las plantas y cuidá las cañerías. Radar Balcarce.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "aviso",
+    "src": "img/aviso-helada-aviso.jpg"
+   }
+  ]
+ },
+ "aviso-granizo": {
+  "tipo": "video",
+  "id": "aviso-granizo",
+  "duracion": 15,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Tormenta con granizo hoy. El pronóstico da tormenta con granizo para hoy en Balcarce. Guardá los autos bajo techo. Radar Balcarce.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "aviso",
+    "src": "img/aviso-granizo-aviso.jpg"
+   }
+  ]
+ },
+ "aviso-viento": {
+  "tipo": "video",
+  "id": "aviso-viento",
+  "duracion": 15,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Viento fuerte hoy. Se esperan ráfagas de hasta 70 km/h hoy en Balcarce. Asegurá lo que pueda volarse. Radar Balcarce.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "aviso",
+    "src": "img/aviso-viento-aviso.jpg"
+   }
+  ]
+ },
+ "farmacia": {
+  "tipo": "video",
+  "id": "farmacia",
+  "duracion": 14,
+  "voz": "locutor",
+  "saludo": "Buenas noches, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buenas noches, Balcarce. Farmacia de turno esta noche: Del Cerro. Del Cerro, Calle 28, 920 e/ 27 y 29. Guardá el dato.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/farmacia-completa.jpg"
+   }
+  ]
+ },
+ "farmacia-3": {
+  "tipo": "video",
+  "id": "farmacia",
+  "duracion": 14,
+  "voz": "locutor",
+  "saludo": "Buenas noches, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buenas noches, Balcarce. Farmacia de turno esta noche: Del Cerro y Central y Mitre. Del Cerro, Calle 28, 920 e/ 27 y 29. Central, Calle 17, 531. Mitre, Calle 15, 400. Guardá el dato.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/farmacia-3-completa.jpg"
+   }
+  ]
+ },
+ "utiles": {
+  "tipo": "video",
+  "id": "utiles",
+  "duracion": 20,
+  "voz": "locutor",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Te dejamos los teléfonos que sirve tener a mano. Están los de emergencias, el hospital, la comisaría de la mujer, el municipio, la cooperativa eléctrica y defensa al consumidor. Guardalos ahora, que después te olvidás. Los encontrás todos en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "pantalla-1",
+    "src": "img/utiles-pantalla-1.jpg"
+   },
+   {
+    "nombre": "pantalla-2",
+    "src": "img/utiles-pantalla-2.jpg"
+   }
+  ]
+ },
+ "agenda": {
+  "tipo": "video",
+  "id": "agenda",
+  "duracion": 16,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Estos días hay 4 actividades en Balcarce. Primera Feria del Vino, el sábado a las 11, en Plaza Mitre. La agenda completa está en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/agenda-completa.jpg"
+   }
+  ]
+ },
+ "feriados": {
+  "tipo": "feriados",
+  "imagenes": [
+   {
+    "nombre": "trasladable · Día del Respeto a la Diversidad Cultural",
+    "src": "img/feriado-trasladable.jpg"
+   },
+   {
+    "nombre": "decreto · Feriado por la visita del papa León XIV",
+    "src": "img/feriado-decreto.jpg"
+   },
+   {
+    "nombre": "religioso · Día de la Inmaculada Concepción de María",
+    "src": "img/feriado-religioso.jpg"
+   },
+   {
+    "nombre": "patrio · Año nuevo",
+    "src": "img/feriado-patrio.jpg"
+   },
+   {
+    "nombre": "carnaval · Carnaval",
+    "src": "img/feriado-carnaval.jpg"
+   }
+  ],
+  "tipos": [
+   "trasladable",
+   "decreto",
+   "religioso",
+   "patrio",
+   "carnaval"
+  ]
+ },
+ "efemerides": {
+  "tipo": "efemerides",
+  "imagenes": [
+   {
+    "nombre": "patria",
+    "src": "img/efemeride-patria.jpg"
+   },
+   {
+    "nombre": "historia",
+    "src": "img/efemeride-historia.jpg"
+   },
+   {
+    "nombre": "deporte",
+    "src": "img/efemeride-deporte.jpg"
+   },
+   {
+    "nombre": "cultura",
+    "src": "img/efemeride-cultura.jpg"
+   },
+   {
+    "nombre": "campo",
+    "src": "img/efemeride-campo.jpg"
+   },
+   {
+    "nombre": "balcarce",
+    "src": "img/efemeride-balcarce.jpg"
+   },
+   {
+    "nombre": "ciencia",
+    "src": "img/efemeride-ciencia.jpg"
+   }
+  ],
+  "tipos": [
+   "patria",
+   "historia",
+   "deporte",
+   "cultura",
+   "campo",
+   "balcarce",
+   "ciencia"
+  ]
+ },
+ "participa": {
+  "tipo": "participa",
+  "imagenes": [
+   {
+    "nombre": "noticia",
+    "src": "img/participa-noticia.jpg"
+   },
+   {
+    "nombre": "evento",
+    "src": "img/participa-evento.jpg"
+   },
+   {
+    "nombre": "reclamo",
+    "src": "img/participa-reclamo.jpg"
+   },
+   {
+    "nombre": "nota",
+    "src": "img/participa-nota.jpg"
+   },
+   {
+    "nombre": "encuesta",
+    "src": "img/participa-encuesta.jpg"
+   }
+  ]
+ },
+ "repaso-manana": {
+  "tipo": "video",
+  "id": "repaso-manana",
+  "duracion": 30,
+  "voz": "locutor",
+  "saludo": "Buen día, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buen día, Balcarce. Estas son las tres noticias. Napaleofú contará con una autobomba para emergencias. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana. El Gobierno confirma la segunda edición del Argentina Week en Nueva York. Todo en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "leyendo-1",
+    "src": "img/repaso-manana-leyendo-1.jpg"
+   },
+   {
+    "nombre": "cierre",
+    "src": "img/repaso-manana-cierre.jpg"
+   }
+  ]
+ },
+ "repaso-tarde": {
+  "tipo": "video",
+  "id": "repaso-tarde",
+  "duracion": 30,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Estas son las tres noticias. Napaleofú contará con una autobomba para emergencias. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana. El Gobierno confirma la segunda edición del Argentina Week en Nueva York. Todo en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "leyendo-1",
+    "src": "img/repaso-tarde-leyendo-1.jpg"
+   },
+   {
+    "nombre": "cierre",
+    "src": "img/repaso-tarde-cierre.jpg"
+   }
+  ]
+ },
+ "repaso-noche": {
+  "tipo": "video",
+  "id": "repaso-noche",
+  "duracion": 30,
+  "voz": "locutor",
+  "saludo": "Buenas noches, Balcarce.",
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Buenas noches, Balcarce. Estas son las tres noticias. Napaleofú contará con una autobomba para emergencias. Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana. El Gobierno confirma la segunda edición del Argentina Week en Nueva York. Todo en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "leyendo-1",
+    "src": "img/repaso-noche-leyendo-1.jpg"
+   },
+   {
+    "nombre": "cierre",
+    "src": "img/repaso-noche-cierre.jpg"
+   }
+  ]
+ },
+ "nota-reel": {
+  "tipo": "video",
+  "id": "nota-reel",
+  "duracion": 25,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Napaleofú contará con una autobomba para emergencias. El acuerdo contempla capacitación al personal y la entrega de dos terrenos. La localidad de Napaleofú dispondrá de un vehículo de primera respuesta. La nota completa, en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "nota-1",
+    "src": "img/nota-reel-nota-1.jpg"
+   },
+   {
+    "nombre": "nota-2",
+    "src": "img/nota-reel-nota-2.jpg"
+   },
+   {
+    "nombre": "nota-3",
+    "src": "img/nota-reel-nota-3.jpg"
+   }
+  ]
+ },
+ "nota-propia": {
+  "tipo": "video",
+  "id": "nota-propia",
+  "duracion": 30,
+  "voz": "locutora",
+  "saludo": null,
+  "aviso": "Voz generada con inteligencia artificial.",
+  "guion": "Halloween en la plaza. El Maxikiosco Pinocho armó un camión con personajes de terror que repartió caramelos frente a la plaza Libertad. Familias, adolescentes y chicos disfrazados coparon el centro el viernes a la tardecita. Lo único que faltó fue un corte de calles a tiempo. La nota completa, con todas las fotos, en Radar Balcarce punto com.",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "nota-1",
+    "src": "img/nota-propia-nota-1.jpg"
+   },
+   {
+    "nombre": "nota-2",
+    "src": "img/nota-propia-nota-2.jpg"
+   },
+   {
+    "nombre": "nota-3",
+    "src": "img/nota-propia-nota-3.jpg"
+   }
+  ]
+ },
+ "historia-nota": {
+  "tipo": "video",
+  "id": "historia-nota",
+  "duracion": 6,
+  "voz": null,
+  "saludo": null,
+  "aviso": null,
+  "guion": "",
+  "franja": null,
+  "imagenes": [
+   {
+    "nombre": "completa",
+    "src": "img/historia-nota-completa.jpg"
+   }
+  ]
+ },
+ "posteos": {
+  "tipo": "posteos",
+  "imagenes": [
+   {
+    "nombre": "Balcarce",
+    "src": "img/posteo-balcarce.jpg"
+   },
+   {
+    "nombre": "Política",
+    "src": "img/posteo-poltica.jpg"
+   },
+   {
+    "nombre": "Fútbol",
+    "src": "img/posteo-ftbol.jpg"
+   },
+   {
+    "nombre": "Deportes",
+    "src": "img/posteo-deportes.jpg"
+   },
+   {
+    "nombre": "Automovilismo",
+    "src": "img/posteo-automovilismo.jpg"
+   },
+   {
+    "nombre": "Agro",
+    "src": "img/posteo-agro.jpg"
+   },
+   {
+    "nombre": "Economía",
+    "src": "img/posteo-economa.jpg"
+   },
+   {
+    "nombre": "Cultura y agenda",
+    "src": "img/posteo-culturayagenda.jpg"
+   },
+   {
+    "nombre": "Tecnología",
+    "src": "img/posteo-tecnologa.jpg"
+   },
+   {
+    "nombre": "Salud",
+    "src": "img/posteo-salud.jpg"
+   },
+   {
+    "nombre": "Argentina",
+    "src": "img/posteo-argentina.jpg"
+   }
+  ]
+ },
+ "enlace": {
+  "tipo": "imagen",
+  "id": "enlace-1x91",
+  "ancho": 1080,
+  "alto": 565,
+  "imagenes": [
+   {
+    "nombre": "enlace",
+    "src": "img/enlace-1.jpg"
+   }
+  ]
+ },
+ "carrusel-nota": {
+  "tipo": "carrusel",
+  "id": "carrusel",
+  "ancho": 1080,
+  "alto": 1350,
+  "imagenes": [
+   {
+    "nombre": "carrusel-portada",
+    "src": "img/carrusel-nota-1.jpg"
+   },
+   {
+    "nombre": "carrusel-foto",
+    "src": "img/carrusel-nota-2.jpg"
+   },
+   {
+    "nombre": "carrusel-foto",
+    "src": "img/carrusel-nota-3.jpg"
+   },
+   {
+    "nombre": "carrusel-cierre",
+    "src": "img/carrusel-nota-4.jpg"
+   }
+  ]
+ },
+ "carrusel-semana": {
+  "tipo": "carrusel",
+  "id": "carrusel-semana",
+  "ancho": 1080,
+  "alto": 1350,
+  "imagenes": [
+   {
+    "nombre": "lamina-portada",
+    "src": "img/carrusel-semana-1.jpg"
+   },
+   {
+    "nombre": "lamina-nota",
+    "src": "img/carrusel-semana-2.jpg"
+   },
+   {
+    "nombre": "lamina-nota",
+    "src": "img/carrusel-semana-3.jpg"
+   },
+   {
+    "nombre": "lamina-nota",
+    "src": "img/carrusel-semana-4.jpg"
+   },
+   {
+    "nombre": "lamina-nota",
+    "src": "img/carrusel-semana-5.jpg"
+   },
+   {
+    "nombre": "lamina-nota",
+    "src": "img/carrusel-semana-6.jpg"
+   },
+   {
+    "nombre": "lamina-cierre",
+    "src": "img/carrusel-semana-7.jpg"
+   }
+  ]
+ },
+ "carrusel-finde": {
+  "tipo": "carrusel",
+  "id": "carrusel-finde",
+  "ancho": 1080,
+  "alto": 1350,
+  "imagenes": [
+   {
+    "nombre": "lamina-portada",
+    "src": "img/carrusel-finde-1.jpg"
+   },
+   {
+    "nombre": "lamina-eventos",
+    "src": "img/carrusel-finde-2.jpg"
+   },
+   {
+    "nombre": "lamina-eventos",
+    "src": "img/carrusel-finde-3.jpg"
+   },
+   {
+    "nombre": "lamina-cierre",
+    "src": "img/carrusel-finde-4.jpg"
+   }
+  ]
+ }
+}
