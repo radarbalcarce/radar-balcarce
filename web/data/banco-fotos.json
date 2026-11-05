@@ -42188,9 +42188,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "cxqqzy": {
-  "archivo": "fotos-notas/wg76no.jpg",
   "medio": "Acción 5 (Balcarce)",
-  "credito": "Foto: Acción 5 (Balcarce)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Amigos Unidos supera a River y Los Patos vence a Ferroviarios",
@@ -42211,12 +42209,11 @@
    "descripcion": "Jugadores de Amigos Unidos y River disputando la pelota en el campo de juego."
   },
   "huella": "89193131263ea495",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "8g3pq3": {
-  "archivo": "fotos-notas/8g3pq3.jpg",
   "medio": "Diario La Vanguardia",
-  "credito": "Foto: Diario La Vanguardia",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Legislatura bonaerense habilita el uso de fondos viales rurales",
@@ -42237,7 +42234,8 @@
    "descripcion": "Vista de una ruta rural de tierra en mal estado, con baches profundos y charcos de agua en el centro del camino."
   },
   "huella": "3fbf0befabeba9ac",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "57q7l8": {
   "intentado": true,
@@ -44954,9 +44952,7 @@
   "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "el0m7z": {
-  "archivo": "fotos-notas/el0m7z.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Riquelme apunta contra Macri y Verón y defiende a los árbitros",
@@ -44988,7 +44984,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "237eb6a6e6a6e0b3",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "yzmx1q": {
   "archivo": "fotos-notas/yzmx1q.jpg",
@@ -51944,9 +51941,7 @@
   "ausenteDesde": "2026-11-01T15:04:43.281Z"
  },
  "8towux": {
-  "archivo": "fotos-notas/8towux.jpg",
   "medio": "Acción 5 (Balcarce)",
-  "credito": "Foto: Acción 5 (Balcarce)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Amigos Unidos y Los Patos ganan en la continuidad del Clausura local",
@@ -51966,7 +51961,8 @@
    "descripcion": "Jugadores disputando la pelota en un partido de fútbol nocturno"
   },
   "huella": "89193131263ea495",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "ugat31": {
   "archivo": "fotos-notas/ugat31.jpg",
@@ -51994,9 +51990,7 @@
   "ausenteDesde": "2026-10-31T14:34:03.547Z"
  },
  "1izrlqm": {
-  "archivo": "fotos-notas/1izrlqm.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Agotan la primera tanda de entradas para la final de la Copa Sudamericana",
@@ -52017,12 +52011,11 @@
    "descripcion": "Vista panorámica de las gradas vacías del estadio con el campo de juego y la pista de atletismo."
   },
   "huella": "071f6b4d33090f17",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "ngszkj": {
-  "archivo": "fotos-notas/ngszkj.jpg",
   "medio": "La Verdad",
-  "credito": "Foto: La Verdad",
   "licencia": null,
   "origen": "medio",
   "titulo": "Platense gana por penales a Atlético Tucumán y es finalista de la Copa Argentina",
@@ -52042,7 +52035,8 @@
    "descripcion": "Jugadores disputando el balón en el partido."
   },
   "huella": "2fef2b2b2c449d97",
-  "ausenteDesde": "2026-10-29T12:39:08.681Z"
+  "intentado": true,
+  "borrada": true
  },
  "rkup26": {
   "intentado": true,
@@ -76960,10 +76954,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Conmemoran ochenta años de la entrada en vigor de la Constitución de la UNESCO",
-  "razon": "Ninguna foto cumple con todos los requisitos sin marcas de agua o por tratarse de imágenes de stock/genéricas no aptas.",
-  "cuando": "2026-11-04T11:02:47.842Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "w111vq": {
   "intentado": true,
@@ -78122,12 +78117,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cristina Kirchner celebra la derrota de Trump con un mensaje en red social",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T16:37:03.335Z",
-  "intentos": 1,
-  "fuentes": 17,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
+  "fuentes": 27,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "160ugu9": {
   "archivo": "fotos-notas/160ugu9.jpg",
@@ -78307,10 +78301,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
-  "razon": "Ninguna de las fotos corresponde al hecho mencionado sobre el vuelo a Roma.",
-  "cuando": "2026-11-04T17:37:58.879Z",
-  "intentos": 2,
-  "fuentes": 20
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 3,
+  "fuentes": 28,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1y43ge4": {
   "archivo": "fotos-notas/1y43ge4.jpg",
@@ -78376,10 +78371,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Recomiendan extender la decoración navideña a otros sectores de la casa",
-  "razon": "La mejor foto era la de Ámbito, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-04T17:08:15.832Z",
-  "intentos": 2,
-  "fuentes": 2
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 3,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "6eas45": {
   "intentado": true,
@@ -79951,11 +79947,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tomás Palacios avanza en su recuperación y apunta a la final de la Copa",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-04T22:04:11.510Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 1
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "8b07xu": {
   "archivo": "fotos-notas/8b07xu.jpg",
@@ -80334,9 +80330,9 @@
   "origen": "ninguna",
   "titulo": "El Gobierno analiza la derrota de Trump y sus efectos para el 2027",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
-  "fuentes": 3,
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
+  "fuentes": 13,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "u4wkee": {
@@ -80344,8 +80340,8 @@
   "origen": "ninguna",
   "titulo": "Tandil organiza la Fiesta Chacinar 2026 con el objetivo de batir un récord",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
   "fuentes": 2,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -80354,9 +80350,9 @@
   "origen": "ninguna",
   "titulo": "PAMI actualiza los topes de ingresos para acceder a medicamentos gratuitos",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
-  "fuentes": 3,
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
+  "fuentes": 4,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1kqkzwd": {
@@ -81120,7 +81116,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "88181c96360e3b39"
+  "huella": "88181c96360e3b39",
+  "ausenteDesde": "2026-11-05T13:04:17.149Z"
  },
  "1klhy07": {
   "archivo": "fotos-notas/1klhy07.jpg",
@@ -81935,23 +81932,21 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kicillof y Máximo Kirchner sellan una tregua en el PJ bonaerense",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T11:33:57.595Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "15t806q": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La UBA realiza la Marcha de las Velas para exigir financiamiento universitario",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T11:33:57.595Z",
-  "intentos": 1,
-  "fuentes": 14,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T13:02:13.007Z",
+  "intentos": 2,
+  "fuentes": 16,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1qtpqas": {
   "intentado": true,
