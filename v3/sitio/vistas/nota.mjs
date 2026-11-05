@@ -113,6 +113,21 @@ function fuentesHtml(fuentes) {
   return `<details class="fuentes"><summary>Fuentes (${fuentes.length})</summary><ul>${items}</ul></details>`;
 }
 
+/** Los botones de compartir: enlaces comunes (sin guiones ni rastreadores de terceros). WhatsApp primero, que es por donde más se comparte en Balcarce. */
+export function compartirHtml(n, canonico) {
+  const url = encodeURIComponent(BASE + canonico);
+  const texto = encodeURIComponent(n.titulo);
+  const redes = [
+    ['whatsapp', 'WhatsApp', 'https://wa.me/?text=' + texto + '%20' + url],
+    ['facebook', 'Facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + url],
+    ['x', 'X', 'https://twitter.com/intent/tweet?text=' + texto + '&url=' + url],
+    ['telegram', 'Telegram', 'https://t.me/share/url?url=' + url + '&text=' + texto],
+  ];
+  return '<nav class="compartir" aria-label="Compartir esta nota"><span>Compartir</span>'
+    + redes.map(([id, nombre, href]) => '<a class="comp-' + id + '" href="' + href + '" target="_blank" rel="noopener nofollow">' + nombre + '</a>').join('')
+    + '</nav>';
+}
+
 export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   const foto = n.foto && urlSegura(n.foto.url) ? n.foto : null;
   const persona = n.origen !== 'viejo' && n.firma && n.firma !== FIRMA_IA ? n.firma.replace(/^(por|revisad[ao] por)\s+/i, '') : null;
@@ -161,6 +176,7 @@ ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n,
 ${enlacesDelVideoHtml(n)}
 ${bloquesDeFicha(n.ficha)}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
+${compartirHtml(n, canonico)}
 ${fuentesHtml(n.fuentes || [])}
 </article>`;
   return pagina({

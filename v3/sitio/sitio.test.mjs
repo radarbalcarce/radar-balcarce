@@ -218,3 +218,11 @@ test('idDeRuta toma lo que va después del último guion', () => {
   assert.equal(idDeRuta('titular-largo-1tftag2'), '1tftag2');
   assert.equal(idDeRuta('1tftag2'), '1tftag2');
 });
+
+test('cada nota trae los botones de compartir, con WhatsApp primero y el enlace de la nota', async () => {
+  const { compartirHtml } = await import('./vistas/nota.mjs');
+  const h = compartirHtml({ titulo: 'Se inauguró la sala' }, '/nota/se-inauguro-abc1234');
+  assert.ok(h.indexOf('comp-whatsapp') < h.indexOf('comp-facebook'));
+  assert.match(h, /wa\.me\/\?text=Se%20inaugur%C3%B3%20la%20sala%20https%3A%2F%2Fradarbalcarce\.com%2Fnota%2Fse-inauguro-abc1234/);
+  assert.equal((h.match(/<a /g) ?? []).length, 4);
+});
