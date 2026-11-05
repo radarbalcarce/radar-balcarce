@@ -545,3 +545,12 @@ test('el texto del repaso lleva el enlace de cada noticia en Facebook y YouTube,
   assert.match(textoParaBuffer({ guion: 'x' }, item, 'youtube'), /nota\/otra-nota-b2\?utm_source=youtube/);
   assert.doesNotMatch(textoDePieza({ guion: 'x' }, item, 'instagram'), /nota\//);
 });
+
+test('tapa del reel: el repaso usa el cuadro de la lista pareja (no la placa de la primera nota, que sale a medio resaltar) y el resto un cuadro quieto de la primera escena', async () => {
+  const { tapaDeLaPieza } = await import('./publicar.mjs');
+  assert.equal(tapaDeLaPieza({ id: 'repaso-tarde', escenas: [{ duracion: 9 }] }), 250);
+  assert.equal(tapaDeLaPieza({ id: 'repaso-manana', escenas: [{ duracion: 9 }] }), 250);
+  assert.equal(tapaDeLaPieza({ id: 'clima', escenas: [{ duracion: 4 }] }), 2800);
+  assert.equal(tapaDeLaPieza({ id: 'clima', escenas: [{ duracion: 9 }] }), 3000);
+  assert.equal(tapaDeLaPieza({ id: 'x' }), 1400);
+});

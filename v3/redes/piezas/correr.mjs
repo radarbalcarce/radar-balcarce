@@ -22,7 +22,7 @@ import {
 } from './datos.mjs';
 import { condicionalesQueTocan } from '../piezas-del-dia.mjs';
 import {
-  accionesConTexto, accionesDeCarrusel, nombreDeLamina, publicarCarrusel, publicarPieza, publicarPorBuffer, simularBuffer, simularPublicacion, textoDePieza,
+  accionesConTexto, accionesDeCarrusel, nombreDeLamina, publicarCarrusel, publicarPieza, publicarPorBuffer, simularBuffer, simularPublicacion, tapaDeLaPieza, textoDePieza,
 } from './publicar.mjs';
 import { claveR2DePlaca } from '../placa-clave.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
@@ -240,7 +240,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
         const cliente = deps.clienteMeta();
         const mp4 = fs.readFileSync(r.mp4);
         // La tapa de la grilla de reels: un cuadro quieto de la primera escena (en el repaso, la lista pareja), nunca uno a medio animar (Hernán, 3/11).
-        const tapaMs = Math.round(Math.min(3, (pieza.escenas?.[0]?.duracion ?? 2) * 0.7) * 1000);
+        const tapaMs = tapaDeLaPieza(pieza);
         const tapa = deps.cuadro ? await deps.cuadro(r.mp4, tapaMs).catch(() => null) : null;
         informe.acciones = await publicarPieza({ cliente, mp4, acciones, tapaMs, tapa, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
         const buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte

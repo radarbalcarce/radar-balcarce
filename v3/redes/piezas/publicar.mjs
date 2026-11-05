@@ -57,6 +57,16 @@ export function accionesConTexto(pieza, item) {
 }
 
 /**
+ * El milisegundo del video que se usa de tapa en la grilla de reels. En el repaso es el cuadro de la lista pareja (la tapa del principio, medio segundo): la escena 0 del
+ * repaso es la placa de la primera nota, y un cuadro de ahí sale con la lista a medio resaltar (el 5/11 el repaso de la tarde salió así en Facebook e Instagram). En el resto,
+ * un cuadro quieto de la primera escena, nunca uno a medio animar (Hernán, 3/11).
+ */
+export function tapaDeLaPieza(pieza) {
+  if (String(pieza?.id ?? '').startsWith('repaso')) return 250;
+  return Math.round(Math.min(3, (pieza?.escenas?.[0]?.duracion ?? 2) * 0.7) * 1000);
+}
+
+/**
  * Publica cada acción con el cliente de Meta. Sigue aunque una falle (queda su error): lo que salió no se repite porque el resultado se anota apenas termina.
  * @returns {Promise<{ red, tipo, estado: 'ok'|'error', id?, error? }[]>}
  */
