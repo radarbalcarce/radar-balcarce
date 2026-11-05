@@ -102,7 +102,8 @@ export function armarClima(clima, { auspicio = null, fecha = null, ...opciones }
     auspicio ? `El clima de hoy lo auspicia ${auspicio.comercio}.${cuenta}` : '',
     `Ahora hay ${clima.ahora.temp} grados, ${cielo}.`,
     comentario.voz,
-    `${noche ? 'Mañana' : 'Hoy'}: máxima de ${d.max}, mínima de ${d.min}. Lluvia: ${d.lluvia} por ciento.`,
+    // Si el comentario ya habló de la lluvia, no se repite el porcentaje (Hernán, 3/11: «el texto repite lo mismo»).
+    `${noche ? 'Mañana' : 'Hoy'}: máxima de ${d.max}, mínima de ${d.min}.${comentario.icono === 'lluvia' ? '' : ` Lluvia: ${d.lluvia} por ciento.`}`,
     noche ? 'Que descansen.' : 'Que tengan un buen día.',
   );
   const segundos = CLIMA.segundos + (auspicio ? CLIMA.auspicioExtra : 0);

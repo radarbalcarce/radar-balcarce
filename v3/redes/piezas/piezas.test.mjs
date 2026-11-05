@@ -528,3 +528,11 @@ function ajustarALaVozDePrueba(pieza, voz) {
   });
   return { ...pieza, escenas, duracion: Number((voz + 1.5).toFixed(2)) };
 }
+
+test('el clima no dice dos veces la lluvia: si el comentario ya habló de ella, no se repite el porcentaje (Hernán, 3/11)', () => {
+  const lluvioso = { ...CLIMA_DE_PRUEBA, dias: [{ ...CLIMA_DE_PRUEBA.dias[0], lluvia: 80 }, ...CLIMA_DE_PRUEBA.dias.slice(1)] };
+  const g = armarClima(lluvioso, { fecha: HOY, hora: 7, primeraDelBloque: true }).guion;
+  assert.equal((g.match(/lluvia/gi) ?? []).length, 1, g);
+  const tranquilo = armarClima({ ...CLIMA_DE_PRUEBA, dias: [{ ...CLIMA_DE_PRUEBA.dias[0], lluvia: 10 }, ...CLIMA_DE_PRUEBA.dias.slice(1)] }, { fecha: HOY, hora: 7, primeraDelBloque: true }).guion;
+  assert.match(tranquilo, /Lluvia: 10 por ciento/);
+});
