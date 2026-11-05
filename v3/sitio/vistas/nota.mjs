@@ -202,10 +202,10 @@ ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n,
 ${enlacesDelVideoHtml(n)}
 ${bloquesDeFicha(n.ficha)}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
+${fuentesHtml(n.fuentes || [])}
 ${compartirHtml(n, canonico)}
 ${seguirLeyendoHtml(n, seguir)}
 ${masContadasHtml(contadas)}
-${fuentesHtml(n.fuentes || [])}
 </article>`;
   return pagina({
     titulo: n.titulo,
