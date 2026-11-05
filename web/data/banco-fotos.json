@@ -72426,7 +72426,8 @@
    "corresponde": "si",
    "descripcion": "Facundo Cerone de perfil con campera con la inscripción aurinegro"
   },
-  "huella": "9d1424b6f6c9d9b8"
+  "huella": "9d1424b6f6c9d9b8",
+  "ausenteDesde": "2026-11-05T19:04:22.429Z"
  },
  "1tqe7zq": {
   "archivo": "fotos-notas/1tqe7zq.jpg",
@@ -79725,11 +79726,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avellaneda incorpora inteligencia artificial al monitoreo de cámaras",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T12:32:45.561Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T19:03:41.353Z",
   "intentos": 3,
   "fuentes": 6,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "ovx7zo": {
   "archivo": "fotos-notas/ovx7zo.jpg",
@@ -81927,12 +81929,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kicillof y Máximo Kirchner sellan una tregua en el PJ bonaerense",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T16:33:43.926Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
+  "cuando": "2026-11-05T19:03:41.353Z",
   "intentos": 2,
   "fuentes": 4,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "intentosPorCupo": 3
  },
  "15t806q": {
   "intentado": true,
@@ -82157,5 +82158,30 @@
   "intentos": 1,
   "fuentes": 6,
   "intentosPorCupo": 1
+ },
+ "1d0gbk6": {
+  "archivo": "fotos-notas/1d0gbk6.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
+  "enlace": "https://www.radiogabal.com.ar/index.php/deportes/ultimos-cupos-para-la-carrera-del-circuito-buenos-aires-aventura-en-balcarce",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/noviembre/pun%20antu.jpg",
+  "razon": "Es la única opción disponible y muestra el circuito de aventura al que hace referencia la nota, sin marcas de agua ni menores.",
+  "cuando": "2026-11-05T19:03:41.353Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de un circuito de aventura con senderos, estructuras pintadas y un camino de tierra."
+  },
+  "huella": "bfbb5d1e1b199c9d"
  }
 }
