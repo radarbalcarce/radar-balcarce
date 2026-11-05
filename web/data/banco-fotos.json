@@ -42371,9 +42371,7 @@
   "fuentes": 3
  },
  "1ko8bl0": {
-  "archivo": "fotos-notas/1ko8bl0.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "La facultad de Medicina de la UNLP sufre una alteración en Google",
@@ -42405,7 +42403,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "7f3f7d79f97d6967",
-  "ausenteDesde": "2026-10-29T07:07:31.135Z"
+  "intentado": true,
+  "borrada": true
  },
  "1oy6wbg": {
   "medio": "TyC Sports",
@@ -47746,9 +47745,7 @@
   "borrada": true
  },
  "5klkwb": {
-  "archivo": "fotos-notas/5klkwb.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Aston Villa limita los minutos de Garnacho para evitar su compra",
@@ -47780,7 +47777,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "86460b6bf5c7c5f1",
-  "ausenteDesde": "2026-10-29T07:07:31.135Z"
+  "intentado": true,
+  "borrada": true
  },
  "1aq3bym": {
   "medio": "Universidad Nacional de Rosario",
@@ -50542,9 +50540,7 @@
   "ausenteDesde": "2026-10-29T10:34:46.999Z"
  },
  "1dzeve0": {
-  "archivo": "fotos-notas/1dzeve0.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Platense elimina por penales a Atlético Tucumán y es finalista",
@@ -50565,7 +50561,8 @@
    "descripcion": "Arquero de Atlético Tucumán celebrando frente a su arco."
   },
   "huella": "0f2fbf8b1d0f191b",
-  "ausenteDesde": "2026-10-29T07:07:31.135Z"
+  "intentado": true,
+  "borrada": true
  },
  "smz12n": {
   "intentado": true,
@@ -78905,7 +78902,8 @@
    "corresponde": "si",
    "descripcion": "Tractor en un campo embarrado bajo una tormenta con rayos"
   },
-  "huella": "efbf3fbd8c0d8746"
+  "huella": "efbf3fbd8c0d8746",
+  "ausenteDesde": "2026-11-05T08:03:41.843Z"
  },
  "1e8zio1": {
   "archivo": "fotos-notas/1e8zio1.jpg",
@@ -81351,7 +81349,8 @@
    "corresponde": "si",
    "descripcion": "Personas caminando bajo la lluvia en una esquina urbana con carteles de calle."
   },
-  "huella": "0b77fff71ec25a56"
+  "huella": "0b77fff71ec25a56",
+  "ausenteDesde": "2026-11-05T08:03:41.843Z"
  },
  "14anwoe": {
   "archivo": "fotos-notas/14anwoe.jpg",
@@ -81548,7 +81547,8 @@
    "corresponde": "si",
    "descripcion": "Mujer utilizando un cajero automático en una sucursal bancaria."
   },
-  "huella": "834d0d2f050c140c"
+  "huella": "834d0d2f050c140c",
+  "ausenteDesde": "2026-11-05T08:03:41.843Z"
  },
  "u2ns9v": {
   "archivo": "fotos-notas/u2ns9v.jpg",
@@ -81573,5 +81573,51 @@
    "descripcion": "Un hombre rescatando a un perro en un entorno rural."
   },
   "huella": "40c1c592d82ec7e7"
+ },
+ "asdtj0": {
+  "archivo": "fotos-notas/asdtj0.jpg",
+  "medio": "Agencia DIB",
+  "credito": "Foto: Agencia DIB",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei participa de la Cumbre Iberoamericana tras reunirse con Abascal",
+  "enlace": "https://dib.com.ar/politica/javier-milei-tendra-una-reunion-santiago-abascal-y-no-descartan-mas-cruces-pedro-sanchez-n57045",
+  "imagenOriginal": "https://media.dib.com.ar/p/d1f249f975a70ad5a54b2784f67e1466/adjuntos/377/imagenes/100/060/0100060128/1200x675/659x320:679x340/milei-abascal.jpg",
+  "razon": "Es la única imagen disponible y muestra a los protagonistas de la nota (Milei y Abascal) en el contexto de la reunión.",
+  "cuando": "2026-11-05T08:02:58.978Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Selfie de Javier Milei y Santiago Abascal posando juntos con gestos de aprobación."
+  },
+  "huella": "e5e5f1d7d2d2d79a"
+ },
+ "1ft90ud": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La causa por el desvío de propofol vuelve a la investigación",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T08:02:58.978Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "b2uk9i": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Manchester City le gana 3 a 2 al RB Leipzig con un gol de Enzo Fernández",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 400: Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.): la foto de Olé no se usa todavía.",
+  "cuando": "2026-11-05T08:02:58.978Z",
+  "intentos": 1,
+  "fuentes": 13,
+  "intentosPorCupo": 1
  }
 }
