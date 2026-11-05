@@ -47696,9 +47696,7 @@
   "ausenteDesde": "2026-10-29T12:08:14.525Z"
  },
  "1axwk7u": {
-  "archivo": "fotos-notas/1axwk7u.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Harry Kane gana el Balón de Oro 2026 y agradece a Pochettino",
@@ -47718,7 +47716,8 @@
    "descripcion": "Harry Kane de traje con pajarita sosteniendo el Balón de Oro."
   },
   "huella": "072317236b2b7111",
-  "ausenteDesde": "2026-10-29T10:04:47.441Z"
+  "intentado": true,
+  "borrada": true
  },
  "1rycwh2": {
   "medio": "Olé",
@@ -74719,7 +74718,8 @@
    "corresponde": "si",
    "descripcion": "Vista satelital de un terreno delimitado con una línea amarilla."
   },
-  "huella": "c486a2a361236331"
+  "huella": "c486a2a361236331",
+  "ausenteDesde": "2026-11-05T10:09:03.696Z"
  },
  "2z1zuj": {
   "archivo": "fotos-notas/2z1zuj.jpg",
@@ -79774,11 +79774,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avellaneda incorpora inteligencia artificial al monitoreo de cámaras",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Página/12 no se usa todavía.",
-  "cuando": "2026-11-05T07:02:32.751Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T10:06:56.368Z",
   "intentos": 2,
   "fuentes": 6,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "ovx7zo": {
   "archivo": "fotos-notas/ovx7zo.jpg",
@@ -81034,7 +81035,8 @@
    "corresponde": "si",
    "descripcion": "Acción de juego con disputa de balón entre jugadores de Atlético Mineiro y Botafogo."
   },
-  "huella": "1e8eaa0fceccdd07"
+  "huella": "1e8eaa0fceccdd07",
+  "ausenteDesde": "2026-11-05T10:09:03.696Z"
  },
  "1858pwy": {
   "archivo": "fotos-notas/1858pwy.jpg",
@@ -81229,7 +81231,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando frente a una estructura de escenario y una iglesia gótica."
   },
-  "huella": "c161a3296c45c1c1"
+  "huella": "c161a3296c45c1c1",
+  "ausenteDesde": "2026-11-05T10:09:03.696Z"
  },
  "12olod0": {
   "archivo": "fotos-notas/12olod0.jpg",
@@ -81605,10 +81608,10 @@
   "origen": "ninguna",
   "titulo": "La causa por el desvío de propofol vuelve a la investigación",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T08:02:58.978Z",
+  "cuando": "2026-11-05T10:06:56.368Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "b2uk9i": {
@@ -81662,5 +81665,148 @@
   "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "144ocoq": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Ronnie Wood visita la Argentina y se presenta el viernes en Buenos Aires",
+  "razon": "Ninguna de las fotos cumple con los requisitos de la nota sobre Ronnie Wood: la foto A muestra a Ronnie Wood junto a Lionel Messi de manera irrelevante, y la foto B muestra a Ronnie Wood junto a otra persona en un plano que no corresponde adecuadamente al hecho central.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "1jhugf1": {
+  "archivo": "fotos-notas/1jhugf1.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Como golea 9 a 1 al Lens en la Champions League con una gran actuación",
+  "enlace": "https://www.clarin.com/deportes/nico-paz-vs-lens-champions-league-vivo-hora-formaciones-ver_0_fLdSmLsfnX.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/04/M50M3mb4V_2000x1500__1.jpg",
+  "razon": "Es la única imagen completa que muestra a los jugadores celebrando con el marcador del resultado (1-9) visible al fondo, sin marcas de agua ni menores.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores del Como celebran en la cancha con el marcador 1-9 visible en el fondo."
+  },
+  "huella": "366175e4858ca507"
+ },
+ "1apvun4": {
+  "archivo": "fotos-notas/1apvun4.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de Brasil de la Fórmula 1",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160956/deportes/colapinto-formula-1-horarios-donde-ver-gp-brasil-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/03/mal-momento-colapinto-quiere-revertir-mala-racha-acumula-ultimas-carreras-1160787-070350.jpg",
+  "razon": "Es la única foto de buena calidad que corresponde al evento, muestra claramente un coche de Fórmula 1 en pista y no tiene marcas de agua agregadas ni menores de edad.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de Fórmula 1 en la pista"
+  },
+  "huella": "c2d0c3cb1a78c38e"
+ },
+ "171sv7h": {
+  "archivo": "fotos-notas/171sv7h.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes y Palmeiras definen la venta de entradas para la final",
+  "enlace": "https://www.eldia.com/deportes/bronca-por-las-entradas-nuevo-comunicado-de-conmebol-por-la-reventa-deportes_1793740493",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793740542788.webp?&cw=1200&ch=630",
+  "razon": "Muestra claramente el estadio y la Copa sin marcas de agua de medios.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "La copa en primer plano con el estadio de fondo",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "La Copa Libertadores sobre el borde de una tribuna con el estadio vacío de fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "09331112154fab13"
+ },
+ "1blo64k": {
+  "archivo": "fotos-notas/1blo64k.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Servicio Meteorológico Nacional emite alertas por tormentas en ocho provincias",
+  "enlace": "https://tn.com.ar/sociedad/2026/11/04/hay-alerta-amarilla-por-tormentas-y-rafagas-de-mas-de-90-kmh-en-8-provincias-para-hoy-miercoles-4-de-noviembre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/hay-alerta-amarilla-por-tormentas-en-8-provincias-las-zonas-afectadas-foto-adobe-stock-LFZQV5AFBVAHPNGS7QNFUKIW5I.jpg?auth=94e23b3d2b4a53f7bfc73f8a0b078d5cd9f20dc2c399687a29d2df79687d404b&width=1023",
+  "razon": "Es la mejor foto para ilustrar una alerta por tormentas, mostrando rayos sobre una ciudad de forma clara y sin marcas ni personas.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tormenta eléctrica con rayos sobre el skyline de una ciudad"
+  },
+  "huella": "0303031717171707"
+ },
+ "6d1uyu": {
+  "archivo": "fotos-notas/6d1uyu.webp",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Cuenta DNI renueva sus descuentos y topes de reintegro en noviembre",
+  "enlace": "https://www.infobrisas.com/noticias/2026/11/02/113448-cuenta-dni-en-noviembre-todos-los-descuentos-dias-y-topes-de-reintegro",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2025/05/infobrisas/images/01/88/60/1886030_cc3135532d5d6c42bd522b24888e386370e177868d7bc383ce3ea10b6f976ada/lg.webp?_v=v3-129",
+  "razon": "Es la única opción disponible y muestra claramente la aplicación de la Cuenta DNI, que es el objeto central de la nota.",
+  "cuando": "2026-11-05T10:06:56.368Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de una mano sosteniendo un celular que muestra la interfaz de la aplicación Cuenta DNI."
+  },
+  "huella": "13a3835305050c2e"
  }
 }
