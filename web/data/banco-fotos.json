@@ -50587,9 +50587,7 @@
   "ausenteDesde": "2026-10-30T22:07:54.395Z"
  },
  "md2rgu": {
-  "archivo": "fotos-notas/md2rgu.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Platense supera por penales a Atlético Tucumán y avanza a la final de la Copa Argentina",
@@ -50609,7 +50607,8 @@
    "descripcion": "Festejo de jugadores de Platense abrazados"
   },
   "huella": "554d45b1517171f9",
-  "ausenteDesde": "2026-10-29T09:05:24.351Z"
+  "intentado": true,
+  "borrada": true
  },
  "na1wje": {
   "archivo": "fotos-notas/na1wje.jpg",
@@ -74971,7 +74970,8 @@
    "corresponde": "si",
    "descripcion": "Cuerpo técnico de River preocupado en el banco de suplentes."
   },
-  "huella": "4c6c4aced2c3c2c3"
+  "huella": "4c6c4aced2c3c2c3",
+  "ausenteDesde": "2026-11-05T09:06:40.899Z"
  },
  "9s46rr": {
   "archivo": "fotos-notas/9s46rr.jpg",
@@ -81597,7 +81597,8 @@
    "corresponde": "si",
    "descripcion": "Selfie de Javier Milei y Santiago Abascal posando juntos con gestos de aprobación."
   },
-  "huella": "e5e5f1d7d2d2d79a"
+  "huella": "e5e5f1d7d2d2d79a",
+  "ausenteDesde": "2026-11-05T09:06:40.899Z"
  },
  "1ft90ud": {
   "intentado": true,
@@ -81619,5 +81620,47 @@
   "intentos": 1,
   "fuentes": 13,
   "intentosPorCupo": 1
+ },
+ "1kbmvoh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Moria Casán y Andy Kusnetzoff terminan su cruce mediático con un mensaje",
+  "razon": "La imagen no corresponde a la nota (no muestra a Moria Casán ni a Andy Kusnetzoff) y es una captura de pantalla.",
+  "cuando": "2026-11-05T09:05:45.687Z",
+  "intentos": 1,
+  "fuentes": 7,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "fgxqdd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Llega a la Argentina el primer autotest de VIH para farmacias",
+  "razon": "La mejor foto era la de El Destape, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-05T09:05:45.687Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "c4afvv": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Universitarios realizan la Marcha de las Velas en la Ciudad de Buenos Aires",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T09:05:45.687Z",
+  "intentos": 1,
+  "fuentes": 8,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1ogp52d": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "River mantiene a Ponzio como técnico hasta el final del Torneo Clausura",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T09:05:45.687Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
 }
