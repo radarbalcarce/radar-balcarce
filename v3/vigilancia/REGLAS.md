@@ -16,7 +16,7 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
 2. **El núcleo contesta.** Si no contesta, avisa recién cuando pasa dos chequeos seguidos (una hora): un tropiezo suelto no es un problema.
 3. **El bot de Telegram responde y tiene su token.** Misma regla de los dos chequeos seguidos.
 4. **El webhook del bot está registrado** en la dirección nuestra y el bot lo revisó en los últimos 45 minutos (lo revisa cada 15).
-5. **El gasto de IA del mes llegó al 80 % del freno** (el freno lo trae el núcleo en su `/salud`; hoy US$ 15). Avisa una vez por mes. No avisa
+5. **El gasto de IA del mes llegó al 80 % del freno** (el freno lo trae el núcleo en su `/salud`; hoy US$ 7). Avisa una vez por mes. No avisa
    «volvió a andar» para el gasto: se acaba con el mes.
 6. **Fuentes que fallan hace 3 días** (288 vueltas seguidas). Una fuente que nunca anduvo bien se avisa a las 96 fallas (un día entero).
    Avisa por fuente, no todas juntas cada vez.

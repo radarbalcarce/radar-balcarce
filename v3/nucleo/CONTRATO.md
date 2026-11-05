@@ -8,7 +8,7 @@ personas están en `REGLAS.md`; esto es la parte técnica. Si algo de acá contr
 - **No publica nada.** Escribe en D1 y manda por Telegram, una vez por día (21:30), «hoy habría publicado N notas» con los títulos y el
   motivo de cada una; y a pedido, el listado completo. El sistema viejo sigue publicando hasta el corte.
 - **IA de texto: sólo la clave paga** (`GEMINI_API_KEY`, la de `GEMINI_API_KEY_RESPALDO`, proyecto Default). No se toca la clave gratis,
-  que sigue usando el sistema viejo. Tope de pedidos por día `NUCLEO_TOPE_DIARIO` (por defecto 150) y freno mensual de US$ 15 estimados.
+  que sigue usando el sistema viejo. Tope de pedidos por día `NUCLEO_TOPE_DIARIO` (por defecto 150) y freno mensual de US$ 7 estimados.
   Modelo `gemini-3.1-flash-lite` (variable `GEMINI_MODELO`).
 - **Huellas: Workers AI**, modelo `@cf/baai/bge-m3` (multilingüe), binding `AI`. Umbrales provisorios hasta calibrar: se une con coseno
   ≥ 0,86; duda entre 0,78 y 0,86 (pregunta de sí o no a Gemini); nueva por debajo de 0,78. Viven en `agrupar/umbrales.json`.
@@ -95,7 +95,7 @@ fuentes: [{medio, url}], fechaHecho, firma: 'Redacción Radar Balcarce', pedidos
   como `borrador`. Si Gemini dice `tope-diario`, la redacción de la vuelta se corta sin error. Un error de una fuente, un artículo o una historia se anota
   y sigue con la que viene; una historia que falla 3 veces al redactar pasa a `no_sale` con el motivo `error-redaccion`.
 - **Freno mensual:** si el gasto estimado del mes (tokens de `uso_ia` por los precios de `nucleo.mjs`: entrada US$ 0,10 y salida US$ 0,40 por millón, a confirmar
-  con la lista de precios de Google) llega a US$ 15, no redacta y avisa una vez por Telegram.
+  con la lista de precios de Google) llega a US$ 7, no redacta y avisa una vez por Telegram.
 - **Cron `30 0 * * *` (21:30 de Balcarce) = el resumen:** «hoy habría publicado N notas» con una línea por nota, el gasto de hoy y del mes, cuántas historias
   no salieron por cada motivo y las fuentes que fallan hace 3 días. Va por `POST {DIRECCION}/decir` del bot, con `x-radar-contrasena` derivada de `TELEGRAM_TOKEN`.
 - **El día de Balcarce** es UTC-3 todo el año (`diaDeBalcarce`): de las 03:00 UTC a las 03:00 UTC.
