@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-05T22:36:30.043Z",
+ "consultado": "2026-11-05T23:04:09.138Z",
  "equipos": [
   "9739",
   "3",
@@ -794,16 +794,16 @@
     "competencia": "liga",
     "inicio": "2026-11-05T22:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "20'",
+    "minuto": "45'+3'",
     "local": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "4",
      "nombre": "Belgrano (Córdoba)",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -811,6 +811,18 @@
       "equipo": "local",
       "jugador": "Lucas Janson",
       "minuto": "6'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Agustín Auzmendi",
+      "minuto": "27'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Alcides Benítez",
+      "minuto": "45'+1'",
       "tipo": "gol"
      }
     ],
