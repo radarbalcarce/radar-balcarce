@@ -2995,87 +2995,90 @@
   "2026-11-05": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 10,
-     "errores": 10,
-     "entrada": 0,
-     "salida": 0,
+     "llamadas": 15,
+     "errores": 14,
+     "entrada": 2613,
+     "salida": 1394,
      "pensamiento": 0,
-     "total": 0,
+     "total": 4007,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 15
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 10
+       "cupo-diario": 13,
+       "saturado": 1,
+       "ok": 1
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 10,
-     "errores": 9,
-     "entrada": 3172,
-     "salida": 3072,
+     "llamadas": 14,
+     "errores": 12,
+     "entrada": 6338,
+     "salida": 6144,
      "pensamiento": 0,
-     "total": 6244,
+     "total": 12482,
      "claves": {
-      "groq": 10
+      "groq": 14
      },
      "motivos": {
       "groq": {
        "rechazada": 5,
-       "ok": 1,
-       "velocidad": 4
+       "ok": 2,
+       "velocidad": 7
       }
      }
     },
     "mistral-large-2512": {
-     "llamadas": 2,
-     "errores": 2,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 2
+      "mistral": 3
      },
      "motivos": {
       "mistral": {
-       "rechazada": 2
+       "rechazada": 3
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 4,
-     "errores": 4,
-     "entrada": 0,
-     "salida": 0,
+     "llamadas": 7,
+     "errores": 5,
+     "entrada": 42272,
+     "salida": 1058,
      "pensamiento": 0,
-     "total": 0,
+     "total": 43330,
      "claves": {
-      "clasificacion": 4
+      "clasificacion": 7
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 4
+       "cupo-diario": 5,
+       "ok": 2
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 2,
+     "llamadas": 3,
      "errores": 1,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 2
+      "clasificacion": 3
      },
      "motivos": {
       "clasificacion": {
        "otro": 1,
-       "ok": 1
+       "ok": 2
       }
      }
     },
@@ -3099,70 +3102,70 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 21,
-     "errores": 21,
+     "llamadas": 31,
+     "errores": 31,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "redaccion": 21
+      "redaccion": 31
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 21
+       "cupo-diario": 31
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 21,
+     "llamadas": 31,
      "errores": 3,
-     "entrada": 107044,
-     "salida": 20506,
+     "entrada": 169611,
+     "salida": 31764,
      "pensamiento": 0,
-     "total": 127550,
+     "total": 201375,
      "claves": {
-      "redaccion": 21
+      "redaccion": 31
      },
      "motivos": {
       "redaccion": {
        "otro": 3,
-       "ok": 18
+       "ok": 28
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 20,
-     "errores": 20,
+     "llamadas": 30,
+     "errores": 30,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 30
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 20
+       "cupo-diario": 30
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 20,
+     "llamadas": 30,
      "errores": 10,
-     "entrada": 45741,
-     "salida": 3641,
+     "entrada": 104777,
+     "salida": 8472,
      "pensamiento": 0,
-     "total": 49382,
+     "total": 113249,
      "claves": {
-      "clasificacion": 20
+      "clasificacion": 30
      },
      "motivos": {
       "clasificacion": {
        "otro": 10,
-       "ok": 10
+       "ok": 20
       }
      }
     },

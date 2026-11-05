@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T04:04:58.809Z",
+ "generado": "2026-11-05T05:04:04.403Z",
  "portada": 166,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-11-05T04:04:59.430Z",
+  "generado": "2026-11-05T05:04:04.916Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,22 +95,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
-     {
-      "id": "1hnsyf",
-      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-      "seccion": "Deportes"
-     },
      {
       "id": "74b2wn",
       "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
       "seccion": "Policiales"
      },
      {
-      "id": "ywp9x3",
-      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-      "seccion": "Salud"
+      "id": "14llvsv",
+      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
+      "seccion": "Educación"
+     },
+     {
+      "id": "1hnsyf",
+      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
+      "seccion": "Deportes"
      },
      {
       "id": "17vsjrz",
@@ -126,12 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 49,
     "notas": [
      {
       "id": "1pm4shu",
       "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
       "seccion": "Deportes"
+     },
+     {
+      "id": "ywp9x3",
+      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+      "seccion": "Salud"
      },
      {
       "id": "115dvxc",
@@ -142,11 +147,6 @@
       "id": "hbt308",
       "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
       "seccion": "Policiales"
-     },
-     {
-      "id": "c3bdgi",
-      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-      "seccion": "Política"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 49,
     "notas": [
      {
       "id": "100bnjr",
@@ -165,9 +165,9 @@
       "seccion": "Deportes"
      },
      {
-      "id": "tne9sk",
-      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
-      "seccion": "Cultura y agenda"
+      "id": "c3bdgi",
+      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
+      "seccion": "Política"
      },
      {
       "id": "1syf5mi",
@@ -175,9 +175,9 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "xrlaa0",
-      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
-      "seccion": "Balcarce"
+      "id": "17vhzp2",
+      "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -189,6 +189,12 @@
      "id": "74b2wn",
      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
      "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "14llvsv",
+     "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
+     "seccion": "Educación",
      "marcada": false
     },
     {
@@ -219,12 +225,6 @@
      "id": "16uicrv",
      "titulo": "Abel Pintos, Nahuel Pennisi y otros artistas cantarán ante el papa León XIV",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1m73qsw",
-     "titulo": "Juan Sebastián Verón elige a Boca como el mejor equipo del fútbol argentino",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],
