@@ -13,7 +13,7 @@ export const ESTILOS = `
 @font-face{font-family:"Source Serif 4";font-weight:600 900;font-display:swap;src:url("${FUENTES}/source-serif-4-latin.woff2") format("woff2");unicode-range:${LATIN}}
 @font-face{font-family:"Inter";font-weight:400 700;font-display:swap;src:url("${FUENTES}/inter-latin.woff2") format("woff2");unicode-range:${LATIN}}
 :root{--rojo:#C7381C;--tinta:#14161A;--crema:#F4F1EA;--papel:#FFFDF8;--linea:#E4DFD2;--suave:#5C6068;--texto:#2B2F35;--ambar:#E8A33C;--foco:#0B57D0;
---s-balcarce:#B91C1C;--s-politica:#3730A3;--s-policiales:#831843;--s-deportes:#0F766E;--s-futbol:#7C3AED;--s-automovilismo:#B45309;--s-agro:#5A6B0A;
+--s-balcarce:#B91C1C;--s-politica:#3730A3;--s-policiales:#831843;--s-deportes:#0F766E;--s-futbol:#7C3AED;--s-automovilismo:#A84D08;--s-agro:#5A6B0A;
 --s-cultura:#9D2C8F;--s-economia:#8A6500;--s-tecnologia:#0B6FB8;--s-argentina:#4B5563;--s-educacion:#1D4BE0;--s-salud:#004E5C;--s-ciencia:#772E9E;
 --serif:"Source Serif 4",Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 *{box-sizing:border-box}
