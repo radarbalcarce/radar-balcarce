@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T15:03:42.646Z",
- "portada": 103,
- "archivo": 498,
- "esperandoCuerpo": 46,
+ "generado": "2026-11-05T16:35:05.520Z",
+ "portada": 100,
+ "archivo": 497,
+ "esperandoCuerpo": 55,
  "redes": {
-  "generado": "2026-11-05T15:03:44.180Z",
+  "generado": "2026-11-05T16:35:05.985Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,9 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 50,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
     "notas": [
      {
       "id": "1a0h4cn",
@@ -103,8 +113,8 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "1pm4shu",
-      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "id": "100bnjr",
+      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
       "seccion": "Deportes"
      },
      {
@@ -120,23 +130,23 @@
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 52,
+    "segundos": 55,
     "notas": [
-     {
-      "id": "100bnjr",
-      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
-      "seccion": "Deportes"
-     },
      {
       "id": "ywp9x3",
       "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
       "seccion": "Salud"
+     },
+     {
+      "id": "1pm4shu",
+      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "seccion": "Deportes"
      },
      {
       "id": "1syf5mi",
@@ -147,37 +157,6 @@
       "id": "hbt308",
       "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
       "seccion": "Policiales"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 54,
-    "notas": [
-     {
-      "id": "1hnsyf",
-      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "c3bdgi",
-      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-      "seccion": "Política"
-     },
-     {
-      "id": "1y43ge4",
-      "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "81mpvn",
-      "titulo": "Napaleofú contará con una autobomba para emergencias",
-      "seccion": "Balcarce"
      }
     ]
    }
@@ -201,6 +180,12 @@
      "id": "1wphsfy",
      "titulo": "Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana",
      "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "199sog1",
+     "titulo": "River visita a Aldosivi en el cierre de la fase regular del Clausura",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
