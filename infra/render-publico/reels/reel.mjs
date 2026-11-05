@@ -54,7 +54,7 @@ const tiempo = (s) => {
 // sobre un recuadro negro: ese recuadro quedaba como un parche pegado
 // encima del diseño.
 const TINTA = '#14161A';
-const SUB_Y = 1660;
+const SUB_Y = 1620;
 
 // La carpeta de tipografías, en ruta RELATIVA a donde corre ffmpeg (que es
 // la carpeta de salida). Con la ruta absoluta no anda: el filtro usa los dos
