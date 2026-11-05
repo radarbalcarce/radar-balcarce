@@ -47783,9 +47783,7 @@
   "ausenteDesde": "2026-10-29T07:07:31.135Z"
  },
  "1aq3bym": {
-  "archivo": "fotos-notas/1aq3bym.jpg",
   "medio": "Universidad Nacional de Rosario",
-  "credito": "Foto: Universidad Nacional de Rosario",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Universidad Nacional de Rosario abre la inscripción a las residencias",
@@ -47817,7 +47815,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "69797575fd93b42e",
-  "ausenteDesde": "2026-10-29T06:02:35.246Z"
+  "intentado": true,
+  "borrada": true
  },
  "1uwlw8o": {
   "intentado": true,
@@ -50395,9 +50394,7 @@
   "ausenteDesde": "2026-10-31T12:35:10.346Z"
  },
  "1octdto": {
-  "archivo": "fotos-notas/1octdto.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Platense vence a Atlético Tucumán por penales y llega a la final de la Copa Argentina",
@@ -50417,12 +50414,11 @@
    "descripcion": "Plantel de Platense festejando con el cheque simbólico de semifinales."
   },
   "huella": "bd59aad2d41e1c59",
-  "ausenteDesde": "2026-10-29T06:02:35.246Z"
+  "intentado": true,
+  "borrada": true
  },
  "1onesd6": {
-  "archivo": "fotos-notas/1onesd6.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "Choque de trenes en España deja una argentina muerta y un desaparecido",
@@ -50443,7 +50439,8 @@
    "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
   },
   "huella": "060107f2af0f9c83",
-  "ausenteDesde": "2026-10-29T06:02:35.246Z"
+  "intentado": true,
+  "borrada": true
  },
  "cwvrnw": {
   "archivo": "fotos-notas/cwvrnw.jpg",
@@ -75659,14 +75656,28 @@
   "fuentes": 2
  },
  "1tr4roa": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Franco Colapinto se prepara para competir en el Gran Premio de Brasil",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T18:02:16.657Z",
-  "intentos": 4,
-  "fuentes": 6,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "archivo": "fotos-notas/1700gn4.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite el fin de semana en el Gran Premio de Brasil",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160956/deportes/colapinto-formula-1-horarios-donde-ver-gp-brasil-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/03/mal-momento-colapinto-quiere-revertir-mala-racha-acumula-ultimas-carreras-1160787-070350.jpg",
+  "razon": "Es la única imagen que muestra un auto de carreras en pista, es de buena calidad, no tiene marcas de agua añadidas por el medio y no presenta menores.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en pista."
+  },
+  "huella": "c2d0c3cb1a78c38e"
  },
  "1e1s6dg": {
   "archivo": "fotos-notas/1e1s6dg.jpg",
@@ -78411,7 +78422,8 @@
    "corresponde": "si",
    "descripcion": "Axel Kicillof gesticulando en conferencia de prensa con termo y agua sobre la mesa"
   },
-  "huella": "0f0fb73732aa6a6a"
+  "huella": "0f0fb73732aa6a6a",
+  "ausenteDesde": "2026-11-05T06:06:59.718Z"
  },
  "nqyvny": {
   "archivo": "fotos-notas/nqyvny.jpg",
@@ -78568,8 +78580,7 @@
    "corresponde": "si",
    "descripcion": "Cartel institucional de ANSES de cerca"
   },
-  "huella": "2c37243b513a96ac",
-  "ausenteDesde": "2026-11-04T18:43:31.127Z"
+  "huella": "2c37243b513a96ac"
  },
  "w4auik": {
   "archivo": "fotos-notas/w4auik.jpg",
@@ -79706,11 +79717,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Prevén escasas lluvias y riesgo de heladas en la región agrícola",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Agrositio no se usa todavía.",
-  "cuando": "2026-11-04T21:36:53.050Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Agrositio (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "tx65r6": {
   "archivo": "fotos-notas/tx65r6.jpg",
@@ -79834,11 +79844,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Valentín Barco confirma su intención de regresar a Boca Juniors en el futuro",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Crónica (un menor): no se elige ninguna.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "intentos": 3,
+  "fuentes": 5
  },
  "1lexc5a": {
   "archivo": "fotos-notas/1lexc5a.jpg",
@@ -80153,56 +80162,136 @@
   "huella": "8eaa07075d93c580"
  },
  "zwgimn": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Franco Colapinto conduce un Renault 6 de fanáticos argentinos en San Pablo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T02:06:53.858Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/15wunoe.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto maneja un Renault 6 de hinchas argentinos en San Pablo",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161081/deportes/franco-colapinto-se-subio-renault-6-hinchas-argentinos-brasil-sorprendio-divertida-reaccion.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/04/asi-auto-manejo-colapinto-calles-brasil-1161081-185947.jpg",
+  "razon": "Es la única imagen que muestra el vehículo de forma clara, sin marcas de agua, sin menores y sin ser una captura de pantalla o composición gráfica.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista lateral del Renault 6 ploteado con los colores de Argentina y referencias a Franco Colapinto."
+  },
+  "huella": "171c178ee58b3bf6"
  },
  "e5aqv2": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/e5aqv2.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El riesgo país supera los 850 puntos tras las elecciones en Estados Unidos",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 10,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.eldia.com/politica-y-economia/a-contramano-de-los-mercados-los-bonos-caen-y-el-riesgo-pais-supera-los-840-puntos-politica-y-economia_1793819072",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793819096301.webp?&cw=1200&ch=630",
+  "razon": "Es la imagen con mejor calidad, encuadre y nitidez, sin marcas de agua, elementos gráficos ni menores, representando adecuadamente el entorno financiero.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores financieros trabajando frente a pantallas en una bolsa de valores."
+  },
+  "huella": "cfcfd795859796d2"
  },
  "1m73qsw": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1m73qsw.webp",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Juan Sebastián Verón elige a Boca como el mejor equipo del fútbol argentino",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T02:06:53.858Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/veron-eligio-al-mejor-equipo-de-argentina-por-continuidad-y-regularidad-id770421.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/04/1002864/juan-sebastian-veron_862x485.webp",
+  "razon": "Es la imagen más clara, con buen encuadre y sin elementos distractores, cumpliendo con todos los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juan Sebastián Verón hablando frente a un micrófono en un estadio.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Juan Sebastián Verón sonriendo con un micrófono en un estadio de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9e8f0d8f15961613"
  },
  "qz6fxn": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/qz6fxn.webp",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Frente Renovador ratifica su rechazo a las reelecciones indefinidas",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.infobrisas.com/noticias/2026/11/04/113736-el-frente-renovador-rechaza-las-reelecciones-indefinidas",
+  "imagenOriginal": "https://infobrisas-s2.cdn.net.ar/st2i1700/2023/06/infobrisas/images/54/33/543387_1c6b6e7b52c41b37375286ad179d5c217092d5eb1bbca1a22bdc69ba3f517e68/lg.webp?_v=v3-129",
+  "razon": "Es la única opción disponible, cumple con todos los criterios de calidad y no presenta marcas, menores ni elementos gráficos.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El legislador Héctor Rubén Eslaiman en su banca durante una sesión legislativa."
+  },
+  "huella": "658f6c0f1f9494b6"
  },
  "f2ai52": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/f2ai52.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El crédito al consumo cae en octubre por el retroceso de las tarjetas",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.eleco.com.ar/economia/el-credito-al-consumo-cayo-en-octubre-por-el-descenso-de-las-tarjetas-de-credito",
+  "imagenOriginal": "https://cdnartic.ar/L4gJ9Ma-yRYBcyhsInPLbWPb0EU=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/11/credito.webp",
+  "razon": "Es la única imagen que no presenta marcas de agua sobreimpresas ni características de stock, siendo una fotografía directa de una situación cotidiana relacionada con el consumo y las tarjetas.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona anotando gastos con tarjetas de crédito y calculadora."
+  },
+  "huella": "460e0c9c9ed48e16"
  },
  "izhxwc": {
   "intentado": true,
@@ -80335,14 +80424,40 @@
   "intentosPorCupo": 1
  },
  "1ne56tu": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ne56tu.webp",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Valentín Barco propone a Nico Paz como el sucesor de la 10 de Messi",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://bolavip.com/ar/seleccion/el-colo-barco-revelo-quien-deberia-quedarse-con-la-camiseta-10-de-la-seleccion-argentina-me-encantaria",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/04165909/barco-1200x740.webp",
+  "razon": "Es la única imagen que muestra al protagonista de la nota en un contexto deportivo real, sin marcas de agua, sin ser una composición gráfica y sin menores.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Valentín Barco en el campo de juego con la camiseta de la selección.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Nico Paz con la camiseta de la selección argentina, de brazos cruzados."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "787a71333d39a0f9"
  },
  "qh82gn": {
   "archivo": "fotos-notas/qh82gn.webp",
@@ -81259,5 +81374,77 @@
    "descripcion": "Vista aérea de la planta industrial de Pauny."
   },
   "huella": "0f2f37773b7b7169"
+ },
+ "15wunoe": {
+  "archivo": "fotos-notas/15wunoe.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto maneja un Renault 6 de hinchas argentinos en San Pablo",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161081/deportes/franco-colapinto-se-subio-renault-6-hinchas-argentinos-brasil-sorprendio-divertida-reaccion.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/04/asi-auto-manejo-colapinto-calles-brasil-1161081-185947.jpg",
+  "razon": "Es la única imagen que muestra el vehículo de forma clara, sin marcas de agua, sin menores y sin ser una captura de pantalla o composición gráfica.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista lateral del Renault 6 ploteado con los colores de Argentina y referencias a Franco Colapinto."
+  },
+  "huella": "171c178ee58b3bf6"
+ },
+ "y7dsf2": {
+  "archivo": "fotos-notas/y7dsf2.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Investigan la muerte del futbolista Jesús de Miguel tras un choque en España",
+  "enlace": "https://www.lanacion.com.ar/deportes/como-sigue-la-investigacion-por-la-muerte-de-jesus-de-miguel-puede-ir-preso-el-arquero-owono-nid03112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/como-sigue-la-investigacion-por-la-muerte-de-S4H3DDNQTVDQBESRBK7DRGMS74.jpg?auth=dff383f23815482be0416187d4a7682fc6df3fb2fed5c19be6d27337895f32b8&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la imagen más clara y profesional del futbolista, sin marcas de agua, sin menores y sin elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jesús de Miguel celebrando un gol."
+  },
+  "huella": "8fac56078b9d5557"
+ },
+ "1700gn4": {
+  "archivo": "fotos-notas/1700gn4.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite el fin de semana en el Gran Premio de Brasil",
+  "enlace": "https://www.lagaceta.com.ar/nota/1160956/deportes/colapinto-formula-1-horarios-donde-ver-gp-brasil-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/03/mal-momento-colapinto-quiere-revertir-mala-racha-acumula-ultimas-carreras-1160787-070350.jpg",
+  "razon": "Es la única imagen que muestra un auto de carreras en pista, es de buena calidad, no tiene marcas de agua añadidas por el medio y no presenta menores.",
+  "cuando": "2026-11-05T06:03:41.376Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en pista."
+  },
+  "huella": "c2d0c3cb1a78c38e"
  }
 }

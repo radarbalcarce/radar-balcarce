@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T05:04:04.403Z",
- "portada": 166,
+ "generado": "2026-11-05T06:06:59.872Z",
+ "portada": 152,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-05T05:04:04.916Z",
+  "generado": "2026-11-05T06:07:00.515Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
      {
       "id": "74b2wn",
@@ -113,9 +113,9 @@
       "seccion": "Deportes"
      },
      {
-      "id": "17vsjrz",
-      "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
-      "seccion": "Automovilismo"
+      "id": "ywp9x3",
+      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+      "seccion": "Salud"
      }
     ]
    },
@@ -126,17 +126,12 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 50,
     "notas": [
      {
       "id": "1pm4shu",
       "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
       "seccion": "Deportes"
-     },
-     {
-      "id": "ywp9x3",
-      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-      "seccion": "Salud"
      },
      {
       "id": "115dvxc",
@@ -147,6 +142,11 @@
       "id": "hbt308",
       "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
       "seccion": "Policiales"
+     },
+     {
+      "id": "c3bdgi",
+      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
+      "seccion": "Política"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
       "id": "100bnjr",
@@ -165,19 +165,19 @@
       "seccion": "Deportes"
      },
      {
-      "id": "c3bdgi",
-      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-      "seccion": "Política"
+      "id": "17vhzp2",
+      "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "xrlaa0",
+      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
+      "seccion": "Balcarce"
      },
      {
       "id": "1syf5mi",
       "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "17vhzp2",
-      "titulo": "Mario Gianotti conduce el Congreso Internacional sobre Maradona en La Plata",
-      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -185,12 +185,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "74b2wn",
-     "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
-     "seccion": "Policiales",
-     "marcada": false
-    },
     {
      "id": "14llvsv",
      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
@@ -201,30 +195,6 @@
      "id": "115dvxc",
      "titulo": "San Manuel y FC Agrarias ganan sus encuentros pendientes del Clausura",
      "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1h2lva6",
-     "titulo": "Nico Paz marca un gol y homenajea a Jesús de Miguel en la Champions League",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "qad6ti",
-     "titulo": "El Senado firma dictamen para convertir en ley el proyecto de discapacidad",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "w4g8p",
-     "titulo": "La Cumbre Iberoamericana respalda el reclamo argentino por Malvinas",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "16uicrv",
-     "titulo": "Abel Pintos, Nahuel Pennisi y otros artistas cantarán ante el papa León XIV",
-     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],
