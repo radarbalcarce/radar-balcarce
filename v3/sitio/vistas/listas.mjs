@@ -1,6 +1,6 @@
 // Las páginas que son listas de notas: las secciones y la búsqueda (la portada está en portada.mjs).
 import { esc } from '../util.mjs';
-import { pagina, colorDe } from './base.mjs';
+import { pagina, colorDe, migasLd } from './base.mjs';
 import { lugarFijo, bloqueAdsense } from './avisos.mjs';
 import { paginaDePortada, filaDeLista } from './portada.mjs';
 
@@ -24,6 +24,8 @@ ${seccion.nombre === 'Policiales' ? '' : bloqueAdsense(contexto, 'seccion')}`;
     titulo: p > 1 ? `${seccion.nombre}, página ${p}` : seccion.nombre,
     descripcion: `Las últimas noticias de ${seccion.nombre} en Radar Balcarce.`,
     canonico: enlace(p),
+    datosDelSitio: true,
+    datos: [migasLd([['Inicio', '/']], { nombre: seccion.nombre, ruta: base })],
     indexar,
     cuerpo,
     contexto,

@@ -20,6 +20,8 @@ export const ESTILOS = `
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--crema);color:var(--texto);font:400 16px/1.5 var(--sans);overflow-wrap:break-word}
 a{color:inherit;text-decoration:none}
+.migas{margin:0 0 8px;font-size:13px;color:var(--suave)}
+.migas a:hover{text-decoration:underline}
 img{display:block;max-width:100%}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
 .top a:focus-visible,.pie a:focus-visible,.part a:focus-visible,.top button:focus-visible{outline-color:#fff}
@@ -437,6 +439,31 @@ button.enlace{background:none;border:0;padding:0;color:inherit;font:inherit;text
 
 // Las secciones en el menú; «Tecnología» se lee «Tecnología e IA».
 const ROTULO = { Tecnología: 'Tecnología e IA' };
+// Las cuentas del medio (las mismas de web/lib/datos.js, REDES_SOCIALES). Bluesky no está: todavía no hay dirección cargada en el repositorio.
+export const REDES_DEL_MEDIO = [
+  'https://www.facebook.com/profile.php?id=61594865361170', 'https://www.instagram.com/radarbalcarce', 'https://www.tiktok.com/@radarbalcarce',
+  'https://www.youtube.com/@radarbalcarce', 'https://x.com/RadarBalcarce',
+];
+
+/** Los datos estructurados del sitio entero (portada y secciones): el sitio con su buscador (/buscar?q=) y el medio con su logo y sus redes. */
+export function datosDelSitio() {
+  return [
+    { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${BASE}/#sitio`, name: NOMBRE, url: BASE, inLanguage: 'es-AR', publisher: { '@id': `${BASE}/#medio` },
+      potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${BASE}/buscar?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } },
+    { '@context': 'https://schema.org', '@type': 'NewsMediaOrganization', '@id': `${BASE}/#medio`, name: NOMBRE, url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/icon-512.png`, width: 512, height: 512 }, sameAs: REDES_DEL_MEDIO },
+  ];
+}
+
+/** Las migas de pan como datos estructurados. `migas`: [[nombre, ruta], …] de Inicio hasta la página; la última no necesita ruta (se usa `actual`). */
+export function migasLd(migas, actual) {
+  const lista = migas.map(([nombre, ruta]) => ({ nombre, url: BASE + ruta }));
+  if (actual) lista.push({ nombre: actual.nombre, url: BASE + actual.ruta });
+  return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: lista.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: m.nombre, item: m.url })) };
+}
+
+/** Las migas de pan visibles, chicas, arriba del título: «Inicio › Balcarce». */
+export const migasHtml = (migas) => `<nav class="migas" aria-label="Migas de pan">${migas.map(([nombre, ruta]) => `<a href="${esc(ruta)}">${esc(nombre)}</a>`).join(' <span aria-hidden="true">›</span> ')}</nav>`;
+
 /** La imagen propia del medio (1200 × 630) para las vistas previas de lo que no tiene foto propia. */
 export const IMAGEN_DEL_MEDIO = `${BASE}/og-default.png`;
 
@@ -485,7 +512,7 @@ ${og}
 ${p.contexto?.cfBeacon ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify({ token: p.contexto.cfBeacon })}'></script>` : ''}
 ${p.contexto?.config?.adsense?.cliente ? `<meta name="google-adsense-account" content="${esc(p.contexto.config.adsense.cliente)}">` : ''}
 ${guionDeConsentimiento(p.contexto?.config)}
-${(p.datos || []).map(jsonLd).join('\n')}
+${[...(p.canonico === '/' || p.datosDelSitio ? datosDelSitio() : []), ...(p.datos || [])].map(jsonLd).join('\n')}
 </head>
 <body>
 ${barraSuperior(p.contexto)}

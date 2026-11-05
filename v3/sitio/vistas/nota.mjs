@@ -1,6 +1,6 @@
 // La página de una nota. Todo sale de la base; los bloques de valor agregado, de la ficha (REGLAS del núcleo § 6), sólo cuando hay con qué.
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
-import { pagina, colorDe, IMAGEN_DEL_MEDIO } from './base.mjs';
+import { pagina, colorDe, IMAGEN_DEL_MEDIO, migasHtml, migasLd } from './base.mjs';
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
 import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
@@ -181,6 +181,7 @@ export function paginaDeNota(n, { indexar, contexto, seguir = [] }) {
   const arriba = conFijo ? lugarFijo(contexto, 'N1') : '';
   const cuerpo = `<article class="nota">
 ${arriba}
+${migasHtml([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]])}
 <a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
@@ -207,6 +208,6 @@ ${fuentesHtml(n.fuentes || [])}
     contexto,
     tipo: 'article',
     lugarPie: conFijo ? null : 'N2',
-    datos: [datosEstructurados(n, { parrafos, canonico, indexar })],
+    datos: [datosEstructurados(n, { parrafos, canonico, indexar }), migasLd([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]], { nombre: n.titulo, ruta: canonico })],
   });
 }
