@@ -19,6 +19,7 @@ import { leerLiga, leerCampeonatoF1 } from './tablas.mjs';
 import { paginaAgenda, paginaDeEvento, paginaHoy, paginaUtil, paginaTablas, paginaLiga, paginaF1, paginaCompartir, paginaYaNoEsta } from './vistas/cierre.mjs';
 import { ultimasJson, indiceJson, serviciosJson, llmsTxt, sitemapNoticias } from './vistas/agentes.mjs';
 import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
+import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
 export const CACHE = {
@@ -58,7 +59,7 @@ async function archivoEstatico(pedido, env, prefijo, nombre) {
   const etag = objeto.httpEtag ?? (objeto.etag ? `"${objeto.etag}"` : null);
   const cabeceras = {
     'content-type': objeto.httpMetadata?.contentType || TIPOS_DE_ARCHIVO[nombre.split('.').pop().toLowerCase()] || 'application/octet-stream',
-    'cache-control': prefijo === 'fuentes' ? 'public, max-age=31536000, immutable' : 'public, max-age=604800, s-maxage=2592000',
+    'cache-control': prefijo === 'fuentes' || prefijo === PREFIJO_R2_DE_COPIAS ? 'public, max-age=31536000, immutable' : 'public, max-age=604800, s-maxage=2592000',
     'x-content-type-options': 'nosniff',
     ...(etag ? { etag } : {}),
   };
@@ -127,6 +128,26 @@ async function alViejo(pedido, env, traer, propia) {
   if (!h.has('cache-control')) h.set('cache-control', 'public, max-age=60');
   const sinCuerpo = pedido.method === 'HEAD' || r.status === 204 || r.status === 304 || (r.status >= 300 && r.status < 400);
   return new Response(sinCuerpo ? null : r.body, { status: r.status, headers: h });
+}
+
+const esLocal = (host) => host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.localhost');
+
+// Las cabeceras de seguridad de TODAS las respuestas (auditoría del 5/11, hallazgo 5). Si la respuesta ya trae una (el sitio viejo, el panel), se respeta.
+// Sin Content-Security-Policy a propósito: AdSense, Google Analytics y el aviso de cookies cargan scripts y estilos de muchos dominios que cambian
+// solos, y una política que los bloquee rompería los anuncios y la medición sin avisar; el panel (/panel/) ya trae la suya. HSTS: 6 meses, sin
+// includeSubDomains ni preload por ahora (el preload es difícil de deshacer).
+export const CABECERAS_DE_SEGURIDAD = {
+  'strict-transport-security': 'max-age=15552000',
+  'referrer-policy': 'strict-origin-when-cross-origin',
+  'x-content-type-options': 'nosniff',
+  'x-frame-options': 'SAMEORIGIN',
+};
+
+/** La misma respuesta con las cabeceras de seguridad que le falten (se arma una nueva: las que vienen de una caché o de otro sitio no se pueden tocar). */
+export function conCabecerasDeSeguridad(r) {
+  const h = new Headers(r.headers);
+  for (const [k, v] of Object.entries(CABECERAS_DE_SEGURIDAD)) if (!h.has(k)) h.set(k, v);
+  return new Response(r.body, { status: r.status, statusText: r.statusText, headers: h });
 }
 
 const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), { estado: 404, indexar: false });
@@ -340,12 +361,14 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     return { r: noEncontrada() };
   }
 
-  return {
-    async manejar(pedido, env, ctx, { cache = typeof caches !== 'undefined' ? caches.default : null } = {}) {
+  async function manejarSinCabeceras(pedido, env, ctx, { cache = typeof caches !== 'undefined' ? caches.default : null } = {}) {
       if (pedido.method !== 'GET' && pedido.method !== 'HEAD') return new Response('Método no permitido', { status: 405, headers: { allow: 'GET, HEAD' } });
       const url = new URL(pedido.url);
       // www.radarbalcarce.com redirige a radarbalcarce.com con la misma ruta (http → https lo hace Cloudflare).
       if (url.hostname === 'www.radarbalcarce.com') return new Response(null, { status: 301, headers: { location: BASE + url.pathname + url.search, 'cache-control': 'public, max-age=3600' } });
+      // Las copias propias de las fotos de las notas (fotos-copia.mjs): /foto/<huella>.jpg sale de R2 (copias/<huella>.jpg); el nombre es la huella del contenido, por eso la caché es eterna.
+      const copia = RUTA_DE_COPIA.exec(url.pathname);
+      if (copia) return archivoEstatico(pedido, env, PREFIJO_R2_DE_COPIAS, copia[1]);
       const estatico = /^\/(fotos-notas|fuentes)\/([^/]+)$/.exec(url.pathname);
       if (estatico) {
         let nombre = estatico[2];
@@ -373,6 +396,17 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
         if (ctx?.waitUntil) ctx.waitUntil(guardar); else await guardar;
       }
       return r;
+  }
+
+  return {
+    /** Atiende el pedido: http pasa a https (301) y todas las respuestas salen con las cabeceras de seguridad (`conCabecerasDeSeguridad`). */
+    async manejar(pedido, env, ctx, opciones) {
+      const url = new URL(pedido.url);
+      if (url.protocol === 'http:' && !esLocal(url.hostname) && (pedido.method === 'GET' || pedido.method === 'HEAD')) {
+        url.protocol = 'https:';
+        return conCabecerasDeSeguridad(new Response(null, { status: 301, headers: { location: url.toString(), 'cache-control': 'public, max-age=3600' } }));
+      }
+      return conCabecerasDeSeguridad(await manejarSinCabeceras(pedido, env, ctx, opciones));
     },
   };
 }
