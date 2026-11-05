@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T20:08:38.716Z",
- "portada": 131,
+ "generado": "2026-11-05T20:40:22.443Z",
+ "portada": 170,
  "archivo": 500,
- "esperandoCuerpo": 57,
+ "esperandoCuerpo": 30,
  "redes": {
-  "generado": "2026-11-05T20:08:39.675Z",
+  "generado": "2026-11-05T20:40:23.236Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,12 +105,17 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 50,
+    "segundos": 52,
     "notas": [
      {
-      "id": "x4bwtx",
-      "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
-      "seccion": "Educación"
+      "id": "m8b2c6",
+      "titulo": "Realizan una caravana en Balcarce para pedir la reincorporación de Aparicio",
+      "seccion": "Ciencia"
+     },
+     {
+      "id": "1a0h4cn",
+      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+      "seccion": "Balcarce"
      },
      {
       "id": "yko3zc",
@@ -121,11 +126,6 @@
       "id": "74b2wn",
       "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
       "seccion": "Policiales"
-     },
-     {
-      "id": "1llnb6t",
-      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
-      "seccion": "Balcarce"
      }
     ]
    },
@@ -139,9 +139,9 @@
     "segundos": 53,
     "notas": [
      {
-      "id": "14llvsv",
-      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
-      "seccion": "Educación"
+      "id": "1llnb6t",
+      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
+      "seccion": "Balcarce"
      },
      {
       "id": "1d0gbk6",
@@ -154,9 +154,9 @@
       "seccion": "Salud"
      },
      {
-      "id": "hbt308",
-      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
-      "seccion": "Policiales"
+      "id": "1syf5mi",
+      "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
+      "seccion": "Automovilismo"
      }
     ]
    }
@@ -168,6 +168,12 @@
      "id": "x4bwtx",
      "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
      "seccion": "Educación",
+     "marcada": false
+    },
+    {
+     "id": "1a0h4cn",
+     "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
@@ -195,21 +201,15 @@
      "marcada": false
     },
     {
-     "id": "1yyb1et",
-     "titulo": "Muere Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "17k6ssv",
      "titulo": "Muere a los 74 años Patricia Walsh, histórica dirigente de la izquierda",
      "seccion": "Argentina",
      "marcada": false
     },
     {
-     "id": "2nmv1t",
-     "titulo": "Muere el expiloto Alan Jones, campeón mundial de Fórmula 1 y rival de Carlos Reutemann",
-     "seccion": "Automovilismo",
+     "id": "1yyb1et",
+     "titulo": "Muere Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
