@@ -78977,12 +78977,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Karol G presenta su nuevo álbum en un concierto por la plataforma TikTok",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-04T17:37:58.879Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "14xv8t8": {
   "archivo": "fotos-notas/14xv8t8.jpg",
@@ -79262,12 +79260,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T22:33:21.282Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1pm4shu": {
   "archivo": "fotos-notas/1pm4shu.jpg",
@@ -79769,12 +79766,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avellaneda incorpora inteligencia artificial al monitoreo de cámaras",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T10:06:56.368Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 3,
   "fuentes": 6,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ovx7zo": {
   "archivo": "fotos-notas/ovx7zo.jpg",
@@ -80317,20 +80313,20 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tesla abre su primer local oficial en el shopping Unicenter de Martínez",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
-  "cuando": "2026-11-05T07:02:32.751Z",
-  "intentos": 2,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 3,
   "fuentes": 4,
-  "intentosPorCupo": 1
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1wpv9wd": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Caputo afirma que el resultado electoral en Estados Unidos no afecta al país",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 7,
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 3,
+  "fuentes": 13,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1yi5t3n": {
@@ -81604,12 +81600,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La causa por el desvío de propofol vuelve a la investigación",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T10:06:56.368Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 2,
   "fuentes": 2,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "b2uk9i": {
   "intentado": true,
@@ -81667,10 +81662,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ronnie Wood visita la Argentina y se presenta el viernes en Buenos Aires",
-  "razon": "Ninguna de las fotos cumple con los requisitos de la nota sobre Ronnie Wood: la foto A muestra a Ronnie Wood junto a Lionel Messi de manera irrelevante, y la foto B muestra a Ronnie Wood junto a otra persona en un plano que no corresponde adecuadamente al hecho central.",
-  "cuando": "2026-11-05T10:06:56.368Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 2,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1jhugf1": {
   "archivo": "fotos-notas/1jhugf1.jpg",
@@ -81929,12 +81925,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Leandro Paredes presenta Se Pica, un torneo nacional de truco con 60 millones en premios",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T11:04:44.617Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 2,
   "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1l2znd2": {
   "intentado": true,
@@ -81989,5 +81984,25 @@
   "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "pakl31": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "San Juan y Mar del Plata definen sus representantes para el Pre Cosquín",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "7okww": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El dólar cotiza a $1570 y el riesgo país llega a 852 puntos en Estados Unidos",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T12:32:45.561Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  }
 }

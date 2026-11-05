@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-05T12:08:43.988Z",
+  "generado": "2026-11-05T12:33:45.809Z",
   "notas": [
     {
       "id": "1qtpqas",
@@ -13,18 +13,19 @@
         "TN (Todo Noticias)",
         "Perfil",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Radio Mitre",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "La Nueva",
         "La Brújula 24",
-        "QZ Noticias (Mar del Plata)",
+        "El Eco de Tandil",
         "Doble Amarilla",
         "El Economista",
         "La Gaceta (Tucumán)",
-        "Clarín"
+        "Clarín",
+        "Olé",
+        "QZ Noticias (Mar del Plata)"
       ],
       "enlace": "https://www.dobleamarilla.com.ar/por-el-mundo/fue-dt-de-cristiano-ronaldo--destrozo-al-portugues-y-elogio-a-lionel-messi_a6ae8efd0a4e82290d015b136",
       "fecha": "2026-11-05T11:25:00.000Z",
@@ -203,6 +204,34 @@
           "medio": "Clarín",
           "enlace": "https://www.clarin.com/deportes/cristiano-ronaldo-anuncio-retira-seleccion-portugal-hora-devolver-numero-7_0_Tzge6LBvka.html",
           "fecha": "2026-11-05T11:01:48.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/deportes/de-neymar-a-alcaraz-los-mensajes-para-cristiano-ronaldo-tras-anunciar-su-renuncia-a-la-seleccion-de-nid05112026/",
+          "fecha": "2026-11-05T12:04:25.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Eco de Tandil",
+          "enlace": "https://www.eleco.com.ar/deportes/cristiano-ronaldo-anuncio-su-retiro-de-la-seleccion-de-portugal",
+          "fecha": "2026-11-05T11:56:46.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/selecciones/cristiano-ronaldo-se-retiro-de-la-seleccion-de-portugal--numeros--titulos-y-un-legado_a6aec6cd20e9ec3bea837badb",
+          "fecha": "2026-11-05T12:20:07.894Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Economista",
+          "enlace": "https://eleconomista.com.ar/deportes/los-numeros-definitivos-cristiano-ronaldo-seleccion-portugal-tras-su-retiro-n99487",
+          "fecha": "2026-11-05T11:59:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -390,7 +419,7 @@
       "fecha": "2026-11-05T09:36:08.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T12:01:36.469Z",
-      "relevancia": 52,
+      "relevancia": 42,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -476,10 +505,8 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
-        "Clarín",
         "TN (Todo Noticias)",
         "El Cronista",
-        "El Destape",
         "Perfil",
         "Crónica",
         "Radio Mitre",
@@ -489,7 +516,10 @@
         "La Nueva",
         "La Brújula 24",
         "Punto Noticias",
-        "La Gaceta (Tucumán)"
+        "La Gaceta (Tucumán)",
+        "Diario Popular",
+        "Clarín",
+        "El Destape"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1161130/mundo/javier-milei-equiparo-al-socialismo-fascismo-tuvo-frio-saludo-pedro-sanchez-madrid.html",
       "fecha": "2026-11-05T09:08:00.000Z",
@@ -498,8 +528,8 @@
       "relevancia": 65,
       "local": false,
       "muyContada": {
-        "medios": 13,
-        "porque": "13 medios",
+        "medios": 14,
+        "porque": "14 medios",
         "desde": "2026-11-05T11:31:26.191Z"
       },
       "publicadaPor": null,
@@ -670,6 +700,20 @@
           "fecha": "2026-11-05T11:28:58.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/el-frio-saludo-de-javier-milei-con-pedro-sanchez-y-un-nuevo-cruce-el-socialismo-es-fascista-6520/",
+          "fecha": "2026-11-05T11:28:18.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Diario Popular",
+          "enlace": "https://www.diariopopular.com.ar/politica/milei-arribo-madrid-la-cumbre-iberoamericana-medio-su-feroz-pelea-sanchez-n927570",
+          "fecha": "2026-11-04T16:27:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -759,85 +803,6 @@
       "slug": "el-colegio-emilio-lamarca-organiza-la-caravana-de-la-alegria"
     },
     {
-      "id": "115dvxc",
-      "titulo": "San Manuel y FC Agrarias ganan sus encuentros pendientes del Clausura",
-      "copete": "Los equipos se impusieron en los partidos de la tercera fecha del torneo femenino, reprogramados por mal tiempo. La competencia local homenajea a los bomberos voluntarios en su 75º aniversario.",
-      "cuerpo": "La actividad, que debió suspenderse la semana anterior por condiciones climáticas, se desarrolló en horario nocturno.\n\nEn el estadio de Boca, el conjunto visitante de San Manuel logró revertir el resultado inicial y se quedó con la victoria gracias a los goles de Valentina Cabral y Juliana Indacoechea. Con este resultado, el equipo lidera el grupo A. Por su parte, en el estadio Gentile, FC Agrarias superó a Racing por 2 a 1, con anotaciones de Luz Aldana y Delfina Ianni, mientras que Emilia Fernández descontó para las académicas. Aún resta disputar el partido entre Sportivo y Deportivo Los Pinos.",
-      "guion": "San Manuel y FC Agrarias ganan sus encuentros pendientes del Clausura.",
-      "seccion": "Fútbol",
-      "medios": [
-        "Acción 5 (Balcarce)"
-      ],
-      "enlace": "https://accion5.com/fem-san-manuel-y-agrarias-ganaron-partidos-pendientes/",
-      "fecha": "2026-11-05T03:29:19.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-05T04:01:38.608Z",
-      "relevancia": 72,
-      "local": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [
-        "bomberos"
-      ],
-      "como": "automatica",
-      "claves": [
-        "Se disputaron los partidos pendientes de la tercera fecha del Clausura femenino.",
-        "San Manuel venció a Boca y lidera el grupo A.",
-        "FC Agrarias se impuso ante Racing por 2 a 1.",
-        "El torneo local rinde homenaje a los bomberos voluntarios de Balcarce.",
-        "Queda pendiente el enfrentamiento entre Sportivo y Deportivo Los Pinos."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "etiquetas": [
-        "Fútbol femenino",
-        "Torneo Clausura",
-        "Deportes",
-        "San Manuel",
-        "FC Agrarias"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Acción 5 (Balcarce)",
-          "enlace": "https://accion5.com/fem-san-manuel-y-agrarias-ganaron-partidos-pendientes/",
-          "fecha": "2026-11-05T03:29:19.000Z",
-          "oficial": false,
-          "aporte": "Detalló los resultados de los partidos pendientes, los goleadores y el estado del torneo."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "1y43ge4",
-          "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
-          "fecha": "2026-11-04T14:39:00.853Z",
-          "ruta": "/nota/la-liga-balcarcena-oficializa-la-cuarta-fecha-del-torneo-clausura-1y43ge4"
-        },
-        {
-          "id": "1qjwv3r",
-          "titulo": "Disputan parcialmente la segunda fecha del Clausura de la Liga Balcarceña",
-          "fecha": "2026-10-25T22:34:35.000Z",
-          "ruta": "/nota/disputan-parcialmente-la-segunda-fecha-del-clausura-de-la-liga-1qjwv3r"
-        },
-        {
-          "id": "qgon5k",
-          "titulo": "Definen las ternas arbitrales para la segunda fecha del Clausura",
-          "fecha": "2026-10-23T22:11:27.000Z",
-          "ruta": "/nota/definen-las-ternas-arbitrales-para-la-segunda-fecha-del-clausura-qgon5k"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "san-manuel-y-fc-agrarias-ganan-sus-encuentros-pendientes-del-clausura",
-      "foto": {
-        "archivo": "fotos-notas/115dvxc.jpg",
-        "credito": "Foto: Acción 5 (Balcarce)"
-      }
-    },
-    {
       "id": "144ocoq",
       "titulo": "Ronnie Wood visita la Argentina y se presenta el viernes en Buenos Aires",
       "copete": "El histórico guitarrista de los Rolling Stones participó de un programa de radio antes de su show en el Movistar Arena. El músico repasó su trayectoria artística y confirmó que presentará su reciente álbum doble en el país.",
@@ -846,13 +811,14 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "Radio Mitre",
+        "La Gaceta (Tucumán)",
         "La Nación"
       ],
       "enlace": "https://radiomitre.cienradios.com/videos/el-tremendo-elogio-de-ronnie-wood-para-lionel-messi-en-otro-dia-perdido-me-encanta/",
       "fecha": "2026-11-05T03:10:50.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T10:02:06.827Z",
-      "relevancia": 53,
+      "relevancia": 58,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -885,6 +851,13 @@
           "fecha": "2026-11-05T06:31:23.000Z",
           "oficial": false,
           "aporte": "Detalló la trayectoria del músico, su presente discográfico y los detalles de su visita al programa radial."
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1161147/espectaculos/ronnie-wood-argentina-zapada-pergolini-recuerdos-maradona-elogio-el-mejor-publico-mundo.html",
+          "fecha": "2026-11-05T09:27:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -1128,7 +1101,6 @@
       "guion": "La UBA realiza la Marcha de las Velas para exigir financiamiento universitario.",
       "seccion": "Política",
       "medios": [
-        "Clarín",
         "La Nación",
         "Página/12",
         "Crónica",
@@ -1138,13 +1110,14 @@
         "El Eco de Tandil",
         "Minuto Uno",
         "A24",
+        "Clarín",
         "elDiarioAR"
       ],
       "enlace": "https://www.eleco.com.ar/nacionales/se-realizara-una-marcha-de-las-velas-en-reclamo-al-cumplimiento-de-la-ley-de-financiamiento-universitario",
       "fecha": "2026-11-05T00:54:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T11:31:26.191Z",
-      "relevancia": 56,
+      "relevancia": 48,
       "local": false,
       "muyContada": {
         "medios": 10,
@@ -1276,6 +1249,13 @@
           "medio": "Minuto Uno",
           "enlace": "https://www.minutouno.com/sociedad/masiva-marcha-las-velas-estudiantes-y-docentes-reclaman-la-ley-financiamiento-universitario-n6341714",
           "fecha": "2026-11-04T23:55:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/sociedad/marcha-de-las-velas-la-uba-volvio-a-insistir-por-el-financiamiento-universitario-esta-vez-frente-a-nid04112026/",
+          "fecha": "2026-11-05T00:01:40.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -1462,6 +1442,7 @@
         "TN (Todo Noticias)",
         "La Nación",
         "Radio Mitre",
+        "Noticias Argentinas (NA)",
         "Ámbito",
         "Perfil"
       ],
@@ -1469,7 +1450,7 @@
       "fecha": "2026-11-04T23:50:19.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T04:01:38.608Z",
-      "relevancia": 42,
+      "relevancia": 45,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1537,6 +1518,13 @@
           "medio": "Radio Mitre",
           "enlace": "https://radiomitre.cienradios.com/sociedad/liberaran-el-peaje-de-la-autopista-illia-y-habilitan-el-paseo-del-bajo-por-la-visita-del-papa-leon-xiv/",
           "fecha": "2026-11-05T10:15:13.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/sociedad/papa-leon-xiv--por-los-cortes-en-la-avenida-del-libertador--la-autopista-illia-y-el-paseo-del-bajo-son-gratuitos_a6aec71ed09c202362ba6625d",
+          "fecha": "2026-11-05T12:21:23.419Z",
           "oficial": false,
           "aporte": null
         }
@@ -1707,9 +1695,9 @@
       "guion": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2.",
       "seccion": "Policiales",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/11/choque-entre-dos-motos-en-15-y-2-dos.html",
       "fecha": "2026-11-04T22:04:08.349Z",
@@ -1717,7 +1705,6 @@
       "visto": "2026-11-04T22:32:13.289Z",
       "relevancia": 86,
       "local": true,
-      "deUnMedioDeAca": true,
       "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -1873,144 +1860,6 @@
       "foto": {
         "archivo": "fotos-notas/fe3mym.jpg",
         "credito": "Foto: TN (Todo Noticias)"
-      }
-    },
-    {
-      "id": "16uicrv",
-      "titulo": "Abel Pintos, Nahuel Pennisi y otros artistas cantarán ante el papa León XIV",
-      "copete": "La organización confirmó la agenda musical para la visita del pontífice a la Argentina, que se desarrollará entre el 8 y el 11 de noviembre. Abel Pintos, Nahuel Pennisi, Luciano Pereyra, Jairo y Jorge Rojas participarán en distintos encuentros en Buenos Aires, Córdoba y Luján.",
-      "cuerpo": "El papa León XIV llegará a la Argentina el domingo 8 de noviembre para cumplir una agenda de actividades que se extenderá hasta el miércoles 11. La organización del evento oficializó la participación de destacados músicos nacionales, quienes acompañarán al líder de la Iglesia católica en diversas ceremonias y encuentros comunitarios programados en Buenos Aires, Claypole, Córdoba y Luján.\n\nAbel Pintos será uno de los protagonistas el lunes 9 de noviembre a las 9.15, cuando el pontífice visite el Pequeño Cottolengo Don Orione en Claypole. El cantante, quien visitó las instalaciones el miércoles para conocer el lugar, se presentará junto al coro de la institución. Por su parte, Nahuel Pennisi formará parte de la vigilia juvenil que se realizará el martes 10 a las 20.15 en el Monumento de los Españoles, en Palermo.\n\nLa programación también contempla actividades en Córdoba para el martes 10, donde Jairo y Jorge Rojas participarán de las celebraciones previstas en la Escuela de Aviación Militar y en FAdeA. Finalmente, el miércoles 11 a las 10, Luciano Pereyra encabezará el cierre musical durante la misa en la plaza de la Basílica de Nuestra Señora de Luján. El músico, oriundo de esa ciudad, regresa a cantar ante un Papa tras su experiencia en el año 2000.\n\nLa nómina de artistas, que ya había sido mencionada en octubre, incluye además a figuras como Maggie Cullen, Valentino Merlo y diversos coros. Según informaron los organizadores, más de 600 coristas y 200 músicos intervendrán en las celebraciones litúrgicas y vigilias. La lista de convocados podría ampliarse con nuevas confirmaciones en los próximos días.",
-      "guion": "Abel Pintos, Nahuel Pennisi y otros artistas cantarán ante el papa León XIV.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "TN (Todo Noticias)",
-        "El Destape",
-        "La Brújula 24",
-        "El Marplatense",
-        "Perfil",
-        "Radio Mitre",
-        "Infobae",
-        "Ámbito"
-      ],
-      "enlace": "https://perfil.com/entretenimiento/de-abel-pintos-a-nahuel-pennisi-quienes-son-los-artistas-que-cantaran-frente-al-papa-leon-xiv-ajQ298b4fQgT",
-      "fecha": "2026-11-04T21:49:05.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-05T04:01:38.608Z",
-      "relevancia": 44,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El papa León XIV permanecerá en el país desde el 8 hasta el 11 de noviembre.",
-        "Abel Pintos actuará el lunes 9 en el Cottolengo de Claypole.",
-        "Nahuel Pennisi participará en la vigilia juvenil del martes 10 en Palermo.",
-        "Jairo y Jorge Rojas integran la programación prevista en Córdoba.",
-        "Luciano Pereyra cerrará la visita con una presentación en Luján el miércoles 11."
-      ],
-      "noConfirmado": [
-        "Todavía no se difundió el orden exacto de las intervenciones ni el repertorio completo de cada artista.",
-        "No se detalló la distribución individual de los músicos entre las actividades de la Escuela de Aviación Militar y FAdeA en Córdoba."
-      ],
-      "textoRedes": "El papa León XIV visitará la Argentina del 8 al 11 de noviembre. Abel Pintos, Nahuel Pennisi, Luciano Pereyra, Jairo y Jorge Rojas fueron confirmados para participar de los encuentros musicales en Buenos Aires, Claypole, Córdoba y Luján.",
-      "etiquetas": [
-        "Papa León XIV",
-        "Abel Pintos",
-        "Nahuel Pennisi",
-        "Luciano Pereyra",
-        "Visita papal",
-        "Cultura"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/entretenimiento/de-abel-pintos-a-nahuel-pennisi-quienes-son-los-artistas-que-cantaran-frente-al-papa-leon-xiv-ajQ298b4fQgT",
-          "fecha": "2026-11-04T15:13:23.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/musica/noticias/2026/11/04/la-emocion-de-abel-pintos-antes-de-cantar-para-el-papa-leon-xiv-uno-no-dimensiona-lo-que-va-a-ser/",
-          "fecha": "2026-11-04T22:45:49.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/videos/musica/noticias/2026/11/04/la-emocion-de-abel-pintos-antes-de-cantar-para-el-papa-leon-xiv-uno-no-dimensiona-lo-que-va-a-ser/",
-          "fecha": "2026-11-04T21:49:05.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/nahuel-pennisi-revelo-le-cantara-papa-leon-xiv-profundo-2026114172333",
-          "fecha": "2026-11-04T20:23:33.103Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/cultura/prepara-abel-pintos-cantar-papa-leon-xiv-argentina-horas-especial-momento-visito-cottolengo-don-orione-2026114133326",
-          "fecha": "2026-11-04T16:33:26.716Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Radio Mitre",
-          "enlace": "https://radiomitre.cienradios.com/videos/la-emocion-de-abel-pintos-por-cantar-para-el-papa-leon-xiv-uno-no-dimensiona-lo-que-va-a-ser/",
-          "fecha": "2026-11-04T22:26:26.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "El Marplatense",
-          "enlace": "https://www.elmarplatense.com/abel-pintos-antes-de-cantar-ante-el-papa-leon-en-el-cotolengo-de-claypole-dios-dispone-y-uno-tiene-que-entregarse",
-          "fecha": "2026-11-04T19:15:57.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Infobae",
-          "enlace": "https://www.infobae.com/america/agencias/2026/11/04/abel-pintos-sobre-su-proxima-actuacion-ante-leon-xiv-en-argentina-es-muy-emocionante/",
-          "fecha": "2026-11-04T22:19:08.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Ámbito",
-          "enlace": "https://www.ambito.com/espectaculos/abel-pintos-se-prepara-cantarle-al-papa-leon-xiv-su-visita-la-argentina-uno-no-dimensiona-lo-que-va-ser-n6341712",
-          "fecha": "2026-11-04T23:56:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/11/05/abel-pintos-se-prepara-para-cantar-ante-el-papa-uno-no-dimensiona-lo-que-va-a-ser-n529070/",
-          "fecha": "2026-11-05T09:45:33.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "gux4r",
-          "titulo": "Luciano Pereyra y Nahuel Pennisi cantarán en la visita de León XIV",
-          "fecha": "2026-10-25T15:51:00.000Z",
-          "ruta": "/nota/luciano-pereyra-y-nahuel-pennisi-cantaran-en-la-visita-de-leon-xiv-gux4r"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron 7 medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "abel-pintos-nahuel-pennisi-y-otros-artistas-cantaran-ante-el-papa",
-      "foto": {
-        "archivo": "fotos-notas/16uicrv.jpg",
-        "credito": "Foto: El Marplatense"
       }
     },
     {
@@ -2253,7 +2102,7 @@
       "medios": [
         "TN (Todo Noticias)",
         "Noticias Argentinas (NA)",
-        "El Marplatense",
+        "Infobrisas (Radio Brisas)",
         "Clarín",
         "Radio Mitre",
         "Infobae",
@@ -2261,19 +2110,15 @@
         "Diario Popular",
         "Ámbito",
         "Los Andes (Mendoza)",
+        "El Marplatense",
         "Minuto Uno"
       ],
       "enlace": "https://noticiasargentinas.com/politica/quirno-destaco-el-respaldo-iberoamericano-a-la-argentina-por-la-cuestion-de-malvinas_a6aeb8fb2ff837982c4562f89",
       "fecha": "2026-11-04T21:28:26.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T23:02:00.576Z",
-      "relevancia": 47,
+      "relevancia": 49,
       "local": false,
-      "muyContada": {
-        "medios": 9,
-        "porque": "9 medios",
-        "desde": "2026-11-04T23:02:00.576Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -2375,6 +2220,13 @@
           "medio": "Minuto Uno",
           "enlace": "https://www.minutouno.com/mundo/argentina-recibio-un-nuevo-respaldo-internacional-su-reclamo-soberania-malvinas-n6341645",
           "fecha": "2026-11-05T00:30:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infobrisas (Radio Brisas)",
+          "enlace": "https://www.infobrisas.com/noticias/2026/11/05/113808-desde-espana_milei-defendio-la-soberania-argentina-sobre-malvinas-y-agradecio-el-respaldo-regional",
+          "fecha": "2026-11-05T12:05:26.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -2482,21 +2334,29 @@
       "guion": "El Como golea 9 a 1 al Lens en la Champions League con una gran actuación.",
       "seccion": "Fútbol",
       "medios": [
-        "El Destape",
+        "TN (Todo Noticias)",
         "TyC Sports",
         "Noticias Argentinas (NA)",
+        "El Día",
+        "Doble Amarilla",
+        "Bolavip Argentina",
         "El Gráfico",
         "Clarín",
+        "El Destape",
+        "Olé",
         "Radio Mitre",
+        "La Gaceta (Tucumán)",
         "Perfil",
         "Minuto Uno",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "A24",
+        "C5N"
       ],
       "enlace": "https://www.clarin.com/deportes/nico-paz-vs-lens-champions-league-vivo-hora-formaciones-ver_0_fLdSmLsfnX.html",
       "fecha": "2026-11-04T21:19:19.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T10:02:06.827Z",
-      "relevancia": 46,
+      "relevancia": 52,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -2588,6 +2448,97 @@
           "fecha": "2026-11-04T21:19:00.000Z",
           "oficial": false,
           "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/deportes/futbol/2026/11/04/nico-paz-le-dedico-su-gol-en-la-champions-league-al-futbolista-del-tenerife-que-murio-tras-un-choque-con-el-arquero-rival/",
+          "fecha": "2026-11-04T22:34:29.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TyC Sports",
+          "enlace": "https://www.tycsports.com/champions-league/nico-paz-le-dedico-su-gol-a-jesus-de-miguel-el-jugador-de-tenerife-que-fallecio--id770425.html",
+          "fecha": "2026-11-05T02:00:17.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/deportes/real-madrid-vencio-al-aek-atenas-y-mantiene-su-puntaje-ideal-en-la-champions-league_a6aeb8fd6ff837982c45631f8",
+          "fecha": "2026-11-04T20:19:36.169Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Día",
+          "enlace": "https://www.eldia.com/deportes/el-como-con-nico-paz-de-titular-humillo-al-lens-deportes_1793858184",
+          "fecha": "2026-11-05T05:56:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Doble Amarilla",
+          "enlace": "https://www.dobleamarilla.com.ar/por-el-mundo/emotivo--nico-paz-marco-en-como-por-la-champions-y-se-lo-dedico-a-jesus-de-miguel_a6aeb9f99530d28af20ea10a5",
+          "fecha": "2026-11-04T21:25:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Bolavip Argentina",
+          "enlace": "https://bolavip.com/ar/champions-league/nico-paz-marco-un-gol-en-champions-league-con-emotivo-homenaje-incluido-a-jesus-de-miguel",
+          "fecha": "2026-11-04T20:52:12.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/champions/video-gol-nico-paz-festejo-jesus-miguel_0_3uiOe9sdzn.html",
+          "fecha": "2026-11-04T21:00:39.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Olé",
+          "enlace": "https://www.ole.com.ar/futbol-internacional/champions/gol-nico-paz-dedicatoria-futbolista-fallecido-jesus-miguel_3_Zqgq10qmgT.html",
+          "fecha": "2026-11-04T20:54:40.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Gaceta (Tucumán)",
+          "enlace": "https://www.lagaceta.com.ar/nota/1161080/deportes/nico-paz-brillo-champions-league-le-dedico-gol-jesus-miguel-futbolista-tenerife-murio-tras-golpe.html",
+          "fecha": "2026-11-04T18:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/deportes/nico-paz-marco-historica-goleada-francia-dedico-jesus-miguel_0_fBbQUTLp7P.html",
+          "fecha": "2026-11-04T22:23:49.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Minuto Uno",
+          "enlace": "https://www.minutouno.com/deportes/la-dedicatoria-nico-paz-jesus-miguel-su-gol-lens-la-champions-league-n6341647",
+          "fecha": "2026-11-04T21:26:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "A24",
+          "enlace": "https://www.a24.com/deportes/nico-paz-brillo-la-champions-y-le-dedico-su-gol-al-futbolista-del-tenerife-que-murio-chocar-un-arquero-n1613448",
+          "fecha": "2026-11-04T23:31:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/deportes/video-nico-paz-le-dedico-su-gol-la-champions-league-jesus-miguel-y-emociono-todos-n253489",
+          "fecha": "2026-11-04T23:36:00.000Z",
+          "oficial": false,
+          "aporte": null
         }
       ],
       "antecedentes": [
@@ -2622,19 +2573,19 @@
         "LU9 Mar del Plata",
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "Crónica",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "La Tecla",
         "La Verdad",
-        "El Marplatense",
         "Punto Noticias",
         "El Eco de Tandil",
         "Clarín",
+        "El Destape",
         "Perfil",
         "Agencia DIB",
         "Diario Popular",
+        "El Marplatense",
         "Ámbito",
         "Los Andes (Mendoza)",
         "El Cronista",
@@ -2939,20 +2890,11 @@
       "guion": "Nico Paz marca un gol y homenajea a Jesús de Miguel en la Champions League.",
       "seccion": "Fútbol",
       "medios": [
-        "Clarín",
         "0223 (Mar del Plata)",
         "TN (Todo Noticias)",
-        "TyC Sports",
-        "Olé",
         "Crónica",
-        "Noticias Argentinas (NA)",
-        "El Día",
-        "Doble Amarilla",
-        "Bolavip Argentina",
-        "La Gaceta (Tucumán)",
+        "Olé",
         "Infobae",
-        "Minuto Uno",
-        "A24",
         "Ámbito",
         "C5N",
         "Diario Popular"
@@ -2961,13 +2903,8 @@
       "fecha": "2026-11-04T21:07:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T21:31:25.227Z",
-      "relevancia": 73,
+      "relevancia": 64,
       "local": false,
-      "muyContada": {
-        "medios": 15,
-        "porque": "15 medios",
-        "desde": "2026-11-04T23:02:00.576Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -3368,6 +3305,68 @@
       }
     },
     {
+      "id": "j8trg1",
+      "titulo": "El Consejo Escolar de Balcarce asiste a 6.900 alumnos con el SAE",
+      "copete": "La presidenta del organismo, Marité Cerono, presentó un balance de gestión. Destacó la ejecución de 48 obras durante el año y el avance en la construcción del CEF Nº 119.",
+      "cuerpo": "Marité Cerono, presidenta del Consejo Escolar de Balcarce, brindó detalles sobre el funcionamiento del sistema educativo local y la gestión de recursos durante el presente año. La funcionaria informó que el Servicio Alimentario Escolar (SAE) alcanza actualmente a 6.900 estudiantes del distrito, quienes reciben desayuno, merienda o almuerzo según las necesidades de cada institución. El organismo, que depende de la Dirección General de Cultura y Educación bonaerense, administra los fondos destinados a la alimentación y al mantenimiento de los 83 establecimientos educativos que funcionan en el partido.\n\nEn cuanto a la infraestructura, Cerono destacó la realización de 48 intervenciones edilicias a lo largo del año. Entre las obras de mayor relevancia, mencionó la construcción del CEF Nº 119, financiada a través del Fondo de Financiamiento Educativo.\n\nLa titular del Consejo Escolar explicó que la administración de los recursos se realiza mediante cuatro partidas específicas, incluyendo el Fondo de Infraestructura Escolar y el Fondo Compensador. La funcionaria reconoció que la planificación de las mejoras, especialmente en sistemas de calefacción, depende de la disponibilidad de fondos provinciales y del cumplimiento de normativas administrativas para la contratación de proveedores habilitados. Ante la demanda constante de mantenimiento, Cerono subrayó la importancia de la participación de las cooperadoras escolares, cuya reactivación se promueve desde 2022 para colaborar en la preservación de los edificios y la resolución de daños provocados por el uso cotidiano.",
+      "guion": "El Consejo Escolar de Balcarce asiste a 6.900 alumnos con el SAE.",
+      "seccion": "Educación",
+      "medios": [
+        "Diario La Vanguardia"
+      ],
+      "enlace": "https://www.diariolavanguardia.com/noticias/45266-marite-cerono-confirmo-que-el-sae-llega-hoy-6-900-estudiantes-es-un-servicio-muy-importante/",
+      "fecha": "2026-11-04T20:31:55.250Z",
+      "sinFecha": true,
+      "visto": "2026-11-04T20:31:55.250Z",
+      "relevancia": 63,
+      "local": true,
+      "deUnMedioDeAca": true,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El SAE brinda asistencia alimentaria a 6.900 estudiantes del distrito.",
+        "Se ejecutaron 48 obras de infraestructura en escuelas durante el año.",
+        "El nuevo CEF Nº 119 tendrá uso educativo, social y deportivo.",
+        "El Consejo Escolar administra cuatro fondos para el mantenimiento de 83 escuelas.",
+        "Se fomenta la colaboración de cooperadoras para mejorar las instalaciones."
+      ],
+      "seSabe": [
+        "El SAE asiste a 6.900 alumnos en Balcarce.",
+        "El Consejo Escolar realizó 48 obras durante el año.",
+        "El CEF Nº 119 se construye con el Fondo de Financiamiento Educativo.",
+        "El distrito cuenta con 83 establecimientos educativos provinciales."
+      ],
+      "noConfirmado": [
+        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
+      ],
+      "textoRedes": "El Consejo Escolar de Balcarce informó que el Servicio Alimentario Escolar asiste a 6.900 estudiantes. Además, la presidenta del organismo, Marité Cerono, realizó un balance de gestión destacando 48 obras ejecutadas y el avance en la construcción del CEF Nº 119.",
+      "etiquetas": [
+        "Consejo Escolar",
+        "Balcarce",
+        "Educación",
+        "SAE",
+        "Infraestructura escolar",
+        "Marité Cerono"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "Diario La Vanguardia",
+          "enlace": "https://www.diariolavanguardia.com/noticias/45266-marite-cerono-confirmo-que-el-sae-llega-hoy-6-900-estudiantes-es-un-servicio-muy-importante/",
+          "fecha": null,
+          "oficial": false,
+          "aporte": "Detalló la gestión del Consejo Escolar, el alcance del SAE, las obras realizadas y el funcionamiento de los fondos educativos."
+        }
+      ],
+      "verificacion": {
+        "nivel": "MEDIA",
+        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-consejo-escolar-de-balcarce-asiste-a-6-900-alumnos-con-el-sae"
+    },
+    {
       "id": "t1uqmu",
       "titulo": "Ramiro Cambareri destaca el rol de la danza y el nuevo espacio cultural",
       "copete": "El integrante de Estampa Criolla repasó la experiencia del espectáculo por los 150 años de Balcarce. Además, detalló el funcionamiento del centro cultural abierto recientemente en calle 11.",
@@ -3431,68 +3430,6 @@
         "archivo": "fotos-notas/t1uqmu.jpg",
         "credito": "Foto: Diario La Vanguardia"
       }
-    },
-    {
-      "id": "j8trg1",
-      "titulo": "El Consejo Escolar de Balcarce asiste a 6.900 alumnos con el SAE",
-      "copete": "La presidenta del organismo, Marité Cerono, presentó un balance de gestión. Destacó la ejecución de 48 obras durante el año y el avance en la construcción del CEF Nº 119.",
-      "cuerpo": "Marité Cerono, presidenta del Consejo Escolar de Balcarce, brindó detalles sobre el funcionamiento del sistema educativo local y la gestión de recursos durante el presente año. La funcionaria informó que el Servicio Alimentario Escolar (SAE) alcanza actualmente a 6.900 estudiantes del distrito, quienes reciben desayuno, merienda o almuerzo según las necesidades de cada institución. El organismo, que depende de la Dirección General de Cultura y Educación bonaerense, administra los fondos destinados a la alimentación y al mantenimiento de los 83 establecimientos educativos que funcionan en el partido.\n\nEn cuanto a la infraestructura, Cerono destacó la realización de 48 intervenciones edilicias a lo largo del año. Entre las obras de mayor relevancia, mencionó la construcción del CEF Nº 119, financiada a través del Fondo de Financiamiento Educativo.\n\nLa titular del Consejo Escolar explicó que la administración de los recursos se realiza mediante cuatro partidas específicas, incluyendo el Fondo de Infraestructura Escolar y el Fondo Compensador. La funcionaria reconoció que la planificación de las mejoras, especialmente en sistemas de calefacción, depende de la disponibilidad de fondos provinciales y del cumplimiento de normativas administrativas para la contratación de proveedores habilitados. Ante la demanda constante de mantenimiento, Cerono subrayó la importancia de la participación de las cooperadoras escolares, cuya reactivación se promueve desde 2022 para colaborar en la preservación de los edificios y la resolución de daños provocados por el uso cotidiano.",
-      "guion": "El Consejo Escolar de Balcarce asiste a 6.900 alumnos con el SAE.",
-      "seccion": "Educación",
-      "medios": [
-        "Diario La Vanguardia"
-      ],
-      "enlace": "https://www.diariolavanguardia.com/noticias/45266-marite-cerono-confirmo-que-el-sae-llega-hoy-6-900-estudiantes-es-un-servicio-muy-importante/",
-      "fecha": "2026-11-04T20:31:55.250Z",
-      "sinFecha": true,
-      "visto": "2026-11-04T20:31:55.250Z",
-      "relevancia": 63,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "El SAE brinda asistencia alimentaria a 6.900 estudiantes del distrito.",
-        "Se ejecutaron 48 obras de infraestructura en escuelas durante el año.",
-        "El nuevo CEF Nº 119 tendrá uso educativo, social y deportivo.",
-        "El Consejo Escolar administra cuatro fondos para el mantenimiento de 83 escuelas.",
-        "Se fomenta la colaboración de cooperadoras para mejorar las instalaciones."
-      ],
-      "seSabe": [
-        "El SAE asiste a 6.900 alumnos en Balcarce.",
-        "El Consejo Escolar realizó 48 obras durante el año.",
-        "El CEF Nº 119 se construye con el Fondo de Financiamiento Educativo.",
-        "El distrito cuenta con 83 establecimientos educativos provinciales."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "El Consejo Escolar de Balcarce informó que el Servicio Alimentario Escolar asiste a 6.900 estudiantes. Además, la presidenta del organismo, Marité Cerono, realizó un balance de gestión destacando 48 obras ejecutadas y el avance en la construcción del CEF Nº 119.",
-      "etiquetas": [
-        "Consejo Escolar",
-        "Balcarce",
-        "Educación",
-        "SAE",
-        "Infraestructura escolar",
-        "Marité Cerono"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Diario La Vanguardia",
-          "enlace": "https://www.diariolavanguardia.com/noticias/45266-marite-cerono-confirmo-que-el-sae-llega-hoy-6-900-estudiantes-es-un-servicio-muy-importante/",
-          "fecha": null,
-          "oficial": false,
-          "aporte": "Detalló la gestión del Consejo Escolar, el alcance del SAE, las obras realizadas y el funcionamiento de los fondos educativos."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "el-consejo-escolar-de-balcarce-asiste-a-6-900-alumnos-con-el-sae"
     },
     {
       "id": "5e22oh",
@@ -3577,9 +3514,9 @@
       "medios": [
         "TN (Todo Noticias)",
         "TyC Sports",
-        "Olé",
         "Bolavip Argentina",
         "0221",
+        "Olé",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.0221.com.ar/estudiantes/juan-sebastian-veron-sorprendio-un-mensaje-la-previa-la-final-estudiantes-palmeiras-n136905",
@@ -3788,7 +3725,7 @@
       "fecha": "2026-11-04T20:00:14.000Z",
       "sinFecha": false,
       "visto": "2026-11-05T10:31:30.077Z",
-      "relevancia": 34,
+      "relevancia": 30,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4035,9 +3972,9 @@
       "guion": "Valentín Barco confirma su intención de regresar a Boca Juniors en el futuro.",
       "seccion": "Fútbol",
       "medios": [
-        "El Destape",
-        "Olé",
         "Crónica",
+        "Olé",
+        "El Destape",
         "Infobae",
         "Diario Popular"
       ],
@@ -4117,10 +4054,10 @@
       "seccion": "Política",
       "medios": [
         "Noticias Argentinas (NA)",
-        "QZ Noticias (Mar del Plata)",
         "El Eco de Tandil",
         "Ámbito",
         "Clarín",
+        "QZ Noticias (Mar del Plata)",
         "Letra P"
       ],
       "enlace": "https://www.ambito.com/politica/intendentes-copan-el-congreso-reclamar-subsidios-al-transporte-y-el-programa-remediar-n6341104",
@@ -4225,13 +4162,14 @@
       "medios": [
         "La Nación",
         "Noticias Argentinas (NA)",
-        "Los Andes (Mendoza)"
+        "Los Andes (Mendoza)",
+        "Infobae"
       ],
       "enlace": "https://www.losandes.com.ar/politica/diputados-expulso-janina-ortiz-es-la-primera-legisladora-destituida-el-retorno-la-democracia-n6012960",
       "fecha": "2026-11-04T19:34:08.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T22:01:43.512Z",
-      "relevancia": 41,
+      "relevancia": 44,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -4307,9 +4245,9 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "La Verdad",
-        "El Marplatense",
         "El Eco de Tandil",
-        "Agencia DIB"
+        "Agencia DIB",
+        "El Marplatense"
       ],
       "enlace": "https://dib.com.ar/politica/el-ministro-pablo-lopez-presenta-la-legislatura-el-presupuesto-2027-y-la-ley-impositiva-n57066",
       "fecha": "2026-11-04T19:32:44.000Z",
@@ -4398,10 +4336,10 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "TN (Todo Noticias)",
-        "El Destape",
         "Página/12",
         "Noticias Argentinas (NA)",
         "La Nación",
+        "El Destape",
         "La Gaceta (Tucumán)",
         "elDiarioAR",
         "Clarín",
@@ -5183,10 +5121,10 @@
       "seccion": "Fútbol",
       "medios": [
         "TyC Sports",
-        "Olé",
         "Crónica",
         "Doble Amarilla",
-        "El Gráfico"
+        "El Gráfico",
+        "Olé"
       ],
       "enlace": "https://www.dobleamarilla.com.ar/liga-/estudiantes-de-rio-cuarto-le-puso-fin-al-ciclo-de-forestello-como-entrenador_a6aeb5ec8530d28af20e57512",
       "fecha": "2026-11-04T17:26:00.000Z",
@@ -5501,20 +5439,20 @@
       "medios": [
         "Crónica",
         "Noticias Argentinas (NA)",
-        "El Marplatense",
         "iProUP",
         "Los Andes (Mendoza)",
-        "Perfil",
         "C5N",
         "La Brújula 24",
+        "El Marplatense",
         "Infobae",
-        "Minuto Uno"
+        "Minuto Uno",
+        "Infórmese Primero (FM 104.9)"
       ],
       "enlace": "https://noticiasargentinas.com/economia/caputo-dijo-que-el-resultado-de-la-eleccion-en-estados-unidos-no-cambiara-la-relacion-con-la-argentina_a6aeb5f5fff837982c4525c9f",
       "fecha": "2026-11-04T17:06:07.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T23:02:00.576Z",
-      "relevancia": 53,
+      "relevancia": 51,
       "local": false,
       "muyContada": {
         "medios": 10,
@@ -5667,7 +5605,6 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "Clarín",
@@ -5676,6 +5613,7 @@
         "C5N",
         "Ámbito",
         "elDiarioAR",
+        "El Destape",
         "La Nueva",
         "La Gaceta (Tucumán)",
         "Diario Popular",
@@ -5874,7 +5812,6 @@
         "Crónica",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
-        "QZ Noticias (Mar del Plata)",
         "Doble Amarilla",
         "El Economista",
         "La Gaceta (Tucumán)",
@@ -5885,6 +5822,7 @@
         "Los Andes (Mendoza)",
         "Perfil",
         "La Nueva",
+        "QZ Noticias (Mar del Plata)",
         "Infobae",
         "Ámbito",
         "C5N",
@@ -6110,10 +6048,10 @@
       "seccion": "Argentina",
       "medios": [
         "La Nación",
-        "El Destape",
         "Clarín",
         "Ámbito",
         "Perfil",
+        "El Destape",
         "La Gaceta (Tucumán)",
         "Diario Popular",
         "Minuto Uno"
@@ -6228,9 +6166,9 @@
       "guion": "El quirófano móvil de Zoonosis se traslada al CIC 1.",
       "seccion": "Salud",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/11/desde-la-proxima-semana-el-quirofano.html",
       "fecha": "2026-11-04T16:40:04.665Z",
@@ -6238,7 +6176,6 @@
       "visto": "2026-11-04T19:01:31.832Z",
       "relevancia": 86,
       "local": true,
-      "deUnMedioDeAca": true,
       "muyContadaDeAca": 3,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -6455,11 +6392,11 @@
       "guion": "Nadadores locales compiten en el Campeonato Panamericano Máster.",
       "seccion": "Deportes",
       "medios": [
-        "Puntonueve (FM 100.9)",
         "Infórmese Primero (FM 104.9)",
         "Radio Gabal (FM 104.1)",
         "El Diario Balcarce",
-        "Diario La Vanguardia"
+        "Diario La Vanguardia",
+        "Puntonueve (FM 100.9)"
       ],
       "enlace": "http://www.informeseprimero.com.ar/2026/11/nadadores-de-racing-representaron.html",
       "fecha": "2026-11-04T16:24:42.872Z",
@@ -6550,8 +6487,8 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
-        "El Destape",
-        "Clarín"
+        "Clarín",
+        "El Destape"
       ],
       "enlace": "https://www.lanacion.com.ar/politica/una-exministra-provincial-renuncio-a-argentinos-por-la-educacion-tras-la-reunion-de-la-ong-con-milei-nid04112026/",
       "fecha": "2026-11-04T16:15:34.000Z",
@@ -6770,28 +6707,29 @@
       "seccion": "Fútbol",
       "medios": [
         "TN (Todo Noticias)",
-        "El Destape",
         "TyC Sports",
-        "Olé",
         "Crónica",
         "El Día",
         "Bolavip Argentina",
+        "Olé",
+        "El Destape",
         "El Gráfico",
+        "Perfil",
         "0221",
         "C5N",
         "Minuto Uno",
-        "A24",
+        "Diario Popular",
         "La Gaceta (Tucumán)"
       ],
       "enlace": "https://www.ole.com.ar/river-plate/river-plate-stefano-di-carlo-var-afa-nicolas-ramirez_0_E0joK5hr8o.html",
       "fecha": "2026-11-04T15:32:25.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T17:01:56.003Z",
-      "relevancia": 55,
+      "relevancia": 56,
       "local": false,
       "muyContada": {
-        "medios": 12,
-        "porque": "12 medios",
+        "medios": 13,
+        "porque": "13 medios",
         "desde": "2026-11-04T17:01:56.003Z"
       },
       "publicadaPor": null,
@@ -7284,67 +7222,6 @@
       }
     },
     {
-      "id": "5gbgao",
-      "titulo": "Vecinos reclaman limpieza de pastizales en calles 47 y 24",
-      "copete": "Residentes y conductores piden el desmalezamiento de un terreno baldío. Advierten que la altura de la vegetación reduce la visibilidad y genera riesgos viales.",
-      "cuerpo": "Quienes circulan habitualmente por la zona de calles 47 y 24 expresaron su preocupación por el estado de abandono de un predio baldío. Los habitantes del sector solicitaron al propietario que ejecute las tareas de limpieza y mantenimiento para ordenar el espacio. Según advirtió uno de los frentistas, la vegetación crecida obstaculiza la visión de quienes transitan por el lugar. Esa situación podría generar escenarios de peligro y propiciar un impacto vehicular. El reclamo público busca lograr el corte de los yuyos para mejorar las condiciones de seguridad vial de peatones y conductores.",
-      "guion": "Vecinos reclaman limpieza de pastizales en calles 47 y 24.",
-      "seccion": "Balcarce",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/reclamo-vecinal-por-pastizales-altos-en-un-terreno-de-calles-47-y-24/",
-      "fecha": "2026-11-04T14:19:08.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T15:32:02.472Z",
-      "relevancia": 67,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Reclamo por pastizales altos en calles 47 y 24",
-        "Piden al propietario el desmalezamiento del predio",
-        "Advierten problemas de visibilidad y riesgo vial"
-      ],
-      "seSabe": [
-        "Hay un reclamo vecinal por pastizales altos en calles 47 y 24",
-        "La vegetación dificulta la visibilidad en el sector según los residentes",
-        "Los vecinos piden que el dueño limpie el terreno para prevenir siniestros"
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "textoRedes": "Vecinos y automovilistas reclaman la limpieza de pastizales altos en un terreno de calles 47 y 24 para prevenir riesgos viales.",
-      "etiquetas": [
-        "Balcarce",
-        "reclamo vecinal",
-        "seguridad vial",
-        "pastizales"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/reclamo-vecinal-por-pastizales-altos-en-un-terreno-de-calles-47-y-24/",
-          "fecha": "2026-11-04T14:19:08.000Z",
-          "oficial": false,
-          "aporte": "Informó sobre el reclamo de vecinos y automovilistas por pastizales en calles 47 y 24, y los riesgos viales señalados."
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "vecinos-reclaman-limpieza-de-pastizales-en-calles-47-y-24",
-      "foto": {
-        "archivo": "fotos-notas/5gbgao.jpg",
-        "credito": "Foto: Puntonueve (FM 100.9)"
-      }
-    },
-    {
       "id": "w6p4h",
       "titulo": "Reclaman participar en el debate por la nueva ley de semillas",
       "copete": "La Federación de Distribuidores de Insumos Agropecuarios exigió integrar las mesas de discusión sobre la normativa nacional. Lanzó una campaña para promover el uso de simientes fiscalizadas.",
@@ -7353,10 +7230,10 @@
       "seccion": "Agro",
       "medios": [
         "La Nación",
-        "Clarín",
         "Agroempresario",
         "Infocampo",
         "Noticias Agropecuarias",
+        "Clarín",
         "La Capital (Rosario)"
       ],
       "enlace": "https://www.infocampo.com.ar/por-una-ley-de-semillas-viable-multiplicadores-piden-ser-parte-del-debate-para-actualizar-el-marco-normativo/",
@@ -7453,15 +7330,14 @@
       "guion": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma.",
       "seccion": "Argentina",
       "medios": [
-        "La Nación",
         "LU9 Mar del Plata",
         "TN (Todo Noticias)",
-        "El Destape",
         "Radio Mitre",
         "Noticias Argentinas (NA)",
         "La Tecla",
-        "QZ Noticias (Mar del Plata)",
         "Clarín",
+        "La Nación",
+        "El Destape",
         "Perfil",
         "La Nueva",
         "Ámbito",
@@ -7469,6 +7345,7 @@
         "La Gaceta (Tucumán)",
         "A24",
         "El Cronista",
+        "QZ Noticias (Mar del Plata)",
         "Agencia DIB",
         "Infobae",
         "Los Andes (Mendoza)"
@@ -7863,7 +7740,6 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "Página/12",
         "Canal 26",
         "Noticias Argentinas (NA)",
@@ -7879,6 +7755,7 @@
         "Minuto Uno",
         "Los Andes (Mendoza)",
         "Radio Mitre",
+        "El Destape",
         "Infobae"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160989/politica/cristina-kirchner-celebro-derrota-trump-mensaje-ingles.html",
@@ -8131,12 +8008,12 @@
         "Diario La Vanguardia",
         "El Día",
         "La Tecla",
-        "La Verdad",
-        "QZ Noticias (Mar del Plata)",
-        "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
         "El Eco de Tandil",
         "Agencia DIB",
+        "La Verdad",
+        "QZ Noticias (Mar del Plata)",
+        "El Marplatense",
         "0221",
         "La Brújula 24"
       ],
@@ -8287,10 +8164,10 @@
       "seccion": "Deportes",
       "medios": [
         "TN (Todo Noticias)",
-        "El Marplatense",
         "El Economista",
         "La Nueva",
         "El Gráfico",
+        "El Marplatense",
         "Clarín",
         "Crónica",
         "Perfil",
@@ -8436,10 +8313,10 @@
       "medios": [
         "Infórmese Primero (FM 104.9)",
         "LU9 Mar del Plata",
-        "QZ Noticias (Mar del Plata)",
-        "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
-        "Punto Noticias"
+        "Punto Noticias",
+        "QZ Noticias (Mar del Plata)",
+        "El Marplatense"
       ],
       "enlace": "https://www.qznoticias.com/la-ciudad/impulsan-multas-de-hasta-35-millones-por-maltrato-y-abandono-animal",
       "fecha": "2026-11-04T13:12:40.000Z",
@@ -8857,12 +8734,12 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
         "TyC Sports",
-        "Olé",
         "El Día",
+        "Olé",
         "El Marplatense",
         "La Gaceta (Tucumán)",
+        "El Destape",
         "Infobae"
       ],
       "enlace": "https://www.lagaceta.com.ar/nota/1160987/deportes/pumas-confirmaron-equipo-para-enfrentar-irlanda-cuatro-tucumanos-titulares-dublin.html",
@@ -9006,19 +8883,19 @@
       "guion": "El papa León XIV pide oraciones antes de iniciar su gira por Sudamérica.",
       "seccion": "Argentina",
       "medios": [
-        "Clarín",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
-        "El Marplatense",
         "Mi8 (Canal 8 Mar del Plata)",
         "Infobrisas (Radio Brisas)",
         "El Eco de Tandil",
+        "Clarín",
         "Ámbito",
         "C5N",
         "Crónica",
         "La Nueva",
         "Minuto Uno",
+        "El Marplatense",
         "El Cronista",
         "Infobae"
       ],
@@ -9308,10 +9185,10 @@
       "seccion": "Política",
       "medios": [
         "Perfil",
-        "iProfesional",
         "Noticias Argentinas (NA)",
         "La Tecla",
-        "Clarín"
+        "Clarín",
+        "iProfesional"
       ],
       "enlace": "https://www.clarin.com/politica/nueva-encuesta-enfrento-kicillof-milei-bullrich-conurbano-paliza-20-4_0_7t91iiMxGs.html",
       "fecha": "2026-11-04T12:07:59.512Z",
@@ -9411,24 +9288,24 @@
       "seccion": "Cultura y agenda",
       "medios": [
         "TN (Todo Noticias)",
-        "El Destape",
         "Crónica",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
         "La Tecla",
-        "El Marplatense",
         "La Gaceta (Tucumán)",
+        "Página/12",
         "A24",
         "La Nación",
         "0223 (Mar del Plata)",
         "Radio Mitre",
         "Ámbito",
+        "El Marplatense",
         "C5N",
         "Los Andes (Mendoza)",
+        "El Destape",
         "La Brújula 24",
         "Clarín",
-        "Página/12",
         "Perfil",
         "Diario Popular",
         "Minuto Uno",
@@ -9438,13 +9315,8 @@
       "fecha": "2026-11-04T12:05:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T12:31:27.191Z",
-      "relevancia": 61,
+      "relevancia": 53,
       "local": false,
-      "muyContada": {
-        "medios": 21,
-        "porque": "21 medios",
-        "desde": "2026-11-04T13:01:38.984Z"
-      },
       "publicadaPor": null,
       "publicadaCuando": null,
       "temas": [],
@@ -10061,7 +9933,7 @@
       "fecha": "2026-11-04T12:03:06.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T15:32:02.472Z",
-      "relevancia": 30,
+      "relevancia": 22,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10188,14 +10060,13 @@
         "Noticias Argentinas (NA)",
         "El Día",
         "Minuto Uno",
-        "Infobae",
         "La Nueva"
       ],
       "enlace": "https://www.tycsports.com/boca-juniors/palazo-de-oscar-cordoba-a-cavani-malinterpreto-lo-que-es-jugar-en-boca-id770255.html",
       "fecha": "2026-11-04T11:35:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T21:31:25.227Z",
-      "relevancia": 35,
+      "relevancia": 33,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -10365,73 +10236,6 @@
         "archivo": "fotos-notas/18ifcuy.jpg",
         "credito": "Foto: Campeones"
       }
-    },
-    {
-      "id": "sm5hhw",
-      "titulo": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa",
-      "copete": "Integrantes de la Parroquia San José integrarán el equipo de asistencia durante la llegada del Sumo Pontífice. Partirán hacia Buenos Aires y Luján el sábado.",
-      "cuerpo": "Un grupo de jóvenes integrantes de los grupos juveniles de la Parroquia San José de Balcarce formará parte del equipo de voluntarios que trabajará durante la visita del Papa León XIV. Tras superar un proceso de selección de dos instancias, se confirmó la participación de Melisa Grave en Luján, además de Felipe Cerviño, Tomás Oro, Leonela Sánchez, Uma Roldán, Juan Agustín Gardey y Valeria Gardey en la Ciudad Autónoma de Buenos Aires. El viaje de partida está programado para la madrugada del sábado con el fin de sumarse a las tareas organizativas. Asimismo, los voluntarios locales recibieron una invitación especial para asistir a la charla que brindará el Sumo Pontífice en la localidad bonaerense de Luján.",
-      "guion": "Jóvenes de Balcarce viajarán para ser voluntarios en la visita del Papa.",
-      "seccion": "Cultura y agenda",
-      "medios": [
-        "Puntonueve (FM 100.9)"
-      ],
-      "enlace": "https://puntonueve.com.ar/jovenes-de-la-parroquia-san-jose-de-balcarce-seran-voluntarios-durante-la-historica-visita-del-papa-leon-xiv/",
-      "fecha": "2026-11-04T11:13:47.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T11:31:21.562Z",
-      "relevancia": 59,
-      "local": true,
-      "deUnMedioDeAca": true,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Jóvenes de Balcarce integrarán el voluntariado papal",
-        "Participarán en tareas de asistencia en CABA y Luján",
-        "La partida está prevista para la madrugada del sábado"
-      ],
-      "seSabe": [
-        "Integrantes de la Parroquia San José de Balcarce participarán como voluntarios durante la visita del Papa León XIV, según informó un medio local.",
-        "El grupo pasó por un proceso de selección de dos instancias para acceder a la experiencia.",
-        "Los voluntarios viajarán hacia CABA durante la madrugada del sábado para sumarse a la organización.",
-        "Recibieron una invitación especial para participar de la charla papal en Villa Marista, en la localidad de Luján."
-      ],
-      "noConfirmado": [
-        "Lo cuenta un solo medio; no se pudo contrastar con otra fuente."
-      ],
-      "etiquetas": [
-        "Parroquia San José",
-        "Papa León XIV",
-        "voluntarios",
-        "Balcarce",
-        "CABA",
-        "Luján"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Puntonueve (FM 100.9)",
-          "enlace": "https://puntonueve.com.ar/jovenes-de-la-parroquia-san-jose-de-balcarce-seran-voluntarios-durante-la-historica-visita-del-papa-leon-xiv/",
-          "fecha": "2026-11-04T11:13:47.000Z",
-          "oficial": false,
-          "aporte": "Detalló los nombres de los jóvenes voluntarios de la Parroquia San José seleccionados para la visita papal en CABA y Luján, el proceso de selección y la fecha de partida."
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "m3nbc3",
-          "titulo": "Jóvenes de Balcarce colaboran como voluntarios en la visita del Papa",
-          "fecha": "2026-11-03T21:16:54.000Z",
-          "ruta": "/nota/jovenes-de-balcarce-colaboran-como-voluntarios-en-la-visita-del-papa-m3nbc3"
-        }
-      ],
-      "verificacion": {
-        "nivel": "MEDIA",
-        "porque": "La informó un solo medio y todavía no pudo ser contrastada de forma independiente.",
-        "sugeridoPorIA": null
-      },
-      "slug": "jovenes-de-balcarce-viajaran-para-ser-voluntarios-en-la-visita-del"
     },
     {
       "id": "1r24pjl",
@@ -10732,6 +10536,396 @@
       }
     },
     {
+      "id": "kflqlm",
+      "titulo": "El dólar blue cotiza a 1560 pesos y analistas prevén tensión para 2027",
+      "copete": "La divisa informal opera con una baja del 0,64% este jueves 5 de noviembre. Mientras tanto, el mercado financiero sigue de cerca las proyecciones electorales y la política monetaria del Banco Central.",
+      "cuerpo": "El dólar blue cotiza este jueves 5 de noviembre a 1540 pesos para la compra y 1560 pesos para la venta, lo que representa una variación negativa del 0,64% respecto a la jornada anterior. En el mercado oficial, el Banco Nación mantiene su cotización en 1520 pesos para la compra y 1570 pesos para la venta, sin cambios en el inicio de la rueda. Por su parte, el dólar tarjeta, utilizado para servicios digitales y turismo, se ubica en 2041 pesos al incluir los impuestos correspondientes.\n\nEn el segmento de los dólares financieros, el MEP opera a 1576,4 pesos para la compra y 1577,2 pesos para la venta. En tanto, el contado con liquidación (CCL) se consigue a 1672,9 pesos para la compra y 1675,4 pesos para la venta. El Banco Central informó que las reservas internacionales totales se sitúan en 50.435 millones de dólares, tras registrar variaciones en la última jornada por la intervención en el mercado cambiario.\n\nEl analista financiero Salvador Di Stefano anticipó que la moneda estadounidense continuará como un tema central durante el año electoral 2027. Según el especialista, la demanda de divisas persiste como un refugio emocional ante la memoria de crisis económicas pasadas. Di Stefano señaló que, a pesar de los ejes de gestión actuales como el superávit fiscal y la acumulación de reservas, la desconfianza en la población requiere de un proceso de estabilidad económica prolongado para revertirse.\n\nEl Gobierno mantiene la actualización de las bandas cambiarias oficiales según el índice de inflación, ajustando los topes mensuales de acuerdo con el dato del IPC de septiembre, que fue del 1,9%.",
+      "guion": "El dólar blue cotiza a 1560 pesos y analistas prevén tensión para 2027.",
+      "seccion": "Economía",
+      "medios": [
+        "Infocampo",
+        "TN (Todo Noticias)",
+        "Página/12",
+        "Crónica",
+        "Noticias Argentinas (NA)",
+        "El Cronista",
+        "El Destape",
+        "Clarín",
+        "Perfil",
+        "Ámbito",
+        "La Nación",
+        "C5N"
+      ],
+      "enlace": "https://www.cronista.com/finanzas-mercados/dolar-la-advertencia-del-guru-del-blue-sobre-lo-que-puede-pasar-con-su-precio-en-2027/",
+      "fecha": "2026-11-04T10:45:10.000Z",
+      "sinFecha": false,
+      "visto": "2026-11-05T07:01:42.929Z",
+      "relevancia": 54,
+      "local": false,
+      "publicadaPor": null,
+      "publicadaCuando": null,
+      "temas": [],
+      "como": "automatica",
+      "claves": [
+        "El dólar blue se vende a 1560 pesos este jueves.",
+        "El oficial en el Banco Nación se mantiene en 1570 pesos.",
+        "El dólar tarjeta alcanza los 2041 pesos por los impuestos.",
+        "Las reservas internacionales del BCRA suman 50.435 millones de dólares.",
+        "Analistas advierten que el dólar seguirá en el centro del debate electoral en 2027."
+      ],
+      "seSabe": [
+        "La cotización del dólar blue es de 1560 pesos para la venta.",
+        "El Banco Nación mantiene el dólar oficial a 1570 pesos.",
+        "Las bandas cambiarias oficiales se ajustan mensualmente según el IPC de septiembre.",
+        "Salvador Di Stefano sostiene que la demanda de dólares es un comportamiento arraigado en la psicología del ahorrista local."
+      ],
+      "noConfirmado": [
+        "La evolución exacta de la brecha cambiaria para los próximos meses.",
+        "El impacto real de las medidas de acumulación de reservas en la estabilidad a largo plazo."
+      ],
+      "textoRedes": "El dólar blue cotiza a 1560 pesos este jueves 5 de noviembre. El oficial se mantiene en 1570 pesos en el Banco Nación. Analistas financieros advierten que la divisa seguirá siendo el eje de la agenda económica durante el año electoral 2027.",
+      "etiquetas": [
+        "Economía",
+        "Dólar",
+        "Dólar blue",
+        "Mercado cambiario"
+      ],
+      "fuentesConsultadas": [
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-la-advertencia-del-guru-del-blue-sobre-lo-que-puede-pasar-con-su-precio-en-2027/",
+          "fecha": "2026-11-04T16:12:27.419Z",
+          "oficial": false,
+          "aporte": "Proyecciones sobre el comportamiento del dólar en el año electoral 2027 y análisis de la psicología del ahorrista."
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/11/05/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-jueves-5-de-noviembre/",
+          "fecha": "2026-11-05T06:36:35.000Z",
+          "oficial": false,
+          "aporte": "Valor del dólar tarjeta y detalles sobre la operatoria de compra de divisas."
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-hoy-a-cuanto-cotiza-el-oficial-en-los-bancos-de-la-city-hoy-jueves-5-de-noviembre/",
+          "fecha": "2026-11-05T03:00:43.121Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-blue-hoy-a-cuanto-cotiza-el-jueves-5-de-noviembre-con-el-mep-y-el-ccl/",
+          "fecha": "2026-11-05T03:00:29.571Z",
+          "oficial": false,
+          "aporte": "Datos sobre reservas internacionales, bandas cambiarias y comparativas de precios respecto al inicio del año."
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/precio-del-dolar-hoy-y-dolar-blue-hoy-en-vivo-cual-es-su-cotizacion-este-jueves-5-de-noviembre-2026115308",
+          "fecha": "2026-11-05T06:00:08.131Z",
+          "oficial": false,
+          "aporte": "Cotizaciones actualizadas del dólar blue, oficial, MEP y CCL para el 5 de noviembre."
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-blue-hoy-cotiza-jueves-05-noviembre_0_3JeZ7eEjmR.html",
+          "fecha": "2026-11-05T07:00:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-5-noviembre-2026/",
+          "fecha": "2026-11-05T10:00:15.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/---en-vivo---precio-del-dolar-hoy-jueves-5-de-noviembre_a6aec495409c202362ba4dcc5",
+          "fecha": "2026-11-05T09:35:47.339Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-hoy-a-cuanto-cotiza-el-4-noviembre-2026/",
+          "fecha": "2026-11-04T18:00:55.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-mendoza-4-noviembre-2026/",
+          "fecha": "2026-11-04T14:35:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/11/04/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-miercoles-4-de-noviembre/",
+          "fecha": "2026-11-05T02:48:35.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/11/04/dolar-a-cuanto-cotizan-el-oficial-y-las-otras-opciones-cambiarias-este-miercoles-4-de-noviembre/",
+          "fecha": "2026-11-04T11:20:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "TN (Todo Noticias)",
+          "enlace": "https://tn.com.ar/economia/2026/11/04/dolar-oficial-y-dolar-tarjeta-banco-por-banco-a-cuanto-cotizan-este-miercoles-4-de-noviembre/",
+          "fecha": "2026-11-04T10:48:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Página/12",
+          "enlace": "https://www.pagina12.com.ar/2026/11/04/dolar-blue-dolar-hoy-a-cuanto-cotizan-el-miercoles-4-de-noviembre-de-2026/",
+          "fecha": "2026-11-04T11:50:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Crónica",
+          "enlace": "https://www.cronica.com.ar/politica/economia-a-cuanto-cotizan-el-dolar-hoy-el-blue-y-el-mep-este-miercoles-4-de-noviembre/",
+          "fecha": "2026-11-04T18:07:28.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/economia/---en-vivo---precio-del-dolar-hoy-miercoles-4-de-noviembre_a6aeaf74cff837982c44d6e8a",
+          "fecha": "2026-11-04T21:26:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-hoy-a-cuanto-cotiza-el-oficial-en-los-bancos-de-la-city-hoy-miercoles-4-de-noviembre/",
+          "fecha": "2026-11-04T02:51:23.873Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Cronista",
+          "enlace": "https://www.cronista.com/finanzas-mercados/dolar-blue-hoy-a-cuanto-cotiza-el-miercoles-4-de-noviembre-con-el-mep-y-el-ccl/",
+          "fecha": "2026-11-04T02:45:48.873Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "El Destape",
+          "enlace": "https://www.eldestapeweb.com/economia/precio-del-dolar-hoy-y-dolar-blue-hoy-en-vivo-cual-es-su-cotizacion-este-miercoles-4-de-noviembre-20261143010",
+          "fecha": "2026-11-04T06:00:10.889Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-blue-hoy-cotiza-miercoles-04-noviembre_0_KJMzzBD5EF.html",
+          "fecha": "2026-11-04T07:00:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/cordoba/el-dolar-en-cordoba-a-cuanto-a-cotiza-este-miercoles-4-de-noviembre-aMPz80a13UfU",
+          "fecha": "2026-11-04T09:37:14.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-colombia-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_BeUv8RAsqi.html",
+          "fecha": "2026-11-04T10:45:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-brasil-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_wHowIUIAQi.html",
+          "fecha": "2026-11-04T10:45:10.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-uruguay-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_MEXp5mk0TM.html",
+          "fecha": "2026-11-04T10:45:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-paraguay-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_4i4sMCeUfm.html",
+          "fecha": "2026-11-04T10:45:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/euro-hoy-en-peru-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_jGfYwPtkOG.html",
+          "fecha": "2026-11-04T10:45:06.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/dolar-hoy-y-dolar-blue-hoy-minuto-minuto-cuanto-opera-este-miercoles-4-noviembre-n6341283",
+          "fecha": "2026-11-04T10:31:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-uruguay-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_eIOi4whDak.html",
+          "fecha": "2026-11-04T10:40:13.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-venezuela-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_qTaR2V6due.html",
+          "fecha": "2026-11-04T10:40:13.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-paraguay-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_gEpXZWHoib.html",
+          "fecha": "2026-11-04T10:40:12.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-nicaragua-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_DvzdXGAh6W.html",
+          "fecha": "2026-11-04T10:40:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-peru-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_wIXr5PyVcr.html",
+          "fecha": "2026-11-04T10:40:11.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-honduras-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_zKGv4bl07k.html",
+          "fecha": "2026-11-04T10:40:10.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-mexico-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_qX5CUpjjMk.html",
+          "fecha": "2026-11-04T10:40:10.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-guatemala-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_oQD44mV8Kd.html",
+          "fecha": "2026-11-04T10:40:09.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-republica-dominicana-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_tqnXBmscr8.html",
+          "fecha": "2026-11-04T10:40:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-en-costa-rica-precio-y-cotizacion-de-la-divisa-este-miercoles-4-de-noviembre-de-2026_0_BUWZFMxi5w.html",
+          "fecha": "2026-11-04T10:40:07.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Perfil",
+          "enlace": "https://perfil.com/economia/a-cuanto-cotiza-el-euro-blue-hoy-miercoles-4-de-noviembre-ahKxW3X7b94k",
+          "fecha": "2026-11-04T11:13:41.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "La Nación",
+          "enlace": "https://www.lanacion.com.ar/economia/dolar/dolar-hoy-y-dolar-blue-en-vivo-a-cuanto-cotiza-el-oficial-y-cual-es-el-precio-del-paralelo-este-nid04112026/",
+          "fecha": "2026-11-04T11:51:55.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Clarín",
+          "enlace": "https://www.clarin.com/economia/dolar-hoy-dolar-blue-vivo-cotiza-oficial-precio-paralelo-minuto-minuto-4-noviembre_0_tnLssENSe0.html",
+          "fecha": "2026-11-04T11:35:31.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "C5N",
+          "enlace": "https://www.c5n.com/economia/dolar-hoy-dolar-blue-hoy-cuanto-cotiza-el-4-noviembre-n253399",
+          "fecha": "2026-11-04T12:14:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/dolar-blue-dolar-hoy-dolar-mep-en-cordoba-4-noviembre-2026/",
+          "fecha": "2026-11-04T13:10:08.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Infocampo",
+          "enlace": "https://www.infocampo.com.ar/euro-blue-euro-hoy-euro-oficial-4-noviembre-2026/",
+          "fecha": "2026-11-04T14:35:03.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/euro-hoy-y-euro-blue-hoy-cuanto-cotizo-este-miercoles-4-noviembre-n6341657",
+          "fecha": "2026-11-04T21:35:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/dolar-blue-hoy-cuanto-cerro-este-miercoles-4-noviembre-n6341582",
+          "fecha": "2026-11-04T19:16:55.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Ámbito",
+          "enlace": "https://www.ambito.com/finanzas/dolar-hoy-cuanto-cerro-este-miercoles-4-noviembre-n6341581",
+          "fecha": "2026-11-04T19:16:46.000Z",
+          "oficial": false,
+          "aporte": null
+        }
+      ],
+      "verificacion": {
+        "nivel": "ALTA",
+        "porque": "Lo contaron tres medios independientes.",
+        "sugeridoPorIA": null
+      },
+      "slug": "el-dolar-blue-cotiza-a-1560-pesos-y-analistas-preven-tension-para-2027",
+      "foto": {
+        "archivo": "fotos-notas/kflqlm.jpg",
+        "credito": "Foto: TN (Todo Noticias)"
+      }
+    },
+    {
       "id": "qrpxck",
       "titulo": "El Servicio Meteorológico anticipa chaparrones y mejora hacia la noche",
       "copete": "El Área Metropolitana de Buenos Aires y La Plata atraviesan una jornada templada con neblina y probabilidad de lluvias por la tarde. Hacia la noche el tiempo tenderá a estabilizarse.",
@@ -10860,241 +11054,6 @@
         }
       ],
       "slug": "clima-en-balcarce-83-de-probabilidad-de-lluvia-con-minima-de-12-y"
-    },
-    {
-      "id": "160ugu9",
-      "titulo": "ANSES oficializa el aumento del 1,93 por ciento y el bono de 70.000 pesos",
-      "copete": "La Administración Nacional de la Seguridad Social aplicará una actualización en las prestaciones durante noviembre. El haber mínimo se ubica en $444.158,46 y se complementa con un refuerzo económico proporcional.",
-      "cuerpo": "La Administración Nacional de la Seguridad Social oficializó mediante el Decreto 1296/2026 la acreditación de un incremento del 1,93% para las jubilaciones, pensiones y asignaciones en noviembre de 2026. La actualización responde a la fórmula de movilidad que toma como referencia la inflación de septiembre medida por el INDEC. Con este ajuste, el haber mínimo previsional se ubica en $444.158,46.\n\nA este monto se suma un bono extraordinario de hasta $70.000, lo que eleva el ingreso total de los beneficiarios de la mínima a $514.158,46. El refuerzo económico se otorga de manera completa a quienes perciben el haber básico, mientras que aquellos con ingresos superiores reciben un monto proporcional hasta alcanzar el tope establecido de $514.158,46, quedando excluidos quienes superen esa cifra. Por su parte, la jubilación máxima alcanza los $2.988.765,84 sin percibir el refuerzo.\n\nEn cuanto a las pensiones, la Pensión Universal para el Adulto Mayor llega a $355.326,77 de haber y totaliza $425.326,77 con el bono. Las Pensiones No Contributivas por Invalidez y Vejez se fijan en $310.910,92, llegando a $380.910,92 con el extra, al igual que las titulares de la Pensión para Madres de siete hijos que perciben $514.158,46 totales. Las asignaciones familiares y universales también reflejan subas, situando la Asignación Universal por Hijo en $159.611 y la versión por Hijo con Discapacidad en $519.704.\n\nEl organismo previsional indicó que el calendario de pagos sufrirá modificaciones y comenzará el 11 de noviembre debido a los feriados programados en la segunda semana del mes por la visita del papa León XIV. Los depósitos se acreditan de forma automática en la cuenta bancaria habitual según la terminación del documento de identidad, sin requerir trámites previos.",
-      "guion": "ANSES oficializa el aumento del 1,93 por ciento y el bono de 70.000 pesos.",
-      "seccion": "Economía",
-      "medios": [
-        "TN (Todo Noticias)",
-        "El Destape",
-        "Noticias Argentinas (NA)",
-        "Perfil",
-        "El Cronista",
-        "A24"
-      ],
-      "enlace": "https://www.eldestapeweb.com/economia/quienes-jubilados-anses-cobran-bono-70-000-noviembre-2026-2026113104835",
-      "fecha": "2026-11-04T10:31:04.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T17:01:56.003Z",
-      "relevancia": 35,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Aumento del 1,93% en jubilaciones y pensiones para noviembre de 2026.",
-        "Bono extraordinario de hasta $70.000 con esquema proporcional.",
-        "Haber mínimo fijado en $444.158,46 y total con bono en $514.158,46.",
-        "Modificación en el calendario de pagos por feriados de la visita papal."
-      ],
-      "seSabe": [
-        "La ANSES oficializó el incremento del 1,93% mediante el Decreto 1296/2026.",
-        "El haber mínimo jubilatorio asciende a $444.158,46.",
-        "El bono extraordinario alcanza un máximo de $70.000 y se liquida de forma proporcional hasta el tope de $514.158,46.",
-        "La jubilación máxima se ubica en $2.988.765,84 sin derecho a refuerzo.",
-        "El cronograma de acreditaciones se modifica por feriados vinculados a la visita del papa León XIV."
-      ],
-      "textoRedes": "La ANSES confirmó el aumento del 1,93 por ciento y el pago de un bono de hasta 70.000 pesos para jubilados y pensionados en noviembre de 2026. El calendario de pagos se modifica por feriados de la visita papal.",
-      "etiquetas": [
-        "ANSES",
-        "jubilados",
-        "bono",
-        "aumento",
-        "noviembre 2026",
-        "haberes",
-        "prestaciones"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "El Destape",
-          "enlace": "https://www.eldestapeweb.com/economia/quienes-jubilados-anses-cobran-bono-70-000-noviembre-2026-2026113104835",
-          "fecha": "2026-11-03T13:48:00.000Z",
-          "oficial": false,
-          "aporte": "Detalló los montos específicos de haberes, bonos, asignaciones y el mecanismo de cálculo proporcional."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/calendario-de-jubilaciones-de-la-anses-cuando-cobro-en-noviembre-2026-con-el-bono-oficial-y-el-nid28102026/",
-          "fecha": "2026-11-04T10:31:11.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/de-cuanto-es-el-bono-de-noviembre-2026-para-jubilados-y-a-quienes-les-corresponde-nid29102026/",
-          "fecha": "2026-11-04T10:31:04.000Z",
-          "oficial": false,
-          "aporte": "Precisó el valor de la jubilación máxima y los detalles de las escalas de haberes."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/informacion-gral/que-jubilados-no-cobran-el-bono-de-70000-en-noviembre-anses-aclaro-el-requisito-indispensable-para-acceder-en-el-calendario-de-pagos-de-noviembre/",
-          "fecha": "2026-11-04T11:51:25.460Z",
-          "oficial": false,
-          "aporte": "Confirmó los requisitos y exclusiones para acceder al bono extraordinario de noviembre."
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/previsional/bono-extraordinario-anses-noviembre-confirmaron-quienes-cobran-los-70000-completos-n1613151",
-          "fecha": "2026-11-04T13:14:00.000Z",
-          "oficial": false,
-          "aporte": "Informó la oficialización de la medida a través del Decreto 1296/2026 y características del depósito."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/informacion-gral/se-confirmo-el-bono-para-jubilados-cuanto-cobran-y-a-partir-de-que-fecha-les-llega-el-deposito/",
-          "fecha": "2026-11-03T15:26:30.835Z",
-          "oficial": false,
-          "aporte": "Indicó que el calendario de pagos presenta modificaciones debido a los feriados por la visita del papa León XIV."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/economia/2026/11/04/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-miercoles-4-de-noviembre/",
-          "fecha": "2026-11-04T08:21:58.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Noticias Argentinas (NA)",
-          "enlace": "https://noticiasargentinas.com/economia/anses--quienes-cobran-este-miercoles-4-de-noviembre_a6aeb7078a2cd4ae341b0a7b2",
-          "fecha": "2026-11-04T17:50:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "Perfil",
-          "enlace": "https://perfil.com/economia/cuales-son-los-beneficiarios-que-mas-cobran-por-anses-en-noviembre-aiQKv9C0u9nr",
-          "fecha": "2026-11-04T10:00:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "A24",
-          "enlace": "https://www.a24.com/previsional/anses-confirmo-los-montos-noviembre-quienes-perciben-los-haberes-mas-altos-n1613180",
-          "fecha": "2026-11-04T15:02:00.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Capital (Rosario)",
-          "enlace": "https://www.lacapital.com.ar/informacion-general/pagos-anses-noviembre-cuanto-sera-el-aumento-auh-n10290223.html",
-          "fecha": "2026-11-03T15:30:00.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "q1sabz",
-          "titulo": "ANSES oficializa el aumento y el cronograma de pagos de noviembre",
-          "fecha": "2026-11-03T04:57:00.000Z",
-          "ruta": "/nota/anses-oficializa-el-aumento-y-el-cronograma-de-pagos-de-noviembre-q1sabz"
-        },
-        {
-          "id": "15fd50z",
-          "titulo": "La ANSES confirma el haber mínimo y el cronograma de noviembre",
-          "fecha": "2026-11-02T19:01:56.011Z",
-          "ruta": "/nota/la-anses-confirma-el-haber-minimo-y-el-cronograma-de-noviembre-15fd50z"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "anses-oficializa-el-aumento-del-1-93-por-ciento-y-el-bono-de-70-000",
-      "foto": {
-        "archivo": "fotos-notas/160ugu9.jpg",
-        "credito": "Foto: El Destape"
-      }
-    },
-    {
-      "id": "6d1uyu",
-      "titulo": "Cuenta DNI renueva sus descuentos y topes de reintegro en noviembre",
-      "copete": "El Banco Provincia mantiene beneficios en diversos rubros para sus usuarios. Los ahorros incluyen porcentajes de hasta el 40% en ferias, mercados y universidades, con límites semanales y mensuales según la categoría.",
-      "cuerpo": "La billetera digital del Banco Provincia actualizó su esquema de promociones para noviembre, ofreciendo descuentos en alimentos, cuidado de mascotas, gastronomía y educación. Los usuarios pueden consultar el listado completo de comercios adheridos a través del sitio oficial de la entidad, donde es posible filtrar por rubro o ubicación geográfica.\n\nEntre los beneficios destacados, las ferias y mercados bonaerenses ofrecen un 40% de ahorro todos los días, con un tope de reintegro de $6.000 semanales por persona. Este mismo porcentaje y límite se aplica a las compras realizadas en buffets, kioscos y fotocopiadoras dentro de entidades educativas. Por su parte, los comercios de cercanía mantienen un 20% de descuento de lunes a viernes, con un tope semanal de $6.000.\n\nEn el sector gastronómico, los sábados y domingos rige un 25% de ahorro con un límite de $8.000 por semana, beneficio que también alcanza a las estaciones YPF Full. En cuanto a las mascotas, las veterinarias y PetShops otorgan un 30% de descuento los sábados, con un tope de $8.000 semanales. Asimismo, las farmacias y perfumerías ofrecen un 10% los miércoles y jueves sin límite de reintegro, mientras que las librerías aplican un 10% los lunes y martes bajo la misma condición.\n\nLa promoción en marcas destacadas, que incluye a locales como Balcarce, Havanna y Antares, otorga un 30% de ahorro todos los días con un tope mensual de $15.000. En el caso de Mostaza, los jueves y viernes se aplica un 30% pagando mediante tecnología NFC, con un tope de $15.000 semanales.",
-      "guion": "Cuenta DNI renueva sus descuentos y topes de reintegro en noviembre.",
-      "seccion": "Economía",
-      "medios": [
-        "El Día",
-        "Infobrisas (Radio Brisas)",
-        "El Cronista"
-      ],
-      "enlace": "https://www.infobrisas.com/noticias/2026/11/02/113448-cuenta-dni-en-noviembre-todos-los-descuentos-dias-y-topes-de-reintegro",
-      "fecha": "2026-11-04T10:29:25.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-05T08:01:07.581Z",
-      "relevancia": 30,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Los descuentos varían según el día de la semana y el rubro.",
-        "La mayoría de las promociones cuentan con topes de reintegro semanales.",
-        "El sitio oficial del Banco Provincia permite buscar comercios cercanos.",
-        "Las tarjetas de crédito ofrecen cuotas sin interés en locales seleccionados."
-      ],
-      "seSabe": [
-        "Los beneficios se renuevan mensualmente para todos los usuarios de la billetera virtual.",
-        "El tope de reintegro en marcas destacadas es mensual y no semanal.",
-        "La aplicación permite realizar pagos mediante código QR y tecnología NFC.",
-        "El Banco Provincia incluye a Balcarce dentro de las marcas destacadas con descuento."
-      ],
-      "textoRedes": "Cuenta DNI renovó sus descuentos para noviembre. Hay beneficios de hasta el 40% en ferias, mercados y universidades, además de promociones en gastronomía, farmacias y comercios de cercanía. Consultá los topes y locales adheridos en la web del Banco Provincia.",
-      "etiquetas": [
-        "Cuenta DNI",
-        "Banco Provincia",
-        "Descuentos",
-        "Promociones",
-        "Reintegros"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Infobrisas (Radio Brisas)",
-          "enlace": "https://www.infobrisas.com/noticias/2026/11/02/113448-cuenta-dni-en-noviembre-todos-los-descuentos-dias-y-topes-de-reintegro",
-          "fecha": "2026-11-02T15:26:21.000Z",
-          "oficial": false,
-          "aporte": "Confirma la inclusión de locales de la marca Balcarce en el rubro de marcas destacadas."
-        },
-        {
-          "medio": "La Nación",
-          "enlace": "https://www.lanacion.com.ar/economia/promociones-y-ofertas-de-cuenta-dni-en-noviembre-2026-todos-los-beneficios-para-hacer-compras-con-nid02112026/",
-          "fecha": "2026-11-04T10:29:25.000Z",
-          "oficial": false,
-          "aporte": "Detalla la mayoría de los porcentajes, días y topes de reintegro vigentes."
-        },
-        {
-          "medio": "El Día",
-          "enlace": "https://www.eldia.com/la-ciudad/cuenta-dni-del-banco-provincia-los-descuentos-de-hoy-miercoles-4-de-noviembre-del-2026-la-ciudad_1793788320",
-          "fecha": "2026-11-04T10:36:00.000Z",
-          "oficial": false,
-          "aporte": "Ratifica los beneficios en cuotas sin interés para tarjetas de crédito."
-        },
-        {
-          "medio": "El Cronista",
-          "enlace": "https://www.cronista.com/informacion-gral/banco-provincia-se-la-juega-con-el-descuento-mas-esperado-con-cuenta-dni-como-comprar-carne-con-35-de-reintegro-en-noviembre/",
-          "fecha": "2026-11-04T14:50:36.587Z",
-          "oficial": false,
-          "aporte": "Aporta precisiones sobre los métodos de pago necesarios para acceder a los descuentos en Mostaza."
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron cuatro medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "cuenta-dni-renueva-sus-descuentos-y-topes-de-reintegro-en-noviembre",
-      "foto": {
-        "archivo": "fotos-notas/6d1uyu.webp",
-        "credito": "Foto: Infobrisas (Radio Brisas)"
-      }
     },
     {
       "id": "1ptuy1l",
@@ -11256,13 +11215,13 @@
       "seccion": "Salud",
       "medios": [
         "La Nación",
-        "El Destape",
         "Canal 26",
         "Noticias Argentinas (NA)",
         "El Día",
         "Crónica",
         "Minuto Uno",
         "Ámbito",
+        "El Destape",
         "Perfil",
         "iProfesional",
         "Infobae",
@@ -11403,13 +11362,13 @@
       "medios": [
         "La Nación",
         "TN (Todo Noticias)",
-        "El Destape",
-        "iProfesional",
         "El Día",
         "La Gaceta (Tucumán)",
         "Crónica",
         "Ámbito",
+        "iProfesional",
         "El Cronista",
+        "El Destape",
         "Radio Mitre",
         "Infobae",
         "Minuto Uno"
@@ -12328,91 +12287,6 @@
       "slug": "apple-lanza-las-versiones-beta-de-ios-27-3-y-watchos-27-3-con-ia"
     },
     {
-      "id": "1u8n6i5",
-      "titulo": "Atlético Mineiro alista un equipo alternativo ante una racha negativa",
-      "copete": "El conjunto brasileño acumula cuatro derrotas consecutivas y su entrenador planea cambios para visitar a Botafogo. El equipo se prepara para definir la Copa Sudamericana ante Boca el 21 de noviembre.",
-      "cuerpo": "Atlético Mineiro atraviesa una racha de cuatro derrotas consecutivas en la antesala de la final de la Copa Sudamericana 2026 frente a Boca, que se disputará el próximo 21 de noviembre en la ciudad colombiana de Barranquilla. Ante este panorama, el director técnico Eduardo Domínguez decidió utilizar una alineación completamente alternativa para visitar el miércoles a Botafogo por la fecha 34 del Brasileirao.\n\nEl entrenador busca dar descanso a los habituales titulares y proteger a los jugadores que arrastran lesiones, un listado que incluye a Victor Hugo Fred, Mateo Casierra, Reinier y Thiago Borbas. El único titular que reaparecería en el estadio Nilton Santos es el arquero Everson, quien se recuperó de una fractura en el pie izquierdo sufrida a principios de septiembre frente a Cruzeiro.\n\nLa principal prioridad del conjunto brasileño es remontar la serie semifinal de la Copa de Brasil ante Gremio, rival al que recibirá el sábado 7 de noviembre a las 18 en el Arena MRV de Belo Horizonte tras caer por 2-0 en el encuentro de ida. En el torneo local, el equipo se encuentra séptimo con 50 unidades y posterior al compromiso copero visitará al Mirassol antes de viajar a Barranquilla.\n\nPor su parte, Boca transita un presente opuesto tras vencer a River en el superclásico y liderar la tabla anual del fútbol argentino.",
-      "guion": "Atlético Mineiro alista un equipo alternativo ante una racha negativa.",
-      "seccion": "Fútbol",
-      "medios": [
-        "TN (Todo Noticias)",
-        "TyC Sports",
-        "Olé",
-        "La Brújula 24"
-      ],
-      "enlace": "https://www.ole.com.ar/boca-juniors/boca-atletico-mineiro-final-sudamericana-racha-derrotas-eduardo-dominguez_0_NmQYtmJokf.html",
-      "fecha": "2026-11-04T02:05:51.000Z",
-      "sinFecha": false,
-      "visto": "2026-11-04T11:31:21.562Z",
-      "relevancia": 27,
-      "local": false,
-      "publicadaPor": null,
-      "publicadaCuando": null,
-      "temas": [],
-      "como": "automatica",
-      "claves": [
-        "Atlético Mineiro suma cuatro caídas al hilo en la previa de la final continental.",
-        "Eduardo Domínguez alista suplentes para visitar a Botafogo por el Brasileirao.",
-        "El arquero Everson volvería a sumar minutos tras su lesión en el pie izquierdo.",
-        "El equipo brasileño debe revertir un 2-0 ante Gremio por la Copa de Brasil."
-      ],
-      "textoRedes": "Atlético Mineiro acumula cuatro derrotas consecutivas y usará suplentes ante Botafogo para preparar la final de la Copa Sudamericana frente a Boca.",
-      "etiquetas": [
-        "Atletico Mineiro",
-        "Copa Sudamericana",
-        "Eduardo Dominguez",
-        "Copa de Brasil"
-      ],
-      "fuentesConsultadas": [
-        {
-          "medio": "Olé",
-          "enlace": "https://www.ole.com.ar/boca-juniors/boca-atletico-mineiro-final-sudamericana-racha-derrotas-eduardo-dominguez_0_NmQYtmJokf.html",
-          "fecha": "2026-11-03T13:00:30.000Z",
-          "oficial": false,
-          "aporte": "Detalló la racha de cuatro derrotas de Atlético Mineiro, la fecha y sede de la final de la Copa Sudamericana y el calendario de Boca."
-        },
-        {
-          "medio": "TyC Sports",
-          "enlace": "https://www.tycsports.com/futbol-de-brasil/la-fuerte-decision-de-eduardo-dominguez-en-atletico-mineiro-a-17-dias-de-la-final-con-boca-id770261.html",
-          "fecha": "2026-11-04T02:05:51.000Z",
-          "oficial": false,
-          "aporte": null
-        },
-        {
-          "medio": "La Brújula 24",
-          "enlace": "https://www.labrujula24.com/notas/2026/11/04/la-fuerte-decision-de-eduardo-dominguez-en-atletico-mineiro-a-17-dias-de-la-final-con-boca-n528870/",
-          "fecha": "2026-11-04T10:36:24.000Z",
-          "oficial": false,
-          "aporte": "Informó la decisión de Eduardo Domínguez de alinear un equipo alternativo ante Botafogo, los lesionados y los detalles del partido de vuelta ante Gremio."
-        },
-        {
-          "medio": "TN (Todo Noticias)",
-          "enlace": "https://tn.com.ar/deportes/2026/11/04/la-decision-de-eduardo-dominguez-en-atletico-mineiro-a-semanas-de-la-final-con-boca-en-la-copa-sudamericana/",
-          "fecha": "2026-11-04T16:16:27.000Z",
-          "oficial": false,
-          "aporte": null
-        }
-      ],
-      "antecedentes": [
-        {
-          "id": "gpe8ph",
-          "titulo": "Atlético Mineiro acumula cuatro caídas al hilo antes de definir la Sudamericana con Boca",
-          "fecha": "2026-11-02T14:14:00.000Z",
-          "ruta": "/nota/atletico-mineiro-acumula-cuatro-caidas-al-hilo-antes-de-definir-la-gpe8ph"
-        }
-      ],
-      "verificacion": {
-        "nivel": "ALTA",
-        "porque": "Lo contaron dos medios independientes.",
-        "sugeridoPorIA": null
-      },
-      "slug": "atletico-mineiro-alista-un-equipo-alternativo-ante-una-racha-negativa",
-      "foto": {
-        "archivo": "fotos-notas/1u8n6i5.jpg",
-        "credito": "Foto: TyC Sports"
-      }
-    },
-    {
       "id": "1jz6iqp",
       "titulo": "Roberto Baradel gana las elecciones de la CTA de los Trabajadores",
       "copete": "El dirigente sindical se impuso en los comicios nacionales de la central obrera con la Lista 10 y sucederá a Hugo Yasky tras dos décadas de conducción. En el plano provincial, Raúl Calamante retuvo la seccional bonaerense.",
@@ -12421,11 +12295,11 @@
       "seccion": "Política",
       "medios": [
         "La Nación",
-        "Crónica",
         "La Tecla",
         "Clarín",
         "Ámbito",
         "Perfil",
+        "Crónica",
         "Letra P"
       ],
       "enlace": "https://www.clarin.com/politica/roberto-baradel-gano-elecciones-cta-trabajadores-sucedera-hugo-yasky_0_9Zfh4EvQd2.html",
@@ -12531,13 +12405,17 @@
       "medios": [
         "Noticias Argentinas (NA)",
         "La Verdad",
-        "Infobae"
+        "iProUP",
+        "Minuto Uno",
+        "C5N",
+        "Infobae",
+        "Los Andes (Mendoza)"
       ],
       "enlace": "https://www.infobae.com/politica/2026/11/04/primera-alarma-para-2027-la-lectura-de-la-casa-rosada-sobre-la-derrota-de-trump-en-las-elecciones-de-los-estados-unidos/",
       "fecha": "2026-11-04T01:42:00.000Z",
       "sinFecha": false,
       "visto": "2026-11-04T23:02:00.576Z",
-      "relevancia": 44,
+      "relevancia": 53,
       "local": false,
       "publicadaPor": null,
       "publicadaCuando": null,
@@ -12634,6 +12512,27 @@
           "medio": "C5N",
           "enlace": "https://www.c5n.com/politica/axel-kicillof-las-elecciones-eeuu-fue-un-resultado-contundente-contra-donald-trump-n253436",
           "fecha": "2026-11-04T16:22:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Noticias Argentinas (NA)",
+          "enlace": "https://noticiasargentinas.com/internacionales/el-posible-impacto-sobre-la-argentina-del-resultado-electoral-en-los-estados-unidos_a6aeb3edaff837982c450ca2e",
+          "fecha": "2026-11-04T16:37:49.880Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "iProUP",
+          "enlace": "https://www.iproup.com/economia-digital/72836-bitcoin-rompe-patron-puso-alerta-inversores-elecciones-noviembre-2026",
+          "fecha": "2026-11-04T09:07:00.000Z",
+          "oficial": false,
+          "aporte": null
+        },
+        {
+          "medio": "Los Andes (Mendoza)",
+          "enlace": "https://www.losandes.com.ar/politica/la-derrota-trump-las-elecciones-estados-unidos-que-impacto-puede-tener-la-argentina-n6013026",
+          "fecha": "2026-11-04T22:16:00.000Z",
           "oficial": false,
           "aporte": null
         }
@@ -12784,18 +12683,13 @@
       "nombre": "El Concejo Deliberante",
       "ranura": "concejo",
       "cuantas": 2
-    },
-    {
-      "nombre": "Bomberos Voluntarios",
-      "ranura": "bomberos",
-      "cuantas": 2
     }
   ],
   "clima": {
     "ahora": {
-      "temp": 18,
-      "sensacion": 17,
-      "humedad": 61,
+      "temp": 19,
+      "sensacion": 18,
+      "humedad": 57,
       "viento": 12,
       "rumbo": "O",
       "cielo": "Despejado",
@@ -13142,5 +13036,5 @@
       "motivo": "verificación baja: espera a una persona (visto al reescribir)"
     }
   ],
-  "esperandoCuerpo": 6
+  "esperandoCuerpo": 16
 }
