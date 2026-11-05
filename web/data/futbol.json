@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-05T20:08:34.506Z",
+ "consultado": "2026-11-05T22:36:30.043Z",
  "equipos": [
   "9739",
   "3",
@@ -69,54 +69,6 @@
  "equiposCuando": "2026-10-04T02:29:40.686Z",
  "partidos": {
   "liga": [
-   {
-    "id": "401841630",
-    "competencia": "liga",
-    "inicio": "2026-10-26T22:00:00.000Z",
-    "estado": "final",
-    "minuto": "90'+6'",
-    "local": {
-     "id": "20",
-     "nombre": "Unión (Santa Fe)",
-     "goles": 3
-    },
-    "visitante": {
-     "id": "8",
-     "nombre": "Estudiantes de La Plata",
-     "goles": 1
-    },
-    "penales": null,
-    "goles": [
-     {
-      "equipo": "visitante",
-      "jugador": "Lucas Santiago",
-      "minuto": "40'",
-      "tipo": "en contra"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Cristian Tarragona",
-      "minuto": "51'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Marcelo Estigarribia",
-      "minuto": "64'",
-      "tipo": "gol"
-     },
-     {
-      "equipo": "local",
-      "jugador": "Eric Ramírez",
-      "minuto": "90'+6'",
-      "tipo": "gol"
-     }
-    ],
-    "estadio": "15 de Abril",
-    "fase": null,
-    "partidoDeLaSerie": null,
-    "torneo": "torneo-clausura"
-   },
    {
     "id": "401841635",
     "competencia": "liga",
@@ -841,12 +793,12 @@
     "id": "401841667",
     "competencia": "liga",
     "inicio": "2026-11-05T22:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "20'",
     "local": {
      "id": "9",
      "nombre": "Gimnasia La Plata",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "4",
@@ -854,7 +806,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Lucas Janson",
+      "minuto": "6'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Juan Carmelo Zerillo (El Bosque)",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1729,7 +1688,7 @@
    }
   ]
  },
- "tablaCuando": "2026-11-05T20:08:34.506Z",
+ "tablaCuando": "2026-11-05T22:36:30.043Z",
  "notas": {
   "futbolpartidosliga20261002": "2026-10-04T02:29:42.845Z",
   "futbolresultadosliga20261002": "2026-10-04T02:29:42.845Z",

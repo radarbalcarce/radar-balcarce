@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T21:36:13.607Z",
- "portada": 185,
+ "generado": "2026-11-05T22:36:33.149Z",
+ "portada": 190,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 10,
  "redes": {
-  "generado": "2026-11-05T21:36:14.314Z",
+  "generado": "2026-11-05T22:36:34.378Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,9 +103,19 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 51,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 49,
     "notas": [
      {
       "id": "m8b2c6",
@@ -118,45 +128,14 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "74b2wn",
-      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
-      "seccion": "Policiales"
-     },
-     {
       "id": "1d0gbk6",
       "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
-      "seccion": "Deportes"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 53,
-    "notas": [
-     {
-      "id": "1llnb6t",
-      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1pm4shu",
-      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
       "seccion": "Deportes"
      },
      {
       "id": "yko3zc",
       "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "ywp9x3",
-      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-      "seccion": "Salud"
      }
     ]
    }
@@ -207,9 +186,9 @@
      "marcada": false
     },
     {
-     "id": "1yyb1et",
-     "titulo": "Muere Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo",
-     "seccion": "Argentina",
+     "id": "ohdlkq",
+     "titulo": "Itti suspende empleados en Argentina por la crisis financiera de Ueno Bank",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
