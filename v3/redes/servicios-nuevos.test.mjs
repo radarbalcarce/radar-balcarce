@@ -371,6 +371,7 @@ test('Threads: texto de hasta 500 con una sola etiqueta; crea el contenedor con 
   assert.match(t, /https:\/\/radarbalcarce\.com\/nota\//);
   const pedidos = [];
   const fetchFn = async (url, init) => {
+    if (init.method === 'GET') return { ok: true, status: 200, json: async () => ({ status: 'FINISHED' }) }; // el estado del contenedor
     pedidos.push({ url: String(url), cuerpo: Object.fromEntries(new URLSearchParams(init.body)), headers: init.headers });
     return { ok: true, status: 200, json: async () => ({ id: pedidos.length === 1 ? 'contenedor1' : 'post1' }) };
   };
@@ -386,6 +387,70 @@ test('Threads: texto de hasta 500 con una sola etiqueta; crea el contenedor con 
   const malo = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn: async () => ({ ok: false, status: 400, json: async () => ({ error: { code: 190, message: 'token TH-secreto vencido' } }) }) });
   await assert.rejects(() => malo.publicarEnlace({ texto: 'x' }), (e) => /\[190\]/.test(e.message) && !e.message.includes('TH-secreto'));
   assert.throws(() => crearClienteThreads({ token: 'x' }), /THREADS_USER_ID/);
+});
+
+// Threads: antes de publicar se espera a que el contenedor esté FINISHED (el 5/11 «threads_publish» fallaba con el código 24 por publicar antes de tiempo).
+function threadsSimulado(estados, { falla24 = 0 } = {}) {
+  const log = [];
+  let consultas = 0;
+  let publicaciones = 0;
+  const fetchFn = async (url, init) => {
+    const u = String(url);
+    if (init.method === 'GET') {
+      log.push(`GET ${u.split('/v1.0/')[1]}`);
+      const status = estados[Math.min(consultas++, estados.length - 1)];
+      return { ok: true, status: 200, json: async () => ({ status, error_message: status === 'ERROR' ? 'link no válido' : undefined }), _headers: init.headers };
+    }
+    log.push(`POST ${u.split('/v1.0/')[1]}`);
+    if (u.endsWith('/threads_publish')) {
+      publicaciones++;
+      if (publicaciones <= falla24) return { ok: false, status: 400, json: async () => ({ error: { code: 24, message: 'The requested resource does not exist' } }) };
+      return { ok: true, status: 200, json: async () => ({ id: 'post1' }) };
+    }
+    return { ok: true, status: 200, json: async () => ({ id: 'cont1' }) };
+  };
+  return { fetchFn, log };
+}
+
+test('Threads: consulta el estado del contenedor (con espera creciente) hasta FINISHED y recién ahí publica', async () => {
+  const { fetchFn, log } = threadsSimulado(['IN_PROGRESS', 'IN_PROGRESS', 'FINISHED']);
+  const esperas = [];
+  const c = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn, dormir: async (ms) => { esperas.push(ms); } });
+  const r = await c.publicarEnlace({ texto: 'Hola' });
+  assert.equal(r.id, 'post1');
+  assert.deepEqual(log, ['POST 1/threads', 'GET cont1?fields=status,error_message', 'GET cont1?fields=status,error_message', 'GET cont1?fields=status,error_message', 'POST 1/threads_publish']);
+  assert.deepEqual(esperas, [1000, 2000]);
+  assert.ok(log.every((l) => !l.includes('TH-secreto')), 'el token no va en la dirección');
+});
+
+test('Threads: si el contenedor queda en ERROR o EXPIRED, error claro y NO publica', async () => {
+  for (const estado of ['ERROR', 'EXPIRED']) {
+    const { fetchFn, log } = threadsSimulado([estado]);
+    const c = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn, dormir: async () => {} });
+    await assert.rejects(() => c.publicarEnlace({ texto: 'Hola' }), (e) => e.message.includes(estado) && e.red === 'threads');
+    assert.ok(!log.some((l) => l.endsWith('threads_publish')), 'no publicó');
+  }
+});
+
+test('Threads: el estado nunca llega a FINISHED: espera como mucho ~30 s y igual intenta publicar', async () => {
+  const { fetchFn, log } = threadsSimulado(['IN_PROGRESS']);
+  let total = 0;
+  const c = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn, dormir: async (ms) => { total += ms; } });
+  const r = await c.publicarEnlace({ texto: 'Hola' });
+  assert.equal(r.id, 'post1');
+  assert.ok(total >= 25_000 && total <= 31_000, `espera total ${total}`);
+  assert.ok(log.at(-1).endsWith('threads_publish'));
+});
+
+test('Threads: ante el código 24 al publicar, espera y reintenta una sola vez; si vuelve a fallar, el error sale', async () => {
+  const una = threadsSimulado(['FINISHED'], { falla24: 1 });
+  const c1 = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn: una.fetchFn, dormir: async () => {} });
+  assert.equal((await c1.publicarEnlace({ texto: 'Hola' })).id, 'post1');
+  assert.equal(una.log.filter((l) => l.endsWith('threads_publish')).length, 2);
+  const dos = threadsSimulado(['FINISHED'], { falla24: 5 });
+  const c2 = crearClienteThreads({ token: 'TH-secreto', userId: '1', fetchFn: dos.fetchFn, dormir: async () => {} });
+  await assert.rejects(() => c2.publicarEnlace({ texto: 'Hola' }), /[24]/);
+  assert.equal(dos.log.filter((l) => l.endsWith('threads_publish')).length, 2, 'un solo reintento');
 });
 
 // El Worker: qué nota va a Bluesky y a Threads, una sola vez, y qué pasa con el resultado.
@@ -617,7 +682,8 @@ test('X (programa): redesConCredenciales suma X con BUFFER_API_KEY; real publica
 
 test('Threads: si el número de la cuenta cargado no existe, reintenta con la cuenta dueña del token («me»)', async () => {
   const llamadas = [];
-  const fetchFn = async (url) => {
+  const fetchFn = async (url, init) => {
+    if (init?.method === 'GET') return { ok: true, status: 200, json: async () => ({ status: 'FINISHED' }) };
     llamadas.push(url);
     if (url.includes('/99999/')) return { ok: false, status: 400, json: async () => ({ error: { code: 100, message: "Unsupported post request. Object with ID '99999' does not exist" } }) };
     return { ok: true, status: 200, json: async () => ({ id: 'c1' }) };

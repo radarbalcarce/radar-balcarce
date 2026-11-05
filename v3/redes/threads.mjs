@@ -10,6 +10,9 @@ import { acortarA, grafemas, sinSecretos, ErrorSocial } from './bluesky.mjs';
 export const BASE_THREADS = 'https://graph.threads.net/v1.0';
 export const MAXIMO_THREADS = 500;
 export const ETIQUETA_THREADS = '#Balcarce';
+// Cuánto se espera a que Threads termine de armar el posteo antes de publicarlo (las esperas crecen: 1, 2, 3, 5 s… hasta sumar ~30 s).
+export const ESPERAS_DE_ESTADO_MS = [1000, 2000, 3000, 5000, 5000, 5000, 5000, 4000];
+const CODIGO_NO_LISTO = 24; // «el recurso no existe / no terminó de procesarse»: se publicó antes de tiempo
 
 /** El texto del posteo de Threads: título · enlace · una etiqueta · crédito de la foto (si entra). */
 export function textoDeThreads(nota, sitio = SITIO) {
@@ -24,7 +27,7 @@ export function textoDeThreads(nota, sitio = SITIO) {
  * @param {object} o  { token, userId, fetchFn, base, espera }
  * @returns {{ publicarEnlace }}
  */
-export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BASE_THREADS, espera = 20_000 }) {
+export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BASE_THREADS, espera = 20_000, dormir = (ms) => new Promise((r) => setTimeout(r, ms)), esperasDeEstado = ESPERAS_DE_ESTADO_MS }) {
   if (!token) throw new Error('Falta el token de Threads (THREADS_TOKEN).');
   if (!userId) throw new Error('Falta el número de la cuenta de Threads (THREADS_USER_ID).');
   const limpio = (t) => sinSecretos(t, [token]);
@@ -40,9 +43,31 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
     try { j = await r.json(); } catch { /* sin cuerpo */ }
     if (!r.ok || j?.error) {
       const e = j?.error ?? {};
-      throw new ErrorSocial(limpio(`Threads ${camino}: HTTP ${r.status}${e.code ? ` [${e.code}]` : ''} ${e.message ?? ''}`.trim()).slice(0, 300), { http: r.status, red: 'threads' });
+      const err = new ErrorSocial(limpio(`Threads ${camino}: HTTP ${r.status}${e.code ? ` [${e.code}]` : ''} ${e.message ?? ''}`.trim()).slice(0, 300), { http: r.status, red: 'threads' });
+      err.codigo = e.code ?? null;
+      throw err;
     }
     return j;
+  }
+
+  /** Estado del contenedor (GET ?fields=status). El token va en el encabezado Authorization, nunca en la dirección. */
+  async function estadoDe(id) {
+    const r = await fetchFn(`${base}/${id}?fields=status,error_message`, { method: 'GET', headers: { authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(espera) });
+    let j = null;
+    try { j = await r.json(); } catch { /* sin cuerpo */ }
+    if (!r.ok || j?.error) return { status: null, mensaje: limpio(j?.error?.message ?? `HTTP ${r.status}`).slice(0, 200) };
+    return { status: String(j?.status ?? '').toUpperCase() || null, mensaje: limpio(j?.error_message ?? '').slice(0, 200) };
+  }
+
+  /** Espera a que el contenedor esté FINISHED. ERROR o EXPIRED cortan con un error claro. Si pasa el tiempo sin saberlo, sigue (el publicar se reintenta una vez). */
+  async function esperarContenedor(id) {
+    for (let i = 0; i <= esperasDeEstado.length; i++) {
+      const { status, mensaje } = await estadoDe(id).catch(() => ({ status: null, mensaje: '' }));
+      if (status === 'FINISHED' || status === 'PUBLISHED') return status;
+      if (status === 'ERROR' || status === 'EXPIRED') throw new ErrorSocial(`Threads: el posteo quedó en estado ${status}${mensaje ? ` (${mensaje})` : ''}`, { red: 'threads' });
+      if (i < esperasDeEstado.length) await dormir(esperasDeEstado[i]);
+    }
+    return null;
   }
 
   return {
@@ -59,7 +84,15 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
         contenedor = await crear(quien);
       }
       if (!contenedor?.id) throw new ErrorSocial('Threads no devolvió el contenedor', { red: 'threads' });
-      const publicado = await pedir(`${quien}/threads_publish`, { creation_id: contenedor.id });
+      await esperarContenedor(contenedor.id);
+      const publicar = () => pedir(`${quien}/threads_publish`, { creation_id: contenedor.id });
+      let publicado;
+      try { publicado = await publicar(); } catch (e) {
+        if (e?.codigo !== CODIGO_NO_LISTO) throw e;
+        await dormir(esperasDeEstado[0] ?? 1000);
+        await esperarContenedor(contenedor.id);
+        publicado = await publicar();
+      }
       return { id: publicado?.id ?? null };
     },
   };
