@@ -73952,7 +73952,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Moria Casán posando frente a un telón rojo."
   },
-  "huella": "0e4fc7c797b6264a"
+  "huella": "0e4fc7c797b6264a",
+  "ausenteDesde": "2026-11-05T11:06:09.167Z"
  },
  "124e4ao": {
   "intentado": true,
@@ -81354,7 +81355,8 @@
    "corresponde": "si",
    "descripcion": "Personas caminando bajo la lluvia en una esquina urbana con carteles de calle."
   },
-  "huella": "0b77fff71ec25a56"
+  "huella": "0b77fff71ec25a56",
+  "ausenteDesde": "2026-11-05T11:06:09.167Z"
  },
  "14anwoe": {
   "archivo": "fotos-notas/14anwoe.jpg",
@@ -81856,6 +81858,87 @@
   "cuando": "2026-11-05T10:36:41.517Z",
   "intentos": 1,
   "fuentes": 20,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "84n0no": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Modifican el transporte público en Buenos Aires por la visita papal",
+  "razon": "La única foto disponible tiene marca de agua del medio (Noticias Argentinas), por lo que no puede ser elegida.",
+  "cuando": "2026-11-05T11:04:44.617Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "t8vpl": {
+  "archivo": "fotos-notas/t8vpl.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Marcelo Tinelli prepara el regreso del Bailando",
+  "enlace": "https://perfil.com/entretenimiento/marcelo-tinelli-hablo-sobre-la-vuelta-del-bailando-lo-estamos-preparando-hace-tiempo-a0oTO1j2NrCn",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/04/trim/1140/641/marcelo-tinelli-2361347.jpg",
+  "razon": "Es la única opción disponible, muestra claramente a Marcelo Tinelli en un evento y no presenta marcas de agua ni menores.",
+  "cuando": "2026-11-05T11:04:44.617Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Marcelo Tinelli hablando frente a un micrófono con la mano levantada."
+  },
+  "huella": "45c33d3911ad9f9f"
+ },
+ "16l6ttn": {
+  "archivo": "fotos-notas/16l6ttn.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Valentina Cervantes muestra los preparativos navideños en Manchester",
+  "enlace": "https://perfil.com/entretenimiento/asi-es-la-navidad-de-valentina-cervantes-y-enzo-fernandez-en-inglaterra-ositos-cascanueces-y-adornos-clasicos-a0C8V7K2Btot",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/04/trim/1140/641/valentina-cervantes-2361355.jpg",
+  "razon": "La foto B muestra a Valentina Cervantes sin menores reconocibles, cumpliendo con las políticas del medio.",
+  "cuando": "2026-11-05T11:04:44.617Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Valentina Cervantes recostada"
+  },
+  "huella": "c1d595b1b9b89cc5"
+ },
+ "ydasar": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Recuperan un accesorio de Lali Espósito tras su casamiento en San Telmo",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T11:04:44.617Z",
+  "intentos": 1,
+  "fuentes": 11,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "5e22oh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Leandro Paredes presenta Se Pica, un torneo nacional de truco con 60 millones en premios",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T11:04:44.617Z",
+  "intentos": 1,
+  "fuentes": 3,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  }
