@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T13:37:27.864Z",
- "portada": 109,
- "archivo": 500,
- "esperandoCuerpo": 34,
+ "generado": "2026-11-05T14:04:45.940Z",
+ "portada": 104,
+ "archivo": 499,
+ "esperandoCuerpo": 49,
  "redes": {
-  "generado": "2026-11-05T13:37:28.322Z",
+  "generado": "2026-11-05T14:04:46.425Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -95,27 +95,27 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
+     {
+      "id": "1a0h4cn",
+      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+      "seccion": "Balcarce"
+     },
      {
       "id": "1pm4shu",
       "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
       "seccion": "Deportes"
      },
      {
-      "id": "74b2wn",
-      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "ywp9x3",
-      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
-      "seccion": "Salud"
-     },
-     {
       "id": "14llvsv",
       "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
       "seccion": "Educación"
+     },
+     {
+      "id": "74b2wn",
+      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
+      "seccion": "Policiales"
      }
     ]
    },
@@ -134,19 +134,19 @@
       "seccion": "Deportes"
      },
      {
+      "id": "ywp9x3",
+      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+      "seccion": "Salud"
+     },
+     {
       "id": "1y43ge4",
       "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
       "seccion": "Fútbol"
      },
      {
-      "id": "hbt308",
-      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
-      "seccion": "Policiales"
-     },
-     {
-      "id": "c3bdgi",
-      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-      "seccion": "Política"
+      "id": "1syf5mi",
+      "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 50,
     "notas": [
      {
       "id": "1hnsyf",
@@ -165,18 +165,18 @@
       "seccion": "Deportes"
      },
      {
-      "id": "t1uqmu",
-      "titulo": "Ramiro Cambareri destaca el rol de la danza y el nuevo espacio cultural",
-      "seccion": "Cultura y agenda"
+      "id": "hbt308",
+      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
+      "seccion": "Policiales"
      },
      {
-      "id": "j8trg1",
-      "titulo": "El Consejo Escolar de Balcarce asiste a 6.900 alumnos con el SAE",
-      "seccion": "Educación"
+      "id": "c3bdgi",
+      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
+      "seccion": "Política"
      },
      {
-      "id": "1u1ie4p",
-      "titulo": "Reclaman controles ante ruidos y picadas de motos",
+      "id": "81mpvn",
+      "titulo": "Napaleofú contará con una autobomba para emergencias",
       "seccion": "Balcarce"
      }
     ]
@@ -185,6 +185,12 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "1a0h4cn",
+     "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
     {
      "id": "1qtpqas",
      "titulo": "Cristiano Ronaldo anuncia su retiro de la selección de Portugal",

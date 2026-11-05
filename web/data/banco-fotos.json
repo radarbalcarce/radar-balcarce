@@ -45009,9 +45009,7 @@
   "borrada": true
  },
  "15uzzdh": {
-  "archivo": "fotos-notas/15uzzdh.jpg",
   "medio": "INTA",
-  "credito": "Foto: INTA",
   "licencia": null,
   "origen": "medio",
   "titulo": "Analizan el comportamiento del arroz durante el almacenamiento postcosecha",
@@ -45031,7 +45029,8 @@
    "descripcion": "Plantas de arroz en un campo al atardecer."
   },
   "huella": "010101094b4d2148",
-  "ausenteDesde": "2026-10-29T13:43:31.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "18oxsmf": {
   "intentado": true,
@@ -46696,9 +46695,7 @@
   "ausenteDesde": "2026-10-30T12:05:12.502Z"
  },
  "1w5wk4d": {
-  "archivo": "fotos-notas/1nso2dt.jpg",
   "medio": "El Cronista",
-  "credito": "Foto: El Cronista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Anses actualiza haberes y modifica el calendario de pagos de noviembre",
@@ -46718,7 +46715,8 @@
    "descripcion": "Fachada y cartel exterior de una oficina de ANSES."
   },
   "huella": "2b97b53be4f1f3d3",
-  "ausenteDesde": "2026-10-29T13:43:31.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "1so1px1": {
   "intentado": true,
@@ -47597,9 +47595,7 @@
   "borrada": true
  },
  "1t0bf8r": {
-  "archivo": "fotos-notas/1t0bf8r.jpg",
   "medio": "Ámbito",
-  "credito": "Foto: Ámbito",
   "licencia": null,
   "origen": "medio",
   "titulo": "Nvidia invertirá 3.000 millones de dólares en acciones de Meta",
@@ -47619,7 +47615,8 @@
    "descripcion": "Jensen Huang y Mark Zuckerberg sentados en sillones conversando en un escenario"
   },
   "huella": "0662626091515533",
-  "ausenteDesde": "2026-10-29T13:43:31.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "1qxwho": {
   "medio": "0221",
@@ -47935,9 +47932,7 @@
   "ausenteDesde": "2026-10-29T14:17:40.187Z"
  },
  "1vatzqp": {
-  "archivo": "fotos-notas/1vatzqp.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Autorizan aumentos del 3% en noviembre y diciembre para colegios privados",
@@ -47969,7 +47964,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "1d1e1adb751d0cae",
-  "ausenteDesde": "2026-10-29T13:43:31.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "1lonqjh": {
   "medio": "Radio Gabal (FM 104.1)",
@@ -51018,9 +51014,7 @@
   "ausenteDesde": "2026-10-30T19:36:58.158Z"
  },
  "g8v6vw": {
-  "archivo": "fotos-notas/14fwad7.jpg",
   "medio": "El Día",
-  "credito": "Foto: El Día",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca y River jugarán una nueva edición del Superclásico el domingo",
@@ -51040,7 +51034,8 @@
    "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
   },
   "huella": "3e5392735772526a",
-  "ausenteDesde": "2026-10-29T13:43:31.487Z"
+  "intentado": true,
+  "borrada": true
  },
  "ee5714": {
   "archivo": "fotos-notas/ee5714.jpg",
@@ -81180,10 +81175,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
-  "razon": "La única foto disponible muestra claramente a varios menores de edad participando del evento, lo cual incumple la política de publicación de Radar Balcarce.",
-  "cuando": "2026-11-05T05:02:30.563Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T14:03:14.645Z",
   "intentos": 1,
-  "fuentes": 1
+  "fuentes": 2,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "16d5xt4": {
   "intentado": true,
@@ -81686,7 +81683,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores del Como celebran en la cancha con el marcador 1-9 visible en el fondo."
   },
-  "huella": "366175e4858ca507"
+  "huella": "366175e4858ca507",
+  "ausenteDesde": "2026-11-05T14:04:45.841Z"
  },
  "1apvun4": {
   "archivo": "fotos-notas/1apvun4.jpg",
@@ -81930,11 +81928,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Kicillof y Máximo Kirchner sellan una tregua en el PJ bonaerense",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T13:02:13.007Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T14:03:14.645Z",
   "intentos": 2,
   "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "15t806q": {
   "intentado": true,
@@ -82035,5 +82034,39 @@
   "intentos": 1,
   "fuentes": 8,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "81mpvn": {
+  "archivo": "fotos-notas/81mpvn.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Napaleofú contará con una autobomba para emergencias",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45274-exclusivo-napaleofu-tendra-una-autobomba-para-brindar-una-primera-respuesta-ante-incendios/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66295.png",
+  "razon": "Es la única imagen completa y nítida que muestra el vehículo (autobomba) al que hace referencia la nota, sin marcas de agua ni personas.",
+  "cuando": "2026-11-05T14:03:14.645Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista lateral completa de una autobomba roja estacionada en una calle."
+  },
+  "huella": "b291d3c26046c267"
+ },
+ "1a0h4cn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+  "razon": "La mejor foto era la de Puntonueve (FM 100.9), pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-05T14:03:14.645Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }
