@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-05T00:34:02.601Z",
+ "generado": "2026-11-05T01:37:37.664Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -47,40 +47,8 @@
      "fecha": "2026-11-04T21:45:17.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (antecedente, nombre): el cuerpo usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 144 palabras",
-   "maximo": 3
-  },
-  {
-   "id": "7wa68k",
-   "titulo": "Salió el ranking de destructores de la Fórmula 1, con enorme brecha entre Franco Colapinto y Pierre Gasly",
-   "copete": "",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-04T00:55:00.000Z",
-   "fuentes": [
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/automovilismo/salio-ranking-destructores-formula-1-con-enorme-brecha-entre-franco-colapinto-y-pierre-gasly-id770253.html",
-     "fecha": "2026-11-04T00:51:20.000Z"
-    },
-    {
-     "medio": "Doble Amarilla",
-     "enlace": "https://www.dobleamarilla.com.ar/mas-alla-del-futbol/se-conocio-la--tabla-de-destructores--de-la-formula-1-y-franco-colapinto-sorprende-con-su-ubicacion_a6aea8491c5b4d02690d7f1b4",
-     "fecha": "2026-11-04T01:31:22.898Z"
-    },
-    {
-     "medio": "Diario Popular",
-     "enlace": "https://www.diariopopular.com.ar/deportes/la-tabla-destructores-la-formula-1-colapinto-y-gasly-muy-distanciados-n927636",
-     "fecha": "2026-11-04T00:55:00.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/deportes/se-conocio-el-ranking-destructores-la-formula-1-la-impactante-diferencia-colapinto-y-gasly-n1613138",
-     "fecha": "2026-11-04T11:48:16.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"ciudad\", que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
   {
@@ -186,6 +154,120 @@
    "maximo": 5
   },
   {
+   "id": "7wa68k",
+   "titulo": "Salió el ranking de destructores de la Fórmula 1, con enorme brecha entre Franco Colapinto y Pierre Gasly",
+   "copete": "",
+   "seccion": "Automovilismo",
+   "fecha": "2026-11-04T00:55:00.000Z",
+   "fuentes": [
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/automovilismo/salio-ranking-destructores-formula-1-con-enorme-brecha-entre-franco-colapinto-y-pierre-gasly-id770253.html",
+     "fecha": "2026-11-04T00:51:20.000Z"
+    },
+    {
+     "medio": "Doble Amarilla",
+     "enlace": "https://www.dobleamarilla.com.ar/mas-alla-del-futbol/se-conocio-la--tabla-de-destructores--de-la-formula-1-y-franco-colapinto-sorprende-con-su-ubicacion_a6aea8491c5b4d02690d7f1b4",
+     "fecha": "2026-11-04T01:31:22.898Z"
+    },
+    {
+     "medio": "Diario Popular",
+     "enlace": "https://www.diariopopular.com.ar/deportes/la-tabla-destructores-la-formula-1-colapinto-y-gasly-muy-distanciados-n927636",
+     "fecha": "2026-11-04T00:55:00.000Z"
+    },
+    {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/deportes/se-conocio-el-ranking-destructores-la-formula-1-la-impactante-diferencia-colapinto-y-gasly-n1613138",
+     "fecha": "2026-11-04T11:48:16.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1sxqovu",
+   "titulo": "Lali Espósito, María Becerra y Emilia Mernes repudiaron el violento ataque a mujeres trans en los lagos de Palermo",
+   "copete": "Este martes trascendió que varias mujeres trans fueron víctimas de una \"caza\" en los lagos de Palermo. Un grupo de jóvenes las persiguió, insultó y corrió a los palazos por la calle, mientras registraba la agresión con sus celulares. Luego, las imágenes fueron difundidas en…",
+   "seccion": "Argentina",
+   "fecha": "2026-11-03T20:42:00.000Z",
+   "fuentes": [
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1160872/espectaculos/lali-esposito-maria-becerra-emilia-mernes-repudiaron-violento-ataque-mujeres-trans-lagos-palermo.html",
+     "fecha": "2026-11-03T15:21:00.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/espectaculos/repudiable-posteo-tomas-dente-lali-maria-becerra-emilia-mernes-ataque-mujeres-trans-hay-distintas-202611319262",
+     "fecha": "2026-11-03T22:26:02.566Z"
+    },
+    {
+     "medio": "Página/12",
+     "enlace": "https://www.pagina12.com.ar/2026/11/03/tini-lali-maria-becerra-nicki-nicole-y-emilia-mernes-repudiaron-el-brutal-ataque-a-las-mujeres-trans/",
+     "fecha": "2026-11-03T23:50:42.000Z"
+    },
+    {
+     "medio": "El Día",
+     "enlace": "https://www.eldia.com/espectaculos/compromiso-pop-tini-lali-maria-emilia-y-nicki-alzaron-su-voz-por-el-ataque-transfobico-espectaculos_1793773346",
+     "fecha": "2026-11-04T06:22:26.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/diarioshow/por-la-red/emilia-mernes-y-maria-becerra-repudiaron-el-brutal-ataque-a-mujeres-trans-en-palermo-sus-contundentes-mensajes/",
+     "fecha": "2026-11-03T17:48:55.000Z"
+    },
+    {
+     "medio": "Perfil",
+     "enlace": "https://perfil.com/entretenimiento/maria-becerra-y-emilia-mernes-se-pronunciaron-tras-el-ataque-transfobico-en-palermo-duele-e-indigna-mucho-aazqH2T4ty5M",
+     "fecha": "2026-11-03T18:35:43.000Z"
+    },
+    {
+     "medio": "A24",
+     "enlace": "https://www.a24.com/primiciasya/la-furia-maria-becerra-el-brutal-ataque-mujeres-trans-indigna-mucho-n1612925",
+     "fecha": "2026-11-03T19:30:00.000Z"
+    },
+    {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/espectaculos/tini--maria-becerra--lali-esposito-y-emilia-mernes-repudiaron-la--caceria-de-trans--en-palermo_a6aea426d362d45b1b5ddfa3d",
+     "fecha": "2026-11-03T20:42:00.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/espectaculos/lali-esposito-maria-becerra-emilia-mernes-y-sofia-gonet-repudiaron-el-ataque-transfobico-palermo-n6341111",
+     "fecha": "2026-11-03T21:04:00.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/diarioshow/farandula/flor-de-la-v-se-pronuncio-tras-el-salvaje-ataque-a-mujeres-trans-en-palermo-espero-que-algun-fiscal-8194/",
+     "fecha": "2026-11-03T20:57:42.000Z"
+    },
+    {
+     "medio": "Crónica",
+     "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/lali-tini-maria-becerra-emilia-y-nicki-nicole-repudiaron-el-ataque-a-mujeres-trans-en-palermo/",
+     "fecha": "2026-11-04T01:31:00.000Z"
+    },
+    {
+     "medio": "0223 (Mar del Plata)",
+     "enlace": "https://www.0223.com.ar/nota/2026-11-4-8-21-0-de-tini-a-nicky-nicole-el-pop-local-repudio-el-brutal-ataque-transfobico",
+     "fecha": "2026-11-04T11:21:00.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/espectaculos/personajes/de-tini-stoessel-a-sofia-gonet-y-nito-artaza-los-famosos-alzaron-la-voz-contra-el-ataque-transfobico-nid04112026/",
+     "fecha": "2026-11-04T13:59:00.000Z"
+    },
+    {
+     "medio": "Los Andes (Mendoza)",
+     "enlace": "https://www.losandes.com.ar/espectaculos/el-repudio-lali-tini-maria-becerra-emilia-y-otras-famosas-al-brutal-ataque-trans-palermo-n6012943",
+     "fecha": "2026-11-04T14:11:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 5
+  },
+  {
    "id": "icqno1",
    "titulo": "Tras la derrota en el Superclásico, River se prepara para visitar a Aldosivi con bajas obligadas: el probable equipo",
    "copete": "",
@@ -218,11 +300,6 @@
      "fecha": "2026-11-04T13:42:24.000Z"
     },
     {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/deportes/la-formacion-de-river--con-cambios-obligados--para-visitar-a-aldosivi_a6aeb8ad8ff837982c455c8c5",
-     "fecha": "2026-11-04T19:52:58.788Z"
-    },
-    {
      "medio": "Bolavip Argentina",
      "enlace": "https://bolavip.com/ar/river/con-seis-bajas-y-dos-sorpresas-los-convocados-de-river-para-visitar-a-aldosivi",
      "fecha": "2026-11-04T21:29:10.000Z"
@@ -233,91 +310,14 @@
      "fecha": "2026-11-03T21:57:00.000Z"
     },
     {
+     "medio": "Noticias Argentinas (NA)",
+     "enlace": "https://noticiasargentinas.com/deportes/la-formacion-de-river--con-cambios-obligados--para-visitar-a-aldosivi_a6aeb8ad8ff837982c455c8c5",
+     "fecha": "2026-11-04T19:52:58.788Z"
+    },
+    {
      "medio": "Minuto Uno",
      "enlace": "https://www.minutouno.com/deportes/river-se-prepara-visitar-aldosivi-bajas-obligadas-el-probable-equipo-n6341658",
      "fecha": "2026-11-04T22:02:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 5
-  },
-  {
-   "id": "1sxqovu",
-   "titulo": "Lali Espósito, María Becerra y Emilia Mernes repudiaron el violento ataque a mujeres trans en los lagos de Palermo",
-   "copete": "Este martes trascendió que varias mujeres trans fueron víctimas de una \"caza\" en los lagos de Palermo. Un grupo de jóvenes las persiguió, insultó y corrió a los palazos por la calle, mientras registraba la agresión con sus celulares. Luego, las imágenes fueron difundidas en…",
-   "seccion": "Argentina",
-   "fecha": "2026-11-03T20:42:00.000Z",
-   "fuentes": [
-    {
-     "medio": "La Gaceta (Tucumán)",
-     "enlace": "https://www.lagaceta.com.ar/nota/1160872/espectaculos/lali-esposito-maria-becerra-emilia-mernes-repudiaron-violento-ataque-mujeres-trans-lagos-palermo.html",
-     "fecha": "2026-11-03T15:21:00.000Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/espectaculos/repudiable-posteo-tomas-dente-lali-maria-becerra-emilia-mernes-ataque-mujeres-trans-hay-distintas-202611319262",
-     "fecha": "2026-11-03T22:26:02.566Z"
-    },
-    {
-     "medio": "Página/12",
-     "enlace": "https://www.pagina12.com.ar/2026/11/03/tini-lali-maria-becerra-nicki-nicole-y-emilia-mernes-repudiaron-el-brutal-ataque-a-las-mujeres-trans/",
-     "fecha": "2026-11-03T23:50:42.000Z"
-    },
-    {
-     "medio": "Noticias Argentinas (NA)",
-     "enlace": "https://noticiasargentinas.com/espectaculos/tini--maria-becerra--lali-esposito-y-emilia-mernes-repudiaron-la--caceria-de-trans--en-palermo_a6aea426d362d45b1b5ddfa3d",
-     "fecha": "2026-11-03T20:42:00.000Z"
-    },
-    {
-     "medio": "El Día",
-     "enlace": "https://www.eldia.com/espectaculos/compromiso-pop-tini-lali-maria-emilia-y-nicki-alzaron-su-voz-por-el-ataque-transfobico-espectaculos_1793773346",
-     "fecha": "2026-11-04T06:22:26.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/diarioshow/por-la-red/emilia-mernes-y-maria-becerra-repudiaron-el-brutal-ataque-a-mujeres-trans-en-palermo-sus-contundentes-mensajes/",
-     "fecha": "2026-11-03T17:48:55.000Z"
-    },
-    {
-     "medio": "Perfil",
-     "enlace": "https://perfil.com/entretenimiento/maria-becerra-y-emilia-mernes-se-pronunciaron-tras-el-ataque-transfobico-en-palermo-duele-e-indigna-mucho-aazqH2T4ty5M",
-     "fecha": "2026-11-03T18:35:43.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/primiciasya/la-furia-maria-becerra-el-brutal-ataque-mujeres-trans-indigna-mucho-n1612925",
-     "fecha": "2026-11-03T19:30:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/espectaculos/lali-esposito-maria-becerra-emilia-mernes-y-sofia-gonet-repudiaron-el-ataque-transfobico-palermo-n6341111",
-     "fecha": "2026-11-03T21:04:00.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/diarioshow/farandula/flor-de-la-v-se-pronuncio-tras-el-salvaje-ataque-a-mujeres-trans-en-palermo-espero-que-algun-fiscal-8194/",
-     "fecha": "2026-11-03T20:57:42.000Z"
-    },
-    {
-     "medio": "Crónica",
-     "enlace": "https://www.cronica.com.ar/elcanaldelamusica/noticias/lali-tini-maria-becerra-emilia-y-nicki-nicole-repudiaron-el-ataque-a-mujeres-trans-en-palermo/",
-     "fecha": "2026-11-04T01:31:00.000Z"
-    },
-    {
-     "medio": "0223 (Mar del Plata)",
-     "enlace": "https://www.0223.com.ar/nota/2026-11-4-8-21-0-de-tini-a-nicky-nicole-el-pop-local-repudio-el-brutal-ataque-transfobico",
-     "fecha": "2026-11-04T11:21:00.000Z"
-    },
-    {
-     "medio": "La Nación",
-     "enlace": "https://www.lanacion.com.ar/espectaculos/personajes/de-tini-stoessel-a-sofia-gonet-y-nito-artaza-los-famosos-alzaron-la-voz-contra-el-ataque-transfobico-nid04112026/",
-     "fecha": "2026-11-04T13:59:00.000Z"
-    },
-    {
-     "medio": "Los Andes (Mendoza)",
-     "enlace": "https://www.losandes.com.ar/espectaculos/el-repudio-lali-tini-maria-becerra-emilia-y-otras-famosas-al-brutal-ataque-trans-palermo-n6012943",
-     "fecha": "2026-11-04T14:11:00.000Z"
     }
    ],
    "intentos": 1,
@@ -424,35 +424,20 @@
    "maximo": 5
   },
   {
-   "id": "mymj9g",
-   "titulo": "Feriado por la visita del papa León XIV: qué va a pasar en Córdoba, CABA y la provincia de Buenos Aires",
+   "id": "1fnd4pa",
+   "titulo": "Mountain bike Podios balcarceños en Tandil",
    "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-11-04T16:15:00.000Z",
+   "seccion": "Deportes",
+   "fecha": "2026-11-05T01:31:27.910Z",
    "fuentes": [
     {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/informacion-general/feriado-la-visita-del-papa-leon-xiv-que-va-pasar-caba-y-la-provincia-buenos-aires-n6327550",
-     "fecha": "2026-11-03T12:48:00.000Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/economia/pasa-si-trabajo-provincia-buenos-aires-vivo-caba-feriado-me-corresponde-visita-papa-leon-xiv-argentina-2026114151727",
-     "fecha": "2026-11-04T18:17:27.059Z"
-    },
-    {
-     "medio": "El Destape",
-     "enlace": "https://www.eldestapeweb.com/economia/pasa-si-trabajo-caba-vivo-provincia-buenos-aires-feriado-me-corresponde-visita-papa-leon-xiv-argentina-202611415729",
-     "fecha": "2026-11-04T18:07:29.465Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/politica/axel-kicillof-confirmo-que-el-11-noviembre-sera-feriado-provincia-buenos-aires-la-visita-del-papa-n6341471",
-     "fecha": "2026-11-04T16:15:00.000Z"
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/deportes/14418-podios-balcarcenos-en-tandil/",
+     "fecha": null
     }
    ],
-   "intentos": 2,
-   "motivo": "con cuerpo",
+   "intentos": 0,
+   "motivo": "",
    "maximo": 3
   },
   {
@@ -478,5 +463,14 @@
    "maximo": 3
   }
  ],
- "descartadas": []
+ "descartadas": [
+  {
+   "id": "e76kpf",
+   "titulo": "“Fue una cacería”: presidenta de la Federación Argentina LGBT sobre el ataque a trabajadoras trans en Palermo",
+   "seccion": "Argentina",
+   "fecha": "2026-11-04T11:06:38.000Z",
+   "intentos": 4,
+   "motivo": "agotó los 4 intentos; semáforo: necesita ojo humano: \"denunció\", en lo que escribió la IA (título, bajada o texto para redes)"
+  }
+ ]
 }
