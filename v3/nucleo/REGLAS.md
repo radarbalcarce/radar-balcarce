@@ -107,6 +107,30 @@ Cada foto publicada tiene una **huella visual**: la misma foto (o casi) no puede
 siguiente. Nombre de archivo y texto alternativo descriptivos, generados de la ficha (`balcarce-camioneros-examen-licencia.jpg`), nunca
 el nombre original del medio. Nunca una foto real de un menor o una víctima.
 
+### 7 bis. La copia propia de la foto (5/11/2026, Hernán: «lo más importante, aplicalo todo»)
+
+- **Por qué.** La foto de una nota sale de las fuentes, pero mostrarla desde el servidor del otro medio es frágil: si la borra o la bloquea (Clarín y Olé ya rechazan pedidos sin cabeceras de navegador),
+  si la dirección vence (La Nación firma las suyas) o si pesa 1,7 MB para mostrarse a 343 px, la nota se rompe o carga lenta. Por eso **cada foto elegida se guarda también en nuestro depósito**.
+- **Qué se copia y qué no cambia.** La copia es de la foto que ya eligió el paso 1 (con su control de marca de agua y de menor o víctima); no se elige otra. El crédito, el epígrafe, el texto alternativo y la
+  fuente de la nota quedan **tal cual**: la dirección original se conserva anotada. Una foto de un menor o una víctima nunca llega hasta acá (el filtro es el de siempre, y no se toca).
+- **Cómo.** Un programa aparte (`v3/sitio/scripts/copiar-fotos-de-notas.mjs`, workflow «Radar 3.0: fotos propias», cada hora y a mano) busca las notas publicadas con foto de otro medio y sin copia, las más
+  nuevas primero (hasta 60 por corrida). Baja la foto presentándose como **RadarBalcarceBot** (un nombre propio y honesto; **sin** disfrazarse de navegador): si el medio la niega, la nota sigue con la original,
+  se anota el motivo (`copiaError`) y se reintenta hasta 3 veces con 3 horas de espera. Comprueba que sea una imagen de verdad (por los bytes, no por lo que diga el servidor), la pasa a **JPEG de hasta 1.600 px de
+  ancho** (para Google Discover y lo que se comparte) y a otra de **hasta 640 px** (para la portada y las listas), sin datos de la cámara, y las guarda en el depósito `radar-fotos` como
+  `copias/<huella>.jpg` y `copias/<huella>-640.jpg`. La huella es del contenido: la misma foto en dos notas se guarda una vez.
+- **Qué se le anota a la nota** (en `foto`, dentro de la base): `copia`, `copiaChica`, `copiaAncho`, `copiaAlto` y `copiaEn`. Escribe sólo si la foto sigue siendo la que leyó (si el núcleo la cambió mientras tanto, no la pisa).
+  Las redes ya preferían `copia` si existe (`direccionesDeLaFoto`).
+- **Cómo la muestra el sitio.** Con copia propia, la nota usa `https://radarbalcarce.com/foto/<huella>.jpg` (que sirve el Worker `radar-sitio` desde R2, con caché de un año porque el nombre es el contenido) en la foto
+  principal, en `og:image` y en el `image` del NewsArticle; la portada y las listas usan la de 640 px. **Sin copia, o con una copia mal formada, muestra la original: nunca se rompe una nota.**
+- **Lo que no se hace:** no se copian las fotos de `/fotos-notas/` (ya son nuestras) ni las ilustraciones del clima; no se usa Wikimedia Commons para ilustrar notas con fuentes (regla de siempre); no se esquivan bloqueos.
+- **Relleno de lo que ya está.** Se corre a mano «Radar 3.0: fotos propias» (primero con «simular», que sólo cuenta; después de verdad, con tope 150) las veces que haga falta hasta que diga «Pendientes que había: 0».
+  El horario solo (cada hora) se prende con la variable de GitHub `FOTOS_PROPIAS_ACTIVAS` = `si`.
+- **Costo.** Sin IA y sin servicios pagos nuevos: el achicado lo hace ffmpeg en GitHub Actions. R2: unas 260 KB por nota (las dos versiones) × ~120 notas por día ≈ 1 GB por mes; el plan gratis trae 10 GB
+  y después cuesta US$ 0,015 por GB (centavos). Las escrituras (unas 500 por día) y las lecturas están muy por debajo del gratis. La bajada de fotos a los lectores no cobra salida (R2). Cada foto pedida
+  es un pedido más al Worker del sitio (el mismo plan que ya se paga). Total esperado: **menos de US$ 0,50 por mes**.
+- **Pruebas:** `v3/sitio/fotos-copia.test.mjs` (direcciones, `og:image`, NewsArticle, portada, la ruta `/foto/`) y `v3/sitio/scripts/copiar-fotos-de-notas.test.mjs` (descarga, conversión con ffmpeg de verdad, huella, fallos, tope, idempotencia).
+- **Pendiente:** copiar en el momento de elegir la foto (hoy pasa hasta una hora después; mientras tanto el sitio muestra la original), `srcset` con más tamaños, y las fotos de adentro de la nota (`fotos`).
+
 ## 8. Lo que el núcleo entrega
 
 Una nota lista en la base (D1) con: id corto, título, bajada, cuerpo, sección, «en dos líneas», ficha, bloques de valor agregado ya

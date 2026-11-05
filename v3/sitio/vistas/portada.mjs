@@ -47,7 +47,8 @@ const cuando = (n, ahora) => `<span class="hora">· <time datetime="${esc(n.publ
 
 /** La foto de la nota, o la placa con el color de su sección. `proporcion` es el ancho/alto que se reserva. */
 export function imagenODePlaca(n, { ancho, alto, cargar = 'lazy', prioridad = false } = {}) {
-  const url = tieneFoto(n) ? urlSegura(n.foto.url) : null;
+  // Con copia propia, la portada y las listas usan la versión chica (640 px, fotos-copia.mjs); la grande queda para la nota y lo que se comparte.
+  const url = tieneFoto(n) ? urlSegura((n.foto.chica && Number(ancho) <= 640 && urlSegura(n.foto.chica)) || n.foto.url) : null;
   if (url) {
     const propia = /\/fotos-notas\//.test(url) ? ' class="fotopropia"' : '';
     return `<img${propia} src="${esc(url)}" alt="${esc(n.foto.alt || '')}" width="${ancho}" height="${alto}" loading="${cargar}" decoding="async"${prioridad ? ' fetchpriority="high"' : ''}>`;

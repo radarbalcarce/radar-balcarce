@@ -1,0 +1,87 @@
+name: "Radar 3.0: fotos propias"
+
+# Hace una copia propia (en R2, achicada) de la foto de cada nota publicada que todavía se muestra desde el servidor de otro medio, y se la anota a la nota en la base.
+# Reglas: v3/nucleo/REGLAS.md, § 7 bis. Programa: v3/sitio/scripts/copiar-fotos-de-notas.mjs. El sitio (Worker radar-sitio) muestra la copia si existe y, si no, la original.
+#
+# A mano: Actions → «Radar 3.0: fotos propias» → Run workflow.
+#   simular   (por defecto SÍ) mira cuántas notas se copiarían y cuáles, sin bajar ni guardar nada. Probar siempre así primero.
+#   tope      cuántas notas se copian como mucho en esta corrida (por defecto 60). Para el relleno de las ~500 notas del sitio: tope 150 y repetir hasta que diga «Pendientes que había: 0».
+#   reintentar tilda para volver a probar las que ya fallaron 3 veces o fallaron hace menos de 3 horas.
+# Solo, cada hora a los :40 (de 6 a 23 de Balcarce), PERO SÓLO si la variable de GitHub FOTOS_PROPIAS_ACTIVAS vale «si» (por defecto no existe: no corre solo). La prende una persona
+# después de ver una corrida a mano con «simular» y otra de verdad.
+#
+# Secretos de GitHub (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN (con permiso de D1 «Edit» y de R2 «Edit»; el que ya usa «Radar 3.0: desplegar»), CLOUDFLARE_ACCOUNT_ID y,
+# para guardar en R2 por la vía rápida, R2_ACCESS_KEY_ID y R2_SECRET_ACCESS_KEY (ya están por las piezas de redes; si el token de R2 no alcanza al depósito radar-fotos, el programa usa wrangler con CLOUDFLARE_API_TOKEN).
+# Qué copió y qué falló: el resumen de la corrida y el adjunto «fotos-copia» (JSON con cada nota, el motivo de cada falla y los tamaños).
+
+on:
+  schedule:
+    - cron: '40 9-23,0-2 * * *'
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: 'Sólo contar y listar, sin bajar ni guardar nada (recomendado la primera vez)'
+        type: boolean
+        default: true
+      tope:
+        description: 'Cuántas notas copiar como mucho en esta corrida'
+        type: string
+        default: '60'
+      reintentar:
+        description: 'Volver a probar también las que ya fallaron 3 veces o hace menos de 3 horas'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-fotos-propias
+  cancel-in-progress: false
+
+jobs:
+  copiar:
+    # Solo (por horario) sólo si una persona lo prendió con la variable FOTOS_PROPIAS_ACTIVAS = si. A mano, siempre.
+    if: ${{ github.event_name != 'schedule' || vars.FOTOS_PROPIAS_ACTIVAS == 'si' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      INFORME_FOTOS: ${{ github.workspace }}/fotos-copia.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Instalar
+        run: npm ci --no-audit --no-fund
+
+      - name: Pruebas de las copias
+        run: node --test v3/sitio/fotos-copia.test.mjs v3/sitio/scripts/copiar-fotos-de-notas.test.mjs
+
+      - name: Copiar las fotos
+        env:
+          SIMULAR: ${{ github.event_name == 'schedule' && 'false' || inputs.simular }}
+          TOPE: ${{ inputs.tope || '60' }}
+          REINTENTAR: ${{ inputs.reintentar || 'false' }}
+        run: |
+          args="--tope=${TOPE}"
+          [ "$SIMULAR" = "true" ] && args="$args --simular"
+          [ "$REINTENTAR" = "true" ] && args="$args --forzar-reintentos"
+          node v3/sitio/scripts/copiar-fotos-de-notas.mjs $args
+
+      - name: Guardar el informe
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fotos-copia
+          path: fotos-copia.json
+          if-no-files-found: ignore
+          retention-days: 14

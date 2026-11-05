@@ -1,5 +1,6 @@
 // Lo único del sitio que habla con D1. Sólo notas publicadas: `estado = 'publicada'` está en TODAS las consultas.
 import { slugDe, jsonONull } from '../util.mjs';
+import { conCopiaPropia } from '../fotos-copia.mjs';
 
 const CAMPOS = `n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.en_dos_lineas, n.ficha, n.foto, n.fuentes, n.fecha_hecho, n.firma, n.creada,
   s.slug AS s_slug, s.publicada_en AS s_publicada, s.origen AS s_origen, s.extra AS s_extra`;
@@ -24,7 +25,8 @@ export function aNota(f) {
     seccion: f.seccion || 'Argentina',
     enDosLineas: f.en_dos_lineas || '',
     ficha: jsonONull(f.ficha),
-    foto: Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto,
+    // Si la foto tiene copia propia (fotos-copia.mjs), el sitio muestra esa; si no, la original.
+    foto: conCopiaPropia(Array.isArray(crudaFoto) ? crudaFoto[0] ?? null : crudaFoto),
     fotos,
     fuentes: jsonONull(f.fuentes) || [],
     fechaHecho: f.fecha_hecho || null,
