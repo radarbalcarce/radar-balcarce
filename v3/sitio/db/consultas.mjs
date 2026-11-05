@@ -44,6 +44,15 @@ export async function notaPorId(env, id) {
   return aNota(f);
 }
 
+/** La dirección de la nota que quedó cuando ésta se retiró por repetida (`no_publicar.destino` es el id de la que quedó), o null. Sólo sigue un salto y sólo si el destino está publicado. */
+export async function destinoDeRetirada(env, id) {
+  const f = await env.DB.prepare("SELECT no_publicar FROM notas WHERE id = ? AND estado = 'retirada'").bind(id).first();
+  const destino = jsonONull(f?.no_publicar)?.destino;
+  if (typeof destino !== 'string' || !/^[a-z0-9-]{2,60}$/i.test(destino) || destino === id) return null;
+  const nota = await notaPorId(env, destino);
+  return nota ? `/nota/${nota.slug}-${nota.id}` : null;
+}
+
 /** Las notas de una sección (o de todas, con ranura null), de la más nueva a la más vieja. `conFoto` deja sólo las que tienen foto; `despues` (ISO), sólo las publicadas desde ese momento. */
 export async function listar(env, { seccion = null, limite = 10, desde = 0, conFoto = false, despues = null, conServicio = false, climaDe = null } = {}) {
   const donde = [seccion ? 'AND n.seccion IN (?, ?)' : '', despues ? `AND ${PUBLICADA} >= ?` : '', conFoto ? "AND n.foto IS NOT NULL AND n.foto != 'null'" : '', conServicio ? '' : servicioSin(climaDe)].join(' ');

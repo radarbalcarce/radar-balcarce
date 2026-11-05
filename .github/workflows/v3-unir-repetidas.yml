@@ -1,0 +1,57 @@
+name: "Radar 3.0: unir repetidas"
+
+# Une las notas repetidas de la base D1 `radar-nucleo` (las de los últimos 45 días): detecta con criterio conservador, deja la que salió primero (o la que tiene foto si la primera no)
+# y retira las otras con `no_publicar = {motivo: "repetida de <id>", cuando, por, destino}`; el sitio redirige (301) la dirección retirada a la que quedó.
+# Programa: v3/nucleo/scripts/unir-repetidas.mjs (con sus pruebas). Sólo a mano: nunca corre solo.
+#
+# `simular` (por defecto en «sí»): NO toca la base ni R2; escribe en la salida y en el resumen de la corrida la lista de pares (títulos, fechas, direcciones y cuál quedaría). Mirarla a ojo antes de correr de verdad.
+# Sin `simular`: antes de escribir guarda un respaldo de las filas afectadas en el depósito R2 privado `radar-render`, `respaldos/repetidas/AAAA-MM-DD.json` (NUNCA como adjunto: el repositorio es público),
+# lo vuelve a leer para controlar que quedó igual y recién ahí hace los UPDATE. Si se encuentran más de 60 para retirar, frena sin escribir nada.
+# Para volver atrás una retirada: restaurar la fila desde ese JSON (estado y no_publicar de la nota) con `wrangler d1 execute`.
+#
+# Secretos de GitHub que ya existen (no hay que crear ninguno): CLOUDFLARE_API_TOKEN (para escribir hace falta que pueda editar D1), CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY.
+# IMPORTANTE: antes de la corrida real hay que haber desplegado el sitio con el cambio que redirige las retiradas por repetida («Radar 3.0: desplegar»); si no, las retiradas dan 410 en vez de 301.
+
+on:
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: 'Sólo mostrar la lista de repetidas, sin tocar nada (para mirarla antes)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-unir-repetidas
+  cancel-in-progress: false
+
+jobs:
+  unir:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_RESPALDOS: ${{ vars.R2_RESPALDOS }}
+      SIMULAR: ${{ inputs.simular }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pruebas
+        run: node --test v3/nucleo/scripts/unir-repetidas.test.mjs
+
+      - name: Unir repetidas
+        run: |
+          if [ "$SIMULAR" = "false" ]; then
+            node v3/nucleo/scripts/unir-repetidas.mjs --real
+          else
+            node v3/nucleo/scripts/unir-repetidas.mjs
+          fi

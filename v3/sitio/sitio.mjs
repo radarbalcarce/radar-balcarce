@@ -393,7 +393,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       if (!/^[a-z0-9]{2,40}$/i.test(id) && !/^[a-z]+-\d{4}-\d{2}-\d{2}$/i.test(id)) return gone('Esa nota', palabras);
       const nota = await consultas.notaPorId(env, id);
       if (!nota) {
-        const nueva = Object.hasOwn(NOTAS_VIEJAS, id) ? NOTAS_VIEJAS[id] : null;
+        const nueva = Object.hasOwn(NOTAS_VIEJAS, id) ? NOTAS_VIEJAS[id] : await consultas.destinoDeRetirada(env, id).catch(() => null); // una retirada por repetida redirige a la que quedó
         return nueva ? redirigir(nueva) : gone('Esa nota', palabras);
       }
       await fijar([nota]);

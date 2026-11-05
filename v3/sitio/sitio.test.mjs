@@ -238,3 +238,22 @@ test('«Seguí leyendo»: al final de la nota salen notas para seguir (con la sa
   assert.match(h, /href="\/nota\/otra-nota-o1"/);
   assert.match(h, /<a href="\/seccion\/balcarce">Más de Balcarce<\/a> · <a href="\/">Ir a la portada<\/a>/);
 });
+
+test('una nota retirada por repetida redirige (301) a la que quedó; sin destino, o con destino no publicado, sigue en 410', async () => {
+  const { sqlite, env } = baseDePrueba();
+  insertarNota(sqlite, { id: 'queda1', titulo: 'Alerta amarilla por tormentas' });
+  insertarNota(sqlite, { id: 'rep1', titulo: 'Alerta amarilla por tormentas', estado: 'retirada' });
+  insertarNota(sqlite, { id: 'rep2', titulo: 'Alerta por tormentas otra vez', estado: 'retirada' });
+  insertarNota(sqlite, { id: 'rep3', titulo: 'Alerta por tormentas tres', estado: 'retirada' });
+  insertarNota(sqlite, { id: 'borr9', titulo: 'Un borrador', estado: 'borrador' });
+  const poner = (id, np) => sqlite.prepare('UPDATE notas SET no_publicar = ? WHERE id = ?').run(JSON.stringify(np), id);
+  poner('rep1', { motivo: 'repetida de queda1', cuando: '2026-11-05T12:00:00.000Z', por: 'Claude (5/11)', destino: 'queda1' });
+  poner('rep2', { motivo: 'sacada a mano', cuando: '2026-11-05T12:00:00.000Z', por: 'Hernán (Telegram)' });
+  poner('rep3', { motivo: 'repetida de borr9', cuando: '2026-11-05T12:00:00.000Z', por: 'Claude (5/11)', destino: 'borr9' });
+  const r = await ir(env, '/nota/alerta-amarilla-por-tormentas-rep1');
+  assert.equal(r.status, 301);
+  assert.equal(r.headers.get('location'), '/nota/alerta-amarilla-por-tormentas-queda1');
+  assert.equal((await ir(env, '/nota/alerta-por-tormentas-otra-vez-rep2')).status, 410);
+  assert.equal((await ir(env, '/nota/alerta-por-tormentas-tres-rep3')).status, 410, 'un destino que no está publicado no redirige');
+  assert.equal((await ir(env, '/nota/alerta-amarilla-por-tormentas-queda1')).status, 200);
+});
