@@ -203,13 +203,15 @@ export function crearCliente({
    * @param {'STORIES'|'REELS'} o.tipo
    * @param {string} [o.pie]   el texto del reel (las historias no llevan)
    */
-  async function publicarVideoEnInstagram({ video, tipo, pie = '' }) {
+  async function publicarVideoEnInstagram({ video, tipo, pie = '', tapaMs = null }) {
     const p = await pagina();
     if (!p.instagramId) throw new ErrorMeta('La página no tiene un Instagram vinculado.');
     if (tipo !== 'STORIES' && tipo !== 'REELS') throw new ErrorMeta(`Tipo de video desconocido: ${tipo}`);
 
     const params = { media_type: tipo, upload_type: 'resumable' };
     if (pie && tipo === 'REELS') params.caption = pie;
+    // La tapa del reel en la grilla: el cuadro de ese momento (en milisegundos).
+    if (tipo === 'REELS' && Number.isFinite(tapaMs)) params.thumb_offset = String(tapaMs);
 
     const contenedor = await pedir(`${p.instagramId}/media`, { metodo: 'POST', conToken: p.tokenPagina, params });
     if (!contenedor.uri) throw new ErrorMeta('Instagram no indicó dónde subir el video.');
@@ -262,7 +264,7 @@ export function crearCliente({
    * @param {'STORIES'|'REELS'} o.tipo
    * @param {string} [o.pie]   el texto del reel (las historias no llevan)
    */
-  async function publicarVideoEnFacebook({ video, tipo, pie = '' }) {
+  async function publicarVideoEnFacebook({ video, tipo, pie = '', tapa = null }) {
     const p = await pagina();
     if (tipo !== 'STORIES' && tipo !== 'REELS') throw new ErrorMeta(`Tipo de video desconocido: ${tipo}`);
     const camino = `${paginaId}/${tipo === 'REELS' ? 'video_reels' : 'video_stories'}`;
@@ -307,6 +309,17 @@ export function crearCliente({
       }
       if (!st || st === 'ready' || st === 'complete' || st === 'published') break;
       await esperar(3000);
+    }
+    // La tapa del reel en la grilla de la página (si se pasó una imagen). Si Facebook no la toma, el reel ya salió igual.
+    if (tapa && tipo === 'REELS') {
+      try {
+        const form = new FormData();
+        form.append('source', new Blob([tapa], { type: 'image/jpeg' }), 'tapa.jpg');
+        form.append('is_preferred', 'true');
+        await fetchFn(`${BASE}/${version}/${inicio.video_id}/thumbnails`, {
+          method: 'POST', headers: { Authorization: `OAuth ${p.tokenPagina}` }, body: form, signal: AbortSignal.timeout(30000),
+        });
+      } catch { /* la tapa es un detalle: no tumba el reel */ }
     }
     return { id: inicio.video_id, postId: fin.post_id ?? null };
   }

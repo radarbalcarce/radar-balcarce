@@ -53,12 +53,12 @@ export function accionesConTexto(pieza, item) {
  * Publica cada acción con el cliente de Meta. Sigue aunque una falle (queda su error): lo que salió no se repite porque el resultado se anota apenas termina.
  * @returns {Promise<{ red, tipo, estado: 'ok'|'error', id?, error? }[]>}
  */
-export async function publicarPieza({ cliente, mp4, acciones, sinToken = (t) => t }) {
+export async function publicarPieza({ cliente, mp4, acciones, tapaMs = null, tapa = null, sinToken = (t) => t }) {
   const salida = [];
   for (const a of acciones) {
     try {
       const metodo = a.red === 'instagram' ? cliente.publicarVideoEnInstagram : cliente.publicarVideoEnFacebook;
-      const r = await metodo({ video: mp4, tipo: a.tipo, pie: a.pie });
+      const r = await metodo({ video: mp4, tipo: a.tipo, pie: a.pie, tapaMs, tapa });
       salida.push({ red: a.red, tipo: a.tipo, estado: 'ok', id: r?.id ?? null });
     } catch (e) {
       salida.push({ red: a.red, tipo: a.tipo, estado: 'error', error: sinToken(String(e?.message ?? e)).slice(0, 300) });

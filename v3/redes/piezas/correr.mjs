@@ -186,7 +186,10 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       if (plan.activas) {
         const cliente = deps.clienteMeta();
         const mp4 = fs.readFileSync(r.mp4);
-        informe.acciones = await publicarPieza({ cliente, mp4, acciones, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
+        // La tapa de la grilla de reels: un cuadro quieto de la primera escena (en el repaso, la lista pareja), nunca uno a medio animar (Hernán, 3/11).
+        const tapaMs = Math.round(Math.min(3, (pieza.escenas?.[0]?.duracion ?? 2) * 0.7) * 1000);
+        const tapa = deps.cuadro ? await deps.cuadro(r.mp4, tapaMs).catch(() => null) : null;
+        informe.acciones = await publicarPieza({ cliente, mp4, acciones, tapaMs, tapa, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
         const buenas = informe.acciones.filter((a) => a.estado === 'ok').length; // sólo Meta decide si la pieza salió; Buffer se suma aparte
         if (item.buffer?.length) {
           if (deps.subirVideo && deps.publicarEnBuffer && env.BUFFER_API_KEY) {
@@ -256,6 +259,14 @@ export async function dependenciasReales(env = process.env) {
       return { ...r, fotosQueNoBajaron };
     },
     // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de tareas en /video/<huella>/<archivo>.mp4.
+    // Un cuadro del video como JPEG (la tapa del reel).
+    cuadro: async (mp4, ms) => {
+      const { default: ffmpeg } = await import('ffmpeg-static');
+      const { spawnSync } = await import('node:child_process');
+      const r = spawnSync(ffmpeg, ['-loglevel', 'error', '-ss', String(ms / 1000), '-i', mp4, '-frames:v', '1', '-q:v', '2', '-f', 'image2', '-c:v', 'mjpeg', 'pipe:1'], { maxBuffer: 20 * 1024 * 1024 });
+      if (r.status !== 0 || !r.stdout?.length) throw new Error('no se pudo sacar la tapa');
+      return r.stdout;
+    },
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
       await r2.guardar(`listos/${huella}/${nombre}`, typeof archivo === 'string' ? fs.readFileSync(archivo) : archivo, 'video/mp4'); // llega el mp4 ya en memoria (o, si no, su ruta)
