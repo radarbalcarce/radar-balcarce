@@ -79077,14 +79077,40 @@
   "ausenteDesde": "2026-11-04T18:04:01.400Z"
  },
  "c3bdgi": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/c3bdgi.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
-  "intentos": 2,
-  "fuentes": 1,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/ignacio-capeccio-la-libertad-avanza-va-a-tener-su-candidato-a-intendente",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/noviembre/Ignacio_Capeccio_GABAL.jpeg",
+  "razon": "Es la única foto disponible, cumple con los requisitos de calidad y no presenta marcas de agua, menores ni elementos gráficos.",
+  "cuando": "2026-11-05T07:02:32.751Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de un hombre joven en un estudio de radio con el logo de Radio Gabal de fondo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Hombre joven de camisa celeste y bufanda oscura posando frente a una pared de plantas con un logo amarillo."
+   },
+   "dudosa": "la primera IA describe gente joven"
+  },
+  "huella": "8797171a399b9999"
  },
  "108600q": {
   "archivo": "fotos-notas/108600q.jpg",
@@ -79750,11 +79776,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avellaneda incorpora inteligencia artificial al monitoreo de cámaras",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Página/12 no se usa todavía.",
+  "cuando": "2026-11-05T07:02:32.751Z",
   "intentos": 2,
   "fuentes": 6,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1
  },
  "ovx7zo": {
   "archivo": "fotos-notas/ovx7zo.jpg",
@@ -80297,11 +80323,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tesla abre su primer local oficial en el shopping Unicenter de Martínez",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T03:02:35.242Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Mitre no se usa todavía.",
+  "cuando": "2026-11-05T07:02:32.751Z",
   "intentos": 2,
   "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1
  },
  "1wpv9wd": {
   "intentado": true,
@@ -81349,7 +81375,8 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo un celular con la aplicación Cuenta DNI abierta."
   },
-  "huella": "4bc7c7f777b3cb67"
+  "huella": "4bc7c7f777b3cb67",
+  "ausenteDesde": "2026-11-05T07:04:18.616Z"
  },
  "i8dszk": {
   "archivo": "fotos-notas/i8dszk.jpg",
@@ -81397,7 +81424,8 @@
    "corresponde": "si",
    "descripcion": "Vista lateral del Renault 6 ploteado con los colores de Argentina y referencias a Franco Colapinto."
   },
-  "huella": "171c178ee58b3bf6"
+  "huella": "171c178ee58b3bf6",
+  "ausenteDesde": "2026-11-05T07:04:18.616Z"
  },
  "y7dsf2": {
   "archivo": "fotos-notas/y7dsf2.jpg",
@@ -81421,7 +81449,8 @@
    "corresponde": "si",
    "descripcion": "Jesús de Miguel celebrando un gol."
   },
-  "huella": "8fac56078b9d5557"
+  "huella": "8fac56078b9d5557",
+  "ausenteDesde": "2026-11-05T07:04:18.616Z"
  },
  "1700gn4": {
   "archivo": "fotos-notas/1700gn4.jpg",
@@ -81445,6 +81474,104 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista."
   },
-  "huella": "c2d0c3cb1a78c38e"
+  "huella": "c2d0c3cb1a78c38e",
+  "ausenteDesde": "2026-11-05T07:04:18.616Z"
+ },
+ "kflqlm": {
+  "archivo": "fotos-notas/kflqlm.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El dólar blue cotiza a 1560 pesos y analistas prevén tensión para 2027",
+  "enlace": "https://tn.com.ar/economia/2026/11/05/dolar-oficial-hoy-y-dolar-blue-a-cuanto-cotizan-este-jueves-5-de-noviembre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/dolar-oficial-hoy-y-dolar-blue-todas-las-cotizaciones-foto-adobestock-G72EY7BMORF4TN5SXSBO6WCXGA.jpg?auth=b753a622d01e7d53ddbdd62e31f4104a1646181f666aa629c1a853fd6dc32673&width=1023",
+  "razon": "Es la imagen más clara, profesional y representativa del tema económico sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-11-05T07:02:32.751Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Primer plano de varios billetes de 100 dólares estadounidenses."
+  },
+  "huella": "36b6b5652d6d675d"
+ },
+ "1dkla9k": {
+  "archivo": "fotos-notas/1dkla9k.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Pablo López presenta el Presupuesto 2027 y la Ley Impositiva bonaerense",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/el-ministro-pablo-lopez-presentara-en.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDGQDAB7K4mh2kKzCAMyIlAwOuvya-iLe1sE6VJo2F0hXVQUdZh9wivvspJU3bWvXQeckcG2ZHa8TBJ0m59TD30AwXqxDOjs5YlmaShAB3-WMO2tWA8a7J5b9Jok94fZ5gbi2sLt2-C94LXhrQykfQC2jVFLQedmoDMVUymhOuc6hvreIl6YNo-m-rd1c/w640-h426/pablo-lopez.jpg",
+  "razon": "Es la única opción disponible y muestra al funcionario en el momento de la presentación, sin marcas de agua ni menores.",
+  "cuando": "2026-11-05T07:02:32.751Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pablo López sentado en una mesa con micrófonos y documentos, hablando durante una presentación."
+  },
+  "huella": "03333b39797575f3"
+ },
+ "6oag3g": {
+  "archivo": "fotos-notas/6oag3g.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los bancos permanecen cerrados hasta seis días seguidos en noviembre",
+  "enlace": "https://tn.com.ar/economia/2026/11/04/los-bancos-van-a-estar-cerrados-cinco-dias-seguidos-que-operaciones-se-pueden-hacer-y-como-sacar-efectivo/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/los-bancos-estaran-cerrados-por-cinco-dias-aunque-los-usuarios-van-a-poder-hacer-pagos-y-transferencias-con-tarjeta-de-debito-home-banking-billeteras-virtuales-y-aplicaciones-de-banca-movil-foto-imagen-ilustrativa-hecha-con-ia-gemini-SOHR4M4NRBGVBN5SZVUNDL3FWI.png?auth=29c4138bd7725e46f01694be06b87b38274888fbbaad1668847a621b74a4d1f7&width=1023",
+  "razon": "Es la única imagen que muestra una escena real de uso de cajero automático sin marcas de agua, sin ser una composición gráfica y sin elementos de stock.",
+  "cuando": "2026-11-05T07:02:32.751Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mujer utilizando un cajero automático en una sucursal bancaria."
+  },
+  "huella": "834d0d2f050c140c"
+ },
+ "u2ns9v": {
+  "archivo": "fotos-notas/u2ns9v.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Proponen multas de hasta 3,5 millones de pesos por maltrato animal",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/proponen-multas-de-hasta-3500000-por.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju4frAQ-VJ3yelLQrvN3N_7Vdwrz11BSBFyOlZu-JCTUmFpWTZMlUZdAKTLfcPZ9yDT38uHtQWSu8kobm9WRG1Wi1Ou-TwmX4hUAcHzmHH9GHGFs6bkEaSzbGIqVPCn9FFyE9SCAeI-QE91TPJbEeNTm1WP4vLtNaefCngX9VXcCYYL-Cgza6JZIiEtqI/w640-h426/animal.jpg",
+  "razon": "Es la única imagen que muestra una situación real de rescate o cuidado animal sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-05T07:02:32.751Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Un hombre rescatando a un perro en un entorno rural."
+  },
+  "huella": "40c1c592d82ec7e7"
  }
 }
