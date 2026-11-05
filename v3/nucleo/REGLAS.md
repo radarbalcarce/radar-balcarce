@@ -199,3 +199,63 @@ hasta 1,5 MB, y se leen los primeros 80 ítems (Infobae manda ~1 MB por feed).
   sitio viejo) y `ficha.actualizadaEn` (ISO, sólo con la revisión de las 19, hoy apagada: siempre `null`).
 - **El resultado de la vuelta** trae `clima`: `null` (no tocaba), `{ accion: 'salio' | 'actualizo' | 'sin-cambios' | 'error', redactor, motivoPlantilla, … }`.
 - Con `NUCLEO_PUBLICA = no` queda en borrador como todas. Pruebas: `clima/clima.test.mjs` (horarios, resumen, plantilla, decisión de actualizar, Gemini y sus fallos, la vuelta entera).
+
+## 13. El respaldo de la base (`respaldo-d1.mjs`, 5/11/2026)
+
+**Por qué.** Toda Radar 3.0 vive en una sola base D1 (`radar-nucleo`): notas, historias, huellas, uso de IA, piezas de redes, lo que cargó el bot. Hasta el 5/11 no había copia de ella (el workflow «Respaldo» de los domingos copia sólo el repositorio). Si alguien borra la base o una vuelta mala pisa filas, no había cómo volver.
+
+**Qué hace, todos los días a las 4:20 de Balcarce** (workflow «Radar 3.0: respaldo de la base», `.github/workflows/v3-respaldo-d1.yml`; también a mano):
+
+1. Exporta la base entera, esquema y datos (`wrangler d1 export`).
+2. Controla que sea una base de verdad (tamaño, las tablas `notas`, `historias` y `articulos`, datos de notas). Si no, no guarda nada.
+3. La comprime y la sube a R2: depósito **`radar-render`**, carpeta `respaldos/d1/AAAA-MM-DD.sql.gz` (el día es el de Balcarce).
+4. La vuelve a bajar y compara hasta el último byte con lo que subió.
+5. La **restaura de prueba** en una base SQLite en memoria y cuenta notas, historias y artículos (queda en el resumen de la corrida). Así cada día se prueba que el respaldo sirve, no sólo que existe.
+6. Recién ahí borra los viejos: se conservan **los últimos 30 días** y **el primer respaldo de cada uno de los últimos 12 meses** (el que sirve si algo malo se descubre tarde). Sólo se tocan archivos con exactamente esa forma de nombre.
+
+Si cualquier paso falla antes de la poda, **no se borra nada** y llega un aviso por Telegram (además del mail de GitHub).
+
+**Por qué `radar-render` y no `radar-fotos`.** (a) Las claves de R2 que ya están en GitHub (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`) son las que escriben en `radar-render` para las piezas de redes: no hay que crear ninguna clave nueva. (b) `radar-fotos` la sirve el Worker del sitio al público (`/foto/…`, `/fotos-notas/…`, `/fuentes/…`): una base con borradores y notas propias no debe vivir al lado de lo que se sirve. `radar-render` sólo se sirve por rutas muy angostas (`/placa/…` del Worker de redes) y **tiene que seguir sin dominio público ni `r2.dev`** (Cloudflare → R2 → `radar-render` → Settings → «Public access» apagado). (c) Un respaldo comprimido pesa megas, y la carpeta `respaldos/` no se mezcla con `placas/`, `listos/` ni las demás de las piezas: si algún día se poda `radar-render`, que no se toque `respaldos/`.
+
+**Qué NO se hace, a propósito.** El volcado nunca se sube como adjunto de la corrida: el repositorio es público y los adjuntos de una corrida se pueden bajar. Tampoco se imprime ni se commitea (`.gitignore` ignora `*.sql.gz` y `.dev.vars`).
+
+**Costo.** Ninguno que se note: unos 30 archivos de pocos MB en R2 (el plan gratis trae 10 GB) y 5 pedidos por día. El primer resumen dice el tamaño real.
+
+**Una cosa para saber.** Exportar bloquea la base unos segundos (con la de hoy, menos de diez). Está a las 4:20, en el minuto :20 para no coincidir con la vuelta del núcleo (:00, :15, :30, :45). Si justo cae una, esa vuelta falla y la repite la siguiente a los 15 minutos.
+
+### Cómo se restaura, paso a paso (para una persona)
+
+Antes de empezar: **no hace falta apurarse ni saber de programación; se puede hacer con Claude al lado**, pasándole cada resultado. Primero, qué pasó:
+
+**Caso 1: la base existe pero hay filas mal o faltan (pasó hace menos de una semana).** Probar **Time Travel** de D1, que Cloudflare guarda solo (no depende de nuestro respaldo; dura 7 días en el plan gratis y 30 en el pago, según su documentación). En una PC con wrangler y la sesión de `radarbalcarce@gmail.com`:
+
+1. `npx wrangler d1 time-travel info radar-nucleo` muestra el punto actual.
+2. `npx wrangler d1 time-travel restore radar-nucleo --timestamp=2026-11-05T10:00:00Z` vuelve la base a esa hora (la hora de un momento en que estaba bien, en UTC; Balcarce es UTC−3). Devuelve un «bookmark» anterior: **anotarlo**, porque con él se deshace el cambio.
+3. Mirar el sitio y `/salud` del núcleo. Si quedó peor, volver con `--bookmark=…` al anotado.
+
+**Caso 2: la base se borró, o Time Travel ya no llega (más de 7 o 30 días), o hay que volver más atrás.** Con el respaldo propio:
+
+1. **Bajar el archivo.** Cloudflare → R2 → `radar-render` → carpeta `respaldos/d1/` → elegir el día → Download. (O: `npx wrangler r2 object get radar-render/respaldos/d1/2026-11-05.sql.gz --remote --file=respaldo.sql.gz`.) Elegir el último día **anterior** al problema.
+2. **Descomprimir.** `gunzip respaldo.sql.gz` (en Windows, 7-Zip: clic derecho → Extraer aquí). Queda `respaldo.sql`.
+3. **Probar en una base de ensayo, sin tocar nada de producción.** `npx wrangler d1 create radar-nucleo-ensayo`, después `npx wrangler d1 execute radar-nucleo-ensayo --remote --file=respaldo.sql` y `npx wrangler d1 execute radar-nucleo-ensayo --remote --command="SELECT COUNT(*) AS notas FROM notas"`. La cantidad tiene que parecerse a la del resumen de la corrida de ese día (GitHub → Actions → «Radar 3.0: respaldo de la base» → la corrida → «Filas al restaurarlo de prueba»). Si da error, probar con el día anterior.
+4. **Si la base original se borró:** `npx wrangler d1 create radar-nucleo` (el **mismo nombre**: los workflows buscan la base por nombre) y `npx wrangler d1 execute radar-nucleo --remote --file=respaldo.sql`.
+   **Si la base original existe pero está rota y Time Travel no sirve:** borrarla es irreversible, así que **sólo con el «sí» escrito de Hernán**: `npx wrangler d1 delete radar-nucleo`, y de ahí igual que el párrafo anterior. Hacerlo recién con el paso 3 aprobado.
+5. **Volver a conectar los Workers.** Cada Worker apunta a la base por su identificador, que cambia al crearla de nuevo. GitHub → Actions → «Radar 3.0: desplegar» → correrlo cuatro veces, con `que` = `nucleo`, `sitio`, `redes` y `telegram` (los workflows buscan la base por el nombre `radar-nucleo` y reescriben el identificador; también aplican de nuevo los esquemas, que no pisan datos).
+6. **Mirar.** `https://radar-nucleo.radarbalcarce.workers.dev/salud` (la última vuelta y las notas de hoy), radarbalcarce.com y el resumen de las 21:30. Después se puede borrar la base de ensayo (`npx wrangler d1 delete radar-nucleo-ensayo`).
+7. **Qué se pierde.** Lo que se escribió **entre las 4:20 del respaldo y el desastre**. Las notas que hace el motor se vuelven a armar solas desde los feeds (las fuentes mantienen unas 36 horas); lo que Hernán cargó por Telegram ese día hay que volver a pasarlo (lo que escribió está en el KV del bot y en `v3/redaccion/telegram/entrada/`). El sitio mientras tanto sigue mostrando páginas guardadas por Cloudflare (entre 5 minutos y una hora): la caída real es de unos 15 minutos.
+
+**Revisión periódica (una vez por mes, 2 minutos).** Abrir la última corrida verde de «Radar 3.0: respaldo de la base» y mirar que diga «Respaldo guardado» con la fecha de hoy y las filas de notas, historias y artículos. Si falta un día, avisa Telegram; si dejó de llegar el aviso y también la corrida, mirar que el workflow siga activo (GitHub desactiva los programados cuando el repositorio no se toca en 60 días).
+
+### Propuesta: copias propias de `radar-fotos` (sin implementar; no exige claves nuevas hasta el paso 3)
+
+Qué hay en el depósito y qué se perdería de verdad: (a) `copias/` (las fotos de las notas): se pueden **volver a bajar** de la dirección original que cada nota conserva (`foto.url`), mientras el medio no la haya borrado; (b) `fotos-notas/` (las de las notas migradas y de redacción): están en el historial del repositorio del sistema viejo y en el depósito `radar-archivo`; (c) `fuentes/` (tipografías): están en el repositorio. O sea: **nada es irrecuperable hoy**, y por eso esto es prioridad baja frente a la base. Lo único que a futuro sí sería único son las fotos que Hernán suba directo (notas propias) y las copias de fotos cuyo medio ya las borró.
+
+Propuesta, de menos a más:
+
+1. **Ahora, gratis: no hacer nada y guardar la dirección original.** Las copias de `copias/` ya conservan `foto.url` en la base (que ya se respalda por día). Con el respaldo de la base se puede recrear todo lo que todavía exista afuera.
+2. **Segundo depósito en la misma cuenta, copiando sólo lo nuevo.** Crear `radar-fotos-respaldo` y, una vez por día, copiar las claves que no estén (los nombres de `copias/<huella>.jpg` son el contenido: una clave que ya está nunca cambia, así que **sólo se copian las nuevas**: unas 250 por día, unos 60 MB). Se hace con la misma API S3 que ya usa `infra/compartido/r2-s3.mjs` (listar los dos depósitos, copiar con `x-amz-copy-source`: la copia es de R2 a R2, no gasta ancho de banda ni se paga salida), con las mismas claves `R2_ACCESS_KEY_ID`/`R2_SECRET_ACCESS_KEY` **si** su permiso alcanza a los dos depósitos (hoy las crearon para `radar-render`: una persona tiene que ampliarlas a «Object Read & Write» sobre `radar-fotos` y el depósito nuevo; sin eso, no se puede). Costo: unos 5 GB en un año (plan gratis: 10 GB) y menos de 1.000 pedidos por día. **Protege de un borrado por error o por un bug nuestro, no de perder la cuenta de Cloudflare.**
+3. **Copia fuera de Cloudflare (la única que protege de perder la cuenta).** Lo mismo, pero hacia otro proveedor (Backblaze B2: 10 GB gratis; sólo cobra la salida) o hacia otra cuenta de R2. **Exige una clave nueva** y que una persona abra esa cuenta: por eso no se implementa sin que Hernán lo decida. Mensual alcanza.
+
+Recomendación: hacer el paso 2 sólo cuando las copias propias cubran todas las notas (hoy se están rellenando) y dejar el 3 para cuando haya un anunciante pagando; hasta entonces el respaldo de la base más las direcciones originales alcanzan.
+
+**Pruebas:** `v3/nucleo/scripts/respaldo-d1.test.mjs` (nombres, poda, controles del volcado, orden de la corrida, restauración de prueba con SQLite de verdad, el id de la base y la config temporal de wrangler) y `v3/nucleo/workflows-v3.test.mjs` (permisos, inyección en workflows, el respaldo sin adjuntos).

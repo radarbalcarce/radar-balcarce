@@ -145,11 +145,79 @@ export const CABECERAS_DE_SEGURIDAD = {
   'x-frame-options': 'SAMEORIGIN',
 };
 
-/** La misma respuesta con las cabeceras de seguridad que le falten (se arma una nueva: las que vienen de una caché o de otro sitio no se pueden tocar). */
+// Content-Security-Policy SÓLO PARA INFORMAR (auditoría de seguridad del 5/11/2026): el navegador NO bloquea nada, sólo avisa a /csp-reporte lo que una política
+// estricta habría bloqueado. Sirve para aprender qué cargan de verdad AdSense, Analytics y Cloudflare antes de pensar en bloquear. Las páginas llevan scripts y estilos
+// escritos adentro, por eso 'unsafe-inline'; pasar a nonces es un trabajo aparte. Con `img-src https:` porque las fotos todavía vienen de otros medios (hasta que las copias propias cubran todo).
+// Para pasar a bloquear algún día: cambiar el nombre de la cabecera a `content-security-policy` SÓLO cuando los avisos de dos semanas den cero y con aprobación de una persona.
+export const CSP_SOLO_INFORMAR = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://*.adtrafficquality.google https://googleads.g.doubleclick.net https://partner.googleadservices.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' https: data: blob:",
+  "media-src 'self' https:",
+  "font-src 'self' data:",
+  "connect-src 'self' https://pagead2.googlesyndication.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://cloudflareinsights.com https://*.adtrafficquality.google https://googleads.g.doubleclick.net",
+  "frame-src https://googleads.g.doubleclick.net https://*.googlesyndication.com https://www.google.com https://*.adtrafficquality.google",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  'report-uri /csp-reporte',
+].join('; ');
+
+/** La misma respuesta con las cabeceras de seguridad que le falten (se arma una nueva: las que vienen de una caché o de otro sitio no se pueden tocar). Las páginas HTML suman la CSP de sólo informar. */
 export function conCabecerasDeSeguridad(r) {
   const h = new Headers(r.headers);
   for (const [k, v] of Object.entries(CABECERAS_DE_SEGURIDAD)) if (!h.has(k)) h.set(k, v);
+  if (/^text\/html/i.test(h.get('content-type') ?? '') && !h.has('content-security-policy') && !h.has('content-security-policy-report-only')) h.set('content-security-policy-report-only', CSP_SOLO_INFORMAR);
   return new Response(r.body, { status: r.status, statusText: r.statusText, headers: h });
+}
+
+const TOPE_DE_UN_REPORTE = 8 * 1024;
+
+/** Lee como mucho `maximo` bytes del cuerpo de un pedido; null si se pasa (sin cargar el resto). */
+async function leerCuerpoConTope(pedido, maximo) {
+  const largo = Number(pedido.headers.get('content-length'));
+  if (largo && largo > maximo) return null;
+  if (!pedido.body?.getReader) { const t = await pedido.text(); return t.length > maximo ? null : t; }
+  const lector = pedido.body.getReader();
+  const partes = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await lector.read();
+    if (done) break;
+    total += value.length;
+    if (total > maximo) { try { await lector.cancel(); } catch { /* ya cortado */ } return null; }
+    partes.push(value);
+  }
+  return new TextDecoder().decode(Buffer.concat(partes.map((p) => Buffer.from(p))));
+}
+
+const recorte = (x, n = 160) => String(x ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').slice(0, n);
+/** De un aviso de la CSP, lo mínimo para el registro: qué regla, desde qué página (sólo la ruta) y qué se bloquearía (sin parámetros). */
+export function resumenDeReporte(crudo) {
+  let j;
+  try { j = JSON.parse(crudo); } catch { return null; }
+  const lista = Array.isArray(j) ? j.map((x) => x?.body) : [j?.['csp-report'] ?? j];
+  const r = lista.find((x) => x && typeof x === 'object');
+  if (!r) return null;
+  const sinParametros = (u) => { try { const x = new URL(String(u)); return `${x.origin}${x.pathname}`; } catch { return recorte(u, 40); } };
+  const dato = {
+    regla: recorte(r['effective-directive'] ?? r.effectiveDirective ?? r['violated-directive'] ?? r.violatedDirective, 60),
+    pagina: recorte(sinParametros(r['document-uri'] ?? r.documentURL ?? r.documentUri), 120),
+    bloqueado: recorte(sinParametros(r['blocked-uri'] ?? r.blockedURL ?? r.blockedUri), 160),
+  };
+  return dato.regla || dato.pagina || dato.bloqueado ? dato : null;
+}
+
+/** POST /csp-reporte: anota (en el registro del Worker, nada se guarda) lo que avisa el navegador. Cuerpo de hasta 8 KB; siempre 204 salvo método o tamaño inválidos. */
+async function recibirReporteCsp(pedido) {
+  const sin = { 'cache-control': 'no-store', 'x-robots-tag': 'noindex' };
+  const crudo = await leerCuerpoConTope(pedido, TOPE_DE_UN_REPORTE).catch(() => null);
+  if (crudo === null) return new Response(null, { status: 413, headers: sin });
+  const resumen = resumenDeReporte(crudo);
+  if (resumen) console.warn(`csp-reporte ${JSON.stringify(resumen)}`);
+  return new Response(null, { status: 204, headers: sin });
 }
 
 const noEncontrada = (contexto) => respuesta(paginaNoEncontrada({ contexto }), { estado: 404, indexar: false });
@@ -411,6 +479,7 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
     /** Atiende el pedido: http pasa a https (301) y todas las respuestas salen con las cabeceras de seguridad (`conCabecerasDeSeguridad`). */
     async manejar(pedido, env, ctx, opciones) {
       const url = new URL(pedido.url);
+      if (pedido.method === 'POST' && url.pathname === '/csp-reporte' && !(url.protocol === 'http:' && !esLocal(url.hostname))) return conCabecerasDeSeguridad(await recibirReporteCsp(pedido));
       if (url.protocol === 'http:' && !esLocal(url.hostname) && (pedido.method === 'GET' || pedido.method === 'HEAD')) {
         url.protocol = 'https:';
         return conCabecerasDeSeguridad(new Response(null, { status: 301, headers: { location: url.toString(), 'cache-control': 'public, max-age=3600' } }));

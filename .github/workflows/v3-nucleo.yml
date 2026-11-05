@@ -75,7 +75,8 @@ jobs:
         if: env.ACCION == 'retirar'
         working-directory: v3/nucleo
         run: |
-          echo "$NOTA" | grep -Eq '^[a-z0-9]{3,30}$' || { echo "Id de nota inválido"; exit 1; }
+          # Con [[ =~ ]] se mira el texto ENTERO (con grep, una línea buena y otra mala pasaban: hasta 5/11/2026 `echo | grep`).
+          [[ "$NOTA" =~ ^[a-z0-9]{3,30}$ ]] || { echo "Id de nota inválido"; exit 1; }
           test -n "$MOTIVO" || { echo "Falta el motivo"; exit 1; }
           buscar() {
             npx --yes wrangler@4.139.0 d1 list --json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const l=JSON.parse(s.slice(s.indexOf('[')));const x=l.find(n=>n.name==='radar-nucleo');process.stdout.write(x?x.uuid:'')})"

@@ -1,0 +1,74 @@
+name: "Radar 3.0: respaldo de la base"
+
+# Copia de seguridad DIARIA de la base D1 `radar-nucleo` (donde viven todas las notas de Radar 3.0). Qué hace, cómo se restaura paso a paso y por qué así: v3/nucleo/REGLAS.md, § 13.
+# Programa: v3/nucleo/scripts/respaldo-d1.mjs (con sus pruebas). Hasta el 5/11/2026 no había respaldo de la base: «Respaldo» (los domingos) sólo copia el repositorio.
+#
+# Qué hace, en este orden: exporta la base entera (esquema y datos) con wrangler → controla que parezca una base de verdad → la comprime → la sube al depósito R2 privado
+# `radar-render`, carpeta `respaldos/d1/AAAA-MM-DD.sql.gz` → la vuelve a bajar y compara → la restaura de prueba en una base SQLite en memoria (cuenta notas, historias y artículos)
+# → recién ahí borra los viejos (se conservan los últimos 30 días y el primer respaldo de cada uno de los últimos 12 meses). Si cualquier paso falla, no se borra nada.
+#
+# Cuándo: todos los días a las 7:20 UTC (4:20 de Balcarce, la hora más tranquila; el minuto :20 no coincide con la vuelta del núcleo, que sale a los :00, :15, :30 y :45).
+# Exportar bloquea la base unos segundos (con la base de hoy, menos de diez): si una vuelta justo cae en ese momento, reintenta sola a los 15 minutos.
+# A mano: Actions → «Radar 3.0: respaldo de la base» → Run workflow. `simular` exporta y controla pero no sube ni borra nada (para probar que anda sin tocar el depósito).
+#
+# Secretos de GitHub (los pega una persona, nunca en un chat; son los de siempre, no hay que crear ninguno): CLOUDFLARE_API_TOKEN (alcanza con leer D1), CLOUDFLARE_ACCOUNT_ID,
+# R2_ACCESS_KEY_ID y R2_SECRET_ACCESS_KEY (los que ya usan las piezas de redes para escribir en `radar-render`). Variable opcional: R2_RESPALDOS (otro depósito).
+# TELEGRAM_TOKEN sólo para avisarle a Hernán si el respaldo falla.
+# IMPORTANTE: el volcado NUNCA se sube como adjunto de la corrida (este repositorio es público y los adjuntos se pueden bajar): sólo viaja al depósito privado.
+
+on:
+  schedule:
+    - cron: '20 7 * * *'
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: 'Sólo exportar y controlar, sin subir ni borrar nada (para probar)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-respaldo-d1
+  cancel-in-progress: false
+
+jobs:
+  respaldo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_RESPALDOS: ${{ vars.R2_RESPALDOS }}
+      SIMULAR: ${{ inputs.simular }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # No hace falta `npm ci`: el programa usa sólo Node y wrangler (que baja npx, fijado en la versión de los demás workflows).
+      - name: Pruebas del respaldo
+        run: node --test v3/nucleo/scripts/respaldo-d1.test.mjs
+
+      - name: Respaldar la base
+        run: |
+          if [ "$SIMULAR" = "true" ]; then
+            node v3/nucleo/scripts/respaldo-d1.mjs --simular
+          else
+            node v3/nucleo/scripts/respaldo-d1.mjs
+          fi
+
+      # Si falló, Hernán lo sabe por Telegram (además del mail que manda GitHub). Nunca incluye datos de la base.
+      - name: Avisar si falló
+        if: failure()
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: |
+          printf '%s\n' "El respaldo diario de la base de Radar 3.0 falló. Hoy no hay copia nueva; las anteriores siguen en el depósito." "Miralo en GitHub → Actions → «Radar 3.0: respaldo de la base». Cómo se restaura y qué mirar: v3/nucleo/REGLAS.md, § 13." > aviso-respaldo.md
+          node v3/redaccion/telegram/herramientas.mjs decir aviso-respaldo.md

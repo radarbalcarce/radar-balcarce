@@ -20,6 +20,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { medirImagen, USER_AGENT } from '../../redes/piezas/fotos.mjs';
 import { ANCHO_GRANDE, ANCHO_CHICA, claveR2DeCopia, urlDeCopia, yaEsPropia } from '../fotos-copia.mjs';
+import { esDireccionPublica } from '../direccion-publica.mjs';
 import { correrWrangler, hayCredenciales, enParalelo } from './wrangler.mjs';
 
 export const DEPOSITO = 'radar-fotos';
@@ -30,6 +31,7 @@ export const HORAS_ENTRE_INTENTOS = 3;
 export const BYTES_MAXIMOS = 15 * 1024 * 1024;
 export const ANCHO_MINIMO = 300;
 const MS_DE_DESCARGA = 20_000;
+const SALTOS_MAXIMOS = 4;
 
 // ------------------------------------------------------------------ lo puro
 
@@ -76,17 +78,52 @@ export const fotoConFalloAnotado = (foto, motivo, ahoraISO) => ({ ...foto, copia
 
 // ------------------------------------------------------------------ bajar, convertir, guardar
 
-/** Baja la foto de la fuente. Tira un Error con un motivo corto si no se puede (`http-403`, `no-es-imagen`, `muy-pesada`, `sin-respuesta`). */
+/**
+ * Lee el cuerpo de una respuesta sin pasarse de `maximo` bytes: si el servidor no avisa el tamaño y manda gigas, se corta apenas se pasa (no se carga todo en memoria).
+ * Con una respuesta sin `body` legible (las de las pruebas viejas) usa arrayBuffer.
+ */
+export async function leerConTope(r, maximo) {
+  if (!r.body?.getReader) {
+    const todo = Buffer.from(await r.arrayBuffer());
+    if (todo.length > maximo) throw new Error('muy-pesada');
+    return todo;
+  }
+  const lector = r.body.getReader();
+  const partes = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await lector.read();
+    if (done) break;
+    total += value.length;
+    if (total > maximo) { try { await lector.cancel(); } catch { /* ya cortada */ } throw new Error('muy-pesada'); }
+    partes.push(value);
+  }
+  return Buffer.concat(partes);
+}
+
+/**
+ * Baja la foto de la fuente. Tira un Error con un motivo corto si no se puede (`http-403`, `no-es-imagen`, `muy-pesada`, `sin-respuesta`, `direccion-no-permitida`).
+ * Seguridad (auditoría del 5/11): sólo direcciones públicas (`esDireccionPublica`), también en cada redirección (hasta 4, a mano), y con tope de bytes al leer.
+ */
 export async function descargar(url, { fetchFn = globalThis.fetch } = {}) {
+  let actual = String(url);
   let r;
-  try {
-    r = await fetchFn(url, { headers: { 'user-agent': USER_AGENT, accept: 'image/*' }, redirect: 'follow', signal: AbortSignal.timeout(MS_DE_DESCARGA) });
-  } catch { throw new Error('sin-respuesta'); }
+  for (let salto = 0; ; salto++) {
+    if (!esDireccionPublica(actual)) throw new Error('direccion-no-permitida');
+    try {
+      r = await fetchFn(actual, { headers: { 'user-agent': USER_AGENT, accept: 'image/*' }, redirect: 'manual', signal: AbortSignal.timeout(MS_DE_DESCARGA) });
+    } catch { throw new Error('sin-respuesta'); }
+    if (r.status >= 300 && r.status < 400 && r.headers?.get?.('location')) {
+      if (salto >= SALTOS_MAXIMOS) throw new Error('muchos-saltos');
+      try { actual = new URL(r.headers.get('location'), actual).toString(); } catch { throw new Error('direccion-no-permitida'); }
+      continue;
+    }
+    break;
+  }
   if (!r.ok) throw new Error(`http-${r.status}`);
   const largo = Number(r.headers?.get?.('content-length'));
   if (largo && largo > BYTES_MAXIMOS) throw new Error('muy-pesada');
-  const bytes = Buffer.from(await r.arrayBuffer());
-  if (bytes.length > BYTES_MAXIMOS) throw new Error('muy-pesada');
+  const bytes = await leerConTope(r, BYTES_MAXIMOS);
   if (!tipoDeImagen(bytes)) throw new Error('no-es-imagen');
   return bytes;
 }

@@ -2,6 +2,11 @@ node_modules/
 .env
 .env.local
 .env*.local
+# Secretos locales de wrangler y copias de la base: nunca al repositorio (que es público). El respaldo diario va a R2, no acá (v3/nucleo/REGLAS.md § 13).
+.dev.vars
+.dev.vars.*
+*.sql.gz
+respaldo-d1-*/
 reels/salida/
 # La cortina (marca/cortina.wav) se genera sola con ffmpeg; las tipografías sí
 # se suben, para que GitHub pueda armar las placas (son libres: OFL).

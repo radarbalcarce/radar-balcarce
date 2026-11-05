@@ -54,7 +54,7 @@ export default crearWorker();
 async function recibir(pedido, env, ctx, textos) {
   if (!env.TELEGRAM_TOKEN) return new Response('sin token', { status: 503 });
   const contrasena = await contrasenaDelWebhook(env.TELEGRAM_TOKEN);
-  if (pedido.headers.get('x-telegram-bot-api-secret-token') !== contrasena) return new Response('no', { status: 403 });
+  if (!iguales(pedido.headers.get('x-telegram-bot-api-secret-token') ?? '', contrasena)) return new Response('no', { status: 403 });
 
   let actualizacion;
   try { actualizacion = await pedido.json(); } catch { return new Response('ok'); }
@@ -175,13 +175,19 @@ export function partirTexto(texto, max = LARGO_DE_UN_MENSAJE) {
   return trozos;
 }
 
+/** Compara dos textos sin que el tiempo que tarda dependa de cuántos caracteres coinciden (para contraseñas; auditoría de seguridad del 5/11/2026). */
+export function iguales(recibida, esperada) {
+  const a = String(recibida ?? '');
+  const b = String(esperada ?? '');
+  let dif = a.length ^ b.length;
+  for (let i = 0; i < b.length; i++) dif |= b.charCodeAt(i) ^ (a.charCodeAt(i) || 0);
+  return dif === 0;
+}
+
 async function autorizado(pedido, env) {
   if (!env.TELEGRAM_TOKEN) return new Response('sin token', { status: 503 });
   const esperada = await contrasenaDelWebhook(env.TELEGRAM_TOKEN);
-  const recibida = pedido.headers.get('x-radar-contrasena') ?? '';
-  let dif = esperada.length ^ recibida.length;
-  for (let i = 0; i < esperada.length; i++) dif |= esperada.charCodeAt(i) ^ (recibida.charCodeAt(i) || 0);
-  return dif === 0 ? null : new Response('no', { status: 403 });
+  return iguales(pedido.headers.get('x-radar-contrasena') ?? '', esperada) ? null : new Response('no', { status: 403 });
 }
 
 const json = (cuerpo, status = 200) => new Response(JSON.stringify(cuerpo), { status, headers: { 'content-type': 'application/json; charset=utf-8' } });
@@ -253,7 +259,8 @@ async function conectar(env) {
 async function salud(env) {
   const webhook = await env.ESTADO.get('webhook', 'json');
   const dueno = await env.ESTADO.get('dueno', 'json');
-  const cuerpo = { token: Boolean(env.TELEGRAM_TOKEN), webhook, dueno: dueno ? { nombre: dueno.nombre, desde: dueno.desde } : null };
+  // /salud es público: no dice quién es el dueño (ni su nombre ni su usuario), sólo desde cuándo hay uno.
+  const cuerpo = { token: Boolean(env.TELEGRAM_TOKEN), webhook, dueno: dueno ? { desde: dueno.desde } : null };
   return new Response(JSON.stringify(cuerpo, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' } });
 }
 
