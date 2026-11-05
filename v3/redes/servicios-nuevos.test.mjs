@@ -119,7 +119,8 @@ test('el plan: las condicionales (feriado, agenda, avisos) sólo entran si el pr
   // «solo» (ensayo a mano) las pide aunque no haya datos: después sale «sin-datos».
   const solo = await planear({ DB: baseDePrueba().DB }, { ahora: jueves, simulado: true, solo: ['aviso-helada'] });
   assert.deepEqual(solo.piezas.map((p) => p.id), ['aviso-helada']);
-  assert.deepEqual(condicionalesQueTocan(jueves).map((p) => p.id).sort(), ['agenda', 'aviso-granizo', 'aviso-helada', 'aviso-viento']);
+  // La agenda está en pausa (Hernán, 5/11): el programa no la pide sola.
+  assert.deepEqual(condicionalesQueTocan(jueves).map((p) => p.id).sort(), ['aviso-granizo', 'aviso-helada', 'aviso-viento']);
 });
 
 test('útiles: los sábados a las 17; la agenda: los jueves a las 12; el feriado: a las 8 con ventana de 4 horas', () => {
@@ -266,11 +267,11 @@ test('el feriado y la agenda: salen con datos, y sin datos no se reservan', asyn
 
   const jueves = new Date('2026-11-05T15:05:00Z');
   const ag = armarCorrida({ ahora: jueves, agenda: [{ id: 'm1', nombre: 'FERIA DEL LIBRO', desde: '2026-11-07 20:30:00', hasta: '2026-11-07 23:00:00', lugar: 'Plaza' }], clima: CLIMA_FRIO });
-  const r3 = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x' }, ahora: jueves, carpeta: ag.carpeta, deps: ag.deps });
+  const r3 = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x', SOLO: 'agenda' }, ahora: jueves, carpeta: ag.carpeta, deps: ag.deps });
   assert.match(r3.piezas.find((p) => p.pieza === 'agenda').guion, /Feria del Libro, el sábado a las 20 y 30, en Plaza\./);
   const sinAg = armarCorrida({ ahora: jueves, agenda: [], clima: CLIMA_FRIO });
-  const r4 = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x' }, ahora: jueves, carpeta: sinAg.carpeta, deps: sinAg.deps });
-  assert.ok(!r4.piezas.some((p) => p.pieza === 'agenda'));
+  const r4 = await correr({ env: { TELEGRAM_TOKEN: TOKEN, GEMINI_API_KEY_REDES_V3: 'x', SOLO: 'agenda' }, ahora: jueves, carpeta: sinAg.carpeta, deps: sinAg.deps });
+  assert.ok(!r4.piezas.some((p) => p.pieza === 'agenda' && p.estado === 'lista'));
 });
 
 test('ENSAYO: Buffer queda simulado (TikTok, YouTube, X) y no se sube ni se llama a nadie; REAL: se sube una vez y sale por cada canal con el mismo video', async () => {

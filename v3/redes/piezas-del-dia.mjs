@@ -24,11 +24,11 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   { id: 'clima-noche', nombre: 'El clima de la noche', arma: 'clima', formato: 'historia', hora: '20:00', ventana: 240, dias: TODOS, voz: 2, hashtag: 'Clima' },
   { id: 'farmacia', nombre: 'Farmacia de turno', arma: 'farmacia', formato: 'historia', hora: '19:00', ventana: 300, dias: TODOS, voz: 2, hashtag: 'FarmaciaDeTurno' },
   { id: 'feriado', nombre: 'El feriado', arma: 'feriado', formato: 'reel', hora: '08:00', ventana: 240, dias: TODOS, voz: 3, hashtag: 'Feriado', condicional: true },
-  { id: 'agenda', nombre: 'Qué hacer este fin de semana', arma: 'agenda', formato: 'reel', hora: '12:00', ventana: 60, dias: [4], voz: 4, hashtag: 'Agenda', condicional: true },
+  { id: 'agenda', nombre: 'Qué hacer este fin de semana', arma: 'agenda', formato: 'reel', hora: '12:00', ventana: 60, dias: [4], voz: 4, hashtag: 'Agenda', condicional: true, pausada: true },
   { id: 'utiles', nombre: 'Teléfonos útiles', arma: 'utiles', formato: 'reel', hora: '17:00', ventana: 60, dias: [6], voz: 4, hashtag: 'TeléfonosÚtiles' },
   // Los carruseles (formato 'carrusel': varias imágenes 4:5, álbum en Facebook y carrusel en Instagram; sin voz, no gastan audio). `sinVoz: true`. Hernán, 5/11: «en todas las redes sale todo el material que se genere».
   { id: 'carrusel-semana', nombre: 'La semana en Balcarce', arma: 'carrusel-semana', formato: 'carrusel', hora: '11:00', ventana: 180, dias: [0], voz: 5, sinVoz: true, hashtag: 'LaSemana' },
-  { id: 'carrusel-finde', nombre: 'El finde en Balcarce', arma: 'carrusel-finde', formato: 'carrusel', hora: '18:00', ventana: 120, dias: [4], voz: 5, sinVoz: true, hashtag: 'Agenda', condicional: true },
+  { id: 'carrusel-finde', nombre: 'El finde en Balcarce', arma: 'carrusel-finde', formato: 'carrusel', hora: '18:00', ventana: 120, dias: [4], voz: 5, sinVoz: true, hashtag: 'Agenda', condicional: true, pausada: true },
   // El carrusel de una nota propia con 3 fotos o más no tiene hora: sale apenas se publica la nota (una sola vez por nota). Cada nota es una fila `carrusel-nota-<id>`; esta fila sólo dice que existe y cuándo se mira.
   { id: 'carrusel-nota', nombre: 'Las fotos de la nota', arma: 'carrusel-nota', formato: 'carrusel', hora: '08:00', ventana: 840, dias: TODOS, voz: 5, sinVoz: true, porNota: true, hashtag: 'Fotos' },
   // Los avisos de clima no tienen hora ni día fijos: salen apenas hay uno grave (de 7:00 a 22:00), en una historia con voz. Una sola vez al día cada tipo.
@@ -48,7 +48,8 @@ export const PIEZAS_DEL_DIA = Object.freeze([
 export const piezaDelDia = (id) => PIEZAS_DEL_DIA.find((p) => p.id === id);
 
 /** Las piezas condicionales que tocan ahora (o las pedidas en `solo`): las que el programa tiene que mirar si tienen datos ANTES de pedir el plan. */
-export const condicionalesQueTocan = (ahora, solo = []) => (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora)).filter((p) => p.condicional);
+// `pausada: true` = la pieza no se pide al plan sola (Hernán, 5/11: la agenda queda en pausa hasta tener los eventos al día): como es condicional, sin que el programa diga que hay datos el plan no la reserva. Sale sólo si se la pide a mano con `solo`. Para prenderla de nuevo, se saca la marca.
+export const condicionalesQueTocan = (ahora, solo = []) => (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora).filter((p) => !p.pausada)).filter((p) => p.condicional);
 
 const UTC_MENOS_3 = 3 * 3600 * 1000;
 

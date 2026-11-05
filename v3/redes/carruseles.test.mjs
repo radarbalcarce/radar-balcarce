@@ -110,7 +110,10 @@ test('la tabla: la semana los domingos a las 11, el finde los jueves a las 18 (s
   assert.deepEqual(accionesDe(por('carrusel-semana')).map((a) => `${a.red}/${a.tipo}`), ['instagram/CARRUSEL', 'facebook/ALBUM']);
   assert.ok(piezasQueTocan(DOMINGO_11).some((p) => p.id === 'carrusel-semana'));
   assert.ok(!piezasQueTocan(MARTES_10).some((p) => p.id === 'carrusel-semana'));
-  assert.ok(condicionalesQueTocan(JUEVES_18).some((p) => p.id === 'carrusel-finde'));
+  // Hernán, 5/11: la agenda (y su carrusel) quedan en pausa hasta tener los eventos al día: el programa no los pide solo, sí cuando se los nombra a mano.
+  assert.equal(por('carrusel-finde').pausada, true);
+  assert.ok(!condicionalesQueTocan(JUEVES_18).some((p) => p.id === 'carrusel-finde'));
+  assert.ok(condicionalesQueTocan(JUEVES_18, ['carrusel-finde']).some((p) => p.id === 'carrusel-finde'));
 });
 
 // ------------------------------------------------------------------ los textos
@@ -422,16 +425,16 @@ test('«El finde»: el programa mira la agenda; con eventos arma el carrusel (po
     { nombre: 'Feria de emprendedores', desde: '2026-11-08T10:00:00-03:00', lugar: 'Plaza Libertad' },
   ];
   const t = armarCorrida({ ahora: JUEVES_18, agenda: eventos });
-  const r = await correr({ env: t.env, ahora: JUEVES_18, carpeta: t.carpeta, deps: t.deps });
+  const r = await correr({ env: { ...t.env, SOLO: 'carrusel-finde' }, ahora: JUEVES_18, carpeta: t.carpeta, deps: t.deps });
   const f = r.piezas.find((p) => p.pieza === 'carrusel-finde');
   assert.equal(f.estado, 'lista', f.error);
   assert.equal(f.laminas, 3);
   assert.match(f.texto, /• sábado 21:00 · Obra de teatro para toda la familia \(Teatro Municipal\)/);
 
   const vacio = armarCorrida({ ahora: JUEVES_18, agenda: [] });
-  const r2 = await correr({ env: vacio.env, ahora: JUEVES_18, carpeta: vacio.carpeta, deps: vacio.deps });
-  assert.ok(!r2.piezas.some((p) => p.pieza === 'carrusel-finde'));
-  assert.equal(vacio.filas().length, 0);
+  const r2 = await correr({ env: { ...vacio.env, SOLO: 'carrusel-finde' }, ahora: JUEVES_18, carpeta: vacio.carpeta, deps: vacio.deps });
+  assert.ok(!r2.piezas.some((p) => p.pieza === 'carrusel-finde' && p.estado === 'lista'));
+  assert.ok(vacio.filas().every((f) => f.estado !== 'lista' && f.estado !== 'publicada')); // a mano, sin eventos queda «sin-datos»
 });
 
 test('el carrusel de una nota propia sale una sola vez y con el enlace de la nota en Facebook', async () => {

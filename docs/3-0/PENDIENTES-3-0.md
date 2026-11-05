@@ -38,3 +38,5 @@
 - **«En dos líneas» arriba de la nota**: sí, varios diarios lo usan así (un resumen arriba, antes del cuerpo). Queda.
 - **Una nota por cada repaso (podcast)**: en la 3.0 no; el repaso es un video que lleva a las tres notas. No hace falta una nota aparte.
 - **Notas en el sitio**: unas 2.900 migradas del sistema viejo más las de la 3.0 (unas 100 por día).
+
+- **Agenda en pausa (Hernán, 5/11):** el reel «Qué hacer este fin de semana» y el carrusel «El finde en Balcarce» no salen hasta que los eventos estén al día. Para prenderlos de nuevo, sacar `pausada: true` de sus dos filas en `v3/redes/piezas-del-dia.mjs`.
