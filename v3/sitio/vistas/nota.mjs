@@ -145,6 +145,14 @@ export function seguirLeyendoHtml(n, seguir = []) {
     + '</ul><p class="seguir-mas"><a href="/seccion/' + ranuraDe(n.seccion) + '">Más de ' + esc(n.seccion) + '</a> · <a href="/">Ir a la portada</a></p></section>';
 }
 
+/** «Lo más contado»: las notas de las últimas 48 horas que más medios contaron (db/mas-contadas.mjs); sin ninguna, no sale el bloque. */
+export function masContadasHtml(contadas = []) {
+  if (!contadas?.length) return '';
+  const ahora = new Date();
+  return '<section class="seguir contadas" aria-labelledby="contadas-t"><h2 id="contadas-t">Lo más contado</h2><ul class="lista">'
+    + contadas.map((x) => filaDeLista(x, ahora)).join('') + '</ul></section>';
+}
+
 export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   const foto = n.foto && urlSegura(n.foto.url) ? n.foto : null;
   const persona = n.origen !== 'viejo' && n.firma && n.firma !== FIRMA_IA ? n.firma.replace(/^(por|revisad[ao] por)\s+/i, '') : null;
@@ -171,7 +179,7 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   };
 }
 
-export function paginaDeNota(n, { indexar, contexto, seguir = [] }) {
+export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [] }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
@@ -196,6 +204,7 @@ ${bloquesDeFicha(n.ficha)}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
 ${compartirHtml(n, canonico)}
 ${seguirLeyendoHtml(n, seguir)}
+${masContadasHtml(contadas)}
 ${fuentesHtml(n.fuentes || [])}
 </article>`;
   return pagina({

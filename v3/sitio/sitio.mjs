@@ -12,6 +12,7 @@ import { configDe, adsTxt } from './vistas/consentimiento.mjs';
 import { paginaDeTexto, RUTAS_DE_TEXTO } from './vistas/paginas.mjs';
 import { paginaClima, paginaFarmacias, paginaDolar } from './vistas/paginas-del-dia.mjs';
 import { sitemapIndice, sitemapDelMes, sitemapDePaginas, rss, robots } from './vistas/xml.mjs';
+import { masContadas } from './db/mas-contadas.mjs';
 import { servirEstatico } from './estaticos.mjs';
 import { OG_DEFAULT_BASE64 } from './og-default.mjs';
 import { leerAgenda, eventoDeRuta } from './agenda.mjs';
@@ -333,7 +334,9 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       const contextoNota = await contextoDelDia();
       const indexarNota = indexar && !noSeIndexa(nota);
       const seguir = await consultas.paraSeguirLeyendo(env, nota).catch(() => []);
-      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
+      // «Lo más contado»: lo de las últimas 48 horas con más fuentes, sin repetir lo que ya está en «Seguí leyendo».
+      const contadas = masContadas(await consultas.listar(env, { limite: 150, despues: new Date(ahora().getTime() - 48 * 3600 * 1000).toISOString() }).catch(() => []), { ahora: ahora(), excluir: [nota.id, ...seguir.map((x) => x.id)] });
+      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir, contadas }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
     }
 
     if (ruta === '/buscar') {
