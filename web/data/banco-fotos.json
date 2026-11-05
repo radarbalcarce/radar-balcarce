@@ -45267,9 +45267,7 @@
   "intentosPorCupo": 1
  },
  "1557yh6": {
-  "archivo": "fotos-notas/1557yh6.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "McDonald's y Alpine preparan una acción especial con expectativa por Franco Colapinto",
@@ -45289,12 +45287,11 @@
    "descripcion": "Caja de juguete a escala del auto de Alpine F1 con logos de McDonald's"
   },
   "huella": "a8a0c4b4a6e49484",
-  "ausenteDesde": "2026-10-29T19:04:50.741Z"
+  "intentado": true,
+  "borrada": true
  },
  "1finiqu": {
-  "archivo": "fotos-notas/1finiqu.jpg",
   "medio": "Crónica",
-  "credito": "Foto: Crónica",
   "licencia": null,
   "origen": "medio",
   "titulo": "Moria Casán despide a su histórico chofer Fernando Shedden",
@@ -45314,7 +45311,8 @@
    "descripcion": "Collage con foto de Fernando Shedden y de Moria Casán"
   },
   "huella": "ccda4beaebebe7ce",
-  "ausenteDesde": "2026-10-29T19:04:50.741Z"
+  "intentado": true,
+  "borrada": true
  },
  "10l9k07": {
   "medio": "Olé",
@@ -47036,9 +47034,7 @@
   "ausenteDesde": "2026-10-29T21:04:21.501Z"
  },
  "74v84y": {
-  "archivo": "fotos-notas/74v84y.jpg",
   "medio": "El Economista",
-  "credito": "Foto: El Economista",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mendoza impulsa Vaca Muerta con un proyecto de YPF por US$ 4.500 millones",
@@ -47058,7 +47054,8 @@
    "descripcion": "Torre de perforación petrolera en la estepa"
   },
   "huella": "065b2007170f2a19",
-  "ausenteDesde": "2026-10-29T19:04:50.741Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ehdjsl": {
   "medio": "Ámbito",
@@ -47094,9 +47091,7 @@
   "fuentes": 2
  },
  "vecvnc": {
-  "archivo": "fotos-notas/ik3kab.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Anses oficializa el aumento del 1,93 por ciento para jubilaciones en noviembre",
@@ -47116,7 +47111,8 @@
    "descripcion": "Fachada exterior de una oficina de ANSES"
   },
   "huella": "c6cefdf9f0f073f3",
-  "ausenteDesde": "2026-10-29T19:04:50.741Z"
+  "intentado": true,
+  "borrada": true
  },
  "ysgzoi": {
   "medio": "Campeones",
@@ -52236,9 +52232,7 @@
   "ausenteDesde": "2026-10-31T09:01:41.914Z"
  },
  "1euy2o2": {
-  "archivo": "fotos-notas/1euy2o2.jpg",
   "medio": "La Verdad",
-  "credito": "Foto: La Verdad",
   "licencia": null,
   "origen": "medio",
   "titulo": "Una docente termina hospitalizada tras ser agredida por una alumna en San Nicolás",
@@ -52270,7 +52264,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "e3b30dab352ba917",
-  "ausenteDesde": "2026-10-29T19:33:22.261Z"
+  "intentado": true,
+  "borrada": true
  },
  "1tejsa4": {
   "archivo": "fotos-notas/1tejsa4.jpg",
@@ -72190,7 +72185,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "1f1e1e2ecebaf5ae"
+  "huella": "1f1e1e2ecebaf5ae",
+  "ausenteDesde": "2026-11-05T19:55:01.754Z"
  },
  "fuxzeq": {
   "archivo": "fotos-notas/fuxzeq.jpg",
@@ -72402,7 +72398,8 @@
    "corresponde": "si",
    "descripcion": "Dos hombres parados en medio de un cultivo de triticale."
   },
-  "huella": "0d55212741a02560"
+  "huella": "0d55212741a02560",
+  "ausenteDesde": "2026-11-05T19:55:01.754Z"
  },
  "1faalls": {
   "archivo": "fotos-notas/1faalls.jpg",
@@ -72426,8 +72423,7 @@
    "corresponde": "si",
    "descripcion": "Facundo Cerone de perfil con campera con la inscripción aurinegro"
   },
-  "huella": "9d1424b6f6c9d9b8",
-  "ausenteDesde": "2026-11-05T19:04:22.429Z"
+  "huella": "9d1424b6f6c9d9b8"
  },
  "1tqe7zq": {
   "archivo": "fotos-notas/1tqe7zq.jpg",
@@ -77007,7 +77003,8 @@
    "corresponde": "si",
    "descripcion": "Personas mayores comprando en un supermercado frente a una góndola"
   },
-  "huella": "2f243829ac528092"
+  "huella": "2f243829ac528092",
+  "ausenteDesde": "2026-11-05T19:55:01.754Z"
  },
  "sm5hhw": {
   "intentado": true,
@@ -78265,11 +78262,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Nelson Castro asiste a una pasajera al borde de un paro en un vuelo a Roma",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T13:02:13.007Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T19:52:34.731Z",
   "intentos": 3,
-  "fuentes": 28,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "fuentes": 31,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1y43ge4": {
   "archivo": "fotos-notas/1y43ge4.jpg",
@@ -80301,11 +80299,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tesla abre su primer local oficial en el shopping Unicenter de Martínez",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T12:32:45.561Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T19:52:34.731Z",
   "intentos": 3,
   "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1wpv9wd": {
   "intentado": true,
@@ -80331,11 +80330,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tandil organiza la Fiesta Chacinar 2026 con el objetivo de batir un récord",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T17:03:23.275Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T19:52:34.731Z",
   "intentos": 2,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 2,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "mz7zaw": {
@@ -82042,15 +82041,28 @@
   "huella": "5f97c69e0f633878"
  },
  "glxp8y": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/glxp8y.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "WhatsApp prueba una herramienta nativa para programar y enviar mensajes",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T17:03:23.275Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.tycsports.com/gaming/whatsapp-ahora-permite-programas-mensajes-como-se-hace-y-quienes-pueden-utilizarlo-id770492.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/05/1002973/whatsapp-ahora-permite-programas-mensajes-como-se-hace-y-quienes-pueden-utilizarlo_862x485.webp",
+  "razon": "Es la única foto que ilustra directamente la función específica de programar mensajes en WhatsApp sin marcas de agua ni elementos gráficos agregados.",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Manos sosteniendo un celular que muestra la interfaz de programación de mensajes de WhatsApp"
+  },
+  "huella": "f271fbbb31717121"
  },
  "81mpvn": {
   "archivo": "fotos-notas/81mpvn.jpg",
@@ -82139,25 +82151,39 @@
   "huella": "a9a5af905c685054"
  },
  "1llnb6t": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1llnb6t.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T18:33:26.028Z",
-  "intentos": 1,
-  "fuentes": 1,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/anuncian-trabajos-de-reparacion-en-la-red-de-agua-y-podria-haber-baja-presion-en-tres-barrios",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2025/Aguas_de_la_ciudad_corte.png",
+  "razon": "Es la única imagen que muestra el logo de OSEBAL de forma clara y legible, identificando directamente al organismo protagonista de la nota.",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista posterior de un casco de seguridad blanco con el logo de OSEBAL S.A. Aguas de la Ciudad.",
+   "detalle": "El logo de OSEBAL es parte del casco (escena real) y no una marca de agua agregada por el medio."
+  },
+  "huella": "a1e1615941e0e8d0"
  },
  "x4bwtx": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de News Balcarce (FM 91.7) no se usa todavía.",
-  "cuando": "2026-11-05T18:33:26.028Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 1
+  "razon": "Todas las fotos muestran menores de edad reconocibles, lo cual infringe la política de Radar Balcarce.",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "intentos": 2,
+  "fuentes": 6
  },
  "1d0gbk6": {
   "archivo": "fotos-notas/1d0gbk6.jpg",
@@ -82183,5 +82209,62 @@
    "descripcion": "Vista aérea de un circuito de aventura con senderos, estructuras pintadas y un camino de tierra."
   },
   "huella": "bfbb5d1e1b199c9d"
+ },
+ "37gn8b": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+  "razon": "sin fotos para comparar",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "2nmv1t": {
+  "archivo": "fotos-notas/2nmv1t.jpg",
+  "medio": "Motorsport",
+  "credito": "Foto: Motorsport",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere el expiloto Alan Jones, campeón mundial de Fórmula 1 y rival de Carlos Reutemann",
+  "enlace": "https://es.motorsport.com/f1/news/fallece-alan-jones-edad/10871608/?utm_source=RSS&utm_medium=referral&utm_campaign=RSS-F1&utm_term=News&utm_content=es",
+  "imagenOriginal": "https://cdn-3.motorsport.com/images/amp/0rGzMqm2/s6/alan-jones-williams-regresa-ca.jpg",
+  "razon": "Es la mejor foto en blanco y negro que muestra a Alan Jones en el circuito con su casco, sin marcas ni problemas de menores.",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Alan Jones caminando por el costado de la pista con casco en mano"
+  },
+  "huella": "03138b0d093bc683"
+ },
+ "1d4xc5n": {
+  "archivo": "fotos-notas/1d4xc5n.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Etcheverry pierde ante Rinky Hijikata y queda eliminado en el Masters 1000 de París",
+  "enlace": "https://www.ole.com.ar/tenis/masters-1000-paris-etcheverry-consiguio-primer-triunfo-ante-top-10-metio-octavos-final_0_K5K338ogu7.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/04/XQpXzLIQM_2000x1500__1.jpg",
+  "razon": "Es la foto con mejor encuadre y nitidez de Tomás Etcheverry, sin marcas agregadas, menores ni elementos extraños.",
+  "cuando": "2026-11-05T19:52:34.731Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tomás Etcheverry festejando con el puño apretado"
+  },
+  "huella": "181818180f27272f"
  }
 }
