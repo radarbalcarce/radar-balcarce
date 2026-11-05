@@ -2,6 +2,7 @@
 import { BASE, NOMBRE, esc, urlSegura, parrafosDe, fechaLarga, ranuraDe, rutaDeNota, palabras } from '../util.mjs';
 import { pagina, colorDe } from './base.mjs';
 import { lugarFijo, lugarRotativo, bloqueAdsense } from './avisos.mjs';
+import { filaDeLista } from './portada.mjs';
 import { esClimaDiario, fotoDelClima, actualizadaHtml, enlacesDelVideoHtml } from './clima-diario.mjs';
 
 export const FIRMA_IA = 'Redacción Radar Balcarce';
@@ -21,10 +22,8 @@ export function firmaCorta(n) {
   return f || 'Radar Balcarce';
 }
 
-/** El pie de la nota: en las escritas con IA, una línea corta con el enlace a «Cómo trabajamos» (el criterio: cada nota dice quién la escribió); las de una persona ya llevan su nombre junto a la fecha. */
-export function firmaHtml(n) {
-  return escribioLaIA(n) ? 'Escrita con IA y verificada contra sus fuentes · <a href="/como-trabajamos">Cómo trabajamos</a>' : '';
-}
+/** Hernán, 5/11: la línea «Escrita con IA y verificada…» no va en la nota. La firma corta («Radar Balcarce») junto a la fecha alcanza; «Cómo trabajamos» está en el pie del sitio. */
+export const firmaHtml = () => '';
 
 export function firmaDe(n) {
   const f = (n.firma || '').trim();
@@ -113,7 +112,14 @@ function fuentesHtml(fuentes) {
   return `<details class="fuentes"><summary>Fuentes (${fuentes.length})</summary><ul>${items}</ul></details>`;
 }
 
-/** Los botones de compartir: enlaces comunes (sin guiones ni rastreadores de terceros). WhatsApp primero, que es por donde más se comparte en Balcarce. */
+const ICONOS = {
+  whatsapp: '<path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2zm0 1.8a8 8 0 1 1-4.2 14.8l-.3-.2-2.4.6.6-2.3-.2-.3A8 8 0 0 1 12 4zm-3.2 3.6c-.2 0-.5.1-.7.4-.3.4-.9 1-.9 2.2s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.3-.7-.7-1.2-1.5-1.4-1.8-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4z"/>',
+  facebook: '<path d="M13.5 21.5v-8h2.7l.4-3.2h-3.1V8.4c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.200v2.400H7.500v3.200h2.700v8z"/>',
+  x: '<path d="M17.700 3h3.100l-6.800 7.700L22 21h-6.200l-4.900-6.400L5.300 21H2.200l7.300-8.300L2 3h6.400l4.400 5.800zm-1.100 16.200h1.700L7.400 4.700H5.600z"/>',
+  telegram: '<path d="M21.200 3.300 2.700 10.400c-.9.4-.9.9-.2 1.100l4.700 1.500 1.800 5.600c.2.600.4.700.8.400l2.600-2.200 4.700 3.500c.9.500 1.500.2 1.700-.8l3.100-14.600c.3-1.200-.5-1.700-1.400-1.200zM9 13.400l8.500-5.300c.4-.3.800-.1.500.2l-6.800 6.200-.3 3.200z"/>'
+};
+
+/** Los botones de compartir: sólo el ícono de cada red (sin colores de marca: los nuestros), con su nombre para lectores de pantalla. Enlaces comunes, sin rastreadores de terceros. WhatsApp primero. */
 export function compartirHtml(n, canonico) {
   const url = encodeURIComponent(BASE + canonico);
   const texto = encodeURIComponent(n.titulo);
@@ -124,8 +130,17 @@ export function compartirHtml(n, canonico) {
     ['telegram', 'Telegram', 'https://t.me/share/url?url=' + url + '&text=' + texto],
   ];
   return '<nav class="compartir" aria-label="Compartir esta nota"><span>Compartir</span>'
-    + redes.map(([id, nombre, href]) => '<a class="comp-' + id + '" href="' + href + '" target="_blank" rel="noopener nofollow">' + nombre + '</a>').join('')
+    + redes.map(([id, nombre, href]) => '<a class="comp-' + id + '" href="' + href + '" target="_blank" rel="noopener nofollow" aria-label="Compartir en ' + nombre + '" title="' + nombre + '"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">' + ICONOS[id] + '</svg></a>').join('')
     + '</nav>';
+}
+
+/** «Seguí leyendo»: al final de la nota, más notas para no volver a la portada (la misma sección primero, después lo último del sitio) y la salida a la sección y a la portada. */
+export function seguirLeyendoHtml(n, seguir = []) {
+  if (!seguir?.length) return '';
+  const ahora = new Date();
+  return '<section class="seguir" aria-labelledby="seguir-t"><h2 id="seguir-t">Seguí leyendo</h2><ul class="lista">'
+    + seguir.slice(0, 6).map((x) => filaDeLista(x, ahora)).join('')
+    + '</ul><p class="seguir-mas"><a href="/seccion/' + ranuraDe(n.seccion) + '">Más de ' + esc(n.seccion) + '</a> · <a href="/">Ir a la portada</a></p></section>';
 }
 
 export function datosEstructurados(n, { parrafos, canonico, indexar }) {
@@ -154,7 +169,7 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   };
 }
 
-export function paginaDeNota(n, { indexar, contexto }) {
+export function paginaDeNota(n, { indexar, contexto, seguir = [] }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
   const ranura = ranuraDe(n.seccion);
@@ -177,6 +192,7 @@ ${enlacesDelVideoHtml(n)}
 ${bloquesDeFicha(n.ficha)}
 ${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
 ${compartirHtml(n, canonico)}
+${seguirLeyendoHtml(n, seguir)}
 ${fuentesHtml(n.fuentes || [])}
 </article>`;
   return pagina({

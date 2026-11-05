@@ -50,6 +50,14 @@ export async function listar(env, { seccion = null, limite = 10, desde = 0, conF
   return (r.results || []).map(aNota);
 }
 
+/** Para «Seguí leyendo» al final de una nota: hasta la mitad de la misma sección (las más nuevas) y el resto, lo último del sitio. Nunca la misma nota ni las de servicio. */
+export async function paraSeguirLeyendo(env, nota, { limite = 6 } = {}) {
+  const mismas = (await listar(env, { seccion: nota.seccion, limite: limite + 2 })).filter((x) => x.id !== nota.id).slice(0, Math.ceil(limite / 2));
+  const vistas = new Set([nota.id, ...mismas.map((x) => x.id)]);
+  const ultimas = (await listar(env, { limite: limite + 6 })).filter((x) => !vistas.has(x.id)).slice(0, limite - mismas.length);
+  return [...mismas, ...ultimas];
+}
+
 export async function contar(env, { seccion = null, conServicio = false, climaDe = null } = {}) {
   const donde = (seccion ? 'AND n.seccion IN (?, ?)' : '') + (conServicio ? '' : ` ${servicioSin(climaDe)}`);
   const params = seccion ? [seccion, ...aliasesDe(seccion)] : [];

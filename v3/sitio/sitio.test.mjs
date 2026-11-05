@@ -21,7 +21,9 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /<img src="https:\/\/fotos\.example\/a\.jpg" alt="La sala nueva"/);
   assert.match(h, /<figcaption>Foto: Municipalidad<\/figcaption>/);
   assert.match(h, /<p>Primer párrafo de la nota\.<\/p>/);
-  assert.match(h, /Escrita con IA y verificada contra sus fuentes/);
+  assert.ok(!h.includes('Escrita con IA'), 'la línea de la IA no va en la nota');
+  assert.match(h, /<nav class="compartir"/);
+  assert.match(h, /<span class="por">Radar Balcarce<\/span>/);
   assert.match(h, /<details class="fuentes"><summary>Fuentes \(2\)<\/summary>/);
   assert.ok(!/<details[^>]* open/.test(h), 'el desplegable viene cerrado');
   assert.match(h, /<a href="https:\/\/a\.example\/1" rel="noopener nofollow">Diario A<\/a>/);
@@ -225,4 +227,14 @@ test('cada nota trae los botones de compartir, con WhatsApp primero y el enlace 
   assert.ok(h.indexOf('comp-whatsapp') < h.indexOf('comp-facebook'));
   assert.match(h, /wa\.me\/\?text=Se%20inaugur%C3%B3%20la%20sala%20https%3A%2F%2Fradarbalcarce\.com%2Fnota%2Fse-inauguro-abc1234/);
   assert.equal((h.match(/<a /g) ?? []).length, 4);
+});
+
+test('«Seguí leyendo»: al final de la nota salen notas para seguir (con la salida a la sección y a la portada) y sin ellas no sale el bloque', async () => {
+  const { seguirLeyendoHtml } = await import('./vistas/nota.mjs');
+  assert.equal(seguirLeyendoHtml({ seccion: 'Balcarce' }, []), '');
+  const otra = { id: 'o1', slug: 'otra-nota', titulo: 'Otra nota', bajada: 'x', seccion: 'Balcarce', publicada: '2026-11-05T10:00:00.000Z', foto: null, fuentes: [] };
+  const h = seguirLeyendoHtml({ seccion: 'Balcarce' }, [otra]);
+  assert.match(h, /<h2 id="seguir-t">Seguí leyendo<\/h2>/);
+  assert.match(h, /href="\/nota\/otra-nota-o1"/);
+  assert.match(h, /<a href="\/seccion\/balcarce">Más de Balcarce<\/a> · <a href="\/">Ir a la portada<\/a>/);
 });

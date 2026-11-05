@@ -169,7 +169,9 @@ test('la firma de las notas con IA lleva el enlace a «Cómo trabajamos»; la de
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite, { id: 'ia00001', titulo: 'Con IA' });
   insertarNota(sqlite, { id: 'per0001', titulo: 'De Hernán', firma: 'Por Hernán Accomo, de la redacción de Radar Balcarce' });
-  assert.match(await html(env, '/nota/con-ia-ia00001'), /<span class="por">Radar Balcarce<\/span>[\s\S]*<p class="firma">Escrita con IA y verificada contra sus fuentes · <a href="\/como-trabajamos">Cómo trabajamos<\/a><\/p>/);
+  const conIA = await html(env, '/nota/con-ia-ia00001');
+  assert.match(conIA, /<span class="por">Radar Balcarce<\/span>/);
+  assert.ok(!conIA.includes('Escrita con IA'), 'Hernán, 5/11: la línea «Escrita con IA…» no va en la nota');
   const persona = await html(env, '/nota/de-hernan-per0001');
   assert.match(persona, /<span class="por">Hernán Accomo<\/span>/);
   assert.ok(!persona.includes('class="firma"'));

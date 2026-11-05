@@ -310,7 +310,8 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
       if (ruta !== buena) return { r: new Response(null, { status: 301, headers: { location: buena, 'cache-control': `public, max-age=${CACHE.nota[1]}` } }), cachear: true };
       const contextoNota = await contextoDelDia();
       const indexarNota = indexar && !noSeIndexa(nota);
-      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
+      const seguir = await consultas.paraSeguirLeyendo(env, nota).catch(() => []);
+      return { r: respuesta(paginaDeNota(nota, { indexar: indexarNota, contexto: contextoNota, seguir }), { cache: contextoNota.publicidad.hayAvisos ? CACHE.conAvisos : CACHE.nota, indexar: indexarNota }), cachear: true };
     }
 
     if (ruta === '/buscar') {
