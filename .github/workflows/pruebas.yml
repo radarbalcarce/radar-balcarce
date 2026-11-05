@@ -40,14 +40,22 @@ jobs:
         with:
           node-version: '24'
 
+      # Lo que BLOQUEA (5/11): las pruebas de Radar 3.0, igual que en «Radar 3.0: desplegar». Sin dependencias.
+      - name: Pruebas de Radar 3.0
+        run: node --test "v3/**/*.test.mjs"
+
+      # Lo que sigue es el sistema viejo (se apaga cuando las redes lleven una semana verificadas): informativo, no bloquea.
       # Hacen falta las dependencias: hay pruebas que tocan reels/ (placas con resvg, ffmpeg) y web/lib (react).
-      - name: Instalar
+      - name: Instalar (sistema viejo)
+        continue-on-error: true
         run: |
           n=0; until npm ci --no-audit --no-fund; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "npm ci falló (intento $n), se reintenta"; sleep 20; done
-      - name: Instalar (web)
+      - name: Instalar web (sistema viejo)
+        continue-on-error: true
         working-directory: web
         run: |
           n=0; until npm ci --no-audit --no-fund; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "npm ci falló (intento $n), se reintenta"; sleep 20; done
 
-      - name: Probar que nada se rompió
+      - name: Pruebas del sistema viejo (informativo, no bloquea)
+        continue-on-error: true
         run: npm test
