@@ -423,6 +423,7 @@ details.fuentes li a{display:inline-flex;align-items:center;min-height:44px;padd
 footer.pie p a,footer.pie button.enlace{display:inline-block;padding:13px 6px}
 .ck button{min-height:44px;padding:8px 16px}
 .ck a{display:inline-block;padding:13px 4px}
+.aviso-propio .aviso-caja a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 a.etiqueta,.migas a{position:relative}
 a.etiqueta::after,.migas a::after{content:"";position:absolute;left:-6px;right:-6px;top:-12px;bottom:-12px}
 }
