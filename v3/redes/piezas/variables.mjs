@@ -102,6 +102,10 @@ export const CARRUSEL_RECOMENDADO_MAX = 8;
 export const CARRUSEL_MAX_INSTAGRAM = 10; // la API de Instagram acepta hasta 10 (el plan decía 20)
 export const CARRUSEL_TAMANO = congelar({ ancho: IMAGEN_FEED_ANCHO, alto: IMAGEN_FEED_ALTO });
 
+// Los carruseles de resumen (5/11, Hernán: «en todas las redes sale todo el material que se genere»): «La semana en Balcarce» (domingos) y «El finde en Balcarce» (jueves).
+export const SEMANA = congelar({ notasMin: 5, notasMax: 8, dias: 7, edadMaximaHoras: 7 * 24 });
+export const FINDE = congelar({ eventosPorLamina: 3, eventosMax: 9, diasAdelante: 4 });
+
 // ------------------------------------------------------------------ saludos (Hernán 3/11): sólo la primera pieza de la mañana y la primera de la noche
 export const SALUDOS = congelar({
   mananaDesde: 5, mananaHasta: 12, // de 5:00 a 11:59

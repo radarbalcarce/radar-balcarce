@@ -11,7 +11,7 @@
 // Todo es puro (sin red, sin archivos, sin hora del sistema): la hora y si es la primera del bloque las pasa quien llama (`opciones.hora`,
 // `opciones.primeraDelBloque`, o `opciones.saludo` ya resuelto). Las reglas, en palabras de persona, están en `REGLAS.md`.
 import {
-  AGENDA, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
+  AGENDA, SEMANA, FINDE, AVISO_DE_CLIMA, AVISO_DE_IA_TEXTO, CARRUSEL_MAX_INSTAGRAM, FERIADO, UTILES, CARRUSEL_MIN_FOTOS, CLIMA, EFEMERIDE, FARMACIA, FIRMA_DE_HERNAN, FIRMA_DE_REDACCION, HISTORIA_DE_NOTA, IMAGEN_ENLACE,
   IMAGEN_FEED_ALTO, IMAGEN_FEED_ANCHO, MOMENTOS_DEL_REPASO, NOTA_PROPIA, NOTA_REEL, PARTICIPA, REPASO, VIDEO_ALTO, VIDEO_ANCHO, WHATSAPP, MUSICA,
 } from './variables.mjs';
 import {
@@ -325,6 +325,53 @@ export function armarCarrusel(nota, { max = CARRUSEL_MAX_INSTAGRAM } = {}) {
   };
 }
 
+
+// ------------------------------------------------------------------ carruseles de resumen: la semana y el finde (imágenes fijas, sin voz)
+
+const fechaSinAnio = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+
+/** «Del 2 al 8 de noviembre» (si cruza de mes, «Del 30 de octubre al 5 de noviembre»). */
+const rangoDeFechas = (desde, hasta) => (desde.slice(0, 7) === hasta.slice(0, 7) ? `Del ${Number(desde.slice(8))} al ${fechaSinAnio(hasta)}` : `Del ${fechaSinAnio(desde)} al ${fechaSinAnio(hasta)}`);
+
+/** Cierra un carrusel de láminas: numera «n / de» y lo deja como pieza de imágenes fijas 4:5. */
+function carruselDeLaminas(id, laminas, extra = {}) {
+  laminas.forEach((l, i) => { l.datos.n = i + 1; l.datos.de = laminas.length; });
+  return {
+    id, tipo: 'carrusel', ancho: IMAGEN_FEED_ANCHO, alto: IMAGEN_FEED_ALTO, duracion: 0, laminas, escenas: laminas.map((l) => escena(l.tipo, 0, l.datos)),
+    guion: '', voz: null, saludo: null, aviso: null, musica: null, ...extra,
+  };
+}
+
+/**
+ * «La semana en Balcarce»: portada, una lámina por cada nota de Balcarce más importante de la semana (5 a 8; con su foto o, si no la tiene, la placa de color de su sección) y el cierre
+ * «Todo en radarbalcarce.com». `notas`: [{ id, titulo, seccion, foto? }] en el orden en que van; `desde` y `hasta`: AAAA-MM-DD. No lleva voz.
+ */
+export function armarCarruselSemana(notas, { desde = null, hasta = null } = {}) {
+  const lista = (notas ?? []).filter((n) => n?.titulo && n?.seccion).slice(0, SEMANA.notasMax);
+  if (lista.length < 2) throw new Error('semana: hacen falta al menos 2 notas');
+  if (!esFechaIso(desde) || !esFechaIso(hasta)) throw new Error('semana: faltan las fechas (AAAA-MM-DD)');
+  const laminas = [
+    { tipo: 'lamina-portada', datos: { seccion: 'Balcarce', kicker: 'Resumen semanal', titulo: 'La semana en Balcarce', subtitulo: rangoDeFechas(desde, hasta), detalle: `Las ${lista.length} notas que más se leyeron y comentaron.` } },
+    ...lista.map((n) => ({ tipo: 'lamina-nota', datos: { seccion: n.seccion, titulo: tituloEnPantalla(n.titulo), foto: fotoDe(n.foto) } })),
+    { tipo: 'lamina-cierre', datos: { seccion: 'Balcarce', titulo: 'Todo en radarbalcarce.com', subtitulo: 'Las notas completas, con sus fotos, y lo que pasa en Balcarce todos los días.' } },
+  ];
+  return carruselDeLaminas('carrusel-semana', laminas, { notasIds: lista.map((n) => n.id ?? null) });
+}
+
+/**
+ * «El finde en Balcarce»: portada, láminas con la agenda (hasta 3 actividades por lámina) y el cierre. `eventos`: [{ nombre, cuando, lugar }] como los deja `eventosParaLaAgenda`.
+ * Sin eventos no hay carrusel. Entre portada y cierre entran hasta 8 láminas de agenda.
+ */
+export function armarCarruselFinde(eventos, { fechaTexto = null } = {}) {
+  const lista = (eventos ?? []).filter((e) => e?.nombre).slice(0, FINDE.eventosMax);
+  if (!lista.length) throw new Error('finde: no hay eventos');
+  const laminas = [{ tipo: 'lamina-portada', datos: { seccion: 'Cultura y agenda', kicker: 'Agenda', titulo: 'El finde en Balcarce', subtitulo: fechaTexto || 'Qué hacer estos días', detalle: `${lista.length === 1 ? 'Una actividad' : `${lista.length} actividades`} para no quedarte en casa.` } }];
+  for (let i = 0; i < lista.length; i += FINDE.eventosPorLamina) {
+    laminas.push({ tipo: 'lamina-eventos', datos: { seccion: 'Cultura y agenda', kicker: 'Agenda', titulo: 'Este fin de semana', eventos: lista.slice(i, i + FINDE.eventosPorLamina) } });
+  }
+  laminas.push({ tipo: 'lamina-cierre', datos: { seccion: 'Cultura y agenda', titulo: 'Toda la agenda en radarbalcarce.com', subtitulo: 'Los eventos de Balcarce, siempre al día.' } });
+  return carruselDeLaminas('carrusel-finde', laminas);
+}
 // ------------------------------------------------------------------ 8. farmacia de turno
 
 /**
@@ -452,4 +499,5 @@ export const ARMADORES = Object.freeze({
   clima: armarClima, repaso: armarRepaso, efemeride: armarEfemeride, 'nota-reel': armarNotaReel, 'nota-propia': armarNotaPropia, 'historia-nota': armarHistoriaDeNota,
   posteo: armarPosteo, carrusel: armarCarrusel, farmacia: armarFarmacia, participa: armarParticipa, enlace: armarEnlace,
   agenda: armarAgenda, utiles: armarUtiles, feriado: armarFeriado, aviso: armarAviso,
+  'carrusel-nota': armarCarrusel, 'carrusel-semana': armarCarruselSemana, 'carrusel-finde': armarCarruselFinde,
 });

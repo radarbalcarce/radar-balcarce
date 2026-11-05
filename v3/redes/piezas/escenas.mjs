@@ -176,6 +176,87 @@ function carruselFoto(d, { cierre = false } = {}) {
   ${boton}`);
 }
 
+// ------------------------------------------------------------------ láminas de los carruseles de resumen: «La semana en Balcarce» y «El finde en Balcarce» (5/11)
+// Fondo claro y papel de la marca (como el posteo de nota), color de la sección, «Radar Balcarce» abajo. Cuatro láminas: portada, nota (foto o, si no hay, la placa de color de su sección),
+// eventos de la agenda y cierre. Todo el texto entre las filas 135 y 1215, como el posteo: es lo que no recorta la grilla del perfil de Instagram.
+
+const pieDeLamina = (d, { credito: foto = null } = {}) => {
+  const I = INSTAGRAM;
+  const yRaya = IMAGEN_FEED_ALTO - I.abajo - I.pie;
+  const cred = foto?.credito ? texto(`Foto: ${acortarCaracteres(foto.credito, 58)}`, MARGEN_F, yRaya - 22, { tam: 25, peso: 500, color: GRIS_TARJETA }) : '';
+  return `${cred}<rect x="${MARGEN_F}" y="${yRaya}" width="${ANCHO_F}" height="3" fill="${TINTA}"/>
+  <text x="${MARGEN_F}" y="${yRaya + 56}" font-family="${DISPLAY}" font-size="40" font-weight="900" letter-spacing="-0.4" fill="${TINTA}">Radar <tspan fill="${ROJO}" dx="10">Balcarce</tspan></text>
+  ${texto(`${d.n} / ${d.de}`, IMAGEN_FEED_ANCHO - MARGEN_F, yRaya + 54, { tam: 28, peso: 700, color: GRIS_TARJETA, ancla: 'end' })}`;
+};
+
+function laminaPortada(d) {
+  const color = colorDeTarjeta(d.seccion ?? 'Balcarce');
+  const alto = 780;
+  const q = titular(d.titulo, { y: 400, escalones: [{ tam: 124, max: 3 }, { tam: 104, max: 3 }, { tam: 88, max: 4 }], color: '#FFFFFF', ancho: ANCHO_F, x: MARGEN_F });
+  const sub = envolverAncho(d.subtitulo ?? '', 48, ANCHO_F * 0.96, 'sans').slice(0, 2);
+  const det = envolverAncho(d.detalle ?? '', 34, ANCHO_F * 0.96, 'sans').slice(0, 2);
+  const yRaya = IMAGEN_FEED_ALTO - INSTAGRAM.abajo - INSTAGRAM.pie;
+  const desliza = pastilla('Deslizá →', { x: MARGEN_F, y: yRaya - 96, color: NARANJA, tam: 34 });
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `<rect x="0" y="0" width="${IMAGEN_FEED_ANCHO}" height="${alto}" fill="${color}"/>
+  ${anillos(IMAGEN_FEED_ANCHO - 90, 170, 1.7, 0.16)}
+  ${texto(String(d.kicker ?? '').toUpperCase(), MARGEN_F, 215, { tam: 36, peso: 800, color: '#FFFFFF', espaciado: 5 })}${q.svg}
+  <rect x="0" y="${alto}" width="${IMAGEN_FEED_ANCHO}" height="${INSTAGRAM.franja}" fill="${TINTA}"/>
+  ${renglones(sub, { x: MARGEN_F, y: alto + 100, tam: 48, interlinea: 60, familia: TEXTO, peso: 700, color: TINTA })}
+  ${renglones(det, { x: MARGEN_F, y: alto + 100 + sub.length * 60 + 14, tam: 34, interlinea: 44, familia: TEXTO, peso: 400, color: GRIS_TARJETA })}
+  ${desliza.svg}${pieDeLamina(d)}`);
+}
+
+/** La placa de una nota sin foto: un bloque con el color de su sección y el nombre grande (nunca una tarjeta vacía). */
+function placaDeSeccion(seccion, color, alto) {
+  const nombre = String(seccion || 'Balcarce').toUpperCase();
+  const lineas = envolverAncho(nombre, 120, ANCHO_F * 0.96, 'sans').slice(0, 2);
+  return `<rect x="0" y="0" width="${IMAGEN_FEED_ANCHO}" height="${alto}" fill="${color}"/>${anillos(IMAGEN_FEED_ANCHO - 120, alto - 60, 1.5, 0.16)}
+  ${renglones(lineas, { x: MARGEN_F, y: Math.round(alto / 2 + 30), tam: 120, interlinea: 128, familia: DISPLAY, peso: 900, color: '#FFFFFF', espaciado: -2 })}`;
+}
+
+function laminaNota(d) {
+  const I = INSTAGRAM;
+  const color = colorDeTarjeta(d.seccion);
+  const hayFoto = !!d.foto?.datos;
+  const arriba = hayFoto ? fotoEnCaja(d.foto, 0, 0, IMAGEN_FEED_ANCHO, I.foto, { radio: 0 }) : placaDeSeccion(d.seccion, color, I.foto);
+  const pill = hayFoto && d.seccion ? pastilla(d.seccion, { x: MARGEN_F, y: I.arriba, color, tam: 26 }).svg : '';
+  const q = titular(d.titulo, { y: I.foto + I.franja + 108, escalones: [{ tam: 72, max: 3 }, { tam: 62, max: 4 }, { tam: 54, max: 5 }], color: TINTA, ancho: ANCHO_F, x: MARGEN_F });
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `${arriba}${pill}
+  <rect x="0" y="${I.foto}" width="${IMAGEN_FEED_ANCHO}" height="${I.franja}" fill="${color}"/>
+  ${q.svg}${pieDeLamina(d, { credito: hayFoto ? d.foto : null })}`);
+}
+
+function laminaEventos(d) {
+  const color = colorDeTarjeta(d.seccion ?? 'Cultura y agenda');
+  const pill = pastilla(d.kicker ?? 'Agenda', { x: MARGEN_F, y: INSTAGRAM.arriba, color, tam: 28 });
+  const q = titular(d.titulo ?? 'Este fin de semana', { y: 330, escalones: [{ tam: 76, max: 1 }, { tam: 64, max: 2 }], color: TINTA, ancho: ANCHO_F, x: MARGEN_F });
+  const tarjetas = (d.eventos ?? []).slice(0, 3).map((e, i) => {
+    const y = 410 + i * 240;
+    const nombre = envolverAncho(e.nombre ?? '', 44, (ANCHO_F - 70) * 0.96, 'serif').slice(0, 2);
+    return `<rect x="${MARGEN_F}" y="${y}" width="${ANCHO_F}" height="222" rx="28" fill="#FFFFFF" stroke="#E4DFD3" stroke-width="2"/>
+  <rect x="${MARGEN_F}" y="${y}" width="16" height="222" rx="8" fill="${color}"/>
+  ${texto(String(e.cuando ?? '').toUpperCase(), MARGEN_F + 48, y + 58, { tam: 32, peso: 800, color, espaciado: 2 })}
+  ${renglones(nombre, { x: MARGEN_F + 48, y: y + 112, tam: 44, interlinea: 52, espaciado: -0.8, color: TINTA })}
+  ${e.lugar ? texto(acortarCaracteres(`en ${e.lugar}`, 52), MARGEN_F + 48, y + 112 + (nombre.length - 1) * 52 + 50, { tam: 30, peso: 500, color: GRIS_TARJETA }) : ''}`;
+  }).join('\n');
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `${pill.svg}${q.svg}\n${tarjetas}${pieDeLamina(d)}`);
+}
+
+function laminaCierre(d) {
+  const color = colorDeTarjeta(d.seccion ?? 'Balcarce');
+  const q = titular(d.titulo ?? 'Todo en radarbalcarce.com', { y: 470, escalones: [{ tam: 96, max: 3 }, { tam: 80, max: 3 }], color: TINTA, ancho: ANCHO_F, x: MARGEN_F });
+  const sub = envolverAncho(d.subtitulo ?? '', 44, ANCHO_F * 0.96, 'sans').slice(0, 3);
+  const yBoton = IMAGEN_FEED_ALTO - INSTAGRAM.abajo - INSTAGRAM.pie - 170;
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `<rect x="0" y="0" width="${IMAGEN_FEED_ANCHO}" height="300" fill="${color}"/>${anillos(IMAGEN_FEED_ANCHO - 100, 120, 1.2, 0.16)}
+  <text x="${MARGEN_F}" y="210" font-family="${DISPLAY}" font-size="84" font-weight="900" letter-spacing="-1" fill="#FFFFFF">Radar <tspan fill="#FFFFFF" fill-opacity="0.78">Balcarce</tspan></text>
+  <rect x="0" y="300" width="${IMAGEN_FEED_ANCHO}" height="${INSTAGRAM.franja}" fill="${TINTA}"/>
+  ${q.svg}
+  ${renglones(sub, { x: MARGEN_F, y: q.fin + 90, tam: 44, interlinea: 58, familia: TEXTO, peso: 500, color: GRIS_TARJETA })}
+  <rect x="${MARGEN_F}" y="${yBoton}" width="${ANCHO_F}" height="110" rx="55" fill="${NARANJA}"/>
+  ${texto(DIRECCION_DEL_SITIO, IMAGEN_FEED_ANCHO / 2, yBoton + 74, { tam: 60, peso: 900, familia: DISPLAY, color: '#FFFFFF', ancla: 'middle', espaciado: -1 })}
+  ${pieDeLamina(d)}`);
+}
+
 function enlace(d) {
   const { ancho: A, alto: H } = IMAGEN_ENLACE;
   const color = colorDeSeccion(d.seccion);
@@ -454,6 +535,10 @@ export const IMAGENES = {
   'carrusel-portada': carruselPortada,
   'carrusel-foto': (d) => carruselFoto(d),
   'carrusel-cierre': (d) => carruselFoto(d, { cierre: true }),
+  'lamina-portada': laminaPortada,
+  'lamina-nota': laminaNota,
+  'lamina-eventos': laminaEventos,
+  'lamina-cierre': laminaCierre,
 };
 
 /** Una imagen fija (posteo, lámina de carrusel o enlace) como SVG completo. */

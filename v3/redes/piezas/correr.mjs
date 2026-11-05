@@ -15,19 +15,20 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
-  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso,
+  armarClima, armarRepaso, armarEfemeride, armarFarmacia, armarParticipa, armarAgenda, armarUtiles, armarFeriado, armarAviso, armarCarrusel, armarCarruselSemana, armarCarruselFinde,
 } from './armadores.mjs';
 import {
   avisoDelClima, datosDelFeriado, efemerideDelDia, eventosParaLaAgenda, fechaLarga, feriadoDelDia, leerClima, leerFarmaciaDeTurno,
 } from './datos.mjs';
 import { condicionalesQueTocan } from '../piezas-del-dia.mjs';
 import {
-  accionesConTexto, publicarPieza, publicarPorBuffer, simularBuffer, simularPublicacion, textoDePieza,
+  accionesConTexto, accionesDeCarrusel, nombreDeLamina, publicarCarrusel, publicarPieza, publicarPorBuffer, simularBuffer, simularPublicacion, textoDePieza,
 } from './publicar.mjs';
+import { claveR2DePlaca } from '../placa-clave.mjs';
 import { contrasenaDelWebhook } from '../redes.mjs';
 import { diaDeBalcarce } from '../elegir.mjs';
 import { contarPalabras } from './voz.mjs';
-import { CIERRE_DESPUES_DE_LA_VOZ } from './variables.mjs';
+import { CIERRE_DESPUES_DE_LA_VOZ, FINDE } from './variables.mjs';
 
 const RAIZ = path.join(import.meta.dirname, '..', '..', '..');
 export const DIRECCION_DE_LAS_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
@@ -41,7 +42,7 @@ const hash = (t) => crypto.createHash('sha256').update(t).digest('hex').slice(0,
 
 /** La pieza armada (datos puros) de una entrada del plan. Tira `SinDatos` si falta algo de afuera. */
 export function armarDelPlan(item, {
-  dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null, agenda = null, feriado = null, aviso = null,
+  dia, ahora = new Date(), clima = null, farmacia = null, efemeride = null, agenda = null, feriado = null, aviso = null, finde = null,
 }) {
   const op = { hora: item.horaDelDia, primeraDelBloque: item.primeraDelBloque };
   switch (item.arma) {
@@ -68,6 +69,15 @@ export function armarDelPlan(item, {
       if (!clima) throw new SinDatos('no hay clima (Open-Meteo no respondió)');
       if (!aviso || aviso.nombre !== item.id) throw new SinDatos(`ya no hay un ${item.id} para dar`);
       return armarAviso(aviso, clima, { fecha: dia, ...op });
+    case 'carrusel-semana':
+      if (!item.datos?.notas?.length) throw new SinDatos('no hay notas de Balcarce para el resumen de la semana');
+      return armarCarruselSemana(item.datos.notas, { desde: item.datos.desde, hasta: item.datos.hasta });
+    case 'carrusel-finde':
+      if (!finde?.length) throw new SinDatos('no hay eventos en la agenda de los próximos días');
+      return armarCarruselFinde(finde, { fechaTexto: `Desde el ${fechaLarga(ahora).toLowerCase()}` });
+    case 'carrusel-nota':
+      if (!item.datos?.nota) throw new SinDatos('falta la nota del carrusel');
+      return armarCarrusel(item.datos.nota);
     case 'repaso':
       return armarRepaso(item.datos?.notas ?? [], { fecha: fechaLarga(ahora), momento: item.momento, sinBalcarce: item.datos?.sinBalcarce === true, ...op });
     default:
@@ -98,6 +108,33 @@ export function ajustarALaVoz(pieza, segundosDeVoz) {
 /** El resumen de lo que hay que mirar para saber si dos corridas armaron lo mismo (el guion, las escenas sin las fotos bajadas). */
 export const huellaDeLaPieza = (pieza) => hash(JSON.stringify([pieza.id, pieza.guion, pieza.escenas.map((e) => [e.tipo, e.duracion, e.datos?.titulo ?? null])]));
 
+/**
+ * Un carrusel (varias imágenes 4:5, sin voz): dibuja las láminas, arma el texto y, ENSAYO, las deja en la carpeta y anota lo que se habría publicado; REAL, sube cada lámina como JPEG al
+ * depósito público de placas y publica el álbum en Facebook y el carrusel en Instagram. Si una lámina no se puede subir no se publica nada (un carrusel a medias no sirve).
+ * Completa `informe` (estado, texto, archivos, acciones); un error se tira y lo anota quien llama.
+ */
+async function hacerCarrusel({ pieza, item, plan, carpeta, env, deps, informe, reloj }) {
+  const r = await deps.renderizarCarrusel(pieza, carpeta, item.id);
+  if (r.fotosQueNoBajaron?.length) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}fotos que no bajaron (van con la placa): ${r.fotosQueNoBajaron.join(' | ')}`;
+  const acciones = accionesDeCarrusel(pieza, item);
+  informe.texto = acciones[0].pie;
+  informe.laminas = r.archivos.length;
+  informe.archivos = [...r.archivos.map((a) => path.basename(a)), `${item.id}.json`];
+  if (plan.activas) {
+    const clave = item.arma === 'carrusel-semana' ? 'sem' : item.arma === 'carrusel-finde' ? 'fin' : `n${item.datos?.nota?.id ?? 'x'}`;
+    const urls = [];
+    for (const [i, png] of r.archivos.entries()) urls.push(await deps.subirLamina(png, { prefijo: `lam-${String(plan.dia).replace(/-/g, '')}-${clave}-${i + 1}` }));
+    informe.acciones = await publicarCarrusel({ cliente: deps.clienteMeta(), urls, acciones, sinToken: (t) => String(t).split(env.META_TOKEN || '\u0000').join('[token]') });
+    const buenas = informe.acciones.filter((a) => a.estado === 'ok').length;
+    informe.estado = buenas ? 'publicada' : 'error';
+    if (!buenas) informe.error = `Meta rechazó todo: ${informe.acciones.map((a) => `${a.red}/${a.tipo}: ${a.error}`).join(' | ').slice(0, 400)}`;
+  } else {
+    informe.acciones = acciones.map((a) => ({ red: a.red, tipo: a.tipo, estado: 'simulada' }));
+    informe.estado = 'lista';
+  }
+  fs.writeFileSync(path.join(carpeta, `${item.id}.json`), JSON.stringify({ ...informe, habriaPublicadoA: reloj.toISOString(), programada: item.hora, pieza: item.id, laminas: r.archivos.length }, null, 2));
+}
+
 async function pedirAlWorker(url, ruta, cuerpo, { contrasena, fetchFn }) {
   const r = await fetchFn(`${url}${ruta}`, { method: 'POST', headers: { 'content-type': 'application/json', 'x-radar-contrasena': contrasena }, body: JSON.stringify(cuerpo) });
   if (!r.ok) throw new Error(`${ruta}: HTTP ${r.status} ${(await r.text()).slice(0, 200)}`);
@@ -120,16 +157,23 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
   const cuando = env.AHORA ? new Date(env.AHORA) : ahora;
   const diaDeHoy = diaDeBalcarce(cuando);
   const queMirar = condicionalesQueTocan(cuando, solo);
-  const previos = { clima: null, agenda: null, feriado: null, aviso: null };
+  const previos = { clima: null, agenda: null, feriado: null, aviso: null, finde: null };
   const conDatos = [];
   if (queMirar.some((p) => p.arma === 'aviso')) {
     previos.clima = await deps.leerClima();
     previos.aviso = previos.clima ? avisoDelClima(previos.clima, cuando) : null;
     if (previos.aviso && queMirar.some((p) => p.id === previos.aviso.nombre)) conDatos.push(previos.aviso.nombre);
   }
-  if (queMirar.some((p) => p.id === 'agenda') && deps.leerAgenda) {
-    previos.agenda = eventosParaLaAgenda(await deps.leerAgenda(), { ahora: cuando });
-    if (previos.agenda.length) conDatos.push('agenda');
+  if (queMirar.some((p) => p.id === 'agenda' || p.id === 'carrusel-finde') && deps.leerAgenda) {
+    const eventos = await deps.leerAgenda();
+    if (queMirar.some((p) => p.id === 'agenda')) {
+      previos.agenda = eventosParaLaAgenda(eventos, { ahora: cuando });
+      if (previos.agenda.length) conDatos.push('agenda');
+    }
+    if (queMirar.some((p) => p.id === 'carrusel-finde')) {
+      previos.finde = eventosParaLaAgenda(eventos, { ahora: cuando, maximo: FINDE.eventosMax });
+      if (previos.finde.length) conDatos.push('carrusel-finde');
+    }
   }
   if (queMirar.some((p) => p.id === 'feriado') && deps.leerFeriados) {
     const { feriados, elegidas } = await deps.leerFeriados();
@@ -150,6 +194,7 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
     agenda: previos.agenda ?? (necesita('agenda') && deps.leerAgenda ? eventosParaLaAgenda(await deps.leerAgenda(), { ahora: reloj }) : null),
     feriado: previos.feriado ?? (necesita('feriado') && deps.leerFeriados ? (({ feriados, elegidas }) => feriadoDelDia(feriados, plan.dia, elegidas))(await deps.leerFeriados()) : null),
     aviso: previos.aviso ?? null,
+    finde: previos.finde ?? (necesita('carrusel-finde') && deps.leerAgenda ? eventosParaLaAgenda(await deps.leerAgenda(), { ahora: reloj, maximo: FINDE.eventosMax }) : null),
     farmacia: necesita('farmacia') ? await deps.leerFarmacia() : null,
     efemeride: necesita('efemeride') ? efemerideDelDia(await deps.leerEfemerides(), plan.dia) : null,
   };
@@ -160,6 +205,14 @@ export async function correr({ env = {}, ahora = new Date(), carpeta, deps }) {
       let pieza = armarDelPlan(item, { dia: plan.dia, ahora: reloj, ...datos });
       const huella = huellaDeLaPieza(pieza);
       Object.assign(informe, { huella, guion: pieza.guion });
+      if (pieza.tipo === 'carrusel') {
+        // Sin voz, sin video y sin Buffer: sólo imágenes para Facebook (álbum) e Instagram (carrusel).
+        await hacerCarrusel({ pieza, item, plan, carpeta, env, deps, informe, reloj });
+        log(`${item.id}: ${informe.estado} · ${informe.laminas} láminas`);
+        salida.piezas.push(informe);
+        try { await llamar('/piezas/resultado', informe); } catch (e) { log(`${item.id}: no pude contarle al Worker cómo salió (${e.message})`); informe.sinAnotar = true; }
+        continue;
+      }
       if (item.datos?.sinBalcarce) informe.aviso = 'sin notas de Balcarce en la ventana: el repaso salió con las más contadas';
       const sinFoto = (item.datos?.notas ?? []).filter((n) => !n.foto).length;
       if (sinFoto) informe.aviso = `${informe.aviso ? `${informe.aviso}; ` : ''}${sinFoto} nota(s) sin foto van con la placa de su sección`;
@@ -225,7 +278,7 @@ export async function dependenciasReales(env = process.env) {
   const { armarAss } = await import('../../../reels/reel.mjs');
   const { SinCupoDeVoz } = await import('../../../reels/cupo-voz.mjs');
   const { crearCliente, PAGINA_DE_FACEBOOK } = await import('../../../redes/meta.mjs');
-  const { resolverFotos, armarEscenaDeVideo, armarVideo, subtitulosEstimados } = await import('./render.mjs');
+  const { resolverFotos, armarEscenaDeVideo, armarVideo, subtitulosEstimados, renderizarPieza } = await import('./render.mjs');
   const { leerFarmacia } = await import('../../sitio/datos-del-dia.mjs');
   const { leerAgenda } = await import('../../sitio/agenda.mjs');
   const { publicarReel } = await import('../../../redes/buffer.mjs');
@@ -266,6 +319,23 @@ export async function dependenciasReales(env = process.env) {
       const r = spawnSync(ffmpeg, ['-loglevel', 'error', '-ss', String(ms / 1000), '-i', mp4, '-frames:v', '1', '-q:v', '2', '-f', 'image2', '-c:v', 'mjpeg', 'pipe:1'], { maxBuffer: 20 * 1024 * 1024 });
       if (r.status !== 0 || !r.stdout?.length) throw new Error('no se pudo sacar la tapa');
       return r.stdout;
+    },
+    // Las láminas de un carrusel: se pasan a JPEG (lo único que baja Instagram) y se suben al depósito de placas, que el Worker de redes sirve en /placa/<nombre> (público, lo mismo que las placas de los posteos).
+    renderizarCarrusel: async (pieza, carpeta, nombre) => {
+      const fotosQueNoBajaron = [];
+      const lista = await resolverFotos(pieza, { alFallar: (f, e) => fotosQueNoBajaron.push(`${f.url ?? f.ruta}: ${String(e.message).slice(0, 120)}`) });
+      const r = await renderizarPieza(lista, carpeta, { nombre });
+      return { archivos: r.archivos, fotosQueNoBajaron };
+    },
+    subirLamina: async (png, { prefijo }) => {
+      const { default: ffmpeg } = await import('ffmpeg-static');
+      const { spawnSync } = await import('node:child_process');
+      const j = spawnSync(ffmpeg, ['-loglevel', 'error', '-i', png, '-frames:v', '1', '-q:v', '2', '-f', 'image2', '-c:v', 'mjpeg', 'pipe:1'], { maxBuffer: 30 * 1024 * 1024 });
+      if (j.status !== 0 || !j.stdout?.length) throw new Error(`no se pudo pasar la lámina a JPEG: ${path.basename(png)}`);
+      const nombre = nombreDeLamina(prefijo, j.stdout);
+      const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
+      await r2.guardar(claveR2DePlaca(nombre), j.stdout, 'image/jpeg');
+      return `${(env.REDES_URL || DIRECCION_DE_LAS_REDES).replace(/\/$/, '')}/placa/${nombre}`;
     },
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });

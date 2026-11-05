@@ -53,3 +53,41 @@ export async function avisosDelClima(env, hoy) {
   return lista(r).filter((a) => (analizar(a.lugares, []) || []).includes('clima') && String(a.comercio ?? '').trim())
     .map((a) => ({ id: a.id, comercio: String(a.comercio).trim(), enlace: a.enlace || null }));
 }
+
+/** ¿Esta pieza ya salió alguna vez, en cualquier día, en ese modo? Cuenta lo que está en curso, lo listo y lo publicado. Sirve para el carrusel de una nota: sale una sola vez por nota. */
+export async function piezaYaSalio(env, pieza, simulado) {
+  const f = await env.DB.prepare("SELECT id FROM piezas WHERE pieza = ? AND simulado = ? AND estado IN ('en-curso', 'lista', 'publicada') LIMIT 1").bind(pieza, simulado ? 1 : 0).first();
+  return !!f;
+}
+
+/** Cuántos intentos fallidos tiene una pieza en total (cualquier día): el carrusel de una nota deja de reintentarse después de tres. */
+export async function intentosFallidosDe(env, pieza, simulado) {
+  const f = await env.DB.prepare("SELECT COUNT(*) AS n FROM piezas WHERE pieza = ? AND simulado = ? AND estado = 'error'").bind(pieza, simulado ? 1 : 0).first();
+  return f?.n ?? 0;
+}
+
+/**
+ * Las notas propias (las que escribe una persona de la redacción: origen `redaccion`) publicadas desde `desdeISO`, con lo que hace falta para ver si tienen fotos para un carrusel:
+ * la lista de fotos (de la columna `foto` si es una lista, de `extra.fotos` o de las fotos que van dentro del cuerpo, `extra.fotosEnCuerpo`) y lo que eligió la persona para las redes (`redes`).
+ * Las columnas `origen`, `slug` y `redes` de `notas` las suma el bot de Telegram; en una base que no las tiene se usa sólo `sitio_notas`.
+ */
+export async function notasPropiasParaCarrusel(env, { desdeISO }) {
+  const sql = (extra) => `SELECT n.id, n.titulo, n.bajada, n.seccion, n.foto, n.ficha, n.firma, n.creada, s.slug AS s_slug, s.publicada_en AS s_publicada, s.origen AS s_origen, s.extra AS s_extra${extra}
+     FROM notas n LEFT JOIN sitio_notas s ON s.id = n.id
+     WHERE n.estado = 'publicada' AND COALESCE(s.publicada_en, n.creada) >= ? ORDER BY COALESCE(s.publicada_en, n.creada) DESC`;
+  let r;
+  try { r = await env.DB.prepare(sql(', n.origen AS n_origen, n.slug AS n_slug, n.redes AS n_redes')).bind(desdeISO).all(); } catch { r = await env.DB.prepare(sql('')).bind(desdeISO).all(); }
+  return lista(r).filter((f) => (f.s_origen || f.n_origen) === 'redaccion').map((f) => {
+    const foto = analizar(f.foto, null);
+    const extra = analizar(f.s_extra, {});
+    const fotos = [
+      ...(Array.isArray(foto) ? foto : Array.isArray(foto?.fotos) ? foto.fotos : foto ? [foto] : []),
+      ...(Array.isArray(extra?.fotos) ? extra.fotos : []),
+      ...(Array.isArray(extra?.fotosEnCuerpo) ? extra.fotosEnCuerpo : []),
+    ];
+    return {
+      id: f.id, titulo: f.titulo || '', bajada: f.bajada || '', seccion: f.seccion || '', firma: f.firma || '', slug: f.s_slug || f.n_slug || '', publicada: f.s_publicada || f.creada,
+      deServicio: f.id === 'mediakit' || !!analizar(f.ficha, null)?.marca, fotos, redes: analizar(f.n_redes, null),
+    };
+  });
+}

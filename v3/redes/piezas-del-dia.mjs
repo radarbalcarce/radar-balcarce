@@ -26,6 +26,11 @@ export const PIEZAS_DEL_DIA = Object.freeze([
   { id: 'feriado', nombre: 'El feriado', arma: 'feriado', formato: 'reel', hora: '08:00', ventana: 240, dias: TODOS, voz: 3, hashtag: 'Feriado', condicional: true },
   { id: 'agenda', nombre: 'Qué hacer este fin de semana', arma: 'agenda', formato: 'reel', hora: '12:00', ventana: 60, dias: [4], voz: 4, hashtag: 'Agenda', condicional: true },
   { id: 'utiles', nombre: 'Teléfonos útiles', arma: 'utiles', formato: 'reel', hora: '17:00', ventana: 60, dias: [6], voz: 4, hashtag: 'TeléfonosÚtiles' },
+  // Los carruseles (formato 'carrusel': varias imágenes 4:5, álbum en Facebook y carrusel en Instagram; sin voz, no gastan audio). `sinVoz: true`. Hernán, 5/11: «en todas las redes sale todo el material que se genere».
+  { id: 'carrusel-semana', nombre: 'La semana en Balcarce', arma: 'carrusel-semana', formato: 'carrusel', hora: '11:00', ventana: 180, dias: [0], voz: 5, sinVoz: true, hashtag: 'LaSemana' },
+  { id: 'carrusel-finde', nombre: 'El finde en Balcarce', arma: 'carrusel-finde', formato: 'carrusel', hora: '18:00', ventana: 120, dias: [4], voz: 5, sinVoz: true, hashtag: 'Agenda', condicional: true },
+  // El carrusel de una nota propia con 3 fotos o más no tiene hora: sale apenas se publica la nota (una sola vez por nota). Cada nota es una fila `carrusel-nota-<id>`; esta fila sólo dice que existe y cuándo se mira.
+  { id: 'carrusel-nota', nombre: 'Las fotos de la nota', arma: 'carrusel-nota', formato: 'carrusel', hora: '08:00', ventana: 840, dias: TODOS, voz: 5, sinVoz: true, porNota: true, hashtag: 'Fotos' },
   // Los avisos de clima no tienen hora ni día fijos: salen apenas hay uno grave (de 7:00 a 22:00), en una historia con voz. Una sola vez al día cada tipo.
   { id: 'aviso-helada', nombre: 'Aviso de helada', arma: 'aviso', variante: 'helada', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
   { id: 'aviso-granizo', nombre: 'Aviso de granizo', arma: 'aviso', variante: 'granizo', formato: 'historia', hora: '07:00', ventana: 900, dias: TODOS, voz: 2, hashtag: 'Clima', condicional: true },
@@ -75,6 +80,7 @@ export const bloqueDe = (pieza) => bloqueDeLaHora(Math.floor(minutoDe(pieza.hora
 export function accionesDe(pieza) {
   const reel = [{ red: 'instagram', tipo: 'REELS' }, { red: 'facebook', tipo: 'REELS' }];
   const historia = [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'STORIES' }];
+  if (pieza.formato === 'carrusel') return [{ red: 'instagram', tipo: 'CARRUSEL' }, { red: 'facebook', tipo: 'ALBUM' }];
   if (pieza.formato === 'historia') return [{ red: 'instagram', tipo: 'STORIES' }, { red: 'facebook', tipo: 'REELS' }, { red: 'facebook', tipo: 'STORIES' }];
   return [...reel, ...historia];
 }

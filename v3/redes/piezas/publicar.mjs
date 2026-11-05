@@ -1,5 +1,6 @@
 // El texto de cada pieza de video en Facebook e Instagram y la publicación (reel y historia) con el cliente de Meta de siempre (redes/meta.mjs: sube el mp4 directo, en dos pasos).
 // Sólo corre con REDES_ACTIVAS en «si»; en ensayo se arma el mismo texto y se anota lo que se HABRÍA publicado. Puro salvo `publicarPieza`, que recibe el cliente.
+import { createHash } from 'node:crypto';
 import { AVISO_DE_IA_TEXTO, HASHTAGS_FIJOS, DIRECCION_DEL_SITIO } from './variables.mjs';
 import { accionesDe, MAXIMO_DE_UN_SHORT_SEG } from '../piezas-del-dia.mjs';
 import { ponerOrigen, enlaceDeNota, SITIO } from '../texto.mjs';
@@ -120,3 +121,66 @@ export async function publicarPorBuffer({ pieza, item, mp4, huella, duracion = n
 
 /** En ensayo: lo mismo, sin subir ni llamar a nadie. */
 export const simularBuffer = (item) => accionesDeBuffer(item).map((a) => ({ ...a, estado: 'simulada' }));
+
+// ------------------------------------------------------------------ carruseles (varias imágenes 4:5): álbum en Facebook y carrusel en Instagram
+
+/** Instagram acepta hasta 2.200 caracteres en el texto de un posteo. */
+const MAXIMO_DEL_PIE = 2200;
+
+/**
+ * El texto de un carrusel. Sin el aviso de voz con IA (no habla). Facebook lleva el enlace con su origen (`campana: carrusel`); Instagram, «link en la bio».
+ *   La semana: nombre, las notas numeradas y el sitio. El finde: nombre, las actividades y el sitio. La nota propia: su título, «Más fotos en la nota» y el enlace a la nota.
+ * Siempre `#Balcarce #RadarBalcarce` y el tema.
+ */
+export function textoDeCarrusel(pieza, item, red) {
+  const lineas = [item.nombre, ''];
+  if (item.arma === 'carrusel-semana') {
+    for (const [i, n] of (item.datos?.notas ?? []).entries()) lineas.push(`${i + 1}. ${limpiar(n.titulo)}`);
+  } else if (item.arma === 'carrusel-finde') {
+    const eventos = (pieza.laminas ?? []).filter((l) => l.tipo === 'lamina-eventos').flatMap((l) => l.datos.eventos ?? []);
+    for (const e of eventos) lineas.push(`• ${limpiar(e.cuando)} · ${limpiar(e.nombre)}${e.lugar ? ` (${limpiar(e.lugar)})` : ''}`);
+  } else if (item.arma === 'carrusel-nota') {
+    lineas.push(`Todas las fotos, en el carrusel. La nota completa está en el sitio.`);
+  }
+  lineas.push('');
+  if (red === 'instagram') lineas.push(item.arma === 'carrusel-nota' ? 'La nota completa: link en la bio.' : 'Todo en Radar Balcarce: link en la bio.');
+  else {
+    const destino = item.arma === 'carrusel-nota' && item.datos?.nota?.id ? enlaceDeNota(item.datos.nota) : SITIO;
+    lineas.push(`${item.arma === 'carrusel-nota' ? 'La nota completa' : 'Todo en radarbalcarce.com'}: ${ponerOrigen(destino, { fuente: 'facebook', campana: 'carrusel', contenido: item.id })}`);
+  }
+  lineas.push('', `${HASHTAGS_FIJOS} #${item.hashtag}`);
+  return lineas.join('\n').slice(0, MAXIMO_DEL_PIE);
+}
+
+/** Lo que se publica de un carrusel y dónde (Instagram: carrusel; Facebook: álbum), con su texto. */
+export const accionesDeCarrusel = (pieza, item) => accionesDe(item).map((a) => ({ ...a, pie: textoDeCarrusel(pieza, item, a.red) }));
+
+/**
+ * El nombre del archivo de una lámina en el depósito de placas: `<prefijo>-<8 letras de la huella de la imagen>.jpg`. Es el formato que sirve el Worker en /placa/<nombre> (el prefijo, de 1 a 40
+ * letras, números, guion y guion bajo). Una lámina distinta es otro nombre, y la misma imagen, el mismo.
+ */
+export function nombreDeLamina(prefijo, bytes) {
+  const huella = createHash('sha256').update(bytes).digest('hex').slice(0, 8);
+  const limpio = String(prefijo).replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 40) || 'lamina';
+  return `${limpio}-${huella}.jpg`;
+}
+
+/**
+ * Publica un carrusel con el cliente de Meta: `urls` son las direcciones públicas de las láminas, en orden. Sigue aunque una red falle (queda su error). Instagram admite 10 como mucho:
+ * si hay más, publica las primeras 10.
+ * @returns {Promise<{ red, tipo, estado: 'ok'|'error', id?, error? }[]>}
+ */
+export async function publicarCarrusel({ cliente, urls, acciones, sinToken = (t) => t }) {
+  const salida = [];
+  for (const a of acciones) {
+    try {
+      const r = a.red === 'instagram'
+        ? await cliente.publicarCarruselEnInstagram({ imagenesUrl: urls.slice(0, 10), pie: a.pie })
+        : await cliente.publicarAlbumEnFacebook({ imagenesUrl: urls, mensaje: a.pie });
+      salida.push({ red: a.red, tipo: a.tipo, estado: 'ok', id: r?.id ?? null });
+    } catch (e) {
+      salida.push({ red: a.red, tipo: a.tipo, estado: 'error', error: sinToken(String(e?.message ?? e)).slice(0, 300) });
+    }
+  }
+  return salida;
+}

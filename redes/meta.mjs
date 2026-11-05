@@ -192,6 +192,70 @@ export function crearCliente({
   }
 
   /**
+   * Espera a que Instagram termine de procesar un contenedor (una imagen o el carrusel entero). Corta si lo rechaza o si se vence.
+   */
+  async function esperarContenedor(id, tokenPagina, que = 'la imagen') {
+    for (let i = 0; i < 15; i += 1) {
+      const estado = await pedir(id, { conToken: tokenPagina, params: { fields: 'status_code' } });
+      if (estado.status_code === 'FINISHED' || estado.status_code === undefined) return;
+      if (estado.status_code === 'ERROR' || estado.status_code === 'EXPIRED') {
+        throw new ErrorMeta(`Instagram rechazó ${que} (${estado.status_code}).`);
+      }
+      await esperar(2000);
+    }
+  }
+
+  /**
+   * Un carrusel en el feed de Instagram: de 2 a 10 imágenes. Cada `imagenesUrl` tiene que ser pública y JPEG (Instagram las descarga desde ahí).
+   * Tres pasos, los de la API: un contenedor hijo por imagen (is_carousel_item), el contenedor del carrusel (media_type CAROUSEL con los hijos) y la publicación.
+   * Si un hijo falla, no se publica nada (un carrusel a medias no sirve).
+   */
+  async function publicarCarruselEnInstagram({ imagenesUrl, pie }) {
+    const urls = (imagenesUrl ?? []).filter(Boolean);
+    if (urls.length < 2 || urls.length > 10) throw new ErrorMeta(`Un carrusel de Instagram lleva de 2 a 10 imágenes (hay ${urls.length}).`);
+    const p = await pagina();
+    if (!p.instagramId) throw new ErrorMeta('La página no tiene un Instagram vinculado.');
+
+    const hijos = [];
+    for (const imagenUrl of urls) {
+      const hijo = await pedir(`${p.instagramId}/media`, {
+        metodo: 'POST', conToken: p.tokenPagina,
+        params: { image_url: imagenUrl, is_carousel_item: 'true' },
+      });
+      hijos.push(hijo.id);
+    }
+    for (const id of hijos) await esperarContenedor(id, p.tokenPagina, 'una de las imágenes');
+
+    const carrusel = await pedir(`${p.instagramId}/media`, {
+      metodo: 'POST', conToken: p.tokenPagina,
+      params: { media_type: 'CAROUSEL', children: hijos.join(','), caption: pie },
+    });
+    await esperarContenedor(carrusel.id, p.tokenPagina, 'el carrusel');
+
+    const j = await pedir(`${p.instagramId}/media_publish`, {
+      metodo: 'POST', conToken: p.tokenPagina, params: { creation_id: carrusel.id },
+    });
+    return { id: j.id };
+  }
+
+  /**
+   * Un álbum de fotos en la página de Facebook: cada foto se sube sin publicar (published=false) y después un solo posteo del feed las junta con attached_media.
+   * Cada `imagenesUrl` tiene que ser pública (Facebook la baja desde ahí). Si una foto falla, no se publica nada.
+   */
+  async function publicarAlbumEnFacebook({ imagenesUrl, mensaje }) {
+    const urls = (imagenesUrl ?? []).filter(Boolean);
+    if (urls.length < 2) throw new ErrorMeta(`Un álbum de Facebook lleva al menos 2 fotos (hay ${urls.length}).`);
+    const p = await pagina();
+    const params = { message: mensaje };
+    for (const [i, url] of urls.entries()) {
+      const foto = await pedir(`${paginaId}/photos`, { metodo: 'POST', conToken: p.tokenPagina, params: { url, published: 'false' } });
+      params[`attached_media[${i}]`] = JSON.stringify({ media_fbid: foto.id });
+    }
+    const j = await pedir(`${paginaId}/feed`, { metodo: 'POST', conToken: p.tokenPagina, params });
+    return { id: j.id };
+  }
+
+  /**
    * Un video en Instagram, como historia (STORIES) o como reel (REELS).
    *
    * Se sube directo, en dos pasos: Instagram da una dirección de subida y el
@@ -368,7 +432,7 @@ export function crearCliente({
   }
 
   return {
-    pedir, pagina, publicarEnFacebook, publicarFotoEnFacebook, releerEnlace, publicacionesRecientesDeFacebook, publicarFotoEnInstagram, publicarVideoEnInstagram, publicarVideoEnFacebook,
+    pedir, pagina, publicarEnFacebook, publicarFotoEnFacebook, releerEnlace, publicacionesRecientesDeFacebook, publicarFotoEnInstagram, publicarCarruselEnInstagram, publicarAlbumEnFacebook, publicarVideoEnInstagram, publicarVideoEnFacebook,
     enlaceDePublicacion, publicacionesRecientesDeInstagram, verificar,
   };
 }

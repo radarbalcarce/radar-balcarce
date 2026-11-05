@@ -7,6 +7,7 @@ import { PIEZAS_DEL_DIA, piezasDeHoy, piezasQueTocan, minutoDe, bloqueDe, bloque
 import { diaDeBalcarce, motivoDeExclusion, tipoDeNota, tieneFoto, REGLAS as REGLAS_DE_NOTAS } from './elegir.mjs';
 import { notasParaRedes, publicacionesDelDia } from './db.mjs';
 import * as dbp from './piezas-db.mjs';
+import { datosDeLaSemana, proximaNotaConCarrusel } from './piezas-carruseles.mjs';
 
 export const REGLAS_PIEZAS = Object.freeze({
   audiosPorDia: 10,        // el cupo de voz (CRITERIO-REDES.md § 6). Se cambia con la variable VOZ_TOPE_DIARIO
@@ -67,7 +68,8 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   const filas = await dbp.piezasDelDia(env, dia, simulado);
 
   // Una pieza condicional (feriado, agenda, avisos de clima) sólo cuenta si el programa dijo que hay algo para contar; si no, ni se reserva ni le guarda lugar en el cupo de voz a las demás.
-  const hayDato = (p) => !p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id));
+  // (El carrusel de una nota propia, `porNota`, no tiene fila fija: se arma más abajo, una fila por nota.)
+  const hayDato = (p) => !p.porNota && (!p.condicional || conDatos.includes(p.id) || (solo?.length > 0 && solo.includes(p.id)));
   const candidatas = (solo?.length ? PIEZAS_DEL_DIA.filter((p) => solo.includes(p.id)) : piezasQueTocan(ahora)).filter(hayDato);
   const descartes = [];
   const pendientes = [];
@@ -104,7 +106,7 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
   let youtubeHoy = filas.filter((f) => cuentanComoHecha.has(f.estado)).reduce((s, f) => s + ((f.acciones ?? []).some((a) => a.red === 'youtube' && a.estado !== 'error' && a.estado !== 'omitida') ? 1 : 0), 0);
   for (const p of pendientes) {
     const reservar = PIEZAS_DEL_DIA.filter((x) => x.voz < p.voz && porSalirHoy(x) && !salen.some((s) => s.id === x.id)).length;
-    if (tope - usados - reservar <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
+    if (!p.sinVoz && tope - usados - reservar <= 0) { descartes.push({ pieza: p.id, motivo: 'sin-cupo-de-voz', quedan: Math.max(0, tope - usados), reservadas: reservar }); continue; }
 
     let datos = {};
     let notas = null;
@@ -118,18 +120,31 @@ export async function planear(env, { ahora = new Date(), simulado = true, solo =
     } else if (p.arma === 'clima') {
       auspicio = auspicioDelDia(await dbp.avisosDelClima(env, dia), dia);
       datos = { auspicio };
+    } else if (p.arma === 'carrusel-semana') {
+      // Las notas de Balcarce más importantes de los últimos 7 días. Con menos de 5, el carrusel no sale (se vuelve a mirar en la próxima vuelta mientras dure su ventana).
+      datos = await datosDeLaSemana(env, { ahora, simulado });
+      if (!datos) { descartes.push({ pieza: p.id, motivo: 'sin-notas' }); continue; }
     }
 
     // Un aviso de clima sale cuando se lo detecta, no a su hora: habla con el estilo del momento en que sale y, como no saluda, no cuenta como la pieza que "ya habló" del bloque.
     const bloque = p.arma === 'aviso' ? bloqueDeLaHora(Math.floor(minuto / 60)) : bloqueDe(p);
     const saluda = p.arma !== 'aviso';
     const otraHablo = filas.some((f) => f.bloque === bloque && hablaEnElBloque(f)) || salen.some((s) => s.bloque === bloque && s.saluda);
-    const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque: saluda ? bloque : null, simulado, ahoraISO, notas, auspicio });
+    const fila = await dbp.reservarPieza(env, { pieza: p.id, dia, hora: p.hora, bloque: saluda ? bloque : null, simulado, ahoraISO, notas, auspicio, vozPrevista: p.sinVoz ? 0 : 1 });
     if (!fila) continue;
-    usados += 1;
-    const buffer = redesDeBuffer(p, { youtubeHoy, tope: topeDeYoutube(env) });
+    if (!p.sinVoz) usados += 1;
+    const buffer = p.formato === 'carrusel' ? [] : redesDeBuffer(p, { youtubeHoy, tope: topeDeYoutube(env) });
     if (buffer.includes('youtube')) youtubeHoy += 1;
     salen.push({ fila, id: p.id, nombre: p.nombre, arma: p.arma, variante: p.variante ?? null, momento: p.momento ?? null, formato: p.formato, hora: p.hora, horaDelDia: p.arma === 'aviso' ? Math.floor(minuto / 60) : Math.floor(minutoDe(p.hora) / 60), bloque, saluda, buffer, voz: p.voz, hashtag: p.hashtag, primeraDelBloque: !otraHablo, datos });
+  }
+  // El carrusel de una nota propia con 3 fotos o más: no tiene hora, sale apenas se publica la nota, una por vuelta y una sola vez por nota. Sin voz: no gasta audios.
+  const deNota = PIEZAS_DEL_DIA.find((x) => x.porNota);
+  if (deNota && (solo?.length ? solo.includes(deNota.id) : piezasQueTocan(ahora).some((x) => x.id === deNota.id))) {
+    const siguiente = await proximaNotaConCarrusel(env, { ahora, simulado });
+    if (siguiente) {
+      const fila = await dbp.reservarPieza(env, { pieza: siguiente.pieza, dia, hora: deNota.hora, bloque: null, simulado, ahoraISO, notas: null, auspicio: null, vozPrevista: 0 });
+      if (fila) salen.push({ fila, id: siguiente.pieza, nombre: siguiente.nota.titulo, arma: deNota.arma, variante: null, momento: null, formato: deNota.formato, hora: deNota.hora, horaDelDia: Math.floor(minutoDe(deNota.hora) / 60), bloque: null, saluda: false, buffer: [], voz: deNota.voz, hashtag: deNota.hashtag, primeraDelBloque: false, datos: { nota: siguiente.nota } });
+    }
   }
   return { dia, simulado, vozTope: tope, vozQuedan: Math.max(0, tope - usados), piezas: salen, descartes };
 }
@@ -150,7 +165,7 @@ export function lineasDeLasPiezas(filas, simulado) {
   if (!filas.length) return [];
   const listas = filas.filter((f) => f.estado === 'lista' || f.estado === 'publicada');
   const fallas = filas.filter((f) => f.estado === 'error');
-  const nombre = (id) => PIEZAS_DEL_DIA.find((p) => p.id === id)?.nombre ?? id;
+  const nombre = (id) => PIEZAS_DEL_DIA.find((p) => p.id === (id.startsWith('carrusel-nota-') ? 'carrusel-nota' : id))?.nombre ?? id;
   const lineas = [simulado
     ? `Piezas de video (ENSAYO, nada se publicó): ${listas.length} armadas con voz y guardadas.`
     : `Piezas de video: ${listas.length} publicadas.`];
