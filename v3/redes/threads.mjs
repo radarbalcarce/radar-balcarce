@@ -49,9 +49,17 @@ export function crearClienteThreads({ token, userId, fetchFn = fetch, base = BAS
     /** Crea el contenedor de texto con el enlace y lo publica. Devuelve { id }. */
     async publicarEnlace({ texto, enlace }) {
       if (grafemas(texto) > MAXIMO_THREADS) throw new ErrorSocial(`el texto tiene ${grafemas(texto)} caracteres (el tope es ${MAXIMO_THREADS})`, { red: 'threads' });
-      const contenedor = await pedir(`${userId}/threads`, { media_type: 'TEXT', text: texto, ...(enlace ? { link_attachment: enlace } : {}) });
+      // Si el número cargado no es el de la cuenta del token (pasó el 5/11), Threads contesta «el objeto no existe»: se reintenta con «me», que es la cuenta dueña del token.
+      const crear = (quien) => pedir(`${quien}/threads`, { media_type: 'TEXT', text: texto, ...(enlace ? { link_attachment: enlace } : {}) });
+      let quien = userId;
+      let contenedor;
+      try { contenedor = await crear(quien); } catch (e) {
+        if (!/does not exist|no existe/i.test(String(e?.message))) throw e;
+        quien = 'me';
+        contenedor = await crear(quien);
+      }
       if (!contenedor?.id) throw new ErrorSocial('Threads no devolvió el contenedor', { red: 'threads' });
-      const publicado = await pedir(`${userId}/threads_publish`, { creation_id: contenedor.id });
+      const publicado = await pedir(`${quien}/threads_publish`, { creation_id: contenedor.id });
       return { id: publicado?.id ?? null };
     },
   };

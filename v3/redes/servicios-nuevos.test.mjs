@@ -614,3 +614,16 @@ test('X (programa): redesConCredenciales suma X con BUFFER_API_KEY; real publica
   assert.ok(r3.posteos.every((p) => p.estado === 'error'));
   assert.ok(!JSON.stringify(r3).includes('buf-secreto'));
 });
+
+test('Threads: si el número de la cuenta cargado no existe, reintenta con la cuenta dueña del token («me»)', async () => {
+  const llamadas = [];
+  const fetchFn = async (url) => {
+    llamadas.push(url);
+    if (url.includes('/99999/')) return { ok: false, status: 400, json: async () => ({ error: { code: 100, message: "Unsupported post request. Object with ID '99999' does not exist" } }) };
+    return { ok: true, status: 200, json: async () => ({ id: 'c1' }) };
+  };
+  const c = crearClienteThreads({ token: 'TH-secreto', userId: '99999', fetchFn });
+  const r = await c.publicarEnlace({ texto: 'Hola', enlace: 'https://radarbalcarce.com/nota/x-1' });
+  assert.equal(r.id, 'c1');
+  assert.deepEqual(llamadas.map((u) => u.split('/v1.0/')[1]), ['99999/threads', 'me/threads', 'me/threads_publish']);
+});
