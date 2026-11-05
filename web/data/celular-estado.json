@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T02:08:08.446Z",
- "portada": 178,
- "archivo": 500,
- "esperandoCuerpo": 28,
+ "generado": "2026-11-05T03:03:48.896Z",
+ "portada": 148,
+ "archivo": 498,
+ "esperandoCuerpo": 42,
  "redes": {
-  "generado": "2026-11-05T02:08:09.152Z",
+  "generado": "2026-11-05T03:03:49.809Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,17 +33,17 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
-    "nombre": "participa-reclamos",
+    "nombre": "agenda",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "Tu reclamo",
+    "que": "La agenda del fin de semana",
     "voz": "locutora",
     "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,29 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 52,
+    "segundos": 54,
     "notas": [
      {
       "id": "1hnsyf",
@@ -138,6 +118,68 @@
       "seccion": "Automovilismo"
      }
     ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
+    "notas": [
+     {
+      "id": "1pm4shu",
+      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "atpuq1",
+      "titulo": "San Agustín realiza el acto central por el Día de la Tradición",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "hbt308",
+      "titulo": "Bomberos combaten un incendio en un departamento de calles 21 y 12",
+      "seccion": "Policiales"
+     },
+     {
+      "id": "c3bdgi",
+      "titulo": "La Libertad Avanza presentará candidato propio a intendente",
+      "seccion": "Política"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 50,
+    "notas": [
+     {
+      "id": "100bnjr",
+      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1y43ge4",
+      "titulo": "La Liga Balcarceña oficializa la cuarta fecha del torneo Clausura",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "tne9sk",
+      "titulo": "Inauguran una muestra artística de la escuela El Principito en el MUHBA",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "xrlaa0",
+      "titulo": "Recicladores piden acceso a la maquinaria de la planta municipal",
+      "seccion": "Balcarce"
+     }
+    ]
    }
   ],
   "facebook": {
@@ -150,21 +192,15 @@
      "marcada": false
     },
     {
-     "id": "1h2lva6",
-     "titulo": "Nico Paz marca un gol y homenajea a Jesús de Miguel en la Champions League",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "qad6ti",
      "titulo": "El Senado firma dictamen para convertir en ley el proyecto de discapacidad",
      "seccion": "Política",
      "marcada": false
     },
     {
-     "id": "1b3vgb2",
-     "titulo": "El papa León XIV recibe a Bob Dylan en el Vaticano antes de su gira",
-     "seccion": "Cultura y agenda",
+     "id": "e5aqv2",
+     "titulo": "El riesgo país supera los 850 puntos tras las elecciones en Estados Unidos",
+     "seccion": "Economía",
      "marcada": false
     },
     {
@@ -174,9 +210,9 @@
      "marcada": false
     },
     {
-     "id": "qh82gn",
-     "titulo": "La SIDE recibe más de 40.000 solicitudes de ingreso en 24 horas",
-     "seccion": "Argentina",
+     "id": "1b3vgb2",
+     "titulo": "El papa León XIV recibe a Bob Dylan en el Vaticano antes de su gira",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {

@@ -42479,9 +42479,7 @@
   "fuentes": 4
  },
  "m42v15": {
-  "archivo": "fotos-notas/m42v15.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Recomiendan consumir papas a diario con una cocción adecuada",
@@ -42501,12 +42499,11 @@
    "descripcion": "Papas hirviendo en una olla con agua"
   },
   "huella": "56cf0f1bb3d7d65b",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "1vbcgqe": {
-  "archivo": "fotos-notas/1vbcgqe.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Los mercados reaccionan con fuertes bajas en Brasil y golpean a la Argentina",
@@ -42526,12 +42523,11 @@
    "descripcion": "Operadores bursátiles trabajando frente a pantallas de mercados"
   },
   "huella": "405f4e3737253b8f",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "1nhdhsi": {
-  "archivo": "fotos-notas/1nhdhsi.jpg",
   "medio": "La Nueva",
-  "credito": "Foto: La Nueva",
   "licencia": null,
   "origen": "medio",
   "titulo": "Sube un 15,3% el turismo extranjero y bajan los viajes al exterior",
@@ -42551,12 +42547,11 @@
    "descripcion": "Avión comercial en pleno despegue sobre una pista"
   },
   "huella": "a2a2e2ca07d75dd3",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "tzegrg": {
-  "archivo": "fotos-notas/tzegrg.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lionel Messi recibe una camiseta de Boca en Miami durante la Messi Cup",
@@ -42588,12 +42583,11 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "1c1796b4e8a4c0b4",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "11yhki4": {
-  "archivo": "fotos-notas/11yhki4.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Liga Profesional evalúa volver al formato de todos contra todos en 2027",
@@ -42613,7 +42607,8 @@
    "descripcion": "Primer plano de Claudio 'Chiqui' Tapia hablando en conferencia."
   },
   "huella": "154647f5e5d71716",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "1lms91p": {
   "medio": "TN (Todo Noticias)",
@@ -43942,9 +43937,7 @@
   "ausenteDesde": "2026-10-29T13:08:27.656Z"
  },
  "veoe22": {
-  "archivo": "fotos-notas/veoe22.jpg",
   "medio": "Infocampo",
-  "credito": "Foto: Infocampo",
   "licencia": null,
   "origen": "medio",
   "titulo": "CRA impulsa una red federal para asistir a productores afectados por las inundaciones",
@@ -43964,7 +43957,8 @@
    "descripcion": "Ganado cruzando o rodeado de agua en una zona inundada"
   },
   "huella": "14c4423c7cfdbb83",
-  "ausenteDesde": "2026-10-29T03:02:29.030Z"
+  "intentado": true,
+  "borrada": true
  },
  "1iy3a9n": {
   "medio": "A24",
@@ -79069,11 +79063,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Libertad Avanza presentará candidato propio a intendente",
-  "razon": "Segunda opinión no disponible (la primera IA describe gente joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Radio Gabal (FM 104.1) no se usa todavía.",
-  "cuando": "2026-11-04T20:34:09.236Z",
-  "intentos": 1,
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
   "fuentes": 1,
-  "intentosPorCupo": 2
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "108600q": {
   "archivo": "fotos-notas/108600q.jpg",
@@ -79740,11 +79734,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Avellaneda incorpora inteligencia artificial al monitoreo de cámaras",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Tecla no se usa todavía.",
-  "cuando": "2026-11-04T21:36:53.050Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
+  "fuentes": 6,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "ovx7zo": {
   "archivo": "fotos-notas/ovx7zo.jpg",
@@ -79834,10 +79828,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Valentín Barco confirma su intención de regresar a Boca Juniors en el futuro",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Crónica (un menor): no se elige ninguna.",
-  "cuando": "2026-11-04T22:04:11.510Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1lexc5a": {
   "archivo": "fotos-notas/1lexc5a.jpg",
@@ -80167,9 +80162,9 @@
   "origen": "ninguna",
   "titulo": "El riesgo país supera los 850 puntos tras las elecciones en Estados Unidos",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
-  "fuentes": 7,
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
+  "fuentes": 10,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1m73qsw": {
@@ -80188,8 +80183,8 @@
   "origen": "ninguna",
   "titulo": "El Frente Renovador ratifica su rechazo a las reelecciones indefinidas",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -80198,8 +80193,8 @@
   "origen": "ninguna",
   "titulo": "El crédito al consumo cae en octubre por el retroceso de las tarjetas",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
   "fuentes": 3,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -80208,8 +80203,8 @@
   "origen": "ninguna",
   "titulo": "Tesla abre su primer local oficial en el shopping Unicenter de Martínez",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
   "fuentes": 4,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
@@ -80218,9 +80213,9 @@
   "origen": "ninguna",
   "titulo": "Caputo afirma que el resultado electoral en Estados Unidos no afecta al país",
   "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-04T23:32:11.227Z",
-  "intentos": 1,
-  "fuentes": 6,
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
+  "fuentes": 7,
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "1yi5t3n": {
@@ -80337,11 +80332,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Valentín Barco propone a Nico Paz como el sucesor de la 10 de Messi",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Bolavip Argentina no se usa todavía.",
-  "cuando": "2026-11-05T00:03:49.218Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 2,
+  "fuentes": 4,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "qh82gn": {
   "archivo": "fotos-notas/qh82gn.webp",
@@ -80743,7 +80738,8 @@
    "corresponde": "si",
    "descripcion": "Nico Paz festejando un gol con la camiseta del Como."
   },
-  "huella": "181f0f8d4de3a484"
+  "huella": "181f0f8d4de3a484",
+  "ausenteDesde": "2026-11-05T03:03:48.726Z"
  },
  "1mwfio6": {
   "archivo": "fotos-notas/1mwfio6.jpg",
@@ -80792,5 +80788,26 @@
    "descripcion": "Gran cantidad de kits para voluntarios organizados en un salón."
   },
   "huella": "262064170f1cf0a0"
+ },
+ "1dhujhn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Rescatan 29 aves silvestres en cautiverio en Catamarca",
+  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
+  "cuando": "2026-11-05T03:02:35.242Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "errorGemini": "HTTP 400: User location is not supported for the API use."
+ },
+ "f1horarios2026r20": {
+  "archivo": "fotos-notas/libre-f1horarios2026r20.jpg",
+  "medio": "Wikimedia Commons",
+  "credito": "Foto: ProtoplasmaKid / Wikimedia Commons (CC BY-SA 4.0)",
+  "licencia": "CC BY-SA 4.0",
+  "origen": "libre",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg",
+  "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg/1280px-Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "titulo": "File:Vista aérea del Autódromo José Carlos Pace 01.jpg",
+  "cuando": "2026-11-05T03:03:47.148Z"
  }
 }
