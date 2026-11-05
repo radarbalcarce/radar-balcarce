@@ -47283,9 +47283,7 @@
   "fuentes": 2
  },
  "1hvxmxn": {
-  "archivo": "fotos-notas/1hvxmxn.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "Bunge cierra su planta de fertilizantes en la localidad de Campana",
@@ -47317,7 +47315,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "5575357577575656",
-  "ausenteDesde": "2026-10-29T17:05:19.047Z"
+  "intentado": true,
+  "borrada": true
  },
  "1dtp4dh": {
   "medio": "Olé",
@@ -47344,9 +47343,7 @@
   "borrada": true
  },
  "13cfw86": {
-  "archivo": "fotos-notas/13cfw86.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Gobierno busca dictamen en Diputados pero persisten dudas",
@@ -47366,7 +47363,8 @@
    "descripcion": "Reunión de diputados y asesores en un recinto legislativo"
   },
   "huella": "562d593b4dd35a9b",
-  "ausenteDesde": "2026-10-29T17:05:19.047Z"
+  "intentado": true,
+  "borrada": true
  },
  "sgz4i2": {
   "intentado": true,
@@ -78079,14 +78077,29 @@
   "ausenteDesde": "2026-11-04T17:13:21.559Z"
  },
  "hho8o4": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/hho8o4.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Cristina Kirchner celebra la derrota de Trump con un mensaje en red social",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T13:02:13.007Z",
-  "intentos": 2,
-  "fuentes": 27,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.lagaceta.com.ar/nota/1160989/politica/cristina-kirchner-celebro-derrota-trump-mensaje-ingles.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/10/28/cristina-kirchner-1160105-224036.jpg",
+  "razon": "Es la única imagen que muestra a la protagonista de la nota (Cristina Kirchner) de forma completa y reconocible, sin marcas de agua ni menores.",
+  "cuando": "2026-11-05T17:03:23.275Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cristina Kirchner saludando desde un balcón con rejas de hierro forjado."
+  },
+  "huella": "c4acb4b0f0e9f475"
  },
  "160ugu9": {
   "archivo": "fotos-notas/160ugu9.jpg",
@@ -80304,21 +80317,23 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tandil organiza la Fiesta Chacinar 2026 con el objetivo de batir un récord",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T13:02:13.007Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T17:03:23.275Z",
   "intentos": 2,
-  "fuentes": 2,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "fuentes": 3,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "mz7zaw": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "PAMI actualiza los topes de ingresos para acceder a medicamentos gratuitos",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T13:02:13.007Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T17:03:23.275Z",
   "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "fuentes": 5,
+  "intentosPorCupo": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1kqkzwd": {
   "archivo": "fotos-notas/1y41kv0.jpg",
@@ -81988,23 +82003,39 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "7okww": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/7okww.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El dólar cotiza a $1570 y el riesgo país llega a 852 puntos en Estados Unidos",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 2,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://tn.com.ar/economia/2026/11/03/el-riesgo-pais-vuelve-a-subir-y-se-mantiene-por-encima-de-los-800-puntos/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/operadores-en-la-bolsa-de-nueva-york-nyse-foto-jeenah-moonreuters-UHEBZ2RDI5AK3KF7ACHCGCXRVU.jpg?auth=3336ce3689179092e6b1c81b5ccff2be5b2570153ad2f10ca981d2b62b2321c0&width=1023",
+  "razon": "Es la imagen más nítida y con mejor encuadre que ilustra la tensión en el mercado financiero, sin marcas de agua ni menores.",
+  "cuando": "2026-11-05T17:03:23.275Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operador de bolsa con chaqueta azul mirando preocupado su monitor en un entorno de trading."
+  },
+  "huella": "5f97c69e0f633878"
  },
  "glxp8y": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "WhatsApp prueba una herramienta nativa para programar y enviar mensajes",
-  "razon": "La mejor foto era la de La Nación, pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
-  "cuando": "2026-11-05T13:36:04.501Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-05T17:03:23.275Z",
   "intentos": 1,
-  "fuentes": 8,
+  "fuentes": 9,
+  "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "81mpvn": {
