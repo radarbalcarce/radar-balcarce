@@ -33,8 +33,20 @@ const json = (v) => { if (v == null) return null; if (typeof v !== 'string') ret
 /** Las palabras que cuentan de un título: sin tildes, en minúsculas, de 4 letras o más y sin las de relleno. */
 export function palabrasDe(titulo) {
   const t = String(titulo ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-  return new Set(t.split(' ').filter((p) => p.length >= 4 && !PARADAS.has(p)));
+  return new Set(t.split(' ').filter((p) => p.length >= 4 && !PARADAS.has(p) && !/^\d+$/.test(p)).map((p) => p.slice(0, 5))); // raíz de 5 letras: «gana» y «ganó» cuentan como la misma
 }
+
+/** Los números de un título (10, 12.5, 12,5…), ordenados. Si dos títulos tienen números distintos no son la misma noticia (otra fecha, otro resultado, otra cifra). */
+export const numerosDe = (titulo) => (String(titulo ?? '').match(/\d+(?:[.,]\d+)?/g) ?? []).map((x) => x.replace(',', '.')).sort();
+export const mismosNumeros = (a, b) => JSON.stringify(numerosDe(a)) === JSON.stringify(numerosDe(b));
+
+const sinTildes = (s) => String(s ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+/** Plantillas de servicio que se repiten todos los días con otro contenido: clima, repasos, dólar, efemérides, farmacia, horarios. Nunca se unen, tengan o no `ficha.marca`. */
+const SERVICIO_POR_TITULO = [
+  /\bclima\b/, /\bpronostico\b/, /\bprobabilidad de (lluvia|tormenta)/, /\bminima de \d/, /\brepaso\b/, /\bdolar\b/, /\bcotizacion\b/, /\bun dia como hoy\b/, /\befemeride/,
+  /\bfarmacias?\b/, /\bde turno\b/, /\bhorarios?\b/, /\bagenda\b/, /\bcartelera\b/,
+];
+export const esDeServicioPorTitulo = (titulo) => { const t = sinTildes(titulo); return SERVICIO_POR_TITULO.some((re) => re.test(t)); };
 
 /** Qué parte de las palabras tienen en común dos títulos (sobre el que tiene más). 0 si alguno tiene muy pocas. */
 export function parecidoDeTitulos(a, b) {
@@ -59,6 +71,7 @@ export function tieneFoto(n) {
 const slugDeNota = (n) => n.slug || slugDe(n.titulo);
 const cuandoSalio = (n) => n.publicada_en || n.creada || '';
 const diaDe = (n) => cuandoSalio(n).slice(0, 10);
+const horasDeDistancia = (a, b) => Math.abs(Date.parse(cuandoSalio(a)) - Date.parse(cuandoSalio(b))) / 3600000;
 const distanciaEnDias = (a, b) => Math.abs(Date.parse(`${diaDe(a)}T00:00:00Z`) - Date.parse(`${diaDe(b)}T00:00:00Z`)) / 86400000;
 
 /** Las notas que nunca se unen: las de servicio (clima, dólar, media kit, repasos: llevan `ficha.marca`), las escritas por una persona y las que no tienen título. */
@@ -66,6 +79,7 @@ export function esUnible(n) {
   if (!n?.id || !n.titulo || !String(n.titulo).trim()) return false;
   if (n.id === 'mediakit' || /^clima-\d{4}-\d{2}-\d{2}$/.test(n.id)) return false;
   if (n.origen === 'redaccion') return false;
+  if (esDeServicioPorTitulo(n.titulo)) return false;
   const ficha = json(n.ficha);
   if (ficha && typeof ficha === 'object' && ficha.marca) return false;
   return true;
@@ -73,14 +87,20 @@ export function esUnible(n) {
 
 /**
  * ¿Son la misma noticia? Devuelve el motivo (`direccion` o `titulo`) o null. Conservador: las dos tienen que ser unibles y salir el mismo día o el siguiente, y además
- * - la misma dirección sin el código final (el titular en guiones), o
- * - títulos con 70 % de palabras en común, la misma sección y (una fuente en común o la misma historia).
+ * - la misma dirección sin el código final Y títulos con 70 % o más de palabras en común, o
+ * - títulos con 70 % de palabras en común, la misma sección y una fuente (url) en común; y siempre: menos de 24 h entre una y otra, mismos números en el título y que no sea de servicio (clima, repasos, dólar…).
  */
 export function sonRepetidas(a, b) {
   if (!esUnible(a) || !esUnible(b) || a.id === b.id) return null;
   if (distanciaEnDias(a, b) > DIAS_DE_DISTANCIA) return null;
-  if (slugDeNota(a) === slugDeNota(b)) return 'direccion';
-  if (a.seccion && a.seccion === b.seccion && parecidoDeTitulos(a.titulo, b.titulo) >= UMBRAL_DE_TITULO && (fuenteEnComun(a, b) || (a.historia_id && a.historia_id === b.historia_id))) return 'titulo';
+  if (!(horasDeDistancia(a, b) < 24)) return null; // salen con menos de 24 horas de diferencia (y el mismo día o el siguiente)
+  if (!mismosNumeros(a.titulo, b.titulo)) return null;
+  const parecido = parecidoDeTitulos(a.titulo, b.titulo);
+  const iguales = slugDe(a.titulo) === slugDe(b.titulo);
+  // Misma dirección: además de eso, los títulos tienen que parecerse (el slug se corta y puede juntar títulos distintos).
+  if (slugDeNota(a) === slugDeNota(b) && (iguales || parecido >= UMBRAL_DE_TITULO)) return 'direccion';
+  // Título casi igual: misma sección Y una fuente (url) en común sí o sí.
+  if (a.seccion && a.seccion === b.seccion && parecido >= UMBRAL_DE_TITULO && fuenteEnComun(a, b)) return 'titulo';
   return null;
 }
 

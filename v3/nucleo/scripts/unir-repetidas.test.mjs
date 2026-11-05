@@ -1,7 +1,7 @@
 // Unir repetidas (unir-repetidas.mjs): qué se detecta, qué NO, cuál queda y el orden de la corrida. Todo sin red.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { palabrasDe, parecidoDeTitulos, sonRepetidas, agruparRepetidas, tieneFoto, esUnible, noPublicarDe, correr, informeEnTexto, TOPE_DE_RETIROS } from './unir-repetidas.mjs';
+import { numerosDe, esDeServicioPorTitulo, palabrasDe, parecidoDeTitulos, sonRepetidas, agruparRepetidas, tieneFoto, esUnible, noPublicarDe, correr, informeEnTexto, TOPE_DE_RETIROS } from './unir-repetidas.mjs';
 
 const FOTO = JSON.stringify({ url: 'https://f.example/a.jpg' });
 const nota = (id, titulo, o = {}) => ({
@@ -10,7 +10,7 @@ const nota = (id, titulo, o = {}) => ({
 });
 
 test('palabrasDe: sin tildes, sin palabras cortas ni de relleno', () => {
-  assert.deepEqual([...palabrasDe('El Gobierno aumenta los subsidios para colectivos')].sort(), ['aumenta', 'colectivos', 'gobierno', 'subsidios']);
+  assert.deepEqual([...palabrasDe('El Gobierno aumenta los subsidios para colectivos')].sort(), ['aumen', 'colec', 'gobie', 'subsi']);
 });
 
 test('parecidoDeTitulos: 70 % o más sobre el título más largo; con menos de 4 palabras no compara', () => {
@@ -37,8 +37,8 @@ test('título casi igual: pide misma sección y fuente en común (o misma histor
   const fuenteComun = JSON.stringify([{ url: 'https://x.example/n?utm=1' }]);
   const otraFuente = JSON.stringify([{ url: 'https://x.example/n' }]);
   assert.equal(sonRepetidas(nota('a1', t1, { fuentes: fuenteComun }), nota('b2', t2, { fuentes: otraFuente })), 'titulo', 'la url se compara sin la query');
-  assert.equal(sonRepetidas(nota('a1', t1), nota('b2', t2)), null, 'sin fuente en común ni misma historia: ante la duda no');
-  assert.equal(sonRepetidas(nota('a1', t1, { historia_id: 'H' }), nota('b2', t2, { historia_id: 'H' })), 'titulo', 'misma historia');
+  assert.equal(sonRepetidas(nota('a1', t1), nota('b2', t2)), null, 'sin fuente en común: ante la duda no');
+  assert.equal(sonRepetidas(nota('a1', t1, { historia_id: 'H' }), nota('b2', t2, { historia_id: 'H' })), null, 'la misma historia sola ya no alcanza');
   assert.equal(sonRepetidas(nota('a1', t1, { fuentes: fuenteComun }), nota('b2', t2, { fuentes: otraFuente, seccion: 'Política' })), null, 'otra sección: no');
 });
 
@@ -49,7 +49,7 @@ test('lo que nunca se une: servicio (ficha.marca), clima del día, media kit, no
   assert.equal(esUnible(nota('mediakit', t)), false);
   assert.equal(esUnible(nota('r1', t, { origen: 'redaccion' })), false);
   assert.equal(sonRepetidas(nota('x1', t, { ficha: JSON.stringify({ marca: 'repaso' }) }), nota('x2', t)), null);
-  assert.equal(esUnible(nota('ok1', t)), true);
+  assert.equal(esUnible(nota('ok1', 'Josefina Licitra ganó el Premio Sor Juana')), true);
 });
 
 test('queda la que salió primero; las otras se retiran', () => {
@@ -141,4 +141,45 @@ test('si encuentra más que el tope, frena sin escribir', async () => {
   const deps = { leerNotas: async () => muchas, respaldar: async () => { toco = true; }, retirar: async () => { toco = true; }, ahora: () => AHORA };
   await assert.rejects(correr(deps, { simular: false }), /tope/);
   assert.equal(toco, false);
+});
+
+const A = (id, titulo, h, o = {}) => nota(id, titulo, { creada: `2026-11-03T${h}:00:00.000Z`, ...o });
+const COMUN = JSON.stringify([{ url: 'https://x.example/misma' }]);
+
+test('casos reales que NO se marcan: clima, repasos y demás servicios de días distintos o con la misma dirección', () => {
+  assert.equal(sonRepetidas(A('c1', 'El clima de hoy en Balcarce: mínima de 8° y máxima de 21°', '10'), A('c2', 'El clima de hoy en Balcarce: mínima de 9° y máxima de 22°', '20')), null);
+  assert.equal(sonRepetidas(A('c1', 'Clima en Balcarce: 40% de probabilidad de lluvia', '10'), A('c2', 'Clima en Balcarce: 40% de probabilidad de lluvia', '12')), null);
+  assert.equal(sonRepetidas(A('r1', 'El repaso de la noche en Radar Balcarce: lo que pasó hoy', '10'), A('r2', 'El repaso de la noche en Radar Balcarce: lo que pasó hoy', '11')), null);
+  for (const t of ['El repaso de la mañana en Radar Balcarce', 'Dólar hoy: cotización del blue', 'Un día como hoy: se fundó el club', 'Farmacias de turno en Balcarce', 'Horarios del Gran Premio de Brasil']) assert.equal(esDeServicioPorTitulo(t), true, t);
+  assert.equal(esDeServicioPorTitulo('Josefina Licitra ganó el Premio Sor Juana'), false);
+});
+
+test('casos reales que NO se marcan: números distintos en el título', () => {
+  assert.deepEqual(numerosDe('Liga Profesional del 10 al 19 de noviembre'), ['10', '19']);
+  assert.equal(sonRepetidas(A('a1', 'La Liga Profesional define el torneo del 10 al 19 de noviembre', '10', { fuentes: COMUN, seccion: 'Fútbol' }), A('b2', 'La Liga Profesional define el torneo del 11 al 19 de noviembre', '12', { fuentes: COMUN, seccion: 'Fútbol' })), null);
+  assert.equal(sonRepetidas(A('a1', 'MasterChef Celebrity suma 10,5 puntos en la gala del domingo', '10', { fuentes: COMUN }), A('b2', 'MasterChef Celebrity suma 12,5 puntos en la gala del domingo', '12', { fuentes: COMUN })), null);
+});
+
+test('casos reales que NO se marcan: previa contra resultado, alerta de días distintos, contenido distinto', () => {
+  assert.equal(sonRepetidas(A('a1', 'Atlético Tucumán y Argentinos Juniors juegan el lunes', '10', { fuentes: COMUN, seccion: 'Fútbol' }), A('b2', 'Argentinos Juniors vence a Atlético Tucumán', '12', { fuentes: COMUN, seccion: 'Fútbol' })), null);
+  assert.equal(sonRepetidas(A('a1', 'Emiten alerta amarilla por tormentas en Buenos Aires', '10'), nota('b2', 'Emiten alerta amarilla por tormentas en Buenos Aires', { creada: '2026-11-04T14:00:00.000Z' })), null, 'más de 24 horas');
+  assert.equal(sonRepetidas(A('a1', 'Noviembre llega con aumentos en transporte, prepagas y servicios', '10', { fuentes: COMUN }), A('b2', 'Noviembre llega con aumentos en alquileres, colegios y cuotas', '12', { fuentes: COMUN })), null);
+});
+
+test('misma dirección con títulos que no se parecen (el slug cortado junta cosas distintas): NO', () => {
+  const l = 'Autódromo Juan y Oscar Gálvez Fangio ';
+  const a = A('a1', l + 'accesos, entradas y operativo para el fin de semana', '10', { slug: 'fangio-autodromo' });
+  const b = A('b2', l + 'reabre sus puertas con un museo renovado y nuevas salas', '12', { slug: 'fangio-autodromo' });
+  assert.equal(sonRepetidas(a, b), null);
+});
+
+test('casos reales que SÍ se marcan: el mismo hecho con otro verbo o tiempo y una fuente en común', () => {
+  const pares = [
+    ['Josefina Licitra ganó el Premio Sor Juana Inés de la Cruz', 'Josefina Licitra gana el Premio Sor Juana Inés de la Cruz'],
+    ['La Mesa de Enlace participa del acto en Rosario por el campo', 'La Mesa de Enlace participará del acto en Rosario por el campo'],
+    ['APINTA rechazó el aumento de retenciones para la industria', 'APINTA rechaza el aumento de retenciones para la industria'],
+    ['Cristina Kirchner analiza una candidatura en la provincia', 'Cristina Kirchner condiciona una candidatura en la provincia'],
+  ];
+  pares.forEach(([x, y], i) => assert.equal(sonRepetidas(A("p" + i + "a", x, '10', { fuentes: COMUN }), A("p" + i + "b", y, '15', { fuentes: COMUN })), 'titulo', x));
+  assert.equal(sonRepetidas(A('d1', 'Senado debate la reforma laboral', '10'), A('d2', 'Senado debate la reforma laboral', '13')), 'direccion');
 });
