@@ -46,7 +46,7 @@ test('la nota migrada conserva sección, fecha, foto con crédito, fuentes y fir
   assert.match(h, /Foto: Puntonueve \(FM 100\.9\)/);
   assert.match(h, /Fuentes \(2\)/);
   assert.match(h, /radiogabal\.com\.ar/);
-  assert.match(h, /escrita con IA a partir de 2 fuentes/);
+  assert.match(h, /Radar Balcarce<\/span>/);
   assert.match(h, /datetime="2026-10-01T16:05:14\.000Z"/);
   const fila = sqlite.prepare("SELECT n.estado, n.seccion, s.origen, s.slug FROM notas n JOIN sitio_notas s ON s.id = n.id WHERE n.id = 'alddw5'").get();
   assert.deepEqual({ ...fila }, { estado: 'publicada', seccion: 'Balcarce', origen: 'viejo', slug: 'la-cooperativa-de-electricidad-corta-el-suministro-el-viernes' });
@@ -78,7 +78,7 @@ test('una nota de la redacción vieja: origen redaccion, id con «nr», firma de
   const res = await ir(env, '/nota/la-desidia-estatal-que-mato-dos-veces-nrdesidia626');
   assert.equal(res.status, 200);
   const h = await res.text();
-  assert.match(h, /Por Hernán Accomo, de la redacción de Radar Balcarce/);
+  assert.match(h, /<span class="por">Hernán Accomo<\/span>/);
   assert.ok(h.indexOf('<p>Uno.</p>') < h.indexOf('redaccion-rdesidia626-1-0002.png') && h.indexOf('redaccion-rdesidia626-1-0002.png') < h.indexOf('<p>Dos.</p>'), 'la foto va entre el primer y el segundo párrafo');
   assert.match(h, /Infografía: Radar Balcarce/);
 });

@@ -21,7 +21,7 @@ test('la nota publicada se ve completa: título, bajada, en dos líneas, foto co
   assert.match(h, /<img src="https:\/\/fotos\.example\/a\.jpg" alt="La sala nueva"/);
   assert.match(h, /<figcaption>Foto: Municipalidad<\/figcaption>/);
   assert.match(h, /<p>Primer párrafo de la nota\.<\/p>/);
-  assert.match(h, /escrita con IA a partir de 2 fuentes y verificada contra ellas/);
+  assert.match(h, /Escrita con IA y verificada contra sus fuentes/);
   assert.match(h, /<details class="fuentes"><summary>Fuentes \(2\)<\/summary>/);
   assert.ok(!/<details[^>]* open/.test(h), 'el desplegable viene cerrado');
   assert.match(h, /<a href="https:\/\/a\.example\/1" rel="noopener nofollow">Diario A<\/a>/);

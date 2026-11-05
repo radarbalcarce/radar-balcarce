@@ -8,12 +8,22 @@ export const FIRMA_IA = 'Redacción Radar Balcarce';
 
 const lleno = (x) => typeof x === 'string' && x.trim() !== '';
 
-/** La frase de la firma: dice quién escribió la nota. */
-/** La firma en HTML: en las notas escritas con IA suma el enlace a «Cómo trabajamos». */
-export function firmaHtml(n) {
+/** Si la escribió la IA del medio (el núcleo, o una nota vieja con la firma de la redacción): ahí la firma corta es «Radar Balcarce». */
+const escribioLaIA = (n) => {
   const f = (n.firma || '').trim();
-  const conIA = n.origen !== 'redaccion' && (!f || f === FIRMA_IA || /\bIA\b/.test(f));
-  return `${esc(firmaDe(n))}${conIA ? ' · <a href="/como-trabajamos">Cómo trabajamos</a>' : ''}`;
+  return n.origen !== 'redaccion' && (!f || f === FIRMA_IA || /\bIA\b/.test(f) || /^revisad[ao] por la redacci[oó]n/i.test(f));
+};
+
+/** La firma corta, al lado de la fecha (Hernán, 5/11): «Radar Balcarce» en lo automático; el nombre en lo de una persona (propias, gacetillas, auspiciantes). */
+export function firmaCorta(n) {
+  if (escribioLaIA(n)) return 'Radar Balcarce';
+  const f = (n.firma || '').trim().replace(/^(por|revisad[ao] por)\s+/i, '').replace(/,?\s+de la redacci[oó]n de Radar Balcarce$/i, '');
+  return f || 'Radar Balcarce';
+}
+
+/** El pie de la nota: en las escritas con IA, una línea corta con el enlace a «Cómo trabajamos» (el criterio: cada nota dice quién la escribió); las de una persona ya llevan su nombre junto a la fecha. */
+export function firmaHtml(n) {
+  return escribioLaIA(n) ? 'Escrita con IA y verificada contra sus fuentes · <a href="/como-trabajamos">Cómo trabajamos</a>' : '';
 }
 
 export function firmaDe(n) {
@@ -142,7 +152,7 @@ ${arriba}
 <a class="etiqueta" href="/seccion/${ranura}" style="background:${colorDe(ranura)}">${esc(n.seccion)}</a>
 <h1>${esc(n.titulo)}</h1>
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
-<p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time>${actualizadaHtml(n)}</p>
+<p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
 ${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito }) : ''}
 <div class="cuerpo">
@@ -150,7 +160,7 @@ ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n,
 </div>
 ${enlacesDelVideoHtml(n)}
 ${bloquesDeFicha(n.ficha)}
-<p class="firma">${firmaHtml(n)}</p>
+${firmaHtml(n) ? `<p class="firma">${firmaHtml(n)}</p>` : ''}
 ${fuentesHtml(n.fuentes || [])}
 </article>`;
   return pagina({

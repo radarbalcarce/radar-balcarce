@@ -169,8 +169,10 @@ test('la firma de las notas con IA lleva el enlace a «Cómo trabajamos»; la de
   const { sqlite, env } = baseDePrueba();
   insertarNota(sqlite, { id: 'ia00001', titulo: 'Con IA' });
   insertarNota(sqlite, { id: 'per0001', titulo: 'De Hernán', firma: 'Por Hernán Accomo, de la redacción de Radar Balcarce' });
-  assert.match(await html(env, '/nota/con-ia-ia00001'), /<p class="firma">[^<]*verificada contra ellas · <a href="\/como-trabajamos">Cómo trabajamos<\/a><\/p>/);
-  assert.ok(!(await html(env, '/nota/de-hernan-per0001')).includes('class="firma">Por Hernán Accomo, de la redacción de Radar Balcarce · '));
+  assert.match(await html(env, '/nota/con-ia-ia00001'), /<span class="por">Radar Balcarce<\/span>[\s\S]*<p class="firma">Escrita con IA y verificada contra sus fuentes · <a href="\/como-trabajamos">Cómo trabajamos<\/a><\/p>/);
+  const persona = await html(env, '/nota/de-hernan-per0001');
+  assert.match(persona, /<span class="por">Hernán Accomo<\/span>/);
+  assert.ok(!persona.includes('class="firma"'));
 });
 
 test('la nota muestra todas sus fotos: la de portada arriba y las demás entre párrafos, con epígrafe y crédito; una sola foto sigue igual', async () => {
@@ -215,7 +217,7 @@ test('la nota del media kit: el SQL corre sobre la base, la nota sale firmada po
   assert.match(h, /<h1>Publicitá en Radar Balcarce/);
   for (const t of ['noviembre y diciembre de 2026', '2266 51-1612', 'clima auspiciado', 'por WhatsApp', 'arriba de la nota diaria del clima']) assert.match(h, new RegExp(t), t);
   assert.ok(!/\$ ?\d/.test(JSON.stringify(NOTA)) && !/\$ ?\d/.test(textoParaLeer()), 'la nota pública no lleva precios');
-  assert.match(h, /<p class="firma">Por Hernán Accomo, de la redacción de Radar Balcarce<\/p>/);
+  assert.match(h, /<span class="por">Hernán Accomo<\/span>/);
   assert.ok(!/2027/.test(JSON.stringify(NOTA)) && !/2027/.test(textoParaLeer()), 'no promete nada para 2027');
   assert.match(h, /Espacio N2/, 'en la nota sin comercio fijo hay un solo aviso local, al pie');
   assert.ok(!h.includes('data-lugar="N1"'));
