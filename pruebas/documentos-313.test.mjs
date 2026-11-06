@@ -120,7 +120,7 @@ test('la firma que dicen los documentos es la que pone el sitio', () => {
 });
 
 test('hay una sola lista de pendientes y el traspaso es corto', () => {
-  const p = leer('PENDIENTES.md');
+  const p = leer('docs/historico/PENDIENTES.md');
   for (const titulo of ['Hecho y andando', 'APAGADO', 'Pendiente de Claude', 'Pendiente de una persona', 'Decisiones abiertas', 'Bloqueado', 'Con fecha']) {
     assert.ok(p.includes(titulo), `PENDIENTES.md no tiene la parte "${titulo}"`);
   }

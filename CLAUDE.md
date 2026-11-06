@@ -1,5 +1,7 @@
 # Radar Balcarce
 
+**Aviso (5/11/2026):** el sistema vigente es **Radar 3.0**, en `v3/` (empezar por `docs/3-0/LEEME.md`). Todo lo que sigue describe el sistema viejo, que sigue corriendo de respaldo hasta que se apague; las tareas vivas están en `docs/3-0/PENDIENTES-3-0.md` (`PENDIENTES.md` e `IDEAS.md` viejos, en `docs/historico/`).
+
 *Actualizado el 25/10/2026 (estado en `docs/TRASPASO.md`). Corto a propósito: el detalle está en `docs/` (empezar por
 `docs/00-INDICE.md`). Si esto y el código no coinciden, manda el código, y se corrige
 esto.*

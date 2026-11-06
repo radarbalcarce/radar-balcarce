@@ -43,7 +43,7 @@ vigilancia corren aparte, en el Worker de tareas.
 | Qué | Dónde vive |
 |---|---|
 | El estado del día | `CLAUDE.md` («Estado») y `docs/TRASPASO.md` |
-| Lo que falta hacer, con quién y cuándo (la única lista de tareas) | `PENDIENTES.md` |
+| Lo que falta hacer, con quién y cuándo (la única lista de tareas) | `docs/3-0/PENDIENTES-3-0.md` (la de 2.0, vieja, en `docs/historico/PENDIENTES.md`) |
 | Qué se decidió, por qué y quién | `docs/DECISIONES.md` (lo nuevo arriba) |
 | Las reglas que no se rompen y las pruebas que las cuidan | `docs/10-REGLAS-Y-PRUEBAS.md` (R1 a R39) |
 | El criterio editorial y la instrucción de la IA (§ 12, la lee tal cual) | `CRITERIO-EDITORIAL.md` |
@@ -78,8 +78,6 @@ vigilancia corren aparte, en el Worker de tareas.
 | `docs/CRITERIO-EN-UNA-PAGINA.md` | Qué sale, qué no y por qué, en una página |
 | `docs/DECISIONES.md` | El registro de decisiones y la tabla de cuál manda cuando dos se contradicen |
 | `docs/TRASPASO.md` | Corto: cómo se trabaja y dónde estamos |
-| `docs/CHECKLIST-JUEVES-29-10.md` | Lo mínimo para el jueves 29/10 (pasa al histórico el 30/10) |
-| `docs/efemerides-octubre-para-revisar.md` | Las efemérides de octubre (pasa al histórico el 1/11) |
 | `docs/COMO-FUNCIONA-HOY.html` y `docs/REGLAS-Y-PROMPTS.html` | Cómo funciona, para leer en el celular (del 16/10), y los textos y listas que deciden (se rehace con `node scripts/medir/armar-reglas-html.mjs`) |
 
 ### Cómo funciona cada pieza (carpetas de `docs/`)

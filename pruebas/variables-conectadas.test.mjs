@@ -88,7 +88,7 @@ const SIN_PASAR_A_PROPOSITO = {
     'ESTADO_DEL_VIGILANTE', 'URL_DE_REDES', 'MOTOR_SIN_TOPE', 'MOTOR_REPOSITORIO', 'TAREAS_R2', 'R2_MOTOR',
   ],
   'son de un Worker y se ponen en su panel de Cloudflare (no son de GitHub)': [
-    'ARCHIVO', 'MOTOR', 'AVISOS', 'ESTADO', 'MEMORIA',
+    'ARCHIVO', 'MOTOR', 'AVISOS', 'ESTADO', 'MEMORIA', 'TOKEN',
   ],
 };
 const A_PROPOSITO = new Set(Object.values(SIN_PASAR_A_PROPOSITO).flat());

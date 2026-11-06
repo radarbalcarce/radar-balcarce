@@ -276,7 +276,7 @@ test('no sale sola a Facebook, Instagram ni a los videos: es una nota propia que
   assert.equal(vaAFacebookPorLoQueEs(n), false);
   assert.equal(sePuedeEnUnRepaso(n), false);
   assert.ok(!('aprobadaParaRedes' in n) && !('paraElRepaso' in n));
-  assert.match(leer('PENDIENTES.md'), /notas de la redacción[\s\S]{0,400}redes|redes[\s\S]{0,400}notas de la redacción/i, 'la decisión abierta está anotada');
+  assert.match(leer('docs/historico/PENDIENTES.md'), /notas de la redacción[\s\S]{0,400}redes|redes[\s\S]{0,400}notas de la redacción/i, 'la decisión abierta está anotada');
 });
 
 test('el cuerpo con fotos se arma en orden, con ancho y alto, texto alternativo y pie; sin fotos no cambia nada', () => {
