@@ -56,21 +56,6 @@ jobs:
         if: env.ACCION == 'leer'
         run: node v3/redaccion/telegram/herramientas.mjs leer "$DESDE"
 
-      - name: Guardar lo leído
+      - name: Lo leído NO se guarda en el repositorio
         if: env.ACCION == 'leer'
-        run: |
-          git config user.name "Radar Balcarce"
-          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
-          git config user.email "272334999+balcar-dev@users.noreply.github.com"
-          git add v3/redaccion/telegram/entrada/
-          if git diff --cached --quiet; then
-            echo "Sin mensajes nuevos."
-            exit 0
-          fi
-          git commit -m "Telegram · lo que contestó Hernán · $(date '+%d/%m %H:%M')"
-          for intento in 1 2 3; do
-            git pull --rebase -q && git push && break
-            sleep 5
-          done
-          git fetch -q origin main
-          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir lo leído después de tres intentos"; exit 1; }
+        run: echo "El repositorio es público: lo que contesta el dueño no se sube (5/11/2026). Ver v3/nucleo/REGLAS.md."
