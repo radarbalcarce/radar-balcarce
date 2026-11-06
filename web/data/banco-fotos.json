@@ -46749,9 +46749,7 @@
   "borrada": true
  },
  "1qbhiyg": {
-  "archivo": "fotos-notas/1qbhiyg.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Santiago Carreras sufre rotura de ligamentos y se pierde la temporada",
@@ -46772,7 +46770,8 @@
    "descripcion": "Jugador de fútbol siendo asistido por el cuerpo técnico al salir de la cancha."
   },
   "huella": "5554991b939a9c9c",
-  "ausenteDesde": "2026-10-30T01:33:24.020Z"
+  "intentado": true,
+  "borrada": true
  },
  "7vti6o": {
   "intentado": true,
@@ -75869,7 +75868,8 @@
    "descripcion": "Vista general de una fila de votantes frente a un puesto de votación temprana con un cartel de 'VOTE'.",
    "detalle": "Los logos visibles (I am Election Ready) pertenecen a la carpa de la escena real, no son marcas del medio."
   },
-  "huella": "d0a9cb1234b4e4f0"
+  "huella": "d0a9cb1234b4e4f0",
+  "ausenteDesde": "2026-11-06T01:34:55.797Z"
  },
  "1st4lpo": {
   "intentado": true,
@@ -77112,7 +77112,8 @@
    "corresponde": "si",
    "descripcion": "Retrato del papa León XIV hablando ante un micrófono"
   },
-  "huella": "0c0c9c84461311a1"
+  "huella": "0c0c9c84461311a1",
+  "ausenteDesde": "2026-11-06T01:34:55.797Z"
  },
  "12i9q6f": {
   "archivo": "fotos-notas/12i9q6f.jpg",
@@ -84176,7 +84177,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de un complejo de data center con estacionamiento y edificios industriales."
   },
-  "huella": "2c83589fe0755774"
+  "huella": "2c83589fe0755774",
+  "ausenteDesde": "2026-11-06T01:34:55.797Z"
  },
  "usptb4": {
   "intentado": true,
@@ -84307,5 +84309,119 @@
    "descripcion": "Director técnico de Racing en el campo de juego."
   },
   "huella": "302349485c161e08"
+ },
+ "7o1zjd": {
+  "archivo": "fotos-notas/7o1zjd.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Patricia Bullrich marca diferencias con el Gobierno en el Colegio de Abogados",
+  "enlace": "https://www.lanacion.com.ar/politica/en-plena-interna-con-el-gobierno-bullrich-defendio-la-libertad-de-prensa-y-pidio-completar-la-corte-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/patricia-bullrich-en-el-cierre-del-evento-anual-NALDCCAQ3VHPNM3O442KPH7S3U.jpg?auth=e7615ad4e157c7d821e1080aaf7298783d1bd156371a0fb4733f131459531260&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B muestra a la protagonista en el evento de manera clara, sin marcas de agua y con un encuadre adecuado para la nota.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Patricia Bullrich hablando en un atril en el evento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Patricia Bullrich hablando en un atril durante el evento Diálogos para la Argentina."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0888841ccc8cac8c"
+ },
+ "63p8qe": {
+  "archivo": "fotos-notas/63p8qe.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El mercado proyecta una inflación del 30,4% para el cierre de 2026",
+  "enlace": "https://www.c5n.com/economia/a-cuanto-llegara-la-inflacion-octubre-segun-los-principales-analistas-del-mercado-n253611",
+  "imagenOriginal": "https://media.c5n.com/p/2399e6ef29512f5a23af0c94153b6c0d/adjuntos/326/imagenes/000/297/0000297154/1200x675/smart/banco-central-la-republica-argentina.png",
+  "razon": "La foto C es la única que ilustra el contexto económico de manera institucional y sin ser una imagen de stock genérica o un recurso visual abstracto.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada del edificio del Banco Central de la República Argentina."
+  },
+  "huella": "3172ea7155f1b2b2"
+ },
+ "1fsken1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca, Argentinos y Rosario Central definen el título de la tabla anual",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Diario Popular no se usa todavía.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "123xcad": {
+  "archivo": "fotos-notas/123xcad.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo recibe a Platense por la clasificación a los playoffs",
+  "enlace": "https://www.ole.com.ar/san-lorenzo/san-lorenzo-playoffs-platense-ruben-dario-insua-torneo-apertura_0_TXe8Za0PfI.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/05/N1fH9B8gR_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra una escena real de entrenamiento o práctica de fútbol sin marcas de agua, logos sobreimpresos, elementos gráficos o ser una captura de video.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plantel de San Lorenzo entrenando en campo de juego."
+  },
+  "huella": "ee3d3e3b9072271d"
+ },
+ "1yyb1et": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Muere Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de A24 no se usa todavía.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "intentos": 1,
+  "fuentes": 19,
+  "intentosPorCupo": 1
+ },
+ "15o6lep": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Estudiantes inicia la venta de entradas para la final de la Libertadores",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-11-06T01:33:42.071Z",
+  "intentos": 1,
+  "fuentes": 9,
+  "intentosPorCupo": 1
  }
 }
