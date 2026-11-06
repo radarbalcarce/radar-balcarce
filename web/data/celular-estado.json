@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T17:35:21.561Z",
- "portada": 165,
+ "generado": "2026-11-06T18:08:40.821Z",
+ "portada": 186,
  "archivo": 500,
- "esperandoCuerpo": 5,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-06T17:35:22.226Z",
+  "generado": "2026-11-06T18:08:41.500Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 40,
     "notas": [
@@ -136,11 +136,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 55,
     "notas": [
      {
-      "id": "13ae8gs",
-      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+      "id": "qvrt15",
+      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
       "seccion": "Balcarce"
      },
      {
@@ -149,14 +149,14 @@
       "seccion": "Cultura y agenda"
      },
      {
+      "id": "jf7bz2",
+      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "seccion": "Policiales"
+     },
+     {
       "id": "oal4ia",
       "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1xsiv6s",
-      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
-      "seccion": "Educación"
      }
     ]
    }
@@ -167,18 +167,6 @@
     {
      "id": "1pkqfef",
      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1xd4thu",
-     "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "13ae8gs",
-     "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -195,6 +183,24 @@
      "marcada": false
     },
     {
+     "id": "1xd4thu",
+     "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "13ae8gs",
+     "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "174ziev",
+     "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
      "id": "f9b3nl",
      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
      "seccion": "Cultura y agenda",
@@ -204,12 +210,6 @@
      "id": "e7bi4o",
      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
      "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1r3wzjp",
-     "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
-     "seccion": "Deportes",
      "marcada": false
     }
    ],

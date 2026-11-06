@@ -79787,7 +79787,8 @@
    "corresponde": "si",
    "descripcion": "Dos hombres conversando en un viñedo, uno de ellos sostiene un documento."
   },
-  "huella": "23676f6b4bc3cf67"
+  "huella": "23676f6b4bc3cf67",
+  "ausenteDesde": "2026-11-06T18:08:40.681Z"
  },
  "19dcq3n": {
   "intentado": true,
@@ -80286,7 +80287,8 @@
    "corresponde": "si",
    "descripcion": "Operadores financieros trabajando frente a pantallas en una bolsa de valores."
   },
-  "huella": "cfcfd795859796d2"
+  "huella": "cfcfd795859796d2",
+  "ausenteDesde": "2026-11-06T18:08:40.681Z"
  },
  "1m73qsw": {
   "archivo": "fotos-notas/1m73qsw.webp",
@@ -80346,7 +80348,8 @@
    "corresponde": "si",
    "descripcion": "El legislador Héctor Rubén Eslaiman en su banca durante una sesión legislativa."
   },
-  "huella": "658f6c0f1f9494b6"
+  "huella": "658f6c0f1f9494b6",
+  "ausenteDesde": "2026-11-06T18:08:40.681Z"
  },
  "f2ai52": {
   "archivo": "fotos-notas/f2ai52.jpg",
@@ -86483,7 +86486,8 @@
    "corresponde": "si",
    "descripcion": "Personas haciendo fila frente a cajeros automáticos con un cartel de cerrado."
   },
-  "huella": "cc4c2e5e1e171b1a"
+  "huella": "cc4c2e5e1e171b1a",
+  "ausenteDesde": "2026-11-06T18:08:40.681Z"
  },
  "18spf8r": {
   "archivo": "fotos-notas/18spf8r.jpg",
@@ -87380,10 +87384,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Realizan la 35ª Marcha del Orgullo en Buenos Aires con shows y cortes",
-  "razon": "Ninguna de las fotos cumple con todos los requisitos necesarios para ser publicada sin inconvenientes.",
-  "cuando": "2026-11-06T14:32:33.351Z",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-11-06T18:06:05.957Z",
   "intentos": 1,
-  "fuentes": 4
+  "fuentes": 7,
+  "intentosPorCupo": 1
  },
  "1e0l32b": {
   "archivo": "fotos-notas/1e0l32b.jpg",
@@ -88400,15 +88405,28 @@
   "huella": "859585eccaca8a8a"
  },
  "1hy0673": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1hy0673.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Quilmes realiza el Festival de la Cerveza en el Parque Lineal de Don Bosco",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T16:33:26.786Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.cronica.com.ar/fmq/noticias-locales/llega-el-festival-de-la-cerveza-al-parque-lineal-de-don-bosco/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730451/6aedb8154c6a2_600_315!.jpg?s=8a4f6e83df6f94ed6548fa1a5129381d&d=1793934000",
+  "razon": "La foto B muestra claramente el evento, el lugar y el ambiente sin marcas de agua ni elementos que impidan su publicación, a diferencia de la A que parece una imagen de stock genérica.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general de un festival de cerveza al aire libre con gente sentada y un cartel de pizarra."
+  },
+  "huella": "c9c91a2da5372028"
  },
  "1jfp64q": {
   "intentado": true,
@@ -88653,6 +88671,157 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV sentado en una silla saludando."
   },
-  "huella": "d9d9282206062e1e"
+  "huella": "d9d9282206062e1e",
+  "ausenteDesde": "2026-11-06T18:08:40.681Z"
+ },
+ "jpaewd": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La jueza de Faltas detalla el procedimiento de notificación de fotomultas",
+  "razon": "La única foto disponible muestra un micrófono con el logo de una radio, lo cual es un elemento ajeno a la nota sobre la Jueza de Faltas, y además la imagen no ilustra el procedimiento de notificación de fotomultas.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1dsn87c": {
+  "archivo": "fotos-notas/1dsn87c.jpg",
+  "medio": "Diario La Vanguardia",
+  "credito": "Foto: Diario La Vanguardia",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El emprendimiento balcarceño Nahuen recibe una distinción internacional",
+  "enlace": "https://www.diariolavanguardia.com/noticias/45289-el-emprendimiento-nahuen-recibio-una-mencion-especial-en-un-congreso-latinoamericano-de-bebidas-a-base-de-miel/",
+  "imagenOriginal": "https://www.diariolavanguardia.com/img/noticias/img_d-66311.png",
+  "razon": "Es la única opción disponible y muestra a las protagonistas del emprendimiento en el momento de la entrevista, sin marcas de agua del medio ni menores de edad.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos mujeres sonríen frente a micrófonos de la radio Líder 90.9 durante una entrevista.",
+   "detalle": "Los logos de la radio en los micrófonos son parte de la escena real y no marcas de agua agregadas por el medio."
+  },
+  "huella": "2d2e4e6f4e9a983b"
+ },
+ "3zpltg": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Aprevide sanciona a Banfield con reducción de aforo tras el clásico",
+  "razon": "La segunda opinión (groq, porque la primera IA vio gente muy joven) descartó la de TyC Sports (un menor): no se elige ninguna.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "174ziev": {
+  "archivo": "fotos-notas/174ziev.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/mario-alberghini-el-autodromo-esta-en-perfectas-condiciones-de-seguridad",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2026/septiembre/Mario%20Alberghini%20autodromo.jpeg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad y no presenta marcas, menores ni elementos que impidan su publicación.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mario Alberghini en el autódromo Juan Manuel Fangio."
+  },
+  "huella": "0f1e1a0dba3e1e8c"
+ },
+ "17hobk2": {
+  "archivo": "fotos-notas/17hobk2.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país desciende y se ubica por debajo de los 900 puntos",
+  "enlace": "https://perfil.com/economia/el-riesgo-pais-afloja-al-cierre-de-la-semana-y-cae-por-debajo-de-los-900-puntos-aMOeX1B2R5EI",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/30e20675a663-sesiones-wall-street-2334221.webp",
+  "razon": "Es la única imagen que muestra el entorno real de la bolsa sin ser una composición gráfica, sin marcas de agua y sin personas identificables en primer plano.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista de la bolsa de valores con una bandera de EE.UU. y pantallas."
+  },
+  "huella": "670787072793737b"
+ },
+ "1d66y2u": {
+  "archivo": "fotos-notas/1d66y2u.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Javier Milei ratifica ante la Sociedad Rural la eliminación de retenciones",
+  "enlace": "https://perfil.com/politica/milei-en-la-rural-contra-la-oposicion-pueden-cambiar-las-personas-pero-siguen-repitiendo-el-mismo-modelo-decadente-aiWbb6b73S4u",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/8b3a472086c6-proyecto-nuevo-2026-11-06t135037319.webp",
+  "razon": "Es la única foto que muestra el contexto del evento, tiene buena calidad y no presenta marcas de agua, elementos gráficos ni menores.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Plano general de Javier Milei dando un discurso ante una audiencia en un auditorio."
+  },
+  "huella": "31a301c392832393"
+ },
+ "egeaaq": {
+  "archivo": "fotos-notas/egeaaq.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La IHRA finaliza su segundo plenario en Buenos Aires bajo presidencia argentina",
+  "enlace": "https://perfil.com/comercial/la-ihra-concluyo-su-segundo-plenario-en-buenos-aires-y-destaco-el-papel-de-argentina-para-fortalecer-los-vinculos-con-america-latina-amQrQ9E5RJqE",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/44f8512cc8c9-whatsapp-image-2026-11-05-at-191129.webp",
+  "razon": "La foto A presenta la mejor calidad de imagen y nitidez, sin marcas de agua ni elementos que impidan su publicación.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Foto grupal de los participantes del plenario de la IHRA en una escalinata."
+  },
+  "huella": "2bb296b196d6d4f9"
+ },
+ "6qu55w": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Franco Mastantuono elogia a Jude Bellingham y recuerda su paso por el Madrid",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
+  "cuando": "2026-11-06T18:06:05.957Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1
  }
 }
