@@ -1515,11 +1515,18 @@
   "numeradas": 4
  },
  "18929xk": {
-  "intentos": 1,
-  "ultimo": "2026-11-05T23:01:38.554Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
+  "intentos": 2,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el máximo es 90",
+  "textos": 4,
+  "numeradas": 17,
+  "motivos": [
+   "título o bajada: 2 problemas (forma): el titulo trae un escape sin dec",
+   "título o bajada: 1 problema (largo): el titulo tiene 91 caracteres, el"
+  ],
+  "falla": [
+   "el titulo tiene 91 caracteres, el máximo es 90"
+  ]
  },
  "189cwt1": {
   "intentos": 1,
@@ -2006,6 +2013,20 @@
    "cuerpo: 1 problema (promesa): el título nombra a \"ee\", \"uu\" y el cuerp",
    "título o bajada: 1 problema (titulo): el título empieza con una etique",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
+  ]
+ },
+ "1au5fl7": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "título o bajada: 1 problema (sensacionalista): usa \"castigo\", que presenta un hecho deportivo como un castigo o un drama: contá el hecho con su nom",
+  "textos": 6,
+  "numeradas": 9,
+  "motivos": [
+   "título o bajada: 1 problema (pasado): el título está en pasado: va en ",
+   "título o bajada: 1 problema (sensacionalista): usa \"castigo\", que pres"
+  ],
+  "falla": [
+   "usa \"castigo\", que presenta un hecho deportivo como un castigo o un drama: contá el hecho con su nombre y su causa (\"penalización de grilla\""
   ]
  },
  "1ay6zen": {
@@ -2708,6 +2729,13 @@
   "textos": 6,
   "numeradas": 13
  },
+ "1elyy8r": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 11
+ },
  "1en3vm4": {
   "intentos": 1,
   "ultimo": "2026-11-04T09:02:07.586Z",
@@ -3244,9 +3272,9 @@
   "numeradas": 3
  },
  "1hjt1n9": {
-  "intentos": 2,
-  "ultimo": "2026-11-06T14:01:26.605Z",
-  "motivo": "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4,
   "motivos": [
@@ -3254,9 +3282,6 @@
    "cuerpo: 3 problemas (nombre, promesa): el cuerpo nombra a \"almirante\" ",
    "título o bajada: 1 problema (largo): el titulo tiene 93 caracteres, el",
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
-  ],
-  "falla": [
-   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "1hm4t97": {
@@ -6609,6 +6634,16 @@
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
  },
+ "2jfnjt": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 10,
+  "motivos": [
+   "título o bajada: 2 problemas (numero): el copete dice 2.000 y la fuent"
+  ]
+ },
  "2ljtc7": {
   "intentos": 1,
   "ultimo": "2026-11-03T14:02:23.071Z",
@@ -8083,6 +8118,20 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 11
+ },
+ "bp752x": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "título o bajada: 1 problema (relleno): el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+  "textos": 4,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (relleno): el copete tiene una frase de re"
+  ],
+  "falla": [
+   "el copete tiene una frase de relleno sin dato: \"en el marco de\"",
+   "copia 23 palabras seguidas del original (\"industrial y prendas sobre bienes muebles no registrables siempre que medie una orden de…\"): decil"
+  ]
  },
  "bpvxxk": {
   "intentos": 1,
@@ -11270,6 +11319,13 @@
   "textos": 3,
   "numeradas": 7
  },
+ "sgm6uu": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2
+ },
  "sgq4v5": {
   "intentos": 1,
   "ultimo": "2026-11-03T10:32:01.144Z",
@@ -11478,6 +11534,16 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "tpoena": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
+  ]
  },
  "tpu8ha": {
   "intentos": 1,
@@ -11733,8 +11799,8 @@
   ]
  },
  "uvr8fk": {
-  "intentos": 1,
-  "ultimo": "2026-11-06T14:01:26.605Z",
+  "intentos": 2,
+  "ultimo": "2026-11-06T14:31:25.830Z",
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
@@ -12107,6 +12173,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "wnbzce": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T14:31:25.830Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
  },
  "wo1ueg": {
   "intentos": 1,
