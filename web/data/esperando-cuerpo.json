@@ -1,24 +1,7 @@
 {
- "generado": "2026-11-06T01:34:55.894Z",
+ "generado": "2026-11-06T02:03:36.461Z",
  "intentosMaximos": 3,
  "notas": [
-  {
-   "id": "1s1p1qy",
-   "titulo": "Prepara el Museo J. M. Fangio celebración “40º Aniversario”",
-   "copete": "Ultima detalles el Museo del Automovilismo “Juan Manuel Fangio” para festejar su 40º aniversario , con un evento premium que busca reunir a pilotos, referentes, dirigentes y hacedores de la historia del complejo creado el 22 de noviembre de 1986, aunque con una idea base de ya…",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-06T00:55:34.000Z",
-   "fuentes": [
-    {
-     "medio": "Acción 5 (Balcarce)",
-     "enlace": "https://accion5.com/prepara-el-museo-j-m-fangio-celebracion-40o-aniversario/",
-     "fecha": "2026-11-06T00:55:34.000Z"
-    }
-   ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 4, que sale de una nota anterior, como si fuera de hoy",
-   "maximo": 3
-  },
   {
    "id": "199sog1",
    "titulo": "River no quiso sorpresas y venció al descendido Aldosivi: 2 a 0 en Mar del Plata",
@@ -256,6 +239,33 @@
    "maximo": 5
   },
   {
+   "id": "18fm743",
+   "titulo": "El Gobierno niega que Santiago Peña haya ingresado a la Argentina tras renunciar a la Presidencia de Paraguay",
+   "copete": "La versión surgió en medio de la sesión de la comisión bicameral del Congreso paraguayo que trataba su dimisión. Funcionarios nacionales y de dos provincias rechazaron que haya concretado su llegada al país. En medio de la incertidumbre, el mandatario publicó un mensaje en X sin…",
+   "seccion": "Política",
+   "fecha": "2026-11-05T23:06:00.000Z",
+   "fuentes": [
+    {
+     "medio": "Clarín",
+     "enlace": "https://www.clarin.com/politica/gobierno-niega-santiago-pena-ingresado-argentina-renunciar-presidencia-paraguay_0_Y96mwGSFPX.html",
+     "fecha": "2026-11-05T22:05:35.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/politica/javier-milei-nego-que-santiago-pena-haya-escapado-la-argentina-su-renuncia-n6342207",
+     "fecha": "2026-11-06T01:31:01.000Z"
+    },
+    {
+     "medio": "Los Andes (Mendoza)",
+     "enlace": "https://www.losandes.com.ar/politica/el-gobierno-nego-que-santiago-pena-haya-ingresado-la-argentina-su-renuncia-n6013220",
+     "fecha": "2026-11-05T23:06:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"ministerio\" y la fuente no",
+   "maximo": 3
+  },
+  {
    "id": "d1q940",
    "titulo": "WhatsApp lanzó una función muy esperada: cómo programar mensajes para que se envíen solos",
    "copete": "WhatsApp comenzó a probar una de las funciones más esperadas por sus usuarios: la posibilidad de programar mensajes para que se envíen automáticamente en una fecha y horario determinados. La novedad busca facilitar la organización de conversaciones personales y laborales, sin…",
@@ -367,33 +377,6 @@
    "maximo": 4
   },
   {
-   "id": "fc3hhi",
-   "titulo": "Celtic vs. Besiktas en vivo: cómo verlo, horario y TV",
-   "copete": "",
-   "seccion": "Fútbol",
-   "fecha": "2026-11-05T12:04:27.000Z",
-   "fuentes": [
-    {
-     "medio": "TyC Sports",
-     "enlace": "https://www.tycsports.com/europa-league/uefa-europa-league-2026-2027-celtic-vs-besiktas-fecha-4-id770192.html",
-     "fecha": "2026-11-05T02:00:04.000Z"
-    },
-    {
-     "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/europa-league/alineaciones-de-celtic-y-besiktas-para-el-duelo-de-la-jornada-4-de-la-europa-league",
-     "fecha": "2026-11-05T15:05:18.000Z"
-    },
-    {
-     "medio": "Bolavip Argentina",
-     "enlace": "https://bolavip.com/ar/europa-league/celtic-vs-besiktas-horario-y-donde-ver-en-vivo-y-online-en-argentina-por-la-jornada-4-de-la-europa-league",
-     "fecha": "2026-11-05T12:04:27.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
-  },
-  {
    "id": "1gqu7ao",
    "titulo": "Crisis total en BGH: elminará 250 empleos de un plumazo en planta de Tierra del Fuego",
    "copete": "La compañía anunció un ajuste de personal inédito, que impacta a cientos de familias y agrava la crisis en el sector electrónico de la provincia",
@@ -451,9 +434,44 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
+  },
+  {
+   "id": "fc3hhi",
+   "titulo": "Celtic vs. Besiktas en vivo: cómo verlo, horario y TV",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-05T12:04:27.000Z",
+   "fuentes": [
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/europa-league/uefa-europa-league-2026-2027-celtic-vs-besiktas-fecha-4-id770192.html",
+     "fecha": "2026-11-05T02:00:04.000Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/europa-league/alineaciones-de-celtic-y-besiktas-para-el-duelo-de-la-jornada-4-de-la-europa-league",
+     "fecha": "2026-11-05T15:05:18.000Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/europa-league/celtic-vs-besiktas-horario-y-donde-ver-en-vivo-y-online-en-argentina-por-la-jornada-4-de-la-europa-league",
+     "fecha": "2026-11-05T12:04:27.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
   }
  ],
  "descartadas": [
+  {
+   "id": "1s1p1qy",
+   "titulo": "Prepara el Museo J. M. Fangio celebración “40º Aniversario”",
+   "seccion": "Automovilismo",
+   "fecha": "2026-11-06T00:55:34.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa 4, que sale de una nota anterior, como si fuera de hoy"
+  },
   {
    "id": "117w1e3",
    "titulo": "“Historia Natural de los Gliptodontes” se presentó en el muhba",
@@ -461,6 +479,14 @@
    "fecha": "2026-11-05T15:14:23.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 1 problema (nombre): el cuerpo nombra a \"municipal\" y la fuente no; sin esas oraciones quedan 90 palabras"
+  },
+  {
+   "id": "1va6xa5",
+   "titulo": "Primero la Patria repudió el ataque a mujeres trans en Palermo y cuestionó los discursos de odio",
+   "seccion": "Política",
+   "fecha": "2026-11-04T21:45:17.000Z",
+   "intentos": 4,
+   "motivo": "agotó los 4 intentos; título o bajada: 1 problema (acusacion): el copete afirma un delito sin atribuirlo a nadie: \"Un grupo de jóvenes agredió a trabajadoras tran"
   },
   {
    "id": "100mnt9",

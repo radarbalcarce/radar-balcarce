@@ -1571,6 +1571,19 @@
    "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit"
   ]
  },
+ "18fm743": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T02:01:30.469Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"ministerio\" y la fuente no",
+  "textos": 3,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"ministerio\" "
+  ],
+  "falla": [
+   "el copete nombra a \"ministerio\" y la fuente no"
+  ]
+ },
  "18ifcuy": {
   "intentos": 2,
   "ultimo": "2026-11-04T22:32:23.454Z",
@@ -5193,12 +5206,14 @@
   ]
  },
  "1s1p1qy": {
-  "intentos": 2,
-  "ultimo": "2026-11-06T01:32:22.062Z",
+  "intentos": 3,
+  "ultimo": "2026-11-06T02:01:30.469Z",
   "motivo": "título o bajada: 1 problema (antecedente): el copete usa 4, que sale de una nota anterior, como si fuera de hoy",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa 4, que sale d",
+   "cuerpo: 3 problemas (antecedente, numero, promesa): el cuerpo usa 4, q",
    "título o bajada: 1 problema (antecedente): el copete usa 4, que sale d"
   ],
   "falla": [
@@ -9272,6 +9287,13 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 3 y el cuerpo no lo expli"
   ]
+ },
+ "i3mvfa": {
+  "intentos": 1,
+  "ultimo": "2026-11-06T02:01:30.469Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "i50u2g": {
   "intentos": 1,
