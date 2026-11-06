@@ -152,13 +152,13 @@ test('controlarImagen: manda la imagen a la visión; si Gemini no puede mirarla,
 
 // ------------------------------------------------------------------ el generador
 
-test('generarImagen: usa FLUX schnell con pasos y semilla, y acepta JPEG y PNG, nada más', async () => {
+test('generarImagen: usa FLUX schnell con pasos, sin semilla (Cloudflare la rechaza), y acepta JPEG y PNG, nada más', async () => {
   const ai = aiFalso();
-  const b = await generarImagen(ai, PROMPT_BUENO, { seed: 7 });
+  const b = await generarImagen(ai, PROMPT_BUENO);
   assert.deepEqual([...b], [...JPEG]);
   assert.equal(ai.llamadas[0].modelo, '@cf/black-forest-labs/flux-1-schnell');
   assert.equal(ai.llamadas[0].modelo, MODELO_DE_IMAGEN);
-  assert.deepEqual(ai.llamadas[0].params, { prompt: PROMPT_BUENO, steps: 6, seed: 7 });
+  assert.deepEqual(ai.llamadas[0].params, { prompt: PROMPT_BUENO, steps: 6 });
   assert.deepEqual([...(await generarImagen(aiFalso({ bytes: PNG }), 'x'))], [...PNG]);
   await assert.rejects(generarImagen(aiFalso({ bytes: new Uint8Array([0x47, 0x49, 0x46, 0x38, 1, 2, 3, 4, 5, 6, 7, 8, 9]) }), 'x'), /JPEG ni un PNG/);
   await assert.rejects(generarImagen({ run: async () => ({}) }, 'x'), /no devolvió imagen/);

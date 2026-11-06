@@ -155,7 +155,7 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
 - **Cómo.** (1) Gemini (el cliente de siempre, tarea `ilustracion`) escribe un prompt corto **en inglés** a partir de la nota, con el tono (alegre, sobrio o neutro), la escena guía de la sección, una variante
   de encuadre por id y las listas de lo que no puede ir (en deportes, política y cultura; si la nota gira en torno a una persona, el ámbito de su actividad, nunca ella). (2) `problemaDelPrompt` lo revisa:
   si describe personas, armas, banderas, marcas, la escena de un hecho o nombra a alguien de la nota, se pide otro (una vez) y, si vuelve a fallar, la nota queda sin imagen. (3) Workers AI genera la imagen.
-  (4) **Gemini mira la imagen terminada** y tiene que contestar `false` a las seis preguntas: personas, rostros, texto, logos, sensible, raro. Si no pasa, **un reintento** con otra semilla; si vuelve a no
+  (4) **Gemini mira la imagen terminada** y tiene que contestar `false` a las seis preguntas: personas, rostros, texto, logos, sensible, raro. Si no pasa, **un reintento** (sin semilla: FLUX schnell no la acepta); si vuelve a no
   pasar, **queda sin imagen** y la nota se marca final. Si el generador o Gemini fallan (cupo, red), no se gasta el intento: se vuelve a probar a los 20 minutos y a los 3 fallos se da por perdida.
 - **Modelo y costo: gratis.** `@cf/black-forest-labs/flux-1-schnell` (el que ya usaban las ilustraciones del viejo desde el 22/10), 1024 × 1024, 6 pasos: unas **77 neuronas** por imagen. Workers AI trae 10.000
   neuronas por día dentro del plan de Workers que ya se paga; con el tope de 40 por día son ~3.100 (y las huellas de significado gastan muy poco). Gemini sólo suma el prompt y el control (~1.100 tokens de

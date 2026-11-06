@@ -381,8 +381,8 @@ export async function bytesDelResultado(r) {
 }
 
 /** UNA imagen con Workers AI. Tira Error si el modelo falla o no devuelve una imagen JPEG o PNG. */
-export async function generarImagen(ai, prompt, { modelo = MODELO_DE_IMAGEN, seed } = {}) {
-  const r = await ai.run(modelo, { prompt, steps: PASOS, ...(Number.isInteger(seed) ? { seed } : {}) });
+export async function generarImagen(ai, prompt, { modelo = MODELO_DE_IMAGEN } = {}) {
+  const r = await ai.run(modelo, { prompt, steps: PASOS }); // sin `seed`: FLUX schnell la rechaza (5006, visto en producción el 6/11)
   const bytes = await bytesDelResultado(r);
   if (!bytes) throw new Error('el modelo no devolvió imagen');
   if (!tipoDeImagen(bytes)) throw new Error('el modelo no devolvió un JPEG ni un PNG');
@@ -428,7 +428,7 @@ export async function ilustrarUna(nota, { gemini, ai, cupo = async () => true, a
     generadas += 1;
     let bytes;
     try {
-      bytes = await generarImagen(ai, prompt, { seed: Math.floor(azar() * 2 ** 31) });
+      bytes = await generarImagen(ai, prompt);
     } catch (e) {
       ultimo = `Workers AI: ${String(e?.message ?? e).slice(0, 100)}`;
       continue;
