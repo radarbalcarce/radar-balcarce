@@ -46559,9 +46559,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "kua1e9": {
-  "archivo": "fotos-notas/kua1e9.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Ariel Bibbó se reúne con la directora de la Fundación Favaloro",
@@ -46581,7 +46579,8 @@
    "descripcion": "Ariel Bibbó junto a la directora de la Fundación Favaloro."
   },
   "huella": "5d7971554d4d6d4d",
-  "ausenteDesde": "2026-10-30T12:35:25.559Z"
+  "intentado": true,
+  "borrada": true
  },
  "on90e1": {
   "intentado": true,
@@ -46594,9 +46593,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "gwgxyk": {
-  "archivo": "fotos-notas/gwgxyk.jpg",
   "medio": "Letra P",
-  "credito": "Foto: Letra P",
   "licencia": null,
   "origen": "medio",
   "titulo": "Máximo Kirchner pide por la libertad de Cristina Fernández y apunta contra Milei",
@@ -46616,7 +46613,8 @@
    "descripcion": "Máximo Kirchner en un acto hablando con un micrófono frente a banderas con rostros históricos."
   },
   "huella": "0f0f0b4d51611233",
-  "ausenteDesde": "2026-10-30T12:35:25.559Z"
+  "intentado": true,
+  "borrada": true
  },
  "154jbd0": {
   "medio": "El Destape",
@@ -46841,9 +46839,7 @@
   "borrada": true
  },
  "wdurao": {
-  "archivo": "fotos-notas/wdurao.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Lali Esposito y Miranda presentan el disco BOM y estrenan el single Bailar o morir",
@@ -46863,7 +46859,8 @@
    "descripcion": "Lali Espósito y Miranda con cascos oscuros en primer plano"
   },
   "huella": "006969232b2b2b00",
-  "ausenteDesde": "2026-10-30T12:35:25.559Z"
+  "intentado": true,
+  "borrada": true
  },
  "17zxvyy": {
   "medio": "Infobrisas (Radio Brisas)",
@@ -55657,9 +55654,7 @@
   "ausenteDesde": "2026-11-02T01:32:43.529Z"
  },
  "m5k6ka": {
-  "archivo": "fotos-notas/m5k6ka.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "Realizan la décima edición de la Noche de las Heladerías",
@@ -55679,7 +55674,8 @@
    "descripcion": "Vitrina con potes de helado artesanal de distintos sabores"
   },
   "huella": "72524d4d4d4d4595",
-  "ausenteDesde": "2026-10-30T12:35:25.559Z"
+  "intentado": true,
+  "borrada": true
  },
  "b1x6ll": {
   "intentado": true,
@@ -69378,7 +69374,8 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando sonriente a la cámara"
   },
-  "huella": "a5a527272e1b1949"
+  "huella": "a5a527272e1b1949",
+  "ausenteDesde": "2026-11-06T13:03:47.045Z"
  },
  "gpe8ph": {
   "archivo": "fotos-notas/gpe8ph.jpg",
@@ -73656,12 +73653,12 @@
  "17vsjrz": {
   "intentado": true,
   "origen": "ninguna",
-  "titulo": "La Escuela Técnica presenta sus vehículos para el Desafío ECO 2026",
+  "titulo": "La Escuela Técnica presenta dos autos eléctricos para el Desafío ECO 2026",
   "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T17:33:34.613Z",
+  "cuando": "2026-11-06T13:02:23.966Z",
   "intentos": 3,
   "fuentes": 6,
-  "intentosPorCupo": 2,
+  "intentosPorCupo": 3,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "cg2qcu": {
@@ -80398,12 +80395,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Tandil organiza la Fiesta Chacinar 2026 con el objetivo de batir un récord",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T19:52:34.731Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Eco de Tandil no se usa todavía.",
+  "cuando": "2026-11-06T13:02:23.966Z",
   "intentos": 2,
   "fuentes": 5,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "intentosPorCupo": 3
  },
  "mz7zaw": {
   "intentado": true,
@@ -80792,7 +80788,8 @@
    "corresponde": "si",
    "descripcion": "Diputados y funcionarios en una mesa de trabajo en el Congreso de la Nación."
   },
-  "huella": "6566078b97162743"
+  "huella": "6566078b97162743",
+  "ausenteDesde": "2026-11-06T13:03:47.045Z"
  },
  "rpbrio": {
   "archivo": "fotos-notas/rpbrio.jpg",
@@ -83018,7 +83015,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "135694985a5661b9"
+  "huella": "135694985a5661b9",
+  "ausenteDesde": "2026-11-06T13:03:47.045Z"
  },
  "1ytqw1n": {
   "archivo": "fotos-notas/1ytqw1n.jpg",
@@ -84597,14 +84595,40 @@
   "huella": "3172ea7155f1b2b2"
  },
  "1fsken1": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1fsken1.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca, Argentinos y Rosario Central definen el título de la tabla anual",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Diario Popular no se usa todavía.",
-  "cuando": "2026-11-06T08:02:55.332Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 3
+  "enlace": "https://www.ole.com.ar/boca-juniors/leandroparedes-arruabarrena-boca-ligaprofesional-argentinosjuniors-rosariocentral-bombonera-rodolfoarruabarrena-defensayjusticia-ezeiza_0_xWBzA6MHEC.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/05/1YNRVvqot_2000x1500__1.jpg",
+  "razon": "Es la foto que mejor ilustra la conferencia de los capitanes de los equipos finalistas de la tabla anual, sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leandro Paredes sentado en la mesa de conferencia de prensa",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Un jugador de Boca Juniors en una conferencia de prensa."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "c3c34f0c32333336"
  },
  "123xcad": {
   "archivo": "fotos-notas/123xcad.jpg",
@@ -85899,7 +85923,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Donald Trump con fondo bokeh de luces."
   },
-  "huella": "0c0c0c69cb4b0544"
+  "huella": "0c0c0c69cb4b0544",
+  "ausenteDesde": "2026-11-06T13:03:47.045Z"
  },
  "1ayj0na": {
   "archivo": "fotos-notas/1ayj0na.jpg",
@@ -86344,13 +86369,28 @@
   "fuentes": 3
  },
  "79yrvi": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/79yrvi.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Maluma deja nuevas pistas sobre su próxima visita a Buenos Aires y Córdoba",
-  "razon": "La única foto válida tiene marca de agua del medio (A) y la otra es una foto de stock/retrato promocional sin relación directa con el hecho (B).",
-  "cuando": "2026-11-06T11:03:00.200Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.latecla.info/170984-maluma-deja-nuevas-pistas-en-buenos-aires",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/217602_3.jpg",
+  "razon": "La foto C muestra un retrato claro y nítido del artista sin marcas de agua ni elementos extraños.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Maluma con remera roja frente a una puerta"
+  },
+  "huella": "66f2c2ca266c664a"
  },
  "5o7an1": {
   "archivo": "fotos-notas/5o7an1.jpg",
@@ -86535,23 +86575,19 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El INDEC informa que la pobreza trepa al 34,4 por ciento en el país",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T11:33:02.956Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Ambas fotos muestran menores reconocibles en primer plano.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "14z21ay": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "ANSES modifica el calendario de pagos de noviembre por la visita papal",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T11:33:02.956Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Es la única foto válida, de buena calidad, que ilustra la temática de ANSES sin menores, marcas ajenas ni problemas de archivo.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "intentos": 2,
+  "fuentes": 5
  },
  "koshpf": {
   "intentado": true,
@@ -86859,7 +86895,8 @@
    "corresponde": "si",
    "descripcion": "Arthur Brooks dando una charla en un auditorio."
   },
-  "huella": "3f19494d6c0c9d3e"
+  "huella": "3f19494d6c0c9d3e",
+  "ausenteDesde": "2026-11-06T13:03:47.045Z"
  },
  "tyayrt": {
   "intentado": true,
@@ -86871,5 +86908,38 @@
   "fuentes": 2,
   "intentosPorCupo": 1,
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1lyueee": {
+  "archivo": "fotos-notas/1lyueee.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca define el título de la tabla anual ante Defensa y Justicia",
+  "enlace": "https://www.tycsports.com/boca-juniors/que-necesita-boca-para-ser-campeon-de-la-tabla-anual-id770354.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/01/1002011/leandro-paredes-en-los-festejos-de-boca_1440x810.webp",
+  "razon": "La foto B muestra el festejo de jugadores de Boca de forma nítida y sin marcas de agua ni problemas, cumpliendo con todos los requisitos.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca celebrando con euforia en la cancha"
+  },
+  "huella": "156f47d6d4504434"
+ },
+ "13dh9o6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La visita papal a Buenos Aires genera un impacto superior a los u$s 88 millones",
+  "razon": "Ninguna foto sirve: la A es genérica y la B muestra menores reconocibles entre la multitud.",
+  "cuando": "2026-11-06T13:02:23.966Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }

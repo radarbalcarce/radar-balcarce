@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T12:35:07.213Z",
- "portada": 150,
- "archivo": 500,
- "esperandoCuerpo": 9,
+ "generado": "2026-11-06T13:03:47.424Z",
+ "portada": 135,
+ "archivo": 498,
+ "esperandoCuerpo": 10,
  "redes": {
-  "generado": "2026-11-06T12:35:07.651Z",
+  "generado": "2026-11-06T13:03:48.029Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -93,7 +93,7 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 51,
     "notas": [
@@ -126,17 +126,12 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 49,
     "notas": [
      {
       "id": "60lmll",
       "titulo": "Manuel Ferrari detecta corrientes de agua subterránea en el país",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "wjmv5r",
-      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-      "seccion": "Fútbol"
      },
      {
       "id": "37gn8b",
@@ -147,6 +142,11 @@
       "id": "14llvsv",
       "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
       "seccion": "Educación"
+     },
+     {
+      "id": "1rw3gbp",
+      "titulo": "Renuncia el presidente de Paraguay Santiago Peña tras el colapso de Ueno Bank",
+      "seccion": "Argentina"
      }
     ]
    },
@@ -157,17 +157,12 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 48,
     "notas": [
      {
-      "id": "1a0h4cn",
-      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+      "id": "1llnb6t",
+      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
       "seccion": "Balcarce"
-     },
-     {
-      "id": "1d0gbk6",
-      "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
-      "seccion": "Deportes"
      },
      {
       "id": "1xsiv6s",
@@ -175,9 +170,14 @@
       "seccion": "Educación"
      },
      {
-      "id": "1syf5mi",
-      "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
-      "seccion": "Automovilismo"
+      "id": "1d0gbk6",
+      "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1wphsfy",
+      "titulo": "Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana",
+      "seccion": "Política"
      }
     ]
    }
@@ -201,12 +201,6 @@
      "id": "60lmll",
      "titulo": "Manuel Ferrari detecta corrientes de agua subterránea en el país",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "wjmv5r",
-     "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-     "seccion": "Fútbol",
      "marcada": false
     },
     {

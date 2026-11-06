@@ -1,7 +1,39 @@
 {
- "generado": "2026-11-06T12:35:07.213Z",
+ "generado": "2026-11-06T13:03:47.424Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1a0h4cn",
+   "titulo": "La Cooperativa Eléctrica advierte por posibles estafas de falsos trabajadores",
+   "copete": "La Cooperativa de Electricidad General Balcarce Ltda. emitió una advertencia dirigida a sus asociados ante la presencia de personas que se presentan en domicilios particulares haciéndose pasar por trabajadores de la entidad. La alerta surgió luego de que la prestataria tomara…",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-05T13:12:34.000Z",
+   "fuentes": [
+    {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/noticias/45275-la-cooperativa-electrica-advierte-por-posibles-estafas-de-falsos-trabajadores/",
+     "fecha": "2026-11-05T14:05:12.414Z"
+    },
+    {
+     "medio": "Infórmese Primero (FM 104.9)",
+     "enlace": "http://www.informeseprimero.com.ar/2026/11/advierten-por-personas-que-se-hacen.html",
+     "fecha": "2026-11-05T14:05:12.414Z"
+    },
+    {
+     "medio": "Puntonueve (FM 100.9)",
+     "enlace": "https://puntonueve.com.ar/alerta-por-posibles-estafas-la-cooperativa-electrica-advierte-sobre-personas-que-se-hacen-pasar-por-trabajadores/",
+     "fecha": "2026-11-05T13:12:34.000Z"
+    },
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/cooperativa-electrica-alerto-por-posibles-estafas-de-personas-que-se-hacen-pasar-por-trabajadores",
+     "fecha": "2026-11-05T13:58:10.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
   {
    "id": "oal4ia",
    "titulo": "La carrera homenaje a Luis Vildoza superó las expectativas y ya se prepara la Jaime Gosende",
@@ -15,8 +47,35 @@
      "fecha": "2026-11-06T12:18:14.000Z"
     }
    ],
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"municipalidad\" y la fuente no",
+   "maximo": 3
+  },
+  {
+   "id": "rkt3tm",
+   "titulo": "Dibu Martínez reapareció en los entrenamientos de Chelsea con una máscara protectora tras su operación",
+   "copete": "A poco más de dos semanas desde que fue intervenido quirúrgicamente por una fractura en la mandíbula, Emiliano “Dibu” Martínez sorprendió y regresó a los entrenamientos de Chelsea . Para proteger la zona de su rostro que aún se recupera, el arquero argentino se sumó a la…",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-05T14:23:36.000Z",
+   "fuentes": [
+    {
+     "medio": "TN (Todo Noticias)",
+     "enlace": "https://tn.com.ar/deportes/futbol/2026/11/04/dibu-martinez-reaparecio-en-los-entrenamientos-de-chelsea-con-una-mascara-protectora-tras-su-operacion/",
+     "fecha": "2026-11-05T02:23:11.000Z"
+    },
+    {
+     "medio": "La Nación",
+     "enlace": "https://www.lanacion.com.ar/deportes/futbol/dibu-martinez-reaparecio-en-los-entrenamientos-de-chelsea-con-una-mascara-protectora-tras-su-nid05112026/",
+     "fecha": "2026-11-05T14:23:36.000Z"
+    },
+    {
+     "medio": "Minuto Uno",
+     "enlace": "https://www.minutouno.com/deportes/dibu-martinez-reaparecio-chelsea-una-mascara-la-operacion-mandibula-n6341935",
+     "fecha": "2026-11-05T15:46:00.000Z"
+    }
+   ],
    "intentos": 1,
-   "motivo": "título o bajada: 1 problema (numero): el copete dice 50 y la fuente no lo dice",
+   "motivo": "título o bajada: 1 problema (forma): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
    "maximo": 3
   },
   {
@@ -121,7 +180,7 @@
     {
      "medio": "TN (Todo Noticias)",
      "enlace": "https://tn.com.ar/deportes/futbol/2026/11/06/barracas-central-vs-racing-en-vivo-por-la-fase-de-grupos-de-la-liga-profesional-hora-donde-ver-y-formaciones/",
-     "fecha": "2026-11-06T12:12:27.000Z"
+     "fecha": "2026-11-06T12:43:27.000Z"
     },
     {
      "medio": "TyC Sports",
@@ -139,51 +198,19 @@
      "fecha": "2026-11-06T09:20:21.000Z"
     },
     {
-     "medio": "El Economista",
-     "enlace": "https://eleconomista.com.ar/deportes/barracas-central-vs-racing-torneo-clausura-2026-n99511",
-     "fecha": "2026-11-06T10:45:00.000Z"
-    },
-    {
      "medio": "Doble Amarilla",
      "enlace": "https://www.dobleamarilla.com.ar/liga-/racing-cierra-un-2026-para-el-olvido-de-visitante-ante-barracas-central-y-con-independiente-mirando-de-reojo-los-cupos-para-las-copas_a6aeda9a26dbbc21d6c0384a1",
      "fecha": "2026-11-06T10:42:02.993Z"
+    },
+    {
+     "medio": "El Economista",
+     "enlace": "https://eleconomista.com.ar/deportes/barracas-central-vs-racing-torneo-clausura-2026-n99511",
+     "fecha": "2026-11-06T10:45:00.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sitio no hace coberturas en vivo",
+   "intentos": 3,
+   "motivo": "cuerpo: 2 problemas (relleno, repite): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 269 palabras",
    "maximo": 5
-  },
-  {
-   "id": "13dh9o6",
-   "titulo": "El movimiento turístico por la llegada de León XIV le dejará a la Ciudad de Buenos Aires un impacto económico millonario",
-   "copete": "",
-   "seccion": "Economía",
-   "fecha": "2026-11-06T01:28:44.000Z",
-   "fuentes": [
-    {
-     "medio": "Punto Noticias",
-     "enlace": "https://puntonoticias.com/el-movimiento-turistico-por-la-llegada-de-leon-xiv-le-dejara-a-la-ciudad-de-buenos-aires-un-impacto-economico-millonario/",
-     "fecha": "2026-11-05T22:40:50.000Z"
-    },
-    {
-     "medio": "El Eco de Tandil",
-     "enlace": "https://www.eleco.com.ar/interes-general/el-movimiento-turistico-por-la-llegada-del-papa-leon-xiv-le-dejara-a-la-ciudad-un-impacto-economico-superior-a-los-us-88-millones",
-     "fecha": "2026-11-06T12:05:26.000Z"
-    },
-    {
-     "medio": "Ámbito",
-     "enlace": "https://www.ambito.com/economia/la-visita-del-papa-leon-xiv-generara-un-impacto-economico-superior-los-us88-millones-buenos-aires-n6342210",
-     "fecha": "2026-11-06T01:28:44.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/sociedad/con-la-visita-del-papa-leon-xiv-se-estima-un-fuerte-movimiento-economico-la-ciudad-buenos-aires-n6342206",
-     "fecha": "2026-11-06T03:14:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez de desarrollarlo; sin esas oraciones quedan 0 palabras",
-   "maximo": 3
   },
   {
    "id": "638bzn",
