@@ -81220,7 +81220,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "893929ac2c262f22"
+  "huella": "893929ac2c262f22",
+  "ausenteDesde": "2026-11-06T07:04:37.085Z"
  },
  "1favj63": {
   "archivo": "fotos-notas/1favj63.jpg",
@@ -82290,10 +82291,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-11-05T19:52:34.731Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La única foto disponible muestra a un grupo de adolescentes, por lo que debe marcarse como 'menor' según las políticas de Radar Balcarce.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "2nmv1t": {
   "archivo": "fotos-notas/2nmv1t.jpg",
@@ -82933,25 +82934,50 @@
   "huella": "cfd3d8d85e5ed652"
  },
  "1kp9k81": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1kp9k81.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Boca juega ante Defensa y Justicia por la definición de la Tabla Anual",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Crónica no se usa todavía.",
-  "cuando": "2026-11-05T21:06:00.726Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1
+  "enlace": "https://www.cronica.com.ar/depo/ligaprofesional/la-notable-racha-de-vaccari-con-la-que-defensa-y-justicia-buscara-amargar-a-boca-en-la-ultima-fecha-del-torneo-clausura/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1729/1729799/6aeb820cdf995_600_315!.jpg?s=c35f6ca3c09f562e66ecc39d955d3314&d=1793819604",
+  "razon": "Es la única foto que muestra a un protagonista del partido (el DT) sin menores de edad reconocibles en la tribuna y sin marcas de agua.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El director técnico dando indicaciones durante el partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un entrenador de fútbol dirigiendo el juego desde la banda, con un jugador de Boca Juniors al fondo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6bada9c5cece4c42"
  },
  "x5oj5d": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Santiago Espíndola debuta en la Primera de River ante Aldosivi",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T21:06:00.726Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
+  "cuando": "2026-11-06T07:02:00.904Z",
   "intentos": 1,
   "fuentes": 8,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "intentosPorCupo": 2
  },
  "1rag4ch": {
   "archivo": "fotos-notas/1rag4ch.jpg",
@@ -83267,7 +83293,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "6743822327455139"
+  "huella": "6743822327455139",
+  "ausenteDesde": "2026-11-06T07:04:37.085Z"
  },
  "1jleog4": {
   "archivo": "fotos-notas/1jleog4.jpg",
@@ -83974,26 +84001,38 @@
   "huella": "773633425e5c929a"
  },
  "1jljtbv": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1jljtbv.webp",
+  "medio": "iProUP",
+  "credito": "Foto: iProUP",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Mar del Plata desarrolla la Tech Week con foco en inteligencia artificial",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-06T00:02:36.213Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.iproup.com/innovacion/72910-exporta-us130-millones-el-polo-tech-de-mar-del-plata-va-por-la-inteligencia-artificial",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/filters:format(webp):quality(75):max_bytes(102400)/assets.iproup.com/assets/jpg/2021/01/15564_landscape.jpg",
+  "razon": "Es la única imagen que no presenta personas en primer plano, evitando problemas de identificación de menores o jóvenes, y es una fotografía real de un entorno de trabajo tecnológico.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Oficina con personas trabajando frente a computadoras."
+  },
+  "huella": "0f9743ce4f8f020a"
  },
  "181hn87": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Suspenden clases en 17 escuelas porteñas por la visita del papa León XIV",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-06T00:02:36.213Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Minuto Uno no se usa todavía.",
+  "cuando": "2026-11-06T07:02:00.904Z",
   "intentos": 1,
-  "fuentes": 25,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "fuentes": 26,
+  "intentosPorCupo": 2
  },
  "1pnue5h": {
   "archivo": "fotos-notas/km8ila.jpg",
@@ -84062,13 +84101,28 @@
   "fuentes": 4
  },
  "njkesj": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/njkesj.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El papa León XIV solicita un encuentro con jóvenes en su visita al país",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-11-06T00:33:05.735Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.minutouno.com/sociedad/cual-fue-el-unico-y-noble-pedido-del-papa-leon-xiv-dias-iniciar-su-primera-visita-la-argentina-n6342183",
+  "imagenOriginal": "https://media.minutouno.com/p/b0c9f2c8a8fb840e270c40c0acaf8530/adjuntos/150/imagenes/043/748/0043748965/1200x675/716x589:736x609/papa.jpg",
+  "razon": "La foto B es una imagen limpia, sin marcas de agua ni elementos distractores, que muestra claramente al protagonista de la nota.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del Papa con las manos juntas en actitud de oración."
+  },
+  "huella": "141c9c9c0c4e3f1b"
  },
  "mpdsvo": {
   "intentado": true,
@@ -84187,14 +84241,29 @@
   "ausenteDesde": "2026-11-06T01:34:55.797Z"
  },
  "usptb4": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/usptb4.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Pierre Gasly destaca el apoyo de los hinchas argentinos a Colapinto en Brasil",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Motorsport no se usa todavía.",
-  "cuando": "2026-11-06T01:02:52.359Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/11/05/pierre-gasly-destaco-el-apoyo-de-los-hinchas-argentinos-a-franco-colapinto-en-el-gp-de-brasil-se-siente/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/pierre-gasly-se-refirio-a-los-hinchas-argentinos-que-apoyan-a-franco-colapinto-foto-reuters-H6NVTKSO2FFQFMC5BKSJPV22DA.jpg?auth=6c4f2f8de33dc05db45bb7dab58ada1b681837ad7e22986c8c201232caddbc08&width=1023",
+  "razon": "La foto B muestra a Pierre Gasly con su indumentaria de equipo (Alpine), lo que la hace más pertinente para una nota de automovilismo, y no presenta marcas de agua ni problemas de menores.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Pierre Gasly con gorra y polo del equipo Alpine en un entorno de circuito."
+  },
+  "huella": "829e92d69e1c1819"
  },
  "1b2e9mn": {
   "archivo": "fotos-notas/1b2e9mn.jpg",
@@ -85412,7 +85481,8 @@
    "corresponde": "si",
    "descripcion": "Dos adultos mayores junto a una camioneta oficial de ANSES"
   },
-  "huella": "d878fcad340c9c9c"
+  "huella": "d878fcad340c9c9c",
+  "ausenteDesde": "2026-11-06T07:04:37.085Z"
  },
  "17ta9n7": {
   "archivo": "fotos-notas/17ta9n7.webp",
@@ -85530,5 +85600,77 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "92514d2415cf8e4e"
+ },
+ "1g0rr37": {
+  "archivo": "fotos-notas/1g0rr37.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Disney presenta las primeras imágenes del reality de Wanda Nara",
+  "enlace": "https://perfil.com/entretenimiento/disney-lanzo-las-primeras-imagenes-del-reality-de-wanda-nara-aQacB7L6Ywao",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/05/trim/1140/641/wanda-nara-2361725.jpg",
+  "razon": "La foto A es la única que no presenta marcas de agua ni elementos gráficos sobreimpresos, cumpliendo con los criterios de calidad y limpieza necesarios para la publicación.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Wanda Nara mirando a cámara."
+  },
+  "huella": "ec0c0c0d0707070f"
+ },
+ "1e8sfqo": {
+  "archivo": "fotos-notas/1e8sfqo.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tomás Etcheverry pierde en octavos de final del Masters 1000 de París",
+  "enlace": "https://www.lanacion.com.ar/deportes/tenis/tomas-etcheverry-perdio-una-buena-chance-de-llegar-a-los-cuartos-de-final-de-un-masters-1000-por-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/tomas-etcheverry-cayo-en-los-8vos-de-final-de-EJG6MAKGPFAODGAD2TWCETHD34.JPG?auth=af6d5d094a62a090e6b4899e648dae34ed453b2e9b23ed3d3da5e64051209b04&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor imagen de acción, con buena nitidez, sin marcas de agua y sin personas reconocibles en el fondo.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tomás Etcheverry golpeando la pelota durante un partido."
+  },
+  "huella": "0e0e070f06062703"
+ },
+ "1cfyzt6": {
+  "archivo": "fotos-notas/1cfyzt6.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El riesgo país sube a 925 puntos y los activos argentinos caen en Wall Street",
+  "enlace": "https://www.lanacion.com.ar/economia/los-bonos-tienen-un-leve-rebote-y-las-acciones-argentinas-caen-hasta-casi-3-en-wall-street-tras-las-nid04112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/los-bonos-y-las-acciones-argentinas-rebotan-pero-LY4A62K2NNDT5NRDSQ7I4T35IY.jpg?auth=5b800bc4939882b2a1d3792cd429b3fdf98c8b3cff8b9791687d1fed4b243fd6&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es una fotografía real tomada en la bolsa con operadores visibles, sin marcas añadidas, menores ni elementos gráficos artificiales.",
+  "cuando": "2026-11-06T07:02:00.904Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Operadores trabajando en la Bolsa de Comercio con pantallas"
+  },
+  "huella": "cfcd978596d6dad5"
  }
 }
