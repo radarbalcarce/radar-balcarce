@@ -546,7 +546,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       db.contarEntre(env, desde, hasta), db.usoDelDia(env, c.dia), db.usoDelMes(env, c.dia.slice(0, 7)), db.estadoDeFuentes(env),
     ]);
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
-    const reales = estados.filter((e) => e.fuente_id !== '_vuelta');
+    // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).
+    const activasHoy = new Set(fuentes.map((f) => f.id));
+    const reales = estados.filter((e) => e.fuente_id !== '_vuelta' && activasHoy.has(e.fuente_id));
     return json({
       ahora: c.ahoraISO,
       dia: c.dia,

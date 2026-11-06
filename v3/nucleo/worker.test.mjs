@@ -456,6 +456,10 @@ test('/salud muestra de cada fuente con falla el motivo (ultimaFalla, a lo sumo 
   await db.anotarFuente(env, 'caida', false, 'x'.repeat(500), AHORA);
   const salud2 = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
   assert.ok(salud2.fuentes.conFalla.find((f) => f.id === 'caida').ultimaFalla.length <= 120);
+  // una fuente que ya no está en la lista (apagada) no figura con falla aunque la base guarde su último error
+  await db.anotarFuente(env, 'apagada-hace-dias', false, 'HTTP 403', AHORA);
+  const salud3 = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.equal(salud3.fuentes.conFalla.find((f) => f.id === 'apagada-hace-dias'), undefined);
 });
 
 test('las notas publicadas sin foto se reintentan (hasta 5 por vuelta, 24 h, 45 minutos entre intentos) y se guarda el motivo', { skip: sinSqlite }, async () => {
