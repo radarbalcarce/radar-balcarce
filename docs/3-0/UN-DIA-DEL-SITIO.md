@@ -58,7 +58,7 @@ Los horarios de las piezas de video están explicados en `REDES.md`. **Hoy las r
    - Cada decisión queda anotada con su motivo, para poder responder «¿por qué no salió?».
 4. **Redacta y verifica** (dos pedidos de IA por nota). Primero la IA escribe título, bajada, cuerpo, sección, «En dos líneas» y una ficha de datos (qué, quién, dónde, cuándo, números). Después una segunda llamada marca cualquier oración que ninguna fuente diga. Si marca una, se saca; si marca más de dos, la nota se reescribe una vez; si vuelve a fallar, **no sale** y se avisa. Se redactan **hasta 6 notas por vuelta**, Balcarce primero.
    - Firma: «Redacción Radar Balcarce», con la leyenda «escrita con IA a partir de N fuentes y verificada contra ellas».
-5. **Busca la foto** (en este orden): una foto de las fuentes de esa historia (una IA de visión descarta marcas de otros medios, menores, víctimas y fotos que no son de la noticia); si no hay, **la nota sale sin foto** y reintenta hasta 4 veces en 24 horas. *(Los pasos «foto libre de Wikimedia» e «ilustración generada» **todavía no están hechos**.)* En el sitio, sin foto, aparece la placa con el color de la sección.
+5. **Busca la foto** (en este orden): una foto de las fuentes de esa historia (una IA de visión descarta marcas de otros medios, menores, víctimas y fotos que no son de la noticia); si no hay, **la nota sale sin foto** y reintenta hasta 4 veces en 24 horas. *(Desde el 6/11, si la búsqueda se agota, el núcleo prueba una **foto de archivo** —una foto real propia de una nota anterior sobre el mismo club, escuela u otra institución, con «Foto de archivo» en el epígrafe— y, si no hay, una **ilustración generada** con IA; la foto libre de Wikimedia no se usa para notas con fuentes. Detalle en `v3/nucleo/REGLAS.md`, § 7.)* En el sitio, sin foto, aparece la placa con el color de la sección.
 6. **Arma el valor agregado** con código, nunca con IA: «Los datos», «Cronología» (3 fechas o más), «Cifras», «Contexto» y «Más en Radar».
 7. **Publica.** La nota queda en la base como `publicada` y el sitio la muestra al instante. El interruptor `NUCLEO_PUBLICA` está en «sí» desde el corte del 3/11.
 
@@ -164,7 +164,7 @@ Cada 30 minutos mira:
 - Redes en real, más TikTok, YouTube, X, Threads, Bluesky y canal de Telegram como módulos nuevos.
 - El informe semanal de redes y web.
 - Las piezas que todavía no existen: agenda del fin de semana, teléfonos útiles, feriados y avisos de clima por helada, granizo o viento.
-- La foto libre y la ilustración generada para las notas sin foto.
+- La foto libre de Wikimedia para las notas sin foto (la ilustración generada y la foto de archivo ya están: `v3/nucleo/REGLAS.md`, § 7).
 - El calendario de climas auspiciados y la pestaña de avisos en `/admin`.
 - Que Telegram aprenda a armar el media kit y a investigar un tema.
 - Mover las fotos viejas a un depósito propio (hoy las nuevas siguen apuntando a la dirección del medio de origen).

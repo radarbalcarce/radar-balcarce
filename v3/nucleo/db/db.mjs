@@ -328,6 +328,9 @@ export async function ponerFotoDeNota(env, id, foto, verificacion) {
 // ---- Ilustraciones con IA (REGLAS § 7, paso 3) --------------------------------------------------------------------------------------------
 // Una nota ilustrada lleva `foto.ilustracion = true` (y `verificacion.ilustracion` con el estado). Una foto real que aparezca después la reemplaza.
 const ES_ILUSTRADA = "foto LIKE '%\"ilustracion\":true%'";
+const ES_DE_ARCHIVO = "foto LIKE '%\"archivo\":true%'";
+// Lo que una foto real reemplaza: una ilustración o una foto de archivo (REGLAS § 7: foto real siempre gana).
+const ES_REEMPLAZABLE = `(${ES_ILUSTRADA} OR ${ES_DE_ARCHIVO})`;
 
 // Las notas publicadas sin foto desde `desdeISO`, las más nuevas primero, con lo que hace falta para decidir si se ilustran. Sólo notas del núcleo (con historia viva en la tabla: las migradas
 // `viejo-%`, las propias de la redacción y las de servicio quedan afuera, igual que en la búsqueda de fotos).
@@ -345,7 +348,7 @@ export async function notasParaIlustrar(env, desdeISO, limite = 150) {
 // Las notas que hoy llevan una ilustración (publicadas desde `desdeISO`, las más nuevas primero), para ver si apareció una foto real.
 export async function notasIlustradas(env, desdeISO, limite = 40) {
   const r = await env.DB.prepare(
-    `SELECT id, historia_id, creada, titulo, ficha, foto, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND ${ES_ILUSTRADA} AND historia_id IN (SELECT id FROM historias) AND creada >= ? ORDER BY creada DESC LIMIT ?`,
+    `SELECT id, historia_id, creada, titulo, ficha, foto, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND ${ES_REEMPLAZABLE} AND historia_id IN (SELECT id FROM historias) AND creada >= ? ORDER BY creada DESC LIMIT ?`,
   ).bind(desdeISO, limite).all();
   return lista(r).map((f) => ({
     id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, ficha: analizar(f.ficha, null), foto: analizar(f.foto, null), verificacion: analizar(f.verificacion, null) || {},
@@ -355,9 +358,9 @@ export async function notasIlustradas(env, desdeISO, limite = 40) {
 // Pone la foto real en lugar de la ilustración (o sólo actualiza la verificación si `foto` es null). Nunca toca una nota cuya foto no sea una ilustración.
 export async function reemplazarIlustracion(env, id, foto, verificacion) {
   if (foto) {
-    await env.DB.prepare(`UPDATE notas SET foto = ?, verificacion = ? WHERE id = ? AND ${ES_ILUSTRADA}`).bind(json(foto), json(verificacion), id).run();
+    await env.DB.prepare(`UPDATE notas SET foto = ?, verificacion = ? WHERE id = ? AND ${ES_REEMPLAZABLE}`).bind(json(foto), json(verificacion), id).run();
   } else {
-    await env.DB.prepare(`UPDATE notas SET verificacion = ? WHERE id = ? AND ${ES_ILUSTRADA}`).bind(json(verificacion), id).run();
+    await env.DB.prepare(`UPDATE notas SET verificacion = ? WHERE id = ? AND ${ES_REEMPLAZABLE}`).bind(json(verificacion), id).run();
   }
 }
 
@@ -367,6 +370,44 @@ export async function contarIlustradas(env, desdeISO) {
   return {
     total: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_ILUSTRADA}`),
     desde: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_ILUSTRADA} AND creada >= ?`, desdeISO),
+  };
+}
+
+// ---- Foto de archivo (REGLAS § 7, paso 2 bis) ----------------------------------------------------------------------------------------------
+// Una nota con foto de archivo lleva `foto.archivo = true` (la misma copia de R2 de otra nota) y `verificacion.archivoFoto` con el estado.
+
+// Las notas publicadas con foto real PROPIA (copia en R2) desde `desdeISO`, las más nuevas primero: los posibles orígenes. Sin ilustraciones, sin fotos de archivo, sin Policiales ni notas de servicio.
+// Una sola consulta por vuelta, con tope (no trae el cuerpo).
+export async function notasConFotoRealPropia(env, desdeISO, limite = 600) {
+  const r = await env.DB.prepare(
+    `SELECT id, historia_id, creada, titulo, bajada, seccion, ficha, foto, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL
+     AND foto LIKE '%"copia":"https://radarbalcarce.com/foto/%' AND foto NOT LIKE '%"ilustracion":true%' AND foto NOT LIKE '%"archivo":true%'
+     AND (seccion IS NULL OR seccion <> 'Policiales') AND id NOT LIKE 'clima-%' AND creada >= ? ORDER BY creada DESC LIMIT ?`,
+  ).bind(desdeISO, limite).all();
+  return lista(r).map((f) => ({
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, bajada: f.bajada, seccion: f.seccion, ficha: analizar(f.ficha, null), foto: analizar(f.foto, null), verificacion: analizar(f.verificacion, null) || {},
+  }));
+}
+
+// Las huellas de las fotos de archivo que se pusieron desde `desdeISO` (el día de Balcarce): una misma foto de archivo no sale en dos notas del mismo día.
+export async function huellasDeArchivoDesde(env, desdeISO) {
+  const r = await env.DB.prepare(
+    `SELECT foto FROM notas WHERE ${ES_DE_ARCHIVO} AND json_extract(verificacion, '$.archivoFoto.cuando') >= ?`,
+  ).bind(desdeISO).all();
+  const huellas = new Set();
+  for (const f of lista(r)) {
+    const m = /\/foto\/([0-9a-f]{24})\.jpg/.exec(String(analizar(f.foto, {})?.copia ?? ''));
+    if (m) huellas.add(m[1]);
+  }
+  return huellas;
+}
+
+// Cuántas notas llevan foto de archivo, y cuántas desde `desdeISO` (para /salud).
+export async function contarFotosDeArchivo(env, desdeISO) {
+  const c = async (sql, ...p) => ((await env.DB.prepare(sql).bind(...p).first()) || {}).n || 0;
+  return {
+    total: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_DE_ARCHIVO}`),
+    desde: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_DE_ARCHIVO} AND creada >= ?`, desdeISO),
   };
 }
 

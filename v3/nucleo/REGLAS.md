@@ -98,10 +98,11 @@ En este orden, y se para en la primera que sirve:
    seguidos de Gemini cortan la búsqueda. Si no hay foto, `verificacion.fotoMotivo` dice por qué (`sin-candidatas`, `chicas`, `logo-o-forma`, `error-descarga`,
    `todas-con-marca`, `todas-con-menor-o-victima`, `todas-descartadas`, `error-vision`) junto con `fotoIntentos` y `fotoIntentada`.
    **Reintento:** una vez por vuelta, hasta 5 notas publicadas en las últimas 24 h sin foto vuelven a buscarla (45 minutos entre intentos, 4 en total).
-   **Pendiente:** el paso 2 (foto libre confirmada por la visión) todavía no está hecho. El paso 3 (la ilustración) se hizo el 6/11: § 7 quater.
-2. **Una foto libre** (Wikimedia Commons u Openverse) buscada por el nombre de la persona o el lugar, **sólo si la visión confirma** que
-   es esa persona o ese lugar.
-3. **Una ilustración** generada con IA (Workers AI), con «Ilustración generada con IA» en el epígrafe: sólo cuando la nota agotó la búsqueda de foto real. Detalle en § 7 quater.
+   La foto libre de Wikimedia Commons u Openverse **no se usa** para notas con fuentes (regla de siempre: un nombre en el archivo no garantiza que la persona o el lugar sean los de la noticia); la reemplaza el paso 2.
+2. **Una foto de archivo** (6/11/2026, Hernán): una foto real **propia** de una nota anterior que comparte un lugar o una institución exactos con esta nota (el club, la escuela con su número, el hospital, la plaza…), si la visión confirma que
+   muestra el lugar sin gente en primer plano. Epígrafe «Foto de archivo: <crédito original>». Sólo cuando la nota agotó la búsqueda de foto real. Detalle en § 7 quinquies.
+3. **Una ilustración** generada con IA (Workers AI), con «Ilustración generada con IA» en el epígrafe: sólo cuando la nota agotó la búsqueda de foto real y no hubo foto de archivo. Detalle en § 7 quater.
+4. **La placa** (lo que sale cuando nada de lo anterior sirvió).
 
 Cada foto publicada tiene una **huella visual**: la misma foto (o casi) no puede estar en dos notas vivas; la segunda sigue al paso
 siguiente. Nombre de archivo y texto alternativo descriptivos, generados de la ficha (`balcarce-camioneros-examen-licencia.jpg`), nunca
@@ -178,6 +179,34 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
   fallas que no rompen nada, `/salud`).
 - **Para subir:** hace falta volver a subir el núcleo («Radar 3.0: desplegar», opción `nucleo`): el nuevo depósito `FOTOS` (`radar-fotos`, ya existe porque lo creó el sitio) y las dos variables van en su
   `wrangler.toml`. Para que las notas sin imagen de Balcarce también salgan en redes con la placa, volver a subir `redes` (`v3/redes/piezas/REGLAS.md` § 5 bis).
+
+### 7 quinquies. La foto de archivo (6/11/2026, Hernán; `archivo-fotos/archivo-fotos.mjs`, paso e4 de la vuelta, justo antes de ilustrar)
+
+- **Qué es.** Para una nota publicada, del núcleo, sin foto y con la búsqueda de foto real **agotada** (las mismas notas que van a ilustración: § 7 quater), se busca en la base una **nota anterior con foto real propia** que comparta un
+  **lugar o una institución concretos**. Si la foto pasa el control con visión, la nota **reusa la misma copia de R2** (nada se copia ni se genera) con el epígrafe `Foto de archivo: <crédito original>` (el «Foto:» del crédito original se saca para no duplicarlo;
+  el sitio muestra el crédito tal cual y las redes no agregan otro «Foto:»: `creditoConPrefijo`). Si no pasa, la nota sigue a la ilustración.
+- **Cómo decide una coincidencia.** Por **nombre propio exacto** de lugar o institución en el **título, la bajada o la ficha** de las dos notas (nunca el cuerpo; si la ficha trae `entidades`, `lugares` o `instituciones`, se usan).
+  Un lugar es una palabra de lugar (club, escuela, colegio, jardín, instituto, hospital, plaza, barrio, parque, estadio, biblioteca, museo, teatro, polideportivo, autódromo, laguna, cerro, iglesia, parroquia, capilla, cine, predio,
+  centro, sociedad, cooperativa, balneario, camping) **seguida de un nombre propio o de un número** («Escuela N° 5», «Jardín 903», «Club Huracán», «plaza San Martín», «Hospital Fossati»). La clave se normaliza (sin tildes, «N°5» = «Nº 5» = «Nro. 5»,
+  sin «municipal», «provincial», «Atlético» ni «de Balcarce» al final), así que dos notas coinciden sólo si dicen **el mismo** lugar. **Nunca alcanza** un apellido, una palabra común, un lugar sin nombre («el hospital municipal», «una escuela de la zona»),
+  una ciudad sola, un tipo de escuela sin número ni un número pelado que no sea de escuela. «Club Balcarce» y «Hospital Balcarce» (la ciudad como nombre) valen sólo con la palabra de lugar en mayúscula. Ante la duda no se usa.
+- **Qué nota puede ser origen.** Publicada, no retirada, con foto real propia (`foto.copia` de radarbalcarce.com y el objeto en R2, comprobado al leerlo), con crédito, que **no** sea Policiales, muerte, velorio, sepelio ni semáforo rojo (los filtros de ilustrar:
+  `motivoParaSaltar`, `tocaUnaMuerte`), ni ilustración, ni otra foto de archivo, ni placa, ni foto de menores, ni el clima, ni de la misma historia. Las más nuevas primero, hasta 120 días atrás, una sola consulta por vuelta (600 filas, sin el cuerpo).
+  **La nota que recibe** nunca es de Policiales ni toca una muerte o lo rojo.
+- **Control con visión** (Gemini, el mismo cliente y modelo; tarea `archivo-foto`; **máximo 3 candidatas por nota**, la primera que pasa gana): `muestra_el_lugar` tiene que ser `true`; `personas_en_primer_plano`, `menores` y `marca_o_otro_medio` tienen que ser `false`
+  (una clave que falta es un no). Se mira la copia chica (640 px) leída de R2.
+- **Una misma foto de archivo no sale en dos notas del mismo día** (día de Balcarce; se lee de `verificacion.archivoFoto.cuando`); al día siguiente puede volver a usarse. No se usa una huella que ya tenga otra nota de hoy.
+- **Qué queda anotado.** `notas.foto`: `url`/`copia`/`copiaChica`/`copiaAncho`/`copiaAlto` de la copia del origen, `credito` «Foto de archivo: …», `alt` «Foto de archivo: <lugar>», `archivo: true` y `archivoDe` (la nota origen).
+  `verificacion.archivoFoto` (para auditar): `hecha`, `de`, `huella`, `clave`, `lugar`, `creditoOriginal`, `cuando`, `control` y `realIntentos`; si no pasó, `final: true` con el motivo y las candidatas miradas (no se vuelve a gastar visión); un fallo técnico
+  (Gemini o R2) cuenta `fallos`, espera 20 minutos y a los 3 se da por perdida. **Sin coincidencia no se marca nada** (no gastó un pedido y puede aparecer un origen después): la nota sigue a la ilustración.
+- **Foto real gana.** Se escribe sólo si la nota sigue sin foto (`ponerFotoDeNota` nunca pisa). Una nota con foto de archivo sigue buscando una foto real de sus fuentes como las ilustradas (hasta 3 intentos, 3 h entre uno y otro, 72 h): si aparece, la reemplaza,
+  se saca `archivoFoto` y queda `archivoReemplazado`. Una nota ya ilustrada o con foto no se toca.
+- **Topes** (`wrangler.toml`): `NUCLEO_ARCHIVO_POR_VUELTA` = 2 (notas por vuelta; **0 lo apaga**). Funciona aunque la ilustración esté apagada o no haya Workers AI; sin el depósito `FOTOS` no hace nada. Respeta el tope diario y el freno mensual de Gemini
+  (es parte del mismo paso e4). Una falla nunca rompe la vuelta (queda en `errores` y la nota sigue a la ilustración).
+- **`/salud`.** `fotosDeArchivo`: `activas`, `total`, `ultimos7d`, `hoy`, `topePorVuelta` y `ultimoError` (fuente `_archivo_foto` en `fuentes_estado`, cuándo y qué). Costo: a lo sumo 3 pedidos de visión por nota (~1.000 tokens cada uno), sólo cuando hay coincidencia exacta: centavos.
+- **Pruebas:** `archivo-fotos/archivo-fotos.test.mjs` (qué es un lugar, el apellido que no alcanza, el origen, las candidatas, el control, el epígrafe y que las redes no dupliquen «Foto:», el estado) y `archivo-fotos/vuelta.test.mjs` (coincide por institución,
+  apellido, Policiales y muertes, persona en primer plano, sin copia en R2, misma foto en dos notas del día, foto real que gana, fallas, tope, `/salud`).
+- **Para subir:** volver a subir el núcleo («Radar 3.0: desplegar», opción `nucleo`); la variable va en su `wrangler.toml`. No hace falta tocar el sitio ni las redes.
 
 ## 8. Lo que el núcleo entrega
 
