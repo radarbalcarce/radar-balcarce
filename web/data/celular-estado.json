@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T18:08:40.821Z",
- "portada": 186,
+ "generado": "2026-11-06T18:34:43.285Z",
+ "portada": 185,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-06T18:08:41.500Z",
+  "generado": "2026-11-06T18:34:43.968Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,11 +105,11 @@
     "voz": "locutora",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 40,
+    "segundos": 43,
     "notas": [
      {
-      "id": "1pkqfef",
-      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+      "id": "qvrt15",
+      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
       "seccion": "Balcarce"
      },
      {
@@ -123,9 +123,9 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1r3wzjp",
-      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
-      "seccion": "Deportes"
+      "id": "jf7bz2",
+      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "seccion": "Policiales"
      }
     ]
    },
@@ -136,11 +136,11 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
      {
-      "id": "qvrt15",
-      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
+      "id": "j7nvck",
+      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
       "seccion": "Balcarce"
      },
      {
@@ -149,14 +149,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "jf7bz2",
-      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
-      "seccion": "Policiales"
-     },
-     {
       "id": "oal4ia",
       "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "wjmv5r",
+      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -164,12 +164,6 @@
   "facebook": {
    "hoy": [],
    "cola": [
-    {
-     "id": "1pkqfef",
-     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
     {
      "id": "qvrt15",
      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
@@ -210,6 +204,12 @@
      "id": "e7bi4o",
      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1pkqfef",
+     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+     "seccion": "Balcarce",
      "marcada": false
     }
    ],

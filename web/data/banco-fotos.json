@@ -79118,7 +79118,8 @@
    },
    "dudosa": "la primera IA describe gente joven"
   },
-  "huella": "8797171a399b9999"
+  "huella": "8797171a399b9999",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "108600q": {
   "archivo": "fotos-notas/108600q.jpg",
@@ -80373,7 +80374,8 @@
    "corresponde": "si",
    "descripcion": "Persona anotando gastos con tarjetas de crédito y calculadora."
   },
-  "huella": "460e0c9c9ed48e16"
+  "huella": "460e0c9c9ed48e16",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "izhxwc": {
   "intentado": true,
@@ -81260,7 +81262,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de un gusano cogollero sobre una hoja de maíz."
   },
-  "huella": "08600c6b60728a40"
+  "huella": "08600c6b60728a40",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "14llvsv": {
   "intentado": true,
@@ -82215,7 +82218,8 @@
    "corresponde": "si",
    "descripcion": "Bailarines de malambo actuando en un escenario."
   },
-  "huella": "2601a1232021252c"
+  "huella": "2601a1232021252c",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "7okww": {
   "archivo": "fotos-notas/7okww.jpg",
@@ -84231,10 +84235,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Godoy Cruz y Tristán Suárez juegan la final por el ascenso el 15 de noviembre",
-  "razon": "Ninguna de las fotos corresponde al partido mencionado en la nota (Godoy Cruz vs Tristán Suárez). Todas muestran un estadio diferente o árbitros y jugadores de otros partidos (como Boca y River).",
-  "cuando": "2026-11-06T12:02:49.065Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
+  "cuando": "2026-11-06T18:32:21.547Z",
   "intentos": 3,
-  "fuentes": 17
+  "fuentes": 21,
+  "intentosPorCupo": 1
  },
  "1cqsg0d": {
   "archivo": "fotos-notas/1cqsg0d.jpg",
@@ -85813,7 +85818,8 @@
    "corresponde": "si",
    "descripcion": "Elefanta marina y su cría en la orilla de la playa."
   },
-  "huella": "68002365e2090516"
+  "huella": "68002365e2090516",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "lk2k4s": {
   "archivo": "fotos-notas/lk2k4s.jpg",
@@ -87119,11 +87125,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Tribunal de Disciplina de la AFA abre un expediente a Estudiantes",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-06T13:32:27.007Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-11-06T18:32:21.547Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2,
+  "errorGemini": "The operation was aborted due to timeout"
  },
  "uvr8fk": {
   "archivo": "fotos-notas/uvr8fk.jpg",
@@ -88140,15 +88147,28 @@
   "ausenteDesde": "2026-11-06T16:35:18.072Z"
  },
  "1pwngq8": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1pwngq8.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Mauricio Macri no asiste a la misa papal en Palermo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T16:04:38.212Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://perfil.com/politica/tension-maxima-en-la-familia-macri-mauricio-se-baja-de-la-misa-papal-para-no-cruzarse-con-jorge-adWs42z1FphO",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/2c4de62df6f7-mauricio-y-jorge-macri-2060236.jpg",
+  "razon": "Es la única imagen que muestra a Mauricio Macri en un contexto que no es una captura de pantalla, no tiene marcas de agua añadidas por el medio y no presenta elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-06T18:32:21.547Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mauricio Macri y Jorge Macri abrazados."
+  },
+  "huella": "1c9550d2f7f7f6a6"
  },
  "qq886q": {
   "archivo": "fotos-notas/qq886q.jpg",
@@ -88281,7 +88301,8 @@
    "corresponde": "si",
    "descripcion": "Sala de operaciones financieras con múltiples pantallas mostrando gráficos de mercado."
   },
-  "huella": "a69d23a329121949"
+  "huella": "a69d23a329121949",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "1hr27h8": {
   "archivo": "fotos-notas/1hr27h8.jpg",
@@ -88599,7 +88620,8 @@
    "corresponde": "si",
    "descripcion": "Arquero de Racing saludando a la tribuna durante un partido."
   },
-  "huella": "7513b5999b999918"
+  "huella": "7513b5999b999918",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "yl3nq6": {
   "archivo": "fotos-notas/yl3nq6.jpg",
@@ -88788,7 +88810,8 @@
    "corresponde": "si",
    "descripcion": "Plano general de Javier Milei dando un discurso ante una audiencia en un auditorio."
   },
-  "huella": "31a301c392832393"
+  "huella": "31a301c392832393",
+  "ausenteDesde": "2026-11-06T18:34:42.984Z"
  },
  "egeaaq": {
   "archivo": "fotos-notas/egeaaq.jpg",
@@ -88823,5 +88846,59 @@
   "intentos": 1,
   "fuentes": 4,
   "intentosPorCupo": 1
+ },
+ "13en1uy": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Club Tres Esquinas retoma sus actividades tras 25 años de inactividad",
+  "razon": "La única foto disponible muestra a una persona en un estudio de radio, lo cual no ilustra el hecho del club retomando actividades, y además el micrófono tiene el logo de otro medio local, lo que la hace inadecuada para nuestra publicación.",
+  "cuando": "2026-11-06T18:32:21.547Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "18fvifb": {
+  "archivo": "fotos-notas/18fvifb.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Estudiantes visita a Talleres en el cierre de la fase regular del Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/guido-carrillo-baja-sensible-estudiantes-torneoclausura-copa-libertadores-final-talleres-lesion_0_tOymtn15ZQ.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/05/xY73v2OJV_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra a los protagonistas en una situación real, sin marcas de agua, sin ser una placa gráfica y sin menores de edad.",
+  "cuando": "2026-11-06T18:32:21.547Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico y jugador de Estudiantes de La Plata en un campo de entrenamiento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un entrenador y un jugador de Estudiantes de La Plata conversan durante un entrenamiento."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "0c6c6cc4aaa8acac"
+ },
+ "opbjmr": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Aníbal Colapinto bendice el casco de su hijo en la Basílica de Luján",
+  "razon": "Todas las imágenes presentadas son capturas de pantalla de un video (se nota por la calidad, el formato y la falta de nitidez propia de una fotografía), lo cual las clasifica como gráficas según los criterios establecidos.",
+  "cuando": "2026-11-06T18:32:21.547Z",
+  "intentos": 1,
+  "fuentes": 3
  }
 }
