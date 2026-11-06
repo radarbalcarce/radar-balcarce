@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T21:33:45.463Z",
- "portada": 207,
+ "generado": "2026-11-06T22:03:56.796Z",
+ "portada": 191,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-06T21:33:46.074Z",
+  "generado": "2026-11-06T22:03:57.707Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,9 +103,19 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 50,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 53,
     "notas": [
      {
       "id": "qvrt15",
@@ -126,37 +136,6 @@
       "id": "8x25q0",
       "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
       "seccion": "Deportes"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 49,
-    "notas": [
-     {
-      "id": "j7nvck",
-      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1hwc8eu",
-      "titulo": "Franco Riquelme Antonetti gana la Copa Centenario en Mar del Plata",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "wjmv5r",
-      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-      "seccion": "Fútbol"
      }
     ]
    }

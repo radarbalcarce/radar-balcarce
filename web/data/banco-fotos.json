@@ -80758,7 +80758,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "4d0d8dd516161632"
+  "huella": "4d0d8dd516161632",
+  "ausenteDesde": "2026-11-06T22:03:56.610Z"
  },
  "ja1too": {
   "archivo": "fotos-notas/ja1too.jpg",
@@ -82007,7 +82008,8 @@
    "corresponde": "si",
    "descripcion": "Marcelo Tinelli hablando frente a un micrófono con la mano levantada."
   },
-  "huella": "45c33d3911ad9f9f"
+  "huella": "45c33d3911ad9f9f",
+  "ausenteDesde": "2026-11-06T22:03:56.610Z"
  },
  "16l6ttn": {
   "archivo": "fotos-notas/16l6ttn.jpg",
@@ -83282,10 +83284,10 @@
   "origen": "ninguna",
   "titulo": "Presentan el Plan Bicentenario de Ordenamiento Territorial en La Plata",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Destape no se usa todavía.",
-  "cuando": "2026-11-05T21:33:29.261Z",
+  "cuando": "2026-11-06T22:02:30.807Z",
   "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1
+  "fuentes": 5,
+  "intentosPorCupo": 2
  },
  "1rw3gbp": {
   "archivo": "fotos-notas/1rw3gbp.jpg",
@@ -84242,11 +84244,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Godoy Cruz y Tristán Suárez juegan la final por el ascenso el 15 de noviembre",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
-  "cuando": "2026-11-06T19:33:39.352Z",
-  "intentos": 3,
-  "fuentes": 21,
-  "intentosPorCupo": 2
+  "razon": "Ninguna de las fotos corresponde al evento mencionado (Godoy Cruz vs Tristán Suárez), ya que todas muestran partidos de River Plate o Boca Juniors, o conferencias de prensa de la Selección Argentina.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "intentos": 4,
+  "fuentes": 21
  },
  "1cqsg0d": {
   "archivo": "fotos-notas/1cqsg0d.jpg",
@@ -86749,15 +86750,28 @@
   "fuentes": 2
  },
  "3ig7n": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/3ig7n.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Mumbat inaugura la muestra Entre Sierras y Oficios en Tandil",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T12:02:49.065Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.eldia.com/la-provincia/el-mumbat-reunira-a-30-artistas-en-una-muestra-dedicada-al-arte-del-campo-la-provincia_1793963550",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793963565963.jpeg?&cw=1200&ch=630",
+  "razon": "La foto B muestra el objeto de la muestra sin personas, cumpliendo con los criterios de selección, mientras que la foto A incluye personas.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Detalle de piezas de talabartería exhibidas en la muestra."
+  },
+  "huella": "1f1a2928a8aaab2b"
  },
  "1y39hq1": {
   "intentado": true,
@@ -87337,11 +87351,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cierran los bancos y modifican los servicios públicos por feriados",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Destape no se usa todavía.",
-  "cuando": "2026-11-06T14:02:33.122Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Destape (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "intentos": 2,
+  "fuentes": 9
  },
  "1yqehsk": {
   "intentado": true,
@@ -88020,10 +88033,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Andy Kusnetzoff recibe a cinco famosos en PH: Podemos Hablar",
-  "razon": "Ninguna de las fotos sirve ya que ambas son gráficas/capturas promocionales o de transmisión sin la calidad periodística adecuada para ilustrar la nota.",
-  "cuando": "2026-11-06T15:34:19.701Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ambas imágenes son gráficas, ya que se trata de piezas promocionales o capturas de pantalla de televisión, no de fotografías de una escena real.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "1p1dj43": {
   "archivo": "fotos-notas/1p1dj43.jpg",
@@ -89812,6 +89825,103 @@
    "corresponde": "si",
    "descripcion": "El Papa saludando a un funcionario al bajar del avión."
   },
-  "huella": "13024ada97e2c8ca"
+  "huella": "13024ada97e2c8ca",
+  "ausenteDesde": "2026-11-06T22:03:56.610Z"
+ },
+ "5wpmwc": {
+  "archivo": "fotos-notas/5wpmwc.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Marcos Maidana visita el entrenamiento de Messi y De Paul en Miami",
+  "enlace": "https://www.ole.com.ar/messi/messi-paul-chino-maidana-miami_3_ZhWOfP0uZ3.html",
+  "imagenOriginal": "https://cdn.jwplayer.com/v2/media/ThRBpsOS/poster.jpg?width=1920",
+  "razon": "La foto A muestra a los protagonistas de la nota (Messi, De Paul y Maidana) de forma clara y sin marcas de agua, mientras que la B contiene texto sobreimpreso por el medio.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Marcos Maidana interactuando con Lionel Messi y Rodrigo De Paul en el entrenamiento."
+  },
+  "huella": "decc8a1e8c8c68f0"
+ },
+ "1lcrmkw": {
+  "archivo": "fotos-notas/1lcrmkw.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca cuenta con plantel completo para la semifinal de la Copa Argentina",
+  "enlace": "https://www.cronica.com.ar/depo/copaargentina/arruabarrena-no-da-mas-de-felicidad-el-alegron-que-recibio-de-cara-a-la-semifinal-de-la-copa-argentina-entre-boca-y-banfield/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730649/6aee0b45489b2_600_315!.jpg?s=c412a58065d9c7f2b357280acf01184f&d=1793934000",
+  "razon": "La foto B muestra al plantel de Boca entrenando, lo cual es pertinente para la nota, mientras que la A es una foto genérica de una tribuna de otro equipo.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Entrenamiento del plantel de Boca Juniors con el director técnico."
+  },
+  "huella": "274f4f4d4d8e8f46"
+ },
+ "1tre0aq": {
+  "archivo": "fotos-notas/1tre0aq.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los bancos permanecen cerrados hasta el miércoles 11 de noviembre",
+  "enlace": "https://www.eldestapeweb.com/economia/feriado-bancario-visita-papa-leon-xiv-operaciones-podran-hacer-20261169383",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793878066653.jpg?&cw=1600&ch=900",
+  "razon": "La foto B es la única que ilustra el hecho de manera genérica pero pertinente sin tener marcas de agua, siendo una fotografía real y no de stock.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Mano de una persona operando un cajero automático."
+  },
+  "huella": "8d2d272323673561"
+ },
+ "mvah7b": {
+  "archivo": "fotos-notas/mvah7b.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia vence a Belgrano y asegura el tercer puesto en la Zona B",
+  "enlace": "https://www.ole.com.ar/gimnasia-y-esgrima/gimnasia-belgrano-torneo-clausura-directo-online-minuto-minuto-goles_0_ykWbTWSbkn.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/06/w_4ixy5q9_2000x1500__1.jpg",
+  "razon": "Es la imagen con mejor calidad, encuadre y nitidez que muestra el festejo de los jugadores sin marcas de agua ni elementos gráficos.",
+  "cuando": "2026-11-06T22:02:30.807Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos jugadores de Gimnasia celebrando un gol abrazados."
+  },
+  "huella": "307826242d694850"
  }
 }
