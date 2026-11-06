@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-06T18:34:38.660Z",
+ "consultado": "2026-11-06T19:04:15.768Z",
  "equipos": [
   "9739",
   "3",
@@ -805,12 +805,12 @@
     "id": "401841670",
     "competencia": "liga",
     "inicio": "2026-11-06T18:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "34'",
+    "estado": "entretiempo",
+    "minuto": "45'+5'",
     "local": {
      "id": "10060",
      "nombre": "Barracas Central",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "15",
@@ -818,7 +818,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Nicolás Orsini",
+      "minuto": "43'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Claudio Chiqui Tapia",
     "fase": null,
     "partidoDeLaSerie": null,

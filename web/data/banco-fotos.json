@@ -79681,7 +79681,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV estrechando la mano de Bob Dylan."
   },
-  "huella": "b6ceb29183828a82"
+  "huella": "b6ceb29183828a82",
+  "ausenteDesde": "2026-11-06T19:04:17.523Z"
  },
  "1i8tvdi": {
   "archivo": "fotos-notas/1i8tvdi.jpg",
@@ -81607,7 +81608,8 @@
    "corresponde": "si",
    "descripcion": "Pablo López sentado en una mesa con micrófonos y documentos, hablando durante una presentación."
   },
-  "huella": "03333b39797575f3"
+  "huella": "03333b39797575f3",
+  "ausenteDesde": "2026-11-06T19:04:17.523Z"
  },
  "6oag3g": {
   "archivo": "fotos-notas/6oag3g.jpg",
@@ -84056,10 +84058,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
-  "razon": "La única foto disponible muestra a varias personas, incluyendo menores de edad, por lo que no cumple con la política de publicación de Radar Balcarce.",
-  "cuando": "2026-11-06T00:02:36.213Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ambas fotos son idénticas y en ambas se identifican menores de edad, por lo que ninguna cumple con los criterios de publicación.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1e582ay": {
   "archivo": "fotos-notas/1e582ay.jpg",
@@ -84438,7 +84440,8 @@
    "corresponde": "si",
    "descripcion": "Pierre Gasly con gorra y polo del equipo Alpine en un entorno de circuito."
   },
-  "huella": "829e92d69e1c1819"
+  "huella": "829e92d69e1c1819",
+  "ausenteDesde": "2026-11-06T19:04:17.523Z"
  },
  "1b2e9mn": {
   "archivo": "fotos-notas/1b2e9mn.jpg",
@@ -85953,8 +85956,7 @@
    "corresponde": "si",
    "descripcion": "Primer plano de Donald Trump con fondo bokeh de luces."
   },
-  "huella": "0c0c0c69cb4b0544",
-  "ausenteDesde": "2026-11-06T13:03:47.045Z"
+  "huella": "0c0c0c69cb4b0544"
  },
  "1ayj0na": {
   "archivo": "fotos-notas/1ayj0na.jpg",
@@ -86863,13 +86865,28 @@
   "huella": "30b3a1e1c8c84149"
  },
  "1klx92a": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1klx92a.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Rigen cortes de tránsito y desvíos en CABA por la visita del papa León XIV",
-  "razon": "Ninguna de las fotos corresponde al tema de la nota sobre cortes de tránsito y desvíos en CABA por una visita papal; la mayoría muestra al papa y una sola muestra tránsito pero no corresponde al evento específico.",
-  "cuando": "2026-11-06T12:34:08.003Z",
-  "intentos": 1,
-  "fuentes": 5
+  "enlace": "https://www.lanacion.com.ar/sociedad/mapa-de-cortes-de-calles-por-la-visita-del-papa-leon-xiv-en-la-ciudad-de-buenos-aires-cierres-nid06112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/mapa-de-cortes-de-calles-por-la-visita-del-papa-4TDIGUYENNGQRNANFSCIS3Q3ZE.JPG?auth=aeaaf3470f9f801c21ad94fcb901f3ced1056603dbf23340f8fcd8a0c1364739&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor imagen para ilustrar la nota sobre cortes de tránsito, ya que muestra a una agente de tránsito trabajando en el lugar del hecho sin marcas de agua ni personas irreconocibles.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Agente de tránsito desviando un vehículo en una calle de CABA."
+  },
+  "huella": "db1b18fcbe7b2e47"
  },
  "1omlme9": {
   "archivo": "fotos-notas/1omlme9.jpg",
@@ -87266,10 +87283,10 @@
   "origen": "ninguna",
   "titulo": "Franco Colapinto presenta un casco con los colores de Boca para el GP de Brasil",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T14:02:33.122Z",
+  "cuando": "2026-11-06T19:02:29.887Z",
   "intentos": 1,
   "fuentes": 7,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "dyb4xn": {
   "archivo": "fotos-notas/dyb4xn.jpg",
@@ -88900,5 +88917,170 @@
   "cuando": "2026-11-06T18:32:21.547Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1lsynwu": {
+  "archivo": "fotos-notas/1lsynwu.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Barracas Central vence a Racing con un gol de Nicolás Orsini",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/argentina-torneo-clausura-2026-barracas-central-vs-racing-club-fecha-16-id770349.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/06/1003357/barracas-racing_1440x810.webp?v=1",
+  "razon": "Es la única foto que muestra claramente a un jugador en acción, sin marcas de agua, sin elementos gráficos de transmisión y sin menores reconocibles.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Barracas Central en acción."
+  },
+  "huella": "a58dbb6b1bb13331"
+ },
+ "1vjy242": {
+  "archivo": "fotos-notas/1vjy242.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto termina noveno en la primera práctica del GP de Brasil",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161331/deportes/vivo-tras-quedar-9-primera-sesion-franco-colapinto-corre-fp2-gp-brasil.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/06/revancha-colapinto-termino-15-ano-pasado-interlagos-busca-tener-desquite-1161331-121443.jpg",
+  "razon": "Es la única imagen que muestra el auto en pista, con buena nitidez, sin marcas de agua, sin menores y corresponde perfectamente al hecho.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Fórmula 1 en pista."
+  },
+  "huella": "034101144bbaf087"
+ },
+ "nbyfle": {
+  "archivo": "fotos-notas/nbyfle.jpg",
+  "medio": "A24",
+  "credito": "Foto: A24",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Flor Vigna revela que mantuvo a un ex y Nico Occhiato se desvincula",
+  "enlace": "https://www.a24.com/primiciasya/la-explosiva-revelacion-flor-vigna-nico-occhiato-que-lo-dejo-muy-mal-parado-he-mantenido-a-n1613973",
+  "imagenOriginal": "https://media.a24.com/p/36428278fe8c6f1760c8ac97b60b6ed6/adjuntos/296/imagenes/009/844/0009844135/1200x675/smart/nico-occhiato-y-flor-vigna.png",
+  "razon": "Es la única imagen que no presenta marcas de agua, elementos gráficos de televisión o capturas de pantalla, ofreciendo una composición limpia y profesional para la nota.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato dividido de Flor Vigna y Nico Occhiato."
+  },
+  "huella": "d932725a3bb2b2b3"
+ },
+ "9e9o5x": {
+  "archivo": "fotos-notas/9e9o5x.jpg",
+  "medio": "Radio Mitre",
+  "credito": "Foto: Radio Mitre",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nico Paz rechaza volver al Real Madrid para seguir su crecimiento en el Como",
+  "enlace": "https://radiomitre.cienradios.com/deportes/salio-a-la-luz-la-charla-privada-de-nico-paz-con-jose-mourinho-que-definio-que-no-vuelva-al-real-madrid/",
+  "imagenOriginal": "https://radiomitre.cienradios.com/resizer/v2/EPQRBPCABJGJLJFXMGE66QQQDM.jpg?smart=true&auth=6fe3fbbeb708bb72f29631ba9d50d0852a3a9562f678faa501757f34e54a7928&width=1200&height=630",
+  "razon": "Es la única imagen que muestra al protagonista de forma clara, sin elementos distractores ni marcas de medios, cumpliendo con los criterios de calidad y pertinencia.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Nico Paz vistiendo la camiseta del Como.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Nico Paz con la camiseta de la selección argentina"
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "c8cc8e8ec80e178f"
+ },
+ "bgdx7u": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Distribuidores de insumos piden participar en el debate de la Ley de Semillas",
+  "razon": "Todas las imágenes son de stock o genéricas, no ilustran el hecho específico del debate sobre la Ley de Semillas.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1ytq949": {
+  "archivo": "fotos-notas/1ytq949.jpg",
+  "medio": "Campeones",
+  "credito": "Foto: Campeones",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Rally Argentino disputa su octava fecha en Villa Dolores y Mina Clavero",
+  "enlace": "https://campeones.com.ar/en-villa-dolores-federico-villagra-acelero-en-el-shakedown/",
+  "imagenOriginal": "https://campeones.com.ar/wp-content/uploads/2026/11/261106-RallyArg-Villagra.jpg",
+  "razon": "La foto B muestra una acción clara de rally en el terreno, sin marcas de agua añadidas y sin personas reconocibles, cumpliendo con los criterios de calidad y limpieza.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de rally levantando polvo en una curva de un camino rural."
+  },
+  "huella": "27176d4727732703"
+ },
+ "110urhs": {
+  "archivo": "fotos-notas/110urhs.jpg",
+  "medio": "Córdoba Competición",
+  "credito": "Foto: Córdoba Competición",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "José María López disputa la última fecha del WEC en Monza",
+  "enlace": "https://cordobacompeticion.com/internacionales/wec/pechito-cierra-la-temporada-en-monza-en-la-despedida-del-lexus/",
+  "imagenOriginal": "https://i0.wp.com/cordobacompeticion.com/wp-content/uploads/2026/11/854593061_18413682358082854_4925775663216185709_n-scaled.jpg?resize=660%2C330&ssl=1",
+  "razon": "La foto A muestra el auto en pista con buena nitidez y encuadre, sin marcas de agua ni elementos distractores, cumpliendo con los requisitos editoriales.",
+  "cuando": "2026-11-06T19:02:29.887Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de carreras Lexus en pista durante una competencia."
+  },
+  "huella": "191b333b6971731b"
  }
 }
