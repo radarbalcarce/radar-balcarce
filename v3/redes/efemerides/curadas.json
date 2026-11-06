@@ -1,0 +1,647 @@
+{
+  "_leeme": "Fechas patrias, feriados y fechas de Balcarce con datos verificados contra la fuente de cada uno (29 y 30/09/2026). Es lo que el panel muestra en \"Fechas\". \"segundaFuente: false\" = falta confirmar con otra fuente antes de publicar. \"confirmarCon\" = lo tiene que confirmar el Museo Histórico o el Municipio. El texto de una pieza se escribe con palabras propias (Wikipedia es CC BY-SA; las leyes y los documentos de 1816 y 1844 son de dominio público). En estas fechas la pieza habla SOLO de la fecha. Ver docs/13-EFEMERIDES.md.",
+  "fuentes": {
+    "ley27399": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/280000-284999/281835/norma.htm",
+    "decreto1584": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/170000-174999/174389/norma.htm",
+    "constitucion": "https://es.wikisource.org/wiki/Constituci%C3%B3n_de_la_Naci%C3%B3n_Argentina_(1994)",
+    "acta1816": "https://es.wikisource.org/wiki/Acta_de_Independencia_de_las_Provincias-Unidas_en_Sud-Am%C3%A9rica",
+    "testamentoSanMartin": "https://es.wikisource.org/wiki/Testamento_de_Jos%C3%A9_de_San_Mart%C3%ADn"
+  },
+  "fechas": [
+    {
+      "fecha": "01-01",
+      "nombre": "Año Nuevo",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "En el calendario juliano el año empezaba el 1 de enero.",
+          "fuente": "https://es.wikipedia.org/wiki/Calendario_juliano",
+          "segundaFuente": false
+        },
+        {
+          "texto": "La reforma gregoriana de 1582 saltó del jueves 4 de octubre al viernes 15 de octubre.",
+          "fuente": "https://es.wikipedia.org/wiki/Calendario_gregoriano",
+          "segundaFuente": false
+        }
+      ],
+      "citas": [],
+      "enfoque": "Por qué el año empieza el 1 de enero: el calendario romano y el juliano, y la reforma gregoriana de 1582."
+    },
+    {
+      "fecha": "semana-santa",
+      "nombre": "Jueves y Viernes Santo (fecha móvil)",
+      "tipo": "feriado inamovible (Viernes Santo)",
+      "datos": [
+        {
+          "texto": "El Viernes Santo es feriado inamovible; el Jueves Santo es día no laborable (ley 27.399).",
+          "fuente": "ley27399"
+        },
+        {
+          "texto": "La Pascua cae el primer domingo después de la primera luna llena posterior al equinoccio de marzo, regla fijada en el Concilio de Nicea (año 325).",
+          "fuente": "https://es.wikipedia.org/wiki/Domingo_de_Resurrecci%C3%B3n",
+          "segundaFuente": false
+        }
+      ],
+      "citas": [],
+      "enfoque": "Tono sobrio: cómo se decide la fecha de Pascua (regla del Concilio de Nicea, año 325). Jueves Santo es día no laborable, no feriado."
+    },
+    {
+      "fecha": "03-24",
+      "nombre": "Día Nacional de la Memoria por la Verdad y la Justicia",
+      "tipo": "feriado inamovible",
+      "revisaUnaPersona": true,
+      "datos": [
+        {
+          "texto": "Recuerda el golpe de Estado del 24 de marzo de 1976.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_Nacional_de_la_Memoria_por_la_Verdad_y_la_Justicia"
+        },
+        {
+          "texto": "Una ley de 2002 creó la conmemoración y otra de 2006 la hizo feriado.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_Nacional_de_la_Memoria_por_la_Verdad_y_la_Justicia"
+        },
+        {
+          "texto": "El 20 de septiembre de 1984 la Conadep entregó al presidente Alfonsín el informe «Nunca más».",
+          "fuente": "https://es.wikipedia.org/wiki/Juicio_a_las_Juntas"
+        },
+        {
+          "texto": "La sentencia del Juicio a las Juntas, el 9 de diciembre de 1985, condenó a cinco de los militares acusados y absolvió a cuatro.",
+          "fuente": "https://es.wikipedia.org/wiki/Juicio_a_las_Juntas"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Señores jueces: nunca más.",
+          "autor": "Julio César Strassera, fiscal",
+          "contexto": "cierre del alegato en el Juicio a las Juntas (11 al 18 de septiembre de 1985)",
+          "fuente": "https://es.wikiquote.org/wiki/Julio_Strassera",
+          "verificada": true
+        }
+      ],
+      "enfoque": "Institucional: las leyes de 2002 y 2006, el informe Nunca más y el Juicio a las Juntas. Lo revisa una persona."
+    },
+    {
+      "fecha": "04-02",
+      "nombre": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+      "tipo": "feriado inamovible",
+      "revisaUnaPersona": true,
+      "datos": [
+        {
+          "texto": "El 2 de abril de 1982 las Fuerzas Armadas desembarcaron en las islas, que el Reino Unido ocupaba desde 1833.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_del_Veterano_y_de_los_Ca%C3%ADdos_en_la_Guerra_de_Malvinas"
+        },
+        {
+          "texto": "El conflicto duró 74 días y terminó con la rendición argentina el 14 de junio de 1982.",
+          "fuente": "https://es.wikipedia.org/wiki/Guerra_de_las_Malvinas"
+        },
+        {
+          "texto": "Murieron 649 militares argentinos, 255 británicos y tres civiles isleños.",
+          "fuente": "https://es.wikipedia.org/wiki/Guerra_de_las_Malvinas"
+        },
+        {
+          "texto": "La fecha la fijó la ley 25.370 (2000) y es feriado inamovible desde 2006.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_del_Veterano_y_de_los_Ca%C3%ADdos_en_la_Guerra_de_Malvinas"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "La Nación Argentina ratifica su legítima e imprescriptible soberanía sobre las Islas Malvinas, Georgias del Sur y Sandwich del Sur y los espacios marítimos e insulares correspondientes, por ser parte integrante del territorio nacional.",
+          "autor": "Constitución Nacional, disposición transitoria primera (1994)",
+          "fuente": "constitucion",
+          "verificada": true
+        }
+      ],
+      "nota": "Nunca la letra de la Marcha de las Malvinas: es una canción con derechos.",
+      "enfoque": "Respeto y hechos: 74 días de conflicto, la ley 25.370 y la soberanía en la Constitución. Nunca la letra de la Marcha de las Malvinas. Lo revisa una persona."
+    },
+    {
+      "fecha": "05-01",
+      "nombre": "Día del Trabajador (y de la Constitución de 1853)",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "Recuerda la huelga que empezó el 1 de mayo de 1886 en Estados Unidos por la jornada de ocho horas, y la revuelta de Haymarket, en Chicago, el 4 de mayo.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_Internacional_de_los_Trabajadores"
+        },
+        {
+          "texto": "La fecha la adoptó el congreso obrero socialista de la Segunda Internacional, en París, en 1889.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_Internacional_de_los_Trabajadores"
+        },
+        {
+          "texto": "El reclamo se resumía en «ocho horas de trabajo, ocho horas de ocio y ocho horas de descanso».",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_Internacional_de_los_Trabajadores"
+        },
+        {
+          "texto": "El 1 de mayo de 1853 se aprobó en Santa Fe la Constitución Nacional, con representantes de trece provincias.",
+          "fuente": "https://es.wikipedia.org/wiki/Constituci%C3%B3n_de_la_Naci%C3%B3n_Argentina"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "El trabajo en sus diversas formas gozará de la protección de las leyes.",
+          "autor": "Constitución Nacional, artículo 14 bis",
+          "fuente": "constitucion",
+          "verificada": true
+        }
+      ],
+      "enfoque": "El origen en Chicago (1886), el congreso de París (1889) y la Constitución de 1853; con foco en los oficios de acá."
+    },
+    {
+      "fecha": "05-25",
+      "nombre": "Día de la Revolución de Mayo",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "La Semana de Mayo fue del 18 al 25 de mayo de 1810; el 25 juró la Primera Junta.",
+          "fuente": "https://es.wikipedia.org/wiki/Revoluci%C3%B3n_de_Mayo"
+        },
+        {
+          "texto": "Al cabildo abierto del 22 de mayo fueron invitados 450 vecinos y participaron 251.",
+          "fuente": "https://es.wikipedia.org/wiki/Revoluci%C3%B3n_de_Mayo"
+        },
+        {
+          "texto": "Según el recuento de Levene, 155 votos pidieron que el virrey Cisneros dejara el cargo y 69 que siguiera.",
+          "fuente": "https://es.wikipedia.org/wiki/Revoluci%C3%B3n_de_Mayo"
+        },
+        {
+          "texto": "La Primera Junta gobernó al principio en nombre del rey Fernando VII.",
+          "fuente": "https://es.wikipedia.org/wiki/Revoluci%C3%B3n_de_Mayo"
+        },
+        {
+          "texto": "De acá: el general Antonio González Balcarce, que da nombre al partido, ganó en Suipacha, el 7 de noviembre de 1810, la primera victoria de las armas de la Revolución de Mayo.",
+          "fuente": "https://es.wikipedia.org/wiki/Partido_de_Balcarce"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "¡Juro a la patria y a mis compañeros, que si a las tres de la tarde del día inmediato el virrey no hubiese renunciado, a fe de caballero, yo le derribaré con mis armas!",
+          "autor": "Manuel Belgrano, mayo de 1810",
+          "fuente": "https://es.wikiquote.org/wiki/Manuel_Belgrano",
+          "verificada": true
+        },
+        {
+          "texto": "Ya que el pueblo no me quiere y el ejército me abandona, hagan ustedes lo que quieran.",
+          "autor": "Virrey Baltasar Hidalgo de Cisneros, 20 de mayo de 1810",
+          "fuente": "https://es.wikiquote.org/wiki/Revoluci%C3%B3n_de_Mayo",
+          "verificada": false
+        }
+      ],
+      "nota": "«El pueblo quiere saber de qué se trata» NO está en Wikiquote: no usarla sin otra fuente.",
+      "enfoque": "La Semana de Mayo y el cabildo abierto. El gancho de acá: Antonio González Balcarce ganó en Suipacha."
+    },
+    {
+      "fecha": "06-17",
+      "nombre": "Paso a la Inmortalidad del General Martín Miguel de Güemes",
+      "tipo": "feriado trasladable",
+      "datos": [
+        {
+          "texto": "Nació en Salta el 8 de febrero de 1785 y murió el 17 de junio de 1821.",
+          "fuente": "https://es.wikipedia.org/wiki/Mart%C3%ADn_Miguel_de_G%C3%BCemes"
+        },
+        {
+          "texto": "Con las milicias gauchas frenó seis invasiones realistas entre 1814 y 1821: la «Guerra gaucha».",
+          "fuente": "https://es.wikipedia.org/wiki/Mart%C3%ADn_Miguel_de_G%C3%BCemes"
+        },
+        {
+          "texto": "Es uno de los tres próceres con feriado nacional propio, con Belgrano y San Martín.",
+          "fuente": "https://es.wikipedia.org/wiki/Mart%C3%ADn_Miguel_de_G%C3%BCemes"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "No quiero favores con perjuicio para mi país: éste ha de ser libre a pesar del mundo entero.",
+          "autor": "Martín Miguel de Güemes, carta a Olañeta (21 de julio de 1816)",
+          "fuente": "https://es.wikiquote.org/wiki/Mart%C3%ADn_Miguel_de_G%C3%BCemes",
+          "verificada": false
+        }
+      ],
+      "enfoque": "La guerra gaucha de Güemes y las seis invasiones que frenó."
+    },
+    {
+      "fecha": "06-20",
+      "nombre": "Paso a la Inmortalidad del General Manuel Belgrano (Día de la Bandera)",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "Belgrano nació en Buenos Aires el 3 de junio de 1770 y murió el 20 de junio de 1820.",
+          "fuente": "https://es.wikipedia.org/wiki/Manuel_Belgrano"
+        },
+        {
+          "texto": "Izó la bandera por primera vez el 27 de febrero de 1812, en Rosario, a orillas del Paraná.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Bandera_(Argentina)"
+        },
+        {
+          "texto": "El Día de la Bandera lo fijó la ley 12.361, de 1938.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Bandera_(Argentina)"
+        },
+        {
+          "texto": "El Monumento Nacional a la Bandera se inauguró el 20 de junio de 1957.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Bandera_(Argentina)"
+        },
+        {
+          "texto": "El Congreso de Tucumán la adoptó en julio de 1816; el Sol de Mayo se sumó en 1818.",
+          "fuente": "https://es.wikipedia.org/wiki/Bandera_de_la_Argentina"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Mucho me falta para ser un verdadero padre de la patria, me contentaría con ser un buen hijo de ella.",
+          "autor": "Manuel Belgrano",
+          "fuente": "https://es.wikiquote.org/wiki/Manuel_Belgrano",
+          "verificada": true
+        },
+        {
+          "texto": "[...] la agricultura, como que es la madre fecunda que proporciona todas las materias primeras que dan movimiento a las artes y al comercio.",
+          "autor": "Manuel Belgrano, memoria al Consulado (1796)",
+          "fuente": "https://es.wikiquote.org/wiki/Manuel_Belgrano",
+          "verificada": true
+        }
+      ],
+      "nota": "La fecha exacta de la adopción en 1816 (25 o 26 de julio) no coincide dentro de la misma Wikipedia: decir sólo 'julio de 1816'.",
+      "enfoque": "La bandera de 1812 en Rosario, el Monumento y la agricultura y la educación que pensaba Belgrano."
+    },
+    {
+      "fecha": "07-09",
+      "nombre": "Día de la Independencia",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "El 9 de julio de 1816 el Congreso reunido en San Miguel de Tucumán declaró la independencia.",
+          "fuente": "https://es.wikipedia.org/wiki/Declaraci%C3%B3n_de_independencia_de_la_Argentina"
+        },
+        {
+          "texto": "El Congreso sesionaba desde el 24 de marzo de 1816, con 33 diputados; lo presidía Francisco Narciso de Laprida.",
+          "fuente": "https://es.wikipedia.org/wiki/Declaraci%C3%B3n_de_independencia_de_la_Argentina"
+        },
+        {
+          "texto": "El 19 de julio se agregó la independencia de «toda otra dominación extranjera».",
+          "fuente": "https://es.wikipedia.org/wiki/Declaraci%C3%B3n_de_independencia_de_la_Argentina"
+        },
+        {
+          "texto": "La Casa de Tucumán fue demolida casi entera en 1903: sólo se salvó el Salón de la Jura. Es Monumento Histórico Nacional desde 1941.",
+          "fuente": "https://es.wikipedia.org/wiki/Casa_de_Tucum%C3%A1n"
+        },
+        {
+          "texto": "El libro original de actas se perdió.",
+          "fuente": "https://es.wikipedia.org/wiki/Declaraci%C3%B3n_de_independencia_de_la_Argentina"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "[...] investirse del alto carácter de una nación libre e independiente del rey Fernando VII, sus sucesores y metrópoli.",
+          "autor": "Acta de la Independencia, 9 de julio de 1816",
+          "fuente": "acta1816",
+          "verificada": true
+        }
+      ],
+      "enfoque": "La Casa de Tucumán, los 33 diputados con Laprida y el agregado del 19 de julio."
+    },
+    {
+      "fecha": "08-17",
+      "nombre": "Paso a la Inmortalidad del General José de San Martín",
+      "tipo": "feriado trasladable",
+      "datos": [
+        {
+          "texto": "Nació en Yapeyú (Corrientes) el 25 de febrero de 1778 y murió en Boulogne-sur-Mer (Francia) el 17 de agosto de 1850.",
+          "fuente": "https://es.wikipedia.org/wiki/Jos%C3%A9_de_San_Mart%C3%ADn"
+        },
+        {
+          "texto": "El cruce de los Andes empezó el 12 de enero de 1817: las columnas principales llevaban 3.500 soldados, 1.000 caballos y 10.000 mulas, de las que llegaron 4.000.",
+          "fuente": "https://es.wikipedia.org/wiki/Jos%C3%A9_de_San_Mart%C3%ADn"
+        },
+        {
+          "texto": "De acá: su hija Mercedes se casó en 1832 con Mariano Balcarce, hijo del general Antonio González Balcarce, que da nombre al partido. Las dos nietas de San Martín se apellidaron Balcarce.",
+          "fuente": "https://es.wikipedia.org/wiki/Mariano_Severo_Balcarce"
+        },
+        {
+          "texto": "En su testamento (1844) pidió que su corazón descansara en Buenos Aires.",
+          "fuente": "testamentoSanMartin"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Seamos libres y lo demás no importa nada.",
+          "autor": "José de San Martín",
+          "fuente": "https://es.wikiquote.org/wiki/Jos%C3%A9_de_San_Mart%C3%ADn",
+          "verificada": true
+        },
+        {
+          "texto": "La biblioteca destinada a la educación universal, es más poderosa que nuestros ejércitos.",
+          "autor": "José de San Martín",
+          "fuente": "https://es.wikiquote.org/wiki/Jos%C3%A9_de_San_Mart%C3%ADn",
+          "verificada": true
+        }
+      ],
+      "enfoque": "El cruce de los Andes y el vínculo con Balcarce: su hija Mercedes se casó con Mariano Balcarce."
+    },
+    {
+      "fecha": "09-11",
+      "nombre": "Día del Maestro",
+      "tipo": "fecha patria (no feriado)",
+      "datos": [
+        {
+          "texto": "Recuerda la muerte de Domingo Faustino Sarmiento, en Asunción, el 11 de septiembre de 1888. Había nacido en San Juan el 15 de febrero de 1811.",
+          "fuente": "https://es.wikipedia.org/wiki/Domingo_Faustino_Sarmiento"
+        },
+        {
+          "texto": "La fecha la eligió en 1943 una conferencia de ministros de Educación de América reunida en Panamá; hoy sólo sigue en la Argentina.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_del_maestro"
+        },
+        {
+          "texto": "Durante su presidencia (1868-1874) las provincias fundaron unas 800 escuelas y los alumnos pasaron de 30.000 a 110.000.",
+          "fuente": "https://es.wikipedia.org/wiki/Domingo_Faustino_Sarmiento"
+        },
+        {
+          "texto": "Organizó el primer censo nacional, en 1869: 1.836.490 habitantes, el 71 % sin saber leer.",
+          "fuente": "https://es.wikipedia.org/wiki/Domingo_Faustino_Sarmiento"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Fundar escuelas es sembrar en las almas.",
+          "autor": "Manuel Belgrano",
+          "fuente": "https://es.wikiquote.org/wiki/Manuel_Belgrano",
+          "verificada": true
+        }
+      ],
+      "nota": "La página de Sarmiento en Wikiquote está llena de frases ofensivas; no tomar citas de ahí sin leerlas.",
+      "enfoque": "Sarmiento y las escuelas: qué se hizo durante su presidencia."
+    },
+    {
+      "fecha": "10-12",
+      "nombre": "Día del Respeto a la Diversidad Cultural",
+      "tipo": "feriado trasladable",
+      "datos": [
+        {
+          "texto": "Recuerda la llegada a América de la expedición de Cristóbal Colón, el 12 de octubre de 1492, a la isla de Guanahaní, en las actuales Bahamas.",
+          "fuente": "https://es.wikipedia.org/wiki/Descubrimiento_de_Am%C3%A9rica"
+        },
+        {
+          "texto": "Hipólito Yrigoyen lo declaró fiesta nacional por un decreto del 4 de octubre de 1917. El decreto no usaba la palabra «raza», pero se lo conoció como Día de la Raza.",
+          "fuente": "https://www.educ.ar/recursos/92892/como-se-establecio-la-conmemoracion-del-12-de-octubre"
+        },
+        {
+          "texto": "El decreto 1584/2010 le cambió el nombre para darle un significado acorde a la diversidad étnica y cultural que reconoce la Constitución; la ley 27.399 (2017) mantiene ese nombre.",
+          "fuente": "decreto1584"
+        },
+        {
+          "texto": "La Constitución reconoce «la preexistencia étnica y cultural de los pueblos indígenas argentinos» (artículo 75, inciso 17).",
+          "fuente": "constitucion"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Reconocer la preexistencia étnica y cultural de los pueblos indígenas argentinos.",
+          "autor": "Constitución Nacional, artículo 75, inciso 17",
+          "fuente": "constitucion",
+          "verificada": true
+        }
+      ],
+      "enfoque": "La historia del nombre de la fecha y sus hechos, en tono institucional."
+    },
+    {
+      "fecha": "11-07",
+      "nombre": "Batalla de Suipacha (fecha de acá)",
+      "tipo": "fecha local (no feriado)",
+      "datos": [
+        {
+          "texto": "El 7 de noviembre de 1810, en Suipacha (hoy Bolivia), el general Antonio González Balcarce ganó la primera victoria de las armas de la Revolución de Mayo.",
+          "fuente": "https://es.wikipedia.org/wiki/Partido_de_Balcarce"
+        },
+        {
+          "texto": "Por ese triunfo la Primera Junta lo nombró brigadier.",
+          "fuente": "https://es.wikipedia.org/wiki/Antonio_Gonz%C3%A1lez_Balcarce"
+        },
+        {
+          "texto": "El partido de Balcarce, creado el 31 de agosto de 1865, lleva su nombre.",
+          "fuente": "https://es.wikipedia.org/wiki/Partido_de_Balcarce"
+        },
+        {
+          "texto": "Nació en Buenos Aires el 24 de junio de 1774 (el mismo día del año que Fangio) y sus restos descansan en la basílica de Santo Domingo, junto a los de Belgrano.",
+          "fuente": "https://es.wikipedia.org/wiki/Antonio_Gonz%C3%A1lez_Balcarce"
+        }
+      ],
+      "citas": [],
+      "enfoque": "La primera victoria de las armas de la Revolución, de acá: el brigadier Antonio González Balcarce."
+    },
+    {
+      "fecha": "11-10",
+      "nombre": "Día de la Tradición",
+      "tipo": "fecha (no feriado)",
+      "datos": [
+        {
+          "texto": "Recuerda el nacimiento de José Hernández (1834-1886), autor del Martín Fierro.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Tradici%C3%B3n"
+        },
+        {
+          "texto": "La provincia de Buenos Aires lo creó con la ley 4756, de 1939; la ley nacional 21.154, de 1975, lo extendió a todo el país.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Tradici%C3%B3n"
+        },
+        {
+          "texto": "San Antonio de Areco es la sede provincial permanente de la tradición.",
+          "fuente": "https://es.wikipedia.org/wiki/D%C3%ADa_de_la_Tradici%C3%B3n"
+        },
+        {
+          "texto": "El gaucho Martín Fierro es de 1872 y La vuelta de Martín Fierro, de 1879; fue traducido a más de 70 idiomas.",
+          "fuente": "https://es.wikipedia.org/wiki/El_Gaucho_Mart%C3%ADn_Fierro"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "El tiempo sólo es tardanza de lo que está por venir.",
+          "autor": "José Hernández, Martín Fierro",
+          "fuente": "https://es.wikiquote.org/wiki/Jos%C3%A9_Hern%C3%A1ndez",
+          "verificada": true
+        }
+      ],
+      "enfoque": "José Hernández y el Martín Fierro."
+    },
+    {
+      "fecha": "11-20",
+      "nombre": "Día de la Soberanía Nacional",
+      "tipo": "feriado trasladable",
+      "datos": [
+        {
+          "texto": "Recuerda la batalla de la Vuelta de Obligado, el 20 de noviembre de 1845, en el río Paraná, en el actual partido de San Pedro.",
+          "fuente": "https://es.wikipedia.org/wiki/Batalla_de_la_Vuelta_de_Obligado"
+        },
+        {
+          "texto": "El general Lucio Norberto Mansilla hizo tender tres gruesas cadenas de costa a costa, sobre 24 lanchones, donde el río tiene 700 metros de ancho.",
+          "fuente": "https://es.wikipedia.org/wiki/Batalla_de_la_Vuelta_de_Obligado"
+        },
+        {
+          "texto": "Enfrente estaba la escuadra anglo-francesa.",
+          "fuente": "https://es.wikipedia.org/wiki/Batalla_de_la_Vuelta_de_Obligado"
+        },
+        {
+          "texto": "La ley 20.770, de 1974, creó el Día de la Soberanía; es feriado nacional desde el decreto 1584/2010.",
+          "fuente": "decreto1584"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "El Sable que me a acompañado en toda la Guerra de la Independencia de la América del Sud, le será entregado al General de la República Argentina don Juan Manuel de Rosas, como una prueba de satisfacción, qe. como Argentino he tenido al ver la firmeza con qe. ha sostenido el honor de la República contra las injustas pretensiones de los Extranjeros qe. tratan de Umillarla.",
+          "autor": "José de San Martín, testamento (París, 23 de enero de 1844), ortografía original",
+          "fuente": "testamentoSanMartin",
+          "verificada": true
+        }
+      ],
+      "nota": "OJO: el testamento es del 23 de enero de 1844, casi dos años ANTES de Obligado; decir 'ya le había legado', nunca que el sable fue 'por' Obligado. La fecha del Tratado Arana-Southern que da la Wikipedia (1847) no es confiable: no usarla.",
+      "enfoque": "La Vuelta de Obligado (1845), las cadenas sobre 24 lanchones y la ley de 1974. Ojo: el testamento de San Martín es de 1844."
+    },
+    {
+      "fecha": "12-08",
+      "nombre": "Día de la Inmaculada Concepción de María",
+      "tipo": "feriado inamovible (religioso)",
+      "datos": [
+        {
+          "texto": "El papa Pío IX proclamó el dogma el 8 de diciembre de 1854, en la bula Ineffabilis Deus.",
+          "fuente": "https://es.wikipedia.org/wiki/Ineffabilis_Deus"
+        },
+        {
+          "texto": "Es una de las dos únicas declaraciones «ex cathedra» de la Iglesia católica.",
+          "fuente": "https://es.wikipedia.org/wiki/Ineffabilis_Deus"
+        }
+      ],
+      "citas": [],
+      "nota": "Tono sobrio. 'Se arma el arbolito el 8 de diciembre' es costumbre, pero no la encontré verificada: no afirmarla.",
+      "enfoque": "Sobrio y corto: el dogma de 1854 y la bula Ineffabilis Deus."
+    },
+    {
+      "fecha": "12-25",
+      "nombre": "Navidad",
+      "tipo": "feriado inamovible (religioso)",
+      "datos": [
+        {
+          "texto": "Según la tradición, el pesebre lo inventó san Francisco de Asís.",
+          "fuente": "https://es.wikipedia.org/wiki/Navidad"
+        },
+        {
+          "texto": "En la Argentina, como en buena parte de América Latina, la figura del Niño se pone en el pesebre recién en Navidad.",
+          "fuente": "https://es.wikipedia.org/wiki/Navidad"
+        }
+      ],
+      "citas": [],
+      "enfoque": "Sobrio y corto: el pesebre, según la tradición atribuida a san Francisco de Asís."
+    },
+    {
+      "fecha": "carnaval",
+      "nombre": "Carnaval (lunes y martes, fecha móvil)",
+      "tipo": "feriado inamovible",
+      "datos": [
+        {
+          "texto": "Los feriados de carnaval se crearon en 1956, se eliminaron en 1976 y volvieron con el decreto 1584/2010.",
+          "fuente": "decreto1584"
+        },
+        {
+          "texto": "La ciudad de Corrientes es la Capital Nacional del Carnaval.",
+          "fuente": "https://es.wikipedia.org/wiki/Carnaval_en_Argentina"
+        }
+      ],
+      "citas": [],
+      "enfoque": "Historia sencilla del feriado (creado en 1956, eliminado en 1976, restituido en 2010) y Corrientes, capital nacional del Carnaval."
+    },
+    {
+      "fecha": "06-22",
+      "local": true,
+      "tipo": "fecha de acá (no feriado)",
+      "nombre": "Fundación del pueblo de Balcarce (1876)",
+      "datos": [
+        {
+          "texto": "El 22 de junio de 1876 se fundó el pueblo de San José de Balcarce, por iniciativa de vecinos liderados por José de la Cuadra y el juez de paz José Andrés Chaves. Fue declarado ciudad el 15 de septiembre de 1949.",
+          "fuente": "https://es.wikipedia.org/wiki/Balcarce_(ciudad)"
+        }
+      ],
+      "citas": [],
+      "confirmarCon": "Museo Histórico Municipal / Archivo Municipal",
+      "enfoque": "La fundación del pueblo y su declaración como ciudad en 1949. Confirmar con el Museo Histórico."
+    },
+    {
+      "fecha": "06-24",
+      "local": true,
+      "tipo": "fecha de acá (no feriado)",
+      "nombre": "Nacimiento de Fangio (1911) y de Antonio González Balcarce (1774)",
+      "datos": [
+        {
+          "texto": "Nacieron el general Antonio González Balcarce (1774), que da nombre al partido, y Juan Manuel Fangio (1911), en calle 13 número 321.",
+          "fuente": "https://es.wikipedia.org/wiki/Juan_Manuel_Fangio"
+        }
+      ],
+      "citas": [
+        {
+          "texto": "Hay que intentar ser el mejor, pero nunca creerse el mejor.",
+          "autor": "Juan Manuel Fangio",
+          "fuente": "https://es.wikiquote.org/wiki/Juan_Manuel_Fangio",
+          "verificada": true
+        }
+      ],
+      "confirmarCon": null,
+      "enfoque": "Dos nacimientos de acá el mismo día del año, y una frase de Fangio con referencia."
+    },
+    {
+      "fecha": "07-17",
+      "local": true,
+      "tipo": "fecha de acá (no feriado)",
+      "nombre": "Muerte de Fangio (1995)",
+      "datos": [
+        {
+          "texto": "Murió Juan Manuel Fangio (1995). Fue cinco veces campeón mundial de Fórmula 1 (1951, 1954, 1955, 1956 y 1957), el único con cuatro escuderías distintas.",
+          "fuente": "https://es.wikipedia.org/wiki/Juan_Manuel_Fangio"
+        }
+      ],
+      "citas": [],
+      "confirmarCon": null,
+      "enfoque": "Los cinco títulos de Fangio, sin dramatismo."
+    },
+    {
+      "fecha": "08-31",
+      "local": true,
+      "tipo": "fecha de acá (no feriado)",
+      "nombre": "Creación del partido de Balcarce (1865)",
+      "datos": [
+        {
+          "texto": "El partido de Balcarce se creó el 31 de agosto de 1865 con tierras de Lobería. Tiene 4.120 km² y 48.982 habitantes (censo 2022).",
+          "fuente": "https://es.wikipedia.org/wiki/Partido_de_Balcarce"
+        }
+      ],
+      "citas": [],
+      "confirmarCon": "Museo Histórico Municipal / Archivo Municipal",
+      "enfoque": "Cómo se creó el partido, con datos del censo 2022. Confirmar con el Museo Histórico."
+    }
+  ],
+  "extraordinarios": [
+    {
+      "fecha": "2026-11-09",
+      "nombre": "Feriado por la visita del papa León XIV",
+      "tipo": "decreto",
+      "alcance": "nacional",
+      "enfoque": "Qué se decretó y por qué, sin opinar sobre la visita.",
+      "datos": [
+        {
+          "texto": "El Decreto 1103/2026, publicado el 28 de septiembre, declaró feriado nacional el lunes 9 de noviembre por la visita del papa León XIV.",
+          "fuente": "https://chequeado.com/el-explicador/visita-del-papa-leon-xiv-cuales-son-los-feriados-del-9-10-y-11-de-noviembre-y-donde-rigen/"
+        },
+        {
+          "texto": "El papa está en la Argentina entre el 8 y el 11 de noviembre.",
+          "fuente": "https://chequeado.com/el-explicador/visita-del-papa-leon-xiv-cuales-son-los-feriados-del-9-10-y-11-de-noviembre-y-donde-rigen/"
+        }
+      ]
+    },
+    {
+      "fecha": "2026-11-11",
+      "nombre": "Feriado en la provincia de Buenos Aires por la visita del papa León XIV",
+      "tipo": "decreto",
+      "alcance": "provincia de Buenos Aires",
+      "enfoque": "Qué se decretó y por qué, sin opinar sobre la visita. Alcanza a Balcarce.",
+      "datos": [
+        {
+          "texto": "El Decreto 1103/2026 declaró feriado el miércoles 11 de noviembre sólo en la provincia de Buenos Aires.",
+          "fuente": "https://chequeado.com/el-explicador/visita-del-papa-leon-xiv-cuales-son-los-feriados-del-9-10-y-11-de-noviembre-y-donde-rigen/"
+        },
+        {
+          "texto": "Ese día el papa León XIV celebra una misa en la basílica de Luján, y se esperan entre tres y cuatro millones de personas.",
+          "fuente": "https://chequeado.com/el-explicador/visita-del-papa-leon-xiv-cuales-son-los-feriados-del-9-10-y-11-de-noviembre-y-donde-rigen/"
+        }
+      ]
+    }
+  ]
+}

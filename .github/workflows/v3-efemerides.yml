@@ -1,0 +1,85 @@
+name: "Radar 3.0: armar Un día como hoy y los feriados"
+
+# Arma el MES QUE VIENE de «Un día como hoy» (efemérides) y los feriados, sin el motor viejo ni la rutina de Claude (6/11/2026).
+# Programa: v3/redes/efemerides/generar.mjs (con sus pruebas). Baja Wikipedia (Portal Argentina y «un día como hoy»), Wikidata y la API de feriados; no usa IA ni claves.
+#
+# Solo, el día 20 de cada mes a las 10:00 de Balcarce (13:00 UTC), PERO SÓLO si la variable de GitHub EFEMERIDES_V3_ACTIVAS vale «si» (por defecto no existe: no corre solo;
+# la prende una persona cuando el sistema viejo deje de armarlas, para no pisarse). A mano se puede correr cuando se quiera.
+#
+# Escribe en el repositorio (donde lo lee el 3.0): web/data/efemerides-candidatas.json, feriados-piezas.json, efemerides-piezas.json (suma las piezas del mes; lo que armó una persona
+# o Claude no se pisa) y efemerides-elegidas.json (sólo si no existe). Los guarda con un commit propio, sólo de esos archivos.
+# `simular` (por defecto en «no» cuando corre solo): arma todo y lo cuenta en el resumen, pero no escribe ni commitea.
+# `desde` y `dias` (opcionales): otro tramo (por ejemplo 2026-12-01 y 31); vacío = el mes que sigue a hoy.
+# Si el mes queda con menos de un tercio de los días armados, la corrida falla (y el vigilante se entera por el correo de GitHub).
+
+on:
+  schedule:
+    - cron: '0 13 20 * *'
+  workflow_dispatch:
+    inputs:
+      simular:
+        description: 'Sólo armar y mostrar el resumen, sin escribir ni guardar'
+        type: boolean
+        default: false
+      desde:
+        description: 'Primer día (AAAA-MM-DD). Vacío = el 1 del mes que viene'
+        type: string
+        default: ''
+      dias:
+        description: 'Cuántos días (con «desde»; vacío = 31)'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v3-efemerides
+  cancel-in-progress: false
+
+jobs:
+  armar:
+    if: ${{ github.event_name != 'schedule' || vars.EFEMERIDES_V3_ACTIVAS == 'si' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      TZ: America/Argentina/Buenos_Aires
+      SIMULAR: ${{ inputs.simular }}
+      DESDE: ${{ inputs.desde }}
+      DIAS: ${{ inputs.dias }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Pruebas
+        run: node --test v3/redes/efemerides/efemerides.test.mjs
+
+      - name: Armar el mes
+        run: |
+          args=""
+          if [ "$SIMULAR" = "true" ]; then args="$args --simular"; fi
+          if [[ "$DESDE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then args="$args --desde=$DESDE"; fi
+          if [[ "$DIAS" =~ ^[0-9]{1,2}$ ]]; then args="$args --dias=$DIAS"; fi
+          node v3/redes/efemerides/generar.mjs $args | tee resumen.txt
+          { echo '### Un día como hoy y feriados'; echo '```'; tail -n 1 resumen.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar el resultado
+        if: env.SIMULAR != 'true'
+        run: |
+          git config user.name "Radar Balcarce"
+          # El mail interno que GitHub reconoce, el de los demás workflows automáticos. No cambiarlo (ver CLAUDE.md).
+          git config user.email "272334999+balcar-dev@users.noreply.github.com"
+          git add web/data/efemerides-candidatas.json web/data/feriados-piezas.json web/data/efemerides-piezas.json web/data/efemerides-elegidas.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios para guardar."
+            exit 0
+          fi
+          git commit -m "Radar 3.0 · Un día como hoy y feriados del mes que viene · $(date '+%d/%m %H:%M')"
+          for intento in 1 2 3; do
+            git pull --rebase -q && git push && break
+            sleep 5
+          done
+          git fetch -q origin main
+          [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { echo "No se pudo subir el resultado después de tres intentos"; exit 1; }

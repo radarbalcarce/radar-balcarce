@@ -14,7 +14,7 @@ test('hay workflows de 3.0 para mirar (si cambia el nombre, esta prueba no puede
 });
 
 test('todos declaran sus permisos arriba y sólo piden contents (leer; escribir sólo los que guardan un archivo en el repositorio)', () => {
-  const PUEDEN_ESCRIBIR = ['v3-nucleo.yml', 'v3-telegram.yml'];
+  const PUEDEN_ESCRIBIR = ['v3-nucleo.yml', 'v3-telegram.yml', 'v3-efemerides.yml'];
   for (const f of archivos) {
     const t = leer(f);
     const m = /^permissions:\n((?:  .+\n)+)/m.exec(t);
