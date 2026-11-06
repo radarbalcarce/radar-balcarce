@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T13:03:47.424Z",
- "portada": 135,
- "archivo": 498,
- "esperandoCuerpo": 10,
+ "generado": "2026-11-06T13:33:08.496Z",
+ "portada": 153,
+ "archivo": 500,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-06T13:03:48.029Z",
+  "generado": "2026-11-06T13:33:09.042Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 53,
     "notas": [
      {
       "id": "60lmll",
@@ -134,19 +134,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "37gn8b",
-      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "id": "oal4ia",
+      "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
       "seccion": "Deportes"
+     },
+     {
+      "id": "wjmv5r",
+      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
+      "seccion": "Fútbol"
      },
      {
       "id": "14llvsv",
       "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
       "seccion": "Educación"
-     },
-     {
-      "id": "1rw3gbp",
-      "titulo": "Renuncia el presidente de Paraguay Santiago Peña tras el colapso de Ueno Bank",
-      "seccion": "Argentina"
      }
     ]
    },
@@ -157,12 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 54,
     "notas": [
      {
-      "id": "1llnb6t",
-      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
+      "id": "1b5krcg",
+      "titulo": "Registran diversos niveles de precipitaciones en Balcarce y la región",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "37gn8b",
+      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "seccion": "Deportes"
      },
      {
       "id": "1xsiv6s",
@@ -170,13 +175,8 @@
       "seccion": "Educación"
      },
      {
-      "id": "1d0gbk6",
-      "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "1wphsfy",
-      "titulo": "Javier Milei y Pedro Sánchez se saludan en la Cumbre Iberoamericana",
+      "id": "1bpncpk",
+      "titulo": "Gustavo Torres dejaría el gabinete municipal para sumarse a Mar del Plata",
       "seccion": "Política"
      }
     ]
@@ -204,15 +204,33 @@
      "marcada": false
     },
     {
-     "id": "hjsxdl",
-     "titulo": "Milei encabeza la reunión anual de la Sociedad Rural en Palermo",
-     "seccion": "Política",
+     "id": "1b5krcg",
+     "titulo": "Registran diversos niveles de precipitaciones en Balcarce y la región",
+     "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "14z21ay",
-     "titulo": "ANSES modifica el calendario de pagos de noviembre por la visita papal",
-     "seccion": "Economía",
+     "id": "oal4ia",
+     "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "wjmv5r",
+     "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1h57j2r",
+     "titulo": "Provincia habilita un asistente virtual por WhatsApp para multas de tránsito",
+     "seccion": "Tecnología",
+     "marcada": false
+    },
+    {
+     "id": "hjsxdl",
+     "titulo": "Milei encabeza la reunión anual de la Sociedad Rural en Palermo",
+     "seccion": "Política",
      "marcada": false
     }
    ],
