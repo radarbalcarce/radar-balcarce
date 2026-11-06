@@ -76336,7 +76336,8 @@
    "corresponde": "si",
    "descripcion": "Diego Ramos en el momento de su eliminación."
   },
-  "huella": "941b4a0a8e2f6be7"
+  "huella": "941b4a0a8e2f6be7",
+  "ausenteDesde": "2026-11-06T09:03:48.007Z"
  },
  "kj8ssn": {
   "archivo": "fotos-notas/kj8ssn.jpg",
@@ -77182,7 +77183,8 @@
    "corresponde": "si",
    "descripcion": "Director técnico gesticulando en un estadio con plateas celestes de fondo"
   },
-  "huella": "6637ad33307376f1"
+  "huella": "6637ad33307376f1",
+  "ausenteDesde": "2026-11-06T09:03:48.007Z"
  },
  "caexvo": {
   "archivo": "fotos-notas/caexvo.jpg",
@@ -82470,7 +82472,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en una curva del circuito."
   },
-  "huella": "67d3d093d81c0e07"
+  "huella": "67d3d093d81c0e07",
+  "ausenteDesde": "2026-11-06T09:03:48.007Z"
  },
  "1phrkui": {
   "archivo": "fotos-notas/1phrkui.jpg",
@@ -82967,11 +82970,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Santiago Espíndola debuta en la Primera de River ante Aldosivi",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TN (Todo Noticias) no se usa todavía.",
-  "cuando": "2026-11-06T07:02:00.904Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 2
+  "razon": "La mejor foto era la de TyC Sports, pero no se puede usar (un menor) (El jugador es menor de edad), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "intentos": 2,
+  "fuentes": 8
  },
  "1rag4ch": {
   "archivo": "fotos-notas/1rag4ch.jpg",
@@ -84048,11 +84050,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Suspenden clases en 17 escuelas porteñas por la visita del papa León XIV",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Minuto Uno no se usa todavía.",
-  "cuando": "2026-11-06T07:02:00.904Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
+  "cuando": "2026-11-06T09:02:49.717Z",
   "intentos": 1,
   "fuentes": 26,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "1pnue5h": {
   "archivo": "fotos-notas/km8ila.jpg",
@@ -84510,14 +84513,40 @@
   "intentosPorCupo": 2
  },
  "15o6lep": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/15o6lep.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Estudiantes inicia la venta de entradas para la final de la Libertadores",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T01:33:42.071Z",
-  "intentos": 1,
-  "fuentes": 9,
-  "intentosPorCupo": 1
+  "enlace": "https://www.0221.com.ar/estudiantes/la-emocion-alexis-castro-al-hablar-la-final-la-copa-libertadores-estudiantes-n137001",
+  "imagenOriginal": "https://media.0221.com.ar/p/317b28619a134b89eb59b7bff2ac2c3d/adjuntos/357/imagenes/100/271/0100271516/1200x630/1846x1464:1866x1484/estudiantes-central-cordoba-castro-festejo-gol.jpeg",
+  "razon": "Es la única foto actual, sin marcas de agua, sin menores y con excelente calidad que ilustra la nota sobre el club Estudiantes.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Estudiantes festejando un gol",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Estudiantes de La Plata celebrando un gol en un partido de noche."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3f9c598d9a565496"
  },
  "i3mvfa": {
   "archivo": "fotos-notas/i3mvfa.jpg",
@@ -84631,11 +84660,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Gobierno reúne a autoridades y empresarios por la visita del Papa",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de QZ Noticias (Mar del Plata) no se usa todavía.",
-  "cuando": "2026-11-06T02:01:57.485Z",
-  "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "razon": "Ninguna de las fotos corresponde a la temática de la nota sobre la visita del Papa y la reunión con autoridades y empresarios.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "intentos": 2,
+  "fuentes": 3
  },
  "q71hyp": {
   "archivo": "fotos-notas/q71hyp.jpg",
@@ -85792,5 +85820,146 @@
   "cuando": "2026-11-06T08:02:55.332Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1ffttbw": {
+  "archivo": "fotos-notas/1ffttbw.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Ponzio analiza el triunfo de River ante Aldosivi y la suspensión de Montiel",
+  "enlace": "https://www.eldia.com/deportes/ponzio-teniamos-que-leventar-la-cabeza-deportes_1793944277",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793945142678.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto que corresponde a la nota, muestra a Leonardo Ponzio claramente y no tiene marcas de agua agregadas por el medio.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leonardo Ponzio con los brazos abiertos en la cancha",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Un hombre de traje oscuro, presumiblemente un entrenador, gesticula con las manos en la banda de un estadio de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "80ce8e8e23a220a2"
+ },
+ "3y33e0": {
+  "archivo": "fotos-notas/3y33e0.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Crisis y castigo regresa a la cartelera porteña con su segunda temporada",
+  "enlace": "https://tn.com.ar/show/novedades/2026/11/05/vuelve-a-la-cartelera-portena-crisis-y-castigo-la-obra-que-convierte-la-crisis-financiera-en-una-comedia-bizarra/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/crisis-y-castigo-regresa-con-cambios-en-el-elenco-foto-prensa-NPDFOYPH6BDUBFO3I5M5DVS42E.jpg?auth=819dd258a528e654e60bb5575e129f958445a6b0ec27f91eede0fcaaee0c9f42&width=1023",
+  "razon": "La foto A muestra a los actores de la obra mencionada con buena calidad y sin marcas de agua ni menores, mientras que la B corresponde a un músico de rock y no ilustra el tema.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Actores de la obra teatral Crisis y castigo"
+  },
+  "huella": "652d3d3d6d253d2c"
+ },
+ "1v97hv1": {
+  "archivo": "fotos-notas/1v97hv1.jpg",
+  "medio": "El Eco de Tandil",
+  "credito": "Foto: El Eco de Tandil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Muere en Tandil el periodista deportivo y relator Juan Ignacio Casero",
+  "enlace": "https://www.eleco.com.ar/la-ciudad/profundo-dolor-en-tandil-por-el-fallecimiento-de-un-reconocido-periodista-y-relator-deportivo",
+  "imagenOriginal": "https://cdnartic.ar/10w1G1QwT27oUVpYxowJkRhaxE8=/1200x630/smart/filters:format(jpeg):quality(70)/https://cdn.eleco.com.ar/media/2026/11/juan_casero.webp",
+  "razon": "La foto A muestra claramente al periodista deportivo Juan Ignacio Casero trabajando, cumple con todos los requisitos y no tiene marcas agregadas.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Juan Ignacio Casero con auriculares y anteojos de sol"
+  },
+  "huella": "6161616141c3cb21"
+ },
+ "xjlrgr": {
+  "archivo": "fotos-notas/xjlrgr.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tesla abre su primer espacio de exhibición en Unicenter",
+  "enlace": "https://tn.com.ar/economia/2026/11/04/tesla-desembarca-en-la-argentina-donde-va-a-estar-su-primera-concesionaria-y-cuando-se-van-a-poder-ver-los-autos/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/tesla-tendra-un-espacio-de-venta-en-argentina-desde-el-2027-reutersradovan-stoklasa-3SW5KICLKGOOKR2XMXDCUZYHJY.fDgmeZ?auth=7278adbf814d27f104cae5ed7a66ee32f553d3b9d16913b45aa49f41466703b2&width=1023",
+  "razon": "Es la única foto sin marcas de agua, montajes ni problemas de contenido que ilustra directamente el tema de la marca.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Detalle de la parte trasera de un auto Tesla con el emblema de la marca"
+  },
+  "huella": "030e799971c20c38"
+ },
+ "15u42t5": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Especialistas de Harvard comparan los aportes de la leche de avena y la vacuna",
+  "razon": "La mejor foto era la de TN (Todo Noticias), pero no se puede usar (parece una foto de stock), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "u0z8fy": {
+  "archivo": "fotos-notas/u0z8fy.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Luján organiza el operativo de seguridad por la visita del papa León XIV",
+  "enlace": "https://www.cronista.com/informacion-gral/como-seran-los-mas-2-kilometros-de-recorrido-del-papamovil-y-cuales-son-los-lugares-ideales-para-verlo-en-caba/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/EWGIDREXXNEQDKSFXY7VQVHWAM.jpg?auth=ae8e7a2ad6e658ca2aea20d714189b374f86c6e473bae11ca2d1b071003ee614&height=630&width=1200&quality=70&focal=907%2C417",
+  "razon": "Es la foto que mejor ilustra el hecho con nitidez y sin marcas ni menores.",
+  "cuando": "2026-11-06T09:02:49.717Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV saludando desde el papamóvil."
+  },
+  "huella": "2bd111191a15151d"
  }
 }
