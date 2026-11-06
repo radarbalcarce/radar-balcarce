@@ -75137,7 +75137,8 @@
    "corresponde": "si",
    "descripcion": "Vista de un andén de subte con un tren amarillo detenido."
   },
-  "huella": "d8b1e5cd4f160d2f"
+  "huella": "d8b1e5cd4f160d2f",
+  "ausenteDesde": "2026-11-06T01:05:05.736Z"
  },
  "ivy0k6": {
   "archivo": "fotos-notas/ivy0k6.webp",
@@ -75161,7 +75162,8 @@
    "corresponde": "si",
    "descripcion": "Nicolás Ramírez, árbitro de fútbol, en primer plano."
   },
-  "huella": "35b23391ad6a6121"
+  "huella": "35b23391ad6a6121",
+  "ausenteDesde": "2026-11-06T01:05:05.736Z"
  },
  "nlmxg9": {
   "intentado": true,
@@ -77521,7 +77523,8 @@
    "corresponde": "si",
    "descripcion": "Hombre de pie al aire libre junto a un árbol grande, representando a los recicladores."
   },
-  "huella": "1e96939b9b8b0aaa"
+  "huella": "1e96939b9b8b0aaa",
+  "ausenteDesde": "2026-11-06T01:05:05.736Z"
  },
  "11hy02l": {
   "archivo": "fotos-notas/11hy02l.webp",
@@ -78635,7 +78638,8 @@
    "corresponde": "si",
    "descripcion": "Collage con tres directores técnicos candidatos."
   },
-  "huella": "544c4c898a2baa9a"
+  "huella": "544c4c898a2baa9a",
+  "ausenteDesde": "2026-11-06T01:05:05.736Z"
  },
  "1agybp9": {
   "archivo": "fotos-notas/1agybp9.jpg",
@@ -84079,5 +84083,229 @@
   "intentos": 1,
   "fuentes": 5,
   "intentosPorCupo": 1
+ },
+ "642ajq": {
+  "archivo": "fotos-notas/642ajq.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Corte Suprema ordena aplicar la reforma laboral en juicios pendientes",
+  "enlace": "https://www.cronista.com/economia-politica/la-corte-ordeno-aplicar-la-reforma-laboral-para-actualizar-indemnizaciones-en-juicios-en-tramite/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/623KVLYTJ5DN5KWD6HUJQMQLNQ.png?auth=2e5d63a63f037784af429ad7f92a31e7600d32903c485e03acc19fc9f18fdd69&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto B es una imagen institucional clara, de buena calidad y sin marcas de agua ni elementos distractores, ideal para ilustrar la nota sobre la Corte Suprema.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato formal de tres jueces de la Corte Suprema de pie."
+  },
+  "huella": "16125a5acece9d95"
+ },
+ "yv3uhr": {
+  "archivo": "fotos-notas/yv3uhr.webp",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca define el título de la tabla anual el sábado ante Defensa y Justicia",
+  "enlace": "https://bolavip.com/ar/boca/paredes-respaldo-el-trabajo-de-arruabarrena-en-boca-nos-dio-ese-empujoncito",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/05203555/Paredes-Getty-1-1200x740.webp",
+  "razon": "La foto C es la única que no presenta marcas de agua, no es una captura de pantalla y muestra al protagonista de forma clara y profesional.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Leandro Paredes con la indumentaria de entrenamiento.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Boca Juniors con la camiseta de entrenamiento en el estadio."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "346971b1b3636a52"
+ },
+ "10fzc3w": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El Torneo Clausura 2026 define los clasificados a los playoffs y copas",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de 0221 no se usa todavía.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "3uslla": {
+  "archivo": "fotos-notas/3uslla.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El rechazo social a los data centers crece en Estados Unidos tras las elecciones",
+  "enlace": "https://www.ambito.com/tecnologia/la-victoria-democrata-eeuu-pone-jaque-el-desarrollo-data-centers-n6341964",
+  "imagenOriginal": "https://media.ambito.com/p/ec38acb80e4d6d1f8f54179b003a16e7/adjuntos/239/imagenes/043/680/0043680835/1200x675/smart/data-center-amazon-indiana.jpg",
+  "razon": "La foto A muestra una instalación real de un centro de datos, es pertinente al tema y no presenta marcas, menores ni es una imagen de stock.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de un complejo de data center con estacionamiento y edificios industriales."
+  },
+  "huella": "2c83589fe0755774"
+ },
+ "usptb4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pierre Gasly destaca el apoyo de los hinchas argentinos a Colapinto en Brasil",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Motorsport no se usa todavía.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "intentos": 1,
+  "fuentes": 2,
+  "intentosPorCupo": 1
+ },
+ "1b2e9mn": {
+  "archivo": "fotos-notas/1b2e9mn.jpg",
+  "medio": "Diario Popular",
+  "credito": "Foto: Diario Popular",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Científicas argentinas desarrollan un videojuego con IA para rehabilitar tras un ACV",
+  "enlace": "https://www.diariopopular.com.ar/tecnologia/cientificos-argentinos-crearon-un-videojuego-ia-rehabilitar-pacientes-que-sufrieron-un-acv-n927932",
+  "imagenOriginal": "https://media.diariopopular.com.ar/p/fa6e2cde4dfd9ee35fbafe3f79451c7f/adjuntos/143/imagenes/008/263/0008263560/1200x675/smart/videojuego-acv.png",
+  "razon": "Es la única imagen que muestra el hecho de manera clara, sin marcas de agua sobreimpresas, sin menores y sin elementos gráficos ajenos a la escena.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con gorro de electrodos frente a una pantalla de videojuego."
+  },
+  "huella": "b2b6e6c4ad77dafe"
+ },
+ "7ceyem": {
+  "archivo": "fotos-notas/7ceyem.webp",
+  "medio": "Ruralnet",
+  "credito": "Foto: Ruralnet",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El SENASA habilita una planta argentina para exportar sebo a Europa",
+  "enlace": "https://ruralnet.com.ar/exportacion-sebo-europa-senasa/",
+  "imagenOriginal": "https://ruralnet.com.ar/wp-content/uploads/2026/11/sebo-bovino-industria-exportacion-europa-ruralnet.webp",
+  "razon": "La foto B ilustra mejor el producto final y el proceso industrial de forma limpia, sin personas, cumpliendo con todos los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Proceso de refinamiento o vertido de sebo industrial en una planta."
+  },
+  "huella": "36b9b33732af9f7d"
+ },
+ "4gbc9b": {
+  "archivo": "fotos-notas/4gbc9b.jpg",
+  "medio": "0223 (Mar del Plata)",
+  "credito": "Foto: 0223 (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las Eta Acuáridas iluminan el cielo de Mar del Plata en mayo de 2027",
+  "enlace": "https://www.0223.com.ar/nota/2026-11-5-11-56-0-espectaculo-en-el-cielo-los-restos-del-cometa-halley-que-iluminaran-la-madrugada-de-mar-del-plata",
+  "imagenOriginal": "https://pxcdn.0223.com.ar/f/112026/1793883139813.jpg?&cw=600&ch=365",
+  "razon": "La imagen A es una fotografía clara y directa del fenómeno astronómico, sin marcas de agua, elementos gráficos ni personas, cumpliendo con los criterios de calidad para ilustrar la nota.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Paisaje nocturno con lluvia de estrellas sobre una costa."
+  },
+  "huella": "a181010101213323"
+ },
+ "1c8e8dn": {
+  "archivo": "fotos-notas/1c8e8dn.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Motorola lanza el smartphone Signature 27 y nuevos accesorios en Argentina",
+  "enlace": "https://www.lanacion.com.ar/tecnologia/motorola-renueva-su-ecosistema-en-la-region-con-nuevos-auriculares-relojes-y-un-cargador-magnetico-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/motorola-presento-para-america-latina-sus-IP2JZROFZZELRF2ZYPBBGESGHY.jpg?auth=3a256174bc17495c476657ae0f7962fec2b79f597eb368e4b0cf5ef2ce23994c&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto A muestra el evento de lanzamiento real, tiene buena calidad y no presenta marcas de agua, menores ni es material de stock.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Presentación del Motorola Signature 27 en un escenario con pantalla gigante."
+  },
+  "huella": "3c57575b165737ec"
+ },
+ "mmuhfu": {
+  "archivo": "fotos-notas/mmuhfu.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Barracas Central y Racing juegan el viernes por la última fecha",
+  "enlace": "https://www.tycsports.com/racing-club/racing-se-prepara-para-despedir-el-ano-una-baja-y-una-duda-para-el-duelo-con-barracas-central-id770528.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/10/02/992326/chirola-romero_1440x810.webp?v=2",
+  "razon": "Es la única imagen que muestra a un protagonista del evento (el director técnico) de forma clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores.",
+  "cuando": "2026-11-06T01:02:52.359Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico de Racing en el campo de juego."
+  },
+  "huella": "302349485c161e08"
  }
 }
