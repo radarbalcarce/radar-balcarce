@@ -46319,9 +46319,7 @@
   "fuentes": 1
  },
  "rmyepl": {
-  "archivo": "fotos-notas/rmyepl.jpg",
   "medio": "Ahora Balcarce",
-  "credito": "Foto: Ahora Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "Integrantes de la EMDAB participan del foro provincial del deporte",
@@ -46353,7 +46351,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "30393a8a9eceda9f",
-  "ausenteDesde": "2026-10-30T10:04:37.569Z"
+  "intentado": true,
+  "borrada": true
  },
  "futboltablaliga20261023": {
   "archivo": "fotos-notas/libre-futboltablaliga20261023.jpg",
@@ -52103,9 +52102,7 @@
   "ausenteDesde": "2026-10-31T17:38:21.567Z"
  },
  "1cidz7o": {
-  "archivo": "fotos-notas/1cidz7o.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto cede su Alpine en la primera práctica de México",
@@ -52125,7 +52122,8 @@
    "descripcion": "Auto de Fórmula 1 en la pista"
   },
   "huella": "0aaebcb8b5a641fe",
-  "ausenteDesde": "2026-10-30T10:04:37.569Z"
+  "intentado": true,
+  "borrada": true
  },
  "1yejdct": {
   "archivo": "fotos-notas/1yejdct.jpg",
@@ -54479,9 +54477,7 @@
   "ausenteDesde": "2026-11-02T04:03:38.951Z"
  },
  "1j4a396": {
-  "archivo": "fotos-notas/1j4a396.jpg",
   "medio": "0223 (Mar del Plata)",
-  "credito": "Foto: 0223 (Mar del Plata)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto compite en el Gran Premio de México de Fórmula 1",
@@ -54513,7 +54509,8 @@
    "dudosa": "la primera IA vio gente muy joven"
   },
   "huella": "5ab9696c699199d9",
-  "ausenteDesde": "2026-10-30T10:04:37.569Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ivc0ij": {
   "intentado": true,
@@ -54525,9 +54522,7 @@
   "fuentes": 4
  },
  "gt3v6": {
-  "archivo": "fotos-notas/gt3v6.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Senado aprueba la reforma de Salud Mental y un régimen de inversiones",
@@ -54547,7 +54542,8 @@
    "descripcion": "Senadores trabajando en las bancas en el recinto"
   },
   "huella": "5db96c4a5c67e666",
-  "ausenteDesde": "2026-10-30T10:04:37.569Z"
+  "intentado": true,
+  "borrada": true
  },
  "141ym2g": {
   "intentado": true,
@@ -77903,7 +77899,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "9a86ec2d93a9499a"
+  "huella": "9a86ec2d93a9499a",
+  "ausenteDesde": "2026-11-06T10:33:33.118Z"
  },
  "6ww41r": {
   "intentado": true,
@@ -81653,14 +81650,28 @@
   "ausenteDesde": "2026-11-05T09:06:40.899Z"
  },
  "1ft90ud": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1ft90ud.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La causa por el desvío de propofol vuelve a la investigación",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.pagina12.com.ar/2026/11/05/desvio-de-propofol-en-el-hospital-italiano-frenan-el-avance-hacia-el-juicio-oral-y-ordenan-retomar-la-investigacion/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/FDNWJA3XBFEIFFXJ7Y4KA3QTZQ.jpg?smart=true&auth=dd9cc86bf4c081060e9da7a23fcd8289d4d4f58bdf98735d64ed7b3e3a95d8bd&width=1200&height=630",
+  "razon": "Es la única foto pertinente que corresponde a la temática de la investigación sin marcas de agua sobreimpresas, menores ni elementos gráficos añadidos.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retratos fotográficos de los involucrados en la causa de investigación"
+  },
+  "huella": "a1a3b797b6b2d214"
  },
  "b2uk9i": {
   "intentado": true,
@@ -81715,14 +81726,28 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "144ocoq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/144ocoq.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Ronnie Wood visita la Argentina y se presenta el viernes en Buenos Aires",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.lanacion.com.ar/espectaculos/personajes/ronnie-wood-en-otro-dia-perdido-sus-noches-de-fiesta-con-maradona-el-elogio-para-messi-y-una-zapada-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/ronnie-wood-en-otro-dia-perdido-sus-noches-de-T4LUKTJZPRDDNAJT3AEOES7FUQ.JPG?auth=26a99d0f22aa0e5810dbdf974c1567daae240fdd155053ac0c1b5c6b54adea95&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor foto que ilustra a Ronnie Wood con buen encuadre, nitidez y sin marcas ni otros elementos extraños.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ronnie Wood gesticulando en primer plano medio"
+  },
+  "huella": "cadada9c9d1c558e"
  },
  "1jhugf1": {
   "archivo": "fotos-notas/1jhugf1.jpg",
@@ -81980,14 +82005,28 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "5e22oh": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/5e22oh.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Leandro Paredes presenta Se Pica, un torneo nacional de truco con 60 millones en premios",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 4,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.lanacion.com.ar/que-sale/cuando-se-pica-yo-soy-el-tipico-5-argentino-leandro-paredes-presento-se-pica-un-torneo-de-truco-con-nid04112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/cuando-se-pica-yo-soy-el-tipico-5-argentino-corto-E2ZKLQ42VVBHTAR75Q4XGA4HOU.png?auth=ba002c8a38debf7752d4edf901da86f7f4433e0e0edaca4188b09a4f91d94025&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la mejor foto entre las que corresponden a la nota y no tienen marcas, menores ni problemas de archivo o formato gráfico.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leandro Paredes sentado hablando a la cámara sosteniendo cartas"
+  },
+  "huella": "888c88a8a8ba3bc3"
  },
  "1l2znd2": {
   "intentado": true,
@@ -82000,14 +82039,40 @@
   "intentosPorCupo": 3
  },
  "15t806q": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/15t806q.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La UBA realiza la Marcha de las Velas para exigir financiamiento universitario",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 16,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "enlace": "https://www.clarin.com/politica/uba-marcho-exigir-cumplimiento-ley-financiamiento-universitario_0_om6ggsRjkV.html",
+  "imagenOriginal": "https://www.clarin.com/img/2026/11/05/wY0jgAM4T_2000x1500__1.jpg",
+  "razon": "Es una fotografía clara y nítida que muestra a estudiantes sosteniendo velas durante la Marcha de las Velas, con buen encuadre y sin marcas añadidas.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Estudiantes con velas y cartel de Defendamos la UBA.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Estudiantes sosteniendo velas y un cartel que dice 'Defendamos la UBA' durante una marcha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "9a9a5e3c7c6616c7"
  },
  "1qtpqas": {
   "archivo": "fotos-notas/1qtpqas.jpg",
@@ -82059,15 +82124,40 @@
   "huella": "2d07270ec9f1534f"
  },
  "creimq": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/creimq.jpg",
+  "medio": "Noticias Agropecuarias",
+  "credito": "Foto: Noticias Agropecuarias",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Mercado Agroganadero efectúa su noveno remate de hacienda para exportación",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T18:04:26.052Z",
-  "intentos": 2,
-  "fuentes": 2,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.noticiasagropecuarias.com/2026/11/05/el-mag-realizo-su-noveno-remate-de-exportacion-y-consolida-un-nuevo-espacio-de-comercializacion-para-la-ganaderia/",
+  "imagenOriginal": "https://www.noticiasagropecuarias.com/wp-content/uploads/2026/11/REMATE-EXPORTACION-MAG.jpeg",
+  "razon": "Es la única foto que muestra claramente el salón con los asistentes y la pantalla con el remate de hacienda, sin marcas de agua de los medios y sin menores.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del salón con asistentes sentados y una pantalla gigante mostrando novillos.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Asistentes en una sala de remate observando una pantalla con imágenes de hacienda."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "3535d5164ccd2cac"
  },
  "pakl31": {
   "intentado": true,
@@ -84093,10 +84183,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Godoy Cruz y Tristán Suárez juegan la final por el ascenso el 15 de noviembre",
-  "razon": "La única foto disponible no corresponde al evento mencionado en la nota, ya que muestra a una figura de la Selección Argentina en una conferencia de prensa, no a los equipos Godoy Cruz o Tristán Suárez.",
-  "cuando": "2026-11-06T00:33:05.735Z",
-  "intentos": 1,
-  "fuentes": 5
+  "razon": "Ninguna de las fotos corresponde al partido mencionado en la nota (Godoy Cruz vs Tristán Suárez); muestran estadios vacíos, conferencias o partidos de otros equipos (como Boca y River con el árbitro Darío Herrera).",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "intentos": 2,
+  "fuentes": 15
  },
  "1cqsg0d": {
   "archivo": "fotos-notas/1cqsg0d.jpg",
@@ -85758,13 +85848,28 @@
   "ausenteDesde": "2026-11-06T08:04:19.486Z"
  },
  "a05n0s": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/a05n0s.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Los demócratas ganan el Congreso y suman dudas sobre los mercados",
-  "razon": "Ninguna de las fotos corresponde a la temática de la nota sobre las elecciones legislativas en Estados Unidos (Congreso y mercados); la A muestra un primer plano de Donald Trump y la B muestra a Trump junto a Javier Milei.",
-  "cuando": "2026-11-06T08:02:55.332Z",
-  "intentos": 1,
-  "fuentes": 3
+  "enlace": "https://www.ambito.com/opiniones/elecciones-eeuu-es-la-economia-trump-n6342100",
+  "imagenOriginal": "https://media.ambito.com/p/ca15624272455485fb85ed2b3ad281e7/adjuntos/239/imagenes/043/721/0043721161/donald-trump.jpeg",
+  "razon": "Es la única foto nítida, sin marcas añadidas, sin menores y que corresponde perfectamente a la temática de la nota.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de Donald Trump con fondo bokeh de luces."
+  },
+  "huella": "0c0c0c69cb4b0544"
  },
  "1ayj0na": {
   "archivo": "fotos-notas/1ayj0na.jpg",
@@ -86038,7 +86143,8 @@
    "corresponde": "si",
    "descripcion": "Franco Colapinto conversando con otro piloto."
   },
-  "huella": "687972a5a5a9959d"
+  "huella": "687972a5a5a9959d",
+  "ausenteDesde": "2026-11-06T10:33:33.118Z"
  },
  "8wbsui": {
   "intentado": true,
@@ -86096,7 +86202,8 @@
    "corresponde": "si",
    "descripcion": "Retrato del Papa León XIV saludando con la mano derecha."
   },
-  "huella": "c040466666666637"
+  "huella": "c040466666666637",
+  "ausenteDesde": "2026-11-06T10:33:33.118Z"
  },
  "4ruhpf": {
   "archivo": "fotos-notas/4ruhpf.jpg",
@@ -86121,5 +86228,77 @@
    "descripcion": "Iliana Calabró sonriente junto a su padre Juan Carlos Calabró."
   },
   "huella": "2313333333737371"
+ },
+ "d6ynzp": {
+  "archivo": "fotos-notas/d6ynzp.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alerta amarilla por tormentas y fuertes vientos en 11 provincias",
+  "enlace": "https://www.cronista.com/informacion-gral/alerta-amarilla-en-7-provincias-anuncian-fuertes-rafagas-de-vientos-que-podrian-superar-los-110-kmh-y-recomiendan-no-salir-la-noche-del-viernes/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/RFQGALVLJZDKBIXJQQDJMHE524.jpg?auth=ea02673277659870300eb0fd760fdace62349fe16c539dbbac02fa5a523c8bba&height=630&width=1200&quality=70&focal=3174%2C1929",
+  "razon": "Es la única foto válida que ilustra el clima ventoso y tormentoso sin marcas, gráficos ni menores.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Árboles azotados por vientos fuertes con neblina"
+  },
+  "huella": "6d65440626260202"
+ },
+ "1g2og8i": {
+  "archivo": "fotos-notas/1g2og8i.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de Brasil de la F1",
+  "enlace": "https://tn.com.ar/deportes/formula-1/2026/11/06/tras-la-sancion-en-mexico-franco-colapinto-vuelve-a-la-actividad-en-la-f1-y-corre-las-primeras-practicas-del-gp-de-brasil/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/franco-colapinto-se-prepara-para-disputar-el-gp-de-brasil-foto-efe-HBQOHRIJN5E6PDVI6LMEH7H7OQ.jpg?auth=09c5580def0862536518d8b4d3db717b8b32c0a436664e39c2c3ae7f02ae4022&width=1023",
+  "razon": "Es una fotografía nítida, de buena calidad, que muestra el monoplaza de competición en pista, sin marcas añadidas ni menores.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de Fórmula 1 en pista de frente"
+  },
+  "huella": "e0b1e4ececc6c4c6"
+ },
+ "xrrljj": {
+  "archivo": "fotos-notas/xrrljj.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Anses actualiza jubilaciones y pensiones con un aumento de 1,93%",
+  "enlace": "https://www.minutouno.com/economia/actualizacion-haberes-cuanto-seran-las-jubilaciones-y-pensiones-anses-noviembre-2026-n6341692",
+  "imagenOriginal": "https://media.minutouno.com/p/a5be4f05146fc85d3ae6a12ad6d9e833/adjuntos/150/imagenes/041/689/0041689475/anses-jubilados.jpg",
+  "razon": "Es la única foto que cumple con todos los requisitos editoriales y está libre de marcas, menores y elementos gráficos superpuestos.",
+  "cuando": "2026-11-06T10:32:15.338Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo un cartel institucional de ANSES."
+  },
+  "huella": "767676f2d6d3d6b9"
  }
 }
