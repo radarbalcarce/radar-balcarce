@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T15:35:18.608Z",
- "portada": 164,
+ "generado": "2026-11-06T16:05:40.425Z",
+ "portada": 157,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 6,
  "redes": {
-  "generado": "2026-11-06T15:35:19.962Z",
+  "generado": "2026-11-06T16:05:41.223Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -43,7 +43,7 @@
     "que": "Tu nota",
     "voz": "locutor",
     "ventana": 60,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,31 +93,10 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 44,
-    "notas": [
-     {
-      "id": "bp752x",
-      "titulo": "El Gobierno nacional oficializa el cierre de registros del automotor",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1xd4thu",
-      "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-      "seccion": "Automovilismo"
-     },
-     {
-      "id": "x4bwtx",
-      "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
-      "seccion": "Educación"
-     },
-     {
-      "id": "ewg0bk",
-      "titulo": "Un campeón mundial de Tai Chi encabeza seminario",
-      "seccion": "Deportes"
-     }
-    ]
+    "segundos": null,
+    "notas": []
    },
    {
     "nombre": "noticia2",
@@ -126,26 +105,26 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 53,
     "notas": [
      {
-      "id": "qvrt15",
-      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
+      "id": "13ae8gs",
+      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
       "seccion": "Balcarce"
      },
      {
-      "id": "oal4ia",
-      "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
+      "id": "e7bi4o",
+      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1r3wzjp",
+      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
       "seccion": "Deportes"
      },
      {
-      "id": "wjmv5r",
-      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "1xsiv6s",
-      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "id": "14llvsv",
+      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
       "seccion": "Educación"
      }
     ]
@@ -157,27 +136,27 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 49,
     "notas": [
      {
-      "id": "13ae8gs",
-      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+      "id": "j7nvck",
+      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
       "seccion": "Balcarce"
      },
      {
-      "id": "37gn8b",
-      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "oal4ia",
+      "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
       "seccion": "Deportes"
      },
      {
-      "id": "tpoena",
-      "titulo": "Petruccelli pide informes sobre fondos viales rurales para obras",
-      "seccion": "Política"
-     },
-     {
-      "id": "5bynip",
-      "titulo": "Un automóvil choca a un ciclista en avenida Centenario",
-      "seccion": "Policiales"
+      "id": "1xsiv6s",
+      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "seccion": "Educación"
      }
     ]
    }
@@ -186,21 +165,9 @@
    "hoy": [],
    "cola": [
     {
-     "id": "qvrt15",
-     "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
      "id": "13ae8gs",
      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
      "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "1xd4thu",
-     "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
-     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -210,26 +177,38 @@
      "marcada": false
     },
     {
-     "id": "uvr8fk",
-     "titulo": "El Rotary Club Balcarce Cerrito organiza un asado criollo",
+     "id": "qvrt15",
+     "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "e7bi4o",
+     "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "1pkqfef",
+     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "1r3wzjp",
+     "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "f9b3nl",
+     "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
      "id": "1b5krcg",
      "titulo": "Registran diversos niveles de precipitaciones en Balcarce y la región",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "ewg0bk",
-     "titulo": "Un campeón mundial de Tai Chi encabeza seminario",
-     "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "60lmll",
-     "titulo": "Manuel Ferrari detecta corrientes de agua subterránea en el país",
      "seccion": "Balcarce",
      "marcada": false
     }
