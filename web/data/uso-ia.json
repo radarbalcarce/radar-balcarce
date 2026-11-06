@@ -3209,19 +3209,19 @@
   "2026-11-06": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 47,
+     "llamadas": 49,
      "errores": 26,
-     "entrada": 51524,
-     "salida": 27241,
+     "entrada": 56685,
+     "salida": 29709,
      "pensamiento": 0,
-     "total": 78765,
+     "total": 86394,
      "claves": {
-      "clasificacion": 47
+      "clasificacion": 49
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 23,
-       "ok": 21,
+       "ok": 23,
        "saturado": 3
       }
      }
@@ -3263,36 +3263,36 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 25,
+     "llamadas": 28,
      "errores": 11,
-     "entrada": 259173,
-     "salida": 3782,
+     "entrada": 305797,
+     "salida": 3924,
      "pensamiento": 0,
-     "total": 262955,
+     "total": 309721,
      "claves": {
-      "clasificacion": 25
+      "clasificacion": 28
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 14,
+       "ok": 17,
        "saturado": 1
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 3,
+     "llamadas": 4,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 3
+      "clasificacion": 4
      },
      "motivos": {
       "clasificacion": {
-       "ok": 3
+       "ok": 4
       }
      }
     },
@@ -3315,20 +3315,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 90,
-     "errores": 27,
-     "entrada": 374855,
-     "salida": 70299,
+     "llamadas": 112,
+     "errores": 33,
+     "entrada": 460215,
+     "salida": 87567,
      "pensamiento": 0,
-     "total": 445154,
+     "total": 547782,
      "claves": {
-      "redaccion": 90
+      "redaccion": 112
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 63,
-       "saturado": 4
+       "ok": 79,
+       "saturado": 10
       }
      }
     },
@@ -3352,20 +3352,20 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 97,
-     "errores": 48,
-     "entrada": 291585,
-     "salida": 23056,
+     "llamadas": 101,
+     "errores": 51,
+     "entrada": 292968,
+     "salida": 23142,
      "pensamiento": 0,
-     "total": 314641,
+     "total": 316110,
      "claves": {
-      "clasificacion": 97
+      "clasificacion": 101
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 46,
-       "ok": 49,
-       "saturado": 2
+       "ok": 50,
+       "saturado": 5
       }
      }
     },
@@ -3388,21 +3388,21 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 30,
-     "errores": 10,
-     "entrada": 33041,
-     "salida": 2145,
+     "llamadas": 33,
+     "errores": 12,
+     "entrada": 35226,
+     "salida": 2314,
      "pensamiento": 0,
-     "total": 35186,
+     "total": 37540,
      "claves": {
-      "groq": 30
+      "groq": 33
      },
      "motivos": {
       "groq": {
        "otro": 2,
-       "ok": 20,
+       "ok": 21,
        "velocidad": 4,
-       "cupo-diario": 4
+       "cupo-diario": 6
       }
      }
     }
