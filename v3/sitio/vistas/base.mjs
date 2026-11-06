@@ -99,6 +99,10 @@ details.fuentes a{text-decoration:underline}
 .placa strong{flex:1 1 auto;min-height:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden;font:800 var(--pt)/1.18 var(--serif);letter-spacing:-.01em;text-align:left;overflow-wrap:anywhere}
 .placa b{flex:0 0 auto;font:800 13px/1 var(--serif);color:#14161A}
 .placa i{font-style:normal;color:#C7381C;margin-left:3px}
+.placa-nota{box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;aspect-ratio:21/9;max-height:260px;margin:0 0 18px;padding:18px 22px;background:var(--pc);color:#fff;border-radius:12px;overflow:hidden}
+.placa-nota em{font:800 clamp(24px,5vw,44px)/1.1 var(--sans);font-style:normal;letter-spacing:.06em;text-transform:uppercase}
+.placa-nota b{font:800 14px/1 var(--serif);color:#fff;opacity:.85}
+.placa-nota i{font-style:normal;margin-left:3px}
 /* Portada */
 .sol{--a:#2B7FD0;--sol-fondo:#fff;--sol-borde:var(--linea);--sol-suave:var(--suave);--sol-sube:#B42318;--sol-baja:#15803D;--sol-igual:#5C6068;
 position:relative;max-width:640px;margin:14px 0 4px;border:1px solid var(--sol-borde);border-radius:12px;background:var(--sol-fondo);overflow:hidden;color:var(--tinta)}

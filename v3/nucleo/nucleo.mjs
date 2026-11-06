@@ -610,6 +610,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       const hechasHoy = (await db.usoDelDia(env, `rehacer-${c.dia}`)).reduce((s, f) => s + f.pedidos, 0);
       rehacer = { ...cuenta, hechasHoy, topePorDia: topeRehacer, diasQueFaltan: topeRehacer ? Math.ceil(cuenta.faltan / topeRehacer) : null };
     } catch (e) { console.error(`salud rehacer: ${e.message}`); }
+    // Las notas de los últimos 7 días sin foto, por motivo (Hernán, 6/11: saber la causa real). Si la consulta falla, /salud sigue.
+    let sinFoto7d = null;
+    try { sinFoto7d = await db.contarSinFotoPorMotivo(env, new Date(new Date(c.ahoraISO).getTime() - 7 * 86400000).toISOString()); } catch (e) { console.error(`salud sinFoto: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).
     const activasHoy = new Set(fuentes.map((f) => f.id));
@@ -631,6 +634,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         topeDiario: numero(env.NUCLEO_TOPE_DIARIO, 150),
       },
       rehacerMigradas: rehacer,
+      sinFoto7d,
       claves: { gemini: !!env.GEMINI_API_KEY, telegram: !!env.TELEGRAM_TOKEN },
     });
   }

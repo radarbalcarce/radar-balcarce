@@ -474,3 +474,15 @@ test('fotos: la destacada y las tarjetas son 16:9 en todos los anchos y las foto
   const ajena = imagenODePlaca({ foto: { url: 'https://otro.example/a.jpg', alt: 'x' }, seccion: 'Balcarce' }, { ancho: 640, alto: 400 });
   assert.ok(!/fotopropia/.test(ajena));
 });
+
+test('la nota sin foto muestra una placa de su sección (color y nombre) en vez de nada; con foto no hay placa; el clima diario no la lleva', async () => {
+  const { paginaDeNota, placaDeNota } = await import('./vistas/nota.mjs');
+  const base = { id: 'n1', titulo: 'Una nota sin foto', bajada: 'b', cuerpo: ['uno', 'dos'], seccion: 'Cultura', publicada: '2026-11-05T12:00:00.000Z', fuentes: [], origen: 'nucleo' };
+  const sin = paginaDeNota({ ...base, foto: null }, { indexar: true, contexto: {}, seguir: [], contadas: [] });
+  assert.match(sin, /<div class="placa-nota" style="--pc:var\(--s-cultura\)" aria-hidden="true"><em>Cultura<\/em>/);
+  const con = paginaDeNota({ ...base, foto: { url: 'https://img.test/a.jpg', credito: 'x' } }, { indexar: true, contexto: {}, seguir: [], contadas: [] });
+  assert.ok(!con.includes('<div class="placa-nota"'));
+  assert.match(con, /<figure><img src="https:\/\/img\.test\/a\.jpg"/);
+  assert.match(sin, /og:image" content="[^"]*og-default/);
+  assert.ok(String(placaDeNota).length > 0);
+});

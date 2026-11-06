@@ -88,3 +88,7 @@ Las cuatro variantes de hoy (noticia, evento, reclamo, nota) y una quinta, «¿q
 propia y su firma, el auspicio al inicio con su franja desde el segundo 3 (y que antes sea idéntico al clima de hoy), el máximo de 3 notas del repaso, de 1 a 3 fotos en la nota propia y la zona segura relajada
 (ningún texto pasa de la fila 1670).
 Para ver cómo quedan: `node v3/redes/piezas/ejemplos.mjs` (ver el comando y las opciones al principio del archivo).
+
+## 5. Nota sin foto en la lista del repaso (Hernán, 6/11)
+
+En la tapa del repaso, la miniatura de una nota sin foto es **la placa de su sección** (el color de la sección con su nombre en blanco, `placaMiniaturaDeSeccion`), nunca un número suelto. Sin foto, el posteo de feed y la imagen de enlace siguen sin armarse (`sin foto no va`); eso no cambió. Prueba: `piezas.test.mjs`.

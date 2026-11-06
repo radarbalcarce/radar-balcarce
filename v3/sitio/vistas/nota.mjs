@@ -179,6 +179,15 @@ export function datosEstructurados(n, { parrafos, canonico, indexar }) {
   };
 }
 
+/**
+ * La nota sin foto (Hernán, 6/11): en vez de nada, una placa de su sección (el color y el nombre; el titular ya está arriba). No va en el clima diario, que arma su propia imagen.
+ * Es de adorno (aria-hidden) y liviana: un bloque de CSS, sin imagen que bajar.
+ */
+export function placaDeNota(n, ranura) {
+  if (esClimaDiario(n)) return '';
+  return `<div class="placa-nota" style="--pc:${colorDe(ranura)}" aria-hidden="true"><em>${esc(n.seccion)}</em><b>Radar<i>Balcarce</i></b></div>`;
+}
+
 export function paginaDeNota(n, { indexar, contexto, seguir = [], contadas = [] }) {
   const parrafos = parrafosDe(n.cuerpo);
   const canonico = rutaDeNota(n);
@@ -195,7 +204,7 @@ ${migasHtml([['Inicio', '/'], [n.seccion, '/seccion/' + ranura]])}
 ${n.bajada ? `<p class="bajada">${esc(n.bajada)}</p>` : ''}
 <p class="meta"><time datetime="${esc(n.publicada)}">${esc(fechaLarga(n.publicada))}</time> · <span class="por">${esc(firmaCorta(n))}</span>${actualizadaHtml(n)}</p>
 ${n.enDosLineas ? `<div class="dos-lineas"><strong>En dos líneas</strong>${esc(n.enDosLineas)}</div>` : ''}
-${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true }) : ''}
+${foto ? figura({ url: foto.url, alt: foto.alt || n.titulo, ancho: foto.ancho, alto: foto.alto, credito: foto.credito, principal: true }) : placaDeNota(n, ranura)}
 <div class="cuerpo">
 ${esClimaDiario(n) ? lugarRotativo(contexto, 'clima', 'C1') : ''}${cuerpoHtml(n, parrafos, contexto)}
 </div>

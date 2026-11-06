@@ -360,7 +360,18 @@ export function focoDeLaLista(t, tramos) {
 }
 
 /**
- * La lista del repaso con la noticia que se lee resaltada: una tarjeta por noticia (su foto cuadrada a la izquierda, la sección en su color y el titular), la actual con el fondo y el
+ * La miniatura de una nota SIN foto en la lista del repaso: un cuadrado con el color de su sección y el nombre de la sección en blanco (nunca un número suelto ni un cuadro vacío),
+ * como la placa de la sección de las láminas y de la nota del repaso. La letra se achica hasta que el nombre entre (una sola línea, con un poco de aire a los lados).
+ */
+export function placaMiniaturaDeSeccion(seccion, color, x, y, lado) {
+  const nombre = String(seccion || 'Balcarce').toUpperCase();
+  let tam = 52;
+  while (tam > 18 && anchoAproximado(nombre, tam, 'sans') > (lado - 28) * 0.94) tam -= 2;
+  return `<rect x="${x}" y="${y}" width="${lado}" height="${lado}" rx="20" fill="${color}"/><text x="${x + lado / 2}" y="${y + lado / 2 + Math.round(tam * 0.35)}" font-family="${DISPLAY}" font-size="${tam}" font-weight="900" text-anchor="middle" letter-spacing="-0.5" fill="#FFFFFF">${esc(nombre)}</text>`;
+}
+
+/**
+ * La lista del repaso con la noticia que se lee resaltada:una tarjeta por noticia (su foto cuadrada a la izquierda, la sección en su color y el titular), la actual con el fondo y el
  * borde de su sección y las demás atenuadas. `foco` es lo que devuelve `focoDeLaLista`. Todo entre las filas 250 y 1440 (la zona segura de hoy) y con la firma de siempre.
  */
 export function listaResaltada({ titulo, momento, fecha, notas }, foco) {
@@ -387,7 +398,7 @@ export function listaResaltada({ titulo, momento, fecha, notas }, foco) {
     while (tam > 30 && lineas.length * inter(tam) > disponible) { tam -= 4; lineas = envolverAncho(nota.titulo, tam, anchoT * 0.96, 'serif'); }
     const foto = nota.foto?.datos
       ? `<clipPath id="lr${k}"><rect x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" rx="20"/></clipPath><g clip-path="url(#lr${k})"><image href="${nota.foto.datos}" x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" preserveAspectRatio="xMidYMid slice"/></g>`
-      : `<rect x="${xFoto}" y="${y + 28}" width="${lado}" height="${lado}" rx="20" fill="${color}"/><text x="${xFoto + lado / 2}" y="${y + 28 + lado / 2 + 62}" font-family="${DISPLAY}" font-size="180" font-weight="900" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.9">${k + 1}</text>`;
+      : placaMiniaturaDeSeccion(nota.seccion, color, xFoto, y + 28, lado);
     const credito = nota.foto?.datos && nota.foto.credito ? texto(acortarCaracteres(nota.foto.credito, 48), xT, y + alto - 24, { tam: 20, peso: 500, color: GRIS }) : '';
     return `<g opacity="${o}">
   <rect x="${X0}" y="${y}" width="${ANCHO_UTIL}" height="${alto}" rx="30" fill="${COLORES.papel}" stroke="${COLORES.linea}" stroke-width="2"/>

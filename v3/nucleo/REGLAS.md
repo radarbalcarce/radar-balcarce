@@ -271,3 +271,7 @@ Propuesta, de menos a más:
 Recomendación: hacer el paso 2 sólo cuando las copias propias cubran todas las notas (hoy se están rellenando) y dejar el 3 para cuando haya un anunciante pagando; hasta entonces el respaldo de la base más las direcciones originales alcanzan.
 
 **Pruebas:** `v3/nucleo/scripts/respaldo-d1.test.mjs` (nombres, poda, controles del volcado, orden de la corrida, restauración de prueba con SQLite de verdad, el id de la base y la config temporal de wrangler) y `v3/nucleo/workflows-v3.test.mjs` (permisos, inyección en workflows, el respaldo sin adjuntos).
+
+## /salud: notas sin foto por motivo (6/11)
+
+`/salud` trae `sinFoto7d` = { total, conFoto, sinFoto, porMotivo } de las notas de los últimos 7 días, con `porMotivo` según `verificacion.fotoMotivo` (MOTIVOS_SIN_FOTO; «sin-marca» si no quedó el motivo): una consulta agrupada (`db.contarSinFotoPorMotivo`). Prueba: `worker.test.mjs`.

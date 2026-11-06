@@ -343,6 +343,22 @@ export async function contarRehacerFotos(env) {
   };
 }
 
+/**
+ * Las notas creadas desde `desdeISO` que no tienen foto, contadas por `verificacion.fotoMotivo` (MOTIVOS_SIN_FOTO; «sin-marca» si nunca se intentó o no quedó el motivo).
+ * Devuelve { total, conFoto, sinFoto, porMotivo }. Una sola consulta agrupada: barata en D1.
+ */
+export async function contarSinFotoPorMotivo(env, desdeISO) {
+  const { results } = await env.DB.prepare(
+    `SELECT COALESCE(json_extract(verificacion, '$.fotoMotivo'), 'sin-marca') AS motivo, COUNT(*) AS n FROM notas
+     WHERE creada >= ? AND (foto IS NULL OR foto = '' OR foto = 'null') GROUP BY motivo`,
+  ).bind(desdeISO).all();
+  const porMotivo = {};
+  let sinFoto = 0;
+  for (const f of results || []) { porMotivo[f.motivo] = f.n; sinFoto += f.n; }
+  const total = ((await env.DB.prepare('SELECT COUNT(*) AS n FROM notas WHERE creada >= ?').bind(desdeISO).first()) || {}).n || 0;
+  return { total, conFoto: Math.max(0, total - sinFoto), sinFoto, porMotivo };
+}
+
 // Una nota por id, con sus campos JSON leídos (null si no existe). La usa la nota del clima para saber si ya salió hoy y qué pronóstico tenía.
 export async function notaCompleta(env, id) {
   const f = await env.DB.prepare('SELECT * FROM notas WHERE id = ?').bind(id).first();

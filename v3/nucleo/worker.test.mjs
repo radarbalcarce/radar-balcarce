@@ -632,3 +632,23 @@ test('rehacer migradas: un fallo de visión se repite hasta 3 veces y después q
   const r4 = await n.vuelta(env, { fetch: sinVision, ahora: AHORA, azar: semilla(9) });
   assert.equal(r4.rehacer.intentadas, 0, 'ya marcada: no se reintenta para siempre');
 });
+
+test('/salud cuenta las notas de los últimos 7 días sin foto por motivo (sinFoto7d), sin mirar las más viejas', { skip: sinSqlite }, async () => {
+  const env = envDe();
+  const m = mundo();
+  const n = nucleo();
+  const sembrar = (id, creada, verificacion, foto) => env.DB.sqlite.prepare(
+    "INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, verificacion, foto, fuentes, fecha_hecho, firma, estado) VALUES (?, ?, ?, 't', 'b', '[\"uno\"]', 'Cultura', ?, ?, '[]', ?, 'Radar Balcarce', 'publicada')",
+  ).run(id, `h-${id}`, creada, verificacion ? JSON.stringify(verificacion) : null, foto ? JSON.stringify(foto) : null, creada);
+  sembrar('sf1', '2026-11-01T10:00:00.000Z', { fotoMotivo: 'chicas' });
+  sembrar('sf2', '2026-11-01T11:00:00.000Z', { fotoMotivo: 'chicas' });
+  sembrar('sf3', '2026-11-01T12:00:00.000Z', { fotoMotivo: 'sin-candidatas' });
+  sembrar('sf4', '2026-11-01T13:00:00.000Z', null);
+  sembrar('cf1', '2026-11-01T14:00:00.000Z', null, { url: 'https://img.test/a.jpg' });
+  sembrar('vieja', '2026-10-01T10:00:00.000Z', { fotoMotivo: 'chicas' });
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: AHORA })).text());
+  assert.deepEqual(salud.sinFoto7d.porMotivo, { chicas: 2, 'sin-candidatas': 1, 'sin-marca': 1 });
+  assert.equal(salud.sinFoto7d.sinFoto, 4);
+  assert.equal(salud.sinFoto7d.conFoto, 1);
+  assert.equal(salud.sinFoto7d.total, 5);
+});

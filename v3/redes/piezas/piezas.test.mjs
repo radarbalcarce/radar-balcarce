@@ -554,3 +554,20 @@ test('tapa del reel: el repaso usa el cuadro de la lista pareja (no la placa de 
   assert.equal(tapaDeLaPieza({ id: 'clima', escenas: [{ duracion: 9 }] }), 3000);
   assert.equal(tapaDeLaPieza({ id: 'x' }), 1400);
 });
+
+test('repaso: la miniatura de una nota sin foto es la placa de su sección (color y nombre), no un número suelto; la que tiene foto no cambia', async () => {
+  const { listaResaltada, placaMiniaturaDeSeccion } = await import('./escenas.mjs');
+  const notas = [
+    { seccion: 'Automovilismo', titulo: 'Colapinto largó cuarto', foto: null },
+    { seccion: 'Balcarce', titulo: 'Corte de calles por obras', foto: null },
+    { seccion: 'Cultura', titulo: 'Festival en el teatro', foto: { datos: 'data:image/png;base64,AAAA', credito: 'Municipio' } },
+  ];
+  const svg = listaResaltada({ titulo: 'Repaso', momento: 'tarde', fecha: '', notas }, notas.map(() => ({ o: 1, h: 0 })));
+  assert.ok(svg.includes('AUTOMOVILISMO') && svg.includes('>BALCARCE<'), 'el nombre de la sección en la miniatura');
+  assert.ok(!/font-size="180"/.test(svg), 'ya no hay un número gigante');
+  assert.equal((svg.match(/<image /g) ?? []).length, 1, 'sólo la nota con foto lleva imagen');
+  const mini = placaMiniaturaDeSeccion('Tecnología', '#123456', 100, 200, 300);
+  assert.match(mini, /fill="#123456"/);
+  const tam = Number(mini.match(/font-size="(\d+)"/)[1]);
+  assert.ok(tam >= 18 && tam <= 52);
+});

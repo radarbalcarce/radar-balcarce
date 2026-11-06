@@ -103,3 +103,7 @@ Pruebas: `corte.test.mjs` (respaldo, feed, www, indexación) y `corte-script.tes
 - **Archivos fijos** (`estaticos.mjs`): el panel del celular (`/panel/`, con su CSP propia y `noindex`), los escudos, los videos de `/compartir`, los íconos, el manifiesto y el archivo de verificación de Google salen del depósito R2 `radar-fotos` con clave `estaticos/<misma ruta>`. Los sube el workflow «Radar 3.0: desplegar» (opción sitio) desde `web/public/`. Si el depósito no tiene uno, cae al viejo (o 404 propio si `RESPALDO_VIEJO = "no"`).
 - **`RESPALDO_VIEJO`** (`wrangler.toml`, hoy `"si"`): con `"no"`, nada sale hacia el sitio viejo: lo que nadie maneja y las fotos que R2 no tiene dan 404 propio. Con `"si"`, sólo van allá las rutas que nadie maneja y los archivos que el depósito no tiene todavía.
 - Pruebas: `cierre.test.mjs` (incluye el inventario: ninguna ruta del viejo sale hacia él) y `corte.test.mjs`.
+
+## Nota sin foto: placa de su sección (6/11)
+
+La página de una nota sin foto muestra una placa de su sección (`placaDeNota` en `vistas/nota.mjs`, estilo `.placa-nota`: color y nombre, sólo CSS) en vez de nada; el clima diario no la lleva. Las tarjetas y filas de la portada ya tenían su placa (`imagenODePlaca`). El `og:image` de una nota sin foto sigue siendo el genérico (una imagen por sección pide generar PNG con `scripts/imagen-og.mjs`; no se hizo). Prueba: `portada.test.mjs`.
