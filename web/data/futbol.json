@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-06T22:36:19.059Z",
+ "consultado": "2026-11-06T23:04:17.449Z",
  "equipos": [
   "9739",
   "3",
@@ -812,7 +812,7 @@
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "21'",
+    "minuto": "45'+4'",
     "local": {
      "id": "11",
      "nombre": "Independiente",
@@ -841,8 +841,8 @@
     "id": "401841662",
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
-    "estado": "en-juego",
-    "minuto": "21'",
+    "estado": "entretiempo",
+    "minuto": "45'+1'",
     "local": {
      "id": "18",
      "nombre": "San Lorenzo",
@@ -851,10 +851,17 @@
     "visitante": {
      "id": "7764",
      "nombre": "Platense",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Víctor Cuesta",
+      "minuto": "22'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Pedro Bidegain",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -865,11 +872,11 @@
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
     "estado": "en-juego",
-    "minuto": "21'",
+    "minuto": "45'+5'",
     "local": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "21",
@@ -883,6 +890,12 @@
       "jugador": "Cristian Tarragona",
       "minuto": "12'",
       "tipo": "de penal"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Cristian Tarragona",
+      "minuto": "28'",
+      "tipo": "gol"
      }
     ],
     "estadio": "15 de Abril",
