@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T12:03:38.132Z",
- "portada": 147,
+ "generado": "2026-11-06T12:35:07.213Z",
+ "portada": 150,
  "archivo": 500,
  "esperandoCuerpo": 9,
  "redes": {
-  "generado": "2026-11-06T12:03:38.876Z",
+  "generado": "2026-11-06T12:35:07.651Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 47,
+    "segundos": 51,
     "notas": [
      {
       "id": "qvrt15",
@@ -103,19 +103,19 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "ewg0bk",
+      "titulo": "Un campeón mundial de Tai Chi encabeza seminario",
+      "seccion": "Deportes"
+     },
+     {
       "id": "x4bwtx",
       "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
       "seccion": "Educación"
      },
      {
-      "id": "wjmv5r",
-      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-      "seccion": "Fútbol"
-     },
-     {
-      "id": "37gn8b",
-      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-      "seccion": "Deportes"
+      "id": "yko3zc",
+      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
+      "seccion": "Automovilismo"
      }
     ]
    },
@@ -126,27 +126,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 55,
     "notas": [
      {
-      "id": "1a0h4cn",
-      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+      "id": "60lmll",
+      "titulo": "Manuel Ferrari detecta corrientes de agua subterránea en el país",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "wjmv5r",
+      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
+      "seccion": "Fútbol"
+     },
+     {
+      "id": "37gn8b",
+      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "seccion": "Deportes"
      },
      {
       "id": "14llvsv",
       "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
       "seccion": "Educación"
-     },
-     {
-      "id": "1d0gbk6",
-      "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "yko3zc",
-      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
-      "seccion": "Automovilismo"
      }
     ]
    },
@@ -157,12 +157,17 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 54,
+    "segundos": 51,
     "notas": [
      {
-      "id": "1llnb6t",
-      "titulo": "OSeBal realiza obras en la red de agua y advierte baja presión",
+      "id": "1a0h4cn",
+      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1d0gbk6",
+      "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
+      "seccion": "Deportes"
      },
      {
       "id": "1xsiv6s",
@@ -173,11 +178,6 @@
       "id": "1syf5mi",
       "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "5bynip",
-      "titulo": "Un automóvil choca a un ciclista en avenida Centenario",
-      "seccion": "Policiales"
      }
     ]
    }
@@ -192,9 +192,27 @@
      "marcada": false
     },
     {
+     "id": "ewg0bk",
+     "titulo": "Un campeón mundial de Tai Chi encabeza seminario",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "60lmll",
+     "titulo": "Manuel Ferrari detecta corrientes de agua subterránea en el país",
+     "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
      "id": "wjmv5r",
      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "hjsxdl",
+     "titulo": "Milei encabeza la reunión anual de la Sociedad Rural en Palermo",
+     "seccion": "Política",
      "marcada": false
     },
     {
