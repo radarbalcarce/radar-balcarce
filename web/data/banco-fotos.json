@@ -79585,7 +79585,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del recinto del Senado con legisladores y personal trabajando."
   },
-  "huella": "d5d5d0caad1adaae"
+  "huella": "d5d5d0caad1adaae",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "1h2lva6": {
   "archivo": "fotos-notas/1h2lva6.jpg",
@@ -79877,7 +79878,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "48682d94e0cee2e2"
+  "huella": "48682d94e0cee2e2",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "lyqwwp": {
   "intentado": true,
@@ -80113,7 +80115,8 @@
    "corresponde": "si",
    "descripcion": "Reunión del Consejo de la Magistratura en una mesa ovalada."
   },
-  "huella": "4eeeee8fac1d0f52"
+  "huella": "4eeeee8fac1d0f52",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "kxf4e1": {
   "archivo": "fotos-notas/kxf4e1.jpg",
@@ -81070,7 +81073,8 @@
    "corresponde": "si",
    "descripcion": "Vista general del salón de la Asamblea General de la ONU durante una sesión."
   },
-  "huella": "9b9595233a4b316e"
+  "huella": "9b9595233a4b316e",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "1fnd4pa": {
   "intentado": true,
@@ -81705,7 +81709,8 @@
    "corresponde": "si",
    "descripcion": "Retratos fotográficos de los involucrados en la causa de investigación"
   },
-  "huella": "a1a3b797b6b2d214"
+  "huella": "a1a3b797b6b2d214",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "b2uk9i": {
   "intentado": true,
@@ -85789,7 +85794,8 @@
    "corresponde": "si",
    "descripcion": "Un hombre observando bandejas de plantines en un invernadero."
   },
-  "huella": "65276b6cc1c7c3c3"
+  "huella": "65276b6cc1c7c3c3",
+  "ausenteDesde": "2026-11-06T21:05:02.350Z"
  },
  "e4qsvi": {
   "intentado": true,
@@ -87157,12 +87163,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El Tribunal de Disciplina de la AFA abre un expediente a Estudiantes",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-06T18:32:21.547Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
+  "cuando": "2026-11-06T21:01:58.738Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 2,
-  "errorGemini": "The operation was aborted due to timeout"
+  "intentosPorCupo": 3
  },
  "uvr8fk": {
   "archivo": "fotos-notas/uvr8fk.jpg",
@@ -88876,10 +88881,10 @@
   "origen": "ninguna",
   "titulo": "Franco Mastantuono elogia a Jude Bellingham y recuerda su paso por el Madrid",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T18:06:05.957Z",
+  "cuando": "2026-11-06T21:01:58.738Z",
   "intentos": 1,
   "fuentes": 4,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "13en1uy": {
   "intentado": true,
@@ -89583,5 +89588,170 @@
    "descripcion": "Funcionario hablando en una mesa de trabajo con micrófono."
   },
   "huella": "4e4e46d68383a74f"
+ },
+ "5jg9p6": {
+  "archivo": "fotos-notas/5jg9p6.jpg",
+  "medio": "Agrositio",
+  "credito": "Foto: Agrositio",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Milei ratifica ante la Sociedad Rural la baja progresiva de retenciones",
+  "enlace": "https://www.agrositio.com.ar/noticia/249238-milei-en-la-rural-trabajamos-sin-descanso-para-poder-eliminar-para-siempre-el-invento-nefasto-de-las-retenciones.html",
+  "imagenOriginal": "https://www.agrositio.com.ar/imagenesweb/contenidos/og_249238_28972709.jpg",
+  "razon": "Ambas fotos son adecuadas, pero la opción A presenta un encuadre ligeramente más dinámico y claro del orador, cumpliendo con todos los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Javier Milei dando un discurso en el estrado de la Sociedad Rural Argentina."
+  },
+  "huella": "01030e0a08322f2f"
+ },
+ "1xjo2f1": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Mon Laferte recibe un golpe en el rostro con un celular durante un show",
+  "razon": "La foto A es una captura de video de baja calidad y la foto B es una imagen de archivo que no corresponde al hecho ocurrido.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "r2xuqs": {
+  "archivo": "fotos-notas/r2xuqs.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Buenos Aires prepara una vigilia y un concierto de campanas para recibir al papa León XIV",
+  "enlace": "https://www.cronica.com.ar/sociedad/d/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730757/6aee2fe44bdf1_600_315!.jpg?s=45b65586ab6a08b2883ec3439ec6f5bb&d=1793934000",
+  "razon": "La foto B muestra una vista nocturna panorámica de la iglesia, ideal para ilustrar una vigilia, sin marcas ni personas.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea nocturna de una iglesia iluminada en un entorno urbano."
+  },
+  "huella": "0f0f0fcf4ecccd61"
+ },
+ "km3ws4": {
+  "archivo": "fotos-notas/km3ws4.jpg",
+  "medio": "Clarín",
+  "credito": "Foto: Clarín",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Unión y Vélez juegan hoy por la última fecha del Torneo Clausura 2026",
+  "enlace": "https://www.clarin.com/deportes/union-santa-fe-vs-velez-sarsfield-torneo-clausura-2026-vivo-hora-juegan-formaciones-ver-partido_0_82i9yLvQ16.html",
+  "imagenOriginal": "https://www.clarin.com/img/2025/09/27/mc9rSKYvrm_2000x1500__1.jpg",
+  "razon": "Es la única foto que muestra a un protagonista del partido en el campo de juego, sin marcas de agua, sin menores reconocibles y sin ser una pieza gráfica.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico de Unión en el campo de juego."
+  },
+  "huella": "8cee951d32169426"
+ },
+ "yx4lp7": {
+  "archivo": "fotos-notas/yx4lp7.jpg",
+  "medio": "Letra P",
+  "credito": "Foto: Letra P",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los hermanos Passaglia suman a Oscar Ahumada a su espacio político Hechos",
+  "enlace": "https://www.letrap.com.ar//politica/santiago-passaglia-y-manuel-passaglia-incorporaron-oscar-ahumada-hechos-n5428013",
+  "imagenOriginal": "https://media.letrap.com.ar/p/c7594111e894d06cbc54786eab0106dd/adjuntos/349/imagenes/100/202/0100202349/1200x630/smart/whatsapp-image-2026-11-05-at-24247-pm-1.jpeg",
+  "razon": "Es la foto con mejor encuadre y nitidez, sin marcas de agua ni elementos que impidan su publicación.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Los hermanos Passaglia junto a Oscar Ahumada sosteniendo una camiseta de fútbol en un estadio."
+  },
+  "huella": "b5b451d95165e4ec"
+ },
+ "fjbvuk": {
+  "archivo": "fotos-notas/fjbvuk.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El fútbol argentino define los clasificados a los octavos de final",
+  "enlace": "https://bolavip.com/ar/futbolargentino/asi-estan-la-tabla-anual-y-los-cruces-de-playoffs-del-clausura-en-plena-fecha-final",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/06165754/HWd3mHAXsAAokvc-1200x740.webp",
+  "razon": "Es la única imagen que muestra una escena real de fútbol, sin marcas de agua, sin ser una placa gráfica y sin menores reconocibles.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de un equipo festejando un gol abrazados.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de San Martín de San Juan celebran en la cancha."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "55653458494b4fe3"
+ },
+ "xign0n": {
+  "archivo": "fotos-notas/xign0n.jpg",
+  "medio": "0223 (Mar del Plata)",
+  "credito": "Foto: 0223 (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Noche de las Heladerías ofrece 2x1 en cuartos de kilo el 18 de noviembre",
+  "enlace": "https://www.0223.com.ar/nota/2026-11-5-18-28-14-sale-a-la-cancha-el-mani-split-en-la-noche-de-las-heladerias-habra-2x1-en-cuartos-de-kilo",
+  "imagenOriginal": "https://pxcdn.0223.com.ar/f/112026/1793914095472.jpg?&cw=600&ch=365",
+  "razon": "Es una imagen de alta calidad, sin marcas de agua ni personas, que ilustra perfectamente el producto central de la nota.",
+  "cuando": "2026-11-06T21:01:58.738Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Recipiente de helado con trozos de chocolate y dulce de leche."
+  },
+  "huella": "47d7f3ebcbd0f4d4"
  }
 }
