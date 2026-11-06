@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T17:07:11.488Z",
- "portada": 164,
+ "generado": "2026-11-06T17:35:21.561Z",
+ "portada": 165,
  "archivo": 500,
  "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-06T17:07:12.286Z",
+  "generado": "2026-11-06T17:35:22.226Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -105,27 +105,27 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 40,
     "notas": [
      {
-      "id": "13ae8gs",
-      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+      "id": "1pkqfef",
+      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Balcarce"
      },
      {
-      "id": "e7bi4o",
-      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+      "id": "1xd4thu",
+      "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
+      "seccion": "Automovilismo"
+     },
+     {
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
       "seccion": "Cultura y agenda"
      },
      {
       "id": "1r3wzjp",
       "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
       "seccion": "Deportes"
-     },
-     {
-      "id": "1xsiv6s",
-      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
-      "seccion": "Educación"
      }
     ]
    },
@@ -139,13 +139,13 @@
     "segundos": 48,
     "notas": [
      {
-      "id": "j7nvck",
-      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
+      "id": "13ae8gs",
+      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
       "seccion": "Balcarce"
      },
      {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+      "id": "e7bi4o",
+      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
       "seccion": "Cultura y agenda"
      },
      {
@@ -154,8 +154,8 @@
       "seccion": "Deportes"
      },
      {
-      "id": "1451xkf",
-      "titulo": "La Escuela Técnica prepara dos autos eléctricos para competir en Junín",
+      "id": "1xsiv6s",
+      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
       "seccion": "Educación"
      }
     ]
@@ -165,14 +165,20 @@
    "hoy": [],
    "cola": [
     {
-     "id": "13ae8gs",
-     "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+     "id": "1pkqfef",
+     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "j7nvck",
-     "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
+     "id": "1xd4thu",
+     "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
+     "seccion": "Automovilismo",
+     "marcada": false
+    },
+    {
+     "id": "13ae8gs",
+     "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
      "seccion": "Balcarce",
      "marcada": false
     },
@@ -183,9 +189,15 @@
      "marcada": false
     },
     {
-     "id": "1pkqfef",
-     "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+     "id": "j7nvck",
+     "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
      "seccion": "Balcarce",
+     "marcada": false
+    },
+    {
+     "id": "f9b3nl",
+     "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+     "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
@@ -198,18 +210,6 @@
      "id": "1r3wzjp",
      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
      "seccion": "Deportes",
-     "marcada": false
-    },
-    {
-     "id": "q3y2xu",
-     "titulo": "El intendente despide a Cristina Díaz y destaca su labor solidaria",
-     "seccion": "Balcarce",
-     "marcada": false
-    },
-    {
-     "id": "f9b3nl",
-     "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-     "seccion": "Cultura y agenda",
      "marcada": false
     }
    ],

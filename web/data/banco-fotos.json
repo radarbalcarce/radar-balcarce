@@ -79081,7 +79081,8 @@
    "corresponde": "si",
    "descripcion": "Virginia Aparicio hablando con un micrófono frente a un fondo del HCD Balcarce"
   },
-  "huella": "2c20332333e328f2"
+  "huella": "2c20332333e328f2",
+  "ausenteDesde": "2026-11-06T17:35:21.390Z"
  },
  "c3bdgi": {
   "archivo": "fotos-notas/c3bdgi.jpg",
@@ -86546,14 +86547,40 @@
   "huella": "638c968b9316a693"
  },
  "qvrt15": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/qvrt15.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Puntonueve (FM 100.9) no se usa todavía.",
-  "cuando": "2026-11-06T12:34:08.003Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1
+  "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/recuerdan-que-las-visitas-grupales-a-la-reserva-fangio-y-al-autodromo-deben-coordinarse-previamente",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2024/Autodromo_de_Balcarce_1.jpg",
+  "razon": "La foto A muestra una vista aérea clara del autódromo sin marcas de agua ni personas, siendo ideal para ilustrar la nota.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea del trazado del autódromo de Balcarce.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Vista aérea de la construcción de un autódromo en un entorno rural."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "f9ef779f6fab4959"
  },
  "wjmv5r": {
   "archivo": "fotos-notas/wjmv5r.jpg",
@@ -86596,10 +86623,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "El INDEC informa que la pobreza trepa al 34,4 por ciento en el país",
-  "razon": "Ambas fotos muestran menores reconocibles en primer plano.",
-  "cuando": "2026-11-06T13:02:23.966Z",
-  "intentos": 2,
-  "fuentes": 3
+  "razon": "Ambas fotos muestran a una menor de edad claramente identificable en primer plano, lo cual incumple la política de publicación de Radar Balcarce.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "intentos": 3,
+  "fuentes": 4
  },
  "14z21ay": {
   "intentado": true,
@@ -87025,23 +87052,64 @@
   "huella": "7cff9f8787878787"
  },
  "oal4ia": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/oal4ia.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-11-06T13:32:27.007Z",
-  "intentos": 1,
-  "fuentes": 1
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/la-carrera-homenaje-luis-vildoza-supero.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtBhsddREvd0jyfzxyPMJkzVpv7W42Tfsxrdh5UAmAPgUDuffkV6dD27HJ6FT2DHMu2qLTUK1w8n5RUbLoNHfiIDg6BBZDn49GQUU7lPJ-73fOOXYu4u_0ncXd6dPXI2_yBNzQXAxQkFdHBnPxzIYZDN_HZ06IN6jc_ISVVVR6mUy4gFPzXYzx-YyI7YM/w640-h426/carrera.jpg",
+  "razon": "Es la única foto disponible, cumple con todos los requisitos de calidad, no presenta marcas de agua, menores identificables ni elementos gráficos, y corresponde perfectamente al evento.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Largada de la carrera homenaje a Luis Vildoza bajo el arco inflable de la Subsecretaría de Deporte y Recreación."
+  },
+  "huella": "0b8bcfeeac984127"
  },
  "jqfkpf": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/jqfkpf.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Barracas Central y Racing cierran la fase regular del Torneo Clausura",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Clarín no se usa todavía.",
-  "cuando": "2026-11-06T13:32:27.007Z",
-  "intentos": 1,
-  "fuentes": 8,
-  "intentosPorCupo": 1
+  "enlace": "https://eleconomista.com.ar/deportes/barracas-central-vs-racing-torneo-clausura-2026-n99511",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2026/11/6aedb1e6c7409.png",
+  "razon": "Es la única imagen que muestra una acción de juego clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores identificables.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego entre un jugador de Racing y uno de Barracas Central.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Barracas Central y Racing disputando el balón en una acción de juego."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "120c0b0b45256131"
  },
  "1cormow": {
   "intentado": true,
@@ -87934,10 +88002,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-  "razon": "La única foto disponible incluye menores de edad reconocibles, por lo que no puede ser publicada.",
-  "cuando": "2026-11-06T16:04:38.212Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "Ambas fotos contienen menores de edad claramente identificables, por lo que ninguna cumple con la política editorial de Radar Balcarce.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "bwq963": {
   "archivo": "fotos-notas/bwq963.jpg",
@@ -87976,10 +88044,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Infórmese Primero (FM 104.9) (marca de agua u otro medio): no se elige ninguna.",
-  "cuando": "2026-11-06T16:04:38.212Z",
-  "intentos": 1,
-  "fuentes": 2
+  "razon": "Ambas fotos presentan una marca de agua sobreimpresa en forma de un cartel de mesa con el logo de 'Balcarce' que no pertenece a la escena real del evento, sino que es un elemento publicitario añadido por el medio.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "1r3wzjp": {
   "archivo": "fotos-notas/1r3wzjp.jpg",
@@ -88490,5 +88558,101 @@
   "cuando": "2026-11-06T17:04:20.897Z",
   "intentos": 1,
   "fuentes": 4
+ },
+ "l94zy2": {
+  "archivo": "fotos-notas/l94zy2.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Racing visita a Barracas Central en el cierre del Torneo Clausura",
+  "enlace": "https://www.ole.com.ar/futbol-primera/torneo-clausura-racing-barracas-independiente-tabla-anual-copas_0_cKprPIwAzT.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/10/26/4Juj3dIZS_2000x1500__1.jpg",
+  "razon": "Es la única fotografía que muestra una escena real del partido sin marcas de agua, elementos gráficos sobreimpresos ni ser un montaje de tipo 'vs'.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Arquero de Racing saludando a la tribuna durante un partido."
+  },
+  "huella": "7513b5999b999918"
+ },
+ "yl3nq6": {
+  "archivo": "fotos-notas/yl3nq6.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Liga Balcarceña participa de la apertura de una sede del Consejo Federal",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/la-liga-balcarcena-participo-de-la.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQiktPv7NWvYrCdX_sn6P4q1zhVm9mbNRUPAMYO-KndYVqTgT1zF7ebwSzNfiUorkPRIEDNlBu9pH1Pf7aN40D0XhBBFFgB5u9B9K_HT8SuMLQ92mepoT2YHtAHTxq20wDWagG7NsXNOi1ZU7sk4GcsdsEQX9kS7V6ugtrWvrE-2ugeV8LYEs6DKfV5Ks/w640-h480/liga%20en%20tandil.jpg",
+  "razon": "Es la única imagen disponible, cumple con los requisitos de calidad, no presenta marcas de agua, menores ni elementos gráficos, y corresponde al hecho narrado.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Tres hombres sentados en una mesa frente a un cartel del Consejo Federal de Fútbol Argentino."
+  },
+  "huella": "9181a1c192f268f4"
+ },
+ "odsw24": {
+  "archivo": "fotos-notas/odsw24.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Provincia implementa un sistema digital obligatorio para empleadores",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/la-provincia-obligara-los-empleadores.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDu2UZ3I3Kh2KHvbC84O4O3LkRKWSJUGa0NyWnFxnvLZ8mD1QWKKMl8Bcd4_Nrmn27Bo4AgH95VEIhGZgLZcEVbssDArK9uX6iFJ0_i58gKKweYOZDn5YfXLvzm2P2yZcAIH5pmMlNYXbSUvQlDUu46ZYfR1__YacChyphenhyphenuxmFy8FRCGGPm51j-hwySKpvw/w640-h426/el-ministro-trabajo-bonaerense-walter-correa.jpg",
+  "razon": "La foto A muestra una reunión de trabajo formal relacionada con la temática, sin marcas de agua ni elementos que impidan su publicación, mientras que la foto B es una imagen genérica de un supermercado que no ilustra el hecho específico.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Reunión de trabajo con funcionarios y presencia de la bandera de la Provincia de Buenos Aires."
+  },
+  "huella": "0e0e3725776b0707"
+ },
+ "jcz73z": {
+  "archivo": "fotos-notas/jcz73z.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Gobierno establece feriados por la visita del papa León XIV al país",
+  "enlace": "https://www.eldestapeweb.com/economia/pasa-si-trabajo-cordoba-vivo-santa-fe-feriado-me-corresponde-visita-papa-leon-xiv-argentina-2026115155040",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793877760751.jpg?&cw=1600&ch=900",
+  "razon": "Es la única imagen que muestra al Papa de forma clara, sin gente alrededor, sin marcas de agua y con buena calidad.",
+  "cuando": "2026-11-06T17:33:13.537Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV sentado en una silla saludando."
+  },
+  "huella": "d9d9282206062e1e"
  }
 }
