@@ -58,4 +58,4 @@ jobs:
 
       - name: Lo leído NO se guarda en el repositorio
         if: env.ACCION == 'leer'
-        run: echo "El repositorio es público: lo que contesta el dueño no se sube (5/11/2026). Ver v3/nucleo/REGLAS.md."
+        run: echo 'El repositorio es publico, por eso lo que contesta el dueno no se sube.'
