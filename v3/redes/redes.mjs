@@ -16,6 +16,7 @@ import * as dbp from './piezas-db.mjs';
 import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mjs';
 import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
 import { medirDia, compararSemanas, lineasDeLaComparacion } from './estadisticas.mjs';
+import { claveDeVideo, servirVideo } from './video-publico.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -308,6 +309,12 @@ export function crearRedes(deps = {}) {
       const opciones = { simulado, redes: Array.isArray(cuerpo?.redes) ? cuerpo.redes.map(String) : [], ahora: reloj() };
       if (cuerpo?.ahora && simulado) { const d = new Date(cuerpo.ahora); if (!Number.isNaN(d.getTime())) opciones.ahora = d; }
       return json({ activas: !simulado, ...(await planearEnlaces(env, opciones)) });
+    }
+    // El video listo para Buffer (TikTok, YouTube, X): listos/<huella>/<nombre>.mp4 del depósito del render; GET, HEAD y Range (video-publico.mjs). Reemplaza la ruta /video/ del Worker viejo de tareas.
+    if ((pedido.method === 'GET' || pedido.method === 'HEAD') && url.pathname.startsWith('/video/')) {
+      const clave = claveDeVideo(url.pathname);
+      if (!clave) return json({ error: 'no encontrado' }, 404);
+      return servirVideo(pedido, env.PLACAS, clave);
     }
     // La placa dibujada, para que Meta la baje (pública): placas/<id>-<huella>.jpg en el depósito R2.
     if (pedido.method === 'GET' && url.pathname.startsWith('/placa/')) {

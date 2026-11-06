@@ -22,6 +22,7 @@ import { paginaAgenda, paginaDeEvento, paginaHoy, paginaUtil, paginaTablas, pagi
 import { ultimasJson, indiceJson, serviciosJson, llmsTxt, sitemapNoticias } from './vistas/agentes.mjs';
 import { NOTAS as NOTAS_VIEJAS, SECCIONES as SECCIONES_VIEJAS } from './redirecciones-viejas.mjs';
 import { RUTA_DE_COPIA, PREFIJO_R2_DE_COPIAS } from './fotos-copia.mjs';
+import { destinoDeRestoViejo } from './restos-del-viejo.mjs';
 
 // Cuánto vive cada cosa en caché (segundos): [lo que ve el navegador, lo que guarda Cloudflare].
 export const CACHE = {
@@ -459,6 +460,9 @@ export function crearSitio({ traer = (...a) => globalThis.fetch(...a), ahora = (
         return new Response(pedido.method === 'HEAD' ? null : bytes, { status: 200, headers: { 'content-type': 'image/png', 'cache-control': 'public, max-age=86400, s-maxage=604800', 'content-length': String(bytes.length) } });
       }
       if (url.pathname === '/panel') return new Response(null, { status: 301, headers: { location: '/panel/', 'cache-control': 'public, max-age=3600' } });
+      // Direcciones sueltas del sitio viejo (índice de notas, imágenes de vista previa): 301 a lo que las reemplaza (restos-del-viejo.mjs).
+      const resto = destinoDeRestoViejo(url.pathname);
+      if (resto) return new Response(null, { status: 301, headers: { location: resto, 'cache-control': 'public, max-age=3600' } });
       const fijo = await servirEstatico(pedido, env, url.pathname);
       // Si el depósito todavía no tiene el archivo (antes de subirlo), el sitio viejo lo tiene; con RESPALDO_VIEJO = "no", 404 propio.
       if (fijo) return fijo.status === 404 ? alViejo(pedido, env, traer, () => fijo) : fijo;

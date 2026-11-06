@@ -311,7 +311,7 @@ export async function dependenciasReales(env = process.env) {
       const r = await armarVideo(armarEscenaDeVideo(lista), destino, { voz, subtitulos });
       return { ...r, fotosQueNoBajaron };
     },
-    // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de tareas en /video/<huella>/<archivo>.mp4.
+    // Buffer pide una dirección pública del video: se sube al depósito R2 del render (listos/<huella>/<archivo>.mp4) y lo sirve el Worker de redes (video-publico.mjs) en /video/<huella>/<archivo>.mp4.
     // Un cuadro del video como JPEG (la tapa del reel).
     cuadro: async (mp4, ms) => {
       const { default: ffmpeg } = await import('ffmpeg-static');
@@ -340,7 +340,7 @@ export async function dependenciasReales(env = process.env) {
     subirVideo: async (archivo, { huella, nombre }) => {
       const r2 = clienteR2({ cuenta: env.CLOUDFLARE_ACCOUNT_ID, bucket: env.R2_RENDER || 'radar-render', accessKey: env.R2_ACCESS_KEY_ID, secretKey: env.R2_SECRET_ACCESS_KEY });
       await r2.guardar(`listos/${huella}/${nombre}`, typeof archivo === 'string' ? fs.readFileSync(archivo) : archivo, 'video/mp4'); // llega el mp4 ya en memoria (o, si no, su ruta)
-      return `https://radar-balcarce-tareas.radarbalcarce.workers.dev/video/${encodeURIComponent(huella)}/${encodeURIComponent(nombre)}`;
+      return `${(env.REDES_URL || DIRECCION_DE_LAS_REDES).replace(/\/$/, '')}/video/${encodeURIComponent(huella)}/${encodeURIComponent(nombre)}`;
     },
     // Todo reel de 3.0 habla con voz generada: TikTok lo marca como «contenido con IA» (REGLAS § 10).
     publicarEnBuffer: (o) => publicarReel({ ...o, ia: true }, { env, fetchFn: fetch }),
