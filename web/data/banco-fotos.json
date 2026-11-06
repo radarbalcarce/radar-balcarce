@@ -81220,8 +81220,7 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "893929ac2c262f22",
-  "ausenteDesde": "2026-11-05T11:34:54.123Z"
+  "huella": "893929ac2c262f22"
  },
  "1favj63": {
   "archivo": "fotos-notas/1favj63.jpg",
@@ -83648,10 +83647,10 @@
   "origen": "ninguna",
   "titulo": "Lanzan una colecta de golosinas para la visita de Papá Noel a Protección",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Infórmese Primero (FM 104.9) no se usa todavía.",
-  "cuando": "2026-11-05T23:32:28.602Z",
+  "cuando": "2026-11-06T06:02:07.588Z",
   "intentos": 1,
   "fuentes": 2,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "3ugp27": {
   "archivo": "fotos-notas/3ugp27.jpg",
@@ -84382,10 +84381,10 @@
   "origen": "ninguna",
   "titulo": "Boca, Argentinos y Rosario Central definen el título de la tabla anual",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Diario Popular no se usa todavía.",
-  "cuando": "2026-11-06T01:33:42.071Z",
+  "cuando": "2026-11-06T06:02:07.588Z",
   "intentos": 1,
-  "fuentes": 3,
-  "intentosPorCupo": 1
+  "fuentes": 4,
+  "intentosPorCupo": 2
  },
  "123xcad": {
   "archivo": "fotos-notas/123xcad.jpg",
@@ -85151,7 +85150,8 @@
    "corresponde": "si",
    "descripcion": "El Papa León XIV saludando."
   },
-  "huella": "1b9dbd2e17171707"
+  "huella": "1b9dbd2e17171707",
+  "ausenteDesde": "2026-11-06T06:03:21.408Z"
  },
  "1kyp7wj": {
   "archivo": "fotos-notas/1kyp7wj.jpg",
@@ -85389,5 +85389,146 @@
    "descripcion": "El Papa León XIV saludando."
   },
   "huella": "1b9dbd2e17171707"
+ },
+ "k6mn6b": {
+  "archivo": "fotos-notas/k6mn6b.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES aplica un aumento del 1,93 por ciento en jubilaciones y pensiones",
+  "enlace": "https://tn.com.ar/economia/2026/11/05/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-5-de-noviembre/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/anses-quienes-cobran-jubilaciones-auh-y-asignaciones-este-jueves-5-de-noviembre-foto-anses-KFQC2YR5SBCSZKCSIDI5LSG46U.jpg?auth=2aa7cb9c36ba1caa2dc8410e7e0337121a4ae6dd337a4bc6c4e0f025e520b3e4&width=1023",
+  "razon": "Es la única foto fotoperiodística limpia, sin marcas agregadas, menores ni montajes gráficos que ilustra adecuadamente una temática de jubilaciones.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos adultos mayores junto a una camioneta oficial de ANSES"
+  },
+  "huella": "d878fcad340c9c9c"
+ },
+ "17ta9n7": {
+  "archivo": "fotos-notas/17ta9n7.webp",
+  "medio": "Ruralnet",
+  "credito": "Foto: Ruralnet",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Entre Ríos declara la emergencia agropecuaria por las inundaciones",
+  "enlace": "https://ruralnet.com.ar/emergencia-agropecuaria-entre-rios-2026/",
+  "imagenOriginal": "https://ruralnet.com.ar/wp-content/uploads/2026/11/ganado-islas-inundaciones-entre-rios-ruralnet.webp",
+  "razon": "La foto A muestra el impacto de la inundación en el ganado sin personas presentes, cumpliendo con los criterios de calidad y sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Ganado pastando en una zona inundada."
+  },
+  "huella": "30b881d192361a5a"
+ },
+ "1v72rbg": {
+  "archivo": "fotos-notas/1v72rbg.jpg",
+  "medio": "Agroempresario",
+  "credito": "Foto: Agroempresario",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INTA Manfredi presenta avances en mejoramiento genético de alfalfa en China",
+  "enlace": "https://agroempresario.com/publicacion/123410/mejoramiento-genetico-de-alfalfa-el-desarrollo-del-inta-manfredi-llega-a-china/",
+  "imagenOriginal": "https://cdn.agroempresario.com/images/posts/3ab5382db1b7b4af3fc74bb74963b0622ceade39a1f77f28_840.jpg",
+  "razon": "La foto A muestra a una persona trabajando en un invernadero, lo cual es pertinente para la nota sobre mejoramiento genético, mientras que la B es una imagen genérica de un campo de alfalfa.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Un hombre observando bandejas de plantines en un invernadero."
+  },
+  "huella": "65276b6cc1c7c3c3"
+ },
+ "e4qsvi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Desarrollan un sistema de inteligencia artificial para anticipar heladas",
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Ruralnet (parece una foto de stock); la de Agrositio (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "nhni91": {
+  "archivo": "fotos-notas/nhni91.jpg",
+  "medio": "Infobrisas (Radio Brisas)",
+  "credito": "Foto: Infobrisas (Radio Brisas)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Reubican el vallado de protección para una elefanta marina y su cría",
+  "enlace": "https://www.infobrisas.com/noticias/2026/11/04/113751-reubicaron-el-cerco-para-proteger-a-un-elefante-marino-y-su-cria-en-la-costa",
+  "imagenOriginal": "https://infobrisas-s3.cdn.net.ar/s3i233/2026/11/infobrisas/images/02/84/53/2845307_6546a9efcb991c84cc296a2cc896bdec6354461b879d3b121b0c33d5e7e5da4f/lg.webp?_v=v3-129",
+  "razon": "Es la imagen con mejor calidad, nitidez y encuadre, sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elefanta marina y su cría en la orilla de la playa."
+  },
+  "huella": "68002365e2090516"
+ },
+ "lk2k4s": {
+  "archivo": "fotos-notas/lk2k4s.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Yael Falcón Pérez dirige la final de la Supercopa Argentina",
+  "enlace": "https://www.ole.com.ar/futbol-primera/supercopa-argentina-arbitro-yaelfalconperez-reemplazo-nicolasramirez-estudiantes-independienterivadavia_0_WEYZWIy7j9.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/09/06/_qJYupzMU_2000x1500__1.jpg",
+  "razon": "Es la única imagen que muestra al protagonista de la nota de forma clara, sin marcas de agua, sin menores y con buena calidad.",
+  "cuando": "2026-11-06T06:02:07.588Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El árbitro Yael Falcón Pérez dirigiendo un partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Árbitro de fútbol con uniforme naranja y silbato señalando con el dedo."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "92514d2415cf8e4e"
  }
 }
