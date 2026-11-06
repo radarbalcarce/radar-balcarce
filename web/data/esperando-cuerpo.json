@@ -1,7 +1,39 @@
 {
- "generado": "2026-11-06T07:04:37.177Z",
+ "generado": "2026-11-06T08:04:19.643Z",
  "intentosMaximos": 3,
  "notas": [
+  {
+   "id": "1a0h4cn",
+   "titulo": "La Cooperativa Eléctrica advierte por posibles estafas de falsos trabajadores",
+   "copete": "La Cooperativa de Electricidad General Balcarce Ltda. emitió una advertencia dirigida a sus asociados ante la presencia de personas que se presentan en domicilios particulares haciéndose pasar por trabajadores de la entidad. La alerta surgió luego de que la prestataria tomara…",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-05T13:12:34.000Z",
+   "fuentes": [
+    {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/noticias/45275-la-cooperativa-electrica-advierte-por-posibles-estafas-de-falsos-trabajadores/",
+     "fecha": "2026-11-05T14:05:12.414Z"
+    },
+    {
+     "medio": "Infórmese Primero (FM 104.9)",
+     "enlace": "http://www.informeseprimero.com.ar/2026/11/advierten-por-personas-que-se-hacen.html",
+     "fecha": "2026-11-05T14:05:12.414Z"
+    },
+    {
+     "medio": "Puntonueve (FM 100.9)",
+     "enlace": "https://puntonueve.com.ar/alerta-por-posibles-estafas-la-cooperativa-electrica-advierte-sobre-personas-que-se-hacen-pasar-por-trabajadores/",
+     "fecha": "2026-11-05T13:12:34.000Z"
+    },
+    {
+     "medio": "Radio Gabal (FM 104.1)",
+     "enlace": "https://www.radiogabal.com.ar/index.php/comunidad/cooperativa-electrica-alerto-por-posibles-estafas-de-personas-que-se-hacen-pasar-por-trabajadores",
+     "fecha": "2026-11-05T13:58:10.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
   {
    "id": "1vwquy1",
    "titulo": "GP Brasil F1: Verstappen y Ferrari van por todo, Franco Colapinto por la revancha",
@@ -20,8 +52,8 @@
      "fecha": "2026-11-06T05:43:17.000Z"
     }
    ],
-   "intentos": 1,
-   "motivo": "cuerpo: 3 problemas (antecedente, nombre, promesa): el cuerpo usa \"formula\", que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 247 ",
+   "intentos": 2,
+   "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"formula\", que sale de una nota anterior, como si fuera de hoy",
    "maximo": 3
   },
   {
@@ -171,6 +203,28 @@
    "maximo": 4
   },
   {
+   "id": "4ruhpf",
+   "titulo": "La carta abierta de Iliana Calabró a Juan Carlos Calabró a 13 años de su muerte: \"Cada abrazo que no veo pero siento\"",
+   "copete": "La conductora le dedicó unas emotivas palabras a su padre, en uno de los aniversarios de su fallecimiento.",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-05T16:01:58.000Z",
+   "fuentes": [
+    {
+     "medio": "Perfil",
+     "enlace": "https://perfil.com/entretenimiento/la-carta-abierta-de-iliana-calabro-a-juan-carlos-calabro-a-13-anos-de-su-muerte-cada-abrazo-que-no-veo-pero-siento-aEKrz0Z1PT2v",
+     "fecha": "2026-11-05T16:01:58.000Z"
+    },
+    {
+     "medio": "El Destape",
+     "enlace": "https://www.eldestapeweb.com/espectaculos/conmovedor-mensaje-iliana-calabro-13-anos-muerte-padre-cada-vez-2026115152813",
+     "fecha": "2026-11-05T18:28:13.912Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+   "maximo": 3
+  },
+  {
    "id": "1gqu7ao",
    "titulo": "Crisis total en BGH: elminará 250 empleos de un plumazo en planta de Tierra del Fuego",
    "copete": "La compañía anunció un ajuste de personal inédito, que impacta a cientos de familias y agrava la crisis en el sector electrónico de la provincia",
@@ -258,14 +312,6 @@
   }
  ],
  "descartadas": [
-  {
-   "id": "1s1p1qy",
-   "titulo": "Prepara el Museo J. M. Fangio celebración “40º Aniversario”",
-   "seccion": "Automovilismo",
-   "fecha": "2026-11-06T00:55:34.000Z",
-   "intentos": 3,
-   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (antecedente): el copete usa 4, que sale de una nota anterior, como si fuera de hoy"
-  },
   {
    "id": "117w1e3",
    "titulo": "“Historia Natural de los Gliptodontes” se presentó en el muhba",
