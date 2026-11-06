@@ -46259,9 +46259,7 @@
   "intentosPorCupo": 3
  },
  "19r8vz8": {
-  "archivo": "fotos-notas/19r8vz8.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Nicolás Ramírez dirige el Superclásico entre Boca y River",
@@ -46281,7 +46279,8 @@
    "descripcion": "Primer plano del árbitro Nicolás Ramírez señalando con el silbato en la boca"
   },
   "huella": "06c7673395f31818",
-  "ausenteDesde": "2026-10-30T10:34:03.615Z"
+  "intentado": true,
+  "borrada": true
  },
  "1cq1p5j": {
   "archivo": "fotos-notas/1cq1p5j.jpg",
@@ -54962,9 +54961,7 @@
   "ausenteDesde": "2026-10-31T01:34:49.077Z"
  },
  "vn411t": {
-  "archivo": "fotos-notas/vn411t.jpg",
   "medio": "Canal 26",
-  "credito": "Foto: Canal 26",
   "licencia": null,
   "origen": "medio",
   "titulo": "Anses reprograma el calendario de pagos de noviembre de 2026",
@@ -54984,7 +54981,8 @@
    "descripcion": "Fachada y entrada de una oficina de ANSES con arboles"
   },
   "huella": "8f8b034c4a4c6ea2",
-  "ausenteDesde": "2026-10-30T11:03:23.173Z"
+  "intentado": true,
+  "borrada": true
  },
  "19h29s0": {
   "intentado": true,
@@ -76632,7 +76630,8 @@
   "enlace": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9-Mar%C3%ADa-Minella-Stadium_present.JPG",
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Jos%C3%A9-Mar%C3%ADa-Minella-Stadium_present.JPG/1280px-Jos%C3%A9-Mar%C3%ADa-Minella-Stadium_present.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:José-María-Minella-Stadium present.JPG",
-  "cuando": "2026-11-04T06:11:22.479Z"
+  "cuando": "2026-11-04T06:11:22.479Z",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
  },
  "lheq9q": {
   "archivo": "fotos-notas/lheq9q.jpg",
@@ -77295,7 +77294,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano de un procedimiento médico utilizando un sistema de aspiración."
   },
-  "huella": "864dc8e8a0c09408"
+  "huella": "864dc8e8a0c09408",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
  },
  "1jz6iqp": {
   "archivo": "fotos-notas/1jz6iqp.jpg",
@@ -77838,7 +77838,8 @@
    "corresponde": "si",
    "descripcion": "El equipo de River Plate posando para la formación inicial"
   },
-  "huella": "4946a4a6445ab015"
+  "huella": "4946a4a6445ab015",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
  },
  "pznbp3": {
   "archivo": "fotos-notas/pznbp3.jpg",
@@ -78984,13 +78985,28 @@
   "huella": "3c3d2c206020302a"
  },
  "van4hi": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/van4hi.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Karol G presenta su nuevo álbum en un concierto por la plataforma TikTok",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 2
+  "enlace": "https://www.minutouno.com/espectaculos/karol-g-presentara-su-nuevo-album-un-show-exclusivo-tiktok-live-que-hora-verlo-argentina-n6341463",
+  "imagenOriginal": "https://media.minutouno.com/p/a89e7a3e3a166ef8e6198008692f66d9/adjuntos/150/imagenes/043/747/0043747729/1200x675/685x395:705x415/karol-g.jpg",
+  "razon": "La foto A muestra claramente a Karol G en un concierto, con buen encuadre y sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Karol G sonriendo haciendo un corazón con las manos en un recital"
+  },
+  "huella": "6c1e1a299b9ec787"
  },
  "14xv8t8": {
   "archivo": "fotos-notas/14xv8t8.jpg",
@@ -79269,11 +79285,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
-  "razon": "Groq también falló: HTTP 403: Forbidden (Gemini: HTTP 400: User location is not supported for the API use.)",
-  "cuando": "2026-11-05T15:02:26.038Z",
-  "intentos": 3,
-  "fuentes": 3,
-  "errorGemini": "HTTP 400: User location is not supported for the API use."
+  "razon": "Todas las fotos disponibles muestran a un menor de edad reconocible en el podio, por lo que no se pueden publicar según la política del medio.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "intentos": 4,
+  "fuentes": 3
  },
  "1pm4shu": {
   "archivo": "fotos-notas/1pm4shu.jpg",
@@ -81448,7 +81463,8 @@
    "corresponde": "si",
    "descripcion": "Vista aérea de la planta industrial de Pauny."
   },
-  "huella": "0f2f37773b7b7169"
+  "huella": "0f2f37773b7b7169",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
  },
  "15wunoe": {
   "archivo": "fotos-notas/15wunoe.jpg",
@@ -82160,15 +82176,28 @@
   "huella": "3535d5164ccd2cac"
  },
  "pakl31": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/pakl31.jpg",
+  "medio": "QZ Noticias (Mar del Plata)",
+  "credito": "Foto: QZ Noticias (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "San Juan y Mar del Plata definen sus representantes para el Pre Cosquín",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-05T18:04:26.052Z",
-  "intentos": 2,
-  "fuentes": 3,
-  "intentosPorCupo": 2,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.qznoticias.com/cultura-y-espectaculos/tras-tres-jornadas-de-competencia-el-pre-cosquin-eligio-a-sus-representantes-para-2027",
+  "imagenOriginal": "https://n2.cdnartic.ar/r3JfQpzfmIw7tKJ33yB5Nbh4ilc=/1200x630/smart/filters:format(jpeg):quality(70)/https://qznoticiascdn.eleco.com.ar/media/2026/11/pre_cosquin.webp",
+  "razon": "Es la única foto que corresponde al evento, es clara, muestra la actuación sin marcas añadidas y no incluye menores reconocibles.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Bailarines de malambo actuando en un escenario."
+  },
+  "huella": "2601a1232021252c"
  },
  "7okww": {
   "archivo": "fotos-notas/7okww.jpg",
@@ -86275,7 +86304,8 @@
    "corresponde": "si",
    "descripcion": "Monoplaza de Fórmula 1 en pista de frente"
   },
-  "huella": "e0b1e4ececc6c4c6"
+  "huella": "e0b1e4ececc6c4c6",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
  },
  "xrrljj": {
   "archivo": "fotos-notas/xrrljj.jpg",
@@ -86299,6 +86329,157 @@
    "corresponde": "si",
    "descripcion": "Persona sosteniendo un cartel institucional de ANSES."
   },
-  "huella": "767676f2d6d3d6b9"
+  "huella": "767676f2d6d3d6b9",
+  "ausenteDesde": "2026-11-06T11:04:01.688Z"
+ },
+ "638bzn": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La ANSES confirma el calendario de pagos de noviembre con aumento",
+  "razon": "Ninguna foto sirve: la A es una placa gráfica, la B muestra una franja superpuesta que interrumpe la escena y la C es un fotomontaje de billetes sobre la fachada.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "79yrvi": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Maluma deja nuevas pistas sobre su próxima visita a Buenos Aires y Córdoba",
+  "razon": "La única foto válida tiene marca de agua del medio (A) y la otra es una foto de stock/retrato promocional sin relación directa con el hecho (B).",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "5o7an1": {
+  "archivo": "fotos-notas/5o7an1.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Santiago del Moro conducirá Bailando con las estrellas en Telefe en 2027",
+  "enlace": "https://www.eldia.com/espectaculos/del-moro-estara-al-frente-de-bailara-con-las-estrellas-espectaculos_1793856368",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793856763713.jpg?&cw=1200&ch=630",
+  "razon": "Es la única foto que muestra a Santiago del Moro de cuerpo entero en un estudio de televisión con buena calidad y sin marcas añadidas.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Santiago del Moro sonriente en un estudio televisivo."
+  },
+  "huella": "ecc74645062eae0d"
+ },
+ "1v006xs": {
+  "archivo": "fotos-notas/1v006xs.jpg",
+  "medio": "Agroempresario",
+  "credito": "Foto: Agroempresario",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El IPCVA participa con catorce frigoríficos en la feria CIIE de Shanghái",
+  "enlace": "https://agroempresario.com/publicacion/123478/la-carne-vacuna-argentina-refuerza-su-presencia-en-china/",
+  "imagenOriginal": "https://cdn.agroempresario.com/images/posts/be214c7527b46c3e687b352d7a883c15e23cea5d8abc41cf_840.jpg",
+  "razon": "Muestra claramente platos de carne vacuna en la feria con delantal institucional, sin marcas de agua ni personas menores.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona sosteniendo platos con cortes de carne cocida en la feria."
+  },
+  "huella": "5266646555d19460"
+ },
+ "1p6k64k": {
+  "archivo": "fotos-notas/1p6k64k.jpg",
+  "medio": "La Tecla",
+  "credito": "Foto: La Tecla",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Bancos cierran cinco días por feriados y el Día del Bancario",
+  "enlace": "https://www.latecla.info/170948-bancos-cerrados-por-cinco-dias-ultima-jornada-para-operar-en-sucursales",
+  "imagenOriginal": "https://latecla-repos-dw6.aplinews.com/archivos/noticias/fotografias/217551_3.jpg",
+  "razon": "Es la única foto adecuada que muestra una fila frente a cajeros automáticos con un cartel de cerrado, sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas haciendo fila frente a cajeros automáticos con un cartel de cerrado."
+  },
+  "huella": "cc4c2e5e1e171b1a"
+ },
+ "18spf8r": {
+  "archivo": "fotos-notas/18spf8r.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV llega a la Argentina y detalla su agenda oficial",
+  "enlace": "https://www.cronista.com/informacion-gral/la-agenda-del-papa-leon-xiv-en-argentina-el-domingo-8-de-noviembre-llegada-encuentro-con-milei-y-palacio-libertad/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/DHENL7EDSNEPRN565MM4ZLZFWQ.jpg?auth=6869ae5ab74b0f40bec08a379f1064fd2aacd9d00f6d4109a9766828c2d48708&height=630&width=1200&quality=70&focal=995%2C364",
+  "razon": "La foto B muestra claramente al papa León XIV llegando y saludando, sin marcas de agua ni otros impedimentos.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El papa León XIV saludando al llegar"
+  },
+  "huella": "c82c2c24060e4ad4"
+ },
+ "r7p2ba": {
+  "archivo": "fotos-notas/r7p2ba.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Despiden los restos de la docente Nancy Godoy en Esquina",
+  "enlace": "https://www.minutouno.com/sociedad/el-ultimo-adios-nancy-godoy-despidieron-los-restos-la-docente-un-emotivo-velatorio-publico-n6341812",
+  "imagenOriginal": "https://media.minutouno.com/p/dc513022e720edd96d30c554a89ba85f/adjuntos/150/imagenes/043/749/0043749110/1200x675/smart/velorio-nancy-godoy.jpg",
+  "razon": "Muestra el velatorio y despedida de los restos de la docente sin marcas de medios ni menores reconocibles.",
+  "cuando": "2026-11-06T11:03:00.200Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas despidiendo el féretro en el servicio fúnebre al aire libre",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Portadores cargan un ataúd con flores en un funeral al aire libre."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "638c968b9316a693"
  }
 }
