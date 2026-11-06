@@ -595,6 +595,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     if (!tocan.length || hechasHoy >= porDia) { r.ilustraciones.imagenesHoy = hechasHoy; return; }
 
     const geminiIlustrar = gem.para('ilustracion');
+    // El último error de ilustración (cuándo y qué) queda en la base y sale en /salud (`ilustraciones.ultimoError`): sin esto no se ve por qué no hay imágenes.
+    const anotarError = async (texto) => { try { await db.anotarError(env, '_ilustracion', texto, c.ahoraISO); } catch (e) { error('ilustrar: anotar error', e); } };
     const cupo = async () => {
       if (hechasHoy >= porDia) return false;
       hechasHoy += 1;
@@ -613,11 +615,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
           await db.ponerFotoDeNota(env, n.id, foto, IL.conIlustracionHecha(n.verificacion, { prompt: res.prompt, control: res.control, ahoraISO: c.ahoraISO }));
           r.ilustraciones.hechas += 1;
         } else if (res.final) {
+          await anotarError(`${n.id}: ${res.motivo}`);
           await marcar({ final: true, motivo: String(res.motivo).slice(0, 160) });
           r.ilustraciones.finales += 1;
         } else if (res.sinCupo) {
           break; // se acabaron las imágenes de hoy: ninguna nota gasta un intento
         } else {
+          await anotarError(`${n.id}: ${res.motivo}`);
           const fallos = (Number(il.fallos) || 0) + 1;
           await marcar(fallos >= IL.FALLOS_TECNICOS_MAXIMOS ? { final: true, fallos, motivo: `técnico: ${res.motivo}`.slice(0, 160) } : { fallos, motivo: String(res.motivo).slice(0, 160) });
           r.ilustraciones.fallos += 1;
@@ -625,6 +629,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
       } catch (e) {
         if (e.message === 'tope-diario') { r.topeDiario = true; break; }
         error(`ilustrar ${n.id}`, e);
+        await anotarError(`${n.id}: error: ${String(e?.message ?? e)}`);
         r.ilustraciones.fallos += 1;
         try { await marcar({ fallos: (Number(il.fallos) || 0) + 1, motivo: `error: ${String(e?.message ?? e)}`.slice(0, 160) }); } catch (e2) { error(`ilustrar: anotar fallo de ${n.id}`, e2); }
       }
@@ -720,7 +725,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     try {
       const cuenta = await db.contarIlustradas(env, new Date(new Date(c.ahoraISO).getTime() - 7 * 86400000).toISOString());
       const imagenesHoy = (await db.usoDelDia(env, `ilustrar-${c.dia}`)).reduce((s, f) => s + f.pedidos, 0);
-      ilustraciones = { activas: !!(env.FOTOS && env.AI), total: cuenta.total, ultimos7d: cuenta.desde, imagenesHoy, topePorDia: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_DIA, ILUSTRAR_POR_DIA)), topePorVuelta: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_VUELTA, ILUSTRAR_POR_VUELTA)) };
+      const ult = estados.find((e) => e.fuente_id === '_ilustracion');
+      ilustraciones = { activas: !!(env.FOTOS && env.AI), total: cuenta.total, ultimos7d: cuenta.desde, imagenesHoy, topePorDia: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_DIA, ILUSTRAR_POR_DIA)), topePorVuelta: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_VUELTA, ILUSTRAR_POR_VUELTA)), ultimoError: ult?.ultima_falla ? String(ult.ultima_falla).slice(0, 200) : null };
     } catch (e) { console.error(`salud ilustraciones: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).

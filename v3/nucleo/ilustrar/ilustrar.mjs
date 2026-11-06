@@ -342,6 +342,10 @@ export function aBase64(bytes) {
 }
 
 const esJpeg = (b) => !!b && b.length > 12 && b[0] === 0xFF && b[1] === 0xD8 && b[2] === 0xFF;
+const esPng = (b) => !!b && b.length > 12 && b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4E && b[3] === 0x47;
+
+/** El tipo de la imagen por sus primeros bytes: 'image/jpeg', 'image/png' o null. Workers AI (FLUX schnell) devuelve PNG; el viejo aceptaba las dos. */
+export const tipoDeImagen = (b) => (esJpeg(b) ? 'image/jpeg' : esPng(b) ? 'image/png' : null);
 
 /**
  * La visión mira la imagen terminada. Nunca tira salvo 'tope-diario' (que quien llama maneja): si no la pudo mirar, devuelve { ok: false, noPudo: true } y
@@ -349,7 +353,7 @@ const esJpeg = (b) => !!b && b.length > 12 && b[0] === 0xFF && b[1] === 0xD8 && 
  */
 export async function controlarImagen(gemini, bytes) {
   try {
-    const r = await gemini.texto(PREGUNTA_DE_CONTROL, { json: true, imagenes: [{ mime: 'image/jpeg', base64: aBase64(bytes) }] });
+    const r = await gemini.texto(PREGUNTA_DE_CONTROL, { json: true, imagenes: [{ mime: tipoDeImagen(bytes) || 'image/jpeg', base64: aBase64(bytes) }] });
     return interpretarControl(r);
   } catch (e) {
     if (e?.message === 'tope-diario') throw e;
@@ -376,12 +380,12 @@ export async function bytesDelResultado(r) {
   return bytes && bytes.length ? bytes : null;
 }
 
-/** UNA imagen con Workers AI. Tira Error si el modelo falla o no devuelve una imagen JPEG (el sitio sirve `.jpg`). */
+/** UNA imagen con Workers AI. Tira Error si el modelo falla o no devuelve una imagen JPEG o PNG. */
 export async function generarImagen(ai, prompt, { modelo = MODELO_DE_IMAGEN, seed } = {}) {
   const r = await ai.run(modelo, { prompt, steps: PASOS, ...(Number.isInteger(seed) ? { seed } : {}) });
   const bytes = await bytesDelResultado(r);
   if (!bytes) throw new Error('el modelo no devolvió imagen');
-  if (!esJpeg(bytes)) throw new Error('el modelo no devolvió un JPEG');
+  if (!tipoDeImagen(bytes)) throw new Error('el modelo no devolvió un JPEG ni un PNG');
   return bytes;
 }
 
@@ -464,9 +468,11 @@ export function altDeLaIlustracion(nota) {
  */
 export async function guardarIlustracion(bucket, bytes, nota, ahoraISO, { base = BASE_DEL_SITIO } = {}) {
   const huella = await huellaDe(bytes);
+  const tipo = tipoDeImagen(bytes) || 'image/jpeg';
+  // El nombre siempre termina en .jpg (es lo único que sirve /foto/<huella>.jpg); el tipo real viaja en el content-type de R2, que el sitio devuelve tal cual.
   const clave = `copias/${huella}.jpg`;
   if (!(await bucket.head?.(clave))) {
-    await bucket.put(clave, bytes, { httpMetadata: { contentType: 'image/jpeg', cacheControl: 'public, max-age=31536000, immutable' } });
+    await bucket.put(clave, bytes, { httpMetadata: { contentType: tipo, cacheControl: 'public, max-age=31536000, immutable' } });
   }
   const url = `${base}/foto/${huella}.jpg`;
   return {

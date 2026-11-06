@@ -207,6 +207,10 @@ test('una falla nunca rompe la vuelta: Workers AI caído, Gemini caído o R2 que
   assert.deepEqual(r.errores, []);
   assert.deepEqual([r.ilustraciones.hechas, r.ilustraciones.fallos], [0, 1]);
   assert.equal(nota(env, 'f1').verificacion.ilustracion.fallos, 1);
+  // la causa se ve: /salud trae el último error de ilustración (cuándo y qué), sin secretos
+  const salud = JSON.parse(await (await nucleo().manejar(new Request('https://x.test/salud'), env, { fetch: mundo().fetch, ahora: AHORA })).text());
+  assert.match(salud.ilustraciones.ultimoError, /^2026-11-06T\S+ f1: Workers AI: AiError: capacidad/);
+  assert.ok(!salud.ilustraciones.ultimoError.includes('clave-secreta'));
   assert.equal(nota(env, 'f1').verificacion.ilustracion.final, undefined);
   // 20 minutos entre intentos técnicos: una vuelta enseguida no vuelve a probar
   assert.equal((await vuelta(env, mundo())).ilustraciones.intentadas, 0);
@@ -302,5 +306,5 @@ test('/salud cuenta las ilustraciones: activas, total, de los últimos 7 días, 
   assert.ok(nota(env, 's1').foto?.ilustracion);
   assert.equal(nota(env, 's2').foto, null);
   const salud = JSON.parse(await (await nucleo().manejar(new Request('https://x.test/salud'), env, { fetch: mundo().fetch, ahora: AHORA })).text());
-  assert.deepEqual(salud.ilustraciones, { activas: true, total: 1, ultimos7d: 1, imagenesHoy: 1, topePorDia: 40, topePorVuelta: 10 });
+  assert.deepEqual(salud.ilustraciones, { activas: true, total: 1, ultimos7d: 1, imagenesHoy: 1, topePorDia: 40, topePorVuelta: 10, ultimoError: null });
 });

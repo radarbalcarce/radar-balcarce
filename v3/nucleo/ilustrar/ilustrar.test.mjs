@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {
   CREDITO, motivoParaSaltar, busquedaAgotada, leTocaIlustrar, tonoDeLaNota, armarInstruccion, promptFinal, problemaDelPrompt, interpretarControl, controlarImagen,
   ilustrarUna, guardarIlustracion, huellaDe, generarImagen, debeBuscarFotoReal, conIlustracionHecha, conEstadoDeIlustracion, sinIlustracion, esIlustracion,
-  NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
+  tipoDeImagen, NEURONAS_POR_IMAGEN, NEURONAS_GRATIS_POR_DIA, POR_DIA, MODELO_DE_IMAGEN,
 } from './ilustrar.mjs';
 import { conCopiaPropia, esCopiaPropia } from '../../sitio/fotos-copia.mjs';
 import { creditoConPrefijo } from '../../redes/texto.mjs';
@@ -13,6 +13,7 @@ import { creditoConPrefijo } from '../../redes/texto.mjs';
 const AHORA = new Date('2026-11-06T15:00:00Z');
 const hace = (h) => new Date(AHORA.getTime() - h * 3600_000).toISOString();
 const JPEG = new Uint8Array([0xFF, 0xD8, 0xFF, 0xE0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+const PNG = new Uint8Array([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 1, 2, 3, 4, 5, 6]);
 const PROMPT_BUENO = 'Candid documentary photograph of an empty tree-lined street with low houses and gentle hills far away, sharp focus, high detail, natural light, no people, no text, no logos';
 const CONTROL_OK = { personas: false, rostros: false, texto: false, logos: false, sensible: false, raro: false, razon: 'Una calle vacía.' };
 
@@ -151,15 +152,35 @@ test('controlarImagen: manda la imagen a la visión; si Gemini no puede mirarla,
 
 // ------------------------------------------------------------------ el generador
 
-test('generarImagen: usa FLUX schnell con pasos y semilla, y sólo acepta un JPEG', async () => {
+test('generarImagen: usa FLUX schnell con pasos y semilla, y acepta JPEG y PNG, nada más', async () => {
   const ai = aiFalso();
   const b = await generarImagen(ai, PROMPT_BUENO, { seed: 7 });
   assert.deepEqual([...b], [...JPEG]);
   assert.equal(ai.llamadas[0].modelo, '@cf/black-forest-labs/flux-1-schnell');
   assert.equal(ai.llamadas[0].modelo, MODELO_DE_IMAGEN);
   assert.deepEqual(ai.llamadas[0].params, { prompt: PROMPT_BUENO, steps: 6, seed: 7 });
-  await assert.rejects(generarImagen(aiFalso({ bytes: new Uint8Array([0x89, 0x50, 0x4E, 0x47, 1, 2, 3, 4, 5, 6, 7, 8, 9]) }), 'x'), /JPEG/);
+  assert.deepEqual([...(await generarImagen(aiFalso({ bytes: PNG }), 'x'))], [...PNG]);
+  await assert.rejects(generarImagen(aiFalso({ bytes: new Uint8Array([0x47, 0x49, 0x46, 0x38, 1, 2, 3, 4, 5, 6, 7, 8, 9]) }), 'x'), /JPEG ni un PNG/);
   await assert.rejects(generarImagen({ run: async () => ({}) }, 'x'), /no devolvió imagen/);
+});
+
+test('PNG (lo que devuelve FLUX schnell): tipo, mime para el control de Gemini y content-type en R2 con el mismo nombre .jpg que sirve el sitio', async () => {
+  assert.equal(tipoDeImagen(PNG), 'image/png');
+  assert.equal(tipoDeImagen(JPEG), 'image/jpeg');
+  assert.equal(tipoDeImagen(new Uint8Array([1, 2, 3])), null);
+  const g = geminiFalso();
+  let mime = null;
+  const texto = g.texto.bind(g);
+  g.texto = async (p, o = {}) => { if (o.imagenes?.length) mime = o.imagenes[0].mime; return texto(p, o); };
+  const r = await ilustrarUna(nota(), { gemini: g, ai: aiFalso({ bytes: PNG }) });
+  assert.equal(r.ok, true);
+  assert.equal(mime, 'image/png');
+  const b = bucketFalso();
+  const foto = await guardarIlustracion(b, PNG, nota(), '2026-11-06T15:00:00.000Z');
+  const huella = await huellaDe(PNG);
+  assert.equal(b.objetos.get(`copias/${huella}.jpg`).o.httpMetadata.contentType, 'image/png');
+  assert.equal(foto.url, `https://radarbalcarce.com/foto/${huella}.jpg`);
+  assert.equal(esCopiaPropia(foto.copia), true);
 });
 
 test('el costo: ~77 neuronas por imagen y el tope de 40 por día entra holgado en las 10.000 gratis', () => {

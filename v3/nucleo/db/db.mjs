@@ -185,6 +185,16 @@ export async function anotarFuente(env, fuenteId, ok, error = null, ahora = new 
   }
 }
 
+// El último error de una tarea suelta (p. ej. '_ilustracion') en la misma tabla, sin tocar el esquema: cuándo y qué (texto corto). fallas_seguidas queda en 0 y avisada en 1:
+// nunca entra en los avisos de fuentes caídas.
+export async function anotarError(env, clave, error, ahora = new Date().toISOString()) {
+  const texto = `${ahora} ${String(error ?? '').replace(/\s+/g, ' ').slice(0, 160)}`;
+  await env.DB.prepare(
+    `INSERT INTO fuentes_estado (fuente_id, ultima_falla, fallas_seguidas, avisada) VALUES (?, ?, 0, 1)
+     ON CONFLICT(fuente_id) DO UPDATE SET ultima_falla = excluded.ultima_falla, fallas_seguidas = 0, avisada = 1`,
+  ).bind(clave, texto).run();
+}
+
 // Fuentes sin leer bien hace 3 días o más y todavía no avisadas.
 export async function fuentesParaAvisar(env, ahora = new Date().toISOString(), dias = 3) {
   const limite = new Date(new Date(ahora).getTime() - dias * 86400000).toISOString();
