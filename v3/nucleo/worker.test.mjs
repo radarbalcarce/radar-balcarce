@@ -516,3 +516,119 @@ test('una nota sin foto de más de 24 h, o una que no es del núcleo (sin histor
   const lista = await db.notasPublicadasSinFoto(env, new Date(Date.parse(AHORA) - 24 * 3600_000).toISOString());
   assert.ok(!lista.some((x) => x.id === 'vieja02' || x.id === 'propia1'));
 });
+
+// ------------------------------------------------------------------ rehacer las notas migradas sin foto (REGLAS § 7 ter)
+
+const PAGINA_CON_FOTO = '<html><head><meta property="og:image" content="https://img.test/rehecha.png"></head><body>x</body></html>';
+// el mundo de siempre, más las páginas de «fuente-ok.test» (traen una foto que sirve) y de «fuente-vacia.test» (sin ninguna imagen)
+function mundoConMigradas() {
+  const m = mundo();
+  const base = m.fetch;
+  m.paginasRehacer = [];
+  m.fetch = async (url, op) => {
+    const u = String(url);
+    if (u.startsWith('https://fuente-ok.test/')) { m.paginasRehacer.push(u); return new Response(PAGINA_CON_FOTO, { status: 200, headers: { 'content-type': 'text/html' } }); }
+    if (u.startsWith('https://fuente-vacia.test/')) { m.paginasRehacer.push(u); return new Response('<html><body>nada</body></html>', { status: 200, headers: { 'content-type': 'text/html' } }); }
+    return base(url, op);
+  };
+  return m;
+}
+
+function sembrarMigrada(env, id, { creada, seccion = 'Cultura', fuentes = [{ medio: 'Medio Ok', url: `https://fuente-ok.test/${id}` }], foto = null, titulo = `Nota vieja ${id}` }) {
+  env.DB.sqlite.prepare(
+    "INSERT INTO notas (id, historia_id, creada, titulo, bajada, cuerpo, seccion, verificacion, foto, fuentes, fecha_hecho, firma, estado) VALUES (?, ?, ?, ?, 'b', '[\"uno\"]', ?, NULL, ?, ?, ?, 'Radar Balcarce', 'publicada')",
+  ).run(id, `viejo-${id}`, creada, titulo, seccion, foto ? JSON.stringify(foto) : null, JSON.stringify(fuentes), creada);
+}
+const verif = (env, id) => JSON.parse(filas(env, 'SELECT verificacion FROM notas WHERE id = ?', id)[0].verificacion || '{}');
+
+test('rehacer migradas: de a pocas por vuelta, las más nuevas primero, con tope por día, y deja el motivo en la base', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_REHACER_POR_VUELTA: '2', NUCLEO_REHACER_POR_DIA: '3' });
+  const m = mundoConMigradas();
+  const n = nucleo();
+  sembrarMigrada(env, 'mig0001', { creada: '2026-10-10T12:00:00Z' });
+  sembrarMigrada(env, 'mig0002', { creada: '2026-10-20T12:00:00Z' });
+  sembrarMigrada(env, 'mig0003', { creada: '2026-10-25T12:00:00Z', fuentes: [{ medio: 'Vacía', url: 'https://fuente-vacia.test/a' }] });
+  sembrarMigrada(env, 'mig0004', { creada: '2026-10-15T12:00:00Z' });
+  sembrarMigrada(env, 'conFoto', { creada: '2026-10-30T12:00:00Z', foto: { url: 'https://img.test/propia.png', credito: 'Foto: X', alt: 'a' } });
+
+  const r1 = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  assert.deepEqual(r1.errores, []);
+  assert.deepEqual(r1.rehacer, { intentadas: 2, conFoto: 1, sinFoto: 1, saltadas: 0 });
+  // las más nuevas primero: mig0003 (sin imágenes en su fuente) y mig0002 (con foto)
+  assert.equal(verif(env, 'mig0003').rehacerFoto, 'sin-foto');
+  assert.equal(verif(env, 'mig0003').rehacerMotivo, 'sin-candidatas');
+  assert.equal(verif(env, 'mig0003').fotoMotivo, 'sin-candidatas');
+  assert.equal(filas(env, "SELECT foto FROM notas WHERE id = 'mig0003'")[0].foto, null);
+  assert.equal(verif(env, 'mig0002').rehacerFoto, 'foto');
+  const foto2 = JSON.parse(filas(env, "SELECT foto FROM notas WHERE id = 'mig0002'")[0].foto);
+  assert.equal(foto2.url, 'https://img.test/rehecha.png');
+  assert.equal(foto2.credito, 'Foto: Medio Ok', 'el crédito es el de la fuente de la nota');
+  // no tocó ni el texto ni lo que ya tenía foto
+  assert.equal(filas(env, "SELECT titulo FROM notas WHERE id = 'mig0002'")[0].titulo, 'Nota vieja mig0002');
+  assert.equal(JSON.parse(filas(env, "SELECT foto FROM notas WHERE id = 'conFoto'")[0].foto).url, 'https://img.test/propia.png');
+  assert.equal(verif(env, 'conFoto').rehacerFoto, undefined);
+  assert.ok(!m.paginasRehacer.some((u) => u.includes('conFoto')));
+
+  // segunda vuelta: sólo queda 1 del tope del día (3); las dos ya hechas no se repiten
+  const r2 = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(2) });
+  assert.equal(r2.rehacer.intentadas, 1);
+  assert.equal(verif(env, 'mig0004').rehacerFoto, 'foto');
+  assert.equal(verif(env, 'mig0001').rehacerFoto, undefined, 'tope diario: queda para mañana');
+  // tercera vuelta del mismo día: nada
+  const r3 = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(3) });
+  assert.equal(r3.rehacer.intentadas, 0);
+  // el día siguiente sigue, y las ya hechas no se vuelven a tocar (idempotente)
+  const paginasAntes = m.paginasRehacer.length;
+  const r4 = await n.vuelta(env, { fetch: m.fetch, ahora: '2026-11-03T23:00:00Z', azar: semilla(4) });
+  assert.equal(r4.rehacer.intentadas, 1);
+  assert.equal(verif(env, 'mig0001').rehacerFoto, 'foto');
+  assert.equal(m.paginasRehacer.length - paginasAntes, 1);
+
+  // /salud: cuántas faltan y cómo salieron
+  const salud = JSON.parse(await (await n.manejar(new Request('https://x.test/salud'), env, { fetch: m.fetch, ahora: '2026-11-03T23:00:00Z' })).text());
+  assert.deepEqual(salud.rehacerMigradas, { faltan: 0, conFoto: 3, sinFoto: 1, saltadas: 0, hechasHoy: 1, topePorDia: 3, diasQueFaltan: 0 });
+});
+
+test('rehacer migradas: Policiales y las notas sin fuentes con dirección quedan con placa, marcadas, sin pedirle nada a la IA', { skip: sinSqlite }, async () => {
+  const env = envDe({ NUCLEO_REHACER_POR_VUELTA: '5', NUCLEO_REHACER_POR_DIA: '10' });
+  const m = mundoConMigradas();
+  const n = nucleo();
+  sembrarMigrada(env, 'poli001', { creada: '2026-10-20T12:00:00Z', seccion: 'Policiales' });
+  sembrarMigrada(env, 'sinfue1', { creada: '2026-10-21T12:00:00Z', fuentes: [{ medio: 'Propia', url: null }] });
+  sembrarMigrada(env, 'clima-2026-10-10', { creada: '2026-10-10T12:00:00Z' });
+  const r = await n.vuelta(env, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  assert.deepEqual(r.errores, []);
+  assert.deepEqual(r.rehacer, { intentadas: 2, conFoto: 0, sinFoto: 0, saltadas: 2 });
+  assert.equal(verif(env, 'poli001').rehacerMotivo, 'policiales');
+  assert.equal(verif(env, 'sinfue1').rehacerMotivo, 'sin-fuentes');
+  assert.equal(verif(env, 'clima-2026-10-10').rehacerFoto, undefined, 'la del clima no es migrada: no se toca');
+  assert.equal(m.paginasRehacer.length, 0);
+});
+
+test('rehacer migradas: un fallo de visión se repite hasta 3 veces y después queda marcada; NUCLEO_REHACER_POR_DIA = 0 lo apaga', { skip: sinSqlite }, async () => {
+  const m = mundoConMigradas();
+  const n = nucleo();
+  const apagado = envDe({ NUCLEO_REHACER_POR_DIA: '0' });
+  sembrarMigrada(apagado, 'mig0001', { creada: '2026-10-10T12:00:00Z' });
+  const r0 = await n.vuelta(apagado, { fetch: m.fetch, ahora: AHORA, azar: semilla(1) });
+  assert.equal(r0.rehacer.intentadas, 0);
+  assert.equal(verif(apagado, 'mig0001').rehacerFoto, undefined);
+
+  // Gemini cae sólo para la visión: error-vision las dos primeras veces (queda pendiente), a la tercera queda marcada
+  const env = envDe({ NUCLEO_REHACER_POR_VUELTA: '1' });
+  sembrarMigrada(env, 'mig0001', { creada: '2026-10-10T12:00:00Z' });
+  const base = m.fetch;
+  const sinVision = async (url, op) => {
+    if (String(url).includes('generativelanguage') && String(op?.body || '').includes('marca_de_agua_o_otro_medio')) return new Response('{}', { status: 500 });
+    return base(url, op);
+  };
+  for (let i = 1; i <= 3; i += 1) {
+    const r = await n.vuelta(env, { fetch: sinVision, ahora: AHORA, azar: semilla(i) });
+    assert.equal(r.rehacer.intentadas, 1);
+    assert.equal(verif(env, 'mig0001').fotoIntentos, i);
+    assert.equal(verif(env, 'mig0001').rehacerFoto, i < 3 ? undefined : 'sin-foto');
+  }
+  assert.equal(verif(env, 'mig0001').rehacerMotivo, 'error-vision');
+  const r4 = await n.vuelta(env, { fetch: sinVision, ahora: AHORA, azar: semilla(9) });
+  assert.equal(r4.rehacer.intentadas, 0, 'ya marcada: no se reintenta para siempre');
+});

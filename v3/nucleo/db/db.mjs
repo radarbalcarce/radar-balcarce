@@ -315,6 +315,34 @@ export async function ponerFotoDeNota(env, id, foto, verificacion) {
     .bind(json(foto), json(verificacion), id).run();
 }
 
+// ---- Rehacer las notas migradas del sistema viejo (REGLAS § 7 ter) -------------------------------------------------------------------------
+// Las migradas viven en `notas` con historia_id 'viejo-<id>' (no hay fila en `historias` ni artículos): sus fuentes son sólo [{ medio, url }].
+// Una nota «ya rehecha» lleva `verificacion.rehacerFoto` ('foto' | 'sin-foto' | 'saltada'); sin esa marca todavía le toca.
+const MIGRADA_SIN_FOTO = "estado = 'publicada' AND no_publicar IS NULL AND historia_id LIKE 'viejo-%' AND (foto IS NULL OR foto = 'null') AND id NOT LIKE 'clima-%'";
+const SIN_MARCA = "(verificacion IS NULL OR verificacion NOT LIKE '%\"rehacerFoto\"%')";
+
+// Las migradas sin foto que todavía no se rehicieron, las más nuevas primero (la portada y las listas muestran primero lo nuevo).
+export async function migradasSinFotoPendientes(env, limite = 3) {
+  const r = await env.DB.prepare(
+    `SELECT id, historia_id, creada, titulo, seccion, fuentes, verificacion FROM notas WHERE ${MIGRADA_SIN_FOTO} AND ${SIN_MARCA} ORDER BY creada DESC LIMIT ?`,
+  ).bind(limite).all();
+  return lista(r).map((f) => ({
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, seccion: f.seccion, fuentes: analizar(f.fuentes, []), verificacion: analizar(f.verificacion, null) || {},
+  }));
+}
+
+// Cuántas faltan y cómo salieron las ya hechas (para /salud).
+export async function contarRehacerFotos(env) {
+  const c = async (sql) => ((await env.DB.prepare(sql).bind().first()) || {}).n || 0;
+  const marcada = (v) => `SELECT COUNT(*) AS n FROM notas WHERE historia_id LIKE 'viejo-%' AND verificacion LIKE '%"rehacerFoto":"${v}"%'`;
+  return {
+    faltan: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${MIGRADA_SIN_FOTO} AND ${SIN_MARCA}`),
+    conFoto: await c(marcada('foto')),
+    sinFoto: await c(marcada('sin-foto')),
+    saltadas: await c(marcada('saltada')),
+  };
+}
+
 // Una nota por id, con sus campos JSON leídos (null si no existe). La usa la nota del clima para saber si ya salió hoy y qué pronóstico tenía.
 export async function notaCompleta(env, id) {
   const f = await env.DB.prepare('SELECT * FROM notas WHERE id = ?').bind(id).first();

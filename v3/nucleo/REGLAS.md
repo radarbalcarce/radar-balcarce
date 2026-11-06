@@ -131,6 +131,18 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
 - **Pruebas:** `v3/sitio/fotos-copia.test.mjs` (direcciones, `og:image`, NewsArticle, portada, la ruta `/foto/`) y `v3/sitio/scripts/copiar-fotos-de-notas.test.mjs` (descarga, conversión con ffmpeg de verdad, huella, fallos, tope, idempotencia).
 - **Pendiente:** copiar en el momento de elegir la foto (hoy pasa hasta una hora después; mientras tanto el sitio muestra la original), `srcset` con más tamaños, y las fotos de adentro de la nota (`fotos`).
 
+### 7 ter. Rehacer las notas migradas sin foto (6/11/2026, `rehacerMigradas` en `nucleo.mjs`)
+
+- **Qué.** La auditoría del 5/11 (`docs/3-0/auditoria-05-11/REHACER-NOTAS-MIGRADAS.md`) midió unas 421 notas migradas del sistema viejo sin foto, con título, bajada y cuerpo ya correctos. Cada vuelta, después de reintentar las fotos de las nuevas,
+  toma pocas de esas notas (`historia_id` = `viejo-<id>`, publicadas, sin foto, sin marca), las más nuevas primero, y les busca foto con **la regla de siempre** (§ 7 paso 1: sólo las páginas de las fuentes de la nota, que están en su lista `fuentes`;
+  marca de agua, menor o víctima los descarta la visión). Con foto, la nota la recibe con el crédito de la fuente; sin foto, queda con la placa. **El texto no se rehace** (el doc midió que no hace falta; si algún día se quiere, será otro paso con el verificador).
+- **Tope.** `NUCLEO_REHACER_POR_DIA` (60 por defecto; **0 lo apaga**) y `NUCLEO_REHACER_POR_VUELTA` (3). El día se cuenta en `uso_ia` con la marca `rehacer-AAAA-MM-DD`, así que sobrevive entre vueltas. Cada nota gasta a lo sumo hasta 6 pedidos de visión
+  (los de `foto` en `uso_ia`, bajo la tarea `rehacer-foto`), dentro de `NUCLEO_TOPE_DIARIO` y del freno mensual (la tarea no corre si alguno ya saltó). Son unos 60 pedidos de visión por día como mucho en el peor caso: centavos.
+- **Sin repetir para siempre.** Cada nota termina marcada en `verificacion`: `rehacerFoto` = `foto` | `sin-foto` | `saltada`, con `rehacerMotivo` (los de `MOTIVOS_SIN_FOTO`, más `policiales` y `sin-fuentes`) y `rehacerCuando`. Una nota marcada no se vuelve a tocar.
+  Sólo un `error-vision` (Gemini o la red caídos) se repite, hasta 3 intentos (`fotoIntentos`). **Policiales se saltea** (nunca foto real de un menor o una víctima, ni en Policiales salvo fuente oficial) y las notas sin dirección de fuente también.
+- **`/salud`.** `rehacerMigradas`: `faltan`, `conFoto`, `sinFoto`, `saltadas`, `hechasHoy`, `topePorDia` y `diasQueFaltan`.
+- **Pruebas.** `worker.test.mjs` («rehacer migradas …»): orden, tope por vuelta y por día, idempotencia, crédito de la fuente, Policiales y sin fuentes, reintento de visión y el interruptor en 0.
+
 ## 8. Lo que el núcleo entrega
 
 Una nota lista en la base (D1) con: id corto, título, bajada, cuerpo, sección, «en dos líneas», ficha, bloques de valor agregado ya

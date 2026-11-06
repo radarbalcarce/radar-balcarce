@@ -27,7 +27,10 @@ const LARGO_DE_MENSAJE = 3500;
 const FOTOS_REINTENTADAS_POR_VUELTA = 5; // notas publicadas sin foto a las que se les vuelve a buscar una por vuelta (REGLAS § 7)
 const HORAS_PARA_REINTENTAR_FOTO = 24; // sólo las publicadas en las últimas 24 h
 const MAX_INTENTOS_DE_FOTO = 4; // contando el de la redacción
-const MINUTOS_ENTRE_INTENTOS_DE_FOTO = 45;
+const MINUTOS_ENTRE_INTENTOS_DE_FOTO = 45;const REHACER_POR_DIA = 60; // notas migradas sin foto que se rehacen por día (variable NUCLEO_REHACER_POR_DIA; 0 lo apaga; REGLAS § 7 ter)
+const REHACER_POR_VUELTA = 3; // y cuántas por vuelta (NUCLEO_REHACER_POR_VUELTA)
+const REHACER_INTENTOS = 3; // por si Gemini o la red fallan: un intento que no pudo decidir (error-vision) se repite hasta 3 veces
+const SECCIONES_SIN_FOTO_AJENA = new Set(['Policiales']); // nunca foto real de un menor o una víctima, ni en Policiales salvo fuente oficial: la migrada de Policiales queda con placa
 const HORAS_PARA_REDACTAR = 48; // una historia elegida que no se alcanzó a redactar en este plazo ya es vieja
 
 // Precio estimado de Gemini 3.1 Flash-Lite, en US$ por millón de tokens. SE CONFIRMAN CON LA LISTA DE PRECIOS DE GOOGLE: si cambian, se
@@ -283,6 +286,9 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (e2) a las notas ya publicadas sin foto se les vuelve a buscar (hasta 5 por vuelta, las de las últimas 24 h)
     if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await reintentarFotos(env, c, gem, r, error);
 
+    // (e3) las notas migradas del sistema viejo sin foto, de a pocas por vuelta y con tope por día (REGLAS § 7 ter)
+    if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await rehacerMigradas(env, c, gem, r, error);
+
     // (f) con NUCLEO_PUBLICA = si, los borradores bien hechos de las últimas 24 h que quedaron sin publicar (el arranque, o una vuelta que falló a medias)
     if (publica(env)) {
       try { r.publicadasPendientes = await db.publicarBorradores(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString(), c.ahoraISO); } catch (e) { error('publicar pendientes', e); }
@@ -473,6 +479,57 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     }
   }
 
+  // Rehacer las notas migradas sin foto (REGLAS § 7 ter): la regla de fotos de hoy (sólo las fuentes de la nota, sin marca, sin menores ni víctimas),
+  // de a REHACER_POR_VUELTA por vuelta y hasta REHACER_POR_DIA por día (se cuenta en uso_ia con la marca «rehacer-AAAA-MM-DD»). El texto no se toca: el doc
+  // de la auditoría (5/11) midió que cuerpo, título y bajada ya cumplen, y lo que falta es la foto. Cada nota queda marcada con `verificacion.rehacerFoto`
+  // ('foto', 'sin-foto' o 'saltada') y `rehacerMotivo`: no se vuelve a tocar. No cambia título, cuerpo, fecha, dirección ni firma.
+  async function rehacerMigradas(env, c, gem, r, error) {
+    const porDia = numero(env.NUCLEO_REHACER_POR_DIA, REHACER_POR_DIA);
+    const porVuelta = Math.floor(numero(env.NUCLEO_REHACER_POR_VUELTA, REHACER_POR_VUELTA));
+    r.rehacer = { intentadas: 0, conFoto: 0, sinFoto: 0, saltadas: 0 };
+    if (!porDia || !porVuelta) return;
+    const marcaDelDia = `rehacer-${c.dia}`;
+    let hechasHoy;
+    try { hechasHoy = (await db.usoDelDia(env, marcaDelDia)).reduce((s, f) => s + f.pedidos, 0); } catch (e) { error('rehacer: contar el día', e); return; }
+    const cuantas = Math.min(porVuelta, porDia - hechasHoy);
+    if (cuantas <= 0) return;
+    let pendientes;
+    try { pendientes = await db.migradasSinFotoPendientes(env, cuantas); } catch (e) { error('rehacer: buscar migradas', e); return; }
+    if (!pendientes.length) return;
+    const geminiFoto = gem.para('rehacer-foto');
+    for (const n of pendientes) {
+      const marcar = async (estado, motivo, foto, intentos) => {
+        const v = conMotivoDeFoto(n.verificacion, motivo, intentos, c.ahoraISO);
+        await db.ponerFotoDeNota(env, n.id, foto, { ...v, rehacerFoto: estado, rehacerMotivo: motivo || null, rehacerCuando: c.ahoraISO });
+      };
+      try {
+        const intentos = (n.verificacion.fotoIntentos || 0) + 1;
+        const fuentesConUrl = (Array.isArray(n.fuentes) ? n.fuentes : []).filter((f) => f && /^https?:\/\//i.test(f.url || ''));
+        if (SECCIONES_SIN_FOTO_AJENA.has(n.seccion)) { await marcar('saltada', 'policiales', null, intentos); r.rehacer.saltadas += 1; }
+        else if (!fuentesConUrl.length) { await marcar('saltada', 'sin-fuentes', null, intentos); r.rehacer.saltadas += 1; }
+        else {
+          const arts = fuentesConUrl.map((f, i) => ({ id: `${n.id}-${i}`, url: f.url, medio: f.medio || 'la fuente', imagenes: [] }));
+          const f = await elegirFotoConMotivo({ titulo: n.titulo, ficha: null }, arts, { gemini: geminiFoto, fetch: c.fetchFn });
+          if (f.foto) { await marcar('foto', null, f.foto, intentos); r.rehacer.conFoto += 1; }
+          else if (f.motivo === 'error-vision' && intentos < REHACER_INTENTOS) {
+            // no pudo decidir (cupo, red): queda pendiente, sin la marca final, y vuelve a tocarle en otra vuelta
+            await db.ponerFotoDeNota(env, n.id, null, conMotivoDeFoto(n.verificacion, f.motivo, intentos, c.ahoraISO));
+          } else { await marcar('sin-foto', f.motivo, null, intentos); r.rehacer.sinFoto += 1; }
+        }
+        r.rehacer.intentadas += 1;
+        await db.anotarUso(env, marcaDelDia, 'rehacer');
+      } catch (e) {
+        if (e.message === 'tope-diario') { r.topeDiario = true; break; }
+        error(`rehacer ${n.id}`, e);
+        // un fallo que no es de cupo también gasta el cupo del día y un intento, para no trabarse en la misma nota
+        try {
+          await db.anotarUso(env, marcaDelDia, 'rehacer');
+          await db.ponerFotoDeNota(env, n.id, null, conMotivoDeFoto(n.verificacion, 'error-descarga', (n.verificacion.fotoIntentos || 0) + 1, c.ahoraISO));
+        } catch (e2) { error(`rehacer: anotar fallo de ${n.id}`, e2); }
+      }
+    }
+  }
+
   // ------------------------------------------------------------------------------------------ el resumen de las 21:30
 
   async function resumen(env, deps = {}) {
@@ -545,6 +602,14 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     const [hoy, usoHoy, usoMes, estados] = await Promise.all([
       db.contarEntre(env, desde, hasta), db.usoDelDia(env, c.dia), db.usoDelMes(env, c.dia.slice(0, 7)), db.estadoDeFuentes(env),
     ]);
+    // Las migradas sin foto que faltan rehacer (REGLAS § 7 ter). Si la consulta falla, /salud sigue.
+    let rehacer = null;
+    try {
+      const cuenta = await db.contarRehacerFotos(env);
+      const topeRehacer = numero(env.NUCLEO_REHACER_POR_DIA, REHACER_POR_DIA);
+      const hechasHoy = (await db.usoDelDia(env, `rehacer-${c.dia}`)).reduce((s, f) => s + f.pedidos, 0);
+      rehacer = { ...cuenta, hechasHoy, topePorDia: topeRehacer, diasQueFaltan: topeRehacer ? Math.ceil(cuenta.faltan / topeRehacer) : null };
+    } catch (e) { console.error(`salud rehacer: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).
     const activasHoy = new Set(fuentes.map((f) => f.id));
@@ -565,6 +630,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         mes: { ...usoMes, gastoEstimadoUsd: Number(costoEstimado(usoMes).toFixed(4)), frenoUsd: FRENO_MENSUAL_USD },
         topeDiario: numero(env.NUCLEO_TOPE_DIARIO, 150),
       },
+      rehacerMigradas: rehacer,
       claves: { gemini: !!env.GEMINI_API_KEY, telegram: !!env.TELEGRAM_TOKEN },
     });
   }
