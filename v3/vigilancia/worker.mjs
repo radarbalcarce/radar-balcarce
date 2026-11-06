@@ -5,10 +5,12 @@
 // Secreto: TELEGRAM_TOKEN (sólo para derivar la contraseña con la que el bot y el núcleo aceptan los pedidos). KV: ESTADO.
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 import { chequear, informar, mandarMail } from './vigilancia.mjs';
+import { traerWeb } from './sitio-y-redes.mjs';
 
 /** La dirección pública del núcleo y del sitio; por el service binding el nombre de host no cuenta, pero hace falta una URL entera. */
 export const DIRECCION_NUCLEO = 'https://radar-nucleo.radarbalcarce.workers.dev';
 export const DIRECCION_SITIO = 'https://radar-sitio.radarbalcarce.workers.dev';
+export const DIRECCION_REDES = 'https://radar-redes.radarbalcarce.workers.dev';
 
 const ESPERA_MS = 20000;
 const CRON_DEL_CHEQUEO = '*/30 * * * *';
@@ -25,19 +27,29 @@ async function pedirSalud(servicio, url, opciones = {}) {
   }
 }
 
+/** Lo que registran las redes (GET /actividad de radar-redes, con la contraseña derivada del token). null = no se pudo leer: no se juzga. */
+async function traerActividadDeRedes(env) {
+  if (!env.REDES?.fetch || !env.TELEGRAM_TOKEN) return null;
+  const r = await pedirSalud(env.REDES, `${DIRECCION_REDES}/actividad`, { headers: { 'x-radar-contrasena': await contrasenaDelWebhook(env.TELEGRAM_TOKEN) } });
+  return r.ok && r.salud?.redes ? r.salud : null;
+}
+
 /** Todo lo que necesitan chequear() e informar(), conectado a este entorno. `ahora` se puede cambiar en las pruebas. */
-export function crearDeps(env, { ahora = () => new Date().toISOString(), claseDeMensaje } = {}) {
+export function crearDeps(env, { ahora = () => new Date().toISOString(), claseDeMensaje, fetchDeAfuera } = {}) {
   const kv = env.ESTADO;
   return {
     ahora,
     direccionDelBot: DIRECCION,
     async traer() {
-      const [nucleo, bot, sitio] = await Promise.all([
+      const [nucleo, bot, sitio, web, redes] = await Promise.all([
         pedirSalud(env.NUCLEO, `${DIRECCION_NUCLEO}/salud`),
         pedirSalud(env.TELEGRAM, `${DIRECCION}/salud`),
         env.SITIO ? pedirSalud(env.SITIO, `${DIRECCION_SITIO}/salud`) : Promise.resolve(null),
+        // El sitio publicado, por internet (lo que ve un lector). Nunca tira: un fallo de red queda como status 0 y se confirma en dos chequeos.
+        traerWeb(fetchDeAfuera ?? ((...a) => fetch(...a))),
+        traerActividadDeRedes(env),
       ]);
-      return { nucleo, bot, sitio };
+      return { nucleo, bot, sitio, web, redes };
     },
     // Las notas de un día, tal como las guarda el núcleo (/notas pide la contraseña derivada del token). null = no se pudo leer.
     async traerNotas(dia) {
@@ -71,7 +83,7 @@ export async function salud(env) {
   const cuerpo = {
     chequeo,
     ultimoInforme: informe?.cuando ?? null,
-    conectado: { nucleo: Boolean(env.NUCLEO), bot: Boolean(env.TELEGRAM), sitio: Boolean(env.SITIO), mail: Boolean(env.EMAIL), token: Boolean(env.TELEGRAM_TOKEN) },
+    conectado: { nucleo: Boolean(env.NUCLEO), redes: Boolean(env.REDES), bot: Boolean(env.TELEGRAM), sitio: Boolean(env.SITIO), mail: Boolean(env.EMAIL), token: Boolean(env.TELEGRAM_TOKEN) },
   };
   return new Response(JSON.stringify(cuerpo, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' } });
 }

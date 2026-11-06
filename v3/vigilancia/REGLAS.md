@@ -21,6 +21,16 @@ decisiones de `docs/propuestas/PLAN-RADAR-3-0.md` (§ 3.12 y sección 10). Si el
 6. **Fuentes que fallan hace 3 días** (288 vueltas seguidas). Una fuente que nunca anduvo bien se avisa a las 96 fallas (un día entero).
    Avisa por fuente, no todas juntas cada vez.
 7. **El sitio contesta**, sólo si el Worker `radar-sitio` está conectado (hoy no: se conecta cuando exista y tenga `/salud`).
+8. **El sitio publicado** (`radarbalcarce.com`, mirado desde afuera, como lo ve un lector; `sitio-y-redes.mjs`):
+   - la portada responde 200 y muestra notas; `/feed.xml` y `/sitemap.xml` responden 200;
+   - hay una nota publicada en las últimas 4 horas (sólo se cuenta el tiempo de 7:00 a 24:00 de Balcarce: de madrugada no avisa);
+   - ninguna de las 5 notas más recientes del feed da error 5xx.
+   Todo se avisa recién cuando se ve en dos chequeos seguidos (una hora), salvo «sin notas nuevas», que avisa de entrada.
+9. **Las redes** (Facebook, Instagram, Bluesky, Threads y X), con lo que registra `radar-redes` en `GET /actividad` (publicaciones reales de las últimas 24 horas):
+   - **una red lleva demasiado sin publicar**: 6 horas Facebook e Instagram, 8 Bluesky, Threads y X (salen detrás de Facebook). Se cuentan sólo
+     las horas dentro del horario de publicación, de 8:00 a 22:00 de Balcarce: la noche no cuenta. Si no publicó nada en 24 horas, también avisa;
+   - **una red falló 3 veces seguidas** al publicar (avisa con el último error).
+   Si las redes están apagadas (`REDES_ACTIVAS` en «no», todo simulado) o la vigilancia no puede leerlas, no se juzga nada.
 
 ## 3. Cuándo avisa
 
@@ -52,12 +62,12 @@ usan el bot y el núcleo; nunca se imprime ni se guarda).
 ## 5. Qué muestra `GET /salud` de la propia vigilancia
 
 El último chequeo (cuándo fue, si estaba todo bien, qué problemas había abiertos y desde cuándo), cuándo salió el último informe y qué está
-conectado (núcleo, bot, sitio, mail, token: sólo sí o no). Nunca secretos.
+conectado (núcleo, bot, redes, sitio, mail, token: sólo sí o no). Nunca secretos.
 
 ## 6. Lo que no hace
 
 - No arregla nada solo: avisa. Tampoco reinicia Workers.
-- No mira las redes sociales ni la web publicada (todavía no existen en 3.0); se suman cuando existan sus Workers.
+- No mira lo que dicen las redes ni el contenido de las notas: sólo si el sitio responde y si las redes publican.
 - No manda WhatsApp ni otro canal: Telegram, y el mail sólo si el bot está caído.
 
 ## 7. Qué necesita

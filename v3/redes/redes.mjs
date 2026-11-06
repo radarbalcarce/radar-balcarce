@@ -334,6 +334,15 @@ export function crearRedes(deps = {}) {
       const r = await repetir(env, cuerpo);
       return json(r, r.error ? (r.status ?? 400) : 200);
     }
+    // Lo que la vigilancia necesita: por red, lo publicado de verdad en las últimas 24 horas (GET, con contraseña). Con las redes apagadas, `activas` es false y no se juzga nada.
+    if (pedido.method === 'GET' && url.pathname === '/actividad') {
+      const no = await autorizado(pedido, env);
+      if (no) return no;
+      const ahora = reloj();
+      const desde = new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString();
+      const redes = await db.actividadDeRedes(env, { desdeISO: desde, redes: ['facebook', 'instagram', 'bluesky', 'threads', 'x'] }).catch(() => null);
+      return redes ? json({ ok: true, activas: redesActivas(env), ahora: ahora.toISOString(), desde, redes }) : json({ error: 'no se pudo leer' }, 500);
+    }
     if (pedido.method === 'GET' && url.pathname === '/piezas/estado') {
       const no = await autorizado(pedido, env);
       if (no) return no;

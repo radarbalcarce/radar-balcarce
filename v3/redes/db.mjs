@@ -83,6 +83,32 @@ export async function ultimaPublicacion(env) {
   return (await env.DB.prepare('SELECT red, nota_id, cuando, estado, simulado, error FROM publicaciones ORDER BY id DESC LIMIT 1').first()) ?? null;
 }
 
+/**
+ * Resume lo que se publicó de verdad por red, para la vigilancia: cuántas salieron bien, la última que salió, cuántos errores seguidos lleva
+ * al final (lo que está «enviando» no cuenta ni corta la racha) y el último error. Función pura sobre las filas.
+ */
+export function resumirActividad(filas, redes) {
+  const salida = {};
+  for (const red of redes) {
+    const propias = filas.filter((f) => f.red === red && f.estado !== 'enviando').sort((a, b) => String(a.cuando).localeCompare(String(b.cuando)));
+    const oks = propias.filter((f) => f.estado === 'ok');
+    let seguidos = 0;
+    for (let i = propias.length - 1; i >= 0 && propias[i].estado === 'error'; i -= 1) seguidos += 1;
+    const ultimoError = [...propias].reverse().find((f) => f.estado === 'error');
+    salida[red] = {
+      ok24: oks.length, ultimoOk: oks.length ? oks[oks.length - 1].cuando : null, ultimoIntento: propias.length ? propias[propias.length - 1].cuando : null,
+      erroresSeguidos: seguidos, ultimoError: seguidos && ultimoError?.error ? String(ultimoError.error).slice(0, 200) : null,
+    };
+  }
+  return salida;
+}
+
+/** Las publicaciones reales (no simuladas) desde `desdeISO`, resumidas por red, para la vigilancia. */
+export async function actividadDeRedes(env, { desdeISO, redes }) {
+  const r = await env.DB.prepare('SELECT red, cuando, estado, error FROM publicaciones WHERE simulado = 0 AND cuando >= ? ORDER BY cuando').bind(desdeISO).all();
+  return resumirActividad(lista(r), redes);
+}
+
 /** Repetir una nota a mano: lo ya publicado de esa nota en esa red pasa a «reemplazada» (deja de ocupar el lugar único), para poder subir la nueva. Devuelve cuántas filas movió. */
 export async function reemplazarAnteriores(env, { red, notaId }) {
   const r = await env.DB.prepare("UPDATE publicaciones SET estado = 'reemplazada' WHERE red = ? AND nota_id = ? AND simulado = 0 AND estado IN ('ok', 'enviando')").bind(red, notaId).run();

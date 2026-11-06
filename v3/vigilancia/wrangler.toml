@@ -22,6 +22,11 @@ service = "radar-nucleo"
 binding = "TELEGRAM"
 service = "radar-telegram"
 
+# Las redes: GET /actividad (lo que publicaron en las últimas 24 horas). Sin este enlace la vigilancia no mira las redes.
+[[services]]
+binding = "REDES"
+service = "radar-redes"
+
 # El sitio (etapa C): sumar este enlace cuando radar-sitio exista y tenga GET /salud. Sin él la vigilancia no mira el sitio.
 # Si se descomenta antes de que el Worker esté subido, el despliegue falla.
 # [[services]]

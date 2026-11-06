@@ -1,5 +1,6 @@
 // Radar 3.0, etapa F: la vigilancia. Lógica pura e inyectable (sin red, sin Cloudflare): worker.mjs la conecta con los Workers y el KV
 // de verdad, y vigilancia.test.mjs la prueba con falsos. Las reglas, en palabras de persona, están en REGLAS.md.
+import { evaluarWeb, evaluarRedes, arregloDeSitioYRedes } from './sitio-y-redes.mjs';
 
 export const MINUTOS_SIN_VUELTA = 40;        // el núcleo tiene que haber hecho una vuelta en los últimos 40 minutos
 export const UMBRAL_DE_GASTO = 0.8;          // se avisa al 80 % del freno mensual de IA
@@ -51,7 +52,7 @@ export function partirEnMensajes(lineas, max = LARGO_DE_MENSAJE) {
  *   sitio:  null | { ok }   el sitio, si está conectado
  * Cada problema: { clave, texto, confirmar (en cuántos chequeos seguidos tiene que verse), silencioso (no se avisa que volvió), mes }.
  */
-export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot }) {
+export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot, web = null, redes = null }) {
   const problemas = [];
   const t = new Date(ahora).getTime();
   const minutos = (iso) => (t - new Date(iso).getTime()) / 60000;
@@ -112,6 +113,9 @@ export function evaluar({ ahora, nucleo, bot, sitio = null, direccionDelBot }) {
   // El sitio, si ya está conectado
   if (sitio && !sitio.ok) problemas.push({ clave: 'sitio', texto: 'El sitio (radar-sitio) no contesta.', confirmar: CONFIRMAR_SI_NO_RESPONDE });
 
+  // El sitio publicado y las redes (sitio-y-redes.mjs). Si no se pudieron mirar (null), no se inventan problemas.
+  problemas.push(...evaluarWeb({ ahora, web }), ...evaluarRedes({ ahora, actividad: redes }));
+
   return problemas;
 }
 
@@ -155,6 +159,8 @@ const ARREGLOS = {
 /** El «volvió a andar» de un problema arreglado. */
 export function textoDeArreglo(clave) {
   if (clave.startsWith('fuente:')) return `la fuente ${clave.slice(7)} volvió a andar.`;
+  const nuevo = arregloDeSitioYRedes(clave);
+  if (nuevo) return nuevo;
   return ARREGLOS[clave] ?? `${clave} volvió a andar.`;
 }
 
@@ -173,8 +179,8 @@ const abierto = (e) => e.vistas >= e.confirmar && !e.resuelto;
  */
 export async function chequear(deps) {
   const ahora = deps.ahora();
-  const { nucleo, bot, sitio } = await deps.traer();
-  const problemas = evaluar({ ahora, nucleo, bot, sitio, direccionDelBot: deps.direccionDelBot });
+  const { nucleo, bot, sitio, web = null, redes = null } = await deps.traer();
+  const problemas = evaluar({ ahora, nucleo, bot, sitio, direccionDelBot: deps.direccionDelBot, web, redes });
   const previo = (await deps.leer('problemas')) ?? {};
   const { estado, nuevos, arreglados } = decidirAvisos(previo, problemas, ahora);
 

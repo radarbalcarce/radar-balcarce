@@ -297,10 +297,11 @@ test('el Worker: /salud no trae secretos, y cada cron hace lo suyo, con los Work
       return new Response(JSON.stringify(saludBot({ webhook: { cuando: new Date().toISOString(), url: `${DIRECCION}/telegram` } })));
     } },
   };
-  await programado({ cron: '*/30 * * * *' }, env);
+  const deps = () => crearDeps(env, { fetchDeAfuera: async (u) => new Response(String(u).endsWith('/feed.xml') ? `<rss><item><link>https://radarbalcarce.com/nota/a</link><pubDate>${new Date().toUTCString()}</pubDate></item></rss>` : '<a href="/nota/a">a</a>') });
+  await programado({ cron: '*/30 * * * *' }, env, deps());
   assert.equal(JSON.parse(kv.get('chequeo')).ok, true);
   assert.ok(!llamadas.some(([, u]) => u.endsWith('/decir')));
-  await programado({ cron: '0 23 * * *' }, env);
+  await programado({ cron: '0 23 * * *' }, env, deps());
   const decir = llamadas.find(([, u]) => u.endsWith('/decir'));
   assert.equal(decir[2], contrasena);
   assert.ok(llamadas.some(([q, u, c]) => q === 'nucleo' && u.includes('/notas?dia=') && c === contrasena));
@@ -316,8 +317,9 @@ test('el Worker: /salud no trae secretos, y cada cron hace lo suyo, con los Work
 });
 
 test('crearDeps sin Workers conectados contesta «no responde» sin romper', async () => {
-  const d = crearDeps({ ESTADO: { get: async () => null, put: async () => {} } });
-  const { nucleo, bot, sitio } = await d.traer();
+  const d = crearDeps({ ESTADO: { get: async () => null, put: async () => {} } }, { fetchDeAfuera: async () => { throw new Error('sin red'); } });
+  const { nucleo, bot, sitio, redes } = await d.traer();
+  assert.equal(redes, null);
   assert.equal(nucleo.ok, false);
   assert.equal(bot.ok, false);
   assert.equal(sitio, null);
