@@ -38,7 +38,7 @@ NUCLEO_MINIMO_AREAS_CHICAS = "2"
 NUCLEO_TOPE_NACIONAL = "60"
 NUCLEO_REDACTAR_POR_VUELTA = "6"
 # Rehacer las notas migradas sin foto (REGLAS § 7 ter): cuántas por día (0 lo apaga) y cuántas por vuelta. Sólo foto, sin tocar el texto.
-NUCLEO_REHACER_POR_DIA = "60"
+NUCLEO_REHACER_POR_DIA = "30"
 NUCLEO_REHACER_POR_VUELTA = "3"
 # Interruptor de publicar (REGLAS § 11): "no" deja las notas en borrador; "si" las publica. Lo cambia una persona el día del corte.
 NUCLEO_PUBLICA = "si"
