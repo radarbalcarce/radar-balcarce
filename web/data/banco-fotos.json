@@ -57789,9 +57789,7 @@
   "ausenteDesde": "2026-11-02T21:34:02.748Z"
  },
  "18yvm4g": {
-  "archivo": "fotos-notas/18yvm4g.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "El riesgo país llega a 790 puntos y alcanza su máximo anual",
@@ -57811,7 +57809,8 @@
    "descripcion": "Operadores trabajando frente a pantallas en una bolsa de valores."
   },
   "huella": "6827072d0acacace",
-  "ausenteDesde": "2026-10-30T23:05:32.574Z"
+  "intentado": true,
+  "borrada": true
  },
  "1b0e7lc": {
   "archivo": "fotos-notas/1b0e7lc.jpg",
@@ -58053,9 +58052,7 @@
   "fuentes": 3
  },
  "5v0pia": {
-  "archivo": "fotos-notas/5v0pia.jpg",
   "medio": "Los Andes (Mendoza)",
-  "credito": "Foto: Los Andes (Mendoza)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mauro Icardi repasa su carrera y busca club en el fútbol italiano",
@@ -58075,7 +58072,8 @@
    "descripcion": "Primer plano de Mauro Icardi sonriendo."
   },
   "huella": "0f4e04464d1d3313",
-  "ausenteDesde": "2026-10-30T23:05:32.574Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ohgde4": {
   "archivo": "fotos-notas/1ohgde4.jpg",
@@ -58103,9 +58101,7 @@
   "ausenteDesde": "2026-11-02T20:35:40.952Z"
  },
  "1dgpzfa": {
-  "archivo": "fotos-notas/1dgpzfa.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Javier Milei viaja a Madrid para participar de la XXX Cumbre Iberoamericana",
@@ -58125,7 +58121,8 @@
    "descripcion": "Javier Milei caminando en un evento oficial."
   },
   "huella": "17336363632363c3",
-  "ausenteDesde": "2026-10-30T23:05:32.574Z"
+  "intentado": true,
+  "borrada": true
  },
  "1yirfii": {
   "archivo": "fotos-notas/1yirfii.jpg",
@@ -80714,7 +80711,8 @@
    "corresponde": "si",
    "descripcion": "El artista Nicolás Lahitte posando junto al mural de Juan Manuel Fangio en el museo."
   },
-  "huella": "eee6fb878dcd8d0d"
+  "huella": "eee6fb878dcd8d0d",
+  "ausenteDesde": "2026-11-06T23:35:17.645Z"
  },
  "stdvti": {
   "archivo": "fotos-notas/stdvti.jpg",
@@ -81018,7 +81016,8 @@
   "enlace": "https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg",
   "imagenOriginal": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg/1280px-Vista_a%C3%A9rea_del_Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "titulo": "File:Vista aérea del Autódromo José Carlos Pace 01.jpg",
-  "cuando": "2026-11-05T03:03:47.148Z"
+  "cuando": "2026-11-05T03:03:47.148Z",
+  "ausenteDesde": "2026-11-06T23:35:17.645Z"
  },
  "115dvxc": {
   "archivo": "fotos-notas/115dvxc.jpg",
@@ -81781,7 +81780,8 @@
    "corresponde": "si",
    "descripcion": "Ronnie Wood gesticulando en primer plano medio"
   },
-  "huella": "cadada9c9d1c558e"
+  "huella": "cadada9c9d1c558e",
+  "ausenteDesde": "2026-11-06T23:35:17.645Z"
  },
  "1jhugf1": {
   "archivo": "fotos-notas/1jhugf1.jpg",
@@ -84241,10 +84241,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Godoy Cruz y Tristán Suárez juegan la final por el ascenso el 15 de noviembre",
-  "razon": "Ninguna de las fotos corresponde al evento mencionado (Godoy Cruz vs Tristán Suárez), ya que todas muestran partidos de River Plate o Boca Juniors, o conferencias de prensa de la Selección Argentina.",
-  "cuando": "2026-11-06T22:02:30.807Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
+  "cuando": "2026-11-06T23:33:09.341Z",
   "intentos": 4,
-  "fuentes": 21
+  "fuentes": 22,
+  "intentosPorCupo": 1
  },
  "1cqsg0d": {
   "archivo": "fotos-notas/1cqsg0d.jpg",
@@ -85590,7 +85591,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de Atlético Mineiro y Botafogo disputando el balón en un partido."
   },
-  "huella": "1e8eaa0fceccdd07"
+  "huella": "1e8eaa0fceccdd07",
+  "ausenteDesde": "2026-11-06T23:35:17.645Z"
  },
  "1vcth09": {
   "intentado": true,
@@ -87048,13 +87050,28 @@
   "ausenteDesde": "2026-11-06T13:33:08.360Z"
  },
  "13dh9o6": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/13dh9o6.jpg",
+  "medio": "Punto Noticias",
+  "credito": "Foto: Punto Noticias",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La visita papal a Buenos Aires genera un impacto superior a los u$s 88 millones",
-  "razon": "Ninguna foto sirve: la A es genérica y la B muestra menores reconocibles entre la multitud.",
-  "cuando": "2026-11-06T13:02:23.966Z",
-  "intentos": 1,
-  "fuentes": 4
+  "enlace": "https://puntonoticias.com/el-movimiento-turistico-por-la-llegada-de-leon-xiv-le-dejara-a-la-ciudad-de-buenos-aires-un-impacto-economico-millonario/",
+  "imagenOriginal": "https://puntonoticias.com/wp-content/uploads/2023/07/Obelisco.jpg",
+  "razon": "Es la única imagen que muestra el lugar del hecho sin personas, cumpliendo con los criterios de calidad y sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista del Obelisco en Buenos Aires con una bandera argentina."
+  },
+  "huella": "feece8f1751537b7"
  },
  "1bpncpk": {
   "archivo": "fotos-notas/1bpncpk.jpg",
@@ -88896,11 +88913,12 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Franco Mastantuono elogia a Jude Bellingham y recuerda su paso por el Madrid",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T21:01:58.738Z",
+  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
+  "cuando": "2026-11-06T23:33:09.341Z",
   "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 2
+  "fuentes": 6,
+  "intentosPorCupo": 3,
+  "errorGemini": "The operation was aborted due to timeout"
  },
  "13en1uy": {
   "intentado": true,
@@ -89379,14 +89397,40 @@
   "huella": "e3173337ab97bcce"
  },
  "ywrbgw": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ywrbgw.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El papa León XIV llega a la Argentina el domingo y establece feriados",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-06T21:31:57.564Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 2
+  "enlace": "https://www.lanacion.com.ar/sociedad/cuando-llega-el-papa-leon-xiv-a-la-argentina-y-como-es-el-recorrido-oficial-el-itinerario-completo-y-nid01112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-papa-leon-xiv-llega-el-domingo-8-de-noviembre-V34EOVTG3JFRNFPJVOXMJSXFUQ.JPG?auth=f530104e2e8e3889c0becf9faf499af6b46489bc438083f1954b5c9d7bf2d4b8&width=1200&height=800&quality=70&smart=true",
+  "razon": "La foto B es la única que muestra al Papa en un contexto claro, sin marcas de agua, sin menores y con buena calidad, siendo pertinente para la nota.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV saludando sentado en una silla ceremonial.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "El Papa Francisco saludando desde un balcón con el emblema papal en el respaldo de la silla."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "d3d9592b060e2498"
  },
  "1w9enoc": {
   "intentado": true,
@@ -90220,5 +90264,104 @@
   "cuando": "2026-11-06T23:02:27.615Z",
   "intentos": 1,
   "fuentes": 3
+ },
+ "1mntvqe": {
+  "archivo": "fotos-notas/1mntvqe.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La FIFA reduce la sanción a Nahuel Molina pero mantiene la de Leandro Paredes",
+  "enlace": "https://www.ole.com.ar/seleccion/paredes-molina-sancion-argentina-espana-tas-afa_0_zEo18xFufq.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/07/21/WB2R7yPaD_2000x1500__1.jpg",
+  "razon": "Es la imagen con mejor encuadre, nitidez y composición, mostrando claramente la acción sin marcas de agua ni elementos distractores.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Leandro Paredes en una acción de juego durante un partido."
+  },
+  "huella": "b3be2c5c2cbc1d56"
+ },
+ "yaw00h": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Procesan a Ariel Vallejo y lo embargan por 40.000 millones de pesos",
+  "razon": "Todas las fotos presentan marcas de agua, logos sobreimpresos o son capturas de pantalla de transmisiones televisivas, lo cual incumple las reglas de selección.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "yrfq7j": {
+  "archivo": "fotos-notas/yrfq7j.jpg",
+  "medio": "Los Andes (Mendoza)",
+  "credito": "Foto: Los Andes (Mendoza)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "San Lorenzo homenajea al papa León XIV en la previa del partido ante Platense",
+  "enlace": "https://www.losandes.com.ar/deportes/con-el-recuerdo-francisco-san-lorenzo-homenajeo-al-papa-leon-xiv-el-club-reza-vos-n6013368",
+  "imagenOriginal": "https://media.losandes.com.ar/p/a8e38e92111739f3e5d82029d08bd9e2/adjuntos/368/imagenes/100/764/0100764265/1200x675/smart/con-el-recuerdo-francisco-san-lorenzo-homenajeo-al-papa-leon-xiv-el-club-reza-vos.png",
+  "razon": "Es la única imagen que no presenta marcas de agua, no incluye menores de edad y muestra el detalle del homenaje de forma clara y profesional.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano del escudo conmemorativo en la camiseta de San Lorenzo."
+  },
+  "huella": "06c5cda929090d84"
+ },
+ "f7kf8n": {
+  "archivo": "fotos-notas/f7kf8n.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Mario Pergolini revela detalles inéditos de su entrevista a Ronnie Wood",
+  "enlace": "https://www.lanacion.com.ar/espectaculos/mario-pergolini-conto-lo-que-no-se-vio-de-su-entrevista-a-ronnie-wood-de-su-charla-a-solas-a-lo-que-nid06112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/mario-pergolini-conto-todo-lo-que-no-se-vio-de-la-4SUZ25M5HFCIZMDXB4PER7HKZU.jpg?auth=ee052db28aae871dcec4af7eacd81f651f076b11b3c3c1a824e332f2103c2839&width=1200&height=800&quality=70&smart=true",
+  "razon": "Ambas fotos son idénticas, pero la opción A presenta una calidad de imagen ligeramente superior y mayor nitidez en los detalles.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Mario Pergolini entrevistando a Ronnie Wood en un estudio de televisión."
+  },
+  "huella": "202c383a94d35141"
+ },
+ "dw651t": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Grego Rossello logra un beneficio especial en MasterChef Celebrity",
+  "razon": "La única imagen disponible es una captura de pantalla de televisión, lo cual la clasifica como gráfica y por lo tanto no es apta para su publicación según las reglas establecidas.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "zq4p96": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan una caravana en Balcarce para pedir la reincorporación de Virginia Aparicio",
+  "razon": "Ninguna de las fotos cumple con los requisitos: la A es una selfie, la B, C y D muestran personas de forma muy directa y la E es una toma general con personas, por lo que no hay una opción que cumpla con el criterio de no mostrar gente.",
+  "cuando": "2026-11-06T23:33:09.341Z",
+  "intentos": 1,
+  "fuentes": 6
  }
 }
