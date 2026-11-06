@@ -44,18 +44,4 @@ jobs:
       - name: Pruebas de Radar 3.0
         run: node --test "v3/**/*.test.mjs"
 
-      # Lo que sigue es el sistema viejo (se apaga cuando las redes lleven una semana verificadas): informativo, no bloquea.
-      # Hacen falta las dependencias: hay pruebas que tocan reels/ (placas con resvg, ffmpeg) y web/lib (react).
-      - name: Instalar (sistema viejo)
-        continue-on-error: true
-        run: |
-          n=0; until npm ci --no-audit --no-fund; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "npm ci falló (intento $n), se reintenta"; sleep 20; done
-      - name: Instalar web (sistema viejo)
-        continue-on-error: true
-        working-directory: web
-        run: |
-          n=0; until npm ci --no-audit --no-fund; do n=$((n+1)); [ $n -ge 3 ] && exit 1; echo "npm ci falló (intento $n), se reintenta"; sleep 20; done
-
-      - name: Pruebas del sistema viejo (informativo, no bloquea)
-        continue-on-error: true
-        run: npm test
+      # Las pruebas del sistema viejo (npm test) se sacaron el 6/11: eran informativas, fallaban seguido y gastaban ~4 minutos por subida (los minutos de Actions cuentan al pasar a privado).
