@@ -15,6 +15,7 @@ import * as db from './db.mjs';
 import * as dbp from './piezas-db.mjs';
 import { planear, registrarResultado, lineasDeLasPiezas } from './piezas-plan.mjs';
 import { planearEnlaces, registrarEnlace } from './enlaces.mjs';
+import { medirDia, compararSemanas, lineasDeLaComparacion } from './estadisticas.mjs';
 
 /** El cron del resumen del día: 01:05 UTC = 22:05 de Balcarce. Cualquier otro cron es una vuelta. */
 export const CRON_DEL_RESUMEN = '5 1 * * *';
@@ -233,6 +234,11 @@ export function crearRedes(deps = {}) {
     }
     const piezas = await dbp.piezasDelDia(env, dia, simulado).catch(() => []);
     lineas.push(...lineasDeLasPiezas(piezas, simulado));
+    // Las estadísticas del día (visitas, alcance, seguidores, lo publicado) se miden y se guardan; la línea de semana contra semana va al final. Si algo falla, el resumen sale igual.
+    try {
+      await medirDia(env, { ahora, dia, simulado, clienteMeta, fetchFn });
+      lineas.push(...lineasDeLaComparacion(await compararSemanas(env, dia)));
+    } catch (e) { console.error(`estadisticas: ${e.message}`); }
     if (!fb.length && !ig.length && !errores.length && !piezas.length) lineas.push('No hubo nada que publicar (ninguna nota con foto, sin tono triste, de Balcarce o muy contada).');
     const salio = await decirPorTelegram(env, lineas.join('\n'), fetchFn);
     return { dia, simulado, facebook: fb.length, instagram: ig.length, errores: errores.length, avisado: salio, lineas };

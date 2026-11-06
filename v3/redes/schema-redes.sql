@@ -46,3 +46,12 @@ CREATE TABLE IF NOT EXISTS piezas (
 CREATE INDEX IF NOT EXISTS idx_piezas_dia ON piezas (dia, simulado);
 -- Una pieza sale una sola vez por día y por modo: dos corridas que se pisan no la arman dos veces. Los intentos con error o sin datos no cuentan.
 CREATE UNIQUE INDEX IF NOT EXISTS uq_piezas_dia ON piezas (pieza, dia, simulado) WHERE estado IN ('en-curso', 'lista', 'publicada');
+
+-- Las estadísticas diarias (v3/redes/estadisticas.mjs): una fila por día y métrica; medir de nuevo el mismo día actualiza la fila.
+CREATE TABLE IF NOT EXISTS estadisticas (
+  dia TEXT NOT NULL,              -- AAAA-MM-DD en Balcarce
+  metrica TEXT NOT NULL,          -- visitas, paginas_vistas, fb_alcance, fb_impresiones, fb_seguidores, ig_*, notas_publicadas, piezas_publicadas, posteos_publicados
+  valor REAL NOT NULL,
+  actualizada TEXT NOT NULL,      -- ISO UTC de la última medición
+  PRIMARY KEY (dia, metrica)
+);
