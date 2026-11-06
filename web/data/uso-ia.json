@@ -3209,90 +3209,90 @@
   "2026-11-06": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 68,
-     "errores": 28,
-     "entrada": 97291,
-     "salida": 49352,
+     "llamadas": 73,
+     "errores": 30,
+     "entrada": 106095,
+     "salida": 53634,
      "pensamiento": 0,
-     "total": 146643,
+     "total": 159729,
      "claves": {
-      "clasificacion": 68
+      "clasificacion": 73
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 23,
-       "ok": 40,
-       "saturado": 5
+       "ok": 43,
+       "saturado": 7
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 28,
-     "errores": 16,
-     "entrada": 35054,
-     "salida": 32363,
+     "llamadas": 30,
+     "errores": 17,
+     "entrada": 37190,
+     "salida": 33238,
      "pensamiento": 0,
-     "total": 67417,
+     "total": 70428,
      "claves": {
-      "groq": 28
+      "groq": 30
      },
      "motivos": {
       "groq": {
-       "ok": 12,
+       "ok": 13,
        "velocidad": 15,
-       "otro": 1
+       "otro": 2
       }
      }
     },
     "mistral-large-2512": {
-     "llamadas": 6,
-     "errores": 6,
+     "llamadas": 7,
+     "errores": 7,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "mistral": 6
+      "mistral": 7
      },
      "motivos": {
       "mistral": {
-       "rechazada": 6
+       "rechazada": 7
       }
      }
     }
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 48,
+     "llamadas": 51,
      "errores": 12,
-     "entrada": 643000,
-     "salida": 7985,
+     "entrada": 696074,
+     "salida": 8361,
      "pensamiento": 0,
-     "total": 650985,
+     "total": 704435,
      "claves": {
-      "clasificacion": 48
+      "clasificacion": 51
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 10,
-       "ok": 36,
+       "ok": 39,
        "saturado": 2
       }
      }
     },
     "gemini-embedding-001": {
-     "llamadas": 10,
+     "llamadas": 11,
      "errores": 0,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "clasificacion": 10
+      "clasificacion": 11
      },
      "motivos": {
       "clasificacion": {
-       "ok": 10
+       "ok": 11
       }
      }
     },
@@ -3315,20 +3315,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 227,
-     "errores": 49,
-     "entrada": 1023000,
-     "salida": 194759,
+     "llamadas": 254,
+     "errores": 50,
+     "entrada": 1176993,
+     "salida": 223184,
      "pensamiento": 0,
-     "total": 1217759,
+     "total": 1400177,
      "claves": {
-      "redaccion": 227
+      "redaccion": 254
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 23,
-       "ok": 178,
-       "saturado": 26
+       "ok": 204,
+       "saturado": 27
       }
      }
     },
@@ -3352,20 +3352,20 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 161,
-     "errores": 55,
-     "entrada": 571922,
-     "salida": 43836,
+     "llamadas": 171,
+     "errores": 56,
+     "entrada": 616410,
+     "salida": 47204,
      "pensamiento": 0,
-     "total": 615758,
+     "total": 663614,
      "claves": {
-      "clasificacion": 161
+      "clasificacion": 171
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 46,
-       "ok": 106,
-       "saturado": 8,
+       "ok": 115,
+       "saturado": 9,
        "otro": 1
       }
      }
@@ -3389,19 +3389,19 @@
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 50,
-     "errores": 24,
-     "entrada": 44788,
-     "salida": 2770,
+     "llamadas": 53,
+     "errores": 25,
+     "entrada": 48055,
+     "salida": 3065,
      "pensamiento": 0,
-     "total": 47558,
+     "total": 51120,
      "claves": {
-      "groq": 50
+      "groq": 53
      },
      "motivos": {
       "groq": {
-       "otro": 2,
-       "ok": 26,
+       "otro": 3,
+       "ok": 28,
        "velocidad": 4,
        "cupo-diario": 18
       }
