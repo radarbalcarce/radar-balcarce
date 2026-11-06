@@ -698,7 +698,8 @@
       "tipo": "rss",
       "alcance": "pais",
       "oficial": false,
-      "activa": true
+      "activa": false,
+      "nota": "perfil.com/feed/educacion responde 200 pero su ítem más nuevo es del 19/10/2026 (17 días sin notas nuevas; verificado con curl el 5/11/2026, con y sin User-Agent de navegador)."
     },
     {
       "id": "unlp",
@@ -1021,7 +1022,8 @@
       "url": "https://www.perfil.com/feed/politica",
       "tipo": "rss",
       "alcance": "pais",
-      "activa": true
+      "activa": false,
+      "nota": "perfil.com/feed/politica responde 200 pero su ítem más nuevo es del 8/6/2026 (150 días sin notas nuevas; verificado con curl el 5/11/2026, con y sin User-Agent de navegador)."
     },
     {
       "oficial": false,

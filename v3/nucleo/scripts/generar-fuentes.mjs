@@ -60,6 +60,8 @@ export const APAGAR = {
   'infobae-salud': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
   'infobae-educacion': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
   'infobae-ciencia': 'Infobae bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026; desde una PC responde 200). No se esquiva: se respeta el bloqueo.',
+  'perfil-educacion': 'perfil.com/feed/educacion responde 200 pero su ítem más nuevo es del 19/10/2026 (17 días sin notas nuevas; verificado con curl el 5/11/2026, con y sin User-Agent de navegador).',
+  'perfil-politica': 'perfil.com/feed/politica responde 200 pero su ítem más nuevo es del 8/6/2026 (150 días sin notas nuevas; verificado con curl el 5/11/2026, con y sin User-Agent de navegador).',
   unlam: 'unlam.edu.ar bloquea al Worker de Cloudflare: HTTP 403 en las 44 vueltas seguidas (verificado en /salud el 3/11/2026). Se respeta el bloqueo.',
 };
 // ENCENDER: estaban apagadas en el sistema viejo y hoy responden XML con novedades de ese mismo día.
@@ -134,7 +136,7 @@ export function generar() {
     fuentes.push(c);
   }
   for (const n of SUMAR) {
-    if (!fuentes.some((f) => f.id === n.id)) fuentes.push({ ...n });
+    if (!fuentes.some((f) => f.id === n.id)) fuentes.push(APAGAR[n.id] ? { ...n, activa: false, nota: APAGAR[n.id] } : { ...n });
   }
   for (const p of PORTADAS) {
     const antes = fuentes.findIndex((f) => f.id === p.id);
