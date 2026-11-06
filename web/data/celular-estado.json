@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-05T23:34:00.517Z",
- "portada": 185,
+ "generado": "2026-11-06T00:05:49.592Z",
+ "portada": 181,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 10,
  "redes": {
-  "generado": "2026-11-05T23:34:01.213Z",
+  "generado": "2026-11-06T00:05:50.254Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -113,9 +113,9 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 49,
+    "segundos": 55,
     "notas": [
      {
       "id": "m8b2c6",
@@ -128,14 +128,14 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "1xsiv6s",
+      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "seccion": "Educación"
+     },
+     {
       "id": "1d0gbk6",
       "titulo": "Abre la inscripción para la carrera Circuito Buenos Aires Aventura",
       "seccion": "Deportes"
-     },
-     {
-      "id": "yko3zc",
-      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
-      "seccion": "Automovilismo"
      }
     ]
    }
@@ -156,6 +156,12 @@
      "marcada": false
     },
     {
+     "id": "1xsiv6s",
+     "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "yko3zc",
      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
      "seccion": "Automovilismo",
@@ -168,20 +174,8 @@
      "marcada": false
     },
     {
-     "id": "1tad7yt",
-     "titulo": "La Selección Argentina no utiliza la camiseta 10 en la próxima fecha FIFA",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "1dveq4k",
      "titulo": "El Grupo de Narváez compra la cadena de supermercados Día en Argentina",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "ohdlkq",
-     "titulo": "Itti suspende empleados en Argentina por la crisis financiera de Ueno Bank",
      "seccion": "Economía",
      "marcada": false
     },
@@ -189,6 +183,12 @@
      "id": "17k6ssv",
      "titulo": "Muere a los 74 años Patricia Walsh, histórica dirigente de la izquierda",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "k2294s",
+     "titulo": "Cierra la histórica Papelera del Sur en Tornquist y despide a 160 empleados",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
