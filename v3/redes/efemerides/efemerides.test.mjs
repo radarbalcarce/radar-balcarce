@@ -212,7 +212,7 @@ test('un día sin principal usable no tiene pieza (y no es una falla)', () => {
 
 test('generar: escribe los tres archivos con CRLF, es idempotente y con --simular no escribe; si falla la red no escribe nada', async () => {
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'efem-'));
-  const o = { argv: ['--desde=2026-12-01', '--dias=2'], ahora: new Date('2026-11-20T13:00:00Z'), esperar: async () => {}, log: () => {}, carpeta };
+  const o = { env: {}, argv: ['--desde=2026-12-01', '--dias=2'], ahora: new Date('2026-11-20T13:00:00Z'), esperar: async () => {}, log: () => {}, carpeta };
   const sim = await generar({ ...o, argv: [...o.argv, '--simular'], traer: traerFalso() });
   assert.equal(sim.simulado, true);
   assert.deepEqual(fs.readdirSync(carpeta), []);
@@ -240,6 +240,6 @@ test('generar: escribe los tres archivos con CRLF, es idempotente y con --simula
 test('generar avisa (falla) si un mes entero queda casi sin piezas', async () => {
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), 'efem-'));
   const vacio = async (url) => (url.includes('argentinadatos') ? { ok: true, status: 200, json: async () => [] } : { ok: true, status: 200, json: async () => ({}) });
-  await assert.rejects(() => generar({ argv: ['--desde=2026-12-01', '--dias=30'], ahora: new Date('2026-11-20T13:00:00Z'), esperar: async () => {}, log: () => {}, carpeta, traer: vacio }), /Sólo 0 de 30/);
+  await assert.rejects(() => generar({ env: {}, argv: ['--desde=2026-12-01', '--dias=30'], ahora: new Date('2026-11-20T13:00:00Z'), esperar: async () => {}, log: () => {}, carpeta, traer: vacio }), /Sólo 0 de 30/);
   fs.rmSync(carpeta, { recursive: true, force: true });
 });
