@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T09:03:48.100Z",
- "portada": 144,
+ "generado": "2026-11-06T10:04:06.762Z",
+ "portada": 138,
  "archivo": 500,
- "esperandoCuerpo": 11,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-06T09:03:48.450Z",
+  "generado": "2026-11-06T10:04:07.657Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -95,22 +95,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 50,
     "notas": [
-     {
-      "id": "m8b2c6",
-      "titulo": "Realizan una caravana en Balcarce para pedir la reincorporación de Aparicio",
-      "seccion": "Ciencia"
-     },
      {
       "id": "1is00rd",
       "titulo": "Lanzan una colecta de golosinas para la visita de Papá Noel a Protección",
       "seccion": "Balcarce"
      },
      {
-      "id": "1xsiv6s",
-      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "id": "x4bwtx",
+      "titulo": "Realizan jornadas de reflexión sobre la Estudiantina en la Escuela Secundaria N1",
       "seccion": "Educación"
+     },
+     {
+      "id": "37gn8b",
+      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "seccion": "Deportes"
      },
      {
       "id": "74b2wn",
@@ -126,12 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 54,
     "notas": [
      {
       "id": "1a0h4cn",
       "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "1xsiv6s",
+      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "seccion": "Educación"
      },
      {
       "id": "1d0gbk6",
@@ -142,11 +147,6 @@
       "id": "yko3zc",
       "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "1451xkf",
-      "titulo": "La Escuela Técnica prepara dos autos eléctricos para competir en Junín",
-      "seccion": "Educación"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 51,
+    "segundos": 55,
     "notas": [
      {
       "id": "1llnb6t",
@@ -165,33 +165,26 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "37gn8b",
-      "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
+      "id": "14llvsv",
+      "titulo": "El Colegio Emilio Lamarca organiza la Caravana de la Alegría",
+      "seccion": "Educación"
+     },
+     {
+      "id": "5driml",
+      "titulo": "Campo de Pato clasifica cuatro equipos a las finales del Interclubes",
       "seccion": "Deportes"
      },
      {
       "id": "1syf5mi",
       "titulo": "Nicolás Lahitte termina un mural de Juan Manuel Fangio en el museo",
       "seccion": "Automovilismo"
-     },
-     {
-      "id": "5bynip",
-      "titulo": "Un automóvil choca a un ciclista en avenida Centenario",
-      "seccion": "Policiales"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [
-    {
-     "id": "1y2d2s8",
-     "titulo": "Emiten alerta por el avance de un frente frío en el AMBA",
-     "seccion": "Argentina",
-     "marcada": false
-    }
-   ],
+   "cola": [],
    "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,

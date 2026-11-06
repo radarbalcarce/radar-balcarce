@@ -46071,9 +46071,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "b6yjqx": {
-  "archivo": "fotos-notas/b6yjqx.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Balcarce Autos inicia la construcción de su nueva sede en el predio comercial",
@@ -46094,7 +46092,8 @@
    "descripcion": "Vista del predio comercial con la estructura metálica de la nueva sede y montículos de tierra en el suelo."
   },
   "huella": "030242031e456619",
-  "ausenteDesde": "2026-10-30T09:05:07.675Z"
+  "intentado": true,
+  "borrada": true
  },
  "q9ncah": {
   "medio": "C5N",
@@ -50106,9 +50105,7 @@
   "borrada": true
  },
  "wulfww": {
-  "archivo": "fotos-notas/wulfww.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Inter Miami empata 2 a 2 con Cincinnati sobre el final",
@@ -50128,7 +50125,8 @@
    "descripcion": "Lionel Messi gambeteando rodeado de jugadores rivales"
   },
   "huella": "d1511b1d199b2b4e",
-  "ausenteDesde": "2026-10-30T09:57:21.163Z"
+  "intentado": true,
+  "borrada": true
  },
  "szj0w3": {
   "archivo": "fotos-notas/szj0w3.jpg",
@@ -51749,9 +51747,7 @@
   "borrada": true
  },
  "gs0v7l": {
-  "archivo": "fotos-notas/gs0v7l.jpg",
   "medio": "TyC Sports",
-  "credito": "Foto: TyC Sports",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto corre en el Gran Premio de México de F1: cronograma",
@@ -51783,7 +51779,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "d2d3c4a6b3646241",
-  "ausenteDesde": "2026-10-30T09:57:21.163Z"
+  "intentado": true,
+  "borrada": true
  },
  "1kyufg8": {
   "archivo": "fotos-notas/1kyufg8.jpg",
@@ -54239,9 +54236,7 @@
   "fuentes": 1
  },
  "1qmlfo0": {
-  "archivo": "fotos-notas/1qmlfo0.jpg",
   "medio": "Clarín",
-  "credito": "Foto: Clarín",
   "licencia": null,
   "origen": "medio",
   "titulo": "Encuentran muerto al argentino desaparecido en el choque de trenes",
@@ -54261,7 +54256,8 @@
    "descripcion": "Retrato del argentino desaparecido con gorra"
   },
   "huella": "e2c8cdac36363e76",
-  "ausenteDesde": "2026-10-30T09:57:21.163Z"
+  "intentado": true,
+  "borrada": true
  },
  "40xae3": {
   "archivo": "fotos-notas/40xae3.jpg",
@@ -54289,9 +54285,7 @@
   "ausenteDesde": "2026-11-01T14:04:49.830Z"
  },
  "13yo61y": {
-  "archivo": "fotos-notas/13yo61y.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Toyota presenta uno de los papamóviles para la visita de León XIV",
@@ -54311,7 +54305,8 @@
    "descripcion": "Entrega de presente de Toyota en la presentación del papamóvil"
   },
   "huella": "9eb6cecececcecec",
-  "ausenteDesde": "2026-10-30T09:57:21.163Z"
+  "intentado": true,
+  "borrada": true
  },
  "cjrdj5": {
   "archivo": "fotos-notas/cjrdj5.jpg",
@@ -54386,9 +54381,7 @@
   "ausenteDesde": "2026-11-01T01:04:08.562Z"
  },
  "1ol8cu2": {
-  "archivo": "fotos-notas/1ol8cu2.jpg",
   "medio": "Infocampo",
-  "credito": "Foto: Infocampo",
   "licencia": null,
   "origen": "medio",
   "titulo": "El RENATRE aprueba un plan para regularizar deudas rurales",
@@ -54420,7 +54413,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "e8692d212bbbbac7",
-  "ausenteDesde": "2026-10-30T09:57:21.163Z"
+  "intentado": true,
+  "borrada": true
  },
  "1ap8aa5": {
   "archivo": "fotos-notas/1ap8aa5.jpg",
@@ -76615,13 +76609,12 @@
  "pv6tdl": {
   "intentado": true,
   "origen": "ninguna",
-  "titulo": "ANSES confirma el aumento y el bono de noviembre para jubilados",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-04T06:08:20.705Z",
+  "titulo": "Anses confirma aumento y bono para jubilados en noviembre",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Ámbito no se usa todavía.",
+  "cuando": "2026-11-06T10:03:11.714Z",
   "intentos": 1,
-  "fuentes": 10,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "fuentes": 4,
+  "intentosPorCupo": 2
  },
  "1ovn69j": {
   "intentado": true,
@@ -78772,7 +78765,8 @@
    "corresponde": "si",
    "descripcion": "Fuego quemando madera y carbón"
   },
-  "huella": "9f29149c2d85c9ad"
+  "huella": "9f29149c2d85c9ad",
+  "ausenteDesde": "2026-11-06T10:04:06.603Z"
  },
  "koyno0": {
   "intentado": true,
@@ -82287,10 +82281,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Escuela Municipal de Básquetbol llega a la final de la Liga Marplatense",
-  "razon": "La única foto disponible muestra a un grupo de adolescentes, por lo que debe marcarse como 'menor' según las políticas de Radar Balcarce.",
-  "cuando": "2026-11-06T07:02:00.904Z",
-  "intentos": 2,
-  "fuentes": 2
+  "razon": "Ninguna foto cumple con todos los requisitos editoriales ya que ambas muestran menores de edad reconocibles.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "intentos": 3,
+  "fuentes": 3
  },
  "2nmv1t": {
   "archivo": "fotos-notas/2nmv1t.jpg",
@@ -84047,15 +84041,29 @@
   "huella": "0f9743ce4f8f020a"
  },
  "181hn87": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Suspenden clases en 17 escuelas porteñas por la visita del papa León XIV",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-06T09:02:49.717Z",
-  "intentos": 1,
-  "fuentes": 26,
-  "intentosPorCupo": 3,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "archivo": "fotos-notas/ls01hv.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amplían los cortes de tránsito en la Ciudad por la visita del papa León XIV",
+  "enlace": "https://www.eldia.com/politica-y-economia/caba-en-modo-leon-xiv-con-varios-cortes-y-operativos-politica-y-economia_1793852386",
+  "imagenOriginal": "https://cdn1.eldia.com/new_nota/1793851734141.jpg?&cw=1200&ch=630",
+  "razon": "Es la única opción disponible y muestra al Papa León XIV, el protagonista de la nota, con un encuadre claro y sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato del Papa León XIV saludando con la mano derecha."
+  },
+  "huella": "c040466666666637"
  },
  "1pnue5h": {
   "archivo": "fotos-notas/km8ila.jpg",
@@ -84503,14 +84511,40 @@
   "huella": "ee3d3e3b9072271d"
  },
  "1yyb1et": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1yyb1et.jpg",
+  "medio": "0223 (Mar del Plata)",
+  "credito": "Foto: 0223 (Mar del Plata)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Muere Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Página/12 no se usa todavía.",
-  "cuando": "2026-11-06T08:02:55.332Z",
-  "intentos": 1,
-  "fuentes": 19,
-  "intentosPorCupo": 2
+  "enlace": "https://www.0223.com.ar/nota/2026-11-5-15-9-1-murio-elsa-pavon-la-primera-abuela-que-recupero-a-una-nieta-apropiada-por-la-dictadura",
+  "imagenOriginal": "https://pxcdn.0223.com.ar/f/112026/1793902144492.jpg?&cw=600&ch=365",
+  "razon": "Es una foto clara, con buen encuadre de Elsa Pavón y sin marcas ni otros inconvenientes.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elsa Pavón hablando y señalando con el dedo en una conferencia o evento",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Elsa Pavón, cofundadora de Abuelas de Plaza de Mayo, hablando en una conferencia."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6fe7e6e67c787cf8"
  },
  "15o6lep": {
   "archivo": "fotos-notas/15o6lep.jpg",
@@ -85316,7 +85350,8 @@
    "corresponde": "si",
    "descripcion": "Grupo de personas caminando frente a una iglesia."
   },
-  "huella": "0f0f07771bd0e6b6"
+  "huella": "0f0f07771bd0e6b6",
+  "ausenteDesde": "2026-11-06T10:04:06.603Z"
  },
  "10qsdm5": {
   "archivo": "fotos-notas/10qsdm5.jpg",
@@ -85927,7 +85962,8 @@
    "corresponde": "si",
    "descripcion": "Detalle de la parte trasera de un auto Tesla con el emblema de la marca"
   },
-  "huella": "030e799971c20c38"
+  "huella": "030e799971c20c38",
+  "ausenteDesde": "2026-11-06T10:04:06.603Z"
  },
  "15u42t5": {
   "intentado": true,
@@ -85961,5 +85997,129 @@
    "descripcion": "El Papa León XIV saludando desde el papamóvil."
   },
   "huella": "2bd111191a15151d"
+ },
+ "1mf52q7": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Colucci y Taja completan con éxito el exigente Ironman Full en San Juan",
+  "razon": "La imagen proporcionada es el logo del medio y no una fotografía que ilustre la nota.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "1icstd6": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Atlético San Manuel le gana 2 a 1 a Boca Juniors y sigue firme",
+  "razon": "La única imagen disponible es una placa gráfica con el logotipo del medio y no una fotografía del evento.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "17nufug": {
+  "archivo": "fotos-notas/17nufug.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto compite en el Gran Premio de Brasil de Fórmula 1",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161122/deportes/a-hora-corre-colapinto-brasil-cronograma-completo-horarios-para-seguir-f1-vivo.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/05/con-un-amigo-colapinto-junto-serigo-checo-perez-1161122-064155.jpg",
+  "razon": "Es una fotografía nítida, de excelente encuadre, sin marcas agregadas ni menores, y corresponde perfectamente al hecho.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Colapinto conversando con otro piloto."
+  },
+  "huella": "687972a5a5a9959d"
+ },
+ "8wbsui": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La definición de los clasificados a las copas internacionales de 2027",
+  "razon": "Ninguna foto sirve: la A tiene marca del medio (Olé), y las fotos B y C son capturas de pantalla de tablas de posiciones (gráficas) que no cumplen con los requisitos de una fotografía real.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "intentos": 1,
+  "fuentes": 4
+ },
+ "tuh854": {
+  "archivo": "fotos-notas/tuh854.jpg",
+  "medio": "La Verdad",
+  "credito": "Foto: La Verdad",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Lanzan un plan de préstamos para la compra de vehículos",
+  "enlace": "https://laverdadonline.com/plan-autitos-la-banca-oficial-anuncio-el-plan-oficial-para-incentivar-la-venta-de-vehiculos/",
+  "imagenOriginal": "https://laverdadonline.com/wp-content/uploads/2026/11/autitos.avif",
+  "razon": "La foto B muestra varios vehículos en una concesionaria sin marcas de agua ni personas, cumpliendo con todos los requisitos de calidad.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Autos en una concesionaria"
+  },
+  "huella": "c7f495061f3cb94a"
+ },
+ "ls01hv": {
+  "archivo": "fotos-notas/ls01hv.jpg",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Amplían los cortes de tránsito en la Ciudad por la visita del papa León XIV",
+  "enlace": "https://www.eldia.com/politica-y-economia/caba-en-modo-leon-xiv-con-varios-cortes-y-operativos-politica-y-economia_1793852386",
+  "imagenOriginal": "https://cdn1.eldia.com/new_nota/1793851734141.jpg?&cw=1200&ch=630",
+  "razon": "Es la única opción disponible y muestra al Papa León XIV, el protagonista de la nota, con un encuadre claro y sin marcas de agua ni menores.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato del Papa León XIV saludando con la mano derecha."
+  },
+  "huella": "c040466666666637"
+ },
+ "4ruhpf": {
+  "archivo": "fotos-notas/4ruhpf.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Iliana Calabró recuerda a su padre Juan Carlos a trece años de su muerte",
+  "enlace": "https://perfil.com/entretenimiento/la-carta-abierta-de-iliana-calabro-a-juan-carlos-calabro-a-13-anos-de-su-muerte-cada-abrazo-que-no-veo-pero-siento-aEKrz0Z1PT2v",
+  "imagenOriginal": "https://fotos.perfil.com/2026/11/05/trim/1140/641/iliana-calabro-y-juan-carlos-calabro-2361605.jpg",
+  "razon": "Muestra a Iliana Calabró junto a su padre Juan Carlos Calabró con buen encuadre y sin marcas ni menores.",
+  "cuando": "2026-11-06T10:03:11.714Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": true,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Iliana Calabró sonriente junto a su padre Juan Carlos Calabró."
+  },
+  "huella": "2313333333737371"
  }
 }
