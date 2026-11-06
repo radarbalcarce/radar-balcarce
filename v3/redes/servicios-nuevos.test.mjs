@@ -707,3 +707,18 @@ test('el aviso de helada: el número del texto y el del recuadro «Mínima previ
   assert.ok(!textos.includes('1°'), 'no la mínima de hoy (1°)');
   assert.ok(textos.includes('8°'), 'y la máxima de ese mismo día');
 });
+
+test('Bluesky, Threads y X: una nota de Balcarce que salió en Facebook SIN foto entra en el plan (con la placa de su sección); una de afuera sin foto, no (Hernán, 6/11)', async () => {
+  const base = baseDePrueba();
+  const ahora = new Date('2026-11-03T13:00:00Z');
+  const creada = new Date(ahora - 3600_000).toISOString();
+  guardarNota(base.sqlite, { id: 'sinf111', titulo: 'Abre la feria del libro', creada, foto: null });
+  guardarNota(base.sqlite, { id: 'afue222', titulo: 'Nota de afuera', creada, foto: null, seccion: 'Economía', motivo: 'nacional-3', medios: ['A', 'B', 'C', 'D', 'E', 'F'] });
+  for (const id of ['sinf111', 'afue222']) {
+    base.sqlite.prepare("INSERT INTO publicaciones (red, nota_id, seccion, tipo, cuando, dia, estado, simulado, texto) VALUES ('facebook', ?, 'Balcarce', 'local', ?, '2026-11-03', 'simulado', 1, 't')").run(id, new Date(ahora - 30 * 60_000).toISOString());
+  }
+  const env = { DB: base.DB, TELEGRAM_TOKEN: TOKEN, REDES_ACTIVAS: 'no', SITIO: 'https://radarbalcarce.com' };
+  const plan = await planearEnlaces(env, { ahora, simulado: true });
+  assert.deepEqual([...new Set(plan.items.map((i) => i.nota.id))], ['sinf111']);
+  assert.ok(plan.items.every((i) => i.nota.foto === null && i.nota.deBalcarce === true));
+});

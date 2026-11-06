@@ -11,6 +11,7 @@ import { crearGemini } from './redactar/gemini.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
 import { elegirFotoConMotivo } from './fotos/fotos.mjs';
 import * as db from './db/db.mjs';
+import * as IL from './ilustrar/ilustrar.mjs';
 import { queToca, horaLocal, idDeLaNota, traerPronostico, comparar, redactarNotaDelClima, parrafoDeActualizacion, estadoDelDia, FIRMA_CLIMA, FUENTE_CLIMA, TIPO_DE_NOTA } from './clima/clima.mjs';
 import { DIRECCION, contrasenaDelWebhook } from '../redaccion/telegram/worker.mjs';
 
@@ -31,6 +32,10 @@ const MINUTOS_ENTRE_INTENTOS_DE_FOTO = 45;const REHACER_POR_DIA = 60; // notas m
 const REHACER_POR_VUELTA = 3; // y cuántas por vuelta (NUCLEO_REHACER_POR_VUELTA)
 const REHACER_INTENTOS = 3; // por si Gemini o la red fallan: un intento que no pudo decidir (error-vision) se repite hasta 3 veces
 const SECCIONES_SIN_FOTO_AJENA = new Set(['Policiales']); // nunca foto real de un menor o una víctima, ni en Policiales salvo fuente oficial: la migrada de Policiales queda con placa
+const ILUSTRAR_POR_VUELTA = 2; // notas a las que se les hace una ilustración por vuelta (NUCLEO_ILUSTRAR_POR_VUELTA; 0 lo apaga; REGLAS § 7 paso 3)
+const ILUSTRAR_POR_DIA = 40; // imágenes por día (NUCLEO_ILUSTRAR_POR_DIA): ~77 neuronas cada una, ~3.100 de las 10.000 gratis
+const ILUSTRAR_MARCAS_POR_VUELTA = 20; // notas que no se pueden ilustrar y se marcan por vuelta para no volver a mirarlas
+const ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA = 2; // ilustradas a las que se les vuelve a buscar una foto real por vuelta
 const HORAS_PARA_REDACTAR = 48; // una historia elegida que no se alcanzó a redactar en este plazo ya es vieja
 
 // Precio estimado de Gemini 3.1 Flash-Lite, en US$ por millón de tokens. SE CONFIRMAN CON LA LISTA DE PRECIOS DE GOOGLE: si cambian, se
@@ -289,6 +294,11 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (e3) las notas migradas del sistema viejo sin foto, de a pocas por vuelta y con tope por día (REGLAS § 7 ter)
     if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await rehacerMigradas(env, c, gem, r, error);
 
+    // (e4) las ilustraciones con IA para lo que agotó la búsqueda de foto real (REGLAS § 7, paso 3)
+    if (gem.hayClave && !r.frenoMensual && !r.topeDiario) {
+      try { await ilustrarSinFoto(env, c, gem, r, error); } catch (e) { error('ilustrar', e); }
+    }
+
     // (f) con NUCLEO_PUBLICA = si, los borradores bien hechos de las últimas 24 h que quedaron sin publicar (el arranque, o una vuelta que falló a medias)
     if (publica(env)) {
       try { r.publicadasPendientes = await db.publicarBorradores(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString(), c.ahoraISO); } catch (e) { error('publicar pendientes', e); }
@@ -530,6 +540,98 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     }
   }
 
+  // Las ilustraciones con IA (REGLAS § 7, paso 3): a las notas publicadas sin foto cuya búsqueda de foto real ya se agotó (4 intentos, 24 h o un motivo final), una ilustración de Workers AI
+  // (sin personas, texto ni logos; prompt de Gemini y control con visión de la imagen terminada). Foto real siempre gana: primero se busca una real para las ya ilustradas y, si aparece, reemplaza.
+  // Topes: NUCLEO_ILUSTRAR_POR_VUELTA notas por vuelta y NUCLEO_ILUSTRAR_POR_DIA imágenes por día (se cuentan en uso_ia con la marca «ilustrar-AAAA-MM-DD», tarea `ilustracion`; los pedidos a Gemini van
+  // en la tarea `ilustracion` del día). Una falla nunca rompe la vuelta. Sin el depósito FOTOS o sin Workers AI (env.AI), no hace nada.
+  async function ilustrarSinFoto(env, c, gem, r, error) {
+    if (!env.FOTOS || !env.AI?.run) return;
+    const porVuelta = Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_VUELTA, ILUSTRAR_POR_VUELTA));
+    const porDia = Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_DIA, ILUSTRAR_POR_DIA));
+    if (!porVuelta || !porDia) return;
+    r.ilustraciones = { reales: 0, saltadas: 0, intentadas: 0, hechas: 0, finales: 0, fallos: 0, imagenesHoy: 0 };
+    const marca = `ilustrar-${c.dia}`;
+    let hechasHoy;
+    try { hechasHoy = (await db.usoDelDia(env, marca)).reduce((s, f) => s + f.pedidos, 0); } catch (e) { error('ilustrar: contar el día', e); return; }
+    const geminiFoto = gem.para('foto');
+
+    // 1) foto real siempre gana: las ya ilustradas siguen buscando (pocas por vuelta; hasta 3 intentos, 3 horas entre uno y otro, durante 72 h).
+    try {
+      const ilustradas = await db.notasIlustradas(env, new Date(c.ahora.getTime() - IL.REAL_HORAS_DE_VIGENCIA * HORA).toISOString());
+      const buscan = ilustradas.filter((n) => IL.debeBuscarFotoReal(n, c.ahora)).slice(0, ILUSTRADAS_CON_BUSQUEDA_REAL_POR_VUELTA);
+      for (const n of buscan) {
+        try {
+          const arts = await db.articulosDeHistoria(env, n.historiaId);
+          const il = n.verificacion.ilustracion || {};
+          const f = arts.length ? await elegirFotoConMotivo({ titulo: n.titulo, ficha: n.ficha }, arts, { gemini: geminiFoto, fetch: c.fetchFn }) : { foto: null, motivo: 'sin-candidatas' };
+          if (f.foto) {
+            await db.reemplazarIlustracion(env, n.id, f.foto, IL.sinIlustracion(conMotivoDeFoto(n.verificacion, null, (n.verificacion.fotoIntentos || 0) + 1, c.ahoraISO), c.ahoraISO));
+            r.ilustraciones.reales += 1;
+          } else {
+            const cuenta = f.motivo === 'error-vision' ? 0 : 1; // si la visión no pudo decidir (cupo, red), no gasta el intento: se espera y se vuelve a probar
+            await db.reemplazarIlustracion(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { realIntentos: (Number(il.realIntentos) || 0) + cuenta, realIntentada: c.ahoraISO }));
+          }
+        } catch (e) {
+          if (e.message === 'tope-diario') { r.topeDiario = true; break; }
+          error(`foto real para la ilustrada ${n.id}`, e);
+        }
+      }
+    } catch (e) { error('ilustradas: buscar foto real', e); }
+    if (r.topeDiario) return;
+
+    // 2) las que toca ilustrar: las publicadas de los últimos 7 días sin foto, las más nuevas primero.
+    let candidatas;
+    try { candidatas = await db.notasParaIlustrar(env, new Date(c.ahora.getTime() - IL.DIAS_HACIA_ATRAS * 24 * HORA).toISOString(), IL.NOTAS_A_MIRAR); } catch (e) { error('ilustrar: buscar notas', e); return; }
+    const tocan = [];
+    let marcadas = 0;
+    for (const n of candidatas) {
+      const t = IL.leTocaIlustrar(n, c.ahora);
+      if (t.toca) { if (tocan.length < porVuelta) tocan.push(n); continue; }
+      // Las que no se pueden ilustrar nunca (muerte, velorio, sepelio, lo rojo) se marcan para no volver a mirarlas; son pocas por vuelta para no gastar la base.
+      if (t.saltar && marcadas < ILUSTRAR_MARCAS_POR_VUELTA) {
+        try { await db.ponerFotoDeNota(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { final: true, motivo: `saltada: ${t.motivo}`.slice(0, 120), intentada: c.ahoraISO })); marcadas += 1; r.ilustraciones.saltadas += 1; } catch (e) { error(`ilustrar: marcar ${n.id}`, e); }
+      }
+    }
+    if (!tocan.length || hechasHoy >= porDia) { r.ilustraciones.imagenesHoy = hechasHoy; return; }
+
+    const geminiIlustrar = gem.para('ilustracion');
+    const cupo = async () => {
+      if (hechasHoy >= porDia) return false;
+      hechasHoy += 1;
+      try { await db.anotarUso(env, marca, 'ilustracion'); } catch (e) { error('ilustrar: anotar uso', e); }
+      return true;
+    };
+    for (const n of tocan) {
+      const il = n.verificacion.ilustracion || {};
+      const marcar = (estado) => db.ponerFotoDeNota(env, n.id, null, IL.conEstadoDeIlustracion(n.verificacion, { intentada: c.ahoraISO, ...estado }));
+      try {
+        r.ilustraciones.intentadas += 1;
+        const res = await IL.ilustrarUna(n, { gemini: geminiIlustrar, ai: env.AI, cupo, azar: c.azar });
+        if (res.ok) {
+          const foto = await IL.guardarIlustracion(env.FOTOS, res.bytes, n, c.ahoraISO);
+          // Escribe sólo si la nota sigue sin foto: si mientras tanto apareció una real (o de una persona), esa gana.
+          await db.ponerFotoDeNota(env, n.id, foto, IL.conIlustracionHecha(n.verificacion, { prompt: res.prompt, control: res.control, ahoraISO: c.ahoraISO }));
+          r.ilustraciones.hechas += 1;
+        } else if (res.final) {
+          await marcar({ final: true, motivo: String(res.motivo).slice(0, 160) });
+          r.ilustraciones.finales += 1;
+        } else if (res.sinCupo) {
+          break; // se acabaron las imágenes de hoy: ninguna nota gasta un intento
+        } else {
+          const fallos = (Number(il.fallos) || 0) + 1;
+          await marcar(fallos >= IL.FALLOS_TECNICOS_MAXIMOS ? { final: true, fallos, motivo: `técnico: ${res.motivo}`.slice(0, 160) } : { fallos, motivo: String(res.motivo).slice(0, 160) });
+          r.ilustraciones.fallos += 1;
+        }
+      } catch (e) {
+        if (e.message === 'tope-diario') { r.topeDiario = true; break; }
+        error(`ilustrar ${n.id}`, e);
+        r.ilustraciones.fallos += 1;
+        try { await marcar({ fallos: (Number(il.fallos) || 0) + 1, motivo: `error: ${String(e?.message ?? e)}`.slice(0, 160) }); } catch (e2) { error(`ilustrar: anotar fallo de ${n.id}`, e2); }
+      }
+    }
+    r.ilustraciones.imagenesHoy = hechasHoy;
+  }
+
   // ------------------------------------------------------------------------------------------ el resumen de las 21:30
 
   async function resumen(env, deps = {}) {
@@ -613,6 +715,13 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // Las notas de los últimos 7 días sin foto, por motivo (Hernán, 6/11: saber la causa real). Si la consulta falla, /salud sigue.
     let sinFoto7d = null;
     try { sinFoto7d = await db.contarSinFotoPorMotivo(env, new Date(new Date(c.ahoraISO).getTime() - 7 * 86400000).toISOString()); } catch (e) { console.error(`salud sinFoto: ${e.message}`); }
+    // Las ilustraciones con IA (REGLAS § 7, paso 3): cuántas hay, cuántas imágenes se hicieron hoy y los topes. Si la consulta falla, /salud sigue.
+    let ilustraciones = null;
+    try {
+      const cuenta = await db.contarIlustradas(env, new Date(new Date(c.ahoraISO).getTime() - 7 * 86400000).toISOString());
+      const imagenesHoy = (await db.usoDelDia(env, `ilustrar-${c.dia}`)).reduce((s, f) => s + f.pedidos, 0);
+      ilustraciones = { activas: !!(env.FOTOS && env.AI), total: cuenta.total, ultimos7d: cuenta.desde, imagenesHoy, topePorDia: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_DIA, ILUSTRAR_POR_DIA)), topePorVuelta: Math.floor(numero(env.NUCLEO_ILUSTRAR_POR_VUELTA, ILUSTRAR_POR_VUELTA)) };
+    } catch (e) { console.error(`salud ilustraciones: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).
     const activasHoy = new Set(fuentes.map((f) => f.id));
@@ -634,6 +743,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         topeDiario: numero(env.NUCLEO_TOPE_DIARIO, 150),
       },
       rehacerMigradas: rehacer,
+      ilustraciones,
       sinFoto7d,
       claves: { gemini: !!env.GEMINI_API_KEY, telegram: !!env.TELEGRAM_TOKEN },
     });

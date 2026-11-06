@@ -14,6 +14,11 @@ crons = ["*/15 * * * *", "30 0 * * *"]
 [ai]
 binding = "AI"
 
+# El depósito de fotos propias (el mismo `radar-fotos` del sitio): ahí se guardan las ilustraciones, en copias/<huella>.jpg, y el sitio las sirve en /foto/<huella>.jpg.
+[[r2_buckets]]
+binding = "FOTOS"
+bucket_name = "radar-fotos"
+
 # La base. El workflow la crea si no existe y reemplaza el marcador.
 [[d1_databases]]
 binding = "DB"
@@ -40,6 +45,9 @@ NUCLEO_REDACTAR_POR_VUELTA = "6"
 # Rehacer las notas migradas sin foto (REGLAS § 7 ter): cuántas por día (0 lo apaga) y cuántas por vuelta. Sólo foto, sin tocar el texto.
 NUCLEO_REHACER_POR_DIA = "30"
 NUCLEO_REHACER_POR_VUELTA = "3"
+# Ilustraciones con IA para las notas sin foto real (REGLAS § 7, paso 3; Workers AI FLUX.1 schnell, dentro de las neuronas gratis): notas por vuelta e imágenes por día (0 lo apaga).
+NUCLEO_ILUSTRAR_POR_VUELTA = "2"
+NUCLEO_ILUSTRAR_POR_DIA = "40"
 # Interruptor de publicar (REGLAS § 11): "no" deja las notas en borrador; "si" las publica. Lo cambia una persona el día del corte.
 NUCLEO_PUBLICA = "si"
 

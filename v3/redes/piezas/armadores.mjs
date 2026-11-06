@@ -288,17 +288,17 @@ function imagenFija(id, ancho, alto, tipoDeEscena, datos, extra = {}) {
   };
 }
 
-/** El posteo de feed 4:5 (1080 × 1350): la foto ENTERA sobre el fondo de la marca, sección, titular y firma. Una sola imagen para Facebook e Instagram. */
+/** El posteo de feed 4:5 (1080 × 1350): la foto ENTERA sobre el fondo de la marca, sección, titular y firma. Una sola imagen para Facebook e Instagram. Una nota de Balcarce sin foto va con la placa de su sección. */
 export function armarPosteo(nota) {
   exigirNota(nota, 'posteo');
-  if (!nota.foto) throw new Error('posteo: sin foto no va');
+  if (!nota.foto && !esDeBalcarce(nota)) throw new Error('posteo: sin foto no va');
   return imagenFija('posteo-4x5', IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, 'posteo', { seccion: nota.seccion, titulo: String(nota.titulo ?? '').replace(/\s+/g, ' ').trim(), bajada: nota.enDosLineas || nota.bajada || '', fecha: nota.fechaCorta ?? '', foto: fotoDe(nota.foto) }, { notaId: nota.id ?? null });
 }
 
-/** La imagen de enlace de X, Threads y Bluesky (1080 × 565). */
+/** La imagen de enlace de X, Threads y Bluesky (1080 × 565). Una nota de Balcarce sin foto va con la placa de su sección. */
 export function armarEnlace(nota) {
   exigirNota(nota, 'enlace');
-  if (!nota.foto) throw new Error('enlace: sin foto no va');
+  if (!nota.foto && !esDeBalcarce(nota)) throw new Error('enlace: sin foto no va');
   return imagenFija('enlace-1x91', IMAGEN_ENLACE.ancho, IMAGEN_ENLACE.alto, 'enlace', { seccion: nota.seccion, titulo: tituloEnPantalla(nota.titulo), foto: fotoDe(nota.foto) }, { notaId: nota.id ?? null });
 }
 

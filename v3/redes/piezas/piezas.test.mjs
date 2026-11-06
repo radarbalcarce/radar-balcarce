@@ -324,15 +324,36 @@ test('historia de nota: la placa de nota con su entrada animada, sin voz, de uno
   assert.ok(!/1 de 1/.test(svg));
 });
 
-test('posteo 4:5 y enlace 1,91:1: una sola imagen del tamaño de cada red, sin foto no va', () => {
+test('posteo 4:5 y enlace 1,91:1: una sola imagen del tamaño de cada red; lo de afuera sin foto no va', () => {
   const p = armarPosteo(nota());
   assert.equal(p.tipo, 'imagen'); assert.equal(p.ancho, 1080); assert.equal(p.alto, 1350); assert.equal(p.escenas.length, 1);
   assert.match(imagenComoSvg(p.escenas[0]), /width="1080" height="1350"/);
   const e = armarEnlace(nota());
   assert.equal(e.ancho, 1080); assert.equal(e.alto, 565);
   assert.match(imagenComoSvg(e.escenas[0]), /width="1080" height="565"/);
-  assert.throws(() => armarPosteo(nota({ foto: null })), /foto/);
-  assert.throws(() => armarEnlace(nota({ foto: null })), /foto/);
+  assert.throws(() => armarPosteo({ ...nacional(1, 'Economía'), foto: null }), /sin foto no va/);
+  assert.throws(() => armarEnlace({ ...nacional(1, 'Economía'), foto: null }), /sin foto no va/);
+  assert.throws(() => armarPosteo(nota({ foto: null, seccion: 'Economía' })), /sin foto no va/);
+});
+
+test('posteo y enlace de una nota de Balcarce SIN foto (Hernán, 6/11): se arman y se dibujan con la placa de su sección, nunca un recuadro gris', () => {
+  for (const sin of [nota({ foto: null }), nota({ foto: null, seccion: 'Salud', deBalcarce: true })]) {
+    const p = armarPosteo(sin);
+    assert.equal(p.escenas[0].datos.foto, null);
+    const svg = imagenComoSvg(p.escenas[0]);
+    assert.match(svg, /width="1080" height="1350"/);
+    assert.ok(svg.includes(String(sin.seccion).toUpperCase()), 'la placa lleva el nombre de la sección');
+    assert.ok(!svg.includes('#C9C5BA'), 'no queda el recuadro gris de la foto que falta');
+    assert.ok(svg.includes(sin.titulo.slice(0, 20)), 'el titular sigue');
+    const e = armarEnlace(sin);
+    const svgE = imagenComoSvg(e.escenas[0]);
+    assert.match(svgE, /width="1080" height="565"/);
+    assert.ok(!svgE.includes('#C9C5BA'));
+    assert.ok((svgE.match(new RegExp(String(sin.seccion).toUpperCase(), 'g')) || []).length >= 2, 'la pastilla y la placa dicen la sección');
+  }
+  // con foto, el dibujo de siempre: la pastilla de la sección sobre la foto y ninguna placa
+  const conDatos = armarPosteo(nota({ foto: { ...foto(0), datos: 'data:image/jpeg;base64,AAAA' } })).escenas[0];
+  assert.ok(imagenComoSvg(conDatos).includes('data:image/jpeg;base64,AAAA') && !imagenComoSvg(conDatos).includes('font-size="120"'));
 });
 
 test('carrusel: de 3 a 10 láminas del mismo tamaño, la portada primero y la última con la nota completa', () => {

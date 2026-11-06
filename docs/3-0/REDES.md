@@ -108,7 +108,7 @@ Clima × 2 + farmacia + efeméride + repasos × 3 = **7 por día**; los lunes, m
 | **Lo rojo** (identifica a un menor o a una víctima, lista de sepelios) | La ley del medio: ni en la web ni en redes. Lo frena el núcleo con la marca `no_publicar` |
 | **Notas de servicio**: el clima diario, el media kit y toda nota con marca de servicio | No son noticias; tienen su propia pieza (el reel del clima) o no se promocionan por esta vía |
 | **Tragedias: la muerte de un menor o un bebé, un suicidio, un menor grave por un accidente o una agresión** | «Compuerta de tono» (regla R41). Se mira sólo el título, la bajada y las dos líneas. La web no cambia: esto es sólo para redes. Caso real que la motivó: el niño que murió en una pileta (28/10) abriendo el repaso de las 21 |
-| **Notas sin foto** (en posteos) | Todo posteo lleva imagen. En los repasos, una nota de Balcarce sin foto entra igual con la placa de su sección; lo de afuera sin foto, no |
+| **Notas sin foto** (en posteos) | Todo posteo lleva imagen, y el núcleo ilustra con IA las que se quedan sin foto real («Ilustración generada con IA», crédito propio). Una nota **de Balcarce** que igual no tenga ninguna imagen sale en el posteo de feed y en la imagen de enlace con la placa de su sección (y en los repasos, igual); **lo de afuera sin imagen, no** (Hernán, 6/11) |
 | **Lo de afuera que cuentan menos de 5 medios** | Para redes se pide más que para el sitio. Lo de Balcarce va siempre |
 | **Lo de la zona (otras ciudades)** | No es de acá ni es lo más contado del país |
 | **Notas de hace más de 8 horas** | Una nota vieja ya no se postea |

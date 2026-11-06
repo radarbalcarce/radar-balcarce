@@ -315,6 +315,51 @@ export async function ponerFotoDeNota(env, id, foto, verificacion) {
     .bind(json(foto), json(verificacion), id).run();
 }
 
+// ---- Ilustraciones con IA (REGLAS § 7, paso 3) --------------------------------------------------------------------------------------------
+// Una nota ilustrada lleva `foto.ilustracion = true` (y `verificacion.ilustracion` con el estado). Una foto real que aparezca después la reemplaza.
+const ES_ILUSTRADA = "foto LIKE '%\"ilustracion\":true%'";
+
+// Las notas publicadas sin foto desde `desdeISO`, las más nuevas primero, con lo que hace falta para decidir si se ilustran. Sólo notas del núcleo (con historia viva en la tabla: las migradas
+// `viejo-%`, las propias de la redacción y las de servicio quedan afuera, igual que en la búsqueda de fotos).
+export async function notasParaIlustrar(env, desdeISO, limite = 150) {
+  const r = await env.DB.prepare(
+    `SELECT id, historia_id, creada, titulo, bajada, cuerpo, seccion, ficha, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND (foto IS NULL OR foto = 'null')
+     AND id NOT LIKE 'clima-%' AND historia_id NOT LIKE 'viejo-%' AND historia_id IN (SELECT id FROM historias) AND creada >= ? ORDER BY creada DESC LIMIT ?`,
+  ).bind(desdeISO, limite).all();
+  return lista(r).map((f) => ({
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, bajada: f.bajada, cuerpo: analizar(f.cuerpo, []), seccion: f.seccion,
+    ficha: analizar(f.ficha, null), noPublicar: null, foto: null, verificacion: analizar(f.verificacion, null) || {},
+  }));
+}
+
+// Las notas que hoy llevan una ilustración (publicadas desde `desdeISO`, las más nuevas primero), para ver si apareció una foto real.
+export async function notasIlustradas(env, desdeISO, limite = 40) {
+  const r = await env.DB.prepare(
+    `SELECT id, historia_id, creada, titulo, ficha, foto, verificacion FROM notas WHERE estado = 'publicada' AND no_publicar IS NULL AND ${ES_ILUSTRADA} AND historia_id IN (SELECT id FROM historias) AND creada >= ? ORDER BY creada DESC LIMIT ?`,
+  ).bind(desdeISO, limite).all();
+  return lista(r).map((f) => ({
+    id: f.id, historiaId: f.historia_id, creada: f.creada, titulo: f.titulo, ficha: analizar(f.ficha, null), foto: analizar(f.foto, null), verificacion: analizar(f.verificacion, null) || {},
+  }));
+}
+
+// Pone la foto real en lugar de la ilustración (o sólo actualiza la verificación si `foto` es null). Nunca toca una nota cuya foto no sea una ilustración.
+export async function reemplazarIlustracion(env, id, foto, verificacion) {
+  if (foto) {
+    await env.DB.prepare(`UPDATE notas SET foto = ?, verificacion = ? WHERE id = ? AND ${ES_ILUSTRADA}`).bind(json(foto), json(verificacion), id).run();
+  } else {
+    await env.DB.prepare(`UPDATE notas SET verificacion = ? WHERE id = ? AND ${ES_ILUSTRADA}`).bind(json(verificacion), id).run();
+  }
+}
+
+// Cuántas notas llevan ilustración, y cuántas de las últimas `desdeISO` (para /salud).
+export async function contarIlustradas(env, desdeISO) {
+  const c = async (sql, ...p) => ((await env.DB.prepare(sql).bind(...p).first()) || {}).n || 0;
+  return {
+    total: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_ILUSTRADA}`),
+    desde: await c(`SELECT COUNT(*) AS n FROM notas WHERE ${ES_ILUSTRADA} AND creada >= ?`, desdeISO),
+  };
+}
+
 // ---- Rehacer las notas migradas del sistema viejo (REGLAS § 7 ter) -------------------------------------------------------------------------
 // Las migradas viven en `notas` con historia_id 'viejo-<id>' (no hay fila en `historias` ni artículos): sus fuentes son sólo [{ medio, url }].
 // Una nota «ya rehecha» lleva `verificacion.rehacerFoto` ('foto' | 'sin-foto' | 'saltada'); sin esa marca todavía le toca.

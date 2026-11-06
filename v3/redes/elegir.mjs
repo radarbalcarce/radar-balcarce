@@ -54,6 +54,12 @@ export function tieneFoto(nota) {
 }
 
 /**
+ * Una nota de Balcarce SIN ninguna foto (`foto` vacía; no una foto pendiente ni una dirección que no sirve) puede salir en el posteo de feed y en la imagen de enlace con la placa de su
+ * sección (Hernán, 6/11). Lo de afuera sin foto sigue sin salir.
+ */
+export const sePuedeConPlacaSola = (nota, reglas = REGLAS) => !nota.foto && tipoDeNota(nota, reglas) === 'local';
+
+/**
  * ¿El título es la cotización del día del dólar, del euro o del real («dólar hoy», «a cuánto cotiza el dólar», «cotización del dólar»)? Es una nota de servicio: nunca sale a las redes, ni como
  * posteo, ni en un repaso, ni como reel o historia (Hernán, 3/11). La del propio medio ya viene marcada (`deServicio`, `ficha.marca`); esto cubre la que llegue escrita desde una fuente.
  * «El dólar sube tras la reunión con el FMI» NO es cotización del día: es una noticia y sale como cualquier otra.
@@ -76,13 +82,16 @@ export const esListaDeSepelios = (titulo = '') => SEPELIOS.test(sinTildes(titulo
 const NO_ES_NOTICIA = /\b(donde ver|por donde ver|como ver|a que hora juega|a que hora juegan|a que hora y donde|a que hora es|en que canal|que canal (pasa|transmite)|tv en vivo|formaciones|la formacion|formacion (de|confirmada|titular|probable)|en vivo|minuto a minuto|en directo|cuando vuelve a jugar|cuando juega|cuando se juega|venta de entradas|entradas a la venta|a la venta las entradas|como comprar (las )?entradas|horoscopo|quiniela|pronostico (del tiempo|extendido|para)|el tiempo en|como estara el (tiempo|clima)|clima en|clima hoy|alerta (amarilla|naranja|roja))\b/;
 export const noEsNoticiaAunqueLaCuentenTodos = (titulo = '') => NO_ES_NOTICIA.test(sinTildes(titulo));
 
-/** Por qué una nota NO va (o null si va). Primera razón que corta. Sirve a la elección y al informe del día. */
-export function motivoDeExclusion(nota, { ahora, reglas = REGLAS } = {}) {
+/**
+ * Por qué una nota NO va (o null si va). Primera razón que corta. Sirve a la elección y al informe del día. Con `conPlaca` (el posteo sale con la placa de la marca, que se dibuja aparte),
+ * una nota de Balcarce sin ninguna foto no se descarta por «sin-foto»: va con la placa de su sección.
+ */
+export function motivoDeExclusion(nota, { ahora, reglas = REGLAS, conPlaca = false } = {}) {
   if (nota.noPublicar) return 'no-publicar';
   if (esListaDeSepelios(nota.titulo)) return 'sepelios';
   if (nota.deServicio || nota.id === 'mediakit' || esCotizacionDelDia(nota.titulo)) return 'de-servicio';
   if (esTragediaParaRedes({ titulo: nota.titulo, bajada: nota.bajada, resumen: nota.enDosLineas })) return 'tono';
-  if (!tieneFoto(nota)) return 'sin-foto';
+  if (!tieneFoto(nota) && !(conPlaca && sePuedeConPlacaSola(nota, reglas))) return 'sin-foto';
   const tipo = tipoDeNota(nota, reglas);
   if (!tipo) return 'no-es-de-redes';
   if (tipo === 'nacional' && noEsNoticiaAunqueLaCuentenTodos(nota.titulo)) return 'no-es-noticia';
@@ -129,7 +138,7 @@ export const hechasDe = (hechas, red) => hechas.filter((h) => h.red === red && c
  * @param {string[]} enRepasos  los ids de las notas que ya contó un repaso (de hoy y de ayer): una nota sale en UN formato (Hernán, 23/10), no como posteo y además en un resumen
  * @returns {{ nota: object|null, tipo?: string, motivo?: string, descartes?: object }}
  */
-export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora = new Date(), reglas = REGLAS }) {
+export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora = new Date(), reglas = REGLAS, conPlaca = false }) {
   const minuto = minutoDelDia(ahora);
   if (minuto < reglas.desdeMinuto || minuto > reglas.hastaMinuto) return { nota: null, motivo: 'fuera-de-horario' };
 
@@ -160,7 +169,7 @@ export function elegirParaFacebook({ notas, hechas = [], enRepasos = [], ahora =
     if (yaSalieron.has(n.id)) { sumar('ya-salio'); continue; }
     if ((fallos.get(n.id) || 0) >= reglas.erroresPorNota) { sumar('fallo-dos-veces'); continue; }
     if (contadas.has(n.id)) { sumar('ya-en-un-repaso'); continue; }
-    const m = motivoDeExclusion(n, { ahora, reglas });
+    const m = motivoDeExclusion(n, { ahora, reglas, conPlaca });
     if (m) { sumar(m); continue; }
     if (titularesDeHoy.some((t) => mismoTema(t, n.titulo))) { sumar('tema-repetido'); continue; }
     const tipo = tipoDeNota(n, reglas);

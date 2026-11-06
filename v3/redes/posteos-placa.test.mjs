@@ -181,3 +181,41 @@ test('programa de GitHub: dibuja sólo lo que falta, sube a R2, y con REPETIR vu
   assert.equal(llamadas.at(-1).ruta, '/posteos/repetir'); assert.deepEqual(llamadas.at(-1).cuerpo, { id: 'b' });
   assert.equal(r2b.repeticion.redes.facebook.ok, true);
 });
+
+// ------------------------------------------------------------------ una nota de Balcarce SIN foto sale con la placa de su sección (Hernán, 6/11)
+
+test('una nota de Balcarce sin foto: sin placa espera; con la placa dibujada sale en Facebook e Instagram con la dirección de la placa; una de afuera sin foto no', async () => {
+  const t = armar();
+  guardarNota(t.sqlite, { id: 'sinfoto', titulo: 'Titular sin foto', creada: hace(30), foto: null });
+  guardarNota(t.sqlite, { id: 'afuera1', titulo: 'Nota de afuera sin foto', creada: hace(20), foto: null, seccion: 'Economía', motivo: 'nacional-3', medios: ['A', 'B', 'C', 'D', 'E', 'F'] });
+  const plan = await t.redes.candidatas(t.env, { ahora: AHORA });
+  assert.deepEqual(plan.notas.map((n) => [n.id, n.deBalcarce, n.foto]), [['sinfoto', true, null]], 'sólo la de Balcarce entra en el plan de placas');
+  assert.equal((await t.redes.vuelta(t.env)).facebook, null, 'sin la placa dibujada espera');
+  const n = { id: 'sinfoto', titulo: 'Titular sin foto', bajada: 'La bajada.', enDosLineas: 'Qué pasó y qué sigue.', seccion: 'Balcarce', foto: null };
+  t.PLACAS.objetos.set(claveR2DePlaca(nombreDePlaca(n)), new Uint8Array([1, 2, 3]));
+  const r = await t.redes.vuelta(t.env);
+  assert.equal(r.facebook.ok, true);
+  assert.equal(r.facebook.notaId, 'sinfoto');
+  const foto = t.meta.pedidos.find((p) => p.camino.endsWith('/photos'));
+  assert.equal(foto.params.url, urlDePlaca(n));
+  assert.equal(r.instagram.ok, true);
+  assert.equal(t.meta.pedidos.find((p) => p.camino === 'ig1/media').params.image_url, urlDePlaca(n));
+  assert.ok(!/Foto:/.test(foto.params.message), 'sin foto no hay crédito de foto');
+});
+
+test('correrPosteos: una nota de Balcarce sin foto se dibuja; una con foto que no bajó se salta (se reintenta)', async () => {
+  const llamadas = [];
+  const fetchFn = async (url, op) => {
+    llamadas.push(String(url));
+    return { ok: true, status: 200, text: async () => JSON.stringify({ dia: '2026-11-03', activos: true, notas: [
+      { id: 'sf', titulo: 'T', seccion: 'Balcarce', deBalcarce: true, foto: null, nombre: 'sf-11111111.jpg', dibujada: false },
+      { id: 'cf', titulo: 'T', seccion: 'Balcarce', foto: { url: 'https://x.test/a.jpg' }, nombre: 'cf-22222222.jpg', dibujada: false },
+    ] }) };
+  };
+  const pedidas = [];
+  const deps = { fetchFn, existe: async () => false, guardar: async () => {}, dibujar: async (n) => { pedidas.push(n.id); return n.foto ? null : Buffer.from('jpg'); }, log: () => {} };
+  const r = await correrPosteos({ env: { TELEGRAM_TOKEN: 'tg' }, deps });
+  assert.deepEqual(r.dibujadas, ['sf']);
+  assert.equal(r.falladas[0].id, 'cf');
+  assert.deepEqual(pedidas, ['sf', 'cf']);
+});

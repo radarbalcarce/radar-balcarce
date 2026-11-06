@@ -59,7 +59,7 @@ no «Nota propia». Cierra con la voz: «La nota completa, con todas las fotos, 
 **Historia de nota** — video 9:16 **sin voz**, 6 s, animado: la placa de nota del repaso (foto con su crédito, sección, titular) con «Nota completa» y «Link en la bio» arriba (la API no deja el sticker de enlace). Una por cada nota de Balcarce.
 
 **Posteo de feed (4:5)** — *(le gustó, queda)* imagen 1080 × 1350 en oscuro: la foto **entera** sobre el fondo de la marca (con los anillos del radar), la sección, el titular (dentro del cuadrado central, para que sirva también recortado a 1:1) y la
-firma. Una sola imagen para Facebook e Instagram. Sin foto no se arma.
+firma. Una sola imagen para Facebook e Instagram. Sin foto no se arma, salvo una nota de Balcarce (§ 5 bis).
 
 **Carrusel** — *(le gustó, queda)* de **3 a 10 láminas** de 1080 × 1350 (el tope de 10 es el de la API de Instagram), en oscuro: la portada primero (foto, titular, «Deslizá →»), una lámina por foto con su epígrafe, y la última con «La nota completa»
 y el botón del sitio. Hacen falta 3 fotos o más; no se rellena para llegar. Todas del mismo tamaño.
@@ -91,4 +91,13 @@ Para ver cómo quedan: `node v3/redes/piezas/ejemplos.mjs` (ver el comando y las
 
 ## 5. Nota sin foto en la lista del repaso (Hernán, 6/11)
 
-En la tapa del repaso, la miniatura de una nota sin foto es **la placa de su sección** (el color de la sección con su nombre en blanco, `placaMiniaturaDeSeccion`), nunca un número suelto. Sin foto, el posteo de feed y la imagen de enlace siguen sin armarse (`sin foto no va`); eso no cambió. Prueba: `piezas.test.mjs`.
+En la tapa del repaso, la miniatura de una nota sin foto es **la placa de su sección** (el color de la sección con su nombre en blanco, `placaMiniaturaDeSeccion`), nunca un número suelto. Prueba: `piezas.test.mjs`.
+
+## 5 bis. Una nota de Balcarce sin imagen, en el posteo y en el enlace (Hernán, 6/11)
+
+Una nota **de Balcarce** (`deBalcarce`, según el motivo del núcleo, o la sección Balcarce) que no tiene **ninguna** imagen (ni foto de las fuentes ni ilustración) se arma igual: `armarPosteo` (4:5) y
+`armarEnlace` (1,91:1) dibujan **la placa de su sección** (el color con el nombre en blanco: `placaDeSeccion`, y en el enlace `placaDeSeccionEnCaja`) en lugar de la foto, con el mismo titular, bajada y pie.
+Sin la pastilla sobre la foto (la placa ya dice la sección) y sin crédito. **Lo de afuera sin foto sigue sin armarse** (`posteo: sin foto no va`). El camino completo: `motivoDeExclusion(…, { conPlaca })`
+(`elegir.mjs`) no la descarta por «sin-foto» cuando el posteo sale con placa; `candidatas` la lista con `deBalcarce`; el programa de piezas (`posteos.mjs`) la dibuja (una foto que **no bajó** sigue sin dibujarse y
+se reintenta); `nombreDePlaca` y `conPlaca` ya aceptaban una nota sin foto; el plan de enlaces la toma si salió en Facebook. Pruebas: `piezas.test.mjs`, `elegir.test.mjs`, `posteos-placa.test.mjs`,
+`servicios-nuevos.test.mjs`.

@@ -81,8 +81,9 @@ export async function dependenciasReales(env = process.env) {
     existe: (clave) => r2.existe(clave),
     guardar: (clave, bytes) => r2.guardar(clave, bytes, 'image/jpeg'),
     async dibujar(nota) {
-      const pieza = await resolverFotos(armarPosteo({ ...nota, fechaCorta: fechaCorta({ fecha: nota.publicada }), foto: { ...nota.foto, alt: nota.titulo } }));
-      if (!pieza.escenas[0].datos.foto) return null;
+      const pieza = await resolverFotos(armarPosteo({ ...nota, fechaCorta: fechaCorta({ fecha: nota.publicada }), foto: nota.foto ? { ...nota.foto, alt: nota.titulo } : null }));
+      // Con foto que no bajó, no se dibuja (se reintenta); sin foto desde el principio (Balcarce, Hernán 6/11), se dibuja con la placa de la sección.
+      if (nota.foto && !pieza.escenas[0].datos.foto) return null;
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'placa-'));
       try {
         const png = await renderizarImagen(pieza.escenas[0], pieza.ancho, path.join(tmp, 'placa.png'));

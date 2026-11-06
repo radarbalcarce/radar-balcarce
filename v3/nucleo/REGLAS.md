@@ -98,10 +98,10 @@ En este orden, y se para en la primera que sirve:
    seguidos de Gemini cortan la búsqueda. Si no hay foto, `verificacion.fotoMotivo` dice por qué (`sin-candidatas`, `chicas`, `logo-o-forma`, `error-descarga`,
    `todas-con-marca`, `todas-con-menor-o-victima`, `todas-descartadas`, `error-vision`) junto con `fotoIntentos` y `fotoIntentada`.
    **Reintento:** una vez por vuelta, hasta 5 notas publicadas en las últimas 24 h sin foto vuelven a buscarla (45 minutos entre intentos, 4 en total).
-   **Pendiente:** los pasos 2 (foto libre confirmada por la visión) y 3 (ilustración con Workers AI) de esta lista todavía no están hechos.
+   **Pendiente:** el paso 2 (foto libre confirmada por la visión) todavía no está hecho. El paso 3 (la ilustración) se hizo el 6/11: § 7 quater.
 2. **Una foto libre** (Wikimedia Commons u Openverse) buscada por el nombre de la persona o el lugar, **sólo si la visión confirma** que
    es esa persona o ese lugar.
-3. **Una ilustración** generada (Workers AI), con «Ilustración: Radar Balcarce» en el epígrafe.
+3. **Una ilustración** generada con IA (Workers AI), con «Ilustración generada con IA» en el epígrafe: sólo cuando la nota agotó la búsqueda de foto real. Detalle en § 7 quater.
 
 Cada foto publicada tiene una **huella visual**: la misma foto (o casi) no puede estar en dos notas vivas; la segunda sigue al paso
 siguiente. Nombre de archivo y texto alternativo descriptivos, generados de la ficha (`balcarce-camioneros-examen-licencia.jpg`), nunca
@@ -142,6 +142,41 @@ el nombre original del medio. Nunca una foto real de un menor o una víctima.
   Sólo un `error-vision` (Gemini o la red caídos) se repite, hasta 3 intentos (`fotoIntentos`). **Policiales se saltea** (nunca foto real de un menor o una víctima, ni en Policiales salvo fuente oficial) y las notas sin dirección de fuente también.
 - **`/salud`.** `rehacerMigradas`: `faltan`, `conFoto`, `sinFoto`, `saltadas`, `hechasHoy`, `topePorDia` y `diasQueFaltan`.
 - **Pruebas.** `worker.test.mjs` («rehacer migradas …»): orden, tope por vuelta y por día, idempotencia, crédito de la fuente, Policiales y sin fuentes, reintento de visión y el interruptor en 0.
+
+### 7 quater. La ilustración con IA para lo que no tiene foto real (6/11/2026, Hernán: «que no queden notas sin imagen»; `ilustrar/ilustrar.mjs`, paso e4 de la vuelta)
+
+- **Qué es.** El paso 3 de la lista de arriba, portado de lo que hacía el sistema viejo (`web/scripts/ilustrar-notas.mjs`, reglas 182, 185 y 206). Todo corre dentro del núcleo: no hay programa en GitHub.
+- **Cuándo.** Sólo a las notas publicadas, del núcleo, **sin foto**, que **agotaron la búsqueda de foto real**: 4 intentos, o un motivo final (`sin-candidatas`, `chicas`, `logo-o-forma`, `todas-con-marca`,
+  `todas-con-menor-o-victima`, `todas-descartadas`) con 2 intentos, o más de 24 h de vida (a esas nadie las vuelve a buscar). `error-vision` y `error-descarga` no son finales. **Relleno hacia atrás:** las
+  publicadas de los últimos 7 días sin foto, las más nuevas primero. **No** las migradas `viejo-*` (tienen su camino, § 7 ter), ni las propias de la redacción, ni el clima, ni lo marcado `no_publicar`.
+- **Qué se salta** (se marca `verificacion.ilustracion = { final: true, motivo: "saltada: …" }` y no se vuelve a mirar): muertes, velorios y sepelios (la lista `tocaUnaMuerte` y la de «nunca» del sistema
+  viejo), el semáforo rojo (la lista de frases rojas del viejo: abuso, menores, suicidio, femicidio, trata…; no se toca sin preguntar) y lo que ya tiene foto. Policiales y Política **sí** se ilustran (regla 185:
+  la imagen nunca lleva personas), con tono sobrio y sin escena del hecho.
+- **Cómo.** (1) Gemini (el cliente de siempre, tarea `ilustracion`) escribe un prompt corto **en inglés** a partir de la nota, con el tono (alegre, sobrio o neutro), la escena guía de la sección, una variante
+  de encuadre por id y las listas de lo que no puede ir (en deportes, política y cultura; si la nota gira en torno a una persona, el ámbito de su actividad, nunca ella). (2) `problemaDelPrompt` lo revisa:
+  si describe personas, armas, banderas, marcas, la escena de un hecho o nombra a alguien de la nota, se pide otro (una vez) y, si vuelve a fallar, la nota queda sin imagen. (3) Workers AI genera la imagen.
+  (4) **Gemini mira la imagen terminada** y tiene que contestar `false` a las seis preguntas: personas, rostros, texto, logos, sensible, raro. Si no pasa, **un reintento** con otra semilla; si vuelve a no
+  pasar, **queda sin imagen** y la nota se marca final. Si el generador o Gemini fallan (cupo, red), no se gasta el intento: se vuelve a probar a los 20 minutos y a los 3 fallos se da por perdida.
+- **Modelo y costo: gratis.** `@cf/black-forest-labs/flux-1-schnell` (el que ya usaban las ilustraciones del viejo desde el 22/10), 1024 × 1024, 6 pasos: unas **77 neuronas** por imagen. Workers AI trae 10.000
+  neuronas por día dentro del plan de Workers que ya se paga; con el tope de 40 por día son ~3.100 (y las huellas de significado gastan muy poco). Gemini sólo suma el prompt y el control (~1.100 tokens de
+  entrada y ~100 de salida por imagen): entra en el tope diario y en el freno mensual de siempre. Ninguna clave nueva.
+- **Topes** (variables de `wrangler.toml`): `NUCLEO_ILUSTRAR_POR_VUELTA` = 2 (notas por vuelta) y `NUCLEO_ILUSTRAR_POR_DIA` = 40 (**imágenes** por día; el reintento cuenta). Con 0 en cualquiera, se apaga.
+  Se respeta el freno mensual de Gemini y el tope diario (si están, no se ilustra). Sin el depósito `FOTOS` o sin `AI`, no hace nada. Una falla nunca rompe la vuelta (queda en `errores` y la nota sin imagen).
+- **Uso anotado.** Los pedidos a Gemini van a la tarea `ilustracion` del día (con sus tokens); las imágenes de Workers AI se cuentan en `uso_ia` con el día `ilustrar-AAAA-MM-DD` y la tarea `ilustracion`
+  (como `rehacer-…`, para no inflar el tope ni el gasto de Gemini). `/salud` muestra `ilustraciones`: activas, total, últimos 7 días, imágenes de hoy y topes.
+- **Dónde queda.** En el depósito `radar-fotos` como `copias/<huella>.jpg` (la huella es el contenido; el mismo lugar y formato que las copias propias de § 7 bis, y el Worker del sitio ya lo sirve en
+  `/foto/<huella>.jpg` con caché de un año). Sin achicar: el generador devuelve un JPEG de 1024 × 1024 (unos 100 a 200 KB) y se usa igual para la portada y la nota. `notas.foto` queda con `url` (ya la copia propia,
+  así el programa de copias no la toca), `credito: «Ilustración generada con IA»`, `alt`, `ancho/alto`, `copia`, `copiaChica`, `copiaAncho`, `copiaAlto`, `copiaEn` y `ilustracion: true`.
+  `verificacion.ilustracion` guarda `hecha`, el modelo, cuándo, el prompt, el resultado del control y los contadores; `fotoMotivo` se conserva (por qué no hubo foto real).
+- **Foto real siempre gana.** (a) Se escribe sólo si la nota sigue sin foto (`ponerFotoDeNota` nunca pisa una foto). (b) Una nota ilustrada sigue buscando una foto real de sus fuentes (hasta 3 intentos, 3 h
+  entre uno y otro, durante 72 h, 2 notas por vuelta): si aparece, la reemplaza, se saca la marca de ilustración y queda `ilustracionReemplazada`.
+- **Cómo la tratan el sitio y las redes.** Es una foto con ese crédito: el sitio la muestra con su epígrafe (`figcaption`), la portada y las listas con la misma imagen, `og:image` y el `image` del
+  NewsArticle. Las redes la toman como cualquier foto (`foto.url`), y el crédito que se agrega al texto no lleva «Foto:» delante (`creditoConPrefijo`: «Ilustración generada con IA»); nunca se manda como foto
+  de un medio, porque el crédito del medio no está en esa nota. Una prueba lo controla.
+- **Pruebas:** `ilustrar/ilustrar.test.mjs` (filtros, búsqueda agotada, prompt, control, reintento, guardado, formato de copia propia) y `ilustrar/vuelta.test.mjs` (la vuelta: topes, freno, foto real que gana,
+  fallas que no rompen nada, `/salud`).
+- **Para subir:** hace falta volver a subir el núcleo («Radar 3.0: desplegar», opción `nucleo`): el nuevo depósito `FOTOS` (`radar-fotos`, ya existe porque lo creó el sitio) y las dos variables van en su
+  `wrangler.toml`. Para que las notas sin imagen de Balcarce también salgan en redes con la placa, volver a subir `redes` (`v3/redes/piezas/REGLAS.md` § 5 bis).
 
 ## 8. Lo que el núcleo entrega
 

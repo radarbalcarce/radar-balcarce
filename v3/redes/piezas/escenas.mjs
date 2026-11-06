@@ -133,8 +133,10 @@ function posteo(d) {
   const interBajada = Math.round(baj.tam * INTERLINEA_BAJADA);
   const lineasBajada = baj.texto ? envolverAncho(baj.texto, baj.tam, ancho * 0.96, 'sans') : [];
   const yRaya = IMAGEN_FEED_ALTO - I.abajo - I.pie;
-  const pill = d.seccion ? pastilla(d.seccion, { x: I.margen, y: I.arriba, color, tam: 26 }) : { svg: '' };
-  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `${fotoEnCaja(d.foto, 0, 0, IMAGEN_FEED_ANCHO, I.foto, { radio: 0 })}${pill.svg}
+  // Sin foto (una nota de Balcarce, Hernán 6/11): la placa de su sección arriba, que ya dice la sección en grande; con foto, la pastilla de la sección sobre la foto.
+  const hayFoto = !!d.foto?.datos;
+  const pill = hayFoto && d.seccion ? pastilla(d.seccion, { x: I.margen, y: I.arriba, color, tam: 26 }) : { svg: '' };
+  return lienzoDe(IMAGEN_FEED_ANCHO, IMAGEN_FEED_ALTO, PAPEL_TARJETA, `${hayFoto ? fotoEnCaja(d.foto, 0, 0, IMAGEN_FEED_ANCHO, I.foto, { radio: 0 }) : placaDeSeccion(d.seccion, color, I.foto)}${pill.svg}
   <rect x="0" y="${I.foto}" width="${IMAGEN_FEED_ANCHO}" height="${I.franja}" fill="${color}"/>
   ${renglones(envolverAncho(titulo, r.tamTitulo, ancho * 0.96, 'serif'), { x: I.margen, y: t1, tam: r.tamTitulo, interlinea: inter, espaciado: -1.5 })}
   ${lineasBajada.length ? renglones(lineasBajada, { x: I.margen, y: finTitulo + 22 + Math.round(baj.tam * 0.95), tam: baj.tam, interlinea: interBajada, familia: TEXTO, peso: 400, color: GRIS_TARJETA }) : ''}
@@ -258,6 +260,15 @@ function laminaCierre(d) {
   ${pieDeLamina(d)}`);
 }
 
+/** La placa de una nota sin foto en una caja angosta (la imagen de enlace): el color de la sección con su nombre en blanco, que se achica hasta que entre. */
+function placaDeSeccionEnCaja(seccion, color, ancho, alto) {
+  const nombre = String(seccion || 'Balcarce').toUpperCase();
+  let tam = 64;
+  while (tam > 20 && anchoAproximado(nombre, tam, 'sans') > (ancho - 56) * 0.94) tam -= 2;
+  return `<rect x="0" y="0" width="${ancho}" height="${alto}" fill="${color}"/>${anillos(ancho - 40, alto - 40, 0.9, 0.16)}
+  <text x="${ancho / 2}" y="${Math.round(alto / 2 + tam * 0.35)}" font-family="${DISPLAY}" font-size="${tam}" font-weight="900" text-anchor="middle" letter-spacing="-1" fill="#FFFFFF">${esc(nombre)}</text>`;
+}
+
 function enlace(d) {
   const { ancho: A, alto: H } = IMAGEN_ENLACE;
   const color = colorDeSeccion(d.seccion);
@@ -265,8 +276,9 @@ function enlace(d) {
   const xT = wFoto + 48;
   const disp = A - xT - 48;
   const pill = pastilla(d.seccion, { x: xT, y: 52, color, tam: 30 });
+  const hayFoto = !!d.foto?.datos;
   const q = titular(d.titulo, { y: 52 + pill.alto + 34 + 54, escalones: [{ tam: 60, max: 4 }, { tam: 54, max: 4 }, { tam: 48, max: 5 }], ancho: disp, x: xT });
-  return lienzoDe(A, H, COLORES.papel, `${fotoEnCaja(d.foto, 0, 0, wFoto, H, { radio: 0 })}<rect x="${wFoto}" y="0" width="12" height="${H}" fill="${color}"/>${pill.svg}${q.svg}
+  return lienzoDe(A, H, COLORES.papel, `${hayFoto ? fotoEnCaja(d.foto, 0, 0, wFoto, H, { radio: 0 }) : placaDeSeccionEnCaja(d.seccion, color, wFoto, H)}<rect x="${wFoto}" y="0" width="12" height="${H}" fill="${color}"/>${pill.svg}${q.svg}
   <rect x="${xT}" y="${H - 108}" width="${disp}" height="3" fill="${TINTA}"/>
   <text x="${xT}" y="${H - 44}" font-family="${DISPLAY}" font-size="48" font-weight="900" letter-spacing="-0.5" fill="${TINTA}">Radar <tspan fill="${ROJO}">Balcarce</tspan></text>`);
 }

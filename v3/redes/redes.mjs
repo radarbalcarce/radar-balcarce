@@ -5,7 +5,7 @@
 //   REDES_ACTIVAS = «no» (por defecto): simula. Elige, arma el texto, lo anota en `publicaciones` con simulado = 1 y NO llama a Meta.
 //   Secretos: META_TOKEN (para publicar de verdad) y TELEGRAM_TOKEN (para avisar). Binding DB (D1) y TELEGRAM (service binding a radar-telegram).
 
-import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia, motivoDeExclusion, tipoDeNota } from './elegir.mjs';
+import { elegirParaFacebook, elegirEspejo, diaDeBalcarce, minutoDelDia, rangoDelDia, motivoDeExclusion, tipoDeNota, sePuedeConPlacaSola } from './elegir.mjs';
 import { conPlaca, nombreDePlaca, claveR2DePlaca, urlDePlaca, bajadaDeLaPlaca, PREFIJO_DE_PLACAS, NOMBRE_VALIDO, DIRECCION_DE_LAS_REDES } from './placa-clave.mjs';
 import { textoFacebook, textoInstagram, SITIO } from './texto.mjs';
 import { publicarEnFacebook } from './facebook/publicar.mjs';
@@ -128,7 +128,7 @@ export function crearRedes(deps = {}) {
     if (!env.PLACAS?.list) return [];
     const hay = await placasDibujadas(env);
     const base = baseDeLasPlacas(env);
-    return notas.filter((n) => n.foto?.url && hay.has(nombreDePlaca(n))).map((n) => conPlaca(n, base));
+    return notas.filter((n) => (n.foto?.url || sePuedeConPlacaSola(n)) && hay.has(nombreDePlaca(n))).map((n) => conPlaca(n, base));
   }
 
   /** Los ids de las notas que contó un repaso hoy o ayer (en curso, listo o publicado): una nota sale en UN formato, no como posteo y además en un resumen (Hernán, 23/10). */
@@ -152,7 +152,7 @@ export function crearRedes(deps = {}) {
     let hechas = await db.publicacionesDelDia(env, dia, simulado);
     const resultado = { simulado, dia, notasMiradas: miradas, conPlaca: notas.length, facebook: null, instagram: null, motivo: null };
 
-    const dec = elegirParaFacebook({ notas, hechas, enRepasos: await notasEnRepasos(env, { ahora, simulado }), ahora });
+    const dec = elegirParaFacebook({ notas, hechas, enRepasos: await notasEnRepasos(env, { ahora, simulado }), ahora, conPlaca: posteosConPlaca(env) });
     if (dec.nota) {
       resultado.facebook = await publicarUna(env, { red: 'facebook', nota: dec.nota, tipo: dec.tipo, simulado, ahora, hechas });
       hechas = await db.publicacionesDelDia(env, dia, simulado);
@@ -173,15 +173,15 @@ export function crearRedes(deps = {}) {
     if (id) {
       const una = (await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 7 * 24 * 3600 * 1000).toISOString(), conBorradores: false })).find((n) => n.id === id);
       const hay1 = env.PLACAS?.list ? await placasDibujadas(env) : new Set();
-      const n = una && una.foto?.url ? una : null;
-      return { dia: diaDeBalcarce(ahora), activos: posteosActivos(env), notas: n ? [{ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay1.has(nombreDePlaca(n)) }] : [] };
+      const n = una && (una.foto?.url || sePuedeConPlacaSola(una)) ? una : null;
+      return { dia: diaDeBalcarce(ahora), activos: posteosActivos(env), notas: n ? [{ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, deBalcarce: tipoDeNota(n) === 'local', foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay1.has(nombreDePlaca(n)) }] : [] };
     }
     const notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 24 * 3600 * 1000).toISOString(), conBorradores: false });
     const hechas = await db.publicacionesDelDia(env, diaDeBalcarce(ahora), false);
     const salieron = new Set(hechas.filter((h) => h.red === 'facebook' && h.estado !== 'error').map((h) => h.notaId));
     const hay = env.PLACAS?.list ? await placasDibujadas(env) : new Set();
-    const lista = notas.filter((n) => !salieron.has(n.id) && !motivoDeExclusion(n, { ahora })).slice(0, 30)
-      .map((n) => ({ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay.has(nombreDePlaca(n)) }));
+    const lista = notas.filter((n) => !salieron.has(n.id) && !motivoDeExclusion(n, { ahora, conPlaca: true })).slice(0, 30)
+      .map((n) => ({ id: n.id, titulo: n.titulo, bajada: bajadaDeLaPlaca(n), enDosLineas: n.enDosLineas, seccion: n.seccion, deBalcarce: tipoDeNota(n) === 'local', foto: n.foto, publicada: n.publicada, nombre: nombreDePlaca(n), dibujada: hay.has(nombreDePlaca(n)) }));
     return { dia: diaDeBalcarce(ahora), activos: posteosActivos(env), notas: lista };
   }
 
@@ -193,7 +193,7 @@ export function crearRedes(deps = {}) {
     const notas = await db.notasParaRedes(env, { desdeISO: new Date(ahora.getTime() - 7 * 24 * 3600 * 1000).toISOString(), conBorradores: false });
     const nota = notas.find((n) => n.id === id);
     if (!nota) return { error: 'no encuentro esa nota entre las publicadas de los últimos 7 días', status: 404 };
-    if (!nota.foto?.url) return { error: 'la nota no tiene foto', status: 409 };
+    if (!nota.foto?.url && !sePuedeConPlacaSola(nota)) return { error: 'la nota no tiene foto', status: 409 };
     const nombre = nombreDePlaca(nota);
     if (!(await env.PLACAS.head(claveR2DePlaca(nombre)))) return { error: 'sin-placa', nombre, status: 409, ayuda: 'dibujarla con el workflow «Radar 3.0: piezas de redes» (campo repetir)' };
     const conLaPlaca = conPlaca(nota, baseDeLasPlacas(env));

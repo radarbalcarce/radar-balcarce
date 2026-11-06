@@ -110,7 +110,7 @@ export async function dependenciasReales(env = process.env) {
     fetchFn: fetch,
     // La imagen de enlace (1080 × 565) en JPEG: Bluesky acepta hasta 1 MB y un PNG con foto lo pasa fácil.
     async imagenDeEnlace(nota) {
-      const pieza = await resolverFotos(armarEnlace({ ...nota, foto: { ...nota.foto, alt: nota.titulo } }));
+      const pieza = await resolverFotos(armarEnlace({ ...nota, foto: nota.foto ? { ...nota.foto, alt: nota.titulo } : null }));
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'enlace-'));
       try {
         const png = await renderizarImagen(pieza.escenas[0], pieza.ancho, path.join(tmp, 'enlace.png'));
