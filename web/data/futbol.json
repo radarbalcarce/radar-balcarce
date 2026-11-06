@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-06T22:03:55.041Z",
+ "consultado": "2026-11-06T22:36:19.059Z",
  "equipos": [
   "9739",
   "3",
@@ -811,12 +811,12 @@
     "id": "401841665",
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "21'",
     "local": {
      "id": "11",
      "nombre": "Independiente",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "17702",
@@ -824,7 +824,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Mateo Pérez",
+      "minuto": "11'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Estadio Libertadores de América",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -834,8 +841,8 @@
     "id": "401841662",
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "21'",
     "local": {
      "id": "18",
      "nombre": "San Lorenzo",
@@ -857,12 +864,12 @@
     "id": "401841660",
     "competencia": "liga",
     "inicio": "2026-11-06T22:15:00.000Z",
-    "estado": "programado",
-    "minuto": "0'",
+    "estado": "en-juego",
+    "minuto": "21'",
     "local": {
      "id": "20",
      "nombre": "Unión (Santa Fe)",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "21",
@@ -870,7 +877,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Cristian Tarragona",
+      "minuto": "12'",
+      "tipo": "de penal"
+     }
+    ],
     "estadio": "15 de Abril",
     "fase": null,
     "partidoDeLaSerie": null,
