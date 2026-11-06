@@ -83462,10 +83462,11 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Albana Fuentes protagonizará el musical de Frozen en el Teatro Gran Rex",
-  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de La Nación (parece una foto de stock): no se elige ninguna.",
-  "cuando": "2026-11-05T22:34:44.112Z",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
+  "cuando": "2026-11-06T21:31:57.564Z",
   "intentos": 1,
-  "fuentes": 2
+  "fuentes": 6,
+  "intentosPorCupo": 1
  },
  "camv95": {
   "archivo": "fotos-notas/camv95.jpg",
@@ -87303,10 +87304,10 @@
   "origen": "ninguna",
   "titulo": "Franco Colapinto presenta un casco con los colores de Boca para el GP de Brasil",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T19:02:29.887Z",
+  "cuando": "2026-11-06T21:31:57.564Z",
   "intentos": 1,
-  "fuentes": 7,
-  "intentosPorCupo": 2
+  "fuentes": 8,
+  "intentosPorCupo": 3
  },
  "dyb4xn": {
   "archivo": "fotos-notas/dyb4xn.jpg",
@@ -89367,20 +89368,19 @@
   "origen": "ninguna",
   "titulo": "El papa León XIV llega a la Argentina el domingo y establece feriados",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-06T20:07:51.405Z",
+  "cuando": "2026-11-06T21:31:57.564Z",
   "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1
+  "fuentes": 6,
+  "intentosPorCupo": 2
  },
  "1w9enoc": {
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Cardenal Newman e Hindú juegan la final del URBA Top 14",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-06T20:07:51.405Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de El Día (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-06T21:31:57.564Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "1o81q50": {
   "intentado": true,
@@ -89753,5 +89753,65 @@
    "descripcion": "Recipiente de helado con trozos de chocolate y dulce de leche."
   },
   "huella": "47d7f3ebcbd0f4d4"
+ },
+ "wxjxt8": {
+  "archivo": "fotos-notas/wxjxt8.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "APTRA anuncia los nominados para los premios Martín Fierro de Cable 2026",
+  "enlace": "https://www.cronica.com.ar/sociedad/martin-fierro-de-cable-2026-cronica-recibio-10-nominaciones-para-los-premios-de-aptra/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730809/6aee422a8cf1a_600_315!.png?s=8d1dbf568512a8b2f23324eeff16a705&d=1793934000",
+  "razon": "Es la mejor opción disponible: muestra claramente el objeto central de la noticia (las estatuillas de los premios) sin personas, sin marcas de agua añadidas por medios y con buena calidad.",
+  "cuando": "2026-11-06T21:31:57.564Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de una estatuilla de los premios Martín Fierro.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Primer plano de las estatuillas doradas de los premios Martín Fierro."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "8e8f052d4d4e4d4d"
+ },
+ "wgd2zk": {
+  "archivo": "fotos-notas/wgd2zk.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV inicia su gira sudamericana con su llegada a Uruguay",
+  "enlace": "https://perfil.com/sociedad/papa-leon-xiv-en-uruguay-como-fue-su-llegada-al-pais-y-el-recibimiento-oficial-a50-sacm-aWLHz5e1L7n1",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/f0b35faa8358-000d6pt863.webp",
+  "razon": "Es la única imagen que muestra el hecho de manera clara, con buena calidad, sin marcas de agua, sin menores y sin elementos gráficos sobreimpresos.",
+  "cuando": "2026-11-06T21:31:57.564Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa saludando a un funcionario al bajar del avión."
+  },
+  "huella": "13024ada97e2c8ca"
  }
 }
