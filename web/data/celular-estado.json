@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T02:03:36.461Z",
- "portada": 185,
+ "generado": "2026-11-06T03:07:29.058Z",
+ "portada": 188,
  "archivo": 500,
- "esperandoCuerpo": 10,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-06T02:03:37.156Z",
+  "generado": "2026-11-06T03:07:29.760Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,17 +33,17 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
-    "nombre": "agenda",
+    "nombre": "participa-nota",
     "tipo": "reel",
     "hora": "12:00",
-    "que": "La agenda del fin de semana",
-    "voz": "locutora",
+    "que": "Tu nota",
+    "voz": "locutor",
     "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -53,7 +53,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,29 +93,9 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 54,
+    "segundos": 47,
     "notas": [
      {
       "id": "m8b2c6",
@@ -128,14 +108,76 @@
       "seccion": "Balcarce"
      },
      {
+      "id": "1pm4shu",
+      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "yko3zc",
+      "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
+      "seccion": "Automovilismo"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 51,
+    "notas": [
+     {
+      "id": "1is00rd",
+      "titulo": "Lanzan una colecta de golosinas para la visita de Papá Noel a Protección",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "100bnjr",
+      "titulo": "Balcarce Vóley alcanza los playoffs con victorias en Primera y Maxi",
+      "seccion": "Deportes"
+     },
+     {
       "id": "1xsiv6s",
       "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
       "seccion": "Educación"
      },
      {
-      "id": "1pm4shu",
-      "titulo": "Nadadores locales compiten en el Campeonato Panamericano Máster",
+      "id": "74b2wn",
+      "titulo": "Dos mujeres resultan heridas tras un choque de motos en 15 y 2",
+      "seccion": "Policiales"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 52,
+    "notas": [
+     {
+      "id": "1a0h4cn",
+      "titulo": "La Cooperativa Eléctrica alerta sobre posibles estafas de falsos operarios",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "1hnsyf",
+      "titulo": "Ciclistas balcarceños se destacan en el Rally de las Sierras en Tandil",
       "seccion": "Deportes"
+     },
+     {
+      "id": "ywp9x3",
+      "titulo": "El quirófano móvil de Zoonosis se traslada al CIC 1",
+      "seccion": "Salud"
+     },
+     {
+      "id": "1faalls",
+      "titulo": "Facundo Cerone deja la dirección técnica de Sportivo Trabajo Mitre",
+      "seccion": "Fútbol"
      }
     ]
    }
@@ -144,33 +186,15 @@
    "hoy": [],
    "cola": [
     {
-     "id": "1xsiv6s",
-     "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
-     "seccion": "Educación",
-     "marcada": false
-    },
-    {
      "id": "1is00rd",
      "titulo": "Lanzan una colecta de golosinas para la visita de Papá Noel a Protección",
      "seccion": "Balcarce",
      "marcada": false
     },
     {
-     "id": "yko3zc",
-     "titulo": "El Museo Fangio celebra 40 años con la presencia de Emerson Fittipaldi",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "1es1dg0",
-     "titulo": "Godoy Cruz y Tristán Suárez juegan la final por el ascenso el 15 de noviembre",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1dveq4k",
-     "titulo": "El Grupo de Narváez compra la cadena de supermercados Día en Argentina",
-     "seccion": "Economía",
+     "id": "1xsiv6s",
+     "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+     "seccion": "Educación",
      "marcada": false
     },
     {
@@ -180,15 +204,33 @@
      "marcada": false
     },
     {
-     "id": "1jleog4",
-     "titulo": "Las reservas del Banco Central caen por debajo de los 50.000 millones",
-     "seccion": "Economía",
+     "id": "q70euu",
+     "titulo": "River derrota 2-0 a Aldosivi y asegura el cuarto puesto del Grupo B",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
      "id": "1w9be01",
      "titulo": "ATE suspende las protestas en aeropuertos por la visita del papa León XIV",
      "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1t9xqnz",
+     "titulo": "River vence a Aldosivi y Lucas Beltrán corta su sequía goleadora",
+     "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "1ltahdz",
+     "titulo": "Dallys Ferreira reclama sus ahorros tras el colapso del Ueno Bank en Paraguay",
+     "seccion": "Economía",
+     "marcada": false
+    },
+    {
+     "id": "1jleog4",
+     "titulo": "Las reservas del Banco Central caen por debajo de los 50.000 millones",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
