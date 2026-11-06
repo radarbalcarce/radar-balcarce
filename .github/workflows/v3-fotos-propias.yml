@@ -7,7 +7,7 @@ name: "Radar 3.0: fotos propias"
 #   simular   (por defecto SÍ) mira cuántas notas se copiarían y cuáles, sin bajar ni guardar nada. Probar siempre así primero.
 #   tope      cuántas notas se copian como mucho en esta corrida (por defecto 60). Para el relleno de las ~500 notas del sitio: tope 150 y repetir hasta que diga «Pendientes que había: 0».
 #   reintentar tilda para volver a probar las que ya fallaron 3 veces o fallaron hace menos de 3 horas.
-# Solo, cada hora a los :40 (de 6 a 23 de Balcarce), PERO SÓLO si la variable de GitHub FOTOS_PROPIAS_ACTIVAS vale «si» (por defecto no existe: no corre solo). La prende una persona
+# Solo, cada 2 horas a los :40 (de 6:40 a 22:40 de Balcarce; antes cada hora: 6/11/2026, para bajar los minutos de Actions si el repositorio pasa a privado, 18 corridas de 1 minuto por día a 9; para volver, el cron anterior era '40 9-23,0-2 * * *'), PERO SÓLO si la variable de GitHub FOTOS_PROPIAS_ACTIVAS vale «si» (por defecto no existe: no corre solo). La prende una persona
 # después de ver una corrida a mano con «simular» y otra de verdad.
 #
 # Secretos de GitHub (los pega una persona, nunca en un chat): CLOUDFLARE_API_TOKEN (con permiso de D1 «Edit» y de R2 «Edit»; el que ya usa «Radar 3.0: desplegar»), CLOUDFLARE_ACCOUNT_ID y,
@@ -16,7 +16,7 @@ name: "Radar 3.0: fotos propias"
 
 on:
   schedule:
-    - cron: '40 9-23,0-2 * * *'
+    - cron: '40 9-23/2,1 * * *'
   workflow_dispatch:
     inputs:
       simular:
