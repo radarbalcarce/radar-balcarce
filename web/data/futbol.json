@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-07T19:34:03.057Z",
+ "consultado": "2026-11-07T20:03:58.118Z",
  "equipos": [
   "9739",
   "3",
@@ -1003,8 +1003,8 @@
     "id": "401841666",
     "competencia": "liga",
     "inicio": "2026-11-07T18:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "74'",
+    "estado": "final",
+    "minuto": "90'+7'",
     "local": {
      "id": "11972",
      "nombre": "Gimnasia (Mendoza)",
@@ -1013,7 +1013,7 @@
     "visitante": {
      "id": "9744",
      "nombre": "Independiente Rivadavia",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
     "goles": [
@@ -1021,6 +1021,12 @@
       "equipo": "local",
       "jugador": "Germán Guiffrey",
       "minuto": "45'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "visitante",
+      "jugador": "Luis Díaz",
+      "minuto": "90'+5'",
       "tipo": "gol"
      }
     ],
@@ -1033,8 +1039,8 @@
     "id": "401841661",
     "competencia": "liga",
     "inicio": "2026-11-07T18:00:00.000Z",
-    "estado": "en-juego",
-    "minuto": "75'",
+    "estado": "final",
+    "minuto": "90'+4'",
     "local": {
      "id": "19",
      "nombre": "Talleres (Córdoba)",

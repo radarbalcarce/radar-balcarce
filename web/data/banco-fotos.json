@@ -51939,9 +51939,7 @@
   "ausenteDesde": "2026-10-31T21:34:54.567Z"
  },
  "1xr0jgj": {
-  "archivo": "fotos-notas/1xr0jgj.jpg",
   "medio": "La Gaceta (Tucumán)",
-  "credito": "Foto: La Gaceta (Tucumán)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Gendarmería no logra confirmar la autenticidad de los audios de Spagnuolo",
@@ -51962,7 +51960,8 @@
    "descripcion": "Retrato de un hombre calvo con barba, vestido con saco azul y camisa a rayas, en un interior con paneles de madera."
   },
   "huella": "66060262576d6d4c",
-  "ausenteDesde": "2026-10-31T20:03:40.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "1u7fzx2": {
   "archivo": "fotos-notas/1u7fzx2.jpg",
@@ -55824,9 +55823,7 @@
   "borrada": true
  },
  "egz5d0": {
-  "archivo": "fotos-notas/egz5d0.jpg",
   "medio": "El Diario Balcarce",
-  "credito": "Foto: El Diario Balcarce",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Zonal del Atlántico descarta correr en el Fangio el 15 de noviembre",
@@ -55846,7 +55843,8 @@
    "descripcion": "Autos de competición en el autódromo Fangio"
   },
   "huella": "fa295393658b23ce",
-  "ausenteDesde": "2026-10-31T20:03:40.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "mynw3q": {
   "intentado": true,
@@ -58239,9 +58237,7 @@
   "fuentes": 2
  },
  "15nwqw0": {
-  "archivo": "fotos-notas/15nwqw0.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca y River juegan el Superclásico por la fecha 15 del Torneo Clausura",
@@ -58261,7 +58257,8 @@
    "descripcion": "Jugadores de Boca y River disputando el balón en el partido"
   },
   "huella": "5d5a32d36557570b",
-  "ausenteDesde": "2026-10-31T20:03:40.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "r89x9o": {
   "archivo": "fotos-notas/r89x9o.jpg",
@@ -61189,9 +61186,7 @@
   "ausenteDesde": "2026-11-03T11:33:11.999Z"
  },
  "1mnyi0": {
-  "archivo": "fotos-notas/1mnyi0.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca y River juegan el domingo el Superclásico por el Torneo Clausura",
@@ -61211,7 +61206,8 @@
    "descripcion": "Acción de juego entre futbolistas de River y Boca con la pelota abajo"
   },
   "huella": "5d5a32d36557570b",
-  "ausenteDesde": "2026-10-31T20:03:40.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "8mfyli": {
   "archivo": "fotos-notas/8mfyli.jpg",
@@ -83982,7 +83978,8 @@
    "corresponde": "si",
    "descripcion": "Lali, Ale Sergi y Juliana Gattas posando juntos."
   },
-  "huella": "adada9bb92d2a2d6"
+  "huella": "adada9bb92d2a2d6",
+  "ausenteDesde": "2026-11-07T20:04:02.069Z"
  },
  "17pe4ca": {
   "archivo": "fotos-notas/17pe4ca.jpg",
@@ -86009,7 +86006,8 @@
    "corresponde": "si",
    "descripcion": "León XIV sentado en el interior de un avión"
   },
-  "huella": "040705055509091d"
+  "huella": "040705055509091d",
+  "ausenteDesde": "2026-11-07T20:04:02.069Z"
  },
  "58o1m3": {
   "archivo": "fotos-notas/58o1m3.jpg",
@@ -87307,15 +87305,28 @@
   "huella": "ab0f1d30773d1b59"
  },
  "1ltuiuy": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Independiente recibe a Deportivo Riestra por la fecha 16 del Torneo Clausura",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-06T14:02:33.122Z",
-  "intentos": 1,
-  "fuentes": 23,
-  "intentosPorCupo": 1,
-  "errorGemini": "The operation was aborted due to timeout"
+  "archivo": "fotos-notas/1ltuiuy.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia y e Independiente Rivadavia juegan el clásico en Mendoza",
+  "enlace": "https://www.ole.com.ar/futbol-primera/gimnasia-independienterivadavia-mendoza-clasicomendocino-torneoclausura-agustinmodica-primeradivision-alfredoberti_0_BHDT5inXs0.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2026/11/06/_77Ikaa8d_2000x1500__1.jpg",
+  "razon": "La IA había preferido la de Olé, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa Olé en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-07T20:02:38.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Festejos de jugadores de ambos equipos en un partido"
+  },
+  "huella": "9bb2ec3cb439f979"
  },
  "1gca20r": {
   "archivo": "fotos-notas/1gca20r.jpg",
@@ -92363,7 +92374,8 @@
    "corresponde": "si",
    "descripcion": "Primer plano del Papa sonriendo y saludando desde un auto"
   },
-  "huella": "36b13a3a3f999f8d"
+  "huella": "36b13a3a3f999f8d",
+  "ausenteDesde": "2026-11-07T20:04:02.069Z"
  },
  "7ashy7": {
   "archivo": "fotos-notas/7ashy7.jpg",
@@ -92757,7 +92769,8 @@
    "corresponde": "si",
    "descripcion": "Jugador de Boca gesticulando en la cancha"
   },
-  "huella": "2b66c68ca48f0f31"
+  "huella": "2b66c68ca48f0f31",
+  "ausenteDesde": "2026-11-07T20:04:02.069Z"
  },
  "1pd34nd": {
   "intentado": true,
@@ -92871,5 +92884,113 @@
   "intentos": 1,
   "fuentes": 2,
   "intentosPorCupo": 1
+ },
+ "xwpiqf": {
+  "archivo": "fotos-notas/xwpiqf.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Franco Colapinto queda eliminado en la Q1 y largará 17 en Brasil",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161485/deportes/vivo-franco-colapinto-quedo-eliminado-q1-largara-17-gp-brasil.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/07/vivo-franco-colapinto-corre-clasificacion-gp-brasil-1161485-142759.jpg",
+  "razon": "Muestra claramente un monoplaza de Fórmula 1 en pista bajo la lluvia sin marcas de medios ni personas reconocibles.",
+  "cuando": "2026-11-07T20:02:38.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Monoplaza de Fórmula 1 circulando en pista húmeda con pianito amarillo y azul"
+  },
+  "huella": "135293f9e9690d3b"
+ },
+ "1xyefta": {
+  "archivo": "fotos-notas/1xyefta.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gimnasia de Mendoza le gana a Independiente Rivadavia en el clásico",
+  "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/lo-que-el-clasico-le-puede-dar-o-quitar-a-independiente-rivadavia-id770625.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/06/1003272/independiente-rivadavia_1440x810.webp",
+  "razon": "Es la foto con mejor encuadre, nitidez y acción clara del partido, sin marcas agregadas ni menores reconocibles.",
+  "cuando": "2026-11-07T20:02:38.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando la pelota en el aire durante el partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de fútbol disputando un balón en el aire durante un partido."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "27a9a9cd91530f17"
+ },
+ "d74n31": {
+  "archivo": "fotos-notas/d74n31.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Inician la soldadura del gasoducto San Matías para exportar GNL",
+  "enlace": "https://www.cronista.com/negocios/comenzo-la-soldadura-del-gasoducto-san-matias-que-potenciara-la-exportacion-de-gnl/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/L42C2MG52ZCPHH6RZBPIXYTLJM.png?auth=a8ded20c612457e02b935c58234a78dc7d6a5c84dcad175b8eee7fb1fe6b5a9a&height=630&width=1200&quality=70&smart=true",
+  "razon": "La foto A muestra una vista cenital clara de la obra del gasoducto sin marcas ni problemas, mientras que la B tiene zócalo de marca de agua de la agencia.",
+  "cuando": "2026-11-07T20:02:38.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea de la obra de soldadura de caños del gasoducto en terreno abierto"
+  },
+  "huella": "9ad91b0d8f4fcfae"
+ },
+ "1037qmq": {
+  "archivo": "fotos-notas/1037qmq.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Colapinto afronta la clasificación del Gran Premio de Brasil",
+  "enlace": "https://www.lanacion.com.ar/deportes/automovilismo/a-que-hora-es-la-qualy-del-gp-de-brasil-de-la-formula-1-con-franco-colapinto-nid06112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/franco-colapinto-en-el-circuito-de-interlagos-el-QGS4TGG76ZH2NELVVZCDYXLL5Y.JPG?auth=90f5989cef2023c09d3c158776af44e8bdf97dfe41a6eeaf4dc6eed6d308a0d5&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la foto de mejor calidad, encuadre nitido del auto en pista y cumple con todos los requisitos sin marcas ni menores.",
+  "cuando": "2026-11-07T20:02:38.972Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Auto de Formula 1 en pista durante el Gran Premio"
+  },
+  "huella": "65e3b3a39186e23e"
  }
 }
