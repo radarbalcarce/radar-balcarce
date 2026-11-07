@@ -74,6 +74,10 @@ test('el clima diario viejo (sin indexar:false en la ficha) va con noindex y fue
   assert.ok(!(await (await ir(env, '/sitemap-news.xml')).text()).includes('clima-2026-11-02'));
   const mes = await (await ir(env, '/sitemap-2026-11.xml')).text();
   assert.ok(!mes.includes('clima-2026-11-02'));
+  // la migrada del sistema viejo (id sin guiones, sin marca), caso real del 6/11
+  const { noSeIndexa } = await import('./vistas/clima-diario.mjs');
+  assert.equal(noSeIndexa({ id: 'clima20261106', ficha: {} }), true);
+  assert.equal(noSeIndexa({ id: 'climatico1', ficha: {} }), false);
   assert.ok(mes.includes('-otra'));
 });
 

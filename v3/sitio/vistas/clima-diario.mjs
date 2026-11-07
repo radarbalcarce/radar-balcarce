@@ -11,8 +11,9 @@ export const esClimaDiario = (n) => n?.ficha?.marca?.tipo === 'clima-diario';
 /** Nota de servicio (clima, dólar… con `ficha.marca`; el media kit): con página propia, pero nunca como noticia en tapa, listas ni feeds. */
 export const esDeServicio = (n) => !!n?.ficha?.marca || n?.id === 'mediakit';
 /** Una nota que se muestra pero no se indexa ni entra en los mapas ni en el RSS. */
-// Las notas del clima viejas en la base no traen `indexar: false`: se reconocen también por su marca (`ficha.marca.tipo`) o por su id (`clima-AAAA-MM-DD`).
-export const noSeIndexa = (n) => n?.ficha?.indexar === false || esClimaDiario(n) || /^clima-\d{4}-\d{2}-\d{2}$/.test(String(n?.id ?? ''));
+// Las notas del clima viejas en la base no traen `indexar: false`: se reconocen también por su marca (`ficha.marca.tipo`) o por su id
+// (`clima-AAAA-MM-DD` las del núcleo; `climaAAAAMMDD` las migradas del sistema viejo, como la del 6/11 que seguía en el mapa de noticias).
+export const noSeIndexa = (n) => n?.ficha?.indexar === false || esClimaDiario(n) || /^clima-?\d{4}-?\d{2}-?\d{2}$/.test(String(n?.id ?? ''));
 
 /** Cuántos días pasaron desde 1970 hasta 'AAAA-MM-DD' (para elegir la variante sin azar, como el sitio viejo). */
 export function numeroDeDia(dia) {
