@@ -1533,6 +1533,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "17vnb63": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 10
+ },
  "17vsjrz": {
   "intentos": 3,
   "ultimo": "2026-11-05T21:31:40.921Z",
@@ -2053,6 +2060,13 @@
   "textos": 4,
   "numeradas": 26
  },
+ "1af0vka": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "1ag59xs": {
   "intentos": 1,
   "ultimo": "2026-11-02T06:01:13.987Z",
@@ -2127,13 +2141,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1aziot7": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 7,
-  "numeradas": 11
  },
  "1b0h7us": {
   "intentos": 1,
@@ -4224,13 +4231,6 @@
    "título o bajada: 1 problema (largo): el titulo tiene 102 caracteres, e"
   ]
  },
- "1lvl2z3": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2
- },
  "1lvn6ts": {
   "intentos": 2,
   "ultimo": "2026-11-05T00:31:41.302Z",
@@ -4381,16 +4381,6 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3
- },
- "1n4xm9t": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 5,
-  "motivos": [
-   "título o bajada: 1 problema (forma): el copete dice \"en vivo\" y el sit"
-  ]
  },
  "1nafy25": {
   "intentos": 1,
@@ -5149,16 +5139,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "1rxt24a": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3,
-  "motivos": [
-   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (positio"
-  ]
- },
  "1rzhk42": {
   "intentos": 2,
   "ultimo": "2026-11-03T13:31:45.550Z",
@@ -5523,14 +5503,15 @@
   "fuentes": 1
  },
  "1u1awgc": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T21:01:21.880Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 812 (line 11 column 1)",
+  "intentos": 3,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 838 (line 11 column 1)",
   "textos": 6,
   "numeradas": 8,
   "motivos": [
    "Gemini: Expected ',' or ']' after array element in JSON at position 86",
-   "Gemini: Expected ',' or ']' after array element in JSON at position 81"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 81",
+   "Gemini: Expected ',' or ']' after array element in JSON at position 83"
   ]
  },
  "1u1ie4p": {
@@ -5620,13 +5601,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "1ukc011": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 8,
-  "numeradas": 10
  },
  "1umgasr": {
   "intentos": 1,
@@ -6659,13 +6633,6 @@
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
- },
- "2vltvs": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T21:31:33.076Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 6
  },
  "2wkrcu": {
   "intentos": 1,
@@ -7918,6 +7885,22 @@
   "textos": 4,
   "numeradas": 5
  },
+ "agiy4c": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"halcon\" y la fuente no",
+  "textos": 3,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 2 problemas (antecedente): el copete usa 17, que sale",
+   "título o bajada: 1 problema (nombre): el copete nombra a \"halcon\" y la"
+  ],
+  "falla": [
+   "el copete nombra a \"halcon\" y la fuente no",
+   "el cuerpo usa 11, que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
+  ]
+ },
  "ah8mrt": {
   "intentos": 1,
   "ultimo": "2026-11-04T15:34:20.481Z",
@@ -8183,6 +8166,13 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 3
+ },
+ "c0cxzt": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 28
  },
  "c3bdgi": {
   "intentos": 1,
@@ -11900,6 +11890,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "uvsel": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
  "uvwp3s": {
   "intentos": 2,
   "ultimo": "2026-11-04T22:32:23.454Z",
@@ -12156,8 +12153,8 @@
   "numeradas": 3
  },
  "w97jse": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T21:01:21.880Z",
+  "intentos": 3,
+  "ultimo": "2026-11-07T21:32:11.961Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 5,
   "numeradas": 8,
@@ -12165,8 +12162,7 @@
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no",
-   "el cuerpo repite el copete en vez de desarrollarlo"
+   "la fuente niega algo en el título y el texto nuevo no"
   ]
  },
  "wbexh1": {
@@ -12795,6 +12791,13 @@
  "z4ttau": {
   "intentos": 1,
   "ultimo": "2026-11-03T12:02:34.749Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
+ "zhagqb": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:32:11.961Z",
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3

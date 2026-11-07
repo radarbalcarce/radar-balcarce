@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-07T21:02:35.854Z",
+ "generado": "2026-11-07T21:36:50.533Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -99,9 +99,41 @@
      "fecha": "2026-11-07T17:18:23.000Z"
     }
    ],
-   "intentos": 2,
+   "intentos": 3,
    "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
    "maximo": 5
+  },
+  {
+   "id": "agiy4c",
+   "titulo": "Todo lo que se juega Boca contra Defensa y lo que le queda en su camino hasta fin de año",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-07T18:11:35.000Z",
+   "fuentes": [
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/boca-juniors/boca-defensayjusticia-labombonera-vascoarruabarrena-copaargentina-copalibertadores-copasudamericana-atleticomineiro-martinpalermo_0_5LJ9cenuuZ.html",
+     "fecha": "2026-11-07T13:59:51.000Z"
+    },
+    {
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/boca-juniors/a-que-hora-juega-boca-vs-defensa-y-justicia-y-como-verlo-en-vivo-id770352.html",
+     "fecha": "2026-11-07T19:36:16.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/boca-juniors/boca-paredes_5_wIPGNncbEP.html",
+     "fecha": "2026-11-07T21:02:50.000Z"
+    },
+    {
+     "medio": "Bolavip Argentina",
+     "enlace": "https://bolavip.com/ar/boca/por-que-no-juega-leonel-flores-hoy-en-boca-vs-defensa-y-justicia-por-el-torneo-clausura",
+     "fecha": "2026-11-07T18:11:35.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"halcon\" y la fuente no",
+   "maximo": 3
   },
   {
    "id": "lx5prq",
@@ -173,8 +205,8 @@
      "fecha": "2026-11-07T03:30:00.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 812 (line 11 column 1)",
+   "intentos": 3,
+   "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 838 (line 11 column 1)",
    "maximo": 5
   },
   {
