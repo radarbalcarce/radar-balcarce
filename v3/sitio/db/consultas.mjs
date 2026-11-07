@@ -1,6 +1,7 @@
 // Lo único del sitio que habla con D1. Sólo notas publicadas: `estado = 'publicada'` está en TODAS las consultas.
 import { slugDe, jsonONull } from '../util.mjs';
 import { conCopiaPropia } from '../fotos-copia.mjs';
+import { noSeIndexa } from '../vistas/clima-diario.mjs';
 
 const CAMPOS = `n.id, n.titulo, n.bajada, n.cuerpo, n.seccion, n.en_dos_lineas, n.ficha, n.foto, n.fuentes, n.fecha_hecho, n.firma, n.creada,
   s.slug AS s_slug, s.publicada_en AS s_publicada, s.origen AS s_origen, s.extra AS s_extra`;
@@ -101,7 +102,7 @@ export async function notasDelMes(env, mes) {
   const r = await env.DB.prepare(`SELECT n.id, n.titulo, n.seccion, n.ficha, s.slug AS s_slug, ${PUBLICADA} AS publicada ${DESDE} AND substr(${PUBLICADA}, 1, 7) = ? ORDER BY ${PUBLICADA} DESC`)
     .bind(mes).all();
   // Las que no se indexan (la nota diaria del clima, por ejemplo) no van al mapa: antes se colaban porque no se traía la ficha (auditoría del 5/11).
-  return (r.results || []).filter((f) => jsonONull(f.ficha)?.indexar !== false).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada }));
+  return (r.results || []).filter((f) => !noSeIndexa({ id: f.id, ficha: jsonONull(f.ficha) })).map((f) => ({ id: f.id, titulo: f.titulo, seccion: f.seccion, slug: f.s_slug || slugDe(f.titulo), publicada: f.publicada }));
 }
 
 /** Fija el titular de la dirección (y la fecha) de las notas que todavía no lo tienen: se hace una vez y no cambia más. */

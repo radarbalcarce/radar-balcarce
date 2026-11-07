@@ -2,6 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { crearSitio } from './sitio.mjs';
 import { baseDePrueba, insertarNota } from './ayuda-pruebas.mjs';
+import { SECCIONES } from './util.mjs';
+import { urlDeCopia } from './fotos-copia.mjs';
 
 const sitio = crearSitio({ traer: async () => { throw new Error('sin red'); }, ahora: () => new Date('2026-11-02T21:00:00.000Z') });
 const ir = (env, ruta) => sitio.manejar(new Request(`https://radarbalcarce.com${ruta}`), env, null, { cache: null });
@@ -42,4 +44,63 @@ test('una nota con foto propia sigue usando su foto', async () => {
   const html = await r.text();
   assert.ok(html.includes('og:image" content="https://fotos.example/a.jpg"'));
   assert.ok(!html.includes('og-default.png'));
+});
+
+test('caso real (7/11): foto de resizer.glanacion.com con copia propia: og:image, twitter:image y el JSON-LD usan /foto/; sin copia, la original (para que las tarjetas de redes no salgan con el logo)', async () => {
+  const resizer = { url: 'https://resizer.glanacion.com/resizer/v2/boca.jpg?auth=abc123&width=2558', credito: 'Foto: La Nación', alt: 'Boca' };
+  const hacer = async (foto) => {
+    const { sqlite, env } = baseDePrueba();
+    insertarNota(sqlite, { id: 'boca', foto: JSON.stringify(foto) });
+    return (await ir(env, '/nota/se-inauguro-la-nueva-sala-del-hospital-boca')).text();
+  };
+  const propia = urlDeCopia('a1b2c3d4e5f60718293a4b5c');
+  const con = await hacer({ ...resizer, copia: propia, copiaAncho: 1600, copiaAlto: 900 });
+  const cabeza = con.slice(0, con.indexOf('</head>'));
+  assert.ok(!cabeza.includes('glanacion.com'));
+  assert.ok(cabeza.includes(`og:image" content="${propia}"`));
+  assert.ok(cabeza.includes(`twitter:image" content="${propia}"`));
+  assert.ok(cabeza.includes(`"image":["${propia}"]`));
+  assert.ok((await hacer(resizer)).includes('og:image" content="https://resizer.glanacion.com/'));
+});
+
+test('el clima diario viejo (sin indexar:false en la ficha) va con noindex y fuera de sitemap-news y del mapa del mes; las demás notas siguen', async () => {
+  const { sqlite, env } = baseDePrueba();
+  insertarNota(sqlite, { id: 'clima-2026-11-02', titulo: 'Clima en Balcarce', ficha: JSON.stringify({ marca: { tipo: 'clima-diario', fecha: '2026-11-02' } }) });
+  insertarNota(sqlite, { id: 'otra', titulo: 'Otra nota cualquiera' });
+  const nota = await ir(env, '/nota/clima-en-balcarce-clima-2026-11-02');
+  assert.equal(nota.status, 200);
+  assert.ok((await nota.text()).includes('<meta name="robots" content="noindex,nofollow">'));
+  assert.match(nota.headers.get('x-robots-tag') || '', /noindex/);
+  assert.ok(!(await (await ir(env, '/sitemap-news.xml')).text()).includes('clima-2026-11-02'));
+  const mes = await (await ir(env, '/sitemap-2026-11.xml')).text();
+  assert.ok(!mes.includes('clima-2026-11-02'));
+  assert.ok(mes.includes('-otra'));
+});
+
+test('cada sección tiene título y descripción propios y distintos; og:title sin la marca', async () => {
+  const { sqlite, env } = baseDePrueba();
+  insertarNota(sqlite, { id: 'x1', titulo: 'Una nota', foto: null });
+  const titulos = new Set();
+  const descripciones = new Set();
+  for (const s of SECCIONES) {
+    const html = await (await ir(env, `/seccion/${s.ranura}`)).text();
+    const titulo = /<title>([^<]*)<\/title>/.exec(html)[1];
+    const desc = /<meta name="description" content="([^"]*)">/.exec(html)[1];
+    const og = /og:title" content="([^"]*)"/.exec(html)[1];
+    assert.ok(titulo.endsWith(' | Radar Balcarce'), s.ranura);
+    assert.equal(og, titulo.replace(' | Radar Balcarce', ''), s.ranura);
+    assert.ok(desc.length >= 120 && desc.length <= 155, `${s.ranura}: ${desc.length}`);
+    titulos.add(titulo);
+    descripciones.add(desc);
+  }
+  assert.equal(titulos.size, SECCIONES.length);
+  assert.equal(descripciones.size, SECCIONES.length);
+  assert.match(await (await ir(env, '/seccion/balcarce')).text(), /<title>Noticias de Balcarce hoy \| Radar Balcarce<\/title>/);
+});
+
+test('la página 2 de una sección lo dice en el título', async () => {
+  const { sqlite, env } = baseDePrueba();
+  for (let i = 0; i < 12; i++) insertarNota(sqlite, { id: `p${i}`, titulo: `Nota número ${i}`, foto: null });
+  const html = await (await ir(env, '/seccion/balcarce?pagina=2')).text();
+  assert.match(html, /<title>Noticias de Balcarce hoy — página 2 \| Radar Balcarce<\/title>/);
 });
