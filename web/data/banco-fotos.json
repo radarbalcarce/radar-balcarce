@@ -93209,14 +93209,40 @@
   "ausenteDesde": "2026-11-07T21:02:35.693Z"
  },
  "1xgbwoa": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Rosario Central define el torneo ante Estudiantes de Río Cuarto sin Ángel Di María",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
-  "cuando": "2026-11-07T21:01:58.264Z",
-  "intentos": 1,
-  "fuentes": 12,
-  "intentosPorCupo": 1
+  "archivo": "fotos-notas/1q8mxat.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central y Huracán condicionan la definición de la Tabla Anual",
+  "enlace": "https://www.minutouno.com/deportes/minuto-minuto-rosario-central-vs-estudiantes-rc-el-torneo-clausura-2026-goles-y-resultado-n6341603",
+  "imagenOriginal": "https://media.minutouno.com/p/26b903c4bb30f589ae350b708dd3bc3d/adjuntos/150/imagenes/043/754/0043754278/1200x675/smart/rosario-central-estudiantes-rc.jpg",
+  "razon": "Es la única imagen que muestra una acción de juego real, sin marcas de agua, sin gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego entre Rosario Central y otro equipo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Rosario Central (32) controlando el balón ante la marca de un rival de Huracán."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4b534b534b696707"
  },
  "1bh9uck": {
   "archivo": "fotos-notas/1bh9uck.jpg",
@@ -93350,7 +93376,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 circulando en pista bajo intensa lluvia"
   },
-  "huella": "8080301abab80f0f"
+  "huella": "8080301abab80f0f",
+  "ausenteDesde": "2026-11-07T22:33:08.725Z"
  },
  "c0cxzt": {
   "intentado": true,
@@ -93370,6 +93397,110 @@
   "cuando": "2026-11-07T22:02:20.593Z",
   "intentos": 1,
   "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "sl86ui": {
+  "archivo": "fotos-notas/sl86ui.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "España gana a la Argentina en ambas finales del Mundial de Pádel",
+  "enlace": "https://www.tycsports.com/padel/final-del-mundial-de-padel-2026-en-vivo-donde-ver-por-tv-y-online-id770697.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/07/1003624/mundial-de-padel_1440x810.webp?v=1",
+  "razon": "Es la mejor imagen disponible, muestra a los protagonistas del evento deportivo, tiene buena calidad y no presenta marcas de agua, menores ni elementos que la descalifiquen.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Los cuatro jugadores finalistas posando juntos en la cancha."
+  },
+  "huella": "561707c307455949"
+ },
+ "1q8mxat": {
+  "archivo": "fotos-notas/1q8mxat.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Rosario Central y Huracán condicionan la definición de la Tabla Anual",
+  "enlace": "https://www.minutouno.com/deportes/minuto-minuto-rosario-central-vs-estudiantes-rc-el-torneo-clausura-2026-goles-y-resultado-n6341603",
+  "imagenOriginal": "https://media.minutouno.com/p/26b903c4bb30f589ae350b708dd3bc3d/adjuntos/150/imagenes/043/754/0043754278/1200x675/smart/rosario-central-estudiantes-rc.jpg",
+  "razon": "Es la única imagen que muestra una acción de juego real, sin marcas de agua, sin gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Acción de juego entre Rosario Central y otro equipo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Rosario Central (32) controlando el balón ante la marca de un rival de Huracán."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4b534b534b696707"
+ },
+ "daw9a2": {
+  "archivo": "fotos-notas/daw9a2.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Las plataformas de streaming y los cines renuevan su oferta de películas",
+  "enlace": "https://www.eldestapeweb.com/cultura/ver-netflix-fin-semana-largo-cinco-peliculas-todos-gustos-202611718587",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/102026/1791652412498.webp?&cw=1600&ch=900",
+  "razon": "La foto B es la única que no presenta marcas de agua, no es gráfica ni stock, y es adecuada para ilustrar el tema de streaming.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Bol de pochoclos frente a una pantalla con el logo de Netflix."
+  },
+  "huella": "c0ccc694180e4d4d"
+ },
+ "agiy4c": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca juega ante Defensa y Justicia por la definición de la Tabla Anual",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Los Andes (Mendoza) no se usa todavía.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "intentos": 1,
+  "fuentes": 13,
+  "intentosPorCupo": 1
+ },
+ "1ez8f4g": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca gana la Tabla Anual y se consagra campeón tras vencer a Defensa",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Olé no se usa todavía.",
+  "cuando": "2026-11-07T22:32:26.494Z",
+  "intentos": 1,
+  "fuentes": 8,
   "intentosPorCupo": 1
  }
 }

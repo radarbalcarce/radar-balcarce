@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-07T22:03:58.218Z",
+ "consultado": "2026-11-07T22:33:06.164Z",
  "equipos": [
   "9739",
   "3",
@@ -1075,8 +1075,8 @@
     "id": "401841672",
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "72'",
+    "estado": "final",
+    "minuto": "90'+7'",
     "local": {
      "id": "3",
      "nombre": "Argentinos Juniors",
@@ -1111,12 +1111,12 @@
     "id": "401841669",
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "72'",
+    "estado": "final",
+    "minuto": "90'+10'",
     "local": {
      "id": "5",
      "nombre": "Boca Juniors",
-     "goles": 0
+     "goles": 1
     },
     "visitante": {
      "id": "8950",
@@ -1124,7 +1124,14 @@
      "goles": 0
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "local",
+      "jugador": "Enner Valencia",
+      "minuto": "90'+6'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Alberto José Armando (La Bombonera)",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1134,12 +1141,12 @@
     "id": "401841663",
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
-    "estado": "en-juego",
-    "minuto": "72'",
+    "estado": "final",
+    "minuto": "90'+4'",
     "local": {
      "id": "17",
      "nombre": "Rosario Central",
-     "goles": 1
+     "goles": 2
     },
     "visitante": {
      "id": "19685",
@@ -1152,6 +1159,12 @@
       "equipo": "local",
       "jugador": "Julián Fernández",
       "minuto": "44'",
+      "tipo": "gol"
+     },
+     {
+      "equipo": "local",
+      "jugador": "Emanuel Coronel",
+      "minuto": "86'",
       "tipo": "gol"
      }
     ],

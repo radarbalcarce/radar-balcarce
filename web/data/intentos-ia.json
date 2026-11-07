@@ -146,13 +146,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "10gqeer": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 4
- },
  "10hmbqs": {
   "intentos": 1,
   "ultimo": "2026-11-04T17:02:49.784Z",
@@ -1698,6 +1691,20 @@
    "cuerpo: 1 problema (promesa): el título dice 20 y el cuerpo no lo expl"
   ]
  },
+ "18jr7sd": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"tc\", \"pick\", \"up\" y el cuerpo no los explica; sin esas oraciones quedan 206 palabras",
+  "textos": 2,
+  "numeradas": 4,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título nombra a \"tc\", \"pick\", \"up\" y "
+  ],
+  "falla": [
+   "el título nombra a \"tc\", \"pick\", \"up\" y el cuerpo no los explica"
+  ]
+ },
  "18lzxez": {
   "intentos": 1,
   "ultimo": "2026-11-01T03:01:24.929Z",
@@ -2416,13 +2423,6 @@
    "título o bajada: 2 problemas (forma): el titulo trae letras rotas (let"
   ]
  },
- "1chrqym": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 6
- },
  "1chx0lr": {
   "intentos": 1,
   "ultimo": "2026-11-01T21:01:29.473Z",
@@ -2904,6 +2904,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 4
+ },
+ "1ez8f4g": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 8
  },
  "1ezpmzx": {
   "intentos": 1,
@@ -4849,6 +4856,13 @@
    "semáforo: necesita ojo humano: \"detenido\", en lo que escribió la IA (t"
   ]
  },
+ "1q8mxat": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 9
+ },
  "1q91i52": {
   "intentos": 1,
   "ultimo": "2026-11-06T03:01:57.203Z",
@@ -6749,13 +6763,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "42wllz": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "43y0ae": {
   "intentos": 1,
   "ultimo": "2026-11-03T23:01:33.391Z",
@@ -7857,19 +7864,14 @@
   "numeradas": 5
  },
  "agiy4c": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T21:32:11.961Z",
-  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"halcon\" y la fuente no",
-  "textos": 3,
-  "numeradas": 4,
+  "intentos": 2,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 5,
   "motivos": [
    "título o bajada: 2 problemas (antecedente): el copete usa 17, que sale",
    "título o bajada: 1 problema (nombre): el copete nombra a \"halcon\" y la"
-  ],
-  "falla": [
-   "el copete nombra a \"halcon\" y la fuente no",
-   "el cuerpo usa 11, que sale de una nota anterior, como si fuera de hoy",
-   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "ah8mrt": {
@@ -8259,13 +8261,6 @@
    "semáforo: necesita ojo humano: \"imputado\", en lo que escribió la IA (t"
   ]
  },
- "cpswpz": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 8
- },
  "cr2y0v": {
   "intentos": 1,
   "ultimo": "2026-11-07T17:31:46.528Z",
@@ -8425,6 +8420,20 @@
   "motivos": [
    "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa"
   ]
+ },
+ "dah2f9": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 8,
+  "numeradas": 10
+ },
+ "daw9a2": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
  },
  "dbktvj": {
   "intentos": 1,
@@ -8797,13 +8806,6 @@
    "cuerpo: 3 problemas (nombre, copia, promesa): el cuerpo nombra a \"orga",
    "cuerpo: 3 problemas (nombre, numero, promesa): el cuerpo nombra a \"org"
   ]
- },
- "exokac": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
  },
  "exw14t": {
   "intentos": 1,
@@ -10228,13 +10230,6 @@
    "cuerpo: 1 problema (promesa): el título dice 34,4 y el cuerpo no lo ex"
   ]
  },
- "lzs8s4": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 6
- },
  "m1lhcf": {
   "intentos": 1,
   "ultimo": "2026-11-03T16:40:18.530Z",
@@ -10377,17 +10372,6 @@
   "numeradas": 4,
   "motivos": [
    "título o bajada: 2 problemas (largo, forma): el titulo tiene 93 caract"
-  ]
- },
- "mt1wy8": {
-  "intentos": 3,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 6,
-  "numeradas": 41,
-  "motivos": [
-   "cuerpo: 1 problema (repite): el cuerpo repite el copete en vez de desa",
-   "Gemini: Bad control character in string literal in JSON at position 11"
   ]
  },
  "mt3o1x": {
@@ -10916,13 +10900,6 @@
    "verificación baja: espera a una persona"
   ]
  },
- "q5lpx1": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T22:31:50.382Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 5
- },
  "q70euu": {
   "intentos": 1,
   "ultimo": "2026-11-06T03:01:57.203Z",
@@ -11432,6 +11409,13 @@
   "ultimo": "2026-11-02T00:02:00.721Z",
   "motivo": "con cuerpo",
   "textos": 2,
+  "numeradas": 3
+ },
+ "sl86ui": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
   "numeradas": 3
  },
  "slokez": {
@@ -12138,17 +12122,18 @@
   "numeradas": 3
  },
  "w97jse": {
-  "intentos": 4,
-  "ultimo": "2026-11-07T22:01:36.105Z",
-  "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
-  "textos": 5,
-  "numeradas": 8,
+  "intentos": 5,
+  "ultimo": "2026-11-07T22:31:33.261Z",
+  "motivo": "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 201 palabras",
+  "textos": 4,
+  "numeradas": 9,
   "motivos": [
-   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
+   "título o bajada: 1 problema (negacion): la fuente niega algo en el tít",
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin",
+   "cuerpo: 3 problemas (numero, promesa): el cuerpo dice 30 y la fuente n"
   ],
   "falla": [
    "el cuerpo dice 30 y la fuente no lo dice",
-   "la fuente niega algo en el título y el texto nuevo no",
    "el título dice 1 y el cuerpo no lo explica",
    "el título dice 1 y el cuerpo no lo explica"
   ]
