@@ -55366,9 +55366,7 @@
   "ausenteDesde": "2026-10-31T22:36:06.375Z"
  },
  "1juxfz5": {
-  "archivo": "fotos-notas/1juxfz5.jpg",
   "medio": "Los Andes (Mendoza)",
-  "credito": "Foto: Los Andes (Mendoza)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca define la formación con dudas en ataque y el alta de Tomás Belmonte",
@@ -55388,7 +55386,8 @@
    "descripcion": "Jugadores de Boca entrenando juntos en el predio"
   },
   "huella": "33131b1eaaeada55",
-  "ausenteDesde": "2026-10-31T04:05:20.086Z"
+  "intentado": true,
+  "borrada": true
  },
  "1v5zxll": {
   "intentado": true,
@@ -58236,9 +58235,7 @@
   "fuentes": 3
  },
  "im77nn": {
-  "archivo": "fotos-notas/im77nn.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca y River definen sus formaciones para el Superclásico del domingo",
@@ -58258,7 +58255,8 @@
    "descripcion": "Director técnico de River con los brazos cruzados en el campo de entrenamiento."
   },
   "huella": "3e3b32b5f1aab271",
-  "ausenteDesde": "2026-10-31T04:05:20.086Z"
+  "intentado": true,
+  "borrada": true
  },
  "14rxmct": {
   "intentado": true,
@@ -58722,9 +58720,7 @@
   "fuentes": 3
  },
  "8ouco7": {
-  "archivo": "fotos-notas/8ouco7.jpg",
   "medio": "Diario Popular",
-  "credito": "Foto: Diario Popular",
   "licencia": null,
   "origen": "medio",
   "titulo": "El bono de $70.000 para jubilados sigue congelado y pierde valor real",
@@ -58744,7 +58740,8 @@
    "descripcion": "Grupo de personas mayores en una fila."
   },
   "huella": "79aa6a44446c2c4c",
-  "ausenteDesde": "2026-10-31T04:05:20.086Z"
+  "intentado": true,
+  "borrada": true
  },
  "13d5b6e": {
   "intentado": true,
@@ -58756,9 +58753,7 @@
   "fuentes": 1
  },
  "1e527x7": {
-  "archivo": "fotos-notas/1e527x7.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
@@ -58790,7 +58785,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "274b72d7e9eb2b6b",
-  "ausenteDesde": "2026-10-31T04:05:20.086Z"
+  "intentado": true,
+  "borrada": true
  },
  "1lt0ov5": {
   "archivo": "fotos-notas/1lt0ov5.jpg",
@@ -85104,7 +85100,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores de River celebrando frente a un jugador de Aldosivi."
   },
-  "huella": "a454321272d6ca19"
+  "huella": "a454321272d6ca19",
+  "ausenteDesde": "2026-11-07T05:02:25.512Z"
  },
  "1pzeo05": {
   "archivo": "fotos-notas/1pzeo05.jpg",
@@ -88942,15 +88939,40 @@
   "huella": "2bb296b196d6d4f9"
  },
  "6qu55w": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/6qu55w.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Franco Mastantuono elogia a Jude Bellingham y recuerda su paso por el Madrid",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: The operation was aborted due to timeout)",
-  "cuando": "2026-11-06T23:33:09.341Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 3,
-  "errorGemini": "The operation was aborted due to timeout"
+  "enlace": "https://www.tycsports.com/futbol-internacional/mastantuono-revelo-a-bellingham-como-su-preferido-en-real-madrid-y-elogio-a-messi-fue-lo-maximo-id770607.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/02/1002228/mastantuono_1440x810.webp",
+  "razon": "Es la única imagen que muestra una acción de juego real, sin ediciones, recuadros ni marcas de agua sobreimpresas.",
+  "cuando": "2026-11-07T05:01:54.408Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": true,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Franco Mastantuono celebrando un gol en un partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Franco Mastantuono celebra un gol con la camiseta de la Lazio en un partido de fútbol."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "af0a6d262e27a716"
  },
  "13en1uy": {
   "intentado": true,
@@ -91040,5 +91062,53 @@
   "intentos": 1,
   "fuentes": 5,
   "intentosPorCupo": 1
+ },
+ "q3pjhw": {
+  "archivo": "fotos-notas/q3pjhw.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El Torneo Clausura define sus clasificados y prepara los octavos de final",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/06/se-definen-los-cruces-de-los-octavos-de-final-del-torneo-clausura-2026-estos-serian-los-enfrentamientos-hoy/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/se-definen-los-cruces-de-playoffs-del-clausura-2026-fotos-prensa-independiente-efe-prensa-river-O65KVTCX4JF47G4B45NLFO27VU.jpg?auth=45654ceee45f6ce24203614b11ae901273a5d5aa08f80d003d4c4967ad7f0080&width=1023",
+  "razon": "La IA había preferido la de La Nación, pero no se puede usar (es un flyer, un afiche o una captura de pantalla, no una foto): se usa TN (Todo Noticias) en su lugar, aunque no sea la ideal.",
+  "cuando": "2026-11-07T05:01:54.408Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage de tres jugadores de fútbol celebrando."
+  },
+  "huella": "d69515b1aa88b1b1"
+ },
+ "16t7ou": {
+  "archivo": "fotos-notas/16t7ou.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "ANSES reprograma el calendario de pagos de noviembre por feriados",
+  "enlace": "https://www.cronista.com/economia-politica/atrasan-el-calendario-de-pagos-de-anses-cuando-cobran-los-jubilados-con-dni-terminados-en-0-1-2-y-3-en-noviembre/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/K5HIUBC4D5BA7MW4RFRUWWERNY.png?auth=f02cf26f7b289a1b42ccb76fe7c8c6a916b64cce706bd419f68c2b89267b7bff&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la imagen más limpia, sin personas, que identifica claramente a ANSES y es adecuada para ilustrar una nota sobre calendarios de pago.",
+  "cuando": "2026-11-07T05:01:54.408Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cartel de ANSES con billetes de fondo."
+  },
+  "huella": "9c9a03c6dc90a0c9"
  }
 }
