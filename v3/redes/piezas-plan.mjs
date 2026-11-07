@@ -33,7 +33,8 @@ export function auspicioDelDia(avisos, dia) {
 }
 
 /**
- * (Una nota de Balcarce sin foto sale igual, con la placa de su sección en lugar de la foto. Sin ninguna nota de Balcarce en la ventana: el repaso sale con lo más contado y el plan lo anota.)
+ * (Una nota de Balcarce sin foto va con la placa de su sección, pero sólo si no hay otra de Balcarce con foto o para completar: primero lo que tiene foto (Hernán, 7/11: «de nuevo sin imagen»).
+ * Sin ninguna nota de Balcarce en la ventana: el repaso sale con lo más contado y el plan lo anota.)
  * Las notas de un repaso: lo de Balcarce primero (hasta 2, las más nuevas), completado con lo más contado del país (la nota de afuera con más medios), hasta 3. Cada nota pasa por
  * la misma compuerta que los posteos (ley, tono R41, foto) y no se repite en un repaso del mismo día. Devuelve [] si no alcanza para un repaso (2 notas, una de Balcarce).
  */
@@ -44,9 +45,12 @@ export function notasDelRepaso(notas, { ahora, yaUsadas = [], reglas = REGLAS_PI
   const validas = notas.filter((n) => !usadas.has(n.id) && !motivoDeExclusion(tipoDeNota(n) === 'local' && !tieneFoto(n) ? { ...n, foto: { url: 'https://placa.local/sin-foto' } } : n, { ahora, reglas: regla }));
   const locales = validas.filter((n) => tipoDeNota(n) === 'local').sort((a, b) => String(b.publicada).localeCompare(String(a.publicada)));
   const nacionales = validas.filter((n) => tipoDeNota(n) === 'nacional').sort((a, b) => (b.medios - a.medios) || String(b.publicada).localeCompare(String(a.publicada)));
-  const elegidas = [...locales.slice(0, reglas.deBalcarcePorRepaso)];
-  for (const n of nacionales) { if (elegidas.length >= reglas.notasPorRepaso) break; elegidas.push(n); }
-  for (const n of locales.slice(reglas.deBalcarcePorRepaso)) { if (elegidas.length >= reglas.notasPorRepaso) break; elegidas.push(n); }
+  const localesConFoto = locales.filter(tieneFoto);
+  const localesSinFoto = locales.filter((n) => !tieneFoto(n));
+  // Lo de Balcarce con foto primero; una sin foto (con placa) sólo si no hay ninguna con foto, así Balcarce sigue estando.
+  const elegidas = localesConFoto.length ? localesConFoto.slice(0, reglas.deBalcarcePorRepaso) : localesSinFoto.slice(0, 1);
+  const resto = [...nacionales, ...localesConFoto, ...localesSinFoto].filter((n) => !elegidas.includes(n));
+  for (const n of resto) { if (elegidas.length >= reglas.notasPorRepaso) break; elegidas.push(n); }
   return elegidas.length >= 2 ? elegidas : [];
 }
 

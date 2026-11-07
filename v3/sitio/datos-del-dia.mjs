@@ -214,7 +214,7 @@ export function turnoDeHoy(textoCronograma, textoDirectorio, ahora = new Date())
   if (!turno) return null;
   const dir = parsearDirectorio(textoDirectorio);
   const completar = (nombres) => nombres.map((n) => {
-    const hallada = clavesDe(n).map((k) => dir[k]).find(Boolean);
+    const hallada = clavesDe(n).map((k) => dir[k] || FARMACIAS_A_MANO[k]).find(Boolean);
     return { nombre: hallada?.nombre ? titulo(hallada.nombre) : titulo(n), direccion: hallada?.direccion || null, telefono: hallada?.telefono || null };
   });
   // Los días que siguen, hasta una semana, con lo que traiga el cronograma del mes (el Colegio publica el mes entero).
@@ -223,6 +223,12 @@ export function turnoDeHoy(textoCronograma, textoDirectorio, ahora = new Date())
 }
 
 const DIAS_DE_CRONOGRAMA = 7;
+
+// Farmacias que el cronograma del Colegio nombra y su directorio no lista (la misma lista a mano del sistema viejo, ingesta/fuentes.mjs:
+// FARMACIAS_A_MANO, verificada con La Vanguardia). El 7/11 «San Jose Plaza» salió sin dirección en la historia de Instagram.
+export const FARMACIAS_A_MANO = {
+  'san jose plaza': { nombre: 'San José de la Plaza', direccion: 'Av. Chaves esquina 15', telefono: null },
+};
 
 /** La farmacia de turno, o null si el Colegio no responde o no trae el día de hoy. Caché de 1 hora (por turno: la clave lleva la fecha). */
 export async function leerFarmacia({ traer, cache = null, ahora = new Date() }) {

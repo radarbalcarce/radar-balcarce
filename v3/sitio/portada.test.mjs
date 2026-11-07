@@ -248,6 +248,14 @@ test('el turno cambia a las 8:30: antes de esa hora todavía es la farmacia de a
   assert.equal(t.farmacias[1].direccion, null, 'sin dirección en el directorio se muestra solo el nombre');
 });
 
+test('San José de la Plaza no está en el directorio del Colegio: sale con la dirección de la lista a mano (7/11, historia de Instagram sin dirección)', () => {
+  const texto = 'Farmacias de turno NOVIEMBRE 2026 VIERNES 6 NORTE SABADO 7 DEL CERRO - SAN JOSE PLAZA DOMINGO 8 GALINDO Recordamos que';
+  const t = turnoDeHoy(texto, 'Farmacias de Balcarce Del Cerro Calle 28 N° 920 e/ 27 y 29 42-1611 San José Av. Kelly N° 993 e/ 29 y 31 42-1759', new Date('2026-11-07T22:00:00.000Z'));
+  assert.equal(t.farmacias[0].direccion, 'Calle 28 N° 920 e/ 27 y 29');
+  assert.equal(t.farmacias[1].nombre, 'San José De La Plaza');
+  assert.equal(t.farmacias[1].direccion, 'Av. Chaves esquina 15', 'no la confunde con San José de Av. Kelly');
+});
+
 test('cronograma: los días que vuelven para atrás son del mes siguiente; sin el día de hoy no hay farmacia', () => {
   const turnos = parsearCronograma('Farmacias de turno DICIEMBRE 2026 MARTES 30 BENITES MIERCOLES 31 MARIOLI JUEVES 1 GALINDO - NORTE Recordamos que');
   assert.deepEqual(turnos.map((t) => t.fecha), ['2026-12-30', '2026-12-31', '2027-01-01', ]);

@@ -57,7 +57,7 @@ mapas, RSS, redirecciones de dirección y la migración con cinco notas reales. 
 ## 7. Pendientes del clima y la farmacia
 
 - **Farmacia sin cruce de fuentes.** El sistema viejo cruza el cronograma del Colegio con La Vanguardia y Radio Gabal, completa el turno de hoy si el Colegio no lo trae y avisa discrepancias. El sitio nuevo lee sólo el Colegio: si no trae el día, el cuadro dice que no pudo leerlo. Falta decidir si se suma el cruce.
-- **Directorio de direcciones:** nombres de tres palabras o más con «de la» («San José de la Plaza») no se reconocen en la página del Colegio y salen sin dirección (el sistema viejo las completa con La Vanguardia y una lista a mano).
+- **Directorio de direcciones:** lo que el Colegio nombra en el cronograma y no lista en su directorio («San José Plaza») se completa con `FARMACIAS_A_MANO` (`datos-del-dia.mjs`, 7/11); una farmacia nueva que no esté en ninguno de los dos sale sin dirección hasta sumarla ahí.
 - **Página de farmacias propia** (`/farmacias`, con los próximos días): no existe todavía; mientras tanto el cuadro enlaza al Colegio sólo cuando no puede leer el turno.
 - **Lo más leído:** sin datos de lecturas; la columna lateral muestra lo último de Balcarce.
 

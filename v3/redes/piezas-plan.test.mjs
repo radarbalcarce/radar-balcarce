@@ -69,6 +69,9 @@ test('el repaso: Balcarce primero (hasta 2), completa con lo más contado, sin t
   assert.deepEqual(notasDelRepaso([nac('N9', 9), nac('N8', 8, { foto: null })], { ahora: AHORA }), []); // lo de afuera sin foto no
   assert.deepEqual(notasDelRepaso([n('L1'), n('L2'), n('L3')], { ahora: AHORA, yaUsadas: ['L1'] }).map((x) => x.id), ['L2', 'L3']);
   assert.deepEqual(notasDelRepaso([n('L1'), n('L2', { noPublicar: { motivo: 'menor' } })], { ahora: AHORA }), []); // lo que frenó la ley nunca
+  // caso real 7/11: la Escuela Técnica (Balcarce, sin foto) no entra si hay otra de Balcarce con foto y notas de afuera con foto; sin ninguna con foto, va con la placa
+  assert.deepEqual(notasDelRepaso([n('ESCUELA', { foto: null }), n('LATORRE'), nac('ORGULLO', 9), nac('OTRA', 5)], { ahora: AHORA }).map((x) => x.id), ['LATORRE', 'ORGULLO', 'OTRA']);
+  assert.deepEqual(notasDelRepaso([n('ESCUELA', { foto: null }), nac('ORGULLO', 9), nac('OTRA', 5)], { ahora: AHORA }).map((x) => x.id), ['ESCUELA', 'ORGULLO', 'OTRA']);
 });
 
 test('el clima auspiciado: un comercio por día (rota entre los avisos), la cuenta sale del enlace de Instagram; sin avisos, nada', () => {
