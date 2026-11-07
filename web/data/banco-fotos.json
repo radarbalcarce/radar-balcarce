@@ -49953,9 +49953,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "pusq7b": {
-  "archivo": "fotos-notas/pusq7b.jpg",
   "medio": "iProfesional",
-  "credito": "Foto: iProfesional",
   "licencia": null,
   "origen": "medio",
   "titulo": "Grupo Octubre compra Mandarina Contenidos y el canal de streaming Bondi",
@@ -49975,7 +49973,8 @@
    "descripcion": "Pantalla circular con el logo de Grupo Octubre Medios en un evento"
   },
   "huella": "1e676fe18c4a4a4b",
-  "ausenteDesde": "2026-10-31T13:33:08.837Z"
+  "intentado": true,
+  "borrada": true
  },
  "1999opw": {
   "archivo": "fotos-notas/1999opw.jpg",
@@ -59985,9 +59984,7 @@
   "huella": "0f07175747163e0b"
  },
  "hajmdh": {
-  "archivo": "fotos-notas/hajmdh.jpg",
   "medio": "Radio Mitre",
-  "credito": "Foto: Radio Mitre",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emiten alerta amarilla por tormentas y lluvias en ocho provincias",
@@ -60007,7 +60004,8 @@
    "descripcion": "Rayo cayendo sobre la ciudad de noche"
   },
   "huella": "38383c3c2c0e4256",
-  "ausenteDesde": "2026-10-31T13:33:08.837Z"
+  "intentado": true,
+  "borrada": true
  },
  "6pllp2": {
   "archivo": "fotos-notas/6pllp2.jpg",
@@ -91122,7 +91120,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "151415322233b1b3"
+  "huella": "151415322233b1b3",
+  "ausenteDesde": "2026-11-07T14:02:23.566Z"
  },
  "q3pjhw": {
   "archivo": "fotos-notas/q3pjhw.jpg",
@@ -91898,5 +91897,38 @@
    "descripcion": "Auto de rally circulando de noche con la bandera uruguaya visible en la parte trasera."
   },
   "huella": "a0201454544c30e0"
+ },
+ "11n6ttn": {
+  "archivo": "fotos-notas/11n6ttn.jpg",
+  "medio": "El Marplatense",
+  "credito": "Foto: El Marplatense",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina y España juegan la final del Mundial de Pádel en Doha",
+  "enlace": "https://www.elmarplatense.com/argentina-vencio-a-italia-y-jugara-la-final-del-mundial-de-padel-femenino",
+  "imagenOriginal": "https://n2.cdnartic.ar/uPo-N7c6RVDwjDW9tOVuW3Xrkdk=/1200x630/smart/filters:format(jpeg):quality(70)/https://elmarplatensecdn.eleco.com.ar/media/2026/11/oooo_1.webp",
+  "razon": "Es la única foto que corresponde perfectamente al evento, tiene excelente calidad, muestra a las jugadoras de pádel en Doha y no presenta marcas de agua, menores, gráficos ni stock.",
+  "cuando": "2026-11-07T14:02:14.213Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Cuatro jugadoras de pádel posando con paletas en una cancha en Doha"
+  },
+  "huella": "2b8bbb5915bf37bf"
+ },
+ "1o16j83": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Presentan la canción oficial para recibir a León XIV en el país",
+  "razon": "Ambas imágenes presentan problemas: la foto A es una composición gráfica con texto superpuesto y la foto B es una imagen editada o generada que no corresponde a una cobertura periodística real del hecho.",
+  "cuando": "2026-11-07T14:02:14.213Z",
+  "intentos": 1,
+  "fuentes": 2
  }
 }

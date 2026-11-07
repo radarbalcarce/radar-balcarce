@@ -314,6 +314,13 @@
   "textos": 2,
   "numeradas": 4
  },
+ "11n6ttn": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 4
+ },
  "11pg8m7": {
   "intentos": 2,
   "ultimo": "2026-11-01T21:31:43.366Z",
@@ -4523,20 +4530,14 @@
   "numeradas": 3
  },
  "1o16j83": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T13:31:25.633Z",
-  "motivo": "título o bajada: 3 problemas (forma, numero, nombre): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+  "intentos": 2,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2,
   "motivos": [
    "título o bajada: 2 problemas (fecha): el copete menciona \"domingo\" y l",
    "título o bajada: 3 problemas (forma, numero, nombre): el copete trae u"
-  ],
-  "falla": [
-   "el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
-   "el copete dice 0 y la fuente no lo dice",
-   "el copete nombra a \"agost\" y la fuente no",
-   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir"
   ]
  },
  "1o2n8xm": {
@@ -6922,19 +6923,19 @@
   ]
  },
  "5fjn8z": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T13:31:25.633Z",
-  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"museo\", \"historico\" y el cuerpo no los explica; sin esas oraciones quedan 77 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin dato: \"en el marco de\"; sin esas oraciones quedan 65 palabras",
   "textos": 1,
   "numeradas": 1,
   "motivos": [
    "título o bajada: 1 problema (exagera): el título dice \"inaugura\" y nin",
-   "cuerpo: 7 problemas (antecedente): el cuerpo usa 2.026, que sale de un",
+   "cuerpo: 1 problema (promesa): el título nombra a \"museo\", \"historico\" ",
    "título o bajada: 1 problema (exagera): el título dice \"inaugura\" y nin",
-   "cuerpo: 1 problema (promesa): el título nombra a \"museo\", \"historico\" "
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
   ],
   "falla": [
-   "el título nombra a \"museo\", \"historico\" y el cuerpo no los explica"
+   "el cuerpo tiene una frase de relleno sin dato: \"en el marco de\""
   ]
  },
  "5gbgao": {
@@ -8279,6 +8280,20 @@
   "textos": 2,
   "numeradas": 2
  },
+ "d0t0t5": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"marcha\", \"orgullo\" y el cuerpo no los explica; sin esas oraciones quedan 131 palabras",
+  "textos": 1,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 10 problemas (antecedente, copia): el cuerpo usa \"maria\", que ",
+   "cuerpo: 1 problema (promesa): el título nombra a \"marcha\", \"orgullo\" y"
+  ],
+  "falla": [
+   "el título nombra a \"marcha\", \"orgullo\" y el cuerpo no los explica"
+  ]
+ },
  "d1e15b": {
   "intentos": 1,
   "ultimo": "2026-11-03T12:31:43.859Z",
@@ -8872,6 +8887,20 @@
   "numeradas": 3,
   "motivos": [
    "semáforo: necesita ojo humano: \"denuncia\", en lo que escribió la IA (t"
+  ]
+ },
+ "ff5o5": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "cuerpo: 1 problema (promesa): el título dice 1.000 y el cuerpo no lo explica; sin esas oraciones quedan 282 palabras",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "cuerpo: 1 problema (copia): copia 20 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título dice 1.000 y el cuerpo no lo e"
+  ],
+  "falla": [
+   "el título dice 1.000 y el cuerpo no lo explica"
   ]
  },
  "fgxqdd": {
@@ -11686,6 +11715,21 @@
   "numeradas": 2,
   "motivos": [
    "título o bajada: 1 problema (localia): el copete dice \"productores loc"
+  ]
+ },
+ "u5bwex": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T14:01:36.849Z",
+  "motivo": "cuerpo: 2 problemas (forma, numero): el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir; sin esas oraciones quedan 185 pa",
+  "textos": 1,
+  "numeradas": 1,
+  "motivos": [
+   "título o bajada: 1 problema (numero): el copete dice 3 y la fuente no ",
+   "cuerpo: 2 problemas (forma, numero): el cuerpo trae un escape sin deco"
+  ],
+  "falla": [
+   "el cuerpo trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
+   "el cuerpo dice 0 y la fuente no lo dice"
   ]
  },
  "u87tx3": {
