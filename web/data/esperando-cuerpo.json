@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-07T10:34:47.949Z",
+ "generado": "2026-11-07T11:02:47.250Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -20,20 +20,35 @@
    "maximo": 3
   },
   {
-   "id": "r8nehv",
-   "titulo": "Desde la semilla hasta la exportación de bastones prefritos: dos generaciones en un sector que no es ninguna papa",
-   "copete": "Los Calcaterra integran la producción de papa en dos zonas del país con la industrialización. Ahora buscan mejorar las condiciones del mercado en fresco.",
-   "seccion": "Agro",
-   "fecha": "2026-11-07T08:55:05.000Z",
+   "id": "pexp8d",
+   "titulo": "Ver EN VIVO Banfield vs. Atlético Tucumán: dónde seguir por TV y ONLINE en streaming",
+   "copete": "",
+   "seccion": "Fútbol",
+   "fecha": "2026-11-07T01:23:04.000Z",
    "fuentes": [
     {
-     "medio": "Clarín",
-     "enlace": "https://www.clarin.com/rural/semilla-exportacion-bastones-prefritos-generaciones-sector-papa_0_2hN99UI1h7.html",
-     "fecha": "2026-11-07T08:55:05.000Z"
+     "medio": "TyC Sports",
+     "enlace": "https://www.tycsports.com/liga-profesional-de-futbol/banfield-vs-atletico-tucuman-en-vivo-donde-ver-por-tv-y-online-id770598.html",
+     "fecha": "2026-11-07T00:00:03.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/futbol-primera/goles-banfield-2-atletico-tucuman-2_3_qX4t9tbMIP.html",
+     "fecha": "2026-11-07T03:15:00.000Z"
+    },
+    {
+     "medio": "Olé",
+     "enlace": "https://www.ole.com.ar/futbol-primera/gol-anulado-banfield-atletico-tucuman_3_4TOjmZpYbo.html",
+     "fecha": "2026-11-07T01:23:04.000Z"
+    },
+    {
+     "medio": "La Gaceta (Tucumán)",
+     "enlace": "https://www.lagaceta.com.ar/nota/1161448/deportes/mira-1x1-atletico-tucuman-empate-contra-banfield.html",
+     "fecha": "2026-11-07T01:27:00.000Z"
     }
    ],
-   "intentos": 2,
-   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
+   "intentos": 1,
+   "motivo": "título o bajada: 4 problemas (forma, nombre): el titulo trae letras rotas (una tilde mal escrita \"êcute\"): texto mal escrito, se vuelve a pedir",
    "maximo": 3
   },
   {
@@ -121,33 +136,6 @@
    "intentos": 1,
    "motivo": "con cuerpo",
    "maximo": 3
-  },
-  {
-   "id": "638bzn",
-   "titulo": "Cuándo cobro ANSES: Pago Único y Asignaciones Familiares de PNC, este viernes 6 de noviembre",
-   "copete": "",
-   "seccion": "Argentina",
-   "fecha": "2026-11-06T10:00:01.797Z",
-   "fuentes": [
-    {
-     "medio": "C5N",
-     "enlace": "https://www.c5n.com/economia/cuando-cobro-anses-pago-unico-y-asignaciones-familiares-pnc-este-viernes-6-noviembre-n253602",
-     "fecha": "2026-11-05T22:23:00.000Z"
-    },
-    {
-     "medio": "A24",
-     "enlace": "https://www.a24.com/previsional/jubilados-y-asignaciones-anses-confirman-las-fechas-cobro-noviembre-n1613929",
-     "fecha": "2026-11-06T18:10:00.000Z"
-    },
-    {
-     "medio": "Minuto Uno",
-     "enlace": "https://www.minutouno.com/economia/cronograma-oficial-anses-noviembre-2026-fechas-cobro-jubilados-auh-y-asignaciones-n6342197",
-     "fecha": "2026-11-06T10:15:00.000Z"
-    }
-   ],
-   "intentos": 1,
-   "motivo": "con cuerpo",
-   "maximo": 3
   }
  ],
  "descartadas": [
@@ -166,6 +154,14 @@
    "fecha": "2026-11-06T11:28:53.000Z",
    "intentos": 3,
    "motivo": "agotó los 3 intentos; cuerpo: 2 problemas (cita, promesa): el cuerpo pone entre comillas algo que la fuente no dice: \"42 y terminó décima en lanzamiento de di\"; s"
+  },
+  {
+   "id": "r8nehv",
+   "titulo": "Desde la semilla hasta la exportación de bastones prefritos: dos generaciones en un sector que no es ninguna papa",
+   "seccion": "Agro",
+   "fecha": "2026-11-07T08:55:05.000Z",
+   "intentos": 3,
+   "motivo": "agotó los 3 intentos; título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no"
   },
   {
    "id": "1iu2zjz",

@@ -1416,13 +1416,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "17m2olp": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:01:09.845Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 4
- },
  "17muzmq": {
   "intentos": 2,
   "ultimo": "2026-11-04T17:02:49.784Z",
@@ -3692,13 +3685,6 @@
   "textos": 2,
   "numeradas": 2
  },
- "1jucn5w": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:01:09.845Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 2
- },
  "1jvdwmm": {
   "intentos": 1,
   "ultimo": "2026-11-03T11:01:14.430Z",
@@ -4838,6 +4824,13 @@
   "textos": 1,
   "numeradas": 2
  },
+ "1pttpi4": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T11:01:45.192Z",
+  "motivo": "con cuerpo",
+  "textos": 4,
+  "numeradas": 4
+ },
  "1ptuy1l": {
   "intentos": 1,
   "ultimo": "2026-11-04T16:32:20.746Z",
@@ -5196,13 +5189,6 @@
    "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (positio"
   ]
  },
- "1rxuorl": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:01:09.845Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "1rzhk42": {
   "intentos": 2,
   "ultimo": "2026-11-03T13:31:45.550Z",
@@ -5308,13 +5294,6 @@
    "el cuerpo repite el copete en vez de desarrollarlo",
    "el título dice 3 y el cuerpo no lo explica"
   ]
- },
- "1segwoo": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:01:09.845Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 2
  },
  "1setut3": {
   "intentos": 1,
@@ -6660,13 +6639,6 @@
    "título o bajada: 2 problemas (antecedente): el copete usa \"administrac",
    "cuerpo: 2 problemas (antecedente): el cuerpo usa \"administracion\", que"
   ]
- },
- "3fyeyv": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T11:01:09.845Z",
-  "motivo": "con cuerpo",
-  "textos": 8,
-  "numeradas": 13
  },
  "3h5oz3": {
   "intentos": 1,
@@ -10717,6 +10689,23 @@
   "baja": true,
   "fuentes": 1
  },
+ "pexp8d": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T11:01:45.192Z",
+  "motivo": "título o bajada: 4 problemas (forma, nombre): el titulo trae letras rotas (una tilde mal escrita \"êcute\"): texto mal escrito, se vuelve a pedir",
+  "textos": 2,
+  "numeradas": 4,
+  "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa \"taladro\", qu",
+   "título o bajada: 4 problemas (forma, nombre): el titulo trae letras ro"
+  ],
+  "falla": [
+   "el titulo trae letras rotas (una tilde mal escrita \"êcute\"): texto mal escrito, se vuelve a pedir",
+   "el titulo nombra a \"atl\" y la fuente no",
+   "el cuerpo trae letras rotas (una tilde mal escrita \"êcute\"): texto mal escrito, se vuelve a pedir",
+   "el cuerpo menciona \"julio\" y la fuente no"
+  ]
+ },
  "phekqj": {
   "intentos": 1,
   "ultimo": "2026-11-03T18:32:13.005Z",
@@ -11107,8 +11096,8 @@
   "numeradas": 2
  },
  "r8nehv": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T10:32:24.726Z",
+  "intentos": 3,
+  "ultimo": "2026-11-07T11:01:45.192Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 1,
   "numeradas": 1,
@@ -11116,7 +11105,8 @@
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "la fuente niega algo en el título y el texto nuevo no"
+   "la fuente niega algo en el título y el texto nuevo no",
+   "copia 16 palabras seguidas del original (\"de un ano de papa seguido de tres anos de descanso con maiz zanahoria…\"): decilo con otras palabra"
   ]
  },
  "rd3mp7": {

@@ -49700,9 +49700,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1cc0xsp": {
-  "archivo": "fotos-notas/1cc0xsp.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Provincia adelanta el pago a los docentes para noviembre",
@@ -49722,7 +49720,8 @@
    "descripcion": "Persona con guardapolvo docente operando un cajero automático"
   },
   "huella": "3258982828fa3a72",
-  "ausenteDesde": "2026-10-31T11:02:03.769Z"
+  "intentado": true,
+  "borrada": true
  },
  "1o8bnus": {
   "archivo": "fotos-notas/1o8bnus.jpg",
@@ -49747,9 +49746,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1k99k9x": {
-  "archivo": "fotos-notas/1onesd6.jpg",
   "medio": "El Marplatense",
-  "credito": "Foto: El Marplatense",
   "licencia": null,
   "origen": "medio",
   "titulo": "Choque de trenes en España deja una argentina muerta y un desaparecido",
@@ -49770,7 +49767,8 @@
    "descripcion": "Vista aérea de los vagones de un tren descarrilados y volcados en un campo abierto."
   },
   "huella": "060107f2af0f9c83",
-  "ausenteDesde": "2026-10-31T11:02:03.769Z"
+  "intentado": true,
+  "borrada": true
  },
  "1muatd7": {
   "intentado": true,
@@ -50518,9 +50516,7 @@
   "borrada": true
  },
  "1p8y51b": {
-  "archivo": "fotos-notas/1p8y51b.jpg",
   "medio": "C5N",
-  "credito": "Foto: C5N",
   "licencia": null,
   "origen": "medio",
   "titulo": "Mozilla apela a la nostalgia con memes clásicos para Firefox",
@@ -50540,12 +50536,11 @@
    "descripcion": "Retrato de Bad Luck Brian, meme clásico de internet."
   },
   "huella": "000e0f0d0f0f0f0f",
-  "ausenteDesde": "2026-10-31T11:02:03.769Z"
+  "intentado": true,
+  "borrada": true
  },
  "1x3y3pd": {
-  "archivo": "fotos-notas/1x3y3pd.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Vista invierte 2300 millones de dólares y eleva su producción un 33%",
@@ -50565,7 +50560,8 @@
    "descripcion": "Trabajadora de espaldas observando un yacimiento petrolero al atardecer"
   },
   "huella": "0f3e5b4f5dcfc9cf",
-  "ausenteDesde": "2026-10-31T11:02:03.769Z"
+  "intentado": true,
+  "borrada": true
  },
  "ywafgd": {
   "intentado": true,
@@ -59460,9 +59456,7 @@
   "ausenteDesde": "2026-11-02T17:06:25.834Z"
  },
  "969a5w": {
-  "archivo": "fotos-notas/969a5w.jpg",
   "medio": "Agencia DIB",
-  "credito": "Foto: Agencia DIB",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Senado bonaerense debate el proyecto para regular las aplicaciones de delivery",
@@ -59482,7 +59476,8 @@
    "descripcion": "Repartidor con mochila térmica y bicicleta en la calle de noche"
   },
   "huella": "644f1a1eb7b7b7fb",
-  "ausenteDesde": "2026-10-31T11:02:03.769Z"
+  "intentado": true,
+  "borrada": true
  },
  "12hvrq8": {
   "archivo": "fotos-notas/12hvrq8.webp",
@@ -85198,7 +85193,8 @@
    "corresponde": "si",
    "descripcion": "Cartel institucional de ARCA en una oficina."
   },
-  "huella": "2e3e3c5f04040d0b"
+  "huella": "2e3e3c5f04040d0b",
+  "ausenteDesde": "2026-11-07T11:02:47.147Z"
  },
  "1q91i52": {
   "archivo": "fotos-notas/1q91i52.jpg",
@@ -91422,5 +91418,14 @@
    "descripcion": "Vista aérea del predio del Cottolengo Don Orione"
   },
   "huella": "a72326ae884ade9a"
+ },
+ "1pttpi4": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca recibe a Defensa y Justicia para definir la Tabla Anual",
+  "razon": "Ninguna foto corresponde directamente al partido entre Boca y Defensa y Justicia por la Tabla Anual; muestran jugadores en otros contextos, otros equipos o entrenamientos individuales.",
+  "cuando": "2026-11-07T11:02:28.528Z",
+  "intentos": 1,
+  "fuentes": 4
  }
 }
