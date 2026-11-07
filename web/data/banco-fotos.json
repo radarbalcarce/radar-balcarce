@@ -50353,9 +50353,7 @@
   "borrada": true
  },
  "1vwftc2": {
-  "archivo": "fotos-notas/1vwftc2.jpg",
   "medio": "A24",
-  "credito": "Foto: A24",
   "licencia": null,
   "origen": "medio",
   "titulo": "Tomás Rebord estrena Dominbord en la pantalla de América TV",
@@ -50376,7 +50374,8 @@
    "descripcion": "Tres hombres con traje posan frente a un fondo verde."
   },
   "huella": "0f2b2f6bcbeb6bb2",
-  "ausenteDesde": "2026-10-31T07:03:30.258Z"
+  "intentado": true,
+  "borrada": true
  },
  "au2qyx": {
   "archivo": "fotos-notas/au2qyx.jpg",
@@ -58911,9 +58910,7 @@
   "ausenteDesde": "2026-11-02T12:34:55.631Z"
  },
  "yhn2j5": {
-  "archivo": "fotos-notas/yhn2j5.jpg",
   "medio": "Infórmese Primero (FM 104.9)",
-  "credito": "Foto: Infórmese Primero (FM 104.9)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Senado aprueba la reforma de la Ley Nacional de Salud Mental",
@@ -58933,7 +58930,8 @@
    "descripcion": "Vista general del recinto del Senado con los legisladores en sus bancas."
   },
   "huella": "555545cd332755b3",
-  "ausenteDesde": "2026-10-31T07:03:30.258Z"
+  "intentado": true,
+  "borrada": true
  },
  "iv52j3": {
   "archivo": "fotos-notas/iv52j3.jpg",
@@ -59176,9 +59174,7 @@
   "ausenteDesde": "2026-11-02T18:33:45.962Z"
  },
  "1rh3ku5": {
-  "archivo": "fotos-notas/1rh3ku5.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Axel Kicillof firma convenios de cooperación con el gobernador Carlos Sadir",
@@ -59198,12 +59194,11 @@
    "descripcion": "Axel Kicillof y Carlos Sadir posando juntos frente a banderas oficiales."
   },
   "huella": "353d7d243c343430",
-  "ausenteDesde": "2026-10-31T07:03:30.258Z"
+  "intentado": true,
+  "borrada": true
  },
  "1o4okdz": {
-  "archivo": "fotos-notas/1o4okdz.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "ARCA extiende el plazo para presentar la declaración jurada de Ganancias",
@@ -59223,7 +59218,8 @@
    "descripcion": "Cartel de ARCA en una oficina de atención con personal trabajando"
   },
   "huella": "29518b8baa868fbc",
-  "ausenteDesde": "2026-10-31T07:03:30.258Z"
+  "intentado": true,
+  "borrada": true
  },
  "1tshzdo": {
   "archivo": "fotos-notas/1tshzdo.jpg",
@@ -83450,11 +83446,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Albana Fuentes protagonizará el musical de Frozen en el Teatro Gran Rex",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-07T03:03:20.410Z",
-  "intentos": 1,
-  "fuentes": 6,
-  "intentosPorCupo": 3
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de La Nación (parece una foto de stock); la de TyC Sports (es un flyer, un afiche o una captura de pantalla, no una foto): no se elige ninguna.",
+  "cuando": "2026-11-07T08:01:43.800Z",
+  "intentos": 2,
+  "fuentes": 6
  },
  "camv95": {
   "archivo": "fotos-notas/camv95.jpg",
@@ -91161,5 +91156,14 @@
   },
   "huella": "6387971717075307",
   "ausenteDesde": "2026-11-07T07:01:47.653Z"
+ },
+ "1jcvsey": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Modifican el transporte por la visita del papa León XIV al AMBA",
+  "razon": "La mejor foto era la de Noticias Argentinas (NA), pero no se puede usar (marca de agua u otro medio) (Logo de Noticias Argentinas (NA) superpuesto en la esquina inferior izquierda), y ninguna de las otras sirve: no se elige ninguna.",
+  "cuando": "2026-11-07T08:01:43.800Z",
+  "intentos": 1,
+  "fuentes": 5
  }
 }
