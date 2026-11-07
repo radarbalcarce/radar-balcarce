@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T13:02:55.899Z",
- "portada": 112,
+ "generado": "2026-11-07T13:32:34.543Z",
+ "portada": 121,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-07T13:02:56.497Z",
+  "generado": "2026-11-07T13:32:35.105Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 47,
+    "segundos": 40,
     "notas": [
      {
       "id": "j7nvck",
@@ -113,9 +113,9 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "16nvkvm",
-      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
-      "seccion": "Deportes"
+      "id": "19j1eud",
+      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
+      "seccion": "Política"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 50,
+    "segundos": 55,
     "notas": [
      {
       "id": "13ae8gs",
@@ -134,19 +134,19 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-      "seccion": "Cultura y agenda"
+      "id": "1cny5nq",
+      "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
+      "seccion": "Policiales"
      },
      {
-      "id": "8x25q0",
-      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
+      "id": "16nvkvm",
+      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
       "seccion": "Deportes"
      },
      {
-      "id": "2jfnjt",
-      "titulo": "La inflación en la Ciudad de Buenos Aires llega al 1,9 por ciento en octubre",
-      "seccion": "Economía"
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 53,
     "notas": [
      {
       "id": "qvrt15",
@@ -170,14 +170,14 @@
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "1r3wzjp",
-      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
+      "id": "8x25q0",
+      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
       "seccion": "Deportes"
      },
      {
-      "id": "1ymljo6",
-      "titulo": "El fiscal Pollicita pide investigar a Manuel Adorni por evasión tributaria",
-      "seccion": "Política"
+      "id": "1dsn87c",
+      "titulo": "El emprendimiento balcarceño Nahuen recibe una distinción internacional",
+      "seccion": "Economía"
      }
     ]
    }
@@ -185,6 +185,18 @@
   "facebook": {
    "hoy": [],
    "cola": [
+    {
+     "id": "19j1eud",
+     "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
+     "seccion": "Política",
+     "marcada": false
+    },
+    {
+     "id": "1cny5nq",
+     "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
+     "seccion": "Policiales",
+     "marcada": false
+    },
     {
      "id": "16nvkvm",
      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",

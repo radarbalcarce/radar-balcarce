@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-07T13:02:55.899Z",
+ "generado": "2026-11-07T13:32:34.543Z",
  "intentosMaximos": 3,
  "notas": [
   {
@@ -15,8 +15,42 @@
      "fecha": "2026-11-07T12:36:36.000Z"
     }
    ],
+   "intentos": 2,
+   "motivo": "cuerpo: 1 problema (promesa): el título nombra a \"museo\", \"historico\" y el cuerpo no los explica; sin esas oraciones quedan 77 palabras",
+   "maximo": 3
+  },
+  {
+   "id": "jpaewd",
+   "titulo": "Melina Capozzi y la tarea del Juzgado de Faltas: “Cada infracción debe analizarse en particular”",
+   "copete": "La jueza de Faltas de Balcarce visitó los estudios de Radio Líder Balcarce Stream y explicó cómo funciona el sistema de detección automática de infracciones, quiénes tienen a su cargo las notificaciones y qué puede hacer un conductor que toma conocimiento de una multa tiempo…",
+   "seccion": "Balcarce",
+   "fecha": "2026-11-06T18:01:40.741Z",
+   "fuentes": [
+    {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/noticias/45288-melina-capozzi-y-la-tarea-del-juzgado-de-faltas-cada-infraccion-debe-analizarse-en-particular/",
+     "fecha": null
+    }
+   ],
    "intentos": 1,
-   "motivo": "cuerpo: 7 problemas (antecedente): el cuerpo usa 2.026, que sale de una nota anterior, como si fuera de hoy; sin esas oraciones quedan 53 palabras",
+   "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "ovffu6",
+   "titulo": "Atletismo Dos medallas nacionales para AACyC Balcarce",
+   "copete": "",
+   "seccion": "Deportes",
+   "fecha": "2026-11-07T10:31:25.880Z",
+   "fuentes": [
+    {
+     "medio": "Diario La Vanguardia",
+     "enlace": "https://www.diariolavanguardia.com/deportes/14425-dos-medallas-nacionales-para-aacyc-balcarce/",
+     "fecha": null
+    }
+   ],
+   "intentos": 1,
+   "motivo": "cuerpo: 6 problemas (nombre, repite, promesa): el cuerpo nombra a \"centro\" y la fuente no; sin esas oraciones quedan 179 palabras",
    "maximo": 3
   },
   {
@@ -44,6 +78,28 @@
    ],
    "intentos": 1,
    "motivo": "con cuerpo",
+   "maximo": 3
+  },
+  {
+   "id": "1o16j83",
+   "titulo": "León XIV: una canción para llevar",
+   "copete": "",
+   "seccion": "Cultura y agenda",
+   "fecha": "2026-11-06T16:58:51.000Z",
+   "fuentes": [
+    {
+     "medio": "El Marplatense",
+     "enlace": "https://www.elmarplatense.com/leon-xiv-una-cancion-para-llevar",
+     "fecha": "2026-11-06T16:58:51.000Z"
+    },
+    {
+     "medio": "Ámbito",
+     "enlace": "https://www.ambito.com/politica/presentaron-la-cancion-oficial-recibir-al-papa-leon-xiv-su-visita-la-argentina-n6326044",
+     "fecha": "2026-11-07T13:21:00.000Z"
+    }
+   ],
+   "intentos": 1,
+   "motivo": "título o bajada: 3 problemas (forma, numero, nombre): el copete trae un escape sin decodificar (barra-u…): texto mal escrito, se vuelve a pedir",
    "maximo": 3
   },
   {
