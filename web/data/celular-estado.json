@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T15:31:50.590Z",
- "portada": 117,
+ "generado": "2026-11-07T16:06:08.655Z",
+ "portada": 127,
  "archivo": 500,
- "esperandoCuerpo": 6,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-07T15:31:51.131Z",
+  "generado": "2026-11-07T16:06:09.616Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -33,7 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null
    },
    {
@@ -93,9 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "en-hora",
+    "momento": "cerrada",
     "salio": null,
-    "segundos": 55,
+    "segundos": null,
+    "notas": []
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 48,
     "notas": [
      {
       "id": "19j1eud",
@@ -113,20 +123,20 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "u5bwex",
-      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
-      "seccion": "Deportes"
+      "id": "ff5o5",
+      "titulo": "Sembrando Futuro llega a los mil egresados",
+      "seccion": "Educación"
      }
     ]
    },
    {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 49,
+    "segundos": 52,
     "notas": [
      {
       "id": "jf7bz2",
@@ -134,8 +144,8 @@
       "seccion": "Policiales"
      },
      {
-      "id": "8x25q0",
-      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
+      "id": "u5bwex",
+      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
       "seccion": "Deportes"
      },
      {
@@ -147,37 +157,6 @@
       "id": "1xd4thu",
       "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
       "seccion": "Automovilismo"
-     }
-    ]
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "antes",
-    "salio": null,
-    "segundos": 47,
-    "notas": [
-     {
-      "id": "1wq5a8z",
-      "titulo": "Crean un registro municipal para acompañantes terapéuticos",
-      "seccion": "Balcarce"
-     },
-     {
-      "id": "1hwc8eu",
-      "titulo": "Franco Riquelme Antonetti gana la Copa Centenario en Mar del Plata",
-      "seccion": "Deportes"
-     },
-     {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-      "seccion": "Cultura y agenda"
-     },
-     {
-      "id": "2jfnjt",
-      "titulo": "La inflación en la Ciudad de Buenos Aires llega al 1,9 por ciento en octubre",
-      "seccion": "Economía"
      }
     ]
    }
@@ -198,6 +177,12 @@
      "marcada": false
     },
     {
+     "id": "ff5o5",
+     "titulo": "Sembrando Futuro llega a los mil egresados",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "u5bwex",
      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
      "seccion": "Deportes",
@@ -213,6 +198,18 @@
      "id": "1r07mnl",
      "titulo": "Allanamiento policial por el hurto de herramientas de una camioneta",
      "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "7ashy7",
+     "titulo": "Virginia Aparicio cuestiona su exoneración del INTA",
+     "seccion": "Agro",
+     "marcada": false
+    },
+    {
+     "id": "17v08xu",
+     "titulo": "El papa León XIV oficia su primera misa en Uruguay ante miles de fieles",
+     "seccion": "Argentina",
      "marcada": false
     }
    ],
