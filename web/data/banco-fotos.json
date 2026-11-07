@@ -59542,9 +59542,7 @@
   "ausenteDesde": "2026-11-02T23:43:14.914Z"
  },
  "17m2olp": {
-  "archivo": "fotos-notas/17m2olp.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Rosario Central vence 2 a 1 a Sarmiento con dos tantos de Gastón Ávila",
@@ -59576,7 +59574,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "99a7e5cc39390919",
-  "ausenteDesde": "2026-10-31T11:32:30.094Z"
+  "intentado": true,
+  "borrada": true
  },
  "3fyeyv": {
   "archivo": "fotos-notas/3fyeyv.jpg",
@@ -91219,10 +91218,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Pampita acampa para asistir a la misa del papa León XIV en Palermo",
-  "razon": "Ninguna de las fotos disponibles ilustra correctamente el hecho mencionado en la nota (Pampita acampando para asistir a la misa del papa León XIV en Palermo).",
-  "cuando": "2026-11-07T10:01:51.372Z",
-  "intentos": 2,
-  "fuentes": 11
+  "razon": "Ninguna foto muestra el hecho de la nota (Pampita acampando para la misa del papa León XIV en Palermo), ya que muestran monumentos, a Pampita en otro contexto o al Papa.",
+  "cuando": "2026-11-07T12:01:45.321Z",
+  "intentos": 3,
+  "fuentes": 18
  },
  "tgk7er": {
   "archivo": "fotos-notas/tgk7er.jpg",
@@ -91450,7 +91449,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota en el partido"
   },
-  "huella": "721a0b1d0d555505"
+  "huella": "721a0b1d0d555505",
+  "ausenteDesde": "2026-11-07T12:02:31.237Z"
  },
  "jhi7gh": {
   "archivo": "fotos-notas/jhi7gh.jpg",
@@ -91474,6 +91474,91 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota en un partido de fútbol."
   },
-  "huella": "1454337390db5bab"
+  "huella": "1454337390db5bab",
+  "ausenteDesde": "2026-11-07T12:02:31.237Z"
+ },
+ "1v42ew3": {
+  "archivo": "fotos-notas/1v42ew3.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Emiten alertas meteorológicas por tormentas y vientos en el país",
+  "enlace": "https://www.cronica.com.ar/sociedad/confirmado-hay-alertas-amarilla-por-tormentas-fuertes-vientos-y-zonda-en-buenos-aires-y-otras-10-provincias/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730411/6aed99b27fc61_600_315!.jpg?s=fba81499db3299f72e5591dfe7490a2f&d=1793956572",
+  "razon": "Es la única foto fotográfica válida que ilustra adecuadamente una tormenta urbana sin marcas, menores ni ser de archivo o stock.",
+  "cuando": "2026-11-07T12:01:45.321Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Persona con paraguas cruzando la calle bajo la lluvia con autos de fondo"
+  },
+  "huella": "0303a31b19101b13"
+ },
+ "1x7lcn5": {
+  "archivo": "fotos-notas/1x7lcn5.jpg",
+  "medio": "El Economista",
+  "credito": "Foto: El Economista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos y Rosario Central definen la tabla anual",
+  "enlace": "https://eleconomista.com.ar/deportes/que-necesitan-boca-argentinos-juniors-rosario-central-ser-campeones-tabla-anual-n99441",
+  "imagenOriginal": "https://statics.eleconomista.com.ar/2026/10/6ae1ffe82be60.jpg",
+  "razon": "Es la única foto nítida de un partido real que cumple con todas las condiciones y no tiene marcas añadidas.",
+  "cuando": "2026-11-07T12:01:45.321Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores disputando el balón en un partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugador de Boca Juniors y de Rosario Central disputando el balón en una jugada de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "95ab74c9a65599b5"
+ },
+ "8o4i1y": {
+  "archivo": "fotos-notas/8o4i1y.jpg",
+  "medio": "iProUP",
+  "credito": "Foto: iProUP",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Tesla confirma la fecha oficial de su llegada a la Argentina",
+  "enlace": "https://www.iproup.com/coffee-break/72939-tesla-ultima-detalles-para-su-llegada-oficial-a-la-argentina-en-2027",
+  "imagenOriginal": "https://resizer.iproimg.com/unsafe/1280x720/filters:format(webp):quality(75):max_bytes(102400)/assets.iproup.com/assets/jpg/2019/01/2126_landscape.jpg",
+  "razon": "Muestra a Elon Musk junto a un auto Tesla en un evento oficial, siendo adecuada y de buena calidad.",
+  "cuando": "2026-11-07T12:01:45.321Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Elon Musk presentando un auto Tesla en el escenario"
+  },
+  "huella": "f8707d79117131f9"
  }
 }
