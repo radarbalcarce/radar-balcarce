@@ -3419,19 +3419,19 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 27,
+     "llamadas": 28,
      "errores": 17,
-     "entrada": 24953,
-     "salida": 11489,
+     "entrada": 27453,
+     "salida": 12884,
      "pensamiento": 0,
-     "total": 36442,
+     "total": 40337,
      "claves": {
-      "clasificacion": 27
+      "clasificacion": 28
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 16,
-       "ok": 10,
+       "ok": 11,
        "saturado": 1
       }
      }
@@ -3473,19 +3473,19 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 25,
+     "llamadas": 28,
      "errores": 10,
-     "entrada": 224767,
-     "salida": 3099,
+     "entrada": 267803,
+     "salida": 3550,
      "pensamiento": 0,
-     "total": 227866,
+     "total": 271353,
      "claves": {
-      "clasificacion": 25
+      "clasificacion": 28
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 9,
-       "ok": 15,
+       "ok": 18,
        "saturado": 1
       }
      }
@@ -3525,20 +3525,20 @@
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 48,
+     "llamadas": 50,
      "errores": 19,
-     "entrada": 170368,
-     "salida": 32306,
+     "entrada": 183951,
+     "salida": 34586,
      "pensamiento": 0,
-     "total": 202674,
+     "total": 218537,
      "claves": {
-      "redaccion": 48
+      "redaccion": 50
      },
      "motivos": {
       "redaccion": {
        "cupo-diario": 17,
        "saturado": 2,
-       "ok": 29
+       "ok": 31
       }
      }
     },
@@ -3562,19 +3562,19 @@
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 38,
+     "llamadas": 40,
      "errores": 18,
-     "entrada": 125500,
-     "salida": 10362,
+     "entrada": 144709,
+     "salida": 12101,
      "pensamiento": 0,
-     "total": 135862,
+     "total": 156810,
      "claves": {
-      "clasificacion": 38
+      "clasificacion": 40
      },
      "motivos": {
       "clasificacion": {
        "cupo-diario": 18,
-       "ok": 20
+       "ok": 22
       }
      }
     },
