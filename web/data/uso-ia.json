@@ -3419,35 +3419,35 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 14,
-     "errores": 13,
-     "entrada": 2720,
-     "salida": 1358,
+     "llamadas": 18,
+     "errores": 14,
+     "entrada": 10371,
+     "salida": 4903,
      "pensamiento": 0,
-     "total": 4078,
+     "total": 15274,
      "claves": {
-      "clasificacion": 14
+      "clasificacion": 18
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 13,
-       "ok": 1
+       "cupo-diario": 14,
+       "ok": 4
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 13,
+     "llamadas": 14,
      "errores": 8,
-     "entrada": 13655,
-     "salida": 11760,
+     "entrada": 16447,
+     "salida": 14136,
      "pensamiento": 0,
-     "total": 25415,
+     "total": 30583,
      "claves": {
-      "groq": 13
+      "groq": 14
      },
      "motivos": {
       "groq": {
-       "ok": 5,
+       "ok": 6,
        "velocidad": 7,
        "cupo-diario": 1
       }
@@ -3472,123 +3472,125 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 6,
-     "errores": 5,
+     "llamadas": 8,
+     "errores": 7,
      "entrada": 7963,
      "salida": 772,
      "pensamiento": 0,
      "total": 8735,
      "claves": {
-      "clasificacion": 6
+      "clasificacion": 8
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 5,
+       "cupo-diario": 7,
        "ok": 1
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 2,
-     "errores": 2,
+     "llamadas": 3,
+     "errores": 3,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 2
+      "groq": 3
      },
      "motivos": {
       "groq": {
-       "otro": 2
+       "otro": 3
       }
      }
     }
    },
    "redaccion": {
     "gemini-flash-lite-latest": {
-     "llamadas": 17,
-     "errores": 17,
+     "llamadas": 18,
+     "errores": 18,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "redaccion": 17
+      "redaccion": 18
      },
      "motivos": {
       "redaccion": {
-       "cupo-diario": 16,
+       "cupo-diario": 17,
        "saturado": 1
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 16,
-     "errores": 0,
-     "entrada": 93272,
-     "salida": 19028,
+     "llamadas": 18,
+     "errores": 1,
+     "entrada": 99140,
+     "salida": 20258,
      "pensamiento": 0,
-     "total": 112300,
+     "total": 119398,
      "claves": {
-      "redaccion": 16
+      "redaccion": 18
      },
      "motivos": {
       "redaccion": {
-       "ok": 16
+       "ok": 17,
+       "saturado": 1
       }
      }
     }
    },
    "fotos": {
     "gemini-flash-lite-latest": {
-     "llamadas": 17,
-     "errores": 16,
+     "llamadas": 19,
+     "errores": 18,
      "entrada": 3594,
      "salida": 268,
      "pensamiento": 0,
      "total": 3862,
      "claves": {
-      "clasificacion": 17
+      "clasificacion": 19
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 16,
+       "cupo-diario": 18,
        "ok": 1
       }
      }
     },
     "gemini-3.1-flash-lite": {
-     "llamadas": 16,
-     "errores": 0,
-     "entrada": 91499,
-     "salida": 7502,
+     "llamadas": 18,
+     "errores": 1,
+     "entrada": 99516,
+     "salida": 8183,
      "pensamiento": 0,
-     "total": 99001,
+     "total": 107699,
      "claves": {
-      "clasificacion": 16
+      "clasificacion": 18
      },
      "motivos": {
       "clasificacion": {
-       "ok": 16
+       "ok": 17,
+       "saturado": 1
       }
      }
     },
     "qwen/qwen3.8-27b": {
-     "llamadas": 8,
-     "errores": 3,
-     "entrada": 5471,
-     "salida": 487,
+     "llamadas": 11,
+     "errores": 4,
+     "entrada": 9774,
+     "salida": 685,
      "pensamiento": 0,
-     "total": 5958,
+     "total": 10459,
      "claves": {
-      "groq": 8
+      "groq": 11
      },
      "motivos": {
       "groq": {
-       "ok": 5,
+       "ok": 7,
        "cupo-diario": 1,
-       "velocidad": 2
+       "velocidad": 3
       }
      }
     }

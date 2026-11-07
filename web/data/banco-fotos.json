@@ -49529,9 +49529,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1nuxm6g": {
-  "archivo": "fotos-notas/1nuxm6g.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Convocan a los italianos de Balcarce a inscribirse para votar en el COM.IT.ES.",
@@ -49552,7 +49550,8 @@
    "descripcion": "Grupo de autoridades sentadas en una mesa de reuniones con banderas de Argentina y la provincia de Buenos Aires al fondo."
   },
   "huella": "dd43cad8921362f0",
-  "ausenteDesde": "2026-10-31T05:03:48.814Z"
+  "intentado": true,
+  "borrada": true
  },
  "wb3wpx": {
   "archivo": "fotos-notas/wb3wpx.jpg",
@@ -59049,9 +59048,7 @@
   "ausenteDesde": "2026-11-02T22:35:21.770Z"
  },
  "umawxn": {
-  "archivo": "fotos-notas/umawxn.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El SMN emite alerta amarilla por tormentas fuertes en diez provincias",
@@ -59071,12 +59068,11 @@
    "descripcion": "Rayos sobre una ciudad al atardecer."
   },
   "huella": "330bc3271d1d0413",
-  "ausenteDesde": "2026-10-31T05:03:48.814Z"
+  "intentado": true,
+  "borrada": true
  },
  "u927ef": {
-  "archivo": "fotos-notas/u927ef.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
@@ -59108,7 +59104,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "d371d6ce94a62e27",
-  "ausenteDesde": "2026-10-31T05:03:48.814Z"
+  "intentado": true,
+  "borrada": true
  },
  "1jmtc8v": {
   "intentado": true,
@@ -91054,14 +91051,40 @@
   "huella": "4f0daf0f213f214c"
  },
  "ot02ev": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ot02ev.jpg",
+  "medio": "C5N",
+  "credito": "Foto: C5N",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El pronóstico del tiempo para la visita del papa León XIV a la Argentina",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
-  "cuando": "2026-11-07T04:02:15.256Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 1
+  "enlace": "https://www.c5n.com/sociedad/leon-xiv-argentina-la-visita-del-papa-estara-marcada-la-inestabilidad-y-el-frio-n253680",
+  "imagenOriginal": "https://media.c5n.com/p/fe3b5f9824ea1e1dfb57eddbd2273ae7/adjuntos/326/imagenes/000/406/0000406556/1200x675/smart/leon-xiv-llego-latinoamerica.jpg",
+  "razon": "Es la única imagen que muestra al Papa León XIV en el contexto del hecho, sin marcas de agua, sin menores y con una composición clara y profesional.",
+  "cuando": "2026-11-07T06:02:19.361Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa León XIV saludando al bajar de un avión.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "El papa Francisco en traje blanco saludando al descender de un avión"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "151415322233b1b3"
  },
  "q3pjhw": {
   "archivo": "fotos-notas/q3pjhw.jpg",
@@ -91085,7 +91108,8 @@
    "corresponde": "si",
    "descripcion": "Collage de tres jugadores de fútbol celebrando."
   },
-  "huella": "d69515b1aa88b1b1"
+  "huella": "d69515b1aa88b1b1",
+  "ausenteDesde": "2026-11-07T06:03:30.141Z"
  },
  "16t7ou": {
   "archivo": "fotos-notas/16t7ou.jpg",
@@ -91109,6 +91133,32 @@
    "corresponde": "si",
    "descripcion": "Cartel de ANSES con billetes de fondo."
   },
-  "huella": "9c9a03c6dc90a0c9"
+  "huella": "9c9a03c6dc90a0c9",
+  "ausenteDesde": "2026-11-07T06:03:30.141Z"
+ },
+ "12ik5hd": {
+  "archivo": "fotos-notas/12ik5hd.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Atlético Tucumán y Banfield empatan 2-2 en el cierre del torneo Clausura",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161414/deportes/en-vivo-atletico-tucuman-visita-banfield-ultimo-partido-ano.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/06/ignacio-izaguirre--especial-para-la-gaceta-1161414-235832.jpg",
+  "razon": "Es la única imagen completa y nítida que ilustra el partido entre Atlético Tucumán y Banfield, sin marcas de agua ni menores de edad.",
+  "cuando": "2026-11-07T06:02:19.361Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Atlético Tucumán y Banfield disputando el balón en el campo de juego."
+  },
+  "huella": "6387971717075307"
  }
 }
