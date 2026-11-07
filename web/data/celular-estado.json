@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T22:33:08.877Z",
- "portada": 128,
- "archivo": 499,
- "esperandoCuerpo": 6,
+ "generado": "2026-11-07T23:04:12.914Z",
+ "portada": 125,
+ "archivo": 500,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-07T22:33:09.576Z",
+  "generado": "2026-11-07T23:04:13.378Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -162,9 +162,21 @@
      "marcada": false
     },
     {
+     "id": "zswtcs",
+     "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
      "id": "lx27ip",
      "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "kcy3m2",
+     "titulo": "Boca gana la Tabla Anual con un gol agónico de Enner Valencia",
+     "seccion": "Fútbol",
      "marcada": false
     },
     {
@@ -177,18 +189,6 @@
      "id": "nubrst",
      "titulo": "El papa León XIV celebra su primera misa en Sudamérica en Uruguay",
      "seccion": "Argentina",
-     "marcada": false
-    },
-    {
-     "id": "1ez8f4g",
-     "titulo": "Boca gana la Tabla Anual y se consagra campeón tras vencer a Defensa",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
-     "id": "1xgbwoa",
-     "titulo": "Rosario Central define el torneo ante Estudiantes de Río Cuarto sin Ángel Di María",
-     "seccion": "Fútbol",
      "marcada": false
     }
    ],

@@ -52228,9 +52228,7 @@
   "huella": "a58685c7da9d8c04"
  },
  "ahxvwa": {
-  "archivo": "fotos-notas/ahxvwa.jpg",
   "medio": "Radio Gabal (FM 104.1)",
-  "credito": "Foto: Radio Gabal (FM 104.1)",
   "licencia": null,
   "origen": "medio",
   "titulo": "La Maratón Jaime Gosende se correrá el 13 de diciembre",
@@ -52250,7 +52248,8 @@
    "descripcion": "Grupo de atletas corriendo en la maratón bajo un arco de llegada."
   },
   "huella": "8f8f7399b5b1b7f7",
-  "ausenteDesde": "2026-10-31T22:36:06.375Z"
+  "intentado": true,
+  "borrada": true
  },
  "b5pzm5": {
   "medio": "TyC Sports",
@@ -54710,9 +54709,7 @@
   "ausenteDesde": "2026-10-31T23:04:54.654Z"
  },
  "rn3ih8": {
-  "archivo": "fotos-notas/rn3ih8.jpg",
   "medio": "SENASA",
-  "credito": "Foto: SENASA",
   "licencia": null,
   "origen": "medio",
   "titulo": "Extienden hasta el viernes 6 de noviembre la actualización del Renspa",
@@ -54732,7 +54729,8 @@
    "descripcion": "Vacas pastando en un campo verde con árboles al fondo"
   },
   "huella": "3365676777bab429",
-  "ausenteDesde": "2026-10-31T22:36:06.375Z"
+  "intentado": true,
+  "borrada": true
  },
  "zjvnyx": {
   "intentado": true,
@@ -55300,9 +55298,7 @@
   "fuentes": 3
  },
  "1ormmkr": {
-  "archivo": "fotos-notas/1ormmkr.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "Emilia Mernes lanza el tema Bodypainting por sus 30 años",
@@ -55322,7 +55318,8 @@
    "descripcion": "Emilia Mernes posando con vestuario y fondo violeta para el lanzamiento"
   },
   "huella": "15112b6be969636b",
-  "ausenteDesde": "2026-10-31T22:36:06.375Z"
+  "intentado": true,
+  "borrada": true
  },
  "1juxfz5": {
   "medio": "Los Andes (Mendoza)",
@@ -83583,7 +83580,8 @@
    "corresponde": "si",
    "descripcion": "Gerardo Zamora dialogando con personas mientras observa un cuadro."
   },
-  "huella": "b3b3526b2931b1b9"
+  "huella": "b3b3526b2931b1b9",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "17k6ssv": {
   "archivo": "fotos-notas/17k6ssv.jpg",
@@ -83607,7 +83605,8 @@
    "corresponde": "si",
    "descripcion": "Retrato de Patricia Walsh en exteriores."
   },
-  "huella": "6d3a3a522307372f"
+  "huella": "6d3a3a522307372f",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "1w0bbl0": {
   "archivo": "fotos-notas/1w0bbl0.jpg",
@@ -83631,7 +83630,8 @@
    "corresponde": "si",
    "descripcion": "Roxana Monzón en una sesión legislativa levantando la mano."
   },
-  "huella": "a4d4d8d8d2d25115"
+  "huella": "a4d4d8d8d2d25115",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "56gphi": {
   "archivo": "fotos-notas/56gphi.jpg",
@@ -87889,8 +87889,7 @@
    "corresponde": "si",
    "descripcion": "Interior de un registro del automotor con cartelería de turnos online"
   },
-  "huella": "5152d0dce2e2d2ec",
-  "ausenteDesde": "2026-11-06T16:05:40.189Z"
+  "huella": "5152d0dce2e2d2ec"
  },
  "1au5fl7": {
   "archivo": "fotos-notas/1au5fl7.jpg",
@@ -92615,7 +92614,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "b4d4d4c6cb21e9c8"
+  "huella": "b4d4d4c6cb21e9c8",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "2eu7c0": {
   "archivo": "fotos-notas/2eu7c0.jpg",
@@ -93326,15 +93326,28 @@
   "intentosPorCupo": 1
  },
  "1af0vka": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1af0vka.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Argentina acuerda la compra de cuatro helicópteros Black Hawk",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on tokens per day  (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-07T21:35:56.712Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://tn.com.ar/politica/2026/11/07/el-gobierno-avanzo-en-un-acuerdo-con-estados-unidos-para-la-compra-de-cuatro-helicopteros-black-hawk/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/la-argentina-avanzo-con-estados-unidos-en-la-compra-de-cuatro-helicopteros-black-hawk-foto-x-usambassadorarg-Y2KTKVMLWJDQTOEN2AIKLCVGOY.jpg?auth=442bd44c5eb5f283662956f89b776061334401dc536a5fe06b4d0e6f6028cce7&width=1023",
+  "razon": "Es la mejor imagen disponible, muestra a los funcionarios firmando el acuerdo, no tiene marcas de agua, menores ni elementos gráficos, y es una fotografía real.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Dos funcionarios firmando un acuerdo frente a las banderas de Argentina y EE.UU."
+  },
+  "huella": "1f5f4fd753531d17"
  },
  "uw3mgq": {
   "intentado": true,
@@ -93421,7 +93434,8 @@
    "corresponde": "si",
    "descripcion": "Los cuatro jugadores finalistas posando juntos en la cancha."
   },
-  "huella": "561707c307455949"
+  "huella": "561707c307455949",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "1q8mxat": {
   "archivo": "fotos-notas/1q8mxat.jpg",
@@ -93457,7 +93471,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "4b534b534b696707"
+  "huella": "4b534b534b696707",
+  "ausenteDesde": "2026-11-07T23:04:12.792Z"
  },
  "daw9a2": {
   "archivo": "fotos-notas/daw9a2.jpg",
@@ -93502,5 +93517,190 @@
   "intentos": 1,
   "fuentes": 8,
   "intentosPorCupo": 1
+ },
+ "kcy3m2": {
+  "archivo": "fotos-notas/kcy3m2.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca gana la Tabla Anual con un gol agónico de Enner Valencia",
+  "enlace": "https://www.lanacion.com.ar/deportes/el-gol-agonico-de-enner-valencia-que-le-dio-el-titulo-de-la-tabla-anual-a-boca-nid07112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/valencia-le-dio-el-titulo-a-Q2WKZXNAHRFTLET57XJGW7PANI.JPG?auth=5288e5feca376e5958d15b374a74c9df2beb5764df3cea647aa7ab0c714c4d64&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única imagen con calidad fotográfica profesional, sin marcas de agua, sin ser una captura de pantalla y que muestra claramente al protagonista del hecho.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Enner Valencia celebrando un gol con la camiseta de Boca.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Enner Valencia celebrando con la camiseta de Boca Juniors"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "695a454a76ade1fb"
+ },
+ "184wtj8": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca lidera la tabla histórica de títulos del fútbol argentino",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Doble Amarilla no se usa todavía.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "intentos": 1,
+  "fuentes": 4,
+  "intentosPorCupo": 1
+ },
+ "3tzdaj": {
+  "archivo": "fotos-notas/3tzdaj.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca gana la Tabla Anual y mantiene la expectativa por cuatro títulos más",
+  "enlace": "https://www.tycsports.com/boca-juniors/todos-titulos-boca-en-historia-cuantos-tiene-id770355.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/04/1002825/boca-campeon_1440x810.webp?v=1",
+  "razon": "Es la única foto que muestra a los jugadores de Boca celebrando con el trofeo, es de alta calidad, no tiene marcas de agua, no contiene menores reconocibles y corresponde perfectamente al hecho noticioso.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Boca Juniors celebrando con un trofeo bajo una lluvia de papelitos."
+  },
+  "huella": "06040d0659597919"
+ },
+ "3nysc1": {
+  "archivo": "fotos-notas/3nysc1.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Newman vence a Hindú 33 a 32 y se consagra bicampeón del Top 14 de URBA",
+  "enlace": "https://www.lanacion.com.ar/deportes/rugby/newman-hindu-la-final-del-top-14-de-urba-nid07112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-festejo-de-los-jugadores-de-newman-tras-vencer-YQUDCHPYOJD3VB52F5F2MD7QWQ.JPG?auth=96bf289bcbf6883840b8c1c33a2b3365f544000aac992b887f460463a4b71af3&width=1200&height=675&quality=70&smart=true",
+  "razon": "Es la única foto que muestra la celebración real del equipo ganador en el campo de juego, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugadores de Newman celebrando la victoria cargando a un compañero en andas."
+  },
+  "huella": "147169a03452ca8b"
+ },
+ "zswtcs": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Walter Degracia abre un nuevo gimnasio de boxeo en la ciudad",
+  "razon": "La única imagen disponible es una pieza gráfica (flyer de invitación) y no una fotografía de la escena real, por lo que no cumple con los criterios de selección.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "cucdqp": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca gana ante Defensa y Justicia y se consagra campeón de la tabla anual",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "intentos": 1,
+  "fuentes": 9,
+  "intentosPorCupo": 1
+ },
+ "l93a86": {
+  "archivo": "fotos-notas/l93a86.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca juega ante Defensa y Justicia por la definición de la Tabla Anual",
+  "enlace": "https://www.tycsports.com/boca-juniors/a-que-hora-juega-boca-vs-defensa-y-justicia-y-como-verlo-en-vivo-id770352.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/02/1002172/leandro-paredes-el-hombre-de-los-clasicos-en-boca_1440x810.webp?v=1",
+  "razon": "Es la única imagen que muestra a un jugador de Boca en un contexto de partido, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Jugador de Boca con la camiseta oficial en el campo de juego."
+  },
+  "huella": "ba965a5c356c6939"
+ },
+ "nubrst": {
+  "archivo": "fotos-notas/nubrst.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV celebra su primera misa en Sudamérica en Uruguay",
+  "enlace": "https://www.eldestapeweb.com/politica/dijo-leon-xiv-mate-primera-misa-sudamerica-compartir-2026117141156",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1794070729537.jpeg?&cw=1600&ch=900",
+  "razon": "Es la única imagen que muestra el hecho de manera clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores reconocibles.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "El Papa caminando durante la ceremonia religiosa."
+  },
+  "huella": "660e8fcbcbdb5622"
+ },
+ "8utupe": {
+  "archivo": "fotos-notas/8utupe.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV se hospeda en el Palacio Fernández Anchorena de Recoleta",
+  "enlace": "https://www.eldestapeweb.com/sociedad/donde-dormira-papa-leon-xiv-argentina-historia-palacio-recibio-juan-pablo-ii-202611715261",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1794071932525.jpeg?&cw=1600&ch=900",
+  "razon": "La foto C muestra el interior del lugar mencionado sin marcas de agua, personas ni elementos distractores, siendo la opción más adecuada para ilustrar la nota.",
+  "cuando": "2026-11-07T23:02:46.471Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Interior del Palacio Fernández Anchorena."
+  },
+  "huella": "a6b7979717945622"
  }
 }
