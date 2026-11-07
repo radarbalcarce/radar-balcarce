@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T17:33:21.410Z",
- "portada": 128,
+ "generado": "2026-11-07T18:03:23.123Z",
+ "portada": 130,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 8,
  "redes": {
-  "generado": "2026-11-07T17:33:22.850Z",
+  "generado": "2026-11-07T18:03:23.680Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -43,7 +43,7 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    },
    {
@@ -103,7 +103,7 @@
     "titulo": "El repaso de la tarde",
     "hora": "15:00",
     "voz": "locutora",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
     "segundos": 54,
     "notas": [
@@ -139,11 +139,6 @@
     "segundos": 54,
     "notas": [
      {
-      "id": "jf7bz2",
-      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
-      "seccion": "Policiales"
-     },
-     {
       "id": "8x25q0",
       "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
       "seccion": "Deportes"
@@ -152,6 +147,11 @@
       "id": "5sp4cy",
       "titulo": "Petruccelli rechaza el aumento de tarifas para la empresa de limpieza Ashira",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "jf7bz2",
+      "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
+      "seccion": "Policiales"
      },
      {
       "id": "1xd4thu",
@@ -204,6 +204,12 @@
      "id": "17v08xu",
      "titulo": "El papa León XIV oficia su primera misa en Uruguay ante miles de fieles",
      "seccion": "Argentina",
+     "marcada": false
+    },
+    {
+     "id": "ymnte9",
+     "titulo": "Una policía rescata a una jubilada tras caer con su auto a un arroyo",
+     "seccion": "Policiales",
      "marcada": false
     }
    ],
