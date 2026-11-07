@@ -46730,7 +46730,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "1f46c783d352e686"
+  "huella": "1f46c783d352e686",
+  "ausenteDesde": "2026-11-07T04:02:45.575Z"
  },
  "1qbhiyg": {
   "medio": "La Gaceta (Tucumán)",
@@ -85382,7 +85383,8 @@
    "corresponde": "si",
    "descripcion": "Persona frente a una puerta de banco con un cartel de cerrado."
   },
-  "huella": "cd7569e92acad3c2"
+  "huella": "cd7569e92acad3c2",
+  "ausenteDesde": "2026-11-07T04:02:45.575Z"
  },
  "itowm9": {
   "archivo": "fotos-notas/itowm9.jpg",
@@ -88108,7 +88110,8 @@
    "corresponde": "si",
    "descripcion": "Retrato en blanco y negro de Daniel Bifulco sonriendo con los brazos abiertos."
   },
-  "huella": "0e0c0c4dcd1b2b2b"
+  "huella": "0e0c0c4dcd1b2b2b",
+  "ausenteDesde": "2026-11-07T04:02:45.575Z"
  },
  "f9b3nl": {
   "intentado": true,
@@ -90200,7 +90203,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei saludando a un dirigente en un evento."
   },
-  "huella": "7bf7d6c723233470"
+  "huella": "7bf7d6c723233470",
+  "ausenteDesde": "2026-11-07T04:02:45.575Z"
  },
  "16imfla": {
   "archivo": "fotos-notas/16imfla.jpg",
@@ -90472,10 +90476,10 @@
   "origen": "ninguna",
   "titulo": "Argentina avanza a cuartos en el básquet 3x3 de los Juegos Olímpicos de la Juventud",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
-  "cuando": "2026-11-07T01:32:13.760Z",
+  "cuando": "2026-11-07T04:02:15.256Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "1b2mb7": {
   "archivo": "fotos-notas/1b2mb7.jpg",
@@ -90916,7 +90920,8 @@
    "corresponde": "si",
    "descripcion": "Fachada exterior de una sucursal del Banco Provincia."
   },
-  "huella": "c173f0fa7170ad76"
+  "huella": "c173f0fa7170ad76",
+  "ausenteDesde": "2026-11-07T04:02:45.575Z"
  },
  "vyc7eh": {
   "archivo": "fotos-notas/vyc7eh.jpg",
@@ -90965,5 +90970,75 @@
    "descripcion": "Campo con pasturas verdes y colinas de fondo."
   },
   "huella": "d8ca41d9ccb83cbe"
+ },
+ "ip2h9y": {
+  "archivo": "fotos-notas/ip2h9y.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Argentina pierde por penales ante Brasil en la semifinal de la Finalissima",
+  "enlace": "https://bolavip.com/ar/polideportivo/argentina-perdio-por-penales-con-brasil-y-quedo-afuera-de-la-finalissima-de-futsal-2026",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/06234330/La-Seleccion-Argentina-cayo-ante-Brasil-en-la-Finalisssima-de-Futsal-2026-1200x740.webp",
+  "razon": "Es la única imagen que muestra a los protagonistas del evento, no tiene marcas de agua añadidas por medios, no es una captura de pantalla y no presenta menores.",
+  "cuando": "2026-11-07T04:02:15.256Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Equipo de futsal posando para la foto oficial."
+  },
+  "huella": "465a1b3d08ccc4cc"
+ },
+ "trh790": {
+  "archivo": "fotos-notas/trh790.jpg",
+  "medio": "Página/12",
+  "credito": "Foto: Página/12",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La 35ª Marcha del Orgullo modifica su recorrido por la visita papal",
+  "enlace": "https://www.pagina12.com.ar/2026/11/05/marcha-del-orgullo-2026-asi-sera-el-recorrido-hacia-el-congreso/",
+  "imagenOriginal": "https://www.pagina12.com.ar/resizer/v2/2YYYITN6F5CYVHU5UJIZ4H6PO4.jpg?smart=true&auth=65e390a86c37e2b8b5b576c50882bfeb6fc6a7cf6de7f5f5c862cbab3f1a86ca&width=1200&height=630",
+  "razon": "Es la única imagen que muestra el contexto de la marcha con buena calidad, sin marcas de agua, sin menores identificables y sin elementos gráficos sobreimpresos. La segunda opinión (groq) descartó la de El Día (parece una foto de stock): se usa Página/12.",
+  "cuando": "2026-11-07T04:02:15.256Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Personas sosteniendo una bandera de la Marcha del Orgullo.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": true,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Multitud de personas sosteniendo banderas y pancartas de la Marcha del Orgullo en una calle céntrica."
+   },
+   "dudosa": "la primera IA vio gente muy joven"
+  },
+  "huella": "4f0daf0f213f214c"
+ },
+ "ot02ev": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "El pronóstico del tiempo para la visita del papa León XIV a la Argentina",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de C5N no se usa todavía.",
+  "cuando": "2026-11-07T04:02:15.256Z",
+  "intentos": 1,
+  "fuentes": 5,
+  "intentosPorCupo": 1
  }
 }
