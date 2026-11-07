@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { elegir, cupoNacional, MEDIOS_MUY_CONTADA } from './elegir.mjs';
+import { elegir, cupoNacional, minimoDelDia, MEDIOS_MUY_CONTADA } from './elegir.mjs';
 
 const AHORA = new Date('2026-11-02T12:00:00Z');
 const hace = (h) => new Date(AHORA.getTime() - h * 3600e3).toISOString();
@@ -90,6 +90,16 @@ test('lo contado por 8 medios o más sale aunque el tope esté lleno, y no lo ga
   const medios = Array.from({ length: MEDIOS_MUY_CONTADA }, (_, i) => art(`Medio ${i}`, t));
   assert.deepEqual(elegir(hist(t), medios, opc({ nacionalesHoy: 500, topeNacional: 60 })), { sale: true, motivo: 'muy-contada' });
   assert.deepEqual(elegir(hist(t), medios.slice(1), opc({ nacionalesHoy: 500, topeNacional: 60 })), { sale: false, motivo: 'tope-nacional' });
+});
+
+test('minimoDelDia: sábados y domingos de Balcarce rige el mínimo del fin de semana (7/11: 34 notas en un sábado)', () => {
+  const a = (cuando) => new Date(`${cuando}:00.000Z`);
+  assert.equal(minimoDelDia(4, 3, a('2026-11-07T15:00')), 3); // sábado
+  assert.equal(minimoDelDia(4, 3, a('2026-11-08T23:00')), 3); // domingo 20:00
+  assert.equal(minimoDelDia(4, 3, a('2026-11-09T02:59')), 3); // domingo 23:59 en Balcarce, lunes en UTC
+  assert.equal(minimoDelDia(4, 3, a('2026-11-09T03:00')), 4); // lunes 0:00
+  assert.equal(minimoDelDia(4, 3, a('2026-11-06T15:00')), 4); // viernes
+  assert.equal(minimoDelDia(4, 0, a('2026-11-07T15:00')), 4); // sin variable, el de siempre
 });
 
 test('cupoNacional: el tope se reparte parejo de 6 a 22 de Balcarce', () => {

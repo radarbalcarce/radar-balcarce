@@ -41,6 +41,8 @@ NUCLEO_TOPE_DIARIO = "700"
 NUCLEO_TOPE_SECUNDARIO = "400"
 # Cuánto de afuera entra (Hernán, 6/11): 4 medios distintos (2 en las áreas chicas), hasta 60 nacionales por día repartidos de 6 a 22. Balcarce y lo contado por 8 medios o más entran siempre.
 NUCLEO_MINIMO_NACIONAL = "4"
+# Sábados y domingos (de Balcarce) alcanza con 3 medios: esos días se publica menos y se cruzan menos noticias (7/11). Sacarla o igualarla a 4 vuelve atrás.
+NUCLEO_MINIMO_NACIONAL_FINDE = "3"
 NUCLEO_MINIMO_AREAS_CHICAS = "2"
 NUCLEO_TOPE_NACIONAL = "60"
 NUCLEO_REDACTAR_POR_VUELTA = "6"

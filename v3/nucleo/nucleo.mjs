@@ -6,7 +6,7 @@
 import { leerFuente } from './leer/leer.mjs';
 import { crearHuella } from './agrupar/huella.mjs';
 import { agrupar, textoParaDuda } from './agrupar/agrupar.mjs';
-import { elegir, cupoNacional } from './elegir/elegir.mjs';
+import { elegir, cupoNacional, minimoDelDia } from './elegir/elegir.mjs';
 import { crearGemini } from './redactar/gemini.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
 import { elegirFotoConMotivo } from './fotos/fotos.mjs';
@@ -257,7 +257,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     try { await db.guardarArticulos(env, guardables); } catch (e) { error('guardar artículos', e); }
     const opcionesDeElegir = () => ({
       nacionalesHoy, ahora: c.ahora,
-      minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3),
+      minimoNacional: minimoDelDia(numero(env.NUCLEO_MINIMO_NACIONAL, 3), numero(env.NUCLEO_MINIMO_NACIONAL_FINDE, 0), c.ahora),
       minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
       topeNacional: cupoNacional(numero(env.NUCLEO_TOPE_NACIONAL, 100), c.ahora),
     });
@@ -840,7 +840,7 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     try {
       const s = await db.seleccionEntre(env, desde, hasta);
       const tope = numero(env.NUCLEO_TOPE_NACIONAL, 100);
-      seleccion = { ...s, nacionalesHoy: await db.contarNacionalesEntre(env, desde, hasta), cupoNacionalAhora: cupoNacional(tope, c.ahora), topeNacional: tope, minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3) };
+      seleccion = { ...s, nacionalesHoy: await db.contarNacionalesEntre(env, desde, hasta), cupoNacionalAhora: cupoNacional(tope, c.ahora), topeNacional: tope, minimoNacional: minimoDelDia(numero(env.NUCLEO_MINIMO_NACIONAL, 3), numero(env.NUCLEO_MINIMO_NACIONAL_FINDE, 0), c.ahora) };
     } catch (e) { console.error(`salud seleccion: ${e.message}`); }
     const ultima = estados.find((e) => e.fuente_id === '_vuelta');
     // Sólo las fuentes que hoy están activas: las apagadas dejan su última falla en la base y no son un problema (5/11/2026).

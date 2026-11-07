@@ -93,6 +93,16 @@ export function cupoNacional(topeNacional, ahora = new Date()) {
   return Math.ceil(topeNacional * parte);
 }
 
+/**
+ * El mínimo de medios de lo nacional según el día: los sábados y domingos de Balcarce (UTC-3) rige `minimoFinde` si viene, porque esos días
+ * hay menos medios publicando y menos noticias se cruzan (7/11: 485 historias quedaron afuera por pocos medios y salieron 34 notas). Sin `minimoFinde`, el de siempre.
+ */
+export function minimoDelDia(minimo, minimoFinde, ahora = new Date()) {
+  if (!(minimoFinde > 0)) return minimo;
+  const dia = new Date(new Date(ahora).getTime() - 3 * HORA).getUTCDay();
+  return dia === 0 || dia === 6 ? minimoFinde : minimo;
+}
+
 export function elegir(historia, articulos, {
   minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(),
 } = {}) {
