@@ -236,12 +236,26 @@ export async function idsRecientes(env, desdeISO) {
   return new Set(lista(r).map((f) => f.id));
 }
 
-// Igual que contarNacionalesHoy, pero por un rango de `actualizada` (el día de Balcarce no es el día UTC).
+// Las nacionales que gastan el tope de un día de Balcarce: las notas escritas ese día y las elegidas que esperan redacción.
+// No se mira `actualizada` de lo ya escrito: cambia cada vez que llega un artículo, y una nota de ayer contaría como de hoy.
 export async function contarNacionalesEntre(env, desdeISO, hastaISO) {
   const f = await env.DB.prepare(
-    "SELECT COUNT(*) AS n FROM historias WHERE estado IN ('elegida','redactada') AND motivo IN ('nacional-3','area-chica-2') AND actualizada >= ? AND actualizada < ?",
-  ).bind(desdeISO, hastaISO).first();
+    `SELECT COUNT(*) AS n FROM historias h LEFT JOIN notas o ON o.id = h.nota_id
+     WHERE h.estado IN ('elegida','redactada') AND h.motivo IN ('nacional-3','area-chica-2')
+       AND ((o.id IS NOT NULL AND o.creada >= ? AND o.creada < ?) OR (o.id IS NULL AND h.actualizada >= ? AND h.actualizada < ?))`,
+  ).bind(desdeISO, hastaISO, desdeISO, hastaISO).first();
   return (f && f.n) || 0;
+}
+
+// Las que el tope dejó afuera y todavía están a tiempo, primero las más contadas: cuando vuelve a haber cupo, salen.
+export async function historiasEsperandoCupo(env, desdeISO, limite = 20) {
+  const r = await env.DB.prepare(
+    "SELECT * FROM historias WHERE estado = 'no_sale' AND motivo = 'tope-nacional' AND fecha_hecho >= ? ORDER BY n_articulos DESC, fecha_hecho DESC LIMIT ?",
+  ).bind(desdeISO, limite).all();
+  return lista(r).map((f) => ({
+    id: f.id, creada: f.creada, fechaHecho: f.fecha_hecho, titulo: f.titulo, medios: analizar(f.medios, []),
+    alcances: analizar(f.alcances, []), estado: f.estado, motivo: f.motivo, seccion: f.seccion,
+  }));
 }
 
 // Igual que resumenDelDia, por rango. Cada item trae cuántos medios la cuentan y si la nota quedó frenada (no_publicar).

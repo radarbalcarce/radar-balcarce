@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { elegir } from './elegir.mjs';
+import { elegir, cupoNacional, MEDIOS_MUY_CONTADA } from './elegir.mjs';
 
 const AHORA = new Date('2026-11-02T12:00:00Z');
 const hace = (h) => new Date(AHORA.getTime() - h * 3600e3).toISOString();
@@ -83,6 +83,23 @@ test('horóscopo, lotería, cotización y sorteos', () => {
     const a = [art('Clarín', t), art('La Nación', t), art('Infobae', t)];
     assert.deepEqual(elegir(hist(t), a, opc()), { sale: false, motivo: 'horoscopo-loteria-cotizacion' }, t);
   }
+});
+
+test('lo contado por 8 medios o más sale aunque el tope esté lleno, y no lo gasta', () => {
+  const t = 'El Gobierno anunció un nuevo esquema de subsidios';
+  const medios = Array.from({ length: MEDIOS_MUY_CONTADA }, (_, i) => art(`Medio ${i}`, t));
+  assert.deepEqual(elegir(hist(t), medios, opc({ nacionalesHoy: 500, topeNacional: 60 })), { sale: true, motivo: 'muy-contada' });
+  assert.deepEqual(elegir(hist(t), medios.slice(1), opc({ nacionalesHoy: 500, topeNacional: 60 })), { sale: false, motivo: 'tope-nacional' });
+});
+
+test('cupoNacional: el tope se reparte parejo de 6 a 22 de Balcarce', () => {
+  const a = (cuando) => new Date(`${cuando}:00.000Z`); // UTC: Balcarce son 3 horas menos
+  assert.equal(cupoNacional(60, a('2026-11-06T05:00')), 0); // 2:00
+  assert.equal(cupoNacional(60, a('2026-11-06T09:00')), 0); // 6:00
+  assert.equal(cupoNacional(60, a('2026-11-06T17:00')), 30); // 14:00, la mitad
+  assert.equal(cupoNacional(60, a('2026-11-06T19:45')), 41); // 16:45: la hora a la que se cortó el 6/11
+  assert.equal(cupoNacional(60, a('2026-11-07T01:00')), 60); // 22:00
+  assert.equal(cupoNacional(60, a('2026-11-07T02:59')), 60); // 23:59
 });
 
 test('tope nacional: frena nacionales pero nunca Balcarce ni pedidos', () => {

@@ -77,6 +77,22 @@ function esExtranjeroSinArgentino(historia, articulos) {
   return !RE_ARGENTINO.test(arriba);
 }
 
+/** Con esta cantidad de medios o más, lo nacional sale siempre y no gasta el tope del día (Hernán, 6/11). */
+export const MEDIOS_MUY_CONTADA = 8;
+const REPARTO_DESDE_MIN = 6 * 60; // 6:00 de Balcarce: antes, sólo lo muy contado
+const REPARTO_HASTA_MIN = 22 * 60; // 22:00: ya se puede usar todo el tope
+
+/**
+ * Cuánto del tope nacional se puede haber usado a esta hora: crece parejo de las 6:00 a las 22:00 de Balcarce (UTC-3, siempre),
+ * para que el tope no se gaste a media tarde y quede lugar a la noche. Lo que no entra espera y sale después, primero lo más contado.
+ */
+export function cupoNacional(topeNacional, ahora = new Date()) {
+  const m = new Date(new Date(ahora).getTime() - 3 * HORA);
+  const minuto = m.getUTCHours() * 60 + m.getUTCMinutes();
+  const parte = Math.min(1, Math.max(0, (minuto - REPARTO_DESDE_MIN) / (REPARTO_HASTA_MIN - REPARTO_DESDE_MIN)));
+  return Math.ceil(topeNacional * parte);
+}
+
 export function elegir(historia, articulos, {
   minimoNacional = 3, minimoAreasChicas = 2, nacionalesHoy = 0, topeNacional = 100, pedida = false, ahora = new Date(),
 } = {}) {
@@ -103,6 +119,7 @@ export function elegir(historia, articulos, {
   const medios = new Set(articulos.map((a) => normalizarTexto(a.medio).trim()).filter(Boolean));
   if (!articulos.length) for (const m of historia.medios || []) medios.add(normalizarTexto(m).trim());
   const cuantos = medios.size;
+  if (cuantos >= MEDIOS_MUY_CONTADA) return sale('muy-contada');
   const chica = areaChica(historia, titulosDe(historia, articulos)[0]);
   let motivo;
   if (cuantos >= minimoNacional) motivo = 'nacional-3';

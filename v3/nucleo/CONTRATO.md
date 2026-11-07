@@ -50,7 +50,7 @@ HTML, hasta 6.000 caracteres. Se descarta si `fecha` tiene más de 36 horas al l
 estado: 'viva'|'elegida'|'redactada'|'no_sale'|'no_publicar', motivo, seccion }`. `fechaHecho` = mediana de las fechas de sus
 artículos; nunca rejuvenece. `huella` = centroide normalizado de las huellas de sus artículos.
 
-**Decisión de elegir** — `{ sale: bool, motivo }`. Motivos cerrados: `balcarce`, `zona`, `nacional-3`, `area-chica-2`, `pedido`,
+**Decisión de elegir** — `{ sale: bool, motivo }`. Motivos cerrados: `balcarce`, `zona`, `muy-contada`, `nacional-3`, `area-chica-2`, `pedido`,
 `pocos-medios`, `extranjero-sin-argentino`, `horoscopo-loteria-cotizacion`, `tope-nacional`, `vieja`.
 
 **Nota** (lo que devuelve redactar + verificar + fotos) — `{ id, historiaId, titulo, bajada, cuerpo: [párrafos], seccion, enDosLineas,

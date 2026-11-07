@@ -185,6 +185,30 @@ test('schema.sql corre en SQLite y las consultas de db.mjs funcionan de verdad',
   await db.anotarDuda(env, 'a1', 'h1', false);
 });
 
+test('el tope cuenta lo escrito ese día, no una nota de ayer que recibe un artículo, y lo que espera sale primero lo más contado', { skip: !DatabaseSync && 'este Node no trae node:sqlite' }, async () => {
+  const sqlite = new DatabaseSync(':memory:');
+  sqlite.exec(readFileSync(new URL('./schema.sql', import.meta.url), 'utf8'));
+  const prep = (sql) => {
+    let params = [];
+    const s = { bind(...p) { params = p; return s; }, async all() { return { results: sqlite.prepare(sql).all(...params) }; }, async first() { return sqlite.prepare(sql).get(...params) ?? null; } };
+    return s;
+  };
+  const env = { DB: { prepare: prep } };
+  const hist = (id, estado, motivo, actualizada, notaId = null, n = 1, fecha = '2026-11-06T12:00:00Z') => sqlite.prepare(`INSERT INTO historias (id, creada, fecha_hecho, titulo, n_articulos, estado, motivo, nota_id, actualizada) VALUES (?, ?, ?, 'T', ?, ?, ?, ?, ?)`).run(id, fecha, fecha, n, estado, motivo, notaId, actualizada);
+  const nota = (id, h, creada) => sqlite.prepare(`INSERT INTO notas (id, historia_id, creada) VALUES (?, ?, ?)`).run(id, h, creada);
+  const [desde, hasta] = ['2026-11-06T03:00:00.000Z', '2026-11-07T03:00:00.000Z'];
+  hist('hoy', 'redactada', 'nacional-3', '2026-11-06T15:00:00Z', 'n1'); nota('n1', 'hoy', '2026-11-06T14:00:00Z');
+  hist('ayer', 'redactada', 'nacional-3', '2026-11-06T15:00:00Z', 'n2'); nota('n2', 'ayer', '2026-11-05T20:00:00Z'); // llegó un artículo hoy: no gasta el tope de hoy
+  hist('espera', 'elegida', 'area-chica-2', '2026-11-06T15:00:00Z');
+  hist('muy', 'redactada', 'muy-contada', '2026-11-06T15:00:00Z', 'n3'); nota('n3', 'muy', '2026-11-06T15:00:00Z');
+  assert.equal(await db.contarNacionalesEntre(env, desde, hasta), 2);
+  hist('poca', 'no_sale', 'tope-nacional', '2026-11-06T15:00:00Z', null, 4);
+  hist('mucha', 'no_sale', 'tope-nacional', '2026-11-06T15:00:00Z', null, 7);
+  hist('vencida', 'no_sale', 'tope-nacional', '2026-11-06T15:00:00Z', null, 9, '2026-11-04T12:00:00Z');
+  hist('otra', 'no_sale', 'pocos-medios', '2026-11-06T15:00:00Z', null, 9);
+  assert.deepEqual((await db.historiasEsperandoCupo(env, '2026-11-05T22:00:00Z')).map((h) => h.id), ['mucha', 'poca']);
+});
+
 test('podar borra lo viejo sin nota, conserva historias con nota y dudas recientes', { skip: !DatabaseSync && 'este Node no trae node:sqlite' }, async () => {
   const sqlite = new DatabaseSync(':memory:');
   sqlite.exec(readFileSync(new URL('./schema.sql', import.meta.url), 'utf8'));

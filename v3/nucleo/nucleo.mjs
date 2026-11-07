@@ -6,7 +6,7 @@
 import { leerFuente } from './leer/leer.mjs';
 import { crearHuella } from './agrupar/huella.mjs';
 import { agrupar, textoParaDuda } from './agrupar/agrupar.mjs';
-import { elegir } from './elegir/elegir.mjs';
+import { elegir, cupoNacional } from './elegir/elegir.mjs';
 import { crearGemini } from './redactar/gemini.mjs';
 import { verificarYReescribir } from './redactar/verificar.mjs';
 import { elegirFotoConMotivo } from './fotos/fotos.mjs';
@@ -255,6 +255,12 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     try { nacionalesHoy = await db.contarNacionalesEntre(env, desdeDia, hastaDia); } catch (e) { error('contar nacionales', e); }
     const nuevosPorId = new Map(guardables.map((a) => [a.id, a]));
     try { await db.guardarArticulos(env, guardables); } catch (e) { error('guardar artículos', e); }
+    const opcionesDeElegir = () => ({
+      nacionalesHoy, ahora: c.ahora,
+      minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3),
+      minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
+      topeNacional: cupoNacional(numero(env.NUCLEO_TOPE_NACIONAL, 100), c.ahora),
+    });
     for (const h of tocadas.values()) {
       try {
         let arts = h.articulos.map((id) => nuevosPorId.get(id)).filter(Boolean);
@@ -265,13 +271,8 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         }
         // Lo que ya salió no se baja (elegida, redactada) ni lo frenado por ley (no_publicar) se vuelve a decidir.
         if (!['elegida', 'redactada', 'no_publicar'].includes(h.estado)) {
-          // Cuánto de afuera entra: lo fija wrangler.toml (opción B de Hernán, 3/11: 5 medios, 3 en las áreas chicas, 40 por día); sin variable, lo de REGLAS § 4.
-          const d = elegir(h, arts, {
-            nacionalesHoy, ahora: c.ahora,
-            minimoNacional: numero(env.NUCLEO_MINIMO_NACIONAL, 3),
-            minimoAreasChicas: numero(env.NUCLEO_MINIMO_AREAS_CHICAS, 2),
-            topeNacional: numero(env.NUCLEO_TOPE_NACIONAL, 100),
-          });
+          // Cuánto de afuera entra: lo fija wrangler.toml; sin variable, lo de REGLAS § 4. El tope se reparte a lo largo del día.
+          const d = elegir(h, arts, opcionesDeElegir());
           h.estado = d.sale ? 'elegida' : 'no_sale';
           h.motivo = d.motivo;
           if (d.sale) {
@@ -286,6 +287,22 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
         error(`historia ${h.id}`, e);
       }
     }
+
+    // (d2) lo que el tope dejó esperando sale cuando vuelve a haber cupo, primero lo más contado (REGLAS § 4)
+    try {
+      const espera = await db.historiasEsperandoCupo(env, new Date(c.ahora.getTime() - 24 * HORA).toISOString());
+      for (const h of espera) {
+        const o = opcionesDeElegir();
+        if (o.nacionalesHoy >= o.topeNacional) break;
+        if (tocadas.has(h.id)) continue;
+        const d = elegir(h, await db.articulosDeHistoria(env, h.id), o);
+        await db.marcarHistoria(env, h.id, d.sale ? 'elegida' : 'no_sale', d.motivo, null, c.ahoraISO);
+        if (d.sale) {
+          r.elegidas += 1;
+          if (d.motivo === 'nacional-3' || d.motivo === 'area-chica-2') nacionalesHoy += 1;
+        }
+      }
+    } catch (e) { error('esperando cupo', e); }
 
     // (e) redactar
     await redactarPendientes(env, c, gem, r, error);
