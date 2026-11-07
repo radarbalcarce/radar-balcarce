@@ -3419,35 +3419,35 @@
   "2026-11-07": {
    "lectura": {
     "gemini-flash-lite-latest": {
-     "llamadas": 18,
-     "errores": 14,
+     "llamadas": 20,
+     "errores": 16,
      "entrada": 10371,
      "salida": 4903,
      "pensamiento": 0,
      "total": 15274,
      "claves": {
-      "clasificacion": 18
+      "clasificacion": 20
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 14,
+       "cupo-diario": 16,
        "ok": 4
       }
      }
     },
     "openai/gpt-oss-120b": {
-     "llamadas": 14,
+     "llamadas": 16,
      "errores": 8,
-     "entrada": 16447,
-     "salida": 14136,
+     "entrada": 21339,
+     "salida": 17781,
      "pensamiento": 0,
-     "total": 30583,
+     "total": 39120,
      "claves": {
-      "groq": 14
+      "groq": 16
      },
      "motivos": {
       "groq": {
-       "ok": 6,
+       "ok": 8,
        "velocidad": 7,
        "cupo-diario": 1
       }
@@ -3472,35 +3472,35 @@
    },
    "repetidas": {
     "gemini-flash-lite-latest": {
-     "llamadas": 8,
-     "errores": 7,
+     "llamadas": 10,
+     "errores": 9,
      "entrada": 7963,
      "salida": 772,
      "pensamiento": 0,
      "total": 8735,
      "claves": {
-      "clasificacion": 8
+      "clasificacion": 10
      },
      "motivos": {
       "clasificacion": {
-       "cupo-diario": 7,
+       "cupo-diario": 9,
        "ok": 1
       }
      }
     },
     "openai/gpt-oss-20b": {
-     "llamadas": 3,
-     "errores": 3,
+     "llamadas": 4,
+     "errores": 4,
      "entrada": 0,
      "salida": 0,
      "pensamiento": 0,
      "total": 0,
      "claves": {
-      "groq": 3
+      "groq": 4
      },
      "motivos": {
       "groq": {
-       "otro": 3
+       "otro": 4
       }
      }
     }
