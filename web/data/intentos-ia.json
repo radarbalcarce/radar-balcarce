@@ -4010,17 +4010,15 @@
   "numeradas": 3
  },
  "1lc4vya": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T15:01:40.693Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 290 palabras",
+  "intentos": 2,
+  "ultimo": "2026-11-07T15:31:17.302Z",
+  "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3,
   "motivos": [
    "título o bajada: 1 problema (tilde): el copete dice \"mas\" en vez de \"m",
-   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d"
-  ],
-  "falla": [
-   "copia 17 palabras seguidas del original (\"dinero inyectado al sistema se contrajo el ticket promedio del evento se ubico en…\"): decilo con o"
+   "cuerpo: 1 problema (copia): copia 17 palabras seguidas del original: d",
+   "cuerpo: 1 problema (promesa): el título dice 2.025 y el cuerpo no lo e"
   ]
  },
  "1lcnoaq": {
@@ -6201,6 +6199,21 @@
   "numeradas": 6,
   "motivos": [
    "título o bajada: 1 problema (largo): el titulo tiene 92 caracteres, el"
+  ]
+ },
+ "1xxq3y9": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T15:31:17.302Z",
+  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 30 y la fuente no lo dice; sin esas oraciones quedan 237 palabras",
+  "textos": 6,
+  "numeradas": 15,
+  "motivos": [
+   "cuerpo: 4 problemas (nombre, relleno, repite, copia): el cuerpo nombra",
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 30 y la fuente n"
+  ],
+  "falla": [
+   "el cuerpo dice 30 y la fuente no lo dice",
+   "el título dice 0 y el cuerpo no lo explica"
   ]
  },
  "1y0fnc0": {
