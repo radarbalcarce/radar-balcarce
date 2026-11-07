@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-06T23:35:17.772Z",
- "portada": 216,
+ "generado": "2026-11-07T00:04:58.071Z",
+ "portada": 214,
  "archivo": 500,
- "esperandoCuerpo": 9,
+ "esperandoCuerpo": 7,
  "redes": {
-  "generado": "2026-11-06T23:35:18.381Z",
+  "generado": "2026-11-07T00:04:58.536Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null
    }
   ],
@@ -113,15 +113,10 @@
     "titulo": "El repaso del día",
     "hora": "21:00",
     "voz": "locutor",
-    "momento": "antes",
+    "momento": "en-hora",
     "salio": null,
-    "segundos": 46,
+    "segundos": 39,
     "notas": [
-     {
-      "id": "zq4p96",
-      "titulo": "Realizan una caravana en Balcarce para pedir la reincorporación de Virginia Aparicio",
-      "seccion": "Agro"
-     },
      {
       "id": "j7nvck",
       "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
@@ -136,6 +131,11 @@
       "id": "1xd4thu",
       "titulo": "Emerson Fittipaldi llega por primera vez a Balcarce",
       "seccion": "Automovilismo"
+     },
+     {
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+      "seccion": "Cultura y agenda"
      }
     ]
    }
@@ -150,33 +150,15 @@
      "marcada": false
     },
     {
-     "id": "174ziev",
-     "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
-     "seccion": "Automovilismo",
-     "marcada": false
-    },
-    {
-     "id": "f9b3nl",
-     "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
-     "id": "1ymljo6",
-     "titulo": "El fiscal Pollicita pide investigar a Manuel Adorni por evasión tributaria",
-     "seccion": "Política",
-     "marcada": false
-    },
-    {
-     "id": "bwq963",
-     "titulo": "La Argentina enfrenta al Reino Unido en el Tribunal del Mar por Malvinas",
-     "seccion": "Argentina",
-     "marcada": false
-    },
-    {
      "id": "1mntvqe",
      "titulo": "La FIFA reduce la sanción a Nahuel Molina pero mantiene la de Leandro Paredes",
      "seccion": "Fútbol",
+     "marcada": false
+    },
+    {
+     "id": "174ziev",
+     "titulo": "Mario Alberghini defiende la seguridad del autódromo Juan Manuel Fangio",
+     "seccion": "Automovilismo",
      "marcada": false
     },
     {
@@ -189,6 +171,24 @@
      "id": "a04ly9",
      "titulo": "Leandro Paredes lanza un torneo nacional de truco con premios millonarios",
      "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "d4fr84",
+     "titulo": "Netflix anuncia la serie precuela Otros Mundos para el año 2028",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "wxjxt8",
+     "titulo": "APTRA anuncia los nominados para los premios Martín Fierro de Cable 2026",
+     "seccion": "Cultura y agenda",
+     "marcada": false
+    },
+    {
+     "id": "ud9h6r",
+     "titulo": "Boca utilizaría pantalón amarillo en la final de la Copa Sudamericana",
+     "seccion": "Fútbol",
      "marcada": false
     }
    ],
