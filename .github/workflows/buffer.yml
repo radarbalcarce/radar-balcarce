@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       accion:
-        description: 'probar (no publica) o video'
+        description: 'probar (no publica), video o borrador-carrusel (no publica; varias imágenes separadas por coma en el campo de la dirección)'
         type: choice
-        options: [probar, video]
+        options: [probar, video, borrador-carrusel]
         default: probar
       video:
         description: 'Con «video»: la dirección pública del .mp4'
@@ -39,4 +39,4 @@ jobs:
           VIDEO: ${{ inputs.video }}
           TITULO: ${{ inputs.titulo }}
         run: |
-          if [ "$ACCION" = "probar" ]; then node redes/buffer.mjs --probar; else node redes/buffer.mjs "--video=$VIDEO" "--titulo=$TITULO" "--texto=$TITULO"; fi
+          if [ "$ACCION" = "borrador-carrusel" ]; then node redes/buffer.mjs "--borrador-carrusel=$VIDEO" "--texto=$TITULO"; elif [ "$ACCION" = "probar" ]; then node redes/buffer.mjs --probar; else node redes/buffer.mjs "--video=$VIDEO" "--titulo=$TITULO" "--texto=$TITULO"; fi

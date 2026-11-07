@@ -140,6 +140,28 @@ export async function publicarImagen({ canal, url, texto }, opciones = {}) {
   return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
 }
 
+/**
+ * Prueba de TikTok modo foto (6/11/2026): guarda en Buffer un BORRADOR con varias imágenes, sin publicar nada, para ver si la API lo acepta.
+ * Devuelve { ok, id?, estado?, motivo? }. Que lo acepte como borrador no asegura que TikTok lo publique.
+ */
+export async function borradorDeCarrusel({ canal, urls, texto }, opciones = {}) {
+  const input = {
+    channelId: canal.id,
+    text: String(texto ?? '').slice(0, 2000),
+    schedulingType: 'automatic',
+    needsApproval: false,
+    mode: 'addToQueue',
+    saveToDraft: true,
+    assets: urls.map((url) => ({ image: { url } })),
+    metadata: { tiktok: { isAiGenerated: false, title: String(texto ?? '').slice(0, 90) } },
+  };
+  const r = await pedir(CREAR, { input }, opciones);
+  if (!r.ok) return { ok: false, motivo: r.motivo };
+  const c = r.datos?.createPost;
+  if (c?.post?.id) return { ok: true, id: c.post.id, estado: c.post.status ?? null };
+  return { ok: false, motivo: String(c?.message ?? 'Buffer no devolvió la publicación').slice(0, 300) };
+}
+
 /** Sólo X por ahora (TikTok modo foto no está confirmado en la API de Buffer: PENDIENTES-3-0.md). Interruptor BUFFER_IMAGENES: «no» lo apaga. */
 export const REDES_DE_BUFFER_PARA_IMAGENES = ['twitter'];
 export const imagenesPorBufferActivas = (env = process.env) => !/^no$/i.test(String(env?.BUFFER_IMAGENES ?? 'si').trim());
@@ -210,6 +232,13 @@ async function main(argv = process.argv.slice(2)) {
   if (argv.includes('--probar')) {
     console.log(JSON.stringify(await canales(), null, 1));
     console.log(JSON.stringify(await forma(), null, 1));
+    return;
+  }
+  if (arg('borrador-carrusel')) {
+    const lista = await canales();
+    const canal = (Array.isArray(lista) ? lista : lista?.canales ?? []).find((x) => x.servicio === 'tiktok');
+    if (!canal) { console.log('No encontré el canal de TikTok.', JSON.stringify(lista).slice(0, 300)); process.exitCode = 1; return; }
+    console.log(JSON.stringify(await borradorDeCarrusel({ canal, urls: arg('borrador-carrusel').split(','), texto: arg('texto') ?? 'Prueba de carrusel' })));
     return;
   }
   const url = arg('video');

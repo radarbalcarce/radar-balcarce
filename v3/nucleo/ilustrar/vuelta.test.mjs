@@ -275,6 +275,21 @@ test('una ilustrada sin foto real a la vista cuenta sus intentos (3 como máximo
   assert.equal(nota(env, 'g2').foto.ilustracion, true);
 });
 
+test('pasado NUCLEO_TOPE_SECUNDARIO no se ilustra: el cupo que queda es para redactar (el 6/11 las notas se cortaron a las 16:45 por el tope diario)', { skip: sinSqlite }, async () => {
+  const conUso = (pedidos) => {
+    const env = entorno({ NUCLEO_TOPE_SECUNDARIO: '400' });
+    sembrar(env, 'x');
+    env.DB.sqlite.prepare('INSERT INTO uso_ia (dia, tarea, pedidos) VALUES (?, ?, ?)').run(DIA, 'duda', pedidos);
+    return env;
+  };
+  const lleno = conUso(400);
+  await vuelta(lleno, mundo());
+  assert.equal(lleno.AI.llamadas, 0);
+  const conLugar = conUso(399);
+  await vuelta(conLugar, mundo());
+  assert.ok(conLugar.AI.llamadas > 0);
+});
+
 test('el freno mensual de Gemini frena también las ilustraciones; sin el depósito FOTOS o con los topes en 0, no hace nada', { skip: sinSqlite }, async () => {
   const env = entorno();
   sembrar(env, 'z1');

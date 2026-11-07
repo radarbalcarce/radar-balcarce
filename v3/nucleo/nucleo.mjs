@@ -310,11 +310,14 @@ export function crearNucleo({ fuentes, perfil, redaccion, umbrales }) {
     // (e2) a las notas ya publicadas sin foto se les vuelve a buscar (hasta 5 por vuelta, las de las últimas 24 h)
     if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await reintentarFotos(env, c, gem, r, error);
 
+    // Rehacer fotos, foto de archivo e ilustraciones no compiten con redactar: pasado NUCLEO_TOPE_SECUNDARIO, el cupo que queda es para las notas (6/11, Hernán).
+    const hayCupoSecundario = () => gem.estado.pedidosHoy < numero(env.NUCLEO_TOPE_SECUNDARIO, 400);
+
     // (e3) las notas migradas del sistema viejo sin foto, de a pocas por vuelta y con tope por día (REGLAS § 7 ter)
-    if (gem.hayClave && !r.frenoMensual && !r.topeDiario) await rehacerMigradas(env, c, gem, r, error);
+    if (gem.hayClave && !r.frenoMensual && !r.topeDiario && hayCupoSecundario()) await rehacerMigradas(env, c, gem, r, error);
 
     // (e4) las ilustraciones con IA para lo que agotó la búsqueda de foto real (REGLAS § 7, paso 3)
-    if (gem.hayClave && !r.frenoMensual && !r.topeDiario) {
+    if (gem.hayClave && !r.frenoMensual && !r.topeDiario && hayCupoSecundario()) {
       try { await ilustrarSinFoto(env, c, gem, r, error); } catch (e) { error('ilustrar', e); }
     }
 

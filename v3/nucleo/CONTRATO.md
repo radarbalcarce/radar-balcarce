@@ -101,4 +101,4 @@ fuentes: [{medio, url}], fechaHecho, firma: 'Redacción Radar Balcarce', pedidos
 - **El día de Balcarce** es UTC-3 todo el año (`diaDeBalcarce`): de las 03:00 UTC a las 03:00 UTC.
 - **HTTP:** `GET /salud` (abierto, sin claves), `GET /notas?dia=AAAA-MM-DD` (las notas del día completas, para compararlas), `POST /vuelta` y `POST /resumen`
   (esperan a que termine y devuelven el resultado); los tres últimos piden el header `x-radar-contrasena`.
-- **Variables:** `GEMINI_MODELO`, `NUCLEO_TOPE_DIARIO`, `NUCLEO_REDACTAR_POR_VUELTA` (en `wrangler.toml`); secretos `GEMINI_API_KEY` y `TELEGRAM_TOKEN`.
+- **Variables:** `GEMINI_MODELO`, `NUCLEO_TOPE_DIARIO`, `NUCLEO_TOPE_SECUNDARIO`, `NUCLEO_REDACTAR_POR_VUELTA` (en `wrangler.toml`); secretos `GEMINI_API_KEY` y `TELEGRAM_TOKEN`.

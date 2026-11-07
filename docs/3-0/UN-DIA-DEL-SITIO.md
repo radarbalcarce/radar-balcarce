@@ -92,7 +92,7 @@ Las **14 secciones**: Balcarce, Política, Policiales, Educación, Salud, Fútbo
 
 | Freno | Cuánto | Qué pasa al llegar |
 |---|---|---|
-| **Tope diario de pedidos del núcleo** | `NUCLEO_TOPE_DIARIO` = **500** por día (en el código, 150 si no estuviera la variable) | Deja de redactar hasta el día siguiente |
+| **Tope diario de pedidos del núcleo** | `NUCLEO_TOPE_DIARIO` = **700** por día (en el código, 150 si no estuviera la variable); desde los **400** (`NUCLEO_TOPE_SECUNDARIO`) paran rehacer fotos, foto de archivo e ilustraciones, y lo que queda es para redactar | Deja de redactar hasta el día siguiente |
 | **Redacciones por vuelta** | **6** | Las demás esperan la vuelta siguiente (15 minutos) |
 | **Freno mensual** | **US$ 7** de gasto en el mes (texto y voces juntos: Hernán quiere quedar debajo de US$ 10) | El núcleo deja de usar IA y avisa por Telegram una vez por mes |
 | **Aviso del 80 %** | Cuando el gasto del mes llega al 80 % del freno | La vigilancia avisa por Telegram una vez por mes |
