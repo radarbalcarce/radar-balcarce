@@ -52307,9 +52307,7 @@
   "ausenteDesde": "2026-10-31T19:04:13.705Z"
  },
  "7pn1l7": {
-  "archivo": "fotos-notas/7pn1l7.jpg",
   "medio": "Perfil",
-  "credito": "Foto: Perfil",
   "licencia": null,
   "origen": "medio",
   "titulo": "Toyota presenta en Buenos Aires el papamóvil que usará León XIV",
@@ -52329,7 +52327,8 @@
    "descripcion": "Eclesiástico sonriendo mientras recibe un estuche de Toyota"
   },
   "huella": "9eb6cecececcecec",
-  "ausenteDesde": "2026-10-31T17:04:02.279Z"
+  "intentado": true,
+  "borrada": true
  },
  "157uj0t": {
   "archivo": "fotos-notas/157uj0t.jpg",
@@ -52492,9 +52491,7 @@
   "borrada": true
  },
  "n981ci": {
-  "archivo": "fotos-notas/1llj2g7.jpg",
   "medio": "Olé",
-  "credito": "Foto: Olé",
   "licencia": null,
   "origen": "medio",
   "titulo": "Martín Palermo palpita la final de la Copa Argentina y analiza a Boca",
@@ -52514,7 +52511,8 @@
    "descripcion": "Martín Palermo de perfil en un estadio."
   },
   "huella": "273b191b4162c385",
-  "ausenteDesde": "2026-10-31T17:04:02.279Z"
+  "intentado": true,
+  "borrada": true
  },
  "19qj4ij": {
   "intentado": true,
@@ -60539,9 +60537,7 @@
   "ausenteDesde": "2026-11-03T03:03:37.281Z"
  },
  "be41od": {
-  "archivo": "fotos-notas/be41od.jpg",
   "medio": "La Nación",
-  "credito": "Foto: La Nación",
   "licencia": null,
   "origen": "medio",
   "titulo": "Franco Colapinto finaliza 16 en la segunda práctica del GP de México",
@@ -60561,12 +60557,11 @@
    "descripcion": "Franco Colapinto con gorra y remera del equipo"
   },
   "huella": "06060e0b0e061f47",
-  "ausenteDesde": "2026-10-31T17:04:02.279Z"
+  "intentado": true,
+  "borrada": true
  },
  "tlp2gm": {
-  "archivo": "fotos-notas/tlp2gm.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "ANSES confirma un incremento del 1,93 por ciento en las jubilaciones",
@@ -60598,7 +60593,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "3e3d3973e7ceda6a",
-  "ausenteDesde": "2026-10-31T17:04:02.279Z"
+  "intentado": true,
+  "borrada": true
  },
  "74225p": {
   "archivo": "fotos-notas/74225p.jpg",
@@ -86125,7 +86121,8 @@
    "corresponde": "si",
    "descripcion": "Actores de la obra teatral Crisis y castigo"
   },
-  "huella": "652d3d3d6d253d2c"
+  "huella": "652d3d3d6d253d2c",
+  "ausenteDesde": "2026-11-07T17:33:21.166Z"
  },
  "1v97hv1": {
   "archivo": "fotos-notas/1v97hv1.jpg",
@@ -88428,7 +88425,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "24b68e9eafcb4f6f"
+  "huella": "24b68e9eafcb4f6f",
+  "ausenteDesde": "2026-11-07T17:33:21.166Z"
  },
  "dx40cq": {
   "archivo": "fotos-notas/1e8sfqo.jpg",
@@ -91313,12 +91311,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Pampita acampa para asistir a la misa del papa León XIV en Palermo",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-07T16:04:19.409Z",
-  "intentos": 4,
-  "fuentes": 22,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "razon": "Ninguna de las fotos disponibles corresponde al hecho específico de la nota (Pampita acampando para asistir a la misa del papa León XIV en Palermo). Las imágenes muestran monumentos, a Pampita en otros contextos o al Papa por separado, pero ninguna ilustra la escena descrita.",
+  "cuando": "2026-11-07T17:32:09.340Z",
+  "intentos": 5,
+  "fuentes": 22
  },
  "tgk7er": {
   "archivo": "fotos-notas/tgk7er.jpg",
@@ -92412,15 +92408,28 @@
   "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
  },
  "2ozl30": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/2ozl30.jpg",
+  "medio": "0221",
+  "credito": "Foto: 0221",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "La investigadora de la UNLP María Teresa Dova integra la Academia Mundial de Ciencias",
-  "razon": "Groq también falló: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier `on_demand` on input tokens pe (Gemini: HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.)",
-  "cuando": "2026-11-07T16:04:19.409Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 1,
-  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+  "enlace": "https://www.0221.com.ar/la-plata/la-investigadora-la-unlp-maria-teresa-dova-integrara-la-academia-mundial-ciencias-n137110",
+  "imagenOriginal": "https://media.0221.com.ar/p/5922fa82680e0a767b2c688a95cc74b7/adjuntos/357/imagenes/100/303/0100303165/1200x630/720x723:740x743/maria-teresa-dova-2.jpg",
+  "razon": "Muestra claramente a la investigadora protagonista de la nota con buena nitidez y en un entorno adecuado.",
+  "cuando": "2026-11-07T17:32:09.340Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de María Teresa Dova en un auditorio"
+  },
+  "huella": "5494915094909092"
  },
  "hfy4ax": {
   "archivo": "fotos-notas/hfy4ax.jpg",
@@ -92497,5 +92506,75 @@
    "descripcion": "Matías La Torre con una guitarra en un estudio con paneles acústicos."
   },
   "huella": "934c4d8b8f3b773f"
+ },
+ "lcskhc": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Boca define la Tabla Anual ante Defensa y busca asegurar un nuevo título",
+  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 503: qwen/qwen3.8-27b is currently over capacity. Please try again and back off exponentially. Visit https://groqst): la foto de Olé no se usa todavía.",
+  "cuando": "2026-11-07T17:32:09.340Z",
+  "intentos": 1,
+  "fuentes": 3,
+  "intentosPorCupo": 1
+ },
+ "1b5ejrd": {
+  "archivo": "fotos-notas/1b5ejrd.jpg",
+  "medio": "TN (Todo Noticias)",
+  "credito": "Foto: TN (Todo Noticias)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nottingham Forest y Manchester City juegan por la Premier League",
+  "enlace": "https://tn.com.ar/deportes/futbol/2026/11/07/nottingham-vs-manchester-city-en-vivo-por-la-fecha-10-de-la-premier-league-hora-donde-ver-y-formaciones/",
+  "imagenOriginal": "https://tn.com.ar/resizer/v2/soccer-football-premier-league-nottingham-forest-v-manchester-city-the-city-ground-nottingham-britain-november-7-2026-general-view-inside-the-stadium-before-the-match-action-images-via-reutersandrew-boyers-editorial-use-only-no-use-with-unauthorized-audio-video-data-fixture-lists-clubleague-logos-or-live-services-online-in-match-use-limited-to-120-images-no-video-emulation-no-use-in-betting-games-or-single-clubleagueplayer-publications-please-contact-your-account-representative-for-further-details-SJMYLHWVACMPRGJ7BWXNGIV4WA.Sn4C?auth=9db8a2a388721f38e6f819c84d21a5552b1de80e89c0bf6dae33022335a1fad5&width=1023",
+  "razon": "Es la única fotografía real del estadio que corresponde al partido y está libre de marcas, gráficos o personas menores.",
+  "cuando": "2026-11-07T17:32:09.340Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista general del estadio de fútbol con el campo de juego"
+  },
+  "huella": "3f1f1f7f1f0d1e4f"
+ },
+ "19bfwfl": {
+  "archivo": "fotos-notas/19bfwfl.jpg",
+  "medio": "Crónica",
+  "credito": "Foto: Crónica",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos y Rosario Central definen el título de la tabla anual",
+  "enlace": "https://www.cronica.com.ar/depo/ligaprofesional/boca-argentinos-y-rosario-central-definen-el-campeon-de-la-tabla-anual/",
+  "imagenOriginal": "https://www.cronica.com.ar/files/image/1730/1730891/6aef0143a2979_600_315!.jpg?s=54c14ad16a4dd3f5c8b191de0c07861f&d=1794048655",
+  "razon": "Es la única foto válida que corresponde a la temática de la nota y está completamente libre de marcas, menores, gráficos o stock.",
+  "cuando": "2026-11-07T17:32:09.340Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage con jugadores de Boca, Argentinos y Rosario Central en partido",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage con fotos de jugadores de Boca Juniors, Rosario Central y Argentinos Juniors."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6969a9a892828a9a"
  }
 }

@@ -1308,13 +1308,6 @@
   "textos": 3,
   "numeradas": 7
  },
- "174tjt": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:02:39.409Z",
-  "motivo": "con cuerpo",
-  "textos": 3,
-  "numeradas": 3
- },
  "174ziev": {
   "intentos": 1,
   "ultimo": "2026-11-06T18:01:51.318Z",
@@ -1803,6 +1796,13 @@
   "textos": 1,
   "numeradas": 3
  },
+ "19bfwfl": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T17:31:46.528Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 10
+ },
  "19dcq3n": {
   "intentos": 1,
   "ultimo": "2026-11-04T21:31:40.693Z",
@@ -2159,6 +2159,13 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 4
+ },
+ "1b5ejrd": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T17:31:46.528Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 5
  },
  "1b5krcg": {
   "intentos": 1,
@@ -4488,17 +4495,6 @@
   "motivo": "con cuerpo",
   "textos": 6,
   "numeradas": 6
- },
- "1nmb7wc": {
-  "intentos": 2,
-  "ultimo": "2026-10-31T17:02:39.409Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4,
-  "motivos": [
-   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"alberto\" y ",
-   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
-  ]
  },
  "1npdrzq": {
   "intentos": 1,
@@ -7290,13 +7286,6 @@
   "textos": 2,
   "numeradas": 3
  },
- "74225p": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:02:39.409Z",
-  "motivo": "con cuerpo",
-  "textos": 1,
-  "numeradas": 1
- },
  "746y38": {
   "intentos": 1,
   "ultimo": "2026-11-06T20:01:30.376Z",
@@ -8307,6 +8296,16 @@
   "textos": 4,
   "numeradas": 8
  },
+ "cr2y0v": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T17:31:46.528Z",
+  "motivo": "Gemini: Bad control character in string literal in JSON at position 1984 (line 1 column 1985)",
+  "textos": 6,
+  "numeradas": 24,
+  "motivos": [
+   "Gemini: Bad control character in string literal in JSON at position 19"
+  ]
+ },
  "creimq": {
   "intentos": 1,
   "ultimo": "2026-11-05T10:32:07.640Z",
@@ -8427,13 +8426,6 @@
    "título o bajada: 1 problema (fecha): el copete menciona \"lunes\" y la f"
   ]
  },
- "d8zkg2": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:02:39.409Z",
-  "motivo": "con cuerpo",
-  "textos": 2,
-  "numeradas": 3
- },
  "d9cyqh": {
   "intentos": 1,
   "ultimo": "2026-11-02T14:31:38.441Z",
@@ -8457,16 +8449,6 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
- },
- "dbup6y": {
-  "intentos": 1,
-  "ultimo": "2026-10-31T17:02:39.409Z",
-  "motivo": "con cuerpo",
-  "textos": 4,
-  "numeradas": 4,
-  "motivos": [
-   "cuerpo: 2 problemas (nombre, relleno): el cuerpo nombra a \"caballito\" "
-  ]
  },
  "dcayre": {
   "intentos": 1,
@@ -10151,9 +10133,9 @@
   "numeradas": 5
  },
  "lcskhc": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T17:01:35.760Z",
-  "motivo": "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"ribera\" y la fuente no; sin esas oraciones quedan 175 palabras",
+  "intentos": 3,
+  "ultimo": "2026-11-07T17:31:46.528Z",
+  "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 3,
   "motivos": [
@@ -10161,10 +10143,6 @@
    "título o bajada: 1 problema (nombre): el copete nombra a \"ribera\" y la",
    "título o bajada: 1 problema (antecedente): el copete usa \"bombonera\", ",
    "cuerpo: 2 problemas (nombre): el cuerpo nombra a \"ribera\" y la fuente "
-  ],
-  "falla": [
-   "el cuerpo nombra a \"ribera\" y la fuente no",
-   "el cuerpo nombra a \"ribera\" y la fuente no"
   ]
  },
  "lfdxin": {
