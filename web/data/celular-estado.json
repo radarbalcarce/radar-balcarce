@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T12:02:31.396Z",
- "portada": 121,
+ "generado": "2026-11-07T12:32:58.720Z",
+ "portada": 110,
  "archivo": 500,
- "esperandoCuerpo": 4,
+ "esperandoCuerpo": 3,
  "redes": {
-  "generado": "2026-11-07T12:02:32.201Z",
+  "generado": "2026-11-07T12:32:59.223Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 40,
+    "segundos": 47,
     "notas": [
      {
       "id": "j7nvck",
@@ -113,9 +113,9 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-      "seccion": "Cultura y agenda"
+      "id": "16nvkvm",
+      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+      "seccion": "Deportes"
      }
     ]
    },
@@ -126,7 +126,7 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 48,
+    "segundos": 50,
     "notas": [
      {
       "id": "13ae8gs",
@@ -134,18 +134,18 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "e7bi4o",
-      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
       "seccion": "Cultura y agenda"
      },
      {
-      "id": "oal4ia",
-      "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
+      "id": "8x25q0",
+      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
       "seccion": "Deportes"
      },
      {
-      "id": "1dsn87c",
-      "titulo": "El emprendimiento balcarceño Nahuen recibe una distinción internacional",
+      "id": "2jfnjt",
+      "titulo": "La inflación en la Ciudad de Buenos Aires llega al 1,9 por ciento en octubre",
       "seccion": "Economía"
      }
     ]
@@ -157,7 +157,7 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 49,
     "notas": [
      {
       "id": "qvrt15",
@@ -165,26 +165,39 @@
       "seccion": "Balcarce"
      },
      {
-      "id": "8x25q0",
-      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
+      "id": "e7bi4o",
+      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1r3wzjp",
+      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
       "seccion": "Deportes"
      },
      {
-      "id": "1p7s2li",
-      "titulo": "Actualizan el valor de las multas de tránsito en la provincia de Buenos Aires",
+      "id": "1ymljo6",
+      "titulo": "El fiscal Pollicita pide investigar a Manuel Adorni por evasión tributaria",
       "seccion": "Política"
-     },
-     {
-      "id": "wjmv5r",
-      "titulo": "La Liga Balcarceña programa el fútbol local para el fin de semana",
-      "seccion": "Fútbol"
      }
     ]
    }
   ],
   "facebook": {
    "hoy": [],
-   "cola": [],
+   "cola": [
+    {
+     "id": "16nvkvm",
+     "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+     "seccion": "Deportes",
+     "marcada": false
+    },
+    {
+     "id": "1v42ew3",
+     "titulo": "Emiten alertas meteorológicas por tormentas y vientos en el país",
+     "seccion": "Argentina",
+     "marcada": false
+    }
+   ],
    "cupo": 5,
    "proximoDesde": "2026-11-03T16:06:05.155Z",
    "porDia": 5,

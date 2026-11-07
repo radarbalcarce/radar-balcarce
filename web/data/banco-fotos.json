@@ -59690,9 +59690,7 @@
   "ausenteDesde": "2026-11-02T20:35:40.952Z"
  },
  "1ipto8d": {
-  "archivo": "fotos-notas/1ipto8d.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "ANSES modifica el calendario de pagos de noviembre por los feriados papales",
@@ -59712,7 +59710,8 @@
    "descripcion": "Atención presencial en una oficina de ANSES con un monitor de la entidad"
   },
   "huella": "77e7575747cfaf2f",
-  "ausenteDesde": "2026-10-31T12:04:20.842Z"
+  "intentado": true,
+  "borrada": true
  },
  "9z8ex7": {
   "archivo": "fotos-notas/9z8ex7.jpg",
@@ -85168,7 +85167,8 @@
    "corresponde": "si",
    "descripcion": "Fachada exterior de una sucursal del Banco Provincia."
   },
-  "huella": "c173f0fa7170ad76"
+  "huella": "c173f0fa7170ad76",
+  "ausenteDesde": "2026-11-07T12:32:58.606Z"
  },
  "1en4gsq": {
   "archivo": "fotos-notas/1en4gsq.jpg",
@@ -91535,7 +91535,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "95ab74c9a65599b5"
+  "huella": "95ab74c9a65599b5",
+  "ausenteDesde": "2026-11-07T12:32:58.606Z"
  },
  "8o4i1y": {
   "archivo": "fotos-notas/8o4i1y.jpg",
@@ -91560,5 +91561,98 @@
    "descripcion": "Elon Musk presentando un auto Tesla en el escenario"
   },
   "huella": "f8707d79117131f9"
+ },
+ "16nvkvm": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+  "razon": "La única foto disponible muestra menores de edad.",
+  "cuando": "2026-11-07T12:32:18.880Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "bu9ap4": {
+  "archivo": "fotos-notas/bu9ap4.webp",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca recibe a Defensa y Justicia por la definición del Torneo Clausura",
+  "enlace": "https://bolavip.com/ar/boca/repite-el-xi-del-superclasico-arruabarrena-define-la-formacion-de-boca-para-recibir-a-defensa-y-justicia",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/06074957/Rodolfo-Arruabarrena-1200x740.webp",
+  "razon": "Es la única foto nítida y de primer plano que corresponde al tema de la nota, sin marcas de medios sobreimpresas, sin menores y sin ser gráfica o stock. La segunda opinión (groq) descartó la de La Nación (no corresponde a la nota): se usa Bolavip Argentina.",
+  "cuando": "2026-11-07T12:32:18.880Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico o jugador de espaldas mirando concentrado",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Entrenador de Boca Juniors con ropa deportiva de entrenamiento"
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "4143414040e4a492"
+ },
+ "1ecmrke": {
+  "archivo": "fotos-notas/1ecmrke.jpg",
+  "medio": "Radio Gabal (FM 104.1)",
+  "credito": "Foto: Radio Gabal (FM 104.1)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Gustavo Torres deja Obras Públicas y se suma al municipio de General Pueyrredon",
+  "enlace": "https://www.radiogabal.com.ar/index.php/politica/gustavo-torres-deja-la-secretaria-de-obras-publicas-para-asumir-el-mismo-rol-en-mar-del-plata",
+  "imagenOriginal": "https://www.radiogabal.com.ar/images/2025/GUSTAVO_TORRES.jpg",
+  "razon": "La foto A muestra claramente al protagonista de la nota con buen encuadre y sin marcas añadidas por el medio.",
+  "cuando": "2026-11-07T12:32:18.880Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Gustavo Torres sentado en una oficina frente a un mueble de madera"
+  },
+  "huella": "675171536951556d"
+ },
+ "1mtpeui": {
+  "archivo": "fotos-notas/1mtpeui.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El gasto primario nacional cae un 5,5 por ciento en octubre",
+  "enlace": "https://perfil.com/nea/milei-volvio-a-ajustar-a-las-provincias-y-a-recortar-subsidios-para-mantener-el-superavit-atiJH4g39Isy",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/2c407ba54d4e-13-10-2026-javier-milei-motosierra-2347247.webp",
+  "razon": "La foto B muestra el mismo evento político pero sin la marca de agua que tiene la A.",
+  "cuando": "2026-11-07T12:32:18.880Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "generica",
+   "descripcion": "Javier Milei sosteniendo una motosierra en un acto al aire libre"
+  },
+  "huella": "89c9672e1a7ada9c"
  }
 }
