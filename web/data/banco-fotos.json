@@ -84921,7 +84921,8 @@
    "corresponde": "si",
    "descripcion": "El embajador Marc Stanley hablando en un atril con banderas de fondo."
   },
-  "huella": "79737b5bd3f26363"
+  "huella": "79737b5bd3f26363",
+  "ausenteDesde": "2026-11-07T01:33:03.598Z"
  },
  "zronpm": {
   "archivo": "fotos-notas/zronpm.jpg",
@@ -87365,10 +87366,10 @@
   "origen": "ninguna",
   "titulo": "Franco Colapinto presenta un casco con los colores de Boca para el GP de Brasil",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-06T21:31:57.564Z",
+  "cuando": "2026-11-07T01:32:13.760Z",
   "intentos": 1,
   "fuentes": 8,
-  "intentosPorCupo": 3
+  "intentosPorCupo": 4
  },
  "dyb4xn": {
   "archivo": "fotos-notas/dyb4xn.jpg",
@@ -90471,10 +90472,10 @@
   "origen": "ninguna",
   "titulo": "Argentina avanza a cuartos en el básquet 3x3 de los Juegos Olímpicos de la Juventud",
   "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nueva no se usa todavía.",
-  "cuando": "2026-11-07T00:03:01.098Z",
+  "cuando": "2026-11-07T01:32:13.760Z",
   "intentos": 1,
   "fuentes": 3,
-  "intentosPorCupo": 1
+  "intentosPorCupo": 2
  },
  "1b2mb7": {
   "archivo": "fotos-notas/1b2mb7.jpg",
@@ -90580,14 +90581,28 @@
   "fuentes": 2
  },
  "wya79i": {
-  "intentado": true,
-  "origen": "ninguna",
-  "titulo": "Rosario Central y Argentinos Juniors definen el torneo el sábado",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-07T00:34:10.182Z",
-  "intentos": 1,
-  "fuentes": 16,
-  "intentosPorCupo": 1
+  "archivo": "fotos-notas/m58vt5.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos e Instituto definen posiciones en el Torneo Clausura",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/argentinos-juniors-vs-huracan-por-el-torneo-clausura-2026-dia-horarrio-tv-y-como-ver-online-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-arquero-chileno-brayan-cortes-sera-titular-en-VDM7FWNTPVHVBOJALJMXFDJGOM.jpeg?auth=bd6bc0138538b269bba4dafbd445d9828902d5d2688561b2ad7eb00f3c1232ab&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto que muestra a un jugador en acción de juego, con buena nitidez, sin marcas de agua, sin menores y sin ser una pieza gráfica.",
+  "cuando": "2026-11-07T01:32:13.760Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Arquero de Argentinos Juniors en el campo de juego."
+  },
+  "huella": "d68d4d3e3c0c0f16"
  },
  "b8njc9": {
   "archivo": "fotos-notas/b8njc9.jpg",
@@ -90685,5 +90700,89 @@
    "descripcion": "Nelson Cuevas posando con una camiseta de River."
   },
   "huella": "39555533903163c1"
+ },
+ "5sp4cy": {
+  "archivo": "fotos-notas/5sp4cy.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Petruccelli rechaza el aumento de tarifas para la empresa de limpieza Ashira",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/petruccelli-rechazo-el-aumento-para.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg77OEnu-Uh6lrKhq7PUliJSjJj5j_GWBSCC8idHnS62or-OD3H-i5h4-PakG_U7uRas3QpOqdRNiBjlvYI-SnoLRevRFD0WMp0jw28i0hn9PZGN6GUyvZTxR4Yvp-1X8nOpap5WFRCPq1eJ2n7FPi5XIjFXdz9qkbotcWcqylXRbBrzVuSr4WMRKMBTpU/w640-h480/Gabriel%20Petruccelli%20-%20Foto%20de%20Informese%20Primero.jpeg",
+  "razon": "Es la única opción disponible, presenta buena nitidez, no tiene marcas de agua, ni menores, ni elementos gráficos, y muestra al protagonista de la nota.",
+  "cuando": "2026-11-07T01:32:13.760Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de Petruccelli en un estudio de radio."
+  },
+  "huella": "26c9cd0e16362b2b"
+ },
+ "m58vt5": {
+  "archivo": "fotos-notas/m58vt5.jpg",
+  "medio": "La Nación",
+  "credito": "Foto: La Nación",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos e Instituto definen posiciones en el Torneo Clausura",
+  "enlace": "https://www.lanacion.com.ar/deportes/futbol/argentinos-juniors-vs-huracan-por-el-torneo-clausura-2026-dia-horarrio-tv-y-como-ver-online-nid05112026/",
+  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/el-arquero-chileno-brayan-cortes-sera-titular-en-VDM7FWNTPVHVBOJALJMXFDJGOM.jpeg?auth=bd6bc0138538b269bba4dafbd445d9828902d5d2688561b2ad7eb00f3c1232ab&width=1200&height=800&quality=70&smart=true",
+  "razon": "Es la única foto que muestra a un jugador en acción de juego, con buena nitidez, sin marcas de agua, sin menores y sin ser una pieza gráfica.",
+  "cuando": "2026-11-07T01:32:13.760Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Arquero de Argentinos Juniors en el campo de juego."
+  },
+  "huella": "d68d4d3e3c0c0f16"
+ },
+ "1hqcfto": {
+  "archivo": "fotos-notas/1hqcfto.jpg",
+  "medio": "La Gaceta (Tucumán)",
+  "credito": "Foto: La Gaceta (Tucumán)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos y Rosario Central definen el título de la tabla anual",
+  "enlace": "https://www.lagaceta.com.ar/nota/1161305/deportes/encuesta-quien-sera-campeon-tabla-anual-boca-argentinos-o-rosario-central.html",
+  "imagenOriginal": "https://img.lagaceta.com.ar/fotos/notas/2026/11/06/sbado-de-definicin-boca-argentinos-central-jugaran-simultaneo-ultima-fecha-fase-regular-1161305-095248.jpg",
+  "razon": "Es la única imagen que muestra a los tres equipos involucrados en la definición de la tabla anual de forma clara, sin marcas de agua, sin elementos gráficos sobreimpresos y sin menores.",
+  "cuando": "2026-11-07T01:32:13.760Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Collage de tres jugadores representando a Boca, Argentinos Juniors y Rosario Central.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Collage de jugadores de Boca Juniors, Rosario Central y Argentinos Juniors en acción durante partidos de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "564c7894b6828644"
  }
 }
