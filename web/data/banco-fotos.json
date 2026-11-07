@@ -58568,9 +58568,7 @@
   "intentosPorCupo": 1
  },
  "5a449y": {
-  "archivo": "fotos-notas/1e527x7.jpg",
   "medio": "0221",
-  "credito": "Foto: 0221",
   "licencia": null,
   "origen": "medio",
   "titulo": "Gimnasia vence a Estudiantes de Río Cuarto y clasifica a los playoffs",
@@ -58602,7 +58600,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "274b72d7e9eb2b6b",
-  "ausenteDesde": "2026-10-31T16:33:47.893Z"
+  "intentado": true,
+  "borrada": true
  },
  "futbolresultadosliga20261030": {
   "intentado": true,
@@ -83229,14 +83228,41 @@
   "fuentes": 2
  },
  "tu8eof": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/tu8eof.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "Presentan el Plan Bicentenario de Ordenamiento Territorial en La Plata",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Destape no se usa todavía.",
-  "cuando": "2026-11-06T22:02:30.807Z",
-  "intentos": 1,
-  "fuentes": 5,
-  "intentosPorCupo": 2
+  "enlace": "https://www.eldia.com/la-ciudad/presentaron-el-plan-bicentenario-de-ordenamiento-territorial-de-la-plata-la-ciudad_1793894704",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793898121849.webp?&cw=1200&ch=630",
+  "razon": "Es la única opción disponible y muestra directamente el documento del Plan de Ordenamiento Territorial al que hace referencia la nota.",
+  "cuando": "2026-11-07T17:02:19.296Z",
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de una persona sosteniendo un documento abierto con el título 'Plan de Ordenamiento Territorial'.",
+   "segunda": {
+    "proveedor": "gemini",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": false,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Persona sosteniendo un documento impreso titulado Plan de Ordenamiento Territorial."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "6a686e4647978fe7"
  },
  "1rw3gbp": {
   "archivo": "fotos-notas/1rw3gbp.jpg",
@@ -90074,7 +90100,8 @@
    "corresponde": "generica",
    "descripcion": "Mano de una persona operando un cajero automático."
   },
-  "huella": "8d2d272323673561"
+  "huella": "8d2d272323673561",
+  "ausenteDesde": "2026-11-07T17:02:44.771Z"
  },
  "mvah7b": {
   "archivo": "fotos-notas/mvah7b.jpg",
@@ -90171,7 +90198,8 @@
    "corresponde": "si",
    "descripcion": "Auto de Fórmula 1 en pista tomando una curva"
   },
-  "huella": "20181c98b2baf23e"
+  "huella": "20181c98b2baf23e",
+  "ausenteDesde": "2026-11-07T17:02:44.771Z"
  },
  "17f02om": {
   "archivo": "fotos-notas/17f02om.jpg",
@@ -92426,5 +92454,48 @@
   "cuando": "2026-11-07T16:31:54.079Z",
   "intentos": 1,
   "fuentes": 4
+ },
+ "1w8v4jx": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "La Escuela Técnica de Balcarce compite en Junín en el Desafío ECO",
+  "razon": "La única foto disponible muestra claramente a menores de edad (alumnos de la escuela técnica) con el rostro visible, lo que impide su publicación según las normas del medio.",
+  "cuando": "2026-11-07T17:02:19.296Z",
+  "intentos": 1,
+  "fuentes": 1,
+  "errorGemini": "HTTP 503: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+ },
+ "1fygzpu": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Grupo HETS presenta el calendario 2027 de carreras de aventura",
+  "razon": "La única imagen provista es el logotipo del medio y no corresponde a una fotografía del evento.",
+  "cuando": "2026-11-07T17:02:19.296Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "lx27ip": {
+  "archivo": "fotos-notas/lx27ip.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Matías La Torre repasa su trayectoria musical en una emisora local",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/matias-la-torre-en-fm-1049-de-sus.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0tYKtoy6RBuK91FJX-zJpT57EzqTzGeP9DF0Ewp_zG0IlXbjGa9-HAKkS1GAlGtOcGWwAd2HWz9qPGYuwtYVpAQ2NxOQfFtC_YgJ-fn1rxPH8NJA3neOAunM6xTREOCDBLPBoHt4cddS7pcx7XjRXhqd79vJuq9rxTw3QE1YiTOlA4-jzGXaJtrpvbC4/w640-h480/Matias%20La%20Torre%20-%20Foto%20de%20Informese%20Primero.jpg",
+  "razon": "Es la única opción disponible, cumple con todos los requisitos de calidad y contenido sin marcas ni menores.",
+  "cuando": "2026-11-07T17:02:19.296Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Matías La Torre con una guitarra en un estudio con paneles acústicos."
+  },
+  "huella": "934c4d8b8f3b773f"
  }
 }
