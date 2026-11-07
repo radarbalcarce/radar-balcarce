@@ -82931,7 +82931,8 @@
    "corresponde": "si",
    "descripcion": "Javier Milei recibiendo una distinción de manos de Isabel Díaz Ayuso."
   },
-  "huella": "e6ccce8c8fcac799"
+  "huella": "e6ccce8c8fcac799",
+  "ausenteDesde": "2026-11-07T01:02:22.628Z"
  },
  "1hxe7lm": {
   "archivo": "fotos-notas/1hxe7lm.jpg",
@@ -87195,14 +87196,40 @@
   "huella": "120c0b0b45256131"
  },
  "1cormow": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/1cormow.webp",
+  "medio": "El Día",
+  "credito": "Foto: El Día",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "El Tribunal de Disciplina de la AFA abre un expediente a Estudiantes",
-  "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de El Día no se usa todavía.",
-  "cuando": "2026-11-06T21:01:58.738Z",
-  "intentos": 1,
-  "fuentes": 4,
-  "intentosPorCupo": 3
+  "enlace": "https://www.eldia.com/deportes/el-tribunal-de-disciplina-cito-a-estudiantes-tras-el-duro-informe-del-arbitro-mastrangelo-deportes_1793921093",
+  "imagenOriginal": "https://cdn1.eldia.com/112026/1793921142323.webp?&cw=1200&ch=630",
+  "razon": "La foto A es la única que no presenta marcas de agua sobreimpresas, no es gráfica y muestra claramente la situación de juego sin elementos distractores.",
+  "cuando": "2026-11-07T01:02:08.949Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Árbitro en medio de jugadores de Estudiantes y otro equipo durante un partido.",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "si",
+    "descripcion": "Jugadores de Estudiantes y San Lorenzo discuten con el árbitro durante un partido de fútbol."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "77b1ca2baaaa23b2"
  },
  "uvr8fk": {
   "archivo": "fotos-notas/uvr8fk.jpg",
@@ -90632,6 +90659,31 @@
    "corresponde": "si",
    "descripcion": "Director técnico de San Lorenzo sosteniendo una pelota en un entrenamiento."
   },
-  "huella": "ad5c5e5255e064d0"
+  "huella": "ad5c5e5255e064d0",
+  "ausenteDesde": "2026-11-07T01:02:22.628Z"
+ },
+ "16rcfpz": {
+  "archivo": "fotos-notas/16rcfpz.jpg",
+  "medio": "Olé",
+  "credito": "Foto: Olé",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Nelson Cuevas analiza incursionar en la política de Paraguay",
+  "enlace": "https://www.ole.com.ar/river-plate/river-pipino-cuevas-paraguay-politica-ponzio_0_qYYwwvIyC4.html",
+  "imagenOriginal": "https://www.ole.com.ar/images/2023/09/16/kCwao8YjI_2000x1500__1.jpg",
+  "razon": "Es la única foto que muestra al protagonista actual en un contexto personal, sin ser una composición gráfica ni una imagen de archivo de su etapa como jugador.",
+  "cuando": "2026-11-07T01:02:08.949Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Nelson Cuevas posando con una camiseta de River."
+  },
+  "huella": "39555533903163c1"
  }
 }
