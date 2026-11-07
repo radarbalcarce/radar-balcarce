@@ -1699,19 +1699,19 @@
   ]
  },
  "18jr7sd": {
-  "intentos": 2,
-  "ultimo": "2026-11-07T23:01:38.460Z",
-  "motivo": "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: decilo con otras palabras; sin esas oraciones quedan 215 palabras",
-  "textos": 2,
+  "intentos": 3,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden; sin esas oraciones quedan 280 palabras",
+  "textos": 4,
   "numeradas": 4,
   "motivos": [
-   "cuerpo: 1 problema (copia): copia 21 palabras seguidas del original: d",
-   "cuerpo: 1 problema (promesa): el título nombra a \"tc\", \"pick\", \"up\" y ",
    "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (positio",
-   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d"
+   "cuerpo: 1 problema (copia): copia 23 palabras seguidas del original: d",
+   "cuerpo: 2 problemas (tildes, promesa): el texto está escrito sin tilde",
+   "cuerpo: 1 problema (tildes): el texto está escrito sin tildes (positio"
   ],
   "falla": [
-   "copia 23 palabras seguidas del original (\"tc pick up en el autodromo roberto mouras de la plata y se aseguro…\"): decilo con otras palabras"
+   "el texto está escrito sin tildes (position): va con las tildes y la eñe donde corresponden"
   ]
  },
  "18lzxez": {
@@ -6185,6 +6185,20 @@
   "textos": 1,
   "numeradas": 1
  },
+ "1xt5ci": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y la fuente no",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (nombre): el copete nombra a \"justicia\" y "
+  ],
+  "falla": [
+   "el copete nombra a \"justicia\" y la fuente no",
+   "el cuerpo nombra a \"justicia\" y la fuente no"
+  ]
+ },
  "1xtzjos": {
   "intentos": 1,
   "ultimo": "2026-11-03T21:31:41.789Z",
@@ -6414,6 +6428,13 @@
   "textos": 3,
   "numeradas": 3
  },
+ "1yuu5ib": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3
+ },
  "1yv5m5l": {
   "intentos": 2,
   "ultimo": "2026-11-03T15:44:32.039Z",
@@ -6484,6 +6505,16 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 2
+ },
+ "23jmb": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 11,
+  "motivos": [
+   "cuerpo: 1 problema (relleno): el cuerpo tiene una frase de relleno sin"
+  ]
  },
  "27fgh5": {
   "intentos": 1,
@@ -7890,6 +7921,16 @@
   "textos": 2,
   "numeradas": 2
  },
+ "ak7d44": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "título o bajada: 1 problema (fecha): el copete menciona \"domingo\" y la"
+  ]
+ },
  "ak8797": {
   "intentos": 1,
   "ultimo": "2026-11-01T03:01:24.929Z",
@@ -7985,6 +8026,20 @@
   "motivo": "con cuerpo",
   "textos": 1,
   "numeradas": 1
+ },
+ "b6l0zv": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "título o bajada: 1 problema (antecedente): el copete usa \"rodolfo\", que sale de una nota anterior, como si fuera de hoy",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "título o bajada: 1 problema (antecedente): el copete usa \"rodolfo\", qu"
+  ],
+  "falla": [
+   "el copete usa \"rodolfo\", que sale de una nota anterior, como si fuera de hoy",
+   "el cuerpo nombra a \"leandro\" y la fuente no"
+  ]
  },
  "b6pjp9": {
   "intentos": 1,
@@ -8736,6 +8791,16 @@
    "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
   ]
  },
+ "eiuk6": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 2 problemas (repite, copia): el cuerpo repite el copete en vez"
+  ]
+ },
  "enh8i2": {
   "intentos": 1,
   "ultimo": "2026-11-03T04:02:19.793Z",
@@ -9238,6 +9303,16 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 9
+ },
+ "h7gs3x": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 2,
+  "numeradas": 3,
+  "motivos": [
+   "cuerpo: 4 problemas (antecedente, nombre, copia): el cuerpo usa \"sabad"
+  ]
  },
  "h8r1d8": {
   "intentos": 1,
@@ -9770,6 +9845,13 @@
    "cuerpo: 1 problema (copia): copia 29 palabras seguidas del original: d"
   ]
  },
+ "k0rrt7": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 15
+ },
  "k1k0sl": {
   "intentos": 1,
   "ultimo": "2026-11-01T14:31:28.146Z",
@@ -10172,6 +10254,13 @@
   "textos": 1,
   "numeradas": 1
  },
+ "lnh6no": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 8
+ },
  "lp1ekj": {
   "intentos": 1,
   "ultimo": "2026-11-02T04:01:31.722Z",
@@ -10396,6 +10485,21 @@
   "motivo": "con cuerpo",
   "textos": 4,
   "numeradas": 12
+ },
+ "mu2kqc": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 2 y la fuente no lo dice; sin esas oraciones quedan 223 palabras",
+  "textos": 2,
+  "numeradas": 2,
+  "motivos": [
+   "cuerpo: 3 problemas (numero, copia, promesa): el cuerpo dice 2 y la fu",
+   "cuerpo: 2 problemas (numero, promesa): el cuerpo dice 2 y la fuente no"
+  ],
+  "falla": [
+   "el cuerpo dice 2 y la fuente no lo dice",
+   "el título dice 35 y el cuerpo no lo explica"
+  ]
  },
  "mvah7b": {
   "intentos": 1,
@@ -11038,6 +11142,13 @@
    "título o bajada: 1 problema (nombre): el copete nombra a \"plate\" y la "
   ]
  },
+ "qjhoss": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 5,
+  "numeradas": 17
+ },
  "qq886q": {
   "intentos": 1,
   "ultimo": "2026-11-06T16:02:12.901Z",
@@ -11184,6 +11295,13 @@
   "motivos": [
    "cuerpo: 1 problema (promesa): el título dice 15 y el cuerpo no lo expl"
   ]
+ },
+ "ret68h": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
  },
  "rg0nx8": {
   "intentos": 1,
@@ -12800,6 +12918,13 @@
   "motivos": [
    "sin material"
   ]
+ },
+ "zi73gi": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T23:31:28.813Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 5
  },
  "zjicwa": {
   "intentos": 1,
