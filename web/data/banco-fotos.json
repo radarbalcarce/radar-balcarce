@@ -49620,9 +49620,7 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "o1j2gl": {
-  "archivo": "fotos-notas/o1j2gl.jpg",
   "medio": "TN (Todo Noticias)",
-  "credito": "Foto: TN (Todo Noticias)",
   "licencia": null,
   "origen": "medio",
   "titulo": "El Tesoro renueva el 107% de los vencimientos y adjudica más de $11 billones",
@@ -49643,7 +49641,8 @@
    "descripcion": "Sergio Massa y Luis Caputo sentados en una mesa de reuniones con banderas al fondo."
   },
   "huella": "9dcb96b313121010",
-  "ausenteDesde": "2026-10-31T10:31:58.500Z"
+  "intentado": true,
+  "borrada": true
  },
  "1xvssy4": {
   "intentado": true,
@@ -56227,7 +56226,8 @@
    "corresponde": "generica",
    "descripcion": "Vitrinas de una heladería con distintos gustos de helado"
   },
-  "huella": "72524d4d4d4d4595"
+  "huella": "72524d4d4d4d4595",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "6smgc": {
   "intentado": true,
@@ -82114,7 +82114,8 @@
    "corresponde": "si",
    "descripcion": "Cristiano Ronaldo con la camiseta de Portugal serio en primer plano."
   },
-  "huella": "2444030179606632"
+  "huella": "2444030179606632",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "199sog1": {
   "archivo": "fotos-notas/199sog1.jpg",
@@ -85221,7 +85222,8 @@
    "corresponde": "si",
    "descripcion": "Patricia Bullrich sentada en una mesa de reunión junto a otros dirigentes en la sede de Coninagro."
   },
-  "huella": "77939393f6b4d186"
+  "huella": "77939393f6b4d186",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "1y2d2s8": {
   "archivo": "fotos-notas/1y2d2s8.jpg",
@@ -85336,7 +85338,8 @@
    "corresponde": "si",
    "descripcion": "Tesla Cybertruck en un entorno exterior."
   },
-  "huella": "f1f1e9b383a2a0b5"
+  "huella": "f1f1e9b383a2a0b5",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "1kesqj6": {
   "intentado": true,
@@ -89183,10 +89186,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Distribuidores de insumos piden participar en el debate de la Ley de Semillas",
-  "razon": "Todas las imágenes son de stock o genéricas, no ilustran el hecho específico del debate sobre la Ley de Semillas.",
-  "cuando": "2026-11-06T19:02:29.887Z",
-  "intentos": 1,
-  "fuentes": 3
+  "razon": "La segunda opinión (groq, porque la nota habla de chicos o de categorías juveniles) descartó la de Ruralnet (parece una foto de stock); la de Agrofy News (parece una foto de stock): no se elige ninguna.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "intentos": 2,
+  "fuentes": 4
  },
  "1ytq949": {
   "archivo": "fotos-notas/1ytq949.jpg",
@@ -89264,10 +89267,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
-  "razon": "La única foto disponible muestra a un menor de edad, por lo que no puede ser publicada según las políticas editoriales.",
-  "cuando": "2026-11-06T19:33:39.352Z",
-  "intentos": 1,
-  "fuentes": 1
+  "razon": "La única foto disponible muestra a un menor de edad reconocible, por lo que no puede ser publicada.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "1hwc8eu": {
   "archivo": "fotos-notas/1hwc8eu.jpg",
@@ -91092,7 +91095,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "4f0daf0f213f214c"
+  "huella": "4f0daf0f213f214c",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "ot02ev": {
   "archivo": "fotos-notas/ot02ev.jpg",
@@ -91246,7 +91250,8 @@
    "corresponde": "si",
    "descripcion": "Jugadores disputando la pelota en el partido."
   },
-  "huella": "6387971717075307"
+  "huella": "6387971717075307",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "1m0tujp": {
   "archivo": "fotos-notas/1m0tujp.jpg",
@@ -91294,7 +91299,8 @@
    "corresponde": "si",
    "descripcion": "Auto de rally levantando una gran polvareda con sierras de fondo"
   },
-  "huella": "bddfc686d34963e6"
+  "huella": "bddfc686d34963e6",
+  "ausenteDesde": "2026-11-07T10:34:47.796Z"
  },
  "ur5cn8": {
   "intentado": true,
@@ -91304,5 +91310,117 @@
   "cuando": "2026-11-07T10:01:51.372Z",
   "intentos": 1,
   "fuentes": 4
+ },
+ "12stj4i": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Riquelme Antonetti gana en Mar del Plata y llega a veinte triunfos",
+  "razon": "La única imagen disponible es una gráfica institucional con el logo del medio y no corresponde a una fotografía del evento.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "intentos": 1,
+  "fuentes": 1
+ },
+ "2wkrcu": {
+  "archivo": "fotos-notas/2wkrcu.jpg",
+  "medio": "Bolavip Argentina",
+  "credito": "Foto: Bolavip Argentina",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Boca, Argentinos y Rosario Central definen este sábado el título de la liga",
+  "enlace": "https://bolavip.com/ar/futbolargentino/sin-angel-di-maria-los-convocados-de-rosario-central-para-enfrentar-a-estudiantes-de-rio-cuarto",
+  "imagenOriginal": "https://media.bolavip.com/wp-content/uploads/sites/18/2026/11/06210759/CIRCULITO-EMOJIS-1200x740.webp",
+  "razon": "Es una fotografía nítida, de buena calidad, que muestra a un jugador protagonista de uno de los equipos mencionados en el título y sin marcas de agua ni menores.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Primer plano de un jugador de Rosario Central con la camiseta oficial",
+   "segunda": {
+    "proveedor": "groq",
+    "marca": false,
+    "menor": false,
+    "jovenes": false,
+    "deArchivo": true,
+    "grafica": false,
+    "stock": false,
+    "corresponde": "generica",
+    "descripcion": "Jugador de Rosario Central con la camiseta de la temporada 2019/2020."
+   },
+   "dudosa": "la nota habla de chicos o de categorías juveniles"
+  },
+  "huella": "92b2a29292686141"
+ },
+ "koa56z": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Realizan la trigésima quinta Marcha del Orgullo en Buenos Aires",
+  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de Perfil no se usa todavía.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "intentos": 1,
+  "fuentes": 6,
+  "intentosPorCupo": 1
+ },
+ "1yb7o21": {
+  "archivo": "fotos-notas/1yb7o21.jpg",
+  "medio": "Agrofy News",
+  "credito": "Foto: Agrofy News",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Superan los cien centros de acopio para envases vacíos de agroquímicos",
+  "enlace": "https://news.agrofy.com.ar/noticia/216963/millon-kilos-bidones-agroquimicos-no-se-pudieron-reciclar-no-estaban-bien-lavados",
+  "imagenOriginal": "https://news.agrofystatic.com/portadas/bidones_campolimpio-leu3k.jpg?d=1200x675",
+  "razon": "Muestra claramente el interior del centro de acopio con los envases vacíos de agroquímicos apilados, ilustrando perfectamente el tema de la nota sin personas ni marcas agregadas.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Interior de un centro de acopio con pilas de bidones vacíos de agroquímicos."
+  },
+  "huella": "978dab87aba98b8f"
+ },
+ "i9iw46": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Referentes de la producción destacan el potencial argentino para crecer",
+  "razon": "Las dos fotos muestran un panel sobre exportación de petróleo en lugar de agropecuaria y producción agrícola.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "intentos": 1,
+  "fuentes": 2
+ },
+ "y9o7ip": {
+  "archivo": "fotos-notas/y9o7ip.jpg",
+  "medio": "Perfil",
+  "credito": "Foto: Perfil",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El papa León XIV visita el Cottolengo Don Orione y encabeza una misa en Palermo",
+  "enlace": "https://perfil.com/sociedad/el-papa-vivira-una-experiencia-unica-en-el-cottolengo-don-orione-aTrB72S96hcd",
+  "imagenOriginal": "https://media.perfil.com/prod/images/hero/227d90486714-proyecto-nuevo-2026-11-03t152609896.webp",
+  "razon": "Es la única foto limpia y sin marcas ni gráficos sobreimpresos que muestra adecuadamente el lugar del evento.",
+  "cuando": "2026-11-07T10:33:27.227Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Vista aérea del predio del Cottolengo Don Orione"
+  },
+  "huella": "a72326ae884ade9a"
  }
 }
