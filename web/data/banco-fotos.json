@@ -46696,14 +46696,16 @@
   "errorGemini": "HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google."
  },
  "1ed5j5h": {
-  "medio": "La Nación",
+  "archivo": "fotos-notas/1ed5j5h.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
   "licencia": null,
   "origen": "medio",
-  "titulo": "Se completa la decimocuarta fecha del Torneo Clausura 2026",
-  "enlace": "https://www.lanacion.com.ar/deportes/futbol/asi-estan-los-cruces-de-octavos-de-final-del-torneo-clausura-2026-tras-la-fecha-14-nid27102026/",
-  "imagenOriginal": "https://www.lanacion.com.ar/resizer/v2/boca-le-gano-a-independiente-con-gol-de-facundo-EEREGBGEAZBRHB2TIJHMVINCV4.JPG?auth=35417ef0e090edd0cfe0f82932039f583170ddf844318811770395dc0fdef4dd&width=1200&height=800&quality=70&smart=true",
-  "razon": "Es la única foto de un partido de fútbol de la fecha que corresponde, tiene excelente nitidez, no tiene marcas ni menores.",
-  "cuando": "2026-10-28T11:02:37.449Z",
+  "titulo": "El Torneo Clausura 2026 define a sus clasificados para los playoffs",
+  "enlace": "https://www.minutouno.com/deportes/minuto-minuto-los-playoffs-del-torneo-clausura-2026-posiciones-clasificados-y-como-estan-hoy-los-cruces-n6338207",
+  "imagenOriginal": "https://media.minutouno.com/p/6e397661b1f2141e48351d97a55ae599/adjuntos/150/imagenes/043/296/0043296251/1200x675/smart/torneo-apertura-trofeo.jpg",
+  "razon": "La foto B es la única que muestra el trofeo de manera clara y limpia, sin personas reconocibles, sin marcas de agua y sin ser una pieza gráfica. La segunda opinión (groq) descartó la de Perfil (parece una foto de stock): se usa Minuto Uno.",
+  "cuando": "2026-11-07T03:03:20.410Z",
   "vision": {
    "proveedor": "gemini",
    "marca": false,
@@ -46713,7 +46715,8 @@
    "grafica": false,
    "stock": false,
    "corresponde": "si",
-   "descripcion": "Jugador de fútbol sonriendo en pleno partido",
+   "descripcion": "Trofeo de la Liga Profesional de Fútbol siendo sostenido por jugadores.",
+   "detalle": "Se ven manos y partes de personas, pero no hay marcas de agua.",
    "segunda": {
     "proveedor": "groq",
     "marca": false,
@@ -46723,13 +46726,11 @@
     "grafica": false,
     "stock": false,
     "corresponde": "si",
-    "descripcion": "Jugador de fútbol con camiseta a rayas celebrando en la cancha"
+    "descripcion": "Un jugador levanta un trofeo de campeonato con una multitud de fondo."
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "8725672f070d4c4c",
-  "intentado": true,
-  "borrada": true
+  "huella": "1f46c783d352e686"
  },
  "1qbhiyg": {
   "medio": "La Gaceta (Tucumán)",
@@ -55091,9 +55092,7 @@
   "ausenteDesde": "2026-10-31T17:38:21.567Z"
  },
  "1dvcqvp": {
-  "archivo": "fotos-notas/1dvcqvp.jpg",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "Boca define su clasificación a la Copa Libertadores frente a River en el Superclásico",
@@ -55113,7 +55112,8 @@
    "descripcion": "Director técnico concentrado durante un partido en la cancha."
   },
   "huella": "212446626ad2f2b6",
-  "ausenteDesde": "2026-10-31T02:06:25.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "12wmapc": {
   "archivo": "fotos-notas/12wmapc.jpg",
@@ -57687,9 +57687,7 @@
   "errorGemini": "HTTP 400: User location is not supported for the API use."
  },
  "va1w22": {
-  "archivo": "fotos-notas/va1w22.webp",
   "medio": "Bolavip Argentina",
-  "credito": "Foto: Bolavip Argentina",
   "licencia": null,
   "origen": "medio",
   "titulo": "River afronta múltiples bajas por lesión para el Superclásico ante Boca",
@@ -57721,7 +57719,8 @@
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
   "huella": "1919094129213171",
-  "ausenteDesde": "2026-10-31T02:06:25.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "gpghgh": {
   "archivo": "fotos-notas/gpghgh.jpg",
@@ -58855,9 +58854,7 @@
   "ausenteDesde": "2026-11-02T20:35:40.952Z"
  },
  "qeey3z": {
-  "archivo": "fotos-notas/qeey3z.jpg",
   "medio": "INTA",
-  "credito": "Foto: INTA",
   "licencia": null,
   "origen": "medio",
   "titulo": "El INTA identifica factores clave para aumentar el rendimiento del maíz",
@@ -58877,7 +58874,8 @@
    "descripcion": "Primer plano de plantas de maíz en un campo bajo un cielo despejado."
   },
   "huella": "c0c8c8d8b4b71736",
-  "ausenteDesde": "2026-10-31T02:06:25.382Z"
+  "intentado": true,
+  "borrada": true
  },
  "1p5bf1w": {
   "archivo": "fotos-notas/1p5bf1w.jpg",
@@ -82448,7 +82446,8 @@
    "corresponde": "si",
    "descripcion": "Alan Jones caminando por el costado de la pista con casco en mano"
   },
-  "huella": "03138b0d093bc683"
+  "huella": "03138b0d093bc683",
+  "ausenteDesde": "2026-11-07T03:04:34.423Z"
  },
  "1d4xc5n": {
   "archivo": "fotos-notas/1d4xc5n.jpg",
@@ -83458,10 +83457,10 @@
   "origen": "ninguna",
   "titulo": "Albana Fuentes protagonizará el musical de Frozen en el Teatro Gran Rex",
   "razon": "Segunda opinión no disponible (la nota habla de chicos o de categorías juveniles; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de La Nación no se usa todavía.",
-  "cuando": "2026-11-07T00:03:01.098Z",
+  "cuando": "2026-11-07T03:03:20.410Z",
   "intentos": 1,
   "fuentes": 6,
-  "intentosPorCupo": 2
+  "intentosPorCupo": 3
  },
  "camv95": {
   "archivo": "fotos-notas/camv95.jpg",
@@ -84659,7 +84658,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "c3c34f0c32333336"
+  "huella": "c3c34f0c32333336",
+  "ausenteDesde": "2026-11-07T03:04:34.423Z"
  },
  "123xcad": {
   "archivo": "fotos-notas/123xcad.jpg",
@@ -86044,7 +86044,8 @@
    "corresponde": "si",
    "descripcion": "Dos actores con máscaras en el escenario de una obra teatral."
   },
-  "huella": "2434263636369594"
+  "huella": "2434263636369594",
+  "ausenteDesde": "2026-11-07T03:04:34.423Z"
  },
  "1yp3loe": {
   "intentado": true,
@@ -86572,7 +86573,8 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "638c968b9316a693"
+  "huella": "638c968b9316a693",
+  "ausenteDesde": "2026-11-07T03:04:34.423Z"
  },
  "qvrt15": {
   "archivo": "fotos-notas/qvrt15.jpg",
@@ -90051,11 +90053,10 @@
   "intentado": true,
   "origen": "ninguna",
   "titulo": "Franco Colapinto completa las prácticas del Gran Premio de Brasil",
-  "razon": "Segunda opinión no disponible (la primera IA vio gente muy joven; groq: HTTP 429: Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m3jr9tmme4prmmv5ha0panqq` service tier ): la foto de TyC Sports no se usa todavía.",
-  "cuando": "2026-11-07T00:03:01.098Z",
-  "intentos": 1,
-  "fuentes": 2,
-  "intentosPorCupo": 2
+  "razon": "Ninguna de las fotos corresponde al piloto Franco Colapinto; la imagen A muestra a Jack Doohan y la imagen B muestra a otro piloto, por lo que no sirven para ilustrar la nota.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "intentos": 2,
+  "fuentes": 2
  },
  "17f02om": {
   "archivo": "fotos-notas/17f02om.jpg",
@@ -90826,5 +90827,143 @@
    "descripcion": "Retrato de un hombre y una mujer sonriendo frente a un cartel naranja con la palabra 'PEÑA'."
   },
   "huella": "f109a8c844cab232"
+ },
+ "15dlgkk": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Merentiel elogia el liderazgo de Paredes en la previa de la Sudamericana",
+  "razon": "Ambas imágenes son composiciones gráficas o capturas de pantalla editadas, por lo que ninguna cumple con los requisitos de ser una fotografía de una escena real sin elementos sobreimpresos.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "1tpk9gh": {
+  "intentado": true,
+  "origen": "ninguna",
+  "titulo": "Pedro Alliana asume la presidencia de Paraguay tras la destitución de Peña",
+  "razon": "Ninguna de las fotos cumple con los requisitos: la A es de un evento distinto (no corresponde), la B es una composición que incluye una captura de pantalla de baja calidad y la C tiene una marca de agua sobreimpresa del medio.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "intentos": 1,
+  "fuentes": 3
+ },
+ "s226oa": {
+  "archivo": "fotos-notas/s226oa.jpg",
+  "medio": "TyC Sports",
+  "credito": "Foto: TyC Sports",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "River asegura su lugar en octavos y espera rival para el Torneo Clausura",
+  "enlace": "https://www.tycsports.com/boca-juniors/posibles-rivales-de-boca-octavos-de-final-torneo-clausura-id770722.html",
+  "imagenOriginal": "https://media.tycsports.com/files/2026/11/02/1002185/rodolfo-arruabarrena_1440x810.webp?v=1",
+  "razon": "La foto B es la única que muestra una escena real, sin marcas de agua, sin ser una pieza gráfica y sin menores, siendo adecuada para ilustrar la nota.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Director técnico de River Plate en el banco de suplentes."
+  },
+  "huella": "284c4c0c0f074647"
+ },
+ "tcl2lw": {
+  "archivo": "fotos-notas/tcl2lw.jpg",
+  "medio": "Ámbito",
+  "credito": "Foto: Ámbito",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El subte de Buenos Aires modifica su servicio por la visita del papa León XIV",
+  "enlace": "https://www.ambito.com/informacion-general/el-subte-funcionara-cronograma-especial-el-domingo-8-y-el-martes-10-noviembre-la-visita-del-papa-leon-xiv-n6342396",
+  "imagenOriginal": "https://media.ambito.com/p/17e2da79a591105200342ba6b9c956da/adjuntos/239/imagenes/042/590/0042590926/1200x675/681x317:701x337/subte-b-2jpeg.jpeg",
+  "razon": "La foto C es la única que no presenta marcas de agua, elementos gráficos sobreimpresos ni personas en primer plano, cumpliendo con los criterios de calidad y neutralidad requeridos.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Formación del subte en la estación Pasteur-AMIA con pasajeros caminando por el andén."
+  },
+  "huella": "daf1a7cdcc171f2e"
+ },
+ "hme8rh": {
+  "archivo": "fotos-notas/hme8rh.jpg",
+  "medio": "Infórmese Primero (FM 104.9)",
+  "credito": "Foto: Infórmese Primero (FM 104.9)",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Los bancos bonaerenses cierran seis días por el Día del Bancario y la visita papal",
+  "enlace": "http://www.informeseprimero.com.ar/2026/11/por-feriados-y-la-visita-del-papa-los.html",
+  "imagenOriginal": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2FLrH_n5ORp_9ARaNFMjjpeCE6fMsvVnvEJqur6YMJ2zljsk02nOCkFDcX7-xczbl0uts7977ITY9anJL8ctMQVI4fXh5_DwH3n6k_ixalOTwyaVtrjHBy6mkXC8rwNRbrfAxvzQYVJdlruxYzHavySzarn5fjWyTcdEj-7TnP0D_EVIcJU9mFkWf7y4/w640-h426/Banco%20Provincia.jpg",
+  "razon": "Es la única imagen que ilustra el lugar físico del banco sin personas, cumpliendo con los criterios de calidad y sin marcas de agua.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Fachada exterior de una sucursal del Banco Provincia."
+  },
+  "huella": "c173f0fa7170ad76"
+ },
+ "vyc7eh": {
+  "archivo": "fotos-notas/vyc7eh.jpg",
+  "medio": "El Cronista",
+  "credito": "Foto: El Cronista",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "Aumentan los valores de las multas de tránsito en la provincia de Buenos Aires",
+  "enlace": "https://www.cronista.com/economia-politica/multas-mas-caras-aumenta-el-valor-de-las-infracciones-de-transito-en-buenos-aires-cuanto-tengo-que-pagar-ahora/",
+  "imagenOriginal": "https://www.cronista.com/resizer/v2/HXAHHBM3HNHQ7LTXRWFZDJ7SJY.png?auth=96e4f40c4679cc250840cbf3852a0a8b6f9b0bfe9be6583ceb467eedcbcff9b5&height=630&width=1200&quality=70&smart=true",
+  "razon": "Es la única imagen que ilustra el concepto de multas de tránsito de manera clara, sin personas identificables y sin marcas de agua, cumpliendo con todos los criterios de calidad.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Multa de tránsito colocada en el parabrisas de un vehículo."
+  },
+  "huella": "a3e5c64666644747"
+ },
+ "13mkwfd": {
+  "archivo": "fotos-notas/13mkwfd.jpg",
+  "medio": "INTA",
+  "credito": "Foto: INTA",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "El INTA desarrolla un sistema satelital para medir el forraje en campos",
+  "enlace": "https://www.argentina.gob.ar/noticias/imagenes-satelitales-para-estimar-cuanto-pasto-hay-disponible-en-los-campos-ganaderos",
+  "imagenOriginal": "https://www.argentina.gob.ar/sites/default/files/2026/11/diseno_sin_titulo9.jpg",
+  "razon": "La foto A es una imagen limpia, sin personas y adecuada para ilustrar el tema de forraje, mientras que la B incluye a una persona trabajando en el campo.",
+  "cuando": "2026-11-07T03:03:20.410Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Campo con pasturas verdes y colinas de fondo."
+  },
+  "huella": "d8ca41d9ccb83cbe"
  }
 }

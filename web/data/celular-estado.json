@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T02:03:28.181Z",
- "portada": 208,
+ "generado": "2026-11-07T03:04:34.562Z",
+ "portada": 182,
  "archivo": 500,
- "esperandoCuerpo": 7,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-07T02:03:28.740Z",
+  "generado": "2026-11-07T03:04:35.007Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -13,7 +13,7 @@
     "que": "El clima de la mañana",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -23,7 +23,7 @@
     "que": "efemeride",
     "voz": "locutora",
     "ventana": 180,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -33,17 +33,7 @@
     "que": "El repaso de la mañana",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "cerrada",
-    "salio": null
-   },
-   {
-    "nombre": "participa-nota",
-    "tipo": "reel",
-    "hora": "12:00",
-    "que": "Tu nota",
-    "voz": "locutor",
-    "ventana": 60,
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -53,7 +43,17 @@
     "que": "El repaso de la tarde",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "cerrada",
+    "momento": "antes",
+    "salio": null
+   },
+   {
+    "nombre": "utiles",
+    "tipo": "reel",
+    "hora": "17:00",
+    "que": "Los teléfonos útiles",
+    "voz": "locutor",
+    "ventana": 60,
+    "momento": "antes",
     "salio": null
    },
    {
@@ -63,7 +63,7 @@
     "que": "La farmacia de turno",
     "voz": "locutor",
     "ventana": 300,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -73,7 +73,7 @@
     "que": "Cómo sigue el clima esta noche",
     "voz": "locutora",
     "ventana": 240,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    },
    {
@@ -83,7 +83,7 @@
     "que": "El repaso del día",
     "voz": "locutor",
     "ventana": 180,
-    "momento": "en-hora",
+    "momento": "antes",
     "salio": null
    }
   ],
@@ -93,39 +93,19 @@
     "titulo": "El repaso de la mañana",
     "hora": "10:00",
     "voz": "locutor",
-    "momento": "cerrada",
+    "momento": "antes",
     "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "noticia2",
-    "titulo": "El repaso de la tarde",
-    "hora": "15:00",
-    "voz": "locutora",
-    "momento": "cerrada",
-    "salio": null,
-    "segundos": null,
-    "notas": []
-   },
-   {
-    "nombre": "podcast",
-    "titulo": "El repaso del día",
-    "hora": "21:00",
-    "voz": "locutor",
-    "momento": "en-hora",
-    "salio": null,
-    "segundos": 39,
+    "segundos": 47,
     "notas": [
-     {
-      "id": "j7nvck",
-      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
-      "seccion": "Balcarce"
-     },
      {
       "id": "jf7bz2",
       "titulo": "Detienen a un hombre y secuestran cocaína tras allanamientos",
       "seccion": "Policiales"
+     },
+     {
+      "id": "qvrt15",
+      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
+      "seccion": "Balcarce"
      },
      {
       "id": "1xd4thu",
@@ -136,6 +116,68 @@
       "id": "f9b3nl",
       "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
       "seccion": "Cultura y agenda"
+     }
+    ]
+   },
+   {
+    "nombre": "noticia2",
+    "titulo": "El repaso de la tarde",
+    "hora": "15:00",
+    "voz": "locutora",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 54,
+    "notas": [
+     {
+      "id": "1pkqfef",
+      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "e7bi4o",
+      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
+      "seccion": "Cultura y agenda"
+     },
+     {
+      "id": "1r3wzjp",
+      "titulo": "Fijan la fecha y los precios para la quinta edición de la Balcarce Nocturna",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1xsiv6s",
+      "titulo": "La EEPA N°701 presenta su libro Palabras que abrigan en la plaza Libertad",
+      "seccion": "Educación"
+     }
+    ]
+   },
+   {
+    "nombre": "podcast",
+    "titulo": "El repaso del día",
+    "hora": "21:00",
+    "voz": "locutor",
+    "momento": "antes",
+    "salio": null,
+    "segundos": 55,
+    "notas": [
+     {
+      "id": "j7nvck",
+      "titulo": "Fallece Cristina Díaz, vecina colaboradora del Hospital Municipal",
+      "seccion": "Balcarce"
+     },
+     {
+      "id": "oal4ia",
+      "titulo": "La carrera homenaje a Luis Vildoza suma más de 250 inscriptos",
+      "seccion": "Deportes"
+     },
+     {
+      "id": "1rw3gbp",
+      "titulo": "Renuncia el presidente de Paraguay Santiago Peña tras el colapso de Ueno Bank",
+      "seccion": "Argentina"
+     },
+     {
+      "id": "1ymljo6",
+      "titulo": "El fiscal Pollicita pide investigar a Manuel Adorni por evasión tributaria",
+      "seccion": "Política"
      }
     ]
    }
@@ -156,39 +198,21 @@
      "marcada": false
     },
     {
-     "id": "wdm8nw",
-     "titulo": "La construcción crece 7,8% mensual y la industria manufacturera sube 0,7%",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "b8njc9",
-     "titulo": "Muere a los 52 años el cineasta Sebastián Lelio en Santiago de Chile",
-     "seccion": "Cultura y agenda",
-     "marcada": false
-    },
-    {
      "id": "wxjxt8",
      "titulo": "APTRA anuncia los nominados para los premios Martín Fierro de Cable 2026",
      "seccion": "Cultura y agenda",
      "marcada": false
     },
     {
-     "id": "kcfunr",
-     "titulo": "El riesgo país cierra la semana en alza y supera los 930 puntos básicos",
-     "seccion": "Economía",
-     "marcada": false
-    },
-    {
-     "id": "wya79i",
-     "titulo": "Rosario Central y Argentinos Juniors definen el torneo el sábado",
-     "seccion": "Fútbol",
-     "marcada": false
-    },
-    {
      "id": "ubi1p7",
      "titulo": "Piden 11 años y 2 meses de prisión para Pity Álvarez por un homicidio",
      "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "1npdrzq",
+     "titulo": "El riesgo país alcanza los 939 puntos y llega a su máximo en un año",
+     "seccion": "Economía",
      "marcada": false
     }
    ],
