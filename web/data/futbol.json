@@ -1,5 +1,5 @@
 {
- "consultado": "2026-11-07T20:34:14.182Z",
+ "consultado": "2026-11-07T21:02:32.811Z",
  "equipos": [
   "9739",
   "3",
@@ -1076,7 +1076,7 @@
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "3'",
+    "minuto": "31'",
     "local": {
      "id": "3",
      "nombre": "Argentinos Juniors",
@@ -1085,10 +1085,17 @@
     "visitante": {
      "id": "10",
      "nombre": "Huracán",
-     "goles": 0
+     "goles": 1
     },
     "penales": null,
-    "goles": [],
+    "goles": [
+     {
+      "equipo": "visitante",
+      "jugador": "Oscar Cortés",
+      "minuto": "8'",
+      "tipo": "gol"
+     }
+    ],
     "estadio": "Diego Armando Maradona",
     "fase": null,
     "partidoDeLaSerie": null,
@@ -1099,7 +1106,7 @@
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "3'",
+    "minuto": "31'",
     "local": {
      "id": "5",
      "nombre": "Boca Juniors",
@@ -1122,7 +1129,7 @@
     "competencia": "liga",
     "inicio": "2026-11-07T20:30:00.000Z",
     "estado": "en-juego",
-    "minuto": "3'",
+    "minuto": "31'",
     "local": {
      "id": "17",
      "nombre": "Rosario Central",

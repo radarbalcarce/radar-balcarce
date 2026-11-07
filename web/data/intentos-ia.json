@@ -53,6 +53,13 @@
   "textos": 3,
   "numeradas": 6
  },
+ "108788b": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:01:21.880Z",
+  "motivo": "con cuerpo",
+  "textos": 3,
+  "numeradas": 3
+ },
  "108x7zb": {
   "intentos": 3,
   "ultimo": "2026-11-02T17:03:20.662Z",
@@ -2259,6 +2266,13 @@
   "motivo": "con cuerpo",
   "textos": 2,
   "numeradas": 4
+ },
+ "1bh9uck": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:01:21.880Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 11
  },
  "1bk49lc": {
   "intentos": 1,
@@ -5509,13 +5523,14 @@
   "fuentes": 1
  },
  "1u1awgc": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T20:31:18.800Z",
-  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 866 (line 11 column 1)",
+  "intentos": 2,
+  "ultimo": "2026-11-07T21:01:21.880Z",
+  "motivo": "Gemini: Expected ',' or ']' after array element in JSON at position 812 (line 11 column 1)",
   "textos": 6,
   "numeradas": 8,
   "motivos": [
-   "Gemini: Expected ',' or ']' after array element in JSON at position 86"
+   "Gemini: Expected ',' or ']' after array element in JSON at position 86",
+   "Gemini: Expected ',' or ']' after array element in JSON at position 81"
   ]
  },
  "1u1ie4p": {
@@ -6115,6 +6130,16 @@
   "motivo": "con cuerpo",
   "textos": 3,
   "numeradas": 3
+ },
+ "1xgbwoa": {
+  "intentos": 1,
+  "ultimo": "2026-11-07T21:01:21.880Z",
+  "motivo": "con cuerpo",
+  "textos": 6,
+  "numeradas": 12,
+  "motivos": [
+   "título o bajada: 1 problema (forma): el copete trae un escape sin deco"
+  ]
  },
  "1xhfx63": {
   "intentos": 1,
@@ -12131,17 +12156,17 @@
   "numeradas": 3
  },
  "w97jse": {
-  "intentos": 1,
-  "ultimo": "2026-11-07T20:31:18.800Z",
+  "intentos": 2,
+  "ultimo": "2026-11-07T21:01:21.880Z",
   "motivo": "título o bajada: 1 problema (negacion): la fuente niega algo en el título y el texto nuevo no",
   "textos": 5,
-  "numeradas": 7,
+  "numeradas": 8,
   "motivos": [
    "título o bajada: 1 problema (negacion): la fuente niega algo en el tít"
   ],
   "falla": [
-   "el cuerpo dice 90 y la fuente no lo dice",
-   "la fuente niega algo en el título y el texto nuevo no"
+   "la fuente niega algo en el título y el texto nuevo no",
+   "el cuerpo repite el copete en vez de desarrollarlo"
   ]
  },
  "wbexh1": {
