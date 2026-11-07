@@ -51177,9 +51177,7 @@
   "borrada": true
  },
  "1dh34ud": {
-  "archivo": "fotos-notas/1dh34ud.jpg",
   "medio": "Agrositio",
-  "credito": "Foto: Agrositio",
   "licencia": null,
   "origen": "medio",
   "titulo": "Sube un 61 por ciento el precio de los toros en los remates de genética",
@@ -51199,7 +51197,8 @@
    "descripcion": "Toro reproductor en un corral de remate"
   },
   "huella": "3d21236737243c94",
-  "ausenteDesde": "2026-10-31T01:34:49.077Z"
+  "intentado": true,
+  "borrada": true
  },
  "ca537u": {
   "medio": "El Cronista",
@@ -90536,7 +90535,8 @@
    },
    "dudosa": "la primera IA vio gente muy joven"
   },
-  "huella": "4616478b8ba8383c"
+  "huella": "4616478b8ba8383c",
+  "ausenteDesde": "2026-11-07T02:03:28.066Z"
  },
  "1npdrzq": {
   "archivo": "fotos-notas/1npdrzq.jpg",
@@ -90572,13 +90572,28 @@
   "fuentes": 5
  },
  "ye6165": {
-  "intentado": true,
-  "origen": "ninguna",
+  "archivo": "fotos-notas/ye6165.jpg",
+  "medio": "Minuto Uno",
+  "credito": "Foto: Minuto Uno",
+  "licencia": null,
+  "origen": "medio",
   "titulo": "San Lorenzo estrena camiseta con un homenaje al papa León XIV",
-  "razon": "sin fotos para comparar",
-  "cuando": "2026-11-07T00:34:10.182Z",
-  "intentos": 1,
-  "fuentes": 2
+  "enlace": "https://www.minutouno.com/deportes/el-inedito-parche-la-camiseta-san-lorenzo-homenajear-al-papa-leon-xiv-y-recordar-francisco-n6342644",
+  "imagenOriginal": "https://media.minutouno.com/p/68e8ad0f53e0c9c4eb356bfffd950221/adjuntos/150/imagenes/043/752/0043752924/camiseta-san-lorenzo-papa.jpg",
+  "razon": "La foto B muestra claramente las camisetas en el vestuario sin marcas de agua ni personas, siendo la opción más limpia y profesional para ilustrar la nota.",
+  "cuando": "2026-11-07T02:01:51.273Z",
+  "vision": {
+   "proveedor": "gemini",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Camisetas de San Lorenzo colgadas en el vestuario."
+  },
+  "huella": "d6d6d696d6d454d6"
  },
  "wya79i": {
   "archivo": "fotos-notas/m58vt5.jpg",
@@ -90747,7 +90762,8 @@
    "corresponde": "si",
    "descripcion": "Arquero de Argentinos Juniors en el campo de juego."
   },
-  "huella": "d68d4d3e3c0c0f16"
+  "huella": "d68d4d3e3c0c0f16",
+  "ausenteDesde": "2026-11-07T02:03:28.066Z"
  },
  "1hqcfto": {
   "archivo": "fotos-notas/1hqcfto.jpg",
@@ -90783,6 +90799,32 @@
    },
    "dudosa": "la nota habla de chicos o de categorías juveniles"
   },
-  "huella": "564c7894b6828644"
+  "huella": "564c7894b6828644",
+  "ausenteDesde": "2026-11-07T02:03:28.066Z"
+ },
+ "7opu15": {
+  "archivo": "fotos-notas/7opu15.jpg",
+  "medio": "El Destape",
+  "credito": "Foto: El Destape",
+  "licencia": null,
+  "origen": "medio",
+  "titulo": "La Peña de Morfi presenta una edición especial el domingo 8 de noviembre",
+  "enlace": "https://www.eldestapeweb.com/espectaculos/quienes-invitados-pena-morfi-domingo-8-noviembre-2026-202611614435",
+  "imagenOriginal": "https://cdn.eldestapeweb.com/eldestape/112026/1793976855065.webp?&cw=1600&ch=900",
+  "razon": "Muestra a los protagonistas en el lugar del evento con el cartel de la Peña de Morfi de fondo, sin marcas de agua ni menores.",
+  "cuando": "2026-11-07T02:01:51.273Z",
+  "errorGemini": "The operation was aborted due to timeout",
+  "vision": {
+   "proveedor": "groq",
+   "marca": false,
+   "menor": false,
+   "jovenes": false,
+   "deArchivo": false,
+   "grafica": false,
+   "stock": false,
+   "corresponde": "si",
+   "descripcion": "Retrato de un hombre y una mujer sonriendo frente a un cartel naranja con la palabra 'PEÑA'."
+  },
+  "huella": "f109a8c844cab232"
  }
 }
