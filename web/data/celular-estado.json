@@ -1,10 +1,10 @@
 {
- "generado": "2026-11-07T14:02:23.777Z",
- "portada": 115,
+ "generado": "2026-11-07T14:34:00.838Z",
+ "portada": 119,
  "archivo": 500,
- "esperandoCuerpo": 8,
+ "esperandoCuerpo": 5,
  "redes": {
-  "generado": "2026-11-07T14:02:24.625Z",
+  "generado": "2026-11-07T14:34:01.245Z",
   "piezas": [
    {
     "nombre": "clima-manana",
@@ -95,7 +95,7 @@
     "voz": "locutor",
     "momento": "en-hora",
     "salio": null,
-    "segundos": 40,
+    "segundos": 48,
     "notas": [
      {
       "id": "j7nvck",
@@ -113,9 +113,9 @@
       "seccion": "Automovilismo"
      },
      {
-      "id": "19j1eud",
-      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
-      "seccion": "Política"
+      "id": "ff5o5",
+      "titulo": "Sembrando Futuro llega a los mil egresados",
+      "seccion": "Educación"
      }
     ]
    },
@@ -126,12 +126,17 @@
     "voz": "locutora",
     "momento": "antes",
     "salio": null,
-    "segundos": 55,
+    "segundos": 48,
     "notas": [
      {
-      "id": "13ae8gs",
-      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
+      "id": "1pkqfef",
+      "titulo": "Los Pinos celebra su 126 aniversario con dos jornadas festivas",
       "seccion": "Balcarce"
+     },
+     {
+      "id": "19j1eud",
+      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
+      "seccion": "Política"
      },
      {
       "id": "1cny5nq",
@@ -139,14 +144,9 @@
       "seccion": "Policiales"
      },
      {
-      "id": "16nvkvm",
-      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+      "id": "u5bwex",
+      "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
       "seccion": "Deportes"
-     },
-     {
-      "id": "f9b3nl",
-      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
-      "seccion": "Cultura y agenda"
      }
     ]
    },
@@ -157,22 +157,22 @@
     "voz": "locutor",
     "momento": "antes",
     "salio": null,
-    "segundos": 53,
+    "segundos": 50,
     "notas": [
      {
-      "id": "qvrt15",
-      "titulo": "Exigen autorización previa para visitar la Reserva y el Autódromo",
+      "id": "13ae8gs",
+      "titulo": "Prohíben circular con vehículos en espacios públicos del Geoparque Pun Antü",
       "seccion": "Balcarce"
      },
      {
-      "id": "e7bi4o",
-      "titulo": "Organizan un encuentro artístico por el Día de la Tradición",
-      "seccion": "Cultura y agenda"
+      "id": "16nvkvm",
+      "titulo": "La Liga Local de Básquet jugará el lunes la última fecha regular en Ferroviarios",
+      "seccion": "Deportes"
      },
      {
-      "id": "8x25q0",
-      "titulo": "Bautista Prieto gana el campeonato provincial de pesca en Cadetes",
-      "seccion": "Deportes"
+      "id": "f9b3nl",
+      "titulo": "La Orquesta Escuela recorre el Teatro Colón y el Planetario",
+      "seccion": "Cultura y agenda"
      },
      {
       "id": "1dsn87c",
@@ -186,6 +186,12 @@
    "hoy": [],
    "cola": [
     {
+     "id": "ff5o5",
+     "titulo": "Sembrando Futuro llega a los mil egresados",
+     "seccion": "Educación",
+     "marcada": false
+    },
+    {
      "id": "19j1eud",
      "titulo": "Piden crear un programa de asistencia para estudiantes universitarios",
      "seccion": "Política",
@@ -195,6 +201,12 @@
      "id": "1cny5nq",
      "titulo": "Chocan una moto y una camioneta en calles 12 y 25",
      "seccion": "Policiales",
+     "marcada": false
+    },
+    {
+     "id": "u5bwex",
+     "titulo": "La escuela Taekwondo Henko reúne a más de cien alumnos",
+     "seccion": "Deportes",
      "marcada": false
     },
     {
